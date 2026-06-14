@@ -119,7 +119,7 @@ export default function Footer() {
               <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-3">Légal</h4>
               <ul className="space-y-1.5 text-xs">
                 {LEGAL.links.map((link) => (
-                  <li key={link.label}><span className="text-gray-500">{link.label}</span></li>
+                  <li key={link.label}><a href={link.href} className="text-gray-500 hover:text-emerald transition-colors">{link.label}</a></li>
                 ))}
                 <li>
                   <button onClick={reopenCookieSettings} className="text-gray-500 hover:text-emerald transition-colors">

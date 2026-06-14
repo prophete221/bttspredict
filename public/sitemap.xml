@@ -5,7 +5,7 @@
 
   <url>
     <loc>https://bttsbet.online/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/"/>
@@ -19,7 +19,7 @@
 
   <url>
     <loc>https://bttsbet.online/#fifa-linebet</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/#fifa-linebet"/>
@@ -28,7 +28,7 @@
 
   <url>
     <loc>https://bttsbet.online/blog</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/blog"/>
@@ -73,7 +73,7 @@
 
   <url>
     <loc>https://bttsbet.online/blog/comment-analyser-match-btts</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/blog/comment-analyser-match-btts"/>
@@ -86,7 +86,7 @@
 
   <url>
     <loc>https://bttsbet.online/blog/strategie-mise-over-2-5</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/blog/strategie-mise-over-2-5"/>
@@ -99,7 +99,7 @@
 
   <url>
     <loc>https://bttsbet.online/blog/meilleurs-championnats-btts</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/blog/meilleurs-championnats-btts"/>
@@ -112,7 +112,7 @@
 
   <url>
     <loc>https://bttsbet.online/blog/gestion-bankroll-paris-sportifs</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/blog/gestion-bankroll-paris-sportifs"/>
@@ -125,14 +125,27 @@
 
   <url>
     <loc>https://bttsbet.online/blog/guide-linebet-inscription</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/blog/guide-linebet-inscription"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/blog/guide-linebet-inscription"/>
     <image:image>
       <image:loc>https://bttsbet.online/og-image.png</image:loc>
       <image:title>Guide complet Linebet : inscription, dépôt et code promo VISION221</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttsbet.online/blog/faille-fifa-linebet</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/blog/faille-fifa-linebet"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/blog/faille-fifa-linebet"/>
+    <image:image>
+      <image:loc>https://bttsbet.online/og-image.png</image:loc>
+      <image:title>Faille FIFA Linebet : comment détecter les cotes erronées en 2026</image:title>
     </image:image>
   </url>
 
