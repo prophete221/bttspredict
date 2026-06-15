@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// BttsBet – Scraper V18 (Dates Réelles + Horizon 7 Jours + API-Football)
+// BttsBet – Scraper V23 (Auto-Update Résultats + Recovery Multi-Jours)
 // ═══════════════════════════════════════════════════════════════════════════════
 // Sources de données (par priorité) :
 //   1. Forebet — Vrais pronostics BTTS/Over d'experts
@@ -296,6 +296,108 @@ function loadYesterdayPredictions() {
   const yStr = getYesterdayISO()
   const f = path.join(ARCHIVE_DIR, `${yStr}.json`)
   try { return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf-8')) : null } catch { return null }
+}
+
+/**
+ * V23: Load predictions from the last N days (not just yesterday).
+ * This allows recovery when the scraper missed a day.
+ * Returns an array of { date, predictions } objects.
+ */
+function loadRecentPredictions(days = 3) {
+  const allPreds = []
+  for (let i = 1; i <= days; i++) {
+    const d = new Date()
+    d.setDate(d.getDate() - i)
+    const dateStr = d.toLocaleDateString('sv-SE', { timeZone: DISPLAY_TZ })
+    const f = path.join(ARCHIVE_DIR, `${dateStr}.json`)
+    try {
+      if (fs.existsSync(f)) {
+        const data = JSON.parse(fs.readFileSync(f, 'utf-8'))
+        if (data?.predictions?.length) {
+          allPreds.push(data)
+          console.log(`[Scraper] V23: Archive ${dateStr} -> ${data.predictions.length} pronostics`)
+        }
+      }
+    } catch {}
+  }
+  return allPreds
+}
+
+/**
+ * V23: Fetch completed match results from the last N days via ESPN.
+ * This is a lightweight version that only queries results (no scheduled matches).
+ */
+async function fetchRecentResults(days = 3) {
+  const allResults = []
+  let apiCalls = 0
+
+  for (let daysAgo = 0; daysAgo < days; daysAgo++) {
+    const date = new Date(Date.now() - daysAgo * 86400000)
+    const dateParam = formatDateParam(date)
+
+    for (const slug of ESPN_LEAGUES) {
+      try {
+        const res = await fetch(
+          `https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/scoreboard?dates=${dateParam}`,
+          {
+            headers: { 'User-Agent': 'Mozilla/5.0 (compatible; BttsBet/1.0)' },
+            signal: AbortSignal.timeout(10000),
+          }
+        )
+        apiCalls++
+        if (!res.ok) continue
+
+        const data = await res.json()
+        const events = data.events || []
+
+        for (const event of events) {
+          const comp = event.competitions?.[0]
+          if (!comp) continue
+          const competitors = comp.competitors || []
+          if (competitors.length < 2) continue
+
+          const homeComp = competitors.find(c => c.homeAway === 'home') || competitors[0]
+          const awayComp = competitors.find(c => c.homeAway === 'away') || competitors[1]
+          const status = event.status?.type?.description || ''
+          const isCompleted = status.includes('Full') || status.includes('Final')
+          if (!isCompleted) continue
+
+          const homeTeam = homeComp.team?.displayName || homeComp.team?.shortDisplayName || ''
+          const awayTeam = awayComp.team?.displayName || awayComp.team?.shortDisplayName || ''
+          const homeLogo = homeComp.team?.logo || ''
+          const awayLogo = awayComp.team?.logo || ''
+          if (!homeTeam || !awayTeam) continue
+
+          const matchName = `${homeTeam} vs ${awayTeam}`
+          const leagueName = comp.league?.name || LEAGUE_PROFILES[slug]?.name || slug
+          const { date: finalDate } = isoToDisplayTZ(event.date || '')
+
+          allResults.push({
+            match: matchName, league: leagueName, leagueSlug: slug,
+            homeScore: parseInt(homeComp.score) || 0, awayScore: parseInt(awayComp.score) || 0,
+            homeTeam, awayTeam, homeLogo, awayLogo,
+            date: finalDate || ''
+          })
+        }
+
+        if (apiCalls % 15 === 0 && apiCalls > 0) {
+          await sleep(1500)
+        }
+      } catch {}
+    }
+  }
+
+  // Deduplicate results (same match can appear from different league queries)
+  const seen = new Set()
+  const uniqueResults = allResults.filter(r => {
+    const key = `${r.homeTeam}-${r.awayTeam}-${r.date}`
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+
+  console.log(`[Scraper] V23: fetchRecentResults(${days} jours) -> ${apiCalls} requetes, ${uniqueResults.length} resultats`)
+  return uniqueResults
 }
 function archiveTodayPredictions(data) {
   const f = path.join(ARCHIVE_DIR, `${data.date}.json`)
@@ -1926,7 +2028,57 @@ function validateDataCoherence(predictions) {
 // WIN HISTORY
 // ═══════════════════════════════════════════════════════════════════════════════
 
+/**
+ * V23: Improved team matching — tries multiple strategies to match predictions to results.
+ * 1. Exact match after normalization
+ * 2. Substring match (first 8+ chars of each team name)
+ * 3. Fuzzy match: compare each team separately (home vs home, away vs away)
+ */
+function matchPredictionToResult(pred, allResults) {
+  const predHome = (pred.match.split(' vs ')[0] || '').toLowerCase().replace(/[^a-z0-9]/g, '')
+  const predAway = (pred.match.split(' vs ')[1] || '').toLowerCase().replace(/[^a-z0-9]/g, '')
+  const predKey = pred.match.toLowerCase().replace(/[^a-z0-9]/g, '')
+
+  // Strategy 1: Exact match
+  let match = allResults.find(r => {
+    const rk = r.match.toLowerCase().replace(/[^a-z0-9]/g, '')
+    return rk === predKey
+  })
+  if (match) return match
+
+  // Strategy 2: Substring match (original logic, improved)
+  match = allResults.find(r => {
+    const rk = r.match.toLowerCase().replace(/[^a-z0-9]/g, '')
+    return (predKey.length >= 6 && rk.includes(predKey.slice(0, 8))) || (rk.length >= 6 && predKey.includes(rk.slice(0, 8)))
+  })
+  if (match) return match
+
+  // Strategy 3: Per-team fuzzy match — split on "vs" and compare each team separately
+  match = allResults.find(r => {
+    const rHome = (r.match.split(' vs ')[0] || '').toLowerCase().replace(/[^a-z0-9]/g, '')
+    const rAway = (r.match.split(' vs ')[1] || '').toLowerCase().replace(/[^a-z0-9]/g, '')
+    const homeMatch = predHome === rHome || (predHome.length >= 4 && rHome.includes(predHome.slice(0, 5))) || (rHome.length >= 4 && predHome.includes(rHome.slice(0, 5)))
+    const awayMatch = predAway === rAway || (predAway.length >= 4 && rAway.includes(predAway.slice(0, 5))) || (rAway.length >= 4 && predAway.includes(rAway.slice(0, 5)))
+    return homeMatch && awayMatch
+  })
+  if (match) return match
+
+  // Strategy 4: Normalize with accent removal and compare
+  const normHome = normalizeTeamName(pred.match.split(' vs ')[0] || '').replace(/\s/g, '')
+  const normAway = normalizeTeamName(pred.match.split(' vs ')[1] || '').replace(/\s/g, '')
+  match = allResults.find(r => {
+    const rNormHome = normalizeTeamName(r.match.split(' vs ')[0] || '').replace(/\s/g, '')
+    const rNormAway = normalizeTeamName(r.match.split(' vs ')[1] || '').replace(/\s/g, '')
+    return rNormHome === normHome && rNormAway === normAway
+  })
+  return match
+}
+
 function generateWinHistory(yesterdayPreds, allResults, previousHistory) {
+  // V23: Support both single-day (old format) and multi-day (new format) predictions
+  // yesterdayPreds can be a single object { date, predictions } or null
+  // We also use loadRecentPredictions() in main() for recovery
+  
   if (!yesterdayPreds?.predictions?.length || !allResults?.length) {
     console.log('[Scraper] Pas assez de donnees pour validation -> fallback')
     return previousHistory || generateFallbackWinHistory()
@@ -1938,11 +2090,8 @@ function generateWinHistory(yesterdayPreds, allResults, previousHistory) {
   let won = 0, total = 0
 
   for (const pred of preds) {
-    const matchKey = pred.match.toLowerCase().replace(/[^a-z0-9]/g, '')
-    const matchingResult = allResults.find(r => {
-      const rk = r.match.toLowerCase().replace(/[^a-z0-9]/g, '')
-      return rk === matchKey || (matchKey.length >= 6 && rk.includes(matchKey.slice(0, 8))) || (rk.length >= 6 && matchKey.includes(rk.slice(0, 8)))
-    })
+    // V23: Use improved matching function
+    const matchingResult = matchPredictionToResult(pred, allResults)
     if (!matchingResult) continue
 
     total++
@@ -2124,15 +2273,127 @@ async function main() {
   if (validatedPredictions.length > 15) console.log(`  ... et ${validatedPredictions.length - 15} autres`)
 
   // ─── Win History ───
-  const yesterdayPreds = loadYesterdayPredictions()
-  const previousHistory = loadCurrentWinHistory()
-  const winHistory = generateWinHistory(yesterdayPreds, allCurrentResults, previousHistory)
+  // V23: Try yesterday first, then fall back to last 3 days for recovery
+  let yesterdayPreds = loadYesterdayPredictions()
+  let previousHistory = loadCurrentWinHistory()
+  
+  // V23: If yesterday's archive doesn't exist, try loading recent predictions (last 3 days)
+  if (!yesterdayPreds?.predictions?.length) {
+    console.log('[Scraper] V23: Pas d\'archive hier, recherche des 3 derniers jours...')
+    const recentPreds = loadRecentPredictions(3)
+    if (recentPreds.length > 0) {
+      // Use the most recent day that has predictions
+      yesterdayPreds = recentPreds[0]
+      console.log(`[Scraper] V23: Archive trouvée pour ${yesterdayPreds.date}`)
+    }
+  }
+  
+  // V23: Fetch recent results (3 days) to ensure we have all completed matches
+  // This is critical for matches that finished after the morning scraper run
+  console.log('[Scraper] V23: Récupération des résultats des 3 derniers jours...')
+  const recentResults = await fetchRecentResults(3)
+  
+  // Merge: combine allCurrentResults (from today's scrape) with recentResults
+  const allAvailableResults = [...allCurrentResults]
+  const existingKeys = new Set(allCurrentResults.map(r => `${r.homeTeam}-${r.awayTeam}-${r.date}`))
+  for (const r of recentResults) {
+    const key = `${r.homeTeam}-${r.awayTeam}-${r.date}`
+    if (!existingKeys.has(key)) {
+      allAvailableResults.push(r)
+      existingKeys.add(key)
+    }
+  }
+  console.log(`[Scraper] V23: ${allAvailableResults.length} résultats disponibles pour validation (dont ${recentResults.length} récents)`)
+
+  // V23: Also try to validate predictions from the last 3 days (not just yesterday)
+  // This handles the case where yesterday's scraper failed or results weren't available yet
+  const recentPreds = loadRecentPredictions(3)
+  let bestWinHistory = null
+  
+  // Try each day's predictions against all available results
+  for (const dayPreds of recentPreds) {
+    const dayHistory = generateWinHistory(dayPreds, allAvailableResults, previousHistory)
+    if (dayHistory?.history?.length > 0) {
+      // Keep the one with the most new entries
+      if (!bestWinHistory || dayHistory.history.length > bestWinHistory.history.length) {
+        bestWinHistory = dayHistory
+      }
+    }
+  }
+  
+  // If no recent preds worked, try the original yesterdayPreds
+  if (!bestWinHistory && yesterdayPreds) {
+    bestWinHistory = generateWinHistory(yesterdayPreds, allAvailableResults, previousHistory)
+  }
+  
+  // Last resort: keep previous history or fallback
+  const winHistory = bestWinHistory || previousHistory || generateFallbackWinHistory()
   winHistory.date = today
   fs.writeFileSync(WIN_HISTORY_FILE, JSON.stringify(winHistory, null, 2))
   console.log(`[Scraper] ${winHistory.history?.length || 0} entrees -> win-history.json`)
 
   console.log('[Scraper] ================================================================')
-  console.log('[Scraper] V18 Termine !')
+  console.log('[Scraper] V23 Termine !')
 }
 
-main().catch(err => { console.error('[Scraper] Erreur fatale:', err); process.exit(1) })
+// ═══════════════════════════════════════════════════════════════════════════════
+// V23: RESULTS-ONLY MODE
+// ═══════════════════════════════════════════════════════════════════════════════
+// Lightweight mode that only updates win history without regenerating predictions.
+// Used by the evening cron job (22h UTC) to capture evening match results.
+// Usage: node scripts/scraper.js --results-only
+
+async function resultsOnlyMode() {
+  const today = getTodayISO()
+  console.log(`[Scraper] V23 — Mode Mise à Jour Résultats pour le ${today}`)
+  console.log('[Scraper] ================================================================')
+
+  const previousHistory = loadCurrentWinHistory()
+
+  // Load predictions from last 3 days
+  const recentPreds = loadRecentPredictions(3)
+  if (recentPreds.length === 0) {
+    console.log('[Scraper] V23: Aucune archive récente trouvée — rien à valider')
+    return
+  }
+  console.log(`[Scraper] V23: ${recentPreds.length} jours d'archives trouvés`)
+
+  // Fetch completed match results from last 3 days
+  console.log('[Scraper] V23: Récupération des résultats des 3 derniers jours...')
+  const recentResults = await fetchRecentResults(3)
+  if (recentResults.length === 0) {
+    console.log('[Scraper] V23: Aucun résultat récent — abandon')
+    return
+  }
+
+  // Try to validate each day's predictions against available results
+  let bestWinHistory = null
+  for (const dayPreds of recentPreds) {
+    const dayHistory = generateWinHistory(dayPreds, recentResults, previousHistory)
+    if (dayHistory?.history?.length > 0) {
+      if (!bestWinHistory || dayHistory.history.length > bestWinHistory.history.length) {
+        bestWinHistory = dayHistory
+        console.log(`[Scraper] V23: ${dayPreds.date} -> ${dayHistory.history.length} entrées gagnantes`)
+      }
+    }
+  }
+
+  if (bestWinHistory) {
+    bestWinHistory.date = today
+    fs.writeFileSync(WIN_HISTORY_FILE, JSON.stringify(bestWinHistory, null, 2))
+    console.log(`[Scraper] V23: ${bestWinHistory.history.length} entrées -> win-history.json (mis à jour)`)
+  } else {
+    console.log('[Scraper] V23: Aucune nouvelle entrée gagnante — historique inchangé')
+  }
+
+  console.log('[Scraper] ================================================================')
+  console.log('[Scraper] V23 Mode Résultats Terminé !')
+}
+
+// V23: Check for --results-only flag
+const args = process.argv.slice(2)
+if (args.includes('--results-only')) {
+  resultsOnlyMode().catch(err => { console.error('[Scraper] Erreur fatale:', err); process.exit(1) })
+} else {
+  main().catch(err => { console.error('[Scraper] Erreur fatale:', err); process.exit(1) })
+}

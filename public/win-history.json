@@ -1,13 +1,134 @@
 {
   "stats": {
-    "total": 77,
-    "won": 61,
-    "rate": "79.2%",
-    "last30Rate": "79%"
+    "total": 259,
+    "won": 183,
+    "rate": "70.7%",
+    "last30Rate": "71%"
   },
   "history": [
     {
       "id": 1,
+      "date": "2026-06-12",
+      "match": "Everton CD vs Palestino",
+      "league": "Primera Division (CHI)",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 47
+    },
+    {
+      "id": 2,
+      "date": "2026-06-12",
+      "match": "Everton CD vs Palestino",
+      "league": "Primera Division (CHI)",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 47
+    },
+    {
+      "id": 3,
+      "date": "2026-06-12",
+      "match": "Qatar vs Switzerland",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-1",
+      "confidence": 47
+    },
+    {
+      "id": 4,
+      "date": "2026-06-12",
+      "match": "Colo Colo vs Cobresal",
+      "league": "Primera Division (CHI)",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "3-0",
+      "confidence": 46
+    },
+    {
+      "id": 5,
+      "date": "2026-06-12",
+      "match": "Málaga vs Almería",
+      "league": "Segunda Division",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-0",
+      "confidence": 49
+    },
+    {
+      "id": 6,
+      "date": "2026-06-12",
+      "match": "Universidad Católica vs Universidad de Concepción",
+      "league": "Primera Division (CHI)",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "5-1",
+      "confidence": 47
+    },
+    {
+      "id": 7,
+      "date": "2026-06-12",
+      "match": "Universidad Católica vs Universidad de Concepción",
+      "league": "Primera Division (CHI)",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "5-1",
+      "confidence": 47
+    },
+    {
+      "id": 8,
+      "date": "2026-06-12",
+      "match": "Unión La Calera vs Universidad de Chile",
+      "league": "Primera Division (CHI)",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-2",
+      "confidence": 46
+    },
+    {
+      "id": 9,
+      "date": "2026-06-12",
+      "match": "Unión La Calera vs Universidad de Chile",
+      "league": "Primera Division (CHI)",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-2",
+      "confidence": 46
+    },
+    {
+      "id": 10,
+      "date": "2026-06-12",
+      "match": "Germany vs Curaçao",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "7-1",
+      "confidence": 46
+    },
+    {
+      "id": 11,
+      "date": "2026-06-12",
+      "match": "Germany vs Curaçao",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "7-1",
+      "confidence": 46
+    },
+    {
+      "id": 12,
       "date": "2026-06-11",
       "match": "Mexico vs South Africa",
       "league": "International Friendly",
@@ -18,7 +139,7 @@
       "confidence": 46
     },
     {
-      "id": 2,
+      "id": 13,
       "date": "2026-06-10",
       "match": "Bolivia vs Algeria",
       "league": "International Friendly",
@@ -29,7 +150,7 @@
       "confidence": 46
     },
     {
-      "id": 3,
+      "id": 14,
       "date": "2026-06-09",
       "match": "Argentina vs Iceland",
       "league": "International Friendly",
@@ -40,7 +161,7 @@
       "confidence": 47
     },
     {
-      "id": 4,
+      "id": 15,
       "date": "2026-06-08",
       "match": "Almería vs Castellón",
       "league": "Segunda Division",
@@ -51,7 +172,7 @@
       "confidence": 52
     },
     {
-      "id": 5,
+      "id": 16,
       "date": "2026-06-08",
       "match": "Indonesia vs Mozambique",
       "league": "International Friendly",
@@ -62,7 +183,7 @@
       "confidence": 52
     },
     {
-      "id": 6,
+      "id": 17,
       "date": "2026-06-08",
       "match": "Russia vs Trinidad",
       "league": "International Friendly",
@@ -73,7 +194,7 @@
       "confidence": 52
     },
     {
-      "id": 7,
+      "id": 18,
       "date": "2026-06-08",
       "match": "Indonesia vs Mozambique",
       "league": "International Friendly",
@@ -84,7 +205,7 @@
       "confidence": 52
     },
     {
-      "id": 8,
+      "id": 19,
       "date": "2026-06-08",
       "match": "Armenia vs Moldova",
       "league": "International Friendly",
@@ -95,7 +216,7 @@
       "confidence": 52
     },
     {
-      "id": 9,
+      "id": 20,
       "date": "2026-06-08",
       "match": "DR Congo vs Chile",
       "league": "International Friendly",
@@ -106,5 +227,5 @@
       "confidence": 52
     }
   ],
-  "date": "2026-06-12"
+  "date": "2026-06-15"
 }
