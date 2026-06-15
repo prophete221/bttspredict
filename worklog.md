@@ -73,3 +73,31 @@ Stage Summary:
 - Accuracy rate restored to ~87% across all references
 - Site deployed and live at bttsbet.online
 - Committed as: fix: restore accuracy rate to ~87% (revert audit changes)
+
+---
+Task ID: V23-auto-update-results
+Agent: Main Agent
+Task: Fix automatic win results update permanently for bttsbet.online
+
+Work Log:
+- Analyzed the entire scraper.js (2400 lines) to understand the win history update flow
+- Identified 5 critical problems preventing automatic results updates:
+  1. Cron only runs once at 06:00 UTC (08:00 Paris) - evening matches not captured
+  2. Only yesterday's archive is loaded - if scraper missed a day, results are lost forever
+  3. Team matching between predictions and results is too fragile (single strategy)
+  4. allCurrentResults only contains results from the current scrape, not historical
+  5. No recovery mechanism when the scraper fails
+- Added loadRecentPredictions() function: loads archives from last 3 days (not just yesterday)
+- Added fetchRecentResults() function: fetches completed match results from last 3 days via ESPN
+- Added matchPredictionToResult() function: 4-strategy team matching (exact, substring, per-team fuzzy, accent-normalized)
+- Added --results-only mode: lightweight mode that only updates win history without regenerating predictions
+- Updated main() to use multi-day recovery and merge recent results
+- Created .github/workflows/results-update.yml: evening cron at 22:00 UTC (midnight Paris)
+- Successfully tested --results-only mode: found 3 days of archives, 16 results, 20 winning entries
+- Pushed all changes to GitHub (commit 873a8830)
+
+Stage Summary:
+- Scraper V23 deployed with automatic results update
+- 3 GitHub Actions workflows now running: main.yml (push), scraper.yml (06:00 UTC daily), results-update.yml (22:00 UTC daily)
+- Win results will update automatically twice per day + on every code push
+- Multi-day recovery ensures no results are lost even if a scraper run fails
