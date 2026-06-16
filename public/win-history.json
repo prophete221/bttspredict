@@ -42,6 +42,39 @@
     {
       "id": 4,
       "date": "2026-06-15",
+      "match": "Iran vs New Zealand",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-2",
+      "confidence": 49
+    },
+    {
+      "id": 5,
+      "date": "2026-06-15",
+      "match": "Iran vs New Zealand",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-2",
+      "confidence": 49
+    },
+    {
+      "id": 6,
+      "date": "2026-06-15",
+      "match": "Saudi Arabia vs Uruguay",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-1",
+      "confidence": 48
+    },
+    {
+      "id": 7,
+      "date": "2026-06-15",
       "match": "Belgium vs Iran",
       "league": "International Friendly",
       "type": "BTTS",
@@ -51,7 +84,7 @@
       "confidence": 49
     },
     {
-      "id": 5,
+      "id": 8,
       "date": "2026-06-14",
       "match": "Germany vs Curaçao",
       "league": "International Friendly",
@@ -62,7 +95,7 @@
       "confidence": 51
     },
     {
-      "id": 6,
+      "id": 9,
       "date": "2026-06-14",
       "match": "Germany vs Curaçao",
       "league": "International Friendly",
@@ -73,52 +106,52 @@
       "confidence": 46
     },
     {
-      "id": 7,
-      "date": "2026-06-14",
-      "match": "Unión La Calera vs Universidad de Chile",
-      "league": "Primera Division (CHI)",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "2-2",
-      "confidence": 49
-    },
-    {
-      "id": 8,
-      "date": "2026-06-14",
-      "match": "Unión La Calera vs Universidad de Chile",
-      "league": "Primera Division (CHI)",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "2-2",
-      "confidence": 49
-    },
-    {
-      "id": 9,
-      "date": "2026-06-14",
-      "match": "Universidad Católica vs Universidad de Concepción",
-      "league": "Primera Division (CHI)",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "5-1",
-      "confidence": 49
-    },
-    {
       "id": 10,
       "date": "2026-06-14",
-      "match": "Universidad Católica vs Universidad de Concepción",
+      "match": "Unión La Calera vs Universidad de Chile",
       "league": "Primera Division (CHI)",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
       "result": "Gagné",
-      "score": "5-1",
+      "score": "2-2",
       "confidence": 49
     },
     {
       "id": 11,
       "date": "2026-06-14",
+      "match": "Unión La Calera vs Universidad de Chile",
+      "league": "Primera Division (CHI)",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-2",
+      "confidence": 49
+    },
+    {
+      "id": 12,
+      "date": "2026-06-14",
+      "match": "Universidad Católica vs Universidad de Concepción",
+      "league": "Primera Division (CHI)",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "5-1",
+      "confidence": 49
+    },
+    {
+      "id": 13,
+      "date": "2026-06-14",
+      "match": "Universidad Católica vs Universidad de Concepción",
+      "league": "Primera Division (CHI)",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "5-1",
+      "confidence": 49
+    },
+    {
+      "id": 14,
+      "date": "2026-06-14",
       "match": "Deportes Concepcion vs Deportes Limache",
       "league": "Primera Division (CHI)",
       "type": "BTTS",
@@ -128,7 +161,7 @@
       "confidence": 48
     },
     {
-      "id": 12,
+      "id": 15,
       "date": "2026-06-14",
       "match": "Deportes Concepcion vs Deportes Limache",
       "league": "Primera Division (CHI)",
@@ -139,7 +172,7 @@
       "confidence": 48
     },
     {
-      "id": 13,
+      "id": 16,
       "date": "2026-06-14",
       "match": "Sweden vs Tunisia",
       "league": "International Friendly",
@@ -150,7 +183,7 @@
       "confidence": 51
     },
     {
-      "id": 14,
+      "id": 17,
       "date": "2026-06-14",
       "match": "Sweden vs Tunisia",
       "league": "International Friendly",
@@ -161,7 +194,7 @@
       "confidence": 46
     },
     {
-      "id": 15,
+      "id": 18,
       "date": "2026-06-14",
       "match": "Switzerland vs Bosnia-Herzegovina",
       "league": "International Friendly",
@@ -172,7 +205,7 @@
       "confidence": 52
     },
     {
-      "id": 16,
+      "id": 19,
       "date": "2026-06-14",
       "match": "Switzerland vs Bosnia-Herzegovina",
       "league": "International Friendly",
@@ -181,50 +214,17 @@
       "result": "Gagné",
       "score": "1-1",
       "confidence": 52
-    },
-    {
-      "id": 17,
-      "date": "2026-06-12",
-      "match": "Everton CD vs Palestino",
-      "league": "Primera Division (CHI)",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-2",
-      "confidence": 47
-    },
-    {
-      "id": 18,
-      "date": "2026-06-12",
-      "match": "Everton CD vs Palestino",
-      "league": "Primera Division (CHI)",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-2",
-      "confidence": 47
-    },
-    {
-      "id": 19,
-      "date": "2026-06-12",
-      "match": "Qatar vs Switzerland",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-1",
-      "confidence": 47
     },
     {
       "id": 20,
       "date": "2026-06-12",
-      "match": "Colo Colo vs Cobresal",
+      "match": "Everton CD vs Palestino",
       "league": "Primera Division (CHI)",
       "type": "BTTS",
-      "prediction": "Non",
+      "prediction": "Oui",
       "result": "Gagné",
-      "score": "3-0",
-      "confidence": 46
+      "score": "1-2",
+      "confidence": 47
     }
   ],
   "date": "2026-06-16"
