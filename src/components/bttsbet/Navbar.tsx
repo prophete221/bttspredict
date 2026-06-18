@@ -38,7 +38,7 @@ export default function Navbar() {
       aria-label="Navigation principale"
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'glass-strong shadow-lg shadow-black/30 depth-3'
+          ? 'glass-strong shadow-lg shadow-black/40 depth-3 border-b border-white/[0.04]'
           : 'bg-transparent'
       }`}
     >
@@ -54,14 +54,15 @@ export default function Navbar() {
             className="flex items-center gap-2.5 group"
             aria-label="BttsBet — Accueil"
           >
-            <div className="w-8 h-8 rounded-lg bg-emerald/20 flex items-center justify-center group-hover:bg-emerald/30 transition-colors">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-emerald/25 to-emerald/5 border border-emerald/20 flex items-center justify-center group-hover:border-emerald/40 transition-all group-hover:shadow-lg group-hover:shadow-emerald/20">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10E5A0" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10"/>
                 <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
                 <path d="M2 12h20"/>
               </svg>
+              <div className="absolute inset-0 rounded-xl bg-emerald/0 group-hover:bg-emerald/5 transition-colors" />
             </div>
-            <span className="text-xl font-extrabold text-white group-hover:text-emerald transition-colors">
+            <span className="text-xl font-extrabold text-white group-hover:text-emerald transition-colors tracking-tight">
               {SITE.name}
             </span>
           </a>
@@ -74,7 +75,7 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href || '/'}
                   onClick={(e) => handleNavClick(e, link)}
-                  className="px-4 py-1.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-lg text-sm hover:shadow-lg hover:shadow-purple-500/30 transition-all hover:brightness-110 cursor-pointer"
+                  className="px-4 py-1.5 bg-gradient-to-r from-royal-deep to-royal text-white font-bold rounded-lg text-sm hover:shadow-lg hover:shadow-royal/30 transition-all hover:brightness-110 cursor-pointer border border-royal/40"
                 >
                   {link.label}
                 </a>
@@ -83,10 +84,10 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href || '/'}
                   onClick={(e) => handleNavClick(e, link)}
-                  className="text-gray-400 hover:text-emerald transition-colors text-sm font-medium relative group cursor-pointer"
+                  className="text-gray-400 hover:text-white transition-colors text-sm font-medium relative group cursor-pointer"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald transition-all group-hover:w-full" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald to-emerald-soft transition-all group-hover:w-full rounded-full" />
                 </a>
               )
             ))}
@@ -94,7 +95,7 @@ export default function Navbar() {
               href={AFFILIATE.linebet}
               rel={AFFILIATE.rel}
               target="_blank"
-              className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-lg text-sm hover:shadow-lg hover:shadow-emerald/30 transition-all hover:brightness-110 hover-lift"
+              className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-lg text-sm hover:shadow-lg hover:shadow-emerald/30 transition-all hover:brightness-110 hover-lift border border-emerald/30"
             >
               <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-5 h-5 rounded object-contain flex-shrink-0" loading="lazy"/>
               S&apos;inscrire
@@ -138,7 +139,7 @@ export default function Navbar() {
                     key={link.label}
                     href={link.href || '/'}
                     onClick={(e) => handleNavClick(e, link)}
-                    className="block text-center py-3 px-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-lg cursor-pointer"
+                    className="block text-center py-3 px-3 bg-gradient-to-r from-royal-deep to-royal text-white font-bold rounded-lg cursor-pointer border border-royal/40"
                     role="menuitem"
                   >
                     {link.label}
@@ -148,7 +149,7 @@ export default function Navbar() {
                     key={link.label}
                     href={link.href || '/'}
                     onClick={(e) => handleNavClick(e, link)}
-                    className="block text-gray-300 hover:text-emerald transition-colors font-medium py-3 px-3 rounded-lg hover:bg-white/5 cursor-pointer"
+                    className="block text-gray-300 hover:text-white transition-colors font-medium py-3 px-3 rounded-lg hover:bg-white/[0.04] cursor-pointer"
                     role="menuitem"
                   >
                     {link.label}
@@ -160,7 +161,7 @@ export default function Navbar() {
                   href={AFFILIATE.linebetDownload}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-2 text-center px-5 py-3 border border-white/10 text-white font-semibold rounded-lg"
+                  className="flex items-center justify-center gap-2 text-center px-5 py-3 border border-white/10 text-white font-semibold rounded-lg bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
                 >
                   <img src={ANDROID_LOGO} alt="Android" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy"/>
                   Télécharger Linebet
@@ -169,7 +170,7 @@ export default function Navbar() {
                   href={AFFILIATE.star888Download}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-2 text-center px-5 py-3 border border-white/10 text-white font-semibold rounded-lg"
+                  className="flex items-center justify-center gap-2 text-center px-5 py-3 border border-white/10 text-white font-semibold rounded-lg bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
                 >
                   <img src={ANDROID_LOGO} alt="Android" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy"/>
                   Télécharger 888starz
@@ -178,7 +179,7 @@ export default function Navbar() {
                   href={AFFILIATE.linebet}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-2 text-center px-5 py-3 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-lg"
+                  className="flex items-center justify-center gap-2 text-center px-5 py-3 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-lg border border-emerald/30"
                 >
                   <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-5 h-5 rounded object-contain flex-shrink-0" loading="lazy"/>
                   S&apos;inscrire sur Linebet
@@ -188,7 +189,7 @@ export default function Navbar() {
                   href={AFFILIATE.star888}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-2 text-center px-5 py-3 bg-gradient-to-r from-red-500 to-red-700 text-white font-bold rounded-lg"
+                  className="flex items-center justify-center gap-2 text-center px-5 py-3 bg-gradient-to-r from-red-500 to-red-700 text-white font-bold rounded-lg border border-red-500/40"
                 >
                   <img src="/logos/888starz-icon.svg" alt="888starz" className="w-5 h-5 rounded object-contain flex-shrink-0" loading="lazy"/>
                   S&apos;inscrire sur 888starz

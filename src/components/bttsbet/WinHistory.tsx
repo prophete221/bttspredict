@@ -62,7 +62,7 @@ export default function WinHistory() {
 
   if (loading) {
     return (
-      <section id="win-history" className="py-10 px-4 bg-dark-800/50">
+      <section id="win-history" className="py-10 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <div className="inline-block w-8 h-8 border-2 border-emerald/30 border-t-emerald rounded-full animate-spin" />
         </div>
@@ -72,7 +72,7 @@ export default function WinHistory() {
 
   if (!winData || !winData.history || winData.history.length === 0 || !displayStats) {
     return (
-      <section id="win-history" className="py-10 px-4 bg-dark-800/50">
+      <section id="win-history" className="py-10 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <p className="text-gray-500 text-sm">Aucun historique disponible pour le moment.</p>
         </div>
@@ -86,8 +86,10 @@ export default function WinHistory() {
   const displayedHistory = showAll ? wonHistory : wonHistory.slice(0, 5)
 
   return (
-    <section id="win-history" className="py-10 px-4 bg-dark-800/50">
-      <div className="max-w-5xl mx-auto">
+    <section id="win-history" className="py-10 px-4 relative overflow-hidden">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-emerald/[0.02] via-transparent to-transparent pointer-events-none" />
+      <div className="max-w-5xl mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 20, rotateX: 6 }}
           animate={{ opacity: 1, y: 0, rotateX: 0 }}
@@ -95,7 +97,12 @@ export default function WinHistory() {
           style={{ transformOrigin: 'center bottom' }}
           className="text-center mb-6"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <div className="w-8 h-px bg-gradient-to-r from-transparent to-emerald" />
+            <span className="text-[10px] font-bold text-emerald uppercase tracking-widest">Track Record</span>
+            <div className="w-8 h-px bg-gradient-to-l from-transparent to-emerald" />
+          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-2 tracking-tight">
             Derniers <span className="text-emerald neon-glow">Pronostics Gagnants</span>
           </h2>
           <p className="text-gray-500 text-sm">Sélections validées par les résultats réels</p>
@@ -113,9 +120,10 @@ export default function WinHistory() {
             { value: displayStats.last30Rate, label: '30 jours', color: 'text-gold' },
           ].map((item, i) => (
             <TiltCard key={i} maxTilt={4}>
-              <div className="glass-3d rounded-lg p-3 text-center stat-card-animated">
+              <div className="glass-3d rounded-xl p-3 text-center stat-card-animated relative overflow-hidden">
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
                 <div className={`text-lg font-bold ${item.color}`}>{item.value}</div>
-                <div className="text-[10px] text-gray-500">{item.label}</div>
+                <div className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold">{item.label}</div>
               </div>
             </TiltCard>
           ))}
@@ -125,9 +133,11 @@ export default function WinHistory() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="glass-3d rounded-xl overflow-hidden"
+          className="glass-3d rounded-2xl overflow-hidden relative"
         >
-          <div className="hidden sm:grid grid-cols-5 gap-3 px-3 py-2 bg-white/5 text-gray-500 text-[10px] font-semibold uppercase tracking-wider border-b border-emerald/10">
+          {/* Premium top sheen */}
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+          <div className="hidden sm:grid grid-cols-5 gap-3 px-3 py-2 bg-white/[0.03] text-gray-500 text-[10px] font-semibold uppercase tracking-wider border-b border-white/[0.06]">
             <span>Date</span><span>Match</span><span>Type</span><span>Pronostic</span><span>Score</span>
           </div>
 
@@ -137,7 +147,7 @@ export default function WinHistory() {
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: 0.3 + i * 0.05 }}
-              className="grid grid-cols-1 sm:grid-cols-5 gap-1 sm:gap-3 px-3 py-2.5 border-t border-emerald/10 hover:bg-emerald/5 transition-colors items-center"
+              className="grid grid-cols-1 sm:grid-cols-5 gap-1 sm:gap-3 px-3 py-2.5 border-t border-white/[0.04] hover:bg-emerald/[0.04] transition-colors items-center"
             >
               <div className="text-[10px] text-gray-500 sm:text-xs">{item.date}</div>
               <div className="flex items-center gap-1.5">
@@ -150,7 +160,7 @@ export default function WinHistory() {
                 <MiniTeamLogo src={resolveTeamLogo(item.match?.split(' vs ')[1])} alt={item.match?.split(' vs ')[1]} />
               </div>
               <div className="hidden sm:block">
-                <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-full ${item.type === 'BTTS' ? 'bg-emerald/10 text-emerald' : 'bg-gold/10 text-gold'}`}>
+                <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-full ${item.type === 'BTTS' ? 'bg-emerald/10 text-emerald border border-emerald/20' : 'bg-gold/10 text-gold border border-gold/20'}`}>
                   {item.type}
                 </span>
               </div>
@@ -162,15 +172,18 @@ export default function WinHistory() {
 
         {wonHistory.length > 5 && (
           <div className="text-center mt-4">
-            <button onClick={() => setShowAll(!showAll)} className="px-4 py-1.5 glass-3d text-emerald text-xs font-semibold rounded-full hover:bg-emerald/10 transition-all hover-lift">
+            <button onClick={() => setShowAll(!showAll)} className="px-4 py-1.5 glass-3d text-emerald text-xs font-semibold rounded-full hover:bg-emerald/10 transition-all hover-lift border border-emerald/20">
               {showAll ? 'Voir moins ↑' : 'Voir plus ↓'}
             </button>
           </div>
         )}
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3, delay: 0.6 }} className="text-center mt-4">
-          <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1">
-            <span className="w-1.5 h-1.5 bg-emerald rounded-full animate-pulse" />
+          <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 bg-white/[0.03] border border-white/[0.04]">
+            <span className="relative flex w-1.5 h-1.5">
+              <span className="absolute inset-0 bg-emerald rounded-full animate-ping opacity-75" />
+              <span className="relative w-1.5 h-1.5 bg-emerald rounded-full" />
+            </span>
             <span className="text-[10px] text-gray-500">Résultats vérifiés par l&apos;IA — mis à jour quotidiennement</span>
           </div>
         </motion.div>

@@ -101,3 +101,46 @@ Stage Summary:
 - 3 GitHub Actions workflows now running: main.yml (push), scraper.yml (06:00 UTC daily), results-update.yml (22:00 UTC daily)
 - Win results will update automatically twice per day + on every code push
 - Multi-day recovery ensures no results are lost even if a scraper run fails
+
+---
+Task ID: V24-premium-redesign
+Agent: Main Agent
+Task: Redesign the BttsBet site to look like a premium platform (Linear/Vercel/Stripe style) instead of a blog. User explicitly forbade content changes — only colors and visual design can be modified. Logos must keep their brand colors (Linebet = green + white, 888starz = red + white).
+
+Work Log:
+- Audited the existing design system (globals.css + 7 components)
+- Identified "blog-like" feel caused by: flat backgrounds, cartoonish purple-pink FIFA section, single-layer glassmorphism, basic edge borders, lack of mesh gradients/depth
+- Rewrote globals.css → "Obsidian Premium Platform" design system v5:
+  * New deeper obsidian palette: midnight #060812, abyss #0A0E1A, panel #0F1422, panel-2 #131929
+  * Refined emerald (#10E5A0 — slightly desaturated for premium feel)
+  * New royal blue (#4F8FF7) for trust/secondary actions
+  * Refined champagne gold (#F5C451 — softer than amber)
+  * Body has mesh gradient background (3 radial gradients, fixed attachment)
+  * Subtle 64px grid pattern overlay with radial mask
+  * Premium glassmorphism with saturate(140-160%) backdrop blur
+  * Layered shadows with inset highlights for 3D depth
+  * Buttons get top sheen + bottom shadow + hover lift + brightness boost
+  * Cards have top sheen line + gradient backgrounds (from-panel-2 to-panel)
+  - Refined all animations: glow rings, hover lifts, pulse-neon with proper shadows
+- Hero.tsx: added mesh gradient orbs (emerald, gold, royal), conic gradient halo, grid pattern overlay with mask, premium pill badge with animated ping dot, premium stats ticker with top sheen + emerald glow corner, gradient dividers
+- Navbar.tsx: gradient logo container with emerald border, royal-blue CTA for FIFA link (instead of purple-pink), emerald underline animation on hover, premium borders on buttons
+- FreePredictions.tsx: cards now use gradient backgrounds + emerald hover glow, premium top sheen on every card, animated ping dots, gradient dividers between stats, league filter pills with emerald shadow on active, DateGroupHeader dots, refined loading/empty/error states
+- WinHistory.tsx: subtle emerald gradient top background, premium stat cards with top sheen, refined table with white borders, animated ping dot in verified badge
+- PromoVip.tsx: VIP coupon card → rounded-2xl + gradient panel + premium top sheen + dual glow (gold + emerald), promo code card with emerald top accent line, refined feature chips with subtle borders, gold button uses btn-gold class, emerald/888starz buttons get matching brand borders
+- FifaLinebet.tsx: changed from cartoonish purple-pink to refined deep violet (#8B5CF6 / violet-500) + gold accent — much more premium feel. Premium mesh background, top sheen, gold-violet gradient top borders, premium card system, FIFA modal uses violet-600 to gold gradient
+- Footer.tsx: gradient fade to midnight, emerald top glow line, FAQ section header has "FAQ" tag with emerald line, FAQ cards use white borders + subtle bg, footer logo uses gradient emerald container
+- Verified build: 0 errors, 15 pages generated
+- Verified rendering with agent-browser screenshots + VLM analysis:
+  * Hero: 8/10 — "Plateforme premium moderne"
+  * Predictions: 7/10 — "design clean et fonctionnel"
+  * VIP/Promo: 7/10 — "design sobre et fonctionnel"
+  * FIFA: 7/10 — "Design cohérent et fonctionnel"
+- No content modified — only colors, shadows, gradients, borders, animations
+
+Stage Summary:
+- Site redesigned with "Obsidian Premium Platform" aesthetic (Linear/Vercel/Stripe inspired)
+- 7 components updated, all staying content-faithful (only styling/visual changes)
+- Brand colors respected: Linebet = emerald/green, 888starz = red, FIFA = deep violet + gold (premium alternative to old purple-pink)
+- Mesh gradients, glassmorphism, layered shadows, premium buttons, refined typography
+- Build passes, dev server running on port 3000, all 15 pages prerendered
+- VLM ratings improved: hero went from "blog-like" to "premium platform"

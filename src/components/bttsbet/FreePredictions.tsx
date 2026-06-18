@@ -195,10 +195,12 @@ function MatchRow({ match, index, isVisible }: { match: MatchData; index: number
         aria-expanded={expanded}
         className={`relative rounded-xl border cursor-pointer transition-all duration-300 overflow-hidden ${
           expanded
-            ? 'bg-panel border-emerald/25 shadow-lg shadow-emerald/5'
-            : 'bg-panel/60 border-edge hover:border-emerald/15 hover:bg-panel/80'
+            ? 'bg-gradient-to-b from-panel-2 to-panel border-emerald/25 shadow-lg shadow-emerald/8'
+            : 'bg-gradient-to-b from-panel/80 to-panel/60 border-white/[0.06] hover:border-emerald/20 hover:shadow-lg hover:shadow-black/40'
         }`}
       >
+        {/* Premium top sheen */}
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent pointer-events-none" />
         <AnimatePresence>
           {expanded && (
             <motion.div
@@ -218,7 +220,7 @@ function MatchRow({ match, index, isVisible }: { match: MatchData; index: number
             <div className="text-gray-500 text-[10px]">{match.date ? formatDateShort(match.date) : ''}</div>
           </div>
 
-          <div className="w-px h-8 bg-edge flex-shrink-0" />
+          <div className="w-px h-8 bg-gradient-to-b from-transparent via-white/10 to-transparent flex-shrink-0" />
 
           <div className="flex-shrink-0 flex items-center gap-1.5">
             <TeamLogo src={homeLogo} initials={initials1} size="sm" color="emerald" />
@@ -328,10 +330,10 @@ function MatchRow({ match, index, isVisible }: { match: MatchData; index: number
   )
 }
 
-const DATE_GROUP_STYLES: Record<string, { line: string; text: string; badge: string }> = {
-  emerald: { line: 'bg-emerald/15', text: 'text-emerald', badge: 'bg-emerald/10 text-emerald' },
-  gold: { line: 'bg-gold/15', text: 'text-gold', badge: 'bg-gold/10 text-gold' },
-  royal: { line: 'bg-royal/15', text: 'text-royal', badge: 'bg-royal/10 text-royal' },
+const DATE_GROUP_STYLES: Record<string, { line: string; text: string; badge: string; dot: string }> = {
+  emerald: { line: 'bg-gradient-to-r from-transparent via-emerald/25 to-transparent', text: 'text-emerald', badge: 'bg-emerald/10 text-emerald border border-emerald/20', dot: 'bg-emerald' },
+  gold: { line: 'bg-gradient-to-r from-transparent via-gold/25 to-transparent', text: 'text-gold', badge: 'bg-gold/10 text-gold border border-gold/20', dot: 'bg-gold' },
+  royal: { line: 'bg-gradient-to-r from-transparent via-royal/25 to-transparent', text: 'text-royal', badge: 'bg-royal/10 text-royal border border-royal/20', dot: 'bg-royal' },
 }
 
 function DateGroupHeader({ label, count, color = 'emerald' }: { label: string; count: number; color?: string }) {
@@ -340,6 +342,7 @@ function DateGroupHeader({ label, count, color = 'emerald' }: { label: string; c
     <div className="flex items-center gap-3 mt-6 mb-3 first:mt-0">
       <div className={`h-px flex-1 ${s.line}`} />
       <div className={`flex items-center gap-2 ${s.text}`}>
+        <span className={`w-1.5 h-1.5 rounded-full ${s.dot}`} />
         <span className="text-xs font-bold uppercase tracking-widest">{label}</span>
         <span className={`text-[10px] ${s.badge} font-bold px-2 py-0.5 rounded-full`}>
           {count}
@@ -450,19 +453,26 @@ export default function FreePredictions() {
         >
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-5">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-1" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
-                PRONOSTICS <span className="text-emerald">IA</span>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-8 h-px bg-gradient-to-r from-emerald to-transparent" />
+                <span className="text-[10px] font-bold text-emerald uppercase tracking-widest">Live Predictions</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
+                PRONOSTICS <span className="text-emerald neon-glow">IA</span>
               </h2>
               <p className="text-gray-500 text-sm">Sélection IA — matchs des 7 prochains jours</p>
             </div>
-            <div className="flex items-center gap-4 bg-panel/60 border border-edge rounded-xl px-4 py-2.5">
+            <div className="flex items-center gap-4 bg-panel/70 border border-white/[0.06] rounded-xl px-4 py-2.5 backdrop-blur-sm">
               <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 bg-emerald rounded-full animate-pulse" />
+                <span className="relative flex w-1.5 h-1.5">
+                  <span className="absolute inset-0 bg-emerald rounded-full animate-ping opacity-75" />
+                  <span className="relative w-1.5 h-1.5 bg-emerald rounded-full" />
+                </span>
                 <span className="text-xs text-gray-400"><span className="text-white font-bold">{stats.total}</span> matchs</span>
               </div>
-              <div className="w-px h-4 bg-edge" />
+              <div className="w-px h-4 bg-white/10" />
               <div className="text-xs text-gray-400"><span className="text-emerald font-bold">{stats.bttsOui}</span> BTTS</div>
-              <div className="w-px h-4 bg-edge" />
+              <div className="w-px h-4 bg-white/10" />
               <div className="text-xs text-gray-400"><span className="text-gold font-bold">{stats.o25Oui}</span> O2.5</div>
             </div>
           </div>
@@ -474,8 +484,8 @@ export default function FreePredictions() {
                 onClick={() => setActiveLeague(league)}
                 className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   activeLeague === league
-                    ? 'bg-emerald/15 text-emerald border border-emerald/25'
-                    : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300 hover:border-edge-light'
+                    ? 'bg-emerald/12 text-emerald border border-emerald/25 shadow-sm shadow-emerald/10'
+                    : 'bg-panel/40 text-gray-500 border border-white/[0.04] hover:text-gray-300 hover:border-white/10'
                 }`}
               >
                 {league === 'all' ? 'Tous' : league}
@@ -491,9 +501,9 @@ export default function FreePredictions() {
           </div>
         ) : error ? (
           <div className="text-center py-16">
-            <div className="glass-3d rounded-2xl p-8 max-w-sm mx-auto">
-              <div className="w-14 h-14 bg-red-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF3D71" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <div className="glass-3d rounded-2xl p-8 max-w-sm mx-auto border border-red-500/20">
+              <div className="w-14 h-14 bg-red-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-red-500/20">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF4D6D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
                 </svg>
               </div>
@@ -504,7 +514,7 @@ export default function FreePredictions() {
         ) : filteredMatches.length === 0 ? (
           <div className="text-center py-16">
             <div className="glass-3d rounded-2xl p-8 max-w-sm mx-auto">
-              <div className="w-14 h-14 bg-edge rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-14 h-14 bg-white/[0.04] rounded-2xl flex items-center justify-center mx-auto mb-4 border border-white/[0.06]">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
                 </svg>
