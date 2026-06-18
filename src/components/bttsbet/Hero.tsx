@@ -6,19 +6,19 @@ import { SITE, AFFILIATE } from '@/lib/constants'
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      {/* Background — Premium Mesh Gradient */}
+      {/* Background — Quantum Aurora Mesh */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-midnight" />
-        {/* Mesh gradient orbs */}
-        <div className="absolute top-[-10%] left-1/4 w-[600px] h-[500px] bg-emerald/8 rounded-full blur-[140px] opacity-80" />
-        <div className="absolute top-[5%] right-1/4 w-[450px] h-[400px] bg-gold/5 rounded-full blur-[120px] opacity-70" />
-        <div className="absolute top-[30%] left-[-10%] w-[400px] h-[400px] bg-royal/6 rounded-full blur-[120px] opacity-60" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] bg-emerald/3 rounded-full blur-[100px]" />
-        {/* Subtle conic gradient */}
+        {/* Mesh gradient orbs — cyan + fuchsia + amber */}
+        <div className="absolute top-[-10%] left-1/4 w-[600px] h-[500px] bg-emerald/10 rounded-full blur-[140px] opacity-80" />
+        <div className="absolute top-[5%] right-1/4 w-[450px] h-[400px] bg-royal/8 rounded-full blur-[120px] opacity-70" />
+        <div className="absolute top-[30%] left-[-10%] w-[400px] h-[400px] bg-gold/6 rounded-full blur-[120px] opacity-60" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] bg-emerald/4 rounded-full blur-[100px]" />
+        {/* Subtle conic gradient — aurora swirl */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] opacity-[0.04]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] opacity-[0.06]"
           style={{
-            background: 'conic-gradient(from 180deg at 50% 50%, #10E5A0 0deg, transparent 60deg, #F5C451 120deg, transparent 180deg, #4F8FF7 240deg, transparent 300deg, #10E5A0 360deg)',
+            background: 'conic-gradient(from 180deg at 50% 50%, #22D3EE 0deg, transparent 60deg, #F59E0B 120deg, transparent 180deg, #E879F9 240deg, transparent 300deg, #22D3EE 360deg)',
             borderRadius: '50%',
           }}
         />
@@ -33,7 +33,7 @@ export default function Hero() {
           }}
         />
         {/* Bottom divider line */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald/30 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald/40 to-transparent" />
         {/* Top glow line */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
       </div>
@@ -81,7 +81,7 @@ export default function Hero() {
           Propulsé par l&apos;intelligence artificielle — {SITE.accuracy} de précision sur 15 000+ pronostics
         </motion.p>
 
-        {/* CTA buttons */}
+        {/* CTA buttons — Quantum Aurora style with brand-safe colors */}
         <motion.div
           initial={{ opacity: 0, y: 15, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -96,7 +96,8 @@ export default function Hero() {
                 setTimeout(() => window.scrollBy({ top: -64, behavior: 'smooth' }), 400)
               }
             }}
-            className="px-8 py-3.5 bg-gradient-to-r from-emerald to-emerald-dark text-dark-900 font-bold rounded-xl text-base hover:shadow-lg hover:shadow-emerald/30 btn-emerald transition-all hover:brightness-110 hover-lift"
+            className="px-8 py-3.5 bg-gradient-to-r from-emerald to-emerald-dark text-dark-900 font-bold btn-emerald"
+            data-cursor="hover"
           >
             Pronostics du jour
           </button>
@@ -104,17 +105,19 @@ export default function Hero() {
             href={AFFILIATE.linebet}
             rel={AFFILIATE.rel}
             target="_blank"
-            className="flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-xl text-base hover:shadow-lg hover:shadow-emerald/30 btn-emerald transition-all hover:brightness-110 hover-lift"
+            className="flex items-center gap-2 px-6 py-3.5 btn-linebet text-[#06281F]"
+            data-cursor="hover"
           >
             <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
             Bonus 150$
           </a>
-          {/* V23: Nouveau bouton 888starz */}
+          {/* V23: Nouveau bouton 888starz — brand-safe red */}
           <a
             href={AFFILIATE.star888}
             rel={AFFILIATE.rel}
             target="_blank"
-            className="flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-red-500 to-red-700 text-white font-bold rounded-xl text-base hover:shadow-lg hover:shadow-red-500/30 transition-all hover:brightness-110 hover-lift"
+            className="flex items-center gap-2 px-6 py-3.5 btn-star888 text-white"
+            data-cursor="hover"
           >
             <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
             Bonus 100%
@@ -131,8 +134,8 @@ export default function Hero() {
           <div className="relative flex items-center gap-6 sm:gap-10 bg-panel/70 border border-white/[0.06] rounded-2xl px-6 py-3.5 sm:px-8 sm:py-4 backdrop-blur-xl shadow-2xl">
             {/* Premium top sheen */}
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-t-2xl" />
-            {/* Emerald glow corner */}
-            <div className="absolute -top-px left-1/2 -translate-x-1/2 w-20 h-px bg-emerald/60" />
+            {/* Cyan glow corner */}
+            <div className="absolute -top-px left-1/2 -translate-x-1/2 w-20 h-px bg-emerald/70" />
             <div className="text-center">
               <div className="text-xl sm:text-2xl font-extrabold text-emerald neon-glow">{SITE.accuracy}</div>
               <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-semibold">Précision</div>

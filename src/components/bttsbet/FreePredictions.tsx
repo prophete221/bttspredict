@@ -304,7 +304,8 @@ function MatchRow({ match, index, isVisible }: { match: MatchData; index: number
                       rel={AFFILIATE.rel}
                       target="_blank"
                       onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-1.5 px-2.5 py-2 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-lg text-xs hover:shadow-lg hover:shadow-emerald/20 transition-all hover:brightness-110"
+                      className="flex items-center gap-1.5 px-2.5 py-2 btn-linebet text-[#06281F] text-xs"
+                      data-cursor="hover"
                     >
                       <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy"/>
                       Linebet
@@ -314,7 +315,8 @@ function MatchRow({ match, index, isVisible }: { match: MatchData; index: number
                       rel={AFFILIATE.rel}
                       target="_blank"
                       onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-1.5 px-2.5 py-2 bg-gradient-to-r from-red-500 to-red-700 text-white font-bold rounded-lg text-xs hover:shadow-lg hover:shadow-red-500/20 transition-all hover:brightness-110"
+                      className="flex items-center gap-1.5 px-2.5 py-2 btn-star888 text-white text-xs"
+                      data-cursor="hover"
                     >
                       <img src="/logos/888starz-icon.svg" alt="888starz" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy"/>
                       888starz
@@ -449,7 +451,7 @@ export default function FreePredictions() {
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="mb-6"
+          className={`mb-6 stagger-reveal ${isVisible ? 'is-visible' : ''}`}
         >
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-5">
             <div>

@@ -80,7 +80,7 @@ export default function AgeVerification() {
               <button onClick={handleDeny} className="px-6 py-3.5 border border-red-500/30 rounded-xl text-red-400 font-semibold hover:bg-red-500/10 hover:border-red-500/50 transition-all text-sm">
                 Je suis mineur
               </button>
-              <button onClick={handleConfirm} className="px-6 py-3.5 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-xl hover:shadow-lg hover:shadow-emerald/30 hover:brightness-110 transition-all text-sm">
+              <button onClick={handleConfirm} className="px-6 py-3.5 btn-emerald text-dark-900 text-sm" data-cursor="hover">
                 J&apos;ai 18 ans ou plus
               </button>
             </div>

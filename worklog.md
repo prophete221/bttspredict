@@ -144,3 +144,94 @@ Stage Summary:
 - Mesh gradients, glassmorphism, layered shadows, premium buttons, refined typography
 - Build passes, dev server running on port 3000, all 15 pages prerendered
 - VLM ratings improved: hero went from "blog-like" to "premium platform"
+
+---
+Task ID: V25-quantum-aurora-redesign
+Agent: Main Agent
+Task: Complete design overhaul — new "Quantum Aurora" palette + staggered scroll reveal + enhanced cursor glow + completely new button style. User explicit constraints: (1) add staggered scroll reveal animations, (2) cursor glow must be more present, (3) completely change main colors and design (user dislikes current), (4) change button style, (5) NO content modification. Brand colors (Linebet green, 888starz red) must remain from previous task.
+
+Work Log:
+- Audited previous design (v5 "Obsidian Premium Platform" — emerald + royal + gold on deep obsidian)
+- Designed completely new "Quantum Aurora" palette:
+  * Background: indigo-midnight #07091A (slightly more blue than previous)
+  * Primary: electric cyan #22D3EE → #0891B2 (replaces emerald)
+  * Secondary: aurora fuchsia #E879F9 → #C026D3 (replaces royal blue)
+  * Tertiary: solar amber #F59E0B → #D97706 (replaces gold)
+  * Bonus accent: soft violet #A78BFA for depth
+- Rewrote globals.css (v6 "Quantum Aurora" Design System):
+  * Swapped all design tokens (emerald → cyan, royal → fuchsia, gold → amber)
+  * Added brand-safe tokens that NEVER change: --color-linebet (#34D399), --color-star888 (#EF4444)
+  * Completely new button style: angular clip-path corners (cyber/platform feel),
+    diagonal sheen sweep on hover, layered shadows with brand glow, brightness boost,
+    translate-Y lift on hover. Replaced rounded gradient style entirely.
+  * Added 4 new button classes: .btn-emerald (cyan), .btn-gold (amber),
+    .btn-linebet (brand green), .btn-star888 (brand red), .btn-ghost-quantum (outline)
+  * Added comprehensive staggered scroll reveal CSS:
+    - .stagger-reveal parent class with cascading children delays (up to 12 children)
+    - Variants: .from-left, .from-right, .scale-in, .blur-in (premium blur fade)
+    - Single-element reveals: .reveal-fade-up, .reveal-fade-left, .reveal-scale
+    - All respect prefers-reduced-motion
+  * Added custom Quantum Aurora cursor system:
+    - .cursor-dot — small 8px cyan dot, grows to 14px fuchsia on interactive hover
+    - .cursor-glow — 500px outer aurora ring (cyan + fuchsia mix, blur 8px, screen blend)
+    - Hidden on touch devices via media queries
+    - cursor: none on body for desktop, auto on touch
+- Enhanced CursorEffect.tsx:
+  * Replaced single subtle 300px/0.06 opacity glow with two-layer cursor:
+    - Inner 8px cyan dot with mix-blend-mode: screen + 12px+24px box-shadow glow
+    - Outer 500px aurora glow ring with cyan + fuchsia radial gradient, blur(8px), screen blend
+  * Smoothing: dot follows at 0.35 lerp (precise), glow lags at 0.12 lerp (trailing effect)
+  * Hover detection on a, button, [role=button], input, select, [data-cursor=hover]
+    → dot grows + shifts to fuchsia color
+  * Click state: dot shrinks to 6px
+- Enhanced useAnimations.ts hook with 3 new exports:
+  * useStaggerReveal(threshold, variant) — for cascading children
+  * useRevealEntry(variant, threshold) — for single element reveals
+  * Original useScrollAnimation preserved for backwards-compat
+- Updated Hero.tsx:
+  * New mesh gradient orbs using new tokens (cyan + fuchsia + amber)
+  * "Pronostics du jour" button → btn-emerald (new cyan, angular corners)
+  * Linebet "Bonus 150$" → btn-linebet (brand green preserved)
+  * 888starz "Bonus 100%" → btn-star888 (brand red preserved)
+- Updated Navbar.tsx: logo SVG stroke → #22D3EE, "S'inscrire" → btn-linebet (brand green preserved), mobile menu Linebet/888starz → brand classes
+- Updated FreePredictions.tsx:
+  * Section header block wrapped with stagger-reveal class for cascading entrance
+  * In-card Linebet button → btn-linebet, 888starz button → btn-star888
+- Updated WinHistory.tsx:
+  * Added useScrollAnimation hook (0.15 threshold)
+  * Stats grid (3 cards) wrapped with stagger-reveal for cascading reveal
+  * Heading + content respect isVisible flag
+- Updated PromoVip.tsx:
+  * VIP "Débloquer le VIP" button → btn-gold (new amber, angular corners)
+  * "Je me suis déjà inscrit" → btn-gold
+  * "Envoyer et rejoindre le VIP" → btn-gold
+  * All Linebet/888starz brand buttons → btn-linebet / btn-star888
+  * Feature chips grid (4 items) wrapped with stagger-reveal
+- Updated FifaLinebet.tsx:
+  * All Linebet/888starz buttons → btn-linebet / btn-star888
+- Updated Footer.tsx:
+  * Added useScrollAnimation hook
+  * FAQ items container wrapped with stagger-reveal (cascading cards)
+  * Footer grid (4 columns) wrapped with stagger-reveal
+  * Sticky bottom CTA: Linebet → btn-linebet, 888starz → btn-star888
+  * Footer logo SVG stroke → #22D3EE
+- Updated CookieConsent.tsx: "Accepter" button → btn-emerald (cyan, new style)
+- Updated AgeVerification.tsx: "J'ai 18 ans ou plus" → btn-emerald (cyan, new style)
+- Added data-cursor="hover" attributes to all major interactive elements so the custom cursor enlarges on hover
+- Build verified: 0 errors, 15 pages prerendered
+- Browser-verified: cursor-dot + cursor-glow present in DOM, btn-emerald has new clip-path polygon + cyan gradient, btn-linebet has green gradient (#34D399→#10B981) + dark green text, btn-star888 has red gradient (#EF4444→#B91C1C) + white text
+- VLM analysis of all 4 key screenshots confirms:
+  * Hero: "Plateforme premium (style Vercel/Stripe), design clean, couleurs vives sur fond sombre"
+  * Predictions: "Plateforme premium, interface soignée, design moderne"
+  * VIP: "Élégant, moderne, contraste fort, lisibilité acceptable, aucun problème"
+  * FIFA + Footer: "Design sombre minimaliste, atmosphère professionnelle"
+- NO content modified — only styling (colors, button styles, scroll animations, cursor)
+
+Stage Summary:
+- Complete design overhaul from "Obsidian Premium Platform" (emerald/gold/royal) to "Quantum Aurora" (cyan/fuchsia/amber)
+- New button style: angular clip-path corners + diagonal sheen sweep on hover (cyber/platform feel)
+- New custom cursor: dual-layer (precise cyan dot + 500px aurora glow ring with trailing lag, grows+fuchsia on interactive hover)
+- Staggered scroll reveal animations across all major sections (FreePredictions header, WinHistory stats, PromoVip feature chips, Footer FAQ + grid)
+- Brand colors preserved: Linebet = green (#34D399), 888starz = red (#EF4444) — now via dedicated brand tokens that won't change with future palette swaps
+- Build passes, site live on port 3000, zero errors
+- VLM confirms "premium platform" look across all sections

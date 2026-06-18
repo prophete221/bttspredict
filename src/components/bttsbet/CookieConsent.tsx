@@ -110,7 +110,7 @@ export default function CookieConsent() {
               <div className="flex gap-3 sm:ml-auto order-1 sm:order-2 w-full sm:w-auto">
                 <button onClick={handleRefuse} className="flex-1 sm:flex-initial px-5 py-2.5 text-sm border border-white/10 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all font-medium">Refuser</button>
                 {customize && (<button onClick={handleSavePreferences} className="flex-1 sm:flex-initial px-5 py-2.5 text-sm border border-emerald/30 rounded-xl text-emerald hover:bg-emerald/10 transition-all font-medium">Enregistrer</button>)}
-                <button onClick={handleAccept} className="flex-1 sm:flex-initial px-5 py-2.5 text-sm bg-gradient-to-r from-emerald to-emerald-dark text-dark-900 font-bold rounded-xl hover:shadow-lg hover:shadow-emerald/30 hover:brightness-110 transition-all">Accepter</button>
+                <button onClick={handleAccept} className="flex-1 sm:flex-initial px-5 py-2.5 text-sm btn-emerald text-dark-900" data-cursor="hover">Accepter</button>
               </div>
             </div>
           </div>

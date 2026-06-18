@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE, LEGAL, FAQ_ITEMS, ANDROID_LOGO } from '@/lib/constants'
+import { useScrollAnimation } from '@/hooks/useAnimations'
 
 function reopenCookieSettings() {
   localStorage.removeItem('bttsbet_cookie_consent')
@@ -11,6 +12,7 @@ function reopenCookieSettings() {
 
 export default function Footer() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [ref, isVisible] = useScrollAnimation(0.1)
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id)
@@ -22,12 +24,12 @@ export default function Footer() {
       {/* Sticky Bottom CTA (Mobile) */}
       <div className="fixed bottom-0 left-0 right-0 z-30 glass-strong border-t border-white/[0.06] py-2 px-3 sm:hidden">
         <div className="grid grid-cols-2 gap-1.5">
-          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-2 py-2 bg-gradient-to-r from-emerald to-emerald-dark text-dark-900 font-bold rounded-xl text-xs border border-emerald/30">
+          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-2 py-2 btn-linebet text-[#06281F] text-xs" data-cursor="hover">
             <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy"/>
             Linebet
           </a>
           {/* V23: Nouveau bouton 888starz */}
-          <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-2 py-2 bg-gradient-to-r from-red-500 to-red-700 text-white font-bold rounded-xl text-xs border border-red-500/40">
+          <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-2 py-2 btn-star888 text-white text-xs" data-cursor="hover">
             <img src="/logos/888starz-icon.svg" alt="888starz" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy"/>
             888starz
           </a>
@@ -43,7 +45,7 @@ export default function Footer() {
       </div>
 
       {/* Footer */}
-      <footer id="faq" className="bg-gradient-to-b from-transparent to-midnight border-t border-white/[0.06] pt-12 pb-24 sm:pb-10 px-4 relative">
+      <footer ref={ref} id="faq" className="bg-gradient-to-b from-transparent to-midnight border-t border-white/[0.06] pt-12 pb-24 sm:pb-10 px-4 relative">
         {/* Top glow line */}
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald/30 to-transparent" />
         <div className="max-w-5xl mx-auto">
@@ -56,7 +58,7 @@ export default function Footer() {
             <h3 className="text-lg font-extrabold text-white mb-4 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
               QUESTIONS <span className="text-emerald neon-glow">FRÉQUENTES</span>
             </h3>
-            <div className="space-y-2">
+            <div className={`space-y-2 stagger-reveal ${isVisible ? 'is-visible' : ''}`}>
               {FAQ_ITEMS.map((item, i) => (
                 <div key={i} className="border border-white/[0.06] rounded-xl overflow-hidden bg-panel/40 hover:border-white/[0.1] transition-colors">
                   <button
@@ -101,11 +103,11 @@ export default function Footer() {
           <div className="divider-premium mb-8" />
 
           {/* Footer Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
+          <div className={`grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10 stagger-reveal ${isVisible ? 'is-visible' : ''}`}>
             <div className="col-span-2 sm:col-span-1">
               <div className="flex items-center gap-2.5 mb-3">
                 <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald/25 to-emerald/5 border border-emerald/20 flex items-center justify-center">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10E5A0" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
                   </svg>
                 </div>

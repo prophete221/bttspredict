@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import TiltCard from './TiltCard'
 import { resolveTeamLogo } from '@/lib/teamLogos'
 import { SITE } from '@/lib/constants'
+import { useScrollAnimation } from '@/hooks/useAnimations'
 
 function MiniTeamLogo({ src, alt }: { src: string; alt: string }) {
   const [err, setErr] = useState(false)
@@ -30,6 +31,7 @@ export default function WinHistory() {
   const [showAll, setShowAll] = useState(false)
   const [winData, setWinData] = useState<{ stats: { total: number; won: number; last30Rate: string }; history: HistoryItem[] } | null>(null)
   const [loading, setLoading] = useState(true)
+  const [ref, isVisible] = useScrollAnimation(0.15)
 
   useEffect(() => {
     // Cache-bust to ensure fresh data after deployments
@@ -79,20 +81,19 @@ export default function WinHistory() {
       </section>
     )
   }
-
   const { history } = winData
   // N'afficher que les matchs gagnés
   const wonHistory = history.filter((item) => item.result === 'Gagné')
   const displayedHistory = showAll ? wonHistory : wonHistory.slice(0, 5)
 
   return (
-    <section id="win-history" className="py-10 px-4 relative overflow-hidden">
+    <section ref={ref} id="win-history" className="py-10 px-4 relative overflow-hidden">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-emerald/[0.02] via-transparent to-transparent pointer-events-none" />
       <div className="max-w-5xl mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 20, rotateX: 6 }}
-          animate={{ opacity: 1, y: 0, rotateX: 0 }}
+          animate={isVisible ? { opacity: 1, y: 0, rotateX: 0 } : {}}
           transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
           style={{ transformOrigin: 'center bottom' }}
           className="text-center mb-6"
@@ -110,9 +111,9 @@ export default function WinHistory() {
 
         <motion.div
           initial={{ opacity: 0, y: 15, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
+          animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : {}}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="grid grid-cols-3 gap-3 mb-6"
+          className={`grid grid-cols-3 gap-3 mb-6 stagger-reveal ${isVisible ? 'is-visible' : ''}`}
         >
           {[
             { value: displayStats.total.toLocaleString('fr-FR'), label: 'Analysés', color: 'text-white' },

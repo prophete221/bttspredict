@@ -55,7 +55,7 @@ export default function Navbar() {
             aria-label="BttsBet — Accueil"
           >
             <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-emerald/25 to-emerald/5 border border-emerald/20 flex items-center justify-center group-hover:border-emerald/40 transition-all group-hover:shadow-lg group-hover:shadow-emerald/20">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10E5A0" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10"/>
                 <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
                 <path d="M2 12h20"/>
@@ -85,6 +85,7 @@ export default function Navbar() {
                   href={link.href || '/'}
                   onClick={(e) => handleNavClick(e, link)}
                   className="text-gray-400 hover:text-white transition-colors text-sm font-medium relative group cursor-pointer"
+                  data-cursor="hover"
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald to-emerald-soft transition-all group-hover:w-full rounded-full" />
@@ -95,7 +96,8 @@ export default function Navbar() {
               href={AFFILIATE.linebet}
               rel={AFFILIATE.rel}
               target="_blank"
-              className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-lg text-sm hover:shadow-lg hover:shadow-emerald/30 transition-all hover:brightness-110 hover-lift border border-emerald/30"
+              className="flex items-center gap-2 px-4 py-2.5 btn-linebet text-[#06281F] text-sm"
+              data-cursor="hover"
             >
               <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-5 h-5 rounded object-contain flex-shrink-0" loading="lazy"/>
               S&apos;inscrire
@@ -179,7 +181,8 @@ export default function Navbar() {
                   href={AFFILIATE.linebet}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-2 text-center px-5 py-3 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-lg border border-emerald/30"
+                  className="flex items-center justify-center gap-2 text-center px-5 py-3 btn-linebet text-[#06281F]"
+                  data-cursor="hover"
                 >
                   <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-5 h-5 rounded object-contain flex-shrink-0" loading="lazy"/>
                   S&apos;inscrire sur Linebet
@@ -189,7 +192,8 @@ export default function Navbar() {
                   href={AFFILIATE.star888}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-2 text-center px-5 py-3 bg-gradient-to-r from-red-500 to-red-700 text-white font-bold rounded-lg border border-red-500/40"
+                  className="flex items-center justify-center gap-2 text-center px-5 py-3 btn-star888 text-white"
+                  data-cursor="hover"
                 >
                   <img src="/logos/888starz-icon.svg" alt="888starz" className="w-5 h-5 rounded object-contain flex-shrink-0" loading="lazy"/>
                   S&apos;inscrire sur 888starz
