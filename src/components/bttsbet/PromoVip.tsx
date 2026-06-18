@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SITE, AFFILIATE, BOOKMAKERS } from '@/lib/constants'
+import { SITE, AFFILIATE, BOOKMAKERS, ANDROID_LOGO } from '@/lib/constants'
 import { useScrollAnimation } from '@/hooks/useAnimations'
 
 function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
@@ -133,26 +133,32 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                               <button
                                 type="button"
                                 onClick={() => setSelectedBookmaker('linebet')}
-                                className={`text-xs font-bold px-3 py-2 rounded-lg border-2 transition-all ${
+                                className={`flex flex-col items-center justify-center gap-1 text-xs font-bold px-3 py-2 rounded-lg border-2 transition-all ${
                                   selectedBookmaker === 'linebet'
                                     ? 'border-emerald bg-emerald/10 text-emerald'
                                     : 'border-edge/40 text-gray-400 hover:border-emerald/40'
                                 }`}
                               >
-                                Linebet
-                                <span className="block text-[9px] font-normal mt-0.5 opacity-70">Bonus 150$</span>
+                                <span className="flex items-center justify-center gap-1.5">
+                                  <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-5 h-5 rounded object-contain flex-shrink-0" loading="lazy"/>
+                                  Linebet
+                                </span>
+                                <span className="text-[9px] font-normal opacity-70">Bonus 150$</span>
                               </button>
                               <button
                                 type="button"
                                 onClick={() => setSelectedBookmaker('888starz')}
-                                className={`text-xs font-bold px-3 py-2 rounded-lg border-2 transition-all ${
+                                className={`flex flex-col items-center justify-center gap-1 text-xs font-bold px-3 py-2 rounded-lg border-2 transition-all ${
                                   selectedBookmaker === '888starz'
                                     ? 'border-gold bg-gold/10 text-gold'
                                     : 'border-edge/40 text-gray-400 hover:border-gold/40'
                                 }`}
                               >
-                                888starz
-                                <span className="block text-[9px] font-normal mt-0.5 opacity-70">Bonus 100%</span>
+                                <span className="flex items-center justify-center gap-1.5">
+                                  <img src="/logos/888starz-icon.svg" alt="888starz" className="w-5 h-5 rounded object-contain flex-shrink-0" loading="lazy"/>
+                                  888starz
+                                </span>
+                                <span className="text-[9px] font-normal opacity-70">Bonus 100%</span>
                               </button>
                             </div>
                           </div>
@@ -198,9 +204,12 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                               : 'bg-gradient-to-r from-gold to-gold-dark text-midnight hover:shadow-gold/30'
                           }`}
                         >
-                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
-                          </svg>
+                          <img
+                            src={selectedBookmaker === 'linebet' ? '/logos/linebet.svg' : '/logos/888starz.svg'}
+                            alt={selectedBookmaker === 'linebet' ? 'Linebet' : '888starz'}
+                            className="h-5 w-auto rounded object-contain flex-shrink-0"
+                            loading="lazy"
+                          />
                           S&apos;inscrire sur {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'}
                         </a>
                       </div>
@@ -525,20 +534,22 @@ export default function PromoVip() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-2.5">
-                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex-1 text-center px-6 py-3.5 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-emerald/30 transition-all hover:brightness-110 btn-emerald">
-                    Linebet
+                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-emerald/30 transition-all hover:brightness-110 btn-emerald">
+                    <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                   {/* V23: Nouveau bouton 888starz à côté de Linebet */}
-                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex-1 text-center px-6 py-3.5 bg-gradient-to-r from-gold to-gold-dark text-midnight font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-gold/30 transition-all hover:brightness-110 btn-gold">
-                    888starz
+                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 bg-gradient-to-r from-gold to-gold-dark text-midnight font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-gold/30 transition-all hover:brightness-110 btn-gold">
+                    <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                 </div>
-                {/* V23: Lien de téléchargement pour les deux bookmakers */}
+                {/* V23: Lien de téléchargement pour les deux bookmakers — logo Android + nom du bookmaker */}
                 <div className="grid grid-cols-2 gap-2.5 mt-2.5">
-                  <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="text-center px-4 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs hover:bg-white/5 transition-all">
+                  <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-2 px-4 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs hover:bg-white/5 transition-all">
+                    <img src={ANDROID_LOGO} alt="Android" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy"/>
                     APK Linebet
                   </a>
-                  <a href={AFFILIATE.star888Download} rel={AFFILIATE.rel} target="_blank" className="text-center px-4 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs hover:bg-white/5 transition-all">
+                  <a href={AFFILIATE.star888Download} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-2 px-4 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs hover:bg-white/5 transition-all">
+                    <img src={ANDROID_LOGO} alt="Android" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy"/>
                     APK 888starz
                   </a>
                 </div>

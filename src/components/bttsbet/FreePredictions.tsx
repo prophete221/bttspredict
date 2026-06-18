@@ -302,8 +302,9 @@ function MatchRow({ match, index, isVisible }: { match: MatchData; index: number
                       rel={AFFILIATE.rel}
                       target="_blank"
                       onClick={(e) => e.stopPropagation()}
-                      className="px-3 py-2 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-lg text-xs hover:shadow-lg hover:shadow-emerald/20 transition-all hover:brightness-110"
+                      className="flex items-center gap-1.5 px-2.5 py-2 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-lg text-xs hover:shadow-lg hover:shadow-emerald/20 transition-all hover:brightness-110"
                     >
+                      <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy"/>
                       Linebet
                     </a>
                     <a
@@ -311,8 +312,9 @@ function MatchRow({ match, index, isVisible }: { match: MatchData; index: number
                       rel={AFFILIATE.rel}
                       target="_blank"
                       onClick={(e) => e.stopPropagation()}
-                      className="px-3 py-2 bg-gradient-to-r from-gold to-gold-dark text-midnight font-bold rounded-lg text-xs hover:shadow-lg hover:shadow-gold/20 transition-all hover:brightness-110"
+                      className="flex items-center gap-1.5 px-2.5 py-2 bg-gradient-to-r from-gold to-gold-dark text-midnight font-bold rounded-lg text-xs hover:shadow-lg hover:shadow-gold/20 transition-all hover:brightness-110"
                     >
+                      <img src="/logos/888starz-icon.svg" alt="888starz" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy"/>
                       888starz
                     </a>
                   </div>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { NAV_LINKS, SITE, AFFILIATE } from '@/lib/constants'
+import { NAV_LINKS, SITE, AFFILIATE, ANDROID_LOGO } from '@/lib/constants'
 
 function scrollToSelector(selector: string) {
   const el = document.getElementById(selector)
@@ -94,8 +94,9 @@ export default function Navbar() {
               href={AFFILIATE.linebet}
               rel={AFFILIATE.rel}
               target="_blank"
-              className="px-5 py-2.5 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-lg text-sm hover:shadow-lg hover:shadow-emerald/30 transition-all hover:brightness-110 hover-lift"
+              className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-lg text-sm hover:shadow-lg hover:shadow-emerald/30 transition-all hover:brightness-110 hover-lift"
             >
+              <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-5 h-5 rounded object-contain flex-shrink-0" loading="lazy"/>
               S&apos;inscrire
             </a>
           </div>
@@ -159,16 +160,27 @@ export default function Navbar() {
                   href={AFFILIATE.linebetDownload}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="block text-center px-5 py-3 border border-white/10 text-white font-semibold rounded-lg"
+                  className="flex items-center justify-center gap-2 text-center px-5 py-3 border border-white/10 text-white font-semibold rounded-lg"
                 >
+                  <img src={ANDROID_LOGO} alt="Android" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy"/>
                   Télécharger Linebet
+                </a>
+                <a
+                  href={AFFILIATE.star888Download}
+                  rel={AFFILIATE.rel}
+                  target="_blank"
+                  className="flex items-center justify-center gap-2 text-center px-5 py-3 border border-white/10 text-white font-semibold rounded-lg"
+                >
+                  <img src={ANDROID_LOGO} alt="Android" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy"/>
+                  Télécharger 888starz
                 </a>
                 <a
                   href={AFFILIATE.linebet}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="block text-center px-5 py-3 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-lg"
+                  className="flex items-center justify-center gap-2 text-center px-5 py-3 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-lg"
                 >
+                  <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-5 h-5 rounded object-contain flex-shrink-0" loading="lazy"/>
                   S&apos;inscrire sur Linebet
                 </a>
                 {/* V23: Nouveau bouton 888starz */}
@@ -176,8 +188,9 @@ export default function Navbar() {
                   href={AFFILIATE.star888}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="block text-center px-5 py-3 bg-gradient-to-r from-gold to-gold-dark text-midnight font-bold rounded-lg"
+                  className="flex items-center justify-center gap-2 text-center px-5 py-3 bg-gradient-to-r from-gold to-gold-dark text-midnight font-bold rounded-lg"
                 >
+                  <img src="/logos/888starz-icon.svg" alt="888starz" className="w-5 h-5 rounded object-contain flex-shrink-0" loading="lazy"/>
                   S&apos;inscrire sur 888starz
                 </a>
               </div>

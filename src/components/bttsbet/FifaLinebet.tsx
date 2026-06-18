@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SITE, AFFILIATE } from '@/lib/constants'
+import { SITE, AFFILIATE, ANDROID_LOGO } from '@/lib/constants'
 import { resolveTeamLogo } from '@/lib/teamLogos'
 
 /* ─────────────────────────── FIFA MODAL ─────────────────────────── */
@@ -118,12 +118,12 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                           Je me suis déjà inscrit
                         </button>
                         <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-emerald/30 transition-all hover:brightness-110">
-                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                          <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                           Aller s&apos;inscrire sur LINEBET
                         </a>
                         {/* V23: Alternative 888starz */}
                         <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-gold to-gold-dark text-midnight font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-gold/30 transition-all hover:brightness-110">
-                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                          <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                           Ou s&apos;inscrire sur 888starz
                         </a>
                       </div>
@@ -499,20 +499,22 @@ export default function FifaLinebet() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-2.5">
-                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex-1 text-center px-6 py-3.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-purple-500/30 transition-all hover:brightness-110">
-                    S&apos;inscrire sur Linebet
+                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-purple-500/30 transition-all hover:brightness-110">
+                    <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                   {/* V23: Nouveau bouton 888starz */}
-                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex-1 text-center px-6 py-3.5 bg-gradient-to-r from-gold to-gold-dark text-midnight font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-gold/30 transition-all hover:brightness-110">
-                    S&apos;inscrire sur 888starz
+                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 bg-gradient-to-r from-gold to-gold-dark text-midnight font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-gold/30 transition-all hover:brightness-110">
+                    <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                 </div>
-                {/* V23: Liens de téléchargement */}
+                {/* V23: Liens de téléchargement — logo Android + nom du bookmaker */}
                 <div className="grid grid-cols-2 gap-2.5 mt-2.5">
-                  <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="text-center px-4 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs hover:bg-white/5 transition-all">
+                  <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-2 px-4 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs hover:bg-white/5 transition-all">
+                    <img src={ANDROID_LOGO} alt="Android" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy"/>
                     APK Linebet
                   </a>
-                  <a href={AFFILIATE.star888Download} rel={AFFILIATE.rel} target="_blank" className="text-center px-4 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs hover:bg-white/5 transition-all">
+                  <a href={AFFILIATE.star888Download} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-2 px-4 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs hover:bg-white/5 transition-all">
+                    <img src={ANDROID_LOGO} alt="Android" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy"/>
                     APK 888starz
                   </a>
                 </div>

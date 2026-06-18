@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 40" width="140" height="40" role="img" aria-label="888starz">
+  <rect x="0" y="0" width="140" height="40" rx="8" fill="#1A1300"/>
+  <text x="8" y="28" font-family="'Bebas Neue', Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="0.5">
+    <tspan fill="#FFD700">888</tspan><tspan fill="#FFFFFF">starz</tspan>
+  </text>
+  <polygon points="125,12 127.5,18 134,18.5 129,22.5 130.5,29 125,25.5 119.5,29 121,22.5 116,18.5 122.5,18" fill="#FFD700"/>
+</svg>

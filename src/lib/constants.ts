@@ -39,6 +39,8 @@ export const BOOKMAKERS = [
     color: 'emerald',
     bonus: 'Bonus 150$',
     description: 'Bookmaker #1 en Afrique — Bonus exclusif de 150$',
+    logoFull: '/logos/linebet.svg',
+    logoIcon: '/logos/linebet-icon.svg',
   },
   {
     id: '888starz',
@@ -49,8 +51,13 @@ export const BOOKMAKERS = [
     color: 'gold',
     bonus: 'Bonus 100%',
     description: 'Nouveau bookmaker partenaire — Bonus 100% sur le 1er dépôt',
+    logoFull: '/logos/888starz.svg',
+    logoIcon: '/logos/888starz-icon.svg',
   },
 ] as const
+
+// Logo Android — utilisé sur les boutons de téléchargement APK
+export const ANDROID_LOGO = '/logos/android.svg'
 
 export const NAV_LINKS = [
   { label: 'Accueil', href: '/' },

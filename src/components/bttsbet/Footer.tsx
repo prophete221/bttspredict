@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SITE, AFFILIATE, LEGAL, FAQ_ITEMS } from '@/lib/constants'
+import { SITE, AFFILIATE, LEGAL, FAQ_ITEMS, ANDROID_LOGO } from '@/lib/constants'
 
 function reopenCookieSettings() {
   localStorage.removeItem('bttsbet_cookie_consent')
@@ -20,17 +20,24 @@ export default function Footer() {
   return (
     <>
       {/* Sticky Bottom CTA (Mobile) */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 glass-strong border-t border-white/5 py-2 px-4 sm:hidden">
-        <div className="grid grid-cols-3 gap-2">
-          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="text-center px-2 py-2.5 bg-gradient-to-r from-emerald to-emerald-dark text-dark-900 font-bold rounded-xl text-xs">
+      <div className="fixed bottom-0 left-0 right-0 z-30 glass-strong border-t border-white/5 py-2 px-3 sm:hidden">
+        <div className="grid grid-cols-2 gap-1.5">
+          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-2 py-2 bg-gradient-to-r from-emerald to-emerald-dark text-dark-900 font-bold rounded-xl text-xs">
+            <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy"/>
             Linebet
           </a>
           {/* V23: Nouveau bouton 888starz */}
-          <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="text-center px-2 py-2.5 bg-gradient-to-r from-gold to-gold-dark text-dark-900 font-bold rounded-xl text-xs">
+          <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-2 py-2 bg-gradient-to-r from-gold to-gold-dark text-dark-900 font-bold rounded-xl text-xs">
+            <img src="/logos/888starz-icon.svg" alt="888starz" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy"/>
             888starz
           </a>
-          <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="text-center px-2 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs">
-            APK
+          <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-2 py-2 border border-white/10 text-white font-semibold rounded-xl text-xs">
+            <img src={ANDROID_LOGO} alt="Android" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy"/>
+            APK Linebet
+          </a>
+          <a href={AFFILIATE.star888Download} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-2 py-2 border border-white/10 text-white font-semibold rounded-xl text-xs">
+            <img src={ANDROID_LOGO} alt="Android" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy"/>
+            APK 888starz
           </a>
         </div>
       </div>
