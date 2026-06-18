@@ -22,8 +22,35 @@ export const AFFILIATE = {
     'https://linebet.press/vision221',
     'https://linebetop.com/en?promocode=VISION221',
   ],
+  // 888starz — Nouveau partenaire d'affiliation (même code promo VISION221)
+  star888: 'https://888ghta.com/8hwF6V',
+  star888Download: 'https://888ghta.com/5o6glw',
   rel: 'sponsored nofollow',
 }
+
+// Liste des bookmakers affiliés pour itération dans l'UI
+export const BOOKMAKERS = [
+  {
+    id: 'linebet',
+    name: 'Linebet',
+    signupLink: AFFILIATE.linebet,
+    downloadLink: AFFILIATE.linebetDownload,
+    promoCode: 'VISION221',
+    color: 'emerald',
+    bonus: 'Bonus 150$',
+    description: 'Bookmaker #1 en Afrique — Bonus exclusif de 150$',
+  },
+  {
+    id: '888starz',
+    name: '888starz',
+    signupLink: AFFILIATE.star888,
+    downloadLink: AFFILIATE.star888Download,
+    promoCode: 'VISION221',
+    color: 'gold',
+    bonus: 'Bonus 100%',
+    description: 'Nouveau bookmaker partenaire — Bonus 100% sur le 1er dépôt',
+  },
+] as const
 
 export const NAV_LINKS = [
   { label: 'Accueil', href: '/' },

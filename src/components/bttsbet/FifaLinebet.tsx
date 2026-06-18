@@ -121,6 +121,11 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                           Aller s&apos;inscrire sur LINEBET
                         </a>
+                        {/* V23: Alternative 888starz */}
+                        <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-gold to-gold-dark text-midnight font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-gold/30 transition-all hover:brightness-110">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                          Ou s&apos;inscrire sur 888starz
+                        </a>
                       </div>
                       <p className="text-[10px] text-gray-600 mt-4 text-center">Bonus soumis aux conditions (mise x5, cote min. 1,40)</p>
                     </motion.div>
@@ -497,8 +502,18 @@ export default function FifaLinebet() {
                   <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex-1 text-center px-6 py-3.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-purple-500/30 transition-all hover:brightness-110">
                     S&apos;inscrire sur Linebet
                   </a>
-                  <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="flex-1 text-center px-6 py-3.5 border border-white/10 text-white font-semibold rounded-xl text-sm hover:bg-white/5 transition-all">
-                    Télécharger l&apos;app
+                  {/* V23: Nouveau bouton 888starz */}
+                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex-1 text-center px-6 py-3.5 bg-gradient-to-r from-gold to-gold-dark text-midnight font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-gold/30 transition-all hover:brightness-110">
+                    S&apos;inscrire sur 888starz
+                  </a>
+                </div>
+                {/* V23: Liens de téléchargement */}
+                <div className="grid grid-cols-2 gap-2.5 mt-2.5">
+                  <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="text-center px-4 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs hover:bg-white/5 transition-all">
+                    APK Linebet
+                  </a>
+                  <a href={AFFILIATE.star888Download} rel={AFFILIATE.rel} target="_blank" className="text-center px-4 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs hover:bg-white/5 transition-all">
+                    APK 888starz
                   </a>
                 </div>
               </div>

@@ -290,20 +290,32 @@ function MatchRow({ match, index, isVisible }: { match: MatchData; index: number
                   )}
                 </div>
 
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 bg-emerald rounded-full animate-pulse" />
                     <span className="text-[10px] text-gray-500">IA BttsBet</span>
                   </div>
-                  <a
-                    href={AFFILIATE.linebet}
-                    rel={AFFILIATE.rel}
-                    target="_blank"
-                    onClick={(e) => e.stopPropagation()}
-                    className="px-4 py-2 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-lg text-xs hover:shadow-lg hover:shadow-emerald/20 transition-all hover:brightness-110"
-                  >
-                    Parier sur Linebet
-                  </a>
+                  {/* V23: Deux boutons côte à côte — Linebet + 888starz */}
+                  <div className="flex items-center gap-1.5">
+                    <a
+                      href={AFFILIATE.linebet}
+                      rel={AFFILIATE.rel}
+                      target="_blank"
+                      onClick={(e) => e.stopPropagation()}
+                      className="px-3 py-2 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-lg text-xs hover:shadow-lg hover:shadow-emerald/20 transition-all hover:brightness-110"
+                    >
+                      Linebet
+                    </a>
+                    <a
+                      href={AFFILIATE.star888}
+                      rel={AFFILIATE.rel}
+                      target="_blank"
+                      onClick={(e) => e.stopPropagation()}
+                      className="px-3 py-2 bg-gradient-to-r from-gold to-gold-dark text-midnight font-bold rounded-lg text-xs hover:shadow-lg hover:shadow-gold/20 transition-all hover:brightness-110"
+                    >
+                      888starz
+                    </a>
+                  </div>
                 </div>
               </div>
             </motion.div>

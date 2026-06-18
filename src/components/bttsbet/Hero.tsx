@@ -80,6 +80,15 @@ export default function Hero() {
           >
             Bonus 150$ Linebet
           </a>
+          {/* V23: Nouveau bouton 888starz */}
+          <a
+            href={AFFILIATE.star888}
+            rel={AFFILIATE.rel}
+            target="_blank"
+            className="px-8 py-3.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-xl text-base hover:shadow-lg hover:shadow-purple-500/30 transition-all hover:brightness-110 hover-lift"
+          >
+            888starz Bonus 100%
+          </a>
         </motion.div>
 
         {/* Stats ticker */}

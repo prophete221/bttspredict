@@ -171,6 +171,15 @@ export default function Navbar() {
                 >
                   S&apos;inscrire sur Linebet
                 </a>
+                {/* V23: Nouveau bouton 888starz */}
+                <a
+                  href={AFFILIATE.star888}
+                  rel={AFFILIATE.rel}
+                  target="_blank"
+                  className="block text-center px-5 py-3 bg-gradient-to-r from-gold to-gold-dark text-midnight font-bold rounded-lg"
+                >
+                  S&apos;inscrire sur 888starz
+                </a>
               </div>
             </div>
           </motion.div>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SITE, AFFILIATE } from '@/lib/constants'
+import { SITE, AFFILIATE, BOOKMAKERS } from '@/lib/constants'
 import { useScrollAnimation } from '@/hooks/useAnimations'
 
 function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
@@ -10,6 +10,8 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
   const [linebetId, setLinebetId] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
+  // V23: Sélecteur de bookmaker — par défaut Linebet, mais l'utilisateur peut choisir 888starz
+  const [selectedBookmaker, setSelectedBookmaker] = useState<'linebet' | '888starz'>('linebet')
   const modalRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -18,6 +20,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
       queueMicrotask(() => {
         setStep('info')
         setLinebetId('')
+        setSelectedBookmaker('linebet')
         setIsSubmitting(false)
         setSubmitSuccess(false)
       })
@@ -48,8 +51,9 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
     if (!linebetId.trim()) return
     setIsSubmitting(true)
 
+    const bookmakerName = selectedBookmaker === 'linebet' ? 'Linebet' : '888starz'
     const message = encodeURIComponent(
-      `🎯 Demande d'accès VIP BttsBet\n\nMon ID Linebet : ${linebetId.trim()}\n\nJe me suis inscrit avec le code promo VISION221 et j'ai effectué un dépôt minimum de 10 000 Fr.\n\nMerci de vérifier et d'activer mon accès VIP.`
+      `🎯 Demande d'accès VIP BttsBet\n\nMon ID ${bookmakerName} : ${linebetId.trim()}\n\nJe me suis inscrit sur ${bookmakerName} avec le code promo VISION221 et j'ai effectué un dépôt minimum de 10 000 Fr.\n\nMerci de vérifier et d'activer mon accès VIP.`
     )
     const whatsappUrl = `${SITE.whatsapp}?text=${message}`
 
@@ -121,9 +125,36 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                               <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/>
                             </svg>
                           </div>
-                          <div>
-                            <p className="text-white text-sm font-semibold">1. Créer un compte LINEBET</p>
+                          <div className="flex-1">
+                            <p className="text-white text-sm font-semibold">1. Créer un compte sur un bookmaker partenaire</p>
                             <p className="text-gray-400 text-xs mt-0.5">Utilisez le code promo <span className="text-gold font-bold">VISION221</span> lors de l&apos;inscription</p>
+                            {/* V23: Sélecteur de bookmaker — Linebet OU 888starz */}
+                            <div className="grid grid-cols-2 gap-2 mt-3">
+                              <button
+                                type="button"
+                                onClick={() => setSelectedBookmaker('linebet')}
+                                className={`text-xs font-bold px-3 py-2 rounded-lg border-2 transition-all ${
+                                  selectedBookmaker === 'linebet'
+                                    ? 'border-emerald bg-emerald/10 text-emerald'
+                                    : 'border-edge/40 text-gray-400 hover:border-emerald/40'
+                                }`}
+                              >
+                                Linebet
+                                <span className="block text-[9px] font-normal mt-0.5 opacity-70">Bonus 150$</span>
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => setSelectedBookmaker('888starz')}
+                                className={`text-xs font-bold px-3 py-2 rounded-lg border-2 transition-all ${
+                                  selectedBookmaker === '888starz'
+                                    ? 'border-gold bg-gold/10 text-gold'
+                                    : 'border-edge/40 text-gray-400 hover:border-gold/40'
+                                }`}
+                              >
+                                888starz
+                                <span className="block text-[9px] font-normal mt-0.5 opacity-70">Bonus 100%</span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                         <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-edge/50">
@@ -134,7 +165,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                           </div>
                           <div>
                             <p className="text-white text-sm font-semibold">2. Déposer un minimum de 10 000 Fr</p>
-                            <p className="text-gray-400 text-xs mt-0.5">Effectuez un premier dépôt de 10 000 Fr minimum sur votre compte LINEBET</p>
+                            <p className="text-gray-400 text-xs mt-0.5">Effectuez un premier dépôt de 10 000 Fr minimum sur votre compte {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'}</p>
                           </div>
                         </div>
                         <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-edge/50">
@@ -145,7 +176,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                           </div>
                           <div>
                             <p className="text-white text-sm font-semibold">3. Confirmer votre inscription</p>
-                            <p className="text-gray-400 text-xs mt-0.5">Entrez votre ID LINEBET pour vérification et activation de votre accès VIP</p>
+                            <p className="text-gray-400 text-xs mt-0.5">Entrez votre ID {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'} pour vérification et activation de votre accès VIP</p>
                           </div>
                         </div>
                       </div>
@@ -156,11 +187,21 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                           </svg>
                           Je me suis déjà inscrit
                         </button>
-                        <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-emerald/30 transition-all hover:brightness-110">
+                        {/* V23: Lien d'inscription dynamique selon le bookmaker sélectionné */}
+                        <a
+                          href={selectedBookmaker === 'linebet' ? AFFILIATE.linebet : AFFILIATE.star888}
+                          rel={AFFILIATE.rel}
+                          target="_blank"
+                          className={`w-full flex items-center justify-center gap-2 px-6 py-3.5 font-bold rounded-xl text-sm hover:shadow-lg transition-all hover:brightness-110 ${
+                            selectedBookmaker === 'linebet'
+                              ? 'bg-gradient-to-r from-emerald to-emerald-dark text-midnight hover:shadow-emerald/30'
+                              : 'bg-gradient-to-r from-gold to-gold-dark text-midnight hover:shadow-gold/30'
+                          }`}
+                        >
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
                           </svg>
-                          Aller s&apos;inscrire sur LINEBET
+                          S&apos;inscrire sur {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'}
                         </a>
                       </div>
                       <p className="text-[10px] text-gray-600 mt-4 text-center">Bonus soumis aux conditions (mise x5, cote min. 1,40)</p>
@@ -184,10 +225,10 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                         CONFIRMEZ VOTRE INSCRIPTION
                       </h3>
                       <p className="text-gray-400 text-sm text-center mb-5 leading-relaxed">
-                        Entrez votre identifiant LINEBET pour que nous puissions vérifier votre inscription et activer votre accès VIP.
+                        Entrez votre identifiant {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'} pour que nous puissions vérifier votre inscription et activer votre accès VIP.
                       </p>
                       <div className="mb-4">
-                        <label htmlFor="linebet-id" className="block text-xs text-gray-500 mb-1.5 font-medium">Votre ID LINEBET</label>
+                        <label htmlFor="linebet-id" className="block text-xs text-gray-500 mb-1.5 font-medium">Votre ID {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'}</label>
                         <div className="relative">
                           <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-gold/50" strokeLinecap="round" strokeLinejoin="round">
@@ -217,7 +258,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                         </svg>
                       </div>
                       <h3 className="text-lg font-extrabold text-white mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>DEMANDE ENVOYÉE !</h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">Votre demande d&apos;accès VIP a été envoyée via WhatsApp. Nous vérifierons votre inscription LINEBET et vous recevrez votre accès VIP sous peu.</p>
+                      <p className="text-gray-400 text-sm leading-relaxed">Votre demande d&apos;accès VIP a été envoyée via WhatsApp. Nous vérifierons votre inscription {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'} et vous recevrez votre accès VIP sous peu.</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -485,10 +526,20 @@ export default function PromoVip() {
 
                 <div className="flex flex-col sm:flex-row gap-2.5">
                   <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex-1 text-center px-6 py-3.5 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-emerald/30 transition-all hover:brightness-110 btn-emerald">
-                    S&apos;inscrire sur Linebet
+                    Linebet
                   </a>
-                  <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="flex-1 text-center px-6 py-3.5 border border-white/10 text-white font-semibold rounded-xl text-sm hover:bg-white/5 transition-all">
-                    Télécharger l&apos;app
+                  {/* V23: Nouveau bouton 888starz à côté de Linebet */}
+                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex-1 text-center px-6 py-3.5 bg-gradient-to-r from-gold to-gold-dark text-midnight font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-gold/30 transition-all hover:brightness-110 btn-gold">
+                    888starz
+                  </a>
+                </div>
+                {/* V23: Lien de téléchargement pour les deux bookmakers */}
+                <div className="grid grid-cols-2 gap-2.5 mt-2.5">
+                  <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="text-center px-4 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs hover:bg-white/5 transition-all">
+                    APK Linebet
+                  </a>
+                  <a href={AFFILIATE.star888Download} rel={AFFILIATE.rel} target="_blank" className="text-center px-4 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs hover:bg-white/5 transition-all">
+                    APK 888starz
                   </a>
                 </div>
               </div>

@@ -21,12 +21,16 @@ export default function Footer() {
     <>
       {/* Sticky Bottom CTA (Mobile) */}
       <div className="fixed bottom-0 left-0 right-0 z-30 glass-strong border-t border-white/5 py-2 px-4 sm:hidden">
-        <div className="flex gap-2">
-          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex-1 text-center px-4 py-3 bg-gradient-to-r from-emerald to-emerald-dark text-dark-900 font-bold rounded-xl text-sm">
-            Bonus {SITE.promoCode}
+        <div className="grid grid-cols-3 gap-2">
+          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="text-center px-2 py-2.5 bg-gradient-to-r from-emerald to-emerald-dark text-dark-900 font-bold rounded-xl text-xs">
+            Linebet
           </a>
-          <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="flex-1 text-center px-4 py-3 border border-white/10 text-white font-semibold rounded-xl text-sm">
-            Télécharger
+          {/* V23: Nouveau bouton 888starz */}
+          <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="text-center px-2 py-2.5 bg-gradient-to-r from-gold to-gold-dark text-dark-900 font-bold rounded-xl text-xs">
+            888starz
+          </a>
+          <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="text-center px-2 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs">
+            APK
           </a>
         </div>
       </div>
