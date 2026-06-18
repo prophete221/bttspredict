@@ -27,7 +27,7 @@ export default function Footer() {
             Linebet
           </a>
           {/* V23: Nouveau bouton 888starz */}
-          <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-2 py-2 bg-gradient-to-r from-gold to-gold-dark text-dark-900 font-bold rounded-xl text-xs">
+          <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-2 py-2 bg-gradient-to-r from-red-500 to-red-700 text-white font-bold rounded-xl text-xs">
             <img src="/logos/888starz-icon.svg" alt="888starz" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy"/>
             888starz
           </a>

@@ -150,8 +150,8 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                                 onClick={() => setSelectedBookmaker('888starz')}
                                 className={`flex flex-col items-center justify-center gap-1 text-xs font-bold px-3 py-2 rounded-lg border-2 transition-all ${
                                   selectedBookmaker === '888starz'
-                                    ? 'border-gold bg-gold/10 text-gold'
-                                    : 'border-edge/40 text-gray-400 hover:border-gold/40'
+                                    ? 'border-red-500 bg-red-500/10 text-red-400'
+                                    : 'border-edge/40 text-gray-400 hover:border-red-500/40'
                                 }`}
                               >
                                 <span className="flex items-center justify-center gap-1.5">
@@ -201,7 +201,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                           className={`w-full flex items-center justify-center gap-2 px-6 py-3.5 font-bold rounded-xl text-sm hover:shadow-lg transition-all hover:brightness-110 ${
                             selectedBookmaker === 'linebet'
                               ? 'bg-gradient-to-r from-emerald to-emerald-dark text-midnight hover:shadow-emerald/30'
-                              : 'bg-gradient-to-r from-gold to-gold-dark text-midnight hover:shadow-gold/30'
+                              : 'bg-gradient-to-r from-red-500 to-red-700 text-white hover:shadow-red-500/30'
                           }`}
                         >
                           <img
@@ -538,7 +538,7 @@ export default function PromoVip() {
                     <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                   {/* V23: Nouveau bouton 888starz à côté de Linebet */}
-                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 bg-gradient-to-r from-gold to-gold-dark text-midnight font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-gold/30 transition-all hover:brightness-110 btn-gold">
+                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 bg-gradient-to-r from-red-500 to-red-700 text-white font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-red-500/30 transition-all hover:brightness-110">
                     <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                 </div>

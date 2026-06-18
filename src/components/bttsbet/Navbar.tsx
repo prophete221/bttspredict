@@ -188,7 +188,7 @@ export default function Navbar() {
                   href={AFFILIATE.star888}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-2 text-center px-5 py-3 bg-gradient-to-r from-gold to-gold-dark text-midnight font-bold rounded-lg"
+                  className="flex items-center justify-center gap-2 text-center px-5 py-3 bg-gradient-to-r from-red-500 to-red-700 text-white font-bold rounded-lg"
                 >
                   <img src="/logos/888starz-icon.svg" alt="888starz" className="w-5 h-5 rounded object-contain flex-shrink-0" loading="lazy"/>
                   S&apos;inscrire sur 888starz

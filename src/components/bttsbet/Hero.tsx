@@ -76,7 +76,7 @@ export default function Hero() {
             href={AFFILIATE.linebet}
             rel={AFFILIATE.rel}
             target="_blank"
-            className="flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-gold to-gold-dark text-dark-900 font-bold rounded-xl text-base hover:shadow-lg hover:shadow-gold/30 btn-gold transition-all hover:brightness-110 hover-lift"
+            className="flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-emerald to-emerald-dark text-midnight font-bold rounded-xl text-base hover:shadow-lg hover:shadow-emerald/30 btn-emerald transition-all hover:brightness-110 hover-lift"
           >
             <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
             Bonus 150$
@@ -86,7 +86,7 @@ export default function Hero() {
             href={AFFILIATE.star888}
             rel={AFFILIATE.rel}
             target="_blank"
-            className="flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-xl text-base hover:shadow-lg hover:shadow-purple-500/30 transition-all hover:brightness-110 hover-lift"
+            className="flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-red-500 to-red-700 text-white font-bold rounded-xl text-base hover:shadow-lg hover:shadow-red-500/30 transition-all hover:brightness-110 hover-lift"
           >
             <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
             Bonus 100%
