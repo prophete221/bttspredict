@@ -520,221 +520,320 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   QUANTUM AURORA BUTTONS — New style v6
-   - Angular clip-path corners (cyber/platform feel)
-   - Animated gradient border sweep
-   - Glass tint background
-   - Glow trail on hover
+   QUANTUM AURORA BUTTONS — Ultra-Premium v7 ("Aurora Glass Prism")
+   Engineering features (all CSS-only, no JS):
+   • 4-layer composite (gradient body + rotating aurora swirl + top
+     sheen rail + diagonal sheen sweep on hover)
+   • Inner conic gradient that orbits on hover (conic-gradient rotation)
+   • Glass-tinted edge ring with multi-stop brand halo
+   • Layered drop shadow: ambient + key + rim with brand-tinted glow
+   • Press state with inset dimple + scale
+   • 3D push-up micro-lift on hover (-3px translate)
+   • Accessibility: prefers-reduced-motion disables all transforms
+   • Brand-safe: Linebet green / 888starz red preserved as unalterable
    ═══════════════════════════════════════════════════════════════ */
 
-/* Shared button base — angular corners + animated sweep */
-.btn-quantum-base {
+/* Keyframes for premium button effects */
+@keyframes btn-aurora-orbit {
+  0%   { transform: translate(-50%, -50%) rotate(0deg)   scale(1.4); }
+  100% { transform: translate(-50%, -50%) rotate(360deg) scale(1.4); }
+}
+@keyframes btn-edge-pulse {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1;    }
+}
+@keyframes btn-sheen-rail {
+  0%   { transform: translateX(-120%); }
+  100% { transform: translateX(120%);  }
+}
+
+/* ─── Shared button prism base ─── */
+.btn-quantum-base,
+.btn-emerald,
+.btn-gold,
+.btn-linebet,
+.btn-star888,
+.btn-ghost-quantum {
   position: relative;
   isolation: isolate;
-  border-radius: 10px;
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, filter 0.3s ease;
-  letter-spacing: -0.01em;
+  z-index: 0;
   overflow: hidden;
-  /* Angular cut top-left & bottom-right for cyber feel */
+  border: none;
+  font-weight: 800;
+  letter-spacing: -0.012em;
+  cursor: pointer;
+  /* Angled top-left + bottom-right corners — platform feel */
   clip-path: polygon(
-    8px 0,
+    10px 0,
     100% 0,
-    100% calc(100% - 8px),
-    calc(100% - 8px) 100%,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
     0 100%,
-    0 8px
+    0 10px
   );
-}
-.btn-quantum-base::before {
-  /* Diagonal sheen sweep on hover */
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.18) 50%, transparent 70%);
-  transform: translateX(-100%);
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  z-index: 1;
-  pointer-events: none;
-}
-.btn-quantum-base:hover::before {
-  transform: translateX(100%);
-}
-.btn-quantum-base:active {
-  transform: translateY(1px) scale(0.985);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.35s ease;
 }
 
-/* ─── Cyan primary button (was .btn-emerald) ─── */
-.btn-emerald {
-  background: linear-gradient(135deg, #22D3EE 0%, #0891B2 100%);
-  color: #07091A;
-  font-weight: 800;
-  position: relative;
-  overflow: hidden;
-  box-shadow:
-    0 4px 14px rgba(34, 211, 238, 0.30),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35),
-    inset 0 -2px 0 rgba(8, 145, 178, 0.55);
-  letter-spacing: -0.01em;
-  clip-path: polygon(
-    8px 0, 100% 0, 100% calc(100% - 8px),
-    calc(100% - 8px) 100%, 0 100%, 0 8px
-  );
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, filter 0.3s ease;
-}
-.btn-emerald:hover {
-  box-shadow:
-    0 8px 28px rgba(34, 211, 238, 0.50),
-    0 0 24px rgba(34, 211, 238, 0.30),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45),
-    inset 0 -2px 0 rgba(8, 145, 178, 0.65);
-  filter: brightness(1.1);
-  transform: translateY(-2px);
-}
-.btn-emerald::after {
+/* The rotating aurora swirl that lives BEHIND the gradient body.
+   It only becomes visible through the translucent top coat on hover. */
+.btn-quantum-base::before,
+.btn-emerald::before,
+.btn-gold::before,
+.btn-linebet::before,
+.btn-star888::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.25) 50%, transparent 70%);
-  transform: translateX(-100%);
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  top: 50%;
+  left: 50%;
+  width: 220%;
+  height: 220%;
+  z-index: -2;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1.4);
+  opacity: 0;
   pointer-events: none;
+  transition: opacity 0.5s ease;
+  filter: blur(18px);
 }
-.btn-emerald:hover::after { transform: translateX(100%); }
 
-/* ─── Amber accent button (was .btn-gold) ─── */
-.btn-gold {
-  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-  color: #07091A;
-  font-weight: 800;
-  position: relative;
-  overflow: hidden;
-  box-shadow:
-    0 4px 14px rgba(245, 158, 11, 0.30),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35),
-    inset 0 -2px 0 rgba(217, 119, 6, 0.55);
-  letter-spacing: -0.01em;
-  clip-path: polygon(
-    8px 0, 100% 0, 100% calc(100% - 8px),
-    calc(100% - 8px) 100%, 0 100%, 0 8px
-  );
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, filter 0.3s ease;
-}
-.btn-gold:hover {
-  box-shadow:
-    0 8px 28px rgba(245, 158, 11, 0.50),
-    0 0 24px rgba(245, 158, 11, 0.30),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45),
-    inset 0 -2px 0 rgba(217, 119, 6, 0.65);
-  filter: brightness(1.1);
-  transform: translateY(-2px);
-}
-.btn-gold::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.25) 50%, transparent 70%);
-  transform: translateX(-100%);
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  pointer-events: none;
-}
-.btn-gold:hover::after { transform: translateX(100%); }
-
-/* ─── Brand-safe Linebet button — stays light green ─── */
-.btn-linebet {
-  background: linear-gradient(135deg, #34D399 0%, #10B981 100%);
-  color: #06281F;
-  font-weight: 800;
-  position: relative;
-  overflow: hidden;
-  box-shadow:
-    0 4px 14px rgba(52, 211, 153, 0.30),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35),
-    inset 0 -2px 0 rgba(16, 185, 129, 0.55);
-  letter-spacing: -0.01em;
-  clip-path: polygon(
-    8px 0, 100% 0, 100% calc(100% - 8px),
-    calc(100% - 8px) 100%, 0 100%, 0 8px
-  );
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, filter 0.3s ease;
-}
-.btn-linebet:hover {
-  box-shadow:
-    0 8px 28px rgba(52, 211, 153, 0.50),
-    0 0 24px rgba(52, 211, 153, 0.30),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45),
-    inset 0 -2px 0 rgba(16, 185, 129, 0.65);
-  filter: brightness(1.1);
-  transform: translateY(-2px);
-}
-.btn-linebet::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.25) 50%, transparent 70%);
-  transform: translateX(-100%);
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  pointer-events: none;
-}
-.btn-linebet:hover::after { transform: translateX(100%); }
-
-/* ─── Brand-safe 888starz button — stays red ─── */
-.btn-star888 {
-  background: linear-gradient(135deg, #EF4444 0%, #B91C1C 100%);
-  color: #FFF;
-  font-weight: 800;
-  position: relative;
-  overflow: hidden;
-  box-shadow:
-    0 4px 14px rgba(239, 68, 68, 0.30),
-    inset 0 1px 0 rgba(255, 255, 255, 0.30),
-    inset 0 -2px 0 rgba(185, 28, 28, 0.55);
-  letter-spacing: -0.01em;
-  clip-path: polygon(
-    8px 0, 100% 0, 100% calc(100% - 8px),
-    calc(100% - 8px) 100%, 0 100%, 0 8px
-  );
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, filter 0.3s ease;
-}
-.btn-star888:hover {
-  box-shadow:
-    0 8px 28px rgba(239, 68, 68, 0.50),
-    0 0 24px rgba(239, 68, 68, 0.30),
-    inset 0 1px 0 rgba(255, 255, 255, 0.40),
-    inset 0 -2px 0 rgba(185, 28, 28, 0.65);
-  filter: brightness(1.1);
-  transform: translateY(-2px);
-}
+/* The diagonal sheen rail — sweeps across on hover (premium glass polish) */
+.btn-quantum-base::after,
+.btn-emerald::after,
+.btn-gold::after,
+.btn-linebet::after,
 .btn-star888::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.22) 50%, transparent 70%);
-  transform: translateX(-100%);
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
   pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 65%,
+    transparent 100%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  mix-blend-mode: overlay;
 }
-.btn-star888:hover::after { transform: translateX(100%); }
+
+/* Top sheen rail — a permanent thin highlight on the top edge
+   (gives the “polished gem” look even at rest) */
+.btn-emerald, .btn-gold, .btn-linebet, .btn-star888 {
+  box-shadow:
+    /* Ambient drop */
+    0 6px 16px rgba(0, 0, 0, 0.40),
+    /* Brand key light */
+    0 4px 14px var(--btn-key-glow, rgba(34, 211, 238, 0.28)),
+    /* Top sheen rail (persistent) */
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    /* Bottom inner shadow (rim) */
+    inset 0 -2px 0 var(--btn-rim, rgba(8, 145, 178, 0.55)),
+    /* Side edge highlight */
+    inset 1px 0 0 rgba(255, 255, 255, 0.12),
+    inset -1px 0 0 rgba(0, 0, 0, 0.25);
+}
+
+/* ─── Hover state — micro-lift + brighter glow + reveal aurora ─── */
+.btn-emerald:hover,
+.btn-gold:hover,
+.btn-linebet:hover,
+.btn-star888:hover {
+  transform: translateY(-3px) scale(1.012);
+  filter: brightness(1.08) saturate(1.08);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.50),
+    0 10px 30px var(--btn-key-glow, rgba(34, 211, 238, 0.55)),
+    0 0 32px var(--btn-aura-glow, rgba(34, 211, 238, 0.35)),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -2px 0 var(--btn-rim, rgba(8, 145, 178, 0.7)),
+    inset 1px 0 0 rgba(255, 255, 255, 0.18),
+    inset -1px 0 0 rgba(0, 0, 0, 0.30);
+}
+.btn-emerald:hover::before,
+.btn-gold:hover::before,
+.btn-linebet:hover::before,
+.btn-star888:hover::before {
+  opacity: 0.85;
+  animation: btn-aurora-orbit 6s linear infinite;
+}
+.btn-emerald:hover::after,
+.btn-gold:hover::after,
+.btn-linebet:hover::after,
+.btn-star888:hover::after {
+  transform: translateX(120%);
+}
+
+/* ─── Active / press state — dimple inward ─── */
+.btn-emerald:active,
+.btn-gold:active,
+.btn-linebet:active,
+.btn-star888:active {
+  transform: translateY(0) scale(0.985);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.45),
+    inset 0 2px 4px rgba(0, 0, 0, 0.25),
+    inset 0 -1px 0 var(--btn-rim, rgba(8, 145, 178, 0.6));
+  filter: brightness(0.95);
+  transition-duration: 0.08s;
+}
+
+/* ─── Cyan primary button ─── */
+.btn-emerald {
+  --btn-key-glow: rgba(34, 211, 238, 0.45);
+  --btn-aura-glow: rgba(34, 211, 238, 0.40);
+  --btn-rim: rgba(8, 145, 178, 0.65);
+  color: #04121A;
+  background:
+    linear-gradient(135deg, #67E8F9 0%, #22D3EE 38%, #0891B2 100%);
+}
+.btn-emerald::before {
+  background: conic-gradient(
+    from 0deg,
+    #67E8F9 0deg, transparent 60deg,
+    #E879F9 120deg, transparent 180deg,
+    #22D3EE 240deg, transparent 300deg,
+    #67E8F9 360deg
+  );
+}
+
+/* ─── Amber accent button ─── */
+.btn-gold {
+  --btn-key-glow: rgba(245, 158, 11, 0.45);
+  --btn-aura-glow: rgba(245, 158, 11, 0.40);
+  --btn-rim: rgba(217, 119, 6, 0.65);
+  color: #1A0F00;
+  background:
+    linear-gradient(135deg, #FCD34D 0%, #F59E0B 38%, #D97706 100%);
+}
+.btn-gold::before {
+  background: conic-gradient(
+    from 0deg,
+    #FCD34D 0deg, transparent 60deg,
+    #FDE68A 120deg, transparent 180deg,
+    #F59E0B 240deg, transparent 300deg,
+    #FCD34D 360deg
+  );
+}
+
+/* ─── Brand-safe Linebet button (light green) ─── */
+.btn-linebet {
+  --btn-key-glow: rgba(52, 211, 153, 0.45);
+  --btn-aura-glow: rgba(52, 211, 153, 0.40);
+  --btn-rim: rgba(5, 102, 65, 0.65);
+  color: #04150C;
+  background:
+    linear-gradient(135deg, #6EE7B7 0%, #34D399 38%, #10B981 100%);
+}
+.btn-linebet::before {
+  background: conic-gradient(
+    from 0deg,
+    #6EE7B7 0deg, transparent 60deg,
+    #A7F3D0 120deg, transparent 180deg,
+    #34D399 240deg, transparent 300deg,
+    #6EE7B7 360deg
+  );
+}
+
+/* ─── Brand-safe 888starz button (red) ─── */
+.btn-star888 {
+  --btn-key-glow: rgba(239, 68, 68, 0.45);
+  --btn-aura-glow: rgba(239, 68, 68, 0.40);
+  --btn-rim: rgba(127, 14, 14, 0.7);
+  color: #FFFFFF;
+  background:
+    linear-gradient(135deg, #FCA5A5 0%, #EF4444 38%, #B91C1C 100%);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+}
+.btn-star888::before {
+  background: conic-gradient(
+    from 0deg,
+    #FCA5A5 0deg, transparent 60deg,
+    #FECACA 120deg, transparent 180deg,
+    #EF4444 240deg, transparent 300deg,
+    #FCA5A5 360deg
+  );
+}
 
 /* ─── Ghost / outline button — secondary action ─── */
 .btn-ghost-quantum {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(34, 211, 238, 0.25);
+  background:
+    linear-gradient(180deg, rgba(34, 211, 238, 0.04) 0%, rgba(34, 211, 238, 0.01) 100%);
+  border: 1px solid rgba(34, 211, 238, 0.28);
   color: #E6EAF5;
-  font-weight: 600;
+  font-weight: 700;
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
+  letter-spacing: -0.01em;
   clip-path: polygon(
-    8px 0, 100% 0, 100% calc(100% - 8px),
-    calc(100% - 8px) 100%, 0 100%, 0 8px
+    10px 0, 100% 0, 100% calc(100% - 10px),
+    calc(100% - 10px) 100%, 0 100%, 0 10px
   );
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    background 0.35s ease,
+    filter 0.35s ease;
+}
+.btn-ghost-quantum::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 40%, rgba(34, 211, 238, 0.25) 50%, transparent 60%);
+  transform: translateX(-120%);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
 }
 .btn-ghost-quantum:hover {
-  border-color: rgba(34, 211, 238, 0.6);
-  background: rgba(34, 211, 238, 0.08);
-  box-shadow: 0 0 20px rgba(34, 211, 238, 0.18);
-  transform: translateY(-1px);
+  border-color: rgba(34, 211, 238, 0.7);
+  background:
+    linear-gradient(180deg, rgba(34, 211, 238, 0.10) 0%, rgba(34, 211, 238, 0.03) 100%);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.40),
+    0 0 24px rgba(34, 211, 238, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+.btn-ghost-quantum:hover::after { transform: translateX(120%); }
+.btn-ghost-quantum:active {
+  transform: translateY(0) scale(0.985);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.40),
+    inset 0 2px 4px rgba(0, 0, 0, 0.30);
+  transition-duration: 0.08s;
+}
+
+/* ─── Focus-visible accessibility ring (premium outline) ─── */
+.btn-emerald:focus-visible,
+.btn-gold:focus-visible,
+.btn-linebet:focus-visible,
+.btn-star888:focus-visible,
+.btn-ghost-quantum:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.7);
+  outline-offset: 3px;
+}
+
+/* ─── Reduced motion — disables transforms & rotations ─── */
+@media (prefers-reduced-motion: reduce) {
+  .btn-emerald:hover::before,
+  .btn-gold:hover::before,
+  .btn-linebet:hover::before,
+  .btn-star888:hover::before { animation: none; }
+  .btn-emerald:hover,
+  .btn-gold:hover,
+  .btn-linebet:hover,
+  .btn-star888:hover,
+  .btn-ghost-quantum:hover { transform: none; }
 }
 
 /* ─── Section Accent Borders ─── */
@@ -950,20 +1049,19 @@ a, button, [role="button"], input[type="checkbox"], input[type="radio"], select,
       0 -1px 0 rgba(0, 0, 0, 0.4) inset;
   }
 
-  /* Buttons — slightly tighter padding on mobile, more app-like */
+  /* Buttons — slightly tighter corners on mobile for harmony */
   .btn-emerald,
   .btn-gold,
   .btn-linebet,
   .btn-star888,
   .btn-ghost-quantum {
-    /* clip-path corners scaled down for mobile harmony */
     clip-path: polygon(
-      6px 0,
+      7px 0,
       100% 0,
-      100% calc(100% - 6px),
-      calc(100% - 6px) 100%,
+      100% calc(100% - 7px),
+      calc(100% - 7px) 100%,
       0 100%,
-      0 6px
+      0 7px
     );
   }
 
