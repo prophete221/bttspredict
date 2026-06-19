@@ -31,3 +31,45 @@ Stage Summary:
   * Mobile platform-style layout (full-width stacked CTAs, dashboard-style stats card)
 - Brand colors preserved on Linebet (green) and 888starz (red)
 - No content modified — only styling and animations
+
+---
+Task ID: V28-ultra-premium-buttons
+Agent: Main Agent
+Task: Redesign buttons to be the most premium possible — impossible to reproduce — without touching content or anything else.
+
+Work Log:
+- Audited current button system (v6 "Quantum Aurora Buttons" — single-layer gradient + diagonal sheen)
+- Designed completely new v7 "Aurora Glass Prism" button system with 4-layer composite:
+  * Layer 1: 3-stop gradient body (light → mid → dark, e.g. #67E8F9 → #22D3EE → #0891B2)
+  * Layer 2 (::before): Rotating conic-gradient aurora swirl (6s linear orbit on hover, blurred 18px)
+  * Layer 3 (::after): Diagonal sheen rail sweep on hover (115deg, 0.9s, mix-blend-mode: overlay)
+  * Layer 4: 6-stop layered box-shadow (ambient drop + brand key light + top sheen + bottom rim + side edge highlights)
+- New hover state: translateY(-3px) + scale(1.012) + brightness(1.08) + saturate(1.08) + revealed aurora + brighter glow
+- New active/press state: scale(0.985) + inset dimple shadow + brightness(0.95) for tactile feel
+- New focus-visible state: 2px white outline with 3px offset for accessibility
+- Added prefers-reduced-motion support (disables transforms/rotations)
+- Used CSS custom properties for per-button brand theming:
+  * --btn-key-glow (main brand-colored drop shadow)
+  * --btn-aura-glow (outer halo glow)
+  * --btn-rim (bottom inset rim color)
+- Each button gets its own conic-gradient swirl palette matching its brand:
+  * btn-emerald (cyan): cyan + fuchsia + cyan
+  * btn-gold (amber): amber + light amber + amber
+  * btn-linebet (green): light green + mint + green
+  * btn-star888 (red): light red + pink + red
+- Brand colors preserved exactly: Linebet light green (#34D399/#10B981), 888starz red (#EF4444/#B91C1C)
+- Refined ghost/outline button too: dual-stop gradient tint + 115deg sheen rail + brighter cyan border on hover
+- Updated mobile clip-path corners (7px instead of 6px) to harmonize with new 10px desktop corners
+- Verified local build: 0 errors, 15 pages prerendered
+- Committed: "feat: ultra-premium button design v7 (Aurora Glass Prism) — 4-layer composite with rotating aurora swirl, multi-stop brand halo, polished gem sheen rail, dimple press state, accessibility focus ring"
+- Pulled/rebased/pushed to origin/main (commit 86271ecd)
+- Verified production deploy at 09:52:44 GMT: production CSS file (8616981a6acf62c2.css) now contains btn-aurora-orbit (2x), btn-emerald (14x), btn-linebet (14x), btn-star888 (14x), and 4 conic-gradient occurrences
+
+Stage Summary:
+- Ultra-premium button design v7 "Aurora Glass Prism" deployed to production
+- 4-layer composite: gradient body + rotating aurora swirl + diagonal sheen rail + 6-stop layered shadows
+- Each button now feels like a polished gemstone with internal aurora that orbits on hover
+- Press state gives tactile "dimple" feedback
+- Accessibility: focus-visible ring + prefers-reduced-motion support
+- Brand colors fully preserved (Linebet green, 888starz red)
+- No content modified — only CSS (globals.css), 272 lines inserted, 174 lines removed
