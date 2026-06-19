@@ -877,3 +877,179 @@ a, button, [role="button"], input[type="checkbox"], input[type="radio"], select,
     cursor: auto;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   PER-CARD SCROLL REVEAL — used by useRevealOnScroll hook
+   Each card animates independently as user scrolls (mobile-friendly)
+   ═══════════════════════════════════════════════════════════════ */
+.reveal-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-card--fade-up { transform: translateY(20px); }
+.reveal-card--fade-up.is-visible { transform: translateY(0); }
+.reveal-card--fade-left { transform: translateX(-20px); }
+.reveal-card--fade-left.is-visible { transform: translateX(0); }
+.reveal-card--fade-right { transform: translateX(20px); }
+.reveal-card--fade-right.is-visible { transform: translateX(0); }
+.reveal-card--scale { transform: scale(0.96); }
+.reveal-card--scale.is-visible { transform: scale(1); }
+.reveal-card--blur { filter: blur(6px); }
+.reveal-card--blur.is-visible {
+  filter: blur(0);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-card,
+  .reveal-card--fade-up,
+  .reveal-card--fade-left,
+  .reveal-card--fade-right,
+  .reveal-card--scale,
+  .reveal-card--blur {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE PLATFORM-STYLE UPGRADES (max-width: 767px)
+   - Make the site feel more like a native app dashboard, less like a blog
+   - Tighter spacing, stronger depth, app-like containers
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+  /* Stronger glass effect on mobile for app-like depth */
+  .glass-3d {
+    background: linear-gradient(180deg, rgba(22, 27, 58, 0.85) 0%, rgba(17, 21, 46, 0.95) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow:
+      0 4px 20px rgba(0, 0, 0, 0.5),
+      0 1px 0 rgba(255, 255, 255, 0.05) inset,
+      0 -1px 0 rgba(0, 0, 0, 0.3) inset;
+  }
+
+  /* Card-3d stronger shadow on mobile for depth */
+  .card-3d {
+    box-shadow:
+      0 6px 20px rgba(0, 0, 0, 0.55),
+      0 1px 0 rgba(255, 255, 255, 0.04) inset,
+      0 -1px 0 rgba(0, 0, 0, 0.4) inset;
+  }
+
+  /* Buttons — slightly tighter padding on mobile, more app-like */
+  .btn-emerald,
+  .btn-gold,
+  .btn-linebet,
+  .btn-star888,
+  .btn-ghost-quantum {
+    /* clip-path corners scaled down for mobile harmony */
+    clip-path: polygon(
+      6px 0,
+      100% 0,
+      100% calc(100% - 6px),
+      calc(100% - 6px) 100%,
+      0 100%,
+      0 6px
+    );
+  }
+
+  /* Stagger reveal works faster on mobile for snappier feel */
+  .stagger-reveal > * {
+    transition:
+      opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Reveal cards have smaller distance on mobile (less visual jump) */
+  .reveal-card,
+  .reveal-card--fade-up {
+    transform: translateY(14px);
+  }
+  .reveal-card--fade-left { transform: translateX(-14px); }
+  .reveal-card--fade-right { transform: translateX(14px); }
+
+  /* Section spacing tighter on mobile — feels more like a continuous app */
+  section {
+    scroll-margin-top: 80px;
+  }
+
+  /* Headlines — slightly tighter letter spacing for mobile readability */
+  h1, h2, h3 {
+    letter-spacing: 0.005em;
+  }
+
+  /* Premium section title underline shorter on mobile */
+  .title-underline::after {
+    width: 32px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL PROGRESS BAR — premium top indicator
+   ═══════════════════════════════════════════════════════════════ */
+.scroll-progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.02);
+  z-index: 60;
+  pointer-events: none;
+  overflow: hidden;
+}
+.scroll-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #22D3EE 0%, #E879F9 50%, #F59E0B 100%);
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.6), 0 0 24px rgba(232, 121, 249, 0.3);
+  transform-origin: left;
+  will-change: transform;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE HERO UPGRADES — premium dashboard feel
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  /* Hero stats card — make it feel like a dashboard widget on mobile */
+  .hero-stats-dashboard {
+    background:
+      linear-gradient(180deg, rgba(22, 27, 58, 0.85) 0%, rgba(11, 15, 35, 0.92) 100%);
+    border: 1px solid rgba(34, 211, 238, 0.15);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.5),
+      0 0 24px rgba(34, 211, 238, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Tabular nums everywhere on mobile for stable number animation */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   STAT-CARD-ANIMATED fix for mobile — was disabled, restore subtle effect
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+  .stat-card-animated {
+    animation: statGlow 5s ease-in-out infinite;
+  }
+  .stat-card-animated:nth-child(2) { animation-delay: 0.4s; }
+  .stat-card-animated:nth-child(3) { animation-delay: 0.8s; }
+  .stat-card-animated:nth-child(4) { animation-delay: 1.2s; }
+}

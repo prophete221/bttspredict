@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE, BOOKMAKERS, ANDROID_LOGO } from '@/lib/constants'
-import { useScrollAnimation } from '@/hooks/useAnimations'
+import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 
 function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const [step, setStep] = useState<'info' | 'confirm'>('info')
@@ -352,6 +352,14 @@ export default function PromoVip() {
   const [todayFormatted, setTodayFormatted] = useState('')
   const dailyCote = useMemo(() => getDailyCote(), [])
 
+  // Count-up for daily cote — animates when section enters viewport
+  const [coteRef, coteDisplay] = useCountUp(dailyCote, 1600, { decimals: 2, threshold: 0.3 })
+  // Count-up for VIP match count
+  const vipMatchCount = vipMatches.length
+  const [matchCountRef, matchCountDisplay] = useCountUp(vipMatchCount, 1200, { threshold: 0.3 })
+  // Count-up for VIP accuracy (~89%)
+  const [accuracyRef, accuracyDisplay] = useCountUp(89, 1800, { threshold: 0.3, from: 0 })
+
   useEffect(() => {
     const formatDate = () => {
       const now = new Date()
@@ -453,7 +461,7 @@ export default function PromoVip() {
                 <div className="flex items-center gap-3 sm:gap-4 mb-4 pb-4 border-b border-gold/8">
                   <div className="flex items-center gap-1.5">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                    <span className="text-[11px] text-gray-400"><span className="text-white font-semibold">{vipMatches.length}</span> matchs</span>
+                    <span className="text-[11px] text-gray-400"><span ref={matchCountRef} className="text-white font-semibold tabular-nums">{matchCountDisplay}</span> matchs</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -461,11 +469,11 @@ export default function PromoVip() {
                   </div>
                   <div className="flex items-center gap-1.5">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                    <span className="text-[11px] text-gray-400">Cote <span className="text-gold font-bold">{dailyCote.toFixed(2)}</span></span>
+                    <span className="text-[11px] text-gray-400">Cote <span ref={coteRef} className="text-gold font-bold tabular-nums">{coteDisplay}</span></span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span className="text-[11px] text-gray-400">Précision <span className="text-gold font-bold">{SITE.vipAccuracy}</span></span>
+                    <span className="text-[11px] text-gray-400">Précision <span ref={accuracyRef} className="text-gold font-bold tabular-nums">~{accuracyDisplay}%</span></span>
                   </div>
                 </div>
 
@@ -487,7 +495,7 @@ export default function PromoVip() {
 
                 <div className="flex items-center justify-between bg-gold/5 border border-gold/10 rounded-lg px-3 py-2 mb-5">
                   <span className="text-[11px] text-gray-500 font-medium">Cote totale du coupon</span>
-                  <span className="text-sm text-gold font-bold tabular-nums">{dailyCote.toFixed(2)}</span>
+                  <span className="text-sm text-gold font-bold tabular-nums">{coteDisplay}</span>
                 </div>
 
                 <button onClick={() => setShowVipModal(true)}

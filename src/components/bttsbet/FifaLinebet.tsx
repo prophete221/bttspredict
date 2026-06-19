@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE, ANDROID_LOGO } from '@/lib/constants'
 import { resolveTeamLogo } from '@/lib/teamLogos'
+import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 
 /* ─────────────────────────── FIFA MODAL ─────────────────────────── */
 
@@ -221,7 +222,7 @@ function seededRandom(seed: number): number {
 }
 
 function generateFifaMatches(seed: number, count: number) {
-  const matches = []
+  const matches: Array<{ home: string; away: string; league: string }> = []
   for (let i = 0; i < count; i++) {
     const r1 = seededRandom(seed + i * 7)
     const r2 = seededRandom(seed + i * 13 + 3)
@@ -245,6 +246,7 @@ function generateFifaMatches(seed: number, count: number) {
 export default function FifaLinebet() {
   const [showFifaModal, setShowFifaModal] = useState(false)
   const couponRef = useRef<HTMLDivElement>(null)
+  const [sectionRef, isVisible] = useScrollAnimation(0.1)
 
   const scrollToCoupon = () => {
     couponRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
@@ -252,6 +254,12 @@ export default function FifaLinebet() {
   const [fifaMatches, setFifaMatches] = useState<Array<{ home: string; away: string; league: string; cote: number }>>([])
   const [couponCote, setCouponCote] = useState(0)
   const [nextUpdate, setNextUpdate] = useState(300) // 5 min countdown
+
+  // Count-up animations for FIFA stats — animated when section enters viewport
+  const fifaMatchCount = fifaMatches.length
+  const [fifaCountRef, fifaCountDisplay] = useCountUp(fifaMatchCount, 1200, { threshold: 0.3 })
+  const [coteRef, coteDisplay] = useCountUp(couponCote, 1600, { decimals: 2, threshold: 0.3 })
+  const [reliabilityRef, reliabilityDisplay] = useCountUp(98, 1800, { threshold: 0.3 })
 
   const generateCoupon = useMemo(() => {
     return () => {
@@ -309,7 +317,7 @@ export default function FifaLinebet() {
 
   return (
     <>
-      <section id="fifa-linebet" className="py-10 sm:py-16 px-4 relative overflow-hidden">
+      <section ref={sectionRef} id="fifa-linebet" className="py-10 sm:py-16 px-4 relative overflow-hidden">
         {/* Premium background mesh */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/3 w-[500px] h-[400px] bg-violet-500/6 rounded-full blur-[140px] opacity-60" />
@@ -317,7 +325,7 @@ export default function FifaLinebet() {
         </div>
         <div className="max-w-5xl mx-auto relative">
           {/* Section Header */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-center mb-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} transition={{ duration: 0.5 }} className="text-center mb-8">
             <div className="flex items-center justify-center gap-2 mb-2">
               <div className="w-8 h-px bg-gradient-to-r from-transparent to-violet-400" />
               <span className="text-[10px] font-bold text-violet-400 uppercase tracking-widest">Exclusive Algorithm</span>
@@ -353,7 +361,7 @@ export default function FifaLinebet() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             {/* FIFA Coupon */}
-            <motion.div ref={couponRef} initial={{ opacity: 0, y: 20, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.6 }}
+            <motion.div ref={couponRef} initial={{ opacity: 0, y: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.97 }} transition={{ duration: 0.6 }}
               className="relative rounded-2xl border border-violet-500/25 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift shadow-2xl">
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/40 to-transparent" />
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-600 via-gold to-violet-600" />
@@ -391,15 +399,15 @@ export default function FifaLinebet() {
                 <div className="flex items-center gap-3 sm:gap-4 mb-4 pb-4 border-b border-violet-500/8">
                   <div className="flex items-center gap-1.5">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-violet-400/60"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                    <span className="text-[11px] text-gray-400"><span className="text-white font-semibold">{fifaMatches.length}</span> matchs</span>
+                    <span className="text-[11px] text-gray-400"><span ref={fifaCountRef} className="text-white font-semibold tabular-nums">{fifaCountDisplay}</span> matchs</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-violet-400/60"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                    <span className="text-[11px] text-gray-400">Cote <span className="text-violet-400 font-bold">{couponCote.toFixed(2)}</span></span>
+                    <span className="text-[11px] text-gray-400">Cote <span ref={coteRef} className="text-violet-400 font-bold tabular-nums">{coteDisplay}</span></span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-violet-400/60"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span className="text-[11px] text-gray-400">Fiabilité <span className="text-violet-400 font-bold">98%</span></span>
+                    <span className="text-[11px] text-gray-400">Fiabilité <span ref={reliabilityRef} className="text-violet-400 font-bold tabular-nums">{reliabilityDisplay}%</span></span>
                   </div>
                 </div>
 
@@ -437,7 +445,7 @@ export default function FifaLinebet() {
 
                 <div className="flex items-center justify-between bg-violet-500/5 border border-violet-500/10 rounded-lg px-3 py-2 mb-5">
                   <span className="text-[11px] text-gray-500 font-medium">Cote totale du coupon</span>
-                  <span className="text-sm text-violet-400 font-bold tabular-nums">{couponCote.toFixed(2)}</span>
+                  <span className="text-sm text-violet-400 font-bold tabular-nums">{coteDisplay}</span>
                 </div>
 
                 <button onClick={() => setShowFifaModal(true)}

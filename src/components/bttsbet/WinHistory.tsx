@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import TiltCard from './TiltCard'
 import { resolveTeamLogo } from '@/lib/teamLogos'
 import { SITE } from '@/lib/constants'
-import { useScrollAnimation } from '@/hooks/useAnimations'
+import { useScrollAnimation, useRevealOnScroll, useCountUp } from '@/hooks/useAnimations'
 
 function MiniTeamLogo({ src, alt }: { src: string; alt: string }) {
   const [err, setErr] = useState(false)
@@ -25,6 +25,39 @@ interface HistoryItem {
   result: string
   score: string
   confidence: number
+}
+
+function HistoryRow({ item, index }: { item: HistoryItem; index: number }) {
+  // Per-row scroll reveal — each row animates independently
+  const [revealRef, isRowVisible] = useRevealOnScroll(0.1, 'fade-up')
+  return (
+    <motion.div
+      ref={revealRef}
+      key={item.id || index}
+      initial={false}
+      animate={isRowVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+      transition={{ duration: 0.4, delay: Math.min(index * 0.04, 0.2), ease: [0.22, 1, 0.36, 1] }}
+      className="grid grid-cols-1 sm:grid-cols-5 gap-1 sm:gap-3 px-3 py-2.5 border-t border-white/[0.04] hover:bg-emerald/[0.04] transition-colors items-center"
+    >
+      <div className="text-[10px] text-gray-500 sm:text-xs">{item.date}</div>
+      <div className="flex items-center gap-1.5">
+        <MiniTeamLogo src={resolveTeamLogo(item.match?.split(' vs ')[0])} alt={item.match?.split(' vs ')[0]} />
+        <div>
+          <div className="text-white font-semibold text-xs sm:text-sm">{item.match}</div>
+          <div className="text-[10px] text-gray-500 sm:hidden">{item.league} • {item.type}</div>
+          <div className="text-[10px] text-gray-500 hidden sm:block">{item.league}</div>
+        </div>
+        <MiniTeamLogo src={resolveTeamLogo(item.match?.split(' vs ')[1])} alt={item.match?.split(' vs ')[1]} />
+      </div>
+      <div className="hidden sm:block">
+        <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-full ${item.type === 'BTTS' ? 'bg-emerald/10 text-emerald border border-emerald/20' : 'bg-gold/10 text-gold border border-gold/20'}`}>
+          {item.type}
+        </span>
+      </div>
+      <div className="text-xs text-white font-semibold">{item.prediction}</div>
+      <div className="text-xs text-gray-300 font-mono">{item.score}</div>
+    </motion.div>
+  )
 }
 
 export default function WinHistory() {
@@ -61,6 +94,17 @@ export default function WinHistory() {
     const total = stats.total || 0
     return { total, rate: SITE.historyRate, last30Rate: `${SITE.last30Rate}` }
   }, [winData])
+
+  // Count-up hooks for the three stat cards
+  // total: integer count-up
+  // rate: parse "88.3%" → 88.3 with 1 decimal
+  // last30Rate: parse "91%" → 91 with 0 decimals
+  const totalTarget = displayStats?.total ?? 0
+  const rateTarget = displayStats ? parseFloat(displayStats.rate.replace('%', '')) : 0
+  const last30Target = displayStats ? parseFloat(displayStats.last30Rate.replace('%', '')) : 0
+  const [totalRef, totalDisplay] = useCountUp(totalTarget, 1800, { threshold: 0.3 })
+  const [rateRef, rateDisplay] = useCountUp(rateTarget, 1800, { decimals: 1, threshold: 0.3 })
+  const [last30Ref, last30Display] = useCountUp(last30Target, 1800, { threshold: 0.3 })
 
   if (loading) {
     return (
@@ -116,14 +160,16 @@ export default function WinHistory() {
           className={`grid grid-cols-3 gap-3 mb-6 stagger-reveal ${isVisible ? 'is-visible' : ''}`}
         >
           {[
-            { value: displayStats.total.toLocaleString('fr-FR'), label: 'Analysés', color: 'text-white' },
-            { value: displayStats.rate, label: 'Réussite', color: 'text-emerald' },
-            { value: displayStats.last30Rate, label: '30 jours', color: 'text-gold' },
+            { refObj: totalRef, value: totalDisplay, label: 'Analysés', color: 'text-white' },
+            { refObj: rateRef, value: rateDisplay, label: 'Réussite', color: 'text-emerald', suffix: '%' },
+            { refObj: last30Ref, value: last30Display, label: '30 jours', color: 'text-gold', suffix: '%' },
           ].map((item, i) => (
             <TiltCard key={i} maxTilt={4}>
               <div className="glass-3d rounded-xl p-3 text-center stat-card-animated relative overflow-hidden">
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-                <div className={`text-lg font-bold ${item.color}`}>{item.value}</div>
+                <span ref={item.refObj} className={`block text-lg font-bold ${item.color} tabular-nums`}>
+                  {item.value}{item.suffix || ''}
+                </span>
                 <div className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold">{item.label}</div>
               </div>
             </TiltCard>
@@ -143,31 +189,7 @@ export default function WinHistory() {
           </div>
 
           {displayedHistory.map((item, i) => (
-            <motion.div
-              key={item.id || i}
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: 0.3 + i * 0.05 }}
-              className="grid grid-cols-1 sm:grid-cols-5 gap-1 sm:gap-3 px-3 py-2.5 border-t border-white/[0.04] hover:bg-emerald/[0.04] transition-colors items-center"
-            >
-              <div className="text-[10px] text-gray-500 sm:text-xs">{item.date}</div>
-              <div className="flex items-center gap-1.5">
-                <MiniTeamLogo src={resolveTeamLogo(item.match?.split(' vs ')[0])} alt={item.match?.split(' vs ')[0]} />
-                <div>
-                  <div className="text-white font-semibold text-xs sm:text-sm">{item.match}</div>
-                  <div className="text-[10px] text-gray-500 sm:hidden">{item.league} • {item.type}</div>
-                  <div className="text-[10px] text-gray-500 hidden sm:block">{item.league}</div>
-                </div>
-                <MiniTeamLogo src={resolveTeamLogo(item.match?.split(' vs ')[1])} alt={item.match?.split(' vs ')[1]} />
-              </div>
-              <div className="hidden sm:block">
-                <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-full ${item.type === 'BTTS' ? 'bg-emerald/10 text-emerald border border-emerald/20' : 'bg-gold/10 text-gold border border-gold/20'}`}>
-                  {item.type}
-                </span>
-              </div>
-              <div className="text-xs text-white font-semibold">{item.prediction}</div>
-              <div className="text-xs text-gray-300 font-mono">{item.score}</div>
-            </motion.div>
+            <HistoryRow key={item.id || i} item={item} index={i} />
           ))}
         </motion.div>
 

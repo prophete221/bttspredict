@@ -12,6 +12,7 @@ import {
   AgeVerification,
   FloatingElements,
   CursorEffect,
+  ScrollProgressBar,
 } from '@/components/bttsbet'
 
 const jsonLd = {
@@ -102,6 +103,9 @@ export default function Home() {
 
       {/* Cursor Glow Effect */}
       <CursorEffect />
+
+      {/* Scroll Progress Bar — premium platform feel */}
+      <ScrollProgressBar />
 
       {/* Main Content */}
       <main id="main-content" className="relative z-10">

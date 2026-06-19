@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "Capture d'écran de l'application mobile **BttsBet** (fond sombre, interface de paris sportifs).  \n\n### Titre de section visible :  \n- En haut : **\"BttsBet\"** (logo avec icône globe + texte) ; sous-titre **\"888starz\"** (avec étoile).  \n- Section principale : deux cartes de paris pour le match **\"England vs Croatia\"** (date : 2026-06-17).  \n\n### Statistiques chiffrées :  \n- Pour chaque carte : résultat **\"4-2\"** ; options de pari : **\"BTTS\"** (Both Teams To Score) et **\"Over 2.5\"** (plus de 2.5 buts) ; réponse **\"Oui\"**.  \n\n### Design des cartes :  \n- Cartes rectangulaires avec bordures arrondies, fond bleu foncé ; flags d'Angleterre (Angleterre) et Croatie (Croatie) ; texte en blanc/gris.  \n\n### Profondeur visuelle :  \n- Hiérarchie claire (logo → sous-titre → cartes de paris) ; overlay de consentement aux cookies (fond semi-transparent) avec boutons **\"Refuser\"** (gris) et **\"Accepter\"** (turquoise).  \n\n### Détails supplémentaires :  \n- Boutons **\"APK Linebet\"** et **\"APK 888starz\"** (avec icône Android) en haut ; menu hamburger (trois lignes) à droite.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1781859761,
+  "id": "2026061917022908c4503777f04aae",
+  "model": "glm-4.6v",
+  "object": "chat.completion",
+  "request_id": "2026061917022908c4503777f04aae",
+  "usage": {
+    "completion_tokens": 342,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 3841,
+    "prompt_tokens_details": {
+      "cached_tokens": 4
+    },
+    "total_tokens": 4183
+  }
+}

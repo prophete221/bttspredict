@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "Voici une description détaillée de la capture d'écran mobile :\n\n\n### **1. Barre de progression en haut de l'écran**  \nOui, il y a une **barre de progression fine** en haut de l'écran, juste en dessous de la barre de navigation (navbar). Elle est de couleur bleu cyan et s'étend sur toute la largeur de l'écran, indiquant probablement un chargement ou une progression (ex: mise à jour en temps réel).\n\n\n### **2. Première section visible : Hero Section**  \nLa première section visible est une **hero section** (section d'accueil principale), qui occupe la majeure partie de l'écran. Elle est structurée comme suit :\n\n\n#### **Composition de la hero section**  \n- **En-tête (navbar)** :  \n  En haut, une barre de navigation (navbar) sombre (noir/bleu foncé) contient :  \n  - Un **logo** à gauche : un cercle bleu avec un globe stylisé et le texte « BttsBet » en blanc.  \n  - Un **menu hamburger** (trois lignes horizontales) à droite, pour accéder aux options de navigation.  \n\n- **Bannière de mise à jour** :  \n  Juste en dessous de la navbar, une bannière bleu cyan avec un point bleu à gauche, le texte « IA EN DIRECT » en blanc, et « Mis à jour il y a 2 min » en gris à droite. Indique que les données sont actualisées en temps réel.  \n\n- **Titre principal** :  \n  Un titre en gros caractères : « PRONOSTICS BTTS & OVER 2.5 ».  \n  - « PRONOSTICS » en blanc.  \n  - « BTTS » en bleu cyan.  \n  - « & » en blanc.  \n  - « OVER 2.5 » en orange.  \n\n- **Sous-titre** :  \n  Texte en gris : « Propulsé par l'Intelligence artificielle — ~87% de précision sur 15 000+ pronostics ». Met en avant la technologie et la fiabilité.  \n\n- **Boutons d'action** :  \n  Trois boutons rectangulaires, empilés verticalement, avec des couleurs distinctes :  \n  1. **Bleu cyan** : « Pronostics du jour » (texte noir).  \n  2. **Vert** : « LINEbet » (texte blanc) + « Bonus 150$ » (texte noir).  \n  3. **Rouge** : « 888starz » (texte blanc) + « Bonus 100% » (texte blanc).  \n\n- **Statistiques clés** :  \n  Une section sombre (bleu foncé) avec trois colonnes :  \n  - Gauche : « ~87% » (bleu cyan) + « PRÉCISION » (gris).  \n  - Centre : « 15K+ » (blanc) + « ANALYSÉS » (gris).  \n  - Droite : « 50+ » (orange) + « CHAMPIONNATS » (gris).  \n\n- **Code promo** :  \n  En bas de cette section, un champ « CODE PROMO » (gris) avec le code « VISION221 » en jaune.  \n\n\n### **3. Section inférieure : Live Predictions**  \nEn dessous de la hero section, une nouvelle section sombre (bleu foncé) avec :  \n- Un titre « LIVE PREDICTIONS » en bleu cyan.  \n- Un sous-titre « PRONOSTICS IA » en blanc.  \n- Deux boutons :  \n  - Vert : « Linebet » (texte noir) avec un logo « L » vert.  \n  - Rouge : « 888starz » (texte blanc) avec un logo « 888 » rouge.  \n- En dessous, deux liens pour télécharger des APK : « APK Linebet » (avec un logo Android vert) et « APK 888starz » (même style).  \n\n\n### **4. Éléments supplémentaires**  \n- Un **bouton WhatsApp vert** (icône blanche) flottant à droite, pour contacter le support.  \n- Un **bouton « N » noir** (avec une lettre « N » blanche) flottant en bas à gauche, probablement pour revenir en haut de la page.  \n\n\n### **Synthèse**  \nL'interface est conçue pour promouvoir des pronostics sportifs (BTTS et Over 2.5) via l'intelligence artificielle, avec des bonus de paris (LINEbet, 888starz) et des statistiques de fiabilité. La hero section est le point focal, suivie d'une section live predictions pour les mises en temps réel. La barre de progression en haut suggère une actualisation dynamique des données.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1781859839,
+  "id": "20260619170337d5256d4778e94dc7",
+  "model": "glm-4.6v",
+  "object": "chat.completion",
+  "request_id": "20260619170337d5256d4778e94dc7",
+  "usage": {
+    "completion_tokens": 1086,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 3850,
+    "prompt_tokens_details": {
+      "cached_tokens": 4
+    },
+    "total_tokens": 4936
+  }
+}

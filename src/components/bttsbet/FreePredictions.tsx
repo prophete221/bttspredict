@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useScrollAnimation } from '@/hooks/useAnimations'
+import { useScrollAnimation, useRevealOnScroll, useCountUp } from '@/hooks/useAnimations'
 import { AFFILIATE } from '@/lib/constants'
 import { resolveTeamLogo } from '@/lib/teamLogos'
 
@@ -167,8 +167,10 @@ interface MatchData {
   over25: { prediction: string; confidence: number } | null
 }
 
-function MatchRow({ match, index, isVisible }: { match: MatchData; index: number; isVisible: boolean }) {
+function MatchRow({ match, index }: { match: MatchData; index: number }) {
   const [expanded, setExpanded] = useState(false)
+  // Per-card scroll reveal — each card animates independently as user scrolls
+  const [revealRef, isCardVisible] = useRevealOnScroll(0.1, 'fade-up')
 
   const teams = match.match ? match.match.split(' vs ') : ['', '']
   const team1 = teams[0]?.trim() || match.match
@@ -181,9 +183,10 @@ function MatchRow({ match, index, isVisible }: { match: MatchData; index: number
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12, scale: 0.98 }}
-      animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : {}}
-      transition={{ duration: 0.35, delay: index * 0.04 }}
+      ref={revealRef}
+      initial={false}
+      animate={isCardVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+      transition={{ duration: 0.45, delay: Math.min(index * 0.03, 0.18), ease: [0.22, 1, 0.36, 1] }}
       className="relative"
     >
       <motion.div
@@ -444,6 +447,15 @@ export default function FreePredictions() {
     return { total: matchList.length, bttsOui, o25Oui }
   }, [matchList])
 
+  // Count-up animations for stats — only mount after predictions are loaded so
+  // the hook receives the correct target value.
+  const totalStats = !loading ? stats.total : 0
+  const bttsStats = !loading ? stats.bttsOui : 0
+  const o25Stats = !loading ? stats.o25Oui : 0
+  const [totalRef, totalDisplay] = useCountUp(totalStats, 1200, { threshold: 0.3 })
+  const [bttsRef, bttsDisplay] = useCountUp(bttsStats, 1400, { threshold: 0.3 })
+  const [o25Ref, o25Display] = useCountUp(o25Stats, 1400, { threshold: 0.3 })
+
   return (
     <section ref={ref} id="free-predictions" className="py-10 sm:py-16 px-4">
       <div className="max-w-5xl mx-auto">
@@ -470,12 +482,12 @@ export default function FreePredictions() {
                   <span className="absolute inset-0 bg-emerald rounded-full animate-ping opacity-75" />
                   <span className="relative w-1.5 h-1.5 bg-emerald rounded-full" />
                 </span>
-                <span className="text-xs text-gray-400"><span className="text-white font-bold">{stats.total}</span> matchs</span>
+                <span className="text-xs text-gray-400"><span ref={totalRef} className="text-white font-bold tabular-nums">{totalDisplay}</span> matchs</span>
               </div>
               <div className="w-px h-4 bg-white/10" />
-              <div className="text-xs text-gray-400"><span className="text-emerald font-bold">{stats.bttsOui}</span> BTTS</div>
+              <div className="text-xs text-gray-400"><span ref={bttsRef} className="text-emerald font-bold tabular-nums">{bttsDisplay}</span> BTTS</div>
               <div className="w-px h-4 bg-white/10" />
-              <div className="text-xs text-gray-400"><span className="text-gold font-bold">{stats.o25Oui}</span> O2.5</div>
+              <div className="text-xs text-gray-400"><span ref={o25Ref} className="text-gold font-bold tabular-nums">{o25Display}</span> O2.5</div>
             </div>
           </div>
 
@@ -531,7 +543,7 @@ export default function FreePredictions() {
                 <DateGroupHeader label="Aujourd'hui" count={dateGroups.today.length} color="emerald" />
                 <div className="space-y-2">
                   {dateGroups.today.map((m, i) => (
-                    <MatchRow key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} isVisible={isVisible} />
+                    <MatchRow key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} />
                   ))}
                 </div>
               </>
@@ -541,7 +553,7 @@ export default function FreePredictions() {
                 <DateGroupHeader label="Demain" count={dateGroups.tomorrow.length} color="gold" />
                 <div className="space-y-2">
                   {dateGroups.tomorrow.map((m, i) => (
-                    <MatchRow key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} isVisible={isVisible} />
+                    <MatchRow key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} />
                   ))}
                 </div>
               </>
@@ -551,7 +563,7 @@ export default function FreePredictions() {
                 <DateGroupHeader label="À venir" count={dateGroups.upcoming.length} color="royal" />
                 <div className="space-y-2">
                   {dateGroups.upcoming.map((m, i) => (
-                    <MatchRow key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} isVisible={isVisible} />
+                    <MatchRow key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} />
                   ))}
                 </div>
               </>

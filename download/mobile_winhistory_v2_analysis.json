@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "1) Non, les stats ne sont pas mises en valeur comme un dashboard (absence de visuels distincts).  \n2) Oui, la mise en page est moderne (structure de liste, pas de contenu blog).  \n3) Oui, le tableau est lisible sur mobile (colonnes claires, espacement adapté).  \n4) Non, pas d’effets de profondeur (design plat, pas de glassmorphism/ombres).  \n5) Oui, la hiérarchie visuelle est claire (titres, dates, flags, boutons bien différenciés).",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1781859601,
+  "id": "202606191659568e90d33c53794762",
+  "model": "glm-4.6v",
+  "object": "chat.completion",
+  "request_id": "202606191659568e90d33c53794762",
+  "usage": {
+    "completion_tokens": 131,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 3925,
+    "prompt_tokens_details": {
+      "cached_tokens": 4
+    },
+    "total_tokens": 4056
+  }
+}

@@ -235,3 +235,81 @@ Stage Summary:
 - Brand colors preserved: Linebet = green (#34D399), 888starz = red (#EF4444) — now via dedicated brand tokens that won't change with future palette swaps
 - Build passes, site live on port 3000, zero errors
 - VLM confirms "premium platform" look across all sections
+
+---
+Task ID: V26-mobile-platform-upgrade
+Agent: Main Agent
+Task: Mobile layout improvements — make mobile feel more like a platform/app and less like a blog. Add count-up animations for all numbers (stats, cotes, accuracy). Add scroll-triggered animations everywhere (per-card, per-row reveal). User explicit constraints: NO content modification, only design/animation improvements. Must work especially on mobile.
+
+Work Log:
+- Audited current mobile rendering via user-provided screenshot — confirmed "blog-like" feel:
+  * Numbers (87%, 15K+, 50+) were static text, no animation
+  * No scroll-triggered animations on individual cards/rows
+  * Hero stats card was cramped on mobile (4 metrics in one row)
+  * FreePredictions cards only animated as a group, not individually
+  * WinHistory rows only animated as a group, not individually
+  * FifaLinebet had no scroll-animation hook at all
+- Added 2 new animation hooks in `src/hooks/useAnimations.ts`:
+  * `useCountUp(target, duration, options)` — animates a number from 0 to target with ease-out cubic curve, triggered by IntersectionObserver. Returns ref + display string + hasAnimated flag. Refs typed as HTMLElement so they can attach to span OR div.
+  * `useRevealOnScroll(threshold, variant)` — per-element reveal hook (independent of parent). Variants: 'fade-up' | 'fade-left' | 'fade-right' | 'scale' | 'blur'. Adds `.reveal-card` + `.reveal-card--{variant}` classes; `.is-visible` is added when in view.
+- Created new component `src/components/bttsbet/ScrollProgressBar.tsx`:
+  * Fixed top progress bar (2px) that fills cyan→fuchsia→amber based on scroll position
+  * Uses requestAnimationFrame for smooth updates
+  * Premium "platform app" feel — visible on both desktop and mobile
+  * Added to `page.tsx` main layout
+- Updated Hero.tsx:
+  * Added useScrollAnimation hook to track section visibility
+  * 3 stats now count up: ~87% (1800ms), 15K+ (1600ms), 50+ (1500ms) — only animate when section enters view
+  * Mobile: headline is tighter (2.25rem vs 4xl), sub-headline is smaller (sm vs lg)
+  * Mobile: CTA buttons are full-width stacked (max-w-md mx-auto) for app-like feel — was previously just centered, now stretches like a native app
+  * Stats card on mobile: 3 stats in a row + promo code on a SEPARATE row below (more dashboard-like, less cramped)
+  * Added moving shimmer animation overlay on stats card (subtle premium feel)
+- Updated FreePredictions.tsx:
+  * Stats bar (matchs/BTTS/O2.5) now uses count-up animation — animates when section enters view
+  * MatchRow now uses useRevealOnScroll — EACH card animates independently as user scrolls (not as a group)
+  * Removed old `isVisible` prop from MatchRow — each card self-manages its reveal
+- Updated WinHistory.tsx:
+  * 3 stat cards (Analysés, Réussite 88.3%, 30 jours 91%) now count up when section enters view
+  * Each row uses HistoryRow component with useRevealOnScroll — rows animate independently
+  * Stat values use tabular-nums for stable number width during animation
+- Updated PromoVip.tsx:
+  * Daily cote (e.g. 23.45) counts up with 2 decimals
+  * VIP match count counts up
+  * VIP accuracy (~89%) counts up
+  * Total coupon cote uses animated value too
+- Updated FifaLinebet.tsx:
+  * Added useScrollAnimation hook (section had none before)
+  * Match count, coupon cote, and reliability (98%) all count up
+  * All animations trigger on scroll into view
+- Updated globals.css with new section "PER-CARD SCROLL REVEAL":
+  * `.reveal-card` + variant classes for fade-up/left/right/scale/blur
+  * Reduced-motion override (accessibility)
+  * Mobile-specific overrides: smaller transform distances (14px vs 20px) for less visual jump
+  * Mobile: stronger glass effect (.glass-3d), stronger card-3d shadows
+  * Mobile: button clip-path corners scaled down (6px vs 8px) for harmony
+  * Mobile: stagger-reveal transition is faster (0.5s vs 0.65s) for snappier feel
+  * Mobile: section scroll-margin-top: 80px for better sticky-nav anchor jumps
+  * Mobile: restored stat-card-animated glow (was previously disabled on mobile)
+- Verified build: 0 errors, 15 pages prerendered
+- Browser-verified on iPhone 14 viewport via agent-browser:
+  * ScrollProgressBar visible at top (cyan gradient)
+  * Hero stats card displays 3 stats in dashboard layout + promo code on separate row
+  * Stats count up when scrolled into view (verified via VLM analysis)
+  * Per-card reveal animations on FreePredictions (each card fades up independently)
+  * VLM confirms: "Moderne, ressemble à une plateforme/app (pas un blog)" and "Les 3 stats sont fortement mises en valeur comme un dashboard"
+- Reinstalled missing node_modules (react, react-dom, scheduler, framer-motion, motion-utils) — environment had broken packages
+
+Stage Summary:
+- Mobile layout now feels like a platform/app, not a blog
+- ALL numbers across the site now animate (count-up) when scrolled into view:
+  * Hero: 87%, 15K+, 50+
+  * FreePredictions: matchs count, BTTS count, O2.5 count
+  * WinHistory: total analysed, 88.3% rate, 91% last-30-days
+  * PromoVip: daily cote (2 decimals), VIP match count, ~89% accuracy
+  * FifaLinebet: FIFA match count, coupon cote (2 decimals), 98% reliability
+- Per-card / per-row scroll reveal animations across FreePredictions and WinHistory
+- New ScrollProgressBar at top of page (cyan→fuchsia→amber gradient, rAF-driven)
+- Mobile-specific CSS: stronger glass, stronger shadows, scaled-down button corners, faster stagger transitions
+- NO content modified — only animations, layouts, and visual design
+- Brand colors preserved (Linebet green, 888starz red)
+- Build passes, dev server running on port 3000, VLM confirms platform feel

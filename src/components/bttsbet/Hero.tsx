@@ -2,10 +2,39 @@
 
 import { motion } from 'framer-motion'
 import { SITE, AFFILIATE } from '@/lib/constants'
+import { useCountUp, useScrollAnimation } from '@/hooks/useAnimations'
+
+/** AnimatedStat — counts up to target value when in view. */
+function AnimatedStat({
+  value,
+  decimals = 0,
+  suffix = '',
+  prefix = '',
+  duration = 1800,
+  className = '',
+}: {
+  value: number
+  decimals?: number
+  suffix?: string
+  prefix?: string
+  duration?: number
+  className?: string
+}) {
+  const [ref, display] = useCountUp(value, duration, { decimals, threshold: 0.3 })
+  return (
+    <span ref={ref} className={className}>
+      {prefix}
+      {display}
+      {suffix}
+    </span>
+  )
+}
 
 export default function Hero() {
+  const [sectionRef, isVisible] = useScrollAnimation(0.05)
+
   return (
-    <section className="relative overflow-hidden">
+    <section ref={sectionRef} className="relative overflow-hidden">
       {/* Background — Quantum Aurora Mesh */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-midnight" />
@@ -38,31 +67,31 @@ export default function Hero() {
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-12 sm:pt-28 sm:pb-16">
-        {/* Top badge — premium pill */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-20 pb-12 sm:pt-28 sm:pb-16">
+        {/* Top badge — premium pill (mobile: smaller, app-like) */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="flex justify-center mb-6"
+          className="flex justify-center mb-5 sm:mb-6"
         >
-          <div className="group inline-flex items-center gap-2 bg-emerald/8 border border-emerald/25 rounded-full px-4 py-1.5 backdrop-blur-xl">
+          <div className="group inline-flex items-center gap-2 bg-emerald/8 border border-emerald/25 rounded-full px-3 sm:px-4 py-1.5 backdrop-blur-xl">
             <span className="relative flex w-1.5 h-1.5">
               <span className="absolute inset-0 bg-emerald rounded-full animate-ping opacity-75" />
               <span className="relative w-1.5 h-1.5 bg-emerald rounded-full" />
             </span>
-            <span className="text-xs text-emerald font-semibold tracking-wider uppercase">IA en direct</span>
-            <span className="text-gray-600 text-xs">•</span>
-            <span className="text-xs text-gray-400">Mis à jour il y a 2 min</span>
+            <span className="text-[10px] sm:text-xs text-emerald font-semibold tracking-wider uppercase">IA en direct</span>
+            <span className="text-gray-600 text-[10px] sm:text-xs">•</span>
+            <span className="text-[10px] sm:text-xs text-gray-400">Mis à jour il y a 2 min</span>
           </div>
         </motion.div>
 
-        {/* Main headline */}
+        {/* Main headline — mobile: tighter line-height, slightly smaller */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-center text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-4"
+          className="text-center text-[2.25rem] leading-[1.05] sm:text-5xl lg:text-7xl font-extrabold text-white mb-3 sm:mb-4"
           style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
         >
           PRONOSTICS{' '}
@@ -71,22 +100,23 @@ export default function Hero() {
           <span className="text-gold">OVER 2.5</span>
         </motion.h1>
 
-        {/* Sub-headline */}
+        {/* Sub-headline — mobile: smaller font, tighter */}
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-center text-gray-400 text-base sm:text-lg max-w-xl mx-auto mb-8"
+          className="text-center text-gray-400 text-sm sm:text-lg max-w-xl mx-auto mb-6 sm:mb-8 px-2"
         >
           Propulsé par l&apos;intelligence artificielle — {SITE.accuracy} de précision sur 15 000+ pronostics
         </motion.p>
 
-        {/* CTA buttons — Quantum Aurora style with brand-safe colors */}
+        {/* CTA buttons — Quantum Aurora style with brand-safe colors
+            Mobile: full-width stacked (more app-like, less blog-like) */}
         <motion.div
           initial={{ opacity: 0, y: 15, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.4, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-10"
+          className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 justify-center items-stretch sm:items-center mb-8 sm:mb-10 max-w-md sm:max-w-none mx-auto"
         >
           <button
             onClick={() => {
@@ -96,7 +126,7 @@ export default function Hero() {
                 setTimeout(() => window.scrollBy({ top: -64, behavior: 'smooth' }), 400)
               }
             }}
-            className="px-8 py-3.5 bg-gradient-to-r from-emerald to-emerald-dark text-dark-900 font-bold btn-emerald"
+            className="px-6 sm:px-8 py-3.5 bg-gradient-to-r from-emerald to-emerald-dark text-dark-900 font-bold btn-emerald text-sm sm:text-base"
             data-cursor="hover"
           >
             Pronostics du jour
@@ -105,18 +135,17 @@ export default function Hero() {
             href={AFFILIATE.linebet}
             rel={AFFILIATE.rel}
             target="_blank"
-            className="flex items-center gap-2 px-6 py-3.5 btn-linebet text-[#06281F]"
+            className="flex items-center justify-center gap-2 px-6 py-3.5 btn-linebet text-[#06281F] text-sm sm:text-base"
             data-cursor="hover"
           >
             <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
             Bonus 150$
           </a>
-          {/* V23: Nouveau bouton 888starz — brand-safe red */}
           <a
             href={AFFILIATE.star888}
             rel={AFFILIATE.rel}
             target="_blank"
-            className="flex items-center gap-2 px-6 py-3.5 btn-star888 text-white"
+            className="flex items-center justify-center gap-2 px-6 py-3.5 btn-star888 text-white text-sm sm:text-base"
             data-cursor="hover"
           >
             <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
@@ -124,36 +153,67 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        {/* Stats ticker — premium dashboard style */}
+        {/* Stats ticker — premium dashboard style
+            Mobile: 3 metrics + promo code on a row below (more platform-like, less cramped) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
           className="flex justify-center"
         >
-          <div className="relative flex items-center gap-6 sm:gap-10 bg-panel/70 border border-white/[0.06] rounded-2xl px-6 py-3.5 sm:px-8 sm:py-4 backdrop-blur-xl shadow-2xl">
+          <div className="relative w-full max-w-2xl bg-panel/70 border border-white/[0.06] rounded-2xl px-4 py-3.5 sm:px-8 sm:py-4 backdrop-blur-xl shadow-2xl overflow-hidden">
             {/* Premium top sheen */}
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-t-2xl" />
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
             {/* Cyan glow corner */}
             <div className="absolute -top-px left-1/2 -translate-x-1/2 w-20 h-px bg-emerald/70" />
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl font-extrabold text-emerald neon-glow">{SITE.accuracy}</div>
-              <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-semibold">Précision</div>
+            {/* Subtle moving sheen — animated */}
+            <div
+              className="absolute inset-0 opacity-30 pointer-events-none"
+              style={{
+                background:
+                  'linear-gradient(120deg, transparent 30%, rgba(34, 211, 238, 0.08) 50%, transparent 70%)',
+                backgroundSize: '200% 100%',
+                animation: 'shimmer3d 4s linear infinite',
+              }}
+            />
+
+            {/* Stats row — 3 metrics evenly spaced */}
+            <div className="relative flex items-center justify-between gap-2 sm:gap-6">
+              <div className="text-center flex-1">
+                <div className="text-xl sm:text-2xl font-extrabold text-emerald neon-glow tabular-nums">
+                  {isVisible && (
+                    <AnimatedStat value={87} duration={1800} suffix="%" prefix="~" />
+                  )}
+                  {!isVisible && <span>~87%</span>}
+                </div>
+                <div className="text-[9px] sm:text-xs text-gray-500 uppercase tracking-widest font-semibold">Précision</div>
+              </div>
+              <div className="w-px h-8 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+              <div className="text-center flex-1">
+                <div className="text-xl sm:text-2xl font-extrabold text-white tabular-nums">
+                  {isVisible && (
+                    <AnimatedStat value={15} duration={1600} suffix="K+" />
+                  )}
+                  {!isVisible && <span>15K+</span>}
+                </div>
+                <div className="text-[9px] sm:text-xs text-gray-500 uppercase tracking-widest font-semibold">Analysés</div>
+              </div>
+              <div className="w-px h-8 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+              <div className="text-center flex-1">
+                <div className="text-xl sm:text-2xl font-extrabold text-gold tabular-nums">
+                  {isVisible && (
+                    <AnimatedStat value={50} duration={1500} suffix="+" />
+                  )}
+                  {!isVisible && <span>50+</span>}
+                </div>
+                <div className="text-[9px] sm:text-xs text-gray-500 uppercase tracking-widest font-semibold">Championnats</div>
+              </div>
             </div>
-            <div className="w-px h-8 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl font-extrabold text-white">15K+</div>
-              <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-semibold">Analysés</div>
-            </div>
-            <div className="w-px h-8 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl font-extrabold text-gold">50+</div>
-              <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-semibold">Championnats</div>
-            </div>
-            <div className="w-px h-8 bg-gradient-to-b from-transparent via-white/10 to-transparent hidden sm:block" />
-            <div className="text-center hidden sm:block">
-              <div className="text-lg font-extrabold text-white tracking-widest promo-code-shimmer">{SITE.promoCode}</div>
-              <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-semibold">Code promo</div>
+
+            {/* Promo code row — separate row on mobile (more dashboard-like) */}
+            <div className="relative mt-3 pt-3 border-t border-white/[0.06] flex items-center justify-between">
+              <span className="text-[9px] sm:text-[10px] text-gray-500 uppercase tracking-widest font-semibold">Code promo</span>
+              <span className="text-base sm:text-lg font-extrabold text-white tracking-widest promo-code-shimmer">{SITE.promoCode}</span>
             </div>
           </div>
         </motion.div>

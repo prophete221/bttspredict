@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "1) Plateforme (interface fonctionnelle, pas de contenu blog).  \n2) Oui, les cartes de matchs sont bien espacées.  \n3) Oui, la barre de stats (matchs/BTTS/O2.5) est visible et bien présentée.  \n4) Oui, les badges de pronostic (BTTS Oui, O2.5 Oui) sont clairs.  \n5) Oui, effets de profondeur (ombres, transparence) présents.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1781859520,
+  "id": "202606191658365df924ab082144b8",
+  "model": "glm-4.6v",
+  "object": "chat.completion",
+  "request_id": "202606191658365df924ab082144b8",
+  "usage": {
+    "completion_tokens": 112,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 3940,
+    "prompt_tokens_details": {
+      "cached_tokens": 4
+    },
+    "total_tokens": 4052
+  }
+}
