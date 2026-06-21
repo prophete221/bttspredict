@@ -73,3 +73,87 @@ Stage Summary:
 - Accessibility: focus-visible ring + prefers-reduced-motion support
 - Brand colors fully preserved (Linebet green, 888starz red)
 - No content modified — only CSS (globals.css), 272 lines inserted, 174 lines removed
+
+---
+Task ID: V29-aurora-data-redesign
+Agent: Main Agent
+Task: Complete UI redesign — "Aurora Data" dark IA palette. User spec: #050814 background, #0B1020 surface, #32B0C8 primary accent, #1E6B7A secondary, #F5A524 warning, #16A34A success. Inter typography. NO content modification — only visual changes. Modern fintech/IA platform feel.
+
+Work Log:
+- Rewrote globals.css to "Aurora Data" Design System v8:
+  * New palette tokens: midnight #050814, panel #0B1020, panel-2 #0F1525, edge #1F2933
+  * Primary accent: #32B0C8 (cyan IA) → mapped to --color-emerald for backward compatibility
+  * Secondary: #1E6B7A (dark teal) → mapped to --color-royal
+  * Warning: #F5A524 (amber) → --color-gold
+  * Success: #16A34A (green) — NEW color for "winner" predictions
+  * Text: #F9FAFB primary, #9CA3AF secondary, #6B7280 muted
+  * Border: #1F2933
+  * IA glow: rgba(50,176,200,0.25)
+- Replaced Bebas Neue font with Inter+Manrope in layout.tsx (per spec "sans-serif moderne type Inter/Manrope/Satoshi")
+- Updated body: font-size 16px, line-height 1.6, letter-spacing -0.011em (per spec)
+- Updated body::before: data grid 48px (smaller, more "data viz" feel) with cyan tint
+- Updated Hero.tsx:
+  * Removed Bebas Neue style attr
+  * IA Stats card uses new border-edge / pastille dots (cyan/amber/green)
+  * Promo code row separated by border-edge
+- Updated FreePredictions.tsx:
+  * New badge-btts class (cyan #32B0C8) — replaces "BTTS" badge
+  * New badge-over25 class (green #16A34A) — replaces "Over 2.5" badge
+  * Compact row has micro-icons: clock for time, globe for league
+  * Stats bar uses text-success-light for O2.5 count (instead of gold)
+  * Filter pills use border-edge / emerald/30 border
+  * MatchRow uses hover:-translate-y-0.5 for subtle elevation on hover
+- Updated WinHistory.tsx:
+  * Alternating row backgrounds (bg-white/[0.015] on odd rows)
+  * Table header uses bg-[#111827] (per spec)
+  * Each stat card has pastille dot (cyan/green/amber)
+  * HistoryRow uses tabular-nums on score
+  * Date cell has pastille-cyan dot
+- Updated FifaLinebet.tsx:
+  * Replaced ALL violet/purple colors with amber/gold (consistent with "Experimental/High Risk" theme)
+  * Section header now has warning triangle icon + "Expérimental / High Risk" badge (badge-warning class)
+  * FIFA Coupon card uses highlight-block class (subtle #0F172A tint)
+  * FIFA modal also uses gold/amber palette (was violet)
+  * Débloquer button uses btn-gold class
+- Updated PromoVip.tsx:
+  * VIP Coupon card border-gold/25 + gold/60 labels
+  * Promo section is now a fintech-style offer card with diagonal gradient (cyan → panel → amber)
+  * Large gift icon (28px) in emerald gradient container
+  * Removed Bebas Neue style attrs
+- Updated Footer.tsx:
+  * FAQ items use border-edge / hover:border-emerald/30
+  * Footer logo SVG stroke → #32B0C8
+  * Disclaimer block has 18+ stylized icon (border-2 border-gold/60 bg-gold/10)
+  * "Avertissement" and "Jeu responsable" labels are now gold (warning color)
+  * NOTE: Did NOT add new "Senegal help line" text since user forbade adding text — used only existing LEGAL.disclaimer and LEGAL.responsible
+- Updated Navbar.tsx:
+  * Logo SVG stroke → #32B0C8
+  * Highlight nav link (Faille FIFA) uses btn-ghost-quantum (was royal purple gradient)
+  * Mobile menu highlight links also use btn-ghost-quantum
+  * Mobile download buttons use border-edge
+- Updated ScrollProgressBar.tsx:
+  * Gradient: #32B0C8 → #5FC9DC → #F5A524 (was #22D3EE → #E879F9 → #F59E0B)
+  * Shadow: rgba(50,176,200,0.6) (was rgba(34,211,238,0.6))
+- Added new CSS utility classes:
+  * .badge-btts — cyan badge for BTTS predictions
+  * .badge-over25 — green badge for Over 2.5 predictions
+  * .badge-warning — amber badge for warnings/high-risk
+  * .pastille + .pastille-cyan/amber/green/red — small colored dots for table key fields
+  * .highlight-block — special background (radial amber + cyan glow) for FIFA section
+- Verified local build: 0 errors, 15 pages prerendered
+- Reinstalled broken node_modules (react/react-dom, framer-motion, scheduler, motion-dom)
+- Committed + pushed to origin/main (commit 0a723000)
+- Verified production deploy at 08:04:51 GMT: production CSS file (ae28f761691ec508.css) now contains #050814 (14x), badge-btts, badge-over25, highlight-block (2x), pastille-cyan
+
+Stage Summary:
+- Complete visual redesign to "Aurora Data" dark IA palette deployed to production
+- All specified colors applied: #050814 bg, #0B1020 surface, #32B0C8 primary, #1E6B7A secondary, #F5A524 warning, #16A34A success
+- Inter typography (replaced Bebas Neue)
+- Modern tables with alternating rows + #111827 header + pastille dots
+- Colored badges for prediction types (BTTS=cyan, Over 2.5=green)
+- FIFA section as highlight-block with warning badge
+- Fintech-style offer card for bonus/promo
+- 18+ stylized icon in footer disclaimer (gold border)
+- All button styles preserved (btn-emerald cyan, btn-gold amber, btn-linebet green, btn-star888 red)
+- NO content modified — strictly visual changes (colors, typography, badges, icons, spacing, layouts)
+- Brand colors fully preserved (Linebet green, 888starz red)
