@@ -157,3 +157,69 @@ Stage Summary:
 - All button styles preserved (btn-emerald cyan, btn-gold amber, btn-linebet green, btn-star888 red)
 - NO content modified — strictly visual changes (colors, typography, badges, icons, spacing, layouts)
 - Brand colors fully preserved (Linebet green, 888starz red)
+
+---
+Task ID: V30-faille-fifa-888starz
+Agent: Main Agent
+Task: User clarification — "les faille fifa marche aussi sur 888starz". Update all Faille FIFA copy (section header, modal, SEO metadata, blog post) to reflect that the FIFA flaw works on BOTH Linebet AND 888starz. Preserve URL slugs and existing CTA buttons (Linebet + 888starz signup already exist side-by-side).
+
+Work Log:
+- Read FifaLinebet.tsx (557 lines) to map all "Faille FIFA Linebet" mentions and the WhatsApp submission flow
+- Searched codebase for "Faille FIFA Linebet" / "FAILLE FIFA LINEBET" → found refs in: src/components/bttsbet/FifaLinebet.tsx, src/app/layout.tsx, src/app/page.tsx, src/app/blog/faille-fifa-linebet/page.tsx, src/app/blog/page.tsx, src/app/blog/guide-linebet-inscription/page.tsx
+- Updated FifaLinebet.tsx:
+  * Section header: "FAILLE FIFA LINEBET" → "FAILLE FIFA" (drop LINEBET qualifier since flaw works on both)
+  * Section description: "...sur Linebet — Mise à jour..." → "...sur Linebet et 888starz — Mise à jour..."
+  * SEO highlight block title: "Faille FIFA Linebet : Comment exploiter..." → "Faille FIFA Linebet & 888starz : Comment exploiter..."
+  * SEO paragraph: rewrote to mention both platforms ("faille FIFA sur Linebet, une faille FIFA sur 888starz")
+  * SEO keywords: added "faille fifa 888starz", "coupon fifa 888starz"
+  * Modal title: "FAILLE FIFA LINEBET" → "FAILLE FIFA"
+  * Modal intro: "Pour accéder à la Faille FIFA Linebet..." → "Pour accéder à la Faille FIFA (Linebet ou 888starz)..."
+  * Modal condition 1: "Créer un compte LINEBET" → "Créer un compte Linebet ou 888starz"
+  * Modal condition 2: "...sur votre compte LINEBET" → "...sur votre compte Linebet ou 888starz"
+  * Modal condition 3: "Entrez votre ID LINEBET..." → "Entrez votre ID Linebet ou 888starz..."
+  * Modal confirm step label: "Votre ID LINEBET" → "Votre ID Linebet / 888starz"
+  * Modal confirm step intro: "Entrez votre identifiant LINEBET..." → "Entrez votre identifiant Linebet ou 888starz..."
+  * Modal success message: "Nous vérifierons votre inscription LINEBET..." → "Nous vérifierons votre inscription Linebet ou 888starz..."
+  * WhatsApp message: "Demande d'accès Faille FIFA Linebet / Mon ID Linebet" → "Demande d'accès Faille FIFA (Linebet / 888starz) / Mon ID / Plateforme : Linebet / 888starz"
+  * "Comment ça marche" intro: "...sur Linebet..." → "...sur Linebet et 888starz..."
+  * "Scan automatique" step: "...FIFA Linebet en continu..." → "...FIFA Linebet et 888starz en continu..."
+- Updated src/app/layout.tsx metadata:
+  * title: added "& 888starz"
+  * description: "Faille FIFA détectée automatiquement sur Linebet et 888starz"
+  * keywords: added "888starz", "faille fifa 888starz", "coupon fifa 888starz"
+  * openGraph.title + description: mention both platforms
+  * openGraph.images alt: "BttsBet – Faille FIFA Linebet & 888starz"
+  * twitter.title + description: mention both platforms
+- Updated src/app/page.tsx JSON-LD WebSite description to mention both platforms
+- Updated src/app/blog/faille-fifa-linebet/page.tsx:
+  * Preserved URL slug /blog/faille-fifa-linebet/ (avoid breaking SEO/links)
+  * TITLE: "Faille FIFA Linebet : Comment Détecter..." → "Faille FIFA Linebet & 888starz : Comment Détecter..."
+  * DESCRIPTION: mentions both platforms
+  * keywords: added 888starz variants
+  * og:image alt: "Faille FIFA Linebet & 888starz – Cotes Erronées 2026"
+  * Breadcrumb last item: "Faille FIFA Linebet" → "Faille FIFA Linebet & 888starz"
+  * H1: "Faille FIFA Linebet :" → "Faille FIFA Linebet & 888starz :"
+  * Intro paragraph: "Les matchs FIFA virtuels sur Linebet présentent..." → "...sur Linebet et 888starz présentent..."
+- Updated src/app/blog/page.tsx blog index card: title + description mention 888starz
+- Updated src/app/blog/guide-linebet-inscription/page.tsx cross-link card title
+- Verified local build: 0 errors, 15 pages prerendered
+- Committed + pulled/rebased + pushed to origin/main (commit 86e9b60c, rebased cleanly on top of remote scraper commit f8a39d9a)
+- Verified production deploy at 08:17:41 GMT:
+  * <title> tag contains "Faille FIFA Linebet & 888starz"
+  * meta description contains "sur Linebet et 888starz"
+  * meta keywords include "faille fifa 888starz", "coupon fifa 888starz"
+  * og:title, twitter:title, og:image:alt all updated
+  * 11 occurrences of "Linebet et 888starz" in production HTML body
+  * SEO content title "Comment exploiter les cotes FIFA en 2026" live
+
+Stage Summary:
+- All Faille FIFA copy now reflects that the flaw works on BOTH Linebet AND 888starz
+- Homepage section header now reads "FAILLE FIFA" (not "FAILLE FIFA LINEBET")
+- Modal flow accepts IDs from either platform (Linebet or 888starz)
+- WhatsApp support message now mentions both platforms
+- All SEO metadata (title, description, keywords, OG, Twitter, JSON-LD) updated
+- Blog post at /blog/faille-fifa-linebet/ updated (URL slug preserved for SEO continuity)
+- Blog index + cross-link cards updated
+- Existing CTA buttons preserved: btn-linebet (Linebet signup) + btn-star888 (888starz signup) + APK downloads for both
+- Promo code VISION221 preserved everywhere
+- Production verified live at https://bttsbet.online
