@@ -35,28 +35,28 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden">
-      {/* Background — Quantum Aurora Mesh */}
+      {/* Background — dark blue/teal gradient with subtle data grid */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-midnight" />
-        {/* Mesh gradient orbs — cyan + fuchsia + amber */}
+        {/* Mesh gradient orbs — cyan + teal + amber */}
         <div className="absolute top-[-10%] left-1/4 w-[600px] h-[500px] bg-emerald/10 rounded-full blur-[140px] opacity-80" />
-        <div className="absolute top-[5%] right-1/4 w-[450px] h-[400px] bg-royal/8 rounded-full blur-[120px] opacity-70" />
+        <div className="absolute top-[5%] right-1/4 w-[450px] h-[400px] bg-emerald-dark/8 rounded-full blur-[120px] opacity-70" />
         <div className="absolute top-[30%] left-[-10%] w-[400px] h-[400px] bg-gold/6 rounded-full blur-[120px] opacity-60" />
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] bg-emerald/4 rounded-full blur-[100px]" />
-        {/* Subtle conic gradient — aurora swirl */}
+        {/* Subtle conic gradient — slow aurora swirl */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] opacity-[0.06]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] opacity-[0.05]"
           style={{
-            background: 'conic-gradient(from 180deg at 50% 50%, #22D3EE 0deg, transparent 60deg, #F59E0B 120deg, transparent 180deg, #E879F9 240deg, transparent 300deg, #22D3EE 360deg)',
+            background: 'conic-gradient(from 180deg at 50% 50%, #32B0C8 0deg, transparent 60deg, #F5A524 120deg, transparent 180deg, #1E6B7A 240deg, transparent 300deg, #32B0C8 360deg)',
             borderRadius: '50%',
           }}
         />
-        {/* Grid pattern overlay */}
+        {/* Data grid overlay — IA dashboard feel */}
         <div
-          className="absolute inset-0 opacity-[0.15]"
+          className="absolute inset-0 opacity-[0.18]"
           style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
+            backgroundImage: 'linear-gradient(rgba(50,176,200,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(50,176,200,0.04) 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
             maskImage: 'radial-gradient(ellipse 70% 60% at 50% 30%, black 30%, transparent 80%)',
             WebkitMaskImage: 'radial-gradient(ellipse 70% 60% at 50% 30%, black 30%, transparent 80%)',
           }}
@@ -68,7 +68,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-20 pb-12 sm:pt-28 sm:pb-16">
-        {/* Top badge — premium pill (mobile: smaller, app-like) */}
+        {/* Top badge — IA live indicator */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,13 +86,12 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Main headline — mobile: tighter line-height, slightly smaller */}
+        {/* Main headline */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-center text-[2.25rem] leading-[1.05] sm:text-5xl lg:text-7xl font-extrabold text-white mb-3 sm:mb-4"
-          style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
+          className="text-center text-[2.25rem] leading-[1.1] sm:text-5xl lg:text-7xl font-extrabold text-white mb-3 sm:mb-4 tracking-tight"
         >
           PRONOSTICS{' '}
           <span className="text-emerald neon-glow">BTTS</span>
@@ -100,7 +99,7 @@ export default function Hero() {
           <span className="text-gold">OVER 2.5</span>
         </motion.h1>
 
-        {/* Sub-headline — mobile: smaller font, tighter */}
+        {/* Sub-headline */}
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -110,7 +109,7 @@ export default function Hero() {
           Propulsé par l&apos;intelligence artificielle — {SITE.accuracy} de précision sur 15 000+ pronostics
         </motion.p>
 
-        {/* CTA buttons — Quantum Aurora style with brand-safe colors
+        {/* CTA buttons — primary + outline + brand-safe
             Mobile: full-width stacked (more app-like, less blog-like) */}
         <motion.div
           initial={{ opacity: 0, y: 15, scale: 0.98 }}
@@ -126,7 +125,7 @@ export default function Hero() {
                 setTimeout(() => window.scrollBy({ top: -64, behavior: 'smooth' }), 400)
               }
             }}
-            className="px-6 sm:px-8 py-3.5 bg-gradient-to-r from-emerald to-emerald-dark text-dark-900 font-bold btn-emerald text-sm sm:text-base"
+            className="px-6 sm:px-8 py-3.5 btn-emerald text-sm sm:text-base"
             data-cursor="hover"
           >
             Pronostics du jour
@@ -153,15 +152,14 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        {/* Stats ticker — premium dashboard style
-            Mobile: 3 metrics + promo code on a row below (more platform-like, less cramped) */}
+        {/* IA Stats Card — premium dashboard style with 3 stat panels */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
           className="flex justify-center"
         >
-          <div className="relative w-full max-w-2xl bg-panel/70 border border-white/[0.06] rounded-2xl px-4 py-3.5 sm:px-8 sm:py-4 backdrop-blur-xl shadow-2xl overflow-hidden">
+          <div className="relative w-full max-w-2xl bg-panel/70 border border-edge rounded-2xl px-4 py-3.5 sm:px-8 sm:py-4 backdrop-blur-xl shadow-2xl overflow-hidden">
             {/* Premium top sheen */}
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
             {/* Cyan glow corner */}
@@ -171,13 +169,13 @@ export default function Hero() {
               className="absolute inset-0 opacity-30 pointer-events-none"
               style={{
                 background:
-                  'linear-gradient(120deg, transparent 30%, rgba(34, 211, 238, 0.08) 50%, transparent 70%)',
+                  'linear-gradient(120deg, transparent 30%, rgba(50, 176, 200, 0.08) 50%, transparent 70%)',
                 backgroundSize: '200% 100%',
                 animation: 'shimmer3d 4s linear infinite',
               }}
             />
 
-            {/* Stats row — 3 metrics evenly spaced */}
+            {/* Stats row — 3 stat panels with pastille dots */}
             <div className="relative flex items-center justify-between gap-2 sm:gap-6">
               <div className="text-center flex-1">
                 <div className="text-xl sm:text-2xl font-extrabold text-emerald neon-glow tabular-nums">
@@ -186,7 +184,10 @@ export default function Hero() {
                   )}
                   {!isVisible && <span>~87%</span>}
                 </div>
-                <div className="text-[9px] sm:text-xs text-gray-500 uppercase tracking-widest font-semibold">Précision</div>
+                <div className="text-[9px] sm:text-xs text-gray-500 uppercase tracking-widest font-semibold flex items-center justify-center gap-1">
+                  <span className="pastille pastille-cyan" />
+                  Précision
+                </div>
               </div>
               <div className="w-px h-8 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
               <div className="text-center flex-1">
@@ -196,7 +197,10 @@ export default function Hero() {
                   )}
                   {!isVisible && <span>15K+</span>}
                 </div>
-                <div className="text-[9px] sm:text-xs text-gray-500 uppercase tracking-widest font-semibold">Analysés</div>
+                <div className="text-[9px] sm:text-xs text-gray-500 uppercase tracking-widest font-semibold flex items-center justify-center gap-1">
+                  <span className="pastille pastille-amber" />
+                  Analysés
+                </div>
               </div>
               <div className="w-px h-8 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
               <div className="text-center flex-1">
@@ -206,12 +210,15 @@ export default function Hero() {
                   )}
                   {!isVisible && <span>50+</span>}
                 </div>
-                <div className="text-[9px] sm:text-xs text-gray-500 uppercase tracking-widest font-semibold">Championnats</div>
+                <div className="text-[9px] sm:text-xs text-gray-500 uppercase tracking-widest font-semibold flex items-center justify-center gap-1">
+                  <span className="pastille pastille-green" />
+                  Championnats
+                </div>
               </div>
             </div>
 
-            {/* Promo code row — separate row on mobile (more dashboard-like) */}
-            <div className="relative mt-3 pt-3 border-t border-white/[0.06] flex items-center justify-between">
+            {/* Promo code row */}
+            <div className="relative mt-3 pt-3 border-t border-edge/50 flex items-center justify-between">
               <span className="text-[9px] sm:text-[10px] text-gray-500 uppercase tracking-widest font-semibold">Code promo</span>
               <span className="text-base sm:text-lg font-extrabold text-white tracking-widest promo-code-shimmer">{SITE.promoCode}</span>
             </div>

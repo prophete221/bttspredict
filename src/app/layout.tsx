@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Inter } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 
-const bebasNeue = Bebas_Neue({
-  weight: '400',
-  variable: "--font-bebas-neue",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: 'swap',
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
   display: 'swap',
 });
@@ -64,7 +63,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${bebasNeue.variable} ${inter.variable} antialiased`}
+        className={`${inter.variable} ${manrope.variable} antialiased`}
       >
         {children}
       </body>

@@ -3,7 +3,7 @@
      3→import { useState, useEffect, useRef, useMemo } from 'react'
      4→import { motion, AnimatePresence } from 'framer-motion'
      5→import { SITE, AFFILIATE, BOOKMAKERS, ANDROID_LOGO } from '@/lib/constants'
-     6→import { useScrollAnimation } from '@/hooks/useAnimations'
+     6→import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
      7→
      8→function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
      9→  const [step, setStep] = useState<'info' | 'confirm'>('info')
@@ -352,227 +352,235 @@
    352→  const [todayFormatted, setTodayFormatted] = useState('')
    353→  const dailyCote = useMemo(() => getDailyCote(), [])
    354→
-   355→  useEffect(() => {
-   356→    const formatDate = () => {
-   357→      const now = new Date()
-   358→      const dayName = now.toLocaleDateString('fr-FR', { weekday: 'long' })
-   359→      const dayNum = now.getDate()
-   360→      const monthName = now.toLocaleDateString('fr-FR', { month: 'long' })
-   361→      const year = now.getFullYear()
-   362→      return `${dayName.charAt(0).toUpperCase() + dayName.slice(1)} ${dayNum} ${monthName.charAt(0).toUpperCase() + monthName.slice(1)} ${year}`
-   363→    }
-   364→    queueMicrotask(() => setTodayFormatted(formatDate()))
-   365→  }, [])
-   366→
-   367→  useEffect(() => {
-   368→    fetch('/predictions.json')
-   369→      .then(r => r.json())
-   370→      .then(data => {
-   371→        if (!data?.predictions) return
-   372→        const matchMap = new Map()
-   373→        for (const p of data.predictions) {
-   374→          const key = p.matchSemantic || p.match
-   375→          if (!matchMap.has(key)) {
-   376→            const [home, away] = p.match.split(' vs ')
-   377→            matchMap.set(key, {
-   378→              match: p.match, homeTeam: home?.trim() || '', awayTeam: away?.trim() || '',
-   379→              league: p.league, date: p.date, time: p.time,
-   380→              homeLogo: p.homeLogo || '', awayLogo: p.awayLogo || '', predictions: [p],
-   381→            })
-   382→          } else {
-   383→            matchMap.get(key).predictions.push(p)
-   384→          }
-   385→        }
-   386→        const today = new Date().toISOString().slice(0, 10)
-   387→        const allMatches = [...matchMap.values()]
-   388→          .sort((a: Record<string, string>, b: Record<string, string>) => {
-   389→            const aToday = a.date === today ? 0 : 1; const bToday = b.date === today ? 0 : 1
-   390→            if (aToday !== bToday) return aToday - bToday
-   391→            if (a.date !== b.date) return a.date.localeCompare(b.date)
-   392→            return (a.time || '').localeCompare(b.time || '')
-   393→          })
-   394→          .slice(0, 10)
-   395→        const matchCount = allMatches.length || 1
-   396→        const cotePerMatch = Math.pow(dailyCote, 1 / matchCount)
-   397→        const vipData = allMatches.map((m: Record<string, unknown>, i: number) => ({ ...m, cote: cotePerMatch, confidence: 92 + (i % 6), index: i }))
-   398→        setVipMatches(vipData)
-   399→        const todayMatches = allMatches.filter((m: Record<string, string>) => m.date === today)
-   400→        if (todayMatches.length > 0) setCouponDate("Aujourd'hui")
-   401→        else if (allMatches.length > 0) setCouponDate(allMatches[0].date)
-   402→      })
-   403→      .catch(() => {})
-   404→  }, [])
-   405→
-   406→  return (
-   407→    <>
-   408→      <section ref={ref} id="vip" className="py-10 sm:py-16 px-4 relative overflow-hidden">
-   409→        {/* Premium background mesh */}
-   410→        <div className="absolute inset-0 pointer-events-none">
-   411→          <div className="absolute top-0 left-1/4 w-[500px] h-[400px] bg-gold/4 rounded-full blur-[140px] opacity-60" />
-   412→          <div className="absolute bottom-0 right-1/4 w-[400px] h-[350px] bg-emerald/3 rounded-full blur-[120px] opacity-60" />
-   413→        </div>
-   414→        <div className="max-w-5xl mx-auto relative">
-   415→          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-   416→            {/* VIP Coupon */}
-   417→            <motion.div initial={{ opacity: 0, y: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : undefined} transition={{ duration: 0.6 }}
-   418→              className="relative rounded-2xl border border-gold/20 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift shadow-2xl">
-   419→              {/* Premium top sheen */}
-   420→              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
-   421→              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold-light to-gold" />
-   422→              <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-gold/4 rounded-full blur-[100px] animate-pulse-gold" />
-   423→              <div className="absolute bottom-0 left-0 w-[180px] h-[180px] bg-gold/3 rounded-full blur-[80px]" />
-   424→
-   425→              <div className="relative p-5 sm:p-7">
-   426→                <div className="flex items-center justify-between mb-3">
-   427→                  <div className="flex items-center gap-2.5">
-   428→                    <div className="w-10 h-10 bg-gold/10 border border-gold/20 rounded-xl flex items-center justify-center text-gold">
-   429→                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2 17l4-8 4 4 2-9 4 7 2-3 4 9H2z"/></svg>
-   430→                    </div>
-   431→                    <div>
-   432→                      <h3 className="text-lg sm:text-xl font-extrabold text-white leading-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
-   433→                        PRONOSTICS <span className="text-gold animate-pulse-gold">EXPERTS</span>
-   434→                      </h3>
-   435→                      <p className="text-[10px] text-gold/50 font-medium tracking-wide uppercase">Contenu exclusif verrouillé</p>
-   436→                    </div>
-   437→                  </div>
-   438→                  <div className="flex items-center gap-1.5 bg-gold/10 border border-gold/15 rounded-full px-2.5 py-1">
-   439→                    <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
-   440→                    <span className="text-[10px] text-gold font-semibold">LIVE</span>
-   441→                  </div>
-   442→                </div>
-   443→
-   444→                {todayFormatted && (
-   445→                  <div className="flex items-center gap-2 mb-4 bg-gold/5 border border-gold/10 rounded-lg px-3 py-2">
-   446→                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-gold/60 flex-shrink-0" strokeLinecap="round" strokeLinejoin="round">
-   447→                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-   448→                    </svg>
-   449→                    <span className="text-xs text-gold/80 font-semibold tracking-wide">{todayFormatted}</span>
-   450→                  </div>
-   451→                )}
-   452→
-   453→                <div className="flex items-center gap-3 sm:gap-4 mb-4 pb-4 border-b border-gold/8">
-   454→                  <div className="flex items-center gap-1.5">
-   455→                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-   456→                    <span className="text-[11px] text-gray-400"><span className="text-white font-semibold">{vipMatches.length}</span> matchs</span>
-   457→                  </div>
-   458→                  <div className="flex items-center gap-1.5">
-   459→                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-   460→                    <span className="text-[11px] text-gray-400">{couponDate}</span>
-   461→                  </div>
+   355→  // Count-up for daily cote — animates when section enters viewport
+   356→  const [coteRef, coteDisplay] = useCountUp(dailyCote, 1600, { decimals: 2, threshold: 0.3 })
+   357→  // Count-up for VIP match count
+   358→  const vipMatchCount = vipMatches.length
+   359→  const [matchCountRef, matchCountDisplay] = useCountUp(vipMatchCount, 1200, { threshold: 0.3 })
+   360→  // Count-up for VIP accuracy (~89%)
+   361→  const [accuracyRef, accuracyDisplay] = useCountUp(89, 1800, { threshold: 0.3, from: 0 })
+   362→
+   363→  useEffect(() => {
+   364→    const formatDate = () => {
+   365→      const now = new Date()
+   366→      const dayName = now.toLocaleDateString('fr-FR', { weekday: 'long' })
+   367→      const dayNum = now.getDate()
+   368→      const monthName = now.toLocaleDateString('fr-FR', { month: 'long' })
+   369→      const year = now.getFullYear()
+   370→      return `${dayName.charAt(0).toUpperCase() + dayName.slice(1)} ${dayNum} ${monthName.charAt(0).toUpperCase() + monthName.slice(1)} ${year}`
+   371→    }
+   372→    queueMicrotask(() => setTodayFormatted(formatDate()))
+   373→  }, [])
+   374→
+   375→  useEffect(() => {
+   376→    fetch('/predictions.json')
+   377→      .then(r => r.json())
+   378→      .then(data => {
+   379→        if (!data?.predictions) return
+   380→        const matchMap = new Map()
+   381→        for (const p of data.predictions) {
+   382→          const key = p.matchSemantic || p.match
+   383→          if (!matchMap.has(key)) {
+   384→            const [home, away] = p.match.split(' vs ')
+   385→            matchMap.set(key, {
+   386→              match: p.match, homeTeam: home?.trim() || '', awayTeam: away?.trim() || '',
+   387→              league: p.league, date: p.date, time: p.time,
+   388→              homeLogo: p.homeLogo || '', awayLogo: p.awayLogo || '', predictions: [p],
+   389→            })
+   390→          } else {
+   391→            matchMap.get(key).predictions.push(p)
+   392→          }
+   393→        }
+   394→        const today = new Date().toISOString().slice(0, 10)
+   395→        const allMatches = [...matchMap.values()]
+   396→          .sort((a: Record<string, string>, b: Record<string, string>) => {
+   397→            const aToday = a.date === today ? 0 : 1; const bToday = b.date === today ? 0 : 1
+   398→            if (aToday !== bToday) return aToday - bToday
+   399→            if (a.date !== b.date) return a.date.localeCompare(b.date)
+   400→            return (a.time || '').localeCompare(b.time || '')
+   401→          })
+   402→          .slice(0, 10)
+   403→        const matchCount = allMatches.length || 1
+   404→        const cotePerMatch = Math.pow(dailyCote, 1 / matchCount)
+   405→        const vipData = allMatches.map((m: Record<string, unknown>, i: number) => ({ ...m, cote: cotePerMatch, confidence: 92 + (i % 6), index: i }))
+   406→        setVipMatches(vipData)
+   407→        const todayMatches = allMatches.filter((m: Record<string, string>) => m.date === today)
+   408→        if (todayMatches.length > 0) setCouponDate("Aujourd'hui")
+   409→        else if (allMatches.length > 0) setCouponDate(allMatches[0].date)
+   410→      })
+   411→      .catch(() => {})
+   412→  }, [])
+   413→
+   414→  return (
+   415→    <>
+   416→      <section ref={ref} id="vip" className="py-10 sm:py-16 px-4 relative overflow-hidden">
+   417→        {/* Premium background mesh */}
+   418→        <div className="absolute inset-0 pointer-events-none">
+   419→          <div className="absolute top-0 left-1/4 w-[500px] h-[400px] bg-gold/4 rounded-full blur-[140px] opacity-60" />
+   420→          <div className="absolute bottom-0 right-1/4 w-[400px] h-[350px] bg-emerald/3 rounded-full blur-[120px] opacity-60" />
+   421→        </div>
+   422→        <div className="max-w-5xl mx-auto relative">
+   423→          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+   424→            {/* VIP Coupon */}
+   425→            <motion.div initial={{ opacity: 0, y: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : undefined} transition={{ duration: 0.6 }}
+   426→              className="relative rounded-2xl border border-gold/20 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift shadow-2xl">
+   427→              {/* Premium top sheen */}
+   428→              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+   429→              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold-light to-gold" />
+   430→              <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-gold/4 rounded-full blur-[100px] animate-pulse-gold" />
+   431→              <div className="absolute bottom-0 left-0 w-[180px] h-[180px] bg-gold/3 rounded-full blur-[80px]" />
+   432→
+   433→              <div className="relative p-5 sm:p-7">
+   434→                <div className="flex items-center justify-between mb-3">
+   435→                  <div className="flex items-center gap-2.5">
+   436→                    <div className="w-10 h-10 bg-gold/10 border border-gold/20 rounded-xl flex items-center justify-center text-gold">
+   437→                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2 17l4-8 4 4 2-9 4 7 2-3 4 9H2z"/></svg>
+   438→                    </div>
+   439→                    <div>
+   440→                      <h3 className="text-lg sm:text-xl font-extrabold text-white leading-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
+   441→                        PRONOSTICS <span className="text-gold animate-pulse-gold">EXPERTS</span>
+   442→                      </h3>
+   443→                      <p className="text-[10px] text-gold/50 font-medium tracking-wide uppercase">Contenu exclusif verrouillé</p>
+   444→                    </div>
+   445→                  </div>
+   446→                  <div className="flex items-center gap-1.5 bg-gold/10 border border-gold/15 rounded-full px-2.5 py-1">
+   447→                    <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
+   448→                    <span className="text-[10px] text-gold font-semibold">LIVE</span>
+   449→                  </div>
+   450→                </div>
+   451→
+   452→                {todayFormatted && (
+   453→                  <div className="flex items-center gap-2 mb-4 bg-gold/5 border border-gold/10 rounded-lg px-3 py-2">
+   454→                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-gold/60 flex-shrink-0" strokeLinecap="round" strokeLinejoin="round">
+   455→                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+   456→                    </svg>
+   457→                    <span className="text-xs text-gold/80 font-semibold tracking-wide">{todayFormatted}</span>
+   458→                  </div>
+   459→                )}
+   460→
+   461→                <div className="flex items-center gap-3 sm:gap-4 mb-4 pb-4 border-b border-gold/8">
    462→                  <div className="flex items-center gap-1.5">
-   463→                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-   464→                    <span className="text-[11px] text-gray-400">Cote <span className="text-gold font-bold">{dailyCote.toFixed(2)}</span></span>
+   463→                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+   464→                    <span className="text-[11px] text-gray-400"><span ref={matchCountRef} className="text-white font-semibold tabular-nums">{matchCountDisplay}</span> matchs</span>
    465→                  </div>
    466→                  <div className="flex items-center gap-1.5">
-   467→                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-   468→                    <span className="text-[11px] text-gray-400">Précision <span className="text-gold font-bold">{SITE.vipAccuracy}</span></span>
+   467→                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+   468→                    <span className="text-[11px] text-gray-400">{couponDate}</span>
    469→                  </div>
-   470→                </div>
-   471→
-   472→                <div className="space-y-1 mb-4 max-h-[340px] overflow-y-auto scrollbar-none">
-   473→                  {vipMatches.length > 0 ? (
-   474→                    vipMatches.map((m, i) => (
-   475→                      <VipCouponRow key={i} match={m.match as string} league={m.league as string} time={m.time as string} homeLogo={m.homeLogo as string} awayLogo={m.awayLogo as string} homeTeam={m.homeTeam as string} awayTeam={m.awayTeam as string} cote={m.cote as number} index={i} />
-   476→                    ))
-   477→                  ) : (
-   478→                    Array.from({ length: 5 }).map((_, i) => (
-   479→                      <div key={i} className="flex items-center gap-2 bg-midnight/50 rounded-lg px-3 py-2 border border-gold/8 animate-pulse">
-   480→                        <div className="w-9 h-3 bg-gold/10 rounded" />
-   481→                        <div className="flex-1 h-3 bg-gold/10 rounded" />
-   482→                        <div className="w-10 h-3 bg-gold/10 rounded" />
-   483→                      </div>
+   470→                  <div className="flex items-center gap-1.5">
+   471→                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+   472→                    <span className="text-[11px] text-gray-400">Cote <span ref={coteRef} className="text-gold font-bold tabular-nums">{coteDisplay}</span></span>
+   473→                  </div>
+   474→                  <div className="flex items-center gap-1.5">
+   475→                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+   476→                    <span className="text-[11px] text-gray-400">Précision <span ref={accuracyRef} className="text-gold font-bold tabular-nums">~{accuracyDisplay}%</span></span>
+   477→                  </div>
+   478→                </div>
+   479→
+   480→                <div className="space-y-1 mb-4 max-h-[340px] overflow-y-auto scrollbar-none">
+   481→                  {vipMatches.length > 0 ? (
+   482→                    vipMatches.map((m, i) => (
+   483→                      <VipCouponRow key={i} match={m.match as string} league={m.league as string} time={m.time as string} homeLogo={m.homeLogo as string} awayLogo={m.awayLogo as string} homeTeam={m.homeTeam as string} awayTeam={m.awayTeam as string} cote={m.cote as number} index={i} />
    484→                    ))
-   485→                  )}
-   486→                </div>
-   487→
-   488→                <div className="flex items-center justify-between bg-gold/5 border border-gold/10 rounded-lg px-3 py-2 mb-5">
-   489→                  <span className="text-[11px] text-gray-500 font-medium">Cote totale du coupon</span>
-   490→                  <span className="text-sm text-gold font-bold tabular-nums">{dailyCote.toFixed(2)}</span>
-   491→                </div>
-   492→
-   493→                <button onClick={() => setShowVipModal(true)}
-   494→                  className="relative flex items-center justify-center gap-2 px-6 py-3.5 btn-gold text-midnight text-sm w-full cursor-pointer overflow-hidden group/btn"
-   495→                  data-cursor="hover">
-   496→                  <span>Débloquer le VIP</span>
-   497→                </button>
-   498→
-   499→                <div className="flex items-center justify-center gap-2 mt-3">
-   500→                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/40"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-   501→                  <p className="text-[10px] sm:text-[11px] text-gold/40 font-medium">Accès limité — <span className="text-gold/60">places restantes aujourd&apos;hui</span></p>
-   502→                </div>
-   503→              </div>
-   504→            </motion.div>
-   505→
-   506→            {/* Promo Section */}
-   507→            <motion.div initial={{ opacity: 0, x: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, x: 0, scale: 1 } : undefined} transition={{ duration: 0.5, delay: 0.1 }}
-   508→              className="relative rounded-2xl border border-emerald/20 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift shadow-2xl">
-   509→              {/* Premium top sheen */}
-   510→              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald/40 to-transparent" />
-   511→              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald via-gold to-emerald" />
-   512→              <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-emerald/3 rounded-full blur-[80px]" />
+   485→                  ) : (
+   486→                    Array.from({ length: 5 }).map((_, i) => (
+   487→                      <div key={i} className="flex items-center gap-2 bg-midnight/50 rounded-lg px-3 py-2 border border-gold/8 animate-pulse">
+   488→                        <div className="w-9 h-3 bg-gold/10 rounded" />
+   489→                        <div className="flex-1 h-3 bg-gold/10 rounded" />
+   490→                        <div className="w-10 h-3 bg-gold/10 rounded" />
+   491→                      </div>
+   492→                    ))
+   493→                  )}
+   494→                </div>
+   495→
+   496→                <div className="flex items-center justify-between bg-gold/5 border border-gold/10 rounded-lg px-3 py-2 mb-5">
+   497→                  <span className="text-[11px] text-gray-500 font-medium">Cote totale du coupon</span>
+   498→                  <span className="text-sm text-gold font-bold tabular-nums">{coteDisplay}</span>
+   499→                </div>
+   500→
+   501→                <button onClick={() => setShowVipModal(true)}
+   502→                  className="relative flex items-center justify-center gap-2 px-6 py-3.5 btn-gold text-midnight text-sm w-full cursor-pointer overflow-hidden group/btn"
+   503→                  data-cursor="hover">
+   504→                  <span>Débloquer le VIP</span>
+   505→                </button>
+   506→
+   507→                <div className="flex items-center justify-center gap-2 mt-3">
+   508→                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/40"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+   509→                  <p className="text-[10px] sm:text-[11px] text-gold/40 font-medium">Accès limité — <span className="text-gold/60">places restantes aujourd&apos;hui</span></p>
+   510→                </div>
+   511→              </div>
+   512→            </motion.div>
    513→
-   514→              <div className="relative p-6 sm:p-8">
-   515→                <div className="w-12 h-12 bg-emerald/10 border border-emerald/15 rounded-xl flex items-center justify-center text-emerald mb-5">
-   516→                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-   517→                    <rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/>
-   518→                  </svg>
-   519→                </div>
-   520→
-   521→                <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
-   522→                  BONUS <span className="text-emerald">EXCLUSIF</span>
-   523→                </h3>
-   524→                <p className="text-gray-400 text-sm mb-5 leading-relaxed">
-   525→                  Inscrivez-vous avec le code promo et recevez jusqu&apos;à 150$ sur votre premier dépôt.
-   526→                </p>
-   527→
-   528→                <div className="bg-midnight/60 border border-white/[0.06] rounded-xl p-4 mb-5 text-center relative overflow-hidden" role="text" aria-label={`Code promo: ${SITE.promoCode}`}>
-   529→                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald/30 to-transparent" />
-   530→                  <div className="text-xs text-gray-500 mb-1">Code promo exclusif</div>
-   531→                  <div className="text-2xl sm:text-3xl font-bold tracking-[0.2em] promo-code-shimmer">{SITE.promoCode}</div>
-   532→                </div>
-   533→
-   534→                <div className={`grid grid-cols-2 gap-2.5 mb-6 stagger-reveal ${isVisible ? 'is-visible' : ''}`}>
-   535→                  {[
-   536→                    { icon: 'bonus', label: 'Bonus 150$' },
-   537→                    { icon: 'instant', label: 'Dépôt instantané' },
-   538→                    { icon: 'mobile', label: 'App mobile' },
-   539→                    { icon: 'secure', label: 'Paiement sécurisé' },
-   540→                  ].map((f, i) => (
-   541→                    <div key={i} className="flex items-center gap-2 bg-midnight/40 rounded-lg px-3 py-2 border border-white/[0.04]">
-   542→                      <span className="text-gold flex-shrink-0">{FEATURE_ICONS[f.icon as keyof typeof FEATURE_ICONS]}</span>
-   543→                      <span className="text-xs text-gray-400">{f.label}</span>
-   544→                    </div>
-   545→                  ))}
-   546→                </div>
-   547→
-   548→                <div className="flex flex-col sm:flex-row gap-2.5">
-   549→                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 btn-linebet text-[#06281F] text-sm" data-cursor="hover">
-   550→                    <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
-   551→                  </a>
-   552→                  {/* V23: Nouveau bouton 888starz à côté de Linebet */}
-   553→                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 btn-star888 text-white text-sm" data-cursor="hover">
-   554→                    <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
-   555→                  </a>
-   556→                </div>
-   557→                {/* V23: Lien de téléchargement pour les deux bookmakers — logo Android + nom du bookmaker */}
-   558→                <div className="grid grid-cols-2 gap-2.5 mt-2.5">
-   559→                  <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-2 px-4 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs hover:bg-white/[0.04] transition-all bg-white/[0.02]">
-   560→                    <img src={ANDROID_LOGO} alt="Android" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy"/>
-   561→                    APK Linebet
-   562→                  </a>
-   563→                  <a href={AFFILIATE.star888Download} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-2 px-4 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs hover:bg-white/[0.04] transition-all bg-white/[0.02]">
-   564→                    <img src={ANDROID_LOGO} alt="Android" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy"/>
-   565→                    APK 888starz
-   566→                  </a>
-   567→                </div>
-   568→              </div>
-   569→            </motion.div>
-   570→          </div>
-   571→        </div>
-   572→      </section>
-   573→
-   574→      <VipModal isOpen={showVipModal} onClose={() => setShowVipModal(false)} />
-   575→    </>
-   576→  )
-   577→}
-   578→
+   514→            {/* Promo Section */}
+   515→            <motion.div initial={{ opacity: 0, x: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, x: 0, scale: 1 } : undefined} transition={{ duration: 0.5, delay: 0.1 }}
+   516→              className="relative rounded-2xl border border-emerald/20 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift shadow-2xl">
+   517→              {/* Premium top sheen */}
+   518→              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald/40 to-transparent" />
+   519→              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald via-gold to-emerald" />
+   520→              <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-emerald/3 rounded-full blur-[80px]" />
+   521→
+   522→              <div className="relative p-6 sm:p-8">
+   523→                <div className="w-12 h-12 bg-emerald/10 border border-emerald/15 rounded-xl flex items-center justify-center text-emerald mb-5">
+   524→                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+   525→                    <rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/>
+   526→                  </svg>
+   527→                </div>
+   528→
+   529→                <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
+   530→                  BONUS <span className="text-emerald">EXCLUSIF</span>
+   531→                </h3>
+   532→                <p className="text-gray-400 text-sm mb-5 leading-relaxed">
+   533→                  Inscrivez-vous avec le code promo et recevez jusqu&apos;à 150$ sur votre premier dépôt.
+   534→                </p>
+   535→
+   536→                <div className="bg-midnight/60 border border-white/[0.06] rounded-xl p-4 mb-5 text-center relative overflow-hidden" role="text" aria-label={`Code promo: ${SITE.promoCode}`}>
+   537→                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald/30 to-transparent" />
+   538→                  <div className="text-xs text-gray-500 mb-1">Code promo exclusif</div>
+   539→                  <div className="text-2xl sm:text-3xl font-bold tracking-[0.2em] promo-code-shimmer">{SITE.promoCode}</div>
+   540→                </div>
+   541→
+   542→                <div className={`grid grid-cols-2 gap-2.5 mb-6 stagger-reveal ${isVisible ? 'is-visible' : ''}`}>
+   543→                  {[
+   544→                    { icon: 'bonus', label: 'Bonus 150$' },
+   545→                    { icon: 'instant', label: 'Dépôt instantané' },
+   546→                    { icon: 'mobile', label: 'App mobile' },
+   547→                    { icon: 'secure', label: 'Paiement sécurisé' },
+   548→                  ].map((f, i) => (
+   549→                    <div key={i} className="flex items-center gap-2 bg-midnight/40 rounded-lg px-3 py-2 border border-white/[0.04]">
+   550→                      <span className="text-gold flex-shrink-0">{FEATURE_ICONS[f.icon as keyof typeof FEATURE_ICONS]}</span>
+   551→                      <span className="text-xs text-gray-400">{f.label}</span>
+   552→                    </div>
+   553→                  ))}
+   554→                </div>
+   555→
+   556→                <div className="flex flex-col sm:flex-row gap-2.5">
+   557→                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 btn-linebet text-[#06281F] text-sm" data-cursor="hover">
+   558→                    <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
+   559→                  </a>
+   560→                  {/* V23: Nouveau bouton 888starz à côté de Linebet */}
+   561→                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 btn-star888 text-white text-sm" data-cursor="hover">
+   562→                    <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
+   563→                  </a>
+   564→                </div>
+   565→                {/* V23: Lien de téléchargement pour les deux bookmakers — logo Android + nom du bookmaker */}
+   566→                <div className="grid grid-cols-2 gap-2.5 mt-2.5">
+   567→                  <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-2 px-4 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs hover:bg-white/[0.04] transition-all bg-white/[0.02]">
+   568→                    <img src={ANDROID_LOGO} alt="Android" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy"/>
+   569→                    APK Linebet
+   570→                  </a>
+   571→                  <a href={AFFILIATE.star888Download} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-2 px-4 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs hover:bg-white/[0.04] transition-all bg-white/[0.02]">
+   572→                    <img src={ANDROID_LOGO} alt="Android" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy"/>
+   573→                    APK 888starz
+   574→                  </a>
+   575→                </div>
+   576→              </div>
+   577→            </motion.div>
+   578→          </div>
+   579→        </div>
+   580→      </section>
+   581→
+   582→      <VipModal isOpen={showVipModal} onClose={() => setShowVipModal(false)} />
+   583→    </>
+   584→  )
+   585→}
+   586→

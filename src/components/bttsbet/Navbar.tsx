@@ -55,7 +55,7 @@ export default function Navbar() {
             aria-label="BttsBet — Accueil"
           >
             <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-emerald/25 to-emerald/5 border border-emerald/20 flex items-center justify-center group-hover:border-emerald/40 transition-all group-hover:shadow-lg group-hover:shadow-emerald/20">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#32B0C8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10"/>
                 <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
                 <path d="M2 12h20"/>
@@ -75,7 +75,8 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href || '/'}
                   onClick={(e) => handleNavClick(e, link)}
-                  className="px-4 py-1.5 bg-gradient-to-r from-royal-deep to-royal text-white font-bold rounded-lg text-sm hover:shadow-lg hover:shadow-royal/30 transition-all hover:brightness-110 cursor-pointer border border-royal/40"
+                  className="px-4 py-1.5 btn-ghost-quantum text-sm"
+                  data-cursor="hover"
                 >
                   {link.label}
                 </a>
@@ -141,7 +142,7 @@ export default function Navbar() {
                     key={link.label}
                     href={link.href || '/'}
                     onClick={(e) => handleNavClick(e, link)}
-                    className="block text-center py-3 px-3 bg-gradient-to-r from-royal-deep to-royal text-white font-bold rounded-lg cursor-pointer border border-royal/40"
+                    className="block text-center py-3 px-3 btn-ghost-quantum text-sm"
                     role="menuitem"
                   >
                     {link.label}
@@ -163,7 +164,7 @@ export default function Navbar() {
                   href={AFFILIATE.linebetDownload}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-2 text-center px-5 py-3 border border-white/10 text-white font-semibold rounded-lg bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
+                  className="flex items-center justify-center gap-2 text-center px-5 py-3 border border-edge text-white font-semibold rounded-xl bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
                 >
                   <img src={ANDROID_LOGO} alt="Android" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy"/>
                   Télécharger Linebet
@@ -172,7 +173,7 @@ export default function Navbar() {
                   href={AFFILIATE.star888Download}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-2 text-center px-5 py-3 border border-white/10 text-white font-semibold rounded-lg bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
+                  className="flex items-center justify-center gap-2 text-center px-5 py-3 border border-edge text-white font-semibold rounded-xl bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
                 >
                   <img src={ANDROID_LOGO} alt="Android" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy"/>
                   Télécharger 888starz

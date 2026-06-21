@@ -45,7 +45,7 @@ export default function Footer() {
       </div>
 
       {/* Footer */}
-      <footer ref={ref} id="faq" className="bg-gradient-to-b from-transparent to-midnight border-t border-white/[0.06] pt-12 pb-24 sm:pb-10 px-4 relative">
+      <footer ref={ref} id="faq" className="bg-gradient-to-b from-transparent to-midnight border-t border-edge pt-12 pb-24 sm:pb-10 px-4 relative">
         {/* Top glow line */}
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald/30 to-transparent" />
         <div className="max-w-5xl mx-auto">
@@ -55,12 +55,12 @@ export default function Footer() {
               <div className="w-8 h-px bg-gradient-to-r from-emerald to-transparent" />
               <span className="text-[10px] font-bold text-emerald uppercase tracking-widest">FAQ</span>
             </div>
-            <h3 className="text-lg font-extrabold text-white mb-4 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
+            <h3 className="text-lg font-extrabold text-white mb-4 tracking-tight">
               QUESTIONS <span className="text-emerald neon-glow">FRÉQUENTES</span>
             </h3>
             <div className={`space-y-2 stagger-reveal ${isVisible ? 'is-visible' : ''}`}>
               {FAQ_ITEMS.map((item, i) => (
-                <div key={i} className="border border-white/[0.06] rounded-xl overflow-hidden bg-panel/40 hover:border-white/[0.1] transition-colors">
+                <div key={i} className="border border-edge rounded-xl overflow-hidden bg-panel/40 hover:border-emerald/30 transition-colors">
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     aria-expanded={openFaq === i}
@@ -107,7 +107,7 @@ export default function Footer() {
             <div className="col-span-2 sm:col-span-1">
               <div className="flex items-center gap-2.5 mb-3">
                 <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald/25 to-emerald/5 border border-emerald/20 flex items-center justify-center">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#32B0C8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
                   </svg>
                 </div>
@@ -156,14 +156,23 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="border-t border-white/[0.06] pt-6 mb-4">
-            <div className="bg-panel/40 rounded-xl p-4 border border-white/[0.04]">
-              <p className="text-[11px] text-gray-600 leading-relaxed mb-1.5">
-                <strong className="text-gray-500">Avertissement :</strong> {LEGAL.disclaimer}
-              </p>
-              <p className="text-[11px] text-gray-600 leading-relaxed">
-                <strong className="text-gray-500">Jeu responsable :</strong> {LEGAL.responsible}
-              </p>
+          {/* Disclaimer block with 18+ icon and warning color highlights */}
+          <div className="border-t border-edge pt-6 mb-4">
+            <div className="bg-panel/40 rounded-xl p-4 border border-edge relative">
+              {/* 18+ icon — stylized */}
+              <div className="flex items-start gap-3 mb-3">
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg border-2 border-gold/60 bg-gold/10 flex items-center justify-center text-gold font-extrabold text-sm tracking-tight">
+                  18+
+                </div>
+                <div className="flex-1">
+                  <p className="text-[11px] text-gray-500 leading-relaxed mb-1.5">
+                    <strong className="text-gold">Avertissement :</strong> {LEGAL.disclaimer}
+                  </p>
+                  <p className="text-[11px] text-gray-500 leading-relaxed">
+                    <strong className="text-gold">Jeu responsable :</strong> {LEGAL.responsible}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 

@@ -112,7 +112,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                           <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                         </svg>
                       </div>
-                      <h3 className="text-xl sm:text-2xl font-extrabold text-white text-center mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-white text-center mb-2">
                         ACCÈS <span className="text-gold">VIP</span>
                       </h3>
                       <p className="text-gray-300 text-sm text-center mb-4 leading-relaxed">
@@ -231,7 +231,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
                         </svg>
                       </div>
-                      <h3 className="text-lg sm:text-xl font-extrabold text-white text-center mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
+                      <h3 className="text-lg sm:text-xl font-extrabold text-white text-center mb-2">
                         CONFIRMEZ VOTRE INSCRIPTION
                       </h3>
                       <p className="text-gray-400 text-sm text-center mb-5 leading-relaxed">
@@ -268,7 +268,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                           <polyline points="20 6 9 17 4 12"/>
                         </svg>
                       </div>
-                      <h3 className="text-lg font-extrabold text-white mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>DEMANDE ENVOYÉE !</h3>
+                      <h3 className="text-lg font-extrabold text-white mb-2">DEMANDE ENVOYÉE !</h3>
                       <p className="text-gray-400 text-sm leading-relaxed">Votre demande d&apos;accès VIP a été envoyée via WhatsApp. Nous vérifierons votre inscription {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'} et vous recevrez votre accès VIP sous peu.</p>
                     </motion.div>
                   )}
@@ -423,7 +423,7 @@ export default function PromoVip() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             {/* VIP Coupon */}
             <motion.div initial={{ opacity: 0, y: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : undefined} transition={{ duration: 0.6 }}
-              className="relative rounded-2xl border border-gold/20 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift shadow-2xl">
+              className="relative rounded-2xl border border-gold/25 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift shadow-2xl">
               {/* Premium top sheen */}
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold-light to-gold" />
@@ -437,13 +437,13 @@ export default function PromoVip() {
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2 17l4-8 4 4 2-9 4 7 2-3 4 9H2z"/></svg>
                     </div>
                     <div>
-                      <h3 className="text-lg sm:text-xl font-extrabold text-white leading-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
+                      <h3 className="text-lg sm:text-xl font-extrabold text-white leading-tight">
                         PRONOSTICS <span className="text-gold animate-pulse-gold">EXPERTS</span>
                       </h3>
-                      <p className="text-[10px] text-gold/50 font-medium tracking-wide uppercase">Contenu exclusif verrouillé</p>
+                      <p className="text-[10px] text-gold/60 font-medium tracking-wide uppercase">Contenu exclusif verrouillé</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-1.5 bg-gold/10 border border-gold/15 rounded-full px-2.5 py-1">
+                  <div className="flex items-center gap-1.5 bg-gold/10 border border-gold/20 rounded-full px-2.5 py-1">
                     <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
                     <span className="text-[10px] text-gold font-semibold">LIVE</span>
                   </div>
@@ -511,29 +511,39 @@ export default function PromoVip() {
               </div>
             </motion.div>
 
-            {/* Promo Section */}
+            {/* Promo Section — fintech-style offer card */}
             <motion.div initial={{ opacity: 0, x: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, x: 0, scale: 1 } : undefined} transition={{ duration: 0.5, delay: 0.1 }}
-              className="relative rounded-2xl border border-emerald/20 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift shadow-2xl">
+              className="relative rounded-2xl border border-emerald/25 overflow-hidden hover-lift shadow-2xl"
+              style={{
+                background: 'linear-gradient(135deg, rgba(50, 176, 200, 0.08) 0%, rgba(15, 21, 37, 0.95) 40%, rgba(245, 165, 36, 0.06) 100%)',
+              }}>
               {/* Premium top sheen */}
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald/40 to-transparent" />
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald via-gold to-emerald" />
-              <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-emerald/3 rounded-full blur-[80px]" />
+              <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-emerald/4 rounded-full blur-[80px]" />
+              <div className="absolute top-0 right-0 w-[180px] h-[180px] bg-gold/4 rounded-full blur-[80px]" />
 
               <div className="relative p-6 sm:p-8">
-                <div className="w-12 h-12 bg-emerald/10 border border-emerald/15 rounded-xl flex items-center justify-center text-emerald mb-5">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/>
-                  </svg>
+                <div className="flex items-center gap-3 mb-5">
+                  {/* Gift icon — large */}
+                  <div className="w-14 h-14 bg-gradient-to-br from-emerald/15 to-gold/10 border border-emerald/20 rounded-2xl flex items-center justify-center text-emerald">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-extrabold text-white">
+                      BONUS <span className="text-emerald">EXCLUSIF</span>
+                    </h3>
+                  </div>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
-                  BONUS <span className="text-emerald">EXCLUSIF</span>
-                </h3>
                 <p className="text-gray-400 text-sm mb-5 leading-relaxed">
                   Inscrivez-vous avec le code promo et recevez jusqu&apos;à 150$ sur votre premier dépôt.
                 </p>
 
-                <div className="bg-midnight/60 border border-white/[0.06] rounded-xl p-4 mb-5 text-center relative overflow-hidden" role="text" aria-label={`Code promo: ${SITE.promoCode}`}>
+                {/* Bonus amount — large display */}
+                <div className="bg-midnight/60 border border-edge rounded-xl p-4 mb-4 text-center relative overflow-hidden" role="text" aria-label={`Code promo: ${SITE.promoCode}`}>
                   <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald/30 to-transparent" />
                   <div className="text-xs text-gray-500 mb-1">Code promo exclusif</div>
                   <div className="text-2xl sm:text-3xl font-bold tracking-[0.2em] promo-code-shimmer">{SITE.promoCode}</div>
@@ -546,7 +556,7 @@ export default function PromoVip() {
                     { icon: 'mobile', label: 'App mobile' },
                     { icon: 'secure', label: 'Paiement sécurisé' },
                   ].map((f, i) => (
-                    <div key={i} className="flex items-center gap-2 bg-midnight/40 rounded-lg px-3 py-2 border border-white/[0.04]">
+                    <div key={i} className="flex items-center gap-2 bg-midnight/40 rounded-lg px-3 py-2 border border-edge">
                       <span className="text-gold flex-shrink-0">{FEATURE_ICONS[f.icon as keyof typeof FEATURE_ICONS]}</span>
                       <span className="text-xs text-gray-400">{f.label}</span>
                     </div>
@@ -564,11 +574,11 @@ export default function PromoVip() {
                 </div>
                 {/* V23: Lien de téléchargement pour les deux bookmakers — logo Android + nom du bookmaker */}
                 <div className="grid grid-cols-2 gap-2.5 mt-2.5">
-                  <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-2 px-4 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs hover:bg-white/[0.04] transition-all bg-white/[0.02]">
+                  <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-2 px-4 py-2.5 border border-edge text-white font-semibold rounded-xl text-xs hover:bg-white/[0.04] transition-all bg-white/[0.02]">
                     <img src={ANDROID_LOGO} alt="Android" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy"/>
                     APK Linebet
                   </a>
-                  <a href={AFFILIATE.star888Download} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-2 px-4 py-2.5 border border-white/10 text-white font-semibold rounded-xl text-xs hover:bg-white/[0.04] transition-all bg-white/[0.02]">
+                  <a href={AFFILIATE.star888Download} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-2 px-4 py-2.5 border border-edge text-white font-semibold rounded-xl text-xs hover:bg-white/[0.04] transition-all bg-white/[0.02]">
                     <img src={ANDROID_LOGO} alt="Android" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy"/>
                     APK 888starz
                   </a>

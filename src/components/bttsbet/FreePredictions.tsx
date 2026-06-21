@@ -94,7 +94,7 @@ function PredBadge({ type, prediction, expanded }: { type: string; prediction: s
         isPositive
           ? isBtts
             ? 'bg-emerald/8 border-emerald/20 hover:bg-emerald/12'
-            : 'bg-gold/8 border-gold/20 hover:bg-gold/12'
+            : 'bg-success/8 border-success/20 hover:bg-success/12'
           : 'bg-red-500/5 border-red-500/15 hover:bg-red-500/8'
       }`}>
         <div className="flex items-center justify-between mb-1.5">
@@ -105,7 +105,7 @@ function PredBadge({ type, prediction, expanded }: { type: string; prediction: s
             isPositive
               ? isBtts
                 ? 'bg-emerald/15 text-emerald'
-                : 'bg-gold/15 text-gold'
+                : 'bg-success/15 text-success-light'
               : 'bg-red-500/15 text-red-400'
           }`}>
             {prediction}
@@ -113,7 +113,7 @@ function PredBadge({ type, prediction, expanded }: { type: string; prediction: s
         </div>
         <div className={`text-lg sm:text-xl font-extrabold ${
           isPositive
-            ? isBtts ? 'text-emerald' : 'text-gold'
+            ? isBtts ? 'text-emerald' : 'text-success-light'
             : 'text-red-400'
         }`}>
           {isBtts ? 'BTTS' : 'Over 2.5'}
@@ -127,7 +127,7 @@ function PredBadge({ type, prediction, expanded }: { type: string; prediction: s
               isPositive
                 ? isBtts
                   ? 'bg-gradient-to-r from-emerald-dark to-emerald'
-                  : 'bg-gradient-to-r from-gold-dark to-gold'
+                  : 'bg-gradient-to-r from-success-dark to-success'
                 : 'bg-red-500/40'
             }`}
           />
@@ -136,18 +136,21 @@ function PredBadge({ type, prediction, expanded }: { type: string; prediction: s
     )
   }
 
+  // Compact badge — BTTS = cyan badge-btts, Over 2.5 = green badge-over25
   const label = isBtts ? 'BTTS' : 'O2.5'
+  if (!isBtts && !isPositive) {
+    return (
+      <span className="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-lg bg-red-500/10 text-red-400 border border-red-500/20">
+        <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
+        {label} {prediction}
+      </span>
+    )
+  }
   return (
-    <span className={`inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-lg ${
-      isPositive
-        ? isBtts
-          ? 'bg-emerald/10 text-emerald border border-emerald/20'
-          : 'bg-gold/10 text-gold border border-gold/20'
-        : 'bg-red-500/10 text-red-400 border border-red-500/20'
-    }`}>
+    <span className={isBtts ? 'badge-btts' : 'badge-over25'}>
       <span className={`w-1.5 h-1.5 rounded-full ${
         isPositive
-          ? isBtts ? 'bg-emerald' : 'bg-gold'
+          ? isBtts ? 'bg-emerald' : 'bg-success'
           : 'bg-red-400'
       }`} />
       {label} {prediction}
@@ -198,8 +201,8 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
         aria-expanded={expanded}
         className={`relative rounded-xl border cursor-pointer transition-all duration-300 overflow-hidden ${
           expanded
-            ? 'bg-gradient-to-b from-panel-2 to-panel border-emerald/25 shadow-lg shadow-emerald/8'
-            : 'bg-gradient-to-b from-panel/80 to-panel/60 border-white/[0.06] hover:border-emerald/20 hover:shadow-lg hover:shadow-black/40'
+            ? 'bg-gradient-to-b from-panel-2 to-panel border-emerald/30 shadow-lg shadow-emerald/8'
+            : 'bg-gradient-to-b from-panel/80 to-panel/60 border-edge hover:border-emerald/40 hover:shadow-lg hover:shadow-emerald/10 hover:-translate-y-0.5'
         }`}
       >
         {/* Premium top sheen */}
@@ -216,10 +219,15 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
           )}
         </AnimatePresence>
 
-        {/* COMPACT ROW */}
+        {/* COMPACT ROW — with micro-icons */}
         <div className="flex items-center gap-3 px-3 sm:px-4 py-3">
           <div className="flex-shrink-0 text-center min-w-[44px] sm:min-w-[50px]">
-            <div className="text-white font-bold text-sm sm:text-base tabular-nums">{match.time || '--:--'}</div>
+            <div className="flex items-center justify-center gap-1 text-white font-bold text-sm sm:text-base tabular-nums">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-emerald/60" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
+              {match.time || '--:--'}
+            </div>
             <div className="text-gray-500 text-[10px]">{match.date ? formatDateShort(match.date) : ''}</div>
           </div>
 
@@ -233,7 +241,12 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
 
           <div className="flex-1 min-w-0">
             <div className="text-white font-semibold text-sm truncate">{match.match}</div>
-            <div className="text-gray-500 text-[11px] truncate">{match.league}</div>
+            <div className="text-gray-500 text-[11px] truncate flex items-center gap-1">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-600 flex-shrink-0" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+              </svg>
+              {match.league}
+            </div>
           </div>
 
           <div className="flex items-center gap-1.5 flex-shrink-0">
@@ -471,12 +484,12 @@ export default function FreePredictions() {
                 <div className="w-8 h-px bg-gradient-to-r from-emerald to-transparent" />
                 <span className="text-[10px] font-bold text-emerald uppercase tracking-widest">Live Predictions</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-1 tracking-tight">
                 PRONOSTICS <span className="text-emerald neon-glow">IA</span>
               </h2>
               <p className="text-gray-500 text-sm">Sélection IA — matchs des 7 prochains jours</p>
             </div>
-            <div className="flex items-center gap-4 bg-panel/70 border border-white/[0.06] rounded-xl px-4 py-2.5 backdrop-blur-sm">
+            <div className="flex items-center gap-4 bg-panel/70 border border-edge rounded-xl px-4 py-2.5 backdrop-blur-sm">
               <div className="flex items-center gap-1.5">
                 <span className="relative flex w-1.5 h-1.5">
                   <span className="absolute inset-0 bg-emerald rounded-full animate-ping opacity-75" />
@@ -484,10 +497,10 @@ export default function FreePredictions() {
                 </span>
                 <span className="text-xs text-gray-400"><span ref={totalRef} className="text-white font-bold tabular-nums">{totalDisplay}</span> matchs</span>
               </div>
-              <div className="w-px h-4 bg-white/10" />
+              <div className="w-px h-4 bg-edge" />
               <div className="text-xs text-gray-400"><span ref={bttsRef} className="text-emerald font-bold tabular-nums">{bttsDisplay}</span> BTTS</div>
-              <div className="w-px h-4 bg-white/10" />
-              <div className="text-xs text-gray-400"><span ref={o25Ref} className="text-gold font-bold tabular-nums">{o25Display}</span> O2.5</div>
+              <div className="w-px h-4 bg-edge" />
+              <div className="text-xs text-gray-400"><span ref={o25Ref} className="text-success-light font-bold tabular-nums">{o25Display}</span> O2.5</div>
             </div>
           </div>
 
@@ -498,8 +511,8 @@ export default function FreePredictions() {
                 onClick={() => setActiveLeague(league)}
                 className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   activeLeague === league
-                    ? 'bg-emerald/12 text-emerald border border-emerald/25 shadow-sm shadow-emerald/10'
-                    : 'bg-panel/40 text-gray-500 border border-white/[0.04] hover:text-gray-300 hover:border-white/10'
+                    ? 'bg-emerald/12 text-emerald border border-emerald/30 shadow-sm shadow-emerald/10'
+                    : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300 hover:border-edge-light'
                 }`}
               >
                 {league === 'all' ? 'Tous' : league}

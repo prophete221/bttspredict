@@ -30,6 +30,7 @@ interface HistoryItem {
 function HistoryRow({ item, index }: { item: HistoryItem; index: number }) {
   // Per-row scroll reveal — each row animates independently
   const [revealRef, isRowVisible] = useRevealOnScroll(0.1, 'fade-up')
+  const isAlt = index % 2 === 1
   return (
     <motion.div
       ref={revealRef}
@@ -37,9 +38,12 @@ function HistoryRow({ item, index }: { item: HistoryItem; index: number }) {
       initial={false}
       animate={isRowVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
       transition={{ duration: 0.4, delay: Math.min(index * 0.04, 0.2), ease: [0.22, 1, 0.36, 1] }}
-      className="grid grid-cols-1 sm:grid-cols-5 gap-1 sm:gap-3 px-3 py-2.5 border-t border-white/[0.04] hover:bg-emerald/[0.04] transition-colors items-center"
+      className={`grid grid-cols-1 sm:grid-cols-5 gap-1 sm:gap-3 px-3 py-2.5 border-t border-edge/60 hover:bg-emerald/[0.04] transition-colors items-center ${isAlt ? 'bg-white/[0.015]' : ''}`}
     >
-      <div className="text-[10px] text-gray-500 sm:text-xs">{item.date}</div>
+      <div className="text-[10px] text-gray-500 sm:text-xs flex items-center gap-1.5">
+        <span className="pastille pastille-cyan" />
+        {item.date}
+      </div>
       <div className="flex items-center gap-1.5">
         <MiniTeamLogo src={resolveTeamLogo(item.match?.split(' vs ')[0])} alt={item.match?.split(' vs ')[0]} />
         <div>
@@ -50,12 +54,12 @@ function HistoryRow({ item, index }: { item: HistoryItem; index: number }) {
         <MiniTeamLogo src={resolveTeamLogo(item.match?.split(' vs ')[1])} alt={item.match?.split(' vs ')[1]} />
       </div>
       <div className="hidden sm:block">
-        <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-full ${item.type === 'BTTS' ? 'bg-emerald/10 text-emerald border border-emerald/20' : 'bg-gold/10 text-gold border border-gold/20'}`}>
+        <span className={item.type === 'BTTS' ? 'badge-btts' : 'badge-over25'}>
           {item.type}
         </span>
       </div>
       <div className="text-xs text-white font-semibold">{item.prediction}</div>
-      <div className="text-xs text-gray-300 font-mono">{item.score}</div>
+      <div className="text-xs text-gray-300 font-mono tabular-nums">{item.score}</div>
     </motion.div>
   )
 }
@@ -160,9 +164,9 @@ export default function WinHistory() {
           className={`grid grid-cols-3 gap-3 mb-6 stagger-reveal ${isVisible ? 'is-visible' : ''}`}
         >
           {[
-            { refObj: totalRef, value: totalDisplay, label: 'Analysés', color: 'text-white' },
-            { refObj: rateRef, value: rateDisplay, label: 'Réussite', color: 'text-emerald', suffix: '%' },
-            { refObj: last30Ref, value: last30Display, label: '30 jours', color: 'text-gold', suffix: '%' },
+            { refObj: totalRef, value: totalDisplay, label: 'Analysés', color: 'text-white', pastille: 'pastille-cyan' },
+            { refObj: rateRef, value: rateDisplay, label: 'Réussite', color: 'text-emerald', suffix: '%', pastille: 'pastille-green' },
+            { refObj: last30Ref, value: last30Display, label: '30 jours', color: 'text-gold', suffix: '%', pastille: 'pastille-amber' },
           ].map((item, i) => (
             <TiltCard key={i} maxTilt={4}>
               <div className="glass-3d rounded-xl p-3 text-center stat-card-animated relative overflow-hidden">
@@ -170,7 +174,10 @@ export default function WinHistory() {
                 <span ref={item.refObj} className={`block text-lg font-bold ${item.color} tabular-nums`}>
                   {item.value}{item.suffix || ''}
                 </span>
-                <div className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold">{item.label}</div>
+                <div className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold flex items-center justify-center gap-1">
+                  <span className={`pastille ${item.pastille}`} />
+                  {item.label}
+                </div>
               </div>
             </TiltCard>
           ))}
@@ -184,7 +191,7 @@ export default function WinHistory() {
         >
           {/* Premium top sheen */}
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
-          <div className="hidden sm:grid grid-cols-5 gap-3 px-3 py-2 bg-white/[0.03] text-gray-500 text-[10px] font-semibold uppercase tracking-wider border-b border-white/[0.06]">
+          <div className="hidden sm:grid grid-cols-5 gap-3 px-3 py-2 bg-[#111827] text-gray-400 text-[10px] font-semibold uppercase tracking-wider border-b border-edge">
             <span>Date</span><span>Match</span><span>Type</span><span>Pronostic</span><span>Score</span>
           </div>
 
@@ -195,7 +202,7 @@ export default function WinHistory() {
 
         {wonHistory.length > 5 && (
           <div className="text-center mt-4">
-            <button onClick={() => setShowAll(!showAll)} className="px-4 py-1.5 glass-3d text-emerald text-xs font-semibold rounded-full hover:bg-emerald/10 transition-all hover-lift border border-emerald/20">
+            <button onClick={() => setShowAll(!showAll)} className="px-4 py-1.5 glass-3d text-emerald text-xs font-semibold rounded-full hover:bg-emerald/10 transition-all hover-lift border border-emerald/30">
               {showAll ? 'Voir moins ↑' : 'Voir plus ↓'}
             </button>
           </div>
