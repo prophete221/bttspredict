@@ -8,16 +8,16 @@
       "type": "BTTS",
       "prediction": "Oui",
       "confidence": 49,
-      "time": "21:00",
+      "time": "20:00",
       "matchSemantic": "belg-iran-int-btts",
       "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/bel.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/irn.png",
+      "homeLogo": "https://flagcdn.com/w40/be.png",
+      "awayLogo": "https://flagcdn.com/w40/ir.png",
       "analysis": {
-        "bttsProb": 0.66,
-        "over25Prob": 0.57,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.65,
+        "over25Prob": 0.58,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -29,58 +29,16 @@
       "type": "Over 2.5",
       "prediction": "Oui",
       "confidence": 49,
-      "time": "21:00",
+      "time": "20:00",
       "matchSemantic": "belg-iran-int-o25",
       "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/bel.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/irn.png",
+      "homeLogo": "https://flagcdn.com/w40/be.png",
+      "awayLogo": "https://flagcdn.com/w40/ir.png",
       "analysis": {
-        "bttsProb": 0.66,
-        "over25Prob": 0.57,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
-        "dataQuality": 0,
-        "hasRealData": false
-      }
-    },
-    {
-      "match": "Spain vs Saudi Arabia",
-      "league": "International Friendly",
-      "date": "2026-06-21",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "confidence": 47,
-      "time": "18:00",
-      "matchSemantic": "spai-saud-int-btts",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/esp.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/ksa.png",
-      "analysis": {
-        "bttsProb": 0.53,
-        "over25Prob": 0.46,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
-        "dataQuality": 0,
-        "hasRealData": false
-      }
-    },
-    {
-      "match": "Spain vs Saudi Arabia",
-      "league": "International Friendly",
-      "date": "2026-06-21",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "confidence": 47,
-      "time": "18:00",
-      "matchSemantic": "spai-saud-int-o25",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/esp.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/ksa.png",
-      "analysis": {
-        "bttsProb": 0.53,
-        "over25Prob": 0.46,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.65,
+        "over25Prob": 0.58,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -98,10 +56,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/uru.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/cpv.png",
       "analysis": {
-        "bttsProb": 0.67,
-        "over25Prob": 0.58,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.65,
+        "over25Prob": 0.59,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -119,10 +77,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/uru.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/cpv.png",
       "analysis": {
-        "bttsProb": 0.67,
-        "over25Prob": 0.58,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.65,
+        "over25Prob": 0.59,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -140,10 +98,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/nzl.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/egy.png",
       "analysis": {
-        "bttsProb": 0.58,
-        "over25Prob": 0.5,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.56,
+        "over25Prob": 0.52,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -161,10 +119,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/nzl.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/egy.png",
       "analysis": {
-        "bttsProb": 0.58,
-        "over25Prob": 0.5,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.56,
+        "over25Prob": 0.52,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -175,17 +133,17 @@
       "date": "2026-06-22",
       "type": "BTTS",
       "prediction": "Oui",
-      "confidence": 47,
+      "confidence": 46,
       "time": "19:00",
       "matchSemantic": "arge-unit-int-btts",
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/arg.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/aut.png",
       "analysis": {
-        "bttsProb": 0.52,
-        "over25Prob": 0.46,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.5,
+        "over25Prob": 0.47,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -196,17 +154,17 @@
       "date": "2026-06-22",
       "type": "Over 2.5",
       "prediction": "Non",
-      "confidence": 47,
+      "confidence": 46,
       "time": "19:00",
       "matchSemantic": "arge-unit-int-o25",
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/arg.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/aut.png",
       "analysis": {
-        "bttsProb": 0.52,
-        "over25Prob": 0.46,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.5,
+        "over25Prob": 0.47,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -217,17 +175,17 @@
       "date": "2026-06-22",
       "type": "BTTS",
       "prediction": "Oui",
-      "confidence": 47,
+      "confidence": 46,
       "time": "23:00",
       "matchSemantic": "fran-iraq-int-btts",
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/fra.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/irq.png",
       "analysis": {
-        "bttsProb": 0.53,
-        "over25Prob": 0.46,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.51,
+        "over25Prob": 0.48,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -238,17 +196,17 @@
       "date": "2026-06-22",
       "type": "Over 2.5",
       "prediction": "Non",
-      "confidence": 47,
+      "confidence": 46,
       "time": "23:00",
       "matchSemantic": "fran-iraq-int-o25",
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/fra.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/irq.png",
       "analysis": {
-        "bttsProb": 0.53,
-        "over25Prob": 0.46,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.51,
+        "over25Prob": 0.48,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -266,10 +224,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/por.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/uzb.png",
       "analysis": {
-        "bttsProb": 0.66,
-        "over25Prob": 0.57,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.65,
+        "over25Prob": 0.58,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -287,52 +245,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/por.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/uzb.png",
       "analysis": {
-        "bttsProb": 0.66,
-        "over25Prob": 0.57,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
-        "dataQuality": 0,
-        "hasRealData": false
-      }
-    },
-    {
-      "match": "Norway vs Senegal",
-      "league": "International Friendly",
-      "date": "2026-06-23",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "confidence": 47,
-      "time": "02:00",
-      "matchSemantic": "norw-sene-int-btts",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/nor.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/sen.png",
-      "analysis": {
-        "bttsProb": 0.51,
-        "over25Prob": 0.45,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
-        "dataQuality": 0,
-        "hasRealData": false
-      }
-    },
-    {
-      "match": "Norway vs Senegal",
-      "league": "International Friendly",
-      "date": "2026-06-23",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "confidence": 47,
-      "time": "02:00",
-      "matchSemantic": "norw-sene-int-o25",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/nor.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/sen.png",
-      "analysis": {
-        "bttsProb": 0.51,
-        "over25Prob": 0.45,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.65,
+        "over25Prob": 0.58,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -350,10 +266,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/jor.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/alg.png",
       "analysis": {
-        "bttsProb": 0.58,
-        "over25Prob": 0.5,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.56,
+        "over25Prob": 0.52,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -371,10 +287,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/jor.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/alg.png",
       "analysis": {
-        "bttsProb": 0.58,
-        "over25Prob": 0.5,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.56,
+        "over25Prob": 0.52,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -392,10 +308,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/eng.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/gha.png",
       "analysis": {
-        "bttsProb": 0.54,
-        "over25Prob": 0.47,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.52,
+        "over25Prob": 0.49,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -413,10 +329,52 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/eng.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/gha.png",
       "analysis": {
-        "bttsProb": 0.54,
-        "over25Prob": 0.47,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.52,
+        "over25Prob": 0.49,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
+        "dataQuality": 0,
+        "hasRealData": false
+      }
+    },
+    {
+      "match": "Norway vs Senegal",
+      "league": "International Friendly",
+      "date": "2026-06-23",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "confidence": 46,
+      "time": "02:00",
+      "matchSemantic": "norw-sene-int-btts",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/nor.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/sen.png",
+      "analysis": {
+        "bttsProb": 0.49,
+        "over25Prob": 0.46,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
+        "dataQuality": 0,
+        "hasRealData": false
+      }
+    },
+    {
+      "match": "Norway vs Senegal",
+      "league": "International Friendly",
+      "date": "2026-06-23",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "confidence": 46,
+      "time": "02:00",
+      "matchSemantic": "norw-sene-int-o25",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/nor.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/sen.png",
+      "analysis": {
+        "bttsProb": 0.49,
+        "over25Prob": 0.46,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -434,10 +392,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/bih.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/qat.png",
       "analysis": {
-        "bttsProb": 0.61,
-        "over25Prob": 0.61,
-        "homeLambda": 3.36,
-        "awayLambda": 0.75,
+        "bttsProb": 0.6,
+        "over25Prob": 0.62,
+        "homeLambda": 3.4,
+        "awayLambda": 0.73,
         "dataQuality": 4,
         "hasRealData": true
       }
@@ -455,10 +413,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/bih.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/qat.png",
       "analysis": {
-        "bttsProb": 0.61,
-        "over25Prob": 0.61,
-        "homeLambda": 3.36,
-        "awayLambda": 0.75,
+        "bttsProb": 0.6,
+        "over25Prob": 0.62,
+        "homeLambda": 3.4,
+        "awayLambda": 0.73,
         "dataQuality": 4,
         "hasRealData": true
       }
@@ -476,10 +434,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/sui.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/can.png",
       "analysis": {
-        "bttsProb": 0.65,
-        "over25Prob": 0.55,
-        "homeLambda": 1.78,
-        "awayLambda": 1.43,
+        "bttsProb": 0.64,
+        "over25Prob": 0.56,
+        "homeLambda": 1.8,
+        "awayLambda": 1.37,
         "dataQuality": 4,
         "hasRealData": true
       }
@@ -497,10 +455,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/sui.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/can.png",
       "analysis": {
-        "bttsProb": 0.65,
-        "over25Prob": 0.55,
-        "homeLambda": 1.78,
-        "awayLambda": 1.43,
+        "bttsProb": 0.64,
+        "over25Prob": 0.56,
+        "homeLambda": 1.8,
+        "awayLambda": 1.37,
         "dataQuality": 4,
         "hasRealData": true
       }
@@ -518,10 +476,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/col.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/rdc.png",
       "analysis": {
-        "bttsProb": 0.62,
-        "over25Prob": 0.54,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.61,
+        "over25Prob": 0.55,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -539,10 +497,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/col.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/rdc.png",
       "analysis": {
-        "bttsProb": 0.62,
-        "over25Prob": 0.54,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.61,
+        "over25Prob": 0.55,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -560,10 +518,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/pan.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/cro.png",
       "analysis": {
-        "bttsProb": 0.56,
-        "over25Prob": 0.49,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.54,
+        "over25Prob": 0.5,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -573,7 +531,7 @@
       "league": "International Friendly",
       "date": "2026-06-24",
       "type": "Over 2.5",
-      "prediction": "Non",
+      "prediction": "Oui",
       "confidence": 47,
       "time": "01:00",
       "matchSemantic": "pana-croa-int-o25",
@@ -581,10 +539,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/pan.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/cro.png",
       "analysis": {
-        "bttsProb": 0.56,
-        "over25Prob": 0.49,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.54,
+        "over25Prob": 0.5,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -604,8 +562,8 @@
       "analysis": {
         "bttsProb": 0.35,
         "over25Prob": 0.29,
-        "homeLambda": 0.51,
-        "awayLambda": 0.64,
+        "homeLambda": 0.52,
+        "awayLambda": 0.62,
         "dataQuality": 6,
         "hasRealData": true
       }
@@ -625,8 +583,8 @@
       "analysis": {
         "bttsProb": 0.35,
         "over25Prob": 0.29,
-        "homeLambda": 0.51,
-        "awayLambda": 0.64,
+        "homeLambda": 0.52,
+        "awayLambda": 0.62,
         "dataQuality": 6,
         "hasRealData": true
       }
@@ -644,10 +602,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/sco.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
       "analysis": {
-        "bttsProb": 0.38,
+        "bttsProb": 0.37,
         "over25Prob": 0.31,
-        "homeLambda": 0.65,
-        "awayLambda": 0.63,
+        "homeLambda": 0.66,
+        "awayLambda": 0.61,
         "dataQuality": 4,
         "hasRealData": true
       }
@@ -665,10 +623,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/sco.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
       "analysis": {
-        "bttsProb": 0.38,
+        "bttsProb": 0.37,
         "over25Prob": 0.31,
-        "homeLambda": 0.65,
-        "awayLambda": 0.63,
+        "homeLambda": 0.66,
+        "awayLambda": 0.61,
         "dataQuality": 4,
         "hasRealData": true
       }
@@ -686,10 +644,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/cze.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/mex.png",
       "analysis": {
-        "bttsProb": 0.45,
+        "bttsProb": 0.44,
         "over25Prob": 0.33,
-        "homeLambda": 0.53,
-        "awayLambda": 0.96,
+        "homeLambda": 0.54,
+        "awayLambda": 0.93,
         "dataQuality": 4,
         "hasRealData": true
       }
@@ -707,10 +665,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/cze.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/mex.png",
       "analysis": {
-        "bttsProb": 0.45,
+        "bttsProb": 0.44,
         "over25Prob": 0.33,
-        "homeLambda": 0.53,
-        "awayLambda": 0.96,
+        "homeLambda": 0.54,
+        "awayLambda": 0.93,
         "dataQuality": 4,
         "hasRealData": true
       }
@@ -728,9 +686,9 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/mar.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/hai.png",
       "analysis": {
-        "bttsProb": 0.38,
-        "over25Prob": 0.42,
-        "homeLambda": 2.15,
+        "bttsProb": 0.37,
+        "over25Prob": 0.43,
+        "homeLambda": 2.17,
         "awayLambda": 0.3,
         "dataQuality": 4,
         "hasRealData": true
@@ -749,9 +707,9 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/mar.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/hai.png",
       "analysis": {
-        "bttsProb": 0.38,
-        "over25Prob": 0.42,
-        "homeLambda": 2.15,
+        "bttsProb": 0.37,
+        "over25Prob": 0.43,
+        "homeLambda": 2.17,
         "awayLambda": 0.3,
         "dataQuality": 4,
         "hasRealData": true
@@ -770,10 +728,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/rsa.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/kors.png",
       "analysis": {
-        "bttsProb": 0.47,
+        "bttsProb": 0.46,
         "over25Prob": 0.35,
-        "homeLambda": 0.93,
-        "awayLambda": 0.74,
+        "homeLambda": 0.95,
+        "awayLambda": 0.71,
         "dataQuality": 4,
         "hasRealData": true
       }
@@ -791,10 +749,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/rsa.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/kors.png",
       "analysis": {
-        "bttsProb": 0.47,
+        "bttsProb": 0.46,
         "over25Prob": 0.35,
-        "homeLambda": 0.93,
-        "awayLambda": 0.74,
+        "homeLambda": 0.95,
+        "awayLambda": 0.71,
         "dataQuality": 4,
         "hasRealData": true
       }
@@ -813,9 +771,9 @@
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/civ.png",
       "analysis": {
         "bttsProb": 0.55,
-        "over25Prob": 0.5,
-        "homeLambda": 1.37,
-        "awayLambda": 1.25,
+        "over25Prob": 0.51,
+        "homeLambda": 1.42,
+        "awayLambda": 1.22,
         "dataQuality": 6,
         "hasRealData": true
       }
@@ -834,9 +792,9 @@
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/civ.png",
       "analysis": {
         "bttsProb": 0.55,
-        "over25Prob": 0.5,
-        "homeLambda": 1.37,
-        "awayLambda": 1.25,
+        "over25Prob": 0.51,
+        "homeLambda": 1.42,
+        "awayLambda": 1.22,
         "dataQuality": 6,
         "hasRealData": true
       }
@@ -854,10 +812,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/jpn.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/swe.png",
       "analysis": {
-        "bttsProb": 0.64,
+        "bttsProb": 0.63,
         "over25Prob": 0.85,
-        "homeLambda": 9.7,
-        "awayLambda": 0.87,
+        "homeLambda": 9.86,
+        "awayLambda": 0.85,
         "dataQuality": 5,
         "hasRealData": true
       }
@@ -875,10 +833,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/jpn.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/swe.png",
       "analysis": {
-        "bttsProb": 0.64,
+        "bttsProb": 0.63,
         "over25Prob": 0.85,
-        "homeLambda": 9.7,
-        "awayLambda": 0.87,
+        "homeLambda": 9.86,
+        "awayLambda": 0.85,
         "dataQuality": 5,
         "hasRealData": true
       }
@@ -896,10 +854,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/tun.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/ned.png",
       "analysis": {
-        "bttsProb": 0.68,
+        "bttsProb": 0.67,
         "over25Prob": 0.84,
-        "homeLambda": 1.11,
-        "awayLambda": 5.18,
+        "homeLambda": 1.13,
+        "awayLambda": 4.98,
         "dataQuality": 5,
         "hasRealData": true
       }
@@ -917,10 +875,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/tun.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/ned.png",
       "analysis": {
-        "bttsProb": 0.68,
+        "bttsProb": 0.67,
         "over25Prob": 0.84,
-        "homeLambda": 1.11,
-        "awayLambda": 5.18,
+        "homeLambda": 1.13,
+        "awayLambda": 4.98,
         "dataQuality": 5,
         "hasRealData": true
       }
@@ -941,7 +899,7 @@
         "bttsProb": 0.38,
         "over25Prob": 0.38,
         "homeLambda": 0.37,
-        "awayLambda": 1.64,
+        "awayLambda": 1.57,
         "dataQuality": 4,
         "hasRealData": true
       }
@@ -962,7 +920,7 @@
         "bttsProb": 0.38,
         "over25Prob": 0.38,
         "homeLambda": 0.37,
-        "awayLambda": 1.64,
+        "awayLambda": 1.57,
         "dataQuality": 4,
         "hasRealData": true
       }
@@ -980,10 +938,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/par.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/aus.png",
       "analysis": {
-        "bttsProb": 0.46,
-        "over25Prob": 0.4,
-        "homeLambda": 1.34,
-        "awayLambda": 0.91,
+        "bttsProb": 0.45,
+        "over25Prob": 0.41,
+        "homeLambda": 1.36,
+        "awayLambda": 0.88,
         "dataQuality": 4,
         "hasRealData": true
       }
@@ -1001,10 +959,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/par.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/aus.png",
       "analysis": {
-        "bttsProb": 0.46,
-        "over25Prob": 0.4,
-        "homeLambda": 1.34,
-        "awayLambda": 0.91,
+        "bttsProb": 0.45,
+        "over25Prob": 0.41,
+        "homeLambda": 1.36,
+        "awayLambda": 0.88,
         "dataQuality": 4,
         "hasRealData": true
       }
@@ -1022,10 +980,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/sen.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/irq.png",
       "analysis": {
-        "bttsProb": 0.63,
-        "over25Prob": 0.54,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.62,
+        "over25Prob": 0.56,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -1043,10 +1001,52 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/sen.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/irq.png",
       "analysis": {
-        "bttsProb": 0.63,
-        "over25Prob": 0.54,
-        "homeLambda": 2.3,
-        "awayLambda": 0.97,
+        "bttsProb": 0.62,
+        "over25Prob": 0.56,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
+        "dataQuality": 0,
+        "hasRealData": false
+      }
+    },
+    {
+      "match": "Norway vs France",
+      "league": "International Friendly",
+      "date": "2026-06-26",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "confidence": 47,
+      "time": "21:00",
+      "matchSemantic": "norw-fran-int-btts",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/nor.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/fra.png",
+      "analysis": {
+        "bttsProb": 0.56,
+        "over25Prob": 0.52,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
+        "dataQuality": 0,
+        "hasRealData": false
+      }
+    },
+    {
+      "match": "Norway vs France",
+      "league": "International Friendly",
+      "date": "2026-06-26",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "confidence": 47,
+      "time": "21:00",
+      "matchSemantic": "norw-fran-int-o25",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/nor.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/fra.png",
+      "analysis": {
+        "bttsProb": 0.56,
+        "over25Prob": 0.52,
+        "homeLambda": 2.35,
+        "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
       }
