@@ -223,3 +223,118 @@ Stage Summary:
 - Existing CTA buttons preserved: btn-linebet (Linebet signup) + btn-star888 (888starz signup) + APK downloads for both
 - Promo code VISION221 preserved everywhere
 - Production verified live at https://bttsbet.online
+
+---
+Task ID: V31-ia-high-tech-effects
+Agent: Main Agent
+Task: User requested maximum IA high-tech animations + effects (data-center theme, neural network bg, scan-laser on titles, breathing buttons, CTA light waves, alert line drawing, timeline animations, circular timer, deco graph, neon surlignage, parallax, etc.). Strict rule: NO content modification — only animations and visual effects.
+
+Work Log:
+- Read globals.css + all key components (Hero, Navbar, FreePredictions, FifaLinebet, WinHistory, PromoVip, Footer, FloatingElements, CursorEffect) to understand current state
+- Added new "V31 — IA HIGH-TECH EFFECTS LAYER" section to globals.css (~600 lines, 33 utility classes + keyframes):
+  * v31-neural-layer (canvas container for neural network)
+  * v31-scan-laser (cyan scan sweep overlay on titles, runs once on load)
+  * v31-ia-glow / v31-ia-glow-amber (subtle outer box-shadows around IA blocks)
+  * v31-breathing (amber pulsing glow on VIP Débloquer button, 3.6s loop)
+  * v31-cta-wave (periodic light sweep across CTAs every 12s, with --v31-wave-delay custom prop for staggered timing)
+  * v31-blink (text opacity fade 1.0 ↔ 0.55, 2.8s loop)
+  * v31-alert-line (line that draws under "Expérimental / High Risk" badge, 1.6s)
+  * v31-surlignage (running amber highlight on key FIFA phrase, 3.2s)
+  * v31-data-stream (animated cyan liseré at top of cards, 4.5s infinite loop)
+  * v31-pulse-ring (expanding ring around live dots, 2s loop)
+  * v31-deco-graph (decorative animated chart background with SVG mask)
+  * v31-circular-timer (SVG progress ring for auto-refresh countdown)
+  * v31-timeline + v31-timeline-fill (vertical line that traces from top to bottom for "Comment ça marche")
+  * v31-bounce-in d1/d2/d3 (timeline step icons bounce in vertically with delays 0.3/0.6/0.9s)
+  * v31-pulse-periodic (every 12s, brief 1.04× scale + brightness boost on stat values)
+  * v31-neon-hover (cyan text-shadow + tint background on hover for key terms like 18+, Avertissement, Jeu responsable)
+  * v31-logo-zoom (1.18× scale on team logo hover)
+  * v31-slide-down (navbar slides down from top on mount, 0.5s)
+  * v31-shake (WhatsApp icon shake on hover, 0.55s)
+  * v31-cascade-row (sequential boot appearance for VIP rows + FIFA coupon rows)
+  * v31-fade-up-on-scroll (generic IntersectionObserver target)
+  * v31-parallax (transform hint for IO-based parallax)
+  * v31-faq-sep (FAQ separator line draws when item opens)
+  * v31-vip-lab-glow (purple/blue lab glow around VIP coupon card via mask-composite)
+  * v31-fifa-zoom-in (whole FIFA section zoom-in entrance, 0.94 → 1.0)
+  * v31-stacked-card (FIFA coupon rows drop in with spring easing)
+  * v31-halo-number (radial amber halo behind numbers, breathing 3s)
+  * v31-slide-from-left (dashboard title slides from left, 0.6s)
+  * v31-card-hover-glow (pronostics cards hover lift + cyan glow border)
+  * v31-badge-pulse (BTTS/O2.5 badges scale 1.06 on hover)
+  * v31-ticker-dot (green pulsing dot with expanding ring for "IA en direct")
+  * v31-ticker-text (text opacity 1.0 ↔ 0.8 fade, 3.6s loop)
+- All V31 classes respect prefers-reduced-motion (animations disabled)
+- Created new component NeuralBackground.tsx (canvas-based):
+  * Renders ~18-70 nodes drifting slowly with random velocity
+  * Draws lines between nodes within linkDist threshold (default 140px)
+  * Mouse-reactive: nodes within 160px of cursor brighten, link opacity boosts within 180px
+  * Uses requestAnimationFrame for smooth 60fps animation
+  * Respects prefers-reduced-motion (renders static frame only)
+  * Disabled on touch devices / small screens for perf
+  * Configurable density / linkDist / color props
+- Updated Hero.tsx:
+  * Added NeuralBackground as background layer (cyan color, density 0.00009)
+  * Wrapped H1 in v31-scan-laser (cyan sweep runs once on page load)
+  * IA en direct badge: v31-ia-glow + v31-ticker-dot (green pulse with expanding ring) + v31-ticker-text (fade)
+  * All 3 CTA buttons (Pronostics du jour, Bonus 150$, Bonus 100%) now have v31-cta-wave with staggered delays (1s, 4s, 7s)
+- Updated Navbar.tsx:
+  * Added v31-slide-down entrance class on nav element (slides from top on mount)
+  * Desktop S'inscrire button: v31-cta-wave with 3s delay
+  * Mobile Linebet/888starz signup buttons: v31-cta-wave with 2s/6s delays
+- Updated FreePredictions.tsx:
+  * PRONOSTICS IA title wrapped in v31-scan-laser
+  * Stats bar: v31-ia-glow + live dot upgraded to v31-pulse-ring
+  * Match cards: v31-data-stream (animated liseré at top) + v31-card-hover-glow (hover lift + cyan glow)
+  * Team logos: v31-logo-zoom (1.18× scale on hover)
+  * BTTS/O2.5 badges: v31-badge-pulse (1.06× scale on hover)
+  * Expanded card Linebet/888starz buttons: v31-cta-wave with 2s/6s delays
+- Updated PromoVip.tsx:
+  * VIP Coupon card: v31-vip-lab-glow (purple/blue laboratory gradient glow with rotating border + breathing halo)
+  * VipCouponRow: v31-cascade-row (sequential boot appearance, animationDelay = 0.15 + i × 0.08s) + v31-card-hover-glow
+  * Débloquer le VIP button: v31-breathing (continuous amber pulsing glow) + v31-cta-wave (3s delay)
+  * "Accès limité — places restantes aujourd'hui" text: v31-blink (fades in/out)
+  * Bonus section Linebet/888starz buttons: v31-cta-wave with 2s/6s delays
+- Updated WinHistory.tsx:
+  * Added v31-deco-graph decorative animated chart background (pure UI, no real data)
+  * Title: v31-slide-from-left when section enters viewport
+  * Stat cards: v31-ia-glow
+  * Stat values: v31-halo-number (amber halo behind) + v31-pulse-periodic (every 12s brief scale/brightness boost, staggered by 1.5s per card)
+  * "Résultats vérifiés par l'IA" live dot: v31-pulse-ring
+- Updated FifaLinebet.tsx:
+  * Whole section: v31-fifa-zoom-in (zoom 0.94 → 1.0 on scroll-into-view)
+  * FAILLE FIFA title: v31-scan-laser
+  * "Expérimental / High Risk" badge: v31-alert-line (line draws under it on load)
+  * Key phrase "Algorithme exclusif détectant...": v31-surlignage (running highlight sweep)
+  * Cote / Fiabilité / Cote totale values: v31-halo-number (amber halo breathing)
+  * FIFA coupon rows: v31-stacked-card (cards drop in one by one with spring easing) + v31-card-hover-glow
+  * "Actualisation auto dans X:XX": replaced plain clock icon with v31-circular-timer (SVG progress ring synced to nextUpdate state, strokeDashoffset = 100 - (nextUpdate/300)*100)
+  * "Voir le Coupon FIFA" + "Débloquer la Faille FIFA" buttons: v31-cta-wave (5s/8s delays)
+  * "Comment ça marche" 3-step container: v31-timeline (vertical line traces top-to-bottom, 2.4s)
+  * Step icons 1/2/3: v31-bounce-in d1/d2/d3 (bounce in vertically with 0.3/0.6/0.9s delays)
+  * Stat values (98% / 10-15 / 5 min / Auto): v31-pulse-periodic (every 12s brief pulse, staggered 2s per item)
+  * Linebet/888starz buttons in Comment ça marche section: v31-cta-wave with 0s/4s delays
+- Updated Footer.tsx:
+  * FAQ accordion items: v31-faq-sep (separator line draws when item opens, scaleX 0→1, 0.45s)
+  * FAQ accordion transition: 0.25s → 0.3s with smoother ease curve
+  * 18+ icon: v31-neon-hover (cyan text-shadow + tint on hover)
+  * "Avertissement :" + "Jeu responsable :" labels: v31-neon-hover
+  * Floating WhatsApp button: v31-shake (rotates -12°/+10°/-8°/+6° on hover)
+  * Mobile sticky bottom Linebet/888starz CTAs: v31-cta-wave with 1s/5s delays
+- Updated index.ts: exported NeuralBackground
+- Reinstalled broken node_modules (react, react-dom, framer-motion, motion-dom, motion-utils, scheduler) which had missing files from earlier sessions
+- Verified local build: 0 errors, 15 pages prerendered
+- Committed + stashed unstaged tool-results + rebased on origin/main + popped stash + pushed (commit b4b98876)
+- Verified production deploy:
+  * Production CSS file (ae28f761691ec508.css) now contains v31-cta-wave, v31-scan-laser, v31-neural, v31-ticker-dot, v31-circular-timer, etc.
+  * Production HTML (cache-bypassed) contains 23 distinct v31-* class names including: v31-alert-line, v31-blink, v31-bounce-in, v31-breathing, v31-circular-label, v31-circular-timer, v31-cta-wave, v31-faq-sep, v31-halo-number, v31-ia-glow, v31-neon-hover, v31-neural-layer, v31-pulse-periodic, v31-pulse-ring, v31-scan-laser, v31-shake, v31-slide-down, v31-surlignage, v31-ticker-dot, v31-ticker-text, v31-timeline, v31-vip-lab-glow, v31-wave-delay
+
+Stage Summary:
+- Complete V31 IA high-tech effects layer deployed to production
+- 33 new utility classes + keyframes added to globals.css (~600 lines)
+- New NeuralBackground.tsx canvas component (mouse-reactive neural network)
+- All animations respect prefers-reduced-motion (disabled when user prefers reduced motion)
+- Touch devices / small screens: NeuralBackground disabled, custom cursor disabled, all hover-only effects gracefully degrade
+- NO content modified — strictly animations + visual effects only
+- All CTA buttons across the site (Hero, Navbar, FreePredictions, PromoVip, FifaLinebet, Footer sticky) now have periodic light wave sweeps every 12s with staggered delays (so they don't all sweep simultaneously)
+- Production verified live at https://bttsbet.online
