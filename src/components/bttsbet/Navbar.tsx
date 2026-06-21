@@ -36,7 +36,7 @@ export default function Navbar() {
     <nav
       role="navigation"
       aria-label="Navigation principale"
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`v31-slide-down sticky top-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'glass-strong shadow-lg shadow-black/40 depth-3 border-b border-white/[0.04]'
           : 'bg-transparent'
@@ -97,7 +97,8 @@ export default function Navbar() {
               href={AFFILIATE.linebet}
               rel={AFFILIATE.rel}
               target="_blank"
-              className="flex items-center gap-2 px-4 py-2.5 btn-linebet text-[#06281F] text-sm"
+              className="v31-cta-wave flex items-center gap-2 px-4 py-2.5 btn-linebet text-[#06281F] text-sm"
+              style={{ ['--v31-wave-delay' as string]: '3s' }}
               data-cursor="hover"
             >
               <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-5 h-5 rounded object-contain flex-shrink-0" loading="lazy"/>
@@ -182,7 +183,8 @@ export default function Navbar() {
                   href={AFFILIATE.linebet}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-2 text-center px-5 py-3 btn-linebet text-[#06281F]"
+                  className="v31-cta-wave flex items-center justify-center gap-2 text-center px-5 py-3 btn-linebet text-[#06281F]"
+                  style={{ ['--v31-wave-delay' as string]: '2s' }}
                   data-cursor="hover"
                 >
                   <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-5 h-5 rounded object-contain flex-shrink-0" loading="lazy"/>
@@ -193,7 +195,8 @@ export default function Navbar() {
                   href={AFFILIATE.star888}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-2 text-center px-5 py-3 btn-star888 text-white"
+                  className="v31-cta-wave flex items-center justify-center gap-2 text-center px-5 py-3 btn-star888 text-white"
+                  style={{ ['--v31-wave-delay' as string]: '6s' }}
                   data-cursor="hover"
                 >
                   <img src="/logos/888starz-icon.svg" alt="888starz" className="w-5 h-5 rounded object-contain flex-shrink-0" loading="lazy"/>

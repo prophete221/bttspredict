@@ -323,7 +323,7 @@ export default function FifaLinebet() {
           <div className="absolute top-0 left-1/3 w-[500px] h-[400px] bg-gold/6 rounded-full blur-[140px] opacity-60" />
           <div className="absolute bottom-0 right-1/4 w-[400px] h-[350px] bg-emerald/3 rounded-full blur-[120px] opacity-60" />
         </div>
-        <div className="max-w-5xl mx-auto relative">
+        <div className={`max-w-5xl mx-auto relative ${isVisible ? 'v31-fifa-zoom-in' : 'opacity-0'}`}>
           {/* Section Header */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} transition={{ duration: 0.5 }} className="text-center mb-8">
             <div className="flex items-center justify-center gap-2 mb-2">
@@ -332,18 +332,19 @@ export default function FifaLinebet() {
               <div className="w-8 h-px bg-gradient-to-l from-transparent to-gold" />
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-2 tracking-tight">
-              FAILLE <span className="text-gold neon-glow-blue">FIFA</span>
+              <span className="v31-scan-laser">FAILLE <span className="text-gold neon-glow-blue">FIFA</span></span>
             </h2>
-            {/* Warning badge — "Expérimental / High Risk" */}
-            <div className="inline-flex items-center gap-1.5 mt-2 mb-3 badge-warning">
+            {/* Warning badge — "Expérimental / High Risk" with alert line draw */}
+            <div className="v31-alert-line inline-flex items-center gap-1.5 mt-2 mb-3 badge-warning">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
               </svg>
               Expérimental / High Risk
             </div>
-            <p className="text-gray-500 text-sm max-w-lg mx-auto mb-4">Algorithme exclusif détectant les failles de cotes FIFA sur Linebet et 888starz — Mise à jour toutes les 5 minutes</p>
+            <p className="text-gray-500 text-sm max-w-lg mx-auto mb-4"><span className="v31-surlignage">Algorithme exclusif détectant les failles de cotes FIFA sur Linebet et 888starz — Mise à jour toutes les 5 minutes</span></p>
             <button onClick={scrollToCoupon}
-              className="inline-flex items-center gap-2 px-5 py-2.5 btn-gold text-sm cursor-pointer">
+              className="v31-cta-wave inline-flex items-center gap-2 px-5 py-2.5 btn-gold text-sm cursor-pointer"
+              style={{ ['--v31-wave-delay' as string]: '5s' }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L1 12h3v9h6v-6h4v6h6v-9h3L12 2z"/></svg>
               Voir le Coupon FIFA
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
@@ -404,22 +405,24 @@ export default function FifaLinebet() {
                 <div className="flex items-center gap-3 sm:gap-4 mb-4 pb-4 border-b border-gold/12">
                   <div className="flex items-center gap-1.5">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/70"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                    <span className="text-[11px] text-gray-400"><span ref={fifaCountRef} className="text-white font-semibold tabular-nums">{fifaCountDisplay}</span> matchs</span>
+                    <span className="text-[11px] text-gray-400"><span ref={fifaCountRef} className="v31-halo-number text-white font-semibold tabular-nums">{fifaCountDisplay}</span> matchs</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/70"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                    <span className="text-[11px] text-gray-400">Cote <span ref={coteRef} className="text-gold font-bold tabular-nums">{coteDisplay}</span></span>
+                    <span className="text-[11px] text-gray-400">Cote <span ref={coteRef} className="v31-halo-number text-gold font-bold tabular-nums">{coteDisplay}</span></span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/70"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span className="text-[11px] text-gray-400">Fiabilité <span ref={reliabilityRef} className="text-gold font-bold tabular-nums">{reliabilityDisplay}%</span></span>
+                    <span className="text-[11px] text-gray-400">Fiabilité <span ref={reliabilityRef} className="v31-halo-number text-gold font-bold tabular-nums">{reliabilityDisplay}%</span></span>
                   </div>
                 </div>
 
                 <div className="space-y-1 mb-4 max-h-[340px] overflow-y-auto scrollbar-none">
                   {fifaMatches.map((m, i) => (
-                    <motion.div key={i} initial={{ opacity: 0, x: -15 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + i * 0.06, duration: 0.4 }}
-                      className="relative flex items-center gap-2 sm:gap-2.5 bg-midnight/50 rounded-lg px-2.5 sm:px-3 py-2 border border-gold/10 hover:border-gold/20 transition-colors">
+                    <motion.div key={i} initial={{ opacity: 0, x: -15 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + i * 0.08, duration: 0.45, ease: [0.34, 1.56, 0.64, 1] }}
+                      className="v31-stacked-card v31-card-hover-glow relative flex items-center gap-2 sm:gap-2.5 bg-midnight/50 rounded-lg px-2.5 sm:px-3 py-2 border border-gold/10 hover:border-gold/25 transition-colors"
+                      style={{ animationDelay: `${0.15 + i * 0.08}s` }}
+                    >
                       <div className="flex items-center gap-1.5 flex-1 min-w-0 relative">
                         <div className="blur-[4px] select-none flex items-center gap-1.5">
                           <FifaTeamLogo src={resolveTeamLogo(m.home)} name={m.home} size={18} />
@@ -450,18 +453,31 @@ export default function FifaLinebet() {
 
                 <div className="flex items-center justify-between bg-gold/5 border border-gold/15 rounded-lg px-3 py-2 mb-5">
                   <span className="text-[11px] text-gray-500 font-medium">Cote totale du coupon</span>
-                  <span className="text-sm text-gold font-bold tabular-nums">{coteDisplay}</span>
+                  <span className="v31-halo-number text-sm text-gold font-bold tabular-nums">{coteDisplay}</span>
                 </div>
 
                 <button onClick={() => setShowFifaModal(true)}
-                  className="relative flex items-center justify-center gap-2 px-6 py-3.5 btn-gold text-sm w-full cursor-pointer overflow-hidden group/btn">
+                  className="v31-cta-wave relative flex items-center justify-center gap-2 px-6 py-3.5 btn-gold text-sm w-full cursor-pointer overflow-hidden group/btn"
+                  style={{ ['--v31-wave-delay' as string]: '8s' }}>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700" />
                   <span>Débloquer la Faille FIFA</span>
                 </button>
 
                 <div className="flex items-center justify-center gap-2 mt-3">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/50"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                  <p className="text-[10px] sm:text-[11px] text-gold/60 font-medium">Actualisation auto dans <span className="text-gold/80">{formatCountdown(nextUpdate)}</span></p>
+                  {/* V31: Circular timer — animates over 5 min cycle */}
+                  <div className="v31-circular-timer" aria-hidden="true">
+                    <svg width="38" height="38" viewBox="0 0 38 38">
+                      <circle cx="19" cy="19" r="16" fill="none" stroke="rgba(245, 165, 36, 0.12)" strokeWidth="2" />
+                      <circle
+                        cx="19" cy="19" r="16" fill="none" stroke="#F5A524" strokeWidth="2" strokeLinecap="round"
+                        strokeDasharray="100"
+                        strokeDashoffset={100 - (nextUpdate / 300) * 100}
+                        style={{ transition: 'stroke-dashoffset 1s linear' }}
+                      />
+                    </svg>
+                    <span className="v31-circular-label">AUTO</span>
+                  </div>
+                  <p className="text-[10px] sm:text-[11px] text-gold/60 font-medium">Actualisation auto dans <span className="text-gold/80 tabular-nums">{formatCountdown(nextUpdate)}</span></p>
                 </div>
               </div>
             </motion.div>
@@ -487,23 +503,23 @@ export default function FifaLinebet() {
                   Notre algorithme détecte en temps réel les failles de cotes FIFA sur Linebet et 888starz. Ces opportunités sont limitées et s&apos;actualisent automatiquement toutes les 5 minutes.
                 </p>
 
-                <div className="space-y-3 mb-6">
+                <div className="v31-timeline space-y-3 mb-6">
                   <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-edge">
-                    <div className="w-8 h-8 flex-shrink-0 bg-gold/10 rounded-lg flex items-center justify-center text-gold text-sm font-bold">1</div>
+                    <div className="v31-bounce-in d1 w-8 h-8 flex-shrink-0 bg-gold/10 rounded-lg flex items-center justify-center text-gold text-sm font-bold">1</div>
                     <div>
                       <p className="text-white text-sm font-semibold">Scan automatique</p>
                       <p className="text-gray-400 text-xs mt-0.5">L&apos;IA scanne les cotes FIFA Linebet et 888starz en continu pour détecter les anomalies</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-edge">
-                    <div className="w-8 h-8 flex-shrink-0 bg-gold/10 rounded-lg flex items-center justify-center text-gold text-sm font-bold">2</div>
+                    <div className="v31-bounce-in d2 w-8 h-8 flex-shrink-0 bg-gold/10 rounded-lg flex items-center justify-center text-gold text-sm font-bold">2</div>
                     <div>
                       <p className="text-white text-sm font-semibold">Faille identifiée</p>
                       <p className="text-gray-400 text-xs mt-0.5">Quand un écart de cote est détecté, le coupon se génère automatiquement</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-edge">
-                    <div className="w-8 h-8 flex-shrink-0 bg-emerald/10 rounded-lg flex items-center justify-center text-emerald text-sm font-bold">3</div>
+                    <div className="v31-bounce-in d3 w-8 h-8 flex-shrink-0 bg-emerald/10 rounded-lg flex items-center justify-center text-emerald text-sm font-bold">3</div>
                     <div>
                       <p className="text-white text-sm font-semibold">Profit garanti</p>
                       <p className="text-gray-400 text-xs mt-0.5">Fiabilité de 98% — Cotes entre 10 et 15 avec une rentabilité prouvée</p>
@@ -519,18 +535,18 @@ export default function FifaLinebet() {
                     { value: 'Auto', label: 'Scan IA', color: 'text-emerald' },
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-2 bg-midnight/40 rounded-lg px-3 py-2 border border-edge">
-                      <span className={`text-sm font-bold flex-shrink-0 ${item.color}`}>{item.value}</span>
+                      <span className={`v31-pulse-periodic text-sm font-bold flex-shrink-0 ${item.color}`} style={{ animationDelay: `${i * 2}s` }}>{item.value}</span>
                       <span className="text-xs text-gray-400">{item.label}</span>
                     </div>
                   ))}
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-2.5">
-                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 btn-linebet text-[#06281F] text-sm" data-cursor="hover">
+                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-4 py-3.5 btn-linebet text-[#06281F] text-sm" style={{ ['--v31-wave-delay' as string]: '0s' }} data-cursor="hover">
                     <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                   {/* V23: Nouveau bouton 888starz */}
-                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 btn-star888 text-white text-sm" data-cursor="hover">
+                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-4 py-3.5 btn-star888 text-white text-sm" style={{ ['--v31-wave-delay' as string]: '4s' }} data-cursor="hover">
                     <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                 </div>

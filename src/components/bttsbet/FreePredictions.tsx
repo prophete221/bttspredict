@@ -33,7 +33,7 @@ function TeamLogo({ src, initials, size = 'sm', color = 'emerald' }: {
         <img
           src={src}
           alt={initials}
-          className={`w-full h-full object-contain transition-opacity duration-200 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`v31-logo-zoom w-full h-full object-contain transition-opacity duration-200 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
           onError={() => setImgError(true)}
           onLoad={() => setImgLoaded(true)}
           loading="lazy"
@@ -140,14 +140,14 @@ function PredBadge({ type, prediction, expanded }: { type: string; prediction: s
   const label = isBtts ? 'BTTS' : 'O2.5'
   if (!isBtts && !isPositive) {
     return (
-      <span className="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-lg bg-red-500/10 text-red-400 border border-red-500/20">
+      <span className="v31-badge-pulse inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-lg bg-red-500/10 text-red-400 border border-red-500/20">
         <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
         {label} {prediction}
       </span>
     )
   }
   return (
-    <span className={isBtts ? 'badge-btts' : 'badge-over25'}>
+    <span className={`v31-badge-pulse ${isBtts ? 'badge-btts' : 'badge-over25'}`}>
       <span className={`w-1.5 h-1.5 rounded-full ${
         isPositive
           ? isBtts ? 'bg-emerald' : 'bg-success'
@@ -199,10 +199,10 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
         role="button"
         tabIndex={0}
         aria-expanded={expanded}
-        className={`relative rounded-xl border cursor-pointer transition-all duration-300 overflow-hidden ${
+        className={`v31-data-stream v31-card-hover-glow relative rounded-xl border cursor-pointer transition-all duration-300 overflow-hidden ${
           expanded
             ? 'bg-gradient-to-b from-panel-2 to-panel border-emerald/30 shadow-lg shadow-emerald/8'
-            : 'bg-gradient-to-b from-panel/80 to-panel/60 border-edge hover:border-emerald/40 hover:shadow-lg hover:shadow-emerald/10 hover:-translate-y-0.5'
+            : 'bg-gradient-to-b from-panel/80 to-panel/60 border-edge hover:border-emerald/40'
         }`}
       >
         {/* Premium top sheen */}
@@ -320,7 +320,8 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
                       rel={AFFILIATE.rel}
                       target="_blank"
                       onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-1.5 px-2.5 py-2 btn-linebet text-[#06281F] text-xs"
+                      className="v31-cta-wave flex items-center gap-1.5 px-2.5 py-2 btn-linebet text-[#06281F] text-xs"
+                      style={{ ['--v31-wave-delay' as string]: '2s' }}
                       data-cursor="hover"
                     >
                       <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy"/>
@@ -331,7 +332,8 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
                       rel={AFFILIATE.rel}
                       target="_blank"
                       onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-1.5 px-2.5 py-2 btn-star888 text-white text-xs"
+                      className="v31-cta-wave flex items-center gap-1.5 px-2.5 py-2 btn-star888 text-white text-xs"
+                      style={{ ['--v31-wave-delay' as string]: '6s' }}
                       data-cursor="hover"
                     >
                       <img src="/logos/888starz-icon.svg" alt="888starz" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy"/>
@@ -485,13 +487,13 @@ export default function FreePredictions() {
                 <span className="text-[10px] font-bold text-emerald uppercase tracking-widest">Live Predictions</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-1 tracking-tight">
-                PRONOSTICS <span className="text-emerald neon-glow">IA</span>
+                <span className="v31-scan-laser">PRONOSTICS <span className="text-emerald neon-glow">IA</span></span>
               </h2>
               <p className="text-gray-500 text-sm">Sélection IA — matchs des 7 prochains jours</p>
             </div>
-            <div className="flex items-center gap-4 bg-panel/70 border border-edge rounded-xl px-4 py-2.5 backdrop-blur-sm">
+            <div className="flex items-center gap-4 bg-panel/70 border border-edge rounded-xl px-4 py-2.5 backdrop-blur-sm v31-ia-glow">
               <div className="flex items-center gap-1.5">
-                <span className="relative flex w-1.5 h-1.5">
+                <span className="v31-pulse-ring relative flex w-1.5 h-1.5">
                   <span className="absolute inset-0 bg-emerald rounded-full animate-ping opacity-75" />
                   <span className="relative w-1.5 h-1.5 bg-emerald rounded-full" />
                 </span>

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { SITE, AFFILIATE } from '@/lib/constants'
 import { useCountUp, useScrollAnimation } from '@/hooks/useAnimations'
+import NeuralBackground from './NeuralBackground'
 
 /** AnimatedStat — counts up to target value when in view. */
 function AnimatedStat({
@@ -38,6 +39,8 @@ export default function Hero() {
       {/* Background — dark blue/teal gradient with subtle data grid */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-midnight" />
+        {/* V31: Neural network background — nodes+lines, mouse-reactive */}
+        <NeuralBackground density={0.00009} linkDist={150} color="50, 176, 200" />
         {/* Mesh gradient orbs — cyan + teal + amber */}
         <div className="absolute top-[-10%] left-1/4 w-[600px] h-[500px] bg-emerald/10 rounded-full blur-[140px] opacity-80" />
         <div className="absolute top-[5%] right-1/4 w-[450px] h-[400px] bg-emerald-dark/8 rounded-full blur-[120px] opacity-70" />
@@ -75,14 +78,11 @@ export default function Hero() {
           transition={{ duration: 0.4 }}
           className="flex justify-center mb-5 sm:mb-6"
         >
-          <div className="group inline-flex items-center gap-2 bg-emerald/8 border border-emerald/25 rounded-full px-3 sm:px-4 py-1.5 backdrop-blur-xl">
-            <span className="relative flex w-1.5 h-1.5">
-              <span className="absolute inset-0 bg-emerald rounded-full animate-ping opacity-75" />
-              <span className="relative w-1.5 h-1.5 bg-emerald rounded-full" />
-            </span>
+          <div className="group inline-flex items-center gap-2 bg-emerald/8 border border-emerald/25 rounded-full px-3 sm:px-4 py-1.5 backdrop-blur-xl v31-ia-glow">
+            <span className="v31-ticker-dot" />
             <span className="text-[10px] sm:text-xs text-emerald font-semibold tracking-wider uppercase">IA en direct</span>
             <span className="text-gray-600 text-[10px] sm:text-xs">•</span>
-            <span className="text-[10px] sm:text-xs text-gray-400">Mis à jour il y a 2 min</span>
+            <span className="text-[10px] sm:text-xs text-gray-400 v31-ticker-text">Mis à jour il y a 2 min</span>
           </div>
         </motion.div>
 
@@ -93,10 +93,10 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-center text-[2.25rem] leading-[1.1] sm:text-5xl lg:text-7xl font-extrabold text-white mb-3 sm:mb-4 tracking-tight"
         >
-          PRONOSTICS{' '}
+          <span className="v31-scan-laser">PRONOSTICS{' '}
           <span className="text-emerald neon-glow">BTTS</span>
           {' '}&{' '}
-          <span className="text-gold">OVER 2.5</span>
+          <span className="text-gold">OVER 2.5</span></span>
         </motion.h1>
 
         {/* Sub-headline */}
@@ -125,7 +125,8 @@ export default function Hero() {
                 setTimeout(() => window.scrollBy({ top: -64, behavior: 'smooth' }), 400)
               }
             }}
-            className="px-6 sm:px-8 py-3.5 btn-emerald text-sm sm:text-base"
+            className="v31-cta-wave px-6 sm:px-8 py-3.5 btn-emerald text-sm sm:text-base"
+            style={{ ['--v31-wave-delay' as string]: '1s' }}
             data-cursor="hover"
           >
             Pronostics du jour
@@ -134,7 +135,8 @@ export default function Hero() {
             href={AFFILIATE.linebet}
             rel={AFFILIATE.rel}
             target="_blank"
-            className="flex items-center justify-center gap-2 px-6 py-3.5 btn-linebet text-[#06281F] text-sm sm:text-base"
+            className="v31-cta-wave flex items-center justify-center gap-2 px-6 py-3.5 btn-linebet text-[#06281F] text-sm sm:text-base"
+            style={{ ['--v31-wave-delay' as string]: '4s' }}
             data-cursor="hover"
           >
             <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
@@ -144,7 +146,8 @@ export default function Hero() {
             href={AFFILIATE.star888}
             rel={AFFILIATE.rel}
             target="_blank"
-            className="flex items-center justify-center gap-2 px-6 py-3.5 btn-star888 text-white text-sm sm:text-base"
+            className="v31-cta-wave flex items-center justify-center gap-2 px-6 py-3.5 btn-star888 text-white text-sm sm:text-base"
+            style={{ ['--v31-wave-delay' as string]: '7s' }}
             data-cursor="hover"
           >
             <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>

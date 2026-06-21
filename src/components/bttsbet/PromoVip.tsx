@@ -301,8 +301,10 @@ function VipCouponRow({ match, league, time, homeLogo, awayLogo, homeTeam, awayT
   match: string; league: string; time: string; homeLogo: string; awayLogo: string; homeTeam: string; awayTeam: string; cote: number; index: number
 }) {
   return (
-    <motion.div initial={{ opacity: 0, x: -15 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + index * 0.06, duration: 0.4 }}
-      className="relative flex items-center gap-2 sm:gap-2.5 bg-midnight/50 rounded-lg px-2.5 sm:px-3 py-2 border border-gold/8 hover:border-gold/15 transition-colors">
+    <motion.div initial={{ opacity: 0, x: -15 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + index * 0.08, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      className={`v31-cascade-row v31-card-hover-glow relative flex items-center gap-2 sm:gap-2.5 bg-midnight/50 rounded-lg px-2.5 sm:px-3 py-2 border border-gold/8 hover:border-gold/20 transition-colors`}
+      style={{ animationDelay: `${0.15 + index * 0.08}s` }}
+    >
       <span className="text-[10px] sm:text-xs text-gold/60 font-mono tabular-nums w-9 text-center flex-shrink-0">{time}</span>
       <div className="flex items-center gap-1.5 flex-1 min-w-0 blur-[4px] select-none">
         <VipTeamLogo src={homeLogo} name={homeTeam} size={18} />
@@ -423,7 +425,7 @@ export default function PromoVip() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             {/* VIP Coupon */}
             <motion.div initial={{ opacity: 0, y: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : undefined} transition={{ duration: 0.6 }}
-              className="relative rounded-2xl border border-gold/25 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift shadow-2xl">
+              className="v31-vip-lab-glow relative rounded-2xl border border-gold/25 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift shadow-2xl">
               {/* Premium top sheen */}
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold-light to-gold" />
@@ -499,14 +501,15 @@ export default function PromoVip() {
                 </div>
 
                 <button onClick={() => setShowVipModal(true)}
-                  className="relative flex items-center justify-center gap-2 px-6 py-3.5 btn-gold text-midnight text-sm w-full cursor-pointer overflow-hidden group/btn"
+                  className="v31-breathing v31-cta-wave relative flex items-center justify-center gap-2 px-6 py-3.5 btn-gold text-midnight text-sm w-full cursor-pointer overflow-hidden group/btn"
+                  style={{ ['--v31-wave-delay' as string]: '3s' }}
                   data-cursor="hover">
                   <span>Débloquer le VIP</span>
                 </button>
 
                 <div className="flex items-center justify-center gap-2 mt-3">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/40"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                  <p className="text-[10px] sm:text-[11px] text-gold/40 font-medium">Accès limité — <span className="text-gold/60">places restantes aujourd&apos;hui</span></p>
+                  <p className="v31-blink text-[10px] sm:text-[11px] text-gold/40 font-medium">Accès limité — <span className="text-gold/60">places restantes aujourd&apos;hui</span></p>
                 </div>
               </div>
             </motion.div>
@@ -564,11 +567,11 @@ export default function PromoVip() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-2.5">
-                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 btn-linebet text-[#06281F] text-sm" data-cursor="hover">
+                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-4 py-3.5 btn-linebet text-[#06281F] text-sm" style={{ ['--v31-wave-delay' as string]: '2s' }} data-cursor="hover">
                     <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                   {/* V23: Nouveau bouton 888starz à côté de Linebet */}
-                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 btn-star888 text-white text-sm" data-cursor="hover">
+                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-4 py-3.5 btn-star888 text-white text-sm" style={{ ['--v31-wave-delay' as string]: '6s' }} data-cursor="hover">
                     <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                 </div>

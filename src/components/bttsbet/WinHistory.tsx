@@ -138,13 +138,15 @@ export default function WinHistory() {
     <section ref={ref} id="win-history" className="py-10 px-4 relative overflow-hidden">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-emerald/[0.02] via-transparent to-transparent pointer-events-none" />
+      {/* V31: Decorative animated graph background — pure UI, no data */}
+      <div className="v31-deco-graph" aria-hidden="true" />
       <div className="max-w-5xl mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 20, rotateX: 6 }}
           animate={isVisible ? { opacity: 1, y: 0, rotateX: 0 } : {}}
           transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
           style={{ transformOrigin: 'center bottom' }}
-          className="text-center mb-6"
+          className={`text-center mb-6 ${isVisible ? 'v31-slide-from-left' : ''}`}
         >
           <div className="flex items-center justify-center gap-2 mb-2">
             <div className="w-8 h-px bg-gradient-to-r from-transparent to-emerald" />
@@ -169,9 +171,9 @@ export default function WinHistory() {
             { refObj: last30Ref, value: last30Display, label: '30 jours', color: 'text-gold', suffix: '%', pastille: 'pastille-amber' },
           ].map((item, i) => (
             <TiltCard key={i} maxTilt={4}>
-              <div className="glass-3d rounded-xl p-3 text-center stat-card-animated relative overflow-hidden">
+              <div className="glass-3d rounded-xl p-3 text-center stat-card-animated relative overflow-hidden v31-ia-glow">
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-                <span ref={item.refObj} className={`block text-lg font-bold ${item.color} tabular-nums`}>
+                <span ref={item.refObj} className={`v31-halo-number v31-pulse-periodic block text-lg font-bold ${item.color} tabular-nums`} style={{ animationDelay: `${i * 1.5}s` }}>
                   {item.value}{item.suffix || ''}
                 </span>
                 <div className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold flex items-center justify-center gap-1">
@@ -209,8 +211,8 @@ export default function WinHistory() {
         )}
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3, delay: 0.6 }} className="text-center mt-4">
-          <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 bg-white/[0.03] border border-white/[0.04]">
-            <span className="relative flex w-1.5 h-1.5">
+          <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 bg-white/[0.03] border border-white/[0.04] v31-ia-glow">
+            <span className="v31-pulse-ring relative flex w-1.5 h-1.5">
               <span className="absolute inset-0 bg-emerald rounded-full animate-ping opacity-75" />
               <span className="relative w-1.5 h-1.5 bg-emerald rounded-full" />
             </span>

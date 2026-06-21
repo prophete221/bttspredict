@@ -1152,3 +1152,606 @@ a, button, [role="button"], input[type="checkbox"], input[type="radio"], select,
     radial-gradient(circle at 0% 100%, rgba(50, 176, 200, 0.04) 0%, transparent 50%);
   pointer-events: none;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   V31 — IA HIGH-TECH EFFECTS LAYER
+   Particles, neural bg, scan-laser, breathing buttons, CTA wave,
+   neon surlignage, alert line draw, circular timer, timeline,
+   card data stream, logo zoom, dashboard cascade, deco graph,
+   WhatsApp shake, FAQ separator draw, parallax hints.
+   All keyframes + utility classes only — no content touched.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Respect reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .v31-scan-laser, .v31-breathing, .v31-cta-wave,
+  .v31-blink, .v31-alert-line, .v31-surlignage,
+  .v31-data-stream, .v31-pulse-ring, .v31-deco-graph,
+  .v31-circular-fill, .v31-timeline-fill, .v31-shake,
+  .v31-slide-down, .v31-bounce-in, .v31-neon-hover,
+  .v31-pulse-periodic, .v31-logo-zoom, .v31-fade-up-on-scroll,
+  .v31-cascade-row {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ─── 1. NEURAL BACKGROUND (canvas container) ─── */
+.v31-neural-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+}
+.v31-neural-layer canvas { width: 100%; height: 100%; display: block; }
+
+/* ─── 2. SCAN-LASER TITLE OVERLAY ─── */
+.v31-scan-laser {
+  position: relative;
+  display: inline-block;
+}
+.v31-scan-laser::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(50, 176, 200, 0.0) 30%,
+    rgba(95, 201, 220, 0.85) 50%,
+    rgba(50, 176, 200, 0.0) 70%,
+    transparent 100%
+  );
+  mix-blend-mode: screen;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 50%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 50%, transparent 100%);
+  background-size: 250% 100%;
+  background-position: -150% 0;
+  animation: v31-scan-sweep 2.6s ease-out 0.4s 1 forwards;
+  pointer-events: none;
+}
+@keyframes v31-scan-sweep {
+  0%   { background-position: -150% 0; opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { background-position: 250% 0; opacity: 0; }
+}
+
+/* ─── 3. IA MICRO-GLOW (around AI / stats / coupons blocks) ─── */
+.v31-ia-glow {
+  box-shadow:
+    0 0 0 1px rgba(50, 176, 200, 0.08),
+    0 0 32px rgba(50, 176, 200, 0.10),
+    0 0 80px rgba(50, 176, 200, 0.05);
+}
+.v31-ia-glow-amber {
+  box-shadow:
+    0 0 0 1px rgba(245, 165, 36, 0.08),
+    0 0 32px rgba(245, 165, 36, 0.10),
+    0 0 80px rgba(245, 165, 36, 0.05);
+}
+
+/* ─── 4. BREATHING BUTTON (VIP Débloquer) ─── */
+.v31-breathing {
+  animation: v31-breathing 3.6s ease-in-out infinite;
+}
+@keyframes v31-breathing {
+  0%, 100% {
+    box-shadow:
+      0 0 0 0 rgba(245, 165, 36, 0.20),
+      0 0 18px 0 rgba(245, 165, 36, 0.18),
+      0 0 0 1px rgba(245, 165, 36, 0.30) inset;
+  }
+  50% {
+    box-shadow:
+      0 0 0 8px rgba(245, 165, 36, 0.00),
+      0 0 36px 4px rgba(245, 165, 36, 0.35),
+      0 0 0 1px rgba(245, 165, 36, 0.55) inset;
+  }
+}
+
+/* ─── 5. CTA WAVE — periodic light sweep every ~12s ─── */
+.v31-cta-wave {
+  position: relative;
+  overflow: hidden;
+}
+.v31-cta-wave::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -150%;
+  width: 80%; height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.0) 30%,
+    rgba(255, 255, 255, 0.45) 50%,
+    rgba(255, 255, 255, 0.0) 70%,
+    transparent 100%
+  );
+  mix-blend-mode: overlay;
+  transform: skewX(-20deg);
+  animation: v31-cta-sweep 12s ease-in-out infinite;
+  animation-delay: var(--v31-wave-delay, 0s);
+  pointer-events: none;
+}
+@keyframes v31-cta-sweep {
+  0%, 70%   { left: -150%; }
+ 82%, 100%  { left: 250%;  }
+}
+
+/* ─── 6. BLINK TEXT (Accès limité) ─── */
+.v31-blink {
+  animation: v31-blink 2.8s ease-in-out infinite;
+}
+@keyframes v31-blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+
+/* ─── 7. ALERT LINE DRAW (Expérimental / High Risk) ─── */
+.v31-alert-line {
+  position: relative;
+}
+.v31-alert-line::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -4px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, rgba(245, 165, 36, 0.85) 50%, transparent 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: v31-alert-draw 1.6s ease-out 0.3s 1 forwards;
+}
+@keyframes v31-alert-draw {
+  0%   { transform: scaleX(0); transform-origin: left; }
+  60%  { transform: scaleX(1); transform-origin: left; }
+  61%  { transform: scaleX(1); transform-origin: right; }
+  100% { transform: scaleX(1); transform-origin: right; }
+}
+
+/* ─── 8. SURLIGNAGE LUMINEUX (running highlight on key phrase) ─── */
+.v31-surlignage {
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    transparent 30%,
+    rgba(245, 165, 36, 0.35) 50%,
+    transparent 70%,
+    transparent 100%
+  );
+  background-size: 280% 100%;
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  animation: v31-surlignage-sweep 3.2s ease-out 0.6s 1 forwards;
+  padding: 0 0.15em;
+  border-radius: 3px;
+}
+@keyframes v31-surlignage-sweep {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* ─── 9. CARD DATA STREAM (liseré animé en haut de carte) ─── */
+.v31-data-stream {
+  position: relative;
+  overflow: hidden;
+}
+.v31-data-stream::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 30%; height: 1.5px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(50, 176, 200, 0.0) 0%,
+    rgba(95, 201, 220, 0.85) 50%,
+    rgba(50, 176, 200, 0.0) 100%
+  );
+  background-size: 200% 100%;
+  animation: v31-stream-flow 4.5s linear infinite;
+  pointer-events: none;
+  z-index: 5;
+}
+@keyframes v31-stream-flow {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
+}
+
+/* ─── 10. LIVE PULSE RING (pulsing pastille around live indicator) ─── */
+.v31-pulse-ring {
+  position: relative;
+}
+.v31-pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(50, 176, 200, 0.6);
+  animation: v31-pulse-ring 2s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes v31-pulse-ring {
+  0%   { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* ─── 11. DECO GRAPH (decorative animated chart background) ─── */
+.v31-deco-graph {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  z-index: 0;
+  background-image:
+    linear-gradient(180deg, transparent 0%, rgba(50, 176, 200, 0.0) 100%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 22px,
+      rgba(50, 176, 200, 0.18) 22px,
+      rgba(50, 176, 200, 0.18) 23px
+    );
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 50%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, black 50%, transparent 100%);
+}
+.v31-deco-graph::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(50, 176, 200, 0.5) 30%,
+    rgba(245, 165, 36, 0.4) 65%,
+    transparent 100%
+  );
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 200' preserveAspectRatio='none'><path d='M0,180 L40,150 L80,160 L120,90 L160,110 L200,60 L240,80 L280,40 L320,55 L360,20 L400,40 L440,30 L480,55 L520,15 L560,40 L600,10' stroke='black' stroke-width='2' fill='none'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 200' preserveAspectRatio='none'><path d='M0,180 L40,150 L80,160 L120,90 L160,110 L200,60 L240,80 L280,40 L320,55 L360,20 L400,40 L440,30 L480,55 L520,15 L560,40 L600,10' stroke='black' stroke-width='2' fill='none'/></svg>");
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  background-size: 100% 100%;
+  animation: v31-graph-shift 6s ease-in-out infinite alternate;
+}
+@keyframes v31-graph-shift {
+  0%   { opacity: 0.4; transform: translateY(2px); }
+  100% { opacity: 0.9; transform: translateY(-3px); }
+}
+
+/* ─── 12. CIRCULAR TIMER (auto-refresh progress ring) ─── */
+.v31-circular-timer {
+  position: relative;
+  width: 38px; height: 38px;
+  flex-shrink: 0;
+}
+.v31-circular-timer svg { transform: rotate(-90deg); display: block; }
+.v31-circular-timer .v31-circular-fill {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: v31-circular-fill 300s linear infinite;
+  transition: stroke-dashoffset 0.5s linear;
+}
+@keyframes v31-circular-fill {
+  0%   { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0; }
+}
+.v31-circular-timer .v31-circular-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(245, 165, 36, 0.85);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* ─── 13. TIMELINE (Comment ça marche — line that traces) ─── */
+.v31-timeline {
+  position: relative;
+}
+.v31-timeline::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(50, 176, 200, 0.0) 0%,
+    rgba(50, 176, 200, 0.6) 20%,
+    rgba(245, 165, 36, 0.6) 80%,
+    rgba(245, 165, 36, 0.0) 100%
+  );
+  background-size: 100% 0%;
+  background-repeat: no-repeat;
+  animation: v31-timeline-fill 2.4s ease-out 0.4s 1 forwards;
+}
+@keyframes v31-timeline-fill {
+  0%   { background-size: 100% 0%; }
+  100% { background-size: 100% 100%; }
+}
+.v31-timeline-fill { animation: v31-timeline-fill 2.4s ease-out 0.4s 1 forwards; }
+
+/* ─── 14. BOUNCE-IN ICONS (timeline step icons) ─── */
+.v31-bounce-in {
+  animation: v31-bounce-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.v31-bounce-in.d1 { animation-delay: 0.3s; }
+.v31-bounce-in.d2 { animation-delay: 0.6s; }
+.v31-bounce-in.d3 { animation-delay: 0.9s; }
+@keyframes v31-bounce-in {
+  0%   { transform: translateY(-12px) scale(0.7); opacity: 0; }
+  60%  { transform: translateY(2px) scale(1.08); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* ─── 15. PERIODIC PULSE (every ~12s on stat values) ─── */
+.v31-pulse-periodic {
+  animation: v31-pulse-periodic 12s ease-in-out infinite;
+}
+@keyframes v31-pulse-periodic {
+  0%, 88%, 100% { transform: scale(1); filter: brightness(1); }
+  92%           { transform: scale(1.04); filter: brightness(1.25); }
+  96%           { transform: scale(1); filter: brightness(1); }
+}
+
+/* ─── 16. NEON HOVER (surlignage néon on key terms) ─── */
+.v31-neon-hover {
+  position: relative;
+  display: inline;
+  border-radius: 3px;
+  padding: 0 0.1em;
+  transition: color 0.25s ease, background 0.25s ease, text-shadow 0.25s ease;
+  cursor: pointer;
+}
+.v31-neon-hover:hover {
+  color: #5FC9DC;
+  background: rgba(50, 176, 200, 0.10);
+  text-shadow:
+    0 0 6px rgba(50, 176, 200, 0.7),
+    0 0 16px rgba(50, 176, 200, 0.45);
+}
+
+/* ─── 17. LOGO ZOOM ON HOVER ─── */
+.v31-logo-zoom {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.v31-logo-zoom:hover {
+  transform: scale(1.18);
+}
+
+/* ─── 18. NAVBAR SLIDE-DOWN ENTRANCE ─── */
+.v31-slide-down {
+  animation: v31-slide-down 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes v31-slide-down {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ─── 19. WHATSAPP SHAKE (footer floating WhatsApp hover) ─── */
+.v31-shake:hover {
+  animation: v31-shake 0.55s ease-in-out;
+}
+@keyframes v31-shake {
+  0%, 100% { transform: rotate(0deg) scale(1.1); }
+  20%      { transform: rotate(-12deg) scale(1.12); }
+  40%      { transform: rotate(10deg) scale(1.12); }
+  60%      { transform: rotate(-8deg) scale(1.1); }
+  80%      { transform: rotate(6deg) scale(1.1); }
+}
+
+/* ─── 20. CASCADE ROW (sequential boot appearance for tables/VIP) ─── */
+.v31-cascade-row {
+  opacity: 0;
+  transform: translateY(6px);
+  animation: v31-cascade-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes v31-cascade-in {
+  0%   { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── 21. FADE-UP ON SCROLL (generic Intersection Observer target) ─── */
+.v31-fade-up-on-scroll {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.v31-fade-up-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── 22. PARALLAX HINT (used with IntersectionObserver to translateY) ─── */
+.v31-parallax {
+  will-change: transform;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ─── 23. FAQ SEPARATOR DRAW (line that appears when item opens) ─── */
+.v31-faq-sep {
+  position: relative;
+}
+.v31-faq-sep::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(50, 176, 200, 0.4) 50%, transparent 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s ease-out 0.1s;
+}
+.v31-faq-sep.is-open::after { transform: scaleX(1); }
+
+/* ─── 24. VIP LAB GLOW (purple/blue laboratory effect) ─── */
+.v31-vip-lab-glow {
+  position: relative;
+}
+.v31-vip-lab-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.45) 0%,
+    rgba(50, 176, 200, 0.20) 35%,
+    transparent 60%,
+    rgba(245, 165, 36, 0.30) 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: v31-lab-rotate 8s linear infinite;
+}
+.v31-vip-lab-glow::after {
+  content: '';
+  position: absolute;
+  inset: -40px;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.10) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(50, 176, 200, 0.08) 0%, transparent 40%);
+  filter: blur(30px);
+  pointer-events: none;
+  z-index: -1;
+  animation: v31-lab-breathe 4.5s ease-in-out infinite;
+}
+@keyframes v31-lab-rotate {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+@keyframes v31-lab-breathe {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+
+/* ─── 25. FIFA ZOOM-IN ENTRANCE (whole FIFA section) ─── */
+.v31-fifa-zoom-in {
+  opacity: 0;
+  transform: scale(0.94);
+  animation: v31-fifa-zoom 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s 1 forwards;
+}
+@keyframes v31-fifa-zoom {
+  0%   { opacity: 0; transform: scale(0.94); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ─── 26. STACKED CARDS APPEARANCE (FIFA coupon rows) ─── */
+.v31-stacked-card {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.97);
+  animation: v31-stack-drop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes v31-stack-drop {
+  0%   { opacity: 0; transform: translateY(-10px) scale(0.97); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ─── 27. HALO BEHIND NUMBERS (cote / fiabilité glow) ─── */
+.v31-halo-number {
+  position: relative;
+  display: inline-block;
+}
+.v31-halo-number::before {
+  content: '';
+  position: absolute;
+  inset: -8px -16px;
+  background: radial-gradient(ellipse at center, rgba(245, 165, 36, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+  animation: v31-halo-breathe 3s ease-in-out infinite;
+}
+@keyframes v31-halo-breathe {
+  0%, 100% { opacity: 0.6; transform: scale(0.95); }
+  50%      { opacity: 1; transform: scale(1.05); }
+}
+
+/* ─── 28. PARTICLE DRIFT (small floating dots layer) ─── */
+.v31-particle-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ─── 29. SECTION HEADER SLIDE-FROM-LEFT (dashboard title) ─── */
+.v31-slide-from-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  animation: v31-slide-left 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s 1 forwards;
+}
+@keyframes v31-slide-left {
+  0%   { opacity: 0; transform: translateX(-32px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* ─── 30. CARD HOVER GLOW BORDER (pronostics cards) ─── */
+.v31-card-hover-glow {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+.v31-card-hover-glow:hover {
+  transform: translateY(-3px) scale(1.012);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(50, 176, 200, 0.35),
+    0 0 24px rgba(50, 176, 200, 0.25);
+}
+
+/* ─── 31. BADGE PULSE ON HOVER ─── */
+.v31-badge-pulse {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.v31-badge-pulse:hover {
+  animation: v31-badge-pulse 0.6s ease-in-out;
+}
+@keyframes v31-badge-pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.06); }
+}
+
+/* ─── 32. TICKER PULSE (green dot near IA en direct) ─── */
+.v31-ticker-dot {
+  position: relative;
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #22C55E;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.85);
+}
+.v31-ticker-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(34, 197, 94, 0.7);
+  animation: v31-pulse-ring 2s ease-out infinite;
+}
+.v31-ticker-text {
+  animation: v31-ticker-fade 3.6s ease-in-out infinite;
+}
+@keyframes v31-ticker-fade {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.8; }
+}
+
+/* ─── 33. UTILITY: section parallax depth wrappers ─── */
+.v31-parallax-bg   { transform: translateZ(-50px) scale(1.15); will-change: transform; }
+.v31-parallax-mid  { transform: translateZ(-20px); will-change: transform; }
+.v31-parallax-fg   { transform: translateZ(0); will-change: transform; }
+
