@@ -338,3 +338,36 @@ Stage Summary:
 - NO content modified — strictly animations + visual effects only
 - All CTA buttons across the site (Hero, Navbar, FreePredictions, PromoVip, FifaLinebet, Footer sticky) now have periodic light wave sweeps every 12s with staggered delays (so they don't all sweep simultaneously)
 - Production verified live at https://bttsbet.online
+
+---
+Task ID: V32
+Agent: main
+Task: Add VIP sections for different sports using the same prediction system, with keywords bettors search for on each sport.
+
+Work Log:
+- Inspected current PromoVip.tsx (598 lines) and predictions.json structure (50 football predictions)
+- Created new component src/components/bttsbet/VipSports.tsx (535 lines):
+  * VipModal reimplementation — accepts sport prop, passes sport name to modal title + WhatsApp message
+  * SportTeamLogo — initials-based logo fallback (no external logos needed for non-football sports)
+  * SportCouponRow — same blurred-pick pattern as PromoVip's VipCouponRow, with sport-specific badge label
+  * 5 sport sections defined in SPORTS array:
+    - Tennis (ATP/WTA/GS) — 10 matches (Alcaraz, Sinner, Djokovic, Swiatek, etc.), badge "Gagnant", cote 18-35
+    - NBA + EuroLeague — 10 matches (Lakers/Celtics, Real Madrid/Barcelona, etc.), badge "Over Pts", cote 12-28
+    - NFL — 10 matches (Chiefs/Bills, 49ers/Eagles, etc.), badge "Spread", cote 15-32
+    - UFC/MMA — 10 fights (Jones/Aspinall, Makhachev/Oliveira, McGregor/Chandler, etc.), badge "Vainqueur", cote 14-30
+    - Handball — 10 matches (PSG/Barca, Kiel/Veszprem, etc.), badge "Over Buts", cote 12-26
+  * Each section: hidden sr-only H2 + sr-only intro paragraph with SEO keywords bettors search for
+  * getSportDailyCote — deterministic daily cote per sport (varies by sport id + date seed)
+  * VipSportCard — reuses count-up animations (cote, match count, accuracy ~88-92%), v31-vip-lab-glow, v31-breathing, v31-cta-wave, v31-cascade-row, v31-card-hover-glow, v31-blink
+  * Main export VipSports — section header "PRONOSTICS VIP SPORTS" + 5 sport cards stacked vertically + shared VipModal
+- Updated src/components/bttsbet/index.ts: exported VipSports
+- Updated src/app/page.tsx: imported VipSports, rendered between PromoVip and WinHistory
+- Verified local build: 0 errors, 15 pages prerendered
+- Committed (635f122a → rebased to 622faa8a) + pushed to origin/main → triggers GitHub Actions FTP deploy
+
+Stage Summary:
+- 5 new VIP sport sections live with same prediction system as PromoVip
+- Each section targets high-search-volume betting keywords (pari tennis, pronostic NBA, pari NFL, pronostic UFC, pari handball) via sr-only H2 + intro paragraph
+- Same gating flow: Linebet/888starz selector → ID verification → WhatsApp activation
+- All animations (V31 IA effects layer) reused — consistent high-tech feel across sport sections
+- Production deploy triggered at push time; will be live at https://bttsbet.online/#vip-sports
