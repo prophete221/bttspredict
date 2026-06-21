@@ -1,9 +1,9 @@
 {
   "stats": {
-    "total": 196,
-    "won": 149,
-    "rate": "76.0%",
-    "last30Rate": "76%"
+    "total": 203,
+    "won": 153,
+    "rate": "75.4%",
+    "last30Rate": "75%"
   },
   "history": [
     {
@@ -31,6 +31,17 @@
     {
       "id": 3,
       "date": "2026-06-20",
+      "match": "Tunisia vs Japan",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "0-4",
+      "confidence": 47
+    },
+    {
+      "id": 4,
+      "date": "2026-06-20",
       "match": "Argentina vs United States",
       "league": "International Friendly",
       "type": "BTTS",
@@ -40,7 +51,7 @@
       "confidence": 47
     },
     {
-      "id": 4,
+      "id": 5,
       "date": "2026-06-20",
       "match": "Scotland vs Brazil",
       "league": "International Friendly",
@@ -51,7 +62,7 @@
       "confidence": 52
     },
     {
-      "id": 5,
+      "id": 6,
       "date": "2026-06-20",
       "match": "Scotland vs Brazil",
       "league": "International Friendly",
@@ -62,7 +73,29 @@
       "confidence": 52
     },
     {
-      "id": 6,
+      "id": 7,
+      "date": "2026-06-20",
+      "match": "Ecuador vs Germany",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-0",
+      "confidence": 47
+    },
+    {
+      "id": 8,
+      "date": "2026-06-20",
+      "match": "Ecuador vs Germany",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-0",
+      "confidence": 47
+    },
+    {
+      "id": 9,
       "date": "2026-06-19",
       "match": "United States vs United States",
       "league": "International Friendly",
@@ -73,7 +106,7 @@
       "confidence": 48
     },
     {
-      "id": 7,
+      "id": 10,
       "date": "2026-06-19",
       "match": "Argentina vs United States",
       "league": "International Friendly",
@@ -84,44 +117,11 @@
       "confidence": 48
     },
     {
-      "id": 8,
-      "date": "2026-06-19",
-      "match": "Bosnia-Herzegovina vs Qatar",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "4-1",
-      "confidence": 51
-    },
-    {
-      "id": 9,
-      "date": "2026-06-19",
-      "match": "Bosnia-Herzegovina vs Qatar",
-      "league": "International Friendly",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "4-1",
-      "confidence": 51
-    },
-    {
-      "id": 10,
-      "date": "2026-06-19",
-      "match": "Switzerland vs Canada",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "4-1",
-      "confidence": 51
-    },
-    {
       "id": 11,
       "date": "2026-06-19",
-      "match": "Switzerland vs Canada",
+      "match": "Bosnia-Herzegovina vs Qatar",
       "league": "International Friendly",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
       "result": "Gagné",
       "score": "4-1",
@@ -129,6 +129,39 @@
     },
     {
       "id": 12,
+      "date": "2026-06-19",
+      "match": "Bosnia-Herzegovina vs Qatar",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "4-1",
+      "confidence": 51
+    },
+    {
+      "id": 13,
+      "date": "2026-06-19",
+      "match": "Switzerland vs Canada",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "4-1",
+      "confidence": 51
+    },
+    {
+      "id": 14,
+      "date": "2026-06-19",
+      "match": "Switzerland vs Canada",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "4-1",
+      "confidence": 51
+    },
+    {
+      "id": 15,
       "date": "2026-06-19",
       "match": "Czechia vs Mexico",
       "league": "International Friendly",
@@ -139,7 +172,7 @@
       "confidence": 52
     },
     {
-      "id": 13,
+      "id": 16,
       "date": "2026-06-19",
       "match": "South Africa vs South Korea",
       "league": "International Friendly",
@@ -150,7 +183,7 @@
       "confidence": 52
     },
     {
-      "id": 14,
+      "id": 17,
       "date": "2026-06-18",
       "match": "Czechia vs South Africa",
       "league": "International Friendly",
@@ -161,7 +194,7 @@
       "confidence": 49
     },
     {
-      "id": 15,
+      "id": 18,
       "date": "2026-06-18",
       "match": "Czechia vs South Africa",
       "league": "International Friendly",
@@ -172,7 +205,7 @@
       "confidence": 49
     },
     {
-      "id": 16,
+      "id": 19,
       "date": "2026-06-18",
       "match": "Switzerland vs Bosnia-Herzegovina",
       "league": "International Friendly",
@@ -183,7 +216,7 @@
       "confidence": 48
     },
     {
-      "id": 17,
+      "id": 20,
       "date": "2026-06-18",
       "match": "Portugal vs Uzbekistan",
       "league": "International Friendly",
@@ -192,39 +225,6 @@
       "result": "Gagné",
       "score": "1-1",
       "confidence": 50
-    },
-    {
-      "id": 18,
-      "date": "2026-06-18",
-      "match": "England vs Ghana",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "4-2",
-      "confidence": 49
-    },
-    {
-      "id": 19,
-      "date": "2026-06-18",
-      "match": "Colombia vs DR Congo",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-3",
-      "confidence": 51
-    },
-    {
-      "id": 20,
-      "date": "2026-06-18",
-      "match": "Colombia vs DR Congo",
-      "league": "International Friendly",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-3",
-      "confidence": 51
     }
   ],
   "date": "2026-06-21"
