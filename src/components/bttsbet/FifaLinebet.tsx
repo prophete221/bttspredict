@@ -47,7 +47,7 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
     if (!linebetId.trim()) return
     setIsSubmitting(true)
     const message = encodeURIComponent(
-      `🎮 Demande d'accès Faille FIFA Linebet\n\nMon ID Linebet : ${linebetId.trim()}\n\nJe me suis inscrit avec le code promo VISION221 et j'ai effectué un dépôt minimum de 10 000 Fr.\n\nMerci de vérifier et d'activer mon accès à la Faille FIFA.`
+      `🎮 Demande d'accès Faille FIFA (Linebet / 888starz)\n\nMon ID : ${linebetId.trim()}\n\nPlateforme : Linebet / 888starz\n\nJe me suis inscrit avec le code promo VISION221 et j'ai effectué un dépôt minimum de 10 000 Fr.\n\nMerci de vérifier et d'activer mon accès à la Faille FIFA.`
     )
     const whatsappUrl = `${SITE.whatsapp}?text=${message}`
     await new Promise(r => setTimeout(r, 800))
@@ -80,10 +80,10 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                       </div>
                       <h3 className="text-xl sm:text-2xl font-extrabold text-white text-center mb-2 tracking-tight">
-                        FAILLE <span className="text-gold">FIFA LINEBET</span>
+                        FAILLE <span className="text-gold">FIFA</span>
                       </h3>
                       <p className="text-gray-300 text-sm text-center mb-4 leading-relaxed">
-                        Pour accéder à la Faille FIFA Linebet, vous devez d&apos;abord respecter ces conditions :
+                        Pour accéder à la Faille FIFA (Linebet ou 888starz), vous devez d&apos;abord respecter ces conditions :
                       </p>
                       <div className="space-y-3 mb-6">
                         <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-white/[0.06]">
@@ -91,7 +91,7 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
                           </div>
                           <div>
-                            <p className="text-white text-sm font-semibold">1. Créer un compte LINEBET</p>
+                            <p className="text-white text-sm font-semibold">1. Créer un compte Linebet ou 888starz</p>
                             <p className="text-gray-400 text-xs mt-0.5">Utilisez le code promo <span className="text-gold font-bold">VISION221</span> lors de l&apos;inscription</p>
                           </div>
                         </div>
@@ -101,7 +101,7 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                           </div>
                           <div>
                             <p className="text-white text-sm font-semibold">2. Déposer un minimum de 10 000 Fr</p>
-                            <p className="text-gray-400 text-xs mt-0.5">Effectuez un premier dépôt de 10 000 Fr minimum sur votre compte LINEBET</p>
+                            <p className="text-gray-400 text-xs mt-0.5">Effectuez un premier dépôt de 10 000 Fr minimum sur votre compte Linebet ou 888starz</p>
                           </div>
                         </div>
                         <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-white/[0.06]">
@@ -110,7 +110,7 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                           </div>
                           <div>
                             <p className="text-white text-sm font-semibold">3. Confirmer votre inscription</p>
-                            <p className="text-gray-400 text-xs mt-0.5">Entrez votre ID LINEBET pour vérification et activation de votre accès Faille FIFA</p>
+                            <p className="text-gray-400 text-xs mt-0.5">Entrez votre ID Linebet ou 888starz pour vérification et activation de votre accès Faille FIFA</p>
                           </div>
                         </div>
                       </div>
@@ -145,10 +145,10 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                         CONFIRMEZ VOTRE INSCRIPTION
                       </h3>
                       <p className="text-gray-400 text-sm text-center mb-5 leading-relaxed">
-                        Entrez votre identifiant LINEBET pour que nous puissions vérifier votre inscription et activer votre accès Faille FIFA.
+                        Entrez votre identifiant Linebet ou 888starz pour que nous puissions vérifier votre inscription et activer votre accès Faille FIFA.
                       </p>
                       <div className="mb-4">
-                        <label htmlFor="fifa-linebet-id" className="block text-xs text-gray-500 mb-1.5 font-medium">Votre ID LINEBET</label>
+                        <label htmlFor="fifa-linebet-id" className="block text-xs text-gray-500 mb-1.5 font-medium">Votre ID Linebet / 888starz</label>
                         <div className="relative">
                           <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-gold/50" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
@@ -172,7 +172,7 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                       </div>
                       <h3 className="text-lg font-extrabold text-white mb-2">DEMANDE ENVOYÉE !</h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">Votre demande d&apos;accès Faille FIFA a été envoyée via WhatsApp. Nous vérifierons votre inscription LINEBET et vous recevrez votre accès sous peu.</p>
+                      <p className="text-gray-400 text-sm leading-relaxed">Votre demande d&apos;accès Faille FIFA a été envoyée via WhatsApp. Nous vérifierons votre inscription Linebet ou 888starz et vous recevrez votre accès sous peu.</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -332,7 +332,7 @@ export default function FifaLinebet() {
               <div className="w-8 h-px bg-gradient-to-l from-transparent to-gold" />
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-2 tracking-tight">
-              FAILLE <span className="text-gold neon-glow-blue">FIFA LINEBET</span>
+              FAILLE <span className="text-gold neon-glow-blue">FIFA</span>
             </h2>
             {/* Warning badge — "Expérimental / High Risk" */}
             <div className="inline-flex items-center gap-1.5 mt-2 mb-3 badge-warning">
@@ -341,7 +341,7 @@ export default function FifaLinebet() {
               </svg>
               Expérimental / High Risk
             </div>
-            <p className="text-gray-500 text-sm max-w-lg mx-auto mb-4">Algorithme exclusif détectant les failles de cotes FIFA sur Linebet — Mise à jour toutes les 5 minutes</p>
+            <p className="text-gray-500 text-sm max-w-lg mx-auto mb-4">Algorithme exclusif détectant les failles de cotes FIFA sur Linebet et 888starz — Mise à jour toutes les 5 minutes</p>
             <button onClick={scrollToCoupon}
               className="inline-flex items-center gap-2 px-5 py-2.5 btn-gold text-sm cursor-pointer">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L1 12h3v9h6v-6h4v6h6v-9h3L12 2z"/></svg>
@@ -354,13 +354,13 @@ export default function FifaLinebet() {
           <div className="max-w-5xl mx-auto mb-6 px-2">
             <div className="highlight-block rounded-xl p-4 sm:p-5 relative overflow-hidden">
               <h3 className="text-sm sm:text-base font-bold text-white mb-2">
-                Faille FIFA Linebet : Comment exploiter les cotes FIFA en 2026
+                Faille FIFA Linebet & 888starz : Comment exploiter les cotes FIFA en 2026
               </h3>
               <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-2">
-                La <strong className="text-gold">faille FIFA Linebet</strong> est une opportunité unique détectée par notre algorithme IA qui analyse en temps réel les écarts de cotes sur les matchs FIFA de Linebet. Notre système de scan automatique identifie les failles de cotes FIFA toutes les 5 minutes, vous permettant d&apos;accéder à des coupons FIFA avec des cotes entre 10 et 15 et une fiabilité de 98%. Que vous cherchiez une faille FIFA sur Linebet, un coupon FIFA gratuit, ou comment exploiter les failles de cotes FIFA, BttsBet vous offre l&apos;outil le plus avancé du marché.
+                La <strong className="text-gold">faille FIFA</strong> est une opportunité unique détectée par notre algorithme IA qui analyse en temps réel les écarts de cotes sur les matchs FIFA de Linebet et 888starz. Notre système de scan automatique identifie les failles de cotes FIFA toutes les 5 minutes, vous permettant d&apos;accéder à des coupons FIFA avec des cotes entre 10 et 15 et une fiabilité de 98%. Que vous cherchiez une faille FIFA sur Linebet, une faille FIFA sur 888starz, un coupon FIFA gratuit, ou comment exploiter les failles de cotes FIFA, BttsBet vous offre l&apos;outil le plus avancé du marché.
               </p>
               <p className="text-gray-500 text-xs leading-relaxed">
-                Keywords : faille fifa linebet, faille fifa, coupon fifa linebet, faille cote fifa, bot fifa linebet, astuce fifa linebet, faille jeux fifa, hack fifa linebet 2026, coupon fifa gagnant, faille pari fifa
+                Keywords : faille fifa linebet, faille fifa 888starz, faille fifa, coupon fifa linebet, coupon fifa 888starz, faille cote fifa, bot fifa linebet, astuce fifa linebet, faille jeux fifa, hack fifa linebet 2026, coupon fifa gagnant, faille pari fifa
               </p>
             </div>
           </div>
@@ -484,7 +484,7 @@ export default function FifaLinebet() {
                   COMMENT ÇA <span className="text-gold">MARCHE ?</span>
                 </h3>
                 <p className="text-gray-400 text-sm mb-5 leading-relaxed">
-                  Notre algorithme détecte en temps réel les failles de cotes FIFA sur Linebet. Ces opportunités sont limitées et s&apos;actualisent automatiquement toutes les 5 minutes.
+                  Notre algorithme détecte en temps réel les failles de cotes FIFA sur Linebet et 888starz. Ces opportunités sont limitées et s&apos;actualisent automatiquement toutes les 5 minutes.
                 </p>
 
                 <div className="space-y-3 mb-6">
@@ -492,7 +492,7 @@ export default function FifaLinebet() {
                     <div className="w-8 h-8 flex-shrink-0 bg-gold/10 rounded-lg flex items-center justify-center text-gold text-sm font-bold">1</div>
                     <div>
                       <p className="text-white text-sm font-semibold">Scan automatique</p>
-                      <p className="text-gray-400 text-xs mt-0.5">L&apos;IA scanne les cotes FIFA Linebet en continu pour détecter les anomalies</p>
+                      <p className="text-gray-400 text-xs mt-0.5">L&apos;IA scanne les cotes FIFA Linebet et 888starz en continu pour détecter les anomalies</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-edge">

@@ -473,7 +473,7 @@ export default function GuideLinebetInscription() {
                 </a>
                 <a href="/blog/faille-fifa-linebet" className="card p-4 group hover-lift">
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-purple-400">FIFA</span>
-                  <p className="text-sm text-white font-semibold mt-1 group-hover:text-emerald transition-colors">Faille FIFA Linebet : Détecter les Cotes Erronées</p>
+                  <p className="text-sm text-white font-semibold mt-1 group-hover:text-emerald transition-colors">Faille FIFA Linebet & 888starz : Détecter les Cotes Erronées</p>
                 </a>
               </div>
             </section>

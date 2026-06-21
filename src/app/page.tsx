@@ -20,7 +20,7 @@ const jsonLd = {
   '@type': 'WebSite',
   name: 'BttsBet',
   url: 'https://bttsbet.online',
-  description: "Pronostics football BTTS & Over 2,5 générés par IA. Faille FIFA Linebet détectée automatiquement. Code promo VISION221.",
+  description: "Pronostics football BTTS & Over 2,5 générés par IA. Faille FIFA détectée automatiquement sur Linebet et 888starz. Code promo VISION221.",
   inLanguage: 'fr',
   potentialAction: {
     '@type': 'SearchAction',

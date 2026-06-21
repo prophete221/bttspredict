@@ -7,13 +7,13 @@ import { Navbar, Footer } from '@/components/bttsbet'
 const SITE_URL = 'https://bttsbet.online'
 const SLUG = 'faille-fifa-linebet'
 const PAGE_URL = `${SITE_URL}/blog/${SLUG}`
-const TITLE = 'Faille FIFA Linebet : Comment Détecter les Cotes Erronées en 2026'
-const DESCRIPTION = 'Découvrez la faille FIFA sur Linebet : comment les cotes des matchs FIFA virtuels sont calculées, comment détecter les cotes erronées, utiliser l\'IA pour scanner les value bets et gérer le risque. Attention : jeu responsable.'
+const TITLE = 'Faille FIFA Linebet & 888starz : Comment Détecter les Cotes Erronées en 2026'
+const DESCRIPTION = 'Découvrez la faille FIFA sur Linebet et 888starz : comment les cotes des matchs FIFA virtuels sont calculées, comment détecter les cotes erronées, utiliser l\'IA pour scanner les value bets et gérer le risque. Attention : jeu responsable.'
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  keywords: ['faille fifa linebet', 'faille cote linebet', 'bot fifa linebet', 'coupon fifa gagnant', 'hack fifa linebet 2026', 'astuce fifa linebet', 'cote erronée linebet', 'value bet fifa', 'pari fifa virtuel', 'fifa linebet astuce'],
+  keywords: ['faille fifa linebet', 'faille fifa 888starz', 'faille cote linebet', 'faille cote 888starz', 'bot fifa linebet', 'coupon fifa gagnant', 'hack fifa linebet 2026', 'astuce fifa linebet', 'cote erronée linebet', 'value bet fifa', 'pari fifa virtuel', 'fifa linebet astuce', 'fifa 888starz astuce'],
   alternates: {
     canonical: PAGE_URL,
   },
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2026-04-01',
     modifiedTime: '2026-06-01',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Faille FIFA Linebet – Cotes Erronées 2026' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Faille FIFA Linebet & 888starz – Cotes Erronées 2026' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -102,7 +102,7 @@ export default function FailleFifaLinebetPage() {
             <li aria-hidden="true" className="text-gray-700">/</li>
             <li><a href="/blog" className="hover:text-emerald transition-colors">Blog</a></li>
             <li aria-hidden="true" className="text-gray-700">/</li>
-            <li><span className="text-gray-400" aria-current="page">Faille FIFA Linebet</span></li>
+            <li><span className="text-gray-400" aria-current="page">Faille FIFA Linebet & 888starz</span></li>
           </ol>
         </nav>
 
@@ -116,13 +116,13 @@ export default function FailleFifaLinebetPage() {
               className="text-3xl sm:text-4xl lg:text-5xl text-white mt-4 mb-4 leading-tight"
               style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
             >
-              Faille FIFA Linebet :{' '}
+              Faille FIFA Linebet & 888starz :{' '}
               <span className="text-purple-400" style={{ textShadow: '0 0 8px rgba(168,85,247,0.5), 0 0 24px rgba(168,85,247,0.3)' }}>
                 Détecter les Cotes Erronées
               </span> en 2026
             </h1>
             <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
-              Les matchs FIFA virtuels sur Linebet présentent des anomalies de cotes exploitables.
+              Les matchs FIFA virtuels sur Linebet et 888starz présentent des anomalies de cotes exploitables.
               Découvrez comment ces cotes sont calculées, comment détecter les value bets, et pourquoi
               notre IA est votre meilleur allié pour scanner ces opportunités.
             </p>

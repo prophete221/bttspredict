@@ -77,9 +77,9 @@ const articles = [
   },
   {
     slug: 'faille-fifa-linebet',
-    title: 'Faille FIFA Linebet : comment détecter les cotes erronées en 2026',
+    title: 'Faille FIFA Linebet & 888starz : comment détecter les cotes erronées en 2026',
     description:
-      'Exploitez la faille FIFA sur Linebet pour repérer les cotes mal ajustées. Méthodologie de détection, exemples concrets et précautions à prendre.',
+      'Exploitez la faille FIFA sur Linebet et 888starz pour repérer les cotes mal ajustées. Méthodologie de détection, exemples concrets et précautions à prendre.',
     date: '2026-04-01',
     category: 'FIFA',
   },
