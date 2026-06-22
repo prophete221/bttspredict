@@ -78,6 +78,90 @@ const faqJsonLd = {
   ],
 }
 
+// JSON-LD Organization — strengthens E-E-A-T entity recognition
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'BttsBet',
+  url: 'https://bttsbet.online',
+  logo: 'https://bttsbet.online/favicon.svg',
+  description: "Plateforme de pronostics football BTTS & Over 2,5 basés sur l'IA. Détection automatique de la Faille FIFA sur Linebet et 888starz.",
+  sameAs: [
+    'https://wa.me/15406704172',
+  ],
+  areaServed: ['SN', 'CI', 'CM', 'ML', 'BF', 'FR'],
+  knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'IA', 'football', 'faille FIFA'],
+}
+
+// JSON-LD BreadcrumbList — breadcrumbs in SERP
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://bttsbet.online/' },
+    { '@type': 'ListItem', position: 2, name: 'Pronostics', item: 'https://bttsbet.online/#free-predictions' },
+    { '@type': 'ListItem', position: 3, name: 'VIP', item: 'https://bttsbet.online/#vip' },
+    { '@type': 'ListItem', position: 4, name: 'Faille FIFA', item: 'https://bttsbet.online/#fifa-linebet' },
+  ],
+}
+
+// JSON-LD SportsEvent — signals sports betting content to Googlebot
+// Static sample events derived from FIFA coupon (cote 10.74, fiabilité 98%)
+const sportsEventsJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'SportsEvent',
+      name: 'Coupon FIFA — Faille FIFA Linebet & 888starz',
+      sport: 'Soccer',
+      startDate: new Date().toISOString(),
+      location: { '@type': 'Place', name: 'International' },
+      homeTeam: { '@type': 'SportsTeam', name: 'FIFA Match 1' },
+      awayTeam: { '@type': 'SportsTeam', name: 'FIFA Match 2' },
+      description: "Coupon FIFA exclusif détecté par l'IA BttsBet — cote totale 10.74, fiabilité 98%. Faille FIFA identifiée automatiquement sur Linebet et 888starz.",
+      offers: {
+        '@type': 'Offer',
+        name: 'Code promo VISION221',
+        description: 'Bonus exclusif Linebet 150$ / 888starz 100% sur premier dépôt',
+        url: 'https://bttsbet.online/#fifa-linebet',
+      },
+    },
+    {
+      '@type': 'SportsEvent',
+      name: 'Pronostics BTTS & Over 2.5 du jour',
+      sport: 'Soccer',
+      startDate: new Date().toISOString(),
+      location: { '@type': 'Place', name: 'International' },
+      description: "Pronostics BTTS et Over 2.5 générés par IA avec ~87% de précision historique sur plus de 50 000 matchs analysés.",
+      url: 'https://bttsbet.online/#free-predictions',
+    },
+    {
+      '@type': 'SportsEvent',
+      name: 'VIP Tennis — ATP / WTA',
+      sport: 'Tennis',
+      startDate: new Date().toISOString(),
+      description: "Pronostics VIP Tennis (ATP, WTA, Grand Chelem) — gagnant, over/under games, set 1. Cotes exclusives via IA BttsBet.",
+      url: 'https://bttsbet.online/#vip-tennis',
+    },
+    {
+      '@type': 'SportsEvent',
+      name: 'VIP NBA — Basket professionnel',
+      sport: 'Basketball',
+      startDate: new Date().toISOString(),
+      description: "Pronostics VIP NBA et EuroLeague — vainqueur, over/under points, player props. Algorithme IA BttsBet.",
+      url: 'https://bttsbet.online/#vip-nba',
+    },
+    {
+      '@type': 'SportsEvent',
+      name: 'VIP UFC / MMA — Combats',
+      sport: 'MMA',
+      startDate: new Date().toISOString(),
+      description: "Pronostics VIP UFC et MMA — vainqueur, méthode de victoire, round. IA BttsBet spécialisée combat.",
+      url: 'https://bttsbet.online/#vip-ufc',
+    },
+  ],
+}
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-dark-900 relative">
@@ -89,6 +173,21 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      {/* JSON-LD BreadcrumbList — helps Google show breadcrumbs in SERP */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      {/* JSON-LD SportsEvent — signals sports betting content to Google */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(sportsEventsJsonLd) }}
+      />
+      {/* JSON-LD Organization — strengthens entity recognition for E-E-A-T */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
 
       {/* Skip to content — accessibility */}

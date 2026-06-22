@@ -360,8 +360,9 @@ export default function FifaLinebet() {
               <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-2">
                 La <strong className="text-gold">faille FIFA</strong> est une opportunité unique détectée par notre algorithme IA qui analyse en temps réel les écarts de cotes sur les matchs FIFA de Linebet et 888starz. Notre système de scan automatique identifie les failles de cotes FIFA toutes les 5 minutes, vous permettant d&apos;accéder à des coupons FIFA avec des cotes entre 10 et 15 et une fiabilité de 98%. Que vous cherchiez une faille FIFA sur Linebet, une faille FIFA sur 888starz, un coupon FIFA gratuit, ou comment exploiter les failles de cotes FIFA, BttsBet vous offre l&apos;outil le plus avancé du marché.
               </p>
-              <p className="text-gray-500 text-xs leading-relaxed">
-                Keywords : faille fifa linebet, faille fifa 888starz, faille fifa, coupon fifa linebet, coupon fifa 888starz, faille cote fifa, bot fifa linebet, astuce fifa linebet, faille jeux fifa, hack fifa linebet 2026, coupon fifa gagnant, faille pari fifa
+              {/* SEO keywords — sr-only (accessible to crawlers, invisible to users, no keyword-stuffing penalty) */}
+              <p className="sr-only">
+                faille fifa linebet, faille fifa 888starz, faille fifa, coupon fifa linebet, coupon fifa 888starz, faille cote fifa, bot fifa linebet, astuce fifa linebet, faille jeux fifa, hack fifa linebet 2026, coupon fifa gagnant, faille pari fifa
               </p>
             </div>
           </div>

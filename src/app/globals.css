@@ -1755,3 +1755,182 @@ a, button, [role="button"], input[type="checkbox"], input[type="radio"], select,
 .v31-parallax-mid  { transform: translateZ(-20px); will-change: transform; }
 .v31-parallax-fg   { transform: translateZ(0); will-change: transform; }
 
+
+/* ════════════════════════════════════════════════════════════════════
+   V33 — MOBILE PERFORMANCE OPTIMIZATIONS
+   Disables heavy GPU effects on touch devices & small screens to keep
+   60fps scroll on Tecno/Itel/Infinix low-end Androids.
+   Desktop keeps the full V31 IA high-tech effects layer.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ─── Rule 1: Disable neural canvas + cursor effects on touch/mobile ─── */
+@media (pointer: coarse), (max-width: 768px) {
+  /* Hide canvas-based animations — too GPU-intensive for low-end mobiles */
+  .v31-neural-layer,
+  .neural-layer,
+  .cursor-glow,
+  .cursor-dot,
+  .floating-shape {
+    display: none !important;
+  }
+
+  /* Disable custom cursor on touch devices */
+  * {
+    cursor: auto !important;
+  }
+
+  /* Remove heavy blur filters (>40px) — kill GPU on low-end Androids */
+  [class*="blur-[100px]"],
+  [class*="blur-[120px]"],
+  [class*="blur-[140px]"],
+  [class*="blur-[160px]"],
+  [class*="blur-[200px]"] {
+    filter: none !important;
+    opacity: 0.4 !important;
+  }
+
+  /* Reduce backdrop-blur — WebKit on Android Chrome limits this */
+  .glass-strong,
+  .backdrop-blur-xl,
+  .backdrop-blur-lg {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: rgba(17, 24, 39, 0.96) !important; /* #111827 solid */
+  }
+
+  /* Cap simultaneous CSS animations — keep only essential ones */
+  .v31-pulse-periodic,
+  .v31-data-stream,
+  .animate-ping,
+  .floating-shape,
+  .v31-parallax-bg,
+  .v31-parallax-mid,
+  .v31-parallax-fg {
+    animation: none !important;
+    will-change: auto !important;
+  }
+
+  /* Slow down breathing/cta-wave animations to reduce repaint frequency */
+  .v31-breathing {
+    animation-duration: 6s !important;
+  }
+  .v31-cta-wave {
+    animation-duration: 12s !important;
+  }
+
+  /* Preserve essential animations: pulse (live dots), scan-laser (hero title), ticker */
+  /* These are short and high-impact — keep them running */
+
+  /* Reduce transition durations globally for snappier mobile feel */
+  * {
+    transition-duration: 0.15s !important;
+  }
+
+  /* ─── Rule 2: Limit will-change to sticky/fixed elements only ─── */
+  /* Remove will-change from non-moving elements to free GPU memory */
+  .v31-card-hover-glow,
+  .hover-lift,
+  .prediction-card,
+  .v31-vip-lab-glow,
+  .v31-cascade-row {
+    will-change: auto !important;
+  }
+
+  /* Keep will-change ONLY on truly sticky/fixed elements */
+  nav.sticky,
+  .sticky-top,
+  [class*="fixed bottom-0"],
+  [class*="fixed bottom-"],
+  header[class*="sticky"] {
+    will-change: transform;
+  }
+
+  /* ─── Rule 3: content-visibility for long lists of cards ─── */
+  /* Skips rendering off-screen prediction cards until scrolled into view */
+  .prediction-cards-list,
+  [class*="space-y-1"][class*="max-h-"],
+  .scrollbar-none {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 480px;
+  }
+
+  /* ─── Rule 4: Touch target minimum 44px (Apple HIG / Material) ─── */
+  button,
+  a[role="button"],
+  [role="button"],
+  .btn-emerald,
+  .btn-gold,
+  .btn-linebet,
+  .btn-star888,
+  .btn-ghost-quantum {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* ─── Rule 5: Replace overflow:hidden with overflow-x:hidden ─── */
+  /* overflow:hidden can block native iOS scroll bounce in some layouts */
+  section[class*="overflow-hidden"],
+  div[class*="overflow-hidden"] {
+    overflow: visible;
+    overflow-x: clip;
+  }
+  /* Re-apply overflow-hidden only where truly needed (modals, dropdowns) */
+  .modal-container,
+  [class*="fixed inset-0"],
+  [role="dialog"] {
+    overflow: hidden;
+  }
+
+  /* ─── Rule 6: Safe-area-inset for iPhone notch ─── */
+  /* Mobile sticky bottom bar (Linebet/888starz CTAs) */
+  .mobile-sticky-cta,
+  [class*="fixed bottom-0"]:not([role="dialog"]) {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-bottom: constant(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* ─── Rule 7: prefers-reduced-motion — already partially covered ─── */
+/* Strengthen existing reduced-motion rule to cover all v31-* animations */
+@media (prefers-reduced-motion: reduce) {
+  .v31-neural-layer,
+  .v31-scan-laser,
+  .v31-pulse-periodic,
+  .v31-breathing,
+  .v31-cta-wave,
+  .v31-blink,
+  .v31-data-stream,
+  .v31-ticker-text,
+  .v31-ticker-dot::after,
+  .v31-pulse-ring,
+  .v31-bounce-in,
+  .v31-shake,
+  .v31-faq-sep,
+  .v31-cascade-row,
+  .animate-pulse-gold,
+  .animate-ping,
+  .floating-shape,
+  .v31-parallax-bg,
+  .v31-parallax-mid,
+  .v31-parallax-fg {
+    animation: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+}
+
+/* ─── Rule 8: Smooth scroll for anchor nav ─── */
+html {
+  scroll-behavior: smooth;
+  /* Offset for sticky navbar when jumping to #anchors */
+  scroll-padding-top: 80px;
+}
+
+/* ─── Rule 9: Tabular numerals for all numeric data ─── */
+/* Premium platform feel — numbers stay aligned (Bloomberg/SofaScore style) */
+.tabular-nums,
+[data-numeric],
+.font-mono {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}

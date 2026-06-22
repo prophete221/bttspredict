@@ -5,7 +5,7 @@
 
   <url>
     <loc>https://bttsbet.online/</loc>
-    <lastmod>2026-06-13</lastmod>
+    <lastmod>2026-06-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/"/>
@@ -24,6 +24,80 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/#fifa-linebet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/#fifa-linebet"/>
+  </url>
+
+  <!-- V32 — Pronostics VIP multi-sports sections -->
+  <url>
+    <loc>https://bttsbet.online/#vip-sports</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/#vip-sports"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/#vip-sports"/>
+  </url>
+  <url>
+    <loc>https://bttsbet.online/#vip-tennis</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/#vip-tennis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/#vip-tennis"/>
+  </url>
+  <url>
+    <loc>https://bttsbet.online/#vip-nba</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/#vip-nba"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/#vip-nba"/>
+  </url>
+  <url>
+    <loc>https://bttsbet.online/#vip-nfl</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/#vip-nfl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/#vip-nfl"/>
+  </url>
+  <url>
+    <loc>https://bttsbet.online/#vip-ufc</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/#vip-ufc"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/#vip-ufc"/>
+  </url>
+  <url>
+    <loc>https://bttsbet.online/#vip-handball</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/#vip-handball"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/#vip-handball"/>
+  </url>
+  <url>
+    <loc>https://bttsbet.online/#free-predictions</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/#free-predictions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/#free-predictions"/>
+  </url>
+  <url>
+    <loc>https://bttsbet.online/#vip</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/#vip"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/#vip"/>
+  </url>
+  <url>
+    <loc>https://bttsbet.online/#win-history</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/#win-history"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/#win-history"/>
   </url>
 
   <url>

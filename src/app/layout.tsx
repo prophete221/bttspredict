@@ -20,6 +20,33 @@ export const metadata: Metadata = {
   description: "Pronostics football BTTS & Over 2,5 générés par IA. ~87% de précision. Faille FIFA détectée automatiquement sur Linebet et 888starz — cotes 10-15, fiabilité 98%. Code promo VISION221 pour bonus exclusif.",
   keywords: ["BTTS", "Over 2.5", "pronostics football", "IA", "intelligence artificielle", "paris sportifs", "Linebet", "888starz", "VISION221", "BttsBet", "faille fifa linebet", "faille fifa 888starz", "faille FIFA", "coupon fifa linebet", "coupon fifa 888starz", "faille cote fifa", "bot fifa linebet", "astuce fifa linebet", "faille jeux fifa", "hack fifa linebet 2026", "coupon fifa gagnant", "faille pari fifa"],
   authors: [{ name: "BttsBet" }],
+  alternates: {
+    canonical: "https://bttsbet.online/",
+  },
+  // Geo metadata — targets francophone Africa (primary audience)
+  other: {
+    'geo.region': 'SN',
+    'geo.placename': 'Dakar',
+    'geo.position': '14.6928;-17.4467',
+    ICBM: '14.6928, -17.4467',
+    'language': 'fr',
+    'rating': 'general',
+    'distribution': 'global',
+    'revisit-after': '1 day',
+    'googlebot': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+    'bingbot': 'index, follow, max-image-preview:large',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
   icons: {
     icon: "/favicon.svg",
   },
@@ -29,6 +56,7 @@ export const metadata: Metadata = {
     url: "https://bttsbet.online",
     siteName: "BttsBet",
     type: "website",
+    locale: "fr_FR",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "BttsBet – Faille FIFA Linebet & 888starz" }],
   },
   twitter: {
