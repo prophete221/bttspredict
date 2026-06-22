@@ -1,47 +1,69 @@
 {
   "stats": {
-    "total": 161,
-    "won": 130,
-    "rate": "80.7%",
-    "last30Rate": "81%"
+    "total": 196,
+    "won": 149,
+    "rate": "76.0%",
+    "last30Rate": "76%"
   },
   "history": [
     {
       "id": 1,
-      "date": "2026-06-21",
-      "match": "Uruguay vs Cape Verde",
+      "date": "2026-06-22",
+      "match": "Tunisia vs Curaçao",
       "league": "International Friendly",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
       "result": "Gagné",
-      "score": "2-2",
-      "confidence": 49
+      "score": "0-4",
+      "confidence": 52
     },
     {
       "id": 2,
-      "date": "2026-06-21",
-      "match": "Uruguay vs Cape Verde",
+      "date": "2026-06-22",
+      "match": "Cape Verde vs Saudi Arabia",
       "league": "International Friendly",
       "type": "Over 2.5",
       "prediction": "Oui",
       "result": "Gagné",
       "score": "2-2",
-      "confidence": 49
+      "confidence": 52
     },
     {
       "id": 3,
       "date": "2026-06-21",
-      "match": "New Zealand vs Egypt",
+      "match": "Uruguay vs Cape Verde",
       "league": "International Friendly",
       "type": "BTTS",
       "prediction": "Oui",
       "result": "Gagné",
-      "score": "1-3",
-      "confidence": 47
+      "score": "2-2",
+      "confidence": 49
     },
     {
       "id": 4,
       "date": "2026-06-21",
+      "match": "Uruguay vs Cape Verde",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-2",
+      "confidence": 49
+    },
+    {
+      "id": 5,
+      "date": "2026-06-21",
+      "match": "New Zealand vs Egypt",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 47
+    },
+    {
+      "id": 6,
+      "date": "2026-06-21",
       "match": "New Zealand vs Egypt",
       "league": "International Friendly",
       "type": "Over 2.5",
@@ -51,7 +73,7 @@
       "confidence": 47
     },
     {
-      "id": 5,
+      "id": 7,
       "date": "2026-06-21",
       "match": "Ecuador vs Germany",
       "league": "International Friendly",
@@ -62,7 +84,7 @@
       "confidence": 52
     },
     {
-      "id": 6,
+      "id": 8,
       "date": "2026-06-21",
       "match": "Ecuador vs Germany",
       "league": "International Friendly",
@@ -73,7 +95,7 @@
       "confidence": 52
     },
     {
-      "id": 7,
+      "id": 9,
       "date": "2026-06-21",
       "match": "Tunisia vs Curaçao",
       "league": "International Friendly",
@@ -84,7 +106,7 @@
       "confidence": 52
     },
     {
-      "id": 8,
+      "id": 10,
       "date": "2026-06-20",
       "match": "Germany vs Ivory Coast",
       "league": "International Friendly",
@@ -95,7 +117,7 @@
       "confidence": 47
     },
     {
-      "id": 9,
+      "id": 11,
       "date": "2026-06-20",
       "match": "Germany vs Ivory Coast",
       "league": "International Friendly",
@@ -106,7 +128,7 @@
       "confidence": 42
     },
     {
-      "id": 10,
+      "id": 12,
       "date": "2026-06-20",
       "match": "Tunisia vs Japan",
       "league": "International Friendly",
@@ -117,7 +139,7 @@
       "confidence": 47
     },
     {
-      "id": 11,
+      "id": 13,
       "date": "2026-06-20",
       "match": "Spain vs Saudi Arabia",
       "league": "International Friendly",
@@ -128,7 +150,7 @@
       "confidence": 47
     },
     {
-      "id": 12,
+      "id": 14,
       "date": "2026-06-20",
       "match": "Spain vs Saudi Arabia",
       "league": "International Friendly",
@@ -139,7 +161,7 @@
       "confidence": 42
     },
     {
-      "id": 13,
+      "id": 15,
       "date": "2026-06-20",
       "match": "Argentina vs United States",
       "league": "International Friendly",
@@ -150,41 +172,41 @@
       "confidence": 47
     },
     {
-      "id": 14,
-      "date": "2026-06-20",
-      "match": "Scotland vs Brazil",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "0-1",
-      "confidence": 52
-    },
-    {
-      "id": 15,
-      "date": "2026-06-20",
-      "match": "Scotland vs Brazil",
-      "league": "International Friendly",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "0-1",
-      "confidence": 52
-    },
-    {
       "id": 16,
       "date": "2026-06-20",
-      "match": "Ecuador vs Germany",
+      "match": "Scotland vs Brazil",
       "league": "International Friendly",
       "type": "BTTS",
       "prediction": "Non",
       "result": "Gagné",
-      "score": "0-0",
-      "confidence": 47
+      "score": "0-1",
+      "confidence": 52
     },
     {
       "id": 17,
       "date": "2026-06-20",
+      "match": "Scotland vs Brazil",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-1",
+      "confidence": 52
+    },
+    {
+      "id": 18,
+      "date": "2026-06-20",
+      "match": "Ecuador vs Germany",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-0",
+      "confidence": 47
+    },
+    {
+      "id": 19,
+      "date": "2026-06-20",
       "match": "Ecuador vs Germany",
       "league": "International Friendly",
       "type": "Over 2.5",
@@ -194,7 +216,7 @@
       "confidence": 47
     },
     {
-      "id": 18,
+      "id": 20,
       "date": "2026-06-19",
       "match": "United States vs United States",
       "league": "International Friendly",
@@ -203,29 +225,7 @@
       "result": "Gagné",
       "score": "2-0",
       "confidence": 48
-    },
-    {
-      "id": 19,
-      "date": "2026-06-19",
-      "match": "Argentina vs United States",
-      "league": "International Friendly",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "2-0",
-      "confidence": 48
-    },
-    {
-      "id": 20,
-      "date": "2026-06-19",
-      "match": "Bosnia-Herzegovina vs Qatar",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "4-1",
-      "confidence": 51
     }
   ],
-  "date": "2026-06-22"
+  "date": "2026-06-23"
 }
