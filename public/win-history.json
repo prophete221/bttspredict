@@ -1,13 +1,46 @@
 {
   "stats": {
-    "total": 238,
-    "won": 172,
-    "rate": "72.3%",
-    "last30Rate": "72%"
+    "total": 182,
+    "won": 141,
+    "rate": "77.5%",
+    "last30Rate": "77%"
   },
   "history": [
     {
       "id": 1,
+      "date": "2026-06-23",
+      "match": "Portugal vs Uzbekistan",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "5-0",
+      "confidence": 49
+    },
+    {
+      "id": 2,
+      "date": "2026-06-23",
+      "match": "Norway vs France",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "3-2",
+      "confidence": 52
+    },
+    {
+      "id": 3,
+      "date": "2026-06-23",
+      "match": "Norway vs France",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "3-2",
+      "confidence": 52
+    },
+    {
+      "id": 4,
       "date": "2026-06-22",
       "match": "France vs Iraq",
       "league": "International Friendly",
@@ -18,7 +51,7 @@
       "confidence": 46
     },
     {
-      "id": 2,
+      "id": 5,
       "date": "2026-06-22",
       "match": "Jordan vs Algeria",
       "league": "International Friendly",
@@ -29,7 +62,7 @@
       "confidence": 47
     },
     {
-      "id": 3,
+      "id": 6,
       "date": "2026-06-22",
       "match": "Jordan vs Algeria",
       "league": "International Friendly",
@@ -40,7 +73,7 @@
       "confidence": 47
     },
     {
-      "id": 4,
+      "id": 7,
       "date": "2026-06-22",
       "match": "Norway vs Senegal",
       "league": "International Friendly",
@@ -51,7 +84,7 @@
       "confidence": 46
     },
     {
-      "id": 5,
+      "id": 8,
       "date": "2026-06-22",
       "match": "Tunisia vs Curaçao",
       "league": "International Friendly",
@@ -62,7 +95,7 @@
       "confidence": 52
     },
     {
-      "id": 6,
+      "id": 9,
       "date": "2026-06-22",
       "match": "Norway vs France",
       "league": "International Friendly",
@@ -73,7 +106,7 @@
       "confidence": 47
     },
     {
-      "id": 7,
+      "id": 10,
       "date": "2026-06-22",
       "match": "Norway vs France",
       "league": "International Friendly",
@@ -84,7 +117,7 @@
       "confidence": 47
     },
     {
-      "id": 8,
+      "id": 11,
       "date": "2026-06-22",
       "match": "Cape Verde vs Saudi Arabia",
       "league": "International Friendly",
@@ -95,52 +128,52 @@
       "confidence": 52
     },
     {
-      "id": 9,
-      "date": "2026-06-21",
-      "match": "Uruguay vs Cape Verde",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "2-2",
-      "confidence": 49
-    },
-    {
-      "id": 10,
-      "date": "2026-06-21",
-      "match": "Uruguay vs Cape Verde",
-      "league": "International Friendly",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "2-2",
-      "confidence": 49
-    },
-    {
-      "id": 11,
-      "date": "2026-06-21",
-      "match": "New Zealand vs Egypt",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-3",
-      "confidence": 47
-    },
-    {
       "id": 12,
       "date": "2026-06-21",
-      "match": "New Zealand vs Egypt",
+      "match": "Uruguay vs Cape Verde",
       "league": "International Friendly",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
       "result": "Gagné",
-      "score": "1-3",
-      "confidence": 47
+      "score": "2-2",
+      "confidence": 49
     },
     {
       "id": 13,
       "date": "2026-06-21",
+      "match": "Uruguay vs Cape Verde",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-2",
+      "confidence": 49
+    },
+    {
+      "id": 14,
+      "date": "2026-06-21",
+      "match": "New Zealand vs Egypt",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 47
+    },
+    {
+      "id": 15,
+      "date": "2026-06-21",
+      "match": "New Zealand vs Egypt",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 47
+    },
+    {
+      "id": 16,
+      "date": "2026-06-21",
       "match": "Ecuador vs Germany",
       "league": "International Friendly",
       "type": "BTTS",
@@ -150,7 +183,7 @@
       "confidence": 52
     },
     {
-      "id": 14,
+      "id": 17,
       "date": "2026-06-21",
       "match": "Ecuador vs Germany",
       "league": "International Friendly",
@@ -161,7 +194,7 @@
       "confidence": 52
     },
     {
-      "id": 15,
+      "id": 18,
       "date": "2026-06-21",
       "match": "Tunisia vs Curaçao",
       "league": "International Friendly",
@@ -172,60 +205,27 @@
       "confidence": 52
     },
     {
-      "id": 16,
-      "date": "2026-06-20",
-      "match": "Germany vs Ivory Coast",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "2-1",
-      "confidence": 47
-    },
-    {
-      "id": 17,
-      "date": "2026-06-20",
-      "match": "Germany vs Ivory Coast",
-      "league": "International Friendly",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "2-1",
-      "confidence": 42
-    },
-    {
-      "id": 18,
-      "date": "2026-06-20",
-      "match": "Tunisia vs Japan",
-      "league": "International Friendly",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "0-4",
-      "confidence": 47
-    },
-    {
       "id": 19,
       "date": "2026-06-20",
-      "match": "Spain vs Saudi Arabia",
+      "match": "Germany vs Ivory Coast",
       "league": "International Friendly",
       "type": "BTTS",
-      "prediction": "Non",
+      "prediction": "Oui",
       "result": "Gagné",
-      "score": "4-0",
+      "score": "2-1",
       "confidence": 47
     },
     {
       "id": 20,
       "date": "2026-06-20",
-      "match": "Spain vs Saudi Arabia",
+      "match": "Germany vs Ivory Coast",
       "league": "International Friendly",
       "type": "Over 2.5",
       "prediction": "Oui",
       "result": "Gagné",
-      "score": "4-0",
+      "score": "2-1",
       "confidence": 42
     }
   ],
-  "date": "2026-06-23"
+  "date": "2026-06-24"
 }
