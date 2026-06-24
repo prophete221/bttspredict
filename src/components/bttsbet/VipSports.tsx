@@ -61,7 +61,7 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
     const bookmakerName = selectedBookmaker === 'linebet' ? 'Linebet' : '888starz'
     const sportLabel = sport ? ` — Section ${sport.toUpperCase()}` : ''
     const message = encodeURIComponent(
-      `🎯 Demande d'accès VIP BttsBet${sportLabel}\n\nMon ID ${bookmakerName} : ${linebetId.trim()}\n\nJe me suis inscrit sur ${bookmakerName} avec le code promo VISION221 et j'ai effectué un dépôt minimum de 10 000 Fr.\n\nMerci de vérifier et d'activer mon accès VIP.`
+      `🎯 Demande d'accès VIP BttsBet${sportLabel}\n\nMon ID ${bookmakerName} : ${linebetId.trim()}\n\nJe me suis inscrit sur ${bookmakerName} avec le code promo VISION221 et j'ai effectué un dépôt minimum de 3 000 Fr.\n\nMerci de vérifier et d'activer mon accès VIP.`
     )
     const whatsappUrl = `${SITE.whatsapp}?text=${message}`
 
@@ -177,8 +177,8 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
                             </svg>
                           </div>
                           <div>
-                            <p className="text-white text-sm font-semibold">2. Déposer un minimum de 10 000 Fr</p>
-                            <p className="text-gray-400 text-xs mt-0.5">Effectuez un premier dépôt de 10 000 Fr minimum sur votre compte {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'}</p>
+                            <p className="text-white text-sm font-semibold">2. Déposer un minimum de 3 000 Fr</p>
+                            <p className="text-gray-400 text-xs mt-0.5">Effectuez un premier dépôt de 3 000 Fr minimum sur votre compte {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'}</p>
                           </div>
                         </div>
                         <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-white/[0.06]">

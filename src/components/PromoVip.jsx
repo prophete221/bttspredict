@@ -75,7 +75,7 @@ function VipModal({ isOpen, onClose }) {
 
     // Send via WhatsApp with the LINEBET ID
     const message = encodeURIComponent(
-      `🎯 Demande d'accès VIP BttsBet\n\nMon ID Linebet : ${linebetId.trim()}\n\nJe me suis inscrit avec le code promo VISION221 et j'ai effectué un dépôt minimum de 10 000 Fr.\n\nMerci de vérifier et d'activer mon accès VIP.`
+      `🎯 Demande d'accès VIP BttsBet\n\nMon ID Linebet : ${linebetId.trim()}\n\nJe me suis inscrit avec le code promo VISION221 et j'ai effectué un dépôt minimum de 3 000 Fr.\n\nMerci de vérifier et d'activer mon accès VIP.`
     )
     const whatsappUrl = `${SITE.whatsapp}?text=${message}`
 
@@ -178,8 +178,8 @@ function VipModal({ isOpen, onClose }) {
                             </svg>
                           </div>
                           <div>
-                            <p className="text-white text-sm font-semibold">2. Déposer un minimum de 10 000 Fr</p>
-                            <p className="text-gray-400 text-xs mt-0.5">Effectuez un premier dépôt de 10 000 Fr minimum sur votre compte LINEBET</p>
+                            <p className="text-white text-sm font-semibold">2. Déposer un minimum de 3 000 Fr</p>
+                            <p className="text-gray-400 text-xs mt-0.5">Effectuez un premier dépôt de 3 000 Fr minimum sur votre compte LINEBET</p>
                           </div>
                         </div>
 
@@ -297,7 +297,7 @@ function VipModal({ isOpen, onClose }) {
                           <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
                         </svg>
                         <p className="text-xs text-gray-500">
-                          Assurez-vous d'avoir utilisé le code <span className="text-gold font-semibold">VISION221</span> et effectué un dépôt de 10 000 Fr minimum.
+                          Assurez-vous d'avoir utilisé le code <span className="text-gold font-semibold">VISION221</span> et effectué un dépôt de 3 000 Fr minimum.
                         </p>
                       </div>
 

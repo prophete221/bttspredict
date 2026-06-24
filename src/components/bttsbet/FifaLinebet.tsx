@@ -47,7 +47,7 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
     if (!linebetId.trim()) return
     setIsSubmitting(true)
     const message = encodeURIComponent(
-      `🎮 Demande d'accès Faille FIFA (Linebet / 888starz)\n\nMon ID : ${linebetId.trim()}\n\nPlateforme : Linebet / 888starz\n\nJe me suis inscrit avec le code promo VISION221 et j'ai effectué un dépôt minimum de 10 000 Fr.\n\nMerci de vérifier et d'activer mon accès à la Faille FIFA.`
+      `🎮 Demande d'accès Faille FIFA (Linebet / 888starz)\n\nMon ID : ${linebetId.trim()}\n\nPlateforme : Linebet / 888starz\n\nJe me suis inscrit avec le code promo VISION221 et j'ai effectué un dépôt minimum de 3 000 Fr.\n\nMerci de vérifier et d'activer mon accès à la Faille FIFA.`
     )
     const whatsappUrl = `${SITE.whatsapp}?text=${message}`
     await new Promise(r => setTimeout(r, 800))
@@ -100,8 +100,8 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
                           </div>
                           <div>
-                            <p className="text-white text-sm font-semibold">2. Déposer un minimum de 10 000 Fr</p>
-                            <p className="text-gray-400 text-xs mt-0.5">Effectuez un premier dépôt de 10 000 Fr minimum sur votre compte Linebet ou 888starz</p>
+                            <p className="text-white text-sm font-semibold">2. Déposer un minimum de 3 000 Fr</p>
+                            <p className="text-gray-400 text-xs mt-0.5">Effectuez un premier dépôt de 3 000 Fr minimum sur votre compte Linebet ou 888starz</p>
                           </div>
                         </div>
                         <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-white/[0.06]">
