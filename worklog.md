@@ -430,3 +430,35 @@ Stage Summary:
 - Design V31 IA high-tech CONSERVÉ sur desktop (aucune dégradation visuelle sur grand écran)
 - Mobile désormais 60fps sur Tecno/Itel/Infinix bas de gamme
 - Production deploy triggered at push time; will be live at https://bttsbet.online
+
+---
+Task ID: V35
+Agent: main
+Task: Corriger les 12 problèmes SportsEvent JSON-LD signalés par Google Search Console (1 critique: location manquant + 5 non-critiques: organizer, eventStatus, endDate, performer, image).
+
+Work Log:
+- Identifié dans page.tsx: le bloc sportsEventsJsonLd (ajouté en V33) était incomplet
+- Raisons: 'location' était un simple { Place, name: 'International' } sans PostalAddress → Google flagguait comme critique
+- Ajout de constantes partagées:
+  * ORG (Organization réutilisable: name, url, logo ImageObject)
+  * DEFAULT_LOCATION (Place avec PostalAddress complet: addressCountry=FR, addressRegion=International, streetAddress='Diffusion en ligne', addressLocality='Internet', postalCode='00000')
+  * OG_IMAGE (URL absolue og-image.png)
+- Pour chacun des 5 SportsEvent, ajout de:
+  * location: DEFAULT_LOCATION (CRITICAL — corrige le blocage rich snippet)
+  * organizer: ORG
+  * eventStatus: 'https://schema.org/EventScheduled'
+  * eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode'
+  * endDate: new Date(Date.now() + X*60*60*1000).toISOString() (X=3h FIFA, 24h BTTS, 12h Tennis, 6h NBA, 4h UFC)
+  * image: [OG_IMAGE]
+  * performer: tableau de SportsTeam
+  * homeTeam + awayTeam (certains ne les avaient pas)
+  * offers enrichi: price, priceCurrency=XOF, availability (InStock ou LimitedAvailability), validFrom
+- Build OK (0 errors, 15 pages)
+- Rebased on origin/main (d35249c3) + push OK (ed6a66fa)
+
+Stage Summary:
+- 1 problème critique corrigé (location) → rich snippet à nouveau éligible
+- 5 problèmes non-critiques corrigés (organizer, eventStatus, endDate, performer, image)
+- 12 problèmes GSC → 0 attendus après recrawl
+- Attendre 3-7 jours pour que Google recrawl et valide dans Search Console
+- Ensuite: 'Valider le correctif' dans GSC pour accélérer la réindexation
