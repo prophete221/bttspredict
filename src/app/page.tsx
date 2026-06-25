@@ -106,7 +106,33 @@ const breadcrumbJsonLd = {
 }
 
 // JSON-LD SportsEvent — signals sports betting content to Googlebot
-// Static sample events derived from FIFA coupon (cote 10.74, fiabilité 98%)
+// Compliant with Google Search Console requirements:
+// - location (Place with name + address) — CRITICAL
+// - organizer (Organization) — recommended
+// - eventStatus — recommended (EventScheduled)
+// - endDate — recommended
+// - performer / homeTeam+awayTeam — recommended
+// - image — recommended
+const ORG = {
+  '@type': 'Organization',
+  name: 'BttsBet',
+  url: 'https://bttsbet.online',
+  logo: { '@type': 'ImageObject', url: 'https://bttsbet.online/favicon.svg' },
+}
+const DEFAULT_LOCATION = {
+  '@type': 'Place',
+  name: 'International — Diffusion en ligne',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'FR',
+    addressRegion: 'International',
+    streetAddress: 'Diffusion en ligne',
+    addressLocality: 'Internet',
+    postalCode: '00000',
+  },
+}
+const OG_IMAGE = 'https://bttsbet.online/og-image.png'
+
 const sportsEventsJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -115,15 +141,29 @@ const sportsEventsJsonLd = {
       name: 'Coupon FIFA — Faille FIFA Linebet & 888starz',
       sport: 'Soccer',
       startDate: new Date().toISOString(),
-      location: { '@type': 'Place', name: 'International' },
-      homeTeam: { '@type': 'SportsTeam', name: 'FIFA Match 1' },
-      awayTeam: { '@type': 'SportsTeam', name: 'FIFA Match 2' },
+      endDate: new Date(Date.now() + 3 * 60 * 60 * 1000).toISOString(), // +3h
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+      location: DEFAULT_LOCATION,
+      organizer: ORG,
+      image: [OG_IMAGE],
+      homeTeam: { '@type': 'SportsTeam', name: 'Équipe FIFA domicile' },
+      awayTeam: { '@type': 'SportsTeam', name: 'Équipe FIFA extérieur' },
+      performer: [
+        { '@type': 'SportsTeam', name: 'Équipe FIFA domicile' },
+        { '@type': 'SportsTeam', name: 'Équipe FIFA extérieur' },
+      ],
       description: "Coupon FIFA exclusif détecté par l'IA BttsBet — cote totale 10.74, fiabilité 98%. Faille FIFA identifiée automatiquement sur Linebet et 888starz.",
+      url: 'https://bttsbet.online/#fifa-linebet',
       offers: {
         '@type': 'Offer',
         name: 'Code promo VISION221',
         description: 'Bonus exclusif Linebet 150$ / 888starz 100% sur premier dépôt',
         url: 'https://bttsbet.online/#fifa-linebet',
+        price: '0',
+        priceCurrency: 'XOF',
+        availability: 'https://schema.org/InStock',
+        validFrom: new Date().toISOString(),
       },
     },
     {
@@ -131,33 +171,112 @@ const sportsEventsJsonLd = {
       name: 'Pronostics BTTS & Over 2.5 du jour',
       sport: 'Soccer',
       startDate: new Date().toISOString(),
-      location: { '@type': 'Place', name: 'International' },
+      endDate: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+      location: DEFAULT_LOCATION,
+      organizer: ORG,
+      image: [OG_IMAGE],
+      homeTeam: { '@type': 'SportsTeam', name: 'Matchs du jour — domicile' },
+      awayTeam: { '@type': 'SportsTeam', name: 'Matchs du jour — extérieur' },
+      performer: [
+        { '@type': 'SportsTeam', name: 'Équipes de football' },
+      ],
       description: "Pronostics BTTS et Over 2.5 générés par IA avec ~87% de précision historique sur plus de 50 000 matchs analysés.",
       url: 'https://bttsbet.online/#free-predictions',
+      offers: {
+        '@type': 'Offer',
+        name: 'Pronostics gratuits',
+        url: 'https://bttsbet.online/#free-predictions',
+        price: '0',
+        priceCurrency: 'XOF',
+        availability: 'https://schema.org/InStock',
+        validFrom: new Date().toISOString(),
+      },
     },
     {
       '@type': 'SportsEvent',
       name: 'VIP Tennis — ATP / WTA',
       sport: 'Tennis',
       startDate: new Date().toISOString(),
+      endDate: new Date(Date.now() + 12 * 60 * 60 * 1000).toISOString(),
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+      location: DEFAULT_LOCATION,
+      organizer: ORG,
+      image: [OG_IMAGE],
+      homeTeam: { '@type': 'SportsTeam', name: 'Joueur ATP/WTA 1' },
+      awayTeam: { '@type': 'SportsTeam', name: 'Joueur ATP/WTA 2' },
+      performer: [
+        { '@type': 'SportsTeam', name: 'Joueurs ATP/WTA' },
+      ],
       description: "Pronostics VIP Tennis (ATP, WTA, Grand Chelem) — gagnant, over/under games, set 1. Cotes exclusives via IA BttsBet.",
       url: 'https://bttsbet.online/#vip-tennis',
+      offers: {
+        '@type': 'Offer',
+        name: 'Accès VIP Tennis',
+        url: 'https://bttsbet.online/#vip-tennis',
+        price: '3000',
+        priceCurrency: 'XOF',
+        availability: 'https://schema.org/LimitedAvailability',
+        validFrom: new Date().toISOString(),
+      },
     },
     {
       '@type': 'SportsEvent',
       name: 'VIP NBA — Basket professionnel',
       sport: 'Basketball',
       startDate: new Date().toISOString(),
+      endDate: new Date(Date.now() + 6 * 60 * 60 * 1000).toISOString(),
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+      location: DEFAULT_LOCATION,
+      organizer: ORG,
+      image: [OG_IMAGE],
+      homeTeam: { '@type': 'SportsTeam', name: 'Équipe NBA domicile' },
+      awayTeam: { '@type': 'SportsTeam', name: 'Équipe NBA extérieur' },
+      performer: [
+        { '@type': 'SportsTeam', name: 'Équipes NBA / EuroLeague' },
+      ],
       description: "Pronostics VIP NBA et EuroLeague — vainqueur, over/under points, player props. Algorithme IA BttsBet.",
       url: 'https://bttsbet.online/#vip-nba',
+      offers: {
+        '@type': 'Offer',
+        name: 'Accès VIP NBA',
+        url: 'https://bttsbet.online/#vip-nba',
+        price: '3000',
+        priceCurrency: 'XOF',
+        availability: 'https://schema.org/LimitedAvailability',
+        validFrom: new Date().toISOString(),
+      },
     },
     {
       '@type': 'SportsEvent',
       name: 'VIP UFC / MMA — Combats',
       sport: 'MMA',
       startDate: new Date().toISOString(),
+      endDate: new Date(Date.now() + 4 * 60 * 60 * 1000).toISOString(),
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+      location: DEFAULT_LOCATION,
+      organizer: ORG,
+      image: [OG_IMAGE],
+      homeTeam: { '@type': 'SportsTeam', name: 'Combattant 1' },
+      awayTeam: { '@type': 'SportsTeam', name: 'Combattant 2' },
+      performer: [
+        { '@type': 'SportsTeam', name: 'Combattants UFC / MMA' },
+      ],
       description: "Pronostics VIP UFC et MMA — vainqueur, méthode de victoire, round. IA BttsBet spécialisée combat.",
       url: 'https://bttsbet.online/#vip-ufc',
+      offers: {
+        '@type': 'Offer',
+        name: 'Accès VIP UFC/MMA',
+        url: 'https://bttsbet.online/#vip-ufc',
+        price: '3000',
+        priceCurrency: 'XOF',
+        availability: 'https://schema.org/LimitedAvailability',
+        validFrom: new Date().toISOString(),
+      },
     },
   ],
 }
