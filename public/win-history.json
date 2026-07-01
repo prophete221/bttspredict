@@ -1,145 +1,42 @@
 {
   "stats": {
-    "total": 196,
-    "won": 149,
-    "rate": "76.0%",
-    "last30Rate": "76%"
+<<<<<<< Updated upstream
+    "total": 175,
+    "won": 138,
+    "rate": "78.9%",
+    "last30Rate": "79%"
+=======
+    "total": 182,
+    "won": 141,
+    "rate": "77.5%",
+    "last30Rate": "77%"
+>>>>>>> Stashed changes
   },
   "history": [
     {
       "id": 1,
-      "date": "2026-07-03",
-      "match": "Colombia vs Ghana",
+      "date": "2026-07-01",
+      "match": "Belgium vs Senegal",
       "league": "International Friendly",
       "type": "BTTS",
-      "prediction": "Non",
+      "prediction": "Oui",
       "result": "Gagné",
-      "score": "1-0",
+      "score": "3-2",
       "confidence": 51
     },
     {
       "id": 2,
-      "date": "2026-07-03",
-      "match": "Colombia vs Ghana",
+      "date": "2026-07-01",
+      "match": "Belgium vs Senegal",
       "league": "International Friendly",
       "type": "Over 2.5",
-      "prediction": "Non",
+      "prediction": "Oui",
       "result": "Gagné",
-      "score": "1-0",
+      "score": "3-2",
       "confidence": 51
     },
     {
       "id": 3,
-      "date": "2026-07-03",
-      "match": "Argentina vs Cape Verde",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "3-2",
-      "confidence": 48
-    },
-    {
-      "id": 4,
-      "date": "2026-07-03",
-      "match": "Argentina vs Cape Verde",
-      "league": "International Friendly",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "3-2",
-      "confidence": 48
-    },
-    {
-      "id": 5,
-      "date": "2026-07-03",
-      "match": "Independiente del Valle vs Manta F.C.",
-      "league": "Serie A (ECU)",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "4-0",
-      "confidence": 47
-    },
-    {
-      "id": 6,
-      "date": "2026-07-02",
-      "match": "United States vs Mjällby AIF",
-      "league": "Allsvenskan",
-      "type": "BTTS",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "2-0",
-      "confidence": 46
-    },
-    {
-      "id": 7,
-      "date": "2026-07-01",
-      "match": "Belgium vs Senegal",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "3-2",
-      "confidence": 51
-    },
-    {
-      "id": 8,
-      "date": "2026-07-01",
-      "match": "Belgium vs Senegal",
-      "league": "International Friendly",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "3-2",
-      "confidence": 51
-    },
-    {
-      "id": 9,
-      "date": "2026-07-01",
-      "match": "Spain vs United States",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "2-0",
-      "confidence": 50
-    },
-    {
-      "id": 10,
-      "date": "2026-07-01",
-      "match": "United States vs Bosnia-Herzegovina",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "2-0",
-      "confidence": 47
-    },
-    {
-      "id": 11,
-      "date": "2026-07-01",
-      "match": "Liga de Quito vs Orense",
-      "league": "Serie A (ECU)",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "3-0",
-      "confidence": 46
-    },
-    {
-      "id": 12,
-      "date": "2026-07-01",
-      "match": "United States vs Mjällby AIF",
-      "league": "Allsvenskan",
-      "type": "BTTS",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "2-0",
-      "confidence": 46
-    },
-    {
-      "id": 13,
       "date": "2026-07-01",
       "match": "Mexico vs Round of 32 8 Winner",
       "league": "International Friendly",
@@ -150,7 +47,7 @@
       "confidence": 49
     },
     {
-      "id": 14,
+      "id": 4,
       "date": "2026-06-30",
       "match": "Ivory Coast vs Norway",
       "league": "International Friendly",
@@ -161,7 +58,7 @@
       "confidence": 52
     },
     {
-      "id": 15,
+      "id": 5,
       "date": "2026-06-30",
       "match": "Ivory Coast vs Norway",
       "league": "International Friendly",
@@ -172,7 +69,7 @@
       "confidence": 52
     },
     {
-      "id": 16,
+      "id": 6,
       "date": "2026-06-30",
       "match": "France vs Sweden",
       "league": "International Friendly",
@@ -183,7 +80,7 @@
       "confidence": 51
     },
     {
-      "id": 17,
+      "id": 7,
       "date": "2026-06-30",
       "match": "Paraguay vs Round of 32 5 Winner",
       "league": "International Friendly",
@@ -194,7 +91,7 @@
       "confidence": 49
     },
     {
-      "id": 18,
+      "id": 8,
       "date": "2026-06-30",
       "match": "Paraguay vs Round of 32 5 Winner",
       "league": "International Friendly",
@@ -205,7 +102,7 @@
       "confidence": 49
     },
     {
-      "id": 19,
+      "id": 9,
       "date": "2026-06-30",
       "match": "Brazil vs Round of 32 6 Winner",
       "league": "International Friendly",
@@ -216,7 +113,7 @@
       "confidence": 51
     },
     {
-      "id": 20,
+      "id": 10,
       "date": "2026-06-30",
       "match": "Brazil vs Round of 32 6 Winner",
       "league": "International Friendly",
@@ -225,7 +122,117 @@
       "result": "Gagné",
       "score": "2-1",
       "confidence": 51
+    },
+    {
+      "id": 11,
+      "date": "2026-06-29",
+      "match": "Germany vs Paraguay",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "1-1",
+      "confidence": 50
+    },
+    {
+      "id": 12,
+      "date": "2026-06-29",
+      "match": "Brazil vs Japan",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-1",
+      "confidence": 49
+    },
+    {
+      "id": 13,
+      "date": "2026-06-28",
+      "match": "Portugal vs Croatia",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-0",
+      "confidence": 51
+    },
+    {
+      "id": 14,
+      "date": "2026-06-28",
+      "match": "Portugal vs Croatia",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-0",
+      "confidence": 51
+    },
+    {
+      "id": 15,
+      "date": "2026-06-28",
+      "match": "Colombia vs Ghana",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-0",
+      "confidence": 52
+    },
+    {
+      "id": 16,
+      "date": "2026-06-28",
+      "match": "Colombia vs Ghana",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-0",
+      "confidence": 52
+    },
+    {
+      "id": 17,
+      "date": "2026-06-28",
+      "match": "Argentina vs Cape Verde",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 49
+    },
+    {
+      "id": 18,
+      "date": "2026-06-27",
+      "match": "Panama vs England",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-2",
+      "confidence": 50
+    },
+    {
+      "id": 19,
+      "date": "2026-06-27",
+      "match": "Panama vs England",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-2",
+      "confidence": 50
+    },
+    {
+      "id": 20,
+      "date": "2026-06-27",
+      "match": "Jordan vs Argentina",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 51
     }
   ],
-  "date": "2026-07-04"
+  "date": "2026-07-02"
 }
