@@ -49,7 +49,7 @@ const MAX_PREDICTIONS = 50
 const HISTORICAL_DAYS = 10
 const HOME_ADVANTAGE = 1.12
 const MIN_DATA_QUALITY = 2
-const FUTURE_DAYS = 7 // V18: Horizon de 7 jours au lieu de 2
+const FUTURE_DAYS = 3 // V24: Réduit de 7 à 3 jours — assez de matchs, moins de requêtes API
 
 // ═══ SEUILS CORRIGÉS V12 ═══
 // Le Poisson sous-estime systématiquement le BTTS (biais bien documenté).
@@ -75,7 +75,7 @@ const ESPN_LEAGUES = [
   'fifa.world', 'uefa.champ', 'uefa.europa',
 ]
 
-// V18: Major leagues get full 7-day query, secondary get 3 days
+// V18: Major leagues get full 3-day query, secondary get 2 days
 const MAJOR_LEAGUES = new Set([
   'eng.1', 'esp.1', 'ger.1', 'ita.1', 'fra.1',
   'fifa.world', 'uefa.champ', 'uefa.europa',
@@ -254,6 +254,47 @@ function isDateInRange(dateStr) {
   return dateStr >= today && dateStr <= maxDateStr
 }
 
+/** V24: Check if a match is still in the future (not yet started) */
+function isMatchInFuture(dateStr, timeStr) {
+  if (!dateStr) return false
+  try {
+    // Build the match datetime in DISPLAY_TZ
+    const timePart = (timeStr && timeStr !== '--:--') ? timeStr : '23:59'
+    const dateTimeStr = `${dateStr}T${timePart}:00`
+    // Parse as if it's in DISPLAY_TZ by creating a date and adjusting
+    const matchDate = new Date(dateTimeStr)
+    // Get current time in DISPLAY_TZ for comparison
+    const now = new Date()
+    const nowInTZ = new Date(now.toLocaleString('en-US', { timeZone: DISPLAY_TZ }))
+    // Add 30 min buffer — if match started less than 30 min ago, still show it
+    const buffer = 30 * 60 * 1000
+    return matchDate.getTime() > (nowInTZ.getTime() - buffer)
+  } catch {
+    // If we can't parse, just check date
+    return isDateInRange(dateStr)
+  }
+}
+
+/** V24: Check if team names are valid (not placeholders like "Round of 32 Winner", "TBD", etc.) */
+const INVALID_TEAM_PATTERNS = [
+  /round of \d+/i,
+  /winner/i,
+  /loser/i,
+  /\bTBD\b/i,
+  /\bTBA\b/i,
+  /group [a-h]/i,
+  /slot \d+/i,
+  /^\s*$/,
+]
+
+function isValidTeamName(name) {
+  if (!name || name.trim().length < 2) return false
+  for (const pattern of INVALID_TEAM_PATTERNS) {
+    if (pattern.test(name)) return false
+  }
+  return true
+}
+
 /**
  * Convert an ISO 8601 UTC date string (e.g. "2026-06-10T00:30Z") to
  * the display timezone, returning both the date and time components.
@@ -380,7 +421,7 @@ async function fetchRecentResults(days = 3) {
           })
         }
 
-        if (apiCalls % 15 === 0 && apiCalls > 0) {
+        if (apiCalls % 30 === 0 && apiCalls > 0) {
           await sleep(1500)
         }
       } catch {}
@@ -936,7 +977,7 @@ async function scrapeESPN() {
         // V18: Rate limiting for 7-day queries
         // ESPN API is very fast — no need for long pauses
         // But we add a small delay every 15 calls to avoid being blocked
-        if (apiCalls % 15 === 0 && apiCalls > 0) {
+        if (apiCalls % 30 === 0 && apiCalls > 0) {
           await sleep(1500)
         }
       } catch {}
@@ -1585,10 +1626,22 @@ function generateAnalyzedPredictions(espnMatches, soccerbaseMatches, tsdbMatches
   const matchGroups = new Map() // key -> { match, league, date, time, btts: {...}, over25: {...} }
 
   for (const match of allMatches) {
+    // V24: Vérification des noms d'équipes — filtrer les placeholders
+    if (!isValidTeamName(match.homeTeam) || !isValidTeamName(match.awayTeam)) {
+      continue
+    }
+
     // V18: Vérification de cohérence des dates — accepter jusqu'à 7 jours
     const matchDate = match.date || today
+    const matchTime = match.time || '--:--'
     if (!isDateInRange(matchDate)) {
       // Le match est hors de la plage valide (passé ou trop loin) — on l'ignore
+      continue
+    }
+
+    // V24: Vérification que le match n'est pas déjà commencé/terminé
+    if (!isMatchInFuture(matchDate, matchTime)) {
+      // Le match a déjà commencé ou est terminé — on l'ignore
       continue
     }
 
