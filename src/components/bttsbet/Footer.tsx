@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SITE, AFFILIATE, LEGAL, FAQ_ITEMS, ANDROID_LOGO } from '@/lib/constants'
+import { SITE, AFFILIATE, LEGAL, FAQ_ITEMS, ANDROID_LOGO, TESTIMONIALS, SOCIAL_PROOF } from '@/lib/constants'
 import { useScrollAnimation } from '@/hooks/useAnimations'
 
 function reopenCookieSettings() {
@@ -21,25 +21,16 @@ export default function Footer() {
 
   return (
     <>
-      {/* Sticky Bottom CTA (Mobile) */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 glass-strong border-t border-white/[0.06] py-2 px-3 sm:hidden">
+      {/* Sticky Bottom CTA (Mobile) — Conversion maximale */}
+      <div className="fixed bottom-0 left-0 right-0 z-30 sticky-cta-bar py-2 px-3 sm:hidden">
         <div className="grid grid-cols-2 gap-1.5">
-          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex items-center justify-center gap-1.5 px-2 py-2 btn-linebet text-[#06281F] text-xs" style={{ ['--v31-wave-delay' as string]: '1s' }} data-cursor="hover">
+          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex items-center justify-center gap-1.5 px-2 py-2.5 btn-linebet text-[#06281F] text-xs font-bold">
             <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy"/>
-            Linebet
+            Linebet 150$
           </a>
-          {/* V23: Nouveau bouton 888starz */}
-          <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex items-center justify-center gap-1.5 px-2 py-2 btn-star888 text-white text-xs" style={{ ['--v31-wave-delay' as string]: '5s' }} data-cursor="hover">
+          <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex items-center justify-center gap-1.5 px-2 py-2.5 btn-star888 text-white text-xs font-bold">
             <img src="/logos/888starz-icon.svg" alt="888starz" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy"/>
-            888starz
-          </a>
-          <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-2 py-2 border border-white/10 text-white font-semibold rounded-xl text-xs bg-white/[0.02]">
-            <img src={ANDROID_LOGO} alt="Android" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy"/>
-            APK Linebet
-          </a>
-          <a href={AFFILIATE.star888Download} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-2 py-2 border border-white/10 text-white font-semibold rounded-xl text-xs bg-white/[0.02]">
-            <img src={ANDROID_LOGO} alt="Android" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy"/>
-            APK 888starz
+            888starz 100%
           </a>
         </div>
       </div>
@@ -49,6 +40,41 @@ export default function Footer() {
         {/* Top glow line */}
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald/30 to-transparent" />
         <div className="max-w-5xl mx-auto">
+          {/* Social Proof — Testimonials */}
+          <div className="mb-10">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-8 h-px bg-gradient-to-r from-success to-transparent" />
+              <span className="text-[10px] font-bold text-success uppercase tracking-widest">Ils gagnent avec BttsBet</span>
+            </div>
+            <h3 className="text-lg font-extrabold text-white mb-4 tracking-tight">
+              TÉMOIGNAGES <span className="text-success neon-glow">VÉRIFIÉS</span>
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {TESTIMONIALS.slice(0, 3).map((t, i) => (
+                <div key={i} className="testimonial-card">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-8 h-8 rounded-full bg-emerald/10 border border-emerald/20 flex items-center justify-center text-emerald text-xs font-bold">
+                      {t.name.charAt(0)}
+                    </div>
+                    <div>
+                      <div className="text-xs text-white font-semibold">{t.name}</div>
+                      <div className="text-[10px] text-gray-600">{t.city}</div>
+                    </div>
+                    <div className="ml-auto flex gap-0.5">
+                      {Array.from({ length: t.rating }).map((_, j) => (
+                        <svg key={j} width="10" height="10" viewBox="0 0 24 24" fill="#FFB800" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-[11px] text-gray-400 leading-relaxed italic">&laquo; {t.text} &raquo;</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="divider-premium mb-8" />
+
           {/* FAQ Section */}
           <div className="mb-12">
             <div className="flex items-center gap-2 mb-2">
@@ -59,7 +85,7 @@ export default function Footer() {
               QUESTIONS <span className="text-emerald neon-glow">FRÉQUENTES</span>
             </h3>
             <div className={`space-y-2 stagger-reveal ${isVisible ? 'is-visible' : ''}`}>
-              {FAQ_ITEMS.map((item, i) => (
+              {FAQ_ITEMS.slice(0, 4).map((item, i) => (
                 <div key={i} className={`v31-faq-sep ${openFaq === i ? 'is-open' : ''} border border-edge rounded-xl overflow-hidden bg-panel/40 hover:border-emerald/30 transition-colors`}>
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
@@ -107,15 +133,19 @@ export default function Footer() {
             <div className="col-span-2 sm:col-span-1">
               <div className="flex items-center gap-2.5 mb-3">
                 <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald/25 to-emerald/5 border border-emerald/20 flex items-center justify-center">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#32B0C8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
                   </svg>
                 </div>
                 <span className="text-lg font-extrabold text-white tracking-tight">{SITE.name}</span>
               </div>
-              <p className="text-gray-600 text-xs leading-relaxed">
+              <p className="text-gray-600 text-xs leading-relaxed mb-2">
                 Plateforme de pronostics football BTTS & Over 2,5 propulsée par IA.
               </p>
+              <div className="flex items-center gap-1.5 text-[10px] text-gray-500">
+                <span className="pastille pastille-green" />
+                {SOCIAL_PROOF.members.toLocaleString()}+ parieurs actifs
+              </div>
             </div>
 
             <div>
@@ -131,9 +161,9 @@ export default function Footer() {
             <div>
               <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-3">Blog</h4>
               <ul className="space-y-1.5 text-xs">
-                <li><span className="text-gray-500">Analyse BTTS</span></li>
-                <li><span className="text-gray-500">Stratégie O2.5</span></li>
-                <li><span className="text-gray-500">Bankroll</span></li>
+                <li><a href="/blog/comment-analyser-match-btts" className="text-gray-500 hover:text-emerald transition-colors">Analyse BTTS</a></li>
+                <li><a href="/blog/strategie-mise-over-2-5" className="text-gray-500 hover:text-emerald transition-colors">Stratégie O2.5</a></li>
+                <li><a href="/blog/gestion-bankroll-paris-sportifs" className="text-gray-500 hover:text-emerald transition-colors">Bankroll</a></li>
               </ul>
             </div>
 
@@ -159,17 +189,16 @@ export default function Footer() {
           {/* Disclaimer block with 18+ icon and warning color highlights */}
           <div className="border-t border-edge pt-6 mb-4">
             <div className="bg-panel/40 rounded-xl p-4 border border-edge relative">
-              {/* 18+ icon — stylized */}
               <div className="flex items-start gap-3 mb-3">
-                <div className="v31-neon-hover flex-shrink-0 w-10 h-10 rounded-lg border-2 border-gold/60 bg-gold/10 flex items-center justify-center text-gold font-extrabold text-sm tracking-tight">
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg border-2 border-gold/60 bg-gold/10 flex items-center justify-center text-gold font-extrabold text-sm tracking-tight">
                   18+
                 </div>
                 <div className="flex-1">
                   <p className="text-[11px] text-gray-500 leading-relaxed mb-1.5">
-                    <strong className="v31-neon-hover text-gold">Avertissement :</strong> {LEGAL.disclaimer}
+                    <strong className="text-gold">Avertissement :</strong> {LEGAL.disclaimer}
                   </p>
                   <p className="text-[11px] text-gray-500 leading-relaxed">
-                    <strong className="v31-neon-hover text-gold">Jeu responsable :</strong> {LEGAL.responsible}
+                    <strong className="text-gold">Jeu responsable :</strong> {LEGAL.responsible}
                   </p>
                 </div>
               </div>

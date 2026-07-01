@@ -16,14 +16,13 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bttsbet.online"),
-  title: "BttsBet – Pronostics BTTS & Over 2,5 | Faille FIFA Linebet & 888starz | Précision IA ~87%",
-  description: "Pronostics football BTTS & Over 2,5 générés par IA. ~87% de précision. Faille FIFA détectée automatiquement sur Linebet et 888starz — cotes 10-15, fiabilité 98%. Code promo VISION221 pour bonus exclusif.",
-  keywords: ["BTTS", "Over 2.5", "pronostics football", "IA", "intelligence artificielle", "paris sportifs", "Linebet", "888starz", "VISION221", "BttsBet", "faille fifa linebet", "faille fifa 888starz", "faille FIFA", "coupon fifa linebet", "coupon fifa 888starz", "faille cote fifa", "bot fifa linebet", "astuce fifa linebet", "faille jeux fifa", "hack fifa linebet 2026", "coupon fifa gagnant", "faille pari fifa"],
+  title: "BttsBet — Pronostics BTTS & Over 2.5 | IA +87% | Code Promo VISION221 | Bonus Linebet 888starz",
+  description: "Pronostics football BTTS & Over 2.5 générés par IA — +87% de précision vérifiée. Faille FIFA Linebet & 888starz détectée automatiquement. Code promo VISION221 = Bonus 150$ Linebet + 100% 888starz. Rejoins 2 400+ parieurs gagnants.",
+  keywords: ["BTTS", "Over 2.5", "pronostics football", "IA", "intelligence artificielle", "paris sportifs", "Linebet", "888starz", "VISION221", "BttsBet", "faille fifa linebet", "faille fifa 888starz", "faille FIFA", "coupon fifa linebet", "coupon fifa 888starz", "faille cote fifa", "bot fifa linebet", "astuce fifa linebet", "faille jeux fifa", "hack fifa linebet 2026", "coupon fifa gagnant", "faille pari fifa", "code promo linebet", "code promo 888starz", "bonus paris sportifs", "pronostics gratuits"],
   authors: [{ name: "BttsBet" }],
   alternates: {
     canonical: "https://bttsbet.online/",
   },
-  // Geo metadata — targets francophone Africa (primary audience)
   other: {
     'geo.region': 'SN',
     'geo.placename': 'Dakar',
@@ -51,18 +50,18 @@ export const metadata: Metadata = {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "BttsBet – Pronostics BTTS & Over 2,5 | Faille FIFA Linebet & 888starz",
-    description: "Pronostics IA BTTS & Over 2,5. ~87% précision. Faille FIFA auto sur Linebet et 888starz — cotes 10-15, 98% fiabilité. Code VISION221.",
+    title: "BttsBet — Pronostics BTTS & Over 2.5 | IA +87% | Code VISION221",
+    description: "Pronostics IA BTTS & Over 2.5 — +87% précision. Faille FIFA Linebet & 888starz. Code promo VISION221 = Bonus exclusif. 2 400+ parieurs gagnants.",
     url: "https://bttsbet.online",
     siteName: "BttsBet",
     type: "website",
     locale: "fr_FR",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "BttsBet – Faille FIFA Linebet & 888starz" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "BttsBet — Pronostics BTTS & Over 2.5 | Code Promo VISION221" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "BttsBet – Pronostics BTTS & Over 2,5 | Faille FIFA Linebet & 888starz",
-    description: "Pronostics IA BTTS & Over 2,5. Faille FIFA sur Linebet et 888starz — cotes 10-15, 98% fiabilité. Code VISION221.",
+    title: "BttsBet — Pronostics BTTS & Over 2.5 | IA +87% | Code VISION221",
+    description: "Pronostics IA +87%. Faille FIFA Linebet & 888starz. Code VISION221 = Bonus 150$. Rejoins 2 400+ parieurs.",
     images: ["/og-image.png"],
   },
 };

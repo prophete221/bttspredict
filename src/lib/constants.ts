@@ -119,6 +119,31 @@ export const FAQ_ITEMS = [
   },
 ]
 
+export const TESTIMONIALS = [
+  { name: 'Mamadou D.', city: 'Dakar', text: "Depuis que j'utilise BttsBet, j'ai multiplié mes gains par 3. Le code VISION221 m'a donné 150$ de bonus sur Linebet!", rating: 5 },
+  { name: 'Kouassi A.', city: 'Abidjan', text: "Les pronostics BTTS sont incroyables. 9 fois sur 10 c'est bon! Et le bonus 888starz avec VISION221, c'est du feu.", rating: 5 },
+  { name: 'Ibrahim S.', city: 'Bamako', text: "La faille FIFA est une mine d'or. Cote à 10+ quasi tous les jours. Merci BttsBet!", rating: 5 },
+  { name: 'Patrick N.', city: 'Douala', text: "J'étais sceptique au début, mais après 2 semaines de pronostics gratuits, j'ai pris le VIP. Meilleure décision.", rating: 5 },
+  { name: 'Ousmane B.', city: 'Ouagadougou', text: "87% de précision c'est réel. Je vérifie chaque jour. L'IA ne ment pas.", rating: 5 },
+  { name: 'Fatou M.', city: 'Dakar', text: "Le code VISION221 m'a permis de commencer avec un gros capital sur Linebet. Les pronostics BTTS sont fiables.", rating: 5 },
+]
+
+export const SOCIAL_PROOF = {
+  members: 2437,
+  winsToday: 12,
+  currentStreak: 7,
+  vipSpotsLeft: 37,
+  totalVipSpots: 50,
+}
+
+export const URGENCY_MESSAGES = [
+  "🔥 {n} parieurs ont rejoint VIP aujourd'hui",
+  "✅ {n} pronostics gagnants ce matin",
+  "⚡ Série en cours : {n} victoires consécutives",
+  "🎯 Dernière chance : plus que {n} places VIP",
+  "💰 Code VISION221 = Bonus 150$ sur Linebet",
+]
+
 export const LEGAL = {
   disclaimer: "Les paris sportifs comportent des risques financiers. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre. Les statistiques de précision de notre IA (environ 87%) sont basées sur des données historiques et ne garantissent pas de résultats futurs. BttsBet est un site informatif et d'affiliation : nous ne prenons pas de paris et ne collectons pas de fonds. Les témoignages présentés sur ce site reflètent des expériences individuelles et ne constituent pas une garantie de résultats. Jouez de manière responsable.",
   responsible: "Si vous ou un proche avez un problème lié aux jeux d'argent, contactez la ligne d'écoute nationale de votre pays. En France : 09-74-75-13-13 (Joueurs Info Service). Au Cameroun : contactez le MINSANT. Au Sénégal : 33 867 22 22.",
