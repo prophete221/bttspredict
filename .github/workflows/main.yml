@@ -18,18 +18,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
 
       - name: Install dependencies
-        run: bun install --frozen-lockfile
+        run: npm install --legacy-peer-deps
         env:
           PUPPETEER_SKIP_DOWNLOAD: 'true'
 
@@ -39,7 +34,7 @@ jobs:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
 
       - name: Build Next.js static export
-        run: bun run build
+        run: npm run build
 
       - name: Commit and push updated prediction data
         run: |
