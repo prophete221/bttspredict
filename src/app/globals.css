@@ -383,7 +383,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: -0.012em;
   cursor: pointer;
-  border-radius: 14px;
+  border-radius: 10px;
   transition:
     transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
@@ -490,7 +490,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   overflow: hidden;
   letter-spacing: -0.01em;
-  border-radius: 14px;
+  border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease, background 0.35s ease, filter 0.35s ease;
 }

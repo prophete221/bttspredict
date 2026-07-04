@@ -187,7 +187,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                         </div>
                       </div>
                       <div className="space-y-2.5">
-                        <button onClick={() => setStep('confirm')} className="w-full flex items-center justify-center gap-2 px-6 py-3.5 btn-gold text-midnight text-sm">
+                        <button onClick={() => setStep('confirm')} className="w-full flex items-center justify-center gap-2 px-4 py-2 btn-gold text-midnight text-xs">
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <polyline points="20 6 9 17 4 12"/>
                           </svg>
@@ -199,7 +199,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                           rel={AFFILIATE.rel}
                           target="_blank"
                           data-cursor="hover"
-                          className={`w-full flex items-center justify-center gap-2 px-6 py-3.5 font-bold text-sm ${
+                          className={`w-full flex items-center justify-center gap-2 px-4 py-2 font-bold text-xs ${
                             selectedBookmaker === 'linebet'
                               ? 'btn-linebet text-[#06281F]'
                               : 'btn-star888 text-white'
@@ -208,7 +208,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                           <img
                             src={selectedBookmaker === 'linebet' ? '/logos/linebet.svg' : '/logos/888starz.svg'}
                             alt={selectedBookmaker === 'linebet' ? 'Linebet' : '888starz'}
-                            className="h-5 w-auto rounded object-contain flex-shrink-0"
+                            className="h-4 w-auto rounded object-contain flex-shrink-0"
                             loading="lazy"
                           />
                           S&apos;inscrire sur {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'}
@@ -252,7 +252,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                         </div>
                       </div>
                       <button onClick={handleSubmitId} disabled={!linebetId.trim() || isSubmitting}
-                        className="w-full flex items-center justify-center gap-2 px-6 py-3.5 btn-gold text-midnight text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full flex items-center justify-center gap-2 px-4 py-2 btn-gold text-midnight text-xs disabled:opacity-50 disabled:cursor-not-allowed"
                         data-cursor="hover">
                         {isSubmitting ? (
                           <><svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/></svg>Vérification en cours...</>
@@ -435,8 +435,8 @@ export default function PromoVip() {
               <div className="relative p-5 sm:p-7">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 bg-gold/10 border border-gold/20 rounded-xl flex items-center justify-center text-gold">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2 17l4-8 4 4 2-9 4 7 2-3 4 9H2z"/></svg>
+                    <div className="w-11 h-11 bg-gold/10 border border-gold/20 rounded-xl flex items-center justify-center overflow-hidden flex-shrink-0">
+                      <img src="/logos/sport-football.svg" alt="Football" className="w-8 h-8 object-contain" loading="lazy"/>
                     </div>
                     <div>
                       <h3 className="text-lg sm:text-xl font-extrabold text-white leading-tight">
@@ -501,9 +501,10 @@ export default function PromoVip() {
                 </div>
 
                 <button onClick={() => setShowVipModal(true)}
-                  className="v31-breathing v31-cta-wave relative flex items-center justify-center gap-2 px-6 py-3.5 btn-gold text-midnight text-sm w-full cursor-pointer overflow-hidden group/btn"
+                  className="v31-breathing v31-cta-wave relative flex items-center justify-center gap-2 px-4 py-2 btn-gold text-midnight text-xs w-full cursor-pointer overflow-hidden group/btn"
                   style={{ ['--v31-wave-delay' as string]: '3s' }}
                   data-cursor="hover">
+                  <img src="/logos/sport-football.svg" alt="" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy"/>
                   <span>Débloquer le VIP</span>
                 </button>
 
@@ -566,23 +567,23 @@ export default function PromoVip() {
                   ))}
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-2.5">
-                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-4 py-3.5 btn-linebet text-[#06281F] text-sm" style={{ ['--v31-wave-delay' as string]: '2s' }} data-cursor="hover">
-                    <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-3 py-2 btn-linebet text-[#06281F] text-xs" style={{ ['--v31-wave-delay' as string]: '2s' }} data-cursor="hover">
+                    <img src="/logos/linebet.svg" alt="Linebet" className="h-4 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                   {/* V23: Nouveau bouton 888starz à côté de Linebet */}
-                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-4 py-3.5 btn-star888 text-white text-sm" style={{ ['--v31-wave-delay' as string]: '6s' }} data-cursor="hover">
-                    <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
+                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-3 py-2 btn-star888 text-white text-xs" style={{ ['--v31-wave-delay' as string]: '6s' }} data-cursor="hover">
+                    <img src="/logos/888starz.svg" alt="888starz" className="h-4 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                 </div>
                 {/* V23: Lien de téléchargement pour les deux bookmakers — logo Android + nom du bookmaker */}
-                <div className="grid grid-cols-2 gap-2.5 mt-2.5">
-                  <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-2 px-4 py-2.5 border border-edge text-white font-semibold rounded-xl text-xs hover:bg-white/[0.04] transition-all bg-white/[0.02]">
-                    <img src={ANDROID_LOGO} alt="Android" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy"/>
+                <div className="grid grid-cols-2 gap-2 mt-2">
+                  <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-3 py-1.5 border border-edge text-white font-semibold rounded-xl text-[11px] hover:bg-white/[0.04] transition-all bg-white/[0.02]">
+                    <img src={ANDROID_LOGO} alt="Android" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy"/>
                     APK Linebet
                   </a>
-                  <a href={AFFILIATE.star888Download} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-2 px-4 py-2.5 border border-edge text-white font-semibold rounded-xl text-xs hover:bg-white/[0.04] transition-all bg-white/[0.02]">
-                    <img src={ANDROID_LOGO} alt="Android" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy"/>
+                  <a href={AFFILIATE.star888Download} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-3 py-1.5 border border-edge text-white font-semibold rounded-xl text-[11px] hover:bg-white/[0.04] transition-all bg-white/[0.02]">
+                    <img src={ANDROID_LOGO} alt="Android" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy"/>
                     APK 888starz
                   </a>
                 </div>

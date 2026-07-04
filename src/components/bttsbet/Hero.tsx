@@ -196,20 +196,20 @@ export default function Hero() {
             href={AFFILIATE.linebet}
             rel={AFFILIATE.rel}
             target="_blank"
-            className="v31-cta-wave flex items-center justify-center gap-2 px-6 py-3.5 btn-linebet text-[#06281F] text-sm sm:text-base font-bold"
+            className="v31-cta-wave flex items-center justify-center gap-2 px-4 py-2 btn-linebet text-[#06281F] text-xs sm:text-sm font-bold"
             data-cursor="hover"
           >
-            <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy" />
+            <img src="/logos/linebet.svg" alt="Linebet" className="h-4 w-auto object-contain flex-shrink-0" loading="lazy" />
             S&apos;inscrire → Bonus 150$
           </a>
           <a
             href={AFFILIATE.star888}
             rel={AFFILIATE.rel}
             target="_blank"
-            className="v31-cta-wave flex items-center justify-center gap-2 px-6 py-3.5 btn-star888 text-white text-sm sm:text-base font-bold"
+            className="v31-cta-wave flex items-center justify-center gap-2 px-4 py-2 btn-star888 text-white text-xs sm:text-sm font-bold"
             data-cursor="hover"
           >
-            <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy" />
+            <img src="/logos/888starz.svg" alt="888starz" className="h-4 w-auto object-contain flex-shrink-0" loading="lazy" />
             S&apos;inscrire → Bonus 100%
           </a>
         </motion.div>

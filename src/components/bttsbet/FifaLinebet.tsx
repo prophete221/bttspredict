@@ -115,16 +115,16 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                         </div>
                       </div>
                       <div className="space-y-2.5">
-                        <button onClick={() => setStep('confirm')} className="w-full flex items-center justify-center gap-2 px-6 py-3.5 btn-gold text-white font-bold rounded-xl text-sm  ">
+                        <button onClick={() => setStep('confirm')} className="w-full flex items-center justify-center gap-2 px-4 py-2 btn-gold text-white font-bold rounded-xl text-xs">
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                           Je me suis déjà inscrit
                         </button>
-                          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="w-full flex items-center justify-center gap-2 px-6 py-3.5 btn-linebet text-[#06281F] text-sm" data-cursor="hover">
-                          <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
+                          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="w-full flex items-center justify-center gap-2 px-4 py-2 btn-linebet text-[#06281F] text-xs" data-cursor="hover">
+                          <img src="/logos/linebet.svg" alt="Linebet" className="h-4 w-auto object-contain flex-shrink-0" loading="lazy"/>
                           Aller s&apos;inscrire sur LINEBET
                         </a>
                         {/* V23: Alternative 888starz */}
-                        <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="w-full flex items-center justify-center gap-2 px-6 py-3.5 btn-star888 text-white text-sm" data-cursor="hover">
+                        <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="w-full flex items-center justify-center gap-2 px-4 py-2 btn-star888 text-white text-xs" data-cursor="hover">
                           <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                           Ou s&apos;inscrire sur 888starz
                         </a>
@@ -159,7 +159,7 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                         </div>
                       </div>
                       <button onClick={handleSubmitId} disabled={!linebetId.trim() || isSubmitting}
-                        className="w-full flex items-center justify-center gap-2 px-6 py-3.5 btn-gold text-white font-bold rounded-xl text-sm  disabled:opacity-50 disabled:cursor-not-allowed ">
+                        className="w-full flex items-center justify-center gap-2 px-4 py-2 btn-gold text-white font-bold rounded-xl text-xs disabled:opacity-50 disabled:cursor-not-allowed">
                         {isSubmitting ? (
                           <><svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/></svg>Vérification en cours...</>
                         ) : 'Envoyer et accéder à la Faille FIFA'}
@@ -458,7 +458,7 @@ export default function FifaLinebet() {
                 </div>
 
                 <button onClick={() => setShowFifaModal(true)}
-                  className="v31-cta-wave relative flex items-center justify-center gap-2 px-6 py-3.5 btn-gold text-sm w-full cursor-pointer overflow-hidden group/btn"
+                  className="v31-cta-wave relative flex items-center justify-center gap-2 px-4 py-2 btn-gold text-xs w-full cursor-pointer overflow-hidden group/btn"
                   style={{ ['--v31-wave-delay' as string]: '8s' }}>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700" />
                   <span>Débloquer la Faille FIFA</span>
@@ -543,11 +543,11 @@ export default function FifaLinebet() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-2.5">
-                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-4 py-3.5 btn-linebet text-[#06281F] text-sm" style={{ ['--v31-wave-delay' as string]: '0s' }} data-cursor="hover">
+                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-3 py-2 btn-linebet text-[#06281F] text-xs" style={{ ['--v31-wave-delay' as string]: '0s' }} data-cursor="hover">
                     <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                   {/* V23: Nouveau bouton 888starz */}
-                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-4 py-3.5 btn-star888 text-white text-sm" style={{ ['--v31-wave-delay' as string]: '4s' }} data-cursor="hover">
+                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-3 py-2 btn-star888 text-white text-xs" style={{ ['--v31-wave-delay' as string]: '4s' }} data-cursor="hover">
                     <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                 </div>

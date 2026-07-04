@@ -194,7 +194,7 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
                         </div>
                       </div>
                       <div className="space-y-2.5">
-                        <button onClick={() => setStep('confirm')} className="w-full flex items-center justify-center gap-2 px-6 py-3.5 btn-gold text-midnight text-sm">
+                        <button onClick={() => setStep('confirm')} className="w-full flex items-center justify-center gap-2 px-4 py-2 btn-gold text-midnight text-xs">
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <polyline points="20 6 9 17 4 12"/>
                           </svg>
@@ -205,7 +205,7 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
                           rel={AFFILIATE.rel}
                           target="_blank"
                           data-cursor="hover"
-                          className={`w-full flex items-center justify-center gap-2 px-6 py-3.5 font-bold text-sm ${
+                          className={`w-full flex items-center justify-center gap-2 px-4 py-2 font-bold text-xs ${
                             selectedBookmaker === 'linebet'
                               ? 'btn-linebet text-[#06281F]'
                               : 'btn-star888 text-white'
@@ -214,7 +214,7 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
                           <img
                             src={selectedBookmaker === 'linebet' ? '/logos/linebet.svg' : '/logos/888starz.svg'}
                             alt={selectedBookmaker === 'linebet' ? 'Linebet' : '888starz'}
-                            className="h-5 w-auto rounded object-contain flex-shrink-0"
+                            className="h-4 w-auto rounded object-contain flex-shrink-0"
                             loading="lazy"
                           />
                           S&apos;inscrire sur {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'}
@@ -258,7 +258,7 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
                         </div>
                       </div>
                       <button onClick={handleSubmitId} disabled={!linebetId.trim() || isSubmitting}
-                        className="w-full flex items-center justify-center gap-2 px-6 py-3.5 btn-gold text-midnight text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full flex items-center justify-center gap-2 px-4 py-2 btn-gold text-midnight text-xs disabled:opacity-50 disabled:cursor-not-allowed"
                         data-cursor="hover">
                         {isSubmitting ? (
                           <><svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/></svg>Vérification en cours...</>
@@ -348,6 +348,7 @@ type SportVip = {
   keywords: string[] // injected as hidden H2 for SEO
   badge: string // pick label (e.g., 'Gagnant', 'Over 2.5', 'Vainqueur')
   icon: React.ReactNode
+  logo: string // path to sport logo SVG image
   dailyCoteMin: number
   dailyCoteMax: number
   matches: { time: string; home: string; away: string; league: string }[]
@@ -363,6 +364,7 @@ const SPORTS: SportVip[] = [
     badge: 'Gagnant',
     dailyCoteMin: 18,
     dailyCoteMax: 35,
+    logo: '/logos/sport-tennis.svg',
     icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/><path d="M12 2a10 10 0 0 1 0 20"/></svg>,
     matches: [
       { time: '11:00', home: 'Carlos Alcaraz', away: 'Jannik Sinner', league: 'ATP 1000' },
@@ -386,6 +388,7 @@ const SPORTS: SportVip[] = [
     badge: 'Over Pts',
     dailyCoteMin: 12,
     dailyCoteMax: 28,
+    logo: '/logos/sport-nba.svg',
     icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2v20M5 5l14 14M19 5L5 19"/></svg>,
     matches: [
       { time: '01:00', home: 'LA Lakers', away: 'Boston Celtics', league: 'NBA' },
@@ -409,6 +412,7 @@ const SPORTS: SportVip[] = [
     badge: 'Spread',
     dailyCoteMin: 15,
     dailyCoteMax: 32,
+    logo: '/logos/sport-nfl.svg',
     icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="12" rx="10" ry="6"/><line x1="12" y1="6" x2="12" y2="18"/><line x1="2" y1="12" x2="22" y2="12"/></svg>,
     matches: [
       { time: '18:00', home: 'Kansas City Chiefs', away: 'Buffalo Bills', league: 'NFL' },
@@ -432,6 +436,7 @@ const SPORTS: SportVip[] = [
     badge: 'Vainqueur',
     dailyCoteMin: 14,
     dailyCoteMax: 30,
+    logo: '/logos/sport-ufc.svg',
     icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/><path d="M12 22V12M2 7l10 5 10-5"/></svg>,
     matches: [
       { time: '21:00', home: 'Jon Jones', away: 'Tom Aspinall', league: 'UFC HW' },
@@ -455,6 +460,7 @@ const SPORTS: SportVip[] = [
     badge: 'Over Buts',
     dailyCoteMin: 12,
     dailyCoteMax: 26,
+    logo: '/logos/sport-handball.svg',
     icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>,
     matches: [
       { time: '18:00', home: 'PSG Handball', away: 'FC Barcelona', league: 'Champions L.' },
@@ -516,8 +522,8 @@ function VipSportCard({ sport, onUnlock, index }: { sport: SportVip; onUnlock: (
           {/* Header */}
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2.5">
-              <div className="w-10 h-10 bg-gold/10 border border-gold/20 rounded-xl flex items-center justify-center text-gold">
-                {sport.icon}
+              <div className="w-11 h-11 bg-gold/10 border border-gold/20 rounded-xl flex items-center justify-center overflow-hidden flex-shrink-0">
+                <img src={sport.logo} alt={sport.name} className="w-8 h-8 object-contain" loading="lazy"/>
               </div>
               <div>
                 <h3 className="text-lg sm:text-xl font-extrabold text-white leading-tight">
@@ -574,10 +580,11 @@ function VipSportCard({ sport, onUnlock, index }: { sport: SportVip; onUnlock: (
           {/* CTA */}
           <button
             onClick={() => onUnlock(sport.name)}
-            className="v31-breathing v31-cta-wave relative flex items-center justify-center gap-2 px-6 py-3.5 btn-gold text-midnight text-sm w-full cursor-pointer overflow-hidden group/btn"
+            className="v31-breathing v31-cta-wave relative flex items-center justify-center gap-2 px-4 py-2 btn-gold text-midnight text-xs w-full cursor-pointer overflow-hidden group/btn"
             style={{ ['--v31-wave-delay' as string]: `${3 + index}s` }}
             data-cursor="hover"
           >
+            <img src={sport.logo} alt="" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy"/>
             <span>Débloquer le VIP {sport.name}</span>
           </button>
 
