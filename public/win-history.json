@@ -1,14 +1,14 @@
 {
   "stats": {
-    "total": 56,
-    "won": 41,
-    "rate": "73.2%",
-    "last30Rate": "73%"
+    "total": 133,
+    "won": 104,
+    "rate": "78.2%",
+    "last30Rate": "78%"
   },
   "history": [
     {
       "id": 1,
-      "date": "2026-07-03",
+      "date": "2026-07-02",
       "match": "Colombia vs Ghana",
       "league": "International Friendly",
       "type": "BTTS",
@@ -19,7 +19,7 @@
     },
     {
       "id": 2,
-      "date": "2026-07-03",
+      "date": "2026-07-02",
       "match": "Colombia vs Ghana",
       "league": "International Friendly",
       "type": "Over 2.5",
@@ -30,6 +30,116 @@
     },
     {
       "id": 3,
+      "date": "2026-07-02",
+      "match": "Canada vs Morocco",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "0-3",
+      "confidence": 50
+    },
+    {
+      "id": 4,
+      "date": "2026-07-02",
+      "match": "Halmstads BK vs Västerås SK",
+      "league": "Allsvenskan",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 49
+    },
+    {
+      "id": 5,
+      "date": "2026-07-02",
+      "match": "Halmstads BK vs Västerås SK",
+      "league": "Allsvenskan",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 49
+    },
+    {
+      "id": 6,
+      "date": "2026-07-02",
+      "match": "Argentina vs Cape Verde",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "3-2",
+      "confidence": 49
+    },
+    {
+      "id": 7,
+      "date": "2026-07-02",
+      "match": "Argentina vs Cape Verde",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "3-2",
+      "confidence": 49
+    },
+    {
+      "id": 8,
+      "date": "2026-07-02",
+      "match": "Independiente del Valle vs Manta F.C.",
+      "league": "Serie A (ECU)",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "4-0",
+      "confidence": 47
+    },
+    {
+      "id": 9,
+      "date": "2026-07-02",
+      "match": "Libertad (Ecuador) vs Leones",
+      "league": "Serie A (ECU)",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 47
+    },
+    {
+      "id": 10,
+      "date": "2026-07-02",
+      "match": "Libertad (Ecuador) vs Leones",
+      "league": "Serie A (ECU)",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 47
+    },
+    {
+      "id": 11,
+      "date": "2026-07-03",
+      "match": "Colombia vs Ghana",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "1-0",
+      "confidence": 51
+    },
+    {
+      "id": 12,
+      "date": "2026-07-03",
+      "match": "Colombia vs Ghana",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "1-0",
+      "confidence": 51
+    },
+    {
+      "id": 13,
       "date": "2026-07-03",
       "match": "Argentina vs Cape Verde",
       "league": "International Friendly",
@@ -40,7 +150,7 @@
       "confidence": 48
     },
     {
-      "id": 4,
+      "id": 14,
       "date": "2026-07-03",
       "match": "Argentina vs Cape Verde",
       "league": "International Friendly",
@@ -51,7 +161,7 @@
       "confidence": 48
     },
     {
-      "id": 5,
+      "id": 15,
       "date": "2026-07-03",
       "match": "Independiente del Valle vs Manta F.C.",
       "league": "Serie A (ECU)",
@@ -62,5 +172,5 @@
       "confidence": 47
     }
   ],
-  "date": "2026-07-04"
+  "date": "2026-07-05"
 }
