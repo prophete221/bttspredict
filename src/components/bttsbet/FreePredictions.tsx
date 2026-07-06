@@ -231,17 +231,23 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
             <div className="text-gray-500 text-[10px]">{match.date ? formatDateShort(match.date) : ''}</div>
           </div>
 
-          <div className="w-px h-8 bg-gradient-to-b from-transparent via-white/10 to-transparent flex-shrink-0" />
+          <div className="w-px h-8 bg-gradient-to-b from-transparent via-white/10 to-transparent flex-shrink-0 hidden sm:block" />
 
-          <div className="flex-shrink-0 flex items-center gap-1.5">
-            <TeamLogo src={homeLogo} initials={initials1} size="sm" color="emerald" />
-            <span className="text-gray-600 text-[10px] font-bold">VS</span>
-            <TeamLogo src={awayLogo} initials={initials2} size="sm" color="royal" />
-          </div>
-
+          {/* Teams layout - stacked on mobile */}
           <div className="flex-1 min-w-0">
-            <div className="text-white font-semibold text-sm truncate">{match.match}</div>
-            <div className="text-gray-500 text-[11px] truncate flex items-center gap-1">
+            {/* Mobile: show stacked teams */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-2">
+              <div className="flex items-center gap-1.5">
+                <TeamLogo src={homeLogo} initials={initials1} size="sm" color="emerald" />
+                <span className="text-white font-semibold text-xs sm:text-sm truncate max-w-[120px] sm:max-w-[150px]">{team1}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="text-gray-600 text-[10px] font-bold">VS</span>
+                <TeamLogo src={awayLogo} initials={initials2} size="sm" color="royal" />
+                <span className="text-white font-semibold text-xs sm:text-sm truncate max-w-[120px] sm:max-w-[150px]">{team2}</span>
+              </div>
+            </div>
+            <div className="text-gray-500 text-[10px] sm:text-[11px] truncate flex items-center gap-1 mt-0.5">
               <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-600 flex-shrink-0" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
               </svg>

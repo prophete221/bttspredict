@@ -146,10 +146,10 @@ export default function Home() {
       <main id="main-content" className="relative z-10">
         <Navbar />
         <Hero />
+        <AviatorVip />
         <FreePredictions />
         <PromoVip />
         <VipSports />
-        <AviatorVip />
         <WinHistory />
         <FifaLinebet />
         <Footer />

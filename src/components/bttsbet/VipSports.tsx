@@ -309,27 +309,45 @@ function SportCouponRow({ match, time, homeTeam, awayTeam, league, cote, index, 
 }) {
   return (
     <motion.div initial={{ opacity: 0, x: -15 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + index * 0.08, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      className="v31-cascade-row v31-card-hover-glow relative flex items-center gap-2 sm:gap-2.5 bg-midnight/50 rounded-lg px-2.5 sm:px-3 py-2 border border-gold/8 hover:border-gold/20 transition-colors"
+      className="v31-cascade-row v31-card-hover-glow relative bg-midnight/50 rounded-lg px-2.5 sm:px-3 py-2.5 sm:py-2 border border-gold/8 hover:border-gold/20 transition-colors"
       style={{ animationDelay: `${0.15 + index * 0.08}s` }}
     >
-      <span className="text-[10px] sm:text-xs text-gold/60 font-mono tabular-nums w-9 text-center flex-shrink-0">{time}</span>
-      <div className="flex items-center gap-1.5 flex-1 min-w-0 blur-[4px] select-none">
-        <SportTeamLogo name={homeTeam} size={16} />
-        <span className="text-white text-[11px] sm:text-sm font-semibold truncate">{homeTeam}</span>
-        <span className="text-gray-500 text-[10px] font-bold flex-shrink-0">vs</span>
-        <span className="text-white text-[11px] sm:text-sm font-semibold truncate">{awayTeam}</span>
-        <SportTeamLogo name={awayTeam} size={16} />
-      </div>
-      <span className="hidden sm:block text-gray-600 text-[10px] flex-shrink-0 max-w-[90px] truncate">{league}</span>
-      <span className="text-[10px] sm:text-xs text-gold font-bold bg-gold/10 border border-gold/15 rounded px-1.5 py-0.5 flex-shrink-0 tabular-nums blur-[3px] select-none">{cote.toFixed(2)}</span>
-      <div className="relative flex items-center flex-shrink-0">
-        <div className="blur-[4px] select-none">
-          <span className="text-gold text-[10px] sm:text-xs font-bold px-1.5 py-0.5 bg-gold/10 rounded">{badge}</span>
+      {/* Mobile: stacked layout, Desktop: row layout */}
+      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-2.5">
+        {/* Top row: time + teams */}
+        <div className="flex items-center gap-2 sm:gap-2.5 flex-1 min-w-0">
+          <span className="text-[10px] sm:text-xs text-gold/60 font-mono tabular-nums w-10 text-center flex-shrink-0">{time}</span>
+          {/* Teams - stacked on mobile */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-1.5 flex-1 min-w-0 blur-[4px] select-none">
+            {/* Home team */}
+            <div className="flex items-center gap-1">
+              <SportTeamLogo name={homeTeam} size={14} />
+              <span className="text-white text-xs sm:text-sm font-semibold truncate max-w-[120px] sm:max-w-none">{homeTeam}</span>
+            </div>
+            {/* VS separator */}
+            <span className="text-gray-500 text-[10px] font-bold flex-shrink-0 hidden sm:block">vs</span>
+            {/* Away team */}
+            <div className="flex items-center gap-1">
+              <span className="text-gray-500 text-[10px] font-bold flex-shrink-0 sm:hidden">vs</span>
+              <SportTeamLogo name={awayTeam} size={14} />
+              <span className="text-white text-xs sm:text-sm font-semibold truncate max-w-[120px] sm:max-w-none">{awayTeam}</span>
+            </div>
+          </div>
         </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-gold/70">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-          </svg>
+        {/* Bottom row: league + cote + badge */}
+        <div className="flex items-center gap-2 sm:gap-2.5 justify-between sm:justify-end">
+          <span className="text-gray-500 text-[10px] flex-shrink-0 truncate max-w-[100px]">{league}</span>
+          <span className="text-[10px] sm:text-xs text-gold font-bold bg-gold/10 border border-gold/15 rounded px-1.5 py-0.5 flex-shrink-0 tabular-nums blur-[3px] select-none">{cote.toFixed(2)}</span>
+          <div className="relative flex items-center flex-shrink-0">
+            <div className="blur-[4px] select-none">
+              <span className="text-gold text-[10px] sm:text-xs font-bold px-1.5 py-0.5 bg-gold/10 rounded">{badge}</span>
+            </div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-gold/70">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
     </motion.div>
