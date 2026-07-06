@@ -6,6 +6,7 @@ import {
   FreePredictions,
   PromoVip,
   VipSports,
+  AviatorVip,
   WinHistory,
   FifaLinebet,
   Footer,
@@ -148,6 +149,7 @@ export default function Home() {
         <FreePredictions />
         <PromoVip />
         <VipSports />
+        <AviatorVip />
         <WinHistory />
         <FifaLinebet />
         <Footer />
