@@ -8,7 +8,7 @@ export const SITE = {
   tagline: "Pronostics football BTTS & Over 2,5 basés sur l'IA pour parieurs sérieux",
   promoCode: 'VISION221',
   accuracy: '~87%',
-  whatsapp: 'https://wa.me/15406704172',
+
   vipAccuracy: '~89%',
   historyRate: '88.3%',
   last30Rate: '91%',

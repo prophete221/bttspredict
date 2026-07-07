@@ -274,8 +274,8 @@ export default function FailleFifaPage() {
                 <div className="flex items-start gap-3 p-3 bg-gold/5 border border-gold/15 rounded-lg">
                   <span className="flex-shrink-0 w-7 h-7 bg-gold/15 rounded-lg flex items-center justify-center text-gold text-xs font-black">3</span>
                   <div>
-                    <p className="text-white font-semibold text-sm">Envoyez votre ID via WhatsApp</p>
-                    <p className="text-gray-500 text-xs mt-1">Après votre inscription, cliquez sur &quot;Débloquer la Faille FIFA&quot; sur notre site et envoyez votre ID bookmaker via WhatsApp pour vérification.</p>
+                    <p className="text-white font-semibold text-sm">Entrez votre ID bookmaker sur le site</p>
+                    <p className="text-gray-500 text-xs mt-1">Après votre inscription, cliquez sur &quot;Débloquer la Faille FIFA&quot; sur notre site et entrez votre ID bookmaker pour vérification.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 p-3 bg-gold/5 border border-gold/15 rounded-lg">

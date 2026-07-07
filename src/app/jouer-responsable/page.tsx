@@ -400,14 +400,12 @@ export default function JouerResponsablePage() {
                     ))}
                   </div>
                   <p className="mt-4">
-                    Vous pouvez également nous contacter directement via{' '}
+                    Vous pouvez également nous contacter directement à l&apos;adresse{' '}
                     <a
-                      href="https://wa.me/15406704172"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href="mailto:contact@bttsbet.online"
                       className="text-emerald hover:text-emerald-soft transition-colors underline underline-offset-2"
                     >
-                      WhatsApp
+                      contact@bttsbet.online
                     </a>{' '}
                     si vous avez des questions ou besoin d&apos;orientation.
                   </p>

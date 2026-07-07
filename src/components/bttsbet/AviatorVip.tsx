@@ -9,7 +9,7 @@ import { useScrollAnimation } from '@/hooks/useAnimations'
 // AviatorVip — Section VIP Signaux Aviator
 // Simule des signaux de prédiction Aviator (multiplier) toutes les 60 secondes.
 // Les signaux sont basés sur un algorithme pseudo-aléatoire avec seed temporel.
-// Section verrouillée — accès via inscription bookmaker + vérification WhatsApp.
+// Section verrouillée — accès via inscription bookmaker + vérification ID.
 // ─────────────────────────────────────────────────────────────────────────────
 
 // ─── Types ───
@@ -106,15 +106,9 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
   const handleSubmitId = async () => {
     if (!linebetId.trim()) return
     setIsSubmitting(true)
-    const bookmakerName = selectedBookmaker === 'linebet' ? 'Linebet' : '888starz'
-    const message = encodeURIComponent(
-      `🛩️ Demande d'accès VIP Aviator BttsBet\n\nMon ID ${bookmakerName} : ${linebetId.trim()}\n\nJe me suis inscrit sur ${bookmakerName} avec le code promo VISION221 et j'ai effectué un dépôt minimum de 3 000 Fr.\n\nMerci de vérifier et d'activer mon accès VIP Aviator.`
-    )
-    const whatsappUrl = `${SITE.whatsapp}?text=${message}`
     await new Promise(r => setTimeout(r, 800))
     setSubmitSuccess(true)
     setIsSubmitting(false)
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
     setTimeout(() => { onClose() }, 2500)
   }
 
@@ -214,7 +208,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                       </div>
                       <h3 className="text-base font-extrabold text-white mb-2">DEMANDE ENVOYÉE !</h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">Votre demande d&apos;accès VIP Aviator a été envoyée via WhatsApp. Nous vérifierons votre inscription et vous recevrez votre accès sous peu.</p>
+                      <p className="text-gray-400 text-sm leading-relaxed">Votre ID a été enregistré. Nous vérifierons votre inscription et vous recevrez votre accès VIP Aviator sous peu.</p>
                     </motion.div>
                   )}
                 </AnimatePresence>

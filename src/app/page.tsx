@@ -87,9 +87,6 @@ const organizationJsonLd = {
   url: 'https://bttsbet.online',
   logo: 'https://bttsbet.online/favicon.svg',
   description: "Plateforme de pronostics football BTTS & Over 2,5 basés sur l'IA. Détection automatique de la Faille FIFA sur Linebet et 888starz.",
-  sameAs: [
-    'https://wa.me/15406704172',
-  ],
   areaServed: ['SN', 'CI', 'CM', 'ML', 'BF', 'FR'],
   knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'IA', 'football', 'faille FIFA'],
 }

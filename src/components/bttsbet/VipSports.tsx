@@ -8,7 +8,7 @@ import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 // ─────────────────────────────────────────────────────────────────────────────
 // VipSports — Multi-sport VIP sections (Tennis, NBA, NFL, UFC, Handball)
 // Same prediction system as PromoVip: 10 matches, daily cote, blurred picks,
-// gated access via Linebet/888starz inscription + ID verification (WhatsApp).
+// gated access via Linebet/888starz inscription + ID verification.
 // Each section injects SEO keywords bettors search for on the given sport.
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -58,19 +58,10 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
     if (!linebetId.trim()) return
     setIsSubmitting(true)
 
-    const bookmakerName = selectedBookmaker === 'linebet' ? 'Linebet' : '888starz'
-    const sportLabel = sport ? ` — Section ${sport.toUpperCase()}` : ''
-    const message = encodeURIComponent(
-      `🎯 Demande d'accès VIP BttsBet${sportLabel}\n\nMon ID ${bookmakerName} : ${linebetId.trim()}\n\nJe me suis inscrit sur ${bookmakerName} avec le code promo VISION221 et j'ai effectué un dépôt minimum de 3 000 Fr.\n\nMerci de vérifier et d'activer mon accès VIP.`
-    )
-    const whatsappUrl = `${SITE.whatsapp}?text=${message}`
-
     await new Promise(r => setTimeout(r, 800))
 
     setSubmitSuccess(true)
     setIsSubmitting(false)
-
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
 
     setTimeout(() => {
       onClose()
@@ -275,7 +266,7 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
                         </svg>
                       </div>
                       <h3 className="text-lg font-extrabold text-white mb-2">DEMANDE ENVOYÉE !</h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">Votre demande d&apos;accès VIP{sport ? ` ${sport}` : ''} a été envoyée via WhatsApp. Nous vérifierons votre inscription {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'} et vous recevrez votre accès VIP sous peu.</p>
+                      <p className="text-gray-400 text-sm leading-relaxed">Votre ID a été enregistré. Nous vérifierons votre inscription {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'} et vous recevrez votre accès VIP{sport ? ` ${sport}` : ''} sous peu.</p>
                     </motion.div>
                   )}
                 </AnimatePresence>

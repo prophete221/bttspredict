@@ -46,14 +46,9 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
   const handleSubmitId = async () => {
     if (!linebetId.trim()) return
     setIsSubmitting(true)
-    const message = encodeURIComponent(
-      `🎮 Demande d'accès Faille FIFA (Linebet / 888starz)\n\nMon ID : ${linebetId.trim()}\n\nPlateforme : Linebet / 888starz\n\nJe me suis inscrit avec le code promo VISION221 et j'ai effectué un dépôt minimum de 3 000 Fr.\n\nMerci de vérifier et d'activer mon accès à la Faille FIFA.`
-    )
-    const whatsappUrl = `${SITE.whatsapp}?text=${message}`
     await new Promise(r => setTimeout(r, 800))
     setSubmitSuccess(true)
     setIsSubmitting(false)
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
     setTimeout(() => onClose(), 2500)
   }
 
@@ -172,7 +167,7 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                       </div>
                       <h3 className="text-lg font-extrabold text-white mb-2">DEMANDE ENVOYÉE !</h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">Votre demande d&apos;accès Faille FIFA a été envoyée via WhatsApp. Nous vérifierons votre inscription Linebet ou 888starz et vous recevrez votre accès sous peu.</p>
+                      <p className="text-gray-400 text-sm leading-relaxed">Votre ID a été enregistré. Nous vérifierons votre inscription Linebet ou 888starz et vous recevrez votre accès Faille FIFA sous peu.</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
