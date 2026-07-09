@@ -8,29 +8,51 @@
   "history": [
     {
       "id": 1,
-      "date": "2026-07-07",
-      "match": "Argentina vs Egypt",
+      "date": "2026-07-09",
+      "match": "France vs Morocco",
       "league": "International Friendly",
       "type": "BTTS",
-      "prediction": "Oui",
+      "prediction": "Non",
       "result": "Gagné",
-      "score": "3-2",
-      "confidence": 52
+      "score": "2-0",
+      "confidence": 49
     },
     {
       "id": 2,
-      "date": "2026-07-07",
-      "match": "Argentina vs Egypt",
+      "date": "2026-07-09",
+      "match": "France vs Morocco",
       "league": "International Friendly",
       "type": "Over 2.5",
-      "prediction": "Oui",
+      "prediction": "Non",
       "result": "Gagné",
-      "score": "3-2",
-      "confidence": 52
+      "score": "2-0",
+      "confidence": 49
     },
     {
       "id": 3,
       "date": "2026-07-07",
+      "match": "Argentina vs Egypt",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "3-2",
+      "confidence": 52
+    },
+    {
+      "id": 4,
+      "date": "2026-07-07",
+      "match": "Argentina vs Egypt",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "3-2",
+      "confidence": 52
+    },
+    {
+      "id": 5,
+      "date": "2026-07-07",
       "match": "Switzerland vs Colombia",
       "league": "International Friendly",
       "type": "BTTS",
@@ -40,7 +62,7 @@
       "confidence": 49
     },
     {
-      "id": 4,
+      "id": 6,
       "date": "2026-07-07",
       "match": "Switzerland vs Colombia",
       "league": "International Friendly",
@@ -51,7 +73,7 @@
       "confidence": 49
     },
     {
-      "id": 5,
+      "id": 7,
       "date": "2026-07-06",
       "match": "BK Häcken vs Djurgården",
       "league": "Allsvenskan",
@@ -62,7 +84,7 @@
       "confidence": 51
     },
     {
-      "id": 6,
+      "id": 8,
       "date": "2026-07-06",
       "match": "BK Häcken vs Djurgården",
       "league": "Allsvenskan",
@@ -73,7 +95,7 @@
       "confidence": 51
     },
     {
-      "id": 7,
+      "id": 9,
       "date": "2026-07-06",
       "match": "IF Brommapojkarna vs GAIS",
       "league": "Allsvenskan",
@@ -84,41 +106,41 @@
       "confidence": 51
     },
     {
-      "id": 8,
-      "date": "2026-07-06",
-      "match": "Portugal vs Spain",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "0-1",
-      "confidence": 50
-    },
-    {
-      "id": 9,
-      "date": "2026-07-06",
-      "match": "Portugal vs Spain",
-      "league": "International Friendly",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "0-1",
-      "confidence": 50
-    },
-    {
       "id": 10,
       "date": "2026-07-06",
-      "match": "Dila vs United States",
+      "match": "Portugal vs Spain",
       "league": "International Friendly",
       "type": "BTTS",
-      "prediction": "Oui",
+      "prediction": "Non",
       "result": "Gagné",
-      "score": "1-4",
-      "confidence": 49
+      "score": "0-1",
+      "confidence": 50
     },
     {
       "id": 11,
       "date": "2026-07-06",
+      "match": "Portugal vs Spain",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-1",
+      "confidence": 50
+    },
+    {
+      "id": 12,
+      "date": "2026-07-06",
+      "match": "Dila vs United States",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-4",
+      "confidence": 49
+    },
+    {
+      "id": 13,
+      "date": "2026-07-06",
       "match": "Dila vs United States",
       "league": "International Friendly",
       "type": "Over 2.5",
@@ -128,41 +150,41 @@
       "confidence": 49
     },
     {
-      "id": 12,
-      "date": "2026-07-05",
-      "match": "Brazil vs Norway",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-2",
-      "confidence": 51
-    },
-    {
-      "id": 13,
-      "date": "2026-07-05",
-      "match": "Brazil vs Norway",
-      "league": "International Friendly",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-2",
-      "confidence": 51
-    },
-    {
       "id": 14,
       "date": "2026-07-05",
-      "match": "IF Elfsborg vs Hammarby IF",
-      "league": "Allsvenskan",
+      "match": "Brazil vs Norway",
+      "league": "International Friendly",
       "type": "BTTS",
       "prediction": "Oui",
       "result": "Gagné",
       "score": "1-2",
-      "confidence": 50
+      "confidence": 51
     },
     {
       "id": 15,
       "date": "2026-07-05",
+      "match": "Brazil vs Norway",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 51
+    },
+    {
+      "id": 16,
+      "date": "2026-07-05",
+      "match": "IF Elfsborg vs Hammarby IF",
+      "league": "Allsvenskan",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 50
+    },
+    {
+      "id": 17,
+      "date": "2026-07-05",
       "match": "IF Elfsborg vs Hammarby IF",
       "league": "Allsvenskan",
       "type": "Over 2.5",
@@ -172,7 +194,7 @@
       "confidence": 50
     },
     {
-      "id": 16,
+      "id": 18,
       "date": "2026-07-05",
       "match": "IFK Göteborg vs AIK",
       "league": "Allsvenskan",
@@ -183,7 +205,7 @@
       "confidence": 49
     },
     {
-      "id": 17,
+      "id": 19,
       "date": "2026-07-05",
       "match": "IFK Göteborg vs AIK",
       "league": "Allsvenskan",
@@ -194,7 +216,7 @@
       "confidence": 49
     },
     {
-      "id": 18,
+      "id": 20,
       "date": "2026-07-05",
       "match": "Macará vs Liga de Quito",
       "league": "Serie A (ECU)",
@@ -203,29 +225,7 @@
       "result": "Gagné",
       "score": "1-0",
       "confidence": 49
-    },
-    {
-      "id": 19,
-      "date": "2026-07-05",
-      "match": "Kalmar FF vs Örgryte IS",
-      "league": "Allsvenskan",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "3-0",
-      "confidence": 48
-    },
-    {
-      "id": 20,
-      "date": "2026-07-04",
-      "match": "Canada vs Morocco",
-      "league": "International Friendly",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "0-3",
-      "confidence": 50
     }
   ],
-  "date": "2026-07-09"
+  "date": "2026-07-10"
 }
