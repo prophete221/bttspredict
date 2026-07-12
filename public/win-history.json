@@ -1,47 +1,69 @@
 {
   "stats": {
-    "total": 252,
-    "won": 180,
-    "rate": "71.4%",
-    "last30Rate": "71%"
+    "total": 210,
+    "won": 157,
+    "rate": "74.8%",
+    "last30Rate": "75%"
   },
   "history": [
     {
       "id": 1,
       "date": "2026-07-11",
-      "match": "Mjällby AIF vs AIK",
-      "league": "Allsvenskan",
+      "match": "Norway vs England",
+      "league": "International Friendly",
       "type": "BTTS",
       "prediction": "Oui",
       "result": "Gagné",
       "score": "1-2",
-      "confidence": 51
+      "confidence": 52
     },
     {
       "id": 2,
       "date": "2026-07-11",
-      "match": "Mjällby AIF vs AIK",
-      "league": "Allsvenskan",
+      "match": "Norway vs England",
+      "league": "International Friendly",
       "type": "Over 2.5",
       "prediction": "Oui",
       "result": "Gagné",
       "score": "1-2",
-      "confidence": 51
+      "confidence": 52
     },
     {
       "id": 3,
       "date": "2026-07-11",
-      "match": "Örgryte IS vs BK Häcken",
+      "match": "Mjällby AIF vs AIK",
       "league": "Allsvenskan",
       "type": "BTTS",
       "prediction": "Oui",
       "result": "Gagné",
-      "score": "4-3",
+      "score": "1-2",
       "confidence": 51
     },
     {
       "id": 4,
       "date": "2026-07-11",
+      "match": "Mjällby AIF vs AIK",
+      "league": "Allsvenskan",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 51
+    },
+    {
+      "id": 5,
+      "date": "2026-07-11",
+      "match": "Örgryte IS vs BK Häcken",
+      "league": "Allsvenskan",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "4-3",
+      "confidence": 51
+    },
+    {
+      "id": 6,
+      "date": "2026-07-11",
       "match": "Örgryte IS vs BK Häcken",
       "league": "Allsvenskan",
       "type": "Over 2.5",
@@ -51,7 +73,7 @@
       "confidence": 51
     },
     {
-      "id": 5,
+      "id": 7,
       "date": "2026-07-11",
       "match": "Manta F.C. vs Orense",
       "league": "Serie A (ECU)",
@@ -62,7 +84,7 @@
       "confidence": 49
     },
     {
-      "id": 6,
+      "id": 8,
       "date": "2026-07-11",
       "match": "Tromso vs Vålerenga",
       "league": "Eliteserien",
@@ -71,28 +93,6 @@
       "result": "Gagné",
       "score": "4-0",
       "confidence": 48
-    },
-    {
-      "id": 7,
-      "date": "2026-07-11",
-      "match": "Montevideo Wanderers vs Progreso",
-      "league": "Primera Division (URU)",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-3",
-      "confidence": 47
-    },
-    {
-      "id": 8,
-      "date": "2026-07-11",
-      "match": "Montevideo Wanderers vs Progreso",
-      "league": "Primera Division (URU)",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-3",
-      "confidence": 47
     },
     {
       "id": 9,
