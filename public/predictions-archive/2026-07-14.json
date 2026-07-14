@@ -56,10 +56,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/eng.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/arg.png",
       "analysis": {
-        "bttsProb": 0.79,
-        "over25Prob": 0.84,
-        "homeLambda": 2.14,
-        "awayLambda": 2.96,
+        "bttsProb": 0.77,
+        "over25Prob": 0.82,
+        "homeLambda": 2.05,
+        "awayLambda": 3.12,
         "dataQuality": 4,
         "hasRealData": true
       }
@@ -77,10 +77,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/eng.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/arg.png",
       "analysis": {
-        "bttsProb": 0.79,
-        "over25Prob": 0.84,
-        "homeLambda": 2.14,
-        "awayLambda": 2.96,
+        "bttsProb": 0.77,
+        "over25Prob": 0.82,
+        "homeLambda": 2.05,
+        "awayLambda": 3.12,
         "dataQuality": 4,
         "hasRealData": true
       }
