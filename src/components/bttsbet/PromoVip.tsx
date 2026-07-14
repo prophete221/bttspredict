@@ -570,11 +570,11 @@ export default function PromoVip() {
                 </div>
                 {/* V23: Lien de téléchargement pour les deux bookmakers — logo Android + nom du bookmaker */}
                 <div className="grid grid-cols-2 gap-2 mt-2">
-                  <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-3 py-1.5 border border-edge text-white font-semibold rounded-xl text-[11px] hover:bg-white/[0.04] transition-all bg-white/[0.02]">
+                  <a href={AFFILIATE.linebetDownload} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-3 py-1.5 border border-edge text-white font-semibold rounded-full text-[11px] hover:bg-white/[0.04] transition-all bg-white/[0.02]">
                     <img src={ANDROID_LOGO} alt="Android" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy"/>
                     APK Linebet
                   </a>
-                  <a href={AFFILIATE.star888Download} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-3 py-1.5 border border-edge text-white font-semibold rounded-xl text-[11px] hover:bg-white/[0.04] transition-all bg-white/[0.02]">
+                  <a href={AFFILIATE.star888Download} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-3 py-1.5 border border-edge text-white font-semibold rounded-full text-[11px] hover:bg-white/[0.04] transition-all bg-white/[0.02]">
                     <img src={ANDROID_LOGO} alt="Android" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy"/>
                     APK 888starz
                   </a>

@@ -160,7 +160,7 @@ export default function Navbar() {
               href={AFFILIATE.linebet}
               rel={AFFILIATE.rel}
               target="_blank"
-              className="hidden sm:flex items-center gap-2 px-4 py-2 btn-linebet text-[#04150C] text-sm font-bold rounded-xl"
+              className="hidden sm:flex items-center gap-1.5 px-4 py-1.5 btn-linebet text-[#04150C] text-sm font-bold"
             >
               <img
                 src="/logos/linebet-icon.svg"
@@ -257,47 +257,47 @@ export default function Navbar() {
                 </div>
               </div>
 
-              {/* Bookmaker buttons — mobile */}
-              <div className="pt-2 space-y-2">
+              {/* Bookmaker buttons — mobile, compact pills */}
+              <div className="pt-2 grid grid-cols-2 gap-2">
                 <a
                   href={AFFILIATE.linebet}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-2 text-center px-5 py-3 btn-linebet text-[#04150C] text-sm font-bold rounded-xl"
+                  className="flex items-center justify-center gap-1.5 text-center px-3 py-2 btn-linebet text-[#04150C] text-[11px] font-bold"
                   role="menuitem"
                 >
-                  <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy" />
-                  S&apos;inscrire sur Linebet
+                  <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-3.5 h-3.5 rounded object-contain flex-shrink-0" loading="lazy" />
+                  Linebet
                 </a>
                 <a
                   href={AFFILIATE.star888}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-2 text-center px-5 py-3 btn-star888 text-white text-sm font-bold rounded-xl"
+                  className="flex items-center justify-center gap-1.5 text-center px-3 py-2 btn-star888 text-white text-[11px] font-bold"
                   role="menuitem"
                 >
-                  <img src="/logos/888starz-icon.svg" alt="888starz" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy" />
-                  S&apos;inscrire sur 888starz
+                  <img src="/logos/888starz-icon.svg" alt="888starz" className="w-3.5 h-3.5 rounded object-contain flex-shrink-0" loading="lazy" />
+                  888starz
                 </a>
                 <a
                   href={AFFILIATE.linebetDownload}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-2 text-center px-5 py-3 border border-edge text-white font-medium rounded-xl bg-white/[0.02] hover:bg-white/[0.04] transition-colors text-sm"
+                  className="flex items-center justify-center gap-1.5 text-center px-3 py-2 border border-edge text-white font-semibold text-[11px] bg-white/[0.02] hover:bg-white/[0.04] transition-colors rounded-full"
                   role="menuitem"
                 >
-                  <img src="/logos/android.svg" alt="Android" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy" />
-                  Télécharger Linebet
+                  <img src="/logos/android.svg" alt="Android" className="w-3.5 h-3.5 object-contain flex-shrink-0" loading="lazy" />
+                  APK Linebet
                 </a>
                 <a
                   href={AFFILIATE.star888Download}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-2 text-center px-5 py-3 border border-edge text-white font-medium rounded-xl bg-white/[0.02] hover:bg-white/[0.04] transition-colors text-sm"
+                  className="flex items-center justify-center gap-1.5 text-center px-3 py-2 border border-edge text-white font-semibold text-[11px] bg-white/[0.02] hover:bg-white/[0.04] transition-colors rounded-full"
                   role="menuitem"
                 >
-                  <img src="/logos/android.svg" alt="Android" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy" />
-                  Télécharger 888starz
+                  <img src="/logos/android.svg" alt="Android" className="w-3.5 h-3.5 object-contain flex-shrink-0" loading="lazy" />
+                  APK 888starz
                 </a>
               </div>
             </div>

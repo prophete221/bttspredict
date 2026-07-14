@@ -150,12 +150,12 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
 
                       <div className="grid grid-cols-2 gap-2 mb-4">
                         <button onClick={() => setSelectedBookmaker('linebet')}
-                          className={`flex items-center justify-center gap-2 px-3 py-2 rounded-xl border text-xs font-bold transition-all ${selectedBookmaker === 'linebet' ? 'border-linebet/50 bg-linebet/10 text-linebet' : 'border-edge text-gray-500 hover:border-linebet/30'}`}>
+                          className={`flex items-center justify-center gap-2 px-3 py-2 rounded-full border text-xs font-bold transition-all ${selectedBookmaker === 'linebet' ? 'border-linebet/50 bg-linebet/10 text-linebet' : 'border-edge text-gray-500 hover:border-linebet/30'}`}>
                           <img src="/logos/linebet-icon.svg" alt="" className="w-4 h-4 object-contain"/>
                           Linebet
                         </button>
                         <button onClick={() => setSelectedBookmaker('888starz')}
-                          className={`flex items-center justify-center gap-2 px-3 py-2 rounded-xl border text-xs font-bold transition-all ${selectedBookmaker === '888starz' ? 'border-star888/50 bg-star888/10 text-star888' : 'border-edge text-gray-500 hover:border-star888/30'}`}>
+                          className={`flex items-center justify-center gap-2 px-3 py-2 rounded-full border text-xs font-bold transition-all ${selectedBookmaker === '888starz' ? 'border-star888/50 bg-star888/10 text-star888' : 'border-edge text-gray-500 hover:border-star888/30'}`}>
                           <img src="/logos/888starz-icon.svg" alt="" className="w-4 h-4 object-contain"/>
                           888starz
                         </button>

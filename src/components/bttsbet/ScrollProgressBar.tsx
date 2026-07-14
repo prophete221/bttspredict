@@ -36,15 +36,15 @@ export default function ScrollProgressBar() {
   return (
     <div
       aria-hidden="true"
-      className="fixed top-0 left-0 right-0 z-[60] h-[2px] pointer-events-none"
+      className="fixed top-0 left-0 right-0 z-[60] h-[3px] pointer-events-none"
     >
       <div
-        className="h-full origin-left transition-transform duration-75 ease-out"
+        className="h-full origin-left transition-transform duration-100 ease-out"
         style={{
           transform: `scaleX(${progress})`,
           background:
-            'linear-gradient(90deg, #FF6B2B 0%, #FF8F5E 40%, #22D3EE 70%, #FACC15 100%)',
-          boxShadow: '0 0 12px rgba(255, 107, 43, 0.6), 0 0 24px rgba(255, 107, 43, 0.3)',
+            'linear-gradient(90deg, #FF6B2B 0%, #FF8F5E 30%, #22D3EE 60%, #FACC15 85%, #4ADE80 100%)',
+          boxShadow: '0 0 8px rgba(255, 107, 43, 0.5), 0 0 20px rgba(255, 107, 43, 0.2)',
         }}
       />
     </div>

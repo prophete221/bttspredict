@@ -1,11 +1,10 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════
-   BttsBet — "NOVA PRIME" v11.1 — Clean Modern 2026
+   BttsBet — "NOVA PRIME" v12 — 2026 Modern
    
-   Philosophy: Less is more. Clean surfaces. Generous space.
-   Refined typography. Subtle depth. No visual noise.
-   Professional. Simple. Premium.
+   Philosophy: Pill buttons. Flat solids. Blur+scale reveals.
+   Compact mobile. Clean micro-interactions. Premium minimalism.
    
    Primary : Blaze Orange #FF6B2B
    Secondary : Cyan Surge #22D3EE  
@@ -247,22 +246,30 @@ h1, h2, h3, h4, h5, h6 {
 .hover-lift { transition: transform 0.3s ease, border-color 0.3s ease; }
 .hover-lift:hover { transform: translateY(-1px); }
 
-/* ═══ SCROLL REVEAL — Smooth ─── */
+/* ═══ SCROLL REVEAL — Smooth 2026 ─── */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
+  transform: translateY(24px) scale(0.98);
+  filter: blur(4px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, filter;
 }
-.reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+.reveal-on-scroll.is-visible {
+  opacity: 1; transform: translateY(0) scale(1); filter: blur(0);
+}
 
 .stagger-reveal > * {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
+  transform: translateY(20px) scale(0.98);
+  filter: blur(3px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, filter;
 }
-.stagger-reveal.is-visible > * { opacity: 1; transform: translateY(0); }
+.stagger-reveal.is-visible > * { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 .stagger-reveal.is-visible > *:nth-child(1)  { transition-delay: 0.03s; }
 .stagger-reveal.is-visible > *:nth-child(2)  { transition-delay: 0.08s; }
 .stagger-reveal.is-visible > *:nth-child(3)  { transition-delay: 0.13s; }
@@ -278,10 +285,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .reveal-fade-up {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(24px) scale(0.98);
+  filter: blur(4px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.reveal-fade-up.is-visible { opacity: 1; transform: translateY(0); }
+.reveal-fade-up.is-visible { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal-on-scroll, .stagger-reveal > *, .reveal-fade-up {
@@ -322,67 +332,90 @@ h1, h2, h3, h4, h5, h6 {
   font-variant-numeric: tabular-nums;
 }
 
-/* ═══ NOVA PRIME BUTTONS v11.1 — Clean, refined ─══ */
+/* ═══ NOVA PRIME BUTTONS v12 — 2026 Modern Pill ═══
+   Pill-shaped, flat solid colors, subtle depth.
+   Compact on mobile. Clean micro-interactions.
+   No gradients, no heavy glows. Premium minimalism. */
+
 .btn-quantum-base, .btn-emerald, .btn-gold, .btn-linebet, .btn-star888, .btn-ghost-quantum {
   position: relative; overflow: hidden; border: none;
-  font-weight: 700; letter-spacing: -0.01em; cursor: pointer; border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.2s ease;
+  font-weight: 700; letter-spacing: -0.01em; cursor: pointer; border-radius: 9999px;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.15s ease,
+              background-color 0.2s ease,
+              border-color 0.2s ease;
+  white-space: nowrap;
 }
 
-/* Remove shimmer sweep — cleaner */
+/* Remove shimmer sweep */
 .btn-quantum-base::after, .btn-emerald::after, .btn-gold::after, .btn-linebet::after, .btn-star888::after {
   display: none;
 }
 
+/* ─── Shared solid button hover/active ─── */
 .btn-emerald, .btn-gold, .btn-linebet, .btn-star888 {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 12px var(--btn-key-glow, rgba(255, 107, 43, 0.15));
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px var(--btn-key-ring, transparent);
 }
 .btn-emerald:hover, .btn-gold:hover, .btn-linebet:hover, .btn-star888:hover {
-  transform: translateY(-2px); filter: brightness(1.08);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 0 0 20px var(--btn-key-glow, rgba(255, 107, 43, 0.25));
+  transform: scale(1.03); filter: brightness(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25), 0 0 0 1px var(--btn-key-ring-hover, transparent);
 }
 .btn-emerald:active, .btn-gold:active, .btn-linebet:active, .btn-star888:active {
-  transform: translateY(0); filter: brightness(0.97); transition-duration: 0.08s;
+  transform: scale(0.97); filter: brightness(0.95); transition-duration: 0.08s;
 }
 
-/* ─── Blaze Orange primary ─── */
+/* ─── Blaze Orange primary — flat solid ─── */
 .btn-emerald {
-  --btn-key-glow: rgba(255, 107, 43, 0.25); color: #FFFFFF;
-  background: linear-gradient(135deg, #FF6B2B 0%, #E5551A 100%);
+  --btn-key-ring: rgba(255, 107, 43, 0.1);
+  --btn-key-ring-hover: rgba(255, 107, 43, 0.3);
+  color: #FFFFFF;
+  background-color: #FF6B2B;
 }
+.btn-emerald:hover { background-color: #FF7E45; }
 
-/* ─── Gold Prestige ─── */
+/* ─── Gold Prestige — flat solid ─── */
 .btn-gold {
-  --btn-key-glow: rgba(250, 204, 21, 0.25); color: #1A0F00;
-  background: linear-gradient(135deg, #FACC15 0%, #EAB308 100%);
+  --btn-key-ring: rgba(250, 204, 21, 0.1);
+  --btn-key-ring-hover: rgba(250, 204, 21, 0.3);
+  color: #1A0F00;
+  background-color: #FACC15;
 }
+.btn-gold:hover { background-color: #FBD83B; }
 
-/* ─── Linebet ─── */
+/* ─── Linebet — flat solid ─── */
 .btn-linebet {
-  --btn-key-glow: rgba(52, 211, 153, 0.25); color: #04150C;
-  background: linear-gradient(135deg, #34D399 0%, #10B981 100%);
+  --btn-key-ring: rgba(52, 211, 153, 0.1);
+  --btn-key-ring-hover: rgba(52, 211, 153, 0.3);
+  color: #04150C;
+  background-color: #34D399;
 }
+.btn-linebet:hover { background-color: #4EEAAF; }
 
-/* ─── 888starz ─── */
+/* ─── 888starz — flat solid ─── */
 .btn-star888 {
-  --btn-key-glow: rgba(239, 68, 68, 0.25); color: #FFFFFF;
-  background: linear-gradient(135deg, #EF4444 0%, #B91C1C 100%);
+  --btn-key-ring: rgba(239, 68, 68, 0.1);
+  --btn-key-ring-hover: rgba(239, 68, 68, 0.3);
+  color: #FFFFFF;
+  background-color: #EF4444;
 }
+.btn-star888:hover { background-color: #F26565; }
 
-/* ─── Ghost / outline — Clean ─── */
+/* ─── Ghost / outline — Pill ─── */
 .btn-ghost-quantum {
   background: transparent;
-  border: 1px solid rgba(255, 107, 43, 0.25); color: #F1F2F6; font-weight: 600;
-  border-radius: 12px;
-  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  border: 1px solid rgba(255, 107, 43, 0.2); color: #F1F2F6; font-weight: 600;
+  border-radius: 9999px;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.2s ease, background 0.2s ease;
 }
 .btn-ghost-quantum::after { display: none; }
 .btn-ghost-quantum:hover {
-  border-color: rgba(255, 107, 43, 0.5);
+  border-color: rgba(255, 107, 43, 0.45);
   background: rgba(255, 107, 43, 0.06);
-  transform: translateY(-1px);
+  transform: scale(1.02);
 }
-.btn-ghost-quantum:active { transform: translateY(0); transition-duration: 0.08s; }
+.btn-ghost-quantum:active { transform: scale(0.97); transition-duration: 0.08s; }
 
 /* ─── Focus-visible ─── */
 .btn-emerald:focus-visible, .btn-gold:focus-visible, .btn-linebet:focus-visible,
@@ -392,6 +425,15 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (prefers-reduced-motion: reduce) {
   .btn-emerald:hover, .btn-gold:hover, .btn-linebet:hover, .btn-star888:hover, .btn-ghost-quantum:hover { transform: none; }
+}
+
+/* ─── Mobile button compact mode ─── */
+@media (max-width: 767px) {
+  .btn-emerald, .btn-gold, .btn-linebet, .btn-star888, .btn-ghost-quantum {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    font-size: 11px !important;
+  }
 }
 
 /* ─── Section Accent Borders ─── */
@@ -437,19 +479,19 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ═══ V11.1 COMPONENT STYLES — Clean ─══ */
 
-/* ─── Promo Code Copy Button ─── */
+/* ─── Promo Code Copy Button — Pill ─── */
 .promo-copy-btn {
   position: relative;
   background: rgba(250, 204, 21, 0.06);
-  border: 1px solid rgba(250, 204, 21, 0.2); border-radius: 10px; padding: 8px 16px;
-  cursor: pointer; transition: all 0.3s ease;
+  border: 1px solid rgba(250, 204, 21, 0.2); border-radius: 9999px; padding: 6px 14px;
+  cursor: pointer; transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .promo-copy-btn:hover {
   background: rgba(250, 204, 21, 0.1);
   border-color: rgba(250, 204, 21, 0.4);
-  transform: translateY(-1px);
+  transform: scale(1.03);
 }
-.promo-copy-btn:active { transform: translateY(0); }
+.promo-copy-btn:active { transform: scale(0.97); }
 
 /* ─── Urgent Badge ─── */
 .urgent-badge {
@@ -526,13 +568,15 @@ h1, h2, h3, h4, h5, h6 {
   section { scroll-margin-top: 64px; }
 }
 
-/* ─── Per-card scroll reveal ─── */
+/* ─── Per-card scroll reveal — 2026 blur+scale ─── */
 .reveal-card {
-  opacity: 0; transform: translateY(12px);
-  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
+  opacity: 0; transform: translateY(16px) scale(0.98); filter: blur(3px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, filter;
 }
-.reveal-card.is-visible { opacity: 1; transform: translateY(0); }
+.reveal-card.is-visible { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal-card { opacity: 1 !important; transform: none !important; transition: none !important; }

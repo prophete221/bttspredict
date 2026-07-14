@@ -168,30 +168,32 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* CTA Buttons — Clean, no heavy shadows */}
+        {/* CTA Buttons — 2026 Pill, compact */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 justify-center items-stretch sm:items-center mb-10 sm:mb-12 max-w-sm sm:max-w-none mx-auto"
+          className="flex flex-row gap-2 sm:gap-3 justify-center items-center mb-10 sm:mb-12 mx-auto"
         >
           <a
             href={AFFILIATE.linebet}
             rel={AFFILIATE.rel}
             target="_blank"
-            className="flex items-center justify-center gap-2 px-5 py-2.5 btn-linebet text-[#04150C] text-xs sm:text-sm font-bold rounded-xl"
+            className="flex items-center justify-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 btn-linebet text-[#04150C] text-[11px] sm:text-sm font-bold"
           >
-            <img src="/logos/linebet.svg" alt="Linebet" className="h-4 w-auto object-contain flex-shrink-0" loading="lazy" />
-            S&apos;inscrire → Bonus 150$
+            <img src="/logos/linebet.svg" alt="Linebet" className="h-3.5 sm:h-4 w-auto object-contain flex-shrink-0" loading="lazy" />
+            <span className="sm:hidden">Bonus 150$</span>
+            <span className="hidden sm:inline">S&apos;inscrire → Bonus 150$</span>
           </a>
           <a
             href={AFFILIATE.star888}
             rel={AFFILIATE.rel}
             target="_blank"
-            className="flex items-center justify-center gap-2 px-5 py-2.5 btn-star888 text-white text-xs sm:text-sm font-bold rounded-xl"
+            className="flex items-center justify-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 btn-star888 text-white text-[11px] sm:text-sm font-bold"
           >
-            <img src="/logos/888starz.svg" alt="888starz" className="h-4 w-auto object-contain flex-shrink-0" loading="lazy" />
-            S&apos;inscrire → Bonus 100%
+            <img src="/logos/888starz.svg" alt="888starz" className="h-3.5 sm:h-4 w-auto object-contain flex-shrink-0" loading="lazy" />
+            <span className="sm:hidden">Bonus 100%</span>
+            <span className="hidden sm:inline">S&apos;inscrire → Bonus 100%</span>
           </a>
         </motion.div>
 

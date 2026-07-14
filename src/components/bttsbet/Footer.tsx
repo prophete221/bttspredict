@@ -21,15 +21,15 @@ export default function Footer() {
 
   return (
     <>
-      {/* Sticky Bottom CTA — Mobile */}
+      {/* Sticky Bottom CTA — Mobile, compact pills */}
       <div className="fixed bottom-0 left-0 right-0 z-30 sticky-cta-bar py-2 px-3 sm:hidden">
         <div className="grid grid-cols-2 gap-1.5">
-          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-2 py-2.5 btn-linebet text-[#04150C] text-xs font-bold rounded-xl">
-            <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy"/>
+          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-3 py-2 btn-linebet text-[#04150C] text-[11px] font-bold">
+            <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-3.5 h-3.5 rounded object-contain flex-shrink-0" loading="lazy"/>
             Linebet 150$
           </a>
-          <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-2 py-2.5 btn-star888 text-white text-xs font-bold rounded-xl">
-            <img src="/logos/888starz-icon.svg" alt="888starz" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy"/>
+          <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-3 py-2 btn-star888 text-white text-[11px] font-bold">
+            <img src="/logos/888starz-icon.svg" alt="888starz" className="w-3.5 h-3.5 rounded object-contain flex-shrink-0" loading="lazy"/>
             888starz 100%
           </a>
         </div>
