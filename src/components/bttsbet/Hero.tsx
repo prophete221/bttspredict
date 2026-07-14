@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { SITE, AFFILIATE, SOCIAL_PROOF, TESTIMONIALS, URGENCY_MESSAGES } from '@/lib/constants'
 import { useCountUp, useScrollAnimation } from '@/hooks/useAnimations'
+import { Football3D, FloatingParticles } from './AnimatedIcons'
 
 /** AnimatedStat — counts up to target value when in view. */
 function AnimatedStat({
@@ -69,12 +70,18 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden">
-      {/* Background — Clean gradient, no busy orbs */}
+      {/* Background — Clean gradient + particles */}
       <div className="absolute inset-0 bg-midnight" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-emerald/[0.06] rounded-full blur-[160px]" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-ultra/[0.03] rounded-full blur-[120px]" />
+      <FloatingParticles count={16} />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-24 pb-16 sm:pt-36 sm:pb-24">
+        {/* 3D Football — Desktop only, top right area */}
+        <div className="hidden lg:block absolute top-20 right-8 xl:right-16">
+          <Football3D size={80} />
+        </div>
+
         {/* Ticker — Minimal pill */}
         <motion.div
           initial={{ opacity: 0, y: -8 }}

@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useScrollAnimation, useRevealOnScroll, useCountUp } from '@/hooks/useAnimations'
 import { AFFILIATE } from '@/lib/constants'
+import { AIBrain } from './AnimatedIcons'
 import { resolveTeamLogo } from '@/lib/teamLogos'
 
 function TeamLogo({ src, initials, size = 'sm', color = 'emerald' }: {
@@ -488,7 +489,10 @@ export default function FreePredictions() {
         >
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-5">
             <div>
-              <span className="text-[10px] font-bold text-emerald uppercase tracking-[0.15em]">Live Predictions</span>
+              <div className="flex items-center gap-3 mb-1">
+                <AIBrain size={36} />
+                <span className="text-[10px] font-bold text-emerald uppercase tracking-[0.15em]">Live Predictions</span>
+              </div>
               <h2 className="text-xl sm:text-2xl font-bold text-white mt-2 tracking-tight">
                 PRONOSTICS <span className="text-emerald">IA</span>
               </h2>

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE, ANDROID_LOGO } from '@/lib/constants'
 import { useScrollAnimation } from '@/hooks/useAnimations'
+import { RocketIcon, FloatingParticles } from './AnimatedIcons'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // AviatorVip — Section VIP Signaux Aviator
@@ -395,6 +396,7 @@ export default function AviatorVip() {
           <div className="absolute top-0 right-1/4 w-[500px] h-[400px] bg-red-500/3 rounded-full blur-[140px] opacity-50" />
           <div className="absolute bottom-0 left-1/3 w-[400px] h-[350px] bg-gold/3 rounded-full blur-[120px] opacity-50" />
         </div>
+        <FloatingParticles count={8} />
 
         <div className="max-w-4xl mx-auto relative">
           <motion.div
@@ -403,6 +405,9 @@ export default function AviatorVip() {
             transition={{ duration: 0.5 }}
             className="text-center mb-8"
           >
+            <div className="flex justify-center mb-3">
+              <RocketIcon size={44} />
+            </div>
             <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">Signal Aviator · Temps Réel</span>
             <h2 className="text-xl sm:text-2xl font-bold text-white mt-2 tracking-tight">
               SIGNAUX <span className="text-gold">AVIATOR VIP</span>

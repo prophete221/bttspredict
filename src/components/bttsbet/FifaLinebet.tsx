@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE, ANDROID_LOGO } from '@/lib/constants'
 import { resolveTeamLogo } from '@/lib/teamLogos'
 import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
+import { GameController, FloatingParticles } from './AnimatedIcons'
 
 /* ─────────────────────────── FIFA MODAL ─────────────────────────── */
 
@@ -318,9 +319,14 @@ export default function FifaLinebet() {
           <div className="absolute top-0 left-1/3 w-[500px] h-[400px] bg-gold/6 rounded-full blur-[140px] opacity-60" />
           <div className="absolute bottom-0 right-1/4 w-[400px] h-[350px] bg-emerald/3 rounded-full blur-[120px] opacity-60" />
         </div>
+        <FloatingParticles count={10} />
+
         <div className={`max-w-5xl mx-auto relative ${isVisible ? 'v31-fifa-zoom-in' : 'opacity-0'}`}>
           {/* Section Header */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} transition={{ duration: 0.5 }} className="text-center mb-8">
+            <div className="flex justify-center mb-3">
+              <GameController size={44} />
+            </div>
             <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">Exclusive Algorithm</span>
             <h2 className="text-xl sm:text-2xl font-bold text-white mt-2 tracking-tight">
               FAILLE <span className="text-gold">FIFA</span>

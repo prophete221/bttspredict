@@ -6,6 +6,7 @@ import TiltCard from './TiltCard'
 import { resolveTeamLogo } from '@/lib/teamLogos'
 import { SITE } from '@/lib/constants'
 import { useScrollAnimation, useRevealOnScroll, useCountUp } from '@/hooks/useAnimations'
+import { TrophyIcon } from './AnimatedIcons'
 
 function MiniTeamLogo({ src, alt }: { src: string; alt: string }) {
   const [err, setErr] = useState(false)
@@ -143,6 +144,9 @@ export default function WinHistory() {
           transition={{ duration: 0.5 }}
           className="text-center mb-8"
         >
+          <div className="flex justify-center mb-2">
+            <TrophyIcon size={40} />
+          </div>
           <span className="text-[10px] font-bold text-emerald uppercase tracking-[0.15em]">Track Record</span>
           <h2 className="text-xl sm:text-2xl font-bold text-white mt-2 tracking-tight">
             Derniers <span className="text-emerald">Pronostics Gagnants</span>

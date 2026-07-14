@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE, BOOKMAKERS, ANDROID_LOGO } from '@/lib/constants'
 import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
+import { CrownIcon, FloatingParticles } from './AnimatedIcons'
 
 function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const [step, setStep] = useState<'info' | 'confirm'>('info')
@@ -413,7 +414,25 @@ export default function PromoVip() {
           <div className="absolute top-0 left-1/4 w-[500px] h-[400px] bg-gold/4 rounded-full blur-[140px] opacity-60" />
           <div className="absolute bottom-0 right-1/4 w-[400px] h-[350px] bg-emerald/3 rounded-full blur-[120px] opacity-60" />
         </div>
+        <FloatingParticles count={10} />
+
         <div className="max-w-5xl mx-auto relative">
+          {/* Section Header with Crown */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : undefined}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-6"
+          >
+            <div className="flex justify-center mb-2">
+              <CrownIcon size={44} />
+            </div>
+            <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">Zone Premium</span>
+            <h2 className="text-xl sm:text-2xl font-bold text-white mt-1 tracking-tight">
+              PRONOSTICS <span className="text-gold">VIP</span>
+            </h2>
+          </motion.div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             {/* VIP Coupon */}
             <motion.div initial={{ opacity: 0, y: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : undefined} transition={{ duration: 0.6 }}

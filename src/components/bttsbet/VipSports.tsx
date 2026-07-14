@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE, ANDROID_LOGO } from '@/lib/constants'
 import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
+import { StatsIcon, FloatingParticles } from './AnimatedIcons'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // VipSports — Multi-sport VIP sections (Tennis, NBA, NFL, UFC, Handball)
@@ -630,6 +631,7 @@ export default function VipSports() {
           <div className="absolute top-0 left-1/3 w-[500px] h-[400px] bg-emerald/4 rounded-full blur-[140px] opacity-50" />
           <div className="absolute bottom-0 right-1/3 w-[400px] h-[350px] bg-gold/4 rounded-full blur-[120px] opacity-50" />
         </div>
+        <FloatingParticles count={8} />
 
         <div ref={sectionRef} className="max-w-5xl mx-auto relative">
           <motion.div
@@ -638,6 +640,9 @@ export default function VipSports() {
             transition={{ duration: 0.5 }}
             className="text-center mb-6 sm:mb-8"
           >
+            <div className="flex justify-center mb-2">
+              <StatsIcon size={40} />
+            </div>
             <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">VIP Multi-Sports · IA</span>
             <h2 className="text-xl sm:text-2xl font-bold text-white mt-2 tracking-tight">
               PRONOSTICS <span className="text-gold">VIP SPORTS</span>
