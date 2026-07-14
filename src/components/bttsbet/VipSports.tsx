@@ -535,10 +535,10 @@ function VipSportCard({ sport, onUnlock, index }: { sport: SportVip; onUnlock: (
                 <img src={sport.logo} alt={sport.name} className="w-8 h-8 object-contain" loading="lazy"/>
               </div>
               <div>
-                <h3 className="text-lg sm:text-xl font-extrabold text-white leading-tight">
-                  {sport.title.split(' ').slice(0, -1).join(' ')} <span className="text-gold animate-pulse-gold">{sport.title.split(' ').slice(-1)}</span>
+                <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">
+                  {sport.title.split(' ').slice(0, -1).join(' ')} <span className="text-gold">{sport.title.split(' ').slice(-1)}</span>
                 </h3>
-                <p className="text-[10px] text-gold/60 font-medium tracking-wide uppercase">{sport.subtitle}</p>
+                <p className="text-[10px] text-gold/60 font-medium tracking-[0.15em] uppercase">{sport.subtitle}</p>
               </div>
             </div>
             <div className="flex items-center gap-1.5 bg-gold/10 border border-gold/20 rounded-full px-2.5 py-1">
@@ -638,12 +638,9 @@ export default function VipSports() {
             transition={{ duration: 0.5 }}
             className="text-center mb-6 sm:mb-8"
           >
-            <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/20 rounded-full px-3 py-1 mb-3">
-              <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
-              <span className="text-[11px] text-gold font-semibold tracking-wide">VIP MULTI-SPORTS · IA</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">
-              PRONOSTICS <span className="text-gold animate-pulse-gold">VIP SPORTS</span>
+            <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">VIP Multi-Sports · IA</span>
+            <h2 className="text-xl sm:text-2xl font-bold text-white mt-2 tracking-tight">
+              PRONOSTICS <span className="text-gold">VIP SPORTS</span>
             </h2>
             <p className="text-gray-400 text-sm max-w-2xl mx-auto leading-relaxed">
               Notre algorithme IA scanne tous les sports : <span className="text-gold/90 font-semibold">Tennis, NBA, NFL, UFC/MMA, Handball</span>. Même système, même précision, mêmes cotes exclusives — débloquez la section VIP de votre sport préféré.

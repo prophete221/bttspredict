@@ -38,7 +38,7 @@ function HistoryRow({ item, index }: { item: HistoryItem; index: number }) {
       initial={false}
       animate={isRowVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
       transition={{ duration: 0.4, delay: Math.min(index * 0.04, 0.2), ease: [0.22, 1, 0.36, 1] }}
-      className={`grid grid-cols-1 sm:grid-cols-5 gap-1 sm:gap-3 px-3 py-2.5 border-t border-edge/60 hover:bg-emerald/[0.04] transition-colors items-center ${isAlt ? 'bg-white/[0.015]' : ''}`}
+      className={`grid grid-cols-1 sm:grid-cols-5 gap-1 sm:gap-3 px-4 py-2.5 border-t border-edge/30 hover:bg-emerald/[0.03] transition-colors items-center ${isAlt ? 'bg-white/[0.01]' : ''}`}
     >
       <div className="text-[10px] text-gray-500 sm:text-xs flex items-center gap-1.5">
         <span className="pastille pastille-cyan" />
@@ -135,65 +135,50 @@ export default function WinHistory() {
   const displayedHistory = showAll ? wonHistory : wonHistory.slice(0, 5)
 
   return (
-    <section ref={ref} id="win-history" className="py-10 px-4 relative overflow-hidden">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-emerald/[0.02] via-transparent to-transparent pointer-events-none" />
-      {/* V31: Decorative animated graph background — pure UI, no data */}
-      <div className="v31-deco-graph" aria-hidden="true" />
-      <div className="max-w-5xl mx-auto relative">
+    <section ref={ref} id="win-history" className="py-12 px-4">
+      <div className="max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20, rotateX: 6 }}
-          animate={isVisible ? { opacity: 1, y: 0, rotateX: 0 } : {}}
-          transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-          style={{ transformOrigin: 'center bottom' }}
-          className={`text-center mb-6 ${isVisible ? 'v31-slide-from-left' : ''}`}
+          initial={{ opacity: 0, y: 16 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-8"
         >
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <div className="w-8 h-px bg-gradient-to-r from-transparent to-emerald" />
-            <span className="text-[10px] font-bold text-emerald uppercase tracking-widest">Track Record</span>
-            <div className="w-8 h-px bg-gradient-to-l from-transparent to-emerald" />
-          </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-2 tracking-tight">
-            Derniers <span className="text-emerald neon-glow">Pronostics Gagnants</span>
+          <span className="text-[10px] font-bold text-emerald uppercase tracking-[0.15em]">Track Record</span>
+          <h2 className="text-xl sm:text-2xl font-bold text-white mt-2 tracking-tight">
+            Derniers <span className="text-emerald">Pronostics Gagnants</span>
           </h2>
-          <p className="text-gray-500 text-sm">Sélections validées par les résultats réels</p>
+          <p className="text-gray-500 text-sm mt-1">Sélections validées par les résultats réels</p>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 15, scale: 0.95 }}
-          animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : {}}
+          initial={{ opacity: 0, y: 12 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className={`grid grid-cols-3 gap-3 mb-6 stagger-reveal ${isVisible ? 'is-visible' : ''}`}
+          className="grid grid-cols-3 gap-3 mb-8"
         >
           {[
-            { refObj: totalRef, value: totalDisplay, label: 'Analysés', color: 'text-white', pastille: 'pastille-cyan' },
-            { refObj: rateRef, value: rateDisplay, label: 'Réussite', color: 'text-emerald', suffix: '%', pastille: 'pastille-green' },
-            { refObj: last30Ref, value: last30Display, label: '30 jours', color: 'text-gold', suffix: '%', pastille: 'pastille-amber' },
+            { refObj: totalRef, value: totalDisplay, label: 'Analysés', color: 'text-white' },
+            { refObj: rateRef, value: rateDisplay, label: 'Réussite', color: 'text-emerald', suffix: '%' },
+            { refObj: last30Ref, value: last30Display, label: '30 jours', color: 'text-gold', suffix: '%' },
           ].map((item, i) => (
-            <TiltCard key={i} maxTilt={4}>
-              <div className="glass-3d rounded-xl p-3 text-center stat-card-animated relative overflow-hidden v31-ia-glow">
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-                <span ref={item.refObj} className={`v31-halo-number v31-pulse-periodic block text-lg font-bold ${item.color} tabular-nums`} style={{ animationDelay: `${i * 1.5}s` }}>
-                  {item.value}{item.suffix || ''}
-                </span>
-                <div className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold flex items-center justify-center gap-1">
-                  <span className={`pastille ${item.pastille}`} />
-                  {item.label}
-                </div>
+            <div key={i} className="bg-panel border border-edge/40 rounded-xl p-3 text-center">
+              <span ref={item.refObj} className={`block text-lg font-bold ${item.color} tabular-nums`}>
+                {item.value}{item.suffix || ''}
+              </span>
+              <div className="text-[10px] text-gray-500 uppercase tracking-wider font-medium mt-0.5">
+                {item.label}
               </div>
-            </TiltCard>
+            </div>
           ))}
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="glass-3d rounded-2xl overflow-hidden relative"
+          className="bg-panel border border-edge/40 rounded-2xl overflow-hidden"
         >
-          {/* Premium top sheen */}
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
-          <div className="hidden sm:grid grid-cols-5 gap-3 px-3 py-2 bg-[#0A0C14] text-gray-400 text-[10px] font-semibold uppercase tracking-wider border-b border-edge">
+          <div className="hidden sm:grid grid-cols-5 gap-3 px-4 py-2.5 text-gray-500 text-[10px] font-semibold uppercase tracking-wider border-b border-edge/40">
             <span>Date</span><span>Match</span><span>Type</span><span>Pronostic</span><span>Score</span>
           </div>
 
@@ -204,17 +189,17 @@ export default function WinHistory() {
 
         {wonHistory.length > 5 && (
           <div className="text-center mt-4">
-            <button onClick={() => setShowAll(!showAll)} className="px-4 py-1.5 glass-3d text-emerald text-xs font-semibold rounded-full hover:bg-emerald/10 transition-all hover-lift border border-emerald/30">
+            <button onClick={() => setShowAll(!showAll)} className="px-4 py-1.5 bg-panel border border-edge/40 text-emerald text-xs font-semibold rounded-full hover:border-emerald/30 transition-colors">
               {showAll ? 'Voir moins ↑' : 'Voir plus ↓'}
             </button>
           </div>
         )}
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3, delay: 0.6 }} className="text-center mt-4">
-          <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 bg-white/[0.03] border border-white/[0.04] v31-ia-glow">
-            <span className="v31-pulse-ring relative flex w-1.5 h-1.5">
-              <span className="absolute inset-0 bg-emerald rounded-full animate-ping opacity-75" />
-              <span className="relative w-1.5 h-1.5 bg-emerald rounded-full" />
+          <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 bg-white/[0.02] border border-edge/30">
+            <span className="relative flex w-1.5 h-1.5">
+              <span className="absolute inset-0 bg-success rounded-full animate-ping opacity-50" />
+              <span className="relative w-1.5 h-1.5 bg-success rounded-full" />
             </span>
             <span className="text-[10px] text-gray-500">Résultats vérifiés par l&apos;IA — mis à jour quotidiennement</span>
           </div>

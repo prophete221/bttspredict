@@ -431,10 +431,10 @@ export default function PromoVip() {
                       <img src="/logos/sport-football.svg" alt="Football" className="w-8 h-8 object-contain" loading="lazy"/>
                     </div>
                     <div>
-                      <h3 className="text-lg sm:text-xl font-extrabold text-white leading-tight">
-                        PRONOSTICS <span className="text-gold animate-pulse-gold">EXPERTS</span>
+                      <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">
+                        PRONOSTICS <span className="text-gold">EXPERTS</span>
                       </h3>
-                      <p className="text-[10px] text-gold/60 font-medium tracking-wide uppercase">Contenu exclusif verrouillé</p>
+                      <p className="text-[10px] text-gold/60 font-medium tracking-[0.15em] uppercase">Contenu exclusif verrouillé</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-1.5 bg-gold/10 border border-gold/20 rounded-full px-2.5 py-1">
@@ -528,7 +528,7 @@ export default function PromoVip() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-extrabold text-white">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white">
                       BONUS <span className="text-emerald">EXCLUSIF</span>
                     </h3>
                   </div>

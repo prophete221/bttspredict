@@ -401,16 +401,13 @@ export default function AviatorVip() {
             initial={{ opacity: 0, y: 18 }}
             animate={isVisible ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.5 }}
-            className="text-center mb-5"
+            className="text-center mb-8"
           >
-            <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-3 py-1 mb-3">
-              <div className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
-              <span className="text-[11px] text-red-400 font-semibold tracking-wide">SIGNAL AVIATOR · TEMPS RÉEL</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">
-              SIGNAUX <span className="text-gold animate-pulse-gold">AVIATOR VIP</span>
+            <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">Signal Aviator · Temps Réel</span>
+            <h2 className="text-xl sm:text-2xl font-bold text-white mt-2 tracking-tight">
+              SIGNAUX <span className="text-gold">AVIATOR VIP</span>
             </h2>
-            <p className="text-gray-400 text-sm max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-500 text-sm mt-1 max-w-2xl mx-auto">
               Notre algorithme IA génère un signal Aviator chaque minute. Multiplicateur prédit, indice de confiance, et historique en temps réel — <span className="text-gold/90 font-semibold">exclusivement VIP</span>.
             </p>
             {/* Hidden SEO */}

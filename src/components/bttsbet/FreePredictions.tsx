@@ -369,7 +369,7 @@ function DateGroupHeader({ label, count, color = 'emerald' }: { label: string; c
       <div className={`h-px flex-1 ${s.line}`} />
       <div className={`flex items-center gap-2 ${s.text}`}>
         <span className={`w-1.5 h-1.5 rounded-full ${s.dot}`} />
-        <span className="text-xs font-bold uppercase tracking-widest">{label}</span>
+        <span className="text-xs font-bold uppercase tracking-[0.15em]">{label}</span>
         <span className={`text-[10px] ${s.badge} font-bold px-2 py-0.5 rounded-full`}>
           {count}
         </span>
@@ -488,14 +488,11 @@ export default function FreePredictions() {
         >
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-5">
             <div>
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-8 h-px bg-gradient-to-r from-emerald to-transparent" />
-                <span className="text-[10px] font-bold text-emerald uppercase tracking-widest">Live Predictions</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-1 tracking-tight">
-                <span className="v31-scan-laser">PRONOSTICS <span className="text-emerald neon-glow">IA</span></span>
+              <span className="text-[10px] font-bold text-emerald uppercase tracking-[0.15em]">Live Predictions</span>
+              <h2 className="text-xl sm:text-2xl font-bold text-white mt-2 tracking-tight">
+                PRONOSTICS <span className="text-emerald">IA</span>
               </h2>
-              <p className="text-gray-500 text-sm">Sélection IA — matchs des 7 prochains jours</p>
+              <p className="text-gray-500 text-sm mt-1">Sélection IA — matchs des 7 prochains jours</p>
             </div>
             <div className="flex items-center gap-4 bg-panel/70 border border-edge rounded-xl px-4 py-2.5 backdrop-blur-sm v31-ia-glow">
               <div className="flex items-center gap-1.5">

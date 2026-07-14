@@ -321,22 +321,18 @@ export default function FifaLinebet() {
         <div className={`max-w-5xl mx-auto relative ${isVisible ? 'v31-fifa-zoom-in' : 'opacity-0'}`}>
           {/* Section Header */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} transition={{ duration: 0.5 }} className="text-center mb-8">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <div className="w-8 h-px bg-gradient-to-r from-transparent to-gold" />
-              <span className="text-[10px] font-bold text-gold uppercase tracking-widest">Exclusive Algorithm</span>
-              <div className="w-8 h-px bg-gradient-to-l from-transparent to-gold" />
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-2 tracking-tight">
-              <span className="v31-scan-laser">FAILLE <span className="text-gold neon-glow-blue">FIFA</span></span>
+            <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">Exclusive Algorithm</span>
+            <h2 className="text-xl sm:text-2xl font-bold text-white mt-2 tracking-tight">
+              FAILLE <span className="text-gold">FIFA</span>
             </h2>
-            {/* Warning badge — "Expérimental / High Risk" with alert line draw */}
-            <div className="v31-alert-line inline-flex items-center gap-1.5 mt-2 mb-3 badge-warning">
+            {/* Warning badge — "Expérimental / High Risk" */}
+            <div className="inline-flex items-center gap-1.5 mt-2 mb-3 badge-warning">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
               </svg>
               Expérimental / High Risk
             </div>
-            <p className="text-gray-500 text-sm max-w-lg mx-auto mb-4"><span className="v31-surlignage">Algorithme exclusif détectant les failles de cotes FIFA sur Linebet et 888starz — Mise à jour toutes les 5 minutes</span></p>
+            <p className="text-gray-500 text-sm max-w-lg mx-auto mb-4">Algorithme exclusif détectant les failles de cotes FIFA sur Linebet et 888starz — Mise à jour toutes les 5 minutes</p>
             <button onClick={scrollToCoupon}
               className="v31-cta-wave inline-flex items-center gap-2 px-5 py-2.5 btn-gold text-sm cursor-pointer"
               style={{ ['--v31-wave-delay' as string]: '5s' }}>
@@ -377,10 +373,10 @@ export default function FifaLinebet() {
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 12h3v9h6v-6h4v6h6v-9h3L12 2z"/></svg>
                     </div>
                     <div>
-                      <h3 className="text-lg sm:text-xl font-extrabold text-white leading-tight">
-                        COUPON <span className="text-gold animate-pulse-gold">FIFA</span>
+                      <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">
+                        COUPON <span className="text-gold">FIFA</span>
                       </h3>
-                      <p className="text-[10px] text-gold/60 font-medium tracking-wide uppercase">Faille de cotes verrouillée</p>
+                      <p className="text-[10px] text-gold/60 font-medium tracking-[0.15em] uppercase">Faille de cotes verrouillée</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-1.5 bg-gold/10 border border-gold/20 rounded-full px-2.5 py-1">
@@ -492,7 +488,7 @@ export default function FifaLinebet() {
                   </svg>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-2 tracking-tight">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 tracking-tight">
                   COMMENT ÇA <span className="text-gold">MARCHE ?</span>
                 </h3>
                 <p className="text-gray-400 text-sm mb-5 leading-relaxed">
