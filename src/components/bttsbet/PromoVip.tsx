@@ -193,7 +193,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                           data-cursor="hover"
                           className={`w-full flex items-center justify-center gap-2 px-4 py-2 font-bold text-xs ${
                             selectedBookmaker === 'linebet'
-                              ? 'btn-linebet text-[#06281F]'
+                              ? 'btn-linebet text-[#04150C]'
                               : 'btn-star888 text-white'
                           }`}
                         >
@@ -560,7 +560,7 @@ export default function PromoVip() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-2">
-                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-3 py-2 btn-linebet text-[#06281F] text-xs" style={{ ['--v31-wave-delay' as string]: '2s' }} data-cursor="hover">
+                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-3 py-2 btn-linebet text-[#04150C] text-xs" style={{ ['--v31-wave-delay' as string]: '2s' }} data-cursor="hover">
                     <img src="/logos/linebet.svg" alt="Linebet" className="h-4 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                   {/* V23: Nouveau bouton 888starz à côté de Linebet */}

@@ -109,7 +109,7 @@ const breadcrumbJsonLd = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-dark-900 relative">
+    <div className="min-h-screen bg-midnight relative">
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"

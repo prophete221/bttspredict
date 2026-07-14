@@ -198,7 +198,7 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
                           data-cursor="hover"
                           className={`w-full flex items-center justify-center gap-2 px-4 py-2 font-bold text-xs ${
                             selectedBookmaker === 'linebet'
-                              ? 'btn-linebet text-[#06281F]'
+                              ? 'btn-linebet text-[#04150C]'
                               : 'btn-star888 text-white'
                           }`}
                         >

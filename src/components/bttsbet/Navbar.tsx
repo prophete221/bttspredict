@@ -95,13 +95,13 @@ export default function Navbar() {
             aria-label="BttsBet — Retour en haut"
           >
             {/* Globe SVG icon */}
-            <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-emerald/25 to-emerald/5 border border-emerald/20 flex items-center justify-center group-hover:border-emerald/40 transition-all group-hover:shadow-lg group-hover:shadow-emerald/20">
+            <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-ultra/25 to-ultra/5 border border-ultra/20 flex items-center justify-center group-hover:border-ultra/40 transition-all group-hover:shadow-lg group-hover:shadow-ultra/20">
               <svg
                 width="18"
                 height="18"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#00D4FF"
+                stroke="#22D3EE"
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -111,9 +111,9 @@ export default function Navbar() {
                 <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
                 <path d="M2 12h20" />
               </svg>
-              <div className="absolute inset-0 rounded-xl bg-emerald/0 group-hover:bg-emerald/5 transition-colors" />
+              <div className="absolute inset-0 rounded-xl bg-ultra/0 group-hover:bg-ultra/5 transition-colors" />
             </div>
-            <span className="text-xl font-extrabold text-white group-hover:text-emerald transition-colors tracking-tight">
+            <span className="text-xl font-extrabold text-white group-hover:text-ultra transition-colors tracking-tight">
               {SITE.name}
             </span>
           </a>
@@ -169,7 +169,7 @@ export default function Navbar() {
                 height="14"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#FFB800"
+                stroke="#FACC15"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -190,7 +190,7 @@ export default function Navbar() {
                   height="13"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#FFB800"
+                  stroke="#FACC15"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -207,7 +207,7 @@ export default function Navbar() {
                   height="13"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#00FF6A"
+                  stroke="#4ADE80"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -327,7 +327,7 @@ export default function Navbar() {
                     height="16"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#FFB800"
+                    stroke="#FACC15"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -347,7 +347,7 @@ export default function Navbar() {
                       height="14"
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke="#FFB800"
+                      stroke="#FACC15"
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -363,7 +363,7 @@ export default function Navbar() {
                       height="14"
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke="#00FF6A"
+                      stroke="#4ADE80"
                       strokeWidth="2.5"
                       strokeLinecap="round"
                       strokeLinejoin="round"

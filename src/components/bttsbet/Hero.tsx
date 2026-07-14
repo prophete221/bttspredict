@@ -74,11 +74,13 @@ export default function Hero() {
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-midnight" />
-        {/* Mesh gradient orbs */}
+        {/* Mesh gradient orbs — NOVA PRIME palette */}
         <div className="absolute top-[-10%] left-1/4 w-[600px] h-[500px] bg-emerald/8 rounded-full blur-[140px] opacity-80" />
-        <div className="absolute top-[5%] right-1/4 w-[450px] h-[400px] bg-emerald-dark/6 rounded-full blur-[120px] opacity-70" />
+        <div className="absolute top-[5%] right-1/4 w-[450px] h-[400px] bg-ultra/5 rounded-full blur-[120px] opacity-60" />
         <div className="absolute top-[30%] left-[-10%] w-[400px] h-[400px] bg-gold/5 rounded-full blur-[120px] opacity-60" />
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] bg-emerald/3 rounded-full blur-[100px]" />
+        {/* NOVA accent — subtle cyan glow */}
+        <div className="absolute bottom-[20%] right-[-5%] w-[350px] h-[350px] bg-ultra/4 rounded-full blur-[100px] opacity-50" />
         {/* Bottom divider */}
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald/30 to-transparent" />
       </div>
@@ -196,7 +198,7 @@ export default function Hero() {
             href={AFFILIATE.linebet}
             rel={AFFILIATE.rel}
             target="_blank"
-            className="v31-cta-wave flex items-center justify-center gap-2 px-4 py-2 btn-linebet text-[#06281F] text-xs sm:text-sm font-bold"
+            className="v31-cta-wave flex items-center justify-center gap-2 px-4 py-2 btn-linebet text-[#04150C] text-xs sm:text-sm font-bold"
             data-cursor="hover"
           >
             <img src="/logos/linebet.svg" alt="Linebet" className="h-4 w-auto object-contain flex-shrink-0" loading="lazy" />

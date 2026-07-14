@@ -114,7 +114,7 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                           Je me suis déjà inscrit
                         </button>
-                          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="w-full flex items-center justify-center gap-2 px-4 py-2 btn-linebet text-[#06281F] text-xs" data-cursor="hover">
+                          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="w-full flex items-center justify-center gap-2 px-4 py-2 btn-linebet text-[#04150C] text-xs" data-cursor="hover">
                           <img src="/logos/linebet.svg" alt="Linebet" className="h-4 w-auto object-contain flex-shrink-0" loading="lazy"/>
                           Aller s&apos;inscrire sur LINEBET
                         </a>
@@ -465,7 +465,7 @@ export default function FifaLinebet() {
                     <svg width="38" height="38" viewBox="0 0 38 38">
                       <circle cx="19" cy="19" r="16" fill="none" stroke="rgba(245, 165, 36, 0.12)" strokeWidth="2" />
                       <circle
-                        cx="19" cy="19" r="16" fill="none" stroke="#F5A524" strokeWidth="2" strokeLinecap="round"
+                        cx="19" cy="19" r="16" fill="none" stroke="#FACC15" strokeWidth="2" strokeLinecap="round"
                         strokeDasharray="100"
                         strokeDashoffset={100 - (nextUpdate / 300) * 100}
                         style={{ transition: 'stroke-dashoffset 1s linear' }}
@@ -538,7 +538,7 @@ export default function FifaLinebet() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-2.5">
-                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-3 py-2 btn-linebet text-[#06281F] text-xs" style={{ ['--v31-wave-delay' as string]: '0s' }} data-cursor="hover">
+                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-3 py-2 btn-linebet text-[#04150C] text-xs" style={{ ['--v31-wave-delay' as string]: '0s' }} data-cursor="hover">
                     <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                   {/* V23: Nouveau bouton 888starz */}

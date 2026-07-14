@@ -326,7 +326,7 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
                       rel={AFFILIATE.rel}
                       target="_blank"
                       onClick={(e) => e.stopPropagation()}
-                      className="v31-cta-wave flex items-center gap-1.5 px-2.5 py-2 btn-linebet text-[#06281F] text-xs"
+                      className="v31-cta-wave flex items-center gap-1.5 px-2.5 py-2 btn-linebet text-[#04150C] text-xs"
                       style={{ ['--v31-wave-delay' as string]: '2s' }}
                       data-cursor="hover"
                     >
@@ -538,7 +538,7 @@ export default function FreePredictions() {
           <div className="text-center py-16">
             <div className="glass-3d rounded-2xl p-8 max-w-sm mx-auto border border-red-500/20">
               <div className="w-14 h-14 bg-red-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-red-500/20">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF4D6D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F43F5E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
                 </svg>
               </div>

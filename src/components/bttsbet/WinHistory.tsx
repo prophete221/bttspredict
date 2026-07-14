@@ -193,7 +193,7 @@ export default function WinHistory() {
         >
           {/* Premium top sheen */}
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
-          <div className="hidden sm:grid grid-cols-5 gap-3 px-3 py-2 bg-[#111827] text-gray-400 text-[10px] font-semibold uppercase tracking-wider border-b border-edge">
+          <div className="hidden sm:grid grid-cols-5 gap-3 px-3 py-2 bg-[#0A0C14] text-gray-400 text-[10px] font-semibold uppercase tracking-wider border-b border-edge">
             <span>Date</span><span>Match</span><span>Type</span><span>Pronostic</span><span>Score</span>
           </div>
 

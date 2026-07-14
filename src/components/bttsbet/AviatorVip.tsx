@@ -165,7 +165,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                         <a
                           href={selectedBookmaker === 'linebet' ? AFFILIATE.linebet : AFFILIATE.star888}
                           rel={AFFILIATE.rel} target="_blank" data-cursor="hover"
-                          className={`w-full flex items-center justify-center gap-2 px-4 py-2 font-bold text-xs ${selectedBookmaker === 'linebet' ? 'btn-linebet text-[#06281F]' : 'btn-star888 text-white'}`}
+                          className={`w-full flex items-center justify-center gap-2 px-4 py-2 font-bold text-xs ${selectedBookmaker === 'linebet' ? 'btn-linebet text-[#04150C]' : 'btn-star888 text-white'}`}
                         >
                           <img src={selectedBookmaker === 'linebet' ? '/logos/linebet.svg' : '/logos/888starz.svg'} alt="" className="h-4 w-auto rounded object-contain flex-shrink-0" loading="lazy"/>
                           S&apos;inscrire sur {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'}
@@ -241,9 +241,9 @@ function PlaneFlyAnimation({ multiplier, isActive }: { multiplier: number; isAct
         <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
           <defs>
             <linearGradient id="flyGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#FF4D6D" />
-              <stop offset="50%" stopColor="#FFB800" />
-              <stop offset="100%" stopColor="#00FF6A" />
+              <stop offset="0%" stopColor="#F43F5E" />
+              <stop offset="50%" stopColor="#FACC15" />
+              <stop offset="100%" stopColor="#4ADE80" />
             </linearGradient>
           </defs>
           <path
@@ -479,7 +479,7 @@ export default function AviatorVip() {
                       <div className="relative w-28 h-28 mb-2">
                         <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
                           <circle cx="50" cy="50" r="44" fill="none" stroke="rgba(255,184,0,0.1)" strokeWidth="6" />
-                          <circle cx="50" cy="50" r="44" fill="none" stroke="#FFB800" strokeWidth="6" strokeLinecap="round"
+                          <circle cx="50" cy="50" r="44" fill="none" stroke="#FACC15" strokeWidth="6" strokeLinecap="round"
                             strokeDasharray={`${(countdown / 60) * 276.46} 276.46`}
                             className="transition-all duration-1000 ease-linear"
                           />
@@ -528,9 +528,9 @@ export default function AviatorVip() {
                     <div className="flex flex-col items-center py-3">
                       <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-2 ${currentSignal.status === 'cashed-out' ? 'bg-success/10 border border-success/20' : 'bg-red-500/10 border border-red-500/20'}`}>
                         {currentSignal.status === 'cashed-out' ? (
-                          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00FF6A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                         ) : (
-                          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF4D6D" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F43F5E" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                         )}
                       </div>
                       <div className="text-center">

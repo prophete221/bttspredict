@@ -24,7 +24,7 @@ export default function Footer() {
       {/* Sticky Bottom CTA (Mobile) — Conversion maximale */}
       <div className="fixed bottom-0 left-0 right-0 z-30 sticky-cta-bar py-2 px-3 sm:hidden">
         <div className="grid grid-cols-2 gap-1.5">
-          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex items-center justify-center gap-1.5 px-2 py-2.5 btn-linebet text-[#06281F] text-xs font-bold">
+          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex items-center justify-center gap-1.5 px-2 py-2.5 btn-linebet text-[#04150C] text-xs font-bold">
             <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy"/>
             Linebet 150$
           </a>
@@ -62,7 +62,7 @@ export default function Footer() {
                     </div>
                     <div className="ml-auto flex gap-0.5">
                       {Array.from({ length: t.rating }).map((_, j) => (
-                        <svg key={j} width="10" height="10" viewBox="0 0 24 24" fill="#FFB800" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg key={j} width="10" height="10" viewBox="0 0 24 24" fill="#FACC15" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                       ))}
                     </div>
                   </div>
@@ -132,8 +132,8 @@ export default function Footer() {
           <div className={`grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10 stagger-reveal ${isVisible ? 'is-visible' : ''}`}>
             <div className="col-span-2 sm:col-span-1">
               <div className="flex items-center gap-2.5 mb-3">
-                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald/25 to-emerald/5 border border-emerald/20 flex items-center justify-center">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-ultra/25 to-ultra/5 border border-ultra/20 flex items-center justify-center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
                   </svg>
                 </div>
