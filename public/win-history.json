@@ -1,28 +1,28 @@
 {
   "stats": {
-    "total": 252,
-    "won": 180,
-    "rate": "71.4%",
-    "last30Rate": "71%"
+    "total": 154,
+    "won": 126,
+    "rate": "81.8%",
+    "last30Rate": "82%"
   },
   "history": [
     {
       "id": 1,
-      "date": "2026-07-13",
-      "match": "KF Drita vs Kauno Zalgiris",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
+      "date": "2026-07-14",
+      "match": "Manta F.C. vs Delfín",
+      "league": "Serie A (ECU)",
+      "type": "Over 2.5",
+      "prediction": "Non",
       "result": "Gagné",
-      "score": "2-3",
-      "confidence": 50
+      "score": "0-1",
+      "confidence": 49
     },
     {
       "id": 2,
       "date": "2026-07-13",
       "match": "KF Drita vs Kauno Zalgiris",
       "league": "International Friendly",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
       "result": "Gagné",
       "score": "2-3",
@@ -31,12 +31,12 @@
     {
       "id": 3,
       "date": "2026-07-13",
-      "match": "Shamrock R vs Floriana FC",
+      "match": "KF Drita vs Kauno Zalgiris",
       "league": "International Friendly",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
       "result": "Gagné",
-      "score": "5-1",
+      "score": "2-3",
       "confidence": 50
     },
     {
@@ -44,7 +44,7 @@
       "date": "2026-07-13",
       "match": "Shamrock R vs Floriana FC",
       "league": "International Friendly",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
       "result": "Gagné",
       "score": "5-1",
@@ -53,6 +53,17 @@
     {
       "id": 5,
       "date": "2026-07-13",
+      "match": "Shamrock R vs Floriana FC",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "5-1",
+      "confidence": 50
+    },
+    {
+      "id": 6,
+      "date": "2026-07-13",
       "match": "Vikingur Gota vs Stjarnan",
       "league": "International Friendly",
       "type": "BTTS",
@@ -62,7 +73,7 @@
       "confidence": 50
     },
     {
-      "id": 6,
+      "id": 7,
       "date": "2026-07-13",
       "match": "Vikingur Gota vs Stjarnan",
       "league": "International Friendly",
@@ -73,7 +84,7 @@
       "confidence": 50
     },
     {
-      "id": 7,
+      "id": 8,
       "date": "2026-07-13",
       "match": "Inter Club D'Escaldes vs Lincoln R I",
       "league": "International Friendly",
@@ -84,22 +95,11 @@
       "confidence": 49
     },
     {
-      "id": 8,
-      "date": "2026-07-13",
-      "match": "Zalgiris vs FK Petrovac",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "2-3",
-      "confidence": 49
-    },
-    {
       "id": 9,
       "date": "2026-07-13",
       "match": "Zalgiris vs FK Petrovac",
       "league": "International Friendly",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
       "result": "Gagné",
       "score": "2-3",
@@ -108,12 +108,12 @@
     {
       "id": 10,
       "date": "2026-07-13",
-      "match": "Dunfermline vs Dumbarton",
+      "match": "Zalgiris vs FK Petrovac",
       "league": "International Friendly",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
       "result": "Gagné",
-      "score": "4-1",
+      "score": "2-3",
       "confidence": 49
     },
     {
@@ -121,7 +121,7 @@
       "date": "2026-07-13",
       "match": "Dunfermline vs Dumbarton",
       "league": "International Friendly",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
       "result": "Gagné",
       "score": "4-1",
@@ -130,6 +130,17 @@
     {
       "id": 12,
       "date": "2026-07-13",
+      "match": "Dunfermline vs Dumbarton",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "4-1",
+      "confidence": 49
+    },
+    {
+      "id": 13,
+      "date": "2026-07-13",
       "match": "Elgin City vs Peterhead",
       "league": "International Friendly",
       "type": "BTTS",
@@ -139,7 +150,7 @@
       "confidence": 49
     },
     {
-      "id": 13,
+      "id": 14,
       "date": "2026-07-13",
       "match": "Elgin City vs Peterhead",
       "league": "International Friendly",
@@ -150,7 +161,7 @@
       "confidence": 49
     },
     {
-      "id": 14,
+      "id": 15,
       "date": "2026-07-13",
       "match": "Levski Sofia vs B. Banja Luka",
       "league": "International Friendly",
@@ -161,7 +172,7 @@
       "confidence": 48
     },
     {
-      "id": 15,
+      "id": 16,
       "date": "2026-07-12",
       "match": "England vs Argentina",
       "league": "International Friendly",
@@ -172,7 +183,7 @@
       "confidence": 52
     },
     {
-      "id": 16,
+      "id": 17,
       "date": "2026-07-12",
       "match": "England vs Argentina",
       "league": "International Friendly",
@@ -183,7 +194,7 @@
       "confidence": 52
     },
     {
-      "id": 17,
+      "id": 18,
       "date": "2026-07-12",
       "match": "Malmö FF vs IFK Göteborg",
       "league": "Allsvenskan",
@@ -194,22 +205,11 @@
       "confidence": 51
     },
     {
-      "id": 18,
-      "date": "2026-07-12",
-      "match": "IF Brommapojkarna vs United States",
-      "league": "Allsvenskan",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-2",
-      "confidence": 51
-    },
-    {
       "id": 19,
       "date": "2026-07-12",
       "match": "IF Brommapojkarna vs United States",
       "league": "Allsvenskan",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
       "result": "Gagné",
       "score": "1-2",
@@ -218,13 +218,13 @@
     {
       "id": 20,
       "date": "2026-07-12",
-      "match": "KFUM Oslo vs Bodo/Glimt",
-      "league": "Eliteserien",
-      "type": "BTTS",
-      "prediction": "Non",
+      "match": "IF Brommapojkarna vs United States",
+      "league": "Allsvenskan",
+      "type": "Over 2.5",
+      "prediction": "Oui",
       "result": "Gagné",
-      "score": "0-2",
-      "confidence": 49
+      "score": "1-2",
+      "confidence": 51
     }
   ],
   "date": "2026-07-15"
