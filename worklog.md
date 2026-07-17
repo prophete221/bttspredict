@@ -66,3 +66,35 @@ Stage Summary:
 - Track record transparent (gagnés + perdus, taux réel)
 - FAQ enrichie avec question sur la prédictibilité d'Aviator/FIFA
 - Lien "Jouer Responsable" → https://www.begambleaware.org/
+
+---
+Task ID: v14-redesign
+Agent: Main
+Task: Visual redesign NOVA PRIME v14 — Gold-first premium 2026
+
+Work Log:
+- Refactored globals.css: midnight blue-tinted (#0A0B1A), gold primary accent, cyan secondary (hover only), squircle radius, glassmorphism (3 targets), micro-interactions, bento grid, oversized typography
+- Modified Hero.tsx: oversized section-title, glass-promo on code card, cta-glow on buttons, gold accent dominant
+- Modified Navbar.tsx: gold logo accent, cta-glow on buttons
+- Modified AviatorVip.tsx: glass-vip on locked card, squircle cards, bento grid layout, gold accent, badge-pulse
+- Modified PromoVip.tsx: glass-vip on VIP card, squircle, bento grid, gold accent, cta-glow
+- Modified FifaLinebet.tsx: squircle cards, bento grid, gold accent, cta-glow, card-elevate
+- Modified VipSports.tsx: squircle cards, gold accent, cta-glow, card-elevate
+- Modified FreePredictions.tsx: squircle cards, gold badges, card-elevate, cta-glow
+- Modified Footer.tsx: gold accent, squircle, cta-glow on sticky bar
+- Modified WinHistory.tsx: section-title, squircle, gold accent
+- Modified AnimatedIcons.tsx: gold primary SVG colors, cyan secondary
+- Modified ScrollProgressBar.tsx: gold gradient bar
+- Build: successful (6.3MB static, 1.5MB JS, 177KB CSS)
+- Deployed: pushed to GitHub, CI/CD triggered
+
+Stage Summary:
+- NOVA PRIME v14 redesign complete
+- Gold (#FACC15) is now the dominant accent color
+- Midnight blue-tinted (#0A0B1A) instead of pure black
+- Squircle (organic rounded) cards throughout
+- Glassmorphism on 3 elements only (VIP card, promo code, sticky CTA)
+- Micro-interactions: CTA glow, card elevate, badge pulse
+- Bento grid layouts in VIP sections
+- Oversized typography for section titles
+- Performance maintained: no heavy libs added
