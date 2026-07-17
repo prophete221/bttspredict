@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://bttsbet.online/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/"/>
+    <image:image>
+      <image:loc>https://bttsbet.online/og-image.png</image:loc>
+      <image:title>BttsBet – Pronostics BTTS &amp; Over 2,5 | Faille FIFA &amp; Signaux Aviator</image:title>
+      <image:caption>Pronostics football IA, faille FIFA, signaux Aviator, code promo VISION221</image:caption>
+    </image:image>
+  </url>
+
+  <!-- NEW: SEO Landing Pages (dedicated pages for top keywords) -->
+  <url>
+    <loc>https://bttsbet.online/prediction-aviator</loc>
+    <lastmod>2026-07-06</lastmod>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/prediction-aviator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/prediction-aviator"/>
+    <image:image>
+      <image:loc>https://bttsbet.online/og-image.png</image:loc>
+      <image:title>Prédiction Aviator 2026 – Signaux IA, Astuces &amp; Stratégie</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttsbet.online/faille-fifa</loc>
+    <lastmod>2026-07-06</lastmod>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/faille-fifa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/faille-fifa"/>
+    <image:image>
+      <image:loc>https://bttsbet.online/og-image.png</image:loc>
+      <image:title>Faille FIFA Linebet &amp; 888starz – Cotes erronées détectées par IA</image:title>
+    </image:image>
+  </url>
+
+  <!-- Blog index -->
+  <url>
+    <loc>https://bttsbet.online/blog</loc>
+    <lastmod>2026-07-06</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/blog"/>
+  </url>
+
+  <!-- Blog: FIFA article (highest priority) -->
+  <url>
+    <loc>https://bttsbet.online/blog/faille-fifa-linebet</loc>
+    <lastmod>2026-07-06</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/blog/faille-fifa-linebet"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/blog/faille-fifa-linebet"/>
+    <image:image>
+      <image:loc>https://bttsbet.online/og-image.png</image:loc>
+      <image:title>Faille FIFA Linebet : Cotes erronées détectées par IA</image:title>
+    </image:image>
+  </url>
+
+  <!-- Blog: Linebet guide -->
+  <url>
+    <loc>https://bttsbet.online/blog/guide-linebet-inscription</loc>
+    <lastmod>2026-07-06</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/blog/guide-linebet-inscription"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/blog/guide-linebet-inscription"/>
+  </url>
+
+  <!-- Blog: Strategy articles -->
+  <url>
+    <loc>https://bttsbet.online/blog/strategie-mise-over-2-5</loc>
+    <lastmod>2026-07-06</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/blog/strategie-mise-over-2-5"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/blog/strategie-mise-over-2-5"/>
+  </url>
+  <url>
+    <loc>https://bttsbet.online/blog/meilleurs-championnats-btts</loc>
+    <lastmod>2026-07-06</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/blog/meilleurs-championnats-btts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/blog/meilleurs-championnats-btts"/>
+  </url>
+  <url>
+    <loc>https://bttsbet.online/blog/gestion-bankroll-paris-sportifs</loc>
+    <lastmod>2026-07-06</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/blog/gestion-bankroll-paris-sportifs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/blog/gestion-bankroll-paris-sportifs"/>
+  </url>
+  <url>
+    <loc>https://bttsbet.online/blog/comment-analyser-match-btts</loc>
+    <lastmod>2026-07-06</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/blog/comment-analyser-match-btts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/blog/comment-analyser-match-btts"/>
+  </url>
+
+  <!-- Legal pages -->
+  <url>
+    <loc>https://bttsbet.online/mentions-legales</loc>
+    <lastmod>2026-07-06</lastmod>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/mentions-legales"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/mentions-legales"/>
+  </url>
+  <url>
+    <loc>https://bttsbet.online/politique-confidentialite</loc>
+    <lastmod>2026-07-06</lastmod>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/politique-confidentialite"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/politique-confidentialite"/>
+  </url>
+  <url>
+    <loc>https://bttsbet.online/jouer-responsable</loc>
+    <lastmod>2026-07-06</lastmod>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/jouer-responsable"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/jouer-responsable"/>
+  </url>
+  <url>
+    <loc>https://bttsbet.online/cgu</loc>
+    <lastmod>2026-07-06</lastmod>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://bttsbet.online/cgu"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttsbet.online/cgu"/>
+  </url>
+
+</urlset>

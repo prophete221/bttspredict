@@ -1,0 +1,66 @@
+name: Daily Scraper & Deploy
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: 'true'
+
+      - name: Run scraper
+        run: node scripts/scraper.js
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+
+      - name: Debug — show generated files
+        run: |
+          echo "=== predictions.json ==="
+          cat public/predictions.json
+          echo ""
+          echo "=== win-history.json ==="
+          cat public/win-history.json
+
+      - name: Build Next.js static export
+        run: npm run build
+
+      - name: Commit and push updated data
+        run: |
+          git config --local user.email "bot@bttsbet.online"
+          git config --local user.name "BttsBet Bot"
+          git add public/predictions.json public/win-history.json public/predictions-archive/
+          git diff --staged --quiet || git commit -m "chore: update daily predictions & win history [skip ci]"
+          git push || echo "⚠️ Git push failed — data already deployed"
+
+      - name: Deploy to server via FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/
+          server-dir: ${{ secrets.FTP_SERVER_DIR || '/' }}
+          dangerous-clean-slate: true
+          exclude: |
+            **/.git*
+            **/node_modules/**

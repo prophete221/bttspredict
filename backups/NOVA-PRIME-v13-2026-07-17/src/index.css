@@ -1,0 +1,450 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════
+   BttsBet — "Dark Emerald Premium" Design System v4
+   Palette : Émeraude Vibrant + Or Premium + Bleu Nuit Profond
+   Style : Dark Glassmorphism
+   ═══════════════════════════════════════════════════════════════ */
+@theme {
+  /* ── Fonds — Bleu nuit profond ── */
+  --color-midnight: #0B1120;
+  --color-abyss: #0F1729;
+  --color-panel: #151D2E;
+  --color-edge: #1E293B;
+  --color-edge-light: #334155;
+
+  /* ── Primaire : Émeraude Vibrant ── */
+  --color-emerald: #00D4AA;
+  --color-emerald-dark: #00A888;
+  --color-emerald-soft: #33E0BE;
+
+  /* ── Secondaire : Bleu Royal ── */
+  --color-royal: #2A5CAA;
+  --color-royal-deep: #1E4488;
+  --color-royal-soft: #4A7CC8;
+
+  /* ── Accent : Or Premium ── */
+  --color-gold: #F59E0B;
+  --color-gold-light: #FBBF24;
+  --color-gold-dark: #D97706;
+
+  /* ── Sémantique ── */
+  --color-win: #00E676;
+  --color-lose: #FF3D71;
+
+  /* ── Legacy tokens (mappés vers nouvelles couleurs) ── */
+  --color-neon: #00D4AA;
+  --color-neon-green: #00D4AA;
+  --color-neon-purple: #F59E0B;
+  --color-amber: #F59E0B;
+  --color-sky: #00D4AA;
+  --color-sky-deep: #00A888;
+  --color-sky-soft: #33E0BE;
+  --color-flame: #F59E0B;
+  --color-flame-deep: #D97706;
+  --color-flame-soft: #FBBF24;
+  --color-royal-violet: #2A5CAA;
+
+  /* ── Fonds legacy (mappés) ── */
+  --color-dark-900: #0B1120;
+  --color-dark-800: #0F1729;
+  --color-dark-700: #151D2E;
+  --color-dark-600: #1E293B;
+  --color-dark-500: #334155;
+
+  /* ── Cartes legacy (mappées) ── */
+  --color-card: #151D2E;
+  --color-card-border: #1E293B;
+  --color-card-hover: #1A2438;
+
+  /* ── Verre ── */
+  --color-glass: rgba(0, 212, 170, 0.03);
+  --color-glass-border: rgba(0, 212, 170, 0.06);
+}
+
+/* ─── Base ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0B1120;
+  color: #F1F5F9;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bebas Neue', 'Inter', system-ui, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* ─── Glassmorphism ─── */
+.glass {
+  background: rgba(0, 212, 170, 0.03);
+  border: 1px solid rgba(0, 212, 170, 0.06);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+@media (min-width: 768px) {
+  .glass {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(0, 212, 170, 0.04);
+  }
+}
+
+.glass-strong {
+  background: rgba(11, 17, 32, 0.94);
+  border: 1px solid rgba(0, 212, 170, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+@media (min-width: 768px) {
+  .glass-strong {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    background: rgba(11, 17, 32, 0.9);
+  }
+}
+
+/* ─── 3D Card Styles ─── */
+.card-3d {
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(0, 212, 170, 0.03);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.card-3d:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5), 0 0 28px rgba(0, 212, 170, 0.1), inset 0 1px 0 rgba(0, 212, 170, 0.05);
+}
+.card-3d::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(0, 212, 170, 0.05) 0%, transparent 40%, rgba(245, 158, 11, 0.03) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Tilt Card Wrapper ─── */
+.tilt-card-wrapper {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ─── Neon Glow — Emerald ─── */
+.neon-glow {
+  text-shadow: 0 0 8px rgba(0, 212, 170, 0.5), 0 0 24px rgba(0, 212, 170, 0.3);
+}
+.neon-glow-blue {
+  text-shadow: 0 0 8px rgba(245, 158, 11, 0.5), 0 0 24px rgba(245, 158, 11, 0.3);
+}
+.neon-border {
+  box-shadow: 0 0 8px rgba(0, 212, 170, 0.15), 0 0 24px rgba(0, 212, 170, 0.06), inset 0 0 8px rgba(0, 212, 170, 0.03);
+}
+.neon-border-blue {
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.15), 0 0 24px rgba(245, 158, 11, 0.06), inset 0 0 8px rgba(245, 158, 11, 0.03);
+}
+
+/* ─── Premium Card ─── */
+.card {
+  background: #151D2E;
+  border: 1px solid #1E293B;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(0, 212, 170, 0.03);
+}
+.card:hover {
+  background: #1A2438;
+  border-color: rgba(0, 212, 170, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 24px rgba(0, 212, 170, 0.1), inset 0 1px 0 rgba(0, 212, 170, 0.05);
+}
+.card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at var(--shine-x, 50%) var(--shine-y, 0%), rgba(0, 212, 170, 0.05) 0%, transparent 40%, rgba(245, 158, 11, 0.03) 60%, transparent 80%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.card:hover::after { opacity: 1; }
+
+.card-shadow {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5), 0 12px 48px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Section Spacing ─── */
+.section-spacing {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section-spacing {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+/* ─── Max prose width ─── */
+.prose-max { max-width: 700px; }
+
+/* ─── Animations ─── */
+@keyframes pulse-neon {
+  0%, 100% { text-shadow: 0 0 8px rgba(0, 212, 170, 0.5), 0 0 24px rgba(0, 212, 170, 0.3); }
+  50% { text-shadow: 0 0 16px rgba(0, 212, 170, 0.7), 0 0 48px rgba(0, 212, 170, 0.5); }
+}
+.animate-pulse-neon { animation: pulse-neon 2s ease-in-out infinite; }
+
+/* Gold shimmer for promo codes */
+@keyframes pulse-gold {
+  0%, 100% { text-shadow: 0 0 8px rgba(245, 158, 11, 0.5), 0 0 24px rgba(245, 158, 11, 0.25); }
+  50% { text-shadow: 0 0 16px rgba(245, 158, 11, 0.8), 0 0 48px rgba(245, 158, 11, 0.4); }
+}
+.animate-pulse-gold { animation: pulse-gold 2.5s ease-in-out infinite; }
+
+@keyframes float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -10px, 0); }
+}
+.animate-float { animation: float 3s ease-in-out infinite; }
+
+/* ─── Floating shape animation ─── */
+@keyframes floatShape {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  25% { transform: translate3d(0, -12px, 0) rotate(90deg); }
+  50% { transform: translate3d(0, -6px, 0) rotate(180deg); }
+  75% { transform: translate3d(0, -14px, 0) rotate(270deg); }
+}
+.floating-shape {
+  animation: floatShape var(--animation-duration, 8s) ease-in-out infinite;
+  animation-delay: var(--animation-delay, 0s);
+  will-change: transform;
+}
+
+/* ─── 3D Entrance ─── */
+@keyframes enter3d {
+  from { opacity: 0; transform: perspective(1000px) rotateX(8deg) translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: perspective(1000px) rotateX(0deg) translateY(0) scale(1); }
+}
+.animate-enter3d { animation: enter3d 0.7s ease-out forwards; }
+
+@keyframes shimmer3d {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer-3d {
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 212, 170, 0.04) 40%, rgba(245, 158, 11, 0.04) 60%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer3d 3s ease-in-out infinite;
+}
+
+/* ─── 3D Depth Layers ─── */
+.depth-1 { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(0, 212, 170, 0.02); }
+.depth-2 { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(0, 212, 170, 0.03); }
+.depth-3 { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 16px 48px rgba(0, 0, 0, 0.25), 0 0 24px rgba(0, 212, 170, 0.04), inset 0 1px 0 rgba(0, 212, 170, 0.04); }
+
+/* ─── 3D Glass Card ─── */
+.glass-3d {
+  background: rgba(21, 29, 46, 0.8);
+  border: 1px solid rgba(0, 212, 170, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(0, 212, 170, 0.04), inset 0 0 24px rgba(0, 212, 170, 0.02);
+}
+@media (min-width: 768px) {
+  .glass-3d {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(21, 29, 46, 0.7);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 16px 64px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(0, 212, 170, 0.04), inset 0 -1px 0 rgba(0, 0, 0, 0.2), inset 0 0 24px rgba(0, 212, 170, 0.02);
+  }
+}
+
+/* ─── Perspective Container ─── */
+.perspective-container { perspective: 1200px; transform-style: preserve-3d; }
+
+/* ─── Hover lift ─── */
+.hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.hover-lift:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 28px rgba(0, 212, 170, 0.12); }
+
+/* ─── Scroll reveal ─── */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0B1120; }
+::-webkit-scrollbar-thumb { background: rgba(0, 212, 170, 0.2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 212, 170, 0.4); }
+
+/* ─── Selection ─── */
+::selection { background: rgba(0, 212, 170, 0.3); color: #fff; }
+
+/* ─── Blog Article Prose ─── */
+.prose-dark h2 { color: #00D4AA; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+.prose-dark h3 { color: #F59E0B; font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+.prose-dark p { color: #cbd5e1; line-height: 1.8; margin-bottom: 1rem; }
+.prose-dark ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+.prose-dark li { color: #cbd5e1; line-height: 1.8; margin-bottom: 0.5rem; }
+.prose-dark strong { color: #f1f5f9; }
+.prose-dark blockquote { border-left: 3px solid #00D4AA; padding-left: 1rem; margin: 1.5rem 0; color: #94a3b8; font-style: italic; }
+
+/* ─── Stat Card Motion Animations ─── */
+@keyframes statFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes statGlow {
+  0%, 100% { box-shadow: 0 0 12px rgba(0, 212, 170, 0.08), 0 4px 16px rgba(0, 0, 0, 0.4); }
+  50% { box-shadow: 0 0 24px rgba(0, 212, 170, 0.18), 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 8px rgba(245, 158, 11, 0.06); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes goldShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.stat-card-animated {
+  animation: statFloat 4s ease-in-out infinite, statGlow 4s ease-in-out infinite;
+}
+
+.stat-card-animated:nth-child(2) { animation-delay: 0.5s; }
+.stat-card-animated:nth-child(3) { animation-delay: 1s; }
+.stat-card-animated:nth-child(4) { animation-delay: 1.5s; }
+
+.stat-value-animated {
+  animation: countUp 0.8s ease-out forwards;
+}
+
+.promo-code-shimmer {
+  background: linear-gradient(90deg, #F59E0B 0%, #FBBF24 25%, #FFF7ED 50%, #FBBF24 75%, #F59E0B 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 3s linear infinite;
+}
+
+/* ─── Premium Button Styles ─── */
+.btn-emerald {
+  background: linear-gradient(135deg, #00D4AA, #00A888);
+  color: #0B1120;
+  font-weight: 700;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-emerald:hover {
+  box-shadow: 0 8px 24px rgba(0, 212, 170, 0.35), 0 0 12px rgba(0, 212, 170, 0.15);
+  filter: brightness(1.1);
+}
+.btn-emerald::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  color: #0B1120;
+  font-weight: 700;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-gold:hover {
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35), 0 0 12px rgba(245, 158, 11, 0.15);
+  filter: brightness(1.1);
+}
+.btn-gold::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* ─── Section Accent Borders ─── */
+.accent-line-emerald {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00D4AA, transparent);
+}
+.accent-line-gold {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #F59E0B, transparent);
+}
+
+/* ─── Scrollbar-none for filter tabs ─── */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Tabular numbers for time display ─── */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Mobile performance ─── */
+@media (max-width: 767px) {
+  .card-3d::before { display: none; }
+  .card::after { display: none; }
+  .neon-glow { text-shadow: 0 0 6px rgba(0, 212, 170, 0.4); }
+  .neon-glow-blue { text-shadow: 0 0 6px rgba(245, 158, 11, 0.4); }
+  .animate-pulse-neon { animation: none; }
+  .animate-pulse-gold { animation: none; }
+  .shimmer-3d { animation: none; background: none; }
+  .stat-card-animated { animation: none; }
+}
+
+/* ─── Accessibility: Focus Visible ─── */
+*:focus-visible {
+  outline: 2px solid #00D4AA;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}

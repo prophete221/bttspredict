@@ -22,3 +22,22 @@ Stage Summary:
 - Performance improved: removed 3 heavy JS components
 - SEO fixed: removed invalid SportsEvent JSON-LD
 - File changes: globals.css, Hero.tsx, Navbar.tsx, Footer.tsx, page.tsx, layout.tsx, constants.ts, CursorEffect.tsx, FloatingElements.tsx, NeuralBackground.tsx
+
+---
+Task ID: 2
+Agent: Super Z (main)
+Task: Sauvegarde complète du site BttsBet NOVA PRIME v13 avant corrections utilisateur
+
+Work Log:
+- Vérifié l'état actuel du projet: commit e37f0f52 (NOVA PRIME v13)
+- Créé un tag git: backup-NOVA-PRIME-v13-2026-07-17
+- Copié tous les fichiers sources (src/, public/, configs, prisma, .github, scripts/) dans backups/NOVA-PRIME-v13-2026-07-17/
+- Créé RESTORE-INFO.md avec instructions de restauration complètes
+- Taille du backup: 3.7MB
+
+Stage Summary:
+- Sauvegarde double: git tag + copie physique des fichiers
+- Pour restaurer: `git checkout backup-NOVA-PRIME-v13-2026-07-17` ou copier depuis backups/
+- Version sauvegardée: NOVA PRIME v13 avec icônes animées, effets 3D, particules flottantes
+- Couleurs: Emerald #FF6B2B, Ultra #22D3EE, Gold #FACC15
+- Site: bttsbet.online
