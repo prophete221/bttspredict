@@ -7,9 +7,9 @@ import { useScrollAnimation } from '@/hooks/useAnimations'
 import { RocketIcon, FloatingParticles } from './AnimatedIcons'
 
 // ─────────────────────────────────────────────────────────────────────────────
-// AviatorVip — Section VIP Signaux Aviator
-// Simule des signaux de prédiction Aviator (multiplier) toutes les 60 secondes.
-// Les signaux sont basés sur un algorithme pseudo-aléatoire avec seed temporel.
+// AviatorVip — Section VIP Statistiques Aviator
+// Affiche les statistiques historiques des rounds Aviator (multiplicateurs, tendances).
+// Les données sont basées sur un algorithme pseudo-aléatoire avec seed temporel.
 // Section verrouillée — accès via inscription bookmaker + vérification ID.
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -408,16 +408,16 @@ export default function AviatorVip() {
             <div className="flex justify-center mb-3">
               <RocketIcon size={44} />
             </div>
-            <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">Signal Aviator · Temps Réel</span>
+            <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">Statistiques Aviator · Temps Réel</span>
             <h2 className="text-xl sm:text-2xl font-bold text-white mt-2 tracking-tight">
-              SIGNAUX <span className="text-gold">AVIATOR VIP</span>
+              STATS <span className="text-gold">AVIATOR VIP</span>
             </h2>
             <p className="text-gray-500 text-sm mt-1 max-w-2xl mx-auto">
-              Notre algorithme IA génère un signal Aviator chaque minute. Multiplicateur prédit, indice de confiance, et historique en temps réel — <span className="text-gold/90 font-semibold">exclusivement VIP</span>.
+              Notre outil suit en temps réel l&apos;historique des rounds Aviator : multiplicateurs passés, tendances de fréquence, moments de forte volatilité. Aviator reste un jeu 100% aléatoire (provably fair) — aucun outil ne peut prédire un round futur. Nos statistiques t&apos;aident à observer les patterns historiques, pas à gagner à coup sûr.
             </p>
             {/* Hidden SEO */}
             <p className="sr-only">
-              Signaux Aviator VIP, prédiction Aviator, hack Aviator, signal Aviator en direct, multiplicateur Aviator, Aviator AI predictor, code promo VISION221 Linebet 888starz.
+              Statistiques Aviator VIP, historique Aviator, multiplicateur Aviator, tendances Aviator, stats Aviator en direct, code promo VISION221 Linebet 888starz.
             </p>
           </motion.div>
 
@@ -443,15 +443,15 @@ export default function AviatorVip() {
                   </div>
                   <div>
                     <h3 className="text-lg sm:text-xl font-extrabold text-white leading-tight">
-                      SIGNAL <span className="text-gold animate-pulse-gold">AVIATOR</span>
+                      STATISTIQUES <span className="text-gold animate-pulse-gold">AVIATOR</span>
                     </h3>
-                    <p className="text-[10px] text-red-400/60 font-medium tracking-wide uppercase">Prédiction IA chaque 60 secondes</p>
+                    <p className="text-[10px] text-red-400/60 font-medium tracking-wide uppercase">Actualisation des statistiques chaque 60 secondes</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-1.5 bg-red-500/10 border border-red-500/20 rounded-full px-2.5 py-1">
                   <div className={`w-1.5 h-1.5 rounded-full animate-pulse ${signalPhase === 'active' ? 'bg-emerald' : signalPhase === 'countdown' ? 'bg-gold' : 'bg-red-500'}`} />
                   <span className="text-[10px] text-red-400 font-semibold">
-                    {signalPhase === 'active' ? 'SIGNAL' : signalPhase === 'countdown' ? 'EN ATTENTE' : 'RÉSULTAT'}
+                    {signalPhase === 'active' ? 'STATS' : signalPhase === 'countdown' ? 'EN ATTENTE' : 'RÉSULTAT'}
                   </span>
                 </div>
               </div>
@@ -582,12 +582,12 @@ export default function AviatorVip() {
                 data-cursor="hover"
               >
                 <img src="/logos/sport-aviator.svg" alt="" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy"/>
-                <span>Débloquer les Signaux Aviator</span>
+                <span>Débloquer les Statistiques Aviator VIP</span>
               </button>
 
               <div className="flex items-center justify-center gap-2 mt-2">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/40"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <p className="text-[10px] sm:text-[11px] text-gold/40 font-medium">Accès limité — <span className="text-gold/60">signaux en temps réel</span></p>
+                <p className="text-[10px] sm:text-[11px] text-gold/40 font-medium">Accès limité — <span className="text-gold/60">statistiques en temps réel</span></p>
               </div>
             </div>
           </motion.div>
@@ -600,10 +600,10 @@ export default function AviatorVip() {
             className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4"
           >
             {[
-              { icon: '⚡', label: 'Signal / min', desc: 'Mise à jour toutes les 60s' },
-              { icon: '🎯', label: 'IA Prédiction', desc: 'Algorithme breveté' },
+              { icon: '⚡', label: 'Stats / min', desc: 'Mise à jour toutes les 60s' },
+              { icon: '📊', label: 'Suivi statistique', desc: 'Historique en direct' },
               { icon: '💰', label: 'Cash Out Info', desc: 'Moment optimal' },
-              { icon: '📊', label: `${dailyWinRate}% Taux`, desc: 'Vérifié chaque jour' },
+              { icon: '📈', label: 'Tendances', desc: 'Patterns historiques' },
             ].map((f, i) => (
               <div key={i} className="bg-panel/60 border border-edge/50 rounded-xl px-3 py-2.5 text-center">
                 <span className="text-lg">{f.icon}</span>
@@ -614,6 +614,16 @@ export default function AviatorVip() {
           </motion.div>
         </div>
       </section>
+
+      {/* Legal disclaimer — Aviator */}
+      <div className="max-w-5xl mx-auto px-4 mt-2 mb-4">
+        <div className="bg-panel/40 border border-edge/30 rounded-xl p-3 flex items-start gap-2">
+          <span className="text-gold/70 text-xs flex-shrink-0 mt-0.5">⚠️</span>
+          <p className="text-[10px] sm:text-[11px] text-gray-500 leading-relaxed">
+            Aviator est un jeu de hasard basé sur un générateur certifié &apos;provably fair&apos;. Aucune prédiction n&apos;est possible. Ces statistiques sont fournies à titre informatif et ludique uniquement.
+          </p>
+        </div>
+      </div>
 
       <VipModal isOpen={showVipModal} onClose={() => setShowVipModal(false)} />
     </>

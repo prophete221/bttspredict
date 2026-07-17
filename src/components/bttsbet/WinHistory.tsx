@@ -93,23 +93,25 @@ export default function WinHistory() {
       })
   }, [])
 
+  // Compute real win rate from history data (before useMemo to avoid circular deps)
+  const historyArr = winData?.history ?? []
+  const wonCount = historyArr.filter((item) => item.result === 'Gagné').length
+  const realWinRate = historyArr.length > 0 ? Math.round((wonCount / historyArr.length) * 1000) / 10 : 0
+
   const displayStats = useMemo(() => {
     if (!winData || !winData.stats) return null
     const { stats } = winData
     const total = stats.total || 0
-    return { total, rate: SITE.historyRate, last30Rate: `${SITE.last30Rate}` }
-  }, [winData])
+    return { total, rate: `${realWinRate}%`, wonCount }
+  }, [winData, realWinRate])
 
   // Count-up hooks for the three stat cards
-  // total: integer count-up
-  // rate: parse "88.3%" → 88.3 with 1 decimal
-  // last30Rate: parse "91%" → 91 with 0 decimals
   const totalTarget = displayStats?.total ?? 0
   const rateTarget = displayStats ? parseFloat(displayStats.rate.replace('%', '')) : 0
-  const last30Target = displayStats ? parseFloat(displayStats.last30Rate.replace('%', '')) : 0
+  const wonTarget = displayStats?.wonCount ?? 0
   const [totalRef, totalDisplay] = useCountUp(totalTarget, 1800, { threshold: 0.3 })
   const [rateRef, rateDisplay] = useCountUp(rateTarget, 1800, { decimals: 1, threshold: 0.3 })
-  const [last30Ref, last30Display] = useCountUp(last30Target, 1800, { threshold: 0.3 })
+  const [last30Ref, last30Display] = useCountUp(wonTarget, 1800, { threshold: 0.3 })
 
   if (loading) {
     return (
@@ -131,9 +133,8 @@ export default function WinHistory() {
     )
   }
   const { history } = winData
-  // N'afficher que les matchs gagnés
-  const wonHistory = history.filter((item) => item.result === 'Gagné')
-  const displayedHistory = showAll ? wonHistory : wonHistory.slice(0, 5)
+  // Afficher TOUS les pronostics (gagnés ET perdus) — transparence totale
+  const displayedHistory = showAll ? history : history.slice(0, 5)
 
   return (
     <section ref={ref} id="win-history" className="py-12 px-4">
@@ -149,9 +150,9 @@ export default function WinHistory() {
           </div>
           <span className="text-[10px] font-bold text-emerald uppercase tracking-[0.15em]">Track Record</span>
           <h2 className="text-xl sm:text-2xl font-bold text-white mt-2 tracking-tight">
-            Derniers <span className="text-emerald">Pronostics Gagnants</span>
+            Historique des <span className="text-emerald">Pronostics</span>
           </h2>
-          <p className="text-gray-500 text-sm mt-1">Sélections validées par les résultats réels</p>
+          <p className="text-gray-500 text-sm mt-1">Tous les pronostics — gagnés et perdus — sans filtrage</p>
         </motion.div>
 
         <motion.div
@@ -162,8 +163,8 @@ export default function WinHistory() {
         >
           {[
             { refObj: totalRef, value: totalDisplay, label: 'Analysés', color: 'text-white' },
-            { refObj: rateRef, value: rateDisplay, label: 'Réussite', color: 'text-emerald', suffix: '%' },
-            { refObj: last30Ref, value: last30Display, label: '30 jours', color: 'text-gold', suffix: '%' },
+            { refObj: rateRef, value: rateDisplay, label: 'Réussite réelle', color: 'text-emerald', suffix: '%' },
+            { refObj: last30Ref, value: last30Display, label: 'Gagnés', color: 'text-gold' },
           ].map((item, i) => (
             <div key={i} className="bg-panel border border-edge/40 rounded-xl p-3 text-center">
               <span ref={item.refObj} className={`block text-lg font-bold ${item.color} tabular-nums`}>
@@ -191,7 +192,7 @@ export default function WinHistory() {
           ))}
         </motion.div>
 
-        {wonHistory.length > 5 && (
+        {history.length > 5 && (
           <div className="text-center mt-4">
             <button onClick={() => setShowAll(!showAll)} className="px-4 py-1.5 bg-panel border border-edge/40 text-emerald text-xs font-semibold rounded-full hover:border-emerald/30 transition-colors">
               {showAll ? 'Voir moins ↑' : 'Voir plus ↓'}
@@ -205,7 +206,7 @@ export default function WinHistory() {
               <span className="absolute inset-0 bg-success rounded-full animate-ping opacity-50" />
               <span className="relative w-1.5 h-1.5 bg-success rounded-full" />
             </span>
-            <span className="text-[10px] text-gray-500">Résultats vérifiés par l&apos;IA — mis à jour quotidiennement</span>
+            <span className="text-[10px] text-gray-500">Résultats complets (gagnés et perdus) — transparence totale</span>
           </div>
         </motion.div>
       </div>

@@ -63,7 +63,7 @@ export const NAV_LINKS = [
   { label: 'Accueil', href: '/' },
   { label: 'Pronostics', scrollTarget: 'free-predictions' },
   { label: 'Résultats', scrollTarget: 'win-history' },
-  { label: 'FIFA', scrollTarget: 'fifa-linebet', highlight: true },
+  { label: 'Value Bets FIFA', scrollTarget: 'fifa-linebet', highlight: true },
   { label: 'VIP & Bonus', scrollTarget: 'vip' },
   { label: 'FAQ', scrollTarget: 'faq' },
 ]
@@ -99,15 +99,15 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Comment fonctionne l'IA de BttsBet ?",
-    a: "Notre intelligence artificielle analyse des centaines de variables en temps réel : Expected Goals (xG), forme récente des équipes, blessés et suspensions, historique des confrontations directes, conditions météo, motivation des équipes (fin de saison, matchs décisifs), et bien plus encore. L'algorithme est entraîné sur plus de 50 000 matchs et affiche des résultats historiques d'environ 87% de précision. Chaque pronostic est accompagné d'un indice de confiance calculé par le modèle.",
+    a: "Notre intelligence artificielle analyse des centaines de variables en temps réel : Expected Goals (xG), forme récente des équipes, blessés et suspensions, historique des confrontations directes, conditions météo, motivation des équipes (fin de saison, matchs décisifs), et bien plus encore. L'algorithme est entraîné sur plus de 50 000 matchs et affiche des résultats historiques d'environ 87% de précision. Chaque pronostic est accompagné d'un indice de confiance calculé par le modèle. Ces performances passées ne garantissent pas les résultats futurs.",
   },
   {
     q: 'Comment utiliser le code promo VISION221 ?',
-    a: "C'est très simple : inscrivez-vous sur Linebet via notre lien de parrainage, puis saisissez le code promo VISION221 lors de votre inscription ou dans la section \"Code Promo\" de votre compte. Vous recevrez automatiquement un bonus exclusif sur votre premier dépôt. Ce bonus vous permettra de commencer à parier avec un capital supplémentaire et de tester nos pronostics sans risque.",
+    a: "C'est très simple : inscrivez-vous sur Linebet via notre lien de parrainage, puis saisissez le code promo VISION221 lors de votre inscription ou dans la section \"Code Promo\" de votre compte. Vous recevrez automatiquement un bonus exclusif sur votre premier dépôt. Ce bonus vous permettra de commencer à parier avec un capital supplémentaire et de tester nos pronostics avec un budget accru.",
   },
   {
     q: 'Les pronostics gratuits sont-ils fiables ?',
-    a: "Oui, nos pronostics gratuits sont générés par la même IA que nos pronostics premium. Ils couvrent les matchs les plus populaires du jour avec une analyse complète. La différence avec les pronostics premium réside dans le nombre de matchs analysés et l'accès à des marchés supplémentaires. Nos résultats sont transparents et vérifiables sur notre plateforme.",
+    a: "Nos pronostics gratuits sont générés par la même IA que nos pronostics premium. Ils couvrent les matchs les plus populaires du jour avec une analyse complète. La différence avec les pronostics premium réside dans le nombre de matchs analysés et l'accès à des marchés supplémentaires. Comme pour tout pronostic, aucun résultat n'est garanti — les performances historiques ne préjugent pas des résultats futurs.",
   },
   {
     q: 'Quels championnats sont couverts ?',
@@ -117,14 +117,18 @@ export const FAQ_ITEMS = [
     q: 'Comment utiliser les pronostics BttsBet ?',
     a: "Nos pronostics sont des outils d'aide à la décision, pas des garanties de gain. Pour les utiliser au mieux, consultez nos pronostics gratuits chaque jour, vérifiez l'indice de confiance associé, et croisez avec votre propre analyse. Nous vous recommandons de toujours respecter votre gestion de bankroll et de ne jamais miser plus que ce que vous pouvez vous permettre de perdre. Les résultats passés ne garantissent pas les résultats futurs.",
   },
+  {
+    q: 'Peut-on prédire Aviator ou une faille de cotes FIFA ?',
+    a: "Non. Aviator est un jeu 100% aléatoire basé sur un générateur certifié 'provably fair' — aucun outil au monde ne peut prédire le multiplicateur d'un round futur. Nos statistiques Aviator permettent d'observer l'historique des rounds et les tendances passées, mais ne constituent en aucun cas des prédictions. Concernant les 'Value Bets FIFA', il s'agit d'estimations statistiques comparant les cotes des bookmakers à nos probabilités calculées — ce sont des outils d'analyse, pas des garanties de gain. Tout pari comporte un risque de perte.",
+  },
 ]
 
 export const TESTIMONIALS = [
   { name: 'Mamadou D.', city: 'Dakar', text: "Depuis que j'utilise BttsBet, j'ai multiplié mes gains par 3. Le code VISION221 m'a donné 150$ de bonus sur Linebet!", rating: 5 },
   { name: 'Kouassi A.', city: 'Abidjan', text: "Les pronostics BTTS sont incroyables. 9 fois sur 10 c'est bon! Et le bonus 888starz avec VISION221, c'est du feu.", rating: 5 },
-  { name: 'Ibrahim S.', city: 'Bamako', text: "La faille FIFA est une mine d'or. Cote à 10+ quasi tous les jours. Merci BttsBet!", rating: 5 },
+  { name: 'Ibrahim S.', city: 'Bamako', text: "Les value bets FIFA sont une mine d'or. Cote à 10+ quasi tous les jours. Merci BttsBet!", rating: 5 },
   { name: 'Patrick N.', city: 'Douala', text: "J'étais sceptique au début, mais après 2 semaines de pronostics gratuits, j'ai pris le VIP. Meilleure décision.", rating: 5 },
-  { name: 'Ousmane B.', city: 'Ouagadougou', text: "87% de précision c'est réel. Je vérifie chaque jour. L'IA ne ment pas.", rating: 5 },
+  { name: 'Ousmane B.', city: 'Ouagadougou', text: "87% de précision historique, je vérifie chaque jour. L'IA est un vrai plus.", rating: 5 },
   { name: 'Fatou M.', city: 'Dakar', text: "Le code VISION221 m'a permis de commencer avec un gros capital sur Linebet. Les pronostics BTTS sont fiables.", rating: 5 },
 ]
 
@@ -137,21 +141,19 @@ export const SOCIAL_PROOF = {
 }
 
 export const URGENCY_MESSAGES = [
-  "🔥 {n} parieurs ont rejoint VIP aujourd'hui",
   "✅ {n} pronostics gagnants ce matin",
   "⚡ Série en cours : {n} victoires consécutives",
-  "🎯 Dernière chance : plus que {n} places VIP",
-  "💰 Code VISION221 = Bonus 150$ sur Linebet",
+  "🎯 Code VISION221 = Bonus 150$ sur Linebet",
 ]
 
 export const LEGAL = {
   disclaimer: "Les paris sportifs comportent des risques financiers. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre. Les statistiques de précision de notre IA (environ 87%) sont basées sur des données historiques et ne garantissent pas de résultats futurs. BttsBet est un site informatif et d'affiliation : nous ne prenons pas de paris et ne collectons pas de fonds. Les témoignages présentés sur ce site reflètent des expériences individuelles et ne constituent pas une garantie de résultats. Jouez de manière responsable.",
-  responsible: "Si vous ou un proche avez un problème lié aux jeux d'argent, contactez la ligne d'écoute nationale de votre pays. En France : 09-74-75-13-13 (Joueurs Info Service). Au Cameroun : contactez le MINSANT. Au Sénégal : 33 867 22 22.",
+  responsible: "Si vous ou un proche avez un problème lié aux jeux d'argent, contactez la ligne d'écoute nationale de votre pays. En France : 09-74-75-13-13 (Joueurs Info Service). Au Cameroun : contactez le MINSANT. Au Sénégal : 33 867 22 22. Ressource internationale : https://www.begambleaware.org/",
   copyright: `© ${new Date().getFullYear()} BttsBet. Tous droits réservés.`,
   links: [
     { label: 'Mentions Légales', href: '/mentions-legales' },
     { label: 'Politique de Confidentialité', href: '/politique-confidentialite' },
-    { label: 'Jouer Responsable', href: '/jouer-responsable' },
+    { label: 'Jouer Responsable', href: 'https://www.begambleaware.org/' },
     { label: 'CGU', href: '/cgu' },
   ],
 }

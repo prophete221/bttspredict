@@ -125,9 +125,22 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center text-gray-400 text-sm sm:text-base max-w-lg mx-auto mb-8 sm:mb-10 px-2 leading-relaxed"
         >
-          Précision IA de +87% • 15 000+ matchs analysés •{' '}
+          Précision IA historique ~87% • 15 000+ matchs analysés •{' '}
           <span className="text-white font-medium">{SOCIAL_PROOF.members.toLocaleString()}+ parieurs</span> qui gagnent déjà
         </motion.p>
+
+        {/* 18+ Badge — Legal requirement */}
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.25 }}
+          className="flex justify-center mb-6"
+        >
+          <div className="inline-flex items-center gap-1.5 bg-gold/10 border border-gold/25 rounded-full px-3 py-1">
+            <span className="text-gold font-extrabold text-xs">18+</span>
+            <span className="text-[10px] text-gray-500">Jeu réservé aux adultes • Les paris comportent des risques</span>
+          </div>
+        </motion.div>
 
         {/* ═══ PROMO CODE — Clean card ═══ */}
         <motion.div
@@ -252,13 +265,13 @@ export default function Hero() {
             <p className="text-[10px] text-gray-600 mt-1">— {currentTestimonial.name}, {currentTestimonial.city}</p>
           </motion.div>
 
-          {/* Urgency — VIP Spots */}
+          {/* Urgency — VIP Message */}
           <div className="urgent-badge rounded-xl px-4 py-2.5 text-center flex-shrink-0">
-            <div className="text-[9px] text-red-400 uppercase tracking-wider font-bold mb-0.5">Offre limitée</div>
-            <div className="text-lg font-black text-white tabular-nums">
-              {SOCIAL_PROOF.vipSpotsLeft}<span className="text-gray-500 text-sm">/{SOCIAL_PROOF.totalVipSpots}</span>
+            <div className="text-[9px] text-red-400 uppercase tracking-wider font-bold mb-0.5">Bonus exclusif</div>
+            <div className="text-lg font-black text-white">
+              150$
             </div>
-            <div className="text-[9px] text-gray-500">places VIP restantes</div>
+            <div className="text-[9px] text-gray-500">Code VISION221</div>
           </div>
         </motion.div>
       </div>

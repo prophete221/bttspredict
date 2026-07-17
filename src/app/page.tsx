@@ -21,7 +21,7 @@ const jsonLd = {
   '@type': 'WebSite',
   name: 'BttsBet',
   url: 'https://bttsbet.online',
-  description: "Pronostics football BTTS & Over 2,5 générés par IA. Faille FIFA détectée automatiquement sur Linebet et 888starz. Code promo VISION221.",
+  description: "Pronostics football BTTS & Over 2,5 générés par IA. Value bets FIFA sur Linebet et 888starz. Statistiques Aviator. Code promo VISION221.",
   inLanguage: 'fr',
   potentialAction: {
     '@type': 'SearchAction',
@@ -57,7 +57,7 @@ const faqJsonLd = {
       name: "Comment fonctionne l'IA de BttsBet ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Notre intelligence artificielle analyse des centaines de variables en temps réel : Expected Goals (xG), forme récente, blessés, historique des confrontations, conditions météo. L'algorithme est entraîné sur plus de 50 000 matchs avec environ 87% de précision.",
+        text: "Notre intelligence artificielle analyse des centaines de variables en temps réel : Expected Goals (xG), forme récente, blessés, historique des confrontations, conditions météo. L'algorithme est entraîné sur plus de 50 000 matchs avec environ 87% de précision historique. Ces performances passées ne garantissent pas les résultats futurs.",
       },
     },
     {
@@ -73,7 +73,15 @@ const faqJsonLd = {
       name: 'Les pronostics gratuits sont-ils fiables ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Oui, nos pronostics gratuits sont générés par la même IA que nos pronostics premium. Ils couvrent les matchs les plus populaires du jour avec une analyse complète.",
+        text: "Nos pronostics gratuits sont générés par la même IA que nos pronostics premium. Ils couvrent les matchs les plus populaires du jour avec une analyse complète. Aucun résultat n'est garanti.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Peut-on prédire Aviator ou une faille de cotes FIFA ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Non. Aviator est un jeu 100% aléatoire basé sur un générateur certifié 'provably fair' — aucun outil ne peut prédire un round futur. Nos statistiques Aviator observent l'historique, pas l'avenir. Les Value Bets FIFA sont des estimations statistiques, pas des garanties de gain.",
       },
     },
   ],
@@ -86,9 +94,9 @@ const organizationJsonLd = {
   name: 'BttsBet',
   url: 'https://bttsbet.online',
   logo: 'https://bttsbet.online/favicon.svg',
-  description: "Plateforme de pronostics football BTTS & Over 2,5 basés sur l'IA. Détection automatique de la Faille FIFA sur Linebet et 888starz.",
+  description: "Plateforme de pronostics football BTTS & Over 2,5 basés sur l'IA. Value bets FIFA sur Linebet et 888starz. Statistiques Aviator.",
   areaServed: ['SN', 'CI', 'CM', 'ML', 'BF', 'FR'],
-  knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'IA', 'football', 'faille FIFA'],
+  knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'IA', 'football', 'value bets FIFA', 'statistiques Aviator'],
 }
 
 // JSON-LD BreadcrumbList — breadcrumbs in SERP
@@ -99,7 +107,7 @@ const breadcrumbJsonLd = {
     { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://bttsbet.online/' },
     { '@type': 'ListItem', position: 2, name: 'Pronostics', item: 'https://bttsbet.online/#free-predictions' },
     { '@type': 'ListItem', position: 3, name: 'VIP', item: 'https://bttsbet.online/#vip' },
-    { '@type': 'ListItem', position: 4, name: 'Faille FIFA', item: 'https://bttsbet.online/#fifa-linebet' },
+    { '@type': 'ListItem', position: 4, name: 'Value Bets FIFA', item: 'https://bttsbet.online/#fifa-linebet' },
   ],
 }
 
