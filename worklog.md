@@ -41,3 +41,28 @@ Stage Summary:
 - Version sauvegardée: NOVA PRIME v13 avec icônes animées, effets 3D, particules flottantes
 - Couleurs: Emerald #FF6B2B, Ultra #22D3EE, Gold #FACC15
 - Site: bttsbet.online
+
+---
+Task ID: 3
+Agent: Super Z (main)
+Task: Corrections de conformité légale BttsBet v14 — rewording global
+
+Work Log:
+- META TAGS: Nouveau title "BttsBet — Pronostics IA Football +87% | Bonus Linebet & 888starz | Code VISION221", keywords nettoyées (supprimé hack/faille/bot/predictor), description mise à jour
+- AviatorVip: "SIGNAUX AVIATOR VIP" → "STATS AVIATOR VIP", "Prédiction IA" → "Actualisation des statistiques", "IA Prédiction/Algorithme breveté" → "Suivi statistique/Historique en direct", supprimé "84% Taux — Vérifié chaque jour", ajout disclaimer provably fair
+- FifaLinebet: "FAILLE FIFA" → "VALUE BETS FIFA", "Expérimental/High Risk" → "Analyse IA", "Profit garanti" → "Cotes élevées", supprimé "98% Fiabilité", rewording complet du contenu, ajout disclaimer risque
+- constants.ts: Testimonial Ibrahim "faille FIFA" → "value bets FIFA", URGENCY_MESSAGES supprimé "🔥 parieurs rejoint VIP" et "places VIP restantes", FAQ mise à jour + nouvelle question Aviator/FIFA, "Jouer Responsable" → lien begambleaware.org
+- Hero: Badge 18+ ajouté, "+87%" → "Précision IA historique ~87%", VIP spots remplacé par "Bonus exclusif 150$"
+- WinHistory: Affiche TOUS les pronostics (gagnés ET perdus), taux de réussite réel calculé dynamiquement, label "Réussite réelle"
+- page.tsx: JSON-LD mis à jour (WebSite, Organization, FAQ, Breadcrumb), ajout question Aviator/FIFA dans FAQPage
+- Nettoyé src/pages/ (déplacé AuthPages.jsx etc vers pages_broken) pour fix build error
+- Build réussi, déployé sur bttsbet.online
+
+Stage Summary:
+- Version v14 déployée avec toutes les corrections de conformité légale
+- Suppression de tous les termes "garanti", "98%", "faille", "hack", "predictor", "bot" du site principal
+- 18+ badge dans le hero + footer déjà existant
+- Disclaimer légal sous les blocs Aviator et FIFA
+- Track record transparent (gagnés + perdus, taux réel)
+- FAQ enrichie avec question sur la prédictibilité d'Aviator/FIFA
+- Lien "Jouer Responsable" → https://www.begambleaware.org/
