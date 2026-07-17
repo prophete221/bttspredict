@@ -72,8 +72,8 @@ export default function Hero() {
     <section ref={sectionRef} className="relative overflow-hidden">
       {/* Background — Clean gradient + particles */}
       <div className="absolute inset-0 bg-midnight" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-emerald/[0.06] rounded-full blur-[160px]" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-ultra/[0.03] rounded-full blur-[120px]" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gold/[0.06] rounded-full blur-[160px]" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-ultra/[0.04] rounded-full blur-[120px]" />
       <FloatingParticles count={16} />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-24 pb-16 sm:pt-36 sm:pb-24">
@@ -91,7 +91,7 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 bg-white/[0.03] border border-edge/60 rounded-full px-4 py-1.5">
             <span className="v31-ticker-dot" />
-            <span className="text-[10px] sm:text-xs text-emerald font-semibold tracking-wider uppercase">IA en direct</span>
+            <span className="text-[10px] sm:text-xs text-gold font-semibold tracking-wider uppercase">IA en direct</span>
             <span className="text-edge text-[10px]">|</span>
             <motion.span
               key={urgencyIndex}
@@ -110,12 +110,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-center text-[2.2rem] leading-[1.1] sm:text-5xl lg:text-[4rem] font-extrabold text-white mb-4 sm:mb-5 tracking-tight"
+          className="text-center section-title mb-4 sm:mb-5"
         >
           Gagne tes paris{' '}
-          <span className="text-emerald">BTTS</span>
+          <span className="text-gold">BTTS</span>
           {' '}&{' '}
-          <span className="text-gold">Over 2.5</span>
+          <span className="text-ultra">Over 2.5</span>
         </motion.h1>
 
         {/* Sub-headline — Clean, spaced */}
@@ -149,7 +149,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex justify-center mb-8 sm:mb-10"
         >
-          <div className="w-full max-w-md bg-panel border border-edge/60 rounded-2xl px-5 py-5 sm:px-8 sm:py-6">
+          <div className="w-full max-w-md glass-promo squircle-lg px-5 py-5 sm:px-8 sm:py-6">
             {/* Label */}
             <div className="text-center mb-3">
               <span className="text-[10px] sm:text-xs text-gold uppercase tracking-[0.15em] font-bold">Code Promo Exclusif</span>
@@ -199,7 +199,7 @@ export default function Hero() {
             href={AFFILIATE.linebet}
             rel={AFFILIATE.rel}
             target="_blank"
-            className="flex items-center justify-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 btn-linebet text-[#04150C] text-[11px] sm:text-sm font-bold"
+            className="flex items-center justify-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 btn-linebet cta-glow text-[#04150C] text-[11px] sm:text-sm font-bold"
           >
             <img src="/logos/linebet.svg" alt="Linebet" className="h-3.5 sm:h-4 w-auto object-contain flex-shrink-0" loading="lazy" />
             <span className="sm:hidden">Bonus 150$</span>
@@ -209,7 +209,7 @@ export default function Hero() {
             href={AFFILIATE.star888}
             rel={AFFILIATE.rel}
             target="_blank"
-            className="flex items-center justify-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 btn-star888 text-white text-[11px] sm:text-sm font-bold"
+            className="flex items-center justify-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 btn-star888 cta-glow text-white text-[11px] sm:text-sm font-bold"
           >
             <img src="/logos/888starz.svg" alt="888starz" className="h-3.5 sm:h-4 w-auto object-contain flex-shrink-0" loading="lazy" />
             <span className="sm:hidden">Bonus 100%</span>
@@ -225,7 +225,7 @@ export default function Hero() {
           className="flex justify-center gap-8 sm:gap-12 mb-8"
         >
           <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-extrabold text-emerald tabular-nums">
+            <div className="text-2xl sm:text-3xl font-extrabold text-gold tabular-nums">
               {isVisible ? <AnimatedStat value={87} duration={1800} suffix="%" prefix="~" /> : <span>~87%</span>}
             </div>
             <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Précision</div>
@@ -266,7 +266,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Urgency — VIP Message */}
-          <div className="urgent-badge rounded-xl px-4 py-2.5 text-center flex-shrink-0">
+          <div className="urgent-badge badge-pulse squircle px-4 py-2.5 text-center flex-shrink-0">
             <div className="text-[9px] text-red-400 uppercase tracking-wider font-bold mb-0.5">Bonus exclusif</div>
             <div className="text-lg font-black text-white">
               150$

@@ -85,13 +85,13 @@ export default function Navbar() {
             className="flex items-center gap-2 group shrink-0"
             aria-label="BttsBet — Retour en haut"
           >
-            <div className="w-8 h-8 rounded-lg bg-emerald/10 border border-emerald/20 flex items-center justify-center group-hover:border-emerald/40 transition-colors">
+            <div className="w-8 h-8 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center group-hover:border-gold/40 transition-colors">
               <svg
                 width="16"
                 height="16"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#FF6B2B"
+                stroke="#FACC15"
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -160,7 +160,7 @@ export default function Navbar() {
               href={AFFILIATE.linebet}
               rel={AFFILIATE.rel}
               target="_blank"
-              className="hidden sm:flex items-center gap-1.5 px-4 py-1.5 btn-linebet text-[#04150C] text-sm font-bold"
+              className="hidden sm:flex items-center gap-1.5 px-4 py-1.5 btn-linebet cta-glow text-[#04150C] text-sm font-bold"
             >
               <img
                 src="/logos/linebet-icon.svg"
@@ -263,7 +263,7 @@ export default function Navbar() {
                   href={AFFILIATE.linebet}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-1.5 text-center px-3 py-2 btn-linebet text-[#04150C] text-[11px] font-bold"
+                  className="flex items-center justify-center gap-1.5 text-center px-3 py-2 btn-linebet cta-glow text-[#04150C] text-[11px] font-bold"
                   role="menuitem"
                 >
                   <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-3.5 h-3.5 rounded object-contain flex-shrink-0" loading="lazy" />
@@ -273,7 +273,7 @@ export default function Navbar() {
                   href={AFFILIATE.star888}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-1.5 text-center px-3 py-2 btn-star888 text-white text-[11px] font-bold"
+                  className="flex items-center justify-center gap-1.5 text-center px-3 py-2 btn-star888 cta-glow text-white text-[11px] font-bold"
                   role="menuitem"
                 >
                   <img src="/logos/888starz-icon.svg" alt="888starz" className="w-3.5 h-3.5 rounded object-contain flex-shrink-0" loading="lazy" />

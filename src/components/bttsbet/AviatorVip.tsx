@@ -126,7 +126,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
             ref={modalRef}
             initial={{ opacity: 0, scale: 0.9, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="relative w-full max-w-md rounded-2xl overflow-hidden"
+            className="relative w-full max-w-md squircle-lg overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="bg-panel border border-edge-bright/30 backdrop-blur-xl">
@@ -146,7 +146,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                   {step === 'info' && !submitSuccess && (
                     <motion.div key="info" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
                       <p className="text-gray-400 text-sm mb-4 leading-relaxed">
-                        Pour accéder aux <span className="text-gold font-semibold">signaux VIP Aviator</span>, inscrivez-vous sur l&apos;un de nos bookmakers partenaires avec le code promo <span className="text-emerald font-bold">{SITE.promoCode}</span> et effectuez un dépôt minimum de <span className="text-white font-semibold">3 000 Fr</span>.
+                        Pour accéder aux <span className="text-gold font-semibold">signaux VIP Aviator</span>, inscrivez-vous sur l&apos;un de nos bookmakers partenaires avec le code promo <span className="text-gold font-bold">{SITE.promoCode}</span> et effectuez un dépôt minimum de <span className="text-white font-semibold">3 000 Fr</span>.
                       </p>
 
                       <div className="grid grid-cols-2 gap-2 mb-4">
@@ -166,7 +166,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                         <a
                           href={selectedBookmaker === 'linebet' ? AFFILIATE.linebet : AFFILIATE.star888}
                           rel={AFFILIATE.rel} target="_blank" data-cursor="hover"
-                          className={`w-full flex items-center justify-center gap-2 px-4 py-2 font-bold text-xs ${selectedBookmaker === 'linebet' ? 'btn-linebet text-[#04150C]' : 'btn-star888 text-white'}`}
+                          className={`w-full flex items-center justify-center gap-2 px-4 py-2 font-bold text-xs cta-glow ${selectedBookmaker === 'linebet' ? 'btn-linebet text-[#04150C]' : 'btn-star888 text-white'}`}
                         >
                           <img src={selectedBookmaker === 'linebet' ? '/logos/linebet.svg' : '/logos/888starz.svg'} alt="" className="h-4 w-auto rounded object-contain flex-shrink-0" loading="lazy"/>
                           S&apos;inscrire sur {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'}
@@ -174,7 +174,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                         <p className="text-[10px] text-gray-600 text-center">Bonus soumis aux conditions (mise x5, cote min. 1,40)</p>
                       </div>
 
-                      <button onClick={() => setStep('confirm')} className="w-full flex items-center justify-center gap-2 px-4 py-2 btn-gold text-midnight text-xs mt-3">
+                      <button onClick={() => setStep('confirm')} className="w-full flex items-center justify-center gap-2 px-4 py-2 btn-gold cta-glow text-midnight text-xs mt-3">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                         Je me suis déjà inscrit
                       </button>
@@ -194,7 +194,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                         />
                       </div>
                       <button onClick={handleSubmitId} disabled={!linebetId.trim() || isSubmitting}
-                        className="w-full flex items-center justify-center gap-2 px-4 py-2 btn-gold text-midnight text-xs disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full flex items-center justify-center gap-2 px-4 py-2 btn-gold cta-glow text-midnight text-xs disabled:opacity-50 disabled:cursor-not-allowed"
                         data-cursor="hover">
                         {isSubmitting ? (
                           <><svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/></svg>Vérification...</>
@@ -205,7 +205,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
 
                   {submitSuccess && (
                     <motion.div key="success" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.25 }} className="text-center py-4">
-                      <div className="w-14 h-14 mx-auto bg-emerald/10 border border-emerald/20 rounded-2xl flex items-center justify-center text-emerald mb-3">
+                      <div className="w-14 h-14 mx-auto bg-gold/10 border border-gold/20 squircle-lg flex items-center justify-center text-gold mb-3">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                       </div>
                       <h3 className="text-base font-extrabold text-white mb-2">DEMANDE ENVOYÉE !</h3>
@@ -227,7 +227,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
 function PlaneFlyAnimation({ multiplier, isActive }: { multiplier: number; isActive: boolean }) {
   const progress = useMemo(() => Math.min(((multiplier - 1) / 10) * 100, 100), [multiplier])
   return (
-    <div className="relative h-20 sm:h-24 bg-midnight/60 rounded-xl border border-edge/50 overflow-hidden mb-3">
+    <div className="relative h-20 sm:h-24 bg-midnight/60 squircle border border-edge/50 overflow-hidden mb-3">
       {/* Grid lines */}
       <div className="absolute inset-0 flex flex-col justify-between py-2 px-3">
         {[2, 4, 6, 8, 10].map(v => (
@@ -409,7 +409,7 @@ export default function AviatorVip() {
               <RocketIcon size={44} />
             </div>
             <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">Statistiques Aviator · Temps Réel</span>
-            <h2 className="text-xl sm:text-2xl font-bold text-white mt-2 tracking-tight">
+            <h2 className="section-title font-bold text-white mt-2 tracking-tight">
               STATS <span className="text-gold">AVIATOR VIP</span>
             </h2>
             <p className="text-gray-500 text-sm mt-1 max-w-2xl mx-auto">
@@ -421,12 +421,13 @@ export default function AviatorVip() {
             </p>
           </motion.div>
 
+          <div className="bento-grid">
           {/* Main Aviator Card */}
           <motion.div
             initial={{ opacity: 0, y: 24, scale: 0.97 }}
             animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : undefined}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="v31-vip-lab-glow relative rounded-2xl border border-red-500/20 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift shadow-2xl"
+            className="v31-vip-lab-glow bento-main relative squircle-lg border border-red-500/20 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift card-elevate shadow-2xl"
           >
             {/* Premium top sheen */}
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-red-500/40 to-transparent" />
@@ -438,7 +439,7 @@ export default function AviatorVip() {
               {/* Header */}
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-11 h-11 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center justify-center overflow-hidden flex-shrink-0">
+                  <div className="w-11 h-11 bg-red-500/10 border border-red-500/20 squircle flex items-center justify-center overflow-hidden flex-shrink-0">
                     <img src="/logos/sport-aviator.svg" alt="Aviator" className="w-8 h-8 object-contain" loading="lazy"/>
                   </div>
                   <div>
@@ -448,8 +449,8 @@ export default function AviatorVip() {
                     <p className="text-[10px] text-red-400/60 font-medium tracking-wide uppercase">Actualisation des statistiques chaque 60 secondes</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-1.5 bg-red-500/10 border border-red-500/20 rounded-full px-2.5 py-1">
-                  <div className={`w-1.5 h-1.5 rounded-full animate-pulse ${signalPhase === 'active' ? 'bg-emerald' : signalPhase === 'countdown' ? 'bg-gold' : 'bg-red-500'}`} />
+                <div className="flex items-center gap-1.5 bg-red-500/10 border border-red-500/20 rounded-full px-2.5 py-1 badge-pulse">
+                  <div className={`w-1.5 h-1.5 rounded-full animate-pulse ${signalPhase === 'active' ? 'bg-gold' : signalPhase === 'countdown' ? 'bg-gold' : 'bg-red-500'}`} />
                   <span className="text-[10px] text-red-400 font-semibold">
                     {signalPhase === 'active' ? 'STATS' : signalPhase === 'countdown' ? 'EN ATTENTE' : 'RÉSULTAT'}
                   </span>
@@ -513,14 +514,14 @@ export default function AviatorVip() {
                       </div>
                       <div className="bg-midnight/60 border border-edge rounded-lg p-2.5 text-center">
                         <div className="text-[10px] text-gray-500 mb-0.5">Conseil</div>
-                        <div className="text-xs font-bold text-emerald">
+                        <div className="text-xs font-bold text-gold">
                           CASH OUT {Math.max(1.2, currentSignal.multiplier * 0.7).toFixed(1)}x
                         </div>
                       </div>
                     </div>
                     <div className="flex items-center justify-center gap-2 py-2">
-                      <div className="w-2 h-2 bg-emerald rounded-full animate-pulse" />
-                      <span className="text-xs text-emerald font-semibold">Signal actif — Cotez maintenant et cash out au bon moment !</span>
+                      <div className="w-2 h-2 bg-gold rounded-full animate-pulse badge-pulse" />
+                      <span className="text-xs text-gold font-semibold">Signal actif — Cotez maintenant et cash out au bon moment !</span>
                     </div>
                   </motion.div>
                 )}
@@ -528,7 +529,7 @@ export default function AviatorVip() {
                 {signalPhase === 'result' && currentSignal && (
                   <motion.div key="result" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.3 }}>
                     <div className="flex flex-col items-center py-3">
-                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-2 ${currentSignal.status === 'cashed-out' ? 'bg-success/10 border border-success/20' : 'bg-red-500/10 border border-red-500/20'}`}>
+                      <div className={`w-14 h-14 squircle-lg flex items-center justify-center mb-2 ${currentSignal.status === 'cashed-out' ? 'bg-success/10 border border-success/20' : 'bg-red-500/10 border border-red-500/20'}`}>
                         {currentSignal.status === 'cashed-out' ? (
                           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                         ) : (
@@ -558,7 +559,7 @@ export default function AviatorVip() {
                   <span className="text-[11px] text-gray-500 font-medium">Historique des signaux</span>
                   <span className="text-[10px] text-gold/50">VIP uniquement</span>
                 </div>
-                <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-1 blur-[4px] select-none">
+                <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-1 blur-[4px] select-none glass-vip squircle-lg">
                   {signalHistory.map((s, i) => (
                     <div key={i} className={`flex-shrink-0 min-w-[52px] rounded-lg px-2 py-1.5 text-center border ${s.result === 'win' ? 'bg-success/5 border-success/15' : 'bg-red-500/5 border-red-500/15'}`}>
                       <span className={`text-xs font-bold tabular-nums ${s.result === 'win' ? 'text-success' : 'text-red-400'}`}>
@@ -577,7 +578,7 @@ export default function AviatorVip() {
               {/* CTA */}
               <button
                 onClick={() => setShowVipModal(true)}
-                className="v31-breathing v31-cta-wave relative flex items-center justify-center gap-2 px-4 py-2 btn-gold text-midnight text-xs w-full cursor-pointer overflow-hidden group/btn mt-4"
+                className="v31-breathing v31-cta-wave relative flex items-center justify-center gap-2 px-4 py-2 btn-gold cta-glow text-midnight text-xs w-full cursor-pointer overflow-hidden group/btn mt-4"
                 style={{ ['--v31-wave-delay' as string]: '5s' }}
                 data-cursor="hover"
               >
@@ -597,7 +598,7 @@ export default function AviatorVip() {
             initial={{ opacity: 0, y: 12 }}
             animate={isVisible ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4"
+            className="bento-side grid grid-cols-2 lg:grid-cols-1 gap-2 mt-4 sm:mt-0"
           >
             {[
               { icon: '⚡', label: 'Stats / min', desc: 'Mise à jour toutes les 60s' },
@@ -605,19 +606,20 @@ export default function AviatorVip() {
               { icon: '💰', label: 'Cash Out Info', desc: 'Moment optimal' },
               { icon: '📈', label: 'Tendances', desc: 'Patterns historiques' },
             ].map((f, i) => (
-              <div key={i} className="bg-panel/60 border border-edge/50 rounded-xl px-3 py-2.5 text-center">
+              <div key={i} className="bg-panel/60 border border-edge/50 squircle px-3 py-2.5 text-center card-elevate">
                 <span className="text-lg">{f.icon}</span>
                 <p className="text-[11px] text-white font-semibold mt-0.5">{f.label}</p>
                 <p className="text-[9px] text-gray-600">{f.desc}</p>
               </div>
             ))}
           </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Legal disclaimer — Aviator */}
       <div className="max-w-5xl mx-auto px-4 mt-2 mb-4">
-        <div className="bg-panel/40 border border-edge/30 rounded-xl p-3 flex items-start gap-2">
+        <div className="bg-panel/40 border border-edge/30 squircle p-3 flex items-start gap-2">
           <span className="text-gold/70 text-xs flex-shrink-0 mt-0.5">⚠️</span>
           <p className="text-[10px] sm:text-[11px] text-gray-500 leading-relaxed">
             Aviator est un jeu de hasard basé sur un générateur certifié &apos;provably fair&apos;. Aucune prédiction n&apos;est possible. Ces statistiques sont fournies à titre informatif et ludique uniquement.

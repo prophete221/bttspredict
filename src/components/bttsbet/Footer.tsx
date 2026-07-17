@@ -24,11 +24,11 @@ export default function Footer() {
       {/* Sticky Bottom CTA — Mobile, compact pills */}
       <div className="fixed bottom-0 left-0 right-0 z-30 sticky-cta-bar py-2 px-3 sm:hidden">
         <div className="grid grid-cols-2 gap-1.5">
-          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-3 py-2 btn-linebet text-[#04150C] text-[11px] font-bold">
+          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-3 py-2 btn-linebet cta-glow text-[#04150C] text-[11px] font-bold">
             <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-3.5 h-3.5 rounded object-contain flex-shrink-0" loading="lazy"/>
             Linebet 150$
           </a>
-          <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-3 py-2 btn-star888 text-white text-[11px] font-bold">
+          <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-3 py-2 btn-star888 cta-glow text-white text-[11px] font-bold">
             <img src="/logos/888starz-icon.svg" alt="888starz" className="w-3.5 h-3.5 rounded object-contain flex-shrink-0" loading="lazy"/>
             888starz 100%
           </a>
@@ -48,9 +48,9 @@ export default function Footer() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {TESTIMONIALS.slice(0, 3).map((t, i) => (
-                <div key={i} className="bg-panel border border-edge/40 rounded-xl p-4 transition-colors hover:border-emerald/15">
+                <div key={i} className="bg-panel border border-edge/40 squircle p-4 transition-colors hover:border-gold/15">
                   <div className="flex items-center gap-2.5 mb-2.5">
-                    <div className="w-8 h-8 rounded-full bg-emerald/8 border border-emerald/15 flex items-center justify-center text-emerald text-xs font-bold">
+                    <div className="w-8 h-8 rounded-full bg-gold/8 border border-gold/15 flex items-center justify-center text-gold text-xs font-bold">
                       {t.name.charAt(0)}
                     </div>
                     <div className="flex-1 min-w-0">
@@ -75,14 +75,14 @@ export default function Footer() {
           {/* FAQ — Clean accordion */}
           <div className="mb-12">
             <div className="text-center mb-6">
-              <span className="text-[10px] font-bold text-emerald uppercase tracking-[0.15em]">FAQ</span>
+              <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">FAQ</span>
               <h3 className="text-xl font-extrabold text-white mt-2 tracking-tight">
-                Questions <span className="text-emerald">fréquentes</span>
+                Questions <span className="text-gold">fréquentes</span>
               </h3>
             </div>
             <div className={`space-y-2 max-w-2xl mx-auto stagger-reveal ${isVisible ? 'is-visible' : ''}`}>
               {FAQ_ITEMS.slice(0, 4).map((item, i) => (
-                <div key={i} className={`v31-faq-sep border border-edge/40 rounded-xl overflow-hidden bg-panel/50 hover:border-emerald/15 transition-colors`}>
+                <div key={i} className={`v31-faq-sep border border-edge/40 squircle overflow-hidden bg-panel/50 hover:border-gold/15 transition-colors`}>
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     aria-expanded={openFaq === i}
@@ -128,8 +128,8 @@ export default function Footer() {
           <div className={`grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10 stagger-reveal ${isVisible ? 'is-visible' : ''}`}>
             <div className="col-span-2 sm:col-span-1">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-7 h-7 rounded-lg bg-emerald/10 border border-emerald/20 flex items-center justify-center">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FF6B2B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <div className="w-7 h-7 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FACC15" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
                   </svg>
                 </div>
@@ -147,19 +147,19 @@ export default function Footer() {
             <div>
               <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-3">Navigation</h4>
               <ul className="space-y-2 text-xs">
-                <li><button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-gray-500 hover:text-emerald transition-colors">Accueil</button></li>
-                <li><button onClick={() => scrollToSection('free-predictions')} className="text-gray-500 hover:text-emerald transition-colors">Pronostics</button></li>
-                <li><button onClick={() => scrollToSection('vip')} className="text-gray-500 hover:text-emerald transition-colors">VIP</button></li>
-                <li><button onClick={() => scrollToSection('faq')} className="text-gray-500 hover:text-emerald transition-colors">FAQ</button></li>
+                <li><button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-gray-500 hover:text-gold transition-colors">Accueil</button></li>
+                <li><button onClick={() => scrollToSection('free-predictions')} className="text-gray-500 hover:text-gold transition-colors">Pronostics</button></li>
+                <li><button onClick={() => scrollToSection('vip')} className="text-gray-500 hover:text-gold transition-colors">VIP</button></li>
+                <li><button onClick={() => scrollToSection('faq')} className="text-gray-500 hover:text-gold transition-colors">FAQ</button></li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-3">Blog</h4>
               <ul className="space-y-2 text-xs">
-                <li><a href="/blog/comment-analyser-match-btts" className="text-gray-500 hover:text-emerald transition-colors">Analyse BTTS</a></li>
-                <li><a href="/blog/strategie-mise-over-2-5" className="text-gray-500 hover:text-emerald transition-colors">Stratégie O2.5</a></li>
-                <li><a href="/blog/gestion-bankroll-paris-sportifs" className="text-gray-500 hover:text-emerald transition-colors">Bankroll</a></li>
+                <li><a href="/blog/comment-analyser-match-btts" className="text-gray-500 hover:text-gold transition-colors">Analyse BTTS</a></li>
+                <li><a href="/blog/strategie-mise-over-2-5" className="text-gray-500 hover:text-gold transition-colors">Stratégie O2.5</a></li>
+                <li><a href="/blog/gestion-bankroll-paris-sportifs" className="text-gray-500 hover:text-gold transition-colors">Bankroll</a></li>
               </ul>
             </div>
 
@@ -167,10 +167,10 @@ export default function Footer() {
               <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-3">Légal</h4>
               <ul className="space-y-2 text-xs">
                 {LEGAL.links.map((link) => (
-                  <li key={link.label}><a href={link.href} className="text-gray-500 hover:text-emerald transition-colors">{link.label}</a></li>
+                  <li key={link.label}><a href={link.href} className="text-gray-500 hover:text-gold transition-colors">{link.label}</a></li>
                 ))}
                 <li>
-                  <button onClick={reopenCookieSettings} className="text-gray-500 hover:text-emerald transition-colors">
+                  <button onClick={reopenCookieSettings} className="text-gray-500 hover:text-gold transition-colors">
                     Paramètres cookies
                   </button>
                 </li>
@@ -180,7 +180,7 @@ export default function Footer() {
 
           {/* Disclaimer — Clean */}
           <div className="border-t border-edge/40 pt-6 mb-4">
-            <div className="bg-panel/50 rounded-xl p-4 border border-edge/40">
+            <div className="bg-panel/50 squircle p-4 border border-edge/40">
               <div className="flex items-start gap-3">
                 <div className="flex-shrink-0 w-8 h-8 rounded-lg border border-gold/30 bg-gold/[0.06] flex items-center justify-center text-gold font-extrabold text-xs">
                   18+

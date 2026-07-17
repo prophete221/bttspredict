@@ -64,7 +64,7 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
             className="relative w-full max-w-md rounded-2xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
             <div className="bg-gradient-to-b from-panel-2 to-panel border border-gold/25 rounded-2xl shadow-2xl shadow-black/50">
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent rounded-t-2xl" />
-              <div className="h-1 bg-gradient-to-r from-gold via-emerald to-gold" />
+              <div className="h-1 bg-gradient-to-r from-gold via-gold to-gold" />
               <button onClick={onClose} className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-midnight/60 text-gray-400 hover:text-white hover:bg-midnight transition-all z-10" aria-label="Fermer">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </button>
@@ -82,7 +82,7 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                         Pour accéder aux Value Bets FIFA (Linebet ou 888starz), vous devez d&apos;abord respecter ces conditions :
                       </p>
                       <div className="space-y-3 mb-6">
-                        <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-white/[0.06]">
+                        <div className="flex items-start gap-3 bg-midnight/50 squircle p-3.5 border border-white/[0.06]">
                           <div className="w-8 h-8 flex-shrink-0 bg-gold/10 rounded-lg flex items-center justify-center text-gold">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
                           </div>
@@ -91,7 +91,7 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                             <p className="text-gray-400 text-xs mt-0.5">Utilisez le code promo <span className="text-gold font-bold">VISION221</span> lors de l&apos;inscription</p>
                           </div>
                         </div>
-                        <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-white/[0.06]">
+                        <div className="flex items-start gap-3 bg-midnight/50 squircle p-3.5 border border-white/[0.06]">
                           <div className="w-8 h-8 flex-shrink-0 bg-gold/10 rounded-lg flex items-center justify-center text-gold">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
                           </div>
@@ -100,8 +100,8 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                             <p className="text-gray-400 text-xs mt-0.5">Effectuez un premier dépôt de 3 000 Fr minimum sur votre compte Linebet ou 888starz</p>
                           </div>
                         </div>
-                        <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-white/[0.06]">
-                          <div className="w-8 h-8 flex-shrink-0 bg-emerald/10 rounded-lg flex items-center justify-center text-emerald">
+                        <div className="flex items-start gap-3 bg-midnight/50 squircle p-3.5 border border-white/[0.06]">
+                          <div className="w-8 h-8 flex-shrink-0 bg-gold/10 rounded-lg flex items-center justify-center text-gold">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                           </div>
                           <div>
@@ -115,12 +115,12 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                           Je me suis déjà inscrit
                         </button>
-                          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="w-full flex items-center justify-center gap-2 px-4 py-2 btn-linebet text-[#04150C] text-xs" data-cursor="hover">
+                          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="w-full flex items-center justify-center gap-2 px-4 py-2 btn-linebet cta-glow text-[#04150C] text-xs" data-cursor="hover">
                           <img src="/logos/linebet.svg" alt="Linebet" className="h-4 w-auto object-contain flex-shrink-0" loading="lazy"/>
                           Aller s&apos;inscrire sur LINEBET
                         </a>
                         {/* V23: Alternative 888starz */}
-                        <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="w-full flex items-center justify-center gap-2 px-4 py-2 btn-star888 text-white text-xs" data-cursor="hover">
+                        <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="w-full flex items-center justify-center gap-2 px-4 py-2 btn-star888 cta-glow text-white text-xs" data-cursor="hover">
                           <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                           Ou s&apos;inscrire sur 888starz
                         </a>
@@ -164,7 +164,7 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                   )}
                   {step === 'confirm' && submitSuccess && (
                     <motion.div key="success" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.25 }} className="text-center py-4">
-                      <div className="w-16 h-16 mx-auto bg-emerald/10 border border-emerald/20 rounded-2xl flex items-center justify-center text-emerald mb-4">
+                      <div className="w-16 h-16 mx-auto bg-gold/10 border border-gold/20 rounded-2xl flex items-center justify-center text-gold mb-4">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                       </div>
                       <h3 className="text-lg font-extrabold text-white mb-2">DEMANDE ENVOYÉE !</h3>
@@ -317,7 +317,7 @@ export default function FifaLinebet() {
         {/* Premium background mesh — amber + cyan glow for "experimental/high risk" feel */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/3 w-[500px] h-[400px] bg-gold/6 rounded-full blur-[140px] opacity-60" />
-          <div className="absolute bottom-0 right-1/4 w-[400px] h-[350px] bg-emerald/3 rounded-full blur-[120px] opacity-60" />
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[350px] bg-gold/3 rounded-full blur-[120px] opacity-60" />
         </div>
         <FloatingParticles count={10} />
 
@@ -328,7 +328,7 @@ export default function FifaLinebet() {
               <GameController size={44} />
             </div>
             <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">Exclusive Algorithm</span>
-            <h2 className="text-xl sm:text-2xl font-bold text-white mt-2 tracking-tight">
+            <h2 className="section-title font-bold text-white mt-2 tracking-tight">
               VALUE BETS <span className="text-gold">FIFA</span>
             </h2>
             {/* Badge — Analyse IA */}
@@ -364,13 +364,13 @@ export default function FifaLinebet() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <div className="bento-grid">
             {/* FIFA Coupon — highlight block (special background #0F172A) */}
             <motion.div ref={couponRef} initial={{ opacity: 0, y: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.97 }} transition={{ duration: 0.6 }}
-              className="relative highlight-block overflow-hidden hover-lift shadow-2xl">
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-emerald to-gold" />
+              className="relative highlight-block bento-main squircle-lg card-elevate overflow-hidden hover-lift shadow-2xl">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold to-gold" />
               <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-gold/4 rounded-full blur-[100px]" />
-              <div className="absolute bottom-0 left-0 w-[180px] h-[180px] bg-emerald/3 rounded-full blur-[80px]" />
+              <div className="absolute bottom-0 left-0 w-[180px] h-[180px] bg-gold/3 rounded-full blur-[80px]" />
 
               <div className="relative p-5 sm:p-7">
                 <div className="flex items-center justify-between mb-3">
@@ -482,9 +482,9 @@ export default function FifaLinebet() {
 
             {/* FIFA Info / Promo Section */}
             <motion.div initial={{ opacity: 0, x: 20, scale: 0.97 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ duration: 0.5, delay: 0.1 }}
-              className="relative rounded-2xl border border-edge bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift shadow-2xl">
+              className="relative squircle-lg card-elevate bento-side border border-edge bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift shadow-2xl">
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-emerald to-gold" />
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold to-gold" />
               <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-gold/4 rounded-full blur-[80px]" />
 
               <div className="relative p-6 sm:p-8">
@@ -502,22 +502,22 @@ export default function FifaLinebet() {
                 </p>
 
                 <div className="v31-timeline space-y-3 mb-6">
-                  <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-edge">
+                  <div className="flex items-start gap-3 bg-midnight/50 squircle p-3.5 border border-edge">
                     <div className="v31-bounce-in d1 w-8 h-8 flex-shrink-0 bg-gold/10 rounded-lg flex items-center justify-center text-gold text-sm font-bold">1</div>
                     <div>
                       <p className="text-white text-sm font-semibold">Scan automatique</p>
                       <p className="text-gray-400 text-xs mt-0.5">L&apos;IA compare les cotes FIFA Linebet et 888starz en continu avec nos probabilités estimées</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-edge">
+                  <div className="flex items-start gap-3 bg-midnight/50 squircle p-3.5 border border-edge">
                     <div className="v31-bounce-in d2 w-8 h-8 flex-shrink-0 bg-gold/10 rounded-lg flex items-center justify-center text-gold text-sm font-bold">2</div>
                     <div>
                       <p className="text-white text-sm font-semibold">Value bet identifié</p>
                       <p className="text-gray-400 text-xs mt-0.5">Quand notre modèle détecte un écart favorable entre la cote et la probabilité estimée, le coupon se génère automatiquement</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-edge">
-                    <div className="v31-bounce-in d3 w-8 h-8 flex-shrink-0 bg-emerald/10 rounded-lg flex items-center justify-center text-emerald text-sm font-bold">3</div>
+                  <div className="flex items-start gap-3 bg-midnight/50 squircle p-3.5 border border-edge">
+                    <div className="v31-bounce-in d3 w-8 h-8 flex-shrink-0 bg-gold/10 rounded-lg flex items-center justify-center text-gold text-sm font-bold">3</div>
                     <div>
                       <p className="text-white text-sm font-semibold">Cotes élevées</p>
                       <p className="text-gray-400 text-xs mt-0.5">Cotes généralement comprises entre 10 et 15 — les paris à cotes élevées comportent un risque proportionnellement plus élevé, à utiliser en gestion de bankroll raisonnée</p>
@@ -528,7 +528,7 @@ export default function FifaLinebet() {
                 <div className="grid grid-cols-2 gap-2.5 mb-6">
                   {[
                     { value: '10-15', label: 'Cote moyenne', color: 'text-gold' },
-                    { value: '5 min', label: 'Actualisation', color: 'text-emerald' },
+                    { value: '5 min', label: 'Actualisation', color: 'text-gold' },
                     { value: 'Auto', label: 'Scan IA', color: 'text-gold' },
                     { value: 'Risque', label: 'Cotes élevées', color: 'text-red-400' },
                   ].map((item, i) => (
@@ -540,11 +540,11 @@ export default function FifaLinebet() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-2.5">
-                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-3 py-2 btn-linebet text-[#04150C] text-xs" style={{ ['--v31-wave-delay' as string]: '0s' }} data-cursor="hover">
+                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-3 py-2 btn-linebet cta-glow text-[#04150C] text-xs" style={{ ['--v31-wave-delay' as string]: '0s' }} data-cursor="hover">
                     <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                   {/* V23: Nouveau bouton 888starz */}
-                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-3 py-2 btn-star888 text-white text-xs" style={{ ['--v31-wave-delay' as string]: '4s' }} data-cursor="hover">
+                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-3 py-2 btn-star888 cta-glow text-white text-xs" style={{ ['--v31-wave-delay' as string]: '4s' }} data-cursor="hover">
                     <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                 </div>

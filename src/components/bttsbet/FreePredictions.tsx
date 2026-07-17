@@ -21,7 +21,7 @@ function TeamLogo({ src, initials, size = 'sm', color = 'emerald' }: {
   }
 
   const colorClasses: Record<string, string> = {
-    emerald: 'bg-emerald/8 border-emerald/15 text-emerald',
+    emerald: 'bg-gold/8 border-gold/15 text-gold',
     royal: 'bg-royal/8 border-royal/15 text-royal',
   }
 
@@ -94,7 +94,7 @@ function PredBadge({ type, prediction, expanded }: { type: string; prediction: s
       <div className={`flex-1 rounded-xl p-3 sm:p-4 border transition-all ${
         isPositive
           ? isBtts
-            ? 'bg-emerald/8 border-emerald/20 hover:bg-emerald/12'
+            ? 'bg-gold/8 border-gold/20 hover:bg-gold/12'
             : 'bg-success/8 border-success/20 hover:bg-success/12'
           : 'bg-red-500/5 border-red-500/15 hover:bg-red-500/8'
       }`}>
@@ -105,7 +105,7 @@ function PredBadge({ type, prediction, expanded }: { type: string; prediction: s
           <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
             isPositive
               ? isBtts
-                ? 'bg-emerald/15 text-emerald'
+                ? 'bg-gold/15 text-gold'
                 : 'bg-success/15 text-success-light'
               : 'bg-red-500/15 text-red-400'
           }`}>
@@ -114,7 +114,7 @@ function PredBadge({ type, prediction, expanded }: { type: string; prediction: s
         </div>
         <div className={`text-lg sm:text-xl font-extrabold ${
           isPositive
-            ? isBtts ? 'text-emerald' : 'text-success-light'
+            ? isBtts ? 'text-gold' : 'text-success-light'
             : 'text-red-400'
         }`}>
           {isBtts ? 'BTTS' : 'Over 2.5'}
@@ -127,7 +127,7 @@ function PredBadge({ type, prediction, expanded }: { type: string; prediction: s
             className={`h-full rounded-full ${
               isPositive
                 ? isBtts
-                  ? 'bg-gradient-to-r from-emerald-dark to-emerald'
+                  ? 'bg-gradient-to-r from-gold-dark to-gold'
                   : 'bg-gradient-to-r from-success-dark to-success'
                 : 'bg-red-500/40'
             }`}
@@ -151,7 +151,7 @@ function PredBadge({ type, prediction, expanded }: { type: string; prediction: s
     <span className={`v31-badge-pulse ${isBtts ? 'badge-btts' : 'badge-over25'}`}>
       <span className={`w-1.5 h-1.5 rounded-full ${
         isPositive
-          ? isBtts ? 'bg-emerald' : 'bg-success'
+          ? isBtts ? 'bg-gold' : 'bg-success'
           : 'bg-red-400'
       }`} />
       {label} {prediction}
@@ -200,10 +200,10 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
         role="button"
         tabIndex={0}
         aria-expanded={expanded}
-        className={`v31-data-stream v31-card-hover-glow relative rounded-xl border cursor-pointer transition-all duration-300 overflow-hidden ${
+        className={`v31-data-stream v31-card-hover-glow card-elevate relative squircle border cursor-pointer transition-all duration-300 overflow-hidden ${
           expanded
-            ? 'bg-gradient-to-b from-panel-2 to-panel border-emerald/30 shadow-lg shadow-emerald/8'
-            : 'bg-gradient-to-b from-panel/80 to-panel/60 border-edge hover:border-emerald/40'
+            ? 'bg-gradient-to-b from-panel-2 to-panel border-gold/30 shadow-lg shadow-gold/8'
+            : 'bg-gradient-to-b from-panel/80 to-panel/60 border-edge hover:border-gold/40'
         }`}
       >
         {/* Premium top sheen */}
@@ -215,7 +215,7 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
               animate={{ scaleX: 1 }}
               exit={{ scaleX: 0 }}
               transition={{ duration: 0.3 }}
-              className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald via-gold to-emerald origin-left"
+              className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold to-gold origin-left"
             />
           )}
         </AnimatePresence>
@@ -224,7 +224,7 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
         <div className="flex items-center gap-3 px-3 sm:px-4 py-3">
           <div className="flex-shrink-0 text-center min-w-[44px] sm:min-w-[50px]">
             <div className="flex items-center justify-center gap-1 text-white font-bold text-sm sm:text-base tabular-nums">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-emerald/60" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
               </svg>
               {match.time || '--:--'}
@@ -317,7 +317,7 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
 
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 bg-emerald rounded-full animate-pulse" />
+                    <span className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
                     <span className="text-[10px] text-gray-500">IA BttsBet</span>
                   </div>
                   {/* V23: Deux boutons côte à côte — Linebet + 888starz */}
@@ -327,7 +327,7 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
                       rel={AFFILIATE.rel}
                       target="_blank"
                       onClick={(e) => e.stopPropagation()}
-                      className="v31-cta-wave flex items-center gap-1.5 px-2.5 py-2 btn-linebet text-[#04150C] text-xs"
+                      className="v31-cta-wave cta-glow flex items-center gap-1.5 px-2.5 py-2 btn-linebet text-[#04150C] text-xs"
                       style={{ ['--v31-wave-delay' as string]: '2s' }}
                       data-cursor="hover"
                     >
@@ -339,7 +339,7 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
                       rel={AFFILIATE.rel}
                       target="_blank"
                       onClick={(e) => e.stopPropagation()}
-                      className="v31-cta-wave flex items-center gap-1.5 px-2.5 py-2 btn-star888 text-white text-xs"
+                      className="v31-cta-wave cta-glow flex items-center gap-1.5 px-2.5 py-2 btn-star888 text-white text-xs"
                       style={{ ['--v31-wave-delay' as string]: '6s' }}
                       data-cursor="hover"
                     >
@@ -358,7 +358,7 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
 }
 
 const DATE_GROUP_STYLES: Record<string, { line: string; text: string; badge: string; dot: string }> = {
-  emerald: { line: 'bg-gradient-to-r from-transparent via-emerald/25 to-transparent', text: 'text-emerald', badge: 'bg-emerald/10 text-emerald border border-emerald/20', dot: 'bg-emerald' },
+  emerald: { line: 'bg-gradient-to-r from-transparent via-gold/25 to-transparent', text: 'text-gold', badge: 'bg-gold/10 text-gold border border-gold/20', dot: 'bg-gold' },
   gold: { line: 'bg-gradient-to-r from-transparent via-gold/25 to-transparent', text: 'text-gold', badge: 'bg-gold/10 text-gold border border-gold/20', dot: 'bg-gold' },
   royal: { line: 'bg-gradient-to-r from-transparent via-royal/25 to-transparent', text: 'text-royal', badge: 'bg-royal/10 text-royal border border-royal/20', dot: 'bg-royal' },
 }
@@ -491,23 +491,23 @@ export default function FreePredictions() {
             <div>
               <div className="flex items-center gap-3 mb-1">
                 <AIBrain size={36} />
-                <span className="text-[10px] font-bold text-emerald uppercase tracking-[0.15em]">Live Predictions</span>
+                <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">Live Predictions</span>
               </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-white mt-2 tracking-tight">
-                PRONOSTICS <span className="text-emerald">IA</span>
+              <h2 className="section-title font-bold text-white mt-2 tracking-tight">
+                PRONOSTICS <span className="text-gold">IA</span>
               </h2>
               <p className="text-gray-500 text-sm mt-1">Sélection IA — matchs des 7 prochains jours</p>
             </div>
-            <div className="flex items-center gap-4 bg-panel/70 border border-edge rounded-xl px-4 py-2.5 backdrop-blur-sm v31-ia-glow">
+            <div className="flex items-center gap-4 bg-panel/70 border border-edge squircle px-4 py-2.5 backdrop-blur-sm v31-ia-glow">
               <div className="flex items-center gap-1.5">
                 <span className="v31-pulse-ring relative flex w-1.5 h-1.5">
-                  <span className="absolute inset-0 bg-emerald rounded-full animate-ping opacity-75" />
-                  <span className="relative w-1.5 h-1.5 bg-emerald rounded-full" />
+                  <span className="absolute inset-0 bg-gold rounded-full animate-ping opacity-75" />
+                  <span className="relative w-1.5 h-1.5 bg-gold rounded-full" />
                 </span>
                 <span className="text-xs text-gray-400"><span ref={totalRef} className="text-white font-bold tabular-nums">{totalDisplay}</span> matchs</span>
               </div>
               <div className="w-px h-4 bg-edge" />
-              <div className="text-xs text-gray-400"><span ref={bttsRef} className="text-emerald font-bold tabular-nums">{bttsDisplay}</span> BTTS</div>
+              <div className="text-xs text-gray-400"><span ref={bttsRef} className="text-gold font-bold tabular-nums">{bttsDisplay}</span> BTTS</div>
               <div className="w-px h-4 bg-edge" />
               <div className="text-xs text-gray-400"><span ref={o25Ref} className="text-success-light font-bold tabular-nums">{o25Display}</span> O2.5</div>
             </div>
@@ -520,7 +520,7 @@ export default function FreePredictions() {
                 onClick={() => setActiveLeague(league)}
                 className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   activeLeague === league
-                    ? 'bg-emerald/12 text-emerald border border-emerald/30 shadow-sm shadow-emerald/10'
+                    ? 'bg-gold/12 text-gold border border-gold/30 shadow-sm shadow-gold/10'
                     : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300 hover:border-edge-light'
                 }`}
               >
@@ -532,7 +532,7 @@ export default function FreePredictions() {
 
         {loading ? (
           <div className="text-center py-16">
-            <div className="inline-block w-10 h-10 border-2 border-emerald/30 border-t-emerald rounded-full animate-spin" />
+            <div className="inline-block w-10 h-10 border-2 border-gold/30 border-t-gold rounded-full animate-spin" />
             <p className="text-gray-500 text-sm mt-4">Chargement des pronostics...</p>
           </div>
         ) : error ? (

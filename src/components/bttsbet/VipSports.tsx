@@ -87,10 +87,10 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="relative w-full max-w-md rounded-2xl overflow-hidden"
+            className="relative w-full max-w-md squircle-lg overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="bg-panel border border-gold/20 rounded-2xl shadow-2xl shadow-black/50">
+            <div className="bg-panel border border-gold/20 squircle-lg shadow-2xl shadow-black/50">
               <div className="h-1 bg-gradient-to-r from-gold-dark via-gold-light to-gold-dark" />
 
               <button
@@ -107,7 +107,7 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
                 <AnimatePresence mode="wait">
                   {step === 'info' && (
                     <motion.div key="info" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.25 }}>
-                      <div className="w-16 h-16 mx-auto bg-gold/10 border border-gold/20 rounded-2xl flex items-center justify-center text-gold mb-5">
+                      <div className="w-16 h-16 mx-auto bg-gold/10 border border-gold/20 squircle-lg flex items-center justify-center text-gold mb-5">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                           <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                         </svg>
@@ -119,7 +119,7 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
                         Pour accéder aux pronostics VIP{sport ? ` ${sport}` : ''}, vous devez d&apos;abord respecter ces conditions :
                       </p>
                       <div className="space-y-3 mb-6">
-                        <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-white/[0.06]">
+                        <div className="flex items-start gap-3 bg-midnight/50 squircle p-3.5 border border-white/[0.06]">
                           <div className="w-8 h-8 flex-shrink-0 bg-gold/10 rounded-lg flex items-center justify-center text-gold">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/>
@@ -134,8 +134,8 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
                                 onClick={() => setSelectedBookmaker('linebet')}
                                 className={`flex flex-col items-center justify-center gap-1 text-xs font-bold px-3 py-2 rounded-lg border-2 transition-all ${
                                   selectedBookmaker === 'linebet'
-                                    ? 'border-emerald bg-emerald/10 text-emerald'
-                                    : 'border-white/[0.08] text-gray-400 hover:border-emerald/40'
+                                    ? 'border-gold bg-gold/10 text-gold'
+                                    : 'border-white/[0.08] text-gray-400 hover:border-gold/40'
                                 }`}
                               >
                                 <span className="flex items-center justify-center gap-1.5">
@@ -162,7 +162,7 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
                             </div>
                           </div>
                         </div>
-                        <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-white/[0.06]">
+                        <div className="flex items-start gap-3 bg-midnight/50 squircle p-3.5 border border-white/[0.06]">
                           <div className="w-8 h-8 flex-shrink-0 bg-gold/10 rounded-lg flex items-center justify-center text-gold">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>
@@ -173,8 +173,8 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
                             <p className="text-gray-400 text-xs mt-0.5">Effectuez un premier dépôt de 3 000 Fr minimum sur votre compte {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'}</p>
                           </div>
                         </div>
-                        <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-white/[0.06]">
-                          <div className="w-8 h-8 flex-shrink-0 bg-emerald/10 rounded-lg flex items-center justify-center text-emerald">
+                        <div className="flex items-start gap-3 bg-midnight/50 squircle p-3.5 border border-white/[0.06]">
+                          <div className="w-8 h-8 flex-shrink-0 bg-gold/10 rounded-lg flex items-center justify-center text-gold">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <polyline points="20 6 9 17 4 12"/>
                             </svg>
@@ -197,7 +197,7 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
                           rel={AFFILIATE.rel}
                           target="_blank"
                           data-cursor="hover"
-                          className={`w-full flex items-center justify-center gap-2 px-4 py-2 font-bold text-xs ${
+                          className={`w-full flex items-center justify-center gap-2 px-4 py-2 font-bold text-xs cta-glow ${
                             selectedBookmaker === 'linebet'
                               ? 'btn-linebet text-[#04150C]'
                               : 'btn-star888 text-white'
@@ -224,7 +224,7 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
                         </svg>
                         Retour
                       </button>
-                      <div className="w-14 h-14 mx-auto bg-gold/10 border border-gold/20 rounded-2xl flex items-center justify-center text-gold mb-4">
+                      <div className="w-14 h-14 mx-auto bg-gold/10 border border-gold/20 squircle-lg flex items-center justify-center text-gold mb-4">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
                         </svg>
@@ -244,7 +244,7 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
                             </svg>
                           </div>
                           <input ref={inputRef} id="linebet-id" type="text" value={linebetId} onChange={(e) => setLinebetId(e.target.value)} placeholder="Ex : 123456789"
-                            className="w-full bg-midnight/60 border border-white/[0.06] rounded-xl pl-10 pr-4 py-3 text-white text-sm placeholder:text-gray-600 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-all"
+                            className="w-full bg-midnight/60 border border-white/[0.06] squircle pl-10 pr-4 py-3 text-white text-sm placeholder:text-gray-600 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-all"
                             onKeyDown={(e) => { if (e.key === 'Enter' && linebetId.trim()) handleSubmitId() }}
                           />
                         </div>
@@ -261,7 +261,7 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
 
                   {step === 'confirm' && submitSuccess && (
                     <motion.div key="success" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.25 }} className="text-center py-4">
-                      <div className="w-16 h-16 mx-auto bg-emerald/10 border border-emerald/20 rounded-2xl flex items-center justify-center text-emerald mb-4">
+                      <div className="w-16 h-16 mx-auto bg-gold/10 border border-gold/20 squircle-lg flex items-center justify-center text-gold mb-4">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <polyline points="20 6 9 17 4 12"/>
                         </svg>
@@ -285,7 +285,7 @@ function SportTeamLogo({ name, accent = 'gold', size = 18 }: { name: string; acc
   const initials = name?.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase() || '?'
   const accentMap = {
     gold: 'bg-gold/10 border-gold/15 text-gold/70',
-    emerald: 'bg-emerald/10 border-emerald/15 text-emerald/70',
+    emerald: 'bg-gold/10 border-gold/15 text-gold/70',
     red: 'bg-red-500/10 border-red-500/15 text-red-400',
     cyan: 'bg-cyan-400/10 border-cyan-400/15 text-cyan-400',
   }
@@ -521,18 +521,18 @@ function VipSportCard({ sport, onUnlock, index }: { sport: SportVip; onUnlock: (
         initial={{ opacity: 0, y: 24, scale: 0.97 }}
         animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : undefined}
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        className="v31-vip-lab-glow relative rounded-2xl border border-gold/25 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift shadow-2xl max-w-4xl mx-auto"
+        className="v31-vip-lab-glow relative squircle-lg border border-gold/25 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift card-elevate shadow-2xl max-w-4xl mx-auto"
       >
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold-light to-gold" />
         <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-gold/4 rounded-full blur-[100px] animate-pulse-gold" />
-        <div className="absolute bottom-0 left-0 w-[180px] h-[180px] bg-emerald/3 rounded-full blur-[80px]" />
+        <div className="absolute bottom-0 left-0 w-[180px] h-[180px] bg-gold/3 rounded-full blur-[80px]" />
 
         <div className="relative p-5 sm:p-7">
           {/* Header */}
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2.5">
-              <div className="w-11 h-11 bg-gold/10 border border-gold/20 rounded-xl flex items-center justify-center overflow-hidden flex-shrink-0">
+              <div className="w-11 h-11 bg-gold/10 border border-gold/20 squircle flex items-center justify-center overflow-hidden flex-shrink-0">
                 <img src={sport.logo} alt={sport.name} className="w-8 h-8 object-contain" loading="lazy"/>
               </div>
               <div>
@@ -628,7 +628,7 @@ export default function VipSports() {
       <section ref={ref} className="py-10 sm:py-14 px-4 relative overflow-hidden" id="vip-sports">
         {/* Background mesh */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/3 w-[500px] h-[400px] bg-emerald/4 rounded-full blur-[140px] opacity-50" />
+          <div className="absolute top-0 left-1/3 w-[500px] h-[400px] bg-gold/4 rounded-full blur-[140px] opacity-50" />
           <div className="absolute bottom-0 right-1/3 w-[400px] h-[350px] bg-gold/4 rounded-full blur-[120px] opacity-50" />
         </div>
         <FloatingParticles count={8} />
@@ -644,7 +644,7 @@ export default function VipSports() {
               <StatsIcon size={40} />
             </div>
             <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">VIP Multi-Sports · IA</span>
-            <h2 className="text-xl sm:text-2xl font-bold text-white mt-2 tracking-tight">
+            <h2 className="section-title font-bold text-white mt-2 tracking-tight">
               PRONOSTICS <span className="text-gold">VIP SPORTS</span>
             </h2>
             <p className="text-gray-400 text-sm max-w-2xl mx-auto leading-relaxed">

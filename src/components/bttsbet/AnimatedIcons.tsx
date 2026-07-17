@@ -13,22 +13,22 @@ export function Football3D({ size = 56, className = '' }: { size?: number; class
     <div className={`relative ${className}`}>
       <div className="animate-spin-3d" style={{ width: size, height: size }}>
         <svg width={size} height={size} viewBox="0 0 64 64" fill="none">
-          <circle cx="32" cy="32" r="28" fill="#FF6B2B" opacity="0.15" />
-          <circle cx="32" cy="32" r="28" stroke="#FF6B2B" strokeWidth="1.5" fill="none" opacity="0.6" />
+          <circle cx="32" cy="32" r="28" fill="#FACC15" opacity="0.15" />
+          <circle cx="32" cy="32" r="28" stroke="#FACC15" strokeWidth="1.5" fill="none" opacity="0.6" />
           {/* Pentagon patches */}
-          <polygon points="32,10 38,16 36,24 28,24 26,16" fill="#FF6B2B" opacity="0.3" />
-          <polygon points="50,28 48,36 42,32 42,24 48,22" fill="#FF6B2B" opacity="0.25" />
-          <polygon points="14,28 16,36 22,32 22,24 16,22" fill="#FF6B2B" opacity="0.25" />
-          <polygon points="24,44 30,48 30,54 24,52 20,46" fill="#FF6B2B" opacity="0.2" />
-          <polygon points="40,44 34,48 34,54 40,52 44,46" fill="#FF6B2B" opacity="0.2" />
+          <polygon points="32,10 38,16 36,24 28,24 26,16" fill="#FACC15" opacity="0.3" />
+          <polygon points="50,28 48,36 42,32 42,24 48,22" fill="#FACC15" opacity="0.25" />
+          <polygon points="14,28 16,36 22,32 22,24 16,22" fill="#FACC15" opacity="0.25" />
+          <polygon points="24,44 30,48 30,54 24,52 20,46" fill="#FACC15" opacity="0.2" />
+          <polygon points="40,44 34,48 34,54 40,52 44,46" fill="#FACC15" opacity="0.2" />
           {/* Seam lines */}
-          <path d="M32 4 L32 60" stroke="#FF6B2B" strokeWidth="0.5" opacity="0.15" />
-          <path d="M4 32 L60 32" stroke="#FF6B2B" strokeWidth="0.5" opacity="0.15" />
+          <path d="M32 4 L32 60" stroke="#FACC15" strokeWidth="0.5" opacity="0.15" />
+          <path d="M4 32 L60 32" stroke="#FACC15" strokeWidth="0.5" opacity="0.15" />
         </svg>
       </div>
       {/* Orbit ring */}
       <div className="gradient-orbit-ring absolute inset-[-8px]"
-        style={{ '--orbit-duration': '6s', '--orbit-dot-color': '#FF6B2B' } as React.CSSProperties} />
+        style={{ '--orbit-duration': '6s', '--orbit-dot-color': '#FACC15' } as React.CSSProperties} />
     </div>
   )
 }
@@ -73,7 +73,7 @@ export function RocketIcon({ size = 48, className = '' }: { size?: number; class
           <path d="M20 38 L24 48 L28 38" fill="#FACC15" opacity="0.5">
             <animate attributeName="opacity" values="0.3;0.7;0.3" dur="0.5s" repeatCount="indefinite" />
           </path>
-          <path d="M22 38 L24 44 L26 38" fill="#FF6B2B" opacity="0.7">
+          <path d="M22 38 L24 44 L26 38" fill="#FDE047" opacity="0.7">
             <animate attributeName="opacity" values="0.5;1;0.5" dur="0.3s" repeatCount="indefinite" />
           </path>
           {/* Rocket body */}
@@ -90,7 +90,7 @@ export function RocketIcon({ size = 48, className = '' }: { size?: number; class
           <circle cx="38" cy="16" r="0.8" fill="#22D3EE" opacity="0.3">
             <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2s" repeatCount="indefinite" />
           </circle>
-          <circle cx="36" cy="8" r="0.6" fill="#FF6B2B" opacity="0.3">
+          <circle cx="36" cy="8" r="0.6" fill="#22D3EE" opacity="0.3">
             <animate attributeName="opacity" values="0.2;0.7;0.2" dur="1.8s" repeatCount="indefinite" />
           </circle>
         </svg>
@@ -113,7 +113,7 @@ export function CrownIcon({ size = 48, className = '' }: { size?: number; classN
           {/* Crown band */}
           <rect x="8" y="32" width="32" height="4" rx="1" fill="#FACC15" opacity="0.2" stroke="#FACC15" strokeWidth="1" />
           {/* Jewels */}
-          <circle cx="16" cy="30" r="2" fill="#FF6B2B" opacity="0.7">
+          <circle cx="16" cy="30" r="2" fill="#22D3EE" opacity="0.7">
             <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
           </circle>
           <circle cx="24" cy="28" r="2" fill="#22D3EE" opacity="0.7">
@@ -140,21 +140,21 @@ export function GameController({ size = 48, className = '' }: { size?: number; c
       <div className="animate-wiggle" style={{ width: size, height: size }}>
         <svg width={size} height={size} viewBox="0 0 48 48" fill="none">
           {/* Controller body */}
-          <rect x="8" y="18" width="32" height="18" rx="8" fill="#EF4444" opacity="0.12" stroke="#EF4444" strokeWidth="1.5" />
+          <rect x="8" y="18" width="32" height="18" rx="8" fill="#FACC15" opacity="0.08" stroke="#FACC15" strokeWidth="1.5" />
           {/* D-pad */}
-          <rect x="14" y="23" width="3" height="8" rx="1" fill="#EF4444" opacity="0.4" />
-          <rect x="11" y="26" width="8" height="3" rx="1" fill="#EF4444" opacity="0.4" />
+          <rect x="14" y="23" width="3" height="8" rx="1" fill="#FACC15" opacity="0.4" />
+          <rect x="11" y="26" width="8" height="3" rx="1" fill="#FACC15" opacity="0.4" />
           {/* Buttons */}
           <circle cx="32" cy="24" r="2" fill="#22D3EE" opacity="0.5" />
           <circle cx="36" cy="27" r="2" fill="#FACC15" opacity="0.5" />
           <circle cx="28" cy="27" r="2" fill="#4ADE80" opacity="0.5" />
-          <circle cx="32" cy="30" r="2" fill="#FF6B2B" opacity="0.5" />
+          <circle cx="32" cy="30" r="2" fill="#22D3EE" opacity="0.5" />
           {/* Antenna / signal */}
-          <path d="M24 18 L24 12" stroke="#EF4444" strokeWidth="1" opacity="0.3" />
-          <path d="M20 14 Q24 8 28 14" stroke="#EF4444" strokeWidth="0.8" fill="none" opacity="0.2">
+          <path d="M24 18 L24 12" stroke="#FACC15" strokeWidth="1" opacity="0.3" />
+          <path d="M20 14 Q24 8 28 14" stroke="#FACC15" strokeWidth="0.8" fill="none" opacity="0.2">
             <animate attributeName="opacity" values="0.1;0.4;0.1" dur="2s" repeatCount="indefinite" />
           </path>
-          <path d="M16 12 Q24 4 32 12" stroke="#EF4444" strokeWidth="0.8" fill="none" opacity="0.15">
+          <path d="M16 12 Q24 4 32 12" stroke="#FACC15" strokeWidth="0.8" fill="none" opacity="0.15">
             <animate attributeName="opacity" values="0.05;0.3;0.05" dur="2.5s" repeatCount="indefinite" />
           </path>
         </svg>
@@ -174,7 +174,7 @@ export function StatsIcon({ size = 48, className = '' }: { size?: number; classN
             <animate attributeName="height" values="8;12;8" dur="3s" repeatCount="indefinite" />
             <animate attributeName="y" values="32;28;32" dur="3s" repeatCount="indefinite" />
           </rect>
-          <rect x="17" y="20" width="6" height="20" rx="1" fill="#FF6B2B" opacity="0.3">
+          <rect x="17" y="20" width="6" height="20" rx="1" fill="#FACC15" opacity="0.3">
             <animate attributeName="height" values="14;20;14" dur="3.5s" repeatCount="indefinite" />
             <animate attributeName="y" values="26;20;26" dur="3.5s" repeatCount="indefinite" />
           </rect>
@@ -224,7 +224,7 @@ export function TrophyIcon({ size = 48, className = '' }: { size?: number; class
 }
 
 // ─── Section Icon Wrapper (container with orbit + glow) ───
-export function SectionIcon({ children, color = '#FF6B2B', size = 56 }: {
+export function SectionIcon({ children, color = '#FACC15', size = 56 }: {
   children: React.ReactNode
   color?: string
   size?: number
@@ -259,7 +259,7 @@ export function SectionIcon({ children, color = '#FF6B2B', size = 56 }: {
 // ─── Floating Particles Background ───
 export function FloatingParticles({ count = 12, className = '' }: { count?: number; className?: string }) {
   const particles = Array.from({ length: count }, (_, i) => {
-    const colors = ['#FF6B2B', '#22D3EE', '#FACC15', '#4ADE80']
+    const colors = ['#FACC15', '#22D3EE', '#FDE047', '#4ADE80']
     const color = colors[i % colors.length]
     const size = 2 + (i % 3) * 1.5
     const left = ((i * 37 + 13) % 100)
@@ -299,8 +299,8 @@ export function AnimatedSectionHeader({
   title,
   titleAccent,
   subtitle,
-  labelColor = 'text-emerald',
-  accentColor = 'text-emerald',
+  labelColor = 'text-gold',
+  accentColor = 'text-gold',
 }: {
   icon: React.ReactNode
   label: string

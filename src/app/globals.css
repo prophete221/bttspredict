@@ -1,43 +1,44 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════
-   BttsBet — "NOVA PRIME" v13 — Living Site
+   BttsBet — "NOVA PRIME" v14 — 2026 Premium Redesign
    
-   Philosophy: Pill buttons. Flat solids. Blur+scale reveals.
-   Compact mobile. Clean micro-interactions. Premium minimalism.
+   Philosophy: Gold-first. Squircle cards. Bento layouts.
+   Targeted glassmorphism. Oversized typography. Mobile-first.
+   Performant on 3G/4G entry-level devices.
    
-   Primary : Blaze Orange #FF6B2B
-   Secondary : Cyan Surge #22D3EE  
-   Accent  : Gold Prestige #FACC15
-   Victory : Neon Mint #4ADE80
+   Primary   : Gold Prestige #FACC15 (dominant — CTAs, badges, key)
+   Secondary : Cyan Surge #22D3EE (hovers + secondary only)
+   Surface   : Midnight Blue #0A0B1A (blue-tinted, not pure black)
+   Victory   : Neon Mint #4ADE80
    ═══════════════════════════════════════════════════════════════ */
 @theme {
-  /* ── Backgrounds ── */
-  --color-midnight: #030305;
-  --color-abyss: #08090F;
-  --color-panel: #0C0D14;
-  --color-panel-2: #10111A;
-  --color-edge: #1A1B28;
-  --color-edge-light: #252738;
-  --color-edge-bright: #363850;
+  /* ── Backgrounds — Blue-tinted midnight ── */
+  --color-midnight: #0A0B1A;
+  --color-abyss: #0E1020;
+  --color-panel: #12132A;
+  --color-panel-2: #181A35;
+  --color-edge: #1E2045;
+  --color-edge-light: #282B55;
+  --color-edge-bright: #3A3E6A;
 
-  /* ── Primary : Blaze Orange ── */
+  /* ── Primary : Gold Prestige (DOMINANT) ── */
+  --color-gold: #FACC15;
+  --color-gold-light: #FDE047;
+  --color-gold-dark: #EAB308;
+
+  /* ── Accent : Blaze Orange (legacy compat, reduced usage) ── */
   --color-emerald: #FF6B2B;
   --color-emerald-dark: #E5551A;
   --color-emerald-soft: #FF8F5E;
   --color-emerald-deep: #CC4410;
-
-  /* ── Accent : Gold Prestige ── */
-  --color-gold: #FACC15;
-  --color-gold-light: #FDE047;
-  --color-gold-dark: #EAB308;
 
   /* ── Victory : Neon Mint ── */
   --color-success: #4ADE80;
   --color-success-light: #86EFAC;
   --color-success-dark: #22C55E;
 
-  /* ── Secondary : Cyan Surge ── */
+  /* ── Secondary : Cyan Surge (hovers only) ── */
   --color-ultra: #22D3EE;
   --color-ultra-dark: #06B6D4;
   --color-ultra-soft: #67E8F9;
@@ -52,7 +53,7 @@
   --color-win: #4ADE80;
   --color-lose: #F87171;
 
-  /* ── Legacy tokens ── */
+  /* ── Legacy tokens (compat) ── */
   --color-royal: #E5551A;
   --color-royal-deep: #CC4410;
   --color-royal-soft: #FF6B2B;
@@ -70,16 +71,16 @@
   --color-aurora-violet: #FF8F5E;
 
   /* ── Fonds legacy ── */
-  --color-dark-900: #030305;
-  --color-dark-800: #08090F;
-  --color-dark-700: #0C0D14;
-  --color-dark-600: #1A1B28;
-  --color-dark-500: #252738;
+  --color-dark-900: #0A0B1A;
+  --color-dark-800: #0E1020;
+  --color-dark-700: #12132A;
+  --color-dark-600: #1E2045;
+  --color-dark-500: #282B55;
 
   /* ── Cartes legacy ── */
-  --color-card: #0C0D14;
-  --color-card-border: #1A1B28;
-  --color-card-hover: #10111A;
+  --color-card: #12132A;
+  --color-card-border: #1E2045;
+  --color-card-hover: #181A35;
 
   /* ── Textes ── */
   --color-text-primary: #F1F2F6;
@@ -87,8 +88,12 @@
   --color-text-muted: #5A5E74;
 
   /* ── Verre ── */
-  --color-glass: rgba(255, 107, 43, 0.02);
-  --color-glass-border: rgba(255, 107, 43, 0.06);
+  --color-glass: rgba(250, 204, 21, 0.02);
+  --color-glass-border: rgba(250, 204, 21, 0.06);
+
+  /* ── Squircle radius ── */
+  --radius-squircle: 1.25rem;
+  --radius-squircle-lg: 1.5rem;
 }
 
 /* ─── Base ─── */
@@ -98,7 +103,7 @@ html {
 }
 
 body {
-  background-color: #030305;
+  background-color: #0A0B1A;
   color: #E8E9ED;
   font-family: 'Inter', var(--font-inter), system-ui, -apple-system, sans-serif;
   font-size: 16px;
@@ -110,7 +115,6 @@ body {
   background-attachment: fixed;
 }
 
-/* Remove dot grid — clean look */
 body::before { display: none; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -120,10 +124,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #F1F2F6;
 }
 
-/* ─── Clean Surface Cards v11.1 — Flat, minimal ─── */
+/* ─── Surface Cards v14 — Squircle ─── */
 .glass {
-  background: rgba(12, 13, 20, 0.9);
-  border: 1px solid rgba(26, 27, 40, 0.6);
+  background: rgba(18, 19, 42, 0.9);
+  border: 1px solid rgba(30, 32, 69, 0.6);
 }
 @media (min-width: 768px) {
   .glass {
@@ -133,8 +137,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass-strong {
-  background: rgba(8, 9, 15, 0.97);
-  border: 1px solid rgba(26, 27, 40, 0.5);
+  background: rgba(14, 16, 32, 0.97);
+  border: 1px solid rgba(30, 32, 69, 0.5);
 }
 @media (min-width: 768px) {
   .glass-strong {
@@ -144,19 +148,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass-3d {
-  background: rgba(12, 13, 20, 0.85);
-  border: 1px solid rgba(26, 27, 40, 0.5);
+  background: rgba(18, 19, 42, 0.85);
+  border: 1px solid rgba(30, 32, 69, 0.5);
 }
 
 /* ─── 3D Card — Simplified ─── */
 .card-3d {
   position: relative;
-  background: rgba(12, 13, 20, 0.85);
-  border: 1px solid rgba(26, 27, 40, 0.5);
-  transition: border-color 0.3s ease;
+  background: rgba(18, 19, 42, 0.85);
+  border: 1px solid rgba(30, 32, 69, 0.5);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .card-3d:hover {
-  border-color: rgba(255, 107, 43, 0.2);
+  border-color: rgba(250, 204, 21, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 .card-3d::before { display: none; }
 
@@ -166,28 +171,29 @@ h1, h2, h3, h4, h5, h6 {
   will-change: transform;
 }
 
-/* ─── Neon — Refined, subtle ─── */
+/* ─── Neon — Refined, gold-first ─── */
 .neon-glow {
-  text-shadow: 0 0 20px rgba(255, 107, 43, 0.4);
+  text-shadow: 0 0 20px rgba(250, 204, 21, 0.4);
 }
 .neon-glow-blue {
   text-shadow: 0 0 20px rgba(250, 204, 21, 0.4);
 }
 .neon-border {
-  box-shadow: 0 0 20px rgba(255, 107, 43, 0.15);
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.15);
 }
 
-/* ─── Premium Card — Clean flat ─── */
+/* ─── Premium Card — Squircle ─── */
 .card {
-  background: #0C0D14;
-  border: 1px solid rgba(26, 27, 40, 0.6);
-  border-radius: 16px;
-  transition: border-color 0.3s ease;
+  background: #12132A;
+  border: 1px solid rgba(30, 32, 69, 0.6);
+  border-radius: var(--radius-squircle);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 .card:hover {
-  border-color: rgba(255, 107, 43, 0.25);
+  border-color: rgba(250, 204, 21, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 .card-shadow {
@@ -203,8 +209,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Animations — Subtle, refined ─── */
 @keyframes pulse-neon {
-  0%, 100% { text-shadow: 0 0 20px rgba(255, 107, 43, 0.4); }
-  50% { text-shadow: 0 0 32px rgba(255, 107, 43, 0.6); }
+  0%, 100% { text-shadow: 0 0 20px rgba(250, 204, 21, 0.4); }
+  50% { text-shadow: 0 0 32px rgba(250, 204, 21, 0.6); }
 }
 .animate-pulse-neon { animation: pulse-neon 3s ease-in-out infinite; }
 
@@ -232,8 +238,8 @@ h1, h2, h3, h4, h5, h6 {
 .animate-enter3d { animation: enter3d 0.5s ease-out forwards; }
 
 @keyframes novaPulse {
-  0%, 100% { box-shadow: 0 0 12px rgba(255, 107, 43, 0.1); }
-  50% { box-shadow: 0 0 20px rgba(255, 107, 43, 0.2); }
+  0%, 100% { box-shadow: 0 0 12px rgba(250, 204, 21, 0.1); }
+  50% { box-shadow: 0 0 20px rgba(250, 204, 21, 0.2); }
 }
 .animate-nova-pulse { animation: novaPulse 3s ease-in-out infinite; }
 
@@ -299,19 +305,19 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* ─── Scrollbar — Minimal ─── */
+/* ─── Scrollbar — Midnight gold-tinted ─── */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #030305; }
-::-webkit-scrollbar-thumb { background: rgba(255, 107, 43, 0.2); border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(255, 107, 43, 0.4); }
+::-webkit-scrollbar-track { background: #0A0B1A; }
+::-webkit-scrollbar-thumb { background: rgba(250, 204, 21, 0.15); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(250, 204, 21, 0.3); }
 
 /* ─── Selection ─── */
-::selection { background: rgba(255, 107, 43, 0.3); color: #fff; }
+::selection { background: rgba(250, 204, 21, 0.25); color: #fff; }
 
 /* ─── Stat Card — Clean ─── */
 @keyframes statGlow {
   0%, 100% { box-shadow: none; }
-  50% { box-shadow: 0 0 12px rgba(255, 107, 43, 0.08); }
+  50% { box-shadow: 0 0 12px rgba(250, 204, 21, 0.08); }
 }
 .stat-card-animated { animation: statGlow 4s ease-in-out infinite; }
 .stat-card-animated:nth-child(2) { animation-delay: 0.5s; }
@@ -332,9 +338,9 @@ h1, h2, h3, h4, h5, h6 {
   font-variant-numeric: tabular-nums;
 }
 
-/* ═══ NOVA PRIME BUTTONS v12 — 2026 Modern Pill ═══
+/* ═══ NOVA PRIME BUTTONS v14 — 2026 Gold-First ═══
    Pill-shaped, flat solid colors, subtle depth.
-   Compact on mobile. Clean micro-interactions.
+   Gold dominant. Glow on hover. Compact mobile.
    No gradients, no heavy glows. Premium minimalism. */
 
 .btn-quantum-base, .btn-emerald, .btn-gold, .btn-linebet, .btn-star888, .btn-ghost-quantum {
@@ -348,7 +354,6 @@ h1, h2, h3, h4, h5, h6 {
   white-space: nowrap;
 }
 
-/* Remove shimmer sweep */
 .btn-quantum-base::after, .btn-emerald::after, .btn-gold::after, .btn-linebet::after, .btn-star888::after {
   display: none;
 }
@@ -358,14 +363,26 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px var(--btn-key-ring, transparent);
 }
 .btn-emerald:hover, .btn-gold:hover, .btn-linebet:hover, .btn-star888:hover {
-  transform: scale(1.03); filter: brightness(1.1);
+  transform: scale(1.04); filter: brightness(1.08);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25), 0 0 0 1px var(--btn-key-ring-hover, transparent);
 }
 .btn-emerald:active, .btn-gold:active, .btn-linebet:active, .btn-star888:active {
   transform: scale(0.97); filter: brightness(0.95); transition-duration: 0.08s;
 }
 
-/* ─── Blaze Orange primary — flat solid ─── */
+/* ─── Gold Prestige — PRIMARY CTA (dominant) ─── */
+.btn-gold {
+  --btn-key-ring: rgba(250, 204, 21, 0.15);
+  --btn-key-ring-hover: rgba(250, 204, 21, 0.4);
+  color: #1A0F00;
+  background-color: #FACC15;
+}
+.btn-gold:hover {
+  background-color: #FBD83B;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25), 0 0 20px rgba(250, 204, 21, 0.25);
+}
+
+/* ─── Blaze Orange — secondary action ─── */
 .btn-emerald {
   --btn-key-ring: rgba(255, 107, 43, 0.1);
   --btn-key-ring-hover: rgba(255, 107, 43, 0.3);
@@ -374,16 +391,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn-emerald:hover { background-color: #FF7E45; }
 
-/* ─── Gold Prestige — flat solid ─── */
-.btn-gold {
-  --btn-key-ring: rgba(250, 204, 21, 0.1);
-  --btn-key-ring-hover: rgba(250, 204, 21, 0.3);
-  color: #1A0F00;
-  background-color: #FACC15;
-}
-.btn-gold:hover { background-color: #FBD83B; }
-
-/* ─── Linebet — flat solid ─── */
+/* ─── Linebet — brand color ─── */
 .btn-linebet {
   --btn-key-ring: rgba(52, 211, 153, 0.1);
   --btn-key-ring-hover: rgba(52, 211, 153, 0.3);
@@ -392,7 +400,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn-linebet:hover { background-color: #4EEAAF; }
 
-/* ─── 888starz — flat solid ─── */
+/* ─── 888starz — brand color ─── */
 .btn-star888 {
   --btn-key-ring: rgba(239, 68, 68, 0.1);
   --btn-key-ring-hover: rgba(239, 68, 68, 0.3);
@@ -401,26 +409,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn-star888:hover { background-color: #F26565; }
 
-/* ─── Ghost / outline — Pill ─── */
+/* ─── Ghost / outline — Gold accent ─── */
 .btn-ghost-quantum {
   background: transparent;
-  border: 1px solid rgba(255, 107, 43, 0.2); color: #F1F2F6; font-weight: 600;
+  border: 1px solid rgba(250, 204, 21, 0.25); color: #F1F2F6; font-weight: 600;
   border-radius: 9999px;
   transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
-              border-color 0.2s ease, background 0.2s ease;
+              border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 .btn-ghost-quantum::after { display: none; }
 .btn-ghost-quantum:hover {
-  border-color: rgba(255, 107, 43, 0.45);
-  background: rgba(255, 107, 43, 0.06);
+  border-color: rgba(250, 204, 21, 0.5);
+  background: rgba(250, 204, 21, 0.06);
   transform: scale(1.02);
+  box-shadow: 0 0 12px rgba(250, 204, 21, 0.1);
 }
 .btn-ghost-quantum:active { transform: scale(0.97); transition-duration: 0.08s; }
 
 /* ─── Focus-visible ─── */
 .btn-emerald:focus-visible, .btn-gold:focus-visible, .btn-linebet:focus-visible,
 .btn-star888:focus-visible, .btn-ghost-quantum:focus-visible {
-  outline: 2px solid rgba(255, 107, 43, 0.6); outline-offset: 2px;
+  outline: 2px solid rgba(250, 204, 21, 0.6); outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -437,7 +446,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ─── Section Accent Borders ─── */
-.accent-line-emerald { height: 1px; background: linear-gradient(90deg, transparent, rgba(255, 107, 43, 0.4), transparent); }
+.accent-line-emerald { height: 1px; background: linear-gradient(90deg, transparent, rgba(250, 204, 21, 0.4), transparent); }
 .accent-line-gold { height: 1px; background: linear-gradient(90deg, transparent, rgba(250, 204, 21, 0.4), transparent); }
 
 /* ─── Scrollbar-none ─── */
@@ -447,21 +456,21 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── Tabular numbers ─── */
 .tabular-nums { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
 
-/* ─── Title underline ─── */
+/* ─── Title underline — gold ─── */
 .title-underline { position: relative; }
 .title-underline::after {
   content: ''; position: absolute; left: 0; bottom: -8px; width: 32px; height: 2px;
-  background: #FF6B2B; border-radius: 1px;
+  background: #FACC15; border-radius: 1px;
 }
 
 /* ─── Premium divider ─── */
-.divider-premium { height: 1px; background: rgba(26, 27, 40, 0.6); }
+.divider-premium { height: 1px; background: rgba(30, 32, 69, 0.6); }
 
-/* ─── Glow ring — Subtle ─── */
+/* ─── Glow ring — Gold-first ─── */
 .glow-ring { position: relative; }
 .glow-ring::before {
   content: ''; position: absolute; inset: -1px; border-radius: inherit; padding: 1px;
-  background: linear-gradient(135deg, rgba(255, 107, 43, 0.35) 0%, transparent 40%, transparent 60%, rgba(250, 204, 21, 0.25) 100%);
+  background: linear-gradient(135deg, rgba(250, 204, 21, 0.35) 0%, transparent 40%, transparent 60%, rgba(34, 211, 238, 0.2) 100%);
   -webkit-mask: linear-gradient(black, black) content-box, linear-gradient(black, black);
   -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; z-index: 1;
 }
@@ -473,11 +482,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 .scroll-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #FF6B2B, #22D3EE, #FACC15);
+  background: linear-gradient(90deg, #FACC15, #22D3EE, #FACC15);
   transform-origin: left; will-change: transform;
 }
 
-/* ═══ V11.1 COMPONENT STYLES — Clean ─══ */
+/* ═══ V14 COMPONENT STYLES — Premium 2026 ═══ */
 
 /* ─── Promo Code Copy Button — Pill ─── */
 .promo-copy-btn {
@@ -487,13 +496,14 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer; transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .promo-copy-btn:hover {
-  background: rgba(250, 204, 21, 0.1);
+  background: rgba(250, 204, 21, 0.12);
   border-color: rgba(250, 204, 21, 0.4);
   transform: scale(1.03);
+  box-shadow: 0 0 12px rgba(250, 204, 21, 0.1);
 }
 .promo-copy-btn:active { transform: scale(0.97); }
 
-/* ─── Urgent Badge ─── */
+/* ─── Urgent Badge — discrete pulse ─── */
 .urgent-badge {
   background: rgba(239, 68, 68, 0.08);
   border: 1px solid rgba(239, 68, 68, 0.2);
@@ -504,14 +514,15 @@ h1, h2, h3, h4, h5, h6 {
   50% { box-shadow: 0 0 8px rgba(239, 68, 68, 0.15); }
 }
 
-/* ─── Testimonial Card — Clean ─── */
+/* ─── Testimonial Card ─── */
 .testimonial-card {
-  background: #0C0D14;
-  border: 1px solid rgba(26, 27, 40, 0.5); border-radius: 16px; padding: 20px;
-  transition: border-color 0.3s ease;
+  background: #12132A;
+  border: 1px solid rgba(30, 32, 69, 0.5); border-radius: var(--radius-squircle); padding: 20px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .testimonial-card:hover {
-  border-color: rgba(255, 107, 43, 0.2);
+  border-color: rgba(250, 204, 21, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* ─── Confidence Badge ─── */
@@ -521,47 +532,48 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 11px; font-weight: 700; color: #4ADE80;
 }
 
-/* ─── Badge BTTS / Over 2.5 — Clean pills ─── */
+/* ─── Badge BTTS / Over 2.5 — Gold accent ─── */
 .badge-btts {
-  background: rgba(255, 107, 43, 0.1);
-  border: 1px solid rgba(255, 107, 43, 0.2); border-radius: 6px; padding: 2px 8px;
-  font-size: 10px; font-weight: 700; color: #FF6B2B;
-}
-.badge-over25 {
   background: rgba(250, 204, 21, 0.1);
   border: 1px solid rgba(250, 204, 21, 0.2); border-radius: 6px; padding: 2px 8px;
   font-size: 10px; font-weight: 700; color: #FACC15;
 }
+.badge-over25 {
+  background: rgba(34, 211, 238, 0.1);
+  border: 1px solid rgba(34, 211, 238, 0.2); border-radius: 6px; padding: 2px 8px;
+  font-size: 10px; font-weight: 700; color: #22D3EE;
+}
 
 /* ─── Pastille dots ─── */
 .pastille { display: inline-block; width: 5px; height: 5px; border-radius: 50%; }
-.pastille-cyan { background: #FF6B2B; }
+.pastille-cyan { background: #22D3EE; }
 .pastille-amber { background: #FACC15; }
 .pastille-green { background: #4ADE80; }
 .pastille-red { background: #EF4444; }
 
-/* ─── Sticky Bottom CTA Bar ─── */
+/* ─── Sticky Bottom CTA Bar — GLASSMORPHISM TARGET #3 ─── */
 .sticky-cta-bar {
-  background: rgba(8, 9, 15, 0.97);
-  border-top: 1px solid rgba(26, 27, 40, 0.5);
-  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  background: rgba(14, 16, 32, 0.75);
+  border-top: 1px solid rgba(250, 204, 21, 0.1);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
 }
 
 /* ─── Steps ─── */
 .step-connector { position: relative; }
 .step-connector::after {
   content: ''; position: absolute; top: 50%; right: -16px; width: 32px; height: 1px;
-  background: rgba(255, 107, 43, 0.2);
+  background: rgba(250, 204, 21, 0.2);
 }
 @media (max-width: 767px) { .step-connector::after { display: none; } }
 
 /* ─── FAQ ─── */
 .v31-faq-sep { transition: all 0.3s ease; }
-.v31-faq-sep.is-open { border-color: rgba(255, 107, 43, 0.25); }
+.v31-faq-sep.is-open { border-color: rgba(250, 204, 21, 0.25); }
 
 /* ─── Mobile overrides ─── */
 @media (max-width: 767px) {
-  .neon-glow { text-shadow: 0 0 16px rgba(255, 107, 43, 0.3); }
+  .neon-glow { text-shadow: 0 0 16px rgba(250, 204, 21, 0.3); }
   .neon-glow-blue { text-shadow: 0 0 16px rgba(250, 204, 21, 0.3); }
   .animate-pulse-neon, .animate-pulse-gold { animation: none; }
   .stat-card-animated { animation: none; }
@@ -582,12 +594,12 @@ h1, h2, h3, h4, h5, h6 {
   .reveal-card { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
 
-/* ═══ V11.1 NOVA PRIME — Clean specifics ═══ */
+/* ═══ V14 NOVA PRIME — Premium specifics ═══ */
 
 .v31-vip-lab-glow { position: relative; }
 .v31-vip-lab-glow::before {
   content: ''; position: absolute; inset: -1px; border-radius: inherit; padding: 1px;
-  background: linear-gradient(135deg, rgba(255, 107, 43, 0.3) 0%, transparent 35%, transparent 65%, rgba(250, 204, 21, 0.2) 100%);
+  background: linear-gradient(135deg, rgba(250, 204, 21, 0.35) 0%, transparent 35%, transparent 65%, rgba(34, 211, 238, 0.2) 100%);
   -webkit-mask: linear-gradient(black, black) content-box, linear-gradient(black, black);
   -webkit-mask-composite: xor; mask-composite: exclude;
   pointer-events: none; z-index: 1;
@@ -602,11 +614,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .v31-cascade-row { transition: all 0.3s ease; }
-.v31-cascade-row:hover { background: rgba(255, 107, 43, 0.03); }
+.v31-cascade-row:hover { background: rgba(250, 204, 21, 0.03); }
 
 .v31-card-hover-glow { transition: all 0.3s ease; }
 .v31-card-hover-glow:hover {
-  border-color: rgba(255, 107, 43, 0.2);
+  border-color: rgba(250, 204, 21, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .v31-fifa-zoom-in { animation: fifaZoomIn 0.5s ease-out forwards; }
@@ -671,7 +684,7 @@ h1, h2, h3, h4, h5, h6 {
 .v31-deco-graph { }
 .v31-slide-from-left { }
 
-/* ─── NOVA animated border — subtle gradient ─── */
+/* ─── NOVA animated border — gold/cyan gradient ─── */
 @keyframes novaBorderFlow {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -680,7 +693,7 @@ h1, h2, h3, h4, h5, h6 {
 .nova-animated-border { position: relative; }
 .nova-animated-border::before {
   content: ''; position: absolute; inset: -1px; border-radius: inherit; padding: 1px;
-  background: linear-gradient(270deg, #FF6B2B, #22D3EE, #FACC15, #FF6B2B);
+  background: linear-gradient(270deg, #FACC15, #22D3EE, #FACC15, #FACC15);
   background-size: 300% 300%;
   animation: novaBorderFlow 8s ease infinite;
   -webkit-mask: linear-gradient(black, black) content-box, linear-gradient(black, black);
@@ -693,8 +706,7 @@ h1, h2, h3, h4, h5, h6 {
 .ticker-scroll { animation: tickerScroll 30s linear infinite; }
 
 /* ═══════════════════════════════════════════════════════════════
-   NOVA PRIME v13 — LIVING SITE ANIMATIONS
-   3D transforms, orbiting, floating particles, spinning icons
+   NOVA PRIME v14 — LIVING SITE ANIMATIONS
    ═══════════════════════════════════════════════════════════════ */
 
 /* ─── 3D Spinning Football ─── */
@@ -728,7 +740,7 @@ h1, h2, h3, h4, h5, h6 {
   animation: bounceIn3d 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/* ─── Floating drift (more dynamic than simple float) ─── */
+/* ─── Floating drift ─── */
 @keyframes floatDrift {
   0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
   25% { transform: translateY(-8px) translateX(4px) rotate(1deg); }
@@ -796,14 +808,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Glow pulse for icon containers ─── */
 @keyframes iconGlowPulse {
-  0%, 100% { box-shadow: 0 0 12px var(--glow-color, rgba(255, 107, 43, 0.15)); }
-  50% { box-shadow: 0 0 24px var(--glow-color, rgba(255, 107, 43, 0.3)); }
+  0%, 100% { box-shadow: 0 0 12px var(--glow-color, rgba(250, 204, 21, 0.15)); }
+  50% { box-shadow: 0 0 24px var(--glow-color, rgba(250, 204, 21, 0.3)); }
 }
 .animate-icon-glow {
   animation: iconGlowPulse 3s ease-in-out infinite;
 }
 
-/* ─── Orbit dot (small dot that orbits around icon) ─── */
+/* ─── Orbit dot ─── */
 .orbit-dot {
   position: absolute;
   width: 4px; height: 4px; border-radius: 50%;
@@ -813,7 +825,7 @@ h1, h2, h3, h4, h5, h6 {
   content: '';
   position: absolute;
   width: 4px; height: 4px; border-radius: 50%;
-  background: var(--dot-color, #FF6B2B);
+  background: var(--dot-color, #FACC15);
   top: 0; left: 50%;
   transform: translateX(-50%);
 }
@@ -834,8 +846,8 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   top: -3px; left: 50%; transform: translateX(-50%);
   width: 6px; height: 6px; border-radius: 50%;
-  background: var(--orbit-dot-color, #FF6B2B);
-  box-shadow: 0 0 8px var(--orbit-dot-color, #FF6B2B);
+  background: var(--orbit-dot-color, #FACC15);
+  box-shadow: 0 0 8px var(--orbit-dot-color, #FACC15);
 }
 
 /* ─── 3D perspective card hover ─── */
@@ -878,4 +890,171 @@ h1, h2, h3, h4, h5, h6 {
   .shimmer-sweep::after {
     animation: none !important;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   V14 NEW — GLASSMORPHISM (3 TARGETS ONLY)
+   #1: VIP locked card
+   #2: Promo code block  
+   #3: Sticky CTA mobile bar (already above)
+   ═══════════════════════════════════════════════════════════════ */
+
+.glass-vip {
+  background: rgba(18, 19, 42, 0.6);
+  backdrop-filter: blur(24px) saturate(1.5);
+  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+  border: 1px solid rgba(250, 204, 21, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(250, 204, 21, 0.06);
+}
+@media (max-width: 767px) {
+  .glass-vip {
+    backdrop-filter: blur(16px) saturate(1.3);
+    -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  }
+}
+
+.glass-promo {
+  background: rgba(18, 19, 42, 0.55);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid rgba(250, 204, 21, 0.1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(250, 204, 21, 0.05);
+}
+@media (max-width: 767px) {
+  .glass-promo {
+    backdrop-filter: blur(14px) saturate(1.2);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   V14 NEW — MICRO-INTERACTIONS
+   CTA: scale + glow | Cards: elevation | Badges: pulse
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── CTA Glow — primary buttons hover/tap ─── */
+.cta-glow {
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.15s ease;
+}
+.cta-glow:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 24px rgba(250, 204, 21, 0.3), 0 4px 12px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.08);
+}
+.cta-glow:active {
+  transform: scale(0.97);
+  filter: brightness(0.95);
+  transition-duration: 0.08s;
+}
+
+/* ─── Card Elevate — hover elevation ─── */
+.card-elevate {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s ease;
+}
+.card-elevate:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(250, 204, 21, 0.08);
+  border-color: rgba(250, 204, 21, 0.15);
+}
+
+/* ─── Badge Pulse — discrete attention ─── */
+.badge-pulse {
+  animation: badgePulse 2.5s ease-in-out infinite;
+}
+@keyframes badgePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.15); }
+  50% { box-shadow: 0 0 0 6px rgba(250, 204, 21, 0); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   V14 NEW — BENTO GRID
+   Asymmetric layout: 1 main card + smaller side cards
+   ═══════════════════════════════════════════════════════════════ */
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+  }
+  .bento-main { grid-column: span 7; }
+  .bento-side { grid-column: span 5; }
+}
+@media (min-width: 1024px) {
+  .bento-main { grid-column: span 8; }
+  .bento-side { grid-column: span 4; }
+}
+
+/* Three-column bento variant */
+.bento-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+@media (min-width: 768px) {
+  .bento-grid-3 {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+  }
+  .bento-3-main { grid-column: span 6; }
+  .bento-3-side-a { grid-column: span 3; }
+  .bento-3-side-b { grid-column: span 3; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   V14 NEW — SQUIRCLE RADIUS
+   Organic rounded corners on cards
+   ═══════════════════════════════════════════════════════════════ */
+
+.squircle { border-radius: var(--radius-squircle); }
+.squircle-lg { border-radius: var(--radius-squircle-lg); }
+
+/* ═══════════════════════════════════════════════════════════════
+   V14 NEW — OVERSIZED TYPOGRAPHY
+   Section titles: large, bold, short + strong
+   ═══════════════════════════════════════════════════════════════ */
+
+.section-title {
+  font-size: clamp(1.75rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #F1F2F6;
+}
+
+.section-label {
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #FACC15;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   V14 NEW — CYAN HOVER ACCENT
+   Secondary accent for hover states only
+   ═══════════════════════════════════════════════════════════════ */
+
+.hover-cyan {
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.hover-cyan:hover {
+  color: #22D3EE;
+  border-color: rgba(34, 211, 238, 0.3);
+}
+
+/* ─── Gold gradient text for key highlights ─── */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FACC15 0%, #FDE047 50%, #FACC15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

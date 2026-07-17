@@ -128,8 +128,8 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                                 onClick={() => setSelectedBookmaker('linebet')}
                                 className={`flex flex-col items-center justify-center gap-1 text-xs font-bold px-3 py-2 rounded-lg border-2 transition-all ${
                                   selectedBookmaker === 'linebet'
-                                    ? 'border-emerald bg-emerald/10 text-emerald'
-                                    : 'border-white/[0.08] text-gray-400 hover:border-emerald/40'
+                                    ? 'border-gold bg-gold/10 text-gold'
+                                    : 'border-white/[0.08] text-gray-400 hover:border-gold/40'
                                 }`}
                               >
                                 <span className="flex items-center justify-center gap-1.5">
@@ -168,7 +168,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                           </div>
                         </div>
                         <div className="flex items-start gap-3 bg-midnight/50 rounded-xl p-3.5 border border-white/[0.06]">
-                          <div className="w-8 h-8 flex-shrink-0 bg-emerald/10 rounded-lg flex items-center justify-center text-emerald">
+                          <div className="w-8 h-8 flex-shrink-0 bg-gold/10 rounded-lg flex items-center justify-center text-gold">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <polyline points="20 6 9 17 4 12"/>
                             </svg>
@@ -256,7 +256,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
 
                   {step === 'confirm' && submitSuccess && (
                     <motion.div key="success" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.25 }} className="text-center py-4">
-                      <div className="w-16 h-16 mx-auto bg-emerald/10 border border-emerald/20 rounded-2xl flex items-center justify-center text-emerald mb-4">
+                      <div className="w-16 h-16 mx-auto bg-gold/10 border border-gold/20 rounded-2xl flex items-center justify-center text-gold mb-4">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <polyline points="20 6 9 17 4 12"/>
                         </svg>
@@ -412,7 +412,7 @@ export default function PromoVip() {
         {/* Premium background mesh */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-[500px] h-[400px] bg-gold/4 rounded-full blur-[140px] opacity-60" />
-          <div className="absolute bottom-0 right-1/4 w-[400px] h-[350px] bg-emerald/3 rounded-full blur-[120px] opacity-60" />
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[350px] bg-gold/3 rounded-full blur-[120px] opacity-60" />
         </div>
         <FloatingParticles count={10} />
 
@@ -428,15 +428,15 @@ export default function PromoVip() {
               <CrownIcon size={44} />
             </div>
             <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">Zone Premium</span>
-            <h2 className="text-xl sm:text-2xl font-bold text-white mt-1 tracking-tight">
+            <h2 className="section-title font-bold text-white mt-1 tracking-tight">
               PRONOSTICS <span className="text-gold">VIP</span>
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <div className="bento-grid">
             {/* VIP Coupon */}
             <motion.div initial={{ opacity: 0, y: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : undefined} transition={{ duration: 0.6 }}
-              className="v31-vip-lab-glow relative rounded-2xl border border-gold/25 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift shadow-2xl">
+              className="v31-vip-lab-glow bento-main relative squircle-lg glass-vip overflow-hidden hover-lift shadow-2xl">
               {/* Premium top sheen */}
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold-light to-gold" />
@@ -446,7 +446,7 @@ export default function PromoVip() {
               <div className="relative p-5 sm:p-7">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-11 h-11 bg-gold/10 border border-gold/20 rounded-xl flex items-center justify-center overflow-hidden flex-shrink-0">
+                    <div className="w-11 h-11 bg-gold/10 border border-gold/20 squircle flex items-center justify-center overflow-hidden flex-shrink-0">
                       <img src="/logos/sport-football.svg" alt="Football" className="w-8 h-8 object-contain" loading="lazy"/>
                     </div>
                     <div>
@@ -528,27 +528,27 @@ export default function PromoVip() {
 
             {/* Promo Section — fintech-style offer card */}
             <motion.div initial={{ opacity: 0, x: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, x: 0, scale: 1 } : undefined} transition={{ duration: 0.5, delay: 0.1 }}
-              className="relative rounded-2xl border border-emerald/25 overflow-hidden hover-lift shadow-2xl"
+              className="bento-side relative squircle-lg card-elevate border border-gold/25 overflow-hidden hover-lift shadow-2xl"
               style={{
                 background: 'linear-gradient(135deg, rgba(50, 176, 200, 0.08) 0%, rgba(15, 21, 37, 0.95) 40%, rgba(245, 165, 36, 0.06) 100%)',
               }}>
               {/* Premium top sheen */}
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald/40 to-transparent" />
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald via-gold to-emerald" />
-              <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-emerald/4 rounded-full blur-[80px]" />
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold-light to-gold" />
+              <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-gold/4 rounded-full blur-[80px]" />
               <div className="absolute top-0 right-0 w-[180px] h-[180px] bg-gold/4 rounded-full blur-[80px]" />
 
               <div className="relative p-6 sm:p-8">
                 <div className="flex items-center gap-3 mb-5">
                   {/* Gift icon — large */}
-                  <div className="w-14 h-14 bg-gradient-to-br from-emerald/15 to-gold/10 border border-emerald/20 rounded-2xl flex items-center justify-center text-emerald">
+                  <div className="w-14 h-14 bg-gradient-to-br from-gold/15 to-gold/10 border border-gold/20 squircle-lg flex items-center justify-center text-gold">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/>
                     </svg>
                   </div>
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-white">
-                      BONUS <span className="text-emerald">EXCLUSIF</span>
+                      BONUS <span className="text-gold">EXCLUSIF</span>
                     </h3>
                   </div>
                 </div>
@@ -558,8 +558,8 @@ export default function PromoVip() {
                 </p>
 
                 {/* Bonus amount — large display */}
-                <div className="bg-midnight/60 border border-edge rounded-xl p-4 mb-4 text-center relative overflow-hidden" role="text" aria-label={`Code promo: ${SITE.promoCode}`}>
-                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald/30 to-transparent" />
+                <div className="bg-midnight/60 border border-edge squircle p-4 mb-4 text-center relative overflow-hidden" role="text" aria-label={`Code promo: ${SITE.promoCode}`}>
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
                   <div className="text-xs text-gray-500 mb-1">Code promo exclusif</div>
                   <div className="text-2xl sm:text-3xl font-bold tracking-[0.2em] promo-code-shimmer">{SITE.promoCode}</div>
                 </div>
@@ -579,11 +579,11 @@ export default function PromoVip() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-2">
-                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-3 py-2 btn-linebet text-[#04150C] text-xs" style={{ ['--v31-wave-delay' as string]: '2s' }} data-cursor="hover">
+                  <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave cta-glow flex-1 flex items-center justify-center gap-2 px-3 py-2 btn-linebet text-[#04150C] text-xs" style={{ ['--v31-wave-delay' as string]: '2s' }} data-cursor="hover">
                     <img src="/logos/linebet.svg" alt="Linebet" className="h-4 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                   {/* V23: Nouveau bouton 888starz à côté de Linebet */}
-                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave flex-1 flex items-center justify-center gap-2 px-3 py-2 btn-star888 text-white text-xs" style={{ ['--v31-wave-delay' as string]: '6s' }} data-cursor="hover">
+                  <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="v31-cta-wave cta-glow flex-1 flex items-center justify-center gap-2 px-3 py-2 btn-star888 text-white text-xs" style={{ ['--v31-wave-delay' as string]: '6s' }} data-cursor="hover">
                     <img src="/logos/888starz.svg" alt="888starz" className="h-4 w-auto object-contain flex-shrink-0" loading="lazy"/>
                   </a>
                 </div>
