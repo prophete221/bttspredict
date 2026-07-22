@@ -1,13 +1,68 @@
 {
   "stats": {
-    "total": 154,
-    "won": 126,
-    "rate": "81.8%",
-    "last30Rate": "82%"
+    "total": 196,
+    "won": 149,
+    "rate": "76.0%",
+    "last30Rate": "76%"
   },
   "history": [
     {
       "id": 1,
+      "date": "2026-07-22",
+      "match": "Bodo/Glimt vs Hamarkameratene",
+      "league": "Eliteserien",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "3-0",
+      "confidence": 49
+    },
+    {
+      "id": 2,
+      "date": "2026-07-22",
+      "match": "Bodo/Glimt vs Hamarkameratene",
+      "league": "Eliteserien",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "3-0",
+      "confidence": 49
+    },
+    {
+      "id": 3,
+      "date": "2026-07-22",
+      "match": "Lillestrom vs Viking FK",
+      "league": "Eliteserien",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 48
+    },
+    {
+      "id": 4,
+      "date": "2026-07-22",
+      "match": "Lillestrom vs Viking FK",
+      "league": "Eliteserien",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 48
+    },
+    {
+      "id": 5,
+      "date": "2026-07-22",
+      "match": "Macará vs Deportivo Cuenca",
+      "league": "Serie A (ECU)",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "3-0",
+      "confidence": 48
+    },
+    {
+      "id": 6,
       "date": "2026-07-21",
       "match": "Libertad (Ecuador) vs Delfín",
       "league": "Serie A (ECU)",
@@ -18,7 +73,7 @@
       "confidence": 52
     },
     {
-      "id": 2,
+      "id": 7,
       "date": "2026-07-21",
       "match": "Libertad (Ecuador) vs Delfín",
       "league": "Serie A (ECU)",
@@ -29,7 +84,7 @@
       "confidence": 52
     },
     {
-      "id": 3,
+      "id": 8,
       "date": "2026-07-20",
       "match": "Hammarby vs Anderlecht",
       "league": "International Friendly",
@@ -40,7 +95,7 @@
       "confidence": 50
     },
     {
-      "id": 4,
+      "id": 9,
       "date": "2026-07-19",
       "match": "Técnico Universitario vs Aucas",
       "league": "Serie A (ECU)",
@@ -51,7 +106,7 @@
       "confidence": 52
     },
     {
-      "id": 5,
+      "id": 10,
       "date": "2026-07-19",
       "match": "Técnico Universitario vs Aucas",
       "league": "Serie A (ECU)",
@@ -62,7 +117,7 @@
       "confidence": 52
     },
     {
-      "id": 6,
+      "id": 11,
       "date": "2026-07-19",
       "match": "Guayaquil City FC vs Manta F.C.",
       "league": "Serie A (ECU)",
@@ -73,7 +128,7 @@
       "confidence": 52
     },
     {
-      "id": 7,
+      "id": 12,
       "date": "2026-07-19",
       "match": "Guayaquil City FC vs Manta F.C.",
       "league": "Serie A (ECU)",
@@ -84,7 +139,7 @@
       "confidence": 52
     },
     {
-      "id": 8,
+      "id": 13,
       "date": "2026-07-19",
       "match": "Hammarby vs Anderlecht",
       "league": "International Friendly",
@@ -95,73 +150,73 @@
       "confidence": 51
     },
     {
-      "id": 9,
-      "date": "2026-07-18",
-      "match": "Deportivo Cuenca vs Universidad Católica (Quito)",
-      "league": "Serie A (ECU)",
-      "type": "BTTS",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "0-2",
-      "confidence": 52
-    },
-    {
-      "id": 10,
-      "date": "2026-07-18",
-      "match": "Deportivo Cuenca vs Universidad Católica (Quito)",
-      "league": "Serie A (ECU)",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "0-2",
-      "confidence": 52
-    },
-    {
-      "id": 11,
-      "date": "2026-07-18",
-      "match": "Liga de Quito vs Leones",
-      "league": "Serie A (ECU)",
-      "type": "BTTS",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "0-1",
-      "confidence": 52
-    },
-    {
-      "id": 12,
-      "date": "2026-07-18",
-      "match": "Liga de Quito vs Leones",
-      "league": "Serie A (ECU)",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "0-1",
-      "confidence": 52
-    },
-    {
-      "id": 13,
-      "date": "2026-07-18",
-      "match": "ADT vs Universitario",
-      "league": "Liga 1 (PER)",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-2",
-      "confidence": 51
-    },
-    {
       "id": 14,
       "date": "2026-07-18",
-      "match": "ADT vs Universitario",
-      "league": "Liga 1 (PER)",
-      "type": "Over 2.5",
-      "prediction": "Oui",
+      "match": "Deportivo Cuenca vs Universidad Católica (Quito)",
+      "league": "Serie A (ECU)",
+      "type": "BTTS",
+      "prediction": "Non",
       "result": "Gagné",
-      "score": "1-2",
-      "confidence": 51
+      "score": "0-2",
+      "confidence": 52
     },
     {
       "id": 15,
+      "date": "2026-07-18",
+      "match": "Deportivo Cuenca vs Universidad Católica (Quito)",
+      "league": "Serie A (ECU)",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-2",
+      "confidence": 52
+    },
+    {
+      "id": 16,
+      "date": "2026-07-18",
+      "match": "Liga de Quito vs Leones",
+      "league": "Serie A (ECU)",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-1",
+      "confidence": 52
+    },
+    {
+      "id": 17,
+      "date": "2026-07-18",
+      "match": "Liga de Quito vs Leones",
+      "league": "Serie A (ECU)",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-1",
+      "confidence": 52
+    },
+    {
+      "id": 18,
+      "date": "2026-07-18",
+      "match": "ADT vs Universitario",
+      "league": "Liga 1 (PER)",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 51
+    },
+    {
+      "id": 19,
+      "date": "2026-07-18",
+      "match": "ADT vs Universitario",
+      "league": "Liga 1 (PER)",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 51
+    },
+    {
+      "id": 20,
       "date": "2026-07-18",
       "match": "Progreso vs Deportivo Maldonado",
       "league": "Primera Division (URU)",
@@ -170,62 +225,7 @@
       "result": "Gagné",
       "score": "1-0",
       "confidence": 49
-    },
-    {
-      "id": 16,
-      "date": "2026-07-18",
-      "match": "Deportivo Moquegua vs Comerciantes Unidos",
-      "league": "Liga 1 (PER)",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "2-2",
-      "confidence": 49
-    },
-    {
-      "id": 17,
-      "date": "2026-07-18",
-      "match": "Deportivo Moquegua vs Comerciantes Unidos",
-      "league": "Liga 1 (PER)",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "2-2",
-      "confidence": 49
-    },
-    {
-      "id": 18,
-      "date": "2026-07-18",
-      "match": "Atlético Grau vs UTC",
-      "league": "Liga 1 (PER)",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "3-1",
-      "confidence": 49
-    },
-    {
-      "id": 19,
-      "date": "2026-07-18",
-      "match": "Atlético Grau vs UTC",
-      "league": "Liga 1 (PER)",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "3-1",
-      "confidence": 49
-    },
-    {
-      "id": 20,
-      "date": "2026-07-18",
-      "match": "France vs England",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "4-6",
-      "confidence": 49
     }
   ],
-  "date": "2026-07-22"
+  "date": "2026-07-23"
 }
