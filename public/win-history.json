@@ -1,13 +1,57 @@
 {
   "stats": {
-    "total": 266,
-    "won": 187,
-    "rate": "70.3%",
-    "last30Rate": "70%"
+    "total": 182,
+    "won": 141,
+    "rate": "77.5%",
+    "last30Rate": "77%"
   },
   "history": [
     {
       "id": 1,
+      "date": "2026-07-23",
+      "match": "Athletico-PR vs Internacional",
+      "league": "Serie A (BRA)",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 52
+    },
+    {
+      "id": 2,
+      "date": "2026-07-23",
+      "match": "Athletico-PR vs Internacional",
+      "league": "Serie A (BRA)",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 52
+    },
+    {
+      "id": 3,
+      "date": "2026-07-23",
+      "match": "Universitario vs United States",
+      "league": "Liga 1 (PER)",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "3-0",
+      "confidence": 50
+    },
+    {
+      "id": 4,
+      "date": "2026-07-23",
+      "match": "Santos vs Chapecoense",
+      "league": "Serie A (BRA)",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "0-4",
+      "confidence": 49
+    },
+    {
+      "id": 5,
       "date": "2026-07-22",
       "match": "GAIS vs Nordsjaelland",
       "league": "International Friendly",
@@ -18,7 +62,7 @@
       "confidence": 50
     },
     {
-      "id": 2,
+      "id": 6,
       "date": "2026-07-22",
       "match": "GAIS vs Nordsjaelland",
       "league": "International Friendly",
@@ -29,7 +73,7 @@
       "confidence": 50
     },
     {
-      "id": 3,
+      "id": 7,
       "date": "2026-07-22",
       "match": "Bodo/Glimt vs Hamarkameratene",
       "league": "Eliteserien",
@@ -40,7 +84,7 @@
       "confidence": 49
     },
     {
-      "id": 4,
+      "id": 8,
       "date": "2026-07-22",
       "match": "Bodo/Glimt vs Hamarkameratene",
       "league": "Eliteserien",
@@ -51,7 +95,7 @@
       "confidence": 49
     },
     {
-      "id": 5,
+      "id": 9,
       "date": "2026-07-22",
       "match": "Independiente del Valle vs Técnico Universitario",
       "league": "Serie A (ECU)",
@@ -62,7 +106,7 @@
       "confidence": 49
     },
     {
-      "id": 6,
+      "id": 10,
       "date": "2026-07-22",
       "match": "Lillestrom vs Viking FK",
       "league": "Eliteserien",
@@ -73,7 +117,7 @@
       "confidence": 48
     },
     {
-      "id": 7,
+      "id": 11,
       "date": "2026-07-22",
       "match": "Lillestrom vs Viking FK",
       "league": "Eliteserien",
@@ -84,7 +128,7 @@
       "confidence": 48
     },
     {
-      "id": 8,
+      "id": 12,
       "date": "2026-07-22",
       "match": "Macará vs Deportivo Cuenca",
       "league": "Serie A (ECU)",
@@ -95,7 +139,7 @@
       "confidence": 48
     },
     {
-      "id": 9,
+      "id": 13,
       "date": "2026-07-22",
       "match": "Hammarby vs Anderlecht",
       "league": "International Friendly",
@@ -106,51 +150,51 @@
       "confidence": 48
     },
     {
-      "id": 10,
-      "date": "2026-07-22",
-      "match": "Zilina vs GKS Katowice",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "2-1",
-      "confidence": 48
-    },
-    {
-      "id": 11,
-      "date": "2026-07-22",
-      "match": "Zilina vs GKS Katowice",
-      "league": "International Friendly",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "2-1",
-      "confidence": 48
-    },
-    {
-      "id": 12,
-      "date": "2026-07-22",
-      "match": "Shelbourne vs Nomme Kalju",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "5-2",
-      "confidence": 48
-    },
-    {
-      "id": 13,
-      "date": "2026-07-22",
-      "match": "Shelbourne vs Nomme Kalju",
-      "league": "International Friendly",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "5-2",
-      "confidence": 48
-    },
-    {
       "id": 14,
+      "date": "2026-07-22",
+      "match": "Zilina vs GKS Katowice",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-1",
+      "confidence": 48
+    },
+    {
+      "id": 15,
+      "date": "2026-07-22",
+      "match": "Zilina vs GKS Katowice",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-1",
+      "confidence": 48
+    },
+    {
+      "id": 16,
+      "date": "2026-07-22",
+      "match": "Shelbourne vs Nomme Kalju",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "5-2",
+      "confidence": 48
+    },
+    {
+      "id": 17,
+      "date": "2026-07-22",
+      "match": "Shelbourne vs Nomme Kalju",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "5-2",
+      "confidence": 48
+    },
+    {
+      "id": 18,
       "date": "2026-07-22",
       "match": "FC Sheriff vs M Tel Aviv",
       "league": "International Friendly",
@@ -161,71 +205,27 @@
       "confidence": 47
     },
     {
-      "id": 15,
-      "date": "2026-07-22",
-      "match": "FC Twente vs Ferencvaros",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-2",
-      "confidence": 47
-    },
-    {
-      "id": 16,
-      "date": "2026-07-22",
-      "match": "FC Twente vs Ferencvaros",
-      "league": "International Friendly",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-2",
-      "confidence": 47
-    },
-    {
-      "id": 17,
-      "date": "2026-07-22",
-      "match": "Alashkert vs CFR Cluj",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-1",
-      "confidence": 47
-    },
-    {
-      "id": 18,
-      "date": "2026-07-22",
-      "match": "Panevezys vs Tobol",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-1",
-      "confidence": 47
-    },
-    {
       "id": 19,
       "date": "2026-07-22",
-      "match": "Debrecen vs Pyunik Yerevan",
+      "match": "FC Twente vs Ferencvaros",
       "league": "International Friendly",
       "type": "BTTS",
-      "prediction": "Non",
+      "prediction": "Oui",
       "result": "Gagné",
-      "score": "1-0",
+      "score": "1-2",
       "confidence": 47
     },
     {
       "id": 20,
       "date": "2026-07-22",
-      "match": "Debrecen vs Pyunik Yerevan",
+      "match": "FC Twente vs Ferencvaros",
       "league": "International Friendly",
       "type": "Over 2.5",
-      "prediction": "Non",
+      "prediction": "Oui",
       "result": "Gagné",
-      "score": "1-0",
+      "score": "1-2",
       "confidence": 47
     }
   ],
-  "date": "2026-07-23"
+  "date": "2026-07-24"
 }
