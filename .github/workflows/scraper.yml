@@ -28,18 +28,24 @@ jobs:
         env:
           PUPPETEER_SKIP_DOWNLOAD: 'true'
 
-      - name: Run scraper
-        run: node scripts/scraper.js
+      - name: Try full scraper (with timeout fallback)
+        id: full-scraper
+        timeout-minutes: 10
+        run: |
+          timeout 600 node scripts/scraper.js || {
+            echo "⚠️ Full scraper failed or timed out — switching to quick update"
+            echo "scraper_failed=true" >> $GITHUB_OUTPUT
+            node scripts/quick-update-predictions.mjs
+          }
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
 
       - name: Debug — show generated files
         run: |
-          echo "=== predictions.json ==="
-          cat public/predictions.json
-          echo ""
+          echo "=== predictions.json date ==="
+          node -e "const d=require('./public/predictions.json');console.log('Date:',d.date,'Predictions:',d.predictions.length)"
           echo "=== win-history.json ==="
-          cat public/win-history.json
+          node -e "const d=require('./public/win-history.json');console.log('Date:',d.date,'History:',d.history?.length||0)"
 
       - name: Build Next.js static export
         run: npm run build
