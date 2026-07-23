@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE, ANDROID_LOGO } from '@/lib/constants'
-import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
+import { useScrollAnimation, useCountUp, useStaggerReveal } from '@/hooks/useAnimations'
 import { StatsIcon, FloatingParticles } from './AnimatedIcons'
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -521,7 +521,7 @@ function VipSportCard({ sport, onUnlock, index }: { sport: SportVip; onUnlock: (
         initial={{ opacity: 0, y: 24, scale: 0.97 }}
         animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : undefined}
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        className="v31-vip-lab-glow relative squircle-lg border border-gold/25 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift card-elevate shadow-2xl max-w-4xl mx-auto"
+        className="v31-vip-lab-glow holo-border shimmer-card hover-ripple relative squircle-lg border border-gold/25 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift card-elevate shadow-2xl max-w-4xl mx-auto"
       >
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold-light to-gold" />
@@ -546,6 +546,7 @@ function VipSportCard({ sport, onUnlock, index }: { sport: SportVip; onUnlock: (
               <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
               <span className="text-[10px] text-gold font-semibold">LIVE</span>
             </div>
+            <span className="trust-badge">{sport.name} Vérifié</span>
           </div>
 
           {/* Stats row */}
@@ -617,6 +618,7 @@ export default function VipSports() {
   const [modalOpen, setModalOpen] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
   const [ref, isVisible] = useScrollAnimation()
+  const [staggerRef] = useStaggerReveal()
 
   const handleUnlock = (sportName: string) => {
     setActiveSport(sportName)
@@ -625,7 +627,7 @@ export default function VipSports() {
 
   return (
     <>
-      <section ref={ref} className="py-10 sm:py-14 px-4 relative overflow-hidden" id="vip-sports">
+      <section ref={ref} className="section-entrance morph-glow py-10 sm:py-14 px-4 relative overflow-hidden" id="vip-sports">
         {/* Background mesh */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/3 w-[500px] h-[400px] bg-gold/4 rounded-full blur-[140px] opacity-50" />
@@ -645,7 +647,7 @@ export default function VipSports() {
             </div>
             <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">VIP Multi-Sports · IA</span>
             <h2 className="section-title font-bold text-white mt-2 tracking-tight">
-              PRONOSTICS <span className="text-gold">VIP SPORTS</span>
+              PRONOSTICS <span className="text-gold neon-underline">VIP SPORTS</span>
             </h2>
             <p className="text-gray-400 text-sm max-w-2xl mx-auto leading-relaxed">
               Notre algorithme IA scanne tous les sports : <span className="text-gold/90 font-semibold">Tennis, NBA, NFL, UFC/MMA, Handball</span>. Même système, même précision, mêmes cotes exclusives — débloquez la section VIP de votre sport préféré.
@@ -656,9 +658,11 @@ export default function VipSports() {
             </p>
           </motion.div>
 
+          <div ref={staggerRef} className="stagger-scale">
           {SPORTS.map((sport, i) => (
             <VipSportCard key={sport.id} sport={sport} onUnlock={handleUnlock} index={i} />
           ))}
+          </div>
         </div>
       </section>
 

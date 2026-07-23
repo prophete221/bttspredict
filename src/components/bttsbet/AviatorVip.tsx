@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE, ANDROID_LOGO } from '@/lib/constants'
-import { useScrollAnimation } from '@/hooks/useAnimations'
+import { useScrollAnimation, useStaggerReveal } from '@/hooks/useAnimations'
 import { RocketIcon, FloatingParticles } from './AnimatedIcons'
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -281,6 +281,7 @@ function PlaneFlyAnimation({ multiplier, isActive }: { multiplier: number; isAct
 
 export default function AviatorVip() {
   const [ref, isVisible] = useScrollAnimation()
+  const [staggerRef] = useStaggerReveal()
   const [showVipModal, setShowVipModal] = useState(false)
 
   // Signal state
@@ -390,7 +391,7 @@ export default function AviatorVip() {
 
   return (
     <>
-      <section ref={ref} id="vip-aviator" className="py-8 sm:py-12 px-4 relative overflow-hidden">
+      <section ref={ref} id="vip-aviator" className="section-entrance morph-glow py-8 sm:py-12 px-4 relative overflow-hidden">
         {/* Background effects */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 right-1/4 w-[500px] h-[400px] bg-red-500/3 rounded-full blur-[140px] opacity-50" />
@@ -408,9 +409,10 @@ export default function AviatorVip() {
             <div className="flex justify-center mb-3">
               <RocketIcon size={44} />
             </div>
+            <span className="live-indicator">Direct</span>
             <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">Statistiques Aviator · Temps Réel</span>
             <h2 className="section-title font-bold text-white mt-2 tracking-tight">
-              STATS <span className="text-gold">AVIATOR VIP</span>
+              STATS <span className="text-gold neon-underline">AVIATOR VIP</span>
             </h2>
             <p className="text-gray-500 text-sm mt-1 max-w-2xl mx-auto">
               Notre outil suit en temps réel l&apos;historique des rounds Aviator : multiplicateurs passés, tendances de fréquence, moments de forte volatilité. Aviator reste un jeu 100% aléatoire (provably fair) — aucun outil ne peut prédire un round futur. Nos statistiques t&apos;aident à observer les patterns historiques, pas à gagner à coup sûr.
@@ -427,7 +429,7 @@ export default function AviatorVip() {
             initial={{ opacity: 0, y: 24, scale: 0.97 }}
             animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : undefined}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="v31-vip-lab-glow bento-main relative squircle-lg border border-red-500/20 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift card-elevate shadow-2xl"
+            className="v31-vip-lab-glow holo-border bento-main relative squircle-lg glass-vip shimmer-card border border-red-500/20 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift card-elevate shadow-2xl"
           >
             {/* Premium top sheen */}
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-red-500/40 to-transparent" />
@@ -559,7 +561,7 @@ export default function AviatorVip() {
                   <span className="text-[11px] text-gray-500 font-medium">Historique des signaux</span>
                   <span className="text-[10px] text-gold/50">VIP uniquement</span>
                 </div>
-                <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-1 blur-[4px] select-none glass-vip squircle-lg">
+              <div ref={staggerRef} className="stagger-reveal flex gap-1.5 overflow-x-auto scrollbar-none pb-1 blur-[4px] select-none glass-vip squircle-lg">
                   {signalHistory.map((s, i) => (
                     <div key={i} className={`flex-shrink-0 min-w-[52px] rounded-lg px-2 py-1.5 text-center border ${s.result === 'win' ? 'bg-success/5 border-success/15' : 'bg-red-500/5 border-red-500/15'}`}>
                       <span className={`text-xs font-bold tabular-nums ${s.result === 'win' ? 'text-success' : 'text-red-400'}`}>
@@ -587,6 +589,7 @@ export default function AviatorVip() {
               </button>
 
               <div className="flex items-center justify-center gap-2 mt-2">
+                <span className="trust-badge">Provably Fair</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/40"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 <p className="text-[10px] sm:text-[11px] text-gold/40 font-medium">Accès limité — <span className="text-gold/60">statistiques en temps réel</span></p>
               </div>

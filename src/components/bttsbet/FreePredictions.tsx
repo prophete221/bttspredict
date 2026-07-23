@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useScrollAnimation, useRevealOnScroll, useCountUp } from '@/hooks/useAnimations'
+import { useScrollAnimation, useRevealOnScroll, useCountUp, useStaggerReveal } from '@/hooks/useAnimations'
 import { AFFILIATE } from '@/lib/constants'
 import { AIBrain } from './AnimatedIcons'
 import { resolveTeamLogo } from '@/lib/teamLogos'
@@ -200,7 +200,7 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
         role="button"
         tabIndex={0}
         aria-expanded={expanded}
-        className={`v31-data-stream v31-card-hover-glow card-elevate relative squircle border cursor-pointer transition-all duration-300 overflow-hidden ${
+        className={`v31-data-stream v31-card-hover-glow shimmer-card hover-ripple card-elevate relative squircle border cursor-pointer transition-all duration-300 overflow-hidden ${
           expanded
             ? 'bg-gradient-to-b from-panel-2 to-panel border-gold/30 shadow-lg shadow-gold/8'
             : 'bg-gradient-to-b from-panel/80 to-panel/60 border-edge hover:border-gold/40'
@@ -317,8 +317,7 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
 
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
-                    <span className="text-[10px] text-gray-500">IA BttsBet</span>
+                    <span className="live-indicator">IA BttsBet</span>
                   </div>
                   {/* V23: Deux boutons côte à côte — Linebet + 888starz */}
                   <div className="flex items-center gap-1.5">
@@ -479,7 +478,7 @@ export default function FreePredictions() {
   const [o25Ref, o25Display] = useCountUp(o25Stats, 1400, { threshold: 0.3 })
 
   return (
-    <section ref={ref} id="free-predictions" className="py-10 sm:py-16 px-4">
+    <section ref={ref} id="free-predictions" className="section-entrance morph-glow py-10 sm:py-16 px-4">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -491,7 +490,10 @@ export default function FreePredictions() {
             <div>
               <div className="flex items-center gap-3 mb-1">
                 <AIBrain size={36} />
-                <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">Live Predictions</span>
+                <div className="flex items-center gap-2">
+                <span className="live-indicator">Live</span>
+                <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">IA en direct</span>
+              </div>
               </div>
               <h2 className="section-title font-bold text-white mt-2 tracking-tight">
                 PRONOSTICS <span className="text-gold">IA</span>
@@ -499,6 +501,7 @@ export default function FreePredictions() {
               <p className="text-gray-500 text-sm mt-1">Sélection IA — matchs des 7 prochains jours</p>
             </div>
             <div className="flex items-center gap-4 bg-panel/70 border border-edge squircle px-4 py-2.5 backdrop-blur-sm v31-ia-glow">
+              <span className="trust-badge">IA Vérifiée</span>
               <div className="flex items-center gap-1.5">
                 <span className="v31-pulse-ring relative flex w-1.5 h-1.5">
                   <span className="absolute inset-0 bg-gold rounded-full animate-ping opacity-75" />
@@ -531,9 +534,10 @@ export default function FreePredictions() {
         </motion.div>
 
         {loading ? (
-          <div className="text-center py-16">
-            <div className="inline-block w-10 h-10 border-2 border-gold/30 border-t-gold rounded-full animate-spin" />
-            <p className="text-gray-500 text-sm mt-4">Chargement des pronostics...</p>
+          <div className="space-y-3 py-8">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="skeleton h-16 w-full" />
+            ))}
           </div>
         ) : error ? (
           <div className="text-center py-16">

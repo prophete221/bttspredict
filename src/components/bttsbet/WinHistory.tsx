@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import TiltCard from './TiltCard'
 import { resolveTeamLogo } from '@/lib/teamLogos'
 import { SITE } from '@/lib/constants'
-import { useScrollAnimation, useRevealOnScroll, useCountUp } from '@/hooks/useAnimations'
+import { useScrollAnimation, useRevealOnScroll, useCountUp, useStaggerReveal } from '@/hooks/useAnimations'
 import { TrophyIcon } from './AnimatedIcons'
 
 function MiniTeamLogo({ src, alt }: { src: string; alt: string }) {
@@ -70,6 +70,7 @@ export default function WinHistory() {
   const [winData, setWinData] = useState<{ stats: { total: number; won: number; last30Rate: string }; history: HistoryItem[] } | null>(null)
   const [loading, setLoading] = useState(true)
   const [ref, isVisible] = useScrollAnimation(0.15)
+  const [staggerRef] = useStaggerReveal()
 
   useEffect(() => {
     // Cache-bust to ensure fresh data after deployments
@@ -137,7 +138,7 @@ export default function WinHistory() {
   const displayedHistory = showAll ? history : history.slice(0, 5)
 
   return (
-    <section ref={ref} id="win-history" className="py-12 px-4">
+    <section ref={ref} id="win-history" className="section-entrance py-12 px-4">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -148,6 +149,7 @@ export default function WinHistory() {
           <div className="flex justify-center mb-2">
             <TrophyIcon size={40} />
           </div>
+          <span className="live-indicator">Live</span>
           <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">Track Record</span>
           <h2 className="section-title text-white mt-2 tracking-tight">
             Historique des <span className="text-gold">Pronostics</span>
@@ -166,7 +168,7 @@ export default function WinHistory() {
             { refObj: rateRef, value: rateDisplay, label: 'Réussite réelle', color: 'text-gold', suffix: '%' },
             { refObj: last30Ref, value: last30Display, label: 'Gagnés', color: 'text-gold' },
           ].map((item, i) => (
-            <div key={i} className="bg-panel border border-edge/40 squircle p-3 text-center">
+            <div key={i} className="bg-panel border border-edge/40 squircle shimmer-card p-3 text-center">
               <span ref={item.refObj} className={`block text-lg font-bold ${item.color} tabular-nums`}>
                 {item.value}{item.suffix || ''}
               </span>
@@ -187,9 +189,11 @@ export default function WinHistory() {
             <span>Date</span><span>Match</span><span>Type</span><span>Pronostic</span><span>Score</span>
           </div>
 
+          <div ref={staggerRef} className="stagger-reveal">
           {displayedHistory.map((item, i) => (
             <HistoryRow key={item.id || i} item={item} index={i} />
           ))}
+          </div>
         </motion.div>
 
         {history.length > 5 && (
@@ -201,7 +205,8 @@ export default function WinHistory() {
         )}
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3, delay: 0.6 }} className="text-center mt-4">
-          <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 bg-white/[0.02] border border-edge/30">
+          <div className="flex items-center gap-1.5">
+            <span className="trust-badge">Résultats vérifiés</span>
             <span className="relative flex w-1.5 h-1.5">
               <span className="absolute inset-0 bg-success rounded-full animate-ping opacity-50" />
               <span className="relative w-1.5 h-1.5 bg-success rounded-full" />

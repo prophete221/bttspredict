@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE, ANDROID_LOGO } from '@/lib/constants'
 import { resolveTeamLogo } from '@/lib/teamLogos'
-import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
+import { useScrollAnimation, useCountUp, useStaggerReveal } from '@/hooks/useAnimations'
 import { GameController, FloatingParticles } from './AnimatedIcons'
 
 /* ─────────────────────────── FIFA MODAL ─────────────────────────── */
@@ -243,6 +243,7 @@ export default function FifaLinebet() {
   const [showFifaModal, setShowFifaModal] = useState(false)
   const couponRef = useRef<HTMLDivElement>(null)
   const [sectionRef, isVisible] = useScrollAnimation(0.1)
+  const [staggerRef] = useStaggerReveal()
 
   const scrollToCoupon = () => {
     couponRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
@@ -313,7 +314,7 @@ export default function FifaLinebet() {
 
   return (
     <>
-      <section ref={sectionRef} id="fifa-linebet" className="py-10 sm:py-16 px-4 relative overflow-hidden">
+      <section ref={sectionRef} id="fifa-linebet" className="section-entrance morph-glow py-10 sm:py-16 px-4 relative overflow-hidden">
         {/* Premium background mesh — amber + cyan glow for "experimental/high risk" feel */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/3 w-[500px] h-[400px] bg-gold/6 rounded-full blur-[140px] opacity-60" />
@@ -329,7 +330,7 @@ export default function FifaLinebet() {
             </div>
             <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">Exclusive Algorithm</span>
             <h2 className="section-title font-bold text-white mt-2 tracking-tight">
-              VALUE BETS <span className="text-gold">FIFA</span>
+              VALUE BETS <span className="text-gold neon-underline">FIFA</span>
             </h2>
             {/* Badge — Analyse IA */}
             <div className="inline-flex items-center gap-1.5 mt-2 mb-3 bg-gold/10 border border-gold/20 text-gold rounded-full px-3 py-1">
@@ -337,6 +338,7 @@ export default function FifaLinebet() {
                 <path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M20 12a8 8 0 1 1-8-8"/>
               </svg>
               Analyse IA
+              <span className="trust-badge">Value Bets IA</span>
             </div>
             <p className="text-gray-500 text-sm max-w-lg mx-auto mb-4">Algorithme exclusif qui compare en temps réel les cotes FIFA de Linebet et 888starz à nos probabilités calculées, pour repérer les paris où la cote proposée est plus généreuse que la probabilité réelle estimée — Mise à jour toutes les 5 minutes</p>
             <button onClick={scrollToCoupon}
@@ -367,7 +369,7 @@ export default function FifaLinebet() {
           <div className="bento-grid">
             {/* FIFA Coupon — highlight block (special background #0F172A) */}
             <motion.div ref={couponRef} initial={{ opacity: 0, y: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.97 }} transition={{ duration: 0.6 }}
-              className="relative highlight-block bento-main squircle-lg card-elevate overflow-hidden hover-lift shadow-2xl">
+              className="relative highlight-block holo-border bento-main squircle-lg shimmer-card hover-ripple card-elevate overflow-hidden hover-lift shadow-2xl">
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold to-gold" />
               <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-gold/4 rounded-full blur-[100px]" />
               <div className="absolute bottom-0 left-0 w-[180px] h-[180px] bg-gold/3 rounded-full blur-[80px]" />
@@ -415,7 +417,7 @@ export default function FifaLinebet() {
                   </div>
                 </div>
 
-                <div className="space-y-1 mb-4 max-h-[340px] overflow-y-auto scrollbar-none">
+                <div ref={staggerRef} className="stagger-reveal space-y-1 mb-4 max-h-[340px] overflow-y-auto scrollbar-none">
                   {fifaMatches.map((m, i) => (
                     <motion.div key={i} initial={{ opacity: 0, x: -15 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + i * 0.08, duration: 0.45, ease: [0.34, 1.56, 0.64, 1] }}
                       className="v31-stacked-card v31-card-hover-glow relative flex items-center gap-2 sm:gap-2.5 bg-midnight/50 rounded-lg px-2.5 sm:px-3 py-2 border border-gold/10 hover:border-gold/25 transition-colors"

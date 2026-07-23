@@ -13,6 +13,7 @@ import {
   CookieConsent,
   AgeVerification,
   ScrollProgressBar,
+  SiteLoader,
 } from '@/components/bttsbet'
 
 // JSON-LD WebSite — SearchAction for Google SERP
@@ -118,6 +119,9 @@ const breadcrumbJsonLd = {
 export default function Home() {
   return (
     <div className="min-h-screen bg-midnight relative">
+      {/* Site Loader — premium opening animation */}
+      <SiteLoader />
+
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
@@ -146,6 +150,9 @@ export default function Home() {
 
       {/* Scroll Progress Bar */}
       <ScrollProgressBar />
+
+      {/* Site Loader — Premium opening animation */}
+      <SiteLoader />
 
       {/* Main Content */}
       <main id="main-content" className="relative z-10">

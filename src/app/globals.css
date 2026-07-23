@@ -1058,3 +1058,331 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   V15 — PREmium ANIMATED COMPONENTS
+   Loader, shimmer cards, holographic borders, stagger reveals
+   Trust signals: verified badges, gradient reveals
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Site Loader Grid Background ─── */
+.loader-grid-bg {
+  background-image:
+    linear-gradient(rgba(30, 32, 69, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 32, 69, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: loaderGridShift 3s linear infinite;
+}
+@keyframes loaderGridShift {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+/* ─── Holographic Border — premium VIP card effect ─── */
+.holo-border {
+  position: relative;
+  overflow: hidden;
+}
+.holo-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--holo-angle, 0deg),
+    transparent 0%,
+    rgba(250, 204, 21, 0.25) 10%,
+    transparent 20%,
+    rgba(34, 211, 238, 0.15) 30%,
+    transparent 40%,
+    rgba(250, 204, 21, 0.2) 50%,
+    transparent 60%,
+    rgba(34, 211, 238, 0.1) 70%,
+    transparent 80%,
+    rgba(250, 204, 21, 0.15) 90%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: holoRotate 4s linear infinite;
+  pointer-events: none;
+}
+@keyframes holoRotate {
+  0% { --holo-angle: 0deg; }
+  100% { --holo-angle: 360deg; }
+}
+/* Fallback for browsers without @property (animation still looks good) */
+@property --holo-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* ─── Shimmer Card — light sweep on hover ─── */
+.shimmer-card {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(250, 204, 21, 0.03),
+    rgba(250, 204, 21, 0.06),
+    rgba(250, 204, 21, 0.03),
+    transparent
+  );
+  transition: left 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.shimmer-card:hover::after {
+  left: 150%;
+}
+
+/* ─── Stagger Reveal Enhanced — per-child cascading ─── */
+.stagger-reveal > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.stagger-reveal > *:nth-child(1) { transition-delay: 0.05s; }
+.stagger-reveal > *:nth-child(2) { transition-delay: 0.10s; }
+.stagger-reveal > *:nth-child(3) { transition-delay: 0.15s; }
+.stagger-reveal > *:nth-child(4) { transition-delay: 0.20s; }
+.stagger-reveal > *:nth-child(5) { transition-delay: 0.25s; }
+.stagger-reveal > *:nth-child(6) { transition-delay: 0.30s; }
+.stagger-reveal > *:nth-child(7) { transition-delay: 0.35s; }
+.stagger-reveal > *:nth-child(8) { transition-delay: 0.40s; }
+.stagger-reveal > *:nth-child(n+9) { transition-delay: 0.45s; }
+
+.stagger-reveal.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Stagger Scale Reveal — for VIP cards ─── */
+.stagger-scale > * {
+  opacity: 0;
+  transform: scale(0.92) translateY(8px);
+  transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.stagger-scale > *:nth-child(1) { transition-delay: 0.08s; }
+.stagger-scale > *:nth-child(2) { transition-delay: 0.16s; }
+.stagger-scale > *:nth-child(3) { transition-delay: 0.24s; }
+.stagger-scale > *:nth-child(4) { transition-delay: 0.32s; }
+.stagger-scale > *:nth-child(n+5) { transition-delay: 0.40s; }
+
+.stagger-scale.is-visible > * {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* ─── Verified Trust Badge — confidence signal ─── */
+.trust-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(250, 204, 21, 0.06);
+  border: 1px solid rgba(250, 204, 21, 0.12);
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #FACC15;
+  letter-spacing: 0.05em;
+}
+.trust-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #FACC15;
+  border-radius: 50%;
+  animation: trustPulse 2s ease-in-out infinite;
+}
+@keyframes trustPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.3); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 4px rgba(250, 204, 21, 0); }
+}
+
+/* ─── Gradient Text Reveal — text appears via mask sweep ─── */
+.text-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.text-reveal.is-visible {
+  clip-path: inset(0 0% 0 0);
+}
+
+/* ─── Morphing Glow — subtle background on VIP sections ─── */
+.morph-glow {
+  position: relative;
+}
+.morph-glow::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -25%;
+  width: 150%;
+  height: 200%;
+  background: radial-gradient(
+    ellipse at var(--glow-x, 30%) var(--glow-y, 40%),
+    rgba(250, 204, 21, 0.04) 0%,
+    transparent 60%
+  );
+  animation: morphGlowDrift 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes morphGlowDrift {
+  0% {
+    --glow-x: 25%; --glow-y: 35%;
+    opacity: 0.6;
+  }
+  100% {
+    --glow-x: 65%; --glow-y: 55%;
+    opacity: 1;
+  }
+}
+
+/* ─── Floating Indicator — live data signal ─── */
+.live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #4ADE80;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.live-indicator::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: #4ADE80;
+  border-radius: 50%;
+  animation: liveBlink 1.5s ease-in-out infinite;
+}
+@keyframes liveBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ─── Number Flip — counter animation with digits ─── */
+.number-flip {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.number-flip:hover {
+  transform: scale(1.05);
+}
+
+/* ─── Neon Underline — on VIP section titles ─── */
+.neon-underline {
+  position: relative;
+  display: inline-block;
+}
+.neon-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #FACC15, #22D3EE);
+  border-radius: 2px;
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 8px rgba(250, 204, 21, 0.4);
+}
+.neon-underline.is-visible::after {
+  width: 100%;
+}
+
+/* ─── Skeleton Loading — placeholder while data loads ─── */
+.skeleton {
+  background: linear-gradient(90deg,
+    rgba(30, 32, 69, 0.3) 25%,
+    rgba(30, 32, 69, 0.6) 50%,
+    rgba(30, 32, 69, 0.3) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeletonSweep 1.5s ease-in-out infinite;
+  border-radius: var(--radius-squircle);
+}
+@keyframes skeletonSweep {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ─── Hover Ripple — click feedback on cards ─── */
+.hover-ripple {
+  position: relative;
+  overflow: hidden;
+}
+.hover-ripple::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: var(--ripple-y, 50%);
+  left: var(--ripple-x, 50%);
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.08) 0%, transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.3s ease;
+  pointer-events: none;
+}
+.hover-ripple:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+/* ─── Section Entrance — whole section fade + slide ─── */
+.section-entrance {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.section-entrance.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Mobile: Reduce animation intensity ─── */
+@media (max-width: 767px) {
+  .stagger-reveal > *,
+  .stagger-scale > * {
+    transition-duration: 0.35s;
+  }
+  .stagger-reveal > *:nth-child(n+4) { transition-delay: 0.15s; }
+  .stagger-scale > *:nth-child(n+4) { transition-delay: 0.15s; }
+  .morph-glow::before { animation-duration: 12s; }
+}
+
+/* ─── Reduced motion: disable all ─── */
+@media (prefers-reduced-motion: reduce) {
+  .stagger-reveal > *, .stagger-scale > * {
+    opacity: 1; transform: none; transition: none;
+  }
+  .holo-border::before { animation: none; }
+  .shimmer-card::after { transition: none; }
+  .trust-badge::before { animation: none; }
+  .live-indicator::before { animation: none; }
+  .skeleton { animation: none; }
+  .morph-glow::before { animation: none; }
+  .loader-grid-bg { animation: none; }
+  .section-entrance { opacity: 1; transform: none; transition: none; }
+}
