@@ -37,11 +37,11 @@ export default function Footer() {
       </div>
 
       {/* Footer */}
-      <footer ref={ref} id="faq" className="border-t border-edge/40 pt-16 pb-28 sm:pb-12 px-4">
+      <footer ref={ref} id="faq" className="border-t border-edge/40 pt-10 pb-20 sm:pt-10 sm:pb-8 px-4">
         <div className="max-w-5xl mx-auto">
           {/* Testimonials — Clean grid */}
-          <div className="mb-12">
-            <div className="text-center mb-6">
+          <div className="mb-6">
+            <div className="text-center mb-3">
               <span className="text-[10px] font-bold text-success uppercase tracking-[0.15em]">Ils gagnent avec BttsBet</span>
               <h3 className="text-xl font-extrabold text-white mt-2 tracking-tight">
                 Témoignages <span className="text-success">vérifiés</span>
@@ -71,11 +71,11 @@ export default function Footer() {
           </div>
 
           {/* Divider */}
-          <div className="divider-premium mb-10" />
+          <div className="divider-premium mb-6" />
 
           {/* FAQ — Clean accordion */}
-          <div className="mb-12">
-            <div className="text-center mb-6">
+          <div className="mb-6">
+            <div className="text-center mb-3">
               <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">FAQ</span>
               <h3 className="text-xl font-extrabold text-white mt-2 tracking-tight">
                 Questions <span className="text-gold">fréquentes</span>
@@ -123,10 +123,10 @@ export default function Footer() {
           </div>
 
           {/* Divider */}
-          <div className="divider-premium mb-10" />
+          <div className="divider-premium mb-6" />
 
           {/* Footer Grid — Clean layout */}
-          <motion.div variants={staggerContainer} initial="hidden" animate={isVisible ? 'visible' : 'hidden'} className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
+          <motion.div variants={staggerContainer} initial="hidden" animate={isVisible ? 'visible' : 'hidden'} className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
             <div className="col-span-2 sm:col-span-1">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-7 h-7 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center">

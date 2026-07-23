@@ -630,7 +630,7 @@ export default function VipSports() {
 
   return (
     <>
-      <section ref={ref} className="section-entrance morph-glow py-10 sm:py-14 px-4 relative overflow-hidden" id="vip-sports">
+      <section ref={ref} className="section-entrance morph-glow py-6 sm:py-10 px-4 relative overflow-hidden" id="vip-sports">
         {/* Background mesh */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/3 w-[500px] h-[400px] bg-gold/4 rounded-full blur-[140px] opacity-50" />

@@ -314,7 +314,7 @@ export default function FifaLinebet() {
 
   return (
     <>
-      <section ref={sectionRef} id="fifa-linebet" className="section-entrance morph-glow py-10 sm:py-16 px-4 relative overflow-hidden">
+      <section ref={sectionRef} id="fifa-linebet" className="section-entrance morph-glow py-6 sm:py-10 px-4 relative overflow-hidden">
         {/* Premium background mesh — amber + cyan glow for "experimental/high risk" feel */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/3 w-[min(500px,80vw)] h-[400px] bg-gold/6 rounded-full blur-[140px] opacity-60" />

@@ -95,8 +95,8 @@ export default function FailleFifaPage() {
           </ol>
         </nav>
 
-        <article className="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
-          <header className="mb-10">
+        <article className="max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+          <header className="mb-6">
             <span className="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-md border bg-purple-500/15 text-purple-400 border-purple-500/30">FAILLE FIFA</span>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl text-white mt-4 mb-4 leading-tight" style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
               Faille FIFA Linebet & 888starz :{' '}

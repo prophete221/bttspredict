@@ -484,15 +484,15 @@ export default function FreePredictions() {
   const [o25Ref, o25Display] = useCountUp(o25Stats, 1400, { threshold: 0.3 })
 
   return (
-    <section ref={ref} id="free-predictions" className="section-entrance morph-glow py-10 sm:py-16 px-4">
+    <section ref={ref} id="free-predictions" className="section-entrance morph-glow py-6 sm:py-10 px-4">
       <div className="max-w-5xl mx-auto">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}
-          className="mb-6"
+          className="mb-4"
         >
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-5">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-3">
             <div>
               <div className="flex items-center gap-3 mb-1">
                 <AIBrain size={36} />

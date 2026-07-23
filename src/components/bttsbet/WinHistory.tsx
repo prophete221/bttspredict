@@ -140,13 +140,13 @@ export default function WinHistory() {
   const displayedHistory = showAll ? history : history.slice(0, 5)
 
   return (
-    <section ref={ref} id="win-history" className="section-entrance py-12 px-4">
+    <section ref={ref} id="win-history" className="section-entrance py-6 sm:py-8 px-4">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-8"
+          className="text-center mb-4"
         >
           <div className="flex justify-center mb-2">
             <TrophyIcon size={40} />
@@ -163,7 +163,7 @@ export default function WinHistory() {
           variants={staggerContainer}
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}
-          className="grid grid-cols-3 gap-1.5 sm:gap-3 mb-8"
+          className="grid grid-cols-3 gap-1.5 sm:gap-3 mb-4"
         >
           {[
             { refObj: totalRef, value: totalDisplay, label: 'Analysés', color: 'text-white' },

@@ -81,7 +81,7 @@ export default function Hero() {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-20 pb-14 sm:pt-36 sm:pb-24"
+        className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-14 pb-8 sm:pt-24 sm:pb-14"
       >
         {/* 3D Football — Desktop only, top right area */}
         <div className="hidden lg:block absolute top-20 right-8 xl:right-16">
@@ -91,7 +91,7 @@ export default function Hero() {
         {/* Ticker — Minimal pill */}
         <motion.div
           variants={staggerChildFadeUp}
-          className="flex justify-center mb-8 sm:mb-10"
+          className="flex justify-center mb-5 sm:mb-6"
         >
           <div className="inline-flex items-center gap-2 bg-white/[0.03] border border-edge/60 rounded-full px-4 py-1.5">
             <span className="v31-ticker-dot" />
@@ -123,7 +123,7 @@ export default function Hero() {
         {/* Sub-headline — Clean, spaced */}
         <motion.p
           variants={staggerChildFadeUp}
-          className="text-center text-gray-400 text-sm sm:text-base max-w-lg mx-auto mb-8 sm:mb-10 px-2 leading-relaxed"
+          className="text-center text-gray-400 text-sm sm:text-base max-w-lg mx-auto mb-5 sm:mb-6 px-2 leading-relaxed"
         >
           Précision IA historique ~87% • 15 000+ matchs analysés •{' '}
           <span className="text-white font-medium">{SOCIAL_PROOF.members.toLocaleString()}+ parieurs</span> qui gagnent déjà
@@ -143,7 +143,7 @@ export default function Hero() {
         {/* ═══ PROMO CODE — Animated card ═══ */}
         <motion.div
           variants={staggerChildFadeUp}
-          className="flex justify-center mb-8 sm:mb-10"
+          className="flex justify-center mb-5 sm:mb-6"
         >
           <motion.div 
             variants={cardHoverLift}
@@ -199,7 +199,7 @@ export default function Hero() {
         {/* CTA Buttons — Premium hover animations */}
         <motion.div
           variants={staggerChildFadeUp}
-          className="flex flex-row flex-wrap gap-2 sm:gap-3 justify-center items-center mb-10 sm:mb-12 mx-auto"
+          className="flex flex-row flex-wrap gap-2 sm:gap-3 justify-center items-center mb-6 sm:mb-8 mx-auto"
         >
           <motion.a
             variants={buttonHover}
@@ -232,7 +232,7 @@ export default function Hero() {
         {/* Stats — Animated row — flex-wrap for very small screens */}
         <motion.div
           variants={staggerChildFadeUp}
-          className="flex justify-center gap-4 sm:gap-8 md:gap-12 mb-8 flex-wrap"
+          className="flex justify-center gap-4 sm:gap-8 md:gap-12 mb-5 flex-wrap"
         >
           <div className="text-center min-w-0">
             <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gold tabular-nums">

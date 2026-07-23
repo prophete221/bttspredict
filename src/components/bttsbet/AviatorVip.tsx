@@ -397,7 +397,7 @@ export default function AviatorVip() {
 
   return (
     <>
-      <section ref={ref} id="vip-aviator" className="section-entrance morph-glow py-8 sm:py-12 px-4 relative overflow-hidden">
+      <section ref={ref} id="vip-aviator" className="section-entrance morph-glow py-6 sm:py-8 px-4 relative overflow-hidden">
         {/* Background effects */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 right-1/4 w-[min(500px,80vw)] h-[400px] bg-red-500/3 rounded-full blur-[140px] opacity-50" />
@@ -410,9 +410,9 @@ export default function AviatorVip() {
             initial={{ opacity: 0, y: 18 }}
             animate={isVisible ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.5 }}
-            className="text-center mb-8"
+            className="text-center mb-4"
           >
-            <div className="flex justify-center mb-3">
+            <div className="flex justify-center mb-2">
               <RocketIcon size={44} />
             </div>
             <span className="live-indicator">Direct</span>

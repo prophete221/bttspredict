@@ -409,7 +409,7 @@ export default function PromoVip() {
 
   return (
     <>
-      <section ref={ref} id="vip" className="section-entrance morph-glow py-10 sm:py-16 px-4 relative overflow-hidden">
+      <section ref={ref} id="vip" className="section-entrance morph-glow py-6 sm:py-10 px-4 relative overflow-hidden">
         {/* Premium background mesh */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-[min(500px,80vw)] h-[400px] bg-gold/4 rounded-full blur-[140px] opacity-60" />
@@ -423,9 +423,9 @@ export default function PromoVip() {
             initial={{ opacity: 0, y: 16 }}
             animate={isVisible ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.5 }}
-            className="text-center mb-6"
+            className="text-center mb-4"
           >
-            <div className="flex justify-center mb-2">
+            <div className="flex justify-center mb-1">
               <CrownIcon size={44} />
             </div>
             <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">Zone Premium</span>
