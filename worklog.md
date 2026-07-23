@@ -133,3 +133,34 @@ Stage Summary:
 - Navigation fluid: scroll-margin-top + smooth scroll behavior
 - Performance maintained: GPU-only animations (transform+opacity), no heavy libs
 - All changes committed and pushed to GitHub, CI/CD triggered
+---
+Task ID: responsive-fix
+Agent: Super Z (main)
+Task: Fix responsive layout — adapt site for all browsers and mobile supports
+
+Work Log:
+- Fixed duplicate .section-entrance CSS definition (line 152 and line 1399 conflicting) — unified to single definition
+- Added comprehensive responsive CSS in globals.css: overflow prevention (max-width: 100vw, overflow-wrap: break-word, overflow-x: clip), flex/grid overflow fix (min-width: 0), safe-area for notched phones (env(safe-area-inset-bottom)), viewport width clamp for containers, very small screens (320-375px) breakpoint with compact typography, standard mobile (376-639px), touch targets min 44px, disabled hover effects on mobile, landscape orientation fix
+- Updated layout.tsx with viewport meta: viewport-fit=cover, maximum-scale=5, minimum-scale=1, theme-color #0A0B1A, format-detection telephone=no, apple-mobile-web-app-capable, apple-mobile-web-app-status-bar-style black-translucent
+- Fixed Hero.tsx: stats row flex-wrap for 320px, vertical dividers hidden on mobile, 18+ badge text truncated on small screens, CTA buttons flex-wrap
+- Fixed Navbar.tsx: promo code pill reduced padding/text on mobile, hamburger button min 44px touch target, mobile menu buttons min-h-[44px]
+- Fixed Footer.tsx: sticky CTA bar with safe-area-inset-bottom padding, footer bottom pb-28 for mobile clearance
+- Fixed FreePredictions.tsx: team names max-w-[90px] on mobile, IA stats badge flex-wrap + gap reduction, league filters edge-to-edge scrolling
+- Fixed WinHistory.tsx: stats grid gap reduced on mobile, match row min-w-0 + truncate
+- Fixed PromoVip.tsx: coupon row overflow-hidden, team names max-w-[70px] on mobile, stats flex-wrap, modal responsive padding/scroll
+- Fixed VipSports.tsx: same pattern as PromoVip, sport coupon rows overflow-hidden, modal responsive
+- Fixed AviatorVip.tsx: signal cards gap reduced, stats flex-wrap, modal responsive, feature strip gap fix
+- Fixed FifaLinebet.tsx: match rows overflow-hidden, team names truncate on mobile, modal responsive
+- Build: successful (17 pages generated)
+- Push: successful (841ebb0b → main)
+
+Stage Summary:
+- Complete responsive layout adaptation for ALL browsers and devices
+- Covers: 320px (iPhone SE) to 1920px+ (desktop)
+- Safe-area handling for notched phones (iPhone X+, Android)
+- Touch targets minimum 44px on all interactive elements
+- Overflow prevention: max-width: 100vw, overflow-wrap, min-width: 0 on flex/grid children
+- Fluid typography: clamp() for section titles, progressive breakpoints
+- Mobile hover effects disabled (card-elevate, glow-border-hover, shimmer-card)
+- All modals scrollable on mobile (max-h-[90vh] overflow-y-auto)
+- Sticky CTA bar respects safe-area-inset-bottom
