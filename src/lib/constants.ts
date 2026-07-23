@@ -10,6 +10,7 @@ export const SITE = {
   accuracy: '~87%',
 
   vipAccuracy: '~89%',
+  vipMinDeposit: '10 000 Fr',
   historyRate: '88.3%',
   last30Rate: '91%',
 }

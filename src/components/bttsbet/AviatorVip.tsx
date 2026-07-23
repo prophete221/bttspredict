@@ -152,7 +152,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                   {step === 'info' && !submitSuccess && (
                     <motion.div key="info" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
                       <p className="text-gray-400 text-sm mb-4 leading-relaxed">
-                        Pour accéder aux <span className="text-gold font-semibold">signaux VIP Aviator</span>, inscrivez-vous sur l&apos;un de nos bookmakers partenaires avec le code promo <span className="text-gold font-bold">{SITE.promoCode}</span> et effectuez un dépôt minimum de <span className="text-white font-semibold">3 000 Fr</span>.
+                        Pour accéder aux <span className="text-gold font-semibold">signaux VIP Aviator</span>, inscrivez-vous sur l&apos;un de nos bookmakers partenaires avec le code promo <span className="text-gold font-bold">{SITE.promoCode}</span> et effectuez un dépôt minimum de <span className="text-white font-semibold">10 000 Fr</span>.
                       </p>
 
                       <div className="grid grid-cols-2 gap-2 mb-4">

@@ -170,8 +170,8 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
                             </svg>
                           </div>
                           <div>
-                            <p className="text-white text-sm font-semibold">2. Déposer un minimum de 3 000 Fr</p>
-                            <p className="text-gray-400 text-xs mt-0.5">Effectuez un premier dépôt de 3 000 Fr minimum sur votre compte {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'}</p>
+                            <p className="text-white text-sm font-semibold">2. Déposer un minimum de 10 000 Fr</p>
+                            <p className="text-gray-400 text-xs mt-0.5">Effectuez un premier dépôt de 10 000 Fr minimum sur votre compte {selectedBookmaker === 'linebet' ? 'LINEBET' : '888STARZ'}</p>
                           </div>
                         </div>
                         <div className="flex items-start gap-3 bg-midnight/50 squircle p-3.5 border border-white/[0.06]">

@@ -65,7 +65,7 @@ function buildFaqJsonLd() {
       { '@type': 'Question', name: 'La faille FIFA est-elle légale ?', acceptedAnswer: { '@type': 'Answer', text: "Oui, il s'agit d'une inefficience de marché, pas d'un hack ou d'une manipulation technique. Exploiter des cotes mal calculées est parfaitement légal, tout comme un trader exploite les inefficiences sur les marchés financiers. Les bookmakers ajustent leurs cotes en permanence, mais des délais existent." } },
       { '@type': 'Question', name: 'Comment BttsBet détecte les cotes erronées FIFA ?', acceptedAnswer: { '@type': 'Answer', text: "Notre algorithme IA analyse en temps réel les cotes de chaque match FIFA virtuel, les compare aux probabilités réelles calculées par notre modèle statistique (basé sur 50 000+ matchs), et identifie les écarts significatifs. Quand l'écart dépasse un seuil, un signal est envoyé aux membres VIP." } },
       { '@type': 'Question', name: 'Quel est le taux de réussite de la faille FIFA ?', acceptedAnswer: { '@type': 'Answer', text: "Sur les 90 derniers jours, notre système a affiché un taux de réussite d'environ 88% sur les signaux FIFA. Ce taux est vérifiable dans notre section Historique des gains. Attention : les résultats passés ne garantissent pas les résultats futurs." } },
-      { '@type': 'Question', name: 'Faut-il un code promo pour accéder à la faille FIFA ?', acceptedAnswer: { '@type': 'Answer', text: "Oui, l'accès VIP est réservé aux membres inscrits sur Linebet ou 888starz via notre lien de parrainage avec le code promo VISION221 et un dépôt minimum de 3 000 Fr. Cela nous permet de vérifier votre inscription et de vous ouvrir l'accès." } },
+      { '@type': 'Question', name: 'Faut-il un code promo pour accéder à la faille FIFA ?', acceptedAnswer: { '@type': 'Answer', text: "Oui, l'accès VIP est réservé aux membres inscrits sur Linebet ou 888starz via notre lien de parrainage avec le code promo VISION221 et un dépôt minimum de 10 000 Fr. Cela nous permet de vérifier votre inscription et de vous ouvrir l'accès." } },
       { '@type': 'Question', name: 'Les matchs FIFA virtuels sont-ils truqués ?', acceptedAnswer: { '@type': 'Answer', text: "Non, les matchs FIFA virtuels utilisent un générateur de nombres pseudo-aléatoires certifié. Les résultats ne sont pas truqués, mais l'algorithme de calcul des cotes par les bookmakers n'est pas parfait, ce qui crée des inefficiences exploitables." } },
       { '@type': 'Question', name: 'Quelle différence entre faille FIFA et pari football réel ?', acceptedAnswer: { '@type': 'Answer', text: "Les matchs FIFA virtuels durent 3-5 minutes et se déroulent 24h/24, offrant beaucoup plus d'opportunités que le football réel. Les cotes sont calculées automatiquement par un algorithme, ce qui crée des délais d'ajustement que notre IA exploite." } },
       { '@type': 'Question', name: 'Combien peut-on gagner avec la faille FIFA ?', acceptedAnswer: { '@type': 'Answer', text: "Les gains dépendent de votre bankroll et de votre discipline. Les cotes FIFA varient de 1.5x à 10x+. Avec une gestion stricte du risque (2-5% de bankroll par pari) et nos signaux, les membres VIP rapportent des gains réguliers. Ne misez jamais plus que ce que vous pouvez perdre." } },
@@ -140,7 +140,7 @@ export default function FailleFifaPage() {
                   S&apos;inscrire 888starz → 100%
                 </a>
               </div>
-              <p className="text-[10px] text-gray-600 mt-2">Code promo : <span className="text-gold font-bold">VISION221</span> — Dépôt minimum 3 000 Fr</p>
+              <p className="text-[10px] text-gray-600 mt-2">Code promo : <span className="text-gold font-bold">VISION221</span> — Dépôt minimum 10 000 Fr</p>
             </div>
 
             {/* Section 1: La faille en 30 secondes */}
@@ -267,7 +267,7 @@ export default function FailleFifaPage() {
                 <div className="flex items-start gap-3 p-3 bg-gold/5 border border-gold/15 rounded-lg">
                   <span className="flex-shrink-0 w-7 h-7 bg-gold/15 rounded-lg flex items-center justify-center text-gold text-xs font-black">2</span>
                   <div>
-                    <p className="text-white font-semibold text-sm">Effectuez un dépôt minimum de 3 000 Fr</p>
+                    <p className="text-white font-semibold text-sm">Effectuez un dépôt minimum de 10 000 Fr</p>
                     <p className="text-gray-500 text-xs mt-1">Via Mobile Money, Wave, Orange Money ou carte bancaire. Le dépôt minimum est requis pour vérifier votre inscription et activer l&apos;accès VIP.</p>
                   </div>
                 </div>
@@ -329,7 +329,7 @@ export default function FailleFifaPage() {
                       <p className="text-gray-600 text-[10px]">Douala, Cameroun</p>
                     </div>
                   </div>
-                  <p className="text-gray-400 text-sm leading-relaxed">Le meilleur investissement que j&apos;ai fait. Avec 3 000 Fr de dépôt et les signaux FIFA, je gagne régulièrement. La clé c&apos;est la discipline — suivre les signaux et ne pas dépasser 3% de bankroll par mise. L&apos;IA ne ment pas.</p>
+                  <p className="text-gray-400 text-sm leading-relaxed">Le meilleur investissement que j&apos;ai fait. Avec 10 000 Fr de dépôt et les signaux FIFA, je gagne régulièrement. La clé c&apos;est la discipline — suivre les signaux et ne pas dépasser 3% de bankroll par mise. L&apos;IA ne ment pas.</p>
                 </div>
               </div>
             </section>
@@ -345,7 +345,7 @@ export default function FailleFifaPage() {
                   { q: "La faille FIFA est-elle légale ?", a: "Oui, il s'agit d'une inefficience de marché, pas d'un hack ou d'une manipulation technique. Exploiter des cotes mal calculées est parfaitement légal, tout comme un trader exploite les inefficiences sur les marchés financiers." },
                   { q: "Comment BttsBet détecte les cotes erronées ?", a: "Notre algorithme IA analyse en temps réel les cotes de chaque match FIFA, les compare aux probabilités réelles calculées par notre modèle (basé sur 50 000+ matchs), et identifie les écarts significatifs. Quand l'écart dépasse un seuil statistique, un signal est envoyé aux membres VIP." },
                   { q: "Quel est le taux de réussite des signaux FIFA ?", a: "Sur les 90 derniers jours, notre système affiche un taux de réussite d'environ 88% sur les signaux FIFA. Ce taux est vérifiable dans notre section Historique des gains. Attention : les résultats passés ne garantissent pas les résultats futurs." },
-                  { q: "Faut-il un code promo pour accéder à la faille ?", a: "Oui, l'accès VIP est réservé aux membres inscrits sur Linebet ou 888starz via notre lien de parrainage avec le code promo VISION221 et un dépôt minimum de 3 000 Fr." },
+                  { q: "Faut-il un code promo pour accéder à la faille ?", a: "Oui, l'accès VIP est réservé aux membres inscrits sur Linebet ou 888starz via notre lien de parrainage avec le code promo VISION221 et un dépôt minimum de 10 000 Fr." },
                   { q: "Les matchs FIFA virtuels sont-ils truqués ?", a: "Non, les matchs FIFA virtuels utilisent un générateur de nombres pseudo-aléatoires certifié. Les résultats ne sont pas truqués, mais l'algorithme de calcul des cotes n'est pas parfait, ce qui crée des inefficiences exploitables." },
                   { q: "Quelle différence entre faille FIFA et pari football réel ?", a: "Les matchs FIFA durent 3 minutes et se jouent 24h/24, offrant beaucoup plus d'opportunités. Les cotes sont calculées automatiquement, créant des délais d'ajustement que notre IA exploite." },
                   { q: "Combien peut-on gagner avec la faille FIFA ?", a: "Les gains dépendent de votre bankroll et discipline. Avec une gestion stricte (2-5% par pari) et nos signaux, les membres VIP rapportent des gains réguliers. Ne misez jamais plus que ce que vous pouvez perdre." },
@@ -364,7 +364,7 @@ export default function FailleFifaPage() {
             {/* Final CTA */}
             <div className="p-5 rounded-xl bg-gradient-to-r from-purple-500/15 to-gold/10 border border-purple-500/25">
               <p className="text-white font-bold mb-2">🚀 Rejoignez le VIP et exploitez la faille FIFA dès maintenant</p>
-              <p className="text-gray-400 text-sm mb-4">Inscrivez-vous avec le code <span className="text-gold font-bold">VISION221</span>, déposez 3 000 Fr minimum, et recevez les signaux FIFA en temps réel.</p>
+              <p className="text-gray-400 text-sm mb-4">Inscrivez-vous avec le code <span className="text-gold font-bold">VISION221</span>, déposez 10 000 Fr minimum, et recevez les signaux FIFA en temps réel.</p>
               <div className="flex flex-col sm:flex-row gap-2">
                 <a href="https://lb-aff.com/L?tag=d_5589568m_22611c_site&site=5589568&ad=22611&r=registration" rel="sponsored nofollow" target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-2 btn-linebet text-[#06281F] text-xs font-bold">
                   <img src="/logos/linebet.svg" alt="Linebet" className="h-4 w-auto object-contain" loading="lazy"/>
