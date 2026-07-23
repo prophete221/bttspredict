@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useScrollAnimation, useRevealOnScroll, useCountUp, useStaggerReveal } from '@/hooks/useAnimations'
 import { AFFILIATE } from '@/lib/constants'
+import { staggerContainer, staggerChildFadeUp, cardHoverLift, subtleHover, badgePulse } from '@/lib/motionPresets'
 import { AIBrain } from './AnimatedIcons'
 import { resolveTeamLogo } from '@/lib/teamLogos'
 
@@ -141,21 +142,21 @@ function PredBadge({ type, prediction, expanded }: { type: string; prediction: s
   const label = isBtts ? 'BTTS' : 'O2.5'
   if (!isBtts && !isPositive) {
     return (
-      <span className="v31-badge-pulse inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-lg bg-red-500/10 text-red-400 border border-red-500/20">
+      <motion.span variants={badgePulse} animate="animate" style={{ willChange: 'transform, opacity' }} className="v31-badge-pulse inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-lg bg-red-500/10 text-red-400 border border-red-500/20">
         <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
         {label} {prediction}
-      </span>
+      </motion.span>
     )
   }
   return (
-    <span className={`v31-badge-pulse ${isBtts ? 'badge-btts' : 'badge-over25'}`}>
+    <motion.span variants={badgePulse} animate="animate" style={{ willChange: 'transform, opacity' }} className={`v31-badge-pulse ${isBtts ? 'badge-btts' : 'badge-over25'}`}>
       <span className={`w-1.5 h-1.5 rounded-full ${
         isPositive
           ? isBtts ? 'bg-gold' : 'bg-success'
           : 'bg-red-400'
       }`} />
       {label} {prediction}
-    </span>
+    </motion.span>
   )
 }
 
@@ -195,11 +196,16 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
     >
       <motion.div
         layout
+        variants={cardHoverLift}
+        initial="rest"
+        whileHover="hover"
+        whileTap="tap"
         onClick={() => setExpanded(!expanded)}
         onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setExpanded(!expanded) } }}
         role="button"
         tabIndex={0}
         aria-expanded={expanded}
+        style={{ willChange: 'transform, opacity' }}
         className={`v31-data-stream v31-card-hover-glow shimmer-card hover-ripple card-elevate relative squircle border cursor-pointer transition-all duration-300 overflow-hidden ${
           expanded
             ? 'bg-gradient-to-b from-panel-2 to-panel border-gold/30 shadow-lg shadow-gold/8'
@@ -481,10 +487,10 @@ export default function FreePredictions() {
     <section ref={ref} id="free-predictions" className="section-entrance morph-glow py-10 sm:py-16 px-4">
       <div className="max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className={`mb-6 stagger-reveal ${isVisible ? 'is-visible' : ''}`}
+          variants={staggerContainer}
+          initial="hidden"
+          animate={isVisible ? 'visible' : 'hidden'}
+          className="mb-6"
         >
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-5">
             <div>
@@ -500,7 +506,7 @@ export default function FreePredictions() {
               </h2>
               <p className="text-gray-500 text-sm mt-1">Sélection IA — matchs des 7 prochains jours</p>
             </div>
-            <div className="flex items-center gap-4 bg-panel/70 border border-edge squircle px-4 py-2.5 backdrop-blur-sm v31-ia-glow">
+            <motion.div variants={badgePulse} animate="animate" style={{ willChange: 'transform, opacity' }} className="flex items-center gap-4 bg-panel/70 border border-edge squircle px-4 py-2.5 backdrop-blur-sm v31-ia-glow">
               <span className="trust-badge">IA Vérifiée</span>
               <div className="flex items-center gap-1.5">
                 <span className="v31-pulse-ring relative flex w-1.5 h-1.5">
@@ -513,13 +519,17 @@ export default function FreePredictions() {
               <div className="text-xs text-gray-400"><span ref={bttsRef} className="text-gold font-bold tabular-nums">{bttsDisplay}</span> BTTS</div>
               <div className="w-px h-4 bg-edge" />
               <div className="text-xs text-gray-400"><span ref={o25Ref} className="text-success-light font-bold tabular-nums">{o25Display}</span> O2.5</div>
-            </div>
+            </motion.div>
           </div>
 
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+          <motion.div variants={staggerChildFadeUp} className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
             {leagues.map((league) => (
-              <button
+              <motion.button
                 key={league}
+                variants={subtleHover}
+                initial="rest"
+                whileHover="hover"
+                whileTap="tap"
                 onClick={() => setActiveLeague(league)}
                 className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   activeLeague === league
@@ -528,9 +538,9 @@ export default function FreePredictions() {
                 }`}
               >
                 {league === 'all' ? 'Tous' : league}
-              </button>
+              </motion.button>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
 
         {loading ? (

@@ -119,9 +119,6 @@ const breadcrumbJsonLd = {
 export default function Home() {
   return (
     <div className="min-h-screen bg-midnight relative">
-      {/* Site Loader — premium opening animation */}
-      <SiteLoader />
-
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"

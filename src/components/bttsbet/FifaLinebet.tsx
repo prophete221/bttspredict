@@ -6,6 +6,7 @@ import { SITE, AFFILIATE, ANDROID_LOGO } from '@/lib/constants'
 import { resolveTeamLogo } from '@/lib/teamLogos'
 import { useScrollAnimation, useCountUp, useStaggerReveal } from '@/hooks/useAnimations'
 import { GameController, FloatingParticles } from './AnimatedIcons'
+import { badgePulse, modalBackdrop, modalContent } from '@/lib/motionPresets'
 
 /* ─────────────────────────── FIFA MODAL ─────────────────────────── */
 
@@ -56,11 +57,10 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}
+        <motion.div variants={modalBackdrop} initial="hidden" animate="visible" exit="exit"
           className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={handleBackdropClick}
-          style={{ backgroundColor: 'rgba(0,0,0,0.75)' }}>
-          <motion.div ref={modalRef} initial={{ opacity: 0, scale: 0.9, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }} transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+          style={{ backgroundColor: 'rgba(0,0,0,0.75)', willChange: 'opacity' }}>
+          <motion.div ref={modalRef} variants={modalContent} initial="hidden" animate="visible" exit="exit"
             className="relative w-full max-w-md rounded-2xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
             <div className="bg-gradient-to-b from-panel-2 to-panel border border-gold/25 rounded-2xl shadow-2xl shadow-black/50">
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent rounded-t-2xl" />
@@ -368,7 +368,7 @@ export default function FifaLinebet() {
 
           <div className="bento-grid">
             {/* FIFA Coupon — highlight block (special background #0F172A) */}
-            <motion.div ref={couponRef} initial={{ opacity: 0, y: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.97 }} transition={{ duration: 0.6 }}
+            <motion.div ref={couponRef} initial={{ opacity: 0, y: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.97 }} transition={{ duration: 0.6 }} whileHover={{ y: -6, boxShadow: '0 12px 40px rgba(250,204,21,0.12)', transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }} whileTap={{ y: 0, transition: { duration: 0.15 } }} style={{ willChange: 'transform, opacity' }}
               className="relative highlight-block holo-border bento-main squircle-lg shimmer-card hover-ripple card-elevate overflow-hidden hover-lift shadow-2xl">
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold to-gold" />
               <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-gold/4 rounded-full blur-[100px]" />
@@ -387,10 +387,10 @@ export default function FifaLinebet() {
                       <p className="text-[10px] text-gold/60 font-medium tracking-[0.15em] uppercase">Value bets verrouillés</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-1.5 bg-gold/10 border border-gold/20 rounded-full px-2.5 py-1">
+                  <motion.div variants={badgePulse} animate="animate" style={{ willChange: 'transform, opacity' }} className="flex items-center gap-1.5 bg-gold/10 border border-gold/20 rounded-full px-2.5 py-1">
                     <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
                     <span className="text-[10px] text-gold font-semibold">AUTO</span>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {todayFormatted && (
@@ -419,9 +419,8 @@ export default function FifaLinebet() {
 
                 <div ref={staggerRef} className="stagger-reveal space-y-1 mb-4 max-h-[340px] overflow-y-auto scrollbar-none">
                   {fifaMatches.map((m, i) => (
-                    <motion.div key={i} initial={{ opacity: 0, x: -15 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + i * 0.08, duration: 0.45, ease: [0.34, 1.56, 0.64, 1] }}
+                    <motion.div key={i} initial={{ opacity: 0, x: -15 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + i * 0.08, duration: 0.45, ease: [0.34, 1.56, 0.64, 1] }} whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(250,204,21,0.08)', transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }} whileTap={{ y: 0, transition: { duration: 0.15 } }} style={{ willChange: 'transform, opacity', animationDelay: `${0.15 + i * 0.08}s` }}
                       className="v31-stacked-card v31-card-hover-glow relative flex items-center gap-2 sm:gap-2.5 bg-midnight/50 rounded-lg px-2.5 sm:px-3 py-2 border border-gold/10 hover:border-gold/25 transition-colors"
-                      style={{ animationDelay: `${0.15 + i * 0.08}s` }}
                     >
                       <div className="flex items-center gap-1.5 flex-1 min-w-0 relative">
                         <div className="blur-[4px] select-none flex items-center gap-1.5">
@@ -483,7 +482,7 @@ export default function FifaLinebet() {
             </motion.div>
 
             {/* FIFA Info / Promo Section */}
-            <motion.div initial={{ opacity: 0, x: 20, scale: 0.97 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ duration: 0.5, delay: 0.1 }}
+            <motion.div initial={{ opacity: 0, x: 20, scale: 0.97 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ duration: 0.5, delay: 0.1 }} whileHover={{ y: -6, boxShadow: '0 12px 40px rgba(250,204,21,0.12)', transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }} whileTap={{ y: 0, transition: { duration: 0.15 } }} style={{ willChange: 'transform, opacity' }}
               className="relative squircle-lg card-elevate bento-side border border-edge bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift shadow-2xl">
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold to-gold" />

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE, ANDROID_LOGO } from '@/lib/constants'
+import { staggerContainer, staggerChildFadeUp, badgePulse, glowHover, subtleHover, modalBackdrop, modalContent } from '@/lib/motionPresets'
 import { useScrollAnimation, useStaggerReveal } from '@/hooks/useAnimations'
 import { RocketIcon, FloatingParticles } from './AnimatedIcons'
 
@@ -117,15 +118,20 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}
+          variants={modalBackdrop}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
           onClick={handleBackdropClick}
-          style={{ backgroundColor: 'rgba(0,0,0,0.75)' }}
+          style={{ backgroundColor: 'rgba(0,0,0,0.75)', willChange: 'opacity' }}
         >
           <motion.div
             ref={modalRef}
-            initial={{ opacity: 0, scale: 0.9, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+            variants={modalContent}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             className="relative w-full max-w-md squircle-lg overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
@@ -429,6 +435,9 @@ export default function AviatorVip() {
             initial={{ opacity: 0, y: 24, scale: 0.97 }}
             animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : undefined}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ y: -6, boxShadow: '0 12px 40px rgba(250,204,21,0.12)', transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }}
+            whileTap={{ y: 0, transition: { duration: 0.15 } }}
+            style={{ willChange: 'transform, opacity' }}
             className="v31-vip-lab-glow holo-border bento-main relative squircle-lg glass-vip shimmer-card border border-red-500/20 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift card-elevate shadow-2xl"
           >
             {/* Premium top sheen */}
@@ -451,12 +460,12 @@ export default function AviatorVip() {
                     <p className="text-[10px] text-red-400/60 font-medium tracking-wide uppercase">Actualisation des statistiques chaque 60 secondes</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-1.5 bg-red-500/10 border border-red-500/20 rounded-full px-2.5 py-1 badge-pulse">
+                <motion.div variants={badgePulse} animate="animate" style={{ willChange: 'transform, opacity' }} className="flex items-center gap-1.5 bg-red-500/10 border border-red-500/20 rounded-full px-2.5 py-1 badge-pulse">
                   <div className={`w-1.5 h-1.5 rounded-full animate-pulse ${signalPhase === 'active' ? 'bg-gold' : signalPhase === 'countdown' ? 'bg-gold' : 'bg-red-500'}`} />
                   <span className="text-[10px] text-red-400 font-semibold">
                     {signalPhase === 'active' ? 'STATS' : signalPhase === 'countdown' ? 'EN ATTENTE' : 'RÉSULTAT'}
                   </span>
-                </div>
+                </motion.div>
               </div>
 
               {/* Stats row */}
@@ -609,11 +618,11 @@ export default function AviatorVip() {
               { icon: '💰', label: 'Cash Out Info', desc: 'Moment optimal' },
               { icon: '📈', label: 'Tendances', desc: 'Patterns historiques' },
             ].map((f, i) => (
-              <div key={i} className="bg-panel/60 border border-edge/50 squircle px-3 py-2.5 text-center card-elevate">
+              <motion.div key={i} variants={subtleHover} initial="rest" whileHover="hover" whileTap="tap" style={{ willChange: 'transform, opacity' }} className="bg-panel/60 border border-edge/50 squircle px-3 py-2.5 text-center card-elevate">
                 <span className="text-lg">{f.icon}</span>
                 <p className="text-[11px] text-white font-semibold mt-0.5">{f.label}</p>
                 <p className="text-[9px] text-gray-600">{f.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
           </div>

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE, BOOKMAKERS, ANDROID_LOGO } from '@/lib/constants'
+import { staggerContainer, staggerChildFadeUp, cardHoverLift, badgePulse, modalBackdrop, modalContent } from '@/lib/motionPresets'
 import { useScrollAnimation, useCountUp, useStaggerReveal } from '@/hooks/useAnimations'
 import { CrownIcon, FloatingParticles } from './AnimatedIcons'
 
@@ -66,20 +67,20 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
+          variants={modalBackdrop}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
           onClick={handleBackdropClick}
-          style={{ backgroundColor: 'rgba(0,0,0,0.75)' }}
+          style={{ backgroundColor: 'rgba(0,0,0,0.75)', willChange: 'opacity' }}
         >
           <motion.div
             ref={modalRef}
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+            variants={modalContent}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             className="relative w-full max-w-md rounded-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
@@ -294,9 +295,8 @@ function VipCouponRow({ match, league, time, homeLogo, awayLogo, homeTeam, awayT
   match: string; league: string; time: string; homeLogo: string; awayLogo: string; homeTeam: string; awayTeam: string; cote: number; index: number
 }) {
   return (
-    <motion.div initial={{ opacity: 0, x: -15 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + index * 0.08, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+    <motion.div initial={{ opacity: 0, x: -15 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + index * 0.08, duration: 0.45, ease: [0.22, 1, 0.36, 1] }} whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(250,204,21,0.08)', transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }} whileTap={{ y: 0, transition: { duration: 0.15 } }} style={{ willChange: 'transform, opacity', animationDelay: `${0.15 + index * 0.08}s` }}
       className={`v31-cascade-row v31-card-hover-glow relative flex items-center gap-2 sm:gap-2.5 bg-midnight/50 rounded-lg px-2.5 sm:px-3 py-2 border border-gold/8 hover:border-gold/20 transition-colors`}
-      style={{ animationDelay: `${0.15 + index * 0.08}s` }}
     >
       <span className="text-[10px] sm:text-xs text-gold/60 font-mono tabular-nums w-9 text-center flex-shrink-0">{time}</span>
       <div className="flex items-center gap-1.5 flex-1 min-w-0 blur-[4px] select-none">
@@ -436,7 +436,7 @@ export default function PromoVip() {
 
           <div className="bento-grid">
             {/* VIP Coupon */}
-            <motion.div initial={{ opacity: 0, y: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : undefined} transition={{ duration: 0.6 }}
+            <motion.div initial={{ opacity: 0, y: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : undefined} transition={{ duration: 0.6 }} whileHover={{ y: -6, boxShadow: '0 12px 40px rgba(250,204,21,0.12)', transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }} whileTap={{ y: 0, transition: { duration: 0.15 } }} style={{ willChange: 'transform, opacity' }}
               className="v31-vip-lab-glow holo-border bento-main relative squircle-lg glass-vip shimmer-card hover-ripple overflow-hidden hover-lift shadow-2xl">
               {/* Premium top sheen */}
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
@@ -457,10 +457,10 @@ export default function PromoVip() {
                       <p className="text-[10px] text-gold/60 font-medium tracking-[0.15em] uppercase">Contenu exclusif verrouillé</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-1.5 bg-gold/10 border border-gold/20 rounded-full px-2.5 py-1">
+                  <motion.div variants={badgePulse} animate="animate" style={{ willChange: 'transform, opacity' }} className="flex items-center gap-1.5 bg-gold/10 border border-gold/20 rounded-full px-2.5 py-1">
                     <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
                     <span className="text-[10px] text-gold font-semibold">LIVE</span>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {todayFormatted && (
@@ -531,11 +531,8 @@ export default function PromoVip() {
             </motion.div>
 
             {/* Promo Section — fintech-style offer card */}
-            <motion.div initial={{ opacity: 0, x: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, x: 0, scale: 1 } : undefined} transition={{ duration: 0.5, delay: 0.1 }}
-              className="bento-side relative squircle-lg card-elevate border border-gold/25 overflow-hidden hover-lift shadow-2xl"
-              style={{
-                background: 'linear-gradient(135deg, rgba(50, 176, 200, 0.08) 0%, rgba(15, 21, 37, 0.95) 40%, rgba(245, 165, 36, 0.06) 100%)',
-              }}>
+            <motion.div initial={{ opacity: 0, x: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, x: 0, scale: 1 } : undefined} transition={{ duration: 0.5, delay: 0.1 }} whileHover={{ y: -6, boxShadow: '0 12px 40px rgba(250,204,21,0.12)', transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }} whileTap={{ y: 0, transition: { duration: 0.15 } }} style={{ willChange: 'transform, opacity', background: 'linear-gradient(135deg, rgba(50, 176, 200, 0.08) 0%, rgba(15, 21, 37, 0.95) 40%, rgba(245, 165, 36, 0.06) 100%)' }}
+              className="bento-side relative squircle-lg card-elevate border border-gold/25 overflow-hidden hover-lift shadow-2xl">
               {/* Premium top sheen */}
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold-light to-gold" />

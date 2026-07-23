@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE, ANDROID_LOGO } from '@/lib/constants'
+import { staggerContainer, staggerChildFadeUp, badgePulse, modalBackdrop, modalContent } from '@/lib/motionPresets'
 import { useScrollAnimation, useCountUp, useStaggerReveal } from '@/hooks/useAnimations'
 import { StatsIcon, FloatingParticles } from './AnimatedIcons'
 
@@ -73,20 +74,20 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
+          variants={modalBackdrop}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
           onClick={handleBackdropClick}
-          style={{ backgroundColor: 'rgba(0,0,0,0.75)' }}
+          style={{ backgroundColor: 'rgba(0,0,0,0.75)', willChange: 'opacity' }}
         >
           <motion.div
             ref={modalRef}
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+            variants={modalContent}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             className="relative w-full max-w-md squircle-lg overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
@@ -300,9 +301,8 @@ function SportCouponRow({ match, time, homeTeam, awayTeam, league, cote, index, 
   match: string; time: string; homeTeam: string; awayTeam: string; league: string; cote: number; index: number; badge: string
 }) {
   return (
-    <motion.div initial={{ opacity: 0, x: -15 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + index * 0.08, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+    <motion.div initial={{ opacity: 0, x: -15 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + index * 0.08, duration: 0.45, ease: [0.22, 1, 0.36, 1] }} whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(250,204,21,0.08)', transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }} whileTap={{ y: 0, transition: { duration: 0.15 } }} style={{ willChange: 'transform, opacity', animationDelay: `${0.15 + index * 0.08}s` }}
       className="v31-cascade-row v31-card-hover-glow relative bg-midnight/50 rounded-lg px-2.5 sm:px-3 py-2.5 sm:py-2 border border-gold/8 hover:border-gold/20 transition-colors"
-      style={{ animationDelay: `${0.15 + index * 0.08}s` }}
     >
       {/* Mobile: stacked layout, Desktop: row layout */}
       <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-2.5">
@@ -521,6 +521,9 @@ function VipSportCard({ sport, onUnlock, index }: { sport: SportVip; onUnlock: (
         initial={{ opacity: 0, y: 24, scale: 0.97 }}
         animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : undefined}
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        whileHover={{ y: -6, boxShadow: '0 12px 40px rgba(250,204,21,0.12)', transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }}
+        whileTap={{ y: 0, transition: { duration: 0.15 } }}
+        style={{ willChange: 'transform, opacity' }}
         className="v31-vip-lab-glow holo-border shimmer-card hover-ripple relative squircle-lg border border-gold/25 bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift card-elevate shadow-2xl max-w-4xl mx-auto"
       >
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
@@ -542,10 +545,10 @@ function VipSportCard({ sport, onUnlock, index }: { sport: SportVip; onUnlock: (
                 <p className="text-[10px] text-gold/60 font-medium tracking-[0.15em] uppercase">{sport.subtitle}</p>
               </div>
             </div>
-            <div className="flex items-center gap-1.5 bg-gold/10 border border-gold/20 rounded-full px-2.5 py-1">
+            <motion.div variants={badgePulse} animate="animate" style={{ willChange: 'transform, opacity' }} className="flex items-center gap-1.5 bg-gold/10 border border-gold/20 rounded-full px-2.5 py-1">
               <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
               <span className="text-[10px] text-gold font-semibold">LIVE</span>
-            </div>
+            </motion.div>
             <span className="trust-badge">{sport.name} Vérifié</span>
           </div>
 

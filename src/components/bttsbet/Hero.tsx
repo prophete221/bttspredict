@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { SITE, AFFILIATE, SOCIAL_PROOF, TESTIMONIALS, URGENCY_MESSAGES } from '@/lib/constants'
 import { useCountUp, useScrollAnimation } from '@/hooks/useAnimations'
 import { Football3D, FloatingParticles } from './AnimatedIcons'
+import { fadeInUp, staggerContainer, staggerChildFadeUp, buttonHover, badgePulse, EASE, DUR, cardHoverLift } from '@/lib/motionPresets'
 
 /** AnimatedStat — counts up to target value when in view. */
 function AnimatedStat({
@@ -76,7 +77,12 @@ export default function Hero() {
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-ultra/[0.04] rounded-full blur-[120px]" />
       <FloatingParticles count={16} />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-24 pb-16 sm:pt-36 sm:pb-24">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-24 pb-16 sm:pt-36 sm:pb-24"
+      >
         {/* 3D Football — Desktop only, top right area */}
         <div className="hidden lg:block absolute top-20 right-8 xl:right-16">
           <Football3D size={80} />
@@ -84,9 +90,7 @@ export default function Hero() {
 
         {/* Ticker — Minimal pill */}
         <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
+          variants={staggerChildFadeUp}
           className="flex justify-center mb-8 sm:mb-10"
         >
           <div className="inline-flex items-center gap-2 bg-white/[0.03] border border-edge/60 rounded-full px-4 py-1.5">
@@ -107,9 +111,7 @@ export default function Hero() {
 
         {/* Headline — Large, bold, clean */}
         <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          variants={staggerChildFadeUp}
           className="text-center section-title mb-4 sm:mb-5"
         >
           Gagne tes paris{' '}
@@ -120,9 +122,7 @@ export default function Hero() {
 
         {/* Sub-headline — Clean, spaced */}
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          variants={staggerChildFadeUp}
           className="text-center text-gray-400 text-sm sm:text-base max-w-lg mx-auto mb-8 sm:mb-10 px-2 leading-relaxed"
         >
           Précision IA historique ~87% • 15 000+ matchs analysés •{' '}
@@ -131,9 +131,7 @@ export default function Hero() {
 
         {/* 18+ Badge — Legal requirement */}
         <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.25 }}
+          variants={staggerChildFadeUp}
           className="flex justify-center mb-6"
         >
           <div className="inline-flex items-center gap-1.5 bg-gold/10 border border-gold/25 rounded-full px-3 py-1">
@@ -142,14 +140,17 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ═══ PROMO CODE — Clean card ═══ */}
+        {/* ═══ PROMO CODE — Animated card ═══ */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          variants={staggerChildFadeUp}
           className="flex justify-center mb-8 sm:mb-10"
         >
-          <div className="w-full max-w-md glass-promo squircle-lg px-5 py-5 sm:px-8 sm:py-6">
+          <motion.div 
+            variants={cardHoverLift}
+            whileHover="hover"
+            whileTap="tap"
+            className="w-full max-w-md glass-promo squircle-lg px-5 py-5 sm:px-8 sm:py-6"
+          >
             {/* Label */}
             <div className="text-center mb-3">
               <span className="text-[10px] sm:text-xs text-gold uppercase tracking-[0.15em] font-bold">Code Promo Exclusif</span>
@@ -157,10 +158,17 @@ export default function Hero() {
 
             {/* Promo code + Copy */}
             <div className="flex items-center justify-center gap-3 mb-3">
-              <span className="text-2xl sm:text-3xl font-black tracking-[0.12em] promo-code-shimmer">
+              <motion.span 
+                variants={badgePulse}
+                animate="animate"
+                className="text-2xl sm:text-3xl font-black tracking-[0.12em] promo-code-shimmer"
+              >
                 {SITE.promoCode}
-              </span>
-              <button
+              </motion.span>
+              <motion.button
+                variants={buttonHover}
+                whileHover="hover"
+                whileTap="tap"
                 onClick={copyPromoCode}
                 className={`promo-copy-btn flex items-center gap-1.5 text-xs sm:text-sm font-bold transition-all ${
                   copied ? 'border-success/40 text-success' : 'text-gold'
@@ -178,24 +186,25 @@ export default function Hero() {
                     Copier
                   </>
                 )}
-              </button>
+              </motion.button>
             </div>
 
             {/* Instruction */}
             <p className="text-center text-[11px] sm:text-xs text-gray-500">
               Utilise sur <span className="text-linebet font-semibold">Linebet</span> ou <span className="text-star888 font-semibold">888starz</span> pour ton bonus
             </p>
-          </div>
+          </motion.div>
         </motion.div>
 
-        {/* CTA Buttons — 2026 Pill, compact */}
+        {/* CTA Buttons — Premium hover animations */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.4 }}
+          variants={staggerChildFadeUp}
           className="flex flex-row gap-2 sm:gap-3 justify-center items-center mb-10 sm:mb-12 mx-auto"
         >
-          <a
+          <motion.a
+            variants={buttonHover}
+            whileHover="hover"
+            whileTap="tap"
             href={AFFILIATE.linebet}
             rel={AFFILIATE.rel}
             target="_blank"
@@ -204,8 +213,11 @@ export default function Hero() {
             <img src="/logos/linebet.svg" alt="Linebet" className="h-3.5 sm:h-4 w-auto object-contain flex-shrink-0" loading="lazy" />
             <span className="sm:hidden">Bonus 150$</span>
             <span className="hidden sm:inline">S&apos;inscrire → Bonus 150$</span>
-          </a>
-          <a
+          </motion.a>
+          <motion.a
+            variants={buttonHover}
+            whileHover="hover"
+            whileTap="tap"
             href={AFFILIATE.star888}
             rel={AFFILIATE.rel}
             target="_blank"
@@ -214,14 +226,12 @@ export default function Hero() {
             <img src="/logos/888starz.svg" alt="888starz" className="h-3.5 sm:h-4 w-auto object-contain flex-shrink-0" loading="lazy" />
             <span className="sm:hidden">Bonus 100%</span>
             <span className="hidden sm:inline">S&apos;inscrire → Bonus 100%</span>
-          </a>
+          </motion.a>
         </motion.div>
 
-        {/* Stats — Clean row, no card wrapper */}
+        {/* Stats — Animated row */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          variants={staggerChildFadeUp}
           className="flex justify-center gap-8 sm:gap-12 mb-8"
         >
           <div className="text-center">
@@ -248,9 +258,7 @@ export default function Hero() {
 
         {/* Social Proof — Minimal */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
+          variants={staggerChildFadeUp}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto"
         >
           {/* Testimonial */}
@@ -265,16 +273,20 @@ export default function Hero() {
             <p className="text-[10px] text-gray-600 mt-1">— {currentTestimonial.name}, {currentTestimonial.city}</p>
           </motion.div>
 
-          {/* Urgency — VIP Message */}
-          <div className="urgent-badge badge-pulse squircle px-4 py-2.5 text-center flex-shrink-0">
+          {/* Urgency — VIP Badge with pulse */}
+          <motion.div
+            variants={badgePulse}
+            animate="animate"
+            className="urgent-badge squircle px-4 py-2.5 text-center flex-shrink-0"
+          >
             <div className="text-[9px] text-red-400 uppercase tracking-wider font-bold mb-0.5">Bonus exclusif</div>
             <div className="text-lg font-black text-white">
               150$
             </div>
             <div className="text-[9px] text-gray-500">Code VISION221</div>
-          </div>
+          </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   )
 }

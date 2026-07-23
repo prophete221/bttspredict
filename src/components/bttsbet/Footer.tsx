@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE, LEGAL, FAQ_ITEMS, ANDROID_LOGO, TESTIMONIALS, SOCIAL_PROOF } from '@/lib/constants'
 import { useScrollAnimation } from '@/hooks/useAnimations'
+import { staggerContainer, staggerChildFadeUp, subtleHover, fadeInUp } from '@/lib/motionPresets'
 
 function reopenCookieSettings() {
   localStorage.removeItem('bttsbet_cookie_consent')
@@ -46,9 +47,9 @@ export default function Footer() {
                 Témoignages <span className="text-success">vérifiés</span>
               </h3>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <motion.div variants={staggerContainer} initial="hidden" animate={isVisible ? 'visible' : 'hidden'} className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {TESTIMONIALS.slice(0, 3).map((t, i) => (
-                <div key={i} className="bg-panel border border-edge/40 squircle p-4 transition-colors hover:border-gold/15">
+                <motion.div key={i} variants={staggerChildFadeUp} whileHover={{ scale: 1.04, transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }} whileTap={{ scale: 0.96, transition: { duration: 0.15 } }} style={{ willChange: 'transform, opacity' }} className="bg-panel border border-edge/40 squircle p-4 transition-colors hover:border-gold/15">
                   <div className="flex items-center gap-2.5 mb-2.5">
                     <div className="w-8 h-8 rounded-full bg-gold/8 border border-gold/15 flex items-center justify-center text-gold text-xs font-bold">
                       {t.name.charAt(0)}
@@ -64,9 +65,9 @@ export default function Footer() {
                     </div>
                   </div>
                   <p className="text-[11px] text-gray-400 leading-relaxed italic">&laquo; {t.text} &raquo;</p>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
 
           {/* Divider */}
@@ -80,9 +81,9 @@ export default function Footer() {
                 Questions <span className="text-gold">fréquentes</span>
               </h3>
             </div>
-            <div className={`space-y-2 max-w-2xl mx-auto stagger-reveal ${isVisible ? 'is-visible' : ''}`}>
+            <motion.div variants={staggerContainer} initial="hidden" animate={isVisible ? 'visible' : 'hidden'} className="space-y-2 max-w-2xl mx-auto">
               {FAQ_ITEMS.slice(0, 4).map((item, i) => (
-                <div key={i} className={`v31-faq-sep border border-edge/40 squircle overflow-hidden bg-panel/50 hover:border-gold/15 transition-colors`}>
+                <motion.div key={i} variants={fadeInUp} className={`v31-faq-sep border border-edge/40 squircle overflow-hidden bg-panel/50 hover:border-gold/15 transition-colors`}>
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     aria-expanded={openFaq === i}
@@ -116,16 +117,16 @@ export default function Footer() {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
 
           {/* Divider */}
           <div className="divider-premium mb-10" />
 
           {/* Footer Grid — Clean layout */}
-          <div className={`grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10 stagger-reveal ${isVisible ? 'is-visible' : ''}`}>
+          <motion.div variants={staggerContainer} initial="hidden" animate={isVisible ? 'visible' : 'hidden'} className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
             <div className="col-span-2 sm:col-span-1">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-7 h-7 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center">
@@ -176,7 +177,7 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-          </div>
+          </motion.div>
 
           {/* Disclaimer — Clean */}
           <div className="border-t border-edge/40 pt-6 mb-4">

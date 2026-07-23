@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { NAV_LINKS, SITE, AFFILIATE } from '@/lib/constants'
+import { buttonHover, subtleHover, modalBackdrop, modalContent } from '@/lib/motionPresets'
 
 function scrollToSection(id: string) {
   const el = document.getElementById(id)
@@ -138,6 +139,10 @@ export default function Navbar() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.3 }}
+              variants={subtleHover}
+              whileHover="hover"
+              whileTap="tap"
+              style={{ willChange: 'transform, opacity' }}
               className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-full border border-gold/20 bg-gold/[0.04] cursor-pointer hover:bg-gold/[0.08] hover:border-gold/40 transition-all select-none"
               onClick={copyCode}
               role="button"
@@ -156,10 +161,15 @@ export default function Navbar() {
             </motion.div>
 
             {/* CTA — Desktop */}
-            <a
+            <motion.a
               href={AFFILIATE.linebet}
               rel={AFFILIATE.rel}
               target="_blank"
+              variants={buttonHover}
+              initial="rest"
+              whileHover="hover"
+              whileTap="tap"
+              style={{ willChange: 'transform, opacity' }}
               className="hidden sm:flex items-center gap-1.5 px-4 py-1.5 btn-linebet cta-glow text-[#04150C] text-sm font-bold"
             >
               <img
@@ -169,9 +179,7 @@ export default function Navbar() {
                 loading="lazy"
               />
               S&apos;inscrire
-            </a>
-
-            {/* Mobile Hamburger */}
+            </motion.a>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden text-gray-300 hover:text-white p-2 -mr-2"
@@ -201,10 +209,10 @@ export default function Navbar() {
         {isOpen && (
           <motion.div
             id="mobile-menu"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            variants={modalBackdrop}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             className="lg:hidden bg-midnight/98 border-t border-edge/40 backdrop-blur-lg overflow-hidden"
             role="menu"
           >
