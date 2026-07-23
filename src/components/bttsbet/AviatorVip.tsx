@@ -233,7 +233,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
 function PlaneFlyAnimation({ multiplier, isActive }: { multiplier: number; isActive: boolean }) {
   const progress = useMemo(() => Math.min(((multiplier - 1) / 10) * 100, 100), [multiplier])
   return (
-    <div className="relative h-20 sm:h-24 bg-midnight/60 squircle border border-edge/50 overflow-hidden mb-3">
+    <div className="relative h-16 sm:h-24 bg-midnight/60 squircle border border-edge/50 overflow-hidden mb-3">
       {/* Grid lines */}
       <div className="absolute inset-0 flex flex-col justify-between py-2 px-3">
         {[2, 4, 6, 8, 10].map(v => (
@@ -400,8 +400,8 @@ export default function AviatorVip() {
       <section ref={ref} id="vip-aviator" className="section-entrance morph-glow py-8 sm:py-12 px-4 relative overflow-hidden">
         {/* Background effects */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-1/4 w-[500px] h-[400px] bg-red-500/3 rounded-full blur-[140px] opacity-50" />
-          <div className="absolute bottom-0 left-1/3 w-[400px] h-[350px] bg-gold/3 rounded-full blur-[120px] opacity-50" />
+          <div className="absolute top-0 right-1/4 w-[min(500px,80vw)] h-[400px] bg-red-500/3 rounded-full blur-[140px] opacity-50" />
+          <div className="absolute bottom-0 left-1/3 w-[min(400px,70vw)] h-[350px] bg-gold/3 rounded-full blur-[120px] opacity-50" />
         </div>
         <FloatingParticles count={8} />
 
@@ -443,10 +443,10 @@ export default function AviatorVip() {
             {/* Premium top sheen */}
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-red-500/40 to-transparent" />
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-red-500 via-gold to-emerald" />
-            <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-red-500/4 rounded-full blur-[100px] animate-pulse" />
-            <div className="absolute bottom-0 left-0 w-[180px] h-[180px] bg-gold/3 rounded-full blur-[80px]" />
+            <div className="absolute top-0 right-0 w-[min(250px,50%)] h-[250px] bg-red-500/4 rounded-full blur-[100px] animate-pulse" />
+            <div className="absolute bottom-0 left-0 w-[min(180px,40%)] h-[180px] bg-gold/3 rounded-full blur-[80px]" />
 
-            <div className="relative p-5 sm:p-7">
+            <div className="relative p-4 sm:p-7">
               {/* Header */}
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2.5">
@@ -490,7 +490,7 @@ export default function AviatorVip() {
                   <motion.div key="countdown" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}>
                     <div className="flex flex-col items-center justify-center py-4">
                       <p className="text-[11px] text-gray-500 uppercase tracking-wide mb-2">Prochain signal dans</p>
-                      <div className="relative w-28 h-28 mb-2">
+                      <div className="relative w-24 h-24 sm:w-28 sm:h-28 mb-2">
                         <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
                           <circle cx="50" cy="50" r="44" fill="none" stroke="rgba(255,184,0,0.1)" strokeWidth="6" />
                           <circle cx="50" cy="50" r="44" fill="none" stroke="#FACC15" strokeWidth="6" strokeLinecap="round"

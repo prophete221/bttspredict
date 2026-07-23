@@ -51,7 +51,7 @@ export default function SiteLoader() {
             initial={{ scale: 0.4, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: EASE.premium }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-gold/[0.06] rounded-full blur-[100px]"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(300px,80vw)] h-[300px] bg-gold/[0.06] rounded-full blur-[100px]"
           />
 
           {/* Cyan secondary glow */}
@@ -59,7 +59,7 @@ export default function SiteLoader() {
             initial={{ scale: 0.3, opacity: 0 }}
             animate={{ scale: 1, opacity: 0.5 }}
             transition={{ duration: 1, delay: 0.2, ease: EASE.premium }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] bg-ultra/[0.04] rounded-full blur-[80px]"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(200px,60vw)] h-[200px] bg-ultra/[0.04] rounded-full blur-[80px]"
           />
 
           {/* Main content */}

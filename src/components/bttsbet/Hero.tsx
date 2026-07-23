@@ -73,15 +73,15 @@ export default function Hero() {
     <section ref={sectionRef} className="relative overflow-hidden">
       {/* Background — Clean gradient + particles */}
       <div className="absolute inset-0 bg-midnight" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gold/[0.06] rounded-full blur-[160px]" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-ultra/[0.04] rounded-full blur-[120px]" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[min(800px,100vw)] h-[500px] bg-gold/[0.06] rounded-full blur-[160px]" />
+      <div className="absolute bottom-0 right-0 w-[min(400px,60vw)] h-[400px] bg-ultra/[0.04] rounded-full blur-[120px]" />
       <FloatingParticles count={16} />
 
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-24 pb-16 sm:pt-36 sm:pb-24"
+        className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-20 pb-14 sm:pt-36 sm:pb-24"
       >
         {/* 3D Football — Desktop only, top right area */}
         <div className="hidden lg:block absolute top-20 right-8 xl:right-16">

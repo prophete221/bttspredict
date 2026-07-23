@@ -317,8 +317,8 @@ export default function FifaLinebet() {
       <section ref={sectionRef} id="fifa-linebet" className="section-entrance morph-glow py-10 sm:py-16 px-4 relative overflow-hidden">
         {/* Premium background mesh — amber + cyan glow for "experimental/high risk" feel */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/3 w-[500px] h-[400px] bg-gold/6 rounded-full blur-[140px] opacity-60" />
-          <div className="absolute bottom-0 right-1/4 w-[400px] h-[350px] bg-gold/3 rounded-full blur-[120px] opacity-60" />
+          <div className="absolute top-0 left-1/3 w-[min(500px,80vw)] h-[400px] bg-gold/6 rounded-full blur-[140px] opacity-60" />
+          <div className="absolute bottom-0 right-1/4 w-[min(400px,70vw)] h-[350px] bg-gold/3 rounded-full blur-[120px] opacity-60" />
         </div>
         <FloatingParticles count={10} />
 
@@ -371,8 +371,8 @@ export default function FifaLinebet() {
             <motion.div ref={couponRef} initial={{ opacity: 0, y: 20, scale: 0.97 }} animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.97 }} transition={{ duration: 0.6 }} whileHover={{ y: -6, boxShadow: '0 12px 40px rgba(250,204,21,0.12)', transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }} whileTap={{ y: 0, transition: { duration: 0.15 } }} style={{ willChange: 'transform, opacity' }}
               className="relative highlight-block holo-border bento-main squircle-lg shimmer-card hover-ripple card-elevate overflow-hidden hover-lift shadow-2xl">
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold to-gold" />
-              <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-gold/4 rounded-full blur-[100px]" />
-              <div className="absolute bottom-0 left-0 w-[180px] h-[180px] bg-gold/3 rounded-full blur-[80px]" />
+              <div className="absolute top-0 right-0 w-[min(250px,50%)] h-[250px] bg-gold/4 rounded-full blur-[100px]" />
+              <div className="absolute bottom-0 left-0 w-[min(180px,40%)] h-[180px] bg-gold/3 rounded-full blur-[80px]" />
 
               <div className="relative p-5 sm:p-7">
                 <div className="flex items-center justify-between mb-3">
@@ -425,7 +425,7 @@ export default function FifaLinebet() {
                       <div className="flex items-center gap-1.5 flex-1 min-w-0 relative overflow-hidden">
                         <div className="blur-[4px] select-none flex items-center gap-1.5 min-w-0">
                           <FifaTeamLogo src={resolveTeamLogo(m.home)} name={m.home} size={18} />
-                          <span className="text-gray-300 text-[11px] sm:text-sm font-medium truncate max-w-[120px] sm:max-w-none">{m.home} vs {m.away}</span>
+                          <span className="text-gray-300 text-[11px] sm:text-sm font-medium truncate max-w-[80px] sm:max-w-[120px] md:max-w-none">{m.home} vs {m.away}</span>
                           <FifaTeamLogo src={resolveTeamLogo(m.away)} name={m.away} size={18} />
                         </div>
                         <div className="absolute inset-0 flex items-center justify-center">
@@ -486,7 +486,7 @@ export default function FifaLinebet() {
               className="relative squircle-lg card-elevate bento-side border border-edge bg-gradient-to-b from-panel-2 to-panel overflow-hidden hover-lift shadow-2xl">
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold to-gold" />
-              <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-gold/4 rounded-full blur-[80px]" />
+              <div className="absolute bottom-0 left-0 w-[min(200px,50%)] h-[200px] bg-gold/4 rounded-full blur-[80px]" />
 
               <div className="relative p-6 sm:p-8">
                 <div className="w-12 h-12 bg-gold/10 border border-gold/20 rounded-xl flex items-center justify-center text-gold mb-5">

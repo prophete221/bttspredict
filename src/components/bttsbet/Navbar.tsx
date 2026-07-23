@@ -9,7 +9,7 @@ function scrollToSection(id: string) {
   const el = document.getElementById(id)
   if (el) {
     el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    setTimeout(() => window.scrollBy({ top: -64, behavior: 'smooth' }), 400)
+    setTimeout(() => window.scrollBy({ top: -72, behavior: 'smooth' }), 400)
   }
 }
 
