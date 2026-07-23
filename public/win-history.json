@@ -1,9 +1,9 @@
 {
   "stats": {
-    "total": 322,
-    "won": 218,
-    "rate": "67.7%",
-    "last30Rate": "68%"
+    "total": 266,
+    "won": 187,
+    "rate": "70.3%",
+    "last30Rate": "70%"
   },
   "history": [
     {
@@ -130,6 +130,28 @@
     {
       "id": 12,
       "date": "2026-07-22",
+      "match": "Shelbourne vs Nomme Kalju",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "5-2",
+      "confidence": 48
+    },
+    {
+      "id": 13,
+      "date": "2026-07-22",
+      "match": "Shelbourne vs Nomme Kalju",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "5-2",
+      "confidence": 48
+    },
+    {
+      "id": 14,
+      "date": "2026-07-22",
       "match": "FC Sheriff vs M Tel Aviv",
       "league": "International Friendly",
       "type": "BTTS",
@@ -139,7 +161,7 @@
       "confidence": 47
     },
     {
-      "id": 13,
+      "id": 15,
       "date": "2026-07-22",
       "match": "FC Twente vs Ferencvaros",
       "league": "International Friendly",
@@ -150,7 +172,7 @@
       "confidence": 47
     },
     {
-      "id": 14,
+      "id": 16,
       "date": "2026-07-22",
       "match": "FC Twente vs Ferencvaros",
       "league": "International Friendly",
@@ -161,7 +183,7 @@
       "confidence": 47
     },
     {
-      "id": 15,
+      "id": 17,
       "date": "2026-07-22",
       "match": "Alashkert vs CFR Cluj",
       "league": "International Friendly",
@@ -172,7 +194,7 @@
       "confidence": 47
     },
     {
-      "id": 16,
+      "id": 18,
       "date": "2026-07-22",
       "match": "Panevezys vs Tobol",
       "league": "International Friendly",
@@ -183,48 +205,26 @@
       "confidence": 47
     },
     {
-      "id": 17,
-      "date": "2026-07-22",
-      "match": "Debrecen vs Pyunik Yerevan",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "1-0",
-      "confidence": 47
-    },
-    {
-      "id": 18,
-      "date": "2026-07-22",
-      "match": "Debrecen vs Pyunik Yerevan",
-      "league": "International Friendly",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "1-0",
-      "confidence": 47
-    },
-    {
       "id": 19,
-      "date": "2026-07-21",
-      "match": "Libertad (Ecuador) vs Delfín",
-      "league": "Serie A (ECU)",
+      "date": "2026-07-22",
+      "match": "Debrecen vs Pyunik Yerevan",
+      "league": "International Friendly",
       "type": "BTTS",
       "prediction": "Non",
       "result": "Gagné",
       "score": "1-0",
-      "confidence": 52
+      "confidence": 47
     },
     {
       "id": 20,
-      "date": "2026-07-21",
-      "match": "Libertad (Ecuador) vs Delfín",
-      "league": "Serie A (ECU)",
+      "date": "2026-07-22",
+      "match": "Debrecen vs Pyunik Yerevan",
+      "league": "International Friendly",
       "type": "Over 2.5",
       "prediction": "Non",
       "result": "Gagné",
       "score": "1-0",
-      "confidence": 52
+      "confidence": 47
     }
   ],
   "date": "2026-07-23"
