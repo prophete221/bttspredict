@@ -1,13 +1,35 @@
 {
   "stats": {
-    "total": 168,
-    "won": 134,
-    "rate": "79.8%",
-    "last30Rate": "80%"
+    "total": 322,
+    "won": 218,
+    "rate": "67.7%",
+    "last30Rate": "68%"
   },
   "history": [
     {
       "id": 1,
+      "date": "2026-07-22",
+      "match": "GAIS vs Nordsjaelland",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "1-0",
+      "confidence": 50
+    },
+    {
+      "id": 2,
+      "date": "2026-07-22",
+      "match": "GAIS vs Nordsjaelland",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "1-0",
+      "confidence": 50
+    },
+    {
+      "id": 3,
       "date": "2026-07-22",
       "match": "Bodo/Glimt vs Hamarkameratene",
       "league": "Eliteserien",
@@ -18,7 +40,7 @@
       "confidence": 49
     },
     {
-      "id": 2,
+      "id": 4,
       "date": "2026-07-22",
       "match": "Bodo/Glimt vs Hamarkameratene",
       "league": "Eliteserien",
@@ -29,7 +51,7 @@
       "confidence": 49
     },
     {
-      "id": 3,
+      "id": 5,
       "date": "2026-07-22",
       "match": "Independiente del Valle vs Técnico Universitario",
       "league": "Serie A (ECU)",
@@ -40,7 +62,7 @@
       "confidence": 49
     },
     {
-      "id": 4,
+      "id": 6,
       "date": "2026-07-22",
       "match": "Lillestrom vs Viking FK",
       "league": "Eliteserien",
@@ -51,7 +73,7 @@
       "confidence": 48
     },
     {
-      "id": 5,
+      "id": 7,
       "date": "2026-07-22",
       "match": "Lillestrom vs Viking FK",
       "league": "Eliteserien",
@@ -62,7 +84,7 @@
       "confidence": 48
     },
     {
-      "id": 6,
+      "id": 8,
       "date": "2026-07-22",
       "match": "Macará vs Deportivo Cuenca",
       "league": "Serie A (ECU)",
@@ -73,158 +95,136 @@
       "confidence": 48
     },
     {
-      "id": 7,
-      "date": "2026-07-21",
-      "match": "Libertad (Ecuador) vs Delfín",
-      "league": "Serie A (ECU)",
-      "type": "BTTS",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "1-0",
-      "confidence": 52
-    },
-    {
-      "id": 8,
-      "date": "2026-07-21",
-      "match": "Libertad (Ecuador) vs Delfín",
-      "league": "Serie A (ECU)",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "1-0",
-      "confidence": 52
-    },
-    {
       "id": 9,
-      "date": "2026-07-20",
+      "date": "2026-07-22",
       "match": "Hammarby vs Anderlecht",
       "league": "International Friendly",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
       "result": "Gagné",
-      "score": "4-0",
-      "confidence": 50
+      "score": "1-1",
+      "confidence": 48
     },
     {
       "id": 10,
-      "date": "2026-07-19",
-      "match": "Técnico Universitario vs Aucas",
-      "league": "Serie A (ECU)",
+      "date": "2026-07-22",
+      "match": "Zilina vs GKS Katowice",
+      "league": "International Friendly",
       "type": "BTTS",
-      "prediction": "Non",
+      "prediction": "Oui",
       "result": "Gagné",
-      "score": "0-1",
-      "confidence": 52
+      "score": "2-1",
+      "confidence": 48
     },
     {
       "id": 11,
-      "date": "2026-07-19",
-      "match": "Técnico Universitario vs Aucas",
-      "league": "Serie A (ECU)",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "0-1",
-      "confidence": 52
-    },
-    {
-      "id": 12,
-      "date": "2026-07-19",
-      "match": "Guayaquil City FC vs Manta F.C.",
-      "league": "Serie A (ECU)",
-      "type": "BTTS",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "1-0",
-      "confidence": 52
-    },
-    {
-      "id": 13,
-      "date": "2026-07-19",
-      "match": "Guayaquil City FC vs Manta F.C.",
-      "league": "Serie A (ECU)",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "1-0",
-      "confidence": 52
-    },
-    {
-      "id": 14,
-      "date": "2026-07-19",
-      "match": "Hammarby vs Anderlecht",
+      "date": "2026-07-22",
+      "match": "Zilina vs GKS Katowice",
       "league": "International Friendly",
       "type": "Over 2.5",
       "prediction": "Oui",
       "result": "Gagné",
-      "score": "4-0",
-      "confidence": 51
+      "score": "2-1",
+      "confidence": 48
+    },
+    {
+      "id": 12,
+      "date": "2026-07-22",
+      "match": "FC Sheriff vs M Tel Aviv",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-5",
+      "confidence": 47
+    },
+    {
+      "id": 13,
+      "date": "2026-07-22",
+      "match": "FC Twente vs Ferencvaros",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 47
+    },
+    {
+      "id": 14,
+      "date": "2026-07-22",
+      "match": "FC Twente vs Ferencvaros",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 47
     },
     {
       "id": 15,
-      "date": "2026-07-18",
-      "match": "Deportivo Cuenca vs Universidad Católica (Quito)",
-      "league": "Serie A (ECU)",
+      "date": "2026-07-22",
+      "match": "Alashkert vs CFR Cluj",
+      "league": "International Friendly",
       "type": "BTTS",
-      "prediction": "Non",
+      "prediction": "Oui",
       "result": "Gagné",
-      "score": "0-2",
-      "confidence": 52
+      "score": "1-1",
+      "confidence": 47
     },
     {
       "id": 16,
-      "date": "2026-07-18",
-      "match": "Deportivo Cuenca vs Universidad Católica (Quito)",
-      "league": "Serie A (ECU)",
-      "type": "Over 2.5",
-      "prediction": "Non",
+      "date": "2026-07-22",
+      "match": "Panevezys vs Tobol",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
       "result": "Gagné",
-      "score": "0-2",
-      "confidence": 52
+      "score": "1-1",
+      "confidence": 47
     },
     {
       "id": 17,
-      "date": "2026-07-18",
-      "match": "Liga de Quito vs Leones",
-      "league": "Serie A (ECU)",
+      "date": "2026-07-22",
+      "match": "Debrecen vs Pyunik Yerevan",
+      "league": "International Friendly",
       "type": "BTTS",
       "prediction": "Non",
       "result": "Gagné",
-      "score": "0-1",
-      "confidence": 52
+      "score": "1-0",
+      "confidence": 47
     },
     {
       "id": 18,
-      "date": "2026-07-18",
-      "match": "Liga de Quito vs Leones",
+      "date": "2026-07-22",
+      "match": "Debrecen vs Pyunik Yerevan",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "1-0",
+      "confidence": 47
+    },
+    {
+      "id": 19,
+      "date": "2026-07-21",
+      "match": "Libertad (Ecuador) vs Delfín",
+      "league": "Serie A (ECU)",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "1-0",
+      "confidence": 52
+    },
+    {
+      "id": 20,
+      "date": "2026-07-21",
+      "match": "Libertad (Ecuador) vs Delfín",
       "league": "Serie A (ECU)",
       "type": "Over 2.5",
       "prediction": "Non",
       "result": "Gagné",
-      "score": "0-1",
+      "score": "1-0",
       "confidence": 52
-    },
-    {
-      "id": 19,
-      "date": "2026-07-18",
-      "match": "ADT vs Universitario",
-      "league": "Liga 1 (PER)",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-2",
-      "confidence": 51
-    },
-    {
-      "id": 20,
-      "date": "2026-07-18",
-      "match": "ADT vs Universitario",
-      "league": "Liga 1 (PER)",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-2",
-      "confidence": 51
     }
   ],
   "date": "2026-07-23"
