@@ -122,7 +122,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
           initial="hidden"
           animate="visible"
           exit="exit"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
           onClick={handleBackdropClick}
           style={{ backgroundColor: 'rgba(0,0,0,0.75)', willChange: 'opacity' }}
         >
@@ -132,12 +132,12 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="relative w-full max-w-md squircle-lg overflow-hidden"
+            className="relative w-full max-w-md squircle-lg overflow-hidden max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="bg-panel border border-edge-bright/30 backdrop-blur-xl">
               <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-red-500 via-gold to-emerald" />
-              <div className="p-5 sm:p-6">
+              <div className="p-4 sm:p-5 md:p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-base font-extrabold text-white flex items-center gap-2">
                     <img src="/logos/sport-aviator.svg" alt="" className="w-6 h-6 object-contain" />
@@ -469,7 +469,7 @@ export default function AviatorVip() {
               </div>
 
               {/* Stats row */}
-              <div className="flex items-center gap-3 sm:gap-4 mb-4 pb-4 border-b border-red-500/8 flex-wrap">
+              <div className="flex items-center gap-2 sm:gap-3 md:gap-4 mb-4 pb-4 border-b border-red-500/8 flex-wrap">
                 <div className="flex items-center gap-1.5">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                   <span className="text-[11px] text-gray-400"><span className="text-white font-semibold">{todaySignals}</span> signaux</span>
@@ -510,7 +510,7 @@ export default function AviatorVip() {
                 {signalPhase === 'active' && currentSignal && (
                   <motion.div key="active" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.3 }}>
                     <PlaneFlyAnimation multiplier={currentSignal.multiplier} isActive={true} />
-                    <div className="grid grid-cols-3 gap-3 mb-3">
+                    <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-3">
                       <div className="bg-midnight/60 border border-edge rounded-lg p-2.5 text-center">
                         <div className="text-[10px] text-gray-500 mb-0.5">Multiplicateur</div>
                         <div className={`text-lg font-black tabular-nums ${currentSignal.multiplier >= 5 ? 'text-success' : currentSignal.multiplier >= 2.5 ? 'text-gold' : 'text-red-400'}`}>
@@ -610,7 +610,7 @@ export default function AviatorVip() {
             initial={{ opacity: 0, y: 12 }}
             animate={isVisible ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="bento-side grid grid-cols-2 lg:grid-cols-1 gap-2 mt-4 sm:mt-0"
+            className="bento-side grid grid-cols-2 lg:grid-cols-1 gap-2 mt-4 lg:mt-0"
           >
             {[
               { icon: '⚡', label: 'Stats / min', desc: 'Mise à jour toutes les 60s' },

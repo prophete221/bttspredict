@@ -71,7 +71,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
           initial="hidden"
           animate="visible"
           exit="exit"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
           onClick={handleBackdropClick}
           style={{ backgroundColor: 'rgba(0,0,0,0.75)', willChange: 'opacity' }}
         >
@@ -81,7 +81,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="relative w-full max-w-md rounded-2xl overflow-hidden"
+            className="relative w-full max-w-md rounded-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="bg-panel border border-gold/20 rounded-2xl shadow-2xl shadow-black/50">
@@ -97,7 +97,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                 </svg>
               </button>
 
-              <div className="p-6 sm:p-8">
+              <div className="p-4 sm:p-6 md:p-8">
                 <AnimatePresence mode="wait">
                   {step === 'info' && (
                     <motion.div key="info" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.25 }}>
@@ -296,14 +296,14 @@ function VipCouponRow({ match, league, time, homeLogo, awayLogo, homeTeam, awayT
 }) {
   return (
     <motion.div initial={{ opacity: 0, x: -15 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + index * 0.08, duration: 0.45, ease: [0.22, 1, 0.36, 1] }} whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(250,204,21,0.08)', transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }} whileTap={{ y: 0, transition: { duration: 0.15 } }} style={{ willChange: 'transform, opacity', animationDelay: `${0.15 + index * 0.08}s` }}
-      className={`v31-cascade-row v31-card-hover-glow relative flex items-center gap-2 sm:gap-2.5 bg-midnight/50 rounded-lg px-2.5 sm:px-3 py-2 border border-gold/8 hover:border-gold/20 transition-colors`}
+      className={`v31-cascade-row v31-card-hover-glow relative flex items-center gap-2 sm:gap-2.5 bg-midnight/50 rounded-lg px-2.5 sm:px-3 py-2 border border-gold/8 hover:border-gold/20 transition-colors overflow-hidden`}
     >
       <span className="text-[10px] sm:text-xs text-gold/60 font-mono tabular-nums w-9 text-center flex-shrink-0">{time}</span>
-      <div className="flex items-center gap-1.5 flex-1 min-w-0 blur-[4px] select-none">
+      <div className="flex items-center gap-1.5 flex-1 min-w-0 blur-[4px] select-none overflow-hidden">
         <VipTeamLogo src={homeLogo} name={homeTeam} size={18} />
-        <span className="text-white text-[11px] sm:text-sm font-semibold truncate">{homeTeam}</span>
+        <span className="text-white text-[11px] sm:text-sm font-semibold truncate max-w-[70px] sm:max-w-none">{homeTeam}</span>
         <span className="text-gray-500 text-[10px] font-bold flex-shrink-0">vs</span>
-        <span className="text-white text-[11px] sm:text-sm font-semibold truncate">{awayTeam}</span>
+        <span className="text-white text-[11px] sm:text-sm font-semibold truncate max-w-[70px] sm:max-w-none">{awayTeam}</span>
         <VipTeamLogo src={awayLogo} name={awayTeam} size={18} />
       </div>
       <span className="hidden sm:block text-gray-600 text-[10px] flex-shrink-0 max-w-[90px] truncate">{league}</span>
@@ -472,7 +472,7 @@ export default function PromoVip() {
                   </div>
                 )}
 
-                <div className="flex items-center gap-3 sm:gap-4 mb-4 pb-4 border-b border-gold/8">
+                <div className="flex items-center gap-2 sm:gap-3 md:gap-4 mb-4 pb-4 border-b border-gold/8 flex-wrap">
                   <div className="flex items-center gap-1.5">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                     <span className="text-[11px] text-gray-400"><span ref={matchCountRef} className="text-white font-semibold tabular-nums">{matchCountDisplay}</span> matchs</span>

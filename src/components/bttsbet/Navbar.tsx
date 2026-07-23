@@ -143,7 +143,7 @@ export default function Navbar() {
               whileHover="hover"
               whileTap="tap"
               style={{ willChange: 'transform, opacity' }}
-              className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-full border border-gold/20 bg-gold/[0.04] cursor-pointer hover:bg-gold/[0.08] hover:border-gold/40 transition-all select-none"
+              className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 min-h-[44px] rounded-full border border-gold/20 bg-gold/[0.04] cursor-pointer hover:bg-gold/[0.08] hover:border-gold/40 transition-all select-none"
               onClick={copyCode}
               role="button"
               tabIndex={0}
@@ -155,8 +155,8 @@ export default function Navbar() {
                 }
               }}
             >
-              <span className="promo-code-shimmer text-xs sm:text-sm font-bold tracking-wide">
-                {copied ? 'Copié ✓' : SITE.promoCode}
+              <span className="promo-code-shimmer text-[11px] sm:text-sm font-bold tracking-wide">
+                {copied ? '✓' : SITE.promoCode}
               </span>
             </motion.div>
 
@@ -182,7 +182,7 @@ export default function Navbar() {
             </motion.a>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden text-gray-300 hover:text-white p-2 -mr-2"
+              className="lg:hidden text-gray-300 hover:text-white p-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center"
               aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
@@ -244,7 +244,7 @@ export default function Navbar() {
               {/* Promo code — mobile */}
               <div className="pt-4 pb-2">
                 <div
-                  className="flex items-center justify-center gap-3 px-4 py-3 rounded-xl border border-gold/20 bg-gold/[0.04] cursor-pointer hover:bg-gold/[0.08] transition-all"
+                  className="flex items-center justify-center gap-3 px-4 py-3 min-h-[44px] rounded-xl border border-gold/20 bg-gold/[0.04] cursor-pointer hover:bg-gold/[0.08] transition-all"
                   onClick={copyCode}
                   role="button"
                   tabIndex={0}
@@ -271,7 +271,7 @@ export default function Navbar() {
                   href={AFFILIATE.linebet}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-1.5 text-center px-3 py-2 btn-linebet cta-glow text-[#04150C] text-[11px] font-bold"
+                  className="flex items-center justify-center gap-1.5 text-center px-3 py-2.5 min-h-[44px] btn-linebet cta-glow text-[#04150C] text-[11px] font-bold"
                   role="menuitem"
                 >
                   <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-3.5 h-3.5 rounded object-contain flex-shrink-0" loading="lazy" />
@@ -281,7 +281,7 @@ export default function Navbar() {
                   href={AFFILIATE.star888}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-1.5 text-center px-3 py-2 btn-star888 cta-glow text-white text-[11px] font-bold"
+                  className="flex items-center justify-center gap-1.5 text-center px-3 py-2.5 min-h-[44px] btn-star888 cta-glow text-white text-[11px] font-bold"
                   role="menuitem"
                 >
                   <img src="/logos/888starz-icon.svg" alt="888starz" className="w-3.5 h-3.5 rounded object-contain flex-shrink-0" loading="lazy" />
@@ -291,7 +291,7 @@ export default function Navbar() {
                   href={AFFILIATE.linebetDownload}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-1.5 text-center px-3 py-2 border border-edge text-white font-semibold text-[11px] bg-white/[0.02] hover:bg-white/[0.04] transition-colors rounded-full"
+                  className="flex items-center justify-center gap-1.5 text-center px-3 py-2.5 min-h-[44px] border border-edge text-white font-semibold text-[11px] bg-white/[0.02] hover:bg-white/[0.04] transition-colors rounded-full"
                   role="menuitem"
                 >
                   <img src="/logos/android.svg" alt="Android" className="w-3.5 h-3.5 object-contain flex-shrink-0" loading="lazy" />
@@ -301,7 +301,7 @@ export default function Navbar() {
                   href={AFFILIATE.star888Download}
                   rel={AFFILIATE.rel}
                   target="_blank"
-                  className="flex items-center justify-center gap-1.5 text-center px-3 py-2 border border-edge text-white font-semibold text-[11px] bg-white/[0.02] hover:bg-white/[0.04] transition-colors rounded-full"
+                  className="flex items-center justify-center gap-1.5 text-center px-3 py-2.5 min-h-[44px] border border-edge text-white font-semibold text-[11px] bg-white/[0.02] hover:bg-white/[0.04] transition-colors rounded-full"
                   role="menuitem"
                 >
                   <img src="/logos/android.svg" alt="Android" className="w-3.5 h-3.5 object-contain flex-shrink-0" loading="lazy" />

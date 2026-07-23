@@ -23,13 +23,13 @@ export default function Footer() {
   return (
     <>
       {/* Sticky Bottom CTA — Mobile, compact pills */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 sticky-cta-bar py-2 px-3 sm:hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-30 sticky-cta-bar py-2 px-3 sm:hidden" style={{ paddingBottom: 'calc(8px + env(safe-area-inset-bottom, 0px))' }}>
         <div className="grid grid-cols-2 gap-1.5">
-          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-3 py-2 btn-linebet cta-glow text-[#04150C] text-[11px] font-bold">
+          <a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[44px] btn-linebet cta-glow text-[#04150C] text-[11px] font-bold">
             <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-3.5 h-3.5 rounded object-contain flex-shrink-0" loading="lazy"/>
             Linebet 150$
           </a>
-          <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-3 py-2 btn-star888 cta-glow text-white text-[11px] font-bold">
+          <a href={AFFILIATE.star888} rel={AFFILIATE.rel} target="_blank" className="flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[44px] btn-star888 cta-glow text-white text-[11px] font-bold">
             <img src="/logos/888starz-icon.svg" alt="888starz" className="w-3.5 h-3.5 rounded object-contain flex-shrink-0" loading="lazy"/>
             888starz 100%
           </a>
@@ -37,7 +37,7 @@ export default function Footer() {
       </div>
 
       {/* Footer */}
-      <footer ref={ref} id="faq" className="border-t border-edge/40 pt-16 pb-24 sm:pb-12 px-4">
+      <footer ref={ref} id="faq" className="border-t border-edge/40 pt-16 pb-28 sm:pb-12 px-4">
         <div className="max-w-5xl mx-auto">
           {/* Testimonials — Clean grid */}
           <div className="mb-12">

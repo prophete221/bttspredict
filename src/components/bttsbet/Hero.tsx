@@ -136,7 +136,7 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-1.5 bg-gold/10 border border-gold/25 rounded-full px-3 py-1">
             <span className="text-gold font-extrabold text-xs">18+</span>
-            <span className="text-[10px] text-gray-500">Jeu réservé aux adultes • Les paris comportent des risques</span>
+            <span className="text-[10px] text-gray-500">Jeu réservé aux adultes<span className="hidden xs:inline"> • Les paris comportent des risques</span></span>
           </div>
         </motion.div>
 
@@ -199,7 +199,7 @@ export default function Hero() {
         {/* CTA Buttons — Premium hover animations */}
         <motion.div
           variants={staggerChildFadeUp}
-          className="flex flex-row gap-2 sm:gap-3 justify-center items-center mb-10 sm:mb-12 mx-auto"
+          className="flex flex-row flex-wrap gap-2 sm:gap-3 justify-center items-center mb-10 sm:mb-12 mx-auto"
         >
           <motion.a
             variants={buttonHover}
@@ -229,27 +229,27 @@ export default function Hero() {
           </motion.a>
         </motion.div>
 
-        {/* Stats — Animated row */}
+        {/* Stats — Animated row — flex-wrap for very small screens */}
         <motion.div
           variants={staggerChildFadeUp}
-          className="flex justify-center gap-8 sm:gap-12 mb-8"
+          className="flex justify-center gap-4 sm:gap-8 md:gap-12 mb-8 flex-wrap"
         >
-          <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-extrabold text-gold tabular-nums">
+          <div className="text-center min-w-0">
+            <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gold tabular-nums">
               {isVisible ? <AnimatedStat value={87} duration={1800} suffix="%" prefix="~" /> : <span>~87%</span>}
             </div>
             <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Précision</div>
           </div>
-          <div className="w-px bg-edge/40" />
-          <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-extrabold text-white tabular-nums">
+          <div className="hidden sm:block w-px bg-edge/40 self-stretch" />
+          <div className="text-center min-w-0">
+            <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tabular-nums">
               {isVisible ? <AnimatedStat value={15} duration={1600} suffix="K+" /> : <span>15K+</span>}
             </div>
             <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Analysés</div>
           </div>
-          <div className="w-px bg-edge/40" />
-          <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-extrabold text-gold tabular-nums">
+          <div className="hidden sm:block w-px bg-edge/40 self-stretch" />
+          <div className="text-center min-w-0">
+            <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gold tabular-nums">
               {isVisible ? <AnimatedStat value={50} duration={1500} suffix="+" /> : <span>50+</span>}
             </div>
             <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Championnats</div>

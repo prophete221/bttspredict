@@ -58,17 +58,17 @@ function FifaModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
     <AnimatePresence>
       {isOpen && (
         <motion.div variants={modalBackdrop} initial="hidden" animate="visible" exit="exit"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={handleBackdropClick}
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4" onClick={handleBackdropClick}
           style={{ backgroundColor: 'rgba(0,0,0,0.75)', willChange: 'opacity' }}>
           <motion.div ref={modalRef} variants={modalContent} initial="hidden" animate="visible" exit="exit"
-            className="relative w-full max-w-md rounded-2xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            className="relative w-full max-w-md rounded-2xl overflow-hidden max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <div className="bg-gradient-to-b from-panel-2 to-panel border border-gold/25 rounded-2xl shadow-2xl shadow-black/50">
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent rounded-t-2xl" />
               <div className="h-1 bg-gradient-to-r from-gold via-gold to-gold" />
               <button onClick={onClose} className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-midnight/60 text-gray-400 hover:text-white hover:bg-midnight transition-all z-10" aria-label="Fermer">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </button>
-              <div className="p-6 sm:p-8">
+              <div className="p-4 sm:p-6 md:p-8">
                 <AnimatePresence mode="wait">
                   {step === 'info' && (
                     <motion.div key="info" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.25 }}>
@@ -402,7 +402,7 @@ export default function FifaLinebet() {
                   </div>
                 )}
 
-                <div className="flex items-center gap-3 sm:gap-4 mb-4 pb-4 border-b border-gold/12">
+                <div className="flex items-center gap-2 sm:gap-3 md:gap-4 mb-4 pb-4 border-b border-gold/12 flex-wrap">
                   <div className="flex items-center gap-1.5">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/70"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                     <span className="text-[11px] text-gray-400"><span ref={fifaCountRef} className="v31-halo-number text-white font-semibold tabular-nums">{fifaCountDisplay}</span> matchs</span>
@@ -420,12 +420,12 @@ export default function FifaLinebet() {
                 <div ref={staggerRef} className="stagger-reveal space-y-1 mb-4 max-h-[340px] overflow-y-auto scrollbar-none">
                   {fifaMatches.map((m, i) => (
                     <motion.div key={i} initial={{ opacity: 0, x: -15 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + i * 0.08, duration: 0.45, ease: [0.34, 1.56, 0.64, 1] }} whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(250,204,21,0.08)', transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }} whileTap={{ y: 0, transition: { duration: 0.15 } }} style={{ willChange: 'transform, opacity', animationDelay: `${0.15 + i * 0.08}s` }}
-                      className="v31-stacked-card v31-card-hover-glow relative flex items-center gap-2 sm:gap-2.5 bg-midnight/50 rounded-lg px-2.5 sm:px-3 py-2 border border-gold/10 hover:border-gold/25 transition-colors"
+                      className="v31-stacked-card v31-card-hover-glow relative flex items-center gap-2 sm:gap-2.5 bg-midnight/50 rounded-lg px-2.5 sm:px-3 py-2 border border-gold/10 hover:border-gold/25 transition-colors overflow-hidden"
                     >
-                      <div className="flex items-center gap-1.5 flex-1 min-w-0 relative">
-                        <div className="blur-[4px] select-none flex items-center gap-1.5">
+                      <div className="flex items-center gap-1.5 flex-1 min-w-0 relative overflow-hidden">
+                        <div className="blur-[4px] select-none flex items-center gap-1.5 min-w-0">
                           <FifaTeamLogo src={resolveTeamLogo(m.home)} name={m.home} size={18} />
-                          <span className="text-gray-300 text-[11px] sm:text-sm font-medium truncate">{m.home} vs {m.away}</span>
+                          <span className="text-gray-300 text-[11px] sm:text-sm font-medium truncate max-w-[120px] sm:max-w-none">{m.home} vs {m.away}</span>
                           <FifaTeamLogo src={resolveTeamLogo(m.away)} name={m.away} size={18} />
                         </div>
                         <div className="absolute inset-0 flex items-center justify-center">

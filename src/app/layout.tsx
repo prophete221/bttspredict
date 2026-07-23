@@ -75,6 +75,15 @@ export default function RootLayout({
   return (
     <html lang="fr" className="dark" suppressHydrationWarning>
       <head>
+        {/* Viewport meta — responsive for ALL browsers/devices including notched phones */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1, viewport-fit=cover" />
+        {/* Theme color for mobile browser chrome */}
+        <meta name="theme-color" content="#0A0B1A" />
+        {/* Disable automatic telephone number detection */}
+        <meta name="format-detection" content="telephone=no" />
+        {/* Apple mobile web app — standalone feel */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

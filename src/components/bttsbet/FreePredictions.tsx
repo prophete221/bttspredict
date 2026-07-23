@@ -246,12 +246,12 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
             <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-2">
               <div className="flex items-center gap-1.5">
                 <TeamLogo src={homeLogo} initials={initials1} size="sm" color="emerald" />
-                <span className="text-white font-semibold text-xs sm:text-sm truncate max-w-[120px] sm:max-w-[150px]">{team1}</span>
+                <span className="text-white font-semibold text-xs sm:text-sm truncate max-w-[90px] sm:max-w-[120px]">{team1}</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="text-gray-600 text-[10px] font-bold">VS</span>
                 <TeamLogo src={awayLogo} initials={initials2} size="sm" color="royal" />
-                <span className="text-white font-semibold text-xs sm:text-sm truncate max-w-[120px] sm:max-w-[150px]">{team2}</span>
+                <span className="text-white font-semibold text-xs sm:text-sm truncate max-w-[90px] sm:max-w-[120px]">{team2}</span>
               </div>
             </div>
             <div className="text-gray-500 text-[10px] sm:text-[11px] truncate flex items-center gap-1 mt-0.5">
@@ -292,7 +292,7 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex-1 text-center">
                     <TeamLogo src={homeLogo} initials={initials1} size="lg" color="emerald" />
-                    <div className="text-white font-semibold text-sm truncate max-w-[110px] sm:max-w-[140px] mx-auto mt-1.5">
+                    <div className="text-white font-semibold text-sm truncate max-w-[90px] sm:max-w-[140px] mx-auto mt-1.5">
                       {team1}
                     </div>
                   </div>
@@ -305,7 +305,7 @@ function MatchRow({ match, index }: { match: MatchData; index: number }) {
 
                   <div className="flex-1 text-center">
                     <TeamLogo src={awayLogo} initials={initials2} size="lg" color="royal" />
-                    <div className="text-white font-semibold text-sm truncate max-w-[110px] sm:max-w-[140px] mx-auto mt-1.5">
+                    <div className="text-white font-semibold text-sm truncate max-w-[90px] sm:max-w-[140px] mx-auto mt-1.5">
                       {team2}
                     </div>
                   </div>
@@ -506,7 +506,7 @@ export default function FreePredictions() {
               </h2>
               <p className="text-gray-500 text-sm mt-1">Sélection IA — matchs des 7 prochains jours</p>
             </div>
-            <motion.div variants={badgePulse} animate="animate" style={{ willChange: 'transform, opacity' }} className="flex items-center gap-4 bg-panel/70 border border-edge squircle px-4 py-2.5 backdrop-blur-sm v31-ia-glow">
+            <motion.div variants={badgePulse} animate="animate" style={{ willChange: 'transform, opacity' }} className="flex items-center gap-2 sm:gap-4 bg-panel/70 border border-edge squircle px-3 sm:px-4 py-2.5 backdrop-blur-sm v31-ia-glow flex-wrap">
               <span className="trust-badge">IA Vérifiée</span>
               <div className="flex items-center gap-1.5">
                 <span className="v31-pulse-ring relative flex w-1.5 h-1.5">
@@ -515,14 +515,14 @@ export default function FreePredictions() {
                 </span>
                 <span className="text-xs text-gray-400"><span ref={totalRef} className="text-white font-bold tabular-nums">{totalDisplay}</span> matchs</span>
               </div>
-              <div className="w-px h-4 bg-edge" />
+              <div className="hidden sm:block w-px h-4 bg-edge" />
               <div className="text-xs text-gray-400"><span ref={bttsRef} className="text-gold font-bold tabular-nums">{bttsDisplay}</span> BTTS</div>
-              <div className="w-px h-4 bg-edge" />
+              <div className="hidden sm:block w-px h-4 bg-edge" />
               <div className="text-xs text-gray-400"><span ref={o25Ref} className="text-success-light font-bold tabular-nums">{o25Display}</span> O2.5</div>
             </motion.div>
           </div>
 
-          <motion.div variants={staggerChildFadeUp} className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+          <motion.div variants={staggerChildFadeUp} className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none -mx-4 px-4">
             {leagues.map((league) => (
               <motion.button
                 key={league}
@@ -531,7 +531,7 @@ export default function FreePredictions() {
                 whileHover="hover"
                 whileTap="tap"
                 onClick={() => setActiveLeague(league)}
-                className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                className={`flex-shrink-0 px-3 py-1.5 min-h-[44px] rounded-lg text-xs font-semibold transition-all ${
                   activeLeague === league
                     ? 'bg-gold/12 text-gold border border-gold/30 shadow-sm shadow-gold/10'
                     : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300 hover:border-edge-light'

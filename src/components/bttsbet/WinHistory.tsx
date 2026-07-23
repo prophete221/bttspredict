@@ -47,10 +47,10 @@ function HistoryRow({ item, index }: { item: HistoryItem; index: number }) {
         <span className="pastille pastille-cyan" />
         {item.date}
       </div>
-      <div className="flex items-center gap-1.5">
+      <div className="flex items-center gap-1.5 min-w-0">
         <MiniTeamLogo src={resolveTeamLogo(item.match?.split(' vs ')[0])} alt={item.match?.split(' vs ')[0]} />
-        <div>
-          <div className="text-white font-semibold text-xs sm:text-sm">{item.match}</div>
+        <div className="min-w-0">
+          <div className="text-white font-semibold text-xs sm:text-sm truncate">{item.match}</div>
           <div className="text-[10px] text-gray-500 sm:hidden">{item.league} • {item.type}</div>
           <div className="text-[10px] text-gray-500 hidden sm:block">{item.league}</div>
         </div>
@@ -163,7 +163,7 @@ export default function WinHistory() {
           variants={staggerContainer}
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}
-          className="grid grid-cols-3 gap-3 mb-8"
+          className="grid grid-cols-3 gap-2 sm:gap-3 mb-8"
         >
           {[
             { refObj: totalRef, value: totalDisplay, label: 'Analysés', color: 'text-white' },
@@ -171,7 +171,7 @@ export default function WinHistory() {
             { refObj: last30Ref, value: last30Display, label: 'Gagnés', color: 'text-gold' },
           ].map((item, i) => (
             <motion.div key={i} variants={staggerChildFadeUp} whileHover={{ y: -6, boxShadow: '0 12px 40px rgba(250,204,21,0.12)', transition: { duration: 0.25 } }} whileTap={{ y: 0, transition: { duration: 0.15 } }} style={{ willChange: 'transform, opacity' }} className="bg-panel border border-edge/40 squircle shimmer-card p-3 text-center">
-              <span ref={item.refObj} className={`block text-lg font-bold ${item.color} tabular-nums`}>
+              <span ref={item.refObj} className={`block text-base sm:text-lg font-bold ${item.color} tabular-nums`}>
                 {item.value}{item.suffix || ''}
               </span>
               <div className="text-[10px] text-gray-500 uppercase tracking-wider font-medium mt-0.5">

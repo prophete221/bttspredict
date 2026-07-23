@@ -149,18 +149,9 @@ a, button, [role="button"] {
   box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.15), 0 0 20px rgba(250, 204, 21, 0.06);
 }
 
-/* ─── Section entrance — Smooth fade-in on scroll ─── */
-.section-entrance {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
-}
-.section-entrance.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* ─── Section entrance — Smooth fade-in on scroll (UNIFIED) ─── */
+/* NOTE: There is a second .section-entrance definition later in this file.
+   Both must match — do NOT change one without the other. */
 
 body::before { display: none; }
 
@@ -1396,20 +1387,99 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
 }
 
-/* ─── Section Entrance — whole section fade + slide ─── */
+/* ─── Section Entrance — whole section fade + slide (UNIFIED) ─── */
 .section-entrance {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(16px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
 }
 .section-entrance.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ─── Mobile: Reduce animation intensity ─── */
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE FIXES — Mobile-first for all browsers/devices
+   Target: 320px (iPhone SE) to 1920px+ (desktop)
+   Key markets: West Africa (3G/4G, low-end Android, iPhone)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Overflow prevention — Global ─── */
+* {
+  max-width: 100vw;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+html, body {
+  overflow-x: clip;
+  max-width: 100vw;
+}
+
+/* ─── Flex/Grid overflow fix — Prevent children from overflowing ─── */
+.flex, .grid {
+  min-width: 0;
+}
+.flex > *, .grid > * {
+  min-width: 0;
+  min-height: 0;
+}
+
+/* ─── Safe-area for notched phones (iPhone X+, modern Android) ─── */
+@supports (padding: max(0px)) {
+  .sticky-cta-bar {
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+  }
+  nav {
+    padding-top: max(0px, env(safe-area-inset-top));
+  }
+}
+
+/* ─── Viewport width clamp — fluid containers ─── */
+.max-w-5xl, .max-w-6xl {
+  width: min(100%, min(64rem, 100vw - 2rem));
+}
+
+/* ─── Very small screens (320-375px) — compact layout ─── */
+@media (max-width: 375px) {
+  .section-title {
+    font-size: clamp(1.5rem, 4.5vw, 1.75rem);
+    line-height: 1.15;
+  }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.35rem; }
+  .promo-code-shimmer {
+    font-size: 1.5rem !important;
+    letter-spacing: 0.08em !important;
+  }
+  .squircle-lg { border-radius: 1rem; }
+  .squircle { border-radius: 0.875rem; }
+  /* Reduce padding on cards for tiny screens */
+  .glass-promo { padding-left: 1rem !important; padding-right: 1rem !important; }
+}
+
+/* ─── Mobile (376-639px) — Standard mobile phones ─── */
+@media (min-width: 376px) and (max-width: 639px) {
+  .section-title {
+    font-size: clamp(1.6rem, 5vw, 2rem);
+  }
+}
+
+/* ─── Mobile: Improve touch targets (min 44px) ─── */
 @media (max-width: 767px) {
+  a, button, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  a[href]::after,
+  button::after { /* Already handled by btn::after display:none */ }
+  /* Disable hover effects on mobile — touch only */
+  .card-elevate:hover { transform: none; box-shadow: none; }
+  .glow-border-hover:hover { border-color: inherit; box-shadow: none; }
+  .hover-ripple::after { display: none; }
+  .shimmer-card::after { display: none; }
+  /* Reduce stagger animations on mobile for performance */
   .stagger-reveal > *,
   .stagger-scale > * {
     transition-duration: 0.35s;
@@ -1417,6 +1487,43 @@ h1, h2, h3, h4, h5, h6 {
   .stagger-reveal > *:nth-child(n+4) { transition-delay: 0.15s; }
   .stagger-scale > *:nth-child(n+4) { transition-delay: 0.15s; }
   .morph-glow::before { animation-duration: 12s; }
+  /* Ensure all text wraps properly on mobile */
+  p, span, div, li, td, th {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  /* Horizontal scroll containers — smooth snap */
+  .scrollbar-none {
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+  }
+}
+
+/* ─── Tablet (640-1023px) ─── */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .section-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+  }
+}
+
+/* ─── Desktop (1024px+) ─── */
+@media (min-width: 1024px) {
+  .section-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+  }
+}
+
+/* ─── Landscape mobile — fix height issues ─── */
+@media (max-height: 500px) and (orientation: landscape) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+  .section-entrance {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* ─── Reduced motion: disable all ─── */
@@ -1432,4 +1539,6 @@ h1, h2, h3, h4, h5, h6 {
   .morph-glow::before { animation: none; }
   .loader-grid-bg { animation: none; }
   .section-entrance { opacity: 1; transform: none; transition: none; }
+  .card-elevate:hover { transform: none; box-shadow: none; }
+  .glow-border-hover:hover { border-color: inherit; box-shadow: none; }
 }
