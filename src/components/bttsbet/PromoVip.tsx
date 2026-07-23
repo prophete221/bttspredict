@@ -409,7 +409,7 @@ export default function PromoVip() {
 
   return (
     <>
-      <section ref={ref} id="vip" className="section-entrance morph-glow py-6 sm:py-10 px-4 relative overflow-hidden">
+      <section ref={ref} id="vip" className="section-entrance morph-glow pt-1 pb-6 sm:pt-2 sm:pb-10 px-4 relative overflow-hidden">
         {/* Premium background mesh */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-[min(500px,80vw)] h-[400px] bg-gold/4 rounded-full blur-[140px] opacity-60" />

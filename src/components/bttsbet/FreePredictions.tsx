@@ -484,7 +484,7 @@ export default function FreePredictions() {
   const [o25Ref, o25Display] = useCountUp(o25Stats, 1400, { threshold: 0.3 })
 
   return (
-    <section ref={ref} id="free-predictions" className="section-entrance morph-glow py-6 sm:py-10 px-4">
+    <section ref={ref} id="free-predictions" className="section-entrance morph-glow pt-6 pb-1 sm:pt-10 sm:pb-2 px-4">
       <div className="max-w-5xl mx-auto">
         <motion.div
           variants={staggerContainer}
