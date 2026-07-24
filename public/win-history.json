@@ -1,9 +1,9 @@
 {
   "stats": {
-    "total": 266,
-    "won": 187,
-    "rate": "70.3%",
-    "last30Rate": "70%"
+    "total": 154,
+    "won": 126,
+    "rate": "81.8%",
+    "last30Rate": "82%"
   },
   "history": [
     {
@@ -227,5 +227,5 @@
       "confidence": 48
     }
   ],
-  "date": "2026-07-24"
+  "date": "2026-07-25"
 }
