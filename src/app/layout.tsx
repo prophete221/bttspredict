@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Sora, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const sora = Sora({
+  variable: "--font-sora",
   subsets: ["latin"],
+  weight: ['400', '600', '700', '800'],
   display: 'swap',
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const jetbrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin"],
-  weight: ['500', '600', '700', '800'],
+  weight: ['400', '500', '700'],
   display: 'swap',
 });
 
@@ -100,7 +101,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${manrope.variable} antialiased`}
+        className={`${sora.variable} ${jetbrains.variable} antialiased`}
       >
         {children}
       </body>
