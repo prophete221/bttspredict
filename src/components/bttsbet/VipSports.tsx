@@ -143,7 +143,7 @@ function VipModal({ isOpen, onClose, sport }: { isOpen: boolean; onClose: () => 
                                   <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-5 h-5 rounded object-contain flex-shrink-0" loading="lazy"/>
                                   Linebet
                                 </span>
-                                <span className="text-[9px] font-normal opacity-70">Bonus 150$</span>
+                                <span className="text-[9px] font-normal opacity-70">Bonus 90 000 XOF</span>
                               </button>
                               <button
                                 type="button"
@@ -604,7 +604,7 @@ function VipSportCard({ sport, onUnlock, index }: { sport: SportVip; onUnlock: (
 
           <div className="flex items-center justify-center gap-2 mt-3">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/40"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <p className="v31-blink text-[10px] sm:text-[11px] text-gold/40 font-medium">Accès limité — <span className="text-gold/60">places restantes aujourd&apos;hui</span></p>
+            <p className="text-[10px] sm:text-[11px] text-gold/40 font-medium">VIP: Historique complet + 10 matchs/jour — <span className="text-gold/60">Débloque avec inscription via VISION221</span></p>
           </div>
         </div>
       </motion.div>

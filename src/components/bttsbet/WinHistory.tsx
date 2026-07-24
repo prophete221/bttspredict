@@ -75,25 +75,39 @@ export default function WinHistory() {
   const [staggerRef] = useStaggerReveal()
 
   useEffect(() => {
-    // Cache-bust to ensure fresh data after deployments
-    const url = `/win-history.json?t=${Date.now()}`
-    fetch(url)
-      .then((r) => {
+    async function loadWinHistory() {
+      try {
+        // Cache-bust to ensure fresh data after deployments
+        const r = await fetch(`/win-history.json?t=${Date.now()}`)
         if (!r.ok) throw new Error(`HTTP ${r.status}`)
-        return r.json()
-      })
-      .then((data) => {
+        const data = await r.json()
         if (data && data.history && data.history.length > 0) {
           setWinData(data)
         } else {
           setWinData(null)
         }
         setLoading(false)
-      })
-      .catch(() => {
-        setWinData(null)
-        setLoading(false)
-      })
+      } catch (err) {
+        console.error('[WinHistory] Fetch failed, trying fallback:', err)
+        // Fallback: try without cache-bust
+        try {
+          const r2 = await fetch('/win-history.json')
+          if (!r2.ok) throw new Error(`HTTP ${r2.status}`)
+          const data2 = await r2.json()
+          if (data2 && data2.history && data2.history.length > 0) {
+            setWinData(data2)
+          } else {
+            setWinData(null)
+          }
+          setLoading(false)
+        } catch (fallbackErr) {
+          console.error('[WinHistory] Fallback also failed:', fallbackErr)
+          setWinData(null)
+          setLoading(false)
+        }
+      }
+    }
+    loadWinHistory()
   }, [])
 
   // Compute real win rate from history data (before useMemo to avoid circular deps)

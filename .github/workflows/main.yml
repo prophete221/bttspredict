@@ -43,6 +43,14 @@ jobs:
       - name: Build Next.js static export
         run: npm run build
 
+      - name: Copy SPA routing files + sitemap to output
+        run: |
+          cp public/404.html out/404.html
+          cp out/index.html out/200.html
+          cp public/_redirects out/_redirects
+          cp public/robots.txt out/robots.txt
+          cp public/sitemap.xml out/sitemap.xml
+
       - name: Commit and push updated prediction data
         run: |
           git config --local user.email "bot@bttsbet.online"

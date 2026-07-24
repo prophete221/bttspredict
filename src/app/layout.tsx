@@ -18,7 +18,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL("https://bttsbet.online"),
   title: "BttsBet — Pronostics IA Football +87% | Bonus Linebet & 888starz | Code VISION221",
-  description: "Pronostics football BTTS & Over 2.5 par IA (précision historique ~87% sur 15 000+ matchs analysés). Value bets multi-sports, statistiques Aviator, bonus exclusif jusqu'à 150$ avec le code VISION221 sur Linebet et 888starz.",
+  description: "Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF (150$) + Pronostics BTTS & Over 2.5 par IA (historique ~87%). Dépôt Wave, Orange Money, Free Money.",
   keywords: ["BTTS", "Over 2.5", "pronostics football", "IA", "intelligence artificielle", "paris sportifs", "Linebet", "888starz", "VISION221", "BttsBet", "value bet fifa linebet", "cote fifa linebet", "pronostic fifa esport", "statistiques aviator", "multiplicateur aviator", "aviator Linebet", "aviator 888starz", "code promo linebet", "code promo 888starz", "bonus paris sportifs", "pronostics gratuits"],
   authors: [{ name: "BttsBet" }],
   alternates: {
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "BttsBet — Pronostics IA Football +87% | Bonus Linebet & 888starz",
-    description: "Pronostics IA BTTS & Over 2.5 (précision historique ~87%). Value bets FIFA, statistiques Aviator. Code VISION221 = Bonus exclusif jusqu'à 150$.",
+    description: "Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF. Pronostics IA BTTS & Over 2.5 (historique ~87%). Dépôt Wave, Orange Money.",
     url: "https://bttsbet.online",
     siteName: "BttsBet",
     type: "website",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "BttsBet — Pronostics IA Football +87% | Bonus Linebet & 888starz | VISION221",
-    description: "Pronostics IA football +87% (historique). Value bets FIFA Linebet & 888starz. Statistiques Aviator. Code VISION221 = Bonus 150$.",
+    description: "Pronostics IA football +87% (historique). Code VISION221 = Bonus 90 000 XOF sur Linebet. Dépôt Wave, Orange Money au Sénégal.",
     images: ["/og-image.png"],
   },
 };
@@ -73,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className="dark" suppressHydrationWarning>
+    <html lang="fr-SN" className="dark" suppressHydrationWarning>
       <head>
         {/* Viewport meta — responsive for ALL browsers/devices including notched phones */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1, viewport-fit=cover" />

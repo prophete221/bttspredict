@@ -10,7 +10,7 @@ export const SITE = {
   accuracy: '~87%',
 
   vipAccuracy: '~89%',
-  vipMinDeposit: '10 000 Fr',
+  vipMinDeposit: '10 000 XOF',
   historyRate: '88.3%',
   last30Rate: '91%',
 }
@@ -38,8 +38,8 @@ export const BOOKMAKERS = [
     downloadLink: AFFILIATE.linebetDownload,
     promoCode: 'VISION221',
     color: 'emerald',
-    bonus: 'Bonus 150$',
-    description: 'Bookmaker #1 en Afrique — Bonus exclusif de 150$',
+    bonus: 'Bonus 90 000 XOF (150$)',
+    description: 'Bookmaker #1 en Afrique — Bonus exclusif de 90 000 XOF (150$)',
     logoFull: '/logos/linebet.svg',
     logoIcon: '/logos/linebet-icon.svg',
   },
@@ -125,7 +125,7 @@ export const FAQ_ITEMS = [
 ]
 
 export const TESTIMONIALS = [
-  { name: 'Mamadou D.', city: 'Dakar', text: "Depuis que j'utilise BttsBet, j'ai multiplié mes gains par 3. Le code VISION221 m'a donné 150$ de bonus sur Linebet!", rating: 5 },
+  { name: 'Mamadou D.', city: 'Dakar', text: "Depuis que j'utilise BttsBet, j'ai multiplié mes gains par 3. Le code VISION221 m'a donné 90 000 XOF de bonus sur Linebet!", rating: 5 },
   { name: 'Kouassi A.', city: 'Abidjan', text: "Les pronostics BTTS sont incroyables. 9 fois sur 10 c'est bon! Et le bonus 888starz avec VISION221, c'est du feu.", rating: 5 },
   { name: 'Ibrahim S.', city: 'Bamako', text: "Les value bets FIFA sont une mine d'or. Cote à 10+ quasi tous les jours. Merci BttsBet!", rating: 5 },
   { name: 'Patrick N.', city: 'Douala', text: "J'étais sceptique au début, mais après 2 semaines de pronostics gratuits, j'ai pris le VIP. Meilleure décision.", rating: 5 },
@@ -137,14 +137,18 @@ export const SOCIAL_PROOF = {
   members: 2437,
   winsToday: 12,
   currentStreak: 7,
-  vipSpotsLeft: 37,
-  totalVipSpots: 50,
 }
+
+export const VIP_DESCRIPTION = 'VIP: Historique complet + 10 matchs/jour — Débloque avec inscription via VISION221'
+
+export const PAYMENT_METHODS = ['Wave', 'Orange Money', 'Free Money']
+
+export const LONASE = { name: 'LONASE', description: 'Loterie Nationale du Sénégal' }
 
 export const URGENCY_MESSAGES = [
   "✅ {n} pronostics gagnants ce matin",
   "⚡ Série en cours : {n} victoires consécutives",
-  "🎯 Code VISION221 = Bonus 150$ sur Linebet",
+  "🎯 Code VISION221 = Bonus 90 000 XOF (150$) sur Linebet",
 ]
 
 export const LEGAL = {

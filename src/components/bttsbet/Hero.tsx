@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE, SOCIAL_PROOF, TESTIMONIALS, URGENCY_MESSAGES } from '@/lib/constants'
 import { useCountUp, useScrollAnimation } from '@/hooks/useAnimations'
 import { Football3D, FloatingParticles } from './AnimatedIcons'
@@ -67,7 +67,6 @@ export default function Hero() {
   const currentUrgency = URGENCY_MESSAGES[urgencyIndex]
     .replace('{n}', String(SOCIAL_PROOF.winsToday))
     .replace('{n}', String(SOCIAL_PROOF.currentStreak))
-    .replace('{n}', String(SOCIAL_PROOF.vipSpotsLeft))
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden">
@@ -128,6 +127,11 @@ export default function Hero() {
           Précision IA historique ~87% • 15 000+ matchs analysés •{' '}
           <span className="text-white font-medium">{SOCIAL_PROOF.members.toLocaleString()}+ parieurs</span> qui gagnent déjà
         </motion.p>
+
+        {/* Senegal-focused subtitle */}
+        <p className="text-center text-gold text-xs sm:text-sm font-bold mt-1 max-w-md mx-auto">
+          Bonus 90 000 XOF (150$) avec <span className="text-linebet font-bold">VISION221</span> — Dépôt Wave / Orange Money / Free Money
+        </p>
 
         {/* 18+ Badge — Legal requirement */}
         <motion.div
@@ -208,24 +212,11 @@ export default function Hero() {
             href={AFFILIATE.linebet}
             rel={AFFILIATE.rel}
             target="_blank"
-            className="flex items-center justify-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 btn-linebet cta-glow text-[#04150C] text-[11px] sm:text-sm font-bold"
+            className="flex items-center justify-center gap-1.5 px-5 py-2.5 sm:px-6 sm:py-3 btn-linebet cta-glow text-[#04150C] text-xs sm:text-sm font-bold"
           >
-            <img src="/logos/linebet.svg" alt="Linebet" className="h-3.5 sm:h-4 w-auto object-contain flex-shrink-0" loading="lazy" />
-            <span className="sm:hidden">Bonus 150$</span>
-            <span className="hidden sm:inline">S&apos;inscrire → Bonus 150$</span>
-          </motion.a>
-          <motion.a
-            variants={buttonHover}
-            whileHover="hover"
-            whileTap="tap"
-            href={AFFILIATE.star888}
-            rel={AFFILIATE.rel}
-            target="_blank"
-            className="flex items-center justify-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 btn-star888 cta-glow text-white text-[11px] sm:text-sm font-bold"
-          >
-            <img src="/logos/888starz.svg" alt="888starz" className="h-3.5 sm:h-4 w-auto object-contain flex-shrink-0" loading="lazy" />
-            <span className="sm:hidden">Bonus 100%</span>
-            <span className="hidden sm:inline">S&apos;inscrire → Bonus 100%</span>
+            <img src="/logos/linebet.svg" alt="Linebet" className="h-4 sm:h-4.5 w-auto object-contain flex-shrink-0" loading="lazy" />
+            <span className="sm:hidden">Bonus 90 000 XOF</span>
+            <span className="hidden sm:inline">S&apos;inscrire → Bonus 90 000 XOF (150$)</span>
           </motion.a>
         </motion.div>
 
@@ -277,16 +268,31 @@ export default function Hero() {
           <motion.div
             variants={badgePulse}
             animate="animate"
-            className="urgent-badge squircle px-4 py-2.5 text-center flex-shrink-0"
+            className="squircle px-4 py-2.5 text-center flex-shrink-0 bg-gold/[0.06] border border-gold/20"
           >
-            <div className="text-[9px] text-red-400 uppercase tracking-wider font-bold mb-0.5">Bonus exclusif</div>
-            <div className="text-lg font-black text-white">
-              150$
+            <div className="text-[9px] text-gold uppercase tracking-wider font-bold mb-0.5">VIP</div>
+            <div className="text-sm sm:text-base font-black text-white">
+              Historique complet + 10 matchs/jour
             </div>
-            <div className="text-[9px] text-gray-500">Code VISION221</div>
+            <div className="text-[9px] text-gray-500">Débloque avec VISION221</div>
           </motion.div>
         </motion.div>
       </motion.div>
+
+      {/* Copy Toast — Floating notification */}
+      <AnimatePresence>
+        {copied && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.3 }}
+            className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 bg-success/90 text-midnight px-4 py-2 rounded-full text-sm font-bold shadow-lg"
+          >
+            ✓ Code VISION221 copié !
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }

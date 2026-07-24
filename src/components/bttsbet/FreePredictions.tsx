@@ -406,20 +406,35 @@ export default function FreePredictions() {
   const [ref, isVisible] = useScrollAnimation()
 
   useEffect(() => {
-    fetch('/predictions.json')
-      .then((r) => {
+    async function loadPredictions() {
+      try {
+        const r = await fetch('/predictions.json')
         if (!r.ok) throw new Error(`HTTP ${r.status}`)
-        return r.json()
-      })
-      .then((data) => {
-        setPredictions(data.predictions || [])
+        const data = await r.json()
+        if (data?.predictions && data.predictions.length > 0) {
+          setPredictions(data.predictions)
+        } else {
+          setError('Aucun pronostic disponible pour le moment.')
+        }
         setLoading(false)
-      })
-      .catch(() => {
-        setPredictions([])
-        setError('Impossible de charger les pronostics. Réessayez plus tard.')
-        setLoading(false)
-      })
+      } catch (err) {
+        console.error('[FreePredictions] Fetch failed, trying fallback:', err)
+        // Fallback: try without cache (sometimes CDN issues)
+        try {
+          const r2 = await fetch('/predictions.json', { cache: 'no-store' })
+          if (!r2.ok) throw new Error(`HTTP ${r2.status}`)
+          const data2 = await r2.json()
+          setPredictions(data2?.predictions || [])
+          setLoading(false)
+        } catch (fallbackErr) {
+          console.error('[FreePredictions] Fallback also failed:', fallbackErr)
+          setPredictions([])
+          setError('Impossible de charger les pronostics. Réessayez plus tard.')
+          setLoading(false)
+        }
+      }
+    }
+    loadPredictions()
   }, [])
 
   const groupedPredictions = useMemo(() => {

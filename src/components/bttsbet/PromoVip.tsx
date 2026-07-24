@@ -137,7 +137,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                                   <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-5 h-5 rounded object-contain flex-shrink-0" loading="lazy"/>
                                   Linebet
                                 </span>
-                                <span className="text-[9px] font-normal opacity-70">Bonus 150$</span>
+                                <span className="text-[9px] font-normal opacity-70">Bonus 90 000 XOF</span>
                               </button>
                               <button
                                 type="button"
@@ -369,9 +369,11 @@ export default function PromoVip() {
   }, [])
 
   useEffect(() => {
-    fetch('/predictions.json')
-      .then(r => r.json())
-      .then(data => {
+    async function loadPredictions() {
+      try {
+        const r = await fetch('/predictions.json')
+        if (!r.ok) throw new Error(`HTTP ${r.status}`)
+        const data = await r.json()
         if (!data?.predictions) return
         const matchMap = new Map()
         for (const p of data.predictions) {
@@ -403,8 +405,50 @@ export default function PromoVip() {
         const todayMatches = allMatches.filter((m: Record<string, string>) => m.date === today)
         if (todayMatches.length > 0) setCouponDate("Aujourd'hui")
         else if (allMatches.length > 0) setCouponDate(allMatches[0].date)
-      })
-      .catch(() => {})
+      } catch (err) {
+        console.error('[PromoVip] Fetch failed, trying fallback:', err)
+        try {
+          const r2 = await fetch('/predictions.json', { cache: 'no-store' })
+          if (!r2.ok) throw new Error(`HTTP ${r2.status}`)
+          const data2 = await r2.json()
+          if (!data2?.predictions) return
+          const matchMap2 = new Map()
+          for (const p of data2.predictions) {
+            const key = p.matchSemantic || p.match
+            if (!matchMap2.has(key)) {
+              const [home, away] = p.match.split(' vs ')
+              matchMap2.set(key, {
+                match: p.match, homeTeam: home?.trim() || '', awayTeam: away?.trim() || '',
+                league: p.league, date: p.date, time: p.time,
+                homeLogo: p.homeLogo || '', awayLogo: p.awayLogo || '', predictions: [p],
+              })
+            } else {
+              matchMap2.get(key).predictions.push(p)
+            }
+          }
+          const today2 = new Date().toISOString().slice(0, 10)
+          const allMatches2 = [...matchMap2.values()]
+            .sort((a: Record<string, string>, b: Record<string, string>) => {
+              const aToday = a.date === today2 ? 0 : 1; const bToday = b.date === today2 ? 0 : 1
+              if (aToday !== bToday) return aToday - bToday
+              if (a.date !== b.date) return a.date.localeCompare(b.date)
+              return (a.time || '').localeCompare(b.time || '')
+            })
+            .slice(0, 10)
+          const matchCount2 = allMatches2.length || 1
+          const cotePerMatch2 = Math.pow(dailyCote, 1 / matchCount2)
+          const vipData2 = allMatches2.map((m: Record<string, unknown>, i: number) => ({ ...m, cote: cotePerMatch2, confidence: 92 + (i % 6), index: i }))
+          setVipMatches(vipData2)
+          const todayMatches2 = allMatches2.filter((m: Record<string, string>) => m.date === today2)
+          if (todayMatches2.length > 0) setCouponDate("Aujourd'hui")
+          else if (allMatches2.length > 0) setCouponDate(allMatches2[0].date)
+        } catch (fallbackErr) {
+          console.error('[PromoVip] Fallback also failed:', fallbackErr)
+          // No VIP matches available — section will show gracefully
+        }
+      }
+    }
+    loadPredictions()
   }, [])
 
   return (
@@ -525,7 +569,7 @@ export default function PromoVip() {
 
                 <div className="flex items-center justify-center gap-2 mt-3">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/40"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                  <p className="v31-blink text-[10px] sm:text-[11px] text-gold/40 font-medium">Accès limité — <span className="text-gold/60">places restantes aujourd&apos;hui</span></p>
+                  <p className="text-[10px] sm:text-[11px] text-gold/40 font-medium">VIP: Historique complet + 10 matchs/jour — <span className="text-gold/60">Débloque avec inscription via VISION221</span></p>
                 </div>
               </div>
             </motion.div>
@@ -555,7 +599,7 @@ export default function PromoVip() {
                 </div>
 
                 <p className="text-gray-400 text-sm mb-5 leading-relaxed">
-                  Inscrivez-vous avec le code promo et recevez jusqu&apos;à 150$ sur votre premier dépôt.
+                  Inscrivez-vous avec le code promo et recevez jusqu&apos;à 90 000 XOF (150$) sur votre premier dépôt.
                 </p>
 
                 {/* Bonus amount — large display */}
@@ -567,7 +611,7 @@ export default function PromoVip() {
 
                 <div className={`grid grid-cols-2 gap-2.5 mb-6 stagger-reveal ${isVisible ? 'is-visible' : ''}`}>
                   {[
-                    { icon: 'bonus', label: 'Bonus 150$' },
+                    { icon: 'bonus', label: 'Bonus 90 000 XOF' },
                     { icon: 'instant', label: 'Dépôt instantané' },
                     { icon: 'mobile', label: 'App mobile' },
                     { icon: 'secure', label: 'Paiement sécurisé' },

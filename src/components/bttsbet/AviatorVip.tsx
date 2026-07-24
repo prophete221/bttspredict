@@ -140,7 +140,7 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
               <div className="p-4 sm:p-5 md:p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-base font-extrabold text-white flex items-center gap-2">
-                    <img src="/logos/sport-aviator.svg" alt="" className="w-6 h-6 object-contain" />
+                    <img src="/logos/sport-aviator.svg" alt="" className="w-6 h-6 object-contain" loading="lazy" />
                     ACCÈS VIP AVIATOR
                   </h3>
                   <button onClick={onClose} className="text-gray-500 hover:text-white transition-colors p-1" aria-label="Fermer">
@@ -158,12 +158,12 @@ function VipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void })
                       <div className="grid grid-cols-2 gap-2 mb-4">
                         <button onClick={() => setSelectedBookmaker('linebet')}
                           className={`flex items-center justify-center gap-2 px-3 py-2 rounded-full border text-xs font-bold transition-all ${selectedBookmaker === 'linebet' ? 'border-linebet/50 bg-linebet/10 text-linebet' : 'border-edge text-gray-500 hover:border-linebet/30'}`}>
-                          <img src="/logos/linebet-icon.svg" alt="" className="w-4 h-4 object-contain"/>
+                          <img src="/logos/linebet-icon.svg" alt="" className="w-4 h-4 object-contain" loading="lazy"/>
                           Linebet
                         </button>
                         <button onClick={() => setSelectedBookmaker('888starz')}
                           className={`flex items-center justify-center gap-2 px-3 py-2 rounded-full border text-xs font-bold transition-all ${selectedBookmaker === '888starz' ? 'border-star888/50 bg-star888/10 text-star888' : 'border-edge text-gray-500 hover:border-star888/30'}`}>
-                          <img src="/logos/888starz-icon.svg" alt="" className="w-4 h-4 object-contain"/>
+                          <img src="/logos/888starz-icon.svg" alt="" className="w-4 h-4 object-contain" loading="lazy"/>
                           888starz
                         </button>
                       </div>
@@ -600,7 +600,7 @@ export default function AviatorVip() {
               <div className="flex items-center justify-center gap-2 mt-2">
                 <span className="trust-badge">Provably Fair</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/40"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <p className="text-[10px] sm:text-[11px] text-gold/40 font-medium">Accès limité — <span className="text-gold/60">statistiques en temps réel</span></p>
+                <p className="text-[10px] sm:text-[11px] text-gold/40 font-medium">VIP: Statistiques Aviator en temps réel — <span className="text-gold/60">Débloque avec inscription via VISION221</span></p>
               </div>
             </div>
           </motion.div>

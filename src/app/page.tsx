@@ -14,6 +14,7 @@ import {
   AgeVerification,
   ScrollProgressBar,
   SiteLoader,
+  ErrorBoundary,
 } from '@/components/bttsbet'
 
 // JSON-LD WebSite — SearchAction for Google SERP
@@ -152,17 +153,19 @@ export default function Home() {
       <SiteLoader />
 
       {/* Main Content */}
-      <main id="main-content" className="relative z-10">
-        <Navbar />
-        <Hero />
-        <FreePredictions />
-        <PromoVip />
-        <VipSports />
-        <AviatorVip />
-        <WinHistory />
-        <FifaLinebet />
-        <Footer />
-      </main>
+      <ErrorBoundary>
+        <main id="main-content" className="relative z-10">
+          <Navbar />
+          <Hero />
+          <FreePredictions />
+          <PromoVip />
+          <VipSports />
+          <AviatorVip />
+          <WinHistory />
+          <FifaLinebet />
+          <Footer />
+        </main>
+      </ErrorBoundary>
 
       {/* Age Verification Modal (18+) */}
       <AgeVerification />
