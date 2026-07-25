@@ -1,25 +1,47 @@
 {
   "stats": {
-    "total": 294,
-    "won": 203,
-    "rate": "69.0%",
-    "last30Rate": "69%"
+    "total": 399,
+    "won": 260,
+    "rate": "65.2%",
+    "last30Rate": "65%"
   },
   "history": [
     {
       "id": 1,
       "date": "2026-07-24",
-      "match": "Racing Club vs Gimnasia La Plata",
-      "league": "Primera Division (ARG)",
+      "match": "Kristiansund BK vs IK Start",
+      "league": "Eliteserien",
       "type": "BTTS",
       "prediction": "Oui",
       "result": "Gagné",
-      "score": "2-1",
+      "score": "1-2",
       "confidence": 51
     },
     {
       "id": 2,
       "date": "2026-07-24",
+      "match": "Kristiansund BK vs IK Start",
+      "league": "Eliteserien",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 51
+    },
+    {
+      "id": 3,
+      "date": "2026-07-24",
+      "match": "Racing Club vs Gimnasia La Plata",
+      "league": "Primera Division (ARG)",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-1",
+      "confidence": 51
+    },
+    {
+      "id": 4,
+      "date": "2026-07-24",
       "match": "Racing Club vs Gimnasia La Plata",
       "league": "Primera Division (ARG)",
       "type": "Over 2.5",
@@ -29,41 +51,41 @@
       "confidence": 51
     },
     {
-      "id": 3,
-      "date": "2026-07-24",
-      "match": "Platense vs Unión (Santa Fe)",
-      "league": "Primera Division (ARG)",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "2-2",
-      "confidence": 51
-    },
-    {
-      "id": 4,
-      "date": "2026-07-24",
-      "match": "Platense vs Unión (Santa Fe)",
-      "league": "Primera Division (ARG)",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "2-2",
-      "confidence": 51
-    },
-    {
       "id": 5,
       "date": "2026-07-24",
-      "match": "Universitario vs United States",
-      "league": "Liga 1 (PER)",
+      "match": "Platense vs Unión (Santa Fe)",
+      "league": "Primera Division (ARG)",
       "type": "BTTS",
       "prediction": "Oui",
       "result": "Gagné",
-      "score": "2-1",
-      "confidence": 50
+      "score": "2-2",
+      "confidence": 51
     },
     {
       "id": 6,
       "date": "2026-07-24",
+      "match": "Platense vs Unión (Santa Fe)",
+      "league": "Primera Division (ARG)",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-2",
+      "confidence": 51
+    },
+    {
+      "id": 7,
+      "date": "2026-07-24",
+      "match": "Universitario vs United States",
+      "league": "Liga 1 (PER)",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-1",
+      "confidence": 50
+    },
+    {
+      "id": 8,
+      "date": "2026-07-24",
       "match": "Universitario vs United States",
       "league": "Liga 1 (PER)",
       "type": "Over 2.5",
@@ -73,7 +95,18 @@
       "confidence": 50
     },
     {
-      "id": 7,
+      "id": 9,
+      "date": "2026-07-24",
+      "match": "AGF vs Brøndby IF",
+      "league": "Superliga",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-1",
+      "confidence": 49
+    },
+    {
+      "id": 10,
       "date": "2026-07-24",
       "match": "Atlante vs United States",
       "league": "Liga MX",
@@ -84,7 +117,95 @@
       "confidence": 49
     },
     {
-      "id": 8,
+      "id": 11,
+      "date": "2026-07-24",
+      "match": "Degerfors IF vs Djurgården",
+      "league": "Allsvenskan",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-1",
+      "confidence": 48
+    },
+    {
+      "id": 12,
+      "date": "2026-07-24",
+      "match": "Degerfors IF vs Djurgården",
+      "league": "Allsvenskan",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-1",
+      "confidence": 48
+    },
+    {
+      "id": 13,
+      "date": "2026-07-24",
+      "match": "Dinamo Moscow vs Krylia Sovetov",
+      "league": "Premier League (RUS)",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-0",
+      "confidence": 47
+    },
+    {
+      "id": 14,
+      "date": "2026-07-24",
+      "match": "Dinamo Moscow vs Krylia Sovetov",
+      "league": "Premier League (RUS)",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-0",
+      "confidence": 47
+    },
+    {
+      "id": 15,
+      "date": "2026-07-24",
+      "match": "Spartak Moscow vs Rodina Moscow",
+      "league": "Premier League (RUS)",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "3-0",
+      "confidence": 47
+    },
+    {
+      "id": 16,
+      "date": "2026-07-24",
+      "match": "Central Español Fútbol Club vs Cerro Largo",
+      "league": "Primera Division (URU)",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-1",
+      "confidence": 47
+    },
+    {
+      "id": 17,
+      "date": "2026-07-24",
+      "match": "Central Español Fútbol Club vs Cerro Largo",
+      "league": "Primera Division (URU)",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-1",
+      "confidence": 47
+    },
+    {
+      "id": 18,
+      "date": "2026-07-24",
+      "match": "Deportivo Recoleta vs Sportivo San Lorenzo",
+      "league": "Primera Division (PAR)",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-1",
+      "confidence": 47
+    },
+    {
+      "id": 19,
       "date": "2026-07-23",
       "match": "Leones vs Guayaquil City FC",
       "league": "Serie A (ECU)",
@@ -95,7 +216,7 @@
       "confidence": 52
     },
     {
-      "id": 9,
+      "id": 20,
       "date": "2026-07-23",
       "match": "Emelec vs United States",
       "league": "Serie A (ECU)",
@@ -104,127 +225,6 @@
       "result": "Gagné",
       "score": "1-1",
       "confidence": 51
-    },
-    {
-      "id": 10,
-      "date": "2026-07-23",
-      "match": "Corinthians vs Remo",
-      "league": "Serie A (BRA)",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "3-0",
-      "confidence": 51
-    },
-    {
-      "id": 11,
-      "date": "2026-07-23",
-      "match": "Västerås SK vs Örgryte IS",
-      "league": "Allsvenskan",
-      "type": "BTTS",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "2-0",
-      "confidence": 48
-    },
-    {
-      "id": 12,
-      "date": "2026-07-23",
-      "match": "Sarmiento (Junín) vs Argentinos Juniors",
-      "league": "Primera Division (ARG)",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "2-3",
-      "confidence": 47
-    },
-    {
-      "id": 13,
-      "date": "2026-07-23",
-      "match": "Sarmiento (Junín) vs Argentinos Juniors",
-      "league": "Primera Division (ARG)",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "2-3",
-      "confidence": 47
-    },
-    {
-      "id": 14,
-      "date": "2026-07-23",
-      "match": "2 de Mayo vs Rubio Ñú",
-      "league": "Primera Division (PAR)",
-      "type": "BTTS",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "1-0",
-      "confidence": 46
-    },
-    {
-      "id": 15,
-      "date": "2026-07-23",
-      "match": "2 de Mayo vs Rubio Ñú",
-      "league": "Primera Division (PAR)",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "1-0",
-      "confidence": 46
-    },
-    {
-      "id": 16,
-      "date": "2026-07-23",
-      "match": "Athletico-PR vs Internacional",
-      "league": "Serie A (BRA)",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-2",
-      "confidence": 52
-    },
-    {
-      "id": 17,
-      "date": "2026-07-23",
-      "match": "Athletico-PR vs Internacional",
-      "league": "Serie A (BRA)",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-2",
-      "confidence": 52
-    },
-    {
-      "id": 18,
-      "date": "2026-07-23",
-      "match": "Universitario vs United States",
-      "league": "Liga 1 (PER)",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "3-0",
-      "confidence": 50
-    },
-    {
-      "id": 19,
-      "date": "2026-07-23",
-      "match": "Santos vs Chapecoense",
-      "league": "Serie A (BRA)",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "0-4",
-      "confidence": 49
-    },
-    {
-      "id": 20,
-      "date": "2026-07-22",
-      "match": "GAIS vs Nordsjaelland",
-      "league": "International Friendly",
-      "type": "BTTS",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "1-0",
-      "confidence": 50
     }
   ],
   "date": "2026-07-25"
