@@ -62,7 +62,13 @@ function HistoryRow({ item, index }: { item: HistoryItem; index: number }) {
         </span>
       </div>
       <div className="text-xs text-white font-semibold">{item.prediction}</div>
-      <div className="text-xs text-gray-300 font-mono tabular-nums">{item.score}</div>
+      <div className="flex items-center gap-1.5">
+        <span className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-success/10 border border-success/25 rounded text-success text-[10px] font-bold">
+          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
+          Gagné
+        </span>
+        <span className="text-xs text-gray-300 font-mono tabular-nums">{item.score}</span>
+      </div>
     </motion.div>
   )
 }
@@ -150,8 +156,9 @@ export default function WinHistory() {
     )
   }
   const { history } = winData
-  // Afficher TOUS les pronostics (gagnés ET perdus) — transparence totale
-  const displayedHistory = showAll ? history : history.slice(0, 5)
+  // Afficher SEULEMENT les pronostics gagnés
+  const wonOnly = history.filter((item) => item.result === 'Gagné')
+  const displayedHistory = showAll ? wonOnly : wonOnly.slice(0, 5)
 
   return (
     <section ref={ref} id="win-history" className="section-entrance py-6 sm:py-8 px-4">
@@ -170,7 +177,7 @@ export default function WinHistory() {
           <h2 className="section-title text-white mt-2 tracking-tight">
             Historique des <span className="text-gold">Pronostics</span>
           </h2>
-          <p className="text-gray-500 text-sm mt-1">Tous les pronostics — gagnés et perdus — sans filtrage</p>
+          <p className="text-gray-500 text-sm mt-1">Pronostics gagnés vérifiés — résultats réels</p>
         </motion.div>
 
         <motion.div
@@ -202,7 +209,7 @@ export default function WinHistory() {
           className="bg-panel border border-edge/40 squircle-lg overflow-hidden"
         >
           <div className="hidden sm:grid grid-cols-5 gap-3 px-4 py-2.5 text-gray-500 text-[10px] font-semibold uppercase tracking-wider border-b border-edge/40">
-            <span>Date</span><span>Match</span><span>Type</span><span>Pronostic</span><span>Score</span>
+            <span>Date</span><span>Match</span><span>Type</span><span>Pronostic</span><span>Résultat</span>
           </div>
 
           <div ref={staggerRef} className="stagger-reveal">
@@ -212,10 +219,10 @@ export default function WinHistory() {
           </div>
         </motion.div>
 
-        {history.length > 5 && (
+        {wonOnly.length > 5 && (
           <div className="text-center mt-4">
             <motion.button onClick={() => setShowAll(!showAll)} variants={subtleHover} initial="rest" whileHover="hover" whileTap="tap" style={{ willChange: 'transform, opacity' }} className="px-4 py-1.5 bg-panel border border-edge/40 text-gold text-xs font-semibold rounded-full hover:border-gold/30 transition-colors">
-              {showAll ? 'Voir moins ↑' : 'Voir plus ↓'}
+              {showAll ? 'Voir moins ↑' : `Voir plus (${wonOnly.length} gagnés) ↓`}
             </motion.button>
           </div>
         )}
@@ -227,7 +234,7 @@ export default function WinHistory() {
               <span className="absolute inset-0 bg-success rounded-full animate-ping opacity-50" />
               <span className="relative w-1.5 h-1.5 bg-success rounded-full" />
             </span>
-            <span className="text-[10px] text-gray-500">Résultats complets (gagnés et perdus) — transparence totale</span>
+            <span className="text-[10px] text-gray-500">Seuls les pronostics gagnés sont affichés</span>
           </div>
         </motion.div>
       </div>
