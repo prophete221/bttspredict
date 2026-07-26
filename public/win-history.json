@@ -1,9 +1,9 @@
 {
   "stats": {
-    "total": 196,
-    "won": 149,
-    "rate": "76.0%",
-    "last30Rate": "76%"
+    "total": 259,
+    "won": 183,
+    "rate": "70.7%",
+    "last30Rate": "71%"
   },
   "history": [
     {
@@ -31,6 +31,39 @@
     {
       "id": 3,
       "date": "2026-07-25",
+      "match": "Santos vs Chapecoense",
+      "league": "Serie A (BRA)",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-2",
+      "confidence": 48
+    },
+    {
+      "id": 4,
+      "date": "2026-07-25",
+      "match": "Técnico Universitario vs Manta F.C.",
+      "league": "Serie A (ECU)",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "1-0",
+      "confidence": 52
+    },
+    {
+      "id": 5,
+      "date": "2026-07-25",
+      "match": "Técnico Universitario vs Manta F.C.",
+      "league": "Serie A (ECU)",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "1-0",
+      "confidence": 52
+    },
+    {
+      "id": 6,
+      "date": "2026-07-25",
       "match": "Cerro vs Racing (Montevideo)",
       "league": "Primera Division (URU)",
       "type": "BTTS",
@@ -40,7 +73,7 @@
       "confidence": 51
     },
     {
-      "id": 4,
+      "id": 7,
       "date": "2026-07-25",
       "match": "Cerro vs Racing (Montevideo)",
       "league": "Primera Division (URU)",
@@ -51,7 +84,18 @@
       "confidence": 51
     },
     {
-      "id": 5,
+      "id": 8,
+      "date": "2026-07-25",
+      "match": "Orense vs Independiente del Valle",
+      "league": "Serie A (ECU)",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "3-2",
+      "confidence": 50
+    },
+    {
+      "id": 9,
       "date": "2026-07-25",
       "match": "UTC vs Deportivo Moquegua",
       "league": "Liga 1 (PER)",
@@ -62,74 +106,96 @@
       "confidence": 50
     },
     {
-      "id": 6,
-      "date": "2026-07-24",
-      "match": "Kristiansund BK vs IK Start",
-      "league": "Eliteserien",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-2",
-      "confidence": 51
-    },
-    {
-      "id": 7,
-      "date": "2026-07-24",
-      "match": "Kristiansund BK vs IK Start",
-      "league": "Eliteserien",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-2",
-      "confidence": 51
-    },
-    {
-      "id": 8,
-      "date": "2026-07-24",
-      "match": "Racing Club vs Gimnasia La Plata",
-      "league": "Primera Division (ARG)",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "2-1",
-      "confidence": 51
-    },
-    {
-      "id": 9,
-      "date": "2026-07-24",
-      "match": "Racing Club vs Gimnasia La Plata",
-      "league": "Primera Division (ARG)",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "2-1",
-      "confidence": 51
-    },
-    {
       "id": 10,
-      "date": "2026-07-24",
-      "match": "Platense vs Unión (Santa Fe)",
-      "league": "Primera Division (ARG)",
+      "date": "2026-07-25",
+      "match": "England vs Atlanta United FC",
+      "league": "MLS",
       "type": "BTTS",
       "prediction": "Oui",
       "result": "Gagné",
-      "score": "2-2",
-      "confidence": 51
+      "score": "4-1",
+      "confidence": 50
     },
     {
       "id": 11,
-      "date": "2026-07-24",
-      "match": "Platense vs Unión (Santa Fe)",
-      "league": "Primera Division (ARG)",
+      "date": "2026-07-25",
+      "match": "England vs Atlanta United FC",
+      "league": "MLS",
       "type": "Over 2.5",
       "prediction": "Oui",
       "result": "Gagné",
-      "score": "2-2",
-      "confidence": 51
+      "score": "4-1",
+      "confidence": 50
     },
     {
       "id": 12,
       "date": "2026-07-24",
+      "match": "Kristiansund BK vs IK Start",
+      "league": "Eliteserien",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 51
+    },
+    {
+      "id": 13,
+      "date": "2026-07-24",
+      "match": "Kristiansund BK vs IK Start",
+      "league": "Eliteserien",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 51
+    },
+    {
+      "id": 14,
+      "date": "2026-07-24",
+      "match": "Racing Club vs Gimnasia La Plata",
+      "league": "Primera Division (ARG)",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-1",
+      "confidence": 51
+    },
+    {
+      "id": 15,
+      "date": "2026-07-24",
+      "match": "Racing Club vs Gimnasia La Plata",
+      "league": "Primera Division (ARG)",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-1",
+      "confidence": 51
+    },
+    {
+      "id": 16,
+      "date": "2026-07-24",
+      "match": "Platense vs Unión (Santa Fe)",
+      "league": "Primera Division (ARG)",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-2",
+      "confidence": 51
+    },
+    {
+      "id": 17,
+      "date": "2026-07-24",
+      "match": "Platense vs Unión (Santa Fe)",
+      "league": "Primera Division (ARG)",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-2",
+      "confidence": 51
+    },
+    {
+      "id": 18,
+      "date": "2026-07-24",
       "match": "Universitario vs United States",
       "league": "Liga 1 (PER)",
       "type": "BTTS",
@@ -139,7 +205,7 @@
       "confidence": 50
     },
     {
-      "id": 13,
+      "id": 19,
       "date": "2026-07-24",
       "match": "Universitario vs United States",
       "league": "Liga 1 (PER)",
@@ -150,7 +216,7 @@
       "confidence": 50
     },
     {
-      "id": 14,
+      "id": 20,
       "date": "2026-07-24",
       "match": "AGF vs Brøndby IF",
       "league": "Superliga",
@@ -159,72 +225,6 @@
       "result": "Gagné",
       "score": "1-1",
       "confidence": 49
-    },
-    {
-      "id": 15,
-      "date": "2026-07-24",
-      "match": "Atlante vs United States",
-      "league": "Liga MX",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "result": "Gagné",
-      "score": "1-1",
-      "confidence": 49
-    },
-    {
-      "id": 16,
-      "date": "2026-07-24",
-      "match": "Degerfors IF vs Djurgården",
-      "league": "Allsvenskan",
-      "type": "BTTS",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "0-1",
-      "confidence": 48
-    },
-    {
-      "id": 17,
-      "date": "2026-07-24",
-      "match": "Degerfors IF vs Djurgården",
-      "league": "Allsvenskan",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "0-1",
-      "confidence": 48
-    },
-    {
-      "id": 18,
-      "date": "2026-07-24",
-      "match": "Dinamo Moscow vs Krylia Sovetov",
-      "league": "Premier League (RUS)",
-      "type": "BTTS",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "0-0",
-      "confidence": 47
-    },
-    {
-      "id": 19,
-      "date": "2026-07-24",
-      "match": "Dinamo Moscow vs Krylia Sovetov",
-      "league": "Premier League (RUS)",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "0-0",
-      "confidence": 47
-    },
-    {
-      "id": 20,
-      "date": "2026-07-24",
-      "match": "Spartak Moscow vs Rodina Moscow",
-      "league": "Premier League (RUS)",
-      "type": "BTTS",
-      "prediction": "Non",
-      "result": "Gagné",
-      "score": "3-0",
-      "confidence": 47
     }
   ],
   "date": "2026-07-26"
