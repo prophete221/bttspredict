@@ -3,35 +3,9 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE, SOCIAL_PROOF, TESTIMONIALS, URGENCY_MESSAGES } from '@/lib/constants'
-import { useCountUp, useScrollAnimation } from '@/hooks/useAnimations'
+import { useScrollAnimation } from '@/hooks/useAnimations'
 import { Football3D, FloatingParticles } from './AnimatedIcons'
-import { fadeInUp, staggerContainer, staggerChildFadeUp, buttonHover, badgePulse, EASE, DUR, cardHoverLift } from '@/lib/motionPresets'
-
-/** AnimatedStat — counts up to target value when in view. */
-function AnimatedStat({
-  value,
-  decimals = 0,
-  suffix = '',
-  prefix = '',
-  duration = 1800,
-  className = '',
-}: {
-  value: number
-  decimals?: number
-  suffix?: string
-  prefix?: string
-  duration?: number
-  className?: string
-}) {
-  const [ref, display] = useCountUp(value, duration, { decimals, threshold: 0.3 })
-  return (
-    <span ref={ref} className={className}>
-      {prefix}
-      {display}
-      {suffix}
-    </span>
-  )
-}
+import { staggerContainer, staggerChildFadeUp, buttonHover, badgePulse, EASE, DUR, cardHoverLift } from '@/lib/motionPresets'
 
 export default function Hero() {
   const [sectionRef, isVisible] = useScrollAnimation(0.05)
@@ -80,7 +54,7 @@ export default function Hero() {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-14 pb-8 sm:pt-24 sm:pb-14"
+        className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-10 pb-6 sm:pt-16 sm:pb-8"
       >
         {/* 3D Football — Desktop only, top right area */}
         <div className="hidden lg:block absolute top-20 right-8 xl:right-16">
@@ -226,23 +200,17 @@ export default function Hero() {
           className="flex justify-center gap-4 sm:gap-8 md:gap-12 mb-5 flex-wrap"
         >
           <div className="text-center min-w-0">
-            <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gold tabular-nums">
-              {isVisible ? <AnimatedStat value={87} duration={1800} suffix="%" prefix="~" /> : <span>~87%</span>}
-            </div>
+            <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gold tabular-nums">~87%</div>
             <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Précision</div>
           </div>
           <div className="hidden sm:block w-px bg-edge/40 self-stretch" />
           <div className="text-center min-w-0">
-            <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tabular-nums">
-              {isVisible ? <AnimatedStat value={15} duration={1600} suffix="K+" /> : <span>15K+</span>}
-            </div>
+            <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tabular-nums">15K+</div>
             <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Analysés</div>
           </div>
           <div className="hidden sm:block w-px bg-edge/40 self-stretch" />
           <div className="text-center min-w-0">
-            <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gold tabular-nums">
-              {isVisible ? <AnimatedStat value={50} duration={1500} suffix="+" /> : <span>50+</span>}
-            </div>
+            <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gold tabular-nums">50+</div>
             <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Championnats</div>
           </div>
         </motion.div>

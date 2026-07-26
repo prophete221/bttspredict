@@ -136,24 +136,9 @@ export default function WinHistory() {
   const [rateRef, rateDisplay] = useCountUp(rateTarget, 1800, { decimals: 1, threshold: 0.3 })
   const [last30Ref, last30Display] = useCountUp(wonTarget, 1800, { threshold: 0.3 })
 
-  if (loading) {
-    return (
-      <section id="win-history" className="py-10 px-4">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-block w-8 h-8 border-2 border-gold/30 border-t-gold rounded-full animate-spin" />
-        </div>
-      </section>
-    )
-  }
-
-  if (!winData || !winData.history || winData.history.length === 0 || !displayStats) {
-    return (
-      <section id="win-history" className="py-10 px-4">
-        <div className="max-w-5xl mx-auto text-center">
-          <p className="text-gray-500 text-sm">Aucun historique disponible pour le moment.</p>
-        </div>
-      </section>
-    )
+  // Show nothing while loading or empty — avoid visual gaps
+  if (loading || !winData || !winData.history || winData.history.length === 0 || !displayStats) {
+    return null
   }
   const { history } = winData
   // Afficher SEULEMENT les pronostics gagnés
@@ -161,13 +146,13 @@ export default function WinHistory() {
   const displayedHistory = showAll ? wonOnly : wonOnly.slice(0, 5)
 
   return (
-    <section ref={ref} id="win-history" className="section-entrance py-6 sm:py-8 px-4">
+    <section ref={ref} id="win-history" className="section-entrance py-4 sm:py-5 px-4">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-4"
+          className="text-center mb-2"
         >
           <div className="flex justify-center mb-2">
             <TrophyIcon size={40} />
@@ -184,7 +169,7 @@ export default function WinHistory() {
           variants={staggerContainer}
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}
-          className="grid grid-cols-3 gap-1.5 sm:gap-3 mb-4"
+          className="grid grid-cols-3 gap-1.5 sm:gap-3 mb-2"
         >
           {[
             { refObj: totalRef, value: totalDisplay, label: 'Analysés', color: 'text-white' },
@@ -220,14 +205,14 @@ export default function WinHistory() {
         </motion.div>
 
         {wonOnly.length > 5 && (
-          <div className="text-center mt-4">
+          <div className="text-center mt-2">
             <motion.button onClick={() => setShowAll(!showAll)} variants={subtleHover} initial="rest" whileHover="hover" whileTap="tap" style={{ willChange: 'transform, opacity' }} className="px-4 py-1.5 bg-panel border border-edge/40 text-gold text-xs font-semibold rounded-full hover:border-gold/30 transition-colors">
               {showAll ? 'Voir moins ↑' : `Voir plus (${wonOnly.length} gagnés) ↓`}
             </motion.button>
           </div>
         )}
 
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3, delay: 0.6 }} className="text-center mt-4">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3, delay: 0.4 }} className="text-center mt-2">
           <div className="flex items-center gap-1.5">
             <span className="trust-badge">Résultats vérifiés</span>
             <span className="relative flex w-1.5 h-1.5">

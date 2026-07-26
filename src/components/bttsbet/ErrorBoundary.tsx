@@ -38,7 +38,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
       }
 
       return (
-        <div className="min-h-[200px] flex flex-col items-center justify-center px-6 py-10 text-center">
+        <div className="min-h-[120px] flex flex-col items-center justify-center px-6 py-4 text-center">
           <div className="bg-panel border border-edge/40 rounded-xl p-6 sm:p-8 max-w-md mx-auto">
             <svg
               className="w-12 h-12 text-gold mx-auto mb-4"

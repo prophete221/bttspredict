@@ -499,7 +499,7 @@ export default function FreePredictions() {
   const [o25Ref, o25Display] = useCountUp(o25Stats, 1400, { threshold: 0.3 })
 
   return (
-    <section ref={ref} id="free-predictions" className="section-entrance morph-glow pt-6 pb-1 sm:pt-10 sm:pb-2 px-4">
+    <section ref={ref} id="free-predictions" className="section-entrance morph-glow pt-4 pb-1 sm:pt-6 sm:pb-2 px-4">
       <div className="max-w-5xl mx-auto">
         <motion.div
           variants={staggerContainer}
@@ -559,7 +559,7 @@ export default function FreePredictions() {
         </motion.div>
 
         {loading ? (
-          <div className="space-y-3 py-8">
+          <div className="space-y-3 py-4">
             {[1, 2, 3].map((i) => (
               <div key={i} className="skeleton h-16 w-full" />
             ))}
@@ -577,8 +577,8 @@ export default function FreePredictions() {
             </div>
           </div>
         ) : filteredMatches.length === 0 ? (
-          <div className="text-center py-16">
-            <div className="glass-3d rounded-2xl p-8 max-w-sm mx-auto">
+          <div className="text-center py-6">
+            <div className="glass-3d rounded-2xl p-6 max-w-sm mx-auto">
               <div className="w-14 h-14 bg-white/[0.04] rounded-2xl flex items-center justify-center mx-auto mb-4 border border-white/[0.06]">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>

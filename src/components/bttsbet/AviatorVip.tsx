@@ -238,7 +238,7 @@ export default function AviatorVip() {
 
   return (
     <>
-      <section ref={ref} id="vip-aviator" className="section-entrance morph-glow py-6 sm:py-8 px-4 relative overflow-hidden">
+      <section ref={ref} id="vip-aviator" className="section-entrance morph-glow py-4 sm:py-5 px-4 relative overflow-hidden">
         {/* Background effects */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 right-1/4 w-[min(500px,80vw)] h-[400px] bg-red-500/3 rounded-full blur-[140px] opacity-50" />
