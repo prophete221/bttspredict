@@ -86,90 +86,6 @@
       }
     },
     {
-      "match": "LAFC vs Sporting Kansas City",
-      "league": "MLS",
-      "date": "2026-07-26",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "confidence": 52,
-      "time": "04:30",
-      "matchSemantic": "lafc-spor-mls-btts",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18966.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/186.png",
-      "analysis": {
-        "bttsProb": 0.64,
-        "over25Prob": 0.81,
-        "homeLambda": 3.81,
-        "awayLambda": 0.9,
-        "dataQuality": 4,
-        "hasRealData": true
-      }
-    },
-    {
-      "match": "LAFC vs Sporting Kansas City",
-      "league": "MLS",
-      "date": "2026-07-26",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "confidence": 52,
-      "time": "04:30",
-      "matchSemantic": "lafc-spor-mls-o25",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18966.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/186.png",
-      "analysis": {
-        "bttsProb": 0.64,
-        "over25Prob": 0.81,
-        "homeLambda": 3.81,
-        "awayLambda": 0.9,
-        "dataQuality": 4,
-        "hasRealData": true
-      }
-    },
-    {
-      "match": "Portland Timbers vs Real Salt Lake",
-      "league": "MLS",
-      "date": "2026-07-26",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "confidence": 52,
-      "time": "04:30",
-      "matchSemantic": "port-real-mls-btts",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9723.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4771.png",
-      "analysis": {
-        "bttsProb": 0.74,
-        "over25Prob": 0.78,
-        "homeLambda": 3.54,
-        "awayLambda": 1.37,
-        "dataQuality": 2,
-        "hasRealData": true
-      }
-    },
-    {
-      "match": "Portland Timbers vs Real Salt Lake",
-      "league": "MLS",
-      "date": "2026-07-26",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "confidence": 52,
-      "time": "04:30",
-      "matchSemantic": "port-real-mls-o25",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9723.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4771.png",
-      "analysis": {
-        "bttsProb": 0.74,
-        "over25Prob": 0.78,
-        "homeLambda": 3.54,
-        "awayLambda": 1.37,
-        "dataQuality": 2,
-        "hasRealData": true
-      }
-    },
-    {
       "match": "KFUM Oslo vs Molde",
       "league": "Eliteserien",
       "date": "2026-07-26",
@@ -434,10 +350,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11.png",
       "analysis": {
-        "bttsProb": 0.29,
-        "over25Prob": 0.23,
-        "homeLambda": 1.28,
-        "awayLambda": 0.71,
+        "bttsProb": 0.24,
+        "over25Prob": 0.19,
+        "homeLambda": 1.26,
+        "awayLambda": 0.63,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -455,10 +371,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11.png",
       "analysis": {
-        "bttsProb": 0.29,
-        "over25Prob": 0.23,
-        "homeLambda": 1.28,
-        "awayLambda": 0.71,
+        "bttsProb": 0.24,
+        "over25Prob": 0.19,
+        "homeLambda": 1.26,
+        "awayLambda": 0.63,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -590,48 +506,6 @@
       }
     },
     {
-      "match": "Internacional de Bogotá vs América de Cali",
-      "league": "Primera A (COL)",
-      "date": "2026-07-26",
-      "type": "BTTS",
-      "prediction": "Non",
-      "confidence": 50,
-      "time": "21:00",
-      "matchSemantic": "inte-amri-pri-btts",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7445.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8109.png",
-      "analysis": {
-        "bttsProb": 0.29,
-        "over25Prob": 0.3,
-        "homeLambda": 1.68,
-        "awayLambda": 1,
-        "dataQuality": 0,
-        "hasRealData": false
-      }
-    },
-    {
-      "match": "Internacional de Bogotá vs América de Cali",
-      "league": "Primera A (COL)",
-      "date": "2026-07-26",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "confidence": 50,
-      "time": "21:00",
-      "matchSemantic": "inte-amri-pri-o25",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7445.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8109.png",
-      "analysis": {
-        "bttsProb": 0.29,
-        "over25Prob": 0.3,
-        "homeLambda": 1.68,
-        "awayLambda": 1,
-        "dataQuality": 0,
-        "hasRealData": false
-      }
-    },
-    {
       "match": "Delfín vs Leones",
       "league": "Serie A (ECU)",
       "date": "2026-07-26",
@@ -728,10 +602,10 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9785.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9744.png",
       "analysis": {
-        "bttsProb": 0.34,
-        "over25Prob": 0.27,
-        "homeLambda": 1.28,
-        "awayLambda": 0.71,
+        "bttsProb": 0.29,
+        "over25Prob": 0.23,
+        "homeLambda": 1.26,
+        "awayLambda": 0.63,
         "dataQuality": 0,
         "hasRealData": false
       }
@@ -749,54 +623,12 @@
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9785.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9744.png",
       "analysis": {
-        "bttsProb": 0.34,
-        "over25Prob": 0.27,
-        "homeLambda": 1.28,
-        "awayLambda": 0.71,
+        "bttsProb": 0.29,
+        "over25Prob": 0.23,
+        "homeLambda": 1.26,
+        "awayLambda": 0.63,
         "dataQuality": 0,
         "hasRealData": false
-      }
-    },
-    {
-      "match": "San Jose Earthquakes vs LA Galaxy",
-      "league": "MLS",
-      "date": "2026-07-26",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "confidence": 50,
-      "time": "04:30",
-      "matchSemantic": "sanj-laga-mls-btts",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/191.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/187.png",
-      "analysis": {
-        "bttsProb": 0.56,
-        "over25Prob": 0.75,
-        "homeLambda": 3.11,
-        "awayLambda": 0.73,
-        "dataQuality": 2,
-        "hasRealData": true
-      }
-    },
-    {
-      "match": "San Jose Earthquakes vs LA Galaxy",
-      "league": "MLS",
-      "date": "2026-07-26",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "confidence": 50,
-      "time": "04:30",
-      "matchSemantic": "sanj-laga-mls-o25",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/191.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/187.png",
-      "analysis": {
-        "bttsProb": 0.56,
-        "over25Prob": 0.75,
-        "homeLambda": 3.11,
-        "awayLambda": 0.73,
-        "dataQuality": 2,
-        "hasRealData": true
       }
     },
     {
@@ -1047,6 +879,174 @@
         "over25Prob": 0.45,
         "homeLambda": 1.46,
         "awayLambda": 0.92,
+        "dataQuality": 0,
+        "hasRealData": false
+      }
+    },
+    {
+      "match": "Malmö FF vs IF Elfsborg",
+      "league": "Allsvenskan",
+      "date": "2026-07-26",
+      "type": "BTTS",
+      "prediction": "Non",
+      "confidence": 48,
+      "time": "16:30",
+      "matchSemantic": "malm-ifel-all-btts",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2720.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/529.png",
+      "analysis": {
+        "bttsProb": 0.32,
+        "over25Prob": 0.41,
+        "homeLambda": 1.46,
+        "awayLambda": 0.92,
+        "dataQuality": 0,
+        "hasRealData": false
+      }
+    },
+    {
+      "match": "Malmö FF vs IF Elfsborg",
+      "league": "Allsvenskan",
+      "date": "2026-07-26",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "confidence": 48,
+      "time": "16:30",
+      "matchSemantic": "malm-ifel-all-o25",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2720.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/529.png",
+      "analysis": {
+        "bttsProb": 0.32,
+        "over25Prob": 0.41,
+        "homeLambda": 1.46,
+        "awayLambda": 0.92,
+        "dataQuality": 0,
+        "hasRealData": false
+      }
+    },
+    {
+      "match": "Cerro vs Racing (Montevideo)",
+      "league": "Primera Division (URU)",
+      "date": "2026-07-26",
+      "type": "BTTS",
+      "prediction": "Non",
+      "confidence": 48,
+      "time": "20:00",
+      "matchSemantic": "cerr-raci-pri-btts",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5490.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9903.png",
+      "analysis": {
+        "bttsProb": 0.3,
+        "over25Prob": 0.42,
+        "homeLambda": 1,
+        "awayLambda": 1,
+        "dataQuality": 0,
+        "hasRealData": false
+      }
+    },
+    {
+      "match": "Cerro vs Racing (Montevideo)",
+      "league": "Primera Division (URU)",
+      "date": "2026-07-26",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "confidence": 48,
+      "time": "20:00",
+      "matchSemantic": "cerr-raci-pri-o25",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5490.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9903.png",
+      "analysis": {
+        "bttsProb": 0.3,
+        "over25Prob": 0.42,
+        "homeLambda": 1,
+        "awayLambda": 1,
+        "dataQuality": 0,
+        "hasRealData": false
+      }
+    },
+    {
+      "match": "Cruzeiro vs Botafogo",
+      "league": "Serie A (BRA)",
+      "date": "2026-07-26",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "confidence": 48,
+      "time": "21:00",
+      "matchSemantic": "cruz-bota-ser-btts",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2022.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6086.png",
+      "analysis": {
+        "bttsProb": 0.51,
+        "over25Prob": 0.44,
+        "homeLambda": 0.89,
+        "awayLambda": 0.99,
+        "dataQuality": 2,
+        "hasRealData": true
+      }
+    },
+    {
+      "match": "Cruzeiro vs Botafogo",
+      "league": "Serie A (BRA)",
+      "date": "2026-07-26",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "confidence": 48,
+      "time": "21:00",
+      "matchSemantic": "cruz-bota-ser-o25",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2022.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6086.png",
+      "analysis": {
+        "bttsProb": 0.51,
+        "over25Prob": 0.44,
+        "homeLambda": 0.89,
+        "awayLambda": 0.99,
+        "dataQuality": 2,
+        "hasRealData": true
+      }
+    },
+    {
+      "match": "Kairat Almaty vs O Nicosia",
+      "league": "International Friendly",
+      "date": "2026-07-26",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "confidence": 48,
+      "time": "16:00",
+      "matchSemantic": "kair-onic-int-btts",
+      "source": "poisson",
+      "homeLogo": "",
+      "awayLogo": "",
+      "analysis": {
+        "bttsProb": 0.56,
+        "over25Prob": 0.56,
+        "homeLambda": 1.54,
+        "awayLambda": 1.08,
+        "dataQuality": 0,
+        "hasRealData": false
+      }
+    },
+    {
+      "match": "Kairat Almaty vs O Nicosia",
+      "league": "International Friendly",
+      "date": "2026-07-26",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "confidence": 48,
+      "time": "16:00",
+      "matchSemantic": "kair-onic-int-o25",
+      "source": "poisson",
+      "homeLogo": "",
+      "awayLogo": "",
+      "analysis": {
+        "bttsProb": 0.56,
+        "over25Prob": 0.56,
+        "homeLambda": 1.54,
+        "awayLambda": 1.08,
         "dataQuality": 0,
         "hasRealData": false
       }
