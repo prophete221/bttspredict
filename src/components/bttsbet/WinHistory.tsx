@@ -1,19 +1,15 @@
 'use client'
 
 import { useState, useEffect, useMemo } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import {
+  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+  BarChart, Bar, Cell,
+} from 'recharts'
 import { resolveTeamLogo } from '@/lib/teamLogos'
-import { useScrollAnimation, useRevealOnScroll, useCountUp, useStaggerReveal } from '@/hooks/useAnimations'
+import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
+import { staggerContainer } from '@/lib/motionPresets'
 import { TrophyIcon } from './AnimatedIcons'
-import { staggerContainer, staggerChildFadeUp, rowReveal, subtleHover } from '@/lib/motionPresets'
-
-function MiniTeamLogo({ src, alt }: { src: string; alt: string }) {
-  const [err, setErr] = useState(false)
-  if (!src || err) return null
-  return (
-    <img src={src} alt={alt} className="w-5 h-5 rounded object-contain flex-shrink-0" onError={() => setErr(true)} loading="lazy" />
-  )
-}
 
 interface HistoryItem {
   id: number
@@ -27,150 +23,275 @@ interface HistoryItem {
   confidence: number
 }
 
-function HistoryRow({ item, index }: { item: HistoryItem; index: number }) {
-  const [revealRef, isRowVisible] = useRevealOnScroll(0.1, 'fade-up')
-  const isAlt = index % 2 === 1
+interface WinData {
+  date: string
+  stats: { total: number; won: number; rate: string; last30Rate: string }
+  history: HistoryItem[]
+}
+
+type ResultFilter = 'all' | 'won' | 'lost'
+type TypeFilter = 'all' | 'BTTS' | 'O2.5'
+
+const COLORS = {
+  success: '#1DB954',
+  lose: '#EB5757',
+  gold: '#F2C94C',
+  panel: '#0A1426',
+  edge: 'rgba(255, 255, 255, 0.08)',
+  text: '#8A8FA3',
+}
+
+function TeamLogoMini({ src, alt }: { src?: string; alt: string }) {
+  const [err, setErr] = useState(false)
+  if (!src || err) return null
+  return <img src={src} alt={alt} className="w-4 h-4 object-contain flex-shrink-0 rounded" onError={() => setErr(true)} loading="lazy" />
+}
+
+// ─── Sparkline — last 14 days win rate ──────────────────────────────────
+function WinRateSparkline({ history }: { history: HistoryItem[] }) {
+  const data = useMemo(() => {
+    const byDate = history.reduce<Record<string, { won: number; lost: number; total: number }>>((acc, h) => {
+      if (!acc[h.date]) acc[h.date] = { won: 0, lost: 0, total: 0 }
+      acc[h.date].total++
+      if (h.result === 'Gagné') acc[h.date].won++
+      else acc[h.date].lost++
+      return acc
+    }, {})
+
+    return Object.entries(byDate)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .slice(-14)
+      .map(([date, v]) => ({
+        date: date.slice(5),
+        rate: v.total ? Math.round((v.won / v.total) * 100) : 0,
+        total: v.total,
+      }))
+  }, [history])
+
+  if (data.length < 2) return null
+
+  return (
+    <div className="squircle-lg p-4 sm:p-5">
+      <div className="flex items-center justify-between mb-3">
+        <div>
+          <h3 className="text-sm font-bold text-white">Tendance 14 jours</h3>
+          <p className="text-[10px] text-gray-500 mt-0.5">Taux de réussite quotidien</p>
+        </div>
+        <span className="badge badge-mint">14j</span>
+      </div>
+      <div className="h-32 sm:h-40">
+        <ResponsiveContainer width="100%" height="100%">
+          <AreaChart data={data} margin={{ top: 4, right: 4, bottom: 0, left: -24 }}>
+            <defs>
+              <linearGradient id="winGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor={COLORS.success} stopOpacity={0.5} />
+                <stop offset="100%" stopColor={COLORS.success} stopOpacity={0} />
+              </linearGradient>
+            </defs>
+            <CartesianGrid strokeDasharray="3 3" stroke={COLORS.edge} vertical={false} />
+            <XAxis dataKey="date" stroke={COLORS.text} fontSize={10} tickLine={false} axisLine={false} />
+            <YAxis stroke={COLORS.text} fontSize={10} tickLine={false} axisLine={false} domain={[0, 100]} unit="%" />
+            <Tooltip
+              contentStyle={{
+                backgroundColor: COLORS.panel,
+                border: `1px solid ${COLORS.edge}`,
+                borderRadius: 8,
+                fontSize: 11,
+                color: '#fff',
+              }}
+              labelStyle={{ color: COLORS.success, fontWeight: 700 }}
+              formatter={(v: number) => [`${v}%`, 'Réussite']}
+            />
+            <Area type="monotone" dataKey="rate" stroke={COLORS.success} strokeWidth={2} fill="url(#winGrad)" dot={{ fill: COLORS.success, r: 3 }} />
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
+  )
+}
+
+// ─── Type Distribution ──────────────────────────────────────────────────
+function TypeDistribution({ history }: { history: HistoryItem[] }) {
+  const data = useMemo(() => {
+    const groups = history.reduce<Record<string, { won: number; lost: number; total: number }>>((acc, h) => {
+      const key = h.type.includes('Over') ? 'O2.5' : h.type
+      if (!acc[key]) acc[key] = { won: 0, lost: 0, total: 0 }
+      acc[key].total++
+      if (h.result === 'Gagné') acc[key].won++
+      else acc[key].lost++
+      return acc
+    }, {})
+
+    return Object.entries(groups).map(([name, v]) => ({
+      name,
+      won: v.won,
+      lost: v.lost,
+      total: v.total,
+      rate: v.total ? Math.round((v.won / v.total) * 100) : 0,
+    }))
+  }, [history])
+
+  if (data.length === 0) return null
+
+  return (
+    <div className="squircle-lg p-4 sm:p-5">
+      <div className="flex items-center justify-between mb-3">
+        <div>
+          <h3 className="text-sm font-bold text-white">Réussite par type</h3>
+          <p className="text-[10px] text-gray-500 mt-0.5">BTTS vs Over 2.5</p>
+        </div>
+      </div>
+      <div className="space-y-3">
+        {data.map(d => (
+          <div key={d.name}>
+            <div className="flex items-center justify-between text-[11px] mb-1">
+              <span className="text-gray-300 font-semibold">{d.name}</span>
+              <span className="text-success font-bold tabular-nums">{d.rate}%</span>
+            </div>
+            <div className="relative h-2 bg-white/[0.06] rounded-full overflow-hidden">
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: `${d.rate}%` }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
+                className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-success-dark to-success"
+                style={{ boxShadow: '0 0 8px rgba(29, 185, 84, 0.4)' }}
+              />
+            </div>
+            <div className="flex items-center justify-between text-[9px] text-gray-600 mt-1">
+              <span>{d.won} gagnés / {d.total} total</span>
+              <span>{d.lost} perdus</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+// ─── Detailed Row ────────────────────────────────────────────────────────
+function HistoryRow({ item }: { item: HistoryItem }) {
+  const isWon = item.result === 'Gagné'
+  const teams = item.match.split(/\s+vs?\s+/i)
+  const home = teams[0] || ''
+  const away = teams[1] || ''
+  const homeLogo = resolveTeamLogo(home)
+  const awayLogo = resolveTeamLogo(away)
+
   return (
     <motion.div
-      ref={revealRef}
-      key={item.id || index}
-      initial={false}
-      variants={rowReveal(index)}
-      animate={isRowVisible ? 'visible' : 'hidden'}
-      style={{ willChange: 'transform, opacity' }}
-      className={`grid grid-cols-1 sm:grid-cols-5 gap-1 sm:gap-3 px-4 py-2 border-t border-edge/30 hover:bg-gold/[0.03] transition-colors items-center ${isAlt ? 'bg-white/[0.01]' : ''}`}
+      initial={{ opacity: 0, x: -8 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.3 }}
+      className="grid grid-cols-[minmax(80px,_auto)_1fr_minmax(80px,_auto)_minmax(70px,_auto)_minmax(110px,_auto)] gap-3 items-center px-4 py-2.5 border-b border-edge/40 hover:bg-white/[0.02] transition-colors"
     >
-      <div className="text-[10px] text-gray-500 sm:text-xs flex items-center gap-1.5">
-        <span className="pastille pastille-cyan" />
-        {item.date}
+      {/* Date */}
+      <div className="min-w-0">
+        <div className="text-[11px] text-gray-300 mono tabular-nums">{item.date.slice(5)}</div>
+        <div className="text-[9px] text-gray-600">{item.league}</div>
       </div>
-      <div className="flex items-center gap-1.5 min-w-0">
-        <MiniTeamLogo src={resolveTeamLogo(item.match?.split(' vs ')[0])} alt={item.match?.split(' vs ')[0]} />
-        <div className="min-w-0">
-          <div className="text-white font-semibold text-xs sm:text-sm truncate">{item.match}</div>
-          <div className="text-[10px] text-gray-500 sm:hidden">{item.league} • {item.type}</div>
-          <div className="text-[10px] text-gray-500 hidden sm:block">{item.league}</div>
+
+      {/* Match */}
+      <div className="min-w-0 flex items-center gap-1.5">
+        <TeamLogoMini src={homeLogo} alt={home} />
+        <span className="text-xs text-white font-semibold truncate">{home}</span>
+        <span className="text-[9px] text-gray-600 flex-shrink-0">vs</span>
+        <span className="text-xs text-white font-semibold truncate">{away}</span>
+        <TeamLogoMini src={awayLogo} alt={away} />
+      </div>
+
+      {/* Type + prediction */}
+      <div className="min-w-0">
+        <div className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold ${
+          item.type === 'BTTS' ? 'bg-success/10 text-success border border-success/20' : 'bg-gold/10 text-gold-light border border-gold/20'
+        }`}>
+          {item.type.includes('Over') ? 'O2.5' : item.type}
         </div>
-        <MiniTeamLogo src={resolveTeamLogo(item.match?.split(' vs ')[1])} alt={item.match?.split(' vs ')[1]} />
+        <div className="text-[10px] text-gray-400 mt-0.5">Prono: <span className="text-white font-semibold">{item.prediction}</span></div>
       </div>
-      <div className="hidden sm:block">
-        <span className={item.type === 'BTTS' ? 'badge-btts' : 'badge-over25'}>
-          {item.type}
-        </span>
+
+      {/* Score */}
+      <div className="min-w-0 text-center">
+        <div className="text-sm text-white font-bold mono tabular-nums">{item.score}</div>
+        <div className="text-[9px] text-gray-600">conf. {item.confidence}%</div>
       </div>
-      <div className="text-xs text-white font-semibold">{item.prediction}</div>
-      <div className="flex items-center gap-1.5">
-        <span className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-success/10 border border-success/25 rounded text-success text-[10px] font-bold">
-          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
-          Gagné
+
+      {/* Result */}
+      <div className="min-w-0">
+        <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold ${
+          isWon ? 'bg-success/15 text-success border border-success/30' : 'bg-lose/15 text-lose-light border border-lose/30'
+        }`}>
+          {isWon ? (
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+          ) : (
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+          )}
+          {isWon ? 'Gagné' : 'Perdu'}
         </span>
-        <span className="text-xs text-gray-300 font-mono tabular-nums">{item.score}</span>
       </div>
     </motion.div>
   )
 }
 
-function LoadingSkeleton() {
-  return (
-    <section className="py-4 sm:py-5 px-4">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-3">
-          <div className="inline-block w-10 h-10 rounded-full bg-gold/10 animate-pulse" />
-          <div className="h-4 w-48 mx-auto mt-3 bg-panel rounded shimmer-card" />
-          <div className="h-3 w-32 mx-auto mt-2 bg-edge/20 rounded shimmer-card" />
-        </div>
-        <div className="grid grid-cols-3 gap-1.5 sm:gap-3 mb-3">
-          {[1,2,3].map(i => (
-            <div key={i} className="bg-panel border border-edge/40 squircle shimmer-card p-2 sm:p-3 text-center">
-              <div className="h-5 w-12 mx-auto bg-gold/10 rounded shimmer-card" />
-              <div className="h-2 w-16 mx-auto mt-1 bg-edge/20 rounded shimmer-card" />
-            </div>
-          ))}
-        </div>
-        {[1,2,3,4,5].map(i => (
-          <div key={i} className="flex items-center gap-3 px-4 py-2.5 border-t border-edge/20">
-            <div className="h-3 w-16 bg-edge/20 rounded shimmer-card" />
-            <div className="h-3 w-32 bg-panel rounded shimmer-card flex-1" />
-            <div className="h-3 w-8 bg-edge/20 rounded shimmer-card" />
-          </div>
-        ))}
-      </div>
-    </section>
-  )
-}
-
+// ─── Main ────────────────────────────────────────────────────────────────
 export default function WinHistory() {
-  const [showAll, setShowAll] = useState(false)
-  const [winData, setWinData] = useState<{ stats: { total: number; won: number; rate: string; last30Rate: string }; history: HistoryItem[] } | null>(null)
+  const [winData, setWinData] = useState<WinData | null>(null)
   const [loading, setLoading] = useState(true)
+  const [showAll, setShowAll] = useState(false)
+  const [resultFilter, setResultFilter] = useState<ResultFilter>('all')
+  const [typeFilter, setTypeFilter] = useState<TypeFilter>('all')
   const [ref, isVisible] = useScrollAnimation(0.15)
-  const [staggerRef] = useStaggerReveal()
 
   useEffect(() => {
-    async function loadWinHistory() {
-      try {
-        const r = await fetch(`/win-history.json?t=${Date.now()}`)
-        if (!r.ok) throw new Error(`HTTP ${r.status}`)
-        const data = await r.json()
-        if (data && data.history && data.history.length > 0) {
-          setWinData(data)
-        }
+    fetch('/win-history.json')
+      .then(r => r.json())
+      .then(data => {
+        if (data?.history?.length) setWinData(data)
         setLoading(false)
-      } catch (err) {
-        console.error('[WinHistory] Fetch failed, trying fallback:', err)
-        try {
-          const r2 = await fetch('/win-history.json')
-          if (!r2.ok) throw new Error(`HTTP ${r2.status}`)
-          const data2 = await r2.json()
-          if (data2 && data2.history && data2.history.length > 0) {
-            setWinData(data2)
-          }
-          setLoading(false)
-        } catch (fallbackErr) {
-          console.error('[WinHistory] Fallback also failed:', fallbackErr)
-          setLoading(false)
-        }
-      }
-    }
-    loadWinHistory()
+      })
+      .catch(() => setLoading(false))
   }, [])
 
-  // ALL hooks must be called BEFORE any conditional returns — React rules of hooks
   const historyArr = winData?.history ?? []
-  const wonOnly = historyArr.filter((item) => item.result === 'Gagné')
-  const INITIAL_SHOW = 8
-  const displayedHistory = showAll ? wonOnly : wonOnly.slice(0, INITIAL_SHOW)
+  const total = winData?.stats?.total ?? historyArr.length
+  const won = winData?.stats?.won ?? historyArr.filter(h => h.result === 'Gagné').length
+  const lost = total - won
+  const rate = total ? (won / total) * 100 : 0
 
-  // Use stats from JSON for proper rate (accounts for analyzed-but-lost predictions)
-  const displayStats = useMemo(() => {
-    const stats = winData?.stats
-    const total = stats?.total || wonOnly.length || 1
-    const won = stats?.won || wonOnly.length
-    const rateStr = stats?.rate || `${total > 0 ? Math.round((won / total) * 1000) / 10 : 0}%`
-    const rateVal = parseFloat(rateStr.replace('%', ''))
-    return { total, won, rateStr, rateVal }
-  }, [winData, wonOnly.length])
+  const [totalRef, totalDisplay] = useCountUp(total, 1500, { threshold: 0.3 })
+  const [wonRef, wonDisplay] = useCountUp(won, 1500, { threshold: 0.3 })
+  const [lostRef, lostDisplay] = useCountUp(lost, 1500, { threshold: 0.3 })
+  const [rateRef, rateDisplay] = useCountUp(rate, 1800, { decimals: 1, threshold: 0.3 })
 
-  // Count-up hooks — always called regardless of loading state
-  const [totalRef, totalDisplay] = useCountUp(displayStats.total, 1800, { threshold: 0.3 })
-  const [rateRef, rateDisplay] = useCountUp(displayStats.rateVal, 1800, { decimals: 1, threshold: 0.3 })
-  const [wonRef, wonDisplay] = useCountUp(displayStats.won, 1800, { threshold: 0.3 })
+  // Filtered history
+  const filteredHistory = useMemo(() => {
+    return historyArr.filter(h => {
+      if (resultFilter === 'won' && h.result !== 'Gagné') return false
+      if (resultFilter === 'lost' && h.result === 'Gagné') return false
+      if (typeFilter === 'BTTS' && h.type !== 'BTTS') return false
+      if (typeFilter === 'O2.5' && !h.type.includes('Over')) return false
+      return true
+    })
+  }, [historyArr, resultFilter, typeFilter])
 
-  // NOW we can do conditional rendering — all hooks have been called
+  const displayedHistory = showAll ? filteredHistory : filteredHistory.slice(0, 12)
+
   if (loading) {
-    return <LoadingSkeleton />
+    return (
+      <section ref={ref} id="win-history" className="section-pad">
+        <div className="max-w-6xl mx-auto text-center">
+          <div className="inline-block w-10 h-10 rounded-full bg-success/10 animate-pulse" />
+          <div className="h-4 w-48 mx-auto mt-3 bg-panel rounded animate-pulse" />
+        </div>
+      </section>
+    )
   }
 
-  if (!winData || !winData.history || winData.history.length === 0) {
+  if (!winData || historyArr.length === 0) {
     return (
-      <section ref={ref} id="win-history" className="py-4 sm:py-5 px-4">
+      <section ref={ref} id="win-history" className="section-pad">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="flex justify-center mb-2">
-            <TrophyIcon size={40} />
-          </div>
-          <h2 className="section-title text-white tracking-tight">
-            Historique des <span className="text-gold">Pronostics</span>
-          </h2>
+          <div className="flex justify-center mb-2"><TrophyIcon size={40} /></div>
+          <h2 className="section-title">Historique des <span className="text-success">Pronostics</span></h2>
           <p className="text-gray-500 text-sm mt-2">Historique en cours de mise à jour…</p>
         </div>
       </section>
@@ -178,81 +299,157 @@ export default function WinHistory() {
   }
 
   return (
-    <section ref={ref} id="win-history" className="section-entrance py-3 sm:py-4 px-4">
-      <div className="max-w-5xl mx-auto">
+    <section ref={ref} id="win-history" className="section-pad">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          animate={isVisible ? { opacity: 1, y: 0 } : undefined}
           transition={{ duration: 0.5 }}
-          className="text-center mb-2"
+          className="text-center mb-8"
         >
-          <div className="flex justify-center mb-1.5">
-            <TrophyIcon size={36} />
-          </div>
-          <span className="live-indicator">Live</span>
-          <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">Track Record</span>
-          <h2 className="section-title text-white mt-1 tracking-tight">
-            Historique des <span className="text-gold">Pronostics</span>
+          <span className="eyebrow">Track Record</span>
+          <h2 className="section-title mt-3 mb-3">
+            Historique & <span className="text-success">Statistiques</span>
           </h2>
-          <p className="text-gray-500 text-xs mt-0.5">Pronostics gagnés vérifiés — résultats réels</p>
+          <p className="section-subtitle max-w-2xl mx-auto">
+            Transparence totale — gagnés ET perdus affichés.
+            Les performances passées ne garantissent pas les résultats futurs.
+          </p>
         </motion.div>
 
+        {/* KPI Tiles */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}
-          className="grid grid-cols-3 gap-1.5 sm:gap-2 mb-2"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6"
         >
-          {[
-            { refObj: totalRef, value: totalDisplay, label: 'Analysés', color: 'text-white' },
-            { refObj: rateRef, value: rateDisplay, label: 'Réussite', color: 'text-gold', suffix: '%' },
-            { refObj: wonRef, value: wonDisplay, label: 'Gagnés', color: 'text-gold' },
-          ].map((item, i) => (
-            <motion.div key={i} variants={staggerChildFadeUp} whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(250,204,21,0.08)', transition: { duration: 0.25 } }} whileTap={{ y: 0, transition: { duration: 0.15 } }} style={{ willChange: 'transform, opacity' }} className="bg-panel border border-edge/40 squircle shimmer-card p-2 sm:p-2.5 text-center min-w-0">
-              <span ref={item.refObj} className={`block text-sm sm:text-base font-bold ${item.color} tabular-nums`}>
-                {item.value}{item.suffix || ''}
-              </span>
-              <div className="text-[9px] text-gray-500 uppercase tracking-wider font-medium mt-0.5">
-                {item.label}
-              </div>
-            </motion.div>
+          <motion.div variants={undefined} className="stat-tile">
+            <div className="text-2xl sm:text-3xl font-bold text-white tabular-nums" ref={totalRef}>{totalDisplay}</div>
+            <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mt-1">Analysés</div>
+          </motion.div>
+          <motion.div variants={undefined} className="stat-tile">
+            <div className="text-2xl sm:text-3xl font-bold text-success tabular-nums glow-text-green" ref={wonRef}>{wonDisplay}</div>
+            <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mt-1">Gagnés</div>
+          </motion.div>
+          <motion.div variants={undefined} className="stat-tile">
+            <div className="text-2xl sm:text-3xl font-bold text-lose tabular-nums" ref={lostRef}>{lostDisplay}</div>
+            <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mt-1">Perdus</div>
+          </motion.div>
+          <motion.div variants={undefined} className="stat-tile">
+            <div className="text-2xl sm:text-3xl font-bold text-gold tabular-nums glow-text-gold" ref={rateRef}>{rateDisplay}%</div>
+            <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mt-1">Réussite</div>
+          </motion.div>
+        </motion.div>
+
+        {/* Charts row */}
+        <div className="grid lg:grid-cols-2 gap-4 mb-6">
+          <WinRateSparkline history={historyArr} />
+          <TypeDistribution history={historyArr} />
+        </div>
+
+        {/* Filters */}
+        <div className="flex flex-wrap items-center gap-2 mb-4">
+          <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mr-1">Résultat:</span>
+          {([
+            { id: 'all', label: 'Tous' },
+            { id: 'won', label: 'Gagnés' },
+            { id: 'lost', label: 'Perdus' },
+          ] as { id: ResultFilter; label: string }[]).map(f => (
+            <button
+              key={f.id}
+              onClick={() => setResultFilter(f.id)}
+              className={`px-3 py-1 rounded-md text-xs font-semibold transition-all ${
+                resultFilter === f.id
+                  ? 'bg-success/15 text-success border border-success/30'
+                  : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300'
+              }`}
+            >
+              {f.label}
+            </button>
           ))}
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
-          className="bg-panel border border-edge/40 squircle-lg overflow-hidden"
-        >
-          <div className="hidden sm:grid grid-cols-5 gap-3 px-4 py-2 text-gray-500 text-[10px] font-semibold uppercase tracking-wider border-b border-edge/40">
-            <span>Date</span><span>Match</span><span>Type</span><span>Pronostic</span><span>Résultat</span>
+          <div className="w-px h-5 bg-edge mx-1" />
+
+          <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mr-1">Type:</span>
+          {([
+            { id: 'all', label: 'Tous' },
+            { id: 'BTTS', label: 'BTTS' },
+            { id: 'O2.5', label: 'Over 2.5' },
+          ] as { id: TypeFilter; label: string }[]).map(f => (
+            <button
+              key={f.id}
+              onClick={() => setTypeFilter(f.id)}
+              className={`px-3 py-1 rounded-md text-xs font-semibold transition-all ${
+                typeFilter === f.id
+                  ? 'bg-gold/15 text-gold-light border border-gold/30'
+                  : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300'
+              }`}
+            >
+              {f.label}
+            </button>
+          ))}
+
+          <div className="ml-auto text-[10px] text-gray-500">
+            {filteredHistory.length} résultat{filteredHistory.length > 1 ? 's' : ''}
+          </div>
+        </div>
+
+        {/* Table header */}
+        <div className="squircle-lg overflow-hidden">
+          <div className="hidden md:grid px-4 py-2 text-[10px] text-gray-500 uppercase tracking-widest font-bold border-b border-edge bg-panel-2"
+            style={{ gridTemplateColumns: 'minmax(80px, auto) 1fr minmax(80px, auto) minmax(70px, auto) minmax(110px, auto)' }}
+          >
+            <span>Date</span>
+            <span>Match</span>
+            <span>Type</span>
+            <span>Score</span>
+            <span>Résultat</span>
           </div>
 
-          <div ref={staggerRef} className="stagger-reveal">
-            {displayedHistory.map((item, i) => (
-              <HistoryRow key={item.id || i} item={item} index={i} />
-            ))}
+          {/* Rows */}
+          <div className="max-h-[600px] overflow-y-auto scroll-list">
+            {displayedHistory.length > 0 ? (
+              displayedHistory.map((item, i) => (
+                <HistoryRow key={`${item.id || i}-${item.match}`} item={item} />
+              ))
+            ) : (
+              <div className="px-4 py-8 text-center text-sm text-gray-500">
+                Aucun résultat pour ces filtres.
+              </div>
+            )}
           </div>
-        </motion.div>
+        </div>
 
-        {wonOnly.length > INITIAL_SHOW && (
-          <div className="text-center mt-2">
-            <motion.button onClick={() => setShowAll(!showAll)} variants={subtleHover} initial="rest" whileHover="hover" whileTap="tap" style={{ willChange: 'transform, opacity' }} className="px-4 py-1.5 bg-panel border border-edge/40 text-gold text-xs font-semibold rounded-full hover:border-gold/30 transition-colors">
-              {showAll ? 'Voir moins ↑' : `Voir plus (${wonOnly.length} gagnés) ↓`}
-            </motion.button>
+        {/* Show more */}
+        {filteredHistory.length > 12 && (
+          <div className="text-center mt-4">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="inline-flex items-center gap-1.5 px-4 py-2 squircle text-xs font-semibold text-success hover:bg-success/10 transition-colors"
+            >
+              {showAll ? (
+                <>Voir moins <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="18 15 12 9 6 15" /></svg></>
+              ) : (
+                <>Voir plus ({filteredHistory.length - 12} restants) <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9" /></svg></>
+              )}
+            </button>
           </div>
         )}
 
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3, delay: 0.4 }} className="text-center mt-1.5">
-          <div className="flex items-center gap-1.5 justify-center">
-            <span className="trust-badge">Résultats vérifiés</span>
-            <span className="relative flex w-1.5 h-1.5">
-              <span className="absolute inset-0 bg-success rounded-full animate-ping opacity-50" />
-              <span className="relative w-1.5 h-1.5 bg-success rounded-full" />
-            </span>
-            <span className="text-[10px] text-gray-500">Seuls les pronostics gagnés sont affichés</span>
-          </div>
+        {/* Trust badge */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.4 }}
+          className="flex items-center justify-center gap-2 mt-6"
+        >
+          <span className="badge badge-mint">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+            Résultats vérifiés
+          </span>
+          <span className="text-[10px] text-gray-500">Gagnés ET perdus affichés en transparence</span>
         </motion.div>
       </div>
     </section>

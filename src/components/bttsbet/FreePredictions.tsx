@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useScrollAnimation } from '@/hooks/useAnimations'
 import { AFFILIATE } from '@/lib/constants'
-import { staggerContainer, staggerChildFadeUp, subtleHover, badgePulse } from '@/lib/motionPresets'
+import { staggerContainer, staggerChildFadeUp, subtleHover } from '@/lib/motionPresets'
 import { resolveTeamLogo } from '@/lib/teamLogos'
 import PremiumButton from './PremiumButton'
 
@@ -39,10 +39,36 @@ function getTimeUntil(date: string, time?: string): { value: string; label: stri
     const diffMin = Math.floor(diffMs / (1000 * 60))
     const diffHours = Math.floor(diffMin / 60)
     const diffDays = Math.floor(diffHours / 24)
-    if (diffDays > 0) return { value: `J-${diffDays}`, label: 'jours' }
-    if (diffHours > 0) return { value: `${diffHours}h${diffMin % 60 ? ` ${diffMin % 60}min` : ''}`, label: 'restant' }
-    return { value: `${diffMin}min`, label: 'restant' }
+    if (diffDays > 0) return { value: `J-${diffDays}j`, label: 'dans' }
+    if (diffHours > 0) return { value: `${diffHours}h${diffMin % 60 ? ` ${diffMin % 60}m` : ''}`, label: 'dans' }
+    return { value: `${diffMin}min`, label: 'dans' }
   } catch { return null }
+}
+
+function formatDateShort(dateStr: string) {
+  if (!dateStr) return ''
+  try {
+    const d = new Date(dateStr + 'T12:00:00')
+    const day = d.getDate().toString().padStart(2, '0')
+    const month = (d.getMonth() + 1).toString().padStart(2, '0')
+    const today = new Date(); today.setHours(12, 0, 0, 0)
+    const matchDate = new Date(dateStr + 'T12:00:00')
+    const diffDays = Math.round((matchDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
+    if (diffDays === 0) return "Aujourd'hui"
+    if (diffDays === 1) return 'Demain'
+    const weekdays = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam']
+    return `${weekdays[d.getDay()]} ${day}/${month}`
+  } catch { return dateStr }
+}
+
+interface Prediction {
+  type: string
+  prediction: string
+  confidence: number
+  bttsProb?: number
+  over25Prob?: number
+  homeLambda?: number
+  awayLambda?: number
 }
 
 interface MatchData {
@@ -52,51 +78,296 @@ interface MatchData {
   time: string
   homeLogo: string
   awayLogo: string
-  btts: { prediction: string; confidence: number } | null
-  over25: { prediction: string; confidence: number } | null
+  predictions: Prediction[]
 }
 
 type FilterType = 'all' | 'BTTS' | 'O2.5'
 type DateFilter = 'all' | 'today' | 'tomorrow' | '7days'
 
-// ─── Status pill ────────────────────────────────────────────────────────
-function StatusPill({ date, time }: { date: string; time: string }) {
-  const status = getMatchStatus(date, time)
-  if (status === 'live') {
-    return (
-      <span className="badge badge-live">
-        <span className="v31-ticker-dot live" /> LIVE
-      </span>
-    )
-  }
-  const timeUntil = getTimeUntil(date, time)
-  if (timeUntil) {
-    return (
-      <div className="text-right">
-        <div className="text-[9px] text-gray-500 uppercase tracking-wider font-bold">{timeUntil.label}</div>
-        <div className="text-success font-bold text-xs tabular-nums mono">{timeUntil.value}</div>
-      </div>
-    )
-  }
+// ─── Probability Bar — visual representation of Poisson model ────────────
+function ProbabilityBar({ value, prediction, color = 'green' }: { value: number; prediction: string; color?: 'green' | 'gold' }) {
+  const percentage = Math.round(value * 100)
+  const isPositive = prediction === 'Oui'
+  const fillColor = color === 'gold' ? 'var(--color-gold)' : 'var(--color-success)'
+
   return (
-    <div className="text-right">
-      <div className="text-[9px] text-gray-500 uppercase tracking-wider font-bold">Heure</div>
-      <div className="text-white font-bold text-xs tabular-nums mono">{time}</div>
+    <div className="space-y-1">
+      <div className="flex items-center justify-between text-[11px]">
+        <span className={`font-bold ${isPositive ? 'text-success-light' : 'text-lose-light'}`}>
+          {prediction}
+        </span>
+        <span className="text-gray-400 tabular-nums mono font-semibold">{percentage}%</span>
+      </div>
+      <div className="relative h-2 bg-white/[0.06] rounded-full overflow-hidden">
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: `${percentage}%` }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="absolute inset-y-0 left-0 rounded-full"
+          style={{
+            background: `linear-gradient(90deg, ${fillColor}aa, ${fillColor})`,
+            boxShadow: `0 0 12px ${fillColor}66`,
+          }}
+        />
+      </div>
     </div>
   )
 }
 
-// ─── Prediction pill ────────────────────────────────────────────────────
-function PredictionPill({ type, prediction, confidence }: { type: string; prediction: string; confidence: number }) {
-  const isPositive = prediction === 'Oui'
-  const color = isPositive ? 'badge-mint' : 'badge-rose'
+// ─── Team Logo ──────────────────────────────────────────────────────────
+function TeamLogo({ src, name, size = 48 }: { src?: string; name: string; size?: number }) {
+  const [imgError, setImgError] = useState(false)
+  const initials = name?.slice(0, 3).toUpperCase() || '?'
+
+  if (!src || imgError) {
+    return (
+      <div
+        className="rounded-xl bg-gradient-to-br from-brand/40 to-midnight/60 border border-edge flex items-center justify-center text-success font-bold flex-shrink-0"
+        style={{ width: size, height: size, fontSize: size * 0.28 }}
+      >
+        {initials}
+      </div>
+    )
+  }
+  return (
+    <img
+      src={src}
+      alt={name}
+      className="rounded-xl object-contain flex-shrink-0 border border-edge bg-white/[0.03] p-1"
+      style={{ width: size, height: size }}
+      loading="lazy"
+      onError={() => setImgError(true)}
+    />
+  )
+}
+
+// ─── Prediction Card — main component (rich, with BTTS + O2.5 separately) ─
+function PredictionCard({ match, index }: { match: MatchData; index: number }) {
+  const [expanded, setExpanded] = useState(false)
+  const teams = match.match.split(/\s+vs?\s+/i)
+  const home = teams[0]?.trim() || ''
+  const away = teams[1]?.trim() || ''
+  const homeLogo = match.homeLogo || resolveTeamLogo(home)
+  const awayLogo = match.awayLogo || resolveTeamLogo(away)
+
+  const status = getMatchStatus(match.date, match.time)
+  const timeUntil = getTimeUntil(match.date, match.time)
+  const dateLabel = formatDateShort(match.date)
+
+  // Separate BTTS and Over 2.5 predictions
+  const bttsPred = match.predictions.find(p => p.type === 'BTTS')
+  const over25Pred = match.predictions.find(p => p.type.includes('Over'))
+
+  // Lambda → expected goals display
+  const homeGoals = bttsPred?.homeLambda ? bttsPred.homeLambda.toFixed(2) : null
+  const awayGoals = bttsPred?.awayLambda ? bttsPred.awayLambda.toFixed(2) : null
 
   return (
-    <div className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-md ${color === 'badge-mint' ? 'bg-success/10 border border-success/30' : 'bg-lose/10 border border-lose/30'}`}>
-      <span className="text-[9px] uppercase tracking-wider font-bold opacity-80">{type}</span>
-      <span className={`text-xs font-bold ${isPositive ? 'text-success-light' : 'text-lose-light'}`}>{prediction}</span>
-      <span className="text-[9px] text-gray-500 tabular-nums">{confidence}%</span>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: Math.min(index * 0.03, 0.2) }}
+      className="squircle-lg overflow-hidden hover:border-success/30 transition-all"
+    >
+      {/* Top accent line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-success/40 to-transparent" />
+
+      <div className="p-4 sm:p-5">
+        {/* Header row: status + league */}
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2 min-w-0">
+            {status === 'live' && (
+              <span className="badge badge-live">
+                <span className="v31-ticker-dot live" /> LIVE
+              </span>
+            )}
+            {status === 'upcoming' && timeUntil && (
+              <div className="flex items-center gap-1.5">
+                <span className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">{timeUntil.label}</span>
+                <span className="text-success text-xs font-bold tabular-nums mono">{timeUntil.value}</span>
+              </div>
+            )}
+            {(status === 'finished' || (!timeUntil && status !== 'live')) && (
+              <span className="text-[10px] text-gray-500 mono tabular-nums">{match.time || '--:--'}</span>
+            )}
+            <span className="text-[10px] text-gray-600 uppercase tracking-widest font-semibold truncate">
+              {match.league}
+            </span>
+          </div>
+          <span className="text-[10px] text-gray-500 mono whitespace-nowrap">{dateLabel}</span>
+        </div>
+
+        {/* Teams */}
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-4 mb-5">
+          {/* Home */}
+          <div className="flex flex-col items-center text-center gap-2">
+            <TeamLogo src={homeLogo} name={home} size={56} />
+            <span className="text-sm font-semibold text-white truncate max-w-full leading-tight">{home}</span>
+            {homeGoals && (
+              <span className="text-[9px] text-gray-500 mono tabular-nums">xG: {homeGoals}</span>
+            )}
+          </div>
+
+          {/* VS */}
+          <div className="flex flex-col items-center">
+            <span className="text-xl sm:text-2xl font-bold text-success mono">VS</span>
+            <span className="text-[9px] text-gray-600 uppercase tracking-widest mt-1">match</span>
+          </div>
+
+          {/* Away */}
+          <div className="flex flex-col items-center text-center gap-2">
+            <TeamLogo src={awayLogo} name={away} size={56} />
+            <span className="text-sm font-semibold text-white truncate max-w-full leading-tight">{away}</span>
+            {awayGoals && (
+              <span className="text-[9px] text-gray-500 mono tabular-nums">xG: {awayGoals}</span>
+            )}
+          </div>
+        </div>
+
+        {/* ═══ PREDICTIONS — BTTS + Over 2.5 clearly separated ═══ */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {/* BTTS Card */}
+          {bttsPred ? (
+            <div className="bg-midnight/40 border border-edge rounded-lg p-3">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-5 h-5 rounded bg-success/15 border border-success/30 flex items-center justify-center">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1DB954" strokeWidth="2.5">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                      <line x1="9" y1="9" x2="9.01" y2="9" />
+                      <line x1="15" y1="9" x2="15.01" y2="9" />
+                    </svg>
+                  </div>
+                  <span className="text-[10px] uppercase tracking-widest font-bold text-success-light">BTTS</span>
+                </div>
+                <span className="text-[10px] text-gray-500">Both Teams Score</span>
+              </div>
+
+              <div className="flex items-baseline justify-between mb-2">
+                <span className={`text-2xl font-bold ${bttsPred.prediction === 'Oui' ? 'text-success-light' : 'text-lose-light'}`}>
+                  {bttsPred.prediction}
+                </span>
+                <span className="text-xs text-gray-500 tabular-nums">conf. {bttsPred.confidence}%</span>
+              </div>
+
+              {bttsPred.bttsProb !== undefined && (
+                <ProbabilityBar value={bttsPred.bttsProb} prediction={bttsPred.prediction} color="green" />
+              )}
+
+              {/* Counter-probability (the inverse) */}
+              {bttsPred.bttsProb !== undefined && (
+                <div className="flex items-center justify-between text-[9px] text-gray-600 mt-1.5">
+                  <span>Oui: {Math.round(bttsPred.bttsProb * 100)}%</span>
+                  <span>Non: {Math.round((1 - bttsPred.bttsProb) * 100)}%</span>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="bg-midnight/30 border border-edge/40 rounded-lg p-3 flex items-center justify-center text-[11px] text-gray-600">
+              BTTS non disponible
+            </div>
+          )}
+
+          {/* Over 2.5 Card */}
+          {over25Pred ? (
+            <div className="bg-midnight/40 border border-edge rounded-lg p-3">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-5 h-5 rounded bg-gold/15 border border-gold/30 flex items-center justify-center">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#F2C94C" strokeWidth="2.5">
+                      <path d="M2 18l4-4 4 4 4-4 4 4 4-4" />
+                      <polyline points="6 12 12 6 18 12" />
+                    </svg>
+                  </div>
+                  <span className="text-[10px] uppercase tracking-widest font-bold text-gold-light">Over 2.5</span>
+                </div>
+                <span className="text-[10px] text-gray-500">+2.5 buts</span>
+              </div>
+
+              <div className="flex items-baseline justify-between mb-2">
+                <span className={`text-2xl font-bold ${over25Pred.prediction === 'Oui' ? 'text-gold-light' : 'text-lose-light'}`}>
+                  {over25Pred.prediction}
+                </span>
+                <span className="text-xs text-gray-500 tabular-nums">conf. {over25Pred.confidence}%</span>
+              </div>
+
+              {over25Pred.over25Prob !== undefined && (
+                <ProbabilityBar value={over25Pred.over25Prob} prediction={over25Pred.prediction} color="gold" />
+              )}
+
+              {over25Pred.over25Prob !== undefined && (
+                <div className="flex items-center justify-between text-[9px] text-gray-600 mt-1.5">
+                  <span>Oui: {Math.round(over25Pred.over25Prob * 100)}%</span>
+                  <span>Non: {Math.round((1 - over25Pred.over25Prob) * 100)}%</span>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="bg-midnight/30 border border-edge/40 rounded-lg p-3 flex items-center justify-center text-[11px] text-gray-600">
+              Over 2.5 non disponible
+            </div>
+          )}
+        </div>
+
+        {/* Expandable analysis section */}
+        <AnimatePresence>
+          {expanded && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
+            >
+              <div className="mt-4 pt-4 border-t border-edge space-y-3">
+                {/* Analysis details */}
+                <div>
+                  <div className="text-[10px] uppercase tracking-widest font-bold text-gray-500 mb-2">Analyse Poisson</div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="bg-midnight/40 rounded-lg p-2 border border-edge">
+                      <div className="text-[9px] text-gray-600 uppercase">Lambda domicile</div>
+                      <div className="text-sm font-bold text-white mono tabular-nums">{homeGoals || '—'}</div>
+                      <div className="text-[9px] text-gray-600">buts attendus</div>
+                    </div>
+                    <div className="bg-midnight/40 rounded-lg p-2 border border-edge">
+                      <div className="text-[9px] text-gray-600 uppercase">Lambda extérieur</div>
+                      <div className="text-sm font-bold text-white mono tabular-nums">{awayGoals || '—'}</div>
+                      <div className="text-[9px] text-gray-600">buts attendus</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <div>
+                  <div className="text-[10px] uppercase tracking-widest font-bold text-gray-500 mb-2">Parier sur ce match</div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <PremiumButton variant="linebet" href={AFFILIATE.linebet} size="sm" fullWidth>
+                      Linebet
+                    </PremiumButton>
+                    <PremiumButton variant="star888" href={AFFILIATE.star888} size="sm" fullWidth>
+                      888starz
+                    </PremiumButton>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Footer toggle */}
+        <button
+          onClick={() => setExpanded(e => !e)}
+          className="w-full flex items-center justify-center gap-1.5 mt-3 pt-3 border-t border-edge text-[11px] text-gray-400 hover:text-success transition-colors"
+        >
+          {expanded ? (
+            <>Voir moins <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="18 15 12 9 6 15" /></svg></>
+          ) : (
+            <>Analyse détaillée <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9" /></svg></>
+          )}
+        </button>
+      </div>
+    </motion.div>
   )
 }
 
@@ -126,13 +397,18 @@ export default function FreePredictions() {
               time: p.time || '--:--',
               homeLogo: p.homeLogo || '',
               awayLogo: p.awayLogo || '',
-              btts: null,
-              over25: null,
+              predictions: [],
             })
           }
-          const m = matchMap.get(key)!
-          if (p.type === 'BTTS') m.btts = { prediction: p.prediction, confidence: p.confidence }
-          else if (p.type.includes('Over')) m.over25 = { prediction: p.prediction, confidence: p.confidence }
+          matchMap.get(key)!.predictions.push({
+            type: p.type,
+            prediction: p.prediction,
+            confidence: p.confidence,
+            bttsProb: p.analysis?.bttsProb,
+            over25Prob: p.analysis?.over25Prob,
+            homeLambda: p.analysis?.homeLambda,
+            awayLambda: p.analysis?.awayLambda,
+          })
         }
         const all = [...matchMap.values()].sort((a, b) => {
           const sa = getMatchStatus(a.date, a.time)
@@ -158,8 +434,8 @@ export default function FreePredictions() {
   const filteredMatches = useMemo(() => {
     return matches.filter(m => {
       if (activeLeague !== 'all' && m.league !== activeLeague) return false
-      if (activeType === 'BTTS' && !m.btts) return false
-      if (activeType === 'O2.5' && !m.over25) return false
+      if (activeType === 'BTTS' && !m.predictions.some(p => p.type === 'BTTS')) return false
+      if (activeType === 'O2.5' && !m.predictions.some(p => p.type.includes('Over'))) return false
 
       if (activeDate !== 'all') {
         const today = new Date(); today.setHours(0, 0, 0, 0)
@@ -175,8 +451,8 @@ export default function FreePredictions() {
 
   const stats = useMemo(() => ({
     total: matches.length,
-    btts: matches.filter(m => m.btts).length,
-    o25: matches.filter(m => m.over25).length,
+    btts: matches.filter(m => m.predictions.some(p => p.type === 'BTTS')).length,
+    o25: matches.filter(m => m.predictions.some(p => p.type.includes('Over'))).length,
     live: matches.filter(m => getMatchStatus(m.date, m.time) === 'live').length,
   }), [matches])
 
@@ -197,7 +473,7 @@ export default function FreePredictions() {
                 Pronostics IA <span className="text-success">du jour</span>
               </h2>
               <p className="section-subtitle">
-                Sélection quotidienne filtrée automatiquement — les matchs terminés sont exclus.
+                BTTS + Over 2.5 séparés pour chaque match. Analyse Poisson complète avec probabilités et lambdas.
               </p>
             </div>
 
@@ -229,9 +505,8 @@ export default function FreePredictions() {
             </div>
           </div>
 
-          {/* Filters — modern SaaS style */}
+          {/* Filters */}
           <div className="flex flex-col gap-3 mb-4">
-            {/* Date filter + market filter row */}
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mr-1">Date:</span>
               {([
@@ -275,7 +550,6 @@ export default function FreePredictions() {
               ))}
             </div>
 
-            {/* League filter — horizontal scroll */}
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mr-1">Ligue:</span>
               <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar -mx-1 px-1 py-0.5">
@@ -297,11 +571,11 @@ export default function FreePredictions() {
           </div>
         </motion.div>
 
-        {/* Table / list */}
+        {/* Cards grid */}
         {loading ? (
-          <div className="space-y-2">
-            {[1, 2, 3, 4, 5].map(i => (
-              <div key={i} className="squircle h-16 animate-pulse" />
+          <div className="grid sm:grid-cols-2 gap-3">
+            {[1, 2, 3, 4].map(i => (
+              <div key={i} className="squircle-lg h-72 animate-pulse" />
             ))}
           </div>
         ) : filteredMatches.length === 0 ? (
@@ -316,99 +590,16 @@ export default function FreePredictions() {
             <p className="text-gray-400 text-sm">Aucun pronostic pour ces filtres. Reviens demain !</p>
           </div>
         ) : (
-          <>
-            {/* Desktop table header */}
-            <div className="hidden md:grid squircle-lg px-5 py-3 mb-2 sticky top-16 z-30"
-              style={{ gridTemplateColumns: 'minmax(60px, auto) minmax(180px, 1fr) minmax(120px, auto) minmax(140px, auto) minmax(100px, auto)' }}
-            >
-              <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Statut</div>
-              <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Match</div>
-              <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Ligue</div>
-              <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Pronostics IA</div>
-              <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold text-right">Action</div>
-            </div>
-
-            {/* Rows */}
-            <div className="space-y-1">
-              {filteredMatches.map((m, i) => {
-                const teams = m.match.split(/\s+vs?\s+/i)
-                const home = teams[0]?.trim() || m.match
-                const away = teams[1]?.trim() || ''
-                const homeLogo = m.homeLogo || resolveTeamLogo(home)
-                const awayLogo = m.awayLogo || resolveTeamLogo(away)
-                const status = getMatchStatus(m.date, m.time)
-
-                return (
-                  <motion.div
-                    key={`${m.match}-${m.date}-${m.time}`}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: Math.min(i * 0.02, 0.2) }}
-                    className="squircle-lg"
-                  >
-                    <div className="pred-row">
-                      {/* Status */}
-                      <div className="min-w-0">
-                        <StatusPill date={m.date} time={m.time} />
-                      </div>
-
-                      {/* Match */}
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          {homeLogo && (
-                            <img src={homeLogo} alt={home} className="w-5 h-5 object-contain flex-shrink-0" loading="lazy" />
-                          )}
-                          <span className="text-sm text-white font-semibold truncate">{home}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          {awayLogo && (
-                            <img src={awayLogo} alt={away} className="w-5 h-5 object-contain flex-shrink-0" loading="lazy" />
-                          )}
-                          <span className="text-sm text-white font-semibold truncate">{away}</span>
-                        </div>
-                      </div>
-
-                      {/* League */}
-                      <div className="min-w-0 hidden md:block">
-                        <span className="text-[10px] text-gray-500 truncate block">{m.league}</span>
-                        <span className="text-[9px] text-gray-600 mono">{m.date}</span>
-                      </div>
-
-                      {/* Predictions */}
-                      <div className="flex flex-wrap gap-1.5 min-w-0">
-                        {m.btts && <PredictionPill type="BTTS" prediction={m.btts.prediction} confidence={m.btts.confidence} />}
-                        {m.over25 && <PredictionPill type="O2.5" prediction={m.over25.prediction} confidence={m.over25.confidence} />}
-                      </div>
-
-                      {/* Action */}
-                      <div className="text-right min-w-0">
-                        <a
-                          href={AFFILIATE.linebet}
-                          rel="sponsored nofollow"
-                          target="_blank"
-                          className="inline-flex items-center gap-1 px-3 py-1.5 btn-linebet cta-glow text-[11px] font-bold rounded-md"
-                        >
-                          Parier
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                            <polyline points="12 5 19 12 12 19" />
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
-                  </motion.div>
-                )
-              })}
-            </div>
-
-            {/* Footer */}
-            <div className="text-center mt-6">
-              <p className="text-[11px] text-gray-600">
-                Pronostics générés par IA — modèles Poisson calibrés sur 50 000+ matchs. Aucune garantie future.
-              </p>
-            </div>
-          </>
+          <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
+            {filteredMatches.map((m, i) => (
+              <PredictionCard key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} />
+            ))}
+          </div>
         )}
+
+        <p className="text-center text-[11px] text-gray-600 mt-6">
+          Pronostics générés par IA — modèles Poisson calibrés sur 50 000+ matchs. Aucune garantie future.
+        </p>
       </div>
     </section>
   )
