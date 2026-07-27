@@ -54,7 +54,7 @@ export default function Hero() {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-10 pb-6 sm:pt-16 sm:pb-8"
+        className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-8 pb-4 sm:pt-12 sm:pb-5"
       >
         {/* 3D Football — Desktop only, top right area */}
         <div className="hidden lg:block absolute top-20 right-8 xl:right-16">

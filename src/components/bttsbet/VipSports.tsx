@@ -247,7 +247,7 @@ function VipSportCard({ sport, onUnlock, index }: { sport: SportVip; onUnlock: (
   const [accuracyRef, accuracyDisplay] = useCountUp(88 + index, 1800, { threshold: 0.3, from: 0 })
 
   return (
-    <section ref={ref} id={`vip-${sport.id}`} className="py-3 sm:py-4 px-4 relative overflow-hidden">
+    <section ref={ref} id={`vip-${sport.id}`} className="py-2 sm:py-3 px-4 relative overflow-hidden">
       {/* Hidden SEO keywords — H2 injected for search engines */}
       <h2 className="sr-only">
         {sport.keywords.join(' · ')}
@@ -366,7 +366,7 @@ export default function VipSports() {
 
   return (
     <>
-      <section ref={ref} className="section-entrance morph-glow py-4 sm:py-5 px-4 relative overflow-hidden" id="vip-sports">
+      <section ref={ref} className="section-entrance morph-glow py-3 sm:py-4 px-4 relative overflow-hidden" id="vip-sports">
         {/* Background mesh */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/3 w-[500px] h-[400px] bg-gold/4 rounded-full blur-[140px] opacity-50" />

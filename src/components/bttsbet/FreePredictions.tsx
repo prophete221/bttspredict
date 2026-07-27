@@ -499,7 +499,7 @@ export default function FreePredictions() {
   const [o25Ref, o25Display] = useCountUp(o25Stats, 1400, { threshold: 0.3 })
 
   return (
-    <section ref={ref} id="free-predictions" className="section-entrance morph-glow pt-4 pb-1 sm:pt-6 sm:pb-2 px-4">
+    <section ref={ref} id="free-predictions" className="section-entrance morph-glow pt-3 pb-0 sm:pt-4 sm:pb-1 px-4">
       <div className="max-w-5xl mx-auto">
         <motion.div
           variants={staggerContainer}
@@ -559,7 +559,7 @@ export default function FreePredictions() {
         </motion.div>
 
         {loading ? (
-          <div className="space-y-3 py-4">
+          <div className="space-y-2 py-2">
             {[1, 2, 3].map((i) => (
               <div key={i} className="skeleton h-16 w-full" />
             ))}
@@ -592,7 +592,7 @@ export default function FreePredictions() {
             {dateGroups.today.length > 0 && (
               <>
                 <DateGroupHeader label="Aujourd'hui" count={dateGroups.today.length} color="emerald" />
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   {dateGroups.today.map((m, i) => (
                     <MatchRow key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} />
                   ))}
@@ -602,7 +602,7 @@ export default function FreePredictions() {
             {dateGroups.tomorrow.length > 0 && (
               <>
                 <DateGroupHeader label="Demain" count={dateGroups.tomorrow.length} color="gold" />
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   {dateGroups.tomorrow.map((m, i) => (
                     <MatchRow key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} />
                   ))}
@@ -612,7 +612,7 @@ export default function FreePredictions() {
             {dateGroups.upcoming.length > 0 && (
               <>
                 <DateGroupHeader label="À venir" count={dateGroups.upcoming.length} color="royal" />
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   {dateGroups.upcoming.map((m, i) => (
                     <MatchRow key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} />
                   ))}
@@ -622,7 +622,7 @@ export default function FreePredictions() {
           </div>
         )}
 
-        <div className="text-center mt-6">
+        <div className="text-center mt-3">
           <p className="text-[11px] text-gray-600">
             Pronostics générés par IA — dates réelles des matchs vérifiées
           </p>
