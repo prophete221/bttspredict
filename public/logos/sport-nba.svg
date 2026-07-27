@@ -1,11 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Basketball NBA">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FFCC4D"/>
-      <stop offset="100%" stop-color="#FF8C00"/>
+    <linearGradient id="bs-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F4732C"/>
+      <stop offset="100%" stop-color="#C5531A"/>
     </linearGradient>
+    <radialGradient id="bs-glow" cx="0.3" cy="0.3" r="0.7">
+      <stop offset="0%" stop-color="#FFA871" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#C5531A" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <circle cx="20" cy="20" r="17" fill="url(#bg)" opacity="0.9"/>
-  <path d="M14 28V14l6 8 6-8v14" fill="none" stroke="#1A0F00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
-  <path d="M20 8a3 3 0 0 1 0 6 3 3 0 0 1 0-6z" fill="#1A0F00" opacity="0.6"/>
+  <circle cx="32" cy="32" r="30" fill="url(#bs-grad)"/>
+  <circle cx="32" cy="32" r="30" fill="url(#bs-glow)"/>
+  <circle cx="32" cy="32" r="28" fill="none" stroke="#FFFFFF" stroke-width="0.5" opacity="0.3"/>
+  <!-- Basketball lines -->
+  <line x1="32" y1="2" x2="32" y2="62" stroke="#05080F" stroke-width="1.5" opacity="0.85"/>
+  <line x1="2" y1="32" x2="62" y2="32" stroke="#05080F" stroke-width="1.5" opacity="0.85"/>
+  <path d="M 6 18 Q 32 32 6 46" fill="none" stroke="#05080F" stroke-width="1.5" opacity="0.85"/>
+  <path d="M 58 18 Q 32 32 58 46" fill="none" stroke="#05080F" stroke-width="1.5" opacity="0.85"/>
+  <!-- Highlight -->
+  <ellipse cx="22" cy="22" rx="6" ry="3" fill="#FFFFFF" opacity="0.3" transform="rotate(-30 22 22)"/>
 </svg>
