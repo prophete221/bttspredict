@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { NAV_LINKS, SITE, AFFILIATE } from '@/lib/constants'
 import { buttonHover, subtleHover, modalBackdrop, modalContent } from '@/lib/motionPresets'
+import LanguageSwitcher from './LanguageSwitcher'
 
 function scrollToSection(id: string) {
   const el = document.getElementById(id)
@@ -82,24 +83,23 @@ export default function Navbar() {
             className="flex items-center gap-2 group shrink-0"
             aria-label="BttsBet — Retour en haut"
           >
-            <div className="w-8 h-8 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center group-hover:border-gold/40 transition-colors">
+            <div className="w-9 h-9 rounded-lg bg-brand border border-success/30 flex items-center justify-center group-hover:border-success/60 transition-colors">
               <svg
-                width="16"
-                height="16"
+                width="18"
+                height="18"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#FACC15"
-                strokeWidth="2.5"
+                stroke="#1DB954"
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-                <path d="M2 12h20" />
+                <path d="M3 3v18h18" />
+                <path d="M7 14l4-4 4 4 5-5" />
               </svg>
             </div>
-            <span className="text-lg font-extrabold text-white tracking-tight">
-              {SITE.name}
+            <span className="text-lg font-bold text-white tracking-tight">
+              {SITE.name} <span className="text-success">AI</span>
             </span>
           </a>
 
@@ -130,6 +130,9 @@ export default function Navbar() {
 
           {/* Right section */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+
             {/* Promo Code Pill */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -139,7 +142,7 @@ export default function Navbar() {
               whileHover="hover"
               whileTap="tap"
               style={{ willChange: 'transform, opacity' }}
-              className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 min-h-[44px] rounded-full border border-gold/20 bg-gold/[0.04] cursor-pointer hover:bg-gold/[0.08] hover:border-gold/40 transition-all select-none"
+              className="hidden sm:flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 min-h-[44px] rounded-full border border-gold/20 bg-gold/[0.04] cursor-pointer hover:bg-gold/[0.08] hover:border-gold/40 transition-all select-none"
               onClick={copyCode}
               role="button"
               tabIndex={0}

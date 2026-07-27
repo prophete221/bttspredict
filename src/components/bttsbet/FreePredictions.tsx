@@ -2,49 +2,20 @@
 
 import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
+import { useScrollAnimation } from '@/hooks/useAnimations'
 import { AFFILIATE } from '@/lib/constants'
-import { staggerContainer, staggerChildFadeUp, cardHoverLift, subtleHover, badgePulse } from '@/lib/motionPresets'
-import { AIBrain } from './AnimatedIcons'
+import { staggerContainer, staggerChildFadeUp, subtleHover, badgePulse } from '@/lib/motionPresets'
 import { resolveTeamLogo } from '@/lib/teamLogos'
 import PremiumButton from './PremiumButton'
 
 // ─── Helpers ────────────────────────────────────────────────────────────
-function formatDateShort(dateStr: string) {
-  if (!dateStr) return ''
-  try {
-    const d = new Date(dateStr + 'T12:00:00')
-    const day = d.getDate().toString().padStart(2, '0')
-    const month = (d.getMonth() + 1).toString().padStart(2, '0')
-    const today = new Date(); today.setHours(12, 0, 0, 0)
-    const matchDate = new Date(dateStr + 'T12:00:00')
-    const diffDays = Math.round((matchDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
-    if (diffDays === 0) return 'Auj.'
-    if (diffDays === 1) return 'Dem.'
-    const weekdays = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam']
-    return `${weekdays[d.getDay()]} ${day}/${month}`
-  } catch { return dateStr }
-}
-
-function getDateGroup(dateStr: string): 'today' | 'tomorrow' | 'upcoming' {
-  const today = new Date(); today.setHours(12, 0, 0, 0)
-  const matchDate = new Date(dateStr + 'T12:00:00')
-  const diffDays = Math.round((matchDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
-  if (diffDays === 0) return 'today'
-  if (diffDays === 1) return 'tomorrow'
-  return 'upcoming'
-}
-
 function getMatchStatus(date: string, time?: string): 'live' | 'upcoming' | 'finished' {
   if (!date) return 'finished'
   try {
     const today = new Date(); today.setHours(0, 0, 0, 0)
     const matchDay = new Date(date + 'T00:00:00'); matchDay.setHours(0, 0, 0, 0)
-    // Past day → finished
     if (matchDay.getTime() < today.getTime()) return 'finished'
-    // Future day → upcoming
     if (matchDay.getTime() > today.getTime()) return 'upcoming'
-    // Today — check time
     if (!time || time === '--:--' || !/^\d{2}:\d{2}$/.test(time)) return 'upcoming'
     const [h, m] = time.split(':').map(Number)
     const matchDateTime = new Date(date + 'T00:00:00')
@@ -57,17 +28,21 @@ function getMatchStatus(date: string, time?: string): 'live' | 'upcoming' | 'fin
   } catch { return 'finished' }
 }
 
-function getTimeUntil(date: string, time?: string): string {
-  if (!date) return ''
+function getTimeUntil(date: string, time?: string): { value: string; label: string } | null {
+  if (!date || !time || time === '--:--' || !/^\d{2}:\d{2}$/.test(time)) return null
   try {
-    const matchDateTime = new Date(`${date}T${time || '12:00'}:00`)
+    const [h, m] = time.split(':').map(Number)
+    const matchDateTime = new Date(date + 'T00:00:00')
+    matchDateTime.setHours(h, m, 0, 0)
     const diffMs = matchDateTime.getTime() - Date.now()
-    if (diffMs < 0) return ''
+    if (diffMs < 0) return null
     const diffMin = Math.floor(diffMs / (1000 * 60))
     const diffHours = Math.floor(diffMin / 60)
-    if (diffHours > 0) return `${diffHours}h${diffMin % 60 ? ` ${diffMin % 60}min` : ''}`
-    return `${diffMin}min`
-  } catch { return '' }
+    const diffDays = Math.floor(diffHours / 24)
+    if (diffDays > 0) return { value: `J-${diffDays}`, label: 'jours' }
+    if (diffHours > 0) return { value: `${diffHours}h${diffMin % 60 ? ` ${diffMin % 60}min` : ''}`, label: 'restant' }
+    return { value: `${diffMin}min`, label: 'restant' }
+  } catch { return null }
 }
 
 interface MatchData {
@@ -75,192 +50,52 @@ interface MatchData {
   league: string
   date: string
   time: string
-  matchSemantic?: string
   homeLogo: string
   awayLogo: string
   btts: { prediction: string; confidence: number } | null
   over25: { prediction: string; confidence: number } | null
 }
 
-// ─── Team Logo ──────────────────────────────────────────────────────────
-function TeamLogo({ src, name, size = 40 }: { src?: string; name: string; size?: number }) {
-  const [imgError, setImgError] = useState(false)
-  const initials = name?.slice(0, 3).toUpperCase() || '?'
+type FilterType = 'all' | 'BTTS' | 'O2.5'
+type DateFilter = 'all' | 'today' | 'tomorrow' | '7days'
 
-  if (!src || imgError) {
+// ─── Status pill ────────────────────────────────────────────────────────
+function StatusPill({ date, time }: { date: string; time: string }) {
+  const status = getMatchStatus(date, time)
+  if (status === 'live') {
     return (
-      <div
-        className="rounded-lg bg-gradient-to-br from-gold/10 to-midnight/40 border border-gold/15 flex items-center justify-center text-gold/70 font-bold flex-shrink-0"
-        style={{ width: size, height: size, fontSize: size * 0.3 }}
-      >
-        {initials}
+      <span className="badge badge-live">
+        <span className="v31-ticker-dot live" /> LIVE
+      </span>
+    )
+  }
+  const timeUntil = getTimeUntil(date, time)
+  if (timeUntil) {
+    return (
+      <div className="text-right">
+        <div className="text-[9px] text-gray-500 uppercase tracking-wider font-bold">{timeUntil.label}</div>
+        <div className="text-success font-bold text-xs tabular-nums mono">{timeUntil.value}</div>
       </div>
     )
   }
   return (
-    <img
-      src={src}
-      alt={name}
-      className="rounded-lg object-contain flex-shrink-0 border border-edge/40 bg-white/5"
-      style={{ width: size, height: size }}
-      loading="lazy"
-      onError={() => setImgError(true)}
-    />
-  )
-}
-
-// ─── Prediction Pill ────────────────────────────────────────────────────
-function PredictionPill({ type, prediction, confidence }: { type: string; prediction: string; confidence: number }) {
-  const isBtts = type === 'BTTS'
-  const isPositive = prediction === 'Oui'
-  const color = isBtts
-    ? (isPositive ? 'gold' : 'rose')
-    : (isPositive ? 'mint' : 'rose')
-
-  const styles: Record<string, string> = {
-    gold: 'bg-gold/10 border-gold/30 text-gold',
-    mint: 'bg-success/10 border-success/30 text-success',
-    rose: 'bg-lose/10 border-lose/30 text-lose',
-  }
-
-  return (
-    <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border ${styles[color]} text-xs font-bold`}>
-      <span className="text-[10px] uppercase tracking-wider opacity-80">{isBtts ? 'BTTS' : 'O2.5'}</span>
-      <span>{prediction}</span>
-      <span className="text-[10px] opacity-60 tabular-nums">{confidence}%</span>
+    <div className="text-right">
+      <div className="text-[9px] text-gray-500 uppercase tracking-wider font-bold">Heure</div>
+      <div className="text-white font-bold text-xs tabular-nums mono">{time}</div>
     </div>
   )
 }
 
-// ─── Match Card (Premium) ───────────────────────────────────────────────
-function MatchCard({ match, index }: { match: MatchData; index: number }) {
-  const [expanded, setExpanded] = useState(false)
-  const teams = match.match.split(/\s+vs?\s+/i)
-  const home = teams[0]?.trim() || ''
-  const away = teams[1]?.trim() || ''
-  const homeLogo = match.homeLogo || resolveTeamLogo(home)
-  const awayLogo = match.awayLogo || resolveTeamLogo(away)
-
-  const status = getMatchStatus(match.date, match.time)
-  const timeUntil = getTimeUntil(match.date, match.time)
-  const dateLabel = formatDateShort(match.date)
-
-  const avgConfidence = Math.round(
-    ((match.btts?.confidence || 0) + (match.over25?.confidence || 0)) /
-    ((match.btts ? 1 : 0) + (match.over25 ? 1 : 0) || 1)
-  )
+// ─── Prediction pill ────────────────────────────────────────────────────
+function PredictionPill({ type, prediction, confidence }: { type: string; prediction: string; confidence: number }) {
+  const isPositive = prediction === 'Oui'
+  const color = isPositive ? 'badge-mint' : 'badge-rose'
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: Math.min(index * 0.04, 0.3) }}
-      variants={cardHoverLift}
-      whileHover="hover"
-      onClick={() => setExpanded(e => !e)}
-      className="pred-card cursor-pointer group"
-    >
-      {/* Live badge if live */}
-      {status === 'live' && (
-        <div className="absolute top-2 right-2 z-10">
-          <span className="badge badge-mint badge-pulse text-[9px]">
-            <span className="v31-ticker-dot" /> LIVE
-          </span>
-        </div>
-      )}
-
-      <div className="flex items-center gap-3 mb-3">
-        {/* Time/Date block */}
-        <div className="flex-shrink-0 text-center min-w-[48px]">
-          {status === 'live' ? (
-            <>
-              <div className="text-[9px] text-success/60 uppercase tracking-widest font-bold">En cours</div>
-              <div className="text-success font-bold text-xs font-mono">LIVE</div>
-            </>
-          ) : status === 'upcoming' && timeUntil ? (
-            <>
-              <div className="text-[9px] text-gold/60 uppercase tracking-widest font-bold">Dans</div>
-              <div className="text-gold font-bold text-xs font-mono tabular-nums">{timeUntil}</div>
-            </>
-          ) : (
-            <>
-              <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">{dateLabel}</div>
-              <div className="text-white font-bold text-xs font-mono tabular-nums">{match.time || '--:--'}</div>
-            </>
-          )}
-        </div>
-
-        <div className="w-px h-12 bg-edge flex-shrink-0" />
-
-        {/* Teams */}
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-1">
-            <TeamLogo src={homeLogo} name={home} size={28} />
-            <span className="text-white text-sm font-semibold truncate">{home}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <TeamLogo src={awayLogo} name={away} size={28} />
-            <span className="text-white text-sm font-semibold truncate">{away}</span>
-          </div>
-        </div>
-
-        {/* League + confidence */}
-        <div className="flex-shrink-0 text-right hidden sm:block">
-          <div className="text-[10px] text-gray-500 truncate max-w-[100px]">{match.league}</div>
-          <div className="text-[10px] text-gold/70 font-bold tabular-nums mt-1">{avgConfidence}%</div>
-        </div>
-      </div>
-
-      {/* Predictions */}
-      <div className="flex flex-wrap gap-1.5">
-        {match.btts && <PredictionPill type="BTTS" prediction={match.btts.prediction} confidence={match.btts.confidence} />}
-        {match.over25 && <PredictionPill type="O2.5" prediction={match.over25.prediction} confidence={match.over25.confidence} />}
-      </div>
-
-      {/* Confidence bar */}
-      <div className="confidence-bar mt-3">
-        <div className="confidence-bar-fill" style={{ width: `${avgConfidence}%` }} />
-      </div>
-
-      {/* Expanded: CTA */}
-      <AnimatePresence>
-        {expanded && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="mt-4 pt-4 border-t border-edge/40">
-              <div className="flex items-center justify-between gap-3 mb-3">
-                <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Parier sur ce match</div>
-                <span className="text-[10px] text-gold/60">Code promo VISION221</span>
-              </div>
-              <div className="grid grid-cols-2 gap-2">
-                <PremiumButton variant="linebet" href={AFFILIATE.linebet} size="sm" fullWidth>
-                  Linebet
-                </PremiumButton>
-                <PremiumButton variant="star888" href={AFFILIATE.star888} size="sm" fullWidth>
-                  888starz
-                </PremiumButton>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  )
-}
-
-// ─── Date Group Header ──────────────────────────────────────────────────
-function DateGroupHeader({ label, count, color }: { label: string; count: number; color: 'gold' | 'mint' | 'neutral' }) {
-  const colorClass = color === 'gold' ? 'text-gold' : color === 'mint' ? 'text-success' : 'text-gray-400'
-  return (
-    <div className="flex items-center gap-3 mb-3 mt-5 first:mt-0">
-      <span className={`text-sm font-bold ${colorClass}`}>{label}</span>
-      <span className="text-[10px] text-gray-500 tabular-nums">({count})</span>
-      <div className="flex-1 h-px bg-edge/40" />
+    <div className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-md ${color === 'badge-mint' ? 'bg-success/10 border border-success/30' : 'bg-lose/10 border border-lose/30'}`}>
+      <span className="text-[9px] uppercase tracking-wider font-bold opacity-80">{type}</span>
+      <span className={`text-xs font-bold ${isPositive ? 'text-success-light' : 'text-lose-light'}`}>{prediction}</span>
+      <span className="text-[9px] text-gray-500 tabular-nums">{confidence}%</span>
     </div>
   )
 }
@@ -271,10 +106,8 @@ export default function FreePredictions() {
   const [matches, setMatches] = useState<MatchData[]>([])
   const [loading, setLoading] = useState(true)
   const [activeLeague, setActiveLeague] = useState<string>('all')
-
-  const [totalRef, totalDisplay] = useCountUp(0, 1200, { threshold: 0.3 })
-  const [bttsRef, bttsDisplay] = useCountUp(0, 1200, { threshold: 0.3 })
-  const [o25Ref, o25Display] = useCountUp(0, 1200, { threshold: 0.3 })
+  const [activeType, setActiveType] = useState<FilterType>('all')
+  const [activeDate, setActiveDate] = useState<DateFilter>('all')
 
   useEffect(() => {
     fetch('/predictions.json')
@@ -283,10 +116,7 @@ export default function FreePredictions() {
         if (!data?.predictions) return
         const matchMap = new Map<string, MatchData>()
         for (const p of data.predictions) {
-          // Skip finished matches — only show live + upcoming
-          const status = getMatchStatus(p.date, p.time)
-          if (status === 'finished') continue
-
+          if (getMatchStatus(p.date, p.time) === 'finished') continue
           const key = p.matchSemantic || p.match
           if (!matchMap.has(key)) {
             matchMap.set(key, {
@@ -294,7 +124,6 @@ export default function FreePredictions() {
               league: p.league,
               date: p.date,
               time: p.time || '--:--',
-              matchSemantic: p.matchSemantic,
               homeLogo: p.homeLogo || '',
               awayLogo: p.awayLogo || '',
               btts: null,
@@ -305,17 +134,15 @@ export default function FreePredictions() {
           if (p.type === 'BTTS') m.btts = { prediction: p.prediction, confidence: p.confidence }
           else if (p.type.includes('Over')) m.over25 = { prediction: p.prediction, confidence: p.confidence }
         }
-        const all = [...matchMap.values()]
-          .sort((a, b) => {
-            // Live first, then by date+time
-            const sa = getMatchStatus(a.date, a.time)
-            const sb = getMatchStatus(b.date, b.time)
-            if (sa === 'live' && sb !== 'live') return -1
-            if (sb === 'live' && sa !== 'live') return 1
-            const da = `${a.date}T${a.time || '23:59'}`
-            const db = `${b.date}T${b.time || '23:59'}`
-            return da.localeCompare(db)
-          })
+        const all = [...matchMap.values()].sort((a, b) => {
+          const sa = getMatchStatus(a.date, a.time)
+          const sb = getMatchStatus(b.date, b.time)
+          if (sa === 'live' && sb !== 'live') return -1
+          if (sb === 'live' && sa !== 'live') return 1
+          const da = `${a.date}T${a.time || '23:59'}`
+          const db = `${b.date}T${b.time || '23:59'}`
+          return da.localeCompare(db)
+        })
         setMatches(all)
         setLoading(false)
       })
@@ -325,41 +152,37 @@ export default function FreePredictions() {
   const leagues = useMemo(() => {
     const set = new Set<string>()
     matches.forEach(m => set.add(m.league))
-    return ['all', ...Array.from(set).slice(0, 8)]
+    return ['all', ...Array.from(set).slice(0, 10)]
   }, [matches])
 
   const filteredMatches = useMemo(() => {
-    if (activeLeague === 'all') return matches
-    return matches.filter(m => m.league === activeLeague)
-  }, [matches, activeLeague])
+    return matches.filter(m => {
+      if (activeLeague !== 'all' && m.league !== activeLeague) return false
+      if (activeType === 'BTTS' && !m.btts) return false
+      if (activeType === 'O2.5' && !m.over25) return false
 
-  const dateGroups = useMemo(() => {
-    return {
-      today: filteredMatches.filter(m => getDateGroup(m.date) === 'today'),
-      tomorrow: filteredMatches.filter(m => getDateGroup(m.date) === 'tomorrow'),
-      upcoming: filteredMatches.filter(m => getDateGroup(m.date) === 'upcoming'),
-    }
-  }, [filteredMatches])
+      if (activeDate !== 'all') {
+        const today = new Date(); today.setHours(0, 0, 0, 0)
+        const matchDay = new Date(m.date + 'T00:00:00'); matchDay.setHours(0, 0, 0, 0)
+        const diffDays = Math.round((matchDay.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
+        if (activeDate === 'today' && diffDays !== 0) return false
+        if (activeDate === 'tomorrow' && diffDays !== 1) return false
+        if (activeDate === '7days' && (diffDays < 0 || diffDays > 7)) return false
+      }
+      return true
+    })
+  }, [matches, activeLeague, activeType, activeDate])
 
-  // Count stats
-  useEffect(() => {
-    if (matches.length === 0) return
-    const total = matches.length
-    const btts = matches.filter(m => m.btts).length
-    const o25 = matches.filter(m => m.over25).length
-    setTimeout(() => {
-      // @ts-expect-error count-up library
-      if (totalRef?.current) totalRef.current = total
-      // @ts-expect-error count-up library
-      if (bttsRef?.current) bttsRef.current = btts
-      // @ts-expect-error count-up library
-      if (o25Ref?.current) o25Ref.current = o25
-    }, 100)
-  }, [matches, totalRef, bttsRef, o25Ref])
+  const stats = useMemo(() => ({
+    total: matches.length,
+    btts: matches.filter(m => m.btts).length,
+    o25: matches.filter(m => m.over25).length,
+    live: matches.filter(m => getMatchStatus(m.date, m.time) === 'live').length,
+  }), [matches])
 
   return (
     <section ref={ref} id="free-predictions" className="section-pad pt-4 sm:pt-6">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
           variants={staggerContainer}
@@ -369,106 +192,223 @@ export default function FreePredictions() {
         >
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-4">
             <div>
-              <div className="flex items-center gap-3 mb-2">
-                <AIBrain size={36} />
-                <div className="flex items-center gap-2">
-                  <span className="badge badge-mint badge-pulse">
-                    <span className="v31-ticker-dot" /> Live
-                  </span>
-                  <span className="eyebrow">IA en direct</span>
-                </div>
-              </div>
-              <h2 className="section-title">
-                Pronostics <span className="text-gold">IA</span> Gratuits
+              <span className="eyebrow">Dashboard IA</span>
+              <h2 className="section-title mt-2 mb-2">
+                Pronostics IA <span className="text-success">du jour</span>
               </h2>
-              <p className="section-subtitle mt-1">
-                Sélection quotidienne — matchs des 7 prochains jours
+              <p className="section-subtitle">
+                Sélection quotidienne filtrée automatiquement — les matchs terminés sont exclus.
               </p>
             </div>
 
-            {/* Stats card */}
-            <div className="flex items-center gap-3 bg-panel/70 border border-edge rounded-xl px-4 py-2.5 backdrop-blur-sm">
-              <div>
-                <div className="text-lg font-bold text-white tabular-nums">{matches.length}</div>
+            {/* Stats */}
+            <div className="flex items-center gap-3 squircle px-4 py-2.5">
+              <div className="text-center">
+                <div className="text-lg font-bold text-white tabular-nums">{stats.total}</div>
                 <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">Matchs</div>
               </div>
               <div className="w-px h-8 bg-edge" />
-              <div>
-                <div className="text-lg font-bold text-gold tabular-nums">
-                  {matches.filter(m => m.btts).length}
-                </div>
+              <div className="text-center">
+                <div className="text-lg font-bold text-success tabular-nums">{stats.btts}</div>
                 <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">BTTS</div>
               </div>
               <div className="w-px h-8 bg-edge" />
-              <div>
-                <div className="text-lg font-bold text-success tabular-nums">
-                  {matches.filter(m => m.over25).length}
-                </div>
+              <div className="text-center">
+                <div className="text-lg font-bold text-gold tabular-nums">{stats.o25}</div>
                 <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">O2.5</div>
               </div>
+              {stats.live > 0 && (
+                <>
+                  <div className="w-px h-8 bg-edge" />
+                  <div className="text-center">
+                    <div className="text-lg font-bold text-live tabular-nums">{stats.live}</div>
+                    <div className="text-[9px] text-live uppercase tracking-widest font-bold">Live</div>
+                  </div>
+                </>
+              )}
             </div>
           </div>
 
-          {/* League filters */}
-          <motion.div variants={staggerChildFadeUp} className="flex items-center gap-2 overflow-x-auto no-scrollbar -mx-4 px-4 pb-1">
-            {leagues.map(league => (
-              <motion.button
-                key={league}
-                variants={subtleHover}
-                whileHover="hover"
-                whileTap="tap"
-                onClick={() => setActiveLeague(league)}
-                className={`flex-shrink-0 px-3 py-1.5 min-h-[36px] rounded-lg text-xs font-semibold transition-all ${
-                  activeLeague === league
-                    ? 'bg-gold/10 text-gold border border-gold/30'
-                    : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300 hover:border-edge-light'
-                }`}
-              >
-                {league === 'all' ? 'Tous' : league}
-              </motion.button>
-            ))}
-          </motion.div>
+          {/* Filters — modern SaaS style */}
+          <div className="flex flex-col gap-3 mb-4">
+            {/* Date filter + market filter row */}
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mr-1">Date:</span>
+              {([
+                { id: 'all', label: 'Tous' },
+                { id: 'today', label: "Aujourd'hui" },
+                { id: 'tomorrow', label: 'Demain' },
+                { id: '7days', label: '7 jours' },
+              ] as { id: DateFilter; label: string }[]).map(f => (
+                <button
+                  key={f.id}
+                  onClick={() => setActiveDate(f.id)}
+                  className={`px-3 py-1 rounded-md text-xs font-semibold transition-all ${
+                    activeDate === f.id
+                      ? 'bg-success/15 text-success border border-success/30'
+                      : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300'
+                  }`}
+                >
+                  {f.label}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mr-1">Marché:</span>
+              {([
+                { id: 'all', label: 'Tous' },
+                { id: 'BTTS', label: 'BTTS' },
+                { id: 'O2.5', label: 'Over 2.5' },
+              ] as { id: FilterType; label: string }[]).map(f => (
+                <button
+                  key={f.id}
+                  onClick={() => setActiveType(f.id)}
+                  className={`px-3 py-1 rounded-md text-xs font-semibold transition-all ${
+                    activeType === f.id
+                      ? 'bg-success/15 text-success border border-success/30'
+                      : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300'
+                  }`}
+                >
+                  {f.label}
+                </button>
+              ))}
+            </div>
+
+            {/* League filter — horizontal scroll */}
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mr-1">Ligue:</span>
+              <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar -mx-1 px-1 py-0.5">
+                {leagues.map(league => (
+                  <button
+                    key={league}
+                    onClick={() => setActiveLeague(league)}
+                    className={`flex-shrink-0 px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all ${
+                      activeLeague === league
+                        ? 'bg-success/15 text-success border border-success/30'
+                        : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300'
+                    }`}
+                  >
+                    {league === 'all' ? 'Toutes' : league}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
         </motion.div>
 
-        {/* Loading skeleton */}
+        {/* Table / list */}
         {loading ? (
-          <div className="space-y-2 py-4">
-            {[1, 2, 3].map(i => (
-              <div key={i} className="pred-card animate-pulse h-24" />
+          <div className="space-y-2">
+            {[1, 2, 3, 4, 5].map(i => (
+              <div key={i} className="squircle h-16 animate-pulse" />
             ))}
+          </div>
+        ) : filteredMatches.length === 0 ? (
+          <div className="squircle-xl p-10 text-center">
+            <div className="w-14 h-14 bg-white/[0.04] rounded-2xl flex items-center justify-center mx-auto mb-4 border border-edge">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="1.5">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                <path d="M2 12h20" />
+              </svg>
+            </div>
+            <p className="text-gray-400 text-sm">Aucun pronostic pour ces filtres. Reviens demain !</p>
           </div>
         ) : (
           <>
-            {dateGroups.today.length > 0 && (
-              <>
-                <DateGroupHeader label="Aujourd'hui" count={dateGroups.today.length} color="mint" />
-                <div className="grid sm:grid-cols-2 gap-3">
-                  {dateGroups.today.map((m, i) => <MatchCard key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} />)}
-                </div>
-              </>
-            )}
-            {dateGroups.tomorrow.length > 0 && (
-              <>
-                <DateGroupHeader label="Demain" count={dateGroups.tomorrow.length} color="gold" />
-                <div className="grid sm:grid-cols-2 gap-3">
-                  {dateGroups.tomorrow.map((m, i) => <MatchCard key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} />)}
-                </div>
-              </>
-            )}
-            {dateGroups.upcoming.length > 0 && (
-              <>
-                <DateGroupHeader label="À venir" count={dateGroups.upcoming.length} color="neutral" />
-                <div className="grid sm:grid-cols-2 gap-3">
-                  {dateGroups.upcoming.map((m, i) => <MatchCard key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} />)}
-                </div>
-              </>
-            )}
+            {/* Desktop table header */}
+            <div className="hidden md:grid squircle-lg px-5 py-3 mb-2 sticky top-16 z-30"
+              style={{ gridTemplateColumns: 'minmax(60px, auto) minmax(180px, 1fr) minmax(120px, auto) minmax(140px, auto) minmax(100px, auto)' }}
+            >
+              <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Statut</div>
+              <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Match</div>
+              <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Ligue</div>
+              <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Pronostics IA</div>
+              <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold text-right">Action</div>
+            </div>
+
+            {/* Rows */}
+            <div className="space-y-1">
+              {filteredMatches.map((m, i) => {
+                const teams = m.match.split(/\s+vs?\s+/i)
+                const home = teams[0]?.trim() || m.match
+                const away = teams[1]?.trim() || ''
+                const homeLogo = m.homeLogo || resolveTeamLogo(home)
+                const awayLogo = m.awayLogo || resolveTeamLogo(away)
+                const status = getMatchStatus(m.date, m.time)
+
+                return (
+                  <motion.div
+                    key={`${m.match}-${m.date}-${m.time}`}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: Math.min(i * 0.02, 0.2) }}
+                    className="squircle-lg"
+                  >
+                    <div className="pred-row">
+                      {/* Status */}
+                      <div className="min-w-0">
+                        <StatusPill date={m.date} time={m.time} />
+                      </div>
+
+                      {/* Match */}
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          {homeLogo && (
+                            <img src={homeLogo} alt={home} className="w-5 h-5 object-contain flex-shrink-0" loading="lazy" />
+                          )}
+                          <span className="text-sm text-white font-semibold truncate">{home}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          {awayLogo && (
+                            <img src={awayLogo} alt={away} className="w-5 h-5 object-contain flex-shrink-0" loading="lazy" />
+                          )}
+                          <span className="text-sm text-white font-semibold truncate">{away}</span>
+                        </div>
+                      </div>
+
+                      {/* League */}
+                      <div className="min-w-0 hidden md:block">
+                        <span className="text-[10px] text-gray-500 truncate block">{m.league}</span>
+                        <span className="text-[9px] text-gray-600 mono">{m.date}</span>
+                      </div>
+
+                      {/* Predictions */}
+                      <div className="flex flex-wrap gap-1.5 min-w-0">
+                        {m.btts && <PredictionPill type="BTTS" prediction={m.btts.prediction} confidence={m.btts.confidence} />}
+                        {m.over25 && <PredictionPill type="O2.5" prediction={m.over25.prediction} confidence={m.over25.confidence} />}
+                      </div>
+
+                      {/* Action */}
+                      <div className="text-right min-w-0">
+                        <a
+                          href={AFFILIATE.linebet}
+                          rel="sponsored nofollow"
+                          target="_blank"
+                          className="inline-flex items-center gap-1 px-3 py-1.5 btn-linebet cta-glow text-[11px] font-bold rounded-md"
+                        >
+                          Parier
+                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </motion.div>
+                )
+              })}
+            </div>
+
+            {/* Footer */}
+            <div className="text-center mt-6">
+              <p className="text-[11px] text-gray-600">
+                Pronostics générés par IA — modèles Poisson calibrés sur 50 000+ matchs. Aucune garantie future.
+              </p>
+            </div>
           </>
         )}
-
-        <p className="text-center text-[11px] text-gray-600 mt-6">
-          Pronostics générés par IA — modèles Poisson calibrés sur 50 000+ matchs. Aucune garantie future.
-        </p>
       </div>
     </section>
   )

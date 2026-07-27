@@ -24,6 +24,25 @@ type Prediction = {
   }
 }
 
+function getMatchStatus(date: string, time?: string): 'live' | 'upcoming' | 'finished' {
+  if (!date) return 'finished'
+  try {
+    const today = new Date(); today.setHours(0, 0, 0, 0)
+    const matchDay = new Date(date + 'T00:00:00'); matchDay.setHours(0, 0, 0, 0)
+    if (matchDay.getTime() < today.getTime()) return 'finished'
+    if (matchDay.getTime() > today.getTime()) return 'upcoming'
+    if (!time || time === '--:--' || !/^\d{2}:\d{2}$/.test(time)) return 'upcoming'
+    const [h, m] = time.split(':').map(Number)
+    const matchDateTime = new Date(date + 'T00:00:00')
+    matchDateTime.setHours(h, m, 0, 0)
+    const diffMs = matchDateTime.getTime() - Date.now()
+    const diffHours = diffMs / (1000 * 60 * 60)
+    if (diffMs < 0 && diffHours > -2.5) return 'live'
+    if (diffMs < 0) return 'finished'
+    return 'upcoming'
+  } catch { return 'finished' }
+}
+
 export default function Hero() {
   const [sectionRef, isVisible] = useScrollAnimation(0.05)
   const [copied, setCopied] = useState(false)
@@ -45,7 +64,7 @@ export default function Hero() {
     return () => clearInterval(interval)
   }, [])
 
-  // Load top UPCOMING prediction of the day (filter out finished matches)
+  // Load top UPCOMING prediction (filter out finished)
   useEffect(() => {
     fetch('/predictions.json')
       .then(r => r.json())
@@ -53,38 +72,16 @@ export default function Hero() {
         const preds: Prediction[] = data.predictions || []
         if (preds.length === 0) return
 
-        // Filter out finished matches
-        const today = new Date(); today.setHours(0, 0, 0, 0)
-        const visible = preds.filter(p => {
-          if (!p.date) return false
-          const matchDay = new Date(p.date + 'T00:00:00'); matchDay.setHours(0, 0, 0, 0)
-          if (matchDay.getTime() < today.getTime()) return false
-          if (matchDay.getTime() > today.getTime()) return true  // future = OK
-          // Today — check time
-          if (!p.time || p.time === '--:--' || !/^\d{2}:\d{2}$/.test(p.time)) return true
-          const [h, m] = p.time.split(':').map(Number)
-          const matchDateTime = new Date(p.date + 'T00:00:00')
-          matchDateTime.setHours(h, m, 0, 0)
-          const diffMs = matchDateTime.getTime() - Date.now()
-          // Show if upcoming OR live (within last 2.5h)
-          return diffMs > -2.5 * 60 * 60 * 1000
-        })
-
+        const visible = preds.filter(p => getMatchStatus(p.date, p.time) !== 'finished')
         if (visible.length === 0) {
           setTopPrediction(null)
           return
         }
 
-        // Pick the one with highest confidence (and upcoming preferred)
-        const upcoming = visible.filter(p => {
-          if (!p.time || p.time === '--:--') return true
-          const [h, m] = p.time.split(':').map(Number)
-          const matchDateTime = new Date(p.date + 'T00:00:00')
-          matchDateTime.setHours(h, m, 0, 0)
-          return matchDateTime.getTime() > Date.now()
-        })
-
+        // Prefer upcoming over live
+        const upcoming = visible.filter(p => getMatchStatus(p.date, p.time) === 'upcoming')
         const pool = upcoming.length > 0 ? upcoming : visible
+
         const top = pool.reduce((best, p) =>
           (p.confidence || 0) > (best.confidence || 0) ? p : best, pool[0])
         setTopPrediction(top)
@@ -113,15 +110,14 @@ export default function Hero() {
     return { home: parts[0] || '', away: parts[1] || '' }
   }, [topPrediction])
 
+  const status = topPrediction ? getMatchStatus(topPrediction.date, topPrediction.time) : null
+
   return (
     <section ref={sectionRef} className="relative overflow-hidden pt-12 sm:pt-16 pb-12 sm:pb-20">
-      {/* Aurora background orbs */}
-      <div className="aurora-bg">
-        <div className="aurora-orb aurora-orb-1" />
-        <div className="aurora-orb aurora-orb-2" />
-        <div className="aurora-orb aurora-orb-3" />
-      </div>
-      <FloatingParticles count={20} />
+      {/* Brand ambient background */}
+      <div className="brand-glow-top" />
+      <div className="absolute inset-0 grid-pattern opacity-50" />
+      <FloatingParticles count={16} />
 
       <motion.div
         variants={staggerContainer}
@@ -129,14 +125,14 @@ export default function Hero() {
         animate="visible"
         className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6"
       >
-        {/* Ticker — Live indicator pill */}
+        {/* Ticker pill */}
         <motion.div
           variants={staggerChildFadeUp}
           className="flex justify-center mb-6 sm:mb-8"
         >
           <div className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-1.5">
             <span className="v31-ticker-dot" />
-            <span className="text-[10px] sm:text-xs text-violet-light font-semibold tracking-wider uppercase">IA en direct</span>
+            <span className="text-[10px] sm:text-xs text-success font-semibold tracking-wider uppercase">IA en direct</span>
             <span className="text-edge text-[10px]">|</span>
             <motion.span
               key={urgencyIndex}
@@ -153,9 +149,22 @@ export default function Hero() {
         {/* ═══ TWO-COLUMN HERO ═══ */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
-          {/* ── LEFT — Headline + CTA ── */}
+          {/* ── LEFT — Brand + title + CTAs ── */}
           <div className="text-center lg:text-left">
-            <motion.div variants={staggerChildFadeUp} className="mb-4">
+            {/* Brand identity */}
+            <motion.div variants={staggerChildFadeUp} className="mb-4 flex items-center gap-2 justify-center lg:justify-start">
+              <div className="w-9 h-9 rounded-lg bg-brand border border-success/30 flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DB954" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 3v18h18" />
+                  <path d="M7 14l4-4 4 4 5-5" />
+                </svg>
+              </div>
+              <span className="font-display font-bold text-white text-lg tracking-tight">
+                BttsBet <span className="text-success">AI</span>
+              </span>
+            </motion.div>
+
+            <motion.div variants={staggerChildFadeUp} className="mb-3">
               <span className="eyebrow">Plateforme IA nouvelle génération</span>
             </motion.div>
 
@@ -163,27 +172,31 @@ export default function Hero() {
               variants={staggerChildFadeUp}
               className="section-title-lg mb-5"
             >
-              Pronostics <span className="gradient-text-violet-cyan">football</span>
+              Plateforme de pronostics
               <br />
-              propulsés par <span className="gradient-text-coral-amber">IA</span>
+              <span className="gradient-text-green-gold">sportifs propulsée par IA</span>
             </motion.h1>
 
             <motion.p
               variants={staggerChildFadeUp}
               className="text-gray-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-6 leading-relaxed"
             >
-              Notre IA analyse <span className="text-white font-semibold">50 000+ matchs</span> en temps réel :
-              xG, forme, blessés, historique. Précision historique{' '}
-              <span className="text-violet-light font-bold glow-text-violet">~87%</span>.
+              BTTS, Over 2.5, multi-sports. Précision historique{' '}
+              <span className="text-success font-bold glow-text-green">~87%</span> — pour parieurs pros en Afrique et dans le monde.
               Aucune garantie future.
             </motion.p>
 
-            {/* Senegal-focused subtitle */}
+            {/* Bonus subtitle */}
             <motion.p
               variants={staggerChildFadeUp}
-              className="text-coral-light text-sm sm:text-base font-bold mb-6 max-w-xl mx-auto lg:mx-0 urgency-pulse"
+              className="text-gold text-sm sm:text-base font-semibold mb-6 max-w-xl mx-auto lg:mx-0"
             >
-              Bonus 90 000 XOF (150$) avec <span className="text-linebet-light font-bold">VISION221</span> — Wave / Orange Money / Free Money
+              <span className="inline-flex items-center gap-1.5">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                Bonus 90 000 XOF (150$) avec <span className="text-success-light font-bold">{SITE.promoCode}</span> — Wave / Orange Money / Free Money
+              </span>
             </motion.p>
 
             {/* 18+ Badge */}
@@ -191,169 +204,169 @@ export default function Hero() {
               variants={staggerChildFadeUp}
               className="flex justify-center lg:justify-start mb-6"
             >
-              <div className="inline-flex items-center gap-1.5 bg-violet/10 border border-violet/25 rounded-full px-3 py-1">
-                <span className="text-violet-light font-extrabold text-xs">18+</span>
+              <div className="inline-flex items-center gap-1.5 bg-brand/40 border border-success/25 rounded-full px-3 py-1">
+                <span className="text-success-light font-bold text-xs">18+</span>
                 <span className="text-[10px] text-gray-500">Jeu réservé aux adultes • Les paris comportent des risques</span>
               </div>
             </motion.div>
 
-            {/* ═══ PROMO CODE — Compact inline card ═══ */}
+            {/* CTAs */}
             <motion.div
               variants={staggerChildFadeUp}
-              className="flex justify-center lg:justify-start mb-6"
+              className="flex flex-wrap gap-3 justify-center lg:justify-start items-center"
+            >
+              <motion.a
+                variants={buttonHover}
+                whileHover="hover"
+                whileTap="tap"
+                href="#free-predictions"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.getElementById('free-predictions')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+                className="inline-flex items-center gap-2 px-6 py-3 btn-success cta-glow text-sm font-semibold rounded-xl"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 2 a10 10 0 0 1 10 10 l-10 0 z" fill="currentColor" />
+                </svg>
+                Accéder aux pronostics du jour
+              </motion.a>
+
+              <motion.a
+                variants={buttonHover}
+                whileHover="hover"
+                whileTap="tap"
+                href="#how-it-works"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+                className="inline-flex items-center gap-2 px-5 py-3 btn-ghost text-sm font-medium rounded-xl"
+              >
+                Découvrir la méthode IA
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </motion.a>
+            </motion.div>
+
+            {/* Promo code inline */}
+            <motion.div
+              variants={staggerChildFadeUp}
+              className="mt-6 flex justify-center lg:justify-start"
             >
               <motion.div
                 variants={cardHoverLift}
                 whileHover="hover"
                 whileTap="tap"
-                className="w-full max-w-md glass-promo px-5 py-4 sm:px-6 sm:py-5"
+                className="glass-promo px-4 py-3 inline-flex items-center gap-3"
               >
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex-1 min-w-0">
-                    <div className="text-[10px] text-violet-light uppercase tracking-[0.15em] font-bold mb-1">Code Promo Exclusif</div>
-                    <motion.span
-                      variants={badgePulse}
-                      animate="animate"
-                      className="text-xl sm:text-2xl font-black tracking-[0.12em] promo-code-shimmer block"
-                    >
-                      {SITE.promoCode}
-                    </motion.span>
-                  </div>
-                  <motion.button
-                    variants={buttonHover}
-                    whileHover="hover"
-                    whileTap="tap"
-                    onClick={copyPromoCode}
-                    className={`flex items-center gap-1.5 text-xs font-bold transition-all px-3 py-2 rounded-lg border ${
-                      copied ? 'border-success/40 text-success bg-success/10' : 'border-violet/30 text-violet-light bg-violet/5'
-                    }`}
-                    aria-label="Copier le code promo"
+                <div>
+                  <div className="text-[9px] text-gold-light uppercase tracking-[0.15em] font-bold">Code promo</div>
+                  <motion.span
+                    variants={badgePulse}
+                    animate="animate"
+                    className="text-base font-black tracking-[0.12em] promo-code-shimmer"
                   >
-                    {copied ? (
-                      <>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                        Copié
-                      </>
-                    ) : (
-                      <>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
-                        Copier
-                      </>
-                    )}
-                  </motion.button>
+                    {SITE.promoCode}
+                  </motion.span>
                 </div>
-                <p className="text-[10px] text-gray-500 mt-2">
-                  À utiliser sur <span className="text-linebet-light font-semibold">Linebet</span> ou <span className="text-star888-light font-semibold">888starz</span>
-                </p>
+                <motion.button
+                  variants={buttonHover}
+                  whileHover="hover"
+                  whileTap="tap"
+                  onClick={copyPromoCode}
+                  className={`flex items-center gap-1 text-xs font-semibold transition-all px-2.5 py-1.5 rounded-lg border ${
+                    copied ? 'border-success/40 text-success bg-success/10' : 'border-gold/30 text-gold-light bg-gold/5'
+                  }`}
+                  aria-label="Copier le code promo"
+                >
+                  {copied ? (
+                    <>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                      Copié
+                    </>
+                  ) : (
+                    <>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+                      Copier
+                    </>
+                  )}
+                </motion.button>
               </motion.div>
-            </motion.div>
-
-            {/* CTA Buttons */}
-            <motion.div
-              variants={staggerChildFadeUp}
-              className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start items-center"
-            >
-              <PremiumButton variant="linebet" href={AFFILIATE.linebet} size="md">
-                <span className="sm:hidden">Bonus 90 000 XOF</span>
-                <span className="hidden sm:inline">Inscription → Bonus 90 000 XOF</span>
-              </PremiumButton>
-
-              <PremiumButton variant="star888" href={AFFILIATE.star888} size="md">
-                888starz Bonus 100%
-              </PremiumButton>
             </motion.div>
           </div>
 
-          {/* ── RIGHT — Top Prediction Card ── */}
-          <motion.div
-            variants={staggerChildFadeUp}
-            className="relative"
-          >
+          {/* ── RIGHT — Match of the day card ── */}
+          <motion.div variants={staggerChildFadeUp} className="relative">
             {topPrediction && matchTeams ? (
-              <motion.div
-                variants={cardHoverLift}
-                whileHover="hover"
-                className="relative"
-              >
-                <div className="glass-promo p-5 sm:p-6 relative overflow-hidden">
-                  {/* Holographic gradient border effect */}
-                  <div className="absolute inset-0 rounded-[inherit] pointer-events-none"
-                    style={{
-                      background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.4) 0%, transparent 30%, transparent 70%, rgba(6, 182, 212, 0.4) 100%)',
-                      padding: '1px',
-                      WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                      WebkitMaskComposite: 'xor',
-                      maskComposite: 'exclude',
-                    }}
-                  />
+              <motion.div variants={cardHoverLift} whileHover="hover" className="relative">
+                <div className="squircle-xl p-5 sm:p-6 relative overflow-hidden border-2 border-success/20">
+                  {/* Top accent line */}
+                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-success to-transparent" />
 
-                  {/* Top label */}
-                  <div className="flex items-center justify-between mb-4">
+                  {/* Header */}
+                  <div className="flex items-center justify-between mb-5">
                     <div className="inline-flex items-center gap-2">
-                      <span className="badge badge-gold badge-pulse">⭐ Top du jour</span>
-                      <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">
+                      <span className="badge badge-mint badge-pulse">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+                        Match du jour
+                      </span>
+                      <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold hidden sm:inline">
                         {topPrediction.league}
                       </span>
                     </div>
-                    <span className="text-[10px] text-gray-500 mono">{topPrediction.time || formatTimeFallback(topPrediction.date)}</span>
+                    {status === 'live' && (
+                      <span className="badge badge-live">
+                        <span className="v31-ticker-dot live" /> LIVE
+                      </span>
+                    )}
+                    {status === 'upcoming' && (
+                      <span className="text-[10px] text-gray-500 mono">
+                        {topPrediction.time || topPrediction.date}
+                      </span>
+                    )}
                   </div>
 
                   {/* Teams */}
                   <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-4 mb-5">
-                    {/* Home team */}
                     <div className="flex flex-col items-center text-center">
                       {topPrediction.homeLogo ? (
-                        <img
-                          src={topPrediction.homeLogo}
-                          alt={matchTeams.home}
-                          className="w-14 h-14 sm:w-20 sm:h-20 object-contain mb-2"
-                          loading="lazy"
-                        />
+                        <img src={topPrediction.homeLogo} alt={matchTeams.home} className="w-14 h-14 sm:w-20 sm:h-20 object-contain mb-2" loading="lazy" />
                       ) : (
-                        <div className="w-14 h-14 sm:w-20 sm:h-20 bg-panel rounded-2xl mb-2 flex items-center justify-center text-violet-light font-bold text-xl">
+                        <div className="w-14 h-14 sm:w-20 sm:h-20 bg-panel-2 rounded-xl mb-2 flex items-center justify-center text-success font-bold text-xl">
                           {matchTeams.home.slice(0, 2).toUpperCase()}
                         </div>
                       )}
-                      <span className="text-xs sm:text-sm font-semibold text-white truncate max-w-full">
-                        {matchTeams.home}
-                      </span>
+                      <span className="text-xs sm:text-sm font-semibold text-white truncate max-w-full">{matchTeams.home}</span>
                     </div>
-
-                    {/* VS */}
                     <div className="text-center">
-                      <div className="text-2xl sm:text-3xl font-black gradient-text-violet-cyan mono">VS</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-success mono">VS</div>
                       <div className="text-[9px] text-gray-500 uppercase tracking-widest mt-1">{topPrediction.date}</div>
                     </div>
-
-                    {/* Away team */}
                     <div className="flex flex-col items-center text-center">
                       {topPrediction.awayLogo ? (
-                        <img
-                          src={topPrediction.awayLogo}
-                          alt={matchTeams.away}
-                          className="w-14 h-14 sm:w-20 sm:h-20 object-contain mb-2"
-                          loading="lazy"
-                        />
+                        <img src={topPrediction.awayLogo} alt={matchTeams.away} className="w-14 h-14 sm:w-20 sm:h-20 object-contain mb-2" loading="lazy" />
                       ) : (
-                        <div className="w-14 h-14 sm:w-20 sm:h-20 bg-panel rounded-2xl mb-2 flex items-center justify-center text-violet-light font-bold text-xl">
+                        <div className="w-14 h-14 sm:w-20 sm:h-20 bg-panel-2 rounded-xl mb-2 flex items-center justify-center text-success font-bold text-xl">
                           {matchTeams.away.slice(0, 2).toUpperCase()}
                         </div>
                       )}
-                      <span className="text-xs sm:text-sm font-semibold text-white truncate max-w-full">
-                        {matchTeams.away}
-                      </span>
+                      <span className="text-xs sm:text-sm font-semibold text-white truncate max-w-full">{matchTeams.away}</span>
                     </div>
                   </div>
 
-                  {/* Prediction */}
-                  <div className="bg-midnight/60 backdrop-blur-md rounded-xl p-4 mb-4 border border-edge">
+                  {/* Prediction block */}
+                  <div className="bg-midnight/50 rounded-lg p-4 mb-4 border border-edge">
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Pronostic IA</span>
-                      <span className="badge badge-cyan">{topPrediction.type}</span>
+                      <span className="badge badge-mint">{topPrediction.type}</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div>
-                        <div className="text-2xl sm:text-3xl font-black text-violet-light glow-text-violet">
+                        <div className="text-2xl sm:text-3xl font-bold text-success glow-text-green">
                           {topPrediction.prediction}
                         </div>
                         <div className="text-[10px] text-gray-500 mt-0.5">
@@ -365,13 +378,12 @@ export default function Hero() {
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-3xl sm:text-4xl font-black text-success tabular-nums glow-text-coral" style={{ color: 'var(--color-coral-light)' }}>
+                        <div className="text-3xl sm:text-4xl font-bold text-success tabular-nums glow-text-green">
                           {topPrediction.confidence}%
                         </div>
                         <div className="text-[10px] text-gray-500 uppercase tracking-widest">Confiance</div>
                       </div>
                     </div>
-                    {/* Confidence bar */}
                     <div className="confidence-bar mt-3">
                       <div className="confidence-bar-fill" style={{ width: `${topPrediction.confidence}%` }} />
                     </div>
@@ -384,24 +396,10 @@ export default function Hero() {
                 </div>
               </motion.div>
             ) : (
-              // Skeleton while loading
-              <div className="glass-promo p-6 h-96 animate-pulse flex items-center justify-center">
-                <div className="text-gray-600 text-sm">Chargement du top pronostic…</div>
+              <div className="squircle-xl p-6 h-96 animate-pulse flex items-center justify-center">
+                <div className="text-gray-600 text-sm">Chargement du match du jour…</div>
               </div>
             )}
-
-            {/* Floating badge — Live analysis */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.6, duration: 0.4 }}
-              className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 z-20"
-            >
-              <div className="bg-success/10 backdrop-blur-md border border-success/30 rounded-full px-3 py-1.5 flex items-center gap-1.5">
-                <span className="v31-ticker-dot" />
-                <span className="text-[10px] text-success font-bold uppercase tracking-wider">Analyse IA</span>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
 
@@ -411,7 +409,7 @@ export default function Hero() {
           className="grid grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto mt-12 sm:mt-16"
         >
           <div className="stat-tile">
-            <div className="text-xl sm:text-3xl font-bold text-violet-light tabular-nums">~87%</div>
+            <div className="text-xl sm:text-3xl font-bold text-success tabular-nums glow-text-green">~87%</div>
             <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Précision historique</div>
           </div>
           <div className="stat-tile">
@@ -419,12 +417,12 @@ export default function Hero() {
             <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Matchs analysés</div>
           </div>
           <div className="stat-tile">
-            <div className="text-xl sm:text-3xl font-bold text-cyan-light tabular-nums">50+</div>
+            <div className="text-xl sm:text-3xl font-bold text-gold tabular-nums">50+</div>
             <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Championnats</div>
           </div>
         </motion.div>
 
-        {/* Social Proof — Testimonial */}
+        {/* Testimonial */}
         <motion.div
           variants={staggerChildFadeUp}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-3xl mx-auto mt-8"
@@ -443,18 +441,15 @@ export default function Hero() {
           <motion.div
             variants={badgePulse}
             animate="animate"
-            className="squircle px-4 py-2.5 text-center flex-shrink-0 bg-violet/[0.08] border border-violet/25"
+            className="squircle px-4 py-2.5 text-center flex-shrink-0 bg-gold/[0.08] border border-gold/25"
           >
-            <div className="text-[9px] text-violet-light uppercase tracking-wider font-bold mb-0.5">VIP</div>
-            <div className="text-sm sm:text-base font-black text-white">
-              Historique + 10 matchs/jour
-            </div>
+            <div className="text-[9px] text-gold-light uppercase tracking-wider font-bold mb-0.5">VIP</div>
+            <div className="text-sm sm:text-base font-bold text-white">Historique + 10 matchs/jour</div>
             <div className="text-[9px] text-gray-500">Débloque avec VISION221</div>
           </motion.div>
         </motion.div>
       </motion.div>
 
-      {/* Copy Toast — Floating notification */}
       <AnimatePresence>
         {copied && (
           <motion.div
@@ -462,7 +457,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 bg-success/95 text-midnight px-4 py-2 rounded-full text-sm font-bold shadow-lg backdrop-blur-md"
+            className="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 bg-success text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg"
           >
             ✓ Code VISION221 copié !
           </motion.div>
@@ -470,11 +465,4 @@ export default function Hero() {
       </AnimatePresence>
     </section>
   )
-}
-
-function formatTimeFallback(date: string): string {
-  try {
-    const d = new Date(date + 'T12:00:00')
-    return d.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit' })
-  } catch { return '--:--' }
 }

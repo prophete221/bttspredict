@@ -4,18 +4,21 @@ import {
   Navbar,
   Hero,
   LiveTicker,
+  HowItWorks,
   FreePredictions,
   PromoVip,
   VipSports,
   AviatorVip,
   WinHistory,
   FifaLinebet,
+  About,
   Footer,
   CookieConsent,
   AgeVerification,
   ScrollProgressBar,
   SiteLoader,
   ErrorBoundary,
+  MobileTabBar,
 } from '@/components/bttsbet'
 
 // JSON-LD WebSite — SearchAction for Google SERP
@@ -154,14 +157,19 @@ export default function Home() {
         <ErrorBoundary><Navbar /></ErrorBoundary>
         <ErrorBoundary><Hero /></ErrorBoundary>
         <ErrorBoundary><LiveTicker /></ErrorBoundary>
+        <ErrorBoundary><HowItWorks /></ErrorBoundary>
         <ErrorBoundary><FreePredictions /></ErrorBoundary>
         <ErrorBoundary><PromoVip /></ErrorBoundary>
         <ErrorBoundary><VipSports /></ErrorBoundary>
         <ErrorBoundary><AviatorVip /></ErrorBoundary>
         <ErrorBoundary><WinHistory /></ErrorBoundary>
         <ErrorBoundary><FifaLinebet /></ErrorBoundary>
+        <ErrorBoundary><About /></ErrorBoundary>
         <ErrorBoundary><Footer /></ErrorBoundary>
       </main>
+
+      {/* Mobile Tab Bar — bottom navigation */}
+      <MobileTabBar />
 
       {/* Age Verification Modal (18+) */}
       <AgeVerification />
