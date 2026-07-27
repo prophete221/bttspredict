@@ -226,3 +226,25 @@ Stage Summary:
 - Only winning predictions ("Gagné") are displayed, with proper rate from stats
 - Empty spaces removed by reducing padding across all sections
 - Deployment pushed successfully
+---
+Task ID: 2
+Agent: main
+Task: Fix site error + add full automation
+
+Work Log:
+- Diagnosed the site error: WinHistory.tsx was calling useMemo/useCountUp hooks AFTER conditional returns (if loading → return skeleton, if !winData → return fallback). This violates React's rules of hooks, causing a runtime error caught by ErrorBoundary.
+- Fixed WinHistory.tsx: moved ALL hooks (useMemo, useCountUp, useScrollAnimation, useStaggerReveal) BEFORE any conditional returns. Now hooks are always called in the same order.
+- Rewrote GitHub Actions workflow (.github/workflows/main.yml):
+  - Added daily cron schedule: '0 6 * * *' (06:00 UTC = 08:00 Dakar)
+  - Removed paths-ignore for predictions.json/win-history.json (so cron changes deploy)
+  - Replaced scraper.js (96KB, often fails) with quick-update-predictions.mjs (fast, reliable)
+  - Added win-history update step (scripts/update-win-history.mjs)
+  - Build + FTP deploy steps unchanged
+  - Data changes committed with [skip ci] to prevent infinite loop
+- Build verified: 21 static pages, no errors
+- Pushed to origin/main successfully
+
+Stage Summary:
+- Critical React hooks bug fixed — site should now display correctly
+- Full automation added: daily cron updates predictions + win-history + builds + deploys
+- workflow_dispatch also available for manual trigger
