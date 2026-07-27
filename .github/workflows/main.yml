@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - 'public/predictions.json'
-      - 'public/win-history.json'
+  schedule:
+    # Run every day at 06:00 UTC (08:00 Dakar/Senegal time)
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 jobs:
@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -28,17 +30,21 @@ jobs:
         env:
           PUPPETEER_SKIP_DOWNLOAD: 'true'
 
-      - name: Try full scraper (with timeout fallback)
-        id: full-scraper
+      - name: Update predictions from ESPN
+        id: update-predictions
         timeout-minutes: 10
         run: |
-          timeout 600 node scripts/scraper.js || {
-            echo "⚠️ Full scraper failed or timed out — switching to quick update"
-            echo "scraper_failed=true" >> $GITHUB_OUTPUT
-            node scripts/quick-update-predictions.mjs
-          }
-        env:
-          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+          echo "🔄 Updating predictions with ESPN data..."
+          node scripts/quick-update-predictions.mjs
+          echo "✅ Predictions updated successfully"
+
+      - name: Update win history
+        id: update-win-history
+        timeout-minutes: 5
+        run: |
+          echo "🔄 Updating win-history from archives..."
+          node scripts/update-win-history.mjs
+          echo "✅ Win history updated successfully"
 
       - name: Build Next.js static export
         run: npm run build
@@ -56,8 +62,8 @@ jobs:
           git config --local user.email "bot@bttsbet.online"
           git config --local user.name "BttsBet Bot"
           git add public/predictions.json public/win-history.json public/predictions-archive/
-          git diff --staged --quiet || git commit -m "chore: update predictions with real dates [skip ci]"
-          git push || echo "Git push skipped"
+          git diff --staged --quiet || git commit -m "chore: auto-update predictions & history [skip ci]"
+          git push || echo "Git push skipped (no changes)"
 
       - name: Deploy to server via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0

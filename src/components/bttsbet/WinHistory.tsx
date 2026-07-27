@@ -135,12 +135,32 @@ export default function WinHistory() {
     loadWinHistory()
   }, [])
 
-  // Show skeleton while loading — NEVER return null (causes empty space gaps)
+  // ALL hooks must be called BEFORE any conditional returns — React rules of hooks
+  const historyArr = winData?.history ?? []
+  const wonOnly = historyArr.filter((item) => item.result === 'Gagné')
+  const INITIAL_SHOW = 8
+  const displayedHistory = showAll ? wonOnly : wonOnly.slice(0, INITIAL_SHOW)
+
+  // Use stats from JSON for proper rate (accounts for analyzed-but-lost predictions)
+  const displayStats = useMemo(() => {
+    const stats = winData?.stats
+    const total = stats?.total || wonOnly.length || 1
+    const won = stats?.won || wonOnly.length
+    const rateStr = stats?.rate || `${total > 0 ? Math.round((won / total) * 1000) / 10 : 0}%`
+    const rateVal = parseFloat(rateStr.replace('%', ''))
+    return { total, won, rateStr, rateVal }
+  }, [winData, wonOnly.length])
+
+  // Count-up hooks — always called regardless of loading state
+  const [totalRef, totalDisplay] = useCountUp(displayStats.total, 1800, { threshold: 0.3 })
+  const [rateRef, rateDisplay] = useCountUp(displayStats.rateVal, 1800, { decimals: 1, threshold: 0.3 })
+  const [wonRef, wonDisplay] = useCountUp(displayStats.won, 1800, { threshold: 0.3 })
+
+  // NOW we can do conditional rendering — all hooks have been called
   if (loading) {
     return <LoadingSkeleton />
   }
 
-  // If data failed to load entirely, show minimal fallback instead of null
   if (!winData || !winData.history || winData.history.length === 0) {
     return (
       <section ref={ref} id="win-history" className="py-4 sm:py-5 px-4">
@@ -156,31 +176,6 @@ export default function WinHistory() {
       </section>
     )
   }
-
-  const { history, stats } = winData
-
-  // Afficher SEULEMENT les pronostics gagnés (filter out any non-winning entries)
-  const wonOnly = history.filter((item) => item.result === 'Gagné')
-
-  // Use the claimed stats rate from JSON (which accounts for total analyzed including losses)
-  // This gives the real 76% rate instead of computing from only shown wins (which would be 100%)
-  const displayStats = useMemo(() => {
-    const total = stats?.total || wonOnly.length
-    const won = stats?.won || wonOnly.length
-    // Use the JSON stats rate which includes the "analyzed but lost" predictions
-    const rateStr = stats?.rate || `${total > 0 ? Math.round((won / total) * 1000) / 10 : 0}%`
-    const rateVal = parseFloat(rateStr.replace('%', ''))
-    return { total, won, rateStr, rateVal }
-  }, [stats, wonOnly.length])
-
-  // Show 8 entries by default (more than before), all on "Voir plus"
-  const INITIAL_SHOW = 8
-  const displayedHistory = showAll ? wonOnly : wonOnly.slice(0, INITIAL_SHOW)
-
-  // Count-up hooks
-  const [totalRef, totalDisplay] = useCountUp(displayStats.total, 1800, { threshold: 0.3 })
-  const [rateRef, rateDisplay] = useCountUp(displayStats.rateVal, 1800, { decimals: 1, threshold: 0.3 })
-  const [wonRef, wonDisplay] = useCountUp(displayStats.won, 1800, { threshold: 0.3 })
 
   return (
     <section ref={ref} id="win-history" className="section-entrance py-3 sm:py-4 px-4">
