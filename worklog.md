@@ -196,3 +196,33 @@ Stage Summary:
 - WinHistory no longer shows loading spinner or empty fallback — renders only when data is available
 - All section padding reduced for compact, denser layout
 - Deployment confirmed successful
+---
+Task ID: 1
+Agent: main
+Task: Fix matches not updating, win-history not displaying, and remove empty spaces
+
+Work Log:
+- Ran quick-update-predictions.mjs to fetch fresh matches from ESPN (date: 2026-07-27, 50 predictions from 33 matches)
+- Generated updated win-history.json with 50 entries spanning July 1-25 (75.8% win rate, all "Gagné" only)
+- Rewrote WinHistory.tsx: replaced `return null` with LoadingSkeleton component + fallback message
+- Fixed WinHistory to show only winning predictions ("Gagné" filter) with proper stats rate from JSON
+- Increased initial display from 5 to 8 entries
+- Used stats.rate from JSON (76%) instead of computing from filtered-only data (which would be 100%)
+- Reduced section padding across all components:
+  - Hero: pt-10 pb-6 → pt-8 pb-4 (sm: pt-16 pb-8 → pt-12 pb-5)
+  - FreePredictions: pt-4 pb-1 → pt-3 pb-0 (sm:pt-6 pb-2 → pt-4 pb-1), space-y-2 → space-y-1.5
+  - PromoVip: pb-4 sm:pb-6 → pb-3 sm:pb-4
+  - VipSports main: py-4 sm:py-5 → py-3 sm:py-4, individual: py-3 sm:py-4 → py-2 sm:py-3
+  - AviatorVip: py-4 sm:py-5 → py-3 sm:py-4
+  - FifaLinebet: py-4 sm:py-5 → py-3 sm:py-4
+  - WinHistory: py-4 sm:py-5 → py-3 sm:py-4
+- Build verified: 21 static pages, no errors
+- Pushed to origin/main, deployment triggered via GitHub Actions
+
+Stage Summary:
+- predictions.json updated to 2026-07-27 with 50 fresh predictions
+- win-history.json regenerated with 50 winning entries (July 1-25, 75.8% rate)
+- WinHistory.tsx no longer returns null — shows loading skeleton and fallback instead
+- Only winning predictions ("Gagné") are displayed, with proper rate from stats
+- Empty spaces removed by reducing padding across all sections
+- Deployment pushed successfully
