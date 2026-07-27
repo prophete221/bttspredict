@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 40" width="140" height="40" role="img" aria-label="Linebet">
-  <rect x="0" y="0" width="140" height="40" rx="8" fill="#4ADE80"/>
-  <text x="10" y="28" font-family="'Bebas Neue', Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="0.5">
-    <tspan fill="#FFFFFF">LINE</tspan><tspan fill="#DCFCE7">bet</tspan>
-  </text>
-  <circle cx="125" cy="20" r="6" fill="#FFFFFF"/>
-  <path d="M122 20 l2 2 l4 -4" stroke="#4ADE80" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>

@@ -1,16 +1,23 @@
-import type { Metadata } from "next";
-import { Sora, JetBrains_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const sora = Sora({
-  variable: "--font-sora",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ['400', '600', '700', '800'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+});
+
+const inter = Inter({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
 });
 
 const jetbrains = JetBrains_Mono({
-  variable: "--font-jetbrains",
+  variable: "--font-mono",
   subsets: ["latin"],
   weight: ['400', '500', '700'],
   display: 'swap',
@@ -18,10 +25,21 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bttsbet.online"),
-  title: "BttsBet — Pronostics IA Football +87% | Bonus Linebet & 888starz | Code VISION221",
-  description: "Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF (150$) + Pronostics BTTS & Over 2.5 par IA (historique ~87%). Dépôt Wave, Orange Money, Free Money.",
-  keywords: ["BTTS", "Over 2.5", "pronostics football", "IA", "intelligence artificielle", "paris sportifs", "Linebet", "888starz", "VISION221", "BttsBet", "value bet fifa linebet", "cote fifa linebet", "pronostic fifa esport", "statistiques aviator", "multiplicateur aviator", "aviator Linebet", "aviator 888starz", "code promo linebet", "code promo 888starz", "bonus paris sportifs", "pronostics gratuits"],
+  title: {
+    default: "BttsBet — Pronostics IA Football ~87% | Bonus Linebet & 888starz | Code VISION221",
+    template: "%s | BttsBet",
+  },
+  description: "Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF (150$). Pronostics BTTS & Over 2.5 générés par IA (précision historique ~87%). Dépôt Wave, Orange Money, Free Money.",
+  keywords: [
+    "BTTS", "Over 2.5", "pronostics football", "IA", "intelligence artificielle",
+    "paris sportifs", "Linebet", "888starz", "VISION221", "BttsBet",
+    "value bets FIFA", "pronostic FIFA esport", "statistiques Aviator",
+    "code promo Linebet", "code promo 888starz", "bonus paris sportifs",
+    "pronostics gratuits", "pronostics Sénégal", "Wave paris sportifs",
+  ],
   authors: [{ name: "BttsBet" }],
+  creator: "BttsBet",
+  publisher: "BttsBet",
   alternates: {
     canonical: "https://bttsbet.online/",
   },
@@ -50,10 +68,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon.svg",
+    apple: "/icon-192.png",
   },
+  manifest: "/manifest.json",
   openGraph: {
-    title: "BttsBet — Pronostics IA Football +87% | Bonus Linebet & 888starz",
-    description: "Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF. Pronostics IA BTTS & Over 2.5 (historique ~87%). Dépôt Wave, Orange Money.",
+    title: "BttsBet — Pronostics IA Football ~87% | Bonus Linebet & 888starz",
+    description: "Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF. Pronostics IA BTTS & Over 2.5 (précision historique ~87%). Dépôt Wave, Orange Money.",
     url: "https://bttsbet.online",
     siteName: "BttsBet",
     type: "website",
@@ -62,10 +82,21 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BttsBet — Pronostics IA Football +87% | Bonus Linebet & 888starz | VISION221",
-    description: "Pronostics IA football +87% (historique). Code VISION221 = Bonus 90 000 XOF sur Linebet. Dépôt Wave, Orange Money au Sénégal.",
+    title: "BttsBet — Pronostics IA Football ~87% | Bonus Linebet & 888starz | VISION221",
+    description: "Pronostics IA football ~87% (historique). Code VISION221 = Bonus 90 000 XOF sur Linebet. Dépôt Wave, Orange Money au Sénégal.",
     images: ["/og-image.png"],
   },
+  category: "sports",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0B0E14",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  minimumScale: 1,
+  viewportFit: "cover",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
@@ -76,15 +107,13 @@ export default function RootLayout({
   return (
     <html lang="fr-SN" className="dark" suppressHydrationWarning>
       <head>
-        {/* Viewport meta — responsive for ALL browsers/devices including notched phones */}
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1, viewport-fit=cover" />
-        {/* Theme color for mobile browser chrome */}
-        <meta name="theme-color" content="#0A0B1A" />
         {/* Disable automatic telephone number detection */}
         <meta name="format-detection" content="telephone=no" />
         {/* Apple mobile web app — standalone feel */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="BttsBet" />
+        {/* Service worker cleanup — remove any old SW that could cause caching issues */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -101,7 +130,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${sora.variable} ${jetbrains.variable} antialiased`}
+        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrains.variable} antialiased`}
       >
         {children}
       </body>

@@ -66,3 +66,13 @@ download/*.mp4
 download/*.pdf
 download/*.py
 !download/README.md
+
+# Upload directory (user-uploaded files, not source)
+/upload/
+
+# Backup and old artifacts
+/backups/
+/dist/
+/examples/
+/mini-services/
+/3099

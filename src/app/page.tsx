@@ -113,10 +113,6 @@ const breadcrumbJsonLd = {
   ],
 }
 
-// NOTE: SportsEvent JSON-LD removed — was flagged by Google Search Console
-// as invalid because events were generic placeholders with no real team data.
-// Only keeping WebSite, FAQ, Organization, and Breadcrumb schemas.
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-midnight relative">
@@ -141,7 +137,7 @@ export default function Home() {
       {/* Skip to content — accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-emerald focus:text-dark-900 focus:font-bold focus:rounded-lg"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-gold focus:text-midnight focus:font-bold focus:rounded-lg"
       >
         Aller au contenu principal
       </a>

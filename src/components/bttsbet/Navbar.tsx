@@ -71,11 +71,7 @@ export default function Navbar() {
     <nav
       role="navigation"
       aria-label="Navigation principale"
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-midnight/95 border-b border-edge/40 backdrop-blur-lg'
-          : 'bg-transparent'
-      }`}
+      className={`sticky top-0 z-50 transition-all duration-300 nav-premium ${scrolled ? 'scrolled' : ''}`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-14 gap-3">
