@@ -2,83 +2,32 @@
 
 import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useScrollAnimation, useRevealOnScroll, useCountUp, useStaggerReveal } from '@/hooks/useAnimations'
+import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import { AFFILIATE } from '@/lib/constants'
 import { staggerContainer, staggerChildFadeUp, cardHoverLift, subtleHover, badgePulse } from '@/lib/motionPresets'
 import { AIBrain } from './AnimatedIcons'
 import { resolveTeamLogo } from '@/lib/teamLogos'
+import PremiumButton from './PremiumButton'
 
-function TeamLogo({ src, initials, size = 'sm', color = 'emerald' }: {
-  src: string; initials: string; size?: string; color?: string
-}) {
-  const [imgError, setImgError] = useState(false)
-  const [imgLoaded, setImgLoaded] = useState(false)
-
-  const sizeClasses: Record<string, string> = {
-    xs: 'w-5 h-5 text-[8px]',
-    sm: 'w-7 h-7 sm:w-8 sm:h-8 text-[10px] sm:text-xs',
-    md: 'w-10 h-10 sm:w-12 sm:h-12 text-xs sm:text-sm',
-    lg: 'w-12 h-12 text-sm',
-  }
-
-  const colorClasses: Record<string, string> = {
-    emerald: 'bg-gold/8 border-gold/15 text-gold',
-    royal: 'bg-royal/8 border-royal/15 text-royal',
-  }
-
-  const sizeClass = sizeClasses[size] || sizeClasses.sm
-  const colorClass = colorClasses[color] || colorClasses.emerald
-
-  if (src && !imgError) {
-    return (
-      <div className={`${sizeClass} rounded-lg border flex items-center justify-center overflow-hidden relative ${colorClass}`}>
-        <img
-          src={src}
-          alt={initials}
-          className={`v31-logo-zoom w-full h-full object-contain transition-opacity duration-200 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
-          onError={() => setImgError(true)}
-          onLoad={() => setImgLoaded(true)}
-          loading="lazy"
-        />
-        {!imgLoaded && (
-          <span className="absolute font-bold">{initials}</span>
-        )}
-      </div>
-    )
-  }
-
-  return (
-    <div className={`${sizeClass} rounded-lg border flex items-center justify-center ${colorClass}`}>
-      <span className="font-bold">{initials}</span>
-    </div>
-  )
-}
-
+// ─── Helpers ────────────────────────────────────────────────────────────
 function formatDateShort(dateStr: string) {
   if (!dateStr) return ''
   try {
     const d = new Date(dateStr + 'T12:00:00')
     const day = d.getDate().toString().padStart(2, '0')
     const month = (d.getMonth() + 1).toString().padStart(2, '0')
-    const today = new Date()
-    today.setHours(12, 0, 0, 0)
+    const today = new Date(); today.setHours(12, 0, 0, 0)
     const matchDate = new Date(dateStr + 'T12:00:00')
     const diffDays = Math.round((matchDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
-
-    if (diffDays === 0) return `Auj.`
-    if (diffDays === 1) return `Dem.`
+    if (diffDays === 0) return 'Auj.'
+    if (diffDays === 1) return 'Dem.'
     const weekdays = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam']
-    const weekday = weekdays[d.getDay()]
-    return `${weekday} ${day}/${month}`
-  } catch {
-    return dateStr
-  }
+    return `${weekdays[d.getDay()]} ${day}/${month}`
+  } catch { return dateStr }
 }
 
-function getDateLabel(dateStr: string) {
-  if (!dateStr) return 'upcoming'
-  const today = new Date()
-  today.setHours(12, 0, 0, 0)
+function getDateGroup(dateStr: string): 'today' | 'tomorrow' | 'upcoming' {
+  const today = new Date(); today.setHours(12, 0, 0, 0)
   const matchDate = new Date(dateStr + 'T12:00:00')
   const diffDays = Math.round((matchDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
   if (diffDays === 0) return 'today'
@@ -86,78 +35,29 @@ function getDateLabel(dateStr: string) {
   return 'upcoming'
 }
 
-function PredBadge({ type, prediction, expanded }: { type: string; prediction: string; expanded: boolean }) {
-  const isBtts = type === 'BTTS'
-  const isPositive = prediction === 'Oui'
+function getMatchStatus(date: string, time?: string): 'live' | 'upcoming' | 'finished' {
+  if (!date) return 'upcoming'
+  try {
+    const matchDateTime = new Date(`${date}T${time || '12:00'}:00`)
+    const diffMs = matchDateTime.getTime() - Date.now()
+    const diffHours = diffMs / (1000 * 60 * 60)
+    if (diffMs < 0 && diffHours > -2.5) return 'live'
+    if (diffMs < 0) return 'finished'
+    return 'upcoming'
+  } catch { return 'upcoming' }
+}
 
-  if (expanded) {
-    return (
-      <div className={`flex-1 rounded-xl p-3 sm:p-4 border transition-all ${
-        isPositive
-          ? isBtts
-            ? 'bg-gold/8 border-gold/20 hover:bg-gold/12'
-            : 'bg-success/8 border-success/20 hover:bg-success/12'
-          : 'bg-red-500/5 border-red-500/15 hover:bg-red-500/8'
-      }`}>
-        <div className="flex items-center justify-between mb-1.5">
-          <span className="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider font-semibold">
-            {isBtts ? 'Les deux marquent' : 'Plus de 2.5 buts'}
-          </span>
-          <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
-            isPositive
-              ? isBtts
-                ? 'bg-gold/15 text-gold'
-                : 'bg-success/15 text-success-light'
-              : 'bg-red-500/15 text-red-400'
-          }`}>
-            {prediction}
-          </span>
-        </div>
-        <div className={`text-lg sm:text-xl font-extrabold ${
-          isPositive
-            ? isBtts ? 'text-gold' : 'text-success-light'
-            : 'text-red-400'
-        }`}>
-          {isBtts ? 'BTTS' : 'Over 2.5'}
-        </div>
-        <div className="mt-2 h-1.5 rounded-full bg-white/5 overflow-hidden">
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: isPositive ? '78%' : '25%' }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className={`h-full rounded-full ${
-              isPositive
-                ? isBtts
-                  ? 'bg-gradient-to-r from-gold-dark to-gold'
-                  : 'bg-gradient-to-r from-success-dark to-success'
-                : 'bg-red-500/40'
-            }`}
-          />
-        </div>
-      </div>
-    )
-  }
-
-  // Compact badge — BTTS = cyan badge-btts, Over 2.5 = green badge-over25
-  const label = isBtts ? 'BTTS' : 'O2.5'
-  if (!isBtts && !isPositive) {
-    return (
-      <motion.span variants={badgePulse} animate="animate" style={{ willChange: 'transform, opacity' }} className="v31-badge-pulse inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-lg bg-red-500/10 text-red-400 border border-red-500/20">
-        <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
-        {label} {prediction}
-      </motion.span>
-    )
-  }
-  return (
-    <motion.span variants={badgePulse} animate="animate" style={{ willChange: 'transform, opacity' }} className={`v31-badge-pulse ${isBtts ? 'badge-btts' : 'badge-over25'}`}>
-      <span className={`w-1.5 h-1.5 rounded-full ${
-        isPositive
-          ? isBtts ? 'bg-gold' : 'bg-success'
-          : 'bg-red-400'
-      }`} />
-      {label} {prediction}
-    </motion.span>
-  )
+function getTimeUntil(date: string, time?: string): string {
+  if (!date) return ''
+  try {
+    const matchDateTime = new Date(`${date}T${time || '12:00'}:00`)
+    const diffMs = matchDateTime.getTime() - Date.now()
+    if (diffMs < 0) return ''
+    const diffMin = Math.floor(diffMs / (1000 * 60))
+    const diffHours = Math.floor(diffMin / 60)
+    if (diffHours > 0) return `${diffHours}h${diffMin % 60 ? ` ${diffMin % 60}min` : ''}`
+    return `${diffMin}min`
+  } catch { return '' }
 }
 
 interface MatchData {
@@ -172,383 +72,337 @@ interface MatchData {
   over25: { prediction: string; confidence: number } | null
 }
 
-function MatchRow({ match, index }: { match: MatchData; index: number }) {
-  const [expanded, setExpanded] = useState(false)
-  // Per-card scroll reveal — each card animates independently as user scrolls
-  const [revealRef, isCardVisible] = useRevealOnScroll(0.1, 'fade-up')
+// ─── Team Logo ──────────────────────────────────────────────────────────
+function TeamLogo({ src, name, size = 40 }: { src?: string; name: string; size?: number }) {
+  const [imgError, setImgError] = useState(false)
+  const initials = name?.slice(0, 3).toUpperCase() || '?'
 
-  const teams = match.match ? match.match.split(' vs ') : ['', '']
-  const team1 = teams[0]?.trim() || match.match
-  const team2 = teams[1]?.trim() || ''
-  const initials1 = team1.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase()
-  const initials2 = team2.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase()
-
-  const homeLogo = match.homeLogo || resolveTeamLogo(team1)
-  const awayLogo = match.awayLogo || resolveTeamLogo(team2)
-
-  return (
-    <motion.div
-      ref={revealRef}
-      initial={false}
-      animate={isCardVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-      transition={{ duration: 0.45, delay: Math.min(index * 0.03, 0.18), ease: [0.22, 1, 0.36, 1] }}
-      className="relative"
-    >
-      <motion.div
-        layout
-        variants={cardHoverLift}
-        initial="rest"
-        whileHover="hover"
-        whileTap="tap"
-        onClick={() => setExpanded(!expanded)}
-        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setExpanded(!expanded) } }}
-        role="button"
-        tabIndex={0}
-        aria-expanded={expanded}
-        style={{ willChange: 'transform, opacity' }}
-        className={`v31-data-stream v31-card-hover-glow shimmer-card hover-ripple card-elevate relative squircle border cursor-pointer transition-all duration-300 overflow-hidden ${
-          expanded
-            ? 'bg-gradient-to-b from-panel-2 to-panel border-gold/30 shadow-lg shadow-gold/8'
-            : 'bg-gradient-to-b from-panel/80 to-panel/60 border-edge hover:border-gold/40'
-        }`}
+  if (!src || imgError) {
+    return (
+      <div
+        className="rounded-lg bg-gradient-to-br from-gold/10 to-midnight/40 border border-gold/15 flex items-center justify-center text-gold/70 font-bold flex-shrink-0"
+        style={{ width: size, height: size, fontSize: size * 0.3 }}
       >
-        {/* Premium top sheen */}
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent pointer-events-none" />
-        <AnimatePresence>
-          {expanded && (
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              exit={{ scaleX: 0 }}
-              transition={{ duration: 0.3 }}
-              className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold to-gold origin-left"
-            />
-          )}
-        </AnimatePresence>
-
-        {/* COMPACT ROW — with micro-icons */}
-        <div className="flex items-center gap-3 px-3 sm:px-4 py-3">
-          <div className="flex-shrink-0 text-center min-w-[44px] sm:min-w-[50px]">
-            <div className="flex items-center justify-center gap-1 text-white font-bold text-sm sm:text-base tabular-nums">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-              </svg>
-              {match.time || '--:--'}
-            </div>
-            <div className="text-gray-500 text-[10px]">{match.date ? formatDateShort(match.date) : ''}</div>
-          </div>
-
-          <div className="w-px h-8 bg-gradient-to-b from-transparent via-white/10 to-transparent flex-shrink-0 hidden sm:block" />
-
-          {/* Teams layout - stacked on mobile */}
-          <div className="flex-1 min-w-0">
-            {/* Mobile: show stacked teams */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-2">
-              <div className="flex items-center gap-1.5">
-                <TeamLogo src={homeLogo} initials={initials1} size="sm" color="emerald" />
-                <span className="text-white font-semibold text-xs sm:text-sm truncate max-w-[90px] sm:max-w-[120px]">{team1}</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-gray-600 text-[10px] font-bold">VS</span>
-                <TeamLogo src={awayLogo} initials={initials2} size="sm" color="royal" />
-                <span className="text-white font-semibold text-xs sm:text-sm truncate max-w-[90px] sm:max-w-[120px]">{team2}</span>
-              </div>
-            </div>
-            <div className="text-gray-500 text-[10px] sm:text-[11px] truncate flex items-center gap-1 mt-0.5">
-              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-600 flex-shrink-0" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
-              </svg>
-              {match.league}
-            </div>
-          </div>
-
-          <div className="flex items-center gap-1.5 flex-shrink-0">
-            {match.btts && <PredBadge type="BTTS" prediction={match.btts.prediction} expanded={false} />}
-            {match.over25 && <PredBadge type="O2.5" prediction={match.over25.prediction} expanded={false} />}
-          </div>
-
-          <motion.div
-            animate={{ rotate: expanded ? 180 : 0 }}
-            transition={{ duration: 0.25 }}
-            className="flex-shrink-0 text-gray-500"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </motion.div>
-        </div>
-
-        {/* EXPANDED CARD */}
-        <AnimatePresence>
-          {expanded && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="overflow-hidden"
-            >
-              <div className="px-3 pb-4 sm:px-4 sm:pb-5 border-t border-edge/50 pt-4">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex-1 text-center">
-                    <TeamLogo src={homeLogo} initials={initials1} size="lg" color="emerald" />
-                    <div className="text-white font-semibold text-sm truncate max-w-[90px] sm:max-w-[140px] mx-auto mt-1.5">
-                      {team1}
-                    </div>
-                  </div>
-
-                  <div className="flex-shrink-0 px-3">
-                    <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-                      <span className="text-gray-400 text-xs font-bold">VS</span>
-                    </div>
-                  </div>
-
-                  <div className="flex-1 text-center">
-                    <TeamLogo src={awayLogo} initials={initials2} size="lg" color="royal" />
-                    <div className="text-white font-semibold text-sm truncate max-w-[90px] sm:max-w-[140px] mx-auto mt-1.5">
-                      {team2}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex gap-3 mb-4">
-                  {match.btts && <PredBadge type="BTTS" prediction={match.btts.prediction} expanded={true} />}
-                  {match.over25 && <PredBadge type="O2.5" prediction={match.over25.prediction} expanded={true} />}
-                  {!match.btts && !match.over25 && (
-                    <div className="flex-1 text-center text-gray-500 text-sm py-4">
-                      Aucune prédiction disponible
-                    </div>
-                  )}
-                </div>
-
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-1.5">
-                    <span className="live-indicator">IA BttsBet</span>
-                  </div>
-                  {/* V23: Deux boutons côte à côte — Linebet + 888starz */}
-                  <div className="flex items-center gap-1.5">
-                    <a
-                      href={AFFILIATE.linebet}
-                      rel={AFFILIATE.rel}
-                      target="_blank"
-                      onClick={(e) => e.stopPropagation()}
-                      className="v31-cta-wave cta-glow flex items-center gap-1.5 px-2.5 py-2 btn-linebet text-[#04150C] text-xs"
-                      style={{ ['--v31-wave-delay' as string]: '2s' }}
-                      data-cursor="hover"
-                    >
-                      <img src="/logos/linebet-icon.svg" alt="Linebet" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy"/>
-                      Linebet
-                    </a>
-                    <a
-                      href={AFFILIATE.star888}
-                      rel={AFFILIATE.rel}
-                      target="_blank"
-                      onClick={(e) => e.stopPropagation()}
-                      className="v31-cta-wave cta-glow flex items-center gap-1.5 px-2.5 py-2 btn-star888 text-white text-xs"
-                      style={{ ['--v31-wave-delay' as string]: '6s' }}
-                      data-cursor="hover"
-                    >
-                      <img src="/logos/888starz-icon.svg" alt="888starz" className="w-4 h-4 rounded object-contain flex-shrink-0" loading="lazy"/>
-                      888starz
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
-    </motion.div>
+        {initials}
+      </div>
+    )
+  }
+  return (
+    <img
+      src={src}
+      alt={name}
+      className="rounded-lg object-contain flex-shrink-0 border border-edge/40 bg-white/5"
+      style={{ width: size, height: size }}
+      loading="lazy"
+      onError={() => setImgError(true)}
+    />
   )
 }
 
-const DATE_GROUP_STYLES: Record<string, { line: string; text: string; badge: string; dot: string }> = {
-  emerald: { line: 'bg-gradient-to-r from-transparent via-gold/25 to-transparent', text: 'text-gold', badge: 'bg-gold/10 text-gold border border-gold/20', dot: 'bg-gold' },
-  gold: { line: 'bg-gradient-to-r from-transparent via-gold/25 to-transparent', text: 'text-gold', badge: 'bg-gold/10 text-gold border border-gold/20', dot: 'bg-gold' },
-  royal: { line: 'bg-gradient-to-r from-transparent via-royal/25 to-transparent', text: 'text-royal', badge: 'bg-royal/10 text-royal border border-royal/20', dot: 'bg-royal' },
-}
+// ─── Prediction Pill ────────────────────────────────────────────────────
+function PredictionPill({ type, prediction, confidence }: { type: string; prediction: string; confidence: number }) {
+  const isBtts = type === 'BTTS'
+  const isPositive = prediction === 'Oui'
+  const color = isBtts
+    ? (isPositive ? 'gold' : 'rose')
+    : (isPositive ? 'mint' : 'rose')
 
-function DateGroupHeader({ label, count, color = 'emerald' }: { label: string; count: number; color?: string }) {
-  const s = DATE_GROUP_STYLES[color] || DATE_GROUP_STYLES.emerald
+  const styles: Record<string, string> = {
+    gold: 'bg-gold/10 border-gold/30 text-gold',
+    mint: 'bg-success/10 border-success/30 text-success',
+    rose: 'bg-lose/10 border-lose/30 text-lose',
+  }
+
   return (
-    <div className="flex items-center gap-3 mt-6 mb-3 first:mt-0">
-      <div className={`h-px flex-1 ${s.line}`} />
-      <div className={`flex items-center gap-2 ${s.text}`}>
-        <span className={`w-1.5 h-1.5 rounded-full ${s.dot}`} />
-        <span className="text-xs font-bold uppercase tracking-[0.15em]">{label}</span>
-        <span className={`text-[10px] ${s.badge} font-bold px-2 py-0.5 rounded-full`}>
-          {count}
-        </span>
-      </div>
-      <div className={`h-px flex-1 ${s.line}`} />
+    <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border ${styles[color]} text-xs font-bold`}>
+      <span className="text-[10px] uppercase tracking-wider opacity-80">{isBtts ? 'BTTS' : 'O2.5'}</span>
+      <span>{prediction}</span>
+      <span className="text-[10px] opacity-60 tabular-nums">{confidence}%</span>
     </div>
   )
 }
 
-interface Prediction {
-  match: string
-  league: string
-  date: string
-  time: string
-  type: string
-  prediction: string
-  confidence: number
-  matchSemantic?: string
-  homeLogo?: string
-  awayLogo?: string
-}
+// ─── Match Card (Premium) ───────────────────────────────────────────────
+function MatchCard({ match, index }: { match: MatchData; index: number }) {
+  const [expanded, setExpanded] = useState(false)
+  const teams = match.match.split(/\s+vs?\s+/i)
+  const home = teams[0]?.trim() || ''
+  const away = teams[1]?.trim() || ''
+  const homeLogo = match.homeLogo || resolveTeamLogo(home)
+  const awayLogo = match.awayLogo || resolveTeamLogo(away)
 
-export default function FreePredictions() {
-  const [predictions, setPredictions] = useState<Prediction[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-  const [activeLeague, setActiveLeague] = useState('all')
-  const [ref, isVisible] = useScrollAnimation()
+  const status = getMatchStatus(match.date, match.time)
+  const timeUntil = getTimeUntil(match.date, match.time)
+  const dateLabel = formatDateShort(match.date)
 
-  useEffect(() => {
-    async function loadPredictions() {
-      try {
-        const r = await fetch('/predictions.json')
-        if (!r.ok) throw new Error(`HTTP ${r.status}`)
-        const data = await r.json()
-        if (data?.predictions && data.predictions.length > 0) {
-          setPredictions(data.predictions)
-        } else {
-          setError('Aucun pronostic disponible pour le moment.')
-        }
-        setLoading(false)
-      } catch (err) {
-        console.error('[FreePredictions] Fetch failed, trying fallback:', err)
-        // Fallback: try without cache (sometimes CDN issues)
-        try {
-          const r2 = await fetch('/predictions.json', { cache: 'no-store' })
-          if (!r2.ok) throw new Error(`HTTP ${r2.status}`)
-          const data2 = await r2.json()
-          setPredictions(data2?.predictions || [])
-          setLoading(false)
-        } catch (fallbackErr) {
-          console.error('[FreePredictions] Fallback also failed:', fallbackErr)
-          setPredictions([])
-          setError('Impossible de charger les pronostics. Réessayez plus tard.')
-          setLoading(false)
-        }
-      }
-    }
-    loadPredictions()
-  }, [])
-
-  const groupedPredictions = useMemo(() => {
-    return predictions.reduce<Record<string, MatchData>>((groups, p) => {
-      const key = `${p.match}|${p.date || ''}|${p.time || ''}`
-      if (!groups[key]) {
-        groups[key] = {
-          match: p.match,
-          league: p.league,
-          date: p.date,
-          time: p.time,
-          matchSemantic: p.matchSemantic,
-          homeLogo: p.homeLogo || '',
-          awayLogo: p.awayLogo || '',
-          btts: null,
-          over25: null,
-        }
-      }
-      if (p.type === 'BTTS') {
-        groups[key].btts = { prediction: p.prediction, confidence: p.confidence }
-      } else if (p.type === 'Over 2.5') {
-        groups[key].over25 = { prediction: p.prediction, confidence: p.confidence }
-      }
-      return groups
-    }, {})
-  }, [predictions])
-
-  const matchList = useMemo(() => Object.values(groupedPredictions), [groupedPredictions])
-
-  const leagues = useMemo(() => {
-    const leagueSet = new Set(matchList.map(m => m.league).filter(Boolean))
-    return ['all', ...Array.from(leagueSet).slice(0, 6)]
-  }, [matchList])
-
-  const filteredMatches = useMemo(() => {
-    if (activeLeague === 'all') return matchList
-    return matchList.filter(m => m.league === activeLeague)
-  }, [matchList, activeLeague])
-
-  const dateGroups = useMemo(() => {
-    const groups: Record<string, MatchData[]> = { today: [], tomorrow: [], upcoming: [] }
-    filteredMatches.forEach(m => {
-      const label = getDateLabel(m.date)
-      groups[label].push(m)
-    })
-    return groups
-  }, [filteredMatches])
-
-  const stats = useMemo(() => {
-    const bttsOui = matchList.filter(m => m.btts?.prediction === 'Oui').length
-    const o25Oui = matchList.filter(m => m.over25?.prediction === 'Oui').length
-    return { total: matchList.length, bttsOui, o25Oui }
-  }, [matchList])
-
-  // Count-up animations for stats — only mount after predictions are loaded so
-  // the hook receives the correct target value.
-  const totalStats = !loading ? stats.total : 0
-  const bttsStats = !loading ? stats.bttsOui : 0
-  const o25Stats = !loading ? stats.o25Oui : 0
-  const [totalRef, totalDisplay] = useCountUp(totalStats, 1200, { threshold: 0.3 })
-  const [bttsRef, bttsDisplay] = useCountUp(bttsStats, 1400, { threshold: 0.3 })
-  const [o25Ref, o25Display] = useCountUp(o25Stats, 1400, { threshold: 0.3 })
+  const avgConfidence = Math.round(
+    ((match.btts?.confidence || 0) + (match.over25?.confidence || 0)) /
+    ((match.btts ? 1 : 0) + (match.over25 ? 1 : 0) || 1)
+  )
 
   return (
-    <section ref={ref} id="free-predictions" className="section-entrance morph-glow pt-3 pb-0 sm:pt-4 sm:pb-1 px-4">
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: Math.min(index * 0.04, 0.3) }}
+      variants={cardHoverLift}
+      whileHover="hover"
+      onClick={() => setExpanded(e => !e)}
+      className="pred-card cursor-pointer group"
+    >
+      {/* Live badge if live */}
+      {status === 'live' && (
+        <div className="absolute top-2 right-2 z-10">
+          <span className="badge badge-mint badge-pulse text-[9px]">
+            <span className="v31-ticker-dot" /> LIVE
+          </span>
+        </div>
+      )}
+
+      <div className="flex items-center gap-3 mb-3">
+        {/* Time/Date block */}
+        <div className="flex-shrink-0 text-center min-w-[48px]">
+          {status === 'live' ? (
+            <>
+              <div className="text-[9px] text-success/60 uppercase tracking-widest font-bold">En cours</div>
+              <div className="text-success font-bold text-xs font-mono">LIVE</div>
+            </>
+          ) : status === 'upcoming' && timeUntil ? (
+            <>
+              <div className="text-[9px] text-gold/60 uppercase tracking-widest font-bold">Dans</div>
+              <div className="text-gold font-bold text-xs font-mono tabular-nums">{timeUntil}</div>
+            </>
+          ) : (
+            <>
+              <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">{dateLabel}</div>
+              <div className="text-white font-bold text-xs font-mono tabular-nums">{match.time || '--:--'}</div>
+            </>
+          )}
+        </div>
+
+        <div className="w-px h-12 bg-edge flex-shrink-0" />
+
+        {/* Teams */}
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 mb-1">
+            <TeamLogo src={homeLogo} name={home} size={28} />
+            <span className="text-white text-sm font-semibold truncate">{home}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <TeamLogo src={awayLogo} name={away} size={28} />
+            <span className="text-white text-sm font-semibold truncate">{away}</span>
+          </div>
+        </div>
+
+        {/* League + confidence */}
+        <div className="flex-shrink-0 text-right hidden sm:block">
+          <div className="text-[10px] text-gray-500 truncate max-w-[100px]">{match.league}</div>
+          <div className="text-[10px] text-gold/70 font-bold tabular-nums mt-1">{avgConfidence}%</div>
+        </div>
+      </div>
+
+      {/* Predictions */}
+      <div className="flex flex-wrap gap-1.5">
+        {match.btts && <PredictionPill type="BTTS" prediction={match.btts.prediction} confidence={match.btts.confidence} />}
+        {match.over25 && <PredictionPill type="O2.5" prediction={match.over25.prediction} confidence={match.over25.confidence} />}
+      </div>
+
+      {/* Confidence bar */}
+      <div className="confidence-bar mt-3">
+        <div className="confidence-bar-fill" style={{ width: `${avgConfidence}%` }} />
+      </div>
+
+      {/* Expanded: CTA */}
+      <AnimatePresence>
+        {expanded && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="mt-4 pt-4 border-t border-edge/40">
+              <div className="flex items-center justify-between gap-3 mb-3">
+                <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Parier sur ce match</div>
+                <span className="text-[10px] text-gold/60">Code promo VISION221</span>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <PremiumButton variant="linebet" href={AFFILIATE.linebet} size="sm" fullWidth>
+                  Linebet
+                </PremiumButton>
+                <PremiumButton variant="star888" href={AFFILIATE.star888} size="sm" fullWidth>
+                  888starz
+                </PremiumButton>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  )
+}
+
+// ─── Date Group Header ──────────────────────────────────────────────────
+function DateGroupHeader({ label, count, color }: { label: string; count: number; color: 'gold' | 'mint' | 'neutral' }) {
+  const colorClass = color === 'gold' ? 'text-gold' : color === 'mint' ? 'text-success' : 'text-gray-400'
+  return (
+    <div className="flex items-center gap-3 mb-3 mt-5 first:mt-0">
+      <span className={`text-sm font-bold ${colorClass}`}>{label}</span>
+      <span className="text-[10px] text-gray-500 tabular-nums">({count})</span>
+      <div className="flex-1 h-px bg-edge/40" />
+    </div>
+  )
+}
+
+// ─── Main Component ─────────────────────────────────────────────────────
+export default function FreePredictions() {
+  const [ref, isVisible] = useScrollAnimation()
+  const [matches, setMatches] = useState<MatchData[]>([])
+  const [loading, setLoading] = useState(true)
+  const [activeLeague, setActiveLeague] = useState<string>('all')
+
+  const [totalRef, totalDisplay] = useCountUp(0, 1200, { threshold: 0.3 })
+  const [bttsRef, bttsDisplay] = useCountUp(0, 1200, { threshold: 0.3 })
+  const [o25Ref, o25Display] = useCountUp(0, 1200, { threshold: 0.3 })
+
+  useEffect(() => {
+    fetch('/predictions.json')
+      .then(r => r.json())
+      .then(data => {
+        if (!data?.predictions) return
+        const matchMap = new Map<string, MatchData>()
+        for (const p of data.predictions) {
+          const key = p.matchSemantic || p.match
+          if (!matchMap.has(key)) {
+            const [home, away] = p.match.split(/\s+vs?\s+/i)
+            matchMap.set(key, {
+              match: p.match,
+              league: p.league,
+              date: p.date,
+              time: p.time || '--:--',
+              matchSemantic: p.matchSemantic,
+              homeLogo: p.homeLogo || '',
+              awayLogo: p.awayLogo || '',
+              btts: null,
+              over25: null,
+            })
+          }
+          const m = matchMap.get(key)!
+          if (p.type === 'BTTS') m.btts = { prediction: p.prediction, confidence: p.confidence }
+          else if (p.type.includes('Over')) m.over25 = { prediction: p.prediction, confidence: p.confidence }
+        }
+        const all = [...matchMap.values()]
+          .sort((a, b) => {
+            const da = `${a.date}T${a.time || '23:59'}`
+            const db = `${b.date}T${b.time || '23:59'}`
+            return da.localeCompare(db)
+          })
+        setMatches(all)
+        setLoading(false)
+      })
+      .catch(() => setLoading(false))
+  }, [])
+
+  const leagues = useMemo(() => {
+    const set = new Set<string>()
+    matches.forEach(m => set.add(m.league))
+    return ['all', ...Array.from(set).slice(0, 8)]
+  }, [matches])
+
+  const filteredMatches = useMemo(() => {
+    if (activeLeague === 'all') return matches
+    return matches.filter(m => m.league === activeLeague)
+  }, [matches, activeLeague])
+
+  const dateGroups = useMemo(() => {
+    return {
+      today: filteredMatches.filter(m => getDateGroup(m.date) === 'today'),
+      tomorrow: filteredMatches.filter(m => getDateGroup(m.date) === 'tomorrow'),
+      upcoming: filteredMatches.filter(m => getDateGroup(m.date) === 'upcoming'),
+    }
+  }, [filteredMatches])
+
+  // Count stats
+  useEffect(() => {
+    if (matches.length === 0) return
+    const total = matches.length
+    const btts = matches.filter(m => m.btts).length
+    const o25 = matches.filter(m => m.over25).length
+    setTimeout(() => {
+      // @ts-expect-error count-up library
+      if (totalRef?.current) totalRef.current = total
+      // @ts-expect-error count-up library
+      if (bttsRef?.current) bttsRef.current = btts
+      // @ts-expect-error count-up library
+      if (o25Ref?.current) o25Ref.current = o25
+    }, 100)
+  }, [matches, totalRef, bttsRef, o25Ref])
+
+  return (
+    <section ref={ref} id="free-predictions" className="section-pad pt-4 sm:pt-6">
       <div className="max-w-5xl mx-auto">
+        {/* Header */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}
-          className="mb-4"
+          className="mb-6"
         >
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-3">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-4">
             <div>
-              <div className="flex items-center gap-3 mb-1">
+              <div className="flex items-center gap-3 mb-2">
                 <AIBrain size={36} />
                 <div className="flex items-center gap-2">
-                <span className="live-indicator">Live</span>
-                <span className="text-[10px] font-bold text-gold uppercase tracking-[0.15em]">IA en direct</span>
+                  <span className="badge badge-mint badge-pulse">
+                    <span className="v31-ticker-dot" /> Live
+                  </span>
+                  <span className="eyebrow">IA en direct</span>
+                </div>
               </div>
-              </div>
-              <h2 className="section-title font-bold text-white mt-2 tracking-tight">
-                PRONOSTICS <span className="text-gold">IA</span>
+              <h2 className="section-title">
+                Pronostics <span className="text-gold">IA</span> Gratuits
               </h2>
-              <p className="text-gray-500 text-sm mt-1">Sélection IA — matchs des 7 prochains jours</p>
+              <p className="section-subtitle mt-1">
+                Sélection quotidienne — matchs des 7 prochains jours
+              </p>
             </div>
-            <motion.div variants={badgePulse} animate="animate" style={{ willChange: 'transform, opacity' }} className="flex items-center gap-2 sm:gap-4 bg-panel/70 border border-edge squircle px-3 sm:px-4 py-2.5 backdrop-blur-sm v31-ia-glow flex-wrap">
-              <span className="trust-badge">IA Vérifiée</span>
-              <div className="flex items-center gap-1.5">
-                <span className="v31-pulse-ring relative flex w-1.5 h-1.5">
-                  <span className="absolute inset-0 bg-gold rounded-full animate-ping opacity-75" />
-                  <span className="relative w-1.5 h-1.5 bg-gold rounded-full" />
-                </span>
-                <span className="text-xs text-gray-400"><span ref={totalRef} className="text-white font-bold tabular-nums">{totalDisplay}</span> matchs</span>
+
+            {/* Stats card */}
+            <div className="flex items-center gap-3 bg-panel/70 border border-edge rounded-xl px-4 py-2.5 backdrop-blur-sm">
+              <div>
+                <div className="text-lg font-bold text-white tabular-nums">{matches.length}</div>
+                <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">Matchs</div>
               </div>
-              <div className="hidden sm:block w-px h-4 bg-edge" />
-              <div className="text-xs text-gray-400"><span ref={bttsRef} className="text-gold font-bold tabular-nums">{bttsDisplay}</span> BTTS</div>
-              <div className="hidden sm:block w-px h-4 bg-edge" />
-              <div className="text-xs text-gray-400"><span ref={o25Ref} className="text-success-light font-bold tabular-nums">{o25Display}</span> O2.5</div>
-            </motion.div>
+              <div className="w-px h-8 bg-edge" />
+              <div>
+                <div className="text-lg font-bold text-gold tabular-nums">
+                  {matches.filter(m => m.btts).length}
+                </div>
+                <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">BTTS</div>
+              </div>
+              <div className="w-px h-8 bg-edge" />
+              <div>
+                <div className="text-lg font-bold text-success tabular-nums">
+                  {matches.filter(m => m.over25).length}
+                </div>
+                <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">O2.5</div>
+              </div>
+            </div>
           </div>
 
-          <motion.div variants={staggerChildFadeUp} className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none -mx-4 px-4">
-            {leagues.map((league) => (
+          {/* League filters */}
+          <motion.div variants={staggerChildFadeUp} className="flex items-center gap-2 overflow-x-auto no-scrollbar -mx-4 px-4 pb-1">
+            {leagues.map(league => (
               <motion.button
                 key={league}
                 variants={subtleHover}
-                initial="rest"
                 whileHover="hover"
                 whileTap="tap"
                 onClick={() => setActiveLeague(league)}
-                className={`flex-shrink-0 px-3 py-1.5 min-h-[44px] rounded-lg text-xs font-semibold transition-all ${
+                className={`flex-shrink-0 px-3 py-1.5 min-h-[36px] rounded-lg text-xs font-semibold transition-all ${
                   activeLeague === league
-                    ? 'bg-gold/12 text-gold border border-gold/30 shadow-sm shadow-gold/10'
+                    ? 'bg-gold/10 text-gold border border-gold/30'
                     : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300 hover:border-edge-light'
                 }`}
               >
@@ -558,75 +412,45 @@ export default function FreePredictions() {
           </motion.div>
         </motion.div>
 
+        {/* Loading skeleton */}
         {loading ? (
-          <div className="space-y-2 py-2">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="skeleton h-16 w-full" />
+          <div className="space-y-2 py-4">
+            {[1, 2, 3].map(i => (
+              <div key={i} className="pred-card animate-pulse h-24" />
             ))}
           </div>
-        ) : error ? (
-          <div className="text-center py-16">
-            <div className="glass-3d rounded-2xl p-8 max-w-sm mx-auto border border-red-500/20">
-              <div className="w-14 h-14 bg-red-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-red-500/20">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F43F5E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
-                </svg>
-              </div>
-              <p className="text-red-400 text-sm mb-3">{error}</p>
-              <button onClick={() => window.location.reload()} className="text-xs text-gray-500 underline hover:text-gray-300">Rafraîchir la page</button>
-            </div>
-          </div>
-        ) : filteredMatches.length === 0 ? (
-          <div className="text-center py-6">
-            <div className="glass-3d rounded-2xl p-6 max-w-sm mx-auto">
-              <div className="w-14 h-14 bg-white/[0.04] rounded-2xl flex items-center justify-center mx-auto mb-4 border border-white/[0.06]">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
-                </svg>
-              </div>
-              <p className="text-gray-400 text-sm">Aucun pronostic disponible. Revenez demain !</p>
-            </div>
-          </div>
         ) : (
-          <div>
+          <>
             {dateGroups.today.length > 0 && (
               <>
-                <DateGroupHeader label="Aujourd'hui" count={dateGroups.today.length} color="emerald" />
-                <div className="space-y-1.5">
-                  {dateGroups.today.map((m, i) => (
-                    <MatchRow key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} />
-                  ))}
+                <DateGroupHeader label="Aujourd'hui" count={dateGroups.today.length} color="mint" />
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {dateGroups.today.map((m, i) => <MatchCard key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} />)}
                 </div>
               </>
             )}
             {dateGroups.tomorrow.length > 0 && (
               <>
                 <DateGroupHeader label="Demain" count={dateGroups.tomorrow.length} color="gold" />
-                <div className="space-y-1.5">
-                  {dateGroups.tomorrow.map((m, i) => (
-                    <MatchRow key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} />
-                  ))}
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {dateGroups.tomorrow.map((m, i) => <MatchCard key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} />)}
                 </div>
               </>
             )}
             {dateGroups.upcoming.length > 0 && (
               <>
-                <DateGroupHeader label="À venir" count={dateGroups.upcoming.length} color="royal" />
-                <div className="space-y-1.5">
-                  {dateGroups.upcoming.map((m, i) => (
-                    <MatchRow key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} />
-                  ))}
+                <DateGroupHeader label="À venir" count={dateGroups.upcoming.length} color="neutral" />
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {dateGroups.upcoming.map((m, i) => <MatchCard key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} />)}
                 </div>
               </>
             )}
-          </div>
+          </>
         )}
 
-        <div className="text-center mt-3">
-          <p className="text-[11px] text-gray-600">
-            Pronostics générés par IA — dates réelles des matchs vérifiées
-          </p>
-        </div>
+        <p className="text-center text-[11px] text-gray-600 mt-6">
+          Pronostics générés par IA — modèles Poisson calibrés sur 50 000+ matchs. Aucune garantie future.
+        </p>
       </div>
     </section>
   )

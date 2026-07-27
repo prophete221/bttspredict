@@ -1,5 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="888starz">
-  <rect x="0" y="0" width="32" height="32" rx="7" fill="#DC2626"/>
-  <text x="16" y="22" text-anchor="middle" font-family="'Bebas Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">888</text>
-  <polygon points="16,3 17.5,7.5 22,8 18.5,11 19.8,15.5 16,13 12.2,15.5 13.5,11 10,7.5 14.5,7.5" fill="#FFFFFF" opacity="0.9"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="888starz">
+  <defs>
+    <linearGradient id="star-ic-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF4D6D"/>
+      <stop offset="100%" stop-color="#D63148"/>
+    </linearGradient>
+    <radialGradient id="star-ic-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#FFD700" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FFD700" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="0" y="0" width="48" height="48" rx="12" fill="url(#star-ic-bg)"/>
+  <rect x="0" y="0" width="48" height="24" rx="12" fill="#FFFFFF" opacity="0.1"/>
+  <g transform="translate(24,24)">
+    <circle r="12" fill="url(#star-ic-glow)"/>
+    <polygon points="0,-10 3,-3 10,-3 4.5,1.5 6.5,8.5 0,4.5 -6.5,8.5 -4.5,1.5 -10,-3 -3,-3" fill="#FFFFFF"/>
+  </g>
 </svg>

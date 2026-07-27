@@ -3,6 +3,7 @@
 import {
   Navbar,
   Hero,
+  LiveTicker,
   FreePredictions,
   PromoVip,
   VipSports,
@@ -152,6 +153,7 @@ export default function Home() {
       <main id="main-content" className="relative z-10">
         <ErrorBoundary><Navbar /></ErrorBoundary>
         <ErrorBoundary><Hero /></ErrorBoundary>
+        <ErrorBoundary><LiveTicker /></ErrorBoundary>
         <ErrorBoundary><FreePredictions /></ErrorBoundary>
         <ErrorBoundary><PromoVip /></ErrorBoundary>
         <ErrorBoundary><VipSports /></ErrorBoundary>
