@@ -5,7 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE, SOCIAL_PROOF, TESTIMONIALS, URGENCY_MESSAGES } from '@/lib/constants'
 import { useScrollAnimation } from '@/hooks/useAnimations'
 import { FloatingParticles } from './AnimatedIcons'
-import { staggerContainer, staggerChildFadeUp, buttonHover, badgePulse, EASE, DUR, cardHoverLift } from '@/lib/motionPresets'
+import { staggerContainer, staggerChildFadeUp, buttonHover, badgePulse, cardHoverLift } from '@/lib/motionPresets'
+import PremiumButton from './PremiumButton'
 
 type Prediction = {
   match: string
@@ -20,8 +21,6 @@ type Prediction = {
   analysis?: {
     bttsProb?: number
     over25Prob?: number
-    homeLambda?: number
-    awayLambda?: number
   }
 }
 
@@ -46,16 +45,48 @@ export default function Hero() {
     return () => clearInterval(interval)
   }, [])
 
-  // Load top prediction of the day
+  // Load top UPCOMING prediction of the day (filter out finished matches)
   useEffect(() => {
     fetch('/predictions.json')
       .then(r => r.json())
       .then(data => {
         const preds: Prediction[] = data.predictions || []
         if (preds.length === 0) return
-        // Pick the prediction with highest confidence
-        const top = preds.reduce((best, p) =>
-          (p.confidence || 0) > (best.confidence || 0) ? p : best, preds[0])
+
+        // Filter out finished matches
+        const today = new Date(); today.setHours(0, 0, 0, 0)
+        const visible = preds.filter(p => {
+          if (!p.date) return false
+          const matchDay = new Date(p.date + 'T00:00:00'); matchDay.setHours(0, 0, 0, 0)
+          if (matchDay.getTime() < today.getTime()) return false
+          if (matchDay.getTime() > today.getTime()) return true  // future = OK
+          // Today — check time
+          if (!p.time || p.time === '--:--' || !/^\d{2}:\d{2}$/.test(p.time)) return true
+          const [h, m] = p.time.split(':').map(Number)
+          const matchDateTime = new Date(p.date + 'T00:00:00')
+          matchDateTime.setHours(h, m, 0, 0)
+          const diffMs = matchDateTime.getTime() - Date.now()
+          // Show if upcoming OR live (within last 2.5h)
+          return diffMs > -2.5 * 60 * 60 * 1000
+        })
+
+        if (visible.length === 0) {
+          setTopPrediction(null)
+          return
+        }
+
+        // Pick the one with highest confidence (and upcoming preferred)
+        const upcoming = visible.filter(p => {
+          if (!p.time || p.time === '--:--') return true
+          const [h, m] = p.time.split(':').map(Number)
+          const matchDateTime = new Date(p.date + 'T00:00:00')
+          matchDateTime.setHours(h, m, 0, 0)
+          return matchDateTime.getTime() > Date.now()
+        })
+
+        const pool = upcoming.length > 0 ? upcoming : visible
+        const top = pool.reduce((best, p) =>
+          (p.confidence || 0) > (best.confidence || 0) ? p : best, pool[0])
         setTopPrediction(top)
       })
       .catch(() => {})
@@ -76,7 +107,6 @@ export default function Hero() {
     .replace('{n}', String(SOCIAL_PROOF.winsToday))
     .replace('{n}', String(SOCIAL_PROOF.currentStreak))
 
-  // Format match teams for display
   const matchTeams = useMemo(() => {
     if (!topPrediction?.match) return null
     const parts = topPrediction.match.split(/\s+vs?\s+/i)
@@ -84,29 +114,29 @@ export default function Hero() {
   }, [topPrediction])
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden">
-      {/* Background — Stadium night atmosphere */}
-      <div className="absolute inset-0 bg-midnight" />
-      <div className="stadium-glow-top" />
-      <div className="stadium-glow-bottom-right" />
-      <div className="stadium-glow-bottom-left" />
-      <div className="absolute inset-0 grid-pattern opacity-50" />
+    <section ref={sectionRef} className="relative overflow-hidden pt-12 sm:pt-16 pb-12 sm:pb-20">
+      {/* Aurora background orbs */}
+      <div className="aurora-bg">
+        <div className="aurora-orb aurora-orb-1" />
+        <div className="aurora-orb aurora-orb-2" />
+        <div className="aurora-orb aurora-orb-3" />
+      </div>
       <FloatingParticles count={20} />
 
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-12 sm:pt-12 sm:pb-16"
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6"
       >
         {/* Ticker — Live indicator pill */}
         <motion.div
           variants={staggerChildFadeUp}
           className="flex justify-center mb-6 sm:mb-8"
         >
-          <div className="inline-flex items-center gap-2 bg-white/[0.04] border border-edge/60 rounded-full px-4 py-1.5 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-1.5">
             <span className="v31-ticker-dot" />
-            <span className="text-[10px] sm:text-xs text-gold font-semibold tracking-wider uppercase">IA en direct</span>
+            <span className="text-[10px] sm:text-xs text-violet-light font-semibold tracking-wider uppercase">IA en direct</span>
             <span className="text-edge text-[10px]">|</span>
             <motion.span
               key={urgencyIndex}
@@ -120,37 +150,40 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ═══ TWO-COLUMN HERO: Headline + Top Prediction Card ═══ */}
+        {/* ═══ TWO-COLUMN HERO ═══ */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           {/* ── LEFT — Headline + CTA ── */}
           <div className="text-center lg:text-left">
+            <motion.div variants={staggerChildFadeUp} className="mb-4">
+              <span className="eyebrow">Plateforme IA nouvelle génération</span>
+            </motion.div>
+
             <motion.h1
               variants={staggerChildFadeUp}
               className="section-title-lg mb-5"
             >
-              Pronostics <span className="text-gold">BTTS</span>
+              Pronostics <span className="gradient-text-violet-cyan">football</span>
               <br />
-              & <span className="text-ultra">Over 2.5</span>
-              <br />
-              <span className="text-success">par IA</span>
+              propulsés par <span className="gradient-text-coral-amber">IA</span>
             </motion.h1>
 
             <motion.p
               variants={staggerChildFadeUp}
-              className="text-gray-400 text-sm sm:text-base max-w-md mx-auto lg:mx-0 mb-5 leading-relaxed"
+              className="text-gray-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-6 leading-relaxed"
             >
               Notre IA analyse <span className="text-white font-semibold">50 000+ matchs</span> en temps réel :
               xG, forme, blessés, historique. Précision historique{' '}
-              <span className="text-gold font-bold">~87%</span>. Aucune garantie future.
+              <span className="text-violet-light font-bold glow-text-violet">~87%</span>.
+              Aucune garantie future.
             </motion.p>
 
             {/* Senegal-focused subtitle */}
             <motion.p
               variants={staggerChildFadeUp}
-              className="text-gold text-xs sm:text-sm font-bold mb-6 max-w-md mx-auto lg:mx-0"
+              className="text-coral-light text-sm sm:text-base font-bold mb-6 max-w-xl mx-auto lg:mx-0 urgency-pulse"
             >
-              Bonus 90 000 XOF (150$) avec <span className="text-linebet font-bold">VISION221</span> — Dépôt Wave / Orange Money / Free Money
+              Bonus 90 000 XOF (150$) avec <span className="text-linebet-light font-bold">VISION221</span> — Wave / Orange Money / Free Money
             </motion.p>
 
             {/* 18+ Badge */}
@@ -158,8 +191,8 @@ export default function Hero() {
               variants={staggerChildFadeUp}
               className="flex justify-center lg:justify-start mb-6"
             >
-              <div className="inline-flex items-center gap-1.5 bg-gold/10 border border-gold/25 rounded-full px-3 py-1">
-                <span className="text-gold font-extrabold text-xs">18+</span>
+              <div className="inline-flex items-center gap-1.5 bg-violet/10 border border-violet/25 rounded-full px-3 py-1">
+                <span className="text-violet-light font-extrabold text-xs">18+</span>
                 <span className="text-[10px] text-gray-500">Jeu réservé aux adultes • Les paris comportent des risques</span>
               </div>
             </motion.div>
@@ -173,11 +206,11 @@ export default function Hero() {
                 variants={cardHoverLift}
                 whileHover="hover"
                 whileTap="tap"
-                className="w-full max-w-md glass-promo squircle-lg px-5 py-4 sm:px-6 sm:py-5"
+                className="w-full max-w-md glass-promo px-5 py-4 sm:px-6 sm:py-5"
               >
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex-1 min-w-0">
-                    <div className="text-[10px] text-gold uppercase tracking-[0.15em] font-bold mb-1">Code Promo Exclusif</div>
+                    <div className="text-[10px] text-violet-light uppercase tracking-[0.15em] font-bold mb-1">Code Promo Exclusif</div>
                     <motion.span
                       variants={badgePulse}
                       animate="animate"
@@ -192,7 +225,7 @@ export default function Hero() {
                     whileTap="tap"
                     onClick={copyPromoCode}
                     className={`flex items-center gap-1.5 text-xs font-bold transition-all px-3 py-2 rounded-lg border ${
-                      copied ? 'border-success/40 text-success bg-success/10' : 'border-gold/30 text-gold bg-gold/5'
+                      copied ? 'border-success/40 text-success bg-success/10' : 'border-violet/30 text-violet-light bg-violet/5'
                     }`}
                     aria-label="Copier le code promo"
                   >
@@ -210,7 +243,7 @@ export default function Hero() {
                   </motion.button>
                 </div>
                 <p className="text-[10px] text-gray-500 mt-2">
-                  À utiliser sur <span className="text-linebet font-semibold">Linebet</span> ou <span className="text-star888 font-semibold">888starz</span>
+                  À utiliser sur <span className="text-linebet-light font-semibold">Linebet</span> ou <span className="text-star888-light font-semibold">888starz</span>
                 </p>
               </motion.div>
             </motion.div>
@@ -220,36 +253,18 @@ export default function Hero() {
               variants={staggerChildFadeUp}
               className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start items-center"
             >
-              <motion.a
-                variants={buttonHover}
-                whileHover="hover"
-                whileTap="tap"
-                href={AFFILIATE.linebet}
-                rel={AFFILIATE.rel}
-                target="_blank"
-                className="flex items-center justify-center gap-1.5 px-5 py-2.5 sm:px-6 sm:py-3 btn-linebet cta-glow text-[#04150C] text-xs sm:text-sm font-bold"
-              >
-                <img src="/logos/linebet.svg" alt="Linebet" className="h-4 w-auto object-contain flex-shrink-0" loading="lazy" />
+              <PremiumButton variant="linebet" href={AFFILIATE.linebet} size="md">
                 <span className="sm:hidden">Bonus 90 000 XOF</span>
-                <span className="hidden sm:inline">S'inscrire → Bonus 90 000 XOF (150$)</span>
-              </motion.a>
+                <span className="hidden sm:inline">Inscription → Bonus 90 000 XOF</span>
+              </PremiumButton>
 
-              <motion.a
-                variants={buttonHover}
-                whileHover="hover"
-                whileTap="tap"
-                href={AFFILIATE.star888}
-                rel={AFFILIATE.rel}
-                target="_blank"
-                className="flex items-center justify-center gap-1.5 px-5 py-2.5 sm:px-6 sm:py-3 btn-star888 cta-glow text-[#1A0008] text-xs sm:text-sm font-bold"
-              >
-                <img src="/logos/888starz.svg" alt="888starz" className="h-4 w-auto object-contain flex-shrink-0" loading="lazy" />
-                <span>888starz Bonus 100%</span>
-              </motion.a>
+              <PremiumButton variant="star888" href={AFFILIATE.star888} size="md">
+                888starz Bonus 100%
+              </PremiumButton>
             </motion.div>
           </div>
 
-          {/* ── RIGHT — Top Prediction Card (the star of the show) ── */}
+          {/* ── RIGHT — Top Prediction Card ── */}
           <motion.div
             variants={staggerChildFadeUp}
             className="relative"
@@ -258,9 +273,20 @@ export default function Hero() {
               <motion.div
                 variants={cardHoverLift}
                 whileHover="hover"
-                className="gradient-border p-[1px] squircle-xl"
+                className="relative"
               >
-                <div className="bg-panel-2 squircle-xl p-5 sm:p-6 relative overflow-hidden">
+                <div className="glass-promo p-5 sm:p-6 relative overflow-hidden">
+                  {/* Holographic gradient border effect */}
+                  <div className="absolute inset-0 rounded-[inherit] pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.4) 0%, transparent 30%, transparent 70%, rgba(6, 182, 212, 0.4) 100%)',
+                      padding: '1px',
+                      WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                      WebkitMaskComposite: 'xor',
+                      maskComposite: 'exclude',
+                    }}
+                  />
+
                   {/* Top label */}
                   <div className="flex items-center justify-between mb-4">
                     <div className="inline-flex items-center gap-2">
@@ -269,7 +295,7 @@ export default function Hero() {
                         {topPrediction.league}
                       </span>
                     </div>
-                    <span className="text-[10px] text-gray-500 mono">{topPrediction.time || '--:--'}</span>
+                    <span className="text-[10px] text-gray-500 mono">{topPrediction.time || formatTimeFallback(topPrediction.date)}</span>
                   </div>
 
                   {/* Teams */}
@@ -280,11 +306,13 @@ export default function Hero() {
                         <img
                           src={topPrediction.homeLogo}
                           alt={matchTeams.home}
-                          className="w-12 h-12 sm:w-16 sm:h-16 object-contain mb-2"
+                          className="w-14 h-14 sm:w-20 sm:h-20 object-contain mb-2"
                           loading="lazy"
                         />
                       ) : (
-                        <div className="w-12 h-12 sm:w-16 sm:h-16 bg-panel rounded-full mb-2" />
+                        <div className="w-14 h-14 sm:w-20 sm:h-20 bg-panel rounded-2xl mb-2 flex items-center justify-center text-violet-light font-bold text-xl">
+                          {matchTeams.home.slice(0, 2).toUpperCase()}
+                        </div>
                       )}
                       <span className="text-xs sm:text-sm font-semibold text-white truncate max-w-full">
                         {matchTeams.home}
@@ -293,7 +321,7 @@ export default function Hero() {
 
                     {/* VS */}
                     <div className="text-center">
-                      <div className="text-2xl sm:text-3xl font-black text-gold mono">VS</div>
+                      <div className="text-2xl sm:text-3xl font-black gradient-text-violet-cyan mono">VS</div>
                       <div className="text-[9px] text-gray-500 uppercase tracking-widest mt-1">{topPrediction.date}</div>
                     </div>
 
@@ -303,11 +331,13 @@ export default function Hero() {
                         <img
                           src={topPrediction.awayLogo}
                           alt={matchTeams.away}
-                          className="w-12 h-12 sm:w-16 sm:h-16 object-contain mb-2"
+                          className="w-14 h-14 sm:w-20 sm:h-20 object-contain mb-2"
                           loading="lazy"
                         />
                       ) : (
-                        <div className="w-12 h-12 sm:w-16 sm:h-16 bg-panel rounded-full mb-2" />
+                        <div className="w-14 h-14 sm:w-20 sm:h-20 bg-panel rounded-2xl mb-2 flex items-center justify-center text-violet-light font-bold text-xl">
+                          {matchTeams.away.slice(0, 2).toUpperCase()}
+                        </div>
                       )}
                       <span className="text-xs sm:text-sm font-semibold text-white truncate max-w-full">
                         {matchTeams.away}
@@ -316,14 +346,14 @@ export default function Hero() {
                   </div>
 
                   {/* Prediction */}
-                  <div className="bg-midnight/50 rounded-xl p-4 mb-4 border border-edge">
+                  <div className="bg-midnight/60 backdrop-blur-md rounded-xl p-4 mb-4 border border-edge">
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Pronostic IA</span>
-                      <span className="badge badge-mint">{topPrediction.type}</span>
+                      <span className="badge badge-cyan">{topPrediction.type}</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div>
-                        <div className="text-2xl sm:text-3xl font-black text-gold">
+                        <div className="text-2xl sm:text-3xl font-black text-violet-light glow-text-violet">
                           {topPrediction.prediction}
                         </div>
                         <div className="text-[10px] text-gray-500 mt-0.5">
@@ -335,7 +365,7 @@ export default function Hero() {
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-3xl sm:text-4xl font-black text-success tabular-nums">
+                        <div className="text-3xl sm:text-4xl font-black text-success tabular-nums glow-text-coral" style={{ color: 'var(--color-coral-light)' }}>
                           {topPrediction.confidence}%
                         </div>
                         <div className="text-[10px] text-gray-500 uppercase tracking-widest">Confiance</div>
@@ -348,25 +378,15 @@ export default function Hero() {
                   </div>
 
                   {/* CTA */}
-                  <motion.a
-                    variants={buttonHover}
-                    whileHover="hover"
-                    whileTap="tap"
-                    href={AFFILIATE.linebet}
-                    rel={AFFILIATE.rel}
-                    target="_blank"
-                    className="flex items-center justify-center gap-2 px-4 py-3 btn-gold cta-glow text-xs sm:text-sm font-bold w-full"
-                  >
-                    <span>Parier sur Linebet →</span>
-                  </motion.a>
+                  <PremiumButton variant="linebet" href={AFFILIATE.linebet} size="md" fullWidth>
+                    Parier sur Linebet →
+                  </PremiumButton>
                 </div>
               </motion.div>
             ) : (
               // Skeleton while loading
-              <div className="gradient-border p-[1px] squircle-xl">
-                <div className="bg-panel-2 squircle-xl p-6 h-80 animate-pulse flex items-center justify-center">
-                  <div className="text-gray-600 text-sm">Chargement du top pronostic…</div>
-                </div>
+              <div className="glass-promo p-6 h-96 animate-pulse flex items-center justify-center">
+                <div className="text-gray-600 text-sm">Chargement du top pronostic…</div>
               </div>
             )}
 
@@ -391,15 +411,15 @@ export default function Hero() {
           className="grid grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto mt-12 sm:mt-16"
         >
           <div className="stat-tile">
-            <div className="text-xl sm:text-3xl font-extrabold text-gold tabular-nums">~87%</div>
+            <div className="text-xl sm:text-3xl font-bold text-violet-light tabular-nums">~87%</div>
             <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Précision historique</div>
           </div>
           <div className="stat-tile">
-            <div className="text-xl sm:text-3xl font-extrabold text-white tabular-nums">15K+</div>
+            <div className="text-xl sm:text-3xl font-bold text-white tabular-nums">15K+</div>
             <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Matchs analysés</div>
           </div>
           <div className="stat-tile">
-            <div className="text-xl sm:text-3xl font-extrabold text-ultra tabular-nums">50+</div>
+            <div className="text-xl sm:text-3xl font-bold text-cyan-light tabular-nums">50+</div>
             <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Championnats</div>
           </div>
         </motion.div>
@@ -423,9 +443,9 @@ export default function Hero() {
           <motion.div
             variants={badgePulse}
             animate="animate"
-            className="squircle px-4 py-2.5 text-center flex-shrink-0 bg-gold/[0.06] border border-gold/20"
+            className="squircle px-4 py-2.5 text-center flex-shrink-0 bg-violet/[0.08] border border-violet/25"
           >
-            <div className="text-[9px] text-gold uppercase tracking-wider font-bold mb-0.5">VIP</div>
+            <div className="text-[9px] text-violet-light uppercase tracking-wider font-bold mb-0.5">VIP</div>
             <div className="text-sm sm:text-base font-black text-white">
               Historique + 10 matchs/jour
             </div>
@@ -442,7 +462,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 bg-success/90 text-midnight px-4 py-2 rounded-full text-sm font-bold shadow-lg"
+            className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 bg-success/95 text-midnight px-4 py-2 rounded-full text-sm font-bold shadow-lg backdrop-blur-md"
           >
             ✓ Code VISION221 copié !
           </motion.div>
@@ -450,4 +470,11 @@ export default function Hero() {
       </AnimatePresence>
     </section>
   )
+}
+
+function formatTimeFallback(date: string): string {
+  try {
+    const d = new Date(date + 'T12:00:00')
+    return d.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit' })
+  } catch { return '--:--' }
 }

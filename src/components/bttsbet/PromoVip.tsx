@@ -61,8 +61,8 @@ function SecurityWatermark() {
       <svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true">
         <defs>
           <linearGradient id="sec-grad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#FFB800" />
-            <stop offset="100%" stopColor="#00E5A0" />
+            <stop offset="0%" stopColor="#7C3AED" />
+            <stop offset="100%" stopColor="#06B6D4" />
           </linearGradient>
         </defs>
         <g fill="none" stroke="url(#sec-grad)" strokeWidth="0.8">
@@ -152,8 +152,8 @@ function VipMatchRow({ m, index }: { m: VipMatch; index: number }) {
         </div>
         {/* Lock overlay */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="bg-midnight/80 backdrop-blur-sm rounded-full p-1.5 border border-gold/20">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFB800" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <div className="bg-midnight/80 backdrop-blur-sm rounded-full p-1.5 border border-violet/30">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
               <path d="M7 11V7a5 5 0 0 1 10 0v4" />
             </svg>

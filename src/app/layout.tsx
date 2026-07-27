@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const geist = Geist({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ['400', '500', '600', '700'],
@@ -16,7 +16,7 @@ const inter = Inter({
   display: 'swap',
 });
 
-const jetbrains = JetBrains_Mono({
+const geistMono = Geist_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   weight: ['400', '500', '700'],
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0B0E14",
+  themeColor: "#060818",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -130,7 +130,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrains.variable} antialiased`}
+        className={`${geist.variable} ${inter.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>

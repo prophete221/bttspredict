@@ -36,15 +36,25 @@ function getDateGroup(dateStr: string): 'today' | 'tomorrow' | 'upcoming' {
 }
 
 function getMatchStatus(date: string, time?: string): 'live' | 'upcoming' | 'finished' {
-  if (!date) return 'upcoming'
+  if (!date) return 'finished'
   try {
-    const matchDateTime = new Date(`${date}T${time || '12:00'}:00`)
+    const today = new Date(); today.setHours(0, 0, 0, 0)
+    const matchDay = new Date(date + 'T00:00:00'); matchDay.setHours(0, 0, 0, 0)
+    // Past day → finished
+    if (matchDay.getTime() < today.getTime()) return 'finished'
+    // Future day → upcoming
+    if (matchDay.getTime() > today.getTime()) return 'upcoming'
+    // Today — check time
+    if (!time || time === '--:--' || !/^\d{2}:\d{2}$/.test(time)) return 'upcoming'
+    const [h, m] = time.split(':').map(Number)
+    const matchDateTime = new Date(date + 'T00:00:00')
+    matchDateTime.setHours(h, m, 0, 0)
     const diffMs = matchDateTime.getTime() - Date.now()
     const diffHours = diffMs / (1000 * 60 * 60)
     if (diffMs < 0 && diffHours > -2.5) return 'live'
     if (diffMs < 0) return 'finished'
     return 'upcoming'
-  } catch { return 'upcoming' }
+  } catch { return 'finished' }
 }
 
 function getTimeUntil(date: string, time?: string): string {
@@ -273,9 +283,12 @@ export default function FreePredictions() {
         if (!data?.predictions) return
         const matchMap = new Map<string, MatchData>()
         for (const p of data.predictions) {
+          // Skip finished matches — only show live + upcoming
+          const status = getMatchStatus(p.date, p.time)
+          if (status === 'finished') continue
+
           const key = p.matchSemantic || p.match
           if (!matchMap.has(key)) {
-            const [home, away] = p.match.split(/\s+vs?\s+/i)
             matchMap.set(key, {
               match: p.match,
               league: p.league,
@@ -294,6 +307,11 @@ export default function FreePredictions() {
         }
         const all = [...matchMap.values()]
           .sort((a, b) => {
+            // Live first, then by date+time
+            const sa = getMatchStatus(a.date, a.time)
+            const sb = getMatchStatus(b.date, b.time)
+            if (sa === 'live' && sb !== 'live') return -1
+            if (sb === 'live' && sa !== 'live') return 1
             const da = `${a.date}T${a.time || '23:59'}`
             const db = `${b.date}T${b.time || '23:59'}`
             return da.localeCompare(db)

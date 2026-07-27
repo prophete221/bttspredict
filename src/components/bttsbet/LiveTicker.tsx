@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 type Match = {
   match: string
@@ -17,27 +17,66 @@ type Match = {
 
 type LiveStatus = 'upcoming' | 'live' | 'finished'
 
+/**
+ * Determine match status based on date + time.
+ * - If date is in the past (before today) → finished
+ * - If date is today and time is in the past > 2.5h ago → finished
+ * - If date is today and time is in the past < 2.5h ago → live
+ * - Otherwise → upcoming
+ */
 function getMatchStatus(date: string, time?: string): LiveStatus {
-  if (!date) return 'upcoming'
+  if (!date) return 'finished'  // No date = skip it
+
   try {
-    const matchDateTime = new Date(`${date}T${time || '12:00'}:00`)
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+
+    const matchDateOnly = new Date(date + 'T00:00:00')
+    matchDateOnly.setHours(0, 0, 0, 0)
+
+    // Match in a past day → definitely finished
+    if (matchDateOnly.getTime() < today.getTime()) return 'finished'
+
+    // Match in future day → upcoming
+    if (matchDateOnly.getTime() > today.getTime()) return 'upcoming'
+
+    // Match is today — check time
+    if (!time || time === '--:--' || !/^\d{2}:\d{2}$/.test(time)) {
+      // Today, no time info — assume upcoming (visible)
+      return 'upcoming'
+    }
+
+    const [hours, minutes] = time.split(':').map(Number)
+    const matchDateTime = new Date(date + 'T00:00:00')
+    matchDateTime.setHours(hours, minutes, 0, 0)
+
     const now = new Date()
     const diffMs = matchDateTime.getTime() - now.getTime()
     const diffHours = diffMs / (1000 * 60 * 60)
 
-    // Live if match started less than 2.5h ago (typical match duration)
+    // Match started less than 2.5h ago → live
     if (diffMs < 0 && diffHours > -2.5) return 'live'
+    // Match started more than 2.5h ago → finished
     if (diffMs < 0) return 'finished'
+    // Match in the future → upcoming
     return 'upcoming'
   } catch {
-    return 'upcoming'
+    return 'finished'
   }
 }
 
 function getTimeUntilMatch(date: string, time?: string): string {
   if (!date) return ''
   try {
-    const matchDateTime = new Date(`${date}T${time || '12:00'}:00`)
+    let matchDateTime: Date
+    if (time && /^\d{2}:\d{2}$/.test(time)) {
+      const [h, m] = time.split(':').map(Number)
+      matchDateTime = new Date(date + 'T00:00:00')
+      matchDateTime.setHours(h, m, 0, 0)
+    } else {
+      matchDateTime = new Date(date + 'T12:00:00')
+    }
+
     const now = new Date()
     const diffMs = matchDateTime.getTime() - now.getTime()
 
@@ -46,12 +85,28 @@ function getTimeUntilMatch(date: string, time?: string): string {
     const diffHours = Math.floor(diffMin / 60)
     const diffDays = Math.floor(diffHours / 24)
 
-    if (diffDays > 0) return `J-${diffDays}`
+    if (diffDays > 0) return `J-${diffDays}j`
     if (diffHours > 0) return `${diffHours}h ${diffMin % 60}min`
     return `${diffMin}min`
   } catch {
     return ''
   }
+}
+
+function formatTime(date: string, time?: string): string {
+  if (!time || time === '--:--' || !/^\d{2}:\d{2}$/.test(time)) {
+    // No time — show date instead
+    try {
+      const d = new Date(date + 'T12:00:00')
+      const today = new Date(); today.setHours(0,0,0,0)
+      const matchDay = new Date(date + 'T00:00:00'); matchDay.setHours(0,0,0,0)
+      const diffDays = Math.round((matchDay.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
+      if (diffDays === 0) return 'Auj.'
+      if (diffDays === 1) return 'Dem.'
+      return d.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit' })
+    } catch { return '--:--' }
+  }
+  return time
 }
 
 export default function LiveTicker() {
@@ -64,13 +119,23 @@ export default function LiveTicker() {
       .then(r => r.json())
       .then(data => {
         const preds: Match[] = data.predictions || []
-        // Sort by date+time
-        const sorted = [...preds].sort((a, b) => {
+        // Filter: only show matches that are upcoming OR live
+        // This excludes ALL finished matches (past dates, or today with past time > 2.5h ago)
+        const visible = preds.filter(m => {
+          const status = getMatchStatus(m.date, m.time)
+          return status === 'upcoming' || status === 'live'
+        })
+        // Sort: live first, then upcoming by date+time
+        const sorted = [...visible].sort((a, b) => {
+          const sa = getMatchStatus(a.date, a.time)
+          const sb = getMatchStatus(b.date, b.time)
+          if (sa === 'live' && sb !== 'live') return -1
+          if (sb === 'live' && sa !== 'live') return 1
           const da = `${a.date}T${a.time || '23:59'}`
           const db = `${b.date}T${b.time || '23:59'}`
           return da.localeCompare(db)
         })
-        setMatches(sorted.slice(0, 20))
+        setMatches(sorted.slice(0, 15))
       })
       .catch(() => {})
   }, [])
@@ -85,17 +150,15 @@ export default function LiveTicker() {
 
   if (matches.length === 0) return null
 
-  // Build display list: 1 upcoming live match + 3-4 scrolling
-  const liveMatches = matches.filter(m => getMatchStatus(m.date, m.time) === 'live')
-  const upcomingMatches = matches.filter(m => getMatchStatus(m.date, m.time) === 'upcoming')
-  const displayMatches = [...liveMatches, ...upcomingMatches].slice(0, 8)
-  const currentMatch = displayMatches[currentIndex % displayMatches.length] || matches[0]
+  const currentMatch = matches[currentIndex]
+  if (!currentMatch) return null
 
   const status = getMatchStatus(currentMatch.date, currentMatch.time)
   const timeUntil = getTimeUntilMatch(currentMatch.date, currentMatch.time)
   const teams = currentMatch.match.split(/\s+vs?\s+/i)
   const home = teams[0] || ''
   const away = teams[1] || ''
+  const timeLabel = formatTime(currentMatch.date, currentMatch.time)
 
   return (
     <div className="relative z-20 -mt-2 mb-2">
@@ -104,24 +167,25 @@ export default function LiveTicker() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="relative overflow-hidden squircle border border-edge bg-panel/80 backdrop-blur-md"
+          className="relative overflow-hidden glass-card border border-edge"
         >
-          {/* Top accent line */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+          {/* Top accent line — violet to cyan gradient */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet to-transparent" />
 
           <div className="flex items-stretch">
             {/* Live badge column */}
             <div className="flex items-center gap-2 px-4 py-2.5 border-r border-edge bg-midnight/50 flex-shrink-0">
               <span className={`v31-ticker-dot ${status === 'live' ? '' : 'opacity-50'}`} />
-              <span className={`text-[10px] font-bold uppercase tracking-widest ${status === 'live' ? 'text-success' : 'text-gray-400'}`}>
-                {status === 'live' ? 'Live' : status === 'finished' ? 'Fin' : 'Bientôt'}
+              <span className={`text-[10px] font-bold uppercase tracking-widest ${status === 'live' ? 'text-success' : 'text-violet-light'}`}>
+                {status === 'live' ? 'Live' : 'À venir'}
               </span>
             </div>
 
             {/* Match content — animated */}
             <div className="flex-1 min-w-0 overflow-hidden">
-              <AnimatePresenceKeyed key={currentIndex}>
+              <AnimatePresence mode="wait">
                 <motion.div
+                  key={currentIndex}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
@@ -135,15 +199,15 @@ export default function LiveTicker() {
                         <div className="text-[10px] text-success/60 uppercase tracking-widest">En cours</div>
                         <div className="font-mono tabular-nums">LIVE</div>
                       </div>
-                    ) : status === 'upcoming' && timeUntil ? (
+                    ) : timeUntil ? (
                       <div>
-                        <div className="text-[10px] text-gold/60 uppercase tracking-widest font-bold">{timeUntil.includes('h') ? 'Dans' : 'J-'}</div>
-                        <div className="text-gold font-bold text-xs font-mono tabular-nums">{timeUntil}</div>
+                        <div className="text-[10px] text-violet-light/60 uppercase tracking-widest font-bold">Dans</div>
+                        <div className="text-violet-light font-bold text-xs font-mono tabular-nums">{timeUntil}</div>
                       </div>
                     ) : (
                       <div>
                         <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Heure</div>
-                        <div className="text-white font-bold text-xs font-mono tabular-nums">{currentMatch.time || '--:--'}</div>
+                        <div className="text-white font-bold text-xs font-mono tabular-nums">{timeLabel}</div>
                       </div>
                     )}
                   </div>
@@ -163,7 +227,7 @@ export default function LiveTicker() {
                     )}
                   </div>
 
-                  <div className="w-px h-8 bg-edge flex-shrink-0" />
+                  <div className="hidden sm:block w-px h-8 bg-edge flex-shrink-0" />
 
                   {/* League */}
                   <div className="hidden sm:block text-[10px] text-gray-500 truncate max-w-[120px] flex-shrink-0">
@@ -174,19 +238,19 @@ export default function LiveTicker() {
 
                   {/* Prediction */}
                   <div className="flex items-center gap-1.5 flex-shrink-0">
-                    <span className="badge badge-mint text-[9px]">{currentMatch.type}</span>
-                    <span className="text-gold font-bold text-xs">{currentMatch.prediction}</span>
+                    <span className="badge badge-cyan text-[9px]">{currentMatch.type}</span>
+                    <span className="text-violet-light font-bold text-xs">{currentMatch.prediction}</span>
                     <span className="text-gray-500 text-[10px] tabular-nums hidden sm:inline">({currentMatch.confidence}%)</span>
                   </div>
                 </motion.div>
-              </AnimatePresenceKeyed>
+              </AnimatePresence>
             </div>
 
             {/* Counter — X/N */}
             <div className="hidden sm:flex items-center px-4 py-2.5 border-l border-edge bg-midnight/50 flex-shrink-0">
               <div className="text-[10px] text-gray-500 tabular-nums font-mono">
-                <span className="text-gold font-bold">{(currentIndex % displayMatches.length) + 1}</span>
-                <span className="text-gray-600">/{displayMatches.length}</span>
+                <span className="text-violet-light font-bold">{currentIndex + 1}</span>
+                <span className="text-gray-600">/{matches.length}</span>
               </div>
             </div>
           </div>
@@ -197,16 +261,10 @@ export default function LiveTicker() {
             initial={{ width: '0%' }}
             animate={{ width: '100%' }}
             transition={{ duration: 5, ease: 'linear' }}
-            className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-gold via-success to-ultra"
+            className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-violet via-cyan to-success"
           />
         </motion.div>
       </div>
     </div>
   )
-}
-
-// Small wrapper to use AnimatePresence with a key
-import { AnimatePresence } from 'framer-motion'
-function AnimatePresenceKeyed({ children, key }: { children: React.ReactNode; key: number }) {
-  return <AnimatePresence mode="wait">{children}</AnimatePresence>
 }
