@@ -152,20 +152,18 @@ export default function Home() {
       {/* Site Loader — Premium opening animation */}
       <SiteLoader />
 
-      {/* Main Content */}
-      <ErrorBoundary>
-        <main id="main-content" className="relative z-10">
-          <Navbar />
-          <Hero />
-          <FreePredictions />
-          <PromoVip />
-          <VipSports />
-          <AviatorVip />
-          <WinHistory />
-          <FifaLinebet />
-          <Footer />
-        </main>
-      </ErrorBoundary>
+      {/* Main Content — each section has its own ErrorBoundary so one crash doesn't hide all */}
+      <main id="main-content" className="relative z-10">
+        <ErrorBoundary><Navbar /></ErrorBoundary>
+        <ErrorBoundary><Hero /></ErrorBoundary>
+        <ErrorBoundary><FreePredictions /></ErrorBoundary>
+        <ErrorBoundary><PromoVip /></ErrorBoundary>
+        <ErrorBoundary><VipSports /></ErrorBoundary>
+        <ErrorBoundary><AviatorVip /></ErrorBoundary>
+        <ErrorBoundary><WinHistory /></ErrorBoundary>
+        <ErrorBoundary><FifaLinebet /></ErrorBoundary>
+        <ErrorBoundary><Footer /></ErrorBoundary>
+      </main>
 
       {/* Age Verification Modal (18+) */}
       <AgeVerification />
