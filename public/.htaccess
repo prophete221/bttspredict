@@ -2,7 +2,23 @@
   RewriteEngine On
   RewriteBase /
 
-  # SPA fallback — redirect all non-file requests to index.html
+  # Disable automatic trailing slash redirect (causes 403 on directory without index.html)
+  DirectorySlash Off
+
+  # 1) Don't rewrite if request already ends with .html
+  RewriteRule \.html$ - [L]
+
+  # 2) If /path requested and /path.html exists, serve the .html file (clean URLs)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)/?$ /$1.html [L]
+
+  # 3) If /path/ requested (trailing slash) and /path.html exists, serve .html
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/../%{REQUEST_URI}.html -f
+  RewriteRule ^(.+)/$ /$1.html [L]
+
+  # 4) SPA fallback — anything else goes to index.html
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
