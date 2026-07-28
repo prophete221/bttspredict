@@ -113,7 +113,7 @@ export default function Hero() {
   const status = topPrediction ? getMatchStatus(topPrediction.date, topPrediction.time) : null
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden pt-12 sm:pt-16 pb-12 sm:pb-20">
+    <section ref={sectionRef} className="relative overflow-hidden pt-6 sm:pt-12 pb-8 sm:pb-16">
       {/* Brand ambient background */}
       <div className="brand-glow-top" />
       <div className="absolute inset-0 grid-pattern opacity-50" />
@@ -128,7 +128,7 @@ export default function Hero() {
         {/* Ticker pill */}
         <motion.div
           variants={staggerChildFadeUp}
-          className="flex justify-center mb-6 sm:mb-8"
+          className="flex justify-center mb-4 sm:mb-6"
         >
           <div className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-1.5">
             <span className="v31-ticker-dot" />
@@ -147,7 +147,7 @@ export default function Hero() {
         </motion.div>
 
         {/* ═══ TWO-COLUMN HERO ═══ */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
 
           {/* ── LEFT — Brand + title + CTAs ── */}
           <div className="text-center lg:text-left">
@@ -179,7 +179,7 @@ export default function Hero() {
 
             <motion.p
               variants={staggerChildFadeUp}
-              className="text-gray-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-6 leading-relaxed"
+              className="text-gray-400 text-sm sm:text-lg max-w-xl mx-auto lg:mx-0 mb-4 sm:mb-6 leading-relaxed"
             >
               BTTS, Over 2.5, multi-sports. Précision historique{' '}
               <span className="text-success font-bold glow-text-green">~87%</span> — pour parieurs pros en Afrique et dans le monde.
@@ -189,7 +189,7 @@ export default function Hero() {
             {/* Bonus subtitle */}
             <motion.p
               variants={staggerChildFadeUp}
-              className="text-gold text-sm sm:text-base font-semibold mb-6 max-w-xl mx-auto lg:mx-0"
+              className="text-gold text-xs sm:text-base font-semibold mb-4 sm:mb-6 max-w-xl mx-auto lg:mx-0"
             >
               <span className="inline-flex items-center gap-1.5">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -204,9 +204,9 @@ export default function Hero() {
               variants={staggerChildFadeUp}
               className="flex justify-center lg:justify-start mb-6"
             >
-              <div className="inline-flex items-center gap-1.5 bg-brand/40 border border-success/25 rounded-full px-3 py-1">
+              <div className="inline-flex items-center gap-1.5 bg-brand/40 border border-success/25 rounded-full px-2.5 py-1">
                 <span className="text-success-light font-bold text-xs">18+</span>
-                <span className="text-[10px] text-gray-500">Jeu réservé aux adultes • Les paris comportent des risques</span>
+                <span className="text-[10px] text-gray-500">Jeu réservé aux adultes • Risques de perte</span>
               </div>
             </motion.div>
 
@@ -242,7 +242,7 @@ export default function Hero() {
                   e.preventDefault()
                   document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="inline-flex items-center gap-2 px-5 py-3 btn-ghost text-sm font-medium rounded-xl"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:py-3 btn-ghost text-xs sm:text-sm font-medium rounded-xl"
               >
                 Découvrir la méthode IA
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -406,26 +406,26 @@ export default function Hero() {
         {/* ═══ STATS ROW ═══ */}
         <motion.div
           variants={staggerChildFadeUp}
-          className="grid grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto mt-12 sm:mt-16"
+          className="grid grid-cols-3 gap-2 sm:gap-4 max-w-3xl mx-auto mt-8 sm:mt-16"
         >
           <div className="stat-tile">
-            <div className="text-xl sm:text-3xl font-bold text-success tabular-nums glow-text-green">~87%</div>
-            <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Précision historique</div>
+            <div className="text-lg sm:text-3xl font-bold text-success tabular-nums glow-text-green">~87%</div>
+            <div className="text-[9px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Précision historique</div>
           </div>
           <div className="stat-tile">
-            <div className="text-xl sm:text-3xl font-bold text-white tabular-nums">15K+</div>
-            <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Matchs analysés</div>
+            <div className="text-lg sm:text-3xl font-bold text-white tabular-nums">15 000+</div>
+            <div className="text-[9px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Matchs analysés</div>
           </div>
           <div className="stat-tile">
-            <div className="text-xl sm:text-3xl font-bold text-gold tabular-nums">50+</div>
-            <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Championnats</div>
+            <div className="text-lg sm:text-3xl font-bold text-gold tabular-nums">50+</div>
+            <div className="text-[9px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Championnats</div>
           </div>
         </motion.div>
 
         {/* Testimonial */}
         <motion.div
           variants={staggerChildFadeUp}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-3xl mx-auto mt-8"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-3xl mx-auto mt-6 sm:mt-8"
         >
           <motion.div
             key={testimonialIndex}

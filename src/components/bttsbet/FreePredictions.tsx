@@ -457,7 +457,7 @@ export default function FreePredictions() {
   }), [matches])
 
   return (
-    <section ref={ref} id="free-predictions" className="section-pad pt-4 sm:pt-6">
+    <section ref={ref} id="free-predictions" className="section-pad pt-0 sm:pt-2">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -481,7 +481,7 @@ export default function FreePredictions() {
             <div className="flex items-center gap-3 squircle px-4 py-2.5">
               <div className="text-center">
                 <div className="text-lg font-bold text-white tabular-nums">{stats.total}</div>
-                <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">Matchs</div>
+                <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">Pronos Auj.</div>
               </div>
               <div className="w-px h-8 bg-edge" />
               <div className="text-center">
