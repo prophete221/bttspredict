@@ -93,7 +93,7 @@ function ProbabilityBar({ value, prediction, color = 'green' }: { value: number;
   return (
     <div className="space-y-1">
       <div className="flex items-center justify-between text-[11px]">
-        <span className={`font-bold ${isPositive ? 'text-success-light' : 'text-lose-light'}`}>
+        <span className={`font-bold ${isPositive ? 'text-success-light' : 'text-gray-500'}`}>
           {prediction}
         </span>
         <span className="text-gray-400 tabular-nums mono font-semibold">{percentage}%</span>
@@ -334,10 +334,10 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
               {/* BTTS prediction — always available (Poisson fallback) */}
               <>
                 <div className="flex items-baseline justify-between">
-                  <span className={`text-xl sm:text-2xl font-bold ${bttsPred.prediction === 'Oui' ? 'text-success-light' : 'text-lose-light'}`}>
+                  <span className={`text-xl sm:text-2xl font-bold ${bttsPred.prediction === 'Oui' ? 'text-success-light' : 'text-gray-500'}`}>
                     {bttsPred.prediction}
                   </span>
-                  <span className="text-[10px] text-gray-500 tabular-nums">conf. {bttsPred.confidence}%</span>
+                  <span className="text-xs font-bold text-gray-400 tabular-nums">{bttsPred.confidence}%</span>
                 </div>
                 {bttsPred.bttsProb !== undefined && (
                   <ProbabilityBar value={bttsPred.bttsProb} prediction={bttsPred.prediction} color="green" />
@@ -363,10 +363,10 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
               {/* Over 2.5 prediction — always available (Poisson fallback) */}
               <>
                 <div className="flex items-baseline justify-between">
-                  <span className={`text-xl sm:text-2xl font-bold ${over25Pred.prediction === 'Oui' ? 'text-gold-light' : 'text-lose-light'}`}>
+                  <span className={`text-xl sm:text-2xl font-bold ${over25Pred.prediction === 'Oui' ? 'text-gold-light' : 'text-gray-500'}`}>
                     {over25Pred.prediction}
                   </span>
-                  <span className="text-[10px] text-gray-500 tabular-nums">conf. {over25Pred.confidence}%</span>
+                  <span className="text-xs font-bold text-gray-400 tabular-nums">{over25Pred.confidence}%</span>
                 </div>
                 {over25Pred.over25Prob !== undefined && (
                   <ProbabilityBar value={over25Pred.over25Prob} prediction={over25Pred.prediction} color="gold" />
