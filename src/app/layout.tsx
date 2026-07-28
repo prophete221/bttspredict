@@ -113,18 +113,36 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="BttsBet" />
-        {/* Service worker cleanup — remove any old SW that could cause caching issues */}
+        {/* Service worker cleanup + cache busting — force users to see latest version */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              if('serviceWorker' in navigator){
-                navigator.serviceWorker.getRegistrations().then(function(regs){
-                  regs.forEach(function(reg){ reg.unregister(); });
-                });
-                caches.keys().then(function(names){
-                  names.forEach(function(name){ caches.delete(name); });
-                });
-              }
+              (function(){
+                var VERSION = 'v20-2026-07-28';
+                try {
+                  // 1. Unregister all service workers
+                  if('serviceWorker' in navigator){
+                    navigator.serviceWorker.getRegistrations().then(function(regs){
+                      regs.forEach(function(reg){ reg.unregister(); });
+                    });
+                  }
+                  // 2. Clear all caches
+                  if(window.caches){
+                    caches.keys().then(function(names){
+                      names.forEach(function(name){ caches.delete(name); });
+                    });
+                  }
+                  // 3. Force hard reload if version mismatch (only once)
+                  var stored = localStorage.getItem('bttsbet_ver');
+                  if(stored && stored !== VERSION){
+                    // Version changed — force reload from server (bypass browser cache)
+                    localStorage.setItem('bttsbet_ver', VERSION);
+                    window.location.reload();
+                  } else if(!stored){
+                    localStorage.setItem('bttsbet_ver', VERSION);
+                  }
+                } catch(e){}
+              })();
             `,
           }}
         />
