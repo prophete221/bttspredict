@@ -49,7 +49,7 @@ export default function Footer() {
             </div>
             <motion.div variants={staggerContainer} initial="hidden" animate={isVisible ? 'visible' : 'hidden'} className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {TESTIMONIALS.slice(0, 3).map((t, i) => (
-                <motion.div key={i} variants={staggerChildFadeUp} whileHover={{ scale: 1.04, transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }} whileTap={{ scale: 0.96, transition: { duration: 0.15 } }} style={{ willChange: 'transform, opacity' }} className="bg-panel border border-edge/40 squircle p-4 transition-colors hover:border-gold/15">
+                <motion.div key={t.name + t.city} variants={staggerChildFadeUp} whileHover={{ scale: 1.04, transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }} whileTap={{ scale: 0.96, transition: { duration: 0.15 } }} style={{ willChange: 'transform, opacity' }} className="bg-panel border border-edge/40 squircle p-4 transition-colors hover:border-gold/15">
                   <div className="flex items-center gap-2.5 mb-2.5">
                     <div className="w-8 h-8 rounded-full bg-gold/8 border border-gold/15 flex items-center justify-center text-gold text-xs font-bold">
                       {t.name.charAt(0)}
@@ -83,7 +83,7 @@ export default function Footer() {
             </div>
             <motion.div variants={staggerContainer} initial="hidden" animate={isVisible ? 'visible' : 'hidden'} className="space-y-2 max-w-2xl mx-auto">
               {FAQ_ITEMS.slice(0, 4).map((item, i) => (
-                <motion.div key={i} variants={fadeInUp} className={`v31-faq-sep border border-edge/40 squircle overflow-hidden bg-panel/50 hover:border-gold/15 transition-colors`}>
+                <motion.div key={item.q} variants={fadeInUp} className={`v31-faq-sep border border-edge/40 squircle overflow-hidden bg-panel/50 hover:border-gold/15 transition-colors`}>
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     aria-expanded={openFaq === i}

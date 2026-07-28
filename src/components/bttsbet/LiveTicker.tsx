@@ -111,6 +111,7 @@ function formatTime(date: string, time?: string): string {
 
 export default function LiveTicker() {
   const [matches, setMatches] = useState<Match[]>([])
+  const [loading, setLoading] = useState(true)
   const [currentIndex, setCurrentIndex] = useState(0)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -137,7 +138,10 @@ export default function LiveTicker() {
         })
         setMatches(sorted.slice(0, 15))
       })
-      .catch(() => {})
+      .catch((err) => {
+        console.warn('[LiveTicker] Fetch failed:', err)
+      })
+      .finally(() => setLoading(false))
   }, [])
 
   useEffect(() => {
@@ -147,6 +151,16 @@ export default function LiveTicker() {
     }, 5000)
     return () => { if (intervalRef.current) clearInterval(intervalRef.current) }
   }, [matches.length])
+
+  if (loading) {
+    return (
+      <div className="relative z-20 -mt-2 mb-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="relative overflow-hidden glass-card border border-edge h-12 animate-pulse" />
+        </div>
+      </div>
+    )
+  }
 
   if (matches.length === 0) return null
 

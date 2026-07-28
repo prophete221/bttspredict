@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { AFFILIATE } from '@/lib/constants'
+import { AFFILIATE, SITE } from '@/lib/constants'
 import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import { staggerContainer } from '@/lib/motionPresets'
 import VipUnlockModal from './VipUnlockModal'
@@ -268,7 +268,7 @@ export default function FifaLinebet() {
                 Débloquer les Value Bets FIFA
               </button>
               <p className="text-[10px] text-gray-500 text-center mt-2">
-                Inscris-toi avec <span className="text-gold-light font-semibold">VISION221</span> pour débloquer
+                Inscris-toi avec <span className="text-gold-light font-semibold">{SITE.promoCode}</span> pour débloquer
               </p>
             </div>
           </motion.div>

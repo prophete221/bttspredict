@@ -103,8 +103,8 @@ export default function Navbar() {
             </span>
           </a>
 
-          {/* Desktop nav links */}
-          <div className="hidden lg:flex items-center gap-1">
+          {/* Desktop nav links — shown from md (768px) for better UX consistency */}
+          <div className="hidden md:flex items-center gap-1">
             {DESKTOP_LINKS.map((link) =>
               link.highlight ? (
                 <a
@@ -181,7 +181,7 @@ export default function Navbar() {
             </motion.a>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden text-gray-300 hover:text-white p-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center"
+              className="md:hidden text-gray-300 hover:text-white p-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center"
               aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
@@ -212,7 +212,7 @@ export default function Navbar() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="lg:hidden bg-midnight/98 border-t border-edge/40 backdrop-blur-lg overflow-hidden"
+            className="md:hidden bg-midnight/98 border-t border-edge/40 backdrop-blur-lg overflow-hidden"
             role="menu"
           >
             <div className="px-4 py-5 space-y-1 max-h-[80vh] overflow-y-auto">

@@ -25,7 +25,7 @@ import { modalBackdrop, modalContent, buttonHover } from '@/lib/motionPresets'
 const STORAGE_KEY = 'bttsbet_vip_unlocked'
 const ID_HASH_KEY = 'bttsbet_vip_id_hash'
 
-type Step = 'conditions' | 'verification' | 'success'
+type Step = 'conditions' | 'success'
 
 // Simple SHA-256 (sync, for client-side hashing)
 async function sha256(text: string): Promise<string> {
@@ -138,6 +138,9 @@ export default function VipUnlockModal({
             initial="hidden"
             animate="visible"
             exit="exit"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="vip-modal-title"
             className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-midnight border border-gold/30 rounded-2xl shadow-2xl"
             style={{ boxShadow: '0 32px 80px rgba(0, 0, 0, 0.7), 0 0 60px rgba(255, 107, 53, 0.15)' }}
             onClick={(e) => e.stopPropagation()}
@@ -173,7 +176,7 @@ export default function VipUnlockModal({
                   </svg>
                 </div>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white text-center tracking-tight">
+              <h3 id="vip-modal-title" className="text-xl sm:text-2xl font-bold text-white text-center tracking-tight">
                 {title}
               </h3>
               {subtitle && (
@@ -218,8 +221,11 @@ export default function VipUnlockModal({
                         <strong className="text-white">Ouvre un nouveau compte</strong> chez l'un de nos bookmakers partenaires :
                         <div className="mt-2 space-y-2">
                           {/* Linebet option */}
-                          <div
-                            className={`p-3 rounded-lg border cursor-pointer transition-all ${
+                          <button
+                            type="button"
+                            role="radio"
+                            aria-checked={selectedBookmaker === 'linebet'}
+                            className={`p-3 rounded-lg border cursor-pointer transition-all text-left w-full ${
                               selectedBookmaker === 'linebet'
                                 ? 'border-success bg-success/10'
                                 : 'border-edge bg-panel/40 hover:border-success/30'
@@ -238,11 +244,14 @@ export default function VipUnlockModal({
                               </code>
                               <span className="ml-1 text-gray-500">(en majuscules)</span>
                             </div>
-                          </div>
+                          </button>
 
                           {/* 888starz option */}
-                          <div
-                            className={`p-3 rounded-lg border cursor-pointer transition-all ${
+                          <button
+                            type="button"
+                            role="radio"
+                            aria-checked={selectedBookmaker === '888starz'}
+                            className={`p-3 rounded-lg border cursor-pointer transition-all text-left w-full ${
                               selectedBookmaker === '888starz'
                                 ? 'border-gold bg-gold/10'
                                 : 'border-edge bg-panel/40 hover:border-gold/30'
@@ -261,7 +270,7 @@ export default function VipUnlockModal({
                               </code>
                               <span className="ml-1 text-gray-500">(en minuscules)</span>
                             </div>
-                          </div>
+                          </button>
                         </div>
                       </div>
                     </li>
@@ -423,7 +432,7 @@ export default function VipUnlockModal({
 
                 <div className="grid grid-cols-2 gap-2 mb-4">
                   <div className="bg-midnight/60 border border-edge rounded-lg p-2.5 text-center">
-                    <div className="text-base font-bold text-success">{(Math.random() > 0.5 ? 85 : 87).toFixed(1)}%</div>
+                    <div className="text-base font-bold text-success">{(85 + (playerId.length % 3)).toFixed(1)}%</div>
                     <div className="text-[9px] text-gray-500 uppercase tracking-widest">Taux VIP</div>
                   </div>
                   <div className="bg-midnight/60 border border-edge rounded-lg p-2.5 text-center">

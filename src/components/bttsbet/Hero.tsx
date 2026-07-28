@@ -196,24 +196,44 @@ export default function Hero() {
   const [sectionRef, isVisible] = useScrollAnimation(0.05)
   const [progress, setProgress] = useState(0)
   const [revealedSteps, setRevealedSteps] = useState(0)
+  const [showCta, setShowCta] = useState(false)
 
-  // Animate progress bar 0 → 100% over 4s
+  // Animate progress bar 0 → 100% over 4s using requestAnimationFrame (60fps, perf-friendly)
   useEffect(() => {
     if (!isVisible) return
-    let frame = 0
-    const totalFrames = 80 // 4s at 50ms intervals
-    const interval = setInterval(() => {
-      frame++
-      const t = Math.min(1, frame / totalFrames)
+
+    const duration = 4000 // 4s
+    const startTime = performance.now()
+    let rafId: number
+
+    const tick = (now: number) => {
+      const elapsed = now - startTime
+      const t = Math.min(1, elapsed / duration)
       // easeOutQuad
       const eased = 1 - Math.pow(1 - t, 3)
       const newProgress = Math.min(100, eased * 100)
       setProgress(newProgress)
+
       const stepsToShow = Math.min(ANALYSIS_STEPS.length, Math.floor((newProgress / 100) * ANALYSIS_STEPS.length) + 1)
       setRevealedSteps(stepsToShow)
-      if (newProgress >= 100) clearInterval(interval)
-    }, 50)
-    return () => clearInterval(interval)
+
+      if (newProgress < 100) {
+        rafId = requestAnimationFrame(tick)
+      } else {
+        // Show CTA + confidence metrics after progress completes
+        setTimeout(() => setShowCta(true), 100)
+      }
+    }
+
+    rafId = requestAnimationFrame(tick)
+
+    // Show CTA early (after 800ms) so users can act immediately, even before animation ends
+    const earlyShow = setTimeout(() => setShowCta(true), 800)
+
+    return () => {
+      cancelAnimationFrame(rafId)
+      clearTimeout(earlyShow)
+    }
   }, [isVisible])
 
   const handleAnalyze = () => document.getElementById('free-predictions')?.scrollIntoView({ behavior: 'smooth' })
@@ -505,7 +525,7 @@ export default function Hero() {
             ═══════════════════════════════════════════════════════════════ */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
-          animate={progress >= 100 ? { opacity: 1, y: 0 } : { opacity: 0 }}
+          animate={showCta ? { opacity: 1, y: 0 } : { opacity: 0 }}
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto mt-6 sm:mt-8"
         >
@@ -602,7 +622,7 @@ export default function Hero() {
             ═══════════════════════════════════════════════════════════════ */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
-          animate={progress >= 100 ? { opacity: 1, y: 0 } : { opacity: 0 }}
+          animate={showCta ? { opacity: 1, y: 0 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center max-w-md sm:max-w-none mx-auto mt-8 sm:mt-10"
         >
@@ -648,7 +668,7 @@ export default function Hero() {
         {/* Tiny footer line */}
         <motion.p
           initial={{ opacity: 0 }}
-          animate={progress >= 100 ? { opacity: 1 } : { opacity: 0 }}
+          animate={showCta ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
           className="text-[10px] sm:text-xs text-center mt-5 sm:mt-7"
           style={{ color: C.textMute }}

@@ -66,8 +66,9 @@ export default function MobileTabBar() {
       const scrollY = window.scrollY
       const predictionsEl = document.getElementById('free-predictions')
       const vipEl = document.getElementById('vip')
-      const predictionsY = predictionsEl?.offsetTop || Infinity
-      const vipY = vipEl?.offsetTop || Infinity
+      // Use getBoundingClientRect for accuracy (accounts for sticky navbar offset)
+      const predictionsY = predictionsEl ? predictionsEl.getBoundingClientRect().top + scrollY : Infinity
+      const vipY = vipEl ? vipEl.getBoundingClientRect().top + scrollY : Infinity
 
       if (scrollY < predictionsY - 200) setActive('home')
       else if (scrollY >= predictionsY - 200 && scrollY < vipY - 200) setActive('predictions')

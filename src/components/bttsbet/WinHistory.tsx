@@ -360,6 +360,7 @@ export default function WinHistory() {
             <button
               key={f.id}
               onClick={() => setResultFilter(f.id)}
+              aria-pressed={resultFilter === f.id}
               className={`px-3 py-1 rounded-md text-xs font-semibold transition-all ${
                 resultFilter === f.id
                   ? 'bg-success/15 text-success border border-success/30'
@@ -381,6 +382,7 @@ export default function WinHistory() {
             <button
               key={f.id}
               onClick={() => setTypeFilter(f.id)}
+              aria-pressed={typeFilter === f.id}
               className={`px-3 py-1 rounded-md text-xs font-semibold transition-all ${
                 typeFilter === f.id
                   ? 'bg-gold/15 text-gold-light border border-gold/30'

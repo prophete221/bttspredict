@@ -87,7 +87,7 @@ export default function About() {
           className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-12"
         >
           {STATS.map((stat, i) => (
-            <motion.div key={i} variants={staggerChildFadeUp} className="stat-tile">
+            <motion.div key={stat.label} variants={staggerChildFadeUp} className="stat-tile">
               <div className="text-2xl mb-1">{stat.icon}</div>
               <div className="text-xl sm:text-2xl font-bold text-white tabular-nums">{stat.value}</div>
               <div className="text-[10px] text-gray-500 uppercase tracking-widest font-medium mt-1">
@@ -144,7 +144,7 @@ export default function About() {
             const status = STATUS_LABELS[item.status as keyof typeof STATUS_LABELS]
             return (
               <motion.div
-                key={i}
+                key={item.title}
                 variants={staggerChildFadeUp}
                 className="squircle p-5 hover:border-success/30 transition-all"
               >

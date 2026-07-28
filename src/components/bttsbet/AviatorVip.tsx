@@ -1,4 +1,5 @@
 'use client'
+import { SITE } from '@/lib/constants'
 
 import { useState, useMemo, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -375,7 +376,7 @@ export default function AviatorVip() {
                 Débloquer les Statistiques Aviator VIP
               </button>
               <p className="text-[10px] text-gray-500 text-center mt-2">
-                Inscris-toi avec <span className="text-gold-light font-semibold">VISION221</span> pour débloquer
+                Inscris-toi avec <span className="text-gold-light font-semibold">{SITE.promoCode}</span> pour débloquer
               </p>
             </div>
           </motion.div>

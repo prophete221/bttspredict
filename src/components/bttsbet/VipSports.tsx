@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { AFFILIATE } from '@/lib/constants'
+import { AFFILIATE, SITE } from '@/lib/constants'
 import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import { staggerContainer, staggerChildFadeUp } from '@/lib/motionPresets'
 import VipUnlockModal from './VipUnlockModal'
@@ -372,7 +372,7 @@ function VipSportPanel({ sport, onUnlock }: { sport: SportVip; onUnlock: () => v
         </button>
 
         <p className="text-[10px] text-gray-500 text-center mt-2">
-          Inscris-toi avec <span style={{ color: accent.light }} className="font-semibold">VISION221</span> pour débloquer
+          Inscris-toi avec <span style={{ color: accent.light }} className="font-semibold">{SITE.promoCode}</span> pour débloquer
         </p>
       </div>
     </motion.div>
@@ -433,6 +433,7 @@ export default function VipSports() {
                   key={sport.id}
                   variants={staggerChildFadeUp}
                   onClick={() => setActiveId(sport.id)}
+                  aria-pressed={isActive}
                   className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all flex-shrink-0 ${
                     isActive
                       ? 'bg-gold/15 border border-gold/40'

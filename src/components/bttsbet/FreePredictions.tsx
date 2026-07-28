@@ -479,6 +479,7 @@ export default function FreePredictions() {
               <button
                 key={f.id}
                 onClick={() => setActiveDate(f.id)}
+                aria-pressed={activeDate === f.id}
                 className={`px-2 py-0.5 rounded text-[11px] font-semibold transition-all whitespace-nowrap ${
                   activeDate === f.id
                     ? 'bg-success/15 text-success border border-success/30'
@@ -502,6 +503,7 @@ export default function FreePredictions() {
               <button
                 key={f.id}
                 onClick={() => setActiveType(f.id)}
+                aria-pressed={activeType === f.id}
                 className={`px-2 py-0.5 rounded text-[11px] font-semibold transition-all whitespace-nowrap ${
                   activeType === f.id
                     ? 'bg-success/15 text-success border border-success/30'
@@ -521,6 +523,7 @@ export default function FreePredictions() {
               <button
                 key={league}
                 onClick={() => setActiveLeague(league)}
+                aria-pressed={activeLeague === league}
                 className={`px-2 py-0.5 rounded text-[11px] font-semibold transition-all whitespace-nowrap ${
                   activeLeague === league
                     ? 'bg-success/15 text-success border border-success/30'

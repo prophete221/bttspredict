@@ -93,7 +93,7 @@ export default function HowItWorks() {
         >
           {CARDS.map((card, i) => (
             <motion.div
-              key={i}
+              key={card.step}
               variants={staggerChildFadeUp}
               className="squircle-lg p-6 relative group hover:border-success/30 transition-all"
             >
