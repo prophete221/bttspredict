@@ -142,7 +142,7 @@ export default function FifaLinebet() {
                 <div className="flex items-center gap-3 min-w-0">
                   {/* FIFA game icon */}
                   <div className="w-16 h-16 rounded-2xl bg-midnight/60 border border-success/30 flex items-center justify-center overflow-hidden flex-shrink-0">
-                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00C896" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <line x1="6" y1="11" x2="10" y2="11" />
                       <line x1="8" y1="9" x2="8" y2="13" />
                       <line x1="15" y1="12" x2="17" y2="12" />
@@ -238,7 +238,7 @@ export default function FifaLinebet() {
                     animate={{ scale: 1 }}
                     className="bg-midnight/90 border border-success/30 rounded-full p-3 flex flex-col items-center gap-1"
                   >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C896" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                       <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                     </svg>

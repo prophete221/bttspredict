@@ -89,7 +89,7 @@ export default function Navbar() {
                 height="18"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#00C896"
+                stroke="#00D4FF"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"

@@ -194,7 +194,7 @@ export default function VipUnlockModal({
               >
                 {alreadyUnlocked && (
                   <div className="bg-success/10 border border-success/30 rounded-lg p-3 flex items-center gap-2">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C896" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                     <span className="text-xs text-success font-semibold">
@@ -418,7 +418,7 @@ export default function VipUnlockModal({
                   transition={{ duration: 0.5, type: 'spring', stiffness: 200 }}
                   className="w-20 h-20 mx-auto mb-4 rounded-full bg-success/15 border-2 border-success flex items-center justify-center"
                 >
-                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00C896" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </motion.div>

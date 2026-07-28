@@ -32,8 +32,8 @@ const SPORT_COLORS: Record<SportColor, { hex: string; light: string; cssVar: str
   gold:   { hex: '#FFD700', light: '#FFE055', cssVar: 'gold' },
   orange: { hex: '#FF9500', light: '#FFB155', cssVar: 'orange' },
   bronze: { hex: '#CD7F32', light: '#E0A84F', cssVar: 'bronze' },
-  red:    { hex: '#DC2626', light: '#EF4444', cssVar: 'lose' },
-  cyan:   { hex: '#00E5B0', light: '#5DEDBE', cssVar: 'live' },
+  red:    { hex: '#F87171', light: '#F87171', cssVar: 'lose' },
+  cyan:   { hex: '#00D4FF', light: '#5DEDBE', cssVar: 'live' },
 }
 
 const SPORTS: SportVip[] = [

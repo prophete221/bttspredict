@@ -90,7 +90,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#060818",
+  themeColor: "#0B1120",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -118,7 +118,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'v20-2026-07-28';
+                var VERSION = 'v21-oceantech-2026-07-28';
                 try {
                   // 1. Unregister all service workers
                   if('serviceWorker' in navigator){

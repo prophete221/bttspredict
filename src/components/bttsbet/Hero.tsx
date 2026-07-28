@@ -8,18 +8,18 @@ import { AFFILIATE, SITE } from '@/lib/constants'
 
 // ─── IA Premium palette ────────────────────────────────────────────────
 const C = {
-  bg:        '#0A0E1A',
-  bgCard:    '#11151F',
-  iaGreen:   '#10b981',    // Emerald (per user spec #10b981)
-  iaGreenDk: '#059669',
-  gold:      '#FFD700',
-  blue:      '#00E5B0',
-  purple:    '#CD7F32',
-  text:      '#F8F5F0',
-  textSec:   '#A8B3C7',
-  textMute:  '#6B7588',
-  border:    'rgba(255, 255, 255, 0.06)',
-  borderHi:  'rgba(255, 255, 255, 0.12)',
+  bg:        '#0B1120',    // Bleu nuit profond
+  bgCard:    '#1E293B',    // Slate foncé bleuté
+  iaGreen:   '#00D4FF',    // Cyan néon (primaire)
+  iaGreenDk: '#00B4D8',    // Cyan doux (secondaire)
+  gold:      '#FFD700',    // Or brillant (VIP)
+  blue:      '#00D4FF',    // Cyan néon (alias)
+  purple:    '#CD7F32',    // Bronze (VIP secondary)
+  text:      '#F8FAFC',    // Blanc pur
+  textSec:   '#94A3B8',    // Gris argenté
+  textMute:  '#64748B',    // Gris foncé
+  border:    '#334155',    // Slate border
+  borderHi:  'rgba(0, 212, 255, 0.2)',  // Cyan-tinted border highlight
 }
 
 // ─── Data: free vs VIP rates ────────────────────────────────────────────
@@ -111,7 +111,7 @@ function NeuralNetworkCanvas() {
         // Draw particle
         ctx.beginPath()
         ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(16, 185, 129, 0.35)'
+        ctx.fillStyle = 'rgba(0, 212, 255, 0.35)'
         ctx.fill()
       }
 
@@ -126,7 +126,7 @@ function NeuralNetworkCanvas() {
             ctx.beginPath()
             ctx.moveTo(particles[i].x, particles[i].y)
             ctx.lineTo(particles[j].x, particles[j].y)
-            ctx.strokeStyle = `rgba(16, 185, 129, ${alpha})`
+            ctx.strokeStyle = `rgba(0, 212, 255, ${alpha})`
             ctx.lineWidth = 0.5
             ctx.stroke()
           }
@@ -701,13 +701,13 @@ export default function Hero() {
             href={AFFILIATE.linebet}
             rel={AFFILIATE.rel}
             target="_blank"
-            whileHover={{ scale: 1.02, y: -2, boxShadow: `0 8px 30px rgba(16, 185, 129, 0.5), 0 0 60px rgba(16, 185, 129, 0.3)` }}
+            whileHover={{ scale: 1.02, y: -2, boxShadow: `0 8px 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(0, 212, 255, 0.3)` }}
             whileTap={{ scale: 0.98 }}
             className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-10 py-4 sm:py-5 rounded-xl text-sm sm:text-lg font-bold transition-all w-full"
             style={{
               background: `linear-gradient(90deg, ${C.iaGreen} 0%, ${C.iaGreenDk} 100%)`,
               color: '#FFFFFF',
-              boxShadow: `0 4px 15px rgba(16, 185, 129, 0.4)`,
+              boxShadow: `0 4px 15px rgba(0, 212, 255, 0.4)`,
             }}
             aria-label="S'inscrire sur Linebet avec le code promo VISION221"
           >
