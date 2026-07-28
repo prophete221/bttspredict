@@ -15,9 +15,7 @@ import {
   About,
   Footer,
   CookieConsent,
-  AgeVerification,
   ScrollProgressBar,
-  SiteLoader,
   ErrorBoundary,
   MobileTabBar,
 } from '@/components/bttsbet'
@@ -150,9 +148,6 @@ export default function Home() {
       {/* Scroll Progress Bar */}
       <ScrollProgressBar />
 
-      {/* Site Loader — Premium opening animation */}
-      <SiteLoader />
-
       {/* Main Content — each section has its own ErrorBoundary so one crash doesn't hide all */}
       <main id="main-content" className="relative z-10">
         <ErrorBoundary><Navbar /></ErrorBoundary>
@@ -172,9 +167,6 @@ export default function Home() {
 
       {/* Mobile Tab Bar — bottom navigation */}
       <MobileTabBar />
-
-      {/* Age Verification Modal (18+) */}
-      <AgeVerification />
 
       {/* Cookie Consent Banner (RGPD) */}
       <CookieConsent />
