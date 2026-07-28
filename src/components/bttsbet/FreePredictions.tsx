@@ -224,90 +224,86 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
           </div>
         </div>
 
-        {/* ═══ PREDICTIONS — BTTS + Over 2.5 clearly separated ═══ */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {/* BTTS Card */}
-          {bttsPred ? (
-            <div className="bg-midnight/40 border border-edge rounded-lg p-3">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-5 h-5 rounded bg-success/15 border border-success/30 flex items-center justify-center">
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#00C896" strokeWidth="2.5">
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="M8 14s1.5 2 4 2 4-2 4-2" />
-                      <line x1="9" y1="9" x2="9.01" y2="9" />
-                      <line x1="15" y1="9" x2="15.01" y2="9" />
-                    </svg>
+        {/* ═══ UNIFIED PREDICTION — BTTS + Over 2.5 in ONE block ═══ */}
+        <div className="bg-midnight/40 border border-edge rounded-lg p-3 sm:p-4">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-1.5">
+              <div className="w-5 h-5 rounded bg-success/15 border border-success/30 flex items-center justify-center">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#00C896" strokeWidth="2.5">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                  <line x1="9" y1="9" x2="9.01" y2="9" />
+                  <line x1="15" y1="9" x2="15.01" y2="9" />
+                </svg>
+              </div>
+              <span className="text-[10px] uppercase tracking-widest font-bold text-success-light">Pronostic IA</span>
+            </div>
+            <span className="text-[10px] text-gray-500">BTTS + Over 2.5</span>
+          </div>
+
+          {/* Two markets side by side in unified block */}
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            {/* BTTS column */}
+            <div className="space-y-2">
+              <div className="flex items-baseline justify-between">
+                <span className="text-[10px] uppercase tracking-widest font-bold text-success-light">BTTS</span>
+                <span className="text-[9px] text-gray-600">Both Score</span>
+              </div>
+              {bttsPred ? (
+                <>
+                  <div className="flex items-baseline justify-between">
+                    <span className={`text-xl sm:text-2xl font-bold ${bttsPred.prediction === 'Oui' ? 'text-success-light' : 'text-lose-light'}`}>
+                      {bttsPred.prediction}
+                    </span>
+                    <span className="text-[10px] text-gray-500 tabular-nums">conf. {bttsPred.confidence}%</span>
                   </div>
-                  <span className="text-[10px] uppercase tracking-widest font-bold text-success-light">BTTS</span>
-                </div>
-                <span className="text-[10px] text-gray-500">Both Teams Score</span>
-              </div>
-
-              <div className="flex items-baseline justify-between mb-2">
-                <span className={`text-2xl font-bold ${bttsPred.prediction === 'Oui' ? 'text-success-light' : 'text-lose-light'}`}>
-                  {bttsPred.prediction}
-                </span>
-                <span className="text-xs text-gray-500 tabular-nums">conf. {bttsPred.confidence}%</span>
-              </div>
-
-              {bttsPred.bttsProb !== undefined && (
-                <ProbabilityBar value={bttsPred.bttsProb} prediction={bttsPred.prediction} color="green" />
-              )}
-
-              {/* Counter-probability (the inverse) */}
-              {bttsPred.bttsProb !== undefined && (
-                <div className="flex items-center justify-between text-[9px] text-gray-600 mt-1.5">
-                  <span>Oui: {Math.round(bttsPred.bttsProb * 100)}%</span>
-                  <span>Non: {Math.round((1 - bttsPred.bttsProb) * 100)}%</span>
-                </div>
+                  {bttsPred.bttsProb !== undefined && (
+                    <ProbabilityBar value={bttsPred.bttsProb} prediction={bttsPred.prediction} color="green" />
+                  )}
+                  {bttsPred.bttsProb !== undefined && (
+                    <div className="flex items-center justify-between text-[9px] text-gray-600">
+                      <span>Oui: {Math.round(bttsPred.bttsProb * 100)}%</span>
+                      <span>Non: {Math.round((1 - bttsPred.bttsProb) * 100)}%</span>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <div className="text-[11px] text-gray-600 py-2">BTTS non disponible</div>
               )}
             </div>
-          ) : (
-            <div className="bg-midnight/30 border border-edge/40 rounded-lg p-3 flex items-center justify-center text-[11px] text-gray-600">
-              BTTS non disponible
-            </div>
-          )}
 
-          {/* Over 2.5 Card */}
-          {over25Pred ? (
-            <div className="bg-midnight/40 border border-edge rounded-lg p-3">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-5 h-5 rounded bg-gold/15 border border-gold/30 flex items-center justify-center">
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FFD700" strokeWidth="2.5">
-                      <path d="M2 18l4-4 4 4 4-4 4 4 4-4" />
-                      <polyline points="6 12 12 6 18 12" />
-                    </svg>
+            {/* Vertical divider */}
+            <div className="absolute" style={{ display: 'none' }} />
+
+            {/* Over 2.5 column */}
+            <div className="space-y-2 border-l border-edge/40 pl-3 sm:pl-4">
+              <div className="flex items-baseline justify-between">
+                <span className="text-[10px] uppercase tracking-widest font-bold text-gold-light">Over 2.5</span>
+                <span className="text-[9px] text-gray-600">+2.5 buts</span>
+              </div>
+              {over25Pred ? (
+                <>
+                  <div className="flex items-baseline justify-between">
+                    <span className={`text-xl sm:text-2xl font-bold ${over25Pred.prediction === 'Oui' ? 'text-gold-light' : 'text-lose-light'}`}>
+                      {over25Pred.prediction}
+                    </span>
+                    <span className="text-[10px] text-gray-500 tabular-nums">conf. {over25Pred.confidence}%</span>
                   </div>
-                  <span className="text-[10px] uppercase tracking-widest font-bold text-gold-light">Over 2.5</span>
-                </div>
-                <span className="text-[10px] text-gray-500">+2.5 buts</span>
-              </div>
-
-              <div className="flex items-baseline justify-between mb-2">
-                <span className={`text-2xl font-bold ${over25Pred.prediction === 'Oui' ? 'text-gold-light' : 'text-lose-light'}`}>
-                  {over25Pred.prediction}
-                </span>
-                <span className="text-xs text-gray-500 tabular-nums">conf. {over25Pred.confidence}%</span>
-              </div>
-
-              {over25Pred.over25Prob !== undefined && (
-                <ProbabilityBar value={over25Pred.over25Prob} prediction={over25Pred.prediction} color="gold" />
-              )}
-
-              {over25Pred.over25Prob !== undefined && (
-                <div className="flex items-center justify-between text-[9px] text-gray-600 mt-1.5">
-                  <span>Oui: {Math.round(over25Pred.over25Prob * 100)}%</span>
-                  <span>Non: {Math.round((1 - over25Pred.over25Prob) * 100)}%</span>
-                </div>
+                  {over25Pred.over25Prob !== undefined && (
+                    <ProbabilityBar value={over25Pred.over25Prob} prediction={over25Pred.prediction} color="gold" />
+                  )}
+                  {over25Pred.over25Prob !== undefined && (
+                    <div className="flex items-center justify-between text-[9px] text-gray-600">
+                      <span>Oui: {Math.round(over25Pred.over25Prob * 100)}%</span>
+                      <span>Non: {Math.round((1 - over25Pred.over25Prob) * 100)}%</span>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <div className="text-[11px] text-gray-600 py-2">Over 2.5 non disponible</div>
               )}
             </div>
-          ) : (
-            <div className="bg-midnight/30 border border-edge/40 rounded-lg p-3 flex items-center justify-center text-[11px] text-gray-600">
-              Over 2.5 non disponible
-            </div>
-          )}
+          </div>
         </div>
 
         {/* Expandable analysis section */}
