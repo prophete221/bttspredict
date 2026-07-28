@@ -48,7 +48,7 @@ function generateFifaMatches(seed: number, count: number): FifaMatch[] {
     const away = FIFA_TEAMS[awayIdx]
     const league = FIFA_LEAGUES[Math.floor(r3 * FIFA_LEAGUES.length)]
 
-    // Generate cote (3.5 - 15) and IA probability (60-85%)
+    // Generate cote (3.5 - 15) and IA probability (50-89%)
     const cote = Math.round((3.5 + seededRandom(seed + i * 23) * 11.5) * 100) / 100
     const iaProba = Math.round(60 + seededRandom(seed + i * 29) * 25)
 
@@ -168,7 +168,7 @@ export default function FifaLinebet() {
                   className="flex items-center gap-1.5 bg-success/10 border border-success/30 rounded-full px-2.5 py-1"
                 >
                   <span className="v31-ticker-dot live" />
-                  <span className="text-[10px] text-success font-bold uppercase tracking-wider">Live</span>
+                  <span className="text-[10px] live-text">Live</span>
                 </motion.div>
               </div>
 

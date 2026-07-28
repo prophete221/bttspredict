@@ -208,7 +208,7 @@ export default function PromoVip() {
             <p className="section-subtitle max-w-2xl mx-auto">
               Coupon du jour verrouillé — 8 matchs sélectionnés par notre IA.
               Cote totale <span className="text-gold font-bold">{dailyCote.toFixed(2)}</span>.
-              Précision historique ~89%.
+              Précision historique ~85%.
             </p>
           </motion.div>
 
@@ -253,7 +253,7 @@ export default function PromoVip() {
                   className="flex items-center gap-1.5 bg-success/10 border border-success/30 rounded-full px-2.5 py-1"
                 >
                   <span className="v31-ticker-dot live" />
-                  <span className="text-[10px] text-success font-bold uppercase tracking-wider">Live</span>
+                  <span className="text-[10px] live-text">Live</span>
                 </motion.div>
               </div>
 
@@ -284,7 +284,7 @@ export default function PromoVip() {
                 <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Sélection du jour · {couponDate}</span>
                 {liveCount > 0 && (
                   <span className="badge badge-cyan text-[9px]">
-                    <span className="v31-ticker-dot live" /> {liveCount} live
+                    <span className="v31-ticker-dot live" /> {liveCount} <span className="live-text">live</span>
                   </span>
                 )}
               </div>

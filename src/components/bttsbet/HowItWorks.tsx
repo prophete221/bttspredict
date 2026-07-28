@@ -55,7 +55,7 @@ const CARDS = [
       </svg>
     ),
     stats: [
-      { label: 'Précision historique', value: '~87%' },
+      { label: 'Précision historique', value: '~52%' },
       { label: 'Transparence', value: '100%' },
     ],
   },

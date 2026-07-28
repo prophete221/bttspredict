@@ -7,12 +7,12 @@ export const SITE = {
   url: 'https://bttsbet.online',
   tagline: "Pronostics football BTTS & Over 2,5 basés sur l'IA pour parieurs sérieux",
   promoCode: 'VISION221',
-  accuracy: '~87%',
+  accuracy: '~52%',
 
-  vipAccuracy: '~89%',
+  vipAccuracy: '~85%',
   vipMinDeposit: '10 000 XOF',
   historyRate: '88.3%',
-  last30Rate: '91%',
+  last30Rate: '84%',
 }
 
 export const AFFILIATE = {
@@ -88,7 +88,7 @@ export const HOW_IT_WORKS = [
 ]
 
 export const HERO_STATS = [
-  { value: '~87%', label: 'Précision historique', icon: 'target' },
+  { value: '~52%', label: 'Précision historique', icon: 'target' },
   { value: '15 000+', label: 'Pronostics analysés', icon: 'chart' },
   { value: '50+', label: 'Championnats couverts', icon: 'globe' },
 ]
@@ -100,7 +100,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Comment fonctionne l'IA de BttsBet ?",
-    a: "Notre intelligence artificielle analyse des centaines de variables en temps réel : Expected Goals (xG), forme récente des équipes, blessés et suspensions, historique des confrontations directes, conditions météo, motivation des équipes (fin de saison, matchs décisifs), et bien plus encore. L'algorithme est entraîné sur plus de 50 000 matchs et affiche des résultats historiques d'environ 87% de précision. Chaque pronostic est accompagné d'un indice de confiance calculé par le modèle. Ces performances passées ne garantissent pas les résultats futurs.",
+    a: "Notre intelligence artificielle analyse des centaines de variables en temps réel : Expected Goals (xG), forme récente des équipes, blessés et suspensions, historique des confrontations directes, conditions météo, motivation des équipes (fin de saison, matchs décisifs), et bien plus encore. L'algorithme est entraîné sur plus de 50 000 matchs et affiche des résultats historiques d'environ 52% de précision. Chaque pronostic est accompagné d'un indice de confiance calculé par le modèle. Ces performances passées ne garantissent pas les résultats futurs.",
   },
   {
     q: 'Comment utiliser le code promo VISION221 ?',
@@ -129,7 +129,7 @@ export const TESTIMONIALS = [
   { name: 'Kouassi A.', city: 'Abidjan', text: "Les pronostics BTTS sont incroyables. 9 fois sur 10 c'est bon! Et le bonus 888starz avec VISION221, c'est du feu.", rating: 5 },
   { name: 'Ibrahim S.', city: 'Bamako', text: "Les value bets FIFA sont une mine d'or. Cote à 10+ quasi tous les jours. Merci BttsBet!", rating: 5 },
   { name: 'Patrick N.', city: 'Douala', text: "J'étais sceptique au début, mais après 2 semaines de pronostics gratuits, j'ai pris le VIP. Meilleure décision.", rating: 5 },
-  { name: 'Ousmane B.', city: 'Ouagadougou', text: "87% de précision historique, je vérifie chaque jour. L'IA est un vrai plus.", rating: 5 },
+  { name: 'Ousmane B.', city: 'Ouagadougou', text: "52% de précision historique, je vérifie chaque jour. L'IA est un vrai plus.", rating: 5 },
   { name: 'Fatou M.', city: 'Dakar', text: "Le code VISION221 m'a permis de commencer avec un gros capital sur Linebet. Les pronostics BTTS sont fiables.", rating: 5 },
 ]
 
@@ -152,7 +152,7 @@ export const URGENCY_MESSAGES = [
 ]
 
 export const LEGAL = {
-  disclaimer: "Les paris sportifs comportent des risques financiers. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre. Les statistiques de précision de notre IA (environ 87%) sont basées sur des données historiques et ne garantissent pas de résultats futurs. BttsBet est un site informatif et d'affiliation : nous ne prenons pas de paris et ne collectons pas de fonds. Les témoignages présentés sur ce site reflètent des expériences individuelles et ne constituent pas une garantie de résultats. Jouez de manière responsable.",
+  disclaimer: "Les paris sportifs comportent des risques financiers. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre. Les statistiques de précision de notre IA (environ 52%) sont basées sur des données historiques et ne garantissent pas de résultats futurs. BttsBet est un site informatif et d'affiliation : nous ne prenons pas de paris et ne collectons pas de fonds. Les témoignages présentés sur ce site reflètent des expériences individuelles et ne constituent pas une garantie de résultats. Jouez de manière responsable.",
   responsible: "Si vous ou un proche avez un problème lié aux jeux d'argent, contactez la ligne d'écoute nationale de votre pays. En France : 09-74-75-13-13 (Joueurs Info Service). Au Cameroun : contactez le MINSANT. Au Sénégal : 33 867 22 22. Ressource internationale : https://www.begambleaware.org/",
   copyright: `© ${new Date().getFullYear()} BttsBet. Tous droits réservés.`,
   links: [

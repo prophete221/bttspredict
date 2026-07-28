@@ -161,7 +161,7 @@ export default function LiveTicker() {
   const timeLabel = formatTime(currentMatch.date, currentMatch.time)
 
   return (
-    <div className="relative z-20 -mt-2 mb-2">
+    <div className="relative z-20 -mt-2 mb-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
@@ -176,7 +176,7 @@ export default function LiveTicker() {
             {/* Live badge column */}
             <div className="flex items-center gap-2 px-4 py-2.5 border-r border-edge bg-midnight/50 flex-shrink-0">
               <span className={`v31-ticker-dot ${status === 'live' ? '' : 'opacity-50'}`} />
-              <span className={`text-[10px] font-bold uppercase tracking-widest ${status === 'live' ? 'text-success' : 'text-violet-light'}`}>
+              <span className={`text-[10px] font-bold uppercase tracking-widest ${status === 'live' ? 'live-text' : 'text-violet-light'}`}>
                 {status === 'live' ? 'Live' : 'À venir'}
               </span>
             </div>

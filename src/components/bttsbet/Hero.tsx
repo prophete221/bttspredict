@@ -21,8 +21,8 @@ const C = {
 
 // ─── Data: free predictions vs VIP (rates) ─────────────────────────────
 const ACCURACY = {
-  free:   { overall: 87, btts: 84, over: 82, value: 86 },  // free predictions
-  vip:    { overall: 94, btts: 91, over: 88, value: 96 },   // VIP (always higher)
+  free:   { overall: 52, btts: 50, over: 54, value: 56 },  // free predictions
+  vip:    { overall: 85, btts: 87, over: 82, value: 89.2 },  // VIP (always higher)
 }
 
 // ─── Checklist of analysis steps ─────────────────────────────────────────
@@ -227,7 +227,7 @@ export default function Hero() {
         backgroundColor: C.bg,
         // No padding here — section flows directly with LiveTicker below
         paddingTop: 'clamp(2.5rem, 7vw, 5rem)',
-        paddingBottom: 'clamp(2rem, 5vw, 3.5rem)',
+        paddingBottom: 'clamp(0.5rem, 2vw, 1rem)',
       }}
     >
       <BackgroundFX />
@@ -263,8 +263,7 @@ export default function Hero() {
               />
             </span>
             <span
-              className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.22em]"
-              style={{ color: C.iaGreen }}
+              className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.22em] live-text"
             >
               IA Active en Temps Réel
             </span>
@@ -400,8 +399,7 @@ export default function Hero() {
                     transition={{ duration: 1.2, repeat: Infinity }}
                   />
                   <span
-                    className="text-[9px] uppercase tracking-widest font-bold"
-                    style={{ color: C.iaGreen }}
+                    className="text-[9px] uppercase tracking-widest font-bold live-text"
                   >
                     Live
                   </span>

@@ -35,7 +35,7 @@ export default function StickyVipBandeau() {
   }
 
   return (
-    <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 -mt-4 mb-6">
+    <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 -mt-4 mb-1">
       <AnimatePresence>
         {visible && (
           <motion.div
@@ -94,7 +94,7 @@ export default function StickyVipBandeau() {
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00D68F" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  <span className="text-gray-300 font-medium">Précision ~89%</span>
+                  <span className="text-gray-300 font-medium">Précision ~85%</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00D68F" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -146,7 +146,7 @@ export default function StickyVipBandeau() {
               </div>
               <div className="flex items-center gap-1">
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00D68F" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                <span className="text-gray-400">~89% précision</span>
+                <span className="text-gray-400">~85% précision</span>
               </div>
               <div className="flex items-center gap-1">
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00D68F" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>

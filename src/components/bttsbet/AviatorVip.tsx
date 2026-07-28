@@ -279,7 +279,7 @@ export default function AviatorVip() {
                   className="flex items-center gap-1.5 bg-success/10 border border-success/30 rounded-full px-2.5 py-1"
                 >
                   <span className="v31-ticker-dot live" />
-                  <span className="text-[10px] text-success font-bold uppercase tracking-wider">Live</span>
+                  <span className="text-[10px] live-text">Live</span>
                 </motion.div>
               </div>
 

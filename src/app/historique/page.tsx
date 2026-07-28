@@ -8,7 +8,7 @@ const SITE_URL = 'https://bttsbet.online'
 const SLUG = 'historique'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Historique Pronostics BttsBet — Résultats Vérifiés BTTS & Over 2.5'
-const DESCRIPTION = 'Historique complet des pronostics BTTS & Over 2.5 de BttsBet — tous les résultats, gagnés et perdus, sans filtrage. Transparence totale avec preuves vérifiables. Précision historique ~87%.'
+const DESCRIPTION = 'Historique complet des pronostics BTTS & Over 2.5 de BttsBet — tous les résultats, gagnés et perdus, sans filtrage. Transparence totale avec preuves vérifiables. Précision historique ~52%.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -150,7 +150,7 @@ export default function HistoriquePage() {
                   Notre historique affiche <strong className="text-gold">tous les pronostics</strong> sans exception — les gagnés ET les perdus. Nous ne filtrons pas nos résultats pour présenter une image favorable. C&apos;est notre engagement de transparence.
                 </p>
                 <p>
-                  Le taux de précision affiché est calculé à partir de l&apos;ensemble des pronostics validés, pas d&apos;un sous-ensemble sélectionné. Les performances passées (~87% historiquement) ne garantissent pas les résultats futurs.
+                  Le taux de précision affiché est calculé à partir de l&apos;ensemble des pronostics validés, pas d&apos;un sous-ensemble sélectionné. Les performances passées (~52% historiquement) ne garantissent pas les résultats futurs.
                 </p>
                 <p>
                   Chaque pronostic est vérifié après la fin du match avec le score final officiel. Les résultats sont mis à jour quotidiennement.

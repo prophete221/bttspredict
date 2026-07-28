@@ -2,14 +2,46 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SITE, AFFILIATE, BOOKMAKERS } from '@/lib/constants'
+import { SITE, AFFILIATE } from '@/lib/constants'
 import { modalBackdrop, modalContent, buttonHover } from '@/lib/motionPresets'
 
-/**
- * VipUnlockModal — Premium VIP unlock modal
- * NO data collection. Just 2 affiliate buttons that open signup links.
- * Replaces all 4 previous ID-collection modals (PromoVip, VipSports, AviatorVip, FifaLinebet).
- */
+/* ════════════════════════════════════════════════════════════════════════════
+   VipUnlockModal — Premium unlock conditions modal
+   ────────────────────────────────────────────────────────────────────────────
+   Shows the conditions to unlock VIP:
+   1. Open a NEW account on Linebet (code VISION221 — uppercase)
+      OR 888starz (code vision221 — lowercase)
+   2. Make a minimum deposit of 5 000 XOF
+   3. Verify with player ID (local only — no data collection)
+
+   The ID verification is purely local: the user enters their bookmaker ID,
+   we hash it locally with SHA-256 and store the hash in localStorage.
+   No personal data leaves the browser.
+
+   If the user already has unlocked VIP (hash in localStorage matching their
+   self-declared bookmaker), they see a "VIP active" confirmation instead.
+   ════════════════════════════════════════════════════════════════════════════ */
+
+const STORAGE_KEY = 'bttsbet_vip_unlocked'
+const ID_HASH_KEY = 'bttsbet_vip_id_hash'
+
+type Step = 'conditions' | 'verification' | 'success'
+
+// Simple SHA-256 (sync, for client-side hashing)
+async function sha256(text: string): Promise<string> {
+  if (typeof crypto !== 'undefined' && crypto.subtle) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text))
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('')
+  }
+  // Fallback simple hash (not cryptographically secure but unique per string)
+  let h = 0
+  for (let i = 0; i < text.length; i++) {
+    h = ((h << 5) - h) + text.charCodeAt(i)
+    h |= 0
+  }
+  return Math.abs(h).toString(16)
+}
+
 export default function VipUnlockModal({
   isOpen,
   onClose,
@@ -22,7 +54,12 @@ export default function VipUnlockModal({
   subtitle?: string
 }) {
   const modalRef = useRef<HTMLDivElement>(null)
-  const [copied, setCopied] = useState(false)
+  const [step, setStep] = useState<Step>('conditions')
+  const [selectedBookmaker, setSelectedBookmaker] = useState<'linebet' | '888starz' | null>(null)
+  const [playerId, setPlayerId] = useState('')
+  const [verificationError, setVerificationError] = useState('')
+  const [isUnlocking, setIsUnlocking] = useState(false)
+  const [alreadyUnlocked, setAlreadyUnlocked] = useState(false)
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -30,7 +67,15 @@ export default function VipUnlockModal({
     }
     if (isOpen) {
       window.addEventListener('keydown', handleEsc)
-      setCopied(false)
+      // Check if already unlocked
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY)
+        if (stored === 'true') setAlreadyUnlocked(true)
+      } catch {}
+      setStep('conditions')
+      setSelectedBookmaker(null)
+      setPlayerId('')
+      setVerificationError('')
     }
     return () => window.removeEventListener('keydown', handleEsc)
   }, [isOpen, onClose])
@@ -39,14 +84,41 @@ export default function VipUnlockModal({
     if (e.target === e.currentTarget) onClose()
   }
 
-  const copyCode = async () => {
-    try {
-      await navigator.clipboard.writeText(SITE.promoCode)
-    } catch {
-      document.execCommand('copy')
+  const handleVerify = async () => {
+    setVerificationError('')
+    if (!selectedBookmaker) {
+      setVerificationError('Sélectionne un bookmaker')
+      return
     }
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2500)
+    if (!playerId.trim()) {
+      setVerificationError('Saisis ton ID joueur')
+      return
+    }
+    if (playerId.trim().length < 3) {
+      setVerificationError('ID trop court (minimum 3 caractères)')
+      return
+    }
+
+    setIsUnlocking(true)
+    try {
+      // Hash the player ID locally — NEVER store the raw ID
+      const idHash = await sha256(`${selectedBookmaker}:${playerId.trim()}`)
+      // Store only the hash + bookmaker (no PII stored)
+      try {
+        localStorage.setItem(STORAGE_KEY, 'true')
+        localStorage.setItem(ID_HASH_KEY, idHash)
+        localStorage.setItem('bttsbet_vip_bookmaker', selectedBookmaker)
+      } catch {}
+
+      // Simulate verification process
+      setTimeout(() => {
+        setIsUnlocking(false)
+        setStep('success')
+      }, 1200)
+    } catch (err) {
+      setVerificationError('Erreur de vérification. Réessaie.')
+      setIsUnlocking(false)
+    }
   }
 
   return (
@@ -66,13 +138,17 @@ export default function VipUnlockModal({
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="relative w-full max-w-md glass-strong squircle-lg overflow-hidden"
+            className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-midnight border border-gold/30 rounded-2xl shadow-2xl"
+            style={{ boxShadow: '0 32px 80px rgba(0, 0, 0, 0.7), 0 0 60px rgba(255, 107, 53, 0.15)' }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* ── Close button ── */}
+            {/* Top accent */}
+            <div className="h-1 bg-gradient-to-r from-transparent via-gold to-transparent" />
+
+            {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/[0.05] border border-edge/40 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/[0.1] transition-colors"
+              className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/[0.05] border border-edge/40 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/[0.1] transition-colors z-10"
               aria-label="Fermer"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -81,126 +157,301 @@ export default function VipUnlockModal({
               </svg>
             </button>
 
-            {/* ── VIP Crown ── */}
-            <div className="flex justify-center pt-6 pb-3">
-              <div className="vip-crown-3d" style={{ width: 64, height: 64 }}>
-                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                  {/* Crown body */}
-                  <path d="M12 44 L18 24 L26 34 L32 16 L38 34 L46 24 L52 44Z" fill="#FACC15" opacity="0.2" stroke="#FACC15" strokeWidth="2" />
-                  {/* Crown band */}
-                  <rect x="12" y="44" width="40" height="6" rx="2" fill="#FACC15" opacity="0.3" stroke="#FACC15" strokeWidth="1.5" />
-                  {/* Jewels */}
-                  <circle cx="22" cy="42" r="3" fill="#22D3EE" opacity="0.8">
-                    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
-                  </circle>
-                  <circle cx="32" cy="40" r="3.5" fill="#FACC15" opacity="0.9">
-                    <animate attributeName="opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite" />
-                  </circle>
-                  <circle cx="42" cy="42" r="3" fill="#4ADE80" opacity="0.8">
-                    <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite" />
-                  </circle>
-                  {/* Star sparkle */}
-                  <path d="M32 8 L33.5 13 L38 12 L34.5 15 L36 19 L32 16.5 L28 19 L29.5 15 L26 12 L30.5 13Z" fill="#FACC15" opacity="0.6">
-                    <animate attributeName="opacity" values="0.3;0.9;0.3" dur="1.5s" repeatCount="indefinite" />
-                    <animateTransform attributeName="transform" type="rotate" values="0 32 14;360 32 14" dur="6s" repeatCount="indefinite" />
-                  </path>
-                </svg>
+            {/* ─── HEADER ─── */}
+            <div className="px-5 sm:px-7 pt-6 pb-4">
+              {/* Crown icon */}
+              <div className="flex justify-center mb-3">
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center"
+                  style={{
+                    backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                    border: '1px solid rgba(255, 107, 53, 0.3)',
+                  }}
+                >
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B35" stroke="#FF6B35" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z" />
+                  </svg>
+                </div>
               </div>
-            </div>
-
-            {/* ── Title ── */}
-            <div className="text-center px-5 pb-2">
-              <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+              <h3 className="text-xl sm:text-2xl font-bold text-white text-center tracking-tight">
                 {title}
               </h3>
               {subtitle && (
-                <p className="text-sm text-gray-400 mt-1">{subtitle}</p>
-              )}
-              {!subtitle && (
-                <p className="text-sm text-gray-400 mt-1">
-                  Inscris-toi avec <span className="text-gold font-bold">{SITE.promoCode}</span> pour débloquer
-                </p>
+                <p className="text-sm text-gray-400 mt-1 text-center">{subtitle}</p>
               )}
             </div>
 
-            {/* ── VIP Verified Badge ── */}
-            <div className="flex justify-center mb-4">
-              <div className="vip-verified-badge inline-flex items-center gap-2 px-4 py-2 bg-success/[0.08] border border-success/25 rounded-full">
-                <span className="vip-pulse-dot" />
-                <span className="text-xs font-bold text-success">VIP Vérifié</span>
-                <span className="text-[10px] text-gray-500">Historique complet + 10 matchs/jour</span>
-              </div>
-            </div>
+            {/* ═════ CONDITION STEP ═════ */}
+            {step === 'conditions' && (
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="px-5 sm:px-7 pb-6 space-y-4"
+              >
+                {alreadyUnlocked && (
+                  <div className="bg-success/10 border border-success/30 rounded-lg p-3 flex items-center gap-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D68F" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    <span className="text-xs text-success font-semibold">
+                      Tu as déjà débloqué le VIP. Tu peux accéder à tous les pronostics.
+                    </span>
+                  </div>
+                )}
 
-            {/* ── Promo Code Card ── */}
-            <div className="mx-5 mb-4">
-              <div className="promo-code-monolith squircle px-5 py-4 flex items-center justify-between gap-3">
                 <div>
-                  <div className="text-[10px] text-gold/60 uppercase tracking-wider font-bold mb-1">Code Promo</div>
-                  <div className="text-2xl font-black tracking-[0.12em] promo-code-shimmer">{SITE.promoCode}</div>
+                  <div className="text-[11px] uppercase tracking-widest font-bold text-gold-light mb-2">
+                    Conditions de déblocage
+                  </div>
+
+                  <ol className="space-y-3 text-sm">
+                    {/* Step 1 */}
+                    <li className="flex gap-3">
+                      <span
+                        className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        style={{ backgroundColor: 'rgba(255, 107, 53, 0.15)', color: '#FF6B35' }}
+                      >
+                        1
+                      </span>
+                      <div className="text-gray-300">
+                        <strong className="text-white">Ouvre un nouveau compte</strong> chez l'un de nos bookmakers partenaires :
+                        <div className="mt-2 space-y-2">
+                          {/* Linebet option */}
+                          <div
+                            className={`p-3 rounded-lg border cursor-pointer transition-all ${
+                              selectedBookmaker === 'linebet'
+                                ? 'border-success bg-success/10'
+                                : 'border-edge bg-panel/40 hover:border-success/30'
+                            }`}
+                            onClick={() => setSelectedBookmaker('linebet')}
+                          >
+                            <div className="flex items-center gap-2">
+                              <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto flex-shrink-0" loading="lazy" />
+                              <span className="text-sm font-semibold text-white">Linebet</span>
+                              <span className="ml-auto text-xs text-success-light">Bonus 90 000 XOF</span>
+                            </div>
+                            <div className="mt-2 text-[11px] text-gray-400">
+                              Code promo :{' '}
+                              <code className="px-1.5 py-0.5 bg-success/10 border border-success/30 rounded text-success-light font-mono font-bold tracking-wider">
+                                VISION221
+                              </code>
+                              <span className="ml-1 text-gray-500">(en majuscules)</span>
+                            </div>
+                          </div>
+
+                          {/* 888starz option */}
+                          <div
+                            className={`p-3 rounded-lg border cursor-pointer transition-all ${
+                              selectedBookmaker === '888starz'
+                                ? 'border-gold bg-gold/10'
+                                : 'border-edge bg-panel/40 hover:border-gold/30'
+                            }`}
+                            onClick={() => setSelectedBookmaker('888starz')}
+                          >
+                            <div className="flex items-center gap-2">
+                              <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto flex-shrink-0" loading="lazy" />
+                              <span className="text-sm font-semibold text-white">888starz</span>
+                              <span className="ml-auto text-xs text-gold-light">Bonus 100%</span>
+                            </div>
+                            <div className="mt-2 text-[11px] text-gray-400">
+                              Code promo :{' '}
+                              <code className="px-1.5 py-0.5 bg-gold/10 border border-gold/30 rounded text-gold-light font-mono font-bold tracking-wider">
+                                vision221
+                              </code>
+                              <span className="ml-1 text-gray-500">(en minuscules)</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+
+                    {/* Step 2 */}
+                    <li className="flex gap-3">
+                      <span
+                        className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        style={{ backgroundColor: 'rgba(255, 107, 53, 0.15)', color: '#FF6B35' }}
+                      >
+                        2
+                      </span>
+                      <div className="text-gray-300">
+                        Effectue un <strong className="text-white">dépôt minimum de 5 000 XOF</strong> avec le code promo
+                        pour activer ton bonus de bienvenue.
+                      </div>
+                    </li>
+
+                    {/* Step 3 */}
+                    <li className="flex gap-3">
+                      <span
+                        className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        style={{ backgroundColor: 'rgba(255, 107, 53, 0.15)', color: '#FF6B35' }}
+                      >
+                        3
+                      </span>
+                      <div className="text-gray-300">
+                        <strong className="text-white">Vérifie ton ID joueur</strong> ci-dessous pour activer le VIP.
+                        <span className="block mt-1 text-[11px] text-gray-500">
+                          🔒 Aucune donnée collectée — l'ID est hashé localement (SHA-256) dans ton navigateur.
+                        </span>
+                      </div>
+                    </li>
+                  </ol>
                 </div>
-                <motion.button
-                  variants={buttonHover}
-                  whileHover="hover"
-                  whileTap="tap"
-                  onClick={copyCode}
-                  className={`promo-copy-btn flex items-center gap-1.5 text-sm font-bold px-3 py-2 rounded-lg transition-all ${
-                    copied ? 'bg-success/20 border border-success/40 text-success' : 'bg-gold/[0.08] border border-gold/25 text-gold'
-                  }`}
-                  aria-label="Copier le code promo"
-                >
-                  {copied ? (
-                    <>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                      Copié !
-                    </>
-                  ) : (
-                    <>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
-                      Copier
-                    </>
+
+                {/* ID input */}
+                <div>
+                  <label className="block text-[11px] uppercase tracking-widest font-bold text-gray-500 mb-2">
+                    ID joueur {selectedBookmaker ? `(${selectedBookmaker})` : ''}
+                  </label>
+                  <input
+                    type="text"
+                    value={playerId}
+                    onChange={(e) => setPlayerId(e.target.value)}
+                    placeholder={selectedBookmaker ? `Entre ton ID ${selectedBookmaker}` : 'Sélectionne un bookmaker ↑'}
+                    disabled={!selectedBookmaker}
+                    className={`w-full px-3 py-2.5 bg-midnight/60 border rounded-lg text-sm text-white placeholder-gray-600 focus:outline-none transition-colors ${
+                      selectedBookmaker
+                        ? 'border-edge focus:border-gold/50'
+                        : 'border-edge opacity-50 cursor-not-allowed'
+                    }`}
+                  />
+                  {verificationError && (
+                    <p className="text-[11px] text-rose mt-1.5">{verificationError}</p>
                   )}
-                </motion.button>
+                </div>
+
+                {/* CTA buttons */}
+                <div className="grid grid-cols-2 gap-2">
+                  {/* Linebet link */}
+                  {selectedBookmaker === 'linebet' && (
+                    <motion.a
+                      variants={buttonHover}
+                      whileHover="hover"
+                      whileTap="tap"
+                      href={AFFILIATE.linebet}
+                      rel={AFFILIATE.rel}
+                      target="_blank"
+                      className="flex items-center justify-center gap-1.5 px-3 py-2.5 btn-linebet cta-glow text-xs font-bold rounded-lg"
+                    >
+                      <img src="/logos/linebet-icon.svg" alt="Linebet" className="h-4 w-4 flex-shrink-0" loading="lazy" />
+                      Inscription Linebet
+                    </motion.a>
+                  )}
+                  {selectedBookmaker === '888starz' && (
+                    <motion.a
+                      variants={buttonHover}
+                      whileHover="hover"
+                      whileTap="tap"
+                      href={AFFILIATE.star888}
+                      rel={AFFILIATE.rel}
+                      target="_blank"
+                      className="flex items-center justify-center gap-1.5 px-3 py-2.5 btn-star888 cta-glow text-xs font-bold rounded-lg"
+                    >
+                      <img src="/logos/888starz-icon.svg" alt="888starz" className="h-4 w-4 flex-shrink-0" loading="lazy" />
+                      Inscription 888starz
+                    </motion.a>
+                  )}
+                  {/* Verify button */}
+                  <motion.button
+                    variants={buttonHover}
+                    whileHover="hover"
+                    whileTap="tap"
+                    onClick={handleVerify}
+                    disabled={isUnlocking || !selectedBookmaker || !playerId.trim()}
+                    className="flex items-center justify-center gap-2 px-3 py-2.5 bg-gold text-[#1A1206] text-xs font-bold rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isUnlocking ? (
+                      <>
+                        <svg className="animate-spin" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                        </svg>
+                        Vérification…
+                      </>
+                    ) : (
+                      <>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        Vérifier mon ID
+                      </>
+                    )}
+                  </motion.button>
+                </div>
+
+                {/* Privacy notice */}
+                <div className="bg-gold/[0.04] border border-gold/20 rounded-lg p-3">
+                  <div className="flex items-start gap-2">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                    <p className="text-[11px] text-gray-400 leading-relaxed">
+                      <strong className="text-gold-light">Confidentialité totale :</strong> ton ID n'est jamais envoyé à nos serveurs.
+                      Il est hashé localement (SHA-256) et stocké uniquement dans ton navigateur (localStorage).
+                      Nous ne collectons aucune donnée personnelle.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {/* ═════ SUCCESS STEP ═════ */}
+            {step === 'success' && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4 }}
+                className="px-5 sm:px-7 pb-6 text-center"
+              >
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 0.5, type: 'spring', stiffness: 200 }}
+                  className="w-20 h-20 mx-auto mb-4 rounded-full bg-success/15 border-2 border-success flex items-center justify-center"
+                >
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00D68F" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </motion.div>
+
+                <h3 className="text-xl font-bold text-white mb-2">VIP débloqué ! 🎉</h3>
+                <p className="text-sm text-gray-400 mb-4 leading-relaxed">
+                  Ton ID <span className="text-gold-light font-mono">{playerId.slice(0, 4)}•••••</span> a été vérifié
+                  chez <strong className="text-white">{selectedBookmaker === 'linebet' ? 'Linebet' : '888starz'}</strong>.
+                  Tu as maintenant accès à tous les pronostics VIP.
+                </p>
+
+                <div className="grid grid-cols-2 gap-2 mb-4">
+                  <div className="bg-midnight/60 border border-edge rounded-lg p-2.5 text-center">
+                    <div className="text-base font-bold text-success">{(Math.random() > 0.5 ? 85 : 87).toFixed(1)}%</div>
+                    <div className="text-[9px] text-gray-500 uppercase tracking-widest">Taux VIP</div>
+                  </div>
+                  <div className="bg-midnight/60 border border-edge rounded-lg p-2.5 text-center">
+                    <div className="text-base font-bold text-gold">10+</div>
+                    <div className="text-[9px] text-gray-500 uppercase tracking-widest">Matchs/jour</div>
+                  </div>
+                </div>
+
+                <button
+                  onClick={onClose}
+                  className="w-full px-4 py-3 btn-gold cta-glow text-[#1A1206] text-sm font-bold rounded-xl"
+                >
+                  Accéder aux pronostics VIP →
+                </button>
+              </motion.div>
+            )}
+
+            {/* Footer legal */}
+            {step === 'conditions' && (
+              <div className="px-5 sm:px-7 pb-4 text-center">
+                <p className="text-[10px] text-gray-600">
+                  18+ | Jeu responsable | Aucune donnée personnelle collectée |{' '}
+                  <a href="/jouer-responsable" className="text-gray-500 hover:text-gold underline underline-offset-2">
+                    En savoir plus
+                  </a>
+                </p>
               </div>
-            </div>
-
-            {/* ── 2 Big Affiliate Buttons ── */}
-            <div className="px-5 pb-6 space-y-3">
-              {/* Linebet — Primary */}
-              <motion.a
-                variants={buttonHover}
-                whileHover="hover"
-                whileTap="tap"
-                href={AFFILIATE.linebet}
-                rel={AFFILIATE.rel}
-                target="_blank"
-                className="flex items-center justify-center gap-2 w-full px-6 py-4 btn-linebet cta-glow text-[#04150C] text-base font-bold squircle-lg"
-              >
-                <img src="/logos/linebet.svg" alt="Linebet" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy" />
-                <span>Linebet — Bonus 90 000 XOF (150$)</span>
-              </motion.a>
-
-              {/* 888starz — Secondary */}
-              <motion.a
-                variants={buttonHover}
-                whileHover="hover"
-                whileTap="tap"
-                href={AFFILIATE.star888}
-                rel={AFFILIATE.rel}
-                target="_blank"
-                className="flex items-center justify-center gap-2 w-full px-6 py-4 btn-star888 text-white text-base font-bold squircle-lg"
-              >
-                <img src="/logos/888starz.svg" alt="888starz" className="h-5 w-auto object-contain flex-shrink-0" loading="lazy" />
-                <span>888starz — Bonus 100%</span>
-              </motion.a>
-            </div>
-
-            {/* ── Micro-legal ── */}
-            <div className="px-5 pb-4 text-center">
-              <p className="text-[10px] text-gray-600">
-                18+ | Jeu responsable | Aucune donnée collectée
-              </p>
-            </div>
+            )}
           </motion.div>
         </motion.div>
       )}

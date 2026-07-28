@@ -62,7 +62,7 @@ const faqJsonLd = {
       name: "Comment fonctionne l'IA de BttsBet ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Notre intelligence artificielle analyse des centaines de variables en temps réel : Expected Goals (xG), forme récente, blessés, historique des confrontations, conditions météo. L'algorithme est entraîné sur plus de 50 000 matchs avec environ 87% de précision historique. Ces performances passées ne garantissent pas les résultats futurs.",
+        text: "Notre intelligence artificielle analyse des centaines de variables en temps réel : Expected Goals (xG), forme récente, blessés, historique des confrontations, conditions météo. L'algorithme est entraîné sur plus de 50 000 matchs avec environ 52% de précision historique. Ces performances passées ne garantissent pas les résultats futurs.",
       },
     },
     {

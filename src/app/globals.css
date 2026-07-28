@@ -519,10 +519,16 @@ html { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.1) transpar
 }
 
 .badge-live {
-  background: var(--color-live);
-  color: #001A20;
+  background: var(--color-lose);
+  color: #FFFFFF;
   font-weight: 700;
-  box-shadow: 0 0 12px rgba(0, 217, 255, 0.4);
+  box-shadow: 0 0 12px rgba(230, 57, 70, 0.6);
+  animation: live-blink 1.2s ease-in-out infinite;
+}
+
+@keyframes live-blink {
+  0%, 100% { opacity: 1; box-shadow: 0 0 12px rgba(230, 57, 70, 0.6); }
+  50% { opacity: 0.65; box-shadow: 0 0 6px rgba(230, 57, 70, 0.3); }
 }
 
 .badge-pulse { animation: badge-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
@@ -530,6 +536,28 @@ html { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.1) transpar
 @keyframes badge-pulse {
   0%, 100% { box-shadow: 0 0 0 0 var(--color-live-glow); }
   50% { box-shadow: 0 0 0 8px transparent; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   IA / AI MENTIONS — red blinking (per user spec)
+   Use .ai-mention class on any text mentioning "IA" or "AI" in live/active context
+   ════════════════════════════════════════════════════════════════════════════ */
+.ai-mention {
+  color: var(--color-lose);
+  font-weight: 700;
+  animation: ai-blink 1.2s ease-in-out infinite;
+}
+
+@keyframes ai-blink {
+  0%, 100% { opacity: 1; text-shadow: 0 0 8px rgba(230, 57, 70, 0.7); }
+  50% { opacity: 0.6; text-shadow: 0 0 4px rgba(230, 57, 70, 0.3); }
+}
+
+/* Specific class for "Live" / "LIVE" text (red blinking) */
+.live-text {
+  color: var(--color-lose);
+  font-weight: 700;
+  animation: live-blink 1.2s ease-in-out infinite;
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -565,8 +593,14 @@ html { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.1) transpar
 }
 
 .v31-ticker-dot.live {
-  background: var(--color-live);
-  box-shadow: 0 0 8px var(--color-live);
+  background: var(--color-lose);
+  box-shadow: 0 0 8px var(--color-lose);
+  animation: ticker-pulse-live 1.2s ease-in-out infinite;
+}
+
+@keyframes ticker-pulse-live {
+  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 8px var(--color-lose); }
+  50% { opacity: 0.5; transform: scale(0.85); box-shadow: 0 0 4px var(--color-lose); }
 }
 
 @keyframes ticker-pulse {

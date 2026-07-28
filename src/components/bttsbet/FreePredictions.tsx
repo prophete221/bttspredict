@@ -178,7 +178,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
           <div className="flex items-center gap-2 min-w-0">
             {status === 'live' && (
               <span className="badge badge-live">
-                <span className="v31-ticker-dot live" /> LIVE
+                <span className="v31-ticker-dot live" /> <span className="live-text">LIVE</span>
               </span>
             )}
             {status === 'upcoming' && timeUntil && (

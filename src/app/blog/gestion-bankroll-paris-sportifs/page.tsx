@@ -444,7 +444,7 @@ export default function GestionBankrollPage() {
               <p className="text-gray-400 leading-relaxed mt-4">
                 Bilan du mois : +18 340 FCFA (+36.7%) avec un taux de réussite de 50% seulement. La clé ? Des mises
                 contrôlées, une gestion stricte, et la discipline de ne jamais dépasser 2% par pari. Avec les
-                pronostics BttsBet qui affichent environ 87% de précision, le potentiel de croissance est encore
+                pronostics BttsBet qui affichent environ 52% de précision, le potentiel de croissance est encore
                 plus important.
               </p>
             </section>

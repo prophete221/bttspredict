@@ -114,7 +114,7 @@ function buildFaqJsonLd() {
         name: "Comment l'IA de BttsBet prédit le BTTS ?",
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Notre IA analyse plus de 50 variables : Expected Goals (xG), forme récente des deux équipes, taux de BTTS historique, blessures, conditions météo, historique des confrontations directes, et statistiques défensives. L'algorithme est entraîné sur 50 000+ matchs avec ~87% de précision historique. Ces performances passées ne garantissent pas les résultats futurs.",
+          text: "Notre IA analyse plus de 50 variables : Expected Goals (xG), forme récente des deux équipes, taux de BTTS historique, blessures, conditions météo, historique des confrontations directes, et statistiques défensives. L'algorithme est entraîné sur 50 000+ matchs avec ~52% de précision historique. Ces performances passées ne garantissent pas les résultats futurs.",
         },
       },
       {
@@ -364,7 +364,7 @@ export default function BttsGuidePage() {
                       <span className="text-gold mt-0.5 flex-shrink-0">→</span>
                       <div>
                         <strong className="text-white">Utiliser l&apos;IA pour les prédictions</strong>
-                        <p className="text-gray-400 text-xs mt-0.5">Notre IA analyse 50+ variables (xG, forme, historique) pour générer des pronostics BTTS avec ~87% de précision historique. Aucun résultat n&apos;est garanti.</p>
+                        <p className="text-gray-400 text-xs mt-0.5">Notre IA analyse 50+ variables (xG, forme, historique) pour générer des pronostics BTTS avec ~52% de précision historique. Aucun résultat n&apos;est garanti.</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
@@ -381,7 +381,7 @@ export default function BttsGuidePage() {
               {/* Disclaimer */}
               <div className="bg-lose/10 border border-lose/30 rounded-xl p-4 text-center">
                 <p className="text-gray-400 text-xs">
-                  ⚠ Les paris sportifs comportent des risques financiers. Les statistiques mentionnées (~87%) sont basées sur des données historiques et ne garantissent pas les résultats futurs. Pariez responsable — <a href="/jouer-responsable" className="text-emerald underline underline-offset-2">en savoir plus</a>.
+                  ⚠ Les paris sportifs comportent des risques financiers. Les statistiques mentionnées (~52%) sont basées sur des données historiques et ne garantissent pas les résultats futurs. Pariez responsable — <a href="/jouer-responsable" className="text-emerald underline underline-offset-2">en savoir plus</a>.
                 </p>
               </div>
             </div>
