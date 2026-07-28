@@ -457,7 +457,7 @@ export default function FreePredictions() {
   }), [matches])
 
   return (
-    <section ref={ref} id="free-predictions" className="section-pad pt-0 sm:pt-2">
+    <section ref={ref} id="free-predictions" className="section-pad" style={{ paddingTop: 0 }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
