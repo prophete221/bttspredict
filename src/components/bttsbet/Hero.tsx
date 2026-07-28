@@ -154,7 +154,7 @@ export default function Hero() {
             {/* Brand identity */}
             <motion.div variants={staggerChildFadeUp} className="mb-4 flex items-center gap-2 justify-center lg:justify-start">
               <div className="w-9 h-9 rounded-lg bg-brand border border-success/30 flex items-center justify-center">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DB954" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00D68F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M3 3v18h18" />
                   <path d="M7 14l4-4 4 4 5-5" />
                 </svg>
@@ -439,13 +439,15 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            variants={badgePulse}
-            animate="animate"
-            className="squircle px-4 py-2.5 text-center flex-shrink-0 bg-gold/[0.08] border border-gold/25"
+            initial={{ opacity: 0, x: 4 }}
+            animate={isVisible ? { opacity: 1, x: 0 } : undefined}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            className="inline-flex items-center gap-2 px-3 py-1.5 bg-brand/10 border border-success/30 rounded-full flex-shrink-0"
           >
-            <div className="text-[9px] text-gold-light uppercase tracking-wider font-bold mb-0.5">VIP</div>
-            <div className="text-sm sm:text-base font-bold text-white">Historique + 10 matchs/jour</div>
-            <div className="text-[9px] text-gray-500">Débloque avec VISION221</div>
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="#00D68F">
+              <path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" />
+            </svg>
+            <span className="text-[10px] text-success-light font-semibold uppercase tracking-wider">VIP Premium</span>
           </motion.div>
         </motion.div>
       </motion.div>

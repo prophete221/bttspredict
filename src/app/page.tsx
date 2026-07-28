@@ -3,6 +3,7 @@
 import {
   Navbar,
   Hero,
+  StickyVipBandeau,
   LiveTicker,
   HowItWorks,
   FreePredictions,
@@ -156,6 +157,7 @@ export default function Home() {
       <main id="main-content" className="relative z-10">
         <ErrorBoundary><Navbar /></ErrorBoundary>
         <ErrorBoundary><Hero /></ErrorBoundary>
+        <ErrorBoundary><StickyVipBandeau /></ErrorBoundary>
         <ErrorBoundary><LiveTicker /></ErrorBoundary>
         <ErrorBoundary><FreePredictions /></ErrorBoundary>
         <ErrorBoundary><PromoVip /></ErrorBoundary>

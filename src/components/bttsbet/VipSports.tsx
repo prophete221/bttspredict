@@ -8,6 +8,8 @@ import { staggerContainer, staggerChildFadeUp } from '@/lib/motionPresets'
 import VipUnlockModal from './VipUnlockModal'
 
 // ─── Sport data ─────────────────────────────────────────────────────────
+type SportColor = 'gold' | 'orange' | 'bronze' | 'red' | 'cyan'
+
 type SportVip = {
   id: string
   name: string
@@ -17,11 +19,21 @@ type SportVip = {
   keywords: string[]
   badge: string
   badgeColor: 'green' | 'gold' | 'cyan' | 'rose'
+  color: SportColor  // per-sport accent color
   logo: string
   dailyCoteMin: number
   dailyCoteMax: number
   accuracy: number
   matches: { time: string; home: string; away: string; league: string }[]
+}
+
+// Per-sport accent colors (CSS variables)
+const SPORT_COLORS: Record<SportColor, { hex: string; light: string; cssVar: string }> = {
+  gold:   { hex: '#FF6B35', light: '#FF8B5C', cssVar: 'gold' },
+  orange: { hex: '#FF9500', light: '#FFB155', cssVar: 'orange' },
+  bronze: { hex: '#D4A574', light: '#E8C594', cssVar: 'bronze' },
+  red:    { hex: '#E63946', light: '#F47373', cssVar: 'lose' },
+  cyan:   { hex: '#22D3EE', light: '#67E8F9', cssVar: 'live' },
 }
 
 const SPORTS: SportVip[] = [
@@ -34,6 +46,7 @@ const SPORTS: SportVip[] = [
     keywords: ['pronostic tennis', 'pari tennis ATP', 'pari tennis WTA', 'pronostic gagnant tennis', 'over games tennis', 'Grand Chelem pronostic', 'Roland Garros pronostic', 'Wimbledon picks'],
     badge: 'Gagnant',
     badgeColor: 'gold',
+    color: 'gold',
     dailyCoteMin: 18,
     dailyCoteMax: 35,
     accuracy: 88,
@@ -58,6 +71,7 @@ const SPORTS: SportVip[] = [
     keywords: ['pronostic NBA', 'pari NBA', 'pronostic basket', 'over points NBA', 'pari basket EuroLeague', 'NBA picks du jour', 'player props NBA', 'handicap basket'],
     badge: 'Over Pts',
     badgeColor: 'gold',
+    color: 'orange',
     dailyCoteMin: 12,
     dailyCoteMax: 28,
     accuracy: 86,
@@ -82,6 +96,7 @@ const SPORTS: SportVip[] = [
     keywords: ['pronostic NFL', 'pari NFL', 'pronostic football americain', 'pari NFL américain', 'over under NFL', 'spread NFL', 'touchdown NFL', 'NFL picks dimanche'],
     badge: 'Spread',
     badgeColor: 'cyan',
+    color: 'bronze',
     dailyCoteMin: 15,
     dailyCoteMax: 32,
     accuracy: 84,
@@ -106,6 +121,7 @@ const SPORTS: SportVip[] = [
     keywords: ['pronostic UFC', 'pari UFC', 'pronostic MMA', 'pari MMA', 'vainqueur UFC', 'methode victoire UFC', 'round UFC', 'pari combat MMA'],
     badge: 'Vainqueur',
     badgeColor: 'rose',
+    color: 'red',
     dailyCoteMin: 14,
     dailyCoteMax: 30,
     accuracy: 82,
@@ -130,6 +146,7 @@ const SPORTS: SportVip[] = [
     keywords: ['pronostic handball', 'pari handball', 'pronostic handball Champions League', 'over buts handball', 'pari handball LNH', 'handball EHF', 'picks handball', 'handicap handball'],
     badge: 'Over Buts',
     badgeColor: 'cyan',
+    color: 'cyan',
     dailyCoteMin: 12,
     dailyCoteMax: 26,
     accuracy: 85,
@@ -172,6 +189,18 @@ function VipSportPanel({ sport, onUnlock }: { sport: SportVip; onUnlock: () => v
   const [coteRef, coteDisplay] = useCountUp(dailyCote, 1500, { decimals: 2, threshold: 0.3 })
   const [matchCountRef, matchCountDisplay] = useCountUp(matchCount, 1200, { threshold: 0.3 })
 
+  const accent = SPORT_COLORS[sport.color]
+  // Convert hex to rgba for opacity variants
+  const hex2rgba = (hex: string, alpha: number) => {
+    const r = parseInt(hex.slice(1, 3), 16)
+    const g = parseInt(hex.slice(3, 5), 16)
+    const b = parseInt(hex.slice(5, 7), 16)
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`
+  }
+  const accentBg = hex2rgba(accent.hex, 0.08)
+  const accentBgHover = hex2rgba(accent.hex, 0.15)
+  const accentGlow = hex2rgba(accent.hex, 0.4)
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 12 }}
@@ -179,25 +208,36 @@ function VipSportPanel({ sport, onUnlock }: { sport: SportVip; onUnlock: () => v
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.35 }}
       className="squircle-xl overflow-hidden"
+      style={{ borderColor: hex2rgba(accent.hex, 0.25) }}
     >
-      {/* Top accent — gold gradient */}
-      <div className="h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent" />
+      {/* Top accent — sport color gradient */}
+      <div className="h-[2px]" style={{ background: `linear-gradient(90deg, transparent, ${accent.hex}, transparent)` }} />
 
       {/* Header with sport logo + title */}
       <div className="relative p-5 sm:p-6 border-b border-edge"
         style={{
-          background: 'linear-gradient(135deg, rgba(242, 201, 76, 0.08) 0%, transparent 60%)',
+          background: `linear-gradient(135deg, ${accentBg} 0%, transparent 60%)`,
         }}
       >
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3 min-w-0">
-            {/* Big sport logo */}
-            <div className="w-16 h-16 rounded-2xl bg-midnight/60 border border-gold/30 flex items-center justify-center overflow-hidden flex-shrink-0">
+            {/* Big sport logo with sport color border */}
+            <div
+              className="w-16 h-16 rounded-2xl bg-midnight/60 flex items-center justify-center overflow-hidden flex-shrink-0"
+              style={{ border: `1px solid ${hex2rgba(accent.hex, 0.3)}` }}
+            >
               <img src={sport.logo} alt={sport.name} className="w-12 h-12 object-contain" loading="lazy" />
             </div>
             <div className="min-w-0">
-              <span className="text-[10px] text-gold-light uppercase tracking-widest font-bold">VIP Pronostics</span>
-              <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight mt-0.5">{sport.title}</h3>
+              <span
+                className="text-[10px] uppercase tracking-widest font-bold"
+                style={{ color: accent.light }}
+              >
+                VIP Pronostics
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight mt-0.5">
+                {sport.title}
+              </h3>
               <p className="text-[10px] text-gray-500 mt-1 truncate">{sport.subtitle}</p>
             </div>
           </div>
@@ -219,8 +259,17 @@ function VipSportPanel({ sport, onUnlock }: { sport: SportVip; onUnlock: () => v
             <div className="text-lg font-bold text-white tabular-nums" ref={matchCountRef}>{matchCountDisplay}</div>
             <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">Matchs</div>
           </div>
-          <div className="bg-midnight/40 border border-edge rounded-lg p-2.5 text-center">
-            <div className="text-lg font-bold text-gold tabular-nums glow-text-gold" ref={coteRef}>{coteDisplay}</div>
+          <div
+            className="bg-midnight/40 border rounded-lg p-2.5 text-center"
+            style={{ borderColor: hex2rgba(accent.hex, 0.2) }}
+          >
+            <div
+              className="text-lg font-bold tabular-nums"
+              style={{ color: accent.light, textShadow: `0 0 20px ${accentGlow}, 0 0 40px ${hex2rgba(accent.hex, 0.3)}` }}
+              ref={coteRef}
+            >
+              {coteDisplay}
+            </div>
             <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">Cote totale</div>
           </div>
           <div className="bg-midnight/40 border border-edge rounded-lg p-2.5 text-center">
@@ -234,7 +283,16 @@ function VipSportPanel({ sport, onUnlock }: { sport: SportVip; onUnlock: () => v
       <div className="p-4 sm:p-5 space-y-1.5">
         <div className="flex items-center justify-between mb-2">
           <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Sélection du jour</span>
-          <span className="badge badge-gold text-[9px]">{sport.badge}</span>
+          <span
+            className="badge text-[9px]"
+            style={{
+              background: hex2rgba(accent.hex, 0.12),
+              color: accent.light,
+              border: `1px solid ${hex2rgba(accent.hex, 0.3)}`,
+            }}
+          >
+            {sport.badge}
+          </span>
         </div>
 
         {/* Locked matches */}
@@ -247,13 +305,21 @@ function VipSportPanel({ sport, onUnlock }: { sport: SportVip; onUnlock: () => v
               transition={{ delay: 0.05 * i, duration: 0.3 }}
               className="relative grid grid-cols-[40px_1fr_60px] items-center gap-2 bg-midnight/40 rounded-lg px-3 py-2 border border-edge/40"
             >
-              <span className="text-[10px] text-gold/70 font-mono tabular-nums">{m.time}</span>
+              <span
+                className="text-[10px] font-mono tabular-nums"
+                style={{ color: hex2rgba(accent.light, 0.7) }}
+              >
+                {m.time}
+              </span>
               <div className="flex items-center gap-1.5 min-w-0 blur-[5px] select-none">
                 <span className="text-white text-xs font-semibold truncate">{m.home}</span>
                 <span className="text-gray-600 text-[9px]">vs</span>
                 <span className="text-white text-xs font-semibold truncate">{m.away}</span>
               </div>
-              <span className="text-[10px] text-gold font-bold tabular-nums blur-[3px] select-none text-right">
+              <span
+                className="text-[10px] font-bold tabular-nums blur-[3px] select-none text-right"
+                style={{ color: accent.light }}
+              >
                 {cotePerMatch.toFixed(2)}
               </span>
             </motion.div>
@@ -264,13 +330,19 @@ function VipSportPanel({ sport, onUnlock }: { sport: SportVip; onUnlock: () => v
             <motion.div
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
-              className="bg-midnight/90 border border-gold/30 rounded-full p-3 flex flex-col items-center gap-1"
+              className="bg-midnight/90 rounded-full p-3 flex flex-col items-center gap-1"
+              style={{ border: `1px solid ${hex2rgba(accent.hex, 0.3)}` }}
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2C94C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={accent.hex} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                 <path d="M7 11V7a5 5 0 0 1 10 0v4" />
               </svg>
-              <span className="text-[10px] text-gold-light font-bold uppercase tracking-wider">VIP</span>
+              <span
+                className="text-[10px] font-bold uppercase tracking-wider"
+                style={{ color: accent.light }}
+              >
+                VIP
+              </span>
             </motion.div>
           </div>
 
@@ -285,7 +357,12 @@ function VipSportPanel({ sport, onUnlock }: { sport: SportVip; onUnlock: () => v
         {/* CTA */}
         <button
           onClick={onUnlock}
-          className="w-full flex items-center justify-center gap-2 mt-4 px-4 py-3 btn-gold cta-glow text-[#1A1206] text-sm font-bold rounded-xl"
+          className="w-full flex items-center justify-center gap-2 mt-4 px-4 py-3 cta-glow text-sm font-bold rounded-xl transition-all"
+          style={{
+            background: `linear-gradient(180deg, ${accent.light}, ${accent.hex})`,
+            color: sport.color === 'cyan' || sport.color === 'red' ? '#FFFFFF' : '#1A0F00',
+            boxShadow: `0 4px 12px ${hex2rgba(accent.hex, 0.3)}, inset 0 1px 0 rgba(255, 255, 255, 0.25)`,
+          }}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
@@ -295,7 +372,7 @@ function VipSportPanel({ sport, onUnlock }: { sport: SportVip; onUnlock: () => v
         </button>
 
         <p className="text-[10px] text-gray-500 text-center mt-2">
-          Inscris-toi avec <span className="text-gold-light font-semibold">VISION221</span> pour débloquer
+          Inscris-toi avec <span style={{ color: accent.light }} className="font-semibold">VISION221</span> pour débloquer
         </p>
       </div>
     </motion.div>

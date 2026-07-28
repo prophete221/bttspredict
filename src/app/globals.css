@@ -1,68 +1,73 @@
 @import "tailwindcss";
 
 /* ════════════════════════════════════════════════════════════════════════════
-   BttsBet — "ENTERPRISE PRO" v17 — SaaS-grade design system
+   BttsBet — "ONYX EMERALD" v18 — Binance/fintech-grade design system
    ────────────────────────────────────────────────────────────────────────────
-   Inspiration : Stripe, Plaid, Robinhood, TradingView, Bloomberg Terminal
-   Philosophy  : Trading platform aesthetic. Deep blue brand color (trust),
-                 gain green for positive data, soft gold for premium,
-                 minimal red (only for losses/warnings). Data-dense but clean.
-   Rule        : 80% blue+dark, 10% green, 5% gold, 5% other
+   Inspiration : Binance, Coinbase, Robinhood, eToro, TradingView
+   Philosophy  : Onyx dark + emerald premium + orange burn CTA + bronze VIP.
+                 Minimal red (only for losses/warnings). High-contrast.
+   Rule        : 80% onyx+dark, 10% emerald, 5% orange CTA, 5% bronze VIP
    ════════════════════════════════════════════════════════════════════════════ */
 
 @theme {
-  /* ── SURFACES ──────────────────────────────────────────────────────────── */
-  --color-midnight: #05080F;        /* global background — very dark gray */
-  --color-abyss: #020308;           /* deepest */
-  --color-panel: #0A1426;           /* card surface — blue-tinted dark */
-  --color-panel-2: #0F1A30;         /* elevated card */
-  --color-panel-3: #142039;         /* hover card */
-  --color-edge: rgba(255, 255, 255, 0.06);
-  --color-edge-light: rgba(255, 255, 255, 0.12);
-  --color-edge-bright: rgba(255, 255, 255, 0.2);
+  /* ── SURFACES — Onyx (deeper, more neutral) ────────────────────────── */
+  --color-midnight: #0F0F12;        /* global background — onyx */
+  --color-abyss: #060608;          /* deepest */
+  --color-panel: #18181C;          /* card surface — neutral dark */
+  --color-panel-2: #1F1F25;         /* elevated card */
+  --color-panel-3: #2A2A32;         /* hover card */
+  --color-edge: rgba(255, 255, 255, 0.07);
+  --color-edge-light: rgba(255, 255, 255, 0.14);
+  --color-edge-bright: rgba(255, 255, 255, 0.22);
 
-  /* ── PRIMARY — Deep Blue (BRAND) ──────────────────────────────────────── */
-  --color-brand: #0A2342;           /* the brand color — serious, fintech */
-  --color-brand-light: #1B3A6B;
-  --color-brand-dark: #051528;
-  --color-brand-glow: rgba(10, 35, 66, 0.6);
+  /* ── PRIMARY BRAND — Emerald premium (gains, success) ─────────────── */
+  --color-brand: #00D68F;           /* the brand color — emerald premium */
+  --color-brand-light: #00F2A8;
+  --color-brand-dark: #00A878;
+  --color-brand-glow: rgba(0, 214, 143, 0.5);
 
-  /* ── SECONDARY — Gain Green (positive data) ───────────────────────────── */
-  --color-success: #1DB954;
-  --color-success-light: #2ED47E;
-  --color-success-dark: #15883D;
-  --color-success-glow: rgba(29, 185, 84, 0.4);
+  /* ── SECONDARY — Gain Emerald (positive data) ──────────────────────── */
+  --color-success: #00D68F;        /* emerald premium */
+  --color-success-light: #4FE8B8;
+  --color-success-dark: #00A878;
+  --color-success-glow: rgba(0, 214, 143, 0.4);
 
-  /* ── PREMIUM — Soft Gold (VIP, bonus) ─────────────────────────────────── */
-  --color-gold: #F2C94C;
-  --color-gold-light: #F5D77A;
-  --color-gold-dark: #D4A82C;
-  --color-gold-glow: rgba(242, 201, 76, 0.35);
+  /* ── PREMIUM — Burnt Orange (VIP, CTA premium) ──────────────────────── */
+  --color-gold: #FF6B35;           /* burnt orange — CTA + VIP */
+  --color-gold-light: #FF8B5C;
+  --color-gold-dark: #E5511A;
+  --color-gold-glow: rgba(255, 107, 53, 0.4);
+
+  /* ── BRONZE — Secondary VIP accent ────────────────────────────────────── */
+  --color-bronze: #D4A574;
+  --color-bronze-light: #E8C594;
+  --color-bronze-dark: #B8864F;
+  --color-bronze-glow: rgba(212, 165, 116, 0.4);
 
   /* ── LOSS / WARNING — Red (only for losses & warnings) ────────────────── */
-  --color-lose: #EB5757;
+  --color-lose: #E63946;
   --color-lose-light: #F47373;
   --color-lose-dark: #C53030;
-  --color-lose-soft: rgba(235, 87, 87, 0.12);
+  --color-lose-soft: rgba(230, 57, 70, 0.12);
 
-  /* ── LIVE — Bright Cyan (live match indicator) ────────────────────────── */
-  --color-live: #00D9FF;
-  --color-live-light: #5EE6FF;
-  --color-live-dark: #00A6CC;
-  --color-live-glow: rgba(0, 217, 255, 0.4);
+  /* ── LIVE — Cyan (live match indicator) ──────────────────────────────── */
+  --color-live: #22D3EE;
+  --color-live-light: #67E8F9;
+  --color-live-dark: #0891B2;
+  --color-live-glow: rgba(34, 211, 238, 0.4);
 
-  /* ── BRAND TOKENS — Bookmaker colors ──────────────────────────────────── */
-  --color-linebet: #1DB954;
-  --color-linebet-dark: #15883D;
-  --color-linebet-light: #2ED47E;
-  --color-star888: #F2C94C;
-  --color-star888-dark: #D4A82C;
-  --color-star888-light: #F5D77A;
+  /* ── BRAND TOKENS — Bookmaker colors (preserved) ─────────────────────── */
+  --color-linebet: #00D68F;
+  --color-linebet-dark: #00A878;
+  --color-linebet-light: #4FE8B8;
+  --color-star888: #FF6B35;
+  --color-star888-dark: #E5511A;
+  --color-star888-light: #FF8B5C;
 
   /* ── TEXT ─────────────────────────────────────────────────────────────── */
-  --color-text-primary: #F5F7FA;
-  --color-text-secondary: #8A8FA3;
-  --color-text-muted: #5A5E73;
+  --color-text-primary: #F0F0F5;
+  --color-text-secondary: #8E8E96;
+  --color-text-muted: #5A5A63;
 
   /* ── GLASS ─────────────────────────────────────────────────────────────── */
   --color-glass: rgba(255, 255, 255, 0.03);
@@ -70,51 +75,51 @@
   --color-glass-strong: rgba(255, 255, 255, 0.12);
 
   /* ── LEGACY COMPAT (mapped to new palette) ────────────────────────────── */
-  --color-violet: #0A2342;
-  --color-violet-light: #1B3A6B;
-  --color-violet-dark: #051528;
-  --color-violet-glow: rgba(10, 35, 66, 0.6);
-  --color-emerald: #1DB954;
-  --color-emerald-dark: #15883D;
-  --color-emerald-soft: #2ED47E;
-  --color-emerald-deep: #0E6629;
-  --color-win: #1DB954;
-  --color-royal: #0A2342;
-  --color-royal-deep: #051528;
-  --color-royal-soft: #1B3A6B;
-  --color-neon: #1DB954;
-  --color-neon-green: #1DB954;
-  --color-neon-purple: #F2C94C;
-  --color-amber: #F2C94C;
-  --color-sky: #00D9FF;
-  --color-sky-deep: #00A6CC;
-  --color-sky-soft: #5EE6FF;
-  --color-flame: #EB5757;
+  --color-violet: #00D68F;
+  --color-violet-light: #4FE8B8;
+  --color-violet-dark: #00A878;
+  --color-violet-glow: rgba(0, 214, 143, 0.5);
+  --color-emerald: #00D68F;
+  --color-emerald-dark: #00A878;
+  --color-emerald-soft: #4FE8B8;
+  --color-emerald-deep: #00734F;
+  --color-win: #00D68F;
+  --color-royal: #FF6B35;
+  --color-royal-deep: #E5511A;
+  --color-royal-soft: #FF8B5C;
+  --color-neon: #00D68F;
+  --color-neon-green: #00D68F;
+  --color-neon-purple: #FF6B35;
+  --color-amber: #FF6B35;
+  --color-sky: #22D3EE;
+  --color-sky-deep: #0891B2;
+  --color-sky-soft: #67E8F9;
+  --color-flame: #E63946;
   --color-flame-deep: #C53030;
   --color-flame-soft: #F47373;
-  --color-royal-violet: #0A2342;
-  --color-aurora-violet: #1B3A6B;
-  --color-ultra: #00D9FF;
-  --color-ultra-dark: #00A6CC;
-  --color-ultra-soft: #5EE6FF;
-  --color-ultra-glow: rgba(0, 217, 255, 0.4);
-  --color-cyan: #00D9FF;
-  --color-cyan-light: #5EE6FF;
-  --color-cyan-dark: #00A6CC;
-  --color-coral: #EB5757;
+  --color-royal-violet: #FF6B35;
+  --color-aurora-violet: #FF8B5C;
+  --color-ultra: #22D3EE;
+  --color-ultra-dark: #0891B2;
+  --color-ultra-soft: #67E8F9;
+  --color-ultra-glow: rgba(34, 211, 238, 0.4);
+  --color-cyan: #22D3EE;
+  --color-cyan-light: #67E8F9;
+  --color-cyan-dark: #0891B2;
+  --color-coral: #E63946;
   --color-coral-light: #F47373;
   --color-coral-dark: #C53030;
 
   /* ── LEGACY SURFACES ─────────────────────────────────────────────────── */
-  --color-dark-900: #05080F;
-  --color-dark-800: #020308;
-  --color-dark-700: #0A1426;
-  --color-dark-600: #0F1A30;
-  --color-dark-500: #142039;
-  --color-dark-400: #1B2942;
-  --color-card: #0A1426;
+  --color-dark-900: #0F0F12;
+  --color-dark-800: #060608;
+  --color-dark-700: #18181C;
+  --color-dark-600: #1F1F25;
+  --color-dark-500: #2A2A32;
+  --color-dark-400: #3A3A45;
+  --color-card: #18181C;
   --color-card-border: rgba(255, 255, 255, 0.06);
-  --color-card-hover: #0F1A30;
+  --color-card-hover: #1F1F25;
 
   /* ── RADIUS ─────────────────────────────────────────────────────────────── */
   --radius-squircle: 0.75rem;

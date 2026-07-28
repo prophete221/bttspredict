@@ -310,7 +310,7 @@ export default function PromoVip() {
                     animate={{ scale: 1 }}
                     className="bg-midnight/90 border border-gold/30 rounded-full p-3 flex flex-col items-center gap-1"
                   >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2C94C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                       <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                     </svg>
