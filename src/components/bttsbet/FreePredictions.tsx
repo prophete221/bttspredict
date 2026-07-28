@@ -457,118 +457,90 @@ export default function FreePredictions() {
   }), [matches])
 
   return (
-    <section ref={ref} id="free-predictions" className="section-pad" style={{ paddingTop: 0 }}>
+    <section ref={ref} id="free-predictions" className="section-pad" style={{ paddingTop: 0, paddingBottom: 'clamp(2rem, 5vw, 4rem)' }}>
+      {/* H2 for SEO (hidden visually) */}
+      <h2 className="sr-only">Pronostics IA du jour — BTTS et Over 2.5 gratuits</h2>
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
+        {/* Ultra-compact filters — single horizontal scroll bar */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}
-          className="mb-6"
+          className="mb-2 flex items-center gap-2 overflow-x-auto no-scrollbar pb-1"
         >
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-4">
-            <div>
-              <span className="eyebrow">Dashboard IA</span>
-              <h2 className="section-title mt-2 mb-2">
-                Pronostics IA <span className="text-success">du jour</span>
-              </h2>
-              <p className="section-subtitle">
-                BTTS + Over 2.5 séparés pour chaque match. Analyse Poisson complète avec probabilités et lambdas.
-              </p>
-            </div>
-
-            {/* Stats */}
-            <div className="flex items-center gap-3 squircle px-4 py-2.5">
-              <div className="text-center">
-                <div className="text-lg font-bold text-white tabular-nums">{stats.total}</div>
-                <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">Pronos Auj.</div>
-              </div>
-              <div className="w-px h-8 bg-edge" />
-              <div className="text-center">
-                <div className="text-lg font-bold text-success tabular-nums">{stats.btts}</div>
-                <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">BTTS</div>
-              </div>
-              <div className="w-px h-8 bg-edge" />
-              <div className="text-center">
-                <div className="text-lg font-bold text-gold tabular-nums">{stats.o25}</div>
-                <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">O2.5</div>
-              </div>
-              {stats.live > 0 && (
-                <>
-                  <div className="w-px h-8 bg-edge" />
-                  <div className="text-center">
-                    <div className="text-lg font-bold text-live tabular-nums">{stats.live}</div>
-                    <div className="text-[9px] text-live uppercase tracking-widest font-bold">Live</div>
-                  </div>
-                </>
-              )}
-            </div>
+          {/* Date filter pills */}
+          <div className="flex items-center gap-1 flex-shrink-0">
+            {([
+              { id: 'all', label: 'Tous' },
+              { id: 'today', label: "Auj." },
+              { id: 'tomorrow', label: 'Dem.' },
+              { id: '7days', label: '7j' },
+            ] as { id: DateFilter; label: string }[]).map(f => (
+              <button
+                key={f.id}
+                onClick={() => setActiveDate(f.id)}
+                className={`px-2 py-0.5 rounded text-[11px] font-semibold transition-all whitespace-nowrap ${
+                  activeDate === f.id
+                    ? 'bg-success/15 text-success border border-success/30'
+                    : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300'
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
           </div>
 
-          {/* Filters */}
-          <div className="flex flex-col gap-3 mb-4">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mr-1">Date:</span>
-              {([
-                { id: 'all', label: 'Tous' },
-                { id: 'today', label: "Aujourd'hui" },
-                { id: 'tomorrow', label: 'Demain' },
-                { id: '7days', label: '7 jours' },
-              ] as { id: DateFilter; label: string }[]).map(f => (
-                <button
-                  key={f.id}
-                  onClick={() => setActiveDate(f.id)}
-                  className={`px-3 py-1 rounded-md text-xs font-semibold transition-all ${
-                    activeDate === f.id
-                      ? 'bg-success/15 text-success border border-success/30'
-                      : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300'
-                  }`}
-                >
-                  {f.label}
-                </button>
-              ))}
-            </div>
+          <span className="w-px h-4 bg-edge flex-shrink-0" />
 
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mr-1">Marché:</span>
-              {([
-                { id: 'all', label: 'Tous' },
-                { id: 'BTTS', label: 'BTTS' },
-                { id: 'O2.5', label: 'Over 2.5' },
-              ] as { id: FilterType; label: string }[]).map(f => (
-                <button
-                  key={f.id}
-                  onClick={() => setActiveType(f.id)}
-                  className={`px-3 py-1 rounded-md text-xs font-semibold transition-all ${
-                    activeType === f.id
-                      ? 'bg-success/15 text-success border border-success/30'
-                      : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300'
-                  }`}
-                >
-                  {f.label}
-                </button>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mr-1">Ligue:</span>
-              <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar -mx-1 px-1 py-0.5">
-                {leagues.map(league => (
-                  <button
-                    key={league}
-                    onClick={() => setActiveLeague(league)}
-                    className={`flex-shrink-0 px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all ${
-                      activeLeague === league
-                        ? 'bg-success/15 text-success border border-success/30'
-                        : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300'
-                    }`}
-                  >
-                    {league === 'all' ? 'Toutes' : league}
-                  </button>
-                ))}
-              </div>
-            </div>
+          {/* Market filter pills */}
+          <div className="flex items-center gap-1 flex-shrink-0">
+            {([
+              { id: 'all', label: 'Tous' },
+              { id: 'BTTS', label: 'BTTS' },
+              { id: 'O2.5', label: 'O2.5' },
+            ] as { id: FilterType; label: string }[]).map(f => (
+              <button
+                key={f.id}
+                onClick={() => setActiveType(f.id)}
+                className={`px-2 py-0.5 rounded text-[11px] font-semibold transition-all whitespace-nowrap ${
+                  activeType === f.id
+                    ? 'bg-success/15 text-success border border-success/30'
+                    : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300'
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
           </div>
+
+          <span className="w-px h-4 bg-edge flex-shrink-0" />
+
+          {/* League filter pills */}
+          <div className="flex items-center gap-1 flex-shrink-0">
+            {leagues.map(league => (
+              <button
+                key={league}
+                onClick={() => setActiveLeague(league)}
+                className={`px-2 py-0.5 rounded text-[11px] font-semibold transition-all whitespace-nowrap ${
+                  activeLeague === league
+                    ? 'bg-success/15 text-success border border-success/30'
+                    : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300'
+                }`}
+              >
+                {league === 'all' ? 'Toutes' : league}
+              </button>
+            ))}
+          </div>
+
+          {/* Live count badge if matches live */}
+          {stats.live > 0 && (
+            <>
+              <span className="w-px h-4 bg-edge flex-shrink-0" />
+              <span className="live-text text-[10px] uppercase tracking-widest font-bold whitespace-nowrap flex-shrink-0">
+                {stats.live} LIVE
+              </span>
+            </>
+          )}
         </motion.div>
 
         {/* Cards grid */}
