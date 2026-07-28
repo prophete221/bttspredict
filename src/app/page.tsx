@@ -157,13 +157,13 @@ export default function Home() {
         <ErrorBoundary><Navbar /></ErrorBoundary>
         <ErrorBoundary><Hero /></ErrorBoundary>
         <ErrorBoundary><LiveTicker /></ErrorBoundary>
-        <ErrorBoundary><HowItWorks /></ErrorBoundary>
         <ErrorBoundary><FreePredictions /></ErrorBoundary>
         <ErrorBoundary><PromoVip /></ErrorBoundary>
         <ErrorBoundary><VipSports /></ErrorBoundary>
         <ErrorBoundary><AviatorVip /></ErrorBoundary>
         <ErrorBoundary><WinHistory /></ErrorBoundary>
         <ErrorBoundary><FifaLinebet /></ErrorBoundary>
+        <ErrorBoundary><HowItWorks /></ErrorBoundary>
         <ErrorBoundary><About /></ErrorBoundary>
         <ErrorBoundary><Footer /></ErrorBoundary>
       </main>
