@@ -2,469 +2,540 @@
 
 import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SITE, AFFILIATE, SOCIAL_PROOF, TESTIMONIALS, URGENCY_MESSAGES } from '@/lib/constants'
 import { useScrollAnimation } from '@/hooks/useAnimations'
-import { FloatingParticles } from './AnimatedIcons'
-import { staggerContainer, staggerChildFadeUp, buttonHover, badgePulse, cardHoverLift } from '@/lib/motionPresets'
-import PremiumButton from './PremiumButton'
+import { staggerContainer, staggerChildFadeUp } from '@/lib/motionPresets'
 
-type Prediction = {
-  match: string
-  league: string
-  date: string
-  type: string
-  prediction: string
-  confidence: number
-  time?: string
-  homeLogo?: string
-  awayLogo?: string
-  analysis?: {
-    bttsProb?: number
-    over25Prob?: number
-  }
+// ─── IA Premium palette (per user spec, hard-coded) ────────────────────
+const COLORS = {
+  bg:        '#090B10',
+  iaGreen:   '#00F5A0',
+  blue:      '#00C2FF',
+  purple:    '#8B5CF6',
+  text:      '#FFFFFF',
+  textSec:   '#A8B3C7',
 }
 
-function getMatchStatus(date: string, time?: string): 'live' | 'upcoming' | 'finished' {
-  if (!date) return 'finished'
-  try {
-    const today = new Date(); today.setHours(0, 0, 0, 0)
-    const matchDay = new Date(date + 'T00:00:00'); matchDay.setHours(0, 0, 0, 0)
-    if (matchDay.getTime() < today.getTime()) return 'finished'
-    if (matchDay.getTime() > today.getTime()) return 'upcoming'
-    if (!time || time === '--:--' || !/^\d{2}:\d{2}$/.test(time)) return 'upcoming'
-    const [h, m] = time.split(':').map(Number)
-    const matchDateTime = new Date(date + 'T00:00:00')
-    matchDateTime.setHours(h, m, 0, 0)
-    const diffMs = matchDateTime.getTime() - Date.now()
-    const diffHours = diffMs / (1000 * 60 * 60)
-    if (diffMs < 0 && diffHours > -2.5) return 'live'
-    if (diffMs < 0) return 'finished'
-    return 'upcoming'
-  } catch { return 'finished' }
-}
+// ─── Checklist of analysis steps (revealed progressively) ──────────────
+const ANALYSIS_STEPS = [
+  'Forme récente',
+  'xG',
+  'Blessures',
+  'Cotes',
+  'Historique',
+  'Value Bet',
+  'BTTS',
+  'Over',
+  'Under',
+  'Score Exact',
+]
 
-export default function Hero() {
-  const [sectionRef, isVisible] = useScrollAnimation(0.05)
-  const [copied, setCopied] = useState(false)
-  const [urgencyIndex, setUrgencyIndex] = useState(0)
-  const [testimonialIndex, setTestimonialIndex] = useState(0)
-  const [topPrediction, setTopPrediction] = useState<Prediction | null>(null)
+// ─── IA Confidence metrics ─────────────────────────────────────────────
+const CONFIDENCE_METRICS = [
+  { label: 'Confiance IA', value: 94, color: COLORS.iaGreen },
+  { label: 'BTTS',         value: 91, color: COLORS.iaGreen },
+  { label: 'Over 2.5',     value: 88, color: COLORS.blue },
+  { label: 'Value Bet',    value: 96, color: COLORS.purple },
+]
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setUrgencyIndex((i) => (i + 1) % URGENCY_MESSAGES.length)
-    }, 4000)
-    return () => clearInterval(interval)
-  }, [])
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTestimonialIndex((i) => (i + 1) % TESTIMONIALS.length)
-    }, 6000)
-    return () => clearInterval(interval)
-  }, [])
-
-  // Load top UPCOMING prediction (filter out finished)
-  useEffect(() => {
-    fetch('/predictions.json')
-      .then(r => r.json())
-      .then(data => {
-        const preds: Prediction[] = data.predictions || []
-        if (preds.length === 0) return
-
-        const visible = preds.filter(p => getMatchStatus(p.date, p.time) !== 'finished')
-        if (visible.length === 0) {
-          setTopPrediction(null)
-          return
-        }
-
-        // Prefer upcoming over live
-        const upcoming = visible.filter(p => getMatchStatus(p.date, p.time) === 'upcoming')
-        const pool = upcoming.length > 0 ? upcoming : visible
-
-        const top = pool.reduce((best, p) =>
-          (p.confidence || 0) > (best.confidence || 0) ? p : best, pool[0])
-        setTopPrediction(top)
-      })
-      .catch(() => {})
-  }, [])
-
-  const copyPromoCode = async () => {
-    try {
-      await navigator.clipboard.writeText(SITE.promoCode)
-    } catch {
-      document.execCommand('copy')
-    }
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2500)
-  }
-
-  const currentTestimonial = TESTIMONIALS[testimonialIndex]
-  const currentUrgency = URGENCY_MESSAGES[urgencyIndex]
-    .replace('{n}', String(SOCIAL_PROOF.winsToday))
-    .replace('{n}', String(SOCIAL_PROOF.currentStreak))
-
-  const matchTeams = useMemo(() => {
-    if (!topPrediction?.match) return null
-    const parts = topPrediction.match.split(/\s+vs?\s+/i)
-    return { home: parts[0] || '', away: parts[1] || '' }
-  }, [topPrediction])
-
-  const status = topPrediction ? getMatchStatus(topPrediction.date, topPrediction.time) : null
+// ─── Discrete floating particles ──────────────────────────────────────
+function IAParticles() {
+  const particles = useMemo(() => Array.from({ length: 14 }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: 1 + Math.random() * 2,
+    delay: Math.random() * 4,
+    duration: 6 + Math.random() * 6,
+    color: i % 3 === 0 ? COLORS.iaGreen : i % 3 === 1 ? COLORS.blue : COLORS.purple,
+  })), [])
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden pt-6 sm:pt-12 pb-8 sm:pb-16">
-      {/* Brand ambient background */}
-      <div className="brand-glow-top" />
-      <div className="absolute inset-0 grid-pattern opacity-50" />
-      <FloatingParticles count={16} />
+    <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      {particles.map(p => (
+        <motion.div
+          key={p.id}
+          className="absolute rounded-full"
+          style={{
+            left: `${p.x}%`,
+            top: `${p.y}%`,
+            width: p.size,
+            height: p.size,
+            backgroundColor: p.color,
+            boxShadow: `0 0 6px ${p.color}`,
+          }}
+          animate={{
+            y: [0, -20, 0],
+            opacity: [0, 0.8, 0],
+          }}
+          transition={{
+            duration: p.duration,
+            repeat: Infinity,
+            delay: p.delay,
+            ease: 'easeInOut',
+          }}
+        />
+      ))}
+    </div>
+  )
+}
 
+// ─── Futuristic grid overlay ───────────────────────────────────────────
+function IAGrid() {
+  return (
+    <div
+      className="absolute inset-0 pointer-events-none opacity-[0.4]"
+      aria-hidden="true"
+      style={{
+        backgroundImage: `
+          linear-gradient(${COLORS.iaGreen}0a 1px, transparent 1px),
+          linear-gradient(90deg, ${COLORS.iaGreen}0a 1px, transparent 1px)
+        `,
+        backgroundSize: '48px 48px',
+        maskImage: 'radial-gradient(ellipse 70% 60% at 50% 30%, black 30%, transparent 80%)',
+        WebkitMaskImage: 'radial-gradient(ellipse 70% 60% at 50% 30%, black 30%, transparent 80%)',
+      }}
+    />
+  )
+}
+
+// ─── Radial glow behind the title ───────────────────────────────────────
+function IAGlow() {
+  return (
+    <div
+      className="absolute inset-0 pointer-events-none"
+      aria-hidden="true"
+    >
+      {/* Top emerald glow */}
+      <div
+        className="absolute left-1/2 top-0 -translate-x-1/2 w-[min(900px,80vw)] h-[400px] rounded-full blur-[120px]"
+        style={{
+          background: `radial-gradient(ellipse at center top, ${COLORS.iaGreen}25, transparent 70%)`,
+          opacity: 0.5,
+        }}
+      />
+      {/* Side blue glow */}
+      <div
+        className="absolute right-0 top-1/3 w-[400px] h-[400px] rounded-full blur-[100px]"
+        style={{
+          background: `radial-gradient(circle, ${COLORS.blue}1a, transparent 70%)`,
+        }}
+      />
+      {/* Side purple glow */}
+      <div
+        className="absolute left-0 bottom-1/4 w-[400px] h-[400px] rounded-full blur-[100px]"
+        style={{
+          background: `radial-gradient(circle, ${COLORS.purple}1a, transparent 70%)`,
+        }}
+      />
+    </div>
+  )
+}
+
+// ─── Animated checkmark ─────────────────────────────────────────────────
+function CheckItem({ label, visible }: { label: string; visible: boolean }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -8 }}
+      animate={visible ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }}
+      transition={{ duration: 0.25 }}
+      className="flex items-center gap-2.5 text-sm"
+      style={{ color: visible ? COLORS.text : COLORS.textSec + '40' }}
+    >
       <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        animate="visible"
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6"
+        initial={{ scale: 0, rotate: -90 }}
+        animate={visible ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -90 }}
+        transition={{ duration: 0.3, type: 'spring', stiffness: 200 }}
+        className="flex-shrink-0 w-5 h-5 rounded flex items-center justify-center"
+        style={{
+          backgroundColor: visible ? `${COLORS.iaGreen}20` : 'transparent',
+          border: `1px solid ${visible ? COLORS.iaGreen : COLORS.textSec + '20'}`,
+        }}
       >
-        {/* Ticker pill */}
-        <motion.div
-          variants={staggerChildFadeUp}
-          className="flex justify-center mb-4 sm:mb-6"
-        >
-          <div className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-1.5">
-            <span className="v31-ticker-dot" />
-            <span className="text-[10px] sm:text-xs text-success font-semibold tracking-wider uppercase">IA en direct</span>
-            <span className="text-edge text-[10px]">|</span>
-            <motion.span
-              key={urgencyIndex}
-              initial={{ opacity: 0, y: 3 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="text-[10px] sm:text-xs text-gray-400"
-            >
-              {currentUrgency}
-            </motion.span>
-          </div>
-        </motion.div>
-
-        {/* ═══ TWO-COLUMN HERO ═══ */}
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
-
-          {/* ── LEFT — Brand + title + CTAs ── */}
-          <div className="text-center lg:text-left">
-            {/* Brand identity */}
-            <motion.div variants={staggerChildFadeUp} className="mb-4 flex items-center gap-2 justify-center lg:justify-start">
-              <div className="w-9 h-9 rounded-lg bg-brand border border-success/30 flex items-center justify-center">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00D68F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 3v18h18" />
-                  <path d="M7 14l4-4 4 4 5-5" />
-                </svg>
-              </div>
-              <span className="font-display font-bold text-white text-lg tracking-tight">
-                BttsBet <span className="text-success">AI</span>
-              </span>
-            </motion.div>
-
-            <motion.div variants={staggerChildFadeUp} className="mb-3">
-              <span className="eyebrow">Plateforme IA nouvelle génération</span>
-            </motion.div>
-
-            <motion.h1
-              variants={staggerChildFadeUp}
-              className="section-title-lg mb-5"
-            >
-              Plateforme de pronostics
-              <br />
-              <span className="gradient-text-green-gold">sportifs propulsée par IA</span>
-            </motion.h1>
-
-            <motion.p
-              variants={staggerChildFadeUp}
-              className="text-gray-400 text-sm sm:text-lg max-w-xl mx-auto lg:mx-0 mb-4 sm:mb-6 leading-relaxed"
-            >
-              BTTS, Over 2.5, multi-sports. Précision historique{' '}
-              <span className="text-success font-bold glow-text-green">~87%</span> — pour parieurs pros en Afrique et dans le monde.
-              Aucune garantie future.
-            </motion.p>
-
-            {/* Bonus subtitle */}
-            <motion.p
-              variants={staggerChildFadeUp}
-              className="text-gold text-xs sm:text-base font-semibold mb-4 sm:mb-6 max-w-xl mx-auto lg:mx-0"
-            >
-              <span className="inline-flex items-center gap-1.5">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                </svg>
-                Bonus 90 000 XOF (150$) avec <span className="text-success-light font-bold">{SITE.promoCode}</span> — Wave / Orange Money / Free Money
-              </span>
-            </motion.p>
-
-            {/* 18+ Badge */}
-            <motion.div
-              variants={staggerChildFadeUp}
-              className="flex justify-center lg:justify-start mb-6"
-            >
-              <div className="inline-flex items-center gap-1.5 bg-brand/40 border border-success/25 rounded-full px-2.5 py-1">
-                <span className="text-success-light font-bold text-xs">18+</span>
-                <span className="text-[10px] text-gray-500">Jeu réservé aux adultes • Risques de perte</span>
-              </div>
-            </motion.div>
-
-            {/* CTAs */}
-            <motion.div
-              variants={staggerChildFadeUp}
-              className="flex flex-wrap gap-3 justify-center lg:justify-start items-center"
-            >
-              <motion.a
-                variants={buttonHover}
-                whileHover="hover"
-                whileTap="tap"
-                href="#free-predictions"
-                onClick={(e) => {
-                  e.preventDefault()
-                  document.getElementById('free-predictions')?.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className="inline-flex items-center gap-2 px-6 py-3 btn-success cta-glow text-sm font-semibold rounded-xl"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 2 a10 10 0 0 1 10 10 l-10 0 z" fill="currentColor" />
-                </svg>
-                Accéder aux pronostics du jour
-              </motion.a>
-
-              <motion.a
-                variants={buttonHover}
-                whileHover="hover"
-                whileTap="tap"
-                href="#how-it-works"
-                onClick={(e) => {
-                  e.preventDefault()
-                  document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:py-3 btn-ghost text-xs sm:text-sm font-medium rounded-xl"
-              >
-                Découvrir la méthode IA
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
-              </motion.a>
-            </motion.div>
-
-            {/* Promo code inline */}
-            <motion.div
-              variants={staggerChildFadeUp}
-              className="mt-6 flex justify-center lg:justify-start"
-            >
-              <motion.div
-                variants={cardHoverLift}
-                whileHover="hover"
-                whileTap="tap"
-                className="glass-promo px-4 py-3 inline-flex items-center gap-3"
-              >
-                <div>
-                  <div className="text-[9px] text-gold-light uppercase tracking-[0.15em] font-bold">Code promo</div>
-                  <motion.span
-                    variants={badgePulse}
-                    animate="animate"
-                    className="text-base font-black tracking-[0.12em] promo-code-shimmer"
-                  >
-                    {SITE.promoCode}
-                  </motion.span>
-                </div>
-                <motion.button
-                  variants={buttonHover}
-                  whileHover="hover"
-                  whileTap="tap"
-                  onClick={copyPromoCode}
-                  className={`flex items-center gap-1 text-xs font-semibold transition-all px-2.5 py-1.5 rounded-lg border ${
-                    copied ? 'border-success/40 text-success bg-success/10' : 'border-gold/30 text-gold-light bg-gold/5'
-                  }`}
-                  aria-label="Copier le code promo"
-                >
-                  {copied ? (
-                    <>
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                      Copié
-                    </>
-                  ) : (
-                    <>
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
-                      Copier
-                    </>
-                  )}
-                </motion.button>
-              </motion.div>
-            </motion.div>
-          </div>
-
-          {/* ── RIGHT — Match of the day card ── */}
-          <motion.div variants={staggerChildFadeUp} className="relative">
-            {topPrediction && matchTeams ? (
-              <motion.div variants={cardHoverLift} whileHover="hover" className="relative">
-                <div className="squircle-xl p-5 sm:p-6 relative overflow-hidden border-2 border-success/20">
-                  {/* Top accent line */}
-                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-success to-transparent" />
-
-                  {/* Header */}
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="inline-flex items-center gap-2">
-                      <span className="badge badge-mint badge-pulse">
-                        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
-                        Match du jour
-                      </span>
-                      <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold hidden sm:inline">
-                        {topPrediction.league}
-                      </span>
-                    </div>
-                    {status === 'live' && (
-                      <span className="badge badge-live">
-                        <span className="v31-ticker-dot live" /> LIVE
-                      </span>
-                    )}
-                    {status === 'upcoming' && (
-                      <span className="text-[10px] text-gray-500 mono">
-                        {topPrediction.time || topPrediction.date}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Teams */}
-                  <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-4 mb-5">
-                    <div className="flex flex-col items-center text-center">
-                      {topPrediction.homeLogo ? (
-                        <img src={topPrediction.homeLogo} alt={matchTeams.home} className="w-14 h-14 sm:w-20 sm:h-20 object-contain mb-2" loading="lazy" />
-                      ) : (
-                        <div className="w-14 h-14 sm:w-20 sm:h-20 bg-panel-2 rounded-xl mb-2 flex items-center justify-center text-success font-bold text-xl">
-                          {matchTeams.home.slice(0, 2).toUpperCase()}
-                        </div>
-                      )}
-                      <span className="text-xs sm:text-sm font-semibold text-white truncate max-w-full">{matchTeams.home}</span>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl sm:text-3xl font-bold text-success mono">VS</div>
-                      <div className="text-[9px] text-gray-500 uppercase tracking-widest mt-1">{topPrediction.date}</div>
-                    </div>
-                    <div className="flex flex-col items-center text-center">
-                      {topPrediction.awayLogo ? (
-                        <img src={topPrediction.awayLogo} alt={matchTeams.away} className="w-14 h-14 sm:w-20 sm:h-20 object-contain mb-2" loading="lazy" />
-                      ) : (
-                        <div className="w-14 h-14 sm:w-20 sm:h-20 bg-panel-2 rounded-xl mb-2 flex items-center justify-center text-success font-bold text-xl">
-                          {matchTeams.away.slice(0, 2).toUpperCase()}
-                        </div>
-                      )}
-                      <span className="text-xs sm:text-sm font-semibold text-white truncate max-w-full">{matchTeams.away}</span>
-                    </div>
-                  </div>
-
-                  {/* Prediction block */}
-                  <div className="bg-midnight/50 rounded-lg p-4 mb-4 border border-edge">
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Pronostic IA</span>
-                      <span className="badge badge-mint">{topPrediction.type}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="text-2xl sm:text-3xl font-bold text-success glow-text-green">
-                          {topPrediction.prediction}
-                        </div>
-                        <div className="text-[10px] text-gray-500 mt-0.5">
-                          {topPrediction.analysis?.bttsProb && topPrediction.type === 'BTTS'
-                            ? `${Math.round(topPrediction.analysis.bttsProb * 100)}% de proba estimée`
-                            : topPrediction.analysis?.over25Prob && topPrediction.type.includes('Over')
-                            ? `${Math.round(topPrediction.analysis.over25Prob * 100)}% de proba estimée`
-                            : 'Modèle Poisson calibré'}
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-3xl sm:text-4xl font-bold text-success tabular-nums glow-text-green">
-                          {topPrediction.confidence}%
-                        </div>
-                        <div className="text-[10px] text-gray-500 uppercase tracking-widest">Confiance</div>
-                      </div>
-                    </div>
-                    <div className="confidence-bar mt-3">
-                      <div className="confidence-bar-fill" style={{ width: `${topPrediction.confidence}%` }} />
-                    </div>
-                  </div>
-
-                  {/* CTA */}
-                  <PremiumButton variant="linebet" href={AFFILIATE.linebet} size="md" fullWidth>
-                    Parier sur Linebet →
-                  </PremiumButton>
-                </div>
-              </motion.div>
-            ) : (
-              <div className="squircle-xl p-6 h-96 animate-pulse flex items-center justify-center">
-                <div className="text-gray-600 text-sm">Chargement du match du jour…</div>
-              </div>
-            )}
-          </motion.div>
-        </div>
-
-        {/* ═══ STATS ROW ═══ */}
-        <motion.div
-          variants={staggerChildFadeUp}
-          className="grid grid-cols-3 gap-2 sm:gap-4 max-w-3xl mx-auto mt-8 sm:mt-16"
-        >
-          <div className="stat-tile">
-            <div className="text-lg sm:text-3xl font-bold text-success tabular-nums glow-text-green">~87%</div>
-            <div className="text-[9px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Précision historique</div>
-          </div>
-          <div className="stat-tile">
-            <div className="text-lg sm:text-3xl font-bold text-white tabular-nums">15 000+</div>
-            <div className="text-[9px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Matchs analysés</div>
-          </div>
-          <div className="stat-tile">
-            <div className="text-lg sm:text-3xl font-bold text-gold tabular-nums">50+</div>
-            <div className="text-[9px] sm:text-xs text-gray-500 uppercase tracking-widest font-medium mt-1">Championnats</div>
-          </div>
-        </motion.div>
-
-        {/* Testimonial */}
-        <motion.div
-          variants={staggerChildFadeUp}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-3xl mx-auto mt-6 sm:mt-8"
-        >
-          <motion.div
-            key={testimonialIndex}
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="flex-1 text-center sm:text-left"
-          >
-            <p className="text-xs text-gray-400 italic leading-relaxed">« {currentTestimonial.text} »</p>
-            <p className="text-[10px] text-gray-600 mt-1">— {currentTestimonial.name}, {currentTestimonial.city}</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 4 }}
-            animate={isVisible ? { opacity: 1, x: 0 } : undefined}
-            transition={{ duration: 0.4, delay: 0.3 }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 bg-brand/10 border border-success/30 rounded-full flex-shrink-0"
-          >
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="#00D68F">
-              <path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" />
-            </svg>
-            <span className="text-[10px] text-success-light font-semibold uppercase tracking-wider">VIP Premium</span>
-          </motion.div>
-        </motion.div>
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={COLORS.iaGreen} strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
       </motion.div>
+      <span className="font-medium" style={{ color: visible ? COLORS.text : COLORS.textSec + '60' }}>
+        {label}
+      </span>
+    </motion.div>
+  )
+}
 
-      <AnimatePresence>
-        {copied && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.3 }}
-            className="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 bg-success text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg"
+// ─── Progress bar component ─────────────────────────────────────────────
+function IAProgress({ progress }: { progress: number }) {
+  return (
+    <div className="space-y-2">
+      <div className="flex items-center justify-between text-xs">
+        <span style={{ color: COLORS.textSec }} className="font-medium">
+          {progress < 100 ? 'Analyse IA en cours…' : 'Analyse terminée'}
+        </span>
+        <motion.span
+          key={Math.round(progress)}
+          initial={{ opacity: 0.5 }}
+          animate={{ opacity: 1 }}
+          className="font-mono font-bold tabular-nums"
+          style={{ color: COLORS.iaGreen }}
+        >
+          {Math.round(progress)}%
+        </motion.span>
+      </div>
+      <div
+        className="relative h-2 rounded-full overflow-hidden"
+        style={{ backgroundColor: COLORS.textSec + '15' }}
+      >
+        <motion.div
+          className="absolute inset-y-0 left-0 rounded-full"
+          style={{
+            background: `linear-gradient(90deg, ${COLORS.iaGreen}, ${COLORS.blue})`,
+            boxShadow: `0 0 12px ${COLORS.iaGreen}80`,
+          }}
+          animate={{ width: `${progress}%` }}
+          transition={{ duration: 0.1, ease: 'linear' }}
+        />
+        {/* Animated shimmer */}
+        <motion.div
+          className="absolute inset-y-0 w-12 rounded-full"
+          style={{
+            background: `linear-gradient(90deg, transparent, ${COLORS.text}40, transparent)`,
+          }}
+          animate={{ left: ['-10%', '110%'] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
+        />
+      </div>
+    </div>
+  )
+}
+
+// ─── Confidence tile ────────────────────────────────────────────────────
+function ConfidenceTile({ metric, index, visible }: {
+  metric: typeof CONFIDENCE_METRICS[0]
+  index: number
+  visible: boolean
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 8 }}
+      animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+      transition={{ duration: 0.3, delay: index * 0.1 }}
+      className="text-center p-3 rounded-lg border"
+      style={{
+        backgroundColor: `${metric.color}08`,
+        borderColor: `${metric.color}30`,
+      }}
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={visible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+        transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+        className="text-2xl sm:text-3xl font-bold tabular-nums"
+        style={{
+          color: metric.color,
+          textShadow: `0 0 12px ${metric.color}80`,
+        }}
+      >
+        {metric.value}%
+      </motion.div>
+      <div
+        className="text-[10px] sm:text-xs uppercase tracking-widest font-semibold mt-1"
+        style={{ color: COLORS.textSec }}
+      >
+        {metric.label}
+      </div>
+    </motion.div>
+  )
+}
+
+// ─── Main Hero ─────────────────────────────────────────────────────────
+export default function Hero() {
+  const [sectionRef, isVisible] = useScrollAnimation(0.05)
+  const [progress, setProgress] = useState(0)
+  const [revealedSteps, setRevealedSteps] = useState(0)
+  const [confidenceVisible, setConfidenceVisible] = useState(false)
+
+  // Animate progress bar 0 → 98% over 3.5s when section visible
+  useEffect(() => {
+    if (!isVisible) return
+    let frame = 0
+    const interval = setInterval(() => {
+      frame++
+      // Easing: fast first half, slow second half
+      const t = frame / 70 // 70 frames ~ 3.5s
+      const eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2
+      const newProgress = Math.min(98, eased * 98)
+      setProgress(newProgress)
+
+      // Reveal checkmarks progressively
+      const stepsToShow = Math.min(ANALYSIS_STEPS.length, Math.floor((newProgress / 98) * ANALYSIS_STEPS.length) + 1)
+      setRevealedSteps(stepsToShow)
+
+      if (newProgress >= 98) {
+        clearInterval(interval)
+        // Show confidence metrics after a brief pause
+        setTimeout(() => setConfidenceVisible(true), 200)
+      }
+    }, 50)
+    return () => clearInterval(interval)
+  }, [isVisible])
+
+  const handleAnalyze = () => {
+    document.getElementById('free-predictions')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const handleDiscover = () => {
+    document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden pt-8 sm:pt-12 pb-10 sm:pb-16"
+      style={{ backgroundColor: COLORS.bg }}
+    >
+      {/* Background layers */}
+      <IAGlow />
+      <IAGrid />
+      <IAParticles />
+
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        {/* ═══ TOP — "IA ACTIVE EN TEMPS RÉEL" badge ═══ */}
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : undefined}
+          transition={{ duration: 0.5 }}
+          className="flex justify-center mb-6 sm:mb-8"
+        >
+          <div
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border backdrop-blur-md"
+            style={{
+              backgroundColor: `${COLORS.iaGreen}10`,
+              borderColor: `${COLORS.iaGreen}30`,
+            }}
           >
-            ✓ Code VISION221 copié !
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {/* Animated green dot */}
+            <span className="relative flex w-2 h-2">
+              <motion.span
+                className="absolute inset-0 rounded-full"
+                style={{ backgroundColor: COLORS.iaGreen }}
+                animate={{ scale: [1, 1.8, 1], opacity: [0.7, 0, 0.7] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              />
+              <span
+                className="relative inline-flex w-2 h-2 rounded-full"
+                style={{
+                  backgroundColor: COLORS.iaGreen,
+                  boxShadow: `0 0 8px ${COLORS.iaGreen}`,
+                }}
+              />
+            </span>
+            <span
+              className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em]"
+              style={{ color: COLORS.iaGreen }}
+            >
+              IA Active en Temps Réel
+            </span>
+          </div>
+        </motion.div>
+
+        {/* ═══ TITLE ═══ */}
+        <motion.h1
+          initial={{ opacity: 0, y: 12 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : undefined}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] mb-5 sm:mb-6 max-w-3xl mx-auto"
+          style={{ color: COLORS.text, letterSpacing: '-0.02em' }}
+        >
+          Votre <span
+            style={{
+              color: COLORS.iaGreen,
+              textShadow: `0 0 24px ${COLORS.iaGreen}80, 0 0 48px ${COLORS.iaGreen}40`,
+            }}
+          >IA</span> analyse plus de 1200 matchs chaque jour.
+        </motion.h1>
+
+        {/* ═══ SUBTITLE ═══ */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : undefined}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-sm sm:text-base leading-relaxed max-w-2xl mx-auto mb-8 sm:mb-10"
+          style={{ color: COLORS.textSec }}
+        >
+          Notre intelligence artificielle collecte les statistiques, compare les modèles prédictifs,
+          détecte les meilleures opportabilités <span style={{ color: COLORS.text }} className="font-medium">BTTS</span>,{' '}
+          <span style={{ color: COLORS.text }} className="font-medium">Over 2.5</span>,{' '}
+          <span style={{ color: COLORS.text }} className="font-medium">Score Exact</span> et{' '}
+          <span style={{ color: COLORS.text }} className="font-medium">Double Chance</span> en quelques secondes.
+        </motion.p>
+
+        {/* ═══ IA INTERFACE CARD ═══ */}
+        <motion.div
+          initial={{ opacity: 0, y: 20, scale: 0.98 }}
+          animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : undefined}
+          transition={{ duration: 0.7, delay: 0.5 }}
+          className="relative max-w-2xl mx-auto"
+        >
+          {/* Card */}
+          <div
+            className="relative rounded-2xl overflow-hidden border backdrop-blur-md"
+            style={{
+              backgroundColor: '#0C0E13',
+              borderColor: 'rgba(255, 255, 255, 0.08)',
+              boxShadow: `
+                0 24px 60px rgba(0, 0, 0, 0.5),
+                0 0 80px ${COLORS.iaGreen}10,
+                inset 0 1px 0 rgba(255, 255, 255, 0.04)
+              `,
+            }}
+          >
+            {/* Top accent line */}
+            <div
+              className="h-px w-full"
+              style={{
+                background: `linear-gradient(90deg, transparent, ${COLORS.iaGreen}, ${COLORS.blue}, transparent)`,
+              }}
+            />
+
+            <div className="p-5 sm:p-7 text-left">
+              {/* Card header */}
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2.5">
+                  {/* IA icon */}
+                  <div
+                    className="w-9 h-9 rounded-lg flex items-center justify-center"
+                    style={{
+                      backgroundColor: `${COLORS.iaGreen}15`,
+                      border: `1px solid ${COLORS.iaGreen}30`,
+                    }}
+                  >
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+                    >
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.iaGreen} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="3" />
+                        <path d="M12 1v6m0 10v6m11-11h-6m-10 0H1m17.07-7.07l-4.24 4.24m-5.66 5.66l-4.24 4.24m12.73 0l-4.24-4.24m-5.66-5.66L4.93 4.93" />
+                      </svg>
+                    </motion.div>
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold" style={{ color: COLORS.text }}>
+                      Analyse IA en cours…
+                    </div>
+                    <div className="text-[10px]" style={{ color: COLORS.textSec }}>
+                      Moteur prédictif Poisson · {new Date().toLocaleDateString('fr-FR')}
+                    </div>
+                  </div>
+                </div>
+                {/* Live indicator */}
+                <div className="flex items-center gap-1.5">
+                  <motion.span
+                    className="w-1.5 h-1.5 rounded-full"
+                    style={{ backgroundColor: COLORS.iaGreen }}
+                    animate={{ opacity: [1, 0.3, 1] }}
+                    transition={{ duration: 1.2, repeat: Infinity }}
+                  />
+                  <span
+                    className="text-[10px] uppercase tracking-widest font-bold"
+                    style={{ color: COLORS.iaGreen }}
+                  >
+                    Live
+                  </span>
+                </div>
+              </div>
+
+              {/* Progress bar */}
+              <IAProgress progress={progress} />
+
+              {/* Checklist grid (2 cols on desktop, 1 col mobile) */}
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-x-6 gap-y-2 mt-5 pt-5 border-t border-white/5">
+                {ANALYSIS_STEPS.map((step, i) => (
+                  <CheckItem
+                    key={step}
+                    label={step}
+                    visible={i < revealedSteps}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* ═══ CONFIDENCE METRICS ═══ */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={confidenceVisible ? { opacity: 1 } : undefined}
+          transition={{ duration: 0.5 }}
+          className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 max-w-2xl mx-auto mt-6 sm:mt-8"
+        >
+          {CONFIDENCE_METRICS.map((metric, i) => (
+            <ConfidenceTile
+              key={metric.label}
+              metric={metric}
+              index={i}
+              visible={confidenceVisible}
+            />
+          ))}
+        </motion.div>
+
+        {/* ═══ CTA BUTTONS ═══ */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={confidenceVisible ? { opacity: 1, y: 0 } : undefined}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="flex flex-col sm:flex-row gap-3 justify-center items-stretch max-w-md sm:max-w-none mx-auto mt-8 sm:mt-10"
+        >
+          {/* Primary button — Neon green */}
+          <motion.button
+            whileHover={{ scale: 1.02, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={handleAnalyze}
+            className="flex-1 inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base font-bold transition-all"
+            style={{
+              backgroundColor: COLORS.iaGreen,
+              color: '#001A10',
+              boxShadow: `0 8px 24px ${COLORS.iaGreen}50, 0 0 40px ${COLORS.iaGreen}30, inset 0 1px 0 rgba(255, 255, 255, 0.3)`,
+            }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+            Analyser les matchs
+          </motion.button>
+
+          {/* Secondary button — Transparent outline */}
+          <motion.button
+            whileHover={{ scale: 1.02, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={handleDiscover}
+            className="flex-1 inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base font-semibold transition-all backdrop-blur-md"
+            style={{
+              backgroundColor: 'transparent',
+              color: COLORS.text,
+              border: `1px solid ${COLORS.blue}40`,
+              boxShadow: `inset 0 0 0 0 ${COLORS.blue}, 0 0 24px ${COLORS.blue}15`,
+            }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.blue} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+            </svg>
+            Découvrir la technologie IA
+          </motion.button>
+        </motion.div>
+
+        {/* ═══ TINY FOOTER LINE ═══ */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={confidenceVisible ? { opacity: 1 } : undefined}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="text-[10px] sm:text-xs mt-6 sm:mt-8"
+          style={{ color: COLORS.textSec + '80' }}
+        >
+          Moteur IA entraîné sur 50 000+ matchs historiques · 18+ · Les paris comportent des risques
+        </motion.p>
+      </div>
     </section>
   )
 }
