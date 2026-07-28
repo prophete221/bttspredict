@@ -7,12 +7,13 @@ import { staggerContainer, staggerChildFadeUp } from '@/lib/motionPresets'
 
 // ─── IA Premium palette (per user spec) ────────────────────────────────
 const C = {
-  bg:        '#090B10',
-  bgCard:    '#0D0F14',
-  iaGreen:   '#00F5A0',
-  blue:      '#00C2FF',
-  purple:    '#8B5CF6',
-  text:      '#FFFFFF',
+  bg:        '#0A0E1A',    // Noir Nuit
+  bgCard:    '#11151F',    // Panel surface
+  iaGreen:   '#00C896',    // Émeraude — espoir + gain
+  gold:      '#FFD700',    // Or 24K — richesse + gloire (NEW)
+  blue:      '#00E5B0',    // Émeraude clair (replaces cyan for cohesion)
+  purple:    '#CD7F32',    // Bronze — secondary VIP (replaces purple)
+  text:      '#F8F5F0',    // Blanc cassé
   textSec:   '#A8B3C7',
   textMute:  '#6B7588',
   border:    'rgba(255, 255, 255, 0.06)',

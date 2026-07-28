@@ -171,7 +171,7 @@ export default function VipUnlockModal({
                     border: '1px solid rgba(255, 107, 53, 0.3)',
                   }}
                 >
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B35" stroke="#FF6B35" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z" />
                   </svg>
                 </div>
@@ -194,7 +194,7 @@ export default function VipUnlockModal({
               >
                 {alreadyUnlocked && (
                   <div className="bg-success/10 border border-success/30 rounded-lg p-3 flex items-center gap-2">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D68F" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C896" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                     <span className="text-xs text-success font-semibold">
@@ -213,7 +213,7 @@ export default function VipUnlockModal({
                     <li className="flex gap-3">
                       <span
                         className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
-                        style={{ backgroundColor: 'rgba(255, 107, 53, 0.15)', color: '#FF6B35' }}
+                        style={{ backgroundColor: 'rgba(255, 107, 53, 0.15)', color: '#FFD700' }}
                       >
                         1
                       </span>
@@ -279,7 +279,7 @@ export default function VipUnlockModal({
                     <li className="flex gap-3">
                       <span
                         className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
-                        style={{ backgroundColor: 'rgba(255, 107, 53, 0.15)', color: '#FF6B35' }}
+                        style={{ backgroundColor: 'rgba(255, 107, 53, 0.15)', color: '#FFD700' }}
                       >
                         2
                       </span>
@@ -293,7 +293,7 @@ export default function VipUnlockModal({
                     <li className="flex gap-3">
                       <span
                         className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
-                        style={{ backgroundColor: 'rgba(255, 107, 53, 0.15)', color: '#FF6B35' }}
+                        style={{ backgroundColor: 'rgba(255, 107, 53, 0.15)', color: '#FFD700' }}
                       >
                         3
                       </span>
@@ -390,7 +390,7 @@ export default function VipUnlockModal({
                 {/* Privacy notice */}
                 <div className="bg-gold/[0.04] border border-gold/20 rounded-lg p-3">
                   <div className="flex items-start gap-2">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFD700" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5">
                       <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                       <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                     </svg>
@@ -418,7 +418,7 @@ export default function VipUnlockModal({
                   transition={{ duration: 0.5, type: 'spring', stiffness: 200 }}
                   className="w-20 h-20 mx-auto mb-4 rounded-full bg-success/15 border-2 border-success flex items-center justify-center"
                 >
-                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00D68F" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00C896" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </motion.div>

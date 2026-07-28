@@ -11,63 +11,63 @@
 
 @theme {
   /* ── SURFACES — Onyx (deeper, more neutral) ────────────────────────── */
-  --color-midnight: #0F0F12;        /* global background — onyx */
-  --color-abyss: #060608;          /* deepest */
-  --color-panel: #18181C;          /* card surface — neutral dark */
-  --color-panel-2: #1F1F25;         /* elevated card */
-  --color-panel-3: #2A2A32;         /* hover card */
+  --color-midnight: #0A0E1A;        /* global background — onyx */
+  --color-abyss: #060810;          /* deepest */
+  --color-panel: #11151F;          /* card surface — neutral dark */
+  --color-panel-2: #161B2A;         /* elevated card */
+  --color-panel-3: #1D2335;         /* hover card */
   --color-edge: rgba(255, 255, 255, 0.07);
   --color-edge-light: rgba(255, 255, 255, 0.14);
   --color-edge-bright: rgba(255, 255, 255, 0.22);
 
   /* ── PRIMARY BRAND — Emerald premium (gains, success) ─────────────── */
-  --color-brand: #00D68F;           /* the brand color — emerald premium */
-  --color-brand-light: #00F2A8;
-  --color-brand-dark: #00A878;
+  --color-brand: #00C896;           /* the brand color — emerald premium */
+  --color-brand-light: #00E5B0;
+  --color-brand-dark: #00A57C;
   --color-brand-glow: rgba(0, 214, 143, 0.5);
 
   /* ── SECONDARY — Gain Emerald (positive data) ──────────────────────── */
-  --color-success: #00D68F;        /* emerald premium */
-  --color-success-light: #4FE8B8;
-  --color-success-dark: #00A878;
+  --color-success: #00C896;        /* emerald premium */
+  --color-success-light: #3DD9A8;
+  --color-success-dark: #00A57C;
   --color-success-glow: rgba(0, 214, 143, 0.4);
 
   /* ── PREMIUM — Burnt Orange (VIP, CTA premium) ──────────────────────── */
-  --color-gold: #FF6B35;           /* burnt orange — CTA + VIP */
-  --color-gold-light: #FF8B5C;
-  --color-gold-dark: #E5511A;
-  --color-gold-glow: rgba(255, 107, 53, 0.4);
+  --color-gold: #FFD700;           /* burnt orange — CTA + VIP */
+  --color-gold-light: #FFE055;
+  --color-gold-dark: #D4A500;
+  --color-gold-glow: rgba(255, 215, 0, 0.4);
 
   /* ── BRONZE — Secondary VIP accent ────────────────────────────────────── */
-  --color-bronze: #D4A574;
-  --color-bronze-light: #E8C594;
-  --color-bronze-dark: #B8864F;
-  --color-bronze-glow: rgba(212, 165, 116, 0.4);
+  --color-bronze: #CD7F32;
+  --color-bronze-light: #E0A84F;
+  --color-bronze-dark: #A06820;
+  --color-bronze-glow: rgba(205, 127, 50, 0.4);
 
   /* ── LOSS / WARNING — Red (only for losses & warnings) ────────────────── */
-  --color-lose: #E63946;
-  --color-lose-light: #F47373;
-  --color-lose-dark: #C53030;
-  --color-lose-soft: rgba(230, 57, 70, 0.12);
+  --color-lose: #DC2626;
+  --color-lose-light: #EF4444;
+  --color-lose-dark: #991B1B;
+  --color-lose-soft: rgba(220, 38, 38, 0.12);
 
   /* ── LIVE — Cyan (live match indicator) ──────────────────────────────── */
-  --color-live: #22D3EE;
-  --color-live-light: #67E8F9;
-  --color-live-dark: #0891B2;
-  --color-live-glow: rgba(34, 211, 238, 0.4);
+  --color-live: #00E5B0;
+  --color-live-light: #5DEDBE;
+  --color-live-dark: #00A57C;
+  --color-live-glow: rgba(0, 229, 176, 0.4);
 
   /* ── BRAND TOKENS — Bookmaker colors (preserved) ─────────────────────── */
-  --color-linebet: #00D68F;
-  --color-linebet-dark: #00A878;
-  --color-linebet-light: #4FE8B8;
-  --color-star888: #FF6B35;
-  --color-star888-dark: #E5511A;
-  --color-star888-light: #FF8B5C;
+  --color-linebet: #00C896;
+  --color-linebet-dark: #00A57C;
+  --color-linebet-light: #3DD9A8;
+  --color-star888: #FFD700;
+  --color-star888-dark: #D4A500;
+  --color-star888-light: #FFE055;
 
   /* ── TEXT ─────────────────────────────────────────────────────────────── */
-  --color-text-primary: #F0F0F5;
-  --color-text-secondary: #8E8E96;
-  --color-text-muted: #5A5A63;
+  --color-text-primary: #F8F5F0;
+  --color-text-secondary: #A8B3C7;
+  --color-text-muted: #6B7588;
 
   /* ── GLASS ─────────────────────────────────────────────────────────────── */
   --color-glass: rgba(255, 255, 255, 0.03);
@@ -75,51 +75,51 @@
   --color-glass-strong: rgba(255, 255, 255, 0.12);
 
   /* ── LEGACY COMPAT (mapped to new palette) ────────────────────────────── */
-  --color-violet: #00D68F;
-  --color-violet-light: #4FE8B8;
-  --color-violet-dark: #00A878;
+  --color-violet: #00C896;
+  --color-violet-light: #3DD9A8;
+  --color-violet-dark: #00A57C;
   --color-violet-glow: rgba(0, 214, 143, 0.5);
-  --color-emerald: #00D68F;
-  --color-emerald-dark: #00A878;
-  --color-emerald-soft: #4FE8B8;
-  --color-emerald-deep: #00734F;
-  --color-win: #00D68F;
-  --color-royal: #FF6B35;
-  --color-royal-deep: #E5511A;
-  --color-royal-soft: #FF8B5C;
-  --color-neon: #00D68F;
-  --color-neon-green: #00D68F;
-  --color-neon-purple: #FF6B35;
-  --color-amber: #FF6B35;
-  --color-sky: #22D3EE;
-  --color-sky-deep: #0891B2;
-  --color-sky-soft: #67E8F9;
-  --color-flame: #E63946;
-  --color-flame-deep: #C53030;
-  --color-flame-soft: #F47373;
-  --color-royal-violet: #FF6B35;
-  --color-aurora-violet: #FF8B5C;
-  --color-ultra: #22D3EE;
-  --color-ultra-dark: #0891B2;
-  --color-ultra-soft: #67E8F9;
-  --color-ultra-glow: rgba(34, 211, 238, 0.4);
-  --color-cyan: #22D3EE;
-  --color-cyan-light: #67E8F9;
-  --color-cyan-dark: #0891B2;
-  --color-coral: #E63946;
-  --color-coral-light: #F47373;
-  --color-coral-dark: #C53030;
+  --color-emerald: #00C896;
+  --color-emerald-dark: #00A57C;
+  --color-emerald-soft: #3DD9A8;
+  --color-emerald-deep: #006B45;
+  --color-win: #00C896;
+  --color-royal: #FFD700;
+  --color-royal-deep: #D4A500;
+  --color-royal-soft: #FFE055;
+  --color-neon: #00C896;
+  --color-neon-green: #00C896;
+  --color-neon-purple: #FFD700;
+  --color-amber: #FFD700;
+  --color-sky: #00E5B0;
+  --color-sky-deep: #00A57C;
+  --color-sky-soft: #5DEDBE;
+  --color-flame: #DC2626;
+  --color-flame-deep: #991B1B;
+  --color-flame-soft: #EF4444;
+  --color-royal-violet: #FFD700;
+  --color-aurora-violet: #FFE055;
+  --color-ultra: #00E5B0;
+  --color-ultra-dark: #00A57C;
+  --color-ultra-soft: #5DEDBE;
+  --color-ultra-glow: rgba(0, 229, 176, 0.4);
+  --color-cyan: #00E5B0;
+  --color-cyan-light: #5DEDBE;
+  --color-cyan-dark: #00A57C;
+  --color-coral: #DC2626;
+  --color-coral-light: #EF4444;
+  --color-coral-dark: #991B1B;
 
   /* ── LEGACY SURFACES ─────────────────────────────────────────────────── */
-  --color-dark-900: #0F0F12;
-  --color-dark-800: #060608;
-  --color-dark-700: #18181C;
-  --color-dark-600: #1F1F25;
-  --color-dark-500: #2A2A32;
+  --color-dark-900: #0A0E1A;
+  --color-dark-800: #060810;
+  --color-dark-700: #11151F;
+  --color-dark-600: #161B2A;
+  --color-dark-500: #1D2335;
   --color-dark-400: #3A3A45;
-  --color-card: #18181C;
+  --color-card: #11151F;
   --color-card-border: rgba(255, 255, 255, 0.06);
-  --color-card-hover: #1F1F25;
+  --color-card-hover: #161B2A;
 
   /* ── RADIUS ─────────────────────────────────────────────────────────────── */
   --radius-squircle: 0.75rem;
@@ -522,13 +522,13 @@ html { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.1) transpar
   background: var(--color-lose);
   color: #FFFFFF;
   font-weight: 700;
-  box-shadow: 0 0 12px rgba(230, 57, 70, 0.6);
+  box-shadow: 0 0 12px rgba(220, 38, 38, 0.6);
   animation: live-blink 1.2s ease-in-out infinite;
 }
 
 @keyframes live-blink {
-  0%, 100% { opacity: 1; box-shadow: 0 0 12px rgba(230, 57, 70, 0.6); }
-  50% { opacity: 0.65; box-shadow: 0 0 6px rgba(230, 57, 70, 0.3); }
+  0%, 100% { opacity: 1; box-shadow: 0 0 12px rgba(220, 38, 38, 0.6); }
+  50% { opacity: 0.65; box-shadow: 0 0 6px rgba(220, 38, 38, 0.3); }
 }
 
 .badge-pulse { animation: badge-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
@@ -549,8 +549,8 @@ html { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.1) transpar
 }
 
 @keyframes ai-blink {
-  0%, 100% { opacity: 1; text-shadow: 0 0 8px rgba(230, 57, 70, 0.7); }
-  50% { opacity: 0.6; text-shadow: 0 0 4px rgba(230, 57, 70, 0.3); }
+  0%, 100% { opacity: 1; text-shadow: 0 0 8px rgba(220, 38, 38, 0.7); }
+  50% { opacity: 0.6; text-shadow: 0 0 4px rgba(220, 38, 38, 0.3); }
 }
 
 /* Specific class for "Live" / "LIVE" text (red blinking) */
