@@ -7,6 +7,7 @@ import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import { staggerContainer, staggerChildFadeUp } from '@/lib/motionPresets'
 import { CrownIcon, FloatingParticles } from './AnimatedIcons'
 import PremiumButton, { DownloadButton } from './PremiumButton'
+import CopyableCode from './CopyableCode'
 import VipUnlockModal from './VipUnlockModal'
 
 // ─── Deterministic daily cote ────────────────────────────────────────────
@@ -331,7 +332,7 @@ export default function PromoVip() {
                 Débloquer le coupon VIP
               </button>
               <p className="text-[10px] text-gray-500 text-center mt-2">
-                Inscris-toi avec <span className="text-gold-light font-semibold">{SITE.promoCode}</span> pour débloquer
+                Inscris-toi avec <CopyableCode code={SITE.promoCode} displayClassName="text-gold-light" /> pour débloquer
               </p>
             </div>
           </motion.div>

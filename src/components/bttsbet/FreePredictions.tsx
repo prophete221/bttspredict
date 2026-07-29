@@ -334,8 +334,8 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
               {/* BTTS prediction — always available (Poisson fallback) */}
               <>
                 <div className="flex items-baseline justify-between">
-                  <span className={`text-xl sm:text-2xl font-bold ${bttsPred.prediction === 'Oui' ? 'text-success-light' : 'text-gray-500'}`}>
-                    {bttsPred.prediction}
+                  <span className="text-xl sm:text-2xl font-bold" style={{ color: bttsPred.prediction === 'Oui' ? undefined : '#64748B' }} >
+                    <span className={bttsPred.prediction === 'Oui' ? 'text-success-light' : ''}>{bttsPred.prediction}</span>
                   </span>
                   <span className="text-xs font-bold text-gray-400 tabular-nums">{bttsPred.confidence}%</span>
                 </div>
@@ -363,8 +363,8 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
               {/* Over 2.5 prediction — always available (Poisson fallback) */}
               <>
                 <div className="flex items-baseline justify-between">
-                  <span className={`text-xl sm:text-2xl font-bold ${over25Pred.prediction === 'Oui' ? 'text-gold-light' : 'text-gray-500'}`}>
-                    {over25Pred.prediction}
+                  <span className="text-xl sm:text-2xl font-bold" style={{ color: over25Pred.prediction === 'Oui' ? undefined : '#64748B' }}>
+                    <span className={over25Pred.prediction === 'Oui' ? 'text-gold-light' : ''}>{over25Pred.prediction}</span>
                   </span>
                   <span className="text-xs font-bold text-gray-400 tabular-nums">{over25Pred.confidence}%</span>
                 </div>

@@ -6,6 +6,7 @@ import { AFFILIATE, SITE } from '@/lib/constants'
 import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import { staggerContainer } from '@/lib/motionPresets'
 import VipUnlockModal from './VipUnlockModal'
+import CopyableCode from './CopyableCode'
 
 // ─── FIFA data ───────────────────────────────────────────────────────────
 const FIFA_TEAMS = [
@@ -268,7 +269,7 @@ export default function FifaLinebet() {
                 Débloquer les Value Bets FIFA
               </button>
               <p className="text-[10px] text-gray-500 text-center mt-2">
-                Inscris-toi avec <span className="text-gold-light font-semibold">{SITE.promoCode}</span> pour débloquer
+                Inscris-toi avec <CopyableCode code={SITE.promoCode} displayClassName="text-gold-light" /> pour débloquer
               </p>
             </div>
           </motion.div>

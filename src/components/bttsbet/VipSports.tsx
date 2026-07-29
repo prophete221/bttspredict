@@ -6,6 +6,7 @@ import { AFFILIATE, SITE } from '@/lib/constants'
 import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import { staggerContainer, staggerChildFadeUp } from '@/lib/motionPresets'
 import VipUnlockModal from './VipUnlockModal'
+import CopyableCode from './CopyableCode'
 
 // ─── Sport data ─────────────────────────────────────────────────────────
 type SportColor = 'gold' | 'orange' | 'bronze' | 'red' | 'cyan'
@@ -372,7 +373,7 @@ function VipSportPanel({ sport, onUnlock }: { sport: SportVip; onUnlock: () => v
         </button>
 
         <p className="text-[10px] text-gray-500 text-center mt-2">
-          Inscris-toi avec <span style={{ color: accent.light }} className="font-semibold">{SITE.promoCode}</span> pour débloquer
+          Inscris-toi avec <CopyableCode code={SITE.promoCode} displayClassName="font-semibold" /> pour débloquer
         </p>
       </div>
     </motion.div>

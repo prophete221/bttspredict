@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useScrollAnimation } from '@/hooks/useAnimations'
 import { AFFILIATE, SITE } from '@/lib/constants'
+import CopyableCode from './CopyableCode'
 
 // ─── Ocean Tech palette ────────────────────────────────────────────────
 const C = {
@@ -226,7 +227,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       className="relative overflow-hidden"
-      style={{ backgroundColor: C.bg, paddingTop: 'clamp(2.5rem, 6vw, 4rem)', paddingBottom: 'clamp(0.5rem, 2vw, 1rem)' }}
+      style={{ backgroundColor: C.bg, paddingTop: 'clamp(1.5rem, 4vw, 2.5rem)', paddingBottom: 'clamp(0.5rem, 1.5vw, 1rem)' }}
     >
       {/* Layer 1: Neural network canvas (very subtle) */}
       <NeuralNetworkCanvas />
@@ -276,7 +277,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={isVisible ? { opacity: 1, y: 0 } : undefined}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-2xl sm:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-[-0.02em] mb-4"
+          className="text-2xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.15] tracking-[-0.02em] mb-4"
           style={{ color: C.text }}
         >
           Votre <span style={{ color: C.cyan }}>IA</span> analyse plus de 1200 matchs chaque jour.
@@ -292,7 +293,7 @@ export default function Hero() {
         >
           Obtenez des pronostics de haute précision pour maximiser vos gains.
           Inscrivez-vous sur Linebet avec le code{' '}
-          <span className="font-bold" style={{ color: C.cyan }}>{SITE.promoCode}</span>{' '}
+          <CopyableCode code={SITE.promoCode} displayClassName="text-cyan" />{' '}
           pour débloquer +85% de précision.
         </motion.p>
 
@@ -393,8 +394,8 @@ export default function Hero() {
         {/* ═══ Confidence KPIs with CountUp ═══ */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
-          animate={showCta ? { opacity: 1, y: 0 } : { opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : undefined}
+          transition={{ duration: 0.5, delay: 0.3 }}
           className="max-w-xl mx-auto mb-6"
         >
           <div className="grid grid-cols-4 gap-2 sm:gap-3">
@@ -406,7 +407,7 @@ export default function Hero() {
             ].map((m, i) => (
               <motion.div key={m.label}
                 initial={{ opacity: 0, y: 8 }}
-                animate={showCta ? { opacity: 1, y: 0 } : { opacity: 0 }}
+                animate={isVisible ? { opacity: 1, y: 0 } : undefined}
                 transition={{ duration: 0.3, delay: i * 0.1 }}
                 className="p-2 sm:p-3 rounded-lg border text-center"
                 style={{ backgroundColor: `${m.color}06`, borderColor: `${m.color}25` }}
@@ -425,19 +426,19 @@ export default function Hero() {
         {/* ═══ CTA ═══ */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
-          animate={showCta ? { opacity: 1, y: 0 } : { opacity: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : undefined}
+          transition={{ duration: 0.5, delay: 0.4 }}
           className="flex flex-col gap-2.5 max-w-md sm:max-w-xl mx-auto"
         >
-          {/* Primary */}
+          {/* Primary — Débloquer VIP (visible immediately) */}
           <motion.a
             href={AFFILIATE.linebet}
             rel={AFFILIATE.rel}
             target="_blank"
-            whileHover={{ scale: 1.02, y: -2, boxShadow: `0 8px 30px ${C.cyan}50, 0 0 60px ${C.cyan}30` }}
+            whileHover={{ scale: 1.02, y: -2, boxShadow: `0 8px 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(0, 212, 255, 0.3)` }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base font-bold transition-all w-full"
-            style={{ background: `linear-gradient(90deg, ${C.cyan}, ${C.cyanDk})`, color: '#0B1120', boxShadow: `0 4px 15px ${C.cyan}40` }}
+            className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-10 py-4 sm:py-5 rounded-xl text-sm sm:text-lg font-extrabold transition-all w-full"
+            style={{ background: `linear-gradient(90deg, #00D4FF, #00B4D8)`, color: '#0B1120', boxShadow: `0 0 30px rgba(0, 212, 255, 0.4)` }}
             aria-label="S'inscrire sur Linebet avec le code promo VISION221"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
@@ -470,8 +471,8 @@ export default function Hero() {
         {/* Footer */}
         <motion.p
           initial={{ opacity: 0 }}
-          animate={showCta ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+          animate={isVisible ? { opacity: 1 } : undefined}
+          transition={{ duration: 0.5, delay: 0.5 }}
           className="text-[10px] sm:text-xs mt-5"
           style={{ color: C.textMute }}
         >

@@ -5,6 +5,7 @@ import { useState, useMemo, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
+import CopyableCode from './CopyableCode'
 
 /* ════════════════════════════════════════════════════════════════════════════
    AVIATOR — Real Provably Fair algorithm (Spribe official)
@@ -376,7 +377,7 @@ export default function AviatorVip() {
                 Débloquer les Statistiques Aviator VIP
               </button>
               <p className="text-[10px] text-gray-500 text-center mt-2">
-                Inscris-toi avec <span className="text-gold-light font-semibold">{SITE.promoCode}</span> pour débloquer
+                Inscris-toi avec <CopyableCode code={SITE.promoCode} displayClassName="text-gold-light" /> pour débloquer
               </p>
             </div>
           </motion.div>
