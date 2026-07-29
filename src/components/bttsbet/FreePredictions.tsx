@@ -460,7 +460,9 @@ export default function FreePredictions() {
         const matchMap = new Map<string, MatchData>()
         for (const p of data.predictions) {
           if (getMatchStatus(p.date, p.time) === 'finished') continue
-          const key = p.matchSemantic || p.match
+          // Use match NAME as key (not matchSemantic which includes -btts/-o25 suffix,
+          // creating duplicate entries for the same match)
+          const key = p.match
           if (!matchMap.has(key)) {
             matchMap.set(key, {
               match: p.match,

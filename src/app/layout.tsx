@@ -118,7 +118,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'v24-fix-2026-07-29';
+                var VERSION = 'v25-dedup-2026-07-29';
                 try {
                   // 1. Unregister all service workers
                   if('serviceWorker' in navigator){
