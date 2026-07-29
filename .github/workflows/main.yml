@@ -46,6 +46,13 @@ jobs:
           node scripts/update-win-history.mjs
           echo "✅ Win history updated successfully"
 
+      - name: Scrape latest transfers
+        timeout-minutes: 2
+        run: |
+          echo "🔄 Scraping latest football transfers..."
+          node scripts/scrape-transfers.mjs
+          echo "✅ Transfers updated successfully"
+
       - name: Build Next.js static export
         run: npm run build
 
@@ -62,7 +69,7 @@ jobs:
         run: |
           git config --local user.email "bot@bttsbet.online"
           git config --local user.name "BttsBet Bot"
-          git add public/predictions.json public/win-history.json public/predictions-archive/
+          git add public/predictions.json public/win-history.json public/predictions-archive/ public/transfers.json
           git diff --staged --quiet || git commit -m "chore: auto-update predictions & history [skip ci]"
           git push || echo "Git push skipped (no changes)"
 

@@ -31,14 +31,23 @@ const ANALYSIS_STEPS = [
   'Value Bet', 'BTTS', 'Over 2.5', 'Score Exact', 'Double Chance',
 ]
 
-// Live data feed simulation (cycling messages)
-const LIVE_FEED = [
-  { match: 'Barcelona vs Real Madrid', league: 'La Liga', type: 'BTTS', pred: 'Oui', conf: 87 },
-  { match: 'Liverpool vs Arsenal', league: 'Premier League', type: 'Over 2.5', pred: 'Oui', conf: 82 },
-  { match: 'PSG vs Marseille', league: 'Ligue 1', type: 'BTTS', pred: 'Oui', conf: 89 },
-  { match: 'Bayern vs Dortmund', league: 'Bundesliga', type: 'Over 2.5', pred: 'Oui', conf: 84 },
-  { match: 'Inter vs Juventus', league: 'Serie A', type: 'BTTS', pred: 'Non', conf: 56 },
-  { match: 'Flamengo vs Palmeiras', league: 'Brasileirão', type: 'Over 2.5', pred: 'Oui', conf: 78 },
+// Live data feed — fetched from transfers.json (auto-updated by CI scraper)
+interface TransferItem {
+  player: string
+  from: string
+  to: string
+  fee: string
+  league: string
+  country: string
+}
+
+const FALLBACK_TRANSFERS: TransferItem[] = [
+  { player: 'Mbappé', from: 'PSG', to: 'Real Madrid', fee: 'Libre', league: 'La Liga', country: '🇪🇸' },
+  { player: 'Haaland', from: 'Dortmund', to: 'Man City', fee: '60M€', league: 'Premier League', country: '🇬🇧' },
+  { player: 'Bellingham', from: 'Dortmund', to: 'Real Madrid', fee: '103M€', league: 'La Liga', country: '🇪🇸' },
+  { player: 'Vinicius Jr', from: 'Real Madrid', to: 'Al-Ahli', fee: '200M€', league: 'Saudi Pro League', country: '🇸🇦' },
+  { player: 'Wirtz', from: 'Leverkusen', to: 'Bayern', fee: '80M€', league: 'Bundesliga', country: '🇩🇪' },
+  { player: 'Kvaratskhelia', from: 'Naples', to: 'PSG', fee: '75M€', league: 'Ligue 1', country: '🇫🇷' },
 ]
 
 // Sparkline data (14-day win rate)
@@ -194,19 +203,32 @@ function Sparkline() {
 }
 
 // =======================================================================
-// LiveFeed — cycling live match analysis ticker
+// TransferFeed — cycling latest player transfers (auto-updated via CI)
 // =======================================================================
-function LiveFeed() {
+function TransferFeed() {
   const [index, setIndex] = useState(0)
+  const [transfers, setTransfers] = useState<TransferItem[]>(FALLBACK_TRANSFERS)
+
+  useEffect(() => {
+    fetch('/transfers.json')
+      .then(r => r.json())
+      .then(data => {
+        if (data?.transfers?.length > 0) {
+          setTransfers(data.transfers.slice(0, 8))
+        }
+      })
+      .catch(() => {})
+  }, [])
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex(i => (i + 1) % LIVE_FEED.length)
-    }, 3000)
+      setIndex(i => (i + 1) % transfers.length)
+    }, 3500)
     return () => clearInterval(interval)
-  }, [])
+  }, [transfers.length])
 
-  const item = LIVE_FEED[index]
+  const item = transfers[index]
+  if (!item) return null
 
   return (
     <div className="relative h-7 overflow-hidden rounded-lg" style={{ backgroundColor: 'rgba(11, 17, 32, 0.6)', border: '1px solid rgba(51, 65, 85, 0.4)' }}>
@@ -219,15 +241,18 @@ function LiveFeed() {
           transition={{ duration: 0.3 }}
           className="absolute inset-0 flex items-center justify-between px-3"
         >
-          <div className="flex items-center gap-2 min-w-0">
-            <span className="v31-ticker-dot live flex-shrink-0" />
-            <span className="text-[10px] font-mono text-gray-400 truncate">{item.match}</span>
-            <span className="text-[9px] text-gray-600 hidden sm:inline">{item.league}</span>
+          <div className="flex items-center gap-1.5 min-w-0">
+            <span className="text-sm flex-shrink-0">{item.country}</span>
+            <span className="text-[10px] font-bold text-white truncate">{item.player}</span>
+            <span className="text-[9px] text-gray-500 flex-shrink-0 hidden sm:inline">{item.from}</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={C.cyan} strokeWidth="2.5" className="flex-shrink-0">
+              <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+            </svg>
+            <span className="text-[10px] font-bold truncate" style={{ color: C.cyan }}>{item.to}</span>
           </div>
           <div className="flex items-center gap-1.5 flex-shrink-0">
-            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(0, 212, 255, 0.09)', color: C.cyan }}>{item.type}</span>
-            <span className="text-[10px] font-bold" style={{ color: item.pred === 'Oui' ? C.green : C.textMute }}>{item.pred}</span>
-            <span className="text-[9px] text-gray-500 tabular-nums">{item.conf}%</span>
+            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(255, 215, 0, 0.1)', color: C.gold }}>{item.fee}</span>
+            <span className="text-[8px] text-gray-600 hidden sm:inline">{item.league}</span>
           </div>
         </motion.div>
       </AnimatePresence>
@@ -461,10 +486,10 @@ export default function Hero() {
               style={{ backgroundColor: 'rgba(30, 41, 59, 0.6)', borderColor: 'rgba(51, 65, 85, 0.4)' }}
             >
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] uppercase tracking-widest font-bold" style={{ color: C.textSec }}>Flux en direct</span>
-                <span className="text-[9px] font-mono" style={{ color: C.textMute }}>1200+ matchs/jour</span>
+                <span className="text-[10px] uppercase tracking-widest font-bold" style={{ color: C.textSec }}>Derniers transferts</span>
+                <span className="text-[9px] font-mono" style={{ color: C.textMute }}>Mis a jour quotidien</span>
               </div>
-              <LiveFeed />
+              <TransferFeed />
             </div>
 
             <div

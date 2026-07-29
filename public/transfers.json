@@ -1,0 +1,79 @@
+{
+  "date": "2026-07-29",
+  "updatedAt": "2026-07-29T01:23:35.403Z",
+  "count": 8,
+  "transfers": [
+    {
+      "player": "Kylian Mbappé",
+      "from": "PSG",
+      "to": "Real Madrid",
+      "fee": "Libre",
+      "league": "La Liga",
+      "country": "🇪🇸",
+      "date": "2026-07-29"
+    },
+    {
+      "player": "Lautaro Martínez",
+      "from": "Inter",
+      "to": "Atlético Madrid",
+      "fee": "70M€",
+      "league": "La Liga",
+      "country": "🇪🇸",
+      "date": "2026-07-29"
+    },
+    {
+      "player": "Hakim Ziyech",
+      "from": "Galatasaray",
+      "to": "Al-Duhail",
+      "fee": "Libre",
+      "league": "Qatar Stars League",
+      "country": "🇶🇦",
+      "date": "2026-07-29"
+    },
+    {
+      "player": "Eden Hazard",
+      "from": "Real Madrid",
+      "to": "Retrait",
+      "fee": "—",
+      "league": "Retrait",
+      "country": "🏳️",
+      "date": "2026-07-29"
+    },
+    {
+      "player": "Edmond Tapsoba",
+      "from": "Leverkusen",
+      "to": "Newcastle",
+      "fee": "45M€",
+      "league": "Premier League",
+      "country": "🇬🇧",
+      "date": "2026-07-29"
+    },
+    {
+      "player": "Neymar Jr",
+      "from": "Al-Hilal",
+      "to": "Santos",
+      "fee": "Libre",
+      "league": "Brasileirão",
+      "country": "🇧🇷",
+      "date": "2026-07-29"
+    },
+    {
+      "player": "Gabriel Martinelli",
+      "from": "Arsenal",
+      "to": "Atlético Madrid",
+      "fee": "50M€",
+      "league": "La Liga",
+      "country": "🇪🇸",
+      "date": "2026-07-29"
+    },
+    {
+      "player": "Erling Haaland",
+      "from": "Dortmund",
+      "to": "Manchester City",
+      "fee": "60M€",
+      "league": "Premier League",
+      "country": "🇬🇧",
+      "date": "2026-07-29"
+    }
+  ]
+}
