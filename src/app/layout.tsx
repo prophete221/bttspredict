@@ -26,15 +26,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://bttsbet.online"),
   title: {
-    default: "BttsBet — Pronostics IA Football ~52% | Bonus Linebet & 888starz | Code VISION221",
+    default: "BttsBet — Pronostics IA Football ~52% | Code Promo VISION221",
     template: "%s | BttsBet",
   },
   description: "Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF (150$). Pronostics BTTS & Over 2.5 générés par IA (précision historique ~52%). Dépôt Wave, Orange Money, Free Money.",
   keywords: [
     "BTTS", "Over 2.5", "pronostics football", "IA", "intelligence artificielle",
-    "paris sportifs", "Linebet", "888starz", "VISION221", "BttsBet",
+    "paris sportifs", "VISION221", "BttsBet",
     "value bets FIFA", "pronostic FIFA esport", "statistiques Aviator",
-    "code promo Linebet", "code promo 888starz", "bonus paris sportifs",
+    "bonus paris sportifs",
     "pronostics gratuits", "pronostics Sénégal", "Wave paris sportifs",
   ],
   authors: [{ name: "BttsBet" }],
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "BttsBet — Pronostics IA Football ~52% | Bonus Linebet & 888starz",
+    title: "BttsBet — Pronostics IA Football ~52% | Code Promo VISION221",
     description: "Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF. Pronostics IA BTTS & Over 2.5 (précision historique ~52%). Dépôt Wave, Orange Money.",
     url: "https://bttsbet.online",
     siteName: "BttsBet",
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BttsBet — Pronostics IA Football ~52% | Bonus Linebet & 888starz | VISION221",
+    title: "BttsBet — Pronostics IA Football ~52% | Code Promo VISION221",
     description: "Pronostics IA football ~87% (historique). Code VISION221 = Bonus 90 000 XOF sur Linebet. Dépôt Wave, Orange Money au Sénégal.",
     images: ["/og-image.png"],
   },
@@ -118,7 +118,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'v28-fresh-data-2026-07-30';
+                var VERSION = 'v29-linebet-compliance-2026-07-30';
                 try {
                   // 1. Unregister all service workers
                   if('serviceWorker' in navigator){

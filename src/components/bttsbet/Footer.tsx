@@ -221,9 +221,12 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Affiliation Disclaimer */}
-          <p className="text-center text-[10px] text-gray-600 mb-2">
-            Liens d&apos;affiliation — BttsBet est un site informatif, nous ne prenons pas de paris
+          {/* Affiliation Disclaimer — Article 8 compliance */}
+          <p className="text-center text-[10px] text-gray-600 mb-2 leading-relaxed">
+            Liens d&apos;affiliation — BttsBet est un site informatif indépendant, nous ne prenons pas de paris.
+            Les liens vers les bookmakers partenaires sont des liens d&apos;affiliation rémunérés.
+            BttsBet n&apos;est pas affilié à, ni exploité par, les sociétés de paris mentionnées sur ce site.
+            Les marques et logos appartiennent à leurs propriétaires respectifs.
           </p>
 
           <div className="text-center text-[11px] text-gray-700">
