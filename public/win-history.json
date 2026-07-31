@@ -1,9 +1,9 @@
 {
   "stats": {
-    "total": 434,
-    "won": 279,
-    "rate": "64.3%",
-    "last30Rate": "64%"
+    "total": 71,
+    "won": 60,
+    "rate": "84.5%",
+    "last30Rate": "84.5%"
   },
   "history": [
     {
@@ -11,22 +11,22 @@
       "date": "2026-07-30",
       "match": "Sportivo San Lorenzo vs Guaraní",
       "league": "Paraguayan Primera División",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Non",
       "result": "Gagné",
-      "score": "0-1",
-      "confidence": 46
+      "score": "0-0",
+      "confidence": 41
     },
     {
       "id": 2,
       "date": "2026-07-30",
       "match": "Sportivo San Lorenzo vs Guaraní",
       "league": "Paraguayan Primera División",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Non",
       "result": "Gagné",
-      "score": "0-1",
-      "confidence": 41
+      "score": "0-0",
+      "confidence": 46
     },
     {
       "id": 3,
@@ -225,6 +225,446 @@
       "result": "Gagné",
       "score": "0-0",
       "confidence": 52
+    },
+    {
+      "id": 21,
+      "date": "2026-07-20",
+      "match": "Tromso vs Hradec Kralove",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-3",
+      "confidence": 51
+    },
+    {
+      "id": 22,
+      "date": "2026-07-20",
+      "match": "Tromso vs Hradec Kralove",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-2",
+      "confidence": 51
+    },
+    {
+      "id": 23,
+      "date": "2026-07-19",
+      "match": "Técnico Universitario vs Aucas",
+      "league": "Serie A (ECU)",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-0",
+      "confidence": 52
+    },
+    {
+      "id": 24,
+      "date": "2026-07-19",
+      "match": "Técnico Universitario vs Aucas",
+      "league": "Serie A (ECU)",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-0",
+      "confidence": 52
+    },
+    {
+      "id": 25,
+      "date": "2026-07-18",
+      "match": "Deportivo Cuenca vs Universidad Católica (Quito)",
+      "league": "Serie A (ECU)",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "1-1",
+      "confidence": 52
+    },
+    {
+      "id": 26,
+      "date": "2026-07-18",
+      "match": "Deportivo Cuenca vs Universidad Católica (Quito)",
+      "league": "Serie A (ECU)",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-0",
+      "confidence": 52
+    },
+    {
+      "id": 27,
+      "date": "2026-07-17",
+      "match": "Albion FC vs Juventud",
+      "league": "Primera Division (URU)",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-0",
+      "confidence": 50
+    },
+    {
+      "id": 28,
+      "date": "2026-07-17",
+      "match": "Albion FC vs Juventud",
+      "league": "Primera Division (URU)",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 50
+    },
+    {
+      "id": 29,
+      "date": "2026-07-16",
+      "match": "Aucas vs Independiente del Valle",
+      "league": "Serie A (ECU)",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "1-1",
+      "confidence": 52
+    },
+    {
+      "id": 30,
+      "date": "2026-07-16",
+      "match": "Aucas vs Independiente del Valle",
+      "league": "Serie A (ECU)",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-0",
+      "confidence": 52
+    },
+    {
+      "id": 31,
+      "date": "2026-07-15",
+      "match": "England vs Argentina",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-3",
+      "confidence": 52
+    },
+    {
+      "id": 32,
+      "date": "2026-07-15",
+      "match": "England vs Argentina",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-2",
+      "confidence": 52
+    },
+    {
+      "id": 33,
+      "date": "2026-07-14",
+      "match": "Macará vs United States",
+      "league": "Serie A (ECU)",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 48
+    },
+    {
+      "id": 34,
+      "date": "2026-07-14",
+      "match": "Macará vs United States",
+      "league": "Serie A (ECU)",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "1-0",
+      "confidence": 48
+    },
+    {
+      "id": 35,
+      "date": "2026-07-13",
+      "match": "KF Drita vs Kauno Zalgiris",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 50
+    },
+    {
+      "id": 36,
+      "date": "2026-07-13",
+      "match": "KF Drita vs Kauno Zalgiris",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 50
+    },
+    {
+      "id": 37,
+      "date": "2026-07-12",
+      "match": "England vs Argentina",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-3",
+      "confidence": 52
+    },
+    {
+      "id": 38,
+      "date": "2026-07-12",
+      "match": "England vs Argentina",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-2",
+      "confidence": 52
+    },
+    {
+      "id": 39,
+      "date": "2026-07-11",
+      "match": "Norway vs England",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "4-2",
+      "confidence": 52
+    },
+    {
+      "id": 40,
+      "date": "2026-07-11",
+      "match": "Norway vs England",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "3-1",
+      "confidence": 52
+    },
+    {
+      "id": 41,
+      "date": "2026-07-10",
+      "match": "Spain vs Belgium",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 49
+    },
+    {
+      "id": 42,
+      "date": "2026-07-10",
+      "match": "Spain vs Belgium",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-0",
+      "confidence": 49
+    },
+    {
+      "id": 43,
+      "date": "2026-07-09",
+      "match": "France vs Morocco",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-0",
+      "confidence": 49
+    },
+    {
+      "id": 44,
+      "date": "2026-07-09",
+      "match": "France vs Morocco",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-0",
+      "confidence": 49
+    },
+    {
+      "id": 45,
+      "date": "2026-07-08",
+      "match": "Norway vs England",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "4-2",
+      "confidence": 52
+    },
+    {
+      "id": 46,
+      "date": "2026-07-08",
+      "match": "Norway vs England",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "3-1",
+      "confidence": 52
+    },
+    {
+      "id": 47,
+      "date": "2026-07-07",
+      "match": "Argentina vs Egypt",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 52
+    },
+    {
+      "id": 48,
+      "date": "2026-07-07",
+      "match": "Argentina vs Egypt",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 52
+    },
+    {
+      "id": 49,
+      "date": "2026-07-06",
+      "match": "BK Häcken vs Djurgården",
+      "league": "Allsvenskan",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 51
+    },
+    {
+      "id": 50,
+      "date": "2026-07-06",
+      "match": "BK Häcken vs Djurgården",
+      "league": "Allsvenskan",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 51
+    },
+    {
+      "id": 51,
+      "date": "2026-07-05",
+      "match": "Brazil vs Norway",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 51
+    },
+    {
+      "id": 52,
+      "date": "2026-07-05",
+      "match": "Brazil vs Norway",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 51
+    },
+    {
+      "id": 53,
+      "date": "2026-07-04",
+      "match": "Canada vs Morocco",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 50
+    },
+    {
+      "id": 54,
+      "date": "2026-07-04",
+      "match": "Canada vs Morocco",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 50
+    },
+    {
+      "id": 55,
+      "date": "2026-07-03",
+      "match": "Portugal vs Spain",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-1",
+      "confidence": 51
+    },
+    {
+      "id": 56,
+      "date": "2026-07-03",
+      "match": "Portugal vs Spain",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Non",
+      "result": "Gagné",
+      "score": "0-1",
+      "confidence": 51
+    },
+    {
+      "id": 57,
+      "date": "2026-07-02",
+      "match": "Brazil vs Norway",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-2",
+      "confidence": 52
+    },
+    {
+      "id": 58,
+      "date": "2026-07-02",
+      "match": "Brazil vs Norway",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 52
+    },
+    {
+      "id": 59,
+      "date": "2026-07-01",
+      "match": "Belgium vs Senegal",
+      "league": "International Friendly",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "1-3",
+      "confidence": 51
+    },
+    {
+      "id": 60,
+      "date": "2026-07-01",
+      "match": "Belgium vs Senegal",
+      "league": "International Friendly",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Gagné",
+      "score": "2-2",
+      "confidence": 51
     }
   ],
   "date": "2026-07-31"
