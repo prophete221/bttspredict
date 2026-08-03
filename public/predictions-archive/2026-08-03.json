@@ -968,6 +968,48 @@
       }
     },
     {
+      "match": "Peñarol vs Montevideo Wanderers",
+      "league": "Liga AUF Uruguaya",
+      "date": "2026-08-06",
+      "type": "BTTS",
+      "prediction": "Non",
+      "confidence": 41,
+      "time": "01:00",
+      "matchSemantic": "peñ-monw-uru-btts",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2683.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5501.png",
+      "analysis": {
+        "bttsProb": 0.41463064215457524,
+        "over25Prob": 0.46711242710651957,
+        "homeLambda": 1.8762374400000006,
+        "awayLambda": 0.627372,
+        "dataQuality": 4,
+        "hasRealData": true
+      }
+    },
+    {
+      "match": "Peñarol vs Montevideo Wanderers",
+      "league": "Liga AUF Uruguaya",
+      "date": "2026-08-06",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "confidence": 47,
+      "time": "01:00",
+      "matchSemantic": "peñ-monw-uru-o25",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2683.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5501.png",
+      "analysis": {
+        "bttsProb": 0.41463064215457524,
+        "over25Prob": 0.46711242710651957,
+        "homeLambda": 1.8762374400000006,
+        "awayLambda": 0.627372,
+        "dataQuality": 4,
+        "hasRealData": true
+      }
+    },
+    {
       "match": "Internacional de Bogotá vs Jaguares de Córdoba",
       "league": "Colombian Primera A",
       "date": "2026-08-06",
@@ -1005,48 +1047,6 @@
         "over25Prob": 0.42707952671734445,
         "homeLambda": 1.104483072,
         "awayLambda": 1.2451536,
-        "dataQuality": 4,
-        "hasRealData": true
-      }
-    },
-    {
-      "match": "Deportivo Pereira vs Independiente Santa Fe",
-      "league": "Colombian Primera A",
-      "date": "2026-08-06",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "confidence": 51,
-      "time": "01:25",
-      "matchSemantic": "depp-inds-col-btts",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5486.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5488.png",
-      "analysis": {
-        "bttsProb": 0.505883225338805,
-        "over25Prob": 0.440976636212435,
-        "homeLambda": 1.301110272,
-        "awayLambda": 1.1015136,
-        "dataQuality": 4,
-        "hasRealData": true
-      }
-    },
-    {
-      "match": "Deportivo Pereira vs Independiente Santa Fe",
-      "league": "Colombian Primera A",
-      "date": "2026-08-06",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "confidence": 44,
-      "time": "01:25",
-      "matchSemantic": "depp-inds-col-o25",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5486.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5488.png",
-      "analysis": {
-        "bttsProb": 0.505883225338805,
-        "over25Prob": 0.440976636212435,
-        "homeLambda": 1.301110272,
-        "awayLambda": 1.1015136,
         "dataQuality": 4,
         "hasRealData": true
       }
