@@ -222,7 +222,7 @@ export default function Hero() {
           </h1>
           <p className="mt-3 text-[14px] leading-[1.6]" style={{ color: C.textSec, maxWidth: '340px' }}>
             Modèles Poisson calibrés sur 50 000 matchs. ~52% de réussite publiée, gains et pertes affichés. Inscrivez-vous avec le code{' '}
-            <CopyableCode code={SITE.promoCode} displayClassName="font-bold" />{' '}pour débloquer le VIP.
+            <CopyableCode code={SITE.promoCode} gold />{' '}pour débloquer le VIP.
           </p>
         </motion.div>
 
@@ -254,7 +254,8 @@ export default function Hero() {
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
             </svg>
-            S'inscrire · Bonus 90 000 XOF
+            <img src="/logos/linebet.svg" alt="Linebet" className="h-4 w-auto flex-shrink-0" loading="lazy" />
+            S'inscrire sur Linebet · 90 000 XOF
           </motion.a>
 
           <motion.button

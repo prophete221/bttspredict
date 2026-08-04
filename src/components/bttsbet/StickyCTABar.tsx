@@ -102,7 +102,8 @@ export default function StickyCTABar() {
               }}
               data-cta="sticky-register"
             >
-              S'inscrire · 90K XOF
+              <img src="/logos/linebet-icon.svg" alt="" className="w-4 h-4 flex-shrink-0" loading="lazy" />
+              Linebet · 90K
             </a>
 
             {/* Dismiss button */}

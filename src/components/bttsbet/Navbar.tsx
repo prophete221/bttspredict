@@ -112,7 +112,8 @@ export default function Navbar() {
                 boxShadow: '0 0 0 1px rgba(0,255,136,.3), 0 4px 16px rgba(0,255,136,.15)',
               }}
             >
-              S'inscrire
+              <img src="/logos/linebet-icon.svg" alt="" className="w-4 h-4 flex-shrink-0" loading="lazy" />
+              Linebet
             </a>
 
             {/* Hamburger */}
