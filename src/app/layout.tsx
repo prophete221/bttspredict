@@ -1,19 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Poppins, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-display",
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-body",
   subsets: ["latin"],
-  weight: ['400', '500', '600', '700'],
-  style: ['normal', 'italic'],
+  weight: ['300', '400', '500', '600', '700', '800'],
   display: 'swap',
 });
 
-const dmSans = DM_Sans({
-  variable: "--font-body",
+const poppins = Poppins({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  style: ['normal', 'italic'],
   display: 'swap',
 });
 
@@ -91,7 +91,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#05070A",
+  themeColor: "#030712",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -149,7 +149,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${cormorant.variable} ${dmSans.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${poppins.variable} ${plusJakarta.variable} ${jetbrainsMono.variable} antialiased`}
       >
         {children}
       </body>

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { SITE } from '@/lib/constants'
 
 interface Prediction {
@@ -31,6 +30,7 @@ function getMatchStatus(date: string, time?: string): 'live' | 'upcoming' | 'fin
 export default function FreePredictions() {
   const [matches, setMatches] = useState<Prediction[]>([])
   const [loading, setLoading] = useState(true)
+  const [filter, setFilter] = useState<'all' | 'btts' | 'over25'>('all')
 
   useEffect(() => {
     fetch('/predictions.json').then(r => r.json()).then(data => {
@@ -46,56 +46,169 @@ export default function FreePredictions() {
     }).catch(() => setLoading(false))
   }, [])
 
+  const filteredMatches = matches.filter(m => {
+    if (filter === 'all') return true
+    if (filter === 'btts') return m.type === 'BTTS'
+    if (filter === 'over25') return m.type === 'Over 2.5'
+    return true
+  })
+
+  const getConfidenceColor = (conf: number) => {
+    if (conf >= 65) return 'var(--color-success)'
+    if (conf >= 50) return 'var(--color-warning)'
+    return 'var(--color-danger)'
+  }
+
+  const getConfidenceLabel = (conf: number) => {
+    if (conf >= 65) return 'high'
+    if (conf >= 50) return 'medium'
+    return 'low'
+  }
+
   if (loading) {
-    return <div className="grid sm:grid-cols-2 gap-4">{[...Array(4)].map((_,i) => <div key={i} className="h-48 rounded-2xl skeleton" />)}</div>
+    return (
+      <section id="pronos" className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="card animate-pulse">
+                <div className="h-4 bg-[var(--color-dark-500)] rounded w-1/3 mb-4"/>
+                <div className="h-20 bg-[var(--color-dark-500)] rounded mb-4"/>
+                <div className="h-12 bg-[var(--color-dark-500)] rounded"/>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
   }
 
   return (
-    <section id="pronos" className="py-12 px-4 max-w-6xl mx-auto">
-      <div className="mb-8">
-        <span className="text-[11px] uppercase tracking-widest font-bold text-[var(--color-gold-champagne)]">GRATUIT · SANS INSCRIPTION</span>
-        <h2 className="text-3xl font-bold text-white mt-2">Pronostics BTTS du jour</h2>
-        <p className="text-sm text-[var(--color-text-secondary)] mt-1">6 pronostics gratuits complets. Le blocage VIP n'apparaît qu'après la preuve de valeur.</p>
-      </div>
+    <section id="pronos" className="py-16 px-4">
+      <div className="max-w-6xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-2 badge badge-primary mb-4">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+            Pronostics Gratuits
+          </div>
+          <h2 className="text-display-md text-white mb-3">
+            Les meilleurs pronostics du jour
+          </h2>
+          <p className="text-body-md text-[var(--color-text-secondary)] max-w-2xl mx-auto">
+            Analysés par notre IA sur +50 critères. Sans inscription requise.
+          </p>
+        </div>
 
-      <div className="grid sm:grid-cols-2 gap-4">
-        {matches.map((m, i) => (
-          <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.06 }}
-            className="glass rounded-2xl p-4 hover:border-white/12 transition-all"
-            style={{ boxShadow: 'var(--shadow-card)' }}>
-            {/* Header */}
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-[10px] uppercase tracking-widest font-bold text-[var(--color-text-muted)]">{m.league}</span>
-              {m.time && <span className="font-mono text-[10px] text-[var(--color-text-muted)]">{m.time}</span>}
+        {/* Filter Tabs */}
+        <div className="flex items-center justify-center gap-2 mb-8">
+          {[
+            { key: 'all', label: 'Tous', icon: '🎯' },
+            { key: 'btts', label: 'BTTS', icon: '⚽' },
+            { key: 'over25', label: 'Over 2.5', icon: '📊' },
+          ].map((tab) => (
+            <button
+              key={tab.key}
+              onClick={() => setFilter(tab.key as any)}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                filter === tab.key
+                  ? 'bg-[var(--color-primary)] text-white'
+                  : 'bg-[var(--color-dark-700)] text-[var(--color-text-secondary)] hover:text-white'
+              }`}
+            >
+              {tab.icon} {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Match Cards */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredMatches.map((m, i) => (
+            <div 
+              key={i} 
+              className={`match-card animate-slide-up`}
+              style={{ animationDelay: `${i * 100}ms` }}
+            >
+              {/* League Badge */}
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wider">
+                  {m.league}
+                </span>
+                <span className="text-xs font-mono text-[var(--color-text-muted)]">
+                  {m.time || '--:--'}
+                </span>
+              </div>
+
+              {/* Teams */}
+              <div className="flex items-center justify-between mb-5">
+                <div className="flex-1 text-center">
+                  {m.homeLogo && (
+                    <img src={m.homeLogo} alt="" className="w-12 h-12 object-contain mx-auto mb-2" loading="lazy" />
+                  )}
+                  <div className="text-sm font-semibold text-white truncate">
+                    {m.match.split(' vs ')[0]}
+                  </div>
+                </div>
+                <div className="px-4 text-lg font-bold text-[var(--color-primary-light)]">VS</div>
+                <div className="flex-1 text-center">
+                  {m.awayLogo && (
+                    <img src={m.awayLogo} alt="" className="w-12 h-12 object-contain mx-auto mb-2" loading="lazy" />
+                  )}
+                  <div className="text-sm font-semibold text-white truncate">
+                    {m.match.split(' vs ')[1]}
+                  </div>
+                </div>
+              </div>
+
+              {/* Prediction */}
+              <div className="p-4 bg-[var(--color-dark-700)]/50 rounded-xl">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-semibold text-[var(--color-text-muted)] uppercase">
+                    {m.type}
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <div className={`confidence-dot ${getConfidenceLabel(m.confidence)}`}/>
+                    <span className="text-xs font-mono font-bold" style={{ color: getConfidenceColor(m.confidence) }}>
+                      {m.confidence}%
+                    </span>
+                  </div>
+                </div>
+                <div className="text-2xl font-bold mb-3" style={{ color: m.prediction === 'Oui' ? 'var(--color-success)' : 'var(--color-danger)' }}>
+                  {m.prediction === 'Oui' ? '✅ OUI' : '❌ NON'}
+                </div>
+                <div className="prediction-bar">
+                  <div 
+                    className="prediction-bar-fill yes" 
+                    style={{ width: `${m.confidence}%` }}
+                  />
+                </div>
+                <div className="flex justify-between mt-1 text-[10px] text-[var(--color-text-muted)]">
+                  <span>Oui {m.confidence}%</span>
+                  <span>Non {100 - m.confidence}%</span>
+                </div>
+              </div>
             </div>
-            {/* Teams */}
-            <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 mb-4">
-              <div className="flex flex-col items-center gap-1.5">
-                {m.homeLogo && <img src={m.homeLogo} alt="" className="w-10 h-10 object-contain" loading="lazy" />}
-                <span className="text-sm font-semibold text-white text-center truncate">{m.match.split(' vs ')[0]}</span>
-              </div>
-              <span className="text-lg font-bold text-[var(--color-gold-champagne)]">VS</span>
-              <div className="flex flex-col items-center gap-1.5">
-                {m.awayLogo && <img src={m.awayLogo} alt="" className="w-10 h-10 object-contain" loading="lazy" />}
-                <span className="text-sm font-semibold text-white text-center truncate">{m.match.split(' vs ')[1]}</span>
-              </div>
-            </div>
-            {/* Prediction */}
-            <div className="rounded-xl p-3" style={{ background: 'var(--color-carbon)' }}>
-              <div className="flex items-center justify-between mb-2">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--color-text-secondary)]">{m.type}</span>
-                <span className="font-mono text-xs font-bold" style={{ color: 'var(--color-gold-champagne)' }}>{m.confidence}%</span>
-              </div>
-              <div className="text-xl font-bold" style={{ color: m.prediction === 'Oui' ? 'var(--color-gold-champagne)' : 'var(--color-text-muted)' }}>
-                {m.prediction}
-              </div>
-              <div className="mt-2 h-1 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
-                <div className="h-full rounded-full" style={{ width: `${m.confidence}%`, background: 'var(--color-emerald-vip)' }} />
-              </div>
-            </div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-12">
+          <div className="card-gradient inline-block">
+            <p className="text-[var(--color-text-secondary)] mb-4">
+              Vous voulez plus de pronostics ? Accédez au contenu VIP exclusif.
+            </p>
+            <a href="#vip" className="btn btn-vip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+              Débloquer les pronostics VIP
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   )
