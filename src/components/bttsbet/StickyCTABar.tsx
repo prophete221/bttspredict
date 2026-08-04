@@ -1,0 +1,122 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { SITE, AFFILIATE } from '@/lib/constants'
+
+/**
+ * StickyCTABar — Mobile-only sticky CTA bar (appears after 60% scroll)
+ * Height: 64px, safe-area iOS respected, dismissible
+ * Two actions: Copy code + Register
+ */
+export default function StickyCTABar() {
+  const [visible, setVisible] = useState(false)
+  const [dismissed, setDismissed] = useState(false)
+  const [copied, setCopied] = useState(false)
+
+  useEffect(() => {
+    if (dismissed) return
+    const onScroll = () => {
+      const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)
+      setVisible(scrollPercent > 0.6)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [dismissed])
+
+  const copyCode = async () => {
+    try {
+      await navigator.clipboard.writeText(SITE.promoCode)
+    } catch {
+      const ta = document.createElement('textarea')
+      ta.value = SITE.promoCode
+      ta.style.position = 'fixed'
+      ta.style.opacity = '0'
+      document.body.appendChild(ta)
+      ta.select()
+      document.execCommand('copy')
+      document.body.removeChild(ta)
+    }
+    setCopied(true)
+    // Vibration feedback (mobile)
+    if (typeof navigator !== 'undefined' && navigator.vibrate) {
+      navigator.vibrate(15)
+    }
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  if (dismissed) return null
+
+  return (
+    <AnimatePresence>
+      {visible && (
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 100, opacity: 0 }}
+          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
+          style={{
+            paddingBottom: 'env(safe-area-inset-bottom, 0px)',
+          }}
+        >
+          <div
+            className="flex items-center gap-2 px-3 py-2.5 backdrop-blur-xl"
+            style={{
+              backgroundColor: 'rgba(11, 14, 20, 0.95)',
+              borderTop: '1px solid rgba(0, 229, 160, 0.2)',
+              boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.4)',
+            }}
+          >
+            {/* Copy code button */}
+            <button
+              onClick={copyCode}
+              className="flex items-center gap-2 px-3 h-[48px] rounded-[12px] flex-shrink-0 transition-all"
+              style={{
+                backgroundColor: copied ? 'rgba(0, 229, 160, 0.12)' : 'rgba(255, 255, 255, 0.04)',
+                border: '1px solid ' + (copied ? 'rgba(0, 229, 160, 0.3)' : 'rgba(255, 255, 255, 0.12)'),
+              }}
+              aria-label="Copier le code promo VISION221"
+              data-cta="sticky-copy"
+            >
+              {copied ? (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00E5A0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+              ) : (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+              )}
+              <span className="font-mono text-[13px] font-bold" style={{ color: copied ? '#00E5A0' : '#F2F6FA' }}>
+                {copied ? 'Copié!' : SITE.promoCode}
+              </span>
+            </button>
+
+            {/* Register CTA — VERT, seule couleur d'action */}
+            <a
+              href={AFFILIATE.linebet}
+              rel="sponsored noopener"
+              target="_blank"
+              className="flex-1 flex items-center justify-center gap-1.5 h-[48px] rounded-[12px] font-bold text-[14px]"
+              style={{
+                backgroundColor: '#00E5A0',
+                color: '#04070A',
+                boxShadow: '0 0 0 1px rgba(0,229,160,.4), 0 4px 16px rgba(0,229,160,.22)',
+              }}
+              data-cta="sticky-register"
+            >
+              S'inscrire · 90K XOF
+            </a>
+
+            {/* Dismiss button */}
+            <button
+              onClick={() => setDismissed(true)}
+              className="flex items-center justify-center w-[32px] h-[32px] rounded-[8px] flex-shrink-0"
+              style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}
+              aria-label="Fermer"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+            </button>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  )
+}

@@ -33,6 +33,10 @@ export default function CopyableCode({
       document.body.removeChild(ta)
     }
     setCopied(true)
+    // Vibration feedback (CRO brief: navigator.vibrate?.(15))
+    if (typeof navigator !== 'undefined' && navigator.vibrate) {
+      navigator.vibrate(15)
+    }
     setTimeout(() => setCopied(false), 2000)
   }
 

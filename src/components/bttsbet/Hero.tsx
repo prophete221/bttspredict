@@ -331,30 +331,27 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ═══ CTA ═══ */}
+        {/* ═══ CTA — 1 action principale (vert) + 1 ghost ═══ */}
         <motion.div initial={{ opacity: 0, y: 8 }} animate={isVisible ? { opacity: 1, y: 0 } : undefined} transition={{ duration: 0.5, delay: 0.6 }}
           className="flex flex-col gap-2.5">
-          <motion.a href={AFFILIATE.linebet} rel={AFFILIATE.rel} target="_blank"
-            whileHover={{ scale: 1.02, boxShadow: '0 8px 30px rgba(0, 224, 255, 0.4)' }} whileTap={{ scale: 0.98 }}
-            className="w-full h-[56px] rounded-[16px] font-display font-bold text-[15px] tracking-tight flex items-center justify-center gap-2"
-            style={{ backgroundColor: C.ultra, color: '#000', boxShadow: '0 4px 20px rgba(0, 224, 255, 0.3)' }}>
+          {/* CTA principal — VERT, seul bouton coloré */}
+          <motion.a href={AFFILIATE.linebet} rel="sponsored noopener" target="_blank"
+            whileHover={{ scale: 1.02, boxShadow: '0 8px 30px rgba(0, 229, 160, 0.4)' }} whileTap={{ scale: 0.98 }}
+            className="w-full h-[56px] rounded-[14px] font-display font-bold text-[15px] flex items-center justify-center gap-2"
+            style={{ backgroundColor: C.success, color: '#04070A', boxShadow: '0 0 0 1px rgba(0,229,160,.4), 0 8px 32px rgba(0,229,160,.22)' }}
+            aria-label="S'inscrire sur Linebet avec le code promo VISION221"
+            data-cta="hero-primary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-            Débloquer VIP avec {SITE.promoCode}
+            S'inscrire · Bonus 90 000 XOF
           </motion.a>
-          <div className="grid grid-cols-1 gap-2.5">
-            <motion.button whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }} onClick={() => document.getElementById('free-predictions')?.scrollIntoView({ behavior: 'smooth' })}
-              className="w-full h-[48px] rounded-[14px] font-medium text-[13px] flex items-center justify-center gap-2"
-              style={{ backgroundColor: '#121620', border: '1px solid ' + C.border, color: C.ultra }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
-              Analyser les matchs
-            </motion.button>
-            <motion.button whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }} onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
-              className="w-full h-[48px] rounded-[14px] font-medium text-[13px] flex items-center justify-center gap-2"
-              style={{ backgroundColor: '#121620', border: '1px solid ' + C.border, color: C.ultra }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></svg>
-              Découvrir la technologie IA
-            </motion.button>
-          </div>
+          {/* CTA secondaire — ghost, atténué */}
+          <motion.button whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }} onClick={() => document.getElementById('free-predictions')?.scrollIntoView({ behavior: 'smooth' })}
+            className="w-full h-[48px] rounded-[14px] font-medium text-[13px] flex items-center justify-center gap-2"
+            style={{ backgroundColor: 'transparent', border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.7)' }}
+            data-cta="hero-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
+            Voir les pronostics du jour
+          </motion.button>
         </motion.div>
 
         {/* ═══ MEMBRES VIP ═══ */}

@@ -19,6 +19,7 @@ import {
   ScrollProgressBar,
   ErrorBoundary,
   MobileTabBar,
+  StickyCTABar,
 } from '@/components/bttsbet'
 
 // JSON-LD WebSite — SearchAction for Google SERP
@@ -149,18 +150,19 @@ export default function Home() {
       {/* Scroll Progress Bar */}
       <ScrollProgressBar />
 
-      {/* Main Content — each section has its own ErrorBoundary so one crash doesn't hide all */}
+      {/* Main Content — ordre optimisé pour conversion (CRO brief section 5.11)
+          Hero → Pronostics gratuits → Historique/Preuve → Coupon VIP → Multi-Sports →
+          Value Bets → Aviator → Méthode IA → À propos → Témoignages (Footer) → FAQ (Footer) */}
       <main id="main-content" className="relative z-10">
         <ErrorBoundary><Navbar /></ErrorBoundary>
         <ErrorBoundary><Hero /></ErrorBoundary>
-        <ErrorBoundary><StickyVipBandeau /></ErrorBoundary>
         <ErrorBoundary><LiveTicker /></ErrorBoundary>
         <ErrorBoundary><FreePredictions /></ErrorBoundary>
+        <ErrorBoundary><WinHistory /></ErrorBoundary>
         <ErrorBoundary><PromoVip /></ErrorBoundary>
         <ErrorBoundary><VipSports /></ErrorBoundary>
-        <ErrorBoundary><AviatorVip /></ErrorBoundary>
-        <ErrorBoundary><WinHistory /></ErrorBoundary>
         <ErrorBoundary><FifaLinebet /></ErrorBoundary>
+        <ErrorBoundary><AviatorVip /></ErrorBoundary>
         <ErrorBoundary><HowItWorks /></ErrorBoundary>
         <ErrorBoundary><About /></ErrorBoundary>
         <ErrorBoundary><Footer /></ErrorBoundary>
@@ -168,6 +170,9 @@ export default function Home() {
 
       {/* Mobile Tab Bar — bottom navigation */}
       <MobileTabBar />
+
+      {/* Sticky CTA Bar — mobile only, appears after 60% scroll */}
+      <StickyCTABar />
 
       {/* Cookie Consent Banner (RGPD) */}
       <CookieConsent />

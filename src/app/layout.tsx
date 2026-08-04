@@ -118,7 +118,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'v31-credibility-quantum-v16-linebet-compliance-2026-07-30';
+                var VERSION = 'v32-cro-credibility-quantum-v16-linebet-compliance-2026-07-30';
                 try {
                   // 1. Unregister all service workers
                   if('serviceWorker' in navigator){

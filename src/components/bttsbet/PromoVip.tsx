@@ -132,7 +132,8 @@ export default function PromoVip() {
           const status = getMatchStatus(p.date, p.time)
           if (status === 'finished') continue
 
-          const key = p.matchSemantic || p.match
+          // FIX BUG 2.2: Use match name as key (matchSemantic includes -btts/-o25 suffix)
+          const key = p.match
           if (!matchMap.has(key)) {
             const [home, away] = p.match.split(/\s+vs?\s+/i)
             matchMap.set(key, {
