@@ -190,7 +190,7 @@ export default function Hero() {
         >
           <span className="w-2 h-2 rounded-full live-dot" style={{ backgroundColor: '#00E5FF', boxShadow: '0 0 8px #00E5FF' }} />
           <span className="font-mono text-[10px] font-bold tracking-[0.14em]" style={{ color: '#00E5FF' }}>
-            IA ACTIVE — 50+ PRONOS/JOUR
+            PRONOS DU JOUR DISPONIBLES
           </span>
         </motion.div>
 
@@ -201,10 +201,10 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
           <h1 className="font-bold leading-[1.05] tracking-tight" style={{ fontSize: '28px', color: C.text }}>
-            Le moteur IA qui sait quand les <span style={{ background: 'linear-gradient(135deg, #00E5FF, #A78BFA)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>deux équipes marquent</span>.
+            Nos analystes savent quand les <span style={{ background: 'linear-gradient(135deg, #00E5FF, #A78BFA)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>deux équipes marquent</span>.
           </h1>
           <p className="mt-3 text-[14px] leading-[1.6]" style={{ color: C.textSec, maxWidth: '340px' }}>
-            Modèles Poisson calibrés sur 50 000 matchs. Inscrivez-vous avec le code Inscrivez-vous avec le code{' '}
+            Modèles statistiques calibrés sur 50 000 matchs. Inscrivez-vous avec le code Inscrivez-vous avec le code{' '}
             <CopyableCode code={SITE.promoCode} displayClassName="font-bold" />{' '}pour débloquer le VIP.
           </p>
         </motion.div>

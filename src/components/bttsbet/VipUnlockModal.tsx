@@ -253,7 +253,7 @@ export default function VipUnlockModal({
                   <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style={{ backgroundColor: '#1A1F35', color: '#10B981', border: '1px solid rgba(0, 229, 255,0.3)' }}>3</span>
                   <div className="text-sm text-[#a0a0a0]">
                     <span className="text-white font-semibold">Vérifie ton ID joueur</span> ci-dessous.
-                    <span className="block mt-1 text-[10px] text-[#5a5a5a]">🔒 Aucune donnée collectée — hashé localement (SHA-256) dans ton navigateur.</span>
+                    <span className="block mt-1 text-[10px] text-[#5a5a5a]">🔒 Aucune donnée collectée — vérifié localement (SHA-256) dans ton navigateur.</span>
                   </div>
                 </div>
 

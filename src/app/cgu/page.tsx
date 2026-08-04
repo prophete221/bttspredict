@@ -186,7 +186,7 @@ export default function CGUPage() {
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    BttsBet est un site web à vocation <strong className="text-emerald">informative et d&apos;affiliation</strong> spécialisé dans les pronostics sportifs, plus particulièrement sur les marchés BTTS (Both Teams To Score) et Over 2,5 buts. Le site utilise des algorithmes d&apos;intelligence artificielle pour analyser des données statistiques et générer des pronostics football.
+                    BttsBet est un site web à vocation <strong className="text-emerald">informative et d&apos;affiliation</strong> spécialisé dans les pronostics sportifs, plus particulièrement sur les marchés BTTS (Both Teams To Score) et Over 2,5 buts. Le site utilise des algorithmes d&apos;analyse statistique pour analyser des données statistiques et générer des pronostics football.
                   </p>
 
                   <div className="bg-panel/40 border border-edge/30 rounded-xl p-4 my-3">
@@ -225,7 +225,7 @@ export default function CGUPage() {
                     BttsBet participe au programme d&apos;affiliation de Linebet. À ce titre, le site diffuse des liens sponsorisés vers la plateforme Linebet. Lorsqu&apos;un utilisateur s&apos;inscrit sur Linebet via un lien d&apos;affiliation présent sur BttsBet et utilise le code promo VISION221, BttsBet perçoit une commission d&apos;affiliation.
                   </p>
                   <p>
-                    Cette relation d&apos;affiliation n&apos;affecte en aucune manière l&apos;objectivité des pronostics diffusés sur le site. Les analyses et recommandations sont générées indépendamment par notre algorithme d&apos;intelligence artificielle et ne sont pas influencées par notre partenariat avec Linebet.
+                    Cette relation d&apos;affiliation n&apos;affecte en aucune manière l&apos;objectivité des pronostics diffusés sur le site. Les analyses et recommandations sont générées indépendamment par notre algorithme d&apos;analyse statistique et ne sont pas influencées par notre partenariat avec Linebet.
                   </p>
                   <p>
                     Il est important de noter que :
@@ -258,7 +258,7 @@ export default function CGUPage() {
                     </p>
                   </div>
                   <p>
-                    Nos pronostics sont le résultat d&apos;analyses statistiques effectuées par notre algorithme d&apos;intelligence artificielle. Bien que notre taux de précision historique soit d&apos;environ 87 %, ce chiffre repose sur des données passées et <strong className="text-emerald">ne garantit pas les résultats futurs</strong>. Les performances passées ne préjugent pas des performances futures.
+                    Nos pronostics sont le résultat d&apos;analyses statistiques effectuées par notre algorithme d&apos;analyse statistique. Bien que notre taux de précision historique soit d&apos;environ 87 %, ce chiffre repose sur des données passées et <strong className="text-emerald">ne garantit pas les résultats futurs</strong>. Les performances passées ne préjugent pas des performances futures.
                   </p>
                   <p>
                     De nombreux facteurs imprévisibles peuvent influencer le résultat d&apos;un match de football : blessures de dernière minute, conditions météorologiques, décisions arbitrales, motivation des équipes, événements imprévus, etc. Aucun algorithme, aussi sophistiqué soit-il, ne peut intégrer l&apos;ensemble de ces variables avec certitude absolue.
@@ -312,7 +312,7 @@ export default function CGUPage() {
                     Sont notamment protégés :
                   </p>
                   <ul className="list-disc list-inside space-y-1 ml-4 text-gray-400">
-                    <li>L&apos;algorithme d&apos;intelligence artificielle et les modèles prédictifs utilisés pour générer les pronostics</li>
+                    <li>L&apos;algorithme d&apos;analyse statistique et les modèles prédictifs utilisés pour générer les pronostics</li>
                     <li>Les designs, interfaces et éléments visuels du site</li>
                     <li>Les articles, guides et contenus éditoriaux publiés sur le site et le blog</li>
                     <li>Le nom commercial « BttsBet » et les éléments de marque associés</li>

@@ -189,7 +189,7 @@ export default function CommentAnalyserMatchBttsPage() {
                   <strong>Exemple concret :</strong> Lens vs Lille en Ligue 1. Lens a un xG offensif de 1.8 à domicile
                   et encaisse 1.2 xG contre. Lille a un xG offensif de 1.5 à l&apos;extérieur et encaisse 1.4 xG contre.
                   La somme des xG suggère un match ouvert avec environ 3 buts attendus — excellent profil BTTS.
-                  Notre IA a détecté ce type de match avec une précision d&apos;environ 87%.
+                  Notre équipe a détecté ce type de match avec une précision d&apos;environ 87%.
                 </p>
               </div>
             </section>
@@ -353,7 +353,7 @@ export default function CommentAnalyserMatchBttsPage() {
                 6. Comment l&apos;IA révolutionne l&apos;analyse BTTS
               </h2>
               <p className="text-gray-400 leading-relaxed">
-                L&apos;intelligence artificielle de BttsBet analyse simultanément plus de 200 variables pour chaque match,
+                L&apos;analyse statistique de BttsBet analyse simultanément plus de 200 variables pour chaque match,
                 ce qu&apos;un humain ne peut pas faire manuellement. Notre modèle de machine learning est entraîné sur
                 plus de 50 000 matchs historiques et intègre des données en temps réel :
               </p>
@@ -443,7 +443,7 @@ export default function CommentAnalyserMatchBttsPage() {
                 Laissez l&apos;IA analyser pour vous
               </h2>
               <p className="text-gray-400 leading-relaxed mb-6 max-w-lg mx-auto">
-                Notre IA vérifie automatiquement tous ces critères sur 50+ championnats chaque jour.
+                Notre équipe vérifie automatiquement tous ces critères sur 50+ championnats chaque jour.
                 Consultez nos pronostics BTTS et commencez à parier intelligemment.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

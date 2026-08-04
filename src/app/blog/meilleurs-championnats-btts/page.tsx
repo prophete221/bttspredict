@@ -359,7 +359,7 @@ export default function MeilleursChampionnatsBttsPage() {
                     <li>• Concentrez-vous sur 2-3 championnats que vous connaissez bien</li>
                     <li>• Vérifiez le taux BTTS des 5 derniers matchs de chaque équipe</li>
                     <li>• Tenez compte des blessés clés en attaque et en défense</li>
-                    <li>• Utilisez notre IA pour filtrer les meilleurs matchs BTTS du jour</li>
+                    <li>• Utilisez notre équipe pour filtrer les meilleurs matchs BTTS du jour</li>
                     <li>• Combine BTTS + Over 2,5 dans les championnats à haut taux de buts</li>
                   </ul>
                 </div>
@@ -392,7 +392,7 @@ export default function MeilleursChampionnatsBttsPage() {
                 Pronostics BTTS par championnat
               </h2>
               <p className="text-gray-400 leading-relaxed mb-6 max-w-lg mx-auto">
-                Notre IA analyse les 50+ championnats chaque jour et sélectionne les meilleurs matchs BTTS.
+                Notre équipe analyse les 50+ championnats chaque jour et sélectionne les meilleurs matchs BTTS.
                 Consultez nos pronostics et pariez sur Linebet avec le code VISION221.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

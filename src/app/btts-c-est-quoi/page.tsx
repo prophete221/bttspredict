@@ -114,7 +114,7 @@ function buildFaqJsonLd() {
         name: "Comment l'IA de BttsBet prédit le BTTS ?",
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Notre IA analyse plus de 50 variables : Expected Goals (xG), forme récente des deux équipes, taux de BTTS historique, blessures, conditions météo, historique des confrontations directes, et statistiques défensives. L'algorithme est entraîné sur 50 000+ matchs avec ~52% de précision historique. Ces performances passées ne garantissent pas les résultats futurs.",
+          text: "Notre équipe analyse plus de 50 variables : Expected Goals (xG), forme récente des deux équipes, taux de BTTS historique, blessures, conditions météo, historique des confrontations directes, et statistiques défensives. L'algorithme est entraîné sur 50 000+ matchs avec ~52% de précision historique. Ces performances passées ne garantissent pas les résultats futurs.",
         },
       },
       {
@@ -364,7 +364,7 @@ export default function BttsGuidePage() {
                       <span className="text-gold mt-0.5 flex-shrink-0">→</span>
                       <div>
                         <strong className="text-white">Utiliser l&apos;IA pour les prédictions</strong>
-                        <p className="text-gray-400 text-xs mt-0.5">Notre IA analyse 50+ variables (xG, forme, historique) pour générer des pronostics BTTS avec ~52% de précision historique. Aucun résultat n&apos;est garanti.</p>
+                        <p className="text-gray-400 text-xs mt-0.5">Notre équipe analyse 50+ variables (xG, forme, historique) pour générer des pronostics BTTS avec ~52% de précision historique. Aucun résultat n&apos;est garanti.</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">

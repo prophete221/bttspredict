@@ -132,7 +132,7 @@ export default function Bonus888starzPage() {
               BONUS <span className="text-gold neon-glow">888STARZ</span>
             </h1>
             <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              Bonus exclusif 888starz, inscription facile et value bets FIFA détectées par IA. Guide complet pour maximiser votre bonus.
+              Bonus exclusif 888starz, inscription facile et value bets FIFA détectées par nos analystes. Guide complet pour maximiser votre bonus.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
           </div>
@@ -210,7 +210,7 @@ export default function Bonus888starzPage() {
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    Notre IA détecte les <strong className="text-gold">value bets FIFA</strong> sur 888starz — des cotes erronées sur les matchs FIFA virtuels que l&apos;algorithme identifie automatiquement.
+                    Notre équipe détecte les <strong className="text-gold">value bets FIFA</strong> sur 888starz — des cotes erronées sur les matchs FIFA virtuels que l&apos;algorithme identifie automatiquement.
                   </p>
                   <p>
                     Les value bets FIFA sont des estimations statistiques basées sur l&apos;analyse de thousands de matchs FIFA virtuels. Elles ne constituent pas des garanties de gain.

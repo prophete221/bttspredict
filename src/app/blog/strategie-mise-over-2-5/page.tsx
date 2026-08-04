@@ -173,7 +173,7 @@ export default function StrategieMiseOver25Page() {
                 L&apos;approche statistique : les indicateurs clés
               </h2>
               <p className="text-gray-400 leading-relaxed">
-                Pour évaluer la probabilité d&apos;un Over 2,5, notre IA analyse des dizaines d&apos;indicateurs.
+                Pour évaluer la probabilité d&apos;un Over 2,5, notre équipe analyse des dizaines d&apos;indicateurs.
                 Voici les plus importants que vous pouvez vérifier vous-même :
               </p>
               <ul className="space-y-3 mt-4 text-gray-400 leading-relaxed">
@@ -188,7 +188,7 @@ export default function StrategieMiseOver25Page() {
                   <span className="text-gold font-bold mt-0.5">▸</span>
                   <span><strong className="text-white">xG (Expected Goals)</strong> — Les buts attendus mesurent
                   la qualité des occasions créées. Un match où les deux équipes génèrent plus de 1.3 xG chacune
-                  a une probabilité d&apos;Over 2,5 supérieure à 60%. Notre IA utilise les modèles xG avancés pour
+                  a une probabilité d&apos;Over 2,5 supérieure à 60%. Notre équipe utilise les modèles xG avancés pour
                   affiner cette analyse.</span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -285,7 +285,7 @@ export default function StrategieMiseOver25Page() {
                 <strong className="text-white">La stratégie en pratique :</strong>
               </p>
               <ol className="list-decimal list-inside space-y-2 mt-3 text-gray-400 leading-relaxed">
-                <li>Identifiez un match avec une forte probabilité BTTS (notre IA le fait pour vous)</li>
+                <li>Identifiez un match avec une forte probabilité BTTS (notre équipe le fait pour vous)</li>
                 <li>Vérifiez que le taux d&apos;Over 2,5 des deux équipes dépasse 55%</li>
                 <li>Pariez sur le combiné BTTS + Over 2,5 — la cote est généralement entre 2.20 et 2.80</li>
                 <li>Si vous êtes plus prudent, pariez uniquement Over 2,5 comme « couverture »</li>
@@ -400,7 +400,7 @@ export default function StrategieMiseOver25Page() {
                 Optimisez vos paris Over 2,5
               </h2>
               <p className="text-gray-400 leading-relaxed mb-6 max-w-lg mx-auto">
-                Notre IA sélectionne chaque jour les meilleurs matchs Over 2,5 et BTTS. Consultez nos pronostics
+                Notre équipe sélectionne chaque jour les meilleurs matchs Over 2,5 et BTTS. Consultez nos pronostics
                 et commencez à parier intelligemment avec le code VISION221 sur Linebet.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

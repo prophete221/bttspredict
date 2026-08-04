@@ -5,7 +5,7 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'faille-fifa'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Faille FIFA Linebet & 888starz : Détecter les Cotes Erronées en 2026'
-const DESCRIPTION = 'Découvrez la faille FIFA sur Linebet et 888starz : comment notre IA détecte automatiquement les cotes erronées des matchs FIFA virtuels, comment exploiter les value bets, et notre stratégie validée. Code promo VISION221.'
+const DESCRIPTION = 'Découvrez la faille FIFA sur Linebet et 888starz : comment notre équipe détecte automatiquement les cotes erronées des matchs FIFA virtuels, comment exploiter les value bets, et notre stratégie validée. Code promo VISION221.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -61,13 +61,13 @@ function buildFaqJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [
-      { '@type': 'Question', name: "Qu'est-ce que la faille FIFA sur Linebet ?", acceptedAnswer: { '@type': 'Answer', text: "La faille FIFA désigne une inefficience de marché sur les cotes des matchs FIFA virtuels proposés par Linebet et 888starz. Les cotes ne reflètent pas toujours la probabilité réelle des événements, créant des value bets exploitables. Notre IA scanne ces matchs en temps réel pour détecter automatiquement ces anomalies." } },
+      { '@type': 'Question', name: "Qu'est-ce que la faille FIFA sur Linebet ?", acceptedAnswer: { '@type': 'Answer', text: "La faille FIFA désigne une inefficience de marché sur les cotes des matchs FIFA virtuels proposés par Linebet et 888starz. Les cotes ne reflètent pas toujours la probabilité réelle des événements, créant des value bets exploitables. Notre équipe scanne ces matchs en temps réel pour détecter automatiquement ces anomalies." } },
       { '@type': 'Question', name: 'La faille FIFA est-elle légale ?', acceptedAnswer: { '@type': 'Answer', text: "Oui, il s'agit d'une inefficience de marché, pas d'un hack ou d'une manipulation technique. Exploiter des cotes mal calculées est parfaitement légal, tout comme un trader exploite les inefficiences sur les marchés financiers. Les bookmakers ajustent leurs cotes en permanence, mais des délais existent." } },
-      { '@type': 'Question', name: 'Comment BttsBet détecte les cotes erronées FIFA ?', acceptedAnswer: { '@type': 'Answer', text: "Notre algorithme IA analyse en temps réel les cotes de chaque match FIFA virtuel, les compare aux probabilités réelles calculées par notre modèle statistique (basé sur 50 000+ matchs), et identifie les écarts significatifs. Quand l'écart dépasse un seuil, un signal est envoyé aux membres VIP." } },
+      { '@type': 'Question', name: 'Comment BttsBet détecte les cotes erronées FIFA ?', acceptedAnswer: { '@type': 'Answer', text: "Notre algorithme IA analyse en temps réel les cotes de chaque match FIFA virtuel, les compare aux probabilités réelles calculées par nos modèles statistiques (basé sur 50 000+ matchs), et identifie les écarts significatifs. Quand l'écart dépasse un seuil, un signal est envoyé aux membres VIP." } },
       { '@type': 'Question', name: 'Quel est le taux de réussite de la faille FIFA ?', acceptedAnswer: { '@type': 'Answer', text: "Sur les 90 derniers jours, notre système a affiché un taux de réussite d'environ 85% sur les signaux VIP FIFA. Ce taux est vérifiable dans notre section Historique des gains. Attention : les résultats passés ne garantissent pas les résultats futurs." } },
       { '@type': 'Question', name: 'Faut-il un code promo pour accéder à la faille FIFA ?', acceptedAnswer: { '@type': 'Answer', text: "Oui, l'accès VIP est réservé aux membres inscrits sur Linebet ou 888starz via notre lien de parrainage avec le code promo VISION221 et un dépôt minimum de 10 000 Fr. Cela nous permet de vérifier votre inscription et de vous ouvrir l'accès." } },
       { '@type': 'Question', name: 'Les matchs FIFA virtuels sont-ils truqués ?', acceptedAnswer: { '@type': 'Answer', text: "Non, les matchs FIFA virtuels utilisent un générateur de nombres pseudo-aléatoires certifié. Les résultats ne sont pas truqués, mais l'algorithme de calcul des cotes par les bookmakers n'est pas parfait, ce qui crée des inefficiences exploitables." } },
-      { '@type': 'Question', name: 'Quelle différence entre faille FIFA et pari football réel ?', acceptedAnswer: { '@type': 'Answer', text: "Les matchs FIFA virtuels durent 3-5 minutes et se déroulent 24h/24, offrant beaucoup plus d'opportunités que le football réel. Les cotes sont calculées automatiquement par un algorithme, ce qui crée des délais d'ajustement que notre IA exploite." } },
+      { '@type': 'Question', name: 'Quelle différence entre faille FIFA et pari football réel ?', acceptedAnswer: { '@type': 'Answer', text: "Les matchs FIFA virtuels durent 3-5 minutes et se déroulent 24h/24, offrant beaucoup plus d'opportunités que le football réel. Les cotes sont calculées automatiquement par un algorithme, ce qui crée des délais d'ajustement que notre équipe exploite." } },
       { '@type': 'Question', name: 'Combien peut-on gagner avec la faille FIFA ?', acceptedAnswer: { '@type': 'Answer', text: "Les gains dépendent de votre bankroll et de votre discipline. Les cotes FIFA varient de 1.5x à 10x+. Avec une gestion stricte du risque (2-5% de bankroll par pari) et nos signaux, les membres VIP rapportent des gains réguliers. Ne misez jamais plus que ce que vous pouvez perdre." } },
     ],
   }
@@ -105,7 +105,7 @@ export default function FailleFifaPage() {
               </span> en 2026
             </h1>
             <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
-              Notre IA scanne en temps réel les matchs FIFA virtuels sur Linebet et 888starz pour détecter automatiquement
+              Notre équipe scanne en temps réel les matchs FIFA virtuels sur Linebet et 888starz pour détecter automatiquement
               les cotes erronées. Découvrez comment exploiter ces value bets avec une stratégie validée et un taux de réussite
               de ~88% sur les 90 derniers jours.
             </p>
@@ -155,8 +155,8 @@ export default function FailleFifaPage() {
                 qui créent des <strong className="text-white">value bets</strong> (cotes erronées en votre faveur).
               </p>
               <p className="text-gray-400 leading-relaxed mt-4">
-                Notre intelligence artificielle BttsBet scanne ces matchs en temps réel, compare les cotes proposées
-                avec les probabilités réelles calculées par notre modèle statistique (entraîné sur plus de 50 000 matchs),
+                Notre analyse statistique BttsBet scanne ces matchs en temps réel, compare les cotes proposées
+                avec les probabilités réelles calculées par nos modèles statistiques (entraîné sur plus de 50 000 matchs),
                 et détecte automatiquement les écarts exploitables. Quand une anomalie est identifiée, un signal est envoyé
                 aux membres VIP avec le marché à parier, la cote et l&apos;indice de confiance.
               </p>
@@ -204,13 +204,13 @@ export default function FailleFifaPage() {
               </ul>
             </section>
 
-            {/* Section 3: Notre IA détecte la faille */}
+            {/* Section 3: Notre équipe détecte la faille */}
             <section>
               <h2 className="text-2xl sm:text-3xl text-white mb-4" style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}>
-                Notre IA détecte la faille automatiquement
+                Notre équipe détecte la faille automatiquement
               </h2>
               <p className="text-gray-400 leading-relaxed">
-                BttsBet utilise un algorithme d&apos;intelligence artificielle spécialement conçu pour les marchés FIFA virtuels.
+                BttsBet utilise un algorithme d&apos;analyse statistique spécialement conçu pour les marchés FIFA virtuels.
                 Contrairement aux paris sportifs traditionnels où l&apos;analyse se fait avant le match, notre système fonctionne
                 en temps réel pendant que les matchs FIFA se déroulent, détectant les anomalies de cotes au moment précis
                 où elles apparaissent. Voici comment fonctionne notre pipeline de détection en 4 étapes :
@@ -282,7 +282,7 @@ export default function FailleFifaPage() {
                   <span className="flex-shrink-0 w-7 h-7 bg-gold/15 rounded-lg flex items-center justify-center text-gold text-xs font-black">4</span>
                   <div>
                     <p className="text-white font-semibold text-sm">Recevez les signaux FIFA en temps réel</p>
-                    <p className="text-gray-500 text-xs mt-1">Notre IA envoie des signaux chaque fois qu&apos;une cote erronée est détectée sur les matchs FIFA, avec le marché, la cote et la confiance.</p>
+                    <p className="text-gray-500 text-xs mt-1">Notre équipe envoie des signaux chaque fois qu&apos;une cote erronée est détectée sur les matchs FIFA, avec le marché, la cote et la confiance.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 p-3 bg-gold/5 border border-gold/15 rounded-lg">
@@ -341,13 +341,13 @@ export default function FailleFifaPage() {
               </h2>
               <div className="space-y-3">
                 {[
-                  { q: "Qu'est-ce que la faille FIFA sur Linebet ?", a: "La faille FIFA désigne une inefficience de marché sur les cotes des matchs FIFA virtuels proposés par Linebet et 888starz. Les cotes ne reflètent pas toujours la probabilité réelle des événements, créant des value bets exploitables. Notre IA scanne ces matchs en temps réel pour détecter automatiquement ces anomalies." },
+                  { q: "Qu'est-ce que la faille FIFA sur Linebet ?", a: "La faille FIFA désigne une inefficience de marché sur les cotes des matchs FIFA virtuels proposés par Linebet et 888starz. Les cotes ne reflètent pas toujours la probabilité réelle des événements, créant des value bets exploitables. Notre équipe scanne ces matchs en temps réel pour détecter automatiquement ces anomalies." },
                   { q: "La faille FIFA est-elle légale ?", a: "Oui, il s'agit d'une inefficience de marché, pas d'un hack ou d'une manipulation technique. Exploiter des cotes mal calculées est parfaitement légal, tout comme un trader exploite les inefficiences sur les marchés financiers." },
                   { q: "Comment BttsBet détecte les cotes erronées ?", a: "Notre algorithme IA analyse en temps réel les cotes de chaque match FIFA, les compare aux probabilités réelles calculées par notre modèle (basé sur 50 000+ matchs), et identifie les écarts significatifs. Quand l'écart dépasse un seuil statistique, un signal est envoyé aux membres VIP." },
                   { q: "Quel est le taux de réussite des signaux FIFA ?", a: "Sur les 90 derniers jours, notre système affiche un taux de réussite d'environ 85% sur les signaux VIP FIFA. Ce taux est vérifiable dans notre section Historique des gains. Attention : les résultats passés ne garantissent pas les résultats futurs." },
                   { q: "Faut-il un code promo pour accéder à la faille ?", a: "Oui, l'accès VIP est réservé aux membres inscrits sur Linebet ou 888starz via notre lien de parrainage avec le code promo VISION221 et un dépôt minimum de 10 000 Fr." },
                   { q: "Les matchs FIFA virtuels sont-ils truqués ?", a: "Non, les matchs FIFA virtuels utilisent un générateur de nombres pseudo-aléatoires certifié. Les résultats ne sont pas truqués, mais l'algorithme de calcul des cotes n'est pas parfait, ce qui crée des inefficiences exploitables." },
-                  { q: "Quelle différence entre faille FIFA et pari football réel ?", a: "Les matchs FIFA durent 3 minutes et se jouent 24h/24, offrant beaucoup plus d'opportunités. Les cotes sont calculées automatiquement, créant des délais d'ajustement que notre IA exploite." },
+                  { q: "Quelle différence entre faille FIFA et pari football réel ?", a: "Les matchs FIFA durent 3 minutes et se jouent 24h/24, offrant beaucoup plus d'opportunités. Les cotes sont calculées automatiquement, créant des délais d'ajustement que notre équipe exploite." },
                   { q: "Combien peut-on gagner avec la faille FIFA ?", a: "Les gains dépendent de votre bankroll et discipline. Avec une gestion stricte (2-5% par pari) et nos signaux, les membres VIP rapportent des gains réguliers. Ne misez jamais plus que ce que vous pouvez perdre." },
                 ].map((faq, i) => (
                   <details key={i} className="bg-midnight/50 border border-edge rounded-lg group">

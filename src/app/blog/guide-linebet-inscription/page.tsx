@@ -288,7 +288,7 @@ export default function GuideLinebetInscription() {
                 <li className="flex items-start gap-3">
                   <span className="text-emerald font-bold mt-0.5">▸</span>
                   <span><strong className="text-white">Section « FIFA Virtuel »</strong> — Paris sur les matchs FIFA simulés.
-                  Un marché à part entière avec des opportunités spécifiques que notre IA analyse en permanence.
+                  Un marché à part entière avec des opportunités spécifiques que notre équipe analyse en permanence.
                   Découvrez notre <a href="/blog/faille-fifa-linebet" className="text-emerald hover:underline">analyse de la faille FIFA Linebet</a>.</span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -387,7 +387,7 @@ export default function GuideLinebetInscription() {
                   <span className="text-gold font-bold mt-0.5">5.</span>
                   <span><strong className="text-white">Attention aux cotes et marchés locaux</strong> — Les championnats africains
                   (Ligue 1 Cameroun, Ligue 1 Sénégal, etc.) offrent parfois des cotes mal ajustées, créant des opportunités
-                  de value bet. Notre IA les détecte automatiquement.</span>
+                  de value bet. Notre équipe les détecte automatiquement.</span>
                 </li>
               </ul>
             </section>
@@ -437,7 +437,7 @@ export default function GuideLinebetInscription() {
                 Prêt à commencer ?
               </h2>
               <p className="text-gray-400 leading-relaxed mb-6 max-w-lg mx-auto">
-                Consultez nos pronostics BTTS et Over 2,5 du jour, générés par notre IA avec une précision
+                Consultez nos pronostics BTTS et Over 2,5 du jour, générés par notre équipe avec une précision
                 historique d&apos;environ 87%. Inscrivez-vous sur Linebet avec le code VISION221 pour un bonus exclusif.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

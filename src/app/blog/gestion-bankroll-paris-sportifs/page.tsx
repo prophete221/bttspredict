@@ -324,7 +324,7 @@ export default function GestionBankrollPage() {
                 </p>
               </div>
               <p className="text-gray-400 leading-relaxed mt-4">
-                <strong className="text-white">Exemple :</strong> Notre IA estime que le BTTS a 60% de chances de
+                <strong className="text-white">Exemple :</strong> Notre équipe estime que le BTTS a 60% de chances de
                 se réaliser dans un match, mais la cote proposée est de 1.90. Le value bet est positif car
                 60% × 1.90 = 1.14 &gt; 1. Appliquons Kelly :
               </p>
@@ -458,7 +458,7 @@ export default function GestionBankrollPage() {
                 Prêt à parier intelligemment ?
               </h2>
               <p className="text-gray-400 leading-relaxed mb-6 max-w-lg mx-auto">
-                Consultez nos pronostics BTTS et Over 2,5 générés par IA, appliquez une gestion de bankroll stricte,
+                Consultez nos pronostics BTTS et Over 2,5 par nos analystes, appliquez une gestion de bankroll stricte,
                 et inscrivez-vous sur Linebet avec le code VISION221 pour un bonus de bienvenue.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

@@ -9,7 +9,7 @@ const CARDS = [
     step: '01',
     title: 'Données temps réel',
     subtitle: 'Data ingestion',
-    description: 'Notre IA agrège 200+ variables par match : Expected Goals (xG), forme récente, blessés, historique des confrontations, conditions météo. Plus de 50 000 matchs analysés en continu.',
+    description: 'Notre équipe agrège 200+ variables par match : Expected Goals (xG), forme récente, blessés, historique des confrontations, conditions météo. Plus de 50 000 matchs analysés en continu.',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 3v18h18" />
@@ -27,7 +27,7 @@ const CARDS = [
   },
   {
     step: '02',
-    title: 'Modèles Poisson calibrés',
+    title: 'Modèles statistiques calibrés',
     subtitle: 'Statistical engine',
     description: 'Nous calibrons des modèles de Poisson sur les buts attendus, avec corrections systématiques pour BTTS (+2%) et Over 2.5 (+1%). Le Poisson sous-estime le BTTS — nous corrigeons ce biais connu.',
     icon: (

@@ -20,7 +20,7 @@ const ARCHIVE_DIR = path.join(PUBLIC_DIR, 'predictions-archive')
 if (!fs.existsSync(ARCHIVE_DIR)) fs.mkdirSync(ARCHIVE_DIR, { recursive: true })
 
 // ─── Configuration ───
-const MAX_PREDICTIONS = 50
+const MAX_PREDICTIONS = 12
 const FUTURE_DAYS = 4
 const HOME_ADVANTAGE = 1.12
 

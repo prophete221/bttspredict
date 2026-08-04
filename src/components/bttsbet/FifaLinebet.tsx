@@ -109,7 +109,7 @@ export default function FifaLinebet() {
                   <div className="text-[8px] uppercase tracking-wider" style={{ color: C.textMute }}>Cote totale</div>
                 </div>
                 <div className="flex-1 p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(0,229,255,0.06)' }}>
-                  <div className="text-sm font-bold tabular-nums" style={{ color: C.cyan }}>~82%</div>
+                  <div className="text-sm font-bold tabular-nums" style={{ color: C.cyan }}>~74%</div>
                   <div className="text-[8px] uppercase tracking-wider" style={{ color: C.textMute }}>Précision</div>
                 </div>
               </div>

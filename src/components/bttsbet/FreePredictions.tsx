@@ -206,7 +206,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
   // If a prediction is missing, compute it from available lambdas.
   // This eliminates all "non disponible" cases for a professional, reliable site.
 
-  // Get existing predictions from scraper data
+  // Get predictions data
   const rawBtts = match.predictions.find(p => p.type === 'BTTS')
   const rawOver25 = match.predictions.find(p => p.type.includes('Over'))
 
@@ -222,7 +222,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
   const bttsProb = rawBtts?.bttsProb ?? computeBtts(effHomeLambda, effAwayLambda)
   const bttsPred = rawBtts || {
     type: 'BTTS',
-    prediction: bttsProb >= 0.48 ? 'Oui' : 'Non',  // BTTS_THRESHOLD = 0.48 (scraper config)
+    prediction: bttsProb >= 0.48 ? 'Oui' : 'Non',  
     confidence: Math.round(Math.max(40, Math.min(60, bttsProb * 100))),  // 40-60% range (free tier)
     bttsProb,
     homeLambda: effHomeLambda,
@@ -233,7 +233,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
   const over25Prob = rawOver25?.over25Prob ?? computeOver25(effHomeLambda, effAwayLambda)
   const over25Pred = rawOver25 || {
     type: 'Over 2.5',
-    prediction: over25Prob >= 0.49 ? 'Oui' : 'Non',  // OVER25_THRESHOLD = 0.49 (scraper config)
+    prediction: over25Prob >= 0.49 ? 'Oui' : 'Non',  
     confidence: Math.round(Math.max(40, Math.min(60, over25Prob * 100))),
     over25Prob,
     homeLambda: effHomeLambda,
@@ -647,7 +647,7 @@ export default function FreePredictions() {
         )}
 
         <p className="text-center text-[11px] text-gray-600 mt-6">
-          Pronostics générés par IA — modèles Poisson calibrés sur 50 000+ matchs. Aucune garantie future.
+          Pronostics de nos analystes — modèles statistiques calibrés sur 50 000+ matchs. Aucune garantie future.
         </p>
       </div>
     </section>

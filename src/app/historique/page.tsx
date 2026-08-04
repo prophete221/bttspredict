@@ -153,7 +153,7 @@ export default function HistoriquePage() {
                   Le taux de précision affiché est calculé à partir de l&apos;ensemble des pronostics validés, pas d&apos;un sous-ensemble sélectionné. Les performances passées (~52% historiquement) ne garantissent pas les résultats futurs.
                 </p>
                 <p>
-                  Chaque pronostic est vérifié après la fin du match avec le score final officiel. Les résultats sont mis à jour quotidiennement.
+                  Chaque pronostic est vérifié après la fin du match avec le score final officiel. Les résultats sont mise à jour par notre équipenement.
                 </p>
               </div>
             </article>

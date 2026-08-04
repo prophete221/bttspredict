@@ -9,7 +9,7 @@ export const SITE = {
   promoCode: 'VISION221',
   accuracy: 'VIP',
 
-  vipAccuracy: '~85%',
+  vipAccuracy: '~75%',
   vipMinDeposit: '10 000 XOF',
   historyRate: '88.3%',
   last30Rate: '52%',
@@ -73,7 +73,7 @@ export const HOW_IT_WORKS = [
   {
     step: '01',
     title: "L'IA scanne les matchs",
-    desc: "Notre intelligence artificielle analyse en temps réel plus de 200 variables statistiques pour chaque match : xG, forme récente, blessés, historique des confrontations.",
+    desc: "Notre analyse statistique analyse en temps réel plus de 200 variables statistiques pour chaque match : xG, forme récente, blessés, historique des confrontations.",
   },
   {
     step: '02',
@@ -96,11 +96,11 @@ export const HERO_STATS = [
 export const FAQ_ITEMS = [
   {
     q: "Qu'est-ce que le BTTS ?",
-    a: "BTTS signifie \"Both Teams To Score\" (les deux équipes marquent). C'est un type de pari où vous pariez que les deux équipes marqueront au moins un but durant le match, quelle que soit l'issue finale. Ce marché est très populaire car il ne dépend pas du résultat final du match, mais uniquement de la capacité des deux équipes à trouver le chemin des filets. Notre IA analyse les statistiques offensives et défensives pour identifier les matchs où les deux équipes ont une forte probabilité de marquer.",
+    a: "BTTS signifie \"Both Teams To Score\" (les deux équipes marquent). C'est un type de pari où vous pariez que les deux équipes marqueront au moins un but durant le match, quelle que soit l'issue finale. Ce marché est très populaire car il ne dépend pas du résultat final du match, mais uniquement de la capacité des deux équipes à trouver le chemin des filets. Notre équipe analyse les statistiques offensives et défensives pour identifier les matchs où les deux équipes ont une forte probabilité de marquer.",
   },
   {
     q: "Comment fonctionne l'IA de BttsBet ?",
-    a: "Notre intelligence artificielle analyse des centaines de variables en temps réel : Expected Goals (xG), forme récente des équipes, blessés et suspensions, historique des confrontations directes, conditions météo, motivation des équipes (fin de saison, matchs décisifs), et bien plus encore. L'algorithme est entraîné sur plus de 50 000 matchs et affiche des résultats historiques d'environ 52% de précision. Chaque pronostic est accompagné d'un indice de confiance calculé par le modèle. Ces performances passées ne garantissent pas les résultats futurs.",
+    a: "Notre analyse statistique analyse des centaines de variables en temps réel : Expected Goals (xG), forme récente des équipes, blessés et suspensions, historique des confrontations directes, conditions météo, motivation des équipes (fin de saison, matchs décisifs), et bien plus encore. L'algorithme est entraîné sur plus de 50 000 matchs et affiche des résultats historiques d'environ 52% de précision. Chaque pronostic est accompagné d'un indice de confiance calculé par le modèle. Ces performances passées ne garantissent pas les résultats futurs.",
   },
   {
     q: 'Comment utiliser le code promo VISION221 ?',
@@ -112,7 +112,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: 'Quels championnats sont couverts ?',
-    a: "Nous couvrons plus de 50 championnats à travers le monde : Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Champions League, Europa League, et de nombreux championnats africains, asiatiques et sud-américains. Notre IA s'adapte aux spécificités de chaque ligue pour fournir des pronostics les plus précis possibles.",
+    a: "Nous couvrons plus de 50 championnats à travers le monde : Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Champions League, Europa League, et de nombreux championnats africains, asiatiques et sud-américains. Notre équipe s'adapte aux spécificités de chaque ligue pour fournir des pronostics les plus précis possibles.",
   },
   {
     q: 'Comment utiliser les pronostics BttsBet ?',
@@ -151,7 +151,7 @@ export const URGENCY_MESSAGES = [
 ]
 
 export const LEGAL = {
-  disclaimer: "Les paris sportifs comportent des risques financiers. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre. Les statistiques de précision de notre IA (environ 52%) sont basées sur des données historiques et ne garantissent pas de résultats futurs. BttsBet est un site informatif et d'affiliation : nous ne prenons pas de paris et ne collectons pas de fonds. Les témoignages présentés sur ce site reflètent des expériences individuelles et ne constituent pas une garantie de résultats. Jouez de manière responsable.",
+  disclaimer: "Les paris sportifs comportent des risques financiers. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre. Les statistiques de précision de notre équipe (environ 52%) sont basées sur des données historiques et ne garantissent pas de résultats futurs. BttsBet est un site informatif et d'affiliation : nous ne prenons pas de paris et ne collectons pas de fonds. Les témoignages présentés sur ce site reflètent des expériences individuelles et ne constituent pas une garantie de résultats. Jouez de manière responsable.",
   responsible: "Si vous ou un proche avez un problème lié aux jeux d'argent, contactez la ligne d'écoute nationale de votre pays. En France : 09-74-75-13-13 (Joueurs Info Service). Au Cameroun : contactez le MINSANT. Au Sénégal : 33 867 22 22. Ressource internationale : https://www.begambleaware.org/",
   copyright: `© ${new Date().getFullYear()} BttsBet. Tous droits réservés.`,
   links: [

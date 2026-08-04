@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blog – Pronostics BTTS & Over 2,5 | BttsBet',
     description:
-      'Articles, guides et stratégies BTTS & Over 2,5 propulsés par IA. Maîtrisez vos paris sportifs avec BttsBet.',
+      'Articles, guides et stratégies BTTS & Over 2,5 propulsés par nos analystes. Maîtrisez vos paris sportifs avec BttsBet.',
     url: 'https://bttspredict.com/blog',
     siteName: 'BttsBet',
     type: 'website',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Blog – Pronostics BTTS & Over 2,5 | BttsBet',
     description:
-      'Articles, guides et stratégies BTTS & Over 2,5 propulsés par IA. Maîtrisez vos paris sportifs avec BttsBet.',
+      'Articles, guides et stratégies BTTS & Over 2,5 propulsés par nos analystes. Maîtrisez vos paris sportifs avec BttsBet.',
     images: ['/og-image.png'],
   },
 }
@@ -94,7 +94,7 @@ function buildBlogJsonLd() {
     '@type': 'Blog',
     name: 'Blog BttsBet',
     description:
-      'Articles, guides et stratégies pour les paris BTTS et Over 2,5 propulsés par intelligence artificielle.',
+      'Articles, guides et stratégies pour les paris BTTS et Over 2,5 propulsés par analyse statistique.',
     url: `${SITE_URL}/blog`,
     publisher: {
       '@type': 'Organization',
@@ -221,7 +221,7 @@ export default function BlogPage() {
             <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Guides, stratégies et analyses pour maîtriser les paris{' '}
               <span className="text-emerald font-semibold">BTTS</span> &{' '}
-              <span className="text-gold font-semibold">Over 2,5</span>. Propulsé par notre intelligence artificielle.
+              <span className="text-gold font-semibold">Over 2,5</span>. Propulsé par notre analyse statistique.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
           </div>

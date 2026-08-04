@@ -100,7 +100,7 @@ export default function FreePredictions() {
             Les meilleurs pronostics du jour
           </h2>
           <p className="text-body-md text-[var(--color-text-secondary)] max-w-2xl mx-auto">
-            Analysés par notre IA sur +50 critères. Sans inscription requise.
+            Analysés par notre équipe sur +50 critères. Sans inscription requise.
           </p>
         </div>
 

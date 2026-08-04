@@ -124,7 +124,7 @@ export default function FailleFifaLinebetPage() {
             <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
               Les matchs FIFA virtuels sur Linebet et 888starz présentent des anomalies de cotes exploitables.
               Découvrez comment ces cotes sont calculées, comment détecter les value bets, et pourquoi
-              notre IA est votre meilleur allié pour scanner ces opportunités.
+              notre équipe est votre meilleur allié pour scanner ces opportunités.
             </p>
             <div className="flex items-center gap-4 mt-4 text-sm text-gray-600">
               <time dateTime="2026-04-01">1er avril 2026</time>
@@ -167,7 +167,7 @@ export default function FailleFifaLinebetPage() {
                 C&apos;est une inefficience de marché : les cotes proposées par Linebet pour certains marchés FIFA
                 ne reflètent pas toujours la probabilité réelle des événements. Par exemple, le marché Over 2,5
                 buts sur les matchs FIFA affiche parfois des cotes de 1.90 alors que la probabilité réelle,
-                calculée par notre modèle statistique, est de 60% — ce qui correspondrait à une cote « juste »
+                calculée par nos modèles statistiques, est de 60% — ce qui correspondrait à une cote « juste »
                 de 1.67. Cette différence crée un value bet exploitable sur le long terme.
               </p>
             </section>
@@ -236,7 +236,7 @@ export default function FailleFifaLinebetPage() {
                     <strong className="text-white">Collecter les données</strong> — Enregistrez les résultats de tous
                     les matchs FIFA sur Linebet pendant au moins 2 semaines. Notez les équipes, les scores, les
                     cotes, et les marchés disponibles. Plus vous avez de données, plus votre modèle est fiable.
-                    Notre IA collecte ces données en continu sur des milliers de matchs.
+                    Notre équipe collecte ces données en continu sur des milliers de matchs.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -439,7 +439,7 @@ export default function FailleFifaLinebetPage() {
                 Pronostics FIFA en temps réel
               </h2>
               <p className="text-gray-400 leading-relaxed mb-6 max-w-lg mx-auto">
-                Notre IA scanne les marchés FIFA Linebet 24h/24 et détecte les cotes erronées en temps réel.
+                Notre équipe scanne les marchés FIFA Linebet 24h/24 et détecte les cotes erronées en temps réel.
                 Consultez nos pronostics et commencez avec le code VISION221.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

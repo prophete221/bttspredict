@@ -373,7 +373,7 @@ export default function PredictionAviatorPage() {
                 <li className="flex items-start gap-3">
                   <span className="text-emerald">🤖</span>
                   <span>
-                    <strong className="text-white">Analyse de la distribution historique</strong> — Notre IA collecte et
+                    <strong className="text-white">Analyse de la distribution historique</strong> — Notre équipe collecte et
                     analyse des millions de tours Aviator en temps réel sur Linebet et 888starz. Elle calcule la distribution
                     empirique des crash points, identifie les écarts par rapport à la distribution théorique, et ajuste les
                     probabilités en conséquence. Si, sur les 10 000 derniers tours, les crash points entre 1.5x et 2x sont
@@ -384,7 +384,7 @@ export default function PredictionAviatorPage() {
                   <span className="text-emerald">🤖</span>
                   <span>
                     <strong className="text-white">Optimisation du cash out</strong> — Plutôt que de prédire le crash point
-                    exact, notre IA détermine le <strong>multiplicateur optimal de cash out</strong> qui maximise l&apos;espérance
+                    exact, notre équipe détermine le <strong>multiplicateur optimal de cash out</strong> qui maximise l&apos;espérance
                     de gain sur le long terme. En combinant la distribution statistique avec votre bankroll et votre profil de
                     risque, le signal recommande un cash out à 1.4x, 2x, ou 5x selon les conditions.
                   </span>
@@ -497,7 +497,7 @@ export default function PredictionAviatorPage() {
                   Sur Linebet : Menu → Casino → Crash Games → Aviator. Sur 888starz : Menu → Casino → Recherche « Aviator ».
                   Le jeu s&apos;ouvre dans une interface montrant l&apos;avion, le multiplicateur en temps réel, l&apos;historique
                   des crash points récents, et les mises des autres joueurs. L&apos;historique est particulièrement utile —
-                  notre IA l&apos;analyse pour générer les signaux.
+                  notre équipe l&apos;analyse pour générer les signaux.
                 </p>
               </div>
 
@@ -836,7 +836,7 @@ export default function PredictionAviatorPage() {
                 Signaux Aviator en temps réel
               </h2>
               <p className="text-gray-400 leading-relaxed mb-6 max-w-lg mx-auto">
-                Notre IA analyse les tours Aviator 24h/24 et génère des signaux en direct sur Linebet & 888starz.
+                Notre équipe analyse les tours Aviator 24h/24 et génère des signaux en direct sur Linebet & 888starz.
                 Consultez nos prédictions et commencez avec le code promo {PROMO_CODE} pour un bonus de 100%.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

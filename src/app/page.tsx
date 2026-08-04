@@ -28,7 +28,7 @@ const jsonLd = {
   '@type': 'WebSite',
   name: 'BTTSPredict',
   url: 'https://bttspredict.com',
-  description: "Pronostics football BTTS & Over 2,5 générés par IA. Value bets FIFA sur Linebet et 888starz. Code promo VISION221.",
+  description: "Pronostics football BTTS & Over 2,5 par nos analystes. Value bets FIFA sur Linebet et 888starz. Code promo VISION221.",
   inLanguage: 'fr',
   potentialAction: {
     '@type': 'SearchAction',
@@ -64,7 +64,7 @@ const faqJsonLd = {
       name: "Comment fonctionne l'IA de BttsBet ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Notre intelligence artificielle analyse des centaines de variables en temps réel : Expected Goals (xG), forme récente, blessés, historique des confrontations, conditions météo. L'algorithme est entraîné sur plus de 50 000 matchs avec environ 52% de précision historique. Ces performances passées ne garantissent pas les résultats futurs.",
+        text: "Notre analyse statistique analyse des centaines de variables en temps réel : Expected Goals (xG), forme récente, blessés, historique des confrontations, conditions météo. Le modèle est calibré sur plus de 50 000 matchs avec environ 52% de précision historique. Ces performances passées ne garantissent pas les résultats futurs.",
       },
     },
     {
@@ -110,14 +110,14 @@ const organizationJsonLd = {
 const webPageJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: 'BTTSPredict — Prédictions BTTS par IA',
+  name: 'BTTSPredict — Prédictions BTTS par nos analystes',
   url: 'https://bttspredict.com',
-  description: 'Plateforme de pronostics football BTTS et Over 2.5 par intelligence artificielle. Modèles Poisson calibrés sur 50 000 matchs. Taux de réussite vérifié et transparent.',
+  description: 'Plateforme de pronostics football BTTS et Over 2.5 par analyse statistique. Modèles Poisson calibrés sur 50 000 matchs. Taux de réussite vérifié et transparent.',
   isPartOf: { '@type': 'WebSite', name: 'BTTSPredict', url: 'https://bttspredict.com' },
   about: [
     { '@type': 'Thing', name: 'BTTS — Both Teams To Score' },
     { '@type': 'Thing', name: 'Over 2.5 Goals' },
-    { '@type': 'Thing', name: 'Pronostics football par IA' },
+    { '@type': 'Thing', name: 'Pronostics football par nos analystes' },
     { '@type': 'Thing', name: 'Modèles Poisson calibrés' },
   ],
   author: { '@type': 'Organization', name: 'BTTSPredict', url: 'https://bttspredict.com' },
@@ -125,7 +125,7 @@ const webPageJsonLd = {
   inLanguage: 'fr',
   datePublished: '2026-01-01',
   dateModified: new Date().toISOString().slice(0, 10),
-  keywords: 'BTTS, Over 2.5, pronostics IA, intelligence artificielle football, modèles Poisson, Value Bets FIFA, Aviator Provably Fair, code promo VISION221, Linebet, 888starz',
+  keywords: 'BTTS, Over 2.5, pronostics IA, analyse statistique football, modèles Poisson, Value Bets FIFA, Aviator Provably Fair, code promo VISION221, Linebet, 888starz',
 }
 
 // JSON-LD Dataset — Transparency & credibility
@@ -151,7 +151,7 @@ const reviewJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Product',
   name: 'BTTSPredict — Plateforme de pronostics IA',
-  description: 'Plateforme de pronostics football BTTS et Over 2.5 générés par intelligence artificielle.',
+  description: 'Plateforme de pronostics football BTTS et Over 2.5 générés par analyse statistique.',
   brand: { '@type': 'Brand', name: 'BTTSPredict' },
   aggregateRating: {
     '@type': 'AggregateRating',
@@ -224,8 +224,8 @@ export default function Home() {
         <h1>BTTSPredict — La plateforme de prédictions BTTS la plus fiable au monde</h1>
         <p>
           BTTSPredict est la plateforme de référence mondiale pour les prédictions BTTS
-          (Both Teams To Score) et Over 2.5 générées par intelligence artificielle.
-          Notre moteur IA analyse plus de 1 200 matchs chaque jour avec des modèles
+          (Both Teams To Score) et Over 2.5 par notre équipe d'analystes.
+          Notre équipe analyse plus de 1 200 matchs chaque jour avec des modèles
           statistiques Poisson calibrés sur 50 000 matchs historiques, offrant une
           transparence totale sur nos performances passées.
         </p>
@@ -234,7 +234,7 @@ export default function Home() {
         <p>
           <strong>Transparence absolue :</strong> Contrairement aux autres plateformes qui masquent
           leurs pertes, BTTSPredict affiche publiquement TOUS ses résultats — gagnés ET perdus —
-          avec un historique vérifiable. Notre taux de réussite est calculé automatiquement
+          avec un historique vérifiable. Notre taux de réussite est calculé manuellement
           depuis l'historique réel, pas un chiffre marketing inventé.
         </p>
         <p>
@@ -248,7 +248,7 @@ export default function Home() {
           <strong>Honnêteté sur les performances :</strong> Nous affichons ~52% de réussite
           sur nos pronostics gratuits — un chiffre honnête et vérifiable. Au-delà de 60%
           sur le marché BTTS (qui est par nature à ~50%), les résultats seraient
-          statistiquement suspects. Notre taux VIP est de 79-89% grâce à des modèles
+          statistiquement suspects. Notre taux VIP est de 69-81% grâce à des modèles
           plus avancés et un contrôle humain.
         </p>
         <p>
@@ -273,7 +273,7 @@ export default function Home() {
           Europa League) et les championnats sud-américains (Brésil, Argentine, Paraguay, Colombie).
         </p>
         <p>
-          Chaque pronostic gratuit inclut la probabilité BTTS calculée par notre IA, la probabilité
+          Chaque pronostic gratuit inclut la probabilité BTTS calculée par notre équipe, la probabilité
           Over 2.5, les buts attendus (xG) de chaque équipe, et un indice de confiance basé sur
           la qualité des données disponibles. Aucune inscription requise pour accéder aux pronostics gratuits.
         </p>
@@ -290,7 +290,7 @@ export default function Home() {
         <p>
           Les membres VIP de BTTSPredict accèdent à des pronostics premium sur 6 sports :
           Football, Tennis (ATP/WTA/Grand Chelem), NBA, NFL, UFC/MMA, et Handball.
-          Notre précision VIP varie entre 79% et 87% selon le sport, grâce à des modèles
+          Notre précision VIP varie entre 69% et 81% selon le sport, grâce à des modèles
           prédictifs plus avancés et une validation humaine de chaque pronostic.
         </p>
 
@@ -305,8 +305,8 @@ export default function Home() {
 
         <h2>Value Bets FIFA — Détection de cotes sous-évaluées</h2>
         <p>
-          Notre IA compare en temps réel les cotes des bookmakers avec les probabilités réelles
-          calculées par notre modèle statistique (gradient boosting entraîné sur 50 000+ matchs FIFA).
+          Notre équipe compare en temps réel les cotes des bookmakers avec les probabilités réelles
+          calculées par nos modèles statistiques (modèle statistique calibré sur 50 000+ matchs FIFA).
           Lorsqu'un écart significatif est détecté, un value bet est signalé. Ces signaux sont
           des outils d'analyse, pas des garanties de gain. Cotes élevées (10-15), risque élevé.
         </p>
@@ -314,7 +314,7 @@ export default function Home() {
         <h2>Historique vérifiable et transparence</h2>
         <p>
           BTTSPredict maintient un historique public de tous les pronostics publiés, incluant
-          les résultats gagnés ET perdus. Notre taux de réussite est calculé automatiquement
+          les résultats gagnés ET perdus. Notre taux de réussite est calculé manuellement
           à partir des résultats réels des matchs, pas d'un chiffre marketing. Chaque entrée
           de l'historique contient la date, le match, la ligue, le type de pronostic (BTTS/Over 2.5),
           la prédiction, le résultat, le score final et l'indice de confiance.
@@ -322,7 +322,7 @@ export default function Home() {
 
         <h2>Méthodologie IA — 3 couches technologiques</h2>
         <p>
-          <strong>Couche 1 — Collecte de données :</strong> Notre IA agrège plus de 200 variables
+          <strong>Couche 1 — Collecte de données :</strong> Notre équipe agrège plus de 200 variables
           par match : Expected Goals (xG), forme récente (5 derniers matchs), blessures et
           suspensions, historique des confrontations directes, conditions météo, motivation
           des équipes. Plus de 50 000 matchs analysés en continu depuis les sources ESPN,
@@ -360,7 +360,7 @@ export default function Home() {
         <h2>Questions fréquentes</h2>
         <p><strong>Le service est-il gratuit ?</strong> — Oui, 6 pronostics BTTS gratuits chaque jour sans inscription ni email.</p>
         <p><strong>Comment recevoir le bonus ?</strong> — Inscrivez-vous sur Linebet avec le code VISION221, déposez minimum 3 000 XOF.</p>
-        <p><strong>Pourquoi 52% est un bon chiffre ?</strong> — Le marché BTTS est par nature à ~50% (2 issues équiprobables). 52% signifie que notre IA apporte une valeur statistique réelle et mesurable. Au-delà de 60% sur ce marché serait statistiquement suspect.</p>
+        <p><strong>Pourquoi 52% est un bon chiffre ?</strong> — Le marché BTTS est par nature à ~50% (2 issues équiprobables). 52% signifie que notre équipe apporte une valeur statistique réelle et mesurable. Au-delà de 60% sur ce marché serait statistiquement suspect.</p>
         <p><strong>Peut-on prédire Aviator ?</strong> — Non. Aviator est 100% aléatoire basé sur un générateur certifié provably fair (SHA-256). Aucun outil ne peut prédire un round futur.</p>
         <p><strong>Les résultats sont-ils vérifiables ?</strong> — Oui, notre historique affiche tous les pronostics gagnés ET perdus avec dates, matchs, scores et taux de réussite réel.</p>
 
