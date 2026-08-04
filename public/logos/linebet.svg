@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 56" width="200" height="56" role="img" aria-label="Linebet">
+  <defs>
+    <linearGradient id="lb-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00E5A0"/>
+      <stop offset="100%" stop-color="#00B07A"/>
+    </linearGradient>
+    <linearGradient id="lb-text" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E6FFF5"/>
+    </linearGradient>
+  </defs>
+  <!-- Background pill -->
+  <rect x="0" y="0" width="200" height="56" rx="14" fill="url(#lb-bg)"/>
+  <!-- Subtle inner highlight -->
+  <rect x="0" y="0" width="200" height="28" rx="14" fill="#FFFFFF" opacity="0.08"/>
+  <!-- Icon: stylized "L" in white circle -->
+  <circle cx="28" cy="28" r="14" fill="#FFFFFF"/>
+  <path d="M22 22 L22 34 L32 34" stroke="#00B07A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Wordmark -->
+  <text x="50" y="36" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="800" letter-spacing="-0.5">
+    <tspan fill="url(#lb-text)">Line</tspan><tspan fill="#003D2A">bet</tspan>
+  </text>
+</svg>

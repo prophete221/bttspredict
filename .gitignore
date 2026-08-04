@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+.env*
+*.log
+dev.log
+download/
+upload/
+skills/
+agent-ctx/
+worklog.md

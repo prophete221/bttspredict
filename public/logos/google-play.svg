@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="Google Play">
+  <defs>
+    <linearGradient id="gp-blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00D2FF"/>
+      <stop offset="100%" stop-color="#3A7BD5"/>
+    </linearGradient>
+    <linearGradient id="gp-green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00E5A0"/>
+      <stop offset="100%" stop-color="#00B07A"/>
+    </linearGradient>
+    <linearGradient id="gp-yellow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFD200"/>
+      <stop offset="100%" stop-color="#FF8B00"/>
+    </linearGradient>
+    <linearGradient id="gp-red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF4D6D"/>
+      <stop offset="100%" stop-color="#D63148"/>
+    </linearGradient>
+  </defs>
+  <!-- Triangle (left part) — green/blue/yellow/red play icon style -->
+  <path d="M3 2.5 L3 21.5 C3 22.3 3.4 22.8 4 23 L14 12 L4 1 C3.4 1.2 3 1.7 3 2.5 Z" fill="url(#gp-green)"/>
+  <path d="M3 2.5 C3 1.7 3.4 1.2 4 1 C4.3 0.9 4.6 0.95 4.9 1.1 L14 6.4 L11 9.4 L3 2.5 Z" fill="url(#gp-blue)"/>
+  <path d="M3 21.5 C3 22.3 3.4 22.8 4 23 C4.3 23.1 4.6 23.05 4.9 22.9 L14 17.6 L11 14.6 L3 21.5 Z" fill="url(#gp-yellow)"/>
+  <path d="M14 6.4 L4.9 1.1 C5.2 1.25 5.5 1.45 5.8 1.7 L17.5 8.5 L14 11.5 L14 6.4 Z" fill="url(#gp-red)" opacity="0.85"/>
+  <path d="M14 17.6 L4.9 22.9 C5.2 22.75 5.5 22.55 5.8 22.3 L17.5 15.5 L14 12.5 L14 17.6 Z" fill="url(#gp-yellow)" opacity="0.7"/>
+  <path d="M17.5 8.5 L21 10.5 C21.8 11 21.8 12 21 12.5 L17.5 14.5 L14 12 L17.5 8.5 Z" fill="url(#gp-red)"/>
+</svg>

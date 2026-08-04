@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="NFL Football Américain">
+  <defs>
+    <linearGradient id="nf-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3D2817"/>
+      <stop offset="100%" stop-color="#1A1008"/>
+    </linearGradient>
+    <radialGradient id="nf-glow" cx="0.3" cy="0.3" r="0.7">
+      <stop offset="0%" stop-color="#6B4A2E" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#1A1008" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- American football shape (ellipse) -->
+  <ellipse cx="32" cy="32" rx="30" ry="20" fill="url(#nf-grad)"/>
+  <ellipse cx="32" cy="32" rx="30" ry="20" fill="url(#nf-glow)"/>
+  <ellipse cx="32" cy="32" rx="28" ry="18" fill="none" stroke="#F5D77A" stroke-width="0.6" opacity="0.4"/>
+  <!-- Laces -->
+  <line x1="32" y1="22" x2="32" y2="42" stroke="#FFFFFF" stroke-width="1.2" opacity="0.95"/>
+  <line x1="28" y1="24" x2="36" y2="24" stroke="#FFFFFF" stroke-width="0.8" opacity="0.8"/>
+  <line x1="28" y1="28" x2="36" y2="28" stroke="#FFFFFF" stroke-width="0.8" opacity="0.8"/>
+  <line x1="28" y1="32" x2="36" y2="32" stroke="#FFFFFF" stroke-width="0.8" opacity="0.8"/>
+  <line x1="28" y1="36" x2="36" y2="36" stroke="#FFFFFF" stroke-width="0.8" opacity="0.8"/>
+  <line x1="28" y1="40" x2="36" y2="40" stroke="#FFFFFF" stroke-width="0.8" opacity="0.8"/>
+  <!-- Side stripes -->
+  <line x1="6" y1="32" x2="14" y2="32" stroke="#FFFFFF" stroke-width="2" opacity="0.9"/>
+  <line x1="50" y1="32" x2="58" y2="32" stroke="#FFFFFF" stroke-width="2" opacity="0.9"/>
+</svg>

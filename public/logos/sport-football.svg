@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Football">
+  <defs>
+    <linearGradient id="fb-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1DB954"/>
+      <stop offset="100%" stop-color="#0E6629"/>
+    </linearGradient>
+    <radialGradient id="fb-glow" cx="0.3" cy="0.3" r="0.7">
+      <stop offset="0%" stop-color="#34D399" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#0E6629" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#fb-grad)"/>
+  <circle cx="32" cy="32" r="30" fill="url(#fb-glow)"/>
+  <circle cx="32" cy="32" r="28" fill="none" stroke="#FFFFFF" stroke-width="0.5" opacity="0.3"/>
+  <!-- Pentagons (soccer ball pattern) -->
+  <polygon points="32,12 39,18 37,27 27,27 25,18" fill="#05080F" opacity="0.85"/>
+  <polygon points="32,52 39,46 37,37 27,37 25,46" fill="#05080F" opacity="0.85"/>
+  <polygon points="12,32 18,25 27,27 27,37 18,39" fill="#05080F" opacity="0.7"/>
+  <polygon points="52,32 46,25 37,27 37,37 46,39" fill="#05080F" opacity="0.7"/>
+  <!-- Center connections -->
+  <line x1="32" y1="20" x2="32" y2="27" stroke="#05080F" stroke-width="1" opacity="0.4"/>
+  <line x1="32" y1="37" x2="32" y2="44" stroke="#05080F" stroke-width="1" opacity="0.4"/>
+  <line x1="20" y1="32" x2="27" y2="32" stroke="#05080F" stroke-width="1" opacity="0.4"/>
+  <line x1="37" y1="32" x2="44" y2="32" stroke="#05080F" stroke-width="1" opacity="0.4"/>
+</svg>

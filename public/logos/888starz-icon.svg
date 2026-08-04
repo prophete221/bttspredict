@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="888starz">
+  <defs>
+    <linearGradient id="star-ic-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF4D6D"/>
+      <stop offset="100%" stop-color="#D63148"/>
+    </linearGradient>
+    <radialGradient id="star-ic-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#FFD700" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FFD700" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="0" y="0" width="48" height="48" rx="12" fill="url(#star-ic-bg)"/>
+  <rect x="0" y="0" width="48" height="24" rx="12" fill="#FFFFFF" opacity="0.1"/>
+  <g transform="translate(24,24)">
+    <circle r="12" fill="url(#star-ic-glow)"/>
+    <polygon points="0,-10 3,-3 10,-3 4.5,1.5 6.5,8.5 0,4.5 -6.5,8.5 -4.5,1.5 -10,-3 -3,-3" fill="#FFFFFF"/>
+  </g>
+</svg>

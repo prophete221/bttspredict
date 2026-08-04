@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+/* ════════════════════════════════════════════════════════════════════════════
+   BTTSPredict — Design System 2026 Premium
+   Palette: Noir #0a0a0a / Vert néon #00FF88 / Blanc
+   Inspired by: Apple + Stripe + Bet365
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* ── Fonds — 4 niveaux de profondeur ── */
+  --color-void:       #0a0a0a;
+  --color-surface:    #0f0f0f;
+  --color-card:       #141414;
+  --color-elevated:   #1a1a1a;
+
+  /* ── Bordures ── */
+  --border-subtle:    rgba(255, 255, 255, 0.06);
+  --border-strong:    rgba(255, 255, 255, 0.12);
+
+  /* ── Texte ── */
+  --color-text-primary:   #ffffff;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted:     #5a5a5a;
+
+  /* ── Accent — Vert néon (CTA, gagné, validé, IA) ── */
+  --color-neon:       #00FF88;
+  --color-neon-dark:  #00CC6A;
+  --color-neon-dim:   rgba(0, 255, 136, 0.12);
+  --color-neon-glow:  rgba(0, 255, 136, 0.35);
+
+  /* ── États ── */
+  --color-win:    #00FF88;
+  --color-loss:   #FF3366;
+  --color-warn:   #FFB800;
+
+  /* ── Dégradés signature ── */
+  --grad-primary: linear-gradient(135deg, #00FF88 0%, #00CC6A 100%);
+  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(0,255,136,0.10) 0%, transparent 60%),
+               radial-gradient(50% 50% at 85% 10%, rgba(0,255,136,0.06) 0%, transparent 60%);
+
+  /* ── Fonts ── */
+  --font-display: 'Sora', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* ── Shadows ── */
+  --shadow-card: 0 1px 2px rgba(0,0,0,0.4), 0 8px 30px rgba(0,0,0,0.4);
+  --shadow-cta: 0 0 0 1px rgba(0,255,136,.4), 0 8px 32px rgba(0,255,136,.22);
+  --shadow-glass: 0 1px 0 rgba(255,255,255,0.05) inset, 0 8px 30px rgba(0,0,0,0.3);
+}
+
+/* ── Base ── */
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--color-void);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.03em; }
+
+::selection { background: rgba(0, 255, 136, 0.25); }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--color-void); }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-neon-dark); }
+
+/* ── Glass card ── */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--border-subtle);
+}
+
+/* ── Neon glow ── */
+.neon-text { text-shadow: 0 0 12px rgba(0, 255, 136, 0.5); }
+.neon-border { box-shadow: 0 0 0 1px rgba(0, 255, 136, 0.3), 0 0 20px rgba(0, 255, 136, 0.1); }
+
+/* ── Animations ── */
+@keyframes pulse-ring {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+.live-dot { animation: pulse-ring 2s ease-in-out infinite; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #141414 25%, #1a1a1a 50%, #141414 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ── Focus visible ── */
+:focus-visible {
+  outline: 2px solid var(--color-neon);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Tabular nums ── */
+.tabular-nums { font-variant-numeric: tabular-nums; }
+.mono { font-family: var(--font-mono); }
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Safe area ── */
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+
+/* ── No scrollbar ── */
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
