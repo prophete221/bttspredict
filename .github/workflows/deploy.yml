@@ -27,7 +27,7 @@ jobs:
           node-version: '22'
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm ci --legacy-peer-deps
         env:
           PUPPETEER_SKIP_DOWNLOAD: 'true'
 
@@ -47,7 +47,9 @@ jobs:
         continue-on-error: true
 
       - name: Build static export
-        run: npm run build
+        run: next build --no-turbopack
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
 
       - name: Copy routing files
         run: |
