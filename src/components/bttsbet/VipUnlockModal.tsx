@@ -35,6 +35,26 @@ export default function VipUnlockModal({
   const [verificationError, setVerificationError] = useState('')
   const [isUnlocking, setIsUnlocking] = useState(false)
   const [alreadyUnlocked, setAlreadyUnlocked] = useState(false)
+  const [copied, setCopied] = useState(false)
+
+  // Get the correct code based on selected bookmaker
+  const currentCode = selectedBookmaker === 'linebet' ? 'VISION221' : selectedBookmaker === '888starz' ? 'vision221' : 'VISION221'
+
+  const copyCode = async () => {
+    try { await navigator.clipboard.writeText(currentCode) } catch {
+      const ta = document.createElement('textarea')
+      ta.value = currentCode
+      ta.style.position = 'fixed'
+      ta.style.opacity = '0'
+      document.body.appendChild(ta)
+      ta.select()
+      document.execCommand('copy')
+      document.body.removeChild(ta)
+    }
+    setCopied(true)
+    navigator.vibrate?.(15)
+    setTimeout(() => setCopied(false), 2000)
+  }
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
@@ -132,12 +152,40 @@ export default function VipUnlockModal({
                   </div>
                 )}
 
-                {/* Step 1 — Bookmaker */}
+                {/* Step 1 — Bookmaker + Code promo copiable */}
                 <div className="mb-4">
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2 mb-3">
                     <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: '#1E293B', color: '#10B981', border: '1px solid rgba(59, 130, 246,0.3)' }}>1</span>
-                    <span className="text-sm font-semibold text-white">Crée un compte bookmaker</span>
+                    <span className="text-sm font-semibold text-white">Choisis ton bookmaker</span>
                   </div>
+
+                  {/* Big copyable code promo — always visible */}
+                  <button
+                    onClick={copyCode}
+                    className="w-full mb-3 p-4 rounded-xl flex items-center justify-between transition-all"
+                    style={{
+                      backgroundColor: '#0F172A',
+                      border: '1px solid rgba(59, 130, 246, 0.3)',
+                      boxShadow: copied ? '0 0 20px rgba(59, 130, 246, 0.2)' : 'none',
+                    }}
+                    aria-label={`Copier le code promo ${currentCode}`}
+                  >
+                    <div>
+                      <div className="text-[10px] uppercase tracking-widest font-bold mb-1" style={{ color: '#5a5a5a' }}>
+                        Code promo {selectedBookmaker === '888starz' ? '(minuscules)' : '(majuscules)'}
+                      </div>
+                      <div className="font-mono text-2xl font-black tracking-[0.1em]" style={{ color: '#3B82F6' }}>
+                        {currentCode}
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1.5 px-3 py-2 rounded-lg" style={{ backgroundColor: copied ? 'rgba(16, 185, 129, 0.15)' : 'rgba(59, 130, 246, 0.1)' }}>
+                      {copied ? (
+                        <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg><span className="text-xs font-bold text-[#10B981]">Copié !</span></>
+                      ) : (
+                        <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg><span className="text-xs font-bold text-[#3B82F6]">Copier</span></>
+                      )}
+                    </div>
+                  </button>
 
                   {/* Linebet */}
                   <button
@@ -149,13 +197,19 @@ export default function VipUnlockModal({
                       border: selectedBookmaker === 'linebet' ? '1px solid #10B981' : '1px solid rgba(255,255,255,0.08)',
                     }}
                   >
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-sm font-bold text-white">Linebet</span>
-                      <span className="text-[10px] text-[#10B981] font-semibold">Bonus exclusif</span>
-                    </div>
-                    <div className="text-[11px] text-[#a0a0a0]">
-                      Code promo : <span className="font-mono font-bold text-[#10B981]">VISION221</span>
-                      <span className="text-[#5a5a5a]"> (en majuscules)</span>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="text-sm font-bold text-white">Linebet</span>
+                          {selectedBookmaker === 'linebet' && (
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+                          )}
+                        </div>
+                        <div className="text-[11px] text-[#a0a0a0]">
+                          Code : <span className="font-mono font-bold text-[#3B82F6]">VISION221</span>
+                        </div>
+                      </div>
+                      <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(16, 185, 129, 0.1)', color: '#10B981' }}>Bonus exclusif</span>
                     </div>
                   </button>
 
@@ -169,13 +223,19 @@ export default function VipUnlockModal({
                       border: selectedBookmaker === '888starz' ? '1px solid #F59E0B' : '1px solid rgba(255,255,255,0.08)',
                     }}
                   >
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-sm font-bold text-white">888starz</span>
-                      <span className="text-[10px] text-[#F59E0B] font-semibold">Bonus exclusif</span>
-                    </div>
-                    <div className="text-[11px] text-[#a0a0a0]">
-                      Code promo : <span className="font-mono font-bold text-[#F59E0B]">vision221</span>
-                      <span className="text-[#5a5a5a]"> (en minuscules)</span>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="text-sm font-bold text-white">888starz</span>
+                          {selectedBookmaker === '888starz' && (
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+                          )}
+                        </div>
+                        <div className="text-[11px] text-[#a0a0a0]">
+                          Code : <span className="font-mono font-bold text-[#F59E0B]">vision221</span>
+                        </div>
+                      </div>
+                      <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(245, 158, 11, 0.1)', color: '#F59E0B' }}>Bonus exclusif</span>
                     </div>
                   </button>
                 </div>
@@ -184,7 +244,7 @@ export default function VipUnlockModal({
                 <div className="mb-4 flex gap-3">
                   <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style={{ backgroundColor: '#1E293B', color: '#10B981', border: '1px solid rgba(59, 130, 246,0.3)' }}>2</span>
                   <div className="text-sm text-[#a0a0a0]">
-                    Effectue un <span className="text-white font-semibold">dépôt minimum de 5 000 XOF</span> avec le code promo.
+                    Effectue un <span className="text-white font-semibold">dépôt minimum de 3 000 XOF</span> avec le code promo.
                   </div>
                 </div>
 
