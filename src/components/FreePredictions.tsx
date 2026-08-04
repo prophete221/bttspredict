@@ -53,7 +53,7 @@ export default function FreePredictions() {
   return (
     <section id="pronos" className="py-12 px-4 max-w-6xl mx-auto">
       <div className="mb-8">
-        <span className="text-[11px] uppercase tracking-widest font-bold text-[var(--color-neon)]">GRATUIT · SANS INSCRIPTION</span>
+        <span className="text-[11px] uppercase tracking-widest font-bold text-[var(--color-gold-champagne)]">GRATUIT · SANS INSCRIPTION</span>
         <h2 className="text-3xl font-bold text-white mt-2">Pronostics BTTS du jour</h2>
         <p className="text-sm text-[var(--color-text-secondary)] mt-1">6 pronostics gratuits complets. Le blocage VIP n'apparaît qu'après la preuve de valeur.</p>
       </div>
@@ -75,23 +75,23 @@ export default function FreePredictions() {
                 {m.homeLogo && <img src={m.homeLogo} alt="" className="w-10 h-10 object-contain" loading="lazy" />}
                 <span className="text-sm font-semibold text-white text-center truncate">{m.match.split(' vs ')[0]}</span>
               </div>
-              <span className="text-lg font-bold text-[var(--color-neon)]">VS</span>
+              <span className="text-lg font-bold text-[var(--color-gold-champagne)]">VS</span>
               <div className="flex flex-col items-center gap-1.5">
                 {m.awayLogo && <img src={m.awayLogo} alt="" className="w-10 h-10 object-contain" loading="lazy" />}
                 <span className="text-sm font-semibold text-white text-center truncate">{m.match.split(' vs ')[1]}</span>
               </div>
             </div>
             {/* Prediction */}
-            <div className="rounded-xl p-3" style={{ background: 'var(--color-card)' }}>
+            <div className="rounded-xl p-3" style={{ background: 'var(--color-carbon)' }}>
               <div className="flex items-center justify-between mb-2">
                 <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--color-text-secondary)]">{m.type}</span>
-                <span className="font-mono text-xs font-bold" style={{ color: 'var(--color-neon)' }}>{m.confidence}%</span>
+                <span className="font-mono text-xs font-bold" style={{ color: 'var(--color-gold-champagne)' }}>{m.confidence}%</span>
               </div>
-              <div className="text-xl font-bold" style={{ color: m.prediction === 'Oui' ? 'var(--color-neon)' : 'var(--color-text-muted)' }}>
+              <div className="text-xl font-bold" style={{ color: m.prediction === 'Oui' ? 'var(--color-gold-champagne)' : 'var(--color-text-muted)' }}>
                 {m.prediction}
               </div>
               <div className="mt-2 h-1 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
-                <div className="h-full rounded-full" style={{ width: `${m.confidence}%`, background: 'var(--grad-primary)' }} />
+                <div className="h-full rounded-full" style={{ width: `${m.confidence}%`, background: 'var(--color-emerald-vip)' }} />
               </div>
             </div>
           </motion.div>
