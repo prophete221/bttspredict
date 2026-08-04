@@ -422,48 +422,6 @@
       }
     },
     {
-      "match": "Deportivo Pereira vs Independiente Santa Fe",
-      "league": "Colombian Primera A",
-      "date": "2026-08-06",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "confidence": 51,
-      "time": "01:25",
-      "matchSemantic": "depp-inds-col-btts",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5486.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5488.png",
-      "analysis": {
-        "bttsProb": 0.505883225338805,
-        "over25Prob": 0.440976636212435,
-        "homeLambda": 1.301110272,
-        "awayLambda": 1.1015136,
-        "dataQuality": 4,
-        "hasRealData": true
-      }
-    },
-    {
-      "match": "Deportivo Pereira vs Independiente Santa Fe",
-      "league": "Colombian Primera A",
-      "date": "2026-08-06",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "confidence": 44,
-      "time": "01:25",
-      "matchSemantic": "depp-inds-col-o25",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5486.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5488.png",
-      "analysis": {
-        "bttsProb": 0.505883225338805,
-        "over25Prob": 0.440976636212435,
-        "homeLambda": 1.301110272,
-        "awayLambda": 1.1015136,
-        "dataQuality": 4,
-        "hasRealData": true
-      }
-    },
-    {
       "match": "Tigre vs Belgrano (Córdoba)",
       "league": "Argentine Liga Profesional de Fútbol",
       "date": "2026-08-06",
@@ -638,7 +596,7 @@
       "type": "BTTS",
       "prediction": "Oui",
       "confidence": 48,
-      "time": "23:00",
+      "time": "22:00",
       "matchSemantic": "estd-zamf-ven-btts",
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6038.png",
@@ -659,7 +617,7 @@
       "type": "Over 2.5",
       "prediction": "Non",
       "confidence": 44,
-      "time": "23:00",
+      "time": "22:00",
       "matchSemantic": "estd-zamf-ven-o25",
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6038.png",
@@ -1047,6 +1005,48 @@
         "over25Prob": 0.45178493241957474,
         "homeLambda": 1.3216501760000003,
         "awayLambda": 1.1225087999999999,
+        "dataQuality": 4,
+        "hasRealData": true
+      }
+    },
+    {
+      "match": "VfL Bochum vs Hertha Berlin",
+      "league": "German 2. Bundesliga",
+      "date": "2026-08-07",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "confidence": 52,
+      "time": "20:30",
+      "matchSemantic": "vflb-herb-ger-btts",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/121.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/129.png",
+      "analysis": {
+        "bttsProb": 0.5156290837872135,
+        "over25Prob": 0.6156083552066208,
+        "homeLambda": 2.33582272,
+        "awayLambda": 0.7956359999999999,
+        "dataQuality": 4,
+        "hasRealData": true
+      }
+    },
+    {
+      "match": "VfL Bochum vs Hertha Berlin",
+      "league": "German 2. Bundesliga",
+      "date": "2026-08-07",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "confidence": 52,
+      "time": "20:30",
+      "matchSemantic": "vflb-herb-ger-o25",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/121.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/129.png",
+      "analysis": {
+        "bttsProb": 0.5156290837872135,
+        "over25Prob": 0.6156083552066208,
+        "homeLambda": 2.33582272,
+        "awayLambda": 0.7956359999999999,
         "dataQuality": 4,
         "hasRealData": true
       }
