@@ -280,10 +280,10 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
         </div>
 
         {/* Teams */}
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-4 mb-5">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mb-4">
           {/* Home */}
           <div className="flex flex-col items-center text-center gap-2">
-            <TeamLogo src={homeLogo} name={home} size={56} />
+            <TeamLogo src={homeLogo} name={home} size={40} />
             <span className="text-sm font-semibold text-white truncate max-w-full leading-tight">{home}</span>
             {homeGoals && (
               <span className="text-[9px] text-gray-500 mono tabular-nums">xG: {homeGoals}</span>
@@ -292,13 +292,13 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
 
           {/* VS */}
           <div className="flex flex-col items-center">
-            <span className="text-xl sm:text-2xl font-bold text-success mono">VS</span>
+            <span className="text-base font-bold text-success mono">VS</span>
             <span className="text-[9px] text-gray-600 uppercase tracking-widest mt-1">match</span>
           </div>
 
           {/* Away */}
           <div className="flex flex-col items-center text-center gap-2">
-            <TeamLogo src={awayLogo} name={away} size={56} />
+            <TeamLogo src={awayLogo} name={away} size={40} />
             <span className="text-sm font-semibold text-white truncate max-w-full leading-tight">{away}</span>
             {awayGoals && (
               <span className="text-[9px] text-gray-500 mono tabular-nums">xG: {awayGoals}</span>
@@ -534,7 +534,7 @@ export default function FreePredictions() {
     <section ref={ref} id="free-predictions" className="section-pad" style={{ paddingTop: 0, paddingBottom: 'clamp(2rem, 5vw, 4rem)' }}>
       {/* H2 for SEO (hidden visually) */}
       <h2 className="sr-only">Pronostics IA du jour — BTTS et Over 2.5 gratuits</h2>
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[440px] mx-auto">
         {/* Ultra-compact filters — single horizontal scroll bar */}
         <motion.div
           variants={staggerContainer}
