@@ -120,7 +120,7 @@ export default function PromoVip() {
             <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: C.neon }}>ZONE PREMIUM</span>
             <h2 className="font-bold text-xl mt-1" style={{ color: C.text }}>Coupon VIP du jour</h2>
             <p className="text-[12px] mt-1" style={{ color: C.textSec }}>
-              {vipMatches.length} sélections · Cote totale <span className="font-mono font-bold" style={{ color: C.neon }} ref={coteRef}>{coteDisplay}</span>
+              {vipMatches.length} sélections · Cote totale <span className="font-mono font-bold" style={{ color: C.neon }}>VIP</span>
             </p>
           </motion.div>
 
@@ -178,9 +178,7 @@ export default function PromoVip() {
                     <span className="text-[11px] font-semibold text-white truncate">{m.awayTeam}</span>
                     {m.awayLogo && <img src={m.awayLogo} alt="" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy" />}
                   </div>
-                  <span className="font-mono text-[10px] font-bold flex-shrink-0" style={{ color: C.neon }}>
-                    {m.cote.toFixed(2)}
-                  </span>
+                  <span className="font-mono text-[10px] font-bold flex-shrink-0" style={{ color: C.neon }}>VIP</span>
                 </motion.div>
               ))}
 
@@ -191,7 +189,7 @@ export default function PromoVip() {
                     <div key={i} className="flex items-center gap-2 py-2 px-2 rounded-[10px] mb-1" style={{ background: 'rgba(255,255,255,0.02)' }}>
                       <span className="font-mono text-[10px] w-8" style={{ color: C.textMute }}>{m.time}</span>
                       <span className="text-[11px] text-white truncate flex-1">{m.match}</span>
-                      <span className="font-mono text-[10px] font-bold" style={{ color: C.neon }}>{m.cote.toFixed(2)}</span>
+                      <span className="font-mono text-[10px] font-bold" style={{ color: C.neon }}>VIP</span>
                     </div>
                   ))}
                 </div>
@@ -229,7 +227,7 @@ export default function PromoVip() {
             {/* Cote totale bar */}
             <div className="px-3 py-2.5 flex items-center justify-between border-t" style={{ borderColor: 'rgba(255,255,255,0.04)' }}>
               <span className="text-[10px] uppercase tracking-widest font-bold" style={{ color: C.textMute }}>Cote totale</span>
-              <span className="font-mono text-[16px] font-bold" style={{ color: C.neon }} ref={coteRef}>{coteDisplay}</span>
+              <span className="font-mono text-[16px] font-bold" style={{ color: C.neon }}>VIP</span>
             </div>
           </motion.div>
 

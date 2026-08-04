@@ -175,7 +175,7 @@ export default function VipSports() {
                   </div>
                   <div className="w-px h-6 bg-white/5" />
                   <div className="text-center">
-                    <div className="font-mono text-base font-bold" style={{ color: activeSport.color }} ref={coteRef}>{coteDisplay}</div>
+                    <div className="font-mono text-base font-bold" style={{ color: activeSport.color }}>VIP</div>
                     <div className="text-[8px] uppercase tracking-widest" style={{ color: C.textMute }}>cote</div>
                   </div>
                 </div>

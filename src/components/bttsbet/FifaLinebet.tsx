@@ -180,7 +180,7 @@ export default function FifaLinebet() {
                   <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">Matchs FIFA</div>
                 </div>
                 <div className="bg-midnight/40 border border-edge rounded-lg p-2.5 text-center">
-                  <div className="text-base sm:text-lg font-bold text-gold tabular-nums glow-text-gold" ref={coteRef}>{coteDisplay}</div>
+                  <div className="text-base sm:text-lg font-bold text-gold">VIP</div>
                   <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">Cote totale</div>
                 </div>
                 <div className="bg-midnight/40 border border-edge rounded-lg p-2.5 text-center">
@@ -216,7 +216,7 @@ export default function FifaLinebet() {
                       <span className="text-white text-xs font-semibold truncate blur-[5px] select-none">{m.home}</span>
                       <span className="text-gray-600 text-[10px] font-mono">VS</span>
                       <span className="text-white text-xs font-semibold truncate text-right blur-[5px] select-none">{m.away}</span>
-                      <span className="text-[10px] text-gold font-bold tabular-nums text-right blur-[3px] select-none">{m.cote.toFixed(2)}</span>
+                      <span className="text-[10px] text-gold font-bold text-right blur-[3px] select-none">VIP</span>
                     </div>
 
                     {/* Value bet visualization */}
