@@ -40,7 +40,7 @@ export default function LockedContent({
 
       {/* Lock overlay */}
       <div className="absolute inset-0 flex items-center justify-center rounded-lg pointer-events-none"
-        style={{ backgroundColor: 'rgba(10, 10, 10, 0.85)' }}>
+        style={{ backgroundColor: 'rgba(10, 14, 20, 0.85)' }}>
         <motion.div
           initial={{ scale: 0.9 }}
           animate={{ scale: 1 }}

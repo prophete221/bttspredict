@@ -80,7 +80,7 @@ export default function MobileTabBar() {
       className="fixed bottom-0 left-0 right-0 z-40 md:hidden"
       style={{
         display: 'flex',
-        backgroundColor: 'rgba(10, 10, 10, 0.98)',
+        backgroundColor: 'rgba(10, 14, 20, 0.98)',
         backdropFilter: 'blur(16px)',
         borderTop: '1px solid rgba(255,255,255,0.06)',
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
@@ -94,7 +94,7 @@ export default function MobileTabBar() {
           onClick={() => handleTab(tab)}
           className="flex-1 flex flex-col items-center justify-center gap-1 transition-colors"
           style={{
-            color: active === tab.id ? '#00FF88' : '#5a5a5a',
+            color: active === tab.id ? '#10B981' : '#5a5a5a',
             minHeight: '44px',
           }}
           aria-label={tab.label}

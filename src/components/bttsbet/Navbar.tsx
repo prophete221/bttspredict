@@ -45,7 +45,7 @@ export default function Navbar() {
     <nav
       className="sticky top-0 z-50 transition-all duration-300"
       style={{
-        backgroundColor: scrolled ? 'rgba(10, 10, 10, 0.95)' : 'rgba(10, 10, 10, 0)',
+        backgroundColor: scrolled ? 'rgba(10, 14, 20, 0.95)' : 'rgba(10, 14, 20, 0)',
         backdropFilter: scrolled ? 'blur(16px)' : 'none',
         borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : 'none',
       }}
@@ -59,8 +59,8 @@ export default function Navbar() {
             className="flex items-center gap-2 flex-shrink-0"
             aria-label="BTTSPredict — Retour en haut"
           >
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #00FF88, #00CC6A)' }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #10B981, #059669)' }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0E14" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 3v18h18" /><path d="M7 14l4-4 4 4 5-5" />
               </svg>
             </div>
@@ -77,7 +77,7 @@ export default function Navbar() {
                 onClick={() => scrollToSection(link.scrollTarget!)}
                 className="text-sm font-medium transition-colors"
                 style={{ color: 'rgba(255,255,255,0.6)' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#00FF88'}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#10B981'}
                 onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}
               >
                 {link.label}
@@ -92,9 +92,9 @@ export default function Navbar() {
               onClick={copyCode}
               className="px-2.5 py-1.5 rounded-lg text-[11px] font-mono font-bold transition-all"
               style={{
-                background: 'rgba(0,255,136,0.08)',
-                border: '1px solid rgba(0,255,136,0.2)',
-                color: '#00FF88',
+                background: 'rgba(59, 130, 246,0.08)',
+                border: '1px solid rgba(59, 130, 246,0.2)',
+                color: '#10B981',
               }}
             >
               {copied ? '✓' : SITE.promoCode}
@@ -107,13 +107,13 @@ export default function Navbar() {
               target="_blank"
               className="hidden sm:flex items-center px-4 py-2 rounded-xl text-sm font-bold transition-all"
               style={{
-                background: 'linear-gradient(135deg, #00FF88, #00CC6A)',
-                color: '#0a0a0a',
-                boxShadow: '0 0 0 1px rgba(0,255,136,.3), 0 4px 16px rgba(0,255,136,.15)',
+                background: 'linear-gradient(135deg, #10B981, #059669)',
+                color: '#0A0E14',
+                boxShadow: '0 0 0 1px rgba(59, 130, 246,.3), 0 4px 16px rgba(59, 130, 246,.15)',
               }}
             >
-              <img src="/logos/linebet-icon.svg" alt="" className="w-4 h-4 flex-shrink-0" loading="lazy" />
-              Linebet
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12" /><rect x="2" y="7" width="20" height="5" /><line x1="12" y1="22" x2="12" y2="7" /><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" /><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" /></svg>
+              S'inscrire
             </a>
 
             {/* Hamburger */}
@@ -145,7 +145,7 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
             className="md:hidden overflow-hidden"
-            style={{ backgroundColor: '#0a0a0a', borderTop: '1px solid rgba(255,255,255,0.06)' }}
+            style={{ backgroundColor: '#0A0E14', borderTop: '1px solid rgba(255,255,255,0.06)' }}
           >
             <div className="px-4 py-4 space-y-1">
               {NAV_LINKS.map((link) => (
@@ -154,7 +154,7 @@ export default function Navbar() {
                   onClick={() => link.scrollTarget && scrollToSection(link.scrollTarget)}
                   className="block w-full text-left py-3 px-3 rounded-lg text-sm font-medium transition-colors"
                   style={{ color: 'rgba(255,255,255,0.7)' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(0,255,136,0.06)'; e.currentTarget.style.color = '#00FF88' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(59, 130, 246,0.06)'; e.currentTarget.style.color = '#10B981' }}
                   onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = 'rgba(255,255,255,0.7)' }}
                 >
                   {link.label}
@@ -165,12 +165,12 @@ export default function Navbar() {
               <div className="pt-3 grid grid-cols-2 gap-2">
                 <a href={AFFILIATE.linebet} rel="sponsored noopener" target="_blank"
                   className="flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold"
-                  style={{ background: 'linear-gradient(135deg, #00FF88, #00CC6A)', color: '#0a0a0a' }}>
+                  style={{ background: 'linear-gradient(135deg, #10B981, #059669)', color: '#0A0E14' }}>
                   Linebet
                 </a>
                 <a href={AFFILIATE.star888} rel="sponsored noopener" target="_blank"
                   className="flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold"
-                  style={{ background: '#FFB800', color: '#0a0a0a' }}>
+                  style={{ background: '#F59E0B', color: '#0A0E14' }}>
                   888starz
                 </a>
               </div>

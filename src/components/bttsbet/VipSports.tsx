@@ -30,11 +30,11 @@ type SportVip = {
 
 // Per-sport accent colors (CSS variables)
 const SPORT_COLORS: Record<SportColor, { hex: string; light: string; cssVar: string }> = {
-  gold:   { hex: '#FFB800', light: '#FFD54F', cssVar: 'gold' },
+  gold:   { hex: '#F59E0B', light: '#FCD34D', cssVar: 'gold' },
   orange: { hex: '#FF9500', light: '#FFB155', cssVar: 'orange' },
   bronze: { hex: '#CD7F32', light: '#E0A84F', cssVar: 'bronze' },
   red:    { hex: '#FF7A93', light: '#FF7A93', cssVar: 'lose' },
-  cyan:   { hex: '#00E0FF', light: '#5DEDBE', cssVar: 'live' },
+  cyan:   { hex: '#1E40AF', light: '#5DEDBE', cssVar: 'live' },
 }
 
 const SPORTS: SportVip[] = [
@@ -328,7 +328,7 @@ function VipSportPanel({ sport, onUnlock }: { sport: SportVip; onUnlock: () => v
 
           {/* Lock overlay */}
           <div className="absolute inset-0 flex items-center justify-center rounded-lg pointer-events-none"
-            style={{ backgroundColor: 'rgba(10, 10, 10, 0.85)' }}>
+            style={{ backgroundColor: 'rgba(10, 14, 20, 0.85)' }}>
             <motion.div
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}

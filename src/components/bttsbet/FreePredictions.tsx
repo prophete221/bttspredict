@@ -311,7 +311,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-1.5">
               <div className="w-5 h-5 rounded bg-success/15 border border-success/30 flex items-center justify-center">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#00E0FF" strokeWidth="2.5">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" strokeWidth="2.5">
                   <circle cx="12" cy="12" r="10" />
                   <path d="M8 14s1.5 2 4 2 4-2 4-2" />
                   <line x1="9" y1="9" x2="9.01" y2="9" />
@@ -334,7 +334,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
               {/* BTTS prediction — always available (Poisson fallback) */}
               <>
                 <div className="flex items-baseline justify-between">
-                  <span className="text-xl sm:text-2xl font-bold" style={{ color: bttsPred.prediction === 'Oui' ? undefined : '#5A6577' }} >
+                  <span className="text-xl sm:text-2xl font-bold" style={{ color: bttsPred.prediction === 'Oui' ? undefined : '#475569' }} >
                     <span className={bttsPred.prediction === 'Oui' ? 'text-success-light' : ''}>{bttsPred.prediction}</span>
                   </span>
                   <span className="text-xs font-bold text-gray-400 tabular-nums">{bttsPred.confidence}%</span>
@@ -363,7 +363,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
               {/* Over 2.5 prediction — always available (Poisson fallback) */}
               <>
                 <div className="flex items-baseline justify-between">
-                  <span className="text-xl sm:text-2xl font-bold" style={{ color: over25Pred.prediction === 'Oui' ? undefined : '#5A6577' }}>
+                  <span className="text-xl sm:text-2xl font-bold" style={{ color: over25Pred.prediction === 'Oui' ? undefined : '#475569' }}>
                     <span className={over25Pred.prediction === 'Oui' ? 'text-gold-light' : ''}>{over25Pred.prediction}</span>
                   </span>
                   <span className="text-xs font-bold text-gray-400 tabular-nums">{over25Pred.confidence}%</span>

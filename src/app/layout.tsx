@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     default: "BttsBet — Pronostics IA Football VIP | Code Promo VISION221",
     template: "%s | BttsBet",
   },
-  description: "Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF (150$). Pronostics BTTS & Over 2.5 générés par IA (précision historique VIP). ",
+  description: "Code promo Linebet Sénégal VISION221 — Pronostics BTTS & Over 2.5 générés par IA (précision historique VIP). ",
   keywords: [
     "BTTS", "Over 2.5", "pronostics football", "IA", "intelligence artificielle",
     "paris sportifs", "VISION221", "BttsBet",
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   openGraph: {
     title: "BttsBet — Pronostics IA Football VIP | Code Promo VISION221",
-    description: "Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF. Pronostics IA BTTS & Over 2.5 (précision historique VIP). ",
+    description: "Code promo Linebet Sénégal VISION221 — Pronostics IA BTTS & Over 2.5 (précision historique VIP). ",
     url: "https://bttspredict.com",
     siteName: "BttsBet",
     type: "website",
@@ -84,7 +84,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "BttsBet — Pronostics IA Football VIP | Code Promo VISION221",
-    description: "Pronostics IA football ~87% (historique). Code VISION221 = Bonus 90 000 XOF sur Linebet. ",
+    description: "Pronostics IA football ~87% (historique). Code VISION221 = ",
     images: ["/og-image.png"],
   },
   category: "sports",

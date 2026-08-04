@@ -177,8 +177,8 @@ function AviatorMiniChart({ rounds }: { rounds: AviatorRound[] }) {
       <svg className="absolute inset-2" viewBox="0 0 100 60" preserveAspectRatio="none">
         <defs>
           <linearGradient id="avi-grad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#FFB800" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#FFB800" stopOpacity="0" />
+            <stop offset="0%" stopColor="#F59E0B" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#F59E0B" stopOpacity="0" />
           </linearGradient>
         </defs>
         <polyline
@@ -188,7 +188,7 @@ function AviatorMiniChart({ rounds }: { rounds: AviatorRound[] }) {
             return `${x},${y}`
           }).join(' ')}
           fill="none"
-          stroke="#FFB800"
+          stroke="#F59E0B"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -211,7 +211,7 @@ function AviatorMiniChart({ rounds }: { rounds: AviatorRound[] }) {
 
       {/* Provably fair badge */}
       <div className="absolute left-2 top-2 flex items-center gap-1 text-[8px] text-gray-500 uppercase tracking-widest font-bold">
-        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#00E0FF" strokeWidth="3">
+        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" strokeWidth="3">
           <polyline points="20 6 9 17 4 12" />
         </svg>
         Provably Fair
@@ -341,7 +341,7 @@ export default function AviatorVip() {
 
                 {/* Lock overlay */}
                 <div className="absolute inset-0 flex items-center justify-center rounded-lg pointer-events-none"
-                style={{ backgroundColor: 'rgba(10, 10, 10, 0.85)' }}>
+                style={{ backgroundColor: 'rgba(10, 14, 20, 0.85)' }}>
                   <motion.div
                     initial={{ scale: 0.9 }}
                     animate={{ scale: 1 }}

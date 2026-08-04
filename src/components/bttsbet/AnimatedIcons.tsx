@@ -39,20 +39,20 @@ export function AIBrain({ size = 48, className = '' }: { size?: number; classNam
     <div className={`relative ${className}`}>
       <div className="animate-pulse-scale" style={{ width: size, height: size }}>
         <svg width={size} height={size} viewBox="0 0 48 48" fill="none">
-          <circle cx="24" cy="24" r="20" stroke="#00E0FF" strokeWidth="1" opacity="0.2" />
+          <circle cx="24" cy="24" r="20" stroke="#1E40AF" strokeWidth="1" opacity="0.2" />
           {/* Brain shape */}
-          <path d="M16 28c0-6 3-10 8-12 5 2 8 6 8 12" stroke="#00E0FF" strokeWidth="1.5" fill="none" />
-          <path d="M16 28c-2-1-3-4-2-7s4-5 6-5" stroke="#00E0FF" strokeWidth="1.5" fill="none" />
-          <path d="M32 28c2-1 3-4 2-7s-4-5-6-5" stroke="#00E0FF" strokeWidth="1.5" fill="none" />
-          <path d="M20 20c1-3 3-5 4-6" stroke="#00E0FF" strokeWidth="1" opacity="0.5" />
-          <path d="M28 20c-1-3-3-5-4-6" stroke="#00E0FF" strokeWidth="1" opacity="0.5" />
+          <path d="M16 28c0-6 3-10 8-12 5 2 8 6 8 12" stroke="#1E40AF" strokeWidth="1.5" fill="none" />
+          <path d="M16 28c-2-1-3-4-2-7s4-5 6-5" stroke="#1E40AF" strokeWidth="1.5" fill="none" />
+          <path d="M32 28c2-1 3-4 2-7s-4-5-6-5" stroke="#1E40AF" strokeWidth="1.5" fill="none" />
+          <path d="M20 20c1-3 3-5 4-6" stroke="#1E40AF" strokeWidth="1" opacity="0.5" />
+          <path d="M28 20c-1-3-3-5-4-6" stroke="#1E40AF" strokeWidth="1" opacity="0.5" />
           {/* Neural connections */}
-          <circle cx="20" cy="22" r="1.5" fill="#00E0FF" opacity="0.8" />
-          <circle cx="28" cy="22" r="1.5" fill="#00E0FF" opacity="0.8" />
-          <circle cx="24" cy="26" r="1.5" fill="#00E0FF" opacity="0.6" />
-          <line x1="20" y1="22" x2="24" y2="26" stroke="#00E0FF" strokeWidth="0.5" opacity="0.4" />
-          <line x1="28" y1="22" x2="24" y2="26" stroke="#00E0FF" strokeWidth="0.5" opacity="0.4" />
-          <line x1="20" y1="22" x2="28" y2="22" stroke="#00E0FF" strokeWidth="0.5" opacity="0.3" />
+          <circle cx="20" cy="22" r="1.5" fill="#1E40AF" opacity="0.8" />
+          <circle cx="28" cy="22" r="1.5" fill="#1E40AF" opacity="0.8" />
+          <circle cx="24" cy="26" r="1.5" fill="#1E40AF" opacity="0.6" />
+          <line x1="20" y1="22" x2="24" y2="26" stroke="#1E40AF" strokeWidth="0.5" opacity="0.4" />
+          <line x1="28" y1="22" x2="24" y2="26" stroke="#1E40AF" strokeWidth="0.5" opacity="0.4" />
+          <line x1="20" y1="22" x2="28" y2="22" stroke="#1E40AF" strokeWidth="0.5" opacity="0.3" />
           {/* Sparkle */}
           <circle cx="24" cy="14" r="1" fill="#FACC15" opacity="0.6">
             <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite" />
@@ -79,7 +79,7 @@ export function RocketIcon({ size = 48, className = '' }: { size?: number; class
           {/* Rocket body */}
           <path d="M24 6 C20 14 18 24 18 32 L30 32 C30 24 28 14 24 6Z" fill="#FACC15" opacity="0.2" stroke="#FACC15" strokeWidth="1.5" />
           {/* Window */}
-          <circle cx="24" cy="20" r="3" fill="#00E0FF" opacity="0.5" stroke="#00E0FF" strokeWidth="1" />
+          <circle cx="24" cy="20" r="3" fill="#1E40AF" opacity="0.5" stroke="#1E40AF" strokeWidth="1" />
           {/* Fins */}
           <path d="M18 28 L12 34 L18 32Z" fill="#FACC15" opacity="0.3" />
           <path d="M30 28 L36 34 L30 32Z" fill="#FACC15" opacity="0.3" />
@@ -87,10 +87,10 @@ export function RocketIcon({ size = 48, className = '' }: { size?: number; class
           <circle cx="10" cy="12" r="1" fill="#FACC15" opacity="0.4">
             <animate attributeName="opacity" values="0.2;0.8;0.2" dur="1.5s" repeatCount="indefinite" />
           </circle>
-          <circle cx="38" cy="16" r="0.8" fill="#00E0FF" opacity="0.3">
+          <circle cx="38" cy="16" r="0.8" fill="#1E40AF" opacity="0.3">
             <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2s" repeatCount="indefinite" />
           </circle>
-          <circle cx="36" cy="8" r="0.6" fill="#00E0FF" opacity="0.3">
+          <circle cx="36" cy="8" r="0.6" fill="#1E40AF" opacity="0.3">
             <animate attributeName="opacity" values="0.2;0.7;0.2" dur="1.8s" repeatCount="indefinite" />
           </circle>
         </svg>
@@ -113,10 +113,10 @@ export function CrownIcon({ size = 48, className = '' }: { size?: number; classN
           {/* Crown band */}
           <rect x="8" y="32" width="32" height="4" rx="1" fill="#FACC15" opacity="0.2" stroke="#FACC15" strokeWidth="1" />
           {/* Jewels */}
-          <circle cx="16" cy="30" r="2" fill="#00E0FF" opacity="0.7">
+          <circle cx="16" cy="30" r="2" fill="#1E40AF" opacity="0.7">
             <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
           </circle>
-          <circle cx="24" cy="28" r="2" fill="#00E0FF" opacity="0.7">
+          <circle cx="24" cy="28" r="2" fill="#1E40AF" opacity="0.7">
             <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite" />
           </circle>
           <circle cx="32" cy="30" r="2" fill="#4ADE80" opacity="0.7">
@@ -145,10 +145,10 @@ export function GameController({ size = 48, className = '' }: { size?: number; c
           <rect x="14" y="23" width="3" height="8" rx="1" fill="#FACC15" opacity="0.4" />
           <rect x="11" y="26" width="8" height="3" rx="1" fill="#FACC15" opacity="0.4" />
           {/* Buttons */}
-          <circle cx="32" cy="24" r="2" fill="#00E0FF" opacity="0.5" />
+          <circle cx="32" cy="24" r="2" fill="#1E40AF" opacity="0.5" />
           <circle cx="36" cy="27" r="2" fill="#FACC15" opacity="0.5" />
           <circle cx="28" cy="27" r="2" fill="#4ADE80" opacity="0.5" />
-          <circle cx="32" cy="30" r="2" fill="#00E0FF" opacity="0.5" />
+          <circle cx="32" cy="30" r="2" fill="#1E40AF" opacity="0.5" />
           {/* Antenna / signal */}
           <path d="M24 18 L24 12" stroke="#FACC15" strokeWidth="1" opacity="0.3" />
           <path d="M20 14 Q24 8 28 14" stroke="#FACC15" strokeWidth="0.8" fill="none" opacity="0.2">
@@ -182,7 +182,7 @@ export function StatsIcon({ size = 48, className = '' }: { size?: number; classN
             <animate attributeName="height" values="18;26;18" dur="4s" repeatCount="indefinite" />
             <animate attributeName="y" values="22;14;22" dur="4s" repeatCount="indefinite" />
           </rect>
-          <rect x="35" y="8" width="6" height="32" rx="1" fill="#00E0FF" opacity="0.3">
+          <rect x="35" y="8" width="6" height="32" rx="1" fill="#1E40AF" opacity="0.3">
             <animate attributeName="height" values="24;32;24" dur="3.2s" repeatCount="indefinite" />
             <animate attributeName="y" values="16;8;16" dur="3.2s" repeatCount="indefinite" />
           </rect>
@@ -259,7 +259,7 @@ export function SectionIcon({ children, color = '#FACC15', size = 56 }: {
 // ─── Floating Particles Background ───
 export function FloatingParticles({ count = 12, className = '' }: { count?: number; className?: string }) {
   const particles = Array.from({ length: count }, (_, i) => {
-    const colors = ['#FACC15', '#00E0FF', '#FDE047', '#4ADE80']
+    const colors = ['#FACC15', '#1E40AF', '#FDE047', '#4ADE80']
     const color = colors[i % colors.length]
     const size = 2 + (i % 3) * 1.5
     const left = ((i * 37 + 13) % 100)

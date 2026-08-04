@@ -8,12 +8,12 @@ import CopyableCode from './CopyableCode'
 
 // ─── Palette BTTSPredict (Noir / Vert néon / Blanc) ────────────────────
 const C = {
-  bg:       '#0a0a0a',
-  card:     '#141414',
-  elevated: '#1a1a1a',
+  bg:       '#0A0E14',
+  card:     '#0F172A',
+  elevated: '#1E293B',
   border:   'rgba(255,255,255,0.08)',
-  neon:     '#00FF88',
-  neonDk:   '#00CC6A',
+  neon:     '#10B981',
+  neonDk:   '#059669',
   text:     '#ffffff',
   textSec:  '#a0a0a0',
   textMute: '#5a5a5a',
@@ -100,7 +100,7 @@ function NextMatchPreview() {
             <img src={match.homeLogo} alt={home} className="w-10 h-10 object-contain" loading="lazy" />
           ) : (
             <div className="w-10 h-10 rounded-full flex items-center justify-center text-[14px] font-bold"
-              style={{ background: 'rgba(0,255,136,0.1)', color: C.neon }}>
+              style={{ background: 'rgba(59, 130, 246,0.1)', color: C.neon }}>
               {home.slice(0, 2).toUpperCase()}
             </div>
           )}
@@ -119,7 +119,7 @@ function NextMatchPreview() {
             <img src={match.awayLogo} alt={away} className="w-10 h-10 object-contain" loading="lazy" />
           ) : (
             <div className="w-10 h-10 rounded-full flex items-center justify-center text-[14px] font-bold"
-              style={{ background: 'rgba(0,255,136,0.1)', color: C.neon }}>
+              style={{ background: 'rgba(59, 130, 246,0.1)', color: C.neon }}>
               {away.slice(0, 2).toUpperCase()}
             </div>
           )}
@@ -143,7 +143,7 @@ function NextMatchPreview() {
             animate={{ width: `${match.confidence}%` }}
             transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
             className="h-full rounded-full"
-            style={{ background: 'var(--grad-primary, linear-gradient(90deg, #00FF88, #00CC6A))', boxShadow: '0 0 8px rgba(0,255,136,0.4)' }}
+            style={{ background: 'var(--grad-primary, linear-gradient(90deg, #10B981, #059669))', boxShadow: '0 0 8px rgba(59, 130, 246,0.4)' }}
           />
         </div>
       </div>
@@ -173,7 +173,7 @@ export default function Hero() {
     >
       {/* Mesh gradient background */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(60% 50% at 20% 0%, rgba(0,255,136,0.08) 0%, transparent 60%), radial-gradient(50% 50% at 85% 10%, rgba(0,255,136,0.04) 0%, transparent 60%)'
+        background: 'radial-gradient(60% 50% at 20% 0%, rgba(59, 130, 246,0.08) 0%, transparent 60%), radial-gradient(50% 50% at 85% 10%, rgba(59, 130, 246,0.04) 0%, transparent 60%)'
       }} />
 
       <div className="relative z-10 max-w-[420px] mx-auto px-4 flex flex-col gap-4">
@@ -184,7 +184,7 @@ export default function Hero() {
           animate={isVisible ? { opacity: 1, y: 0 } : undefined}
           transition={{ duration: 0.4 }}
           className="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full"
-          style={{ background: 'rgba(0,255,136,0.08)', border: '1px solid rgba(0,255,136,0.2)' }}
+          style={{ background: 'rgba(59, 130, 246,0.08)', border: '1px solid rgba(59, 130, 246,0.2)' }}
         >
           <span className="w-2 h-2 rounded-full live-dot" style={{ backgroundColor: C.neon, boxShadow: '0 0 8px ' + C.neon }} />
           <span className="font-mono text-[10px] font-bold tracking-[0.14em]" style={{ color: C.neon }}>
@@ -221,13 +221,13 @@ export default function Hero() {
             href={AFFILIATE.linebet}
             rel="sponsored noopener"
             target="_blank"
-            whileHover={{ scale: 1.02, boxShadow: '0 8px 30px rgba(0, 255, 136, 0.4)' }}
+            whileHover={{ scale: 1.02, boxShadow: '0 8px 30px rgba(16, 185, 129, 0.4)' }}
             whileTap={{ scale: 0.98 }}
             className="w-full h-[56px] rounded-[14px] font-bold text-[15px] flex items-center justify-center gap-2"
             style={{
-              background: 'linear-gradient(135deg, #00FF88 0%, #00CC6A 100%)',
-              color: '#0a0a0a',
-              boxShadow: '0 0 0 1px rgba(0,255,136,.4), 0 8px 32px rgba(0,255,136,.22)',
+              background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+              color: '#0A0E14',
+              boxShadow: '0 0 0 1px rgba(59, 130, 246,.4), 0 8px 32px rgba(59, 130, 246,.22)',
             }}
             aria-label="S'inscrire sur Linebet avec le code promo VISION221"
             data-cta="hero-primary"
@@ -235,8 +235,8 @@ export default function Hero() {
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
             </svg>
-            <img src="/logos/linebet.svg" alt="Linebet" className="h-4 w-auto flex-shrink-0" loading="lazy" />
-            S'inscrire sur Linebet · 90 000 XOF
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12" /><rect x="2" y="7" width="20" height="5" /><line x1="12" y1="22" x2="12" y2="7" /><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" /><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" /></svg>
+            S'inscrire sur Linebet
           </motion.a>
 
           <motion.button

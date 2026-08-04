@@ -64,7 +64,7 @@ export default function StickyCTABar() {
             className="flex items-center gap-2 px-3 py-2.5 backdrop-blur-xl"
             style={{
               backgroundColor: 'rgba(11, 14, 20, 0.95)',
-              borderTop: '1px solid rgba(0, 229, 160, 0.2)',
+              borderTop: '1px solid rgba(16, 185, 129, 0.2)',
               boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.4)',
             }}
           >
@@ -73,18 +73,18 @@ export default function StickyCTABar() {
               onClick={copyCode}
               className="flex items-center gap-2 px-3 h-[48px] rounded-[12px] flex-shrink-0 transition-all"
               style={{
-                backgroundColor: copied ? 'rgba(0, 229, 160, 0.12)' : 'rgba(255, 255, 255, 0.04)',
-                border: '1px solid ' + (copied ? 'rgba(0, 229, 160, 0.3)' : 'rgba(255, 255, 255, 0.12)'),
+                backgroundColor: copied ? 'rgba(16, 185, 129, 0.12)' : 'rgba(255, 255, 255, 0.04)',
+                border: '1px solid ' + (copied ? 'rgba(16, 185, 129, 0.3)' : 'rgba(255, 255, 255, 0.12)'),
               }}
               aria-label="Copier le code promo VISION221"
               data-cta="sticky-copy"
             >
               {copied ? (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00E5A0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
               ) : (
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
               )}
-              <span className="font-mono text-[13px] font-bold" style={{ color: copied ? '#00E5A0' : '#F2F6FA' }}>
+              <span className="font-mono text-[13px] font-bold" style={{ color: copied ? '#10B981' : '#F2F6FA' }}>
                 {copied ? 'Copié!' : SITE.promoCode}
               </span>
             </button>
@@ -96,14 +96,14 @@ export default function StickyCTABar() {
               target="_blank"
               className="flex-1 flex items-center justify-center gap-1.5 h-[48px] rounded-[12px] font-bold text-[14px]"
               style={{
-                backgroundColor: '#00E5A0',
+                backgroundColor: '#10B981',
                 color: '#04070A',
                 boxShadow: '0 0 0 1px rgba(0,229,160,.4), 0 4px 16px rgba(0,229,160,.22)',
               }}
               data-cta="sticky-register"
             >
-              <img src="/logos/linebet-icon.svg" alt="" className="w-4 h-4 flex-shrink-0" loading="lazy" />
-              Linebet · 90K
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12" /><rect x="2" y="7" width="20" height="5" /><line x1="12" y1="22" x2="12" y2="7" /><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" /><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" /></svg>
+              S'inscrire
             </a>
 
             {/* Dismiss button */}
