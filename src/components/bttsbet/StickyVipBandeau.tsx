@@ -35,7 +35,7 @@ export default function StickyVipBandeau() {
   }
 
   return (
-    <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 -mt-4 mb-1">
+    <div className="relative z-30 max-w-[440px] sm:max-w-2xl mx-auto px-4 sm:px-6 -mt-4 mb-1">
       <AnimatePresence>
         {visible && (
           <motion.div

@@ -65,8 +65,8 @@ export default function HowItWorks() {
   const [ref, isVisible] = useScrollAnimation()
 
   return (
-    <section ref={ref} id="how-it-works" className="section-pad">
-      <div className="max-w-6xl mx-auto">
+    <section ref={ref} id="how-it-works" className="section-pad overflow-x-hidden">
+      <div className="max-w-[440px] sm:max-w-2xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}

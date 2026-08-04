@@ -397,8 +397,8 @@ export default function VipSports() {
 
   return (
     <>
-      <section ref={ref} id="vip-sports" className="section-pad">
-        <div className="max-w-5xl mx-auto">
+      <section ref={ref} id="vip-sports" className="section-pad overflow-x-hidden">
+        <div className="max-w-[440px] sm:max-w-2xl mx-auto">
           {/* Clean SEO title (was keyword stuffing — fixed bug 2.4) */}
           <h2 className="sr-only">VIP Multi-Sports — Tennis, NBA, NFL, UFC, Handball</h2>
 

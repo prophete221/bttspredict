@@ -153,7 +153,7 @@ export default function Home() {
       {/* Main Content — ordre optimisé pour conversion (CRO brief section 5.11)
           Hero → Pronostics gratuits → Historique/Preuve → Coupon VIP → Multi-Sports →
           Value Bets → Aviator → Méthode IA → À propos → Témoignages (Footer) → FAQ (Footer) */}
-      <main id="main-content" className="relative z-10">
+      <main id="main-content" className="relative z-10" style={{ paddingBottom: 'calc(56px + env(safe-area-inset-bottom, 0px))' }}>
         <ErrorBoundary><Navbar /></ErrorBoundary>
         <ErrorBoundary><Hero /></ErrorBoundary>
         <ErrorBoundary><LiveTicker /></ErrorBoundary>

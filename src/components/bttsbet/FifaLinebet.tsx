@@ -120,8 +120,8 @@ export default function FifaLinebet() {
 
   return (
     <>
-      <section ref={ref} id="fifa-linebet" className="section-pad pt-0">
-        <div className="max-w-5xl mx-auto">
+      <section ref={ref} id="fifa-linebet" className="section-pad overflow-x-hidden pt-0">
+        <div className="max-w-[440px] sm:max-w-2xl mx-auto">
           {/* Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

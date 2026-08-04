@@ -155,7 +155,7 @@ export default function LiveTicker() {
   if (loading) {
     return (
       <div className="relative z-20 -mt-2 mb-0">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-[440px] sm:max-w-2xl mx-auto px-4 sm:px-6">
           <div className="relative overflow-hidden glass-card border border-edge h-12 animate-pulse" />
         </div>
       </div>
@@ -176,7 +176,7 @@ export default function LiveTicker() {
 
   return (
     <div className="relative z-20 -mt-2 mb-0">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-[440px] sm:max-w-2xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}

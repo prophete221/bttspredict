@@ -531,7 +531,7 @@ export default function FreePredictions() {
   }), [matches])
 
   return (
-    <section ref={ref} id="free-predictions" className="section-pad" style={{ paddingTop: 0, paddingBottom: 'clamp(2rem, 5vw, 4rem)' }}>
+    <section ref={ref} id="free-predictions" className="section-pad overflow-x-hidden" style={{ paddingTop: 0, paddingBottom: 'clamp(2rem, 5vw, 4rem)' }}>
       {/* H2 for SEO (hidden visually) */}
       <h2 className="sr-only">Pronostics IA du jour — BTTS et Over 2.5 gratuits</h2>
       <div className="max-w-[440px] mx-auto">

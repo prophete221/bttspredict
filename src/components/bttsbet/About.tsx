@@ -57,8 +57,8 @@ export default function About() {
   const [ref, isVisible] = useScrollAnimation()
 
   return (
-    <section ref={ref} id="about" className="section-pad">
-      <div className="max-w-6xl mx-auto">
+    <section ref={ref} id="about" className="section-pad overflow-x-hidden">
+      <div className="max-w-[440px] sm:max-w-2xl mx-auto">
         {/* ── ABOUT ── */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -72,7 +72,7 @@ export default function About() {
             <br />
             des parieurs <span className="text-success">pros africains</span>
           </h2>
-          <p className="section-subtitle max-w-3xl mx-auto">
+          <p className="section-subtitle max-w-[440px] sm:max-w-2xl mx-auto">
             BttsBet n'est pas un site affilié de plus. C'est une plateforme produit qui connecte
             les parieurs sérieux — au Sénégal, en Côte d'Ivoire, au Mali et au-delà — aux
             meilleurs bookmakers (Linebet, 888starz) via des pronostics IA transparents et fiables.

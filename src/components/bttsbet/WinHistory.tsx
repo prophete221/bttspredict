@@ -277,8 +277,8 @@ export default function WinHistory() {
 
   if (loading) {
     return (
-      <section ref={ref} id="win-history" className="section-pad">
-        <div className="max-w-6xl mx-auto text-center">
+      <section ref={ref} id="win-history" className="section-pad overflow-x-hidden">
+        <div className="max-w-[440px] sm:max-w-2xl mx-auto text-center">
           <div className="inline-block w-10 h-10 rounded-full bg-success/10 animate-pulse" />
           <div className="h-4 w-48 mx-auto mt-3 bg-panel rounded animate-pulse" />
         </div>
@@ -288,8 +288,8 @@ export default function WinHistory() {
 
   if (!winData || historyArr.length === 0) {
     return (
-      <section ref={ref} id="win-history" className="section-pad">
-        <div className="max-w-5xl mx-auto text-center">
+      <section ref={ref} id="win-history" className="section-pad overflow-x-hidden">
+        <div className="max-w-[440px] sm:max-w-2xl mx-auto text-center">
           <div className="flex justify-center mb-2"><TrophyIcon size={40} /></div>
           <h2 className="section-title">Historique des <span className="text-success">Pronostics</span></h2>
           <p className="text-gray-500 text-sm mt-2">Historique en cours de mise à jour…</p>
@@ -299,8 +299,8 @@ export default function WinHistory() {
   }
 
   return (
-    <section ref={ref} id="win-history" className="section-pad">
-      <div className="max-w-6xl mx-auto">
+    <section ref={ref} id="win-history" className="section-pad overflow-x-hidden">
+      <div className="max-w-[440px] sm:max-w-2xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}

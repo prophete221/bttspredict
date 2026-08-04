@@ -38,7 +38,7 @@ export default function Footer() {
 
       {/* Footer */}
       <footer ref={ref} id="faq" className="border-t border-edge/40 pt-10 pb-20 sm:pt-10 sm:pb-8 px-4">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-[440px] sm:max-w-2xl mx-auto">
           {/* Testimonials — Clean grid */}
           <div className="mb-6">
             <div className="text-center mb-3">

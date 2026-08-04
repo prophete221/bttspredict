@@ -239,8 +239,8 @@ export default function AviatorVip() {
 
   return (
     <>
-      <section ref={ref} id="aviator" className="section-pad pt-0">
-        <div className="max-w-5xl mx-auto">
+      <section ref={ref} id="aviator" className="section-pad overflow-x-hidden pt-0">
+        <div className="max-w-[440px] sm:max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : undefined}

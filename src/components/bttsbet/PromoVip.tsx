@@ -103,7 +103,7 @@ export default function PromoVip() {
 
   return (
     <>
-      <section ref={ref} id="vip" className="section-pad relative overflow-hidden" style={{ paddingTop: '24px', paddingBottom: '24px' }}>
+      <section ref={ref} id="vip" className="section-pad overflow-x-hidden relative overflow-hidden" style={{ paddingTop: '24px', paddingBottom: '24px' }}>
         {/* Background glow */}
         <div className="absolute inset-0 pointer-events-none" style={{
           background: 'radial-gradient(50% 30% at 50% 0%, rgba(0,255,136,0.06) 0%, transparent 70%)',
