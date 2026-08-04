@@ -4,7 +4,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 /* ──────────────────────────────────────────────────────────────
    Metadata
    ────────────────────────────────────────────────────────────── */
-const SITE_URL = 'https://bttsbet.online'
+const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-linebet-senegal'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Code Promo Linebet Sénégal VISION221 — Bonus 90 000 XOF (150$) | BttsBet'

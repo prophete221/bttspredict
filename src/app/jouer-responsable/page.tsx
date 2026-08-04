@@ -4,7 +4,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 /* ──────────────────────────────────────────────────────────────
    Metadata
    ────────────────────────────────────────────────────────────── */
-const SITE_URL = 'https://bttsbet.online'
+const SITE_URL = 'https://bttspredict.com'
 const PAGE_URL = `${SITE_URL}/jouer-responsable`
 const TITLE = 'Jouer Responsable | BttsBet'
 const DESCRIPTION =
@@ -402,10 +402,10 @@ export default function JouerResponsablePage() {
                   <p className="mt-4">
                     Vous pouvez également nous contacter directement à l&apos;adresse{' '}
                     <a
-                      href="mailto:contact@bttsbet.online"
+                      href="mailto:contact@bttspredict.com"
                       className="text-emerald hover:text-emerald-soft transition-colors underline underline-offset-2"
                     >
-                      contact@bttsbet.online
+                      contact@bttspredict.com
                     </a>{' '}
                     si vous avez des questions ou besoin d&apos;orientation.
                   </p>

@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   description:
     'Découvrez nos articles sur les paris BTTS, la stratégie Over 2,5, la gestion de bankroll et la faille FIFA Linebet. Conseils et analyses IA pour optimiser vos paris sportifs.',
   alternates: {
-    canonical: 'https://bttsbet.online/blog',
+    canonical: 'https://bttspredict.com/blog',
   },
   openGraph: {
     title: 'Blog – Pronostics BTTS & Over 2,5 | BttsBet',
     description:
       'Articles, guides et stratégies BTTS & Over 2,5 propulsés par IA. Maîtrisez vos paris sportifs avec BttsBet.',
-    url: 'https://bttsbet.online/blog',
+    url: 'https://bttspredict.com/blog',
     siteName: 'BttsBet',
     type: 'website',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Blog BttsBet' }],
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 /* ──────────────────────────────────────────────────────────────
    Data
    ────────────────────────────────────────────────────────────── */
-const SITE_URL = 'https://bttsbet.online'
+const SITE_URL = 'https://bttspredict.com'
 
 const articles = [
   {

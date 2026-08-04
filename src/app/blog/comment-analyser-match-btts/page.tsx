@@ -4,7 +4,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 /* ──────────────────────────────────────────────────────────────
    Metadata
    ────────────────────────────────────────────────────────────── */
-const SITE_URL = 'https://bttsbet.online'
+const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'comment-analyser-match-btts'
 const PAGE_URL = `${SITE_URL}/blog/${SLUG}`
 const TITLE = 'Comment Analyser un Match pour le BTTS ? Guide Complet 2026'

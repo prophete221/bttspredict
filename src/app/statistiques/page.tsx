@@ -4,11 +4,11 @@ import StatsDashboard from '@/components/bttsbet/StatsDashboard'
 export const metadata: Metadata = {
   title: "Statistiques — Taux de réussite BTTS & Over 2.5 | BttsBet",
   description: "Tableau de bord statistique BttsBet : courbe de réussite sur 30 jours, répartition par championnat, par type de pronostic, ROI simulé. Données transparentes mises à jour quotidiennement.",
-  alternates: { canonical: 'https://bttsbet.online/statistiques' },
+  alternates: { canonical: 'https://bttspredict.com/statistiques' },
   openGraph: {
     title: "Statistiques — BttsBet",
     description: "Courbe de réussite 30 jours, répartition par ligue, ROI. Transparence totale.",
-    url: 'https://bttsbet.online/statistiques',
+    url: 'https://bttspredict.com/statistiques',
     type: 'website',
   },
 }
@@ -18,8 +18,8 @@ const jsonLd = {
   '@type': 'Dataset',
   name: 'Statistiques BttsBet — Taux de réussite des pronostics IA',
   description: "Tableau de bord transparent des performances des pronostics BTTS et Over 2.5 générés par l'IA BttsBet. Compilé quotidiennement à partir des résultats réels.",
-  url: 'https://bttsbet.online/statistiques',
-  creator: { '@type': 'Organization', name: 'BttsBet', url: 'https://bttsbet.online' },
+  url: 'https://bttspredict.com/statistiques',
+  creator: { '@type': 'Organization', name: 'BttsBet', url: 'https://bttspredict.com' },
   keywords: ['BTTS', 'Over 2.5', 'statistiques', 'taux de réussite', 'pronostics IA'],
   temporalCoverage: 'P30D',
   inLanguage: 'fr',

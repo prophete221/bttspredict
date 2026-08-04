@@ -4,7 +4,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 /* ──────────────────────────────────────────────────────────────
    Metadata
    ────────────────────────────────────────────────────────────── */
-const SITE_URL = 'https://bttsbet.online'
+const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'bonus-888starz'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Bonus 888starz — Code Promo & Inscription | BttsBet'

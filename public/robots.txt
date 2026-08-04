@@ -9,7 +9,7 @@ Allow: /assets/
 Disallow: /api/
 
 # Sitemap
-Sitemap: https://bttsbet.online/sitemap.xml
+Sitemap: https://bttspredict.com/sitemap.xml
 
 # ─── IA Crawlers (ChatGPT, Perplexity, Claude, etc.) ───
 User-agent: ChatGPT-User

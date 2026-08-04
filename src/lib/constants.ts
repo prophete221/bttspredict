@@ -4,7 +4,7 @@
 
 export const SITE = {
   name: 'BttsBet',
-  url: 'https://bttsbet.online',
+  url: 'https://bttspredict.com',
   tagline: "Pronostics football BTTS & Over 2,5 basés sur l'IA pour parieurs sérieux",
   promoCode: 'VISION221',
   accuracy: '~52%',

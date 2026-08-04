@@ -4,7 +4,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 /* ──────────────────────────────────────────────────────────────
    Metadata
    ────────────────────────────────────────────────────────────── */
-const SITE_URL = 'https://bttsbet.online'
+const SITE_URL = 'https://bttspredict.com'
 const PAGE_URL = `${SITE_URL}/politique-confidentialite`
 const TITLE = 'Politique de Confidentialité | BttsBet'
 const DESCRIPTION =
@@ -286,10 +286,10 @@ export default function PolitiqueConfidentialitePage() {
                   <p>
                     Pour exercer vos droits, veuillez nous contacter à l&apos;adresse{' '}
                     <a
-                      href="mailto:contact@bttsbet.online"
+                      href="mailto:contact@bttspredict.com"
                       className="text-emerald hover:text-emerald-soft transition-colors underline underline-offset-2"
                     >
-                      contact@bttsbet.online
+                      contact@bttspredict.com
                     </a>. Nous nous engageons à répondre à votre demande dans un délai maximum de trente (30) jours.
                   </p>
                 </div>
@@ -376,10 +376,10 @@ export default function PolitiqueConfidentialitePage() {
                       <span>
                         <strong className="text-gold">Email :</strong>{' '}
                         <a
-                          href="mailto:contact@bttsbet.online"
+                          href="mailto:contact@bttspredict.com"
                           className="text-emerald hover:text-emerald-soft transition-colors underline underline-offset-2"
                         >
-                          contact@bttsbet.online
+                          contact@bttspredict.com
                         </a>
                       </span>
                     </li>

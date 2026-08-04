@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bttsbet.online"),
+  metadataBase: new URL("https://bttspredict.com"),
   title: {
     default: "BttsBet — Pronostics IA Football ~52% | Code Promo VISION221",
     template: "%s | BttsBet",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   creator: "BttsBet",
   publisher: "BttsBet",
   alternates: {
-    canonical: "https://bttsbet.online/",
+    canonical: "https://bttspredict.com/",
   },
   other: {
     'geo.region': 'SN',
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "BttsBet — Pronostics IA Football ~52% | Code Promo VISION221",
     description: "Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF. Pronostics IA BTTS & Over 2.5 (précision historique ~52%). Dépôt Wave, Orange Money.",
-    url: "https://bttsbet.online",
+    url: "https://bttspredict.com",
     siteName: "BttsBet",
     type: "website",
     locale: "fr_FR",

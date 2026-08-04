@@ -4,7 +4,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 /* ──────────────────────────────────────────────────────────────
    Metadata
    ────────────────────────────────────────────────────────────── */
-const SITE_URL = 'https://bttsbet.online'
+const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'strategie-mise-over-2-5'
 const PAGE_URL = `${SITE_URL}/blog/${SLUG}`
 const TITLE = 'Stratégie de Mise Over 2,5 : Optimiser ses Gains en 2026'

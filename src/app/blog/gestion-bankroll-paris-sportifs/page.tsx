@@ -4,7 +4,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 /* ──────────────────────────────────────────────────────────────
    Metadata
    ────────────────────────────────────────────────────────────── */
-const SITE_URL = 'https://bttsbet.online'
+const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'gestion-bankroll-paris-sportifs'
 const PAGE_URL = `${SITE_URL}/blog/${SLUG}`
 const TITLE = 'Gestion de Bankroll aux Paris Sportifs : Le Guide Ultime 2026'

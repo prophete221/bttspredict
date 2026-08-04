@@ -4,7 +4,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 /* ──────────────────────────────────────────────────────────────
    Metadata
    ────────────────────────────────────────────────────────────── */
-const SITE_URL = 'https://bttsbet.online'
+const SITE_URL = 'https://bttspredict.com'
 const PAGE_URL = `${SITE_URL}/cgu`
 const TITLE = 'Conditions Générales d\'Utilisation | BttsBet'
 const DESCRIPTION =
@@ -413,10 +413,10 @@ export default function CGUPage() {
                       <span>
                         <strong className="text-gold">Email :</strong>{' '}
                         <a
-                          href="mailto:contact@bttsbet.online"
+                          href="mailto:contact@bttspredict.com"
                           className="text-emerald hover:text-emerald-soft transition-colors underline underline-offset-2"
                         >
-                          contact@bttsbet.online
+                          contact@bttspredict.com
                         </a>
                       </span>
                     </li>

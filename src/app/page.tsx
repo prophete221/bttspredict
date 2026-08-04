@@ -27,21 +27,21 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'BttsBet',
-  url: 'https://bttsbet.online',
+  url: 'https://bttspredict.com',
   description: "Pronostics football BTTS & Over 2,5 générés par IA. Value bets FIFA sur Linebet et 888starz. Statistiques Aviator. Code promo VISION221.",
   inLanguage: 'fr',
   potentialAction: {
     '@type': 'SearchAction',
-    target: 'https://bttsbet.online/?q={search_term_string}',
+    target: 'https://bttspredict.com/?q={search_term_string}',
     'query-input': 'required name=search_term_string',
   },
   publisher: {
     '@type': 'Organization',
     name: 'BttsBet',
-    url: 'https://bttsbet.online',
+    url: 'https://bttspredict.com',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://bttsbet.online/favicon.svg',
+      url: 'https://bttspredict.com/favicon.svg',
     },
   },
 }
@@ -99,8 +99,8 @@ const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'BttsBet',
-  url: 'https://bttsbet.online',
-  logo: 'https://bttsbet.online/favicon.svg',
+  url: 'https://bttspredict.com',
+  logo: 'https://bttspredict.com/favicon.svg',
   description: "Plateforme de pronostics football BTTS & Over 2,5 basés sur l'IA. Value bets FIFA sur Linebet et 888starz. Statistiques Aviator.",
   areaServed: ['SN', 'CI', 'CM', 'ML', 'BF', 'FR'],
   knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'IA', 'football', 'value bets FIFA', 'statistiques Aviator'],
@@ -111,10 +111,10 @@ const breadcrumbJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://bttsbet.online/' },
-    { '@type': 'ListItem', position: 2, name: 'Pronostics', item: 'https://bttsbet.online/#free-predictions' },
-    { '@type': 'ListItem', position: 3, name: 'VIP', item: 'https://bttsbet.online/#vip' },
-    { '@type': 'ListItem', position: 4, name: 'Value Bets FIFA', item: 'https://bttsbet.online/#fifa-linebet' },
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://bttspredict.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Pronostics', item: 'https://bttspredict.com/#free-predictions' },
+    { '@type': 'ListItem', position: 3, name: 'VIP', item: 'https://bttspredict.com/#vip' },
+    { '@type': 'ListItem', position: 4, name: 'Value Bets FIFA', item: 'https://bttspredict.com/#fifa-linebet' },
   ],
 }
 

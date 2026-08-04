@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Navbar, Footer } from '@/components/bttsbet'
 
-const SITE_URL = 'https://bttsbet.online'
+const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'faille-fifa'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Faille FIFA Linebet & 888starz : Détecter les Cotes Erronées en 2026'

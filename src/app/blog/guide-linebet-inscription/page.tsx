@@ -4,7 +4,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 /* ──────────────────────────────────────────────────────────────
    Metadata
    ────────────────────────────────────────────────────────────── */
-const SITE_URL = 'https://bttsbet.online'
+const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'guide-linebet-inscription'
 const PAGE_URL = `${SITE_URL}/blog/${SLUG}`
 const TITLE = 'Guide Complet Linebet : Inscription, Dépôt et Code Promo VISION221'

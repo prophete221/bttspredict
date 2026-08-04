@@ -4,7 +4,7 @@ import { Navbar, Footer, WinHistory, ErrorBoundary } from '@/components/bttsbet'
 /* ──────────────────────────────────────────────────────────────
    Metadata
    ────────────────────────────────────────────────────────────── */
-const SITE_URL = 'https://bttsbet.online'
+const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'historique'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Historique Pronostics BttsBet — Résultats Vérifiés BTTS & Over 2.5'

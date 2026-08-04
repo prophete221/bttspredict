@@ -4,11 +4,11 @@ import { AFFILIATE } from '@/lib/constants'
 export const metadata: Metadata = {
   title: "Comparatif Linebet vs 888starz — Bonus, dépôts, cotes | BttsBet",
   description: "Comparaison détaillée des bookmakers Linebet et 888starz au Sénégal : bonus de bienvenue, méthodes de dépôt (Wave, Orange Money, Free Money), cotes, application mobile, code promo VISION221.",
-  alternates: { canonical: 'https://bttsbet.online/bookmakers' },
+  alternates: { canonical: 'https://bttspredict.com/bookmakers' },
   openGraph: {
     title: "Comparatif Linebet vs 888starz — BttsBet",
     description: "Bonus, dépôts Wave/Orange Money, cotes, app mobile. Code promo VISION221.",
-    url: 'https://bttsbet.online/bookmakers',
+    url: 'https://bttspredict.com/bookmakers',
     type: 'website',
   },
 }
@@ -17,10 +17,10 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
   name: 'Comparatif Linebet vs 888starz au Sénégal',
-  url: 'https://bttsbet.online/bookmakers',
+  url: 'https://bttspredict.com/bookmakers',
   description: "Comparaison détaillée des bookmakers Linebet et 888starz : bonus, dépôts, cotes, application mobile.",
   inLanguage: 'fr',
-  isPartOf: { '@type': 'WebSite', name: 'BttsBet', url: 'https://bttsbet.online' },
+  isPartOf: { '@type': 'WebSite', name: 'BttsBet', url: 'https://bttspredict.com' },
 }
 
 type Row = {

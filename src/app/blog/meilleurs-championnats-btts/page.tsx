@@ -4,7 +4,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 /* ──────────────────────────────────────────────────────────────
    Metadata
    ────────────────────────────────────────────────────────────── */
-const SITE_URL = 'https://bttsbet.online'
+const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'meilleurs-championnats-btts'
 const PAGE_URL = `${SITE_URL}/blog/${SLUG}`
 const TITLE = 'Les 10 Meilleurs Championnats pour les Paris BTTS en 2026'
