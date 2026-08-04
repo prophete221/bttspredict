@@ -1,22 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" role="img" aria-label="Tennis">
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" role="img" aria-label="Tennis">
   <defs>
-    <radialGradient id="tennis-ball-grad" cx="0.35" cy="0.3" r="0.8">
-      <stop offset="0%" stop-color="#F0FF8E"/>
-      <stop offset="70%" stop-color="#CCFF00"/>
-      <stop offset="100%" stop-color="#A8D600"/>
+    <radialGradient id="tn-3d" cx="0.3" cy="0.25" r="0.9">
+      <stop offset="0%" stop-color="#F5F5A0"/>
+      <stop offset="60%" stop-color="#E8E855"/>
+      <stop offset="100%" stop-color="#C4C430"/>
     </radialGradient>
-    <filter id="tennis-shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.5"/>
+    <filter id="tn-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.6"/>
     </filter>
   </defs>
-  <circle cx="40" cy="40" r="34" fill="url(#tennis-ball-grad)" filter="url(#tennis-shadow)"/>
-  <!-- Seam curve 1 (top) -->
-  <path d="M 12 30 Q 40 10 68 30" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.95"/>
-  <!-- Seam curve 2 (bottom) -->
-  <path d="M 12 50 Q 40 70 68 50" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.95"/>
-  <!-- Inner shadow on seam -->
-  <path d="M 12 30 Q 40 10 68 30" fill="none" stroke="#A8D600" stroke-width="1" stroke-linecap="round" opacity="0.4" transform="translate(0, 2)"/>
-  <path d="M 12 50 Q 40 70 68 50" fill="none" stroke="#A8D600" stroke-width="1" stroke-linecap="round" opacity="0.4" transform="translate(0, -2)"/>
-  <!-- Highlight -->
-  <ellipse cx="28" cy="25" rx="10" ry="6" fill="#FFFFFF" opacity="0.3"/>
+  <circle cx="50" cy="50" r="45" fill="url(#tn-3d)" filter="url(#tn-shadow)"/>
+  <ellipse cx="38" cy="30" rx="10" ry="6" fill="#FFFFFF" opacity="0.3"/>
+  <path d="M 5 50 Q 50 15 95 50" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.95"/>
+  <path d="M 5 50 Q 50 85 95 50" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.95"/>
 </svg>

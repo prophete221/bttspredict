@@ -22,7 +22,6 @@ export default function CookieConsent() {
       if (!consent) setShow(true)
     }
     queueMicrotask(checkConsent)
-
     const handleReopen = () => { setCustomize(true); setShow(true) }
     window.addEventListener('cookie-consent-reopen', handleReopen)
     return () => window.removeEventListener('cookie-consent-reopen', handleReopen)
@@ -32,17 +31,14 @@ export default function CookieConsent() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({ status: 'accepted', preferences: { essential: true, analytics: true, advertising: true }, timestamp: new Date().toISOString() }))
     setShow(false)
   }
-
   const handleRefuse = () => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({ status: 'refused', preferences: { essential: true, analytics: false, advertising: false }, timestamp: new Date().toISOString() }))
     setShow(false)
   }
-
   const handleSavePreferences = () => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({ status: preferences.analytics || preferences.advertising ? 'customized' : 'refused', preferences, timestamp: new Date().toISOString() }))
     setShow(false)
   }
-
   const togglePreference = (id: string) => {
     if (id === 'essential') return
     setPreferences((prev) => ({ ...prev, [id]: !prev[id as keyof typeof prev] }))
@@ -56,21 +52,22 @@ export default function CookieConsent() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="fixed bottom-0 left-0 right-0 z-[60] bg-dark-900/95 backdrop-blur-md border-t border-white/10 p-4 sm:p-6"
+          className="fixed bottom-0 left-0 right-0 z-[60] p-4 sm:p-6"
+          style={{ backgroundColor: 'rgba(10, 15, 30, 0.98)', backdropFilter: 'blur(16px)', borderTop: '1px solid rgba(0, 229, 255, 0.15)' }}
           role="dialog"
           aria-label="Consentement aux cookies"
         >
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-[440px] sm:max-w-2xl mx-auto">
             <div className="flex flex-col sm:flex-row items-start gap-4 mb-4">
               <div className="flex items-start gap-3 flex-1">
-                <div className="w-10 h-10 bg-emerald/10 rounded-xl flex items-center justify-center text-emerald flex-shrink-0">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(0, 229, 255, 0.1)' }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/>
                   </svg>
                 </div>
                 <div>
                   <h3 className="text-white font-bold text-base mb-1">Consentement aux cookies</h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">Nous utilisons des cookies pour améliorer votre expérience. En continuant, vous acceptez notre utilisation des cookies.</p>
+                  <p className="text-sm text-gray-400 leading-relaxed">Nous utilisons des cookies pour améliorer votre expérience. En continuant, vous acceptez notre utilisation de cookies.</p>
                 </div>
               </div>
             </div>
@@ -78,14 +75,17 @@ export default function CookieConsent() {
             <AnimatePresence>
               {customize && (
                 <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
-                  <div className="bg-dark-800/60 rounded-xl border border-white/5 p-4 mb-4 space-y-3">
+                  <div className="rounded-xl p-4 mb-4 space-y-3" style={{ backgroundColor: 'rgba(15, 20, 36, 0.6)', border: '1px solid rgba(255,255,255,0.06)' }}>
                     {COOKIE_TYPES.map((cookie) => (
                       <label key={cookie.id} className="flex items-start gap-3 cursor-pointer group">
                         <div className="pt-0.5">
                           <input type="checkbox" checked={preferences[cookie.id as keyof typeof preferences]} onChange={() => togglePreference(cookie.id)} disabled={cookie.required} className="sr-only peer" />
-                          <div className={`w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all ${
-                            preferences[cookie.id as keyof typeof preferences] ? 'bg-emerald border-emerald' : 'border-white/20 group-hover:border-white/40'
-                          } ${cookie.required ? 'opacity-70 cursor-not-allowed' : ''}`}>
+                          <div className="w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all"
+                            style={{
+                              backgroundColor: preferences[cookie.id as keyof typeof preferences] ? '#00E5FF' : 'transparent',
+                              borderColor: preferences[cookie.id as keyof typeof preferences] ? '#00E5FF' : 'rgba(255,255,255,0.2)',
+                              opacity: cookie.required ? 0.7 : 1,
+                            }}>
                             {preferences[cookie.id as keyof typeof preferences] && (
                               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0A0F1E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                             )}
@@ -94,7 +94,9 @@ export default function CookieConsent() {
                         <div className="flex-1">
                           <div className="flex items-center gap-2">
                             <span className="text-sm text-white font-medium">{cookie.label}</span>
-                            {cookie.required && (<span className="text-[10px] bg-emerald/15 text-emerald px-2 py-0.5 rounded-full font-medium">Obligatoire</span>)}
+                            {cookie.required && (
+                              <span className="text-[10px] px-2 py-0.5 rounded-full font-medium" style={{ backgroundColor: 'rgba(0,229,255,0.15)', color: '#00E5FF' }}>Obligatoire</span>
+                            )}
                           </div>
                           <p className="text-xs text-gray-500 mt-0.5">{cookie.description}</p>
                         </div>
@@ -106,11 +108,39 @@ export default function CookieConsent() {
             </AnimatePresence>
 
             <div className="flex flex-col sm:flex-row items-center gap-3">
-              <button onClick={() => setCustomize(!customize)} className="text-sm text-gray-400 hover:text-white transition-colors underline underline-offset-2 order-3 sm:order-1">Personnaliser</button>
+              <button onClick={() => setCustomize(!customize)}
+                className="text-sm text-gray-400 hover:text-white transition-colors underline underline-offset-2 order-3 sm:order-1">
+                Personnaliser
+              </button>
               <div className="flex gap-3 sm:ml-auto order-1 sm:order-2 w-full sm:w-auto">
-                <button onClick={handleRefuse} className="flex-1 sm:flex-initial px-5 py-2.5 text-sm border border-white/10 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all font-medium">Refuser</button>
-                {customize && (<button onClick={handleSavePreferences} className="flex-1 sm:flex-initial px-5 py-2.5 text-sm border border-emerald/30 rounded-xl text-emerald hover:bg-emerald/10 transition-all font-medium">Enregistrer</button>)}
-                <button onClick={handleAccept} className="flex-1 sm:flex-initial px-5 py-2.5 text-sm btn-emerald text-dark-900" data-cursor="hover">Accepter</button>
+                <button onClick={handleRefuse}
+                  className="flex-1 sm:flex-initial px-5 py-2.5 text-sm rounded-xl font-medium transition-all"
+                  style={{ border: '1px solid rgba(255,255,255,0.1)', color: '#94A3B8', backgroundColor: 'transparent' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#FFFFFF' }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#94A3B8' }}
+                >
+                  Refuser
+                </button>
+                {customize && (
+                  <button onClick={handleSavePreferences}
+                    className="flex-1 sm:flex-initial px-5 py-2.5 text-sm rounded-xl font-medium transition-all"
+                    style={{ border: '1px solid rgba(0,229,255,0.3)', color: '#00E5FF', backgroundColor: 'transparent' }}
+                  >
+                    Enregistrer
+                  </button>
+                )}
+                <button onClick={handleAccept}
+                  className="flex-1 sm:flex-initial px-5 py-2.5 text-sm rounded-xl font-bold transition-all"
+                  style={{
+                    backgroundColor: '#00E5FF',
+                    color: '#0A0F1E',
+                    boxShadow: '0 0 0 1px rgba(0,229,255,.3), 0 4px 16px rgba(0,229,255,.2)',
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 0 0 1px rgba(0,229,255,.5), 0 8px 24px rgba(0,229,255,.3)'}
+                  onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 0 0 1px rgba(0,229,255,.3), 0 4px 16px rgba(0,229,255,.2)'}
+                >
+                  Accepter
+                </button>
               </div>
             </div>
           </div>
