@@ -141,8 +141,9 @@ export default function VipUnlockModal({
             role="dialog"
             aria-modal="true"
             aria-labelledby="vip-modal-title"
-            className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-midnight border border-gold/30 rounded-2xl shadow-2xl"
-            style={{ boxShadow: '0 32px 80px rgba(0, 0, 0, 0.7), 0 0 60px rgba(255, 184, 0, 0.15)' }}
+            className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl"
+            style={{ backgroundColor: '#141414', border: '1px solid rgba(0,255,136,0.3)' }}
+            style={{ boxShadow: '0 32px 80px rgba(0, 0, 0, 0.7), 0 0 60px rgba(255, 184, 0, 0.2)' }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Top accent */}
@@ -167,7 +168,7 @@ export default function VipUnlockModal({
                 <div
                   className="w-14 h-14 rounded-2xl flex items-center justify-center"
                   style={{
-                    backgroundColor: 'rgba(255, 184, 0, 0.1)',
+                    backgroundColor: 'rgba(255, 184, 0, 0.2)',
                     border: '1px solid rgba(255, 184, 0, 0.3)',
                   }}
                 >
@@ -213,7 +214,7 @@ export default function VipUnlockModal({
                     <li className="flex gap-3">
                       <span
                         className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
-                        style={{ backgroundColor: 'rgba(255, 184, 0, 0.15)', color: '#FFB800' }}
+                        style={{ backgroundColor: 'rgba(255, 184, 0, 0.2)', color: '#FFB800' }}
                       >
                         1
                       </span>
@@ -279,7 +280,7 @@ export default function VipUnlockModal({
                     <li className="flex gap-3">
                       <span
                         className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
-                        style={{ backgroundColor: 'rgba(255, 184, 0, 0.15)', color: '#FFB800' }}
+                        style={{ backgroundColor: 'rgba(255, 184, 0, 0.2)', color: '#FFB800' }}
                       >
                         2
                       </span>
@@ -293,7 +294,7 @@ export default function VipUnlockModal({
                     <li className="flex gap-3">
                       <span
                         className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
-                        style={{ backgroundColor: 'rgba(255, 184, 0, 0.15)', color: '#FFB800' }}
+                        style={{ backgroundColor: 'rgba(255, 184, 0, 0.2)', color: '#FFB800' }}
                       >
                         3
                       </span>

@@ -233,7 +233,8 @@ export default function FifaLinebet() {
                 ))}
 
                 {/* Lock overlay */}
-                <div className="absolute inset-0 flex items-center justify-center bg-midnight/40 backdrop-blur-[2px] rounded-lg pointer-events-none">
+                <div className="absolute inset-0 flex items-center justify-center rounded-lg pointer-events-none"
+                style={{ backgroundColor: 'rgba(10, 10, 10, 0.85)' }}>
                   <motion.div
                     initial={{ scale: 0.9 }}
                     animate={{ scale: 1 }}

@@ -150,7 +150,8 @@ export default function PromoVip() {
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="rounded-[16px] overflow-hidden glass"
+            className="rounded-[16px] overflow-hidden"
+          style={{ backgroundColor: '#141414', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 8px 30px rgba(0,0,0,0.4)' }}
             style={{ boxShadow: '0 8px 30px rgba(0,0,0,0.4)' }}
           >
             {/* Top accent line */}
@@ -199,7 +200,7 @@ export default function PromoVip() {
               {/* Lock overlay */}
               <div className="relative flex items-center justify-center py-3 mt-1">
                 <div className="absolute inset-0 flex items-center justify-center" style={{
-                  background: 'linear-gradient(180deg, transparent 0%, rgba(10,10,10,0.8) 50%)',
+                  background: 'rgba(10, 10, 10, 0.9)',
                 }}>
                   <motion.button
                     onClick={() => setShowVipModal(true)}
@@ -237,7 +238,8 @@ export default function PromoVip() {
             initial={{ opacity: 0, y: 8 }}
             animate={isVisible ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.4, delay: 0.4 }}
-            className="mt-3 flex items-center justify-between gap-3 px-4 py-3 rounded-[14px] glass"
+            className="mt-3 flex items-center justify-between gap-3 px-4 py-3 rounded-[14px]"
+          style={{ backgroundColor: '#141414', border: '1px solid rgba(255,255,255,0.08)' }}
           >
             <div>
               <div className="text-[10px] uppercase tracking-widest font-bold" style={{ color: C.textMute }}>Code promo</div>
