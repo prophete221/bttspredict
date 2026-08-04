@@ -76,7 +76,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/
           server-dir: ./
-          clear-obsolete-files: false
+          dangerous-clean-slate: true
           exclude: |
             **/.git*
             **/node_modules/**
