@@ -27,20 +27,23 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://bttspredict.com"),
   title: {
-    default: "BttsBet — Pronostics IA Football VIP | Code Promo VISION221",
-    template: "%s | BttsBet",
+    default: "BTTSPredict — N°1 des Prédictions BTTS par IA | Both Teams To Score",
+    template: "%s | BTTSPredict",
   },
-  description: "Code promo Linebet Sénégal VISION221 — Pronostics BTTS & Over 2.5 générés par IA (précision historique VIP). ",
+  description: "N°1 des prédictions BTTS par IA. 50+ pronos Both Teams To Score fiables chaque jour. Modèles Poisson calibrés sur 50 000 matchs. Résultats vérifiés et transparents. Code promo VISION221.",
   keywords: [
-    "BTTS", "Over 2.5", "pronostics football", "IA", "intelligence artificielle",
-    "paris sportifs", "VISION221", "BttsBet",
-    "value bets FIFA", "pronostic FIFA esport", "statistiques Aviator",
-    "bonus paris sportifs",
-    "pronostics gratuits", "pronostics Sénégal", "paris sportifs",
+    "BTTS", "Both Teams To Score", "pronostics BTTS", "pronostics football IA",
+    "Over 2.5", "prédictions football", "intelligence artificielle paris",
+    "pronostics fiables", "meilleur site pronostics", "pronostics gratuits",
+    "VISION221", "BTTSPredict", "paris sportifs IA",
+    "pronostics Sénégal", "pronostics Afrique",
+    "modèle Poisson football", "xG pronostics", "statistiques football",
   ],
-  authors: [{ name: "BttsBet" }],
-  creator: "BttsBet",
-  publisher: "BttsBet",
+  authors: [
+    { name: "BTTSPredict", url: "https://bttspredict.com" },
+  ],
+  creator: "BTTSPredict",
+  publisher: "BTTSPredict",
   alternates: {
     canonical: "https://bttspredict.com/",
   },
@@ -55,6 +58,8 @@ export const metadata: Metadata = {
     'revisit-after': '1 day',
     'googlebot': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
     'bingbot': 'index, follow, max-image-preview:large',
+    'author': 'BTTSPredict',
+    'referrer': 'strict-origin-when-cross-origin',
   },
   robots: {
     index: true,
@@ -73,25 +78,28 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "BttsBet — Pronostics IA Football VIP | Code Promo VISION221",
-    description: "Code promo Linebet Sénégal VISION221 — Pronostics IA BTTS & Over 2.5 (précision historique VIP). ",
+    title: "BTTSPredict — N°1 des Prédictions BTTS par IA",
+    description: "50+ pronos BTTS fiables chaque jour. IA calibrée sur 50 000 matchs. Résultats vérifiés. Code promo VISION221.",
     url: "https://bttspredict.com",
-    siteName: "BttsBet",
+    siteName: "BTTSPredict",
     type: "website",
     locale: "fr_FR",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "BttsBet — Pronostics IA Football | Value Bets FIFA | Statistiques Aviator | Code VISION221" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "BTTSPredict — N°1 des prédictions BTTS par IA" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "BttsBet — Pronostics IA Football VIP | Code Promo VISION221",
-    description: "Pronostics IA football ~87% (historique). Code VISION221 = ",
+    title: "BTTSPredict — N°1 des Prédictions BTTS par IA",
+    description: "50+ pronos BTTS fiables chaque jour. IA calibrée sur 50 000 matchs. Résultats vérifiés et transparents.",
     images: ["/og-image.png"],
   },
   category: "sports",
+  verification: {
+    google: "google-site-verification-code",
+  },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#030712",
+  themeColor: "#0A0F1E",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -108,48 +116,37 @@ export default function RootLayout({
   return (
     <html lang="fr-SN" className="dark" suppressHydrationWarning>
       <head>
-        {/* Disable automatic telephone number detection */}
         <meta name="format-detection" content="telephone=no" />
-        {/* Apple mobile web app — standalone feel */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="BttsBet" />
-        {/* Service worker cleanup + cache busting — force users to see latest version */}
+        <meta name="apple-mobile-web-app-title" content="BTTSPredict" />
+        {/* Trust signals for crawlers */}
+        <meta name="author" content="BTTSPredict" />
+        <meta name="rating" content="general" />
+        <meta name="distribution" content="global" />
+        <meta name="revisit-after" content="1 day" />
+        <meta name="language" content="French" />
+        <meta name="expires" content="never" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="390" />
+        {/* Service worker cleanup */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              (function(){
-                var VERSION = 'v2-platinum-elite-2026-08-04';
-                try {
-                  // 1. Unregister all service workers
-                  if('serviceWorker' in navigator){
-                    navigator.serviceWorker.getRegistrations().then(function(regs){
-                      regs.forEach(function(reg){ reg.unregister(); });
-                    });
-                  }
-                  // 2. Clear all caches
-                  if(window.caches){
-                    caches.keys().then(function(names){
-                      names.forEach(function(name){ caches.delete(name); });
-                    });
-                  }
-                  // 3. Force hard reload if version mismatch (only once)
-                  var stored = localStorage.getItem('bttsbet_ver');
-                  if(stored && stored !== VERSION){
-                    // Version changed — force reload from server (bypass browser cache)
-                    localStorage.setItem('bttsbet_ver', VERSION);
-                    window.location.reload();
-                  } else if(!stored){
-                    localStorage.setItem('bttsbet_ver', VERSION);
-                  }
-                } catch(e){}
-              })();
+              if('serviceWorker' in navigator){
+                navigator.serviceWorker.getRegistrations().then(function(regs){
+                  regs.forEach(function(reg){ reg.unregister(); });
+                });
+                caches.keys().then(function(names){
+                  names.forEach(function(name){ caches.delete(name); });
+                });
+              }
             `,
           }}
         />
       </head>
       <body
-        className={`${poppins.variable} ${plusJakarta.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${plusJakarta.variable} ${poppins.variable} ${jetbrainsMono.variable} antialiased`}
       >
         {children}
       </body>
