@@ -187,7 +187,7 @@ export default function VipSports() {
                   <span className="text-[10px] font-mono uppercase tracking-widest font-bold" style={{ color: C.textMute }}>Sélection du jour</span>
                   <span className="text-[9px]" style={{ color: C.textMute }}>Verrouillé</span>
                 </div>
-                <div className="relative space-y-1.5" style={{ filter: 'blur(6px)', opacity: 0.5, pointerEvents: 'none' }}>
+                <div className="space-y-1.5" style={{ filter: 'blur(6px)', opacity: 0.5 }}>
                   {Array.from({ length: 4 }).map((_, i) => (
                     <div key={i} className="flex items-center gap-2 py-2 px-3 rounded-lg" style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}>
                       <div className="w-6 h-3 rounded" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }} />
@@ -197,24 +197,19 @@ export default function VipSports() {
                   ))}
                 </div>
 
-                {/* Lock overlay — opaque */}
-                <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: 'rgba(10, 14, 20, 0.85)' }}>
-                  <div className="flex flex-col items-center gap-3">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                    </svg>
-                    <button
-                      onClick={() => setShowModal(true)}
-                      className="px-5 py-2.5 rounded-xl font-bold text-[13px]"
-                      style={{
-                        background: 'linear-gradient(135deg, #3B82F6, #2563EB)',
-                        color: '#0A0E14',
-                        boxShadow: '0 4px 16px rgba(59, 130, 246, 0.3)',
-                      }}
-                    >
-                      Débloquer les 8 sélections
-                    </button>
-                  </div>
+                {/* Simple CTA — doesn't block navigation */}
+                <div className="flex items-center justify-center py-4 mt-2">
+                  <button
+                    onClick={() => setShowModal(true)}
+                    className="px-5 py-2.5 rounded-xl font-bold text-[13px]"
+                    style={{
+                      background: 'linear-gradient(135deg, #3B82F6, #2563EB)',
+                      color: '#0A0E14',
+                      boxShadow: '0 4px 16px rgba(59, 130, 246, 0.3)',
+                    }}
+                  >
+                    🔒 Débloquer le VIP
+                  </button>
                 </div>
               </div>
             </motion.div>

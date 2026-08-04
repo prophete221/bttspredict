@@ -267,7 +267,7 @@ export default function FifaLinebet() {
                   <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                   <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                 </svg>
-                Débloquer les Value Bets FIFA
+                🔒 Débloquer le VIP
               </button>
               <p className="text-[10px] text-gray-500 text-center mt-2">
                 Inscris-toi avec <CopyableCode code={SITE.promoCode} displayClassName="text-gold-light" /> pour débloquer
