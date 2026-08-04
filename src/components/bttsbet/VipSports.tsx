@@ -50,7 +50,7 @@ const SPORTS: SportVip[] = [
     color: 'gold',
     dailyCoteMin: 18,
     dailyCoteMax: 35,
-    accuracy: 89,
+    accuracy: 54,
     logo: '/logos/sport-tennis.svg',
     matches: [
       { time: '11:00', home: 'Carlos Alcaraz', away: 'Jannik Sinner', league: 'ATP 1000' },
@@ -75,7 +75,7 @@ const SPORTS: SportVip[] = [
     color: 'orange',
     dailyCoteMin: 12,
     dailyCoteMax: 28,
-    accuracy: 84,
+    accuracy: 52,
     logo: '/logos/sport-nba.svg',
     matches: [
       { time: '01:00', home: 'LA Lakers', away: 'Boston Celtics', league: 'NBA' },
@@ -100,7 +100,7 @@ const SPORTS: SportVip[] = [
     color: 'bronze',
     dailyCoteMin: 15,
     dailyCoteMax: 32,
-    accuracy: 82,
+    accuracy: 50,
     logo: '/logos/sport-nfl.svg',
     matches: [
       { time: '18:00', home: 'Kansas City Chiefs', away: 'Buffalo Bills', league: 'NFL' },
@@ -125,7 +125,7 @@ const SPORTS: SportVip[] = [
     color: 'red',
     dailyCoteMin: 14,
     dailyCoteMax: 30,
-    accuracy: 80,
+    accuracy: 48,
     logo: '/logos/sport-ufc.svg',
     matches: [
       { time: '21:00', home: 'Jon Jones', away: 'Tom Aspinall', league: 'UFC HW' },
@@ -150,7 +150,7 @@ const SPORTS: SportVip[] = [
     color: 'cyan',
     dailyCoteMin: 12,
     dailyCoteMax: 26,
-    accuracy: 83,
+    accuracy: 53,
     logo: '/logos/sport-handball.svg',
     matches: [
       { time: '18:00', home: 'PSG Handball', away: 'FC Barcelona', league: 'Champions L.' },
@@ -398,10 +398,8 @@ export default function VipSports() {
     <>
       <section ref={ref} id="vip-sports" className="section-pad">
         <div className="max-w-5xl mx-auto">
-          {/* Hidden SEO keywords */}
-          <h2 className="sr-only">
-            {SPORTS.flatMap(s => s.keywords).join(' · ')}
-          </h2>
+          {/* Clean SEO title (was keyword stuffing — fixed bug 2.4) */}
+          <h2 className="sr-only">VIP Multi-Sports — Tennis, NBA, NFL, UFC, Handball</h2>
 
           {/* Header */}
           <motion.div
@@ -498,7 +496,7 @@ export default function VipSports() {
             className="text-center mt-6"
           >
             <p className="text-[10px] text-gray-500">
-              VIP Multi-Sports : 5 sports · 40+ matchs/jour · Précision historique 79-89%
+              VIP Multi-Sports : 5 sports · 40+ matchs/jour · Précision ~52% (publié)
             </p>
           </motion.div>
         </div>

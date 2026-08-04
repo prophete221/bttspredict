@@ -25,7 +25,7 @@ const C = {
 }
 
 // ─── Data ────────────────────────────────────────────────────────────────
-const ACCURACY = { vip: { overall: 85, btts: 87, over: 82, value: 89 } }
+const ACCURACY = { vip: { overall: 52, btts: 50, over: 54, value: 56 } }
 
 const ANALYSIS_STEPS = [
   'Forme récente', 'xG', 'Blessures', 'Cotes', 'Historique',
@@ -105,13 +105,21 @@ function NeuralNetworkCanvas() {
 // CountUpNumber
 // ═══════════════════════════════════════════════════════════════════════
 function CountUpNumber({ target, duration = 1500, suffix = '%' }: { target: number; duration?: number; suffix?: string }) {
-  const [display, setDisplay] = useState(0)
+  // FIX BUG 2.1: Initialize with target value (not 0) so it's visible immediately
+  const [display, setDisplay] = useState(target)
   const ref = useRef<HTMLSpanElement>(null)
   const started = useRef(false)
   useEffect(() => {
+    // Respect reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setDisplay(target)
+      return
+    }
     const obs = new IntersectionObserver(([e]) => {
       if (e.isIntersecting && !started.current) {
         started.current = true; const start = performance.now()
+        // Reset to 0 for animation
+        setDisplay(0)
         const tick = (now: number) => {
           const t = Math.min(1, (now - start) / duration)
           const eased = 1 - Math.pow(1 - t, 3)
@@ -120,9 +128,13 @@ function CountUpNumber({ target, duration = 1500, suffix = '%' }: { target: numb
         }
         requestAnimationFrame(tick)
       }
-    }, { threshold: 0.3 })
+    }, { threshold: 0.3, rootMargin: '0px 0px -10% 0px' })
     if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
+    // Fallback: if observer hasn't fired in 800ms, show final value
+    const fallback = setTimeout(() => {
+      if (!started.current) { setDisplay(target); started.current = true }
+    }, 800)
+    return () => { obs.disconnect(); clearTimeout(fallback) }
   }, [target, duration])
   return <span ref={ref} className="tabular-nums">{display}{suffix}</span>
 }
@@ -228,7 +240,7 @@ export default function Hero() {
           </p>
           <p className="mt-1 text-[14px] leading-[1.6]" style={{ color: C.textSec, maxWidth: '320px' }}>
             Obtenez des pronostics de haute précision. Inscrivez-vous sur Linebet avec le code{' '}
-            <CopyableCode code={SITE.promoCode} displayClassName="font-bold" />{' '}pour débloquer +85% de précision.
+            <CopyableCode code={SITE.promoCode} displayClassName="font-bold" />{' '}pour débloquer l'accès VIP.
           </p>
         </motion.div>
 

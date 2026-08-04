@@ -94,7 +94,7 @@ export default function StickyVipBandeau() {
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00E0FF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  <span className="text-gray-300 font-medium">Précision ~85%</span>
+                  <span className="text-gray-300 font-medium">Précision ~52%</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00E0FF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -146,7 +146,7 @@ export default function StickyVipBandeau() {
               </div>
               <div className="flex items-center gap-1">
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00E0FF" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                <span className="text-gray-400">~85% précision</span>
+                <span className="text-gray-400">~52% précision</span>
               </div>
               <div className="flex items-center gap-1">
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00E0FF" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>

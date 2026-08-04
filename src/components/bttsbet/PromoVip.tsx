@@ -118,7 +118,7 @@ export default function PromoVip() {
 
   const [coteRef, coteDisplay] = useCountUp(dailyCote, 1500, { decimals: 2, threshold: 0.3 })
   const [matchCountRef, matchCountDisplay] = useCountUp(0, 1200, { threshold: 0.3 })
-  const [accuracyRef, accuracyDisplay] = useCountUp(89, 1800, { threshold: 0.3, from: 0 })
+  const [accuracyRef, accuracyDisplay] = useCountUp(52, 1800, { threshold: 0.3, from: 0 })
   const [streakRef, streakDisplay] = useCountUp(7, 1500, { threshold: 0.3 })
 
   useEffect(() => {
@@ -209,7 +209,7 @@ export default function PromoVip() {
             <p className="section-subtitle max-w-2xl mx-auto">
               Coupon du jour verrouillé — 8 matchs sélectionnés par notre IA.
               Cote totale <span className="text-gold font-bold">{dailyCote.toFixed(2)}</span>.
-              Précision historique ~85%.
+              Précision historique ~52%.
             </p>
           </motion.div>
 

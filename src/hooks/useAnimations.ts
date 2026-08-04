@@ -24,20 +24,33 @@ export function useCountUp(
   } = {}
 ): [React.RefObject<HTMLElement | null>, string, boolean] {
   const { from = 0, decimals = 0, triggerOnce = true, threshold = 0.4 } = options
+  // FIX BUG 2.1: Initialize with the FINAL value, not 'from'.
+  // The animation will override this once it triggers.
+  // This ensures the correct value is visible immediately (SSR + above-the-fold).
   const ref = useRef<HTMLElement>(null)
-  const [display, setDisplay] = useState(from.toFixed(decimals))
+  const [display, setDisplay] = useState(target.toFixed(decimals))
   const [hasAnimated, setHasAnimated] = useState(false)
 
   useEffect(() => {
     const el = ref.current
     if (!el) return
 
+    // Respect prefers-reduced-motion: show final value immediately
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setDisplay(target.toFixed(decimals))
+      setHasAnimated(true)
+      return
+    }
+
     let rafId = 0
     let started = false
+    let fallbackTimer: ReturnType<typeof setTimeout>
 
     const animate = () => {
       if (started) return
       started = true
+      // Reset to 'from' for animation start
+      setDisplay(from.toFixed(decimals))
       const start = performance.now()
       const tick = (now: number) => {
         const t = Math.min(1, (now - start) / duration)
@@ -59,6 +72,7 @@ export function useCountUp(
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          clearTimeout(fallbackTimer)
           animate()
           if (triggerOnce) observer.unobserve(el)
         } else if (!triggerOnce && hasAnimated) {
@@ -66,13 +80,24 @@ export function useCountUp(
           setDisplay(from.toFixed(decimals))
         }
       },
-      { threshold, rootMargin: '0px 0px -20px 0px' }
+      { threshold, rootMargin: '0px 0px -10% 0px' }
     )
     observer.observe(el)
+
+    // FIX: Fallback — if observer hasn't triggered after 800ms, show final value
+    // This handles cases where the element is already visible but the observer
+    // hasn't fired yet (common in static export / SSR)
+    fallbackTimer = setTimeout(() => {
+      if (!started) {
+        setDisplay(target.toFixed(decimals))
+        setHasAnimated(true)
+      }
+    }, 800)
 
     return () => {
       observer.disconnect()
       if (rafId) cancelAnimationFrame(rafId)
+      clearTimeout(fallbackTimer)
     }
   }, [target, duration, from, decimals, triggerOnce, threshold, hasAnimated])
 

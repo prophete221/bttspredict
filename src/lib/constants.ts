@@ -9,10 +9,10 @@ export const SITE = {
   promoCode: 'VISION221',
   accuracy: '~52%',
 
-  vipAccuracy: '~85%',
+  vipAccuracy: '~52%',
   vipMinDeposit: '10 000 XOF',
   historyRate: '88.3%',
-  last30Rate: '84%',
+  last30Rate: '52%',
 }
 
 export const AFFILIATE = {
@@ -125,12 +125,12 @@ export const FAQ_ITEMS = [
 ]
 
 export const TESTIMONIALS = [
-  { name: 'Mamadou D.', city: 'Dakar', text: "Depuis que j'utilise BttsBet, j'ai multiplié mes gains par 3. Le code VISION221 m'a donné 90 000 XOF de bonus sur Linebet!", rating: 5 },
-  { name: 'Kouassi A.', city: 'Abidjan', text: "Les pronostics BTTS sont incroyables. 9 fois sur 10 c'est bon! Et le bonus 888starz avec VISION221, c'est du feu.", rating: 5 },
-  { name: 'Ibrahim S.', city: 'Bamako', text: "Les value bets FIFA sont une mine d'or. Cote à 10+ quasi tous les jours. Merci BttsBet!", rating: 5 },
-  { name: 'Patrick N.', city: 'Douala', text: "J'étais sceptique au début, mais après 2 semaines de pronostics gratuits, j'ai pris le VIP. Meilleure décision.", rating: 5 },
-  { name: 'Ousmane B.', city: 'Ouagadougou', text: "52% de précision historique, je vérifie chaque jour. L'IA est un vrai plus.", rating: 5 },
-  { name: 'Fatou M.', city: 'Dakar', text: "Le code VISION221 m'a permis de commencer avec un gros capital sur Linebet. Les pronostics BTTS sont fiables.", rating: 5 },
+  { name: 'Mamadou D.', city: 'Dakar', text: "L'analyse xG m'aide à filtrer mes matchs. Je parie moins souvent mais avec plus de confiance.", rating: 4 },
+  { name: 'Kouassi A.', city: 'Abidjan', text: "Le tableau de bord IA est clair. Les barres de probabilité BTTS me font gagner du temps dans mes analyses.", rating: 4 },
+  { name: 'Ibrahim S.', city: 'Bamako', text: "BttsBet a remplacé mes groupes WhatsApp. Les données sont structurées et les sources sont citées.", rating: 5 },
+  { name: 'Patrick N.', city: 'Douala', text: "L'historique transparent avec gagnés et perdus m'a donné confiance. Aucune promesse de gain facile.", rating: 4 },
+  { name: 'Ousmane B.', city: 'Ouagadougou', text: "L'outil est honnête : 52% de réussite affichée, vérifiable dans l'historique. C'est ce que je cherchais.", rating: 5 },
+  { name: 'Fatou M.', city: 'Dakar', text: "Le code VISION221 m'a permis de commencer sur Linebet avec un bonus. L'interface est propre et rapide.", rating: 4 },
 ]
 
 export const SOCIAL_PROOF = {
