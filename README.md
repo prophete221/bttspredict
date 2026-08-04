@@ -181,3 +181,4 @@ Génère 50 pronostics/jour sur 4 jours glissants.
 ## 🌍 Domaine
 
 Déployé sur **bttsbet.online** via FTP (CI/CD GitHub Actions).
+# trigger
