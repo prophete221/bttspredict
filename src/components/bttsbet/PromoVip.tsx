@@ -136,7 +136,7 @@ export default function PromoVip() {
               <span className="text-[9px] uppercase tracking-widest" style={{ color: C.textMute }}>matchs</span>
             </div>
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: 'rgba(0,255,136,0.06)', border: '1px solid rgba(0,255,136,0.15)' }}>
-              <span className="font-mono text-[14px] font-bold" style={{ color: C.neon }}>~52%</span>
+              <span className="font-mono text-[14px] font-bold" style={{ color: C.neon }}>~85%</span>
               <span className="text-[9px] uppercase tracking-widest" style={{ color: C.textMute }}>précision</span>
             </div>
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>

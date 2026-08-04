@@ -27,16 +27,16 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://bttspredict.com"),
   title: {
-    default: "BttsBet — Pronostics IA Football ~52% | Code Promo VISION221",
+    default: "BttsBet — Pronostics IA Football VIP | Code Promo VISION221",
     template: "%s | BttsBet",
   },
-  description: "Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF (150$). Pronostics BTTS & Over 2.5 générés par IA (précision historique ~52%). Dépôt Wave, Orange Money, Free Money.",
+  description: "Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF (150$). Pronostics BTTS & Over 2.5 générés par IA (précision historique VIP). ",
   keywords: [
     "BTTS", "Over 2.5", "pronostics football", "IA", "intelligence artificielle",
     "paris sportifs", "VISION221", "BttsBet",
     "value bets FIFA", "pronostic FIFA esport", "statistiques Aviator",
     "bonus paris sportifs",
-    "pronostics gratuits", "pronostics Sénégal", "Wave paris sportifs",
+    "pronostics gratuits", "pronostics Sénégal", "paris sportifs",
   ],
   authors: [{ name: "BttsBet" }],
   creator: "BttsBet",
@@ -73,8 +73,8 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "BttsBet — Pronostics IA Football ~52% | Code Promo VISION221",
-    description: "Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF. Pronostics IA BTTS & Over 2.5 (précision historique ~52%). Dépôt Wave, Orange Money.",
+    title: "BttsBet — Pronostics IA Football VIP | Code Promo VISION221",
+    description: "Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF. Pronostics IA BTTS & Over 2.5 (précision historique VIP). ",
     url: "https://bttspredict.com",
     siteName: "BttsBet",
     type: "website",
@@ -83,8 +83,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BttsBet — Pronostics IA Football ~52% | Code Promo VISION221",
-    description: "Pronostics IA football ~87% (historique). Code VISION221 = Bonus 90 000 XOF sur Linebet. Dépôt Wave, Orange Money au Sénégal.",
+    title: "BttsBet — Pronostics IA Football VIP | Code Promo VISION221",
+    description: "Pronostics IA football ~87% (historique). Code VISION221 = Bonus 90 000 XOF sur Linebet. ",
     images: ["/og-image.png"],
   },
   category: "sports",

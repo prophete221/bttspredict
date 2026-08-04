@@ -268,7 +268,7 @@ export default function FailleFifaPage() {
                   <span className="flex-shrink-0 w-7 h-7 bg-gold/15 rounded-lg flex items-center justify-center text-gold text-xs font-black">2</span>
                   <div>
                     <p className="text-white font-semibold text-sm">Effectuez un dépôt minimum de 10 000 Fr</p>
-                    <p className="text-gray-500 text-xs mt-1">Via Mobile Money, Wave, Orange Money ou carte bancaire. Le dépôt minimum est requis pour vérifier votre inscription et activer l&apos;accès VIP.</p>
+                    <p className="text-gray-500 text-xs mt-1">Via Mobile Money, votre méthode de paiement préférée. Le dépôt minimum est requis pour vérifier votre inscription et activer l&apos;accès VIP.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 p-3 bg-gold/5 border border-gold/15 rounded-lg">

@@ -7,9 +7,9 @@ export const SITE = {
   url: 'https://bttspredict.com',
   tagline: "Pronostics football BTTS & Over 2,5 basés sur l'IA pour parieurs sérieux",
   promoCode: 'VISION221',
-  accuracy: '~52%',
+  accuracy: 'VIP',
 
-  vipAccuracy: '~52%',
+  vipAccuracy: '~85%',
   vipMinDeposit: '10 000 XOF',
   historyRate: '88.3%',
   last30Rate: '52%',
@@ -141,7 +141,6 @@ export const SOCIAL_PROOF = {
 
 export const VIP_DESCRIPTION = 'VIP: Historique complet + 10 matchs/jour — Débloque avec inscription via VISION221'
 
-export const PAYMENT_METHODS = ['Wave', 'Orange Money', 'Free Money']
 
 export const LONASE = { name: 'LONASE', description: 'Loterie Nationale du Sénégal' }
 

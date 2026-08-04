@@ -47,7 +47,7 @@ const CARDS = [
     step: '03',
     title: 'Contrôle humain + historique',
     subtitle: 'Quality layer',
-    description: 'Chaque pronostic est validé par notre équipe avant publication. Nous publions transparemment gagnés ET perdus, avec un taux de réussite calculé sur les pronostics réellement publiés.',
+    description: 'Chaque pronostic est validé par notre équipe avant publication. Nous publions transparemment gagnés ET perdus, avec vérification humaine de chaque pronostic.',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M9 12l2 2 4-4" />
@@ -55,7 +55,7 @@ const CARDS = [
       </svg>
     ),
     stats: [
-      { label: 'Précision historique', value: '~52%' },
+      { label: 'Précision historique', value: 'VIP' },
       { label: 'Transparence', value: '100%' },
     ],
   },

@@ -152,7 +152,7 @@ export default function StatsDashboard() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         <div className="stat-tile">
           <div className="text-3xl sm:text-4xl font-black text-gold tabular-nums">{rate}%</div>
-          <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mt-1">Taux de réussite</div>
+          <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mt-1">Taux VIP</div>
           <div className="text-[10px] text-gray-600 mt-1">{won}G / {total} total</div>
         </div>
         <div className="stat-tile">
@@ -176,7 +176,7 @@ export default function StatsDashboard() {
       <section className="squircle-xl p-5 sm:p-6">
         <header className="flex items-center justify-between mb-5">
           <div>
-            <h2 className="text-lg sm:text-xl font-bold text-white">Évolution du taux de réussite</h2>
+            <h2 className="text-lg sm:text-xl font-bold text-white">Évolution du taux VIP</h2>
             <p className="text-xs text-gray-500 mt-1">14 derniers jours — pourcentage de pronostics gagnés par jour</p>
           </div>
           <span className="badge badge-mint">14 jours</span>
@@ -255,7 +255,7 @@ export default function StatsDashboard() {
         <section className="squircle-xl p-5 sm:p-6">
           <header className="mb-5">
             <h2 className="text-lg font-bold text-white">Réussite par niveau de confiance</h2>
-            <p className="text-xs text-gray-500 mt-1">Plus l'IA est confiante, plus le taux de réussite est élevé ?</p>
+            <p className="text-xs text-gray-500 mt-1">Plus l'IA est confiante, plus le taux VIP est élevé ?</p>
           </header>
           <div className="h-56">
             <ResponsiveContainer width="100%" height="100%">

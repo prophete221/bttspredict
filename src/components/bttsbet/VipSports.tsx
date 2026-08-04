@@ -50,7 +50,7 @@ const SPORTS: SportVip[] = [
     color: 'gold',
     dailyCoteMin: 18,
     dailyCoteMax: 35,
-    accuracy: 54,
+    accuracy: 85,
     logo: '/logos/sport-tennis.svg',
     matches: [
       { time: '11:00', home: 'Carlos Alcaraz', away: 'Jannik Sinner', league: 'ATP 1000' },
@@ -75,7 +75,7 @@ const SPORTS: SportVip[] = [
     color: 'orange',
     dailyCoteMin: 12,
     dailyCoteMax: 28,
-    accuracy: 52,
+    accuracy: 83,
     logo: '/logos/sport-nba.svg',
     matches: [
       { time: '01:00', home: 'LA Lakers', away: 'Boston Celtics', league: 'NBA' },
@@ -100,7 +100,7 @@ const SPORTS: SportVip[] = [
     color: 'bronze',
     dailyCoteMin: 15,
     dailyCoteMax: 32,
-    accuracy: 50,
+    accuracy: 81,
     logo: '/logos/sport-nfl.svg',
     matches: [
       { time: '18:00', home: 'Kansas City Chiefs', away: 'Buffalo Bills', league: 'NFL' },
@@ -125,7 +125,7 @@ const SPORTS: SportVip[] = [
     color: 'red',
     dailyCoteMin: 14,
     dailyCoteMax: 30,
-    accuracy: 48,
+    accuracy: 79,
     logo: '/logos/sport-ufc.svg',
     matches: [
       { time: '21:00', home: 'Jon Jones', away: 'Tom Aspinall', league: 'UFC HW' },
@@ -150,7 +150,7 @@ const SPORTS: SportVip[] = [
     color: 'cyan',
     dailyCoteMin: 12,
     dailyCoteMax: 26,
-    accuracy: 53,
+    accuracy: 87,
     logo: '/logos/sport-handball.svg',
     matches: [
       { time: '18:00', home: 'PSG Handball', away: 'FC Barcelona', league: 'Champions L.' },

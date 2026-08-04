@@ -157,26 +157,7 @@ function NextMatchPreview() {
   )
 }
 
-// ─── Trust badges row ───────────────────────────────────────────────────
-function TrustBadges() {
-  const badges = [
-    { label: 'Wave', icon: '💳' },
-    { label: 'Orange Money', icon: '📱' },
-    { label: '13K TikTok', icon: '🎵' },
-    { label: '52% vérifié', icon: '✓' },
-  ]
-  return (
-    <div className="flex items-center justify-center gap-2 flex-wrap">
-      {badges.map(b => (
-        <div key={b.label} className="flex items-center gap-1 px-2.5 py-1 rounded-full"
-          style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-          <span className="text-[10px]">{b.icon}</span>
-          <span className="text-[10px] font-medium" style={{ color: C.textSec }}>{b.label}</span>
-        </div>
-      ))}
-    </div>
-  )
-}
+// TrustBadges removed (Wave/Orange Money/TikTok)
 
 // ═══════════════════════════════════════════════════════════════════════
 // Main Hero — BTTSPredict 2026 Premium
@@ -221,7 +202,7 @@ export default function Hero() {
             Le moteur IA qui sait quand les <span style={{ color: C.neon }}>deux équipes marquent</span>.
           </h1>
           <p className="mt-3 text-[14px] leading-[1.6]" style={{ color: C.textSec, maxWidth: '340px' }}>
-            Modèles Poisson calibrés sur 50 000 matchs. ~52% de réussite publiée, gains et pertes affichés. Inscrivez-vous avec le code{' '}
+            Modèles Poisson calibrés sur 50 000 matchs. Inscrivez-vous avec le code Inscrivez-vous avec le code{' '}
             <CopyableCode code={SITE.promoCode} gold />{' '}pour débloquer le VIP.
           </p>
         </motion.div>
@@ -273,14 +254,7 @@ export default function Hero() {
           </motion.button>
         </motion.div>
 
-        {/* ═══ TRUST BADGES ═══ */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isVisible ? { opacity: 1 } : undefined}
-          transition={{ duration: 0.5, delay: 0.7 }}
-        >
-          <TrustBadges />
-        </motion.div>
+
 
         {/* ═══ FOOTER ═══ */}
         <motion.div

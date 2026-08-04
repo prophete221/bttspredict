@@ -28,7 +28,7 @@ const jsonLd = {
   '@type': 'WebSite',
   name: 'BttsBet',
   url: 'https://bttspredict.com',
-  description: "Pronostics football BTTS & Over 2,5 générés par IA. Value bets FIFA sur Linebet et 888starz. Statistiques Aviator. Code promo VISION221.",
+  description: "Pronostics football BTTS & Over 2,5 générés par IA. Value bets FIFA sur Linebet et 888starz. Code promo VISION221.",
   inLanguage: 'fr',
   potentialAction: {
     '@type': 'SearchAction',

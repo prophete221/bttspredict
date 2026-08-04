@@ -1,6 +1,6 @@
 'use client'
 
-import { SITE, PAYMENT_METHODS, LEGAL } from '@/lib/constants'
+import { SITE, LEGAL } from '@/lib/constants'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
