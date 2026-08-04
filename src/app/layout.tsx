@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const geist = Geist({
+const spaceGrotesk = Space_Grotesk({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ['400', '500', '600', '700'],
@@ -16,7 +16,7 @@ const inter = Inter({
   display: 'swap',
 });
 
-const geistMono = Geist_Mono({
+const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   weight: ['400', '500', '700'],
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0B1120",
+  themeColor: "#0B0E14",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -118,7 +118,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'v29-linebet-compliance-2026-07-30';
+                var VERSION = 'v30-quantum-v16-linebet-compliance-2026-07-30';
                 try {
                   // 1. Unregister all service workers
                   if('serviceWorker' in navigator){
@@ -148,7 +148,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geist.variable} ${inter.variable} ${geistMono.variable} antialiased`}
+        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
         {children}
       </body>

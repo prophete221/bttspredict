@@ -30,11 +30,11 @@ type SportVip = {
 
 // Per-sport accent colors (CSS variables)
 const SPORT_COLORS: Record<SportColor, { hex: string; light: string; cssVar: string }> = {
-  gold:   { hex: '#FFD700', light: '#FFE055', cssVar: 'gold' },
+  gold:   { hex: '#FFB800', light: '#FFD54F', cssVar: 'gold' },
   orange: { hex: '#FF9500', light: '#FFB155', cssVar: 'orange' },
   bronze: { hex: '#CD7F32', light: '#E0A84F', cssVar: 'bronze' },
-  red:    { hex: '#F87171', light: '#F87171', cssVar: 'lose' },
-  cyan:   { hex: '#00D4FF', light: '#5DEDBE', cssVar: 'live' },
+  red:    { hex: '#FF7A93', light: '#FF7A93', cssVar: 'lose' },
+  cyan:   { hex: '#00E0FF', light: '#5DEDBE', cssVar: 'live' },
 }
 
 const SPORTS: SportVip[] = [

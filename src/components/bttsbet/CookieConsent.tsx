@@ -87,7 +87,7 @@ export default function CookieConsent() {
                             preferences[cookie.id as keyof typeof preferences] ? 'bg-emerald border-emerald' : 'border-white/20 group-hover:border-white/40'
                           } ${cookie.required ? 'opacity-70 cursor-not-allowed' : ''}`}>
                             {preferences[cookie.id as keyof typeof preferences] && (
-                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0B1120" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0B0E14" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                             )}
                           </div>
                         </div>

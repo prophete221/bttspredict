@@ -33,10 +33,10 @@ type ResultFilter = 'all' | 'won' | 'lost'
 type TypeFilter = 'all' | 'BTTS' | 'O2.5'
 
 const COLORS = {
-  success: '#00D4FF',
-  lose: '#F87171',
-  gold: '#FFD700',
-  panel: '#1E293B',
+  success: '#00E0FF',
+  lose: '#FF7A93',
+  gold: '#FFB800',
+  panel: '#151A28',
   edge: 'rgba(255, 255, 255, 0.08)',
   text: '#8A8FA3',
 }

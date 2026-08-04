@@ -19,15 +19,15 @@ export default function SportMarquee() {
   const items = [...SPORTS, ...SPORTS]
 
   return (
-    <div className="relative overflow-hidden py-3 border-y" style={{ borderColor: 'rgba(51, 65, 85, 0.3)', backgroundColor: 'rgba(11, 17, 32, 0.5)' }}>
+    <div className="relative overflow-hidden py-3 border-y" style={{ borderColor: 'rgba(37, 45, 61, 0.3)', backgroundColor: 'rgba(11, 14, 20, 0.5)' }}>
       {/* Fade edges */}
       <div
         className="absolute left-0 top-0 bottom-0 z-10 w-16 sm:w-24 pointer-events-none"
-        style={{ background: 'linear-gradient(90deg, #0B1120, transparent)' }}
+        style={{ background: 'linear-gradient(90deg, #0B0E14, transparent)' }}
       />
       <div
         className="absolute right-0 top-0 bottom-0 z-10 w-16 sm:w-24 pointer-events-none"
-        style={{ background: 'linear-gradient(270deg, #0B1120, transparent)' }}
+        style={{ background: 'linear-gradient(270deg, #0B0E14, transparent)' }}
       />
 
       {/* Scrolling track */}
@@ -54,7 +54,7 @@ export default function SportMarquee() {
               onMouseEnter={(e) => {
                 e.currentTarget.style.filter = 'grayscale(0) brightness(1)'
                 e.currentTarget.style.opacity = '1'
-                ;(e.currentTarget.style as any).dropShadow = '0 0 12px rgba(0, 212, 255, 0.5)'
+                ;(e.currentTarget.style as any).dropShadow = '0 0 12px rgba(0, 224, 255, 0.5)'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.filter = 'grayscale(1) brightness(0.7)'
@@ -64,7 +64,7 @@ export default function SportMarquee() {
             <span
               className="text-xs sm:text-sm font-semibold transition-colors duration-300"
               style={{ color: '#94A3B8' }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = '#00D4FF' }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = '#00E0FF' }}
               onMouseLeave={(e) => { e.currentTarget.style.color = '#94A3B8' }}
             >
               {sport.name}

@@ -43,7 +43,7 @@ export default function CopyableCode({
         whileTap={{ scale: 0.95 }}
         className={`cursor-pointer font-bold transition-colors ${displayClassName}`}
         aria-label={`Copier le code promo ${code}`}
-        style={{ borderBottom: '1px dashed rgba(0, 212, 255, 0.3)' }}
+        style={{ borderBottom: '1px dashed rgba(0, 224, 255, 0.3)' }}
       >
         {code}
       </motion.button>
@@ -51,7 +51,7 @@ export default function CopyableCode({
         onClick={copy}
         whileTap={{ scale: 0.9 }}
         className="inline-flex items-center justify-center w-4 h-4 rounded transition-colors"
-        style={{ color: copied ? '#10b981' : '#00D4FF' }}
+        style={{ color: copied ? '#00E5A0' : '#00E0FF' }}
         aria-label="Copier"
       >
         {copied ? (

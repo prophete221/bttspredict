@@ -177,8 +177,8 @@ function AviatorMiniChart({ rounds }: { rounds: AviatorRound[] }) {
       <svg className="absolute inset-2" viewBox="0 0 100 60" preserveAspectRatio="none">
         <defs>
           <linearGradient id="avi-grad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#FFD700" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#FFD700" stopOpacity="0" />
+            <stop offset="0%" stopColor="#FFB800" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#FFB800" stopOpacity="0" />
           </linearGradient>
         </defs>
         <polyline
@@ -188,7 +188,7 @@ function AviatorMiniChart({ rounds }: { rounds: AviatorRound[] }) {
             return `${x},${y}`
           }).join(' ')}
           fill="none"
-          stroke="#FFD700"
+          stroke="#FFB800"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -211,7 +211,7 @@ function AviatorMiniChart({ rounds }: { rounds: AviatorRound[] }) {
 
       {/* Provably fair badge */}
       <div className="absolute left-2 top-2 flex items-center gap-1 text-[8px] text-gray-500 uppercase tracking-widest font-bold">
-        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" strokeWidth="3">
+        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#00E0FF" strokeWidth="3">
           <polyline points="20 6 9 17 4 12" />
         </svg>
         Provably Fair
@@ -346,7 +346,7 @@ export default function AviatorVip() {
                     animate={{ scale: 1 }}
                     className="bg-midnight/90 border border-lose/30 rounded-full p-3 flex flex-col items-center gap-1"
                   >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F87171" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF7A93" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                       <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                     </svg>
