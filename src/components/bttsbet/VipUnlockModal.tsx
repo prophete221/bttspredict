@@ -315,6 +315,22 @@ export default function VipUnlockModal({
                   </p>
                 </div>
 
+                {/* WhatsApp support */}
+                <a
+                  href={`https://wa.me/15406704172?text=${encodeURIComponent("Bonjour, j'ai confirmé mon inscription et mon dépôt avec le code VISION221. Je veux débloquer mon accès VIP.")}`}
+                  target="_blank"
+                  rel="noopener"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-xs font-bold mb-3"
+                  style={{
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    border: '1px solid rgba(16, 185, 129, 0.3)',
+                    color: '#10B981',
+                  }}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#10B981"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01-1.87-1.87-4.36-2.91-7.01-2.91zm0 1.67c2.2 0 4.27.86 5.82 2.42 1.56 1.56 2.42 3.63 2.42 5.82 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.81-1.29-1.24-2.79-1.24-4.34 0-4.54 3.7-8.24 8.24-8.24z"/></svg>
+                  Déjà inscrit ? Débloque via WhatsApp
+                </a>
+
                 {/* Footer */}
                 <p className="text-[10px] text-[#5a5a5a] text-center mt-3">
                   18+ | Jeu responsable | Aucune donnée collectée

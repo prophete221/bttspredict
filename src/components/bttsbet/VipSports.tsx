@@ -4,165 +4,40 @@ import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { AFFILIATE, SITE } from '@/lib/constants'
 import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
-import { staggerContainer, staggerChildFadeUp } from '@/lib/motionPresets'
 import VipUnlockModal from './VipUnlockModal'
 import CopyableCode from './CopyableCode'
 
-// ─── Sport data ─────────────────────────────────────────────────────────
-type SportColor = 'gold' | 'orange' | 'bronze' | 'red' | 'cyan'
+// ─── Palette ────────────────────────────────────────────────────────────
+const C = {
+  bg:       '#0A0E14',
+  card:     '#0F172A',
+  elevated: '#1E293B',
+  border:   'rgba(255,255,255,0.08)',
+  neon:     '#3B82F6',
+  neonDk:   '#2563EB',
+  gold:     '#F59E0B',
+  text:     '#ffffff',
+  textSec:  '#a0a0a0',
+  textMute: '#5a5a5a',
+  success:  '#10B981',
+}
 
+// ─── Sport data ─────────────────────────────────────────────────────────
 type SportVip = {
   id: string
   name: string
-  shortName: string
-  title: string
-  subtitle: string
-  keywords: string[]
-  badge: string
-  badgeColor: 'green' | 'gold' | 'cyan' | 'rose'
-  color: SportColor  // per-sport accent color
   logo: string
-  dailyCoteMin: number
-  dailyCoteMax: number
   accuracy: number
-  matches: { time: string; home: string; away: string; league: string }[]
-}
-
-// Per-sport accent colors (CSS variables)
-const SPORT_COLORS: Record<SportColor, { hex: string; light: string; cssVar: string }> = {
-  gold:   { hex: '#F59E0B', light: '#FCD34D', cssVar: 'gold' },
-  orange: { hex: '#FF9500', light: '#FFB155', cssVar: 'orange' },
-  bronze: { hex: '#CD7F32', light: '#E0A84F', cssVar: 'bronze' },
-  red:    { hex: '#FF7A93', light: '#FF7A93', cssVar: 'lose' },
-  cyan:   { hex: '#1E40AF', light: '#5DEDBE', cssVar: 'live' },
+  color: string
 }
 
 const SPORTS: SportVip[] = [
-  {
-    id: 'tennis',
-    name: 'Tennis',
-    shortName: 'Tennis',
-    title: 'Tennis',
-    subtitle: 'ATP · WTA · Grand Chelem — Gagnant, Over/Under Games, Set 1 & Handicap',
-    keywords: ['pronostic tennis', 'pari tennis ATP', 'pari tennis WTA', 'pronostic gagnant tennis', 'over games tennis', 'Grand Chelem pronostic', 'Roland Garros pronostic', 'Wimbledon picks'],
-    badge: 'Gagnant',
-    badgeColor: 'gold',
-    color: 'gold',
-    dailyCoteMin: 18,
-    dailyCoteMax: 35,
-    accuracy: 85,
-    logo: '/logos/sport-tennis.svg',
-    matches: [
-      { time: '11:00', home: 'Carlos Alcaraz', away: 'Jannik Sinner', league: 'ATP 1000' },
-      { time: '13:30', home: 'Novak Djokovic', away: 'Daniil Medvedev', league: 'ATP 500' },
-      { time: '15:00', home: 'Iga Swiatek', away: 'Aryna Sabalenka', league: 'WTA 1000' },
-      { time: '16:30', home: 'Coco Gauff', away: 'Elena Rybakina', league: 'WTA 500' },
-      { time: '18:00', home: 'Alexander Zverev', away: 'Andrey Rublev', league: 'ATP 500' },
-      { time: '19:30', home: 'Taylor Fritz', away: 'Hubert Hurkacz', league: 'ATP 250' },
-      { time: '20:30', home: 'Ons Jabeur', away: 'Jessica Pegula', league: 'WTA 500' },
-      { time: '21:30', home: 'Stefanos Tsitsipas', away: 'Casper Ruud', league: 'ATP 500' },
-    ],
-  },
-  {
-    id: 'nba',
-    name: 'NBA',
-    shortName: 'NBA',
-    title: 'NBA / Basket',
-    subtitle: 'NBA · EuroLeague — Vainqueur, Over/Under Points, Margin & Player Props',
-    keywords: ['pronostic NBA', 'pari NBA', 'pronostic basket', 'over points NBA', 'pari basket EuroLeague', 'NBA picks du jour', 'player props NBA', 'handicap basket'],
-    badge: 'Over Pts',
-    badgeColor: 'gold',
-    color: 'orange',
-    dailyCoteMin: 12,
-    dailyCoteMax: 28,
-    accuracy: 83,
-    logo: '/logos/sport-nba.svg',
-    matches: [
-      { time: '01:00', home: 'LA Lakers', away: 'Boston Celtics', league: 'NBA' },
-      { time: '01:30', home: 'Golden State', away: 'Milwaukee Bucks', league: 'NBA' },
-      { time: '02:00', home: 'Denver Nuggets', away: 'Phoenix Suns', league: 'NBA' },
-      { time: '02:30', home: 'Miami Heat', away: 'Philadelphia 76ers', league: 'NBA' },
-      { time: '03:00', home: 'Dallas Mavericks', away: 'Minnesota Timberwolves', league: 'NBA' },
-      { time: '19:00', home: 'Real Madrid', away: 'FC Barcelona', league: 'EuroLeague' },
-      { time: '19:30', home: 'Olympiacos', away: 'Panathinaikos', league: 'EuroLeague' },
-      { time: '20:30', home: 'Bayern Munich', away: 'Maccabi Tel Aviv', league: 'EuroLeague' },
-    ],
-  },
-  {
-    id: 'nfl',
-    name: 'NFL',
-    shortName: 'NFL',
-    title: 'NFL',
-    subtitle: 'NFL · College Football — Vainqueur, Over/Under Points, Spread & Touchdown Props',
-    keywords: ['pronostic NFL', 'pari NFL', 'pronostic football americain', 'pari NFL américain', 'over under NFL', 'spread NFL', 'touchdown NFL', 'NFL picks dimanche'],
-    badge: 'Spread',
-    badgeColor: 'cyan',
-    color: 'bronze',
-    dailyCoteMin: 15,
-    dailyCoteMax: 32,
-    accuracy: 81,
-    logo: '/logos/sport-nfl.svg',
-    matches: [
-      { time: '18:00', home: 'Kansas City Chiefs', away: 'Buffalo Bills', league: 'NFL' },
-      { time: '18:30', home: 'San Francisco 49ers', away: 'Philadelphia Eagles', league: 'NFL' },
-      { time: '19:00', home: 'Dallas Cowboys', away: 'NY Giants', league: 'NFL' },
-      { time: '19:30', home: 'Green Bay Packers', away: 'Detroit Lions', league: 'NFL' },
-      { time: '20:00', home: 'Baltimore Ravens', away: 'Cincinnati Bengals', league: 'NFL' },
-      { time: '20:30', home: 'Miami Dolphins', away: 'NY Jets', league: 'NFL' },
-      { time: '21:00', home: 'LA Rams', away: 'Seattle Seahawks', league: 'NFL' },
-      { time: '22:30', home: 'Las Vegas Raiders', away: 'Denver Broncos', league: 'NFL' },
-    ],
-  },
-  {
-    id: 'ufc',
-    name: 'UFC / MMA',
-    shortName: 'UFC',
-    title: 'UFC / MMA',
-    subtitle: 'UFC · Bellator — Vainqueur, Méthode, Round & Over/Under Rounds',
-    keywords: ['pronostic UFC', 'pari UFC', 'pronostic MMA', 'pari MMA', 'vainqueur UFC', 'methode victoire UFC', 'round UFC', 'pari combat MMA'],
-    badge: 'Vainqueur',
-    badgeColor: 'rose',
-    color: 'red',
-    dailyCoteMin: 14,
-    dailyCoteMax: 30,
-    accuracy: 79,
-    logo: '/logos/sport-ufc.svg',
-    matches: [
-      { time: '21:00', home: 'Jon Jones', away: 'Tom Aspinall', league: 'UFC HW' },
-      { time: '21:30', home: 'Islam Makhachev', away: 'Charles Oliveira', league: 'UFC LW' },
-      { time: '22:00', home: 'Alex Pereira', away: 'Magomed Ankalaev', league: 'UFC LHW' },
-      { time: '22:30', home: 'Ilia Topuria', away: 'Max Holloway', league: 'UFC FW' },
-      { time: '23:00', home: 'Leon Edwards', away: 'Belal Muhammad', league: 'UFC WW' },
-      { time: '23:30', home: "Sean O'Malley", away: 'Merab Dvalishvili', league: 'UFC BW' },
-      { time: '00:30', home: 'Conor McGregor', away: 'Michael Chandler', league: 'UFC LW' },
-      { time: '01:30', home: 'Dustin Poirier', away: 'Justin Gaethje', league: 'UFC LW' },
-    ],
-  },
-  {
-    id: 'handball',
-    name: 'Handball',
-    shortName: 'Hand',
-    title: 'Handball',
-    subtitle: 'Champions League · Ligue Nationale — Vainqueur, Over/Under Buts & Handicap',
-    keywords: ['pronostic handball', 'pari handball', 'pronostic handball Champions League', 'over buts handball', 'pari handball LNH', 'handball EHF', 'picks handball', 'handicap handball'],
-    badge: 'Over Buts',
-    badgeColor: 'cyan',
-    color: 'cyan',
-    dailyCoteMin: 12,
-    dailyCoteMax: 26,
-    accuracy: 87,
-    logo: '/logos/sport-handball.svg',
-    matches: [
-      { time: '18:00', home: 'PSG Handball', away: 'FC Barcelona', league: 'Champions L.' },
-      { time: '18:30', home: 'Kiel', away: 'Veszprem', league: 'Champions L.' },
-      { time: '19:00', home: 'Flensburg', away: 'Aalborg', league: 'Champions L.' },
-      { time: '19:30', home: 'Montpellier', away: 'Kolding', league: 'Champions L.' },
-      { time: '20:00', home: 'Nantes', away: 'Szeged', league: 'Champions L.' },
-      { time: '20:30', home: 'Magdeburg', away: 'Zagreb', league: 'Champions L.' },
-      { time: '21:30', home: 'Celje', away: 'Dinamo Bucarest', league: 'Champions L.' },
-      { time: '22:00', home: 'HBC Nantes', away: 'Chambery', league: 'LNH' },
-    ],
-  },
+  { id: 'football', name: 'Football', logo: '/logos/sport-football.svg', accuracy: 85, color: C.neon },
+  { id: 'tennis', name: 'Tennis', logo: '/logos/sport-tennis.svg', accuracy: 83, color: C.gold },
+  { id: 'nba', name: 'NBA', logo: '/logos/sport-nba.svg', accuracy: 81, color: C.neon },
+  { id: 'nfl', name: 'NFL', logo: '/logos/sport-nfl.svg', accuracy: 79, color: C.neon },
+  { id: 'ufc', name: 'UFC', logo: '/logos/sport-ufc.svg', accuracy: 82, color: '#EF4444' },
+  { id: 'handball', name: 'Handball', logo: '/logos/sport-handball.svg', accuracy: 87, color: C.success },
 ]
 
 // Deterministic daily cote
@@ -174,232 +49,24 @@ function getDailyCote(sportId: string, min: number, max: number): number {
   return Math.round((min + fraction * (max - min)) * 100) / 100
 }
 
-const BADGE_STYLES = {
-  green: 'bg-success/15 text-success-light border-success/30',
-  gold: 'bg-gold/15 text-gold-light border-gold/30',
-  cyan: 'bg-live/15 text-live-light border-live/30',
-  rose: 'bg-lose/15 text-lose-light border-lose/30',
-}
+const WHATSAPP_NUMBER = '+15406704172'
+const WHATSAPP_MSG = "Bonjour, j'ai confirmé mon inscription et mon dépôt sur Linebet/888starz avec le code VISION221. Je veux débloquer mon accès VIP."
 
-// ─── Premium VIP Sport Card ──────────────────────────────────────────────
-function VipSportPanel({ sport, onUnlock }: { sport: SportVip; onUnlock: () => void }) {
-  const dailyCote = useMemo(() => getDailyCote(sport.id, sport.dailyCoteMin, sport.dailyCoteMax), [sport.id, sport.dailyCoteMin, sport.dailyCoteMax])
-  const matchCount = sport.matches.length
-  const cotePerMatch = Math.pow(dailyCote, 1 / matchCount)
-
-  const [coteRef, coteDisplay] = useCountUp(dailyCote, 1500, { decimals: 2, threshold: 0.3 })
-  const [matchCountRef, matchCountDisplay] = useCountUp(matchCount, 1200, { threshold: 0.3 })
-
-  const accent = SPORT_COLORS[sport.color]
-  // Convert hex to rgba for opacity variants
-  const hex2rgba = (hex: string, alpha: number) => {
-    const r = parseInt(hex.slice(1, 3), 16)
-    const g = parseInt(hex.slice(3, 5), 16)
-    const b = parseInt(hex.slice(5, 7), 16)
-    return `rgba(${r}, ${g}, ${b}, ${alpha})`
-  }
-  const accentBg = hex2rgba(accent.hex, 0.08)
-  const accentBgHover = hex2rgba(accent.hex, 0.15)
-  const accentGlow = hex2rgba(accent.hex, 0.4)
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -8 }}
-      transition={{ duration: 0.35 }}
-      className="squircle-xl overflow-hidden"
-      style={{ borderColor: hex2rgba(accent.hex, 0.25) }}
-    >
-      {/* Top accent — sport color gradient */}
-      <div className="h-[2px]" style={{ background: `linear-gradient(90deg, transparent, ${accent.hex}, transparent)` }} />
-
-      {/* Header with sport logo + title */}
-      <div className="relative p-5 sm:p-6 border-b border-edge"
-        style={{
-          background: `linear-gradient(135deg, ${accentBg} 0%, transparent 60%)`,
-        }}
-      >
-        <div className="flex items-center justify-between gap-3">
-          <div className="flex items-center gap-3 min-w-0">
-            {/* Big sport logo with sport color border */}
-            <div
-              className="w-16 h-16 rounded-2xl bg-midnight/60 flex items-center justify-center overflow-hidden flex-shrink-0"
-              style={{ border: `1px solid ${hex2rgba(accent.hex, 0.3)}` }}
-            >
-              <img src={sport.logo} alt={sport.name} className="w-12 h-12 object-contain" loading="lazy" />
-            </div>
-            <div className="min-w-0">
-              <span
-                className="text-[10px] uppercase tracking-widest font-bold"
-                style={{ color: accent.light }}
-              >
-                VIP Pronostics
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight mt-0.5">
-                {sport.title}
-              </h3>
-              <p className="text-[10px] text-gray-500 mt-1 truncate">{sport.subtitle}</p>
-            </div>
-          </div>
-
-          {/* LIVE badge */}
-          <motion.div
-            animate={{ opacity: [1, 0.6, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="flex items-center gap-1.5 bg-success/10 border border-success/30 rounded-full px-2.5 py-1"
-          >
-            <span className="v31-ticker-dot live" />
-            <span className="text-[10px] text-success font-bold uppercase tracking-wider">Live</span>
-          </motion.div>
-        </div>
-
-        {/* KPI row */}
-        <div className="grid grid-cols-3 gap-3 mt-5">
-          <div className="bg-midnight/40 border border-edge rounded-lg p-2.5 text-center">
-            <div className="text-lg font-bold text-white tabular-nums" ref={matchCountRef}>{matchCountDisplay}</div>
-            <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">Matchs</div>
-          </div>
-          <div
-            className="bg-midnight/40 border rounded-lg p-2.5 text-center"
-            style={{ borderColor: hex2rgba(accent.hex, 0.2) }}
-          >
-            <div
-              className="text-lg font-bold tabular-nums"
-              style={{ color: accent.light, textShadow: `0 0 20px ${accentGlow}, 0 0 40px ${hex2rgba(accent.hex, 0.3)}` }}
-              ref={coteRef}
-            >
-              {coteDisplay}
-            </div>
-            <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">Cote totale</div>
-          </div>
-          <div className="bg-midnight/40 border border-edge rounded-lg p-2.5 text-center">
-            <div className="text-lg font-bold text-success tabular-nums glow-text-green">{sport.accuracy}%</div>
-            <div className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">Précision</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Matches list — blurred (locked) */}
-      <div className="p-4 sm:p-5 space-y-1.5">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Sélection du jour</span>
-          <span
-            className="badge text-[9px]"
-            style={{
-              background: hex2rgba(accent.hex, 0.12),
-              color: accent.light,
-              border: `1px solid ${hex2rgba(accent.hex, 0.3)}`,
-            }}
-          >
-            {sport.badge}
-          </span>
-        </div>
-
-        {/* Locked matches */}
-        <div className="space-y-1 relative">
-          {sport.matches.slice(0, 6).map((m, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -8 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.05 * i, duration: 0.3 }}
-              className="relative grid grid-cols-[40px_1fr_60px] items-center gap-2 bg-midnight/40 rounded-lg px-3 py-2 border border-edge/40"
-            >
-              <span
-                className="text-[10px] font-mono tabular-nums"
-                style={{ color: hex2rgba(accent.light, 0.7) }}
-              >
-                {m.time}
-              </span>
-              <div className="flex items-center gap-1.5 min-w-0 blur-[5px] select-none">
-                <span className="text-white text-xs font-semibold truncate">{m.home}</span>
-                <span className="text-gray-600 text-[9px]">vs</span>
-                <span className="text-white text-xs font-semibold truncate">{m.away}</span>
-              </div>
-              <span
-                className="text-[10px] font-bold tabular-nums blur-[3px] select-none text-right"
-                style={{ color: accent.light }}
-              >
-                {cotePerMatch.toFixed(2)}
-              </span>
-            </motion.div>
-          ))}
-
-          {/* Lock overlay */}
-          <div className="absolute inset-0 flex items-center justify-center rounded-lg pointer-events-none"
-            style={{ backgroundColor: 'rgba(10, 14, 20, 0.85)' }}>
-            <motion.div
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              className="bg-midnight/90 rounded-full p-3 flex flex-col items-center gap-1"
-              style={{ border: `1px solid ${hex2rgba(accent.hex, 0.3)}` }}
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={accent.hex} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-              </svg>
-              <span
-                className="text-[10px] font-bold uppercase tracking-wider"
-                style={{ color: accent.light }}
-              >
-                VIP
-              </span>
-            </motion.div>
-          </div>
-
-          {/* "+X more matches" hint */}
-          {sport.matches.length > 6 && (
-            <div className="text-center text-[10px] text-gray-500 mt-2">
-              +{sport.matches.length - 6} matchs supplémentaires en VIP
-            </div>
-          )}
-        </div>
-
-        {/* CTA */}
-        <button
-          onClick={onUnlock}
-          className="w-full flex items-center justify-center gap-2 mt-4 px-4 py-3 cta-glow text-sm font-bold rounded-xl transition-all"
-          style={{
-            background: `linear-gradient(180deg, ${accent.light}, ${accent.hex})`,
-            color: sport.color === 'cyan' || sport.color === 'red' ? '#FFFFFF' : '#1A0F00',
-            boxShadow: `0 4px 12px ${hex2rgba(accent.hex, 0.3)}, inset 0 1px 0 rgba(255, 255, 255, 0.25)`,
-          }}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-          </svg>
-          Débloquer le VIP {sport.shortName}
-        </button>
-
-        <p className="text-[10px] text-gray-500 text-center mt-2">
-          Inscris-toi avec <CopyableCode code={SITE.promoCode} displayClassName="font-semibold" /> pour débloquer
-        </p>
-      </div>
-    </motion.div>
-  )
-}
-
-// ─── Main VipSports ─────────────────────────────────────────────────────
 export default function VipSports() {
   const [ref, isVisible] = useScrollAnimation()
-  const [activeId, setActiveId] = useState<string>('tennis')
-  const [modalOpen, setModalOpen] = useState(false)
-  const [modalSportName, setModalSportName] = useState('')
+  const [activeId, setActiveId] = useState<string>('football')
+  const [showModal, setShowModal] = useState(false)
 
   const activeSport = SPORTS.find(s => s.id === activeId) || SPORTS[0]
+  const dailyCote = useMemo(() => getDailyCote(activeId, 12, 30), [activeId])
 
-  const handleUnlock = (sportName: string) => {
-    setModalSportName(sportName)
-    setModalOpen(true)
-  }
+  const [coteRef, coteDisplay] = useCountUp(dailyCote, 1500, { decimals: 2, threshold: 0.3 })
 
   return (
     <>
-      <section ref={ref} id="vip-sports" className="section-pad overflow-x-hidden">
+      <section ref={ref} id="vip-sports" className="section-pad overflow-x-hidden" style={{ paddingTop: '24px', paddingBottom: '24px' }}>
         <div className="max-w-[440px] sm:max-w-2xl mx-auto">
-          {/* Clean SEO title (was keyword stuffing — fixed bug 2.4) */}
+          {/* Clean SEO title */}
           <h2 className="sr-only">VIP Multi-Sports — Tennis, NBA, NFL, UFC, Handball</h2>
 
           {/* Header */}
@@ -407,106 +74,189 @@ export default function VipSports() {
             initial={{ opacity: 0, y: 16 }}
             animate={isVisible ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.5 }}
-            className="text-center mb-8"
+            className="text-center mb-5"
           >
-            <span className="eyebrow">VIP Multi-Sports · IA</span>
-            <h2 className="section-title mt-3 mb-3">
-              Pronostics VIP <span className="text-gold">Multi-Sports</span>
-            </h2>
-            <p className="section-subtitle max-w-2xl mx-auto">
-              Notre IA scanne tous les sports — Tennis, NBA, NFL, UFC/MMA, Handball.
-              Même système, même précision, cotes exclusives.
+            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: C.gold }}>ZONE PREMIUM</span>
+            <h2 className="font-bold text-xl mt-1" style={{ color: C.text }}>VIP Multi-Sports</h2>
+            <p className="text-[12px] mt-1" style={{ color: C.textSec }}>
+              Pronostics IA sur 6 sports — précision 79-87%
             </p>
           </motion.div>
 
-          {/* Sport tabs — horizontal scroll on mobile, centered on desktop */}
+          {/* Sport selector — big logos visible */}
           <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate={isVisible ? 'visible' : 'hidden'}
-            className="flex items-center justify-center gap-2 mb-6 overflow-x-auto no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0"
+            initial={{ opacity: 0, y: 8 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : undefined}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="grid grid-cols-3 sm:grid-cols-6 gap-2 mb-4"
           >
             {SPORTS.map(sport => {
               const isActive = sport.id === activeId
               return (
-                <motion.button
+                <button
                   key={sport.id}
-                  variants={staggerChildFadeUp}
                   onClick={() => setActiveId(sport.id)}
-                  aria-pressed={isActive}
-                  className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all flex-shrink-0 ${
-                    isActive
-                      ? 'bg-gold/15 border border-gold/40'
-                      : 'bg-panel/40 border border-edge hover:border-gold/20'
-                  }`}
+                  className="flex flex-col items-center gap-1.5 p-2.5 rounded-xl transition-all"
+                  style={{
+                    backgroundColor: isActive ? '#0F172A' : '#0F172A',
+                    border: isActive
+                      ? '1px solid ' + sport.color
+                      : '1px solid rgba(255,255,255,0.06)',
+                    boxShadow: isActive ? '0 0 12px ' + sport.color + '30' : 'none',
+                  }}
                   aria-label={`Sélectionner ${sport.name}`}
+                  aria-pressed={isActive}
                 >
                   <img
                     src={sport.logo}
                     alt={sport.name}
-                    className={`w-6 h-6 object-contain transition-opacity ${isActive ? 'opacity-100' : 'opacity-50'}`}
+                    className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                    style={{
+                      filter: isActive ? 'none' : 'grayscale(0.5) opacity(0.6)',
+                      transition: 'all 0.2s',
+                    }}
                     loading="lazy"
                   />
-                  <span className={`text-xs font-semibold whitespace-nowrap ${isActive ? 'text-gold-light' : 'text-gray-400'}`}>
-                    {sport.shortName}
+                  <span
+                    className="text-[9px] sm:text-[10px] font-semibold"
+                    style={{ color: isActive ? sport.color : C.textMute }}
+                  >
+                    {sport.name}
                   </span>
-                </motion.button>
-              )
-            })}
-          </motion.div>
-
-          {/* Active sport panel */}
-          <AnimatePresence mode="wait">
-            <VipSportPanel
-              key={activeId}
-              sport={activeSport}
-              onUnlock={() => handleUnlock(activeSport.name)}
-            />
-          </AnimatePresence>
-
-          {/* Below: comparison row — all sports KPIs at a glance */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : undefined}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-6 grid grid-cols-2 md:grid-cols-5 gap-2"
-          >
-            {SPORTS.map(sport => {
-              const dailyCote = getDailyCote(sport.id, sport.dailyCoteMin, sport.dailyCoteMax)
-              return (
-                <button
-                  key={sport.id}
-                  onClick={() => setActiveId(sport.id)}
-                  className={`squircle p-3 text-center transition-all ${
-                    sport.id === activeId ? 'border-gold/40 bg-gold/[0.06]' : 'hover:border-success/30'
-                  }`}
-                >
-                  <img src={sport.logo} alt={sport.name} className="w-8 h-8 mx-auto object-contain mb-1.5" loading="lazy" />
-                  <div className="text-[10px] text-white font-semibold truncate">{sport.shortName}</div>
-                  <div className="text-[9px] text-gold tabular-nums mono mt-0.5">{dailyCote.toFixed(2)}</div>
                 </button>
               )
             })}
           </motion.div>
 
-          {/* Footer note */}
+          {/* Active sport card */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeId}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.3 }}
+              className="rounded-[16px] overflow-hidden"
+              style={{
+                backgroundColor: '#0F172A',
+                border: '1px solid rgba(255,255,255,0.08)',
+                boxShadow: '0 8px 30px rgba(0,0,0,0.4)',
+              }}
+            >
+              {/* Top accent */}
+              <div className="h-[2px] w-full" style={{ background: 'linear-gradient(90deg, transparent, ' + activeSport.color + ', transparent)' }} />
+
+              {/* Header with big logo */}
+              <div className="p-4 flex items-center gap-3">
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ backgroundColor: '#1E293B', border: '1px solid ' + activeSport.color + '30' }}>
+                  <img src={activeSport.logo} alt={activeSport.name} className="w-10 h-10 object-contain" loading="lazy" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-white">{activeSport.name}</h3>
+                  <div className="flex items-center gap-2 mt-0.5">
+                    <span className="font-mono text-[12px] font-bold" style={{ color: activeSport.color }}>~{activeSport.accuracy}%</span>
+                    <span className="text-[10px]" style={{ color: C.textMute }}>précision VIP</span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-1.5 px-2 py-1 rounded-full"
+                  style={{ backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
+                  <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: C.success }} />
+                  <span className="font-mono text-[9px] font-bold uppercase tracking-wider" style={{ color: C.success }}>Live</span>
+                </div>
+              </div>
+
+              {/* Stats row */}
+              <div className="px-4 pb-3 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="text-center">
+                    <div className="font-mono text-base font-bold text-white">8</div>
+                    <div className="text-[8px] uppercase tracking-widest" style={{ color: C.textMute }}>matchs</div>
+                  </div>
+                  <div className="w-px h-6 bg-white/5" />
+                  <div className="text-center">
+                    <div className="font-mono text-base font-bold" style={{ color: activeSport.color }} ref={coteRef}>{coteDisplay}</div>
+                    <div className="text-[8px] uppercase tracking-widest" style={{ color: C.textMute }}>cote</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Locked matches */}
+              <div className="px-4 pb-4">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[10px] font-mono uppercase tracking-widest font-bold" style={{ color: C.textMute }}>Sélection du jour</span>
+                  <span className="text-[9px]" style={{ color: C.textMute }}>Verrouillé</span>
+                </div>
+                <div className="relative space-y-1.5" style={{ filter: 'blur(6px)', opacity: 0.5, pointerEvents: 'none' }}>
+                  {Array.from({ length: 4 }).map((_, i) => (
+                    <div key={i} className="flex items-center gap-2 py-2 px-3 rounded-lg" style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}>
+                      <div className="w-6 h-3 rounded" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }} />
+                      <div className="flex-1 h-3 rounded" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }} />
+                      <div className="w-8 h-3 rounded" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }} />
+                    </div>
+                  ))}
+                </div>
+
+                {/* Lock overlay — opaque */}
+                <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: 'rgba(10, 14, 20, 0.85)' }}>
+                  <div className="flex flex-col items-center gap-3">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                    <button
+                      onClick={() => setShowModal(true)}
+                      className="px-5 py-2.5 rounded-xl font-bold text-[13px]"
+                      style={{
+                        background: 'linear-gradient(135deg, #3B82F6, #2563EB)',
+                        color: '#0A0E14',
+                        boxShadow: '0 4px 16px rgba(59, 130, 246, 0.3)',
+                      }}
+                    >
+                      Débloquer les 8 sélections
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* WhatsApp support */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={isVisible ? { opacity: 1 } : undefined}
-            transition={{ duration: 0.4, delay: 0.5 }}
-            className="text-center mt-6"
+            initial={{ opacity: 0, y: 8 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : undefined}
+            transition={{ duration: 0.4, delay: 0.4 }}
+            className="mt-3 rounded-[14px] p-3"
+            style={{ backgroundColor: '#0F172A', border: '1px solid rgba(16, 185, 129, 0.2)' }}
           >
-            <p className="text-[10px] text-gray-500">
-              VIP Multi-Sports : 5 sports · 40+ matchs/jour · Précision ~52% (publié)
-            </p>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                style={{ backgroundColor: 'rgba(16, 185, 129, 0.1)' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#10B981">
+                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01-1.87-1.87-4.36-2.91-7.01-2.91zm0 1.67c2.2 0 4.27.86 5.82 2.42 1.56 1.56 2.42 3.63 2.42 5.82 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.81-1.29-1.24-2.79-1.24-4.34 0-4.54 3.7-8.24 8.24-8.24zM8.53 7.33c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.74 2.78 4.31 3.79 2.57 1.01 2.57.67 3.04.63.46-.04 1.5-.61 1.71-1.21.21-.6.21-1.11.15-1.21-.06-.11-.23-.17-.48-.29-.25-.12-1.5-.74-1.72-.82-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.07-.39-2.04-1.26-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43z"/>
+                </svg>
+              </div>
+              <div className="flex-1">
+                <div className="text-[12px] font-bold text-white">Inscription confirmée ?</div>
+                <div className="text-[10px]" style={{ color: C.textMute }}>Débloque ton VIP via WhatsApp si tu as déjà inscrit et déposé</div>
+              </div>
+              <a
+                href={`https://wa.me/15406704172?text=${encodeURIComponent(WHATSAPP_MSG)}`}
+                target="_blank"
+                rel="noopener"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold"
+                style={{ backgroundColor: '#10B981', color: '#0A0E14' }}
+              >
+                WhatsApp
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
 
       <VipUnlockModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        title={`Débloque les pronos VIP ${modalSportName}`}
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        title={`Débloque les pronos VIP ${activeSport.name}`}
       />
     </>
   )

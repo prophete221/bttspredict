@@ -1,23 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="UFC MMA">
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" role="img" aria-label="UFC MMA">
   <defs>
-    <linearGradient id="uf-grad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#EB5757"/>
-      <stop offset="100%" stop-color="#9C1C1C"/>
+    <linearGradient id="ufc-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#991B1B"/>
     </linearGradient>
-    <radialGradient id="uf-glow" cx="0.3" cy="0.3" r="0.7">
-      <stop offset="0%" stop-color="#F47373" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#9C1C1C" stop-opacity="0"/>
-    </radialGradient>
+    <filter id="ufc-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
   </defs>
-  <!-- Octagon (UFC cage) -->
-  <polygon points="32,2 56,16 62,40 50,60 14,60 2,40 8,16" fill="url(#uf-grad)"/>
-  <polygon points="32,2 56,16 62,40 50,60 14,60 2,40 8,16" fill="url(#uf-glow)"/>
-  <!-- Inner octagon cage -->
-  <polygon points="32,8 51,20 56,38 47,54 17,54 8,38 13,20" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.4"/>
-  <!-- Boxing gloves icon in center -->
-  <g transform="translate(32,32)">
-    <path d="M -8 -3 L -8 4 L -3 6 L 3 6 L 8 4 L 8 -3 L 6 -7 L -6 -7 Z" fill="#05080F" opacity="0.85"/>
-    <line x1="-4" y1="-2" x2="4" y2="-2" stroke="#FFFFFF" stroke-width="1" opacity="0.6"/>
-    <line x1="-4" y1="0" x2="4" y2="0" stroke="#FFFFFF" stroke-width="1" opacity="0.6"/>
+  <!-- Octagon shape (UFC cage) -->
+  <polygon points="40,6 66,18 74,40 66,62 40,74 14,62 6,40 14,18" fill="url(#ufc-bg)" filter="url(#ufc-shadow)" stroke="#7F1D1D" stroke-width="2"/>
+  <!-- Inner octagon -->
+  <polygon points="40,16 58,24 64,40 58,56 40,64 22,56 16,40 22,24" fill="none" stroke="#FCA5A5" stroke-width="1.5" opacity="0.3"/>
+  <!-- Boxing gloves crossed -->
+  <g transform="translate(40,40)">
+    <!-- Left glove -->
+    <ellipse cx="-10" cy="-2" rx="9" ry="12" fill="#1a1a1a" transform="rotate(-20)"/>
+    <ellipse cx="-10" cy="-2" rx="6" ry="9" fill="#DC2626" transform="rotate(-20)"/>
+    <!-- Right glove -->
+    <ellipse cx="10" cy="-2" rx="9" ry="12" fill="#1a1a1a" transform="rotate(20)"/>
+    <ellipse cx="10" cy="-2" rx="6" ry="9" fill="#DC2626" transform="rotate(20)"/>
+    <!-- Wrists -->
+    <rect x="-18" y="8" width="8" height="6" rx="2" fill="#1a1a1a" transform="rotate(-20 -10 -2)"/>
+    <rect x="10" y="8" width="8" height="6" rx="2" fill="#1a1a1a" transform="rotate(20 10 -2)"/>
   </g>
+  <!-- Highlight -->
+  <ellipse cx="28" cy="20" rx="6" ry="4" fill="#FFFFFF" opacity="0.15"/>
 </svg>
