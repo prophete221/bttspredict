@@ -129,18 +129,32 @@ export default function RootLayout({
         <meta name="expires" content="never" />
         <meta name="HandheldFriendly" content="True" />
         <meta name="MobileOptimized" content="390" />
-        {/* Service worker cleanup */}
+        {/* Cache-busting + service worker cleanup — forces users to see latest version */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              if('serviceWorker' in navigator){
-                navigator.serviceWorker.getRegistrations().then(function(regs){
-                  regs.forEach(function(reg){ reg.unregister(); });
-                });
-                caches.keys().then(function(names){
-                  names.forEach(function(name){ caches.delete(name); });
-                });
-              }
+              (function(){
+                var VERSION = 'bttspredict-v2-cookiefix-2026-08-04';
+                try {
+                  if('serviceWorker' in navigator){
+                    navigator.serviceWorker.getRegistrations().then(function(regs){
+                      regs.forEach(function(reg){ reg.unregister(); });
+                    });
+                  }
+                  if(window.caches){
+                    caches.keys().then(function(names){
+                      names.forEach(function(name){ caches.delete(name); });
+                    });
+                  }
+                  var stored = localStorage.getItem('bttspredict_ver');
+                  if(stored && stored !== VERSION){
+                    localStorage.setItem('bttspredict_ver', VERSION);
+                    window.location.reload();
+                  } else if(!stored){
+                    localStorage.setItem('bttspredict_ver', VERSION);
+                  }
+                } catch(e){}
+              })();
             `,
           }}
         />
