@@ -36,7 +36,7 @@ const COLORS = {
   success: '#1E40AF',
   lose: '#FF7A93',
   gold: '#F59E0B',
-  panel: '#0F172A',
+  panel: '#0F1424',
   edge: 'rgba(255, 255, 255, 0.08)',
   text: '#8A8FA3',
 }

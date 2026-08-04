@@ -14,103 +14,73 @@
 @import "tailwindcss";
 
 @theme {
-  /* ════════════════════════════════════════════════════════════════════════════
-     ULTIMATE COLOR PALETTE — Vibrant & Premium
-     ════════════════════════════════════════════════════════════════════════════ */
-  
-  /* Primary Gradient Colors */
-  --color-primary: #6366F1;
-  --color-primary-dark: #4F46E5;
-  --color-primary-light: #818CF8;
-  --color-primary-glow: rgba(99, 102, 241, 0.4);
-  
-  /* Secondary - Electric Blue */
-  --color-secondary: #0EA5E9;
-  --color-secondary-dark: #0284C7;
-  --color-secondary-light: #38BDF8;
-  --color-secondary-glow: rgba(14, 165, 233, 0.4);
-  
-  /* Accent - Vibrant Orange (for CTAs) */
-  --color-accent: #F97316;
-  --color-accent-dark: #EA580C;
-  --color-accent-light: #FB923C;
-  --color-accent-glow: rgba(249, 115, 22, 0.4);
-  
-  /* Success - Emerald Green */
-  --color-success: #10B981;
-  --color-success-dark: #059669;
-  --color-success-light: #34D399;
-  --color-success-glow: rgba(16, 185, 129, 0.4);
-  
-  /* Warning - Amber */
-  --color-warning: #F59E0B;
-  --color-warning-dark: #D97706;
-  --color-warning-light: #FBBF24;
-  
-  /* Danger - Red */
-  --color-danger: #EF4444;
-  --color-danger-dark: #DC2626;
-  --color-danger-light: #F87171;
-  
-  /* VIP Gold */
-  --color-vip: #FFD700;
-  --color-vip-light: #FFED4A;
-  --color-vip-dark: #F59E0B;
-  --color-vip-glow: rgba(255, 215, 0, 0.4);
-  
-  /* Dark Surfaces */
-  --color-dark-900: #030712;
-  --color-dark-800: #060B15;
-  --color-dark-700: #0F172A;
+  /* ── Deep Midnight Blue surfaces ── */
+  --color-dark-900: #0A0F1E;
+  --color-dark-800: #0D1224;
+  --color-dark-700: #111827;
   --color-dark-600: #1E293B;
   --color-dark-500: #334155;
   --color-dark-400: #475569;
-  
-  /* Card Surfaces */
-  --color-card: #111827;
-  --color-card-hover: #1F2937;
-  --color-card-border: rgba(255, 255, 255, 0.08);
-  --color-card-border-hover: rgba(255, 255, 255, 0.15);
-  
-  /* Text */
+
+  /* ── Card surfaces ── */
+  --color-card: #0F1424;
+  --color-card-hover: #1A1F35;
+  --color-card-border: rgba(0, 229, 255, 0.08);
+  --color-card-border-hover: rgba(0, 229, 255, 0.2);
+
+  /* ── Cyan (accent principal) ── */
+  --color-primary: #00E5FF;
+  --color-primary-dark: #00B8D4;
+  --color-primary-light: #5AECFF;
+  --color-primary-glow: rgba(0, 229, 255, 0.35);
+
+  /* ── Violet (accent secondaire) ── */
+  --color-secondary: #A78BFA;
+  --color-secondary-dark: #8B5CF6;
+  --color-secondary-light: #C4B5FD;
+  --color-secondary-glow: rgba(167, 139, 250, 0.3);
+
+  /* ── Success (gains) ── */
+  --color-success: #10B981;
+  --color-success-dark: #059669;
+  --color-success-light: #34D399;
+
+  /* ── Warning / VIP ── */
+  --color-warning: #F59E0B;
+  --color-vip: #FFD700;
+  --color-vip-glow: rgba(255, 215, 0, 0.4);
+
+  /* ── Danger ── */
+  --color-danger: #EF4444;
+  --color-danger-light: #F87171;
+
+  /* ── Accent (legacy compat) ── */
+  --color-accent: #00E5FF;
+  --color-accent-glow: rgba(0, 229, 255, 0.35);
+  --color-neon: #00E5FF;
+  --color-neon-glow: rgba(0, 229, 255, 0.35);
+  --color-neon-green: #10B981;
+
+  /* ── Text ── */
   --color-text-primary: #FFFFFF;
   --color-text-secondary: #94A3B8;
   --color-text-muted: #64748B;
   --color-text-tertiary: #475569;
-  
-  /* Background */
-  --color-bg: #030712;
-  --color-bg-secondary: #0F172A;
-  
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #A855F7 100%);
-  --gradient-secondary: linear-gradient(135deg, #0EA5E9 0%, #06B6D4 100%);
-  --gradient-accent: linear-gradient(135deg, #F97316 0%, #EF4444 100%);
-  --gradient-success: linear-gradient(135deg, #10B981 0%, #059669 100%);
-  --gradient-vip: linear-gradient(135deg, #FFD700 0%, #F59E0B 50%, #FFD700 100%);
-  --gradient-dark: linear-gradient(180deg, #030712 0%, #0F172A 100%);
-  
-  /* Radius */
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.25rem;
-  --radius-2xl: 1.5rem;
-  --radius-full: 9999px;
-  
-  /* Fonts */
-  --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.4), 0 10px 10px rgba(0, 0, 0, 0.3);
-  --shadow-glow-primary: 0 0 40px rgba(99, 102, 241, 0.3), 0 0 80px rgba(99, 102, 241, 0.15);
-  --shadow-glow-accent: 0 0 40px rgba(249, 115, 22, 0.4), 0 0 80px rgba(249, 115, 22, 0.2);
-  --shadow-glow-success: 0 0 40px rgba(16, 185, 129, 0.3), 0 0 80px rgba(16, 185, 129, 0.15);
-  --shadow-glow-vip: 0 0 40px rgba(255, 215, 0, 0.4), 0 0 80px rgba(255, 215, 0, 0.2);
+
+  /* ── Gradients ── */
+  --grad-primary: linear-gradient(135deg, #00E5FF 0%, #A78BFA 100%);
+  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(0,229,255,0.12) 0%, transparent 60%),
+               radial-gradient(50% 50% at 85% 10%, rgba(167,139,250,0.08) 0%, transparent 60%);
+
+  /* ── Fonts ── */
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* ── Shadows ── */
+  --shadow-card: 0 1px 2px rgba(0,0,0,0.4), 0 8px 30px rgba(0,0,0,0.5);
+  --shadow-cta: 0 0 0 1px rgba(0,229,255,.3), 0 8px 32px rgba(0,229,255,.2), 0 0 60px rgba(167,139,250,.1);
+  --shadow-glass: 0 1px 0 rgba(255,255,255,0.05) inset, 0 8px 30px rgba(0,0,0,0.3);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -125,9 +95,9 @@ html {
 body {
   background: var(--color-bg);
   background-image: 
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(14, 165, 233, 0.1) 0%, transparent 40%),
-    radial-gradient(ellipse 40% 30% at 20% 100%, rgba(249, 115, 22, 0.05) 0%, transparent 30%);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 229, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(167, 139, 250, 0.1) 0%, transparent 40%),
+    radial-gradient(ellipse 40% 30% at 20% 100%, rgba(0, 229, 255, 0.05) 0%, transparent 30%);
   background-attachment: fixed;
   color: var(--color-text-primary);
   font-family: var(--font-body);
@@ -162,7 +132,7 @@ h1, h2, h3, h4, h5, h6 {
 p { line-height: 1.7; }
 
 ::selection {
-  background: rgba(99, 102, 241, 0.4);
+  background: rgba(0, 229, 255, 0.4);
   color: #fff;
 }
 
@@ -326,15 +296,15 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .card-gradient {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(14, 165, 233, 0.05) 100%);
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(167, 139, 250, 0.05) 100%);
+  border: 1px solid rgba(0, 229, 255, 0.2);
   border-radius: var(--radius-xl);
   padding: 2rem;
 }
 
 .card-primary {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+  border: 1px solid rgba(0, 229, 255, 0.3);
   border-radius: var(--radius-xl);
   padding: 1.5rem;
 }
@@ -361,9 +331,9 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .badge-primary {
-  background: rgba(99, 102, 241, 0.2);
+  background: rgba(0, 229, 255, 0.2);
   color: var(--color-primary-light);
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  border: 1px solid rgba(0, 229, 255, 0.3);
 }
 
 .badge-success {
@@ -468,8 +438,8 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .match-card.featured {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+  border: 1px solid rgba(0, 229, 255, 0.3);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════

@@ -80,7 +80,7 @@ export default function MobileTabBar() {
       className="fixed bottom-0 left-0 right-0 z-40 md:hidden"
       style={{
         display: 'flex',
-        backgroundColor: 'rgba(10, 14, 20, 0.98)',
+        backgroundColor: 'rgba(10, 15, 30, 0.98)',
         backdropFilter: 'blur(16px)',
         borderTop: '1px solid rgba(255,255,255,0.06)',
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',

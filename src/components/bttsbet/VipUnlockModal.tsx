@@ -112,7 +112,7 @@ export default function VipUnlockModal({
             transition={{ duration: 0.2 }}
             className="relative w-full max-w-md max-h-[90vh] overflow-y-auto rounded-2xl"
             style={{
-              backgroundColor: '#0A0E14',
+              backgroundColor: '#0A0F1E',
               border: '1px solid rgba(16, 185, 129, 0.3)',
               boxShadow: '0 24px 80px rgba(0, 0, 0, 0.8)',
             }}
@@ -122,7 +122,7 @@ export default function VipUnlockModal({
             <button
               onClick={onClose}
               className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center z-10"
-              style={{ backgroundColor: '#1E293B', border: '1px solid rgba(255,255,255,0.1)' }}
+              style={{ backgroundColor: '#1A1F35', border: '1px solid rgba(255,255,255,0.1)' }}
               aria-label="Fermer"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
@@ -134,7 +134,7 @@ export default function VipUnlockModal({
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: '#0F172A', border: '1px solid rgba(59, 130, 246,0.3)' }}>
+                    style={{ backgroundColor: '#0F1424', border: '1px solid rgba(0, 229, 255,0.3)' }}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
                     </svg>
@@ -146,7 +146,7 @@ export default function VipUnlockModal({
                 </div>
 
                 {alreadyUnlocked && (
-                  <div className="mb-4 p-3 rounded-lg flex items-center gap-2" style={{ backgroundColor: 'rgba(59, 130, 246,0.1)', border: '1px solid rgba(59, 130, 246,0.3)' }}>
+                  <div className="mb-4 p-3 rounded-lg flex items-center gap-2" style={{ backgroundColor: 'rgba(0, 229, 255,0.1)', border: '1px solid rgba(0, 229, 255,0.3)' }}>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
                     <span className="text-xs text-[#10B981] font-semibold">Tu as déjà débloqué le VIP.</span>
                   </div>
@@ -155,7 +155,7 @@ export default function VipUnlockModal({
                 {/* Step 1 — Bookmaker + Code promo copiable */}
                 <div className="mb-4">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: '#1E293B', color: '#10B981', border: '1px solid rgba(59, 130, 246,0.3)' }}>1</span>
+                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: '#1A1F35', color: '#10B981', border: '1px solid rgba(0, 229, 255,0.3)' }}>1</span>
                     <span className="text-sm font-semibold text-white">Choisis ton bookmaker</span>
                   </div>
 
@@ -164,9 +164,9 @@ export default function VipUnlockModal({
                     onClick={copyCode}
                     className="w-full mb-3 p-4 rounded-xl flex items-center justify-between transition-all"
                     style={{
-                      backgroundColor: '#0F172A',
-                      border: '1px solid rgba(59, 130, 246, 0.3)',
-                      boxShadow: copied ? '0 0 20px rgba(59, 130, 246, 0.2)' : 'none',
+                      backgroundColor: '#0F1424',
+                      border: '1px solid rgba(0, 229, 255, 0.3)',
+                      boxShadow: copied ? '0 0 20px rgba(0, 229, 255, 0.2)' : 'none',
                     }}
                     aria-label={`Copier le code promo ${currentCode}`}
                   >
@@ -174,15 +174,15 @@ export default function VipUnlockModal({
                       <div className="text-[10px] uppercase tracking-widest font-bold mb-1" style={{ color: '#5a5a5a' }}>
                         Code promo {selectedBookmaker === '888starz' ? '(minuscules)' : '(majuscules)'}
                       </div>
-                      <div className="font-mono text-2xl font-black tracking-[0.1em]" style={{ color: '#3B82F6' }}>
+                      <div className="font-mono text-2xl font-black tracking-[0.1em]" style={{ color: '#00E5FF' }}>
                         {currentCode}
                       </div>
                     </div>
-                    <div className="flex items-center gap-1.5 px-3 py-2 rounded-lg" style={{ backgroundColor: copied ? 'rgba(16, 185, 129, 0.15)' : 'rgba(59, 130, 246, 0.1)' }}>
+                    <div className="flex items-center gap-1.5 px-3 py-2 rounded-lg" style={{ backgroundColor: copied ? 'rgba(16, 185, 129, 0.15)' : 'rgba(0, 229, 255, 0.1)' }}>
                       {copied ? (
                         <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg><span className="text-xs font-bold text-[#10B981]">Copié !</span></>
                       ) : (
-                        <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg><span className="text-xs font-bold text-[#3B82F6]">Copier</span></>
+                        <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg><span className="text-xs font-bold text-[#00E5FF]">Copier</span></>
                       )}
                     </div>
                   </button>
@@ -193,7 +193,7 @@ export default function VipUnlockModal({
                     onClick={() => setSelectedBookmaker('linebet')}
                     className="w-full p-3 rounded-lg text-left mb-2 transition-all"
                     style={{
-                      backgroundColor: selectedBookmaker === 'linebet' ? '#0F172A' : '#0F172A',
+                      backgroundColor: selectedBookmaker === 'linebet' ? '#0F1424' : '#0F1424',
                       border: selectedBookmaker === 'linebet' ? '1px solid #10B981' : '1px solid rgba(255,255,255,0.08)',
                     }}
                   >
@@ -206,7 +206,7 @@ export default function VipUnlockModal({
                           )}
                         </div>
                         <div className="text-[11px] text-[#a0a0a0]">
-                          Code : <span className="font-mono font-bold text-[#3B82F6]">VISION221</span>
+                          Code : <span className="font-mono font-bold text-[#00E5FF]">VISION221</span>
                         </div>
                       </div>
                       <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(16, 185, 129, 0.1)', color: '#10B981' }}>Bonus exclusif</span>
@@ -219,7 +219,7 @@ export default function VipUnlockModal({
                     onClick={() => setSelectedBookmaker('888starz')}
                     className="w-full p-3 rounded-lg text-left transition-all"
                     style={{
-                      backgroundColor: selectedBookmaker === '888starz' ? '#0F172A' : '#0F172A',
+                      backgroundColor: selectedBookmaker === '888starz' ? '#0F1424' : '#0F1424',
                       border: selectedBookmaker === '888starz' ? '1px solid #F59E0B' : '1px solid rgba(255,255,255,0.08)',
                     }}
                   >
@@ -242,7 +242,7 @@ export default function VipUnlockModal({
 
                 {/* Step 2 — Deposit */}
                 <div className="mb-4 flex gap-3">
-                  <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style={{ backgroundColor: '#1E293B', color: '#10B981', border: '1px solid rgba(59, 130, 246,0.3)' }}>2</span>
+                  <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style={{ backgroundColor: '#1A1F35', color: '#10B981', border: '1px solid rgba(0, 229, 255,0.3)' }}>2</span>
                   <div className="text-sm text-[#a0a0a0]">
                     Effectue un <span className="text-white font-semibold">dépôt minimum de 3 000 XOF</span> avec le code promo.
                   </div>
@@ -250,7 +250,7 @@ export default function VipUnlockModal({
 
                 {/* Step 3 — ID */}
                 <div className="mb-4 flex gap-3">
-                  <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style={{ backgroundColor: '#1E293B', color: '#10B981', border: '1px solid rgba(59, 130, 246,0.3)' }}>3</span>
+                  <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style={{ backgroundColor: '#1A1F35', color: '#10B981', border: '1px solid rgba(0, 229, 255,0.3)' }}>3</span>
                   <div className="text-sm text-[#a0a0a0]">
                     <span className="text-white font-semibold">Vérifie ton ID joueur</span> ci-dessous.
                     <span className="block mt-1 text-[10px] text-[#5a5a5a]">🔒 Aucune donnée collectée — hashé localement (SHA-256) dans ton navigateur.</span>
@@ -270,7 +270,7 @@ export default function VipUnlockModal({
                     disabled={!selectedBookmaker}
                     className="w-full px-3 py-2.5 rounded-lg text-sm text-white"
                     style={{
-                      backgroundColor: '#0F172A',
+                      backgroundColor: '#0F1424',
                       border: selectedBookmaker ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(255,255,255,0.06)',
                       opacity: selectedBookmaker ? 1 : 0.5,
                     }}
@@ -283,14 +283,14 @@ export default function VipUnlockModal({
                   {selectedBookmaker === 'linebet' && (
                     <a href={AFFILIATE.linebet} rel="sponsored noopener" target="_blank"
                       className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold"
-                      style={{ backgroundColor: '#10B981', color: '#0A0E14' }}>
+                      style={{ backgroundColor: '#10B981', color: '#0A0F1E' }}>
                       Inscription Linebet →
                     </a>
                   )}
                   {selectedBookmaker === '888starz' && (
                     <a href={AFFILIATE.star888} rel="sponsored noopener" target="_blank"
                       className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold"
-                      style={{ backgroundColor: '#F59E0B', color: '#0A0E14' }}>
+                      style={{ backgroundColor: '#F59E0B', color: '#0A0F1E' }}>
                       Inscription 888starz →
                     </a>
                   )}
@@ -299,8 +299,8 @@ export default function VipUnlockModal({
                     disabled={isUnlocking || !selectedBookmaker || !playerId.trim()}
                     className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg text-xs font-bold transition-all"
                     style={{
-                      backgroundColor: !selectedBookmaker || !playerId.trim() ? '#1E293B' : '#F59E0B',
-                      color: !selectedBookmaker || !playerId.trim() ? '#5a5a5a' : '#0A0E14',
+                      backgroundColor: !selectedBookmaker || !playerId.trim() ? '#1A1F35' : '#F59E0B',
+                      color: !selectedBookmaker || !playerId.trim() ? '#5a5a5a' : '#0A0F1E',
                       cursor: !selectedBookmaker || !playerId.trim() ? 'not-allowed' : 'pointer',
                     }}
                   >
@@ -309,7 +309,7 @@ export default function VipUnlockModal({
                 </div>
 
                 {/* Privacy */}
-                <div className="p-3 rounded-lg" style={{ backgroundColor: '#0F172A', border: '1px solid rgba(255,255,255,0.06)' }}>
+                <div className="p-3 rounded-lg" style={{ backgroundColor: '#0F1424', border: '1px solid rgba(255,255,255,0.06)' }}>
                   <p className="text-[10px] text-[#5a5a5a] leading-relaxed">
                     <span className="text-[#a0a0a0] font-semibold">Confidentialité totale :</span> ton ID n'est jamais envoyé à nos serveurs. Hashé localement (SHA-256) et stocké uniquement dans ton navigateur.
                   </p>
@@ -346,7 +346,7 @@ export default function VipUnlockModal({
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.5, type: 'spring' }}
                   className="w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: 'rgba(59, 130, 246,0.1)', border: '2px solid #10B981' }}
+                  style={{ backgroundColor: 'rgba(0, 229, 255,0.1)', border: '2px solid #10B981' }}
                 >
                   <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
                 </motion.div>
@@ -358,7 +358,7 @@ export default function VipUnlockModal({
                 <button
                   onClick={onClose}
                   className="w-full px-4 py-3 rounded-xl text-sm font-bold"
-                  style={{ backgroundColor: '#10B981', color: '#0A0E14' }}
+                  style={{ backgroundColor: '#10B981', color: '#0A0F1E' }}
                 >
                   Accéder aux pronostics VIP →
                 </button>

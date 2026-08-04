@@ -8,15 +8,16 @@ import CopyableCode from './CopyableCode'
 
 // ─── Palette BTTSPredict (Noir / Vert néon / Blanc) ────────────────────
 const C = {
-  bg:       '#0A0E14',
-  card:     '#0F172A',
-  elevated: '#1E293B',
-  border:   'rgba(255,255,255,0.08)',
-  neon:     '#10B981',
-  neonDk:   '#059669',
+  bg:       '#0A0F1E',
+  card:     '#0F1424',
+  elevated: '#1A1F35',
+  border:   'rgba(0, 229, 255, 0.1)',
+  neon:     '#00E5FF',
+  neonDk:   '#00B8D4',
+  violet:   '#A78BFA',
   text:     '#ffffff',
-  textSec:  '#a0a0a0',
-  textMute: '#5a5a5a',
+  textSec:  '#94A3B8',
+  textMute: '#64748B',
 }
 
 // ─── Types ──────────────────────────────────────────────────────────────
@@ -80,7 +81,8 @@ function NextMatchPreview() {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-      className="rounded-[20px] overflow-hidden glass"
+      className="rounded-[20px] overflow-hidden"
+      style={{ background: 'rgba(15, 20, 36, 0.7)', backdropFilter: 'blur(18px) saturate(140%)', border: '1px solid rgba(0, 229, 255, 0.15)', boxShadow: '0 8px 32px rgba(0,0,0,0.4), 0 0 40px rgba(0,229,255,0.06)' }}
       style={{ boxShadow: 'var(--shadow-card, 0 8px 30px rgba(0,0,0,0.4))' }}
     >
       {/* Header */}
@@ -100,7 +102,7 @@ function NextMatchPreview() {
             <img src={match.homeLogo} alt={home} className="w-10 h-10 object-contain" loading="lazy" />
           ) : (
             <div className="w-10 h-10 rounded-full flex items-center justify-center text-[14px] font-bold"
-              style={{ background: 'rgba(59, 130, 246,0.1)', color: C.neon }}>
+              style={{ background: 'rgba(0, 229, 255,0.1)', color: '#00E5FF' }}>
               {home.slice(0, 2).toUpperCase()}
             </div>
           )}
@@ -108,7 +110,7 @@ function NextMatchPreview() {
         </div>
 
         <div className="flex flex-col items-center px-3">
-          <span className="text-[16px] font-bold" style={{ color: C.neon }}>VS</span>
+          <span className="text-[16px] font-bold" style={{ color: '#00E5FF' }}>VS</span>
           <span className="text-[9px] uppercase tracking-widest mt-0.5" style={{ color: C.textMute }}>
             {match.type}
           </span>
@@ -119,7 +121,7 @@ function NextMatchPreview() {
             <img src={match.awayLogo} alt={away} className="w-10 h-10 object-contain" loading="lazy" />
           ) : (
             <div className="w-10 h-10 rounded-full flex items-center justify-center text-[14px] font-bold"
-              style={{ background: 'rgba(59, 130, 246,0.1)', color: C.neon }}>
+              style={{ background: 'rgba(0, 229, 255,0.1)', color: '#00E5FF' }}>
               {away.slice(0, 2).toUpperCase()}
             </div>
           )}
@@ -133,7 +135,7 @@ function NextMatchPreview() {
           <span className="text-[11px] font-medium" style={{ color: C.textSec }}>
             IA : <span className="font-bold text-white">{match.prediction}</span>
           </span>
-          <span className="font-mono text-[12px] font-bold" style={{ color: C.neon }}>
+          <span className="font-mono text-[12px] font-bold" style={{ color: '#00E5FF' }}>
             {match.confidence}%
           </span>
         </div>
@@ -143,7 +145,7 @@ function NextMatchPreview() {
             animate={{ width: `${match.confidence}%` }}
             transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
             className="h-full rounded-full"
-            style={{ background: 'var(--grad-primary, linear-gradient(90deg, #10B981, #059669))', boxShadow: '0 0 8px rgba(59, 130, 246,0.4)' }}
+            style={{ background: 'var(--grad-primary, linear-gradient(90deg, #10B981, #059669))', boxShadow: '0 0 8px rgba(0, 229, 255,0.4)' }}
           />
         </div>
       </div>
@@ -151,7 +153,7 @@ function NextMatchPreview() {
       {/* League + time */}
       <div className="px-4 pb-3 flex items-center justify-between border-t" style={{ borderColor: 'rgba(255,255,255,0.04)', paddingTop: '8px' }}>
         <span className="text-[10px]" style={{ color: C.textMute }}>{match.league}</span>
-        <span className="text-[10px] font-mono" style={{ color: C.neon }}>{match.date}</span>
+        <span className="text-[10px] font-mono" style={{ color: '#00E5FF' }}>{match.date}</span>
       </div>
     </motion.div>
   )
@@ -173,7 +175,7 @@ export default function Hero() {
     >
       {/* Mesh gradient background */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(60% 50% at 20% 0%, rgba(59, 130, 246,0.08) 0%, transparent 60%), radial-gradient(50% 50% at 85% 10%, rgba(59, 130, 246,0.04) 0%, transparent 60%)'
+        background: 'radial-gradient(60% 50% at 20% 0%, rgba(0, 229, 255,0.08) 0%, transparent 60%), radial-gradient(50% 50% at 85% 10%, rgba(0, 229, 255,0.04) 0%, transparent 60%)'
       }} />
 
       <div className="relative z-10 max-w-[420px] mx-auto px-4 flex flex-col gap-4">
@@ -184,10 +186,10 @@ export default function Hero() {
           animate={isVisible ? { opacity: 1, y: 0 } : undefined}
           transition={{ duration: 0.4 }}
           className="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full"
-          style={{ background: 'rgba(59, 130, 246,0.08)', border: '1px solid rgba(59, 130, 246,0.2)' }}
+          style={{ background: 'rgba(0, 229, 255,0.08)', border: '1px solid rgba(0, 229, 255,0.2)' }}
         >
-          <span className="w-2 h-2 rounded-full live-dot" style={{ backgroundColor: C.neon, boxShadow: '0 0 8px ' + C.neon }} />
-          <span className="font-mono text-[10px] font-bold tracking-[0.14em]" style={{ color: C.neon }}>
+          <span className="w-2 h-2 rounded-full live-dot" style={{ backgroundColor: '#00E5FF', boxShadow: '0 0 8px #00E5FF' }} />
+          <span className="font-mono text-[10px] font-bold tracking-[0.14em]" style={{ color: '#00E5FF' }}>
             IA ACTIVE — 50+ PRONOS/JOUR
           </span>
         </motion.div>
@@ -199,11 +201,11 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
           <h1 className="font-bold leading-[1.05] tracking-tight" style={{ fontSize: '28px', color: C.text }}>
-            Le moteur IA qui sait quand les <span style={{ color: C.neon }}>deux équipes marquent</span>.
+            Le moteur IA qui sait quand les <span style={{ background: 'linear-gradient(135deg, #00E5FF, #A78BFA)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>deux équipes marquent</span>.
           </h1>
           <p className="mt-3 text-[14px] leading-[1.6]" style={{ color: C.textSec, maxWidth: '340px' }}>
             Modèles Poisson calibrés sur 50 000 matchs. Inscrivez-vous avec le code Inscrivez-vous avec le code{' '}
-            <CopyableCode code={SITE.promoCode} gold />{' '}pour débloquer le VIP.
+            <CopyableCode code={SITE.promoCode} displayClassName="font-bold" />{' '}pour débloquer le VIP.
           </p>
         </motion.div>
 
@@ -226,8 +228,8 @@ export default function Hero() {
             className="w-full h-[56px] rounded-[14px] font-bold text-[15px] flex items-center justify-center gap-2"
             style={{
               background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
-              color: '#0A0E14',
-              boxShadow: '0 0 0 1px rgba(59, 130, 246,.4), 0 8px 32px rgba(59, 130, 246,.22)',
+              color: '#0A0F1E',
+              boxShadow: '0 0 0 1px rgba(0, 229, 255,.4), 0 8px 32px rgba(0, 229, 255,.22)',
             }}
             aria-label="S'inscrire sur Linebet avec le code promo VISION221"
             data-cta="hero-primary"
@@ -244,7 +246,7 @@ export default function Hero() {
             whileTap={{ scale: 0.99 }}
             onClick={() => document.getElementById('free-predictions')?.scrollIntoView({ behavior: 'smooth' })}
             className="w-full h-[48px] rounded-[14px] font-medium text-[13px] flex items-center justify-center gap-2"
-            style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.7)' }}
+            style={{ background: 'transparent', border: '1px solid rgba(0,229,255,0.3)', color: '#00E5FF' }}
             data-cta="hero-secondary"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

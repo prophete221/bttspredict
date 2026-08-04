@@ -40,7 +40,7 @@ const COLORS = {
   text: '#9CA3AF',
 }
 
-const LEAGUE_COLORS = ['#F59E0B', '#10B981', '#1E40AF', '#EF4444', '#A78BFA', '#F59E0B', '#10B981', '#3B82F6', '#EC4899', '#8B5CF6']
+const LEAGUE_COLORS = ['#F59E0B', '#10B981', '#1E40AF', '#EF4444', '#A78BFA', '#F59E0B', '#10B981', '#00E5FF', '#EC4899', '#8B5CF6']
 
 export default function StatsDashboard() {
   const [data, setData] = useState<WinHistory | null>(null)

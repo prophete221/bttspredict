@@ -23,11 +23,11 @@ export default function SportMarquee() {
       {/* Fade edges */}
       <div
         className="absolute left-0 top-0 bottom-0 z-10 w-16 sm:w-24 pointer-events-none"
-        style={{ background: 'linear-gradient(90deg, #0A0E14, transparent)' }}
+        style={{ background: 'linear-gradient(90deg, #0A0F1E, transparent)' }}
       />
       <div
         className="absolute right-0 top-0 bottom-0 z-10 w-16 sm:w-24 pointer-events-none"
-        style={{ background: 'linear-gradient(270deg, #0A0E14, transparent)' }}
+        style={{ background: 'linear-gradient(270deg, #0A0F1E, transparent)' }}
       />
 
       {/* Scrolling track */}

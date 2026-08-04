@@ -21,9 +21,9 @@ export default function Footer() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {TESTIMONIALS.slice(0, 3).map((t) => (
-                <motion.div key={t.name + t.city} variants={staggerChildFadeUp} className="rounded-xl p-4" style={{ backgroundColor: '#0F172A', border: '1px solid rgba(255,255,255,0.06)' }}>
+                <motion.div key={t.name + t.city} variants={staggerChildFadeUp} className="rounded-xl p-4" style={{ backgroundColor: '#0F1424', border: '1px solid rgba(255,255,255,0.06)' }}>
                   <div className="flex items-center gap-2.5 mb-2.5">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: 'rgba(59, 130, 246,0.1)', color: '#10B981' }}>
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: 'rgba(0, 229, 255,0.1)', color: '#10B981' }}>
                       {t.name.charAt(0)}
                     </div>
                     <div>
@@ -44,7 +44,7 @@ export default function Footer() {
             </div>
             <div className="space-y-2">
               {FAQ_ITEMS.slice(0, 4).map((item, i) => (
-                <motion.div key={item.q} variants={fadeInUp} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#0F172A', border: '1px solid rgba(255,255,255,0.06)' }}>
+                <motion.div key={item.q} variants={fadeInUp} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#0F1424', border: '1px solid rgba(255,255,255,0.06)' }}>
                   <button onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i} className="w-full text-left px-4 py-3 text-xs font-semibold text-white">
                     {item.q}
                   </button>
@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
 
           {/* Legal text */}
-          <div className="rounded-xl p-4 mb-3" style={{ backgroundColor: '#0F172A' }}>
+          <div className="rounded-xl p-4 mb-3" style={{ backgroundColor: '#0F1424' }}>
             <div className="flex items-center gap-2 mb-2">
               <span className="text-[#10B981] font-extrabold text-xs">18+</span>
               <span className="text-[10px] text-[#5a5a5a]">| {LONASE.name} | Jeu responsable</span>

@@ -9,12 +9,12 @@ import CopyableCode from './CopyableCode'
 
 // ─── Palette ────────────────────────────────────────────────────────────
 const C = {
-  bg:       '#0A0E14',
-  card:     '#0F172A',
-  elevated: '#1E293B',
+  bg:       '#0A0F1E',
+  card:     '#0F1424',
+  elevated: '#1A1F35',
   border:   'rgba(255,255,255,0.08)',
-  neon:     '#3B82F6',
-  neonDk:   '#2563EB',
+  neon:     '#00E5FF',
+  neonDk:   '#00B8D4',
   gold:     '#F59E0B',
   text:     '#ffffff',
   textSec:  '#a0a0a0',
@@ -98,7 +98,7 @@ export default function VipSports() {
                   onClick={() => setActiveId(sport.id)}
                   className="flex flex-col items-center gap-1.5 p-2.5 rounded-xl transition-all"
                   style={{
-                    backgroundColor: isActive ? '#0F172A' : '#0F172A',
+                    backgroundColor: isActive ? '#0F1424' : '#0F1424',
                     border: isActive
                       ? '1px solid ' + sport.color
                       : '1px solid rgba(255,255,255,0.06)',
@@ -138,7 +138,7 @@ export default function VipSports() {
               transition={{ duration: 0.3 }}
               className="rounded-[16px] overflow-hidden"
               style={{
-                backgroundColor: '#0F172A',
+                backgroundColor: '#0F1424',
                 border: '1px solid rgba(255,255,255,0.08)',
                 boxShadow: '0 8px 30px rgba(0,0,0,0.4)',
               }}
@@ -149,7 +149,7 @@ export default function VipSports() {
               {/* Header with big logo */}
               <div className="p-4 flex items-center gap-3">
                 <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ backgroundColor: '#1E293B', border: '1px solid ' + activeSport.color + '30' }}>
+                  style={{ backgroundColor: '#1A1F35', border: '1px solid ' + activeSport.color + '30' }}>
                   <img src={activeSport.logo} alt={activeSport.name} className="w-10 h-10 object-contain" loading="lazy" />
                 </div>
                 <div className="flex-1">
@@ -203,9 +203,9 @@ export default function VipSports() {
                     onClick={() => setShowModal(true)}
                     className="px-5 py-2.5 rounded-xl font-bold text-[13px]"
                     style={{
-                      background: 'linear-gradient(135deg, #3B82F6, #2563EB)',
-                      color: '#0A0E14',
-                      boxShadow: '0 4px 16px rgba(59, 130, 246, 0.3)',
+                      background: 'linear-gradient(135deg, #00E5FF, #00B8D4)',
+                      color: '#0A0F1E',
+                      boxShadow: '0 4px 16px rgba(0, 229, 255, 0.3)',
                     }}
                   >
                     🔒 Débloquer le VIP
@@ -221,7 +221,7 @@ export default function VipSports() {
             animate={isVisible ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.4, delay: 0.4 }}
             className="mt-3 rounded-[14px] p-3"
-            style={{ backgroundColor: '#0F172A', border: '1px solid rgba(16, 185, 129, 0.2)' }}
+            style={{ backgroundColor: '#0F1424', border: '1px solid rgba(16, 185, 129, 0.2)' }}
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
@@ -239,7 +239,7 @@ export default function VipSports() {
                 target="_blank"
                 rel="noopener"
                 className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold"
-                style={{ backgroundColor: '#10B981', color: '#0A0E14' }}
+                style={{ backgroundColor: '#10B981', color: '#0A0F1E' }}
               >
                 WhatsApp
               </a>
