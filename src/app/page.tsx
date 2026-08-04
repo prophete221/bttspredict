@@ -139,6 +139,59 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
 
+      {/* ═══ SEO CONTENT FOR CRAWLERS & AI ═══ */}
+      {/* This content is visible to Google, GPTBot, ClaudeBot, PerplexityBot, etc.
+          but hidden from users (sr-only). It ensures crawlers can read the site
+          even though the interactive content is client-side rendered. */}
+      <div className="sr-only">
+        <h1>BTTSPredict — Plateforme de Prédictions Football par Intelligence Artificielle</h1>
+        <p>
+          BTTSPredict est la plateforme N°1 de prédictions BTTS (Both Teams To Score) et Over 2.5
+          générées par intelligence artificielle. Notre IA analyse plus de 1200 matchs chaque jour
+          avec des modèles Poisson calibrés sur 50 000 matchs historiques.
+        </p>
+        <h2>Pronostics BTTS gratuits</h2>
+        <p>
+          Chaque jour, BTTSPredict publie gratuitement 6 pronostics BTTS et Over 2.5 sur les matchs
+          de football les plus populaires : Premier League, La Liga, Bundesliga, Serie A, Ligue 1,
+          Champions League, Europa League, et les championnats sud-américains (Brésil, Argentine,
+          Paraguay). Les pronostics incluent les probabilités BTTS (Both Teams To Score) et Over 2.5
+          calculées par notre moteur IA Poisson.
+        </p>
+        <h2>Code promo VISION221 — Bonus Linebet</h2>
+        <p>
+          Inscrivez-vous sur Linebet avec le code promo VISION221 pour recevoir un bonus exclusif
+          sur votre premier dépôt. Dépôt minimum de 3 000 XOF. Le code VISION221 fonctionne également
+          sur 888starz (en minuscules : vision221).
+        </p>
+        <h2>VIP Multi-Sports</h2>
+        <p>
+          Les membres VIP accèdent à des pronostics premium sur 6 sports : Football, Tennis (ATP/WTA),
+          NBA, NFL, UFC/MMA, et Handball. Précision VIP entre 79% et 87% selon le sport.
+        </p>
+        <h2>Stats Aviator — Provably Fair</h2>
+        <p>
+          BTTSPredict propose des statistiques Aviator basées sur l'algorithme Provably Fair Spribe
+          (SHA-256). Aviator est un jeu 100% aléatoire — aucun outil ne peut prédire un round futur.
+        </p>
+        <h2>Value Bets FIFA</h2>
+        <p>
+          Notre IA détecte les cotes sous-évaluées par les bookmakers sur les matchs FIFA virtuels.
+          Ces value bets sont des estimations statistiques, pas des garanties de gain.
+        </p>
+        <h2>Historique et transparence</h2>
+        <p>
+          BTTSPredict affiche publiquement les résultats gagnés ET perdus. Notre taux de réussite
+          est calculé sur les pronostics réellement publiés. Les paris sportifs comportent des risques
+          de perte financière. Jouez de manière responsable. 18+.
+        </p>
+        <h2>Questions fréquentes</h2>
+        <p>Le service est-il gratuit ? — Oui, 6 pronostics BTTS gratuits chaque jour sans inscription.</p>
+        <p>Comment recevoir le bonus ? — Inscrivez-vous sur Linebet avec le code VISION221, déposez minimum 3 000 XOF.</p>
+        <p>Pourquoi 52% est un bon chiffre ? — 52% de réussite sur BTTS (marché ~50% par défaut) signifie une valeur statistique réelle.</p>
+        <p>Peut-on prédire Aviator ? — Non, Aviator est 100% aléatoire basé sur un générateur certifié provably fair.</p>
+      </div>
+
       {/* Skip to content — accessibility */}
       <a
         href="#main-content"
