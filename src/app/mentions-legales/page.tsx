@@ -6,9 +6,9 @@ import { Navbar, Footer } from '@/components/bttsbet'
    ────────────────────────────────────────────────────────────── */
 const SITE_URL = 'https://bttspredict.com'
 const PAGE_URL = `${SITE_URL}/mentions-legales`
-const TITLE = 'Mentions Légales | BttsBet'
+const TITLE = 'Mentions Légales | BTTSPredict'
 const DESCRIPTION =
-  'Mentions légales du site BttsBet — informations sur l\'éditeur, l\'hébergement, la propriété intellectuelle, la limitation de responsabilité et le droit applicable.'
+  'Mentions légales du site BTTSPredict — informations sur l\'éditeur, l\'hébergement, la propriété intellectuelle, la limitation de responsabilité et le droit applicable.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     url: PAGE_URL,
-    siteName: 'BttsBet',
+    siteName: 'BTTSPredict',
     type: 'website',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Mentions Légales – BttsBet' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Mentions Légales – BTTSPredict' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -44,12 +44,12 @@ function buildWebPageJsonLd() {
     url: PAGE_URL,
     isPartOf: {
       '@type': 'WebSite',
-      name: 'BttsBet',
+      name: 'BTTSPredict',
       url: SITE_URL,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'BttsBet',
+      name: 'BTTSPredict',
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
@@ -132,7 +132,7 @@ export default function MentionsLegalesPage() {
               MENTIONS <span className="text-emerald neon-glow">LÉGALES</span>
             </h1>
             <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              Informations légales relatives au site BttsBet conformément aux réglementations en vigueur.
+              Informations légales relatives au site BTTSPredict conformément aux réglementations en vigueur.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
           </div>
@@ -153,17 +153,17 @@ export default function MentionsLegalesPage() {
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    Le site <strong className="text-emerald">BttsBet</strong>, accessible à l&apos;adresse{' '}
+                    Le site <strong className="text-emerald">BTTSPredict</strong>, accessible à l&apos;adresse{' '}
                     <a href={SITE_URL} className="text-emerald hover:text-emerald-soft transition-colors underline underline-offset-2">
                       {SITE_URL}
                     </a>
                     , est un site informatif et d&apos;affiliation dédié aux pronostics sportifs, plus particulièrement aux marchés BTTS (Both Teams To Score) et Over 2,5 buts.
                   </p>
                   <p>
-                    <strong className="text-gold">Dénomination sociale :</strong> BttsBet
+                    <strong className="text-gold">Dénomination sociale :</strong> BTTSPredict
                   </p>
                   <p>
-                    <strong className="text-gold">Nature du site :</strong> Site informatif et d&apos;affiliation — BttsBet ne prend aucun pari, ne collecte aucun fonds et n&apos;agit pas en tant que bookmaker ou intermédiaire de jeux d&apos;argent. Les pronostics diffusés sur le site constituent des outils d&apos;aide à la décision et ne sauraient être considérés comme des conseils financiers ou des garanties de résultat.
+                    <strong className="text-gold">Nature du site :</strong> Site informatif et d&apos;affiliation — BTTSPredict ne prend aucun pari, ne collecte aucun fonds et n&apos;agit pas en tant que bookmaker ou intermédiaire de jeux d&apos;argent. Les pronostics diffusés sur le site constituent des outils d&apos;aide à la décision et ne sauraient être considérés comme des conseils financiers ou des garanties de résultat.
                   </p>
                   <p>
                     <strong className="text-gold">Contact :</strong>{' '}
@@ -182,10 +182,10 @@ export default function MentionsLegalesPage() {
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    Le site BttsBet est hébergé par un prestataire d&apos;hébergement professionnel assurant la disponibilité, la sécurité et la performance du service. Les coordonnées de l&apos;hébergeur sont disponibles sur demande via le canal de contact indiqué ci-dessus.
+                    Le site BTTSPredict est hébergé par un prestataire d&apos;hébergement professionnel assurant la disponibilité, la sécurité et la performance du service. Les coordonnées de l&apos;hébergeur sont disponibles sur demande via le canal de contact indiqué ci-dessus.
                   </p>
                   <p>
-                    L&apos;hébergeur assure la continuité de son service conformément aux obligations légales en vigueur. En cas d&apos;indisponibilité temporaire du site, due notamment à des opérations de maintenance, de mise à jour ou à des circonstances indépendantes de la volonté de l&apos;éditeur, BttsBet ne pourra être tenu responsable des conséquences directes ou indirectes liées à cette indisponibilité.
+                    L&apos;hébergeur assure la continuité de son service conformément aux obligations légales en vigueur. En cas d&apos;indisponibilité temporaire du site, due notamment à des opérations de maintenance, de mise à jour ou à des circonstances indépendantes de la volonté de l&apos;éditeur, BTTSPredict ne pourra être tenu responsable des conséquences directes ou indirectes liées à cette indisponibilité.
                   </p>
                 </div>
               </article>
@@ -200,10 +200,10 @@ export default function MentionsLegalesPage() {
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    L&apos;ensemble des contenus présents sur le site BttsBet — incluant, de manière non exhaustive, les textes, articles, graphismes, logos, icônes, images, vidéos, sons, logiciels, algorithmes, pronostics, analyses statistiques et mises en page — est protégé par les lois relatives à la propriété intellectuelle et appartient à BttsBet ou fait l&apos;objet d&apos;une autorisation d&apos;utilisation.
+                    L&apos;ensemble des contenus présents sur le site BTTSPredict — incluant, de manière non exhaustive, les textes, articles, graphismes, logos, icônes, images, vidéos, sons, logiciels, algorithmes, pronostics, analyses statistiques et mises en page — est protégé par les lois relatives à la propriété intellectuelle et appartient à BTTSPredict ou fait l&apos;objet d&apos;une autorisation d&apos;utilisation.
                   </p>
                   <p>
-                    Toute reproduction, représentation, modification, publication, adaptation, totale ou partielle, des éléments du site, par quelque moyen que ce soit, est interdite sans l&apos;autorisation écrite préalable de BttsBet, conformément aux dispositions du Code de la Propriété Intellectuelle et des conventions internationales applicables, notamment la Convention de Berne et les accords ADPIC.
+                    Toute reproduction, représentation, modification, publication, adaptation, totale ou partielle, des éléments du site, par quelque moyen que ce soit, est interdite sans l&apos;autorisation écrite préalable de BTTSPredict, conformément aux dispositions du Code de la Propriété Intellectuelle et des conventions internationales applicables, notamment la Convention de Berne et les accords ADPIC.
                   </p>
                   <p>
                     Toute exploitation non autorisée du site ou de l&apos;un quelconque des éléments qu&apos;il contient sera considérée comme constitutive d&apos;une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et suivants du Code de la Propriété Intellectuelle.
@@ -224,16 +224,16 @@ export default function MentionsLegalesPage() {
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    BttsBet est un site à vocation purement informative et d&apos;affiliation. Les pronostics, analyses et statistiques publiés sur le site sont fournis à titre indicatif uniquement et ne constituent en aucun cas des conseils en investissement, des incitations à parier ou des garanties de gains.
+                    BTTSPredict est un site à vocation purement informative et d&apos;affiliation. Les pronostics, analyses et statistiques publiés sur le site sont fournis à titre indicatif uniquement et ne constituent en aucun cas des conseils en investissement, des incitations à parier ou des garanties de gains.
                   </p>
                   <p>
                     Les paris sportifs comportent des risques financiers importants. Les utilisateurs sont seuls responsables de leurs décisions de jeu et des sommes qu&apos;ils engagent. Les statistiques de précision affichées sur le site (environ 87 %) sont basées sur des données historiques et ne garantissent en aucun cas des résultats futurs. Les performances passées ne préjugent pas des performances futures.
                   </p>
                   <p>
-                    BttsBet ne saurait être tenu responsable des pertes financières, des dommages directs ou indirects, matériels ou immatériels, résultant de l&apos;utilisation des informations contenues sur le site, de l&apos;impossibilité d&apos;accéder au site, ou de l&apos;utilisation des services des bookmakers partenaires, notamment Linebet.
+                    BTTSPredict ne saurait être tenu responsable des pertes financières, des dommages directs ou indirects, matériels ou immatériels, résultant de l&apos;utilisation des informations contenues sur le site, de l&apos;impossibilité d&apos;accéder au site, ou de l&apos;utilisation des services des bookmakers partenaires, notamment Linebet.
                   </p>
                   <p>
-                    Le site peut contenir des liens vers des sites tiers, notamment des sites de bookmakers partenaires. BttsBet ne dispose d&apos;aucun contrôle sur le contenu de ces sites externes et décline toute responsabilité quant à leur contenu, leurs pratiques ou leur disponibilité. L&apos;utilisation de ces sites tiers est soumise à leurs propres conditions d&apos;utilisation et politiques de confidentialité.
+                    Le site peut contenir des liens vers des sites tiers, notamment des sites de bookmakers partenaires. BTTSPredict ne dispose d&apos;aucun contrôle sur le contenu de ces sites externes et décline toute responsabilité quant à leur contenu, leurs pratiques ou leur disponibilité. L&apos;utilisation de ces sites tiers est soumise à leurs propres conditions d&apos;utilisation et politiques de confidentialité.
                   </p>
                 </div>
               </article>

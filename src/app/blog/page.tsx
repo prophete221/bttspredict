@@ -5,26 +5,26 @@ import { Navbar, Footer } from '@/components/bttsbet'
    Metadata
    ────────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-  title: 'Blog – Pronostics BTTS & Over 2,5 | BttsBet',
+  title: 'Blog – Pronostics BTTS & Over 2,5 | BTTSPredict',
   description:
     'Découvrez nos articles sur les paris BTTS, la stratégie Over 2,5, la gestion de bankroll et la faille FIFA Linebet. Conseils et analyses IA pour optimiser vos paris sportifs.',
   alternates: {
     canonical: 'https://bttspredict.com/blog',
   },
   openGraph: {
-    title: 'Blog – Pronostics BTTS & Over 2,5 | BttsBet',
+    title: 'Blog – Pronostics BTTS & Over 2,5 | BTTSPredict',
     description:
-      'Articles, guides et stratégies BTTS & Over 2,5 propulsés par nos experts. Maîtrisez vos paris sportifs avec BttsBet.',
+      'Articles, guides et stratégies BTTS & Over 2,5 propulsés par nos experts. Maîtrisez vos paris sportifs avec BTTSPredict.',
     url: 'https://bttspredict.com/blog',
-    siteName: 'BttsBet',
+    siteName: 'BTTSPredict',
     type: 'website',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Blog BttsBet' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Blog BTTSPredict' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blog – Pronostics BTTS & Over 2,5 | BttsBet',
+    title: 'Blog – Pronostics BTTS & Over 2,5 | BTTSPredict',
     description:
-      'Articles, guides et stratégies BTTS & Over 2,5 propulsés par nos experts. Maîtrisez vos paris sportifs avec BttsBet.',
+      'Articles, guides et stratégies BTTS & Over 2,5 propulsés par nos experts. Maîtrisez vos paris sportifs avec BTTSPredict.',
     images: ['/og-image.png'],
   },
 }
@@ -92,13 +92,13 @@ function buildBlogJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Blog',
-    name: 'Blog BttsBet',
+    name: 'Blog BTTSPredict',
     description:
       'Articles, guides et stratégies pour les paris BTTS et Over 2,5 propulsés par analyse statistique.',
     url: `${SITE_URL}/blog`,
     publisher: {
       '@type': 'Organization',
-      name: 'BttsBet',
+      name: 'BTTSPredict',
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
@@ -113,11 +113,11 @@ function buildBlogJsonLd() {
       url: `${SITE_URL}/blog/${a.slug}`,
       author: {
         '@type': 'Organization',
-        name: 'BttsBet',
+        name: 'BTTSPredict',
       },
       publisher: {
         '@type': 'Organization',
-        name: 'BttsBet',
+        name: 'BTTSPredict',
       },
     })),
   }

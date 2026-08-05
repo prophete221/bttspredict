@@ -12,7 +12,7 @@ export default class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error('[BttsBet ErrorBoundary]', error, errorInfo)
+    console.error('[BTTSPredict ErrorBoundary]', error, errorInfo)
   }
 
   handleReload = () => {

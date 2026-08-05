@@ -20,7 +20,7 @@ export default function FaqAccordion() {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
             Questions <span className="text-emerald">Fréquentes</span>
           </h2>
-          <p className="text-gray-400">Tout ce que vous devez savoir sur BttsBet et nos pronostics.</p>
+          <p className="text-gray-400">Tout ce que vous devez savoir sur BTTSPredict et nos pronostics.</p>
         </motion.div>
 
         <div className="space-y-2">

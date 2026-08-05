@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     url: PAGE_URL,
-    siteName: 'BttsBet',
+    siteName: 'BTTSPredict',
     type: 'article',
     publishedTime: '2026-07-06',
     modifiedTime: '2026-07-06',
@@ -65,10 +65,10 @@ function buildArticleJsonLd() {
     description: DESCRIPTION,
     datePublished: '2026-07-06',
     dateModified: '2026-07-06',
-    author: { '@type': 'Organization', name: 'BttsBet', url: SITE_URL },
+    author: { '@type': 'Organization', name: 'BTTSPredict', url: SITE_URL },
     publisher: {
       '@type': 'Organization',
-      name: 'BttsBet',
+      name: 'BTTSPredict',
       url: SITE_URL,
       logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.svg` },
     },
@@ -100,7 +100,7 @@ function buildFaqJsonLd() {
     },
     {
       question: 'Comment utiliser les signaux Aviator sur Linebet ?',
-      answer: 'Inscrivez-vous sur Linebet avec le code promo VISION221, déposez des fonds, accédez au jeu Aviator dans la section casino/crash games. Consultez nos signaux en temps réel sur la page VIP Aviator de BttsBet, puis placez vos mises et effectuez le cash out au multiplicateur recommandé par le signal.',
+      answer: 'Inscrivez-vous sur Linebet avec le code promo VISION221, déposez des fonds, accédez au jeu Aviator dans la section casino/crash games. Consultez nos signaux en temps réel sur la page VIP Aviator de BTTSPredict, puis placez vos mises et effectuez le cash out au multiplicateur recommandé par le signal.',
     },
     {
       question: 'Quel est le meilleur moment pour faire cash out sur Aviator ?',
@@ -115,8 +115,8 @@ function buildFaqJsonLd() {
       answer: 'Nous recommandons une bankroll d\'au moins 50 à 100 fois votre mise unitaire. Si vous misez 1€ par tour, prévoyez au minimum 50€ à 100€. Ne misez jamais plus de 1% à 2% de votre bankroll sur un seul tour. Cette gestion stricte vous permet de supporter les séries de pertes inévitables sans épuiser votre capital.',
     },
     {
-      question: 'Les signaux Aviator gratuits de BttsBet sont-ils vraiment gratuits ?',
-      answer: 'Oui, BttsBet propose des signaux Aviator gratuits en temps réel sur sa page VIP Aviator. Ces signaux incluent le multiplicateur recommandé, le niveau de confiance, et la stratégie associée. Des signaux premium avec une analyse plus approfondie et des recommandations personnalisées sont également disponibles.',
+      question: 'Les signaux Aviator gratuits de BTTSPredict sont-ils vraiment gratuits ?',
+      answer: 'Oui, BTTSPredict propose des signaux Aviator gratuits en temps réel sur sa page VIP Aviator. Ces signaux incluent le multiplicateur recommandé, le niveau de confiance, et la stratégie associée. Des signaux premium avec une analyse plus approfondie et des recommandations personnalisées sont également disponibles.',
     },
     {
       question: 'Quelle est la différence entre Aviator sur Linebet et 888starz ?',
@@ -400,7 +400,7 @@ export default function PredictionAviatorPage() {
                 </li>
               </ul>
               <p className="text-gray-400 leading-relaxed mt-4">
-                Concrètement, un signal Aviator de BttsBet se présente sous cette forme :
+                Concrètement, un signal Aviator de BTTSPredict se présente sous cette forme :
               </p>
               <div className="mt-3 p-4 rounded-lg bg-panel/80 border border-emerald/20">
                 <div className="grid grid-cols-2 gap-2 text-sm">
@@ -511,7 +511,7 @@ export default function PredictionAviatorPage() {
                 </h3>
                 <p className="text-gray-400 leading-relaxed text-sm">
                   Avant chaque tour, consultez le signal en temps réel sur{' '}
-                  <a href="/#vip-aviator" className="text-emerald hover:underline">BttsBet VIP Aviator</a>. Le signal vous
+                  <a href="/#vip-aviator" className="text-emerald hover:underline">BTTSPredict VIP Aviator</a>. Le signal vous
                   indique le multiplicateur cible, le niveau de confiance, et la mise recommandée. Placez votre mise sur Aviator,
                   puis configurez le cash out automatique au multiplicateur recommandé (Auto Cash Out) ou effectuez le cash out
                   manuellement au bon moment. L&apos;Auto Cash Out est recommandé pour éviter les décisions émotionnelles.
@@ -715,7 +715,7 @@ export default function PredictionAviatorPage() {
                     Inscrivez-vous sur <a href={LINEBET_URL} rel="sponsored nofollow" target="_blank" className="text-emerald hover:underline">Linebet</a> avec
                     le code promo <strong className="text-gold">{PROMO_CODE}</strong>, déposez des fonds, accédez au jeu Aviator
                     dans la section casino/crash games. Consultez nos signaux en temps réel sur la{' '}
-                    <a href="/#vip-aviator" className="text-emerald hover:underline">page VIP Aviator de BttsBet</a>, puis
+                    <a href="/#vip-aviator" className="text-emerald hover:underline">page VIP Aviator de BTTSPredict</a>, puis
                     placez vos mises et effectuez le cash out au multiplicateur recommandé par le signal.
                   </p>
                 </div>
@@ -750,9 +750,9 @@ export default function PredictionAviatorPage() {
                 </div>
 
                 <div className="card p-5">
-                  <h3 className="text-white font-semibold mb-2">Les signaux Aviator gratuits de BttsBet sont-ils vraiment gratuits ?</h3>
+                  <h3 className="text-white font-semibold mb-2">Les signaux Aviator gratuits de BTTSPredict sont-ils vraiment gratuits ?</h3>
                   <p className="text-gray-400 leading-relaxed text-sm">
-                    Oui, BttsBet propose des <strong className="text-white">signaux aviator gratuit</strong> en temps réel
+                    Oui, BTTSPredict propose des <strong className="text-white">signaux aviator gratuit</strong> en temps réel
                     sur sa page VIP Aviator. Ces signaux incluent le multiplicateur recommandé, le niveau de confiance, et
                     la stratégie associée. Des signaux premium avec une analyse plus approfondie et des recommandations
                     personnalisées sont également disponibles.
@@ -877,7 +877,7 @@ export default function PredictionAviatorPage() {
                 </a>
                 <a href="/" className="card p-4 group hover-lift">
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-emerald">Accueil</span>
-                  <p className="text-sm text-white font-semibold mt-1 group-hover:text-emerald transition-colors">BttsBet — Pronostics IA & Signaux VIP</p>
+                  <p className="text-sm text-white font-semibold mt-1 group-hover:text-emerald transition-colors">BTTSPredict — Pronostics IA & Signaux VIP</p>
                 </a>
               </div>
             </section>

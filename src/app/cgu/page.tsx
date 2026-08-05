@@ -6,9 +6,9 @@ import { Navbar, Footer } from '@/components/bttsbet'
    ────────────────────────────────────────────────────────────── */
 const SITE_URL = 'https://bttspredict.com'
 const PAGE_URL = `${SITE_URL}/cgu`
-const TITLE = 'Conditions Générales d\'Utilisation | BttsBet'
+const TITLE = 'Conditions Générales d\'Utilisation | BTTSPredict'
 const DESCRIPTION =
-  'Conditions Générales d\'Utilisation de BttsBet — acceptation des conditions, description du service, affiliation, avertissement sur les pronostics, responsabilités, propriété intellectuelle et droit applicable.'
+  'Conditions Générales d\'Utilisation de BTTSPredict — acceptation des conditions, description du service, affiliation, avertissement sur les pronostics, responsabilités, propriété intellectuelle et droit applicable.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     url: PAGE_URL,
-    siteName: 'BttsBet',
+    siteName: 'BTTSPredict',
     type: 'website',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'CGU – BttsBet' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'CGU – BTTSPredict' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -44,12 +44,12 @@ function buildWebPageJsonLd() {
     url: PAGE_URL,
     isPartOf: {
       '@type': 'WebSite',
-      name: 'BttsBet',
+      name: 'BTTSPredict',
       url: SITE_URL,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'BttsBet',
+      name: 'BTTSPredict',
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
@@ -132,7 +132,7 @@ export default function CGUPage() {
               CONDITIONS <span className="text-emerald neon-glow">GÉNÉRALES</span>
             </h1>
             <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              Conditions d&apos;utilisation du site BttsBet — veuillez lire attentivement avant d&apos;utiliser le site.
+              Conditions d&apos;utilisation du site BTTSPredict — veuillez lire attentivement avant d&apos;utiliser le site.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
           </div>
@@ -153,7 +153,7 @@ export default function CGUPage() {
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    En accédant au site BttsBet accessible à l&apos;adresse{' '}
+                    En accédant au site BTTSPredict accessible à l&apos;adresse{' '}
                     <a href={SITE_URL} className="text-emerald hover:text-emerald-soft transition-colors underline underline-offset-2">
                       {SITE_URL}
                     </a>
@@ -171,7 +171,7 @@ export default function CGUPage() {
                     , qui font partie intégrante des présentes conditions par renvoi.
                   </p>
                   <p>
-                    BttsBet se réserve le droit de modifier les présentes CGU à tout moment. Les modifications prennent effet dès leur publication sur le site. L&apos;utilisation continue du site après la publication de modifications constitue votre acceptation de ces dernières. Nous vous recommandons de consulter régulièrement cette page.
+                    BTTSPredict se réserve le droit de modifier les présentes CGU à tout moment. Les modifications prennent effet dès leur publication sur le site. L&apos;utilisation continue du site après la publication de modifications constitue votre acceptation de ces dernières. Nous vous recommandons de consulter régulièrement cette page.
                   </p>
                 </div>
               </article>
@@ -186,7 +186,7 @@ export default function CGUPage() {
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    BttsBet est un site web à vocation <strong className="text-emerald">informative et d&apos;affiliation</strong> spécialisé dans les pronostics sportifs, plus particulièrement sur les marchés BTTS (Both Teams To Score) et Over 2,5 buts. Le site utilise des algorithmes d&apos;analyse statistique pour analyser des données statistiques et générer des pronostics football.
+                    BTTSPredict est un site web à vocation <strong className="text-emerald">informative et d&apos;affiliation</strong> spécialisé dans les pronostics sportifs, plus particulièrement sur les marchés BTTS (Both Teams To Score) et Over 2,5 buts. Le site utilise des algorithmes d&apos;analyse statistique pour analyser des données statistiques et générer des pronostics football.
                   </p>
 
                   <div className="bg-panel/40 border border-edge/30 rounded-xl p-4 my-3">
@@ -194,12 +194,12 @@ export default function CGUPage() {
                       ⚠️ Point essentiel
                     </p>
                     <p className="text-gray-400 text-sm">
-                      BttsBet <strong className="text-white">ne prend aucun pari</strong>, ne collecte <strong className="text-white">aucun fonds</strong>, ne gère <strong className="text-white">aucun compte de jeu</strong> et n&apos;agit pas en tant que bookmaker, intermédiaire ou opérateur de jeux d&apos;argent. Les utilisateurs parient à leur entière discrétion et sous leur seule responsabilité sur les plateformes de leur choix.
+                      BTTSPredict <strong className="text-white">ne prend aucun pari</strong>, ne collecte <strong className="text-white">aucun fonds</strong>, ne gère <strong className="text-white">aucun compte de jeu</strong> et n&apos;agit pas en tant que bookmaker, intermédiaire ou opérateur de jeux d&apos;argent. Les utilisateurs parient à leur entière discrétion et sous leur seule responsabilité sur les plateformes de leur choix.
                     </p>
                   </div>
 
                   <p>
-                    Les services proposés par BttsBet incluent :
+                    Les services proposés par BTTSPredict incluent :
                   </p>
                   <ul className="list-disc list-inside space-y-1 ml-4 text-gray-400">
                     <li>Pronostics gratuits basés sur l&apos;analyse IA (marchés BTTS et Over 2,5)</li>
@@ -222,7 +222,7 @@ export default function CGUPage() {
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    BttsBet participe au programme d&apos;affiliation de Linebet. À ce titre, le site diffuse des liens sponsorisés vers la plateforme Linebet. Lorsqu&apos;un utilisateur s&apos;inscrit sur Linebet via un lien d&apos;affiliation présent sur BttsBet et utilise le code promo VISION221, BttsBet perçoit une commission d&apos;affiliation.
+                    BTTSPredict participe au programme d&apos;affiliation de Linebet. À ce titre, le site diffuse des liens sponsorisés vers la plateforme Linebet. Lorsqu&apos;un utilisateur s&apos;inscrit sur Linebet via un lien d&apos;affiliation présent sur BTTSPredict et utilise le code promo VISION221, BTTSPredict perçoit une commission d&apos;affiliation.
                   </p>
                   <p>
                     Cette relation d&apos;affiliation n&apos;affecte en aucune manière l&apos;objectivité des pronostics diffusés sur le site. Les analyses et recommandations sont générées indépendamment par notre algorithme d&apos;analyse statistique et ne sont pas influencées par notre partenariat avec Linebet.
@@ -231,8 +231,8 @@ export default function CGUPage() {
                     Il est important de noter que :
                   </p>
                   <ul className="list-disc list-inside space-y-1 ml-4 text-gray-400">
-                    <li>BttsBet n&apos;est pas une filiale, une succursale ou un représentant de Linebet.</li>
-                    <li>BttsBet n&apos;est pas responsable des services, conditions ou pratiques de Linebet.</li>
+                    <li>BTTSPredict n&apos;est pas une filiale, une succursale ou un représentant de Linebet.</li>
+                    <li>BTTSPredict n&apos;est pas responsable des services, conditions ou pratiques de Linebet.</li>
                     <li>L&apos;utilisation de Linebet est soumise aux conditions générales propres à cette plateforme.</li>
                     <li>Les éventuels litiges avec Linebet doivent être traités directement avec ce dernier.</li>
                     <li>Le code promo VISION221 est soumis aux conditions de Linebet, qui se réserve le droit de le modifier ou de l&apos;annuler à tout moment.</li>
@@ -254,7 +254,7 @@ export default function CGUPage() {
                       Avertissement important
                     </p>
                     <p className="text-gray-400 text-sm">
-                      Les pronostics diffusés sur BttsBet sont fournis à titre <strong className="text-white">strictement informatif</strong> et ne constituent en aucun cas des conseils financiers, des incitations à parier ou des garanties de résultat.
+                      Les pronostics diffusés sur BTTSPredict sont fournis à titre <strong className="text-white">strictement informatif</strong> et ne constituent en aucun cas des conseils financiers, des incitations à parier ou des garanties de résultat.
                     </p>
                   </div>
                   <p>
@@ -264,7 +264,7 @@ export default function CGUPage() {
                     De nombreux facteurs imprévisibles peuvent influencer le résultat d&apos;un match de football : blessures de dernière minute, conditions météorologiques, décisions arbitrales, motivation des équipes, événements imprévus, etc. Aucun algorithme, aussi sophistiqué soit-il, ne peut intégrer l&apos;ensemble de ces variables avec certitude absolue.
                   </p>
                   <p>
-                    Les utilisateurs sont seuls responsables de l&apos;utilisation qu&apos;ils font des pronostics et des décisions de jeu qu&apos;ils prennent. BttsBet ne saurait être tenu responsable des pertes financières résultant de l&apos;utilisation de ses pronostics.
+                    Les utilisateurs sont seuls responsables de l&apos;utilisation qu&apos;ils font des pronostics et des décisions de jeu qu&apos;ils prennent. BTTSPredict ne saurait être tenu responsable des pertes financières résultant de l&apos;utilisation de ses pronostics.
                   </p>
                 </div>
               </article>
@@ -279,10 +279,10 @@ export default function CGUPage() {
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    En utilisant le site BttsBet, vous vous engagez à :
+                    En utilisant le site BTTSPredict, vous vous engagez à :
                   </p>
                   <ul className="list-disc list-inside space-y-2 ml-4 text-gray-400">
-                    <li><strong className="text-gray-300">Être majeur :</strong> vous certifiez être âgé de 18 ans ou plus. L&apos;accès au site est strictement interdit aux mineurs. BttsBet se réserve le droit de mettre en place des dispositifs de vérification de l&apos;âge.</li>
+                    <li><strong className="text-gray-300">Être majeur :</strong> vous certifiez être âgé de 18 ans ou plus. L&apos;accès au site est strictement interdit aux mineurs. BTTSPredict se réserve le droit de mettre en place des dispositifs de vérification de l&apos;âge.</li>
                     <li><strong className="text-gray-300">Respecter les lois locales :</strong> vous êtes responsable de vous assurer que l&apos;utilisation de notre site et la participation à des paris sportifs sont conformes aux lois et réglementations de votre juridiction. Les lois sur les jeux d&apos;argent varient considérablement d&apos;un pays à l&apos;autre.</li>
                     <li><strong className="text-gray-300">Jouer de manière responsable :</strong> vous reconnaissez que les paris sportifs comportent des risques financiers et vous vous engagez à jouer de manière responsable, en ne misant jamais plus que ce que vous pouvez vous permettre de perdre. Nous vous invitons à consulter notre page{' '}
                       <a href="/jouer-responsable" className="text-emerald hover:text-emerald-soft transition-colors underline underline-offset-2">
@@ -290,7 +290,7 @@ export default function CGUPage() {
                       </a>.
                     </li>
                     <li><strong className="text-gray-300">Ne pas utiliser le site à des fins illicites :</strong> vous vous engagez à ne pas utiliser le site d&apos;une manière qui pourrait endommager, désactiver, surcharger ou altérer le fonctionnement du site, ni tenter d&apos;accéder de manière non autorisée à des systèmes, données ou informations liés au site.</li>
-                    <li><strong className="text-gray-300">Ne pas reproduire le contenu :</strong> vous vous abstiendrez de copier, reproduire, distribuer, publier ou exploiter commercialement tout contenu du site sans autorisation préalable écrite de BttsBet.</li>
+                    <li><strong className="text-gray-300">Ne pas reproduire le contenu :</strong> vous vous abstiendrez de copier, reproduire, distribuer, publier ou exploiter commercialement tout contenu du site sans autorisation préalable écrite de BTTSPredict.</li>
                     <li><strong className="text-gray-300">Fournir des informations exactes :</strong> si vous êtes amené à fournir des informations (contact, commentaires), vous vous engagez à ce qu&apos;elles soient exactes et à jour.</li>
                   </ul>
                 </div>
@@ -306,7 +306,7 @@ export default function CGUPage() {
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    L&apos;ensemble des contenus du site BttsBet — textes, graphismes, logos, icônes, images, algorithmes, pronostics, analyses, mises en page et codes sources — est protégé par le droit d&apos;auteur et les droits de propriété intellectuelle. Ces contenus appartiennent exclusivement à BttsBet ou font l&apos;objet d&apos;une licence d&apos;utilisation.
+                    L&apos;ensemble des contenus du site BTTSPredict — textes, graphismes, logos, icônes, images, algorithmes, pronostics, analyses, mises en page et codes sources — est protégé par le droit d&apos;auteur et les droits de propriété intellectuelle. Ces contenus appartiennent exclusivement à BTTSPredict ou font l&apos;objet d&apos;une licence d&apos;utilisation.
                   </p>
                   <p>
                     Sont notamment protégés :
@@ -315,7 +315,7 @@ export default function CGUPage() {
                     <li>L&apos;algorithme d&apos;analyse statistique et les modèles prédictifs utilisés pour générer les pronostics</li>
                     <li>Les designs, interfaces et éléments visuels du site</li>
                     <li>Les articles, guides et contenus éditoriaux publiés sur le site et le blog</li>
-                    <li>Le nom commercial « BttsBet » et les éléments de marque associés</li>
+                    <li>Le nom commercial « BTTSPredict » et les éléments de marque associés</li>
                     <li>Les bases de données statistiques et historiques utilisées par le service</li>
                   </ul>
                   <p>
@@ -334,10 +334,10 @@ export default function CGUPage() {
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    BttsBet fournit ses services « en l&apos;état » (as is) sans garantie d&apos;aucune sorte, expresse ou implicite. Dans la mesure permise par la loi applicable, BttsBet décline toute garantie, notamment quant à la disponibilité ininterrompue du site, l&apos;exactitude des informations, la fiabilité des pronostics ou l&apos;adéquation du service à un besoin particulier.
+                    BTTSPredict fournit ses services « en l&apos;état » (as is) sans garantie d&apos;aucune sorte, expresse ou implicite. Dans la mesure permise par la loi applicable, BTTSPredict décline toute garantie, notamment quant à la disponibilité ininterrompue du site, l&apos;exactitude des informations, la fiabilité des pronostics ou l&apos;adéquation du service à un besoin particulier.
                   </p>
                   <p>
-                    En aucun cas BttsBet ne pourra être tenu responsable :
+                    En aucun cas BTTSPredict ne pourra être tenu responsable :
                   </p>
                   <ul className="list-disc list-inside space-y-1 ml-4 text-gray-400">
                     <li>Des pertes financières directes ou indirectes résultant de l&apos;utilisation des pronostics ou des informations du site</li>
@@ -360,13 +360,13 @@ export default function CGUPage() {
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    BttsBet se réserve le droit de modifier, mettre à jour ou remplacer tout ou partie des présentes CGU à tout moment et sans préavis. Les modifications prennent effet dès leur publication sur le site.
+                    BTTSPredict se réserve le droit de modifier, mettre à jour ou remplacer tout ou partie des présentes CGU à tout moment et sans préavis. Les modifications prennent effet dès leur publication sur le site.
                   </p>
                   <p>
                     Il incombe à l&apos;utilisateur de consulter régulièrement les présentes CGU pour prendre connaissance des éventuelles modifications. L&apos;utilisation continue du site après la publication de CGU modifiées vaut acceptation sans réserve des nouvelles conditions.
                   </p>
                   <p>
-                    En cas de modification substantielle des conditions, BttsBet s&apos;efforcera d&apos;informer les utilisateurs par un avis visible sur le site. Toutefois, l&apos;absence de notification ne saurait invalider les modifications apportées.
+                    En cas de modification substantielle des conditions, BTTSPredict s&apos;efforcera d&apos;informer les utilisateurs par un avis visible sur le site. Toutefois, l&apos;absence de notification ne saurait invalider les modifications apportées.
                   </p>
                 </div>
               </article>

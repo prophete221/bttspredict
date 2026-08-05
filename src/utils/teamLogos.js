@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-// BttsBet – Shared Team Logo Resolver
+// BTTSPredict – Shared Team Logo Resolver
 // Centralized country code map + logo resolver (flagcdn.com)
 // Used by: FreePredictions, WinHistory, PromoVip
 // ═══════════════════════════════════════════════════════════════

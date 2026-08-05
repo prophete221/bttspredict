@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     url: PAGE_URL,
-    siteName: 'BttsBet',
+    siteName: 'BTTSPredict',
     type: 'article',
     publishedTime: '2026-02-18',
     modifiedTime: '2026-06-01',
@@ -48,12 +48,12 @@ function buildArticleJsonLd() {
     dateModified: '2026-06-01',
     author: {
       '@type': 'Organization',
-      name: 'BttsBet',
+      name: 'BTTSPredict',
       url: SITE_URL,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'BttsBet',
+      name: 'BTTSPredict',
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
@@ -254,7 +254,7 @@ export default function GuideLinebetInscription() {
               </div>
               <div className="mt-4 p-4 rounded-lg bg-gold/10 border border-gold/30">
                 <p className="text-sm text-gold-light leading-relaxed">
-                  <strong>Conseil BttsBet :</strong> Déposez au minimum 5 000 FCFA pour profiter pleinement du bonus
+                  <strong>Conseil BTTSPredict :</strong> Déposez au minimum 5 000 FCFA pour profiter pleinement du bonus
                   VISION221. Plus votre premier dépôt est élevé, plus le bonus est généreux. Évitez de déposer moins
                   de 1 000 FCFA car les frais relatifs réduisent votre capital effectif.
                 </p>
@@ -316,7 +316,7 @@ export default function GuideLinebetInscription() {
               </h2>
               <p className="text-gray-400 leading-relaxed">
                 Le code promo <span className="text-gold font-bold animate-pulse-gold">VISION221</span> est un code
-                exclusif négocié par l&apos;équipe BttsBet en partenariat avec Linebet. Il vous offre un bonus
+                exclusif négocié par l&apos;équipe BTTSPredict en partenariat avec Linebet. Il vous offre un bonus
                 sur votre premier dépôt, qui peut atteindre un montant significatif selon le dépôt effectué.
               </p>
               <div className="mt-4 p-5 rounded-lg bg-panel/50 border border-edge/50">

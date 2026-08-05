@@ -116,7 +116,7 @@ export default function SiteLoader() {
               style={{ willChange: 'transform, opacity' }}
             >
               <span className="text-2xl font-extrabold text-white tracking-tight">
-                BttsBet
+                BTTSPredict
               </span>
 
               {/* Progress bar — premium gradient, slim */}

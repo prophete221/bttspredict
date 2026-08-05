@@ -27,13 +27,8 @@ export function buildOrganizationJsonLd() {
       'value bets FIFA',
       'statistiques Aviator',
     ],
-    founder: {
-      '@type': 'Person',
-      name: 'Expert BTTSPredict',
-      jobTitle: 'Analyste football senior',
-      description: 'Analyste football avec 10+ ans d\'expérience en modélisation statistique des matchs (xG, Poisson, value bets).',
-      url: SITE_URL,
-    },
+    // NOTE: pas de propriété founder tant que le vrai nom du fondateur n'est pas fourni.
+    // Google vérifie la cohérence des entités Person — ne JAMAIS inventer de nom.
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Support client',
@@ -45,12 +40,17 @@ export function buildOrganizationJsonLd() {
 }
 
 // ─── Person (expert E-E-A-T) ────────────────────────────────────────────
-// NOTE: Remplacer "Expert BTTSPredict" par le vrai nom du fondateur
-// lorsque disponible. Google vérifie la cohérence des entités Person.
-export const EXPERT_NAME = 'Expert BTTSPredict'
+// ⚠️ ATTENTION : ne pas injecter ce schema tant que le vrai nom du fondateur
+// n'est pas fourni. Google pénalise les entités Person fictives.
+// La fonction est conservée pour usage futur — mais buildPersonJsonLd()
+// ne doit être appelée QUE quand EXPERT_NAME contient un vrai nom.
+export const EXPERT_NAME: string | null = null  // ← Remplacer par le vrai nom quand disponible
 export const EXPERT_ROLE = 'Analyste Football Senior & Fondateur — BTTSPredict'
 
 export function buildPersonJsonLd() {
+  // Si EXPERT_NAME est null, on ne retourne pas de schema Person
+  // (évite d'injecter une entité Person fictive dans le DOM)
+  if (!EXPERT_NAME) return null
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',

@@ -64,7 +64,7 @@ const faqJsonLd = {
       name: "Comment fonctionne l'analyse de BTTSPredict ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Nos analystes analysent des centaines de variables en temps réel : Expected Goals (xG), forme récente, blessés, historique des confrontations, conditions météo. Le modèle est calibré sur plus de 50 000 matchs avec environ 52% de précision historique. Ces performances passées ne garantissent pas les résultats futurs.",
+        text: "Nos analystes analysent des centaines de variables en temps réel : Expected Goals (xG), forme récente, blessés, historique des confrontations, conditions météo. Le modèle est calibré sur plus de 50 000 matchs avec un taux de réussite vérifié de 84,5% (60 gagnés sur 71 pronostics publiés). Ces performances passées ne garantissent pas les résultats futurs.",
       },
     },
     {
@@ -104,7 +104,8 @@ const organizationJsonLd = {
   description: "Plateforme de pronostics football BTTS & Over 2,5 validés par nos analystes. Value bets FIFA sur Linebet et 888starz. Statistiques Aviator.",
   areaServed: ['SN', 'CI', 'CM', 'ML', 'BF', 'FR'],
   knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'analystes football', 'football', 'value bets FIFA', 'statistiques Aviator', 'pronostics btts aujourd\'hui', 'both teams to score', 'modèle Poisson football'],
-  founder: { '@type': 'Person', name: 'Expert BTTSPredict', jobTitle: 'Analyste football senior', url: 'https://bttspredict.com' },
+  // NOTE: pas de propriété founder tant que le vrai nom du fondateur n'est pas fourni.
+  // Google vérifie la cohérence des entités Person — ne JAMAIS inventer de nom.
   sameAs: ['https://wa.me/15406704172'],
 }
 

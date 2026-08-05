@@ -6,9 +6,9 @@ import { Navbar, Footer } from '@/components/bttsbet'
    ────────────────────────────────────────────────────────────── */
 const SITE_URL = 'https://bttspredict.com'
 const PAGE_URL = `${SITE_URL}/politique-confidentialite`
-const TITLE = 'Politique de Confidentialité | BttsBet'
+const TITLE = 'Politique de Confidentialité | BTTSPredict'
 const DESCRIPTION =
-  'Politique de confidentialité de BttsBet — collecte de données, utilisation, services tiers, droits des utilisateurs, politique de cookies et contact.'
+  'Politique de confidentialité de BTTSPredict — collecte de données, utilisation, services tiers, droits des utilisateurs, politique de cookies et contact.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     url: PAGE_URL,
-    siteName: 'BttsBet',
+    siteName: 'BTTSPredict',
     type: 'website',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Politique de Confidentialité – BttsBet' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Politique de Confidentialité – BTTSPredict' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -44,12 +44,12 @@ function buildWebPageJsonLd() {
     url: PAGE_URL,
     isPartOf: {
       '@type': 'WebSite',
-      name: 'BttsBet',
+      name: 'BTTSPredict',
       url: SITE_URL,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'BttsBet',
+      name: 'BTTSPredict',
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
@@ -132,7 +132,7 @@ export default function PolitiqueConfidentialitePage() {
               POLITIQUE DE <span className="text-emerald neon-glow">CONFIDENTIALITÉ</span>
             </h1>
             <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              Comment BttsBet collecte, utilise et protège vos données personnelles.
+              Comment BTTSPredict collecte, utilise et protège vos données personnelles.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
           </div>
@@ -153,7 +153,7 @@ export default function PolitiqueConfidentialitePage() {
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    La présente politique de confidentialité décrit les pratiques de BttsBet (ci-après « nous », « notre » ou « le site ») en matière de collecte, d&apos;utilisation, de stockage et de protection des données à caractère personnel des utilisateurs (ci-après « vous » ou « l&apos;utilisateur ») de notre site web accessible à l&apos;adresse{' '}
+                    La présente politique de confidentialité décrit les pratiques de BTTSPredict (ci-après « nous », « notre » ou « le site ») en matière de collecte, d&apos;utilisation, de stockage et de protection des données à caractère personnel des utilisateurs (ci-après « vous » ou « l&apos;utilisateur ») de notre site web accessible à l&apos;adresse{' '}
                     <a href={SITE_URL} className="text-emerald hover:text-emerald-soft transition-colors underline underline-offset-2">
                       {SITE_URL}
                     </a>.
@@ -177,7 +177,7 @@ export default function PolitiqueConfidentialitePage() {
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    BttsBet collecte différents types de données dans le cadre de son fonctionnement et de l&apos;amélioration de ses services :
+                    BTTSPredict collecte différents types de données dans le cadre de son fonctionnement et de l&apos;amélioration de ses services :
                   </p>
 
                   <h3 className="text-lg text-gold font-semibold mt-4 mb-2">2.1 Données de navigation</h3>
@@ -239,7 +239,7 @@ export default function PolitiqueConfidentialitePage() {
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    BttsBet fait appel à des services tiers qui peuvent collecter des données lors de votre navigation :
+                    BTTSPredict fait appel à des services tiers qui peuvent collecter des données lors de votre navigation :
                   </p>
 
                   <h3 className="text-lg text-gold font-semibold mt-4 mb-2">4.1 Google Analytics</h3>
@@ -249,10 +249,10 @@ export default function PolitiqueConfidentialitePage() {
 
                   <h3 className="text-lg text-gold font-semibold mt-4 mb-2">4.2 Programme d&apos;affiliation Linebet</h3>
                   <p>
-                    Notre site participe au programme d&apos;affiliation de Linebet. Les liens d&apos;affiliation présents sur le site contiennent des identifiants de suivi qui permettent à Linebet de comptabiliser les visites et les inscriptions générées depuis BttsBet. Lorsque vous cliquez sur un lien d&apos;affiliation, un cookie d&apos;affiliation peut être déposé sur votre terminal par Linebet. La collecte et le traitement de ces données sont soumis à la politique de confidentialité propre de Linebet, que nous vous invitons à consulter.
+                    Notre site participe au programme d&apos;affiliation de Linebet. Les liens d&apos;affiliation présents sur le site contiennent des identifiants de suivi qui permettent à Linebet de comptabiliser les visites et les inscriptions générées depuis BTTSPredict. Lorsque vous cliquez sur un lien d&apos;affiliation, un cookie d&apos;affiliation peut être déposé sur votre terminal par Linebet. La collecte et le traitement de ces données sont soumis à la politique de confidentialité propre de Linebet, que nous vous invitons à consulter.
                   </p>
                   <p>
-                    BttsBet ne partage aucune donnée personnelle avec Linebet en dehors des informations de suivi d&apos;affiliation anonymisées (clic sur lien, conversion).
+                    BTTSPredict ne partage aucune donnée personnelle avec Linebet en dehors des informations de suivi d&apos;affiliation anonymisées (clic sur lien, conversion).
                   </p>
 
                   <h3 className="text-lg text-gold font-semibold mt-4 mb-2">4.3 Autres services</h3>
@@ -305,7 +305,7 @@ export default function PolitiqueConfidentialitePage() {
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    Lors de votre première visite sur BttsBet, un bandeau d&apos;information sur les cookies s&apos;affiche, vous permettant d&apos;accepter ou de refuser les cookies non essentiels. Vous pouvez à tout moment modifier vos préférences de cookies en cliquant sur le lien « Paramètres cookies » situé dans le pied de page du site.
+                    Lors de votre première visite sur BTTSPredict, un bandeau d&apos;information sur les cookies s&apos;affiche, vous permettant d&apos;accepter ou de refuser les cookies non essentiels. Vous pouvez à tout moment modifier vos préférences de cookies en cliquant sur le lien « Paramètres cookies » situé dans le pied de page du site.
                   </p>
                   <p>
                     Voici la durée de conservation des différents types de cookies utilisés sur le site :
@@ -332,7 +332,7 @@ export default function PolitiqueConfidentialitePage() {
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    BttsBet met en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès non autorisé, toute modification, divulgation ou destruction illégale. Le site utilise le protocole HTTPS (SSL/TLS) pour chiffrer les communications entre votre navigateur et nos serveurs.
+                    BTTSPredict met en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès non autorisé, toute modification, divulgation ou destruction illégale. Le site utilise le protocole HTTPS (SSL/TLS) pour chiffrer les communications entre votre navigateur et nos serveurs.
                   </p>
                   <p>
                     Malgré nos efforts, aucune méthode de transmission sur Internet ou de stockage électronique n&apos;est totalement sécurisée. Nous ne pouvons donc garantir de manière absolue la sécurité des informations transmises via notre site.

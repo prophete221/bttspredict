@@ -340,7 +340,7 @@ export function Testimonials() {
           {/* Follower counter */}
           <div className="inline-flex items-center gap-2 bg-emerald/10 border border-emerald/20 rounded-full px-4 py-1.5 mt-2">
             <span className="w-1.5 h-1.5 bg-emerald rounded-full animate-pulse" />
-            <span className="text-xs text-emerald font-medium">2 400+ parieurs suivent BttsBet ce mois-ci</span>
+            <span className="text-xs text-emerald font-medium">2 400+ parieurs suivent BTTSPredict ce mois-ci</span>
           </div>
         </motion.div>
 

@@ -64,7 +64,7 @@ export default function Navbar() {
                 }
               }}
               className="flex items-center gap-2.5 group"
-              aria-label="BttsBet — Accueil"
+              aria-label="BTTSPredict — Accueil"
             >
               <div className="w-8 h-8 rounded-lg bg-emerald/20 flex items-center justify-center group-hover:bg-emerald/30 transition-colors">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

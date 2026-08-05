@@ -75,7 +75,7 @@ function VipModal({ isOpen, onClose }) {
 
     // Send via WhatsApp with the LINEBET ID
     const message = encodeURIComponent(
-      `🎯 Demande d'accès VIP BttsBet\n\nMon ID Linebet : ${linebetId.trim()}\n\nJe me suis inscrit avec le code promo VISION221 et j'ai effectué un dépôt minimum de 10 000 Fr.\n\nMerci de vérifier et d'activer mon accès VIP.`
+      `🎯 Demande d'accès VIP BTTSPredict\n\nMon ID Linebet : ${linebetId.trim()}\n\nJe me suis inscrit avec le code promo VISION221 et j'ai effectué un dépôt minimum de 10 000 Fr.\n\nMerci de vérifier et d'activer mon accès VIP.`
     )
     const whatsappUrl = `${SITE.whatsapp}?text=${message}`
 

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     url: PAGE_URL,
-    siteName: 'BttsBet',
+    siteName: 'BTTSPredict',
     type: 'article',
     publishedTime: '2026-04-01',
     modifiedTime: '2026-06-01',
@@ -46,10 +46,10 @@ function buildArticleJsonLd() {
     description: DESCRIPTION,
     datePublished: '2026-04-01',
     dateModified: '2026-06-01',
-    author: { '@type': 'Organization', name: 'BttsBet', url: SITE_URL },
+    author: { '@type': 'Organization', name: 'BTTSPredict', url: SITE_URL },
     publisher: {
       '@type': 'Organization',
-      name: 'BttsBet',
+      name: 'BTTSPredict',
       url: SITE_URL,
       logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.svg` },
     },
@@ -283,7 +283,7 @@ export default function FailleFifaLinebetPage() {
                 C&apos;est là que l&apos;intervention de l&apos;IA devient décisive.
               </p>
               <p className="text-gray-400 leading-relaxed mt-4">
-                Le modèle IA de BttsBet analyse les marchés FIFA en temps réel sur Linebet et :
+                Le modèle IA de BTTSPredict analyse les marchés FIFA en temps réel sur Linebet et :
               </p>
               <ul className="space-y-2 mt-3 text-gray-400 leading-relaxed">
                 <li className="flex items-start gap-3">
@@ -309,7 +309,7 @@ export default function FailleFifaLinebetPage() {
               </ul>
               <div className="mt-4 p-4 rounded-lg bg-purple-500/10 border border-purple-500/30">
                 <p className="text-sm text-purple-300 leading-relaxed">
-                  <strong>Résultat :</strong> Sur les 3 derniers mois, les pronostics FIFA de BttsBet affichent
+                  <strong>Résultat :</strong> Sur les 3 derniers mois, les pronostics FIFA de BTTSPredict affichent
                   un taux de réussite d&apos;environ 98% sur les marchés Over/Under FIFA avec des cotes entre 10 et 15.
                   Ces résultats exceptionnels s&apos;expliquent par les inefficiences structurelles du marché FIFA,
                   mais ne sont pas garantis dans le futur.

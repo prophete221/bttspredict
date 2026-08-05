@@ -76,7 +76,7 @@ export default function HowItWorks() {
         >
           <span className="eyebrow">Méthode IA</span>
           <h2 className="section-title mt-3 mb-4">
-            Comment fonctionne <span className="text-success">l'IA BttsBet</span>
+            Comment fonctionne <span className="text-success">l'IA BTTSPredict</span>
           </h2>
           <p className="section-subtitle max-w-2xl mx-auto">
             Trois couches technologiques pour des pronostics fiables.

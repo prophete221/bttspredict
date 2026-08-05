@@ -6,9 +6,9 @@ import { Navbar, Footer } from '@/components/bttsbet'
    ────────────────────────────────────────────────────────────── */
 const SITE_URL = 'https://bttspredict.com'
 const PAGE_URL = `${SITE_URL}/jouer-responsable`
-const TITLE = 'Jouer Responsable | BttsBet'
+const TITLE = 'Jouer Responsable | BTTSPredict'
 const DESCRIPTION =
-  'Jouer responsable avec BttsBet — risques des jeux d\'argent, signes d\'addiction, conseils pour un jeu responsable, auto-exclusion et ressources d\'aide. 18+ uniquement.'
+  'Jouer responsable avec BTTSPredict — risques des jeux d\'argent, signes d\'addiction, conseils pour un jeu responsable, auto-exclusion et ressources d\'aide. 18+ uniquement.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     url: PAGE_URL,
-    siteName: 'BttsBet',
+    siteName: 'BTTSPredict',
     type: 'website',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Jouer Responsable – BttsBet' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Jouer Responsable – BTTSPredict' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -44,12 +44,12 @@ function buildWebPageJsonLd() {
     url: PAGE_URL,
     isPartOf: {
       '@type': 'WebSite',
-      name: 'BttsBet',
+      name: 'BTTSPredict',
       url: SITE_URL,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'BttsBet',
+      name: 'BTTSPredict',
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
@@ -229,7 +229,7 @@ export default function JouerResponsablePage() {
                 INTERDIT AUX MOINS DE 18 ANS
               </p>
               <p className="text-gray-400 text-sm">
-                Les jeux d&apos;argent et de hasard sont interdits aux mineurs. BttsBet est strictement réservé aux personnes âgées de 18 ans ou plus.
+                Les jeux d&apos;argent et de hasard sont interdits aux mineurs. BTTSPredict est strictement réservé aux personnes âgées de 18 ans ou plus.
               </p>
             </div>
           </div>
@@ -263,7 +263,7 @@ export default function JouerResponsablePage() {
                     <li><strong className="text-gray-300">Illusion de contrôle :</strong> la croyance erronée que l&apos;on peut « battre le système » ou que les pronostics garantissent des gains est un facteur de risque majeur.</li>
                   </ul>
                   <p>
-                    BttsBet fournit des pronostics basés sur l&apos;analyse statistique avec un taux de précision historique d&apos;environ 87 %. Toutefois, ce chiffre est basé sur des données passées et ne constitue en aucune manière une garantie de résultats futurs. Même les meilleurs algorithmes ne peuvent pas prédire l&apos;avenir avec certitude.
+                    BTTSPredict fournit des pronostics basés sur l&apos;analyse statistique avec un taux de précision historique d&apos;environ 87 %. Toutefois, ce chiffre est basé sur des données passées et ne constitue en aucune manière une garantie de résultats futurs. Même les meilleurs algorithmes ne peuvent pas prédire l&apos;avenir avec certitude.
                   </p>
                 </div>
               </article>
@@ -412,17 +412,17 @@ export default function JouerResponsablePage() {
                 </div>
               </article>
 
-              {/* 6. Engagement BttsBet */}
+              {/* 6. Engagement BTTSPredict */}
               <article className="card p-6">
                 <h2
                   className="text-2xl text-white mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
-                  6. L&apos;engagement de BttsBet
+                  6. L&apos;engagement de BTTSPredict
                 </h2>
                 <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
-                    En tant que plateforme de pronostics sportifs, BttsBet assume sa responsabilité dans la promotion du jeu responsable. Notre engagement se traduit par les actions concrètes suivantes :
+                    En tant que plateforme de pronostics sportifs, BTTSPredict assume sa responsabilité dans la promotion du jeu responsable. Notre engagement se traduit par les actions concrètes suivantes :
                   </p>
                   <ul className="list-disc list-inside space-y-2 ml-4 text-gray-400">
                     <li><strong className="text-gray-300">Transparence :</strong> nous affichons clairement nos taux de précision comme des statistiques historiques, jamais comme des garanties de gains futurs. Nous rappelons systématiquement que les résultats passés ne préjugent pas des résultats futurs.</li>
@@ -430,7 +430,7 @@ export default function JouerResponsablePage() {
                     <li><strong className="text-gray-300">Vérification de l&apos;âge :</strong> nous mettons en place un dispositif de vérification de l&apos;âge pour empêcher l&apos;accès aux mineurs. Le site est strictement réservé aux personnes de 18 ans et plus.</li>
                     <li><strong className="text-gray-300">Pas d&apos;incitation excessive :</strong> nos contenus promotionnels sont conçus pour informer, pas pour inciter de manière agressive ou trompeuse au jeu.</li>
                     <li><strong className="text-gray-300">Aide accessible :</strong> nous facilitons l&apos;accès aux ressources d&apos;aide et aux numéros d&apos;écoute spécialisés pour nos utilisateurs.</li>
-                    <li><strong className="text-gray-300">Nature du service :</strong> BttsBet est un site informatif et d&apos;affiliation. Nous ne prenons aucun pari, ne collectons aucun fonds et ne sommes pas un bookmaker. Les utilisateurs parient à leur entière discrétion sur les plateformes de leur choix.</li>
+                    <li><strong className="text-gray-300">Nature du service :</strong> BTTSPredict est un site informatif et d&apos;affiliation. Nous ne prenons aucun pari, ne collectons aucun fonds et ne sommes pas un bookmaker. Les utilisateurs parient à leur entière discrétion sur les plateformes de leur choix.</li>
                   </ul>
                   <p>
                     Nous croyons fermement que les paris sportifs ne doivent être pratiqués que de manière responsable, dans le cadre d&apos;un budget de loisir clairement défini. Si vous ne pouvez pas vous permettre de perdre, ne pariez pas.

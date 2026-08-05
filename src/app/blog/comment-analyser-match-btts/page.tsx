@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     url: PAGE_URL,
-    siteName: 'BttsBet',
+    siteName: 'BTTSPredict',
     type: 'article',
     publishedTime: '2026-03-20',
     modifiedTime: '2026-06-01',
@@ -46,10 +46,10 @@ function buildArticleJsonLd() {
     description: DESCRIPTION,
     datePublished: '2026-03-20',
     dateModified: '2026-06-01',
-    author: { '@type': 'Organization', name: 'BttsBet', url: SITE_URL },
+    author: { '@type': 'Organization', name: 'BTTSPredict', url: SITE_URL },
     publisher: {
       '@type': 'Organization',
-      name: 'BttsBet',
+      name: 'BTTSPredict',
       url: SITE_URL,
       logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.svg` },
     },
@@ -353,7 +353,7 @@ export default function CommentAnalyserMatchBttsPage() {
                 6. Comment l&apos;IA révolutionne l&apos;analyse BTTS
               </h2>
               <p className="text-gray-400 leading-relaxed">
-                L&apos;analyse statistique de BttsBet analyse simultanément plus de 200 variables pour chaque match,
+                L&apos;analyse statistique de BTTSPredict analyse simultanément plus de 200 variables pour chaque match,
                 ce qu&apos;un humain ne peut pas faire manuellement. Notre modèle de machine learning est entraîné sur
                 plus de 50 000 matchs historiques et intègre des données en temps réel :
               </p>

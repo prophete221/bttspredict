@@ -1,9 +1,9 @@
 // ═══════════════════════════════════════════════════════════════
-// BttsBet – Centralized Data & Constants
+// BTTSPredict – Centralized Data & Constants
 // ═══════════════════════════════════════════════════════════════
 
 export const SITE = {
-  name: 'BttsBet',
+  name: 'BTTSPredict',
   url: 'https://bttspredict.com',
   tagline: 'Pronostics football BTTS & Over 2,5 basés sur l\'IA pour parieurs sérieux',
   promoCode: 'VISION221',
@@ -101,7 +101,7 @@ export const TESTIMONIALS = [
     name: 'Moussa K.',
     city: 'Douala, Cameroun',
     initials: 'MK',
-    text: 'Grâce à BttsBet, j\'ai obtenu 3 pronostics BTTS corrects d\'affilée. L\'IA est vraiment précise !',
+    text: 'Grâce à BTTSPredict, j\'ai obtenu 3 pronostics BTTS corrects d\'affilée. L\'IA est vraiment précise !',
     rating: 5,
   },
   {
@@ -115,7 +115,7 @@ export const TESTIMONIALS = [
     name: 'Ibrahim T.',
     city: 'Abidjan, Côte d\'Ivoire',
     initials: 'IT',
-    text: 'Les résultats sont vérifiables et transparents. BttsBet est devenu mon outil quotidien.',
+    text: 'Les résultats sont vérifiables et transparents. BTTSPredict est devenu mon outil quotidien.',
     rating: 4,
   },
   {
@@ -134,7 +134,7 @@ export const FAQ_ITEMS = [
     a: 'BTTS signifie "Both Teams To Score" (les deux équipes marquent). C\'est un type de pari où vous pariez que les deux équipes marqueront au moins un but durant le match, quelle que soit l\'issue finale. Ce marché est très populaire car il ne dépend pas du résultat final du match, mais uniquement de la capacité des deux équipes à trouver le chemin des filets. Notre IA analyse les statistiques offensives et défensives pour identifier les matchs où les deux équipes ont une forte probabilité de marquer.',
   },
   {
-    q: 'Comment fonctionne l\'IA de BttsBet ?',
+    q: 'Comment fonctionne l\'IA de BTTSPredict ?',
     a: 'Notre intelligence artificielle analyse des centaines de variables en temps réel : Expected Goals (xG), forme récente des équipes, blessés et suspensions, historique des confrontations directes, conditions météo, motivation des équipes (fin de saison, matchs décisifs), et bien plus encore. L\'algorithme est entraîné sur plus de 50 000 matchs et affiche des résultats historiques d\'environ 87% de précision. Chaque pronostic est accompagné d\'un indice de confiance calculé par le modèle.',
   },
   {
@@ -150,7 +150,7 @@ export const FAQ_ITEMS = [
     a: 'Nous couvrons plus de 50 championnats à travers le monde : Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Champions League, Europa League, et de nombreux championnats africains, asiatiques et sud-américains. Notre IA s\'adapte aux spécificités de chaque ligue pour fournir des pronostics les plus précis possibles.',
   },
   {
-    q: 'Comment utiliser les pronostics BttsBet ?',
+    q: 'Comment utiliser les pronostics BTTSPredict ?',
     a: 'Nos pronostics sont des outils d\'aide à la décision, pas des garanties de gain. Pour les utiliser au mieux, consultez nos pronostics gratuits chaque jour, vérifiez l\'indice de confiance associé, et croisez avec votre propre analyse. Nous vous recommandons de toujours respecter votre gestion de bankroll et de ne jamais miser plus que ce que vous pouvez vous permettre de perdre. Les résultats passés ne garantissent pas les résultats futurs.',
   },
 ]
@@ -189,7 +189,7 @@ export const BLOG_ARTICLES = [
       <p>Certains matchs produisent historiquement plus de buts que d\'autres, indépendamment de la forme actuelle des équipes. Les derbies, les rivalités historiques et les matchs entre équipes offensives ont tendance à produire des scores ouverts. Analysez les 10 dernières confrontations entre les deux équipes pour identifier des tendances récurrentes en matière de buts marqués.</p>
 
       <h2>Les outils indispensables pour l\'analyse BTTS</h2>
-      <p>Pour les parieurs qui souhaitent aller au-delà des pronostics de notre IA, voici les outils recommandés : SofaScore pour les statistiques en temps réel, Understat pour les xG détaillés, Transfermarkt pour les effectifs et blessures, et bien sûr BttsBet pour nos pronostics générés par intelligence artificielle. La combinaison de ces outils avec notre algorithme vous donne un avantage considérable sur le marché des paris BTTS.</p>
+      <p>Pour les parieurs qui souhaitent aller au-delà des pronostics de notre IA, voici les outils recommandés : SofaScore pour les statistiques en temps réel, Understat pour les xG détaillés, Transfermarkt pour les effectifs et blessures, et bien sûr BTTSPredict pour nos pronostics générés par intelligence artificielle. La combinaison de ces outils avec notre algorithme vous donne un avantage considérable sur le marché des paris BTTS.</p>
 
       <blockquote>Notre IA analyse plus de 200 variables pour chaque match, incluant les statistiques avancées, les facteurs contextuels et les tendances historiques. C\'est cette profondeur d\'analyse qui nous permet d\'afficher environ 87% de précision historique.</blockquote>
     `,
@@ -289,7 +289,7 @@ export const BLOG_ARTICLES = [
       <p>C\'est la méthode mathématiquement optimale pour maximiser la croissance de la bankroll. La formule est : f = (bp - q) / b, où b est la cote - 1, p est la probabilité de gain, et q est la probabilité de perte (1 - p). En pratique, on utilise le "Half Kelly" (50% du montant Kelly) pour réduire la volatilité. C\'est la méthode utilisée par la plupart des parieurs professionnels.</p>
 
       <h3>4. La méthode des unités de confiance</h3>
-      <p>Vous attribuez une note de confiance de 1 à 5 à chaque pronostic, et votre mise est proportionnelle à cette confiance. Unité 1 = 1% de la bankroll, Unité 5 = 5% de la bankroll. Cette méthode est idéale pour les parieurs qui utilisent des pronostics avec indice de confiance comme ceux de BttsBet. Notre IA fournit un pourcentage de confiance pour chaque pronostic, ce qui facilite grandement l\'application de cette méthode.</p>
+      <p>Vous attribuez une note de confiance de 1 à 5 à chaque pronostic, et votre mise est proportionnelle à cette confiance. Unité 1 = 1% de la bankroll, Unité 5 = 5% de la bankroll. Cette méthode est idéale pour les parieurs qui utilisent des pronostics avec indice de confiance comme ceux de BTTSPredict. Notre IA fournit un pourcentage de confiance pour chaque pronostic, ce qui facilite grandement l\'application de cette méthode.</p>
 
       <h2>Les règles d\'or du parieur rentable</h2>
       <p>Ne misez jamais plus de 5% de votre bankroll sur un seul pari. Ne poursuivez jamais vos pertes en augmentant vos mises. Tenez un journal de tous vos paris (date, match, mise, cote, résultat). Revoyez vos statistiques chaque semaine pour identifier vos forces et faiblesses. Fixez-vous des objectifs réalistes : un rendement de 5-10% par mois est excellent. Et surtout, n\'oubliez jamais que les paris sportifs doivent rester un loisir, jamais une source de stress financier.</p>
@@ -321,21 +321,21 @@ export const BLOG_ARTICLES = [
       <p>Si vous n\'avez pas saisi le code VISION221 lors de l\'inscription, pas de panique : vous pouvez toujours le saisir dans la section "Code Promo" de votre compte. Le code VISION221 vous donne droit à un bonus de 100% sur votre premier dépôt, jusqu\'à 150$. Par exemple, si vous déposez 50$, vous recevez 50$ de bonus, soit un total de 100$ pour parier. Le bonus est soumis à des conditions de mise (wagering requirements) : vous devez parier le montant du bonus 5 fois sur des événements avec une cote minimale de 1.40 avant de pouvoir retirer vos gains.</p>
 
       <h2>Étape 4 : Placer votre premier pari BTTS</h2>
-      <p>Une fois votre compte approvisionné, naviguez vers la section "Football" dans le menu des sports. Sélectionnez un match et cherchez le marché "BTTS" ou "Les deux équipes marquent". Cochez votre choix (Oui ou Non), entrez votre mise dans le bulletin de paris, et confirmez. Nous vous recommandons de commencer par les pronostics gratuits de BttsBet pour vous familiariser avec le marché avant de placer des mises plus importantes.</p>
+      <p>Une fois votre compte approvisionné, naviguez vers la section "Football" dans le menu des sports. Sélectionnez un match et cherchez le marché "BTTS" ou "Les deux équipes marquent". Cochez votre choix (Oui ou Non), entrez votre mise dans le bulletin de paris, et confirmez. Nous vous recommandons de commencer par les pronostics gratuits de BTTSPredict pour vous familiariser avec le marché avant de placer des mises plus importantes.</p>
 
       <h2>Conseils pour maximiser votre bonus</h2>
       <p>Pour remplir les conditions de mise efficacement, privilégiez les paris avec des cotes entre 1.40 et 2.00. Ces cotes offrent un bon équilibre entre probabilité de gain et contribution aux conditions de mise. Évitez les paris combinés trop risqués lors de la phase de déblocage du bonus. Utilisez nos pronostics IA pour sélectionner des matchs avec une forte probabilité de gain. Et surtout, ne précipitez pas : vous avez 30 jours pour remplir les conditions de mise, alors pariez de manière réfléchie et disciplinée.</p>
 
-      <blockquote>Le code promo VISION221 est exclusif à BttsBet. En l\'utilisant, vous soutenez notre travail de développement et de maintenance de l\'IA, tout en bénéficiant du meilleur bonus disponible sur Linebet.</blockquote>
+      <blockquote>Le code promo VISION221 est exclusif à BTTSPredict. En l\'utilisant, vous soutenez notre travail de développement et de maintenance de l\'IA, tout en bénéficiant du meilleur bonus disponible sur Linebet.</blockquote>
     `,
   },
 ]
 
 // ─── Legal / Footer ───
 export const LEGAL = {
-  disclaimer: `Les paris sportifs comportent des risques financiers. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre. Les statistiques de précision de notre IA (environ 87%) sont basées sur des données historiques vérifiables et ne garantissent pas de résultats futurs. BttsBet est un site informatif et d'affiliation : nous ne prenons pas de paris et ne collectons pas de fonds. Les témoignages présentés sur ce site reflètent des expériences individuelles et ne constituent pas une garantie de résultats. Jouez de manière responsable.`,
+  disclaimer: `Les paris sportifs comportent des risques financiers. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre. Les statistiques de précision de notre IA (environ 87%) sont basées sur des données historiques vérifiables et ne garantissent pas de résultats futurs. BTTSPredict est un site informatif et d'affiliation : nous ne prenons pas de paris et ne collectons pas de fonds. Les témoignages présentés sur ce site reflètent des expériences individuelles et ne constituent pas une garantie de résultats. Jouez de manière responsable.`,
   responsible: `Si vous ou un proche avez un problème lié aux jeux d'argent, contactez la ligne d'écoute nationale de votre pays. En France : 09-74-75-13-13 (Joueurs Info Service). Au Cameroun : contactez le MINSANT. Au Sénégal : 33 867 22 22.`,
-  copyright: `© ${new Date().getFullYear()} BttsBet. Tous droits réservés.`,
+  copyright: `© ${new Date().getFullYear()} BTTSPredict. Tous droits réservés.`,
   links: [
     { label: 'Mentions Légales', href: '/mentions-legales' },
     { label: 'Politique de Confidentialité', href: '/politique-confidentialite' },
@@ -348,8 +348,8 @@ export const LEGAL = {
 export const SEO_BLOCK = {
   title: 'Pronostics football BTTS & Over 2,5 – Intelligence artificielle',
   paragraphs: [
-    'BttsBet est une plateforme dédiée aux pronostics BTTS (Both Teams To Score) et Over 2,5 générés par intelligence artificielle. Notre algorithme analyse en temps réel plus de 200 variables statistiques pour chaque match de football, incluant les Expected Goals (xG), la forme récente des équipes, les blessures et suspensions, l\'historique des confrontations, et les conditions météorologiques.',
+    'BTTSPredict est une plateforme dédiée aux pronostics BTTS (Both Teams To Score) et Over 2,5 générés par intelligence artificielle. Notre algorithme analyse en temps réel plus de 200 variables statistiques pour chaque match de football, incluant les Expected Goals (xG), la forme récente des équipes, les blessures et suspensions, l\'historique des confrontations, et les conditions météorologiques.',
     'Avec des résultats historiques d\'environ 87% sur plus de 15 000 pronostics analysés, notre IA peut aider les parieurs à prendre de meilleures décisions sur les marchés BTTS et Over/Under 2,5 buts. Nos pronostics couvrent plus de 50 championnats à travers le monde, des ligues européennes majeures aux championnats africains et asiatiques.',
-    'Profitez du code promo VISION221 sur Linebet pour bénéficier d\'un bonus exclusif sur le premier dépôt (soumis à conditions : mise x5, cote minimale 1,40). BttsBet s\'engage pour le jeu responsable : nos pronostics sont des outils d\'aide à la décision, pas des garanties de gain. Pariez toujours de manière responsable et dans les limites de votre budget.',
+    'Profitez du code promo VISION221 sur Linebet pour bénéficier d\'un bonus exclusif sur le premier dépôt (soumis à conditions : mise x5, cote minimale 1,40). BTTSPredict s\'engage pour le jeu responsable : nos pronostics sont des outils d\'aide à la décision, pas des garanties de gain. Pariez toujours de manière responsable et dans les limites de votre budget.',
   ],
 }

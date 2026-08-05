@@ -299,7 +299,7 @@ function MatchRow({ match, index, isVisible }) {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 bg-emerald rounded-full animate-pulse" />
-                    <span className="text-[10px] text-gray-500">IA BttsBet</span>
+                    <span className="text-[10px] text-gray-500">IA BTTSPredict</span>
                   </div>
                   <a
                     href={AFFILIATE.linebet}

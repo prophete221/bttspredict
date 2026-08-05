@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import { AFFILIATE } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: "Comparatif Linebet vs 888starz — Bonus, dépôts, cotes | BttsBet",
+  title: "Comparatif Linebet vs 888starz — Bonus, dépôts, cotes | BTTSPredict",
   description: "Comparaison détaillée des bookmakers Linebet et 888starz au Sénégal : bonus de bienvenue, méthodes de dépôt (Wave, Orange Money, Free Money), cotes, application mobile, code promo VISION221.",
   alternates: { canonical: 'https://bttspredict.com/bookmakers' },
   openGraph: {
-    title: "Comparatif Linebet vs 888starz — BttsBet",
+    title: "Comparatif Linebet vs 888starz — BTTSPredict",
     description: "Bonus, dépôts Wave/Orange Money, cotes, app mobile. Code promo VISION221.",
     url: 'https://bttspredict.com/bookmakers',
     type: 'website',
@@ -20,7 +20,7 @@ const jsonLd = {
   url: 'https://bttspredict.com/bookmakers',
   description: "Comparaison détaillée des bookmakers Linebet et 888starz : bonus, dépôts, cotes, application mobile.",
   inLanguage: 'fr',
-  isPartOf: { '@type': 'WebSite', name: 'BttsBet', url: 'https://bttspredict.com' },
+  isPartOf: { '@type': 'WebSite', name: 'BTTSPredict', url: 'https://bttspredict.com' },
 }
 
 type Row = {
@@ -251,7 +251,7 @@ export default function BookmakersPage() {
 
         {/* Recommendation */}
         <section className="squircle-xl p-6 sm:p-8 mb-10">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">💡 Le verdict BttsBet</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">💡 Le verdict BTTSPredict</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-linebet/[0.04] border border-linebet/20 rounded-xl p-5">
               <div className="flex items-center gap-2 mb-2">

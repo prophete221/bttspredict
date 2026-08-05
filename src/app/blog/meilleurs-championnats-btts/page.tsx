@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     url: PAGE_URL,
-    siteName: 'BttsBet',
+    siteName: 'BTTSPredict',
     type: 'article',
     publishedTime: '2026-03-04',
     modifiedTime: '2026-06-01',
@@ -46,10 +46,10 @@ function buildArticleJsonLd() {
     description: DESCRIPTION,
     datePublished: '2026-03-04',
     dateModified: '2026-06-01',
-    author: { '@type': 'Organization', name: 'BttsBet', url: SITE_URL },
+    author: { '@type': 'Organization', name: 'BTTSPredict', url: SITE_URL },
     publisher: {
       '@type': 'Organization',
-      name: 'BttsBet',
+      name: 'BTTSPredict',
       url: SITE_URL,
       logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.svg` },
     },
@@ -216,7 +216,7 @@ export default function MeilleursChampionnatsBttsPage() {
                 </table>
               </div>
               <p className="text-gray-500 text-xs mt-3">
-                * Statistiques basées sur les données de la saison 2025-2026 (source : données internes BttsBet & partenaires).
+                * Statistiques basées sur les données de la saison 2025-2026 (source : données internes BTTSPredict & partenaires).
                 Les taux peuvent varier en cours de saison.
               </p>
             </section>

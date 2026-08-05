@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     url: PAGE_URL,
-    siteName: 'BttsBet',
+    siteName: 'BTTSPredict',
     type: 'article',
     publishedTime: '2026-02-25',
     modifiedTime: '2026-06-01',
@@ -46,10 +46,10 @@ function buildArticleJsonLd() {
     description: DESCRIPTION,
     datePublished: '2026-02-25',
     dateModified: '2026-06-01',
-    author: { '@type': 'Organization', name: 'BttsBet', url: SITE_URL },
+    author: { '@type': 'Organization', name: 'BTTSPredict', url: SITE_URL },
     publisher: {
       '@type': 'Organization',
-      name: 'BttsBet',
+      name: 'BTTSPredict',
       url: SITE_URL,
       logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.svg` },
     },
@@ -297,7 +297,7 @@ export default function GestionBankrollPage() {
                 </div>
               </div>
               <p className="text-gray-400 leading-relaxed mt-4">
-                Notre recommandation pour les parieurs utilisant BttsBet : commencez en flat betting pendant
+                Notre recommandation pour les parieurs utilisant BTTSPredict : commencez en flat betting pendant
                 au moins 2 mois pour développer votre discipline, puis passez progressivement au percentage betting
                 une fois que vous êtes à l&apos;aise avec la gestion émotionnelle de vos mises.
               </p>
@@ -444,7 +444,7 @@ export default function GestionBankrollPage() {
               <p className="text-gray-400 leading-relaxed mt-4">
                 Bilan du mois : +18 340 FCFA (+36.7%) avec un taux de réussite de 50% seulement. La clé ? Des mises
                 contrôlées, une gestion stricte, et la discipline de ne jamais dépasser 2% par pari. Avec les
-                pronostics BttsBet qui affichent environ 52% de précision, le potentiel de croissance est encore
+                pronostics BTTSPredict qui affichent un taux de réussite vérifié de 84,5%, le potentiel de croissance est encore
                 plus important.
               </p>
             </section>

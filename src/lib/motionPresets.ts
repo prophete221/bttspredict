@@ -1,7 +1,7 @@
 /**
  * motionPresets.ts — Reusable Framer Motion animation variants & presets
  * 
- * Lightweight animation configs for BttsBet premium feel.
+ * Lightweight animation configs for BTTSPredict premium feel.
  * All animations use GPU-accelerated properties (transform, opacity) only.
  * Duration kept short for 3G/4G mobile performance.
  * 

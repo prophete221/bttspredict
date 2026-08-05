@@ -7,7 +7,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-linebet-senegal'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'Code Promo Linebet Sénégal VISION221 — Bonus 90 000 XOF (150$) | BttsBet'
+const TITLE = 'Code Promo Linebet Sénégal VISION221 — Bonus 90 000 XOF (150$) | BTTSPredict'
 const DESCRIPTION = 'Code promo Linebet Sénégal VISION221 — Bonus exclusif 90 000 XOF (150$) sur votre premier dépôt. Inscription facile, dépôt via Wave, Orange Money, Free Money. Guide complet étape par étape.'
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: TITLE,
     description: 'Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF. Dépôt minimum 200 XOF.',
     url: PAGE_URL,
-    siteName: 'BttsBet',
+    siteName: 'BTTSPredict',
     type: 'article',
     locale: 'fr_SN',
     publishedTime: '2026-07-06',
@@ -50,12 +50,12 @@ function buildArticleJsonLd() {
     dateModified: '2026-07-06',
     author: {
       '@type': 'Organization',
-      name: 'BttsBet',
+      name: 'BTTSPredict',
       url: SITE_URL,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'BttsBet',
+      name: 'BTTSPredict',
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
@@ -335,7 +335,7 @@ export default function CodePromoLinebetSenegalPage() {
               {/* Disclaimer */}
               <div className="bg-lose/10 border border-lose/30 rounded-xl p-4 text-center">
                 <p className="text-gray-400 text-xs">
-                  ⚠ BttsBet est un site informatif et d&apos;affiliation. Nous ne prenons aucun pari, ne collectons aucun fonds et ne sommes pas un bookmaker. Les bonus sont soumis aux conditions de Linebet. Pariez responsable — <a href="/jouer-responsable" className="text-emerald underline underline-offset-2">en savoir plus</a>.
+                  ⚠ BTTSPredict est un site informatif et d&apos;affiliation. Nous ne prenons aucun pari, ne collectons aucun fonds et ne sommes pas un bookmaker. Les bonus sont soumis aux conditions de Linebet. Pariez responsable — <a href="/jouer-responsable" className="text-emerald underline underline-offset-2">en savoir plus</a>.
                 </p>
               </div>
             </div>

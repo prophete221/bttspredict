@@ -100,13 +100,13 @@ export default function PwaInstallPrompt() {
               <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald/10 border border-emerald/20 flex items-center justify-center overflow-hidden">
                 <img
                   src="/icon-192.png"
-                  alt="BttsBet"
+                  alt="BTTSPredict"
                   className="w-10 h-10 rounded-lg"
                 />
               </div>
 
               <div className="flex-1 min-w-0">
-                <h3 className="text-white font-bold text-sm">Installer BttsBet</h3>
+                <h3 className="text-white font-bold text-sm">Installer BTTSPredict</h3>
                 <p className="text-gray-400 text-xs mt-0.5">
                   {isIOS
                     ? 'Appuyez sur l\'icone de partage puis "Sur l\'écran d\'accueil"'

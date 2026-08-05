@@ -142,7 +142,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v5-audit-complet-845-pertes-methodologie-2026-08-05';
+                var VERSION = 'bttspredict-v6-win-history-coherent-purge-bttsbet-2026-08-05';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
