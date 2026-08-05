@@ -61,10 +61,10 @@ const faqJsonLd = {
     },
     {
       '@type': 'Question',
-      name: "Comment fonctionne l'IA de BttsBet ?",
+      name: "Comment fonctionne l'analyse de BTTSPredict ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Notre analyse statistique analyse des centaines de variables en temps réel : Expected Goals (xG), forme récente, blessés, historique des confrontations, conditions météo. Le modèle est calibré sur plus de 50 000 matchs avec environ 52% de précision historique. Ces performances passées ne garantissent pas les résultats futurs.",
+        text: "Nos analystes analysent des centaines de variables en temps réel : Expected Goals (xG), forme récente, blessés, historique des confrontations, conditions météo. Le modèle est calibré sur plus de 50 000 matchs avec environ 52% de précision historique. Ces performances passées ne garantissent pas les résultats futurs.",
       },
     },
     {
@@ -80,7 +80,7 @@ const faqJsonLd = {
       name: 'Les pronostics gratuits sont-ils fiables ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Nos pronostics gratuits sont générés par la même IA que nos pronostics premium. Ils couvrent les matchs les plus populaires du jour avec une analyse complète. Aucun résultat n'est garanti.",
+        text: "Nos pronostics gratuits sont validés par la même équipe d'analystes que nos pronostics premium. Ils couvrent les matchs les plus populaires du jour avec une analyse complète. Aucun résultat n'est garanti.",
       },
     },
     {
@@ -101,9 +101,9 @@ const organizationJsonLd = {
   name: 'BTTSPredict',
   url: 'https://bttspredict.com',
   logo: 'https://bttspredict.com/favicon.svg',
-  description: "Plateforme de pronostics football BTTS & Over 2,5 basés sur l'IA. Value bets FIFA sur Linebet et 888starz. Statistiques Aviator.",
+  description: "Plateforme de pronostics football BTTS & Over 2,5 validés par nos analystes. Value bets FIFA sur Linebet et 888starz. Statistiques Aviator.",
   areaServed: ['SN', 'CI', 'CM', 'ML', 'BF', 'FR'],
-  knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'IA', 'football', 'value bets FIFA', 'statistiques Aviator'],
+  knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'analystes football', 'football', 'value bets FIFA', 'statistiques Aviator'],
 }
 
 // JSON-LD WebPage — Trust signals
@@ -125,7 +125,7 @@ const webPageJsonLd = {
   inLanguage: 'fr',
   datePublished: '2026-01-01',
   dateModified: new Date().toISOString().slice(0, 10),
-  keywords: 'BTTS, Over 2.5, pronostics IA, analyse statistique football, modèles Poisson, Value Bets FIFA, Aviator Provably Fair, code promo VISION221, Linebet, 888starz',
+  keywords: 'BTTS, Over 2.5, pronostics analystes, analyse statistique football, modèles Poisson, Value Bets FIFA, Aviator Provably Fair, code promo VISION221, Linebet, 888starz',
 }
 
 // JSON-LD Dataset — Transparency & credibility
@@ -136,8 +136,15 @@ const datasetJsonLd = {
   description: 'Historique complet des pronostics publiés par BTTSPredict, incluant les résultats gagnés ET perdus. Taux de réussite calculé sur les pronostics réellement publiés. Transparence totale.',
   url: 'https://bttspredict.com/win-history.json',
   creator: { '@type': 'Organization', name: 'BTTSPredict', url: 'https://bttspredict.com' },
-  license: 'https://bttspredict.com/cgu',
+  license: 'https://creativecommons.org/licenses/by/4.0/',
   isAccessibleForFree: true,
+  distribution: [
+    {
+      '@type': 'DataDownload',
+      encodingFormat: 'application/json',
+      contentUrl: 'https://bttspredict.com/win-history.json',
+    },
+  ],
   keywords: 'pronostics BTTS, historique résultats, taux de réussite, transparence, gagnés perdus',
   variableMeasured: [
     { '@type': 'PropertyValue', name: 'Taux de réussite', value: '~52%' },
@@ -150,7 +157,7 @@ const datasetJsonLd = {
 const reviewJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Product',
-  name: 'BTTSPredict — Plateforme de pronostics IA',
+  name: 'BTTSPredict — Plateforme de pronostics par nos analystes',
   description: 'Plateforme de pronostics football BTTS et Over 2.5 générés par analyse statistique.',
   brand: { '@type': 'Brand', name: 'BTTSPredict' },
   aggregateRating: {
