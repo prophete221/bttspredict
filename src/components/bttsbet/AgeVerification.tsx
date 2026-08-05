@@ -72,7 +72,7 @@ export default function AgeVerification() {
               Vérification d&apos;âge
             </h2>
 
-            <p className="text-gray-400 mb-8 text-sm sm:text-base leading-relaxed max-w-sm mx-auto">
+            <p className="text-gray-200 mb-8 text-sm sm:text-base leading-relaxed max-w-sm mx-auto">
               Ce site contient des informations sur les paris sportifs. Vous devez avoir au moins 18 ans pour accéder à ce contenu.
             </p>
 

@@ -35,9 +35,9 @@ const COLORS = {
   mint: '#16A34A',
   cyan: '#1E40AF',
   rose: '#DC2626',
-  panel: '#11141C',
-  edge: '#232938',
-  text: '#9CA3AF',
+  panel: '#F3F4F6',
+  edge: '#E5E7EB',
+  text: '#6B7280',
 }
 
 const LEAGUE_COLORS = ['#FACC15', '#16A34A', '#1E40AF', '#DC2626', '#22C55E', '#FACC15', '#16A34A', '#16A34A', '#EC4899', '#16A34A']
@@ -56,7 +56,7 @@ export default function StatsDashboard() {
   if (loading) {
     return (
       <div className="grid place-items-center h-96">
-        <div className="text-gray-500 text-sm animate-pulse">Chargement des statistiques…</div>
+        <div className="text-gray-600 text-sm animate-pulse">Chargement des statistiques…</div>
       </div>
     )
   }
@@ -64,7 +64,7 @@ export default function StatsDashboard() {
   if (!data || !data.history?.length) {
     return (
       <div className="grid place-items-center h-96">
-        <div className="text-gray-500 text-sm">Données non disponibles.</div>
+        <div className="text-gray-600 text-sm">Données non disponibles.</div>
       </div>
     )
   }
@@ -152,22 +152,22 @@ export default function StatsDashboard() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         <div className="stat-tile">
           <div className="text-3xl sm:text-4xl font-black text-gold tabular-nums">{rate}%</div>
-          <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mt-1">Taux VIP</div>
+          <div className="text-[10px] sm:text-xs text-gray-600 uppercase tracking-widest mt-1">Taux VIP</div>
           <div className="text-[10px] text-gray-600 mt-1">{won}G / {total} total</div>
         </div>
         <div className="stat-tile">
           <div className="text-3xl sm:text-4xl font-black text-success tabular-nums">{won}</div>
-          <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mt-1">Pronostics gagnés</div>
+          <div className="text-[10px] sm:text-xs text-gray-600 uppercase tracking-widest mt-1">Pronostics gagnés</div>
           <div className="text-[10px] text-gray-600 mt-1">Sur {total} joués</div>
         </div>
         <div className="stat-tile">
           <div className="text-3xl sm:text-4xl font-black text-rose tabular-nums">{lost}</div>
-          <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mt-1">Pronostics perdus</div>
+          <div className="text-[10px] sm:text-xs text-gray-600 uppercase tracking-widest mt-1">Pronostics perdus</div>
           <div className="text-[10px] text-gray-600 mt-1">Transparence totale</div>
         </div>
         <div className="stat-tile">
           <div className="text-3xl sm:text-4xl font-black text-ultra tabular-nums">{data.stats.last30Rate}</div>
-          <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest mt-1">Taux 30 jours</div>
+          <div className="text-[10px] sm:text-xs text-gray-600 uppercase tracking-widest mt-1">Taux 30 jours</div>
           <div className="text-[10px] text-gray-600 mt-1">{data.stats.total} historiques</div>
         </div>
       </div>
@@ -177,7 +177,7 @@ export default function StatsDashboard() {
         <header className="flex items-center justify-between mb-5">
           <div>
             <h2 className="text-lg sm:text-xl font-bold text-white">Évolution du taux VIP</h2>
-            <p className="text-xs text-gray-500 mt-1">14 derniers jours — pourcentage de pronostics gagnés par jour</p>
+            <p className="text-xs text-gray-600 mt-1">14 derniers jours — pourcentage de pronostics gagnés par jour</p>
           </div>
           <span className="badge badge-mint">14 jours</span>
         </header>
@@ -223,7 +223,7 @@ export default function StatsDashboard() {
         <section className="squircle-xl p-5 sm:p-6">
           <header className="mb-5">
             <h2 className="text-lg font-bold text-white">Réussite par type de pari</h2>
-            <p className="text-xs text-gray-500 mt-1">BTTS vs Over 2.5 — quel marché l'IA maîtrise-t-elle le mieux ?</p>
+            <p className="text-xs text-gray-600 mt-1">BTTS vs Over 2.5 — quel marché l'IA maîtrise-t-elle le mieux ?</p>
           </header>
           <div className="h-56">
             <ResponsiveContainer width="100%" height="100%">
@@ -255,7 +255,7 @@ export default function StatsDashboard() {
         <section className="squircle-xl p-5 sm:p-6">
           <header className="mb-5">
             <h2 className="text-lg font-bold text-white">Réussite par niveau de confiance</h2>
-            <p className="text-xs text-gray-500 mt-1">Plus l'IA est confiante, plus le taux VIP est élevé ?</p>
+            <p className="text-xs text-gray-600 mt-1">Plus l'IA est confiante, plus le taux VIP est élevé ?</p>
           </header>
           <div className="h-56">
             <ResponsiveContainer width="100%" height="100%">
@@ -288,7 +288,7 @@ export default function StatsDashboard() {
       <section className="squircle-xl p-5 sm:p-6">
         <header className="mb-5">
           <h2 className="text-lg font-bold text-white">Répartition par championnat</h2>
-          <p className="text-xs text-gray-500 mt-1">Top 8 ligues par nombre de pronostics récents</p>
+          <p className="text-xs text-gray-600 mt-1">Top 8 ligues par nombre de pronostics récents</p>
         </header>
         <div className="grid lg:grid-cols-2 gap-6 items-center">
           <div className="h-64">
@@ -330,9 +330,9 @@ export default function StatsDashboard() {
                     className="inline-block w-3 h-3 rounded-sm flex-shrink-0"
                     style={{ backgroundColor: LEAGUE_COLORS[i % LEAGUE_COLORS.length] }}
                   />
-                  <span className="text-gray-300 truncate">{l.name}</span>
+                  <span className="text-gray-700 truncate">{l.name}</span>
                 </span>
-                <span className="text-gray-500 tabular-nums font-semibold flex-shrink-0">{l.value}</span>
+                <span className="text-gray-600 tabular-nums font-semibold flex-shrink-0">{l.value}</span>
               </li>
             ))}
           </ul>
@@ -341,7 +341,7 @@ export default function StatsDashboard() {
 
       {/* ── DISCLAIMER ─────────────────────────────────────── */}
       <div className="squircle p-4 bg-gold/[0.03] border-gold/20">
-        <p className="text-xs text-gray-400 leading-relaxed">
+        <p className="text-xs text-gray-600 leading-relaxed">
           <strong className="text-gold">⚠️ Avertissement :</strong> Les statistiques présentées sont calculées à partir des résultats réels des matchs.
           Elles ne constituent pas une garantie de performance future. Les paris sportifs comportent des risques de perte financière.
           Jouez de manière responsable — begambleaware.org. 18+.

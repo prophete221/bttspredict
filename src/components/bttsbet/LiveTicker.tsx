@@ -188,7 +188,7 @@ export default function LiveTicker() {
 
           <div className="flex items-stretch">
             {/* Live badge column */}
-            <div className="flex items-center gap-2 px-4 py-2.5 border-r border-edge bg-midnight/50 flex-shrink-0">
+            <div className="flex items-center gap-2 px-4 py-2.5 border-r border-edge bg-gray-100 flex-shrink-0">
               <span className={`v31-ticker-dot ${status === 'live' ? '' : 'opacity-50'}`} />
               <span className={`text-[10px] font-bold uppercase tracking-widest ${status === 'live' ? 'live-text' : 'text-violet-light'}`}>
                 {status === 'live' ? 'Live' : 'À venir'}
@@ -220,8 +220,8 @@ export default function LiveTicker() {
                       </div>
                     ) : (
                       <div>
-                        <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Heure</div>
-                        <div className="text-white font-bold text-xs font-mono tabular-nums">{timeLabel}</div>
+                        <div className="text-[10px] text-gray-600 uppercase tracking-widest font-bold">Heure</div>
+                        <div className="text-gray-900 font-bold text-xs font-mono tabular-nums">{timeLabel}</div>
                       </div>
                     )}
                   </div>
@@ -233,9 +233,9 @@ export default function LiveTicker() {
                     {currentMatch.homeLogo && (
                       <img src={currentMatch.homeLogo} alt="" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy" />
                     )}
-                    <span className="text-white text-xs font-semibold truncate">{home}</span>
-                    <span className="text-gray-500 text-[10px] flex-shrink-0 font-mono">VS</span>
-                    <span className="text-white text-xs font-semibold truncate">{away}</span>
+                    <span className="text-gray-900 text-xs font-semibold truncate">{home}</span>
+                    <span className="text-gray-600 text-[10px] flex-shrink-0 font-mono">VS</span>
+                    <span className="text-gray-900 text-xs font-semibold truncate">{away}</span>
                     {currentMatch.awayLogo && (
                       <img src={currentMatch.awayLogo} alt="" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy" />
                     )}
@@ -244,7 +244,7 @@ export default function LiveTicker() {
                   <div className="hidden sm:block w-px h-8 bg-edge flex-shrink-0" />
 
                   {/* League */}
-                  <div className="hidden sm:block text-[10px] text-gray-500 truncate max-w-[120px] flex-shrink-0">
+                  <div className="hidden sm:block text-[10px] text-gray-600 truncate max-w-[120px] flex-shrink-0">
                     {currentMatch.league}
                   </div>
 
@@ -254,15 +254,15 @@ export default function LiveTicker() {
                   <div className="flex items-center gap-1.5 flex-shrink-0">
                     <span className="badge badge-cyan text-[9px]">{currentMatch.type}</span>
                     <span className="text-violet-light font-bold text-xs">{currentMatch.prediction}</span>
-                    <span className="text-gray-500 text-[10px] tabular-nums hidden sm:inline">({currentMatch.confidence}%)</span>
+                    <span className="text-gray-600 text-[10px] tabular-nums hidden sm:inline">({currentMatch.confidence}%)</span>
                   </div>
                 </motion.div>
               </AnimatePresence>
             </div>
 
             {/* Counter — X/N */}
-            <div className="hidden sm:flex items-center px-4 py-2.5 border-l border-edge bg-midnight/50 flex-shrink-0">
-              <div className="text-[10px] text-gray-500 tabular-nums font-mono">
+            <div className="hidden sm:flex items-center px-4 py-2.5 border-l border-edge bg-gray-100 flex-shrink-0">
+              <div className="text-[10px] text-gray-600 tabular-nums font-mono">
                 <span className="text-violet-light font-bold">{currentIndex + 1}</span>
                 <span className="text-gray-600">/{matches.length}</span>
               </div>

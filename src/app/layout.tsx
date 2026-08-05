@@ -150,7 +150,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v14-fix-contraste-lisibilite-2026-08-06';
+                var VERSION = 'bttspredict-v15-lisibilite-totale-2026-08-06';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){

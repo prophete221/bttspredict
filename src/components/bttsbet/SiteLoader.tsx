@@ -135,7 +135,7 @@ export default function SiteLoader() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.7 }}
                 transition={{ duration: 0.4, delay: 0.75 }}
-                className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-semibold"
+                className="text-[10px] text-gray-300 uppercase tracking-[0.2em] font-semibold"
               >
                 IA • Pronostics • Stats
               </motion.span>

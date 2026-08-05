@@ -155,7 +155,7 @@ const PROMO_CODE = 'VISION221'
    ────────────────────────────────────────────────────────────── */
 export default function PredictionAviatorPage() {
   return (
-    <div className="min-h-screen bg-dark-900 flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col text-gray-900">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildArticleJsonLd()) }}
@@ -181,10 +181,10 @@ export default function PredictionAviatorPage() {
       <main id="main-content" className="flex-1 relative z-10">
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="max-w-3xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap">
+          <ol className="flex items-center gap-2 text-sm text-gray-600 flex-wrap">
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
             <li aria-hidden="true" className="text-gray-700">/</li>
-            <li><span className="text-gray-400" aria-current="page">Prédiction Aviator</span></li>
+            <li><span className="text-gray-600" aria-current="page">Prédiction Aviator</span></li>
           </ol>
         </nav>
 
@@ -204,7 +204,7 @@ export default function PredictionAviatorPage() {
               </span>{' '}
               Gagnante sur Linebet & 888starz
             </h1>
-            <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
               Les signaux de prédiction Aviator alimentés par l&apos;IA révolutionnent la façon de jouer au crash game
               le plus populaire d&apos;Afrique. Découvrez comment fonctionne l&apos;algorithme Aviator, comment utiliser
               les signaux IA pour optimiser vos cash out, et quelles stratégies adopter sur Linebet et 888starz
@@ -240,21 +240,21 @@ export default function PredictionAviatorPage() {
               >
                 Qu&apos;est-ce que le jeu Aviator ?
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Aviator est un <strong className="text-white">crash game</strong> développé par Spribe, devenu en quelques années
                 le jeu de casino en ligne le plus populaire en Afrique francophone et au-delà. Le concept est d&apos;une simplicité
                 redoutable : un avion décolle et un multiplicateur augmente en temps réel — de 1.00x vers le haut. À tout moment,
                 le multiplicateur peut « crasher » (s&apos;effondrer), et si vous n&apos;avez pas effectué votre cash out avant le crash,
                 vous perdez votre mise. Plus vous attendez, plus le gain potentiel est élevé, mais plus le risque de crash augmente.
               </p>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 Concrètement, vous placez votre mise avant le décollage, et pendant que l&apos;avion monte, vous décidez du moment
                 optimal pour encaisser. Si l&apos;avion atteint 2.50x et que vous avez misé 10€, un cash out à ce multiplicateur
                 vous rapporte 25€ (gain net de 15€). Mais si l&apos;avion crash à 1.20x et que vous attendiez 3x, vous perdez
                 vos 10€. C&apos;est cette tension entre <strong className="text-white">greed and fear</strong> — la cupidité et la
                 peur — qui fait le succès fulgurant d&apos;Aviator.
               </p>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 Sur <a href={LINEBET_URL} rel="sponsored nofollow" target="_blank" className="text-emerald hover:underline">Linebet</a> et{' '}
                 <a href={STARZ_URL} rel="sponsored nofollow" target="_blank" className="text-emerald hover:underline">888starz</a>,
                 Aviator est accessible dans la section « Crash Games » ou « Casino ». Le jeu tourne 24h/24, avec un nouveau tour
@@ -262,7 +262,7 @@ export default function PredictionAviatorPage() {
                 y sont particulièrement attirés : le rythme est intense, les résultats sont instantanés, et les gains potentiels
                 sont spectaculaires — le multiplicateur peut parfois atteindre 100x, 200x, voire plus de 1000x lors des « moon shots ».
               </p>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 En Afrique, Aviator a connu une adoption massive grâce à sa simplicité, son accessibilité sur mobile, et le
                 bouche-à-oreille sur les réseaux sociaux. Des milliers de joueurs au Cameroun, en Côte d&apos;Ivoire, au Sénégal,
                 au Burkina Faso et au Congo jouent quotidiennement. Les plateformes comme Linebet et 888starz ont capitalisé sur
@@ -286,16 +286,16 @@ export default function PredictionAviatorPage() {
               >
                 Comment fonctionne l&apos;algorithme Aviator ?
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Comprendre l&apos;algorithme Aviator est la première étape pour tout joueur sérieux. Contrairement aux idées reçues,
                 le jeu n&apos;est pas truqué ni manipulé par le casino. Il repose sur un système cryptographique appelé{' '}
                 <strong className="text-white">Provably Fair</strong>, qui garantit que ni le casino ni les joueurs ne peuvent
                 prédire ou manipuler le crash point d&apos;un tour.
               </p>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 Voici comment le crash point de chaque tour est généré :
               </p>
-              <ol className="space-y-4 mt-4 text-gray-400 leading-relaxed">
+              <ol className="space-y-4 mt-4 text-gray-600 leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-emerald font-bold mt-0.5 text-lg">1.</span>
                   <span>
@@ -330,7 +330,7 @@ export default function PredictionAviatorPage() {
                   </span>
                 </li>
               </ol>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 L&apos;avantage de la maison (house edge) sur Aviator est d&apos;environ <strong className="text-white">1%</strong>,
                 ce qui est l&apos;un des plus bas parmi les jeux de casino en ligne. Cela signifie que sur un volume très important
                 de tours, le joueur perd en moyenne 1% de ses mises. Cependant, à court terme, la variance est énorme — c&apos;est
@@ -344,7 +344,7 @@ export default function PredictionAviatorPage() {
                   l&apos;illusion de la « loi des séries » ou du « compensatoire ».
                 </p>
               </div>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 Sur <a href={LINEBET_URL} rel="sponsored nofollow" target="_blank" className="text-emerald hover:underline">Linebet</a> comme sur{' '}
                 <a href={STARZ_URL} rel="sponsored nofollow" target="_blank" className="text-emerald hover:underline">888starz</a>,
                 vous pouvez vérifier l&apos;équité de chaque tour en utilisant l&apos;outil Provably Fair intégré au jeu.
@@ -361,15 +361,15 @@ export default function PredictionAviatorPage() {
               >
                 Les signaux de prédiction Aviator — Notre approche IA
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Puisque chaque tour d&apos;Aviator est indépendant et aléatoire, comment l&apos;IA peut-elle fournir des signaux utiles ?
                 La réponse se trouve dans l&apos;analyse statistique avancée et la gestion optimisée du cash out, pas dans la
                 prédiction du crash point lui-même.
               </p>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 Notre modèle <strong className="text-white">Aviator AI</strong> repose sur trois piliers :
               </p>
-              <ul className="space-y-3 mt-4 text-gray-400 leading-relaxed">
+              <ul className="space-y-3 mt-4 text-gray-600 leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-emerald">🤖</span>
                   <span>
@@ -399,31 +399,31 @@ export default function PredictionAviatorPage() {
                   </span>
                 </li>
               </ul>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 Concrètement, un signal Aviator de BTTSPredict se présente sous cette forme :
               </p>
               <div className="mt-3 p-4 rounded-lg bg-panel/80 border border-emerald/20">
                 <div className="grid grid-cols-2 gap-2 text-sm">
-                  <span className="text-gray-500">Multiplicateur cible :</span>
+                  <span className="text-gray-600">Multiplicateur cible :</span>
                   <span className="text-emerald font-bold">2.00x</span>
-                  <span className="text-gray-500">Confiance :</span>
+                  <span className="text-gray-600">Confiance :</span>
                   <span className="text-gold">★★★★☆ (4/5)</span>
-                  <span className="text-gray-500">Mise recommandée :</span>
+                  <span className="text-gray-600">Mise recommandée :</span>
                   <span className="text-white">1.5% de bankroll</span>
-                  <span className="text-gray-500">Stratégie :</span>
+                  <span className="text-gray-600">Stratégie :</span>
                   <span className="text-white">Modérée — Cash out à 2x</span>
-                  <span className="text-gray-500">Probabilité estimée :</span>
+                  <span className="text-gray-600">Probabilité estimée :</span>
                   <span className="text-white">~45% de dépasser 2x</span>
                 </div>
               </div>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 Ces signaux aviator en direct sont accessibles gratuitement sur notre{' '}
                 <a href="/#vip-aviator" className="text-emerald hover:underline">page VIP Aviator</a>. Ils sont mis à jour
                 en temps réel, tour après tour, pour refléter les conditions actuelles du jeu. Notre{' '}
                 <strong className="text-white">bot Aviator</strong> tourne en continu, analysant chaque crash point et
                 ajustant les recommandations en conséquence.
               </p>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 Il est crucial de comprendre que les signaux <strong className="text-white">ne contournent pas l&apos;aléatoire</strong>.
                 Ils optimisent votre décision de cash out dans un cadre probabiliste. Sur 100 tours avec un signal à 2x et une
                 confiance de 4/5, vous pouvez espérer gagner environ 45 tours et en perdre 55. Mais les 45 tours gagnés à 2x
@@ -441,7 +441,7 @@ export default function PredictionAviatorPage() {
               >
                 Comment utiliser les signaux Aviator sur Linebet & 888starz
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Passer de la théorie à la pratique est simple. Voici le guide étape par étape pour utiliser nos signaux
                 Aviator sur les deux plateformes les plus populaires en Afrique :
               </p>
@@ -454,7 +454,7 @@ export default function PredictionAviatorPage() {
                 >
                   Étape 1 : Créer un compte sur Linebet ou 888starz
                 </h3>
-                <p className="text-gray-400 leading-relaxed text-sm">
+                <p className="text-gray-600 leading-relaxed text-sm">
                   Rendez-vous sur{' '}
                   <a href={LINEBET_URL} rel="sponsored nofollow" target="_blank" className="text-emerald hover:underline font-semibold">
                     Linebet
@@ -477,7 +477,7 @@ export default function PredictionAviatorPage() {
                 >
                   Étape 2 : Approvisionner votre compte
                 </h3>
-                <p className="text-gray-400 leading-relaxed text-sm">
+                <p className="text-gray-600 leading-relaxed text-sm">
                   Effectuez un dépôt via l&apos;une des méthodes disponibles : Mobile Money (MTN, Moov, Orange Money),
                   carte bancaire, cryptomonnaie, ou virement. Nous recommandons un dépôt initial d&apos;au moins 50€ pour
                   avoir une bankroll suffisante. Avec le bonus {PROMO_CODE}, un dépôt de 50€ se transforme en 100€ de capital de jeu.
@@ -493,7 +493,7 @@ export default function PredictionAviatorPage() {
                 >
                   Étape 3 : Accéder au jeu Aviator
                 </h3>
-                <p className="text-gray-400 leading-relaxed text-sm">
+                <p className="text-gray-600 leading-relaxed text-sm">
                   Sur Linebet : Menu → Casino → Crash Games → Aviator. Sur 888starz : Menu → Casino → Recherche « Aviator ».
                   Le jeu s&apos;ouvre dans une interface montrant l&apos;avion, le multiplicateur en temps réel, l&apos;historique
                   des crash points récents, et les mises des autres joueurs. L&apos;historique est particulièrement utile —
@@ -509,7 +509,7 @@ export default function PredictionAviatorPage() {
                 >
                   Étape 4 : Consulter les signaux et placer vos mises
                 </h3>
-                <p className="text-gray-400 leading-relaxed text-sm">
+                <p className="text-gray-600 leading-relaxed text-sm">
                   Avant chaque tour, consultez le signal en temps réel sur{' '}
                   <a href="/#vip-aviator" className="text-emerald hover:underline">BTTSPredict VIP Aviator</a>. Le signal vous
                   indique le multiplicateur cible, le niveau de confiance, et la mise recommandée. Placez votre mise sur Aviator,
@@ -526,7 +526,7 @@ export default function PredictionAviatorPage() {
                 >
                   Étape 5 : Gérer vos gains et respecter votre stratégie
                 </h3>
-                <p className="text-gray-400 leading-relaxed text-sm">
+                <p className="text-gray-600 leading-relaxed text-sm">
                   Fixez-vous un objectif de gain quotidien (par exemple, +20% de bankroll) et un stop loss (par exemple, -15%).
                   Une fois l&apos;un ou l&apos;autre atteint, arrêtez de jouer pour la journée. La discipline est la clé du succès
                   sur Aviator — bien plus que n&apos;importe quel signal ou prédiction. Consultez notre article sur la{' '}
@@ -544,7 +544,7 @@ export default function PredictionAviatorPage() {
               >
                 Stratégie Aviator — Gestion du risque
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 La stratégie est le véritable différentiateur entre un joueur perdant et un joueur gagnant sur Aviator.
                 Les signaux vous donnent une direction, mais sans gestion du risque, même les meilleurs signaux mèneront
                 à la perte de votre bankroll. Voici les principes fondamentaux :
@@ -557,7 +557,7 @@ export default function PredictionAviatorPage() {
               >
                 Gestion de la bankroll
               </h3>
-              <ul className="space-y-3 text-gray-400 leading-relaxed">
+              <ul className="space-y-3 text-gray-600 leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-gold font-bold mt-0.5">▸</span>
                   <span>
@@ -605,7 +605,7 @@ export default function PredictionAviatorPage() {
                   >
                     🛡️ Conservative
                   </h4>
-                  <ul className="space-y-1 text-sm text-gray-400 leading-relaxed">
+                  <ul className="space-y-1 text-sm text-gray-600 leading-relaxed">
                     <li>• Cash out : 1.2x - 1.5x</li>
                     <li>• Taux de réussite : ~80%</li>
                     <li>• Gain moyen : +20-50%</li>
@@ -620,7 +620,7 @@ export default function PredictionAviatorPage() {
                   >
                     ⚖️ Modérée
                   </h4>
-                  <ul className="space-y-1 text-sm text-gray-400 leading-relaxed">
+                  <ul className="space-y-1 text-sm text-gray-600 leading-relaxed">
                     <li>• Cash out : 2x - 3x</li>
                     <li>• Taux de réussite : ~35-45%</li>
                     <li>• Gain moyen : +100-200%</li>
@@ -635,7 +635,7 @@ export default function PredictionAviatorPage() {
                   >
                     🔥 Aggressive
                   </h4>
-                  <ul className="space-y-1 text-sm text-gray-400 leading-relaxed">
+                  <ul className="space-y-1 text-sm text-gray-600 leading-relaxed">
                     <li>• Cash out : 5x - 10x+</li>
                     <li>• Taux de réussite : ~10-18%</li>
                     <li>• Gain moyen : +400-900%</li>
@@ -663,14 +663,14 @@ export default function PredictionAviatorPage() {
                 </p>
               </div>
 
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 La stratégie que nous recommandons est la <strong className="text-white">stratégie D&apos;Alembert modifiée</strong> :
                 augmentez votre mise de 1 unité après une perte, et diminuez-la de 1 unité après un gain (sans jamais descendre
                 en dessous de la mise de base). Cette approche progressive est beaucoup plus sûre que la martingale et s&apos;adapte
                 naturellement aux phases de gain et de perte. Combinée avec nos signaux aviator et un cash out discipliné,
                 elle offre le meilleur équilibre entre rendement et sécurité.
               </p>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 Pour aller plus loin dans la gestion du risque, lisez notre analyse complète sur la{' '}
                 <a href="/blog/faille-fifa-linebet" className="text-emerald hover:underline">faille FIFA Linebet & 888starz</a>,
                 qui présente des principes de gestion de bankroll applicables à tous les jeux virtuels.
@@ -688,7 +688,7 @@ export default function PredictionAviatorPage() {
               <div className="space-y-4">
                 <div className="card p-5">
                   <h3 className="text-white font-semibold mb-2">Les signaux Aviator sont-ils fiables ?</h3>
-                  <p className="text-gray-400 leading-relaxed text-sm">
+                  <p className="text-gray-600 leading-relaxed text-sm">
                     Les signaux Aviator basés sur l&apos;IA analysent les patterns statistiques et les historiques de crash
                     pour estimer la probabilité d&apos;un multiplicateur donné. Ils offrent un avantage statistique sur le long
                     terme, mais aucune prédiction n&apos;est garantie à 100%. L&apos;algorithme Aviator utilise un générateur
@@ -700,7 +700,7 @@ export default function PredictionAviatorPage() {
 
                 <div className="card p-5">
                   <h3 className="text-white font-semibold mb-2">Existe-t-il un vrai hack Aviator ?</h3>
-                  <p className="text-gray-400 leading-relaxed text-sm">
+                  <p className="text-gray-600 leading-relaxed text-sm">
                     Non, il n&apos;existe pas de hack ou de triche technique pour Aviator. Le jeu utilise un système Provably
                     Fair où chaque crash point est généré de manière cryptographique avant le début du tour. Les applications
                     ou bots qui prétendent « pirater » Aviator sont des arnaques conçues pour voler vos données ou votre argent.
@@ -711,7 +711,7 @@ export default function PredictionAviatorPage() {
 
                 <div className="card p-5">
                   <h3 className="text-white font-semibold mb-2">Comment utiliser les signaux Aviator sur Linebet ?</h3>
-                  <p className="text-gray-400 leading-relaxed text-sm">
+                  <p className="text-gray-600 leading-relaxed text-sm">
                     Inscrivez-vous sur <a href={LINEBET_URL} rel="sponsored nofollow" target="_blank" className="text-emerald hover:underline">Linebet</a> avec
                     le code promo <strong className="text-gold">{PROMO_CODE}</strong>, déposez des fonds, accédez au jeu Aviator
                     dans la section casino/crash games. Consultez nos signaux en temps réel sur la{' '}
@@ -722,7 +722,7 @@ export default function PredictionAviatorPage() {
 
                 <div className="card p-5">
                   <h3 className="text-white font-semibold mb-2">Quel est le meilleur moment pour faire cash out sur Aviator ?</h3>
-                  <p className="text-gray-400 leading-relaxed text-sm">
+                  <p className="text-gray-600 leading-relaxed text-sm">
                     Le cash out idéal dépend de votre stratégie. Une approche conservative vise un multiplicateur entre 1.2x
                     et 1.5x avec un taux de réussite élevé (environ 80-85%). Une approche modérée vise 2x-3x avec un taux
                     de réussite de 35-50%. Une approche agressive vise 5x+ mais avec un taux de réussite inférieur à 20%.
@@ -732,7 +732,7 @@ export default function PredictionAviatorPage() {
 
                 <div className="card p-5">
                   <h3 className="text-white font-semibold mb-2">Le jeu Aviator est-il légal en Afrique ?</h3>
-                  <p className="text-gray-400 leading-relaxed text-sm">
+                  <p className="text-gray-600 leading-relaxed text-sm">
                     La légalité d&apos;Aviator dépend de la législation de chaque pays. Dans de nombreux pays africains
                     francophones (Cameroun, Côte d&apos;Ivoire, Sénégal, etc.), les paris en ligne sur des plateformes
                     internationales comme Linebet et 888starz sont tolérés mais pas toujours régulés localement. Vérifiez
@@ -742,7 +742,7 @@ export default function PredictionAviatorPage() {
 
                 <div className="card p-5">
                   <h3 className="text-white font-semibold mb-2">Quelle bankroll recommandez-vous pour Aviator ?</h3>
-                  <p className="text-gray-400 leading-relaxed text-sm">
+                  <p className="text-gray-600 leading-relaxed text-sm">
                     Nous recommandons une bankroll d&apos;au moins 50 à 100 fois votre mise unitaire. Si vous misez 1€ par tour,
                     prévoyez au minimum 50€ à 100€. Ne misez jamais plus de 1% à 2% de votre bankroll sur un seul tour. Cette
                     gestion stricte vous permet de supporter les séries de pertes inévitables sans épuiser votre capital.
@@ -751,7 +751,7 @@ export default function PredictionAviatorPage() {
 
                 <div className="card p-5">
                   <h3 className="text-white font-semibold mb-2">Les signaux Aviator gratuits de BTTSPredict sont-ils vraiment gratuits ?</h3>
-                  <p className="text-gray-400 leading-relaxed text-sm">
+                  <p className="text-gray-600 leading-relaxed text-sm">
                     Oui, BTTSPredict propose des <strong className="text-white">signaux aviator gratuit</strong> en temps réel
                     sur sa page VIP Aviator. Ces signaux incluent le multiplicateur recommandé, le niveau de confiance, et
                     la stratégie associée. Des signaux premium avec une analyse plus approfondie et des recommandations
@@ -761,7 +761,7 @@ export default function PredictionAviatorPage() {
 
                 <div className="card p-5">
                   <h3 className="text-white font-semibold mb-2">Quelle est la différence entre Aviator sur Linebet et 888starz ?</h3>
-                  <p className="text-gray-400 leading-relaxed text-sm">
+                  <p className="text-gray-600 leading-relaxed text-sm">
                     Le jeu Aviator est le même sur les deux plateformes — il s&apos;agit du même développeur (Spribe). Les
                     différences portent sur les bonus de bienvenue, les limites de mise, et les promotions spécifiques.
                     Linebet offre un bonus de 100% jusqu&apos;à 130€ avec le code {PROMO_CODE}, tandis que 888starz propose
@@ -771,7 +771,7 @@ export default function PredictionAviatorPage() {
 
                 <div className="card p-5">
                   <h3 className="text-white font-semibold mb-2">Peut-on utiliser un bot Aviator pour automatiser les mises ?</h3>
-                  <p className="text-gray-400 leading-relaxed text-sm">
+                  <p className="text-gray-600 leading-relaxed text-sm">
                     Linebet et 888starz proposent une fonctionnalité de mise automatique (Auto Bet) et de cash out automatique
                     (Auto Cash Out) intégrée au jeu. Vous pouvez configurer un multiplicateur cible pour le cash out automatique.
                     Cependant, les bots tiers qui prétendent prédire les résultats sont des arnaques. Utilisez uniquement les
@@ -781,7 +781,7 @@ export default function PredictionAviatorPage() {
 
                 <div className="card p-5">
                   <h3 className="text-white font-semibold mb-2">Comment fonctionne le Provably Fair sur Aviator ?</h3>
-                  <p className="text-gray-400 leading-relaxed text-sm">
+                  <p className="text-gray-600 leading-relaxed text-sm">
                     Le système Provably Fair d&apos;Aviator combine un hash du serveur (généré avant le tour), un hash du client
                     (fourni par les joueurs), et un nonce (numéro de tour). Le crash point est calculé à partir de ces trois
                     éléments via un algorithme cryptographique HMAC-SHA256. Après chaque tour, vous pouvez vérifier que le
@@ -800,26 +800,26 @@ export default function PredictionAviatorPage() {
               >
                 Jeu responsable : un rappel essentiel
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Nous tenons à être parfaitement clairs : il n&apos;existe pas de <strong className="text-white">hack Aviator</strong>,
                 de <strong className="text-white">aviator predictor</strong> infaillible, ou de bot magique qui garantit des gains.
                 L&apos;algorithme Aviator est conçu pour être imprévisible, et l&apos;avantage de la maison est intégral à son
                 fonctionnement. Nos signaux et prédictions sont des outils d&apos;analyse statistique qui optimisent vos décisions,
                 pas des garanties de profit.
               </p>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 Les résultats passés, même exceptionnels, ne garantissent jamais les résultats futurs. Le terme « prédiction »
                 dans cet article désigne une estimation probabiliste, pas une certitude. Chaque tour d&apos;Aviator est indépendant
                 et soumis au hasard.
               </p>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 Si vous ressentez le besoin de parier de manière compulsive, si vous cachez vos pertes à vos proches, ou si
                 les paris affectent votre vie quotidienne, c&apos;est le signe d&apos;un problème. N&apos;hésitez pas à contacter
                 une ligne d&apos;écoute : en France au <strong className="text-white">09-74-75-13-13</strong>, au Cameroun via
                 le MINSANT, ou au Sénégal au <strong className="text-white">33 867 22 22</strong>. Le jeu doit rester un loisir,
                 pas une nécessité.
               </p>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 Pour approfondir vos connaissances sur les stratégies de pari, consultez notre article sur la{' '}
                 <a href="/blog/faille-fifa-linebet" className="text-emerald hover:underline">faille FIFA Linebet & 888starz</a>,
                 qui analyse les inefficiences de marché sur les jeux virtuels. Et pour découvrir d&apos;autres outils IA,
@@ -835,7 +835,7 @@ export default function PredictionAviatorPage() {
               >
                 Signaux Aviator en temps réel
               </h2>
-              <p className="text-gray-400 leading-relaxed mb-6 max-w-lg mx-auto">
+              <p className="text-gray-600 leading-relaxed mb-6 max-w-lg mx-auto">
                 Notre équipe analyse les tours Aviator 24h/24 et génère des signaux en direct sur Linebet & 888starz.
                 Consultez nos prédictions et commencez avec le code promo {PROMO_CODE} pour un bonus de 100%.
               </p>

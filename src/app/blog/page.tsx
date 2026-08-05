@@ -167,7 +167,7 @@ const categoryColor: Record<string, string> = {
    ────────────────────────────────────────────────────────────── */
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-dark-900 flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col text-gray-900">
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -191,7 +191,7 @@ export default function BlogPage() {
       <main id="main-content" className="flex-1 relative z-10">
         {/* ── Breadcrumb ── */}
         <nav aria-label="Fil d'Ariane" className="max-w-5xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-600">
             <li>
               <a href="/" className="hover:text-emerald transition-colors">
                 Accueil
@@ -201,7 +201,7 @@ export default function BlogPage() {
               /
             </li>
             <li>
-              <span className="text-gray-400" aria-current="page">
+              <span className="text-gray-600" aria-current="page">
                 Blog
               </span>
             </li>
@@ -218,7 +218,7 @@ export default function BlogPage() {
               BLOG{' '}
               <span className="text-emerald neon-glow">BTTSBET</span>
             </h1>
-            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Guides, stratégies et analyses pour maîtriser les paris{' '}
               <span className="text-emerald font-semibold">BTTS</span> &{' '}
               <span className="text-gold font-semibold">Over 2,5</span>. Propulsé par notre analyse statistique.
@@ -266,7 +266,7 @@ export default function BlogPage() {
                   </h2>
 
                   {/* Description */}
-                  <p className="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-4 flex-1">
+                  <p className="text-sm text-gray-600 leading-relaxed line-clamp-3 mb-4 flex-1">
                     {article.description}
                   </p>
 

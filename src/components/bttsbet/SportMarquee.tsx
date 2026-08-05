@@ -63,9 +63,9 @@ export default function SportMarquee() {
             />
             <span
               className="text-xs sm:text-sm font-semibold transition-colors duration-300"
-              style={{ color: '#94A3B8' }}
+              style={{ color: '#E5E7EB' }}
               onMouseEnter={(e) => { e.currentTarget.style.color = '#1E40AF' }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = '#94A3B8' }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = '#E5E7EB' }}
             >
               {sport.name}
             </span>

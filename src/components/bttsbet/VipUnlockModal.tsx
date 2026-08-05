@@ -141,7 +141,7 @@ export default function VipUnlockModal({
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-white">{title}</h3>
-                    <p className="text-[11px] text-[#5a5a5a]">3 étapes pour accéder au VIP</p>
+                    <p className="text-[11px] text-[#E5E7EB]">3 étapes pour accéder au VIP</p>
                   </div>
                 </div>
 
@@ -171,7 +171,7 @@ export default function VipUnlockModal({
                     aria-label={`Copier le code promo ${currentCode}`}
                   >
                     <div>
-                      <div className="text-[10px] uppercase tracking-widest font-bold mb-1" style={{ color: '#5a5a5a' }}>
+                      <div className="text-[10px] uppercase tracking-widest font-bold mb-1" style={{ color: '#E5E7EB' }}>
                         Code promo {selectedBookmaker === '888starz' ? '(minuscules)' : '(majuscules)'}
                       </div>
                       <div className="font-mono text-2xl font-black tracking-[0.1em]" style={{ color: '#16A34A' }}>
@@ -253,13 +253,13 @@ export default function VipUnlockModal({
                   <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style={{ backgroundColor: '#1A1F35', color: '#16A34A', border: '1px solid rgba(22, 163, 74,0.3)' }}>3</span>
                   <div className="text-sm text-[#a0a0a0]">
                     <span className="text-white font-semibold">Vérifie ton ID joueur</span> ci-dessous.
-                    <span className="block mt-1 text-[10px] text-[#5a5a5a]">🔒 Aucune donnée collectée — vérifié localement (SHA-256) dans ton navigateur.</span>
+                    <span className="block mt-1 text-[10px] text-[#E5E7EB]">🔒 Aucune donnée collectée — vérifié localement (SHA-256) dans ton navigateur.</span>
                   </div>
                 </div>
 
                 {/* ID input */}
                 <div className="mb-4">
-                  <label className="block text-[11px] uppercase tracking-widest font-bold text-[#5a5a5a] mb-2">
+                  <label className="block text-[11px] uppercase tracking-widest font-bold text-[#E5E7EB] mb-2">
                     ID joueur {selectedBookmaker ? `(${selectedBookmaker})` : ''}
                   </label>
                   <input
@@ -300,7 +300,7 @@ export default function VipUnlockModal({
                     className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg text-xs font-bold transition-all"
                     style={{
                       backgroundColor: !selectedBookmaker || !playerId.trim() ? '#1A1F35' : '#FACC15',
-                      color: !selectedBookmaker || !playerId.trim() ? '#5a5a5a' : '#020617',
+                      color: !selectedBookmaker || !playerId.trim() ? '#E5E7EB' : '#020617',
                       cursor: !selectedBookmaker || !playerId.trim() ? 'not-allowed' : 'pointer',
                     }}
                   >
@@ -310,7 +310,7 @@ export default function VipUnlockModal({
 
                 {/* Privacy */}
                 <div className="p-3 rounded-lg" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E5E7EB' }}>
-                  <p className="text-[10px] text-[#5a5a5a] leading-relaxed">
+                  <p className="text-[10px] text-[#E5E7EB] leading-relaxed">
                     <span className="text-[#a0a0a0] font-semibold">Confidentialité totale :</span> ton ID n'est jamais envoyé à nos serveurs. Hashé localement (SHA-256) et stocké uniquement dans ton navigateur.
                   </p>
                 </div>
@@ -332,7 +332,7 @@ export default function VipUnlockModal({
                 </a>
 
                 {/* Footer */}
-                <p className="text-[10px] text-[#5a5a5a] text-center mt-3">
+                <p className="text-[10px] text-[#E5E7EB] text-center mt-3">
                   18+ | Jeu responsable | Aucune donnée collectée
                 </p>
               </div>

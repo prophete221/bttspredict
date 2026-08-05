@@ -325,7 +325,7 @@ export function AnimatedSectionHeader({
       <h2 className="text-xl sm:text-2xl font-bold text-white mt-2 tracking-tight">
         {title} {titleAccent && <span className={accentColor}>{titleAccent}</span>}
       </h2>
-      {subtitle && <p className="text-gray-500 text-sm mt-1">{subtitle}</p>}
+      {subtitle && <p className="text-gray-600 text-sm mt-1">{subtitle}</p>}
     </motion.div>
   )
 }

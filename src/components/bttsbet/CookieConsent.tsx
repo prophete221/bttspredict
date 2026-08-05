@@ -67,7 +67,7 @@ export default function CookieConsent() {
                 </div>
                 <div>
                   <h3 className="text-white font-bold text-base mb-1">Consentement aux cookies</h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">Nous utilisons des cookies pour améliorer votre expérience. En continuant, vous acceptez notre utilisation de cookies.</p>
+                  <p className="text-sm text-gray-200 leading-relaxed">Nous utilisons des cookies pour améliorer votre expérience. En continuant, vous acceptez notre utilisation de cookies.</p>
                 </div>
               </div>
             </div>
@@ -98,7 +98,7 @@ export default function CookieConsent() {
                               <span className="text-[10px] px-2 py-0.5 rounded-full font-medium" style={{ backgroundColor: 'rgba(0,229,255,0.15)', color: '#16A34A' }}>Obligatoire</span>
                             )}
                           </div>
-                          <p className="text-xs text-gray-500 mt-0.5">{cookie.description}</p>
+                          <p className="text-xs text-gray-300 mt-0.5">{cookie.description}</p>
                         </div>
                       </label>
                     ))}
@@ -109,15 +109,15 @@ export default function CookieConsent() {
 
             <div className="flex flex-col sm:flex-row items-center gap-3">
               <button onClick={() => setCustomize(!customize)}
-                className="text-sm text-gray-400 hover:text-white transition-colors underline underline-offset-2 order-3 sm:order-1">
+                className="text-sm text-gray-200 hover:text-white transition-colors underline underline-offset-2 order-3 sm:order-1">
                 Personnaliser
               </button>
               <div className="flex gap-3 sm:ml-auto order-1 sm:order-2 w-full sm:w-auto">
                 <button onClick={handleRefuse}
                   className="flex-1 sm:flex-initial px-5 py-2.5 text-sm rounded-xl font-medium transition-all"
-                  style={{ border: '1px solid rgba(255,255,255,0.1)', color: '#94A3B8', backgroundColor: 'transparent' }}
+                  style={{ border: '1px solid rgba(255,255,255,0.1)', color: '#E5E7EB', backgroundColor: 'transparent' }}
                   onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#F3F4F6'; e.currentTarget.style.color = '#FFFFFF' }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#94A3B8' }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#E5E7EB' }}
                 >
                   Refuser
                 </button>

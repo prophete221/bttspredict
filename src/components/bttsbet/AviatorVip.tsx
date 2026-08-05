@@ -6,9 +6,9 @@ import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
 
 const C = {
-  bg: '#020617', card: '#FFFFFF', border: 'rgba(0,229,255,0.08)',
-  cyan: '#16A34A', violet: '#22C55E', gold: '#FFD700',
-  text: '#FFFFFF', textSec: '#94A3B8', textMute: '#64748B',
+  bg: '#020617', card: '#F3F4F6', border: '#E5E7EB',
+  green: '#16A34A', greenLight: '#22C55E', gold: '#FACC15', cyan: '#16A34A', violet: '#22C55E',
+  text: '#020617', textSec: '#6B7280', textMute: '#9CA3AF',
   danger: '#DC2626',
 }
 
@@ -81,7 +81,7 @@ export default function AviatorVip() {
 
   return (
     <>
-      <section ref={ref} id="aviator" className="section-pad overflow-x-hidden" style={{ paddingTop: '16px', paddingBottom: '16px' }}>
+      <section ref={ref} id="aviator" className="section-pad overflow-x-hidden" style={{ paddingTop: '16px', paddingBottom: '16px', backgroundColor: '#0F172A' }}>
         <div className="max-w-[440px] sm:max-w-2xl mx-auto">
           {/* Compact card */}
           <motion.div

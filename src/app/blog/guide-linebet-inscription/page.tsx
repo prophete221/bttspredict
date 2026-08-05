@@ -85,7 +85,7 @@ function buildBreadcrumbJsonLd() {
    ────────────────────────────────────────────────────────────── */
 export default function GuideLinebetInscription() {
   return (
-    <div className="min-h-screen bg-dark-900 flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col text-gray-900">
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -108,12 +108,12 @@ export default function GuideLinebetInscription() {
       <main id="main-content" className="flex-1 relative z-10">
         {/* ── Breadcrumb ── */}
         <nav aria-label="Fil d'Ariane" className="max-w-3xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap">
+          <ol className="flex items-center gap-2 text-sm text-gray-600 flex-wrap">
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
             <li aria-hidden="true" className="text-gray-700">/</li>
             <li><a href="/blog" className="hover:text-emerald transition-colors">Blog</a></li>
             <li aria-hidden="true" className="text-gray-700">/</li>
-            <li><span className="text-gray-400" aria-current="page">Guide Linebet</span></li>
+            <li><span className="text-gray-600" aria-current="page">Guide Linebet</span></li>
           </ol>
         </nav>
 
@@ -131,7 +131,7 @@ export default function GuideLinebetInscription() {
               Guide Complet Linebet : Inscription, Dépôt et Code Promo{' '}
               <span className="text-gold animate-pulse-gold">VISION221</span>
             </h1>
-            <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
               Tout ce que vous devez savoir pour ouvrir votre compte Linebet, effectuer votre premier dépôt
               et profiter du bonus exclusif avec le code promo VISION221. Guide adapté aux parieurs africains.
             </p>
@@ -153,14 +153,14 @@ export default function GuideLinebetInscription() {
               >
                 Pourquoi choisir Linebet en 2026 ?
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Linebet s&apos;est imposé comme l&apos;un des bookmakers les plus populaires en Afrique de l&apos;Ouest et centrale.
                 Avec une interface intuitive disponible en français, des méthodes de dépôt adaptées au continent
                 (Mobile Money, Orange Money, Wave, crypto-monnaies), et des cotes compétitives sur le football,
                 Linebet répond aux besoins spécifiques des parieurs africains. La plateforme propose également
                 des marchés spéciaux comme les paris sur les matchs FIFA virtuels, un secteur en pleine expansion.
               </p>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 En 2026, Linebet couvre plus de 40 sports différents et propose des paris en direct sur des milliers
                 d&apos;événements chaque jour. L&apos;application mobile, disponible sur Android et iOS, offre une expérience
                 fluide même avec une connexion internet modeste — un atout majeur dans les régions où la bande passante
@@ -177,10 +177,10 @@ export default function GuideLinebetInscription() {
               >
                 Étape 1 : Créer votre compte Linebet
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 L&apos;inscription sur Linebet est rapide et gratuite. Suivez ces étapes pour créer votre compte en moins de 3 minutes :
               </p>
-              <ol className="list-decimal list-inside space-y-3 mt-4 text-gray-400 leading-relaxed">
+              <ol className="list-decimal list-inside space-y-3 mt-4 text-gray-600 leading-relaxed">
                 <li>
                   <strong className="text-white">Accédez au site officiel</strong> — Rendez-vous sur Linebet via notre
                   lien de parrainage pour bénéficier automatiquement du code promo VISION221. Évitez les sites mirroirs
@@ -217,21 +217,21 @@ export default function GuideLinebetInscription() {
               >
                 Étape 2 : Effectuer votre premier dépôt
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Une fois votre compte créé, vous devez l&apos;approvisionner pour commencer à parier. Linebet offre
                 plusieurs méthodes de dépôt adaptées aux utilisateurs africains :
               </p>
               <div className="grid gap-4 mt-4 sm:grid-cols-2">
                 <div className="card p-4">
                   <h3 className="text-white font-bold text-sm mb-2">Mobile Money & Orange Money</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-sm leading-relaxed">
                     Dépôt instantané via MTN Mobile Money, Orange Money, Moov Money ou Wave. Montant minimum :
                     500 FCFA. Idéal pour les dépôts rapides sans carte bancaire. Le processus prend moins de 30 secondes.
                   </p>
                 </div>
                 <div className="card p-4">
                   <h3 className="text-white font-bold text-sm mb-2">Crypto-monnaies</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-sm leading-relaxed">
                     Bitcoin, Ethereum, USDT (TRC-20), Litecoin et d&apos;autres cryptos sont acceptés. Les dépôts en crypto
                     sont rapides (10-30 minutes) et sans frais supplémentaires. Le montant minimum en USDT est de 10 USDT
                     (environ 6 000 FCFA).
@@ -239,14 +239,14 @@ export default function GuideLinebetInscription() {
                 </div>
                 <div className="card p-4">
                   <h3 className="text-white font-bold text-sm mb-2">Carte bancaire / Virement</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-sm leading-relaxed">
                     Visa et Mastercard sont acceptées. Virement bancaire disponible pour les montants plus élevés.
                     Les dépôts par carte sont crédités instantanément, les virements peuvent prendre 1 à 3 jours ouvrés.
                   </p>
                 </div>
                 <div className="card p-4">
                   <h3 className="text-white font-bold text-sm mb-2">Agents locaux</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-sm leading-relaxed">
                     Dans certains pays (Cameroun, Sénégal, Côte d&apos;Ivoire), des agents locaux Linebet acceptent
                     les dépôts en espèces. Renseignez-vous auprès du service client pour trouver l&apos;agent le plus proche.
                   </p>
@@ -269,11 +269,11 @@ export default function GuideLinebetInscription() {
               >
                 Étape 3 : Naviguer sur l&apos;application Linebet
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 L&apos;application Linebet est conçue pour être simple et efficace. Voici les sections essentielles
                 que vous devez connaître :
               </p>
-              <ul className="space-y-3 mt-4 text-gray-400 leading-relaxed">
+              <ul className="space-y-3 mt-4 text-gray-600 leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-emerald font-bold mt-0.5">▸</span>
                   <span><strong className="text-white">Section « Sports »</strong> — Accédez à tous les sports disponibles,
@@ -314,14 +314,14 @@ export default function GuideLinebetInscription() {
               >
                 Code promo VISION221 : Comment ça fonctionne ?
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Le code promo <span className="text-gold font-bold animate-pulse-gold">VISION221</span> est un code
                 exclusif négocié par l&apos;équipe BTTSPredict en partenariat avec Linebet. Il vous offre un bonus
                 sur votre premier dépôt, qui peut atteindre un montant significatif selon le dépôt effectué.
               </p>
               <div className="mt-4 p-5 rounded-lg bg-panel/50 border border-edge/50">
                 <h3 className="text-white font-bold mb-3">Conditions à retenir :</h3>
-                <ul className="space-y-2 text-sm text-gray-400 leading-relaxed">
+                <ul className="space-y-2 text-sm text-gray-600 leading-relaxed">
                   <li className="flex items-start gap-2">
                     <span className="text-emerald">✓</span>
                     Le code doit être saisi lors de l&apos;inscription ou dans les 7 jours suivant la création du compte
@@ -354,11 +354,11 @@ export default function GuideLinebetInscription() {
               >
                 Conseils pour les parieurs africains
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Parier depuis l&apos;Afrique implique quelques spécificités qu&apos;il faut maîtriser pour optimiser
                 votre expérience. Voici nos recommandations :
               </p>
-              <ul className="space-y-3 mt-4 text-gray-400 leading-relaxed">
+              <ul className="space-y-3 mt-4 text-gray-600 leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-gold font-bold mt-0.5">1.</span>
                   <span><strong className="text-white">Choisissez la bonne devise</strong> — Optez pour le Franc CFA (XOF ou XAF)
@@ -400,11 +400,11 @@ export default function GuideLinebetInscription() {
               >
                 Retirer vos gains sur Linebet
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Le retrait de vos gains est aussi important que le dépôt. Linebet propose les mêmes méthodes
                 de retrait que pour les dépôts, avec quelques nuances :
               </p>
-              <ul className="space-y-2 mt-4 text-gray-400 leading-relaxed">
+              <ul className="space-y-2 mt-4 text-gray-600 leading-relaxed">
                 <li className="flex items-start gap-2">
                   <span className="text-emerald">▸</span>
                   <span><strong className="text-white">Mobile Money</strong> — Retrait en 5 à 30 minutes. Montant minimum :
@@ -421,7 +421,7 @@ export default function GuideLinebetInscription() {
                   Nécessite un compte bancaire à votre nom.</span>
                 </li>
               </ul>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 Important : vérifiez que votre compte est validé (KYC) avant de demander un retrait. Les comptes
                 non vérifiés peuvent subir des délais supplémentaires ou des blocages. Conservez toujours une trace
                 de vos transactions et contactez le support Linebet en cas de problème.
@@ -436,7 +436,7 @@ export default function GuideLinebetInscription() {
               >
                 Prêt à commencer ?
               </h2>
-              <p className="text-gray-400 leading-relaxed mb-6 max-w-lg mx-auto">
+              <p className="text-gray-600 leading-relaxed mb-6 max-w-lg mx-auto">
                 Consultez nos pronostics BTTS et Over 2,5 du jour, générés par notre équipe avec une précision
                 historique d&apos;environ 87%. Inscrivez-vous sur Linebet avec le code VISION221 pour un bonus exclusif.
               </p>

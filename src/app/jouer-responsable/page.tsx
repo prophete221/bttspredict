@@ -168,7 +168,7 @@ const responsibleTips = [
    ────────────────────────────────────────────────────────────── */
 export default function JouerResponsablePage() {
   return (
-    <div className="min-h-screen bg-dark-900 flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col text-gray-900">
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -192,7 +192,7 @@ export default function JouerResponsablePage() {
       <main id="main-content" className="flex-1 relative z-10">
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-600">
             <li>
               <a href="/" className="hover:text-emerald transition-colors">
                 Accueil
@@ -200,7 +200,7 @@ export default function JouerResponsablePage() {
             </li>
             <li aria-hidden="true" className="text-gray-700">/</li>
             <li>
-              <span className="text-gray-400" aria-current="page">Jouer Responsable</span>
+              <span className="text-gray-600" aria-current="page">Jouer Responsable</span>
             </li>
           </ol>
         </nav>
@@ -214,7 +214,7 @@ export default function JouerResponsablePage() {
             >
               JOUER <span className="text-emerald neon-glow">RESPONSABLE</span>
             </h1>
-            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Les paris sportifs doivent rester un loisir. Informez-vous sur les risques et jouez de manière responsable.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
@@ -228,7 +228,7 @@ export default function JouerResponsablePage() {
               <p className="text-lose font-bold text-lg mb-1" style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
                 INTERDIT AUX MOINS DE 18 ANS
               </p>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-600 text-sm">
                 Les jeux d&apos;argent et de hasard sont interdits aux mineurs. BTTSPredict est strictement réservé aux personnes âgées de 18 ans ou plus.
               </p>
             </div>
@@ -248,19 +248,19 @@ export default function JouerResponsablePage() {
                 >
                   1. Les risques des jeux d&apos;argent
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     Les paris sportifs, comme toute forme de jeu d&apos;argent, comportent des risques réels qui ne doivent pas être sous-estimés. Il est essentiel de comprendre que le modèle économique des bookmakers est conçu pour que la maison gagne sur le long terme. Même avec les meilleurs pronostics et les analyses les plus sophistiquées, le risque de perte est toujours présent.
                   </p>
                   <p>
                     Les risques principaux incluent :
                   </p>
-                  <ul className="list-disc list-inside space-y-2 ml-4 text-gray-400">
-                    <li><strong className="text-gray-300">Pertes financières :</strong> vous pouvez perdre tout l&apos;argent que vous misez, et potentiellement plus si vous ne gérez pas votre bankroll. L&apos;endettement est une conséquence fréquente du jeu excessif.</li>
-                    <li><strong className="text-gray-300">Addiction :</strong> les jeux d&apos;argent activent le circuit de la récompense dans le cerveau, de manière similaire aux substances addictives. Le mécanisme de renforcement intermittent (gains occasionnels imprévisibles) est particulièrement puissant pour créer une dépendance.</li>
-                    <li><strong className="text-gray-300">Impact psychologique :</strong> stress, anxiété, dépression, culpabilité, isolement social et idées noires peuvent accompagner le jeu problématique.</li>
-                    <li><strong className="text-gray-300">Conséquences sociales :</strong> conflits familiaux, perte d&apos;emploi, isolement, mensonges à l&apos;entourage et détérioration des relations personnelles.</li>
-                    <li><strong className="text-gray-300">Illusion de contrôle :</strong> la croyance erronée que l&apos;on peut « battre le système » ou que les pronostics garantissent des gains est un facteur de risque majeur.</li>
+                  <ul className="list-disc list-inside space-y-2 ml-4 text-gray-600">
+                    <li><strong className="text-gray-700">Pertes financières :</strong> vous pouvez perdre tout l&apos;argent que vous misez, et potentiellement plus si vous ne gérez pas votre bankroll. L&apos;endettement est une conséquence fréquente du jeu excessif.</li>
+                    <li><strong className="text-gray-700">Addiction :</strong> les jeux d&apos;argent activent le circuit de la récompense dans le cerveau, de manière similaire aux substances addictives. Le mécanisme de renforcement intermittent (gains occasionnels imprévisibles) est particulièrement puissant pour créer une dépendance.</li>
+                    <li><strong className="text-gray-700">Impact psychologique :</strong> stress, anxiété, dépression, culpabilité, isolement social et idées noires peuvent accompagner le jeu problématique.</li>
+                    <li><strong className="text-gray-700">Conséquences sociales :</strong> conflits familiaux, perte d&apos;emploi, isolement, mensonges à l&apos;entourage et détérioration des relations personnelles.</li>
+                    <li><strong className="text-gray-700">Illusion de contrôle :</strong> la croyance erronée que l&apos;on peut « battre le système » ou que les pronostics garantissent des gains est un facteur de risque majeur.</li>
                   </ul>
                   <p>
                     BTTSPredict fournit des pronostics basés sur l&apos;analyse statistique avec un taux de précision historique d&apos;environ 87 %. Toutefois, ce chiffre est basé sur des données passées et ne constitue en aucune manière une garantie de résultats futurs. Même les meilleurs algorithmes ne peuvent pas prédire l&apos;avenir avec certitude.
@@ -276,13 +276,13 @@ export default function JouerResponsablePage() {
                 >
                   2. Signes d&apos;addiction aux jeux d&apos;argent
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     Il est important de rester vigilant face aux signes avant-coureurs de l&apos;addiction aux jeux d&apos;argent. Si vous reconnaissez un ou plusieurs des signes suivants dans votre comportement, il est temps de faire une pause et d&apos;envisager de demander de l&apos;aide :
                   </p>
                   <ul className="space-y-2 ml-2">
                     {addictionSigns.map((sign, i) => (
-                      <li key={i} className="flex items-start gap-3 text-gray-400">
+                      <li key={i} className="flex items-start gap-3 text-gray-600">
                         <span className="text-lose mt-0.5 flex-shrink-0" aria-hidden="true">⚠</span>
                         <span>{sign}</span>
                       </li>
@@ -302,7 +302,7 @@ export default function JouerResponsablePage() {
                 >
                   3. Conseils pour un jeu responsable
                 </h2>
-                <div className="space-y-4 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-4 text-gray-700 text-sm leading-relaxed">
                   <p>
                     Voici nos recommandations pour maintenir une relation saine avec les paris sportifs :
                   </p>
@@ -316,7 +316,7 @@ export default function JouerResponsablePage() {
                           <span className="text-xl" aria-hidden="true">{tip.icon}</span>
                           <h3 className="text-white font-semibold text-sm">{tip.title}</h3>
                         </div>
-                        <p className="text-gray-400 text-xs leading-relaxed">{tip.description}</p>
+                        <p className="text-gray-600 text-xs leading-relaxed">{tip.description}</p>
                       </div>
                     ))}
                   </div>
@@ -331,17 +331,17 @@ export default function JouerResponsablePage() {
                 >
                   4. Auto-exclusion
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     L&apos;auto-exclusion est un mécanisme qui vous permet de vous interdire volontairement l&apos;accès aux plateformes de jeux d&apos;argent pour une période déterminée. C&apos;est un outil puissant pour reprendre le contrôle de votre comportement de jeu.
                   </p>
                   <p>
                     Comment fonctionne l&apos;auto-exclusion :
                   </p>
-                  <ul className="list-disc list-inside space-y-2 ml-4 text-gray-400">
-                    <li><strong className="text-gray-300">Sur Linebet :</strong> vous pouvez activer l&apos;auto-exclusion directement dans les paramètres de votre compte. Des options de 6 mois, 1 an ou indéfinie sont généralement disponibles. Pendant la période d&apos;exclusion, vous ne pourrez ni parier ni effectuer de dépôt.</li>
-                    <li><strong className="text-gray-300">Sur les autres bookmakers :</strong> la plupart des opérateurs de jeux d&apos;argent proposent des mécanismes similaires. Consultez la section « Jeu responsable » de chaque plateforme.</li>
-                    <li><strong className="text-gray-300">Au niveau national :</strong> certains pays proposent des registres nationaux d&apos;auto-exclusion qui vous interdisent l&apos;accès à tous les sites de jeux d&apos;argent légaux. Renseignez-vous auprès des autorités de votre pays.</li>
+                  <ul className="list-disc list-inside space-y-2 ml-4 text-gray-600">
+                    <li><strong className="text-gray-700">Sur Linebet :</strong> vous pouvez activer l&apos;auto-exclusion directement dans les paramètres de votre compte. Des options de 6 mois, 1 an ou indéfinie sont généralement disponibles. Pendant la période d&apos;exclusion, vous ne pourrez ni parier ni effectuer de dépôt.</li>
+                    <li><strong className="text-gray-700">Sur les autres bookmakers :</strong> la plupart des opérateurs de jeux d&apos;argent proposent des mécanismes similaires. Consultez la section « Jeu responsable » de chaque plateforme.</li>
+                    <li><strong className="text-gray-700">Au niveau national :</strong> certains pays proposent des registres nationaux d&apos;auto-exclusion qui vous interdisent l&apos;accès à tous les sites de jeux d&apos;argent légaux. Renseignez-vous auprès des autorités de votre pays.</li>
                   </ul>
                   <p>
                     L&apos;auto-exclusion est une décision courageuse. Elle n&apos;est pas un signe de faiblesse mais au contraire une preuve de lucidité et de volonté de prendre soin de vous.
@@ -357,7 +357,7 @@ export default function JouerResponsablePage() {
                 >
                   5. Ressources d&apos;aide
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     Si vous ou un proche avez besoin d&apos;aide, n&apos;hésitez pas à contacter ces services spécialisés. L&apos;appel est gratuit, anonyme et confidentiel :
                   </p>
@@ -371,7 +371,7 @@ export default function JouerResponsablePage() {
                           <span className="text-lg" aria-hidden="true">{resource.country}</span>
                           <h3 className="text-white font-semibold">{resource.name}</h3>
                         </div>
-                        <div className="space-y-1 text-gray-400 text-sm">
+                        <div className="space-y-1 text-gray-600 text-sm">
                           <p>
                             <strong className="text-gold">Téléphone :</strong>{' '}
                             <span className="text-emerald font-mono">{resource.phone}</span>
@@ -420,17 +420,17 @@ export default function JouerResponsablePage() {
                 >
                   6. L&apos;engagement de BTTSPredict
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     En tant que plateforme de pronostics sportifs, BTTSPredict assume sa responsabilité dans la promotion du jeu responsable. Notre engagement se traduit par les actions concrètes suivantes :
                   </p>
-                  <ul className="list-disc list-inside space-y-2 ml-4 text-gray-400">
-                    <li><strong className="text-gray-300">Transparence :</strong> nous affichons clairement nos taux de précision comme des statistiques historiques, jamais comme des garanties de gains futurs. Nous rappelons systématiquement que les résultats passés ne préjugent pas des résultats futurs.</li>
-                    <li><strong className="text-gray-300">Information :</strong> chaque page de notre site comporte un avertissement sur les risques liés aux paris sportifs et un lien vers cette page de jeu responsable.</li>
-                    <li><strong className="text-gray-300">Vérification de l&apos;âge :</strong> nous mettons en place un dispositif de vérification de l&apos;âge pour empêcher l&apos;accès aux mineurs. Le site est strictement réservé aux personnes de 18 ans et plus.</li>
-                    <li><strong className="text-gray-300">Pas d&apos;incitation excessive :</strong> nos contenus promotionnels sont conçus pour informer, pas pour inciter de manière agressive ou trompeuse au jeu.</li>
-                    <li><strong className="text-gray-300">Aide accessible :</strong> nous facilitons l&apos;accès aux ressources d&apos;aide et aux numéros d&apos;écoute spécialisés pour nos utilisateurs.</li>
-                    <li><strong className="text-gray-300">Nature du service :</strong> BTTSPredict est un site informatif et d&apos;affiliation. Nous ne prenons aucun pari, ne collectons aucun fonds et ne sommes pas un bookmaker. Les utilisateurs parient à leur entière discrétion sur les plateformes de leur choix.</li>
+                  <ul className="list-disc list-inside space-y-2 ml-4 text-gray-600">
+                    <li><strong className="text-gray-700">Transparence :</strong> nous affichons clairement nos taux de précision comme des statistiques historiques, jamais comme des garanties de gains futurs. Nous rappelons systématiquement que les résultats passés ne préjugent pas des résultats futurs.</li>
+                    <li><strong className="text-gray-700">Information :</strong> chaque page de notre site comporte un avertissement sur les risques liés aux paris sportifs et un lien vers cette page de jeu responsable.</li>
+                    <li><strong className="text-gray-700">Vérification de l&apos;âge :</strong> nous mettons en place un dispositif de vérification de l&apos;âge pour empêcher l&apos;accès aux mineurs. Le site est strictement réservé aux personnes de 18 ans et plus.</li>
+                    <li><strong className="text-gray-700">Pas d&apos;incitation excessive :</strong> nos contenus promotionnels sont conçus pour informer, pas pour inciter de manière agressive ou trompeuse au jeu.</li>
+                    <li><strong className="text-gray-700">Aide accessible :</strong> nous facilitons l&apos;accès aux ressources d&apos;aide et aux numéros d&apos;écoute spécialisés pour nos utilisateurs.</li>
+                    <li><strong className="text-gray-700">Nature du service :</strong> BTTSPredict est un site informatif et d&apos;affiliation. Nous ne prenons aucun pari, ne collectons aucun fonds et ne sommes pas un bookmaker. Les utilisateurs parient à leur entière discrétion sur les plateformes de leur choix.</li>
                   </ul>
                   <p>
                     Nous croyons fermement que les paris sportifs ne doivent être pratiqués que de manière responsable, dans le cadre d&apos;un budget de loisir clairement défini. Si vous ne pouvez pas vous permettre de perdre, ne pariez pas.

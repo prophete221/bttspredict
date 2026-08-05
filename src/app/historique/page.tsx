@@ -78,7 +78,7 @@ function buildBreadcrumbJsonLd() {
    ────────────────────────────────────────────────────────────── */
 export default function HistoriquePage() {
   return (
-    <div className="min-h-screen bg-dark-900 flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col text-gray-900">
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -116,7 +116,7 @@ export default function HistoriquePage() {
       <main id="main-content" className="flex-1 relative z-10">
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="max-w-5xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-600">
             <li>
               <a href="/" className="hover:text-emerald transition-colors">
                 Accueil
@@ -124,7 +124,7 @@ export default function HistoriquePage() {
             </li>
             <li aria-hidden="true" className="text-gray-700">/</li>
             <li>
-              <span className="text-gray-400" aria-current="page">Historique</span>
+              <span className="text-gray-600" aria-current="page">Historique</span>
             </li>
           </ol>
         </nav>
@@ -138,7 +138,7 @@ export default function HistoriquePage() {
             >
               HISTORIQUE <span className="text-gold neon-glow">PRONOSTICS</span>
             </h1>
-            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Tous les pronostics BTTS &amp; Over 2.5 — gagnés et perdus — sans filtrage. Transparence totale avec preuves vérifiables.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-6" />
@@ -160,7 +160,7 @@ export default function HistoriquePage() {
               >
                 Comment nous calculons nos résultats
               </h2>
-              <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+              <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                 <p>
                   Notre historique affiche <strong className="text-gold">tous les pronostics</strong> sans exception — les gagnés ET les perdus. Nous ne filtrons pas nos résultats pour présenter une image favorable. C&apos;est notre engagement de transparence.
                 </p>

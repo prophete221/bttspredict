@@ -85,7 +85,7 @@ function buildBreadcrumbJsonLd() {
    ────────────────────────────────────────────────────────────── */
 export default function CGUPage() {
   return (
-    <div className="min-h-screen bg-dark-900 flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col text-gray-900">
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -109,7 +109,7 @@ export default function CGUPage() {
       <main id="main-content" className="flex-1 relative z-10">
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-600">
             <li>
               <a href="/" className="hover:text-emerald transition-colors">
                 Accueil
@@ -117,7 +117,7 @@ export default function CGUPage() {
             </li>
             <li aria-hidden="true" className="text-gray-700">/</li>
             <li>
-              <span className="text-gray-400" aria-current="page">Conditions Générales d&apos;Utilisation</span>
+              <span className="text-gray-600" aria-current="page">Conditions Générales d&apos;Utilisation</span>
             </li>
           </ol>
         </nav>
@@ -131,7 +131,7 @@ export default function CGUPage() {
             >
               CONDITIONS <span className="text-emerald neon-glow">GÉNÉRALES</span>
             </h1>
-            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Conditions d&apos;utilisation du site BTTSPredict — veuillez lire attentivement avant d&apos;utiliser le site.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
@@ -151,7 +151,7 @@ export default function CGUPage() {
                 >
                   1. Acceptation des conditions
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     En accédant au site BTTSPredict accessible à l&apos;adresse{' '}
                     <a href={SITE_URL} className="text-emerald hover:text-emerald-soft transition-colors underline underline-offset-2">
@@ -184,7 +184,7 @@ export default function CGUPage() {
                 >
                   2. Description du service
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     BTTSPredict est un site web à vocation <strong className="text-emerald">informative et d&apos;affiliation</strong> spécialisé dans les pronostics sportifs, plus particulièrement sur les marchés BTTS (Both Teams To Score) et Over 2,5 buts. Le site utilise des algorithmes d&apos;analyse statistique pour analyser des données statistiques et générer des pronostics football.
                   </p>
@@ -193,7 +193,7 @@ export default function CGUPage() {
                     <p className="text-gold font-semibold text-sm mb-2">
                       ⚠️ Point essentiel
                     </p>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-gray-600 text-sm">
                       BTTSPredict <strong className="text-white">ne prend aucun pari</strong>, ne collecte <strong className="text-white">aucun fonds</strong>, ne gère <strong className="text-white">aucun compte de jeu</strong> et n&apos;agit pas en tant que bookmaker, intermédiaire ou opérateur de jeux d&apos;argent. Les utilisateurs parient à leur entière discrétion et sous leur seule responsabilité sur les plateformes de leur choix.
                     </p>
                   </div>
@@ -201,7 +201,7 @@ export default function CGUPage() {
                   <p>
                     Les services proposés par BTTSPredict incluent :
                   </p>
-                  <ul className="list-disc list-inside space-y-1 ml-4 text-gray-400">
+                  <ul className="list-disc list-inside space-y-1 ml-4 text-gray-600">
                     <li>Pronostics gratuits basés sur l&apos;analyse IA (marchés BTTS et Over 2,5)</li>
                     <li>Pronostics VIP avec un indice de confiance plus élevé</li>
                     <li>Analyses statistiques et historiques des matchs de football</li>
@@ -220,7 +220,7 @@ export default function CGUPage() {
                 >
                   3. Affiliation avec Linebet
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     BTTSPredict participe au programme d&apos;affiliation de Linebet. À ce titre, le site diffuse des liens sponsorisés vers la plateforme Linebet. Lorsqu&apos;un utilisateur s&apos;inscrit sur Linebet via un lien d&apos;affiliation présent sur BTTSPredict et utilise le code promo VISION221, BTTSPredict perçoit une commission d&apos;affiliation.
                   </p>
@@ -230,7 +230,7 @@ export default function CGUPage() {
                   <p>
                     Il est important de noter que :
                   </p>
-                  <ul className="list-disc list-inside space-y-1 ml-4 text-gray-400">
+                  <ul className="list-disc list-inside space-y-1 ml-4 text-gray-600">
                     <li>BTTSPredict n&apos;est pas une filiale, une succursale ou un représentant de Linebet.</li>
                     <li>BTTSPredict n&apos;est pas responsable des services, conditions ou pratiques de Linebet.</li>
                     <li>L&apos;utilisation de Linebet est soumise aux conditions générales propres à cette plateforme.</li>
@@ -248,12 +248,12 @@ export default function CGUPage() {
                 >
                   4. Avertissement sur les pronostics
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <div className="bg-lose/10 border border-lose/30 rounded-xl p-4 mb-3">
                     <p className="text-lose font-semibold text-sm mb-2">
                       Avertissement important
                     </p>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-gray-600 text-sm">
                       Les pronostics diffusés sur BTTSPredict sont fournis à titre <strong className="text-white">strictement informatif</strong> et ne constituent en aucun cas des conseils financiers, des incitations à parier ou des garanties de résultat.
                     </p>
                   </div>
@@ -277,21 +277,21 @@ export default function CGUPage() {
                 >
                   5. Responsabilités de l&apos;utilisateur
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     En utilisant le site BTTSPredict, vous vous engagez à :
                   </p>
-                  <ul className="list-disc list-inside space-y-2 ml-4 text-gray-400">
-                    <li><strong className="text-gray-300">Être majeur :</strong> vous certifiez être âgé de 18 ans ou plus. L&apos;accès au site est strictement interdit aux mineurs. BTTSPredict se réserve le droit de mettre en place des dispositifs de vérification de l&apos;âge.</li>
-                    <li><strong className="text-gray-300">Respecter les lois locales :</strong> vous êtes responsable de vous assurer que l&apos;utilisation de notre site et la participation à des paris sportifs sont conformes aux lois et réglementations de votre juridiction. Les lois sur les jeux d&apos;argent varient considérablement d&apos;un pays à l&apos;autre.</li>
-                    <li><strong className="text-gray-300">Jouer de manière responsable :</strong> vous reconnaissez que les paris sportifs comportent des risques financiers et vous vous engagez à jouer de manière responsable, en ne misant jamais plus que ce que vous pouvez vous permettre de perdre. Nous vous invitons à consulter notre page{' '}
+                  <ul className="list-disc list-inside space-y-2 ml-4 text-gray-600">
+                    <li><strong className="text-gray-700">Être majeur :</strong> vous certifiez être âgé de 18 ans ou plus. L&apos;accès au site est strictement interdit aux mineurs. BTTSPredict se réserve le droit de mettre en place des dispositifs de vérification de l&apos;âge.</li>
+                    <li><strong className="text-gray-700">Respecter les lois locales :</strong> vous êtes responsable de vous assurer que l&apos;utilisation de notre site et la participation à des paris sportifs sont conformes aux lois et réglementations de votre juridiction. Les lois sur les jeux d&apos;argent varient considérablement d&apos;un pays à l&apos;autre.</li>
+                    <li><strong className="text-gray-700">Jouer de manière responsable :</strong> vous reconnaissez que les paris sportifs comportent des risques financiers et vous vous engagez à jouer de manière responsable, en ne misant jamais plus que ce que vous pouvez vous permettre de perdre. Nous vous invitons à consulter notre page{' '}
                       <a href="/jouer-responsable" className="text-emerald hover:text-emerald-soft transition-colors underline underline-offset-2">
                         Jouer Responsable
                       </a>.
                     </li>
-                    <li><strong className="text-gray-300">Ne pas utiliser le site à des fins illicites :</strong> vous vous engagez à ne pas utiliser le site d&apos;une manière qui pourrait endommager, désactiver, surcharger ou altérer le fonctionnement du site, ni tenter d&apos;accéder de manière non autorisée à des systèmes, données ou informations liés au site.</li>
-                    <li><strong className="text-gray-300">Ne pas reproduire le contenu :</strong> vous vous abstiendrez de copier, reproduire, distribuer, publier ou exploiter commercialement tout contenu du site sans autorisation préalable écrite de BTTSPredict.</li>
-                    <li><strong className="text-gray-300">Fournir des informations exactes :</strong> si vous êtes amené à fournir des informations (contact, commentaires), vous vous engagez à ce qu&apos;elles soient exactes et à jour.</li>
+                    <li><strong className="text-gray-700">Ne pas utiliser le site à des fins illicites :</strong> vous vous engagez à ne pas utiliser le site d&apos;une manière qui pourrait endommager, désactiver, surcharger ou altérer le fonctionnement du site, ni tenter d&apos;accéder de manière non autorisée à des systèmes, données ou informations liés au site.</li>
+                    <li><strong className="text-gray-700">Ne pas reproduire le contenu :</strong> vous vous abstiendrez de copier, reproduire, distribuer, publier ou exploiter commercialement tout contenu du site sans autorisation préalable écrite de BTTSPredict.</li>
+                    <li><strong className="text-gray-700">Fournir des informations exactes :</strong> si vous êtes amené à fournir des informations (contact, commentaires), vous vous engagez à ce qu&apos;elles soient exactes et à jour.</li>
                   </ul>
                 </div>
               </article>
@@ -304,14 +304,14 @@ export default function CGUPage() {
                 >
                   6. Propriété intellectuelle
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     L&apos;ensemble des contenus du site BTTSPredict — textes, graphismes, logos, icônes, images, algorithmes, pronostics, analyses, mises en page et codes sources — est protégé par le droit d&apos;auteur et les droits de propriété intellectuelle. Ces contenus appartiennent exclusivement à BTTSPredict ou font l&apos;objet d&apos;une licence d&apos;utilisation.
                   </p>
                   <p>
                     Sont notamment protégés :
                   </p>
-                  <ul className="list-disc list-inside space-y-1 ml-4 text-gray-400">
+                  <ul className="list-disc list-inside space-y-1 ml-4 text-gray-600">
                     <li>L&apos;algorithme d&apos;analyse statistique et les modèles prédictifs utilisés pour générer les pronostics</li>
                     <li>Les designs, interfaces et éléments visuels du site</li>
                     <li>Les articles, guides et contenus éditoriaux publiés sur le site et le blog</li>
@@ -332,14 +332,14 @@ export default function CGUPage() {
                 >
                   7. Limitation de responsabilité
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     BTTSPredict fournit ses services « en l&apos;état » (as is) sans garantie d&apos;aucune sorte, expresse ou implicite. Dans la mesure permise par la loi applicable, BTTSPredict décline toute garantie, notamment quant à la disponibilité ininterrompue du site, l&apos;exactitude des informations, la fiabilité des pronostics ou l&apos;adéquation du service à un besoin particulier.
                   </p>
                   <p>
                     En aucun cas BTTSPredict ne pourra être tenu responsable :
                   </p>
-                  <ul className="list-disc list-inside space-y-1 ml-4 text-gray-400">
+                  <ul className="list-disc list-inside space-y-1 ml-4 text-gray-600">
                     <li>Des pertes financières directes ou indirectes résultant de l&apos;utilisation des pronostics ou des informations du site</li>
                     <li>De l&apos;indisponibilité temporaire ou permanente du site, due à des maintenance, mises à jour, pannes techniques ou causes extérieures</li>
                     <li>Des pratiques, services ou contenus des sites tiers accessibles via les liens d&apos;affiliation</li>
@@ -358,7 +358,7 @@ export default function CGUPage() {
                 >
                   8. Modification des conditions
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     BTTSPredict se réserve le droit de modifier, mettre à jour ou remplacer tout ou partie des présentes CGU à tout moment et sans préavis. Les modifications prennent effet dès leur publication sur le site.
                   </p>
@@ -379,7 +379,7 @@ export default function CGUPage() {
                 >
                   9. Droit applicable et juridiction compétente
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     Les présentes CGU sont régies par le droit camerounais et les dispositions applicables au sein de la Communauté Économique et Monétaire de l&apos;Afrique Centrale (CEMAC), et notamment l&apos;Acte Uniforme révisé de l&apos;OHADA relatif au droit commercial général.
                   </p>
@@ -400,7 +400,7 @@ export default function CGUPage() {
                 >
                   10. Contact
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     Pour toute question relative aux présentes Conditions Générales d&apos;Utilisation, vous pouvez nous contacter :
                   </p>

@@ -57,7 +57,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
             <h2 className="text-white text-lg font-semibold mb-2">
               Une erreur s&apos;est produite
             </h2>
-            <p className="text-gray-400 text-sm mb-6">
+            <p className="text-gray-200 text-sm mb-6">
               Veuillez réessayer. Si le problème persiste, contactez-nous à contact@bttspredict.com.
             </p>
             <button

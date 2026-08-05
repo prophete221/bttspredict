@@ -12,7 +12,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer ref={ref} id="faq" className="border-t pt-10 pb-20 sm:pb-8 px-4" style={{ borderColor: '#F3F4F6' }}>
+      <footer ref={ref} id="faq" className="border-t pt-10 pb-20 sm:pb-8 px-4" style={{ borderColor: '#16A34A', backgroundColor: '#020617' }}>
         <div className="max-w-[440px] sm:max-w-2xl mx-auto">
           {/* Testimonials */}
           <motion.div variants={staggerContainer} initial="hidden" animate={isVisible ? 'visible' : 'hidden'} className="mb-6">
@@ -28,7 +28,7 @@ export default function Footer() {
                     </div>
                     <div>
                       <div className="text-xs font-semibold text-gray-900">{t.name}</div>
-                      <div className="text-[10px] text-[#5a5a5a]">{t.city} · Membre vérifié</div>
+                      <div className="text-[10px] text-[#E5E7EB]">{t.city} · Membre vérifié</div>
                     </div>
                   </div>
                   <p className="text-[11px] text-[#a0a0a0] italic leading-relaxed">« {t.text} »</p>
@@ -64,7 +64,7 @@ export default function Footer() {
               { label: 'Confidentialité', href: '/politique-confidentialite' },
               { label: 'Jouer responsable', href: 'https://www.begambleaware.org/' },
             ].map(link => (
-              <a key={link.label} href={link.href} className="text-center text-[10px] text-[#5a5a5a] hover:text-[#16A34A] transition-colors py-2">
+              <a key={link.label} href={link.href} className="text-center text-[10px] text-[#E5E7EB] hover:text-[#16A34A] transition-colors py-2">
                 {link.label}
               </a>
             ))}
@@ -74,15 +74,15 @@ export default function Footer() {
           <div className="rounded-xl p-4 mb-3" style={{ backgroundColor: '#FFFFFF' }}>
             <div className="flex items-center gap-2 mb-2">
               <span className="text-[#16A34A] font-extrabold text-xs">18+</span>
-              <span className="text-[10px] text-[#5a5a5a]">| {LONASE.name} | Jeu responsable</span>
+              <span className="text-[10px] text-[#E5E7EB]">| {LONASE.name} | Jeu responsable</span>
             </div>
-            <p className="text-[10px] text-[#5a5a5a] leading-relaxed">
+            <p className="text-[10px] text-[#E5E7EB] leading-relaxed">
               <strong className="text-[#a0a0a0]">Avertissement :</strong> {LEGAL.disclaimer}
             </p>
           </div>
 
           {/* Affiliation disclaimer */}
-          <p className="text-center text-[10px] text-[#5a5a5a] mb-2 leading-relaxed">
+          <p className="text-center text-[10px] text-[#E5E7EB] mb-2 leading-relaxed">
             Liens d'affiliation — BTTSPredict est un site informatif indépendant, nous ne prenons pas de paris.
             Les liens vers les bookmakers partenaires sont des liens d'affiliation rémunérés.
             BTTSPredict n'est pas affilié à, ni exploité par, les sociétés de paris mentionnées.

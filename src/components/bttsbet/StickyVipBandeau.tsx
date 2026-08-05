@@ -88,25 +88,25 @@ export default function StickyVipBandeau() {
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  <span className="text-gray-300 font-medium">+10 matchs/jour</span>
+                  <span className="text-gray-700 font-medium">+10 matchs/jour</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  <span className="text-gray-300 font-medium">Précision VIP</span>
+                  <span className="text-gray-700 font-medium">Précision VIP</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  <span className="text-gray-300 font-medium">Historique complet</span>
+                  <span className="text-gray-700 font-medium">Historique complet</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  <span className="text-gray-300 font-medium">5 sports VIP</span>
+                  <span className="text-gray-700 font-medium">5 sports VIP</span>
                 </div>
               </div>
 
@@ -142,15 +142,15 @@ export default function StickyVipBandeau() {
             <div className="sm:hidden flex items-center justify-around gap-2 px-4 pb-3 text-[10px]">
               <div className="flex items-center gap-1">
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                <span className="text-gray-400">10 matchs/j</span>
+                <span className="text-gray-600">10 matchs/j</span>
               </div>
               <div className="flex items-center gap-1">
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                <span className="text-gray-400">Précision VIP</span>
+                <span className="text-gray-600">Précision VIP</span>
               </div>
               <div className="flex items-center gap-1">
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                <span className="text-gray-400">5 sports</span>
+                <span className="text-gray-600">5 sports</span>
               </div>
             </div>
           </motion.div>

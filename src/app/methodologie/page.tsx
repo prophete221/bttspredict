@@ -74,10 +74,10 @@ export default function MethodologiePage() {
 
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="mb-8">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-600">
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
             <li aria-hidden="true">/</li>
-            <li><span className="text-gray-400" aria-current="page">Méthodologie</span></li>
+            <li><span className="text-gray-600" aria-current="page">Méthodologie</span></li>
           </ol>
         </nav>
 
@@ -95,7 +95,7 @@ export default function MethodologiePage() {
         {/* Section Autorité — Pourquoi nous faire confiance */}
         <section className="card p-6 sm:p-8 mb-8" style={{ background: 'linear-gradient(135deg, rgba(22, 163, 74, 0.05), rgba(34, 197, 94, 0.05))', border: '1px solid rgba(22, 163, 74, 0.20)' }}>
           <h2 className="text-2xl font-bold text-white mb-4">🏆 Pourquoi nous faire confiance ?</h2>
-          <div className="text-gray-300 text-sm leading-relaxed space-y-3">
+          <div className="text-gray-700 text-sm leading-relaxed space-y-3">
             <p>
               BTTSPredict est une <strong className="text-emerald">plateforme de référence</strong> pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts. Notre standard de transparence repose sur 5 piliers vérifiables :
             </p>
@@ -121,7 +121,7 @@ export default function MethodologiePage() {
                 E
               </div>
             </div>
-            <div className="flex-1 text-gray-300 text-sm leading-relaxed space-y-3">
+            <div className="flex-1 text-gray-700 text-sm leading-relaxed space-y-3">
               <p>
                 <strong className="text-white">Expert BTTSPredict</strong> — Analyste Football Senior &amp; Fondateur de BTTSPredict.
               </p>
@@ -138,7 +138,7 @@ export default function MethodologiePage() {
         {/* Notre méthode */}
         <section className="card p-6 sm:p-8 mb-8">
           <h2 className="text-2xl font-bold text-white mb-4">📊 Notre méthode</h2>
-          <div className="text-gray-300 text-sm leading-relaxed space-y-4">
+          <div className="text-gray-700 text-sm leading-relaxed space-y-4">
             <p>
               BTTSPredict utilise le <strong className="text-emerald">modèle de distribution de Poisson</strong>, la méthode statistique de référence pour modéliser le nombre de buts dans un match de football. Ce modèle calcule la probabilité de chaque score possible à partir des forces offensives et défensives des deux équipes.
             </p>
@@ -164,7 +164,7 @@ export default function MethodologiePage() {
         {/* Notre source de données */}
         <section className="card p-6 sm:p-8 mb-8">
           <h2 className="text-2xl font-bold text-white mb-4">🌐 Nos sources de données</h2>
-          <div className="grid sm:grid-cols-2 gap-4 text-gray-300 text-sm">
+          <div className="grid sm:grid-cols-2 gap-4 text-gray-700 text-sm">
             <div className="bg-white/50 border border-edge rounded-lg p-4">
               <div className="font-bold text-emerald mb-1">ESPN API</div>
               <p>Scores en temps réel, compositions, statistiques de match (cartons, tirs, possession).</p>
@@ -195,7 +195,7 @@ export default function MethodologiePage() {
         {/* Notre transparence */}
         <section className="card p-6 sm:p-8 mb-8">
           <h2 className="text-2xl font-bold text-white mb-4">✓ Notre transparence</h2>
-          <div className="text-gray-300 text-sm leading-relaxed space-y-3">
+          <div className="text-gray-700 text-sm leading-relaxed space-y-3">
             <p>
               Contrairement à la plupart des plateformes de pronostics qui masquent leurs pertes, BTTSPredict affiche publiquement <strong className="text-emerald">TOUS ses résultats — gagnés ET perdus</strong> — sans aucun filtrage.
             </p>
@@ -216,7 +216,7 @@ export default function MethodologiePage() {
         {/* Nos limites */}
         <section className="card p-6 sm:p-8 mb-8 border border-gold/20">
           <h2 className="text-2xl font-bold text-white mb-4">⚠️ Nos limites</h2>
-          <div className="text-gray-300 text-sm leading-relaxed space-y-3">
+          <div className="text-gray-700 text-sm leading-relaxed space-y-3">
             <p>
               BTTSPredict est un <strong className="text-gold">outil d'aide à la décision</strong>, pas une garantie de gain. Les paris sportifs comportent des risques de perte financière.
             </p>

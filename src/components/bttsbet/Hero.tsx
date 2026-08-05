@@ -12,8 +12,8 @@ const C = {
   greenLight:   '#22C55E',
   greenPale:    '#DCFCE7',
   grayDark:     '#0F172A',
-  grayMid:      '#6B7280',
-  grayLight:    '#E5E7EB',
+  grayMid:      '#E5E7EB',   // gris clair pour lisibilité sur fond sombre
+  grayLight:    '#F3F4F6',
   white:        '#FFFFFF',
   gold:         '#FACC15',
   blue:         '#1D4ED8',

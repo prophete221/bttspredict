@@ -89,7 +89,7 @@ const leagues = [
    ────────────────────────────────────────────────────────────── */
 export default function MeilleursChampionnatsBttsPage() {
   return (
-    <div className="min-h-screen bg-dark-900 flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col text-gray-900">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildArticleJsonLd()) }}
@@ -111,12 +111,12 @@ export default function MeilleursChampionnatsBttsPage() {
       <main id="main-content" className="flex-1 relative z-10">
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="max-w-3xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap">
+          <ol className="flex items-center gap-2 text-sm text-gray-600 flex-wrap">
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
             <li aria-hidden="true" className="text-gray-700">/</li>
             <li><a href="/blog" className="hover:text-emerald transition-colors">Blog</a></li>
             <li aria-hidden="true" className="text-gray-700">/</li>
-            <li><span className="text-gray-400" aria-current="page">Meilleurs Championnats BTTS</span></li>
+            <li><span className="text-gray-600" aria-current="page">Meilleurs Championnats BTTS</span></li>
           </ol>
         </nav>
 
@@ -133,7 +133,7 @@ export default function MeilleursChampionnatsBttsPage() {
               Les 10 Meilleurs Championnats pour les Paris{' '}
               <span className="text-emerald neon-glow">BTTS</span> en 2026
             </h1>
-            <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
               Tous les championnats ne se valent pas pour les paris BTTS. Découvrez les ligues où les deux équipes
               marquent le plus souvent, avec les statistiques détaillées et nos conseils pour chaque championnat.
             </p>
@@ -155,7 +155,7 @@ export default function MeilleursChampionnatsBttsPage() {
               >
                 Pourquoi le choix du championnat est crucial
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Le marché BTTS (Both Teams To Score) dépend fortement des caractéristiques intrinsèques de chaque
                 championnat. Certains championnats sont structurellement offensifs : les défenses y sont plus
                 perméables, les équipes jouent plus ouvertement, et le taux de matchs où les deux équipes marquent
@@ -163,7 +163,7 @@ export default function MeilleursChampionnatsBttsPage() {
                 taux BTTS inférieurs à 45%. Comprendre ces différences est la première étape pour être rentable
                 sur ce marché.
               </p>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 Un parieur qui sélectionne ses matchs BTTS dans la Bundesliga aura un avantage statistique naturel
                 par rapport à celui qui parie sur la Serie A italienne, toutes choses égales par ailleurs. Ce
                 n&apos;est pas un hasard si les bookmakers ajustent leurs cotes en fonction du championnat — les
@@ -183,7 +183,7 @@ export default function MeilleursChampionnatsBttsPage() {
               </h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm text-left border border-edge/50 rounded-lg overflow-hidden">
-                  <thead className="bg-panel/70 text-gray-300">
+                  <thead className="bg-panel/70 text-gray-700">
                     <tr>
                       <th className="px-4 py-3 font-semibold">#</th>
                       <th className="px-4 py-3 font-semibold">Championnat</th>
@@ -191,7 +191,7 @@ export default function MeilleursChampionnatsBttsPage() {
                       <th className="px-4 py-3 font-semibold">Buts/match</th>
                     </tr>
                   </thead>
-                  <tbody className="text-gray-400">
+                  <tbody className="text-gray-600">
                     {leagues.map((l) => (
                       <tr key={l.rank} className="border-t border-edge/30 hover:bg-panel/30 transition-colors">
                         <td className="px-4 py-3">
@@ -200,12 +200,12 @@ export default function MeilleursChampionnatsBttsPage() {
                               {l.rank}
                             </span>
                           ) : (
-                            <span className="text-gray-500">{l.rank}</span>
+                            <span className="text-gray-600">{l.rank}</span>
                           )}
                         </td>
                         <td className="px-4 py-3 text-white font-medium">{l.name}</td>
                         <td className="px-4 py-3">
-                          <span className={`font-semibold ${l.rank <= 3 ? 'text-emerald' : l.rank <= 6 ? 'text-gold' : 'text-gray-300'}`}>
+                          <span className={`font-semibold ${l.rank <= 3 ? 'text-emerald' : l.rank <= 6 ? 'text-gold' : 'text-gray-700'}`}>
                             {l.rate}
                           </span>
                         </td>
@@ -215,7 +215,7 @@ export default function MeilleursChampionnatsBttsPage() {
                   </tbody>
                 </table>
               </div>
-              <p className="text-gray-500 text-xs mt-3">
+              <p className="text-gray-600 text-xs mt-3">
                 * Statistiques basées sur les données de la saison 2025-2026 (source : données internes BTTSPredict & partenaires).
                 Les taux peuvent varier en cours de saison.
               </p>
@@ -238,7 +238,7 @@ export default function MeilleursChampionnatsBttsPage() {
                     Bundesliga — 62% BTTS
                   </h3>
                 </div>
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-gray-600 text-sm leading-relaxed">
                   La Bundesliga est le paradis des parieurs BTTS. Avec une moyenne de 3.18 buts par match en 2025-2026,
                   c&apos;est le championnat européen le plus offensif parmi les cinq grands. La philosophie allemande privilégie
                   l&apos;attaque, et même les équipes relégables marquent régulièrement. Les matchs entre équipes du milieu
@@ -256,7 +256,7 @@ export default function MeilleursChampionnatsBttsPage() {
                     Eredivisie — 61% BTTS
                   </h3>
                 </div>
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-gray-600 text-sm leading-relaxed">
                   Les Pays-Bas et leur tradition du football total. L&apos;Eredivisie est le championnat où l&apos;on trouve
                   les meilleures cotes BTTS, car les bookmakers sous-estiment parfois la probabilité de buts dans
                   ce championnat moins médiatisé. Ajax, PSV et Feyenoord marquent en moyenne 2.3 buts par match à
@@ -273,7 +273,7 @@ export default function MeilleursChampionnatsBttsPage() {
                     Premier League — 58% BTTS
                   </h3>
                 </div>
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-gray-600 text-sm leading-relaxed">
                   Le championnat le plus populaire au monde n&apos;est pas le meilleur pour le BTTS, mais il offre
                   le meilleur volume de matchs et les meilleures cotes grâce à la concurrence entre bookmakers.
                   L&apos;avantage de la Premier League : les outsiders à domicile marquent souvent, même contre le
@@ -288,13 +288,13 @@ export default function MeilleursChampionnatsBttsPage() {
                 {leagues.slice(3).map((l) => (
                   <div key={l.rank} className="p-4 rounded-lg bg-panel/30 border border-edge/30">
                     <div className="flex items-start gap-3">
-                      <span className="text-gray-500 font-bold text-sm">{l.rank}.</span>
+                      <span className="text-gray-600 font-bold text-sm">{l.rank}.</span>
                       <div>
                         <h3 className="text-white font-semibold text-sm">
                           {l.name} — <span className="text-gold">{l.rate} BTTS</span>
                           <span className="text-gray-600 ml-2">({l.avgGoals} buts/match)</span>
                         </h3>
-                        <p className="text-gray-400 text-sm leading-relaxed mt-1">{l.tip}</p>
+                        <p className="text-gray-600 text-sm leading-relaxed mt-1">{l.tip}</p>
                       </div>
                     </div>
                   </div>
@@ -310,10 +310,10 @@ export default function MeilleursChampionnatsBttsPage() {
               >
                 Pourquoi certains championnats sont meilleurs pour le BTTS ?
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Plusieurs facteurs expliquent les différences de taux BTTS entre les championnats :
               </p>
-              <ul className="space-y-3 mt-4 text-gray-400 leading-relaxed">
+              <ul className="space-y-3 mt-4 text-gray-600 leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-emerald font-bold mt-0.5">▸</span>
                   <span><strong className="text-white">Culture footballistique</strong> — Les championnats
@@ -355,7 +355,7 @@ export default function MeilleursChampionnatsBttsPage() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="p-4 rounded-lg bg-emerald/10 border border-emerald/30">
                   <h3 className="text-emerald font-bold text-sm mb-2">✅ À faire</h3>
-                  <ul className="space-y-1.5 text-sm text-gray-400 leading-relaxed">
+                  <ul className="space-y-1.5 text-sm text-gray-600 leading-relaxed">
                     <li>• Concentrez-vous sur 2-3 championnats que vous connaissez bien</li>
                     <li>• Vérifiez le taux BTTS des 5 derniers matchs de chaque équipe</li>
                     <li>• Tenez compte des blessés clés en attaque et en défense</li>
@@ -365,7 +365,7 @@ export default function MeilleursChampionnatsBttsPage() {
                 </div>
                 <div className="p-4 rounded-lg bg-lose/10 border border-lose/30">
                   <h3 className="text-red-300 font-bold text-sm mb-2">❌ À éviter</h3>
-                  <ul className="space-y-1.5 text-sm text-gray-400 leading-relaxed">
+                  <ul className="space-y-1.5 text-sm text-gray-600 leading-relaxed">
                     <li>• Parier BTTS sur des championnats que vous ne suivez pas</li>
                     <li>• Ignorer le contexte (fin de saison, match sans enjeu)</li>
                     <li>• Suivre aveuglément les statistiques sans analyser le match</li>
@@ -374,7 +374,7 @@ export default function MeilleursChampionnatsBttsPage() {
                   </ul>
                 </div>
               </div>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 Pour approfondir votre méthode d&apos;analyse, consultez notre guide sur
                 <a href="/blog/comment-analyser-match-btts" className="text-emerald hover:underline"> comment analyser un match pour le BTTS</a>.
                 Et pour optimiser vos mises, notre article sur la
@@ -391,7 +391,7 @@ export default function MeilleursChampionnatsBttsPage() {
               >
                 Pronostics BTTS par championnat
               </h2>
-              <p className="text-gray-400 leading-relaxed mb-6 max-w-lg mx-auto">
+              <p className="text-gray-600 leading-relaxed mb-6 max-w-lg mx-auto">
                 Notre équipe analyse les 50+ championnats chaque jour et sélectionne les meilleurs matchs BTTS.
                 Consultez nos pronostics et pariez sur Linebet avec le code VISION221.
               </p>

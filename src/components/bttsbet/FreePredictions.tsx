@@ -122,7 +122,7 @@ function TeamLogo({ src, name, size = 48 }: { src?: string; name: string; size?:
   if (!src || imgError) {
     return (
       <div
-        className="rounded-xl bg-gradient-to-br from-brand/40 to-midnight/60 border border-edge flex items-center justify-center text-success font-bold flex-shrink-0"
+        className="rounded-xl bg-gradient-to-br from-gray-100 to-gray-50 border border-edge flex items-center justify-center text-success font-bold flex-shrink-0"
         style={{ width: size, height: size, fontSize: size * 0.28 }}
       >
         {initials}
@@ -307,7 +307,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
         </div>
 
         {/* ═══ UNIFIED PREDICTION — BTTS + Over 2.5 in ONE block ═══ */}
-        <div className="bg-midnight/40 border border-edge rounded-lg p-3 sm:p-4">
+        <div className="bg-gray-50 border border-edge rounded-lg p-3 sm:p-4">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-1.5">
               <div className="w-5 h-5 rounded bg-success/15 border border-success/30 flex items-center justify-center">
@@ -397,12 +397,12 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
                 <div>
                   <div className="text-[10px] uppercase tracking-widest font-bold text-gray-600 mb-2">Analyse Poisson</div>
                   <div className="grid grid-cols-2 gap-2">
-                    <div className="bg-midnight/40 rounded-lg p-2 border border-edge">
+                    <div className="bg-gray-50 rounded-lg p-2 border border-edge">
                       <div className="text-[9px] text-gray-600 uppercase">Lambda domicile</div>
                       <div className="text-sm font-bold text-gray-900 mono tabular-nums">{homeGoals || '—'}</div>
                       <div className="text-[9px] text-gray-600">buts attendus</div>
                     </div>
-                    <div className="bg-midnight/40 rounded-lg p-2 border border-edge">
+                    <div className="bg-gray-50 rounded-lg p-2 border border-edge">
                       <div className="text-[9px] text-gray-600 uppercase">Lambda extérieur</div>
                       <div className="text-sm font-bold text-gray-900 mono tabular-nums">{awayGoals || '—'}</div>
                       <div className="text-[9px] text-gray-600">buts attendus</div>

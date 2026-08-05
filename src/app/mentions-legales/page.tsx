@@ -85,7 +85,7 @@ function buildBreadcrumbJsonLd() {
    ────────────────────────────────────────────────────────────── */
 export default function MentionsLegalesPage() {
   return (
-    <div className="min-h-screen bg-dark-900 flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col text-gray-900">
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -109,7 +109,7 @@ export default function MentionsLegalesPage() {
       <main id="main-content" className="flex-1 relative z-10">
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-600">
             <li>
               <a href="/" className="hover:text-emerald transition-colors">
                 Accueil
@@ -117,7 +117,7 @@ export default function MentionsLegalesPage() {
             </li>
             <li aria-hidden="true" className="text-gray-700">/</li>
             <li>
-              <span className="text-gray-400" aria-current="page">Mentions Légales</span>
+              <span className="text-gray-600" aria-current="page">Mentions Légales</span>
             </li>
           </ol>
         </nav>
@@ -131,7 +131,7 @@ export default function MentionsLegalesPage() {
             >
               MENTIONS <span className="text-emerald neon-glow">LÉGALES</span>
             </h1>
-            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Informations légales relatives au site BTTSPredict conformément aux réglementations en vigueur.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
@@ -151,7 +151,7 @@ export default function MentionsLegalesPage() {
                 >
                   1. Éditeur du site
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     Le site <strong className="text-emerald">BTTSPredict</strong>, accessible à l&apos;adresse{' '}
                     <a href={SITE_URL} className="text-emerald hover:text-emerald-soft transition-colors underline underline-offset-2">
@@ -180,7 +180,7 @@ export default function MentionsLegalesPage() {
                 >
                   2. Hébergement
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     Le site BTTSPredict est hébergé par un prestataire d&apos;hébergement professionnel assurant la disponibilité, la sécurité et la performance du service. Les coordonnées de l&apos;hébergeur sont disponibles sur demande via le canal de contact indiqué ci-dessus.
                   </p>
@@ -198,7 +198,7 @@ export default function MentionsLegalesPage() {
                 >
                   3. Propriété intellectuelle
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     L&apos;ensemble des contenus présents sur le site BTTSPredict — incluant, de manière non exhaustive, les textes, articles, graphismes, logos, icônes, images, vidéos, sons, logiciels, algorithmes, pronostics, analyses statistiques et mises en page — est protégé par les lois relatives à la propriété intellectuelle et appartient à BTTSPredict ou fait l&apos;objet d&apos;une autorisation d&apos;utilisation.
                   </p>
@@ -222,7 +222,7 @@ export default function MentionsLegalesPage() {
                 >
                   4. Limitation de responsabilité
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     BTTSPredict est un site à vocation purement informative et d&apos;affiliation. Les pronostics, analyses et statistiques publiés sur le site sont fournis à titre indicatif uniquement et ne constituent en aucun cas des conseils en investissement, des incitations à parier ou des garanties de gains.
                   </p>
@@ -246,7 +246,7 @@ export default function MentionsLegalesPage() {
                 >
                   5. Droit applicable
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     Les présentes mentions légales sont régies par le droit camerounais et, de manière générale, par les dispositions applicables au sein de la zone CEMAC (Communauté Économique et Monétaire de l&apos;Afrique Centrale), et notamment l&apos;Acte Uniforme révisé de l&apos;OHADA relatif au droit commercial général.
                   </p>
@@ -267,7 +267,7 @@ export default function MentionsLegalesPage() {
                 >
                   6. Contact
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
                   <p>
                     Pour toute question relative aux présentes mentions légales, à l&apos;utilisation du site ou à vos droits, vous pouvez nous contacter via les moyens suivants :
                   </p>

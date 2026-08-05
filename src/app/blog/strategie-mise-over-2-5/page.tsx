@@ -75,7 +75,7 @@ function buildBreadcrumbJsonLd() {
    ────────────────────────────────────────────────────────────── */
 export default function StrategieMiseOver25Page() {
   return (
-    <div className="min-h-screen bg-dark-900 flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col text-gray-900">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildArticleJsonLd()) }}
@@ -97,12 +97,12 @@ export default function StrategieMiseOver25Page() {
       <main id="main-content" className="flex-1 relative z-10">
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="max-w-3xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-gray-500 flex-wrap">
+          <ol className="flex items-center gap-2 text-sm text-gray-600 flex-wrap">
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
             <li aria-hidden="true" className="text-gray-700">/</li>
             <li><a href="/blog" className="hover:text-emerald transition-colors">Blog</a></li>
             <li aria-hidden="true" className="text-gray-700">/</li>
-            <li><span className="text-gray-400" aria-current="page">Stratégie Over 2,5</span></li>
+            <li><span className="text-gray-600" aria-current="page">Stratégie Over 2,5</span></li>
           </ol>
         </nav>
 
@@ -119,7 +119,7 @@ export default function StrategieMiseOver25Page() {
               Stratégie de Mise Over 2,5 :{' '}
               <span className="text-gold neon-glow-blue">Optimiser ses Gains</span> en 2026
             </h1>
-            <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
               Le marché Over 2,5 buts est l&apos;un des plus rentables du football si vous savez le maîtriser.
               Découvrez notre stratégie complète basée sur les statistiques, l&apos;analyse IA et les techniques
               de live betting pour maximiser vos gains.
@@ -142,13 +142,13 @@ export default function StrategieMiseOver25Page() {
               >
                 Comprendre le marché Over 2,5
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Le marché Over 2,5 buts est gagnant si le match se termine avec 3 buts ou plus (3-0, 2-1, 2-2, etc.).
                 Le « 0,5 » est crucial : 2 buts exactement = pari perdu, 3 buts = pari gagné. C&apos;est un marché binaire,
                 sans possibilité de remboursement, ce qui le rend plus tranché que le marché BTTS où les deux équipes
                 doivent marquer individuellement.
               </p>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 En moyenne, sur l&apos;ensemble des championnats professionnels, environ 48-52% des matchs de football
                 se terminent avec plus de 2,5 buts. Ce taux varie considérablement selon les championnats :
                 il dépasse 60% en Bundesliga mais tombe à environ 40% dans certains championnats défensifs.
@@ -172,11 +172,11 @@ export default function StrategieMiseOver25Page() {
               >
                 L&apos;approche statistique : les indicateurs clés
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Pour évaluer la probabilité d&apos;un Over 2,5, notre équipe analyse des dizaines d&apos;indicateurs.
                 Voici les plus importants que vous pouvez vérifier vous-même :
               </p>
-              <ul className="space-y-3 mt-4 text-gray-400 leading-relaxed">
+              <ul className="space-y-3 mt-4 text-gray-600 leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-gold font-bold mt-0.5">▸</span>
                   <span><strong className="text-white">Moyenne de buts par match</strong> — La moyenne combinée
@@ -214,15 +214,15 @@ export default function StrategieMiseOver25Page() {
               >
                 Quels championnats et équipes cibler ?
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Le choix du championnat est déterminant pour le marché Over 2,5. Comme nous l&apos;avons détaillé
                 dans notre article sur les <a href="/blog/meilleurs-championnats-btts" className="text-emerald hover:underline">meilleurs championnats BTTS</a>,
                 les championnats les plus offensifs sont aussi les meilleurs pour l&apos;Over 2,5.
               </p>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 <strong className="text-white">Championnats premium pour l&apos;Over 2,5 :</strong>
               </p>
-              <ul className="space-y-2 mt-3 text-gray-400 leading-relaxed">
+              <ul className="space-y-2 mt-3 text-gray-600 leading-relaxed">
                 <li className="flex items-start gap-2">
                   <span className="text-emerald">🇩🇪</span>
                   <span><strong className="text-white">Bundesliga</strong> — Taux Over 2,5 : ~62%. Must-have.</span>
@@ -244,25 +244,25 @@ export default function StrategieMiseOver25Page() {
                   <span><strong className="text-white">Süper Lig</strong> — Taux Over 2,5 : ~55%. Matchs imprévisibles et offensifs.</span>
                 </li>
               </ul>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 <strong className="text-white">Équipes « Over-friendly » à surveiller en 2026 :</strong>
               </p>
               <div className="grid gap-3 mt-3 sm:grid-cols-2">
                 <div className="p-3 rounded-lg bg-panel/30 border border-edge/30">
                   <p className="text-white font-semibold text-sm">Bayern Munich 🇩🇪</p>
-                  <p className="text-gray-500 text-xs">85% de matchs Over 2,5 (toutes compétitions)</p>
+                  <p className="text-gray-600 text-xs">85% de matchs Over 2,5 (toutes compétitions)</p>
                 </div>
                 <div className="p-3 rounded-lg bg-panel/30 border border-edge/30">
                   <p className="text-white font-semibold text-sm">PSV Eindhoven 🇳🇱</p>
-                  <p className="text-gray-500 text-xs">82% de matchs Over 2,5 en Eredivisie</p>
+                  <p className="text-gray-600 text-xs">82% de matchs Over 2,5 en Eredivisie</p>
                 </div>
                 <div className="p-3 rounded-lg bg-panel/30 border border-edge/30">
                   <p className="text-white font-semibold text-sm">Atalanta Bergame 🇮🇹</p>
-                  <p className="text-gray-500 text-xs">78% de matchs Over 2,5 en Serie A</p>
+                  <p className="text-gray-600 text-xs">78% de matchs Over 2,5 en Serie A</p>
                 </div>
                 <div className="p-3 rounded-lg bg-panel/30 border border-edge/30">
                   <p className="text-white font-semibold text-sm">Brentford 🏴󠁧󠁢󠁥󠁮󠁧󠁿</p>
-                  <p className="text-gray-500 text-xs">75% de matchs Over 2,5 en Premier League</p>
+                  <p className="text-gray-600 text-xs">75% de matchs Over 2,5 en Premier League</p>
                 </div>
               </div>
             </section>
@@ -275,16 +275,16 @@ export default function StrategieMiseOver25Page() {
               >
                 Combiner BTTS + Over 2,5 : la double opportunité
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 La combinaison BTTS + Over 2,5 est l&apos;une des stratégies les plus populaires chez les parieurs
                 expérimentés. Pourquoi ? Parce qu&apos;un match BTTS (2 buts minimum, un de chaque côté) nécessite
                 seulement un but supplémentaire pour que l&apos;Over 2,5 passe aussi. Statistiquement, environ 75%
                 des matchs BTTS se terminent aussi Over 2,5.
               </p>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-gray-600 leading-relaxed mt-4">
                 <strong className="text-white">La stratégie en pratique :</strong>
               </p>
-              <ol className="list-decimal list-inside space-y-2 mt-3 text-gray-400 leading-relaxed">
+              <ol className="list-decimal list-inside space-y-2 mt-3 text-gray-600 leading-relaxed">
                 <li>Identifiez un match avec une forte probabilité BTTS (notre équipe le fait pour vous)</li>
                 <li>Vérifiez que le taux d&apos;Over 2,5 des deux équipes dépasse 55%</li>
                 <li>Pariez sur le combiné BTTS + Over 2,5 — la cote est généralement entre 2.20 et 2.80</li>
@@ -308,12 +308,12 @@ export default function StrategieMiseOver25Page() {
               >
                 Stratégies de Live Betting sur l&apos;Over 2,5
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Le live betting (pari en direct) offre des opportunités uniques sur le marché Over 2,5,
                 car les cotes évoluent en temps réel en fonction du déroulement du match. Voici les
                 meilleures situations à exploiter :
               </p>
-              <ul className="space-y-3 mt-4 text-gray-400 leading-relaxed">
+              <ul className="space-y-3 mt-4 text-gray-600 leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-gold font-bold mt-0.5">⏱</span>
                   <span><strong className="text-white">0-0 à la mi-temps</strong> — La cote Over 2,5 monte souvent
@@ -357,7 +357,7 @@ export default function StrategieMiseOver25Page() {
               >
                 Les pièges courants du marché Over 2,5
               </h2>
-              <ol className="space-y-3 mt-4 text-gray-400 leading-relaxed">
+              <ol className="space-y-3 mt-4 text-gray-600 leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-lose font-bold mt-0.5">1.</span>
                   <span><strong className="text-white">Parier sur le nom plutôt que sur la forme</strong> — Même
@@ -399,7 +399,7 @@ export default function StrategieMiseOver25Page() {
               >
                 Optimisez vos paris Over 2,5
               </h2>
-              <p className="text-gray-400 leading-relaxed mb-6 max-w-lg mx-auto">
+              <p className="text-gray-600 leading-relaxed mb-6 max-w-lg mx-auto">
                 Notre équipe sélectionne chaque jour les meilleurs matchs Over 2,5 et BTTS. Consultez nos pronostics
                 et commencez à parier intelligemment avec le code VISION221 sur Linebet.
               </p>
