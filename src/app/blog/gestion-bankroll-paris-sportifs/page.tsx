@@ -458,7 +458,7 @@ export default function GestionBankrollPage() {
                 Prêt à parier intelligemment ?
               </h2>
               <p className="text-gray-400 leading-relaxed mb-6 max-w-lg mx-auto">
-                Consultez nos pronostics BTTS et Over 2,5 par nos analystes, appliquez une gestion de bankroll stricte,
+                Consultez nos pronostics BTTS et Over 2,5 par nos experts, appliquez une gestion de bankroll stricte,
                 et inscrivez-vous sur Linebet avec le code VISION221 pour un bonus de bienvenue.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

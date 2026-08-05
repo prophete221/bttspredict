@@ -63,7 +63,7 @@ function buildFaqJsonLd() {
     mainEntity: [
       { '@type': 'Question', name: "Qu'est-ce que la faille FIFA sur Linebet ?", acceptedAnswer: { '@type': 'Answer', text: "La faille FIFA désigne une inefficience de marché sur les cotes des matchs FIFA virtuels proposés par Linebet et 888starz. Les cotes ne reflètent pas toujours la probabilité réelle des événements, créant des value bets exploitables. Notre équipe scanne ces matchs en temps réel pour détecter automatiquement ces anomalies." } },
       { '@type': 'Question', name: 'La faille FIFA est-elle légale ?', acceptedAnswer: { '@type': 'Answer', text: "Oui, il s'agit d'une inefficience de marché, pas d'un hack ou d'une manipulation technique. Exploiter des cotes mal calculées est parfaitement légal, tout comme un trader exploite les inefficiences sur les marchés financiers. Les bookmakers ajustent leurs cotes en permanence, mais des délais existent." } },
-      { '@type': 'Question', name: 'Comment BttsBet détecte les cotes erronées FIFA ?', acceptedAnswer: { '@type': 'Answer', text: "Notre algorithme IA analyse en temps réel les cotes de chaque match FIFA virtuel, les compare aux probabilités réelles calculées par nos modèles statistiques (basé sur 50 000+ matchs), et identifie les écarts significatifs. Quand l'écart dépasse un seuil, un signal est envoyé aux membres VIP." } },
+      { '@type': 'Question', name: 'Comment BttsBet détecte les cotes erronées FIFA ?', acceptedAnswer: { '@type': 'Answer', text: "Notre algorithme IA analyse en temps réel les cotes de chaque match FIFA virtuel, les compare aux probabilités réelles calculées par nos modèles prédictifs (basé sur 50 000+ matchs), et identifie les écarts significatifs. Quand l'écart dépasse un seuil, un signal est envoyé aux membres VIP." } },
       { '@type': 'Question', name: 'Quel est le taux de réussite de la faille FIFA ?', acceptedAnswer: { '@type': 'Answer', text: "Sur les 90 derniers jours, notre système a affiché un taux de réussite d'environ 85% sur les signaux VIP FIFA. Ce taux est vérifiable dans notre section Historique des gains. Attention : les résultats passés ne garantissent pas les résultats futurs." } },
       { '@type': 'Question', name: 'Faut-il un code promo pour accéder à la faille FIFA ?', acceptedAnswer: { '@type': 'Answer', text: "Oui, l'accès VIP est réservé aux membres inscrits sur Linebet ou 888starz via notre lien de parrainage avec le code promo VISION221 et un dépôt minimum de 10 000 Fr. Cela nous permet de vérifier votre inscription et de vous ouvrir l'accès." } },
       { '@type': 'Question', name: 'Les matchs FIFA virtuels sont-ils truqués ?', acceptedAnswer: { '@type': 'Answer', text: "Non, les matchs FIFA virtuels utilisent un générateur de nombres pseudo-aléatoires certifié. Les résultats ne sont pas truqués, mais l'algorithme de calcul des cotes par les bookmakers n'est pas parfait, ce qui crée des inefficiences exploitables." } },
@@ -156,7 +156,7 @@ export default function FailleFifaPage() {
               </p>
               <p className="text-gray-400 leading-relaxed mt-4">
                 Notre analyse statistique BttsBet scanne ces matchs en temps réel, compare les cotes proposées
-                avec les probabilités réelles calculées par nos modèles statistiques (entraîné sur plus de 50 000 matchs),
+                avec les probabilités réelles calculées par nos modèles prédictifs (entraîné sur plus de 50 000 matchs),
                 et détecte automatiquement les écarts exploitables. Quand une anomalie est identifiée, un signal est envoyé
                 aux membres VIP avec le marché à parier, la cote et l&apos;indice de confiance.
               </p>
@@ -182,7 +182,7 @@ export default function FailleFifaPage() {
                 Pourquoi les cotes FIFA sont-elles imprécises ?
               </h2>
               <p className="text-gray-400 leading-relaxed">
-                Contrairement au football réel où les bookmakers disposent d&apos;une équipe d&apos;analystes et de bases de données
+                Contrairement au football réel où les bookmakers disposent d&apos;une équipe d&apos;experts et de bases de données
                 massives pour ajuster les cotes, les matchs FIFA virtuels posent un défi unique : la vitesse. Un match FIFA
                 dure 3 minutes, les cotes doivent être recalculées en quelques secondes, et le volume de matchs est
                 considérablement plus élevé (plusieurs centaines par jour). Cette combinaison de facteurs crée des

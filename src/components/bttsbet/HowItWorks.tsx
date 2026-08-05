@@ -27,7 +27,7 @@ const CARDS = [
   },
   {
     step: '02',
-    title: 'Modèles statistiques calibrés',
+    title: 'Modèles prédictifs calibrés',
     subtitle: 'Statistical engine',
     description: 'Nous calibrons des modèles de Poisson sur les buts attendus, avec corrections systématiques pour BTTS (+2%) et Over 2.5 (+1%). Le Poisson sous-estime le BTTS — nous corrigeons ce biais connu.',
     icon: (

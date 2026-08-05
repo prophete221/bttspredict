@@ -28,7 +28,7 @@ const jsonLd = {
   '@type': 'WebSite',
   name: 'BTTSPredict',
   url: 'https://bttspredict.com',
-  description: "Pronostics football BTTS & Over 2,5 par nos analystes. Value bets FIFA sur Linebet et 888starz. Code promo VISION221.",
+  description: "Pronostics football BTTS & Over 2,5 par nos experts. Value bets FIFA sur Linebet et 888starz. Code promo VISION221.",
   inLanguage: 'fr',
   potentialAction: {
     '@type': 'SearchAction',
@@ -110,14 +110,14 @@ const organizationJsonLd = {
 const webPageJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: 'BTTSPredict — Prédictions BTTS par nos analystes',
+  name: 'BTTSPredict — Prédictions BTTS par nos experts',
   url: 'https://bttspredict.com',
   description: 'Plateforme de pronostics football BTTS et Over 2.5 par analyse statistique. Modèles Poisson calibrés sur 50 000 matchs. Taux de réussite vérifié et transparent.',
   isPartOf: { '@type': 'WebSite', name: 'BTTSPredict', url: 'https://bttspredict.com' },
   about: [
     { '@type': 'Thing', name: 'BTTS — Both Teams To Score' },
     { '@type': 'Thing', name: 'Over 2.5 Goals' },
-    { '@type': 'Thing', name: 'Pronostics football par nos analystes' },
+    { '@type': 'Thing', name: 'Pronostics football par nos experts' },
     { '@type': 'Thing', name: 'Modèles Poisson calibrés' },
   ],
   author: { '@type': 'Organization', name: 'BTTSPredict', url: 'https://bttspredict.com' },
@@ -224,7 +224,7 @@ export default function Home() {
         <h1>BTTSPredict — La plateforme de prédictions BTTS la plus fiable au monde</h1>
         <p>
           BTTSPredict est la plateforme de référence mondiale pour les prédictions BTTS
-          (Both Teams To Score) et Over 2.5 par notre équipe d'analystes.
+          (Both Teams To Score) et Over 2.5 par notre équipe d'experts.
           Notre équipe analyse plus de 1 200 matchs chaque jour avec des modèles
           statistiques Poisson calibrés sur 50 000 matchs historiques, offrant une
           transparence totale sur nos performances passées.
@@ -305,8 +305,8 @@ export default function Home() {
 
         <h2>Value Bets FIFA — Détection de cotes sous-évaluées</h2>
         <p>
-          Notre équipe compare en temps réel les cotes des bookmakers avec les probabilités réelles
-          calculées par nos modèles statistiques (modèle statistique calibré sur 50 000+ matchs FIFA).
+          Notre équipe d'experts compare en temps réel les cotes des bookmakers avec les probabilités réelles
+          calculées par nos modèles prédictifs (modèle statistique calibré sur 50 000+ matchs FIFA).
           Lorsqu'un écart significatif est détecté, un value bet est signalé. Ces signaux sont
           des outils d'analyse, pas des garanties de gain. Cotes élevées (10-15), risque élevé.
         </p>

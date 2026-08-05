@@ -647,7 +647,7 @@ export default function FreePredictions() {
         )}
 
         <p className="text-center text-[11px] text-gray-600 mt-6">
-          Pronostics de nos analystes — modèles statistiques calibrés sur 50 000+ matchs. Aucune garantie future.
+          Pronostics de nos experts — modèles prédictifs calibrés sur 50 000+ matchs. Aucune garantie future.
         </p>
       </div>
     </section>

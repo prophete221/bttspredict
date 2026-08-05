@@ -132,7 +132,7 @@ export default function Bonus888starzPage() {
               BONUS <span className="text-gold neon-glow">888STARZ</span>
             </h1>
             <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              Bonus exclusif 888starz, inscription facile et value bets FIFA détectées par nos analystes. Guide complet pour maximiser votre bonus.
+              Bonus exclusif 888starz, inscription facile et value bets FIFA détectées par nos experts. Guide complet pour maximiser votre bonus.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
           </div>

@@ -167,7 +167,7 @@ export default function FailleFifaLinebetPage() {
                 C&apos;est une inefficience de marché : les cotes proposées par Linebet pour certains marchés FIFA
                 ne reflètent pas toujours la probabilité réelle des événements. Par exemple, le marché Over 2,5
                 buts sur les matchs FIFA affiche parfois des cotes de 1.90 alors que la probabilité réelle,
-                calculée par nos modèles statistiques, est de 60% — ce qui correspondrait à une cote « juste »
+                calculée par nos modèles prédictifs, est de 60% — ce qui correspondrait à une cote « juste »
                 de 1.67. Cette différence crée un value bet exploitable sur le long terme.
               </p>
             </section>

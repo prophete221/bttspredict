@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blog – Pronostics BTTS & Over 2,5 | BttsBet',
     description:
-      'Articles, guides et stratégies BTTS & Over 2,5 propulsés par nos analystes. Maîtrisez vos paris sportifs avec BttsBet.',
+      'Articles, guides et stratégies BTTS & Over 2,5 propulsés par nos experts. Maîtrisez vos paris sportifs avec BttsBet.',
     url: 'https://bttspredict.com/blog',
     siteName: 'BttsBet',
     type: 'website',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Blog – Pronostics BTTS & Over 2,5 | BttsBet',
     description:
-      'Articles, guides et stratégies BTTS & Over 2,5 propulsés par nos analystes. Maîtrisez vos paris sportifs avec BttsBet.',
+      'Articles, guides et stratégies BTTS & Over 2,5 propulsés par nos experts. Maîtrisez vos paris sportifs avec BttsBet.',
     images: ['/og-image.png'],
   },
 }
