@@ -1,79 +1,79 @@
 {
-  "date": "2026-08-04",
-  "updatedAt": "2026-08-04T23:15:22.371Z",
+  "date": "2026-08-05",
+  "updatedAt": "2026-08-05T07:26:51.384Z",
   "count": 8,
   "transfers": [
     {
-      "player": "Bruno Guimarães",
-      "from": "Newcastle",
-      "to": "Al-Hilal",
-      "fee": "60M€",
-      "league": "Saudi Pro League",
-      "country": "🇸🇦",
-      "date": "2026-08-04"
-    },
-    {
-      "player": "André Onana",
-      "from": "Man United",
-      "to": "Al-Nassr",
-      "fee": "25M€",
-      "league": "Saudi Pro League",
-      "country": "🇸🇦",
-      "date": "2026-08-04"
-    },
-    {
-      "player": "Pierre-Emerick Aubameyang",
-      "from": "Marseille",
-      "to": "Al-Qadsiah",
-      "fee": "Libre",
-      "league": "Saudi Pro League",
-      "country": "🇸🇦",
-      "date": "2026-08-04"
-    },
-    {
-      "player": "Ibrahim Sangaré",
-      "from": "Nottingham Forest",
-      "to": "Al-Ahli",
-      "fee": "35M€",
-      "league": "Saudi Pro League",
-      "country": "🇸🇦",
-      "date": "2026-08-04"
-    },
-    {
-      "player": "Mohamed Salah",
-      "from": "Liverpool",
-      "to": "Al-Hilal",
-      "fee": "Libre",
-      "league": "Saudi Pro League",
-      "country": "🇸🇦",
-      "date": "2026-08-04"
-    },
-    {
-      "player": "Vinicius Jr",
-      "from": "Real Madrid",
-      "to": "Al-Ahli",
-      "fee": "200M€",
-      "league": "Saudi Pro League",
-      "country": "🇸🇦",
-      "date": "2026-08-04"
-    },
-    {
-      "player": "Kylian Mbappé",
+      "player": "Achraf Hakimi",
       "from": "PSG",
       "to": "Real Madrid",
-      "fee": "Libre",
+      "fee": "60M€",
       "league": "La Liga",
       "country": "🇪🇸",
-      "date": "2026-08-04"
+      "date": "2026-08-05"
     },
     {
-      "player": "Lautaro Martínez",
-      "from": "Inter",
-      "to": "Atlético Madrid",
-      "fee": "70M€",
+      "player": "Jude Bellingham",
+      "from": "Dortmund",
+      "to": "Real Madrid",
+      "fee": "103M€",
       "league": "La Liga",
       "country": "🇪🇸",
-      "date": "2026-08-04"
+      "date": "2026-08-05"
+    },
+    {
+      "player": "Khvicha Kvaratskhelia",
+      "from": "Naples",
+      "to": "PSG",
+      "fee": "75M€",
+      "league": "Ligue 1",
+      "country": "🇫🇷",
+      "date": "2026-08-05"
+    },
+    {
+      "player": "Ismaël Bennacer",
+      "from": "AC Milan",
+      "to": "Atlético Madrid",
+      "fee": "25M€",
+      "league": "La Liga",
+      "country": "🇪🇸",
+      "date": "2026-08-05"
+    },
+    {
+      "player": "Florian Wirtz",
+      "from": "Leverkusen",
+      "to": "Bayern Munich",
+      "fee": "80M€",
+      "league": "Bundesliga",
+      "country": "🇩🇪",
+      "date": "2026-08-05"
+    },
+    {
+      "player": "Wilfried Zaha",
+      "from": "Galatasaray",
+      "to": "Lyon",
+      "fee": "Prêt",
+      "league": "Ligue 1",
+      "country": "🇫🇷",
+      "date": "2026-08-05"
+    },
+    {
+      "player": "Sadio Mané",
+      "from": "Al-Nassr",
+      "to": "Al-Ahli",
+      "fee": "30M€",
+      "league": "Saudi Pro League",
+      "country": "🇸🇦",
+      "date": "2026-08-05"
+    },
+    {
+      "player": "Sékou Koïta",
+      "from": "Red Bull Salzburg",
+      "to": "Antwerp",
+      "fee": "8M€",
+      "league": "Jupiler Pro League",
+      "country": "🇧🇪",
+      "date": "2026-08-05"
     }
   ]
 }
