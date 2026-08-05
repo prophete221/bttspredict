@@ -85,7 +85,7 @@ export default function HowToGetVip() {
     <section id="how-to-get-vip" className="py-12 sm:py-16 px-4" style={{ background: 'rgba(15, 20, 36, 0.4)' }}>
       <div className="max-w-2xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-6">
           <span className="eyebrow">🔓 Accès VIP</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 mb-3">
             Comment <span className="text-gold">obtenir le VIP</span> ?
@@ -93,6 +93,22 @@ export default function HowToGetVip() {
           <p className="text-gray-400 text-sm max-w-md mx-auto">
             4 étapes simples pour débloquer 20+ pronostics premium par jour. Activation en moins de 30 minutes.
           </p>
+          {/* Badge portée mondiale */}
+          <div
+            className="inline-flex items-center gap-1.5 mt-3 px-3 py-1.5 rounded-full text-[11px]"
+            style={{
+              background: 'rgba(0, 229, 255, 0.06)',
+              border: '1px solid rgba(0, 229, 255, 0.20)',
+              color: '#00E5FF',
+            }}
+          >
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+            Disponible dans tous les pays où Linebet et 888starz sont accessibles légalement
+          </div>
         </div>
 
         {/* 4 étapes */}

@@ -150,7 +150,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v11-ton-credible-reference-transparence-2026-08-05';
+                var VERSION = 'bttspredict-v12-refonte-mondiale-hero-globalreach-2026-08-05';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){

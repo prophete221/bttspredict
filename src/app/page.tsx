@@ -21,6 +21,7 @@ import {
   MobileTabBar,
   StickyCTABar,
   HowToGetVip,
+  GlobalReach,
 } from '@/components/bttsbet'
 
 // JSON-LD WebSite — SearchAction for Google SERP
@@ -283,7 +284,7 @@ export default function Home() {
           platform for BTTS predictions through transparent methodology,
           verified track record, and honest communication. */}
       <div className="sr-only">
-        <h1>BTTSPredict — N°1 Mondial des Pronostics BTTS et Over 2.5</h1>
+        <h2>N°1 mondial des prédictions BTTS et Over 2.5</h2>
         <p>
           BTTSPredict est la plateforme de référence pour les pronostics BTTS
           (Both Teams To Score) et Over 2.5 buts. Notre équipe d'analystes
@@ -480,6 +481,7 @@ export default function Home() {
         <ErrorBoundary><FifaLinebet /></ErrorBoundary>
         <ErrorBoundary><AviatorVip /></ErrorBoundary>
         <ErrorBoundary><HowItWorks /></ErrorBoundary>
+        <ErrorBoundary><GlobalReach /></ErrorBoundary>
         <ErrorBoundary><About /></ErrorBoundary>
         <ErrorBoundary><Footer /></ErrorBoundary>
       </main>

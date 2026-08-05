@@ -83,6 +83,18 @@ export default function Navbar() {
                 {link.label}
               </button>
             ))}
+            {/* Badge portée mondiale */}
+            <span
+              className="text-[10px] font-mono px-2 py-1 rounded-full"
+              style={{
+                color: '#00E5FF',
+                background: 'rgba(0, 229, 255, 0.06)',
+                border: '1px solid rgba(0, 229, 255, 0.20)',
+              }}
+              title="Disponible dans tous les pays où Linebet est accessible"
+            >
+              🌍 Monde
+            </span>
           </div>
 
           {/* Right section */}
@@ -100,21 +112,22 @@ export default function Navbar() {
               {copied ? '✓' : SITE.promoCode}
             </button>
 
-            {/* CTA — Desktop only */}
-            <a
-              href={AFFILIATE.linebet}
-              rel="sponsored noopener"
-              target="_blank"
-              className="hidden sm:flex items-center px-4 py-2 rounded-xl text-sm font-bold transition-all"
+            {/* CTA — Desktop only : Voir les pronostics du jour */}
+            <button
+              onClick={() => scrollToSection('free-predictions')}
+              className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold transition-all"
               style={{
-                background: 'linear-gradient(135deg, #10B981, #059669)',
-                color: '#0A0F1E',
+                background: 'linear-gradient(135deg, #00E5FF, #00B8D4)',
+                color: '#050B14',
                 boxShadow: '0 0 0 1px rgba(0, 229, 255,.3), 0 4px 16px rgba(0, 229, 255,.15)',
               }}
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12" /><rect x="2" y="7" width="20" height="5" /><line x1="12" y1="22" x2="12" y2="7" /><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" /><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" /></svg>
-              S'inscrire
-            </a>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              Pronos du jour
+            </button>
 
             {/* Hamburger */}
             <button

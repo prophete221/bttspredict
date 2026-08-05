@@ -468,6 +468,27 @@ export default function WinHistory() {
           </span>
           <span className="text-[10px] text-gray-500">Gagnés ET perdus affichés en transparence</span>
         </motion.div>
+
+        {/* Paragraphe justifiant le positionnement par la transparence */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="mt-6 p-4 rounded-xl"
+          style={{
+            background: 'linear-gradient(135deg, rgba(0, 229, 255, 0.04), rgba(167, 139, 250, 0.04))',
+            border: '1px solid rgba(0, 229, 255, 0.12)',
+          }}
+        >
+          <p className="text-[12px] text-gray-300 leading-relaxed text-center">
+            <strong className="text-white">Cette transparence justifie notre positionnement.</strong>{' '}
+            Contrairement aux plateformes qui masquent leurs pertes, BTTSPredict affiche publiquement
+            tous ses résultats — gagnés ET perdus. Notre taux de réussite (84,5%) est calculé
+            manuellement à partir de l&apos;historique réel, pas un chiffre marketing inventé.
+            Ce standard de transparence est ce qui distingue BTTSPredict comme référence dans l&apos;industrie.
+          </p>
+        </motion.div>
       </div>
     </section>
   )
