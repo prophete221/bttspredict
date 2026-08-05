@@ -288,7 +288,7 @@ export default function Home() {
         <h2>Code promo VISION221 — Bonus bookmaker</h2>
         <p>
           Inscrivez-vous sur Linebet avec le code promo <strong>VISION221</strong> (en majuscules)
-          pour recevoir un bonus exclusif sur votre premier dépôt. Dépôt minimum de 3 000 XOF.
+          pour recevoir un bonus exclusif sur votre premier dépôt. Dépôt minimum de 200 XOF.
           Le code <strong>VISION221</strong> fonctionne également sur 888starz en minuscules
           (<strong>vision221</strong>).
         </p>
@@ -366,7 +366,7 @@ export default function Home() {
 
         <h2>Questions fréquentes</h2>
         <p><strong>Le service est-il gratuit ?</strong> — Oui, 6 pronostics BTTS gratuits chaque jour sans inscription ni email.</p>
-        <p><strong>Comment recevoir le bonus ?</strong> — Inscrivez-vous sur Linebet avec le code VISION221, déposez minimum 3 000 XOF.</p>
+        <p><strong>Comment recevoir le bonus ?</strong> — Inscrivez-vous sur Linebet avec le code VISION221, déposez minimum 200 XOF.</p>
         <p><strong>Pourquoi 52% est un bon chiffre ?</strong> — Le marché BTTS est par nature à ~50% (2 issues équiprobables). 52% signifie que notre équipe apporte une valeur statistique réelle et mesurable. Au-delà de 60% sur ce marché serait statistiquement suspect.</p>
         <p><strong>Peut-on prédire Aviator ?</strong> — Non. Aviator est 100% aléatoire basé sur un générateur certifié provably fair (SHA-256). Aucun outil ne peut prédire un round futur.</p>
         <p><strong>Les résultats sont-ils vérifiables ?</strong> — Oui, notre historique affiche tous les pronostics gagnés ET perdus avec dates, matchs, scores et taux de réussite réel.</p>

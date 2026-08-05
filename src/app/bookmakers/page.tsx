@@ -44,13 +44,14 @@ const COMPARISON: Row[] = [
   },
   {
     label: 'Dépôt minimum',
-    linebet: '1 000 XOF',
-    star888: '1 000 XOF',
+    linebet: '200 XOF',
+    star888: '500 XOF',
+    highlight: 'linebet',
   },
   {
     label: 'Retrait minimum',
-    linebet: '2 000 XOF',
-    star888: '2 500 XOF',
+    linebet: '500 XOF',
+    star888: '1 000 XOF',
     highlight: 'linebet',
   },
   {

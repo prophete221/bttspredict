@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: TITLE,
-    description: 'Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF. Dépôt minimum 5 000 XOF.',
+    description: 'Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF. Dépôt minimum 200 XOF.',
     url: PAGE_URL,
     siteName: 'BttsBet',
     type: 'article',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Code Promo Linebet Sénégal VISION221 — Bonus 90 000 XOF',
-    description: 'Pronostics IA football +87% (historique). Code VISION221 = Bonus 90 000 XOF sur Linebet. Dépôt minimum 5 000 XOF au Sénégal.',
+    description: 'Pronostics IA football +87% (historique). Code VISION221 = Bonus 90 000 XOF sur Linebet. Dépôt minimum 200 XOF au Sénégal.',
     images: ['/og-image.png'],
   },
 }
@@ -177,7 +177,7 @@ export default function CodePromoLinebetSenegalPage() {
               CODE PROMO <span className="text-gold neon-glow">LINEBET</span> SÉNÉGAL
             </h1>
             <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              Bonus exclusif <strong className="text-gold">90 000 XOF (150$)</strong> avec le code <strong className="text-emerald">VISION221</strong>. Dépôt minimum 5 000 XOF.
+              Bonus exclusif <strong className="text-gold">90 000 XOF (150$)</strong> avec le code <strong className="text-emerald">VISION221</strong>. Dépôt minimum 200 XOF.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
           </div>
