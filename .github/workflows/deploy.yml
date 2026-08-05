@@ -3,9 +3,10 @@ name: Build & Deploy to bttspredict.com
 on:
   push:
     branches: [main]
-  schedule:
-    # 4 runs quotidiens : 4h, 6h, 14h, 22h UTC (avant 8h UTC = avant 8h au Sénégal qui est UTC+0)
-    - cron: '0 4,6,14,22 * * *'
+  # ⚠️ CRON DÉSACTIVÉ le 2026-08-05 — le scraper V23 génère des données cassées
+  # (tout est marqué "Perdu"). À réactiver une fois scraper.js corrigé.
+  # schedule:
+  #   - cron: '0 4,6,14,22 * * *'
   workflow_dispatch:
 
 permissions:
