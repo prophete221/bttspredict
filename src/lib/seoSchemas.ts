@@ -15,8 +15,8 @@ export function buildOrganizationJsonLd() {
     url: SITE_URL,
     logo: `${SITE_URL}/favicon.svg`,
     image: `${SITE_URL}/og-image.png`,
-    slogan: 'N°1 Mondial des Pronostics BTTS et Over 2.5',
-    description: "BTTSPredict est la plateforme N°1 mondiale pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts. Leader international avec 84,5% de réussite vérifiée, modèles Poisson calibrés sur 50 000 matchs, 13 000+ parieurs. Transparence totale : gagnés ET perdus affichés.",
+    slogan: 'Plateforme de référence — Pronostics BTTS et Over 2.5',
+    description: "BTTSPredict est la plateforme de référence pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts. 84,5% de réussite vérifiée, modèles Poisson calibrés sur 50 000 matchs, 13 000+ parieurs. Transparence totale : gagnés ET perdus affichés.",
     areaServed: ['Worldwide', 'SN', 'CI', 'CM', 'ML', 'BF', 'FR', 'NG'],
     knowsAbout: [
       'BTTS',
@@ -28,17 +28,17 @@ export function buildOrganizationJsonLd() {
       'modèle Poisson football',
       'value bets FIFA',
       'statistiques Aviator',
-      'prédictions football mondiales',
+      'prédictions football',
       'analyse statistique football',
     ],
-    // Signaux d'autorité mondiale
+    // Signaux d'autorité
     brand: {
       '@type': 'Brand',
       name: 'BTTSPredict',
-      slogan: 'N°1 Mondial Pronostics BTTS',
+      slogan: 'Plateforme de référence Pronostics BTTS',
       logo: `${SITE_URL}/favicon.svg`,
     },
-    award: 'N°1 Mondial des Pronostics BTTS et Over 2.5 — Plateforme leader de transparence',
+    award: 'Standard de transparence dans les pronostics BTTS et Over 2.5',
     // NOTE: pas de propriété founder tant que le vrai nom du fondateur n'est pas fourni.
     // Google vérifie la cohérence des entités Person — ne JAMAIS inventer de nom.
     contactPoint: {
@@ -63,10 +63,10 @@ export function buildClaimJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Claim',
-    claimText: 'BTTSPredict est le N°1 mondial des pronostics BTTS (Both Teams To Score) et Over 2.5 buts.',
+    claimText: 'BTTSPredict est la plateforme de référence pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts.',
     appearance: {
       '@type': 'OpinionNewsArticle',
-      headline: 'BTTSPredict — N°1 Mondial des Pronostics BTTS et Over 2.5',
+      headline: 'BTTSPredict — Plateforme de référence Pronostics BTTS et Over 2.5',
       url: SITE_URL,
       datePublished: '2026-01-01',
       author: { '@type': 'Organization', name: 'BTTSPredict', url: SITE_URL },

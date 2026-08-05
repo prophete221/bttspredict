@@ -214,8 +214,7 @@ export default function Hero() {
             N°1 mondial des <span style={{ background: 'linear-gradient(135deg, #00E5FF, #A78BFA)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>prédictions BTTS et Over 2.5</span>
           </h1>
           <p className="mt-3 text-[14px] leading-[1.6]" style={{ color: C.textSec, maxWidth: '360px' }}>
-            Pronostics btts aujourd&apos;hui validés par nos analystes — modèles Poisson calibrés sur 50 000 matchs. Inscrivez-vous avec le code{' '}
-            <CopyableCode code={SITE.promoCode} displayClassName="font-bold" />{' '}pour débloquer le VIP.
+            Pronostics BTTS et Over 2.5 avec modèles Poisson calibrés sur 50 000 matchs. 6 pronos gratuits par jour, résultats vérifiés — outil d&apos;aide à la décision, pas de promesse de gain.
           </p>
         </motion.div>
 

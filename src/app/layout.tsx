@@ -27,10 +27,10 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://bttspredict.com"),
   title: {
-    default: "BTTSPredict — N°1 Mondial des Pronostics BTTS & Over 2.5 | Both Teams To Score",
-    template: "%s | BTTSPredict — N°1 Mondial BTTS",
+    default: "BTTSPredict — Pronostics BTTS et Over 2.5 par nos analystes | Both Teams To Score",
+    template: "%s | BTTSPredict",
   },
-  description: "BTTSPredict est le N°1 mondial des pronostics BTTS aujourd'hui et Over 2.5 buts. Plateforme leader avec 84,5% de réussite vérifiée, modèles Poisson calibrés sur 50 000 matchs, 13 000+ parieurs. Code promo VISION221.",
+  description: "Pronostics BTTS aujourd'hui et Over 2.5 par nos analystes. 84,5% de réussite vérifiée, modèles Poisson calibrés sur 50 000 matchs, 6 pronos gratuits par jour. Outil d'aide à la décision, pas de promesse de gain. Code promo VISION221.",
   keywords: [
     // Autorité mondiale
     "n°1 mondial pronostics btts", "meilleur site pronostics btts monde", "leader pronostics btts",
@@ -70,10 +70,10 @@ export const metadata: Metadata = {
     'author': 'BTTSPredict',
     'referrer': 'strict-origin-when-cross-origin',
     // Signaux d'autorité pour les crawlers
-    'rating-agency': 'BTTSPredict — N°1 Mondial Pronostics BTTS',
+    'rating-agency': 'BTTSPredict — Plateforme de référence Pronostics BTTS',
     'priority': '1',
     'worldwide': 'true',
-    'leader': 'BTTS predictions',
+    'category': 'BTTS predictions platform',
   },
   robots: {
     index: true,
@@ -150,7 +150,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v10-ux-howtogetvip-nav-clear-2026-08-05';
+                var VERSION = 'bttspredict-v11-ton-credible-reference-transparence-2026-08-05';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){

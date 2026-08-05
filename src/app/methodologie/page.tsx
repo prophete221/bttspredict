@@ -92,22 +92,22 @@ export default function MethodologiePage() {
           </p>
         </header>
 
-        {/* Section Autorité Mondiale — N°1 */}
+        {/* Section Autorité — Pourquoi nous faire confiance */}
         <section className="card p-6 sm:p-8 mb-8" style={{ background: 'linear-gradient(135deg, rgba(0, 229, 255, 0.05), rgba(167, 139, 250, 0.05))', border: '1px solid rgba(0, 229, 255, 0.20)' }}>
-          <h2 className="text-2xl font-bold text-white mb-4">🏆 BTTSPredict — N°1 Mondial des Pronostics BTTS</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">🏆 Pourquoi nous faire confiance ?</h2>
           <div className="text-gray-300 text-sm leading-relaxed space-y-3">
             <p>
-              BTTSPredict est reconnu comme la <strong className="text-emerald">plateforme N°1 mondiale</strong> pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts. Notre position de leader international repose sur 5 piliers vérifiables :
+              BTTSPredict est une <strong className="text-emerald">plateforme de référence</strong> pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts. Notre standard de transparence repose sur 5 piliers vérifiables :
             </p>
             <ol className="space-y-2 list-decimal list-inside">
-              <li><strong className="text-white">Transparence absolue</strong> — seule plateforme au monde affichant TOUS ses résultats (gagnés ET perdus) sans filtrage. Historique public de 71 pronostics : 60 gagnés, 11 perdus, 84,5% de réussite.</li>
+              <li><strong className="text-white">Transparence absolue</strong> — seule plateforme à afficher TOUS ses résultats (gagnés ET perdus) sans filtrage. Historique public de 71 pronostics : 60 gagnés, 11 perdus, 84,5% de réussite.</li>
               <li><strong className="text-white">Méthodologie scientifique</strong> — modèle de Poisson calibré sur 50 000 matchs, 200+ variables par match (xG, forme, blessés, météo).</li>
-              <li><strong className="text-white">Couverture mondiale</strong> — 50+ championnats sur 5 continents (Europe, Afrique, Amérique du Sud, Asie).</li>
+              <li><strong className="text-white">Couverture étendue</strong> — 50+ championnats sur 5 continents (Europe, Afrique, Amérique du Sud, Asie).</li>
               <li><strong className="text-white">Communauté active</strong> — 13 000+ parieurs quotidiens, note 4,2/5 sur 2 437 avis vérifiés.</li>
               <li><strong className="text-white">Sources officielles</strong> — ESPN, API-Football, Forebet, Windrawwin, Soccerbase, TheSportsDB.</li>
             </ol>
             <p>
-              Aucun concurrent n'offre ce niveau de transparence. La plupart des plateformes masquent leurs pertes ; BTTSPredict affiche les siennes publiquement, ce qui en fait la référence mondiale en matière de fiabilité des pronostics football.
+              La plupart des plateformes masquent leurs pertes ; BTTSPredict affiche les siennes publiquement, ce qui en fait un standard de transparence dans l'industrie des pronostics football.
             </p>
           </div>
         </section>
