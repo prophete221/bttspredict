@@ -95,7 +95,7 @@ export default function SiteLoader() {
                   height="28"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#FACC15"
+                  stroke="#FFC107"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -120,7 +120,7 @@ export default function SiteLoader() {
               </span>
 
               {/* Progress bar — premium gradient, slim */}
-              <div className="w-36 h-[2px] bg-gray-200 rounded-full overflow-hidden">
+              <div className="w-36 h-[2px] bg-dark-700 rounded-full overflow-hidden">
                 <motion.div
                   initial={{ width: '0%' }}
                   animate={{ width: '100%' }}

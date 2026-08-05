@@ -9,13 +9,13 @@ import VipUnlockModal from './VipUnlockModal'
 
 // ─── Palette ────────────────────────────────────────────────────────────
 const C = {
-  bg:       '#020617',
-  card:     '#FFFFFF',
+  bg:       '#1A202C',
+  card:     '#2D3748',
   elevated: '#1A1F35',
-  border:   '#E5E7EB',
-  neon:     '#16A34A',
-  neonDk:   '#166534',
-  gold:     '#FACC15',
+  border:   '#A0AEC0',
+  neon:     '#00B8D9',
+  neonDk:   '#00A0B8',
+  gold:     '#FFC107',
   text:     '#ffffff',
   textSec:  '#a0a0a0',
   textMute: '#5a5a5a',
@@ -106,7 +106,7 @@ export default function PromoVip() {
       <section ref={ref} id="vip" className="section-pad overflow-x-hidden relative overflow-hidden" style={{ paddingTop: '24px', paddingBottom: '24px' }}>
         {/* Background glow */}
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: 'radial-gradient(50% 30% at 50% 0%, rgba(22, 163, 74,0.06) 0%, transparent 70%)',
+          background: 'radial-gradient(50% 30% at 50% 0%, rgba(0, 184, 217,0.06) 0%, transparent 70%)',
         }} />
 
         <div className="max-w-[440px] mx-auto relative">
@@ -131,16 +131,16 @@ export default function PromoVip() {
             transition={{ duration: 0.4, delay: 0.1 }}
             className="flex items-center justify-center gap-2 mb-4"
           >
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: '#F3F4F6', border: '1px solid #E5E7EB' }}>
-              <span className="font-mono text-[14px] font-bold text-gray-900" ref={matchCountRef}>{matchCountDisplay}</span>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: '#2D3748', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+              <span className="font-mono text-[14px] font-bold text-white" ref={matchCountRef}>{matchCountDisplay}</span>
               <span className="text-[9px] uppercase tracking-widest" style={{ color: C.textMute }}>matchs</span>
             </div>
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: 'rgba(22, 163, 74,0.06)', border: '1px solid rgba(22, 163, 74,0.15)' }}>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: 'rgba(0, 184, 217,0.06)', border: '1px solid rgba(0, 184, 217,0.15)' }}>
               <span className="font-mono text-[14px] font-bold" style={{ color: C.neon }}>~75%</span>
               <span className="text-[9px] uppercase tracking-widest" style={{ color: C.textMute }}>précision</span>
             </div>
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: '#F3F4F6', border: '1px solid #E5E7EB' }}>
-              <span className="font-mono text-[14px] font-bold text-gray-900">7</span>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: '#2D3748', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+              <span className="font-mono text-[14px] font-bold text-white">7</span>
               <span className="text-[9px] uppercase tracking-widest" style={{ color: C.textMute }}>série jours</span>
             </div>
           </motion.div>
@@ -151,11 +151,11 @@ export default function PromoVip() {
             animate={isVisible ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="rounded-[16px] overflow-hidden"
-          style={{ backgroundColor: '#FFFFFF', border: '1px solid #E5E7EB', boxShadow: '0 8px 30px rgba(0,0,0,0.4)' }}
+          style={{ backgroundColor: '#2D3748', border: '1px solid rgba(255, 255, 255, 0.08)', boxShadow: '0 8px 30px rgba(0,0,0,0.4)' }}
             style={{ boxShadow: '0 8px 30px rgba(0,0,0,0.4)' }}
           >
             {/* Top accent line */}
-            <div className="h-[2px] w-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(22, 163, 74,0.4), transparent)' }} />
+            <div className="h-[2px] w-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(0, 184, 217,0.4), transparent)' }} />
 
             {/* Match list — 2 visible + rest blurred */}
             <div className="p-3">
@@ -173,9 +173,9 @@ export default function PromoVip() {
                   </span>
                   <div className="flex items-center gap-1.5 flex-1 min-w-0">
                     {m.homeLogo && <img src={m.homeLogo} alt="" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy" />}
-                    <span className="text-[11px] font-semibold text-gray-900 truncate">{m.homeTeam}</span>
-                    <span className="text-[9px] text-gray-600 flex-shrink-0">vs</span>
-                    <span className="text-[11px] font-semibold text-gray-900 truncate">{m.awayTeam}</span>
+                    <span className="text-[11px] font-semibold text-white truncate">{m.homeTeam}</span>
+                    <span className="text-[9px] text-gray-400 flex-shrink-0">vs</span>
+                    <span className="text-[11px] font-semibold text-white truncate">{m.awayTeam}</span>
                     {m.awayLogo && <img src={m.awayLogo} alt="" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy" />}
                   </div>
                   <span className="font-mono text-[10px] font-bold flex-shrink-0" style={{ color: C.neon }}>VIP</span>
@@ -188,7 +188,7 @@ export default function PromoVip() {
                   {vipMatches.slice(2, 5).map((m, i) => (
                     <div key={i} className="flex items-center gap-2 py-2 px-2 rounded-[10px] mb-1" style={{ background: 'rgba(255,255,255,0.02)' }}>
                       <span className="font-mono text-[10px] w-8" style={{ color: C.textMute }}>{m.time}</span>
-                      <span className="text-[11px] text-gray-900 truncate flex-1">{m.match}</span>
+                      <span className="text-[11px] text-white truncate flex-1">{m.match}</span>
                       <span className="font-mono text-[10px] font-bold" style={{ color: C.neon }}>VIP</span>
                     </div>
                   ))}
@@ -206,9 +206,9 @@ export default function PromoVip() {
                     whileTap={{ scale: 0.97 }}
                     className="flex items-center gap-2 px-5 py-2.5 rounded-[12px] font-bold text-[13px]"
                     style={{
-                      background: 'linear-gradient(135deg, #16A34A 0%, #166534 100%)',
-                      color: '#020617',
-                      boxShadow: '0 4px 20px rgba(22, 163, 74,0.3)',
+                      background: 'linear-gradient(135deg, #00B8D9 0%, #00A0B8 100%)',
+                      color: '#1A202C',
+                      boxShadow: '0 4px 20px rgba(0, 184, 217,0.3)',
                     }}
                     data-cta="vip-unlock"
                   >
@@ -225,7 +225,7 @@ export default function PromoVip() {
             </div>
 
             {/* Cote totale bar */}
-            <div className="px-3 py-2.5 flex items-center justify-between border-t" style={{ borderColor: '#F3F4F6' }}>
+            <div className="px-3 py-2.5 flex items-center justify-between border-t" style={{ borderColor: '#2D3748' }}>
               <span className="text-[10px] uppercase tracking-widest font-bold" style={{ color: C.textMute }}>Cote totale</span>
               <span className="font-mono text-[16px] font-bold" style={{ color: C.neon }}>VIP</span>
             </div>
@@ -237,7 +237,7 @@ export default function PromoVip() {
             animate={isVisible ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.4, delay: 0.4 }}
             className="mt-3 flex items-center justify-between gap-3 px-4 py-3 rounded-[14px]"
-          style={{ backgroundColor: '#FFFFFF', border: '1px solid #E5E7EB' }}
+          style={{ backgroundColor: '#2D3748', border: '1px solid rgba(255, 255, 255, 0.08)' }}
           >
             <div>
               <div className="text-[10px] uppercase tracking-widest font-bold" style={{ color: C.textMute }}>Code promo</div>

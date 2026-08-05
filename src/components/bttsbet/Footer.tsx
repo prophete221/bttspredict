@@ -12,23 +12,23 @@ export default function Footer() {
 
   return (
     <>
-      <footer ref={ref} id="faq" className="border-t pt-10 pb-20 sm:pb-8 px-4" style={{ borderColor: '#16A34A', backgroundColor: '#020617' }}>
+      <footer ref={ref} id="faq" className="border-t pt-10 pb-20 sm:pb-8 px-4" style={{ borderColor: '#00B8D9', backgroundColor: '#1A202C' }}>
         <div className="max-w-[440px] sm:max-w-2xl mx-auto">
           {/* Testimonials */}
           <motion.div variants={staggerContainer} initial="hidden" animate={isVisible ? 'visible' : 'hidden'} className="mb-6">
             <div className="text-center mb-3">
-              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#16A34A]">Ils utilisent BTTSPredict</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#00B8D9]">Ils utilisent BTTSPredict</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {TESTIMONIALS.slice(0, 3).map((t) => (
-                <motion.div key={t.name + t.city} variants={staggerChildFadeUp} className="rounded-xl p-4" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E5E7EB' }}>
+                <motion.div key={t.name + t.city} variants={staggerChildFadeUp} className="rounded-xl p-4" style={{ backgroundColor: '#2D3748', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
                   <div className="flex items-center gap-2.5 mb-2.5">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: 'rgba(22, 163, 74,0.1)', color: '#16A34A' }}>
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: 'rgba(0, 184, 217,0.1)', color: '#00B8D9' }}>
                       {t.name.charAt(0)}
                     </div>
                     <div>
-                      <div className="text-xs font-semibold text-gray-900">{t.name}</div>
-                      <div className="text-[10px] text-[#E5E7EB]">{t.city} · Membre vérifié</div>
+                      <div className="text-xs font-semibold text-white">{t.name}</div>
+                      <div className="text-[10px] text-[#A0AEC0]">{t.city} · Membre vérifié</div>
                     </div>
                   </div>
                   <p className="text-[11px] text-[#a0a0a0] italic leading-relaxed">« {t.text} »</p>
@@ -40,12 +40,12 @@ export default function Footer() {
           {/* FAQ */}
           <motion.div variants={staggerContainer} initial="hidden" animate={isVisible ? 'visible' : 'hidden'} className="mb-6">
             <div className="text-center mb-3">
-              <h3 className="text-sm font-bold text-gray-900">Questions fréquentes</h3>
+              <h3 className="text-sm font-bold text-white">Questions fréquentes</h3>
             </div>
             <div className="space-y-2">
               {FAQ_ITEMS.slice(0, 4).map((item, i) => (
-                <motion.div key={item.q} variants={fadeInUp} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E5E7EB' }}>
-                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i} className="w-full text-left px-4 py-3 text-xs font-semibold text-gray-900">
+                <motion.div key={item.q} variants={fadeInUp} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#2D3748', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i} className="w-full text-left px-4 py-3 text-xs font-semibold text-white">
                     {item.q}
                   </button>
                   {openFaq === i && (
@@ -64,25 +64,25 @@ export default function Footer() {
               { label: 'Confidentialité', href: '/politique-confidentialite' },
               { label: 'Jouer responsable', href: 'https://www.begambleaware.org/' },
             ].map(link => (
-              <a key={link.label} href={link.href} className="text-center text-[10px] text-[#E5E7EB] hover:text-[#16A34A] transition-colors py-2">
+              <a key={link.label} href={link.href} className="text-center text-[10px] text-[#A0AEC0] hover:text-[#00B8D9] transition-colors py-2">
                 {link.label}
               </a>
             ))}
           </div>
 
           {/* Legal text */}
-          <div className="rounded-xl p-4 mb-3" style={{ backgroundColor: '#FFFFFF' }}>
+          <div className="rounded-xl p-4 mb-3" style={{ backgroundColor: '#2D3748' }}>
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-[#16A34A] font-extrabold text-xs">18+</span>
-              <span className="text-[10px] text-[#E5E7EB]">| {LONASE.name} | Jeu responsable</span>
+              <span className="text-[#00B8D9] font-extrabold text-xs">18+</span>
+              <span className="text-[10px] text-[#A0AEC0]">| {LONASE.name} | Jeu responsable</span>
             </div>
-            <p className="text-[10px] text-[#E5E7EB] leading-relaxed">
+            <p className="text-[10px] text-[#A0AEC0] leading-relaxed">
               <strong className="text-[#a0a0a0]">Avertissement :</strong> {LEGAL.disclaimer}
             </p>
           </div>
 
           {/* Affiliation disclaimer */}
-          <p className="text-center text-[10px] text-[#E5E7EB] mb-2 leading-relaxed">
+          <p className="text-center text-[10px] text-[#A0AEC0] mb-2 leading-relaxed">
             Liens d'affiliation — BTTSPredict est un site informatif indépendant, nous ne prenons pas de paris.
             Les liens vers les bookmakers partenaires sont des liens d'affiliation rémunérés.
             BTTSPredict n'est pas affilié à, ni exploité par, les sociétés de paris mentionnées.

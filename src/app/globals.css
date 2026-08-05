@@ -7,102 +7,102 @@
    ════════════════════════════════════════════════════════════════════════════ */
 
 /* ════════════════════════════════════════════════════════════════════════════
-   FONTS — Premium Typography
+   FONTS — Premium Typography (Montserrat + Open Sans)
    ════════════════════════════════════════════════════════════════════════════ */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
 @import "tailwindcss";
 
 @theme {
-  /* ── Palette BTTSPredict 2026 — produit data + paris sportifs ── */
-  /* ── Surfaces sombres (sections foncées) ── */
-  --color-dark-900: #020617;   /* noir principal */
-  --color-dark-800: #0F172A;   /* gris très foncé */
-  --color-dark-700: #111827;   /* fond Aviator/terminal */
-  --color-dark-600: #1E293B;
-  --color-dark-500: #334155;
-  --color-dark-400: #475569;
+  /* ═══ Palette BTTSPredict — Bleu-gris profond + Bleu-vert vibrant + Or ═══ */
+  /* ── Surfaces sombres (fond principal + cartes) ── */
+  --color-dark-900: #1A202C;   /* bleu-gris profond (fond principal) */
+  --color-dark-800: #2D3748;   /* bleu-gris cartes/sections */
+  --color-dark-700: #1A202C;   /* variante foncée */
+  --color-dark-600: #2D3748;
+  --color-dark-500: #4A5568;
+  --color-dark-400: #718096;
 
-  /* ── Card surfaces (sur fond clair) ── */
-  --color-card: #FFFFFF;       /* cartes sur fond blanc */
-  --color-card-hover: #F9FAFB;
-  --color-card-border: #E5E7EB; /* gris clair */
-  --color-card-border-hover: #16A34A;
+  /* ── Card surfaces ── */
+  --color-card: #2D3748;       /* cartes sur fond sombre */
+  --color-card-hover: #2A3242;
+  --color-card-border: rgba(255, 255, 255, 0.08);
+  --color-card-border-hover: #00B8D9;
 
-  /* ── Vert principal (#16A34A) — CTA, succès, éléments positifs ── */
-  --color-primary: #16A34A;
-  --color-primary-dark: #166534;
-  --color-primary-light: #22C55E;
-  --color-primary-glow: rgba(22, 163, 74, 0.35);
+  /* ── Bleu-vert vibrant (CTA, accent principal) ── */
+  --color-primary: #00B8D9;
+  --color-primary-dark: #00A0B8;
+  --color-primary-light: #00D4F5;
+  --color-primary-glow: rgba(0, 184, 217, 0.35);
 
-  /* ── Vert très clair (tags, fonds pastel) ── */
-  --color-primary-pale: #DCFCE7;
+  /* ── Variante claire ── */
+  --color-primary-pale: rgba(0, 184, 217, 0.12);
 
-  /* ── Violet (legacy compat — mappé sur vert pour cohérence) ── */
-  --color-secondary: #22C55E;
-  --color-secondary-dark: #16A34A;
-  --color-secondary-light: #4ADE80;
-  --color-secondary-glow: rgba(34, 197, 94, 0.3);
+  /* ── Or/Orange (mise en évidence, alertes) ── */
+  --color-secondary: #FFC107;
+  --color-secondary-dark: #E0A800;
+  --color-secondary-light: #FFD54F;
+  --color-secondary-glow: rgba(255, 193, 7, 0.3);
 
-  /* ── Success (gains) — vert ── */
-  --color-success: #16A34A;
-  --color-success-dark: #166534;
-  --color-success-light: #22C55E;
-  --color-success-pale: #DCFCE7;
+  /* ── Success (gains) — bleu-vert ── */
+  --color-success: #00B8D9;
+  --color-success-dark: #00A0B8;
+  --color-success-light: #00D4F5;
+  --color-success-pale: rgba(0, 184, 217, 0.12);
 
-  /* ── Warning / VIP — jaune/or ── */
-  --color-warning: #FACC15;
-  --color-warning-pale: #FEF9C3;
-  --color-vip: #FACC15;
-  --color-vip-glow: rgba(250, 204, 21, 0.4);
+  /* ── Warning / VIP — or ── */
+  --color-warning: #FFC107;
+  --color-warning-pale: rgba(255, 193, 7, 0.12);
+  --color-vip: #FFC107;
+  --color-vip-glow: rgba(255, 193, 7, 0.4);
 
   /* ── Danger — rouge ── */
   --color-danger: #DC2626;
   --color-danger-light: #EF4444;
-  --color-danger-pale: #FEE2E2;
+  --color-danger-pale: rgba(220, 38, 38, 0.12);
 
-  /* ── Bleu accent (liens, CTA secondaires) ── */
-  --color-accent: #1D4ED8;
-  --color-accent-light: #60A5FA;
-  --color-accent-glow: rgba(29, 78, 216, 0.35);
+  /* ── Bleu accent (legacy) ── */
+  --color-accent: #00B8D9;
+  --color-accent-light: #00D4F5;
+  --color-accent-glow: rgba(0, 184, 217, 0.35);
 
   /* ── Legacy compat (mappés sur nouvelle palette) ── */
-  --color-neon: #16A34A;
-  --color-neon-glow: rgba(22, 163, 74, 0.35);
-  --color-neon-green: #16A34A;
-  --color-emerald: #16A34A;
-  --color-emerald-soft: #22C55E;
-  --color-midnight: #020617;
-  --color-edge: #E5E7EB;
-  --color-panel: #F3F4F6;
-  --color-rose: #FACC15;
-  --color-linebet: #16A34A;
-  --color-star888: #FACC15;
-  --color-gold: #FACC15;
-  --color-gold-light: #FDE047;
+  --color-neon: #00B8D9;
+  --color-neon-glow: rgba(0, 184, 217, 0.35);
+  --color-neon-green: #00B8D9;
+  --color-emerald: #00B8D9;
+  --color-emerald-soft: #00D4F5;
+  --color-midnight: #1A202C;
+  --color-edge: rgba(255, 255, 255, 0.08);
+  --color-panel: #2D3748;
+  --color-rose: #FFC107;
+  --color-linebet: #00B8D9;
+  --color-star888: #FFC107;
+  --color-gold: #FFC107;
+  --color-gold-light: #FFD54F;
   --color-lose: #DC2626;
 
   /* ── Text ── */
-  --color-text-primary: #020617;   /* texte principal sur fond clair */
-  --color-text-secondary: #6B7280; /* gris moyen */
-  --color-text-muted: #9CA3AF;
-  --color-text-tertiary: #4B5563;
-  --color-text-on-dark: #FFFFFF;   /* texte sur fond foncé */
-  --color-text-on-dark-secondary: #E5E7EB;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #A0AEC0;
+  --color-text-muted: #A0AEC0;
+  --color-text-tertiary: #718096;
+  --color-text-on-dark: #FFFFFF;
+  --color-text-on-dark-secondary: #A0AEC0;
 
   /* ── Gradients ── */
-  --grad-primary: linear-gradient(135deg, #16A34A 0%, #22C55E 100%);
-  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(22,163,74,0.12) 0%, transparent 60%),
-               radial-gradient(50% 50% at 85% 10%, rgba(250,204,21,0.08) 0%, transparent 60%);
+  --grad-primary: linear-gradient(135deg, #00B8D9 0%, #00D4F5 100%);
+  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(0,184,217,0.12) 0%, transparent 60%),
+               radial-gradient(50% 50% at 85% 10%, rgba(255,193,7,0.08) 0%, transparent 60%);
 
   /* ── Fonts ── */
-  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-display: 'Montserrat', system-ui, sans-serif;
+  --font-body: 'Open Sans', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   /* ── Shadows ── */
-  --shadow-card: 0 1px 2px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.1);
-  --shadow-cta: 0 0 0 1px rgba(22,163,74,.3), 0 8px 32px rgba(22,163,74,.2);
+  --shadow-card: 0 1px 2px rgba(0,0,0,0.3), 0 8px 30px rgba(0,0,0,0.4);
+  --shadow-cta: 0 0 0 1px rgba(0,184,217,.3), 0 8px 32px rgba(0,184,217,.2);
   --shadow-glass: 0 1px 0 rgba(255,255,255,0.05) inset, 0 8px 30px rgba(0,0,0,0.3);
 }
 
@@ -112,19 +112,28 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 body {
-  background: #FFFFFF;
-  color: var(--color-text-primary);
-  font-family: var(--font-body);
+  background: #1A202C;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 184, 217, 0.10) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(255, 193, 7, 0.06) 0%, transparent 40%);
+  background-attachment: fixed;
+  color: #FFFFFF;
+  font-family: 'Open Sans', system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-weight: 700;
 }
 
 /* Subtle grid pattern */

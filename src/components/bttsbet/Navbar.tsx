@@ -45,25 +45,25 @@ export default function Navbar() {
     <nav
       className="sticky top-0 z-50 transition-all duration-300"
       style={{
-        backgroundColor: '#020617',
-        borderBottom: '1px solid rgba(22, 163, 74, 0.15)',
+        backgroundColor: '#1A202C',
+        borderBottom: '1px solid rgba(0, 184, 217, 0.15)',
       }}
     >
       <div className="max-w-[440px] sm:max-w-2xl mx-auto px-4">
         <div className="flex items-center justify-between h-14 gap-2">
-          {/* Logo — vert #16A34A */}
+          {/* Logo — vert #00B8D9 */}
           <a
             href="/"
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); setIsOpen(false) }}
             className="flex items-center gap-2 flex-shrink-0"
             aria-label="BTTSPredict — Retour en haut"
           >
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#16A34A' }}>
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#00B8D9' }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 3v18h18" /><path d="M7 14l4-4 4 4 5-5" />
               </svg>
             </div>
-            <span className="text-base font-bold tracking-tight" style={{ color: '#16A34A' }}>
+            <span className="text-base font-bold tracking-tight" style={{ color: '#00B8D9' }}>
               BTTSPredict
             </span>
           </a>
@@ -76,7 +76,7 @@ export default function Navbar() {
                 onClick={() => scrollToSection(link.scrollTarget!)}
                 className="text-sm font-medium transition-colors"
                 style={{ color: '#FFFFFF' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#22C55E'}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#00D4F5'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#FFFFFF'}
               >
                 {link.label}
@@ -91,25 +91,25 @@ export default function Navbar() {
               onClick={copyCode}
               className="px-2.5 py-1.5 rounded-lg text-[11px] font-mono font-bold transition-colors"
               style={{
-                backgroundColor: '#DCFCE7',
-                border: '1px solid #16A34A',
-                color: '#166534',
+                backgroundColor: 'rgba(0, 184, 217, 0.12)',
+                border: '1px solid #00B8D9',
+                color: '#00A0B8',
               }}
             >
               {copied ? '✓' : SITE.promoCode}
             </button>
 
-            {/* CTA — Desktop only : Voir les pronostics du jour (vert #16A34A) */}
+            {/* CTA — Desktop only : Voir les pronostics du jour (vert #00B8D9) */}
             <button
               onClick={() => scrollToSection('free-predictions')}
               className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-[8px] text-sm font-bold transition-colors"
               style={{
-                backgroundColor: '#16A34A',
+                backgroundColor: '#00B8D9',
                 color: '#FFFFFF',
                 border: 'none',
               }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#22C55E'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#16A34A'}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#00D4F5'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#00B8D9'}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10" />
@@ -122,7 +122,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg"
-              style={{ background: '#F3F4F6' }}
+              style={{ background: '#2D3748' }}
               aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
               aria-expanded={isOpen}
             >
@@ -147,7 +147,7 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
             className="md:hidden overflow-hidden"
-            style={{ backgroundColor: '#020617', borderTop: '1px solid #E5E7EB' }}
+            style={{ backgroundColor: '#1A202C', borderTop: '1px solid #A0AEC0' }}
           >
             <div className="px-4 py-4 space-y-1">
               {NAV_LINKS.map((link) => (
@@ -156,7 +156,7 @@ export default function Navbar() {
                   onClick={() => link.scrollTarget && scrollToSection(link.scrollTarget)}
                   className="block w-full text-left py-3 px-3 rounded-lg text-sm font-medium transition-colors"
                   style={{ color: '#FFFFFF' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(22, 163, 74, 0.08)'; e.currentTarget.style.color = '#22C55E' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(0, 184, 217, 0.08)'; e.currentTarget.style.color = '#00D4F5' }}
                   onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#FFFFFF' }}
                 >
                   {link.label}
@@ -167,12 +167,12 @@ export default function Navbar() {
               <div className="pt-3 grid grid-cols-2 gap-2">
                 <a href={AFFILIATE.linebet} rel="sponsored noopener" target="_blank"
                   className="flex items-center justify-center px-3 py-2.5 rounded-[8px] text-xs font-bold transition-colors"
-                  style={{ backgroundColor: '#16A34A', color: '#FFFFFF', border: 'none' }}>
+                  style={{ backgroundColor: '#00B8D9', color: '#FFFFFF', border: 'none' }}>
                   Linebet
                 </a>
                 <a href={AFFILIATE.star888} rel="sponsored noopener" target="_blank"
                   className="flex items-center justify-center px-3 py-2.5 rounded-[8px] text-xs font-bold transition-colors"
-                  style={{ backgroundColor: '#FACC15', color: '#020617', border: 'none' }}>
+                  style={{ backgroundColor: '#FFC107', color: '#1A202C', border: 'none' }}>
                   888starz
                 </a>
               </div>

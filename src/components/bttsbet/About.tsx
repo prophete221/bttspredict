@@ -89,8 +89,8 @@ export default function About() {
           {STATS.map((stat, i) => (
             <motion.div key={stat.label} variants={staggerChildFadeUp} className="stat-tile">
               <div className="text-2xl mb-1">{stat.icon}</div>
-              <div className="text-xl sm:text-2xl font-bold text-gray-900 tabular-nums">{stat.value}</div>
-              <div className="text-[10px] text-gray-600 uppercase tracking-widest font-medium mt-1">
+              <div className="text-xl sm:text-2xl font-bold text-white tabular-nums">{stat.value}</div>
+              <div className="text-[10px] text-gray-400 uppercase tracking-widest font-medium mt-1">
                 {stat.label}
               </div>
             </motion.div>
@@ -105,8 +105,8 @@ export default function About() {
           className="squircle-lg p-6 mb-12"
         >
           <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
-            <h3 className="text-lg font-bold text-gray-900">Présence panafricaine</h3>
-            <span className="text-xs text-gray-600">{COUNTRIES.length} pays · expansion continue</span>
+            <h3 className="text-lg font-bold text-white">Présence panafricaine</h3>
+            <span className="text-xs text-gray-400">{COUNTRIES.length} pays · expansion continue</span>
           </div>
           <div className="flex flex-wrap gap-2">
             {COUNTRIES.map(country => (
@@ -153,11 +153,11 @@ export default function About() {
                     <span className="text-[10px] font-mono text-success font-bold uppercase tracking-widest">
                       {item.quarter}
                     </span>
-                    <h3 className="text-base font-bold text-gray-900 mt-1">{item.title}</h3>
+                    <h3 className="text-base font-bold text-white mt-1">{item.title}</h3>
                   </div>
                   <span className={`badge ${status.class} text-[9px]`}>{status.label}</span>
                 </div>
-                <p className="text-xs text-gray-600 leading-relaxed">{item.description}</p>
+                <p className="text-xs text-gray-400 leading-relaxed">{item.description}</p>
               </motion.div>
             )
           })}

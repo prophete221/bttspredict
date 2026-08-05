@@ -75,7 +75,7 @@ function buildBreadcrumbJsonLd() {
    ────────────────────────────────────────────────────────────── */
 export default function FailleFifaLinebetPage() {
   return (
-    <div className="min-h-screen bg-white flex flex-col text-gray-900">
+    <div className="min-h-screen bg-dark-800 flex flex-col text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildArticleJsonLd()) }}
@@ -97,12 +97,12 @@ export default function FailleFifaLinebetPage() {
       <main id="main-content" className="flex-1 relative z-10">
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="max-w-3xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-gray-600 flex-wrap">
+          <ol className="flex items-center gap-2 text-sm text-gray-400 flex-wrap">
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
-            <li aria-hidden="true" className="text-gray-700">/</li>
+            <li aria-hidden="true" className="text-gray-300">/</li>
             <li><a href="/blog" className="hover:text-emerald transition-colors">Blog</a></li>
-            <li aria-hidden="true" className="text-gray-700">/</li>
-            <li><span className="text-gray-600" aria-current="page">Faille FIFA Linebet & 888starz</span></li>
+            <li aria-hidden="true" className="text-gray-300">/</li>
+            <li><span className="text-gray-400" aria-current="page">Faille FIFA Linebet & 888starz</span></li>
           </ol>
         </nav>
 
@@ -121,12 +121,12 @@ export default function FailleFifaLinebetPage() {
                 Détecter les Cotes Erronées
               </span> en 2026
             </h1>
-            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+            <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
               Les matchs FIFA virtuels sur Linebet et 888starz présentent des anomalies de cotes exploitables.
               Découvrez comment ces cotes sont calculées, comment détecter les value bets, et pourquoi
               notre équipe est votre meilleur allié pour scanner ces opportunités.
             </p>
-            <div className="flex items-center gap-4 mt-4 text-sm text-gray-600">
+            <div className="flex items-center gap-4 mt-4 text-sm text-gray-400">
               <time dateTime="2026-04-01">1er avril 2026</time>
               <span>•</span>
               <span>13 min de lecture</span>
@@ -155,14 +155,14 @@ export default function FailleFifaLinebetPage() {
               >
                 Qu&apos;est-ce que l&apos;anomalie FIFA sur Linebet ?
               </h2>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Linebet propose des paris sur des matchs de football virtuel FIFA — des simulations informatiques
                 où deux équipes contrôlées par l&apos;ordinateur s&apos;affrontent. Ces matchs durent environ 3 à 5 minutes
                 en temps réel et se déroulent 24h/24, offrant un flux continu de paris. Contrairement au football
                 réel, les résultats sont générés par un algorithme (pseudo-aléatoire avec des poids de probabilité),
                 ce qui crée des patterns statistiques exploitables.
               </p>
-              <p className="text-gray-600 leading-relaxed mt-4">
+              <p className="text-gray-400 leading-relaxed mt-4">
                 L&apos;« anomalie FIFA » que nous avons identifiée n&apos;est pas une faille de sécurité ou un hack.
                 C&apos;est une inefficience de marché : les cotes proposées par Linebet pour certains marchés FIFA
                 ne reflètent pas toujours la probabilité réelle des événements. Par exemple, le marché Over 2,5
@@ -180,11 +180,11 @@ export default function FailleFifaLinebetPage() {
               >
                 Comment les cotes FIFA sont-elles calculées ?
               </h2>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Comprendre comment les bookmakers fixent les cotes FIFA est essentiel pour repérer les
                 inefficiences. Le processus diffère fondamentalement du football réel :
               </p>
-              <ul className="space-y-3 mt-4 text-gray-600 leading-relaxed">
+              <ul className="space-y-3 mt-4 text-gray-400 leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-purple-400 font-bold mt-0.5">▸</span>
                   <span><strong className="text-white">Ratings des équipes</strong> — Chaque équipe FIFA a un rating
@@ -225,11 +225,11 @@ export default function FailleFifaLinebetPage() {
               >
                 Détecter les value bets FIFA : la méthode
               </h2>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Un value bet est un pari où la cote proposée par le bookmaker est supérieure à la cote
                 « juste » basée sur la probabilité réelle de l&apos;événement. Voici notre méthode en 4 étapes :
               </p>
-              <ol className="space-y-4 mt-4 text-gray-600 leading-relaxed">
+              <ol className="space-y-4 mt-4 text-gray-400 leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-purple-400 font-bold mt-0.5 text-lg">1.</span>
                   <span>
@@ -277,15 +277,15 @@ export default function FailleFifaLinebetPage() {
               >
                 Utiliser l&apos;IA pour scanner les cotes FIFA
               </h2>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Le problème majeur de la méthode manuelle est le temps. Les matchs FIFA se déroulent toutes
                 les 3 à 5 minutes, 24h/24. Il est impossible de suivre manuellement tous les marchés.
                 C&apos;est là que l&apos;intervention de l&apos;IA devient décisive.
               </p>
-              <p className="text-gray-600 leading-relaxed mt-4">
+              <p className="text-gray-400 leading-relaxed mt-4">
                 Le modèle IA de BTTSPredict analyse les marchés FIFA en temps réel sur Linebet et :
               </p>
-              <ul className="space-y-2 mt-3 text-gray-600 leading-relaxed">
+              <ul className="space-y-2 mt-3 text-gray-400 leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-emerald">🤖</span>
                   <span>Scanne automatiquement les cotes de tous les matchs FIFA à venir</span>
@@ -325,12 +325,12 @@ export default function FailleFifaLinebetPage() {
               >
                 Gestion du risque : règles essentielles
               </h2>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Même avec un avantage statistique, les paris FIFA comportent des risques. Le caractère
                 rapide des matchs (3-5 minutes) peut entraîner un rythme de pari excessif. Voici nos
                 règles de gestion du risque spécifiques au marché FIFA :
               </p>
-              <ol className="space-y-3 mt-4 text-gray-600 leading-relaxed">
+              <ol className="space-y-3 mt-4 text-gray-400 leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-gold font-bold mt-0.5">1.</span>
                   <span><strong className="text-white">Limitez le nombre de paris par heure</strong> — Maximum 4 paris
@@ -376,7 +376,7 @@ export default function FailleFifaLinebetPage() {
                   <h3 className="text-emerald font-bold mb-3" style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif" }}>
                     ✅ Avantages FIFA
                   </h3>
-                  <ul className="space-y-2 text-sm text-gray-600 leading-relaxed">
+                  <ul className="space-y-2 text-sm text-gray-400 leading-relaxed">
                     <li>• Disponible 24h/24, 7j/7</li>
                     <li>• Résultats en 3-5 minutes</li>
                     <li>• Plus grand volume de données (plusieurs matchs par heure)</li>
@@ -389,7 +389,7 @@ export default function FailleFifaLinebetPage() {
                   <h3 className="text-lose font-bold mb-3" style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif" }}>
                     ❌ Inconvénients FIFA
                   </h3>
-                  <ul className="space-y-2 text-sm text-gray-600 leading-relaxed">
+                  <ul className="space-y-2 text-sm text-gray-400 leading-relaxed">
                     <li>• Risque de pari compulsif (rythme rapide)</li>
                     <li>• Cotes parfois ajustées rapidement par le bookmaker</li>
                     <li>• Marché moins liquide (limites de mise plus basses)</li>
@@ -409,19 +409,19 @@ export default function FailleFifaLinebetPage() {
               >
                 Jeu responsable : un rappel essentiel
               </h2>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Nous tenons à être parfaitement clairs : il n&apos;existe pas de « hack » ou de « faille technique »
                 qui garantit des gains. Le terme « faille » dans cet article désigne des inefficiences statistiques
                 temporaires du marché, pas une vulnérabilité du système. Les résultats passés, même exceptionnels,
                 ne garantissent jamais les résultats futurs.
               </p>
-              <p className="text-gray-600 leading-relaxed mt-4">
+              <p className="text-gray-400 leading-relaxed mt-4">
                 Si vous ressentez le besoin de parier de manière compulsive, si vous cachez vos pertes à vos
                 proches, ou si les paris affectent votre vie quotidienne, c&apos;est le signe d&apos;un problème.
                 N&apos;hésitez pas à contacter une ligne d&apos;écoute : en France au 09-74-75-13-13, au Cameroun via le
                 MINSANT, ou au Sénégal au 33 867 22 22. Le jeu doit rester un loisir, pas une nécessité.
               </p>
-              <p className="text-gray-600 leading-relaxed mt-4">
+              <p className="text-gray-400 leading-relaxed mt-4">
                 Pour approfondir la gestion de votre capital de jeu, consultez notre guide sur la
                 <a href="/blog/gestion-bankroll-paris-sportifs" className="text-emerald hover:underline"> gestion de bankroll aux paris sportifs</a>.
                 Et pour comprendre comment analyser les matchs réels, notre article sur
@@ -438,7 +438,7 @@ export default function FailleFifaLinebetPage() {
               >
                 Pronostics FIFA en temps réel
               </h2>
-              <p className="text-gray-600 leading-relaxed mb-6 max-w-lg mx-auto">
+              <p className="text-gray-400 leading-relaxed mb-6 max-w-lg mx-auto">
                 Notre équipe scanne les marchés FIFA Linebet 24h/24 et détecte les cotes erronées en temps réel.
                 Consultez nos pronostics et commencez avec le code VISION221.
               </p>

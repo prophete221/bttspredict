@@ -85,7 +85,7 @@ export default function AgeVerification() {
               </button>
             </div>
 
-            <p className="text-[11px] text-gray-600 mt-6">
+            <p className="text-[11px] text-gray-400 mt-6">
               En confirmant, vous reconnaissez avoir l&apos;âge légal pour consulter du contenu lié aux paris sportifs.
             </p>
           </motion.div>

@@ -6,25 +6,25 @@ import { AFFILIATE } from '@/lib/constants'
 
 // ─── Palette BTTSPredict 2026 — produit data + paris sportifs ───
 const C = {
-  black:        '#020617',
-  darkGreen:    '#166534',
-  green:        '#16A34A',
-  greenLight:   '#22C55E',
-  greenPale:    '#DCFCE7',
-  grayDark:     '#0F172A',
-  grayMid:      '#E5E7EB',   // gris clair pour lisibilité sur fond sombre
-  grayLight:    '#F3F4F6',
+  black:        '#1A202C',
+  darkGreen:    '#1A202C',
+  green:        '#00B8D9',
+  greenLight:   '#00D4F5',
+  greenPale:    'rgba(0, 184, 217, 0.12)',
+  grayDark:     '#1A202C',
+  grayMid:      '#A0AEC0',
+  grayLight:    '#E5E7EB',
   white:        '#FFFFFF',
-  gold:         '#FACC15',
-  blue:         '#1D4ED8',
+  gold:         '#FFC107',
+  blue:         '#00B8D9',
 }
 
 /**
  * Hero (refonte palette 2026-08-05)
- * - Fond : dégradé vert foncé #166534 → noir #020617
+ * - Fond : dégradé vert foncé #00A0B8 → noir #1A202C
  * - H1 : "N°1 mondial des prédictions BTTS et Over 2.5" en blanc
- * - Badge : 84,5% vérifié en fond vert secondaire #22C55E
- * - CTA principal : vert #16A34A
+ * - Badge : 84,5% vérifié en fond vert secondaire #00D4F5
+ * - CTA principal : vert #00B8D9
  * - CTA secondaire : transparent, bordure vert, texte vert
  */
 export default function Hero() {
@@ -35,14 +35,14 @@ export default function Hero() {
       ref={sectionRef}
       className="relative overflow-hidden"
       style={{
-        background: `linear-gradient(180deg, ${C.darkGreen} 0%, ${C.black} 100%)`,
+        background: `linear-gradient(180deg, #2D3748 0%, #1A202C 100%)`,
         paddingTop: '40px',
         paddingBottom: '40px',
       }}
     >
       <div className="relative z-10 max-w-[440px] mx-auto px-4 flex flex-col gap-5">
 
-        {/* ═══ BADGE PREUVE — 84,5% vérifié (vert secondaire #22C55E) ═══ */}
+        {/* ═══ BADGE PREUVE — 84,5% vérifié (vert secondaire #00D4F5) ═══ */}
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={isVisible ? { opacity: 1, y: 0 } : undefined}
@@ -97,7 +97,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-col gap-2.5"
         >
-          {/* CTA principal : Voir les pronostics d'aujourd'hui (vert #16A34A) */}
+          {/* CTA principal : Voir les pronostics d'aujourd'hui (vert #00B8D9) */}
           <motion.button
             whileHover={{ scale: 1.02, boxShadow: `0 8px 30px ${C.green}66` }}
             whileTap={{ scale: 0.98 }}
@@ -144,7 +144,7 @@ export default function Hero() {
           </motion.a>
         </motion.div>
 
-        {/* ═══ MINI-TEXTE PORTÉE MONDIALE (gris moyen #6B7280) ═══ */}
+        {/* ═══ MINI-TEXTE PORTÉE MONDIALE (gris moyen #A0AEC0) ═══ */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : undefined}

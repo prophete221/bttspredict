@@ -75,7 +75,7 @@ function buildBreadcrumbJsonLd() {
    ────────────────────────────────────────────────────────────── */
 export default function CommentAnalyserMatchBttsPage() {
   return (
-    <div className="min-h-screen bg-white flex flex-col text-gray-900">
+    <div className="min-h-screen bg-dark-800 flex flex-col text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildArticleJsonLd()) }}
@@ -97,12 +97,12 @@ export default function CommentAnalyserMatchBttsPage() {
       <main id="main-content" className="flex-1 relative z-10">
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="max-w-3xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-gray-600 flex-wrap">
+          <ol className="flex items-center gap-2 text-sm text-gray-400 flex-wrap">
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
-            <li aria-hidden="true" className="text-gray-700">/</li>
+            <li aria-hidden="true" className="text-gray-300">/</li>
             <li><a href="/blog" className="hover:text-emerald transition-colors">Blog</a></li>
-            <li aria-hidden="true" className="text-gray-700">/</li>
-            <li><span className="text-gray-600" aria-current="page">Analyser un Match BTTS</span></li>
+            <li aria-hidden="true" className="text-gray-300">/</li>
+            <li><span className="text-gray-400" aria-current="page">Analyser un Match BTTS</span></li>
           </ol>
         </nav>
 
@@ -119,12 +119,12 @@ export default function CommentAnalyserMatchBttsPage() {
               Comment Analyser un Match pour le{' '}
               <span className="text-emerald neon-glow">BTTS</span> ? Guide Complet 2026
             </h1>
-            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+            <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
               L&apos;analyse d&apos;un match pour le marché BTTS va bien au-delà de regarder les statistiques basiques.
               Découvrez les facteurs clés, la méthodologie pas-à-pas et comment l&apos;IA peut vous donner un avantage
               décisif dans vos pronostics.
             </p>
-            <div className="flex items-center gap-4 mt-4 text-sm text-gray-600">
+            <div className="flex items-center gap-4 mt-4 text-sm text-gray-400">
               <time dateTime="2026-03-20">20 mars 2026</time>
               <span>•</span>
               <span>14 min de lecture</span>
@@ -142,7 +142,7 @@ export default function CommentAnalyserMatchBttsPage() {
               >
                 Les 6 facteurs clés de l&apos;analyse BTTS
               </h2>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Un pronostic BTTS fiable repose sur l&apos;examen minutieux de six facteurs fondamentaux. Chaque facteur
                 pris isolément a une valeur prédictive limitée, mais combinés, ils forment une image claire de la
                 probabilité que les deux équipes marquent. Voici le détail de chacun :
@@ -157,16 +157,16 @@ export default function CommentAnalyserMatchBttsPage() {
               >
                 1. Les Expected Goals (xG) : l&apos;indicateur roi
               </h2>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Les Expected Goals, ou buts attendus, mesurent la qualité des occasions de but créées par une équipe.
                 Contrairement au nombre de buts réels qui peut être trompeur (un but chanceux sur un tir à 30 mètres
                 compte autant qu&apos;une finition de près), les xG pondèrent chaque tir en fonction de la probabilité
                 qu&apos;il se transforme en but, basée sur des milliers de situations similaires.
               </p>
-              <p className="text-gray-600 leading-relaxed mt-4">
+              <p className="text-gray-400 leading-relaxed mt-4">
                 <strong className="text-white">Comment utiliser les xG pour le BTTS :</strong>
               </p>
-              <ul className="space-y-2 mt-3 text-gray-600 leading-relaxed">
+              <ul className="space-y-2 mt-3 text-gray-400 leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-emerald font-bold mt-0.5">▸</span>
                   <span>Un xG offensif supérieur à 1.3 par match pour les deux équipes = signal positif pour le BTTS</span>
@@ -202,7 +202,7 @@ export default function CommentAnalyserMatchBttsPage() {
               >
                 2. Les statistiques défensives : le côté oublié
               </h2>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 La plupart des parieurs BTTS se concentrent sur les statistiques offensives et oublient que
                 le BTTS nécessite aussi que les défenses laissent passer des buts. Voici les métriques défensives
                 essentielles :
@@ -210,28 +210,28 @@ export default function CommentAnalyserMatchBttsPage() {
               <div className="grid gap-3 mt-4 sm:grid-cols-2">
                 <div className="p-4 rounded-lg bg-panel/30 border border-edge/30">
                   <h3 className="text-white font-semibold text-sm mb-1">Clean Sheets</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-400 text-sm leading-relaxed">
                     Le pourcentage de matchs sans encaisser. Moins de 20% de clean sheets = défense vulnérable.
                     Plus de 40% = défense solide, le BTTS est risqué.
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-panel/30 border border-edge/30">
                   <h3 className="text-white font-semibold text-sm mb-1">Buts encaissés/match</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-400 text-sm leading-relaxed">
                     Plus de 1.3 buts encaissés par match = signal BTTS positif. Entre 0.8 et 1.3 = neutre.
                     Moins de 0.8 = défense solide, à éviter pour le BTTS.
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-panel/30 border border-edge/30">
                   <h3 className="text-white font-semibold text-sm mb-1">Tirs cadrés concédés</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-400 text-sm leading-relaxed">
                     Plus de 5 tirs cadrés concédés par match = l&apos;adversaire a des occasions régulières.
                     Un indicateur parfois plus fiable que les buts encaissés.
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-panel/30 border border-edge/30">
                   <h3 className="text-white font-semibold text-sm mb-1">xG contre</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-400 text-sm leading-relaxed">
                     L&apos;xG concédé mesure la qualité des occasions offertes à l&apos;adversaire. Supérieur à 1.2 xG
                     contre par match = signal fort pour le BTTS adverse.
                   </p>
@@ -247,12 +247,12 @@ export default function CommentAnalyserMatchBttsPage() {
               >
                 3. Les face-à-face (Head-to-Head)
               </h2>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 L&apos;historique des confrontations entre deux équipes offre des indices précieux, mais il faut
                 l&apos;utiliser avec nuance. Les face-à-face récents (2-3 dernières saisons) sont plus pertinents
                 que l&apos;historique complet, car les effectifs et les tactiques changent.
               </p>
-              <ul className="space-y-2 mt-4 text-gray-600 leading-relaxed">
+              <ul className="space-y-2 mt-4 text-gray-400 leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-emerald font-bold mt-0.5">▸</span>
                   <span>Si les 5 derniers H2H ont produit 4+ matchs BTTS, la tendance est forte</span>
@@ -276,21 +276,21 @@ export default function CommentAnalyserMatchBttsPage() {
               >
                 4. La motivation des équipes
               </h2>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 La motivation est un facteur souvent sous-estimé mais crucial pour le BTTS. Une équipe qui
                 doit absolument gagner pour se sauver de la relégation ou se qualifier pour l&apos;Europe va jouer
                 de manière plus ouverte et offensée, augmentant les chances de buts des deux côtés.
               </p>
               <div className="mt-4 overflow-x-auto">
                 <table className="w-full text-sm text-left border border-edge/50 rounded-lg overflow-hidden">
-                  <thead className="bg-panel/70 text-gray-700">
+                  <thead className="bg-panel/70 text-gray-300">
                     <tr>
                       <th className="px-4 py-3 font-semibold">Contexte</th>
                       <th className="px-4 py-3 font-semibold">Impact BTTS</th>
                       <th className="px-4 py-3 font-semibold">Explication</th>
                     </tr>
                   </thead>
-                  <tbody className="text-gray-600">
+                  <tbody className="text-gray-400">
                     <tr className="border-t border-edge/30">
                       <td className="px-4 py-3 text-white">Lutte pour le maintien</td>
                       <td className="px-4 py-3"><span className="text-emerald font-semibold">+ + +</span></td>
@@ -324,11 +324,11 @@ export default function CommentAnalyserMatchBttsPage() {
               >
                 5. Blessures et suspensions
               </h2>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 L&apos;absence d&apos;un joueur clé peut radicalement changer la dynamique d&apos;un match. Pour l&apos;analyse BTTS,
                 concentrez-vous sur deux catégories de blessés :
               </p>
-              <ul className="space-y-2 mt-3 text-gray-600 leading-relaxed">
+              <ul className="space-y-2 mt-3 text-gray-400 leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-lose font-bold mt-0.5">⚡</span>
                   <span><strong className="text-white">Blessés en attaque</strong> — L&apos;absence du meilleur buteur
@@ -352,12 +352,12 @@ export default function CommentAnalyserMatchBttsPage() {
               >
                 6. Comment l&apos;IA révolutionne l&apos;analyse BTTS
               </h2>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 L&apos;analyse statistique de BTTSPredict analyse simultanément plus de 200 variables pour chaque match,
                 ce qu&apos;un humain ne peut pas faire manuellement. Notre modèle de machine learning est entraîné sur
                 plus de 50 000 matchs historiques et intègre des données en temps réel :
               </p>
-              <ul className="space-y-2 mt-3 text-gray-600 leading-relaxed">
+              <ul className="space-y-2 mt-3 text-gray-400 leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-emerald">🤖</span>
                   <span>Modèles xG avancés qui prennent en compte le placement des joueurs, la pression défensive et l&apos;angle de tir</span>
@@ -389,11 +389,11 @@ export default function CommentAnalyserMatchBttsPage() {
               >
                 Checklist pratique avant de parier BTTS
               </h2>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 Imprimez ou mémorisez cette checklist et consultez-la avant chaque pari BTTS :
               </p>
               <div className="mt-4 p-5 rounded-lg bg-panel/50 border border-emerald/30">
-                <ul className="space-y-2.5 text-sm text-gray-600 leading-relaxed">
+                <ul className="space-y-2.5 text-sm text-gray-400 leading-relaxed">
                   <li className="flex items-start gap-2">
                     <span className="text-emerald">☐</span>
                     <span>Les deux équipes marquent dans plus de <strong className="text-white">55% de leurs matchs</strong> cette saison</span>
@@ -427,7 +427,7 @@ export default function CommentAnalyserMatchBttsPage() {
                     <span>La cote BTTS est supérieure à la probabilité estimée par l&apos;IA (<strong className="text-white">value bet</strong>)</span>
                   </li>
                 </ul>
-                <p className="text-sm text-gray-600 mt-4">
+                <p className="text-sm text-gray-400 mt-4">
                   Si 6+ critères sont remplis → pariez avec confiance (2-3 unités). Si 4-5 → pari standard (1 unité).
                   Si 3 ou moins → évitez ce match.
                 </p>
@@ -442,7 +442,7 @@ export default function CommentAnalyserMatchBttsPage() {
               >
                 Laissez l&apos;IA analyser pour vous
               </h2>
-              <p className="text-gray-600 leading-relaxed mb-6 max-w-lg mx-auto">
+              <p className="text-gray-400 leading-relaxed mb-6 max-w-lg mx-auto">
                 Notre équipe vérifie automatiquement tous ces critères sur 50+ championnats chaque jour.
                 Consultez nos pronostics BTTS et commencez à parier intelligemment.
               </p>

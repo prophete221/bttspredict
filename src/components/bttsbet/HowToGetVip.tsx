@@ -87,19 +87,19 @@ export default function HowToGetVip() {
         {/* Header */}
         <div className="text-center mb-6">
           <span className="eyebrow">🔓 Accès VIP</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-3 mb-3">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 mb-3">
             Comment <span className="text-gold">obtenir le VIP</span> ?
           </h2>
-          <p className="text-gray-600 text-sm max-w-md mx-auto">
+          <p className="text-gray-400 text-sm max-w-md mx-auto">
             4 étapes simples pour débloquer 20+ pronostics premium par jour. Activation en moins de 30 minutes.
           </p>
           {/* Badge portée mondiale */}
           <div
             className="inline-flex items-center gap-1.5 mt-3 px-3 py-1.5 rounded-full text-[11px]"
             style={{
-              background: 'rgba(22, 163, 74, 0.06)',
-              border: '1px solid rgba(22, 163, 74, 0.20)',
-              color: '#16A34A',
+              background: 'rgba(0, 184, 217, 0.06)',
+              border: '1px solid rgba(0, 184, 217, 0.20)',
+              color: '#00B8D9',
             }}
           >
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -121,15 +121,15 @@ export default function HowToGetVip() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
               className="flex gap-4 p-4 rounded-xl"
-              style={{ background: 'rgba(15, 20, 36, 0.6)', border: '1px solid rgba(22, 163, 74, 0.08)' }}
+              style={{ background: 'rgba(15, 20, 36, 0.6)', border: '1px solid rgba(0, 184, 217, 0.08)' }}
             >
               {/* Numéro + icône */}
               <div className="flex-shrink-0">
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg"
                   style={{
-                    background: 'linear-gradient(135deg, #16A34A, #22C55E)',
-                    color: '#020617',
+                    background: 'linear-gradient(135deg, #00B8D9, #00D4F5)',
+                    color: '#1A202C',
                   }}
                 >
                   {step.num}
@@ -139,10 +139,10 @@ export default function HowToGetVip() {
               {/* Contenu */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
-                  <span style={{ color: '#16A34A' }}>{step.icon}</span>
-                  <h3 className="text-gray-900 font-bold text-sm sm:text-base">{step.title}</h3>
+                  <span style={{ color: '#00B8D9' }}>{step.icon}</span>
+                  <h3 className="text-white font-bold text-sm sm:text-base">{step.title}</h3>
                 </div>
-                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{step.desc}</p>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{step.desc}</p>
                 {step.cta && (
                   <a
                     href={step.cta.href}
@@ -151,9 +151,9 @@ export default function HowToGetVip() {
                     className="inline-flex items-center gap-1.5 mt-2 px-3 py-1.5 rounded-lg text-xs font-bold transition-all"
                     style={{
                       background: step.cta.color === 'emerald'
-                        ? 'linear-gradient(135deg, #16A34A, #166534)'
-                        : '#FACC15',
-                      color: '#020617',
+                        ? 'linear-gradient(135deg, #00B8D9, #00A0B8)'
+                        : '#FFC107',
+                      color: '#1A202C',
                     }}
                   >
                     {step.cta.label} →
@@ -172,13 +172,13 @@ export default function HowToGetVip() {
           transition={{ duration: 0.4 }}
           className="mb-10 p-5 rounded-xl text-center"
           style={{
-            background: 'linear-gradient(135deg, rgba(250, 204, 21, 0.08), rgba(22, 163, 74, 0.08))',
-            border: '1px solid rgba(250, 204, 21, 0.25)',
+            background: 'linear-gradient(135deg, rgba(255, 193, 7, 0.08), rgba(0, 184, 217, 0.08))',
+            border: '1px solid rgba(255, 193, 7, 0.25)',
           }}
         >
           <div className="text-2xl mb-2">⏱️</div>
-          <h3 className="text-gray-900 font-bold text-lg mb-1">Essai VIP 1 jour</h3>
-          <p className="text-gray-600 text-xs mb-4 max-w-sm mx-auto">
+          <h3 className="text-white font-bold text-lg mb-1">Essai VIP 1 jour</h3>
+          <p className="text-gray-400 text-xs mb-4 max-w-sm mx-auto">
             Pas sûr ? Teste l'accès VIP pendant 24h avec 5 pronostics premium. Aucun engagement.
           </p>
           <a
@@ -187,9 +187,9 @@ export default function HowToGetVip() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-all"
             style={{
-              background: 'linear-gradient(135deg, #FACC15, #FFA500)',
-              color: '#020617',
-              boxShadow: '0 4px 20px rgba(250, 204, 21, 0.3)',
+              background: 'linear-gradient(135deg, #FFC107, #FFA500)',
+              color: '#1A202C',
+              boxShadow: '0 4px 20px rgba(255, 193, 7, 0.3)',
             }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -201,24 +201,24 @@ export default function HowToGetVip() {
 
         {/* Mini FAQ VIP */}
         <div>
-          <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">FAQ VIP — Questions fréquentes</h3>
+          <h3 className="text-xl font-bold text-white mb-4 text-center">FAQ VIP — Questions fréquentes</h3>
           <div className="space-y-2">
             {VIP_FAQ.map((item, i) => (
               <div
                 key={i}
                 className="rounded-lg overflow-hidden"
-                style={{ background: 'rgba(15, 20, 36, 0.6)', border: '1px solid #F3F4F6' }}
+                style={{ background: 'rgba(15, 20, 36, 0.6)', border: '1px solid #2D3748' }}
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between p-4 text-left"
                 >
-                  <span className="text-gray-900 text-sm font-medium pr-3">{item.q}</span>
+                  <span className="text-white text-sm font-medium pr-3">{item.q}</span>
                   <span
                     className="flex-shrink-0 transition-transform"
                     style={{
                       transform: openFaq === i ? 'rotate(180deg)' : 'none',
-                      color: '#16A34A',
+                      color: '#00B8D9',
                     }}
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -232,7 +232,7 @@ export default function HowToGetVip() {
                     animate={{ height: 'auto', opacity: 1 }}
                     className="px-4 pb-4"
                   >
-                    <p className="text-gray-600 text-xs leading-relaxed">{item.a}</p>
+                    <p className="text-gray-400 text-xs leading-relaxed">{item.a}</p>
                   </motion.div>
                 )}
               </div>

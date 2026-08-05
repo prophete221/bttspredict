@@ -85,7 +85,7 @@ function buildBreadcrumbJsonLd() {
    ────────────────────────────────────────────────────────────── */
 export default function PolitiqueConfidentialitePage() {
   return (
-    <div className="min-h-screen bg-white flex flex-col text-gray-900">
+    <div className="min-h-screen bg-dark-800 flex flex-col text-white">
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -109,15 +109,15 @@ export default function PolitiqueConfidentialitePage() {
       <main id="main-content" className="flex-1 relative z-10">
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-gray-600">
+          <ol className="flex items-center gap-2 text-sm text-gray-400">
             <li>
               <a href="/" className="hover:text-emerald transition-colors">
                 Accueil
               </a>
             </li>
-            <li aria-hidden="true" className="text-gray-700">/</li>
+            <li aria-hidden="true" className="text-gray-300">/</li>
             <li>
-              <span className="text-gray-600" aria-current="page">Politique de Confidentialité</span>
+              <span className="text-gray-400" aria-current="page">Politique de Confidentialité</span>
             </li>
           </ol>
         </nav>
@@ -131,7 +131,7 @@ export default function PolitiqueConfidentialitePage() {
             >
               POLITIQUE DE <span className="text-emerald neon-glow">CONFIDENTIALITÉ</span>
             </h1>
-            <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Comment BTTSPredict collecte, utilise et protège vos données personnelles.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
@@ -151,7 +151,7 @@ export default function PolitiqueConfidentialitePage() {
                 >
                   1. Introduction
                 </h2>
-                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
                     La présente politique de confidentialité décrit les pratiques de BTTSPredict (ci-après « nous », « notre » ou « le site ») en matière de collecte, d&apos;utilisation, de stockage et de protection des données à caractère personnel des utilisateurs (ci-après « vous » ou « l&apos;utilisateur ») de notre site web accessible à l&apos;adresse{' '}
                     <a href={SITE_URL} className="text-emerald hover:text-emerald-soft transition-colors underline underline-offset-2">
@@ -175,7 +175,7 @@ export default function PolitiqueConfidentialitePage() {
                 >
                   2. Données collectées
                 </h2>
-                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
                     BTTSPredict collecte différents types de données dans le cadre de son fonctionnement et de l&apos;amélioration de ses services :
                   </p>
@@ -192,11 +192,11 @@ export default function PolitiqueConfidentialitePage() {
                   <p>
                     Nous utilisons les catégories de cookies suivantes :
                   </p>
-                  <ul className="list-disc list-inside space-y-1 ml-4 text-gray-600">
-                    <li><strong className="text-gray-700">Cookies strictement nécessaires :</strong> indispensables au fonctionnement du site (session, sécurité, consentement).</li>
-                    <li><strong className="text-gray-700">Cookies analytiques :</strong> permettent de comprendre comment les visiteurs utilisent le site (Google Analytics).</li>
-                    <li><strong className="text-gray-700">Cookies de fonctionnalité :</strong> mémorisent vos préférences (thème, langue, paramètres d&apos;affichage).</li>
-                    <li><strong className="text-gray-700">Cookies marketing/affiliation :</strong> utilisés pour le suivi des conversions et le programme d&apos;affiliation avec nos partenaires.</li>
+                  <ul className="list-disc list-inside space-y-1 ml-4 text-gray-400">
+                    <li><strong className="text-gray-300">Cookies strictement nécessaires :</strong> indispensables au fonctionnement du site (session, sécurité, consentement).</li>
+                    <li><strong className="text-gray-300">Cookies analytiques :</strong> permettent de comprendre comment les visiteurs utilisent le site (Google Analytics).</li>
+                    <li><strong className="text-gray-300">Cookies de fonctionnalité :</strong> mémorisent vos préférences (thème, langue, paramètres d&apos;affichage).</li>
+                    <li><strong className="text-gray-300">Cookies marketing/affiliation :</strong> utilisés pour le suivi des conversions et le programme d&apos;affiliation avec nos partenaires.</li>
                   </ul>
 
                   <h3 className="text-lg text-gold font-semibold mt-4 mb-2">2.3 Données de contact</h3>
@@ -214,17 +214,17 @@ export default function PolitiqueConfidentialitePage() {
                 >
                   3. Utilisation des données
                 </h2>
-                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
                     Les données collectées sont utilisées aux fins suivantes :
                   </p>
-                  <ul className="list-disc list-inside space-y-2 ml-4 text-gray-600">
-                    <li><strong className="text-gray-700">Fourniture du service :</strong> assurer le bon fonctionnement du site, afficher les pronostics et les contenus, garantir la sécurité et la stabilité de la plateforme.</li>
-                    <li><strong className="text-gray-700">Analyse et amélioration :</strong> comprendre les habitudes de navigation, mesurer l&apos;audience, identifier les pages les plus consultées et améliorer continuellement l&apos;expérience utilisateur.</li>
-                    <li><strong className="text-gray-700">Affiliation :</strong> suivre les clics sur les liens d&apos;affiliation vers nos partenaires (notamment Linebet) afin de comptabiliser les conversions et d&apos;optimiser nos partenariats.</li>
-                    <li><strong className="text-gray-700">Personnalisation :</strong> adapter le contenu affiché en fonction de vos préférences et de votre historique de navigation.</li>
-                    <li><strong className="text-gray-700">Sécurité :</strong> protéger le site contre les attaques, le spam, les accès non autorisés et les activités frauduleuses.</li>
-                    <li><strong className="text-gray-700">Obligations légales :</strong> respecter les exigences légales et réglementaires applicables, répondre aux demandes des autorités compétentes.</li>
+                  <ul className="list-disc list-inside space-y-2 ml-4 text-gray-400">
+                    <li><strong className="text-gray-300">Fourniture du service :</strong> assurer le bon fonctionnement du site, afficher les pronostics et les contenus, garantir la sécurité et la stabilité de la plateforme.</li>
+                    <li><strong className="text-gray-300">Analyse et amélioration :</strong> comprendre les habitudes de navigation, mesurer l&apos;audience, identifier les pages les plus consultées et améliorer continuellement l&apos;expérience utilisateur.</li>
+                    <li><strong className="text-gray-300">Affiliation :</strong> suivre les clics sur les liens d&apos;affiliation vers nos partenaires (notamment Linebet) afin de comptabiliser les conversions et d&apos;optimiser nos partenariats.</li>
+                    <li><strong className="text-gray-300">Personnalisation :</strong> adapter le contenu affiché en fonction de vos préférences et de votre historique de navigation.</li>
+                    <li><strong className="text-gray-300">Sécurité :</strong> protéger le site contre les attaques, le spam, les accès non autorisés et les activités frauduleuses.</li>
+                    <li><strong className="text-gray-300">Obligations légales :</strong> respecter les exigences légales et réglementaires applicables, répondre aux demandes des autorités compétentes.</li>
                   </ul>
                 </div>
               </article>
@@ -237,7 +237,7 @@ export default function PolitiqueConfidentialitePage() {
                 >
                   4. Services tiers
                 </h2>
-                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
                     BTTSPredict fait appel à des services tiers qui peuvent collecter des données lors de votre navigation :
                   </p>
@@ -270,18 +270,18 @@ export default function PolitiqueConfidentialitePage() {
                 >
                   5. Vos droits
                 </h2>
-                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
                     Conformément aux réglementations applicables en matière de protection des données, notamment le RGPD et la loi camerounaise sur la protection des données personnelles, vous disposez des droits suivants :
                   </p>
-                  <ul className="list-disc list-inside space-y-2 ml-4 text-gray-600">
-                    <li><strong className="text-gray-700">Droit d&apos;accès :</strong> vous avez le droit d&apos;obtenir la confirmation que des données vous concernant sont ou ne sont pas traitées, ainsi qu&apos;une copie de ces données.</li>
-                    <li><strong className="text-gray-700">Droit de rectification :</strong> vous avez le droit de demander la correction de données inexactes ou incomplètes vous concernant.</li>
-                    <li><strong className="text-gray-700">Droit à l&apos;effacement :</strong> dans certaines conditions, vous avez le droit de demander la suppression de vos données personnelles (droit à l&apos;oubli).</li>
-                    <li><strong className="text-gray-700">Droit à la limitation du traitement :</strong> vous avez le droit de demander la limitation du traitement de vos données dans certaines circonstances.</li>
-                    <li><strong className="text-gray-700">Droit à la portabilité :</strong> vous avez le droit de recevoir vos données dans un format structuré, couramment utilisé et lisible par machine.</li>
-                    <li><strong className="text-gray-700">Droit d&apos;opposition :</strong> vous avez le droit de vous opposer au traitement de vos données pour des motifs légitimes, ou vous opposer à tout moment au traitement de vos données à des fins de marketing direct.</li>
-                    <li><strong className="text-gray-700">Droit de retirer votre consentement :</strong> lorsque le traitement repose sur votre consentement, vous pouvez le retirer à tout moment sans que cela ne compromette la licéité du traitement effectué avant le retrait.</li>
+                  <ul className="list-disc list-inside space-y-2 ml-4 text-gray-400">
+                    <li><strong className="text-gray-300">Droit d&apos;accès :</strong> vous avez le droit d&apos;obtenir la confirmation que des données vous concernant sont ou ne sont pas traitées, ainsi qu&apos;une copie de ces données.</li>
+                    <li><strong className="text-gray-300">Droit de rectification :</strong> vous avez le droit de demander la correction de données inexactes ou incomplètes vous concernant.</li>
+                    <li><strong className="text-gray-300">Droit à l&apos;effacement :</strong> dans certaines conditions, vous avez le droit de demander la suppression de vos données personnelles (droit à l&apos;oubli).</li>
+                    <li><strong className="text-gray-300">Droit à la limitation du traitement :</strong> vous avez le droit de demander la limitation du traitement de vos données dans certaines circonstances.</li>
+                    <li><strong className="text-gray-300">Droit à la portabilité :</strong> vous avez le droit de recevoir vos données dans un format structuré, couramment utilisé et lisible par machine.</li>
+                    <li><strong className="text-gray-300">Droit d&apos;opposition :</strong> vous avez le droit de vous opposer au traitement de vos données pour des motifs légitimes, ou vous opposer à tout moment au traitement de vos données à des fins de marketing direct.</li>
+                    <li><strong className="text-gray-300">Droit de retirer votre consentement :</strong> lorsque le traitement repose sur votre consentement, vous pouvez le retirer à tout moment sans que cela ne compromette la licéité du traitement effectué avant le retrait.</li>
                   </ul>
                   <p>
                     Pour exercer vos droits, veuillez nous contacter à l&apos;adresse{' '}
@@ -303,18 +303,18 @@ export default function PolitiqueConfidentialitePage() {
                 >
                   6. Politique de cookies
                 </h2>
-                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
                     Lors de votre première visite sur BTTSPredict, un bandeau d&apos;information sur les cookies s&apos;affiche, vous permettant d&apos;accepter ou de refuser les cookies non essentiels. Vous pouvez à tout moment modifier vos préférences de cookies en cliquant sur le lien « Paramètres cookies » situé dans le pied de page du site.
                   </p>
                   <p>
                     Voici la durée de conservation des différents types de cookies utilisés sur le site :
                   </p>
-                  <ul className="list-disc list-inside space-y-1 ml-4 text-gray-600">
-                    <li><strong className="text-gray-700">Cookies de session :</strong> durée de la session de navigation.</li>
-                    <li><strong className="text-gray-700">Cookie de consentement :</strong> 13 mois à compter du dépôt.</li>
-                    <li><strong className="text-gray-700">Cookies analytiques (Google Analytics) :</strong> 14 mois maximum (durée de conservation par défaut configurée).</li>
-                    <li><strong className="text-gray-700">Cookies d&apos;affiliation :</strong> 30 à 90 jours selon les conditions du programme d&apos;affiliation Linebet.</li>
+                  <ul className="list-disc list-inside space-y-1 ml-4 text-gray-400">
+                    <li><strong className="text-gray-300">Cookies de session :</strong> durée de la session de navigation.</li>
+                    <li><strong className="text-gray-300">Cookie de consentement :</strong> 13 mois à compter du dépôt.</li>
+                    <li><strong className="text-gray-300">Cookies analytiques (Google Analytics) :</strong> 14 mois maximum (durée de conservation par défaut configurée).</li>
+                    <li><strong className="text-gray-300">Cookies d&apos;affiliation :</strong> 30 à 90 jours selon les conditions du programme d&apos;affiliation Linebet.</li>
                   </ul>
                   <p>
                     Vous pouvez également gérer vos cookies directement via les paramètres de votre navigateur. La désactivation de certains cookies peut affecter le fonctionnement et l&apos;expérience du site.
@@ -330,7 +330,7 @@ export default function PolitiqueConfidentialitePage() {
                 >
                   7. Sécurité des données
                 </h2>
-                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
                     BTTSPredict met en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès non autorisé, toute modification, divulgation ou destruction illégale. Le site utilise le protocole HTTPS (SSL/TLS) pour chiffrer les communications entre votre navigateur et nos serveurs.
                   </p>
@@ -348,7 +348,7 @@ export default function PolitiqueConfidentialitePage() {
                 >
                   8. Modifications de la politique
                 </h2>
-                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
                     Nous nous réservons le droit de modifier la présente politique de confidentialité à tout moment. Toute modification substantielle sera notifiée sur le site. Nous vous encourageons à consulter régulièrement cette page pour rester informé des évolutions. L&apos;utilisation continue du site après la publication de modifications constitue votre acceptation de ces dernières.
                   </p>
@@ -363,7 +363,7 @@ export default function PolitiqueConfidentialitePage() {
                 >
                   9. Contact
                 </h2>
-                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
                     Pour toute question concernant la présente politique de confidentialité ou pour exercer vos droits, vous pouvez nous contacter :
                   </p>
@@ -401,7 +401,7 @@ export default function PolitiqueConfidentialitePage() {
               </article>
 
               {/* Last updated */}
-              <p className="text-center text-xs text-gray-600 pt-4">
+              <p className="text-center text-xs text-gray-400 pt-4">
                 Dernière mise à jour : Juin 2026
               </p>
             </div>

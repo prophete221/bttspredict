@@ -130,7 +130,7 @@ const COMPARISON: Row[] = [
 
 export default function BookmakersPage() {
   return (
-    <div className="min-h-screen bg-white relative">
+    <div className="min-h-screen bg-dark-800 relative">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -161,14 +161,14 @@ export default function BookmakersPage() {
               <span className="badge badge-mint">Recommandé #1</span>
             </div>
             <h2 className="text-2xl font-black text-white mb-1">Linebet</h2>
-            <p className="text-sm text-gray-600 mb-4">
+            <p className="text-sm text-gray-400 mb-4">
               Bookmaker n°1 en Afrique de l'Ouest. Meilleur pour les dépôts mobiles (Wave, Orange, Free Money)
               et les cotes esport FIFA.
             </p>
-            <div className="bg-white/50 rounded-lg p-3 mb-4 border border-edge">
-              <div className="text-[10px] text-gray-600 uppercase tracking-widest font-bold">Bonus exclusif</div>
+            <div className="bg-dark-800/50 rounded-lg p-3 mb-4 border border-edge">
+              <div className="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Bonus exclusif</div>
               <div className="text-xl font-black text-linebet">90 000 XOF (150$)</div>
-              <div className="text-[10px] text-gray-600">+ Free Money disponible</div>
+              <div className="text-[10px] text-gray-400">+ Free Money disponible</div>
             </div>
             <a
               href={AFFILIATE.linebet}
@@ -188,14 +188,14 @@ export default function BookmakersPage() {
               <span className="badge badge-rose">Bonus 100%</span>
             </div>
             <h2 className="text-2xl font-black text-white mb-1">888starz</h2>
-            <p className="text-sm text-gray-600 mb-4">
+            <p className="text-sm text-gray-400 mb-4">
               Nouveau partenaire. Idéal si tu veux un bonus égal à 100% de ton dépôt.
               Pas de Free Money, mais Wave et Orange Money disponibles.
             </p>
-            <div className="bg-white/50 rounded-lg p-3 mb-4 border border-edge">
-              <div className="text-[10px] text-gray-600 uppercase tracking-widest font-bold">Bonus exclusif</div>
+            <div className="bg-dark-800/50 rounded-lg p-3 mb-4 border border-edge">
+              <div className="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Bonus exclusif</div>
               <div className="text-xl font-black text-star888">100% du dépôt</div>
-              <div className="text-[10px] text-gray-600">Wave + Orange Money</div>
+              <div className="text-[10px] text-gray-400">Wave + Orange Money</div>
             </div>
             <a
               href={AFFILIATE.star888}
@@ -215,7 +215,7 @@ export default function BookmakersPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-edge">
-                  <th className="text-left py-3 px-2 text-gray-600 uppercase text-[10px] tracking-widest font-bold">Critère</th>
+                  <th className="text-left py-3 px-2 text-gray-400 uppercase text-[10px] tracking-widest font-bold">Critère</th>
                   <th className="text-left py-3 px-2 text-linebet font-bold">
                     <span className="flex items-center gap-1.5">
                       <img src="/logos/linebet.svg" alt="" className="h-4 w-auto" loading="lazy" />
@@ -232,8 +232,8 @@ export default function BookmakersPage() {
               </thead>
               <tbody>
                 {COMPARISON.map((row, i) => (
-                  <tr key={i} className="border-b border-edge/40 last:border-0 hover:bg-white/[0.02] transition-colors">
-                    <td className="py-3 px-2 text-gray-600 font-medium">{row.label}</td>
+                  <tr key={i} className="border-b border-edge/40 last:border-0 hover:bg-dark-800/[0.02] transition-colors">
+                    <td className="py-3 px-2 text-gray-400 font-medium">{row.label}</td>
                     <td className={`py-3 px-2 ${row.highlight === 'linebet' || row.highlight === 'both' ? 'text-linebet font-bold' : 'text-gray-200'}`}>
                       {row.linebet}
                       {row.highlight === 'linebet' && <span className="ml-1 text-[10px]">⭐</span>}
@@ -258,7 +258,7 @@ export default function BookmakersPage() {
                 <span className="text-linebet text-xl">✓</span>
                 <h3 className="font-bold text-white">Choisis Linebet si…</h3>
               </div>
-              <ul className="text-sm text-gray-600 space-y-1.5 list-disc list-inside">
+              <ul className="text-sm text-gray-400 space-y-1.5 list-disc list-inside">
                 <li>Tu veux déposer via <strong className="text-linebet">Free Money</strong></li>
                 <li>Tu paries sur <strong className="text-linebet">FIFA / esport</strong> (meilleures cotes)</li>
                 <li>Tu veux un bonus fixe garanti (90 000 XOF)</li>
@@ -270,7 +270,7 @@ export default function BookmakersPage() {
                 <span className="text-star888 text-xl">✓</span>
                 <h3 className="font-bold text-white">Choisis 888starz si…</h3>
               </div>
-              <ul className="text-sm text-gray-600 space-y-1.5 list-disc list-inside">
+              <ul className="text-sm text-gray-400 space-y-1.5 list-disc list-inside">
                 <li>Tu veux un bonus <strong className="text-star888">100% de ton dépôt</strong></li>
                 <li>Tu comptes déposer un gros montant dès le départ</li>
                 <li>Tu utilises Wave ou Orange Money (pas Free Money)</li>
@@ -282,7 +282,7 @@ export default function BookmakersPage() {
 
         {/* Disclaimer */}
         <div className="squircle p-4 bg-gold/[0.03] border-gold/20">
-          <p className="text-xs text-gray-600 leading-relaxed">
+          <p className="text-xs text-gray-400 leading-relaxed">
             <strong className="text-gold">⚠️ Jeu responsable :</strong> Les paris sportifs comportent des risques de perte financière.
             Ne joue que des sommes que tu peux te permettre de perdre. Les bonus sont soumis à des conditions de mise (rollover).
             18+ — begambleaware.org.

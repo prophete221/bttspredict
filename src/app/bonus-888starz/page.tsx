@@ -85,7 +85,7 @@ function buildBreadcrumbJsonLd() {
    ────────────────────────────────────────────────────────────── */
 export default function Bonus888starzPage() {
   return (
-    <div className="min-h-screen bg-white flex flex-col text-gray-900">
+    <div className="min-h-screen bg-dark-800 flex flex-col text-white">
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -109,15 +109,15 @@ export default function Bonus888starzPage() {
       <main id="main-content" className="flex-1 relative z-10">
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-gray-600">
+          <ol className="flex items-center gap-2 text-sm text-gray-400">
             <li>
               <a href="/" className="hover:text-emerald transition-colors">
                 Accueil
               </a>
             </li>
-            <li aria-hidden="true" className="text-gray-700">/</li>
+            <li aria-hidden="true" className="text-gray-300">/</li>
             <li>
-              <span className="text-gray-600" aria-current="page">Bonus 888starz</span>
+              <span className="text-gray-400" aria-current="page">Bonus 888starz</span>
             </li>
           </ol>
         </nav>
@@ -131,7 +131,7 @@ export default function Bonus888starzPage() {
             >
               BONUS <span className="text-gold neon-glow">888STARZ</span>
             </h1>
-            <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Bonus exclusif 888starz, inscription facile et value bets FIFA détectées par nos experts. Guide complet pour maximiser votre bonus.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
@@ -151,7 +151,7 @@ export default function Bonus888starzPage() {
                 >
                   1. Inscription sur 888starz
                 </h2>
-                <div className="space-y-4 text-gray-700 text-sm leading-relaxed">
+                <div className="space-y-4 text-gray-300 text-sm leading-relaxed">
                   <div className="space-y-3">
                     {[
                       { step: '1', text: 'Visitez le site 888starz via notre lien de parrainage' },
@@ -163,7 +163,7 @@ export default function Bonus888starzPage() {
                         <span className="w-6 h-6 bg-gold text-dark-900 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">
                           {item.step}
                         </span>
-                        <p className="text-gray-700">{item.text}</p>
+                        <p className="text-gray-300">{item.text}</p>
                       </div>
                     ))}
                   </div>
@@ -178,7 +178,7 @@ export default function Bonus888starzPage() {
                 >
                   2. Dépôt sur 888starz
                 </h2>
-                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
                     888starz propose plusieurs méthodes de dépôt adaptées aux utilisateurs africains :
                   </p>
@@ -193,7 +193,7 @@ export default function Bonus888starzPage() {
                           <span className="text-lg" aria-hidden="true">{item.icon}</span>
                           <h3 className="text-white font-semibold text-sm">{item.name}</h3>
                         </div>
-                        <p className="text-gray-600 text-xs">{item.desc}</p>
+                        <p className="text-gray-400 text-xs">{item.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -208,7 +208,7 @@ export default function Bonus888starzPage() {
                 >
                   3. Value Bets FIFA sur 888starz
                 </h2>
-                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
                     Notre équipe détecte les <strong className="text-gold">value bets FIFA</strong> sur 888starz — des cotes erronées sur les matchs FIFA virtuels que l&apos;algorithme identifie automatiquement.
                   </p>
@@ -234,7 +234,7 @@ export default function Bonus888starzPage() {
                 >
                   4. Aviator sur 888starz
                 </h2>
-                <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
                   <p>
                     888starz propose le jeu <strong className="text-gold">Aviator</strong> — un jeu de multiplicateur basé sur un algorithme pseudo-aléatoire certifié « provably fair ».
                   </p>
@@ -254,7 +254,7 @@ export default function Bonus888starzPage() {
 
               {/* Disclaimer */}
               <div className="bg-lose/10 border border-lose/30 rounded-xl p-4 text-center">
-                <p className="text-gray-600 text-xs">
+                <p className="text-gray-400 text-xs">
                   ⚠ BTTSPredict est un site informatif et d&apos;affiliation. Nous ne prenons aucun pari, ne collectons aucun fonds et ne sommes pas un bookmaker. Les bonus sont soumis aux conditions de 888starz. Aviator est un jeu aléatoire — aucune prédiction possible. Pariez responsable — <a href="/jouer-responsable" className="text-emerald underline underline-offset-2">en savoir plus</a>.
                 </p>
               </div>
