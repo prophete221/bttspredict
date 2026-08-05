@@ -27,10 +27,10 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://bttspredict.com"),
   title: {
-    default: "BTTSPredict — N°1 des Prédictions BTTS par nos experts | Both Teams To Score",
-    template: "%s | BTTSPredict",
+    default: "BTTSPredict — N°1 Mondial Pronostics BTTS Aujourd'hui | Both Teams To Score",
+    template: "%s | BTTSPredict — N°1 BTTS",
   },
-  description: "N°1 des prédictions BTTS par nos experts. 50+ pronos Both Teams To Score fiables chaque jour. Modèles Poisson calibrés sur 50 000 matchs. Résultats vérifiés et transparents. Code promo VISION221.",
+  description: "N°1 mondial des pronostics BTTS aujourd'hui par nos experts. 50+ pronos Both Teams To Score fiables chaque jour. Modèles Poisson calibrés sur 50 000 matchs. Résultats vérifiés et transparents (84.5% de réussite). Code promo VISION221.",
   keywords: [
     "BTTS", "Both Teams To Score", "pronostics BTTS", "pronostics football",
     "Over 2.5", "prédictions football", "analyse statistique paris",
@@ -38,6 +38,9 @@ export const metadata: Metadata = {
     "VISION221", "BTTSPredict", "paris sportifs",
     "pronostics Sénégal", "pronostics Afrique",
     "modèle Poisson football", "xG pronostics", "statistiques football",
+    "pronostics btts aujourd'hui", "prédictions btts aujourd'hui",
+    "pronostics btts du jour", "N°1 mondial BTTS", "N°1 Over 2.5",
+    "pronostics both teams to score aujourd'hui",
   ],
   authors: [
     { name: "BTTSPredict", url: "https://bttspredict.com" },
@@ -78,17 +81,17 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "BTTSPredict — N°1 des Prédictions BTTS par nos experts",
-    description: "Pronostics BTTS fiables chaque jour. Résultats vérifiés et transparents. Code promo VISION221.",
+    title: "BTTSPredict — N°1 Mondial Pronostics BTTS Aujourd'hui",
+    description: "Pronostics BTTS fiables chaque jour. Résultats vérifiés et transparents (84.5%). Code promo VISION221.",
     url: "https://bttspredict.com",
     siteName: "BTTSPredict",
     type: "website",
     locale: "fr_FR",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "BTTSPredict — N°1 des prédictions BTTS par nos experts" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "BTTSPredict — N°1 mondial des prédictions BTTS aujourd'hui" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "BTTSPredict — N°1 des Prédictions BTTS par nos experts",
+    title: "BTTSPredict — N°1 Mondial Pronostics BTTS Aujourd'hui",
     description: "Pronostics BTTS fiables chaque jour. Résultats vérifiés et transparents.",
     images: ["/og-image.png"],
   },
