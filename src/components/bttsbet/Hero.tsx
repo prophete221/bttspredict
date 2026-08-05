@@ -2,27 +2,30 @@
 
 import { motion } from 'framer-motion'
 import { useScrollAnimation } from '@/hooks/useAnimations'
+import { AFFILIATE } from '@/lib/constants'
 
-// ─── Palette BTTSPredict 2026 — sobre, data-oriented ───
+// ─── Palette BTTSPredict 2026 — produit data + paris sportifs ───
 const C = {
-  bg:       '#050B14',
-  text:     '#ffffff',
-  textSec:  '#94A3B8',
-  textMute: '#64748B',
-  neon:     '#00E5FF',
-  gold:     '#FFD600',
-  violet:   '#A78BFA',
+  black:        '#020617',
+  darkGreen:    '#166534',
+  green:        '#16A34A',
+  greenLight:   '#22C55E',
+  greenPale:    '#DCFCE7',
+  grayDark:     '#0F172A',
+  grayMid:      '#6B7280',
+  grayLight:    '#E5E7EB',
+  white:        '#FFFFFF',
+  gold:         '#FACC15',
+  blue:         '#1D4ED8',
 }
 
 /**
- * Hero (refonte 2026-08-05) — version mondiale sobre
- * - H1: "N°1 mondial des prédictions BTTS et Over 2.5"
- * - Sous-titre court orienté data
- * - 1 gros CTA: "Voir les pronostics d'aujourd'hui"
- * - Badge preuve: 84,5% vérifié (60/71)
- * - Mini-texte portée: pays Linebet (Europe, Afrique, Amérique latine, Asie)
- * - Sous-texte référence mondiale
- * - Style sobre, pas casino flashy
+ * Hero (refonte palette 2026-08-05)
+ * - Fond : dégradé vert foncé #166534 → noir #020617
+ * - H1 : "N°1 mondial des prédictions BTTS et Over 2.5" en blanc
+ * - Badge : 84,5% vérifié en fond vert secondaire #22C55E
+ * - CTA principal : vert #16A34A
+ * - CTA secondaire : transparent, bordure vert, texte vert
  */
 export default function Hero() {
   const [sectionRef, isVisible] = useScrollAnimation(0.05)
@@ -31,94 +34,84 @@ export default function Hero() {
     <section
       ref={sectionRef}
       className="relative overflow-hidden"
-      style={{ backgroundColor: C.bg, paddingTop: '32px', paddingBottom: '32px' }}
+      style={{
+        background: `linear-gradient(180deg, ${C.darkGreen} 0%, ${C.black} 100%)`,
+        paddingTop: '40px',
+        paddingBottom: '40px',
+      }}
     >
-      {/* ═══ Fond Stadium Neon — projecteurs animés sobres ═══ */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute top-0 left-1/4 w-[600px] h-[400px] rounded-full blur-[120px] animate-pulse"
-          style={{ backgroundColor: 'rgba(0, 229, 255, 0.08)' }}
-        />
-        <div
-          className="absolute top-10 right-1/4 w-[500px] h-[350px] rounded-full blur-[100px] animate-pulse"
-          style={{ backgroundColor: 'rgba(167, 139, 250, 0.08)', animationDelay: '1s' }}
-        />
-      </div>
-
       <div className="relative z-10 max-w-[440px] mx-auto px-4 flex flex-col gap-5">
 
-        {/* ═══ BADGE PREUVE — 84,5% vérifié ═══ */}
+        {/* ═══ BADGE PREUVE — 84,5% vérifié (vert secondaire #22C55E) ═══ */}
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={isVisible ? { opacity: 1, y: 0 } : undefined}
           transition={{ duration: 0.4 }}
           className="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full"
           style={{
-            background: 'rgba(0, 229, 255, 0.06)',
-            border: '1px solid rgba(0, 229, 255, 0.25)',
+            backgroundColor: C.greenLight,
+            color: C.white,
           }}
         >
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={C.white} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="20 6 9 17 4 12" />
           </svg>
-          <span className="font-mono text-[10px] font-bold tracking-[0.14em]" style={{ color: '#00E5FF' }}>
+          <span className="font-mono text-[10px] font-bold tracking-[0.14em]">
             84,5% DE RÉUSSITE VÉRIFIÉE
           </span>
-          <span className="font-mono text-[9px]" style={{ color: C.textMute }}>
+          <span className="font-mono text-[9px]" style={{ opacity: 0.85 }}>
             · 60/71 pronos
           </span>
         </motion.div>
 
-        {/* ═══ H1 — Slogan "N°1 mondial" ═══ */}
+        {/* ═══ H1 — Slogan "N°1 mondial" en blanc ═══ */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={isVisible ? { opacity: 1, y: 0 } : undefined}
           transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h1 className="font-bold leading-[1.05] tracking-tight" style={{ fontSize: '32px', color: C.text }}>
+          <h1 className="font-bold leading-[1.05] tracking-tight" style={{ fontSize: '34px', color: C.white }}>
             N°1 mondial des{' '}
-            <span style={{
-              background: 'linear-gradient(135deg, #00E5FF, #A78BFA)',
-              WebkitBackgroundClip: 'text',
-              backgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}>
+            <span style={{ color: C.greenLight }}>
               prédictions BTTS et Over 2.5
             </span>
           </h1>
 
-          {/* Sous-titre court orienté data */}
-          <p className="mt-3 text-[14px] leading-[1.6]" style={{ color: C.textSec, maxWidth: '380px' }}>
+          {/* Sous-titre en gris clair */}
+          <p className="mt-3 text-[14px] leading-[1.6]" style={{ color: C.grayLight, maxWidth: '380px' }}>
             Pronostics BTTS et Over 2.5 basés sur modèles Poisson calibrés sur 50 000+ matchs.
             Transparence totale, gagnés ET perdus affichés. Outil d&apos;aide à la décision,
             pas de promesse de gain.
           </p>
 
-          {/* Sous-texte référence mondiale (très petit) */}
-          <p className="mt-2 text-[11px] leading-[1.5]" style={{ color: C.textMute, maxWidth: '360px' }}>
+          {/* Sous-texte référence mondiale */}
+          <p className="mt-2 text-[11px] leading-[1.5]" style={{ color: C.grayMid, maxWidth: '360px' }}>
             Référence mondiale basée sur transparence des résultats, méthodologie documentée et historique vérifiable.
           </p>
         </motion.div>
 
-        {/* ═══ GROS CTA — Voir les pronostics d'aujourd'hui ═══ */}
+        {/* ═══ CTA principal + secondaire ═══ */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={isVisible ? { opacity: 1, y: 0 } : undefined}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-col gap-2.5"
         >
+          {/* CTA principal : Voir les pronostics d'aujourd'hui (vert #16A34A) */}
           <motion.button
-            whileHover={{ scale: 1.02, boxShadow: '0 8px 30px rgba(0, 229, 255, 0.40)' }}
+            whileHover={{ scale: 1.02, boxShadow: `0 8px 30px ${C.green}66` }}
             whileTap={{ scale: 0.98 }}
             onClick={() => document.getElementById('free-predictions')?.scrollIntoView({ behavior: 'smooth' })}
-            className="w-full h-[56px] rounded-[14px] font-bold text-[15px] flex items-center justify-center gap-2"
+            className="w-full h-[56px] rounded-[8px] font-bold text-[15px] flex items-center justify-center gap-2 transition-colors"
             style={{
-              background: 'linear-gradient(135deg, #00E5FF 0%, #00B8D4 100%)',
-              color: '#050B14',
-              boxShadow: '0 0 0 1px rgba(0, 229, 255,.4), 0 8px 32px rgba(0, 229, 255,.25)',
+              backgroundColor: C.green,
+              color: C.white,
+              border: 'none',
             }}
             data-cta="hero-primary"
             aria-label="Voir les pronostics d'aujourd'hui"
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = C.greenLight}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = C.green}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="10" />
@@ -126,26 +119,40 @@ export default function Hero() {
             </svg>
             Voir les pronostics d&apos;aujourd&apos;hui
           </motion.button>
+
+          {/* CTA secondaire : S'inscrire sur Linebet (transparent, bordure vert) */}
+          <motion.a
+            href={AFFILIATE.linebet}
+            rel="sponsored noopener"
+            target="_blank"
+            whileHover={{ scale: 1.02, backgroundColor: C.greenPale }}
+            whileTap={{ scale: 0.98 }}
+            className="w-full h-[48px] rounded-[8px] font-medium text-[14px] flex items-center justify-center gap-2 transition-colors"
+            style={{
+              backgroundColor: 'transparent',
+              border: `1px solid ${C.green}`,
+              color: C.green,
+            }}
+            data-cta="hero-secondary"
+            aria-label="S'inscrire sur Linebet avec le code promo VISION221"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+            S&apos;inscrire sur Linebet
+          </motion.a>
         </motion.div>
 
-        {/* ═══ MINI-TEXTE PORTÉE MONDIALE ═══ */}
+        {/* ═══ MINI-TEXTE PORTÉE MONDIALE (gris moyen #6B7280) ═══ */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : undefined}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="flex items-center justify-center gap-2 text-[11px]"
-          style={{ color: C.textSec }}
+          className="text-center text-[11px]"
+          style={{ color: C.grayMid }}
         >
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="12" cy="12" r="10" />
-            <line x1="2" y1="12" x2="22" y2="12" />
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-          </svg>
-          <span style={{ color: C.textMute }}>
-            Parieurs dans tous les pays où Linebet est disponible
-          </span>
-          <span style={{ color: C.textSec }}>·</span>
-          <span style={{ color: C.textSec, fontWeight: 600 }}>Europe · Afrique · Amérique latine · Asie</span>
+          Parieurs dans tous les pays où Linebet est disponible · Europe · Afrique · Amérique latine · Asie
         </motion.div>
       </div>
     </section>

@@ -34,9 +34,9 @@ type TypeFilter = 'all' | 'BTTS' | 'O2.5'
 
 const COLORS = {
   success: '#1E40AF',
-  lose: '#FF7A93',
-  gold: '#F59E0B',
-  panel: '#0F1424',
+  lose: '#DC2626',
+  gold: '#FACC15',
+  panel: '#FFFFFF',
   edge: 'rgba(255, 255, 255, 0.08)',
   text: '#8A8FA3',
 }
@@ -446,9 +446,9 @@ export default function WinHistory() {
             href="/historique"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold transition-all"
             style={{
-              background: 'linear-gradient(135deg, #00E5FF, #00B8D4)',
-              color: '#050B14',
-              boxShadow: '0 4px 16px rgba(0, 229, 255, 0.25)',
+              background: 'linear-gradient(135deg, #16A34A, #166534)',
+              color: '#020617',
+              boxShadow: '0 4px 16px rgba(22, 163, 74, 0.25)',
             }}
           >
             Voir l'historique complet →
@@ -477,8 +477,8 @@ export default function WinHistory() {
           transition={{ duration: 0.4 }}
           className="mt-6 p-4 rounded-xl"
           style={{
-            background: 'linear-gradient(135deg, rgba(0, 229, 255, 0.04), rgba(167, 139, 250, 0.04))',
-            border: '1px solid rgba(0, 229, 255, 0.12)',
+            background: 'linear-gradient(135deg, rgba(22, 163, 74, 0.04), rgba(34, 197, 94, 0.04))',
+            border: '1px solid rgba(22, 163, 74, 0.12)',
           }}
         >
           <p className="text-[12px] text-gray-300 leading-relaxed text-center">

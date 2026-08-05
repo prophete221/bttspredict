@@ -45,56 +45,43 @@ export default function Navbar() {
     <nav
       className="sticky top-0 z-50 transition-all duration-300"
       style={{
-        backgroundColor: scrolled ? 'rgba(10, 15, 30, 0.95)' : 'rgba(10, 15, 30, 0)',
-        backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : 'none',
+        backgroundColor: '#020617',
+        borderBottom: '1px solid rgba(22, 163, 74, 0.15)',
       }}
     >
       <div className="max-w-[440px] sm:max-w-2xl mx-auto px-4">
         <div className="flex items-center justify-between h-14 gap-2">
-          {/* Logo */}
+          {/* Logo — vert #16A34A */}
           <a
             href="/"
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); setIsOpen(false) }}
             className="flex items-center gap-2 flex-shrink-0"
             aria-label="BTTSPredict — Retour en haut"
           >
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #10B981, #059669)' }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0F1E" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#16A34A' }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 3v18h18" /><path d="M7 14l4-4 4 4 5-5" />
               </svg>
             </div>
-            <span className="text-base font-bold text-white tracking-tight">
+            <span className="text-base font-bold tracking-tight" style={{ color: '#16A34A' }}>
               BTTSPredict
             </span>
           </a>
 
-          {/* Desktop links */}
+          {/* Desktop links — texte blanc, hover vert secondaire */}
           <div className="hidden md:flex items-center gap-4">
             {DESKTOP_LINKS.map((link) => (
               <button
                 key={link.label}
                 onClick={() => scrollToSection(link.scrollTarget!)}
                 className="text-sm font-medium transition-colors"
-                style={{ color: 'rgba(255,255,255,0.6)' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#10B981'}
-                onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}
+                style={{ color: '#FFFFFF' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#22C55E'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#FFFFFF'}
               >
                 {link.label}
               </button>
             ))}
-            {/* Badge portée mondiale */}
-            <span
-              className="text-[10px] font-mono px-2 py-1 rounded-full"
-              style={{
-                color: '#00E5FF',
-                background: 'rgba(0, 229, 255, 0.06)',
-                border: '1px solid rgba(0, 229, 255, 0.20)',
-              }}
-              title="Disponible dans tous les pays où Linebet est accessible"
-            >
-              🌍 Monde
-            </span>
           </div>
 
           {/* Right section */}
@@ -102,25 +89,27 @@ export default function Navbar() {
             {/* Promo code — compact */}
             <button
               onClick={copyCode}
-              className="px-2.5 py-1.5 rounded-lg text-[11px] font-mono font-bold transition-all"
+              className="px-2.5 py-1.5 rounded-lg text-[11px] font-mono font-bold transition-colors"
               style={{
-                background: 'rgba(0, 229, 255,0.08)',
-                border: '1px solid rgba(0, 229, 255,0.2)',
-                color: '#10B981',
+                backgroundColor: '#DCFCE7',
+                border: '1px solid #16A34A',
+                color: '#166534',
               }}
             >
               {copied ? '✓' : SITE.promoCode}
             </button>
 
-            {/* CTA — Desktop only : Voir les pronostics du jour */}
+            {/* CTA — Desktop only : Voir les pronostics du jour (vert #16A34A) */}
             <button
               onClick={() => scrollToSection('free-predictions')}
-              className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold transition-all"
+              className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-[8px] text-sm font-bold transition-colors"
               style={{
-                background: 'linear-gradient(135deg, #00E5FF, #00B8D4)',
-                color: '#050B14',
-                boxShadow: '0 0 0 1px rgba(0, 229, 255,.3), 0 4px 16px rgba(0, 229, 255,.15)',
+                backgroundColor: '#16A34A',
+                color: '#FFFFFF',
+                border: 'none',
               }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#22C55E'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#16A34A'}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10" />
@@ -158,7 +147,7 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
             className="md:hidden overflow-hidden"
-            style={{ backgroundColor: '#0A0F1E', borderTop: '1px solid rgba(255,255,255,0.06)' }}
+            style={{ backgroundColor: '#020617', borderTop: '1px solid rgba(255,255,255,0.06)' }}
           >
             <div className="px-4 py-4 space-y-1">
               {NAV_LINKS.map((link) => (
@@ -166,9 +155,9 @@ export default function Navbar() {
                   key={link.label}
                   onClick={() => link.scrollTarget && scrollToSection(link.scrollTarget)}
                   className="block w-full text-left py-3 px-3 rounded-lg text-sm font-medium transition-colors"
-                  style={{ color: 'rgba(255,255,255,0.7)' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(0, 229, 255,0.06)'; e.currentTarget.style.color = '#10B981' }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = 'rgba(255,255,255,0.7)' }}
+                  style={{ color: '#FFFFFF' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(22, 163, 74, 0.08)'; e.currentTarget.style.color = '#22C55E' }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#FFFFFF' }}
                 >
                   {link.label}
                 </button>
@@ -177,13 +166,13 @@ export default function Navbar() {
               {/* Bookmaker buttons */}
               <div className="pt-3 grid grid-cols-2 gap-2">
                 <a href={AFFILIATE.linebet} rel="sponsored noopener" target="_blank"
-                  className="flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold"
-                  style={{ background: 'linear-gradient(135deg, #10B981, #059669)', color: '#0A0F1E' }}>
+                  className="flex items-center justify-center px-3 py-2.5 rounded-[8px] text-xs font-bold transition-colors"
+                  style={{ backgroundColor: '#16A34A', color: '#FFFFFF', border: 'none' }}>
                   Linebet
                 </a>
                 <a href={AFFILIATE.star888} rel="sponsored noopener" target="_blank"
-                  className="flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold"
-                  style={{ background: '#F59E0B', color: '#0A0F1E' }}>
+                  className="flex items-center justify-center px-3 py-2.5 rounded-[8px] text-xs font-bold transition-colors"
+                  style={{ backgroundColor: '#FACC15', color: '#020617', border: 'none' }}>
                   888starz
                 </a>
               </div>

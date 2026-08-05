@@ -656,9 +656,9 @@ export default function FreePredictions() {
             href="/pronostics"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold transition-all"
             style={{
-              background: 'linear-gradient(135deg, #00E5FF, #00B8D4)',
-              color: '#050B14',
-              boxShadow: '0 4px 16px rgba(0, 229, 255, 0.25)',
+              background: 'linear-gradient(135deg, #16A34A, #166534)',
+              color: '#020617',
+              boxShadow: '0 4px 16px rgba(22, 163, 74, 0.25)',
             }}
           >
             Voir tous les pronostics du jour →

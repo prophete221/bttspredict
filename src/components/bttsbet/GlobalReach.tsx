@@ -59,9 +59,9 @@ export default function GlobalReach() {
             <div
               key={i}
               className="text-center p-4 rounded-xl"
-              style={{ background: 'rgba(15, 20, 36, 0.6)', border: '1px solid rgba(0, 229, 255, 0.08)' }}
+              style={{ background: 'rgba(15, 20, 36, 0.6)', border: '1px solid rgba(22, 163, 74, 0.08)' }}
             >
-              <div className="text-2xl font-bold" style={{ color: '#00E5FF' }}>{stat.value}</div>
+              <div className="text-2xl font-bold" style={{ color: '#16A34A' }}>{stat.value}</div>
               <div className="text-[10px] text-gray-500 mt-1 uppercase tracking-wider">{stat.label}</div>
             </div>
           ))}
@@ -76,7 +76,7 @@ export default function GlobalReach() {
           className="mb-8"
         >
           <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-            <span style={{ color: '#00E5FF' }}>🌐</span>
+            <span style={{ color: '#16A34A' }}>🌐</span>
             Disponible dans le monde entier
           </h3>
           <p className="text-gray-400 text-xs mb-4 leading-relaxed">
@@ -104,7 +104,7 @@ export default function GlobalReach() {
           transition={{ duration: 0.4, delay: 0.2 }}
         >
           <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-            <span style={{ color: '#FFD600' }}>🌍</span>
+            <span style={{ color: '#FACC15' }}>🌍</span>
             Présence panafricaine
           </h3>
           <p className="text-gray-400 text-xs mb-4 leading-relaxed">
@@ -124,7 +124,7 @@ export default function GlobalReach() {
                     <div className="text-[10px] text-gray-500">{item.city}</div>
                   </div>
                 </div>
-                <div className="text-xs font-bold" style={{ color: '#FFD600' }}>{item.users}</div>
+                <div className="text-xs font-bold" style={{ color: '#FACC15' }}>{item.users}</div>
               </div>
             ))}
           </div>
@@ -138,8 +138,8 @@ export default function GlobalReach() {
           transition={{ duration: 0.4, delay: 0.3 }}
           className="mt-8 p-5 rounded-xl text-center"
           style={{
-            background: 'linear-gradient(135deg, rgba(0, 229, 255, 0.05), rgba(167, 139, 250, 0.05))',
-            border: '1px solid rgba(0, 229, 255, 0.15)',
+            background: 'linear-gradient(135deg, rgba(22, 163, 74, 0.05), rgba(34, 197, 94, 0.05))',
+            border: '1px solid rgba(22, 163, 74, 0.15)',
           }}
         >
           <div className="text-2xl mb-2">🎯</div>

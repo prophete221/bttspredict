@@ -58,7 +58,7 @@ export default function StickyVipBandeau() {
               <div className="flex items-center gap-3">
                 {/* Crown icon with glow */}
                 <div className="relative w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center flex-shrink-0">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#F59E0B" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#FACC15" stroke="#FACC15" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z" />
                   </svg>
                   <motion.div

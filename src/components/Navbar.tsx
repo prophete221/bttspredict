@@ -32,7 +32,7 @@ export default function Navbar() {
           {/* Logo */}
           <a href="/" className="flex items-center gap-3">
             <div className="relative">
-              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[var(--color-primary)] to-[#8B5CF6] flex items-center justify-center shadow-lg">
+              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[var(--color-primary)] to-[#16A34A] flex items-center justify-center shadow-lg">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
                   <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>

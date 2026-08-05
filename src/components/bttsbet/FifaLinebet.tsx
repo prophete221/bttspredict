@@ -6,8 +6,8 @@ import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
 
 const C = {
-  bg: '#0A0F1E', card: '#0F1424', border: 'rgba(0,229,255,0.08)',
-  cyan: '#00E5FF', violet: '#A78BFA', gold: '#FFD700',
+  bg: '#020617', card: '#FFFFFF', border: 'rgba(0,229,255,0.08)',
+  cyan: '#16A34A', violet: '#22C55E', gold: '#FFD700',
   text: '#FFFFFF', textSec: '#94A3B8', textMute: '#64748B',
 }
 
@@ -134,7 +134,7 @@ export default function FifaLinebet() {
               <button
                 onClick={() => setShowModal(true)}
                 className="w-full mt-3 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-xs font-bold transition-all"
-                style={{ background: 'linear-gradient(135deg, #00E5FF, #A78BFA)', color: '#0A0F1E' }}
+                style={{ background: 'linear-gradient(135deg, #16A34A, #22C55E)', color: '#020617' }}
               >
                 🔒 Débloquer les Value Bets FIFA
               </button>
