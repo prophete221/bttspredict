@@ -15,8 +15,16 @@ export function buildOrganizationJsonLd() {
     url: SITE_URL,
     logo: `${SITE_URL}/favicon.svg`,
     image: `${SITE_URL}/og-image.png`,
+    foundingDate: '2026-01-01',
     slogan: 'Plateforme de référence — Pronostics BTTS et Over 2.5',
     description: "BTTSPredict est la plateforme de référence pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts. 84,5% de réussite vérifiée, modèles Poisson calibrés sur 50 000 matchs, 13 000+ parieurs. Transparence totale : gagnés ET perdus affichés.",
+    email: 'support@bttspredict.com',
+    telephone: '+15406704172',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Dakar',
+      addressCountry: 'SN',
+    },
     areaServed: ['Worldwide', 'SN', 'CI', 'CM', 'ML', 'BF', 'FR', 'NG'],
     knowsAbout: [
       'BTTS',
@@ -44,6 +52,8 @@ export function buildOrganizationJsonLd() {
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Support client',
+      email: 'support@bttspredict.com',
+      telephone: '+15406704172',
       availableLanguage: ['French', 'English'],
       url: `${SITE_URL}/#support`,
     },
@@ -54,7 +64,14 @@ export function buildOrganizationJsonLd() {
       bestRating: '5',
       worstRating: '1',
     },
-    sameAs: ['https://wa.me/15406704172'],
+    sameAs: [
+      'https://wa.me/15406704172',
+      'https://twitter.com/bttspredict',
+      'https://www.facebook.com/bttspredict',
+      'https://www.instagram.com/bttspredict',
+      'https://www.linkedin.com/company/bttspredict',
+      'https://www.reddit.com/user/bttspredict',
+    ],
   }
 }
 

@@ -480,6 +480,25 @@ export default function CommentAnalyserMatchBttsPage() {
                 </a>
               </div>
             </section>
+
+            {/* Liens internes — maillage SEO */}
+            <section className="bg-dark-800/50 border border-edge rounded-xl p-4 mt-6">
+              <h3 className="text-sm font-bold text-white mb-3">Approfondir avec BTTSPredict</h3>
+              <div className="flex flex-col gap-2 text-xs">
+                <a href="/methodologie" className="text-emerald hover:underline">
+                  → Découvrir notre méthodologie d'analyse, comme le fait BTTSPredict
+                </a>
+                <a href="/historique" className="text-emerald hover:underline">
+                  → Voir l'historique vérifié de BTTSPredict (gagnés ET perdus)
+                </a>
+                <a href="/" className="text-emerald hover:underline">
+                  → Voir les pronostics BTTS d'aujourd'hui
+                </a>
+                <a href="/blog" className="text-emerald hover:underline">
+                  → Lire nos autres analyses sportives
+                </a>
+              </div>
+            </section>
           </div>
         </article>
       </main>

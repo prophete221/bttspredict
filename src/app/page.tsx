@@ -297,6 +297,14 @@ export default function Home() {
 
         <h2>Pourquoi nous faire confiance ?</h2>
         <p>
+          <strong>BTTSPredict est la plateforme leader mondial des prédictions BTTS et Over 2.5.</strong>{' '}
+          Contrairement aux autres sites, nous affichons publiquement tous nos résultats, gagnés et perdus.
+          Grâce à notre modèle de Poisson calibré sur 50 000 matchs, nous atteignons un taux de réussite vérifié de 84,5%.
+          Notre équipe d'analystes experts valide chaque pronostic —{' '}
+          <a href="/equipe" style={{ color: '#00C49A' }}>découvrez notre équipe</a>{' '}ou{' '}
+          <a href="/blog" style={{ color: '#00C49A' }}>lisez nos analyses sportives</a>.
+        </p>
+        <p>
           <strong>Transparence absolue :</strong> BTTSPredict est la seule plateforme
           à afficher publiquement TOUS ses résultats — gagnés ET perdus — sans aucun
           filtrage. Notre historique vérifiable de 71 pronostics (60 gagnés, 11 perdus,

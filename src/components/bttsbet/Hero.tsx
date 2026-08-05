@@ -154,6 +154,40 @@ export default function Hero() {
         >
           Parieurs dans tous les pays où Linebet est disponible · Europe · Afrique · Amérique latine · Asie
         </motion.div>
+
+        {/* ═══ BADGES SÉCURITÉ + 18+ (signaux de confiance visuels) ═══ */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isVisible ? { opacity: 1 } : undefined}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="flex flex-wrap items-center justify-center gap-2 text-[10px]"
+        >
+          <span
+            className="inline-flex items-center gap-1 px-2 py-1 rounded-full font-medium"
+            style={{ backgroundColor: 'rgba(0, 196, 154, 0.08)', color: '#00C49A', border: '1px solid rgba(0, 196, 154, 0.15)' }}
+          >
+            🔒 SSL Sécurisé
+          </span>
+          <span
+            className="inline-flex items-center gap-1 px-2 py-1 rounded-full font-medium"
+            style={{ backgroundColor: 'rgba(0, 196, 154, 0.08)', color: '#00C49A', border: '1px solid rgba(0, 196, 154, 0.15)' }}
+          >
+            ✅ Historique vérifiable
+          </span>
+          <span
+            className="inline-flex items-center gap-1 px-2 py-1 rounded-full font-medium"
+            style={{ backgroundColor: 'rgba(0, 196, 154, 0.08)', color: '#00C49A', border: '1px solid rgba(0, 196, 154, 0.15)' }}
+          >
+            🛡️ Jeu responsable
+          </span>
+          <a
+            href="/jouer-responsable"
+            className="inline-flex items-center gap-1 px-2 py-1 rounded-full font-bold transition-colors"
+            style={{ backgroundColor: 'rgba(220, 38, 38, 0.1)', color: '#EF4444', border: '1px solid rgba(220, 38, 38, 0.2)' }}
+          >
+            18+ | Jeu responsable
+          </a>
+        </motion.div>
       </div>
     </section>
   )

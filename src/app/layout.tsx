@@ -149,7 +149,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v18-vip-glassmorphism-cards-2026-08-06';
+                var VERSION = 'bttspredict-v19-eeat-geo-llms-txt-humans-equipe-presse-2026-08-06';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){

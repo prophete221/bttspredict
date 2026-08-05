@@ -294,4 +294,30 @@
     </image:image>
   </url>
 
+  <url>
+    <loc>https://bttspredict.com/equipe</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/equipe"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/equipe"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>Équipe d'analystes BTTSPredict — Experts football BTTS</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/presse</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/presse"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/presse"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict dans la presse & médias — Mentions et avis</image:title>
+    </image:image>
+  </url>
+
 </urlset>

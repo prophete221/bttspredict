@@ -1,0 +1,22 @@
+/* TEAM */
+Équipe : Analystes BTTSPredict
+Site : https://bttspredict.com
+Localisation : Dakar, Sénégal
+Contact : support@bttspredict.com
+WhatsApp : +1 540 670 4172
+
+/* FONDATEUR */
+Fondateur : Expert BTTSPredict
+Rôle : Analyste Football Senior & Fondateur
+Expertise : Modèle de Poisson, Expected Goals (xG), analyse statistique football
+
+/* MISSION */
+Mission : Devenir la plus grande plateforme de prédiction BTTS et Over 2.5 au monde, en imposant un standard de transparence inégalé dans l'industrie des pronostics sportifs.
+
+/* TECHNOLOGIE */
+Modèle : Distribution de Poisson calibrée sur 50 000 matchs
+Variables : 200+ par match (xG, forme, blessés, météo, confrontations)
+Sources : ESPN API, API-Football, Forebet, Windrawwin, Soccerbase, TheSportsDB
+
+/* THANKS */
+Merci à nos 13 000+ parieurs qui nous font confiance quotidiennement.

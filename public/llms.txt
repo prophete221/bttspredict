@@ -1,0 +1,26 @@
+# BTTSPredict
+
+> BTTSPredict est la plus grande plateforme de prédiction BTTS et Over 2.5 au monde, utilisant un modèle de Poisson calibré sur 50 000 matchs pour fournir des pronostics vérifiés à 84,5% de réussite.
+
+## Core Content
+- [Accueil & Pronostics Gratuit](/): Page d'accueil avec les pronostics gratuits du jour et la méthodologie.
+- [Historique Vérifié](/historique): Historique complet et transparent des pronostics (gagnés et perdus).
+- [Méthodologie IA](/methodologie): Détails du modèle de distribution de Poisson et des 200+ variables analysées.
+- [VIP & Premium](/vip): Accès aux pronostics multi-sports et Value Bets.
+- [Notre Équipe d'Analystes](/equipe): Profils des experts analystes football de BTTSPredict.
+- [Comparatif Bookmakers](/bookmakers): Comparatif Linebet vs 888starz avec code promo VISION221.
+- [Blog & Analyses](/blog): Articles d'analyse sportive et stratégie de paris BTTS.
+- [Presse & Médias](/presse): Mentions de BTTSPredict dans les médias et communautés.
+
+## Key Facts
+- Taux de réussite vérifié : 84,5% (60 gagnés sur 71 pronostics publiés)
+- Matchs analysés : 50 000+ (modèle Poisson calibré)
+- Championnats couverts : 50+ (Europe, Afrique, Amérique latine, Asie)
+- Communauté : 13 000+ parieurs actifs
+- Note moyenne : 4,2/5 (2 437 avis vérifiés)
+- Code promo : VISION221 (Linebet & 888starz)
+
+## Contact
+- WhatsApp : +1 540 670 4172
+- Email : support@bttspredict.com
+- Localisation : Dakar, Sénégal
