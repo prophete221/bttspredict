@@ -20,6 +20,7 @@ import {
   ErrorBoundary,
   MobileTabBar,
   StickyCTABar,
+  HowToGetVip,
 } from '@/components/bttsbet'
 
 // JSON-LD WebSite — SearchAction for Google SERP
@@ -511,6 +512,7 @@ export default function Home() {
         <ErrorBoundary><WinHistory /></ErrorBoundary>
         <ErrorBoundary><PromoVip /></ErrorBoundary>
         <ErrorBoundary><VipSports /></ErrorBoundary>
+        <ErrorBoundary><HowToGetVip /></ErrorBoundary>
         <ErrorBoundary><FifaLinebet /></ErrorBoundary>
         <ErrorBoundary><AviatorVip /></ErrorBoundary>
         <ErrorBoundary><HowItWorks /></ErrorBoundary>

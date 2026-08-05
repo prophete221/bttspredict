@@ -440,6 +440,21 @@ export default function WinHistory() {
           </div>
         )}
 
+        {/* CTA — Voir l'historique complet (page dédiée) */}
+        <div className="text-center mt-4">
+          <a
+            href="/historique"
+            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold transition-all"
+            style={{
+              background: 'linear-gradient(135deg, #00E5FF, #00B8D4)',
+              color: '#050B14',
+              boxShadow: '0 4px 16px rgba(0, 229, 255, 0.25)',
+            }}
+          >
+            Voir l'historique complet →
+          </a>
+        </div>
+
         {/* Trust badge */}
         <motion.div
           initial={{ opacity: 0 }}

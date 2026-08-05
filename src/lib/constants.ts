@@ -63,11 +63,11 @@ export const ANDROID_LOGO = '/logos/android.svg'
 
 export const NAV_LINKS = [
   { label: 'Accueil', href: '/' },
-  { label: 'Pronostics', scrollTarget: 'free-predictions' },
+  { label: 'Pronostics du jour', scrollTarget: 'free-predictions' },
   { label: 'Résultats', scrollTarget: 'win-history' },
-  { label: 'Value Bets FIFA', scrollTarget: 'fifa-linebet', highlight: true },
-  { label: 'VIP & Bonus', scrollTarget: 'vip' },
-  { label: 'FAQ', scrollTarget: 'faq' },
+  { label: 'VIP & Bonus', scrollTarget: 'vip', highlight: true },
+  { label: 'Méthodologie', scrollTarget: 'how-it-works' },
+  { label: 'À propos', scrollTarget: 'about' },
 ]
 
 export const HOW_IT_WORKS = [
