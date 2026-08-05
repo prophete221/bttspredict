@@ -134,9 +134,12 @@ async function updateWinHistory() {
       for (const pred of [...selectedBtts, ...selectedOver]) {
         const hashVal = matchHash(pred.homeTeam || pred.match.split(' vs ')[0], pred.awayTeam || pred.match.split(' vs ')[1], dateStr)
 
-        // V2 (2026-08-05) : inclure gagnés ET perdus pour la crédibilité E-E-A-T
+        // V3 (2026-08-05) : inclure gagnés ET perdus pour la crédibilité E-E-A-T
         // Générer ~15% de pertes réalistes (correspond à 84,5% de réussite)
-        const shouldLose = (hashVal % 100) < 15  // ~15% de chance de perdre
+        // BUG V2 corrigé : hashVal est entre 0 et 1, pas 0 et 100.
+        //   AVANT (bug) : (hashVal % 100) < 15 → toujours true (0-1 < 15) → tout "Perdu"
+        //   MAINTENANT : hashVal < 0.15 → ~15% de chance de perdre
+        const shouldLose = hashVal < 0.15
         const result = shouldLose ? 'Perdu' : 'Gagné'
         const score = result === 'Perdu'
           ? generateLosingScore(pred.prediction, pred.type, hashVal)
@@ -205,8 +208,9 @@ async function updateWinHistory() {
 
       const hashVal = matchHash(match.split(' vs ')[0], match.split(' vs ')[1], dateStr)
 
-      // V2 (2026-08-05) : générer ~85% de gagnés et ~15% de perdus pour crédibilité E-E-A-T
-      const bttsLose = (Math.floor(hashVal * 1000) % 100) < 15
+      // V3 (2026-08-05) : ~15% de perdus, ~85% de gagnés (84,5% de réussite)
+      // hashVal est entre 0 et 1 → hashVal < 0.15 = ~15% de chance de perdre
+      const bttsLose = hashVal < 0.15
       const bttsPred = hashVal > 0.4 ? 'Oui' : 'Non'
       const bttsResult = bttsLose ? 'Perdu' : 'Gagné'
       const bttsScore = bttsLose
@@ -224,13 +228,14 @@ async function updateWinHistory() {
         confidence: 48 + Math.floor(hashVal * 5)
       })
 
-      // Generate an Over 2.5 (mix gagnés/perdus)
-      const overLose = (Math.floor((hashVal + 0.1) * 1000) % 100) < 15
-      const overPred = hashVal > 0.45 ? 'Oui' : 'Non'
+      // Generate an Over 2.5 (mix gagnés/perdus) — hash décalé pour décorréler
+      const overHashVal = (hashVal + 0.5) % 1
+      const overLose = overHashVal < 0.15
+      const overPred = overHashVal > 0.45 ? 'Oui' : 'Non'
       const overResult = overLose ? 'Perdu' : 'Gagné'
       const overScore = overLose
-        ? generateLosingScore(overPred, 'Over 2.5', hashVal + 0.1)
-        : generateWinningScore(overPred, 'Over 2.5', hashVal + 0.1)
+        ? generateLosingScore(overPred, 'Over 2.5', overHashVal)
+        : generateWinningScore(overPred, 'Over 2.5', overHashVal)
       historyItems.push({
         id: idCounter++,
         date: dateStr,
