@@ -87,10 +87,10 @@ export default function HowToGetVip() {
         {/* Header */}
         <div className="text-center mb-6">
           <span className="eyebrow">🔓 Accès VIP</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 mb-3">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-3 mb-3">
             Comment <span className="text-gold">obtenir le VIP</span> ?
           </h2>
-          <p className="text-gray-400 text-sm max-w-md mx-auto">
+          <p className="text-gray-600 text-sm max-w-md mx-auto">
             4 étapes simples pour débloquer 20+ pronostics premium par jour. Activation en moins de 30 minutes.
           </p>
           {/* Badge portée mondiale */}
@@ -140,9 +140,9 @@ export default function HowToGetVip() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
                   <span style={{ color: '#16A34A' }}>{step.icon}</span>
-                  <h3 className="text-white font-bold text-sm sm:text-base">{step.title}</h3>
+                  <h3 className="text-gray-900 font-bold text-sm sm:text-base">{step.title}</h3>
                 </div>
-                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{step.desc}</p>
+                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{step.desc}</p>
                 {step.cta && (
                   <a
                     href={step.cta.href}
@@ -177,8 +177,8 @@ export default function HowToGetVip() {
           }}
         >
           <div className="text-2xl mb-2">⏱️</div>
-          <h3 className="text-white font-bold text-lg mb-1">Essai VIP 1 jour</h3>
-          <p className="text-gray-400 text-xs mb-4 max-w-sm mx-auto">
+          <h3 className="text-gray-900 font-bold text-lg mb-1">Essai VIP 1 jour</h3>
+          <p className="text-gray-600 text-xs mb-4 max-w-sm mx-auto">
             Pas sûr ? Teste l'accès VIP pendant 24h avec 5 pronostics premium. Aucun engagement.
           </p>
           <a
@@ -201,19 +201,19 @@ export default function HowToGetVip() {
 
         {/* Mini FAQ VIP */}
         <div>
-          <h3 className="text-xl font-bold text-white mb-4 text-center">FAQ VIP — Questions fréquentes</h3>
+          <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">FAQ VIP — Questions fréquentes</h3>
           <div className="space-y-2">
             {VIP_FAQ.map((item, i) => (
               <div
                 key={i}
                 className="rounded-lg overflow-hidden"
-                style={{ background: 'rgba(15, 20, 36, 0.6)', border: '1px solid rgba(255,255,255,0.05)' }}
+                style={{ background: 'rgba(15, 20, 36, 0.6)', border: '1px solid #F3F4F6' }}
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between p-4 text-left"
                 >
-                  <span className="text-white text-sm font-medium pr-3">{item.q}</span>
+                  <span className="text-gray-900 text-sm font-medium pr-3">{item.q}</span>
                   <span
                     className="flex-shrink-0 transition-transform"
                     style={{
@@ -232,7 +232,7 @@ export default function HowToGetVip() {
                     animate={{ height: 'auto', opacity: 1 }}
                     className="px-4 pb-4"
                   >
-                    <p className="text-gray-400 text-xs leading-relaxed">{item.a}</p>
+                    <p className="text-gray-600 text-xs leading-relaxed">{item.a}</p>
                   </motion.div>
                 )}
               </div>

@@ -12,7 +12,7 @@ const C = {
   bg:       '#020617',
   card:     '#FFFFFF',
   elevated: '#1A1F35',
-  border:   'rgba(255,255,255,0.08)',
+  border:   '#E5E7EB',
   neon:     '#16A34A',
   neonDk:   '#166534',
   gold:     '#FACC15',
@@ -101,7 +101,7 @@ export default function VipSports() {
                     backgroundColor: isActive ? '#FFFFFF' : '#FFFFFF',
                     border: isActive
                       ? '1px solid ' + sport.color
-                      : '1px solid rgba(255,255,255,0.06)',
+                      : '1px solid #E5E7EB',
                     boxShadow: isActive ? '0 0 12px ' + sport.color + '30' : 'none',
                   }}
                   aria-label={`Sélectionner ${sport.name}`}
@@ -139,7 +139,7 @@ export default function VipSports() {
               className="rounded-[16px] overflow-hidden"
               style={{
                 backgroundColor: '#FFFFFF',
-                border: '1px solid rgba(255,255,255,0.08)',
+                border: '1px solid #E5E7EB',
                 boxShadow: '0 8px 30px rgba(0,0,0,0.4)',
               }}
             >
@@ -153,7 +153,7 @@ export default function VipSports() {
                   <img src={activeSport.logo} alt={activeSport.name} className="w-10 h-10 object-contain" loading="lazy" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-bold text-white">{activeSport.name}</h3>
+                  <h3 className="text-lg font-bold text-gray-900">{activeSport.name}</h3>
                   <div className="flex items-center gap-2 mt-0.5">
                     <span className="font-mono text-[12px] font-bold" style={{ color: activeSport.color }}>~{activeSport.accuracy}%</span>
                     <span className="text-[10px]" style={{ color: C.textMute }}>précision VIP</span>
@@ -170,10 +170,10 @@ export default function VipSports() {
               <div className="px-4 pb-3 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="text-center">
-                    <div className="font-mono text-base font-bold text-white">8</div>
+                    <div className="font-mono text-base font-bold text-gray-900">8</div>
                     <div className="text-[8px] uppercase tracking-widest" style={{ color: C.textMute }}>matchs</div>
                   </div>
-                  <div className="w-px h-6 bg-white/5" />
+                  <div className="w-px h-6 bg-gray-100" />
                   <div className="text-center">
                     <div className="font-mono text-base font-bold" style={{ color: activeSport.color }}>VIP</div>
                     <div className="text-[8px] uppercase tracking-widest" style={{ color: C.textMute }}>cote</div>
@@ -190,9 +190,9 @@ export default function VipSports() {
                 <div className="space-y-1.5" style={{ filter: 'blur(6px)', opacity: 0.5 }}>
                   {Array.from({ length: 4 }).map((_, i) => (
                     <div key={i} className="flex items-center gap-2 py-2 px-3 rounded-lg" style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}>
-                      <div className="w-6 h-3 rounded" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }} />
-                      <div className="flex-1 h-3 rounded" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }} />
-                      <div className="w-8 h-3 rounded" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }} />
+                      <div className="w-6 h-3 rounded" style={{ backgroundColor: '#F3F4F6' }} />
+                      <div className="flex-1 h-3 rounded" style={{ backgroundColor: '#F3F4F6' }} />
+                      <div className="w-8 h-3 rounded" style={{ backgroundColor: '#F3F4F6' }} />
                     </div>
                   ))}
                 </div>
@@ -231,7 +231,7 @@ export default function VipSports() {
                 </svg>
               </div>
               <div className="flex-1">
-                <div className="text-[12px] font-bold text-white">Inscription confirmée ?</div>
+                <div className="text-[12px] font-bold text-gray-900">Inscription confirmée ?</div>
                 <div className="text-[10px]" style={{ color: C.textMute }}>Débloque ton VIP via WhatsApp si tu as déjà inscrit et déposé</div>
               </div>
               <a

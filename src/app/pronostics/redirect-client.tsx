@@ -8,7 +8,7 @@ export default function PronosticsRedirect() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-midnight flex items-center justify-center">
+    <div className="min-h-screen bg-white flex items-center justify-center">
       <div className="text-center">
         <div className="inline-block w-10 h-10 border-2 border-emerald/30 border-t-emerald rounded-full animate-spin mb-4" />
         <p className="text-gray-400 text-sm">Redirection vers les pronostics du jour...</p>

@@ -113,12 +113,12 @@ export default function HowItWorks() {
               </span>
 
               {/* Title */}
-              <h3 className="text-lg font-bold text-white mt-1 mb-3">
+              <h3 className="text-lg font-bold text-gray-900 mt-1 mb-3">
                 {card.title}
               </h3>
 
               {/* Description */}
-              <p className="text-sm text-gray-400 leading-relaxed mb-4">
+              <p className="text-sm text-gray-600 leading-relaxed mb-4">
                 {card.description}
               </p>
 
@@ -126,8 +126,8 @@ export default function HowItWorks() {
               <div className="grid grid-cols-2 gap-2 pt-4 border-t border-edge">
                 {card.stats.map((stat, j) => (
                   <div key={j}>
-                    <div className="text-sm font-bold text-white tabular-nums">{stat.value}</div>
-                    <div className="text-[10px] text-gray-500 uppercase tracking-wider font-medium mt-0.5">
+                    <div className="text-sm font-bold text-gray-900 tabular-nums">{stat.value}</div>
+                    <div className="text-[10px] text-gray-600 uppercase tracking-wider font-medium mt-0.5">
                       {stat.label}
                     </div>
                   </div>

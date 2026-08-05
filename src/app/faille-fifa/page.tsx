@@ -216,28 +216,28 @@ export default function FailleFifaPage() {
                 où elles apparaissent. Voici comment fonctionne notre pipeline de détection en 4 étapes :
               </p>
               <div className="space-y-4 mt-6">
-                <div className="bg-midnight/50 border border-edge rounded-xl p-4">
+                <div className="bg-white/50 border border-edge rounded-xl p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-xs font-black text-purple-400 bg-purple-500/15 px-2 py-0.5 rounded">ÉTAPE 1</span>
                     <span className="text-white font-bold text-sm">Collecte en temps réel</span>
                   </div>
                   <p className="text-gray-500 text-sm leading-relaxed">Notre scraper collecte les cotes de tous les matchs FIFA virtuels sur Linebet et 888starz chaque 30 secondes. Chaque marché (1X2, Over/Under, BTTS) est enregistré avec son timestamp pour analyse.</p>
                 </div>
-                <div className="bg-midnight/50 border border-edge rounded-xl p-4">
+                <div className="bg-white/50 border border-edge rounded-xl p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-xs font-black text-purple-400 bg-purple-500/15 px-2 py-0.5 rounded">ÉTAPE 2</span>
                     <span className="text-white font-bold text-sm">Calcul de la probabilité réelle</span>
                   </div>
                   <p className="text-gray-500 text-sm leading-relaxed">Notre modèle statistique (gradient boosting entraîné sur 50 000+ matchs FIFA) calcule la probabilité réelle de chaque événement en tenant compte de 47 variables : ratings détaillés, forme récente, patterns de variance, heure de la journée, et historique des résultats.</p>
                 </div>
-                <div className="bg-midnight/50 border border-edge rounded-xl p-4">
+                <div className="bg-white/50 border border-edge rounded-xl p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-xs font-black text-purple-400 bg-purple-500/15 px-2 py-0.5 rounded">ÉTAPE 3</span>
                     <span className="text-white font-bold text-sm">Détection de l&apos;anomalie</span>
                   </div>
                   <p className="text-gray-500 text-sm leading-relaxed">L&apos;algorithme compare la cote proposée par le bookmaker avec la probabilité réelle calculée. Quand l&apos;écart dépasse un seuil de signification statistique (p-value &lt; 0.05), le signal est validé comme value bet et classé par indice de confiance.</p>
                 </div>
-                <div className="bg-midnight/50 border border-edge rounded-xl p-4">
+                <div className="bg-white/50 border border-edge rounded-xl p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-xs font-black text-purple-400 bg-purple-500/15 px-2 py-0.5 rounded">ÉTAPE 4</span>
                     <span className="text-white font-bold text-sm">Envoi du signal VIP</span>
@@ -301,7 +301,7 @@ export default function FailleFifaPage() {
                 Témoignages de membres VIP
               </h2>
               <div className="space-y-4">
-                <div className="bg-midnight/50 border border-edge rounded-xl p-4">
+                <div className="bg-white/50 border border-edge rounded-xl p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="w-8 h-8 bg-purple-500/15 rounded-full flex items-center justify-center text-purple-400 text-xs font-bold">IB</div>
                     <div>
@@ -311,7 +311,7 @@ export default function FailleFifaPage() {
                   </div>
                   <p className="text-gray-400 text-sm leading-relaxed">La faille FIFA est une mine d&apos;or. Depuis que j&apos;ai rejoint le VIP, je reçois des signaux précis chaque jour. Cote à 10+ quasi tous les jours, et le taux de réussite est réel — je vérifie chaque signal. Merci BTTSPredict !</p>
                 </div>
-                <div className="bg-midnight/50 border border-edge rounded-xl p-4">
+                <div className="bg-white/50 border border-edge rounded-xl p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="w-8 h-8 bg-purple-500/15 rounded-full flex items-center justify-center text-purple-400 text-xs font-bold">MD</div>
                     <div>
@@ -321,7 +321,7 @@ export default function FailleFifaPage() {
                   </div>
                   <p className="text-gray-400 text-sm leading-relaxed">J&apos;étais sceptique sur la faille FIFA, mais après inscription sur Linebet avec le code VISION221 et vérification VIP, j&apos;ai vu les signaux arriver en temps réel. Les cotes erronées sont réelles — j&apos;ai multiplié ma bankroll par 4 en 3 semaines.</p>
                 </div>
-                <div className="bg-midnight/50 border border-edge rounded-xl p-4">
+                <div className="bg-white/50 border border-edge rounded-xl p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="w-8 h-8 bg-purple-500/15 rounded-full flex items-center justify-center text-purple-400 text-xs font-bold">PN</div>
                     <div>
@@ -350,7 +350,7 @@ export default function FailleFifaPage() {
                   { q: "Quelle différence entre faille FIFA et pari football réel ?", a: "Les matchs FIFA durent 3 minutes et se jouent 24h/24, offrant beaucoup plus d'opportunités. Les cotes sont calculées automatiquement, créant des délais d'ajustement que notre équipe exploite." },
                   { q: "Combien peut-on gagner avec la faille FIFA ?", a: "Les gains dépendent de votre bankroll et discipline. Avec une gestion stricte (2-5% par pari) et nos signaux, les membres VIP rapportent des gains réguliers. Ne misez jamais plus que ce que vous pouvez perdre." },
                 ].map((faq, i) => (
-                  <details key={i} className="bg-midnight/50 border border-edge rounded-lg group">
+                  <details key={i} className="bg-white/50 border border-edge rounded-lg group">
                     <summary className="flex items-center justify-between cursor-pointer p-4 text-white font-semibold text-sm hover:text-purple-400 transition-colors">
                       {faq.q}
                       <svg className="w-4 h-4 text-gray-600 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"/></svg>
@@ -382,11 +382,11 @@ export default function FailleFifaPage() {
             <div className="border-t border-edge pt-6">
               <p className="text-gray-500 text-sm font-medium mb-3">Articles liés</p>
               <div className="space-y-2">
-                <a href="/blog/faille-fifa-linebet" className="block p-3 bg-midnight/50 border border-edge rounded-lg hover:border-purple-500/30 transition-colors">
+                <a href="/blog/faille-fifa-linebet" className="block p-3 bg-white/50 border border-edge rounded-lg hover:border-purple-500/30 transition-colors">
                   <p className="text-white font-semibold text-sm">📖 Guide technique : Faille FIFA Linebet & 888starz</p>
                   <p className="text-gray-600 text-xs mt-1">Analyse détaillée du calcul des cotes et de la méthode de détection</p>
                 </a>
-                <a href="/prediction-aviator" className="block p-3 bg-midnight/50 border border-edge rounded-lg hover:border-gold/30 transition-colors">
+                <a href="/prediction-aviator" className="block p-3 bg-white/50 border border-edge rounded-lg hover:border-gold/30 transition-colors">
                   <p className="text-white font-semibold text-sm">🛩️ Prédiction Aviator : Signaux IA en temps réel</p>
                   <p className="text-gray-600 text-xs mt-1">Notre autre système de signaux pour le jeu Aviator sur Linebet & 888starz</p>
                 </a>

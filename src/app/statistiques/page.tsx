@@ -48,7 +48,7 @@ const jsonLd = {
 
 export default function StatistiquesPage() {
   return (
-    <div className="min-h-screen bg-midnight relative">
+    <div className="min-h-screen bg-white relative">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

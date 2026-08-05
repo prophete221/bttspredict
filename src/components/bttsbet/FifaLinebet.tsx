@@ -82,7 +82,7 @@ export default function FifaLinebet() {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="2"><line x1="6" y1="11" x2="10" y2="11"/><line x1="8" y1="9" x2="8" y2="13"/><line x1="15" y1="12" x2="17" y2="12"/><line x1="17" y1="10" x2="17" y2="14"/><rect x="2" y="6" width="20" height="12" rx="2"/></svg>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-bold text-white">Value Bets FIFA</h3>
+                  <h3 className="text-sm font-bold text-gray-900">Value Bets FIFA</h3>
                   <p className="text-[9px]" style={{ color: C.textMute }}>IA détection de cotes sous-évaluées</p>
                 </div>
                 <div className="flex items-center gap-1 px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(255,215,0,0.1)' }}>
@@ -100,8 +100,8 @@ export default function FifaLinebet() {
 
               {/* KPI — compact 3 inline */}
               <div className="flex items-center gap-1.5 mb-3">
-                <div className="flex-1 p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(255,255,255,0.03)' }}>
-                  <div className="text-sm font-bold tabular-nums text-white">{matches.length}</div>
+                <div className="flex-1 p-2 rounded-lg text-center" style={{ backgroundColor: '#F3F4F6' }}>
+                  <div className="text-sm font-bold tabular-nums text-gray-900">{matches.length}</div>
                   <div className="text-[8px] uppercase tracking-wider" style={{ color: C.textMute }}>Matchs</div>
                 </div>
                 <div className="flex-1 p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(255,215,0,0.06)' }}>
@@ -120,9 +120,9 @@ export default function FifaLinebet() {
                   {matches.map((m, i) => (
                     <div key={i} className="flex items-center justify-between px-2 py-1.5 rounded" style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}>
                       <div className="flex items-center gap-1.5 min-w-0">
-                        <span className="text-[10px] font-medium text-white truncate">{m.home}</span>
+                        <span className="text-[10px] font-medium text-gray-900 truncate">{m.home}</span>
                         <span className="text-[8px] text-gray-600">vs</span>
-                        <span className="text-[10px] font-medium text-white truncate">{m.away}</span>
+                        <span className="text-[10px] font-medium text-gray-900 truncate">{m.away}</span>
                       </div>
                       <span className="text-[9px] font-bold" style={{ color: C.gold }}>VIP</span>
                     </div>

@@ -122,7 +122,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg"
-              style={{ background: 'rgba(255,255,255,0.04)' }}
+              style={{ background: '#F3F4F6' }}
               aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
               aria-expanded={isOpen}
             >
@@ -147,7 +147,7 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
             className="md:hidden overflow-hidden"
-            style={{ backgroundColor: '#020617', borderTop: '1px solid rgba(255,255,255,0.06)' }}
+            style={{ backgroundColor: '#020617', borderTop: '1px solid #E5E7EB' }}
           >
             <div className="px-4 py-4 space-y-1">
               {NAV_LINKS.map((link) => (

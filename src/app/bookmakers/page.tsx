@@ -130,7 +130,7 @@ const COMPARISON: Row[] = [
 
 export default function BookmakersPage() {
   return (
-    <div className="min-h-screen bg-midnight relative">
+    <div className="min-h-screen bg-white relative">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -165,7 +165,7 @@ export default function BookmakersPage() {
               Bookmaker n°1 en Afrique de l'Ouest. Meilleur pour les dépôts mobiles (Wave, Orange, Free Money)
               et les cotes esport FIFA.
             </p>
-            <div className="bg-midnight/50 rounded-lg p-3 mb-4 border border-edge">
+            <div className="bg-white/50 rounded-lg p-3 mb-4 border border-edge">
               <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Bonus exclusif</div>
               <div className="text-xl font-black text-linebet">90 000 XOF (150$)</div>
               <div className="text-[10px] text-gray-500">+ Free Money disponible</div>
@@ -192,7 +192,7 @@ export default function BookmakersPage() {
               Nouveau partenaire. Idéal si tu veux un bonus égal à 100% de ton dépôt.
               Pas de Free Money, mais Wave et Orange Money disponibles.
             </p>
-            <div className="bg-midnight/50 rounded-lg p-3 mb-4 border border-edge">
+            <div className="bg-white/50 rounded-lg p-3 mb-4 border border-edge">
               <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Bonus exclusif</div>
               <div className="text-xl font-black text-star888">100% du dépôt</div>
               <div className="text-[10px] text-gray-500">Wave + Orange Money</div>

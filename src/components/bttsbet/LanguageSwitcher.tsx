@@ -40,7 +40,7 @@ export default function LanguageSwitcher({ compact = false }: { compact?: boolea
     <div className="relative">
       <button
         onClick={() => setOpen(o => !o)}
-        className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-gray-300 hover:text-white hover:bg-white/5 transition-all border border-edge"
+        className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-gray-300 hover:text-white hover:bg-gray-100 transition-all border border-edge"
         aria-label="Change language"
       >
         <span className="text-sm">{LANG_LABELS[lang].flag}</span>
@@ -72,7 +72,7 @@ export default function LanguageSwitcher({ compact = false }: { compact?: boolea
                     change(code)
                     setOpen(false)
                   }}
-                  className={`w-full flex items-center gap-2 px-3 py-2 text-xs hover:bg-white/5 transition-colors ${
+                  className={`w-full flex items-center gap-2 px-3 py-2 text-xs hover:bg-gray-100 transition-colors ${
                     lang === code ? 'text-success bg-success/5' : 'text-gray-300'
                   }`}
                 >

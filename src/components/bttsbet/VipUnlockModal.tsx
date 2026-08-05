@@ -194,7 +194,7 @@ export default function VipUnlockModal({
                     className="w-full p-3 rounded-lg text-left mb-2 transition-all"
                     style={{
                       backgroundColor: selectedBookmaker === 'linebet' ? '#FFFFFF' : '#FFFFFF',
-                      border: selectedBookmaker === 'linebet' ? '1px solid #16A34A' : '1px solid rgba(255,255,255,0.08)',
+                      border: selectedBookmaker === 'linebet' ? '1px solid #16A34A' : '1px solid #E5E7EB',
                     }}
                   >
                     <div className="flex items-center justify-between">
@@ -220,7 +220,7 @@ export default function VipUnlockModal({
                     className="w-full p-3 rounded-lg text-left transition-all"
                     style={{
                       backgroundColor: selectedBookmaker === '888starz' ? '#FFFFFF' : '#FFFFFF',
-                      border: selectedBookmaker === '888starz' ? '1px solid #FACC15' : '1px solid rgba(255,255,255,0.08)',
+                      border: selectedBookmaker === '888starz' ? '1px solid #FACC15' : '1px solid #E5E7EB',
                     }}
                   >
                     <div className="flex items-center justify-between">
@@ -271,7 +271,7 @@ export default function VipUnlockModal({
                     className="w-full px-3 py-2.5 rounded-lg text-sm text-white"
                     style={{
                       backgroundColor: '#FFFFFF',
-                      border: selectedBookmaker ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(255,255,255,0.06)',
+                      border: selectedBookmaker ? '1px solid rgba(255,255,255,0.12)' : '1px solid #E5E7EB',
                       opacity: selectedBookmaker ? 1 : 0.5,
                     }}
                   />
@@ -309,7 +309,7 @@ export default function VipUnlockModal({
                 </div>
 
                 {/* Privacy */}
-                <div className="p-3 rounded-lg" style={{ backgroundColor: '#FFFFFF', border: '1px solid rgba(255,255,255,0.06)' }}>
+                <div className="p-3 rounded-lg" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E5E7EB' }}>
                   <p className="text-[10px] text-[#5a5a5a] leading-relaxed">
                     <span className="text-[#a0a0a0] font-semibold">Confidentialité totale :</span> ton ID n'est jamais envoyé à nos serveurs. Hashé localement (SHA-256) et stocké uniquement dans ton navigateur.
                   </p>

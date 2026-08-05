@@ -33,12 +33,12 @@ type ResultFilter = 'all' | 'won' | 'lost'
 type TypeFilter = 'all' | 'BTTS' | 'O2.5'
 
 const COLORS = {
-  success: '#1E40AF',
+  success: '#166534',
   lose: '#DC2626',
   gold: '#FACC15',
   panel: '#FFFFFF',
-  edge: 'rgba(255, 255, 255, 0.08)',
-  text: '#8A8FA3',
+  edge: '#E5E7EB',
+  text: '#6B7280',
 }
 
 function TeamLogoMini({ src, alt }: { src?: string; alt: string }) {
@@ -74,8 +74,8 @@ function WinRateSparkline({ history }: { history: HistoryItem[] }) {
     <div className="squircle-lg p-4 sm:p-5">
       <div className="flex items-center justify-between mb-3">
         <div>
-          <h3 className="text-sm font-bold text-white">Tendance 14 jours</h3>
-          <p className="text-[10px] text-gray-500 mt-0.5">Taux de réussite quotidien</p>
+          <h3 className="text-sm font-bold text-gray-900">Tendance 14 jours</h3>
+          <p className="text-[10px] text-gray-600 mt-0.5">Taux de réussite quotidien</p>
         </div>
         <span className="badge badge-mint">14j</span>
       </div>
@@ -137,18 +137,18 @@ function TypeDistribution({ history }: { history: HistoryItem[] }) {
     <div className="squircle-lg p-4 sm:p-5">
       <div className="flex items-center justify-between mb-3">
         <div>
-          <h3 className="text-sm font-bold text-white">Réussite par type</h3>
-          <p className="text-[10px] text-gray-500 mt-0.5">BTTS vs Over 2.5</p>
+          <h3 className="text-sm font-bold text-gray-900">Réussite par type</h3>
+          <p className="text-[10px] text-gray-600 mt-0.5">BTTS vs Over 2.5</p>
         </div>
       </div>
       <div className="space-y-3">
         {data.map(d => (
           <div key={d.name}>
             <div className="flex items-center justify-between text-[11px] mb-1">
-              <span className="text-gray-300 font-semibold">{d.name}</span>
+              <span className="text-gray-600 font-semibold">{d.name}</span>
               <span className="text-success font-bold tabular-nums">{d.rate}%</span>
             </div>
-            <div className="relative h-2 bg-white/[0.06] rounded-full overflow-hidden">
+            <div className="relative h-2 bg-gray-200 rounded-full overflow-hidden">
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${d.rate}%` }}
@@ -186,16 +186,16 @@ function HistoryRow({ item }: { item: HistoryItem }) {
     >
       {/* Date */}
       <div className="min-w-0">
-        <div className="text-[11px] text-gray-300 mono tabular-nums">{item.date.slice(5)}</div>
+        <div className="text-[11px] text-gray-600 mono tabular-nums">{item.date.slice(5)}</div>
         <div className="text-[9px] text-gray-600">{item.league}</div>
       </div>
 
       {/* Match */}
       <div className="min-w-0 flex items-center gap-1.5">
         <TeamLogoMini src={homeLogo} alt={home} />
-        <span className="text-xs text-white font-semibold truncate">{home}</span>
+        <span className="text-xs text-gray-900 font-semibold truncate">{home}</span>
         <span className="text-[9px] text-gray-600 flex-shrink-0">vs</span>
-        <span className="text-xs text-white font-semibold truncate">{away}</span>
+        <span className="text-xs text-gray-900 font-semibold truncate">{away}</span>
         <TeamLogoMini src={awayLogo} alt={away} />
       </div>
 
@@ -206,12 +206,12 @@ function HistoryRow({ item }: { item: HistoryItem }) {
         }`}>
           {item.type.includes('Over') ? 'O2.5' : item.type}
         </div>
-        <div className="text-[10px] text-gray-400 mt-0.5">Prono: <span className="text-white font-semibold">{item.prediction}</span></div>
+        <div className="text-[10px] text-gray-600 mt-0.5">Prono: <span className="text-gray-900 font-semibold">{item.prediction}</span></div>
       </div>
 
       {/* Score */}
       <div className="min-w-0 text-center">
-        <div className="text-sm text-white font-bold mono tabular-nums">{item.score}</div>
+        <div className="text-sm text-gray-900 font-bold mono tabular-nums">{item.score}</div>
         <div className="text-[9px] text-gray-600">conf. {item.confidence}%</div>
       </div>
 
@@ -292,7 +292,7 @@ export default function WinHistory() {
         <div className="max-w-[440px] sm:max-w-2xl mx-auto text-center">
           <div className="flex justify-center mb-2"><TrophyIcon size={40} /></div>
           <h2 className="section-title">Historique des <span className="text-success">Pronostics</span></h2>
-          <p className="text-gray-500 text-sm mt-2">Historique en cours de mise à jour…</p>
+          <p className="text-gray-600 text-sm mt-2">Historique en cours de mise à jour…</p>
         </div>
       </section>
     )
@@ -326,20 +326,20 @@ export default function WinHistory() {
           className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6"
         >
           <motion.div variants={undefined} className="stat-tile">
-            <div className="text-2xl sm:text-3xl font-bold text-white tabular-nums" ref={totalRef}>{totalDisplay}</div>
-            <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mt-1">Analysés</div>
+            <div className="text-2xl sm:text-3xl font-bold text-gray-900 tabular-nums" ref={totalRef}>{totalDisplay}</div>
+            <div className="text-[10px] text-gray-600 uppercase tracking-widest font-bold mt-1">Analysés</div>
           </motion.div>
           <motion.div variants={undefined} className="stat-tile">
             <div className="text-2xl sm:text-3xl font-bold text-success tabular-nums glow-text-green" ref={wonRef}>{wonDisplay}</div>
-            <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mt-1">Gagnés</div>
+            <div className="text-[10px] text-gray-600 uppercase tracking-widest font-bold mt-1">Gagnés</div>
           </motion.div>
           <motion.div variants={undefined} className="stat-tile">
             <div className="text-2xl sm:text-3xl font-bold text-lose tabular-nums" ref={lostRef}>{lostDisplay}</div>
-            <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mt-1">Perdus</div>
+            <div className="text-[10px] text-gray-600 uppercase tracking-widest font-bold mt-1">Perdus</div>
           </motion.div>
           <motion.div variants={undefined} className="stat-tile">
             <div className="text-2xl sm:text-3xl font-bold text-gold tabular-nums glow-text-gold" ref={rateRef}>{rateDisplay}%</div>
-            <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mt-1">Réussite</div>
+            <div className="text-[10px] text-gray-600 uppercase tracking-widest font-bold mt-1">Réussite</div>
           </motion.div>
         </motion.div>
 
@@ -351,7 +351,7 @@ export default function WinHistory() {
 
         {/* Filters */}
         <div className="flex flex-wrap items-center gap-2 mb-4">
-          <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mr-1">Résultat:</span>
+          <span className="text-[10px] text-gray-600 uppercase tracking-widest font-bold mr-1">Résultat:</span>
           {([
             { id: 'all', label: 'Tous' },
             { id: 'won', label: 'Gagnés' },
@@ -364,7 +364,7 @@ export default function WinHistory() {
               className={`px-3 py-1 rounded-md text-xs font-semibold transition-all ${
                 resultFilter === f.id
                   ? 'bg-success/15 text-success border border-success/30'
-                  : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300'
+                  : 'bg-panel/40 text-gray-600 border border-edge hover:text-gray-600'
               }`}
             >
               {f.label}
@@ -373,7 +373,7 @@ export default function WinHistory() {
 
           <div className="w-px h-5 bg-edge mx-1" />
 
-          <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mr-1">Type:</span>
+          <span className="text-[10px] text-gray-600 uppercase tracking-widest font-bold mr-1">Type:</span>
           {([
             { id: 'all', label: 'Tous' },
             { id: 'BTTS', label: 'BTTS' },
@@ -386,21 +386,21 @@ export default function WinHistory() {
               className={`px-3 py-1 rounded-md text-xs font-semibold transition-all ${
                 typeFilter === f.id
                   ? 'bg-gold/15 text-gold-light border border-gold/30'
-                  : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300'
+                  : 'bg-panel/40 text-gray-600 border border-edge hover:text-gray-600'
               }`}
             >
               {f.label}
             </button>
           ))}
 
-          <div className="ml-auto text-[10px] text-gray-500">
+          <div className="ml-auto text-[10px] text-gray-600">
             {filteredHistory.length} résultat{filteredHistory.length > 1 ? 's' : ''}
           </div>
         </div>
 
         {/* Table header */}
         <div className="squircle-lg overflow-hidden">
-          <div className="hidden md:grid px-4 py-2 text-[10px] text-gray-500 uppercase tracking-widest font-bold border-b border-edge bg-panel-2"
+          <div className="hidden md:grid px-4 py-2 text-[10px] text-gray-600 uppercase tracking-widest font-bold border-b border-edge bg-panel-2"
             style={{ gridTemplateColumns: 'minmax(80px, auto) 1fr minmax(80px, auto) minmax(70px, auto) minmax(110px, auto)' }}
           >
             <span>Date</span>
@@ -417,7 +417,7 @@ export default function WinHistory() {
                 <HistoryRow key={`${item.id || i}-${item.match}`} item={item} />
               ))
             ) : (
-              <div className="px-4 py-8 text-center text-sm text-gray-500">
+              <div className="px-4 py-8 text-center text-sm text-gray-600">
                 Aucun résultat pour ces filtres.
               </div>
             )}
@@ -466,7 +466,7 @@ export default function WinHistory() {
             <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
             Résultats vérifiés
           </span>
-          <span className="text-[10px] text-gray-500">Gagnés ET perdus affichés en transparence</span>
+          <span className="text-[10px] text-gray-600">Gagnés ET perdus affichés en transparence</span>
         </motion.div>
 
         {/* Paragraphe justifiant le positionnement par la transparence */}
@@ -481,8 +481,8 @@ export default function WinHistory() {
             border: '1px solid rgba(22, 163, 74, 0.12)',
           }}
         >
-          <p className="text-[12px] text-gray-300 leading-relaxed text-center">
-            <strong className="text-white">Cette transparence justifie notre positionnement.</strong>{' '}
+          <p className="text-[12px] text-gray-600 leading-relaxed text-center">
+            <strong className="text-gray-900">Cette transparence justifie notre positionnement.</strong>{' '}
             Contrairement aux plateformes qui masquent leurs pertes, BTTSPredict affiche publiquement
             tous ses résultats — gagnés ET perdus. Notre taux de réussite (84,5%) est calculé
             manuellement à partir de l&apos;historique réel, pas un chiffre marketing inventé.

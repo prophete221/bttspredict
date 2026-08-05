@@ -56,7 +56,7 @@ export default function MethodologiePage() {
   })
 
   return (
-    <div className="min-h-screen bg-midnight relative">
+    <div className="min-h-screen bg-white relative">
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildOrganizationJsonLd()) }} />
       {buildPersonJsonLd() && (
@@ -143,7 +143,7 @@ export default function MethodologiePage() {
               BTTSPredict utilise le <strong className="text-emerald">modèle de distribution de Poisson</strong>, la méthode statistique de référence pour modéliser le nombre de buts dans un match de football. Ce modèle calcule la probabilité de chaque score possible à partir des forces offensives et défensives des deux équipes.
             </p>
 
-            <div className="bg-midnight/50 border border-edge rounded-lg p-4">
+            <div className="bg-white/50 border border-edge rounded-lg p-4">
               <h3 className="text-white font-semibold mb-2">Paramètres du modèle (publics et vérifiables)</h3>
               <ul className="space-y-1.5 list-disc list-inside">
                 <li><strong className="text-emerald">Seuil BTTS :</strong> 0.48 (probabilité minimale pour recommander "Both Teams To Score")</li>
@@ -165,27 +165,27 @@ export default function MethodologiePage() {
         <section className="card p-6 sm:p-8 mb-8">
           <h2 className="text-2xl font-bold text-white mb-4">🌐 Nos sources de données</h2>
           <div className="grid sm:grid-cols-2 gap-4 text-gray-300 text-sm">
-            <div className="bg-midnight/50 border border-edge rounded-lg p-4">
+            <div className="bg-white/50 border border-edge rounded-lg p-4">
               <div className="font-bold text-emerald mb-1">ESPN API</div>
               <p>Scores en temps réel, compositions, statistiques de match (cartons, tirs, possession).</p>
             </div>
-            <div className="bg-midnight/50 border border-edge rounded-lg p-4">
+            <div className="bg-white/50 border border-edge rounded-lg p-4">
               <div className="font-bold text-emerald mb-1">API-Football</div>
               <p>200+ variables par match : xG, forme récente, blessés, suspensions, historique des confrontations.</p>
             </div>
-            <div className="bg-midnight/50 border border-edge rounded-lg p-4">
+            <div className="bg-white/50 border border-edge rounded-lg p-4">
               <div className="font-bold text-emerald mb-1">Forebet</div>
               <p>Pronostics statistiques de référence, utilisés pour comparer et valider nos propres modèles.</p>
             </div>
-            <div className="bg-midnight/50 border border-edge rounded-lg p-4">
+            <div className="bg-white/50 border border-edge rounded-lg p-4">
               <div className="font-bold text-emerald mb-1">Windrawwin</div>
               <p>Statistiques historiques détaillées par championnat et par équipe (10+ ans d'historique).</p>
             </div>
-            <div className="bg-midnight/50 border border-edge rounded-lg p-4">
+            <div className="bg-white/50 border border-edge rounded-lg p-4">
               <div className="font-bold text-emerald mb-1">Soccerbase</div>
               <p>Compositions d'équipes, calendriers, et statistiques de joueurs (buts, passes décisives).</p>
             </div>
-            <div className="bg-midnight/50 border border-edge rounded-lg p-4">
+            <div className="bg-white/50 border border-edge rounded-lg p-4">
               <div className="font-bold text-emerald mb-1">TheSportsDB</div>
               <p>Métadonnées des compétitions (logos, couleurs, noms d'équipes) pour l'affichage UI.</p>
             </div>

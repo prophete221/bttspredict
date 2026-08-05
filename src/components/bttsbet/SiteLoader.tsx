@@ -120,7 +120,7 @@ export default function SiteLoader() {
               </span>
 
               {/* Progress bar — premium gradient, slim */}
-              <div className="w-36 h-[2px] bg-white/10 rounded-full overflow-hidden">
+              <div className="w-36 h-[2px] bg-gray-200 rounded-full overflow-hidden">
                 <motion.div
                   initial={{ width: '0%' }}
                   animate={{ width: '100%' }}

@@ -47,7 +47,7 @@ export default function StickyVipBandeau() {
             style={{
               borderColor: 'rgba(245, 158, 11, 0.35)',
               background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(11, 14, 20, 0.85) 50%, rgba(212, 165, 116, 0.08) 100%)',
-              boxShadow: '0 12px 32px rgba(0, 0, 0, 0.4), 0 0 60px rgba(245, 158, 11, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.06)',
+              boxShadow: '0 12px 32px rgba(0, 0, 0, 0.4), 0 0 60px rgba(245, 158, 11, 0.15), inset 0 1px 0 #E5E7EB',
             }}
           >
             {/* Top shimmer line */}

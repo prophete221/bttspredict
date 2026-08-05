@@ -12,7 +12,7 @@ const C = {
   bg:       '#020617',
   card:     '#FFFFFF',
   elevated: '#1A1F35',
-  border:   'rgba(255,255,255,0.08)',
+  border:   '#E5E7EB',
   neon:     '#16A34A',
   neonDk:   '#166534',
   gold:     '#FACC15',
@@ -131,16 +131,16 @@ export default function PromoVip() {
             transition={{ duration: 0.4, delay: 0.1 }}
             className="flex items-center justify-center gap-2 mb-4"
           >
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-              <span className="font-mono text-[14px] font-bold text-white" ref={matchCountRef}>{matchCountDisplay}</span>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: '#F3F4F6', border: '1px solid #E5E7EB' }}>
+              <span className="font-mono text-[14px] font-bold text-gray-900" ref={matchCountRef}>{matchCountDisplay}</span>
               <span className="text-[9px] uppercase tracking-widest" style={{ color: C.textMute }}>matchs</span>
             </div>
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: 'rgba(22, 163, 74,0.06)', border: '1px solid rgba(22, 163, 74,0.15)' }}>
               <span className="font-mono text-[14px] font-bold" style={{ color: C.neon }}>~75%</span>
               <span className="text-[9px] uppercase tracking-widest" style={{ color: C.textMute }}>précision</span>
             </div>
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-              <span className="font-mono text-[14px] font-bold text-white">7</span>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: '#F3F4F6', border: '1px solid #E5E7EB' }}>
+              <span className="font-mono text-[14px] font-bold text-gray-900">7</span>
               <span className="text-[9px] uppercase tracking-widest" style={{ color: C.textMute }}>série jours</span>
             </div>
           </motion.div>
@@ -151,7 +151,7 @@ export default function PromoVip() {
             animate={isVisible ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="rounded-[16px] overflow-hidden"
-          style={{ backgroundColor: '#FFFFFF', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 8px 30px rgba(0,0,0,0.4)' }}
+          style={{ backgroundColor: '#FFFFFF', border: '1px solid #E5E7EB', boxShadow: '0 8px 30px rgba(0,0,0,0.4)' }}
             style={{ boxShadow: '0 8px 30px rgba(0,0,0,0.4)' }}
           >
             {/* Top accent line */}
@@ -173,9 +173,9 @@ export default function PromoVip() {
                   </span>
                   <div className="flex items-center gap-1.5 flex-1 min-w-0">
                     {m.homeLogo && <img src={m.homeLogo} alt="" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy" />}
-                    <span className="text-[11px] font-semibold text-white truncate">{m.homeTeam}</span>
+                    <span className="text-[11px] font-semibold text-gray-900 truncate">{m.homeTeam}</span>
                     <span className="text-[9px] text-gray-600 flex-shrink-0">vs</span>
-                    <span className="text-[11px] font-semibold text-white truncate">{m.awayTeam}</span>
+                    <span className="text-[11px] font-semibold text-gray-900 truncate">{m.awayTeam}</span>
                     {m.awayLogo && <img src={m.awayLogo} alt="" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy" />}
                   </div>
                   <span className="font-mono text-[10px] font-bold flex-shrink-0" style={{ color: C.neon }}>VIP</span>
@@ -188,7 +188,7 @@ export default function PromoVip() {
                   {vipMatches.slice(2, 5).map((m, i) => (
                     <div key={i} className="flex items-center gap-2 py-2 px-2 rounded-[10px] mb-1" style={{ background: 'rgba(255,255,255,0.02)' }}>
                       <span className="font-mono text-[10px] w-8" style={{ color: C.textMute }}>{m.time}</span>
-                      <span className="text-[11px] text-white truncate flex-1">{m.match}</span>
+                      <span className="text-[11px] text-gray-900 truncate flex-1">{m.match}</span>
                       <span className="font-mono text-[10px] font-bold" style={{ color: C.neon }}>VIP</span>
                     </div>
                   ))}
@@ -225,7 +225,7 @@ export default function PromoVip() {
             </div>
 
             {/* Cote totale bar */}
-            <div className="px-3 py-2.5 flex items-center justify-between border-t" style={{ borderColor: 'rgba(255,255,255,0.04)' }}>
+            <div className="px-3 py-2.5 flex items-center justify-between border-t" style={{ borderColor: '#F3F4F6' }}>
               <span className="text-[10px] uppercase tracking-widest font-bold" style={{ color: C.textMute }}>Cote totale</span>
               <span className="font-mono text-[16px] font-bold" style={{ color: C.neon }}>VIP</span>
             </div>
@@ -237,7 +237,7 @@ export default function PromoVip() {
             animate={isVisible ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.4, delay: 0.4 }}
             className="mt-3 flex items-center justify-between gap-3 px-4 py-3 rounded-[14px]"
-          style={{ backgroundColor: '#FFFFFF', border: '1px solid rgba(255,255,255,0.08)' }}
+          style={{ backgroundColor: '#FFFFFF', border: '1px solid #E5E7EB' }}
           >
             <div>
               <div className="text-[10px] uppercase tracking-widest font-bold" style={{ color: C.textMute }}>Code promo</div>

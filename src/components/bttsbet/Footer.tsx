@@ -12,7 +12,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer ref={ref} id="faq" className="border-t pt-10 pb-20 sm:pb-8 px-4" style={{ borderColor: 'rgba(255,255,255,0.04)' }}>
+      <footer ref={ref} id="faq" className="border-t pt-10 pb-20 sm:pb-8 px-4" style={{ borderColor: '#F3F4F6' }}>
         <div className="max-w-[440px] sm:max-w-2xl mx-auto">
           {/* Testimonials */}
           <motion.div variants={staggerContainer} initial="hidden" animate={isVisible ? 'visible' : 'hidden'} className="mb-6">
@@ -21,13 +21,13 @@ export default function Footer() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {TESTIMONIALS.slice(0, 3).map((t) => (
-                <motion.div key={t.name + t.city} variants={staggerChildFadeUp} className="rounded-xl p-4" style={{ backgroundColor: '#FFFFFF', border: '1px solid rgba(255,255,255,0.06)' }}>
+                <motion.div key={t.name + t.city} variants={staggerChildFadeUp} className="rounded-xl p-4" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E5E7EB' }}>
                   <div className="flex items-center gap-2.5 mb-2.5">
                     <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: 'rgba(22, 163, 74,0.1)', color: '#16A34A' }}>
                       {t.name.charAt(0)}
                     </div>
                     <div>
-                      <div className="text-xs font-semibold text-white">{t.name}</div>
+                      <div className="text-xs font-semibold text-gray-900">{t.name}</div>
                       <div className="text-[10px] text-[#5a5a5a]">{t.city} · Membre vérifié</div>
                     </div>
                   </div>
@@ -40,12 +40,12 @@ export default function Footer() {
           {/* FAQ */}
           <motion.div variants={staggerContainer} initial="hidden" animate={isVisible ? 'visible' : 'hidden'} className="mb-6">
             <div className="text-center mb-3">
-              <h3 className="text-sm font-bold text-white">Questions fréquentes</h3>
+              <h3 className="text-sm font-bold text-gray-900">Questions fréquentes</h3>
             </div>
             <div className="space-y-2">
               {FAQ_ITEMS.slice(0, 4).map((item, i) => (
-                <motion.div key={item.q} variants={fadeInUp} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#FFFFFF', border: '1px solid rgba(255,255,255,0.06)' }}>
-                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i} className="w-full text-left px-4 py-3 text-xs font-semibold text-white">
+                <motion.div key={item.q} variants={fadeInUp} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E5E7EB' }}>
+                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i} className="w-full text-left px-4 py-3 text-xs font-semibold text-gray-900">
                     {item.q}
                   </button>
                   {openFaq === i && (

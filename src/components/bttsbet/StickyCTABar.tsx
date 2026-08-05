@@ -73,7 +73,7 @@ export default function StickyCTABar() {
               onClick={copyCode}
               className="flex items-center gap-2 px-3 h-[48px] rounded-[12px] flex-shrink-0 transition-all"
               style={{
-                backgroundColor: copied ? 'rgba(22, 163, 74, 0.12)' : 'rgba(255, 255, 255, 0.04)',
+                backgroundColor: copied ? 'rgba(22, 163, 74, 0.12)' : '#F3F4F6',
                 border: '1px solid ' + (copied ? 'rgba(22, 163, 74, 0.3)' : 'rgba(255, 255, 255, 0.12)'),
               }}
               aria-label="Copier le code promo VISION221"
@@ -110,7 +110,7 @@ export default function StickyCTABar() {
             <button
               onClick={() => setDismissed(true)}
               className="flex items-center justify-center w-[32px] h-[32px] rounded-[8px] flex-shrink-0"
-              style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}
+              style={{ backgroundColor: '#F3F4F6' }}
               aria-label="Fermer"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>

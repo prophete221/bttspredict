@@ -24,9 +24,9 @@
   --color-royal-soft: #4A7CC8;
 
   /* ── Accent : Or Premium ── */
-  --color-gold: #F59E0B;
-  --color-gold-light: #FBBF24;
-  --color-gold-dark: #D97706;
+  --color-gold: #FACC15;
+  --color-gold-light: #FDE047;
+  --color-gold-dark: #EAB308;
 
   /* ── Sémantique ── */
   --color-win: #00E676;
@@ -35,14 +35,14 @@
   /* ── Legacy tokens (mappés vers nouvelles couleurs) ── */
   --color-neon: #00D4AA;
   --color-neon-green: #00D4AA;
-  --color-neon-purple: #F59E0B;
-  --color-amber: #F59E0B;
+  --color-neon-purple: #FACC15;
+  --color-amber: #FACC15;
   --color-sky: #00D4AA;
   --color-sky-deep: #00A888;
   --color-sky-soft: #33E0BE;
-  --color-flame: #F59E0B;
-  --color-flame-deep: #D97706;
-  --color-flame-soft: #FBBF24;
+  --color-flame: #FACC15;
+  --color-flame-deep: #EAB308;
+  --color-flame-soft: #FDE047;
   --color-royal-violet: #2A5CAA;
 
   /* ── Fonds legacy (mappés) ── */
@@ -304,7 +304,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Blog Article Prose ─── */
 .prose-dark h2 { color: #00D4AA; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
-.prose-dark h3 { color: #F59E0B; font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+.prose-dark h3 { color: #FACC15; font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
 .prose-dark p { color: #cbd5e1; line-height: 1.8; margin-bottom: 1rem; }
 .prose-dark ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
 .prose-dark li { color: #cbd5e1; line-height: 1.8; margin-bottom: 0.5rem; }
@@ -345,7 +345,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .promo-code-shimmer {
-  background: linear-gradient(90deg, #F59E0B 0%, #FBBF24 25%, #FFF7ED 50%, #FBBF24 75%, #F59E0B 100%);
+  background: linear-gradient(90deg, #FACC15 0%, #FDE047 25%, #FEF9C3 50%, #FDE047 75%, #FACC15 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -376,7 +376,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-gold {
-  background: linear-gradient(135deg, #F59E0B, #D97706);
+  background: linear-gradient(135deg, #FACC15, #EAB308);
   color: #0B1120;
   font-weight: 700;
   border-radius: 12px;
@@ -403,7 +403,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .accent-line-gold {
   height: 2px;
-  background: linear-gradient(90deg, transparent, #F59E0B, transparent);
+  background: linear-gradient(90deg, transparent, #FACC15, transparent);
 }
 
 /* ─── Scrollbar-none for filter tabs ─── */

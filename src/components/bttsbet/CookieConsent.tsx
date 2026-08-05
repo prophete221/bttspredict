@@ -75,7 +75,7 @@ export default function CookieConsent() {
             <AnimatePresence>
               {customize && (
                 <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
-                  <div className="rounded-xl p-4 mb-4 space-y-3" style={{ backgroundColor: 'rgba(15, 20, 36, 0.6)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                  <div className="rounded-xl p-4 mb-4 space-y-3" style={{ backgroundColor: 'rgba(15, 20, 36, 0.6)', border: '1px solid #E5E7EB' }}>
                     {COOKIE_TYPES.map((cookie) => (
                       <label key={cookie.id} className="flex items-start gap-3 cursor-pointer group">
                         <div className="pt-0.5">
@@ -116,7 +116,7 @@ export default function CookieConsent() {
                 <button onClick={handleRefuse}
                   className="flex-1 sm:flex-initial px-5 py-2.5 text-sm rounded-xl font-medium transition-all"
                   style={{ border: '1px solid rgba(255,255,255,0.1)', color: '#94A3B8', backgroundColor: 'transparent' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#FFFFFF' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#F3F4F6'; e.currentTarget.style.color = '#FFFFFF' }}
                   onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#94A3B8' }}
                 >
                   Refuser
