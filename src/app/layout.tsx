@@ -1,15 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat, Open_Sans, JetBrains_Mono } from "next/font/google";
+import { Poppins, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const montserrat = Montserrat({
+const poppins = Poppins({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ['400', '500', '600', '700', '800', '900'],
   display: 'swap',
 });
 
-const openSans = Open_Sans({
+const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ['300', '400', '500', '600', '700'],
@@ -114,7 +114,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1A202C",
+  themeColor: "#0D1117",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -149,7 +149,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v16-refonte-bleu-gris-bleu-vert-or-2026-08-06';
+                var VERSION = 'bttspredict-v17-refonte-emeraude-imperial-or-champagne-2026-08-06';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
@@ -175,7 +175,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${montserrat.variable} ${openSans.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${poppins.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
         {children}
       </body>

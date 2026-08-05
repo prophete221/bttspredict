@@ -33,12 +33,12 @@ type ResultFilter = 'all' | 'won' | 'lost'
 type TypeFilter = 'all' | 'BTTS' | 'O2.5'
 
 const COLORS = {
-  success: '#00A0B8',
+  success: '#00A882',
   lose: '#DC2626',
-  gold: '#FFC107',
-  panel: '#2D3748',
-  edge: 'rgba(255, 255, 255, 0.08)',
-  text: '#A0AEC0',
+  gold: '#FFD700',
+  panel: '#161B22',
+  edge: 'rgba(240, 242, 245, 0.08)',
+  text: '#A8B3C2',
 }
 
 function TeamLogoMini({ src, alt }: { src?: string; alt: string }) {
@@ -446,9 +446,9 @@ export default function WinHistory() {
             href="/historique"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold transition-all"
             style={{
-              background: 'linear-gradient(135deg, #00B8D9, #00A0B8)',
-              color: '#1A202C',
-              boxShadow: '0 4px 16px rgba(0, 184, 217, 0.25)',
+              background: 'linear-gradient(135deg, #00C49A, #00A882)',
+              color: '#0D1117',
+              boxShadow: '0 4px 16px rgba(0, 196, 154, 0.25)',
             }}
           >
             Voir l'historique complet →
@@ -477,8 +477,8 @@ export default function WinHistory() {
           transition={{ duration: 0.4 }}
           className="mt-6 p-4 rounded-xl"
           style={{
-            background: 'linear-gradient(135deg, rgba(0, 184, 217, 0.04), rgba(0, 212, 245, 0.04))',
-            border: '1px solid rgba(0, 184, 217, 0.12)',
+            background: 'linear-gradient(135deg, rgba(0, 196, 154, 0.04), rgba(0, 212, 245, 0.04))',
+            border: '1px solid rgba(0, 196, 154, 0.12)',
           }}
         >
           <p className="text-[12px] text-gray-400 leading-relaxed text-center">

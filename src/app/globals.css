@@ -7,103 +7,103 @@
    ════════════════════════════════════════════════════════════════════════════ */
 
 /* ════════════════════════════════════════════════════════════════════════════
-   FONTS — Premium Typography (Montserrat + Open Sans)
+   FONTS — Premium Typography (Poppins + Inter)
    ════════════════════════════════════════════════════════════════════════════ */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @import "tailwindcss";
 
 @theme {
-  /* ═══ Palette BTTSPredict — Bleu-gris profond + Bleu-vert vibrant + Or ═══ */
+  /* ═══ Palette BTTSPredict — Émeraude Impérial & Or Champagne ═══ */
   /* ── Surfaces sombres (fond principal + cartes) ── */
-  --color-dark-900: #1A202C;   /* bleu-gris profond (fond principal) */
-  --color-dark-800: #2D3748;   /* bleu-gris cartes/sections */
-  --color-dark-700: #1A202C;   /* variante foncée */
-  --color-dark-600: #2D3748;
-  --color-dark-500: #4A5568;
-  --color-dark-400: #718096;
+  --color-dark-900: #0D1117;   /* Obsidienne (fond principal) */
+  --color-dark-800: #161B22;   /* Charbon (cartes/sections) */
+  --color-dark-700: #0D1117;
+  --color-dark-600: #161B22;
+  --color-dark-500: #21262D;
+  --color-dark-400: #484F58;
 
   /* ── Card surfaces ── */
-  --color-card: #2D3748;       /* cartes sur fond sombre */
-  --color-card-hover: #2A3242;
-  --color-card-border: rgba(255, 255, 255, 0.08);
-  --color-card-border-hover: #00B8D9;
+  --color-card: #161B22;       /* cartes sur fond obsidienne */
+  --color-card-hover: #1C232C;
+  --color-card-border: rgba(240, 242, 245, 0.08);
+  --color-card-border-hover: #00C49A;
 
-  /* ── Bleu-vert vibrant (CTA, accent principal) ── */
-  --color-primary: #00B8D9;
-  --color-primary-dark: #00A0B8;
-  --color-primary-light: #00D4F5;
-  --color-primary-glow: rgba(0, 184, 217, 0.35);
+  /* ── Émeraude vif (CTA, accent principal) ── */
+  --color-primary: #00C49A;
+  --color-primary-dark: #00A882;
+  --color-primary-light: #00DDB0;
+  --color-primary-glow: rgba(0, 196, 154, 0.35);
 
   /* ── Variante claire ── */
-  --color-primary-pale: rgba(0, 184, 217, 0.12);
+  --color-primary-pale: rgba(0, 196, 154, 0.12);
 
-  /* ── Or/Orange (mise en évidence, alertes) ── */
-  --color-secondary: #FFC107;
-  --color-secondary-dark: #E0A800;
-  --color-secondary-light: #FFD54F;
-  --color-secondary-glow: rgba(255, 193, 7, 0.3);
+  /* ── Or Champagne (mise en évidence, prestige) ── */
+  --color-secondary: #FFD700;
+  --color-secondary-dark: #D4AF00;
+  --color-secondary-light: #FFE44D;
+  --color-secondary-glow: rgba(255, 215, 0, 0.3);
 
-  /* ── Success (gains) — bleu-vert ── */
-  --color-success: #00B8D9;
-  --color-success-dark: #00A0B8;
-  --color-success-light: #00D4F5;
-  --color-success-pale: rgba(0, 184, 217, 0.12);
+  /* ── Success (gains) — émeraude ── */
+  --color-success: #00C49A;
+  --color-success-dark: #00A882;
+  --color-success-light: #00DDB0;
+  --color-success-pale: rgba(0, 196, 154, 0.12);
 
-  /* ── Warning / VIP — or ── */
-  --color-warning: #FFC107;
-  --color-warning-pale: rgba(255, 193, 7, 0.12);
-  --color-vip: #FFC107;
-  --color-vip-glow: rgba(255, 193, 7, 0.4);
+  /* ── Warning / VIP — or champagne ── */
+  --color-warning: #FFD700;
+  --color-warning-pale: rgba(255, 215, 0, 0.12);
+  --color-vip: #FFD700;
+  --color-vip-glow: rgba(255, 215, 0, 0.4);
 
   /* ── Danger — rouge ── */
   --color-danger: #DC2626;
   --color-danger-light: #EF4444;
   --color-danger-pale: rgba(220, 38, 38, 0.12);
 
-  /* ── Bleu accent (legacy) ── */
-  --color-accent: #00B8D9;
-  --color-accent-light: #00D4F5;
-  --color-accent-glow: rgba(0, 184, 217, 0.35);
+  /* ── Accent (legacy) ── */
+  --color-accent: #00C49A;
+  --color-accent-light: #00DDB0;
+  --color-accent-glow: rgba(0, 196, 154, 0.35);
 
   /* ── Legacy compat (mappés sur nouvelle palette) ── */
-  --color-neon: #00B8D9;
-  --color-neon-glow: rgba(0, 184, 217, 0.35);
-  --color-neon-green: #00B8D9;
-  --color-emerald: #00B8D9;
-  --color-emerald-soft: #00D4F5;
-  --color-midnight: #1A202C;
-  --color-edge: rgba(255, 255, 255, 0.08);
-  --color-panel: #2D3748;
-  --color-rose: #FFC107;
-  --color-linebet: #00B8D9;
-  --color-star888: #FFC107;
-  --color-gold: #FFC107;
-  --color-gold-light: #FFD54F;
+  --color-neon: #00C49A;
+  --color-neon-glow: rgba(0, 196, 154, 0.35);
+  --color-neon-green: #00C49A;
+  --color-emerald: #00C49A;
+  --color-emerald-soft: #00DDB0;
+  --color-midnight: #0D1117;
+  --color-edge: rgba(240, 242, 245, 0.08);
+  --color-panel: #161B22;
+  --color-rose: #FFD700;
+  --color-linebet: #00C49A;
+  --color-star888: #FFD700;
+  --color-gold: #FFD700;
+  --color-gold-light: #FFE44D;
   --color-lose: #DC2626;
 
   /* ── Text ── */
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #A0AEC0;
-  --color-text-muted: #A0AEC0;
-  --color-text-tertiary: #718096;
-  --color-text-on-dark: #FFFFFF;
-  --color-text-on-dark-secondary: #A0AEC0;
+  --color-text-primary: #F0F2F5;     /* Blanc cassé */
+  --color-text-secondary: #A8B3C2;   /* Gris moyen */
+  --color-text-muted: #A8B3C2;
+  --color-text-tertiary: #6E7681;
+  --color-text-on-dark: #F0F2F5;
+  --color-text-on-dark-secondary: #A8B3C2;
 
   /* ── Gradients ── */
-  --grad-primary: linear-gradient(135deg, #00B8D9 0%, #00D4F5 100%);
-  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(0,184,217,0.12) 0%, transparent 60%),
-               radial-gradient(50% 50% at 85% 10%, rgba(255,193,7,0.08) 0%, transparent 60%);
+  --grad-primary: linear-gradient(135deg, #00C49A 0%, #00DDB0 100%);
+  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(0,196,154,0.12) 0%, transparent 60%),
+               radial-gradient(50% 50% at 85% 10%, rgba(255,215,0,0.08) 0%, transparent 60%);
 
   /* ── Fonts ── */
-  --font-display: 'Montserrat', system-ui, sans-serif;
-  --font-body: 'Open Sans', system-ui, sans-serif;
+  --font-display: 'Poppins', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   /* ── Shadows ── */
-  --shadow-card: 0 1px 2px rgba(0,0,0,0.3), 0 8px 30px rgba(0,0,0,0.4);
-  --shadow-cta: 0 0 0 1px rgba(0,184,217,.3), 0 8px 32px rgba(0,184,217,.2);
-  --shadow-glass: 0 1px 0 rgba(255,255,255,0.05) inset, 0 8px 30px rgba(0,0,0,0.3);
+  --shadow-card: 0 1px 2px rgba(0,0,0,0.4), 0 8px 30px rgba(0,0,0,0.5);
+  --shadow-cta: 0 0 0 1px rgba(0,196,154,.3), 0 8px 32px rgba(0,196,154,.2);
+  --shadow-glass: 0 1px 0 rgba(255,255,255,0.05) inset, 0 8px 30px rgba(0,0,0,0.4);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -116,13 +116,13 @@ html {
 }
 
 body {
-  background: #1A202C;
+  background: #0D1117;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 184, 217, 0.10) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(255, 193, 7, 0.06) 0%, transparent 40%);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 196, 154, 0.10) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(255, 215, 0, 0.06) 0%, transparent 40%);
   background-attachment: fixed;
-  color: #FFFFFF;
-  font-family: 'Open Sans', system-ui, sans-serif;
+  color: #F0F2F5;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -132,7 +132,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', system-ui, sans-serif;
+  font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
 }
 

@@ -23,11 +23,11 @@ export default function SportMarquee() {
       {/* Fade edges */}
       <div
         className="absolute left-0 top-0 bottom-0 z-10 w-16 sm:w-24 pointer-events-none"
-        style={{ background: 'linear-gradient(90deg, #1A202C, transparent)' }}
+        style={{ background: 'linear-gradient(90deg, #0D1117, transparent)' }}
       />
       <div
         className="absolute right-0 top-0 bottom-0 z-10 w-16 sm:w-24 pointer-events-none"
-        style={{ background: 'linear-gradient(270deg, #1A202C, transparent)' }}
+        style={{ background: 'linear-gradient(270deg, #0D1117, transparent)' }}
       />
 
       {/* Scrolling track */}
@@ -63,9 +63,9 @@ export default function SportMarquee() {
             />
             <span
               className="text-xs sm:text-sm font-semibold transition-colors duration-300"
-              style={{ color: '#A0AEC0' }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = '#00A0B8' }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = '#A0AEC0' }}
+              style={{ color: '#A8B3C2' }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = '#00A882' }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = '#A8B3C2' }}
             >
               {sport.name}
             </span>

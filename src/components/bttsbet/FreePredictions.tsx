@@ -311,7 +311,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-1.5">
               <div className="w-5 h-5 rounded bg-success/15 border border-success/30 flex items-center justify-center">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#00A0B8" strokeWidth="2.5">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#00A882" strokeWidth="2.5">
                   <circle cx="12" cy="12" r="10" />
                   <path d="M8 14s1.5 2 4 2 4-2 4-2" />
                   <line x1="9" y1="9" x2="9.01" y2="9" />
@@ -656,9 +656,9 @@ export default function FreePredictions() {
             href="/pronostics"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold transition-all"
             style={{
-              background: 'linear-gradient(135deg, #00B8D9, #00A0B8)',
-              color: '#1A202C',
-              boxShadow: '0 4px 16px rgba(0, 184, 217, 0.25)',
+              background: 'linear-gradient(135deg, #00C49A, #00A882)',
+              color: '#0D1117',
+              boxShadow: '0 4px 16px rgba(0, 196, 154, 0.25)',
             }}
           >
             Voir tous les pronostics du jour →

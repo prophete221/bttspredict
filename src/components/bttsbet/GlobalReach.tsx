@@ -59,9 +59,9 @@ export default function GlobalReach() {
             <div
               key={i}
               className="text-center p-4 rounded-xl"
-              style={{ background: 'rgba(15, 20, 36, 0.6)', border: '1px solid rgba(0, 184, 217, 0.08)' }}
+              style={{ background: 'rgba(15, 20, 36, 0.6)', border: '1px solid rgba(0, 196, 154, 0.08)' }}
             >
-              <div className="text-2xl font-bold" style={{ color: '#00B8D9' }}>{stat.value}</div>
+              <div className="text-2xl font-bold" style={{ color: '#00C49A' }}>{stat.value}</div>
               <div className="text-[10px] text-gray-400 mt-1 uppercase tracking-wider">{stat.label}</div>
             </div>
           ))}
@@ -76,7 +76,7 @@ export default function GlobalReach() {
           className="mb-8"
         >
           <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-            <span style={{ color: '#00B8D9' }}>🌐</span>
+            <span style={{ color: '#00C49A' }}>🌐</span>
             Disponible dans le monde entier
           </h3>
           <p className="text-gray-400 text-xs mb-4 leading-relaxed">
@@ -87,7 +87,7 @@ export default function GlobalReach() {
               <div
                 key={i}
                 className="p-4 rounded-lg"
-                style={{ background: 'rgba(15, 20, 36, 0.6)', border: '1px solid #2D3748' }}
+                style={{ background: 'rgba(15, 20, 36, 0.6)', border: '1px solid #161B22' }}
               >
                 <div className="text-sm font-bold text-white mb-1">{region.name}</div>
                 <div className="text-[11px] text-gray-400 leading-relaxed">{region.countries}</div>
@@ -104,7 +104,7 @@ export default function GlobalReach() {
           transition={{ duration: 0.4, delay: 0.2 }}
         >
           <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-            <span style={{ color: '#FFC107' }}>🌍</span>
+            <span style={{ color: '#FFD700' }}>🌍</span>
             Présence panafricaine
           </h3>
           <p className="text-gray-400 text-xs mb-4 leading-relaxed">
@@ -115,7 +115,7 @@ export default function GlobalReach() {
               <div
                 key={i}
                 className="flex items-center justify-between p-3 rounded-lg"
-                style={{ background: 'rgba(15, 20, 36, 0.6)', border: '1px solid #2D3748' }}
+                style={{ background: 'rgba(15, 20, 36, 0.6)', border: '1px solid #161B22' }}
               >
                 <div className="flex items-center gap-2">
                   <span className="text-lg">{item.flag}</span>
@@ -124,7 +124,7 @@ export default function GlobalReach() {
                     <div className="text-[10px] text-gray-400">{item.city}</div>
                   </div>
                 </div>
-                <div className="text-xs font-bold" style={{ color: '#FFC107' }}>{item.users}</div>
+                <div className="text-xs font-bold" style={{ color: '#FFD700' }}>{item.users}</div>
               </div>
             ))}
           </div>
@@ -138,8 +138,8 @@ export default function GlobalReach() {
           transition={{ duration: 0.4, delay: 0.3 }}
           className="mt-8 p-5 rounded-xl text-center"
           style={{
-            background: 'linear-gradient(135deg, rgba(0, 184, 217, 0.05), rgba(0, 212, 245, 0.05))',
-            border: '1px solid rgba(0, 184, 217, 0.15)',
+            background: 'linear-gradient(135deg, rgba(0, 196, 154, 0.05), rgba(0, 212, 245, 0.05))',
+            border: '1px solid rgba(0, 196, 154, 0.15)',
           }}
         >
           <div className="text-2xl mb-2">🎯</div>

@@ -93,7 +93,7 @@ export default function MethodologiePage() {
         </header>
 
         {/* Section Autorité — Pourquoi nous faire confiance */}
-        <section className="card p-6 sm:p-8 mb-8" style={{ background: 'linear-gradient(135deg, rgba(0, 184, 217, 0.05), rgba(0, 212, 245, 0.05))', border: '1px solid rgba(0, 184, 217, 0.20)' }}>
+        <section className="card p-6 sm:p-8 mb-8" style={{ background: 'linear-gradient(135deg, rgba(0, 196, 154, 0.05), rgba(0, 212, 245, 0.05))', border: '1px solid rgba(0, 196, 154, 0.20)' }}>
           <h2 className="text-2xl font-bold text-white mb-4">🏆 Pourquoi nous faire confiance ?</h2>
           <div className="text-gray-300 text-sm leading-relaxed space-y-3">
             <p>

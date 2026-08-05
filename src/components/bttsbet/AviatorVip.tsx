@@ -6,9 +6,9 @@ import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
 
 const C = {
-  bg: '#1A202C', card: '#2D3748', border: 'rgba(255, 255, 255, 0.08)',
-  green: '#00B8D9', greenLight: '#00D4F5', gold: '#FFC107', cyan: '#00B8D9', violet: '#00D4F5',
-  text: '#FFFFFF', textSec: '#A0AEC0', textMute: '#718096',
+  bg: '#0D1117', card: '#161B22', border: 'rgba(240, 242, 245, 0.08)',
+  green: '#00C49A', greenLight: '#00DDB0', gold: '#FFD700', cyan: '#00C49A', violet: '#00DDB0',
+  text: '#F0F2F5', textSec: '#A8B3C2', textMute: '#484F58',
   danger: '#DC2626',
 }
 
@@ -81,7 +81,7 @@ export default function AviatorVip() {
 
   return (
     <>
-      <section ref={ref} id="aviator" className="section-pad overflow-x-hidden" style={{ paddingTop: '16px', paddingBottom: '16px', backgroundColor: '#1A202C' }}>
+      <section ref={ref} id="aviator" className="section-pad overflow-x-hidden" style={{ paddingTop: '16px', paddingBottom: '16px', backgroundColor: '#0D1117' }}>
         <div className="max-w-[440px] sm:max-w-2xl mx-auto">
           {/* Compact card */}
           <motion.div
@@ -153,7 +153,7 @@ export default function AviatorVip() {
               <button
                 onClick={() => setShowModal(true)}
                 className="w-full mt-3 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-xs font-bold transition-all"
-                style={{ background: 'linear-gradient(135deg, #00B8D9, #00D4F5)', color: '#1A202C' }}
+                style={{ background: 'linear-gradient(135deg, #00C49A, #00DDB0)', color: '#F0F2F5' }}
               >
                 🔒 Débloquer les Stats Aviator VIP
               </button>
