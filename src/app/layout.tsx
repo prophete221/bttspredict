@@ -27,11 +27,14 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://bttspredict.com"),
   title: {
-    default: "BTTSPredict — N°1 des Prédictions BTTS par nos experts | Both Teams To Score",
-    template: "%s | BTTSPredict",
+    default: "BTTSPredict — N°1 Mondial des Pronostics BTTS & Over 2.5 | Both Teams To Score",
+    template: "%s | BTTSPredict — N°1 Mondial BTTS",
   },
-  description: "N°1 des pronostics btts aujourd'hui. Pronostics BTTS et Over 2.5 validés par nos analystes chaque jour. Taux de réussite vérifié 84,5%. Modèles Poisson calibrés sur 50 000 matchs. Code promo VISION221.",
+  description: "BTTSPredict est le N°1 mondial des pronostics BTTS aujourd'hui et Over 2.5 buts. Plateforme leader avec 84,5% de réussite vérifiée, modèles Poisson calibrés sur 50 000 matchs, 13 000+ parieurs. Code promo VISION221.",
   keywords: [
+    // Autorité mondiale
+    "n°1 mondial pronostics btts", "meilleur site pronostics btts monde", "leader pronostics btts",
+    "plateforme n°1 btts", "world number 1 btts predictions", "best btts prediction site",
     // Mots-clés stratégiques avec "aujourd'hui" (priorité absolue)
     "pronostics btts aujourd'hui", "pronostic btts du jour", "prédiction btts gratuit aujourd'hui",
     "pronostics over 2.5 aujourd'hui", "n°1 pronostics btts", "meilleur site pronostics btts",
@@ -43,7 +46,7 @@ export const metadata: Metadata = {
     "VISION221", "BTTSPredict", "paris sportifs",
     "pronostics Sénégal", "pronostics Afrique",
     "modèle Poisson football", "xG pronostics", "statistiques football",
-    "84,5% réussite", "pronostics vérifiés",
+    "84,5% réussite", "pronostics vérifiés", "transparence pronostics",
   ],
   authors: [
     { name: "BTTSPredict", url: "https://bttspredict.com" },
@@ -66,6 +69,11 @@ export const metadata: Metadata = {
     'bingbot': 'index, follow, max-image-preview:large',
     'author': 'BTTSPredict',
     'referrer': 'strict-origin-when-cross-origin',
+    // Signaux d'autorité pour les crawlers
+    'rating-agency': 'BTTSPredict — N°1 Mondial Pronostics BTTS',
+    'priority': '1',
+    'worldwide': 'true',
+    'leader': 'BTTS predictions',
   },
   robots: {
     index: true,
@@ -142,7 +150,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v7-fix-hashval-bug-win-history-2026-08-05';
+                var VERSION = 'bttspredict-v9-n1-mondial-authority-claim-2026-08-05';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
