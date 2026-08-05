@@ -106,10 +106,12 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   category: "sports",
-  // NOTE: Remplacer la valeur ci-dessous par le vrai code Google Search Console
-  // (format: <code>.html) une fois le domaine vérifié.
+  // Vérification des moteurs de recherche
   verification: {
     google: "bttspredict-gsc-verification-pending",
+    other: {
+      "msvalidate.01": "DCC3F51EC848E81F65438B72666C59ED",
+    },
   },
 };
 
@@ -149,7 +151,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v19-eeat-geo-llms-txt-humans-equipe-presse-2026-08-06';
+                var VERSION = 'bttspredict-v20-bing-verification-msvalidate-2026-08-06';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
