@@ -22,6 +22,7 @@ import {
   StickyCTABar,
   HowToGetVip,
   GlobalReach,
+  VipCardGrid,
 } from '@/components/bttsbet'
 
 // JSON-LD WebSite — SearchAction for Google SERP
@@ -478,6 +479,7 @@ export default function Home() {
         <ErrorBoundary><PromoVip /></ErrorBoundary>
         <ErrorBoundary><VipSports /></ErrorBoundary>
         <ErrorBoundary><HowToGetVip /></ErrorBoundary>
+        <ErrorBoundary><VipCardGrid /></ErrorBoundary>
         <ErrorBoundary><FifaLinebet /></ErrorBoundary>
         <ErrorBoundary><AviatorVip /></ErrorBoundary>
         <ErrorBoundary><HowItWorks /></ErrorBoundary>

@@ -750,3 +750,285 @@ a:hover { color: var(--color-primary-light); }
 .to-accent { --tw-gradient-to: var(--color-accent); }
 .from-success { --tw-gradient-from: var(--color-success); }
 .to-success { --tw-gradient-to: var(--color-success); }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   GLASSMORPHISM VIP CARDS — Ultra-moderne, luxueux, réactif
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Container des cartes VIP glassmorphism */
+.vip-glass-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .vip-glass-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 56rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .vip-glass-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 72rem;
+  }
+}
+
+/* Carte VIP Glassmorphism */
+.vip-glass-card {
+  position: relative;
+  background: rgba(22, 27, 34, 0.65);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid transparent;
+  border-radius: 16px;
+  padding: 1.5rem;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  background-image: linear-gradient(rgba(22, 27, 34, 0.65), rgba(22, 27, 34, 0.65)),
+                    linear-gradient(135deg, rgba(0, 196, 154, 0.15), rgba(255, 215, 0, 0.08));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* Bordure lumineuse dégradée émeraude → or */
+.vip-glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0, 196, 154, 0.5), rgba(255, 215, 0, 0.3), rgba(0, 196, 154, 0.1));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Reflet lumineux subtil en haut */
+.vip-glass-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 196, 154, 0.6), transparent);
+  pointer-events: none;
+}
+
+/* Effet hover : élévation + glow */
+.vip-glass-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.6),
+    0 8px 24px rgba(0, 196, 154, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px) saturate(200%);
+  -webkit-backdrop-filter: blur(14px) saturate(200%);
+}
+
+/* Halo d'accent au hover */
+.vip-glass-card:hover::before {
+  background: linear-gradient(135deg, rgba(0, 196, 154, 0.8), rgba(255, 215, 0, 0.5), rgba(0, 196, 154, 0.3));
+}
+
+/* En-tête carte : niveau VIP + logo */
+.vip-glass-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 2;
+}
+
+.vip-glass-level {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #FFD700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+  letter-spacing: 0.02em;
+}
+
+.vip-glass-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.vip-glass-logo-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #00C49A, #00DDB0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 16px rgba(0, 196, 154, 0.4);
+}
+
+.vip-glass-logo-text {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #F0F2F5;
+}
+
+/* Corps carte : utilisateur + avantages */
+.vip-glass-body {
+  position: relative;
+  z-index: 2;
+}
+
+.vip-glass-username {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #F0F2F5;
+  margin-bottom: 1rem;
+}
+
+.vip-glass-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.vip-glass-benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.8125rem;
+  color: #A8B3C2;
+  line-height: 1.5;
+}
+
+.vip-glass-benefit::before {
+  content: '';
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: #00C49A;
+  box-shadow: 0 0 8px rgba(0, 196, 154, 0.6);
+}
+
+/* Pied carte : statut */
+.vip-glass-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(240, 242, 245, 0.06);
+  position: relative;
+  z-index: 2;
+}
+
+.vip-glass-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #00C49A;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.vip-glass-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00C49A;
+  box-shadow: 0 0 8px rgba(0, 196, 154, 0.8);
+  animation: vip-pulse 2s ease-in-out infinite;
+}
+
+@keyframes vip-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+.vip-glass-meta {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.6875rem;
+  color: #6E7681;
+}
+
+/* CTA carte VIP glassmorphism */
+.vip-glass-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  margin-top: 1.25rem;
+  background: linear-gradient(135deg, #00C49A 0%, #00DDB0 100%);
+  color: #F0F2F5;
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 196, 154, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.vip-glass-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 196, 154, 0.5);
+  background: linear-gradient(135deg, #00DDB0 0%, #00C49A 100%);
+}
+
+.vip-glass-cta:active {
+  transform: translateY(0);
+}
+
+/* Badge or champagne pour cartes premium */
+.vip-glass-card.gold {
+  background-image: linear-gradient(rgba(22, 27, 34, 0.65), rgba(22, 27, 34, 0.65)),
+                    linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(0, 196, 154, 0.1));
+}
+
+.vip-glass-card.gold::before {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.6), rgba(0, 196, 154, 0.3), rgba(255, 215, 0, 0.2));
+}
+
+.vip-glass-card.gold .vip-glass-level {
+  color: #FFD700;
+  text-shadow: 0 0 24px rgba(255, 215, 0, 0.5);
+}
+
+/* Responsive : padding réduit sur mobile */
+@media (max-width: 640px) {
+  .vip-glass-card {
+    padding: 1.25rem;
+    border-radius: 14px;
+  }
+  .vip-glass-level { font-size: 1.125rem; }
+  .vip-glass-username { font-size: 0.9375rem; }
+  .vip-glass-benefit { font-size: 0.75rem; }
+}
