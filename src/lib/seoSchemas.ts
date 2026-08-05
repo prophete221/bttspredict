@@ -45,15 +45,26 @@ export function buildOrganizationJsonLd() {
 }
 
 // ─── Person (expert E-E-A-T) ────────────────────────────────────────────
+// NOTE: Remplacer "Expert BTTSPredict" par le vrai nom du fondateur
+// lorsque disponible. Google vérifie la cohérence des entités Person.
+export const EXPERT_NAME = 'Expert BTTSPredict'
+export const EXPERT_ROLE = 'Analyste Football Senior & Fondateur — BTTSPredict'
+
 export function buildPersonJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Expert BTTSPredict',
-    jobTitle: 'Analyste football senior',
+    name: EXPERT_NAME,
+    jobTitle: EXPERT_ROLE,
     description: "Analyste football principal de BTTSPredict. Spécialiste en modélisation statistique (Poisson, xG) avec plus de 10 ans d'expérience en analyse prédictive des matchs de football.",
     url: SITE_URL,
+    image: `${SITE_URL}/og-image.png`,
     worksFor: {
+      '@type': 'Organization',
+      name: 'BTTSPredict',
+      url: SITE_URL,
+    },
+    affiliation: {
       '@type': 'Organization',
       name: 'BTTSPredict',
       url: SITE_URL,
@@ -66,11 +77,13 @@ export function buildPersonJsonLd() {
       'Value bets FIFA',
       'Analyse statistique football',
       'pronostics btts aujourd\'hui',
+      'prédiction football',
     ],
     alumniOf: {
       '@type': 'EducationalOrganization',
       name: 'École de statistiques appliquées',
     },
+    sameAs: ['https://wa.me/15406704172'],
   }
 }
 

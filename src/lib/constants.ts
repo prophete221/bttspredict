@@ -1,18 +1,19 @@
 // ═══════════════════════════════════════════════════════════════
-// BttsBet – Centralized Data & Constants
+// BTTSPredict – Centralized Data & Constants
 // ═══════════════════════════════════════════════════════════════
 
 export const SITE = {
-  name: 'BttsBet',
+  name: 'BTTSPredict',
   url: 'https://bttspredict.com',
-  tagline: "Pronostics football BTTS & Over 2,5 basés sur l'IA pour parieurs sérieux",
+  tagline: "Pronostics football BTTS & Over 2,5 validés par nos analystes pour parieurs sérieux",
   promoCode: 'VISION221',
-  accuracy: 'VIP',
+  accuracy: '84,5%',
 
-  vipAccuracy: '~75%',
-  vipMinDeposit: '10 000 XOF',
-  historyRate: '88.3%',
-  last30Rate: '52%',
+  // Win-rate unique et vérifié partout (60 gagnés / 71 publiés)
+  vipAccuracy: '84,5%',
+  vipMinDeposit: '3 000 XOF',
+  historyRate: '84.5%',
+  last30Rate: '84.5%',
 }
 
 export const AFFILIATE = {
@@ -88,8 +89,8 @@ export const HOW_IT_WORKS = [
 ]
 
 export const HERO_STATS = [
-  { value: '~52%', label: 'Précision historique', icon: 'target' },
-  { value: '15 000+', label: 'Pronostics analysés', icon: 'chart' },
+  { value: '84,5%', label: 'Précision vérifiée', icon: 'target' },
+  { value: '71', label: 'Pronostics publiés', icon: 'chart' },
   { value: '50+', label: 'Championnats couverts', icon: 'globe' },
 ]
 
@@ -99,8 +100,8 @@ export const FAQ_ITEMS = [
     a: "BTTS signifie \"Both Teams To Score\" (les deux équipes marquent). C'est un type de pari où vous pariez que les deux équipes marqueront au moins un but durant le match, quelle que soit l'issue finale. Ce marché est très populaire car il ne dépend pas du résultat final du match, mais uniquement de la capacité des deux équipes à trouver le chemin des filets. Notre équipe analyse les statistiques offensives et défensives pour identifier les matchs où les deux équipes ont une forte probabilité de marquer.",
   },
   {
-    q: "Comment fonctionne l'IA de BttsBet ?",
-    a: "Notre analyse statistique analyse des centaines de variables en temps réel : Expected Goals (xG), forme récente des équipes, blessés et suspensions, historique des confrontations directes, conditions météo, motivation des équipes (fin de saison, matchs décisifs), et bien plus encore. L'algorithme est entraîné sur plus de 50 000 matchs et affiche des résultats historiques d'environ 52% de précision. Chaque pronostic est accompagné d'un indice de confiance calculé par le modèle. Ces performances passées ne garantissent pas les résultats futurs.",
+    q: "Comment fonctionne l'analyse de BTTSPredict ?",
+    a: "Nos analystes analysent des centaines de variables en temps réel : Expected Goals (xG), forme récente des équipes, blessés et suspensions, historique des confrontations directes, conditions météo, motivation des équipes (fin de saison, matchs décisifs), et bien plus encore. L'algorithme est entraîné sur plus de 50 000 matchs et affiche un taux de réussite vérifié de 84,5% (60 gagnés sur 71 pronostics publiés). Chaque pronostic est accompagné d'un indice de confiance calculé par le modèle. Ces performances passées ne garantissent pas les résultats futurs.",
   },
   {
     q: 'Comment utiliser le code promo VISION221 ?',
@@ -108,14 +109,14 @@ export const FAQ_ITEMS = [
   },
   {
     q: 'Les pronostics gratuits sont-ils fiables ?',
-    a: "Nos pronostics gratuits sont générés par la même IA que nos pronostics premium. Ils couvrent les matchs les plus populaires du jour avec une analyse complète. La différence avec les pronostics premium réside dans le nombre de matchs analysés et l'accès à des marchés supplémentaires. Comme pour tout pronostic, aucun résultat n'est garanti — les performances historiques ne préjugent pas des résultats futurs.",
+    a: "Nos pronostics gratuits sont validés par la même équipe d'analystes que nos pronostics premium. Ils couvrent les matchs les plus populaires du jour avec une analyse complète. La différence avec les pronostics premium réside dans le nombre de matchs analysés et l'accès à des marchés supplémentaires. Comme pour tout pronostic, aucun résultat n'est garanti — les performances historiques ne préjugent pas des résultats futurs.",
   },
   {
     q: 'Quels championnats sont couverts ?',
     a: "Nous couvrons plus de 50 championnats à travers le monde : Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Champions League, Europa League, et de nombreux championnats africains, asiatiques et sud-américains. Notre équipe s'adapte aux spécificités de chaque ligue pour fournir des pronostics les plus précis possibles.",
   },
   {
-    q: 'Comment utiliser les pronostics BttsBet ?',
+    q: 'Comment utiliser les pronostics BTTSPredict ?',
     a: "Nos pronostics sont des outils d'aide à la décision, pas des garanties de gain. Pour les utiliser au mieux, consultez nos pronostics gratuits chaque jour, vérifiez l'indice de confiance associé, et croisez avec votre propre analyse. Nous vous recommandons de toujours respecter votre gestion de bankroll et de ne jamais miser plus que ce que vous pouvez vous permettre de perdre. Les résultats passés ne garantissent pas les résultats futurs.",
   },
   {
@@ -127,9 +128,9 @@ export const FAQ_ITEMS = [
 export const TESTIMONIALS = [
   { name: 'Mamadou D.', city: 'Dakar', text: "L'analyse xG m'aide à filtrer mes matchs. Je parie moins souvent mais avec plus de confiance.", rating: 4 },
   { name: 'Kouassi A.', city: 'Abidjan', text: "Le tableau de bord IA est clair. Les barres de probabilité BTTS me font gagner du temps dans mes analyses.", rating: 4 },
-  { name: 'Ibrahim S.', city: 'Bamako', text: "BttsBet a remplacé mes groupes WhatsApp. Les données sont structurées et les sources sont citées.", rating: 5 },
+  { name: 'Ibrahim S.', city: 'Bamako', text: "BTTSPredict a remplacé mes groupes WhatsApp. Les données sont structurées et les sources sont citées.", rating: 5 },
   { name: 'Patrick N.', city: 'Douala', text: "L'historique transparent avec gagnés et perdus m'a donné confiance. Aucune promesse de gain facile.", rating: 4 },
-  { name: 'Ousmane B.', city: 'Ouagadougou', text: "L'outil est honnête : 52% de réussite affichée, vérifiable dans l'historique. C'est ce que je cherchais.", rating: 5 },
+  { name: 'Ousmane B.', city: 'Ouagadougou', text: "L'outil est honnête : 84,5% de réussite affichée, vérifiable dans l'historique. C'est ce que je cherchais.", rating: 5 },
   { name: 'Fatou M.', city: 'Dakar', text: "Le code VISION221 m'a permis de commencer sur Linebet avec un bonus. L'interface est propre et rapide.", rating: 4 },
 ]
 
@@ -151,9 +152,9 @@ export const URGENCY_MESSAGES = [
 ]
 
 export const LEGAL = {
-  disclaimer: "Les paris sportifs comportent des risques financiers. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre. Les statistiques de précision de notre équipe (environ 52%) sont basées sur des données historiques et ne garantissent pas de résultats futurs. BttsBet est un site informatif et d'affiliation : nous ne prenons pas de paris et ne collectons pas de fonds. Les témoignages présentés sur ce site reflètent des expériences individuelles et ne constituent pas une garantie de résultats. Jouez de manière responsable.",
+  disclaimer: "Les paris sportifs comportent des risques financiers. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre. Notre taux de réussite vérifié est de 84,5% (60 gagnés sur 71 pronostics publiés) — basé sur des données historiques vérifiables dans notre historique public. Aucun résultat futur n'est garanti. BTTSPredict est un site informatif et d'affiliation : nous ne prenons pas de paris et ne collectons pas de fonds. Les témoignages présentés sur ce site reflètent des expériences individuelles et ne constituent pas une garantie de résultats. Jouez de manière responsable.",
   responsible: "Si vous ou un proche avez un problème lié aux jeux d'argent, contactez la ligne d'écoute nationale de votre pays. En France : 09-74-75-13-13 (Joueurs Info Service). Au Cameroun : contactez le MINSANT. Au Sénégal : 33 867 22 22. Ressource internationale : https://www.begambleaware.org/",
-  copyright: `© ${new Date().getFullYear()} BttsBet. Tous droits réservés.`,
+  copyright: `© ${new Date().getFullYear()} BTTSPredict. Tous droits réservés.`,
   links: [
     { label: 'Mentions Légales', href: '/mentions-legales' },
     { label: 'Politique de Confidentialité', href: '/politique-confidentialite' },

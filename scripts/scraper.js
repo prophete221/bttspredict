@@ -2170,13 +2170,15 @@ function generateWinHistory(yesterdayPreds, allResults, previousHistory) {
   // V19: Also clamp previous history confidence to honest range (40-52%)
   const uniquePrev = prev.filter(h => !keys.has(`${h.date}-${h.match}-${h.type}`))
     .map(h => ({ ...h, confidence: Math.max(40, Math.min(52, h.confidence || 40)) }))
-  // V21: Ne conserver que les matchs gagnés dans l'historique affiché
+  // V21 (révisé 2026-08-05) : conserver les gagnés ET les perdus dans l'historique
+  // pour la crédibilité (Google E-E-A-T détecte le filtrage des pertes).
   const allHistoryRaw = [...historyEntries, ...uniquePrev]
-  const allHistory = allHistoryRaw.filter(h => h.result === 'Gagné').slice(0, 20)
+  const allHistory = allHistoryRaw.slice(0, 100)
   // Re-assign unique sequential IDs
   allHistory.forEach((h, i) => { h.id = i + 1 })
   const totalAll = allHistoryRaw.length
-  const wonAll = allHistory.length
+  const wonAll = allHistory.filter(h => h.result === 'Gagné').length
+  const lostAll = totalAll - wonAll
   const actualRate = totalAll > 0 ? wonAll / totalAll : 0
 
   // ═══ V19 : Stats COHÉRENTES ═══

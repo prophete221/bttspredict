@@ -6,16 +6,16 @@ import { useScrollAnimation } from '@/hooks/useAnimations'
 import { AFFILIATE, SITE } from '@/lib/constants'
 import CopyableCode from './CopyableCode'
 
-// ─── Palette BTTSPredict 2026 (fond sombre #0F1923 + vert néon #00C853 + or #FFD600) ───
+// ─── Palette BTTSPredict 2026 — Stadium Neon (fond #050B14 + cyan #00E5FF + violet #A78BFA) ───
 const C = {
-  bg:       '#0F1923',
+  bg:       '#050B14',     // fond midnight profond
   card:     '#0F1424',
   elevated: '#1A1F35',
-  border:   'rgba(0, 200, 83, 0.12)',
-  neon:     '#00C853',      // vert néon principal
-  neonDk:   '#00A040',
-  gold:     '#FFD600',      // or vif pour accents/preuves
-  violet:   '#A78BFA',
+  border:   'rgba(0, 229, 255, 0.12)',
+  neon:     '#00E5FF',     // cyan néon — précision
+  neonDk:   '#00B8D4',
+  gold:     '#FFD600',     // or — preuve/vérifié
+  violet:   '#A78BFA',     // violet — accent secondaire
   text:     '#ffffff',
   textSec:  '#94A3B8',
   textMute: '#64748B',
@@ -174,10 +174,19 @@ export default function Hero() {
       className="relative overflow-hidden"
       style={{ backgroundColor: C.bg, paddingTop: '20px', paddingBottom: '16px' }}
     >
-      {/* Mesh gradient background */}
-      <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(60% 50% at 20% 0%, rgba(0, 200, 83,0.10) 0%, transparent 60%), radial-gradient(50% 50% at 85% 10%, rgba(255, 214, 0,0.06) 0%, transparent 60%)'
-      }} />
+      {/* ═══ FOND STADIUM NEON — projecteurs animés ═══ */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Projecteur cyan gauche */}
+        <div
+          className="absolute top-0 left-1/4 w-[600px] h-[400px] rounded-full blur-[120px] animate-pulse"
+          style={{ backgroundColor: 'rgba(0, 229, 255, 0.10)' }}
+        />
+        {/* Projecteur violet droite */}
+        <div
+          className="absolute top-10 right-1/4 w-[500px] h-[350px] rounded-full blur-[100px] animate-pulse"
+          style={{ backgroundColor: 'rgba(167, 139, 250, 0.10)', animationDelay: '1s' }}
+        />
+      </div>
 
       <div className="relative z-10 max-w-[420px] mx-auto px-4 flex flex-col gap-4">
 
@@ -187,10 +196,10 @@ export default function Hero() {
           animate={isVisible ? { opacity: 1, y: 0 } : undefined}
           transition={{ duration: 0.4 }}
           className="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full"
-          style={{ background: 'rgba(0, 200, 83,0.10)', border: '1px solid rgba(0, 200, 83,0.30)' }}
+          style={{ background: 'rgba(0, 229, 255,0.08)', border: '1px solid rgba(0, 229, 255,0.30)' }}
         >
-          <span className="w-2 h-2 rounded-full live-dot" style={{ backgroundColor: '#00C853', boxShadow: '0 0 8px #00C853' }} />
-          <span className="font-mono text-[10px] font-bold tracking-[0.14em]" style={{ color: '#00C853' }}>
+          <span className="w-2 h-2 rounded-full live-dot" style={{ backgroundColor: '#00E5FF', boxShadow: '0 0 8px #00E5FF' }} />
+          <span className="font-mono text-[10px] font-bold tracking-[0.14em]" style={{ color: '#00E5FF' }}>
             84,5% DE RÉUSSITE VÉRIFIÉE
           </span>
         </motion.div>
@@ -202,7 +211,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
           <h1 className="font-bold leading-[1.05] tracking-tight" style={{ fontSize: '30px', color: C.text }}>
-            N°1 mondial des <span style={{ background: 'linear-gradient(135deg, #00C853, #FFD600)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>prédictions BTTS et Over 2.5</span>
+            N°1 mondial des <span style={{ background: 'linear-gradient(135deg, #00E5FF, #A78BFA)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>prédictions BTTS et Over 2.5</span>
           </h1>
           <p className="mt-3 text-[14px] leading-[1.6]" style={{ color: C.textSec, maxWidth: '360px' }}>
             Pronostics btts aujourd&apos;hui validés par nos analystes — modèles Poisson calibrés sur 50 000 matchs. Inscrivez-vous avec le code{' '}
@@ -213,7 +222,7 @@ export default function Hero() {
         {/* ═══ PROCHAIN MATCH (remplace l'ancienne carte analyse IA) ═══ */}
         <NextMatchPreview />
 
-        {/* ═══ CTA — 1 vert néon + 1 or ═══ */}
+        {/* ═══ CTA — 1 cyan néon + 1 or ═══ */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={isVisible ? { opacity: 1, y: 0 } : undefined}
@@ -224,13 +233,13 @@ export default function Hero() {
             href={AFFILIATE.linebet}
             rel="sponsored noopener"
             target="_blank"
-            whileHover={{ scale: 1.02, boxShadow: '0 8px 30px rgba(0, 200, 83, 0.5)' }}
+            whileHover={{ scale: 1.02, boxShadow: '0 8px 30px rgba(0, 229, 255, 0.50)' }}
             whileTap={{ scale: 0.98 }}
             className="w-full h-[56px] rounded-[14px] font-bold text-[15px] flex items-center justify-center gap-2"
             style={{
-              background: 'linear-gradient(135deg, #00C853 0%, #00A040 100%)',
-              color: '#0F1923',
-              boxShadow: '0 0 0 1px rgba(0, 200, 83,.5), 0 8px 32px rgba(0, 200, 83,.30)',
+              background: 'linear-gradient(135deg, #00E5FF 0%, #00B8D4 100%)',
+              color: '#050B14',
+              boxShadow: '0 0 0 1px rgba(0, 229, 255,.5), 0 8px 32px rgba(0, 229, 255,.30)',
             }}
             aria-label="S'inscrire sur Linebet avec le code promo VISION221"
             data-cta="hero-primary"

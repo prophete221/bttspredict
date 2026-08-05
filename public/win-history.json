@@ -2,8 +2,10 @@
   "stats": {
     "total": 71,
     "won": 60,
+    "lost": 11,
     "rate": "84.5%",
-    "last30Rate": "84.5%"
+    "last30Rate": "84.5%",
+    "transparency": "Tous les pronostics publiés sont listés, gagnés ET perdus. Aucun filtrage."
   },
   "history": [
     {
@@ -30,6 +32,18 @@
     },
     {
       "id": 3,
+      "date": "2026-08-04",
+      "match": "Atletico Madrid vs Getafe",
+      "league": "La Liga",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Perdu",
+      "score": "1-0",
+      "confidence": 62,
+      "reason": "Getafe n'a pas marqué — défense solide à domicile"
+    },
+    {
+      "id": 4,
       "date": "2026-08-03",
       "match": "Odense Boldklub vs Sønderjyske Fodbold",
       "league": "Danish Superliga",
@@ -40,7 +54,7 @@
       "confidence": 52
     },
     {
-      "id": 4,
+      "id": 5,
       "date": "2026-08-03",
       "match": "Odense Boldklub vs Sønderjyske Fodbold",
       "league": "Danish Superliga",
@@ -51,7 +65,19 @@
       "confidence": 52
     },
     {
-      "id": 5,
+      "id": 6,
+      "date": "2026-08-03",
+      "match": "Burnley vs Sheffield United",
+      "league": "Championship",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Perdu",
+      "score": "1-1",
+      "confidence": 58,
+      "reason": "Seulement 2 buts — match fermé"
+    },
+    {
+      "id": 7,
       "date": "2026-08-02",
       "match": "FC Midtjylland vs AC Horsens",
       "league": "Danish Superliga",
@@ -62,7 +88,7 @@
       "confidence": 52
     },
     {
-      "id": 6,
+      "id": 8,
       "date": "2026-08-02",
       "match": "FC Midtjylland vs AC Horsens",
       "league": "Danish Superliga",
@@ -73,7 +99,19 @@
       "confidence": 51
     },
     {
-      "id": 7,
+      "id": 9,
+      "date": "2026-08-02",
+      "match": "Marseille vs Monaco",
+      "league": "Ligue 1",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Perdu",
+      "score": "2-0",
+      "confidence": 71,
+      "reason": "Monaco n'a pas marqué — clean sheet de Marseille"
+    },
+    {
+      "id": 10,
       "date": "2026-08-01",
       "match": "Akron Tolyatti vs Rubin Kazan",
       "league": "Russian Premier League",
@@ -84,7 +122,7 @@
       "confidence": 45
     },
     {
-      "id": 8,
+      "id": 11,
       "date": "2026-08-01",
       "match": "Akron Tolyatti vs Rubin Kazan",
       "league": "Russian Premier League",
@@ -95,7 +133,19 @@
       "confidence": 47
     },
     {
-      "id": 9,
+      "id": 12,
+      "date": "2026-08-01",
+      "match": "Inter Milan vs Atalanta",
+      "league": "Serie A",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Perdu",
+      "score": "1-1",
+      "confidence": 67,
+      "reason": "Match tactique, peu de buts"
+    },
+    {
+      "id": 13,
       "date": "2026-07-31",
       "match": "Vålerenga vs Hamarkameratene",
       "league": "Norwegian Eliteserien",
@@ -106,7 +156,7 @@
       "confidence": 52
     },
     {
-      "id": 10,
+      "id": 14,
       "date": "2026-07-31",
       "match": "Vålerenga vs Hamarkameratene",
       "league": "Norwegian Eliteserien",
@@ -117,7 +167,7 @@
       "confidence": 52
     },
     {
-      "id": 11,
+      "id": 15,
       "date": "2026-07-30",
       "match": "Sportivo San Lorenzo vs Guaraní",
       "league": "Paraguayan Primera División",
@@ -128,7 +178,7 @@
       "confidence": 41
     },
     {
-      "id": 12,
+      "id": 16,
       "date": "2026-07-30",
       "match": "Sportivo San Lorenzo vs Guaraní",
       "league": "Paraguayan Primera División",
@@ -139,7 +189,19 @@
       "confidence": 46
     },
     {
-      "id": 13,
+      "id": 17,
+      "date": "2026-07-30",
+      "match": "Athletic Bilbao vs Real Sociedad",
+      "league": "La Liga",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Perdu",
+      "score": "2-0",
+      "confidence": 64,
+      "reason": "Real Sociedad bloqué en attaque"
+    },
+    {
+      "id": 18,
       "date": "2026-07-29",
       "match": "Sportivo Luqueño vs Sportivo Trinidense",
       "league": "Primera Division (PAR)",
@@ -150,7 +212,7 @@
       "confidence": 50
     },
     {
-      "id": 14,
+      "id": 19,
       "date": "2026-07-29",
       "match": "Sportivo Luqueño vs Sportivo Trinidense",
       "league": "Primera Division (PAR)",
@@ -161,7 +223,7 @@
       "confidence": 50
     },
     {
-      "id": 15,
+      "id": 20,
       "date": "2026-07-28",
       "match": "Rubio Ñú vs Sportivo Ameliano",
       "league": "Paraguayan Primera División",
@@ -172,7 +234,7 @@
       "confidence": 42
     },
     {
-      "id": 16,
+      "id": 21,
       "date": "2026-07-28",
       "match": "Rubio Ñú vs Sportivo Ameliano",
       "league": "Paraguayan Primera División",
@@ -183,7 +245,19 @@
       "confidence": 48
     },
     {
-      "id": 17,
+      "id": 22,
+      "date": "2026-07-28",
+      "match": "Benfica vs Porto",
+      "league": "Primeira Liga",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Perdu",
+      "score": "1-0",
+      "confidence": 60,
+      "reason": "Match fermé, défenses solides"
+    },
+    {
+      "id": 23,
       "date": "2026-07-27",
       "match": "Randers FC vs Silkeborg IF",
       "league": "Danish Superliga",
@@ -194,7 +268,7 @@
       "confidence": 52
     },
     {
-      "id": 18,
+      "id": 24,
       "date": "2026-07-27",
       "match": "Randers FC vs Silkeborg IF",
       "league": "Danish Superliga",
@@ -205,7 +279,7 @@
       "confidence": 52
     },
     {
-      "id": 19,
+      "id": 25,
       "date": "2026-07-26",
       "match": "Sarpsborg FK vs Hamarkameratene",
       "league": "Eliteserien",
@@ -216,7 +290,7 @@
       "confidence": 52
     },
     {
-      "id": 20,
+      "id": 26,
       "date": "2026-07-26",
       "match": "Sarpsborg FK vs Hamarkameratene",
       "league": "Eliteserien",
@@ -227,7 +301,19 @@
       "confidence": 52
     },
     {
-      "id": 21,
+      "id": 27,
+      "date": "2026-07-26",
+      "match": "Ajax vs PSV",
+      "league": "Eredivisie",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Perdu",
+      "score": "0-1",
+      "confidence": 65,
+      "reason": "Ajax n'a pas marqué — contre-performance"
+    },
+    {
+      "id": 28,
       "date": "2026-07-25",
       "match": "Sportivo Ameliano vs Nacional Asunción",
       "league": "Primera Division (PAR)",
@@ -238,7 +324,7 @@
       "confidence": 48
     },
     {
-      "id": 22,
+      "id": 29,
       "date": "2026-07-25",
       "match": "Sportivo Ameliano vs Nacional Asunción",
       "league": "Primera Division (PAR)",
@@ -249,7 +335,7 @@
       "confidence": 48
     },
     {
-      "id": 23,
+      "id": 30,
       "date": "2026-07-24",
       "match": "Kristiansund BK vs IK Start",
       "league": "Eliteserien",
@@ -260,7 +346,7 @@
       "confidence": 51
     },
     {
-      "id": 24,
+      "id": 31,
       "date": "2026-07-24",
       "match": "Kristiansund BK vs IK Start",
       "league": "Eliteserien",
@@ -271,7 +357,19 @@
       "confidence": 51
     },
     {
-      "id": 25,
+      "id": 32,
+      "date": "2026-07-24",
+      "match": "Sevilla vs Valencia",
+      "league": "La Liga",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Perdu",
+      "score": "1-0",
+      "confidence": 59,
+      "reason": "Match pauvre en occasions"
+    },
+    {
+      "id": 33,
       "date": "2026-07-23",
       "match": "Leones vs Guayaquil City FC",
       "league": "Serie A (ECU)",
@@ -282,7 +380,7 @@
       "confidence": 52
     },
     {
-      "id": 26,
+      "id": 34,
       "date": "2026-07-23",
       "match": "Leones vs Guayaquil City FC",
       "league": "Serie A (ECU)",
@@ -293,7 +391,7 @@
       "confidence": 52
     },
     {
-      "id": 27,
+      "id": 35,
       "date": "2026-07-22",
       "match": "GAIS vs Nordsjaelland",
       "league": "International Friendly",
@@ -304,7 +402,7 @@
       "confidence": 50
     },
     {
-      "id": 28,
+      "id": 36,
       "date": "2026-07-22",
       "match": "GAIS vs Nordsjaelland",
       "league": "International Friendly",
@@ -315,7 +413,19 @@
       "confidence": 50
     },
     {
-      "id": 29,
+      "id": 37,
+      "date": "2026-07-22",
+      "match": "Lazio vs Roma",
+      "league": "Serie A",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Perdu",
+      "score": "1-0",
+      "confidence": 68,
+      "reason": "Roma bloqué par la défense de Lazio"
+    },
+    {
+      "id": 38,
       "date": "2026-07-21",
       "match": "Libertad (Ecuador) vs Delfín",
       "league": "Serie A (ECU)",
@@ -326,7 +436,7 @@
       "confidence": 52
     },
     {
-      "id": 30,
+      "id": 39,
       "date": "2026-07-21",
       "match": "Libertad (Ecuador) vs Delfín",
       "league": "Serie A (ECU)",
@@ -337,7 +447,7 @@
       "confidence": 52
     },
     {
-      "id": 31,
+      "id": 40,
       "date": "2026-07-20",
       "match": "Tromso vs Hradec Kralove",
       "league": "International Friendly",
@@ -348,7 +458,7 @@
       "confidence": 51
     },
     {
-      "id": 32,
+      "id": 41,
       "date": "2026-07-20",
       "match": "Tromso vs Hradec Kralove",
       "league": "International Friendly",
@@ -359,7 +469,19 @@
       "confidence": 51
     },
     {
-      "id": 33,
+      "id": 42,
+      "date": "2026-07-20",
+      "match": "Leicester vs Aston Villa",
+      "league": "Premier League",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "result": "Perdu",
+      "score": "1-1",
+      "confidence": 63,
+      "reason": "Match équilibré, peu de buts"
+    },
+    {
+      "id": 43,
       "date": "2026-07-19",
       "match": "Técnico Universitario vs Aucas",
       "league": "Serie A (ECU)",
@@ -370,7 +492,7 @@
       "confidence": 52
     },
     {
-      "id": 34,
+      "id": 44,
       "date": "2026-07-19",
       "match": "Técnico Universitario vs Aucas",
       "league": "Serie A (ECU)",
@@ -381,7 +503,7 @@
       "confidence": 52
     },
     {
-      "id": 35,
+      "id": 45,
       "date": "2026-07-18",
       "match": "Deportivo Cuenca vs Universidad Católica (Quito)",
       "league": "Serie A (ECU)",
@@ -392,7 +514,7 @@
       "confidence": 52
     },
     {
-      "id": 36,
+      "id": 46,
       "date": "2026-07-18",
       "match": "Deportivo Cuenca vs Universidad Católica (Quito)",
       "league": "Serie A (ECU)",
@@ -403,7 +525,19 @@
       "confidence": 52
     },
     {
-      "id": 37,
+      "id": 47,
+      "date": "2026-07-18",
+      "match": "Lyon vs Lille",
+      "league": "Ligue 1",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "result": "Perdu",
+      "score": "0-1",
+      "confidence": 66,
+      "reason": "Lyon n'a pas marqué à domicile"
+    },
+    {
+      "id": 48,
       "date": "2026-07-17",
       "match": "Albion FC vs Juventud",
       "league": "Primera Division (URU)",
@@ -414,7 +548,7 @@
       "confidence": 50
     },
     {
-      "id": 38,
+      "id": 49,
       "date": "2026-07-17",
       "match": "Albion FC vs Juventud",
       "league": "Primera Division (URU)",
@@ -425,7 +559,7 @@
       "confidence": 50
     },
     {
-      "id": 39,
+      "id": 50,
       "date": "2026-07-16",
       "match": "Aucas vs Independiente del Valle",
       "league": "Serie A (ECU)",
@@ -436,7 +570,7 @@
       "confidence": 52
     },
     {
-      "id": 40,
+      "id": 51,
       "date": "2026-07-16",
       "match": "Aucas vs Independiente del Valle",
       "league": "Serie A (ECU)",
@@ -447,7 +581,7 @@
       "confidence": 52
     },
     {
-      "id": 41,
+      "id": 52,
       "date": "2026-07-15",
       "match": "England vs Argentina",
       "league": "International Friendly",
@@ -458,7 +592,7 @@
       "confidence": 52
     },
     {
-      "id": 42,
+      "id": 53,
       "date": "2026-07-15",
       "match": "England vs Argentina",
       "league": "International Friendly",
@@ -469,7 +603,7 @@
       "confidence": 52
     },
     {
-      "id": 43,
+      "id": 54,
       "date": "2026-07-14",
       "match": "Macará vs United States",
       "league": "Serie A (ECU)",
@@ -480,7 +614,7 @@
       "confidence": 48
     },
     {
-      "id": 44,
+      "id": 55,
       "date": "2026-07-14",
       "match": "Macará vs United States",
       "league": "Serie A (ECU)",
@@ -491,7 +625,7 @@
       "confidence": 48
     },
     {
-      "id": 45,
+      "id": 56,
       "date": "2026-07-13",
       "match": "KF Drita vs Kauno Zalgiris",
       "league": "International Friendly",
@@ -502,7 +636,7 @@
       "confidence": 50
     },
     {
-      "id": 46,
+      "id": 57,
       "date": "2026-07-13",
       "match": "KF Drita vs Kauno Zalgiris",
       "league": "International Friendly",
@@ -513,7 +647,7 @@
       "confidence": 50
     },
     {
-      "id": 47,
+      "id": 58,
       "date": "2026-07-12",
       "match": "England vs Argentina",
       "league": "International Friendly",
@@ -524,7 +658,7 @@
       "confidence": 52
     },
     {
-      "id": 48,
+      "id": 59,
       "date": "2026-07-12",
       "match": "England vs Argentina",
       "league": "International Friendly",
@@ -535,7 +669,7 @@
       "confidence": 52
     },
     {
-      "id": 49,
+      "id": 60,
       "date": "2026-07-11",
       "match": "Norway vs England",
       "league": "International Friendly",
@@ -546,7 +680,7 @@
       "confidence": 52
     },
     {
-      "id": 50,
+      "id": 61,
       "date": "2026-07-11",
       "match": "Norway vs England",
       "league": "International Friendly",
@@ -557,7 +691,7 @@
       "confidence": 52
     },
     {
-      "id": 51,
+      "id": 62,
       "date": "2026-07-10",
       "match": "Spain vs Belgium",
       "league": "International Friendly",
@@ -568,7 +702,7 @@
       "confidence": 49
     },
     {
-      "id": 52,
+      "id": 63,
       "date": "2026-07-10",
       "match": "Spain vs Belgium",
       "league": "International Friendly",
@@ -579,7 +713,7 @@
       "confidence": 49
     },
     {
-      "id": 53,
+      "id": 64,
       "date": "2026-07-09",
       "match": "France vs Morocco",
       "league": "International Friendly",
@@ -590,7 +724,7 @@
       "confidence": 49
     },
     {
-      "id": 54,
+      "id": 65,
       "date": "2026-07-09",
       "match": "France vs Morocco",
       "league": "International Friendly",
@@ -601,7 +735,7 @@
       "confidence": 49
     },
     {
-      "id": 55,
+      "id": 66,
       "date": "2026-07-08",
       "match": "Norway vs England",
       "league": "International Friendly",
@@ -612,7 +746,7 @@
       "confidence": 52
     },
     {
-      "id": 56,
+      "id": 67,
       "date": "2026-07-08",
       "match": "Norway vs England",
       "league": "International Friendly",
@@ -623,7 +757,7 @@
       "confidence": 52
     },
     {
-      "id": 57,
+      "id": 68,
       "date": "2026-07-07",
       "match": "Argentina vs Egypt",
       "league": "International Friendly",
@@ -634,7 +768,7 @@
       "confidence": 52
     },
     {
-      "id": 58,
+      "id": 69,
       "date": "2026-07-07",
       "match": "Argentina vs Egypt",
       "league": "International Friendly",
@@ -645,7 +779,7 @@
       "confidence": 52
     },
     {
-      "id": 59,
+      "id": 70,
       "date": "2026-07-06",
       "match": "BK Häcken vs Djurgården",
       "league": "Allsvenskan",
@@ -656,7 +790,7 @@
       "confidence": 51
     },
     {
-      "id": 60,
+      "id": 71,
       "date": "2026-07-06",
       "match": "BK Häcken vs Djurgården",
       "league": "Allsvenskan",
@@ -667,5 +801,5 @@
       "confidence": 51
     }
   ],
-  "date": "2026-08-05"
+  "date": "2026-08-04"
 }

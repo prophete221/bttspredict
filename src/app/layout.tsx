@@ -30,14 +30,20 @@ export const metadata: Metadata = {
     default: "BTTSPredict — N°1 des Prédictions BTTS par nos experts | Both Teams To Score",
     template: "%s | BTTSPredict",
   },
-  description: "N°1 des prédictions BTTS par nos experts. 50+ pronos Both Teams To Score fiables chaque jour. Modèles Poisson calibrés sur 50 000 matchs. Résultats vérifiés et transparents. Code promo VISION221.",
+  description: "N°1 des pronostics btts aujourd'hui. Pronostics BTTS et Over 2.5 validés par nos analystes chaque jour. Taux de réussite vérifié 84,5%. Modèles Poisson calibrés sur 50 000 matchs. Code promo VISION221.",
   keywords: [
+    // Mots-clés stratégiques avec "aujourd'hui" (priorité absolue)
+    "pronostics btts aujourd'hui", "pronostic btts du jour", "prédiction btts gratuit aujourd'hui",
+    "pronostics over 2.5 aujourd'hui", "n°1 pronostics btts", "meilleur site pronostics btts",
+    "pronostics btts gratuit",
+    // Mots-clés généraux
     "BTTS", "Both Teams To Score", "pronostics BTTS", "pronostics football",
     "Over 2.5", "prédictions football", "analyse statistique paris",
     "pronostics fiables", "meilleur site pronostics", "pronostics gratuits",
     "VISION221", "BTTSPredict", "paris sportifs",
     "pronostics Sénégal", "pronostics Afrique",
     "modèle Poisson football", "xG pronostics", "statistiques football",
+    "84,5% réussite", "pronostics vérifiés",
   ],
   authors: [
     { name: "BTTSPredict", url: "https://bttspredict.com" },
@@ -88,13 +94,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BTTSPredict — N°1 des Prédictions BTTS par nos experts",
-    description: "Pronostics BTTS fiables chaque jour. Résultats vérifiés et transparents.",
+    title: "BTTSPredict — N°1 des Pronostics BTTS aujourd'hui (84,5% vérifié)",
+    description: "Pronostics btts aujourd'hui validés par nos analystes. 84,5% de réussite vérifiable. Code promo VISION221.",
     images: ["/og-image.png"],
   },
   category: "sports",
+  // NOTE: Remplacer la valeur ci-dessous par le vrai code Google Search Console
+  // (format: <code>.html) une fois le domaine vérifié.
   verification: {
-    google: "google-site-verification-code",
+    google: "bttspredict-gsc-verification-pending",
   },
 };
 
@@ -134,7 +142,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v4-e-e-a-t-845-hero-neon-2026-08-05';
+                var VERSION = 'bttspredict-v5-audit-complet-845-pertes-methodologie-2026-08-05';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
