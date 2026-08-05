@@ -134,7 +134,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v3-search-console-license-neon-tabbar-2026-08-05';
+                var VERSION = 'bttspredict-v4-e-e-a-t-845-hero-neon-2026-08-05';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){

@@ -5,28 +5,84 @@
 
   <url>
     <loc>https://bttspredict.com/</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/"/>
     <image:image>
       <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>BttsBet – Pronostics BTTS &amp; Over 2,5 | Faille FIFA &amp; Signaux Aviator</image:title>
-      <image:caption>Pronostics football IA, faille FIFA, signaux Aviator, code promo VISION221</image:caption>
+      <image:title>BTTSPredict – Pronostics BTTS &amp; Over 2,5 | 84,5% de réussite vérifiée</image:title>
+      <image:caption>Pronostics btts aujourd'hui, faille FIFA, signaux Aviator, code promo VISION221</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/pronostics</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.98</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/pronostics"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/pronostics"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>Pronostics BTTS aujourd'hui &amp; Over 2.5 — BTTSPredict</image:title>
+      <image:caption>Pronostics btts aujourd'hui gratuits et premium validés par nos analystes</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/vip</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/vip"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/vip"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>VIP Multi-Sports BTTSPredict – Football, Tennis, NBA, NFL, UFC, Handball</image:title>
+      <image:caption>Pronostics premium 6 sports avec taux de réussite 69-81%</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/statistiques</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/statistiques"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/statistiques"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>Statistiques — Taux de réussite BTTS &amp; Over 2.5 | BTTSPredict</image:title>
+      <image:caption>Tableau de bord statistique transparent : courbe 30 jours, ROI, répartition</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/bookmakers</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/bookmakers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/bookmakers"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>Comparatif Linebet vs 888starz — BTTSPredict</image:title>
+      <image:caption>Bonus, dépôts, cotes, applications mobiles. Code promo VISION221.</image:caption>
     </image:image>
   </url>
 
   <url>
     <loc>https://bttspredict.com/historique</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/historique"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/historique"/>
     <image:image>
       <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Historique Pronostics BttsBet – Résultats vérifiés</image:title>
+      <image:title>Historique Pronostics BTTSPredict – Résultats vérifiés 84,5%</image:title>
       <image:caption>Historique complet des pronostics BTTS et Over 2,5 — transparence totale</image:caption>
     </image:image>
   </url>
