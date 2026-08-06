@@ -171,7 +171,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v47-canonical-slash-fix-2026-08-07';
+                var VERSION = 'bttspredict-v48-https-hsts-htaccess-2026-08-07';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
