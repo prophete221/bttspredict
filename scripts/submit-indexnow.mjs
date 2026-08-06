@@ -34,6 +34,10 @@ const URLS = [
   'https://bttspredict.com/blog/meilleurs-championnats-btts',
   'https://bttspredict.com/blog/faille-fifa-linebet',
   'https://bttspredict.com/blog/guide-linebet-inscription',
+  'https://bttspredict.com/over-2-5-predictions',
+  'https://bttspredict.com/correct-score-predictions',
+  'https://bttspredict.com/football-predictions-today',
+  'https://bttspredict.com/betting-tips',
 ]
 
 async function submitToIndexNow() {

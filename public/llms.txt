@@ -7,6 +7,10 @@
 - [Historique Vérifié](/historique): Historique complet et transparent des pronostics (gagnés et perdus).
 - [Méthodologie IA](/methodologie): Détails du modèle de distribution de Poisson et des 200+ variables analysées.
 - [VIP & Premium](/vip): Accès aux pronostics multi-sports et Value Bets.
+- [Over 2.5 Predictions](/over-2-5-predictions): Pronostics Over 2.5 Goals avec statistiques par championnat.
+- [Correct Score Predictions](/correct-score-predictions): Pronostics score exact basés sur le modèle Poisson.
+- [Football Predictions Today](/football-predictions-today): Pronostics football du jour, BTTS et Over 2.5.
+- [Betting Tips](/betting-tips): Conseils et stratégies de paris sportifs football.
 - [Notre Équipe d'Analystes](/equipe): Profils des experts analystes football de BTTSPredict.
 - [Comparatif Bookmakers](/bookmakers): Comparatif Linebet vs 888starz avec code promo VISION221.
 - [Blog & Analyses](/blog): Articles d'analyse sportive et stratégie de paris BTTS.

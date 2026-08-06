@@ -151,7 +151,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v25-bing-guidelines-data-snippet-indexnow-cicd-2026-08-06';
+                var VERSION = 'bttspredict-v26-new-seo-pages-security-headers-2026-08-06';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
