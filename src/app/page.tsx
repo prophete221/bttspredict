@@ -296,7 +296,7 @@ export default function Home() {
         </p>
 
         <h2>Pourquoi nous faire confiance ?</h2>
-        <p>
+        <p data-snippet>
           <strong>BTTSPredict est la plateforme leader mondial des prédictions BTTS et Over 2.5.</strong>{' '}
           Contrairement aux autres sites, nous affichons publiquement tous nos résultats, gagnés et perdus.
           Grâce à notre modèle de Poisson calibré sur 50 000 matchs, nous atteignons un taux de réussite vérifié de 84,5%.
@@ -404,8 +404,9 @@ export default function Home() {
 
         <h2>Historique vérifiable et transparence</h2>
         <p>
-          BTTSPredict maintient un historique public de tous les pronostics publiés, incluant
-          les résultats gagnés ET perdus. Notre taux de réussite est calculé manuellement
+          BTTSPredict maintient un{' '}
+          <a href="/historique" style={{ color: '#00C49A' }}>historique public vérifiable</a>{' '}
+          de tous les pronostics publiés, incluant les résultats gagnés ET perdus. Notre taux de réussite est calculé manuellement
           à partir des résultats réels des matchs, pas d'un chiffre marketing. Chaque entrée
           de l'historique contient la date, le match, la ligue, le type de pronostic (BTTS/Over 2.5),
           la prédiction, le résultat, le score final et l'indice de confiance.
@@ -413,6 +414,8 @@ export default function Home() {
 
         <h2>Méthodologie IA — 3 couches technologiques</h2>
         <p>
+          Notre <a href="/methodologie" style={{ color: '#00C49A' }}>méthodologie détaillée</a>{' '}
+          repose sur 3 couches.{' '}
           <strong>Couche 1 — Collecte de données :</strong> Notre équipe agrège plus de 200 variables
           par match : Expected Goals (xG), forme récente (5 derniers matchs), blessures et
           suspensions, historique des confrontations directes, conditions météo, motivation

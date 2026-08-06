@@ -81,3 +81,8 @@ jobs:
           exclude: |
             **/.git*
             **/node_modules/**
+
+      - name: Notify Bing via IndexNow (Copilot grounding eligibility)
+        if: success()
+        run: node scripts/submit-indexnow.mjs
+        continue-on-error: true
