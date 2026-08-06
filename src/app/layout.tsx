@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     default: "BTTSPredict — Pronostics BTTS et Over 2.5 | 84,5% vérifié",
     template: "%s | BTTSPredict",
   },
-  description: "Pronostics BTTS aujourd'hui et Over 2.5 par nos analystes. 84,5% de réussite vérifiée, modèles Poisson calibrés sur 50 000 matchs, 6 pronos gratuits par jour. Outil d'aide à la décision, pas de promesse de gain. Code promo VISION221.",
+  description: "Pronostics BTTS aujourd'hui par nos analystes. 84,5% vérifié, modèle Poisson calibré sur 50 000 matchs. Code promo VISION221.",
   keywords: [
     // Autorité mondiale
     "n°1 mondial pronostics btts", "meilleur site pronostics btts monde", "leader pronostics btts",
@@ -151,7 +151,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v22-vip-depot-3000-clarification-2026-08-06';
+                var VERSION = 'bttspredict-v23-meta-descriptions-25-160-chars-2026-08-06';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){

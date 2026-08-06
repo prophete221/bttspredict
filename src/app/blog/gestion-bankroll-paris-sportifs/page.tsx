@@ -8,7 +8,7 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'gestion-bankroll-paris-sportifs'
 const PAGE_URL = `${SITE_URL}/blog/${SLUG}`
 const TITLE = 'Gestion de Bankroll aux Paris Sportifs : Le Guide Ultime 2026'
-const DESCRIPTION = 'Maîtrisez votre capital de jeu avec notre guide complet sur la gestion de bankroll. La règle des 1-5%, les unités de mise, le flat betting, le critère de Kelly et les erreurs courantes — avec exemples en Franc CFA.'
+const DESCRIPTION = 'Guide complet de gestion de bankroll : règle des 1-5%, unités de mise, flat betting, critère de Kelly. Exemples en Franc CFA.'
 
 export const metadata: Metadata = {
   title: TITLE,

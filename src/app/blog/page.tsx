@@ -7,7 +7,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 export const metadata: Metadata = {
   title: 'Blog – Pronostics BTTS & Over 2,5 | BTTSPredict',
   description:
-    'Découvrez nos articles sur les paris BTTS, la stratégie Over 2,5, la gestion de bankroll et la faille FIFA Linebet. Conseils et analyses IA pour optimiser vos paris sportifs.',
+    'Articles sur les paris BTTS, stratégie Over 2,5, gestion de bankroll et faille FIFA Linebet. Conseils et analyses par nos experts.',
   alternates: {
     canonical: 'https://bttspredict.com/blog',
   },

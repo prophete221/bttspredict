@@ -8,7 +8,7 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'comment-analyser-match-btts'
 const PAGE_URL = `${SITE_URL}/blog/${SLUG}`
 const TITLE = 'Comment Analyser un Match pour le BTTS ? Guide Complet 2026'
-const DESCRIPTION = 'Apprenez à analyser un match de football pour le marché BTTS (Both Teams To Score) : xG, statistiques défensives, face-à-face, motivation, blessures et méthode pas-à-pas avec exemples concrets.'
+const DESCRIPTION = 'Guide complet pour analyser un match BTTS : xG, statistiques défensives, face-à-face, blessures. Méthode pas-à-pas avec exemples.'
 
 export const metadata: Metadata = {
   title: TITLE,

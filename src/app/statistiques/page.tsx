@@ -5,7 +5,7 @@ const SITE_URL = 'https://bttspredict.com'
 
 export const metadata: Metadata = {
   title: "Statistiques — Taux de réussite BTTS & Over 2.5",
-  description: "Tableau de bord statistique BTTSPredict : courbe de réussite sur 30 jours, répartition par championnat, par type de pronostic, ROI simulé. Données transparentes mises à jour quotidiennement.",
+  description: "Tableau de bord statistique BTTSPredict : courbe 30 jours, répartition par ligue, ROI. Transparence totale, 84,5% vérifié.",
   alternates: { canonical: `${SITE_URL}/statistiques` },
   openGraph: {
     title: "Statistiques — BTTSPredict",

@@ -3,7 +3,7 @@ import VipRedirect from './redirect-client'
 
 export const metadata: Metadata = {
   title: 'VIP Multi-Sports — Pronostics Premium',
-  description: 'Accès VIP BTTSPredict : pronostics premium sur 6 sports (Football, Tennis, NBA, NFL, UFC, Handball). Taux de réussite 69-81% selon le sport. Code VISION221 requis.',
+  description: "VIP BTTSPredict : pronostics premium sur 6 sports. Taux 69-81%. Dépôt 3 000 XOF + code VISION221.",
   alternates: { canonical: 'https://bttspredict.com/vip' },
   robots: { index: true, follow: true },
 }

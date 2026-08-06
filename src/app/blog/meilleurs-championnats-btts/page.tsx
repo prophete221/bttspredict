@@ -8,7 +8,7 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'meilleurs-championnats-btts'
 const PAGE_URL = `${SITE_URL}/blog/${SLUG}`
 const TITLE = 'Les 10 Meilleurs Championnats pour les Paris BTTS en 2026'
-const DESCRIPTION = 'Découvrez les 10 ligues avec les meilleurs taux BTTS (Both Teams To Score) en 2026 : Bundesliga, Eredivisie, Premier League et plus. Statistiques détaillées et conseils par championnat.'
+const DESCRIPTION = 'Top 10 des championnats avec les meilleurs taux BTTS en 2026 : Bundesliga, Eredivisie, Premier League. Statistiques et conseils par ligue.'
 
 export const metadata: Metadata = {
   title: TITLE,

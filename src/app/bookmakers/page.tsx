@@ -3,7 +3,7 @@ import { AFFILIATE } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: "Comparatif Linebet vs 888starz — Bonus & dépôts",
-  description: "Comparaison détaillée des bookmakers Linebet et 888starz au Sénégal : bonus de bienvenue, méthodes de dépôt (Wave, Orange Money, Free Money), cotes, application mobile, code promo VISION221.",
+  description: "Comparatif Linebet vs 888starz : bonus, dépôts (Wave, Orange Money), cotes, app mobile. Code promo VISION221.",
   alternates: { canonical: 'https://bttspredict.com/bookmakers' },
   openGraph: {
     title: "Comparatif Linebet vs 888starz — BTTSPredict",
