@@ -1,21 +1,12 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useCallback } from 'react'
 import { NAV_LINKS, SITE, AFFILIATE } from '@/lib/constants'
 
-const DESKTOP_LINKS = NAV_LINKS.filter(
-  (l) => l.scrollTarget && l.label !== 'Accueil' && l.label !== 'FAQ'
-)
+const ALL_LINKS = NAV_LINKS
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
   const [copied, setCopied] = useState(false)
-
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [isOpen])
 
   const copyCode = useCallback(async () => {
     try { await navigator.clipboard.writeText(SITE.promoCode) } catch {}
@@ -25,19 +16,13 @@ export default function Navbar() {
   }, [])
 
   const handleNav = (link: { href?: string; scrollTarget?: string }) => {
-    // Fermer le menu immédiatement
-    setIsOpen(false)
-    document.body.style.overflow = ''
-
     if (link.href === '/') {
-      // Accueil : aller à la racine
       if (window.location.pathname !== '/') {
         window.location.href = '/'
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' })
       }
     } else if (link.scrollTarget) {
-      // Section : si sur l'accueil, scroll ; sinon, rediriger
       if (window.location.pathname !== '/') {
         window.location.href = `/#${link.scrollTarget}`
       } else {
@@ -58,12 +43,12 @@ export default function Navbar() {
         borderBottom: '1px solid rgba(0, 196, 154, 0.15)',
       }}
     >
-      <div className="max-w-[440px] sm:max-w-2xl mx-auto px-4">
-        <div className="flex items-center justify-between h-14 gap-2">
+      <div className="max-w-2xl mx-auto px-3">
+        <div className="flex items-center justify-between h-14 gap-1">
           {/* Logo — ballon de foot */}
           <button
             onClick={() => handleNav({ href: '/' })}
-            className="flex items-center gap-2 flex-shrink-0 cursor-pointer"
+            className="flex items-center gap-1.5 flex-shrink-0 cursor-pointer"
             aria-label="BTTSPredict — Accueil"
           >
             <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
@@ -80,18 +65,18 @@ export default function Navbar() {
               <line x1="13.5" y1="15" x2="10" y2="18.5" stroke="#00C49A" strokeWidth="0.5"/>
               <line x1="12" y1="10" x2="7.5" y2="8" stroke="#00C49A" strokeWidth="0.5"/>
             </svg>
-            <span className="text-base font-bold tracking-tight" style={{ color: '#00C49A' }}>
+            <span className="text-sm font-bold tracking-tight" style={{ color: '#00C49A' }}>
               BTTSPredict
             </span>
           </button>
 
-          {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-4">
-            {DESKTOP_LINKS.map((link) => (
+          {/* Liens — visibles sur tous les écrans */}
+          <div className="flex items-center gap-1">
+            {ALL_LINKS.map((link) => (
               <button
                 key={link.label}
                 onClick={() => handleNav(link)}
-                className="text-sm font-medium transition-colors"
+                className="text-[11px] font-medium px-2 py-1.5 rounded transition-colors"
                 style={{ color: '#F0F2F5' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#00DDB0'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#F0F2F5'}
@@ -102,11 +87,11 @@ export default function Navbar() {
           </div>
 
           {/* Right section */}
-          <div className="flex items-center gap-2 flex-shrink-0">
+          <div className="flex items-center gap-1.5 flex-shrink-0">
             {/* Promo code */}
             <button
               onClick={copyCode}
-              className="px-2.5 py-1.5 rounded-lg text-[11px] font-mono font-bold transition-colors"
+              className="px-2 py-1 rounded text-[10px] font-mono font-bold"
               style={{
                 backgroundColor: 'rgba(0, 196, 154, 0.12)',
                 border: '1px solid #00C49A',
@@ -116,89 +101,22 @@ export default function Navbar() {
               {copied ? '✓' : SITE.promoCode}
             </button>
 
-            {/* CTA Desktop */}
+            {/* CTA Pronos */}
             <button
               onClick={() => handleNav({ scrollTarget: 'free-predictions' })}
-              className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-[8px] text-sm font-bold transition-colors"
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded text-[11px] font-bold transition-colors"
               style={{
                 backgroundColor: '#00C49A',
                 color: '#F0F2F5',
-                border: 'none',
               }}
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#00DDB0'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#00C49A'}
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-              </svg>
-              Pronos du jour
-            </button>
-
-            {/* Hamburger */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg"
-              style={{ background: '#161B22' }}
-              aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
-              aria-expanded={isOpen}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round">
-                {isOpen ? (
-                  <><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>
-                ) : (
-                  <><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></>
-                )}
-              </svg>
+              Pronos
             </button>
           </div>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden overflow-hidden"
-            style={{ backgroundColor: '#0D1117', borderTop: '1px solid rgba(0, 196, 154, 0.2)' }}
-          >
-            <div className="px-4 py-4 space-y-1">
-              {NAV_LINKS.map((link) => (
-                <button
-                  key={link.label}
-                  onClick={() => handleNav(link)}
-                  className="block w-full text-left py-3 px-3 rounded-lg text-sm font-medium transition-colors"
-                  style={{ color: '#F0F2F5' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(0, 196, 154, 0.08)'; e.currentTarget.style.color = '#00DDB0' }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#F0F2F5' }}
-                >
-                  {link.label}
-                </button>
-              ))}
-
-              {/* Bookmaker buttons */}
-              <div className="pt-3 grid grid-cols-2 gap-2">
-                <a href={AFFILIATE.linebet} rel="sponsored noopener" target="_blank"
-                  onClick={() => { setIsOpen(false); document.body.style.overflow = '' }}
-                  className="flex items-center justify-center px-3 py-2.5 rounded-[8px] text-xs font-bold"
-                  style={{ backgroundColor: '#00C49A', color: '#F0F2F5' }}>
-                  Linebet
-                </a>
-                <a href={AFFILIATE.star888} rel="sponsored noopener" target="_blank"
-                  onClick={() => { setIsOpen(false); document.body.style.overflow = '' }}
-                  className="flex items-center justify-center px-3 py-2.5 rounded-[8px] text-xs font-bold"
-                  style={{ backgroundColor: '#FFD700', color: '#0D1117' }}>
-                  888starz
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </nav>
   )
 }
