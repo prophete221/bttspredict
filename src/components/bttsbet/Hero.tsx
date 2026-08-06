@@ -101,7 +101,13 @@ export default function Hero() {
           <motion.button
             whileHover={{ scale: 1.02, boxShadow: `0 8px 30px ${C.green}66` }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => document.getElementById('free-predictions')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => {
+              if (window.location.pathname !== '/') {
+                window.location.href = '/#free-predictions'
+              } else {
+                document.getElementById('free-predictions')?.scrollIntoView({ behavior: 'smooth' })
+              }
+            }}
             className="w-full h-[56px] rounded-[8px] font-bold text-[15px] flex items-center justify-center gap-2 transition-colors"
             style={{
               backgroundColor: C.green,

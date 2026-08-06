@@ -5,6 +5,23 @@ import { motion } from 'framer-motion'
 
 type TabId = 'home' | 'predictions' | 'vip' | 'support'
 
+// Helper : naviguer vers une section (gère le cas multi-pages)
+function goToSection(id: string) {
+  if (window.location.pathname !== '/') {
+    window.location.href = `/#${id}`
+    return
+  }
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+}
+
+function goHome() {
+  if (window.location.pathname !== '/') {
+    window.location.href = '/'
+    return
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
 const TABS: { id: TabId; label: string; icon: React.ReactNode; action: () => void }[] = [
   {
     id: 'home',
@@ -15,7 +32,7 @@ const TABS: { id: TabId; label: string; icon: React.ReactNode; action: () => voi
         <polyline points="9 22 9 12 15 12 15 22" />
       </svg>
     ),
-    action: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
+    action: goHome,
   },
   {
     id: 'predictions',
@@ -26,7 +43,7 @@ const TABS: { id: TabId; label: string; icon: React.ReactNode; action: () => voi
         <path d="M12 2 a10 10 0 0 1 10 10 l-10 0 z" fill="currentColor" />
       </svg>
     ),
-    action: () => document.getElementById('free-predictions')?.scrollIntoView({ behavior: 'smooth' }),
+    action: () => goToSection('free-predictions'),
   },
   {
     id: 'vip',
@@ -37,7 +54,7 @@ const TABS: { id: TabId; label: string; icon: React.ReactNode; action: () => voi
         <path d="M5 16h14v3H5z" />
       </svg>
     ),
-    action: () => document.getElementById('vip')?.scrollIntoView({ behavior: 'smooth' }),
+    action: () => goToSection('vip'),
   },
   {
     id: 'support',

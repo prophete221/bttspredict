@@ -22,6 +22,7 @@ export default function StickyVipBandeau() {
   const handleCta = () => {
     const el = document.getElementById('vip')
     if (el) el.scrollIntoView({ behavior: 'smooth' })
+    else if (window.location.pathname !== '/') window.location.href = '/#vip'
   }
 
   const copyCode = async () => {
