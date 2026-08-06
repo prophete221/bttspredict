@@ -155,12 +155,18 @@ export default function RootLayout({
         <meta name="expires" content="never" />
         <meta name="HandheldFriendly" content="True" />
         <meta name="MobileOptimized" content="390" />
+        {/* Redirection HTTP → HTTPS (le serveur LWS ne gère pas la redirection) */}
+        <script dangerouslySetInnerHTML={{ __html: `
+          if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+            location.replace('https://' + location.hostname + location.pathname + location.search + location.hash);
+          }
+        `}} />
         {/* Cache-busting + service worker cleanup — forces users to see latest version */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v32-audit-round3-title-desc-hreflang-compression-2026-08-06';
+                var VERSION = 'bttspredict-v33-https-js-redirect-2026-08-06';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
