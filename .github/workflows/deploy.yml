@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-  schedule:
-    - cron: '0 4,6,14,22 * * *'
   workflow_dispatch:
 
 permissions:
@@ -14,7 +12,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
 
     steps:
       - name: Checkout
@@ -28,31 +26,14 @@ jobs:
           node-version: '22'
 
       - name: Install dependencies
-        run: npm ci --legacy-peer-deps
-        env:
-          PUPPETEER_SKIP_DOWNLOAD: 'true'
+        run: npm install --legacy-peer-deps
 
-      - name: Update predictions
-        timeout-minutes: 5
-        run: node scripts/quick-update-predictions.mjs
-        continue-on-error: true
-
-      - name: Update win history
-        timeout-minutes: 3
-        run: node scripts/update-win-history.mjs
-        continue-on-error: true
-
-      - name: Update transfers
-        timeout-minutes: 2
-        run: node scripts/scrape-transfers.mjs
-        continue-on-error: true
-
-      - name: Build static export
+      - name: Build
         run: npm run build
         env:
           NODE_OPTIONS: --max-old-space-size=4096
 
-      - name: Copy routing files
+      - name: Copy files
         run: |
           cp public/404.html out/404.html 2>/dev/null || true
           cp out/index.html out/200.html 2>/dev/null || true
@@ -61,7 +42,7 @@ jobs:
           cp public/robots.txt out/robots.txt 2>/dev/null || true
           cp public/sitemap.xml out/sitemap.xml 2>/dev/null || true
 
-      - name: Deploy to bttspredict.com via FTP
+      - name: Deploy FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -72,8 +53,3 @@ jobs:
           exclude: |
             **/.git*
             **/node_modules/**
-
-      - name: Notify Bing via IndexNow
-        if: success()
-        run: node scripts/submit-indexnow.mjs
-        continue-on-error: true
