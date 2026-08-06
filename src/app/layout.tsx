@@ -151,7 +151,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v30-ahrels-round2-vip-orphan-h1-ogimage-2026-08-06';
+                var VERSION = 'bttspredict-v31-seo-audit-https-analytics-localbusiness-social-2026-08-06';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
@@ -179,6 +179,21 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
+        {/* Google Analytics — remplacer G-XXXXXXXXXX par votre ID */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+            `,
+          }}
+        />
         {children}
       </body>
     </html>

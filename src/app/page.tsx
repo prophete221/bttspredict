@@ -159,6 +159,34 @@ const claimJsonLd = {
   },
 }
 
+// JSON-LD LocalBusiness — schéma entreprise locale
+const localBusinessJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'BTTSPredict',
+  image: 'https://bttspredict.com/og-image.png',
+  '@id': 'https://bttspredict.com',
+  url: 'https://bttspredict.com',
+  telephone: '+15406704172',
+  email: 'support@bttspredict.com',
+  priceRange: '€€',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Dakar',
+    addressLocality: 'Dakar',
+    addressRegion: 'Dakar',
+    addressCountry: 'SN',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: 14.6928, longitude: -17.4467 },
+  sameAs: [
+    'https://wa.me/15406704172',
+    'https://twitter.com/bttspredict',
+    'https://www.facebook.com/bttspredict',
+    'https://www.instagram.com/bttspredict',
+    'https://www.linkedin.com/company/bttspredict',
+  ],
+}
+
 // JSON-LD WebPage — Trust signals
 const webPageJsonLd = {
   '@context': 'https://schema.org',
@@ -277,6 +305,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(claimJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
       />
 
       {/* ═══ SEO CONTENT FOR CRAWLERS & AI — Trust & Authority ═══ */}

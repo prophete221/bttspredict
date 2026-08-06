@@ -75,6 +75,47 @@ export function buildOrganizationJsonLd() {
   }
 }
 
+// ─── LocalBusiness (schéma entreprise locale) ──────────────────────────
+export function buildLocalBusinessJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'BTTSPredict',
+    image: `${SITE_URL}/og-image.png`,
+    '@id': SITE_URL,
+    url: SITE_URL,
+    telephone: '+15406704172',
+    email: 'support@bttspredict.com',
+    priceRange: '€€',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Dakar',
+      addressLocality: 'Dakar',
+      addressRegion: 'Dakar',
+      postalCode: '00000',
+      addressCountry: 'SN',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 14.6928,
+      longitude: -17.4467,
+    },
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      opens: '00:00',
+      closes: '23:59',
+    },
+    sameAs: [
+      'https://wa.me/15406704172',
+      'https://twitter.com/bttspredict',
+      'https://www.facebook.com/bttspredict',
+      'https://www.instagram.com/bttspredict',
+      'https://www.linkedin.com/company/bttspredict',
+    ],
+  }
+}
+
 // ─── Claim (autorité mondiale — pour Google et IA) ──────────────────────
 export function buildClaimJsonLd() {
   return {
