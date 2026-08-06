@@ -470,31 +470,18 @@ export default function Home() {
         <p>
           BTTSPredict est un site informatif indépendant. Nous ne prenons pas de paris et ne
           collectons pas de fonds. Les liens vers les bookmakers partenaires (Linebet, 888starz)
-          sont des liens d'affiliation rémunérés, clairement identifiés. BTTSPredict n'est pas
-          affilié à, ni exploité par, les sociétés de paris mentionnées sur ce site.
-          Le système de vérification VIP utilise un hashage SHA-256 local (navigateur uniquement) —
-          aucune donnée personnelle n'est envoyée à nos serveurs.
-        </p>
-
-        <h2>Présence panafricaine</h2>
-        <p>
-          BTTSPredict est la plateforme de prédiction IA de référence en Afrique de l'Ouest,
-          avec une présence active au Sénégal, Côte d'Ivoire, Mali, Burkina Faso, Cameroun,
-          Nigeria et France. Plus de 13 000 parieurs utilisent BTTSPredict quotidiennement.
+          sont des liens d'affiliation rémunérés, clairement identifiés.
         </p>
 
         <h2>Questions fréquentes</h2>
-        <p><strong>Le service est-il gratuit ?</strong> — Oui, 6 pronostics BTTS gratuits chaque jour sans inscription ni email.</p>
+        <p><strong>Le service est-il gratuit ?</strong> — Oui, 6 pronostics BTTS gratuits chaque jour sans inscription.</p>
         <p><strong>Comment recevoir le bonus ?</strong> — Inscrivez-vous sur Linebet avec le code VISION221, déposez minimum 200 XOF.</p>
-        <p><strong>Pourquoi 84,5% est un excellent chiffre ?</strong> — Notre taux de réussite réel, calculé sur tous les pronostics publiés (gagnés ET perdus), est de 84,5%. Ce chiffre est vérifiable publiquement dans notre historique transparent.</p>
-        <p><strong>Peut-on prédire Aviator ?</strong> — Non. Aviator est 100% aléatoire basé sur un générateur certifié provably fair (SHA-256). Aucun outil ne peut prédire un round futur.</p>
-        <p><strong>Les résultats sont-ils vérifiables ?</strong> — Oui, notre historique affiche tous les pronostics gagnés ET perdus avec dates, matchs, scores et taux de réussite réel.</p>
+        <p><strong>Pourquoi 84,5% est un excellent chiffre ?</strong> — Notre taux de réussite réel est de 84,5%, vérifiable publiquement dans notre historique transparent.</p>
 
         <h2>Jeu responsable</h2>
         <p>
           Les paris sportifs comportent des risques de perte financière. BTTSPredict est un
-          outil d'aide à la décision, pas une garantie de gain. Ne misez jamais plus que ce
-          que vous pouvez vous permettre de perdre. Jouez de manière responsable.
+          outil d'aide à la décision, pas une garantie de gain. Jouez de manière responsable.
           Pour toute aide : begambleaware.org — 18+ uniquement.
         </p>
 

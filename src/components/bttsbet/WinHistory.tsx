@@ -451,7 +451,7 @@ export default function WinHistory() {
               boxShadow: '0 4px 16px rgba(0, 196, 154, 0.25)',
             }}
           >
-            Voir l'historique complet →
+            Voir l'historique complet des pronostics (gagnés et perdus) →
           </a>
         </div>
 

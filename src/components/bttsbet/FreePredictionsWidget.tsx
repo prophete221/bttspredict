@@ -54,7 +54,7 @@ export default function FreePredictionsWidget() {
             ⚽ Pronostics gratuits du jour
           </h2>
           <a href="/pronostics" className="text-[11px] font-bold" style={{ color: '#00C49A' }}>
-            Voir tout →
+            Tous les pronostics BTTS d'aujourd'hui →
           </a>
         </div>
 
