@@ -8,7 +8,7 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-linebet-senegal'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Code Promo Linebet VISION221 — Bonus 90 000 XOF'
-const DESCRIPTION = 'Code promo Linebet Sénégal VISION221 — Bonus exclusif 90 000 XOF (150$) sur votre premier dépôt. Inscription facile, dépôt via Wave, Orange Money, Free Money. Guide complet étape par étape.'
+const DESCRIPTION = 'Code promo Linebet Sénégal VISION221 — bonus 90 000 XOF. Dépôt Wave, Orange Money, Free Money. Guide complet.'
 
 export const metadata: Metadata = {
   title: TITLE,

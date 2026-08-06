@@ -8,7 +8,7 @@ const SITE_URL = 'https://bttspredict.com'
 const PAGE_URL = `${SITE_URL}/cgu`
 const TITLE = 'Conditions Générales d\'Utilisation | BTTSPredict'
 const DESCRIPTION =
-  'Conditions Générales d\'Utilisation de BTTSPredict — acceptation des conditions, description du service, affiliation, avertissement sur les pronostics, responsabilités, propriété intellectuelle et droit applicable.'
+  'CGU BTTSPredict : conditions d\'utilisation, service, affiliation, avertissement et responsabilités.'
 
 export const metadata: Metadata = {
   title: TITLE,

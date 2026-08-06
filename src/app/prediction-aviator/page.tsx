@@ -8,7 +8,7 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'prediction-aviator'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Prédiction Aviator 2026 — Signaux & Stratégie'
-const DESCRIPTION = 'Découvrez les signaux de prédiction Aviator 2026 : comment fonctionne l\'algorithme Aviator, utiliser l\'IA pour les signaux, stratégie cash out, astuces sur Linebet & 888starz avec le code promo VISION221. Jeu responsable.'
+const DESCRIPTION = 'Signaux Aviator 2026 : algorithme Provably Fair, stratégie cash out. Astuces Linebet & 888starz avec code VISION221.'
 
 const KEYWORDS = [
   'prédiction aviator',

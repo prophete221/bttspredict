@@ -5,7 +5,7 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'faille-fifa'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Faille FIFA Linebet — Cotes Erronées 2026'
-const DESCRIPTION = 'Découvrez la faille FIFA sur Linebet et 888starz : comment notre équipe détecte automatiquement les cotes erronées des matchs FIFA virtuels, comment exploiter les value bets, et notre stratégie validée. Code promo VISION221.'
+const DESCRIPTION = 'Faille FIFA Linebet : détection des cotes erronées et value bets. Méthode validée par nos analystes. Code VISION221.'
 
 export const metadata: Metadata = {
   title: TITLE,

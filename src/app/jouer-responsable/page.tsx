@@ -8,7 +8,7 @@ const SITE_URL = 'https://bttspredict.com'
 const PAGE_URL = `${SITE_URL}/jouer-responsable`
 const TITLE = 'Jouer Responsable | BTTSPredict'
 const DESCRIPTION =
-  'Jouer responsable avec BTTSPredict — risques des jeux d\'argent, signes d\'addiction, conseils pour un jeu responsable, auto-exclusion et ressources d\'aide. 18+ uniquement.'
+  'Jouer responsable avec BTTSPredict : risques, addiction, conseils et ressources d\'aide. 18+ uniquement.'
 
 export const metadata: Metadata = {
   title: TITLE,

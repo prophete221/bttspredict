@@ -8,7 +8,7 @@ const SITE_URL = 'https://bttspredict.com'
 const PAGE_URL = `${SITE_URL}/mentions-legales`
 const TITLE = 'Mentions Légales | BTTSPredict'
 const DESCRIPTION =
-  'Mentions légales du site BTTSPredict — informations sur l\'éditeur, l\'hébergement, la propriété intellectuelle, la limitation de responsabilité et le droit applicable.'
+  'Mentions légales BTTSPredict : éditeur, hébergement, propriété intellectuelle, responsabilité et droit applicable.'
 
 export const metadata: Metadata = {
   title: TITLE,

@@ -3,7 +3,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
 const TITLE = 'Over 2.5 Predictions — Pronostics Over 2.5 Goals'
-const DESCRIPTION = 'Pronostics Over 2.5 buts par nos analystes. Modèle Poisson calibré sur 50 000 matchs, 84,5% de réussite vérifiée. Matchs du jour avec analyses et statistiques.'
+const DESCRIPTION = 'Pronostics Over 2.5 buts par nos analystes. Modèle Poisson, 84,5% vérifié. Stats par championnat.'
 
 export const metadata: Metadata = {
   title: TITLE,

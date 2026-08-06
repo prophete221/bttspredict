@@ -8,7 +8,7 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'guide-linebet-inscription'
 const PAGE_URL = `${SITE_URL}/blog/${SLUG}`
 const TITLE = 'Guide Complet Linebet : Inscription, Dépôt et Code Promo VISION221'
-const DESCRIPTION = 'Guide étape par étape pour créer votre compte Linebet, utiliser le code promo VISION221, effectuer un dépôt en Mobile Money ou crypto, et naviguer sur l\'application. Conseils pour les parieurs africains en Franc CFA.'
+const DESCRIPTION = 'Guide inscription Linebet : code promo VISION221, dépôt Mobile Money, navigation app. Conseils pour parieurs africains.'
 
 export const metadata: Metadata = {
   title: TITLE,

@@ -9,7 +9,7 @@ import {
 } from '@/lib/seoSchemas'
 
 const TITLE = 'Méthodologie BTTSPredict — Modèle Poisson'
-const DESCRIPTION = "Méthodologie transparente de BTTSPredict : modèle de Poisson calibré sur 50 000 matchs, 200+ variables (xG, forme, blessés), sources ESPN, Forebet, API-Football, Windrawwin, Soccerbase. Taux de réussite vérifié 84,5%."
+const DESCRIPTION = 'Méthodologie BTTSPredict : modèle Poisson calibré sur 50 000 matchs, 200+ variables, sources ESPN et API-Football. 84,5% vérifié.'
 const PAGE_URL = `${SITE_URL}/methodologie`
 
 export const metadata: Metadata = {
