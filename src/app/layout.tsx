@@ -171,7 +171,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v45-perf-contraste-preload-dom-2026-08-07';
+                var VERSION = 'bttspredict-v46-deploy-fix-final-2026-08-07';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
