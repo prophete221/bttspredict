@@ -7,7 +7,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'faille-fifa-linebet'
 const PAGE_URL = `${SITE_URL}/blog/${SLUG}`
-const TITLE = 'Faille FIFA Linebet & 888starz : Comment Détecter les Cotes Erronées en 2026'
+const TITLE = 'Faille FIFA Linebet — Cotes Erronées 2026'
 const DESCRIPTION = 'Découvrez la faille FIFA sur Linebet et 888starz : comment les cotes des matchs FIFA virtuels sont calculées, comment détecter les cotes erronées, utiliser l\'IA pour scanner les value bets et gérer le risque. Attention : jeu responsable.'
 
 export const metadata: Metadata = {

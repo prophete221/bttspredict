@@ -8,7 +8,7 @@ import {
   SITE_URL,
 } from '@/lib/seoSchemas'
 
-const TITLE = 'Notre méthodologie — Comment BTTSPredict analyse les matchs BTTS & Over 2.5'
+const TITLE = 'Méthodologie BTTSPredict — Modèle Poisson'
 const DESCRIPTION = "Méthodologie transparente de BTTSPredict : modèle de Poisson calibré sur 50 000 matchs, 200+ variables (xG, forme, blessés), sources ESPN, Forebet, API-Football, Windrawwin, Soccerbase. Taux de réussite vérifié 84,5%."
 const PAGE_URL = `${SITE_URL}/methodologie`
 

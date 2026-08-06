@@ -7,7 +7,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'prediction-aviator'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'Prédiction Aviator 2026 : Signaux IA, Astuces & Stratégie Gagnante sur Linebet & 888starz'
+const TITLE = 'Prédiction Aviator 2026 — Signaux & Stratégie'
 const DESCRIPTION = 'Découvrez les signaux de prédiction Aviator 2026 : comment fonctionne l\'algorithme Aviator, utiliser l\'IA pour les signaux, stratégie cash out, astuces sur Linebet & 888starz avec le code promo VISION221. Jeu responsable.'
 
 const KEYWORDS = [

@@ -7,7 +7,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'bonus-888starz'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'Bonus 888starz — Code Promo & Inscription | BTTSPredict'
+const TITLE = 'Bonus 888starz — Code Promo & Inscription'
 const DESCRIPTION = 'Bonus exclusif 888starz avec code promo. Inscription facile, dépôt local, value bets FIFA et pronostics IA. Guide complet pour profiter du bonus 888starz.'
 
 export const metadata: Metadata = {

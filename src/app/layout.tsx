@@ -26,7 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://bttspredict.com"),
   title: {
-    default: "BTTSPredict — Pronostics BTTS et Over 2.5 par nos analystes | Both Teams To Score",
+    default: "BTTSPredict — Pronostics BTTS et Over 2.5 | 84,5% vérifié",
     template: "%s | BTTSPredict",
   },
   description: "Pronostics BTTS aujourd'hui et Over 2.5 par nos analystes. 84,5% de réussite vérifiée, modèles Poisson calibrés sur 50 000 matchs, 6 pronos gratuits par jour. Outil d'aide à la décision, pas de promesse de gain. Code promo VISION221.",
@@ -101,7 +101,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BTTSPredict — N°1 des Pronostics BTTS aujourd'hui (84,5% vérifié)",
+    title: "BTTSPredict — Pronostics BTTS fiables | 84,5% vérifié",
     description: "Pronostics btts aujourd'hui validés par nos analystes. 84,5% de réussite vérifiable. Code promo VISION221.",
     images: ["/og-image.png"],
   },
@@ -151,7 +151,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v20-bing-verification-msvalidate-2026-08-06';
+                var VERSION = 'bttspredict-v21-titres-courts-seo-2026-08-06';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){

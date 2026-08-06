@@ -4,7 +4,7 @@ import StatsDashboard from '@/components/bttsbet/StatsDashboard'
 const SITE_URL = 'https://bttspredict.com'
 
 export const metadata: Metadata = {
-  title: "Statistiques — Taux de réussite BTTS & Over 2.5 | BTTSPredict",
+  title: "Statistiques — Taux de réussite BTTS & Over 2.5",
   description: "Tableau de bord statistique BTTSPredict : courbe de réussite sur 30 jours, répartition par championnat, par type de pronostic, ROI simulé. Données transparentes mises à jour quotidiennement.",
   alternates: { canonical: `${SITE_URL}/statistiques` },
   openGraph: {

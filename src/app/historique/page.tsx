@@ -8,7 +8,7 @@ import { buildOrganizationJsonLd, buildPersonJsonLd, buildDatasetJsonLd } from '
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'historique'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'Historique Pronostics BTTSPredict — Résultats Vérifiés BTTS & Over 2.5 (84,5% de réussite)'
+const TITLE = 'Historique Pronostics BTTSPredict — 84,5% vérifié'
 const DESCRIPTION = 'Historique complet des pronostics BTTS & Over 2.5 de BTTSPredict — tous les résultats, gagnés et perdus, sans filtrage. Transparence totale avec preuves vérifiables. Précision historique 84,5%.'
 
 export const metadata: Metadata = {

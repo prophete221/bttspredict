@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Navbar, Footer } from '@/components/bttsbet'
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
-const TITLE = "BTTSPredict dans la presse & médias — Mentions et avis"
+const TITLE = "BTTSPredict dans la presse & médias"
 const DESCRIPTION = "Découvrez où BTTSPredict est mentionné dans les médias, blogs, forums et communautés de paris sportifs. Reddit, forums spécialisés, blogs d'analyse football."
 
 export const metadata: Metadata = {

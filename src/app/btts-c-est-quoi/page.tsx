@@ -7,7 +7,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'btts-c-est-quoi'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'BTTS (Both Teams To Score) — Guide Complet 2026 | BTTSPredict'
+const TITLE = 'BTTS (Both Teams To Score) — Guide Complet 2026'
 const DESCRIPTION = 'Qu\'est-ce que le BTTS ? Guide complet sur le pari Both Teams To Score : fonctionnement, stratégies, statistiques, meilleurs championnats et FAQ. Comprendre le BTTS pour mieux parier.'
 
 export const metadata: Metadata = {
