@@ -2,7 +2,8 @@ name: Build & Deploy to bttspredict.com
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   schedule:
     - cron: '0 4,6,14,22 * * *'
   workflow_dispatch:
@@ -59,15 +60,6 @@ jobs:
           cp public/.htaccess out/.htaccess 2>/dev/null || true
           cp public/robots.txt out/robots.txt 2>/dev/null || true
           cp public/sitemap.xml out/sitemap.xml 2>/dev/null || true
-
-      - name: Commit data
-        continue-on-error: true
-        run: |
-          git config --local user.email "bot@bttspredict.com"
-          git config --local user.name "BTTSPredict Bot"
-          git add public/predictions.json public/win-history.json public/transfers.json public/predictions-archive/
-          git diff --staged --quiet || git commit -m "chore: auto-update data [skip ci]"
-          git push || echo "No changes or push failed - continuing anyway"
 
       - name: Deploy to bttspredict.com via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5

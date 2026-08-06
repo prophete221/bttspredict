@@ -166,7 +166,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v37-navbar-simple-ftp-fix-2026-08-06';
+                var VERSION = 'bttspredict-v38-deploy-fix-skip-commit-2026-08-06';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
