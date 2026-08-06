@@ -24,37 +24,35 @@ export default function Navbar() {
     setTimeout(() => setCopied(false), 2000)
   }, [])
 
-  const closeMenu = () => {
+  const handleNav = (link: { href?: string; scrollTarget?: string }) => {
+    // Fermer le menu immédiatement
     setIsOpen(false)
     document.body.style.overflow = ''
-  }
 
-  const scrollToSection = (id: string) => {
-    closeMenu()
-    // Si on n'est pas sur la page d'accueil, rediriger vers l'accueil + section
-    if (window.location.pathname !== '/') {
-      window.location.href = `/#${id}`
-      return
+    if (link.href === '/') {
+      // Accueil : aller à la racine
+      if (window.location.pathname !== '/') {
+        window.location.href = '/'
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
+    } else if (link.scrollTarget) {
+      // Section : si sur l'accueil, scroll ; sinon, rediriger
+      if (window.location.pathname !== '/') {
+        window.location.href = `/#${link.scrollTarget}`
+      } else {
+        const el = document.getElementById(link.scrollTarget)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          setTimeout(() => window.scrollBy({ top: -56, behavior: 'smooth' }), 400)
+        }
+      }
     }
-    const el = document.getElementById(id)
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      setTimeout(() => window.scrollBy({ top: -56, behavior: 'smooth' }), 400)
-    }
-  }
-
-  const handleHomeClick = () => {
-    closeMenu()
-    if (window.location.pathname !== '/') {
-      window.location.href = '/'
-      return
-    }
-    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
     <nav
-      className="sticky top-0 z-50 transition-all duration-300"
+      className="sticky top-0 z-50"
       style={{
         backgroundColor: '#0D1117',
         borderBottom: '1px solid rgba(0, 196, 154, 0.15)',
@@ -63,24 +61,19 @@ export default function Navbar() {
       <div className="max-w-[440px] sm:max-w-2xl mx-auto px-4">
         <div className="flex items-center justify-between h-14 gap-2">
           {/* Logo — ballon de foot */}
-          <a
-            href="/"
-            onClick={(e) => { e.preventDefault(); handleHomeClick() }}
-            className="flex items-center gap-2 flex-shrink-0"
+          <button
+            onClick={() => handleNav({ href: '/' })}
+            className="flex items-center gap-2 flex-shrink-0 cursor-pointer"
             aria-label="BTTSPredict — Accueil"
           >
-            {/* Ballon de foot SVG */}
             <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
               <circle cx="16" cy="16" r="15" fill="#0D1117" stroke="#00C49A" strokeWidth="1.5"/>
-              {/* Hexagone central */}
               <path d="M16 7 L20 10 L18.5 15 L13.5 15 L12 10 Z" fill="#00C49A" opacity="0.9"/>
-              {/* Pentagones autour */}
               <path d="M16 7 L13 3.5 L19 3.5 Z" fill="#00C49A" opacity="0.7"/>
               <path d="M20 10 L24.5 8 L23 13 Z" fill="#00C49A" opacity="0.7"/>
               <path d="M18.5 15 L22 18.5 L17 20 Z" fill="#00C49A" opacity="0.7"/>
               <path d="M13.5 15 L10 18.5 L15 20 Z" fill="#00C49A" opacity="0.7"/>
               <path d="M12 10 L7.5 8 L9 13 Z" fill="#00C49A" opacity="0.7"/>
-              {/* Lignes */}
               <line x1="16" y1="7" x2="16" y2="3.5" stroke="#00C49A" strokeWidth="0.5"/>
               <line x1="20" y1="10" x2="24.5" y2="8" stroke="#00C49A" strokeWidth="0.5"/>
               <line x1="18.5" y1="15" x2="22" y2="18.5" stroke="#00C49A" strokeWidth="0.5"/>
@@ -90,14 +83,14 @@ export default function Navbar() {
             <span className="text-base font-bold tracking-tight" style={{ color: '#00C49A' }}>
               BTTSPredict
             </span>
-          </a>
+          </button>
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-4">
             {DESKTOP_LINKS.map((link) => (
               <button
                 key={link.label}
-                onClick={() => scrollToSection(link.scrollTarget!)}
+                onClick={() => handleNav(link)}
                 className="text-sm font-medium transition-colors"
                 style={{ color: '#F0F2F5' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#00DDB0'}
@@ -125,7 +118,7 @@ export default function Navbar() {
 
             {/* CTA Desktop */}
             <button
-              onClick={() => scrollToSection('free-predictions')}
+              onClick={() => handleNav({ scrollTarget: 'free-predictions' })}
               className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-[8px] text-sm font-bold transition-colors"
               style={{
                 backgroundColor: '#00C49A',
@@ -177,13 +170,7 @@ export default function Navbar() {
               {NAV_LINKS.map((link) => (
                 <button
                   key={link.label}
-                  onClick={() => {
-                    if (link.href) {
-                      handleHomeClick()
-                    } else if (link.scrollTarget) {
-                      scrollToSection(link.scrollTarget)
-                    }
-                  }}
+                  onClick={() => handleNav(link)}
                   className="block w-full text-left py-3 px-3 rounded-lg text-sm font-medium transition-colors"
                   style={{ color: '#F0F2F5' }}
                   onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(0, 196, 154, 0.08)'; e.currentTarget.style.color = '#00DDB0' }}
@@ -195,14 +182,16 @@ export default function Navbar() {
 
               {/* Bookmaker buttons */}
               <div className="pt-3 grid grid-cols-2 gap-2">
-                <a href={AFFILIATE.linebet} rel="sponsored noopener" target="_blank" onClick={closeMenu}
-                  className="flex items-center justify-center px-3 py-2.5 rounded-[8px] text-xs font-bold transition-colors"
-                  style={{ backgroundColor: '#00C49A', color: '#F0F2F5', border: 'none' }}>
+                <a href={AFFILIATE.linebet} rel="sponsored noopener" target="_blank"
+                  onClick={() => { setIsOpen(false); document.body.style.overflow = '' }}
+                  className="flex items-center justify-center px-3 py-2.5 rounded-[8px] text-xs font-bold"
+                  style={{ backgroundColor: '#00C49A', color: '#F0F2F5' }}>
                   Linebet
                 </a>
-                <a href={AFFILIATE.star888} rel="sponsored noopener" target="_blank" onClick={closeMenu}
-                  className="flex items-center justify-center px-3 py-2.5 rounded-[8px] text-xs font-bold transition-colors"
-                  style={{ backgroundColor: '#FFD700', color: '#0D1117', border: 'none' }}>
+                <a href={AFFILIATE.star888} rel="sponsored noopener" target="_blank"
+                  onClick={() => { setIsOpen(false); document.body.style.overflow = '' }}
+                  className="flex items-center justify-center px-3 py-2.5 rounded-[8px] text-xs font-bold"
+                  style={{ backgroundColor: '#FFD700', color: '#0D1117' }}>
                   888starz
                 </a>
               </div>
