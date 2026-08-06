@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     description: "Courbe de réussite 30 jours, répartition par ligue, ROI. Transparence totale.",
     url: `${SITE_URL}/statistiques`,
     type: 'website',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'BTTSPredict' }],
   },
 }
 

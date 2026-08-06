@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     description: "Bonus, dépôts Wave/Orange Money, cotes, app mobile. Code promo VISION221.",
     url: 'https://bttspredict.com/bookmakers',
     type: 'website',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'BTTSPredict' }],
   },
 }
 
