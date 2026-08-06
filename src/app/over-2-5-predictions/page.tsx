@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer } from '@/components/bttsbet'
+import {Navbar, Footer,
+  FreePredictionsWidget,
+  VipCardWidget,
+  LinebetApkButton} from '@/components/bttsbet'
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
 const TITLE = 'Over 2.5 Predictions'
@@ -122,6 +125,13 @@ export default function Over25PredictionsPage() {
             Les pronostics Over 2.5 de BTTSPredict utilisent un modèle de Poisson calibré sur 50 000 matchs avec un taux de réussite vérifié de 84,5%. Notre méthodologie est <a href="/methodologie" style={{ color: '#00C49A' }}>documentée publiquement</a> et notre historique est <a href="/historique" style={{ color: '#00C49A' }}>vérifiable</a>. Aucun résultat n'est garanti.
           </p>
         </section>
+      
+        {/* Pronostics gratuits + VIP + APK sur toutes les pages */}
+        <FreePredictionsWidget />
+        <VipCardWidget />
+        <div className="text-center pb-6">
+          <LinebetApkButton />
+        </div>
       </main>
 
       <Footer />

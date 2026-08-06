@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer } from '@/components/bttsbet'
+import {Navbar, Footer,
+  FreePredictionsWidget,
+  VipCardWidget,
+  LinebetApkButton} from '@/components/bttsbet'
 import {
   buildOrganizationJsonLd,
   buildPersonJsonLd,
@@ -291,6 +294,13 @@ export default function MethodologiePage() {
           </div>
         </section>
 
+      
+        {/* Pronostics gratuits + VIP + APK sur toutes les pages */}
+        <FreePredictionsWidget />
+        <VipCardWidget />
+        <div className="text-center pb-6">
+          <LinebetApkButton />
+        </div>
       </main>
 
       <Footer />

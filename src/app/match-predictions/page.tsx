@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer } from '@/components/bttsbet'
+import {Navbar, Footer,
+  FreePredictionsWidget,
+  VipCardWidget,
+  LinebetApkButton} from '@/components/bttsbet'
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
 const TITLE = 'Match Predictions — Pronostics par Match'
@@ -82,6 +85,13 @@ export default function MatchPredictionsPage() {
             ))}
           </div>
         </section>
+      
+        {/* Pronostics gratuits + VIP + APK sur toutes les pages */}
+        <FreePredictionsWidget />
+        <VipCardWidget />
+        <div className="text-center pb-6">
+          <LinebetApkButton />
+        </div>
       </main>
       <Footer />
     </div>

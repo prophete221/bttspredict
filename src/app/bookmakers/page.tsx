@@ -129,6 +129,8 @@ const COMPARISON: Row[] = [
   },
 ]
 
+import { FreePredictionsWidget, VipCardWidget, LinebetApkButton } from '@/components/bttsbet'
+
 export default function BookmakersPage() {
   return (
     <div className="min-h-screen bg-dark-800 relative">

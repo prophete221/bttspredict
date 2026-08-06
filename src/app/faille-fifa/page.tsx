@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer } from '@/components/bttsbet'
+import {Navbar, Footer,
+  FreePredictionsWidget,
+  VipCardWidget,
+  LinebetApkButton} from '@/components/bttsbet'
 
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'faille-fifa'
@@ -394,6 +397,13 @@ export default function FailleFifaPage() {
             </div>
           </div>
         </article>
+      
+        {/* Pronostics gratuits + VIP + APK sur toutes les pages */}
+        <FreePredictionsWidget />
+        <VipCardWidget />
+        <div className="text-center pb-6">
+          <LinebetApkButton />
+        </div>
       </main>
 
       <Footer />

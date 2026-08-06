@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer, WinHistory, ErrorBoundary } from '@/components/bttsbet'
+import {Navbar, Footer, WinHistory, ErrorBoundary,
+  FreePredictionsWidget,
+  VipCardWidget,
+  LinebetApkButton} from '@/components/bttsbet'
 import { buildOrganizationJsonLd, buildPersonJsonLd, buildDatasetJsonLd } from '@/lib/seoSchemas'
 
 /* ──────────────────────────────────────────────────────────────
@@ -174,6 +177,13 @@ export default function HistoriquePage() {
             </article>
           </div>
         </section>
+      
+        {/* Pronostics gratuits + VIP + APK sur toutes les pages */}
+        <FreePredictionsWidget />
+        <VipCardWidget />
+        <div className="text-center pb-6">
+          <LinebetApkButton />
+        </div>
       </main>
 
       <Footer />

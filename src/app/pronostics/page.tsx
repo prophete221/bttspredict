@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 }
 
+import { FreePredictionsWidget, VipCardWidget, LinebetApkButton } from '@/components/bttsbet'
+
 export default function PronosticsPage() {
   return <PronosticsRedirect />
 }

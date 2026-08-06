@@ -47,6 +47,8 @@ const jsonLd = {
   ],
 }
 
+import { FreePredictionsWidget, VipCardWidget, LinebetApkButton } from '@/components/bttsbet'
+
 export default function StatistiquesPage() {
   return (
     <div className="min-h-screen bg-dark-800 relative">
