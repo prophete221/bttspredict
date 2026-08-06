@@ -166,7 +166,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v34-navbar-mobile-fix-2026-08-06';
+                var VERSION = 'bttspredict-v35-nav-fix-all-components-2026-08-06';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
