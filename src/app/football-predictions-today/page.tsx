@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   keywords: ['football predictions today', 'pronostics football aujourd\'hui', 'football tips today', 'predictions football', 'pronostics du jour'],
   alternates: { canonical: `${SITE_URL}/football-predictions-today` },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/football-predictions-today`, siteName: 'BTTSPredict', type: 'article' },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/football-predictions-today`, siteName: 'BTTSPredict', type: 'article', images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'BTTSPredict' }] },
 }
 
 const FAQ = [

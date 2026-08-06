@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   keywords: ['correct score predictions', 'pronostics score exact', 'score exact football', 'correct score tips', 'paris score exact'],
   alternates: { canonical: `${SITE_URL}/correct-score-predictions` },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/correct-score-predictions`, siteName: 'BTTSPredict', type: 'article' },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/correct-score-predictions`, siteName: 'BTTSPredict', type: 'article', images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'BTTSPredict' }] },
 }
 
 const FAQ = [

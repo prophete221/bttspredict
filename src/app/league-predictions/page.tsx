@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   keywords: ['league predictions', 'pronostics par championnat', 'championnat predictions', 'premier league predictions', 'la liga predictions'],
   alternates: { canonical: `${SITE_URL}/league-predictions` },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/league-predictions`, siteName: 'BTTSPredict', type: 'article' },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/league-predictions`, siteName: 'BTTSPredict', type: 'article', images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'BTTSPredict' }] },
 }
 
 const LEAGUES = [

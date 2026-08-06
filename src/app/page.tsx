@@ -476,6 +476,7 @@ export default function Home() {
           <a href="/team-predictions">Team Predictions</a> ·{' '}
           <a href="/match-predictions">Match Predictions</a> ·{' '}
           <a href="/linebet-promo-code">Linebet Promo Code VISION221</a> ·{' '}
+          <a href="/vip">VIP Multi-Sports</a> ·{' '}
           <a href="/code-promo-linebet-senegal">Code Promo Linebet Sénégal</a> ·{' '}
           <a href="/bonus-888starz">Bonus 888starz</a> ·{' '}
           <a href="/bookmakers">Comparatif Bookmakers</a> ·{' '}

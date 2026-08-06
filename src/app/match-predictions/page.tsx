@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   keywords: ['match predictions', 'pronostics par match', 'match analysis', 'football match prediction', 'btts match', 'over 2.5 match'],
   alternates: { canonical: `${SITE_URL}/match-predictions` },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/match-predictions`, siteName: 'BTTSPredict', type: 'article' },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/match-predictions`, siteName: 'BTTSPredict', type: 'article', images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'BTTSPredict' }] },
 }
 
 const FAQ = [

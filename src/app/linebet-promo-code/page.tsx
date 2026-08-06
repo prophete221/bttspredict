@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   keywords: ['linebet promo code', 'code promo linebet', 'VISION221', 'bonus linebet', 'linebet bonus 90000', 'linebet code'],
   alternates: { canonical: `${SITE_URL}/linebet-promo-code` },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/linebet-promo-code`, siteName: 'BTTSPredict', type: 'article' },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/linebet-promo-code`, siteName: 'BTTSPredict', type: 'article', images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'BTTSPredict' }] },
 }
 
 const FAQ = [

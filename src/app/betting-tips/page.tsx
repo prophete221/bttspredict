@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   keywords: ['betting tips', 'conseils paris sportifs', 'football betting tips', 'paris football conseils', 'betting strategy'],
   alternates: { canonical: `${SITE_URL}/betting-tips` },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/betting-tips`, siteName: 'BTTSPredict', type: 'article' },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/betting-tips`, siteName: 'BTTSPredict', type: 'article', images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'BTTSPredict' }] },
 }
 
 const FAQ = [

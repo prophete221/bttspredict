@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/equipe`,
     siteName: 'BTTSPredict',
     type: 'website',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'BTTSPredict' }],
     locale: 'fr_SN',
   },
 }
