@@ -166,7 +166,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v42-suppression-hamburger-2026-08-06';
+                var VERSION = 'bttspredict-v43-navbar-liens-pages-2026-08-07';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
