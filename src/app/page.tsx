@@ -465,6 +465,31 @@ export default function Home() {
           que vous pouvez vous permettre de perdre. Jouez de manière responsable.
           Pour toute aide : begambleaware.org — 18+ uniquement.
         </p>
+
+        <h2>Toutes nos pages — Navigation complète</h2>
+        <p>
+          <a href="/over-2-5-predictions">Over 2.5 Predictions</a> ·{' '}
+          <a href="/correct-score-predictions">Correct Score Predictions</a> ·{' '}
+          <a href="/football-predictions-today">Football Predictions Today</a> ·{' '}
+          <a href="/betting-tips">Betting Tips</a> ·{' '}
+          <a href="/league-predictions">League Predictions</a> ·{' '}
+          <a href="/team-predictions">Team Predictions</a> ·{' '}
+          <a href="/match-predictions">Match Predictions</a> ·{' '}
+          <a href="/linebet-promo-code">Linebet Promo Code VISION221</a> ·{' '}
+          <a href="/code-promo-linebet-senegal">Code Promo Linebet Sénégal</a> ·{' '}
+          <a href="/bonus-888starz">Bonus 888starz</a> ·{' '}
+          <a href="/bookmakers">Comparatif Bookmakers</a> ·{' '}
+          <a href="/btts-c-est-quoi">Qu'est-ce que le BTTS</a> ·{' '}
+          <a href="/statistiques">Statistiques</a> ·{' '}
+          <a href="/presse">Presse & Médias</a> ·{' '}
+          <a href="/cgu">CGU</a> ·{' '}
+          <a href="/mentions-legales">Mentions Légales</a> ·{' '}
+          <a href="/politique-confidentialite">Politique de Confidentialité</a> ·{' '}
+          <a href="/jouer-responsable">Jouer Responsable</a> ·{' '}
+          <a href="/blog">Blog & Analyses</a> ·{' '}
+          <a href="/prediction-aviator">Prédiction Aviator</a> ·{' '}
+          <a href="/faille-fifa">Faille FIFA</a>
+        </p>
       </div>
 
       {/* Skip to content — accessibility */}

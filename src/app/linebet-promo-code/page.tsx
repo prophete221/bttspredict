@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Navbar, Footer } from '@/components/bttsbet'
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
-const TITLE = 'Linebet Promo Code VISION221 — Bonus 90 000 XOF'
+const TITLE = 'Linebet Promo Code VISION221'
 const DESCRIPTION = 'Code promo Linebet VISION221 : bonus exclusif de 90 000 XOF (150$). Inscription, dépôt Wave/Orange Money, activation. Guide complet 2026.'
 
 export const metadata: Metadata = {

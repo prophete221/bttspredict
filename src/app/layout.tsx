@@ -26,7 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://bttspredict.com"),
   title: {
-    default: "BTTSPredict — Pronostics BTTS et Over 2.5 | 84,5% vérifié",
+    default: "BTTSPredict — Pronostics BTTS & Over 2.5",
     template: "%s | BTTSPredict",
   },
   description: "Pronostics BTTS aujourd'hui par nos analystes. 84,5% vérifié, modèle Poisson. Code VISION221.",
@@ -151,7 +151,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v28-descriptions-toutes-25-160-2026-08-06';
+                var VERSION = 'bttspredict-v29-ahrefs-fix-orphan-h1-titres-2026-08-06';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){

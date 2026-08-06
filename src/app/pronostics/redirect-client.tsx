@@ -9,6 +9,7 @@ export default function PronosticsRedirect() {
 
   return (
     <div className="min-h-screen bg-dark-800 flex items-center justify-center">
+      <h1 style={{ position: 'absolute', left: '-9999px' }}>Pronostics BTTS aujourd'hui et Over 2.5</h1>
       <div className="text-center">
         <div className="inline-block w-10 h-10 border-2 border-emerald/30 border-t-emerald rounded-full animate-spin mb-4" />
         <p className="text-gray-400 text-sm">Redirection vers les pronostics du jour...</p>

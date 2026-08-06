@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Navbar, Footer } from '@/components/bttsbet'
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
-const TITLE = 'Football Predictions Today — Pronostics du Jour'
+const TITLE = 'Football Predictions Today'
 const DESCRIPTION = 'Pronostics football aujourd\'hui par nos analystes. BTTS, Over 2.5, scores exacts. 50+ championnats, modèle Poisson calibré, 84,5% vérifié. Gratuit.'
 
 export const metadata: Metadata = {

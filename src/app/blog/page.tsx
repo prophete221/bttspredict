@@ -5,14 +5,14 @@ import { Navbar, Footer } from '@/components/bttsbet'
    Metadata
    ────────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-  title: 'Blog – Pronostics BTTS & Over 2,5 | BTTSPredict',
+  title: 'Blog – Pronostics BTTS & Over 2,5',
   description:
     'Articles sur les paris BTTS, stratégie Over 2,5, gestion de bankroll et faille FIFA Linebet. Conseils et analyses par nos experts.',
   alternates: {
     canonical: 'https://bttspredict.com/blog',
   },
   openGraph: {
-    title: 'Blog – Pronostics BTTS & Over 2,5 | BTTSPredict',
+    title: 'Blog – Pronostics BTTS & Over 2,5',
     description:
       'Articles, guides et stratégies BTTS & Over 2,5 propulsés par nos experts. Maîtrisez vos paris sportifs avec BTTSPredict.',
     url: 'https://bttspredict.com/blog',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blog – Pronostics BTTS & Over 2,5 | BTTSPredict',
+    title: 'Blog – Pronostics BTTS & Over 2,5',
     description:
       'Articles, guides et stratégies BTTS & Over 2,5 propulsés par nos experts. Maîtrisez vos paris sportifs avec BTTSPredict.',
     images: ['/og-image.png'],

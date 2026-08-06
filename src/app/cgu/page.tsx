@@ -6,7 +6,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
    ────────────────────────────────────────────────────────────── */
 const SITE_URL = 'https://bttspredict.com'
 const PAGE_URL = `${SITE_URL}/cgu`
-const TITLE = 'Conditions Générales d\'Utilisation | BTTSPredict'
+const TITLE = 'CGU — Conditions Générales'
 const DESCRIPTION =
   'CGU BTTSPredict : conditions d\'utilisation, service, affiliation, avertissement et responsabilités.'
 

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Navbar, Footer } from '@/components/bttsbet'
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
-const TITLE = 'League Predictions — Pronostics par Championnat'
+const TITLE = 'League Predictions par Championnat'
 const DESCRIPTION = 'Pronostics par championnat : Premier League, La Liga, Serie A, Bundesliga, Ligue 1. Stats par ligue, taux de réussite, conseils. 50+ championnats couverts.'
 
 export const metadata: Metadata = {

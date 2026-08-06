@@ -7,7 +7,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-linebet-senegal'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'Code Promo Linebet VISION221 — Bonus 90 000 XOF'
+const TITLE = 'Code Promo Linebet VISION221'
 const DESCRIPTION = 'Code promo Linebet Sénégal VISION221 — bonus 90 000 XOF. Dépôt Wave, Orange Money, Free Money. Guide complet.'
 
 export const metadata: Metadata = {

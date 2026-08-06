@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Navbar, Footer } from '@/components/bttsbet'
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
-const TITLE = 'Correct Score Predictions — Pronostics Score Exact'
+const TITLE = 'Correct Score Predictions'
 const DESCRIPTION = 'Pronostics score exact football par nos analystes. Méthodologie Poisson, analyse détaillée et statistiques. 50+ championnats couverts.'
 
 export const metadata: Metadata = {

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Navbar, Footer } from '@/components/bttsbet'
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
-const TITLE = 'Betting Tips — Conseils Paris Sportifs Football'
+const TITLE = 'Betting Tips Football'
 const DESCRIPTION = 'Betting tips football par BTTSPredict. BTTS, Over 2.5, value bets FIFA. Méthodologie Poisson, gestion de bankroll, stratégie. 84,5% vérifié.'
 
 export const metadata: Metadata = {

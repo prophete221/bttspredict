@@ -7,7 +7,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'comment-analyser-match-btts'
 const PAGE_URL = `${SITE_URL}/blog/${SLUG}`
-const TITLE = 'Comment Analyser un Match pour le BTTS ? Guide Complet 2026'
+const TITLE = 'Analyser un Match BTTS — Guide 2026'
 const DESCRIPTION = 'Guide complet pour analyser un match BTTS : xG, statistiques défensives, face-à-face, blessures. Méthode pas-à-pas avec exemples.'
 
 export const metadata: Metadata = {

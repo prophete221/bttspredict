@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { AFFILIATE } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: "Comparatif Linebet vs 888starz — Bonus & dépôts",
+  title: "Comparatif Linebet vs 888starz",
   description: "Comparatif Linebet vs 888starz : bonus, dépôts (Wave, Orange Money), cotes, app mobile. Code promo VISION221.",
   alternates: { canonical: 'https://bttspredict.com/bookmakers' },
   openGraph: {

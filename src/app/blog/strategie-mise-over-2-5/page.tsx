@@ -7,7 +7,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'strategie-mise-over-2-5'
 const PAGE_URL = `${SITE_URL}/blog/${SLUG}`
-const TITLE = 'Stratégie de Mise Over 2,5 : Optimiser ses Gains en 2026'
+const TITLE = 'Stratégie Over 2.5 — Optimiser ses Gains'
 const DESCRIPTION = 'Stratégie complète pour les paris Over 2,5 buts : approche statistique, championnats à cibler, combinaison BTTS + Over 2,5. Méthode validée.'
 
 export const metadata: Metadata = {

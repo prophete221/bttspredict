@@ -7,7 +7,7 @@ import {
   SITE_URL,
 } from '@/lib/seoSchemas'
 
-const TITLE = "L'équipe d'analystes de BTTSPredict — Experts football BTTS & Over 2.5"
+const TITLE = "Équipe Analystes BTTSPredict"
 const DESCRIPTION = "Équipe d'analystes experts BTTSPredict : profils, expertise en modélisation Poisson et xG. E-E-A-T vérifiable."
 
 export const metadata: Metadata = {
