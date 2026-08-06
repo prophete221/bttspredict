@@ -33,11 +33,25 @@ export default function Navbar() {
   }, [])
 
   const scrollToSection = (id: string) => {
+    // Si on n'est pas sur la page d'accueil, rediriger vers l'accueil + section
+    if (window.location.pathname !== '/') {
+      window.location.href = `/#${id}`
+      return
+    }
     const el = document.getElementById(id)
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' })
       setTimeout(() => window.scrollBy({ top: -56, behavior: 'smooth' }), 400)
     }
+    setIsOpen(false)
+  }
+
+  const handleHomeClick = () => {
+    if (window.location.pathname !== '/') {
+      window.location.href = '/'
+      return
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' })
     setIsOpen(false)
   }
 
@@ -54,9 +68,9 @@ export default function Navbar() {
           {/* Logo — vert #00C49A */}
           <a
             href="/"
-            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); setIsOpen(false) }}
+            onClick={(e) => { e.preventDefault(); handleHomeClick() }}
             className="flex items-center gap-2 flex-shrink-0"
-            aria-label="BTTSPredict — Retour en haut"
+            aria-label="BTTSPredict — Accueil"
           >
             <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#00C49A' }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F0F2F5" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -153,7 +167,13 @@ export default function Navbar() {
               {NAV_LINKS.map((link) => (
                 <button
                   key={link.label}
-                  onClick={() => link.scrollTarget && scrollToSection(link.scrollTarget)}
+                  onClick={() => {
+                    if (link.href) {
+                      handleHomeClick()
+                    } else if (link.scrollTarget) {
+                      scrollToSection(link.scrollTarget)
+                    }
+                  }}
                   className="block w-full text-left py-3 px-3 rounded-lg text-sm font-medium transition-colors"
                   style={{ color: '#F0F2F5' }}
                   onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(0, 196, 154, 0.08)'; e.currentTarget.style.color = '#00DDB0' }}
