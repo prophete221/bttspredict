@@ -1,15 +1,6 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-
-  # ─── Redirection HTTP → HTTPS (301 permanent) ───
-  RewriteCond %{HTTPS} off
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-
-  # ─── Redirection www → non-www ───
-  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
-
   DirectorySlash Off
   RewriteRule \.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
@@ -20,40 +11,7 @@
   RewriteRule . /index.html [L]
 </IfModule>
 
-# ─── En-têtes de sécurité ───
-<IfModule mod_headers.c>
-  Header always set X-Content-Type-Options "nosniff"
-  Header always set X-Frame-Options "SAMEORIGIN"
-  Header always set X-XSS-Protection "1; mode=block"
-  Header always set Referrer-Policy "strict-origin-when-cross-origin"
-  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
-  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
-</IfModule>
-
-# ─── Compression GZIP + Brotli (agressif) ───
-<IfModule mod_deflate.c>
-  # Forcer la compression pour tous les types MIME texte
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
-  AddOutputFilterByType DEFLATE application/javascript application/x-javascript application/json
-  AddOutputFilterByType DEFLATE application/xml application/rss+xml image/svg+xml
-  AddOutputFilterByType DEFLATE application/wasm application/manifest+json
-  # Niveaux de compression
-  DeflateCompressionLevel 9
-  DeflateBufferSize 8096
-  DeflateMemLevel 9
-  DeflateWindowSize 15
-</IfModule>
-
-# ─── Brotli (si disponible) ───
-<IfModule mod_brotli.c>
-  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript
-  AddOutputFilterByType BROTLI_COMPRESS application/javascript application/x-javascript application/json
-  AddOutputFilterByType BROTLI_COMPRESS application/xml application/rss+xml image/svg+xml
-  SetEnvIfNoCase Request_URI "\.(js|css|html|svg|json|xml)$" no-brotli
-  BrotliFilterQuality 11
-</IfModule>
-
-# ─── Cache navigateur ───
+# Cache navigateur
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/css "access plus 1 month"
