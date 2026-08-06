@@ -151,7 +151,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v21-titres-courts-seo-2026-08-06';
+                var VERSION = 'bttspredict-v22-vip-depot-3000-clarification-2026-08-06';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
