@@ -26,10 +26,10 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://bttspredict.com"),
   title: {
-    default: "BTTSPredict — Pronostics BTTS & Over 2.5",
+    default: "BTTSPredict — Pronostics BTTS et Over 2.5 aujourd'hui",
     template: "%s | BTTSPredict",
   },
-  description: "Pronostics BTTS aujourd'hui par nos analystes. 84,5% vérifié, modèle Poisson. Code VISION221.",
+  description: "Pronostics BTTS aujourd'hui et Over 2.5 par nos analystes experts. 84,5% vérifié, modèle Poisson calibré sur 50 000 matchs. Code promo VISION221.",
   keywords: [
     // Autorité mondiale
     "n°1 mondial pronostics btts", "meilleur site pronostics btts monde", "leader pronostics btts",
@@ -54,6 +54,11 @@ export const metadata: Metadata = {
   publisher: "BTTSPredict",
   alternates: {
     canonical: "https://bttspredict.com/",
+    languages: {
+      'fr-SN': 'https://bttspredict.com/',
+      'fr': 'https://bttspredict.com/',
+      'x-default': 'https://bttspredict.com/',
+    },
   },
   other: {
     'geo.region': 'SN',
@@ -137,6 +142,10 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="BTTSPredict" />
+        {/* Hreflang pour internationalisation */}
+        <link rel="alternate" hrefLang="fr-SN" href="https://bttspredict.com/" />
+        <link rel="alternate" hrefLang="fr" href="https://bttspredict.com/" />
+        <link rel="alternate" hrefLang="x-default" href="https://bttspredict.com/" />
         {/* Trust signals for crawlers */}
         <meta name="author" content="BTTSPredict" />
         <meta name="rating" content="general" />
@@ -151,7 +160,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v31-seo-audit-https-analytics-localbusiness-social-2026-08-06';
+                var VERSION = 'bttspredict-v32-audit-round3-title-desc-hreflang-compression-2026-08-06';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){

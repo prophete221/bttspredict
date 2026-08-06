@@ -30,9 +30,27 @@
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
 </IfModule>
 
-# ─── Compression GZIP ───
+# ─── Compression GZIP + Brotli (agressif) ───
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json image/svg+xml
+  # Forcer la compression pour tous les types MIME texte
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript application/json
+  AddOutputFilterByType DEFLATE application/xml application/rss+xml image/svg+xml
+  AddOutputFilterByType DEFLATE application/wasm application/manifest+json
+  # Niveaux de compression
+  DeflateCompressionLevel 9
+  DeflateBufferSize 8096
+  DeflateMemLevel 9
+  DeflateWindowSize 15
+</IfModule>
+
+# ─── Brotli (si disponible) ───
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript
+  AddOutputFilterByType BROTLI_COMPRESS application/javascript application/x-javascript application/json
+  AddOutputFilterByType BROTLI_COMPRESS application/xml application/rss+xml image/svg+xml
+  SetEnvIfNoCase Request_URI "\.(js|css|html|svg|json|xml)$" no-brotli
+  BrotliFilterQuality 11
 </IfModule>
 
 # ─── Cache navigateur ───
