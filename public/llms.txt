@@ -11,6 +11,10 @@
 - [Correct Score Predictions](/correct-score-predictions): Pronostics score exact basés sur le modèle Poisson.
 - [Football Predictions Today](/football-predictions-today): Pronostics football du jour, BTTS et Over 2.5.
 - [Betting Tips](/betting-tips): Conseils et stratégies de paris sportifs football.
+- [League Predictions](/league-predictions): Pronostics par championnat avec statistiques détaillées.
+- [Team Predictions](/team-predictions): Analyse par équipe, xG et statistiques offensives/défensives.
+- [Match Predictions](/match-predictions): Pronostics par match avec analyse détaillée et probabilités.
+- [Linebet Promo Code](/linebet-promo-code): Code promo VISION221 pour bonus 90 000 XOF sur Linebet.
 - [Notre Équipe d'Analystes](/equipe): Profils des experts analystes football de BTTSPredict.
 - [Comparatif Bookmakers](/bookmakers): Comparatif Linebet vs 888starz avec code promo VISION221.
 - [Blog & Analyses](/blog): Articles d'analyse sportive et stratégie de paris BTTS.

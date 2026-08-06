@@ -5,344 +5,14 @@
 
   <url>
     <loc>https://bttspredict.com/</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <priority>1</priority>
     <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/"/>
     <image:image>
       <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>BTTSPredict – Pronostics BTTS &amp; Over 2,5 | 84,5% vérifié</image:title>
-      <image:caption>Pronostics btts aujourd'hui, plateforme de référence, faille FIFA, signaux Aviator, code promo VISION221</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/pronostics</loc>
-    <lastmod>2026-08-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.98</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/pronostics"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/pronostics"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Pronostics BTTS aujourd'hui &amp; Over 2.5 — BTTSPredict</image:title>
-      <image:caption>Pronostics btts aujourd'hui gratuits et premium validés par nos analystes</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/vip</loc>
-    <lastmod>2026-08-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/vip"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/vip"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>VIP Multi-Sports BTTSPredict – Football, Tennis, NBA, NFL, UFC, Handball</image:title>
-      <image:caption>Pronostics premium 6 sports avec taux de réussite 69-81%</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/statistiques</loc>
-    <lastmod>2026-08-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/statistiques"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/statistiques"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Statistiques — Taux de réussite BTTS &amp; Over 2.5 | BTTSPredict</image:title>
-      <image:caption>Tableau de bord statistique transparent : courbe 30 jours, ROI, répartition</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/bookmakers</loc>
-    <lastmod>2026-08-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/bookmakers"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/bookmakers"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Comparatif Linebet vs 888starz — BTTSPredict</image:title>
-      <image:caption>Bonus, dépôts, cotes, applications mobiles. Code promo VISION221.</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/methodologie</loc>
-    <lastmod>2026-08-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/methodologie"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/methodologie"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Méthodologie BTTSPredict — Modèle Poisson + 200 variables</image:title>
-      <image:caption>Transparence totale : modèle, sources, expert, limites. Taux vérifié 84,5%.</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/historique</loc>
-    <lastmod>2026-08-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/historique"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/historique"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Historique Pronostics BTTSPredict – Résultats vérifiés 84,5%</image:title>
-      <image:caption>Historique complet des pronostics BTTS et Over 2,5 — transparence totale</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/btts-c-est-quoi</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/btts-c-est-quoi"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/btts-c-est-quoi"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>BTTS (Both Teams To Score) – Guide complet</image:title>
-      <image:caption>Qu&apos;est-ce que le BTTS ? Guide explicatif avec FAQ et stratégies</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/code-promo-linebet-senegal</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/code-promo-linebet-senegal"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/code-promo-linebet-senegal"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Code promo Linebet Sénégal VISION221 – Bonus 90 000 XOF</image:title>
-      <image:caption>Bonus Linebet Sénégal avec le code VISION221. Dépôt Wave, Orange Money, Free Money.</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/bonus-888starz</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/bonus-888starz"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/bonus-888starz"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Bonus 888starz – Code promo &amp; inscription</image:title>
-      <image:caption>Bonus exclusif 888starz avec code promo. Inscription et dépôt.</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/prediction-aviator</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/prediction-aviator"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/prediction-aviator"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Prédiction Aviator 2026 – Signaux IA &amp; Stratégie</image:title>
-      <image:caption>Signaux de prédiction Aviator, stratégie cash out, Linebet &amp; 888starz</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/faille-fifa</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/faille-fifa"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/faille-fifa"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Faille FIFA Linebet &amp; 888starz – Cotes erronées</image:title>
-      <image:caption>Détection IA des cotes erronées FIFA, value bets Linebet &amp; 888starz</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/jouer-responsable</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/jouer-responsable"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/jouer-responsable"/>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/mentions-legales</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/mentions-legales"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/mentions-legales"/>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/cgu</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/cgu"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/cgu"/>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/politique-confidentialite</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/politique-confidentialite"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/politique-confidentialite"/>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/blog</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/blog"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/blog"/>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/blog/comment-analyser-match-btts</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/blog/comment-analyser-match-btts"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/blog/comment-analyser-match-btts"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Comment analyser un match pour le BTTS ? Guide complet 2026</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/blog/strategie-mise-over-2-5</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/blog/strategie-mise-over-2-5"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/blog/strategie-mise-over-2-5"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Stratégie de mise Over 2,5 : optimiser ses gains en 2026</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/blog/gestion-bankroll-paris-sportifs</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/blog/gestion-bankroll-paris-sportifs"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/blog/gestion-bankroll-paris-sportifs"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Gestion de bankroll aux paris sportifs : le guide ultime</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/blog/meilleurs-championnats-btts</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/blog/meilleurs-championnats-btts"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/blog/meilleurs-championnats-btts"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Les 10 meilleurs championnats pour les paris BTTS en 2026</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/blog/faille-fifa-linebet</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/blog/faille-fifa-linebet"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/blog/faille-fifa-linebet"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Faille FIFA Linebet : Cotes erronées détectées par IA</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/blog/guide-linebet-inscription</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/blog/guide-linebet-inscription"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/blog/guide-linebet-inscription"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Guide complet Linebet : inscription, dépôt et code promo VISION221</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/equipe</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/equipe"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/equipe"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Équipe d'analystes BTTSPredict — Experts football BTTS</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/over-2-5-predictions</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/over-2-5-predictions"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/over-2-5-predictions"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Over 2.5 Predictions — Pronostics Over 2.5 Goals</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/correct-score-predictions</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/correct-score-predictions"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/correct-score-predictions"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Correct Score Predictions — Pronostics Score Exact</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bttspredict.com/football-predictions-today</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/football-predictions-today"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/football-predictions-today"/>
-    <image:image>
-      <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Football Predictions Today — Pronostics du Jour</image:title>
+      <image:title>BTTSPredict — Pronostics BTTS et Over 2.5</image:title>
     </image:image>
   </url>
 
@@ -355,20 +25,410 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/betting-tips"/>
     <image:image>
       <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>Betting Tips — Conseils Paris Sportifs Football</image:title>
+      <image:title>BTTSPredict — Betting tips</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/blog</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/blog"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Blog</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/blog/comment-analyser-match-btts</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/blog/comment-analyser-match-btts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/blog/comment-analyser-match-btts"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Blog/comment analyser match btts</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/blog/faille-fifa-linebet</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/blog/faille-fifa-linebet"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/blog/faille-fifa-linebet"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Blog/faille fifa linebet</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/blog/gestion-bankroll-paris-sportifs</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/blog/gestion-bankroll-paris-sportifs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/blog/gestion-bankroll-paris-sportifs"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Blog/gestion bankroll paris sportifs</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/blog/guide-linebet-inscription</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/blog/guide-linebet-inscription"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/blog/guide-linebet-inscription"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Blog/guide linebet inscription</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/blog/meilleurs-championnats-btts</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/blog/meilleurs-championnats-btts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/blog/meilleurs-championnats-btts"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Blog/meilleurs championnats btts</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/blog/strategie-mise-over-2-5</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/blog/strategie-mise-over-2-5"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/blog/strategie-mise-over-2-5"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Blog/strategie mise over 2 5</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/bonus-888starz</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/bonus-888starz"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/bonus-888starz"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Bonus 888starz</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/bookmakers</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/bookmakers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/bookmakers"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Bookmakers</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/btts-c-est-quoi</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/btts-c-est-quoi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/btts-c-est-quoi"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Btts c est quoi</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/cgu</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/cgu"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/cgu"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Cgu</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/code-promo-linebet-senegal</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/code-promo-linebet-senegal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/code-promo-linebet-senegal"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Code promo linebet senegal</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/correct-score-predictions</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/correct-score-predictions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/correct-score-predictions"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Correct score predictions</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/equipe</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/equipe"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/equipe"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Equipe</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/faille-fifa</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/faille-fifa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/faille-fifa"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Faille fifa</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/football-predictions-today</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/football-predictions-today"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/football-predictions-today"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Football predictions today</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/historique</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/historique"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/historique"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Historique</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/jouer-responsable</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/jouer-responsable"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/jouer-responsable"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Jouer responsable</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/league-predictions</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/league-predictions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/league-predictions"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — League predictions</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/linebet-promo-code</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/linebet-promo-code"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/linebet-promo-code"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Linebet promo code</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/match-predictions</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/match-predictions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/match-predictions"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Match predictions</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/mentions-legales</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/mentions-legales"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/mentions-legales"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Mentions legales</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/methodologie</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/methodologie"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/methodologie"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Methodologie</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/over-2-5-predictions</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/over-2-5-predictions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/over-2-5-predictions"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Over 2 5 predictions</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/politique-confidentialite</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/politique-confidentialite"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/politique-confidentialite"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Politique confidentialite</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/prediction-aviator</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/prediction-aviator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/prediction-aviator"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Prediction aviator</image:title>
     </image:image>
   </url>
 
   <url>
     <loc>https://bttspredict.com/presse</loc>
     <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/presse"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/presse"/>
     <image:image>
       <image:loc>https://bttspredict.com/og-image.png</image:loc>
-      <image:title>BTTSPredict dans la presse &amp; médias — Mentions et avis</image:title>
+      <image:title>BTTSPredict — Presse</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/pronostics</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.98</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/pronostics"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/pronostics"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Pronostics</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/statistiques</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/statistiques"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/statistiques"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Statistiques</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/team-predictions</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/team-predictions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/team-predictions"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Team predictions</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bttspredict.com/vip</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="https://bttspredict.com/vip"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bttspredict.com/vip"/>
+    <image:image>
+      <image:loc>https://bttspredict.com/og-image.png</image:loc>
+      <image:title>BTTSPredict — Vip</image:title>
     </image:image>
   </url>
 

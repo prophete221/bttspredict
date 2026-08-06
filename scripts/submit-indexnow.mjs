@@ -38,6 +38,10 @@ const URLS = [
   'https://bttspredict.com/correct-score-predictions',
   'https://bttspredict.com/football-predictions-today',
   'https://bttspredict.com/betting-tips',
+  'https://bttspredict.com/league-predictions',
+  'https://bttspredict.com/team-predictions',
+  'https://bttspredict.com/match-predictions',
+  'https://bttspredict.com/linebet-promo-code',
 ]
 
 async function submitToIndexNow() {
