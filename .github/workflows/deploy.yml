@@ -4,8 +4,6 @@ on:
   push:
     branches: [main]
   schedule:
-    # 4 runs quotidiens : 4h, 6h, 14h, 22h UTC (avant 8h UTC = avant 8h au Sénégal qui est UTC+0)
-    # ✅ CRON RÉACTIVÉ 2026-08-05 — bug hashVal corrigé dans update-win-history.mjs V3
     - cron: '0 4,6,14,22 * * *'
   workflow_dispatch:
 
@@ -63,12 +61,13 @@ jobs:
           cp public/sitemap.xml out/sitemap.xml 2>/dev/null || true
 
       - name: Commit data
+        continue-on-error: true
         run: |
           git config --local user.email "bot@bttspredict.com"
           git config --local user.name "BTTSPredict Bot"
           git add public/predictions.json public/win-history.json public/transfers.json public/predictions-archive/
           git diff --staged --quiet || git commit -m "chore: auto-update data [skip ci]"
-          git push || echo "No changes"
+          git push || echo "No changes or push failed - continuing anyway"
 
       - name: Deploy to bttspredict.com via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -82,7 +81,7 @@ jobs:
             **/.git*
             **/node_modules/**
 
-      - name: Notify Bing via IndexNow (Copilot grounding eligibility)
+      - name: Notify Bing via IndexNow
         if: success()
         run: node scripts/submit-indexnow.mjs
         continue-on-error: true
