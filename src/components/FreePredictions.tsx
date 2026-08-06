@@ -147,7 +147,7 @@ export default function FreePredictions() {
               <div className="flex items-center justify-between mb-5">
                 <div className="flex-1 text-center">
                   {m.homeLogo && (
-                    <img src={m.homeLogo} alt="" className="w-12 h-12 object-contain mx-auto mb-2" loading="lazy" />
+                    <img src={m.homeLogo} alt={`Logo ${m.homeTeam}`} className="w-12 h-12 object-contain mx-auto mb-2" loading="lazy" />
                   )}
                   <div className="text-sm font-semibold text-white truncate">
                     {m.match.split(' vs ')[0]}
@@ -156,7 +156,7 @@ export default function FreePredictions() {
                 <div className="px-4 text-lg font-bold text-[var(--color-primary-light)]">VS</div>
                 <div className="flex-1 text-center">
                   {m.awayLogo && (
-                    <img src={m.awayLogo} alt="" className="w-12 h-12 object-contain mx-auto mb-2" loading="lazy" />
+                    <img src={m.awayLogo} alt={`Logo ${m.awayTeam}`} className="w-12 h-12 object-contain mx-auto mb-2" loading="lazy" />
                   )}
                   <div className="text-sm font-semibold text-white truncate">
                     {m.match.split(' vs ')[1]}

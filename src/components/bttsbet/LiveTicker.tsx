@@ -231,13 +231,13 @@ export default function LiveTicker() {
                   {/* Teams */}
                   <div className="flex items-center gap-2 flex-1 min-w-0">
                     {currentMatch.homeLogo && (
-                      <img src={currentMatch.homeLogo} alt="" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy" />
+                      <img src={currentMatch.homeLogo} alt={`Logo ${home}`} className="w-5 h-5 object-contain flex-shrink-0" loading="lazy" />
                     )}
                     <span className="text-white text-xs font-semibold truncate">{home}</span>
                     <span className="text-gray-400 text-[10px] flex-shrink-0 font-mono">VS</span>
                     <span className="text-white text-xs font-semibold truncate">{away}</span>
                     {currentMatch.awayLogo && (
-                      <img src={currentMatch.awayLogo} alt="" className="w-5 h-5 object-contain flex-shrink-0" loading="lazy" />
+                      <img src={currentMatch.awayLogo} alt={`Logo ${away}`} className="w-5 h-5 object-contain flex-shrink-0" loading="lazy" />
                     )}
                   </div>
 

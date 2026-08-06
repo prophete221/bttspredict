@@ -218,13 +218,13 @@ export default function BookmakersPage() {
                   <th className="text-left py-3 px-2 text-gray-400 uppercase text-[10px] tracking-widest font-bold">Critère</th>
                   <th className="text-left py-3 px-2 text-linebet font-bold">
                     <span className="flex items-center gap-1.5">
-                      <img src="/logos/linebet.svg" alt="" className="h-4 w-auto" loading="lazy" />
+                      <img src="/logos/linebet.svg" alt="Logo Linebet" className="h-4 w-auto" loading="lazy" />
                       Linebet
                     </span>
                   </th>
                   <th className="text-left py-3 px-2 text-star888 font-bold">
                     <span className="flex items-center gap-1.5">
-                      <img src="/logos/888starz.svg" alt="" className="h-4 w-auto" loading="lazy" />
+                      <img src="/logos/888starz.svg" alt="Logo 888starz" className="h-4 w-auto" loading="lazy" />
                       888starz
                     </span>
                   </th>

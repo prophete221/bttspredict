@@ -172,11 +172,11 @@ export default function PromoVip() {
                     {m.status === 'live' ? 'LIVE' : m.time}
                   </span>
                   <div className="flex items-center gap-1.5 flex-1 min-w-0">
-                    {m.homeLogo && <img src={m.homeLogo} alt="" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy" />}
+                    {m.homeLogo && <img src={m.homeLogo} alt={`Logo ${m.homeTeam}`} className="w-4 h-4 object-contain flex-shrink-0" loading="lazy" />}
                     <span className="text-[11px] font-semibold text-white truncate">{m.homeTeam}</span>
                     <span className="text-[9px] text-gray-400 flex-shrink-0">vs</span>
                     <span className="text-[11px] font-semibold text-white truncate">{m.awayTeam}</span>
-                    {m.awayLogo && <img src={m.awayLogo} alt="" className="w-4 h-4 object-contain flex-shrink-0" loading="lazy" />}
+                    {m.awayLogo && <img src={m.awayLogo} alt={`Logo ${m.awayTeam}`} className="w-4 h-4 object-contain flex-shrink-0" loading="lazy" />}
                   </div>
                   <span className="font-mono text-[10px] font-bold flex-shrink-0" style={{ color: C.neon }}>VIP</span>
                 </motion.div>
