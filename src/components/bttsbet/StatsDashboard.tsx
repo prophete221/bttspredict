@@ -31,16 +31,16 @@ type WinHistory = {
 }
 
 const COLORS = {
-  gold: '#FFD700',
-  mint: '#00C49A',
-  cyan: '#00A882',
+  gold: '#D4AF37',
+  mint: '#2D5BFF',
+  cyan: '#00A87E',
   rose: '#DC2626',
-  panel: '#161B22',
-  edge: 'rgba(240, 242, 245, 0.08)',
-  text: '#A8B3C2',
+  panel: '#1E2228',
+  edge: 'rgba(244, 247, 250, 0.08)',
+  text: '#A8B3C7',
 }
 
-const LEAGUE_COLORS = ['#FFD700', '#00C49A', '#00A882', '#DC2626', '#00DDB0', '#FFD700', '#00C49A', '#00C49A', '#EC4899', '#00C49A']
+const LEAGUE_COLORS = ['#D4AF37', '#2D5BFF', '#00A87E', '#DC2626', '#4E78FF', '#D4AF37', '#2D5BFF', '#2D5BFF', '#EC4899', '#2D5BFF']
 
 export default function StatsDashboard() {
   const [data, setData] = useState<WinHistory | null>(null)
