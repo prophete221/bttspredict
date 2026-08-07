@@ -93,23 +93,31 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.svg",
-    apple: "/icon-192.png",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      { url: "/icon-1024.png", sizes: "1024x1024", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: ["/favicon.svg"],
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "BTTSPredict — N°1 des Prédictions BTTS par nos experts",
-    description: "Pronostics BTTS fiables chaque jour. Résultats vérifiés et transparents. Code promo VISION221.",
+    title: "BTTSPredict — Pronostics BTTS et Over 2.5",
+    description: "Pronostics BTTS et Over 2.5 générés par un moteur IA nouvelle génération. Suivi public vérifié depuis le 8 août 2026. Aucun gain garanti. 18+.",
     url: "https://bttspredict.com",
     siteName: "BTTSPredict",
     type: "website",
     locale: "fr_FR",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "BTTSPredict — N°1 des prédictions BTTS par nos experts" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "BTTSPredict — Pronostics BTTS et Over 2.5" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "BTTSPredict — Pronostics BTTS fiables | taux réel sur /historique",
-    description: "Pronostics btts aujourd'hui validés par nos analystes. taux réel vérifiable sur /historique. Code promo VISION221.",
+    title: "BTTSPredict — Pronostics BTTS et Over 2.5",
+    description: "Pronostics BTTS et Over 2.5 générés par un moteur IA nouvelle génération. Suivi public vérifié depuis le 2026-08-08. Aucun gain garanti. 18+.",
     images: ["/og-image.png"],
   },
   category: "sports",
@@ -173,7 +181,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v81-platform-refactor-2026-08-08';
+                var VERSION = 'bttspredict-v82-new-logo-2026-08-08';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){

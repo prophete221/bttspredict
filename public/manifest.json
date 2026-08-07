@@ -1,7 +1,7 @@
 {
-  "name": "BTTSPredict — BTTS & Over 2.5 Open Dataset",
+  "name": "BTTSPredict — Pronostics BTTS et Over 2.5",
   "short_name": "BTTSPredict",
-  "description": "Plateforme de pronostics BTTS et Over 2.5 basée sur un modèle statistique Poisson + agrégation multi-sources. Archives publiques vérifiables, scores finaux API-Football. Open data, transparent, 18+.",
+  "description": "Pronostics BTTS et Over 2.5 générés par un moteur IA nouvelle génération. Suivi public vérifié depuis le 8 août 2026. Aucun gain garanti. 18+.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#070B18",
@@ -34,34 +34,20 @@
       "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "/apple-touch-icon.png",
-      "sizes": "180x180",
-      "type": "image/png",
-      "purpose": "any"
     }
   ],
   "shortcuts": [
     {
-      "name": "Pronos du jour",
+      "name": "Pronostics du jour",
       "short_name": "Pronos",
-      "description": "Voir les pronostics BTTS et Over 2.5 du jour",
-      "url": "/#free-predictions"
+      "url": "/pronostics",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     },
     {
-      "name": "Historique vérifié",
-      "short_name": "Historique",
-      "description": "Consulter l'archive publique vérifiable",
-      "url": "/historique"
-    },
-    {
-      "name": "Méthodologie",
-      "short_name": "Méthode",
-      "description": "Modèle Poisson, sources de données, limites",
-      "url": "/methodologie"
+      "name": "Page VIP",
+      "short_name": "VIP",
+      "url": "/vip",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     }
-  ],
-  "screenshots": [],
-  "prefer_related_applications": false
+  ]
 }

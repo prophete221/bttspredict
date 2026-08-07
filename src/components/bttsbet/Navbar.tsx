@@ -54,21 +54,14 @@ export default function Navbar() {
       <div className="max-w-2xl mx-auto px-2">
         {/* Ligne 1: Logo + CTA */}
         <div className="flex items-center justify-between h-12 gap-2">
-          {/* Logo ballon de foot */}
+          {/* Logo BTTSPredict — favicon.svg (bouclier + ballon) */}
           <a
             href="/"
             className="flex items-center gap-1.5 flex-shrink-0"
             aria-label="BTTSPredict — Accueil"
           >
-            <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="15" fill="#070B18" stroke="#5146F5" strokeWidth="1.5"/>
-              <path d="M16 7 L20 10 L18.5 15 L13.5 15 L12 10 Z" fill="#5146F5" opacity="0.9"/>
-              <path d="M16 7 L13 3.5 L19 3.5 Z" fill="#5146F5" opacity="0.7"/>
-              <path d="M20 10 L24.5 8 L23 13 Z" fill="#5146F5" opacity="0.7"/>
-              <path d="M18.5 15 L22 18.5 L17 20 Z" fill="#5146F5" opacity="0.7"/>
-              <path d="M13.5 15 L10 18.5 L15 20 Z" fill="#5146F5" opacity="0.7"/>
-              <path d="M12 10 L7.5 8 L9 13 Z" fill="#5146F5" opacity="0.7"/>
-            </svg>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/favicon.svg" alt="BTTSPredict" width={24} height={24} className="flex-shrink-0" />
             <span className="text-xs font-bold" style={{ color: '#5146F5' }}>
               BTTSPredict
             </span>
