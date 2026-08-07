@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-08-07T12:32:58.561Z",
+  "generatedAt": "2026-08-07T12:41:13.047Z",
   "stats": {
-    "total": 230,
-    "won": 103,
+    "total": 234,
+    "won": 107,
     "lost": 127,
-    "pending": 2679,
-    "rate": 44.8,
+    "pending": 2675,
+    "rate": 45.7,
     "gold": {
       "total": 44,
       "won": 18,
@@ -14,33 +14,26 @@
       "yield": -28.4
     },
     "standard": {
-      "total": 186,
-      "won": 85,
+      "total": 190,
+      "won": 89,
       "lost": 101,
-      "rate": 45.7
+      "rate": 46.8
     },
     "byType": {
       "btts": {
-        "total": 115,
-        "won": 49,
+        "total": 117,
+        "won": 51,
         "lost": 66,
-        "rate": 42.6
+        "rate": 43.6
       },
       "over25": {
-        "total": 115,
-        "won": 54,
+        "total": 117,
+        "won": 56,
         "lost": 61,
-        "rate": 47
+        "rate": 47.9
       }
     },
     "trend14": [
-      {
-        "date": "2026-07-23",
-        "total": 8,
-        "won": 5,
-        "lost": 3,
-        "rate": 62.5
-      },
       {
         "date": "2026-07-24",
         "total": 10,
@@ -131,10 +124,117 @@
         "won": 2,
         "lost": 0,
         "rate": 100
+      },
+      {
+        "date": "2026-08-07",
+        "total": 4,
+        "won": 4,
+        "lost": 0,
+        "rate": 100
       }
     ]
   },
   "history": [
+    {
+      "match": "Gamba Osaka vs Urawa Red Diamonds",
+      "league": "Japanese J.League",
+      "date": "2026-08-07",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "confidence": 52,
+      "time": "12:30",
+      "matchSemantic": "gamo-urar-jpn-o25",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7102.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3385.png",
+      "tier": "STANDARD",
+      "analysis": {
+        "bttsProb": 0.5398276302353571,
+        "over25Prob": 0.5256031607630611,
+        "homeLambda": 1.7435658240000003,
+        "awayLambda": 0.9942912000000002,
+        "dataQuality": 4,
+        "hasRealData": true
+      },
+      "finalScore": "4-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:39:00.838Z"
+    },
+    {
+      "match": "Gamba Osaka vs Urawa Red Diamonds",
+      "league": "Japanese J.League",
+      "date": "2026-08-07",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "confidence": 52,
+      "time": "12:30",
+      "matchSemantic": "gamo-urar-jpn-btts",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7102.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3385.png",
+      "tier": "STANDARD",
+      "analysis": {
+        "bttsProb": 0.5398276302353571,
+        "over25Prob": 0.5256031607630611,
+        "homeLambda": 1.7435658240000003,
+        "awayLambda": 0.9942912000000002,
+        "dataQuality": 4,
+        "hasRealData": true
+      },
+      "finalScore": "4-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:39:00.838Z"
+    },
+    {
+      "match": "Yokohama F. Marinos vs Kashima Antlers",
+      "league": "Japanese J.League",
+      "date": "2026-08-07",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "confidence": 52,
+      "time": "12:25",
+      "matchSemantic": "yokf-kasa-jpn-o25",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7116.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7115.png",
+      "tier": "STANDARD",
+      "analysis": {
+        "bttsProb": 0.4937201973069422,
+        "over25Prob": 0.5437556164480497,
+        "homeLambda": 2.0242252800000005,
+        "awayLambda": 0.7892640000000001,
+        "dataQuality": 4,
+        "hasRealData": true
+      },
+      "finalScore": "3-4",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:39:00.838Z"
+    },
+    {
+      "match": "Yokohama F. Marinos vs Kashima Antlers",
+      "league": "Japanese J.League",
+      "date": "2026-08-07",
+      "type": "BTTS",
+      "prediction": "Non",
+      "confidence": 49,
+      "time": "12:25",
+      "matchSemantic": "yokf-kasa-jpn-btts",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7116.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7115.png",
+      "tier": "STANDARD",
+      "analysis": {
+        "bttsProb": 0.4937201973069422,
+        "over25Prob": 0.5437556164480497,
+        "homeLambda": 2.0242252800000005,
+        "awayLambda": 0.7892640000000001,
+        "dataQuality": 4,
+        "hasRealData": true
+      },
+      "finalScore": "3-4",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:39:00.837Z"
+    },
     {
       "match": "Unión (Santa Fe) vs Lanús",
       "league": "Argentine Liga Profesional de Fútbol",

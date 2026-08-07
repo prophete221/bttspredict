@@ -21,7 +21,10 @@
         "awayLambda": 0.7892640000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "finalScore": "3-4",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:39:00.837Z"
     },
     {
       "match": "Yokohama F. Marinos vs Kashima Antlers",
@@ -43,7 +46,10 @@
         "awayLambda": 0.7892640000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "finalScore": "3-4",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:39:00.838Z"
     },
     {
       "match": "Gamba Osaka vs Urawa Red Diamonds",
@@ -65,7 +71,10 @@
         "awayLambda": 0.9942912000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "finalScore": "4-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:39:00.838Z"
     },
     {
       "match": "Gamba Osaka vs Urawa Red Diamonds",
@@ -87,7 +96,10 @@
         "awayLambda": 0.9942912000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "finalScore": "4-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:39:00.838Z"
     },
     {
       "match": "Beijing Guoan vs Shenzhen Xinpengcheng",
@@ -109,7 +121,8 @@
         "awayLambda": 1.336608,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Beijing Guoan vs Shenzhen Xinpengcheng",
@@ -131,7 +144,8 @@
         "awayLambda": 1.336608,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Sønderjyske Fodbold vs Viborg FF",
@@ -153,7 +167,8 @@
         "awayLambda": 0.862848,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Sønderjyske Fodbold vs Viborg FF",
@@ -175,7 +190,8 @@
         "awayLambda": 0.862848,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Sandefjord vs KFUM Oslo",
@@ -197,7 +213,8 @@
         "awayLambda": 1.5697296000000003,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Sandefjord vs KFUM Oslo",
@@ -219,7 +236,8 @@
         "awayLambda": 1.5697296000000003,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "SC Rheindorf Altach vs WSG Swarovski Tirol",
@@ -241,7 +259,8 @@
         "awayLambda": 1.5311376,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "SC Rheindorf Altach vs WSG Swarovski Tirol",
@@ -263,7 +282,8 @@
         "awayLambda": 1.5311376,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "SC Cambuur vs Excelsior",
@@ -285,7 +305,8 @@
         "awayLambda": 1.5775344000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "SC Cambuur vs Excelsior",
@@ -307,7 +328,8 @@
         "awayLambda": 1.5775344000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Sport Huancayo vs Los Chankas",
@@ -329,7 +351,8 @@
         "awayLambda": 1.1225087999999999,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Sport Huancayo vs Los Chankas",
@@ -351,7 +374,8 @@
         "awayLambda": 1.1225087999999999,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "VfL Bochum vs Hertha Berlin",
@@ -373,7 +397,8 @@
         "awayLambda": 0.7956359999999999,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "VfL Bochum vs Hertha Berlin",
@@ -395,7 +420,8 @@
         "awayLambda": 0.7956359999999999,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Club Brugge vs KV Kortrijk",
@@ -417,7 +443,8 @@
         "awayLambda": 1.5106175999999998,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Club Brugge vs KV Kortrijk",
@@ -439,7 +466,8 @@
         "awayLambda": 1.5106175999999998,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Estoril vs FC Famalicao",
@@ -461,7 +489,8 @@
         "awayLambda": 0.8365536000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Estoril vs FC Famalicao",
@@ -483,7 +512,8 @@
         "awayLambda": 0.8365536000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Comerciantes Unidos vs Cusco FC",
@@ -505,7 +535,8 @@
         "awayLambda": 1.3680576,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Comerciantes Unidos vs Cusco FC",
@@ -527,7 +558,8 @@
         "awayLambda": 1.3680576,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Rubio Ñú vs Deportivo Recoleta",
@@ -549,7 +581,8 @@
         "awayLambda": 0.8454240000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Rubio Ñú vs Deportivo Recoleta",
@@ -571,7 +604,8 @@
         "awayLambda": 0.8454240000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Cerro Largo vs Juventud",
@@ -593,7 +627,8 @@
         "awayLambda": 0.7424568000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Cerro Largo vs Juventud",
@@ -615,7 +650,8 @@
         "awayLambda": 0.7424568000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Rosario Central vs Aldosivi",
@@ -637,7 +673,8 @@
         "awayLambda": 1.3455072000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Rosario Central vs Aldosivi",
@@ -659,7 +696,8 @@
         "awayLambda": 1.3455072000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Liga de Quito vs Independiente del Valle",
@@ -681,7 +719,8 @@
         "awayLambda": 1.2853728000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Liga de Quito vs Independiente del Valle",
@@ -703,7 +742,8 @@
         "awayLambda": 1.2853728000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Universidad Católica vs Cobresal",
@@ -725,7 +765,8 @@
         "awayLambda": 1.4000184,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Universidad Católica vs Cobresal",
@@ -747,7 +788,8 @@
         "awayLambda": 1.4000184,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Independiente Rivadavia vs Estudiantes de Río Cuarto",
@@ -769,7 +811,8 @@
         "awayLambda": 1.307088,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Independiente Rivadavia vs Estudiantes de Río Cuarto",
@@ -791,7 +834,8 @@
         "awayLambda": 1.307088,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Universitario vs Sporting Cristal",
@@ -813,7 +857,8 @@
         "awayLambda": 1.394784,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Universitario vs Sporting Cristal",
@@ -835,7 +880,8 @@
         "awayLambda": 1.394784,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Avispa Fukuoka vs Vissel Kobe",
@@ -857,7 +903,8 @@
         "awayLambda": 1.4161392000000004,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Avispa Fukuoka vs Vissel Kobe",
@@ -879,7 +926,8 @@
         "awayLambda": 1.4161392000000004,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     }
   ]
 }

@@ -5,9 +5,8 @@ const DIR = './public/predictions-archive';
 const OUT = './public/win-history.json';
 
 function getTier(p) {
-  if (p.tier) return p.tier.toUpperCase();
-  // Fallback: déduire depuis confidence/proba
-  let proba = p.proba || 0;
+  if (p.tier && p.tier !== 'STANDARD') return p.tier.toUpperCase();
+  let proba = p.proba || p.probability || 0;
   if (!proba && p.analysis) proba = p.analysis.bttsProb || p.analysis.over25Prob || 0;
   if (!proba && p.confidence) proba = p.confidence / 100;
   if (!proba) proba = 0.6;
@@ -119,6 +118,7 @@ function main() {
   fs.writeFileSync(OUT, JSON.stringify(out, null, 2));
   console.log(`ALL ${total} ${rate}% | GOLD ${goldTotal} ${goldRate}% | STANDARD ${stdTotal} ${stdRate}%`);
   console.log(`BTTS ${bttsTotal} ${bttsRate}% | O2.5 ${overTotal} ${overRate}%`);
+  console.log(`Gold yield: ${goldTotal > 0 ? +(((gold.won * 1.75 - goldTotal) / goldTotal) * 100).toFixed(1) : 0}%`);
 }
 
 main();

@@ -16,7 +16,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -37,22 +37,16 @@ jobs:
       - name: Update predictions (ESPN API)
         timeout-minutes: 5
         run: node scripts/quick-update-predictions.mjs
-        # RÈGLE D'OR #4: NE PAS continuer si le scraper de pronos échoue
-        # (sinon on déploie des pronos vides/périmés)
-        # continue-on-error retiré volontairement
 
-      - name: Verify results (free ESPN + TheSportsDB — no API key needed)
-        timeout-minutes: 10
+      - name: Verify results (GOLD priority — free ESPN, no API key)
+        id: verify
+        timeout-minutes: 20
         run: node scripts/verify-results.mjs
-        # 100% gratuit: ESPN scoreboard (public) + TheSportsDB (public)
-        # Aucune clé API requise
         continue-on-error: true
 
-      - name: Update win history (real stats from archives)
+      - name: Update win history (runs even if verify timed out)
         timeout-minutes: 3
         run: node scripts/update-win-history.mjs
-        # Dépend de verify-results — mais ne fail pas si verify a manqué des matchs
-        # (les stats reflètent l'état réel, même partiel)
 
       - name: Update transfers
         timeout-minutes: 2

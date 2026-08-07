@@ -1,3 +1,12 @@
+// ═══════════════════════════════════════════════════════════════════════════════
+// BTTSPredict — verify-results.mjs (V5 — GOLD Priority + Save Every 10 + 90j)
+// ═══════════════════════════════════════════════════════════════════════════════
+//
+// PRIORITÉ GOLD: trie les archives pour traiter d'abord celles avec tier=GOLD
+// SAVE EVERY 10: sauvegarde après chaque 10 fichiers pour ne pas perdre si timeout
+// 90J BACKFILL: 90 derniers jours, 24 ligues ESPN (public, sans clé)
+// ═══════════════════════════════════════════════════════════════════════════════
+
 import fs from 'fs';
 import path from 'path';
 
@@ -8,6 +17,8 @@ const LEAGUES = [
   'sco.1','tur.1','swi.1','aut.1','den.1','nor.1','swe.1',
   'arg.1','jpn.1','aus.1'
 ];
+
+const HIGH_BTTS = ['bundesliga','eredivisie','jupiler','swiss','mls','championship','premier','liga','serie','ligue 1'];
 
 function normalize(s = '') {
   return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -28,6 +39,16 @@ function fuzzyMatch(ph, pa, ah, aa) {
 
 function isBTTS(h, a) { return h > 0 && a > 0; }
 function isOver(h, a) { return h + a >= 3; }
+
+function isGoldProno(p) {
+  if (p.tier === 'GOLD') return true;
+  let proba = p.proba || 0;
+  if (!proba && p.analysis) proba = p.analysis.bttsProb || p.analysis.over25Prob || 0;
+  if (!proba && p.confidence) proba = p.confidence / 100;
+  const lg = (p.league || '').toLowerCase();
+  const isHigh = HIGH_BTTS.some(h => lg.includes(h));
+  return proba >= 0.70 || (proba >= 0.65 && isHigh);
+}
 
 async function getESPN(date) {
   const scores = [];
@@ -53,40 +74,66 @@ async function getESPN(date) {
         scores.push({ home: hc.team.displayName, away: ac.team.displayName, hs, as });
       }
     } catch (e) {}
-    await new Promise(r => setTimeout(r, 60)); // rate limit
+    await new Promise(r => setTimeout(r, 60));
   }
   return scores;
 }
 
 async function main() {
-  const files = fs.readdirSync(ARCHIVE_DIR)
+  console.log('[VerifyResults] V5 — GOLD Priority + 90j backfill');
+
+  // Lire toutes les archives, trier: GOLD en premier, puis par date récente
+  const allFiles = fs.readdirSync(ARCHIVE_DIR)
     .filter(f => f.endsWith('.json'))
     .sort()
-    .slice(-90); // 90 derniers jours
+    .reverse() // plus récent d'abord
+    .slice(0, 90); // 90 derniers jours
 
-  let W = 0, L = 0, V = 0;
+  // Séparer: archives avec au moins 1 prono GOLD d'abord
+  const goldFiles = [];
+  const stdFiles = [];
+  for (const f of allFiles) {
+    try {
+      const data = JSON.parse(fs.readFileSync(path.join(ARCHIVE_DIR, f), 'utf8'));
+      const preds = data.predictions || data;
+      if (Array.isArray(preds) && preds.some(p => isGoldProno(p) && p.status !== 'WON' && p.status !== 'LOST')) {
+        goldFiles.push(f);
+      } else {
+        stdFiles.push(f);
+      }
+    } catch (e) { stdFiles.push(f); }
+  }
 
-  for (const file of files) {
+  console.log(`[VerifyResults] ${goldFiles.length} archives avec GOLD pending, ${stdFiles.length} archives standard`);
+
+  // Traiter GOLD d'abord, puis standard
+  const orderedFiles = [...goldFiles, ...stdFiles];
+  let W = 0, L = 0, V = 0, goldW = 0, goldL = 0, goldV = 0;
+  let filesProcessed = 0;
+
+  for (const file of orderedFiles) {
     const dateISO = file.replace('.json', '');
     const dateESPN = dateISO.replace(/-/g, '');
     const fp = path.join(ARCHIVE_DIR, file);
 
     let data;
     try { data = JSON.parse(fs.readFileSync(fp, 'utf8')); } catch (e) { continue; }
-
     let preds = data.predictions || data;
     if (!Array.isArray(preds)) continue;
 
     const scores = await getESPN(dateESPN);
-    if (scores.length === 0) continue;
+    if (scores.length === 0) { filesProcessed++; continue; }
 
     let modified = false;
 
     for (const p of preds) {
-      // Skip already verified
-      if (p.status === 'WON' || p.status === 'LOST') continue;
+      if (p.status === 'WON' || p.status === 'LOST') {
+        // Compter les déjà vérifiés
+        if (p.status === 'WON') { W++; if (isGoldProno(p)) { goldW++; goldV++; } }
+        else { L++; if (isGoldProno(p)) { goldL++; goldV++; } }
+        continue;
+      }
 
-      // Extract home/away from match string if needed
       const teams = (p.match || '').split(/\s+vs?\s+/i);
       const pHome = p.home || p.homeTeam || teams[0] || '';
       const pAway = p.away || p.awayTeam || teams[1] || '';
@@ -107,20 +154,40 @@ async function main() {
       p.status = win ? 'WON' : 'LOST';
       p.verifiedAt = new Date().toISOString();
 
-      if (win) W++; else L++;
+      const isG = isGoldProno(p);
+      if (win) {
+        W++;
+        if (isG) { goldW++; goldV++; console.log(`VERIFY GOLD ${p.match} -> ${f.hs}-${f.as} WON`); }
+      } else {
+        L++;
+        if (isG) { goldL++; goldV++; console.log(`VERIFY GOLD ${p.match} -> ${f.hs}-${f.as} LOST`); }
+      }
       V++;
       modified = true;
     }
 
     if (modified) {
-      // Write back in same format (data.predictions or data directly)
       if (data.predictions) data.predictions = preds;
       else data = preds;
       fs.writeFileSync(fp, JSON.stringify(data, null, 2));
     }
+
+    filesProcessed++;
+
+    // Log compteur GOLD tous les 100
+    if (goldV > 0 && goldV % 100 === 0) {
+      console.log(`[VerifyResults] 100 GOLD vérifiés (total: ${goldV})`);
+    }
+
+    // Save checkpoint tous les 10 fichiers
+    if (filesProcessed % 10 === 0) {
+      console.log(`[VerifyResults] Checkpoint: ${filesProcessed}/${orderedFiles.length} fichiers | W=${W} L=${L} GOLD=${goldV}`);
+    }
   }
 
-  console.log(`Vérifiés ${V} W${W} L${L}`);
+  console.log(`[VerifyResults] ===============================================================`);
+  console.log(`[VerifyResults] Vérifiés ${V} W${W} L${L} | GOLD vérifiés: ${goldV} (W${goldW} L${goldL})`);
+  console.log(`[VerifyResults] ✅ Done — 100% free ESPN, no API key.`);
 }
 
 main();
