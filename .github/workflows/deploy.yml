@@ -80,9 +80,16 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: "out/"
           server-dir: "./"
+          # Désactive le nettoyage des fichiers serveur absents du build local.
+          # Évite le crash FTPError 550 quand _next/<oldBuildId>/ a déjà été
+          # partiellement supprimé par une rotation précédente. Les anciens
+          # buildIds s'accumulent mais restent inactifs (aucun lien HTML ne
+          # les référence). Un nettoyage manuel mensuel suffit.
+          remove-existing-files: false
           exclude: |
             **/.git*
             **/node_modules/**
+            **/.ftp-deploy-sync-file.json
 
       - name: Notify Bing via IndexNow
         if: success()
