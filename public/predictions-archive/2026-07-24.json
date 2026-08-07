@@ -962,7 +962,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:27:38.602Z"
     },
     {
       "match": "Llaneros FC vs Deportivo Pereira",
@@ -985,7 +987,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:27:38.602Z"
     },
     {
       "match": "Deportivo Cali vs Jaguares de Córdoba",
@@ -1008,7 +1012,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-08-07T14:27:38.602Z"
     },
     {
       "match": "Deportivo Cali vs Jaguares de Córdoba",
@@ -1031,7 +1037,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-08-07T14:27:38.602Z"
     },
     {
       "match": "Independiente Medellín vs Deportivo Pasto",

@@ -22,7 +22,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-08-07T14:28:02.575Z"
     },
     {
       "match": "Albion FC vs Juventud",
@@ -45,7 +47,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-08-07T14:28:02.575Z"
     },
     {
       "match": "Cove Rangers vs St Mirren",
@@ -908,7 +912,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-08-07T14:28:02.580Z"
     },
     {
       "match": "FC Cajamarca vs Juan Pablo II",
@@ -931,7 +937,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-08-07T14:28:02.580Z"
     },
     {
       "match": "Brora Rangers vs Queen of Sth",
@@ -1000,7 +1008,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:28:02.580Z"
     },
     {
       "match": "Sporting Cristal vs Deportivo Garcilaso",
@@ -1023,7 +1033,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:28:02.580Z"
     },
     {
       "match": "Deportivo Cuenca vs Universidad Católica (Quito)",

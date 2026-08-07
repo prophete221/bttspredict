@@ -22,7 +22,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-08-07T14:27:43.151Z"
     },
     {
       "match": "Leones vs Guayaquil City FC",
@@ -45,7 +47,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-08-07T14:27:43.151Z"
     },
     {
       "match": "Orense vs Aucas",
@@ -68,7 +72,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-08-07T14:27:43.151Z"
     },
     {
       "match": "Orense vs Aucas",
@@ -91,7 +97,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-08-07T14:27:43.151Z"
     },
     {
       "match": "Emelec vs United States",

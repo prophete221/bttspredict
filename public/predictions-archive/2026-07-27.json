@@ -175,8 +175,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-08-07T14:30:31.185Z"
     },
     {
       "match": "Mushuc Runa vs Libertad (Ecuador)",
@@ -198,8 +200,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-08-07T14:30:31.185Z"
     },
     {
       "match": "Guayaquil City FC vs Universidad Católica (Quito)",
@@ -221,8 +225,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-08-07T14:30:31.185Z"
     },
     {
       "match": "Guayaquil City FC vs Universidad Católica (Quito)",
@@ -244,8 +250,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-08-07T14:30:31.186Z"
     },
     {
       "match": "Unión La Calera vs Everton CD",
@@ -267,8 +275,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-08-07T14:30:31.186Z"
     },
     {
       "match": "Unión La Calera vs Everton CD",
@@ -290,8 +300,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-08-07T14:30:31.186Z"
     },
     {
       "match": "Deportivo Cuenca vs Emelec",
@@ -313,8 +325,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-08-07T14:30:31.186Z"
     },
     {
       "match": "Deportivo Cuenca vs Emelec",
@@ -336,8 +350,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-08-07T14:30:31.186Z"
     },
     {
       "match": "Rubio Ñú vs Sportivo Ameliano",

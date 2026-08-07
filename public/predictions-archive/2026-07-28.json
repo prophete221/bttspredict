@@ -21,8 +21,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-08-07T14:30:26.578Z"
     },
     {
       "match": "Rubio Ñú vs Sportivo Ameliano",
@@ -44,8 +46,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-08-07T14:30:26.578Z"
     },
     {
       "match": "2 de Mayo vs Cerro Porteño",
@@ -67,8 +71,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-08-07T14:30:26.578Z"
     },
     {
       "match": "2 de Mayo vs Cerro Porteño",
@@ -90,8 +96,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-08-07T14:30:26.578Z"
     },
     {
       "match": "Banfield vs Sarmiento (Junín)",

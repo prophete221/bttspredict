@@ -21,7 +21,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-4",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:29:17.168Z"
     },
     {
       "match": "Norway vs France",
@@ -43,7 +46,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-4",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:29:17.168Z"
     },
     {
       "match": "Senegal vs Iraq",
@@ -65,7 +71,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "5-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T14:29:17.168Z"
     },
     {
       "match": "Senegal vs Iraq",
@@ -87,7 +96,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "5-0",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:29:17.168Z"
     },
     {
       "match": "Croatia vs Ghana",
@@ -109,7 +121,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Croatia vs Ghana",
@@ -131,7 +144,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Panama vs England",
@@ -153,7 +167,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Panama vs England",
@@ -175,7 +190,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Cape Verde vs Saudi Arabia",
@@ -197,7 +213,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T14:29:17.168Z"
     },
     {
       "match": "Cape Verde vs Saudi Arabia",
@@ -219,7 +238,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T14:29:17.168Z"
     },
     {
       "match": "Egypt vs Iran",
@@ -241,7 +263,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:29:17.168Z"
     },
     {
       "match": "Egypt vs Iran",
@@ -263,7 +288,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T14:29:17.168Z"
     },
     {
       "match": "Uruguay vs Spain",
@@ -285,7 +313,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-1",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T14:29:17.168Z"
     },
     {
       "match": "Uruguay vs Spain",
@@ -307,7 +338,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-1",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T14:29:17.168Z"
     },
     {
       "match": "New Zealand vs Belgium",
@@ -329,7 +363,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-5",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:29:17.168Z"
     },
     {
       "match": "New Zealand vs Belgium",
@@ -351,7 +388,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-5",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:29:17.168Z"
     },
     {
       "match": "Algeria vs United States",
@@ -373,7 +413,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Algeria vs United States",
@@ -395,7 +436,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "DR Congo vs Uzbekistan",
@@ -417,7 +459,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "DR Congo vs Uzbekistan",
@@ -439,7 +482,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Jordan vs Argentina",
@@ -461,7 +505,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Jordan vs Argentina",
@@ -483,7 +528,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Colombia vs Portugal",
@@ -505,7 +551,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Colombia vs Portugal",
@@ -527,7 +574,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "South Africa vs Canada",
@@ -549,7 +597,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "South Africa vs Canada",
@@ -571,7 +620,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Germany vs Third Place Group A/B/C/D/F",
@@ -593,7 +643,8 @@
         "dataQuality": 3,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Germany vs Third Place Group A/B/C/D/F",
@@ -615,7 +666,8 @@
         "dataQuality": 3,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Brazil vs Japan",
@@ -637,7 +689,8 @@
         "dataQuality": 5,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Brazil vs Japan",
@@ -659,7 +712,8 @@
         "dataQuality": 5,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Curaçao vs Morocco",
@@ -681,7 +735,8 @@
         "dataQuality": 5,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Curaçao vs Morocco",
@@ -703,7 +758,8 @@
         "dataQuality": 5,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Ivory Coast vs Group I 2nd Place",
@@ -725,7 +781,8 @@
         "dataQuality": 3,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Ivory Coast vs Group I 2nd Place",
@@ -747,7 +804,8 @@
         "dataQuality": 3,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Group I Winner vs Third Place Group C/D/F/G/H",
@@ -769,7 +827,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Group I Winner vs Third Place Group C/D/F/G/H",
@@ -791,7 +850,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Mexico vs Third Place Group C/E/F/H/I",
@@ -813,7 +873,8 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Mexico vs Third Place Group C/E/F/H/I",
@@ -835,7 +896,8 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Group L Winner vs Third Place Group E/H/I/J/K",
@@ -857,7 +919,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Group L Winner vs Third Place Group E/H/I/J/K",
@@ -879,7 +942,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Group G Winner vs Third Place Group A/E/H/I/J",
@@ -901,7 +965,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Group G Winner vs Third Place Group A/E/H/I/J",
@@ -923,7 +988,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "United States vs Bosnia-Herzegovina",
@@ -945,7 +1011,8 @@
         "dataQuality": 5,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "United States vs Bosnia-Herzegovina",
@@ -967,7 +1034,8 @@
         "dataQuality": 5,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Group H Winner vs Group J 2nd Place",
@@ -989,7 +1057,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Group H Winner vs Group J 2nd Place",
@@ -1011,7 +1080,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Switzerland vs Third Place Group E/F/G/I/J",
@@ -1033,7 +1103,8 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Switzerland vs Third Place Group E/F/G/I/J",
@@ -1055,7 +1126,8 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Group K 2nd Place vs Group L 2nd Place",
@@ -1077,7 +1149,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Group K 2nd Place vs Group L 2nd Place",
@@ -1099,7 +1172,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     }
   ]
 }

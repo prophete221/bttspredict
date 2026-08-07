@@ -72,7 +72,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-4",
+      "verifiedAt": "2026-08-07T14:30:12.984Z"
     },
     {
       "match": "Rodina Moscow vs Rostov",
@@ -95,7 +97,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-4",
+      "verifiedAt": "2026-08-07T14:30:12.984Z"
     },
     {
       "match": "LASK Linz vs Grazer AK",
@@ -268,7 +272,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-2",
+      "verifiedAt": "2026-08-07T14:30:12.984Z"
     },
     {
       "match": "Los Chankas vs Comerciantes Unidos",
@@ -291,7 +297,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-2",
+      "verifiedAt": "2026-08-07T14:30:12.984Z"
     },
     {
       "match": "Portuguesa vs Carabobo",
@@ -314,7 +322,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:30:12.984Z"
     },
     {
       "match": "Portuguesa vs Carabobo",
@@ -337,7 +347,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:30:12.984Z"
     },
     {
       "match": "Montevideo City Torque vs Montevideo Wanderers",
@@ -360,7 +372,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-08-07T14:30:12.984Z"
     },
     {
       "match": "Montevideo City Torque vs Montevideo Wanderers",
@@ -383,7 +397,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-08-07T14:30:12.984Z"
     },
     {
       "match": "Anzoátegui FC vs Deportivo Táchira",
@@ -502,7 +518,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-08-07T14:30:12.985Z"
     },
     {
       "match": "Libertad (Ecuador) vs Orense",
@@ -525,7 +543,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-08-07T14:30:12.985Z"
     },
     {
       "match": "Universidad de Concepción vs Audax Italiano",
@@ -548,7 +568,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-08-07T14:30:12.985Z"
     },
     {
       "match": "Universidad de Concepción vs Audax Italiano",
@@ -571,7 +593,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-08-07T14:30:12.985Z"
     },
     {
       "match": "Fortaleza CEIF vs Deportivo Pereira",
@@ -594,7 +618,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-08-07T14:30:12.985Z"
     },
     {
       "match": "Fortaleza CEIF vs Deportivo Pereira",
@@ -617,7 +643,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-08-07T14:30:12.985Z"
     },
     {
       "match": "Puebla vs Guadalajara",

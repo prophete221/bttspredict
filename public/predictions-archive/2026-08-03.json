@@ -221,8 +221,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-08-07T14:30:00.822Z"
     },
     {
       "match": "Sportivo Trinidense vs Sportivo San Lorenzo",
@@ -244,8 +246,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-08-07T14:30:00.822Z"
     },
     {
       "match": "Sarmiento (Junín) vs Independiente Rivadavia",
@@ -319,8 +323,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "3-2",
+      "verifiedAt": "2026-08-07T14:30:00.822Z"
     },
     {
       "match": "Deportivo Recoleta vs Nacional Asunción",
@@ -342,8 +348,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "3-2",
+      "verifiedAt": "2026-08-07T14:30:00.822Z"
     },
     {
       "match": "Defensor Sporting vs Cerro",
@@ -365,8 +373,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-08-07T14:30:00.822Z"
     },
     {
       "match": "Defensor Sporting vs Cerro",
@@ -388,8 +398,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-08-07T14:30:00.822Z"
     },
     {
       "match": "Platense vs Talleres (Córdoba)",
@@ -515,8 +527,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-08-07T14:30:00.822Z"
     },
     {
       "match": "Caracas FC vs Estudiantes de Mérida",
@@ -538,8 +552,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-08-07T14:30:00.822Z"
     },
     {
       "match": "Liga de Quito vs Delfín",
@@ -561,8 +577,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-08-07T14:30:00.822Z"
     },
     {
       "match": "Liga de Quito vs Delfín",
@@ -584,8 +602,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-08-07T14:30:00.822Z"
     },
     {
       "match": "Central Córdoba (Santiago del Estero) vs San Lorenzo",
@@ -711,8 +731,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-08-07T14:30:00.822Z"
     },
     {
       "match": "Atlético Bucaramanga vs Cúcuta Deportivo",
@@ -734,8 +756,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-08-07T14:30:00.822Z"
     },
     {
       "match": "Carabobo vs Trujillanos",

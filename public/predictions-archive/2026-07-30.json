@@ -21,8 +21,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-08-07T14:30:17.446Z"
     },
     {
       "match": "Sportivo San Lorenzo vs Guaraní",
@@ -44,8 +46,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-08-07T14:30:17.446Z"
     },
     {
       "match": "Libertad vs Deportivo Recoleta",
@@ -67,8 +71,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "4-1",
+      "verifiedAt": "2026-08-07T14:30:17.446Z"
     },
     {
       "match": "Libertad vs Deportivo Recoleta",
@@ -90,8 +96,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "4-1",
+      "verifiedAt": "2026-08-07T14:30:17.446Z"
     },
     {
       "match": "Independiente Rivadavia vs Huracán",
@@ -417,8 +425,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-08-07T14:30:17.446Z"
     },
     {
       "match": "Atlético Bucaramanga vs Llaneros FC",
@@ -440,8 +450,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-08-07T14:30:17.446Z"
     },
     {
       "match": "Vålerenga vs Hamarkameratene",

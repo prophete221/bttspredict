@@ -9,7 +9,10 @@
       "confidence": 82,
       "time": "15:00",
       "matchSemantic": "car-aca-ve",
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "2-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:29:56.570Z"
     },
     {
       "match": "Independ. Rivadavia vs Tigre",
@@ -19,7 +22,8 @@
       "confidence": 88,
       "time": "15:00",
       "matchSemantic": "ind-tig-ar",
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "River Plate vs Aldosivi",
@@ -29,7 +33,8 @@
       "confidence": 82,
       "time": "15:00",
       "matchSemantic": "riv-ald-ar",
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Sarmiento Junin vs Boca Juniors",
@@ -39,7 +44,8 @@
       "confidence": 83,
       "time": "15:00",
       "matchSemantic": "sar-boc-ar",
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "CD Moron vs Almirante Brown",
@@ -49,7 +55,8 @@
       "confidence": 82,
       "time": "15:00",
       "matchSemantic": "cd -alm-ar",
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     }
   ]
 }

@@ -22,7 +22,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-08-07T14:27:57.748Z"
     },
     {
       "match": "Deportivo Cuenca vs Universidad Católica (Quito)",
@@ -45,7 +47,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-08-07T14:27:57.748Z"
     },
     {
       "match": "Liga de Quito vs Leones",
@@ -68,7 +72,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-08-07T14:27:57.748Z"
     },
     {
       "match": "Liga de Quito vs Leones",
@@ -91,7 +97,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-08-07T14:27:57.748Z"
     },
     {
       "match": "ADT vs Universitario",
@@ -114,7 +122,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-08-07T14:27:57.748Z"
     },
     {
       "match": "ADT vs Universitario",
@@ -137,7 +147,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-08-07T14:27:57.749Z"
     },
     {
       "match": "Cove Rangers vs St Mirren",
@@ -620,7 +632,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:27:57.750Z"
     },
     {
       "match": "Progreso vs Deportivo Maldonado",
@@ -643,7 +657,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:27:57.750Z"
     },
     {
       "match": "Peñarol vs Boston River",
@@ -666,7 +682,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-08-07T14:27:57.750Z"
     },
     {
       "match": "Peñarol vs Boston River",
@@ -689,7 +707,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-08-07T14:27:57.750Z"
     },
     {
       "match": "Deportivo Moquegua vs Comerciantes Unidos",
@@ -712,7 +732,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-08-07T14:27:57.750Z"
     },
     {
       "match": "Deportivo Moquegua vs Comerciantes Unidos",
@@ -735,7 +757,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-08-07T14:27:57.750Z"
     },
     {
       "match": "Atlético Grau vs UTC",
@@ -758,7 +782,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-08-07T14:27:57.750Z"
     },
     {
       "match": "Atlético Grau vs UTC",
@@ -781,7 +807,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-08-07T14:27:57.751Z"
     },
     {
       "match": "France vs England",
@@ -804,7 +832,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "4-6",
+      "verifiedAt": "2026-08-07T14:27:57.751Z"
     },
     {
       "match": "France vs England",
@@ -827,7 +857,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "4-6",
+      "verifiedAt": "2026-08-07T14:27:57.751Z"
     },
     {
       "match": "Alloa vs Stranraer",

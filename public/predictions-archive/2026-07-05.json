@@ -22,7 +22,9 @@
         "hasRealData": true
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-08-07T14:28:48.076Z"
     },
     {
       "match": "Brazil vs Norway",
@@ -45,7 +47,9 @@
         "hasRealData": true
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-08-07T14:28:48.076Z"
     },
     {
       "match": "IF Elfsborg vs Hammarby IF",
@@ -168,7 +172,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:28:48.076Z"
     },
     {
       "match": "Macará vs Liga de Quito",
@@ -191,7 +197,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:28:48.076Z"
     },
     {
       "match": "Kalmar FF vs Örgryte IS",

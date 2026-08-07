@@ -118,7 +118,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-08-07T14:30:40.585Z"
     },
     {
       "match": "Independiente del Valle vs Técnico Universitario",
@@ -141,7 +143,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-08-07T14:30:40.585Z"
     },
     {
       "match": "Lillestrom vs Viking FK",
@@ -214,7 +218,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-08-07T14:30:40.585Z"
     },
     {
       "match": "Macará vs Deportivo Cuenca",
@@ -237,7 +243,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-08-07T14:30:40.585Z"
     },
     {
       "match": "O Nicosia vs Kairat Almaty",
