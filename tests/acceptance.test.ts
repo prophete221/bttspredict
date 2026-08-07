@@ -151,11 +151,11 @@ describe('Phase 4 — Page d\'accueil simplifiée', () => {
     expect(page).toContain('href="/vip"')
   })
 
-  test('page d\'accueil contient accès méthodologie et historique', () => {
-    expect(page).toContain('Méthodologie du modèle')
-    expect(page).toContain('Historique vérifié')
-    expect(page).toContain('href="/methodologie"')
-    expect(page).toContain('href="/historique"')
+  test('page d\'accueil ne contient PLUS de boutons Méthodologie → ou Historique vérifié → (supprimés sur demande utilisateur)', () => {
+    expect(page).not.toContain('>Voir la méthodologie →<')
+    expect(page).not.toContain('>Voir l\'historique vérifié →<')
+    expect(page).not.toContain('>Méthodologie →<')
+    expect(page).not.toContain('>Historique vérifié →<')
   })
 
   test('page d\'accueil contient bloc jeu responsable', () => {
@@ -216,7 +216,8 @@ describe('Phase 10 — Textes français cohérents', () => {
     expect(hero).not.toContain('View Verified Results')
     expect(hero).toContain('Pronostics BTTS')
     expect(hero).toContain('Voir les pronostics du jour')
-    expect(hero).toContain('Voir l\'historique vérifié')
+    // Bouton "Voir l'historique vérifié →" retiré sur demande utilisateur
+    expect(hero).not.toContain('Voir l\'historique vérifié')
   })
 })
 
@@ -811,5 +812,67 @@ describe('Phase 8 — Internal linking', () => {
     expect(page).toContain('Fil d\'Ariane')
     expect(page).toContain('href="/"')
     expect(page).toContain('href="/pronostics"')
+  })
+})
+
+describe('Suppression boutons Méthodologie → + Historique vérifié → + mentions "sans clé API"', () => {
+  const PUBLIC_FILES = [
+    'src/app/page.tsx',
+    'src/app/pronostics/page.tsx',
+    'src/app/pronostics/aujourd-hui/page.tsx',
+    'src/app/vip/page.tsx',
+    'src/app/historique/HistoriqueClient.tsx',
+    'src/app/methodologie/page.tsx',
+    'src/app/match/[slug]/page.tsx',
+    'src/app/btts/predictions/today/page.tsx',
+    'src/app/btts/predictions/tomorrow/page.tsx',
+    'src/app/btts/statistics/page.tsx',
+    'src/app/over-2-5/predictions/today/page.tsx',
+    'src/app/over-2-5/statistics/page.tsx',
+    'src/components/bttsbet/Hero.tsx',
+    'src/components/bttsbet/Footer.tsx',
+  ]
+
+  test('Aucune page publique ne contient le bouton "Méthodologie →"', () => {
+    for (const f of PUBLIC_FILES) {
+      const filePath = path.join(ROOT, f)
+      if (!fs.existsSync(filePath)) continue
+      const content = fs.readFileSync(filePath, 'utf8')
+      expect(content).not.toContain('>Méthodologie →<')
+      expect(content).not.toContain('>Voir la méthodologie →<')
+    }
+  })
+
+  test('Aucune page publique ne contient le bouton "Historique vérifié →"', () => {
+    for (const f of PUBLIC_FILES) {
+      const filePath = path.join(ROOT, f)
+      if (!fs.existsSync(filePath)) continue
+      const content = fs.readFileSync(filePath, 'utf8')
+      expect(content).not.toContain('>Historique vérifié →<')
+      expect(content).not.toContain('>Voir l\'historique vérifié →<')
+    }
+  })
+
+  test('Aucune page publique ne mentionne "sans clé API"', () => {
+    for (const f of PUBLIC_FILES) {
+      const filePath = path.join(ROOT, f)
+      if (!fs.existsSync(filePath)) continue
+      const content = fs.readFileSync(filePath, 'utf8')
+      expect(content).not.toMatch(/sans clé API/i)
+      expect(content).not.toMatch(/sans clé\./i)
+    }
+  })
+
+  test('Fichiers publics JSON et TXT ne mentionnent plus "sans clé API"', () => {
+    const files = [
+      'public/tracking-period.json',
+      'public/llms.txt',
+      'public/ai.txt',
+    ]
+    for (const f of files) {
+      const content = fs.readFileSync(path.join(ROOT, f), 'utf8')
+      expect(content).not.toMatch(/sans clé API/i)
+      expect(content).not.toMatch(/without API key/i)
+    }
   })
 })

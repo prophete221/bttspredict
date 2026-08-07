@@ -225,7 +225,7 @@ export default async function MatchPage({ params }: PageProps) {
                 </p>
               )}
               <p className="text-xs text-[#6B7194] mt-2 text-center">
-                Source : ESPN et TheSportsDB (publics, sans clé API). Suivi public depuis le 2026-08-08.
+                Source : ESPN et TheSportsDB. Suivi public depuis le 2026-08-08.
               </p>
             </div>
           </section>
@@ -240,16 +240,6 @@ export default async function MatchPage({ params }: PageProps) {
                 style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
                 <div className="text-sm font-bold text-[#F7F8FF] mb-1">Voir les pronostics du jour →</div>
                 <div className="text-xs text-[#A5ABC5]">Tous les matchs sélectionnés par le moteur IA</div>
-              </Link>
-              <Link href="/historique" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5]"
-                style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
-                <div className="text-sm font-bold text-[#F7F8FF] mb-1">Voir l'historique vérifié →</div>
-                <div className="text-xs text-[#A5ABC5]">Suivi public depuis le 2026-08-08</div>
-              </Link>
-              <Link href="/methodologie" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5]"
-                style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
-                <div className="text-sm font-bold text-[#F7F8FF] mb-1">Méthodologie →</div>
-                <div className="text-xs text-[#A5ABC5]">Comment fonctionne le moteur IA</div>
               </Link>
               <Link href="/vip" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5]"
                 style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>

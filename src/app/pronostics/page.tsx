@@ -38,16 +38,6 @@ export default function PronosticsPage() {
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
-            <Link href="/methodologie"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-[10px] text-sm font-bold transition-all"
-              style={{ backgroundColor: '#0D1630', color: '#A5ABC5', border: '1px solid #303861' }}>
-              Méthodologie →
-            </Link>
-            <Link href="/historique"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-[10px] text-sm font-bold transition-all"
-              style={{ backgroundColor: '#0D1630', color: '#A5ABC5', border: '1px solid #303861' }}>
-              Historique vérifié →
-            </Link>
             <Link href="/vip"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-[10px] text-sm font-bold transition-all"
               style={{ backgroundColor: 'rgba(255, 200, 87, 0.12)', color: '#FFC857', border: '1px solid rgba(255, 200, 87, 0.25)' }}>

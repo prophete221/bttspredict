@@ -183,12 +183,8 @@ export default function VipPage() {
               Vérifier nos résultats
             </h2>
             <p className="text-sm text-[#A5ABC5] mb-4 leading-relaxed">
-              Tous les pronostics publiés sont enregistrés, horodatés et vérifiés après le résultat officiel du match. Consultez l'historique public du nouveau modèle de suivi.
+              Tous les pronostics publiés sont enregistrés, horodatés et vérifiés après le résultat officiel du match. Le suivi public est lancé depuis le 8 août 2026.
             </p>
-            <a href="/historique" className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
-              style={{ backgroundColor: '#5146F5', color: '#F7F8FF' }}>
-              Voir l'historique vérifié →
-            </a>
           </div>
         </section>
 

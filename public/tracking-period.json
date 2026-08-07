@@ -1,7 +1,7 @@
 {
   "startDate": "2026-08-08",
   "description": "Nouvelle période de suivi public. Tous les pronostics publiés à partir de cette date sont enregistrés, horodatés et évalués après le résultat officiel du match. Les performances seront publiées progressivement, sans modification rétroactive. Aucun résultat futur n'est garanti.",
-  "dataSource": "Sources publiques (ESPN et TheSportsDB), sans clé API",
+  "dataSource": "Sources publiques (ESPN et TheSportsDB)",
   "markets": ["BTTS (Both Teams To Score)", "Over 2.5 goals"],
   "publishingThreshold": "Seuil de confiance élevé",
   "maxPredictionsPerDay": "Sélection des meilleures opportunités",

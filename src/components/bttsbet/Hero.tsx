@@ -123,18 +123,6 @@ export default function Hero() {
             Voir les pronostics du jour
           </motion.button>
 
-          {/* Lien secondaire texte */}
-          <button
-            onClick={() => {
-              window.location.href = '/historique'
-            }}
-            className="w-full text-center text-[14px] font-medium transition-colors py-2"
-            style={{ color: '#A5ABC5', background: 'transparent', border: 'none' }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = '#F7F8FF')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = '#A5ABC5')}
-          >
-            Voir l'historique vérifié →
-          </button>
         </motion.div>
 
         {/* ═══ Barre sous Hero — données temps réel ═══ */}

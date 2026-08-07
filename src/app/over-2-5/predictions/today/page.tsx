@@ -96,10 +96,10 @@ export default function Over25PredictionsTodayPage() {
               <div className="text-sm font-bold text-[#F7F8FF]">Statistiques Over 2.5 →</div>
               <div className="text-xs text-[#A5ABC5] mt-1">Taux historique par ligue</div>
             </Link>
-            <Link href="/historique" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5]"
+            <Link href="/vip" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5]"
               style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
-              <div className="text-sm font-bold text-[#F7F8FF]">Historique vérifié →</div>
-              <div className="text-xs text-[#A5ABC5] mt-1">Suivi public depuis le 2026-08-08</div>
+              <div className="text-sm font-bold text-[#F7F8FF]">Pronostics premium →</div>
+              <div className="text-xs text-[#A5ABC5] mt-1">Programme VIP BTTSPredict</div>
             </Link>
           </div>
         </section>

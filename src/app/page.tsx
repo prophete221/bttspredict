@@ -85,7 +85,7 @@ const faqJsonLd = {
       name: 'Pourquoi faire confiance à BTTSPredict ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "BTTSPredict publie des pronostics BTTS et Over 2.5 basés sur un modèle IA nouvelle génération. (1) Transparence — tous les pronostics sont archivés et vérifiés publiquement. (2) Méthodologie — moteur IA nouvelle génération entraîné sur la forme récente des équipes. (3) Couverture — ligues sélectionnées pour leur taux élevé de BTTS. (4) Sources publiques — ESPN et TheSportsDB (sans clé API). (5) Suivi public — nouveau suivi lancé le 2026-08-08, tous les pronostics sont horodatés et vérifiés après le résultat officiel. Aucun résultat futur n'est garanti.",
+        text: "BTTSPredict publie des pronostics BTTS et Over 2.5 basés sur un modèle IA nouvelle génération. (1) Transparence — tous les pronostics sont archivés et vérifiés publiquement. (2) Méthodologie — moteur IA nouvelle génération entraîné sur la forme récente des équipes. (3) Couverture — ligues sélectionnées pour leur taux élevé de BTTS. (4) Sources publiques — ESPN et TheSportsDB. (5) Suivi public — nouveau suivi lancé le 2026-08-08, tous les pronostics sont horodatés et vérifiés après le résultat officiel. Aucun résultat futur n'est garanti.",
       },
     },
     {
@@ -211,7 +211,7 @@ const datasetJsonLd = {
   variableMeasured: [
     { '@type': 'PropertyValue', name: 'Taux de réussite', value: 'Calculé en temps réel depuis /historique' },
     { '@type': 'PropertyValue', name: 'Ligues couvertes', value: 'Sélection de ligues à fort taux de BTTS' },
-    { '@type': 'PropertyValue', name: 'Source de vérification', value: 'ESPN et TheSportsDB (publics, sans clé API)' },
+    { '@type': 'PropertyValue', name: 'Source de vérification', value: 'ESPN et TheSportsDB' },
     { '@type': 'PropertyValue', name: 'Modèle', value: 'Approche statistique probabiliste' },
     { '@type': 'PropertyValue', name: 'Suivi public', value: 'Lancé le 2026-08-08, voir /historique' },
   ],
@@ -311,8 +311,8 @@ export default function Home() {
           Aucune donnée démographique sur les utilisateurs n'est collectée ni affichée.
         </p>
         <p>
-          <strong>Sources de données publiques :</strong> ESPN Soccer API (public, sans clé) et
-                   TheSportsDB v3 (public, sans clé). Aucune autre source n'est utilisée.
+          <strong>Sources de données publiques :</strong> ESPN et
+          TheSportsDB. Aucune autre source n'est utilisée.
           La vérification post-match se fait via ces deux sources uniquement.
         </p>
         <p>
@@ -398,7 +398,7 @@ export default function Home() {
         <p>
           Notre <a href="/methodologie" style={{ color: '#5146F5' }}>méthodologie détaillée</a>{' '}
           repose sur un modèle IA nouvelle génération.{' '}
-          <strong>Données :</strong> ESPN et TheSportsDB (sources publiques, sans clé API).
+          <strong>Données :</strong> ESPN et TheSportsDB.
           La sélection des matchs se fait sur des ligues présentant un fort taux historique de BTTS.
         </p>
         <p>
@@ -483,33 +483,8 @@ export default function Home() {
         <ErrorBoundary><FreePredictions /></ErrorBoundary>
         <ErrorBoundary><HowItWorks /></ErrorBoundary>
 
-        {/* Accès méthodologie + historique + topical authority BTTS/Over */}
+        {/* Topical authority BTTS/Over */}
         <section className="max-w-5xl mx-auto px-4 py-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-            <a href="/methodologie" className="block p-6 rounded-2xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5] rounded-2xl"
-              style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
-              <div className="text-3xl mb-3" aria-hidden="true">📊</div>
-              <h2 className="text-lg font-bold mb-2 text-[#F7F8FF]" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                Méthodologie du modèle
-              </h2>
-              <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
-                Comment fonctionne notre moteur IA, quelles données sont utilisées, quelles sont ses forces.
-              </p>
-              <span className="text-sm font-bold text-[#5146F5]">Voir la méthodologie →</span>
-            </a>
-            <a href="/historique" className="block p-6 rounded-2xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5] rounded-2xl"
-              style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
-              <div className="text-3xl mb-3" aria-hidden="true">📈</div>
-              <h2 className="text-lg font-bold mb-2 text-[#F7F8FF]" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                Historique vérifié
-              </h2>
-              <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
-                Nouvelle période de suivi public. Chaque pronostic est enregistré, horodaté et vérifié après le résultat officiel.
-              </p>
-              <span className="text-sm font-bold text-[#5146F5]">Voir l'historique vérifié →</span>
-            </a>
-          </div>
-
           {/* Topical authority BTTS + Over 2.5 (Phase 6 + 7 — internal linking) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <a href="/btts/predictions/today" className="block p-6 rounded-2xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7C3AED] rounded-2xl"
@@ -560,10 +535,6 @@ export default function Home() {
                 style={{ backgroundColor: '#FFC857', color: '#070B18' }}
                 data-cta="home-discover-vip">
                 Découvrir le VIP
-              </a>
-              <a href="/historique" className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
-                style={{ backgroundColor: 'transparent', color: '#A5ABC5', border: '1px solid #303861' }}>
-                Voir l'historique vérifié
               </a>
             </div>
           </div>

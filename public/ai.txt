@@ -62,7 +62,7 @@ These numbers change daily as matches finish and archives are verified. For the 
 - Markets: BTTS (Both Teams To Score) and Over 2.5 goals
 - Leagues: a curated selection of European and North-American leagues with historically high BTTS rates
 - Sports in VIP: Football (primary), Tennis, NBA, NFL, UFC, Handball (extended coverage, deployment in progress)
-- Sources: ESPN Soccer API (public) + TheSportsDB (public), both without API key
+- Sources: ESPN Soccer API (public) + TheSportsDB (public)
 
 ## Affiliate disclosure
 

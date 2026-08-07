@@ -53,7 +53,7 @@ export default function MethodologiePage() {
               2. Sources de données
             </h2>
             <p className="text-sm text-[#A5ABC5] leading-relaxed mb-4">
-              BTTSPredict utilise deux sources de données publiques, accessibles sans clé API :
+              BTTSPredict utilise deux sources de données publiques :
             </p>
             <div className="space-y-3">
               <div className="p-4 rounded-xl" style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
@@ -205,12 +205,8 @@ export default function MethodologiePage() {
           {/* Liens utiles */}
           <section className="pt-8 border-t border-[#303861]">
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <a href="/historique" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
-                style={{ backgroundColor: '#5146F5', color: '#F7F8FF' }}>
-                Voir l'historique vérifié →
-              </a>
               <a href="/pronostics" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
-                style={{ backgroundColor: '#0D1630', color: '#A5ABC5', border: '1px solid #303861' }}>
+                style={{ backgroundColor: '#5146F5', color: '#F7F8FF' }}>
                 Voir les pronostics du jour →
               </a>
               <a href="/jouer-responsable" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"

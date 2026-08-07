@@ -1,6 +1,6 @@
 # BTTSPredict
 
-> BTTSPredict publie quotidiennement des pronostics BTTS (Both Teams To Score) et Over 2.5 sur le football, générés par un moteur IA nouvelle génération basé sur la forme récente des équipes. Les données proviennent de sources publiques (ESPN et TheSportsDB), sans clé API. Tous les pronostics sont archivés quotidiennement et vérifiés après le résultat officiel. Le suivi public a été lancé le 8 août 2026. Aucun résultat futur n'est garanti.
+> BTTSPredict publie quotidiennement des pronostics BTTS (Both Teams To Score) et Over 2.5 sur le football, générés par un moteur IA nouvelle génération basé sur la forme récente des équipes. Les données proviennent de sources publiques (ESPN et TheSportsDB). Tous les pronostics sont archivés quotidiennement et vérifiés après le résultat officiel. Le suivi public a été lancé le 8 août 2026. Aucun résultat futur n'est garanti.
 
 ## What BTTSPredict offers
 
