@@ -97,14 +97,13 @@ export default function MobileTabBar() {
       className="fixed bottom-0 left-0 right-0 z-40 md:hidden"
       style={{
         display: 'flex',
-        backgroundColor: 'rgba(13, 15, 18, 0.97)',
+        backgroundColor: 'rgba(11, 18, 32, 0.97)',
         backdropFilter: 'blur(20px) saturate(180%)',
         WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-        // Bordure néon cyan en haut — bien visible
-        borderTop: '1px solid rgba(212, 175, 55, 0.45)',
-        // Halo néon cyan + violet qui « remonte » depuis le menu
-        boxShadow:
-          '0 -6px 24px rgba(212, 175, 55, 0.28), 0 -2px 12px rgba(212, 175, 55, 0.20), inset 0 1px 0 rgba(212, 175, 55, 0.18)',
+        // Bordure subtile en haut — sobre
+        borderTop: '1px solid #2B3A52',
+        // Ombre légère — pas de halo agressif
+        boxShadow: '0 -4px 16px rgba(11, 18, 32, 0.4)',
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
         height: 'calc(60px + env(safe-area-inset-bottom, 0px))',
       }}
@@ -118,20 +117,20 @@ export default function MobileTabBar() {
             onClick={() => handleTab(tab)}
             className="flex-1 flex flex-col items-center justify-center gap-1 transition-all duration-200 relative"
             style={{
-              // Actif = cyan néon éclatant, Inactif = gris clair lisible
-              color: isActive ? '#D4AF37' : 'rgba(244, 247, 250, 0.65)',
+              // Actif = turquoise sobre, Inactif = gris lisible
+              color: isActive ? '#16C7A3' : '#AAB7CC',
               minHeight: '48px',
               textShadow: isActive
-                ? '0 0 12px rgba(212, 175, 55, 0.85), 0 0 4px rgba(212, 175, 55, 0.6)'
+                ? '0 0 8px rgba(22, 199, 163, 0.4)'
                 : 'none',
               filter: isActive
-                ? 'drop-shadow(0 0 6px rgba(212, 175, 55, 0.75))'
+                ? 'drop-shadow(0 0 4px rgba(22, 199, 163, 0.4))'
                 : 'none',
             }}
             aria-label={tab.label}
             aria-current={isActive ? 'page' : undefined}
           >
-            {/* Pastille néon sous l'icône actif */}
+            {/* Pastille turquoise sous l'icône actif */}
             {isActive && (
               <motion.span
                 layoutId="tab-glow"
@@ -140,8 +139,8 @@ export default function MobileTabBar() {
                   width: '32px',
                   height: '3px',
                   borderRadius: '2px',
-                  background: 'linear-gradient(90deg, #D4AF37 0%, #D4AF37 100%)',
-                  boxShadow: '0 0 12px rgba(212, 175, 55, 0.9), 0 0 6px rgba(212, 175, 55, 0.6)',
+                  background: '#16C7A3',
+                  boxShadow: '0 0 8px rgba(22, 199, 163, 0.6)',
                 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               />
@@ -152,7 +151,7 @@ export default function MobileTabBar() {
             <span
               className="text-[9px] font-bold uppercase tracking-wider"
               style={{
-                color: isActive ? '#D4AF37' : 'rgba(244, 247, 250, 0.7)',
+                color: isActive ? '#16C7A3' : '#AAB7CC',
               }}
             >
               {tab.label}

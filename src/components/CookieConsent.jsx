@@ -153,7 +153,7 @@ export default function CookieConsent() {
                               : 'border-papier/20 group-hover:border-papier/40'
                           } ${cookie.required ? 'opacity-70 cursor-not-allowed' : ''}`}>
                             {preferences[cookie.id] && (
-                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1E2228" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0F172A" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                                 <polyline points="20 6 9 17 4 12"/>
                               </svg>
                             )}

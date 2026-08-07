@@ -121,14 +121,14 @@ export const cardHover = {
 }
 
 export const cardHoverLift = {
-  rest: { y: 0, boxShadow: '0 0 0 rgba(13, 15, 18,0)' },
-  hover: { y: -6, boxShadow: '0 12px 40px rgba(212, 175, 55,0.12)', transition: { duration: DUR.fast, ease: EASE.gentle } },
+  rest: { y: 0, boxShadow: '0 0 0 rgba(11, 18, 32,0)' },
+  hover: { y: -6, boxShadow: '0 12px 40px rgba(22, 199, 163,0.12)', transition: { duration: DUR.fast, ease: EASE.gentle } },
   tap: { y: 0, transition: { duration: DUR.instant } },
 }
 
 export const glowHover = {
-  rest: { boxShadow: '0 0 0 rgba(212, 175, 55,0)' },
-  hover: { boxShadow: '0 0 20px rgba(212, 175, 55,0.2), 0 0 40px rgba(212, 175, 55,0.08)', transition: { duration: DUR.normal, ease: EASE.gentle } },
+  rest: { boxShadow: '0 0 0 rgba(22, 199, 163,0)' },
+  hover: { boxShadow: '0 0 20px rgba(22, 199, 163,0.2), 0 0 40px rgba(22, 199, 163,0.08)', transition: { duration: DUR.normal, ease: EASE.gentle } },
 }
 
 export const subtleHover = {
@@ -139,7 +139,7 @@ export const subtleHover = {
 
 export const buttonHover = {
   rest: { scale: 1 },
-  hover: { scale: 1.05, boxShadow: '0 0 16px rgba(212, 175, 55,0.25)', transition: { duration: DUR.fast, ease: EASE.gentle } },
+  hover: { scale: 1.05, boxShadow: '0 0 16px rgba(22, 199, 163,0.25)', transition: { duration: DUR.fast, ease: EASE.gentle } },
   tap: { scale: 0.95, transition: { duration: DUR.instant } },
 }
 

@@ -14,134 +14,151 @@
 @import "tailwindcss";
 
 @theme {
-  /* ═══ INSTITUTIONAL — 8 tokens canoniques, aucune autre couleur ═══ */
-  --color-bg-main: #0D0F12;
-  --color-bg-secondary: #1E2228;
-  --color-cta-bg: #D4AF37;
-  --color-cta-text: #0D0F12;
-  --color-accent: #2D5BFF;
-  --color-success: #00A87E;
-  --color-text-primary: #F4F7FA;
-  --color-text-secondary: #A8B3C7;
-  --color-border: #2A2E35;
+  /* ═══ PREMIUM DARK v57 — 12 tokens canoniques, aucune autre couleur ═══ */
+  --color-bg-main: #0B1220;          /* Fond principal */
+  --color-bg-secondary: #0F172A;     /* Fond secondaire */
+  --color-card: #172033;              /* Surface des cartes */
+  --color-card-hover: #1E293B;        /* Surface élevée et cartes actives */
+  --color-border: #2B3A52;            /* Bordures et séparateurs */
+  --color-text-primary: #F8FAFC;     /* Texte principal */
+  --color-text-secondary: #AAB7CC;    /* Texte secondaire */
+  --color-cta: #16C7A3;               /* Action principale (turquoise) */
+  --color-cta-text: #0B1220;          /* Texte sur CTA */
+  --color-trust: #4F8CFF;             /* Confiance / info (bleu) */
+  --color-vip: #F2B84B;               /* Premium / VIP (ambre) */
+  --color-success: #22C55E;           /* Succès / gagné */
+  --color-error: #F87171;             /* Erreur / perdu */
 
-  /* Hover states (per spec) */
-  --color-cta-bg-hover: #B9972F;
-  --color-cta-bg-active: #A8872A;
-  --color-accent-hover: #5A7CFF;
-  --color-success-hover: #008A66;
-  --color-border-hover: #3A3E47;
+  /* Hover states */
+  --color-cta-hover: #1AE0B8;         /* Turquoise brighter */
+  --color-cta-active: #0FA88A;        /* Turquoise darker */
+  --color-trust-hover: #7AA5FF;       /* Bleu brighter */
+  --color-vip-hover: #FFD27A;         /* Ambre brighter */
+  --color-success-hover: #16A34A;     /* Vert darker */
+  --color-error-hover: #FCA5A5;       /* Rouge brighter */
+  --color-border-hover: #3B4A63;     /* Bordure brighter */
 
-  /* Aliases mappés sur INSTITUTIONAL */
+  /* Aliases mappés sur PREMIUM DARK v57 */
   --color-abyss: var(--color-bg-main);
   --color-vault: var(--color-bg-secondary);
-  --color-socle: var(--color-bg-secondary);
+  --color-socle: var(--color-card);
   --color-couture: var(--color-border);
   --color-papier: var(--color-text-primary);
   --color-cendre: var(--color-text-secondary);
-  --color-or: var(--color-cta-bg);
-  --color-braise: var(--color-cta-bg);
+  --color-or: var(--color-vip);
+  --color-braise: var(--color-cta);
   --color-patina: var(--color-success);
+  --color-cta-bg: var(--color-cta);
+  --color-accent: var(--color-trust);
 
   --color-dark-900: var(--color-bg-main);
   --color-dark-800: var(--color-bg-secondary);
   --color-dark-700: var(--color-bg-main);
-  --color-dark-600: var(--color-bg-secondary);
-  --color-dark-500: var(--color-bg-secondary);
+  --color-dark-600: var(--color-card-hover);
+  --color-dark-500: var(--color-card);
   --color-dark-400: var(--color-border);
 
-  --color-card: var(--color-bg-secondary);
-  --color-card-hover: var(--color-bg-secondary);
   --color-card-border: var(--color-border);
   --color-card-border-hover: var(--color-border-hover);
 
-  --color-primary: var(--color-cta-bg);
-  --color-primary-dark: var(--color-cta-bg-hover);
-  --color-primary-light: var(--color-cta-bg);
-  --color-primary-glow: rgba(212, 175, 55, 0.2);
-  --color-primary-pale: rgba(212, 175, 55, 0.10);
+  --color-primary: var(--color-cta);
+  --color-primary-dark: var(--color-cta-active);
+  --color-primary-light: var(--color-cta-hover);
+  --color-primary-glow: rgba(22, 199, 163, 0.2);
+  --color-primary-pale: rgba(22, 199, 163, 0.10);
 
-  --color-secondary: var(--color-accent);
-  --color-secondary-dark: var(--color-accent-hover);
-  --color-secondary-light: var(--color-accent);
-  --color-secondary-glow: rgba(45, 91, 255, 0.2);
+  --color-secondary: var(--color-trust);
+  --color-secondary-dark: var(--color-trust-hover);
+  --color-secondary-light: var(--color-trust);
+  --color-secondary-glow: rgba(79, 140, 255, 0.2);
 
   --color-success-dark: var(--color-success-hover);
   --color-success-light: var(--color-success);
-  --color-success-pale: rgba(0, 168, 126, 0.10);
+  --color-success-pale: rgba(34, 197, 94, 0.10);
 
-  --color-warning: var(--color-cta-bg);
-  --color-warning-pale: rgba(212, 175, 55, 0.10);
-  --color-vip: var(--color-cta-bg);
-  --color-vip-glow: rgba(212, 175, 55, 0.2);
+  --color-warning: var(--color-vip);
+  --color-warning-pale: rgba(242, 184, 75, 0.10);
+  --color-vip-glow: rgba(242, 184, 75, 0.2);
 
-  --color-danger: var(--color-cta-bg);
-  --color-danger-light: var(--color-cta-bg);
-  --color-danger-pale: rgba(212, 175, 55, 0.10);
+  --color-danger: var(--color-error);
+  --color-danger-light: var(--color-error-hover);
+  --color-danger-pale: rgba(248, 113, 113, 0.10);
 
-  --color-accent-light: var(--color-accent-hover);
-  --color-accent-glow: rgba(45, 91, 255, 0.2);
+  --color-accent-light: var(--color-trust-hover);
+  --color-accent-glow: rgba(79, 140, 255, 0.2);
 
-  --color-neon: var(--color-cta-bg);
-  --color-neon-glow: rgba(212, 175, 55, 0.2);
+  --color-neon: var(--color-cta);
+  --color-neon-glow: rgba(22, 199, 163, 0.2);
   --color-neon-green: var(--color-success);
   --color-emerald: var(--color-success);
   --color-emerald-soft: var(--color-success);
   --color-midnight: var(--color-bg-main);
   --color-edge: var(--color-border);
   --color-panel: var(--color-bg-secondary);
-  --color-rose: var(--color-cta-bg);
-  --color-linebet: var(--color-cta-bg);
-  --color-star888: var(--color-cta-bg);
-  --color-gold: var(--color-cta-bg);
-  --color-gold-light: var(--color-cta-bg);
-  --color-lose: var(--color-cta-bg);
+  --color-rose: var(--color-error);
+  --color-linebet: var(--color-cta);
+  --color-star888: var(--color-cta);
+  --color-gold: var(--color-vip);
+  --color-gold-light: var(--color-vip-hover);
+  --color-lose: var(--color-error);
+  --color-win: var(--color-success);
 
   --color-text-muted: var(--color-text-secondary);
   --color-text-tertiary: var(--color-border);
   --color-text-on-dark: var(--color-text-primary);
   --color-text-on-dark-secondary: var(--color-text-secondary);
 
-  --grad-primary: linear-gradient(135deg, var(--color-cta-bg) 0%, var(--color-cta-bg) 100%);
-  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(212, 175, 55,0.06) 0%, transparent 60%),
-               radial-gradient(50% 50% at 85% 10%, rgba(45, 91, 255,0.04) 0%, transparent 60%);
+  --grad-primary: linear-gradient(135deg, var(--color-cta) 0%, var(--color-cta-hover) 100%);
+  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(22, 199, 163,0.06) 0%, transparent 60%),
+               radial-gradient(50% 50% at 85% 10%, rgba(79, 140, 255,0.04) 0%, transparent 60%);
 
   --font-display: 'Poppins', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --shadow-card: 0 1px 2px rgba(13, 15, 18,0.3), 0 8px 30px rgba(13, 15, 18,0.4);
-  --shadow-cta: 0 0 0 1px rgba(212, 175, 55,.2), 0 8px 32px rgba(212, 175, 55,.10);
-  --shadow-glass: 0 1px 0 rgba(244, 247, 250,0.03) inset, 0 8px 30px rgba(13, 15, 18,0.3);
+  --shadow-card: 0 1px 2px rgba(11, 18, 32,0.3), 0 8px 30px rgba(11, 18, 32,0.4);
+  --shadow-cta: 0 0 0 1px rgba(22, 199, 163,.2), 0 8px 32px rgba(22, 199, 163,.10);
+  --shadow-glass: 0 1px 0 rgba(248, 250, 252,0.03) inset, 0 8px 30px rgba(11, 18, 32,0.3);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   :root — INSTITUTIONAL TOKENS (8 variables canoniques)
+   :root — PREMIUM DARK v57 TOKENS (12 variables canoniques)
    ════════════════════════════════════════════════════════════════════════════ */
 :root {
-  --bg-main: #0D0F12;
-  --bg-secondary: #1E2228;
-  --cta-bg: #D4AF37;
-  --cta-text: #0D0F12;
-  --accent: #2D5BFF;
-  --success: #00A87E;
-  --text-primary: #F4F7FA;
-  --text-secondary: #A8B3C7;
-  --border: #2A2E35;
+  /* Fonds */
+  --bg-main: #0B1220;
+  --bg-secondary: #0F172A;
+  --card: #172033;
+  --card-hover: #1E293B;
+  --border: #2B3A52;
 
-  /* Hover states (per spec — Step 4) */
-  --cta-bg-hover: #B9972F;
-  --cta-bg-active: #A8872A;
-  --accent-hover: #5A7CFF;
-  --success-hover: #008A66;
-  --border-hover: #3A3E47;
+  /* Texte */
+  --text-primary: #F8FAFC;
+  --text-secondary: #AAB7CC;
+
+  /* Accents sémantiques */
+  --cta: #16C7A3;            /* Action principale */
+  --cta-text: #0B1220;
+  --trust: #4F8CFF;          /* Confiance / info */
+  --vip: #F2B84B;            /* Premium / VIP */
+  --success: #22C55E;        /* Gagné */
+  --error: #F87171;          /* Perdu / erreur */
+
+  /* Hover states (per spec) */
+  --cta-hover: #1AE0B8;
+  --cta-active: #0FA88A;
+  --trust-hover: #7AA5FF;
+  --vip-hover: #FFD27A;
+  --success-hover: #16A34A;
+  --error-hover: #FCA5A5;
+  --border-hover: #3B4A63;
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
    HOVER / ACTIVE / FOCUS STATES (Step 4 — MANDATORY)
    ════════════════════════════════════════════════════════════════════════════ */
 
-/* CTA Hover: bg #B9972F, text #0D0F12, transition 200ms ease */
+/* CTA Hover: bg #1AE0B8, text #0B1220, transition 200ms ease */
 .vip-glass-cta:hover,
 .btn-primary:hover,
 .btn-vip:hover,
@@ -155,7 +172,7 @@ button[type="submit"]:hover,
   transition: background-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
 }
 
-/* CTA Active: bg #A8872A */
+/* CTA Active: bg #0FA88A */
 .vip-glass-cta:active,
 .btn-primary:active,
 .btn-vip:active,
@@ -167,7 +184,7 @@ button[type="submit"]:active,
   background-color: var(--cta-bg-active) !important;
 }
 
-/* Accent Hover: #5A7CFF (links, secondary buttons, tabs) */
+/* Accent Hover: #7AA5FF (links, secondary buttons, tabs) */
 a:hover,
 .nav-link:hover,
 .link:hover,
@@ -179,14 +196,14 @@ a:hover,
   transition: color 200ms ease;
 }
 
-/* Secondary button hover: bg rgba(45,91,255,0.1) */
+/* Secondary button hover: bg rgba(79, 140, 255,0.1) */
 .btn-secondary:hover,
 .secondary-button:hover {
-  background-color: rgba(45, 91, 255, 0.1);
+  background-color: rgba(79, 140, 255, 0.1);
   border-color: var(--accent);
 }
 
-/* Success Hover: #008A66 */
+/* Success Hover: #16A34A */
 .badge-success:hover,
 .win:hover,
 .success:hover,
@@ -200,7 +217,7 @@ a:hover,
   transition: background-color 200ms ease;
 }
 
-/* Card Hover: border-color #3A3E47 */
+/* Card Hover: border-color #3B4A63 */
 .card:hover,
 .container:hover,
 .panel:hover,
@@ -212,7 +229,7 @@ a:hover,
   transition: border-color 200ms ease;
 }
 
-/* Link Hover: underline color #2D5BFF */
+/* Link Hover: underline color #4F8CFF */
 a:hover {
   text-decoration-color: var(--accent);
 }
@@ -227,12 +244,12 @@ html {
 }
 
 body {
-  background: #0D0F12;
+  background: #0B1220;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(212, 175, 55, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(212, 175, 55, 0.02) 0%, transparent 40%);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(22, 199, 163, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(22, 199, 163, 0.02) 0%, transparent 40%);
   background-attachment: fixed;
-  color: #F4F7FA;
+  color: #F8FAFC;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
@@ -255,8 +272,8 @@ body::before {
   pointer-events: none;
   z-index: -1;
   background-image: 
-    linear-gradient(rgba(244, 247, 250, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(244, 247, 250, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(248, 250, 252, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(248, 250, 252, 0.02) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -270,7 +287,7 @@ h1, h2, h3, h4, h5, h6 {
 p { line-height: 1.7; }
 
 ::selection {
-  background: rgba(0, 168, 126, 0.4);
+  background: rgba(34, 197, 94, 0.4);
   color: #fff;
 }
 
@@ -402,7 +419,7 @@ a:hover { color: var(--color-primary-light); }
   border: 1px solid var(--color-card-border);
 }
 .btn-ghost:hover {
-  background: rgba(244, 247, 250, 0.05);
+  background: rgba(248, 250, 252, 0.05);
   border-color: var(--color-card-border-hover);
 }
 
@@ -434,25 +451,25 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .card-gradient {
-  background: linear-gradient(135deg, rgba(0, 168, 126, 0.1) 0%, rgba(0, 168, 126, 0.05) 100%);
-  border: 1px solid rgba(0, 168, 126, 0.2);
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%);
+  border: 1px solid rgba(34, 197, 94, 0.2);
   border-radius: var(--radius-xl);
   padding: 2rem;
 }
 
 .card-primary {
-  background: linear-gradient(135deg, rgba(0, 168, 126, 0.15) 0%, rgba(0, 168, 126, 0.1) 100%);
-  border: 1px solid rgba(0, 168, 126, 0.3);
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0.1) 100%);
+  border: 1px solid rgba(34, 197, 94, 0.3);
   border-radius: var(--radius-xl);
   padding: 1.5rem;
 }
 
 .card-vip {
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: linear-gradient(135deg, rgba(22, 199, 163, 0.1) 0%, rgba(22, 199, 163, 0.05) 100%);
+  border: 1px solid rgba(22, 199, 163, 0.3);
   border-radius: var(--radius-xl);
   padding: 1.5rem;
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
+  box-shadow: 0 0 30px rgba(22, 199, 163, 0.1);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -469,40 +486,40 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .badge-primary {
-  background: rgba(0, 168, 126, 0.2);
+  background: rgba(34, 197, 94, 0.2);
   color: var(--color-primary-light);
-  border: 1px solid rgba(0, 168, 126, 0.3);
+  border: 1px solid rgba(34, 197, 94, 0.3);
 }
 
 .badge-success {
-  background: rgba(0, 168, 126, 0.2);
+  background: rgba(34, 197, 94, 0.2);
   color: var(--color-success-light);
-  border: 1px solid rgba(0, 168, 126, 0.3);
+  border: 1px solid rgba(34, 197, 94, 0.3);
 }
 
 .badge-warning {
-  background: rgba(212, 175, 55, 0.2);
+  background: rgba(22, 199, 163, 0.2);
   color: var(--color-warning-light);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  border: 1px solid rgba(22, 199, 163, 0.3);
 }
 
 .badge-danger {
-  background: rgba(212, 175, 55, 0.2);
+  background: rgba(22, 199, 163, 0.2);
   color: var(--color-danger-light);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  border: 1px solid rgba(22, 199, 163, 0.3);
 }
 
 .badge-vip {
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(22, 199, 163, 0.2) 0%, rgba(22, 199, 163, 0.1) 100%);
   color: var(--color-vip);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(22, 199, 163, 0.3);
+  box-shadow: 0 0 20px rgba(22, 199, 163, 0.1);
 }
 
 .badge-live {
-  background: rgba(212, 175, 55, 0.2);
+  background: rgba(22, 199, 163, 0.2);
   color: var(--color-danger-light);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  border: 1px solid rgba(22, 199, 163, 0.3);
 }
 .badge-live::before {
   content: '';
@@ -576,8 +593,8 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .match-card.featured {
-  background: linear-gradient(135deg, rgba(0, 168, 126, 0.15) 0%, rgba(0, 168, 126, 0.1) 100%);
-  border: 1px solid rgba(0, 168, 126, 0.3);
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0.1) 100%);
+  border: 1px solid rgba(34, 197, 94, 0.3);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -892,7 +909,7 @@ a:hover { color: var(--color-primary-light); }
 /* Carte VIP Glassmorphism */
 .vip-glass-card {
   position: relative;
-  background: rgba(30, 34, 40, 0.65);
+  background: rgba(15, 23, 42, 0.65);
   backdrop-filter: blur(10px) saturate(180%);
   -webkit-backdrop-filter: blur(10px) saturate(180%);
   border: 1px solid transparent;
@@ -901,11 +918,11 @@ a:hover { color: var(--color-primary-light); }
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow:
-    0 8px 32px rgba(13, 15, 18, 0.5),
-    0 2px 8px rgba(13, 15, 18, 0.3),
-    inset 0 1px 0 rgba(244, 247, 250, 0.06);
-  background-image: linear-gradient(rgba(30, 34, 40, 0.65), rgba(30, 34, 40, 0.65)),
-                    linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.08));
+    0 8px 32px rgba(11, 18, 32, 0.5),
+    0 2px 8px rgba(11, 18, 32, 0.3),
+    inset 0 1px 0 rgba(248, 250, 252, 0.06);
+  background-image: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)),
+                    linear-gradient(135deg, rgba(22, 199, 163, 0.15), rgba(22, 199, 163, 0.08));
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
@@ -917,7 +934,7 @@ a:hover { color: var(--color-primary-light); }
   inset: 0;
   border-radius: 16px;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1));
+  background: linear-gradient(135deg, rgba(22, 199, 163, 0.5), rgba(22, 199, 163, 0.3), rgba(22, 199, 163, 0.1));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -933,7 +950,7 @@ a:hover { color: var(--color-primary-light); }
   left: 20%;
   right: 20%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6), transparent);
+  background: linear-gradient(90deg, transparent, rgba(22, 199, 163, 0.6), transparent);
   pointer-events: none;
 }
 
@@ -941,16 +958,16 @@ a:hover { color: var(--color-primary-light); }
 .vip-glass-card:hover {
   transform: translateY(-6px);
   box-shadow:
-    0 20px 48px rgba(13, 15, 18, 0.6),
-    0 8px 24px rgba(212, 175, 55, 0.15),
-    inset 0 1px 0 rgba(244, 247, 250, 0.08);
+    0 20px 48px rgba(11, 18, 32, 0.6),
+    0 8px 24px rgba(22, 199, 163, 0.15),
+    inset 0 1px 0 rgba(248, 250, 252, 0.08);
   backdrop-filter: blur(14px) saturate(200%);
   -webkit-backdrop-filter: blur(14px) saturate(200%);
 }
 
 /* Halo d'accent au hover */
 .vip-glass-card:hover::before {
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.8), rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0.3));
+  background: linear-gradient(135deg, rgba(22, 199, 163, 0.8), rgba(22, 199, 163, 0.5), rgba(22, 199, 163, 0.3));
 }
 
 /* En-tête carte : niveau VIP + logo */
@@ -967,8 +984,8 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 1.25rem;
-  color: #D4AF37;
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  color: #F2B84B;
+  text-shadow: 0 0 20px rgba(242, 184, 75, 0.3);
   letter-spacing: 0.02em;
 }
 
@@ -982,18 +999,18 @@ a:hover { color: var(--color-primary-light); }
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: linear-gradient(135deg, #D4AF37, #D4AF37);
+  background: linear-gradient(135deg, #16C7A3, #16C7A3);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 16px rgba(22, 199, 163, 0.4);
 }
 
 .vip-glass-logo-text {
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
-  color: #F4F7FA;
+  color: #F8FAFC;
 }
 
 /* Corps carte : utilisateur + avantages */
@@ -1006,7 +1023,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  color: #F4F7FA;
+  color: #F8FAFC;
   margin-bottom: 1rem;
 }
 
@@ -1025,7 +1042,7 @@ a:hover { color: var(--color-primary-light); }
   gap: 0.625rem;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.8125rem;
-  color: #A8B3C7;
+  color: #AAB7CC;
   line-height: 1.5;
 }
 
@@ -1036,8 +1053,8 @@ a:hover { color: var(--color-primary-light); }
   height: 6px;
   margin-top: 6px;
   border-radius: 50%;
-  background: #D4AF37;
-  box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+  background: #16C7A3;
+  box-shadow: 0 0 8px rgba(22, 199, 163, 0.6);
 }
 
 /* Pied carte : statut */
@@ -1047,7 +1064,7 @@ a:hover { color: var(--color-primary-light); }
   justify-content: space-between;
   margin-top: 1.25rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(244, 247, 250, 0.06);
+  border-top: 1px solid rgba(248, 250, 252, 0.06);
   position: relative;
   z-index: 2;
 }
@@ -1059,7 +1076,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.6875rem;
   font-weight: 600;
-  color: #D4AF37;
+  color: #16C7A3;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -1069,8 +1086,8 @@ a:hover { color: var(--color-primary-light); }
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #D4AF37;
-  box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+  background: #16C7A3;
+  box-shadow: 0 0 8px rgba(22, 199, 163, 0.8);
   animation: vip-pulse 2s ease-in-out infinite;
 }
 
@@ -1082,7 +1099,7 @@ a:hover { color: var(--color-primary-light); }
 .vip-glass-meta {
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.6875rem;
-  color: #2A2E35;
+  color: #2B3A52;
 }
 
 /* CTA carte VIP glassmorphism */
@@ -1094,24 +1111,25 @@ a:hover { color: var(--color-primary-light); }
   width: 100%;
   padding: 0.75rem 1.25rem;
   margin-top: 1.25rem;
-  background: linear-gradient(135deg, #D4AF37 0%, #D4AF37 100%);
-  color: #F4F7FA;
+  background: linear-gradient(135deg, #16C7A3 0%, #16C7A3 100%);
+  color: #0B1220;
   font-family: 'Poppins', system-ui, sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.875rem;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 16px rgba(22, 199, 163, 0.3);
   position: relative;
   z-index: 2;
 }
 
 .vip-glass-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.5);
-  background: linear-gradient(135deg, #D4AF37 0%, #D4AF37 100%);
+  box-shadow: 0 8px 24px rgba(22, 199, 163, 0.5);
+  background: linear-gradient(135deg, #1AE0B8 0%, #16C7A3 100%);
+  filter: brightness(1.08);
 }
 
 .vip-glass-cta:active {
@@ -1120,17 +1138,17 @@ a:hover { color: var(--color-primary-light); }
 
 /* Badge or champagne pour cartes premium */
 .vip-glass-card.gold {
-  background-image: linear-gradient(rgba(30, 34, 40, 0.65), rgba(30, 34, 40, 0.65)),
-                    linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+  background-image: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)),
+                    linear-gradient(135deg, rgba(242, 184, 75, 0.2), rgba(242, 184, 75, 0.1));
 }
 
 .vip-glass-card.gold::before {
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.6), rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.2));
+  background: linear-gradient(135deg, rgba(242, 184, 75, 0.6), rgba(242, 184, 75, 0.3), rgba(242, 184, 75, 0.2));
 }
 
 .vip-glass-card.gold .vip-glass-level {
-  color: #D4AF37;
-  text-shadow: 0 0 24px rgba(212, 175, 55, 0.5);
+  color: #F2B84B;
+  text-shadow: 0 0 24px rgba(242, 184, 75, 0.5);
 }
 
 /* Responsive : padding réduit sur mobile */

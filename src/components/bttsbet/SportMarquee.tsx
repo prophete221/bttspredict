@@ -19,15 +19,15 @@ export default function SportMarquee() {
   const items = [...SPORTS, ...SPORTS]
 
   return (
-    <div className="relative overflow-hidden py-3 border-y" style={{ borderColor: 'rgba(168, 179, 199, 0.3)', backgroundColor: 'rgba(13, 15, 18, 0.5)' }}>
+    <div className="relative overflow-hidden py-3 border-y" style={{ borderColor: 'rgba(170, 183, 204, 0.3)', backgroundColor: 'rgba(11, 18, 32, 0.5)' }}>
       {/* Fade edges */}
       <div
         className="absolute left-0 top-0 bottom-0 z-10 w-16 sm:w-24 pointer-events-none"
-        style={{ background: 'linear-gradient(90deg, #0D0F12, transparent)' }}
+        style={{ background: 'linear-gradient(90deg, #0B1220, transparent)' }}
       />
       <div
         className="absolute right-0 top-0 bottom-0 z-10 w-16 sm:w-24 pointer-events-none"
-        style={{ background: 'linear-gradient(270deg, #0D0F12, transparent)' }}
+        style={{ background: 'linear-gradient(270deg, #0B1220, transparent)' }}
       />
 
       {/* Scrolling track */}
@@ -54,7 +54,7 @@ export default function SportMarquee() {
               onMouseEnter={(e) => {
                 e.currentTarget.style.filter = 'grayscale(0) brightness(1)'
                 e.currentTarget.style.opacity = '1'
-                ;(e.currentTarget.style as any).dropShadow = '0 0 12px rgba(212, 175, 55, 0.5)'
+                ;(e.currentTarget.style as any).dropShadow = '0 0 12px rgba(22, 199, 163, 0.5)'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.filter = 'grayscale(1) brightness(0.7)'
@@ -63,9 +63,9 @@ export default function SportMarquee() {
             />
             <span
               className="text-xs sm:text-sm font-semibold transition-colors duration-300"
-              style={{ color: '#A8B3C7' }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = '#00A87E' }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = '#A8B3C7' }}
+              style={{ color: '#AAB7CC' }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = '#22C55E' }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = '#AAB7CC' }}
             >
               {sport.name}
             </span>

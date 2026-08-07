@@ -519,7 +519,7 @@ export default function FreePredictions() {
           <div className="text-center py-16">
             <div className="glass-3d rounded-2xl p-8 max-w-sm mx-auto">
               <div className="w-14 h-14 bg-braise/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16C7A3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
                 </svg>
               </div>
@@ -533,7 +533,7 @@ export default function FreePredictions() {
           <div className="text-center py-16">
             <div className="glass-3d rounded-2xl p-8 max-w-sm mx-auto">
               <div className="w-14 h-14 bg-edge rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A8B3C7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#AAB7CC" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
                 </svg>
               </div>

@@ -333,8 +333,8 @@ export default function Home() {
           Contrairement aux autres sites, nous affichons publiquement tous nos résultats, gagnés et perdus.
           Grâce à notre modèle de Poisson calibré sur 50 000 matchs, nous atteignons un taux de réussite vérifié de 84,5%.
           Notre équipe d'analystes experts valide chaque pronostic —{' '}
-          <a href="/equipe" style={{ color: '#D4AF37' }}>découvrez notre équipe</a>{' '}ou{' '}
-          <a href="/blog" style={{ color: '#D4AF37' }}>lisez nos analyses sportives</a>.
+          <a href="/equipe" style={{ color: '#16C7A3' }}>découvrez notre équipe</a>{' '}ou{' '}
+          <a href="/blog" style={{ color: '#16C7A3' }}>lisez nos analyses sportives</a>.
         </p>
         <p>
           <strong>Transparence absolue :</strong> BTTSPredict est la seule plateforme
@@ -437,7 +437,7 @@ export default function Home() {
         <h2>Historique vérifiable et transparence</h2>
         <p>
           BTTSPredict maintient un{' '}
-          <a href="/historique" style={{ color: '#D4AF37' }}>historique public vérifiable</a>{' '}
+          <a href="/historique" style={{ color: '#16C7A3' }}>historique public vérifiable</a>{' '}
           de tous les pronostics publiés, incluant les résultats gagnés ET perdus. Notre taux de réussite est calculé manuellement
           à partir des résultats réels des matchs, pas d'un chiffre marketing. Chaque entrée
           de l'historique contient la date, le match, la ligue, le type de pronostic (BTTS/Over 2.5),
@@ -446,7 +446,7 @@ export default function Home() {
 
         <h2>Méthodologie IA — 3 couches technologiques</h2>
         <p>
-          Notre <a href="/methodologie" style={{ color: '#D4AF37' }}>méthodologie détaillée</a>{' '}
+          Notre <a href="/methodologie" style={{ color: '#16C7A3' }}>méthodologie détaillée</a>{' '}
           repose sur 3 couches.{' '}
           <strong>Couche 1 — Collecte de données :</strong> Notre équipe agrège plus de 200 variables
           par match : Expected Goals (xG), forme récente (5 derniers matchs), blessures et

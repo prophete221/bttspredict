@@ -34,7 +34,7 @@ const PANAFRICAN_PRESENCE = [
 
 export default function GlobalReach() {
   return (
-    <section id="global-reach" className="py-12 sm:py-16 px-4" style={{ background: 'rgba(30, 34, 40, 0.4)' }}>
+    <section id="global-reach" className="py-12 sm:py-16 px-4" style={{ background: 'rgba(15, 23, 42, 0.4)' }}>
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
@@ -59,9 +59,9 @@ export default function GlobalReach() {
             <div
               key={i}
               className="text-center p-4 rounded-xl"
-              style={{ background: 'rgba(30, 34, 40, 0.6)', border: '1px solid rgba(212, 175, 55, 0.08)' }}
+              style={{ background: 'rgba(15, 23, 42, 0.6)', border: '1px solid rgba(22, 199, 163, 0.08)' }}
             >
-              <div className="text-2xl font-bold" style={{ color: '#D4AF37' }}>{stat.value}</div>
+              <div className="text-2xl font-bold" style={{ color: '#16C7A3' }}>{stat.value}</div>
               <div className="text-[10px] text-cendre mt-1 uppercase tracking-wider">{stat.label}</div>
             </div>
           ))}
@@ -76,7 +76,7 @@ export default function GlobalReach() {
           className="mb-8"
         >
           <h3 className="text-xl font-bold text-papier mb-4 flex items-center gap-2">
-            <span style={{ color: '#D4AF37' }}>🌐</span>
+            <span style={{ color: '#16C7A3' }}>🌐</span>
             Disponible dans le monde entier
           </h3>
           <p className="text-cendre text-xs mb-4 leading-relaxed">
@@ -87,7 +87,7 @@ export default function GlobalReach() {
               <div
                 key={i}
                 className="p-4 rounded-lg"
-                style={{ background: 'rgba(30, 34, 40, 0.6)', border: '1px solid #1E2228' }}
+                style={{ background: 'rgba(15, 23, 42, 0.6)', border: '1px solid #0F172A' }}
               >
                 <div className="text-sm font-bold text-papier mb-1">{region.name}</div>
                 <div className="text-[11px] text-cendre leading-relaxed">{region.countries}</div>
@@ -104,7 +104,7 @@ export default function GlobalReach() {
           transition={{ duration: 0.4, delay: 0.2 }}
         >
           <h3 className="text-xl font-bold text-papier mb-4 flex items-center gap-2">
-            <span style={{ color: '#D4AF37' }}>🌍</span>
+            <span style={{ color: '#16C7A3' }}>🌍</span>
             Présence panafricaine
           </h3>
           <p className="text-cendre text-xs mb-4 leading-relaxed">
@@ -115,7 +115,7 @@ export default function GlobalReach() {
               <div
                 key={i}
                 className="flex items-center justify-between p-3 rounded-lg"
-                style={{ background: 'rgba(30, 34, 40, 0.6)', border: '1px solid #1E2228' }}
+                style={{ background: 'rgba(15, 23, 42, 0.6)', border: '1px solid #0F172A' }}
               >
                 <div className="flex items-center gap-2">
                   <span className="text-lg">{item.flag}</span>
@@ -124,7 +124,7 @@ export default function GlobalReach() {
                     <div className="text-[10px] text-cendre">{item.city}</div>
                   </div>
                 </div>
-                <div className="text-xs font-bold" style={{ color: '#D4AF37' }}>{item.users}</div>
+                <div className="text-xs font-bold" style={{ color: '#16C7A3' }}>{item.users}</div>
               </div>
             ))}
           </div>
@@ -138,8 +138,8 @@ export default function GlobalReach() {
           transition={{ duration: 0.4, delay: 0.3 }}
           className="mt-8 p-5 rounded-xl text-center"
           style={{
-            background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(212, 175, 55, 0.05))',
-            border: '1px solid rgba(212, 175, 55, 0.15)',
+            background: 'linear-gradient(135deg, rgba(22, 199, 163, 0.05), rgba(22, 199, 163, 0.05))',
+            border: '1px solid rgba(22, 199, 163, 0.15)',
           }}
         >
           <div className="text-2xl mb-2">🎯</div>
