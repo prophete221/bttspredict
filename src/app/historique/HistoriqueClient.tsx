@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 interface TrackingPeriod {
   startDate: string
-  modelVersion: string
+  modelVersion?: string  // Optionnel : ne plus exposer publiquement
   isPublicPeriod: boolean
   disclaimer: string
   insufficientVolume: boolean
@@ -113,7 +113,7 @@ export default function HistoriqueClient() {
         <div className="text-center mb-6">
           <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
             style={{ backgroundColor: 'rgba(81, 70, 245, 0.12)', color: '#5146F5', border: '1px solid rgba(81, 70, 245, 0.25)' }}>
-            Nouveau suivi public · Modèle {trackingPeriod.modelVersion}
+            Nouveau suivi public
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Historique vérifié

@@ -33,7 +33,7 @@ export default function VipPage() {
               Pronostics premium BTTS et Over 2.5
             </h1>
             <p className="text-base sm:text-lg text-[#A5ABC5] leading-relaxed mb-3">
-              Le programme VIP BTTSPredict propose des pronostics premium générés par le même modèle statistique Poisson que nos pronostics gratuits, avec des sélections supplémentaires et des analyses détaillées.
+              Le programme VIP BTTSPredict propose des pronostics premium avec des sélections supplémentaires et des analyses détaillées, générés par un modèle statistique probabiliste.
             </p>
             <p className="text-sm text-[#6B7194] leading-relaxed">
               Aucun gain n'est garanti. Les pronostics sont publiés à titre informatif et ne constituent pas une incitation à parier. 18+.
@@ -47,7 +47,7 @@ export default function VipPage() {
             {[
               { icon: '⚽', title: 'Sélections supplémentaires', desc: 'Accès à des pronostics supplémentaires par rapport à la version gratuite, sur les mêmes marchés BTTS et Over 2.5.' },
               { icon: '📊', title: 'Analyses détaillées', desc: 'Pour chaque prono VIP : lambdas Poisson, forme récente des équipes, ligue, niveau de confiance des données.' },
-              { icon: '🎯', title: 'Même modèle Poisson', desc: 'Le VIP utilise le même moteur statistique V3-Reliability que les pronos gratuits. Aucune méthode secrète.' },
+              { icon: '🎯', title: 'Sélections supplémentaires', desc: 'Accès à des pronostics supplémentaires par rapport à la version gratuite, sur les marchés BTTS et Over 2.5.' },
             ].map((card, i) => (
               <div key={i} className="p-5 rounded-2xl" style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
                 <div className="text-3xl mb-3" aria-hidden="true">{card.icon}</div>
@@ -101,7 +101,7 @@ export default function VipPage() {
             </table>
           </div>
           <p className="text-xs text-[#6B7194] mt-4 leading-relaxed">
-            Les pronostics VIP sont générés par le même modèle statistique Poisson V3-Reliability que les pronostics gratuits. La différence porte sur le volume de pronostics et le niveau de détail des analyses.
+            Les pronostics VIP offrent un volume de sélections plus important et un niveau de détail d'analyse supérieur aux pronostics gratuits.
           </p>
         </section>
 
@@ -111,7 +111,7 @@ export default function VipPage() {
             Sports couverts
           </h2>
           <p className="text-sm text-[#A5ABC5] mb-4 leading-relaxed">
-            Le modèle statistique V3-Reliability est calibré pour le football sur 11 ligues HIGH_BTTS (taux historique supérieur à 53% de BTTS). Les autres sports listés ci-dessous sont disponibles en VIP mais ne bénéficient pas du même niveau de calibration statistique.
+            Le modèle statistique est calibré pour le football sur un ensemble sélectionné de ligues à fort taux de BTTS. Les autres sports listés ci-dessous sont disponibles en VIP mais ne bénéficient pas du même niveau de calibration statistique.
           </p>
           <VipSports />
           <p className="text-xs text-[#6B7194] mt-4 leading-relaxed">
@@ -126,7 +126,7 @@ export default function VipPage() {
           </h2>
           <div className="p-5 rounded-2xl" style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
             <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
-              Le nombre réel de pronostics publiés chaque jour dépend du nombre de matchs qui passent les 4 filtres obligatoires du moteur V3 (forme récente, ligue HIGH_BTTS, probabilité Poisson ≥ 62%). En moyenne, entre 2 et 5 pronostics sont publiés par jour.
+              Le nombre réel de pronostics publiés chaque jour dépend du nombre de matchs qui passent les critères de qualité du modèle. En moyenne, un nombre limité de pronostics est publié chaque jour.
             </p>
             <p className="text-sm text-[#A5ABC5] leading-relaxed">
               Si aucun match ne passe les filtres un jour donné, aucun prono n'est publié. C'est intentionnel — mieux vaut 0 prono que 50 à 0%.
@@ -242,9 +242,9 @@ export default function VipPage() {
           </h2>
           <div className="space-y-3">
             {[
-              { q: 'Le VIP garantit-il des gains ?', a: 'Non. Aucun gain n\'est garanti. Les paris sportifs comportent un risque de perte. Le VIP propose des sélections supplémentaires basées sur le même modèle statistique que les pronos gratuits.' },
+              { q: 'Le VIP garantit-il des gains ?', a: 'Non. Aucun gain n\'est garanti. Les paris sportifs comportent un risque de perte. Le VIP propose des sélections supplémentaires basées sur une approche statistique.' },
               { q: 'Pourquoi le VIP est-il lié à un bookmaker ?', a: 'BTTSPredict est un site d\'analyse statistique. Le VIP est un service premium réservé aux utilisateurs inscrits chez nos bookmakers partenaires. BTTSPredict ne prend pas de paris et ne collecte pas de fonds.' },
-              { q: 'Combien de pronostics par jour ?', a: 'Entre 2 et 5 pronostics sont publiés par jour. Le nombre exact dépend du nombre de matchs qui passent les 4 filtres obligatoires du moteur V3.' },
+              { q: 'Combien de pronostics par jour ?', a: 'Un nombre limité de pronostics est publié chaque jour, sélectionnés parmi les meilleures probabilités. Le nombre exact varie selon les matchs disponibles.' },
               { q: 'Puis-je obtenir un remboursement ?', a: 'Aucun remboursement n\'est prévu. Le modèle statistique peut produire des séries de pertes. Le VIP est un service d\'analyse, pas un produit financier.' },
               { q: 'Comment contacter le support VIP ?', a: 'Le support VIP se fait via WhatsApp. Le numéro est communiqué après activation du compte. Le support standard se fait par email.' },
               { q: 'Le VIP est-il accessible aux mineurs ?', a: 'Non. Le VIP est strictement réservé aux personnes majeures (18+). Une vérification d\'âge est effectuée à l\'inscription chez le bookmaker partenaire.' },

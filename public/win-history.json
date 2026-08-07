@@ -1,8 +1,7 @@
 {
-  "generatedAt": "2026-08-07T20:06:55.136Z",
+  "generatedAt": "2026-08-07T20:32:54.388Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
-    "modelVersion": "V3-Reliability",
     "isPublicPeriod": true,
     "disclaimer": "Nouvelle période de suivi lancée le 2026-08-08. Les résultats sont publiés et vérifiés progressivement. Le volume actuel est encore insuffisant pour évaluer statistiquement la performance du modèle. Aucun résultat futur n'est garanti.",
     "insufficientVolume": true

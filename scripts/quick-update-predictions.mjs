@@ -302,10 +302,6 @@ async function quickUpdate() {
         analysis: {
           bttsProb: +bttsProbability.toFixed(4),
           over25Prob: +over25Probability.toFixed(4),
-          homeLambda: +homeLambda.toFixed(4),
-          awayLambda: +awayLambda.toFixed(4),
-          homeForm: { scoredIn: homeForm.scoredIn, concededIn: homeForm.concededIn },
-          awayForm: { scoredIn: awayForm.scoredIn, concededIn: awayForm.concededIn },
           dataQuality: 5,
           hasRealData: true,
         },
@@ -333,10 +329,6 @@ async function quickUpdate() {
         analysis: {
           bttsProb: +bttsProbability.toFixed(4),
           over25Prob: +over25Probability.toFixed(4),
-          homeLambda: +homeLambda.toFixed(4),
-          awayLambda: +awayLambda.toFixed(4),
-          homeForm: { scoredIn: homeForm.scoredIn, concededIn: homeForm.concededIn },
-          awayForm: { scoredIn: awayForm.scoredIn, concededIn: awayForm.concededIn },
           dataQuality: 5,
           hasRealData: true,
         },

@@ -34,12 +34,17 @@ describe('Phase 2 — Routes autonomes', () => {
     expect(fs.existsSync(path.join(ROOT, 'src/app/pronostics/aujourd-hui/page.tsx'))).toBe(true)
   })
 
-  test('/methodologie documente les sources réelles', () => {
+  test('/methodologie documente les sources réelles (sans exposer variables/seuils internes)', () => {
     const page = fs.readFileSync(path.join(ROOT, 'src/app/methodologie/page.tsx'), 'utf8')
-    expect(page).toContain('ESPN Soccer API')
+    expect(page).toContain('ESPN')
     expect(page).toContain('TheSportsDB')
+    // Audit confidentialité : ne pas exposer les détails internes publiquement
     expect(page).not.toContain('200+ variables')
-    expect(page).toContain('8 variables')
+    expect(page).not.toContain('8 variables')
+    expect(page).not.toContain('0.62')
+    expect(page).not.toContain('HIGH_BTTS')
+    expect(page).not.toContain('homeForm')
+    expect(page).not.toContain('V3-Reliability')
     expect(page).toContain('Aucun résultat futur')
   })
 
@@ -95,13 +100,18 @@ describe('Phase 6 — BottomNavigation sur toutes les pages', () => {
 })
 
 describe('Phase 3 — Nouveau système de suivi', () => {
-  test('tracking-period.json existe avec startDate et modelVersion', () => {
+  test('tracking-period.json existe avec startDate et disclaimer (sans exposer les détails internes)', () => {
     const tp = JSON.parse(fs.readFileSync(path.join(ROOT, 'public/tracking-period.json'), 'utf8'))
     expect(tp.startDate).toBe('2026-08-08')
-    expect(tp.modelVersion).toBe('V3-Reliability')
-    expect(tp.filters).toHaveLength(4)
-    expect(tp.leagues).toHaveLength(11)
     expect(tp.disclaimer).toContain('Aucun résultat futur')
+    expect(tp.markets).toBeDefined()
+    // Audit confidentialité : ne pas exposer modelVersion, filters, leagues, variables en public
+    expect(tp.modelVersion).toBeUndefined()
+    expect(tp.filters).toBeUndefined()
+    expect(tp.leagues).toBeUndefined()
+    expect(tp.variables).toBeUndefined()
+    expect(tp.variablesDetail).toBeUndefined()
+    expect(tp.goldTierThreshold).toBeUndefined()
   })
 
   test('win-history.json contient trackingPeriod avec insufficientVolume', () => {
@@ -513,3 +523,132 @@ describe('Critère 30 — Toutes les modifications sont documentées', () => {
   })
 })
 
+
+describe('Audit confidentialité (7 août 2026)', () => {
+  const PUBLIC_FILES = [
+    'src/app/page.tsx',
+    'src/app/pronostics/page.tsx',
+    'src/app/pronostics/aujourd-hui/page.tsx',
+    'src/app/vip/page.tsx',
+    'src/app/historique/HistoriqueClient.tsx',
+    'src/app/methodologie/page.tsx',
+    'src/components/bttsbet/Hero.tsx',
+    'src/components/bttsbet/Footer.tsx',
+  ]
+
+  test('Aucune page publique ne mentionne "V3-Reliability" (nom de version interne)', () => {
+    for (const f of PUBLIC_FILES) {
+      const content = fs.readFileSync(path.join(ROOT, f), 'utf8')
+      expect(content).not.toMatch(/V3-Reliability/)
+      expect(content).not.toMatch(/V3\b/)
+    }
+  })
+
+  test('Aucune page publique ne mentionne "8 variables" (nombre exact)', () => {
+    for (const f of PUBLIC_FILES) {
+      const content = fs.readFileSync(path.join(ROOT, f), 'utf8')
+      expect(content).not.toMatch(/8 variables/)
+    }
+  })
+
+  test('Aucune page publique ne mentionne "0.62" (seuil exact)', () => {
+    for (const f of PUBLIC_FILES) {
+      const content = fs.readFileSync(path.join(ROOT, f), 'utf8')
+      // Allow '0.62' only in non-display contexts (none expected here)
+      expect(content).not.toMatch(/0\.62/)
+    }
+  })
+
+  test('Aucune page publique ne mentionne "HIGH_BTTS" (liste interne)', () => {
+    for (const f of PUBLIC_FILES) {
+      const content = fs.readFileSync(path.join(ROOT, f), 'utf8')
+      expect(content).not.toMatch(/HIGH_BTTS/)
+    }
+  })
+
+  test('Aucune page publique ne liste exactement "11 ligues"', () => {
+    for (const f of PUBLIC_FILES) {
+      const content = fs.readFileSync(path.join(ROOT, f), 'utf8')
+      expect(content).not.toMatch(/11 ligues/)
+    }
+  })
+
+  test('Aucune page publique ne mentionne "53%" (seuil historique)', () => {
+    for (const f of PUBLIC_FILES) {
+      const content = fs.readFileSync(path.join(ROOT, f), 'utf8')
+      expect(content).not.toMatch(/53%/)
+    }
+  })
+
+  test('Aucune page publique ne mentionne noms de champs internes (homeForm.scoredIn, etc.)', () => {
+    for (const f of PUBLIC_FILES) {
+      const content = fs.readFileSync(path.join(ROOT, f), 'utf8')
+      expect(content).not.toMatch(/homeForm\./)
+      expect(content).not.toMatch(/awayForm\./)
+      expect(content).not.toMatch(/scoredIn/)
+      expect(content).not.toMatch(/concededIn/)
+      expect(content).not.toMatch(/avgScored/)
+      expect(content).not.toMatch(/avgConceded/)
+      expect(content).not.toMatch(/bttsRate/)
+      expect(content).not.toMatch(/awayLambda/)
+      expect(content).not.toMatch(/homeLambda/)
+      expect(content).not.toMatch(/PoissonPMF/)
+    }
+  })
+
+  test('Aucune page publique ne cite API-Football, Forebet, Windrawwin, Soccerbase', () => {
+    for (const f of PUBLIC_FILES) {
+      const content = fs.readFileSync(path.join(ROOT, f), 'utf8')
+      expect(content).not.toMatch(/API-Football/)
+      expect(content).not.toMatch(/Forebet/)
+      expect(content).not.toMatch(/Windrawwin/)
+      expect(content).not.toMatch(/Soccerbase/)
+    }
+  })
+
+  test('Aucune page publique ne mentionne "Membre vérifié" (preuve sociale non démontrée)', () => {
+    for (const f of PUBLIC_FILES) {
+      const content = fs.readFileSync(path.join(ROOT, f), 'utf8')
+      // Allow "non vérifiable" / "non démontrée" — those are disclaimers
+      const cleaned = content
+        .replace(/non vérifiable/gi, '')
+        .replace(/non démontrée/gi, '')
+      expect(cleaned).not.toMatch(/Membre vérifié/)
+    }
+  })
+
+  test('Aucune page publique ne mentionne endpoints API précis (site.api.espn.com, thesportsdb.com/api/v1)', () => {
+    for (const f of PUBLIC_FILES) {
+      const content = fs.readFileSync(path.join(ROOT, f), 'utf8')
+      expect(content).not.toMatch(/site\.api\.espn\.com/)
+      expect(content).not.toMatch(/thesportsdb\.com\/api\/v1/)
+    }
+  })
+
+  test('tracking-period.json public ne contient pas modelVersion/filters/leagues/variables', () => {
+    const tp = JSON.parse(fs.readFileSync(path.join(ROOT, 'public/tracking-period.json'), 'utf8'))
+    expect(tp.modelVersion).toBeUndefined()
+    expect(tp.filters).toBeUndefined()
+    expect(tp.leagues).toBeUndefined()
+    expect(tp.variables).toBeUndefined()
+    expect(tp.variablesDetail).toBeUndefined()
+    expect(tp.goldTierThreshold).toBeUndefined()
+  })
+
+  test('win-history.json public ne contient pas modelVersion dans trackingPeriod', () => {
+    const wh = JSON.parse(fs.readFileSync(path.join(ROOT, 'public/win-history.json'), 'utf8'))
+    expect(wh.trackingPeriod.modelVersion).toBeUndefined()
+  })
+
+  test('predictions.json public ne contient pas homeLambda/awayLambda/homeForm/awayForm', () => {
+    const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'public/predictions.json'), 'utf8'))
+    const preds = data.predictions || []
+    for (const p of preds) {
+      const analysis = p.analysis || {}
+      expect(analysis.homeLambda).toBeUndefined()
+      expect(analysis.awayLambda).toBeUndefined()
+      expect(analysis.homeForm).toBeUndefined()
+      expect(analysis.awayForm).toBeUndefined()
+    }
+  })
+})

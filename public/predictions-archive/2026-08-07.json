@@ -20,16 +20,6 @@
       "analysis": {
         "bttsProb": 0.9398,
         "over25Prob": 0.9907,
-        "homeLambda": 5.6291,
-        "awayLambda": 2.8678,
-        "homeForm": {
-          "scoredIn": 4,
-          "concededIn": 4
-        },
-        "awayForm": {
-          "scoredIn": 3,
-          "concededIn": 4
-        },
         "dataQuality": 5,
         "hasRealData": true
       },
@@ -56,16 +46,6 @@
       "analysis": {
         "bttsProb": 0.9698,
         "over25Prob": 0.9906,
-        "homeLambda": 4.5679,
-        "awayLambda": 3.9104,
-        "homeForm": {
-          "scoredIn": 4,
-          "concededIn": 4
-        },
-        "awayForm": {
-          "scoredIn": 3,
-          "concededIn": 3
-        },
         "dataQuality": 5,
         "hasRealData": true
       },
@@ -90,16 +70,6 @@
       "analysis": {
         "bttsProb": 0.9555,
         "over25Prob": 0.9811,
-        "homeLambda": 3.7491,
-        "awayLambda": 3.8407,
-        "homeForm": {
-          "scoredIn": 3,
-          "concededIn": 4
-        },
-        "awayForm": {
-          "scoredIn": 4,
-          "concededIn": 4
-        },
         "dataQuality": 5,
         "hasRealData": true
       },
@@ -124,16 +94,6 @@
       "analysis": {
         "bttsProb": 0.8777,
         "over25Prob": 0.9752,
-        "homeLambda": 5.0901,
-        "awayLambda": 2.1468,
-        "homeForm": {
-          "scoredIn": 4,
-          "concededIn": 3
-        },
-        "awayForm": {
-          "scoredIn": 3,
-          "concededIn": 4
-        },
         "dataQuality": 5,
         "hasRealData": true
       },
@@ -158,16 +118,6 @@
       "analysis": {
         "bttsProb": 0.9283,
         "over25Prob": 0.9743,
-        "homeLambda": 4.3713,
-        "awayLambda": 2.8157,
-        "homeForm": {
-          "scoredIn": 3,
-          "concededIn": 4
-        },
-        "awayForm": {
-          "scoredIn": 3,
-          "concededIn": 4
-        },
         "dataQuality": 5,
         "hasRealData": true
       },

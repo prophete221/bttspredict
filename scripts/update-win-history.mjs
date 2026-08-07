@@ -217,11 +217,11 @@ function main() {
   const legacyStats = buildStats(legacyBucket, legacyPeriodFrom, legacyPeriodTo, legacyDaysCount);
 
   // ─── Output: newStats PUBLIC, legacyStats PRIVATE (kept for technical audit only) ───
+  // Note : ne pas exposer le nom de version interne du modèle publiquement (audit confidentialité)
   const out = {
     generatedAt: new Date().toISOString(),
     trackingPeriod: {
       startDate: TRACKING_START,
-      modelVersion: MODEL_VERSION,
       isPublicPeriod: true,
       disclaimer: "Nouvelle période de suivi lancée le " + TRACKING_START + ". Les résultats sont publiés et vérifiés progressivement. Le volume actuel est encore insuffisant pour évaluer statistiquement la performance du modèle. Aucun résultat futur n'est garanti.",
       insufficientVolume: newStats.total < 30,

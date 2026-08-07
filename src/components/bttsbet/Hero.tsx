@@ -77,12 +77,12 @@ export default function Hero() {
           >
             Pronostics BTTS et Over 2.5
             <br />
-            <span style={{ color: '#5146F5', fontSize: '22px' }}>Modèle statistique Poisson V3</span>
+            <span style={{ color: '#5146F5', fontSize: '22px' }}>Modèle statistique probabiliste</span>
           </h1>
 
           {/* ═══ H2 ═══ */}
           <p className="mt-3 text-[13px] leading-[1.6]" style={{ color: '#A5ABC5', maxWidth: '380px' }}>
-            Données ESPN publiques. Analyse statistique. Forme des équipes. 11 ligues HIGH_BTTS filtrées. Pronostics quotidiens vérifiables après le match.
+            Données ESPN publiques. Analyse statistique. Forme des équipes. Ligues sélectionnées pour leur fort taux de BTTS. Pronostics quotidiens vérifiables après le match.
           </p>
         </motion.div>
 
@@ -154,9 +154,9 @@ export default function Hero() {
             Suivi public depuis le 2026-08-08
           </span>
           <span style={{ color: '#303861' }}>·</span>
-          <span>11 ligues HIGH_BTTS</span>
+          <span>Ligues sélectionnées</span>
           <span style={{ color: '#303861' }}>·</span>
-          <span style={{ color: '#5DFDCB' }}>Modèle V3-Reliability</span>
+          <span style={{ color: '#5DFDCB' }}>Approche probabiliste</span>
         </motion.div>
 
         {/* ═══ Badges confiance — 1 ligne discrète ═══ */}

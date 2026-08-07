@@ -2,9 +2,9 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { SITE, AFFILIATE, LEGAL, FAQ_ITEMS, TESTIMONIALS, SOCIAL_PROOF, LONASE } from '@/lib/constants'
+import { SITE, AFFILIATE, LEGAL, FAQ_ITEMS, LONASE } from '@/lib/constants'
 import { useScrollAnimation } from '@/hooks/useAnimations'
-import { staggerContainer, staggerChildFadeUp, fadeInUp } from '@/lib/motionPresets'
+import { staggerContainer, fadeInUp } from '@/lib/motionPresets'
 
 export default function Footer() {
   const [ref, isVisible] = useScrollAnimation()
@@ -14,26 +14,18 @@ export default function Footer() {
     <>
       <footer ref={ref} id="faq" className="border-t pt-10 pb-20 sm:pb-8 px-4" style={{ borderColor: '#5146F5', backgroundColor: '#070B18' }}>
         <div className="max-w-[440px] sm:max-w-2xl mx-auto">
-          {/* Testimonials */}
+          {/* Note de transparence (remplace les témoignages non vérifiables) */}
           <motion.div variants={staggerContainer} initial="hidden" animate={isVisible ? 'visible' : 'hidden'} className="mb-6">
             <div className="text-center mb-3">
-              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#5146F5]">Ils utilisent BTTSPredict</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#5146F5]">Transparence</span>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {TESTIMONIALS.slice(0, 3).map((t) => (
-                <motion.div key={t.name + t.city} variants={staggerChildFadeUp} className="rounded-xl p-4" style={{ backgroundColor: '#0D1630', border: '1px solid rgba(247, 248, 255, 0.08)' }}>
-                  <div className="flex items-center gap-2.5 mb-2.5">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: 'rgba(81, 70, 245,0.1)', color: '#5146F5' }}>
-                      {t.name.charAt(0)}
-                    </div>
-                    <div>
-                      <div className="text-xs font-semibold text-papier">{t.name}</div>
-                      <div className="text-[10px] text-[#A5ABC5]">{t.city} · Membre vérifié</div>
-                    </div>
-                  </div>
-                  <p className="text-[11px] text-[#5146F5] italic leading-relaxed">« {t.text} »</p>
-                </motion.div>
-              ))}
+            <div className="p-4 rounded-xl text-center" style={{ backgroundColor: '#0D1630', border: '1px solid rgba(247, 248, 255, 0.08)' }}>
+              <p className="text-[11px] text-[#A5ABC5] leading-relaxed">
+                BTTSPredict ne publie pas de témoignages clients. Notre engagement de transparence repose sur
+                un <a href="/historique" className="text-[#5146F5] underline">historique vérifiable publiquement</a>,
+                une <a href="/methodologie" className="text-[#5146F5] underline">méthodologie documentée</a> et
+                un suivi public lancé le 2026-08-08. Aucun résultat futur n'est garanti.
+              </p>
             </div>
           </motion.div>
 
