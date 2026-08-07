@@ -41,7 +41,15 @@ export default function VipPage() {
           </div>
         </section>
 
-        {/* 2. Proposition de valeur */}
+        {/* 2. Cartes VIP (comparaison des niveaux) — placées en premier */}
+        <section className="max-w-5xl mx-auto px-4 py-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            Comparaison des niveaux VIP
+          </h2>
+          <VipCardGrid />
+        </section>
+
+        {/* 3. Proposition de valeur */}
         <section className="max-w-5xl mx-auto px-4 py-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
@@ -56,14 +64,6 @@ export default function VipPage() {
               </div>
             ))}
           </div>
-        </section>
-
-        {/* 3. Comparaison des niveaux */}
-        <section className="max-w-5xl mx-auto px-4 py-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            Comparaison des niveaux VIP
-          </h2>
-          <VipCardGrid />
         </section>
 
         {/* 4. Avantages réels de chaque niveau */}
