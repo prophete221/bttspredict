@@ -1,6 +1,8 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
+import VipLevelModal, { type VipLevelId } from './VipLevelModal'
 
 /**
  * VipCardGlass — Carte VIP "Glassmorphism" ultra-moderne
@@ -18,18 +20,20 @@ import { motion } from 'framer-motion'
 
 export interface VipCardProps {
   level: string           // ex: "VIP Gold", "VIP Premium", "VIP Elite"
+  levelId?: VipLevelId    // identifiant pour la modale dédiée
   username?: string       // nom utilisateur (placeholder si non fourni)
   benefits: string[]      // liste d'avantages
   status?: 'active' | 'pending' | 'locked'
   meta?: string           // ex: "30 jours", "Illimité"
   ctaLabel?: string       // texte du bouton CTA
-  ctaHref?: string        // lien du CTA
+  ctaHref?: string        // lien du CTA (fallback si pas de levelId)
   variant?: 'emerald' | 'gold'  // variante de couleur
   index?: number          // pour animation stagger
 }
 
 export default function VipCardGlass({
   level,
+  levelId,
   username = 'Membre VIP',
   benefits,
   status = 'active',
@@ -39,9 +43,14 @@ export default function VipCardGlass({
   variant = 'emerald',
   index = 0,
 }: VipCardProps) {
+  const [modalOpen, setModalOpen] = useState(false)
   const statusLabel = status === 'active' ? 'Actif' : status === 'pending' ? 'En attente' : 'Verrouillé'
+  const ctaClickHandler = levelId
+    ? (e: React.MouseEvent) => { e.preventDefault(); setModalOpen(true) }
+    : undefined
 
   return (
+    <>
     <motion.div
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -78,7 +87,11 @@ export default function VipCardGlass({
       </div>
 
       {/* ═══ CTA ═══ */}
-      <a href={ctaHref} className="vip-glass-cta">
+      <a
+        href={ctaClickHandler ? '#' : ctaHref}
+        onClick={ctaClickHandler}
+        className="vip-glass-cta"
+      >
         {ctaLabel}
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <line x1="5" y1="12" x2="19" y2="12" />
@@ -94,6 +107,15 @@ export default function VipCardGlass({
         {meta && <span className="vip-glass-meta">{meta}</span>}
       </div>
     </motion.div>
+
+    {levelId && (
+      <VipLevelModal
+        levelId={levelId}
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+      />
+    )}
+    </>
   )
 }
 
@@ -105,6 +127,7 @@ export function VipCardGrid() {
   const cards: VipCardProps[] = [
     {
       level: 'VIP Silver',
+      levelId: 'silver',
       username: 'Parieur Débutant',
       benefits: [
         '10 pronostics premium par jour',
@@ -120,6 +143,7 @@ export function VipCardGrid() {
     },
     {
       level: 'VIP Gold',
+      levelId: 'gold',
       username: 'Parieur Expérimenté',
       benefits: [
         '20 pronostics premium par jour',
@@ -136,6 +160,7 @@ export function VipCardGrid() {
     },
     {
       level: 'VIP Elite',
+      levelId: 'elite',
       username: 'Parieur Professionnel',
       benefits: [
         '30+ pronostics premium par jour',
@@ -153,6 +178,7 @@ export function VipCardGrid() {
     },
     {
       level: 'VIP TOUS NIVEAUX',
+      levelId: 'all',
       username: 'Accès complet 1 mois',
       benefits: [
         'Silver + Gold + Elite débloqués',
