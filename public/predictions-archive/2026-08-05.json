@@ -786,7 +786,7 @@
         "hasRealData": true
       },
       "status": "PENDING",
-      "tier": "GOLD"
+      "tier": "STANDARD"
     },
     {
       "match": "SC Cambuur vs Excelsior",
@@ -809,7 +809,7 @@
         "hasRealData": true
       },
       "status": "PENDING",
-      "tier": "GOLD"
+      "tier": "STANDARD"
     },
     {
       "match": "Sport Huancayo vs Los Chankas",

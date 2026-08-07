@@ -13,8 +13,8 @@ function getTier(p) {
   if (!proba) proba = 0.6;
   const lg = (p.league || '').toLowerCase();
   const isHigh = ['bundesliga','eredivisie','jupiler','swiss','mls','championship'].some(h => lg.includes(h));
-  if (proba >= 0.70) return 'GOLD';
-  if (proba >= 0.65 && isHigh) return 'GOLD';
+  if (proba >= 0.72) return 'GOLD';
+  if (proba >= 0.68 && isHigh) return 'GOLD';
   return 'STANDARD';
 }
 

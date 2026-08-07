@@ -5,17 +5,15 @@ const DIR = './public/predictions-archive';
 const HIGH = ['bundesliga','eredivisie','jupiler','swiss','mls','championship','premier','liga','serie','ligue 1'];
 
 function tierOf(p) {
-  if (p.tier && p.tier !== 'STANDARD') return p.tier;
-  // Utilise confidence (0-100) ou analysis.bttsProb/over25Prob (0-1)
+  // Force re-evaluation: ignore existing tier, always recalculate
   let proba = p.proba || p.probability || 0;
   if (!proba && p.analysis) proba = p.analysis.bttsProb || p.analysis.over25Prob || 0;
-  if (!proba && p.confidence) proba = p.confidence / 100; // confidence est 0-100
-  if (!proba) proba = 0.6; // fallback
+  if (!proba && p.confidence) proba = p.confidence / 100;
+  if (!proba) proba = 0.6;
   const league = (p.league || '').toLowerCase();
   const isHigh = HIGH.some(h => league.includes(h));
-  if (proba >= 0.70) return 'GOLD';
-  if (proba >= 0.65 && isHigh) return 'GOLD';
-  if (proba >= 0.62 && isHigh) return 'GOLD';
+  if (proba >= 0.72) return 'GOLD';
+  if (proba >= 0.68 && isHigh) return 'GOLD';
   return 'STANDARD';
 }
 

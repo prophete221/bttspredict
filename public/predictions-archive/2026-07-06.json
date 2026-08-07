@@ -21,7 +21,7 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "finalScore": "2-4",
       "status": "WON",
       "verifiedAt": "2026-08-07T12:15:13.267Z"
@@ -46,7 +46,7 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "finalScore": "2-4",
       "status": "WON",
       "verifiedAt": "2026-08-07T12:15:13.267Z"

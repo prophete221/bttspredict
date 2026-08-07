@@ -305,7 +305,7 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "status": "PENDING"
     },
     {
@@ -328,7 +328,7 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "status": "PENDING"
     },
     {

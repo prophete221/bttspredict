@@ -297,7 +297,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3736.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2566.png",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.6767624425085081,
         "over25Prob": 0.6577174354479713,
@@ -320,7 +320,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3736.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2566.png",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.6767624425085081,
         "over25Prob": 0.6577174354479713,

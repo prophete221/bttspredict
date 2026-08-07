@@ -3,12 +3,12 @@ import { Navbar, Footer } from '@/components/bttsbet'
 import ResultatsClient from './ResultatsClient'
 
 export const metadata: Metadata = {
-  title: 'Résultats Vérifiés — ROI & Profit | BTTSPredict',
-  description: 'Tableau complet des pronostics vérifiés avec scores réels ESPN. ROI, yield, profit en unités, export CSV. Aucun prono modifié après publication.',
+  title: 'Historique Vérifié — Matchs • Preuves ESPN | BTTSPredict',
+  description: 'Tableau complet des pronostics vérifiés avec scores réels ESPN. Taux, Gold Picks, tendance 30j, export CSV. Aucun prono modifié après publication.',
   alternates: { canonical: 'https://bttspredict.com/resultats-verifies' },
   openGraph: {
-    title: 'Résultats Vérifiés — ROI & Profit | BTTSPredict',
-    description: 'Tableau complet des pronostics vérifiés avec scores réels ESPN. ROI, yield, profit en unités, export CSV.',
+    title: 'Historique Vérifié — Matchs • Preuves ESPN | BTTSPredict',
+    description: 'Tableau complet des pronostics vérifiés avec scores réels ESPN. Taux, Gold Picks, tendance 30j, export CSV.',
     url: 'https://bttspredict.com/resultats-verifies',
     type: 'website',
   },
@@ -22,7 +22,7 @@ export default function ResultatsVerifiesPage() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <h1 className="text-3xl font-bold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Résultats Vérifiés — <span className="text-[#5146F5]">ROI & Profit</span>
+              Historique Vérifié — <span className="text-[#5146F5]">Preuves ESPN</span>
             </h1>
             <p className="text-sm text-[#A5ABC5]">
               Tous les pronostics vérifiés avec scores réels ESPN. Aucun prono modifié ou supprimé après publication.
