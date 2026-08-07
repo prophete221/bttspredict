@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T20:39:31.325Z",
+  "generatedAt": "2026-08-07T21:20:35.282Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -58,24 +58,24 @@
   "history": [],
   "legacyStats": {
     "total": 632,
-    "won": 305,
-    "lost": 327,
+    "won": 304,
+    "lost": 328,
     "pending": 2242,
     "archivedTotal": 2874,
-    "rate": 48.3,
+    "rate": 48.1,
     "avgOdds": 1.9,
-    "profit": -52.5,
-    "roi": -8.3,
-    "yield": -8.3,
+    "profit": -54.4,
+    "roi": -8.6,
+    "yield": -8.6,
     "gold": {
       "total": 53,
-      "won": 21,
-      "lost": 32,
-      "rate": 39.6,
+      "won": 20,
+      "lost": 33,
+      "rate": 37.7,
       "avgOdds": 1.9,
-      "profit": -13.1,
-      "roi": -24.7,
-      "yield": -24.7
+      "profit": -15,
+      "roi": -28.3,
+      "yield": -28.3
     },
     "standard": {
       "total": 579,
@@ -85,16 +85,16 @@
     },
     "byType": {
       "btts": {
-        "total": 316,
+        "total": 317,
         "won": 148,
-        "lost": 168,
-        "rate": 46.8
+        "lost": 169,
+        "rate": 46.7
       },
       "over25": {
-        "total": 316,
-        "won": 157,
+        "total": 315,
+        "won": 156,
         "lost": 159,
-        "rate": 49.7
+        "rate": 49.5
       }
     },
     "trend14": [
@@ -218,11 +218,11 @@
       {
         "date": "2026-08-07",
         "total": 1,
-        "won": 1,
-        "lost": 0,
-        "rate": 100,
-        "profit": 0.9,
-        "equity": -28.3
+        "won": 0,
+        "lost": 1,
+        "rate": 0,
+        "profit": -1,
+        "equity": -30.2
       }
     ],
     "maxDrawdown": 31.1,
@@ -236,16 +236,16 @@
         "date": "2026-08-07",
         "match": "SC Cambuur vs Excelsior",
         "league": "Eredivisie",
-        "market": "over25",
+        "market": "btts",
         "tier": "GOLD",
-        "proba": 0.9907,
+        "proba": 0.54,
         "coteProposee": 1.9,
         "coteCloture": null,
         "bookmaker": "Linebet",
-        "status": "WON",
+        "status": "LOST",
         "finalScore": "0-4",
-        "profit": 0.9,
-        "verifiedAt": "2026-08-07T20:33:53.842Z",
+        "profit": -1,
+        "verifiedAt": "2026-08-07T21:15:30.582Z",
         "source": "ESPN public"
       },
       {
