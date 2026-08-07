@@ -1287,3 +1287,32 @@ a:hover { color: var(--color-primary-light); }
   .vip-glass-username { font-size: 0.9375rem; }
   .vip-glass-benefit { font-size: 0.75rem; }
 }
+
+/* ═══ Accessibility — prefers-reduced-motion ═══ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ═══ Focus visible — accessibility ═══ */
+*:focus-visible {
+  outline: 2px solid #5146F5;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ═══ BottomNavigation spacer — prevents content being hidden ═══ */
+body {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* ═══ High contrast for status badges (not only color) ═══ */
+.status-won::before { content: "✓ "; }
+.status-lost::before { content: "✗ "; }
+.status-pending::before { content: "⏳ "; }

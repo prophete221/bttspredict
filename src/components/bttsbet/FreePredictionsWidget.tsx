@@ -219,6 +219,19 @@ function PredictionCard({ pred }: { pred: Prediction }) {
 
 function TeamLogoMini({ src, alt }: { src?: string; alt: string }) {
   const [err, setErr] = useState(false)
-  if (!src || err) return null
-  return <img src={src} alt={alt} className="w-5 h-5 object-contain flex-shrink-0 rounded" onError={() => setErr(true)} loading="lazy" />
+  if (!src || err) {
+    // Fallback: initials + name (accessibility: status not only by image)
+    const initials = alt?.slice(0, 3).toUpperCase() || '?'
+    return (
+      <span
+        className="w-5 h-5 flex items-center justify-center text-[8px] font-bold rounded flex-shrink-0"
+        style={{ backgroundColor: '#1E2340', color: '#A5ABC5' }}
+        aria-label={alt}
+        title={alt}
+      >
+        {initials}
+      </span>
+    )
+  }
+  return <img src={src} alt={`Logo ${alt}`} className="w-5 h-5 object-contain flex-shrink-0 rounded" width={20} height={20} onError={() => setErr(true)} loading="lazy" decoding="async" />
 }

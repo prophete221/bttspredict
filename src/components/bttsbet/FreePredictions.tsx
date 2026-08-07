@@ -132,10 +132,13 @@ function TeamLogo({ src, name, size = 48 }: { src?: string; name: string; size?:
   return (
     <img
       src={src}
-      alt={name}
+      alt={`Logo ${name}`}
       className="rounded-xl object-contain flex-shrink-0 border border-edge bg-dark-800 p-1"
       style={{ width: size, height: size }}
+      width={size}
+      height={size}
       loading="lazy"
+      decoding="async"
       onError={() => setImgError(true)}
     />
   )
