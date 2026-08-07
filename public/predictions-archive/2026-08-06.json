@@ -22,7 +22,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-08-07T14:23:44.178Z"
     },
     {
       "match": "Rayo Zuliano vs Anzoátegui FC",
@@ -45,7 +47,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-08-07T14:23:44.178Z"
     },
     {
       "match": "Alianza Atlético vs Cienciano del Cusco",
@@ -68,7 +72,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:23:44.178Z"
     },
     {
       "match": "Alianza Atlético vs Cienciano del Cusco",
@@ -91,7 +97,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:23:44.178Z"
     },
     {
       "match": "Estudiantes de Mérida vs Zamora FC",
@@ -114,7 +122,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:23:44.178Z"
     },
     {
       "match": "Estudiantes de Mérida vs Zamora FC",
@@ -137,7 +147,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:23:44.178Z"
     },
     {
       "match": "Unión (Santa Fe) vs Lanús",
@@ -210,7 +222,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-08-07T14:23:44.178Z"
     },
     {
       "match": "Academia Puerto Cabello vs Caracas FC",
@@ -233,7 +247,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-08-07T14:23:44.178Z"
     },
     {
       "match": "Yokohama F. Marinos vs Kashima Antlers",

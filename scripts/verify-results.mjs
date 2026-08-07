@@ -12,28 +12,43 @@ import path from 'path';
 
 const ARCHIVE_DIR = './public/predictions-archive';
 const LEAGUES = [
-  'eng.1','eng.2','esp.1','ger.1','ita.1','fra.1','ned.1','por.1',
-  'bel.1','usa.1','bra.1','mex.1','uefa.champions','uefa.europa',
-  'sco.1','tur.1','swi.1','aut.1','den.1','nor.1','swe.1',
-  'arg.1','jpn.1','aus.1'
+  'eng.1','eng.2','esp.1','esp.2','ger.1','ger.2','ita.1','ita.2',
+  'fra.1','fra.2','ned.1','ned.2','por.1','bel.1','usa.1','usa.2',
+  'bra.1','bra.2','mex.1','arg.1','chi.1','col.1','ecu.1','par.1',
+  'per.1','uru.1','ven.1','sco.1','tur.1','swi.1','aut.1','den.1',
+  'nor.1','swe.1','gre.1','rus.1','pol.1','cze.1','cro.1','rou.1',
+  'jpn.1','kor.1','aus.1','rsa.1',
+  'uefa.champions','uefa.europa','uefa.europa.conf',
+  'fifa.world','fifa.wq',
 ];
 
 const HIGH_BTTS = ['bundesliga','eredivisie','jupiler','swiss','mls','championship','premier','liga','serie','ligue 1'];
 
 function normalize(s = '') {
   return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/\b(fc|cf|sc|united|city|club|real|de|la|afc|ac|as|rc|cd)\b/g, '')
+    .replace(/\b(fc|cf|sc|united|city|club|real|de|la|afc|ac|as|rc|cd|ca|cf|athletic|atletico|atl)\b/g, '')
     .replace(/[^a-z0-9]/g, '');
 }
 
 function fuzzyMatch(ph, pa, ah, aa) {
   const a = normalize(ph), b = normalize(pa), c = normalize(ah), d = normalize(aa);
+  // Exact match
   if (a === c && b === d) return true;
   if (a === d && b === c) return true;
+  // Includes match (one name contains the other)
   if (a.length > 2 && b.length > 2 && c.length > 2 && d.length > 2) {
     if ((c.includes(a) || a.includes(c)) && (d.includes(b) || b.includes(d))) return true;
     if ((d.includes(a) || a.includes(d)) && (c.includes(b) || b.includes(c))) return true;
   }
+  // Token overlap match (at least 1 token in common per team)
+  const tokensA = new Set(a.split(/(.{3,})/).filter(t => t.length >= 3));
+  const tokensB = new Set(b.split(/(.{3,})/).filter(t => t.length >= 3));
+  const tokensC = new Set(c.split(/(.{3,})/).filter(t => t.length >= 3));
+  const tokensD = new Set(d.split(/(.{3,})/).filter(t => t.length >= 3));
+  let homeMatch = false, awayMatch = false;
+  for (const t of tokensA) if (tokensC.has(t) || tokensD.has(t)) { homeMatch = true; break; }
+  for (const t of tokensB) if (tokensD.has(t) || tokensC.has(t)) { awayMatch = true; break; }
+  if (homeMatch && awayMatch) return true;
   return false;
 }
 
@@ -74,8 +89,28 @@ async function getESPN(date) {
         scores.push({ home: hc.team.displayName, away: ac.team.displayName, hs, as });
       }
     } catch (e) {}
-    await new Promise(r => setTimeout(r, 60));
+    await new Promise(r => setTimeout(r, 40)); // faster: 40ms instead of 60ms
   }
+
+  // Fallback: TheSportsDB (covers different leagues, public, no key)
+  try {
+    const dateISO = date.slice(0,4) + '-' + date.slice(4,6) + '-' + date.slice(6,8);
+    const r = await fetch(`https://www.thesportsdb.com/api/v1/json/3/eventsday.php?d=${dateISO}&s=Soccer`, {
+      headers: { 'User-Agent': 'Mozilla/5.0' }
+    });
+    if (r.ok) {
+      const j = await r.json();
+      for (const ev of j.events || []) {
+        const status = ev.strStatus || '';
+        if (!/FT|Match Finished|Finished|Final/i.test(status)) continue;
+        const hs = parseInt(ev.intHomeScore);
+        const as = parseInt(ev.intAwayScore);
+        if (isNaN(hs) || isNaN(as)) continue;
+        scores.push({ home: ev.strHomeTeam, away: ev.strAwayTeam, hs, as });
+      }
+    }
+  } catch (e) {}
+
   return scores;
 }
 

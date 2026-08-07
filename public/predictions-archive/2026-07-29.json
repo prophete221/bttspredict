@@ -22,7 +22,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-4",
+      "verifiedAt": "2026-08-07T14:25:01.988Z"
     },
     {
       "match": "Sportivo Luqueño vs Sportivo Trinidense",
@@ -45,7 +47,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-4",
+      "verifiedAt": "2026-08-07T14:25:01.989Z"
     },
     {
       "match": "Nacional Asunción vs Club Olimpia",
@@ -68,7 +72,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-08-07T14:25:01.989Z"
     },
     {
       "match": "Nacional Asunción vs Club Olimpia",
@@ -91,7 +97,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-08-07T14:25:01.989Z"
     },
     {
       "match": "Barracas Central vs Aldosivi",

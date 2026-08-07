@@ -75,8 +75,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-08-07T14:24:09.053Z"
     },
     {
       "match": "Deportivo La Guaira vs Metropolitanos",
@@ -98,8 +100,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-08-07T14:24:09.053Z"
     },
     {
       "match": "Peñarol vs Montevideo Wanderers",
@@ -121,8 +125,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "5-1",
+      "verifiedAt": "2026-08-07T14:24:09.053Z"
     },
     {
       "match": "Peñarol vs Montevideo Wanderers",
@@ -144,8 +150,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "5-1",
+      "verifiedAt": "2026-08-07T14:24:09.053Z"
     },
     {
       "match": "Internacional de Bogotá vs Jaguares de Córdoba",
@@ -167,8 +175,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:24:09.053Z"
     },
     {
       "match": "Internacional de Bogotá vs Jaguares de Córdoba",
@@ -190,8 +200,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:24:09.053Z"
     },
     {
       "match": "Tigre vs Belgrano (Córdoba)",
@@ -263,8 +275,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-08-07T14:24:09.053Z"
     },
     {
       "match": "Once Caldas vs América de Cali",
@@ -286,8 +300,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-08-07T14:24:09.053Z"
     },
     {
       "match": "Rayo Zuliano vs Anzoátegui FC",

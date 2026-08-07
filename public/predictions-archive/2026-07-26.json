@@ -172,7 +172,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-08-07T14:25:28.871Z"
     },
     {
       "match": "Lokomotiv Moscow vs Akhmat Grozny",
@@ -195,7 +197,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-08-07T14:25:28.872Z"
     },
     {
       "match": "Club Olimpia vs Libertad",
@@ -218,7 +222,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-08-07T14:25:28.872Z"
     },
     {
       "match": "Club Olimpia vs Libertad",
@@ -241,7 +247,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-08-07T14:25:28.873Z"
     },
     {
       "match": "Guaraní vs Sportivo Luqueño",
@@ -264,7 +272,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-08-07T14:25:28.873Z"
     },
     {
       "match": "Guaraní vs Sportivo Luqueño",
@@ -287,7 +297,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-08-07T14:25:28.873Z"
     },
     {
       "match": "Ñublense vs Palestino",
@@ -310,7 +322,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-08-07T14:25:28.873Z"
     },
     {
       "match": "Ñublense vs Palestino",
@@ -333,7 +347,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-08-07T14:25:28.873Z"
     },
     {
       "match": "Audax Italiano vs Universidad de Chile",
@@ -356,7 +372,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-08-07T14:25:28.873Z"
     },
     {
       "match": "Audax Italiano vs Universidad de Chile",
@@ -379,7 +397,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-08-07T14:25:28.873Z"
     },
     {
       "match": "Estudiantes de La Plata vs Independiente",
@@ -502,7 +522,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-08-07T14:25:28.874Z"
     },
     {
       "match": "Gazovik Orenburg vs Rostov",
@@ -525,7 +547,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-08-07T14:25:28.874Z"
     },
     {
       "match": "Rubin Kazan vs Krasnodar",
@@ -548,7 +572,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-3",
+      "verifiedAt": "2026-08-07T14:25:28.874Z"
     },
     {
       "match": "Rubin Kazan vs Krasnodar",
@@ -571,7 +597,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-3",
+      "verifiedAt": "2026-08-07T14:25:28.874Z"
     },
     {
       "match": "Delfín vs Leones",
@@ -594,7 +622,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-08-07T14:25:28.874Z"
     },
     {
       "match": "Delfín vs Leones",
@@ -617,7 +647,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-08-07T14:25:28.874Z"
     },
     {
       "match": "Orense vs Independiente del Valle",
@@ -640,7 +672,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-08-07T14:25:28.874Z"
     },
     {
       "match": "Orense vs Independiente del Valle",
@@ -663,7 +697,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-08-07T14:25:28.874Z"
     },
     {
       "match": "Atlético Tucumán vs Independiente Rivadavia",
@@ -836,7 +872,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-4",
+      "verifiedAt": "2026-08-07T14:25:28.874Z"
     },
     {
       "match": "Aucas vs Macará",
@@ -859,7 +897,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-4",
+      "verifiedAt": "2026-08-07T14:25:28.874Z"
     },
     {
       "match": "Bahia vs Corinthians",
@@ -1078,7 +1118,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:25:28.875Z"
     },
     {
       "match": "Cerro vs Racing (Montevideo)",
@@ -1101,7 +1143,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:25:28.875Z"
     },
     {
       "match": "Cruzeiro vs Botafogo",

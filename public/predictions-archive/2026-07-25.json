@@ -22,7 +22,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-08-07T14:25:58.501Z"
     },
     {
       "match": "Sportivo Ameliano vs Nacional Asunción",
@@ -45,7 +47,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-08-07T14:25:58.502Z"
     },
     {
       "match": "Santos vs Chapecoense",
@@ -168,7 +172,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-3",
+      "verifiedAt": "2026-08-07T14:25:58.502Z"
     },
     {
       "match": "Huachipato vs Cobresal",
@@ -191,7 +197,9 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-3",
+      "verifiedAt": "2026-08-07T14:25:58.502Z"
     },
     {
       "match": "Sarpsborg FK vs Hamarkameratene",
@@ -306,7 +314,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:25:58.503Z"
     },
     {
       "match": "Técnico Universitario vs Manta F.C.",
@@ -329,7 +339,9 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T14:25:58.503Z"
     },
     {
       "match": "Philadelphia Union vs Seattle Sounders FC",
@@ -644,7 +656,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-08-07T14:25:58.504Z"
     },
     {
       "match": "Melgar vs Sporting Cristal",
@@ -667,7 +681,9 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-08-07T14:25:58.504Z"
     },
     {
       "match": "Red Bull New York vs Charlotte FC",
