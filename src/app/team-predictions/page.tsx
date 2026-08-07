@@ -36,46 +36,46 @@ export default function TeamPredictionsPage() {
       <Navbar />
       <main className="flex-1 relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 w-full">
         <nav aria-label="Fil d'Ariane" className="mb-8">
-          <ol className="flex items-center gap-2 text-sm" style={{ color: '#9A9791' }}>
+          <ol className="flex items-center gap-2 text-sm" style={{ color: '#8A8494' }}>
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
             <li aria-hidden="true">/</li>
-            <li style={{ color: '#F5F2ED' }} aria-current="page">Team Predictions</li>
+            <li style={{ color: '#F4F1EA' }} aria-current="page">Team Predictions</li>
           </ol>
         </nav>
 
         <header className="mb-10 text-center">
           <span className="eyebrow">👥 Par équipe</span>
-          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F5F2ED', fontFamily: 'Poppins, sans-serif' }}>
-            Team <span style={{ color: '#D8BA91' }}>Predictions</span>
+          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>
+            Team <span style={{ color: '#C9A227' }}>Predictions</span>
           </h1>
-          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#9A9791' }}>
+          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#8A8494' }}>
             Analyse par équipe : Expected Goals, forme récente, statistiques offensives et défensives. Pronostics BTTS et Over 2.5 basés sur les performances d'équipe.
           </p>
         </header>
 
-        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: '#171A1C', border: '1px solid rgba(245, 242, 237, 0.08)' }}>
-          <h2 className="text-xl font-bold mb-4" style={{ color: '#F5F2ED', fontFamily: 'Poppins, sans-serif' }}>Comment nous analysons les équipes</h2>
-          <div className="text-sm leading-relaxed space-y-3" style={{ color: '#9A9791' }}>
+        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: '#0F1219', border: '1px solid rgba(244, 241, 234, 0.08)' }}>
+          <h2 className="text-xl font-bold mb-4" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>Comment nous analysons les équipes</h2>
+          <div className="text-sm leading-relaxed space-y-3" style={{ color: '#8A8494' }}>
             <p>Chaque équipe est analysée sur 200+ variables : xG (Expected Goals), xGA (Expected Goals Against), forme sur les 5 derniers matchs, buts marqués/encaissés à domicile et à l'extérieur, blessures, suspensions.</p>
             <p>Le modèle Poisson utilise ces données pour calculer le lambda (but attendu) de chaque équipe, qui détermine ensuite les probabilités BTTS et Over 2.5.</p>
-            <p>Pour voir nos pronostics du jour par équipe, consultez notre <a href="/" style={{ color: '#D8BA91' }}>page d'accueil</a>.</p>
+            <p>Pour voir nos pronostics du jour par équipe, consultez notre <a href="/" style={{ color: '#C9A227' }}>page d'accueil</a>.</p>
           </div>
         </section>
 
-        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(216, 186, 145, 0.05)', border: '1px solid rgba(216, 186, 145, 0.15)' }}>
-          <h2 className="text-lg font-bold mb-2" style={{ color: '#F5F2ED' }}>Résumé</h2>
-          <p className="text-sm" style={{ color: '#9A9791' }}>
-            BTTSPredict analyse chaque équipe sur 200+ variables avec un taux de réussite vérifié de 84,5%. Consultez notre <a href="/methodologie" style={{ color: '#D8BA91' }}>méthodologie</a> et notre <a href="/historique" style={{ color: '#D8BA91' }}>historique</a>. 18+ — Jeu responsable.
+        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(201, 162, 39, 0.05)', border: '1px solid rgba(201, 162, 39, 0.15)' }}>
+          <h2 className="text-lg font-bold mb-2" style={{ color: '#F4F1EA' }}>Résumé</h2>
+          <p className="text-sm" style={{ color: '#8A8494' }}>
+            BTTSPredict analyse chaque équipe sur 200+ variables avec un taux de réussite vérifié de 84,5%. Consultez notre <a href="/methodologie" style={{ color: '#C9A227' }}>méthodologie</a> et notre <a href="/historique" style={{ color: '#C9A227' }}>historique</a>. 18+ — Jeu responsable.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xl font-bold mb-4" style={{ color: '#F5F2ED', fontFamily: 'Poppins, sans-serif' }}>FAQ Team Predictions</h2>
+          <h2 className="text-xl font-bold mb-4" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>FAQ Team Predictions</h2>
           <div className="space-y-2">
             {FAQ.map((item, i) => (
-              <details key={i} className="rounded-lg overflow-hidden" style={{ backgroundColor: '#171A1C', border: '1px solid rgba(245, 242, 237, 0.08)' }}>
-                <summary className="p-4 cursor-pointer text-sm font-semibold" style={{ color: '#F5F2ED' }}>{item.q}</summary>
-                <p className="px-4 pb-4 text-xs leading-relaxed" style={{ color: '#9A9791' }}>{item.a}</p>
+              <details key={i} className="rounded-lg overflow-hidden" style={{ backgroundColor: '#0F1219', border: '1px solid rgba(244, 241, 234, 0.08)' }}>
+                <summary className="p-4 cursor-pointer text-sm font-semibold" style={{ color: '#F4F1EA' }}>{item.q}</summary>
+                <p className="px-4 pb-4 text-xs leading-relaxed" style={{ color: '#8A8494' }}>{item.a}</p>
               </details>
             ))}
           </div>

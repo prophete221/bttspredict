@@ -50,65 +50,65 @@ export default function LeaguePredictionsPage() {
       <Navbar />
       <main className="flex-1 relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 w-full">
         <nav aria-label="Fil d'Ariane" className="mb-8">
-          <ol className="flex items-center gap-2 text-sm" style={{ color: '#9A9791' }}>
+          <ol className="flex items-center gap-2 text-sm" style={{ color: '#8A8494' }}>
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
             <li aria-hidden="true">/</li>
-            <li style={{ color: '#F5F2ED' }} aria-current="page">League Predictions</li>
+            <li style={{ color: '#F4F1EA' }} aria-current="page">League Predictions</li>
           </ol>
         </nav>
 
         <header className="mb-10 text-center">
           <span className="eyebrow">🏆 Par championnat</span>
-          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F5F2ED', fontFamily: 'Poppins, sans-serif' }}>
-            League <span style={{ color: '#D8BA91' }}>Predictions</span>
+          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>
+            League <span style={{ color: '#C9A227' }}>Predictions</span>
           </h1>
-          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#9A9791' }}>
+          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#8A8494' }}>
             Pronostics par championnat avec statistiques détaillées. 50+ ligues couvertes, taux de réussite vérifiable par compétition.
           </p>
         </header>
 
         <section className="mb-8">
-          <h2 className="text-xl font-bold mb-4" style={{ color: '#F5F2ED', fontFamily: 'Poppins, sans-serif' }}>Statistiques par championnat</h2>
-          <div className="overflow-x-auto rounded-xl" style={{ backgroundColor: '#171A1C', border: '1px solid rgba(245, 242, 237, 0.08)' }}>
+          <h2 className="text-xl font-bold mb-4" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>Statistiques par championnat</h2>
+          <div className="overflow-x-auto rounded-xl" style={{ backgroundColor: '#0F1219', border: '1px solid rgba(244, 241, 234, 0.08)' }}>
             <table className="w-full text-xs">
               <thead>
-                <tr style={{ borderBottom: '1px solid rgba(245, 242, 237, 0.08)' }}>
-                  <th className="text-left py-3 px-3 font-semibold" style={{ color: '#9A9791' }}>Championnat</th>
-                  <th className="text-left py-3 px-3 font-semibold" style={{ color: '#9A9791' }}>Pays</th>
-                  <th className="text-right py-3 px-3 font-semibold" style={{ color: '#9A9791' }}>Réussite</th>
-                  <th className="text-right py-3 px-3 font-semibold" style={{ color: '#9A9791' }}>Buts/match</th>
+                <tr style={{ borderBottom: '1px solid rgba(244, 241, 234, 0.08)' }}>
+                  <th className="text-left py-3 px-3 font-semibold" style={{ color: '#8A8494' }}>Championnat</th>
+                  <th className="text-left py-3 px-3 font-semibold" style={{ color: '#8A8494' }}>Pays</th>
+                  <th className="text-right py-3 px-3 font-semibold" style={{ color: '#8A8494' }}>Réussite</th>
+                  <th className="text-right py-3 px-3 font-semibold" style={{ color: '#8A8494' }}>Buts/match</th>
                 </tr>
               </thead>
               <tbody>
                 {LEAGUES.map((league, i) => (
-                  <tr key={i} style={{ borderBottom: '1px solid rgba(245, 242, 237, 0.04)' }}>
-                    <td className="py-2 px-3" style={{ color: '#F5F2ED' }}>{league.name}</td>
-                    <td className="py-2 px-3" style={{ color: '#9A9791' }}>{league.country}</td>
-                    <td className="text-right py-2 px-3" style={{ color: '#D8BA91', fontWeight: 700 }}>{league.winRate}</td>
-                    <td className="text-right py-2 px-3" style={{ color: '#9A9791' }}>{league.avgGoals}</td>
+                  <tr key={i} style={{ borderBottom: '1px solid rgba(244, 241, 234, 0.04)' }}>
+                    <td className="py-2 px-3" style={{ color: '#F4F1EA' }}>{league.name}</td>
+                    <td className="py-2 px-3" style={{ color: '#8A8494' }}>{league.country}</td>
+                    <td className="text-right py-2 px-3" style={{ color: '#C9A227', fontWeight: 700 }}>{league.winRate}</td>
+                    <td className="text-right py-2 px-3" style={{ color: '#8A8494' }}>{league.avgGoals}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p className="text-[10px] mt-2" style={{ color: '#6E7681' }}>Source : données internes BTTSPredict. Performances passées ≠ garantie future.</p>
+          <p className="text-[10px] mt-2" style={{ color: '#4A4555' }}>Source : données internes BTTSPredict. Performances passées ≠ garantie future.</p>
         </section>
 
-        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(216, 186, 145, 0.05)', border: '1px solid rgba(216, 186, 145, 0.15)' }}>
-          <h2 className="text-lg font-bold mb-2" style={{ color: '#F5F2ED' }}>Résumé</h2>
-          <p className="text-sm" style={{ color: '#9A9791' }}>
+        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(201, 162, 39, 0.05)', border: '1px solid rgba(201, 162, 39, 0.15)' }}>
+          <h2 className="text-lg font-bold mb-2" style={{ color: '#F4F1EA' }}>Résumé</h2>
+          <p className="text-sm" style={{ color: '#8A8494' }}>
             BTTSPredict couvre 50+ championnats avec un taux de réussite moyen de 84,5%. La Bundesliga (91,7%) et l'Eredivisie (90%) sont nos meilleures ligues.
-            Consultez nos <a href="/" style={{ color: '#D8BA91' }}>pronostics du jour</a> ou notre <a href="/historique" style={{ color: '#D8BA91' }}>historique vérifié</a>. Aucun résultat garanti. 18+.
+            Consultez nos <a href="/" style={{ color: '#C9A227' }}>pronostics du jour</a> ou notre <a href="/historique" style={{ color: '#C9A227' }}>historique vérifié</a>. Aucun résultat garanti. 18+.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xl font-bold mb-4" style={{ color: '#F5F2ED', fontFamily: 'Poppins, sans-serif' }}>FAQ League Predictions</h2>
+          <h2 className="text-xl font-bold mb-4" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>FAQ League Predictions</h2>
           <div className="space-y-2">
             {FAQ.map((item, i) => (
-              <details key={i} className="rounded-lg overflow-hidden" style={{ backgroundColor: '#171A1C', border: '1px solid rgba(245, 242, 237, 0.08)' }}>
-                <summary className="p-4 cursor-pointer text-sm font-semibold" style={{ color: '#F5F2ED' }}>{item.q}</summary>
-                <p className="px-4 pb-4 text-xs leading-relaxed" style={{ color: '#9A9791' }}>{item.a}</p>
+              <details key={i} className="rounded-lg overflow-hidden" style={{ backgroundColor: '#0F1219', border: '1px solid rgba(244, 241, 234, 0.08)' }}>
+                <summary className="p-4 cursor-pointer text-sm font-semibold" style={{ color: '#F4F1EA' }}>{item.q}</summary>
+                <p className="px-4 pb-4 text-xs leading-relaxed" style={{ color: '#8A8494' }}>{item.a}</p>
               </details>
             ))}
           </div>

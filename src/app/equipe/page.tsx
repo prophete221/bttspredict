@@ -89,20 +89,20 @@ export default function EquipePage() {
       <main className="flex-1 relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 w-full">
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="mb-8">
-          <ol className="flex items-center gap-2 text-sm" style={{ color: '#9A9791' }}>
+          <ol className="flex items-center gap-2 text-sm" style={{ color: '#8A8494' }}>
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
             <li aria-hidden="true">/</li>
-            <li style={{ color: '#F5F2ED' }} aria-current="page">Équipe</li>
+            <li style={{ color: '#F4F1EA' }} aria-current="page">Équipe</li>
           </ol>
         </nav>
 
         {/* Header */}
         <header className="mb-12 text-center">
           <span className="eyebrow">👥 Notre équipe</span>
-          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F5F2ED', fontFamily: 'Poppins, sans-serif' }}>
-            Les experts derrière <span style={{ color: '#D8BA91' }}>BTTSPredict</span>
+          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>
+            Les experts derrière <span style={{ color: '#C9A227' }}>BTTSPredict</span>
           </h1>
-          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#9A9791' }}>
+          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#8A8494' }}>
             Notre équipe d'analystes validate chaque pronostic publié sur BTTSPredict. Tous sont des spécialistes reconnus en modélisation statistique football, avec une expertise documentée et vérifiable. Cette équipe humaine est ce qui distingue BTTSPredict des plateformes entièrement automatisées.
           </p>
         </header>
@@ -114,8 +114,8 @@ export default function EquipePage() {
               key={i}
               className="rounded-2xl p-6"
               style={{
-                backgroundColor: '#171A1C',
-                border: '1px solid rgba(245, 242, 237, 0.08)',
+                backgroundColor: '#0F1219',
+                border: '1px solid rgba(244, 241, 234, 0.08)',
               }}
             >
               <div className="flex flex-col sm:flex-row gap-6">
@@ -124,8 +124,8 @@ export default function EquipePage() {
                   <div
                     className="w-24 h-24 rounded-full flex items-center justify-center text-3xl font-bold"
                     style={{
-                      background: 'linear-gradient(135deg, #D8BA91, #E5CDB0)',
-                      color: '#090A0B',
+                      background: 'linear-gradient(135deg, #C9A227, #E0B945)',
+                      color: '#07080C',
                       fontFamily: 'Poppins, sans-serif',
                     }}
                   >
@@ -135,22 +135,22 @@ export default function EquipePage() {
 
                 {/* Contenu */}
                 <div className="flex-1">
-                  <h2 className="text-xl font-bold mb-1" style={{ color: '#F5F2ED', fontFamily: 'Poppins, sans-serif' }}>
+                  <h2 className="text-xl font-bold mb-1" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>
                     {expert.name}
                   </h2>
-                  <p className="text-sm mb-3" style={{ color: '#D8BA91', fontWeight: 600 }}>
+                  <p className="text-sm mb-3" style={{ color: '#C9A227', fontWeight: 600 }}>
                     {expert.role}
                   </p>
-                  <p className="text-sm leading-relaxed mb-4" style={{ color: '#9A9791' }}>
+                  <p className="text-sm leading-relaxed mb-4" style={{ color: '#8A8494' }}>
                     {expert.bio}
                   </p>
 
                   {/* Stats */}
                   <div className="flex flex-wrap gap-3 mb-4">
                     {Object.entries(expert.stats).map(([key, value]) => (
-                      <div key={key} className="px-3 py-1.5 rounded-lg text-xs" style={{ backgroundColor: 'rgba(216, 186, 145, 0.08)' }}>
-                        <span style={{ color: '#9A9791' }}>{key}: </span>
-                        <span style={{ color: '#D8BA91', fontWeight: 700 }}>{value}</span>
+                      <div key={key} className="px-3 py-1.5 rounded-lg text-xs" style={{ backgroundColor: 'rgba(201, 162, 39, 0.08)' }}>
+                        <span style={{ color: '#8A8494' }}>{key}: </span>
+                        <span style={{ color: '#C9A227', fontWeight: 700 }}>{value}</span>
                       </div>
                     ))}
                   </div>
@@ -162,9 +162,9 @@ export default function EquipePage() {
                         key={j}
                         className="px-2 py-1 rounded text-[10px] font-medium"
                         style={{
-                          backgroundColor: 'rgba(216, 186, 145, 0.08)',
-                          color: '#D8BA91',
-                          border: '1px solid rgba(216, 186, 145, 0.15)',
+                          backgroundColor: 'rgba(201, 162, 39, 0.08)',
+                          color: '#C9A227',
+                          border: '1px solid rgba(201, 162, 39, 0.15)',
                         }}
                       >
                         {tag}
@@ -179,7 +179,7 @@ export default function EquipePage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-xs flex items-center gap-1 hover:underline"
-                      style={{ color: '#D8BA91' }}
+                      style={{ color: '#C9A227' }}
                     >
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
                       Twitter
@@ -189,7 +189,7 @@ export default function EquipePage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-xs flex items-center gap-1 hover:underline"
-                      style={{ color: '#D8BA91' }}
+                      style={{ color: '#C9A227' }}
                     >
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                       LinkedIn
@@ -202,19 +202,19 @@ export default function EquipePage() {
         </div>
 
         {/* Section confiance */}
-        <section className="mt-12 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(216, 186, 145, 0.05)', border: '1px solid rgba(216, 186, 145, 0.15)' }}>
-          <h2 className="text-xl font-bold mb-3" style={{ color: '#F5F2ED', fontFamily: 'Poppins, sans-serif' }}>
+        <section className="mt-12 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(201, 162, 39, 0.05)', border: '1px solid rgba(201, 162, 39, 0.15)' }}>
+          <h2 className="text-xl font-bold mb-3" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>
             Pourquoi notre équipe inspire confiance ?
           </h2>
-          <div className="text-sm leading-relaxed space-y-2" style={{ color: '#9A9791' }}>
+          <div className="text-sm leading-relaxed space-y-2" style={{ color: '#8A8494' }}>
             <p>
-              <strong style={{ color: '#F5F2ED' }}>Expertise documentée :</strong> Chaque analyste possède une expertise spécifique documentée (AFCON, ligues européennes, value bets FIFA) et un parcours vérifiable sur LinkedIn et Twitter.
+              <strong style={{ color: '#F4F1EA' }}>Expertise documentée :</strong> Chaque analyste possède une expertise spécifique documentée (AFCON, ligues européennes, value bets FIFA) et un parcours vérifiable sur LinkedIn et Twitter.
             </p>
             <p>
-              <strong style={{ color: '#F5F2ED' }}>Contrôle humain :</strong> Contrairement aux plateformes entièrement automatisées, chaque pronostic VIP est validé manuellement par notre équipe avant publication. Cette double validation (modèle + humain) explique notre taux de réussite vérifié de 84,5%.
+              <strong style={{ color: '#F4F1EA' }}>Contrôle humain :</strong> Contrairement aux plateformes entièrement automatisées, chaque pronostic VIP est validé manuellement par notre équipe avant publication. Cette double validation (modèle + humain) explique notre taux de réussite vérifié de 84,5%.
             </p>
             <p>
-              <strong style={{ color: '#F5F2ED' }}>Transparence :</strong> Notre historique public (<a href="/historique" style={{ color: '#D8BA91' }}>voir l'historique vérifié</a>) permet à chacun de vérifier nos performances réelles, gagnés ET perdus.
+              <strong style={{ color: '#F4F1EA' }}>Transparence :</strong> Notre historique public (<a href="/historique" style={{ color: '#C9A227' }}>voir l'historique vérifié</a>) permet à chacun de vérifier nos performances réelles, gagnés ET perdus.
             </p>
           </div>
         </section>

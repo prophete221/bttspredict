@@ -33,12 +33,12 @@ type ResultFilter = 'all' | 'won' | 'lost'
 type TypeFilter = 'all' | 'BTTS' | 'O2.5'
 
 const COLORS = {
-  success: '#A3B5A8',
-  lose: '#DC2626',
-  gold: '#D8BA91',
-  panel: '#171A1C',
-  edge: 'rgba(245, 242, 237, 0.08)',
-  text: '#9A9791',
+  success: '#3DDC97',
+  lose: '#FF6B4A',
+  gold: '#C9A227',
+  panel: '#0F1219',
+  edge: 'rgba(244, 241, 234, 0.08)',
+  text: '#8A8494',
 }
 
 function TeamLogoMini({ src, alt }: { src?: string; alt: string }) {
@@ -446,9 +446,9 @@ export default function WinHistory() {
             href="/historique"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold transition-all"
             style={{
-              background: 'linear-gradient(135deg, #D8BA91, #A3B5A8)',
-              color: '#090A0B',
-              boxShadow: '0 4px 16px rgba(216, 186, 145, 0.25)',
+              background: 'linear-gradient(135deg, #C9A227, #3DDC97)',
+              color: '#07080C',
+              boxShadow: '0 4px 16px rgba(201, 162, 39, 0.25)',
             }}
           >
             Voir l'historique complet des pronostics (gagnés et perdus) →
@@ -477,8 +477,8 @@ export default function WinHistory() {
           transition={{ duration: 0.4 }}
           className="mt-6 p-4 rounded-xl"
           style={{
-            background: 'linear-gradient(135deg, rgba(216, 186, 145, 0.04), rgba(0, 212, 245, 0.04))',
-            border: '1px solid rgba(216, 186, 145, 0.12)',
+            background: 'linear-gradient(135deg, rgba(201, 162, 39, 0.04), rgba(0, 212, 245, 0.04))',
+            border: '1px solid rgba(201, 162, 39, 0.12)',
           }}
         >
           <p className="text-[12px] text-gray-400 leading-relaxed text-center">
