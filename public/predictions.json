@@ -13,6 +13,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7116.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7115.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.4937201973069422,
         "over25Prob": 0.5437556164480497,
@@ -34,6 +35,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7116.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7115.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.4937201973069422,
         "over25Prob": 0.5437556164480497,
@@ -55,6 +57,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7102.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3385.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.5398276302353571,
         "over25Prob": 0.5256031607630611,
@@ -76,11 +79,56 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7102.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3385.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.5398276302353571,
         "over25Prob": 0.5256031607630611,
         "homeLambda": 1.7435658240000003,
         "awayLambda": 0.9942912000000002,
+        "dataQuality": 4,
+        "hasRealData": true
+      }
+    },
+    {
+      "match": "Beijing Guoan vs Shenzhen Xinpengcheng",
+      "league": "Chinese Super League",
+      "date": "2026-08-07",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "confidence": 52,
+      "time": "13:35",
+      "matchSemantic": "beig-shex-chn-btts",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2052.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22199.png",
+      "tier": "STANDARD",
+      "analysis": {
+        "bttsProb": 0.5587198465084494,
+        "over25Prob": 0.5036867872088854,
+        "homeLambda": 1.31193216,
+        "awayLambda": 1.336608,
+        "dataQuality": 4,
+        "hasRealData": true
+      }
+    },
+    {
+      "match": "Beijing Guoan vs Shenzhen Xinpengcheng",
+      "league": "Chinese Super League",
+      "date": "2026-08-07",
+      "type": "Over 2.5",
+      "prediction": "Non",
+      "confidence": 50,
+      "time": "13:35",
+      "matchSemantic": "beig-shex-chn-o25",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2052.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22199.png",
+      "tier": "STANDARD",
+      "analysis": {
+        "bttsProb": 0.5587198465084494,
+        "over25Prob": 0.5036867872088854,
+        "homeLambda": 1.31193216,
+        "awayLambda": 1.336608,
         "dataQuality": 4,
         "hasRealData": true
       }
@@ -97,6 +145,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8118.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3153.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.5382304352842703,
         "over25Prob": 0.6155754440172074,
@@ -118,6 +167,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8118.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3153.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.5382304352842703,
         "over25Prob": 0.6155754440172074,
@@ -139,6 +189,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3279.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22165.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.5618991080820628,
         "over25Prob": 0.5219207539793593,
@@ -160,6 +211,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3279.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22165.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.5618991080820628,
         "over25Prob": 0.5219207539793593,
@@ -181,6 +233,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4405.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18794.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.5910542825776899,
         "over25Prob": 0.548965509390329,
@@ -202,6 +255,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4405.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18794.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.5910542825776899,
         "over25Prob": 0.548965509390329,
@@ -223,6 +277,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3736.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2566.png",
+      "tier": "GOLD",
       "analysis": {
         "bttsProb": 0.6767624425085081,
         "over25Prob": 0.6577174354479713,
@@ -244,6 +299,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3736.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2566.png",
+      "tier": "GOLD",
       "analysis": {
         "bttsProb": 0.6767624425085081,
         "over25Prob": 0.6577174354479713,
@@ -265,6 +321,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10318.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22168.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.5146420092942305,
         "over25Prob": 0.45178493241957474,
@@ -286,6 +343,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10318.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22168.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.5146420092942305,
         "over25Prob": 0.45178493241957474,
@@ -307,6 +365,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/121.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/129.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.5156290837872135,
         "over25Prob": 0.6156083552066208,
@@ -328,6 +387,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/121.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/129.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.5156290837872135,
         "over25Prob": 0.6156083552066208,
@@ -349,6 +409,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/570.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5786.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.6082921313516013,
         "over25Prob": 0.5679574214165259,
@@ -370,6 +431,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/570.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5786.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.6082921313516013,
         "over25Prob": 0.5679574214165259,
@@ -391,6 +453,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12216.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12698.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.502884952091131,
         "over25Prob": 0.5277608836536308,
@@ -412,6 +475,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12216.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12698.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.502884952091131,
         "over25Prob": 0.5277608836536308,
@@ -433,6 +497,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18153.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11995.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.48718279400161235,
         "over25Prob": 0.42811737731817784,
@@ -454,6 +519,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18153.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11995.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.48718279400161235,
         "over25Prob": 0.42811737731817784,
@@ -475,6 +541,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10080.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22517.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.48121900084067626,
         "over25Prob": 0.46544084326383506,
@@ -496,6 +563,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10080.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22517.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.48121900084067626,
         "over25Prob": 0.46544084326383506,
@@ -517,6 +585,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9902.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8416.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.45009382972088036,
         "over25Prob": 0.45618478264712975,
@@ -538,6 +607,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9902.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8416.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.45009382972088036,
         "over25Prob": 0.45618478264712975,
@@ -559,6 +629,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9739.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.491934661492341,
         "over25Prob": 0.430305430566047,
@@ -580,6 +651,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9739.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.491934661492341,
         "over25Prob": 0.430305430566047,
@@ -594,13 +666,14 @@
       "league": "LigaPro Ecuador",
       "date": "2026-08-08",
       "type": "BTTS",
-      "prediction": "Non",
+      "prediction": "Oui",
       "confidence": 50,
       "time": "02:00",
       "matchSemantic": "ligd-indd-ecu-btts",
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4816.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17086.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.5023246369128042,
         "over25Prob": 0.4361264768637371,
@@ -622,6 +695,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4816.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17086.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.5023246369128042,
         "over25Prob": 0.4361264768637371,
@@ -643,6 +717,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/885.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4133.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.5136793007028065,
         "over25Prob": 0.457175033710494,
@@ -664,6 +739,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/885.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4133.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.5136793007028065,
         "over25Prob": 0.457175033710494,
@@ -685,6 +761,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9744.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19685.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.49895016144169274,
         "over25Prob": 0.4340267786561676,
@@ -706,6 +783,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9744.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19685.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.49895016144169274,
         "over25Prob": 0.4340267786561676,
@@ -727,6 +805,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2685.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2673.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.48093056294221304,
         "over25Prob": 0.4255205901063566,
@@ -748,6 +827,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2685.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2673.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.48093056294221304,
         "over25Prob": 0.4255205901063566,
@@ -769,6 +849,7 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7107.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7477.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.5413764117413695,
         "over25Prob": 0.4871032910819043,
@@ -790,53 +871,12 @@
       "source": "poisson",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7107.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7477.png",
+      "tier": "STANDARD",
       "analysis": {
         "bttsProb": 0.5413764117413695,
         "over25Prob": 0.4871032910819043,
         "homeLambda": 1.1661027840000002,
         "awayLambda": 1.4161392000000004,
-        "dataQuality": 4,
-        "hasRealData": true
-      }
-    },
-    {
-      "match": "Cerezo Osaka vs Fagiano Okayama",
-      "league": "Japanese J.League",
-      "date": "2026-08-08",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "confidence": 52,
-      "time": "12:00",
-      "matchSemantic": "cero-fago-jpn-btts",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7109.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22522.png",
-      "analysis": {
-        "bttsProb": 0.5322824781742473,
-        "over25Prob": 0.5295712878120858,
-        "homeLambda": 1.8044167680000003,
-        "awayLambda": 0.9498384000000001,
-        "dataQuality": 4,
-        "hasRealData": true
-      }
-    },
-    {
-      "match": "Cerezo Osaka vs Fagiano Okayama",
-      "league": "Japanese J.League",
-      "date": "2026-08-08",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "confidence": 52,
-      "time": "12:00",
-      "matchSemantic": "cero-fago-jpn-o25",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7109.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22522.png",
-      "analysis": {
-        "bttsProb": 0.5322824781742473,
-        "over25Prob": 0.5295712878120858,
-        "homeLambda": 1.8044167680000003,
-        "awayLambda": 0.9498384000000001,
         "dataQuality": 4,
         "hasRealData": true
       }
