@@ -20,7 +20,8 @@
         "awayLambda": 0.79,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Sarpsborg FK vs Hamarkameratene",
@@ -41,7 +42,8 @@
         "awayLambda": 0.79,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Aalesund vs Viking FK",
@@ -62,7 +64,8 @@
         "awayLambda": 1.81,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Aalesund vs Viking FK",
@@ -83,7 +86,8 @@
         "awayLambda": 1.81,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "KFUM Oslo vs Molde",
@@ -104,7 +108,8 @@
         "awayLambda": 1.5,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "KFUM Oslo vs Molde",
@@ -125,7 +130,8 @@
         "awayLambda": 1.5,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Lokomotiv Moscow vs Akhmat Grozny",
@@ -146,7 +152,8 @@
         "awayLambda": 1.67,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Lokomotiv Moscow vs Akhmat Grozny",
@@ -167,7 +174,8 @@
         "awayLambda": 1.67,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Club Olimpia vs Libertad",
@@ -188,7 +196,8 @@
         "awayLambda": 1,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Club Olimpia vs Libertad",
@@ -209,7 +218,8 @@
         "awayLambda": 1,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Guaraní vs Sportivo Luqueño",
@@ -230,7 +240,8 @@
         "awayLambda": 1,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Guaraní vs Sportivo Luqueño",
@@ -251,7 +262,8 @@
         "awayLambda": 1,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Ñublense vs Palestino",
@@ -272,7 +284,8 @@
         "awayLambda": 2.6,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Ñublense vs Palestino",
@@ -293,7 +306,8 @@
         "awayLambda": 2.6,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Audax Italiano vs Universidad de Chile",
@@ -314,7 +328,8 @@
         "awayLambda": 2.6,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Audax Italiano vs Universidad de Chile",
@@ -335,7 +350,8 @@
         "awayLambda": 2.6,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Estudiantes de La Plata vs Independiente",
@@ -356,7 +372,8 @@
         "awayLambda": 0.63,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Estudiantes de La Plata vs Independiente",
@@ -377,7 +394,8 @@
         "awayLambda": 0.63,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "SK Brann vs Vålerenga",
@@ -398,7 +416,8 @@
         "awayLambda": 1.5,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "SK Brann vs Vålerenga",
@@ -419,7 +438,8 @@
         "awayLambda": 1.5,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Gazovik Orenburg vs Rostov",
@@ -440,7 +460,8 @@
         "awayLambda": 1.67,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Gazovik Orenburg vs Rostov",
@@ -461,7 +482,8 @@
         "awayLambda": 1.67,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Rubin Kazan vs Krasnodar",
@@ -482,7 +504,8 @@
         "awayLambda": 1.67,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Rubin Kazan vs Krasnodar",
@@ -503,7 +526,8 @@
         "awayLambda": 1.67,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Delfín vs Leones",
@@ -524,7 +548,8 @@
         "awayLambda": 0.72,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Delfín vs Leones",
@@ -545,7 +570,8 @@
         "awayLambda": 0.72,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Orense vs Independiente del Valle",
@@ -566,7 +592,8 @@
         "awayLambda": 2.5,
         "dataQuality": 6,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Orense vs Independiente del Valle",
@@ -587,7 +614,8 @@
         "awayLambda": 2.5,
         "dataQuality": 6,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Atlético Tucumán vs Independiente Rivadavia",
@@ -608,7 +636,8 @@
         "awayLambda": 0.63,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Atlético Tucumán vs Independiente Rivadavia",
@@ -629,7 +658,8 @@
         "awayLambda": 0.63,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Sandefjord vs Bodo/Glimt",
@@ -650,7 +680,8 @@
         "awayLambda": 1.81,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Sandefjord vs Bodo/Glimt",
@@ -671,7 +702,8 @@
         "awayLambda": 1.81,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "GAIS vs Halmstads BK",
@@ -692,7 +724,8 @@
         "awayLambda": 0.92,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "GAIS vs Halmstads BK",
@@ -713,7 +746,8 @@
         "awayLambda": 0.92,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Aucas vs Macará",
@@ -734,7 +768,8 @@
         "awayLambda": 1.79,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Aucas vs Macará",
@@ -755,7 +790,8 @@
         "awayLambda": 1.79,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Bahia vs Corinthians",
@@ -776,7 +812,8 @@
         "awayLambda": 0.67,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Bahia vs Corinthians",
@@ -797,7 +834,8 @@
         "awayLambda": 0.67,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "F.C. København vs Lyngby Boldklub",
@@ -818,7 +856,8 @@
         "awayLambda": 1.23,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "F.C. København vs Lyngby Boldklub",
@@ -839,7 +878,8 @@
         "awayLambda": 1.23,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs IFK Göteborg",
@@ -860,7 +900,8 @@
         "awayLambda": 0.92,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs IFK Göteborg",
@@ -881,7 +922,8 @@
         "awayLambda": 0.92,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Malmö FF vs IF Elfsborg",
@@ -902,7 +944,8 @@
         "awayLambda": 0.92,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Malmö FF vs IF Elfsborg",
@@ -923,7 +966,8 @@
         "awayLambda": 0.92,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Cerro vs Racing (Montevideo)",
@@ -944,7 +988,8 @@
         "awayLambda": 1,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Cerro vs Racing (Montevideo)",
@@ -965,7 +1010,8 @@
         "awayLambda": 1,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Cruzeiro vs Botafogo",
@@ -986,7 +1032,8 @@
         "awayLambda": 0.99,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Cruzeiro vs Botafogo",
@@ -1007,7 +1054,8 @@
         "awayLambda": 0.99,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Kairat Almaty vs O Nicosia",
@@ -1028,7 +1076,8 @@
         "awayLambda": 1.08,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Kairat Almaty vs O Nicosia",
@@ -1049,7 +1098,8 @@
         "awayLambda": 1.08,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     }
   ]
 }

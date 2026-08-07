@@ -20,7 +20,8 @@
         "awayLambda": 1.0130400000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Vålerenga vs Hamarkameratene",
@@ -41,7 +42,8 @@
         "awayLambda": 1.0130400000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Rodina Moscow vs Rostov",
@@ -62,7 +64,8 @@
         "awayLambda": 1.3402584000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Rodina Moscow vs Rostov",
@@ -83,7 +86,8 @@
         "awayLambda": 1.3402584000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "LASK Linz vs Grazer AK",
@@ -104,7 +108,8 @@
         "awayLambda": 1.4268096000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "LASK Linz vs Grazer AK",
@@ -125,7 +130,8 @@
         "awayLambda": 1.4268096000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Dundee United vs Rangers",
@@ -146,7 +152,8 @@
         "awayLambda": 1.1266344,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Dundee United vs Rangers",
@@ -167,7 +174,8 @@
         "awayLambda": 1.1266344,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Bodo/Glimt vs Lillestrom",
@@ -188,7 +196,8 @@
         "awayLambda": 0.7332480000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Bodo/Glimt vs Lillestrom",
@@ -209,7 +218,8 @@
         "awayLambda": 0.7332480000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Los Chankas vs Comerciantes Unidos",
@@ -230,7 +240,8 @@
         "awayLambda": 1.0014048,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Los Chankas vs Comerciantes Unidos",
@@ -251,7 +262,8 @@
         "awayLambda": 1.0014048,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Portuguesa vs Carabobo",
@@ -272,7 +284,8 @@
         "awayLambda": 0.65934,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Portuguesa vs Carabobo",
@@ -293,7 +306,8 @@
         "awayLambda": 0.65934,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Montevideo City Torque vs Montevideo Wanderers",
@@ -314,7 +328,8 @@
         "awayLambda": 0.7600392,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Montevideo City Torque vs Montevideo Wanderers",
@@ -335,7 +350,8 @@
         "awayLambda": 0.7600392,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Anzoátegui FC vs Deportivo Táchira",
@@ -356,7 +372,8 @@
         "awayLambda": 0.8127864000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Anzoátegui FC vs Deportivo Táchira",
@@ -377,7 +394,8 @@
         "awayLambda": 0.8127864000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "New York City FC vs Toronto FC",
@@ -398,7 +416,8 @@
         "awayLambda": 1.2716064000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "New York City FC vs Toronto FC",
@@ -419,7 +438,8 @@
         "awayLambda": 1.2716064000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Libertad (Ecuador) vs Orense",
@@ -440,7 +460,8 @@
         "awayLambda": 1.3363200000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Libertad (Ecuador) vs Orense",
@@ -461,7 +482,8 @@
         "awayLambda": 1.3363200000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Universidad de Concepción vs Audax Italiano",
@@ -482,7 +504,8 @@
         "awayLambda": 1.0132056,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Universidad de Concepción vs Audax Italiano",
@@ -503,7 +526,8 @@
         "awayLambda": 1.0132056,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Fortaleza CEIF vs Deportivo Pereira",
@@ -524,7 +548,8 @@
         "awayLambda": 1.3280544,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Fortaleza CEIF vs Deportivo Pereira",
@@ -545,7 +570,8 @@
         "awayLambda": 1.3280544,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Puebla vs Guadalajara",
@@ -566,7 +592,8 @@
         "awayLambda": 1.3459464,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Puebla vs Guadalajara",
@@ -587,7 +614,8 @@
         "awayLambda": 1.3459464,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Atlético de San Luis vs Tijuana",
@@ -608,7 +636,8 @@
         "awayLambda": 1.4298912000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Atlético de San Luis vs Tijuana",
@@ -629,7 +658,8 @@
         "awayLambda": 1.4298912000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "FC Juarez vs Pumas UNAM",
@@ -650,7 +680,8 @@
         "awayLambda": 1.4506416,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "FC Juarez vs Pumas UNAM",
@@ -671,7 +702,8 @@
         "awayLambda": 1.4506416,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Akron Tolyatti vs Rubin Kazan",
@@ -692,7 +724,8 @@
         "awayLambda": 0.8479512000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Akron Tolyatti vs Rubin Kazan",
@@ -713,7 +746,8 @@
         "awayLambda": 0.8479512000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "BK Häcken vs Kalmar FF",
@@ -734,7 +768,8 @@
         "awayLambda": 0.8422776000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "BK Häcken vs Kalmar FF",
@@ -755,7 +790,8 @@
         "awayLambda": 0.8422776000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Golden Arrows vs Chippa United",
@@ -776,7 +812,8 @@
         "awayLambda": 0.7800192,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Golden Arrows vs Chippa United",
@@ -797,7 +834,8 @@
         "awayLambda": 0.7800192,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Orlando Pirates vs Milford FC",
@@ -818,7 +856,8 @@
         "awayLambda": 1.1844144,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Orlando Pirates vs Milford FC",
@@ -839,7 +878,8 @@
         "awayLambda": 1.1844144,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Stellenbosch vs AmaZulu",
@@ -860,7 +900,8 @@
         "awayLambda": 1.0421568000000003,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Stellenbosch vs AmaZulu",
@@ -881,7 +922,8 @@
         "awayLambda": 1.0421568000000003,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "CSKA Moscow vs Krylia Sovetov",
@@ -902,7 +944,8 @@
         "awayLambda": 1.2155832000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "CSKA Moscow vs Krylia Sovetov",
@@ -923,7 +966,8 @@
         "awayLambda": 1.2155832000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Falkirk vs St Mirren",
@@ -944,7 +988,8 @@
         "awayLambda": 1.388556,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Falkirk vs St Mirren",
@@ -965,7 +1010,8 @@
         "awayLambda": 1.388556,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Fredrikstad vs Sandefjord",
@@ -986,7 +1032,8 @@
         "awayLambda": 0.8355168000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Fredrikstad vs Sandefjord",
@@ -1007,7 +1054,8 @@
         "awayLambda": 0.8355168000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "WSG Swarovski Tirol vs SK Sturm Graz",
@@ -1028,7 +1076,8 @@
         "awayLambda": 1.1366784,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "WSG Swarovski Tirol vs SK Sturm Graz",
@@ -1049,7 +1098,8 @@
         "awayLambda": 1.1366784,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     }
   ]
 }

@@ -20,7 +20,8 @@
         "awayLambda": 0.58,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Macará vs United States",
@@ -41,7 +42,8 @@
         "awayLambda": 0.58,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "England vs Argentina",
@@ -62,7 +64,8 @@
         "awayLambda": 3.12,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "England vs Argentina",
@@ -83,7 +86,8 @@
         "awayLambda": 3.12,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Manta F.C. vs Delfín",
@@ -104,7 +108,8 @@
         "awayLambda": 1.13,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Manta F.C. vs Delfín",
@@ -125,7 +130,8 @@
         "awayLambda": 1.13,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Libertad (Ecuador) vs Técnico Universitario",
@@ -146,7 +152,8 @@
         "awayLambda": 1.53,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Libertad (Ecuador) vs Técnico Universitario",
@@ -167,7 +174,8 @@
         "awayLambda": 1.53,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Universidad Católica (Quito) vs Liga de Quito",
@@ -188,7 +196,8 @@
         "awayLambda": 0.58,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Universidad Católica (Quito) vs Liga de Quito",
@@ -209,7 +218,8 @@
         "awayLambda": 0.58,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Barcelona SC vs Guayaquil City FC",
@@ -230,7 +240,8 @@
         "awayLambda": 0.34,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Barcelona SC vs Guayaquil City FC",
@@ -251,7 +262,8 @@
         "awayLambda": 0.34,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Aucas vs Independiente del Valle",
@@ -272,7 +284,8 @@
         "awayLambda": 0.34,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Aucas vs Independiente del Valle",
@@ -293,7 +306,8 @@
         "awayLambda": 0.34,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Leones vs Deportivo Cuenca",
@@ -314,7 +328,8 @@
         "awayLambda": 0.3,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Leones vs Deportivo Cuenca",
@@ -335,7 +350,8 @@
         "awayLambda": 0.3,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Vålerenga vs Aalesund",
@@ -356,7 +372,8 @@
         "awayLambda": 1.13,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Vålerenga vs Aalesund",
@@ -377,7 +394,8 @@
         "awayLambda": 1.13,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Orense vs Emelec",
@@ -398,7 +416,8 @@
         "awayLambda": 0.74,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Orense vs Emelec",
@@ -419,7 +438,8 @@
         "awayLambda": 0.74,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Necaxa vs Atlante",
@@ -440,7 +460,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Necaxa vs Atlante",
@@ -461,7 +482,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Tijuana vs Tigres UANL",
@@ -482,7 +504,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Tijuana vs Tigres UANL",
@@ -503,7 +526,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "CF Montréal vs Toronto FC",
@@ -524,7 +548,8 @@
         "awayLambda": 1.18,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "CF Montréal vs Toronto FC",
@@ -545,7 +570,8 @@
         "awayLambda": 1.18,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Botafogo vs Santos",
@@ -566,7 +592,8 @@
         "awayLambda": 1.09,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Botafogo vs Santos",
@@ -587,7 +614,8 @@
         "awayLambda": 1.09,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Vitória vs Vasco da Gama",
@@ -608,7 +636,8 @@
         "awayLambda": 1.09,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Vitória vs Vasco da Gama",
@@ -629,7 +658,8 @@
         "awayLambda": 1.09,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Chicago Fire FC vs Vancouver Whitecaps",
@@ -650,7 +680,8 @@
         "awayLambda": 1.18,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Chicago Fire FC vs Vancouver Whitecaps",
@@ -671,7 +702,8 @@
         "awayLambda": 1.18,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "St. Louis CITY SC vs Sporting Kansas City",
@@ -692,7 +724,8 @@
         "awayLambda": 1.18,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "St. Louis CITY SC vs Sporting Kansas City",
@@ -713,7 +746,8 @@
         "awayLambda": 1.18,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Seattle Sounders FC vs Portland Timbers",
@@ -734,7 +768,8 @@
         "awayLambda": 1.18,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Seattle Sounders FC vs Portland Timbers",
@@ -755,7 +790,8 @@
         "awayLambda": 1.18,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     }
   ]
 }

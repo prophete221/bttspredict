@@ -8,7 +8,8 @@
       "prediction": "Oui",
       "confidence": 82,
       "time": "15:00",
-      "matchSemantic": "car-aca-ve"
+      "matchSemantic": "car-aca-ve",
+      "tier": "GOLD"
     },
     {
       "match": "Independ. Rivadavia vs Tigre",
@@ -17,7 +18,8 @@
       "prediction": "Oui",
       "confidence": 88,
       "time": "15:00",
-      "matchSemantic": "ind-tig-ar"
+      "matchSemantic": "ind-tig-ar",
+      "tier": "GOLD"
     },
     {
       "match": "River Plate vs Aldosivi",
@@ -26,7 +28,8 @@
       "prediction": "Oui",
       "confidence": 82,
       "time": "15:00",
-      "matchSemantic": "riv-ald-ar"
+      "matchSemantic": "riv-ald-ar",
+      "tier": "GOLD"
     },
     {
       "match": "Sarmiento Junin vs Boca Juniors",
@@ -35,7 +38,8 @@
       "prediction": "Oui",
       "confidence": 83,
       "time": "15:00",
-      "matchSemantic": "sar-boc-ar"
+      "matchSemantic": "sar-boc-ar",
+      "tier": "GOLD"
     },
     {
       "match": "CD Moron vs Almirante Brown",
@@ -44,7 +48,8 @@
       "prediction": "Oui",
       "confidence": 82,
       "time": "15:00",
-      "matchSemantic": "cd -alm-ar"
+      "matchSemantic": "cd -alm-ar",
+      "tier": "GOLD"
     }
   ]
 }

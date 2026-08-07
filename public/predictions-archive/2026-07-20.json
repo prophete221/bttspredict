@@ -20,7 +20,8 @@
         "awayLambda": 0.89,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Tromso vs Hradec Kralove",
@@ -41,7 +42,8 @@
         "awayLambda": 0.89,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs Orense",
@@ -62,7 +64,8 @@
         "awayLambda": 0.69,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs Orense",
@@ -83,7 +86,8 @@
         "awayLambda": 0.69,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Larne vs Red Star",
@@ -104,7 +108,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Larne vs Red Star",
@@ -125,7 +130,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Vikingur vs H Beer Sheva",
@@ -146,7 +152,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Vikingur vs H Beer Sheva",
@@ -167,7 +174,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "O Nicosia vs Kairat Almaty",
@@ -188,7 +196,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "O Nicosia vs Kairat Almaty",
@@ -209,7 +218,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Hammarby vs Anderlecht",
@@ -230,7 +240,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Hammarby vs Anderlecht",
@@ -251,7 +262,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Besiktas vs Midtjylland",
@@ -272,7 +284,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Besiktas vs Midtjylland",
@@ -293,7 +306,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "FC Twente vs Ferencvaros",
@@ -314,7 +328,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "FC Twente vs Ferencvaros",
@@ -335,7 +350,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Vardar Skopje vs Riga FC",
@@ -356,7 +372,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Vardar Skopje vs Riga FC",
@@ -377,7 +394,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Spartak Trnava vs CSKA 1948 Sofia",
@@ -398,7 +416,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Spartak Trnava vs CSKA 1948 Sofia",
@@ -419,7 +438,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Malisheva vs Hibernian",
@@ -440,7 +460,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Malisheva vs Hibernian",
@@ -461,7 +482,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Alashkert vs CFR Cluj",
@@ -482,7 +504,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Alashkert vs CFR Cluj",
@@ -503,7 +526,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Panevezys vs Tobol",
@@ -524,7 +548,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Panevezys vs Tobol",
@@ -545,7 +570,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Dila vs Ap Limassol",
@@ -566,7 +592,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Dila vs Ap Limassol",
@@ -587,7 +614,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Flora Tallinn vs The New Saints",
@@ -608,7 +636,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Flora Tallinn vs The New Saints",
@@ -629,7 +658,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Paide Linnameeskond vs FC Zire",
@@ -650,7 +680,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Paide Linnameeskond vs FC Zire",
@@ -671,7 +702,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "AEK Larnaca vs Beitar J'salem",
@@ -692,7 +724,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "AEK Larnaca vs Beitar J'salem",
@@ -713,7 +746,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Rigas Futbola Skola vs Vestri",
@@ -734,7 +768,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Rigas Futbola Skola vs Vestri",
@@ -755,7 +790,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Bate Borisov vs FC Sion",
@@ -776,7 +812,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Bate Borisov vs FC Sion",
@@ -797,7 +834,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Dinamo Tbilisi vs Zalgiris",
@@ -818,7 +856,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Dinamo Tbilisi vs Zalgiris",
@@ -839,7 +878,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "FC Santa Coloma vs Rapid Vienna",
@@ -860,7 +900,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "FC Santa Coloma vs Rapid Vienna",
@@ -881,7 +922,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "H Tel Aviv vs Ludogorets",
@@ -902,7 +944,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "H Tel Aviv vs Ludogorets",
@@ -923,7 +966,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "NK Varazdin vs Jablonec",
@@ -944,7 +988,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "NK Varazdin vs Jablonec",
@@ -965,7 +1010,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Polessya Zhitomir vs Copenhagen",
@@ -986,7 +1032,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Polessya Zhitomir vs Copenhagen",
@@ -1007,7 +1054,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Vojvodina NS vs Ajax",
@@ -1028,7 +1076,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Vojvodina NS vs Ajax",
@@ -1049,7 +1098,8 @@
         "awayLambda": 1.75,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     }
   ]
 }

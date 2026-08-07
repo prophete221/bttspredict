@@ -20,7 +20,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Germany vs Curaçao",
@@ -41,7 +42,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Curaçao vs Japan",
@@ -62,7 +64,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Curaçao vs Japan",
@@ -83,7 +86,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Málaga vs Almería",
@@ -104,7 +108,8 @@
         "awayLambda": 0.9,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Málaga vs Almería",
@@ -125,7 +130,8 @@
         "awayLambda": 0.9,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Unión La Calera vs Universidad de Chile",
@@ -146,7 +152,8 @@
         "awayLambda": 1,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Unión La Calera vs Universidad de Chile",
@@ -167,7 +174,8 @@
         "awayLambda": 1,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Universidad Católica vs Universidad de Concepción",
@@ -188,7 +196,8 @@
         "awayLambda": 1,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Universidad Católica vs Universidad de Concepción",
@@ -209,7 +218,8 @@
         "awayLambda": 1,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Deportes Concepcion vs Deportes Limache",
@@ -230,7 +240,8 @@
         "awayLambda": 1,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Deportes Concepcion vs Deportes Limache",
@@ -251,7 +262,8 @@
         "awayLambda": 1,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Ivory Coast vs Ecuador",
@@ -272,7 +284,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Ivory Coast vs Ecuador",
@@ -293,7 +306,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Sweden vs Tunisia",
@@ -314,7 +328,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Sweden vs Tunisia",
@@ -335,7 +350,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Spain vs Cape Verde",
@@ -356,7 +372,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Spain vs Cape Verde",
@@ -377,7 +394,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Belgium vs Egypt",
@@ -398,7 +416,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Belgium vs Egypt",
@@ -419,7 +438,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Saudi Arabia vs Uruguay",
@@ -440,7 +460,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Saudi Arabia vs Uruguay",
@@ -461,7 +482,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Iran vs New Zealand",
@@ -482,7 +504,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Iran vs New Zealand",
@@ -503,7 +526,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "France vs Senegal",
@@ -524,7 +548,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "France vs Senegal",
@@ -545,7 +570,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Argentina vs Algeria",
@@ -566,7 +592,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Argentina vs Algeria",
@@ -587,7 +614,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "United States vs Jordan",
@@ -608,7 +636,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs Jordan",
@@ -629,7 +658,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "England vs Croatia",
@@ -650,7 +680,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "England vs Croatia",
@@ -671,7 +702,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Iraq vs Norway",
@@ -692,7 +724,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Iraq vs Norway",
@@ -713,7 +746,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Portugal vs DR Congo",
@@ -734,7 +768,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Portugal vs DR Congo",
@@ -755,7 +790,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Switzerland vs Bosnia-Herzegovina",
@@ -776,7 +812,8 @@
         "awayLambda": 0.77,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Switzerland vs Bosnia-Herzegovina",
@@ -797,7 +834,8 @@
         "awayLambda": 0.77,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Ghana vs Panama",
@@ -818,7 +856,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Ghana vs Panama",
@@ -839,7 +878,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Uzbekistan vs Colombia",
@@ -860,7 +900,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Uzbekistan vs Colombia",
@@ -881,7 +922,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Czechia vs South Africa",
@@ -902,7 +944,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Czechia vs South Africa",
@@ -923,7 +966,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Canada vs Qatar",
@@ -944,7 +988,8 @@
         "awayLambda": 0.77,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Canada vs Qatar",
@@ -965,7 +1010,8 @@
         "awayLambda": 0.77,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Mexico vs South Korea",
@@ -986,7 +1032,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Mexico vs South Korea",
@@ -1007,7 +1054,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs United States",
@@ -1028,7 +1076,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs United States",
@@ -1049,7 +1098,8 @@
         "awayLambda": 0.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     }
   ]
 }

@@ -21,7 +21,8 @@
         "awayLambda": 0.7892640000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Yokohama F. Marinos vs Kashima Antlers",
@@ -43,7 +44,8 @@
         "awayLambda": 0.7892640000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Gamba Osaka vs Urawa Red Diamonds",
@@ -65,7 +67,8 @@
         "awayLambda": 0.9942912000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Gamba Osaka vs Urawa Red Diamonds",
@@ -87,7 +90,8 @@
         "awayLambda": 0.9942912000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Beijing Guoan vs Shenzhen Xinpengcheng",
@@ -153,7 +157,8 @@
         "awayLambda": 0.862848,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Sønderjyske Fodbold vs Viborg FF",
@@ -175,7 +180,8 @@
         "awayLambda": 0.862848,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Sandefjord vs KFUM Oslo",
@@ -197,7 +203,8 @@
         "awayLambda": 1.5697296000000003,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Sandefjord vs KFUM Oslo",
@@ -219,7 +226,8 @@
         "awayLambda": 1.5697296000000003,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "SC Rheindorf Altach vs WSG Swarovski Tirol",
@@ -241,7 +249,8 @@
         "awayLambda": 1.5311376,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "SC Rheindorf Altach vs WSG Swarovski Tirol",
@@ -263,7 +272,8 @@
         "awayLambda": 1.5311376,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "SC Cambuur vs Excelsior",
@@ -285,7 +295,8 @@
         "awayLambda": 1.5775344000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "SC Cambuur vs Excelsior",
@@ -307,7 +318,8 @@
         "awayLambda": 1.5775344000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Sport Huancayo vs Los Chankas",
@@ -329,7 +341,8 @@
         "awayLambda": 1.1225087999999999,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Sport Huancayo vs Los Chankas",
@@ -351,7 +364,8 @@
         "awayLambda": 1.1225087999999999,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "VfL Bochum vs Hertha Berlin",
@@ -373,7 +387,8 @@
         "awayLambda": 0.7956359999999999,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "VfL Bochum vs Hertha Berlin",
@@ -395,7 +410,8 @@
         "awayLambda": 0.7956359999999999,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Club Brugge vs KV Kortrijk",
@@ -417,7 +433,8 @@
         "awayLambda": 1.5106175999999998,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Club Brugge vs KV Kortrijk",
@@ -439,7 +456,8 @@
         "awayLambda": 1.5106175999999998,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Estoril vs FC Famalicao",
@@ -461,7 +479,8 @@
         "awayLambda": 0.8365536000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Estoril vs FC Famalicao",
@@ -483,7 +502,8 @@
         "awayLambda": 0.8365536000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Comerciantes Unidos vs Cusco FC",
@@ -505,7 +525,8 @@
         "awayLambda": 1.3680576,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Comerciantes Unidos vs Cusco FC",
@@ -527,7 +548,8 @@
         "awayLambda": 1.3680576,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Rubio Ñú vs Deportivo Recoleta",
@@ -549,7 +571,8 @@
         "awayLambda": 0.8454240000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Rubio Ñú vs Deportivo Recoleta",
@@ -571,7 +594,8 @@
         "awayLambda": 0.8454240000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Cerro Largo vs Juventud",
@@ -593,7 +617,8 @@
         "awayLambda": 0.7424568000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Cerro Largo vs Juventud",
@@ -615,7 +640,8 @@
         "awayLambda": 0.7424568000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Rosario Central vs Aldosivi",
@@ -637,7 +663,8 @@
         "awayLambda": 1.3455072000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Rosario Central vs Aldosivi",
@@ -659,7 +686,8 @@
         "awayLambda": 1.3455072000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Liga de Quito vs Independiente del Valle",
@@ -681,7 +709,8 @@
         "awayLambda": 1.2853728000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Liga de Quito vs Independiente del Valle",
@@ -703,7 +732,8 @@
         "awayLambda": 1.2853728000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Universidad Católica vs Cobresal",
@@ -725,7 +755,8 @@
         "awayLambda": 1.4000184,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Universidad Católica vs Cobresal",
@@ -747,7 +778,8 @@
         "awayLambda": 1.4000184,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Independiente Rivadavia vs Estudiantes de Río Cuarto",
@@ -769,7 +801,8 @@
         "awayLambda": 1.307088,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Independiente Rivadavia vs Estudiantes de Río Cuarto",
@@ -791,7 +824,8 @@
         "awayLambda": 1.307088,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Universitario vs Sporting Cristal",
@@ -813,7 +847,8 @@
         "awayLambda": 1.394784,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Universitario vs Sporting Cristal",
@@ -835,7 +870,8 @@
         "awayLambda": 1.394784,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Avispa Fukuoka vs Vissel Kobe",
@@ -857,7 +893,8 @@
         "awayLambda": 1.4161392000000004,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Avispa Fukuoka vs Vissel Kobe",
@@ -879,7 +916,56 @@
         "awayLambda": 1.4161392000000004,
         "dataQuality": 4,
         "hasRealData": true
+<<<<<<< Updated upstream
       }
+=======
+      },
+      "tier": "STANDARD"
+    },
+    {
+      "match": "Cerezo Osaka vs Fagiano Okayama",
+      "league": "Japanese J.League",
+      "date": "2026-08-08",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "confidence": 52,
+      "time": "12:00",
+      "matchSemantic": "cero-fago-jpn-btts",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7109.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22522.png",
+      "analysis": {
+        "bttsProb": 0.5322824781742473,
+        "over25Prob": 0.5295712878120858,
+        "homeLambda": 1.8044167680000003,
+        "awayLambda": 0.9498384000000001,
+        "dataQuality": 4,
+        "hasRealData": true
+      },
+      "tier": "STANDARD"
+    },
+    {
+      "match": "Cerezo Osaka vs Fagiano Okayama",
+      "league": "Japanese J.League",
+      "date": "2026-08-08",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "confidence": 52,
+      "time": "12:00",
+      "matchSemantic": "cero-fago-jpn-o25",
+      "source": "poisson",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7109.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22522.png",
+      "analysis": {
+        "bttsProb": 0.5322824781742473,
+        "over25Prob": 0.5295712878120858,
+        "homeLambda": 1.8044167680000003,
+        "awayLambda": 0.9498384000000001,
+        "dataQuality": 4,
+        "hasRealData": true
+      },
+      "tier": "STANDARD"
+>>>>>>> Stashed changes
     }
   ]
 }

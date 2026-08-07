@@ -20,7 +20,8 @@
         "awayLambda": 0.7812,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "FC Midtjylland vs AC Horsens",
@@ -41,7 +42,8 @@
         "awayLambda": 0.7812,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "FC Nordsjælland vs Randers FC",
@@ -62,7 +64,8 @@
         "awayLambda": 1.423296,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "FC Nordsjælland vs Randers FC",
@@ -83,7 +86,8 @@
         "awayLambda": 1.423296,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "IF Brommapojkarna vs Malmö FF",
@@ -104,7 +108,8 @@
         "awayLambda": 1.0450656,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "IF Brommapojkarna vs Malmö FF",
@@ -125,7 +130,8 @@
         "awayLambda": 1.0450656,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "IFK Göteborg vs Degerfors IF",
@@ -146,7 +152,8 @@
         "awayLambda": 1.0771344,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "IFK Göteborg vs Degerfors IF",
@@ -167,7 +174,8 @@
         "awayLambda": 1.0771344,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "St Johnstone vs Kilmarnock",
@@ -188,7 +196,8 @@
         "awayLambda": 1.3226112,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "St Johnstone vs Kilmarnock",
@@ -209,7 +218,8 @@
         "awayLambda": 1.3226112,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Gazovik Orenburg vs Zenit St Petersburg",
@@ -230,7 +240,8 @@
         "awayLambda": 1.0733256000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Gazovik Orenburg vs Zenit St Petersburg",
@@ -251,7 +262,8 @@
         "awayLambda": 1.0733256000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Richards Bay FC vs Polokwane City FC",
@@ -272,7 +284,8 @@
         "awayLambda": 1.3962024000000004,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Richards Bay FC vs Polokwane City FC",
@@ -293,7 +306,8 @@
         "awayLambda": 1.3962024000000004,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Brøndby IF vs Viborg FF",
@@ -314,7 +328,8 @@
         "awayLambda": 1.615824,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Brøndby IF vs Viborg FF",
@@ -335,7 +350,8 @@
         "awayLambda": 1.615824,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "AIK vs Örgryte IS",
@@ -356,7 +372,8 @@
         "awayLambda": 1.08468,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "AIK vs Örgryte IS",
@@ -377,7 +394,8 @@
         "awayLambda": 1.08468,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Austria Lustenau vs SV Josko Ried",
@@ -398,7 +416,8 @@
         "awayLambda": 1.0045296,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Austria Lustenau vs SV Josko Ried",
@@ -419,7 +438,8 @@
         "awayLambda": 1.0045296,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Wolfsberger vs Austria Vienna",
@@ -440,7 +460,8 @@
         "awayLambda": 1.3652064,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Wolfsberger vs Austria Vienna",
@@ -461,7 +482,8 @@
         "awayLambda": 1.3652064,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Aalesund vs Tromso",
@@ -482,7 +504,8 @@
         "awayLambda": 1.3844880000000004,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Aalesund vs Tromso",
@@ -503,7 +526,8 @@
         "awayLambda": 1.3844880000000004,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "KFUM Oslo vs Kristiansund BK",
@@ -524,7 +548,8 @@
         "awayLambda": 1.5842016000000003,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "KFUM Oslo vs Kristiansund BK",
@@ -545,7 +570,8 @@
         "awayLambda": 1.5842016000000003,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Molde vs Sarpsborg FK",
@@ -566,7 +592,8 @@
         "awayLambda": 1.1355696000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Molde vs Sarpsborg FK",
@@ -587,7 +614,8 @@
         "awayLambda": 1.1355696000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Racing (Montevideo) vs Boston River",
@@ -608,7 +636,8 @@
         "awayLambda": 0.855144,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Racing (Montevideo) vs Boston River",
@@ -629,7 +658,8 @@
         "awayLambda": 0.855144,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Krasnodar vs Fakel Voronezh",
@@ -650,7 +680,8 @@
         "awayLambda": 1.2923064000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Krasnodar vs Fakel Voronezh",
@@ -671,7 +702,8 @@
         "awayLambda": 1.2923064000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Hibernian vs Motherwell",
@@ -692,7 +724,8 @@
         "awayLambda": 0.8294184000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Hibernian vs Motherwell",
@@ -713,7 +746,8 @@
         "awayLambda": 0.8294184000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Siwelele vs TS Galaxy FC",
@@ -734,7 +768,8 @@
         "awayLambda": 1.022976,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Siwelele vs TS Galaxy FC",
@@ -755,7 +790,8 @@
         "awayLambda": 1.022976,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Silkeborg IF vs F.C. København",
@@ -776,7 +812,8 @@
         "awayLambda": 1.4142240000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Silkeborg IF vs F.C. København",
@@ -797,7 +834,8 @@
         "awayLambda": 1.4142240000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Sporting Cristal vs Juan Pablo II",
@@ -818,7 +856,8 @@
         "awayLambda": 1.2327552000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Sporting Cristal vs Juan Pablo II",
@@ -839,7 +878,8 @@
         "awayLambda": 1.2327552000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Deportes Concepcion vs Universidad Católica",
@@ -860,7 +900,8 @@
         "awayLambda": 0.9905544,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Deportes Concepcion vs Universidad Católica",
@@ -881,7 +922,8 @@
         "awayLambda": 0.9905544,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Rapid Vienna vs SC Rheindorf Altach",
@@ -902,7 +944,8 @@
         "awayLambda": 0.9846575999999999,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Rapid Vienna vs SC Rheindorf Altach",
@@ -923,7 +966,8 @@
         "awayLambda": 0.9846575999999999,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "SK Brann vs Rosenborg",
@@ -944,7 +988,8 @@
         "awayLambda": 1.3680864,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "SK Brann vs Rosenborg",
@@ -965,7 +1010,8 @@
         "awayLambda": 1.3680864,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Akhmat Grozny vs Spartak Moscow",
@@ -986,7 +1032,8 @@
         "awayLambda": 1.3802184000000004,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Akhmat Grozny vs Spartak Moscow",
@@ -1007,7 +1054,8 @@
         "awayLambda": 1.3802184000000004,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Aldosivi vs Gimnasia La Plata",
@@ -1028,7 +1076,8 @@
         "awayLambda": 1.2519648,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Aldosivi vs Gimnasia La Plata",
@@ -1049,7 +1098,8 @@
         "awayLambda": 1.2519648,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     }
   ]
 }

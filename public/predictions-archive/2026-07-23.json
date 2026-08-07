@@ -20,7 +20,8 @@
         "awayLambda": 0.45,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Leones vs Guayaquil City FC",
@@ -41,7 +42,8 @@
         "awayLambda": 0.45,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Orense vs Aucas",
@@ -62,7 +64,8 @@
         "awayLambda": 0.75,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Orense vs Aucas",
@@ -83,7 +86,8 @@
         "awayLambda": 0.75,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Emelec vs United States",
@@ -104,7 +108,8 @@
         "awayLambda": 2.12,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Emelec vs United States",
@@ -125,7 +130,8 @@
         "awayLambda": 2.12,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Corinthians vs Remo",
@@ -146,7 +152,8 @@
         "awayLambda": 1.86,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Corinthians vs Remo",
@@ -167,7 +174,8 @@
         "awayLambda": 1.86,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Alianza Atlético vs Los Chankas",
@@ -188,7 +196,8 @@
         "awayLambda": 1.33,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Alianza Atlético vs Los Chankas",
@@ -209,7 +218,8 @@
         "awayLambda": 1.33,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Viborg FF vs Odense Boldklub",
@@ -230,7 +240,8 @@
         "awayLambda": 1.23,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Viborg FF vs Odense Boldklub",
@@ -251,7 +262,8 @@
         "awayLambda": 1.23,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Botafogo vs Vitória",
@@ -272,7 +284,8 @@
         "awayLambda": 1.86,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Botafogo vs Vitória",
@@ -293,7 +306,8 @@
         "awayLambda": 1.86,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Västerås SK vs Örgryte IS",
@@ -314,7 +328,8 @@
         "awayLambda": 0.89,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Västerås SK vs Örgryte IS",
@@ -335,7 +350,8 @@
         "awayLambda": 0.89,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "CSKA Moscow vs FC Baltika Kaliningrad",
@@ -356,7 +372,8 @@
         "awayLambda": 0.98,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "CSKA Moscow vs FC Baltika Kaliningrad",
@@ -377,7 +394,8 @@
         "awayLambda": 0.98,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Belgrano (Córdoba) vs Rosario Central",
@@ -398,7 +416,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Belgrano (Córdoba) vs Rosario Central",
@@ -419,7 +438,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Sarmiento (Junín) vs Argentinos Juniors",
@@ -440,7 +460,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Sarmiento (Junín) vs Argentinos Juniors",
@@ -461,7 +482,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs Aldosivi",
@@ -482,7 +504,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs Aldosivi",
@@ -503,7 +526,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Gimnasia (Mendoza) vs Central Córdoba (Santiago del Estero)",
@@ -524,7 +548,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Gimnasia (Mendoza) vs Central Córdoba (Santiago del Estero)",
@@ -545,7 +570,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "2 de Mayo vs Rubio Ñú",
@@ -566,7 +592,8 @@
         "awayLambda": 1,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "2 de Mayo vs Rubio Ñú",
@@ -587,7 +614,8 @@
         "awayLambda": 1,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Cerro Porteño vs Sportivo Trinidense",
@@ -608,7 +636,8 @@
         "awayLambda": 1,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Cerro Porteño vs Sportivo Trinidense",
@@ -629,7 +658,8 @@
         "awayLambda": 1,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Athletico-PR vs Internacional",
@@ -650,7 +680,8 @@
         "awayLambda": 1.12,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Athletico-PR vs Internacional",
@@ -671,7 +702,8 @@
         "awayLambda": 1.12,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Kristiansund BK vs IK Start",
@@ -692,7 +724,8 @@
         "awayLambda": 1.33,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Kristiansund BK vs IK Start",
@@ -713,7 +746,8 @@
         "awayLambda": 1.33,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Sport Huancayo vs Atlético Grau",
@@ -734,7 +768,8 @@
         "awayLambda": 1.33,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Sport Huancayo vs Atlético Grau",
@@ -755,7 +790,8 @@
         "awayLambda": 1.33,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Juan Pablo II vs United States",
@@ -776,7 +812,8 @@
         "awayLambda": 1.33,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Juan Pablo II vs United States",
@@ -797,7 +834,8 @@
         "awayLambda": 1.33,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Degerfors IF vs Djurgården",
@@ -818,7 +856,8 @@
         "awayLambda": 1.03,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Degerfors IF vs Djurgården",
@@ -839,7 +878,8 @@
         "awayLambda": 1.03,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Universitario vs United States",
@@ -860,7 +900,8 @@
         "awayLambda": 1.33,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Universitario vs United States",
@@ -881,7 +922,8 @@
         "awayLambda": 1.33,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "AGF vs Brøndby IF",
@@ -902,7 +944,8 @@
         "awayLambda": 1.23,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "AGF vs Brøndby IF",
@@ -923,7 +966,8 @@
         "awayLambda": 1.23,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Central Español Fútbol Club vs Cerro Largo",
@@ -944,7 +988,8 @@
         "awayLambda": 0.8,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Central Español Fútbol Club vs Cerro Largo",
@@ -965,7 +1010,8 @@
         "awayLambda": 0.8,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Santos vs Chapecoense",
@@ -986,7 +1032,8 @@
         "awayLambda": 0.56,
         "dataQuality": 3,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Santos vs Chapecoense",
@@ -1007,7 +1054,8 @@
         "awayLambda": 0.56,
         "dataQuality": 3,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Atlante vs United States",
@@ -1028,7 +1076,8 @@
         "awayLambda": 1.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Atlante vs United States",
@@ -1049,7 +1098,8 @@
         "awayLambda": 1.82,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     }
   ]
 }

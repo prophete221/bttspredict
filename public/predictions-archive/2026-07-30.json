@@ -21,7 +21,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Sportivo San Lorenzo vs Guaraní",
@@ -43,7 +44,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Libertad vs Deportivo Recoleta",
@@ -65,7 +67,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Libertad vs Deportivo Recoleta",
@@ -87,7 +90,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Independiente Rivadavia vs Huracán",
@@ -113,7 +117,8 @@
       "status": "LOST",
       "isWon": false,
       "verifiedSource": "thesportsdb",
-      "verifiedAt": "2026-08-07T11:21:38.508Z"
+      "verifiedAt": "2026-08-07T11:21:38.508Z",
+      "tier": "STANDARD"
     },
     {
       "match": "Independiente Rivadavia vs Huracán",
@@ -139,7 +144,8 @@
       "status": "LOST",
       "isWon": false,
       "verifiedSource": "thesportsdb",
-      "verifiedAt": "2026-08-07T11:21:38.508Z"
+      "verifiedAt": "2026-08-07T11:21:38.508Z",
+      "tier": "STANDARD"
     },
     {
       "match": "Talleres (Córdoba) vs Vélez Sarsfield",
@@ -161,7 +167,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Talleres (Córdoba) vs Vélez Sarsfield",
@@ -183,7 +190,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Corinthians vs Athletico-PR",
@@ -205,7 +213,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Corinthians vs Athletico-PR",
@@ -227,7 +236,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Central Córdoba (Santiago del Estero) vs Atlético Tucumán",
@@ -249,7 +259,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Central Córdoba (Santiago del Estero) vs Atlético Tucumán",
@@ -271,7 +282,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Independiente vs Newell's Old Boys",
@@ -293,7 +305,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Independiente vs Newell's Old Boys",
@@ -315,7 +328,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Coritiba vs Cruzeiro",
@@ -337,7 +351,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Coritiba vs Cruzeiro",
@@ -359,7 +374,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Atlético Bucaramanga vs Llaneros FC",
@@ -381,7 +397,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Atlético Bucaramanga vs Llaneros FC",
@@ -403,7 +420,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Vålerenga vs Hamarkameratene",
@@ -425,7 +443,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Vålerenga vs Hamarkameratene",
@@ -447,7 +466,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Rodina Moscow vs Rostov",
@@ -469,7 +489,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Rodina Moscow vs Rostov",
@@ -491,7 +512,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "LASK Linz vs Grazer AK",
@@ -513,7 +535,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "LASK Linz vs Grazer AK",
@@ -535,7 +558,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Dundee United vs Rangers",
@@ -557,7 +581,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Dundee United vs Rangers",
@@ -579,7 +604,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Bodo/Glimt vs Lillestrom",
@@ -601,7 +627,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Bodo/Glimt vs Lillestrom",
@@ -623,7 +650,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Los Chankas vs Comerciantes Unidos",
@@ -645,7 +673,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Los Chankas vs Comerciantes Unidos",
@@ -667,7 +696,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Portuguesa vs Carabobo",
@@ -689,7 +719,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Portuguesa vs Carabobo",
@@ -711,7 +742,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Montevideo City Torque vs Montevideo Wanderers",
@@ -733,7 +765,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Montevideo City Torque vs Montevideo Wanderers",
@@ -755,7 +788,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Anzoátegui FC vs Deportivo Táchira",
@@ -777,7 +811,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Anzoátegui FC vs Deportivo Táchira",
@@ -799,7 +834,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "New York City FC vs Toronto FC",
@@ -821,7 +857,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "New York City FC vs Toronto FC",
@@ -843,7 +880,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Libertad (Ecuador) vs Orense",
@@ -865,7 +903,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Libertad (Ecuador) vs Orense",
@@ -887,7 +926,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Universidad de Concepción vs Audax Italiano",
@@ -909,7 +949,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Universidad de Concepción vs Audax Italiano",
@@ -931,7 +972,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Fortaleza CEIF vs Deportivo Pereira",
@@ -953,7 +995,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Fortaleza CEIF vs Deportivo Pereira",
@@ -975,7 +1018,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Puebla vs Guadalajara",
@@ -997,7 +1041,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Puebla vs Guadalajara",
@@ -1019,7 +1064,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Atlético de San Luis vs Tijuana",
@@ -1041,7 +1087,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Atlético de San Luis vs Tijuana",
@@ -1063,7 +1110,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "FC Juarez vs Pumas UNAM",
@@ -1085,7 +1133,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "FC Juarez vs Pumas UNAM",
@@ -1107,7 +1156,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     }
   ]
 }

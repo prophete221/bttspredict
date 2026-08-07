@@ -20,7 +20,8 @@
         "awayLambda": 0.89,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Brazil vs Norway",
@@ -41,7 +42,8 @@
         "awayLambda": 0.89,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Spain vs United States",
@@ -62,7 +64,8 @@
         "awayLambda": 1.38,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Spain vs United States",
@@ -83,7 +86,8 @@
         "awayLambda": 1.38,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Switzerland vs Algeria",
@@ -104,7 +108,8 @@
         "awayLambda": 1.91,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Switzerland vs Algeria",
@@ -125,7 +130,8 @@
         "awayLambda": 1.91,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Portugal vs Croatia",
@@ -146,7 +152,8 @@
         "awayLambda": 0.39,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Portugal vs Croatia",
@@ -167,7 +174,8 @@
         "awayLambda": 0.39,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs Egypt",
@@ -188,7 +196,8 @@
         "awayLambda": 1.27,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs Egypt",
@@ -209,7 +218,8 @@
         "awayLambda": 1.27,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs Mjällby AIF",
@@ -230,7 +240,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs Mjällby AIF",
@@ -251,7 +262,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Colombia vs Ghana",
@@ -272,7 +284,8 @@
         "awayLambda": 0.3,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Colombia vs Ghana",
@@ -293,7 +306,8 @@
         "awayLambda": 0.3,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Canada vs Morocco",
@@ -314,7 +328,8 @@
         "awayLambda": 1.5,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Canada vs Morocco",
@@ -335,7 +350,8 @@
         "awayLambda": 1.5,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Paraguay vs France",
@@ -356,7 +372,8 @@
         "awayLambda": 1.36,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Paraguay vs France",
@@ -377,7 +394,8 @@
         "awayLambda": 1.36,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Halmstads BK vs Västerås SK",
@@ -398,7 +416,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Halmstads BK vs Västerås SK",
@@ -419,7 +438,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Argentina vs Cape Verde",
@@ -440,7 +460,8 @@
         "awayLambda": 0.69,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Argentina vs Cape Verde",
@@ -461,7 +482,8 @@
         "awayLambda": 0.69,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Degerfors IF vs Malmö FF",
@@ -482,7 +504,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Degerfors IF vs Malmö FF",
@@ -503,7 +526,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Independiente del Valle vs Manta F.C.",
@@ -524,7 +548,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Independiente del Valle vs Manta F.C.",
@@ -545,7 +570,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Libertad (Ecuador) vs Leones",
@@ -566,7 +592,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Libertad (Ecuador) vs Leones",
@@ -587,7 +614,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Barcelona SC vs Deportivo Cuenca",
@@ -608,7 +636,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Barcelona SC vs Deportivo Cuenca",
@@ -629,7 +658,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     }
   ]
 }

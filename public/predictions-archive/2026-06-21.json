@@ -20,7 +20,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Belgium vs Iran",
@@ -41,7 +42,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Uruguay vs Cape Verde",
@@ -62,7 +64,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Uruguay vs Cape Verde",
@@ -83,7 +86,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "New Zealand vs Egypt",
@@ -104,7 +108,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "New Zealand vs Egypt",
@@ -125,7 +130,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Argentina vs United States",
@@ -146,7 +152,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Argentina vs United States",
@@ -167,7 +174,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "France vs Iraq",
@@ -188,7 +196,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "France vs Iraq",
@@ -209,7 +218,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Portugal vs Uzbekistan",
@@ -230,7 +240,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Portugal vs Uzbekistan",
@@ -251,7 +262,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Jordan vs Algeria",
@@ -272,7 +284,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Jordan vs Algeria",
@@ -293,7 +306,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "England vs Ghana",
@@ -314,7 +328,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "England vs Ghana",
@@ -335,7 +350,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Norway vs Senegal",
@@ -356,7 +372,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Norway vs Senegal",
@@ -377,7 +394,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Bosnia-Herzegovina vs Qatar",
@@ -398,7 +416,8 @@
         "awayLambda": 0.73,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Bosnia-Herzegovina vs Qatar",
@@ -419,7 +438,8 @@
         "awayLambda": 0.73,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Switzerland vs Canada",
@@ -440,7 +460,8 @@
         "awayLambda": 1.37,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Switzerland vs Canada",
@@ -461,7 +482,8 @@
         "awayLambda": 1.37,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Colombia vs DR Congo",
@@ -482,7 +504,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Colombia vs DR Congo",
@@ -503,7 +526,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Panama vs Croatia",
@@ -524,7 +548,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Panama vs Croatia",
@@ -545,7 +570,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Ecuador vs Germany",
@@ -566,7 +592,8 @@
         "awayLambda": 0.62,
         "dataQuality": 6,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Ecuador vs Germany",
@@ -587,7 +614,8 @@
         "awayLambda": 0.62,
         "dataQuality": 6,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Scotland vs Brazil",
@@ -608,7 +636,8 @@
         "awayLambda": 0.61,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Scotland vs Brazil",
@@ -629,7 +658,8 @@
         "awayLambda": 0.61,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Czechia vs Mexico",
@@ -650,7 +680,8 @@
         "awayLambda": 0.93,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Czechia vs Mexico",
@@ -671,7 +702,8 @@
         "awayLambda": 0.93,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Morocco vs Haiti",
@@ -692,7 +724,8 @@
         "awayLambda": 0.3,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Morocco vs Haiti",
@@ -713,7 +746,8 @@
         "awayLambda": 0.3,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "South Africa vs South Korea",
@@ -734,7 +768,8 @@
         "awayLambda": 0.71,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "South Africa vs South Korea",
@@ -755,7 +790,8 @@
         "awayLambda": 0.71,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Curaçao vs Ivory Coast",
@@ -776,7 +812,8 @@
         "awayLambda": 1.22,
         "dataQuality": 6,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Curaçao vs Ivory Coast",
@@ -797,7 +834,8 @@
         "awayLambda": 1.22,
         "dataQuality": 6,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Japan vs Sweden",
@@ -818,7 +856,8 @@
         "awayLambda": 0.85,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Japan vs Sweden",
@@ -839,7 +878,8 @@
         "awayLambda": 0.85,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Tunisia vs Curaçao",
@@ -860,7 +900,8 @@
         "awayLambda": 4.98,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Tunisia vs Curaçao",
@@ -881,7 +922,8 @@
         "awayLambda": 4.98,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Türkiye vs United States",
@@ -902,7 +944,8 @@
         "awayLambda": 1.57,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Türkiye vs United States",
@@ -923,7 +966,8 @@
         "awayLambda": 1.57,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Paraguay vs United States",
@@ -944,7 +988,8 @@
         "awayLambda": 0.88,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Paraguay vs United States",
@@ -965,7 +1010,8 @@
         "awayLambda": 0.88,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Senegal vs Iraq",
@@ -986,7 +1032,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Senegal vs Iraq",
@@ -1007,7 +1054,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Norway vs France",
@@ -1028,7 +1076,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Norway vs France",
@@ -1049,7 +1098,8 @@
         "awayLambda": 0.95,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     }
   ]
 }

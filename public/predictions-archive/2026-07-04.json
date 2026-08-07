@@ -20,7 +20,8 @@
         "awayLambda": 1.55,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Canada vs Morocco",
@@ -41,7 +42,8 @@
         "awayLambda": 1.55,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Halmstads BK vs Västerås SK",
@@ -62,7 +64,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Halmstads BK vs Västerås SK",
@@ -83,7 +86,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Paraguay vs France",
@@ -104,7 +108,8 @@
         "awayLambda": 1.41,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Paraguay vs France",
@@ -125,7 +130,8 @@
         "awayLambda": 1.41,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Degerfors IF vs Malmö FF",
@@ -146,7 +152,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Degerfors IF vs Malmö FF",
@@ -167,7 +174,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Libertad (Ecuador) vs Leones",
@@ -188,7 +196,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Libertad (Ecuador) vs Leones",
@@ -209,7 +218,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Brazil vs Norway",
@@ -230,7 +240,8 @@
         "awayLambda": 0.73,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Brazil vs Norway",
@@ -251,7 +262,8 @@
         "awayLambda": 0.73,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "IFK Göteborg vs AIK",
@@ -272,7 +284,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "IFK Göteborg vs AIK",
@@ -293,7 +306,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "IF Elfsborg vs Hammarby IF",
@@ -314,7 +328,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "IF Elfsborg vs Hammarby IF",
@@ -335,7 +350,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Kalmar FF vs Örgryte IS",
@@ -356,7 +372,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Kalmar FF vs Örgryte IS",
@@ -377,7 +394,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Barcelona SC vs Deportivo Cuenca",
@@ -398,7 +416,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Barcelona SC vs Deportivo Cuenca",
@@ -419,7 +438,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Macará vs Liga de Quito",
@@ -440,7 +460,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Macará vs Liga de Quito",
@@ -461,7 +482,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Danubio vs Juventud",
@@ -482,7 +504,8 @@
         "awayLambda": 0.98,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Danubio vs Juventud",
@@ -503,7 +526,8 @@
         "awayLambda": 0.98,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Portugal vs Spain",
@@ -524,7 +548,8 @@
         "awayLambda": 0.9,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Portugal vs Spain",
@@ -545,7 +570,8 @@
         "awayLambda": 0.9,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Mexico vs England",
@@ -566,7 +592,8 @@
         "awayLambda": 0.5,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Mexico vs England",
@@ -587,7 +614,8 @@
         "awayLambda": 0.5,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "BK Häcken vs Djurgården",
@@ -608,7 +636,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "BK Häcken vs Djurgården",
@@ -629,7 +658,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "IF Brommapojkarna vs GAIS",
@@ -650,7 +680,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "IF Brommapojkarna vs GAIS",
@@ -671,7 +702,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Delfín vs Emelec",
@@ -692,7 +724,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Delfín vs Emelec",
@@ -713,7 +746,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Universidad Católica (Quito) vs United States",
@@ -734,7 +768,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Universidad Católica (Quito) vs United States",
@@ -755,7 +790,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs Belgium",
@@ -776,7 +812,8 @@
         "awayLambda": 3,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "United States vs Belgium",
@@ -797,7 +834,8 @@
         "awayLambda": 3,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Orense vs Técnico Universitario",
@@ -818,7 +856,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Orense vs Técnico Universitario",
@@ -839,7 +878,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     }
   ]
 }

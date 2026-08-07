@@ -20,7 +20,8 @@
         "awayLambda": 1.45,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Belgium vs Senegal",
@@ -41,7 +42,8 @@
         "awayLambda": 1.45,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "England vs DR Congo",
@@ -62,7 +64,8 @@
         "awayLambda": 0.41,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "England vs DR Congo",
@@ -83,7 +86,8 @@
         "awayLambda": 0.41,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Spain vs United States",
@@ -104,7 +108,8 @@
         "awayLambda": 0.42,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Spain vs United States",
@@ -125,7 +130,8 @@
         "awayLambda": 0.42,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Delfín vs Emelec",
@@ -146,7 +152,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Delfín vs Emelec",
@@ -167,7 +174,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs Bosnia-Herzegovina",
@@ -188,7 +196,8 @@
         "awayLambda": 1.32,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs Bosnia-Herzegovina",
@@ -209,7 +218,8 @@
         "awayLambda": 1.32,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Liga de Quito vs Orense",
@@ -230,7 +240,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Liga de Quito vs Orense",
@@ -251,7 +262,8 @@
         "awayLambda": 1.02,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Switzerland vs Algeria",
@@ -272,7 +284,8 @@
         "awayLambda": 2.02,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Switzerland vs Algeria",
@@ -293,7 +306,8 @@
         "awayLambda": 2.02,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "GOLD"
     },
     {
       "match": "Portugal vs Croatia",
@@ -314,7 +328,8 @@
         "awayLambda": 0.41,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Portugal vs Croatia",
@@ -335,7 +350,8 @@
         "awayLambda": 0.41,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs Egypt",
@@ -356,7 +372,8 @@
         "awayLambda": 1.69,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs Egypt",
@@ -377,7 +394,8 @@
         "awayLambda": 1.69,
         "dataQuality": 2,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs Mjällby AIF",
@@ -398,7 +416,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "United States vs Mjällby AIF",
@@ -419,7 +438,8 @@
         "awayLambda": 1.15,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Colombia vs Ghana",
@@ -440,7 +460,8 @@
         "awayLambda": 0.3,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Colombia vs Ghana",
@@ -461,7 +482,8 @@
         "awayLambda": 0.3,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Paraguay vs France",
@@ -482,7 +504,8 @@
         "awayLambda": 1.46,
         "dataQuality": 6,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Paraguay vs France",
@@ -503,7 +526,8 @@
         "awayLambda": 1.46,
         "dataQuality": 6,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Canada vs Morocco",
@@ -524,7 +548,8 @@
         "awayLambda": 1.59,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Canada vs Morocco",
@@ -545,7 +570,8 @@
         "awayLambda": 1.59,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Argentina vs Cape Verde",
@@ -566,7 +592,8 @@
         "awayLambda": 0.57,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Argentina vs Cape Verde",
@@ -587,7 +614,8 @@
         "awayLambda": 0.57,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Brazil vs Norway",
@@ -608,7 +636,8 @@
         "awayLambda": 0.99,
         "dataQuality": 6,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Brazil vs Norway",
@@ -629,7 +658,8 @@
         "awayLambda": 0.99,
         "dataQuality": 6,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Mexico vs Round of 32 8 Winner",
@@ -650,7 +680,8 @@
         "awayLambda": 0.4,
         "dataQuality": 3,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Mexico vs Round of 32 8 Winner",
@@ -671,7 +702,8 @@
         "awayLambda": 0.4,
         "dataQuality": 3,
         "hasRealData": true
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Round of 32 11 Winner vs Round of 32 12 Winner",
@@ -692,7 +724,8 @@
         "awayLambda": 1.32,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Round of 32 11 Winner vs Round of 32 12 Winner",
@@ -713,7 +746,8 @@
         "awayLambda": 1.32,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Round of 32 14 Winner vs Round of 32 16 Winner",
@@ -734,7 +768,8 @@
         "awayLambda": 1.32,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Round of 32 14 Winner vs Round of 32 16 Winner",
@@ -755,7 +790,8 @@
         "awayLambda": 1.32,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Round of 32 13 Winner vs Round of 32 15 Winner",
@@ -776,7 +812,8 @@
         "awayLambda": 1.32,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Round of 32 13 Winner vs Round of 32 15 Winner",
@@ -797,7 +834,8 @@
         "awayLambda": 1.32,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Round of 32 9 Winner vs Round of 32 10 Winner",
@@ -818,7 +856,8 @@
         "awayLambda": 1.32,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     },
     {
       "match": "Round of 32 9 Winner vs Round of 32 10 Winner",
@@ -839,7 +878,8 @@
         "awayLambda": 1.32,
         "dataQuality": 0,
         "hasRealData": false
-      }
+      },
+      "tier": "STANDARD"
     }
   ]
 }

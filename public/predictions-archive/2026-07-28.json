@@ -21,7 +21,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Rubio Ñú vs Sportivo Ameliano",
@@ -43,7 +44,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "2 de Mayo vs Cerro Porteño",
@@ -65,7 +67,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "2 de Mayo vs Cerro Porteño",
@@ -87,7 +90,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Banfield vs Sarmiento (Junín)",
@@ -113,7 +117,8 @@
       "status": "LOST",
       "isWon": false,
       "verifiedSource": "thesportsdb",
-      "verifiedAt": "2026-08-07T11:21:16.381Z"
+      "verifiedAt": "2026-08-07T11:21:16.381Z",
+      "tier": "STANDARD"
     },
     {
       "match": "Banfield vs Sarmiento (Junín)",
@@ -139,7 +144,8 @@
       "status": "LOST",
       "isWon": false,
       "verifiedSource": "thesportsdb",
-      "verifiedAt": "2026-08-07T11:21:16.381Z"
+      "verifiedAt": "2026-08-07T11:21:16.381Z",
+      "tier": "STANDARD"
     },
     {
       "match": "San Lorenzo vs Gimnasia (Mendoza)",
@@ -165,7 +171,8 @@
       "status": "LOST",
       "isWon": false,
       "verifiedSource": "thesportsdb",
-      "verifiedAt": "2026-08-07T11:21:16.381Z"
+      "verifiedAt": "2026-08-07T11:21:16.381Z",
+      "tier": "STANDARD"
     },
     {
       "match": "San Lorenzo vs Gimnasia (Mendoza)",
@@ -191,7 +198,8 @@
       "status": "WON",
       "isWon": true,
       "verifiedSource": "thesportsdb",
-      "verifiedAt": "2026-08-07T11:21:16.381Z"
+      "verifiedAt": "2026-08-07T11:21:16.381Z",
+      "tier": "STANDARD"
     },
     {
       "match": "Argentinos Juniors vs Estudiantes de Río Cuarto",
@@ -213,7 +221,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Argentinos Juniors vs Estudiantes de Río Cuarto",
@@ -235,7 +244,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Rosario Central vs Racing Club",
@@ -257,7 +267,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Rosario Central vs Racing Club",
@@ -279,7 +290,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Barracas Central vs Aldosivi",
@@ -301,7 +313,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Barracas Central vs Aldosivi",
@@ -323,7 +336,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Sportivo Luqueño vs Sportivo Trinidense",
@@ -345,7 +359,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Sportivo Luqueño vs Sportivo Trinidense",
@@ -367,7 +382,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Defensa y Justicia vs Deportivo Riestra",
@@ -389,7 +405,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Defensa y Justicia vs Deportivo Riestra",
@@ -411,7 +428,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Nacional Asunción vs Club Olimpia",
@@ -433,7 +451,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Nacional Asunción vs Club Olimpia",
@@ -455,7 +474,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Gimnasia La Plata vs River Plate",
@@ -477,7 +497,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Gimnasia La Plata vs River Plate",
@@ -499,7 +520,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Internacional vs Flamengo",
@@ -521,7 +543,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Internacional vs Flamengo",
@@ -543,7 +566,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Mirassol vs Remo",
@@ -565,7 +589,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Mirassol vs Remo",
@@ -587,7 +612,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "MLS All-Stars vs Liga MX All-Stars",
@@ -609,7 +635,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "MLS All-Stars vs Liga MX All-Stars",
@@ -631,7 +658,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Instituto (Córdoba) vs Platense",
@@ -653,7 +681,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Instituto (Córdoba) vs Platense",
@@ -675,7 +704,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Fluminense vs Bahia",
@@ -697,7 +727,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Fluminense vs Bahia",
@@ -719,7 +750,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Vitória vs Palmeiras",
@@ -741,7 +773,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Vitória vs Palmeiras",
@@ -763,7 +796,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Sportivo San Lorenzo vs Guaraní",
@@ -785,7 +819,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Sportivo San Lorenzo vs Guaraní",
@@ -807,7 +842,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Libertad vs Deportivo Recoleta",
@@ -829,7 +865,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Libertad vs Deportivo Recoleta",
@@ -851,7 +888,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Independiente Rivadavia vs Huracán",
@@ -873,7 +911,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Independiente Rivadavia vs Huracán",
@@ -895,7 +934,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Talleres (Córdoba) vs Vélez Sarsfield",
@@ -917,7 +957,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Talleres (Córdoba) vs Vélez Sarsfield",
@@ -939,7 +980,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Corinthians vs Athletico-PR",
@@ -961,7 +1003,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Corinthians vs Athletico-PR",
@@ -983,7 +1026,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Central Córdoba (Santiago del Estero) vs Atlético Tucumán",
@@ -1005,7 +1049,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Central Córdoba (Santiago del Estero) vs Atlético Tucumán",
@@ -1027,7 +1072,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Independiente vs Newell's Old Boys",
@@ -1049,7 +1095,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Independiente vs Newell's Old Boys",
@@ -1071,7 +1118,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Coritiba vs Cruzeiro",
@@ -1093,7 +1141,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     },
     {
       "match": "Coritiba vs Cruzeiro",
@@ -1115,7 +1164,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "status": "PENDING",
+      "tier": "STANDARD"
     }
   ]
 }
