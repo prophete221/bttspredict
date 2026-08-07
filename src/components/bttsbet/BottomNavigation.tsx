@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 
-type TabId = 'home' | 'predictions' | 'vip' | 'history'
+type TabId = 'home' | 'predictions' | 'vip'
 
 interface Tab {
   id: TabId
@@ -50,18 +50,6 @@ const TABS: Tab[] = [
       </svg>
     ),
     matchPath: (p) => p.startsWith('/vip'),
-  },
-  {
-    id: 'history',
-    label: 'Historique',
-    href: '/historique',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M3 3v18h18" />
-        <path d="M7 14l4-4 4 4 5-5" />
-      </svg>
-    ),
-    matchPath: (p) => p.startsWith('/historique') || p.startsWith('/methodologie') || p.startsWith('/resultats-verifies') || p.startsWith('/statistiques'),
   },
 ]
 

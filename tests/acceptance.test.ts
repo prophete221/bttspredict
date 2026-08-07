@@ -65,12 +65,13 @@ describe('Phase 6 — BottomNavigation sur toutes les pages', () => {
     expect(layout).toContain('<BottomNavigation')
   })
 
-  test('BottomNavigation contient 4 onglets : Accueil, Pronos, VIP, Historique', () => {
+  test('BottomNavigation contient 3 onglets : Accueil, Pronos, VIP', () => {
     const nav = fs.readFileSync(path.join(ROOT, 'src/components/bttsbet/BottomNavigation.tsx'), 'utf8')
     expect(nav).toContain('Accueil')
     expect(nav).toContain('Pronos')
     expect(nav).toContain('VIP')
-    expect(nav).toContain('Historique')
+    expect(nav).not.toContain("'history'")
+    expect(nav).not.toContain("label: 'Historique'")
   })
 
   test('BottomNavigation a aria-current et usePathname', () => {
