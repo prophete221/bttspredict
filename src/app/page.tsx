@@ -530,7 +530,7 @@ export default function Home() {
         <ErrorBoundary><Navbar /></ErrorBoundary>
         <ErrorBoundary><Hero /></ErrorBoundary>
         <ErrorBoundary><FreePredictions /></ErrorBoundary>
-        <ErrorBoundary><WinHistory /></ErrorBoundary>
+        {/* WinHistory supprimé temporairement — nouveau système de vérification en cours */}
         <ErrorBoundary><HowItWorks /></ErrorBoundary>
         <ErrorBoundary><PromoVip /></ErrorBoundary>
         <ErrorBoundary><VipCardGrid /></ErrorBoundary>

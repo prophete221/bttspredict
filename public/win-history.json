@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T17:33:03.091Z",
+  "generatedAt": "2026-08-07T17:50:56.456Z",
   "period": {
     "from": "2026-06-07",
     "to": "2026-08-07",
@@ -17,20 +17,20 @@
     "roi": -7.8,
     "yield": -7.8,
     "gold": {
-      "total": 59,
-      "won": 23,
-      "lost": 36,
-      "rate": 39,
+      "total": 50,
+      "won": 20,
+      "lost": 30,
+      "rate": 40,
       "avgOdds": 1.9,
-      "profit": -15.3,
-      "roi": -25.9,
-      "yield": -25.9
+      "profit": -12,
+      "roi": -24,
+      "yield": -24
     },
     "standard": {
-      "total": 576,
-      "won": 285,
-      "lost": 291,
-      "rate": 49.5
+      "total": 585,
+      "won": 288,
+      "lost": 297,
+      "rate": 49.2
     },
     "byType": {
       "btts": {
@@ -190,7 +190,7 @@
       "status": "WON",
       "finalScore": "4-3",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T17:23:01.001Z",
+      "verifiedAt": "2026-08-07T17:02:17.506Z",
       "source": "ESPN public"
     },
     {
@@ -206,7 +206,7 @@
       "status": "WON",
       "finalScore": "4-3",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T17:23:01.001Z",
+      "verifiedAt": "2026-08-07T17:02:17.506Z",
       "source": "ESPN public"
     },
     {
@@ -222,7 +222,7 @@
       "status": "WON",
       "finalScore": "3-4",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T17:23:01.001Z",
+      "verifiedAt": "2026-08-07T17:02:17.505Z",
       "source": "ESPN public"
     },
     {
@@ -238,7 +238,7 @@
       "status": "WON",
       "finalScore": "3-4",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T17:23:01.001Z",
+      "verifiedAt": "2026-08-07T17:02:17.505Z",
       "source": "ESPN public"
     },
     {
@@ -4822,7 +4822,7 @@
       "match": "Aalesund vs Viking FK",
       "league": "Eliteserien",
       "market": "over25",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 52,
       "coteProposee": 1.9,
       "coteCloture": null,
@@ -4838,7 +4838,7 @@
       "match": "Aalesund vs Viking FK",
       "league": "Eliteserien",
       "market": "btts",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 52,
       "coteProposee": 1.9,
       "coteCloture": null,
@@ -4982,7 +4982,7 @@
       "match": "Red Bull New York vs Charlotte FC",
       "league": "MLS",
       "market": "over25",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 51,
       "coteProposee": 1.9,
       "coteCloture": null,
@@ -4998,7 +4998,7 @@
       "match": "Red Bull New York vs Charlotte FC",
       "league": "MLS",
       "market": "btts",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 51,
       "coteProposee": 1.9,
       "coteCloture": null,
@@ -5110,7 +5110,7 @@
       "match": "St. Louis CITY SC vs Colorado Rapids",
       "league": "MLS",
       "market": "over25",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 52,
       "coteProposee": 1.9,
       "coteCloture": null,
@@ -5126,7 +5126,7 @@
       "match": "St. Louis CITY SC vs Colorado Rapids",
       "league": "MLS",
       "market": "btts",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 52,
       "coteProposee": 1.9,
       "coteCloture": null,
@@ -5654,7 +5654,7 @@
       "match": "Corinthians vs Remo",
       "league": "Serie A (BRA)",
       "market": "over25",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 51,
       "coteProposee": 1.9,
       "coteCloture": null,
@@ -5670,7 +5670,7 @@
       "match": "Corinthians vs Remo",
       "league": "Serie A (BRA)",
       "market": "btts",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 51,
       "coteProposee": 1.9,
       "coteCloture": null,
@@ -6230,7 +6230,7 @@
       "match": "ADT vs Universitario",
       "league": "Liga 1 (PER)",
       "market": "over25",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 51,
       "coteProposee": 1.9,
       "coteCloture": null,

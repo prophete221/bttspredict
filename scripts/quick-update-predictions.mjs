@@ -67,11 +67,12 @@ const HIGH_BTTS_LEAGUES = [
   'Norwegian Eliteserien'
 ];
 
-function assignTier(proba, league) {
+function assignTier(proba, league, market) {
   const ln = (league || '').toLowerCase();
   const isHigh = HIGH_BTTS_LEAGUES.some(l => ln.includes(l.toLowerCase()));
+  const isBttsYes = (market || '').toLowerCase().includes('btts') && (market || '').toLowerCase() !== 'non';
   if (proba >= 0.75) return 'GOLD';
-  if (proba >= 0.70 && isHigh) return 'GOLD';
+  if (proba >= 0.70 && isHigh && isBttsYes) return 'GOLD';
   return 'STANDARD';
 }
 
@@ -314,7 +315,7 @@ async function quickUpdate() {
       source: 'poisson',
       homeLogo: m.homeLogo,
       awayLogo: m.awayLogo,
-      tier: assignTier(result.bttsProb, m.league),
+      tier: assignTier(result.bttsProb, m.league, 'BTTS'),
       analysis: {
         bttsProb: result.bttsProb,
         over25Prob: result.over25Prob,
@@ -337,7 +338,7 @@ async function quickUpdate() {
       source: 'poisson',
       homeLogo: m.homeLogo,
       awayLogo: m.awayLogo,
-      tier: assignTier(result.over25Prob, m.league),
+      tier: assignTier(result.over25Prob, m.league, 'Over 2.5'),
       analysis: {
         bttsProb: result.bttsProb,
         over25Prob: result.over25Prob,

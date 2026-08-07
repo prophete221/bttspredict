@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 const DIR = './public/predictions-archive';
-const HIGH = ['bundesliga','eredivisie','jupiler','swiss','mls','championship','premier','liga','serie','ligue 1'];
+const HIGH = ['bundesliga','eredivisie','jupiler','belgium','swiss','championship','premier league','liga'];
 
 function tierOf(p) {
   // Force re-evaluation: ignore existing tier, always recalculate
@@ -10,10 +10,17 @@ function tierOf(p) {
   if (!proba && p.analysis) proba = p.analysis.bttsProb || p.analysis.over25Prob || 0;
   if (!proba && p.confidence) proba = p.confidence / 100;
   if (!proba) proba = 0.6;
+
   const league = (p.league || '').toLowerCase();
   const isHigh = HIGH.some(h => league.includes(h));
+
+  // Check if this is a BTTS Oui prediction
+  const market = (p.type || p.market || '').toLowerCase();
+  const isBttsYes = market.includes('btts') && (p.prediction || '').toLowerCase() !== 'non';
+
+  // GOLD = only BTTS Oui in high-scoring leagues + very high proba
   if (proba >= 0.75) return 'GOLD';
-  if (proba >= 0.70 && isHigh) return 'GOLD';
+  if (proba >= 0.70 && isHigh && isBttsYes) return 'GOLD';
   return 'STANDARD';
 }
 

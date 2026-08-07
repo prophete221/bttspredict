@@ -12,9 +12,11 @@ function getTier(p) {
   if (!proba && p.confidence) proba = p.confidence / 100;
   if (!proba) proba = 0.6;
   const lg = (p.league || '').toLowerCase();
-  const isHigh = ['bundesliga','eredivisie','jupiler','swiss','mls','championship'].some(h => lg.includes(h));
+  const isHigh = ['bundesliga','eredivisie','jupiler','belgium','swiss','championship'].some(h => lg.includes(h));
+  const market = (p.type || p.market || '').toLowerCase();
+  const isBttsYes = market.includes('btts') && (p.prediction || '').toLowerCase() !== 'non';
   if (proba >= 0.75) return 'GOLD';
-  if (proba >= 0.70 && isHigh) return 'GOLD';
+  if (proba >= 0.70 && isHigh && isBttsYes) return 'GOLD';
   return 'STANDARD';
 }
 
