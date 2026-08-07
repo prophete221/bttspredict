@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
-type TabId = 'home' | 'predictions' | 'vip' | 'support'
+type TabId = 'home' | 'predictions' | 'history' | 'vip'
 
 // Helper : naviguer vers une section (gère le cas multi-pages)
 function goToSection(id: string) {
@@ -57,14 +57,19 @@ const TABS: { id: TabId; label: string; icon: React.ReactNode; action: () => voi
     action: () => goToSection('vip'),
   },
   {
-    id: 'support',
-    label: 'Support',
+    id: 'history',
+    label: 'Historique',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+        <path d="M3 3v18h18" />
+        <path d="M7 14l4-4 4 4 5-5" />
       </svg>
     ),
-    action: () => window.open('https://wa.me/15406704172', '_blank'),
+    action: () => {
+      if (window.location.pathname !== '/historique') {
+        window.location.href = '/historique'
+      }
+    },
   },
 ]
 

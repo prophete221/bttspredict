@@ -64,11 +64,10 @@ export const ANDROID_LOGO = '/logos/android.svg'
 
 export const NAV_LINKS = [
   { label: 'Accueil', href: '/' },
-  { label: 'Pronostics du jour', scrollTarget: 'free-predictions' },
-  { label: 'Résultats', scrollTarget: 'win-history' },
-  { label: 'VIP & Bonus', scrollTarget: 'vip', highlight: true },
-  { label: 'Méthodologie', scrollTarget: 'how-it-works' },
-  { label: 'À propos', scrollTarget: 'about' },
+  { label: 'Pronos', scrollTarget: 'free-predictions' },
+  { label: 'Historique', href: '/historique' },
+  { label: 'Méthodologie', href: '/methodologie' },
+  { label: 'VIP', scrollTarget: 'vip', highlight: true },
 ]
 
 export const HOW_IT_WORKS = [

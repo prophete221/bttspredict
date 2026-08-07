@@ -31,19 +31,63 @@
   --color-text-secondary: #A5ABC5;     /* Gris Lavande — labels, descriptions */
   --color-text-tertiary: #6B7194;      /* Gris profond — muted, disabled */
 
-  /* — Brand (3 couleurs signature) — */
-  --color-brand-indigo: #5146F5;       /* CTA principal BTTS */
-  --color-brand-violet: #7C3AED;       /* BTTS accent (stats BTTS) */
-  --color-brand-cyan: #5DFDCB;         /* Over 2.5 accent (NOUVEAU) */
-  --color-cta: #5146F5;                /* Alias brand-indigo */
-  --color-cta-text: #F7F8FF;
+  /* — Surfaces — */
+  --color-surface-card: #141C35;
+  --color-surface-card-hover: #182242;
+  --color-surface-premium: #171C33;
 
-  /* — Sémantiques — */
-  --color-trust: #B9E7FF;              /* Bleu Polaire — confiance, info */
-  --color-stats: #5146F5;              /* Indigo — statistiques */
-  --color-vip: #FFC857;               /* Or Solaire — premium */
-  --color-success: #A8E063;            /* Vert Signal — gagné */
-  --color-error: #FF7185;             /* Rose Alerte — perdu */
+  /* — Borders — */
+  --color-border-default: #2B365E;
+  --color-border-hover: #3A4673;
+
+  /* — Action (1 CTA primaire par viewport) — */
+  --color-action-primary: #5146F5;
+  --color-action-primary-hover: #6258FF;
+  --color-action-primary-text: #F7F8FF;
+  --color-action-secondary-bg: transparent;
+  --color-action-secondary-border: #3A4673;
+  --color-action-secondary-text: #A5ABC5;
+
+  /* — Market colors (badges/graphiques uniquement, jamais CTA) — */
+  --color-market-btts: #7C3AED;
+  --color-market-btts-muted: rgba(124, 58, 237, 0.14);
+  --color-market-over: #46DDB4;           /* assombri de #5DFDCB */
+  --color-market-over-muted: rgba(70, 221, 180, 0.14);
+  --color-market-over-border: rgba(70, 221, 180, 0.32);
+
+  /* — VIP (or mat, pas de gradient/glow) — */
+  --color-vip-accent: #D9A441;           /* or mat, pas casino */
+  --color-vip-accent-muted: rgba(217, 164, 65, 0.10);
+  --color-vip-border: rgba(217, 164, 65, 0.42);
+  --color-vip-gradient: none;
+
+  /* — Trust — */
+  --color-trust-accent: #8BCFF5;         /* assombri de #B9E7FF */
+  --color-trust-bg: rgba(139, 207, 245, 0.08);
+  --color-trust-border: rgba(139, 207, 245, 0.22);
+
+  /* — Statut (capsules compactes uniquement) — */
+  --color-success-muted: #7FD65A;
+  --color-error: #FF7185;
+
+  /* — Legacy aliases (compatibilité) — */
+  --color-brand-indigo: var(--color-action-primary);
+  --color-brand-violet: var(--color-market-btts);
+  --color-brand-cyan: var(--color-market-over);
+  --color-cta: var(--color-action-primary);
+  --color-cta-text: var(--color-action-primary-text);
+  --color-cta-hover: var(--color-action-primary-hover);
+  --color-trust: var(--color-trust-accent);
+  --color-stats: var(--color-action-primary);
+  --color-vip: var(--color-vip-accent);
+  --color-success: var(--color-success-muted);
+  --color-card: var(--color-surface-card);
+  --color-card-hover: var(--color-surface-card-hover);
+
+  /* — Shadows & radius — */
+  --shadow-card: 0 10px 30px rgba(0,0,0,0.22);
+  --radius-card: 16px;
+  --radius-control: 10px;
 
   /* — Hover states — */
   --color-cta-hover: #6B61FF;
@@ -165,17 +209,40 @@
   --text-secondary: #A5ABC5;
   --text-tertiary: #6B7194;
 
-  /* Brand */
-  --brand-indigo: #5146F5;
-  --brand-violet: #7C3AED;
-  --brand-cyan: #5DFDCB;
-  --cta: #5146F5;
-  --cta-text: #F7F8FF;
-  --trust: #B9E7FF;
-  --stats: #5146F5;
-  --vip: #FFC857;
-  --success: #A8E063;
+  /* Action */
+  --action-primary: #5146F5;
+  --action-primary-hover: #6258FF;
+  --action-primary-text: #F7F8FF;
+  --action-secondary-border: #3A4673;
+  --action-secondary-text: #A5ABC5;
+  /* Market */
+  --market-btts: #7C3AED;
+  --market-over: #46DDB4;
+  /* VIP */
+  --vip-accent: #D9A441;
+  /* Trust */
+  --trust-accent: #8BCFF5;
+  /* Statut */
+  --success-muted: #7FD65A;
   --error: #FF7185;
+  /* Surfaces */
+  --surface-card: #141C35;
+  --surface-card-hover: #182242;
+  --surface-premium: #171C33;
+  --border-default: #2B365E;
+  --border-hover: #3A4673;
+  /* Legacy */
+  --brand-indigo: var(--action-primary);
+  --brand-violet: var(--market-btts);
+  --brand-cyan: var(--market-over);
+  --cta: var(--action-primary);
+  --cta-text: var(--action-primary-text);
+  --cta-hover: var(--action-primary-hover);
+  --trust: var(--trust-accent);
+  --vip: var(--vip-accent);
+  --success: var(--success-muted);
+  --glass: rgba(247, 248, 255, 0.08);
+  --glass-border: rgba(247, 248, 255, 0.12);
 
   /* Glassmorphism */
   --glass: rgba(247, 248, 255, 0.08);

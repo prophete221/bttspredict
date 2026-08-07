@@ -58,57 +58,53 @@ export default function WinHistory() {
           </p>
         </div>
 
-        {/* Bandeau vérification live */}
-        <div className="rounded-[20px] bg-[#171A38] border border-[#303861]/50 p-3 flex items-center gap-2 text-xs text-[#A5ABC5]">
-          <span className="w-2 h-2 bg-[#A8E063] rounded-full animate-pulse"></span>
-          ✅ {stats.total} vérifiés (sur {stats.archivedTotal || '—'} archivés) • ESPN public • Maj {new Date(data.generatedAt).toLocaleTimeString('fr-FR')}
-        </div>
-
-        {/* Définitions */}
-        <div className="text-[10px] text-[#6B7194] px-1 flex gap-3 flex-wrap">
-          <span>{stats.archivedTotal || '—'} archivés = pronos générés depuis {data.period?.from || '—'}</span>
-          <span>•</span>
-          <span>{stats.total} vérifiés = dont score final ESPN retrouvé</span>
-          <span>•</span>
-          <span>{stats.pending || '—'} pending = en attente</span>
+        {/* Bandeau compact */}
+        <div className="rounded-[16px] bg-[#171A38] border border-[#2B365E]/50 p-3 flex items-center justify-between text-xs text-[#A5ABC5]">
+          <span className="flex items-center gap-2">
+            <span className="w-2 h-2 bg-[#7FD65A] rounded-full animate-pulse"></span>
+            {stats.total} vérifiés (sur {stats.archivedTotal || '—'} archivés)
+          </span>
+          <span className="text-[#6B7194]">
+            ESPN public · Maj {new Date(data.generatedAt).toLocaleTimeString('fr-FR')}
+          </span>
         </div>
 
         {/* KPI Cards: All vs Gold */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {/* All Picks */}
-          <div className="rounded-[24px] bg-[#0D1630] border border-[#303861] p-5">
-            <div className="text-[10px] text-[#6B7194] uppercase tracking-widest">Tous les pronos live</div>
+          {/* All Picks — aplat indigo, pas gradient */}
+          <div className="rounded-[16px] bg-[#141C35] border border-[#2B365E] p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
+            <div className="text-[10px] text-[#6B7194] uppercase tracking-widest">Tous les pronos</div>
             <div className="mt-1 flex items-baseline gap-2">
               <div className="text-3xl font-bold text-white font-mono">{stats.rate}%</div>
               <div className="text-xs text-[#A5ABC5]">{stats.won}W/{stats.lost}L • {stats.total}</div>
             </div>
             <div className="mt-2 text-[10px] text-[#6B7194]">
-              Cote moy {stats.avgOdds || '—'} • ROI {stats.roi ?? '—'}% • Profit {stats.profit ?? '—'}u • Période {data.period?.days || '—'}j
+              Cote moy {stats.avgOdds || '—'} • ROI {stats.roi ?? '—'}% • Profit {stats.profit ?? '—'}u
             </div>
-            <div className="mt-2 h-1.5 bg-[#070B18] rounded-full">
+            <div className="mt-3 h-1.5 bg-[#070B18] rounded-full">
               <div className="h-full bg-[#5146F5] rounded-full transition-all duration-700" style={{ width: `${stats.rate}%` }}></div>
             </div>
           </div>
 
-          {/* Gold Picks — visible si gold.total >= 10, sinon "en construction" */}
+          {/* Gold Picks — or mat, pas gradient casino */}
           {hasGold && (
-            <div className="rounded-[24px] bg-gradient-to-br from-[#FFC857] to-[#FF8A00] p-5">
-              <div className="text-[10px] text-black/60 uppercase tracking-widest font-bold">Gold Picks • Haute confiance</div>
+            <div className="rounded-[16px] bg-[#171C33] border border-[#D9A441]/42 p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
+              <div className="text-[10px] text-[#D9A441] uppercase tracking-widest font-bold">Gold Picks</div>
               <div className="mt-1 flex items-baseline gap-2">
-                <div className="text-3xl font-black text-black font-mono">{gold.rate}%</div>
-                <div className="text-xs text-black/70 font-semibold">{gold.won}W/{gold.lost}L • {gold.total}</div>
+                <div className="text-3xl font-bold text-[#F7F8FF] font-mono">{gold.rate}%</div>
+                <div className="text-xs text-[#A5ABC5]">{gold.won}W/{gold.lost}L • {gold.total}</div>
               </div>
-              <div className="mt-1 text-[10px] text-black/60">
-                Cote moy {gold.avgOdds || '—'} • ROI {gold.roi ?? '—'}% • Profit {gold.profit ?? '—'}u • Filtre proba≥65%
+              <div className="mt-1 text-[10px] text-[#6B7194]">
+                Cote moy {gold.avgOdds || '—'} • ROI {gold.roi ?? '—'}% • Filtre proba≥65%
               </div>
-              <div className="mt-2 h-1.5 bg-black/20 rounded-full">
-                <div className="h-full bg-black rounded-full transition-all duration-700" style={{ width: `${gold.rate}%` }}></div>
+              <div className="mt-3 h-1.5 bg-[#070B18] rounded-full">
+                <div className="h-full bg-[#D9A441] rounded-full transition-all duration-700" style={{ width: `${gold.rate}%` }}></div>
               </div>
             </div>
           )}
           {goldBuilding && (
-            <div className="rounded-[24px] bg-[#0D1630] border border-[#FFC857]/30 p-5">
-              <div className="text-[10px] text-[#FFC857] uppercase tracking-widest font-bold">Gold Picks • En construction</div>
+            <div className="rounded-[16px] bg-[#171C33] border border-[#2B365E] p-5">
+              <div className="text-[10px] text-[#D9A441] uppercase tracking-widest font-bold">Gold Picks • En construction</div>
               <div className="mt-1 text-sm text-[#A5ABC5]">
                 Pool Gold en constitution ({gold.total}/10). Les pronos haute confiance sont vérifiés en continu via ESPN.
               </div>

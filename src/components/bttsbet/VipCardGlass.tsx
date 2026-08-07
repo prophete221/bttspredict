@@ -126,87 +126,49 @@ export default function VipCardGlass({
 export function VipCardGrid() {
   const cards: VipCardProps[] = [
     {
-      level: 'VIP Silver',
+      level: 'VIP Essentiel',
       levelId: 'silver',
-      username: 'Parieur Débutant',
+      username: 'Accès pronostics premium',
       benefits: [
-        '10 pronostics premium par jour',
-        'BTTS + Over 2.5 détaillés',
-        'Historique complet accessible',
-        'Support WhatsApp 24/7',
+        'Pronostics BTTS + Over 2.5 du jour',
+        'Historique vérifiable accessible',
+        'Modèle Poisson + indices de confiance',
+        'Support par email',
       ],
       status: 'active',
       meta: 'Dépôt min. 3 000 XOF chez Linebet (pas chez BTTSPredict)',
-      ctaLabel: 'Débloquer Silver',
+      ctaLabel: 'Débloquer Essentiel',
       variant: 'silver',
       index: 0,
     },
     {
-      level: 'VIP Gold',
+      level: 'VIP Pro',
       levelId: 'gold',
-      username: 'Parieur Expérimenté',
+      username: 'Accès complet + Gold Picks',
       benefits: [
-        '20 pronostics premium par jour',
+        'Pronostics premium + Gold Picks (proba≥65%)',
         'Multi-sports (Football, Tennis, NBA, NFL, UFC, Handball)',
-        'Analyses de valeur FIFA (expérimental) inclus',
         'Cotes détaillées + analyse xG',
-        'Support WhatsApp prioritaire',
+        'Support prioritaire',
       ],
       status: 'active',
       meta: 'Dépôt min. 6 000 XOF chez Linebet (pas chez BTTSPredict)',
-      ctaLabel: 'Débloquer Gold',
+      ctaLabel: 'Débloquer Pro',
       variant: 'gold',
       index: 1,
-    },
-    {
-      level: 'VIP Elite',
-      levelId: 'elite',
-      username: 'Parieur Professionnel',
-      benefits: [
-        '30+ pronostics premium par jour',
-        'Tous les sports + marchés spéciaux',
-        'Stats historiques Aviator (informatif, non prédictif) + Value Bets illimités',
-        'Analyse personnalisée par notre expert',
-        'Support VIP direct (WhatsApp + Telegram)',
-        'Accès anticipé aux nouvelles fonctionnalités',
-      ],
-      status: 'active',
-      meta: 'Dépôt min. 12 000 XOF chez Linebet (pas chez BTTSPredict)',
-      ctaLabel: 'Débloquer Elite',
-      variant: 'elite',
-      index: 2,
-    },
-    {
-      level: 'VIP TOUS NIVEAUX',
-      levelId: 'all',
-      username: 'Accès complet 1 mois',
-      benefits: [
-        'Silver + Gold + Elite débloqués',
-        'Tous les pronostics premium illimités',
-        'Tous les sports et marchés',
-        'Stats historiques Aviator (informatif, non prédictif) + Value Bets illimités',
-        'Support VIP prioritaire 24/7',
-        'Analyse personnalisée par notre expert',
-      ],
-      status: 'active',
-      meta: 'Dépôt min. 12 000 XOF chez Linebet (pas chez BTTSPredict) · 1 mois',
-      ctaLabel: 'Débloquer Tout — 1 mois',
-      variant: 'gold',
-      index: 3,
     },
   ]
 
   return (
     <section id="vip-glass-cards" className="py-12 sm:py-16 px-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
-          <span className="eyebrow">💎 Niveaux VIP</span>
           <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-3" style={{ color: '#F7F8FF', fontFamily: 'Poppins, sans-serif' }}>
-            Choisis ton <span style={{ color: '#5146F5' }}>niveau VIP</span>
+            Offres <span style={{ color: '#5146F5' }}>VIP</span>
           </h2>
           <p className="text-sm max-w-md mx-auto" style={{ color: '#A5ABC5' }}>
-            Choisis le niveau qui te correspond. Activation en moins de 30 minutes via WhatsApp après dépôt.
+            Accès pronostics premium. Dépôt chez Linebet/888starz — BTTSPredict ne reçoit pas vos fonds.
           </p>
         </div>
 
