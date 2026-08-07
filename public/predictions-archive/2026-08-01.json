@@ -21,7 +21,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Akron Tolyatti vs Rubin Kazan",
@@ -43,7 +44,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "BK Häcken vs Kalmar FF",
@@ -65,7 +67,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:19.366Z"
     },
     {
       "match": "BK Häcken vs Kalmar FF",
@@ -87,7 +92,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:19.366Z"
     },
     {
       "match": "Golden Arrows vs Chippa United",
@@ -109,7 +117,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Golden Arrows vs Chippa United",
@@ -131,7 +140,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Orlando Pirates vs Milford FC",
@@ -153,7 +163,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Orlando Pirates vs Milford FC",
@@ -175,7 +186,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Stellenbosch vs AmaZulu",
@@ -197,7 +209,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Stellenbosch vs AmaZulu",
@@ -219,7 +232,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "CSKA Moscow vs Krylia Sovetov",
@@ -241,7 +255,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "CSKA Moscow vs Krylia Sovetov",
@@ -263,7 +278,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Falkirk vs St Mirren",
@@ -285,7 +301,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-2",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:19.367Z"
     },
     {
       "match": "Falkirk vs St Mirren",
@@ -307,7 +326,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-2",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:19.367Z"
     },
     {
       "match": "Fredrikstad vs Sandefjord",
@@ -329,7 +351,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:19.367Z"
     },
     {
       "match": "Fredrikstad vs Sandefjord",
@@ -351,7 +376,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:19.367Z"
     },
     {
       "match": "WSG Swarovski Tirol vs SK Sturm Graz",
@@ -373,7 +401,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:19.367Z"
     },
     {
       "match": "WSG Swarovski Tirol vs SK Sturm Graz",
@@ -395,7 +426,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:19.367Z"
     },
     {
       "match": "Albion FC vs Danubio",
@@ -417,7 +451,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Albion FC vs Danubio",
@@ -439,7 +474,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Dynamo Makhachkala vs Lokomotiv Moscow",
@@ -461,7 +497,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Dynamo Makhachkala vs Lokomotiv Moscow",
@@ -483,7 +520,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Sekhukhune United FC vs Durban City",
@@ -505,7 +543,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Sekhukhune United FC vs Durban City",
@@ -527,7 +566,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Lyngby Boldklub vs AGF",
@@ -549,7 +589,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:19.367Z"
     },
     {
       "match": "Lyngby Boldklub vs AGF",
@@ -571,7 +614,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:19.367Z"
     },
     {
       "match": "IK Start vs Viking FK",
@@ -593,7 +639,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-3",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:19.367Z"
     },
     {
       "match": "IK Start vs Viking FK",
@@ -615,7 +664,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:19.367Z"
     },
     {
       "match": "Aberdeen vs Heart of Midlothian",
@@ -637,7 +689,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:19.367Z"
     },
     {
       "match": "Aberdeen vs Heart of Midlothian",
@@ -659,7 +714,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:19.368Z"
     },
     {
       "match": "Cobresal vs Unión La Calera",
@@ -681,7 +739,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Cobresal vs Unión La Calera",
@@ -703,7 +762,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "RB Salzburg vs TSV Hartberg",
@@ -725,7 +785,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:19.368Z"
     },
     {
       "match": "RB Salzburg vs TSV Hartberg",
@@ -747,7 +810,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:19.368Z"
     },
     {
       "match": "FC Baltika Kaliningrad vs Dinamo Moscow",
@@ -769,7 +835,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "FC Baltika Kaliningrad vs Dinamo Moscow",
@@ -791,7 +858,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Deportivo Maldonado vs Juventud",
@@ -813,7 +881,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Deportivo Maldonado vs Juventud",
@@ -835,7 +904,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "FC Cajamarca vs Sport Huancayo",
@@ -857,7 +927,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "FC Cajamarca vs Sport Huancayo",
@@ -879,7 +950,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Kruger United vs Kaizer Chiefs",
@@ -901,7 +973,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Kruger United vs Kaizer Chiefs",
@@ -923,7 +996,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Estudiantes de Río Cuarto vs Banfield",
@@ -945,7 +1019,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:19.368Z"
     },
     {
       "match": "Estudiantes de Río Cuarto vs Banfield",
@@ -967,7 +1044,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:19.368Z"
     },
     {
       "match": "Gimnasia (Mendoza) vs Unión (Santa Fe)",
@@ -989,7 +1069,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:19.369Z"
     },
     {
       "match": "Gimnasia (Mendoza) vs Unión (Santa Fe)",
@@ -1011,7 +1094,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:19.369Z"
     },
     {
       "match": "Deportivo Pasto vs Águilas Doradas",
@@ -1033,7 +1119,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Deportivo Pasto vs Águilas Doradas",
@@ -1055,7 +1142,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Manta F.C. vs Mushuc Runa",
@@ -1077,7 +1165,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Manta F.C. vs Mushuc Runa",
@@ -1099,7 +1188,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     }
   ]
 }

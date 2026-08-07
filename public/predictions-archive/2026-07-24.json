@@ -21,7 +21,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Kristiansund BK vs IK Start",
@@ -43,7 +44,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Sport Boys vs ADT",
@@ -65,7 +67,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Sport Boys vs ADT",
@@ -87,7 +90,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Sport Huancayo vs Atlético Grau",
@@ -109,7 +113,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Sport Huancayo vs Atlético Grau",
@@ -131,7 +136,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Juan Pablo II vs United States",
@@ -153,7 +159,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Juan Pablo II vs United States",
@@ -175,7 +182,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Racing Club vs Gimnasia La Plata",
@@ -197,7 +205,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "2-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:37.101Z"
     },
     {
       "match": "Racing Club vs Gimnasia La Plata",
@@ -219,7 +230,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "2-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:37.101Z"
     },
     {
       "match": "Vélez Sarsfield vs Instituto (Córdoba)",
@@ -241,7 +255,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:37.101Z"
     },
     {
       "match": "Vélez Sarsfield vs Instituto (Córdoba)",
@@ -263,7 +280,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:37.101Z"
     },
     {
       "match": "Huracán vs Banfield",
@@ -285,7 +305,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:37.101Z"
     },
     {
       "match": "Huracán vs Banfield",
@@ -307,7 +330,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:37.101Z"
     },
     {
       "match": "Platense vs Unión (Santa Fe)",
@@ -329,7 +355,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "2-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:37.101Z"
     },
     {
       "match": "Platense vs Unión (Santa Fe)",
@@ -351,7 +380,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "2-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:37.101Z"
     },
     {
       "match": "Estudiantes de Río Cuarto vs Tigre",
@@ -373,7 +405,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Estudiantes de Río Cuarto vs Tigre",
@@ -395,7 +428,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Newell's Old Boys vs Talleres (Córdoba)",
@@ -417,7 +451,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Newell's Old Boys vs Talleres (Córdoba)",
@@ -439,7 +474,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Universitario vs United States",
@@ -461,7 +497,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Universitario vs United States",
@@ -483,7 +520,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "AGF vs Brøndby IF",
@@ -505,7 +543,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "AGF vs Brøndby IF",
@@ -527,7 +566,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Santos vs Chapecoense",
@@ -549,7 +589,8 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Santos vs Chapecoense",
@@ -571,7 +612,8 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Atlante vs United States",
@@ -593,7 +635,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Atlante vs United States",
@@ -615,7 +658,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Tijuana vs León",
@@ -637,7 +681,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:37.101Z"
     },
     {
       "match": "Tijuana vs León",
@@ -659,7 +706,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:37.101Z"
     },
     {
       "match": "Degerfors IF vs Djurgården",
@@ -681,7 +731,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Degerfors IF vs Djurgården",
@@ -703,7 +754,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Kalmar FF vs Mjällby AIF",
@@ -725,7 +777,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Kalmar FF vs Mjällby AIF",
@@ -747,7 +800,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Dinamo Moscow vs Krylia Sovetov",
@@ -769,7 +823,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Dinamo Moscow vs Krylia Sovetov",
@@ -791,7 +846,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Fakel Voronezh vs Dynamo Makhachkala",
@@ -813,7 +869,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Fakel Voronezh vs Dynamo Makhachkala",
@@ -835,7 +892,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Spartak Moscow vs Rodina Moscow",
@@ -857,7 +915,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Spartak Moscow vs Rodina Moscow",
@@ -879,7 +938,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Llaneros FC vs Deportivo Pereira",
@@ -901,7 +961,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Llaneros FC vs Deportivo Pereira",
@@ -923,7 +984,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Deportivo Cali vs Jaguares de Córdoba",
@@ -945,7 +1007,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Deportivo Cali vs Jaguares de Córdoba",
@@ -967,7 +1030,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Independiente Medellín vs Deportivo Pasto",
@@ -989,7 +1053,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Independiente Medellín vs Deportivo Pasto",
@@ -1011,7 +1076,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Central Español Fútbol Club vs Cerro Largo",
@@ -1033,7 +1099,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Central Español Fútbol Club vs Cerro Largo",
@@ -1055,7 +1122,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Deportivo Recoleta vs Sportivo San Lorenzo",
@@ -1077,7 +1145,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Deportivo Recoleta vs Sportivo San Lorenzo",
@@ -1099,7 +1168,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     }
   ]
 }

@@ -21,7 +21,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Sportivo Ameliano vs Nacional Asunción",
@@ -43,7 +44,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Santos vs Chapecoense",
@@ -65,7 +67,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:42.306Z"
     },
     {
       "match": "Santos vs Chapecoense",
@@ -87,7 +92,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:42.306Z"
     },
     {
       "match": "Athletico-PR vs Internacional",
@@ -109,7 +117,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:42.306Z"
     },
     {
       "match": "Athletico-PR vs Internacional",
@@ -131,7 +142,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:42.306Z"
     },
     {
       "match": "Huachipato vs Cobresal",
@@ -153,7 +167,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Huachipato vs Cobresal",
@@ -175,7 +190,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Sarpsborg FK vs Hamarkameratene",
@@ -197,7 +213,8 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Sarpsborg FK vs Hamarkameratene",
@@ -219,7 +236,8 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Aalesund vs Viking FK",
@@ -241,7 +259,8 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Aalesund vs Viking FK",
@@ -263,7 +282,8 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Técnico Universitario vs Manta F.C.",
@@ -285,7 +305,8 @@
         "dataQuality": 5,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Técnico Universitario vs Manta F.C.",
@@ -307,7 +328,8 @@
         "dataQuality": 5,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Philadelphia Union vs Seattle Sounders FC",
@@ -329,7 +351,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:42.307Z"
     },
     {
       "match": "Philadelphia Union vs Seattle Sounders FC",
@@ -351,7 +376,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:42.307Z"
     },
     {
       "match": "St. Louis CITY SC vs Colorado Rapids",
@@ -373,7 +401,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:42.307Z"
     },
     {
       "match": "St. Louis CITY SC vs Colorado Rapids",
@@ -395,7 +426,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:42.307Z"
     },
     {
       "match": "LAFC vs Sporting Kansas City",
@@ -417,7 +451,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "4-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:42.307Z"
     },
     {
       "match": "LAFC vs Sporting Kansas City",
@@ -439,7 +476,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "4-0",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:42.307Z"
     },
     {
       "match": "Portland Timbers vs Real Salt Lake",
@@ -461,7 +501,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "2-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:42.307Z"
     },
     {
       "match": "Portland Timbers vs Real Salt Lake",
@@ -483,7 +526,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "2-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:42.307Z"
     },
     {
       "match": "KFUM Oslo vs Molde",
@@ -505,7 +551,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "KFUM Oslo vs Molde",
@@ -527,7 +574,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Cerro vs Racing (Montevideo)",
@@ -549,7 +597,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Cerro vs Racing (Montevideo)",
@@ -571,7 +620,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Melgar vs Sporting Cristal",
@@ -593,7 +643,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Melgar vs Sporting Cristal",
@@ -615,7 +666,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Red Bull New York vs Charlotte FC",
@@ -637,7 +689,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "0-2",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:42.308Z"
     },
     {
       "match": "Red Bull New York vs Charlotte FC",
@@ -659,7 +714,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "0-2",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:42.308Z"
     },
     {
       "match": "San Jose Earthquakes vs LA Galaxy",
@@ -681,7 +739,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:42.308Z"
     },
     {
       "match": "San Jose Earthquakes vs LA Galaxy",
@@ -703,7 +764,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:42.308Z"
     },
     {
       "match": "SK Brann vs Vålerenga",
@@ -725,7 +789,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "SK Brann vs Vålerenga",
@@ -747,7 +812,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "GAIS vs Halmstads BK",
@@ -769,7 +835,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "GAIS vs Halmstads BK",
@@ -791,7 +858,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Gazovik Orenburg vs Rostov",
@@ -813,7 +881,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Gazovik Orenburg vs Rostov",
@@ -835,7 +904,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Delfín vs Leones",
@@ -857,7 +927,8 @@
         "dataQuality": 5,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Delfín vs Leones",
@@ -879,7 +950,8 @@
         "dataQuality": 5,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Orense vs Independiente del Valle",
@@ -901,7 +973,8 @@
         "dataQuality": 6,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Orense vs Independiente del Valle",
@@ -923,7 +996,8 @@
         "dataQuality": 6,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "UTC vs Deportivo Moquegua",
@@ -945,7 +1019,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "UTC vs Deportivo Moquegua",
@@ -967,7 +1042,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Comerciantes Unidos vs Alianza Lima",
@@ -989,7 +1065,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Comerciantes Unidos vs Alianza Lima",
@@ -1011,7 +1088,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "England vs Atlanta United FC",
@@ -1033,7 +1111,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "4-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:42.309Z"
     },
     {
       "match": "England vs Atlanta United FC",
@@ -1055,7 +1136,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "4-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:42.309Z"
     },
     {
       "match": "Minnesota United FC vs Vancouver Whitecaps",
@@ -1077,7 +1161,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "0-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:42.309Z"
     },
     {
       "match": "Minnesota United FC vs Vancouver Whitecaps",
@@ -1099,7 +1186,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "0-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:42.309Z"
     }
   ]
 }

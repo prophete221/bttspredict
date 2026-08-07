@@ -213,8 +213,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-08-07T12:17:39.228Z"
     },
     {
       "match": "Tigre vs Belgrano (Córdoba)",
@@ -236,8 +238,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-08-07T12:17:39.228Z"
     },
     {
       "match": "Once Caldas vs América de Cali",

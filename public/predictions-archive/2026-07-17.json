@@ -21,7 +21,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Albion FC vs Juventud",
@@ -43,7 +44,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Cove Rangers vs St Mirren",
@@ -65,7 +67,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Cove Rangers vs St Mirren",
@@ -87,7 +90,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "East Kilbride vs Dumbarton",
@@ -109,7 +113,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "East Kilbride vs Dumbarton",
@@ -131,7 +136,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Elgin City vs Kilmarnock",
@@ -153,7 +159,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Elgin City vs Kilmarnock",
@@ -175,7 +182,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Ross County vs Clyde",
@@ -197,7 +205,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Ross County vs Clyde",
@@ -219,7 +228,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Stirling vs Montrose",
@@ -241,7 +251,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Stirling vs Montrose",
@@ -263,7 +274,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Aberdeen vs Queen's Park",
@@ -285,7 +297,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Aberdeen vs Queen's Park",
@@ -307,7 +320,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Dundee Utd vs Arbroath",
@@ -329,7 +343,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Dundee Utd vs Arbroath",
@@ -351,7 +366,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Mjällby AIF vs Västerås SK",
@@ -373,7 +389,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:03.402Z"
     },
     {
       "match": "Mjällby AIF vs Västerås SK",
@@ -395,7 +414,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:03.402Z"
     },
     {
       "match": "Airdrieonians vs Annan",
@@ -417,7 +439,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Airdrieonians vs Annan",
@@ -439,7 +462,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Alloa vs Stranraer",
@@ -461,7 +485,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Alloa vs Stranraer",
@@ -483,7 +508,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Ayr vs Edinburgh C",
@@ -505,7 +531,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Ayr vs Edinburgh C",
@@ -527,7 +554,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Brechin vs Stenh'semuir",
@@ -549,7 +577,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Brechin vs Stenh'semuir",
@@ -571,7 +600,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Bodo/Glimt vs Fredrikstad",
@@ -593,7 +623,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:03.402Z"
     },
     {
       "match": "Bodo/Glimt vs Fredrikstad",
@@ -615,7 +648,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:03.402Z"
     },
     {
       "match": "IFK Göteborg vs IF Brommapojkarna",
@@ -637,7 +673,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:03.402Z"
     },
     {
       "match": "IFK Göteborg vs IF Brommapojkarna",
@@ -659,7 +698,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:03.402Z"
     },
     {
       "match": "Hamilton vs Raith",
@@ -681,7 +723,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Hamilton vs Raith",
@@ -703,7 +746,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Linlithgow Rose vs Inverness CT",
@@ -725,7 +769,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Linlithgow Rose vs Inverness CT",
@@ -747,7 +792,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Livingston vs Partick",
@@ -769,7 +815,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Livingston vs Partick",
@@ -791,7 +838,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "St Johnstone vs Morton",
@@ -813,7 +861,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "St Johnstone vs Morton",
@@ -835,7 +884,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "FC Cajamarca vs Juan Pablo II",
@@ -857,7 +907,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "FC Cajamarca vs Juan Pablo II",
@@ -879,7 +930,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Brora Rangers vs Queen of Sth",
@@ -901,7 +953,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Brora Rangers vs Queen of Sth",
@@ -923,7 +976,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Sporting Cristal vs Deportivo Garcilaso",
@@ -945,7 +999,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Sporting Cristal vs Deportivo Garcilaso",
@@ -967,7 +1022,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Deportivo Cuenca vs Universidad Católica (Quito)",
@@ -989,7 +1045,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Deportivo Cuenca vs Universidad Católica (Quito)",
@@ -1011,7 +1068,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Liga de Quito vs Leones",
@@ -1033,7 +1091,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Liga de Quito vs Leones",
@@ -1055,7 +1114,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Viking FK vs Sandefjord",
@@ -1077,7 +1137,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Viking FK vs Sandefjord",
@@ -1099,7 +1160,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     }
   ]
 }

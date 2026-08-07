@@ -221,8 +221,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-08-07T12:16:59.319Z"
     },
     {
       "match": "Argentinos Juniors vs Estudiantes de Río Cuarto",
@@ -244,8 +246,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-08-07T12:16:59.319Z"
     },
     {
       "match": "Rosario Central vs Racing Club",
@@ -267,8 +271,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-08-07T12:16:59.319Z"
     },
     {
       "match": "Rosario Central vs Racing Club",
@@ -290,8 +296,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-08-07T12:16:59.319Z"
     },
     {
       "match": "Barracas Central vs Aldosivi",

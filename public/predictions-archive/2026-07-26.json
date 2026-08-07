@@ -21,7 +21,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:47.663Z"
     },
     {
       "match": "Sarpsborg FK vs Hamarkameratene",
@@ -43,7 +46,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:47.663Z"
     },
     {
       "match": "Aalesund vs Viking FK",
@@ -65,7 +71,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "1-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:47.663Z"
     },
     {
       "match": "Aalesund vs Viking FK",
@@ -87,7 +96,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "1-1",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:47.663Z"
     },
     {
       "match": "KFUM Oslo vs Molde",
@@ -109,7 +121,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "2-4",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:47.663Z"
     },
     {
       "match": "KFUM Oslo vs Molde",
@@ -131,7 +146,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "finalScore": "2-4",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:47.663Z"
     },
     {
       "match": "Lokomotiv Moscow vs Akhmat Grozny",
@@ -153,7 +171,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Lokomotiv Moscow vs Akhmat Grozny",
@@ -175,7 +194,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Club Olimpia vs Libertad",
@@ -197,7 +217,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Club Olimpia vs Libertad",
@@ -219,7 +240,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Guaraní vs Sportivo Luqueño",
@@ -241,7 +263,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Guaraní vs Sportivo Luqueño",
@@ -263,7 +286,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Ñublense vs Palestino",
@@ -285,7 +309,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Ñublense vs Palestino",
@@ -307,7 +332,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Audax Italiano vs Universidad de Chile",
@@ -329,7 +355,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Audax Italiano vs Universidad de Chile",
@@ -351,7 +378,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Estudiantes de La Plata vs Independiente",
@@ -373,7 +401,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-2",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:47.663Z"
     },
     {
       "match": "Estudiantes de La Plata vs Independiente",
@@ -395,7 +426,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-2",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:47.663Z"
     },
     {
       "match": "SK Brann vs Vålerenga",
@@ -417,7 +451,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:47.663Z"
     },
     {
       "match": "SK Brann vs Vålerenga",
@@ -439,7 +476,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:47.663Z"
     },
     {
       "match": "Gazovik Orenburg vs Rostov",
@@ -461,7 +501,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Gazovik Orenburg vs Rostov",
@@ -483,7 +524,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Rubin Kazan vs Krasnodar",
@@ -505,7 +547,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Rubin Kazan vs Krasnodar",
@@ -527,7 +570,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Delfín vs Leones",
@@ -549,7 +593,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Delfín vs Leones",
@@ -571,7 +616,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Orense vs Independiente del Valle",
@@ -593,7 +639,8 @@
         "dataQuality": 6,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Orense vs Independiente del Valle",
@@ -615,7 +662,8 @@
         "dataQuality": 6,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Atlético Tucumán vs Independiente Rivadavia",
@@ -637,7 +685,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:47.663Z"
     },
     {
       "match": "Atlético Tucumán vs Independiente Rivadavia",
@@ -659,7 +710,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:47.664Z"
     },
     {
       "match": "Sandefjord vs Bodo/Glimt",
@@ -681,7 +735,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-3",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:47.664Z"
     },
     {
       "match": "Sandefjord vs Bodo/Glimt",
@@ -703,7 +760,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:47.664Z"
     },
     {
       "match": "GAIS vs Halmstads BK",
@@ -725,7 +785,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:47.664Z"
     },
     {
       "match": "GAIS vs Halmstads BK",
@@ -747,7 +810,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:47.664Z"
     },
     {
       "match": "Aucas vs Macará",
@@ -769,7 +835,8 @@
         "dataQuality": 5,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Aucas vs Macará",
@@ -791,7 +858,8 @@
         "dataQuality": 5,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Bahia vs Corinthians",
@@ -813,7 +881,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:47.664Z"
     },
     {
       "match": "Bahia vs Corinthians",
@@ -835,7 +906,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:47.664Z"
     },
     {
       "match": "F.C. København vs Lyngby Boldklub",
@@ -857,7 +931,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "3-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:47.664Z"
     },
     {
       "match": "F.C. København vs Lyngby Boldklub",
@@ -879,7 +956,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "3-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:47.664Z"
     },
     {
       "match": "United States vs IFK Göteborg",
@@ -901,7 +981,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "United States vs IFK Göteborg",
@@ -923,7 +1004,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Malmö FF vs IF Elfsborg",
@@ -945,7 +1027,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:47.664Z"
     },
     {
       "match": "Malmö FF vs IF Elfsborg",
@@ -967,7 +1052,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:47.664Z"
     },
     {
       "match": "Cerro vs Racing (Montevideo)",
@@ -989,7 +1077,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Cerro vs Racing (Montevideo)",
@@ -1011,7 +1100,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Cruzeiro vs Botafogo",
@@ -1033,7 +1123,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-1",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:47.664Z"
     },
     {
       "match": "Cruzeiro vs Botafogo",
@@ -1055,7 +1148,10 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-1",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:47.664Z"
     },
     {
       "match": "Kairat Almaty vs O Nicosia",
@@ -1077,7 +1173,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Kairat Almaty vs O Nicosia",
@@ -1099,7 +1196,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     }
   ]
 }

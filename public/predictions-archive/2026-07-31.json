@@ -21,7 +21,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-3",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:13.732Z"
     },
     {
       "match": "Vålerenga vs Hamarkameratene",
@@ -43,7 +46,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:13.732Z"
     },
     {
       "match": "Rodina Moscow vs Rostov",
@@ -65,7 +71,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Rodina Moscow vs Rostov",
@@ -87,7 +94,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "LASK Linz vs Grazer AK",
@@ -109,7 +117,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "3-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:13.732Z"
     },
     {
       "match": "LASK Linz vs Grazer AK",
@@ -131,7 +142,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "3-0",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:13.732Z"
     },
     {
       "match": "Dundee United vs Rangers",
@@ -153,7 +167,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:13.732Z"
     },
     {
       "match": "Dundee United vs Rangers",
@@ -175,7 +192,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:13.732Z"
     },
     {
       "match": "Bodo/Glimt vs Lillestrom",
@@ -197,7 +217,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "4-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:13.732Z"
     },
     {
       "match": "Bodo/Glimt vs Lillestrom",
@@ -219,7 +242,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "4-0",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:13.732Z"
     },
     {
       "match": "Los Chankas vs Comerciantes Unidos",
@@ -241,7 +267,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Los Chankas vs Comerciantes Unidos",
@@ -263,7 +290,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Portuguesa vs Carabobo",
@@ -285,7 +313,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Portuguesa vs Carabobo",
@@ -307,7 +336,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Montevideo City Torque vs Montevideo Wanderers",
@@ -329,7 +359,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Montevideo City Torque vs Montevideo Wanderers",
@@ -351,7 +382,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Anzoátegui FC vs Deportivo Táchira",
@@ -373,7 +405,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Anzoátegui FC vs Deportivo Táchira",
@@ -395,7 +428,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "New York City FC vs Toronto FC",
@@ -417,7 +451,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:13.732Z"
     },
     {
       "match": "New York City FC vs Toronto FC",
@@ -439,7 +476,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:13.732Z"
     },
     {
       "match": "Libertad (Ecuador) vs Orense",
@@ -461,7 +501,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Libertad (Ecuador) vs Orense",
@@ -483,7 +524,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Universidad de Concepción vs Audax Italiano",
@@ -505,7 +547,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Universidad de Concepción vs Audax Italiano",
@@ -527,7 +570,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Fortaleza CEIF vs Deportivo Pereira",
@@ -549,7 +593,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Fortaleza CEIF vs Deportivo Pereira",
@@ -571,7 +616,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Puebla vs Guadalajara",
@@ -593,7 +639,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:13.732Z"
     },
     {
       "match": "Puebla vs Guadalajara",
@@ -615,7 +664,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:13.732Z"
     },
     {
       "match": "Atlético de San Luis vs Tijuana",
@@ -637,7 +689,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:13.733Z"
     },
     {
       "match": "Atlético de San Luis vs Tijuana",
@@ -659,7 +714,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:13.733Z"
     },
     {
       "match": "FC Juarez vs Pumas UNAM",
@@ -681,7 +739,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-5",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:13.733Z"
     },
     {
       "match": "FC Juarez vs Pumas UNAM",
@@ -703,7 +764,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-5",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:13.733Z"
     },
     {
       "match": "Akron Tolyatti vs Rubin Kazan",
@@ -725,7 +789,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Akron Tolyatti vs Rubin Kazan",
@@ -747,7 +812,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "BK Häcken vs Kalmar FF",
@@ -769,7 +835,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "BK Häcken vs Kalmar FF",
@@ -791,7 +858,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Golden Arrows vs Chippa United",
@@ -813,7 +881,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Golden Arrows vs Chippa United",
@@ -835,7 +904,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Orlando Pirates vs Milford FC",
@@ -857,7 +927,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Orlando Pirates vs Milford FC",
@@ -879,7 +950,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Stellenbosch vs AmaZulu",
@@ -901,7 +973,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Stellenbosch vs AmaZulu",
@@ -923,7 +996,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "CSKA Moscow vs Krylia Sovetov",
@@ -945,7 +1019,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "CSKA Moscow vs Krylia Sovetov",
@@ -967,7 +1042,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Falkirk vs St Mirren",
@@ -989,7 +1065,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Falkirk vs St Mirren",
@@ -1011,7 +1088,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Fredrikstad vs Sandefjord",
@@ -1033,7 +1111,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Fredrikstad vs Sandefjord",
@@ -1055,7 +1134,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "WSG Swarovski Tirol vs SK Sturm Graz",
@@ -1077,7 +1157,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "WSG Swarovski Tirol vs SK Sturm Graz",
@@ -1099,7 +1180,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     }
   ]
 }

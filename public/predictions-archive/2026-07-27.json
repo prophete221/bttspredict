@@ -21,8 +21,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-08-07T12:16:54.263Z"
     },
     {
       "match": "Randers FC vs Silkeborg IF",
@@ -44,8 +46,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-08-07T12:16:54.263Z"
     },
     {
       "match": "Rosenborg vs Fredrikstad",
@@ -121,8 +125,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-08-07T12:16:54.263Z"
     },
     {
       "match": "BK Häcken vs AIK",
@@ -144,8 +150,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-08-07T12:16:54.263Z"
     },
     {
       "match": "Mushuc Runa vs Libertad (Ecuador)",

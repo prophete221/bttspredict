@@ -21,7 +21,8 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "Brazil vs Norway",
@@ -43,7 +44,8 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "GOLD",
+      "status": "PENDING"
     },
     {
       "match": "IF Elfsborg vs Hammarby IF",
@@ -65,7 +67,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:15:08.326Z"
     },
     {
       "match": "IF Elfsborg vs Hammarby IF",
@@ -87,7 +92,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:15:08.326Z"
     },
     {
       "match": "IFK Göteborg vs AIK",
@@ -109,7 +117,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:15:08.326Z"
     },
     {
       "match": "IFK Göteborg vs AIK",
@@ -131,7 +142,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:15:08.326Z"
     },
     {
       "match": "Macará vs Liga de Quito",
@@ -153,7 +167,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Macará vs Liga de Quito",
@@ -175,7 +190,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Kalmar FF vs Örgryte IS",
@@ -197,7 +213,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "3-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:15:08.326Z"
     },
     {
       "match": "Kalmar FF vs Örgryte IS",
@@ -219,7 +238,10 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "3-0",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:15:08.326Z"
     },
     {
       "match": "Kauno Zalgiris vs KF Drita",
@@ -241,7 +263,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Kauno Zalgiris vs KF Drita",
@@ -263,7 +286,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Lincoln R I vs Inter Club D'Escaldes",
@@ -285,7 +309,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Lincoln R I vs Inter Club D'Escaldes",
@@ -307,7 +332,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Floriana FC vs Shamrock R",
@@ -329,7 +355,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Floriana FC vs Shamrock R",
@@ -351,7 +378,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "ML Vitebsk vs Uni Craiova",
@@ -373,7 +401,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "ML Vitebsk vs Uni Craiova",
@@ -395,7 +424,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Qarabag vs Vestri",
@@ -417,7 +447,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Qarabag vs Vestri",
@@ -439,7 +470,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Dynamo Kyiv vs Uni Cluj",
@@ -461,7 +493,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Dynamo Kyiv vs Uni Cluj",
@@ -483,7 +516,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Connah's Q vs Ballkani",
@@ -505,7 +539,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Connah's Q vs Ballkani",
@@ -527,7 +562,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Hegelmann Litauen vs Paide Linnameeskond",
@@ -549,7 +585,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Hegelmann Litauen vs Paide Linnameeskond",
@@ -571,7 +608,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Nomme Kalju vs Linfield",
@@ -593,7 +631,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Nomme Kalju vs Linfield",
@@ -615,7 +654,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Dinamo Minsk vs Sileks",
@@ -637,7 +677,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Dinamo Minsk vs Sileks",
@@ -659,7 +700,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "FK Petrovac vs Zalgiris",
@@ -681,7 +723,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "FK Petrovac vs Zalgiris",
@@ -703,7 +746,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Penybont vs FC Santa Coloma",
@@ -725,7 +769,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Penybont vs FC Santa Coloma",
@@ -747,7 +792,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Sarajevo vs FC Inter",
@@ -769,7 +815,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Sarajevo vs FC Inter",
@@ -791,7 +838,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Stjarnan vs Vikingur Gota",
@@ -813,7 +861,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Stjarnan vs Vikingur Gota",
@@ -835,7 +884,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "B. Banja Luka vs Levski Sofia",
@@ -857,7 +907,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "B. Banja Luka vs Levski Sofia",
@@ -879,7 +930,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Tre Fiori vs Larne",
@@ -901,7 +953,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Tre Fiori vs Larne",
@@ -923,7 +976,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Ki Klaksvik vs Atert Bissen",
@@ -945,7 +999,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Ki Klaksvik vs Atert Bissen",
@@ -967,7 +1022,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "CSKA Sofia vs Derry City",
@@ -989,7 +1045,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "CSKA Sofia vs Derry City",
@@ -1011,7 +1068,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Vojvodina NS vs Ferencvaros",
@@ -1033,7 +1091,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Vojvodina NS vs Ferencvaros",
@@ -1055,7 +1114,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "UNA Strassen vs La Fiorita",
@@ -1077,7 +1137,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "UNA Strassen vs La Fiorita",
@@ -1099,7 +1160,8 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     }
   ]
 }

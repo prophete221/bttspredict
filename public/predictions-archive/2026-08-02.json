@@ -21,7 +21,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "FC Midtjylland vs AC Horsens",
@@ -43,7 +46,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "FC Nordsjælland vs Randers FC",
@@ -65,7 +71,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "FC Nordsjælland vs Randers FC",
@@ -87,7 +96,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "IF Brommapojkarna vs Malmö FF",
@@ -109,7 +121,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "IF Brommapojkarna vs Malmö FF",
@@ -131,7 +146,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "IFK Göteborg vs Degerfors IF",
@@ -153,7 +171,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "IFK Göteborg vs Degerfors IF",
@@ -175,7 +196,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "St Johnstone vs Kilmarnock",
@@ -197,7 +221,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "4-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "St Johnstone vs Kilmarnock",
@@ -219,7 +246,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "4-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "Gazovik Orenburg vs Zenit St Petersburg",
@@ -241,7 +271,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Gazovik Orenburg vs Zenit St Petersburg",
@@ -263,7 +294,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Richards Bay FC vs Polokwane City FC",
@@ -285,7 +317,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Richards Bay FC vs Polokwane City FC",
@@ -307,7 +340,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Brøndby IF vs Viborg FF",
@@ -329,7 +363,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "Brøndby IF vs Viborg FF",
@@ -351,7 +388,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "AIK vs Örgryte IS",
@@ -373,7 +413,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-3",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "AIK vs Örgryte IS",
@@ -395,7 +438,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "0-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "Austria Lustenau vs SV Josko Ried",
@@ -417,7 +463,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "Austria Lustenau vs SV Josko Ried",
@@ -439,7 +488,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-1",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "Wolfsberger vs Austria Vienna",
@@ -461,7 +513,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "3-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "Wolfsberger vs Austria Vienna",
@@ -483,7 +538,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "3-0",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "Aalesund vs Tromso",
@@ -505,7 +563,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-6",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.547Z"
     },
     {
       "match": "Aalesund vs Tromso",
@@ -527,7 +588,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-6",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.548Z"
     },
     {
       "match": "KFUM Oslo vs Kristiansund BK",
@@ -549,7 +613,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.548Z"
     },
     {
       "match": "KFUM Oslo vs Kristiansund BK",
@@ -571,7 +638,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "2-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.548Z"
     },
     {
       "match": "Molde vs Sarpsborg FK",
@@ -593,7 +663,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "3-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.548Z"
     },
     {
       "match": "Molde vs Sarpsborg FK",
@@ -615,7 +688,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "3-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.548Z"
     },
     {
       "match": "Racing (Montevideo) vs Boston River",
@@ -637,7 +713,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Racing (Montevideo) vs Boston River",
@@ -659,7 +736,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Krasnodar vs Fakel Voronezh",
@@ -681,7 +759,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Krasnodar vs Fakel Voronezh",
@@ -703,7 +782,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Hibernian vs Motherwell",
@@ -725,7 +805,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.548Z"
     },
     {
       "match": "Hibernian vs Motherwell",
@@ -747,7 +830,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.548Z"
     },
     {
       "match": "Siwelele vs TS Galaxy FC",
@@ -769,7 +855,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Siwelele vs TS Galaxy FC",
@@ -791,7 +878,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Silkeborg IF vs F.C. København",
@@ -813,7 +901,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.548Z"
     },
     {
       "match": "Silkeborg IF vs F.C. København",
@@ -835,7 +926,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.548Z"
     },
     {
       "match": "Sporting Cristal vs Juan Pablo II",
@@ -857,7 +951,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Sporting Cristal vs Juan Pablo II",
@@ -879,7 +974,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Deportes Concepcion vs Universidad Católica",
@@ -901,7 +997,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Deportes Concepcion vs Universidad Católica",
@@ -923,7 +1020,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Rapid Vienna vs SC Rheindorf Altach",
@@ -945,7 +1043,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:24.548Z"
     },
     {
       "match": "Rapid Vienna vs SC Rheindorf Altach",
@@ -967,7 +1068,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:24.549Z"
     },
     {
       "match": "SK Brann vs Rosenborg",
@@ -989,7 +1093,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "3-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.549Z"
     },
     {
       "match": "SK Brann vs Rosenborg",
@@ -1011,7 +1118,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "3-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.549Z"
     },
     {
       "match": "Akhmat Grozny vs Spartak Moscow",
@@ -1033,7 +1143,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Akhmat Grozny vs Spartak Moscow",
@@ -1055,7 +1166,8 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "PENDING"
     },
     {
       "match": "Aldosivi vs Gimnasia La Plata",
@@ -1077,7 +1189,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.549Z"
     },
     {
       "match": "Aldosivi vs Gimnasia La Plata",
@@ -1099,7 +1214,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "finalScore": "1-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.549Z"
     }
   ]
 }

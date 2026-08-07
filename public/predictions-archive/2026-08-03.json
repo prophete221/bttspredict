@@ -21,8 +21,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T12:17:29.533Z"
     },
     {
       "match": "Odense Boldklub vs Sønderjyske Fodbold",
@@ -44,8 +46,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T12:17:29.533Z"
     },
     {
       "match": "Djurgården vs Västerås SK",
@@ -67,8 +71,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "6-0",
+      "verifiedAt": "2026-08-07T12:17:29.533Z"
     },
     {
       "match": "Djurgården vs Västerås SK",
@@ -90,8 +96,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "WON",
+      "tier": "STANDARD",
+      "finalScore": "6-0",
+      "verifiedAt": "2026-08-07T12:17:29.533Z"
     },
     {
       "match": "Halmstads BK vs IK Sirius",
@@ -113,8 +121,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-08-07T12:17:29.533Z"
     },
     {
       "match": "Halmstads BK vs IK Sirius",
@@ -136,8 +146,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-08-07T12:17:29.533Z"
     },
     {
       "match": "Celtic vs Dundee",
@@ -159,8 +171,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T12:17:29.533Z"
     },
     {
       "match": "Celtic vs Dundee",
@@ -182,8 +196,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T12:17:29.533Z"
     },
     {
       "match": "Sportivo Trinidense vs Sportivo San Lorenzo",
@@ -252,9 +268,10 @@
         "hasRealData": true
       },
       "finalScore": "2-1",
-      "verifiedAt": "2026-08-07T10:47:16.455Z",
+      "verifiedAt": "2026-08-07T12:17:29.533Z",
       "verifiedSource": "thesportsdb",
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "WON"
     },
     {
       "match": "Sarmiento (Junín) vs Independiente Rivadavia",
@@ -277,9 +294,10 @@
         "hasRealData": true
       },
       "finalScore": "2-1",
-      "verifiedAt": "2026-08-07T10:47:16.455Z",
+      "verifiedAt": "2026-08-07T12:17:29.533Z",
       "verifiedSource": "thesportsdb",
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "WON"
     },
     {
       "match": "Deportivo Recoleta vs Nacional Asunción",
@@ -447,8 +465,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T12:17:29.533Z"
     },
     {
       "match": "Vélez Sarsfield vs Independiente",
@@ -470,8 +490,10 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "PENDING",
-      "tier": "STANDARD"
+      "status": "LOST",
+      "tier": "STANDARD",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T12:17:29.533Z"
     },
     {
       "match": "Caracas FC vs Estudiantes de Mérida",
@@ -586,9 +608,10 @@
         "hasRealData": true
       },
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-07T10:47:16.455Z",
+      "verifiedAt": "2026-08-07T12:17:29.533Z",
       "verifiedSource": "thesportsdb",
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "LOST"
     },
     {
       "match": "Central Córdoba (Santiago del Estero) vs San Lorenzo",
@@ -611,9 +634,10 @@
         "hasRealData": true
       },
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-07T10:47:16.455Z",
+      "verifiedAt": "2026-08-07T12:17:29.533Z",
       "verifiedSource": "thesportsdb",
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "LOST"
     },
     {
       "match": "Huracán vs Atlético Tucumán",
@@ -636,9 +660,10 @@
         "hasRealData": true
       },
       "finalScore": "0-0",
-      "verifiedAt": "2026-08-07T10:47:16.455Z",
+      "verifiedAt": "2026-08-07T12:17:29.533Z",
       "verifiedSource": "thesportsdb",
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "LOST"
     },
     {
       "match": "Huracán vs Atlético Tucumán",
@@ -661,9 +686,10 @@
         "hasRealData": true
       },
       "finalScore": "0-0",
-      "verifiedAt": "2026-08-07T10:47:16.455Z",
+      "verifiedAt": "2026-08-07T12:17:29.533Z",
       "verifiedSource": "thesportsdb",
-      "tier": "STANDARD"
+      "tier": "STANDARD",
+      "status": "LOST"
     },
     {
       "match": "Atlético Bucaramanga vs Cúcuta Deportivo",
