@@ -230,7 +230,10 @@
         "awayLambda": 1.2102048,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "finalScore": "2-1",
+      "verifiedAt": "2026-08-07T10:47:16.455Z",
+      "verifiedSource": "thesportsdb"
     },
     {
       "match": "Sarmiento (Junín) vs Independiente Rivadavia",
@@ -251,7 +254,10 @@
         "awayLambda": 1.2102048,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "finalScore": "2-1",
+      "verifiedAt": "2026-08-07T10:47:16.455Z",
+      "verifiedSource": "thesportsdb"
     },
     {
       "match": "Deportivo Recoleta vs Nacional Asunción",
@@ -524,7 +530,10 @@
         "awayLambda": 1.018944,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T10:47:16.455Z",
+      "verifiedSource": "thesportsdb"
     },
     {
       "match": "Central Córdoba (Santiago del Estero) vs San Lorenzo",
@@ -545,7 +554,10 @@
         "awayLambda": 1.018944,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "finalScore": "1-0",
+      "verifiedAt": "2026-08-07T10:47:16.455Z",
+      "verifiedSource": "thesportsdb"
     },
     {
       "match": "Huracán vs Atlético Tucumán",
@@ -566,7 +578,10 @@
         "awayLambda": 1.0356480000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "finalScore": "0-0",
+      "verifiedAt": "2026-08-07T10:47:16.455Z",
+      "verifiedSource": "thesportsdb"
     },
     {
       "match": "Huracán vs Atlético Tucumán",
@@ -587,7 +602,10 @@
         "awayLambda": 1.0356480000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "finalScore": "0-0",
+      "verifiedAt": "2026-08-07T10:47:16.455Z",
+      "verifiedSource": "thesportsdb"
     },
     {
       "match": "Atlético Bucaramanga vs Cúcuta Deportivo",

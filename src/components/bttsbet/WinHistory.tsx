@@ -60,11 +60,16 @@ function TeamLogoMini({ src, alt }: { src?: string; alt: string }) {
 // ─── Sparkline — last 14 days win rate ──────────────────────────────────
 function WinRateSparkline({ history }: { history: HistoryItem[] }) {
   const data = useMemo(() => {
-    const byDate = history.reduce<Record<string, { won: number; lost: number; total: number }>>((acc, h) => {
-      if (!acc[h.date]) acc[h.date] = { won: 0, lost: 0, total: 0 }
-      acc[h.date].total++
-      if (h.result === 'Gagné') acc[h.date].won++
-      else acc[h.date].lost++
+    const byDate = history.reduce<Record<string, { won: number; lost: number; pending: number; total: number }>>((acc, h) => {
+      if (!acc[h.date]) acc[h.date] = { won: 0, lost: 0, pending: 0, total: 0 }
+      // Compatibilité ancien/nouveau statut
+      const isWon = h.result === 'Gagné' || h.result === 'W'
+      const isLost = h.result === 'Perdu' || h.result === 'L'
+      const isPending = h.result === 'PENDING' || h.result === 'En attente'
+      // Seuls les W/L entrent dans le dénominateur (PENDING exclu)
+      if (isWon) { acc[h.date].won++; acc[h.date].total++ }
+      else if (isLost) { acc[h.date].lost++; acc[h.date].total++ }
+      else if (isPending) { acc[h.date].pending++ }
       return acc
     }, {})
 
@@ -73,19 +78,41 @@ function WinRateSparkline({ history }: { history: HistoryItem[] }) {
       .slice(-14)
       .map(([date, v]) => ({
         date: date.slice(5),
-        rate: v.total ? Math.round((v.won / v.total) * 100) : 0,
+        rate: v.total > 0 ? Math.round((v.won / v.total) * 100) : null,
         total: v.total,
+        pending: v.pending,
       }))
   }, [history])
 
-  if (data.length < 2) return null
+  // Si aucune donnée vérifiée (que du PENDING), on n'affiche pas le graphique
+  const hasVerifiedData = data.some(d => d.total > 0)
+  if (!hasVerifiedData) {
+    return (
+      <div className="squircle-lg p-4 sm:p-5">
+        <div className="flex items-center justify-between mb-3">
+          <div>
+            <h3 className="text-sm font-bold text-papier">Tendance 14 jours</h3>
+            <p className="text-[10px] text-cendre mt-0.5">Taux de réussite quotidien</p>
+          </div>
+          <span className="badge badge-mint">14j</span>
+        </div>
+        <div className="h-32 sm:h-40 flex items-center justify-center">
+          <p className="text-[11px] text-cendre italic text-center px-4">
+            Graphique disponible dès que les premiers scores finaux seront vérifiés via API-Football.
+            <br />
+            <span className="text-trust">Mise à jour en cours…</span>
+          </p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="squircle-lg p-4 sm:p-5">
       <div className="flex items-center justify-between mb-3">
         <div>
           <h3 className="text-sm font-bold text-papier">Tendance 14 jours</h3>
-          <p className="text-[10px] text-cendre mt-0.5">Taux de réussite quotidien</p>
+          <p className="text-[10px] text-cendre mt-0.5">Taux de réussite quotidien (vérifiés uniquement)</p>
         </div>
         <span className="badge badge-mint">14j</span>
       </div>
@@ -110,9 +137,9 @@ function WinRateSparkline({ history }: { history: HistoryItem[] }) {
                 color: '#fff',
               }}
               labelStyle={{ color: COLORS.success, fontWeight: 700 }}
-              formatter={(v: number) => [`${v}%`, 'Réussite']}
+              formatter={(v: number | null) => [v == null ? 'N/A' : `${v}%`, 'Réussite']}
             />
-            <Area type="monotone" dataKey="rate" stroke={COLORS.success} strokeWidth={2} fill="url(#winGrad)" dot={{ fill: COLORS.success, r: 3 }} />
+            <Area type="monotone" dataKey="rate" stroke={COLORS.success} strokeWidth={2} fill="url(#winGrad)" dot={{ fill: COLORS.success, r: 3 }} connectNulls />
           </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -121,61 +148,87 @@ function WinRateSparkline({ history }: { history: HistoryItem[] }) {
 }
 
 // ─── Type Distribution ──────────────────────────────────────────────────
+// Compatible avec l'ancien format (BTTS / 'O2.5') ET nouveau (btts / over25)
 function TypeDistribution({ byType }: {
   byType?: {
-    BTTS: { total: number; won: number; lost: number; rate: number }
-    'O2.5': { total: number; won: number; lost: number; rate: number }
+    // Ancien format
+    BTTS?: { total: number; won: number; lost: number; rate: number }
+    'O2.5'?: { total: number; won: number; lost: number; rate: number }
+    // Nouveau format v3
+    btts?: { total: number; won: number; lost: number; pending: number; rate: number }
+    over25?: { total: number; won: number; lost: number; pending: number; rate: number }
   }
 }) {
-  // Use global stats.byType from win-history.json (calculated by scripts/update-win-history.mjs)
   const data = useMemo(() => {
     if (!byType) return []
-    return [
-      { name: 'BTTS', ...byType.BTTS },
-      { name: 'O2.5', ...byType['O2.5'] },
-    ]
+    const btts = byType.btts ?? byType.BTTS
+    const over25 = byType.over25 ?? byType['O2.5']
+    const rows = []
+    if (btts) rows.push({ name: 'BTTS', ...btts })
+    if (over25) rows.push({ name: 'O2.5', ...over25 })
+    return rows
   }, [byType])
 
   if (data.length === 0) return null
+
+  const allPending = data.every(d => 'pending' in d && d.total === 0 && (d as any).pending > 0)
 
   return (
     <div className="squircle-lg p-4 sm:p-5">
       <div className="flex items-center justify-between mb-3">
         <div>
           <h3 className="text-sm font-bold text-papier">Réussite par type</h3>
-          <p className="text-[10px] text-cendre mt-0.5">BTTS vs Over 2.5 — stats cumulées</p>
+          <p className="text-[10px] text-cendre mt-0.5">BTTS vs Over 2.5 — stats vérifiées</p>
         </div>
       </div>
-      <div className="space-y-3">
-        {data.map(d => (
-          <div key={d.name}>
-            <div className="flex items-center justify-between text-[11px] mb-1">
-              <span className="text-cendre font-semibold">{d.name}</span>
-              <span className="text-success font-bold tabular-nums">{d.rate}%</span>
-            </div>
-            <div className="relative h-2 bg-dark-700 rounded-full overflow-hidden">
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: `${d.rate}%` }}
-                transition={{ duration: 0.8, ease: 'easeOut' }}
-                className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-success-dark to-success"
-                style={{ boxShadow: '0 0 8px rgba(168, 224, 99, 0.4)' }}
-              />
-            </div>
-            <div className="flex items-center justify-between text-[9px] text-cendre mt-1">
-              <span>{d.won.toLocaleString('fr-FR')} gagnés / {d.total.toLocaleString('fr-FR')} total</span>
-              <span>{d.lost.toLocaleString('fr-FR')} perdus</span>
-            </div>
-          </div>
-        ))}
-      </div>
+      {allPending ? (
+        <p className="text-[11px] text-cendre italic py-3">
+          Aucun résultat vérifié pour l'instant. Les scores seront ajoutés dès que les matchs seront terminés.
+        </p>
+      ) : (
+        <div className="space-y-3">
+          {data.map(d => {
+            const rate = d.rate ?? 0
+            const pending = (d as any).pending ?? 0
+            return (
+              <div key={d.name}>
+                <div className="flex items-center justify-between text-[11px] mb-1">
+                  <span className="text-cendre font-semibold">{d.name}</span>
+                  <span className="text-success font-bold tabular-nums">
+                    {rate}%
+                    {pending > 0 && (
+                      <span className="text-cendre font-normal ml-1">({pending} en attente)</span>
+                    )}
+                  </span>
+                </div>
+                <div className="relative h-2 bg-dark-700 rounded-full overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: `${rate}%` }}
+                    transition={{ duration: 0.8, ease: 'easeOut' }}
+                    className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-success-dark to-success"
+                    style={{ boxShadow: '0 0 8px rgba(168, 224, 99, 0.4)' }}
+                  />
+                </div>
+                <div className="flex items-center justify-between text-[9px] text-cendre mt-1">
+                  <span>{(d.won ?? 0).toLocaleString('fr-FR')} gagnés / {(d.total ?? 0).toLocaleString('fr-FR')} vérifiés</span>
+                  <span>{(d.lost ?? 0).toLocaleString('fr-FR')} perdus</span>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      )}
     </div>
   )
 }
 
 // ─── Detailed Row ────────────────────────────────────────────────────────
 function HistoryRow({ item }: { item: HistoryItem }) {
-  const isWon = item.result === 'Gagné'
+  // Compatibilité ancien/nouveau statut
+  const isWon = item.result === 'Gagné' || item.result === 'W'
+  const isLost = item.result === 'Perdu' || item.result === 'L'
+  const isPending = item.result === 'PENDING' || item.result === 'En attente'
   const teams = item.match.split(/\s+vs?\s+/i)
   const home = teams[0] || ''
   const away = teams[1] || ''
@@ -216,21 +269,37 @@ function HistoryRow({ item }: { item: HistoryItem }) {
 
       {/* Score */}
       <div className="min-w-0 text-center">
-        <div className="text-sm text-papier font-bold mono tabular-nums">{item.score}</div>
+        <div className="text-sm text-papier font-bold mono tabular-nums">
+          {item.score === '-' || isPending ? '—' : item.score}
+        </div>
         <div className="text-[9px] text-cendre">conf. {item.confidence}%</div>
       </div>
 
       {/* Result */}
       <div className="min-w-0">
         <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold ${
-          isWon ? 'bg-success/15 text-success border border-success/30' : 'bg-lose/15 text-lose-light border border-lose/30'
+          isPending
+            ? 'bg-trust/15 text-trust border border-trust/30'
+            : isWon
+              ? 'bg-success/15 text-success border border-success/30'
+              : 'bg-lose/15 text-lose-light border border-lose/30'
         }`}>
-          {isWon ? (
-            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+          {isPending ? (
+            <>
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-trust animate-pulse" />
+              En attente
+            </>
+          ) : isWon ? (
+            <>
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+              Gagné
+            </>
           ) : (
-            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+            <>
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+              Perdu
+            </>
           )}
-          {isWon ? 'Gagné' : 'Perdu'}
         </span>
       </div>
     </motion.div>
@@ -257,21 +326,31 @@ export default function WinHistory() {
   }, [])
 
   const historyArr = winData?.history ?? []
-  const total = winData?.stats?.total ?? historyArr.length
-  const won = winData?.stats?.won ?? historyArr.filter(h => h.result === 'Gagné').length
-  const lost = total - won
-  const rate = total ? (won / total) * 100 : 0
+  // IMPORTANT: stats.total = won + lost UNIQUEMENT (PENDING exclu du dénominateur)
+  // Si win-history.json est bien formé, stats.total !== history.length
+  const stats = winData?.stats ?? null
+  const total = stats?.total ?? 0
+  const won = stats?.won ?? 0
+  const lost = stats?.lost ?? 0 // Utiliser stats.lost, NE PAS calculer total - won
+  const pending = stats?.pending ?? 0
+  const rateNumeric = total > 0 ? (won / total) * 100 : 0
+  // Si rate = 0 et total = 0 → tous PENDING → ne pas afficher 0% (crédibilité)
+  const isUpdating = total === 0 && pending > 0
+  const rate = isUpdating ? null : rateNumeric
 
   const [totalRef, totalDisplay] = useCountUp(total, 1500, { threshold: 0.3 })
   const [wonRef, wonDisplay] = useCountUp(won, 1500, { threshold: 0.3 })
   const [lostRef, lostDisplay] = useCountUp(lost, 1500, { threshold: 0.3 })
-  const [rateRef, rateDisplay] = useCountUp(rate, 1800, { decimals: 1, threshold: 0.3 })
+  const [rateRef, rateDisplay] = useCountUp(rate ?? 0, 1800, { decimals: 1, threshold: 0.3 })
 
   // Filtered history
   const filteredHistory = useMemo(() => {
     return historyArr.filter(h => {
-      if (resultFilter === 'won' && h.result !== 'Gagné') return false
-      if (resultFilter === 'lost' && h.result === 'Gagné') return false
+      // Nouveaux statuts: "W" | "L" | "PENDING" (compat: "Gagné" | "Perdu")
+      const isWon = h.result === 'Gagné' || h.result === 'W'
+      const isLost = h.result === 'Perdu' || h.result === 'L'
+      if (resultFilter === 'won' && !isWon) return false
+      if (resultFilter === 'lost' && !isLost) return false
       if (typeFilter === 'BTTS' && h.type !== 'BTTS') return false
       if (typeFilter === 'O2.5' && !h.type.includes('Over')) return false
       return true
@@ -331,8 +410,12 @@ export default function WinHistory() {
           className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6"
         >
           <motion.div variants={undefined} className="stat-tile">
-            <div className="text-2xl sm:text-3xl font-bold text-papier tabular-nums" ref={totalRef}>{totalDisplay}</div>
-            <div className="text-[10px] text-cendre uppercase tracking-widest font-bold mt-1">Analysés</div>
+            <div className="text-2xl sm:text-3xl font-bold text-papier tabular-nums" ref={totalRef}>
+              {isUpdating ? pending : totalDisplay}
+            </div>
+            <div className="text-[10px] text-cendre uppercase tracking-widest font-bold mt-1">
+              {isUpdating ? 'En attente' : 'Vérifiés'}
+            </div>
           </motion.div>
           <motion.div variants={undefined} className="stat-tile">
             <div className="text-2xl sm:text-3xl font-bold text-success tabular-nums glow-text-green" ref={wonRef}>{wonDisplay}</div>
@@ -343,10 +426,43 @@ export default function WinHistory() {
             <div className="text-[10px] text-cendre uppercase tracking-widest font-bold mt-1">Perdus</div>
           </motion.div>
           <motion.div variants={undefined} className="stat-tile">
-            <div className="text-2xl sm:text-3xl font-bold text-gold tabular-nums glow-text-gold" ref={rateRef}>{rateDisplay}%</div>
+            {isUpdating ? (
+              <div className="text-base sm:text-lg font-bold text-trust flex items-center gap-1.5">
+                <span className="inline-block w-2 h-2 rounded-full bg-trust animate-pulse" />
+                En cours…
+              </div>
+            ) : (
+              <div className="text-2xl sm:text-3xl font-bold text-gold tabular-nums glow-text-gold" ref={rateRef}>{rateDisplay}%</div>
+            )}
             <div className="text-[10px] text-cendre uppercase tracking-widest font-bold mt-1">Réussite</div>
           </motion.div>
         </motion.div>
+
+        {/* Bandeau "Mise à jour en cours" si rate=0 et total > 100 (crédibilité) */}
+        {isUpdating && pending > 100 && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-6 p-4 rounded-xl flex items-start gap-3"
+            style={{
+              backgroundColor: 'rgba(99, 216, 208, 0.08)',
+              border: '1px solid rgba(99, 216, 208, 0.25)',
+            }}
+          >
+            <svg className="flex-shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B9E7FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            <div>
+              <p className="text-[13px] font-semibold text-papier">Mise à jour des résultats en cours…</p>
+              <p className="text-[11px] text-cendre mt-0.5 leading-relaxed">
+                {pending.toLocaleString('fr-FR')} pronostics sont en attente de vérification via API-Football.
+                Les scores finaux seront récupérés dès que les matchs seront terminés.
+                Aucun résultat ne sera filtré — gagnés ET perdus seront affichés publiquement.
+              </p>
+            </div>
+          </motion.div>
+        )}
 
         {/* Charts row */}
         <div className="grid lg:grid-cols-2 gap-4 mb-6">

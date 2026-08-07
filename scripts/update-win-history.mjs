@@ -1,24 +1,34 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// BTTSPredict – Win History Update Script (V2 — Real Stats, No Hardcoding)
+// BTTSPredict — update-win-history.mjs (V3 — Honest Stats, No Fake Defaults)
 // ═══════════════════════════════════════════════════════════════════════════════
 //
-// RÈGLE D'OR: Aucune stat figée. Tout est calculé depuis predictions-archive/.
+// RÈGLE D'OR: Aucune stat figée. Aucun "perdu par défaut".
 //
-// Pipeline:
+// PIPELINE:
 //   1. Lit toutes les archives public/predictions-archive/*.json
-//   2. Pour chaque prono archivé: détermine W/L basé sur:
-//      a. Si score final connu dans l'archive → utilise ce score
-//      b. Sinon → marqué 'En attente' (n'entre pas dans le taux)
-//   3. Calcule stats globales + byType (BTTS / Over 2.5) réelles
-//   4. Génère win-history.json avec:
-//      - stats: { total, won, lost, pending, rate, byType }
-//      - history: ~80 entrées récentes (triées par date desc)
+//   2. Pour chaque prono archivé:
+//      a. Si pred.finalScore existe (mis par verify-results.mjs): évalue W/L
+//         - BTTS Oui: isWon = homeScore > 0 && awayScore > 0
+//         - BTTS Non: isWon = !(homeScore > 0 && awayScore > 0)
+//         - Over 2.5 Oui: isWon = (homeScore + awayScore) >= 3
+//         - Over 2.5 Non: isWon = (homeScore + awayScore) < 3
+//      b. Sinon: status = "PENDING" → EXCLU des stats (pas de W ni L)
+//   3. Stats:
+//      - total = won + lost UNIQUEMENT (PENDING exclu du dénominateur)
+//      - rate = won / total * 100 avec 1 décimale
+//      - byType.btts et byType.over25 calculés séparément
 //
-// ⚠️ Si verify-results.mjs a déjà tourné, les archives contiennent `finalScore`
-//    et `result`. Sinon, ce script ne fait que préparer la structure — le taux
-//    réel sera calculé après passage de verify-results.
-//
-// Compatible avec: ESPN scoreboard (public, no key) — fallback si pas d'API-FB.
+// STRUCTURE DE SORTIE EXACTE:
+//   {
+//     stats: {
+//       total, won, lost, pending, rate,
+//       byType: {
+//         btts:  { total, won, lost, pending, rate },
+//         over25:{ total, won, lost, pending, rate }
+//       }
+//     },
+//     history: [...80 entries récentes avec result: "W"|"L"|"PENDING"]
+//   }
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import fs from 'fs'
@@ -41,30 +51,30 @@ function parseScore(scoreStr) {
   return { home: parseInt(m[1], 10), away: parseInt(m[2], 10) }
 }
 
-// Détermine si BTTS Oui/Non a gagné à partir du score réel
-function evaluateBTTS(prediction, score) {
-  if (!score) return null
-  const bothScored = score.home > 0 && score.away > 0
-  if (prediction === 'Oui') return bothScored ? 'Gagné' : 'Perdu'
-  if (prediction === 'Non') return bothScored ? 'Perdu' : 'Gagné'
-  return null
-}
-
-// Détermine si Over 2.5 Oui/Non a gagné à partir du score réel
-function evaluateOver25(prediction, score) {
-  if (!score) return null
-  const total = score.home + score.away
-  const isOver = total > 2.5
-  if (prediction === 'Oui') return isOver ? 'Gagné' : 'Perdu'
-  if (prediction === 'Non') return isOver ? 'Perdu' : 'Gagné'
-  return null
-}
-
+// Évalue W/L basé sur le type de prono et le score réel
+// Retourne "W" | "L" | null (null = impossible à évaluer)
 function evaluatePrediction(prediction, type, score) {
   if (!score) return null
-  if (type === 'BTTS') return evaluateBTTS(prediction, score)
-  if (type.includes('Over')) return evaluateOver25(prediction, score)
+  const home = score.home
+  const away = score.away
+  const bothScored = home > 0 && away > 0
+  const totalGoals = home + away
+  const isOver25 = totalGoals >= 3
+
+  if (type === 'BTTS') {
+    if (prediction === 'Oui') return bothScored ? 'W' : 'L'
+    if (prediction === 'Non') return bothScored ? 'L' : 'W'
+  }
+  if (type.includes('Over')) {
+    if (prediction === 'Oui') return isOver25 ? 'W' : 'L'
+    if (prediction === 'Non') return isOver25 ? 'L' : 'W'
+  }
   return null
+}
+
+function computeRate(won, total) {
+  if (!total || total === 0) return 0
+  return Math.round((won / total) * 1000) / 10 // 1 décimale
 }
 
 // ─── Main ──────────────────────────────────────────────────────────────────
@@ -79,14 +89,14 @@ async function updateWinHistory() {
 
   const archiveFiles = fs.readdirSync(ARCHIVE_DIR)
     .filter(f => f.endsWith('.json'))
-    .sort() // Date asc — le plus ancien d'abord
+    .sort()
 
   console.log(`[WinHistory] Found ${archiveFiles.length} archives`)
 
   const allItems = []
   let idCounter = 1
 
-  // Stats accumulators
+  // Stats accumulators — EXACT structure per spec
   const stats = {
     btts: { total: 0, won: 0, lost: 0, pending: 0 },
     over25: { total: 0, won: 0, lost: 0, pending: 0 },
@@ -102,20 +112,25 @@ async function updateWinHistory() {
 
       for (const pred of predictions) {
         // Le score final est ajouté par verify-results.mjs
-        // Champ possible: pred.finalScore (string "2-1") ou pred.score
-        const scoreStr = pred.finalScore || pred.score || null
+        // Si absent → PENDING (JAMAIS perdu par défaut)
+        const scoreStr = pred.finalScore || null
         const score = parseScore(scoreStr)
-
-        let result = null
-        if (score) {
-          result = evaluatePrediction(pred.prediction, pred.type, score)
-        }
+        const result = score ? evaluatePrediction(pred.prediction, pred.type, score) : null
+        // result: "W" | "L" | null
 
         const typeKey = pred.type.includes('Over') ? 'over25' : 'btts'
-        stats[typeKey].total++
-        if (result === 'Gagné') stats[typeKey].won++
-        else if (result === 'Perdu') stats[typeKey].lost++
-        else stats[typeKey].pending++
+
+        // Compte dans le bon bucket
+        if (result === 'W') {
+          stats[typeKey].won++
+          stats[typeKey].total++ // total = won + lost UNIQUEMENT (PENDING exclu)
+        } else if (result === 'L') {
+          stats[typeKey].lost++
+          stats[typeKey].total++
+        } else {
+          stats[typeKey].pending++
+          // PENDING: NE PAS ajouter au total
+        }
 
         allItems.push({
           id: idCounter++,
@@ -124,7 +139,7 @@ async function updateWinHistory() {
           league: pred.league,
           type: pred.type,
           prediction: pred.prediction,
-          result: result || 'En attente',
+          result: result || 'PENDING', // Affichage uniquement
           score: scoreStr || '-',
           confidence: pred.confidence || 0,
         })
@@ -142,47 +157,40 @@ async function updateWinHistory() {
   // (le calcul des stats reste sur TOUTES les archives)
   const displayHistory = allItems.slice(0, 80)
 
-  // Stats globales réelles (calculées, jamais figées)
+  // Stats globales RÉELLES (jamais figées)
   const totalAll = stats.btts.total + stats.over25.total
   const wonAll = stats.btts.won + stats.over25.won
   const lostAll = stats.btts.lost + stats.over25.lost
   const pendingAll = stats.btts.pending + stats.over25.pending
-  const verifiedAll = wonAll + lostAll
-  const rateAll = verifiedAll > 0 ? Math.round((wonAll / verifiedAll) * 1000) / 10 : 0
-
-  const bttsVerified = stats.btts.won + stats.btts.lost
-  const bttsRate = bttsVerified > 0 ? Math.round((stats.btts.won / bttsVerified) * 1000) / 10 : 0
-  const over25Verified = stats.over25.won + stats.over25.lost
-  const over25Rate = over25Verified > 0 ? Math.round((stats.over25.won / over25Verified) * 1000) / 10 : 0
+  const rateAll = computeRate(wonAll, totalAll)
+  const bttsRate = computeRate(stats.btts.won, stats.btts.total)
+  const over25Rate = computeRate(stats.over25.won, stats.over25.total)
 
   const winHistoryData = {
     stats: {
       total: totalAll,
-      verified: verifiedAll,
       won: wonAll,
       lost: lostAll,
       pending: pendingAll,
       rate: `${rateAll}%`,
       last30Rate: `${rateAll}%`,
       byType: {
-        BTTS: {
+        btts: {
           total: stats.btts.total,
-          verified: bttsVerified,
           won: stats.btts.won,
           lost: stats.btts.lost,
           pending: stats.btts.pending,
           rate: bttsRate,
         },
-        'O2.5': {
+        over25: {
           total: stats.over25.total,
-          verified: over25Verified,
           won: stats.over25.won,
           lost: stats.over25.lost,
           pending: stats.over25.pending,
           rate: over25Rate,
         },
       },
-      transparency: `Stats calculées depuis ${archiveFiles.length} archives quotidiennes dans predictions-archive/. Sur ${verifiedAll} pronostics vérifiés (avec score final connu), ${wonAll} ont été gagnants (${rateAll}% de réussite réelle vérifiable). ${pendingAll} pronostics en attente de vérification (match non encore joué ou score non récupéré). Aucun filtrage — gagnés ET perdus affichés.`,
+      transparency: `Stats calculées depuis ${archiveFiles.length} archives quotidiennes dans predictions-archive/. Sur ${totalAll} pronostics vérifiés (score final connu via API-Football ou TheSportsDB), ${wonAll} ont été gagnants (${rateAll}% de réussite réelle vérifiable). ${pendingAll} pronostics en attente de vérification (match non joué ou score non récupéré). Aucun filtrage — gagnés ET perdus affichés. Stats jamais figées.`,
     },
     history: displayHistory,
     allItemsCount: allItems.length,
@@ -192,17 +200,19 @@ async function updateWinHistory() {
   fs.writeFileSync(WIN_HISTORY_FILE, JSON.stringify(winHistoryData, null, 2))
   console.log(`[WinHistory] ✓ Written to win-history.json`)
   console.log(`[WinHistory] Stats (REAL — calculated from ${archiveFiles.length} archives):`)
-  console.log(`  Total pronos:        ${totalAll}`)
-  console.log(`  Verified (W+L):      ${verifiedAll}`)
-  console.log(`  Won:                 ${wonAll}`)
-  console.log(`  Lost:                ${lostAll}`)
-  console.log(`  Pending (no score):  ${pendingAll}`)
-  console.log(`  Overall rate:        ${rateAll}%`)
-  console.log(`  BTTS:  ${stats.btts.won}/${bttsVerified} verified (${bttsRate}%) — ${stats.btts.pending} pending`)
-  console.log(`  O2.5:  ${stats.over25.won}/${over25Verified} verified (${over25Rate}%) — ${stats.over25.pending} pending`)
+  console.log(`  Total (verified W+L):   ${totalAll}`)
+  console.log(`  Won:                    ${wonAll}`)
+  console.log(`  Lost:                   ${lostAll}`)
+  console.log(`  Pending:                ${pendingAll}`)
+  console.log(`  Overall rate:           ${rateAll}%`)
+  console.log(`  BTTS:  W=${stats.btts.won} L=${stats.btts.lost} P=${stats.btts.pending} rate=${bttsRate}%`)
+  console.log(`  O2.5:  W=${stats.over25.won} L=${stats.over25.lost} P=${stats.over25.pending} rate=${over25Rate}%`)
   console.log(`[WinHistory] Display history: ${displayHistory.length} entries`)
-  if (pendingAll > verifiedAll * 0.5) {
-    console.log(`[WinHistory] ⚠ WARNING: ${pendingAll} pronos sans score — run verify-results.mjs pour récupérer les scores`)
+
+  // Alerte si trop de PENDING
+  const totalArchive = allItems.length
+  if (totalArchive > 0 && pendingAll / totalArchive > 0.5) {
+    console.log(`[WinHistory] ⚠ WARNING: ${pendingAll}/${totalArchive} pronos en PENDING — run verify-results.mjs pour récupérer les scores`)
   }
 }
 

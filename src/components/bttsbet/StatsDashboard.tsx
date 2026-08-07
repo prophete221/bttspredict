@@ -24,8 +24,16 @@ type WinHistory = {
   stats: {
     total: number
     won: number
+    lost: number
+    pending: number
     rate: string
     last30Rate: string
+    byType?: {
+      btts?: { total: number; won: number; lost: number; pending: number; rate: number }
+      over25?: { total: number; won: number; lost: number; pending: number; rate: number }
+      BTTS?: { total: number; won: number; lost: number; rate: number }
+      'O2.5'?: { total: number; won: number; lost: number; rate: number }
+    }
   }
   history: WinEntry[]
 }
@@ -69,19 +77,26 @@ export default function StatsDashboard() {
     )
   }
 
-  // Compute stats from history
+  // Compute stats — use stats block (true W/L/PENDING) instead of history.length
   const history = data.history
-  const total = history.length
-  const won = history.filter(h => h.result === 'Gagné').length
-  const lost = total - won
-  const rate = total ? Math.round((won / total) * 100) : 0
+  const stats = data.stats
+  const total = stats?.total ?? 0
+  const won = stats?.won ?? 0
+  const lost = stats?.lost ?? 0
+  const pending = stats?.pending ?? 0
+  const rate = total > 0 ? Math.round((won / total) * 100) : 0
+  const isUpdating = total === 0 && pending > 0
 
   // Group by date (for time series) — last 14 entries by date
-  const byDate = history.reduce<Record<string, { won: number; lost: number; total: number }>>((acc, h) => {
-    if (!acc[h.date]) acc[h.date] = { won: 0, lost: 0, total: 0 }
-    acc[h.date].total++
-    if (h.result === 'Gagné') acc[h.date].won++
-    else acc[h.date].lost++
+  // PENDING exclus du dénominateur
+  const byDate = history.reduce<Record<string, { won: number; lost: number; pending: number; total: number }>>((acc, h) => {
+    if (!acc[h.date]) acc[h.date] = { won: 0, lost: 0, pending: 0, total: 0 }
+    const isWon = h.result === 'Gagné' || h.result === 'W'
+    const isLost = h.result === 'Perdu' || h.result === 'L'
+    const isPending = h.result === 'PENDING' || h.result === 'En attente'
+    if (isWon) { acc[h.date].won++; acc[h.date].total++ }
+    else if (isLost) { acc[h.date].lost++; acc[h.date].total++ }
+    else if (isPending) { acc[h.date].pending++ }
     return acc
   }, {})
 
@@ -90,11 +105,13 @@ export default function StatsDashboard() {
     .slice(-14)
     .map(([date, v]) => ({
       date: date.slice(5), // MM-DD
-      réussite: Math.round((v.won / v.total) * 100),
+      réussite: v.total > 0 ? Math.round((v.won / v.total) * 100) : null,
       total: v.total,
       gagnés: v.won,
       perdus: v.lost,
     }))
+
+  const hasVerifiedTimeSeries = timeSeries.some(d => d.total > 0)
 
   // Group by league
   const byLeague = history.reduce<Record<string, number>>((acc, h) => {
@@ -106,21 +123,25 @@ export default function StatsDashboard() {
     .sort((a, b) => b.value - a.value)
     .slice(0, 8)
 
-  // Group by type
-  const byType = history.reduce<Record<string, { won: number; total: number }>>((acc, h) => {
-    if (!acc[h.type]) acc[h.type] = { won: 0, total: 0 }
-    acc[h.type].total++
-    if (h.result === 'Gagné') acc[h.type].won++
+  // Group by type — PENDING exclus
+  const byType = history.reduce<Record<string, { won: number; lost: number; pending: number; total: number }>>((acc, h) => {
+    if (!acc[h.type]) acc[h.type] = { won: 0, lost: 0, pending: 0, total: 0 }
+    const isWon = h.result === 'Gagné' || h.result === 'W'
+    const isLost = h.result === 'Perdu' || h.result === 'L'
+    const isPending = h.result === 'PENDING' || h.result === 'En attente'
+    if (isWon) { acc[h.type].won++; acc[h.type].total++ }
+    else if (isLost) { acc[h.type].lost++; acc[h.type].total++ }
+    else if (isPending) { acc[h.type].pending++ }
     return acc
   }, {})
   const typeData = Object.entries(byType).map(([name, v]) => ({
-    name,
-    réussite: Math.round((v.won / v.total) * 100),
+    name: name.includes('Over') ? 'Over 2.5' : name,
+    réussite: v.total > 0 ? Math.round((v.won / v.total) * 100) : 0,
     total: v.total,
     gagnés: v.won,
   }))
 
-  // Confidence buckets
+  // Confidence buckets — PENDING exclus
   const confBuckets = [
     { range: '40-49%', min: 40, max: 49, won: 0, total: 0 },
     { range: '50-59%', min: 50, max: 59, won: 0, total: 0 },
@@ -128,11 +149,14 @@ export default function StatsDashboard() {
     { range: '70%+', min: 70, max: 100, won: 0, total: 0 },
   ]
   history.forEach(h => {
+    const isWon = h.result === 'Gagné' || h.result === 'W'
+    const isLost = h.result === 'Perdu' || h.result === 'L'
+    if (!isWon && !isLost) return // PENDING skip
     const c = h.confidence || 0
     const bucket = confBuckets.find(b => c >= b.min && c <= b.max)
     if (bucket) {
       bucket.total++
-      if (h.result === 'Gagné') bucket.won++
+      if (isWon) bucket.won++
     }
   })
   const confData = confBuckets.map(b => ({
@@ -149,16 +173,35 @@ export default function StatsDashboard() {
       className="space-y-8"
     >
       {/* ── KPI ROW ─────────────────────────────────────────── */}
+      {isUpdating && pending > 100 && (
+        <div className="mb-4 p-4 rounded-xl flex items-start gap-3" style={{ backgroundColor: 'rgba(99, 216, 208, 0.08)', border: '1px solid rgba(99, 216, 208, 0.25)' }}>
+          <svg className="flex-shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B9E7FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
+          </svg>
+          <div>
+            <p className="text-[13px] font-semibold text-papier">Mise à jour des résultats en cours…</p>
+            <p className="text-[11px] text-cendre mt-0.5 leading-relaxed">
+              {pending.toLocaleString('fr-FR')} pronostics en attente de vérification via API-Football. Les scores finaux seront ajoutés dès que les matchs seront terminés.
+            </p>
+          </div>
+        </div>
+      )}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         <div className="stat-tile">
-          <div className="text-3xl sm:text-4xl font-black text-gold tabular-nums">{rate}%</div>
-          <div className="text-[10px] sm:text-xs text-cendre uppercase tracking-widest mt-1">Taux VIP</div>
-          <div className="text-[10px] text-cendre mt-1">{won}G / {total} total</div>
+          {isUpdating ? (
+            <div className="text-2xl sm:text-3xl font-bold text-trust flex items-center gap-1.5">
+              <span className="inline-block w-2 h-2 rounded-full bg-trust animate-pulse" />En cours…
+            </div>
+          ) : (
+            <div className="text-3xl sm:text-4xl font-black text-gold tabular-nums">{rate}%</div>
+          )}
+          <div className="text-[10px] sm:text-xs text-cendre uppercase tracking-widest mt-1">Taux vérifié</div>
+          <div className="text-[10px] text-cendre mt-1">{isUpdating ? `${pending} en attente` : `${won}G / ${total} total`}</div>
         </div>
         <div className="stat-tile">
           <div className="text-3xl sm:text-4xl font-black text-success tabular-nums">{won}</div>
           <div className="text-[10px] sm:text-xs text-cendre uppercase tracking-widest mt-1">Pronostics gagnés</div>
-          <div className="text-[10px] text-cendre mt-1">Sur {total} joués</div>
+          <div className="text-[10px] text-cendre mt-1">Sur {total} vérifiés</div>
         </div>
         <div className="stat-tile">
           <div className="text-3xl sm:text-4xl font-black text-rose tabular-nums">{lost}</div>
@@ -166,9 +209,9 @@ export default function StatsDashboard() {
           <div className="text-[10px] text-cendre mt-1">Transparence totale</div>
         </div>
         <div className="stat-tile">
-          <div className="text-3xl sm:text-4xl font-black text-ultra tabular-nums">{data.stats.last30Rate}</div>
+          <div className="text-3xl sm:text-4xl font-black text-ultra tabular-nums">{isUpdating ? '—' : data.stats.last30Rate}</div>
           <div className="text-[10px] sm:text-xs text-cendre uppercase tracking-widest mt-1">Taux 30 jours</div>
-          <div className="text-[10px] text-cendre mt-1">{data.stats.total} historiques</div>
+          <div className="text-[10px] text-cendre mt-1">{isUpdating ? 'En attente' : `${total} historiques`}</div>
         </div>
       </div>
 
@@ -176,11 +219,12 @@ export default function StatsDashboard() {
       <section className="squircle-xl p-5 sm:p-6">
         <header className="flex items-center justify-between mb-5">
           <div>
-            <h2 className="text-lg sm:text-xl font-bold text-papier">Évolution du taux VIP</h2>
-            <p className="text-xs text-cendre mt-1">14 derniers jours — pourcentage de pronostics gagnés par jour</p>
+            <h2 className="text-lg sm:text-xl font-bold text-papier">Évolution du taux vérifié</h2>
+            <p className="text-xs text-cendre mt-1">14 derniers jours — pourcentage de pronostics gagnés par jour (vérifiés uniquement)</p>
           </div>
           <span className="badge badge-mint">14 jours</span>
         </header>
+        {hasVerifiedTimeSeries ? (
         <div className="h-64 sm:h-80">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={timeSeries} margin={{ top: 8, right: 8, bottom: 0, left: -16 }}>
@@ -211,10 +255,19 @@ export default function StatsDashboard() {
                 fill="url(#gradGold)"
                 dot={{ fill: COLORS.gold, r: 3 }}
                 activeDot={{ r: 5, fill: COLORS.gold }}
+                connectNulls
               />
             </AreaChart>
           </ResponsiveContainer>
         </div>
+        ) : (
+          <div className="h-64 sm:h-80 flex items-center justify-center">
+            <p className="text-[12px] text-cendre italic text-center px-4">
+              Graphique disponible dès que les premiers scores finaux seront vérifiés via API-Football.
+              <br /><span className="text-trust">Mise à jour en cours…</span>
+            </p>
+          </div>
+        )}
       </section>
 
       {/* ── TWO-COLUMN: TYPE + CONFIDENCE ─────────────────────── */}
