@@ -14,33 +14,52 @@
 @import "tailwindcss";
 
 @theme {
-  /* ═══ ECLIPSE INTELLIGENCE v59 — "L'intelligence derrière chaque pronostic" ═══ */
-  --color-bg-main: #070B18;          /* Obsidienne Bleue — fond principal */
-  --color-bg-secondary: #0D1630;     /* Bleu Système — fond secondaire */
-  --color-card: #171A38;              /* Prune Nocturne — surface cartes */
-  --color-card-hover: #24205A;        /* Indigo Profond — surface premium */
-  --color-border: #303861;            /* Bleu Minéral — bordures */
-  --color-text-primary: #F7F8FF;     /* Blanc Lunaire — texte principal */
-  --color-text-secondary: #A5ABC5;    /* Gris Lavande — texte secondaire */
-  --color-cta: #5146F5;               /* Indigo Électrique — couleur de marque */
-  --color-cta-text: #F7F8FF;          /* Blanc Lunaire sur CTA */
-  --color-trust: #B9E7FF;             /* Bleu Polaire — confiance */
-  --color-stats: #5146F5;             /* Indigo Électrique — statistiques */
+  /* ═══ ECLIPSE v60 — "Data platform, not affiliation site" ═══ */
+  /* Inspired by Stripe / Linear / FBRef design language */
+
+  /* — Fonds (5 niveaux) — */
+  --color-bg-main: #070B18;            /* Obsidienne — fond principal */
+  --color-bg-secondary: #0D1630;       /* Bleu Système — sections */
+  --color-bg-tertiary: #171A38;        /* Prune Nocturne — panels */
+  --color-card: #1E2340;               /* Card surface standard */
+  --color-card-hover: #24205A;         /* Card surface hover/sélection */
+  --color-border: #303861;             /* Border subtile */
+  --color-border-strong: #3E4A7A;      /* Border visible / focus */
+
+  /* — Texte (3 niveaux) — */
+  --color-text-primary: #F7F8FF;      /* Blanc Lunaire — titres, chiffres */
+  --color-text-secondary: #A5ABC5;     /* Gris Lavande — labels, descriptions */
+  --color-text-tertiary: #6B7194;      /* Gris profond — muted, disabled */
+
+  /* — Brand (3 couleurs signature) — */
+  --color-brand-indigo: #5146F5;       /* CTA principal BTTS */
+  --color-brand-violet: #7C3AED;       /* BTTS accent (stats BTTS) */
+  --color-brand-cyan: #5DFDCB;         /* Over 2.5 accent (NOUVEAU) */
+  --color-cta: #5146F5;                /* Alias brand-indigo */
+  --color-cta-text: #F7F8FF;
+
+  /* — Sémantiques — */
+  --color-trust: #B9E7FF;              /* Bleu Polaire — confiance, info */
+  --color-stats: #5146F5;              /* Indigo — statistiques */
   --color-vip: #FFC857;               /* Or Solaire — premium */
-  --color-success: #A8E063;           /* Vert Signal — gagné */
+  --color-success: #A8E063;            /* Vert Signal — gagné */
   --color-error: #FF7185;             /* Rose Alerte — perdu */
 
-  /* Hover states */
-  --color-cta-hover: #6B61FF;         /* Indigo Électrique brighter (per spec) */
-  --color-cta-active: #4338D4;        /* Indigo darker */
-  --color-trust-hover: #B9E7FF;       /* Bleu Polaire hover */
-  --color-stats-hover: #5146F5;       /* Stats hover */
-  --color-vip-hover: #FFD687;         /* Or Solaire brighter */
-  --color-success-hover: #A8E063;     /* Vert Signal hover */
-  --color-error-hover: #FF7185;       /* Rose Alerte hover */
-  --color-border-hover: #303861;      /* Bleu Minéral hover */
+  /* — Hover states — */
+  --color-cta-hover: #6B61FF;
+  --color-cta-active: #4338D4;
+  --color-trust-hover: #B9E7FF;
+  --color-stats-hover: #5146F5;
+  --color-vip-hover: #FFD687;
+  --color-success-hover: #A8E063;
+  --color-error-hover: #FF7185;
+  --color-border-hover: #5146F5;       /* Hover border → indigo (per spec) */
 
-  /* Aliases mappés sur ECLIPSE INTELLIGENCE v59 */
+  /* — Glassmorphism — */
+  --color-glass: rgba(247, 248, 255, 0.08);
+  --color-glass-border: rgba(247, 248, 255, 0.12);
+
+  /* ═══ Aliases mappés sur ECLIPSE v60 ═══ */
   --color-abyss: var(--color-bg-main);
   --color-vault: var(--color-bg-secondary);
   --color-socle: var(--color-card);
@@ -66,7 +85,7 @@
   --color-primary: var(--color-cta);
   --color-primary-dark: var(--color-cta-active);
   --color-primary-light: var(--color-cta-hover);
-  --color-primary-glow: rgba(81, 70, 245, 0.35);
+  --color-primary-glow: rgba(81, 70, 245, 0.3);
   --color-primary-pale: rgba(81, 70, 245, 0.10);
 
   --color-secondary: var(--color-trust);
@@ -90,7 +109,7 @@
   --color-accent-glow: rgba(185, 231, 255, 0.2);
 
   --color-neon: var(--color-cta);
-  --color-neon-glow: rgba(81, 70, 245, 0.35);
+  --color-neon-glow: rgba(81, 70, 245, 0.3);
   --color-neon-green: var(--color-success);
   --color-emerald: var(--color-success);
   --color-emerald-soft: var(--color-success);
@@ -106,59 +125,71 @@
   --color-win: var(--color-success);
 
   --color-text-muted: var(--color-text-secondary);
-  --color-text-tertiary: var(--color-border);
   --color-text-on-dark: var(--color-text-primary);
   --color-text-on-dark-secondary: var(--color-text-secondary);
 
-  /* Gradients premium — utilisés sur héros, cartes VIP, CTA importants */
+  /* — Gradients premium (réservés hero, VIP, CTA importants) — */
   --grad-primary: linear-gradient(135deg, #5146F5 0%, #24205A 100%);
-  --grad-premium: linear-gradient(135deg, #FFC857 0%, #8D5D24 100%);
+  --grad-premium: linear-gradient(135deg, #FFC857 0%, #FF8A00 100%);
+  --grad-brand-split: linear-gradient(90deg, #5146F5 0%, #5146F5 50%, #5DFDCB 50%, #5DFDCB 100%);
   --grad-bg: radial-gradient(circle at top right, rgba(81, 70, 245, 0.18), transparent 38%), #070B18;
   --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(81, 70, 245,0.06) 0%, transparent 60%),
-               radial-gradient(50% 50% at 85% 10%, rgba(185, 231, 255,0.04) 0%, transparent 60%);
+               radial-gradient(50% 50% at 85% 10%, rgba(93, 253, 203, 0.04) 0%, transparent 60%);
 
   --font-display: 'Poppins', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --shadow-card: 0 1px 2px rgba(7, 11, 24,0.3), 0 8px 30px rgba(7, 11, 24,0.4);
-  --shadow-cta: 0 0 0 1px rgba(81, 70, 245,.35), 0 8px 32px rgba(81, 70, 245,.10);
-  --shadow-glass: 0 1px 0 rgba(247, 248, 255,0.03) inset, 0 8px 30px rgba(7, 11, 24,0.3);
+  /* — Shadows (style Linear / Stripe) — */
+  --shadow-card: 0 1px 2px rgba(7, 11, 24, 0.3), 0 8px 32px rgba(7, 11, 24, 0.4);
+  --shadow-cta: 0 0 0 1px rgba(81, 70, 245, 0.35), 0 8px 32px rgba(81, 70, 245, 0.10);
+  --shadow-glass: 0 1px 0 rgba(247, 248, 255, 0.03) inset, 0 8px 32px rgba(7, 11, 24, 0.3);
+  --shadow-hover-glow: 0 0 20px rgba(81, 70, 245, 0.3), 0 8px 32px rgba(7, 11, 24, 0.5);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   :root — ECLIPSE INTELLIGENCE v59 TOKENS (12 variables canoniques)
+   :root — ECLIPSE v60 TOKENS (variables canoniques)
    ════════════════════════════════════════════════════════════════════════════ */
 :root {
-  /* Fonds — palette indigo nocturne */
-  --bg-main: #070B18;            /* Obsidienne Bleue */
-  --bg-secondary: #0D1630;       /* Bleu Système */
-  --card: #171A38;                /* Prune Nocturne */
-  --card-hover: #24205A;          /* Indigo Profond (surface premium) */
-  --border: #303861;              /* Bleu Minéral */
+  /* Fonds */
+  --bg-main: #070B18;
+  --bg-secondary: #0D1630;
+  --bg-tertiary: #171A38;
+  --card: #1E2340;
+  --card-hover: #24205A;
+  --border: #303861;
+  --border-strong: #3E4A7A;
 
   /* Texte */
-  --text-primary: #F7F8FF;       /* Blanc Lunaire */
-  --text-secondary: #A5ABC5;    /* Gris Lavande */
+  --text-primary: #F7F8FF;
+  --text-secondary: #A5ABC5;
+  --text-tertiary: #6B7194;
 
-  /* Accents sémantiques — rôles stricts */
-  --cta: #5146F5;                 /* Indigo Électrique — couleur propriétaire */
-  --cta-text: #F7F8FF;             /* Blanc Lunaire sur CTA */
-  --trust: #B9E7FF;                /* Bleu Polaire — confiance */
-  --stats: #5146F5;                /* Indigo Électrique — statistiques */
-  --vip: #FFC857;                  /* Or Solaire — premium */
-  --success: #A8E063;              /* Vert Signal — gagné */
-  --error: #FF7185;                /* Rose Alerte — perdu */
+  /* Brand */
+  --brand-indigo: #5146F5;
+  --brand-violet: #7C3AED;
+  --brand-cyan: #5DFDCB;
+  --cta: #5146F5;
+  --cta-text: #F7F8FF;
+  --trust: #B9E7FF;
+  --stats: #5146F5;
+  --vip: #FFC857;
+  --success: #A8E063;
+  --error: #FF7185;
+
+  /* Glassmorphism */
+  --glass: rgba(247, 248, 255, 0.08);
+  --glass-border: rgba(247, 248, 255, 0.12);
 
   /* Hover states */
-  --cta-hover: #6B61FF;            /* Indigo brighter (per spec) */
+  --cta-hover: #6B61FF;
   --cta-active: #4338D4;
   --trust-hover: #B9E7FF;
   --stats-hover: #5146F5;
   --vip-hover: #FFD687;
   --success-hover: #A8E063;
   --error-hover: #FF7185;
-  --border-hover: #303861;
+  --border-hover: #5146F5;
 }
 
 /* ════════════════════════════════════════════════════════════════════════════

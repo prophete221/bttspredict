@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" fill="none">
+  <style>
+    .stacked-text { font-family: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+    .text-light { fill: #F7F8FF; }
+  </style>
+  <text x="50" y="48" class="stacked-text text-light" font-size="34">BTTS</text>
+  <g transform="translate(95 65) rotate(12) scale(1.2 1)" transform-origin="center">
+    <line x1="0" y1="-18" x2="0" y2="22" stroke="#5146F5" stroke-width="5" stroke-linecap="round"/>
+    <line x1="10" y1="-18" x2="10" y2="22" stroke="#5146F5" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <text x="115" y="100" class="stacked-text text-light" font-size="34">PREDICT</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" fill="none">
+  <style>
+    .btts-predict-text { font-family: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+    .text-light { fill: #F7F8FF; }
+    .text-dark { fill: #070B18; }
+    .text-gold { fill: #FFC857; }
+  </style>
+  <text x="0" y="50" class="btts-predict-text text-light" font-size="32">BTTS</text>
+  <g transform="translate(105 18) rotate(12) scale(1.2 1)" transform-origin="center">
+    <line x1="0" y1="0" x2="0" y2="44" stroke="#5146F5" stroke-width="6" stroke-linecap="round"/>
+    <line x1="12" y1="0" x2="12" y2="44" stroke="#5146F5" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <text x="145" y="50" class="btts-predict-text text-light" font-size="32">PREDICT</text>
+</svg>

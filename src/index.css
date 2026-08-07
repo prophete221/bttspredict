@@ -1,23 +1,29 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════
-   BTTSPredict — ECLIPSE INTELLIGENCE v59 Design System
-   Palette : 12 tokens, "L'intelligence derrière chaque pronostic"
+   BTTSPredict — ECLIPSE v60 Design System
+   Palette : 14 tokens, "Data platform, not affiliation site"
    ═══════════════════════════════════════════════════════════════ */
 :root {
   /* Fonds — palette indigo nocturne */
   --bg-main: #070B18;
   --bg-secondary: #0D1630;
-  --card: #171A38;
+  --bg-tertiary: #171A38;
+  --card: #1E2340;
   --card-hover: #24205A;
   --border: #303861;
+  --border-strong: #3E4A7A;
 
   /* Texte */
   --text-primary: #F7F8FF;
   --text-secondary: #A5ABC5;
+  --text-tertiary: #6B7194;
 
   /* Accents sémantiques */
-  --cta: #5146F5;            /* Indigo Électrique */
+  --brand-indigo: #5146F5;     /* CTA principal BTTS */
+  --brand-violet: #7C3AED;     /* BTTS accent */
+  --brand-cyan: #5DFDCB;       /* Over 2.5 accent (NOUVEAU) */
+  --cta: #5146F5;              /* Alias brand-indigo */
   --cta-text: #F7F8FF;
   --trust: #B9E7FF;          /* Bleu Polaire */
   --vip: #FFC857;            /* Or Solaire */
@@ -31,18 +37,26 @@
   --vip-hover: #FFD687;
   --success-hover: #A8E063;
   --error-hover: #FF7185;
-  --border-hover: #303861;
+  --border-hover: #5146F5;
+  --glass: rgba(247, 248, 255, 0.08);
+  --glass-border: rgba(247, 248, 255, 0.12);
 }
 
 @theme {
-  /* ── ECLIPSE INTELLIGENCE v59 — 12 tokens canoniques ── */
+  /* ── ECLIPSE v60 — 14 tokens canoniques ── */
   --color-bg-main: #070B18;
   --color-bg-secondary: #0D1630;
-  --color-card: #171A38;
+  --color-bg-tertiary: #171A38;
+  --color-card: #1E2340;
   --color-card-hover: #24205A;
   --color-border: #303861;
+  --color-border-strong: #3E4A7A;
   --color-text-primary: #F7F8FF;
   --color-text-secondary: #A5ABC5;
+  --color-text-tertiary: #6B7194;
+  --color-brand-indigo: #5146F5;
+  --color-brand-violet: #7C3AED;
+  --color-brand-cyan: #5DFDCB;
   --color-cta: #5146F5;
   --color-cta-text: #F7F8FF;
   --color-trust: #B9E7FF;
@@ -60,7 +74,7 @@
   --color-error-hover: #FF7185;
   --color-border-hover: #303861;
 
-  /* Aliases mappés sur ECLIPSE INTELLIGENCE v59 */
+  /* Aliases mappés sur ECLIPSE v60 */
   --color-abyss: var(--color-bg-main);
   --color-vault: var(--color-bg-secondary);
   --color-socle: var(--color-card);
@@ -94,7 +108,7 @@
   --color-win: var(--color-success);
   --color-lose: var(--color-error);
 
-  /* ── Legacy tokens (mappés sur ECLIPSE INTELLIGENCE v59) ── */
+  /* ── Legacy tokens (mappés sur ECLIPSE v60) ── */
   --color-neon: var(--color-cta);
   --color-neon-green: var(--color-success);
   --color-neon-purple: var(--color-vip);

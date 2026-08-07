@@ -1,16 +1,22 @@
 {
-  "name": "BTTSPredict — Pronostics BTTS & Over 2.5",
+  "name": "BTTSPredict — BTTS & Over 2.5 Open Dataset",
   "short_name": "BTTSPredict",
-  "description": "Plateforme leader mondial des prédictions BTTS et Over 2.5. Modèle de Poisson calibré sur 50 000 matchs, 80% de réussite vérifiée. Code promo VISION221.",
+  "description": "Plateforme de pronostics BTTS et Over 2.5 basée sur un modèle statistique Poisson + agrégation multi-sources. Archives publiques vérifiables, scores finaux API-Football. Open data, transparent, 18+.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0D1117",
-  "theme_color": "#0D1117",
+  "background_color": "#070B18",
+  "theme_color": "#070B18",
   "orientation": "portrait-primary",
   "lang": "fr",
   "scope": "/",
-  "categories": ["sports", "entertainment"],
+  "categories": ["sports", "utilities", "reference"],
   "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
     {
       "src": "/icon-192.png",
       "sizes": "192x192",
@@ -28,6 +34,32 @@
       "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Pronos du jour",
+      "short_name": "Pronos",
+      "description": "Voir les pronostics BTTS et Over 2.5 du jour",
+      "url": "/#free-predictions"
+    },
+    {
+      "name": "Historique vérifié",
+      "short_name": "Historique",
+      "description": "Consulter l'archive publique vérifiable",
+      "url": "/historique"
+    },
+    {
+      "name": "Méthodologie",
+      "short_name": "Méthode",
+      "description": "Modèle Poisson, sources de données, limites",
+      "url": "/methodologie"
     }
   ],
   "screenshots": [],
