@@ -263,13 +263,10 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
                 <span className="v31-ticker-dot live" /> <span className="live-text">LIVE</span>
               </span>
             )}
-            {status === 'upcoming' && timeUntil && (
-              <div className="flex items-center gap-1.5">
-                <span className="text-[9px] text-gray-400 uppercase tracking-widest font-bold">{timeUntil.label}</span>
-                <span className="text-success text-xs font-bold tabular-nums mono">{timeUntil.value}</span>
-              </div>
+            {status === 'upcoming' && (
+              <span className="text-[10px] text-gray-400 mono tabular-nums">{match.time || '--:--'}</span>
             )}
-            {(status === 'finished' || (!timeUntil && status !== 'live')) && (
+            {(status === 'finished' || status !== 'live') && (
               <span className="text-[10px] text-gray-400 mono tabular-nums">{match.time || '--:--'}</span>
             )}
             <span className="text-[10px] text-gray-400 uppercase tracking-widest font-semibold truncate">

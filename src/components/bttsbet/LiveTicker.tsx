@@ -206,17 +206,12 @@ export default function LiveTicker() {
                   transition={{ duration: 0.4 }}
                   className="flex items-center gap-3 px-4 py-2.5"
                 >
-                  {/* Time / countdown */}
+                  {/* Time */}
                   <div className="flex-shrink-0 text-center min-w-[55px]">
                     {status === 'live' ? (
                       <div className="text-success font-bold text-xs">
                         <div className="text-[10px] text-success/60 uppercase tracking-widest">En cours</div>
                         <div className="font-mono tabular-nums">LIVE</div>
-                      </div>
-                    ) : timeUntil ? (
-                      <div>
-                        <div className="text-[10px] text-violet-light/60 uppercase tracking-widest font-bold">Dans</div>
-                        <div className="text-violet-light font-bold text-xs font-mono tabular-nums">{timeUntil}</div>
                       </div>
                     ) : (
                       <div>
