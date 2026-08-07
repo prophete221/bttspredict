@@ -22,7 +22,7 @@ export default function TiltCard({ children, className = '', maxTilt = 6, glareE
       const glare = cardRef.current.querySelector('.tilt-card-glare')
       if (glare && glareEnabled) {
         glare.style.opacity = '0.12'
-        glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(24, 224, 181, 0.2), transparent 60%)`
+        glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(81, 70, 245, 0.2), transparent 60%)`
       }
       rafRef.current = null
     })

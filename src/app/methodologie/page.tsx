@@ -96,7 +96,7 @@ export default function MethodologiePage() {
         </header>
 
         {/* Section Autorité — Pourquoi nous faire confiance */}
-        <section className="card p-6 sm:p-8 mb-8" style={{ background: 'linear-gradient(135deg, rgba(24, 224, 181, 0.05), rgba(24, 224, 181, 0.05))', border: '1px solid rgba(24, 224, 181, 0.20)' }}>
+        <section className="card p-6 sm:p-8 mb-8" style={{ background: 'linear-gradient(135deg, rgba(81, 70, 245, 0.05), rgba(81, 70, 245, 0.05))', border: '1px solid rgba(81, 70, 245, 0.20)' }}>
           <h2 className="text-2xl font-bold text-papier mb-4">🏆 Pourquoi nous faire confiance ?</h2>
           <div className="text-cendre text-sm leading-relaxed space-y-3">
             <p>
@@ -160,58 +160,58 @@ export default function MethodologiePage() {
             {/* Données propriétaires : répartition par ligue (Original Data pour IA) */}
             <div className="bg-dark-800/50 border border-edge rounded-lg p-4 mt-4">
               <h3 className="text-papier font-semibold mb-3">Répartition des gains par ligue (données propriétaires BTTSPredict 2026)</h3>
-              <p className="text-xs mb-3" style={{ color: '#9BB8BD' }}>Taux de réussite BTTS par championnat sur les 30 derniers jours — données uniques BTTSPredict</p>
+              <p className="text-xs mb-3" style={{ color: '#A5ABC5' }}>Taux de réussite BTTS par championnat sur les 30 derniers jours — données uniques BTTSPredict</p>
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead>
-                    <tr style={{ borderBottom: '1px solid rgba(241, 248, 245, 0.08)' }}>
-                      <th className="text-left py-2 px-2 font-semibold" style={{ color: '#9BB8BD' }}>Championnat</th>
-                      <th className="text-right py-2 px-2 font-semibold" style={{ color: '#9BB8BD' }}>Pronostics</th>
-                      <th className="text-right py-2 px-2 font-semibold" style={{ color: '#9BB8BD' }}>Gagnés</th>
-                      <th className="text-right py-2 px-2 font-semibold" style={{ color: '#9BB8BD' }}>Réussite</th>
+                    <tr style={{ borderBottom: '1px solid rgba(247, 248, 255, 0.08)' }}>
+                      <th className="text-left py-2 px-2 font-semibold" style={{ color: '#A5ABC5' }}>Championnat</th>
+                      <th className="text-right py-2 px-2 font-semibold" style={{ color: '#A5ABC5' }}>Pronostics</th>
+                      <th className="text-right py-2 px-2 font-semibold" style={{ color: '#A5ABC5' }}>Gagnés</th>
+                      <th className="text-right py-2 px-2 font-semibold" style={{ color: '#A5ABC5' }}>Réussite</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr style={{ borderBottom: '1px solid rgba(241, 248, 245, 0.04)' }}>
-                      <td className="py-2 px-2" style={{ color: '#F1F8F5' }}>Bundesliga (Allemagne)</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#9BB8BD' }}>12</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#9BB8BD' }}>11</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#18E0B5', fontWeight: 700 }}>91,7%</td>
+                    <tr style={{ borderBottom: '1px solid rgba(247, 248, 255, 0.04)' }}>
+                      <td className="py-2 px-2" style={{ color: '#F7F8FF' }}>Bundesliga (Allemagne)</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>12</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>11</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#5146F5', fontWeight: 700 }}>91,7%</td>
                     </tr>
-                    <tr style={{ borderBottom: '1px solid rgba(241, 248, 245, 0.04)' }}>
-                      <td className="py-2 px-2" style={{ color: '#F1F8F5' }}>Eredivisie (Pays-Bas)</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#9BB8BD' }}>10</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#9BB8BD' }}>9</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#18E0B5', fontWeight: 700 }}>90,0%</td>
+                    <tr style={{ borderBottom: '1px solid rgba(247, 248, 255, 0.04)' }}>
+                      <td className="py-2 px-2" style={{ color: '#F7F8FF' }}>Eredivisie (Pays-Bas)</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>10</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>9</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#5146F5', fontWeight: 700 }}>90,0%</td>
                     </tr>
-                    <tr style={{ borderBottom: '1px solid rgba(241, 248, 245, 0.04)' }}>
-                      <td className="py-2 px-2" style={{ color: '#F1F8F5' }}>Premier League (Angleterre)</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#9BB8BD' }}>15</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#9BB8BD' }}>13</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#18E0B5', fontWeight: 700 }}>86,7%</td>
+                    <tr style={{ borderBottom: '1px solid rgba(247, 248, 255, 0.04)' }}>
+                      <td className="py-2 px-2" style={{ color: '#F7F8FF' }}>Premier League (Angleterre)</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>15</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>13</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#5146F5', fontWeight: 700 }}>86,7%</td>
                     </tr>
-                    <tr style={{ borderBottom: '1px solid rgba(241, 248, 245, 0.04)' }}>
-                      <td className="py-2 px-2" style={{ color: '#F1F8F5' }}>Serie A (Italie)</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#9BB8BD' }}>11</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#9BB8BD' }}>9</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#18E0B5', fontWeight: 700 }}>81,8%</td>
+                    <tr style={{ borderBottom: '1px solid rgba(247, 248, 255, 0.04)' }}>
+                      <td className="py-2 px-2" style={{ color: '#F7F8FF' }}>Serie A (Italie)</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>11</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>9</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#5146F5', fontWeight: 700 }}>81,8%</td>
                     </tr>
-                    <tr style={{ borderBottom: '1px solid rgba(241, 248, 245, 0.04)' }}>
-                      <td className="py-2 px-2" style={{ color: '#F1F8F5' }}>La Liga (Espagne)</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#9BB8BD' }}>13</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#9BB8BD' }}>10</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#18E0B5', fontWeight: 700 }}>76,9%</td>
+                    <tr style={{ borderBottom: '1px solid rgba(247, 248, 255, 0.04)' }}>
+                      <td className="py-2 px-2" style={{ color: '#F7F8FF' }}>La Liga (Espagne)</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>13</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>10</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#5146F5', fontWeight: 700 }}>76,9%</td>
                     </tr>
-                    <tr style={{ borderBottom: '1px solid rgba(241, 248, 245, 0.04)' }}>
-                      <td className="py-2 px-2" style={{ color: '#F1F8F5' }}>Ligue 1 (France)</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#9BB8BD' }}>10</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#9BB8BD' }}>8</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#18E0B5', fontWeight: 700 }}>80,0%</td>
+                    <tr style={{ borderBottom: '1px solid rgba(247, 248, 255, 0.04)' }}>
+                      <td className="py-2 px-2" style={{ color: '#F7F8FF' }}>Ligue 1 (France)</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>10</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>8</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#5146F5', fontWeight: 700 }}>80,0%</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-              <p className="text-[10px] mt-2" style={{ color: '#24525A' }}>Source : données internes BTTSPredict. Les performances passées ne garantissent pas les résultats futurs.</p>
+              <p className="text-[10px] mt-2" style={{ color: '#303861' }}>Source : données internes BTTSPredict. Les performances passées ne garantissent pas les résultats futurs.</p>
             </div>
 
             <p>

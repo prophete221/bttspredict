@@ -78,8 +78,8 @@ export default function SiteLoader() {
                 transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
                 className="absolute inset-0 w-16 h-16"
               >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-gold rounded-full shadow-[0_0_10px_rgba(24, 224, 181,0.7)]" />
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-ultra rounded-full shadow-[0_0_8px_rgba(24, 224, 181,0.6)]" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-gold rounded-full shadow-[0_0_10px_rgba(81, 70, 245,0.7)]" />
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-ultra rounded-full shadow-[0_0_8px_rgba(81, 70, 245,0.6)]" />
               </motion.div>
 
               {/* Inner pulsing circle */}
@@ -95,7 +95,7 @@ export default function SiteLoader() {
                   height="28"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#18E0B5"
+                  stroke="#5146F5"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"

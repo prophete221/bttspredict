@@ -177,7 +177,7 @@ export default function BookmakersPage() {
               href={AFFILIATE.linebet}
               rel={AFFILIATE.rel}
               target="_blank"
-              className="flex items-center justify-center gap-2 px-4 py-3 btn-linebet cta-glow text-[#09141D] text-sm font-bold w-full"
+              className="flex items-center justify-center gap-2 px-4 py-3 btn-linebet cta-glow text-[#070B18] text-sm font-bold w-full"
             >
               S'inscrire sur Linebet →
             </a>
@@ -204,7 +204,7 @@ export default function BookmakersPage() {
               href={AFFILIATE.star888}
               rel={AFFILIATE.rel}
               target="_blank"
-              className="flex items-center justify-center gap-2 px-4 py-3 btn-star888 cta-glow text-[#09141D] text-sm font-bold w-full"
+              className="flex items-center justify-center gap-2 px-4 py-3 btn-star888 cta-glow text-[#070B18] text-sm font-bold w-full"
             >
               S'inscrire sur 888starz →
             </a>
