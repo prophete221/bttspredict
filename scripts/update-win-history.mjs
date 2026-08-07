@@ -1,12 +1,19 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// BTTSPredict — update-win-history.mjs (V4 — Compatible verify-results V3)
+// BTTSPredict — update-win-history.mjs (V5 — GOLD Tier System)
 // ═══════════════════════════════════════════════════════════════════════════════
 //
-// Lit verify-results V3 output (status: WON/LOST/PENDING + isWon + finalScore)
-// + compatibilité avec ancien format (result: Gagné/Perdu/W/L)
+// Lit les archives avec status WON/LOST/PENDING (mis par verify-results.mjs V3)
+// + champ tier (GOLD/STANDARD) ajouté par quick-update-predictions.mjs
 //
-// Stats: total = won + lost UNIQUEMENT (PENDING exclu du dénominateur)
-// rate = won / total * 100 avec 1 décimale
+// Calcule:
+//   - Stats globales (total, won, lost, pending, rate)
+//   - Stats GOLD (top pronos: proba≥70% ou proba≥65% + ligue à buts)
+//   - Stats STANDARD (reste)
+//   - byType (btts / over25)
+//   - trend14 (14 derniers jours)
+//   - yield Gold (won*1.75 - total) / total * 100
+//
+// Sortie: public/win-history.json
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import fs from 'fs';
@@ -15,187 +22,144 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const PUBLIC_DIR = path.join(__dirname, '..', 'public');
-const ARCHIVE_DIR = path.join(PUBLIC_DIR, 'predictions-archive');
-const WIN_HISTORY_FILE = path.join(PUBLIC_DIR, 'win-history.json');
+const ARCHIVE_DIR = path.join(__dirname, '..', 'public', 'predictions-archive');
+const OUTPUT = path.join(__dirname, '..', 'public', 'win-history.json');
 
 // ─── Helpers ──────────────────────────────────────────────────────────────
 
-// Détermine si un prono est gagné, perdu, ou en attente
-// Compatible avec verify-results V3 (status: WON/LOST/PENDING + isWon)
-// ET ancien format (result: Gagné/Perdu/W/L + finalScore)
-function getPredictionStatus(pred) {
-  // V3 format (verify-results.mjs V3)
-  if (pred.status === 'WON' || pred.isWon === true) return 'W';
-  if (pred.status === 'LOST' || pred.isWon === false) return 'L';
-  if (pred.status === 'PENDING') return 'PENDING';
-
-  // Ancien format
-  if (pred.result === 'Gagné' || pred.result === 'W') return 'W';
-  if (pred.result === 'Perdu' || pred.result === 'L') return 'L';
-
-  // Si on a un finalScore mais pas de status, on évalue
-  if (pred.finalScore) {
-    const m = pred.finalScore.match(/^(\d+)-(\d+)$/);
-    if (m) {
-      const home = parseInt(m[1], 10);
-      const away = parseInt(m[2], 10);
-      const bothScored = home > 0 && away > 0;
-      const isOver25 = home + away >= 3;
-      if (pred.type === 'BTTS') {
-        if (pred.prediction === 'Oui') return bothScored ? 'W' : 'L';
-        if (pred.prediction === 'Non') return bothScored ? 'L' : 'W';
-      }
-      if (pred.type.includes('Over') || pred.type.includes('OVER')) {
-        if (pred.prediction === 'Oui') return isOver25 ? 'W' : 'L';
-        if (pred.prediction === 'Non') return isOver25 ? 'L' : 'W';
-      }
-    }
-  }
-
-  return 'PENDING';
+function getType(p) {
+  const t = (p.type || p.market || '').toUpperCase();
+  if (t.includes('BTTS')) return 'btts';
+  return 'over25';
 }
 
-function computeRate(won, total) {
-  if (!total || total === 0) return 0;
-  return Math.round((won / total) * 1000) / 10;
+function getTier(p) {
+  return (p.tier || 'STANDARD').toUpperCase();
 }
 
 // ─── Main ──────────────────────────────────────────────────────────────────
 
-async function updateWinHistory() {
-  console.log('[WinHistory] Reading archives from:', ARCHIVE_DIR);
-
-  if (!fs.existsSync(ARCHIVE_DIR)) {
-    console.error('[WinHistory] ✗ ARCHIVE_DIR does not exist. Aborting.');
-    process.exit(1);
-  }
-
-  const archiveFiles = fs.readdirSync(ARCHIVE_DIR)
+function main() {
+  const files = fs.readdirSync(ARCHIVE_DIR)
     .filter(f => f.endsWith('.json'))
     .sort();
 
-  console.log(`[WinHistory] Found ${archiveFiles.length} archives`);
-
-  const allItems = [];
-  let idCounter = 1;
-
-  const stats = {
-    btts: { total: 0, won: 0, lost: 0, pending: 0 },
-    over25: { total: 0, won: 0, lost: 0, pending: 0 },
+  let all = [];
+  let stats = {
+    won: 0, lost: 0, pending: 0,
+    gold: { won: 0, lost: 0, pending: 0 },
+    standard: { won: 0, lost: 0, pending: 0 },
+    btts: { won: 0, lost: 0 },
+    over25: { won: 0, lost: 0 },
   };
+  let daily = {};
 
-  for (const archiveFile of archiveFiles) {
-    const dateStr = archiveFile.replace('.json', '');
-    const archivePath = path.join(ARCHIVE_DIR, archiveFile);
-
+  for (const file of files.slice(-90)) {
+    const date = file.replace('.json', '');
+    let preds = [];
     try {
-      const data = JSON.parse(fs.readFileSync(archivePath, 'utf-8'));
-      const predictions = data.predictions || [];
+      const data = JSON.parse(fs.readFileSync(path.join(ARCHIVE_DIR, file), 'utf-8'));
+      preds = data.predictions || data;
+      if (!Array.isArray(preds)) preds = [];
+    } catch (e) { continue; }
 
-      for (const pred of predictions) {
-        const status = getPredictionStatus(pred);
-        const typeKey = (pred.type || '').includes('Over') || (pred.type || '').includes('OVER') ? 'over25' : 'btts';
+    let dW = 0, dL = 0;
 
-        // Score for display
-        const scoreStr = pred.finalScore || (pred.score && pred.score !== '-' ? pred.score : null) || '-';
+    for (const p of preds) {
+      all.push({ ...p, date });
+      const tier = getTier(p);
 
-        // Map status to display
-        let displayResult;
-        if (status === 'W') displayResult = 'W';
-        else if (status === 'L') displayResult = 'L';
-        else displayResult = 'PENDING';
-
-        // Compte dans le bon bucket
-        if (status === 'W') {
-          stats[typeKey].won++;
-          stats[typeKey].total++; // total = won + lost UNIQUEMENT
-        } else if (status === 'L') {
-          stats[typeKey].lost++;
-          stats[typeKey].total++;
-        } else {
-          stats[typeKey].pending++;
-        }
-
-        allItems.push({
-          id: idCounter++,
-          date: pred.date || dateStr,
-          match: pred.match,
-          league: pred.league,
-          type: pred.type,
-          prediction: pred.prediction,
-          result: displayResult,
-          score: scoreStr,
-          confidence: pred.confidence || 0,
-          verifiedSource: pred.verifiedSource || null,
-        });
+      if (p.status === 'WON' || p.isWon === true) {
+        stats.won++; dW++;
+        if (tier === 'GOLD') stats.gold.won++;
+        else stats.standard.won++;
+        if (getType(p) === 'btts') stats.btts.won++;
+        else stats.over25.won++;
+      } else if (p.status === 'LOST' || p.isWon === false) {
+        stats.lost++; dL++;
+        if (tier === 'GOLD') stats.gold.lost++;
+        else stats.standard.lost++;
+        if (getType(p) === 'btts') stats.btts.lost++;
+        else stats.over25.lost++;
+      } else {
+        stats.pending++;
+        if (tier === 'GOLD') stats.gold.pending++;
+        else stats.standard.pending++;
       }
-    } catch (err) {
-      console.log(`[WinHistory] ⚠ Error reading ${archiveFile}: ${err.message}`);
+    }
+
+    if (dW + dL > 0) {
+      daily[date] = {
+        total: dW + dL,
+        won: dW,
+        lost: dL,
+        rate: +(dW / (dW + dL) * 100).toFixed(1),
+      };
     }
   }
 
-  // Trier par date desc pour l'affichage
-  allItems.sort((a, b) => b.date.localeCompare(a.date) || b.id - a.id);
-  allItems.forEach((item, i) => { item.id = i + 1 });
+  const totalVerified = stats.won + stats.lost;
+  const rate = totalVerified > 0 ? +(stats.won / totalVerified * 100).toFixed(1) : 0;
 
-  // Garde 80 entrées récentes pour l'affichage
-  const displayHistory = allItems.slice(0, 80);
+  stats.gold.total = stats.gold.won + stats.gold.lost;
+  stats.gold.rate = stats.gold.total > 0 ? +(stats.gold.won / stats.gold.total * 100).toFixed(1) : 0;
+  stats.standard.total = stats.standard.won + stats.standard.lost;
+  stats.standard.rate = stats.standard.total > 0 ? +(stats.standard.won / stats.standard.total * 100).toFixed(1) : 0;
 
-  // Stats globales
-  const totalAll = stats.btts.total + stats.over25.total;
-  const wonAll = stats.btts.won + stats.over25.won;
-  const lostAll = stats.btts.lost + stats.over25.lost;
-  const pendingAll = stats.btts.pending + stats.over25.pending;
-  const rateAll = computeRate(wonAll, totalAll);
-  const bttsRate = computeRate(stats.btts.won, stats.btts.total);
-  const over25Rate = computeRate(stats.over25.won, stats.over25.total);
+  const bttsTotal = stats.btts.won + stats.btts.lost;
+  const over25Total = stats.over25.won + stats.over25.lost;
 
-  const winHistoryData = {
+  const trend = Object.entries(daily)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .slice(-14)
+    .map(([date, v]) => ({ date, ...v }));
+
+  const output = {
+    generatedAt: new Date().toISOString(),
     stats: {
-      total: totalAll,
-      won: wonAll,
-      lost: lostAll,
-      pending: pendingAll,
-      rate: `${rateAll}%`,
-      last30Rate: `${rateAll}%`,
+      total: totalVerified,
+      pending: stats.pending,
+      won: stats.won,
+      lost: stats.lost,
+      rate,
+      gold: {
+        total: stats.gold.total,
+        pending: stats.gold.pending,
+        won: stats.gold.won,
+        lost: stats.gold.lost,
+        rate: stats.gold.rate,
+        yield: stats.gold.total > 0 ? +(((stats.gold.won * 1.75 - stats.gold.total) / stats.gold.total) * 100).toFixed(1) : 0,
+      },
+      standard: {
+        total: stats.standard.total,
+        pending: stats.standard.pending,
+        won: stats.standard.won,
+        lost: stats.standard.lost,
+        rate: stats.standard.rate,
+      },
       byType: {
         btts: {
-          total: stats.btts.total,
+          total: bttsTotal,
           won: stats.btts.won,
           lost: stats.btts.lost,
-          pending: stats.btts.pending,
-          rate: bttsRate,
+          rate: bttsTotal > 0 ? +(stats.btts.won / bttsTotal * 100).toFixed(1) : 0,
         },
         over25: {
-          total: stats.over25.total,
+          total: over25Total,
           won: stats.over25.won,
           lost: stats.over25.lost,
-          pending: stats.over25.pending,
-          rate: over25Rate,
+          rate: over25Total > 0 ? +(stats.over25.won / over25Total * 100).toFixed(1) : 0,
         },
       },
-      transparency: `Stats calculées depuis ${archiveFiles.length} archives quotidiennes dans predictions-archive/. Sur ${totalAll} pronostics vérifiés (score final connu via ESPN + TheSportsDB, 100% gratuit), ${wonAll} ont été gagnants (${rateAll}% de réussite réelle vérifiable). ${pendingAll} pronostics en attente de vérification. Aucun filtrage — gagnés ET perdus affichés.`,
+      trend14: trend,
     },
-    history: displayHistory,
-    allItemsCount: allItems.length,
-    generatedAt: new Date().toISOString(),
+    history: all.slice(-500).reverse(),
   };
 
-  fs.writeFileSync(WIN_HISTORY_FILE, JSON.stringify(winHistoryData, null, 2));
-  console.log(`[WinHistory] ✓ Written to win-history.json`);
-  console.log(`[WinHistory] Stats (REAL — from ${archiveFiles.length} archives):`);
-  console.log(`  Total (verified W+L):   ${totalAll}`);
-  console.log(`  Won:                    ${wonAll}`);
-  console.log(`  Lost:                   ${lostAll}`);
-  console.log(`  Pending:                ${pendingAll}`);
-  console.log(`  Overall rate:           ${rateAll}%`);
-  console.log(`  BTTS:  W=${stats.btts.won} L=${stats.btts.lost} P=${stats.btts.pending} rate=${bttsRate}%`);
-  console.log(`  O2.5:  W=${stats.over25.won} L=${stats.over25.lost} P=${stats.over25.pending} rate=${over25Rate}%`);
-  console.log(`[WinHistory] Display history: ${displayHistory.length} entries`);
+  fs.writeFileSync(OUTPUT, JSON.stringify(output, null, 2));
+  console.log(`[WinHistory] ALL ${totalVerified} ${rate}% | GOLD ${stats.gold.total} ${stats.gold.rate}% | STANDARD ${stats.standard.total} ${stats.standard.rate}%`);
+  console.log(`[WinHistory] BTTS ${bttsTotal} (${bttsTotal > 0 ? +(stats.btts.won / bttsTotal * 100).toFixed(1) : 0}%) | O2.5 ${over25Total} (${over25Total > 0 ? +(stats.over25.won / over25Total * 100).toFixed(1) : 0}%)`);
+  console.log(`[WinHistory] Gold yield: ${stats.gold.total > 0 ? +(((stats.gold.won * 1.75 - stats.gold.total) / stats.gold.total) * 100).toFixed(1) : 0}%`);
 }
 
-updateWinHistory().catch(err => {
-  console.error('[WinHistory] FATAL:', err);
-  process.exit(1);
-});
+main();

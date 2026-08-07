@@ -55,9 +55,25 @@ const ESPN_LEAGUES = [
   'cro.1', 'rom.1', 'hun.1', 'ser.1',
   'col.1', 'ecu.1', 'uru.1', 'par.1', 'chi.1',
   'per.1', 'ven.1', 'arg.1', 'bra.1', 'mex.1', 'usa.1',
-  'jpn.1', 'kor.1', 'aus.1', 'rsa.1',
-  'fifa.world', 'uefa.champ', 'uefa.europa',
+  'jpn.1', 'kor.1', 'chn.1', 'sau.1', 'aus.1',
+  'uefa.champions', 'uefa.europa', 'fifa.world', 'fifa.wq',
 ]
+
+// ─── GOLD Tier System ───
+const HIGH_BTTS_LEAGUES = [
+  'Bundesliga','2. Bundesliga','Eredivisie','Jupiler Pro League',
+  'Swiss Super League','A-League','MLS','Championship',
+  'Scottish Premiership','Austrian Bundesliga','Danish Superliga',
+  'Norwegian Eliteserien'
+];
+
+function assignTier(proba, league) {
+  const ln = (league || '').toLowerCase();
+  const isHigh = HIGH_BTTS_LEAGUES.some(l => ln.includes(l.toLowerCase()));
+  if (proba >= 0.70) return 'GOLD';
+  if (proba >= 0.65 && isHigh) return 'GOLD';
+  return 'STANDARD';
+}
 
 // ─── League profiles ───
 const LEAGUE_PROFILES = {
@@ -298,6 +314,7 @@ async function quickUpdate() {
       source: 'poisson',
       homeLogo: m.homeLogo,
       awayLogo: m.awayLogo,
+      tier: assignTier(result.bttsProb, m.league),
       analysis: {
         bttsProb: result.bttsProb,
         over25Prob: result.over25Prob,
@@ -320,6 +337,7 @@ async function quickUpdate() {
       source: 'poisson',
       homeLogo: m.homeLogo,
       awayLogo: m.awayLogo,
+      tier: assignTier(result.over25Prob, m.league),
       analysis: {
         bttsProb: result.bttsProb,
         over25Prob: result.over25Prob,
