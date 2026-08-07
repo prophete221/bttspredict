@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-08-07T17:58:34.466Z",
+  "generatedAt": "2026-08-07T18:27:04.129Z",
   "period": {
     "from": "2026-06-07",
     "to": "2026-08-07",
     "days": 62
   },
   "stats": {
-    "total": 635,
-    "won": 308,
+    "total": 631,
+    "won": 304,
     "lost": 327,
-    "pending": 2274,
-    "archivedTotal": 2909,
-    "rate": 48.5,
+    "pending": 2243,
+    "archivedTotal": 2874,
+    "rate": 48.2,
     "avgOdds": 1.9,
-    "profit": -49.8,
-    "roi": -7.8,
-    "yield": -7.8,
+    "profit": -53.4,
+    "roi": -8.5,
+    "yield": -8.5,
     "gold": {
       "total": 50,
       "won": 20,
@@ -27,26 +27,35 @@
       "yield": -24
     },
     "standard": {
-      "total": 585,
-      "won": 288,
+      "total": 581,
+      "won": 284,
       "lost": 297,
-      "rate": 49.2
+      "rate": 48.9
     },
     "byType": {
       "btts": {
-        "total": 318,
-        "won": 150,
+        "total": 316,
+        "won": 148,
         "lost": 168,
-        "rate": 47.2
+        "rate": 46.8
       },
       "over25": {
-        "total": 317,
-        "won": 158,
+        "total": 315,
+        "won": 156,
         "lost": 159,
-        "rate": 49.8
+        "rate": 49.5
       }
     },
     "trend14": [
+      {
+        "date": "2026-07-24",
+        "total": 14,
+        "won": 4,
+        "lost": 10,
+        "rate": 28.6,
+        "profit": -6.4,
+        "equity": -6.4
+      },
       {
         "date": "2026-07-25",
         "total": 28,
@@ -54,7 +63,7 @@
         "lost": 15,
         "rate": 46.4,
         "profit": -3.3,
-        "equity": -3.3
+        "equity": -9.7
       },
       {
         "date": "2026-07-26",
@@ -63,7 +72,7 @@
         "lost": 21,
         "rate": 54.3,
         "profit": 1.5,
-        "equity": -1.8
+        "equity": -8.2
       },
       {
         "date": "2026-07-27",
@@ -72,7 +81,7 @@
         "lost": 9,
         "rate": 35.7,
         "profit": -4.5,
-        "equity": -6.3
+        "equity": -12.7
       },
       {
         "date": "2026-07-28",
@@ -81,7 +90,7 @@
         "lost": 7,
         "rate": 41.7,
         "profit": -2.5,
-        "equity": -8.8
+        "equity": -15.2
       },
       {
         "date": "2026-07-29",
@@ -90,7 +99,7 @@
         "lost": 4,
         "rate": 33.3,
         "profit": -2.2,
-        "equity": -11
+        "equity": -17.4
       },
       {
         "date": "2026-07-30",
@@ -99,7 +108,7 @@
         "lost": 13,
         "rate": 27.8,
         "profit": -8.5,
-        "equity": -19.5
+        "equity": -25.9
       },
       {
         "date": "2026-07-31",
@@ -108,7 +117,7 @@
         "lost": 17,
         "rate": 43.3,
         "profit": -5.3,
-        "equity": -24.8
+        "equity": -31.2
       },
       {
         "date": "2026-08-01",
@@ -117,7 +126,7 @@
         "lost": 27,
         "rate": 46,
         "profit": -6.3,
-        "equity": -31.1
+        "equity": -37.5
       },
       {
         "date": "2026-08-02",
@@ -126,7 +135,7 @@
         "lost": 17,
         "rate": 66,
         "profit": 12.7,
-        "equity": -18.4
+        "equity": -24.8
       },
       {
         "date": "2026-08-03",
@@ -135,7 +144,7 @@
         "lost": 17,
         "rate": 43.3,
         "profit": -5.3,
-        "equity": -23.7
+        "equity": -30.1
       },
       {
         "date": "2026-08-04",
@@ -144,7 +153,7 @@
         "lost": 6,
         "rate": 50,
         "profit": -0.6,
-        "equity": -24.3
+        "equity": -30.7
       },
       {
         "date": "2026-08-05",
@@ -153,7 +162,7 @@
         "lost": 7,
         "rate": 41.7,
         "profit": -2.5,
-        "equity": -26.8
+        "equity": -33.2
       },
       {
         "date": "2026-08-06",
@@ -162,85 +171,12 @@
         "lost": 6,
         "rate": 40,
         "profit": -2.4,
-        "equity": -29.2
-      },
-      {
-        "date": "2026-08-07",
-        "total": 4,
-        "won": 4,
-        "lost": 0,
-        "rate": 100,
-        "profit": 3.6,
-        "equity": -25.6
+        "equity": -35.6
       }
     ],
-    "maxDrawdown": 31.1
+    "maxDrawdown": 37.5
   },
   "history": [
-    {
-      "date": "2026-08-07",
-      "match": "Gamba Osaka vs Urawa Red Diamonds",
-      "league": "Japanese J.League",
-      "market": "over25",
-      "tier": "STANDARD",
-      "proba": 52,
-      "coteProposee": 1.9,
-      "coteCloture": null,
-      "bookmaker": "Linebet",
-      "status": "WON",
-      "finalScore": "4-3",
-      "profit": 0.9,
-      "verifiedAt": "2026-08-07T17:54:19.576Z",
-      "source": "ESPN public"
-    },
-    {
-      "date": "2026-08-07",
-      "match": "Gamba Osaka vs Urawa Red Diamonds",
-      "league": "Japanese J.League",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 52,
-      "coteProposee": 1.9,
-      "coteCloture": null,
-      "bookmaker": "Linebet",
-      "status": "WON",
-      "finalScore": "4-3",
-      "profit": 0.9,
-      "verifiedAt": "2026-08-07T17:54:19.576Z",
-      "source": "ESPN public"
-    },
-    {
-      "date": "2026-08-07",
-      "match": "Yokohama F. Marinos vs Kashima Antlers",
-      "league": "Japanese J.League",
-      "market": "over25",
-      "tier": "STANDARD",
-      "proba": 52,
-      "coteProposee": 1.9,
-      "coteCloture": null,
-      "bookmaker": "Linebet",
-      "status": "WON",
-      "finalScore": "3-4",
-      "profit": 0.9,
-      "verifiedAt": "2026-08-07T17:54:19.576Z",
-      "source": "ESPN public"
-    },
-    {
-      "date": "2026-08-07",
-      "match": "Yokohama F. Marinos vs Kashima Antlers",
-      "league": "Japanese J.League",
-      "market": "btts",
-      "tier": "STANDARD",
-      "proba": 49,
-      "coteProposee": 1.9,
-      "coteCloture": null,
-      "bookmaker": "Linebet",
-      "status": "WON",
-      "finalScore": "3-4",
-      "profit": 0.9,
-      "verifiedAt": "2026-08-07T17:54:19.576Z",
-      "source": "ESPN public"
-    },
     {
       "date": "2026-08-06",
       "match": "Academia Puerto Cabello vs Caracas FC",
@@ -8173,6 +8109,70 @@
       "bookmaker": "Linebet",
       "status": "LOST",
       "finalScore": "0-1",
+      "profit": -1,
+      "verifiedAt": "2026-08-07T14:29:17.168Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-06-26",
+      "match": "Egypt vs Iran",
+      "league": "International Friendly",
+      "market": "over25",
+      "tier": "STANDARD",
+      "proba": 48,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "1-1",
+      "profit": -1,
+      "verifiedAt": "2026-08-07T14:29:17.168Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-06-26",
+      "match": "Egypt vs Iran",
+      "league": "International Friendly",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 48,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "1-1",
+      "profit": 0.9,
+      "verifiedAt": "2026-08-07T14:29:17.168Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-06-26",
+      "match": "Cape Verde vs Saudi Arabia",
+      "league": "International Friendly",
+      "market": "over25",
+      "tier": "STANDARD",
+      "proba": 49,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "0-0",
+      "profit": -1,
+      "verifiedAt": "2026-08-07T14:29:17.168Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-06-26",
+      "match": "Cape Verde vs Saudi Arabia",
+      "league": "International Friendly",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 49,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "0-0",
       "profit": -1,
       "verifiedAt": "2026-08-07T14:29:17.168Z",
       "source": "ESPN public"
