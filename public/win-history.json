@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T14:32:15.108Z",
+  "generatedAt": "2026-08-07T14:50:00.190Z",
   "period": {
     "from": "2026-06-07",
     "to": "2026-08-07",
@@ -190,7 +190,7 @@
       "status": "WON",
       "finalScore": "4-3",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:27:18.182Z",
+      "verifiedAt": "2026-08-07T14:45:38.864Z",
       "source": "ESPN public"
     },
     {
@@ -206,7 +206,7 @@
       "status": "WON",
       "finalScore": "4-3",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:27:18.182Z",
+      "verifiedAt": "2026-08-07T14:45:38.864Z",
       "source": "ESPN public"
     },
     {
@@ -222,7 +222,7 @@
       "status": "WON",
       "finalScore": "3-4",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:27:18.182Z",
+      "verifiedAt": "2026-08-07T14:45:38.863Z",
       "source": "ESPN public"
     },
     {
@@ -238,7 +238,7 @@
       "status": "WON",
       "finalScore": "3-4",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:27:18.182Z",
+      "verifiedAt": "2026-08-07T14:45:38.863Z",
       "source": "ESPN public"
     },
     {
@@ -5342,7 +5342,7 @@
       "status": "LOST",
       "finalScore": "2-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:27:38.602Z",
+      "verifiedAt": "2026-08-07T14:26:25.296Z",
       "source": "ESPN public"
     },
     {
@@ -5358,7 +5358,7 @@
       "status": "LOST",
       "finalScore": "2-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:27:38.602Z",
+      "verifiedAt": "2026-08-07T14:26:25.296Z",
       "source": "ESPN public"
     },
     {
@@ -5374,7 +5374,7 @@
       "status": "LOST",
       "finalScore": "1-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:27:38.602Z",
+      "verifiedAt": "2026-08-07T14:26:25.296Z",
       "source": "ESPN public"
     },
     {
@@ -5390,7 +5390,7 @@
       "status": "LOST",
       "finalScore": "1-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:27:38.602Z",
+      "verifiedAt": "2026-08-07T14:26:25.296Z",
       "source": "ESPN public"
     },
     {
@@ -5694,7 +5694,7 @@
       "status": "WON",
       "finalScore": "2-1",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:27:43.151Z",
+      "verifiedAt": "2026-08-07T14:26:51.137Z",
       "source": "ESPN public"
     },
     {
@@ -5710,7 +5710,7 @@
       "status": "WON",
       "finalScore": "2-1",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:27:43.151Z",
+      "verifiedAt": "2026-08-07T14:26:51.137Z",
       "source": "ESPN public"
     },
     {
@@ -5726,7 +5726,7 @@
       "status": "LOST",
       "finalScore": "1-1",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:27:43.151Z",
+      "verifiedAt": "2026-08-07T14:26:51.137Z",
       "source": "ESPN public"
     },
     {
@@ -5742,7 +5742,7 @@
       "status": "WON",
       "finalScore": "1-1",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:27:43.151Z",
+      "verifiedAt": "2026-08-07T14:26:51.136Z",
       "source": "ESPN public"
     },
     {
@@ -5918,7 +5918,7 @@
       "status": "LOST",
       "finalScore": "1-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:27:52.989Z",
+      "verifiedAt": "2026-08-07T14:27:44.502Z",
       "source": "ESPN public"
     },
     {
@@ -5934,7 +5934,7 @@
       "status": "LOST",
       "finalScore": "1-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:27:52.989Z",
+      "verifiedAt": "2026-08-07T14:27:44.502Z",
       "source": "ESPN public"
     },
     {
@@ -5950,7 +5950,7 @@
       "status": "LOST",
       "finalScore": "1-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:27:52.989Z",
+      "verifiedAt": "2026-08-07T14:27:44.502Z",
       "source": "ESPN public"
     },
     {
@@ -5966,7 +5966,7 @@
       "status": "LOST",
       "finalScore": "1-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:27:52.989Z",
+      "verifiedAt": "2026-08-07T14:27:44.502Z",
       "source": "ESPN public"
     },
     {
@@ -5982,7 +5982,7 @@
       "status": "LOST",
       "finalScore": "0-1",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:27:52.989Z",
+      "verifiedAt": "2026-08-07T14:27:44.502Z",
       "source": "ESPN public"
     },
     {
@@ -5998,7 +5998,7 @@
       "status": "LOST",
       "finalScore": "0-1",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:27:52.989Z",
+      "verifiedAt": "2026-08-07T14:27:44.502Z",
       "source": "ESPN public"
     },
     {
@@ -6078,7 +6078,7 @@
       "status": "WON",
       "finalScore": "4-6",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:27:57.751Z",
+      "verifiedAt": "2026-08-07T14:28:06.233Z",
       "source": "ESPN public"
     },
     {
@@ -6094,7 +6094,7 @@
       "status": "WON",
       "finalScore": "4-6",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:27:57.751Z",
+      "verifiedAt": "2026-08-07T14:28:06.233Z",
       "source": "ESPN public"
     },
     {
@@ -6110,7 +6110,7 @@
       "status": "WON",
       "finalScore": "3-1",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:27:57.751Z",
+      "verifiedAt": "2026-08-07T14:28:06.233Z",
       "source": "ESPN public"
     },
     {
@@ -6126,7 +6126,7 @@
       "status": "WON",
       "finalScore": "3-1",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:27:57.750Z",
+      "verifiedAt": "2026-08-07T14:28:06.233Z",
       "source": "ESPN public"
     },
     {
@@ -6142,7 +6142,7 @@
       "status": "WON",
       "finalScore": "2-2",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:27:57.750Z",
+      "verifiedAt": "2026-08-07T14:28:06.233Z",
       "source": "ESPN public"
     },
     {
@@ -6158,7 +6158,7 @@
       "status": "WON",
       "finalScore": "2-2",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:27:57.750Z",
+      "verifiedAt": "2026-08-07T14:28:06.232Z",
       "source": "ESPN public"
     },
     {
@@ -6174,7 +6174,7 @@
       "status": "WON",
       "finalScore": "3-0",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:27:57.750Z",
+      "verifiedAt": "2026-08-07T14:28:06.232Z",
       "source": "ESPN public"
     },
     {
@@ -6190,7 +6190,7 @@
       "status": "LOST",
       "finalScore": "3-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:27:57.750Z",
+      "verifiedAt": "2026-08-07T14:28:06.232Z",
       "source": "ESPN public"
     },
     {
@@ -6206,7 +6206,7 @@
       "status": "LOST",
       "finalScore": "1-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:27:57.750Z",
+      "verifiedAt": "2026-08-07T14:28:06.232Z",
       "source": "ESPN public"
     },
     {
@@ -6222,7 +6222,7 @@
       "status": "LOST",
       "finalScore": "1-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:27:57.750Z",
+      "verifiedAt": "2026-08-07T14:28:06.232Z",
       "source": "ESPN public"
     },
     {
@@ -6238,7 +6238,7 @@
       "status": "WON",
       "finalScore": "1-2",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:27:57.749Z",
+      "verifiedAt": "2026-08-07T14:28:06.228Z",
       "source": "ESPN public"
     },
     {
@@ -6254,7 +6254,7 @@
       "status": "WON",
       "finalScore": "1-2",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:27:57.748Z",
+      "verifiedAt": "2026-08-07T14:28:06.222Z",
       "source": "ESPN public"
     },
     {
@@ -6270,7 +6270,7 @@
       "status": "LOST",
       "finalScore": "0-1",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:27:57.748Z",
+      "verifiedAt": "2026-08-07T14:28:06.219Z",
       "source": "ESPN public"
     },
     {
@@ -6286,7 +6286,7 @@
       "status": "LOST",
       "finalScore": "0-1",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:27:57.748Z",
+      "verifiedAt": "2026-08-07T14:28:06.217Z",
       "source": "ESPN public"
     },
     {
@@ -6302,7 +6302,7 @@
       "status": "LOST",
       "finalScore": "0-2",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:27:57.748Z",
+      "verifiedAt": "2026-08-07T14:28:06.217Z",
       "source": "ESPN public"
     },
     {
@@ -6318,7 +6318,7 @@
       "status": "LOST",
       "finalScore": "0-2",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:27:57.748Z",
+      "verifiedAt": "2026-08-07T14:28:06.217Z",
       "source": "ESPN public"
     },
     {
@@ -6334,7 +6334,7 @@
       "status": "LOST",
       "finalScore": "1-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:28:02.580Z",
+      "verifiedAt": "2026-08-07T14:28:33.125Z",
       "source": "ESPN public"
     },
     {
@@ -6350,7 +6350,7 @@
       "status": "LOST",
       "finalScore": "1-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:28:02.580Z",
+      "verifiedAt": "2026-08-07T14:28:33.125Z",
       "source": "ESPN public"
     },
     {
@@ -6366,7 +6366,7 @@
       "status": "WON",
       "finalScore": "2-2",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:28:02.580Z",
+      "verifiedAt": "2026-08-07T14:28:33.125Z",
       "source": "ESPN public"
     },
     {
@@ -6382,7 +6382,7 @@
       "status": "WON",
       "finalScore": "2-2",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:28:02.580Z",
+      "verifiedAt": "2026-08-07T14:28:33.125Z",
       "source": "ESPN public"
     },
     {
@@ -6494,7 +6494,7 @@
       "status": "LOST",
       "finalScore": "0-1",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:28:02.575Z",
+      "verifiedAt": "2026-08-07T14:28:33.122Z",
       "source": "ESPN public"
     },
     {
@@ -6510,7 +6510,7 @@
       "status": "LOST",
       "finalScore": "0-1",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:28:02.575Z",
+      "verifiedAt": "2026-08-07T14:28:33.122Z",
       "source": "ESPN public"
     },
     {
@@ -6526,7 +6526,7 @@
       "status": "WON",
       "finalScore": "0-3",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:28:07.550Z",
+      "verifiedAt": "2026-08-07T14:29:01.176Z",
       "source": "ESPN public"
     },
     {
@@ -6542,7 +6542,7 @@
       "status": "LOST",
       "finalScore": "0-3",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:28:07.550Z",
+      "verifiedAt": "2026-08-07T14:29:01.176Z",
       "source": "ESPN public"
     },
     {
@@ -6558,7 +6558,7 @@
       "status": "LOST",
       "finalScore": "1-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:28:13.354Z",
+      "verifiedAt": "2026-08-07T14:29:26.156Z",
       "source": "ESPN public"
     },
     {
@@ -6574,7 +6574,7 @@
       "status": "LOST",
       "finalScore": "1-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:28:13.354Z",
+      "verifiedAt": "2026-08-07T14:29:26.156Z",
       "source": "ESPN public"
     },
     {
@@ -6590,7 +6590,7 @@
       "status": "WON",
       "finalScore": "1-2",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:28:13.353Z",
+      "verifiedAt": "2026-08-07T14:29:26.155Z",
       "source": "ESPN public"
     },
     {
@@ -6606,7 +6606,7 @@
       "status": "WON",
       "finalScore": "1-2",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:28:13.353Z",
+      "verifiedAt": "2026-08-07T14:29:26.155Z",
       "source": "ESPN public"
     },
     {
@@ -6622,7 +6622,7 @@
       "status": "LOST",
       "finalScore": "0-1",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:28:18.302Z",
+      "verifiedAt": "2026-08-07T14:29:52.358Z",
       "source": "ESPN public"
     },
     {
@@ -6638,7 +6638,7 @@
       "status": "LOST",
       "finalScore": "0-1",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:28:18.302Z",
+      "verifiedAt": "2026-08-07T14:29:52.358Z",
       "source": "ESPN public"
     },
     {
@@ -6814,7 +6814,7 @@
       "status": "LOST",
       "finalScore": "2-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:28:28.288Z",
+      "verifiedAt": "2026-08-07T14:30:45.317Z",
       "source": "ESPN public"
     },
     {
@@ -6830,7 +6830,7 @@
       "status": "LOST",
       "finalScore": "2-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:28:28.288Z",
+      "verifiedAt": "2026-08-07T14:30:45.317Z",
       "source": "ESPN public"
     },
     {
@@ -6846,7 +6846,7 @@
       "status": "LOST",
       "finalScore": "0-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:28:28.288Z",
+      "verifiedAt": "2026-08-07T14:30:45.317Z",
       "source": "ESPN public"
     },
     {
@@ -6862,7 +6862,7 @@
       "status": "LOST",
       "finalScore": "0-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:28:28.288Z",
+      "verifiedAt": "2026-08-07T14:30:45.317Z",
       "source": "ESPN public"
     },
     {
@@ -6878,7 +6878,7 @@
       "status": "WON",
       "finalScore": "1-3",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:28:28.288Z",
+      "verifiedAt": "2026-08-07T14:30:45.316Z",
       "source": "ESPN public"
     },
     {
@@ -6894,7 +6894,7 @@
       "status": "WON",
       "finalScore": "1-3",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T14:28:28.288Z",
+      "verifiedAt": "2026-08-07T14:30:45.316Z",
       "source": "ESPN public"
     },
     {
@@ -6974,7 +6974,7 @@
       "status": "LOST",
       "finalScore": "0-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:28:28.287Z",
+      "verifiedAt": "2026-08-07T14:30:45.315Z",
       "source": "ESPN public"
     },
     {
@@ -6990,7 +6990,7 @@
       "status": "LOST",
       "finalScore": "0-0",
       "profit": -1,
-      "verifiedAt": "2026-08-07T14:28:28.287Z",
+      "verifiedAt": "2026-08-07T14:30:45.315Z",
       "source": "ESPN public"
     },
     {
