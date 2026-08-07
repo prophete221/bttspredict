@@ -4,7 +4,7 @@
 > **Site live :** [bttspredict.com](https://bttspredict.com)
 > **Moteur de prédiction :** IA nouvelle génération, calibration continue
 > **Pipeline de vérification :** 100% ESPN + TheSportsDB (publics, sans clé API)
-> **Commits principaux :** refactor plateforme 16 phases + audit confidentialité + ton marketing rassurant
+> **Dernier refactor :** Prompt Maitre 15 phases — match pages + topical authority
 
 ---
 
@@ -23,32 +23,54 @@
 | **PWA** | `manifest.json` + cache-buster v81 |
 | **Hébergement** | FTP vers bttspredict.com (SamKirkland/FTP-Deploy-Action) |
 | **CI/CD** | GitHub Actions, cron `0 4,6,14,22 * * *` (4×/jour), timeout 30 min |
-| **Tests** | Vitest 4.x + @testing-library/react + jsdom — **125 tests passent** |
+| **Tests** | Vitest 4.x + @testing-library/react + jsdom — **144 tests passent** |
 | **Lint** | ESLint 9 (règles quasi toutes désactivées) |
 
 ---
 
 ## 2. ARCHITECTURE DES ROUTES
 
-### Routes principales (35 pages)
+### Routes principales (41 pages)
+
+#### Pages cœur (8)
 
 | Route | Statut | Description |
 |-------|--------|-------------|
-| `/` | ✅ Réelle | Page d'accueil (Hero + Pronos + Méthodo + Historique + VIP court + Jeu responsable) |
+| `/` | ✅ Réelle | Page d'accueil (Hero + Pronos + Topical BTTS/Over + Méthodo + Historique + VIP court + Jeu responsable) |
 | `/pronostics` | ✅ Réelle | Page autonome des pronostics du jour |
 | `/pronostics/aujourd-hui` | ✅ Réelle | Variante du jour |
 | `/historique` | ✅ Réelle | Nouveau suivi public (depuis 2026-08-08) |
 | `/methodologie` | ✅ Réelle | Méthodologie du moteur IA (9 sections) |
 | `/vip` | ✅ Réelle | Page VIP autonome (14 sections + jeu responsable) |
+| `/match/[slug]` | ✅ **SSG** | Pages match indexables — `generateStaticParams` |
 | `/resultats-verifies` | ✅ Réelle (legacy) | Ancienne page performance (conservée mais non mise en avant) |
-| `/jouer-responsable` | ✅ Réelle | Page jeu responsable |
-| `/mentions-legales` | ✅ Réelle | Mentions légales (éditeur : Elon Ervri, NJ, USA) |
-| `/politique-confidentialite` | ✅ Réelle | Politique de confidentialité |
-| `/cgu` | ✅ Réelle | Conditions générales |
-| `/blog` + 6 articles | ✅ Réels | Articles SEO |
-| 7 pages SEO landing | ✅ Réelles | `/over-2-5-predictions`, `/correct-score-predictions`, etc. |
-| 4 pages affiliation | ✅ Réelles | `/linebet-promo-code`, `/bonus-888starz`, etc. |
-| 4 pages informationnelles | ✅ Réelles | `/equipe`, `/presse`, `/faille-fifa`, `/prediction-aviator` |
+
+#### Topical authority — BTTS (3 pages)
+
+| Route | Description |
+|-------|-------------|
+| `/btts/predictions/today` | BTTS Predictions Today (FAQ JSON-LD) |
+| `/btts/predictions/tomorrow` | BTTS Predictions Tomorrow |
+| `/btts/statistics` | Statistiques BTTS par ligue (tableau 11 ligues, FAQ JSON-LD) |
+
+#### Topical authority — Over 2.5 (2 pages)
+
+| Route | Description |
+|-------|-------------|
+| `/over-2-5/predictions/today` | Over 2.5 Predictions Today (FAQ JSON-LD) |
+| `/over-2-5/statistics` | Statistiques Over 2.5 par ligue (tableau 11 ligues, FAQ JSON-LD) |
+
+#### Pages légales (4)
+
+- `/jouer-responsable`, `/mentions-legales`, `/politique-confidentialite`, `/cgu`
+
+#### Blog + SEO landing (22 pages)
+
+- `/blog` + 6 articles
+- 7 pages SEO landing (`/over-2-5-predictions`, `/correct-score-predictions`, `/football-predictions-today`, `/betting-tips`, `/league-predictions`, `/team-predictions`, `/match-predictions`)
+- 4 pages affiliation (`/linebet-promo-code`, `/code-promo-linebet-senegal`, `/bonus-888starz`, `/bookmakers`)
+- 4 pages informationnelles (`/equipe`, `/presse`, `/faille-fifa`, `/prediction-aviator`)
+- 1 guide (`/btts-c-est-quoi`)
 
 > ⚠️ `/statistiques` est un placeholder (redirige vers `/historique`).
 
@@ -68,11 +90,40 @@
 | Pronos | `/pronostics` | Graphique |
 | VIP | `/vip` | Couronne |
 
-> ⚠️ L'onglet « Historique » a été retiré de la BottomNavigation. La page `/historique` reste accessible via les liens dans le footer et sur la page d'accueil.
+> L'onglet « Historique » a été retiré de la BottomNavigation. La page `/historique` reste accessible via les liens dans le footer, la page d'accueil, et les pages match.
 
 ---
 
-## 3. PIPELINE DE DONNÉES
+## 3. PAGES MATCH INDEXABLES
+
+### Architecture SSG
+
+- **Bibliothèque :** `src/lib/matches.ts` (153 lignes)
+  - `generateMatchSlug(home, away, date)` — slug stable `{home}-vs-{away}-{YYYY-MM-DD}`
+  - `loadAllMatches()` — agrège les 90 derniers jours d'archives
+  - `getMatchBySlug(slug)` — récupère un match
+  - `getAllMatchSlugs()` — liste pour `generateStaticParams`
+
+### Page `/match/[slug]`
+
+- **Server Component** avec `generateStaticParams` + `generateMetadata`
+- **JSON-LD :** `SportsEvent` + `BreadcrumbList`
+- **Contenu :**
+  - Header avec logos + noms d'équipes + compétition + date + score final
+  - Pronostics BTTS + Over 2.5 avec proba (40-54%), tier GOLD, statut WON/LOST/PENDING
+  - Section vérification (gagnés / perdus / en attente, date de vérification, source)
+  - Liens internes (pronostics du jour, historique, méthodologie, VIP)
+  - Disclaimer 18+
+- **Breadcrumbs :** Accueil > Pronostics > {home} vs {away}
+
+### Volume actuel
+
+- 3 match pages pré-rendues (les archives récentes ont peu de matchs avec champs `home`/`away` complets)
+- Le volume augmentera au fur et à mesure que le pipeline génère de nouveaux matchs avec ces champs
+
+---
+
+## 4. PIPELINE DE DONNÉES
 
 ### Étape 1 — `scripts/quick-update-predictions.mjs`
 
@@ -107,27 +158,11 @@
 - `stats` (PUBLIC) : pronos publiés depuis le `2026-08-08` (nouveau suivi)
 - `legacyStats` (PRIVÉ, `isPrivate: true`) : pronos publiés avant (conservé pour audit technique, non affiché publiquement)
 
-**Structure `win-history.json` :**
-```json
-{
-  "generatedAt": "ISO timestamp",
-  "trackingPeriod": {
-    "startDate": "2026-08-08",
-    "isPublicPeriod": true,
-    "disclaimer": "...",
-    "insufficientVolume": true  // si stats.total < 30
-  },
-  "stats": { /* nouveau suivi uniquement */ },
-  "history": [ /* entrées du nouveau suivi */ ],
-  "legacyStats": { /* privé, non affiché publiquement */ }
-}
-```
-
 > Note : Le nom interne du modèle (`V3-Reliability`) n'est plus exposé publiquement dans `tracking-period.json` ni dans `win-history.json` (audit confidentialité).
 
 ---
 
-## 4. SYSTÈME DE SUIVI PUBLIC
+## 5. SYSTÈME DE SUIVI PUBLIC
 
 ### Configuration publique
 
@@ -138,29 +173,21 @@
 - **Seuil de publication :** Seuil de confiance élevé
 - **Max par jour :** Sélection des meilleures opportunités
 
-> ⚠️ Audit confidentialité (7 août 2026) : les paramètres internes du modèle (variables exactes, formules, seuils, liste de ligues, constantes de calibration, noms d'endpoints API) ne sont plus exposés publiquement. Seules les informations génériques (concept, marchés, sources présentées de façon générique, date de lancement) restent publiques.
-
 ### Compteurs publics (depuis le lancement)
 
 | Compteur | Valeur actuelle |
 |----------|----------------|
-| Pronostics publiés | 0 (suivi récent) |
-| Matchs vérifiés | 0 |
-| Gagnés | 0 |
-| Perdus | 0 |
-| Résultats en attente | 0 |
 | Date de lancement | 2026-08-08 |
 | Modèle | IA nouvelle génération |
-
-> Le suivi étant récent, le disclaimer « Nouvelle période de suivi publique » est affiché (bleu indigo positif, au lieu du warning jaune « Volume insuffisant »).
+| Disclaimer « Nouvelle période de suivi publique » | Affiché (bleu indigo positif) |
 
 ### Archives privées (avant lancement)
 
-Les archives antérieures au 2026-08-08 (632 pronostics vérifiés à 48.3%) sont conservées dans `win-history.json` sous `legacyStats` avec `isPrivate: true`. Elles ne sont **pas affichées publiquement** — conservées pour audit technique interne.
+Les archives antérieures au 2026-08-08 (632 pronostics vérifiés à 48.3%) sont conservées dans `win-history.json` sous `legacyStats` avec `isPrivate: true`. Elles ne sont **pas affichées publiquement**.
 
 ---
 
-## 5. PAGE VIP AUTONOME
+## 6. PAGE VIP AUTONOME
 
 **Route :** `/vip` (autonome, plus de redirection vers `/#vip`)
 
@@ -188,13 +215,35 @@ Avant chaque lien bookmaker, la mention obligatoire est affichée :
 
 > Lien d'affiliation rémunéré. BTTSPredict ne prend pas de paris et ne collecte pas de fonds.
 
-### CTA homepage
+---
 
-La page d'accueil contient un seul bloc VIP court avec un seul CTA « Découvrir le VIP » → `/vip` + lien secondaire « Voir l'historique vérifié ».
+## 7. TOPICAL AUTHORITY BTTS + OVER 2.5
+
+### Pages BTTS (3)
+
+| Route | Intent | Contenu |
+|-------|--------|--------|
+| `/btts/predictions/today` | "BTTS predictions today" | FreePredictions + définition BTTS + FAQ JSON-LD |
+| `/btts/predictions/tomorrow` | "BTTS predictions tomorrow" | Aperçu matchs de demain + lien vers /pronostics |
+| `/btts/statistics` | "BTTS statistics" | Tableau 11 ligues (taux BTTS, buts/match) + FAQ JSON-LD |
+
+### Pages Over 2.5 (2)
+
+| Route | Intent | Contenu |
+|-------|--------|--------|
+| `/over-2-5/predictions/today` | "Over 2.5 predictions today" | FreePredictions + définition Over 2.5 + FAQ JSON-LD |
+| `/over-2-5/statistics` | "Over 2.5 statistics" | Tableau 11 ligues + section "Over 2.5 vs BTTS" + FAQ JSON-LD |
+
+### Maillage interne
+
+- Homepage : 2 blocs dédiés BTTS Today + Over 2.5 Today
+- Pages match : breadcrumbs Accueil > Pronostics > {match}
+- Pages topical : liens croisés BTTS ↔ Over 2.5 ↔ Historique
+- FreePredictions : lien "Page match →" sur chaque carte (`data-cta="match-page-link"`)
 
 ---
 
-## 6. FRONTEND — COMPOSANTS CRITIQUES
+## 8. FRONTEND — COMPOSANTS CRITIQUES
 
 ### `Hero.tsx`
 
@@ -210,18 +259,13 @@ La page d'accueil contient un seul bloc VIP court avec un seul CTA « Découvrir
 - `env(safe-area-inset-bottom)` (iOS safe area)
 - 3 onglets (Accueil, Pronos, VIP) — Historique retiré
 
-### `CookieConsent.tsx`
-
-- Monté globalement dans `layout.tsx`
-- Repositionné `bottom: calc(64px + env(safe-area-inset-bottom))` pour ne pas chevaucher la BottomNavigation
-- 3 boutons : Personnaliser / Refuser / Accepter
-
 ### `FreePredictions.tsx`
 
 - Filtres league/type/date
 - Déduplication par match
 - **Proba clampée entre 40% et 54%** (plage crédible)
 - CTA contextualisés : « Voir l'analyse {home} – {away} » (avec noms des équipes)
+- **Lien "Page match →"** sur chaque carte (génère `/match/[slug]`)
 - Fallback logos avec initiales + `aria-label`
 - `loading="lazy"` + `decoding="async"` + `width`/`height` explicites
 
@@ -233,7 +277,7 @@ La page d'accueil contient un seul bloc VIP court avec un seul CTA « Découvrir
 
 ---
 
-## 7. CI/CD — `.github/workflows/deploy.yml`
+## 9. CI/CD — `.github/workflows/deploy.yml`
 
 ### Triggers
 
@@ -267,27 +311,64 @@ La page d'accueil contient un seul bloc VIP court avec un seul CTA « Découvrir
 
 ---
 
-## 8. TESTS
+## 10. TESTS
 
 ### Configuration
 
 - **Framework :** Vitest 4.x + @testing-library/react + jsdom
 - **Fichier :** `vitest.config.ts` (jsdom env, alias `@` → `./src`)
 - **Scripts npm :** `test`, `test:watch`, `test:ci`
-- **Résultat :** **125/125 tests passent** (43 unitaires + 82 d'acceptation)
+- **Résultat :** **144/144 tests passent** (43 unitaires + 101 d'acceptation)
 
 ### Couverture
 
 | Suite | Tests | Couverture |
 |-------|-------|------------|
 | `tests/predictions.test.ts` | 43 | Bibliothèque `src/lib/predictions.ts` (predictionKey, getProba, getTier, dedup, counts) |
-| `tests/acceptance.test.ts` | 82 | Phases 2-14 + critères 17, 19, 21-30 + audit confidentialité |
-| Audit confidentialité | 13 | Vérifie absence de V3-Reliability, 8 variables, 0.62, HIGH_BTTS, 11 ligues, 53%, homeForm.*, scoredIn, bttsRate, awayLambda, PoissonPMF, API-Football, Forebet, Windrawwin, Soccerbase, Membre vérifié, endpoints API précis sur 8 fichiers publics + 3 fichiers JSON publics |
+| `tests/acceptance.test.ts` | 101 | Phases 2-14 + critères 17, 19, 21-30 + audit confidentialité + pages match + topical authority + AEO/LLM |
+| Audit confidentialité | 13 | Vérifie absence de V3-Reliability, 8 variables, 0.62, HIGH_BTTS, 11 ligues, 53%, homeForm.*, API-Football, Forebet, etc. |
+| Phase 3 — Match pages | 4 | generateStaticParams, generateMetadata, SportsEvent JSON-LD, internal link "Page match →" |
+| Phase 6+7 — Topical | 7 | 5 nouvelles routes + sitemap + homepage links |
+| Phase 9 — AEO/LLM | 5 | llms.txt + ai.txt purgés des claims faux |
+| Phase 8 — Internal linking | 2 | FreePredictions "Page match" + breadcrumbs page match |
 | Critère 17 (proba crédible) | 3 | Probas clampées 40-54% dans FreePredictions.tsx + quick-update-predictions.mjs + predictions.json |
 
 ---
 
-## 9. SOURCES DE DONNÉES
+## 11. SEO
+
+### Sitemap (33 URLs)
+
+- **Fichier :** `public/sitemap.xml` (généré par `scripts/generate-sitemap.mjs`)
+- **23 SEO/landing pages** + **6 blog articles** + **3 match pages** (dynamiques depuis `predictions-archive`) + **1 blog index**
+- URLs principales : `/`, `/pronostics`, `/pronostics/aujourd-hui`, `/historique`, `/methodologie`, `/vip`
+- Topical : `/btts/predictions/today`, `/btts/predictions/tomorrow`, `/btts/statistics`, `/over-2-5/predictions/today`, `/over-2-5/statistics`
+
+### JSON-LD
+
+- `Organization` (sans AggregateRating fictif — supprimé)
+- `WebSite`, `WebPage`, `Dataset`, `BreadcrumbList`, `FAQPage`
+- `SportsEvent` (pages match — nouvelle)
+- `Article` (pages SEO landing et blog)
+
+### llms.txt + ai.txt
+
+- **`public/llms.txt`** : contenu factuel, URLs clés (sans ancres `/#free-predictions`), suivi public 2026-08-08, sources ESPN + TheSportsDB
+- **`public/ai.txt`** : contenu factuel, Elon Ervri NJ, 2026-08-08, section "What BTTSPredict does NOT claim"
+
+### hreflang
+
+- `fr-SN` + `x-default` sur sitemap.xml
+- `<html lang="fr-SN">` dans layout
+
+### Audit routes
+
+- Canonicals corrigés sur `/faille-fifa` et `/prediction-aviator` (étaient cassés vers `/analyses-fifa` et `/aviator-stats`)
+- Toutes les routes sont `index: true, follow: true` sauf `/statistiques` (placeholder)
+
+---
+
+## 12. SOURCES DE DONNÉES
 
 ### Sources réellement consommées (vérifiées par grep)
 
@@ -302,14 +383,14 @@ La page d'accueil contient un seul bloc VIP court avec un seul CTA « Découvrir
 
 | Source | Statut |
 |--------|--------|
-| API-Football | ❌ Non consommée (mentions purgées) |
+| API-Football | ❌ Non consommée (mentions purgées de llms.txt, ai.txt, page.tsx, methodologie) |
 | Forebet | ❌ Non consommée |
 | Windrawwin | ❌ Non consommée |
 | Soccerbase | ❌ Non consommée |
 
 ---
 
-## 10. TON MARKETING — APPROCHE CREDIBLE
+## 13. TON MARKETING — APPROCHE CREDIBLE
 
 Le site inspire confiance sans promesse de gain garanti. Aucune auto-dérision.
 
@@ -346,7 +427,7 @@ Le site inspire confiance sans promesse de gain garanti. Aucune auto-dérision.
 
 ---
 
-## 11. AUDIT CONFIDENTIALITÉ (7 août 2026)
+## 14. AUDIT CONFIDENTIALITÉ (7 août 2026)
 
 ### Retraits du public
 
@@ -366,15 +447,17 @@ Le site inspire confiance sans promesse de gain garanti. Aucune auto-dérision.
 ### Corrections spécifiques
 
 - **Footer :** suppression des 3 témoignages « Membre vérifié » (preuve sociale non démontrée).
-- **/vip :** retrait de la mention « même modèle Poisson V3-Reliability que les pronos gratuits » (stratégie de segmentation interne).
+- **/vip :** retrait de la mention « même modèle Poisson V3-Reliability que les pronos gratuits ».
 - **/historique :** retrait du « Modèle {trackingPeriod.modelVersion} » du badge public.
 - **tracking-period.json :** retrait de `modelVersion`, `filters`, `leagues`, `variables`, `variablesDetail`, `goldTierThreshold`.
 - **win-history.json :** retrait de `trackingPeriod.modelVersion`.
 - **predictions.json :** retrait de `analysis.homeLambda`, `awayLambda`, `homeForm`, `awayForm`.
+- **seoSchemas.ts :** retrait du faux `AggregateRating 4.2/5 reviewCount 2437`.
+- **llms.txt + ai.txt :** purge complète des claims faux.
 
 ---
 
-## 12. ACCESSIBILITÉ
+## 15. ACCESSIBILITÉ
 
 - `prefers-reduced-motion` (animations désactivées si préférence utilisateur)
 - `*:focus-visible` avec outline `#5146F5` (contraste AA)
@@ -382,22 +465,11 @@ Le site inspire confiance sans promesse de gain garanti. Aucune auto-dérision.
 - Fallback logos avec initiales + `aria-label`
 - `aria-current="page"` sur l'onglet actif de la BottomNavigation
 - `aria-expanded` sur les boutons d'expansion
+- `aria-label` sur tous les liens d'affiliation
 
 ---
 
-## 13. SEO
-
-- 1 H1 par page, title unique, canonical correct
-- Open Graph cohérent
-- Sitemap généré par `scripts/generate-sitemap.mjs` (25 URLs)
-- IndexNow notifie Bing après chaque déploiement
-- `llms.txt` + `ai.txt` pour LLMs (AEO)
-- JSON-LD : Organization, WebSite, WebPage, Dataset, BreadcrumbList, FAQPage
-- **Purgés :** AggregateRating (4.2/5, 2437 reviews — fictif), Review (3 témoignages fictifs), claims « N°1 », « 200+ variables », « 50 000 matchs »
-
----
-
-## 14. AFFILIATION & BUSINESS
+## 16. AFFILIATION & BUSINESS
 
 ### Code promo `VISION221`
 
@@ -413,9 +485,14 @@ Le site inspire confiance sans promesse de gain garanti. Aucune auto-dérision.
 - Aucune promesse de gain chiffré
 - 18+ partout (Hero, footer, modals, disclaimer)
 
+### Tracking
+
+- `data-cta` sur tous les CTA (`hero-primary`, `hero-secondary`, `vip-linebet-inscription`, `match-page-link`, etc.)
+- GA placeholder `G-XXXXXXXXXX` non configuré (à configurer via `NEXT_PUBLIC_GA_ID`)
+
 ---
 
-## 15. SCRIPTS
+## 17. SCRIPTS
 
 | Script | Fichier | Usage |
 |--------|---------|-------|
@@ -423,13 +500,14 @@ Le site inspire confiance sans promesse de gain garanti. Aucune auto-dérision.
 | Verify results | `scripts/verify-results.mjs` | Vérifie scores finaux (ESPN + TheSportsDB, 90j backfill) |
 | Update win history | `scripts/update-win-history.mjs` | Calcule stats + legacyStats (privé) |
 | Scrape transfers | `scripts/scrape-transfers.mjs` | Transferts joueurs (BBC RSS) |
-| Generate sitemap | `scripts/generate-sitemap.mjs` | Sitemap.xml (25 URLs) |
+| Generate sitemap | `scripts/generate-sitemap.mjs` | Sitemap.xml (33 URLs + match dynamiques) |
 | Submit IndexNow | `scripts/submit-indexnow.mjs` | Notification Bing |
 | Migrate gold | `scripts/migrate-gold.mjs` | One-shot — recale tier GOLD |
+| Cleanup SEO pages | `scripts/cleanup-seo-pages.py` | One-shot — purge claims faux sur 7 SEO landing pages |
 
 ---
 
-## 16. DOCUMENTATION
+## 18. DOCUMENTATION
 
 | Fichier | Description |
 |---------|-------------|
@@ -438,14 +516,14 @@ Le site inspire confiance sans promesse de gain garanti. Aucune auto-dérision.
 | `CHANGELOG.md` | Tous les changements par phase |
 | `DATA_TRANSPARENCY.md` | Transparence des données (sources, variables, audit) |
 | `VIP_PAGE_SPEC.md` | Spécification de la page /vip |
-| `ROUTES_AUDIT.md` | Audit des 35 routes + conformité BottomNavigation |
-| `TEST_REPORT.md` | Rapport des tests (125/125 passent) |
+| `ROUTES_AUDIT.md` | Audit des 41 routes + conformité BottomNavigation |
+| `TEST_REPORT.md` | Rapport des tests (144/144 passent) |
 | `DAILY_REPORT.md` | Rapport quotidien KPI |
 | `MIGRATION_CLOUDFLARE_PAGES.md` | Plan migration FTP → Cloudflare Pages |
 
 ---
 
-## 17. COMMENT LANCER EN LOCAL
+## 19. COMMENT LANCER EN LOCAL
 
 ### Prérequis
 
@@ -479,13 +557,13 @@ node scripts/generate-sitemap.mjs
 ### Build & tests
 
 ```bash
-npm run build    # Build statique → out/
+npm run build    # Build statique → out/ (41 pages + match SSG)
 npm run start    # Servir le build
-npm test         # Vitest (125 tests)
+npm test         # Vitest (144 tests)
 npm run test:ci  # Vitest verbose
 ```
 
-### Vérifier les stats
+### Vérifier les données
 
 ```bash
 # Lire les stats actuelles
@@ -493,6 +571,9 @@ python3 -c "import json; d=json.load(open('public/win-history.json')); print(jso
 
 # Vérifier les probas affichées (max 0.54)
 python3 -c "import json; d=json.load(open('public/predictions.json'))['predictions']; print('Max proba:', max(p['proba'] for p in d))"
+
+# Compter les pages match pré-rendues
+ls out/match/ 2>/dev/null | grep -c ".html$"
 ```
 
 ---
@@ -519,6 +600,24 @@ python3 -c "import json; d=json.load(open('public/predictions.json'))['predictio
 ## Éditeur
 
 - **Éditeur :** BTTSPredict — Elon Ervri, New Jersey, USA
-- **Contact conformité :** email dans le footer
+- **Contact conformité :** support@bttspredict.com
 - **Juridiction :** USA
 - **Responsable publication :** Elon Ervri
+
+---
+
+## Objectifs mesurables
+
+| Catégorie | Métrique | État |
+|-----------|----------|------|
+| SEO | Pages indexables | 41 (35 + 6 topical + match SSG) |
+| SEO | Sitemap URLs | 33 |
+| Contenu | Pages publiées | 41 |
+| Contenu | Match pages SSG | 3 (volume augmente avec le pipeline) |
+| Tests | Tests passent | 144/144 |
+| Build | Pages statiques | OK (41 + 3 match SSG) |
+| Performance | Proba max affichée | 54% (plage crédible 40-54%) |
+| Conformité | AggregateRating fictif | Supprimé |
+| Conformité | Témoignages fictifs | Supprimés |
+| Conformité | Claims 200+ variables, 50 000 matchs | Supprimés |
+| Conformité | Sources non utilisées | Purgées (API-Football, Forebet, Windrawwin, Soccerbase) |
