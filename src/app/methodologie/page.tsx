@@ -1,306 +1,327 @@
 import type { Metadata } from 'next'
-import {Navbar, Footer,
-  FreePredictionsWidget,
-  VipCardWidget,
-  LinebetApkButton} from '@/components/bttsbet'
-import {
-  buildOrganizationJsonLd,
-  buildPersonJsonLd,
-  buildBreadcrumbJsonLd,
-  buildArticleJsonLd,
-  SITE_URL,
-} from '@/lib/seoSchemas'
-
-const TITLE = 'Méthodologie BTTSPredict — Modèle Poisson'
-const DESCRIPTION = 'Méthodologie BTTSPredict : modèle Poisson calibré sur 50 000 matchs, 200+ variables, sources ESPN et API-Football. taux réel sur /historique.'
-const PAGE_URL = `${SITE_URL}/methodologie`
+import { Navbar, Footer } from '@/components/bttsbet'
 
 export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  keywords: [
-    'méthodologie pronostics',
-    'modèle Poisson football',
-    'analyse BTTS',
-    'analyse Over 2.5',
-    'xG Expected Goals',
-    'sources pronostics',
-    'BTTSPredict méthodologie',
-    'pronostics btts aujourd\'hui',
-    'analyse statistique football',
-  ],
-  alternates: { canonical: PAGE_URL },
+  title: 'Méthodologie — Modèle statistique Poisson V3-Reliability',
+  description: "Méthodologie du modèle statistique Poisson V3-Reliability : données ESPN + TheSportsDB, 8 variables, 4 filtres, calibration, limites. Aucun résultat futur garanti. 18+.",
+  alternates: { canonical: 'https://bttspredict.com/methodologie' },
+  robots: { index: true, follow: true },
   openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    url: PAGE_URL,
-    siteName: 'BTTSPredict',
+    title: 'Méthodologie BTTSPredict — Modèle Poisson V3-Reliability',
+    description: "Sources de données, modèle statistique, calibration, limites. Aucune validation humaine, aucun gain garanti. 18+.",
+    url: 'https://bttspredict.com/methodologie',
     type: 'article',
-    locale: 'fr_SN',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Méthodologie BTTSPredict — Modèle Poisson + 200 variables' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: TITLE,
-    description: DESCRIPTION,
-    images: ['/og-image.png'],
   },
 }
 
-const today = new Date().toISOString().slice(0, 10)
-
 export default function MethodologiePage() {
-  const articleJsonLd = buildArticleJsonLd({
-    title: TITLE,
-    description: DESCRIPTION,
-    path: '/methodologie',
-    datePublished: '2026-01-01',
-    dateModified: today,
-  })
-
   return (
-    <div className="min-h-screen bg-dark-800 relative">
-      {/* JSON-LD Structured Data */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildOrganizationJsonLd()) }} />
-      {buildPersonJsonLd() && (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildPersonJsonLd()) }} />
-      )}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildBreadcrumbJsonLd([
-        { name: 'Accueil', path: '/' },
-        { name: 'Méthodologie', path: '/methodologie' },
-      ])) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
-
+    <div className="min-h-screen bg-[#070B18] flex flex-col text-[#F7F8FF]">
       <Navbar />
 
-      <main className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-
-        {/* Breadcrumb */}
-        <nav aria-label="Fil d'Ariane" className="mb-8">
-          <ol className="flex items-center gap-2 text-sm text-cendre">
-            <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
-            <li aria-hidden="true">/</li>
-            <li><span className="text-cendre" aria-current="page">Méthodologie</span></li>
-          </ol>
-        </nav>
-
-        {/* Header */}
-        <header className="mb-12 text-center">
-          <span className="eyebrow">🔬 Transparence totale</span>
-          <h1 className="section-title mt-3 mb-4">
-            Notre <span className="text-emerald">méthodologie</span>
-          </h1>
-          <p className="section-subtitle max-w-2xl mx-auto">
-            Comment BTTSPredict produit ses pronostics BTTS et Over 2.5 — du modèle statistique à la validation humaine. Taux de réussite vérifié en temps réel (voir /historique).
-          </p>
-        </header>
-
-        {/* Section Autorité — Pourquoi nous faire confiance */}
-        <section className="card p-6 sm:p-8 mb-8" style={{ background: 'linear-gradient(135deg, rgba(81, 70, 245, 0.05), rgba(81, 70, 245, 0.05))', border: '1px solid rgba(81, 70, 245, 0.20)' }}>
-          <h2 className="text-2xl font-bold text-papier mb-4">🏆 Pourquoi nous faire confiance ?</h2>
-          <div className="text-cendre text-sm leading-relaxed space-y-3">
-            <p>
-              BTTSPredict est une <strong className="text-emerald">plateforme de données</strong> pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts. Notre approche de transparence repose sur 5 piliers vérifiables :
+      <main id="main-content" className="flex-1">
+        <article className="max-w-3xl mx-auto px-4 py-12 sm:py-16">
+          <header className="mb-10">
+            <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
+              style={{ backgroundColor: 'rgba(81, 70, 245, 0.12)', color: '#5146F5', border: '1px solid rgba(81, 70, 245, 0.25)' }}>
+              Modèle V3-Reliability
+            </span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              Méthodologie du modèle statistique
+            </h1>
+            <p className="text-base text-[#A5ABC5] leading-relaxed">
+              BTTSPredict publie des pronostics BTTS (Both Teams To Score) et Over 2.5 sur le football, générés par un modèle statistique Poisson bivarié. Cette page décrit de façon transparente les données réellement utilisées, le modèle réellement exécuté, ses marchés couverts, ses limites et la gestion des données manquantes.
             </p>
-            <ol className="space-y-2 list-decimal list-inside">
-              <li><strong className="text-papier">Transparence absolue</strong> — plateforme à afficher TOUS ses résultats (gagnés ET perdus) sans filtrage. Historique public en temps réel — voir /historique pour les chiffres.</li>
-              <li><strong className="text-papier">Méthodologie scientifique</strong> — modèle de Poisson calibré sur 50 000 matchs, 200+ variables par match (xG, forme, blessés, météo).</li>
-              <li><strong className="text-papier">Couverture étendue</strong> — 50+ championnats sur 5 continents (Europe, Afrique, Amérique du Sud, Asie).</li>
-              <li><strong className="text-papier">Communauté active</strong> — parieurs quotidiens, communauté en croissance vérifiés.</li>
-              <li><strong className="text-papier">Sources officielles</strong> — ESPN, API-Football, Forebet, Windrawwin, Soccerbase, TheSportsDB.</li>
-            </ol>
-            <p>
-              La plupart des plateformes masquent leurs pertes ; BTTSPredict affiche les siennes publiquement, ce qui en fait un approche de transparence dans l'industrie des pronostics football.
-            </p>
-          </div>
-        </section>
+          </header>
 
-        {/* Notre expert */}
-        <section className="card p-6 sm:p-8 mb-8">
-          <h2 className="text-2xl font-bold text-papier mb-4">👤 Notre expert</h2>
-          <div className="flex flex-col sm:flex-row gap-6">
-            <div className="flex-shrink-0 mx-auto sm:mx-0">
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-emerald to-or flex items-center justify-center text-4xl font-bold text-midnight">
-                E
+          {/* Section 1 — Données réellement utilisées */}
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              1. Données réellement utilisées
+            </h2>
+            <p className="text-sm text-[#A5ABC5] leading-relaxed mb-4">
+              BTTSPredict utilise deux sources de données publiques, accessibles sans clé API :
+            </p>
+            <div className="space-y-3">
+              <div className="p-4 rounded-xl" style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
+                <h3 className="text-base font-bold mb-2 text-[#F7F8FF]">ESPN Soccer API</h3>
+                <p className="text-xs text-[#A5ABC5] leading-relaxed mb-2">
+                  URL : <code className="px-1.5 py-0.5 rounded text-[10px]" style={{ backgroundColor: '#1E2340' }}>site.api.espn.com/apis/site/v2/sports/soccer/&lt;slug&gt;/scoreboard</code>
+                </p>
+                <p className="text-xs text-[#A5ABC5] leading-relaxed">
+                  Source publique gratuite, sans clé API. Utilisée pour récupérer les matchs à venir (calendrier), les scores finaux (vérification), et les logos d'équipes. Couvre les 11 ligues HIGH_BTTS.
+                </p>
+              </div>
+              <div className="p-4 rounded-xl" style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
+                <h3 className="text-base font-bold mb-2 text-[#F7F8FF]">TheSportsDB v3</h3>
+                <p className="text-xs text-[#A5ABC5] leading-relaxed mb-2">
+                  URL : <code className="px-1.5 py-0.5 rounded text-[10px]" style={{ backgroundColor: '#1E2340' }}>thesportsdb.com/api/v1/json/3/eventsday.php</code>
+                </p>
+                <p className="text-xs text-[#A5ABC5] leading-relaxed">
+                  Source publique gratuite (clé "3" gratuite), utilisée en fallback d'ESPN pour la vérification des scores finaux sur les matchs non couverts par ESPN.
+                </p>
               </div>
             </div>
-            <div className="flex-1 text-cendre text-sm leading-relaxed space-y-3">
-              <p>
-                <strong className="text-papier">Expert BTTSPredict</strong> — Analyste Football Senior &amp; Fondateur de BTTSPredict.
-              </p>
-              <p>
-                Plus de 10 ans d'expérience en analyse prédictive des matchs de football, spécialisé dans la modélisation statistique des buts (modèle de Poisson, Expected Goals). Diplômé en statistiques appliquées, notre expert a calibré le modèle BTTSPredict sur plus de 50 000 matchs historiques.
-              </p>
-              <p>
-                Chaque pronostic VIP est validé manuellement par notre expert avant publication, garantissant un contrôle humain sur les sorties du modèle statistique. Cette double validation (modèle + humain) explique notre taux de réussite réel (voir /historique).
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Notre méthode */}
-        <section className="card p-6 sm:p-8 mb-8">
-          <h2 className="text-2xl font-bold text-papier mb-4">📊 Notre méthode</h2>
-          <div className="text-cendre text-sm leading-relaxed space-y-4">
-            <p>
-              BTTSPredict utilise le <strong className="text-emerald">modèle de distribution de Poisson</strong>, la méthode statistique de référence pour modéliser le nombre de buts dans un match de football. Ce modèle calcule la probabilité de chaque score possible à partir des forces offensives et défensives des deux équipes.
+            <p className="text-xs text-[#6B7194] mt-4 leading-relaxed">
+              ⚠️ BTTSPredict n'utilise pas API-Football, Forebet, Windrawwin ni Soccerbase. Toute mention de ces sources dans d'anciennes versions du site était erronée et a été corrigée.
             </p>
+          </section>
 
-            <div className="bg-dark-800/50 border border-edge rounded-lg p-4">
-              <h3 className="text-papier font-semibold mb-2">Paramètres du modèle (publics et vérifiables)</h3>
-              <ul className="space-y-1.5 list-disc list-inside">
-                <li><strong className="text-emerald">Seuil BTTS :</strong> 0.48 (probabilité minimale pour recommander "Both Teams To Score")</li>
-                <li><strong className="text-emerald">Seuil Over 2.5 :</strong> 0.49 (probabilité minimale pour recommander "Plus de 2,5 buts")</li>
-                <li><strong className="text-emerald">Correction BTTS :</strong> +2% (le Poisson sous-estime connûment le BTTS)</li>
-                <li><strong className="text-emerald">Correction Over 2.5 :</strong> +1% (calibration sur 50 000 matchs)</li>
-                <li><strong className="text-emerald">Indice de confiance :</strong> calculé à partir de la qualité des données disponibles (5 niveaux)</li>
+          {/* Section 2 — Variables réellement utilisées */}
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              2. Variables réellement utilisées
+            </h2>
+            <p className="text-sm text-[#A5ABC5] leading-relaxed mb-4">
+              Le modèle utilise <strong className="text-[#F7F8FF]">8 variables par match</strong> (et non 200+ comme indiqué dans d'anciennes versions) :
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm" style={{ borderCollapse: 'collapse' }}>
+                <thead>
+                  <tr style={{ borderBottom: '2px solid #303861' }}>
+                    <th className="text-left py-2 px-3 font-bold text-[#A5ABC5]">#</th>
+                    <th className="text-left py-2 px-3 font-bold text-[#A5ABC5]">Variable</th>
+                    <th className="text-left py-2 px-3 font-bold text-[#A5ABC5]">Description</th>
+                  </tr>
+                </thead>
+                <tbody className="text-[#F7F8FF]">
+                  {[
+                    ['1', 'homeForm.scoredIn', 'Nb de matchs (sur 5) où l\'équipe à domicile a marqué'],
+                    ['2', 'homeForm.concededIn', 'Nb de matchs (sur 5) où l\'équipe à domicile a encaissé'],
+                    ['3', 'homeForm.avgScored', 'Moyenne de buts marqués à domicile sur les 5 derniers matchs'],
+                    ['4', 'homeForm.avgConceded', 'Moyenne de buts encaissés à domicile sur les 5 derniers matchs'],
+                    ['5', 'awayForm.scoredIn', 'Nb de matchs (sur 5) où l\'équipe à l\'extérieur a marqué'],
+                    ['6', 'awayForm.concededIn', 'Nb de matchs (sur 5) où l\'équipe à l\'extérieur a encaissé'],
+                    ['7', 'awayForm.avgScored', 'Moyenne de buts marqués à l\'extérieur sur les 5 derniers matchs'],
+                    ['8', 'awayForm.avgConceded', 'Moyenne de buts encaissés à l\'extérieur sur les 5 derniers matchs'],
+                  ].map((row, i) => (
+                    <tr key={i} style={{ borderBottom: '1px solid #303861' }}>
+                      <td className="py-2 px-3 text-[#6B7194]">{row[0]}</td>
+                      <td className="py-2 px-3"><code className="text-xs text-[#5DFDCB]" style={{ backgroundColor: '#1E2340', padding: '2px 6px', borderRadius: '3px' }}>{row[1]}</code></td>
+                      <td className="py-2 px-3 text-[#A5ABC5]">{row[2]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-[#6B7194] mt-4 leading-relaxed">
+              Les 4 variables de ligue (bttsRate, avgGoals, homeFactor, awayFactor) sont des constantes de calibration par ligue, et non des variables par match.
+            </p>
+          </section>
+
+          {/* Section 3 — Modèle réellement exécuté */}
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              3. Modèle Poisson bivarié
+            </h2>
+            <p className="text-sm text-[#A5ABC5] leading-relaxed mb-4">
+              Le modèle suppose que le nombre de buts marqués par chaque équipe suit une loi de Poisson indépendante. Les intensités (lambdas) sont calculées à partir de la forme récente des équipes :
+            </p>
+            <div className="p-4 rounded-xl mb-4" style={{ backgroundColor: '#1E2340', border: '1px solid #303861' }}>
+              <pre className="text-xs text-[#5DFDCB] overflow-x-auto" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
+{`# 1. Forme récente des équipes (5 derniers matchs)
+homeForm = { scoredIn, concededIn, avgScored, avgConceded }
+awayForm = { scoredIn, concededIn, avgScored, avgConceded }
+
+# 2. Lambdas Poisson (intensités attendues)
+homeLambda = max(0.3, homeAttack × awayDefense × (leagueAvgHome / 1.3) × 1.15)
+awayLambda = max(0.3, awayAttack × homeDefense × (leagueAvgAway / 1.1))
+
+# 3. Probabilités Poisson exactes
+bttsProb    = (1 - e^(-homeLambda)) × (1 - e^(-awayLambda))
+over25Prob  = 1 - Σ P(home=i, away=j)  pour i+j ≤ 2
+            = 1 - Σ PoissonPMF(i, homeLambda) × PoissonPMF(j, awayLambda)`}
+              </pre>
+            </div>
+            <p className="text-xs text-[#A5ABC5] leading-relaxed">
+              Le modèle suppose l'indépendance entre les buts marqués par chaque équipe. C'est une simplification — en réalité, les buts d'une équipe peuvent affecter la stratégie de l'autre (un but rapide peut mener à un match plus ouvert). Cette limite est assumée pour la simplicité du calcul.
+            </p>
+          </section>
+
+          {/* Section 4 — Marchés couverts */}
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              4. Marchés couverts
+            </h2>
+            <div className="space-y-3">
+              <div className="p-4 rounded-xl flex items-start gap-3" style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(124, 58, 237, 0.15)' }}>
+                  <span className="text-xs font-bold text-[#7C3AED]">BT</span>
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-[#F7F8FF] mb-1">BTTS (Both Teams To Score)</h3>
+                  <p className="text-xs text-[#A5ABC5] leading-relaxed">
+                    Pronostic : les deux équipes marquent au moins un but. Calcul : P(home ≥ 1) × P(away ≥ 1).
+                  </p>
+                </div>
+              </div>
+              <div className="p-4 rounded-xl flex items-start gap-3" style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(93, 253, 203, 0.15)' }}>
+                  <span className="text-xs font-bold text-[#5DFDCB]">O2</span>
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-[#F7F8FF] mb-1">Over 2.5 goals</h3>
+                  <p className="text-xs text-[#A5ABC5] leading-relaxed">
+                    Pronostic : le total des buts du match est supérieur ou égal à 3. Calcul : 1 - P(total ≤ 2).
+                  </p>
+                </div>
+              </div>
+            </div>
+            <p className="text-xs text-[#6B7194] mt-3 leading-relaxed">
+              Le modèle ne couvre pas les marchés suivants : score exact, double chance, handicap asiatique, mi-temps/fin de match, buteurs.
+            </p>
+          </section>
+
+          {/* Section 5 — Filtres de publication */}
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              5. Filtres de publication
+            </h2>
+            <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
+              Un prono n'est publié que si les 4 filtres suivants sont satisfaits simultanément :
+            </p>
+            <ol className="space-y-2 text-sm text-[#A5ABC5]">
+              <li className="flex items-start gap-2"><span className="text-[#5146F5] font-bold">1.</span> <span>Les deux équipes ont marqué dans au moins 3 de leurs 5 derniers matchs.</span></li>
+              <li className="flex items-start gap-2"><span className="text-[#5146F5] font-bold">2.</span> <span>Les deux équipes ont encaissé dans au moins 3 de leurs 5 derniers matchs.</span></li>
+              <li className="flex items-start gap-2"><span className="text-[#5146F5] font-bold">3.</span> <span>Le match se joue dans une des 11 ligues HIGH_BTTS (taux historique &gt; 53%).</span></li>
+              <li className="flex items-start gap-2"><span className="text-[#5146F5] font-bold">4.</span> <span>La probabilité Poisson du marché est ≥ 0.62.</span></li>
+            </ol>
+            <p className="text-xs text-[#6B7194] mt-3 leading-relaxed">
+              Si aucun match ne passe les 4 filtres un jour donné, aucun prono n'est publié. C'est intentionnel.
+            </p>
+          </section>
+
+          {/* Section 6 — Ligues HIGH_BTTS */}
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              6. Ligues HIGH_BTTS (11 ligues)
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+              {[
+                'Premier League (Angleterre)',
+                'Championship (Angleterre D2)',
+                'Bundesliga (Allemagne)',
+                '2. Bundesliga (Allemagne D2)',
+                'Eredivisie (Pays-Bas)',
+                'Jupiler Pro League (Belgique)',
+                'Swiss Super League (Suisse)',
+                'Liga Portugal (Portugal)',
+                'Austrian Bundesliga (Autriche)',
+                'Scottish Premiership (Écosse)',
+                'MLS (États-Unis)',
+              ].map((lg, i) => (
+                <div key={i} className="p-2 rounded-lg text-center" style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
+                  <span className="text-[#A5ABC5]">{lg}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 7 — Calibration */}
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              7. Calibration et contrôle qualité
+            </h2>
+            <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
+              Le contrôle qualité est entièrement automatisé :
+            </p>
+            <ul className="space-y-2 text-sm text-[#A5ABC5]">
+              <li className="flex items-start gap-2"><span className="text-[#5DFDCB]">✓</span> <span>Vérification automatique des filtres avant publication.</span></li>
+              <li className="flex items-start gap-2"><span className="text-[#5DFDCB]">✓</span> <span>Force <code className="text-xs px-1 py-0.5 rounded" style={{ backgroundColor: '#1E2340' }}>proba = 0.62</code> si la probabilité est manquante (jamais 0).</span></li>
+              <li className="flex items-start gap-2"><span className="text-[#5DFDCB]">✓</span> <span>Limite de 5 pronos par jour (top proba).</span></li>
+              <li className="flex items-start gap-2"><span className="text-[#5DFDCB]">✓</span> <span>Archive quotidienne horodatée (immutabilité rétroactive).</span></li>
+              <li className="flex items-start gap-2"><span className="text-[#5DFDCB]">✓</span> <span>Vérification post-match via ESPN + TheSportsDB (sans clé API).</span></li>
+            </ul>
+            <p className="text-xs text-[#6B7194] mt-3 leading-relaxed">
+              ⚠️ Il n'y a pas de validation humaine de chaque pronostic. Le modèle est exécuté automatiquement 4 fois par jour via GitHub Actions.
+            </p>
+          </section>
+
+          {/* Section 8 — Limites du modèle */}
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              8. Limites du modèle
+            </h2>
+            <div className="p-4 rounded-xl" style={{ backgroundColor: 'rgba(255, 113, 133, 0.06)', border: '1px solid rgba(255, 113, 133, 0.2)' }}>
+              <ul className="space-y-2 text-sm text-[#A5ABC5]">
+                <li>• Le modèle ne prend pas en compte les blessures, suspensions ou transferts récents.</li>
+                <li>• Le modèle ne prend pas en compte la météo, l'altitude ou l'état du terrain.</li>
+                <li>• Le modèle ne prend pas en compte l'enjeu sportif (finale, match de barrage, relégation).</li>
+                <li>• Le modèle suppose l'indépendance entre les buts marqués par chaque équipe.</li>
+                <li>• Le modèle utilise uniquement les 5 derniers matchs — la variance d'échantillon est élevée.</li>
+                <li>• Le modèle ne couvre pas les coupes nationales, internationales, ni les matchs amicaux.</li>
+                <li>• Aucune garantie de gain n'est offerte, même pour les pronostics GOLD à proba élevée.</li>
               </ul>
             </div>
+          </section>
 
-            {/* Données propriétaires : répartition par ligue (Original Data pour IA) */}
-            <div className="bg-dark-800/50 border border-edge rounded-lg p-4 mt-4">
-              <h3 className="text-papier font-semibold mb-3">Répartition des gains par ligue (données propriétaires BTTSPredict 2026)</h3>
-              <p className="text-xs mb-3" style={{ color: '#A5ABC5' }}>Taux de réussite BTTS par championnat sur les 30 derniers jours — données uniques BTTSPredict</p>
-              <div className="overflow-x-auto">
-                <table className="w-full text-xs">
-                  <thead>
-                    <tr style={{ borderBottom: '1px solid rgba(247, 248, 255, 0.08)' }}>
-                      <th className="text-left py-2 px-2 font-semibold" style={{ color: '#A5ABC5' }}>Championnat</th>
-                      <th className="text-right py-2 px-2 font-semibold" style={{ color: '#A5ABC5' }}>Pronostics</th>
-                      <th className="text-right py-2 px-2 font-semibold" style={{ color: '#A5ABC5' }}>Gagnés</th>
-                      <th className="text-right py-2 px-2 font-semibold" style={{ color: '#A5ABC5' }}>Réussite</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr style={{ borderBottom: '1px solid rgba(247, 248, 255, 0.04)' }}>
-                      <td className="py-2 px-2" style={{ color: '#F7F8FF' }}>Bundesliga (Allemagne)</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>12</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>11</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#5146F5', fontWeight: 700 }}>91,7%</td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid rgba(247, 248, 255, 0.04)' }}>
-                      <td className="py-2 px-2" style={{ color: '#F7F8FF' }}>Eredivisie (Pays-Bas)</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>10</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>9</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#5146F5', fontWeight: 700 }}>90,0%</td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid rgba(247, 248, 255, 0.04)' }}>
-                      <td className="py-2 px-2" style={{ color: '#F7F8FF' }}>Premier League (Angleterre)</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>15</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>13</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#5146F5', fontWeight: 700 }}>86,7%</td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid rgba(247, 248, 255, 0.04)' }}>
-                      <td className="py-2 px-2" style={{ color: '#F7F8FF' }}>Serie A (Italie)</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>11</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>9</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#5146F5', fontWeight: 700 }}>81,8%</td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid rgba(247, 248, 255, 0.04)' }}>
-                      <td className="py-2 px-2" style={{ color: '#F7F8FF' }}>La Liga (Espagne)</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>13</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>10</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#5146F5', fontWeight: 700 }}>76,9%</td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid rgba(247, 248, 255, 0.04)' }}>
-                      <td className="py-2 px-2" style={{ color: '#F7F8FF' }}>Ligue 1 (France)</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>10</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#A5ABC5' }}>8</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#5146F5', fontWeight: 700 }}>80,0%</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <p className="text-[10px] mt-2" style={{ color: '#303861' }}>Source : données internes BTTSPredict. Les performances passées ne garantissent pas les résultats futurs.</p>
-            </div>
+          {/* Section 9 — Gestion des données manquantes */}
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              9. Gestion des données manquantes
+            </h2>
+            <ul className="space-y-2 text-sm text-[#A5ABC5]">
+              <li>• Si la forme d'une équipe n'est pas disponible, le match est filtré (non publié).</li>
+              <li>• Si la ligue n'est pas dans HIGH_BTTS, le match est filtré.</li>
+              <li>• Si la probabilité calculée est &lt; 0.62, le prono est filtré.</li>
+              <li>• Si la probabilité est manquante après calcul, elle est forcée à 0.62 (jamais 0).</li>
+              <li>• Si le score final ne peut être vérifié (ESPN + TheSportsDB indisponibles), le prono reste en statut PENDING.</li>
+              <li>• Un prono en PENDING n'est jamais compté dans les taux (ni gagné ni perdu).</li>
+            </ul>
+          </section>
 
-            <p>
-              Chaque utilisateur peut vérifier nos calculs : les paramètres sont publics, les sources sont citées, et l'historique complet (gagnés ET perdus) est accessible sur la page{' '}
-              <a href="/historique" className="text-emerald hover:underline">/historique</a>.
+          {/* Section 10 — Suivi du nouveau modèle */}
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              10. Suivi du nouveau modèle
+            </h2>
+            <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
+              Une nouvelle période de suivi public a été lancée le <strong className="text-[#F7F8FF]">8 août 2026</strong>. Tous les pronostics publiés à partir de cette date sont :
             </p>
-          </div>
-        </section>
+            <ul className="space-y-2 text-sm text-[#A5ABC5]">
+              <li>• Enregistrés dans une archive quotidienne horodatée.</li>
+              <li>• Vérifiés après le résultat officiel du match (ESPN + TheSportsDB).</li>
+              <li>• Comptabilisés dans les statistiques publiques (taux, ROI, trend 14j).</li>
+              <li>• Immuables — un prono publié n'est jamais modifié rétroactivement.</li>
+            </ul>
+            <p className="text-xs text-[#6B7194] mt-3 leading-relaxed">
+              Les archives antérieures au 8 août 2026 sont conservées pour audit technique interne mais ne sont pas affichées publiquement.
+            </p>
+          </section>
 
-        {/* Notre source de données */}
-        <section className="card p-6 sm:p-8 mb-8">
-          <h2 className="text-2xl font-bold text-papier mb-4">🌐 Nos sources de données</h2>
-          <div className="grid sm:grid-cols-2 gap-4 text-cendre text-sm">
-            <div className="bg-dark-800/50 border border-edge rounded-lg p-4">
-              <div className="font-bold text-emerald mb-1">ESPN API</div>
-              <p>Scores en temps réel, compositions, statistiques de match (cartons, tirs, possession).</p>
+          {/* Section 11 — Probabilité vs garantie */}
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              11. Probabilité ≠ garantie
+            </h2>
+            <div className="p-4 rounded-xl" style={{ backgroundColor: 'rgba(255, 200, 87, 0.06)', border: '1px solid rgba(255, 200, 87, 0.2)' }}>
+              <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
+                Une probabilité de 75% signifie que, sur 100 matchs similaires, le modèle s'attend à ce que 75 se terminent par le résultat prédit. Cela ne garantit pas que le match précis sera gagné.
+              </p>
+              <p className="text-sm text-[#A5ABC5] leading-relaxed">
+                <strong className="text-[#FFC857]">Aucun résultat futur n'est garanti.</strong> Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez vous permettre de perdre. 18+.
+              </p>
             </div>
-            <div className="bg-dark-800/50 border border-edge rounded-lg p-4">
-              <div className="font-bold text-emerald mb-1">API-Football</div>
-              <p>200+ variables par match : xG, forme récente, blessés, suspensions, historique des confrontations.</p>
-            </div>
-            <div className="bg-dark-800/50 border border-edge rounded-lg p-4">
-              <div className="font-bold text-emerald mb-1">Forebet</div>
-              <p>Pronostics statistiques de référence, utilisés pour comparer et valider nos propres modèles.</p>
-            </div>
-            <div className="bg-dark-800/50 border border-edge rounded-lg p-4">
-              <div className="font-bold text-emerald mb-1">Windrawwin</div>
-              <p>Statistiques historiques détaillées par championnat et par équipe (10+ ans d'historique).</p>
-            </div>
-            <div className="bg-dark-800/50 border border-edge rounded-lg p-4">
-              <div className="font-bold text-emerald mb-1">Soccerbase</div>
-              <p>Compositions d'équipes, calendriers, et statistiques de joueurs (buts, passes décisives).</p>
-            </div>
-            <div className="bg-dark-800/50 border border-edge rounded-lg p-4">
-              <div className="font-bold text-emerald mb-1">TheSportsDB</div>
-              <p>Métadonnées des compétitions (logos, couleurs, noms d'équipes) pour l'affichage UI.</p>
-            </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Notre transparence */}
-        <section className="card p-6 sm:p-8 mb-8">
-          <h2 className="text-2xl font-bold text-papier mb-4">✓ Notre transparence</h2>
-          <div className="text-cendre text-sm leading-relaxed space-y-3">
-            <p>
-              Contrairement à la plupart des plateformes de pronostics qui masquent leurs pertes, BTTSPredict affiche publiquement <strong className="text-emerald">TOUS ses résultats — gagnés ET perdus</strong> — sans aucun filtrage.
-            </p>
-            <p>
-              Notre historique contient actuellement des pronostiques archivés — voir /historique pour les chiffres réels en temps réel. Chaque entrée contient la date, le match, la ligue, le type de pronostic, la prédiction, le score final et l'indice de confiance.
-            </p>
-            <p>
-              Ce taux est calculé manuellement à partir des résultats réels des matchs, pas d'un chiffre marketing inventé. Les performances passées ne garantissent pas les résultats futurs.
-            </p>
-            <div className="mt-4">
-              <a href="/historique" className="inline-flex items-center gap-2 px-6 py-3 bg-emerald text-midnight font-bold rounded-lg hover:bg-emerald-soft transition-colors">
-                Voir l'historique complet →
+          {/* Liens utiles */}
+          <section className="pt-8 border-t border-[#303861]">
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <a href="/historique" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
+                style={{ backgroundColor: '#5146F5', color: '#F7F8FF' }}>
+                Voir l'historique vérifié →
+              </a>
+              <a href="/pronostics" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
+                style={{ backgroundColor: '#0D1630', color: '#A5ABC5', border: '1px solid #303861' }}>
+                Voir les pronostics du jour →
+              </a>
+              <a href="/jouer-responsable" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
+                style={{ backgroundColor: 'transparent', color: '#FF7185', border: '1px solid rgba(255, 113, 133, 0.3)' }}>
+                Jouer responsable →
               </a>
             </div>
-          </div>
-        </section>
-
-        {/* Nos limites */}
-        <section className="card p-6 sm:p-8 mb-8 border border-gold/20">
-          <h2 className="text-2xl font-bold text-papier mb-4">⚠️ Nos limites</h2>
-          <div className="text-cendre text-sm leading-relaxed space-y-3">
-            <p>
-              BTTSPredict est un <strong className="text-gold">outil d'aide à la décision</strong>, pas une garantie de gain. Les paris sportifs comportent des risques de perte financière.
-            </p>
-            <ul className="space-y-1.5 list-disc list-inside">
-              <li>Aucun pronostic n'est garanti à 100% — le football reste imprévisible</li>
-              <li>Les performances passées ne préjugent pas des résultats futurs</li>
-              <li>Ne misez jamais plus que ce que vous pouvez vous permettre de perdre</li>
-              <li>Service réservé aux personnes majeures (18+)</li>
-              <li>BTTSPredict ne prend pas de paris et ne collecte pas de fonds — nous sommes un site informatif et d'affiliation</li>
-            </ul>
-            <p className="mt-3">
-              Pour toute aide concernant le jeu compulsif :{' '}
-              <a href="https://www.begambleaware.org/" className="text-gold hover:underline" target="_blank" rel="noopener noreferrer">begambleaware.org</a>
-            </p>
-          </div>
-        </section>
-
-      
-        {/* Pronostics gratuits + VIP + APK sur toutes les pages */}
-        <FreePredictionsWidget />
-        <VipCardWidget />
-        <div className="text-center pb-6">
-          <LinebetApkButton />
-        </div>
+          </section>
+        </article>
       </main>
 
       <Footer />

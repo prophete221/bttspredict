@@ -75,14 +75,14 @@ export default function Hero() {
               fontFamily: 'Poppins, sans-serif',
             }}
           >
-            Football Predictions Today
+            Pronostics BTTS et Over 2.5
             <br />
-            <span style={{ color: '#5146F5', fontSize: '22px' }}>BTTS, Over 2.5 &amp; Correct Score AI</span>
+            <span style={{ color: '#5146F5', fontSize: '22px' }}>Modèle statistique Poisson V3</span>
           </h1>
 
           {/* ═══ H2 ═══ */}
           <p className="mt-3 text-[13px] leading-[1.6]" style={{ color: '#A5ABC5', maxWidth: '380px' }}>
-            Real football data. AI analysis. xG models. Team form. Historical performance. Daily predictions for every major league.
+            Données ESPN publiques. Analyse statistique. Forme des équipes. 11 ligues HIGH_BTTS filtrées. Pronostics quotidiens vérifiables après le match.
           </p>
         </motion.div>
 
@@ -93,16 +93,12 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-col gap-3"
         >
-          {/* CTA primaire: "View Today's Predictions" */}
+          {/* CTA primaire: "Voir les pronostics du jour" */}
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => {
-              if (window.location.pathname !== '/') {
-                window.location.href = '/#free-predictions'
-              } else {
-                document.getElementById('free-predictions')?.scrollIntoView({ behavior: 'smooth' })
-              }
+              window.location.href = '/pronostics'
             }}
             className="w-full h-[52px] rounded-[10px] font-bold text-[15px] flex items-center justify-center gap-2 transition-all"
             style={{
@@ -112,7 +108,7 @@ export default function Hero() {
               boxShadow: '0 4px 16px rgba(81, 70, 245, 0.25)',
             }}
             data-cta="hero-primary"
-            aria-label="View Today's Predictions"
+            aria-label="Voir les pronostics du jour"
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = '#6258FF'
             }}
@@ -124,20 +120,20 @@ export default function Hero() {
               <circle cx="12" cy="12" r="10" />
               <polyline points="12 6 12 12 16 14" />
             </svg>
-            View Today's Predictions
+            Voir les pronostics du jour
           </motion.button>
 
           {/* Lien secondaire texte */}
           <button
             onClick={() => {
-              window.location.href = '/resultats-verifies'
+              window.location.href = '/historique'
             }}
             className="w-full text-center text-[14px] font-medium transition-colors py-2"
             style={{ color: '#A5ABC5', background: 'transparent', border: 'none' }}
             onMouseEnter={(e) => (e.currentTarget.style.color = '#F7F8FF')}
             onMouseLeave={(e) => (e.currentTarget.style.color = '#A5ABC5')}
           >
-            View Verified Results →
+            Voir l'historique vérifié →
           </button>
         </motion.div>
 
@@ -155,12 +151,12 @@ export default function Hero() {
         >
           <span className="flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
-            Dernier scan il y a 4h
+            Suivi public depuis le 2026-08-08
           </span>
           <span style={{ color: '#303861' }}>·</span>
-          <span>50 matchs analysés</span>
+          <span>11 ligues HIGH_BTTS</span>
           <span style={{ color: '#303861' }}>·</span>
-          <span style={{ color: '#5DFDCB' }}>6 résultats vérifiés</span>
+          <span style={{ color: '#5DFDCB' }}>Modèle V3-Reliability</span>
         </motion.div>
 
         {/* ═══ Badges confiance — 1 ligne discrète ═══ */}

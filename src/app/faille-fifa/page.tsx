@@ -5,7 +5,7 @@ import {Navbar, Footer,
   LinebetApkButton} from '@/components/bttsbet'
 
 const SITE_URL = 'https://bttspredict.com'
-const SLUG = 'analyses-fifa'
+const SLUG = 'faille-fifa'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Analyses de valeur FIFA (expérimental) Linebet — Cotes Erronées 2026'
 const DESCRIPTION = 'Analyses de valeur FIFA (expérimental) Linebet : détection des cotes erronées et analyses de valeur statistique. Méthode validée par nos analystes. Code VISION221.'
@@ -389,7 +389,7 @@ export default function FailleFifaPage() {
                   <p className="text-papier font-semibold text-sm">📖 Guide technique : Analyses de valeur FIFA (expérimental) Linebet & 888starz</p>
                   <p className="text-cendre text-xs mt-1">Analyse détaillée du calcul des cotes et de la méthode de détection</p>
                 </a>
-                <a href="/aviator-stats" className="block p-3 bg-dark-800/50 border border-edge rounded-lg hover:border-gold/30 transition-colors">
+                <a href="/prediction-aviator" className="block p-3 bg-dark-800/50 border border-edge rounded-lg hover:border-gold/30 transition-colors">
                   <p className="text-papier font-semibold text-sm">🛩️ Stats historiques Aviator (informatif, non prédictif) (aléatoire, non prédictif) : Signaux IA en temps réel</p>
                   <p className="text-cendre text-xs mt-1">Notre autre système de signaux pour le jeu Aviator sur Linebet & 888starz</p>
                 </a>

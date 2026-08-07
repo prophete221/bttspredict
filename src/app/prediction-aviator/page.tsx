@@ -8,7 +8,7 @@ import {Navbar, Footer,
    Metadata
    ────────────────────────────────────────────────────────────── */
 const SITE_URL = 'https://bttspredict.com'
-const SLUG = 'aviator-stats'
+const SLUG = 'prediction-aviator'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Aviator 2026 — Signaux'
 const DESCRIPTION = 'Signaux Aviator 2026 : algorithme Provably Fair, stratégie cash out. Astuces Linebet & 888starz avec code VISION221.'
