@@ -142,8 +142,8 @@ function StepCard({ step, index, isVisible }) {
       <div
         className="relative w-16 h-16 rounded-full flex items-center justify-center mb-4 shrink-0"
         style={{
-          background: 'linear-gradient(135deg, #22C55E, #22C55E)',
-          boxShadow: '0 0 24px rgba(34, 197, 94, 0.25), 0 4px 16px rgba(11, 18, 32, 0.3)',
+          background: 'linear-gradient(135deg, #5AF2A6, #5AF2A6)',
+          boxShadow: '0 0 24px rgba(90, 242, 166, 0.25), 0 4px 16px rgba(9, 20, 29, 0.3)',
         }}
         aria-hidden="true"
       >

@@ -51,7 +51,7 @@ export default function Hero() {
               target="_blank" 
               rel="sponsored noopener"
               className="btn btn-accent text-base px-8 py-4 w-full sm:w-auto shadow-lg"
-              style={{ boxShadow: '0 10px 40px rgba(22, 199, 163, 0.4)' }}
+              style={{ boxShadow: '0 10px 40px rgba(24, 224, 181, 0.4)' }}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>

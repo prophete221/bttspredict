@@ -36,51 +36,51 @@ export default function MatchPredictionsPage() {
       <Navbar />
       <main className="flex-1 relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 w-full">
         <nav aria-label="Fil d'Ariane" className="mb-8">
-          <ol className="flex items-center gap-2 text-sm" style={{ color: '#AAB7CC' }}>
+          <ol className="flex items-center gap-2 text-sm" style={{ color: '#9BB8BD' }}>
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
             <li aria-hidden="true">/</li>
-            <li style={{ color: '#F8FAFC' }} aria-current="page">Match Predictions</li>
+            <li style={{ color: '#F1F8F5' }} aria-current="page">Match Predictions</li>
           </ol>
         </nav>
 
         <header className="mb-10 text-center">
           <span className="eyebrow">⚽ Par match</span>
-          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F8FAFC', fontFamily: 'Poppins, sans-serif' }}>
-            Match <span style={{ color: '#16C7A3' }}>Predictions</span>
+          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F1F8F5', fontFamily: 'Poppins, sans-serif' }}>
+            Match <span style={{ color: '#18E0B5' }}>Predictions</span>
           </h1>
-          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#AAB7CC' }}>
+          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#9BB8BD' }}>
             Pronostics par match : BTTS, Over 2.5, score exact. Analyse détaillée de chaque match avec probabilités Poisson et statistiques.
           </p>
           <div className="mt-6">
-            <a href="/#free-predictions" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-colors" style={{ backgroundColor: '#16C7A3', color: '#F8FAFC' }}>
+            <a href="/#free-predictions" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-colors" style={{ backgroundColor: '#18E0B5', color: '#F1F8F5' }}>
               Voir les matchs du jour →
             </a>
           </div>
         </header>
 
-        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: '#0F172A', border: '1px solid rgba(248, 250, 252, 0.08)' }}>
-          <h2 className="text-xl font-bold mb-4" style={{ color: '#F8FAFC', fontFamily: 'Poppins, sans-serif' }}>Analyse détaillée par match</h2>
-          <div className="text-sm leading-relaxed space-y-3" style={{ color: '#AAB7CC' }}>
+        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: '#0D2029', border: '1px solid rgba(241, 248, 245, 0.08)' }}>
+          <h2 className="text-xl font-bold mb-4" style={{ color: '#F1F8F5', fontFamily: 'Poppins, sans-serif' }}>Analyse détaillée par match</h2>
+          <div className="text-sm leading-relaxed space-y-3" style={{ color: '#9BB8BD' }}>
             <p>Chaque match est analysé avec 200+ variables. Notre modèle Poisson calcule les probabilités pour chaque marché : BTTS (seuil 0.48), Over 2.5 (seuil 0.49), et score exact (matrice de Poisson complète).</p>
             <p>Chaque carte de match sur notre page d'accueil affiche : les deux équipes, la ligue, la date/heure, les buts attendus (xG), les probabilités BTTS et Over 2.5, et un indice de confiance.</p>
-            <p>Pour voir nos analyses de matchs, consultez notre <a href="/" style={{ color: '#16C7A3' }}>page d'accueil</a> ou notre <a href="/historique" style={{ color: '#16C7A3' }}>historique vérifié</a>.</p>
+            <p>Pour voir nos analyses de matchs, consultez notre <a href="/" style={{ color: '#18E0B5' }}>page d'accueil</a> ou notre <a href="/historique" style={{ color: '#18E0B5' }}>historique vérifié</a>.</p>
           </div>
         </section>
 
-        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(22, 199, 163, 0.05)', border: '1px solid rgba(22, 199, 163, 0.15)' }}>
-          <h2 className="text-lg font-bold mb-2" style={{ color: '#F8FAFC' }}>Résumé</h2>
-          <p className="text-sm" style={{ color: '#AAB7CC' }}>
-            BTTSPredict analyse chaque match sur 200+ variables avec un taux de réussite vérifié de 84,5%. <a href="/methodologie" style={{ color: '#16C7A3' }}>Méthodologie</a> documentée, <a href="/historique" style={{ color: '#16C7A3' }}>historique</a> vérifiable. 18+ — Jeu responsable.
+        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(24, 224, 181, 0.05)', border: '1px solid rgba(24, 224, 181, 0.15)' }}>
+          <h2 className="text-lg font-bold mb-2" style={{ color: '#F1F8F5' }}>Résumé</h2>
+          <p className="text-sm" style={{ color: '#9BB8BD' }}>
+            BTTSPredict analyse chaque match sur 200+ variables avec un taux de réussite vérifié de 84,5%. <a href="/methodologie" style={{ color: '#18E0B5' }}>Méthodologie</a> documentée, <a href="/historique" style={{ color: '#18E0B5' }}>historique</a> vérifiable. 18+ — Jeu responsable.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xl font-bold mb-4" style={{ color: '#F8FAFC', fontFamily: 'Poppins, sans-serif' }}>FAQ Match Predictions</h2>
+          <h2 className="text-xl font-bold mb-4" style={{ color: '#F1F8F5', fontFamily: 'Poppins, sans-serif' }}>FAQ Match Predictions</h2>
           <div className="space-y-2">
             {FAQ.map((item, i) => (
-              <details key={i} className="rounded-lg overflow-hidden" style={{ backgroundColor: '#0F172A', border: '1px solid rgba(248, 250, 252, 0.08)' }}>
-                <summary className="p-4 cursor-pointer text-sm font-semibold" style={{ color: '#F8FAFC' }}>{item.q}</summary>
-                <p className="px-4 pb-4 text-xs leading-relaxed" style={{ color: '#AAB7CC' }}>{item.a}</p>
+              <details key={i} className="rounded-lg overflow-hidden" style={{ backgroundColor: '#0D2029', border: '1px solid rgba(241, 248, 245, 0.08)' }}>
+                <summary className="p-4 cursor-pointer text-sm font-semibold" style={{ color: '#F1F8F5' }}>{item.q}</summary>
+                <p className="px-4 pb-4 text-xs leading-relaxed" style={{ color: '#9BB8BD' }}>{item.a}</p>
               </details>
             ))}
           </div>

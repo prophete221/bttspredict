@@ -202,7 +202,7 @@ export default function PredictionAviatorPage() {
               style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
             >
               Prédiction Aviator 2026 :{' '}
-              <span className="text-emerald" style={{ textShadow: '0 0 8px rgba(34, 197, 94,0.5), 0 0 24px rgba(34, 197, 94,0.3)' }}>
+              <span className="text-emerald" style={{ textShadow: '0 0 8px rgba(90, 242, 166,0.5), 0 0 24px rgba(90, 242, 166,0.3)' }}>
                 Signaux IA, Astuces & Stratégie
               </span>{' '}
               Gagnante sur Linebet & 888starz

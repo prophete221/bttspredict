@@ -51,7 +51,7 @@ export default function LockedCoupons() {
                   {/* Lock Overlay */}
                   <div className="absolute inset-0 bg-dark-900/70 backdrop-blur-sm flex flex-col items-center justify-center z-10">
                     <div className="w-16 h-16 bg-dark-600 rounded-2xl flex items-center justify-center mb-4">
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#AAB7CC" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9BB8BD" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                         <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                       </svg>
                     </div>

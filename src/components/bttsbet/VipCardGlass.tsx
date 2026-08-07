@@ -7,14 +7,14 @@ import VipLevelModal, { type VipLevelId } from './VipLevelModal'
 /**
  * VipCardGlass — Carte VIP "Glassmorphism" ultra-moderne
  *
- * Style : Verre dépoli (translucidité + backdrop-filter blur) sur fond sombre #0F172A
- * Accents : Émeraude vif #16C7A3 + Or Champagne #16C7A3
+ * Style : Verre dépoli (translucidité + backdrop-filter blur) sur fond sombre #0D2029
+ * Accents : Émeraude vif #18E0B5 + Or Champagne #18E0B5
  * Bordure : Ligne fine lumineuse dégradée (1px)
  * Profondeur : Ombres portées 3D pour effet de flottement
  *
  * Structure :
  * 1. En-tête : Niveau VIP en Or Champagne (Poppins Bold) + Logo BTTSPredict
- * 2. Corps : Nom utilisateur (Blanc cassé #F8FAFC) + Liste avantages (Gris #AAB7CC) avec puces émeraude
+ * 2. Corps : Nom utilisateur (Blanc cassé #F1F8F5) + Liste avantages (Gris #9BB8BD) avec puces émeraude
  * 3. Pied : Statut "Actif" discret
  */
 
@@ -27,7 +27,7 @@ export interface VipCardProps {
   meta?: string           // ex: "30 jours", "Illimité"
   ctaLabel?: string       // texte du bouton CTA
   ctaHref?: string        // lien du CTA (fallback si pas de levelId)
-  variant?: 'emerald' | 'gold'  // variante de couleur
+  variant?: 'silver' | 'gold' | 'elite'  // variante de couleur
   index?: number          // pour animation stagger
 }
 
@@ -40,7 +40,7 @@ export default function VipCardGlass({
   meta,
   ctaLabel = 'Débloquer le VIP',
   ctaHref = '#vip',
-  variant = 'emerald',
+  variant = 'silver',
   index = 0,
 }: VipCardProps) {
   const [modalOpen, setModalOpen] = useState(false)
@@ -56,7 +56,7 @@ export default function VipCardGlass({
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className={`vip-glass-card ${variant === 'gold' ? 'gold' : ''}`}
+      className={`vip-glass-card ${variant === 'gold' ? 'gold' : variant === 'elite' ? 'elite' : variant === 'silver' ? 'silver' : ''}`}
     >
       {/* ═══ 1. EN-TÊTE : Niveau VIP + Logo BTTSPredict ═══ */}
       <div className="vip-glass-header">
@@ -65,7 +65,7 @@ export default function VipCardGlass({
         </div>
         <div className="vip-glass-logo">
           <div className="vip-glass-logo-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B1220" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#09141D" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M3 3v18h18" />
               <path d="M7 14l4-4 4 4 5-5" />
             </svg>
@@ -138,7 +138,7 @@ export function VipCardGrid() {
       status: 'active',
       meta: 'Dépôt min. 3 000 XOF',
       ctaLabel: 'Débloquer Silver',
-      variant: 'emerald',
+      variant: 'silver',
       index: 0,
     },
     {
@@ -173,7 +173,7 @@ export function VipCardGrid() {
       status: 'active',
       meta: 'Dépôt min. 12 000 XOF',
       ctaLabel: 'Débloquer Elite',
-      variant: 'emerald',
+      variant: 'elite',
       index: 2,
     },
     {
@@ -202,10 +202,10 @@ export function VipCardGrid() {
         {/* Header */}
         <div className="text-center mb-10">
           <span className="eyebrow">💎 Niveaux VIP</span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-3" style={{ color: '#F8FAFC', fontFamily: 'Poppins, sans-serif' }}>
-            Choisis ton <span style={{ color: '#16C7A3' }}>niveau VIP</span>
+          <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-3" style={{ color: '#F1F8F5', fontFamily: 'Poppins, sans-serif' }}>
+            Choisis ton <span style={{ color: '#18E0B5' }}>niveau VIP</span>
           </h2>
-          <p className="text-sm max-w-md mx-auto" style={{ color: '#AAB7CC' }}>
+          <p className="text-sm max-w-md mx-auto" style={{ color: '#9BB8BD' }}>
             Choisis le niveau qui te correspond. Activation en moins de 30 minutes via WhatsApp après dépôt.
           </p>
         </div>

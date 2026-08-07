@@ -190,7 +190,7 @@ export function StatsSection() {
                   animate={isVisible ? { scale: [1, 1.05, 1] } : {}}
                   transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5AF2A6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                   </svg>
                 </motion.div>

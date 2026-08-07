@@ -14,31 +14,33 @@
 @import "tailwindcss";
 
 @theme {
-  /* ═══ PREMIUM DARK v57 — 12 tokens canoniques, aucune autre couleur ═══ */
-  --color-bg-main: #0B1220;          /* Fond principal */
-  --color-bg-secondary: #0F172A;     /* Fond secondaire */
-  --color-card: #172033;              /* Surface des cartes */
-  --color-card-hover: #1E293B;        /* Surface élevée et cartes actives */
-  --color-border: #2B3A52;            /* Bordures et séparateurs */
-  --color-text-primary: #F8FAFC;     /* Texte principal */
-  --color-text-secondary: #AAB7CC;    /* Texte secondaire */
-  --color-cta: #16C7A3;               /* Action principale (turquoise) */
-  --color-cta-text: #0B1220;          /* Texte sur CTA */
-  --color-trust: #4F8CFF;             /* Confiance / info (bleu) */
-  --color-vip: #F2B84B;               /* Premium / VIP (ambre) */
-  --color-success: #22C55E;           /* Succès / gagné */
-  --color-error: #F87171;             /* Erreur / perdu */
+  /* ═══ VISION PULSE v58 — "La précision dans la nuit" ═══ */
+  --color-bg-main: #09141D;          /* Nuit Ardoise — fond principal */
+  --color-bg-secondary: #0D2029;     /* Bleu Abyssal — fond secondaire */
+  --color-card: #12323A;              /* Pétrole Profond — surface cartes */
+  --color-card-hover: #17454A;        /* Lagune Dense — surface active */
+  --color-border: #24525A;            /* Ligne Océanique — bordures */
+  --color-text-primary: #F1F8F5;     /* Ivoire Digital — texte principal */
+  --color-text-secondary: #9BB8BD;    /* Brume Bleutée — texte secondaire */
+  --color-cta: #18E0B5;               /* BTTSPulse — couleur de marque */
+  --color-cta-text: #09141D;          /* Texte sur BTTSPulse */
+  --color-trust: #63D8D0;             /* Cyan Serein — confiance */
+  --color-stats: #8F7CFF;             /* Violet Orbitale — statistiques */
+  --color-vip: #FF8066;               /* Corail Signature — premium */
+  --color-success: #5AF2A6;           /* Menthe Victoire — gagné */
+  --color-error: #FF667A;             /* Rouge Brumeux — perdu */
 
   /* Hover states */
-  --color-cta-hover: #1AE0B8;         /* Turquoise brighter */
-  --color-cta-active: #0FA88A;        /* Turquoise darker */
-  --color-trust-hover: #7AA5FF;       /* Bleu brighter */
-  --color-vip-hover: #FFD27A;         /* Ambre brighter */
-  --color-success-hover: #16A34A;     /* Vert darker */
-  --color-error-hover: #FCA5A5;       /* Rouge brighter */
-  --color-border-hover: #3B4A63;     /* Bordure brighter */
+  --color-cta-hover: #63D8D0;         /* CTA hover → Cyan Serein (per spec) */
+  --color-cta-active: #18E0B5;        /* CTA active → BTTSPulse */
+  --color-trust-hover: #63D8D0;       /* Trust hover */
+  --color-stats-hover: #8F7CFF;      /* Stats hover */
+  --color-vip-hover: #FF8066;         /* VIP hover */
+  --color-success-hover: #5AF2A6;     /* Success hover */
+  --color-error-hover: #FF667A;       /* Error hover */
+  --color-border-hover: #24525A;     /* Border hover */
 
-  /* Aliases mappés sur PREMIUM DARK v57 */
+  /* Aliases mappés sur VISION PULSE v58 */
   --color-abyss: var(--color-bg-main);
   --color-vault: var(--color-bg-secondary);
   --color-socle: var(--color-card);
@@ -64,31 +66,31 @@
   --color-primary: var(--color-cta);
   --color-primary-dark: var(--color-cta-active);
   --color-primary-light: var(--color-cta-hover);
-  --color-primary-glow: rgba(22, 199, 163, 0.2);
-  --color-primary-pale: rgba(22, 199, 163, 0.10);
+  --color-primary-glow: rgba(24, 224, 181, 0.25);
+  --color-primary-pale: rgba(24, 224, 181, 0.10);
 
   --color-secondary: var(--color-trust);
   --color-secondary-dark: var(--color-trust-hover);
   --color-secondary-light: var(--color-trust);
-  --color-secondary-glow: rgba(79, 140, 255, 0.2);
+  --color-secondary-glow: rgba(99, 216, 208, 0.2);
 
   --color-success-dark: var(--color-success-hover);
   --color-success-light: var(--color-success);
-  --color-success-pale: rgba(34, 197, 94, 0.10);
+  --color-success-pale: rgba(90, 242, 166, 0.10);
 
   --color-warning: var(--color-vip);
-  --color-warning-pale: rgba(242, 184, 75, 0.10);
-  --color-vip-glow: rgba(242, 184, 75, 0.2);
+  --color-warning-pale: rgba(255, 128, 102, 0.10);
+  --color-vip-glow: rgba(255, 128, 102, 0.2);
 
   --color-danger: var(--color-error);
   --color-danger-light: var(--color-error-hover);
-  --color-danger-pale: rgba(248, 113, 113, 0.10);
+  --color-danger-pale: rgba(255, 102, 122, 0.10);
 
   --color-accent-light: var(--color-trust-hover);
-  --color-accent-glow: rgba(79, 140, 255, 0.2);
+  --color-accent-glow: rgba(99, 216, 208, 0.2);
 
   --color-neon: var(--color-cta);
-  --color-neon-glow: rgba(22, 199, 163, 0.2);
+  --color-neon-glow: rgba(24, 224, 181, 0.25);
   --color-neon-green: var(--color-success);
   --color-emerald: var(--color-success);
   --color-emerald-soft: var(--color-success);
@@ -109,56 +111,58 @@
   --color-text-on-dark-secondary: var(--color-text-secondary);
 
   --grad-primary: linear-gradient(135deg, var(--color-cta) 0%, var(--color-cta-hover) 100%);
-  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(22, 199, 163,0.06) 0%, transparent 60%),
-               radial-gradient(50% 50% at 85% 10%, rgba(79, 140, 255,0.04) 0%, transparent 60%);
+  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(24, 224, 181,0.06) 0%, transparent 60%),
+               radial-gradient(50% 50% at 85% 10%, rgba(99, 216, 208,0.04) 0%, transparent 60%);
 
   --font-display: 'Poppins', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --shadow-card: 0 1px 2px rgba(11, 18, 32,0.3), 0 8px 30px rgba(11, 18, 32,0.4);
-  --shadow-cta: 0 0 0 1px rgba(22, 199, 163,.2), 0 8px 32px rgba(22, 199, 163,.10);
-  --shadow-glass: 0 1px 0 rgba(248, 250, 252,0.03) inset, 0 8px 30px rgba(11, 18, 32,0.3);
+  --shadow-card: 0 1px 2px rgba(9, 20, 29,0.3), 0 8px 30px rgba(9, 20, 29,0.4);
+  --shadow-cta: 0 0 0 1px rgba(24, 224, 181,.2), 0 8px 32px rgba(24, 224, 181,.10);
+  --shadow-glass: 0 1px 0 rgba(241, 248, 245,0.03) inset, 0 8px 30px rgba(9, 20, 29,0.3);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   :root — PREMIUM DARK v57 TOKENS (12 variables canoniques)
+   :root — VISION PULSE v58 TOKENS (14 variables canoniques)
    ════════════════════════════════════════════════════════════════════════════ */
 :root {
-  /* Fonds */
-  --bg-main: #0B1220;
-  --bg-secondary: #0F172A;
-  --card: #172033;
-  --card-hover: #1E293B;
-  --border: #2B3A52;
+  /* Fonds — palette océane nocturne */
+  --bg-main: #09141D;            /* Nuit Ardoise */
+  --bg-secondary: #0D2029;       /* Bleu Abyssal */
+  --card: #12323A;                /* Pétrole Profond */
+  --card-hover: #17454A;          /* Lagune Dense */
+  --border: #24525A;              /* Ligne Océanique */
 
   /* Texte */
-  --text-primary: #F8FAFC;
-  --text-secondary: #AAB7CC;
+  --text-primary: #F1F8F5;       /* Ivoire Digital */
+  --text-secondary: #9BB8BD;    /* Brume Bleutée */
 
-  /* Accents sémantiques */
-  --cta: #16C7A3;            /* Action principale */
-  --cta-text: #0B1220;
-  --trust: #4F8CFF;          /* Confiance / info */
-  --vip: #F2B84B;            /* Premium / VIP */
-  --success: #22C55E;        /* Gagné */
-  --error: #F87171;          /* Perdu / erreur */
+  /* Accents sémantiques — rôles stricts */
+  --cta: #18E0B5;                 /* BTTSPulse — couleur de marque */
+  --cta-text: #09141D;
+  --trust: #63D8D0;                /* Cyan Serein — confiance */
+  --stats: #8F7CFF;                /* Violet Orbitale — statistiques */
+  --vip: #FF8066;                  /* Corail Signature — premium */
+  --success: #5AF2A6;              /* Menthe Victoire — gagné */
+  --error: #FF667A;                /* Rouge Brumeux — perdu */
 
-  /* Hover states (per spec) */
-  --cta-hover: #1AE0B8;
-  --cta-active: #0FA88A;
-  --trust-hover: #7AA5FF;
-  --vip-hover: #FFD27A;
-  --success-hover: #16A34A;
-  --error-hover: #FCA5A5;
-  --border-hover: #3B4A63;
+  /* Hover states */
+  --cta-hover: #63D8D0;
+  --cta-active: #18E0B5;
+  --trust-hover: #63D8D0;
+  --stats-hover: #8F7CFF;
+  --vip-hover: #FF8066;
+  --success-hover: #5AF2A6;
+  --error-hover: #FF667A;
+  --border-hover: #24525A;
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
    HOVER / ACTIVE / FOCUS STATES (Step 4 — MANDATORY)
    ════════════════════════════════════════════════════════════════════════════ */
 
-/* CTA Hover: bg #1AE0B8, text #0B1220, transition 200ms ease */
+/* CTA Hover: bg #63D8D0, text #09141D, transition 200ms ease */
 .vip-glass-cta:hover,
 .btn-primary:hover,
 .btn-vip:hover,
@@ -172,7 +176,7 @@ button[type="submit"]:hover,
   transition: background-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
 }
 
-/* CTA Active: bg #0FA88A */
+/* CTA Active: bg #18E0B5 */
 .vip-glass-cta:active,
 .btn-primary:active,
 .btn-vip:active,
@@ -184,7 +188,7 @@ button[type="submit"]:active,
   background-color: var(--cta-bg-active) !important;
 }
 
-/* Accent Hover: #7AA5FF (links, secondary buttons, tabs) */
+/* Accent Hover: #63D8D0 (links, secondary buttons, tabs) */
 a:hover,
 .nav-link:hover,
 .link:hover,
@@ -196,14 +200,14 @@ a:hover,
   transition: color 200ms ease;
 }
 
-/* Secondary button hover: bg rgba(79, 140, 255,0.1) */
+/* Secondary button hover: bg rgba(99, 216, 208,0.1) */
 .btn-secondary:hover,
 .secondary-button:hover {
-  background-color: rgba(79, 140, 255, 0.1);
+  background-color: rgba(99, 216, 208, 0.1);
   border-color: var(--accent);
 }
 
-/* Success Hover: #16A34A */
+/* Success Hover: #5AF2A6 */
 .badge-success:hover,
 .win:hover,
 .success:hover,
@@ -217,7 +221,7 @@ a:hover,
   transition: background-color 200ms ease;
 }
 
-/* Card Hover: border-color #3B4A63 */
+/* Card Hover: border-color #24525A */
 .card:hover,
 .container:hover,
 .panel:hover,
@@ -229,7 +233,7 @@ a:hover,
   transition: border-color 200ms ease;
 }
 
-/* Link Hover: underline color #4F8CFF */
+/* Link Hover: underline color #63D8D0 */
 a:hover {
   text-decoration-color: var(--accent);
 }
@@ -244,12 +248,12 @@ html {
 }
 
 body {
-  background: #0B1220;
+  background: #09141D;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(22, 199, 163, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(22, 199, 163, 0.02) 0%, transparent 40%);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(24, 224, 181, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(24, 224, 181, 0.02) 0%, transparent 40%);
   background-attachment: fixed;
-  color: #F8FAFC;
+  color: #F1F8F5;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
@@ -272,8 +276,8 @@ body::before {
   pointer-events: none;
   z-index: -1;
   background-image: 
-    linear-gradient(rgba(248, 250, 252, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(248, 250, 252, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(241, 248, 245, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(241, 248, 245, 0.02) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -287,7 +291,7 @@ h1, h2, h3, h4, h5, h6 {
 p { line-height: 1.7; }
 
 ::selection {
-  background: rgba(34, 197, 94, 0.4);
+  background: rgba(90, 242, 166, 0.4);
   color: #fff;
 }
 
@@ -419,7 +423,7 @@ a:hover { color: var(--color-primary-light); }
   border: 1px solid var(--color-card-border);
 }
 .btn-ghost:hover {
-  background: rgba(248, 250, 252, 0.05);
+  background: rgba(241, 248, 245, 0.05);
   border-color: var(--color-card-border-hover);
 }
 
@@ -451,25 +455,25 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .card-gradient {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%);
-  border: 1px solid rgba(34, 197, 94, 0.2);
+  background: linear-gradient(135deg, rgba(90, 242, 166, 0.1) 0%, rgba(90, 242, 166, 0.05) 100%);
+  border: 1px solid rgba(90, 242, 166, 0.2);
   border-radius: var(--radius-xl);
   padding: 2rem;
 }
 
 .card-primary {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0.1) 100%);
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  background: linear-gradient(135deg, rgba(90, 242, 166, 0.15) 0%, rgba(90, 242, 166, 0.1) 100%);
+  border: 1px solid rgba(90, 242, 166, 0.3);
   border-radius: var(--radius-xl);
   padding: 1.5rem;
 }
 
 .card-vip {
-  background: linear-gradient(135deg, rgba(22, 199, 163, 0.1) 0%, rgba(22, 199, 163, 0.05) 100%);
-  border: 1px solid rgba(22, 199, 163, 0.3);
+  background: linear-gradient(135deg, rgba(24, 224, 181, 0.1) 0%, rgba(24, 224, 181, 0.05) 100%);
+  border: 1px solid rgba(24, 224, 181, 0.3);
   border-radius: var(--radius-xl);
   padding: 1.5rem;
-  box-shadow: 0 0 30px rgba(22, 199, 163, 0.1);
+  box-shadow: 0 0 30px rgba(24, 224, 181, 0.1);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -486,40 +490,40 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .badge-primary {
-  background: rgba(34, 197, 94, 0.2);
+  background: rgba(90, 242, 166, 0.2);
   color: var(--color-primary-light);
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  border: 1px solid rgba(90, 242, 166, 0.3);
 }
 
 .badge-success {
-  background: rgba(34, 197, 94, 0.2);
+  background: rgba(90, 242, 166, 0.2);
   color: var(--color-success-light);
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  border: 1px solid rgba(90, 242, 166, 0.3);
 }
 
 .badge-warning {
-  background: rgba(22, 199, 163, 0.2);
+  background: rgba(24, 224, 181, 0.2);
   color: var(--color-warning-light);
-  border: 1px solid rgba(22, 199, 163, 0.3);
+  border: 1px solid rgba(24, 224, 181, 0.3);
 }
 
 .badge-danger {
-  background: rgba(22, 199, 163, 0.2);
+  background: rgba(24, 224, 181, 0.2);
   color: var(--color-danger-light);
-  border: 1px solid rgba(22, 199, 163, 0.3);
+  border: 1px solid rgba(24, 224, 181, 0.3);
 }
 
 .badge-vip {
-  background: linear-gradient(135deg, rgba(22, 199, 163, 0.2) 0%, rgba(22, 199, 163, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(24, 224, 181, 0.2) 0%, rgba(24, 224, 181, 0.1) 100%);
   color: var(--color-vip);
-  border: 1px solid rgba(22, 199, 163, 0.3);
-  box-shadow: 0 0 20px rgba(22, 199, 163, 0.1);
+  border: 1px solid rgba(24, 224, 181, 0.3);
+  box-shadow: 0 0 20px rgba(24, 224, 181, 0.1);
 }
 
 .badge-live {
-  background: rgba(22, 199, 163, 0.2);
+  background: rgba(24, 224, 181, 0.2);
   color: var(--color-danger-light);
-  border: 1px solid rgba(22, 199, 163, 0.3);
+  border: 1px solid rgba(24, 224, 181, 0.3);
 }
 .badge-live::before {
   content: '';
@@ -593,8 +597,8 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .match-card.featured {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0.1) 100%);
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  background: linear-gradient(135deg, rgba(90, 242, 166, 0.15) 0%, rgba(90, 242, 166, 0.1) 100%);
+  border: 1px solid rgba(90, 242, 166, 0.3);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -909,7 +913,7 @@ a:hover { color: var(--color-primary-light); }
 /* Carte VIP Glassmorphism */
 .vip-glass-card {
   position: relative;
-  background: rgba(15, 23, 42, 0.65);
+  background: rgba(13, 32, 41, 0.65);
   backdrop-filter: blur(10px) saturate(180%);
   -webkit-backdrop-filter: blur(10px) saturate(180%);
   border: 1px solid transparent;
@@ -918,11 +922,11 @@ a:hover { color: var(--color-primary-light); }
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow:
-    0 8px 32px rgba(11, 18, 32, 0.5),
-    0 2px 8px rgba(11, 18, 32, 0.3),
-    inset 0 1px 0 rgba(248, 250, 252, 0.06);
-  background-image: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)),
-                    linear-gradient(135deg, rgba(22, 199, 163, 0.15), rgba(22, 199, 163, 0.08));
+    0 8px 32px rgba(9, 20, 29, 0.5),
+    0 2px 8px rgba(9, 20, 29, 0.3),
+    inset 0 1px 0 rgba(241, 248, 245, 0.06);
+  background-image: linear-gradient(rgba(13, 32, 41, 0.65), rgba(13, 32, 41, 0.65)),
+                    linear-gradient(135deg, rgba(24, 224, 181, 0.15), rgba(24, 224, 181, 0.08));
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
@@ -934,7 +938,7 @@ a:hover { color: var(--color-primary-light); }
   inset: 0;
   border-radius: 16px;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(22, 199, 163, 0.5), rgba(22, 199, 163, 0.3), rgba(22, 199, 163, 0.1));
+  background: linear-gradient(135deg, rgba(24, 224, 181, 0.5), rgba(24, 224, 181, 0.3), rgba(24, 224, 181, 0.1));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -950,7 +954,7 @@ a:hover { color: var(--color-primary-light); }
   left: 20%;
   right: 20%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(22, 199, 163, 0.6), transparent);
+  background: linear-gradient(90deg, transparent, rgba(24, 224, 181, 0.6), transparent);
   pointer-events: none;
 }
 
@@ -958,16 +962,16 @@ a:hover { color: var(--color-primary-light); }
 .vip-glass-card:hover {
   transform: translateY(-6px);
   box-shadow:
-    0 20px 48px rgba(11, 18, 32, 0.6),
-    0 8px 24px rgba(22, 199, 163, 0.15),
-    inset 0 1px 0 rgba(248, 250, 252, 0.08);
+    0 20px 48px rgba(9, 20, 29, 0.6),
+    0 8px 24px rgba(24, 224, 181, 0.15),
+    inset 0 1px 0 rgba(241, 248, 245, 0.08);
   backdrop-filter: blur(14px) saturate(200%);
   -webkit-backdrop-filter: blur(14px) saturate(200%);
 }
 
 /* Halo d'accent au hover */
 .vip-glass-card:hover::before {
-  background: linear-gradient(135deg, rgba(22, 199, 163, 0.8), rgba(22, 199, 163, 0.5), rgba(22, 199, 163, 0.3));
+  background: linear-gradient(135deg, rgba(24, 224, 181, 0.8), rgba(24, 224, 181, 0.5), rgba(24, 224, 181, 0.3));
 }
 
 /* En-tête carte : niveau VIP + logo */
@@ -984,8 +988,8 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 1.25rem;
-  color: #F2B84B;
-  text-shadow: 0 0 20px rgba(242, 184, 75, 0.3);
+  color: #FF8066;
+  text-shadow: 0 0 20px rgba(255, 128, 102, 0.3);
   letter-spacing: 0.02em;
 }
 
@@ -999,18 +1003,18 @@ a:hover { color: var(--color-primary-light); }
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: linear-gradient(135deg, #16C7A3, #16C7A3);
+  background: linear-gradient(135deg, #18E0B5, #18E0B5);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 16px rgba(22, 199, 163, 0.4);
+  box-shadow: 0 0 16px rgba(24, 224, 181, 0.4);
 }
 
 .vip-glass-logo-text {
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
-  color: #F8FAFC;
+  color: #F1F8F5;
 }
 
 /* Corps carte : utilisateur + avantages */
@@ -1023,7 +1027,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  color: #F8FAFC;
+  color: #F1F8F5;
   margin-bottom: 1rem;
 }
 
@@ -1042,7 +1046,7 @@ a:hover { color: var(--color-primary-light); }
   gap: 0.625rem;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.8125rem;
-  color: #AAB7CC;
+  color: #9BB8BD;
   line-height: 1.5;
 }
 
@@ -1053,8 +1057,8 @@ a:hover { color: var(--color-primary-light); }
   height: 6px;
   margin-top: 6px;
   border-radius: 50%;
-  background: #16C7A3;
-  box-shadow: 0 0 8px rgba(22, 199, 163, 0.6);
+  background: #18E0B5;
+  box-shadow: 0 0 8px rgba(24, 224, 181, 0.6);
 }
 
 /* Pied carte : statut */
@@ -1064,7 +1068,7 @@ a:hover { color: var(--color-primary-light); }
   justify-content: space-between;
   margin-top: 1.25rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(248, 250, 252, 0.06);
+  border-top: 1px solid rgba(241, 248, 245, 0.06);
   position: relative;
   z-index: 2;
 }
@@ -1076,7 +1080,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.6875rem;
   font-weight: 600;
-  color: #16C7A3;
+  color: #18E0B5;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -1086,8 +1090,8 @@ a:hover { color: var(--color-primary-light); }
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #16C7A3;
-  box-shadow: 0 0 8px rgba(22, 199, 163, 0.8);
+  background: #18E0B5;
+  box-shadow: 0 0 8px rgba(24, 224, 181, 0.8);
   animation: vip-pulse 2s ease-in-out infinite;
 }
 
@@ -1099,7 +1103,7 @@ a:hover { color: var(--color-primary-light); }
 .vip-glass-meta {
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.6875rem;
-  color: #2B3A52;
+  color: #24525A;
 }
 
 /* CTA carte VIP glassmorphism */
@@ -1111,8 +1115,8 @@ a:hover { color: var(--color-primary-light); }
   width: 100%;
   padding: 0.75rem 1.25rem;
   margin-top: 1.25rem;
-  background: linear-gradient(135deg, #16C7A3 0%, #16C7A3 100%);
-  color: #0B1220;
+  background: linear-gradient(135deg, #18E0B5 0%, #18E0B5 100%);
+  color: #09141D;
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
@@ -1120,15 +1124,15 @@ a:hover { color: var(--color-primary-light); }
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(22, 199, 163, 0.3);
+  box-shadow: 0 4px 16px rgba(24, 224, 181, 0.3);
   position: relative;
   z-index: 2;
 }
 
 .vip-glass-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(22, 199, 163, 0.5);
-  background: linear-gradient(135deg, #1AE0B8 0%, #16C7A3 100%);
+  box-shadow: 0 8px 24px rgba(24, 224, 181, 0.5);
+  background: linear-gradient(135deg, #63D8D0 0%, #18E0B5 100%);
   filter: brightness(1.08);
 }
 
@@ -1138,17 +1142,38 @@ a:hover { color: var(--color-primary-light); }
 
 /* Badge or champagne pour cartes premium */
 .vip-glass-card.gold {
-  background-image: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)),
-                    linear-gradient(135deg, rgba(242, 184, 75, 0.2), rgba(242, 184, 75, 0.1));
+  background-image: linear-gradient(rgba(13, 32, 41, 0.65), rgba(13, 32, 41, 0.65)),
+                    linear-gradient(135deg, rgba(255, 128, 102, 0.2), rgba(255, 128, 102, 0.1));
 }
 
 .vip-glass-card.gold::before {
-  background: linear-gradient(135deg, rgba(242, 184, 75, 0.6), rgba(242, 184, 75, 0.3), rgba(242, 184, 75, 0.2));
+  background: linear-gradient(135deg, rgba(255, 128, 102, 0.6), rgba(255, 128, 102, 0.3), rgba(255, 128, 102, 0.2));
 }
 
 .vip-glass-card.gold .vip-glass-level {
-  color: #F2B84B;
-  text-shadow: 0 0 24px rgba(242, 184, 75, 0.5);
+  color: #FF8066;
+  text-shadow: 0 0 24px rgba(255, 128, 102, 0.5);
+}
+
+/* Silver — Brume Bleutée sobre */
+.vip-glass-card.silver .vip-glass-level {
+  color: #9BB8BD;
+  text-shadow: 0 0 16px rgba(155, 184, 189, 0.3);
+}
+
+/* Elite — Corail avec bordure plus forte */
+.vip-glass-card.elite {
+  background-image: linear-gradient(rgba(13, 32, 41, 0.65), rgba(13, 32, 41, 0.65)),
+                    linear-gradient(135deg, rgba(255, 128, 102, 0.25), rgba(255, 128, 102, 0.15));
+}
+
+.vip-glass-card.elite::before {
+  background: linear-gradient(135deg, rgba(255, 128, 102, 0.8), rgba(255, 128, 102, 0.5), rgba(255, 128, 102, 0.3));
+}
+
+.vip-glass-card.elite .vip-glass-level {
+  color: #FF8066;
+  text-shadow: 0 0 28px rgba(255, 128, 102, 0.6);
 }
 
 /* Responsive : padding réduit sur mobile */

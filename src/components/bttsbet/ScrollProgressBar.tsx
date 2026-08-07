@@ -43,8 +43,8 @@ export default function ScrollProgressBar() {
         style={{
           transform: `scaleX(${progress})`,
           background:
-            'linear-gradient(90deg, #16C7A3 0%, #16C7A3 30%, #22C55E 60%, #16C7A3 85%, #22C55E 100%)',
-          boxShadow: '0 0 8px rgba(22, 199, 163, 0.5), 0 0 20px rgba(22, 199, 163, 0.2)',
+            'linear-gradient(90deg, #18E0B5 0%, #18E0B5 30%, #5AF2A6 60%, #18E0B5 85%, #5AF2A6 100%)',
+          boxShadow: '0 0 8px rgba(24, 224, 181, 0.5), 0 0 20px rgba(24, 224, 181, 0.2)',
         }}
       />
     </div>

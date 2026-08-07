@@ -97,13 +97,13 @@ export default function MobileTabBar() {
       className="fixed bottom-0 left-0 right-0 z-40 md:hidden"
       style={{
         display: 'flex',
-        backgroundColor: 'rgba(11, 18, 32, 0.97)',
+        backgroundColor: 'rgba(9, 20, 29, 0.97)',
         backdropFilter: 'blur(20px) saturate(180%)',
         WebkitBackdropFilter: 'blur(20px) saturate(180%)',
         // Bordure subtile en haut — sobre
-        borderTop: '1px solid #2B3A52',
+        borderTop: '1px solid #24525A',
         // Ombre légère — pas de halo agressif
-        boxShadow: '0 -4px 16px rgba(11, 18, 32, 0.4)',
+        boxShadow: '0 -4px 16px rgba(9, 20, 29, 0.4)',
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
         height: 'calc(60px + env(safe-area-inset-bottom, 0px))',
       }}
@@ -118,13 +118,13 @@ export default function MobileTabBar() {
             className="flex-1 flex flex-col items-center justify-center gap-1 transition-all duration-200 relative"
             style={{
               // Actif = turquoise sobre, Inactif = gris lisible
-              color: isActive ? '#16C7A3' : '#AAB7CC',
+              color: isActive ? '#18E0B5' : '#9BB8BD',
               minHeight: '48px',
               textShadow: isActive
-                ? '0 0 8px rgba(22, 199, 163, 0.4)'
+                ? '0 0 8px rgba(24, 224, 181, 0.4)'
                 : 'none',
               filter: isActive
-                ? 'drop-shadow(0 0 4px rgba(22, 199, 163, 0.4))'
+                ? 'drop-shadow(0 0 4px rgba(24, 224, 181, 0.4))'
                 : 'none',
             }}
             aria-label={tab.label}
@@ -139,8 +139,8 @@ export default function MobileTabBar() {
                   width: '32px',
                   height: '3px',
                   borderRadius: '2px',
-                  background: '#16C7A3',
-                  boxShadow: '0 0 8px rgba(22, 199, 163, 0.6)',
+                  background: '#18E0B5',
+                  boxShadow: '0 0 8px rgba(24, 224, 181, 0.6)',
                 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               />
@@ -151,7 +151,7 @@ export default function MobileTabBar() {
             <span
               className="text-[9px] font-bold uppercase tracking-wider"
               style={{
-                color: isActive ? '#16C7A3' : '#AAB7CC',
+                color: isActive ? '#18E0B5' : '#9BB8BD',
               }}
             >
               {tab.label}

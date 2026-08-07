@@ -94,7 +94,7 @@ export default function PwaInstallPrompt() {
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           className="fixed bottom-4 left-4 right-4 z-[9999] max-w-lg mx-auto"
         >
-          <div className="bg-[#0F172A] border border-emerald/20 rounded-2xl p-4 shadow-2xl shadow-black/50 backdrop-blur-xl">
+          <div className="bg-[#0D2029] border border-emerald/20 rounded-2xl p-4 shadow-2xl shadow-black/50 backdrop-blur-xl">
             <div className="flex items-start gap-3">
               {/* App icon */}
               <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald/10 border border-emerald/20 flex items-center justify-center overflow-hidden">

@@ -33,12 +33,12 @@ type ResultFilter = 'all' | 'won' | 'lost'
 type TypeFilter = 'all' | 'BTTS' | 'O2.5'
 
 const COLORS = {
-  success: '#22C55E',
-  lose: '#16C7A3',
-  gold: '#16C7A3',
-  panel: '#0F172A',
-  edge: 'rgba(248, 250, 252, 0.08)',
-  text: '#AAB7CC',
+  success: '#5AF2A6',
+  lose: '#18E0B5',
+  gold: '#18E0B5',
+  panel: '#0D2029',
+  edge: 'rgba(241, 248, 245, 0.08)',
+  text: '#9BB8BD',
 }
 
 function TeamLogoMini({ src, alt }: { src?: string; alt: string }) {
@@ -154,7 +154,7 @@ function TypeDistribution({ history }: { history: HistoryItem[] }) {
                 animate={{ width: `${d.rate}%` }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
                 className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-success-dark to-success"
-                style={{ boxShadow: '0 0 8px rgba(34, 197, 94, 0.4)' }}
+                style={{ boxShadow: '0 0 8px rgba(90, 242, 166, 0.4)' }}
               />
             </div>
             <div className="flex items-center justify-between text-[9px] text-cendre mt-1">
@@ -446,9 +446,9 @@ export default function WinHistory() {
             href="/historique"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold transition-all"
             style={{
-              background: 'linear-gradient(135deg, #16C7A3, #22C55E)',
-              color: '#0B1220',
-              boxShadow: '0 4px 16px rgba(22, 199, 163, 0.25)',
+              background: 'linear-gradient(135deg, #18E0B5, #5AF2A6)',
+              color: '#09141D',
+              boxShadow: '0 4px 16px rgba(24, 224, 181, 0.25)',
             }}
           >
             Voir l'historique complet des pronostics (gagnés et perdus) →
@@ -477,8 +477,8 @@ export default function WinHistory() {
           transition={{ duration: 0.4 }}
           className="mt-6 p-4 rounded-xl"
           style={{
-            background: 'linear-gradient(135deg, rgba(22, 199, 163, 0.04), rgba(22, 199, 163, 0.04))',
-            border: '1px solid rgba(22, 199, 163, 0.12)',
+            background: 'linear-gradient(135deg, rgba(24, 224, 181, 0.04), rgba(24, 224, 181, 0.04))',
+            border: '1px solid rgba(24, 224, 181, 0.12)',
           }}
         >
           <p className="text-[12px] text-cendre leading-relaxed text-center">
