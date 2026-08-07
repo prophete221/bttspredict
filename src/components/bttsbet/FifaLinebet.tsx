@@ -6,9 +6,9 @@ import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
 
 const C = {
-  bg: '#0D0F12', card: '#1E2228', border: 'rgba(244, 247, 250, 0.08)',
-  green: '#2D5BFF', greenLight: '#4E78FF', gold: '#D4AF37', cyan: '#2D5BFF', violet: '#4E78FF',
-  text: '#F4F7FA', textSec: '#A8B3C7', textMute: '#484F58',
+  bg: '#090A0B', card: '#171A1C', border: 'rgba(245, 242, 237, 0.08)',
+  green: '#D8BA91', greenLight: '#E5CDB0', gold: '#D8BA91', cyan: '#D8BA91', violet: '#E5CDB0',
+  text: '#F5F2ED', textSec: '#9A9791', textMute: '#484F58',
 }
 
 const FIFA_TEAMS = [
@@ -78,21 +78,21 @@ export default function FifaLinebet() {
             <div className="p-3.5">
               {/* Header — compact */}
               <div className="flex items-center gap-2.5 mb-3">
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.2)' }}>
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(216,186,145,0.1)', border: '1px solid rgba(216,186,145,0.2)' }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="2"><line x1="6" y1="11" x2="10" y2="11"/><line x1="8" y1="9" x2="8" y2="13"/><line x1="15" y1="12" x2="17" y2="12"/><line x1="17" y1="10" x2="17" y2="14"/><rect x="2" y="6" width="20" height="12" rx="2"/></svg>
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="text-sm font-bold text-white">Value Bets FIFA</h3>
                   <p className="text-[9px]" style={{ color: C.textMute }}>IA détection de cotes sous-évaluées</p>
                 </div>
-                <div className="flex items-center gap-1 px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(212,175,55,0.1)' }}>
+                <div className="flex items-center gap-1 px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(216,186,145,0.1)' }}>
                   <span className="w-1 h-1 rounded-full animate-pulse" style={{ backgroundColor: C.gold }} />
                   <span className="font-mono text-[8px] font-bold" style={{ color: C.gold }}>LIVE</span>
                 </div>
               </div>
 
               {/* Warning — compact */}
-              <div className="p-2 rounded-lg mb-3" style={{ backgroundColor: 'rgba(212,175,55,0.06)', border: '1px solid rgba(212,175,55,0.15)' }}>
+              <div className="p-2 rounded-lg mb-3" style={{ backgroundColor: 'rgba(216,186,145,0.06)', border: '1px solid rgba(216,186,145,0.15)' }}>
                 <p className="text-[9px] leading-relaxed" style={{ color: C.textSec }}>
                   ⚠️ <span style={{ color: C.gold }}>Value Bets :</span> Estimations statistiques. Cotes élevées, risque élevé. Pas de garantie de gain.
                 </p>
@@ -100,11 +100,11 @@ export default function FifaLinebet() {
 
               {/* KPI — compact 3 inline */}
               <div className="flex items-center gap-1.5 mb-3">
-                <div className="flex-1 p-2 rounded-lg text-center" style={{ backgroundColor: '#1E2228' }}>
+                <div className="flex-1 p-2 rounded-lg text-center" style={{ backgroundColor: '#171A1C' }}>
                   <div className="text-sm font-bold tabular-nums text-white">{matches.length}</div>
                   <div className="text-[8px] uppercase tracking-wider" style={{ color: C.textMute }}>Matchs</div>
                 </div>
-                <div className="flex-1 p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(212,175,55,0.06)' }}>
+                <div className="flex-1 p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(216,186,145,0.06)' }}>
                   <div className="text-sm font-bold tabular-nums" style={{ color: C.gold }}>VIP</div>
                   <div className="text-[8px] uppercase tracking-wider" style={{ color: C.textMute }}>Cote totale</div>
                 </div>
@@ -134,7 +134,7 @@ export default function FifaLinebet() {
               <button
                 onClick={() => setShowModal(true)}
                 className="w-full mt-3 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-xs font-bold transition-all"
-                style={{ background: 'linear-gradient(135deg, #2D5BFF, #4E78FF)', color: '#F4F7FA' }}
+                style={{ background: 'linear-gradient(135deg, #D8BA91, #E5CDB0)', color: '#F5F2ED' }}
               >
                 🔒 Débloquer les Value Bets FIFA
               </button>

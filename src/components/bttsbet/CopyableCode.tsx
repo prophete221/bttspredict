@@ -80,7 +80,7 @@ export default function CopyableCode({
           className="cursor-pointer font-mono font-black tracking-[0.1em] transition-all"
           aria-label={`Copier le code promo ${code}`}
           style={{
-            background: 'linear-gradient(100deg, #D4AF37 0%, #FFE066 30%, #D4AF37 50%, #FFE066 70%, #D4AF37 100%)',
+            background: 'linear-gradient(100deg, #D8BA91 0%, #FFE066 30%, #D8BA91 50%, #FFE066 70%, #D8BA91 100%)',
             backgroundSize: '200% 100%',
             WebkitBackgroundClip: 'text',
             backgroundClip: 'text',
@@ -96,7 +96,7 @@ export default function CopyableCode({
           onClick={copy}
           whileTap={{ scale: 0.9 }}
           className="inline-flex items-center justify-center w-4 h-4 rounded transition-colors"
-          style={{ color: copied ? '#2D5BFF' : '#D4AF37' }}
+          style={{ color: copied ? '#D8BA91' : '#D8BA91' }}
           aria-label="Copier"
         >
           {copied ? (
@@ -122,7 +122,7 @@ export default function CopyableCode({
         whileTap={{ scale: 0.95 }}
         className={`cursor-pointer font-bold transition-colors ${displayClassName}`}
         aria-label={`Copier le code promo ${code}`}
-        style={{ borderBottom: '1px dashed rgba(45, 91, 255, 0.3)' }}
+        style={{ borderBottom: '1px dashed rgba(216, 186, 145, 0.3)' }}
       >
         {code}
       </motion.button>
@@ -130,7 +130,7 @@ export default function CopyableCode({
         onClick={copy}
         whileTap={{ scale: 0.9 }}
         className="inline-flex items-center justify-center w-4 h-4 rounded transition-colors"
-        style={{ color: copied ? '#2D5BFF' : '#2D5BFF' }}
+        style={{ color: copied ? '#D8BA91' : '#D8BA91' }}
         aria-label="Copier"
       >
         {copied ? (

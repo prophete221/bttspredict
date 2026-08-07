@@ -6,25 +6,25 @@ import { AFFILIATE } from '@/lib/constants'
 
 // ─── Palette BTTSPredict 2026 — produit data + paris sportifs ───
 const C = {
-  black:        '#0D0F12',
-  darkGreen:    '#0D0F12',
-  green:        '#2D5BFF',
-  greenLight:   '#4E78FF',
-  greenPale:    'rgba(45, 91, 255, 0.12)',
-  grayDark:     '#0D0F12',
-  grayMid:      '#A8B3C7',
-  grayLight:    '#F4F7FA',
-  white:        '#F4F7FA',
-  gold:         '#D4AF37',
-  blue:         '#2D5BFF',
+  black:        '#090A0B',
+  darkGreen:    '#090A0B',
+  green:        '#D8BA91',
+  greenLight:   '#E5CDB0',
+  greenPale:    'rgba(216, 186, 145, 0.12)',
+  grayDark:     '#090A0B',
+  grayMid:      '#9A9791',
+  grayLight:    '#F5F2ED',
+  white:        '#F5F2ED',
+  gold:         '#D8BA91',
+  blue:         '#D8BA91',
 }
 
 /**
  * Hero (refonte palette 2026-08-05)
- * - Fond : dégradé vert foncé #00A87E → noir #0D0F12
+ * - Fond : dégradé vert foncé #A3B5A8 → noir #090A0B
  * - H1 : "N°1 mondial des prédictions BTTS et Over 2.5" en blanc
- * - Badge : 84,5% vérifié en fond vert secondaire #4E78FF
- * - CTA principal : vert #2D5BFF
+ * - Badge : 84,5% vérifié en fond vert secondaire #E5CDB0
+ * - CTA principal : vert #D8BA91
  * - CTA secondaire : transparent, bordure vert, texte vert
  */
 export default function Hero() {
@@ -35,14 +35,14 @@ export default function Hero() {
       ref={sectionRef}
       className="relative overflow-hidden"
       style={{
-        background: `linear-gradient(180deg, #1E2228 0%, #0D0F12 100%)`,
+        background: `linear-gradient(180deg, #171A1C 0%, #090A0B 100%)`,
         paddingTop: '40px',
         paddingBottom: '40px',
       }}
     >
       <div className="relative z-10 max-w-[440px] mx-auto px-4 flex flex-col gap-5">
 
-        {/* ═══ BADGE PREUVE — 84,5% vérifié (vert secondaire #4E78FF) ═══ */}
+        {/* ═══ BADGE PREUVE — 84,5% vérifié (vert secondaire #E5CDB0) ═══ */}
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={isVisible ? { opacity: 1, y: 0 } : undefined}
@@ -97,7 +97,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-col gap-2.5"
         >
-          {/* CTA principal : Voir les pronostics d'aujourd'hui (vert #2D5BFF) */}
+          {/* CTA principal : Voir les pronostics d'aujourd'hui (vert #D8BA91) */}
           <motion.button
             whileHover={{ scale: 1.02, boxShadow: `0 8px 30px ${C.green}66` }}
             whileTap={{ scale: 0.98 }}
@@ -150,7 +150,7 @@ export default function Hero() {
           </motion.a>
         </motion.div>
 
-        {/* ═══ MINI-TEXTE PORTÉE MONDIALE (gris moyen #A8B3C7) ═══ */}
+        {/* ═══ MINI-TEXTE PORTÉE MONDIALE (gris moyen #9A9791) ═══ */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : undefined}
@@ -170,19 +170,19 @@ export default function Hero() {
         >
           <span
             className="inline-flex items-center gap-1 px-2 py-1 rounded-full font-medium"
-            style={{ backgroundColor: 'rgba(45, 91, 255, 0.08)', color: '#2D5BFF', border: '1px solid rgba(45, 91, 255, 0.15)' }}
+            style={{ backgroundColor: 'rgba(216, 186, 145, 0.08)', color: '#D8BA91', border: '1px solid rgba(216, 186, 145, 0.15)' }}
           >
             🔒 SSL Sécurisé
           </span>
           <span
             className="inline-flex items-center gap-1 px-2 py-1 rounded-full font-medium"
-            style={{ backgroundColor: 'rgba(45, 91, 255, 0.08)', color: '#2D5BFF', border: '1px solid rgba(45, 91, 255, 0.15)' }}
+            style={{ backgroundColor: 'rgba(216, 186, 145, 0.08)', color: '#D8BA91', border: '1px solid rgba(216, 186, 145, 0.15)' }}
           >
             ✅ Historique vérifiable
           </span>
           <span
             className="inline-flex items-center gap-1 px-2 py-1 rounded-full font-medium"
-            style={{ backgroundColor: 'rgba(45, 91, 255, 0.08)', color: '#2D5BFF', border: '1px solid rgba(45, 91, 255, 0.15)' }}
+            style={{ backgroundColor: 'rgba(216, 186, 145, 0.08)', color: '#D8BA91', border: '1px solid rgba(216, 186, 145, 0.15)' }}
           >
             🛡️ Jeu responsable
           </span>

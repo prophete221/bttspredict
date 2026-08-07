@@ -14,94 +14,81 @@
 @import "tailwindcss";
 
 @theme {
-  /* ═══ Palette BTTSPredict — Institutional Premium ═══ */
-  /* ── Surfaces sombres (fond principal + cartes) ── */
-  --color-dark-900: #0D0F12;   /* Main Background */
-  --color-dark-800: #1E2228;   /* Secondary Background / Cards */
-  --color-dark-700: #0D0F12;
-  --color-dark-600: #1E2228;
-  --color-dark-500: #2A2E35;
-  --color-dark-400: #3A3F47;
+  /* ═══ ATELIER NOIR — Signature Palette ═══ */
+  --color-dark-900: #090A0B;
+  --color-dark-800: #171A1C;
+  --color-dark-700: #090A0B;
+  --color-dark-600: #171A1C;
+  --color-dark-500: #232726;
+  --color-dark-400: #2E3332;
 
-  /* ── Card surfaces ── */
-  --color-card: #1E2228;
-  --color-card-hover: #252A32;
-  --color-card-border: #2A2E35;
-  --color-card-border-hover: #2D5BFF;
+  --color-card: #232726;
+  --color-card-hover: #2A2E2D;
+  --color-card-border: #2E3332;
+  --color-card-border-hover: #D8BA91;
 
-  /* ── Brand Accents / Navigation / Secondary Buttons ── */
-  --color-primary: #2D5BFF;
-  --color-primary-dark: #1E3FCC;
-  --color-primary-light: #4E78FF;
-  --color-primary-glow: rgba(45, 91, 255, 0.3);
-  --color-primary-pale: rgba(45, 91, 255, 0.12);
+  --color-primary: #D8BA91;
+  --color-primary-dark: #C0A074;
+  --color-primary-light: #E5CDB0;
+  --color-primary-glow: rgba(216, 186, 145, 0.2);
+  --color-primary-pale: rgba(216, 186, 145, 0.10);
 
-  /* ── CTA / VIP / Premium (Gold) ── */
-  --color-secondary: #D4AF37;
-  --color-secondary-dark: #B8941E;
-  --color-secondary-light: #E5C158;
-  --color-secondary-glow: rgba(212, 175, 55, 0.3);
+  --color-secondary: #D8BA91;
+  --color-secondary-dark: #C0A074;
+  --color-secondary-light: #E5CDB0;
+  --color-secondary-glow: rgba(216, 186, 145, 0.2);
 
-  /* ── Success / Win / Positive ── */
-  --color-success: #00A87E;
-  --color-success-dark: #008A66;
-  --color-success-light: #1BC298;
-  --color-success-pale: rgba(0, 168, 126, 0.12);
+  --color-success: #A3B5A8;
+  --color-success-dark: #8B9E92;
+  --color-success-light: #B9C9BE;
+  --color-success-pale: rgba(163, 181, 168, 0.10);
 
-  /* ── Warning / VIP ── */
-  --color-warning: #D4AF37;
-  --color-warning-pale: rgba(212, 175, 55, 0.12);
-  --color-vip: #D4AF37;
-  --color-vip-glow: rgba(212, 175, 55, 0.4);
+  --color-warning: #D8BA91;
+  --color-warning-pale: rgba(216, 186, 145, 0.10);
+  --color-vip: #D8BA91;
+  --color-vip-glow: rgba(216, 186, 145, 0.2);
 
-  /* ── Danger — rouge ── */
   --color-danger: #DC2626;
   --color-danger-light: #EF4444;
-  --color-danger-pale: rgba(220, 38, 38, 0.12);
+  --color-danger-pale: rgba(220, 38, 38, 0.10);
 
-  /* ── Accent (legacy) ── */
-  --color-accent: #2D5BFF;
-  --color-accent-light: #4E78FF;
-  --color-accent-glow: rgba(45, 91, 255, 0.3);
+  --color-accent: #D8BA91;
+  --color-accent-light: #E5CDB0;
+  --color-accent-glow: rgba(216, 186, 145, 0.2);
 
-  /* ── Legacy compat (mappés sur nouvelle palette) ── */
-  --color-neon: #2D5BFF;
-  --color-neon-glow: rgba(45, 91, 255, 0.3);
-  --color-neon-green: #00A87E;
-  --color-emerald: #00A87E;
-  --color-emerald-soft: #1BC298;
-  --color-midnight: #0D0F12;
-  --color-edge: #2A2E35;
-  --color-panel: #1E2228;
-  --color-rose: #D4AF37;
-  --color-linebet: #2D5BFF;
-  --color-star888: #D4AF37;
-  --color-gold: #D4AF37;
-  --color-gold-light: #E5C158;
+  --color-neon: #D8BA91;
+  --color-neon-glow: rgba(216, 186, 145, 0.2);
+  --color-neon-green: #A3B5A8;
+  --color-emerald: #A3B5A8;
+  --color-emerald-soft: #B9C9BE;
+  --color-midnight: #090A0B;
+  --color-edge: #2E3332;
+  --color-panel: #171A1C;
+  --color-rose: #D8BA91;
+  --color-linebet: #D8BA91;
+  --color-star888: #D8BA91;
+  --color-gold: #D8BA91;
+  --color-gold-light: #E5CDB0;
   --color-lose: #DC2626;
 
-  /* ── Text ── */
-  --color-text-primary: #F4F7FA;
-  --color-text-secondary: #A8B3C7;
-  --color-text-muted: #A8B3C7;
-  --color-text-tertiary: #6E7681;
-  --color-text-on-dark: #F4F7FA;
-  --color-text-on-dark-secondary: #A8B3C7;
+  --color-text-primary: #F5F2ED;
+  --color-text-secondary: #9A9791;
+  --color-text-muted: #9A9791;
+  --color-text-tertiary: #6E6B66;
+  --color-text-on-dark: #F5F2ED;
+  --color-text-on-dark-secondary: #9A9791;
 
-  /* ── Gradients ── */
-  --grad-primary: linear-gradient(135deg, #2D5BFF 0%, #4E78FF 100%);
-  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(45,91,255,0.10) 0%, transparent 60%),
-               radial-gradient(50% 50% at 85% 10%, rgba(212,175,55,0.08) 0%, transparent 60%);
+  --grad-primary: linear-gradient(135deg, #D8BA91 0%, #E5CDB0 100%);
+  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(216,186,145,0.06) 0%, transparent 60%),
+               radial-gradient(50% 50% at 85% 10%, rgba(255,78,31,0.03) 0%, transparent 60%);
 
-  /* ── Fonts ── */
   --font-display: 'Poppins', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* ── Shadows ── */
-  --shadow-card: 0 1px 2px rgba(0,0,0,0.4), 0 8px 30px rgba(0,0,0,0.5);
-  --shadow-cta: 0 0 0 1px rgba(45,91,255,.3), 0 8px 32px rgba(45,91,255,.2);
-  --shadow-glass: 0 1px 0 rgba(255,255,255,0.05) inset, 0 8px 30px rgba(0,0,0,0.4);
+  --shadow-card: 0 1px 2px rgba(0,0,0,0.3), 0 8px 30px rgba(0,0,0,0.4);
+  --shadow-cta: 0 0 0 1px rgba(216,186,145,.2), 0 8px 32px rgba(216,186,145,.10);
+  --shadow-glass: 0 1px 0 rgba(255,255,255,0.03) inset, 0 8px 30px rgba(0,0,0,0.3);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -114,12 +101,12 @@ html {
 }
 
 body {
-  background: #0D0F12;
+  background: #090A0B;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(45, 91, 255, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(216, 186, 145, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(255, 78, 31, 0.02) 0%, transparent 40%);
   background-attachment: fixed;
-  color: #F4F7FA;
+  color: #F5F2ED;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
@@ -792,7 +779,7 @@ a:hover { color: var(--color-primary-light); }
     0 2px 8px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
   background-image: linear-gradient(rgba(22, 27, 34, 0.65), rgba(22, 27, 34, 0.65)),
-                    linear-gradient(135deg, rgba(45, 91, 255, 0.15), rgba(212, 175, 55, 0.08));
+                    linear-gradient(135deg, rgba(216, 186, 145, 0.15), rgba(216, 186, 145, 0.08));
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
@@ -804,7 +791,7 @@ a:hover { color: var(--color-primary-light); }
   inset: 0;
   border-radius: 16px;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(45, 91, 255, 0.5), rgba(212, 175, 55, 0.3), rgba(45, 91, 255, 0.1));
+  background: linear-gradient(135deg, rgba(216, 186, 145, 0.5), rgba(216, 186, 145, 0.3), rgba(216, 186, 145, 0.1));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -820,7 +807,7 @@ a:hover { color: var(--color-primary-light); }
   left: 20%;
   right: 20%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(45, 91, 255, 0.6), transparent);
+  background: linear-gradient(90deg, transparent, rgba(216, 186, 145, 0.6), transparent);
   pointer-events: none;
 }
 
@@ -829,7 +816,7 @@ a:hover { color: var(--color-primary-light); }
   transform: translateY(-6px);
   box-shadow:
     0 20px 48px rgba(0, 0, 0, 0.6),
-    0 8px 24px rgba(45, 91, 255, 0.15),
+    0 8px 24px rgba(216, 186, 145, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(14px) saturate(200%);
   -webkit-backdrop-filter: blur(14px) saturate(200%);
@@ -837,7 +824,7 @@ a:hover { color: var(--color-primary-light); }
 
 /* Halo d'accent au hover */
 .vip-glass-card:hover::before {
-  background: linear-gradient(135deg, rgba(45, 91, 255, 0.8), rgba(212, 175, 55, 0.5), rgba(45, 91, 255, 0.3));
+  background: linear-gradient(135deg, rgba(216, 186, 145, 0.8), rgba(216, 186, 145, 0.5), rgba(216, 186, 145, 0.3));
 }
 
 /* En-tête carte : niveau VIP + logo */
@@ -854,8 +841,8 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 1.25rem;
-  color: #D4AF37;
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  color: #D8BA91;
+  text-shadow: 0 0 20px rgba(216, 186, 145, 0.4);
   letter-spacing: 0.02em;
 }
 
@@ -869,18 +856,18 @@ a:hover { color: var(--color-primary-light); }
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: linear-gradient(135deg, #2D5BFF, #4E78FF);
+  background: linear-gradient(135deg, #D8BA91, #E5CDB0);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 16px rgba(45, 91, 255, 0.4);
+  box-shadow: 0 0 16px rgba(216, 186, 145, 0.4);
 }
 
 .vip-glass-logo-text {
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
-  color: #F4F7FA;
+  color: #F5F2ED;
 }
 
 /* Corps carte : utilisateur + avantages */
@@ -893,7 +880,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  color: #F4F7FA;
+  color: #F5F2ED;
   margin-bottom: 1rem;
 }
 
@@ -912,7 +899,7 @@ a:hover { color: var(--color-primary-light); }
   gap: 0.625rem;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.8125rem;
-  color: #A8B3C7;
+  color: #9A9791;
   line-height: 1.5;
 }
 
@@ -923,8 +910,8 @@ a:hover { color: var(--color-primary-light); }
   height: 6px;
   margin-top: 6px;
   border-radius: 50%;
-  background: #2D5BFF;
-  box-shadow: 0 0 8px rgba(45, 91, 255, 0.6);
+  background: #D8BA91;
+  box-shadow: 0 0 8px rgba(216, 186, 145, 0.6);
 }
 
 /* Pied carte : statut */
@@ -934,7 +921,7 @@ a:hover { color: var(--color-primary-light); }
   justify-content: space-between;
   margin-top: 1.25rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(244, 247, 250, 0.06);
+  border-top: 1px solid rgba(245, 242, 237, 0.06);
   position: relative;
   z-index: 2;
 }
@@ -946,7 +933,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.6875rem;
   font-weight: 600;
-  color: #2D5BFF;
+  color: #D8BA91;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -956,8 +943,8 @@ a:hover { color: var(--color-primary-light); }
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #2D5BFF;
-  box-shadow: 0 0 8px rgba(45, 91, 255, 0.8);
+  background: #D8BA91;
+  box-shadow: 0 0 8px rgba(216, 186, 145, 0.8);
   animation: vip-pulse 2s ease-in-out infinite;
 }
 
@@ -981,8 +968,8 @@ a:hover { color: var(--color-primary-light); }
   width: 100%;
   padding: 0.75rem 1.25rem;
   margin-top: 1.25rem;
-  background: linear-gradient(135deg, #2D5BFF 0%, #4E78FF 100%);
-  color: #F4F7FA;
+  background: linear-gradient(135deg, #D8BA91 0%, #E5CDB0 100%);
+  color: #F5F2ED;
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
@@ -990,15 +977,15 @@ a:hover { color: var(--color-primary-light); }
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(45, 91, 255, 0.3);
+  box-shadow: 0 4px 16px rgba(216, 186, 145, 0.3);
   position: relative;
   z-index: 2;
 }
 
 .vip-glass-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(45, 91, 255, 0.5);
-  background: linear-gradient(135deg, #4E78FF 0%, #2D5BFF 100%);
+  box-shadow: 0 8px 24px rgba(216, 186, 145, 0.5);
+  background: linear-gradient(135deg, #E5CDB0 0%, #D8BA91 100%);
 }
 
 .vip-glass-cta:active {
@@ -1008,16 +995,16 @@ a:hover { color: var(--color-primary-light); }
 /* Badge or champagne pour cartes premium */
 .vip-glass-card.gold {
   background-image: linear-gradient(rgba(22, 27, 34, 0.65), rgba(22, 27, 34, 0.65)),
-                    linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(45, 91, 255, 0.1));
+                    linear-gradient(135deg, rgba(216, 186, 145, 0.2), rgba(216, 186, 145, 0.1));
 }
 
 .vip-glass-card.gold::before {
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.6), rgba(45, 91, 255, 0.3), rgba(212, 175, 55, 0.2));
+  background: linear-gradient(135deg, rgba(216, 186, 145, 0.6), rgba(216, 186, 145, 0.3), rgba(216, 186, 145, 0.2));
 }
 
 .vip-glass-card.gold .vip-glass-level {
-  color: #D4AF37;
-  text-shadow: 0 0 24px rgba(212, 175, 55, 0.5);
+  color: #D8BA91;
+  text-shadow: 0 0 24px rgba(216, 186, 145, 0.5);
 }
 
 /* Responsive : padding réduit sur mobile */

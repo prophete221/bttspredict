@@ -5,14 +5,14 @@ import { motion } from 'framer-motion'
 /**
  * VipCardGlass — Carte VIP "Glassmorphism" ultra-moderne
  *
- * Style : Verre dépoli (translucidité + backdrop-filter blur) sur fond sombre #1E2228
- * Accents : Émeraude vif #2D5BFF + Or Champagne #D4AF37
+ * Style : Verre dépoli (translucidité + backdrop-filter blur) sur fond sombre #171A1C
+ * Accents : Émeraude vif #D8BA91 + Or Champagne #D8BA91
  * Bordure : Ligne fine lumineuse dégradée (1px)
  * Profondeur : Ombres portées 3D pour effet de flottement
  *
  * Structure :
  * 1. En-tête : Niveau VIP en Or Champagne (Poppins Bold) + Logo BTTSPredict
- * 2. Corps : Nom utilisateur (Blanc cassé #F4F7FA) + Liste avantages (Gris #A8B3C7) avec puces émeraude
+ * 2. Corps : Nom utilisateur (Blanc cassé #F5F2ED) + Liste avantages (Gris #9A9791) avec puces émeraude
  * 3. Pied : Statut "Actif" discret
  */
 
@@ -56,7 +56,7 @@ export default function VipCardGlass({
         </div>
         <div className="vip-glass-logo">
           <div className="vip-glass-logo-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D0F12" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#090A0B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M3 3v18h18" />
               <path d="M7 14l4-4 4 4 5-5" />
             </svg>
@@ -159,10 +159,10 @@ export function VipCardGrid() {
         {/* Header */}
         <div className="text-center mb-10">
           <span className="eyebrow">💎 Cartes VIP Premium</span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-3" style={{ color: '#F4F7FA' }}>
-            Choisis ton <span style={{ color: '#D4AF37' }}>niveau VIP</span>
+          <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-3" style={{ color: '#F5F2ED' }}>
+            Choisis ton <span style={{ color: '#D8BA91' }}>niveau VIP</span>
           </h2>
-          <p className="text-sm max-w-md mx-auto" style={{ color: '#A8B3C7' }}>
+          <p className="text-sm max-w-md mx-auto" style={{ color: '#9A9791' }}>
             Trois niveaux d'accès premium avec glassmorphism ultra-moderne. Activation en moins de 30 minutes via WhatsApp.
           </p>
         </div>

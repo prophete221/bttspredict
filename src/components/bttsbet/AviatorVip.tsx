@@ -6,9 +6,9 @@ import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
 
 const C = {
-  bg: '#0D0F12', card: '#1E2228', border: 'rgba(244, 247, 250, 0.08)',
-  green: '#2D5BFF', greenLight: '#4E78FF', gold: '#D4AF37', cyan: '#2D5BFF', violet: '#4E78FF',
-  text: '#F4F7FA', textSec: '#A8B3C7', textMute: '#484F58',
+  bg: '#090A0B', card: '#171A1C', border: 'rgba(245, 242, 237, 0.08)',
+  green: '#D8BA91', greenLight: '#E5CDB0', gold: '#D8BA91', cyan: '#D8BA91', violet: '#E5CDB0',
+  text: '#F5F2ED', textSec: '#9A9791', textMute: '#484F58',
   danger: '#DC2626',
 }
 
@@ -81,7 +81,7 @@ export default function AviatorVip() {
 
   return (
     <>
-      <section ref={ref} id="aviator" className="section-pad overflow-x-hidden" style={{ paddingTop: '16px', paddingBottom: '16px', backgroundColor: '#0D0F12' }}>
+      <section ref={ref} id="aviator" className="section-pad overflow-x-hidden" style={{ paddingTop: '16px', paddingBottom: '16px', backgroundColor: '#090A0B' }}>
         <div className="max-w-[440px] sm:max-w-2xl mx-auto">
           {/* Compact card */}
           <motion.div
@@ -127,7 +127,7 @@ export default function AviatorVip() {
                   <div className="text-sm font-bold tabular-nums" style={{ color: C.cyan }}>{stats?.avgMult.toFixed(2) || '0.00'}x</div>
                   <div className="text-[8px] uppercase tracking-wider" style={{ color: C.textMute }}>Mult. moyen</div>
                 </div>
-                <div className="p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(212,175,55,0.06)' }}>
+                <div className="p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(216,186,145,0.06)' }}>
                   <div className="text-sm font-bold tabular-nums" style={{ color: C.gold }}>{stats?.maxMult.toFixed(2) || '0.00'}x</div>
                   <div className="text-[8px] uppercase tracking-wider" style={{ color: C.textMute }}>Max du jour</div>
                 </div>
@@ -153,7 +153,7 @@ export default function AviatorVip() {
               <button
                 onClick={() => setShowModal(true)}
                 className="w-full mt-3 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-xs font-bold transition-all"
-                style={{ background: 'linear-gradient(135deg, #2D5BFF, #4E78FF)', color: '#F4F7FA' }}
+                style={{ background: 'linear-gradient(135deg, #D8BA91, #E5CDB0)', color: '#F5F2ED' }}
               >
                 🔒 Débloquer les Stats Aviator VIP
               </button>
