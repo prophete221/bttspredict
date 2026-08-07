@@ -6,10 +6,21 @@
     "rate": "80%",
     "last30Rate": "80%",
     "byType": {
-      "BTTS": { "total": 3285, "won": 2695, "lost": 590, "rate": 82 },
-      "O2.5": { "total": 2687, "won": 2083, "lost": 604, "rate": 78 }
+      "BTTS": {
+        "total": 3285,
+        "won": 2695,
+        "lost": 590,
+        "rate": 82
+      },
+      "O2.5": {
+        "total": 2687,
+        "won": 2083,
+        "lost": 604,
+        "rate": 78
+      }
     },
-    "transparency": "Tous les pronostics publiés sont listés, gagnés ET perdus. Aucun filtrage. Sur 5 972 pronostics analysés depuis le lancement, 4 778 ont été gagnants (80% de réussite vérifiable)."
+    "recentTotal": 60,
+    "transparency": "Tous les pronostics publiés sont listés, gagnés ET perdus. Aucun filtrage. Sur 5 972 pronostics analysés depuis le lancement, 4 778 ont été gagnants (80% de réussite vérifiable)."
   },
   "history": [
     {
