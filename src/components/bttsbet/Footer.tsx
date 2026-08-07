@@ -149,7 +149,16 @@ export default function Footer() {
             BTTSPredict n'est pas affilié à, ni exploité par, les sociétés de paris mentionnées.
           </p>
 
-          <div className="text-center text-[10px] text-[#303861]">
+          {/* Identité éditeur */}
+          <div className="text-center text-[10px] text-[#6B7194] mt-3 space-y-1">
+            <div>Éditeur: BTTSPredict — Dakar, Sénégal · Contact conformité: {''}
+              <a href="mailto:contact@bttspredict.com" className="underline hover:text-[#A5ABC5]">contact@bttspredict.com</a>
+            </div>
+            <div>Juridiction: Sénégal · Responsable publication: prophete221</div>
+            <div>Les performances passées ne préjugent pas des résultats futurs — 18+ Jouez responsable</div>
+          </div>
+
+          <div className="text-center text-[10px] text-[#303861] mt-2">
             {LEGAL.copyright}
           </div>
         </div>

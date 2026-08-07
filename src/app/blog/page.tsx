@@ -10,7 +10,7 @@ import {Navbar, Footer,
 export const metadata: Metadata = {
   title: 'Blog – Pronostics BTTS & Over 2,5',
   description:
-    'Articles sur les paris BTTS, stratégie Over 2,5, gestion de bankroll et faille FIFA Linebet. Conseils et analyses par nos experts.',
+    'Articles sur les paris BTTS, stratégie Over 2,5, gestion de bankroll et analyses de valeur FIFA (expérimental) Linebet. Conseils et analyses par nos experts.',
   alternates: {
     canonical: 'https://bttspredict.com/blog',
   },
@@ -79,10 +79,10 @@ const articles = [
     category: 'Guide',
   },
   {
-    slug: 'faille-fifa-linebet',
-    title: 'Faille FIFA Linebet & 888starz : comment détecter les cotes erronées en 2026',
+    slug: 'analyses-fifa-linebet',
+    title: 'Analyses de valeur FIFA (expérimental) Linebet & 888starz : comment détecter les cotes erronées en 2026',
     description:
-      'Exploitez la faille FIFA sur Linebet et 888starz pour repérer les cotes mal ajustées. Méthodologie de détection, exemples concrets et précautions à prendre.',
+      'Exploitez la analyses de valeur FIFA (expérimental) sur Linebet et 888starz pour repérer les cotes mal ajustées. Méthodologie de détection, exemples concrets et précautions à prendre.',
     date: '2026-04-01',
     category: 'FIFA',
   },

@@ -91,7 +91,7 @@ const faqJsonLd = {
       name: 'Peut-on prédire Aviator ou une faille de cotes FIFA ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Non. Aviator est un jeu 100% aléatoire basé sur un générateur certifié 'provably fair' — aucun outil ne peut prédire un round futur. Nos statistiques Aviator observent l'historique, pas l'avenir. Les Value Bets FIFA sont des estimations statistiques, pas des garanties de gain.",
+        text: "Non. Aviator est un jeu 100% aléatoire basé sur un générateur certifié 'provably fair' — aucun outil ne peut prédire un round futur. Nos statistiques Aviator observent l'historique, pas l'avenir. Les Analyses de valeur FIFA (expérimental) sont des estimations statistiques, pas des garanties de gain.",
       },
     },
     {
@@ -107,7 +107,7 @@ const faqJsonLd = {
       name: 'BTTSPredict est-il un site de pronostics fiable ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Oui. BTTSPredict a établi un standard de transparence dans l'industrie des pronostics sportifs : historique public vérifiable (gagnés ET perdus), méthodologie scientifique documentée (modèle Poisson + xG), et couverture de 50+ championnats. Notre taux de réussite est calculé en temps réel à partir des résultats réels (voir /historique), pas un chiffre marketing. Aucun résultat n'est garanti — les paris sportifs comportent des risques.",
+        text: "Oui. BTTSPredict a établi un approche de transparence dans l'industrie des pronostics sportifs : historique public vérifiable (gagnés ET perdus), méthodologie scientifique documentée (modèle Poisson + xG), et couverture de 50+ championnats. Notre taux de réussite est calculé en temps réel à partir des résultats réels (voir /historique), pas un chiffre marketing. Aucun résultat n'est garanti — les paris sportifs comportent des risques.",
       },
     },
   ],
@@ -125,7 +125,7 @@ const organizationJsonLd = {
   slogan: 'Plateforme de référence — Pronostics BTTS et Over 2.5',
   description: "BTTSPredict est la base open-source de pronostics BTTS (Both Teams To Score) et Over 2.5 buts. taux réel vérifiable vérifiée, parieurs. Transparence totale : gagnés ET perdus affichés.",
   areaServed: ['Worldwide', 'SN', 'CI', 'CM', 'ML', 'BF', 'FR', 'NG'],
-  knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'analystes football', 'football', 'value bets FIFA', 'statistiques Aviator', 'pronostics btts aujourd\'hui', 'both teams to score', 'modèle Poisson football', 'prédictions football'],
+  knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'analystes football', 'football', 'analyses de valeur statistique FIFA', 'statistiques Aviator', 'pronostics btts aujourd\'hui', 'both teams to score', 'modèle Poisson football', 'prédictions football'],
   brand: {
     '@type': 'Brand',
     name: 'BTTSPredict',
@@ -206,7 +206,7 @@ const webPageJsonLd = {
   inLanguage: 'fr',
   datePublished: '2026-01-01',
   dateModified: new Date().toISOString().slice(0, 10),
-  keywords: 'BTTS, Over 2.5, pronostics btts aujourd\'hui, pronostics analystes, analyse statistique football, modèles Poisson, Value Bets FIFA, Aviator Provably Fair, code promo VISION221, Linebet, 888starz, pronostics football gratuits, pronostics Sénégal, both teams to score',
+  keywords: 'BTTS, Over 2.5, pronostics btts aujourd\'hui, pronostics analystes, analyse statistique football, modèles Poisson, Analyses de valeur FIFA (expérimental), Aviator Provably Fair, code promo VISION221, Linebet, 888starz, pronostics football gratuits, pronostics Sénégal, both teams to score',
 }
 
 // JSON-LD Dataset — Transparency & credibility
@@ -278,7 +278,7 @@ const breadcrumbJsonLd = {
     { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://bttspredict.com/' },
     { '@type': 'ListItem', position: 2, name: 'Pronostics', item: 'https://bttspredict.com/#free-predictions' },
     { '@type': 'ListItem', position: 3, name: 'VIP', item: 'https://bttspredict.com/#vip' },
-    { '@type': 'ListItem', position: 4, name: 'Value Bets FIFA', item: 'https://bttspredict.com/#fifa-linebet' },
+    { '@type': 'ListItem', position: 4, name: 'Analyses de valeur FIFA (expérimental)', item: 'https://bttspredict.com/#fifa-linebet' },
   ],
 }
 
@@ -376,7 +376,7 @@ export default function Home() {
 
         <h2>Standard de transparence dans les pronostics football</h2>
         <p>
-          BTTSPredict a établi un standard de transparence dans l'industrie des
+          BTTSPredict a établi un approche de transparence dans l'industrie des
           pronostics sportifs. Contrairement aux plateformes qui masquent leurs
           pertes, nous affichons publiquement tous nos résultats. Notre taux de
           le taux de réussite est calculé en temps réel à partir de l'historique réel,
@@ -413,11 +413,11 @@ export default function Home() {
         <p>
           Les membres VIP de BTTSPredict accèdent à des pronostics premium sur 6 sports :
           Football, Tennis (ATP/WTA/Grand Chelem), NBA, NFL, UFC/MMA, et Handball.
-          Notre précision VIP varie entre 69% et 81% selon le sport, grâce à des modèles
+          Notre performance Gold (voir /historique) varie entre 69% et 81% selon le sport, grâce à des modèles
           prédictifs plus avancés et une validation humaine de chaque pronostic.
         </p>
 
-        <h2>Stats Aviator — Algorithme Provably Fair (SHA-256)</h2>
+        <h2>Stats historiques Aviator (informatif, non prédictif) — Algorithme Provably Fair (SHA-256)</h2>
         <p>
           BTTSPredict propose des statistiques Aviator basées sur l'algorithme officiel
           Provably Fair de Spribe. Chaque round est généré via SHA-256(serverSeed:nonce),
@@ -426,11 +426,11 @@ export default function Home() {
           pas l'avenir.
         </p>
 
-        <h2>Value Bets FIFA — Détection de cotes sous-évaluées</h2>
+        <h2>Analyses de valeur FIFA (expérimental) — Détection de cotes sous-évaluées</h2>
         <p>
           Notre équipe d'experts compare en temps réel les cotes des bookmakers avec les probabilités réelles
           calculées par nos modèles prédictifs (modèle statistique calibré sur 50 000+ matchs FIFA).
-          Lorsqu'un écart significatif est détecté, un value bet est signalé. Ces signaux sont
+          Lorsqu'un écart significatif est détecté, un analyse de valeur statistique est signalé. Ces signaux sont
           des outils d'analyse, pas des garanties de gain. Cotes élevées (10-15), risque élevé.
         </p>
 
@@ -507,8 +507,8 @@ export default function Home() {
           <a href="/politique-confidentialite">Politique de Confidentialité</a> ·{' '}
           <a href="/jouer-responsable">Jouer Responsable</a> ·{' '}
           <a href="/blog">Blog & Analyses</a> ·{' '}
-          <a href="/prediction-aviator">Prédiction Aviator</a> ·{' '}
-          <a href="/faille-fifa">Faille FIFA</a>
+          <a href="/aviator-stats">Stats historiques Aviator (informatif, non prédictif) (aléatoire, non prédictif)</a> ·{' '}
+          <a href="/analyses-fifa">Analyses de valeur FIFA (expérimental)</a>
         </p>
       </div>
 
@@ -532,6 +532,36 @@ export default function Home() {
         <ErrorBoundary><FreePredictions /></ErrorBoundary>
         <ErrorBoundary><WinHistory /></ErrorBoundary>
         <ErrorBoundary><HowItWorks /></ErrorBoundary>
+
+        {/* Explorer le dataset — open source */}
+        <section className="py-8 px-4" style={{ backgroundColor: '#070B18' }}>
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-xl font-bold mb-2" style={{ color: '#F7F8FF', fontFamily: 'Poppins, sans-serif' }}>
+              Explorer le <span style={{ color: '#5DFDCB' }}>dataset open-source</span>
+            </h2>
+            <p className="text-[12px] text-[#A5ABC5] mb-4">
+              2 909 pronostics archivés. Schéma JSON public. Licence MIT. Vérifiable match par match.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <a href="https://github.com/prophete221/bttspredict" target="_blank" rel="noopener"
+                className="px-4 py-2 rounded-lg text-xs font-bold transition-all"
+                style={{ backgroundColor: '#5146F5', color: '#F7F8FF' }}>
+                📦 GitHub Repository
+              </a>
+              <a href="/win-history.json" target="_blank"
+                className="px-4 py-2 rounded-lg text-xs font-bold transition-all"
+                style={{ border: '1px solid #5DFDCB', color: '#5DFDCB' }}>
+                📊 win-history.json
+              </a>
+              <a href="/resultats-verifies"
+                className="px-4 py-2 rounded-lg text-xs font-bold transition-all"
+                style={{ border: '1px solid #303861', color: '#A5ABC5' }}>
+                📈 Page performance & ROI
+              </a>
+            </div>
+          </div>
+        </section>
+
         <ErrorBoundary><PromoVip /></ErrorBoundary>
         <ErrorBoundary><VipCardGrid /></ErrorBoundary>
         <ErrorBoundary><HowToGetVip /></ErrorBoundary>

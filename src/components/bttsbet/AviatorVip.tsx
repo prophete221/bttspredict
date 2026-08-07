@@ -101,7 +101,7 @@ export default function AviatorVip() {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.danger} strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-bold text-papier">Stats Aviator</h3>
+                  <h3 className="text-sm font-bold text-papier">Stats historiques Aviator (informatif, non prédictif)</h3>
                   <p className="text-[9px]" style={{ color: C.textMute }}>Provably Fair · SHA-256</p>
                 </div>
                 <div className="flex items-center gap-1 px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(81, 70, 245,0.1)' }}>
@@ -155,14 +155,14 @@ export default function AviatorVip() {
                 className="w-full mt-3 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-xs font-bold transition-all"
                 style={{ background: 'linear-gradient(135deg, #5146F5, #5146F5)', color: '#F7F8FF' }}
               >
-                🔒 Débloquer les Stats Aviator VIP
+                🔒 Débloquer les Stats historiques Aviator (informatif, non prédictif) VIP
               </button>
             </div>
           </motion.div>
         </div>
       </section>
 
-      <VipUnlockModal isOpen={showModal} onClose={() => setShowModal(false)} title="Débloque les Stats Aviator VIP" />
+      <VipUnlockModal isOpen={showModal} onClose={() => setShowModal(false)} title="Débloque les Stats historiques Aviator (informatif, non prédictif) VIP" />
     </>
   )
 }

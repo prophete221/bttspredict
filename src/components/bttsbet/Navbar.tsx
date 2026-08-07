@@ -24,8 +24,8 @@ const PAGE_LINKS = [
   { label: 'Code VISION221', href: '/linebet-promo-code' },
   { label: 'Bonus 888', href: '/bonus-888starz' },
   { label: 'BTTS ?', href: '/btts-c-est-quoi' },
-  { label: 'Aviator', href: '/prediction-aviator' },
-  { label: 'Faille FIFA', href: '/faille-fifa' },
+  { label: 'Aviator', href: '/aviator-stats' },
+  { label: 'Analyses de valeur FIFA (expérimental)', href: '/analyses-fifa' },
 ]
 
 export default function Navbar() {

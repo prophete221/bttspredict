@@ -155,7 +155,7 @@ export default function StrategieMiseOver25Page() {
                 En moyenne, sur l&apos;ensemble des championnats professionnels, environ 48-52% des matchs de football
                 se terminent avec plus de 2,5 buts. Ce taux varie considérablement selon les championnats :
                 il dépasse 60% en Bundesliga mais tombe à environ 40% dans certains championnats défensifs.
-                Cette variance est votre alliée — elle crée des value bets réguliers.
+                Cette variance est votre alliée — elle crée des analyses de valeur statistique réguliers.
               </p>
               <div className="mt-4 p-4 rounded-lg bg-emerald/10 border border-emerald/30">
                 <p className="text-sm text-emerald-soft leading-relaxed">

@@ -34,7 +34,7 @@ export function buildOrganizationJsonLd() {
       'pronostics btts aujourd\'hui',
       'paris sportifs',
       'modèle Poisson football',
-      'value bets FIFA',
+      'analyses de valeur statistique FIFA',
       'statistiques Aviator',
       'prédictions football',
       'analyse statistique football',

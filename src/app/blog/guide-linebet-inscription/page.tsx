@@ -292,7 +292,7 @@ export default function GuideLinebetInscription() {
                   <span className="text-emerald font-bold mt-0.5">▸</span>
                   <span><strong className="text-papier">Section « FIFA Virtuel »</strong> — Paris sur les matchs FIFA simulés.
                   Un marché à part entière avec des opportunités spécifiques que notre équipe analyse en permanence.
-                  Découvrez notre <a href="/blog/faille-fifa-linebet" className="text-emerald hover:underline">analyse de la faille FIFA Linebet</a>.</span>
+                  Découvrez notre <a href="/blog/analyses-fifa-linebet" className="text-emerald hover:underline">analyse de la analyses de valeur FIFA (expérimental) Linebet</a>.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-emerald font-bold mt-0.5">▸</span>
@@ -390,7 +390,7 @@ export default function GuideLinebetInscription() {
                   <span className="text-gold font-bold mt-0.5">5.</span>
                   <span><strong className="text-papier">Attention aux cotes et marchés locaux</strong> — Les championnats africains
                   (Ligue 1 Cameroun, Ligue 1 Sénégal, etc.) offrent parfois des cotes mal ajustées, créant des opportunités
-                  de value bet. Notre équipe les détecte automatiquement.</span>
+                  de analyse de valeur statistique. Notre équipe les détecte automatiquement.</span>
                 </li>
               </ul>
             </section>
@@ -474,9 +474,9 @@ export default function GuideLinebetInscription() {
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-gold">Stratégie</span>
                   <p className="text-sm text-papier font-semibold mt-1 group-hover:text-emerald transition-colors">Gestion de Bankroll aux Paris Sportifs</p>
                 </a>
-                <a href="/blog/faille-fifa-linebet" className="card p-4 group hover-lift">
+                <a href="/blog/analyses-fifa-linebet" className="card p-4 group hover-lift">
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-or">FIFA</span>
-                  <p className="text-sm text-papier font-semibold mt-1 group-hover:text-emerald transition-colors">Faille FIFA Linebet & 888starz : Détecter les Cotes Erronées</p>
+                  <p className="text-sm text-papier font-semibold mt-1 group-hover:text-emerald transition-colors">Analyses de valeur FIFA (expérimental) Linebet & 888starz : Détecter les Cotes Erronées</p>
                 </a>
               </div>
             </section>

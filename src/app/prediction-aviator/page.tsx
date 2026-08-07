@@ -8,7 +8,7 @@ import {Navbar, Footer,
    Metadata
    ────────────────────────────────────────────────────────────── */
 const SITE_URL = 'https://bttspredict.com'
-const SLUG = 'prediction-aviator'
+const SLUG = 'aviator-stats'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Aviator 2026 — Signaux'
 const DESCRIPTION = 'Signaux Aviator 2026 : algorithme Provably Fair, stratégie cash out. Astuces Linebet & 888starz avec code VISION221.'
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2026-07-06',
     modifiedTime: '2026-07-06',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Prédiction Aviator 2026 – Signaux IA & Stratégie Gagnante' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Stats historiques Aviator (informatif, non prédictif) (aléatoire, non prédictif) 2026 – Signaux IA & Stratégie Gagnante' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -86,7 +86,7 @@ function buildBreadcrumbJsonLd() {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_URL },
-      { '@type': 'ListItem', position: 2, name: 'Prédiction Aviator', item: PAGE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Stats historiques Aviator (informatif, non prédictif) (aléatoire, non prédictif)', item: PAGE_URL },
     ],
   }
 }
@@ -187,7 +187,7 @@ export default function PredictionAviatorPage() {
           <ol className="flex items-center gap-2 text-sm text-cendre flex-wrap">
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
             <li aria-hidden="true" className="text-cendre">/</li>
-            <li><span className="text-cendre" aria-current="page">Prédiction Aviator</span></li>
+            <li><span className="text-cendre" aria-current="page">Stats historiques Aviator (informatif, non prédictif) (aléatoire, non prédictif)</span></li>
           </ol>
         </nav>
 
@@ -201,7 +201,7 @@ export default function PredictionAviatorPage() {
               className="text-3xl sm:text-4xl lg:text-5xl text-papier mt-4 mb-4 leading-tight"
               style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
             >
-              Prédiction Aviator 2026 :{' '}
+              Stats historiques Aviator (informatif, non prédictif) (aléatoire, non prédictif) 2026 :{' '}
               <span className="text-emerald" style={{ textShadow: '0 0 8px rgba(168, 224, 99,0.5), 0 0 24px rgba(168, 224, 99,0.3)' }}>
                 Signaux IA, Astuces & Stratégie
               </span>{' '}
@@ -533,7 +533,7 @@ export default function PredictionAviatorPage() {
                   Fixez-vous un objectif de gain quotidien (par exemple, +20% de bankroll) et un stop loss (par exemple, -15%).
                   Une fois l&apos;un ou l&apos;autre atteint, arrêtez de jouer pour la journée. La discipline est la clé du succès
                   sur Aviator — bien plus que n&apos;importe quel signal ou prédiction. Consultez notre article sur la{' '}
-                  <a href="/blog/faille-fifa-linebet" className="text-emerald hover:underline">faille FIFA Linebet</a> pour
+                  <a href="/blog/analyses-fifa-linebet" className="text-emerald hover:underline">analyses de valeur FIFA (expérimental) Linebet</a> pour
                   d&apos;autres stratégies de gestion du risque applicables aux jeux virtuels.
                 </p>
               </div>
@@ -675,7 +675,7 @@ export default function PredictionAviatorPage() {
               </p>
               <p className="text-cendre leading-relaxed mt-4">
                 Pour aller plus loin dans la gestion du risque, lisez notre analyse complète sur la{' '}
-                <a href="/blog/faille-fifa-linebet" className="text-emerald hover:underline">faille FIFA Linebet & 888starz</a>,
+                <a href="/blog/analyses-fifa-linebet" className="text-emerald hover:underline">analyses de valeur FIFA (expérimental) Linebet & 888starz</a>,
                 qui présente des principes de gestion de bankroll applicables à tous les jeux virtuels.
               </p>
             </section>
@@ -824,7 +824,7 @@ export default function PredictionAviatorPage() {
               </p>
               <p className="text-cendre leading-relaxed mt-4">
                 Pour approfondir vos connaissances sur les stratégies de pari, consultez notre article sur la{' '}
-                <a href="/blog/faille-fifa-linebet" className="text-emerald hover:underline">faille FIFA Linebet & 888starz</a>,
+                <a href="/blog/analyses-fifa-linebet" className="text-emerald hover:underline">analyses de valeur FIFA (expérimental) Linebet & 888starz</a>,
                 qui analyse les inefficiences de marché sur les jeux virtuels. Et pour découvrir d&apos;autres outils IA,
                 rendez-vous sur notre <a href="/" className="text-emerald hover:underline">page d&apos;accueil</a>.
               </p>
@@ -874,9 +874,9 @@ export default function PredictionAviatorPage() {
                 Articles <span className="text-emerald">liés</span>
               </h3>
               <div className="grid gap-3 sm:grid-cols-2">
-                <a href="/blog/faille-fifa-linebet" className="card p-4 group hover-lift">
+                <a href="/blog/analyses-fifa-linebet" className="card p-4 group hover-lift">
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-or">FIFA</span>
-                  <p className="text-sm text-papier font-semibold mt-1 group-hover:text-emerald transition-colors">Faille FIFA Linebet & 888starz : Détecter les Cotes Erronées</p>
+                  <p className="text-sm text-papier font-semibold mt-1 group-hover:text-emerald transition-colors">Analyses de valeur FIFA (expérimental) Linebet & 888starz : Détecter les Cotes Erronées</p>
                 </a>
                 <a href="/" className="card p-4 group hover-lift">
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-emerald">Accueil</span>

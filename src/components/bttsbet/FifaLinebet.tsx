@@ -82,7 +82,7 @@ export default function FifaLinebet() {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="2"><line x1="6" y1="11" x2="10" y2="11"/><line x1="8" y1="9" x2="8" y2="13"/><line x1="15" y1="12" x2="17" y2="12"/><line x1="17" y1="10" x2="17" y2="14"/><rect x="2" y="6" width="20" height="12" rx="2"/></svg>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-bold text-papier">Value Bets FIFA</h3>
+                  <h3 className="text-sm font-bold text-papier">Analyses de valeur FIFA (expérimental)</h3>
                   <p className="text-[9px]" style={{ color: C.textMute }}>IA détection de cotes sous-évaluées</p>
                 </div>
                 <div className="flex items-center gap-1 px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(81, 70, 245,0.1)' }}>
@@ -136,14 +136,14 @@ export default function FifaLinebet() {
                 className="w-full mt-3 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-xs font-bold transition-all"
                 style={{ background: 'linear-gradient(135deg, #5146F5, #5146F5)', color: '#F7F8FF' }}
               >
-                🔒 Débloquer les Value Bets FIFA
+                🔒 Débloquer les Analyses de valeur FIFA (expérimental)
               </button>
             </div>
           </motion.div>
         </div>
       </section>
 
-      <VipUnlockModal isOpen={showModal} onClose={() => setShowModal(false)} title="Débloque les Value Bets FIFA" />
+      <VipUnlockModal isOpen={showModal} onClose={() => setShowModal(false)} title="Débloque les Analyses de valeur FIFA (expérimental)" />
     </>
   )
 }

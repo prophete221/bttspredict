@@ -62,7 +62,7 @@ const VIP_FAQ = [
   },
   {
     q: "Qu'est-ce qui est inclus dans le VIP ?",
-    a: "Accès à 20+ pronostics premium par jour (BTTS, Over 2.5, value bets FIFA), historique complet, cotes détaillées, et support WhatsApp prioritaire 24/7.",
+    a: "Accès à 20+ pronostics premium par jour (BTTS, Over 2.5, analyses de valeur statistique FIFA), historique complet, cotes détaillées, et support WhatsApp prioritaire 24/7.",
   },
   {
     q: "Quels sports sont couverts par le VIP ?",

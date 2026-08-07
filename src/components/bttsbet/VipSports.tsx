@@ -156,7 +156,7 @@ export default function VipSports() {
                   <h3 className="text-lg font-bold text-papier">{activeSport.name}</h3>
                   <div className="flex items-center gap-2 mt-0.5">
                     <span className="font-mono text-[12px] font-bold" style={{ color: activeSport.color }}>~{activeSport.accuracy}%</span>
-                    <span className="text-[10px]" style={{ color: C.textMute }}>précision VIP</span>
+                    <span className="text-[10px]" style={{ color: C.textMute }}>performance Gold (voir /historique)</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-1.5 px-2 py-1 rounded-full"

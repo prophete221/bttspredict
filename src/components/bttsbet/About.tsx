@@ -43,7 +43,7 @@ const ROADMAP = [
   {
     quarter: 'Q3 2027',
     title: 'Espace membre premium',
-    description: 'Dashboard personnalisé avec historique complet, suivi de bankroll, et alertes value bet personnalisées.',
+    description: 'Dashboard personnalisé avec historique complet, suivi de bankroll, et alertes analyse de valeur statistique personnalisées.',
     status: 'planned',
   },
 ]
@@ -130,7 +130,7 @@ export default function About() {
             Les prochaines <span className="text-success">étapes</span>
           </h2>
           <p className="section-subtitle max-w-2xl mx-auto">
-            Notre vision à long terme : devenir la référence du pari sportif IA en Afrique.
+            Notre vision à long terme : construire une base de données utile du pari sportif IA en Afrique.
           </p>
         </motion.div>
 

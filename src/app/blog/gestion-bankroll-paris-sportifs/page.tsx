@@ -328,7 +328,7 @@ export default function GestionBankrollPage() {
               </div>
               <p className="text-cendre leading-relaxed mt-4">
                 <strong className="text-papier">Exemple :</strong> Notre équipe estime que le BTTS a 60% de chances de
-                se réaliser dans un match, mais la cote proposée est de 1.90. Le value bet est positif car
+                se réaliser dans un match, mais la cote proposée est de 1.90. Le analyse de valeur statistique est positif car
                 60% × 1.90 = 1.14 &gt; 1. Appliquons Kelly :
               </p>
               <ul className="space-y-1 mt-2 text-cendre text-sm">

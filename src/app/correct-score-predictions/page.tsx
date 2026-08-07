@@ -58,7 +58,7 @@ export default function CorrectScorePredictionsPage() {
           <h2 className="text-xl font-bold mb-4" style={{ color: '#F7F8FF', fontFamily: 'Poppins, sans-serif' }}>Méthodologie score exact</h2>
           <div className="text-sm leading-relaxed space-y-3" style={{ color: '#A5ABC5' }}>
             <p>Le modèle de Poisson permet de calculer la probabilité de chaque score possible. Pour un match entre l'équipe A (lambda domicile = 1.5) et l'équipe B (lambda extérieur = 1.2), le modèle génère une matrice de probabilités pour tous les scores de 0-0 à 5-5.</p>
-            <p>Le score le plus probable est généralement autour de 1-1 ou 1-0, mais la distribution complète permet d'identifier les value bets sur des scores moins probables mais à cotes élevées.</p>
+            <p>Le score le plus probable est généralement autour de 1-1 ou 1-0, mais la distribution complète permet d'identifier les analyses de valeur statistique sur des scores moins probables mais à cotes élevées.</p>
             <p>Pour voir nos pronostics du jour, consultez notre <a href="/" style={{ color: '#5146F5' }}>page d'accueil</a>. Pour comprendre notre modèle en détail, visitez notre page <a href="/methodologie" style={{ color: '#5146F5' }}>méthodologie</a>.</p>
           </div>
         </section>

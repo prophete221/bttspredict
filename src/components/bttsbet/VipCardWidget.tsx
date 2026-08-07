@@ -32,7 +32,7 @@ export default function VipCardWidget() {
             Débloque 20+ pronostics premium par jour
           </h3>
           <p className="text-[11px] mb-3" style={{ color: '#A5ABC5' }}>
-            6 sports (Football, Tennis, NBA, NFL, UFC, Handball) · Value Bets FIFA · Cotes détaillées
+            6 sports (Football, Tennis, NBA, NFL, UFC, Handball) · Analyses de valeur FIFA (expérimental) · Cotes détaillées
           </p>
 
           {/* Étapes */}

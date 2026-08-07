@@ -6,7 +6,7 @@ import {Navbar, Footer,
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
 const TITLE = 'Betting Tips Football'
-const DESCRIPTION = 'Betting tips football par BTTSPredict. BTTS, Over 2.5, value bets FIFA. Méthodologie Poisson, gestion de bankroll, stratégie. taux réel sur /historique.'
+const DESCRIPTION = 'Betting tips football par BTTSPredict. BTTS, Over 2.5, analyses de valeur statistique FIFA. Méthodologie Poisson, gestion de bankroll, stratégie. taux réel sur /historique.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -50,7 +50,7 @@ export default function BettingTipsPage() {
             Betting <span style={{ color: '#5146F5' }}>Tips</span>
           </h1>
           <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#A5ABC5' }}>
-            Conseils et stratégies de paris sportifs football. BTTS, Over 2.5, value bets FIFA, gestion de bankroll. Méthodologie documentée, taux réel sur /historique.
+            Conseils et stratégies de paris sportifs football. BTTS, Over 2.5, analyses de valeur statistique FIFA, gestion de bankroll. Méthodologie documentée, taux réel sur /historique.
           </p>
         </header>
 
@@ -59,7 +59,7 @@ export default function BettingTipsPage() {
           <div className="text-sm leading-relaxed space-y-3" style={{ color: '#A5ABC5' }}>
             <p><strong style={{ color: '#F7F8FF' }}>1. BTTS (Both Teams To Score) :</strong> Pari sur le fait que les deux équipes marquent. Notre modèle Poisson identifie les matchs où les deux équipes ont un xG élevé. Seuil de recommandation : 0.48.</p>
             <p><strong style={{ color: '#F7F8FF' }}>2. Over 2.5 Goals :</strong> Pari sur 3+ buts dans le match. Idéal pour les championnats offensifs (Bundesliga, Eredivisie). Seuil : 0.49.</p>
-            <p><strong style={{ color: '#F7F8FF' }}>3. Value Bets FIFA :</strong> Détection des cotes sous-évaluées sur les matchs FIFA virtuels. Risque élevé, cotes élevées (10-15).</p>
+            <p><strong style={{ color: '#F7F8FF' }}>3. Analyses de valeur FIFA (expérimental) :</strong> Détection des cotes sous-évaluées sur les matchs FIFA virtuels. Risque élevé, cotes élevées (10-15).</p>
             <p><strong style={{ color: '#F7F8FF' }}>4. Gestion de bankroll :</strong> Ne jamais miser plus de 1-5% de votre capital sur un pari. Consultez notre <a href="/blog/gestion-bankroll-paris-sportifs" style={{ color: '#5146F5' }}>guide complet</a>.</p>
             <p>Pour voir nos pronostics du jour, consultez notre <a href="/" style={{ color: '#5146F5' }}>page d'accueil</a> ou nos <a href="/blog" style={{ color: '#5146F5' }}>analyses détaillées</a>.</p>
           </div>

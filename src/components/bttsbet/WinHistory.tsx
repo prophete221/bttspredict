@@ -61,7 +61,16 @@ export default function WinHistory() {
         {/* Bandeau vérification live */}
         <div className="rounded-[20px] bg-[#171A38] border border-[#303861]/50 p-3 flex items-center gap-2 text-xs text-[#A5ABC5]">
           <span className="w-2 h-2 bg-[#A8E063] rounded-full animate-pulse"></span>
-          ✅ Vérification live ESPN • {stats.total} matchs vérifiés • Maj {new Date(data.generatedAt).toLocaleTimeString('fr-FR')}
+          ✅ {stats.total} vérifiés (sur {stats.archivedTotal || '—'} archivés) • ESPN public • Maj {new Date(data.generatedAt).toLocaleTimeString('fr-FR')}
+        </div>
+
+        {/* Définitions */}
+        <div className="text-[10px] text-[#6B7194] px-1 flex gap-3 flex-wrap">
+          <span>{stats.archivedTotal || '—'} archivés = pronos générés depuis {data.period?.from || '—'}</span>
+          <span>•</span>
+          <span>{stats.total} vérifiés = dont score final ESPN retrouvé</span>
+          <span>•</span>
+          <span>{stats.pending || '—'} pending = en attente</span>
         </div>
 
         {/* KPI Cards: All vs Gold */}
@@ -73,7 +82,10 @@ export default function WinHistory() {
               <div className="text-3xl font-bold text-white font-mono">{stats.rate}%</div>
               <div className="text-xs text-[#A5ABC5]">{stats.won}W/{stats.lost}L • {stats.total}</div>
             </div>
-            <div className="mt-3 h-1.5 bg-[#070B18] rounded-full">
+            <div className="mt-2 text-[10px] text-[#6B7194]">
+              Cote moy {stats.avgOdds || '—'} • ROI {stats.roi ?? '—'}% • Profit {stats.profit ?? '—'}u • Période {data.period?.days || '—'}j
+            </div>
+            <div className="mt-2 h-1.5 bg-[#070B18] rounded-full">
               <div className="h-full bg-[#5146F5] rounded-full transition-all duration-700" style={{ width: `${stats.rate}%` }}></div>
             </div>
           </div>
@@ -86,7 +98,10 @@ export default function WinHistory() {
                 <div className="text-3xl font-black text-black font-mono">{gold.rate}%</div>
                 <div className="text-xs text-black/70 font-semibold">{gold.won}W/{gold.lost}L • {gold.total}</div>
               </div>
-              <div className="mt-3 h-1.5 bg-black/20 rounded-full">
+              <div className="mt-1 text-[10px] text-black/60">
+                Cote moy {gold.avgOdds || '—'} • ROI {gold.roi ?? '—'}% • Profit {gold.profit ?? '—'}u • Filtre proba≥65%
+              </div>
+              <div className="mt-2 h-1.5 bg-black/20 rounded-full">
                 <div className="h-full bg-black rounded-full transition-all duration-700" style={{ width: `${gold.rate}%` }}></div>
               </div>
             </div>

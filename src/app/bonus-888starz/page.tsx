@@ -11,12 +11,12 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'bonus-888starz'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Bonus 888starz — Code Promo & Inscription'
-const DESCRIPTION = 'Bonus exclusif 888starz avec code promo. Inscription facile, dépôt local, value bets FIFA et pronostics IA. Guide complet pour profiter du bonus 888starz.'
+const DESCRIPTION = 'Bonus exclusif 888starz avec code promo. Inscription facile, dépôt local, analyses de valeur statistique FIFA et pronostics IA. Guide complet pour profiter du bonus 888starz.'
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  keywords: ['bonus 888starz', 'code promo 888starz', '888starz inscription', '888starz senegal', '888starz depot', '888starz wave', '888starz orange money', 'paris sportifs 888starz', 'value bet fifa 888starz', '888starz bonus'],
+  keywords: ['bonus 888starz', 'code promo 888starz', '888starz inscription', '888starz senegal', '888starz depot', '888starz wave', '888starz orange money', 'paris sportifs 888starz', 'analyse de valeur statistique fifa 888starz', '888starz bonus'],
   alternates: {
     canonical: PAGE_URL,
   },
@@ -135,7 +135,7 @@ export default function Bonus888starzPage() {
               BONUS <span className="text-gold neon-glow">888STARZ</span>
             </h1>
             <p className="text-cendre text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              Bonus exclusif 888starz, inscription facile et value bets FIFA détectées par nos experts. Guide complet pour maximiser votre bonus.
+              Bonus exclusif 888starz, inscription facile et analyses de valeur statistique FIFA détectées par nos experts. Guide complet pour maximiser votre bonus.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
           </div>
@@ -203,27 +203,27 @@ export default function Bonus888starzPage() {
                 </div>
               </article>
 
-              {/* 3. Value Bets FIFA */}
+              {/* 3. Analyses de valeur FIFA (expérimental) */}
               <article className="card p-6">
                 <h2
                   className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
-                  3. Value Bets FIFA sur 888starz
+                  3. Analyses de valeur FIFA (expérimental) sur 888starz
                 </h2>
                 <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
-                    Notre équipe détecte les <strong className="text-gold">value bets FIFA</strong> sur 888starz — des cotes erronées sur les matchs FIFA virtuels que l&apos;algorithme identifie automatiquement.
+                    Notre équipe détecte les <strong className="text-gold">analyses de valeur statistique FIFA</strong> sur 888starz — des cotes erronées sur les matchs FIFA virtuels que l&apos;algorithme identifie automatiquement.
                   </p>
                   <p>
-                    Les value bets FIFA sont des estimations statistiques basées sur l&apos;analyse de thousands de matchs FIFA virtuels. Elles ne constituent pas des garanties de gain.
+                    Les analyses de valeur statistique FIFA sont des estimations statistiques basées sur l&apos;analyse de thousands de matchs FIFA virtuels. Elles ne constituent pas des garanties de gain.
                   </p>
                   <div className="mt-4">
                     <a
-                      href="/faille-fifa"
+                      href="/analyses-fifa"
                       className="inline-block px-4 py-2 bg-gold/10 border border-gold/30 text-gold text-sm font-semibold rounded-lg hover:border-gold/50 transition-colors"
                     >
-                      En savoir plus sur les value bets FIFA →
+                      En savoir plus sur les analyses de valeur statistique FIFA →
                     </a>
                   </div>
                 </div>
@@ -246,7 +246,7 @@ export default function Bonus888starzPage() {
                   </p>
                   <div className="mt-4">
                     <a
-                      href="/prediction-aviator"
+                      href="/aviator-stats"
                       className="inline-block px-4 py-2 bg-gold/10 border border-gold/30 text-gold text-sm font-semibold rounded-lg hover:border-gold/50 transition-colors"
                     >
                       Statistiques Aviator →

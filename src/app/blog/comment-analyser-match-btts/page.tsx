@@ -371,7 +371,7 @@ export default function CommentAnalyserMatchBttsPage() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-emerald">🤖</span>
-                  <span>Détection automatique des value bets où la cote du bookmaker est supérieure à la probabilité réelle</span>
+                  <span>Détection automatique des analyses de valeur statistique où la cote du bookmaker est supérieure à la probabilité réelle</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-emerald">🤖</span>
@@ -427,7 +427,7 @@ export default function CommentAnalyserMatchBttsPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-emerald">☐</span>
-                    <span>La cote BTTS est supérieure à la probabilité estimée par l&apos;IA (<strong className="text-papier">value bet</strong>)</span>
+                    <span>La cote BTTS est supérieure à la probabilité estimée par l&apos;IA (<strong className="text-papier">analyse de valeur statistique</strong>)</span>
                   </li>
                 </ul>
                 <p className="text-sm text-cendre mt-4">

@@ -171,7 +171,7 @@ export default function MeilleursChampionnatsBttsPage() {
                 par rapport à celui qui parie sur la Serie A italienne, toutes choses égales par ailleurs. Ce
                 n&apos;est pas un hasard si les bookmakers ajustent leurs cotes en fonction du championnat — les
                 cotes BTTS de la Bundesliga sont généralement plus basses que celles de la Ligue 1, reflétant
-                la probabilité plus élevée de BTTS. Cependant, des value bets existent même dans les championnats
+                la probabilité plus élevée de BTTS. Cependant, des analyses de valeur statistique existent même dans les championnats
                 les plus « chers », comme nous le verrons dans notre <a href="/blog/strategie-mise-over-2-5" className="text-emerald hover:underline">stratégie de mise Over 2,5</a>.
               </p>
             </section>

@@ -51,10 +51,10 @@ const EXPERTS = [
   },
   {
     name: 'Sarah Martinez',
-    role: 'Data Scientist — Value Bets FIFA & Stats Aviator',
+    role: 'Data Scientist — Analyses de valeur FIFA (expérimental) & Stats historiques Aviator (informatif, non prédictif)',
     initials: 'SM',
-    bio: "Data scientist spécialisée dans l'analyse des jeux virtuels FIFA et de l'algorithme Provably Fair d'Aviator. Sarah a développé le détecteur de value bets FIFA en comparant les cotes des bookmakers avec les probabilités réelles calculées par notre modèle. Diplômée en data science de l'ISAE-SUPAERO.",
-    expertise: ['Value Bets FIFA', 'Provably Fair Aviator', 'Data Science', 'Python', 'Machine Learning'],
+    bio: "Data scientist spécialisée dans l'analyse des jeux virtuels FIFA et de l'algorithme Provably Fair d'Aviator. Sarah a développé le détecteur de analyses de valeur statistique FIFA en comparant les cotes des bookmakers avec les probabilités réelles calculées par notre modèle. Diplômée en data science de l'ISAE-SUPAERO.",
+    expertise: ['Analyses de valeur FIFA (expérimental)', 'Provably Fair Aviator', 'Data Science', 'Python', 'Machine Learning'],
     stats: { pronostics: 980, winRate: '78,4%', experience: '6 ans' },
     social: { twitter: 'https://twitter.com/sarah_datasci', linkedin: 'https://linkedin.com/in/sarah-martinez-ds' },
   },
@@ -208,7 +208,7 @@ export default function EquipePage() {
           </h2>
           <div className="text-sm leading-relaxed space-y-2" style={{ color: '#A5ABC5' }}>
             <p>
-              <strong style={{ color: '#F7F8FF' }}>Expertise documentée :</strong> Chaque analyste possède une expertise spécifique documentée (AFCON, ligues européennes, value bets FIFA) et un parcours vérifiable sur LinkedIn et Twitter.
+              <strong style={{ color: '#F7F8FF' }}>Expertise documentée :</strong> Chaque analyste possède une expertise spécifique documentée (AFCON, ligues européennes, analyses de valeur statistique FIFA) et un parcours vérifiable sur LinkedIn et Twitter.
             </p>
             <p>
               <strong style={{ color: '#F7F8FF' }}>Contrôle humain :</strong> Contrairement aux plateformes entièrement automatisées, chaque pronostic VIP est validé manuellement par notre équipe avant publication. Cette double validation (modèle + humain) explique notre taux de réussite réel (voir /historique).

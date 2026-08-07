@@ -145,7 +145,7 @@ export default function GlobalReach() {
           <div className="text-2xl mb-2">🎯</div>
           <h3 className="text-papier font-bold text-base mb-2">Notre vision</h3>
           <p className="text-cendre text-xs leading-relaxed max-w-sm mx-auto">
-            Devenir la référence mondiale du pari sportif IA sur BTTS et Over 2.5, en imposant un standard de transparence inégalé dans l&apos;industrie.
+            Devenir la référence mondiale du pari sportif IA sur BTTS et Over 2.5, en imposant un approche de transparence inégalé dans l&apos;industrie.
           </p>
         </motion.div>
       </div>
