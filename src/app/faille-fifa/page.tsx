@@ -103,7 +103,7 @@ export default function FailleFifaPage() {
             <span className="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-md border bg-purple-500/15 text-purple-400 border-purple-500/30">FAILLE FIFA</span>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl text-white mt-4 mb-4 leading-tight" style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
               Faille FIFA Linebet & 888starz :{' '}
-              <span className="text-purple-400" style={{ textShadow: '0 0 8px rgba(168,85,247,0.5), 0 0 24px rgba(168,85,247,0.3)' }}>
+              <span className="text-purple-400" style={{ textShadow: '0 0 8px rgba(168, 162, 158,0.5), 0 0 24px rgba(168, 162, 158,0.3)' }}>
                 Détecter les Cotes Erronées
               </span> en 2026
             </h1>
@@ -134,7 +134,7 @@ export default function FailleFifaPage() {
             <div className="p-5 rounded-xl bg-gradient-to-r from-purple-500/10 to-gold/10 border border-purple-500/20">
               <p className="text-white font-semibold mb-3">🎯 Prêt à exploiter la faille FIFA ?</p>
               <div className="flex flex-col sm:flex-row gap-2">
-                <a href="https://lb-aff.com/L?tag=d_5589568m_22611c_site&site=5589568&ad=22611&r=registration" rel="sponsored nofollow" target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-2 btn-linebet text-[#06281F] text-xs font-bold">
+                <a href="https://lb-aff.com/L?tag=d_5589568m_22611c_site&site=5589568&ad=22611&r=registration" rel="sponsored nofollow" target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-2 btn-linebet text-[#050507] text-xs font-bold">
                   <img src="/logos/linebet.svg" alt="Linebet" className="h-4 w-auto object-contain" loading="lazy"/>
                   S&apos;inscrire Linebet → Bonus 150$
                 </a>
@@ -369,7 +369,7 @@ export default function FailleFifaPage() {
               <p className="text-white font-bold mb-2">🚀 Rejoignez le VIP et exploitez la faille FIFA dès maintenant</p>
               <p className="text-gray-400 text-sm mb-4">Inscrivez-vous avec le code <span className="text-gold font-bold">VISION221</span>, déposez 10 000 Fr minimum, et recevez les signaux FIFA en temps réel.</p>
               <div className="flex flex-col sm:flex-row gap-2">
-                <a href="https://lb-aff.com/L?tag=d_5589568m_22611c_site&site=5589568&ad=22611&r=registration" rel="sponsored nofollow" target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-2 btn-linebet text-[#06281F] text-xs font-bold">
+                <a href="https://lb-aff.com/L?tag=d_5589568m_22611c_site&site=5589568&ad=22611&r=registration" rel="sponsored nofollow" target="_blank" className="flex-1 flex items-center justify-center gap-2 px-4 py-2 btn-linebet text-[#050507] text-xs font-bold">
                   <img src="/logos/linebet.svg" alt="Linebet" className="h-4 w-auto object-contain" loading="lazy"/>
                   S&apos;inscrire Linebet
                 </a>

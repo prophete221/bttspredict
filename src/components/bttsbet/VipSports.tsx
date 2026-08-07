@@ -9,17 +9,17 @@ import CopyableCode from './CopyableCode'
 
 // ─── Palette ────────────────────────────────────────────────────────────
 const C = {
-  bg:       '#07080C',
-  card:     '#F4F1EA',
-  elevated: '#1A1F35',
-  border:   '#8A8494',
-  neon:     '#C9A227',
-  neonDk:   '#3DDC97',
-  gold:     '#C9A227',
+  bg:       '#050507',
+  card:     '#F8F7F4',
+  elevated: '#14141A',
+  border:   '#7A7874',
+  neon:     '#A8A29E',
+  neonDk:   '#1F8A70',
+  gold:     '#A8A29E',
   text:     '#ffffff',
-  textSec:  '#a0a0a0',
-  textMute: '#5a5a5a',
-  success:  '#C9A227',
+  textSec:  '#A8A29E',
+  textMute: '#7A7874',
+  success:  '#A8A29E',
 }
 
 // ─── Sport data ─────────────────────────────────────────────────────────
@@ -36,7 +36,7 @@ const SPORTS: SportVip[] = [
   { id: 'tennis', name: 'Tennis', logo: '/logos/sport-tennis.svg', accuracy: 73, color: C.gold },
   { id: 'nba', name: 'NBA', logo: '/logos/sport-nba.svg', accuracy: 71, color: C.neon },
   { id: 'nfl', name: 'NFL', logo: '/logos/sport-nfl.svg', accuracy: 69, color: C.neon },
-  { id: 'ufc', name: 'UFC', logo: '/logos/sport-ufc.svg', accuracy: 72, color: '#FF6B4A' },
+  { id: 'ufc', name: 'UFC', logo: '/logos/sport-ufc.svg', accuracy: 72, color: '#D94F30' },
   { id: 'handball', name: 'Handball', logo: '/logos/sport-handball.svg', accuracy: 77, color: C.success },
 ]
 
@@ -98,10 +98,10 @@ export default function VipSports() {
                   onClick={() => setActiveId(sport.id)}
                   className="flex flex-col items-center gap-1.5 p-2.5 rounded-xl transition-all"
                   style={{
-                    backgroundColor: isActive ? '#F4F1EA' : '#F4F1EA',
+                    backgroundColor: isActive ? '#F8F7F4' : '#F8F7F4',
                     border: isActive
                       ? '1px solid ' + sport.color
-                      : '1px solid #8A8494',
+                      : '1px solid #7A7874',
                     boxShadow: isActive ? '0 0 12px ' + sport.color + '30' : 'none',
                   }}
                   aria-label={`Sélectionner ${sport.name}`}
@@ -138,8 +138,8 @@ export default function VipSports() {
               transition={{ duration: 0.3 }}
               className="rounded-[16px] overflow-hidden"
               style={{
-                backgroundColor: '#0F1219',
-                border: '1px solid rgba(244, 241, 234, 0.08)',
+                backgroundColor: '#0C0C10',
+                border: '1px solid rgba(248, 247, 244, 0.08)',
                 boxShadow: '0 8px 30px rgba(0,0,0,0.4)',
               }}
             >
@@ -149,7 +149,7 @@ export default function VipSports() {
               {/* Header with big logo */}
               <div className="p-4 flex items-center gap-3">
                 <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ backgroundColor: '#1A1F35', border: '1px solid ' + activeSport.color + '30' }}>
+                  style={{ backgroundColor: '#14141A', border: '1px solid ' + activeSport.color + '30' }}>
                   <img src={activeSport.logo} alt={activeSport.name} className="w-10 h-10 object-contain" loading="lazy" />
                 </div>
                 <div className="flex-1">
@@ -160,7 +160,7 @@ export default function VipSports() {
                   </div>
                 </div>
                 <div className="flex items-center gap-1.5 px-2 py-1 rounded-full"
-                  style={{ backgroundColor: 'rgba(201, 162, 39, 0.1)', border: '1px solid rgba(201, 162, 39, 0.2)' }}>
+                  style={{ backgroundColor: 'rgba(168, 162, 158, 0.1)', border: '1px solid rgba(168, 162, 158, 0.2)' }}>
                   <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: C.success }} />
                   <span className="font-mono text-[9px] font-bold uppercase tracking-wider" style={{ color: C.success }}>Live</span>
                 </div>
@@ -190,9 +190,9 @@ export default function VipSports() {
                 <div className="space-y-1.5" style={{ filter: 'blur(6px)', opacity: 0.5 }}>
                   {Array.from({ length: 4 }).map((_, i) => (
                     <div key={i} className="flex items-center gap-2 py-2 px-3 rounded-lg" style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}>
-                      <div className="w-6 h-3 rounded" style={{ backgroundColor: '#0F1219' }} />
-                      <div className="flex-1 h-3 rounded" style={{ backgroundColor: '#0F1219' }} />
-                      <div className="w-8 h-3 rounded" style={{ backgroundColor: '#0F1219' }} />
+                      <div className="w-6 h-3 rounded" style={{ backgroundColor: '#0C0C10' }} />
+                      <div className="flex-1 h-3 rounded" style={{ backgroundColor: '#0C0C10' }} />
+                      <div className="w-8 h-3 rounded" style={{ backgroundColor: '#0C0C10' }} />
                     </div>
                   ))}
                 </div>
@@ -203,9 +203,9 @@ export default function VipSports() {
                     onClick={() => setShowModal(true)}
                     className="px-5 py-2.5 rounded-xl font-bold text-[13px]"
                     style={{
-                      background: 'linear-gradient(135deg, #C9A227, #3DDC97)',
-                      color: '#07080C',
-                      boxShadow: '0 4px 16px rgba(201, 162, 39, 0.3)',
+                      background: 'linear-gradient(135deg, #A8A29E, #1F8A70)',
+                      color: '#050507',
+                      boxShadow: '0 4px 16px rgba(168, 162, 158, 0.3)',
                     }}
                   >
                     🔒 Débloquer le VIP
@@ -221,12 +221,12 @@ export default function VipSports() {
             animate={isVisible ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.4, delay: 0.4 }}
             className="mt-3 rounded-[14px] p-3"
-            style={{ backgroundColor: '#0F1219', border: '1px solid rgba(201, 162, 39, 0.2)' }}
+            style={{ backgroundColor: '#0C0C10', border: '1px solid rgba(168, 162, 158, 0.2)' }}
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-                style={{ backgroundColor: 'rgba(201, 162, 39, 0.1)' }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="#C9A227">
+                style={{ backgroundColor: 'rgba(168, 162, 158, 0.1)' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#A8A29E">
                   <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01-1.87-1.87-4.36-2.91-7.01-2.91zm0 1.67c2.2 0 4.27.86 5.82 2.42 1.56 1.56 2.42 3.63 2.42 5.82 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.81-1.29-1.24-2.79-1.24-4.34 0-4.54 3.7-8.24 8.24-8.24zM8.53 7.33c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.74 2.78 4.31 3.79 2.57 1.01 2.57.67 3.04.63.46-.04 1.5-.61 1.71-1.21.21-.6.21-1.11.15-1.21-.06-.11-.23-.17-.48-.29-.25-.12-1.5-.74-1.72-.82-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.07-.39-2.04-1.26-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43z"/>
                 </svg>
               </div>
@@ -239,7 +239,7 @@ export default function VipSports() {
                 target="_blank"
                 rel="noopener"
                 className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold"
-                style={{ backgroundColor: '#C9A227', color: '#F4F1EA' }}
+                style={{ backgroundColor: '#A8A29E', color: '#F8F7F4' }}
               >
                 WhatsApp
               </a>

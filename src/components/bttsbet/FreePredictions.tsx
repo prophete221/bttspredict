@@ -308,7 +308,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-1.5">
               <div className="w-5 h-5 rounded bg-success/15 border border-success/30 flex items-center justify-center">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#3DDC97" strokeWidth="2.5">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1F8A70" strokeWidth="2.5">
                   <circle cx="12" cy="12" r="10" />
                   <path d="M8 14s1.5 2 4 2 4-2 4-2" />
                   <line x1="9" y1="9" x2="9.01" y2="9" />
@@ -331,7 +331,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
               {/* BTTS prediction — always available (Poisson fallback) */}
               <>
                 <div className="flex items-baseline justify-between">
-                  <span className="text-xl sm:text-2xl font-bold" style={{ color: bttsPred.prediction === 'Oui' ? undefined : '#475569' }} >
+                  <span className="text-xl sm:text-2xl font-bold" style={{ color: bttsPred.prediction === 'Oui' ? undefined : '#7A7874' }} >
                     <span className={bttsPred.prediction === 'Oui' ? 'text-success-light' : ''}>{bttsPred.prediction}</span>
                   </span>
                   <span className="text-xs font-bold text-gray-400 tabular-nums">{bttsPred.confidence}%</span>
@@ -360,7 +360,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
               {/* Over 2.5 prediction — always available (Poisson fallback) */}
               <>
                 <div className="flex items-baseline justify-between">
-                  <span className="text-xl sm:text-2xl font-bold" style={{ color: over25Pred.prediction === 'Oui' ? undefined : '#475569' }}>
+                  <span className="text-xl sm:text-2xl font-bold" style={{ color: over25Pred.prediction === 'Oui' ? undefined : '#7A7874' }}>
                     <span className={over25Pred.prediction === 'Oui' ? 'text-gold-light' : ''}>{over25Pred.prediction}</span>
                   </span>
                   <span className="text-xs font-bold text-gray-400 tabular-nums">{over25Pred.confidence}%</span>
@@ -627,7 +627,7 @@ export default function FreePredictions() {
         ) : filteredMatches.length === 0 ? (
           <div className="squircle-xl p-10 text-center">
             <div className="w-14 h-14 bg-dark-800 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-edge">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="1.5">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7A7874" strokeWidth="1.5">
                 <circle cx="12" cy="12" r="10" />
                 <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
                 <path d="M2 12h20" />
@@ -653,9 +653,9 @@ export default function FreePredictions() {
             href="/pronostics"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold transition-all"
             style={{
-              background: 'linear-gradient(135deg, #C9A227, #3DDC97)',
-              color: '#07080C',
-              boxShadow: '0 4px 16px rgba(201, 162, 39, 0.25)',
+              background: 'linear-gradient(135deg, #A8A29E, #1F8A70)',
+              color: '#050507',
+              boxShadow: '0 4px 16px rgba(168, 162, 158, 0.25)',
             }}
           >
             Voir tous les pronostics du jour →

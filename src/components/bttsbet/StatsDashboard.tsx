@@ -31,16 +31,16 @@ type WinHistory = {
 }
 
 const COLORS = {
-  gold: '#C9A227',
-  mint: '#C9A227',
-  cyan: '#3DDC97',
-  rose: '#FF6B4A',
-  panel: '#0F1219',
-  edge: 'rgba(244, 241, 234, 0.08)',
-  text: '#8A8494',
+  gold: '#A8A29E',
+  mint: '#A8A29E',
+  cyan: '#1F8A70',
+  rose: '#D94F30',
+  panel: '#0C0C10',
+  edge: 'rgba(248, 247, 244, 0.08)',
+  text: '#7A7874',
 }
 
-const LEAGUE_COLORS = ['#C9A227', '#C9A227', '#3DDC97', '#FF6B4A', '#E0B945', '#C9A227', '#C9A227', '#C9A227', '#EC4899', '#C9A227']
+const LEAGUE_COLORS = ['#A8A29E', '#A8A29E', '#1F8A70', '#D94F30', '#C4BFBB', '#A8A29E', '#A8A29E', '#A8A29E', '#C41E3A', '#A8A29E']
 
 export default function StatsDashboard() {
   const [data, setData] = useState<WinHistory | null>(null)
@@ -239,7 +239,7 @@ export default function StatsDashboard() {
                     fontSize: 12,
                     color: '#fff',
                   }}
-                  cursor={{ fill: 'rgba(245, 158, 11, 0.05)' }}
+                  cursor={{ fill: 'rgba(168, 162, 158, 0.05)' }}
                 />
                 <Bar dataKey="réussite" radius={[8, 8, 0, 0]} maxBarSize={64}>
                   {typeData.map((_, i) => (
@@ -271,7 +271,7 @@ export default function StatsDashboard() {
                     fontSize: 12,
                     color: '#fff',
                   }}
-                  cursor={{ fill: 'rgba(245, 158, 11, 0.05)' }}
+                  cursor={{ fill: 'rgba(168, 162, 158, 0.05)' }}
                 />
                 <Bar dataKey="réussite" radius={[8, 8, 0, 0]} maxBarSize={64}>
                   {confData.map((_, i) => (

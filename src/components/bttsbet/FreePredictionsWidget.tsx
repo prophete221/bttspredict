@@ -47,13 +47,13 @@ export default function FreePredictionsWidget() {
   }
 
   return (
-    <section id="free-predictions-widget" className="py-6 px-4" style={{ backgroundColor: '#07080C' }}>
+    <section id="free-predictions-widget" className="py-6 px-4" style={{ backgroundColor: '#050507' }}>
       <div className="max-w-2xl mx-auto">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-base font-bold" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>
+          <h2 className="text-base font-bold" style={{ color: '#F8F7F4', fontFamily: 'Poppins, sans-serif' }}>
             ⚽ Pronostics gratuits du jour
           </h2>
-          <a href="/pronostics" className="text-[11px] font-bold" style={{ color: '#C9A227' }}>
+          <a href="/pronostics" className="text-[11px] font-bold" style={{ color: '#A8A29E' }}>
             Tous les pronostics BTTS d'aujourd'hui →
           </a>
         </div>
@@ -64,21 +64,21 @@ export default function FreePredictionsWidget() {
             const home = teams[0]?.trim() || ''
             const away = teams[1]?.trim() || ''
             return (
-              <div key={i} className="rounded-lg p-3" style={{ backgroundColor: '#0F1219', border: '1px solid rgba(201, 162, 39, 0.1)' }}>
+              <div key={i} className="rounded-lg p-3" style={{ backgroundColor: '#0C0C10', border: '1px solid rgba(168, 162, 158, 0.1)' }}>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[9px] font-mono" style={{ color: '#4A4555' }}>{pred.league}</span>
-                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(201, 162, 39, 0.12)', color: '#C9A227' }}>
+                  <span className="text-[9px] font-mono" style={{ color: '#2A2A30' }}>{pred.league}</span>
+                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(168, 162, 158, 0.12)', color: '#A8A29E' }}>
                     {pred.type}
                   </span>
                 </div>
-                <div className="text-xs font-bold mb-1" style={{ color: '#F4F1EA' }}>
+                <div className="text-xs font-bold mb-1" style={{ color: '#F8F7F4' }}>
                   {home.length > 12 ? home.slice(0, 11) + '…' : home} vs {away.length > 12 ? away.slice(0, 11) + '…' : away}
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px]" style={{ color: '#8A8494' }}>
-                    Prédiction: <strong style={{ color: '#C9A227' }}>{pred.prediction}</strong>
+                  <span className="text-[10px]" style={{ color: '#7A7874' }}>
+                    Prédiction: <strong style={{ color: '#A8A29E' }}>{pred.prediction}</strong>
                   </span>
-                  <span className="text-[10px] font-bold" style={{ color: '#C9A227' }}>{pred.confidence}%</span>
+                  <span className="text-[10px] font-bold" style={{ color: '#A8A29E' }}>{pred.confidence}%</span>
                 </div>
               </div>
             )
@@ -91,7 +91,7 @@ export default function FreePredictionsWidget() {
             rel="sponsored noopener"
             target="_blank"
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold"
-            style={{ backgroundColor: '#FF4D6D', color: '#FFFFFF' }}
+            style={{ backgroundColor: '#C41E3A', color: '#FFFFFF' }}
           >
             Parier sur Linebet →
           </a>

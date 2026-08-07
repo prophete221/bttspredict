@@ -45,19 +45,19 @@ export default function Over25PredictionsPage() {
 
       <main className="flex-1 relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 w-full">
         <nav aria-label="Fil d'Ariane" className="mb-8">
-          <ol className="flex items-center gap-2 text-sm" style={{ color: '#8A8494' }}>
+          <ol className="flex items-center gap-2 text-sm" style={{ color: '#7A7874' }}>
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
             <li aria-hidden="true">/</li>
-            <li style={{ color: '#F4F1EA' }} aria-current="page">Over 2.5 Predictions</li>
+            <li style={{ color: '#F8F7F4' }} aria-current="page">Over 2.5 Predictions</li>
           </ol>
         </nav>
 
         <header className="mb-12 text-center">
           <span className="eyebrow">⚽ Pronostics Over 2.5</span>
-          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>
-            Over 2.5 <span style={{ color: '#C9A227' }}>Predictions</span>
+          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F8F7F4', fontFamily: 'Poppins, sans-serif' }}>
+            Over 2.5 <span style={{ color: '#A8A29E' }}>Predictions</span>
           </h1>
-          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#8A8494' }}>
+          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#7A7874' }}>
             Pronostics Over 2.5 buts basés sur le modèle de Poisson calibré sur 50 000 matchs. 84,5% de réussite vérifiée. Outil d'aide à la décision, pas de promesse de gain.
           </p>
         </header>
@@ -65,41 +65,41 @@ export default function Over25PredictionsPage() {
         {/* Stats */}
         <section className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
           {STATS.map((stat, i) => (
-            <div key={i} className="text-center p-4 rounded-xl" style={{ backgroundColor: '#0F1219', border: '1px solid rgba(244, 241, 234, 0.08)' }}>
-              <div className="text-2xl font-bold" style={{ color: '#C9A227' }}>{stat.value}</div>
-              <div className="text-[10px] mt-1 uppercase tracking-wider" style={{ color: '#8A8494' }}>{stat.label}</div>
+            <div key={i} className="text-center p-4 rounded-xl" style={{ backgroundColor: '#0C0C10', border: '1px solid rgba(248, 247, 244, 0.08)' }}>
+              <div className="text-2xl font-bold" style={{ color: '#A8A29E' }}>{stat.value}</div>
+              <div className="text-[10px] mt-1 uppercase tracking-wider" style={{ color: '#7A7874' }}>{stat.label}</div>
             </div>
           ))}
         </section>
 
         {/* Analyse détaillée */}
-        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: '#0F1219', border: '1px solid rgba(244, 241, 234, 0.08)' }}>
-          <h2 className="text-xl font-bold mb-4" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>Comment nous analysons les matchs Over 2.5</h2>
-          <div className="text-sm leading-relaxed space-y-3" style={{ color: '#8A8494' }}>
+        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: '#0C0C10', border: '1px solid rgba(248, 247, 244, 0.08)' }}>
+          <h2 className="text-xl font-bold mb-4" style={{ color: '#F8F7F4', fontFamily: 'Poppins, sans-serif' }}>Comment nous analysons les matchs Over 2.5</h2>
+          <div className="text-sm leading-relaxed space-y-3" style={{ color: '#7A7874' }}>
             <p>Notre modèle de Poisson calcule la probabilité que le total de buts d'un match dépasse 2.5. Pour chaque match, nous analysons les lambdas (but attendus) des deux équipes à partir de 200+ variables : Expected Goals (xG), forme récente, blessures, historique des confrontations, conditions météo.</p>
             <p>Le seuil de recommandation est fixé à 0.49 — si la probabilité Over 2.5 calculée dépasse 49%, nous publions le pronostic. Une correction de calibration de +1% est appliquée car le modèle Poisson sous-estime légèrement les matchs à haut score.</p>
-            <p>Pour voir nos pronostics Over 2.5 du jour, consultez notre <a href="/" style={{ color: '#C9A227' }}>page d'accueil</a> ou notre <a href="/historique" style={{ color: '#C9A227' }}>historique vérifié</a>.</p>
+            <p>Pour voir nos pronostics Over 2.5 du jour, consultez notre <a href="/" style={{ color: '#A8A29E' }}>page d'accueil</a> ou notre <a href="/historique" style={{ color: '#A8A29E' }}>historique vérifié</a>.</p>
           </div>
         </section>
 
         {/* Tableau statistiques par ligue */}
         <section className="mb-8">
-          <h2 className="text-xl font-bold mb-4" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>Statistiques Over 2.5 par championnat</h2>
-          <div className="overflow-x-auto rounded-xl" style={{ backgroundColor: '#0F1219', border: '1px solid rgba(244, 241, 234, 0.08)' }}>
+          <h2 className="text-xl font-bold mb-4" style={{ color: '#F8F7F4', fontFamily: 'Poppins, sans-serif' }}>Statistiques Over 2.5 par championnat</h2>
+          <div className="overflow-x-auto rounded-xl" style={{ backgroundColor: '#0C0C10', border: '1px solid rgba(248, 247, 244, 0.08)' }}>
             <table className="w-full text-xs">
               <thead>
-                <tr style={{ borderBottom: '1px solid rgba(244, 241, 234, 0.08)' }}>
-                  <th className="text-left py-3 px-3 font-semibold" style={{ color: '#8A8494' }}>Championnat</th>
-                  <th className="text-right py-3 px-3 font-semibold" style={{ color: '#8A8494' }}>Pronostics</th>
-                  <th className="text-right py-3 px-3 font-semibold" style={{ color: '#8A8494' }}>Réussite</th>
+                <tr style={{ borderBottom: '1px solid rgba(248, 247, 244, 0.08)' }}>
+                  <th className="text-left py-3 px-3 font-semibold" style={{ color: '#7A7874' }}>Championnat</th>
+                  <th className="text-right py-3 px-3 font-semibold" style={{ color: '#7A7874' }}>Pronostics</th>
+                  <th className="text-right py-3 px-3 font-semibold" style={{ color: '#7A7874' }}>Réussite</th>
                 </tr>
               </thead>
               <tbody>
-                <tr style={{ borderBottom: '1px solid rgba(244, 241, 234, 0.04)' }}><td className="py-2 px-3" style={{ color: '#F4F1EA' }}>Bundesliga</td><td className="text-right py-2 px-3" style={{ color: '#8A8494' }}>12</td><td className="text-right py-2 px-3" style={{ color: '#C9A227', fontWeight: 700 }}>91,7%</td></tr>
-                <tr style={{ borderBottom: '1px solid rgba(244, 241, 234, 0.04)' }}><td className="py-2 px-3" style={{ color: '#F4F1EA' }}>Eredivisie</td><td className="text-right py-2 px-3" style={{ color: '#8A8494' }}>10</td><td className="text-right py-2 px-3" style={{ color: '#C9A227', fontWeight: 700 }}>90,0%</td></tr>
-                <tr style={{ borderBottom: '1px solid rgba(244, 241, 234, 0.04)' }}><td className="py-2 px-3" style={{ color: '#F4F1EA' }}>Premier League</td><td className="text-right py-2 px-3" style={{ color: '#8A8494' }}>15</td><td className="text-right py-2 px-3" style={{ color: '#C9A227', fontWeight: 700 }}>86,7%</td></tr>
-                <tr style={{ borderBottom: '1px solid rgba(244, 241, 234, 0.04)' }}><td className="py-2 px-3" style={{ color: '#F4F1EA' }}>Ligue 1</td><td className="text-right py-2 px-3" style={{ color: '#8A8494' }}>10</td><td className="text-right py-2 px-3" style={{ color: '#C9A227', fontWeight: 700 }}>80,0%</td></tr>
-                <tr><td className="py-2 px-3" style={{ color: '#F4F1EA' }}>Serie A</td><td className="text-right py-2 px-3" style={{ color: '#8A8494' }}>11</td><td className="text-right py-2 px-3" style={{ color: '#C9A227', fontWeight: 700 }}>81,8%</td></tr>
+                <tr style={{ borderBottom: '1px solid rgba(248, 247, 244, 0.04)' }}><td className="py-2 px-3" style={{ color: '#F8F7F4' }}>Bundesliga</td><td className="text-right py-2 px-3" style={{ color: '#7A7874' }}>12</td><td className="text-right py-2 px-3" style={{ color: '#A8A29E', fontWeight: 700 }}>91,7%</td></tr>
+                <tr style={{ borderBottom: '1px solid rgba(248, 247, 244, 0.04)' }}><td className="py-2 px-3" style={{ color: '#F8F7F4' }}>Eredivisie</td><td className="text-right py-2 px-3" style={{ color: '#7A7874' }}>10</td><td className="text-right py-2 px-3" style={{ color: '#A8A29E', fontWeight: 700 }}>90,0%</td></tr>
+                <tr style={{ borderBottom: '1px solid rgba(248, 247, 244, 0.04)' }}><td className="py-2 px-3" style={{ color: '#F8F7F4' }}>Premier League</td><td className="text-right py-2 px-3" style={{ color: '#7A7874' }}>15</td><td className="text-right py-2 px-3" style={{ color: '#A8A29E', fontWeight: 700 }}>86,7%</td></tr>
+                <tr style={{ borderBottom: '1px solid rgba(248, 247, 244, 0.04)' }}><td className="py-2 px-3" style={{ color: '#F8F7F4' }}>Ligue 1</td><td className="text-right py-2 px-3" style={{ color: '#7A7874' }}>10</td><td className="text-right py-2 px-3" style={{ color: '#A8A29E', fontWeight: 700 }}>80,0%</td></tr>
+                <tr><td className="py-2 px-3" style={{ color: '#F8F7F4' }}>Serie A</td><td className="text-right py-2 px-3" style={{ color: '#7A7874' }}>11</td><td className="text-right py-2 px-3" style={{ color: '#A8A29E', fontWeight: 700 }}>81,8%</td></tr>
               </tbody>
             </table>
           </div>
@@ -107,22 +107,22 @@ export default function Over25PredictionsPage() {
 
         {/* FAQ */}
         <section className="mb-8">
-          <h2 className="text-xl font-bold mb-4" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>FAQ Over 2.5 Predictions</h2>
+          <h2 className="text-xl font-bold mb-4" style={{ color: '#F8F7F4', fontFamily: 'Poppins, sans-serif' }}>FAQ Over 2.5 Predictions</h2>
           <div className="space-y-2">
             {FAQ.map((item, i) => (
-              <details key={i} className="rounded-lg overflow-hidden" style={{ backgroundColor: '#0F1219', border: '1px solid rgba(244, 241, 234, 0.08)' }}>
-                <summary className="p-4 cursor-pointer text-sm font-semibold" style={{ color: '#F4F1EA' }}>{item.q}</summary>
-                <p className="px-4 pb-4 text-xs leading-relaxed" style={{ color: '#8A8494' }}>{item.a}</p>
+              <details key={i} className="rounded-lg overflow-hidden" style={{ backgroundColor: '#0C0C10', border: '1px solid rgba(248, 247, 244, 0.08)' }}>
+                <summary className="p-4 cursor-pointer text-sm font-semibold" style={{ color: '#F8F7F4' }}>{item.q}</summary>
+                <p className="px-4 pb-4 text-xs leading-relaxed" style={{ color: '#7A7874' }}>{item.a}</p>
               </details>
             ))}
           </div>
         </section>
 
         {/* Résumé */}
-        <section className="p-6 rounded-2xl" style={{ backgroundColor: 'rgba(201, 162, 39, 0.05)', border: '1px solid rgba(201, 162, 39, 0.15)' }}>
-          <h2 className="text-lg font-bold mb-2" style={{ color: '#F4F1EA' }}>Résumé</h2>
-          <p className="text-sm" style={{ color: '#8A8494' }}>
-            Les pronostics Over 2.5 de BTTSPredict utilisent un modèle de Poisson calibré sur 50 000 matchs avec un taux de réussite vérifié de 84,5%. Notre méthodologie est <a href="/methodologie" style={{ color: '#C9A227' }}>documentée publiquement</a> et notre historique est <a href="/historique" style={{ color: '#C9A227' }}>vérifiable</a>. Aucun résultat n'est garanti.
+        <section className="p-6 rounded-2xl" style={{ backgroundColor: 'rgba(168, 162, 158, 0.05)', border: '1px solid rgba(168, 162, 158, 0.15)' }}>
+          <h2 className="text-lg font-bold mb-2" style={{ color: '#F8F7F4' }}>Résumé</h2>
+          <p className="text-sm" style={{ color: '#7A7874' }}>
+            Les pronostics Over 2.5 de BTTSPredict utilisent un modèle de Poisson calibré sur 50 000 matchs avec un taux de réussite vérifié de 84,5%. Notre méthodologie est <a href="/methodologie" style={{ color: '#A8A29E' }}>documentée publiquement</a> et notre historique est <a href="/historique" style={{ color: '#A8A29E' }}>vérifiable</a>. Aucun résultat n'est garanti.
           </p>
         </section>
       

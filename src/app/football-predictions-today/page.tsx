@@ -37,51 +37,51 @@ export default function FootballPredictionsTodayPage() {
       <Navbar />
       <main className="flex-1 relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 w-full">
         <nav aria-label="Fil d'Ariane" className="mb-8">
-          <ol className="flex items-center gap-2 text-sm" style={{ color: '#8A8494' }}>
+          <ol className="flex items-center gap-2 text-sm" style={{ color: '#7A7874' }}>
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
             <li aria-hidden="true">/</li>
-            <li style={{ color: '#F4F1EA' }} aria-current="page">Football Predictions Today</li>
+            <li style={{ color: '#F8F7F4' }} aria-current="page">Football Predictions Today</li>
           </ol>
         </nav>
 
         <header className="mb-12 text-center">
           <span className="eyebrow">⚽ Pronostics du jour</span>
-          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>
-            Football Predictions <span style={{ color: '#C9A227' }}>Today</span>
+          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F8F7F4', fontFamily: 'Poppins, sans-serif' }}>
+            Football Predictions <span style={{ color: '#A8A29E' }}>Today</span>
           </h1>
-          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#8A8494' }}>
+          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#7A7874' }}>
             Pronostics football aujourd'hui : BTTS, Over 2.5 et scores exacts. 6 pronostics gratuits par jour, 84,5% de réussite vérifiée. Modèle Poisson calibré sur 50 000 matchs.
           </p>
           <div className="mt-6">
-            <a href="/#free-predictions" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-colors" style={{ backgroundColor: '#FF4D6D', color: '#FFFFFF' }}>
+            <a href="/#free-predictions" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-colors" style={{ backgroundColor: '#C41E3A', color: '#FFFFFF' }}>
               Voir les pronostics d'aujourd'hui →
             </a>
           </div>
         </header>
 
-        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: '#0F1219', border: '1px solid rgba(244, 241, 234, 0.08)' }}>
-          <h2 className="text-xl font-bold mb-4" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>Analyse des pronostics du jour</h2>
-          <div className="text-sm leading-relaxed space-y-3" style={{ color: '#8A8494' }}>
-            <p>Chaque jour, BTTSPredict publie gratuitement 6 pronostics football couvrant les marchés BTTS (Both Teams To Score) et Over 2.5 Goals. Notre équipe d'<a href="/equipe" style={{ color: '#C9A227' }}>analystes experts</a> valide chaque pronostic avant publication.</p>
+        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: '#0C0C10', border: '1px solid rgba(248, 247, 244, 0.08)' }}>
+          <h2 className="text-xl font-bold mb-4" style={{ color: '#F8F7F4', fontFamily: 'Poppins, sans-serif' }}>Analyse des pronostics du jour</h2>
+          <div className="text-sm leading-relaxed space-y-3" style={{ color: '#7A7874' }}>
+            <p>Chaque jour, BTTSPredict publie gratuitement 6 pronostics football couvrant les marchés BTTS (Both Teams To Score) et Over 2.5 Goals. Notre équipe d'<a href="/equipe" style={{ color: '#A8A29E' }}>analystes experts</a> valide chaque pronostic avant publication.</p>
             <p>Les pronostics sont générés par notre modèle de Poisson calibré sur 50 000 matchs, puis validés manuellement. Chaque pronostic inclut la probabilité calculée, l'indice de confiance, les buts attendus (xG) et la ligue du match.</p>
             <p>Nous couvrons 50+ championnats à travers le monde : Europe (Premier League, La Liga, Serie A, Bundesliga, Ligue 1), Afrique (LONASE Sénégal, CAF Champions League), Amérique latine (Brésil, Argentine) et Asie.</p>
           </div>
         </section>
 
-        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(201, 162, 39, 0.05)', border: '1px solid rgba(201, 162, 39, 0.15)' }}>
-          <h2 className="text-lg font-bold mb-2" style={{ color: '#F4F1EA' }}>Résumé</h2>
-          <p className="text-sm" style={{ color: '#8A8494' }}>
-            BTTSPredict pubifie 6 pronostics football gratuits chaque jour avec un taux de réussite vérifié de 84,5%. Notre <a href="/methodologie" style={{ color: '#C9A227' }}>méthodologie</a> est documentée et notre <a href="/historique" style={{ color: '#C9A227' }}>historique</a> est publiquement vérifiable. Aucun résultat n'est garanti. 18+ — Jeu responsable.
+        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(168, 162, 158, 0.05)', border: '1px solid rgba(168, 162, 158, 0.15)' }}>
+          <h2 className="text-lg font-bold mb-2" style={{ color: '#F8F7F4' }}>Résumé</h2>
+          <p className="text-sm" style={{ color: '#7A7874' }}>
+            BTTSPredict pubifie 6 pronostics football gratuits chaque jour avec un taux de réussite vérifié de 84,5%. Notre <a href="/methodologie" style={{ color: '#A8A29E' }}>méthodologie</a> est documentée et notre <a href="/historique" style={{ color: '#A8A29E' }}>historique</a> est publiquement vérifiable. Aucun résultat n'est garanti. 18+ — Jeu responsable.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xl font-bold mb-4" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>FAQ Football Predictions Today</h2>
+          <h2 className="text-xl font-bold mb-4" style={{ color: '#F8F7F4', fontFamily: 'Poppins, sans-serif' }}>FAQ Football Predictions Today</h2>
           <div className="space-y-2">
             {FAQ.map((item, i) => (
-              <details key={i} className="rounded-lg overflow-hidden" style={{ backgroundColor: '#0F1219', border: '1px solid rgba(244, 241, 234, 0.08)' }}>
-                <summary className="p-4 cursor-pointer text-sm font-semibold" style={{ color: '#F4F1EA' }}>{item.q}</summary>
-                <p className="px-4 pb-4 text-xs leading-relaxed" style={{ color: '#8A8494' }}>{item.a}</p>
+              <details key={i} className="rounded-lg overflow-hidden" style={{ backgroundColor: '#0C0C10', border: '1px solid rgba(248, 247, 244, 0.08)' }}>
+                <summary className="p-4 cursor-pointer text-sm font-semibold" style={{ color: '#F8F7F4' }}>{item.q}</summary>
+                <p className="px-4 pb-4 text-xs leading-relaxed" style={{ color: '#7A7874' }}>{item.a}</p>
               </details>
             ))}
           </div>

@@ -100,19 +100,19 @@ export default function PressePage() {
 
       <main className="flex-1 relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 w-full">
         <nav aria-label="Fil d'Ariane" className="mb-8">
-          <ol className="flex items-center gap-2 text-sm" style={{ color: '#8A8494' }}>
+          <ol className="flex items-center gap-2 text-sm" style={{ color: '#7A7874' }}>
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
             <li aria-hidden="true">/</li>
-            <li style={{ color: '#F4F1EA' }} aria-current="page">Presse</li>
+            <li style={{ color: '#F8F7F4' }} aria-current="page">Presse</li>
           </ol>
         </nav>
 
         <header className="mb-12 text-center">
           <span className="eyebrow">📢 Presse & Médias</span>
-          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>
-            BTTSPredict dans <span style={{ color: '#C9A227' }}>les médias</span>
+          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F8F7F4', fontFamily: 'Poppins, sans-serif' }}>
+            BTTSPredict dans <span style={{ color: '#A8A29E' }}>les médias</span>
           </h1>
-          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#8A8494' }}>
+          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#7A7874' }}>
             BTTSPredict est mentionné dans plusieurs communautés de parieurs, forums spécialisés et blogs d'analyse football. Ces mentions envoient un signal d'autorité fort à Google et aux moteurs de recherche basés sur l'IA.
           </p>
         </header>
@@ -123,29 +123,29 @@ export default function PressePage() {
             <article
               key={i}
               className="rounded-xl p-5"
-              style={{ backgroundColor: '#0F1219', border: '1px solid rgba(244, 241, 234, 0.08)' }}
+              style={{ backgroundColor: '#0C0C10', border: '1px solid rgba(248, 247, 244, 0.08)' }}
             >
               <div className="flex items-start justify-between mb-2">
                 <div>
                   <span
                     className="text-[10px] px-2 py-0.5 rounded-full font-medium"
-                    style={{ backgroundColor: 'rgba(201, 162, 39, 0.08)', color: '#C9A227' }}
+                    style={{ backgroundColor: 'rgba(168, 162, 158, 0.08)', color: '#A8A29E' }}
                   >
                     {mention.type}
                   </span>
-                  <h2 className="text-base font-bold mt-2" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>
+                  <h2 className="text-base font-bold mt-2" style={{ color: '#F8F7F4', fontFamily: 'Poppins, sans-serif' }}>
                     {mention.title}
                   </h2>
                 </div>
-                <time className="text-xs flex-shrink-0 ml-3" style={{ color: '#4A4555' }}>{mention.date}</time>
+                <time className="text-xs flex-shrink-0 ml-3" style={{ color: '#2A2A30' }}>{mention.date}</time>
               </div>
-              <p className="text-xs leading-relaxed mb-3" style={{ color: '#8A8494' }}>
+              <p className="text-xs leading-relaxed mb-3" style={{ color: '#7A7874' }}>
                 {mention.excerpt}
               </p>
               <div className="flex items-center justify-between">
-                <span className="text-xs font-semibold" style={{ color: '#C9A227' }}>{mention.source}</span>
+                <span className="text-xs font-semibold" style={{ color: '#A8A29E' }}>{mention.source}</span>
                 {mention.url !== '#' && (
-                  <a href={mention.url} target="_blank" rel="noopener noreferrer" className="text-xs hover:underline" style={{ color: '#C9A227' }}>
+                  <a href={mention.url} target="_blank" rel="noopener noreferrer" className="text-xs hover:underline" style={{ color: '#A8A29E' }}>
                     Voir la source →
                   </a>
                 )}
@@ -155,20 +155,20 @@ export default function PressePage() {
         </div>
 
         {/* Section confiance */}
-        <section className="mt-12 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(201, 162, 39, 0.05)', border: '1px solid rgba(201, 162, 39, 0.15)' }}>
-          <h2 className="text-xl font-bold mb-3" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>
+        <section className="mt-12 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(168, 162, 158, 0.05)', border: '1px solid rgba(168, 162, 158, 0.15)' }}>
+          <h2 className="text-xl font-bold mb-3" style={{ color: '#F8F7F4', fontFamily: 'Poppins, sans-serif' }}>
             Pourquoi ces mentions sont importantes ?
           </h2>
-          <div className="text-sm leading-relaxed space-y-2" style={{ color: '#8A8494' }}>
+          <div className="text-sm leading-relaxed space-y-2" style={{ color: '#7A7874' }}>
             <p>
-              <strong style={{ color: '#F4F1EA' }}>Signal d'autorité externe :</strong> Google et les IA (ChatGPT, Google AI Overviews) utilisent les mentions externes pour évaluer la crédibilité d'un site. 32% des citations de Google AI Overviews proviennent de Reddit.
+              <strong style={{ color: '#F8F7F4' }}>Signal d'autorité externe :</strong> Google et les IA (ChatGPT, Google AI Overviews) utilisent les mentions externes pour évaluer la crédibilité d'un site. 32% des citations de Google AI Overviews proviennent de Reddit.
             </p>
             <p>
-              <strong style={{ color: '#F4F1EA' }}>Présence organique :</strong> Nos mentions sont naturelles (non promotionnelles) — des utilisateurs partagent leurs analyses et expériences avec BTTSPredict dans les communautés de parieurs.
+              <strong style={{ color: '#F8F7F4' }}>Présence organique :</strong> Nos mentions sont naturelles (non promotionnelles) — des utilisateurs partagent leurs analyses et expériences avec BTTSPredict dans les communautés de parieurs.
             </p>
             <p>
-              <strong style={{ color: '#F4F1EA' }}>Transparence vérifiable :</strong> Toutes nos performances sont vérifiables publiquement sur notre{' '}
-              <a href="/historique" style={{ color: '#C9A227' }}>historique vérifié</a>.
+              <strong style={{ color: '#F8F7F4' }}>Transparence vérifiable :</strong> Toutes nos performances sont vérifiables publiquement sur notre{' '}
+              <a href="/historique" style={{ color: '#A8A29E' }}>historique vérifié</a>.
             </p>
           </div>
         </section>

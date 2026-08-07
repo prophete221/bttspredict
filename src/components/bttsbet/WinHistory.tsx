@@ -33,12 +33,12 @@ type ResultFilter = 'all' | 'won' | 'lost'
 type TypeFilter = 'all' | 'BTTS' | 'O2.5'
 
 const COLORS = {
-  success: '#3DDC97',
-  lose: '#FF6B4A',
-  gold: '#C9A227',
-  panel: '#0F1219',
-  edge: 'rgba(244, 241, 234, 0.08)',
-  text: '#8A8494',
+  success: '#1F8A70',
+  lose: '#D94F30',
+  gold: '#A8A29E',
+  panel: '#0C0C10',
+  edge: 'rgba(248, 247, 244, 0.08)',
+  text: '#7A7874',
 }
 
 function TeamLogoMini({ src, alt }: { src?: string; alt: string }) {
@@ -154,7 +154,7 @@ function TypeDistribution({ history }: { history: HistoryItem[] }) {
                 animate={{ width: `${d.rate}%` }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
                 className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-success-dark to-success"
-                style={{ boxShadow: '0 0 8px rgba(29, 185, 84, 0.4)' }}
+                style={{ boxShadow: '0 0 8px rgba(31, 138, 112, 0.4)' }}
               />
             </div>
             <div className="flex items-center justify-between text-[9px] text-gray-400 mt-1">
@@ -446,9 +446,9 @@ export default function WinHistory() {
             href="/historique"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold transition-all"
             style={{
-              background: 'linear-gradient(135deg, #C9A227, #3DDC97)',
-              color: '#07080C',
-              boxShadow: '0 4px 16px rgba(201, 162, 39, 0.25)',
+              background: 'linear-gradient(135deg, #A8A29E, #1F8A70)',
+              color: '#050507',
+              boxShadow: '0 4px 16px rgba(168, 162, 158, 0.25)',
             }}
           >
             Voir l'historique complet des pronostics (gagnés et perdus) →
@@ -477,8 +477,8 @@ export default function WinHistory() {
           transition={{ duration: 0.4 }}
           className="mt-6 p-4 rounded-xl"
           style={{
-            background: 'linear-gradient(135deg, rgba(201, 162, 39, 0.04), rgba(0, 212, 245, 0.04))',
-            border: '1px solid rgba(201, 162, 39, 0.12)',
+            background: 'linear-gradient(135deg, rgba(168, 162, 158, 0.04), rgba(168, 162, 158, 0.04))',
+            border: '1px solid rgba(168, 162, 158, 0.12)',
           }}
         >
           <p className="text-[12px] text-gray-400 leading-relaxed text-center">

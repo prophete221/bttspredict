@@ -37,46 +37,46 @@ export default function CorrectScorePredictionsPage() {
       <Navbar />
       <main className="flex-1 relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 w-full">
         <nav aria-label="Fil d'Ariane" className="mb-8">
-          <ol className="flex items-center gap-2 text-sm" style={{ color: '#8A8494' }}>
+          <ol className="flex items-center gap-2 text-sm" style={{ color: '#7A7874' }}>
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
             <li aria-hidden="true">/</li>
-            <li style={{ color: '#F4F1EA' }} aria-current="page">Correct Score Predictions</li>
+            <li style={{ color: '#F8F7F4' }} aria-current="page">Correct Score Predictions</li>
           </ol>
         </nav>
 
         <header className="mb-12 text-center">
           <span className="eyebrow">🎯 Score Exact</span>
-          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>
-            Correct Score <span style={{ color: '#C9A227' }}>Predictions</span>
+          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F8F7F4', fontFamily: 'Poppins, sans-serif' }}>
+            Correct Score <span style={{ color: '#A8A29E' }}>Predictions</span>
           </h1>
-          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#8A8494' }}>
+          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#7A7874' }}>
             Pronostics score exact basés sur le modèle de distribution de Poisson. Analyse de chaque score possible, probabilités détaillées et statistiques par championnat.
           </p>
         </header>
 
-        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: '#0F1219', border: '1px solid rgba(244, 241, 234, 0.08)' }}>
-          <h2 className="text-xl font-bold mb-4" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>Méthodologie score exact</h2>
-          <div className="text-sm leading-relaxed space-y-3" style={{ color: '#8A8494' }}>
+        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: '#0C0C10', border: '1px solid rgba(248, 247, 244, 0.08)' }}>
+          <h2 className="text-xl font-bold mb-4" style={{ color: '#F8F7F4', fontFamily: 'Poppins, sans-serif' }}>Méthodologie score exact</h2>
+          <div className="text-sm leading-relaxed space-y-3" style={{ color: '#7A7874' }}>
             <p>Le modèle de Poisson permet de calculer la probabilité de chaque score possible. Pour un match entre l'équipe A (lambda domicile = 1.5) et l'équipe B (lambda extérieur = 1.2), le modèle génère une matrice de probabilités pour tous les scores de 0-0 à 5-5.</p>
             <p>Le score le plus probable est généralement autour de 1-1 ou 1-0, mais la distribution complète permet d'identifier les value bets sur des scores moins probables mais à cotes élevées.</p>
-            <p>Pour voir nos pronostics du jour, consultez notre <a href="/" style={{ color: '#C9A227' }}>page d'accueil</a>. Pour comprendre notre modèle en détail, visitez notre page <a href="/methodologie" style={{ color: '#C9A227' }}>méthodologie</a>.</p>
+            <p>Pour voir nos pronostics du jour, consultez notre <a href="/" style={{ color: '#A8A29E' }}>page d'accueil</a>. Pour comprendre notre modèle en détail, visitez notre page <a href="/methodologie" style={{ color: '#A8A29E' }}>méthodologie</a>.</p>
           </div>
         </section>
 
-        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(201, 162, 39, 0.05)', border: '1px solid rgba(201, 162, 39, 0.15)' }}>
-          <h2 className="text-lg font-bold mb-2" style={{ color: '#F4F1EA' }}>Résumé</h2>
-          <p className="text-sm" style={{ color: '#8A8494' }}>
+        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(168, 162, 158, 0.05)', border: '1px solid rgba(168, 162, 158, 0.15)' }}>
+          <h2 className="text-lg font-bold mb-2" style={{ color: '#F8F7F4' }}>Résumé</h2>
+          <p className="text-sm" style={{ color: '#7A7874' }}>
             Les pronostics score exact sont des marchés à haut risque et haute récompense. Notre modèle Poisson fournit les probabilités pour chaque score, mais aucun résultat n'est garanti. Utilisez ces pronostics comme outil d'aide à la décision. 18+ — Jeu responsable.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xl font-bold mb-4" style={{ color: '#F4F1EA', fontFamily: 'Poppins, sans-serif' }}>FAQ Score Exact</h2>
+          <h2 className="text-xl font-bold mb-4" style={{ color: '#F8F7F4', fontFamily: 'Poppins, sans-serif' }}>FAQ Score Exact</h2>
           <div className="space-y-2">
             {FAQ.map((item, i) => (
-              <details key={i} className="rounded-lg overflow-hidden" style={{ backgroundColor: '#0F1219', border: '1px solid rgba(244, 241, 234, 0.08)' }}>
-                <summary className="p-4 cursor-pointer text-sm font-semibold" style={{ color: '#F4F1EA' }}>{item.q}</summary>
-                <p className="px-4 pb-4 text-xs leading-relaxed" style={{ color: '#8A8494' }}>{item.a}</p>
+              <details key={i} className="rounded-lg overflow-hidden" style={{ backgroundColor: '#0C0C10', border: '1px solid rgba(248, 247, 244, 0.08)' }}>
+                <summary className="p-4 cursor-pointer text-sm font-semibold" style={{ color: '#F8F7F4' }}>{item.q}</summary>
+                <p className="px-4 pb-4 text-xs leading-relaxed" style={{ color: '#7A7874' }}>{item.a}</p>
               </details>
             ))}
           </div>

@@ -29,25 +29,25 @@ const VARIANTS: Record<Variant, {
   logoClass?: string
 }> = {
   linebet: {
-    className: 'btn-linebet cta-glow text-[#04150C] font-bold',
+    className: 'btn-linebet cta-glow text-[#050507] font-bold',
     logo: '/logos/linebet.svg',
     logoAlt: 'Linebet',
     logoClass: 'h-4 sm:h-5 w-auto',
   },
   star888: {
-    className: 'btn-star888 cta-glow text-[#1A0008] font-bold',
+    className: 'btn-star888 cta-glow text-[#050507] font-bold',
     logo: '/logos/888starz.svg',
     logoAlt: '888starz',
     logoClass: 'h-4 sm:h-5 w-auto',
   },
   gold: {
-    className: 'btn-gold cta-glow text-[#1A0F00] font-bold',
+    className: 'btn-gold cta-glow text-[#0C0C10] font-bold',
   },
   ghost: {
     className: 'btn-ghost font-semibold',
   },
   download: {
-    className: 'btn-gold cta-glow text-[#1A0F00] font-bold',
+    className: 'btn-gold cta-glow text-[#0C0C10] font-bold',
     logo: '/logos/google-play.svg',
     logoAlt: 'Google Play',
     logoClass: 'h-4 sm:h-5 w-4 sm:w-5',
