@@ -348,6 +348,14 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
                     <span>Non: {Math.round((1 - bttsPred.bttsProb) * 100)}%</span>
                   </div>
                 )}
+                {/* Indicateur de calibration pour proba extrême (> 90%) — critère 17 */}
+                {bttsPred.bttsProb !== undefined && bttsPred.bttsProb >= 0.90 && (
+                  <div className="mt-1 px-1.5 py-0.5 rounded text-[8px] font-bold uppercase tracking-wide"
+                    style={{ backgroundColor: 'rgba(255, 200, 87, 0.12)', color: '#FFC857', border: '1px solid rgba(255, 200, 87, 0.25)' }}
+                    title="Probabilité élevée. La calibration du modèle sur ce marché peut être moins fiable à ces niveaux — vérifiez l'historique.">
+                    ⚠ Proba ≥ 90% · Calibration à vérifier
+                  </div>
+                )}
               </>
             </div>
 
@@ -375,6 +383,14 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
                   <div className="flex items-center justify-between text-[9px] text-cendre">
                     <span>Oui: {Math.round(over25Pred.over25Prob * 100)}%</span>
                     <span>Non: {Math.round((1 - over25Pred.over25Prob) * 100)}%</span>
+                  </div>
+                )}
+                {/* Indicateur de calibration pour proba extrême (> 90%) — critère 17 */}
+                {over25Pred.over25Prob !== undefined && over25Pred.over25Prob >= 0.90 && (
+                  <div className="mt-1 px-1.5 py-0.5 rounded text-[8px] font-bold uppercase tracking-wide"
+                    style={{ backgroundColor: 'rgba(255, 200, 87, 0.12)', color: '#FFC857', border: '1px solid rgba(255, 200, 87, 0.25)' }}
+                    title="Probabilité élevée. La calibration du modèle sur ce marché peut être moins fiable à ces niveaux — vérifiez l'historique.">
+                    ⚠ Proba ≥ 90% · Calibration à vérifier
                   </div>
                 )}
               </>
@@ -427,15 +443,17 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
           )}
         </AnimatePresence>
 
-        {/* Footer toggle */}
+        {/* Footer toggle — CTA contextualisé avec noms d'équipes */}
         <button
           onClick={() => setExpanded(e => !e)}
           className="w-full flex items-center justify-center gap-1.5 mt-3 pt-3 border-t border-edge text-[11px] text-cendre hover:text-success transition-colors"
+          aria-expanded={expanded}
+          aria-label={expanded ? `Voir moins d'analyse pour ${home} – ${away}` : `Voir l'analyse ${home} – ${away}`}
         >
           {expanded ? (
             <>Voir moins <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="18 15 12 9 6 15" /></svg></>
           ) : (
-            <>Analyse détaillée <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9" /></svg></>
+            <>Voir l'analyse {home} – {away} <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9" /></svg></>
           )}
         </button>
       </div>

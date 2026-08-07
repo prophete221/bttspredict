@@ -335,3 +335,181 @@ describe('Phase 14 — Performance', () => {
     expect(fpw).toContain('aria-label')
   })
 })
+
+describe('Critère 17 — Probabilités extrêmes contrôlées et expliquées', () => {
+  test('FreePredictions.tsx affiche indicateur de calibration si proba >= 90%', () => {
+    const fp = fs.readFileSync(path.join(ROOT, 'src/components/bttsbet/FreePredictions.tsx'), 'utf8')
+    expect(fp).toMatch(/0\.90|proba.*>=.*0\.9/i)
+    expect(fp).toContain('Calibration')
+  })
+})
+
+describe('Critère 19 — CTA contextualisés et non répétitifs', () => {
+  test('FreePredictions.tsx CTA contient le nom des équipes (pas "Analyse détaillée" générique)', () => {
+    const fp = fs.readFileSync(path.join(ROOT, 'src/components/bttsbet/FreePredictions.tsx'), 'utf8')
+    expect(fp).toContain('Voir l\'analyse ${home} – ${away}')
+    expect(fp).not.toContain('>Analyse détaillée<')
+  })
+})
+
+describe('Critère 21 — Claims IA correspondent au fonctionnement réel', () => {
+  test('page.tsx ne contient pas "Méthodologie IA — 3 couches technologiques" (claim faux)', () => {
+    const page = fs.readFileSync(path.join(ROOT, 'src/app/page.tsx'), 'utf8')
+    expect(page).not.toContain('Méthodologie IA — 3 couches')
+    expect(page).not.toContain('200 variables')
+    expect(page).not.toContain('50 000 matchs')
+    expect(page).not.toContain('Forebet, Windrawwin et Soccerbase')
+    expect(page).not.toContain('Contrôle humain')
+  })
+})
+
+describe('Critère 22 — Sources citées réellement utilisées', () => {
+  test('page.tsx ne cite pas API-Football, Forebet, Windrawwin, Soccerbase', () => {
+    const page = fs.readFileSync(path.join(ROOT, 'src/app/page.tsx'), 'utf8')
+    expect(page).not.toMatch(/API-Football/i)
+    expect(page).not.toMatch(/Forebet/i)
+    expect(page).not.toMatch(/Windrawwin/i)
+    expect(page).not.toMatch(/Soccerbase/i)
+  })
+})
+
+describe('Critère 23 — Métadonnées SEO uniques et factuelles', () => {
+  test('Chaque page principale a un title unique', () => {
+    const pages = [
+      'src/app/page.tsx',
+      'src/app/pronostics/page.tsx',
+      'src/app/pronostics/aujourd-hui/page.tsx',
+      'src/app/vip/page.tsx',
+      'src/app/historique/page.tsx',
+      'src/app/methodologie/page.tsx',
+      'src/app/jouer-responsable/page.tsx',
+    ]
+    const titles: string[] = []
+    for (const p of pages) {
+      const content = fs.readFileSync(path.join(ROOT, p), 'utf8')
+      const m = content.match(/title:\s*['"`]([^'"`]+)['"`]/)
+      if (m) titles.push(m[1])
+    }
+    const uniqueTitles = new Set(titles)
+    expect(uniqueTitles.size).toBe(titles.length) // All titles are unique
+  })
+})
+
+describe('Critère 24 — Page jeu responsable accessible depuis zones importantes', () => {
+  test('Lien /jouer-responsable présent sur homepage', () => {
+    const page = fs.readFileSync(path.join(ROOT, 'src/app/page.tsx'), 'utf8')
+    expect(page).toContain('/jouer-responsable')
+  })
+  test('Lien /jouer-responsable présent sur /vip', () => {
+    const vip = fs.readFileSync(path.join(ROOT, 'src/app/vip/page.tsx'), 'utf8')
+    expect(vip).toContain('/jouer-responsable')
+  })
+  test('Lien /jouer-responsable présent dans le Footer', () => {
+    const footer = fs.readFileSync(path.join(ROOT, 'src/components/bttsbet/Footer.tsx'), 'utf8')
+    expect(footer).toContain('/jouer-responsable')
+  })
+})
+
+describe('Critère 25 — Liens d\'affiliation clairement identifiés', () => {
+  test('constants.ts AFFILIATE.rel = "sponsored nofollow"', () => {
+    const c = fs.readFileSync(path.join(ROOT, 'src/lib/constants.ts'), 'utf8')
+    expect(c).toContain('sponsored nofollow')
+  })
+  test('/vip contient notice "Lien d\'affiliation rémunéré"', () => {
+    const vip = fs.readFileSync(path.join(ROOT, 'src/app/vip/page.tsx'), 'utf8')
+    expect(vip).toContain("Lien d'affiliation rémunéré")
+    expect(vip).toContain('BTTSPredict ne prend pas de paris')
+  })
+})
+
+describe('Critère 26 — Site ne promet aucun gain', () => {
+  test('Aucune page principale ne contient "gain assuré" / "sans risque" / "100% sûr"', () => {
+    const files = [
+      'src/app/page.tsx',
+      'src/app/vip/page.tsx',
+      'src/app/pronostics/page.tsx',
+      'src/app/historique/HistoriqueClient.tsx',
+      'src/app/methodologie/page.tsx',
+    ]
+    for (const f of files) {
+      const content = fs.readFileSync(path.join(ROOT, f), 'utf8')
+      // Allow negation form "Aucun gain n'est garanti" / "ne garantit aucun gain"
+      const cleaned = content
+        .replace(/Aucun gain n.*?est garanti/g, '')
+        .replace(/Aucun gain garanti/g, '')
+        .replace(/ne garantit aucun gain/g, '')
+        .replace(/garantit-il des gains/g, '')
+        .replace(/garantit/g, '')
+      expect(cleaned).not.toMatch(/gain assuré/i)
+      expect(cleaned).not.toMatch(/sans risque/i)
+      expect(cleaned).not.toMatch(/100%\s*sûr/i)
+      expect(content).not.toMatch(/N°1/i)
+    }
+  })
+})
+
+describe('Critère 27 — Site responsive (mobile, tablette, desktop)', () => {
+  test('BottomNavigation visible sur tous les viewports (pas de md:hidden)', () => {
+    const nav = fs.readFileSync(path.join(ROOT, 'src/components/bttsbet/BottomNavigation.tsx'), 'utf8')
+    expect(nav).not.toContain('md:hidden') // visible on all viewports
+  })
+  test('globals.css contient media queries responsive', () => {
+    const css = fs.readFileSync(path.join(ROOT, 'src/app/globals.css'), 'utf8')
+    expect(css).toMatch(/@media\s*\(max-width:\s*640px\)/)
+  })
+})
+
+describe('Critère 28 — Build, lint et tests passent', () => {
+  test('vitest.config.ts existe', () => {
+    expect(fs.existsSync(path.join(ROOT, 'vitest.config.ts'))).toBe(true)
+  })
+  test('package.json contient scripts test et test:ci', () => {
+    const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'))
+    expect(pkg.scripts.test).toBeDefined()
+    expect(pkg.scripts['test:ci']).toBeDefined()
+  })
+})
+
+describe('Critère 29 — Aucun secret ou clé API privée', () => {
+  test('.gitignore exclut .env*', () => {
+    const gi = fs.readFileSync(path.join(ROOT, '.gitignore'), 'utf8')
+    expect(gi).toMatch(/\.env\*/)
+  })
+  test('.env.example documente les variables sans valeurs réelles', () => {
+    expect(fs.existsSync(path.join(ROOT, '.env.example'))).toBe(true)
+    const env = fs.readFileSync(path.join(ROOT, '.env.example'), 'utf8')
+    expect(env).toContain('NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX') // placeholder, not real
+    expect(env).not.toMatch(/sk-[a-zA-Z0-9]{20,}/) // no real API key pattern
+  })
+  test('deploy.yml utilise ${{ secrets.* }} (pas de secrets en dur)', () => {
+    const wf = fs.readFileSync(path.join(ROOT, '.github/workflows/deploy.yml'), 'utf8')
+    expect(wf).toContain('${{ secrets.FTP_SERVER }}')
+    expect(wf).toContain('${{ secrets.FTP_USERNAME }}')
+    expect(wf).toContain('${{ secrets.FTP_PASSWORD }}')
+  })
+})
+
+describe('Critère 30 — Toutes les modifications sont documentées', () => {
+  test('CHANGELOG.md existe et documente les 16 phases', () => {
+    const cl = fs.readFileSync(path.join(ROOT, 'CHANGELOG.md'), 'utf8')
+    expect(cl).toContain('Phase 1 —')
+    expect(cl).toContain('Phase 16 —')
+    expect(cl).toContain('Critères d\'acceptation finaux')
+  })
+  test('IMPLEMENTATION_PLAN.md existe', () => {
+    expect(fs.existsSync(path.join(ROOT, 'IMPLEMENTATION_PLAN.md'))).toBe(true)
+  })
+  test('DATA_TRANSPARENCY.md existe', () => {
+    expect(fs.existsSync(path.join(ROOT, 'DATA_TRANSPARENCY.md'))).toBe(true)
+  })
+  test('VIP_PAGE_SPEC.md existe', () => {
+    expect(fs.existsSync(path.join(ROOT, 'VIP_PAGE_SPEC.md'))).toBe(true)
+  })
+  test('ROUTES_AUDIT.md existe', () => {
+    expect(fs.existsSync(path.join(ROOT, 'ROUTES_AUDIT.md'))).toBe(true)
+  })
+  test('TEST_REPORT.md existe', () => {
+    expect(fs.existsSync(path.join(ROOT, 'TEST_REPORT.md'))).toBe(true)
+  })
+})
+

@@ -62,7 +62,7 @@ export default function Footer() {
               { label: 'CGU', href: '/cgu' },
               { label: 'Mentions légales', href: '/mentions-legales' },
               { label: 'Confidentialité', href: '/politique-confidentialite' },
-              { label: 'Jouer responsable', href: 'https://www.begambleaware.org/' },
+              { label: 'Jouer responsable', href: '/jouer-responsable' },
             ].map(link => (
               <a key={link.label} href={link.href} className="text-center text-[10px] text-[#A5ABC5] hover:text-[#5146F5] transition-colors py-2">
                 {link.label}

@@ -53,7 +53,7 @@ const faqJsonLd = {
       name: "Comment fonctionne l'analyse de BTTSPredict ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Nos analystes analysent des centaines de variables en temps réel : Expected Goals (xG), forme récente, blessés, historique des confrontations, conditions météo. Le modèle est calibré sur plus de 50 000 matchs avec un taux de réussite réel (voir /historique) (voir /historique pour les chiffres réels en temps réel). Ces performances passées ne garantissent pas les résultats futurs.",
+        text: "Nos analystes utilisent un modèle Poisson bivarié (V3-Reliability) avec 8 variables par match (forme récente des deux équipes sur 5 derniers matchs). Le modèle ne prend pas en compte les blessures, la météo, l'historique des confrontations ni les Expected Goals (xG). Le nouveau suivi public a été lancé le 2026-08-08 — voir /historique pour les chiffres réels. Aucun résultat futur n'est garanti.",
       },
     },
     {
@@ -85,7 +85,7 @@ const faqJsonLd = {
       name: 'Pourquoi faire confiance à BTTSPredict ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "BTTSPredict est une base open-source de pronostics BTTS grâce à 5 piliers : (1) Transparence absolue — nous affichons TOUS nos résultats gagnés ET perdus. (2) Méthodologie scientifique — modèle de Poisson calibré sur 50 000 matchs avec 200+ variables (xG, forme, blessés). (3) Couverture étendue — 50+ championnats sur 5 continents. (4) Communauté de parieurs avec note 4,2/5. (5) Sources officielles — ESPN, API-Football, Forebet, Windrawwin. Notre taux de réussite réel (voir /historique) est publiquement auditable.",
+        text: "BTTSPredict publie des pronostics BTTS et Over 2.5 basés sur un modèle statistique Poisson V3-Reliability. (1) Transparence — tous les pronostics sont archivés et vérifiés publiquement. (2) Méthodologie — modèle Poisson bivarié avec 8 variables par match (forme récente des équipes sur 5 derniers matchs). (3) Couverture — 11 ligues HIGH_BTTS (taux historique > 53% de BTTS). (4) Sources publiques — ESPN Soccer API et TheSportsDB v3 (sans clé API). (5) Suivi public — nouveau suivi lancé le 2026-08-08, tous les pronostics sont horodatés et vérifiés après le résultat officiel. Aucun résultat futur n'est garanti.",
       },
     },
     {
@@ -93,7 +93,7 @@ const faqJsonLd = {
       name: 'BTTSPredict est-il un site de pronostics fiable ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Oui. BTTSPredict a établi un approche de transparence dans l'industrie des pronostics sportifs : historique public vérifiable (gagnés ET perdus), méthodologie scientifique documentée (modèle Poisson + xG), et couverture de 50+ championnats. Notre taux de réussite est calculé en temps réel à partir des résultats réels (voir /historique), pas un chiffre marketing. Aucun résultat n'est garanti — les paris sportifs comportent des risques.",
+        text: "Oui. BTTSPredict publie un historique public vérifiable (gagnés ET perdus), une méthodologie documentée (modèle Poisson bivarié V3-Reliability avec 8 variables par match), et couvre 11 ligues HIGH_BTTS. Le taux de réussite est calculé en temps réel à partir des résultats réels (voir /historique), pas un chiffre marketing. Aucun résultat n'est garanti — les paris sportifs comportent des risques.",
       },
     },
   ],
@@ -119,13 +119,8 @@ const organizationJsonLd = {
     logo: 'https://bttspredict.com/favicon.svg',
   },
   award: 'Standard de transparence dans les pronostics BTTS et Over 2.5',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.2',
-    reviewCount: '2437',
-    bestRating: '5',
-    worstRating: '1',
-  },
+  // NOTE: Pas d'AggregateRating — la plateforme n'a pas de système d'avis vérifiable.
+  // Inventer des reviews serait une violation des guidelines Google Structured Data.
   // NOTE: pas de propriété founder tant que le vrai nom du fondateur n'est pas fourni.
   sameAs: ['https://wa.me/15406704172'],
 }
@@ -179,7 +174,7 @@ const webPageJsonLd = {
   '@type': 'WebPage',
   name: 'BTTSPredict — Prédictions BTTS par nos experts',
   url: 'https://bttspredict.com',
-  description: 'Plateforme de pronostics football BTTS et Over 2.5 par analyse statistique. Modèles Poisson calibrés sur 50 000 matchs. Taux de réussite vérifié et transparent.',
+  description: 'Plateforme de pronostics football BTTS et Over 2.5 par analyse statistique Poisson. 11 ligues HIGH_BTTS couvertes. Taux de réussite transparent et vérifié publiquement. Aucun gain garanti. 18+.',
   isPartOf: { '@type': 'WebSite', name: 'BTTSPredict', url: 'https://bttspredict.com' },
   about: [
     { '@type': 'Thing', name: 'BTTS — Both Teams To Score' },
@@ -215,46 +210,18 @@ const datasetJsonLd = {
   keywords: 'pronostics BTTS, historique résultats, taux de réussite, transparence, gagnés perdus',
   variableMeasured: [
     { '@type': 'PropertyValue', name: 'Taux de réussite', value: 'Calculé en temps réel depuis /historique' },
-    { '@type': 'PropertyValue', name: 'Matchs analysés (calibration Poisson)', value: '50 000+' },
-    { '@type': 'PropertyValue', name: 'Source de vérification', value: 'API-Football + ESPN' },
+    { '@type': 'PropertyValue', name: 'Ligues couvertes', value: '11 ligues HIGH_BTTS' },
+    { '@type': 'PropertyValue', name: 'Variables par match', value: '8 (forme récente des deux équipes)' },
+    { '@type': 'PropertyValue', name: 'Source de vérification', value: 'ESPN Soccer API + TheSportsDB v3 (publics, sans clé API)' },
+    { '@type': 'PropertyValue', name: 'Modèle', value: 'Poisson bivarié V3-Reliability' },
+    { '@type': 'PropertyValue', name: 'Suivi public', value: 'Lancé le 2026-08-08, voir /historique' },
   ],
 }
 
-// JSON-LD Review/Trust — Aggregated credibility
-const reviewJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Product',
-  name: 'BTTSPredict — Plateforme de pronostics par nos analystes',
-  description: 'Plateforme de pronostics football BTTS et Over 2.5 générés par analyse statistique.',
-  brand: { '@type': 'Brand', name: 'BTTSPredict' },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.2',
-    reviewCount: '2437',
-    bestRating: '5',
-    worstRating: '1',
-  },
-  review: [
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '4', bestRating: '5' },
-      author: { '@type': 'Person', name: 'Mamadou D., Dakar' },
-      reviewBody: "L'analyse xG m'aide à filtrer mes matchs. Je parie moins souvent mais avec plus de confiance.",
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      author: { '@type': 'Person', name: 'Ibrahim S., Bamako' },
-      reviewBody: "BTTSPredict a remplacé mes groupes WhatsApp. Les données sont structurées et les sources sont citées.",
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '4', bestRating: '5' },
-      author: { '@type': 'Person', name: 'Ousmane B., Ouagadougou' },
-      reviewBody: "L'outil est honnête : taux de réussite affiché, vérifiable dans l'historique. C'est ce que je cherchais.",
-    },
-  ],
-}
+// JSON-LD Review/Trust — SUPPRIMÉ (avis fictifs supprimés pour conformité Google Structured Data)
+// La plateforme n'a pas de système d'avis vérifiable. Inventer des reviews serait une violation.
+// Seules les métriques objectives (pronostics publiés, vérifiés, taux calculé depuis l'archive) sont affichées.
+const reviewJsonLd = null
 
 // JSON-LD BreadcrumbList — breadcrumbs in SERP
 const breadcrumbJsonLd = {
@@ -305,10 +272,10 @@ export default function Home() {
       <div className="sr-only">
         <h2>Base open-source de pronostics BTTS et Over 2.5</h2>
         <p>
-          BTTSPredict est la base open-source de pronostics BTTS
-          (Both Teams To Score) et Over 2.5 buts. Notre équipe d'analystes
-          analyse plus de 1 200 matchs chaque jour avec des modèles statistiques
-          Poisson calibrés sur 50 000 matchs historiques, offrant un taux de
+          BTTSPredict est la base publique de pronostics BTTS
+          (Both Teams To Score) et Over 2.5 buts. Notre modèle statistique
+          Poisson bivarié V3-Reliability analyse les matchs des 11 ligues HIGH_BTTS
+          avec 8 variables par match (forme récente des deux équipes sur 5 derniers matchs), offrant un
           taux de réussite réel (voir /historique). Notre engagement : transparence totale,
           gagnés ET perdus affichés publiquement.
         </p>
@@ -317,8 +284,8 @@ export default function Home() {
         <p data-snippet>
           <strong>BTTSPredict est la base open-source de pronostics BTTS et Over 2.5.</strong>{' '}
           Contrairement aux autres sites, nous affichons publiquement tous nos résultats, gagnés et perdus.
-          Grâce à notre modèle de Poisson calibré sur 50 000 matchs, nous atteignons un taux de réussite réel (voir /historique).
-          Notre équipe d'analystes experts valide chaque pronostic —{' '}
+          Grâce à notre modèle Poisson bivarié V3-Reliability, nous publions un suivi public vérifiable (voir /historique).
+          Chaque pronostic est généré automatiquement par le modèle statistique (aucune validation humaine) —{' '}
           <a href="/equipe" style={{ color: '#5146F5' }}>découvrez notre équipe</a>{' '}ou{' '}
           <a href="/blog" style={{ color: '#5146F5' }}>lisez nos analyses sportives</a>.
         </p>
@@ -330,28 +297,27 @@ export default function Home() {
           ce niveau de transparence.
         </p>
         <p>
-          <strong>Méthodologie scientifique :</strong> Notre modèle de distribution
-          de Poisson, calibré sur 50 000 matchs, est la méthode statistique de
-          référence pour modéliser les buts au football. Chaque match est analysé
-          avec 200+ variables : Expected Goals (xG), forme récente, blessures,
-          historique des confrontations, conditions météo.
+          <strong>Méthodologie statistique :</strong> Notre modèle de distribution
+          de Poisson bivarié (V3-Reliability) calcule les probabilités BTTS et Over 2.5
+          à partir des 8 variables de forme récente des équipes (5 derniers matchs).
+          Aucune variable xG, blessures, météo ou historique des confrontations n'est utilisée —
+          voir /methodologie pour le détail complet.
         </p>
         <p>
-          <strong>Couverture étendue :</strong> 50+ championnats couverts —
-          Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Champions League,
-          Europa League, ligues africaines (LONASE Sénégal, CAF Champions League),
-          sud-américaines (Brésil, Argentine, Colombie), et asiatiques.
+          <strong>Couverture :</strong> 11 ligues HIGH_BTTS couvertes (taux historique &gt; 53% de BTTS) —
+          Premier League, Championship, Bundesliga, 2. Bundesliga, Eredivisie,
+          Jupiler Pro League, Swiss Super League, Liga Portugal, Austrian Bundesliga,
+          Scottish Premiership, MLS.
         </p>
         <p>
-          <strong>Communauté active :</strong> parieurs utilisent BTTSPredict
-          quotidiennement. Note moyenne 4,2/5 sur 2 437 avis vérifiés. Présence
-          panafricaine : Sénégal, Côte d'Ivoire, Mali, Burkina Faso, Cameroun,
-          Nigeria, France.
+          <strong>Transparence :</strong> Tous les pronostics publiés sont archivés, horodatés
+                   et vérifiés après le résultat officiel. Le nouveau suivi public a été lancé le 2026-08-08.
+          Aucune donnée démographique sur les utilisateurs n'est collectée ni affichée.
         </p>
         <p>
-          <strong>Sources de données officielles :</strong> ESPN API, API-Football,
-          Forebet, Windrawwin, Soccerbase, TheSportsDB — les mêmes sources utilisées
-          par les bookmakers professionnels.
+          <strong>Sources de données publiques :</strong> ESPN Soccer API (public, sans clé) et
+                   TheSportsDB v3 (public, sans clé). Aucune autre source n'est utilisée.
+          La vérification post-match se fait via ces deux sources uniquement.
         </p>
         <p>
           <strong>Aucune promesse de gain :</strong> BTTSPredict ne promet jamais
@@ -383,7 +349,7 @@ export default function Home() {
         </p>
         <p>
           Chaque pronostic gratuit inclut la probabilité BTTS calculée par notre équipe, la probabilité
-          Over 2.5, les buts attendus (xG) de chaque équipe, et un indice de confiance basé sur
+          Over 2.5, les lambdas Poisson de chaque équipe, et un indice de confiance basé sur
           la qualité des données disponibles. Aucune inscription requise pour accéder aux pronostics gratuits.
         </p>
 
@@ -397,10 +363,12 @@ export default function Home() {
 
         <h2>VIP Multi-Sports — Pronostics premium</h2>
         <p>
-          Les membres VIP de BTTSPredict accèdent à des pronostics premium sur 6 sports :
-          Football, Tennis (ATP/WTA/Grand Chelem), NBA, NFL, UFC/MMA, et Handball.
-          Notre performance Gold (voir /historique) varie entre 69% et 81% selon le sport, grâce à des modèles
-          prédictifs plus avancés et une validation humaine de chaque pronostic.
+          Les membres VIP de BTTSPredict accèdent à des sélections supplémentaires générées par le même
+          modèle statistique Poisson V3-Reliability que les pronos gratuits. Le football est le sport
+          principal couvert (11 ligues HIGH_BTTS). D'autres sports (Tennis, NBA, NFL, UFC, Handball)
+          sont disponibles en VIP mais ne bénéficient pas du même niveau de calibration statistique —
+          aucun taux de réussite n'est affiché pour ces sports car le volume de données vérifiées
+          est insuffisant.
         </p>
 
         <h2>Stats historiques Aviator (informatif, non prédictif) — Algorithme Provably Fair (SHA-256)</h2>
@@ -415,7 +383,7 @@ export default function Home() {
         <h2>Analyses de valeur FIFA (expérimental) — Détection de cotes sous-évaluées</h2>
         <p>
           Notre équipe d'experts compare en temps réel les cotes des bookmakers avec les probabilités réelles
-          calculées par nos modèles prédictifs (modèle statistique calibré sur 50 000+ matchs FIFA).
+          calculées par notre modèle statistique Poisson V3-Reliability (modèle statistique basé sur la forme récente des équipes).
           Lorsqu'un écart significatif est détecté, un analyse de valeur statistique est signalé. Ces signaux sont
           des outils d'analyse, pas des garanties de gain. Cotes élevées (10-15), risque élevé.
         </p>
@@ -430,26 +398,23 @@ export default function Home() {
           la prédiction, le résultat, le score final et l'indice de confiance.
         </p>
 
-        <h2>Méthodologie IA — 3 couches technologiques</h2>
+        <h2>Méthodologie du modèle statistique</h2>
         <p>
           Notre <a href="/methodologie" style={{ color: '#5146F5' }}>méthodologie détaillée</a>{' '}
-          repose sur 3 couches.{' '}
-          <strong>Couche 1 — Collecte de données :</strong> Notre équipe agrège plus de 200 variables
-          par match : Expected Goals (xG), forme récente (5 derniers matchs), blessures et
-          suspensions, historique des confrontations directes, conditions météo, motivation
-          des équipes. Plus de 50 000 matchs analysés en continu depuis les sources ESPN,
-          API-Football, Forebet, Windrawwin et Soccerbase.
+          repose sur un modèle Poisson bivarié.{' '}
+          <strong>Données :</strong> ESPN Soccer API (public, sans clé) et TheSportsDB v3 (public, sans clé).
+          8 variables par match (forme récente des deux équipes sur 5 derniers matchs).
+          11 ligues HIGH_BTTS couvertes (taux historique &gt; 53% de BTTS).
         </p>
         <p>
-          <strong>Couche 2 — Modèle Poisson calibré :</strong> Nous utilisons le modèle de
-          distribution de Poisson avec des corrections systématiques pour le BTTS (+2%) et
-          Over 2.5 (+1%), car le Poisson sous-estime connûment le BTTS. Les seuils sont
-          fixés à 0.48 pour BTTS et 0.49 pour Over 2.5.
+          <strong>Modèle Poisson V3-Reliability :</strong> Les lambdas home/away sont calculés à partir
+          de la forme offensive et défensive des équipes. Les probabilités BTTS et Over 2.5 sont
+          calculées via formules Poisson exactes. Le seuil de publication est fixé à 0.62.
         </p>
         <p>
-          <strong>Couche 3 — Contrôle humain :</strong> Chaque pronostic VIP est validé par
-          notre équipe avant publication. Nous publions transparemment les gagnés ET les perdus,
-          avec un taux de réussite calculé sur les pronostics réellement publiés.
+          <strong>Contrôle qualité automatisé :</strong> 4 filtres obligatoires (forme offensive,
+          forme défensive, ligue HIGH_BTTS, probabilité &gt;= 0.62). Maximum 5 pronostics par jour.
+          Archive quotidienne horodatée. Vérification post-match via ESPN. Aucune validation humaine.
         </p>
 
         <h2>Sécurité et confidentialité</h2>

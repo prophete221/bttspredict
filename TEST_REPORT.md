@@ -37,10 +37,10 @@ Tests de la bibliothèque `src/lib/predictions.ts` (source unique de vérité Ph
 | `filterByTrackingPeriod` | 1 | Filtre par date de lancement |
 | `countPredictions — single source of truth` | 7 | Compteurs cohérents (published, verified, won, lost, pending, gold, standard, byMarket) |
 
-### Tests d'acceptation — `tests/acceptance.test.ts` (43 tests)
+### Tests d'acceptation — `tests/acceptance.test.ts` (67 tests)
 
-| Phase | Tests | Couverture |
-|-------|-------|------------|
+| Phase / Critère | Tests | Couverture |
+|-----------------|-------|------------|
 | Phase 2 — Routes autonomes | 6 | /pronostics, /vip, /historique, /pronostics/aujourd-hui, /methodologie, suppressions redirect-client |
 | Phase 3 — Nouveau suivi | 4 | tracking-period.json, win-history.json structure, update-win-history.mjs |
 | Phase 4 — Accueil simplifiée | 4 | Ordre des blocs, suppression VIP, accès méthodo/historique, jeu responsable |
@@ -53,19 +53,33 @@ Tests de la bibliothèque `src/lib/predictions.ts` (source unique de vérité Ph
 | Phase 12 — Accessibilité | 3 | prefers-reduced-motion, focus-visible, fallback logos |
 | Phase 13 — Cookies + jeu responsable | 2 | Personnaliser/Refuser/Accepter, non-chevauchement |
 | Phase 14 — Performance | 2 | width/height images, fallback TeamLogoMini |
+| **Critère 17** — Proba extrêmes contrôlées | 1 | Indicateur calibration si proba ≥ 90% |
+| **Critère 19** — CTA contextualisés | 1 | "Voir l'analyse {home} – {away}" au lieu de "Analyse détaillée" |
+| **Critère 21** — Claims IA réels | 1 | Pas de "Méthodologie IA — 3 couches", pas de "200 variables", pas de "50 000 matchs", pas de sources non-utilisées |
+| **Critère 22** — Sources citées réelles | 1 | Pas de mentions API-Football, Forebet, Windrawwin, Soccerbase |
+| **Critère 23** — Métadonnées SEO uniques | 1 | Chaque page a un title unique |
+| **Critère 24** — Jeu responsable accessible | 3 | Homepage + /vip + Footer |
+| **Critère 25** — Affiliation identifiée | 2 | constants.ts rel=sponsored nofollow + notice /vip |
+| **Critère 26** — Aucune promesse de gain | 1 | Aucun "gain assuré/sans risque/100% sûr/N°1" |
+| **Critère 27** — Responsive | 2 | BottomNavigation visible tous viewports + media queries |
+| **Critère 28** — Build + tests | 2 | vitest.config.ts + package.json scripts |
+| **Critère 29** — Aucun secret | 3 | .gitignore .env*, .env.example, deploy.yml secrets |
+| **Critère 30** — Documentation | 6 | CHANGELOG.md, IMPLEMENTATION_PLAN.md, DATA_TRANSPARENCY.md, VIP_PAGE_SPEC.md, ROUTES_AUDIT.md, TEST_REPORT.md |
 
 ---
 
 ## Tests réussis
 
 ```
-✓ tests/predictions.test.ts (43 tests) 8ms
-✓ tests/acceptance.test.ts (43 tests) 23ms
+✓ tests/predictions.test.ts (43 tests) 9ms
+✓ tests/acceptance.test.ts (67 tests) 24ms
 
 Test Files  2 passed (2)
-     Tests  86 passed (86)
-  Duration  1.73s
+     Tests  110 passed (110)
+  Duration  1.72s
 ```
+
+**Résultat final : 110/110 tests passent.**
 
 ---
 
