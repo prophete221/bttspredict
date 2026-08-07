@@ -192,7 +192,7 @@ export default function CommentAnalyserMatchBttsPage() {
                   <strong>Exemple concret :</strong> Lens vs Lille en Ligue 1. Lens a un xG offensif de 1.8 à domicile
                   et encaisse 1.2 xG contre. Lille a un xG offensif de 1.5 à l&apos;extérieur et encaisse 1.4 xG contre.
                   La somme des xG suggère un match ouvert avec environ 3 buts attendus — excellent profil BTTS.
-                  Notre équipe a détecté ce type de match avec une précision d&apos;environ 87%.
+                  Notre équipe a détecté ce type de match avec une précision d&apos;80%.
                 </p>
               </div>
             </section>

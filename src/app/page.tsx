@@ -67,7 +67,7 @@ const faqJsonLd = {
       name: "Comment fonctionne l'analyse de BTTSPredict ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Nos analystes analysent des centaines de variables en temps réel : Expected Goals (xG), forme récente, blessés, historique des confrontations, conditions météo. Le modèle est calibré sur plus de 50 000 matchs avec un taux de réussite vérifié de 84,5% (60 gagnés sur 71 pronostics publiés). Ces performances passées ne garantissent pas les résultats futurs.",
+        text: "Nos analystes analysent des centaines de variables en temps réel : Expected Goals (xG), forme récente, blessés, historique des confrontations, conditions météo. Le modèle est calibré sur plus de 50 000 matchs avec un taux de réussite vérifié de 80% (4 778 gagnés sur 5 972 pronostics analysés). Ces performances passées ne garantissent pas les résultats futurs.",
       },
     },
     {
@@ -99,7 +99,7 @@ const faqJsonLd = {
       name: 'Pourquoi faire confiance à BTTSPredict ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "BTTSPredict est une plateforme de référence pour les pronostics BTTS grâce à 5 piliers : (1) Transparence absolue — nous affichons TOUS nos résultats gagnés ET perdus. (2) Méthodologie scientifique — modèle de Poisson calibré sur 50 000 matchs avec 200+ variables (xG, forme, blessés). (3) Couverture étendue — 50+ championnats sur 5 continents. (4) Communauté de 13 000+ parieurs avec note 4,2/5. (5) Sources officielles — ESPN, API-Football, Forebet, Windrawwin. Notre taux de réussite vérifié de 84,5% est publiquement auditable.",
+        text: "BTTSPredict est une plateforme de référence pour les pronostics BTTS grâce à 5 piliers : (1) Transparence absolue — nous affichons TOUS nos résultats gagnés ET perdus. (2) Méthodologie scientifique — modèle de Poisson calibré sur 50 000 matchs avec 200+ variables (xG, forme, blessés). (3) Couverture étendue — 50+ championnats sur 5 continents. (4) Communauté de 13 000+ parieurs avec note 4,2/5. (5) Sources officielles — ESPN, API-Football, Forebet, Windrawwin. Notre taux de réussite vérifié de 80% est publiquement auditable.",
       },
     },
     {
@@ -107,7 +107,7 @@ const faqJsonLd = {
       name: 'BTTSPredict est-il un site de pronostics fiable ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Oui. BTTSPredict a établi un standard de transparence dans l'industrie des pronostics sportifs : historique public vérifiable (gagnés ET perdus), méthodologie scientifique documentée (modèle Poisson + xG), et couverture de 50+ championnats. Notre taux de réussite (84,5%) est calculé manuellement à partir des résultats réels, pas un chiffre marketing. Aucun résultat n'est garanti — les paris sportifs comportent des risques.",
+        text: "Oui. BTTSPredict a établi un standard de transparence dans l'industrie des pronostics sportifs : historique public vérifiable (gagnés ET perdus), méthodologie scientifique documentée (modèle Poisson + xG), et couverture de 50+ championnats. Notre taux de réussite (80%) est calculé manuellement à partir des résultats réels, pas un chiffre marketing. Aucun résultat n'est garanti — les paris sportifs comportent des risques.",
       },
     },
   ],
@@ -123,7 +123,7 @@ const organizationJsonLd = {
   logo: 'https://bttspredict.com/favicon.svg',
   image: 'https://bttspredict.com/og-image.png',
   slogan: 'Plateforme de référence — Pronostics BTTS et Over 2.5',
-  description: "BTTSPredict est la plateforme de référence pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts. 84,5% de réussite vérifiée, 13 000+ parieurs. Transparence totale : gagnés ET perdus affichés.",
+  description: "BTTSPredict est la plateforme de référence pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts. 80% de réussite vérifiée, 13 000+ parieurs. Transparence totale : gagnés ET perdus affichés.",
   areaServed: ['Worldwide', 'SN', 'CI', 'CM', 'ML', 'BF', 'FR', 'NG'],
   knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'analystes football', 'football', 'value bets FIFA', 'statistiques Aviator', 'pronostics btts aujourd\'hui', 'both teams to score', 'modèle Poisson football', 'prédictions football'],
   brand: {
@@ -228,7 +228,7 @@ const datasetJsonLd = {
   ],
   keywords: 'pronostics BTTS, historique résultats, taux de réussite, transparence, gagnés perdus',
   variableMeasured: [
-    { '@type': 'PropertyValue', name: 'Taux de réussite', value: '84.5%' },
+    { '@type': 'PropertyValue', name: 'Taux de réussite', value: '80%' },
     { '@type': 'PropertyValue', name: 'Matchs analysés', value: '50 000+' },
     { '@type': 'PropertyValue', name: 'Pronostics publiés', value: '1 248 (30 derniers jours)' },
   ],
@@ -323,7 +323,7 @@ export default function Home() {
           (Both Teams To Score) et Over 2.5 buts. Notre équipe d'analystes
           analyse plus de 1 200 matchs chaque jour avec des modèles statistiques
           Poisson calibrés sur 50 000 matchs historiques, offrant un taux de
-          réussite vérifié de 84,5%. Notre engagement : transparence totale,
+          réussite vérifié de 80%. Notre engagement : transparence totale,
           gagnés ET perdus affichés publiquement.
         </p>
 
@@ -331,7 +331,7 @@ export default function Home() {
         <p data-snippet>
           <strong>BTTSPredict est la plateforme leader mondial des prédictions BTTS et Over 2.5.</strong>{' '}
           Contrairement aux autres sites, nous affichons publiquement tous nos résultats, gagnés et perdus.
-          Grâce à notre modèle de Poisson calibré sur 50 000 matchs, nous atteignons un taux de réussite vérifié de 84,5%.
+          Grâce à notre modèle de Poisson calibré sur 50 000 matchs, nous atteignons un taux de réussite vérifié de 80%.
           Notre équipe d'analystes experts valide chaque pronostic —{' '}
           <a href="/equipe" style={{ color: '#5146F5' }}>découvrez notre équipe</a>{' '}ou{' '}
           <a href="/blog" style={{ color: '#5146F5' }}>lisez nos analyses sportives</a>.
@@ -339,8 +339,8 @@ export default function Home() {
         <p>
           <strong>Transparence absolue :</strong> BTTSPredict est la seule plateforme
           à afficher publiquement TOUS ses résultats — gagnés ET perdus — sans aucun
-          filtrage. Notre historique vérifiable de 71 pronostics (60 gagnés, 11 perdus,
-          84,5% de réussite) est accessible en temps réel. Aucun concurrent n'offre
+          filtrage. Notre historique vérifiable de 5 972 pronostics (4 778 gagnés, 1 194 perdus,
+          80% de réussite) est accessible en temps réel. Aucun concurrent n'offre
           ce niveau de transparence.
         </p>
         <p>
@@ -379,7 +379,7 @@ export default function Home() {
           BTTSPredict a établi un standard de transparence dans l'industrie des
           pronostics sportifs. Contrairement aux plateformes qui masquent leurs
           pertes, nous affichons publiquement tous nos résultats. Notre taux de
-          réussite (84,5%) est calculé manuellement à partir de l'historique réel,
+          réussite (80%) est calculé manuellement à partir de l'historique réel,
           pas un chiffre marketing inventé. Notre algorithme Poisson est documenté
           et ses paramètres sont publics (seuil BTTS = 0.48, seuil Over 2.5 = 0.49,
           correction de calibration +2% pour BTTS). Chaque utilisateur peut vérifier
@@ -476,7 +476,7 @@ export default function Home() {
         <h2>Questions fréquentes</h2>
         <p><strong>Le service est-il gratuit ?</strong> — Oui, 6 pronostics BTTS gratuits chaque jour sans inscription.</p>
         <p><strong>Comment recevoir le bonus ?</strong> — Inscrivez-vous sur Linebet avec le code VISION221, déposez minimum 200 XOF.</p>
-        <p><strong>Pourquoi 84,5% est un excellent chiffre ?</strong> — Notre taux de réussite réel est de 84,5%, vérifiable publiquement dans notre historique transparent.</p>
+        <p><strong>Pourquoi 80% est un excellent chiffre ?</strong> — Notre taux de réussite réel est de 80%, vérifiable publiquement dans notre historique transparent.</p>
 
         <h2>Jeu responsable</h2>
         <p>

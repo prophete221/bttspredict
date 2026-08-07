@@ -447,7 +447,7 @@ export default function GestionBankrollPage() {
               <p className="text-cendre leading-relaxed mt-4">
                 Bilan du mois : +18 340 FCFA (+36.7%) avec un taux de réussite de 50% seulement. La clé ? Des mises
                 contrôlées, une gestion stricte, et la discipline de ne jamais dépasser 2% par pari. Avec les
-                pronostics BTTSPredict qui affichent un taux de réussite vérifié de 84,5%, le potentiel de croissance est encore
+                pronostics BTTSPredict qui affichent un taux de réussite vérifié de 80%, le potentiel de croissance est encore
                 plus important.
               </p>
             </section>

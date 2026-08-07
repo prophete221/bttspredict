@@ -23,7 +23,7 @@ const C = {
  * Hero (refonte palette 2026-08-05)
  * - Fond : dégradé vert foncé #A8E063 → noir #070B18
  * - H1 : "N°1 mondial des prédictions BTTS et Over 2.5" en blanc
- * - Badge : 84,5% vérifié en fond vert secondaire #5146F5
+ * - Badge : 80% vérifié en fond vert secondaire #5146F5
  * - CTA principal : vert #5146F5
  * - CTA secondaire : transparent, bordure vert, texte vert
  */
@@ -42,7 +42,7 @@ export default function Hero() {
     >
       <div className="relative z-10 max-w-[440px] mx-auto px-4 flex flex-col gap-5">
 
-        {/* ═══ BADGE PREUVE — 84,5% vérifié (vert secondaire #5146F5) ═══ */}
+        {/* ═══ BADGE PREUVE — 80% vérifié (vert secondaire #5146F5) ═══ */}
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={isVisible ? { opacity: 1, y: 0 } : undefined}
@@ -57,10 +57,10 @@ export default function Hero() {
             <polyline points="20 6 9 17 4 12" />
           </svg>
           <span className="font-mono text-[10px] font-bold tracking-[0.14em]">
-            84,5% DE RÉUSSITE VÉRIFIÉE
+            80% DE RÉUSSITE VÉRIFIÉE
           </span>
           <span className="font-mono text-[9px]" style={{ opacity: 0.85 }}>
-            · 60/71 pronos
+            · 4778/5972 pronos
           </span>
         </motion.div>
 

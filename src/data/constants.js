@@ -7,7 +7,7 @@ export const SITE = {
   url: 'https://bttspredict.com',
   tagline: 'Pronostics football BTTS & Over 2,5 basés sur l\'IA pour parieurs sérieux',
   promoCode: 'VISION221',
-  accuracy: '~87%',
+  accuracy: '80%',
   whatsapp: 'https://wa.me/15406704172',
 }
 
@@ -56,7 +56,7 @@ export const HOW_IT_WORKS = [
 
 // ─── Stats Hero ───
 export const HERO_STATS = [
-  { value: '~87%', label: 'Précision historique', icon: 'target' },
+  { value: '80%', label: 'Précision historique', icon: 'target' },
   { value: '15 000+', label: 'Pronostics analysés', icon: 'chart' },
   { value: '50+', label: 'Championnats couverts', icon: 'globe' },
 ]
@@ -135,7 +135,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: 'Comment fonctionne l\'IA de BTTSPredict ?',
-    a: 'Notre intelligence artificielle analyse des centaines de variables en temps réel : Expected Goals (xG), forme récente des équipes, blessés et suspensions, historique des confrontations directes, conditions météo, motivation des équipes (fin de saison, matchs décisifs), et bien plus encore. L\'algorithme est entraîné sur plus de 50 000 matchs et affiche des résultats historiques d\'environ 87% de précision. Chaque pronostic est accompagné d\'un indice de confiance calculé par le modèle.',
+    a: 'Notre intelligence artificielle analyse des centaines de variables en temps réel : Expected Goals (xG), forme récente des équipes, blessés et suspensions, historique des confrontations directes, conditions météo, motivation des équipes (fin de saison, matchs décisifs), et bien plus encore. L\'algorithme est entraîné sur plus de 50 000 matchs et affiche des résultats historiques d\'80% de précision. Chaque pronostic est accompagné d\'un indice de confiance calculé par le modèle.',
   },
   {
     q: 'Comment utiliser le code promo VISION221 ?',
@@ -177,7 +177,7 @@ export const BLOG_ARTICLES = [
       <p>Le premier indicateur à examiner est le ratio de buts marqués et encaissés par chaque équipe. Une équipe qui marque en moyenne 1.8 but par match et en encaisse 1.2 est un excellent candidat pour un pari BTTS. Portez une attention particulière aux statistiques à domicile pour l\'équipe locale et à l\'extérieur pour l\'équipe visiteuse, car les performances globale et spécifique (domicile/extérieur) peuvent varier considérablement. Par exemple, une équipe peut avoir une moyenne de 2.3 buts marqués à domicile contre seulement 0.9 à l\'extérieur.</p>
 
       <h3>2. Les Expected Goals (xG)</h3>
-      <p>Les xG mesurent la qualité des occasions créées plutôt que simplement le nombre de buts marqués. Une équipe avec un xG élevé mais un nombre de buts inférieur à son xG est statistiquement "malchanceuse" et devrait rectifier le tir dans les matchs suivants. Inversement, une équipe qui sur-performe son xG risque de voir ses statistiques de buts baisser. Notre IA utilise les xG comme l\'un des principaux facteurs de prédiction, ce qui contribue significativement à notre taux de précision historique d\'environ 87%.</p>
+      <p>Les xG mesurent la qualité des occasions créées plutôt que simplement le nombre de buts marqués. Une équipe avec un xG élevé mais un nombre de buts inférieur à son xG est statistiquement "malchanceuse" et devrait rectifier le tir dans les matchs suivants. Inversement, une équipe qui sur-performe son xG risque de voir ses statistiques de buts baisser. Notre IA utilise les xG comme l\'un des principaux facteurs de prédiction, ce qui contribue significativement à notre taux de précision historique d\'80%.</p>
 
       <h3>3. La forme récente</h3>
       <p>Les 5 derniers matchs sont cruciaux pour évaluer la dynamique d\'une équipe. Une équipe en confiance marquera plus facilement, tandis qu\'une équipe en crise défensive encaissera davantage. Attention cependant à ne pas surinterpréter une série courte : un match sans but marqué ne signifie pas nécessairement qu\'une équipe est en difficulté offensive. Il faut croiser cette donnée avec les xG et le niveau de l\'adversaire affronté lors de ces matchs.</p>
@@ -191,7 +191,7 @@ export const BLOG_ARTICLES = [
       <h2>Les outils indispensables pour l\'analyse BTTS</h2>
       <p>Pour les parieurs qui souhaitent aller au-delà des pronostics de notre IA, voici les outils recommandés : SofaScore pour les statistiques en temps réel, Understat pour les xG détaillés, Transfermarkt pour les effectifs et blessures, et bien sûr BTTSPredict pour nos pronostics générés par intelligence artificielle. La combinaison de ces outils avec notre algorithme vous donne un avantage considérable sur le marché des paris BTTS.</p>
 
-      <blockquote>Notre IA analyse plus de 200 variables pour chaque match, incluant les statistiques avancées, les facteurs contextuels et les tendances historiques. C\'est cette profondeur d\'analyse qui nous permet d\'afficher environ 87% de précision historique.</blockquote>
+      <blockquote>Notre IA analyse plus de 200 variables pour chaque match, incluant les statistiques avancées, les facteurs contextuels et les tendances historiques. C\'est cette profondeur d\'analyse qui nous permet d\'afficher 80% de précision historique.</blockquote>
     `,
   },
   {
@@ -211,7 +211,7 @@ export const BLOG_ARTICLES = [
 
       <h2>La gestion de bankroll : la clé de la rentabilité</h2>
       <h3>La règle des 2-5%</h3>
-      <p>Ne misez jamais plus de 5% de votre bankroll sur un seul pari, et visez plutôt 2-3% pour les pronostics standards. Cette discipline vous protège contre les séries de pertes inévitables dans les paris sportifs. Par exemple, avec une bankroll de 200$, votre mise maximale par pari devrait être de 10$, et votre mise standard entre 4$ et 6$. Même avec une précision historique d\'environ 87%, il y aura des jours de perte, et la gestion de bankroll est ce qui sépare les parieurs rentables des parieurs perdants à long terme.</p>
+      <p>Ne misez jamais plus de 5% de votre bankroll sur un seul pari, et visez plutôt 2-3% pour les pronostics standards. Cette discipline vous protège contre les séries de pertes inévitables dans les paris sportifs. Par exemple, avec une bankroll de 200$, votre mise maximale par pari devrait être de 10$, et votre mise standard entre 4$ et 6$. Même avec une précision historique d\'80%, il y aura des jours de perte, et la gestion de bankroll est ce qui sépare les parieurs rentables des parieurs perdants à long terme.</p>
 
       <h3>La méthode Kelly Criterion</h3>
       <p>Pour les parieurs avancés, le Kelly Criterion permet de calculer la mise optimale en fonction de la probabilité estimée et de la cote offerte. La formule est : Mise = (Probabilité × Cote - 1) / (Cote - 1). Si notre IA estime la probabilité d\'Over 2.5 à 65% et que la cote est de 1.80, le Kelly Criterion suggère une mise de 17.5% de la bankroll. En pratique, on utilise le "Fractional Kelly" (25-50% du montant Kelly) pour réduire la volatilité.</p>
@@ -333,7 +333,7 @@ export const BLOG_ARTICLES = [
 
 // ─── Legal / Footer ───
 export const LEGAL = {
-  disclaimer: `Les paris sportifs comportent des risques financiers. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre. Les statistiques de précision de notre IA (environ 87%) sont basées sur des données historiques vérifiables et ne garantissent pas de résultats futurs. BTTSPredict est un site informatif et d'affiliation : nous ne prenons pas de paris et ne collectons pas de fonds. Les témoignages présentés sur ce site reflètent des expériences individuelles et ne constituent pas une garantie de résultats. Jouez de manière responsable.`,
+  disclaimer: `Les paris sportifs comportent des risques financiers. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre. Les statistiques de précision de notre IA (80%) sont basées sur des données historiques vérifiables et ne garantissent pas de résultats futurs. BTTSPredict est un site informatif et d'affiliation : nous ne prenons pas de paris et ne collectons pas de fonds. Les témoignages présentés sur ce site reflètent des expériences individuelles et ne constituent pas une garantie de résultats. Jouez de manière responsable.`,
   responsible: `Si vous ou un proche avez un problème lié aux jeux d'argent, contactez la ligne d'écoute nationale de votre pays. En France : 09-74-75-13-13 (Joueurs Info Service). Au Cameroun : contactez le MINSANT. Au Sénégal : 33 867 22 22.`,
   copyright: `© ${new Date().getFullYear()} BTTSPredict. Tous droits réservés.`,
   links: [
@@ -349,7 +349,7 @@ export const SEO_BLOCK = {
   title: 'Pronostics football BTTS & Over 2,5 – Intelligence artificielle',
   paragraphs: [
     'BTTSPredict est une plateforme dédiée aux pronostics BTTS (Both Teams To Score) et Over 2,5 générés par intelligence artificielle. Notre algorithme analyse en temps réel plus de 200 variables statistiques pour chaque match de football, incluant les Expected Goals (xG), la forme récente des équipes, les blessures et suspensions, l\'historique des confrontations, et les conditions météorologiques.',
-    'Avec des résultats historiques d\'environ 87% sur plus de 15 000 pronostics analysés, notre IA peut aider les parieurs à prendre de meilleures décisions sur les marchés BTTS et Over/Under 2,5 buts. Nos pronostics couvrent plus de 50 championnats à travers le monde, des ligues européennes majeures aux championnats africains et asiatiques.',
+    'Avec des résultats historiques d\'80% sur 5 972 pronostics analysés, notre IA peut aider les parieurs à prendre de meilleures décisions sur les marchés BTTS et Over/Under 2,5 buts. Nos pronostics couvrent plus de 50 championnats à travers le monde, des ligues européennes majeures aux championnats africains et asiatiques.',
     'Profitez du code promo VISION221 sur Linebet pour bénéficier d\'un bonus exclusif sur le premier dépôt (soumis à conditions : mise x5, cote minimale 1,40). BTTSPredict s\'engage pour le jeu responsable : nos pronostics sont des outils d\'aide à la décision, pas des garanties de gain. Pariez toujours de manière responsable et dans les limites de votre budget.',
   ],
 }

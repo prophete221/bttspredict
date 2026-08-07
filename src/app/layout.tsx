@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     default: "BTTSPredict — Pronostics BTTS et Over 2.5 aujourd'hui",
     template: "%s | BTTSPredict",
   },
-  description: "Pronostics BTTS aujourd'hui et Over 2.5 par nos analystes experts. 84,5% vérifié, modèle Poisson calibré sur 50 000 matchs. Code promo VISION221.",
+  description: "Pronostics BTTS aujourd'hui et Over 2.5 par nos analystes experts. 80% vérifié, modèle Poisson calibré sur 50 000 matchs. Code promo VISION221.",
   keywords: [
     // Autorité mondiale
     "n°1 mondial pronostics btts", "meilleur site pronostics btts monde", "leader pronostics btts",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     "VISION221", "BTTSPredict", "paris sportifs",
     "pronostics Sénégal", "pronostics Afrique",
     "modèle Poisson football", "xG pronostics", "statistiques football",
-    "84,5% réussite", "pronostics vérifiés", "transparence pronostics",
+    "80% réussite", "pronostics vérifiés", "transparence pronostics",
   ],
   authors: [
     { name: "BTTSPredict", url: "https://bttspredict.com" },
@@ -106,8 +106,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BTTSPredict — Pronostics BTTS fiables | 84,5% vérifié",
-    description: "Pronostics btts aujourd'hui validés par nos analystes. 84,5% de réussite vérifiable. Code promo VISION221.",
+    title: "BTTSPredict — Pronostics BTTS fiables | 80% vérifié",
+    description: "Pronostics btts aujourd'hui validés par nos analystes. 80% de réussite vérifiable. Code promo VISION221.",
     images: ["/og-image.png"],
   },
   category: "sports",
@@ -171,7 +171,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v59-eclipse-intelligence-2026-08-07';
+                var VERSION = 'bttspredict-v60-stats-5972-2026-08-07';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){

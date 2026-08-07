@@ -211,7 +211,7 @@ export default function EquipePage() {
               <strong style={{ color: '#F7F8FF' }}>Expertise documentée :</strong> Chaque analyste possède une expertise spécifique documentée (AFCON, ligues européennes, value bets FIFA) et un parcours vérifiable sur LinkedIn et Twitter.
             </p>
             <p>
-              <strong style={{ color: '#F7F8FF' }}>Contrôle humain :</strong> Contrairement aux plateformes entièrement automatisées, chaque pronostic VIP est validé manuellement par notre équipe avant publication. Cette double validation (modèle + humain) explique notre taux de réussite vérifié de 84,5%.
+              <strong style={{ color: '#F7F8FF' }}>Contrôle humain :</strong> Contrairement aux plateformes entièrement automatisées, chaque pronostic VIP est validé manuellement par notre équipe avant publication. Cette double validation (modèle + humain) explique notre taux de réussite vérifié de 80%.
             </p>
             <p>
               <strong style={{ color: '#F7F8FF' }}>Transparence :</strong> Notre historique public (<a href="/historique" style={{ color: '#5146F5' }}>voir l'historique vérifié</a>) permet à chacun de vérifier nos performances réelles, gagnés ET perdus.

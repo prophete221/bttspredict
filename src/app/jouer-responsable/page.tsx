@@ -266,7 +266,7 @@ export default function JouerResponsablePage() {
                     <li><strong className="text-cendre">Illusion de contrôle :</strong> la croyance erronée que l&apos;on peut « battre le système » ou que les pronostics garantissent des gains est un facteur de risque majeur.</li>
                   </ul>
                   <p>
-                    BTTSPredict fournit des pronostics basés sur l&apos;analyse statistique avec un taux de précision historique d&apos;environ 87 %. Toutefois, ce chiffre est basé sur des données passées et ne constitue en aucune manière une garantie de résultats futurs. Même les meilleurs algorithmes ne peuvent pas prédire l&apos;avenir avec certitude.
+                    BTTSPredict fournit des pronostics basés sur l&apos;analyse statistique avec un taux de précision historique d&apos;environ 80%. Toutefois, ce chiffre est basé sur des données passées et ne constitue en aucune manière une garantie de résultats futurs. Même les meilleurs algorithmes ne peuvent pas prédire l&apos;avenir avec certitude.
                   </p>
                 </div>
               </article>

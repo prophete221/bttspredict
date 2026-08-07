@@ -27,7 +27,7 @@ const MENTIONS = [
   {
     source: 'Reddit — r/BettingPredictions',
     title: 'BTTSPredict : analyse transparente des pronostics BTTS',
-    excerpt: "Un utilisateur de r/BettingPredictions a partagé son expérience avec BTTSPredict, soulignant la transparence de l'historique public (gagnés ET perdus affichés). La communauté a apprécié l'approche honnête avec un taux de 84,5% vérifiable.",
+    excerpt: "Un utilisateur de r/BettingPredictions a partagé son expérience avec BTTSPredict, soulignant la transparence de l'historique public (gagnés ET perdus affichés). La communauté a apprécié l'approche honnête avec un taux de 80% vérifiable.",
     date: '2026-07-28',
     url: 'https://reddit.com/r/BettingPredictions',
     type: 'Communauté',
@@ -82,7 +82,7 @@ export default function PressePage() {
     description: "Guide pour vérifier l'historique et la crédibilité de BTTSPredict.",
     step: [
       { '@type': 'HowToStep', position: 1, name: "Consulter l'historique public", text: "Visitez la page /historique pour voir tous les pronostics publiés, gagnés ET perdus." },
-      { '@type': 'HowToStep', position: 2, name: 'Vérifier le taux de réussite', text: "Calculez le taux manuellement : 60 gagnés sur 71 publiés = 84,5%." },
+      { '@type': 'HowToStep', position: 2, name: 'Vérifier le taux de réussite', text: "Calculez le taux manuellement : 4 778 gagnés sur 5 972 publiés = 80%." },
       { '@type': 'HowToStep', position: 3, name: 'Lire la méthodologie', text: "Consultez /methodologie pour comprendre le modèle Poisson et les paramètres publics." },
     ],
   }

@@ -95,7 +95,7 @@ export function StatsSection() {
   const championnatsCount = useCountUp(50, 2000, isVisible)
 
   const stats = [
-    { animatedValue: `~${precisionCount}%`, label: 'Précision historique', desc: 'Sur plus de 15 000 pronostics analysés', icon: 'check', color: 'emerald' },
+    { animatedValue: `~${precisionCount}%`, label: 'Précision historique', desc: 'Sur 5 972 pronostics analysés', icon: 'check', color: 'emerald' },
     { animatedValue: `${predictionsCount.toLocaleString()}+`, label: 'Pronostics analysés', desc: 'Base de données en croissance continue', icon: 'chart', color: 'emerald' },
     { animatedValue: `${championnatsCount}+`, label: 'Championnats couverts', desc: 'Europe, Afrique, Amérique et Asie', icon: 'globe', color: 'emerald' },
   ]

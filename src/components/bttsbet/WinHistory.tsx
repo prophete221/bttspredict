@@ -484,7 +484,7 @@ export default function WinHistory() {
           <p className="text-[12px] text-cendre leading-relaxed text-center">
             <strong className="text-papier">Cette transparence justifie notre positionnement.</strong>{' '}
             Contrairement aux plateformes qui masquent leurs pertes, BTTSPredict affiche publiquement
-            tous ses résultats — gagnés ET perdus. Notre taux de réussite (84,5%) est calculé
+            tous ses résultats — gagnés ET perdus. Notre taux de réussite (80%) est calculé
             manuellement à partir de l&apos;historique réel, pas un chiffre marketing inventé.
             Ce standard de transparence est ce qui distingue BTTSPredict comme référence dans l&apos;industrie.
           </p>

@@ -6,7 +6,7 @@ import {Navbar, Footer,
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
 const TITLE = 'Match Predictions — Pronostics par Match'
-const DESCRIPTION = 'Pronostics par match : BTTS, Over 2.5, score exact. Analyse détaillée de chaque match avec xG, probabilités Poisson et statistiques. 84,5% vérifié.'
+const DESCRIPTION = 'Pronostics par match : BTTS, Over 2.5, score exact. Analyse détaillée de chaque match avec xG, probabilités Poisson et statistiques. 80% vérifié.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -70,7 +70,7 @@ export default function MatchPredictionsPage() {
         <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(81, 70, 245, 0.05)', border: '1px solid rgba(81, 70, 245, 0.15)' }}>
           <h2 className="text-lg font-bold mb-2" style={{ color: '#F7F8FF' }}>Résumé</h2>
           <p className="text-sm" style={{ color: '#A5ABC5' }}>
-            BTTSPredict analyse chaque match sur 200+ variables avec un taux de réussite vérifié de 84,5%. <a href="/methodologie" style={{ color: '#5146F5' }}>Méthodologie</a> documentée, <a href="/historique" style={{ color: '#5146F5' }}>historique</a> vérifiable. 18+ — Jeu responsable.
+            BTTSPredict analyse chaque match sur 200+ variables avec un taux de réussite vérifié de 80%. <a href="/methodologie" style={{ color: '#5146F5' }}>Méthodologie</a> documentée, <a href="/historique" style={{ color: '#5146F5' }}>historique</a> vérifiable. 18+ — Jeu responsable.
           </p>
         </section>
 

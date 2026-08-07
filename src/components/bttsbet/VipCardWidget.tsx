@@ -25,7 +25,7 @@ export default function VipCardWidget() {
             >
               ⭐ VIP PREMIUM
             </span>
-            <span className="text-[10px]" style={{ color: '#A5ABC5' }}>84,5% vérifié</span>
+            <span className="text-[10px]" style={{ color: '#A5ABC5' }}>80% vérifié</span>
           </div>
 
           <h3 className="text-sm font-bold mb-2" style={{ color: '#F7F8FF', fontFamily: 'Poppins, sans-serif' }}>

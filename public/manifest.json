@@ -1,7 +1,7 @@
 {
   "name": "BTTSPredict — Pronostics BTTS & Over 2.5",
   "short_name": "BTTSPredict",
-  "description": "Plateforme leader mondial des prédictions BTTS et Over 2.5. Modèle de Poisson calibré sur 50 000 matchs, 84,5% de réussite vérifiée. Code promo VISION221.",
+  "description": "Plateforme leader mondial des prédictions BTTS et Over 2.5. Modèle de Poisson calibré sur 50 000 matchs, 80% de réussite vérifiée. Code promo VISION221.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0D1117",
