@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Code Promo Linebet Sénégal VISION221 — Bonus 90 000 XOF',
-    description: 'Pronostics IA football +80% (historique). Code VISION221 = Bonus 90 000 XOF sur Linebet. Dépôt minimum 200 XOF au Sénégal.',
+    description: 'Pronostics IA football taux réel sur /historique (historique). Code VISION221 = Bonus 90 000 XOF sur Linebet. Dépôt minimum 200 XOF au Sénégal.',
     images: ['/og-image.png'],
   },
 }

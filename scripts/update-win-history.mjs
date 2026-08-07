@@ -1,7 +1,24 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// BttsBet – Win History Update Script
-// Generates a realistic win-history.json with ONLY winning predictions.
-// Uses past prediction archives to build real-looking history.
+// BTTSPredict – Win History Update Script (V2 — Real Stats, No Hardcoding)
+// ═══════════════════════════════════════════════════════════════════════════════
+//
+// RÈGLE D'OR: Aucune stat figée. Tout est calculé depuis predictions-archive/.
+//
+// Pipeline:
+//   1. Lit toutes les archives public/predictions-archive/*.json
+//   2. Pour chaque prono archivé: détermine W/L basé sur:
+//      a. Si score final connu dans l'archive → utilise ce score
+//      b. Sinon → marqué 'En attente' (n'entre pas dans le taux)
+//   3. Calcule stats globales + byType (BTTS / Over 2.5) réelles
+//   4. Génère win-history.json avec:
+//      - stats: { total, won, lost, pending, rate, byType }
+//      - history: ~80 entrées récentes (triées par date desc)
+//
+// ⚠️ Si verify-results.mjs a déjà tourné, les archives contiennent `finalScore`
+//    et `result`. Sinon, ce script ne fait que préparer la structure — le taux
+//    réel sera calculé après passage de verify-results.
+//
+// Compatible avec: ESPN scoreboard (public, no key) — fallback si pas d'API-FB.
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import fs from 'fs'
@@ -14,293 +31,182 @@ const PUBLIC_DIR = path.join(__dirname, '..', 'public')
 const ARCHIVE_DIR = path.join(PUBLIC_DIR, 'predictions-archive')
 const WIN_HISTORY_FILE = path.join(PUBLIC_DIR, 'win-history.json')
 
-const DISPLAY_TZ = 'Europe/Paris'
+// ─── Helpers ──────────────────────────────────────────────────────────────
 
-function getTodayISO() {
-  return new Date().toLocaleDateString('sv-SE', { timeZone: DISPLAY_TZ })
+function parseScore(scoreStr) {
+  if (!scoreStr || typeof scoreStr !== 'string') return null
+  // Accepte "2-1", "2 - 1", "0-0", "1-3"
+  const m = scoreStr.trim().match(/^(\d+)\s*-\s*(\d+)$/)
+  if (!m) return null
+  return { home: parseInt(m[1], 10), away: parseInt(m[2], 10) }
 }
 
-// Deterministic hash for consistent scores
-function matchHash(homeTeam, awayTeam, dateStr) {
-  let hash = 0
-  const str = `${homeTeam}-${awayTeam}-${dateStr}`
-  for (let i = 0; i < str.length; i++) {
-    hash = ((hash << 5) - hash) + str.charCodeAt(i)
-    hash |= 0
-  }
-  return (Math.abs(hash) % 1000) / 1000
+// Détermine si BTTS Oui/Non a gagné à partir du score réel
+function evaluateBTTS(prediction, score) {
+  if (!score) return null
+  const bothScored = score.home > 0 && score.away > 0
+  if (prediction === 'Oui') return bothScored ? 'Gagné' : 'Perdu'
+  if (prediction === 'Non') return bothScored ? 'Perdu' : 'Gagné'
+  return null
 }
 
-// Generate a realistic score that matches the prediction outcome
-function generateWinningScore(prediction, type, hashVal) {
-  if (type === 'BTTS' && prediction === 'Oui') {
-    // Both teams scored — generate scores where both have goals
-    const homeGoals = 1 + Math.floor(hashVal * 3) // 1-3
-    const awayGoals = 1 + Math.floor((1 - hashVal) * 3) // 1-3
-    return `${homeGoals}-${awayGoals}`
-  }
-  if (type === 'BTTS' && prediction === 'Non') {
-    // At least one team didn't score
-    if (hashVal < 0.5) {
-      return `${Math.floor(hashVal * 4)}-0` // Home wins, away doesn't score
-    } else {
-      return `0-${Math.floor((1 - hashVal) * 4)}` // Away wins, home doesn't score
-    }
-  }
-  if (type === 'Over 2.5' && prediction === 'Oui') {
-    // More than 2.5 goals
-    const total = 3 + Math.floor(hashVal * 4) // 3-6 total goals
-    const home = Math.max(1, Math.floor(total * (0.3 + hashVal * 0.4)))
-    const away = total - home
-    return `${home}-${away}`
-  }
-  if (type === 'Over 2.5' && prediction === 'Non') {
-    // Under 2.5 goals (0, 1, or 2 total)
-    const total = Math.floor(hashVal * 3) // 0-2 total goals
-    const home = Math.floor(total * hashVal)
-    const away = total - home
-    return `${home}-${away}`
-  }
-  // Default fallback
-  return '1-1'
+// Détermine si Over 2.5 Oui/Non a gagné à partir du score réel
+function evaluateOver25(prediction, score) {
+  if (!score) return null
+  const total = score.home + score.away
+  const isOver = total > 2.5
+  if (prediction === 'Oui') return isOver ? 'Gagné' : 'Perdu'
+  if (prediction === 'Non') return isOver ? 'Perdu' : 'Gagné'
+  return null
 }
 
-// Generate a losing score (prediction was wrong)
-function generateLosingScore(prediction, type, hashVal) {
-  if (type === 'BTTS' && prediction === 'Oui') {
-    // Predicted BTTS=Oui but it failed (at least one team didn't score)
-    if (hashVal < 0.5) return `${Math.floor(hashVal * 3)}-0`
-    return `0-${Math.floor((1 - hashVal) * 3)}`
-  }
-  if (type === 'BTTS' && prediction === 'Non') {
-    // Predicted BTTS=Non but both teams scored
-    return `${1 + Math.floor(hashVal * 2)}-${1 + Math.floor((1 - hashVal) * 2)}`
-  }
-  if (type === 'Over 2.5' && prediction === 'Oui') {
-    // Predicted Over 2.5 but under 2.5 goals
-    const total = Math.floor(hashVal * 3) // 0-2
-    return `${Math.floor(total * hashVal)}-${total - Math.floor(total * hashVal)}`
-  }
-  if (type === 'Over 2.5' && prediction === 'Non') {
-    // Predicted Under 2.5 but over 2.5 goals
-    const total = 3 + Math.floor(hashVal * 3)
-    return `${Math.floor(total * 0.5)}-${total - Math.floor(total * 0.5)}`
-  }
-  return '0-0'
+function evaluatePrediction(prediction, type, score) {
+  if (!score) return null
+  if (type === 'BTTS') return evaluateBTTS(prediction, score)
+  if (type.includes('Over')) return evaluateOver25(prediction, score)
+  return null
 }
+
+// ─── Main ──────────────────────────────────────────────────────────────────
 
 async function updateWinHistory() {
-  const today = getTodayISO()
-  console.log(`[WinHistory] Generating win history for ${today}`)
+  console.log('[WinHistory] Reading archives from:', ARCHIVE_DIR)
 
-  // Read past prediction archives
+  if (!fs.existsSync(ARCHIVE_DIR)) {
+    console.error('[WinHistory] ✗ ARCHIVE_DIR does not exist. Aborting.')
+    process.exit(1)
+  }
+
   const archiveFiles = fs.readdirSync(ARCHIVE_DIR)
     .filter(f => f.endsWith('.json'))
-    .sort()
-    .reverse() // Most recent first
+    .sort() // Date asc — le plus ancien d'abord
 
-  const historyItems = []
+  console.log(`[WinHistory] Found ${archiveFiles.length} archives`)
+
+  const allItems = []
   let idCounter = 1
 
-  // Process archives from the last 30 days
-  const maxDays = 30
-  const todayDate = new Date(today)
-  const cutoffDate = new Date(todayDate)
-  cutoffDate.setDate(cutoffDate.getDate() - maxDays)
+  // Stats accumulators
+  const stats = {
+    btts: { total: 0, won: 0, lost: 0, pending: 0 },
+    over25: { total: 0, won: 0, lost: 0, pending: 0 },
+  }
 
   for (const archiveFile of archiveFiles) {
     const dateStr = archiveFile.replace('.json', '')
-    const archiveDate = new Date(dateStr)
-
-    // Only process dates in the past (not today or future)
-    if (archiveDate >= todayDate) continue
-    // Only process dates within our window
-    if (archiveDate < cutoffDate) continue
+    const archivePath = path.join(ARCHIVE_DIR, archiveFile)
 
     try {
-      const archivePath = path.join(ARCHIVE_DIR, archiveFile)
       const data = JSON.parse(fs.readFileSync(archivePath, 'utf-8'))
       const predictions = data.predictions || []
 
-      // Take up to 2 predictions per date (to keep history manageable)
-      // Filter: pick BTTS predictions first, then Over 2.5
-      const bttsPreds = predictions.filter(p => p.type === 'BTTS')
-      const overPreds = predictions.filter(p => p.type === 'Over 2.5')
+      for (const pred of predictions) {
+        // Le score final est ajouté par verify-results.mjs
+        // Champ possible: pred.finalScore (string "2-1") ou pred.score
+        const scoreStr = pred.finalScore || pred.score || null
+        const score = parseScore(scoreStr)
 
-      // Select diverse predictions: mix of leagues
-      const selectedBtts = bttsPreds.slice(0, 1)
-      const selectedOver = overPreds.slice(0, 1)
+        let result = null
+        if (score) {
+          result = evaluatePrediction(pred.prediction, pred.type, score)
+        }
 
-      for (const pred of [...selectedBtts, ...selectedOver]) {
-        const hashVal = matchHash(pred.homeTeam || pred.match.split(' vs ')[0], pred.awayTeam || pred.match.split(' vs ')[1], dateStr)
+        const typeKey = pred.type.includes('Over') ? 'over25' : 'btts'
+        stats[typeKey].total++
+        if (result === 'Gagné') stats[typeKey].won++
+        else if (result === 'Perdu') stats[typeKey].lost++
+        else stats[typeKey].pending++
 
-        // V4 (2026-08-05) : inclure gagnés ET perdus pour la crédibilité E-E-A-T
-        // Cible: 84,5% de réussite (60 gagnés / 71 total).
-        // hashVal est entre 0 et 1 → seuil 0.155 ≈ 15,5% de pertes ≈ 84,5% de réussite.
-        // BUG V2 corrigé : (hashVal % 100) < 15 était toujours true car hashVal ∈ [0,1].
-        const shouldLose = hashVal < 0.155
-        const result = shouldLose ? 'Perdu' : 'Gagné'
-        const score = result === 'Perdu'
-          ? generateLosingScore(pred.prediction, pred.type, hashVal)
-          : generateWinningScore(pred.prediction, pred.type, hashVal)
-
-        historyItems.push({
+        allItems.push({
           id: idCounter++,
-          date: dateStr,
+          date: pred.date || dateStr,
           match: pred.match,
           league: pred.league,
           type: pred.type,
           prediction: pred.prediction,
-          result: result,
-          score: score,
-          confidence: pred.confidence || 48
+          result: result || 'En attente',
+          score: scoreStr || '-',
+          confidence: pred.confidence || 0,
         })
       }
     } catch (err) {
-      console.log(`[WinHistory] Error processing ${archiveFile}: ${err.message}`)
+      console.log(`[WinHistory] ⚠ Error reading ${archiveFile}: ${err.message}`)
     }
   }
 
-  // If not enough history from archives, generate some synthetic entries
-  if (historyItems.length < 15) {
-    const syntheticLeagues = [
-      'Premier League', 'La Liga', 'Bundesliga', 'Serie A', 'Ligue 1',
-      'Eredivisie', 'Primeira Liga', 'Champions League', 'Europa League',
-      'Eliteserien', 'Allsvenskan', 'Superliga', 'Süper Lig',
-      'Primera Division (ARG)', 'Serie A (BRA)', 'Liga MX', 'MLS',
-      'Primera Division (URU)', 'Primera Division (PAR)', 'Liga 1 (PER)'
-    ]
-    const syntheticMatches = [
-      ['Arsenal vs Chelsea', 'Liverpool vs Man City', 'Man United vs Tottenham'],
-      ['Barcelona vs Real Madrid', 'Atletico Madrid vs Sevilla'],
-      ['Bayern Munich vs Dortmund', 'Leipzig vs Leverkusen'],
-      ['Inter vs AC Milan', 'Juventus vs Napoli', 'Roma vs Lazio'],
-      ['PSG vs Marseille', 'Lyon vs Monaco'],
-      ['Ajax vs PSV', 'Feyenoord vs AZ Alkmaar'],
-      ['Benfica vs Porto', 'Sporting vs Braga'],
-      ['Real Madrid vs Man City', 'Barcelona vs Bayern'],
-      ['Arsenal vs Roma', 'Juventus vs Sevilla'],
-      ['Rosenborg vs Fredrikstad', 'Molde vs Viking FK'],
-      ['BK Häcken vs AIK', 'Malmö FF vs Djurgården'],
-      ['AGF vs Brøndby IF', 'Copenhagen vs Midtjylland'],
-      ['Galatasaray vs Fenerbahçe', 'Beşiktaş vs Trabzonspor'],
-      ['Racing Club vs Gimnasia La Plata', 'River Plate vs Boca Juniors'],
-      ['Santos vs Chapecoense', 'Flamengo vs Palmeiras'],
-      ['Club América vs Monterrey', 'Chivas vs Cruz Azul'],
-      ['LA Galaxy vs Inter Miami', 'NY Red Bulls vs Atlanta United'],
-      ['Cerro vs Racing (Montevideo)', 'Nacional vs Peñarol'],
-      ['Sportivo Ameliano vs Nacional Asunción', 'Cerro Porteño vs Libertad'],
-      ['Universitario vs Melgar', 'Alianza Lima vs Sporting Cristal']
-    ]
+  // Trier par date desc pour l'affichage
+  allItems.sort((a, b) => b.date.localeCompare(a.date) || b.id - a.id)
+  allItems.forEach((item, i) => { item.id = i + 1 })
 
-    for (let d = 0; d < 20 && historyItems.length < 30; d++) {
-      const date = new Date(todayDate)
-      date.setDate(date.getDate() - d - 1)
-      if (date < cutoffDate) break
-      const dateStr = date.toLocaleDateString('sv-SE', { timeZone: DISPLAY_TZ })
+  // Garde seulement les 80 entrées les plus récentes pour l'affichage UI
+  // (le calcul des stats reste sur TOUTES les archives)
+  const displayHistory = allItems.slice(0, 80)
 
-      const leagueIdx = d % syntheticLeagues.length
-      const matchIdx = d % syntheticMatches.length
-      const matchArr = syntheticMatches[matchIdx]
-      const match = matchArr[d % matchArr.length]
-      const league = syntheticLeagues[leagueIdx]
+  // Stats globales réelles (calculées, jamais figées)
+  const totalAll = stats.btts.total + stats.over25.total
+  const wonAll = stats.btts.won + stats.over25.won
+  const lostAll = stats.btts.lost + stats.over25.lost
+  const pendingAll = stats.btts.pending + stats.over25.pending
+  const verifiedAll = wonAll + lostAll
+  const rateAll = verifiedAll > 0 ? Math.round((wonAll / verifiedAll) * 1000) / 10 : 0
 
-      const hashVal = matchHash(match.split(' vs ')[0], match.split(' vs ')[1], dateStr)
-
-      // V4 (2026-08-05) : ~15,5% de perdus, ~84,5% de gagnés
-      // hashVal est entre 0 et 1 → hashVal < 0.155 = ~15,5% de chance de perdre
-      const bttsLose = hashVal < 0.155
-      const bttsPred = hashVal > 0.4 ? 'Oui' : 'Non'
-      const bttsResult = bttsLose ? 'Perdu' : 'Gagné'
-      const bttsScore = bttsLose
-        ? generateLosingScore(bttsPred, 'BTTS', hashVal)
-        : generateWinningScore(bttsPred, 'BTTS', hashVal)
-      historyItems.push({
-        id: idCounter++,
-        date: dateStr,
-        match: match,
-        league: league,
-        type: 'BTTS',
-        prediction: bttsPred,
-        result: bttsResult,
-        score: bttsScore,
-        confidence: 48 + Math.floor(hashVal * 5)
-      })
-
-      // Generate an Over 2.5 (mix gagnés/perdus) — hash décalé pour décorréler
-      const overHashVal = (hashVal + 0.5) % 1
-      const overLose = overHashVal < 0.155
-      const overPred = overHashVal > 0.45 ? 'Oui' : 'Non'
-      const overResult = overLose ? 'Perdu' : 'Gagné'
-      const overScore = overLose
-        ? generateLosingScore(overPred, 'Over 2.5', overHashVal)
-        : generateWinningScore(overPred, 'Over 2.5', overHashVal)
-      historyItems.push({
-        id: idCounter++,
-        date: dateStr,
-        match: match,
-        league: league,
-        type: 'Over 2.5',
-        prediction: overPred,
-        result: overResult,
-        score: overScore,
-        confidence: 46 + Math.floor(hashVal * 6)
-      })
-    }
-  }
-
-  // Sort by date (most recent first)
-  historyItems.sort((a, b) => b.date.localeCompare(a.date) || b.id - a.id)
-
-  // Reassign IDs after sorting
-  historyItems.forEach((item, i) => { item.id = i + 1 })
-
-  // V2 (2026-08-05) : stats calculées sur gagnés ET perdus (transparence totale)
-  // V5 (2026-08-07) : historique total 5 972 pronostics analysés depuis le lancement
-  //   — les entrées récentes (~60) sont rafraîchies quotidiennement par les archives
-  //   — mais les chiffres cumulés (5 972 / 4 778 / 1 194) sont figés et cohérents
-  //   — breakdown par type: BTTS=82% / O2.5=78% (différenciés pour crédibilité)
-  const wonCount = historyItems.filter(item => item.result === 'Gagné').length
-  const lostCount = historyItems.filter(item => item.result === 'Perdu').length
-  const recentTotal = historyItems.length
-
-  // Stats cumulées globales (figées depuis le lancement — cohérence avec constants.ts)
-  const CUMULATED_TOTAL = 5972
-  const CUMULATED_WON = 4778
-  const CUMULATED_LOST = 1194
-  const CUMULATED_RATE = 80
-
-  // Stats cumulées par type (BTTS légèrement supérieur, O2.5 légèrement inférieur)
-  const BTTS_TOTAL = 3285, BTTS_WON = 2695, BTTS_LOST = 590, BTTS_RATE = 82
-  const O25_TOTAL = 2687, O25_WON = 2083, O25_LOST = 604, O25_RATE = 78
+  const bttsVerified = stats.btts.won + stats.btts.lost
+  const bttsRate = bttsVerified > 0 ? Math.round((stats.btts.won / bttsVerified) * 1000) / 10 : 0
+  const over25Verified = stats.over25.won + stats.over25.lost
+  const over25Rate = over25Verified > 0 ? Math.round((stats.over25.won / over25Verified) * 1000) / 10 : 0
 
   const winHistoryData = {
     stats: {
-      total: CUMULATED_TOTAL,
-      won: CUMULATED_WON,
-      lost: CUMULATED_LOST,
-      rate: `${CUMULATED_RATE}%`,
-      last30Rate: `${CUMULATED_RATE}%`,
+      total: totalAll,
+      verified: verifiedAll,
+      won: wonAll,
+      lost: lostAll,
+      pending: pendingAll,
+      rate: `${rateAll}%`,
+      last30Rate: `${rateAll}%`,
       byType: {
-        BTTS: { total: BTTS_TOTAL, won: BTTS_WON, lost: BTTS_LOST, rate: BTTS_RATE },
-        'O2.5': { total: O25_TOTAL, won: O25_WON, lost: O25_LOST, rate: O25_RATE },
+        BTTS: {
+          total: stats.btts.total,
+          verified: bttsVerified,
+          won: stats.btts.won,
+          lost: stats.btts.lost,
+          pending: stats.btts.pending,
+          rate: bttsRate,
+        },
+        'O2.5': {
+          total: stats.over25.total,
+          verified: over25Verified,
+          won: stats.over25.won,
+          lost: stats.over25.lost,
+          pending: stats.over25.pending,
+          rate: over25Rate,
+        },
       },
-      recentTotal: recentTotal,
-      transparency: `Tous les pronostics publiés sont listés, gagnés ET perdus. Aucun filtrage. Sur ${CUMULATED_TOTAL.toLocaleString('fr-FR')} pronostics analysés depuis le lancement, ${CUMULATED_WON.toLocaleString('fr-FR')} ont été gagnants (${CUMULATED_RATE}% de réussite vérifiable).`,
+      transparency: `Stats calculées depuis ${archiveFiles.length} archives quotidiennes dans predictions-archive/. Sur ${verifiedAll} pronostics vérifiés (avec score final connu), ${wonAll} ont été gagnants (${rateAll}% de réussite réelle vérifiable). ${pendingAll} pronostics en attente de vérification (match non encore joué ou score non récupéré). Aucun filtrage — gagnés ET perdus affichés.`,
     },
-    history: historyItems,
-    date: today
+    history: displayHistory,
+    allItemsCount: allItems.length,
+    generatedAt: new Date().toISOString(),
   }
 
   fs.writeFileSync(WIN_HISTORY_FILE, JSON.stringify(winHistoryData, null, 2))
-  console.log(`[WinHistory] Written to win-history.json (date: ${today})`)
-  console.log(`[WinHistory] Cumulated: ${CUMULATED_TOTAL} (${CUMULATED_WON} gagnés, ${CUMULATED_LOST} perdus), ${CUMULATED_RATE}% rate`)
-  console.log(`[WinHistory] Recent (last 30 days): ${recentTotal} entries (${wonCount} gagnés, ${lostCount} perdus)`)
-  console.log(`[WinHistory] By type — BTTS: ${BTTS_WON}/${BTTS_TOTAL} (${BTTS_RATE}%) | O2.5: ${O25_WON}/${O25_TOTAL} (${O25_RATE}%)`)
-  console.log(`[WinHistory] Terminé !`)
+  console.log(`[WinHistory] ✓ Written to win-history.json`)
+  console.log(`[WinHistory] Stats (REAL — calculated from ${archiveFiles.length} archives):`)
+  console.log(`  Total pronos:        ${totalAll}`)
+  console.log(`  Verified (W+L):      ${verifiedAll}`)
+  console.log(`  Won:                 ${wonAll}`)
+  console.log(`  Lost:                ${lostAll}`)
+  console.log(`  Pending (no score):  ${pendingAll}`)
+  console.log(`  Overall rate:        ${rateAll}%`)
+  console.log(`  BTTS:  ${stats.btts.won}/${bttsVerified} verified (${bttsRate}%) — ${stats.btts.pending} pending`)
+  console.log(`  O2.5:  ${stats.over25.won}/${over25Verified} verified (${over25Rate}%) — ${stats.over25.pending} pending`)
+  console.log(`[WinHistory] Display history: ${displayHistory.length} entries`)
+  if (pendingAll > verifiedAll * 0.5) {
+    console.log(`[WinHistory] ⚠ WARNING: ${pendingAll} pronos sans score — run verify-results.mjs pour récupérer les scores`)
+  }
 }
 
 updateWinHistory().catch(err => {
-  console.error('[WinHistory] Erreur fatale:', err)
+  console.error('[WinHistory] FATAL:', err)
   process.exit(1)
 })

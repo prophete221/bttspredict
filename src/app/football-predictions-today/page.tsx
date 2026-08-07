@@ -6,7 +6,7 @@ import {Navbar, Footer,
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
 const TITLE = 'Football Predictions Today'
-const DESCRIPTION = 'Pronostics football aujourd\'hui par nos analystes. BTTS, Over 2.5, scores exacts. 50+ championnats, modèle Poisson calibré, 80% vérifié. Gratuit.'
+const DESCRIPTION = 'Pronostics football aujourd\'hui par nos analystes. BTTS, Over 2.5, scores exacts. 50+ championnats, modèle Poisson calibré, taux réel sur /historique. Gratuit.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -21,7 +21,7 @@ const FAQ = [
   { q: "Quels championnats sont couverts aujourd'hui ?", a: "Nous couvrons 50+ championnats : Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Eredivisie, Primeira Liga, Championship, Allsvenskan, Eliteserien, ligues africaines et sud-américaines." },
   { q: "Les pronostics du jour sont-ils gratuits ?", a: "Oui, 6 pronostics gratuits sont publiés chaque jour sans inscription. Pour 20+ pronostics premium par jour, l'accès VIP est disponible avec un dépôt de 3 000 XOF + code VISION221." },
   { q: "À quelle heure sont publiés les pronostics ?", a: "Les pronostics du jour sont mis à jour automatiquement 4 fois par jour via notre pipeline CI/CD : 4h, 6h, 14h et 22h UTC." },
-  { q: "Quel est le taux de réussite des pronostics du jour ?", a: "Notre taux de réussite vérifié est de 80% (4 778 gagnés sur 5 972 pronostics analysés). Vérifiable publiquement dans notre historique." },
+  { q: "Quel est le taux de réussite des pronostics du jour ?", a: "Notre taux de réussite est calculé en temps réel depuis /historique (voir /historique pour les chiffres réels). Vérifiable publiquement dans notre historique." },
 ]
 
 export default function FootballPredictionsTodayPage() {
@@ -50,7 +50,7 @@ export default function FootballPredictionsTodayPage() {
             Football Predictions <span style={{ color: '#5146F5' }}>Today</span>
           </h1>
           <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#A5ABC5' }}>
-            Pronostics football aujourd'hui : BTTS, Over 2.5 et scores exacts. 6 pronostics gratuits par jour, 80% de réussite vérifiée. Modèle Poisson calibré sur 50 000 matchs.
+            Pronostics football aujourd'hui : BTTS, Over 2.5 et scores exacts. 6 pronostics gratuits par jour, taux réel vérifiable vérifiée. Modèle Poisson calibré sur 50 000 matchs.
           </p>
           <div className="mt-6">
             <a href="/#free-predictions" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-colors" style={{ backgroundColor: '#5146F5', color: '#F7F8FF' }}>
@@ -71,7 +71,7 @@ export default function FootballPredictionsTodayPage() {
         <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(81, 70, 245, 0.05)', border: '1px solid rgba(81, 70, 245, 0.15)' }}>
           <h2 className="text-lg font-bold mb-2" style={{ color: '#F7F8FF' }}>Résumé</h2>
           <p className="text-sm" style={{ color: '#A5ABC5' }}>
-            BTTSPredict pubifie 6 pronostics football gratuits chaque jour avec un taux de réussite vérifié de 80%. Notre <a href="/methodologie" style={{ color: '#5146F5' }}>méthodologie</a> est documentée et notre <a href="/historique" style={{ color: '#5146F5' }}>historique</a> est publiquement vérifiable. Aucun résultat n'est garanti. 18+ — Jeu responsable.
+            BTTSPredict pubifie 6 pronostics football gratuits chaque jour avec un taux de réussite réel (voir /historique). Notre <a href="/methodologie" style={{ color: '#5146F5' }}>méthodologie</a> est documentée et notre <a href="/historique" style={{ color: '#5146F5' }}>historique</a> est publiquement vérifiable. Aucun résultat n'est garanti. 18+ — Jeu responsable.
           </p>
         </section>
 

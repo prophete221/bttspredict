@@ -97,7 +97,7 @@ export default function LeaguePredictionsPage() {
         <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(81, 70, 245, 0.05)', border: '1px solid rgba(81, 70, 245, 0.15)' }}>
           <h2 className="text-lg font-bold mb-2" style={{ color: '#F7F8FF' }}>Résumé</h2>
           <p className="text-sm" style={{ color: '#A5ABC5' }}>
-            BTTSPredict couvre 50+ championnats avec un taux de réussite moyen de 80%. La Bundesliga (91,7%) et l'Eredivisie (90%) sont nos meilleures ligues.
+            BTTSPredict couvre 50+ championnats avec un taux de réussite moyen réel (voir /historique). La Bundesliga (91,7%) et l'Eredivisie (90%) sont nos meilleures ligues.
             Consultez nos <a href="/" style={{ color: '#5146F5' }}>pronostics du jour</a> ou notre <a href="/historique" style={{ color: '#5146F5' }}>historique vérifié</a>. Aucun résultat garanti. 18+.
           </p>
         </section>

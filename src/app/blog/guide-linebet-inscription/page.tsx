@@ -441,7 +441,7 @@ export default function GuideLinebetInscription() {
               </h2>
               <p className="text-cendre leading-relaxed mb-6 max-w-lg mx-auto">
                 Consultez nos pronostics BTTS et Over 2,5 du jour, générés par notre équipe avec une précision
-                historique d&apos;80%. Inscrivez-vous sur Linebet avec le code VISION221 pour un bonus exclusif.
+                historique en temps réel. Inscrivez-vous sur Linebet avec le code VISION221 pour un bonus exclusif.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a

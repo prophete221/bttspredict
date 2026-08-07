@@ -261,7 +261,7 @@ export default function CGUPage() {
                     </p>
                   </div>
                   <p>
-                    Nos pronostics sont le résultat d&apos;analyses statistiques effectuées par notre algorithme d&apos;analyse statistique. Bien que notre taux de précision historique soit d&apos;environ 80%, ce chiffre repose sur des données passées et <strong className="text-emerald">ne garantit pas les résultats futurs</strong>. Les performances passées ne préjugent pas des performances futures.
+                    Nos pronostics sont le résultat d&apos;analyses statistiques effectuées par notre algorithme d&apos;analyse statistique. Bien que notre taux de précision soit calculé en temps réel depuis /historique, ce chiffre repose sur des données passées et <strong className="text-emerald">ne garantit pas les résultats futurs</strong>. Les performances passées ne préjugent pas des performances futures.
                   </p>
                   <p>
                     De nombreux facteurs imprévisibles peuvent influencer le résultat d&apos;un match de football : blessures de dernière minute, conditions météorologiques, décisions arbitrales, motivation des équipes, événements imprévus, etc. Aucun algorithme, aussi sophistiqué soit-il, ne peut intégrer l&apos;ensemble de ces variables avec certitude absolue.

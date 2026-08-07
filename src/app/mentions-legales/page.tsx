@@ -230,7 +230,7 @@ export default function MentionsLegalesPage() {
                     BTTSPredict est un site à vocation purement informative et d&apos;affiliation. Les pronostics, analyses et statistiques publiés sur le site sont fournis à titre indicatif uniquement et ne constituent en aucun cas des conseils en investissement, des incitations à parier ou des garanties de gains.
                   </p>
                   <p>
-                    Les paris sportifs comportent des risques financiers importants. Les utilisateurs sont seuls responsables de leurs décisions de jeu et des sommes qu&apos;ils engagent. Les statistiques de précision affichées sur le site (environ 80%) sont basées sur des données historiques et ne garantissent en aucun cas des résultats futurs. Les performances passées ne préjugent pas des performances futures.
+                    Les paris sportifs comportent des risques financiers importants. Les utilisateurs sont seuls responsables de leurs décisions de jeu et des sommes qu&apos;ils engagent. Les statistiques de précision affichées sur le site (voir /historique) sont basées sur des données historiques et ne garantissent en aucun cas des résultats futurs. Les performances passées ne préjugent pas des performances futures.
                   </p>
                   <p>
                     BTTSPredict ne saurait être tenu responsable des pertes financières, des dommages directs ou indirects, matériels ou immatériels, résultant de l&apos;utilisation des informations contenues sur le site, de l&apos;impossibilité d&apos;accéder au site, ou de l&apos;utilisation des services des bookmakers partenaires, notamment Linebet.

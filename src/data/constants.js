@@ -333,7 +333,7 @@ export const BLOG_ARTICLES = [
 
 // ─── Legal / Footer ───
 export const LEGAL = {
-  disclaimer: `Les paris sportifs comportent des risques financiers. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre. Les statistiques de précision de notre IA (80%) sont basées sur des données historiques vérifiables et ne garantissent pas de résultats futurs. BTTSPredict est un site informatif et d'affiliation : nous ne prenons pas de paris et ne collectons pas de fonds. Les témoignages présentés sur ce site reflètent des expériences individuelles et ne constituent pas une garantie de résultats. Jouez de manière responsable.`,
+  disclaimer: `Les paris sportifs comportent des risques financiers. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre. Les statistiques de précision de notre IA (voir /historique) sont basées sur des données historiques vérifiables et ne garantissent pas de résultats futurs. BTTSPredict est un site informatif et d'affiliation : nous ne prenons pas de paris et ne collectons pas de fonds. Les témoignages présentés sur ce site reflètent des expériences individuelles et ne constituent pas une garantie de résultats. Jouez de manière responsable.`,
   responsible: `Si vous ou un proche avez un problème lié aux jeux d'argent, contactez la ligne d'écoute nationale de votre pays. En France : 09-74-75-13-13 (Joueurs Info Service). Au Cameroun : contactez le MINSANT. Au Sénégal : 33 867 22 22.`,
   copyright: `© ${new Date().getFullYear()} BTTSPredict. Tous droits réservés.`,
   links: [
@@ -349,7 +349,7 @@ export const SEO_BLOCK = {
   title: 'Pronostics football BTTS & Over 2,5 – Intelligence artificielle',
   paragraphs: [
     'BTTSPredict est une plateforme dédiée aux pronostics BTTS (Both Teams To Score) et Over 2,5 générés par intelligence artificielle. Notre algorithme analyse en temps réel plus de 200 variables statistiques pour chaque match de football, incluant les Expected Goals (xG), la forme récente des équipes, les blessures et suspensions, l\'historique des confrontations, et les conditions météorologiques.',
-    'Avec des résultats historiques d\'80% sur 5 972 pronostics analysés, notre IA peut aider les parieurs à prendre de meilleures décisions sur les marchés BTTS et Over/Under 2,5 buts. Nos pronostics couvrent plus de 50 championnats à travers le monde, des ligues européennes majeures aux championnats africains et asiatiques.',
+    'Avec des résultats historiques d\'80% sur pronostics archivés (voir /historique), notre IA peut aider les parieurs à prendre de meilleures décisions sur les marchés BTTS et Over/Under 2,5 buts. Nos pronostics couvrent plus de 50 championnats à travers le monde, des ligues européennes majeures aux championnats africains et asiatiques.',
     'Profitez du code promo VISION221 sur Linebet pour bénéficier d\'un bonus exclusif sur le premier dépôt (soumis à conditions : mise x5, cote minimale 1,40). BTTSPredict s\'engage pour le jeu responsable : nos pronostics sont des outils d\'aide à la décision, pas des garanties de gain. Pariez toujours de manière responsable et dans les limites de votre budget.',
   ],
 }

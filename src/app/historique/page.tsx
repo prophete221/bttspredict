@@ -11,13 +11,13 @@ import { buildOrganizationJsonLd, buildPersonJsonLd, buildDatasetJsonLd } from '
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'historique'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'Historique Pronostics — 80% vérifié'
-const DESCRIPTION = 'Historique complet des pronostics BTTS & Over 2.5. Gagnés ET perdus affichés, 80% vérifié. Transparence totale.'
+const TITLE = 'Historique Pronostics — taux réel sur /historique'
+const DESCRIPTION = 'Historique complet des pronostics BTTS & Over 2.5. Gagnés ET perdus affichés, taux réel sur /historique. Transparence totale.'
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  keywords: ['historique pronostics', 'résultats pronostics', 'track record btts', 'historique bttspredict', 'pronostics vérifiés', 'transparence pronostics', 'win rate btts', 'over 2.5 résultats', 'pronostics btts aujourd\'hui', '80% réussite', 'pronostics football vérifiables'],
+  keywords: ['historique pronostics', 'résultats pronostics', 'track record btts', 'historique bttspredict', 'pronostics vérifiés', 'transparence pronostics', 'win rate btts', 'over 2.5 résultats', 'pronostics btts aujourd\'hui', 'taux réel vérifiable', 'pronostics football vérifiables'],
   alternates: {
     canonical: PAGE_URL,
   },
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: 'BTTSPredict',
     type: 'website',
     locale: 'fr_SN',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Historique Pronostics BTTSPredict – Résultats vérifiés 80%' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Historique Pronostics BTTSPredict – Résultats vérifiés en temps réel' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -79,7 +79,8 @@ function buildBreadcrumbJsonLd() {
 /* ──────────────────────────────────────────────────────────────
    Page
    ────────────────────────────────────────────────────────────── */
-export default function HistoriquePage() {
+export default async function HistoriquePage() {
+  const datasetJsonLd = await buildDatasetJsonLd()
   return (
     <div className="min-h-screen bg-dark-800 flex flex-col text-papier">
       {/* Structured Data */}
@@ -103,7 +104,7 @@ export default function HistoriquePage() {
       )}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildDatasetJsonLd()) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetJsonLd) }}
       />
 
       {/* Skip to content */}
@@ -168,7 +169,7 @@ export default function HistoriquePage() {
                   Notre historique affiche <strong className="text-gold">tous les pronostics</strong> sans exception — les gagnés ET les perdus. Nous ne filtrons pas nos résultats pour présenter une image favorable. C&apos;est notre engagement de transparence.
                 </p>
                 <p>
-                  Le taux de précision affiché est de <strong className="text-emerald">80%</strong>, calculé à partir de l&apos;ensemble des pronostics validés (4 778 gagnés sur 5 972 publiés), pas d&apos;un sous-ensemble sélectionné. Les performances passées ne garantissent pas les résultats futurs.
+                  Le taux de précision affiché est <strong className="text-emerald">calculé en temps réel</strong> à partir de l&apos;ensemble des pronostics archivés et vérifiés via API-Football + ESPN, pas d&apos;un sous-ensemble sélectionné. Les performances passées ne garantissent pas les résultats futurs.
                 </p>
                 <p>
                   Chaque pronostic est vérifié après la fin du match avec le score final officiel. Les résultats sont mis à jour quotidiennement par notre équipe d&apos;analystes.

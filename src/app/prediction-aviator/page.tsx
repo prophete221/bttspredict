@@ -610,7 +610,7 @@ export default function PredictionAviatorPage() {
                   </h4>
                   <ul className="space-y-1 text-sm text-cendre leading-relaxed">
                     <li>• Cash out : 1.2x - 1.5x</li>
-                    <li>• Taux de réussite : ~80%</li>
+                    <li>• Taux de réussite : voir /historique</li>
                     <li>• Gain moyen : +20-50%</li>
                     <li>• Risque : Faible</li>
                     <li>• Idéal pour : Débutants</li>

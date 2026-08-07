@@ -6,7 +6,7 @@ import {Navbar, Footer,
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
 const TITLE = 'Betting Tips Football'
-const DESCRIPTION = 'Betting tips football par BTTSPredict. BTTS, Over 2.5, value bets FIFA. Méthodologie Poisson, gestion de bankroll, stratégie. 80% vérifié.'
+const DESCRIPTION = 'Betting tips football par BTTSPredict. BTTS, Over 2.5, value bets FIFA. Méthodologie Poisson, gestion de bankroll, stratégie. taux réel sur /historique.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 }
 
 const FAQ = [
-  { q: "Quels sont les meilleurs betting tips football ?", a: "Les meilleurs betting tips football sont basés sur l'analyse de données : Expected Goals (xG), forme récente, blessures, historique des confrontations. BTTSPredict fournit des pronostics BTTS et Over 2.5 avec un taux de réussite vérifié de 80%." },
+  { q: "Quels sont les meilleurs betting tips football ?", a: "Les meilleurs betting tips football sont basés sur l'analyse de données : Expected Goals (xG), forme récente, blessures, historique des confrontations. BTTSPredict fournit des pronostics BTTS et Over 2.5 avec un taux de réussite réel (voir /historique)." },
   { q: "Comment gérer sa bankroll pour les paris sportifs ?", a: "La règle d'or est de ne jamais miser plus de 1-5% de votre bankroll sur un seul pari. Consultez notre guide complet sur la <a href='/blog/gestion-bankroll-paris-sportifs'>gestion de bankroll</a> pour une stratégie détaillée." },
   { q: "Quels marchés de paris sont les plus rentables ?", a: "Les marchés BTTS et Over 2.5 sont parmi les plus prévisibles car ils dépendent du nombre de buts, pas du résultat. Notre modèle Poisson performe particulièrement bien sur ces marchés." },
   { q: "Faut-il suivre tous les pronostics ?", a: "Non. Utilisez les pronostics comme outil d'aide à la décision. Croisez avec votre propre analyse. Ne pariez que les sommes que vous pouvez vous permettre de perdre." },
@@ -50,7 +50,7 @@ export default function BettingTipsPage() {
             Betting <span style={{ color: '#5146F5' }}>Tips</span>
           </h1>
           <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#A5ABC5' }}>
-            Conseils et stratégies de paris sportifs football. BTTS, Over 2.5, value bets FIFA, gestion de bankroll. Méthodologie documentée, 80% vérifié.
+            Conseils et stratégies de paris sportifs football. BTTS, Over 2.5, value bets FIFA, gestion de bankroll. Méthodologie documentée, taux réel sur /historique.
           </p>
         </header>
 
@@ -68,7 +68,7 @@ export default function BettingTipsPage() {
         <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(81, 70, 245, 0.05)', border: '1px solid rgba(81, 70, 245, 0.15)' }}>
           <h2 className="text-lg font-bold mb-2" style={{ color: '#F7F8FF' }}>Résumé</h2>
           <p className="text-sm" style={{ color: '#A5ABC5' }}>
-            BTTSPredict fournit des betting tips football basés sur un modèle de Poisson calibré sur 50 000 matchs. Taux de réussite vérifié 80%. Aucun résultat garanti. Consultez notre <a href="/methodologie" style={{ color: '#5146F5' }}>méthodologie</a> et notre <a href="/historique" style={{ color: '#5146F5' }}>historique vérifié</a>. 18+ — Jeu responsable.
+            BTTSPredict fournit des betting tips football basés sur un modèle de Poisson calibré sur 50 000 matchs. Taux de réussite réel (voir /historique). Aucun résultat garanti. Consultez notre <a href="/methodologie" style={{ color: '#5146F5' }}>méthodologie</a> et notre <a href="/historique" style={{ color: '#5146F5' }}>historique vérifié</a>. 18+ — Jeu responsable.
           </p>
         </section>
 

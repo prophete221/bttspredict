@@ -6,7 +6,7 @@ import {Navbar, Footer,
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
 const TITLE = 'Team Predictions — Pronostics par Équipe'
-const DESCRIPTION = 'Pronostics par équipe football : analyse xG, forme récente, statistiques offensives/défensives. BTTS et Over 2.5 par équipe, 80% vérifié.'
+const DESCRIPTION = 'Pronostics par équipe football : analyse xG, forme récente, statistiques offensives/défensives. BTTS et Over 2.5 par équipe, taux réel sur /historique.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -65,7 +65,7 @@ export default function TeamPredictionsPage() {
         <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(81, 70, 245, 0.05)', border: '1px solid rgba(81, 70, 245, 0.15)' }}>
           <h2 className="text-lg font-bold mb-2" style={{ color: '#F7F8FF' }}>Résumé</h2>
           <p className="text-sm" style={{ color: '#A5ABC5' }}>
-            BTTSPredict analyse chaque équipe sur 200+ variables avec un taux de réussite vérifié de 80%. Consultez notre <a href="/methodologie" style={{ color: '#5146F5' }}>méthodologie</a> et notre <a href="/historique" style={{ color: '#5146F5' }}>historique</a>. 18+ — Jeu responsable.
+            BTTSPredict analyse chaque équipe sur 200+ variables avec un taux de réussite réel (voir /historique). Consultez notre <a href="/methodologie" style={{ color: '#5146F5' }}>méthodologie</a> et notre <a href="/historique" style={{ color: '#5146F5' }}>historique</a>. 18+ — Jeu responsable.
           </p>
         </section>
 

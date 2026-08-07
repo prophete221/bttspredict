@@ -17,7 +17,7 @@ export function buildOrganizationJsonLd() {
     image: `${SITE_URL}/og-image.png`,
     foundingDate: '2026-01-01',
     slogan: 'Plateforme de référence — Pronostics BTTS et Over 2.5',
-    description: "BTTSPredict est la plateforme de référence pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts. 80% de réussite vérifiée, modèles Poisson calibrés sur 50 000 matchs, 13 000+ parieurs. Transparence totale : gagnés ET perdus affichés.",
+    description: "BTTSPredict est la plateforme de référence pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts. taux réel vérifiable vérifiée, modèles Poisson calibrés sur 50 000 matchs, 13 000+ parieurs. Transparence totale : gagnés ET perdus affichés.",
     email: 'support@bttspredict.com',
     telephone: '+15406704172',
     address: {
@@ -234,14 +234,57 @@ export function buildBreadcrumbJsonLd(items: { name: string; path: string }[]) {
 }
 
 // ─── Dataset (page /historique — transparence des résultats) ────────────
-export function buildDatasetJsonLd() {
+// Lit les stats réelles depuis public/win-history.json (généré par scripts/update-win-history.mjs).
+// Aucune stat figée — les chiffres reflètent l'état réel de l'archive publique.
+// ATTENTION: cette fonction doit être appelée dans un Server Component (async).
+export async function buildDatasetJsonLd() {
+  let stats: {
+    total?: number
+    verified?: number
+    won?: number
+    lost?: number
+    pending?: number
+    rate?: string
+    byType?: {
+      BTTS?: { total?: number; won?: number; lost?: number; rate?: number }
+      'O2.5'?: { total?: number; won?: number; lost?: number; rate?: number }
+    }
+  } = {}
+
+  try {
+    // Lecture directe du fichier statique au build (mode export statique)
+    // Permet d'éviter un fetch réseau pendant le SSR
+    const fs = await import('fs/promises')
+    const path = await import('path')
+    const filePath = path.join(process.cwd(), 'public', 'win-history.json')
+    const raw = await fs.readFile(filePath, 'utf-8')
+    const data = JSON.parse(raw)
+    stats = data?.stats ?? {}
+  } catch (err) {
+    // Fallback silencieux en cas d'erreur lecture
+    console.warn('[seoSchemas] buildDatasetJsonLd: could not read win-history.json:', err instanceof Error ? err.message : String(err))
+  }
+
+  const total = stats.total ?? 0
+  const verified = stats.verified ?? 0
+  const won = stats.won ?? 0
+  const lost = stats.lost ?? 0
+  const rate = stats.rate ?? 'N/A'
+  const bttsRate = stats.byType?.BTTS?.rate ?? 'N/A'
+  const o25Rate = stats.byType?.['O2.5']?.rate ?? 'N/A'
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     name: 'BTTSPredict — Historique vérifiable des pronostics BTTS & Over 2.5',
-    description: "Historique complet des pronostics publiés par BTTSPredict, incluant les résultats gagnés ET perdus. Taux de réussite de 80% calculé sur les pronostics réellement publiés. Transparence totale.",
+    description: `Dataset public des pronostics BTTS et Over 2.5 publiés par BTTSPredict. Sur ${verified} pronostics vérifiés (score final connu), ${won} ont été gagnants (${rate} de réussite réelle vérifiable). Répartition par type: BTTS ${bttsRate}%, Over 2.5 ${o25Rate}%. Toutes les entrées sont archivées quotidiennement dans predictions-archive/ et vérifiées via API-Football / ESPN. Aucun filtrage — gagnés ET perdus affichés. Licence CC-BY.`,
     url: `${SITE_URL}/historique`,
-    creator: { '@type': 'Organization', name: 'BTTSPredict', url: SITE_URL },
+    creator: {
+      '@type': 'Organization',
+      name: 'BTTSPredict',
+      url: SITE_URL,
+      founder: { '@type': 'Person', name: 'prophete221', nationality: 'SN' },
+    },
     publisher: { '@type': 'Organization', name: 'BTTSPredict', url: SITE_URL },
     license: 'https://creativecommons.org/licenses/by/4.0/',
     isAccessibleForFree: true,
@@ -251,15 +294,107 @@ export function buildDatasetJsonLd() {
         encodingFormat: 'application/json',
         contentUrl: `${SITE_URL}/win-history.json`,
       },
+      {
+        '@type': 'DataDownload',
+        encodingFormat: 'application/json',
+        contentUrl: `${SITE_URL}/api/public/predictions.json`,
+        description: 'Open data: derniers 7 jours de pronostics (planned)',
+      },
     ],
-    keywords: 'pronostics BTTS, historique résultats, taux de réussite 80%, transparence, gagnés perdus, pronostics btts aujourd\'hui',
+    keywords: 'pronostics BTTS, both teams to score, over 2.5 predictions, historique résultats, dataset ouvert, transparence, gagnés perdus, modèle Poisson, xG, API-Football',
     variableMeasured: [
-      { '@type': 'PropertyValue', name: 'Taux de réussite', value: '80%' },
-      { '@type': 'PropertyValue', name: 'Pronostics analysés (total)', value: '5 972' },
-      { '@type': 'PropertyValue', name: 'Pronostics gagnés', value: '4 778' },
+      { '@type': 'PropertyValue', name: 'Total pronostics archivés', value: String(total) },
+      { '@type': 'PropertyValue', name: 'Pronostics vérifiés (W+L)', value: String(verified) },
+      { '@type': 'PropertyValue', name: 'Pronostics gagnés', value: String(won) },
+      { '@type': 'PropertyValue', name: 'Pronostics perdus', value: String(lost) },
+      { '@type': 'PropertyValue', name: 'Taux de réussite global', value: rate },
+      { '@type': 'PropertyValue', name: 'Taux BTTS', value: `${bttsRate}%` },
+      { '@type': 'PropertyValue', name: 'Taux Over 2.5', value: `${o25Rate}%` },
     ],
-    temporalCoverage: 'P30D',
+    temporalCoverage: 'P90D',
     inLanguage: 'fr',
+    citation: [
+      'ESPN Soccer API (https://site.api.espn.com/apis/site/v2/sports/soccer)',
+      'API-Football v3 (https://www.api-football.com/)',
+    ],
+    isBasedOn: 'Modèle statistique Poisson (xG domicile/extérieur basé sur les 5 derniers matchs)',
+  }
+}
+
+// ─── SportsEvent (pour CHAQUE prono du jour) ──────────────────────────────
+// Permet à Google/Perplexity de comprendre chaque match comme un événement.
+export function buildSportsEventJsonLd({
+  homeTeam,
+  awayTeam,
+  league,
+  startDate, // ISO 8601
+  predictionType, // 'BTTS' ou 'Over 2.5'
+  prediction, // 'Oui' ou 'Non'
+  confidence,
+  homeLogo,
+  awayLogo,
+}: {
+  homeTeam: string
+  awayTeam: string
+  league: string
+  startDate: string
+  predictionType: string
+  prediction: string
+  confidence: number
+  homeLogo?: string
+  awayLogo?: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SportsEvent',
+    name: `${homeTeam} vs ${awayTeam}`,
+    sport: 'Soccer',
+    startDate,
+    homeTeam: {
+      '@type': 'SportsTeam',
+      name: homeTeam,
+      ...(homeLogo ? { logo: homeLogo } : {}),
+    },
+    awayTeam: {
+      '@type': 'SportsTeam',
+      name: awayTeam,
+      ...(awayLogo ? { logo: awayLogo } : {}),
+    },
+    location: {
+      '@type': 'Place',
+      name: league,
+    },
+    superEvent: {
+      '@type': 'SportsEvent',
+      name: league,
+    },
+    about: {
+      '@type': 'Thing',
+      name: `${predictionType} prediction: ${prediction}`,
+      description: `BTTSPredict Poisson model — confidence ${confidence}%`,
+    },
+    organizer: {
+      '@type': 'Organization',
+      name: 'BTTSPredict',
+      url: SITE_URL,
+    },
+  }
+}
+
+// ─── ItemList (liste des pronos du jour) ──────────────────────────────────
+export function buildItemListJsonLd(items: Array<{ name: string; url: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Pronostics BTTS et Over 2.5 du jour',
+    itemListOrder: 'https://schema.org/ItemListOrderAscending',
+    numberOfItems: items.length,
+    itemListElement: items.map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.name,
+      url: it.url.startsWith('http') ? it.url : `${SITE_URL}${it.url}`,
+    })),
   }
 }
 

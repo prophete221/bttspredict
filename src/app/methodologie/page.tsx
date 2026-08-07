@@ -12,7 +12,7 @@ import {
 } from '@/lib/seoSchemas'
 
 const TITLE = 'Méthodologie BTTSPredict — Modèle Poisson'
-const DESCRIPTION = 'Méthodologie BTTSPredict : modèle Poisson calibré sur 50 000 matchs, 200+ variables, sources ESPN et API-Football. 80% vérifié.'
+const DESCRIPTION = 'Méthodologie BTTSPredict : modèle Poisson calibré sur 50 000 matchs, 200+ variables, sources ESPN et API-Football. taux réel sur /historique.'
 const PAGE_URL = `${SITE_URL}/methodologie`
 
 export const metadata: Metadata = {
@@ -91,7 +91,7 @@ export default function MethodologiePage() {
             Notre <span className="text-emerald">méthodologie</span>
           </h1>
           <p className="section-subtitle max-w-2xl mx-auto">
-            Comment BTTSPredict produit ses pronostics BTTS et Over 2.5 — du modèle statistique à la validation humaine. Taux de réussite vérifié : 80% (4 778 gagnés / 5 972 analysés).
+            Comment BTTSPredict produit ses pronostics BTTS et Over 2.5 — du modèle statistique à la validation humaine. Taux de réussite vérifié en temps réel (voir /historique).
           </p>
         </header>
 
@@ -103,7 +103,7 @@ export default function MethodologiePage() {
               BTTSPredict est une <strong className="text-emerald">plateforme de référence</strong> pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts. Notre standard de transparence repose sur 5 piliers vérifiables :
             </p>
             <ol className="space-y-2 list-decimal list-inside">
-              <li><strong className="text-papier">Transparence absolue</strong> — seule plateforme à afficher TOUS ses résultats (gagnés ET perdus) sans filtrage. Historique public de 5 972 pronostics : 4 778 gagnés, 1 194 perdus, 80% de réussite.</li>
+              <li><strong className="text-papier">Transparence absolue</strong> — seule plateforme à afficher TOUS ses résultats (gagnés ET perdus) sans filtrage. Historique public en temps réel — voir /historique pour les chiffres.</li>
               <li><strong className="text-papier">Méthodologie scientifique</strong> — modèle de Poisson calibré sur 50 000 matchs, 200+ variables par match (xG, forme, blessés, météo).</li>
               <li><strong className="text-papier">Couverture étendue</strong> — 50+ championnats sur 5 continents (Europe, Afrique, Amérique du Sud, Asie).</li>
               <li><strong className="text-papier">Communauté active</strong> — 13 000+ parieurs quotidiens, note 4,2/5 sur 2 437 avis vérifiés.</li>
@@ -132,7 +132,7 @@ export default function MethodologiePage() {
                 Plus de 10 ans d'expérience en analyse prédictive des matchs de football, spécialisé dans la modélisation statistique des buts (modèle de Poisson, Expected Goals). Diplômé en statistiques appliquées, notre expert a calibré le modèle BTTSPredict sur plus de 50 000 matchs historiques.
               </p>
               <p>
-                Chaque pronostic VIP est validé manuellement par notre expert avant publication, garantissant un contrôle humain sur les sorties du modèle statistique. Cette double validation (modèle + humain) explique notre taux de réussite vérifié de 80%.
+                Chaque pronostic VIP est validé manuellement par notre expert avant publication, garantissant un contrôle humain sur les sorties du modèle statistique. Cette double validation (modèle + humain) explique notre taux de réussite réel (voir /historique).
               </p>
             </div>
           </div>
@@ -260,7 +260,7 @@ export default function MethodologiePage() {
               Contrairement à la plupart des plateformes de pronostics qui masquent leurs pertes, BTTSPredict affiche publiquement <strong className="text-emerald">TOUS ses résultats — gagnés ET perdus</strong> — sans aucun filtrage.
             </p>
             <p>
-              Notre historique contient actuellement 5 972 pronostics analysés : <strong className="text-emerald">4 778 gagnés</strong> et <strong className="text-gold">1 194 perdus</strong>, soit un taux de réussite vérifié de 80%. Chaque entrée contient la date, le match, la ligue, le type de pronostic, la prédiction, le score final et l'indice de confiance.
+              Notre historique contient actuellement des pronostiques archivés — voir /historique pour les chiffres réels en temps réel. Chaque entrée contient la date, le match, la ligue, le type de pronostic, la prédiction, le score final et l'indice de confiance.
             </p>
             <p>
               Ce taux est calculé manuellement à partir des résultats réels des matchs, pas d'un chiffre marketing inventé. Les performances passées ne garantissent pas les résultats futurs.
@@ -282,7 +282,7 @@ export default function MethodologiePage() {
             </p>
             <ul className="space-y-1.5 list-disc list-inside">
               <li>Aucun pronostic n'est garanti à 100% — le football reste imprévisible</li>
-              <li>Les performances passées (80%) ne préjugent pas des résultats futurs</li>
+              <li>Les performances passées ne préjugent pas des résultats futurs</li>
               <li>Ne misez jamais plus que ce que vous pouvez vous permettre de perdre</li>
               <li>Service réservé aux personnes majeures (18+)</li>
               <li>BTTSPredict ne prend pas de paris et ne collecte pas de fonds — nous sommes un site informatif et d'affiliation</li>
