@@ -1,28 +1,28 @@
 {
   "stats": {
-    "total": 16,
-    "won": 5,
-    "lost": 11,
-    "pending": 2893,
-    "rate": "31.3%",
-    "last30Rate": "31.3%",
+    "total": 18,
+    "won": 6,
+    "lost": 12,
+    "pending": 2891,
+    "rate": "33.3%",
+    "last30Rate": "33.3%",
     "byType": {
       "btts": {
-        "total": 8,
-        "won": 1,
+        "total": 9,
+        "won": 2,
         "lost": 7,
-        "pending": 1447,
-        "rate": 12.5
+        "pending": 1446,
+        "rate": 22.2
       },
       "over25": {
-        "total": 8,
+        "total": 9,
         "won": 4,
-        "lost": 4,
-        "pending": 1446,
-        "rate": 50
+        "lost": 5,
+        "pending": 1445,
+        "rate": 44.4
       }
     },
-    "transparency": "Stats calculées depuis 62 archives quotidiennes dans predictions-archive/. Sur 16 pronostics vérifiés (score final connu via ESPN + TheSportsDB, 100% gratuit), 5 ont été gagnants (31.3% de réussite réelle vérifiable). 2893 pronostics en attente de vérification. Aucun filtrage — gagnés ET perdus affichés."
+    "transparency": "Stats calculées depuis 62 archives quotidiennes dans predictions-archive/. Sur 18 pronostics vérifiés (score final connu via ESPN + TheSportsDB, 100% gratuit), 6 ont été gagnants (33.3% de réussite réelle vérifiable). 2891 pronostics en attente de vérification. Aucun filtrage — gagnés ET perdus affichés."
   },
   "history": [
     {
@@ -987,5 +987,5 @@
     }
   ],
   "allItemsCount": 2909,
-  "generatedAt": "2026-08-07T11:22:59.624Z"
+  "generatedAt": "2026-08-07T11:25:19.939Z"
 }

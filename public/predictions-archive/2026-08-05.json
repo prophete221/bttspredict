@@ -20,7 +20,12 @@
         "awayLambda": 0.6781824000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "finalScore": "1-0",
+      "status": "WON",
+      "isWon": true,
+      "verifiedSource": "thesportsdb",
+      "verifiedAt": "2026-08-07T11:25:19.240Z"
     },
     {
       "match": "Boca Juniors vs Estudiantes de La Plata",
@@ -41,7 +46,12 @@
         "awayLambda": 0.6781824000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "finalScore": "1-0",
+      "status": "LOST",
+      "isWon": false,
+      "verifiedSource": "thesportsdb",
+      "verifiedAt": "2026-08-07T11:25:19.240Z"
     },
     {
       "match": "Deportivo La Guaira vs Metropolitanos",
@@ -62,7 +72,8 @@
         "awayLambda": 1.0661328000000003,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Deportivo La Guaira vs Metropolitanos",
@@ -83,7 +94,8 @@
         "awayLambda": 1.0661328000000003,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Peñarol vs Montevideo Wanderers",
@@ -104,7 +116,8 @@
         "awayLambda": 0.627372,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Peñarol vs Montevideo Wanderers",
@@ -125,7 +138,8 @@
         "awayLambda": 0.627372,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Internacional de Bogotá vs Jaguares de Córdoba",
@@ -146,7 +160,8 @@
         "awayLambda": 1.2451536,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Internacional de Bogotá vs Jaguares de Córdoba",
@@ -167,7 +182,8 @@
         "awayLambda": 1.2451536,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Tigre vs Belgrano (Córdoba)",
@@ -188,7 +204,8 @@
         "awayLambda": 0.6915456,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Tigre vs Belgrano (Córdoba)",
@@ -209,7 +226,8 @@
         "awayLambda": 0.6915456,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Once Caldas vs América de Cali",
@@ -230,7 +248,8 @@
         "awayLambda": 1.1729232,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Once Caldas vs América de Cali",
@@ -251,7 +270,8 @@
         "awayLambda": 1.1729232,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Rayo Zuliano vs Anzoátegui FC",
@@ -272,7 +292,8 @@
         "awayLambda": 1.1436552000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Rayo Zuliano vs Anzoátegui FC",
@@ -293,7 +314,8 @@
         "awayLambda": 1.1436552000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Alianza Atlético vs Cienciano del Cusco",
@@ -314,7 +336,8 @@
         "awayLambda": 1.0156032,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Alianza Atlético vs Cienciano del Cusco",
@@ -335,7 +358,8 @@
         "awayLambda": 1.0156032,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Estudiantes de Mérida vs Zamora FC",
@@ -356,7 +380,8 @@
         "awayLambda": 0.8959032000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Estudiantes de Mérida vs Zamora FC",
@@ -377,7 +402,8 @@
         "awayLambda": 0.8959032000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Unión (Santa Fe) vs Lanús",
@@ -398,7 +424,8 @@
         "awayLambda": 1.3304736,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Unión (Santa Fe) vs Lanús",
@@ -419,7 +446,8 @@
         "awayLambda": 1.3304736,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Academia Puerto Cabello vs Caracas FC",
@@ -440,7 +468,8 @@
         "awayLambda": 0.7096896000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Academia Puerto Cabello vs Caracas FC",
@@ -461,7 +490,8 @@
         "awayLambda": 0.7096896000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Yokohama F. Marinos vs Kashima Antlers",
@@ -482,7 +512,8 @@
         "awayLambda": 0.7892640000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Yokohama F. Marinos vs Kashima Antlers",
@@ -503,7 +534,8 @@
         "awayLambda": 0.7892640000000001,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Gamba Osaka vs Urawa Red Diamonds",
@@ -524,7 +556,8 @@
         "awayLambda": 0.9942912000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Gamba Osaka vs Urawa Red Diamonds",
@@ -545,7 +578,8 @@
         "awayLambda": 0.9942912000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Sønderjyske Fodbold vs Viborg FF",
@@ -566,7 +600,8 @@
         "awayLambda": 0.862848,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Sønderjyske Fodbold vs Viborg FF",
@@ -587,7 +622,8 @@
         "awayLambda": 0.862848,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Sandefjord vs KFUM Oslo",
@@ -608,7 +644,8 @@
         "awayLambda": 1.5697296000000003,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Sandefjord vs KFUM Oslo",
@@ -629,7 +666,8 @@
         "awayLambda": 1.5697296000000003,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "SC Rheindorf Altach vs WSG Swarovski Tirol",
@@ -650,7 +688,8 @@
         "awayLambda": 1.5311376,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "SC Rheindorf Altach vs WSG Swarovski Tirol",
@@ -671,7 +710,8 @@
         "awayLambda": 1.5311376,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "SC Cambuur vs Excelsior",
@@ -692,7 +732,8 @@
         "awayLambda": 1.5775344000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "SC Cambuur vs Excelsior",
@@ -713,7 +754,8 @@
         "awayLambda": 1.5775344000000002,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Sport Huancayo vs Los Chankas",
@@ -734,7 +776,8 @@
         "awayLambda": 1.1225087999999999,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Sport Huancayo vs Los Chankas",
@@ -755,7 +798,8 @@
         "awayLambda": 1.1225087999999999,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "VfL Bochum vs Hertha Berlin",
@@ -776,7 +820,8 @@
         "awayLambda": 0.7956359999999999,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "VfL Bochum vs Hertha Berlin",
@@ -797,7 +842,8 @@
         "awayLambda": 0.7956359999999999,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Club Brugge vs KV Kortrijk",
@@ -818,7 +864,8 @@
         "awayLambda": 1.5106175999999998,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Club Brugge vs KV Kortrijk",
@@ -839,7 +886,8 @@
         "awayLambda": 1.5106175999999998,
         "dataQuality": 4,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     }
   ]
 }
