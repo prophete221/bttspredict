@@ -87,31 +87,31 @@ export default function StatsDashboard() {
   const rate = total > 0 ? Math.round((won / total) * 100) : 0
   const isUpdating = total === 0 && pending > 0
 
-  // Group by date (for time series) — last 14 entries by date
-  // PENDING exclus du dénominateur
-  const byDate = history.reduce<Record<string, { won: number; lost: number; pending: number; total: number }>>((acc, h) => {
-    if (!acc[h.date]) acc[h.date] = { won: 0, lost: 0, pending: 0, total: 0 }
+  // Group by date + type (for dual-line chart BTTS violet + Over 2.5 cyan)
+  const byDateType = history.reduce<Record<string, {
+    btts: { won: number; total: number };
+    over25: { won: number; total: number };
+  }>>((acc, h) => {
+    if (!acc[h.date]) acc[h.date] = { btts: { won: 0, total: 0 }, over25: { won: 0, total: 0 } }
     const isWon = h.result === 'Gagné' || h.result === 'W'
     const isLost = h.result === 'Perdu' || h.result === 'L'
-    const isPending = h.result === 'PENDING' || h.result === 'En attente'
-    if (isWon) { acc[h.date].won++; acc[h.date].total++ }
-    else if (isLost) { acc[h.date].lost++; acc[h.date].total++ }
-    else if (isPending) { acc[h.date].pending++ }
+    if (!isWon && !isLost) return acc // PENDING skip
+    const typeKey = h.type.includes('Over') ? 'over25' : 'btts'
+    acc[h.date][typeKey].total++
+    if (isWon) acc[h.date][typeKey].won++
     return acc
   }, {})
 
-  const timeSeries = Object.entries(byDate)
+  const timeSeriesDual = Object.entries(byDateType)
     .sort(([a], [b]) => a.localeCompare(b))
     .slice(-14)
     .map(([date, v]) => ({
-      date: date.slice(5), // MM-DD
-      réussite: v.total > 0 ? Math.round((v.won / v.total) * 100) : null,
-      total: v.total,
-      gagnés: v.won,
-      perdus: v.lost,
+      date: date.slice(5),
+      btts: v.btts.total > 0 ? Math.round((v.btts.won / v.btts.total) * 100) : null,
+      over25: v.over25.total > 0 ? Math.round((v.over25.won / v.over25.total) * 100) : null,
     }))
 
-  const hasVerifiedTimeSeries = timeSeries.some(d => d.total > 0)
+  const hasDualData = timeSeriesDual.some(d => d.btts !== null || d.over25 !== null)
 
   // Group by league
   const byLeague = history.reduce<Record<string, number>>((acc, h) => {
@@ -215,25 +215,28 @@ export default function StatsDashboard() {
         </div>
       </div>
 
-      {/* ── TIME SERIES CHART ─────────────────────────────────── */}
+      {/* ── TIME SERIES CHART — Dual Line (BTTS violet + Over 2.5 cyan) ─── */}
       <section className="squircle-xl p-5 sm:p-6">
         <header className="flex items-center justify-between mb-5">
           <div>
             <h2 className="text-lg sm:text-xl font-bold text-papier">Évolution du taux vérifié</h2>
-            <p className="text-xs text-cendre mt-1">14 derniers jours — pourcentage de pronostics gagnés par jour (vérifiés uniquement)</p>
+            <p className="text-xs text-cendre mt-1">14 derniers jours — BTTS vs Over 2.5 (vérifiés uniquement)</p>
           </div>
-          <span className="badge badge-mint">14 jours</span>
+          <div className="flex items-center gap-3 text-[10px]">
+            <span className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#7C3AED' }} />
+              <span className="text-cendre">BTTS</span>
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#5DFDCB' }} />
+              <span className="text-cendre">Over 2.5</span>
+            </span>
+          </div>
         </header>
-        {hasVerifiedTimeSeries ? (
+        {hasDualData ? (
         <div className="h-64 sm:h-80">
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={timeSeries} margin={{ top: 8, right: 8, bottom: 0, left: -16 }}>
-              <defs>
-                <linearGradient id="gradGold" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor={COLORS.gold} stopOpacity={0.4} />
-                  <stop offset="100%" stopColor={COLORS.gold} stopOpacity={0} />
-                </linearGradient>
-              </defs>
+            <LineChart data={timeSeriesDual} margin={{ top: 8, right: 8, bottom: 0, left: -16 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={COLORS.edge} strokeOpacity={0.4} />
               <XAxis dataKey="date" stroke={COLORS.text} fontSize={11} tickLine={false} axisLine={false} />
               <YAxis stroke={COLORS.text} fontSize={11} tickLine={false} axisLine={false} domain={[0, 100]} unit="%" />
@@ -245,19 +248,31 @@ export default function StatsDashboard() {
                   fontSize: 12,
                   color: '#fff',
                 }}
-                labelStyle={{ color: COLORS.gold, fontWeight: 700 }}
+                labelStyle={{ color: '#F7F8FF', fontWeight: 700 }}
+                formatter={(v: number | null, name: string) => [
+                  v == null ? 'N/A' : `${v}%`,
+                  name === 'btts' ? 'BTTS' : 'Over 2.5',
+                ]}
               />
-              <Area
+              <Line
                 type="monotone"
-                dataKey="réussite"
-                stroke={COLORS.gold}
-                strokeWidth={2}
-                fill="url(#gradGold)"
-                dot={{ fill: COLORS.gold, r: 3 }}
-                activeDot={{ r: 5, fill: COLORS.gold }}
+                dataKey="btts"
+                stroke="#7C3AED"
+                strokeWidth={2.5}
+                dot={{ fill: '#7C3AED', r: 3 }}
+                activeDot={{ r: 5, fill: '#7C3AED' }}
                 connectNulls
               />
-            </AreaChart>
+              <Line
+                type="monotone"
+                dataKey="over25"
+                stroke="#5DFDCB"
+                strokeWidth={2.5}
+                dot={{ fill: '#5DFDCB', r: 3 }}
+                activeDot={{ r: 5, fill: '#5DFDCB' }}
+                connectNulls
+              />
+            </LineChart>
           </ResponsiveContainer>
         </div>
         ) : (
