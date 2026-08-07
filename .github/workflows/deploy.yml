@@ -37,19 +37,15 @@ jobs:
       - name: Update predictions (ESPN API)
         timeout-minutes: 5
         run: node scripts/quick-update-predictions.mjs
-        env:
-          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         # RÈGLE D'OR #4: NE PAS continuer si le scraper de pronos échoue
         # (sinon on déploie des pronos vides/périmés)
         # continue-on-error retiré volontairement
 
-      - name: Verify results (fetch real scores via API-Football + ESPN)
+      - name: Verify results (free ESPN + TheSportsDB — no API key needed)
         timeout-minutes: 10
         run: node scripts/verify-results.mjs
-        env:
-          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-        # Tolerance: si verify-results échoue, on continue (les archives restent en attente)
-        # MAIS on log le warning pour investigation
+        # 100% gratuit: ESPN scoreboard (public) + TheSportsDB (public)
+        # Aucune clé API requise
         continue-on-error: true
 
       - name: Update win history (real stats from archives)
