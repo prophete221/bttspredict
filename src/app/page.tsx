@@ -532,36 +532,6 @@ export default function Home() {
         <ErrorBoundary><FreePredictions /></ErrorBoundary>
         <ErrorBoundary><WinHistory /></ErrorBoundary>
         <ErrorBoundary><HowItWorks /></ErrorBoundary>
-
-        {/* Explorer le dataset — open source */}
-        <section className="py-8 px-4" style={{ backgroundColor: '#070B18' }}>
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-xl font-bold mb-2" style={{ color: '#F7F8FF', fontFamily: 'Poppins, sans-serif' }}>
-              Explorer le <span style={{ color: '#5DFDCB' }}>dataset open-source</span>
-            </h2>
-            <p className="text-[12px] text-[#A5ABC5] mb-4">
-              2 909 pronostics archivés. Schéma JSON public. Licence MIT. Vérifiable match par match.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              <a href="https://github.com/prophete221/bttspredict" target="_blank" rel="noopener"
-                className="px-4 py-2 rounded-lg text-xs font-bold transition-all"
-                style={{ backgroundColor: '#5146F5', color: '#F7F8FF' }}>
-                📦 GitHub Repository
-              </a>
-              <a href="/win-history.json" target="_blank"
-                className="px-4 py-2 rounded-lg text-xs font-bold transition-all"
-                style={{ border: '1px solid #5DFDCB', color: '#5DFDCB' }}>
-                📊 win-history.json
-              </a>
-              <a href="/resultats-verifies"
-                className="px-4 py-2 rounded-lg text-xs font-bold transition-all"
-                style={{ border: '1px solid #303861', color: '#A5ABC5' }}>
-                📈 Page performance & ROI
-              </a>
-            </div>
-          </div>
-        </section>
-
         <ErrorBoundary><PromoVip /></ErrorBoundary>
         <ErrorBoundary><VipCardGrid /></ErrorBoundary>
         <ErrorBoundary><HowToGetVip /></ErrorBoundary>

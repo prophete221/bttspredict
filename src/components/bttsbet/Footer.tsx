@@ -151,10 +151,10 @@ export default function Footer() {
 
           {/* Identité éditeur */}
           <div className="text-center text-[10px] text-[#6B7194] mt-3 space-y-1">
-            <div>Éditeur: BTTSPredict — Dakar, Sénégal · Contact conformité: {''}
+            <div>Éditeur: BTTSPredict — Elon Ervri, New Jersey, USA · Contact conformité: {''}
               <a href="mailto:contact@bttspredict.com" className="underline hover:text-[#A5ABC5]">contact@bttspredict.com</a>
             </div>
-            <div>Juridiction: Sénégal · Responsable publication: prophete221</div>
+            <div>Juridiction: USA · Responsable publication: Elon Ervri</div>
             <div>Les performances passées ne préjugent pas des résultats futurs — 18+ Jouez responsable</div>
           </div>
 
