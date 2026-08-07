@@ -113,7 +113,7 @@ export function VipCardGrid() {
         'Support WhatsApp 24/7',
       ],
       status: 'active',
-      meta: '30 jours',
+      meta: 'Dépôt min. 3 000 XOF',
       ctaLabel: 'Débloquer Silver',
       variant: 'emerald',
       index: 0,
@@ -129,7 +129,7 @@ export function VipCardGrid() {
         'Support WhatsApp prioritaire',
       ],
       status: 'active',
-      meta: '30 jours',
+      meta: 'Dépôt min. 6 000 XOF',
       ctaLabel: 'Débloquer Gold',
       variant: 'gold',
       index: 1,
@@ -146,10 +146,27 @@ export function VipCardGrid() {
         'Accès anticipé aux nouvelles fonctionnalités',
       ],
       status: 'active',
-      meta: '90 jours',
+      meta: 'Dépôt min. 12 000 XOF',
       ctaLabel: 'Débloquer Elite',
       variant: 'emerald',
       index: 2,
+    },
+    {
+      level: 'VIP TOUS NIVEAUX',
+      username: 'Accès complet 1 mois',
+      benefits: [
+        'Silver + Gold + Elite débloqués',
+        'Tous les pronostics premium illimités',
+        'Tous les sports et marchés',
+        'Stats Aviator + Value Bets illimités',
+        'Support VIP prioritaire 24/7',
+        'Analyse personnalisée par notre expert',
+      ],
+      status: 'active',
+      meta: 'Dépôt min. 12 000 XOF · 1 mois',
+      ctaLabel: 'Débloquer Tout — 1 mois',
+      variant: 'gold',
+      index: 3,
     },
   ]
 
@@ -158,16 +175,16 @@ export function VipCardGrid() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
-          <span className="eyebrow">💎 Cartes VIP Premium</span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-3" style={{ color: '#F5F2ED' }}>
+          <span className="eyebrow">💎 Niveaux VIP</span>
+          <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-3" style={{ color: '#F5F2ED', fontFamily: 'Poppins, sans-serif' }}>
             Choisis ton <span style={{ color: '#D8BA91' }}>niveau VIP</span>
           </h2>
           <p className="text-sm max-w-md mx-auto" style={{ color: '#9A9791' }}>
-            Trois niveaux d'accès premium avec glassmorphism ultra-moderne. Activation en moins de 30 minutes via WhatsApp.
+            Choisis le niveau qui te correspond. Activation en moins de 30 minutes via WhatsApp après dépôt.
           </p>
         </div>
 
-        {/* Cartes glassmorphism */}
+        {/* Cartes */}
         <div className="vip-glass-grid">
           {cards.map((card) => (
             <VipCardGlass key={card.level} {...card} />

@@ -11,7 +11,7 @@ export const SITE = {
 
   // Win-rate unique et vérifié partout (60 gagnés / 71 publiés)
   vipAccuracy: '84,5%',
-  vipMinDeposit: '3 000 XOF',
+  vipMinDeposit: '3 000 / 6 000 / 12 000 XOF',
   historyRate: '84.5%',
   last30Rate: '84.5%',
 }

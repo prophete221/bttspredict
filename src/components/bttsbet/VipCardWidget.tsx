@@ -44,7 +44,7 @@ export default function VipCardWidget() {
             <span style={{ color: '#6E7681' }}>→</span>
             <div className="flex items-center gap-1 text-[9px]" style={{ color: '#9A9791' }}>
               <span className="w-5 h-5 rounded-full flex items-center justify-center font-bold text-[8px]" style={{ backgroundColor: '#D8BA91', color: '#090A0B' }}>2</span>
-              Dépôt 3000 XOF
+              Dépôt 3 000 / 6 000 / 12 000 XOF
             </div>
             <span style={{ color: '#6E7681' }}>→</span>
             <div className="flex items-center gap-1 text-[9px]" style={{ color: '#9A9791' }}>

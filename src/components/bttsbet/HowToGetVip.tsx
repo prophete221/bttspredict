@@ -23,8 +23,8 @@ const STEPS = [
   },
   {
     num: '2',
-    title: 'Effectue un dépôt de 3 000 XOF minimum',
-    desc: "Le dépôt minimum sur Linebet est de 200 XOF, mais pour activer le VIP BTTSPredict, un dépôt de 3 000 XOF est requis. Dépose via Wave, Orange Money, Free Money ou carte bancaire.",
+    title: 'Effectue ton dépôt selon le niveau VIP',
+    desc: "Le dépôt minimum sur Linebet est de 200 XOF. Pour activer le VIP BTTSPredict : Silver = 3 000 XOF, Gold = 6 000 XOF, Elite = 12 000 XOF, Tous = 12 000 XOF (1 mois). Dépose via Wave, Orange Money, Free Money ou carte bancaire.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="5" width="20" height="14" rx="2" />
