@@ -47,8 +47,8 @@ export default function Navbar() {
     <nav
       className="sticky top-0 z-50"
       style={{
-        backgroundColor: '#050507',
-        borderBottom: '1px solid rgba(168, 162, 158, 0.15)',
+        backgroundColor: '#05070A',
+        borderBottom: '1px solid rgba(224, 193, 145, 0.15)',
       }}
     >
       <div className="max-w-2xl mx-auto px-2">
@@ -61,15 +61,15 @@ export default function Navbar() {
             aria-label="BTTSPredict — Accueil"
           >
             <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="15" fill="#050507" stroke="#A8A29E" strokeWidth="1.5"/>
-              <path d="M16 7 L20 10 L18.5 15 L13.5 15 L12 10 Z" fill="#A8A29E" opacity="0.9"/>
-              <path d="M16 7 L13 3.5 L19 3.5 Z" fill="#A8A29E" opacity="0.7"/>
-              <path d="M20 10 L24.5 8 L23 13 Z" fill="#A8A29E" opacity="0.7"/>
-              <path d="M18.5 15 L22 18.5 L17 20 Z" fill="#A8A29E" opacity="0.7"/>
-              <path d="M13.5 15 L10 18.5 L15 20 Z" fill="#A8A29E" opacity="0.7"/>
-              <path d="M12 10 L7.5 8 L9 13 Z" fill="#A8A29E" opacity="0.7"/>
+              <circle cx="16" cy="16" r="15" fill="#05070A" stroke="#E0C191" strokeWidth="1.5"/>
+              <path d="M16 7 L20 10 L18.5 15 L13.5 15 L12 10 Z" fill="#E0C191" opacity="0.9"/>
+              <path d="M16 7 L13 3.5 L19 3.5 Z" fill="#E0C191" opacity="0.7"/>
+              <path d="M20 10 L24.5 8 L23 13 Z" fill="#E0C191" opacity="0.7"/>
+              <path d="M18.5 15 L22 18.5 L17 20 Z" fill="#E0C191" opacity="0.7"/>
+              <path d="M13.5 15 L10 18.5 L15 20 Z" fill="#E0C191" opacity="0.7"/>
+              <path d="M12 10 L7.5 8 L9 13 Z" fill="#E0C191" opacity="0.7"/>
             </svg>
-            <span className="text-xs font-bold" style={{ color: '#A8A29E' }}>
+            <span className="text-xs font-bold" style={{ color: '#E0C191' }}>
               BTTSPredict
             </span>
           </a>
@@ -80,9 +80,9 @@ export default function Navbar() {
               onClick={copyCode}
               className="px-2 py-1 rounded text-[10px] font-mono font-bold"
               style={{
-                backgroundColor: 'rgba(168, 162, 158, 0.12)',
-                border: '1px solid #A8A29E',
-                color: '#1F8A70',
+                backgroundColor: 'rgba(224, 193, 145, 0.12)',
+                border: '1px solid #E0C191',
+                color: '#A8BEB0',
               }}
             >
               {copied ? '✓' : SITE.promoCode}
@@ -90,7 +90,7 @@ export default function Navbar() {
             <a
               href="/pronostics"
               className="px-2.5 py-1.5 rounded text-[11px] font-bold transition-colors"
-              style={{ backgroundColor: '#A8A29E', color: '#F8F7F4' }}
+              style={{ backgroundColor: '#E0C191', color: '#F6F2E9' }}
             >
               Pronos
             </a>
@@ -104,9 +104,9 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className="text-[10px] font-medium px-2 py-1 rounded whitespace-nowrap transition-colors"
-              style={{ color: '#7A7874' }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = '#A8A29E'; e.currentTarget.style.backgroundColor = 'rgba(168, 162, 158, 0.08)' }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = '#7A7874'; e.currentTarget.style.backgroundColor = 'transparent' }}
+              style={{ color: '#9E9B96' }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = '#E0C191'; e.currentTarget.style.backgroundColor = 'rgba(224, 193, 145, 0.08)' }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = '#9E9B96'; e.currentTarget.style.backgroundColor = 'transparent' }}
             >
               {link.label}
             </a>
@@ -115,7 +115,7 @@ export default function Navbar() {
           <button
             onClick={() => setShowAll(!showAll)}
             className="text-[10px] font-medium px-2 py-1 rounded whitespace-nowrap transition-colors"
-            style={{ color: '#A8A29E' }}
+            style={{ color: '#E0C191' }}
           >
             {showAll ? '✕ Fermer' : '+ Plus'}
           </button>
@@ -123,16 +123,16 @@ export default function Navbar() {
 
         {/* Ligne 3: Tous les liens (dépliable) */}
         {showAll && (
-          <div className="pb-2 pt-1 border-t" style={{ borderColor: 'rgba(168, 162, 158, 0.1)' }}>
+          <div className="pb-2 pt-1 border-t" style={{ borderColor: 'rgba(224, 193, 145, 0.1)' }}>
             <div className="grid grid-cols-3 gap-1">
               {moreLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   className="text-[10px] font-medium px-2 py-1.5 rounded transition-colors text-center"
-                  style={{ color: '#7A7874', backgroundColor: 'rgba(255,255,255,0.02)' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.color = '#A8A29E'; e.currentTarget.style.backgroundColor = 'rgba(168, 162, 158, 0.08)' }}
-                  onMouseLeave={(e) => { e.currentTarget.style.color = '#7A7874'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.02)' }}
+                  style={{ color: '#9E9B96', backgroundColor: 'rgba(246, 242, 233,0.02)' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = '#E0C191'; e.currentTarget.style.backgroundColor = 'rgba(224, 193, 145, 0.08)' }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = '#9E9B96'; e.currentTarget.style.backgroundColor = 'rgba(246, 242, 233,0.02)' }}
                 >
                   {link.label}
                 </a>

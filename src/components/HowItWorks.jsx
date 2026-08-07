@@ -142,8 +142,8 @@ function StepCard({ step, index, isVisible }) {
       <div
         className="relative w-16 h-16 rounded-full flex items-center justify-center mb-4 shrink-0"
         style={{
-          background: 'linear-gradient(135deg, #00D4AA, #00A888)',
-          boxShadow: '0 0 24px rgba(0, 212, 170, 0.25), 0 4px 16px rgba(0, 0, 0, 0.3)',
+          background: 'linear-gradient(135deg, #A8BEB0, #A8BEB0)',
+          boxShadow: '0 0 24px rgba(168, 190, 176, 0.25), 0 4px 16px rgba(5, 7, 10, 0.3)',
         }}
         aria-hidden="true"
       >
@@ -161,14 +161,14 @@ function StepCard({ step, index, isVisible }) {
 
       {/* Title */}
       <h3
-        className="text-white font-bold text-base sm:text-lg mb-2"
+        className="text-papier font-bold text-base sm:text-lg mb-2"
         style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
       >
         {step.title}
       </h3>
 
       {/* Description */}
-      <p className="text-gray-300 text-sm leading-relaxed max-w-[260px]">
+      <p className="text-cendre text-sm leading-relaxed max-w-[260px]">
         {step.desc}
       </p>
     </motion.div>
@@ -198,13 +198,13 @@ export default function HowItWorks() {
           className="text-center mb-10 sm:mb-14"
         >
           <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white uppercase"
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-papier uppercase"
             style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
           >
             COMMENT ÇA{' '}
             <span className="text-emerald neon-glow">MARCHE</span>
           </h2>
-          <p className="text-gray-400 text-sm sm:text-base mt-2 max-w-md mx-auto">
+          <p className="text-cendre text-sm sm:text-base mt-2 max-w-md mx-auto">
             Trois étapes pour parier avec l&apos;intelligence artificielle
           </p>
         </motion.div>

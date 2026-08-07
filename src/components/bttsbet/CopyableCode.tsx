@@ -66,7 +66,7 @@ export default function CopyableCode({
   // Gold glow intensity based on scroll (0 → max when centered)
   const glowIntensity = gold ? 0.4 + scrollProgress * 0.6 : 0
   const goldGlow = gold
-    ? `text-shadow: 0 0 ${10 + scrollProgress * 20}px rgba(168, 162, 158, ${glowIntensity}), 0 0 ${20 + scrollProgress * 40}px rgba(168, 162, 158, ${glowIntensity * 0.5});`
+    ? `text-shadow: 0 0 ${10 + scrollProgress * 20}px rgba(224, 193, 145, ${glowIntensity}), 0 0 ${20 + scrollProgress * 40}px rgba(224, 193, 145, ${glowIntensity * 0.5});`
     : ''
 
   if (gold) {
@@ -80,14 +80,14 @@ export default function CopyableCode({
           className="cursor-pointer font-mono font-black tracking-[0.1em] transition-all"
           aria-label={`Copier le code promo ${code}`}
           style={{
-            background: 'linear-gradient(100deg, #A8A29E 0%, #A8A29E 30%, #A8A29E 50%, #A8A29E 70%, #A8A29E 100%)',
+            background: 'linear-gradient(100deg, #E0C191 0%, #E0C191 30%, #E0C191 50%, #E0C191 70%, #E0C191 100%)',
             backgroundSize: '200% 100%',
             WebkitBackgroundClip: 'text',
             backgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             animation: 'goldShimmer 3s ease-in-out infinite',
             ...(goldGlow ? { cssText: goldGlow } : {}),
-            borderBottom: '2px solid rgba(168, 162, 158, 0.4)',
+            borderBottom: '2px solid rgba(224, 193, 145, 0.4)',
           }}
         >
           {code}
@@ -96,7 +96,7 @@ export default function CopyableCode({
           onClick={copy}
           whileTap={{ scale: 0.9 }}
           className="inline-flex items-center justify-center w-4 h-4 rounded transition-colors"
-          style={{ color: copied ? '#A8A29E' : '#A8A29E' }}
+          style={{ color: copied ? '#E0C191' : '#E0C191' }}
           aria-label="Copier"
         >
           {copied ? (
@@ -122,7 +122,7 @@ export default function CopyableCode({
         whileTap={{ scale: 0.95 }}
         className={`cursor-pointer font-bold transition-colors ${displayClassName}`}
         aria-label={`Copier le code promo ${code}`}
-        style={{ borderBottom: '1px dashed rgba(168, 162, 158, 0.3)' }}
+        style={{ borderBottom: '1px dashed rgba(224, 193, 145, 0.3)' }}
       >
         {code}
       </motion.button>
@@ -130,7 +130,7 @@ export default function CopyableCode({
         onClick={copy}
         whileTap={{ scale: 0.9 }}
         className="inline-flex items-center justify-center w-4 h-4 rounded transition-colors"
-        style={{ color: copied ? '#A8A29E' : '#A8A29E' }}
+        style={{ color: copied ? '#E0C191' : '#E0C191' }}
         aria-label="Copier"
       >
         {copied ? (

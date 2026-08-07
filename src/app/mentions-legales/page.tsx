@@ -88,7 +88,7 @@ function buildBreadcrumbJsonLd() {
    ────────────────────────────────────────────────────────────── */
 export default function MentionsLegalesPage() {
   return (
-    <div className="min-h-screen bg-dark-800 flex flex-col text-white">
+    <div className="min-h-screen bg-dark-800 flex flex-col text-papier">
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -112,15 +112,15 @@ export default function MentionsLegalesPage() {
       <main id="main-content" className="flex-1 relative z-10">
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-gray-400">
+          <ol className="flex items-center gap-2 text-sm text-cendre">
             <li>
               <a href="/" className="hover:text-emerald transition-colors">
                 Accueil
               </a>
             </li>
-            <li aria-hidden="true" className="text-gray-300">/</li>
+            <li aria-hidden="true" className="text-cendre">/</li>
             <li>
-              <span className="text-gray-400" aria-current="page">Mentions Légales</span>
+              <span className="text-cendre" aria-current="page">Mentions Légales</span>
             </li>
           </ol>
         </nav>
@@ -129,12 +129,12 @@ export default function MentionsLegalesPage() {
         <section className="pb-8 sm:pb-10">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
             <h1
-              className="text-4xl sm:text-5xl text-white mb-4"
+              className="text-4xl sm:text-5xl text-papier mb-4"
               style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
             >
               MENTIONS <span className="text-emerald neon-glow">LÉGALES</span>
             </h1>
-            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-cendre text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Informations légales relatives au site BTTSPredict conformément aux réglementations en vigueur.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
@@ -149,12 +149,12 @@ export default function MentionsLegalesPage() {
               {/* 1. Éditeur du site */}
               <article className="card p-6">
                 <h2
-                  className="text-2xl text-white mb-4"
+                  className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
                   1. Éditeur du site
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
                     Le site <strong className="text-emerald">BTTSPredict</strong>, accessible à l&apos;adresse{' '}
                     <a href={SITE_URL} className="text-emerald hover:text-emerald-soft transition-colors underline underline-offset-2">
@@ -178,12 +178,12 @@ export default function MentionsLegalesPage() {
               {/* 2. Hébergement */}
               <article className="card p-6">
                 <h2
-                  className="text-2xl text-white mb-4"
+                  className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
                   2. Hébergement
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
                     Le site BTTSPredict est hébergé par un prestataire d&apos;hébergement professionnel assurant la disponibilité, la sécurité et la performance du service. Les coordonnées de l&apos;hébergeur sont disponibles sur demande via le canal de contact indiqué ci-dessus.
                   </p>
@@ -196,12 +196,12 @@ export default function MentionsLegalesPage() {
               {/* 3. Propriété intellectuelle */}
               <article className="card p-6">
                 <h2
-                  className="text-2xl text-white mb-4"
+                  className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
                   3. Propriété intellectuelle
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
                     L&apos;ensemble des contenus présents sur le site BTTSPredict — incluant, de manière non exhaustive, les textes, articles, graphismes, logos, icônes, images, vidéos, sons, logiciels, algorithmes, pronostics, analyses statistiques et mises en page — est protégé par les lois relatives à la propriété intellectuelle et appartient à BTTSPredict ou fait l&apos;objet d&apos;une autorisation d&apos;utilisation.
                   </p>
@@ -220,12 +220,12 @@ export default function MentionsLegalesPage() {
               {/* 4. Limitation de responsabilité */}
               <article className="card p-6">
                 <h2
-                  className="text-2xl text-white mb-4"
+                  className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
                   4. Limitation de responsabilité
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
                     BTTSPredict est un site à vocation purement informative et d&apos;affiliation. Les pronostics, analyses et statistiques publiés sur le site sont fournis à titre indicatif uniquement et ne constituent en aucun cas des conseils en investissement, des incitations à parier ou des garanties de gains.
                   </p>
@@ -244,12 +244,12 @@ export default function MentionsLegalesPage() {
               {/* 5. Droit applicable */}
               <article className="card p-6">
                 <h2
-                  className="text-2xl text-white mb-4"
+                  className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
                   5. Droit applicable
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
                     Les présentes mentions légales sont régies par le droit camerounais et, de manière générale, par les dispositions applicables au sein de la zone CEMAC (Communauté Économique et Monétaire de l&apos;Afrique Centrale), et notamment l&apos;Acte Uniforme révisé de l&apos;OHADA relatif au droit commercial général.
                   </p>
@@ -265,12 +265,12 @@ export default function MentionsLegalesPage() {
               {/* 6. Contact */}
               <article className="card p-6">
                 <h2
-                  className="text-2xl text-white mb-4"
+                  className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
                   6. Contact
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
                     Pour toute question relative aux présentes mentions légales, à l&apos;utilisation du site ou à vos droits, vous pouvez nous contacter via les moyens suivants :
                   </p>
@@ -311,7 +311,7 @@ export default function MentionsLegalesPage() {
               </article>
 
               {/* Last updated */}
-              <p className="text-center text-xs text-gray-400 pt-4">
+              <p className="text-center text-xs text-cendre pt-4">
                 Dernière mise à jour : Juin 2026
               </p>
             </div>

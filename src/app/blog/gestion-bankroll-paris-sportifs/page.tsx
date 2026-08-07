@@ -78,7 +78,7 @@ function buildBreadcrumbJsonLd() {
    ────────────────────────────────────────────────────────────── */
 export default function GestionBankrollPage() {
   return (
-    <div className="min-h-screen bg-dark-800 flex flex-col text-white">
+    <div className="min-h-screen bg-dark-800 flex flex-col text-papier">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildArticleJsonLd()) }}
@@ -100,12 +100,12 @@ export default function GestionBankrollPage() {
       <main id="main-content" className="flex-1 relative z-10">
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="max-w-3xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-gray-400 flex-wrap">
+          <ol className="flex items-center gap-2 text-sm text-cendre flex-wrap">
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
-            <li aria-hidden="true" className="text-gray-300">/</li>
+            <li aria-hidden="true" className="text-cendre">/</li>
             <li><a href="/blog" className="hover:text-emerald transition-colors">Blog</a></li>
-            <li aria-hidden="true" className="text-gray-300">/</li>
-            <li><span className="text-gray-400" aria-current="page">Gestion de Bankroll</span></li>
+            <li aria-hidden="true" className="text-cendre">/</li>
+            <li><span className="text-cendre" aria-current="page">Gestion de Bankroll</span></li>
           </ol>
         </nav>
 
@@ -116,18 +116,18 @@ export default function GestionBankrollPage() {
               Stratégie
             </span>
             <h1
-              className="text-3xl sm:text-4xl lg:text-5xl text-white mt-4 mb-4 leading-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl text-papier mt-4 mb-4 leading-tight"
               style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
             >
               Gestion de Bankroll aux Paris Sportifs :{' '}
               <span className="text-emerald neon-glow">Le Guide Ultime 2026</span>
             </h1>
-            <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
+            <p className="text-cendre text-base sm:text-lg leading-relaxed">
               La différence entre un parieur qui perd tout et un parieur rentable n&apos;est pas la chance — c&apos;est
               la gestion de bankroll. Découvrez les méthodes éprouvées pour protéger votre capital et maximiser
               vos gains sur le long terme.
             </p>
-            <div className="flex items-center gap-4 mt-4 text-sm text-gray-400">
+            <div className="flex items-center gap-4 mt-4 text-sm text-cendre">
               <time dateTime="2026-02-25">25 février 2026</time>
               <span>•</span>
               <span>15 min de lecture</span>
@@ -140,17 +140,17 @@ export default function GestionBankrollPage() {
             {/* Section 1 */}
             <section>
               <h2
-                className="text-2xl sm:text-3xl text-white mb-4"
+                className="text-2xl sm:text-3xl text-papier mb-4"
                 style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
               >
                 Qu&apos;est-ce que la bankroll et pourquoi est-elle essentielle ?
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-cendre leading-relaxed">
                 La bankroll, c&apos;est l&apos;ensemble des fonds que vous consacrez exclusivement aux paris sportifs.
                 C&apos;est votre capital de jeu, séparé de votre argent de vie courante (loyer, nourriture, factures).
                 Sans bankroll définie, vous jouez à l&apos;aveuglette et finirez inévitablement par tout perdre.
               </p>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-cendre leading-relaxed mt-4">
                 Pensez à votre bankroll comme au capital d&apos;une entreprise. Un commerçant à Douala ou Dakar ne
                 dépense pas tout son stock en une seule journée — il gère son inventaire pour durer et prospérer.
                 Votre bankroll, c&apos;est la même chose. Chaque pari est un investissement, et comme tout investissement,
@@ -158,7 +158,7 @@ export default function GestionBankrollPage() {
                 conservant un potentiel de croissance.
               </p>
               <div className="mt-4 p-4 rounded-lg bg-lose/10 border border-lose/30">
-                <p className="text-sm text-red-300 leading-relaxed">
+                <p className="text-sm text-braise leading-relaxed">
                   <strong>⚠️ Le piège n°1 :</strong> 90% des parieurs perdent de l&apos;argent à cause d&apos;une mauvaise
                   gestion de bankroll, pas à cause de mauvais pronostics. Même avec une précision de 65% sur des
                   cotes à 1.80, une mauvaise gestion peut vous ruiner en quelques jours.
@@ -169,18 +169,18 @@ export default function GestionBankrollPage() {
             {/* Section 2 */}
             <section>
               <h2
-                className="text-2xl sm:text-3xl text-white mb-4"
+                className="text-2xl sm:text-3xl text-papier mb-4"
                 style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
               >
                 La règle des 1 à 5%
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-cendre leading-relaxed">
                 La règle d&apos;or de la gestion de bankroll est simple : ne jamais miser plus de 1 à 5% de votre
                 bankroll sur un seul pari. Ce pourcentage varie selon votre profil de risque :
               </p>
               <div className="mt-4 overflow-x-auto">
                 <table className="w-full text-sm text-left border border-edge/50 rounded-lg overflow-hidden">
-                  <thead className="bg-panel/70 text-gray-300">
+                  <thead className="bg-panel/70 text-cendre">
                     <tr>
                       <th className="px-4 py-3 font-semibold">Profil</th>
                       <th className="px-4 py-3 font-semibold">% par mise</th>
@@ -188,7 +188,7 @@ export default function GestionBankrollPage() {
                       <th className="px-4 py-3 font-semibold">Bankroll 200 000 FCFA</th>
                     </tr>
                   </thead>
-                  <tbody className="text-gray-400">
+                  <tbody className="text-cendre">
                     <tr className="border-t border-edge/30">
                       <td className="px-4 py-3"><span className="text-emerald font-medium">Prudent</span></td>
                       <td className="px-4 py-3">1%</td>
@@ -210,7 +210,7 @@ export default function GestionBankrollPage() {
                   </tbody>
                 </table>
               </div>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-cendre leading-relaxed mt-4">
                 Pourquoi cette limite ? Parce que même les meilleurs parieurs subissent des séries de pertes
                 (drawdowns). En limitant chaque mise à 2-3% de votre bankroll, vous pouvez encaisser jusqu&apos;à
                 10 pertes consécutives sans perdre plus de 20-25% de votre capital — ce qui reste récupérable.
@@ -221,22 +221,22 @@ export default function GestionBankrollPage() {
             {/* Section 3 */}
             <section>
               <h2
-                className="text-2xl sm:text-3xl text-white mb-4"
+                className="text-2xl sm:text-3xl text-papier mb-4"
                 style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
               >
                 L&apos;unité de mise : votre boussole
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-cendre leading-relaxed">
                 L&apos;unité de mise est le montant de référence que vous utilisez pour chaque pari. Elle est
                 généralement égale à 1% ou 2% de votre bankroll. Cette unité vous permet de standardiser vos
                 mises et de mesurer vos performances de manière objective.
               </p>
-              <p className="text-gray-400 leading-relaxed mt-4">
-                <strong className="text-white">Exemple concret :</strong> Votre bankroll est de 100 000 FCFA.
+              <p className="text-cendre leading-relaxed mt-4">
+                <strong className="text-papier">Exemple concret :</strong> Votre bankroll est de 100 000 FCFA.
                 Vous décidez que 1 unité = 2% de la bankroll, soit 2 000 FCFA. Vous adaptez ensuite la taille
                 de votre mise en fonction de votre confiance dans le pronostic :
               </p>
-              <ul className="space-y-2 mt-4 text-gray-400 leading-relaxed">
+              <ul className="space-y-2 mt-4 text-cendre leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-emerald font-bold mt-0.5">1U</span>
                   <span>Pari standard — 2 000 FCFA — Confiance normale</span>
@@ -250,7 +250,7 @@ export default function GestionBankrollPage() {
                   <span>Pari premium — 6 000 FCFA — Confiance très élevée (rare)</span>
                 </li>
               </ul>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-cendre leading-relaxed mt-4">
                 La clé est de ne jamais dépasser 3 unités (6% de la bankroll) sur un seul pari, même si vous
                 êtes « certain » du résultat. Personne n&apos;est jamais certain dans les paris sportifs — c&apos;est la
                 première leçon à retenir.
@@ -260,17 +260,17 @@ export default function GestionBankrollPage() {
             {/* Section 4 */}
             <section>
               <h2
-                className="text-2xl sm:text-3xl text-white mb-4"
+                className="text-2xl sm:text-3xl text-papier mb-4"
                 style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
               >
                 Flat Betting vs Percentage Betting
               </h2>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="card p-5">
-                  <h3 className="text-white font-bold mb-2" style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif" }}>
+                  <h3 className="text-papier font-bold mb-2" style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif" }}>
                     Flat Betting (Mise Fixe)
                   </h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">
+                  <p className="text-sm text-cendre leading-relaxed">
                     Vous misez toujours le même montant, par exemple 2 000 FCFA par pari, quelle que soit
                     la taille de votre bankroll. Simple et discipliné. Idéal pour les débutants car il élimine
                     la tentation d&apos;augmenter les mises après une perte.
@@ -283,10 +283,10 @@ export default function GestionBankrollPage() {
                   </p>
                 </div>
                 <div className="card p-5">
-                  <h3 className="text-white font-bold mb-2" style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif" }}>
+                  <h3 className="text-papier font-bold mb-2" style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif" }}>
                     Percentage Betting (Mise Proportionnelle)
                   </h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">
+                  <p className="text-sm text-cendre leading-relaxed">
                     Vous misez un pourcentage fixe de votre bankroll actuelle. Si votre bankroll passe de
                     100 000 à 80 000 FCFA, votre mise passe de 2 000 à 1 600 FCFA. Si elle monte à 120 000 FCFA,
                     votre mise monte à 2 400 FCFA.
@@ -299,7 +299,7 @@ export default function GestionBankrollPage() {
                   </p>
                 </div>
               </div>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-cendre leading-relaxed mt-4">
                 Notre recommandation pour les parieurs utilisant BTTSPredict : commencez en flat betting pendant
                 au moins 2 mois pour développer votre discipline, puis passez progressivement au percentage betting
                 une fois que vous êtes à l&apos;aise avec la gestion émotionnelle de vos mises.
@@ -309,12 +309,12 @@ export default function GestionBankrollPage() {
             {/* Section 5 */}
             <section>
               <h2
-                className="text-2xl sm:text-3xl text-white mb-4"
+                className="text-2xl sm:text-3xl text-papier mb-4"
                 style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
               >
                 Le Critère de Kelly
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-cendre leading-relaxed">
                 Le critère de Kelly est une formule mathématique qui calcule la mise optimale pour maximiser
                 la croissance de votre bankroll. La formule est :
               </p>
@@ -322,23 +322,23 @@ export default function GestionBankrollPage() {
                 <p className="text-emerald font-mono text-lg">
                   f = (b × p - q) / b
                 </p>
-                <p className="text-gray-400 text-sm mt-2">
+                <p className="text-cendre text-sm mt-2">
                   f = fraction de la bankroll à miser | b = cote décimale - 1 | p = probabilité de gain | q = 1 - p
                 </p>
               </div>
-              <p className="text-gray-400 leading-relaxed mt-4">
-                <strong className="text-white">Exemple :</strong> Notre équipe estime que le BTTS a 60% de chances de
+              <p className="text-cendre leading-relaxed mt-4">
+                <strong className="text-papier">Exemple :</strong> Notre équipe estime que le BTTS a 60% de chances de
                 se réaliser dans un match, mais la cote proposée est de 1.90. Le value bet est positif car
                 60% × 1.90 = 1.14 &gt; 1. Appliquons Kelly :
               </p>
-              <ul className="space-y-1 mt-2 text-gray-400 text-sm">
+              <ul className="space-y-1 mt-2 text-cendre text-sm">
                 <li>b = 1.90 - 1 = 0.90</li>
                 <li>p = 0.60, q = 0.40</li>
                 <li>f = (0.90 × 0.60 - 0.40) / 0.90 = 0.144 / 0.90 = 0.156, soit 15.6%</li>
               </ul>
-              <p className="text-gray-400 leading-relaxed mt-3">
+              <p className="text-cendre leading-relaxed mt-3">
                 Le Kelly suggère une mise de 15.6% — bien trop agressif ! C&apos;est pourquoi les parieurs professionnels
-                utilisent le <strong className="text-white">Fractional Kelly</strong> (Kelly fractionné), qui consiste
+                utilisent le <strong className="text-papier">Fractional Kelly</strong> (Kelly fractionné), qui consiste
                 à n&apos;utiliser que le quart ou le tiers du montant suggéré. Avec un Quarter Kelly, vous miseriez
                 15.6% ÷ 4 = 3.9% de votre bankroll, ce qui est bien plus raisonnable et correspond à notre recommandation
                 de 2-5% par mise.
@@ -348,16 +348,16 @@ export default function GestionBankrollPage() {
             {/* Section 6 */}
             <section>
               <h2
-                className="text-2xl sm:text-3xl text-white mb-4"
+                className="text-2xl sm:text-3xl text-papier mb-4"
                 style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
               >
                 Les erreurs fatales à éviter
               </h2>
-              <ol className="space-y-4 mt-4 text-gray-400 leading-relaxed">
+              <ol className="space-y-4 mt-4 text-cendre leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="text-lose font-bold mt-0.5 text-lg">1.</span>
                   <span>
-                    <strong className="text-white">Le tilt (parier sous l&apos;effet de l&apos;émotion)</strong> — Après une
+                    <strong className="text-papier">Le tilt (parier sous l&apos;effet de l&apos;émotion)</strong> — Après une
                     perte frustrante, la tentation est grande de « se refaire » en doublant la mise. C&apos;est la
                     stratégie la plus sûre pour vider votre bankroll. Si vous sentez le tilt arriver, arrêtez de
                     parier pour la journée.
@@ -366,7 +366,7 @@ export default function GestionBankrollPage() {
                 <li className="flex items-start gap-3">
                   <span className="text-lose font-bold mt-0.5 text-lg">2.</span>
                   <span>
-                    <strong className="text-white">Ne pas ajuster la bankroll</strong> — Si votre bankroll passe de
+                    <strong className="text-papier">Ne pas ajuster la bankroll</strong> — Si votre bankroll passe de
                     100 000 à 50 000 FCFA, vos mises doivent diminuer proportionnellement. Continuer à miser
                     2 000 FCFA sur une bankroll de 50 000 FCFA, c&apos;est miser 4% au lieu de 2%.
                   </span>
@@ -374,7 +374,7 @@ export default function GestionBankrollPage() {
                 <li className="flex items-start gap-3">
                   <span className="text-lose font-bold mt-0.5 text-lg">3.</span>
                   <span>
-                    <strong className="text-white">Le « all-in »</strong> — Miser toute sa bankroll sur un seul pari
+                    <strong className="text-papier">Le « all-in »</strong> — Miser toute sa bankroll sur un seul pari
                     est un suicide financier. Même avec une probabilité de 90%, il reste 10% de chances de tout perdre.
                     Sur le long terme, le all-in finit toujours par être sanctionné.
                   </span>
@@ -382,7 +382,7 @@ export default function GestionBankrollPage() {
                 <li className="flex items-start gap-3">
                   <span className="text-lose font-bold mt-0.5 text-lg">4.</span>
                   <span>
-                    <strong className="text-white">Parier avec l&apos;argent du loyer</strong> — Votre bankroll doit être
+                    <strong className="text-papier">Parier avec l&apos;argent du loyer</strong> — Votre bankroll doit être
                     de l&apos;argent que vous êtes prêt à perdre sans impact sur votre vie quotidienne. Si vous avez
                     besoin de cet argent pour vivre, n&apos;en faites pas votre bankroll.
                   </span>
@@ -390,7 +390,7 @@ export default function GestionBankrollPage() {
                 <li className="flex items-start gap-3">
                   <span className="text-lose font-bold mt-0.5 text-lg">5.</span>
                   <span>
-                    <strong className="text-white">Ignorer le volume</strong> — Un échantillon de 20 paris ne signifie
+                    <strong className="text-papier">Ignorer le volume</strong> — Un échantillon de 20 paris ne signifie
                     rien. Il faut au minimum 300 à 500 paris pour évaluer si votre stratégie est réellement rentable.
                     Ne tirez pas de conclusions hâtives.
                   </span>
@@ -401,35 +401,35 @@ export default function GestionBankrollPage() {
             {/* Section 7 - Practical Example */}
             <section>
               <h2
-                className="text-2xl sm:text-3xl text-white mb-4"
+                className="text-2xl sm:text-3xl text-papier mb-4"
                 style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
               >
                 Exemple pratique : Un mois de gestion avec 50 000 FCFA
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-cendre leading-relaxed">
                 Imaginons que vous démarrez avec une bankroll de 50 000 FCFA et que vous suivez notre stratégie
                 de percentage betting à 2% par mise. Voici comment un mois type pourrait se dérouler :
               </p>
               <div className="mt-4 space-y-3">
                 <div className="p-4 rounded-lg bg-panel/30 border border-edge/30">
-                  <h3 className="text-white font-semibold text-sm mb-2">Semaine 1 — Début prudent</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <h3 className="text-papier font-semibold text-sm mb-2">Semaine 1 — Début prudent</h3>
+                  <p className="text-cendre text-sm leading-relaxed">
                     10 paris à 1 000 FCFA chacun (2% de 50 000). 6 gagnants à cote moyenne 1.85.
                     Gains : 6 × 1 000 × 1.85 = 11 100 FCFA. Pertes : 4 × 1 000 = 4 000 FCFA.
                     Résultat : +7 100 FCFA. Nouvelle bankroll : 57 100 FCFA.
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-panel/30 border border-edge/30">
-                  <h3 className="text-white font-semibold text-sm mb-2">Semaine 2 — Drawdown</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <h3 className="text-papier font-semibold text-sm mb-2">Semaine 2 — Drawdown</h3>
+                  <p className="text-cendre text-sm leading-relaxed">
                     10 paris à 1 142 FCFA (2% de 57 100). 4 gagnants seulement.
                     Gains : 4 × 1 142 × 1.85 = 8 451 FCFA. Pertes : 6 × 1 142 = 6 852 FCFA.
                     Résultat : +1 599 FCFA. Nouvelle bankroll : 58 699 FCFA.
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-panel/30 border border-edge/30">
-                  <h3 className="text-white font-semibold text-sm mb-2">Semaine 3 — Mauvaise série</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <h3 className="text-papier font-semibold text-sm mb-2">Semaine 3 — Mauvaise série</h3>
+                  <p className="text-cendre text-sm leading-relaxed">
                     10 paris à 1 174 FCFA (2% de 58 699). 3 gagnants seulement.
                     Gains : 3 × 1 174 × 1.85 = 6 516 FCFA. Pertes : 7 × 1 174 = 8 218 FCFA.
                     Résultat : -1 702 FCFA. Nouvelle bankroll : 56 997 FCFA.
@@ -437,14 +437,14 @@ export default function GestionBankrollPage() {
                 </div>
                 <div className="p-4 rounded-lg bg-emerald/10 border border-emerald/30">
                   <h3 className="text-emerald font-semibold text-sm mb-2">Semaine 4 — Remontée</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-cendre text-sm leading-relaxed">
                     10 paris à 1 140 FCFA (2% de 56 997). 7 gagnants.
                     Gains : 7 × 1 140 × 1.85 = 14 763 FCFA. Pertes : 3 × 1 140 = 3 420 FCFA.
                     Résultat : +11 343 FCFA. Nouvelle bankroll : <strong className="text-emerald">68 340 FCFA</strong>.
                   </p>
                 </div>
               </div>
-              <p className="text-gray-400 leading-relaxed mt-4">
+              <p className="text-cendre leading-relaxed mt-4">
                 Bilan du mois : +18 340 FCFA (+36.7%) avec un taux de réussite de 50% seulement. La clé ? Des mises
                 contrôlées, une gestion stricte, et la discipline de ne jamais dépasser 2% par pari. Avec les
                 pronostics BTTSPredict qui affichent un taux de réussite vérifié de 84,5%, le potentiel de croissance est encore
@@ -455,12 +455,12 @@ export default function GestionBankrollPage() {
             {/* CTA */}
             <section className="mt-12 p-6 sm:p-8 rounded-xl bg-panel/50 border border-edge/50 text-center">
               <h2
-                className="text-2xl sm:text-3xl text-white mb-3"
+                className="text-2xl sm:text-3xl text-papier mb-3"
                 style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
               >
                 Prêt à parier intelligemment ?
               </h2>
-              <p className="text-gray-400 leading-relaxed mb-6 max-w-lg mx-auto">
+              <p className="text-cendre leading-relaxed mb-6 max-w-lg mx-auto">
                 Consultez nos pronostics BTTS et Over 2,5 par nos experts, appliquez une gestion de bankroll stricte,
                 et inscrivez-vous sur Linebet avec le code VISION221 pour un bonus de bienvenue.
               </p>
@@ -482,7 +482,7 @@ export default function GestionBankrollPage() {
             {/* Related */}
             <section className="mt-10 pt-8 border-t border-edge/30">
               <h3
-                className="text-xl text-white mb-4"
+                className="text-xl text-papier mb-4"
                 style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
               >
                 Articles <span className="text-emerald">liés</span>
@@ -490,11 +490,11 @@ export default function GestionBankrollPage() {
               <div className="grid gap-3 sm:grid-cols-2">
                 <a href="/blog/strategie-mise-over-2-5" className="card p-4 group hover-lift">
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-gold">Stratégie</span>
-                  <p className="text-sm text-white font-semibold mt-1 group-hover:text-emerald transition-colors">Stratégie de Mise Over 2,5</p>
+                  <p className="text-sm text-papier font-semibold mt-1 group-hover:text-emerald transition-colors">Stratégie de Mise Over 2,5</p>
                 </a>
                 <a href="/blog/guide-linebet-inscription" className="card p-4 group hover-lift">
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-emerald">Guide</span>
-                  <p className="text-sm text-white font-semibold mt-1 group-hover:text-emerald transition-colors">Guide Complet Linebet & Code VISION221</p>
+                  <p className="text-sm text-papier font-semibold mt-1 group-hover:text-emerald transition-colors">Guide Complet Linebet & Code VISION221</p>
                 </a>
               </div>
             </section>

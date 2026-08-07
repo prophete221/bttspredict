@@ -17,10 +17,10 @@ export default function FaqAccordion() {
           style={{ transformOrigin: 'center bottom' }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-papier mb-4">
             Questions <span className="text-emerald">Fréquentes</span>
           </h2>
-          <p className="text-gray-400">Tout ce que vous devez savoir sur BTTSPredict et nos pronostics.</p>
+          <p className="text-cendre">Tout ce que vous devez savoir sur BTTSPredict et nos pronostics.</p>
         </motion.div>
 
         <div className="space-y-2">
@@ -38,11 +38,11 @@ export default function FaqAccordion() {
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                   className="w-full flex items-center justify-between p-5 text-left hover:bg-card-hover transition-colors"
                 >
-                  <span className="font-semibold text-white pr-4 text-sm">{item.q}</span>
+                  <span className="font-semibold text-papier pr-4 text-sm">{item.q}</span>
                   <motion.span
                     animate={{ rotate: openIndex === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="text-gray-500 flex-shrink-0"
+                    className="text-cendre flex-shrink-0"
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="6 9 12 15 18 9"/>
@@ -58,7 +58,7 @@ export default function FaqAccordion() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="px-5 pb-5 text-gray-400 leading-relaxed text-sm border-t border-dark-600 pt-4">
+                      <div className="px-5 pb-5 text-cendre leading-relaxed text-sm border-t border-dark-600 pt-4">
                         {item.a}
                       </div>
                     </motion.div>

@@ -54,10 +54,10 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
                 d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L12.3 2.25c-.866-1.5-2.814-1.5-3.68 0L3.047 8.25zM12 15.75h.007v.008H12v-.008z"
               />
             </svg>
-            <h2 className="text-white text-lg font-semibold mb-2">
+            <h2 className="text-papier text-lg font-semibold mb-2">
               Une erreur s&apos;est produite
             </h2>
-            <p className="text-gray-200 text-sm mb-6">
+            <p className="text-papier text-sm mb-6">
               Veuillez réessayer. Si le problème persiste, contactez-nous à contact@bttspredict.com.
             </p>
             <button

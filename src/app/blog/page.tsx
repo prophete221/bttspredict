@@ -162,7 +162,7 @@ const categoryColor: Record<string, string> = {
   Guide: 'bg-emerald/15 text-emerald border-emerald/30',
   Stratégie: 'bg-gold/15 text-gold border-gold/30',
   Analyse: 'bg-royal/15 text-royal-soft border-royal/30',
-  FIFA: 'bg-purple-500/15 text-purple-400 border-purple-500/30',
+  FIFA: 'bg-or/15 text-or border-or/30',
 }
 
 /* ──────────────────────────────────────────────────────────────
@@ -170,7 +170,7 @@ const categoryColor: Record<string, string> = {
    ────────────────────────────────────────────────────────────── */
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-dark-800 flex flex-col text-white">
+    <div className="min-h-screen bg-dark-800 flex flex-col text-papier">
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -194,17 +194,17 @@ export default function BlogPage() {
       <main id="main-content" className="flex-1 relative z-10">
         {/* ── Breadcrumb ── */}
         <nav aria-label="Fil d'Ariane" className="max-w-5xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-gray-400">
+          <ol className="flex items-center gap-2 text-sm text-cendre">
             <li>
               <a href="/" className="hover:text-emerald transition-colors">
                 Accueil
               </a>
             </li>
-            <li aria-hidden="true" className="text-gray-300">
+            <li aria-hidden="true" className="text-cendre">
               /
             </li>
             <li>
-              <span className="text-gray-400" aria-current="page">
+              <span className="text-cendre" aria-current="page">
                 Blog
               </span>
             </li>
@@ -215,13 +215,13 @@ export default function BlogPage() {
         <section className="section-spacing pb-8 sm:pb-10">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
             <h1
-              className="text-4xl sm:text-5xl lg:text-6xl text-white mb-4"
+              className="text-4xl sm:text-5xl lg:text-6xl text-papier mb-4"
               style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
             >
               BLOG{' '}
               <span className="text-emerald neon-glow">BTTSBET</span>
             </h1>
-            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-cendre text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Guides, stratégies et analyses pour maîtriser les paris{' '}
               <span className="text-emerald font-semibold">BTTS</span> &{' '}
               <span className="text-gold font-semibold">Over 2,5</span>. Propulsé par notre analyse statistique.
@@ -251,7 +251,7 @@ export default function BlogPage() {
                     </span>
                     <time
                       dateTime={article.date}
-                      className="text-[11px] text-gray-400 tabular-nums"
+                      className="text-[11px] text-cendre tabular-nums"
                     >
                       {formatDate(article.date)}
                     </time>
@@ -259,7 +259,7 @@ export default function BlogPage() {
 
                   {/* Title */}
                   <h2
-                    className="text-lg sm:text-xl text-white font-bold leading-snug mb-2 group-hover:text-emerald transition-colors"
+                    className="text-lg sm:text-xl text-papier font-bold leading-snug mb-2 group-hover:text-emerald transition-colors"
                     style={{
                       fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif",
                       letterSpacing: '0.02em',
@@ -269,7 +269,7 @@ export default function BlogPage() {
                   </h2>
 
                   {/* Description */}
-                  <p className="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-4 flex-1">
+                  <p className="text-sm text-cendre leading-relaxed line-clamp-3 mb-4 flex-1">
                     {article.description}
                   </p>
 

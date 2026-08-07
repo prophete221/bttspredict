@@ -16,7 +16,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-primary)] to-[#1F8A70] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-primary)] to-[#A8BEB0] flex items-center justify-center">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
                   <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
                   <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
@@ -27,7 +27,7 @@ export default function Footer() {
                 </svg>
               </div>
               <div>
-                <div className="font-[var(--font-display)] font-bold text-white">BttsPredict</div>
+                <div className="font-[var(--font-display)] font-bold text-papier">BttsPredict</div>
                 <div className="text-[10px] text-[var(--color-primary-light)]">IA Pronostics</div>
               </div>
             </div>
@@ -43,7 +43,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Navigation</h4>
+            <h4 className="font-semibold text-papier mb-4 text-sm uppercase tracking-wider">Navigation</h4>
             <div className="space-y-2">
               {[
                 { href: '#pronos', label: 'Pronostics' },
@@ -55,7 +55,7 @@ export default function Footer() {
                 <a 
                   key={link.href}
                   href={link.href}
-                  className="block text-sm text-[var(--color-text-secondary)] hover:text-white transition-colors"
+                  className="block text-sm text-[var(--color-text-secondary)] hover:text-papier transition-colors"
                 >
                   {link.label}
                 </a>
@@ -65,7 +65,7 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Légal</h4>
+            <h4 className="font-semibold text-papier mb-4 text-sm uppercase tracking-wider">Légal</h4>
             <div className="space-y-2">
               {[
                 { href: '/mentions-legales', label: 'Mentions légales' },
@@ -76,7 +76,7 @@ export default function Footer() {
                 <a 
                   key={link.href}
                   href={link.href}
-                  className="block text-sm text-[var(--color-text-secondary)] hover:text-white transition-colors"
+                  className="block text-sm text-[var(--color-text-secondary)] hover:text-papier transition-colors"
                 >
                   {link.label}
                 </a>
@@ -86,19 +86,19 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Contact</h4>
+            <h4 className="font-semibold text-papier mb-4 text-sm uppercase tracking-wider">Contact</h4>
             <div className="space-y-3">
               <a href={SITE.whatsapp} target="_blank" className="flex items-center gap-2 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-success)] transition-colors">
                 <span>📱</span> WhatsApp
               </a>
-              <a href={SITE.tiktok} target="_blank" className="flex items-center gap-2 text-sm text-[var(--color-text-secondary)] hover:text-white transition-colors">
+              <a href={SITE.tiktok} target="_blank" className="flex items-center gap-2 text-sm text-[var(--color-text-secondary)] hover:text-papier transition-colors">
                 <span>🎵</span> TikTok
               </a>
             </div>
             
             {/* Payment Methods */}
             <div className="mt-6">
-              <h4 className="font-semibold text-white mb-3 text-sm">Méthodes de paiement</h4>
+              <h4 className="font-semibold text-papier mb-3 text-sm">Méthodes de paiement</h4>
               <div className="flex flex-wrap gap-2">
                 {PAYMENT_METHODS.map((method) => (
                   <span 
@@ -117,7 +117,7 @@ export default function Footer() {
         <div className="card-gradient mb-12 text-center">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <div className="text-center sm:text-left">
-              <h3 className="text-heading-lg text-white mb-2">Prêt à gagner plus ?</h3>
+              <h3 className="text-heading-lg text-papier mb-2">Prêt à gagner plus ?</h3>
               <p className="text-sm text-[var(--color-text-secondary)]">
                 Utilisez le code <span className="font-mono font-bold text-[var(--color-vip)]">{SITE.promoCode}</span> sur Linebet pour le bonus
               </p>

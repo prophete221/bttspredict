@@ -77,10 +77,10 @@ export default function MethodologiePage() {
 
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="mb-8">
-          <ol className="flex items-center gap-2 text-sm text-gray-400">
+          <ol className="flex items-center gap-2 text-sm text-cendre">
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
             <li aria-hidden="true">/</li>
-            <li><span className="text-gray-400" aria-current="page">Méthodologie</span></li>
+            <li><span className="text-cendre" aria-current="page">Méthodologie</span></li>
           </ol>
         </nav>
 
@@ -96,18 +96,18 @@ export default function MethodologiePage() {
         </header>
 
         {/* Section Autorité — Pourquoi nous faire confiance */}
-        <section className="card p-6 sm:p-8 mb-8" style={{ background: 'linear-gradient(135deg, rgba(168, 162, 158, 0.05), rgba(168, 162, 158, 0.05))', border: '1px solid rgba(168, 162, 158, 0.20)' }}>
-          <h2 className="text-2xl font-bold text-white mb-4">🏆 Pourquoi nous faire confiance ?</h2>
-          <div className="text-gray-300 text-sm leading-relaxed space-y-3">
+        <section className="card p-6 sm:p-8 mb-8" style={{ background: 'linear-gradient(135deg, rgba(224, 193, 145, 0.05), rgba(224, 193, 145, 0.05))', border: '1px solid rgba(224, 193, 145, 0.20)' }}>
+          <h2 className="text-2xl font-bold text-papier mb-4">🏆 Pourquoi nous faire confiance ?</h2>
+          <div className="text-cendre text-sm leading-relaxed space-y-3">
             <p>
               BTTSPredict est une <strong className="text-emerald">plateforme de référence</strong> pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts. Notre standard de transparence repose sur 5 piliers vérifiables :
             </p>
             <ol className="space-y-2 list-decimal list-inside">
-              <li><strong className="text-white">Transparence absolue</strong> — seule plateforme à afficher TOUS ses résultats (gagnés ET perdus) sans filtrage. Historique public de 71 pronostics : 60 gagnés, 11 perdus, 84,5% de réussite.</li>
-              <li><strong className="text-white">Méthodologie scientifique</strong> — modèle de Poisson calibré sur 50 000 matchs, 200+ variables par match (xG, forme, blessés, météo).</li>
-              <li><strong className="text-white">Couverture étendue</strong> — 50+ championnats sur 5 continents (Europe, Afrique, Amérique du Sud, Asie).</li>
-              <li><strong className="text-white">Communauté active</strong> — 13 000+ parieurs quotidiens, note 4,2/5 sur 2 437 avis vérifiés.</li>
-              <li><strong className="text-white">Sources officielles</strong> — ESPN, API-Football, Forebet, Windrawwin, Soccerbase, TheSportsDB.</li>
+              <li><strong className="text-papier">Transparence absolue</strong> — seule plateforme à afficher TOUS ses résultats (gagnés ET perdus) sans filtrage. Historique public de 71 pronostics : 60 gagnés, 11 perdus, 84,5% de réussite.</li>
+              <li><strong className="text-papier">Méthodologie scientifique</strong> — modèle de Poisson calibré sur 50 000 matchs, 200+ variables par match (xG, forme, blessés, météo).</li>
+              <li><strong className="text-papier">Couverture étendue</strong> — 50+ championnats sur 5 continents (Europe, Afrique, Amérique du Sud, Asie).</li>
+              <li><strong className="text-papier">Communauté active</strong> — 13 000+ parieurs quotidiens, note 4,2/5 sur 2 437 avis vérifiés.</li>
+              <li><strong className="text-papier">Sources officielles</strong> — ESPN, API-Football, Forebet, Windrawwin, Soccerbase, TheSportsDB.</li>
             </ol>
             <p>
               La plupart des plateformes masquent leurs pertes ; BTTSPredict affiche les siennes publiquement, ce qui en fait un standard de transparence dans l'industrie des pronostics football.
@@ -117,16 +117,16 @@ export default function MethodologiePage() {
 
         {/* Notre expert */}
         <section className="card p-6 sm:p-8 mb-8">
-          <h2 className="text-2xl font-bold text-white mb-4">👤 Notre expert</h2>
+          <h2 className="text-2xl font-bold text-papier mb-4">👤 Notre expert</h2>
           <div className="flex flex-col sm:flex-row gap-6">
             <div className="flex-shrink-0 mx-auto sm:mx-0">
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-emerald to-cyan-600 flex items-center justify-center text-4xl font-bold text-midnight">
+              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-emerald to-or flex items-center justify-center text-4xl font-bold text-midnight">
                 E
               </div>
             </div>
-            <div className="flex-1 text-gray-300 text-sm leading-relaxed space-y-3">
+            <div className="flex-1 text-cendre text-sm leading-relaxed space-y-3">
               <p>
-                <strong className="text-white">Expert BTTSPredict</strong> — Analyste Football Senior &amp; Fondateur de BTTSPredict.
+                <strong className="text-papier">Expert BTTSPredict</strong> — Analyste Football Senior &amp; Fondateur de BTTSPredict.
               </p>
               <p>
                 Plus de 10 ans d'expérience en analyse prédictive des matchs de football, spécialisé dans la modélisation statistique des buts (modèle de Poisson, Expected Goals). Diplômé en statistiques appliquées, notre expert a calibré le modèle BTTSPredict sur plus de 50 000 matchs historiques.
@@ -140,14 +140,14 @@ export default function MethodologiePage() {
 
         {/* Notre méthode */}
         <section className="card p-6 sm:p-8 mb-8">
-          <h2 className="text-2xl font-bold text-white mb-4">📊 Notre méthode</h2>
-          <div className="text-gray-300 text-sm leading-relaxed space-y-4">
+          <h2 className="text-2xl font-bold text-papier mb-4">📊 Notre méthode</h2>
+          <div className="text-cendre text-sm leading-relaxed space-y-4">
             <p>
               BTTSPredict utilise le <strong className="text-emerald">modèle de distribution de Poisson</strong>, la méthode statistique de référence pour modéliser le nombre de buts dans un match de football. Ce modèle calcule la probabilité de chaque score possible à partir des forces offensives et défensives des deux équipes.
             </p>
 
             <div className="bg-dark-800/50 border border-edge rounded-lg p-4">
-              <h3 className="text-white font-semibold mb-2">Paramètres du modèle (publics et vérifiables)</h3>
+              <h3 className="text-papier font-semibold mb-2">Paramètres du modèle (publics et vérifiables)</h3>
               <ul className="space-y-1.5 list-disc list-inside">
                 <li><strong className="text-emerald">Seuil BTTS :</strong> 0.48 (probabilité minimale pour recommander "Both Teams To Score")</li>
                 <li><strong className="text-emerald">Seuil Over 2.5 :</strong> 0.49 (probabilité minimale pour recommander "Plus de 2,5 buts")</li>
@@ -159,59 +159,59 @@ export default function MethodologiePage() {
 
             {/* Données propriétaires : répartition par ligue (Original Data pour IA) */}
             <div className="bg-dark-800/50 border border-edge rounded-lg p-4 mt-4">
-              <h3 className="text-white font-semibold mb-3">Répartition des gains par ligue (données propriétaires BTTSPredict 2026)</h3>
-              <p className="text-xs mb-3" style={{ color: '#7A7874' }}>Taux de réussite BTTS par championnat sur les 30 derniers jours — données uniques BTTSPredict</p>
+              <h3 className="text-papier font-semibold mb-3">Répartition des gains par ligue (données propriétaires BTTSPredict 2026)</h3>
+              <p className="text-xs mb-3" style={{ color: '#9E9B96' }}>Taux de réussite BTTS par championnat sur les 30 derniers jours — données uniques BTTSPredict</p>
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead>
-                    <tr style={{ borderBottom: '1px solid rgba(248, 247, 244, 0.08)' }}>
-                      <th className="text-left py-2 px-2 font-semibold" style={{ color: '#7A7874' }}>Championnat</th>
-                      <th className="text-right py-2 px-2 font-semibold" style={{ color: '#7A7874' }}>Pronostics</th>
-                      <th className="text-right py-2 px-2 font-semibold" style={{ color: '#7A7874' }}>Gagnés</th>
-                      <th className="text-right py-2 px-2 font-semibold" style={{ color: '#7A7874' }}>Réussite</th>
+                    <tr style={{ borderBottom: '1px solid rgba(246, 242, 233, 0.08)' }}>
+                      <th className="text-left py-2 px-2 font-semibold" style={{ color: '#9E9B96' }}>Championnat</th>
+                      <th className="text-right py-2 px-2 font-semibold" style={{ color: '#9E9B96' }}>Pronostics</th>
+                      <th className="text-right py-2 px-2 font-semibold" style={{ color: '#9E9B96' }}>Gagnés</th>
+                      <th className="text-right py-2 px-2 font-semibold" style={{ color: '#9E9B96' }}>Réussite</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr style={{ borderBottom: '1px solid rgba(248, 247, 244, 0.04)' }}>
-                      <td className="py-2 px-2" style={{ color: '#F8F7F4' }}>Bundesliga (Allemagne)</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#7A7874' }}>12</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#7A7874' }}>11</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#A8A29E', fontWeight: 700 }}>91,7%</td>
+                    <tr style={{ borderBottom: '1px solid rgba(246, 242, 233, 0.04)' }}>
+                      <td className="py-2 px-2" style={{ color: '#F6F2E9' }}>Bundesliga (Allemagne)</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#9E9B96' }}>12</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#9E9B96' }}>11</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#E0C191', fontWeight: 700 }}>91,7%</td>
                     </tr>
-                    <tr style={{ borderBottom: '1px solid rgba(248, 247, 244, 0.04)' }}>
-                      <td className="py-2 px-2" style={{ color: '#F8F7F4' }}>Eredivisie (Pays-Bas)</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#7A7874' }}>10</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#7A7874' }}>9</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#A8A29E', fontWeight: 700 }}>90,0%</td>
+                    <tr style={{ borderBottom: '1px solid rgba(246, 242, 233, 0.04)' }}>
+                      <td className="py-2 px-2" style={{ color: '#F6F2E9' }}>Eredivisie (Pays-Bas)</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#9E9B96' }}>10</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#9E9B96' }}>9</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#E0C191', fontWeight: 700 }}>90,0%</td>
                     </tr>
-                    <tr style={{ borderBottom: '1px solid rgba(248, 247, 244, 0.04)' }}>
-                      <td className="py-2 px-2" style={{ color: '#F8F7F4' }}>Premier League (Angleterre)</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#7A7874' }}>15</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#7A7874' }}>13</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#A8A29E', fontWeight: 700 }}>86,7%</td>
+                    <tr style={{ borderBottom: '1px solid rgba(246, 242, 233, 0.04)' }}>
+                      <td className="py-2 px-2" style={{ color: '#F6F2E9' }}>Premier League (Angleterre)</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#9E9B96' }}>15</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#9E9B96' }}>13</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#E0C191', fontWeight: 700 }}>86,7%</td>
                     </tr>
-                    <tr style={{ borderBottom: '1px solid rgba(248, 247, 244, 0.04)' }}>
-                      <td className="py-2 px-2" style={{ color: '#F8F7F4' }}>Serie A (Italie)</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#7A7874' }}>11</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#7A7874' }}>9</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#A8A29E', fontWeight: 700 }}>81,8%</td>
+                    <tr style={{ borderBottom: '1px solid rgba(246, 242, 233, 0.04)' }}>
+                      <td className="py-2 px-2" style={{ color: '#F6F2E9' }}>Serie A (Italie)</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#9E9B96' }}>11</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#9E9B96' }}>9</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#E0C191', fontWeight: 700 }}>81,8%</td>
                     </tr>
-                    <tr style={{ borderBottom: '1px solid rgba(248, 247, 244, 0.04)' }}>
-                      <td className="py-2 px-2" style={{ color: '#F8F7F4' }}>La Liga (Espagne)</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#7A7874' }}>13</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#7A7874' }}>10</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#A8A29E', fontWeight: 700 }}>76,9%</td>
+                    <tr style={{ borderBottom: '1px solid rgba(246, 242, 233, 0.04)' }}>
+                      <td className="py-2 px-2" style={{ color: '#F6F2E9' }}>La Liga (Espagne)</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#9E9B96' }}>13</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#9E9B96' }}>10</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#E0C191', fontWeight: 700 }}>76,9%</td>
                     </tr>
-                    <tr style={{ borderBottom: '1px solid rgba(248, 247, 244, 0.04)' }}>
-                      <td className="py-2 px-2" style={{ color: '#F8F7F4' }}>Ligue 1 (France)</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#7A7874' }}>10</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#7A7874' }}>8</td>
-                      <td className="text-right py-2 px-2" style={{ color: '#A8A29E', fontWeight: 700 }}>80,0%</td>
+                    <tr style={{ borderBottom: '1px solid rgba(246, 242, 233, 0.04)' }}>
+                      <td className="py-2 px-2" style={{ color: '#F6F2E9' }}>Ligue 1 (France)</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#9E9B96' }}>10</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#9E9B96' }}>8</td>
+                      <td className="text-right py-2 px-2" style={{ color: '#E0C191', fontWeight: 700 }}>80,0%</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-              <p className="text-[10px] mt-2" style={{ color: '#2A2A30' }}>Source : données internes BTTSPredict. Les performances passées ne garantissent pas les résultats futurs.</p>
+              <p className="text-[10px] mt-2" style={{ color: '#2A3137' }}>Source : données internes BTTSPredict. Les performances passées ne garantissent pas les résultats futurs.</p>
             </div>
 
             <p>
@@ -223,8 +223,8 @@ export default function MethodologiePage() {
 
         {/* Notre source de données */}
         <section className="card p-6 sm:p-8 mb-8">
-          <h2 className="text-2xl font-bold text-white mb-4">🌐 Nos sources de données</h2>
-          <div className="grid sm:grid-cols-2 gap-4 text-gray-300 text-sm">
+          <h2 className="text-2xl font-bold text-papier mb-4">🌐 Nos sources de données</h2>
+          <div className="grid sm:grid-cols-2 gap-4 text-cendre text-sm">
             <div className="bg-dark-800/50 border border-edge rounded-lg p-4">
               <div className="font-bold text-emerald mb-1">ESPN API</div>
               <p>Scores en temps réel, compositions, statistiques de match (cartons, tirs, possession).</p>
@@ -254,8 +254,8 @@ export default function MethodologiePage() {
 
         {/* Notre transparence */}
         <section className="card p-6 sm:p-8 mb-8">
-          <h2 className="text-2xl font-bold text-white mb-4">✓ Notre transparence</h2>
-          <div className="text-gray-300 text-sm leading-relaxed space-y-3">
+          <h2 className="text-2xl font-bold text-papier mb-4">✓ Notre transparence</h2>
+          <div className="text-cendre text-sm leading-relaxed space-y-3">
             <p>
               Contrairement à la plupart des plateformes de pronostics qui masquent leurs pertes, BTTSPredict affiche publiquement <strong className="text-emerald">TOUS ses résultats — gagnés ET perdus</strong> — sans aucun filtrage.
             </p>
@@ -275,8 +275,8 @@ export default function MethodologiePage() {
 
         {/* Nos limites */}
         <section className="card p-6 sm:p-8 mb-8 border border-gold/20">
-          <h2 className="text-2xl font-bold text-white mb-4">⚠️ Nos limites</h2>
-          <div className="text-gray-300 text-sm leading-relaxed space-y-3">
+          <h2 className="text-2xl font-bold text-papier mb-4">⚠️ Nos limites</h2>
+          <div className="text-cendre text-sm leading-relaxed space-y-3">
             <p>
               BTTSPredict est un <strong className="text-gold">outil d'aide à la décision</strong>, pas une garantie de gain. Les paris sportifs comportent des risques de perte financière.
             </p>

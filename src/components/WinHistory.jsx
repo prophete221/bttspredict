@@ -114,7 +114,7 @@ export default function WinHistory() {
       <section id="win-history" className="py-10 px-4 bg-dark-800/50">
         <div className="max-w-5xl mx-auto text-center">
           <div className="inline-block w-8 h-8 border-2 border-emerald/30 border-t-emerald rounded-full animate-spin" />
-          <p className="text-gray-500 text-xs mt-2">Chargement...</p>
+          <p className="text-cendre text-xs mt-2">Chargement...</p>
         </div>
       </section>
     )
@@ -137,10 +137,10 @@ export default function WinHistory() {
           transition={{ duration: 0.5 }}
           className="text-center mb-6"
         >
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
+          <h2 className="text-xl sm:text-2xl font-bold text-papier mb-2">
             Historique des résultats <span className="text-emerald neon-glow">VIP</span>
           </h2>
-          <p className="text-gray-400 text-sm">
+          <p className="text-cendre text-sm">
             Résultats vérifiés par notre IA
           </p>
           {usingFallback && (
@@ -161,7 +161,7 @@ export default function WinHistory() {
           className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6"
         >
           {[
-            { value: displayStats.total.toLocaleString('fr-FR'), label: 'Analysés', color: 'text-white' },
+            { value: displayStats.total.toLocaleString('fr-FR'), label: 'Analysés', color: 'text-papier' },
             { value: displayStats.won.toLocaleString('fr-FR'), label: 'Gagnants', color: 'text-emerald' },
             { value: displayStats.rate, label: 'Réussite', color: 'text-emerald' },
             { value: displayStats.last30Rate, label: '30 jours', color: 'text-gold' },
@@ -169,7 +169,7 @@ export default function WinHistory() {
             <TiltCard key={i} maxTilt={4}>
               <div className="glass-3d rounded-lg p-3 text-center stat-card-animated">
                 <div className={`text-lg font-bold ${item.color}`}>{item.value}</div>
-                <div className="text-[10px] text-gray-400">{item.label}</div>
+                <div className="text-[10px] text-cendre">{item.label}</div>
               </div>
             </TiltCard>
           ))}
@@ -183,7 +183,7 @@ export default function WinHistory() {
           className="glass-3d rounded-xl overflow-hidden"
         >
           {/* Header */}
-          <div className="hidden sm:grid grid-cols-6 gap-3 px-3 py-2 bg-white/5 text-gray-500 text-[10px] font-semibold uppercase tracking-wider border-b border-emerald/10">
+          <div className="hidden sm:grid grid-cols-6 gap-3 px-3 py-2 bg-papier/5 text-cendre text-[10px] font-semibold uppercase tracking-wider border-b border-emerald/10">
             <span>Date</span>
             <span>Match</span>
             <span>Type</span>
@@ -199,15 +199,15 @@ export default function WinHistory() {
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: 0.05 * i }}
-              className="grid grid-cols-1 sm:grid-cols-6 gap-1 sm:gap-3 px-3 py-2.5 border-t border-white/5 hover:bg-emerald/5 transition-colors items-center"
+              className="grid grid-cols-1 sm:grid-cols-6 gap-1 sm:gap-3 px-3 py-2.5 border-t border-papier/5 hover:bg-emerald/5 transition-colors items-center"
             >
-              <div className="text-[10px] text-gray-500 sm:text-xs">{item.date}</div>
+              <div className="text-[10px] text-cendre sm:text-xs">{item.date}</div>
               <div className="flex items-center gap-1.5">
                 <MiniTeamLogo src={resolveTeamLogo(item.match?.split(' vs ')[0])} alt={item.match?.split(' vs ')[0]} />
                 <div>
-                  <div className="text-white font-semibold text-xs sm:text-sm">{item.match}</div>
-                  <div className="text-[10px] text-gray-500 sm:hidden">{item.league} • {item.type}</div>
-                  <div className="text-[10px] text-gray-500 hidden sm:block">{item.league}</div>
+                  <div className="text-papier font-semibold text-xs sm:text-sm">{item.match}</div>
+                  <div className="text-[10px] text-cendre sm:hidden">{item.league} • {item.type}</div>
+                  <div className="text-[10px] text-cendre hidden sm:block">{item.league}</div>
                 </div>
                 <MiniTeamLogo src={resolveTeamLogo(item.match?.split(' vs ')[1])} alt={item.match?.split(' vs ')[1]} />
               </div>
@@ -220,12 +220,12 @@ export default function WinHistory() {
                   {item.type}
                 </span>
               </div>
-              <div className="text-xs text-white font-semibold">{item.prediction}</div>
-              <div className="text-xs text-gray-300 font-mono">{item.score}</div>
+              <div className="text-xs text-papier font-semibold">{item.prediction}</div>
+              <div className="text-xs text-cendre font-mono">{item.score}</div>
               <div className="text-right">
                 <span className={`font-bold text-xs ${
                   item.result === 'Gagné' ? 'text-emerald' : 
-                  item.result === 'Perdu' ? 'text-red-400' : 'text-gray-500'
+                  item.result === 'Perdu' ? 'text-braise' : 'text-cendre'
                 }`}>
                   {item.result === 'Gagné' ? 'Gagné' : item.result === 'Perdu' ? 'Perdu' : 'En attente'}
                 </span>
@@ -255,7 +255,7 @@ export default function WinHistory() {
         >
           <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1">
             <span className="w-1.5 h-1.5 bg-emerald rounded-full animate-pulse" />
-            <span className="text-[10px] text-gray-500">
+            <span className="text-[10px] text-cendre">
               Résultats vérifiés par l'IA — mis à jour quotidiennement
             </span>
           </div>

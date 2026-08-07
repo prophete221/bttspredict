@@ -93,10 +93,10 @@ function ProbabilityBar({ value, prediction, color = 'green' }: { value: number;
   return (
     <div className="space-y-1">
       <div className="flex items-center justify-between text-[11px]">
-        <span className={`font-bold ${isPositive ? 'text-success-light' : 'text-gray-400'}`}>
+        <span className={`font-bold ${isPositive ? 'text-success-light' : 'text-cendre'}`}>
           {prediction}
         </span>
-        <span className="text-gray-400 tabular-nums mono font-semibold">{percentage}%</span>
+        <span className="text-cendre tabular-nums mono font-semibold">{percentage}%</span>
       </div>
       <div className="relative h-2 bg-dark-700 rounded-full overflow-hidden">
         <motion.div
@@ -122,7 +122,7 @@ function TeamLogo({ src, name, size = 48 }: { src?: string; name: string; size?:
   if (!src || imgError) {
     return (
       <div
-        className="rounded-xl bg-gradient-to-br from-gray-100 to-gray-50 border border-edge flex items-center justify-center text-success font-bold flex-shrink-0"
+        className="rounded-xl bg-gradient-to-br from-papier to-papier border border-edge flex items-center justify-center text-success font-bold flex-shrink-0"
         style={{ width: size, height: size, fontSize: size * 0.28 }}
       >
         {initials}
@@ -264,16 +264,16 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
               </span>
             )}
             {status === 'upcoming' && (
-              <span className="text-[10px] text-gray-400 mono tabular-nums">{match.time || '--:--'}</span>
+              <span className="text-[10px] text-cendre mono tabular-nums">{match.time || '--:--'}</span>
             )}
             {(status === 'finished' || status !== 'live') && (
-              <span className="text-[10px] text-gray-400 mono tabular-nums">{match.time || '--:--'}</span>
+              <span className="text-[10px] text-cendre mono tabular-nums">{match.time || '--:--'}</span>
             )}
-            <span className="text-[10px] text-gray-400 uppercase tracking-widest font-semibold truncate">
+            <span className="text-[10px] text-cendre uppercase tracking-widest font-semibold truncate">
               {match.league}
             </span>
           </div>
-          <span className="text-[10px] text-gray-400 mono whitespace-nowrap">{dateLabel}</span>
+          <span className="text-[10px] text-cendre mono whitespace-nowrap">{dateLabel}</span>
         </div>
 
         {/* Teams */}
@@ -281,24 +281,24 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
           {/* Home */}
           <div className="flex flex-col items-center text-center gap-2">
             <TeamLogo src={homeLogo} name={home} size={40} />
-            <span className="text-sm font-semibold text-white truncate max-w-full leading-tight">{home}</span>
+            <span className="text-sm font-semibold text-papier truncate max-w-full leading-tight">{home}</span>
             {homeGoals && (
-              <span className="text-[9px] text-gray-400 mono tabular-nums">xG: {homeGoals}</span>
+              <span className="text-[9px] text-cendre mono tabular-nums">xG: {homeGoals}</span>
             )}
           </div>
 
           {/* VS */}
           <div className="flex flex-col items-center">
             <span className="text-base font-bold text-success mono">VS</span>
-            <span className="text-[9px] text-gray-400 uppercase tracking-widest mt-1">match</span>
+            <span className="text-[9px] text-cendre uppercase tracking-widest mt-1">match</span>
           </div>
 
           {/* Away */}
           <div className="flex flex-col items-center text-center gap-2">
             <TeamLogo src={awayLogo} name={away} size={40} />
-            <span className="text-sm font-semibold text-white truncate max-w-full leading-tight">{away}</span>
+            <span className="text-sm font-semibold text-papier truncate max-w-full leading-tight">{away}</span>
             {awayGoals && (
-              <span className="text-[9px] text-gray-400 mono tabular-nums">xG: {awayGoals}</span>
+              <span className="text-[9px] text-cendre mono tabular-nums">xG: {awayGoals}</span>
             )}
           </div>
         </div>
@@ -308,7 +308,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-1.5">
               <div className="w-5 h-5 rounded bg-success/15 border border-success/30 flex items-center justify-center">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1F8A70" strokeWidth="2.5">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#A8BEB0" strokeWidth="2.5">
                   <circle cx="12" cy="12" r="10" />
                   <path d="M8 14s1.5 2 4 2 4-2 4-2" />
                   <line x1="9" y1="9" x2="9.01" y2="9" />
@@ -317,7 +317,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
               </div>
               <span className="text-[10px] uppercase tracking-widest font-bold text-success-light">Pronostic IA</span>
             </div>
-            <span className="text-[10px] text-gray-400">BTTS + Over 2.5</span>
+            <span className="text-[10px] text-cendre">BTTS + Over 2.5</span>
           </div>
 
           {/* Two markets side by side in unified block */}
@@ -326,21 +326,21 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
             <div className="space-y-2">
               <div className="flex items-baseline justify-between">
                 <span className="text-[10px] uppercase tracking-widest font-bold text-success-light">BTTS</span>
-                <span className="text-[9px] text-gray-400">Both Score</span>
+                <span className="text-[9px] text-cendre">Both Score</span>
               </div>
               {/* BTTS prediction — always available (Poisson fallback) */}
               <>
                 <div className="flex items-baseline justify-between">
-                  <span className="text-xl sm:text-2xl font-bold" style={{ color: bttsPred.prediction === 'Oui' ? undefined : '#7A7874' }} >
+                  <span className="text-xl sm:text-2xl font-bold" style={{ color: bttsPred.prediction === 'Oui' ? undefined : '#9E9B96' }} >
                     <span className={bttsPred.prediction === 'Oui' ? 'text-success-light' : ''}>{bttsPred.prediction}</span>
                   </span>
-                  <span className="text-xs font-bold text-gray-400 tabular-nums">{bttsPred.confidence}%</span>
+                  <span className="text-xs font-bold text-cendre tabular-nums">{bttsPred.confidence}%</span>
                 </div>
                 {bttsPred.bttsProb !== undefined && (
                   <ProbabilityBar value={bttsPred.bttsProb} prediction={bttsPred.prediction} color="green" />
                 )}
                 {bttsPred.bttsProb !== undefined && (
-                  <div className="flex items-center justify-between text-[9px] text-gray-400">
+                  <div className="flex items-center justify-between text-[9px] text-cendre">
                     <span>Oui: {Math.round(bttsPred.bttsProb * 100)}%</span>
                     <span>Non: {Math.round((1 - bttsPred.bttsProb) * 100)}%</span>
                   </div>
@@ -355,21 +355,21 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
             <div className="space-y-2 border-l border-edge/40 pl-3 sm:pl-4">
               <div className="flex items-baseline justify-between">
                 <span className="text-[10px] uppercase tracking-widest font-bold text-gold-light">Over 2.5</span>
-                <span className="text-[9px] text-gray-400">+2.5 buts</span>
+                <span className="text-[9px] text-cendre">+2.5 buts</span>
               </div>
               {/* Over 2.5 prediction — always available (Poisson fallback) */}
               <>
                 <div className="flex items-baseline justify-between">
-                  <span className="text-xl sm:text-2xl font-bold" style={{ color: over25Pred.prediction === 'Oui' ? undefined : '#7A7874' }}>
+                  <span className="text-xl sm:text-2xl font-bold" style={{ color: over25Pred.prediction === 'Oui' ? undefined : '#9E9B96' }}>
                     <span className={over25Pred.prediction === 'Oui' ? 'text-gold-light' : ''}>{over25Pred.prediction}</span>
                   </span>
-                  <span className="text-xs font-bold text-gray-400 tabular-nums">{over25Pred.confidence}%</span>
+                  <span className="text-xs font-bold text-cendre tabular-nums">{over25Pred.confidence}%</span>
                 </div>
                 {over25Pred.over25Prob !== undefined && (
                   <ProbabilityBar value={over25Pred.over25Prob} prediction={over25Pred.prediction} color="gold" />
                 )}
                 {over25Pred.over25Prob !== undefined && (
-                  <div className="flex items-center justify-between text-[9px] text-gray-400">
+                  <div className="flex items-center justify-between text-[9px] text-cendre">
                     <span>Oui: {Math.round(over25Pred.over25Prob * 100)}%</span>
                     <span>Non: {Math.round((1 - over25Pred.over25Prob) * 100)}%</span>
                   </div>
@@ -392,24 +392,24 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
               <div className="mt-4 pt-4 border-t border-edge space-y-3">
                 {/* Analysis details */}
                 <div>
-                  <div className="text-[10px] uppercase tracking-widest font-bold text-gray-400 mb-2">Analyse Poisson</div>
+                  <div className="text-[10px] uppercase tracking-widest font-bold text-cendre mb-2">Analyse Poisson</div>
                   <div className="grid grid-cols-2 gap-2">
                     <div className="bg-dark-900 rounded-lg p-2 border border-edge">
-                      <div className="text-[9px] text-gray-400 uppercase">Lambda domicile</div>
-                      <div className="text-sm font-bold text-white mono tabular-nums">{homeGoals || '—'}</div>
-                      <div className="text-[9px] text-gray-400">buts attendus</div>
+                      <div className="text-[9px] text-cendre uppercase">Lambda domicile</div>
+                      <div className="text-sm font-bold text-papier mono tabular-nums">{homeGoals || '—'}</div>
+                      <div className="text-[9px] text-cendre">buts attendus</div>
                     </div>
                     <div className="bg-dark-900 rounded-lg p-2 border border-edge">
-                      <div className="text-[9px] text-gray-400 uppercase">Lambda extérieur</div>
-                      <div className="text-sm font-bold text-white mono tabular-nums">{awayGoals || '—'}</div>
-                      <div className="text-[9px] text-gray-400">buts attendus</div>
+                      <div className="text-[9px] text-cendre uppercase">Lambda extérieur</div>
+                      <div className="text-sm font-bold text-papier mono tabular-nums">{awayGoals || '—'}</div>
+                      <div className="text-[9px] text-cendre">buts attendus</div>
                     </div>
                   </div>
                 </div>
 
                 {/* CTA */}
                 <div>
-                  <div className="text-[10px] uppercase tracking-widest font-bold text-gray-400 mb-2">Parier sur ce match</div>
+                  <div className="text-[10px] uppercase tracking-widest font-bold text-cendre mb-2">Parier sur ce match</div>
                   <div className="grid grid-cols-2 gap-2">
                     <PremiumButton variant="linebet" href={AFFILIATE.linebet} size="sm" fullWidth>
                       Linebet
@@ -427,7 +427,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
         {/* Footer toggle */}
         <button
           onClick={() => setExpanded(e => !e)}
-          className="w-full flex items-center justify-center gap-1.5 mt-3 pt-3 border-t border-edge text-[11px] text-gray-400 hover:text-success transition-colors"
+          className="w-full flex items-center justify-center gap-1.5 mt-3 pt-3 border-t border-edge text-[11px] text-cendre hover:text-success transition-colors"
         >
           {expanded ? (
             <>Voir moins <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="18 15 12 9 6 15" /></svg></>
@@ -554,7 +554,7 @@ export default function FreePredictions() {
                 className={`px-2 py-0.5 rounded text-[11px] font-semibold transition-all whitespace-nowrap ${
                   activeDate === f.id
                     ? 'bg-success/15 text-success border border-success/30'
-                    : 'bg-panel/40 text-gray-400 border border-edge hover:text-gray-400'
+                    : 'bg-panel/40 text-cendre border border-edge hover:text-cendre'
                 }`}
               >
                 {f.label}
@@ -578,7 +578,7 @@ export default function FreePredictions() {
                 className={`px-2 py-0.5 rounded text-[11px] font-semibold transition-all whitespace-nowrap ${
                   activeType === f.id
                     ? 'bg-success/15 text-success border border-success/30'
-                    : 'bg-panel/40 text-gray-400 border border-edge hover:text-gray-400'
+                    : 'bg-panel/40 text-cendre border border-edge hover:text-cendre'
                 }`}
               >
                 {f.label}
@@ -598,7 +598,7 @@ export default function FreePredictions() {
                 className={`px-2 py-0.5 rounded text-[11px] font-semibold transition-all whitespace-nowrap ${
                   activeLeague === league
                     ? 'bg-success/15 text-success border border-success/30'
-                    : 'bg-panel/40 text-gray-400 border border-edge hover:text-gray-400'
+                    : 'bg-panel/40 text-cendre border border-edge hover:text-cendre'
                 }`}
               >
                 {league === 'all' ? 'Toutes' : league}
@@ -627,13 +627,13 @@ export default function FreePredictions() {
         ) : filteredMatches.length === 0 ? (
           <div className="squircle-xl p-10 text-center">
             <div className="w-14 h-14 bg-dark-800 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-edge">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7A7874" strokeWidth="1.5">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9E9B96" strokeWidth="1.5">
                 <circle cx="12" cy="12" r="10" />
                 <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
                 <path d="M2 12h20" />
               </svg>
             </div>
-            <p className="text-gray-400 text-sm">Aucun pronostic pour ces filtres. Reviens demain !</p>
+            <p className="text-cendre text-sm">Aucun pronostic pour ces filtres. Reviens demain !</p>
           </div>
         ) : (
           <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
@@ -643,7 +643,7 @@ export default function FreePredictions() {
           </div>
         )}
 
-        <p className="text-center text-[11px] text-gray-400 mt-6">
+        <p className="text-center text-[11px] text-cendre mt-6">
           Pronostics de nos experts — modèles prédictifs calibrés sur 50 000+ matchs. Aucune garantie future.
         </p>
 
@@ -653,9 +653,9 @@ export default function FreePredictions() {
             href="/pronostics"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold transition-all"
             style={{
-              background: 'linear-gradient(135deg, #A8A29E, #1F8A70)',
-              color: '#050507',
-              boxShadow: '0 4px 16px rgba(168, 162, 158, 0.25)',
+              background: 'linear-gradient(135deg, #E0C191, #A8BEB0)',
+              color: '#05070A',
+              boxShadow: '0 4px 16px rgba(224, 193, 145, 0.25)',
             }}
           >
             Voir tous les pronostics du jour →

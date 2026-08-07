@@ -34,7 +34,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-center text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-4"
+          className="text-center text-4xl sm:text-5xl lg:text-7xl font-extrabold text-papier leading-[1.1] mb-4"
           style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
         >
           PRONOSTICS{' '}
@@ -48,7 +48,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-center text-gray-300 text-base sm:text-lg max-w-xl mx-auto mb-8"
+          className="text-center text-cendre text-base sm:text-lg max-w-xl mx-auto mb-8"
         >
           Propulsé par l'intelligence artificielle — {SITE.accuracy} de précision sur 15 000+ pronostics
         </motion.p>
@@ -92,22 +92,22 @@ export default function Hero() {
           <div className="flex items-center gap-6 sm:gap-10 bg-panel/60 border border-edge rounded-2xl px-6 py-3.5 sm:px-8 sm:py-4">
             <div className="text-center">
               <div className="text-xl sm:text-2xl font-extrabold text-emerald">{SITE.accuracy}</div>
-              <div className="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider">Précision</div>
+              <div className="text-[10px] sm:text-xs text-cendre uppercase tracking-wider">Précision</div>
             </div>
             <div className="w-px h-8 bg-edge" />
             <div className="text-center">
-              <div className="text-xl sm:text-2xl font-extrabold text-white">15K+</div>
-              <div className="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider">Analysés</div>
+              <div className="text-xl sm:text-2xl font-extrabold text-papier">15K+</div>
+              <div className="text-[10px] sm:text-xs text-cendre uppercase tracking-wider">Analysés</div>
             </div>
             <div className="w-px h-8 bg-edge" />
             <div className="text-center">
               <div className="text-xl sm:text-2xl font-extrabold text-gold">50+</div>
-              <div className="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider">Championnats</div>
+              <div className="text-[10px] sm:text-xs text-cendre uppercase tracking-wider">Championnats</div>
             </div>
             <div className="w-px h-8 bg-edge hidden sm:block" />
             <div className="text-center hidden sm:block">
-              <div className="text-lg font-extrabold text-white tracking-widest promo-code-shimmer">{SITE.promoCode}</div>
-              <div className="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider">Code promo</div>
+              <div className="text-lg font-extrabold text-papier tracking-widest promo-code-shimmer">{SITE.promoCode}</div>
+              <div className="text-[10px] sm:text-xs text-cendre uppercase tracking-wider">Code promo</div>
             </div>
           </div>
         </motion.div>

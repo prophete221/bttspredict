@@ -67,13 +67,13 @@ export default function Navbar() {
               aria-label="BTTSPredict — Accueil"
             >
               <div className="w-8 h-8 rounded-lg bg-emerald/20 flex items-center justify-center group-hover:bg-emerald/30 transition-colors">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A8BEB0" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10"/>
                   <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
                   <path d="M2 12h20"/>
                 </svg>
               </div>
-              <span className="text-xl font-extrabold text-white group-hover:text-emerald transition-colors">
+              <span className="text-xl font-extrabold text-papier group-hover:text-emerald transition-colors">
                 {SITE.name}
               </span>
             </a>
@@ -86,7 +86,7 @@ export default function Navbar() {
                   href={link.href || '/'}
                   onClick={(e) => handleNavClick(e, link)}
                   aria-current={link.href === '/' && isHomePage ? 'page' : undefined}
-                  className="text-gray-300 hover:text-emerald transition-colors text-sm font-medium relative group cursor-pointer"
+                  className="text-cendre hover:text-emerald transition-colors text-sm font-medium relative group cursor-pointer"
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald transition-all group-hover:w-full" />
@@ -105,7 +105,7 @@ export default function Navbar() {
             {/* Mobile Toggle */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden text-gray-300 hover:text-white p-2"
+              className="md:hidden text-cendre hover:text-papier p-2"
               aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
@@ -129,7 +129,7 @@ export default function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden glass-strong border-t border-white/5"
+              className="md:hidden glass-strong border-t border-papier/5"
               role="menu"
             >
               <div className="px-4 py-4 space-y-1">
@@ -138,7 +138,7 @@ export default function Navbar() {
                     key={link.label}
                     href={link.href || '/'}
                     onClick={(e) => handleNavClick(e, link)}
-                    className="block text-gray-300 hover:text-emerald transition-colors font-medium py-3 px-3 rounded-lg hover:bg-white/5 cursor-pointer"
+                    className="block text-cendre hover:text-emerald transition-colors font-medium py-3 px-3 rounded-lg hover:bg-papier/5 cursor-pointer"
                     role="menuitem"
                   >
                     {link.label}
@@ -149,7 +149,7 @@ export default function Navbar() {
                     href={AFFILIATE.linebetDownload}
                     rel={AFFILIATE.rel}
                     target="_blank"
-                    className="block text-center px-5 py-3 border border-white/10 text-white font-semibold rounded-lg"
+                    className="block text-center px-5 py-3 border border-papier/10 text-papier font-semibold rounded-lg"
                   >
                     Télécharger Linebet
                   </a>

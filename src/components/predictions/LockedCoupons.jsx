@@ -30,10 +30,10 @@ export default function LockedCoupons() {
     <section id="vip" className="section-spacing px-4 bg-dark-800">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-papier mb-4">
             Pronostics <span className="text-gold">Premium</span>
           </h2>
-          <p className="text-gray-400">Accédez aux pronostics VIP validés par notre IA via WhatsApp.</p>
+          <p className="text-cendre">Accédez aux pronostics VIP validés par notre IA via WhatsApp.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -51,12 +51,12 @@ export default function LockedCoupons() {
                   {/* Lock Overlay */}
                   <div className="absolute inset-0 bg-dark-900/70 backdrop-blur-sm flex flex-col items-center justify-center z-10">
                     <div className="w-16 h-16 bg-dark-600 rounded-2xl flex items-center justify-center mb-4">
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9E9B96" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                         <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                       </svg>
                     </div>
-                    <p className="text-white font-bold text-lg mb-1">Pronostics Premium</p>
-                    <p className="text-gray-400 text-sm mb-6">Rejoignez le groupe VIP WhatsApp pour débloquer</p>
+                    <p className="text-papier font-bold text-lg mb-1">Pronostics Premium</p>
+                    <p className="text-cendre text-sm mb-6">Rejoignez le groupe VIP WhatsApp pour débloquer</p>
                     <a
                       href={SITE.whatsapp}
                       target="_blank"
@@ -84,8 +84,8 @@ export default function LockedCoupons() {
                         )}
                       </div>
                       <div>
-                        <h3 className="text-base font-bold text-white">{coupon.title}</h3>
-                        <p className="text-xs text-gray-500">{coupon.subtitle}</p>
+                        <h3 className="text-base font-bold text-papier">{coupon.title}</h3>
+                        <p className="text-xs text-cendre">{coupon.subtitle}</p>
                       </div>
                     </div>
 
@@ -93,10 +93,10 @@ export default function LockedCoupons() {
                       {coupon.matches.map((m, j) => (
                         <div key={j} className="bg-dark-900/50 rounded-lg p-3 flex items-center justify-between">
                           <div>
-                            <div className="text-xs text-gray-500">{m.league}</div>
-                            <div className="text-white font-medium text-sm">{m.match}</div>
+                            <div className="text-xs text-cendre">{m.league}</div>
+                            <div className="text-papier font-medium text-sm">{m.match}</div>
                           </div>
-                          <div className="text-gray-500 text-xs">{m.time}</div>
+                          <div className="text-cendre text-xs">{m.time}</div>
                         </div>
                       ))}
                     </div>

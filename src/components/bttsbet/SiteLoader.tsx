@@ -78,8 +78,8 @@ export default function SiteLoader() {
                 transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
                 className="absolute inset-0 w-16 h-16"
               >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-gold rounded-full shadow-[0_0_10px_rgba(168, 162, 158,0.7)]" />
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-ultra rounded-full shadow-[0_0_8px_rgba(168, 162, 158,0.6)]" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-gold rounded-full shadow-[0_0_10px_rgba(224, 193, 145,0.7)]" />
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-ultra rounded-full shadow-[0_0_8px_rgba(224, 193, 145,0.6)]" />
               </motion.div>
 
               {/* Inner pulsing circle */}
@@ -95,7 +95,7 @@ export default function SiteLoader() {
                   height="28"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#A8A29E"
+                  stroke="#E0C191"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -115,7 +115,7 @@ export default function SiteLoader() {
               className="flex flex-col items-center gap-2"
               style={{ willChange: 'transform, opacity' }}
             >
-              <span className="text-2xl font-extrabold text-white tracking-tight">
+              <span className="text-2xl font-extrabold text-papier tracking-tight">
                 BTTSPredict
               </span>
 
@@ -135,7 +135,7 @@ export default function SiteLoader() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.7 }}
                 transition={{ duration: 0.4, delay: 0.75 }}
-                className="text-[10px] text-gray-300 uppercase tracking-[0.2em] font-semibold"
+                className="text-[10px] text-cendre uppercase tracking-[0.2em] font-semibold"
               >
                 IA • Pronostics • Stats
               </motion.span>

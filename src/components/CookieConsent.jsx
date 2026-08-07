@@ -99,7 +99,7 @@ export default function CookieConsent() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="fixed bottom-0 left-0 right-0 z-[60] bg-dark-900/95 backdrop-blur-md border-t border-white/10 p-4 sm:p-6"
+          className="fixed bottom-0 left-0 right-0 z-[60] bg-dark-900/95 backdrop-blur-md border-t border-papier/10 p-4 sm:p-6"
           role="dialog"
           aria-label="Consentement aux cookies"
         >
@@ -115,8 +115,8 @@ export default function CookieConsent() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-base mb-1">Consentement aux cookies</h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">
+                  <h3 className="text-papier font-bold text-base mb-1">Consentement aux cookies</h3>
+                  <p className="text-sm text-cendre leading-relaxed">
                     Nous utilisons des cookies pour améliorer votre expérience. En continuant, vous acceptez notre utilisation des cookies.
                   </p>
                 </div>
@@ -133,7 +133,7 @@ export default function CookieConsent() {
                   transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
                   className="overflow-hidden"
                 >
-                  <div className="bg-dark-800/60 rounded-xl border border-white/5 p-4 mb-4 space-y-3">
+                  <div className="bg-dark-800/60 rounded-xl border border-papier/5 p-4 mb-4 space-y-3">
                     {COOKIE_TYPES.map((cookie) => (
                       <label
                         key={cookie.id}
@@ -150,10 +150,10 @@ export default function CookieConsent() {
                           <div className={`w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all ${
                             preferences[cookie.id]
                               ? 'bg-emerald border-emerald'
-                              : 'border-white/20 group-hover:border-white/40'
+                              : 'border-papier/20 group-hover:border-papier/40'
                           } ${cookie.required ? 'opacity-70 cursor-not-allowed' : ''}`}>
                             {preferences[cookie.id] && (
-                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0B1120" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0F1316" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                                 <polyline points="20 6 9 17 4 12"/>
                               </svg>
                             )}
@@ -161,14 +161,14 @@ export default function CookieConsent() {
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center gap-2">
-                            <span className="text-sm text-white font-medium">{cookie.label}</span>
+                            <span className="text-sm text-papier font-medium">{cookie.label}</span>
                             {cookie.required && (
                               <span className="text-[10px] bg-emerald/15 text-emerald px-2 py-0.5 rounded-full font-medium">
                                 Obligatoire
                               </span>
                             )}
                           </div>
-                          <p className="text-xs text-gray-500 mt-0.5">{cookie.description}</p>
+                          <p className="text-xs text-cendre mt-0.5">{cookie.description}</p>
                         </div>
                       </label>
                     ))}
@@ -181,14 +181,14 @@ export default function CookieConsent() {
             <div className="flex flex-col sm:flex-row items-center gap-3">
               <button
                 onClick={() => setCustomize(!customize)}
-                className="text-sm text-gray-400 hover:text-white transition-colors underline underline-offset-2 order-3 sm:order-1"
+                className="text-sm text-cendre hover:text-papier transition-colors underline underline-offset-2 order-3 sm:order-1"
               >
                 Personnaliser
               </button>
               <div className="flex gap-3 sm:ml-auto order-1 sm:order-2 w-full sm:w-auto">
                 <button
                   onClick={handleRefuse}
-                  className="flex-1 sm:flex-initial px-5 py-2.5 text-sm border border-white/10 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all font-medium"
+                  className="flex-1 sm:flex-initial px-5 py-2.5 text-sm border border-papier/10 rounded-xl text-cendre hover:bg-papier/5 hover:text-papier transition-all font-medium"
                 >
                   Refuser
                 </button>

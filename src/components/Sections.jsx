@@ -110,10 +110,10 @@ export function StatsSection() {
           style={{ transformOrigin: 'center bottom' }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-papier mb-4">
             Des résultats <span className="text-emerald neon-glow">vérifiables</span>
           </h2>
-          <p className="text-gray-400 max-w-xl mx-auto">Notre IA fournit des résultats transparents basés sur des données historiques vérifiables.</p>
+          <p className="text-cendre max-w-xl mx-auto">Notre IA fournit des résultats transparents basés sur des données historiques vérifiables.</p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
@@ -140,12 +140,12 @@ export function StatsSection() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={isVisible ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.4 + i * 0.15 }}
-                    className="text-3xl font-extrabold text-white mb-1 stat-value-animated"
+                    className="text-3xl font-extrabold text-papier mb-1 stat-value-animated"
                   >
                     {stat.animatedValue}
                   </motion.div>
-                  <div className="text-white font-semibold text-sm mb-1">{stat.label}</div>
-                  <div className="text-gray-500 text-xs">{stat.desc}</div>
+                  <div className="text-papier font-semibold text-sm mb-1">{stat.label}</div>
+                  <div className="text-cendre text-xs">{stat.desc}</div>
                 </div>
               </TiltCard>
             </motion.div>
@@ -172,7 +172,7 @@ export function StatsSection() {
                   </motion.div>
                 </div>
                 <div>
-                  <div className="text-xs text-gray-500 mb-1">Code promo exclusif</div>
+                  <div className="text-xs text-cendre mb-1">Code promo exclusif</div>
                   <div className="font-bold text-xl tracking-wider promo-code-shimmer">VISION221</div>
                 </div>
               </div>
@@ -184,13 +184,13 @@ export function StatsSection() {
               >
                 <div className="text-right">
                   <div className="text-emerald font-extrabold text-2xl">150$</div>
-                  <div className="text-gray-500 text-xs">Bonus Linebet</div>
+                  <div className="text-cendre text-xs">Bonus Linebet</div>
                 </div>
                 <motion.div
                   animate={isVisible ? { scale: [1, 1.05, 1] } : {}}
                   transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A8BEB0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                   </svg>
                 </motion.div>
@@ -219,10 +219,10 @@ export function HowItWorks() {
           style={{ transformOrigin: 'center bottom' }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-papier mb-4">
             Comment ça <span className="text-emerald">marche</span>
           </h2>
-          <p className="text-gray-400 max-w-xl mx-auto">De l'analyse IA à votre pari en 3 étapes simples.</p>
+          <p className="text-cendre max-w-xl mx-auto">De l'analyse IA à votre pari en 3 étapes simples.</p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
@@ -244,8 +244,8 @@ export function HowItWorks() {
                   <div className="w-16 h-16 bg-emerald/10 rounded-2xl flex items-center justify-center text-emerald mx-auto mb-5">
                     {icons[stepIcons[i]]}
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-3">{step.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
+                  <h3 className="text-lg font-bold text-papier mb-3">{step.title}</h3>
+                  <p className="text-cendre text-sm leading-relaxed">{step.desc}</p>
 
                   {/* Connector line (desktop only) */}
                   {i < 2 && (
@@ -277,10 +277,10 @@ export function WhyLinebet() {
           style={{ transformOrigin: 'center bottom' }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-papier mb-4">
             Pourquoi <span className="text-gold">Linebet</span> ?
           </h2>
-          <p className="text-gray-400">Une plateforme recommandée pour parier avec nos pronostics.</p>
+          <p className="text-cendre">Une plateforme recommandée pour parier avec nos pronostics.</p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -297,8 +297,8 @@ export function WhyLinebet() {
                   <div className="w-10 h-10 bg-gold/10 rounded-xl flex items-center justify-center text-gold mb-4">
                     {icons[item.icon]}
                   </div>
-                  <h3 className="text-base font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                  <h3 className="text-base font-bold text-papier mb-2">{item.title}</h3>
+                  <p className="text-cendre text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </TiltCard>
             </motion.div>
@@ -334,7 +334,7 @@ export function Testimonials() {
           style={{ transformOrigin: 'center bottom' }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-papier mb-4">
             Ce que disent nos <span className="text-emerald">utilisateurs</span>
           </h2>
           {/* Follower counter */}
@@ -361,8 +361,8 @@ export function Testimonials() {
                       {t.initials}
                     </div>
                     <div>
-                      <div className="text-white font-semibold text-sm">{t.name}</div>
-                      <div className="text-gray-500 text-xs">{t.city}</div>
+                      <div className="text-papier font-semibold text-sm">{t.name}</div>
+                      <div className="text-cendre text-xs">{t.city}</div>
                     </div>
                     <div className="ml-auto flex items-center gap-0.5">
                       {Array.from({ length: t.rating }).map((_, j) => (
@@ -370,8 +370,8 @@ export function Testimonials() {
                       ))}
                     </div>
                   </div>
-                  <p className="text-gray-300 text-sm leading-relaxed">"{t.text}"</p>
-                  <div className="text-gray-600 text-[10px] mt-3 italic">Témoignage utilisateur — résultats individuels, non garantis</div>
+                  <p className="text-cendre text-sm leading-relaxed">"{t.text}"</p>
+                  <div className="text-couture text-[10px] mt-3 italic">Témoignage utilisateur — résultats individuels, non garantis</div>
                 </div>
               </TiltCard>
             </motion.div>
@@ -396,10 +396,10 @@ export function BlogSection() {
           style={{ transformOrigin: 'center bottom' }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-papier mb-4">
             Blog & <span className="text-gold">Stratégies</span>
           </h2>
-          <p className="text-gray-400">Articles de fond pour améliorer vos paris sportifs.</p>
+          <p className="text-cendre">Articles de fond pour améliorer vos paris sportifs.</p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -442,10 +442,10 @@ export function BlogSection() {
                   <span className="text-xs text-gold font-semibold uppercase tracking-wider">
                     {article.category}
                   </span>
-                  <h3 className="text-base font-bold text-white mt-2 mb-3 group-hover:text-emerald transition-colors leading-snug">
+                  <h3 className="text-base font-bold text-papier mt-2 mb-3 group-hover:text-emerald transition-colors leading-snug">
                     {article.title}
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{article.excerpt}</p>
+                  <p className="text-cendre text-sm leading-relaxed">{article.excerpt}</p>
                 </a>
               </TiltCard>
             </motion.div>
@@ -455,7 +455,7 @@ export function BlogSection() {
         <div className="text-center mt-10">
           <a
             href="/blog"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-white/10 text-white font-semibold rounded-xl hover:bg-white/5 transition-all text-sm hover-lift"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-papier/10 text-papier font-semibold rounded-xl hover:bg-papier/5 transition-all text-sm hover-lift"
           >
             Voir tous les articles →
           </a>

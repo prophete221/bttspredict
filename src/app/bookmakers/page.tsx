@@ -163,21 +163,21 @@ export default function BookmakersPage() {
               <img src="/logos/linebet.svg" alt="Linebet" className="h-8 w-auto" loading="lazy" />
               <span className="badge badge-mint">Recommandé #1</span>
             </div>
-            <h2 className="text-2xl font-black text-white mb-1">Linebet</h2>
-            <p className="text-sm text-gray-400 mb-4">
+            <h2 className="text-2xl font-black text-papier mb-1">Linebet</h2>
+            <p className="text-sm text-cendre mb-4">
               Bookmaker n°1 en Afrique de l'Ouest. Meilleur pour les dépôts mobiles (Wave, Orange, Free Money)
               et les cotes esport FIFA.
             </p>
             <div className="bg-dark-800/50 rounded-lg p-3 mb-4 border border-edge">
-              <div className="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Bonus exclusif</div>
+              <div className="text-[10px] text-cendre uppercase tracking-widest font-bold">Bonus exclusif</div>
               <div className="text-xl font-black text-linebet">90 000 XOF (150$)</div>
-              <div className="text-[10px] text-gray-400">+ Free Money disponible</div>
+              <div className="text-[10px] text-cendre">+ Free Money disponible</div>
             </div>
             <a
               href={AFFILIATE.linebet}
               rel={AFFILIATE.rel}
               target="_blank"
-              className="flex items-center justify-center gap-2 px-4 py-3 btn-linebet cta-glow text-[#050507] text-sm font-bold w-full"
+              className="flex items-center justify-center gap-2 px-4 py-3 btn-linebet cta-glow text-[#05070A] text-sm font-bold w-full"
             >
               S'inscrire sur Linebet →
             </a>
@@ -190,21 +190,21 @@ export default function BookmakersPage() {
               <img src="/logos/888starz.svg" alt="888starz" className="h-8 w-auto" loading="lazy" />
               <span className="badge badge-rose">Bonus 100%</span>
             </div>
-            <h2 className="text-2xl font-black text-white mb-1">888starz</h2>
-            <p className="text-sm text-gray-400 mb-4">
+            <h2 className="text-2xl font-black text-papier mb-1">888starz</h2>
+            <p className="text-sm text-cendre mb-4">
               Nouveau partenaire. Idéal si tu veux un bonus égal à 100% de ton dépôt.
               Pas de Free Money, mais Wave et Orange Money disponibles.
             </p>
             <div className="bg-dark-800/50 rounded-lg p-3 mb-4 border border-edge">
-              <div className="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Bonus exclusif</div>
+              <div className="text-[10px] text-cendre uppercase tracking-widest font-bold">Bonus exclusif</div>
               <div className="text-xl font-black text-star888">100% du dépôt</div>
-              <div className="text-[10px] text-gray-400">Wave + Orange Money</div>
+              <div className="text-[10px] text-cendre">Wave + Orange Money</div>
             </div>
             <a
               href={AFFILIATE.star888}
               rel={AFFILIATE.rel}
               target="_blank"
-              className="flex items-center justify-center gap-2 px-4 py-3 btn-star888 cta-glow text-[#050507] text-sm font-bold w-full"
+              className="flex items-center justify-center gap-2 px-4 py-3 btn-star888 cta-glow text-[#05070A] text-sm font-bold w-full"
             >
               S'inscrire sur 888starz →
             </a>
@@ -213,12 +213,12 @@ export default function BookmakersPage() {
 
         {/* Comparison table */}
         <section className="squircle-xl p-5 sm:p-6 mb-10">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-5">📋 Comparatif détaillé</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-papier mb-5">📋 Comparatif détaillé</h2>
           <div className="overflow-x-auto no-scrollbar">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-edge">
-                  <th className="text-left py-3 px-2 text-gray-400 uppercase text-[10px] tracking-widest font-bold">Critère</th>
+                  <th className="text-left py-3 px-2 text-cendre uppercase text-[10px] tracking-widest font-bold">Critère</th>
                   <th className="text-left py-3 px-2 text-linebet font-bold">
                     <span className="flex items-center gap-1.5">
                       <img src="/logos/linebet.svg" alt="Logo Linebet" className="h-4 w-auto" loading="lazy" />
@@ -236,12 +236,12 @@ export default function BookmakersPage() {
               <tbody>
                 {COMPARISON.map((row, i) => (
                   <tr key={i} className="border-b border-edge/40 last:border-0 hover:bg-dark-800/[0.02] transition-colors">
-                    <td className="py-3 px-2 text-gray-400 font-medium">{row.label}</td>
-                    <td className={`py-3 px-2 ${row.highlight === 'linebet' || row.highlight === 'both' ? 'text-linebet font-bold' : 'text-gray-200'}`}>
+                    <td className="py-3 px-2 text-cendre font-medium">{row.label}</td>
+                    <td className={`py-3 px-2 ${row.highlight === 'linebet' || row.highlight === 'both' ? 'text-linebet font-bold' : 'text-papier'}`}>
                       {row.linebet}
                       {row.highlight === 'linebet' && <span className="ml-1 text-[10px]">⭐</span>}
                     </td>
-                    <td className={`py-3 px-2 ${row.highlight === 'star888' || row.highlight === 'both' ? 'text-star888 font-bold' : 'text-gray-200'}`}>
+                    <td className={`py-3 px-2 ${row.highlight === 'star888' || row.highlight === 'both' ? 'text-star888 font-bold' : 'text-papier'}`}>
                       {row.star888}
                       {row.highlight === 'star888' && <span className="ml-1 text-[10px]">⭐</span>}
                     </td>
@@ -254,14 +254,14 @@ export default function BookmakersPage() {
 
         {/* Recommendation */}
         <section className="squircle-xl p-6 sm:p-8 mb-10">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">💡 Le verdict BTTSPredict</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-papier mb-4">💡 Le verdict BTTSPredict</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-linebet/[0.04] border border-linebet/20 rounded-xl p-5">
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-linebet text-xl">✓</span>
-                <h3 className="font-bold text-white">Choisis Linebet si…</h3>
+                <h3 className="font-bold text-papier">Choisis Linebet si…</h3>
               </div>
-              <ul className="text-sm text-gray-400 space-y-1.5 list-disc list-inside">
+              <ul className="text-sm text-cendre space-y-1.5 list-disc list-inside">
                 <li>Tu veux déposer via <strong className="text-linebet">Free Money</strong></li>
                 <li>Tu paries sur <strong className="text-linebet">FIFA / esport</strong> (meilleures cotes)</li>
                 <li>Tu veux un bonus fixe garanti (90 000 XOF)</li>
@@ -271,9 +271,9 @@ export default function BookmakersPage() {
             <div className="bg-star888/[0.04] border border-star888/20 rounded-xl p-5">
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-star888 text-xl">✓</span>
-                <h3 className="font-bold text-white">Choisis 888starz si…</h3>
+                <h3 className="font-bold text-papier">Choisis 888starz si…</h3>
               </div>
-              <ul className="text-sm text-gray-400 space-y-1.5 list-disc list-inside">
+              <ul className="text-sm text-cendre space-y-1.5 list-disc list-inside">
                 <li>Tu veux un bonus <strong className="text-star888">100% de ton dépôt</strong></li>
                 <li>Tu comptes déposer un gros montant dès le départ</li>
                 <li>Tu utilises Wave ou Orange Money (pas Free Money)</li>
@@ -285,7 +285,7 @@ export default function BookmakersPage() {
 
         {/* Disclaimer */}
         <div className="squircle p-4 bg-gold/[0.03] border-gold/20">
-          <p className="text-xs text-gray-400 leading-relaxed">
+          <p className="text-xs text-cendre leading-relaxed">
             <strong className="text-gold">⚠️ Jeu responsable :</strong> Les paris sportifs comportent des risques de perte financière.
             Ne joue que des sommes que tu peux te permettre de perdre. Les bonus sont soumis à des conditions de mise (rollover).
             18+ — begambleaware.org.

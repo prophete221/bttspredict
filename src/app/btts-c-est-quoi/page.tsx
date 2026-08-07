@@ -137,7 +137,7 @@ function buildFaqJsonLd() {
    ────────────────────────────────────────────────────────────── */
 export default function BttsGuidePage() {
   return (
-    <div className="min-h-screen bg-dark-800 flex flex-col text-white">
+    <div className="min-h-screen bg-dark-800 flex flex-col text-papier">
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -165,15 +165,15 @@ export default function BttsGuidePage() {
       <main id="main-content" className="flex-1 relative z-10">
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-gray-400">
+          <ol className="flex items-center gap-2 text-sm text-cendre">
             <li>
               <a href="/" className="hover:text-emerald transition-colors">
                 Accueil
               </a>
             </li>
-            <li aria-hidden="true" className="text-gray-300">/</li>
+            <li aria-hidden="true" className="text-cendre">/</li>
             <li>
-              <span className="text-gray-400" aria-current="page">BTTS — Guide complet</span>
+              <span className="text-cendre" aria-current="page">BTTS — Guide complet</span>
             </li>
           </ol>
         </nav>
@@ -182,12 +182,12 @@ export default function BttsGuidePage() {
         <section className="pb-8 sm:pb-10">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
             <h1
-              className="text-4xl sm:text-5xl text-white mb-4"
+              className="text-4xl sm:text-5xl text-papier mb-4"
               style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
             >
               BTTS — <span className="text-gold neon-glow">GUIDE COMPLET</span>
             </h1>
-            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-cendre text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Both Teams To Score : fonctionnement, stratégies, statistiques et FAQ pour comprendre et parier intelligemment.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
@@ -202,12 +202,12 @@ export default function BttsGuidePage() {
               {/* 1. Qu'est-ce que le BTTS */}
               <article className="card p-6">
                 <h2
-                  className="text-2xl text-white mb-4"
+                  className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
                   1. Qu&apos;est-ce que le BTTS ?
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
                     <strong className="text-gold">BTTS</strong> signifie <strong className="text-emerald">Both Teams To Score</strong> — en français, « les deux équipes marquent ». C&apos;est un marché de paris sportifs où vous pariez que les deux équipes inscriront au moins un but pendant le match.
                   </p>
@@ -215,8 +215,8 @@ export default function BttsGuidePage() {
                     Le résultat final du match n&apos;a aucune importance. Que le score soit 1-1, 2-3, 4-2 ou 5-1, le pari BTTS est gagné dès que chaque équipe a marqué au moins un but.
                   </p>
                   <div className="bg-panel/40 border border-edge/30 rounded-xl p-4 mt-4">
-                    <h3 className="text-white font-semibold text-sm mb-2">Exemples de résultats BTTS :</h3>
-                    <ul className="space-y-1.5 text-gray-400">
+                    <h3 className="text-papier font-semibold text-sm mb-2">Exemples de résultats BTTS :</h3>
+                    <ul className="space-y-1.5 text-cendre">
                       <li className="flex items-center gap-2">
                         <span className="text-success">✓</span>
                         <span>1-1, 2-1, 3-2, 2-3 → <strong className="text-emerald">BTTS Oui = Gagné</strong></span>
@@ -233,23 +233,23 @@ export default function BttsGuidePage() {
               {/* 2. BTTS Oui vs BTTS Non */}
               <article className="card p-6">
                 <h2
-                  className="text-2xl text-white mb-4"
+                  className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
                   2. BTTS Oui vs BTTS Non
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
                     Il existe deux variantes du pari BTTS :
                   </p>
                   <div className="grid gap-4 sm:grid-cols-2 mt-4">
                     <div className="bg-panel/40 border border-emerald/20 rounded-xl p-4">
                       <h3 className="text-emerald font-semibold mb-2">BTTS Oui</h3>
-                      <p className="text-gray-400 text-xs">Vous pariez que les deux équipes marqueront au moins un but. C&apos;est le pari le plus populaire sur ce marché. Les cotes sont généralement entre 1.5 et 2.5 selon les statistiques des équipes.</p>
+                      <p className="text-cendre text-xs">Vous pariez que les deux équipes marqueront au moins un but. C&apos;est le pari le plus populaire sur ce marché. Les cotes sont généralement entre 1.5 et 2.5 selon les statistiques des équipes.</p>
                     </div>
                     <div className="bg-panel/40 border border-lose/20 rounded-xl p-4">
                       <h3 className="text-lose font-semibold mb-2">BTTS Non</h3>
-                      <p className="text-gray-400 text-xs">Vous pariez qu&apos;au moins une équipe ne marquera pas. Ce pari est gagnant si le match se termine en 0-0, ou si une équipe garde sa cage inviolée. Les cotes sont souvent plus élevées (2.0–4.0).</p>
+                      <p className="text-cendre text-xs">Vous pariez qu&apos;au moins une équipe ne marquera pas. Ce pari est gagnant si le match se termine en 0-0, ou si une équipe garde sa cage inviolée. Les cotes sont souvent plus élevées (2.0–4.0).</p>
                     </div>
                   </div>
                 </div>
@@ -258,25 +258,25 @@ export default function BttsGuidePage() {
               {/* 3. Différence BTTS vs Over 2.5 */}
               <article className="card p-6">
                 <h2
-                  className="text-2xl text-white mb-4"
+                  className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
                   3. BTTS vs Over 2.5 — Quelle différence ?
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
                     Bien que souvent associés, <strong className="text-gold">BTTS</strong> et <strong className="text-gold">Over 2.5</strong> sont deux marchés distincts :
                   </p>
                   <div className="overflow-x-auto mt-4">
                     <table className="w-full text-xs border border-edge/30 rounded-lg">
                       <thead>
-                        <tr className="bg-panel/60 text-gray-400">
+                        <tr className="bg-panel/60 text-cendre">
                           <th className="px-3 py-2 text-left">Score</th>
                           <th className="px-3 py-2 text-center">BTTS Oui</th>
                           <th className="px-3 py-2 text-center">Over 2.5</th>
                         </tr>
                       </thead>
-                      <tbody className="text-gray-300">
+                      <tbody className="text-cendre">
                         <tr className="border-t border-edge/20">
                           <td className="px-3 py-2">1-1</td>
                           <td className="px-3 py-2 text-center text-success">Gagné</td>
@@ -309,12 +309,12 @@ export default function BttsGuidePage() {
               {/* 4. Meilleurs championnats */}
               <article className="card p-6">
                 <h2
-                  className="text-2xl text-white mb-4"
+                  className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
                   4. Les meilleurs championnats pour le BTTS
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
                     Certains championnats produisent naturellement plus de matchs BTTS en raison de leur style de jeu offensif :
                   </p>
@@ -329,10 +329,10 @@ export default function BttsGuidePage() {
                     ].map((item, i) => (
                       <div key={i} className="bg-panel/40 border border-edge/30 rounded-xl p-3">
                         <div className="flex items-center justify-between mb-1">
-                          <h3 className="text-white font-semibold text-sm">{item.league}</h3>
+                          <h3 className="text-papier font-semibold text-sm">{item.league}</h3>
                           <span className="text-gold font-mono text-xs">{item.rate}</span>
                         </div>
-                        <p className="text-gray-400 text-xs">{item.reason}</p>
+                        <p className="text-cendre text-xs">{item.reason}</p>
                       </div>
                     ))}
                   </div>
@@ -342,39 +342,39 @@ export default function BttsGuidePage() {
               {/* 5. Stratégies BTTS */}
               <article className="card p-6">
                 <h2
-                  className="text-2xl text-white mb-4"
+                  className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
                   5. Stratégies pour parier sur le BTTS
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <ul className="space-y-2">
                     <li className="flex items-start gap-3">
                       <span className="text-gold mt-0.5 flex-shrink-0">→</span>
                       <div>
-                        <strong className="text-white">Analyser les statistiques de buts</strong>
-                        <p className="text-gray-400 text-xs mt-0.5">Regardez le taux de BTTS des deux équipes sur les 10 derniers matchs. Si les deux équipes ont un taux &gt; 60%, le BTTS Oui est statistiquement favorable.</p>
+                        <strong className="text-papier">Analyser les statistiques de buts</strong>
+                        <p className="text-cendre text-xs mt-0.5">Regardez le taux de BTTS des deux équipes sur les 10 derniers matchs. Si les deux équipes ont un taux &gt; 60%, le BTTS Oui est statistiquement favorable.</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-gold mt-0.5 flex-shrink-0">→</span>
                       <div>
-                        <strong className="text-white">Considérer les blessures</strong>
-                        <p className="text-gray-400 text-xs mt-0.5">L&apos;absence d&apos;un attaquant clé ou d&apos;un défenseur central peut significativement modifier la probabilité de BTTS.</p>
+                        <strong className="text-papier">Considérer les blessures</strong>
+                        <p className="text-cendre text-xs mt-0.5">L&apos;absence d&apos;un attaquant clé ou d&apos;un défenseur central peut significativement modifier la probabilité de BTTS.</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-gold mt-0.5 flex-shrink-0">→</span>
                       <div>
-                        <strong className="text-white">Utiliser l&apos;IA pour les prédictions</strong>
-                        <p className="text-gray-400 text-xs mt-0.5">Notre équipe analyse 50+ variables (xG, forme, historique) pour générer des pronostics BTTS avec un taux de réussite vérifié de 84,5%. Aucun résultat n&apos;est garanti.</p>
+                        <strong className="text-papier">Utiliser l&apos;IA pour les prédictions</strong>
+                        <p className="text-cendre text-xs mt-0.5">Notre équipe analyse 50+ variables (xG, forme, historique) pour générer des pronostics BTTS avec un taux de réussite vérifié de 84,5%. Aucun résultat n&apos;est garanti.</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-gold mt-0.5 flex-shrink-0">→</span>
                       <div>
-                        <strong className="text-white">Combiner BTTS + Over 2.5</strong>
-                        <p className="text-gray-400 text-xs mt-0.5">Quand les statistiques indiquent un match ouvert avec beaucoup de buts, la combinaison BTTS + Over 2.5 offre des cotes plus élevées pour un risque calculé.</p>
+                        <strong className="text-papier">Combiner BTTS + Over 2.5</strong>
+                        <p className="text-cendre text-xs mt-0.5">Quand les statistiques indiquent un match ouvert avec beaucoup de buts, la combinaison BTTS + Over 2.5 offre des cotes plus élevées pour un risque calculé.</p>
                       </div>
                     </li>
                   </ul>
@@ -383,7 +383,7 @@ export default function BttsGuidePage() {
 
               {/* Disclaimer */}
               <div className="bg-lose/10 border border-lose/30 rounded-xl p-4 text-center">
-                <p className="text-gray-400 text-xs">
+                <p className="text-cendre text-xs">
                   ⚠ Les paris sportifs comportent des risques financiers. Les statistiques mentionnées (84,5%) sont basées sur des données historiques vérifiables et ne garantissent pas les résultats futurs. Pariez responsable — <a href="/jouer-responsable" className="text-emerald underline underline-offset-2">en savoir plus</a>.
                 </p>
               </div>

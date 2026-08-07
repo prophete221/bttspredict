@@ -129,7 +129,7 @@ function buildFaqJsonLd() {
    ────────────────────────────────────────────────────────────── */
 export default function CodePromoLinebetSenegalPage() {
   return (
-    <div className="min-h-screen bg-dark-800 flex flex-col text-white">
+    <div className="min-h-screen bg-dark-800 flex flex-col text-papier">
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -157,15 +157,15 @@ export default function CodePromoLinebetSenegalPage() {
       <main id="main-content" className="flex-1 relative z-10">
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-gray-400">
+          <ol className="flex items-center gap-2 text-sm text-cendre">
             <li>
               <a href="/" className="hover:text-emerald transition-colors">
                 Accueil
               </a>
             </li>
-            <li aria-hidden="true" className="text-gray-300">/</li>
+            <li aria-hidden="true" className="text-cendre">/</li>
             <li>
-              <span className="text-gray-400" aria-current="page">Code Promo Linebet Sénégal</span>
+              <span className="text-cendre" aria-current="page">Code Promo Linebet Sénégal</span>
             </li>
           </ol>
         </nav>
@@ -174,12 +174,12 @@ export default function CodePromoLinebetSenegalPage() {
         <section className="pb-8 sm:pb-10">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
             <h1
-              className="text-4xl sm:text-5xl text-white mb-4"
+              className="text-4xl sm:text-5xl text-papier mb-4"
               style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
             >
               CODE PROMO <span className="text-gold neon-glow">LINEBET</span> SÉNÉGAL
             </h1>
-            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-cendre text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Bonus exclusif <strong className="text-gold">90 000 XOF (150$)</strong> avec le code <strong className="text-emerald">VISION221</strong>. Dépôt minimum 200 XOF.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
@@ -193,7 +193,7 @@ export default function CodePromoLinebetSenegalPage() {
               <p className="text-gold font-bold text-3xl sm:text-4xl mb-2" style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
                 VISION221
               </p>
-              <p className="text-gray-300 text-sm">
+              <p className="text-cendre text-sm">
                 Code promo exclusif — Bonus <strong className="text-gold">90 000 XOF</strong> sur votre premier dépôt Linebet
               </p>
             </div>
@@ -208,12 +208,12 @@ export default function CodePromoLinebetSenegalPage() {
               {/* 1. Comment utiliser le code */}
               <article className="card p-6">
                 <h2
-                  className="text-2xl text-white mb-4"
+                  className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
                   1. Comment utiliser le code promo VISION221
                 </h2>
-                <div className="space-y-4 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-4 text-cendre text-sm leading-relaxed">
                   <div className="space-y-3">
                     {[
                       { step: '1', text: 'Inscrivez-vous sur Linebet via notre lien de parrainage' },
@@ -225,7 +225,7 @@ export default function CodePromoLinebetSenegalPage() {
                         <span className="w-6 h-6 bg-gold text-dark-900 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">
                           {item.step}
                         </span>
-                        <p className="text-gray-300">{item.text}</p>
+                        <p className="text-cendre">{item.text}</p>
                       </div>
                     ))}
                   </div>
@@ -235,12 +235,12 @@ export default function CodePromoLinebetSenegalPage() {
               {/* 2. Dépôt au Sénégal */}
               <article className="card p-6">
                 <h2
-                  className="text-2xl text-white mb-4"
+                  className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
                   2. Dépôt sur Linebet au Sénégal
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
                     Linebet accepte les méthodes de paiement locales au Sénégal, ce qui facilite les dépôts et retraits :
                   </p>
@@ -253,9 +253,9 @@ export default function CodePromoLinebetSenegalPage() {
                       <div key={i} className="bg-panel/40 border border-edge/30 rounded-xl p-4">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-lg" aria-hidden="true">{item.icon}</span>
-                          <h3 className="text-white font-semibold text-sm">{item.name}</h3>
+                          <h3 className="text-papier font-semibold text-sm">{item.name}</h3>
                         </div>
-                        <p className="text-gray-400 text-xs">{item.desc}</p>
+                        <p className="text-cendre text-xs">{item.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -268,16 +268,16 @@ export default function CodePromoLinebetSenegalPage() {
               {/* 3. Conditions du bonus */}
               <article className="card p-6">
                 <h2
-                  className="text-2xl text-white mb-4"
+                  className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
                   3. Conditions du bonus Linebet
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <ul className="space-y-2 ml-2">
                     <li className="flex items-start gap-2">
                       <span className="text-gold flex-shrink-0">•</span>
-                      <span>Le bonus est valable sur le <strong className="text-white">premier dépôt uniquement</strong></span>
+                      <span>Le bonus est valable sur le <strong className="text-papier">premier dépôt uniquement</strong></span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-gold flex-shrink-0">•</span>
@@ -301,12 +301,12 @@ export default function CodePromoLinebetSenegalPage() {
               {/* 4. Application Linebet */}
               <article className="card p-6">
                 <h2
-                  className="text-2xl text-white mb-4"
+                  className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
                   4. Application Linebet Android
                 </h2>
-                <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
                     Linebet propose une application Android optimisée pour les utilisateurs sénégalais :
                   </p>
@@ -337,7 +337,7 @@ export default function CodePromoLinebetSenegalPage() {
 
               {/* Disclaimer */}
               <div className="bg-lose/10 border border-lose/30 rounded-xl p-4 text-center">
-                <p className="text-gray-400 text-xs">
+                <p className="text-cendre text-xs">
                   ⚠ BTTSPredict est un site informatif et d&apos;affiliation. Nous ne prenons aucun pari, ne collectons aucun fonds et ne sommes pas un bookmaker. Les bonus sont soumis aux conditions de Linebet. Pariez responsable — <a href="/jouer-responsable" className="text-emerald underline underline-offset-2">en savoir plus</a>.
                 </p>
               </div>

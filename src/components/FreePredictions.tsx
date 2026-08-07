@@ -96,7 +96,7 @@ export default function FreePredictions() {
             </svg>
             Pronostics Gratuits
           </div>
-          <h2 className="text-display-md text-white mb-3">
+          <h2 className="text-display-md text-papier mb-3">
             Les meilleurs pronostics du jour
           </h2>
           <p className="text-body-md text-[var(--color-text-secondary)] max-w-2xl mx-auto">
@@ -116,8 +116,8 @@ export default function FreePredictions() {
               onClick={() => setFilter(tab.key as any)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                 filter === tab.key
-                  ? 'bg-[var(--color-primary)] text-white'
-                  : 'bg-[var(--color-dark-700)] text-[var(--color-text-secondary)] hover:text-white'
+                  ? 'bg-[var(--color-primary)] text-papier'
+                  : 'bg-[var(--color-dark-700)] text-[var(--color-text-secondary)] hover:text-papier'
               }`}
             >
               {tab.icon} {tab.label}
@@ -149,7 +149,7 @@ export default function FreePredictions() {
                   {m.homeLogo && (
                     <img src={m.homeLogo} alt={`Logo ${m.homeTeam}`} className="w-12 h-12 object-contain mx-auto mb-2" loading="lazy" />
                   )}
-                  <div className="text-sm font-semibold text-white truncate">
+                  <div className="text-sm font-semibold text-papier truncate">
                     {m.match.split(' vs ')[0]}
                   </div>
                 </div>
@@ -158,7 +158,7 @@ export default function FreePredictions() {
                   {m.awayLogo && (
                     <img src={m.awayLogo} alt={`Logo ${m.awayTeam}`} className="w-12 h-12 object-contain mx-auto mb-2" loading="lazy" />
                   )}
-                  <div className="text-sm font-semibold text-white truncate">
+                  <div className="text-sm font-semibold text-papier truncate">
                     {m.match.split(' vs ')[1]}
                   </div>
                 </div>

@@ -100,10 +100,10 @@ function PredBadge({ type, prediction, expanded }) {
           ? isBtts
             ? 'bg-emerald/8 border-emerald/20 hover:bg-emerald/12'
             : 'bg-gold/8 border-gold/20 hover:bg-gold/12'
-          : 'bg-red-500/5 border-red-500/15 hover:bg-red-500/8'
+          : 'bg-braise/5 border-braise/15 hover:bg-braise/8'
       }`}>
         <div className="flex items-center justify-between mb-1.5">
-          <span className="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider font-semibold">
+          <span className="text-[10px] sm:text-xs text-cendre uppercase tracking-wider font-semibold">
             {isBtts ? 'Les deux marquent' : 'Plus de 2.5 buts'}
           </span>
           <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
@@ -111,7 +111,7 @@ function PredBadge({ type, prediction, expanded }) {
               ? isBtts
                 ? 'bg-emerald/15 text-emerald'
                 : 'bg-gold/15 text-gold'
-              : 'bg-red-500/15 text-red-400'
+              : 'bg-braise/15 text-braise'
           }`}>
             {prediction}
           </span>
@@ -119,12 +119,12 @@ function PredBadge({ type, prediction, expanded }) {
         <div className={`text-lg sm:text-xl font-extrabold ${
           isPositive
             ? isBtts ? 'text-emerald' : 'text-gold'
-            : 'text-red-400'
+            : 'text-braise'
         }`}>
           {isBtts ? 'BTTS' : 'Over 2.5'}
         </div>
         {/* Signal bar */}
-        <div className="mt-2 h-1.5 rounded-full bg-white/5 overflow-hidden">
+        <div className="mt-2 h-1.5 rounded-full bg-papier/5 overflow-hidden">
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: isPositive ? '78%' : '25%' }}
@@ -134,7 +134,7 @@ function PredBadge({ type, prediction, expanded }) {
                 ? isBtts
                   ? 'bg-gradient-to-r from-emerald-dark to-emerald'
                   : 'bg-gradient-to-r from-gold-dark to-gold'
-                : 'bg-red-500/40'
+                : 'bg-braise/40'
             }`}
           />
         </div>
@@ -149,12 +149,12 @@ function PredBadge({ type, prediction, expanded }) {
         ? isBtts
           ? 'bg-emerald/10 text-emerald border border-emerald/20'
           : 'bg-gold/10 text-gold border border-gold/20'
-        : 'bg-red-500/10 text-red-400 border border-red-500/20'
+        : 'bg-braise/10 text-braise border border-braise/20'
     }`}>
       <span className={`w-1.5 h-1.5 rounded-full ${
         isPositive
           ? isBtts ? 'bg-emerald' : 'bg-gold'
-          : 'bg-red-400'
+          : 'bg-braise'
       }`} />
       {label} {prediction}
     </span>
@@ -212,8 +212,8 @@ function MatchRow({ match, index, isVisible }) {
         <div className="flex items-center gap-3 px-3 sm:px-4 py-3">
           {/* Time + Date badge */}
           <div className="flex-shrink-0 text-center min-w-[44px] sm:min-w-[50px]">
-            <div className="text-white font-bold text-sm sm:text-base tabular-nums">{match.time || '--:--'}</div>
-            <div className="text-gray-500 text-[10px]">{match.date ? formatDateShort(match.date) : ''}</div>
+            <div className="text-papier font-bold text-sm sm:text-base tabular-nums">{match.time || '--:--'}</div>
+            <div className="text-cendre text-[10px]">{match.date ? formatDateShort(match.date) : ''}</div>
           </div>
 
           {/* Divider */}
@@ -222,14 +222,14 @@ function MatchRow({ match, index, isVisible }) {
           {/* Team logos face-off — always visible */}
           <div className="flex-shrink-0 flex items-center gap-1.5">
             <TeamLogo src={homeLogo} initials={initials1} size="sm" color="emerald" />
-            <span className="text-gray-600 text-[10px] font-bold">VS</span>
+            <span className="text-couture text-[10px] font-bold">VS</span>
             <TeamLogo src={awayLogo} initials={initials2} size="sm" color="royal" />
           </div>
 
           {/* Match info */}
           <div className="flex-1 min-w-0">
-            <div className="text-white font-semibold text-sm truncate">{match.match}</div>
-            <div className="text-gray-500 text-[11px] truncate">{match.league}</div>
+            <div className="text-papier font-semibold text-sm truncate">{match.match}</div>
+            <div className="text-cendre text-[11px] truncate">{match.league}</div>
           </div>
 
           {/* Prediction badges (compact) */}
@@ -242,7 +242,7 @@ function MatchRow({ match, index, isVisible }) {
           <motion.div
             animate={{ rotate: expanded ? 180 : 0 }}
             transition={{ duration: 0.25 }}
-            className="flex-shrink-0 text-gray-500"
+            className="flex-shrink-0 text-cendre"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="6 9 12 15 18 9" />
@@ -265,20 +265,20 @@ function MatchRow({ match, index, isVisible }) {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex-1 text-center">
                     <TeamLogo src={homeLogo} initials={initials1} size="lg" color="emerald" />
-                    <div className="text-white font-semibold text-sm truncate max-w-[110px] sm:max-w-[140px] mx-auto mt-1.5">
+                    <div className="text-papier font-semibold text-sm truncate max-w-[110px] sm:max-w-[140px] mx-auto mt-1.5">
                       {team1}
                     </div>
                   </div>
 
                   <div className="flex-shrink-0 px-3">
-                    <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-                      <span className="text-gray-400 text-xs font-bold">VS</span>
+                    <div className="w-10 h-10 rounded-full bg-papier/5 border border-papier/10 flex items-center justify-center">
+                      <span className="text-cendre text-xs font-bold">VS</span>
                     </div>
                   </div>
 
                   <div className="flex-1 text-center">
                     <TeamLogo src={awayLogo} initials={initials2} size="lg" color="royal" />
-                    <div className="text-white font-semibold text-sm truncate max-w-[110px] sm:max-w-[140px] mx-auto mt-1.5">
+                    <div className="text-papier font-semibold text-sm truncate max-w-[110px] sm:max-w-[140px] mx-auto mt-1.5">
                       {team2}
                     </div>
                   </div>
@@ -289,7 +289,7 @@ function MatchRow({ match, index, isVisible }) {
                   {match.btts && <PredBadge type="BTTS" prediction={match.btts.prediction} expanded={true} />}
                   {match.over25 && <PredBadge type="O2.5" prediction={match.over25.prediction} expanded={true} />}
                   {!match.btts && !match.over25 && (
-                    <div className="flex-1 text-center text-gray-500 text-sm py-4">
+                    <div className="flex-1 text-center text-cendre text-sm py-4">
                       Aucune prédiction disponible
                     </div>
                   )}
@@ -299,7 +299,7 @@ function MatchRow({ match, index, isVisible }) {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 bg-emerald rounded-full animate-pulse" />
-                    <span className="text-[10px] text-gray-500">IA BTTSPredict</span>
+                    <span className="text-[10px] text-cendre">IA BTTSPredict</span>
                   </div>
                   <a
                     href={AFFILIATE.linebet}
@@ -473,21 +473,21 @@ export default function FreePredictions() {
         >
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-5">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-1" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-papier mb-1" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
                 PRONOSTICS <span className="text-emerald">IA</span>
               </h2>
-              <p className="text-gray-400 text-sm">Sélection IA — matchs des 7 prochains jours</p>
+              <p className="text-cendre text-sm">Sélection IA — matchs des 7 prochains jours</p>
             </div>
             {/* Mini stats */}
             <div className="flex items-center gap-4 bg-panel/60 border border-edge rounded-xl px-4 py-2.5">
               <div className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 bg-emerald rounded-full animate-pulse" />
-                <span className="text-xs text-gray-400"><span className="text-white font-bold">{stats.total}</span> matchs</span>
+                <span className="text-xs text-cendre"><span className="text-papier font-bold">{stats.total}</span> matchs</span>
               </div>
               <div className="w-px h-4 bg-edge" />
-              <div className="text-xs text-gray-400"><span className="text-emerald font-bold">{stats.bttsOui}</span> BTTS</div>
+              <div className="text-xs text-cendre"><span className="text-emerald font-bold">{stats.bttsOui}</span> BTTS</div>
               <div className="w-px h-4 bg-edge" />
-              <div className="text-xs text-gray-400"><span className="text-gold font-bold">{stats.o25Oui}</span> O2.5</div>
+              <div className="text-xs text-cendre"><span className="text-gold font-bold">{stats.o25Oui}</span> O2.5</div>
             </div>
           </div>
 
@@ -500,7 +500,7 @@ export default function FreePredictions() {
                 className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   activeLeague === league
                     ? 'bg-emerald/15 text-emerald border border-emerald/25'
-                    : 'bg-panel/40 text-gray-500 border border-edge hover:text-gray-300 hover:border-edge-light'
+                    : 'bg-panel/40 text-cendre border border-edge hover:text-cendre hover:border-edge-light'
                 }`}
               >
                 {league === 'all' ? 'Tous' : league}
@@ -513,17 +513,17 @@ export default function FreePredictions() {
         {loading ? (
           <div className="text-center py-16">
             <div className="inline-block w-10 h-10 border-2 border-emerald/30 border-t-emerald rounded-full animate-spin" />
-            <p className="text-gray-500 text-sm mt-4">Chargement des pronostics...</p>
+            <p className="text-cendre text-sm mt-4">Chargement des pronostics...</p>
           </div>
         ) : error ? (
           <div className="text-center py-16">
             <div className="glass-3d rounded-2xl p-8 max-w-sm mx-auto">
-              <div className="w-14 h-14 bg-red-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF3D71" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <div className="w-14 h-14 bg-braise/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF4D1E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
                 </svg>
               </div>
-              <p className="text-red-400 text-sm mb-3">{error}</p>
+              <p className="text-braise text-sm mb-3">{error}</p>
               <button onClick={loadPredictions} className="px-4 py-2 bg-emerald/15 text-emerald font-bold rounded-lg text-xs hover:bg-emerald/25 transition-all">
                 Réessayer
               </button>
@@ -533,11 +533,11 @@ export default function FreePredictions() {
           <div className="text-center py-16">
             <div className="glass-3d rounded-2xl p-8 max-w-sm mx-auto">
               <div className="w-14 h-14 bg-edge rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9E9B96" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
                 </svg>
               </div>
-              <p className="text-gray-400 text-sm">Aucun pronostic disponible. Revenez demain !</p>
+              <p className="text-cendre text-sm">Aucun pronostic disponible. Revenez demain !</p>
             </div>
           </div>
         ) : (
@@ -580,7 +580,7 @@ export default function FreePredictions() {
 
         {/* Footer note */}
         <div className="text-center mt-6">
-          <p className="text-[11px] text-gray-600">
+          <p className="text-[11px] text-couture">
             Pronostics générés par IA — dates réelles des matchs vérifiées
           </p>
         </div>

@@ -84,10 +84,10 @@ export default function VipSection() {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
             </svg>
-            <span className="text-white font-bold">Accès VIP Premium</span>
+            <span className="text-papier font-bold">Accès VIP Premium</span>
           </div>
           
-          <h2 className="text-display-md text-white mb-4">
+          <h2 className="text-display-md text-papier mb-4">
             Passez au niveau supérieur
           </h2>
           <p className="text-body-lg text-[var(--color-text-secondary)] max-w-xl mx-auto">
@@ -104,18 +104,18 @@ export default function VipSection() {
               className="card group hover:border-[var(--color-primary)] transition-all duration-300"
             >
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-accent)] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <div className="text-white">
+                <div className="text-papier">
                   {feature.icon}
                 </div>
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">{feature.title}</h3>
+              <h3 className="text-lg font-bold text-papier mb-2">{feature.title}</h3>
               <p className="text-sm text-[var(--color-text-muted)]">{feature.desc}</p>
             </div>
           ))}
         </div>
 
         {/* CTA Section */}
-        <div className="relative overflow-hidden rounded-3xl p-8 lg:p-12" style={{ background: 'linear-gradient(135deg, rgba(168, 162, 158, 0.2) 0%, rgba(217, 79, 48, 0.1) 100%)', border: '1px solid rgba(168, 162, 158, 0.2)' }}>
+        <div className="relative overflow-hidden rounded-3xl p-8 lg:p-12" style={{ background: 'linear-gradient(135deg, rgba(224, 193, 145, 0.2) 0%, rgba(255, 77, 30, 0.1) 100%)', border: '1px solid rgba(224, 193, 145, 0.2)' }}>
           {/* Decorative */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-vip)] rounded-full opacity-10 blur-[80px]"/>
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-[var(--color-primary)] rounded-full opacity-10 blur-[60px]"/>
@@ -129,7 +129,7 @@ export default function VipSection() {
                 </svg>
                 <span className="text-sm font-semibold text-[var(--color-vip)]">Contenu Premium</span>
               </div>
-              <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2">
+              <h3 className="text-2xl lg:text-3xl font-bold text-papier mb-2">
                 Prêt à gagner plus ?
               </h3>
               <p className="text-[var(--color-text-secondary)]">

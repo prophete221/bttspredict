@@ -75,8 +75,8 @@ function TestimonialCard({ testimonial, index, isVisible }) {
           </div>
 
           <div className="min-w-0">
-            <h4 className="text-white font-semibold text-sm leading-tight truncate">{name}</h4>
-            <p className="text-gray-400 text-xs mt-0.5 truncate">{city}</p>
+            <h4 className="text-papier font-semibold text-sm leading-tight truncate">{name}</h4>
+            <p className="text-cendre text-xs mt-0.5 truncate">{city}</p>
           </div>
         </div>
 
@@ -86,7 +86,7 @@ function TestimonialCard({ testimonial, index, isVisible }) {
         </div>
 
         {/* Quote text */}
-        <blockquote className="text-gray-300 text-sm leading-relaxed relative">
+        <blockquote className="text-cendre text-sm leading-relaxed relative">
           <p>&ldquo;{text}&rdquo;</p>
         </blockquote>
       </div>
@@ -119,12 +119,12 @@ export default function Testimonials() {
         >
           <h2
             id="testimonials-heading"
-            className="text-2xl sm:text-3xl font-bold text-white uppercase"
+            className="text-2xl sm:text-3xl font-bold text-papier uppercase"
             style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
           >
             Ils nous font <span className="text-emerald neon-glow">confiance</span>
           </h2>
-          <p className="text-gray-400 text-sm mt-2 max-w-md mx-auto">
+          <p className="text-cendre text-sm mt-2 max-w-md mx-auto">
             Découvrez les retours de notre communauté de parieurs à travers l&apos;Afrique
           </p>
 
@@ -153,8 +153,8 @@ export default function Testimonials() {
         >
           <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 glass-3d">
             <span className="w-1.5 h-1.5 bg-emerald rounded-full animate-pulse" aria-hidden="true" />
-            <span className="text-[11px] text-gray-400">
-              <span className="text-white font-semibold">15 000+</span> parieurs nous font confiance
+            <span className="text-[11px] text-cendre">
+              <span className="text-papier font-semibold">15 000+</span> parieurs nous font confiance
             </span>
           </div>
         </motion.div>

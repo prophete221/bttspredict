@@ -94,7 +94,7 @@ export default function PwaInstallPrompt() {
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           className="fixed bottom-4 left-4 right-4 z-[9999] max-w-lg mx-auto"
         >
-          <div className="bg-[#111827] border border-emerald/20 rounded-2xl p-4 shadow-2xl shadow-black/50 backdrop-blur-xl">
+          <div className="bg-[#0F1316] border border-emerald/20 rounded-2xl p-4 shadow-2xl shadow-black/50 backdrop-blur-xl">
             <div className="flex items-start gap-3">
               {/* App icon */}
               <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald/10 border border-emerald/20 flex items-center justify-center overflow-hidden">
@@ -106,8 +106,8 @@ export default function PwaInstallPrompt() {
               </div>
 
               <div className="flex-1 min-w-0">
-                <h3 className="text-white font-bold text-sm">Installer BTTSPredict</h3>
-                <p className="text-gray-400 text-xs mt-0.5">
+                <h3 className="text-papier font-bold text-sm">Installer BTTSPredict</h3>
+                <p className="text-cendre text-xs mt-0.5">
                   {isIOS
                     ? 'Appuyez sur l\'icone de partage puis "Sur l\'écran d\'accueil"'
                     : 'Accédez aux pronostics plus vite, même hors connexion'
@@ -116,13 +116,13 @@ export default function PwaInstallPrompt() {
 
                 {/* iOS instructions */}
                 {isIOS && (
-                  <div className="mt-2 flex items-center gap-2 text-xs text-gray-500">
+                  <div className="mt-2 flex items-center gap-2 text-xs text-cendre">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-emerald">
                       <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
                       <polyline points="16 6 12 2 8 6"/>
                       <line x1="12" y1="2" x2="12" y2="15"/>
                     </svg>
-                    <span>Partager <strong className="text-gray-300">→</strong> Sur l'écran d'accueil</span>
+                    <span>Partager <strong className="text-cendre">→</strong> Sur l'écran d'accueil</span>
                   </div>
                 )}
               </div>
@@ -139,7 +139,7 @@ export default function PwaInstallPrompt() {
                 )}
                 <button
                   onClick={handleDismiss}
-                  className="text-gray-500 hover:text-gray-300 transition-colors p-1"
+                  className="text-cendre hover:text-cendre transition-colors p-1"
                   aria-label="Fermer"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

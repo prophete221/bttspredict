@@ -32,7 +32,7 @@ export default function Navbar() {
           {/* Logo */}
           <a href="/" className="flex items-center gap-3">
             <div className="relative">
-              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[var(--color-primary)] to-[#1F8A70] flex items-center justify-center shadow-lg">
+              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[var(--color-primary)] to-[#A8BEB0] flex items-center justify-center shadow-lg">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
                   <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
@@ -45,7 +45,7 @@ export default function Navbar() {
               <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-[var(--color-success)] rounded-full border-2 border-[var(--color-dark-700)] animate-pulse"/>
             </div>
             <div>
-              <div className="font-[var(--font-display)] text-xl font-bold text-white leading-tight">BttsPredict</div>
+              <div className="font-[var(--font-display)] text-xl font-bold text-papier leading-tight">BttsPredict</div>
               <div className="text-[10px] font-semibold text-[var(--color-primary-light)] tracking-wider">IA PRONOSTICS</div>
             </div>
           </a>
@@ -62,7 +62,7 @@ export default function Navbar() {
               <a 
                 key={item.href}
                 href={item.href}
-                className="px-4 py-2 rounded-lg text-sm font-medium text-[var(--color-text-secondary)] hover:text-white hover:bg-white/5 transition-all"
+                className="px-4 py-2 rounded-lg text-sm font-medium text-[var(--color-text-secondary)] hover:text-papier hover:bg-papier/5 transition-all"
               >
                 {item.label}
               </a>
@@ -75,7 +75,7 @@ export default function Navbar() {
               onClick={copyCode}
               className="group relative px-3 py-2 rounded-lg text-xs font-bold font-mono transition-all"
               style={{ 
-                background: copied ? 'var(--color-success)' : 'rgba(168, 162, 158, 0.15)',
+                background: copied ? 'var(--color-success)' : 'rgba(224, 193, 145, 0.15)',
                 border: '1px solid',
                 borderColor: copied ? 'var(--color-success)' : 'var(--color-primary)',
                 color: copied ? 'white' : 'var(--color-primary-light)'
@@ -99,7 +99,7 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg text-[var(--color-text-secondary)] hover:text-white hover:bg-white/5 transition-all"
+              className="lg:hidden p-2 rounded-lg text-[var(--color-text-secondary)] hover:text-papier hover:bg-papier/5 transition-all"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 {mobileMenuOpen ? (
@@ -134,7 +134,7 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-4 py-3 rounded-lg text-sm font-medium text-[var(--color-text-secondary)] hover:text-white hover:bg-white/5 transition-all"
+                  className="px-4 py-3 rounded-lg text-sm font-medium text-[var(--color-text-secondary)] hover:text-papier hover:bg-papier/5 transition-all"
                 >
                   {item.label}
                 </a>

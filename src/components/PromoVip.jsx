@@ -104,7 +104,7 @@ function VipModal({ isOpen, onClose }) {
           transition={{ duration: 0.25 }}
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
           onClick={handleBackdropClick}
-          style={{ backgroundColor: 'rgba(0,0,0,0.75)' }}
+          style={{ backgroundColor: 'rgba(5, 7, 10,0.75)' }}
         >
           <motion.div
             ref={modalRef}
@@ -123,7 +123,7 @@ function VipModal({ isOpen, onClose }) {
               {/* Close button */}
               <button
                 onClick={onClose}
-                className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-midnight/60 text-gray-400 hover:text-white hover:bg-midnight transition-all z-10"
+                className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-midnight/60 text-cendre hover:text-papier hover:bg-midnight transition-all z-10"
                 aria-label="Fermer"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -149,11 +149,11 @@ function VipModal({ isOpen, onClose }) {
                         </svg>
                       </div>
 
-                      <h3 className="text-xl sm:text-2xl font-extrabold text-white text-center mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-papier text-center mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
                         ACCÈS <span className="text-gold">VIP</span>
                       </h3>
 
-                      <p className="text-gray-300 text-sm text-center mb-4 leading-relaxed">
+                      <p className="text-cendre text-sm text-center mb-4 leading-relaxed">
                         Pour accéder aux pronostics VIP, vous devez d'abord respecter ces conditions :
                       </p>
 
@@ -166,8 +166,8 @@ function VipModal({ isOpen, onClose }) {
                             </svg>
                           </div>
                           <div>
-                            <p className="text-white text-sm font-semibold">1. Créer un compte LINEBET</p>
-                            <p className="text-gray-400 text-xs mt-0.5">Utilisez le code promo <span className="text-gold font-bold">VISION221</span> lors de l'inscription</p>
+                            <p className="text-papier text-sm font-semibold">1. Créer un compte LINEBET</p>
+                            <p className="text-cendre text-xs mt-0.5">Utilisez le code promo <span className="text-gold font-bold">VISION221</span> lors de l'inscription</p>
                           </div>
                         </div>
 
@@ -178,8 +178,8 @@ function VipModal({ isOpen, onClose }) {
                             </svg>
                           </div>
                           <div>
-                            <p className="text-white text-sm font-semibold">2. Déposer un minimum de 10 000 Fr</p>
-                            <p className="text-gray-400 text-xs mt-0.5">Effectuez un premier dépôt de 10 000 Fr minimum sur votre compte LINEBET</p>
+                            <p className="text-papier text-sm font-semibold">2. Déposer un minimum de 10 000 Fr</p>
+                            <p className="text-cendre text-xs mt-0.5">Effectuez un premier dépôt de 10 000 Fr minimum sur votre compte LINEBET</p>
                           </div>
                         </div>
 
@@ -190,8 +190,8 @@ function VipModal({ isOpen, onClose }) {
                             </svg>
                           </div>
                           <div>
-                            <p className="text-white text-sm font-semibold">3. Confirmer votre inscription</p>
-                            <p className="text-gray-400 text-xs mt-0.5">Entrez votre ID LINEBET pour vérification et activation de votre accès VIP</p>
+                            <p className="text-papier text-sm font-semibold">3. Confirmer votre inscription</p>
+                            <p className="text-cendre text-xs mt-0.5">Entrez votre ID LINEBET pour vérification et activation de votre accès VIP</p>
                           </div>
                         </div>
                       </div>
@@ -221,7 +221,7 @@ function VipModal({ isOpen, onClose }) {
                         </a>
                       </div>
 
-                      <p className="text-[10px] text-gray-600 mt-4 text-center">
+                      <p className="text-[10px] text-couture mt-4 text-center">
                         Bonus soumis aux conditions (mise x5, cote min. 1,40)
                       </p>
                     </motion.div>
@@ -239,7 +239,7 @@ function VipModal({ isOpen, onClose }) {
                       {/* Back button */}
                       <button
                         onClick={() => setStep('info')}
-                        className="flex items-center gap-1.5 text-gray-400 hover:text-white text-sm mb-5 transition-colors"
+                        className="flex items-center gap-1.5 text-cendre hover:text-papier text-sm mb-5 transition-colors"
                       >
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <polyline points="15 18 9 12 15 6"/>
@@ -254,17 +254,17 @@ function VipModal({ isOpen, onClose }) {
                         </svg>
                       </div>
 
-                      <h3 className="text-lg sm:text-xl font-extrabold text-white text-center mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
+                      <h3 className="text-lg sm:text-xl font-extrabold text-papier text-center mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
                         CONFIRMEZ VOTRE INSCRIPTION
                       </h3>
 
-                      <p className="text-gray-400 text-sm text-center mb-5 leading-relaxed">
+                      <p className="text-cendre text-sm text-center mb-5 leading-relaxed">
                         Entrez votre identifiant LINEBET pour que nous puissions vérifier votre inscription et activer votre accès VIP.
                       </p>
 
                       {/* Input field */}
                       <div className="mb-4">
-                        <label htmlFor="linebet-id" className="block text-xs text-gray-500 mb-1.5 font-medium">
+                        <label htmlFor="linebet-id" className="block text-xs text-cendre mb-1.5 font-medium">
                           Votre ID LINEBET
                         </label>
                         <div className="relative">
@@ -280,13 +280,13 @@ function VipModal({ isOpen, onClose }) {
                             value={linebetId}
                             onChange={(e) => setLinebetId(e.target.value)}
                             placeholder="Ex : 123456789"
-                            className="w-full bg-midnight/60 border border-edge/60 rounded-xl pl-10 pr-4 py-3 text-white text-sm placeholder:text-gray-600 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-all"
+                            className="w-full bg-midnight/60 border border-edge/60 rounded-xl pl-10 pr-4 py-3 text-papier text-sm placeholder:text-couture focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-all"
                             onKeyDown={(e) => {
                               if (e.key === 'Enter' && linebetId.trim()) handleSubmitId()
                             }}
                           />
                         </div>
-                        <p className="text-[10px] text-gray-600 mt-1.5">
+                        <p className="text-[10px] text-couture mt-1.5">
                           Vous trouverez votre ID dans votre profil LINEBET (section "Mon compte")
                         </p>
                       </div>
@@ -296,7 +296,7 @@ function VipModal({ isOpen, onClose }) {
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-gold/60 flex-shrink-0" strokeLinecap="round" strokeLinejoin="round">
                           <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
                         </svg>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-cendre">
                           Assurez-vous d'avoir utilisé le code <span className="text-gold font-semibold">VISION221</span> et effectué un dépôt de 10 000 Fr minimum.
                         </p>
                       </div>
@@ -340,10 +340,10 @@ function VipModal({ isOpen, onClose }) {
                           <polyline points="20 6 9 17 4 12"/>
                         </svg>
                       </div>
-                      <h3 className="text-lg font-extrabold text-white mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
+                      <h3 className="text-lg font-extrabold text-papier mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
                         DEMANDE ENVOYÉE !
                       </h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">
+                      <p className="text-cendre text-sm leading-relaxed">
                         Votre demande d'accès VIP a été envoyée via WhatsApp. Nous vérifierons votre inscription LINEBET et vous recevrez votre accès VIP sous peu.
                       </p>
                     </motion.div>
@@ -399,12 +399,12 @@ function VipCouponRow({ match, league, time, homeLogo, awayLogo, homeTeam, awayT
       {/* Team logos + Match name */}
       <div className="flex items-center gap-1.5 flex-1 min-w-0">
         <VipTeamLogo src={homeLogo} name={homeTeam} size={18} />
-        <span className="text-gray-300 text-[11px] sm:text-sm font-medium truncate">{match}</span>
+        <span className="text-cendre text-[11px] sm:text-sm font-medium truncate">{match}</span>
         <VipTeamLogo src={awayLogo} name={awayTeam} size={18} />
       </div>
 
       {/* League */}
-      <span className="hidden sm:block text-gray-600 text-[10px] flex-shrink-0 max-w-[90px] truncate">{league}</span>
+      <span className="hidden sm:block text-couture text-[10px] flex-shrink-0 max-w-[90px] truncate">{league}</span>
 
       {/* Cote */}
       <span className="text-[10px] sm:text-xs text-gold font-bold bg-gold/10 border border-gold/15 rounded px-1.5 py-0.5 flex-shrink-0 tabular-nums blur-[3px] select-none">{cote.toFixed(2)}</span>
@@ -563,7 +563,7 @@ export default function PromoVip() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg sm:text-xl font-extrabold text-white leading-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
+                      <h3 className="text-lg sm:text-xl font-extrabold text-papier leading-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
                         PRONOSTICS <span className="text-gold animate-pulse-gold">VIP</span>
                       </h3>
                       <p className="text-[10px] text-gold/50 font-medium tracking-wide uppercase">Contenu exclusif verrouillé</p>
@@ -592,25 +592,25 @@ export default function PromoVip() {
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60">
                       <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
                     </svg>
-                    <span className="text-[11px] text-gray-400"><span className="text-white font-semibold">{vipMatches.length}</span> matchs</span>
+                    <span className="text-[11px] text-cendre"><span className="text-papier font-semibold">{vipMatches.length}</span> matchs</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60">
                       <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
                     </svg>
-                    <span className="text-[11px] text-gray-400">{couponDate}</span>
+                    <span className="text-[11px] text-cendre">{couponDate}</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gold/60">
                       <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
                     </svg>
-                    <span className="text-[11px] text-gray-400">Cote <span className="text-gold font-bold">10.00</span></span>
+                    <span className="text-[11px] text-cendre">Cote <span className="text-gold font-bold">10.00</span></span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-emerald/60">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
-                    <span className="text-[11px] text-gray-400">Fiabilité <span className="text-emerald font-semibold">{'>'}90%</span></span>
+                    <span className="text-[11px] text-cendre">Fiabilité <span className="text-emerald font-semibold">{'>'}90%</span></span>
                   </div>
                 </div>
 
@@ -634,7 +634,7 @@ export default function PromoVip() {
 
                 {/* Coupon total cote bar */}
                 <div className="flex items-center justify-between bg-gold/5 border border-gold/10 rounded-lg px-3 py-2 mb-5">
-                  <span className="text-[11px] text-gray-500 font-medium">Cote totale du coupon</span>
+                  <span className="text-[11px] text-cendre font-medium">Cote totale du coupon</span>
                   <span className="text-sm text-gold font-bold tabular-nums">10.00</span>
                 </div>
 
@@ -644,7 +644,7 @@ export default function PromoVip() {
                   className="relative flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-gold to-gold-dark text-midnight font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-gold/30 transition-all hover:brightness-110 w-full cursor-pointer overflow-hidden group/btn"
                 >
                   {/* Shimmer effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-papier/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700" />
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                   <span>Débloquer le VIP</span>
                 </button>
@@ -681,16 +681,16 @@ export default function PromoVip() {
                   </svg>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-papier mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
                   BONUS <span className="text-emerald">EXCLUSIF</span>
                 </h3>
-                <p className="text-gray-400 text-sm mb-5 leading-relaxed">
+                <p className="text-cendre text-sm mb-5 leading-relaxed">
                   Inscrivez-vous avec le code promo et recevez jusqu'à 150$ sur votre premier dépôt.
                 </p>
 
                 {/* Promo code display */}
                 <div className="bg-midnight/60 border border-edge rounded-xl p-4 mb-5 text-center" role="text" aria-label={`Code promo: ${SITE.promoCode}`}>
-                  <div className="text-xs text-gray-500 mb-1">Code promo exclusif</div>
+                  <div className="text-xs text-cendre mb-1">Code promo exclusif</div>
                   <div className="text-2xl sm:text-3xl font-bold tracking-[0.2em] promo-code-shimmer">{SITE.promoCode}</div>
                 </div>
 
@@ -704,7 +704,7 @@ export default function PromoVip() {
                   ].map((f, i) => (
                     <div key={i} className="flex items-center gap-2 bg-midnight/40 rounded-lg px-3 py-2 border border-edge/30">
                       <span className="text-gold flex-shrink-0">{FEATURE_ICONS[f.icon]}</span>
-                      <span className="text-xs text-gray-400">{f.label}</span>
+                      <span className="text-xs text-cendre">{f.label}</span>
                     </div>
                   ))}
                 </div>
@@ -723,13 +723,13 @@ export default function PromoVip() {
                     href={AFFILIATE.linebetDownload}
                     rel={AFFILIATE.rel}
                     target="_blank"
-                    className="flex-1 text-center px-5 py-3 border border-white/10 text-white font-semibold rounded-xl text-sm hover:bg-white/5 transition-all"
+                    className="flex-1 text-center px-5 py-3 border border-papier/10 text-papier font-semibold rounded-xl text-sm hover:bg-papier/5 transition-all"
                   >
                     Télécharger
                   </a>
                 </div>
 
-                <p className="text-[10px] text-gray-600 mt-3 text-center">
+                <p className="text-[10px] text-couture mt-3 text-center">
                   Bonus soumis aux conditions (mise x5, cote min. 1,40)
                 </p>
               </div>

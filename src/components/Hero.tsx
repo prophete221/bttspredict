@@ -29,7 +29,7 @@ export default function Hero() {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-display-xl text-white mb-6 animate-slide-up delay-100">
+          <h1 className="text-display-xl text-papier mb-6 animate-slide-up delay-100">
             Le moteur IA qui{' '}
             <span className="gradient-text-primary">prédit</span>
             <br />
@@ -39,7 +39,7 @@ export default function Hero() {
 
           {/* Subheadline */}
           <p className="text-body-lg text-[var(--color-text-secondary)] mb-8 max-w-2xl mx-auto animate-slide-up delay-200">
-            Modèles Poisson avancés calibrés sur <strong className="text-white">50,000+ matchs</strong>. 
+            Modèles Poisson avancés calibrés sur <strong className="text-papier">50,000+ matchs</strong>. 
             {' '}<span className="text-[var(--color-success)] font-semibold">Précision vérifiable</span> dans l'historique. 
             Code promo <span className="font-mono font-bold text-[var(--color-vip)]">{SITE.promoCode}</span>.
           </p>
@@ -51,7 +51,7 @@ export default function Hero() {
               target="_blank" 
               rel="sponsored noopener"
               className="btn btn-accent text-base px-8 py-4 w-full sm:w-auto shadow-lg"
-              style={{ boxShadow: '0 10px 40px rgba(217, 79, 48, 0.4)' }}
+              style={{ boxShadow: '0 10px 40px rgba(255, 77, 30, 0.4)' }}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
@@ -104,7 +104,7 @@ export default function Hero() {
             {['Premier League', 'La Liga', 'Serie A', 'Ligue 1', 'Bundesliga', 'Champions League', 'Europa League', 'Copa America'].map((league) => (
               <div 
                 key={league}
-                className="px-4 py-2 bg-[var(--color-dark-700)]/50 border border-[var(--color-card-border)] rounded-lg text-sm font-medium text-[var(--color-text-secondary)] hover:text-white hover:border-[var(--color-primary)] transition-all cursor-default"
+                className="px-4 py-2 bg-[var(--color-dark-700)]/50 border border-[var(--color-card-border)] rounded-lg text-sm font-medium text-[var(--color-text-secondary)] hover:text-papier hover:border-[var(--color-primary)] transition-all cursor-default"
               >
                 {league}
               </div>

@@ -40,7 +40,7 @@ export const VIP_LEVELS: Record<VipLevelId, VipLevelConfig> = {
       'Indices de confiance sur chaque pronostic',
       'Support WhatsApp réactif 24/7',
     ],
-    accentColor: '#A8A29E',
+    accentColor: '#E0C191',
   },
   gold: {
     id: 'gold',
@@ -64,7 +64,7 @@ export const VIP_LEVELS: Record<VipLevelId, VipLevelConfig> = {
       'Support WhatsApp prioritaire',
       'Alertes matchs en temps réel',
     ],
-    accentColor: '#A8A29E',
+    accentColor: '#E0C191',
   },
   elite: {
     id: 'elite',
@@ -90,7 +90,7 @@ export const VIP_LEVELS: Record<VipLevelId, VipLevelConfig> = {
       'Accès anticipé aux nouvelles fonctionnalités',
       'Replays des analyses expert',
     ],
-    accentColor: '#C41E3A',
+    accentColor: '#FF4D1E',
   },
   all: {
     id: 'all',
@@ -117,7 +117,7 @@ export const VIP_LEVELS: Record<VipLevelId, VipLevelConfig> = {
       'Analyse personnalisée par notre expert',
       'Replays et archives complètes',
     ],
-    accentColor: '#C41E3A',
+    accentColor: '#FF4D1E',
   },
 }
 
@@ -164,7 +164,7 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={(e) => { if (e.target === e.currentTarget) onClose() }}
-          style={{ backgroundColor: 'rgba(0, 0, 0, 0.85)' }}
+          style={{ backgroundColor: 'rgba(5, 7, 10, 0.85)' }}
         >
           <motion.div
             initial={{ scale: 0.95, y: 10 }}
@@ -173,9 +173,9 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
             transition={{ duration: 0.2 }}
             className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto rounded-2xl"
             style={{
-              backgroundColor: '#050507',
+              backgroundColor: '#05070A',
               border: `1px solid ${config.accentColor}40`,
-              boxShadow: `0 24px 80px rgba(0, 0, 0, 0.8), 0 0 40px ${config.accentColor}20`,
+              boxShadow: `0 24px 80px rgba(5, 7, 10, 0.8), 0 0 40px ${config.accentColor}20`,
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -183,15 +183,15 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
             <button
               onClick={onClose}
               className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center z-10"
-              style={{ backgroundColor: '#14141A', border: '1px solid rgba(255,255,255,0.1)' }}
+              style={{ backgroundColor: '#191E22', border: '1px solid rgba(246, 242, 233,0.1)' }}
               aria-label="Fermer"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F6F2E9" strokeWidth="2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
             </button>
 
             <div className="p-5 sm:p-6">
               {/* Header — résumé du niveau */}
-              <div className="flex items-center gap-3 mb-5 pb-5 border-b" style={{ borderColor: 'rgba(168, 162, 158, 0.15)' }}>
+              <div className="flex items-center gap-3 mb-5 pb-5 border-b" style={{ borderColor: 'rgba(224, 193, 145, 0.15)' }}>
                 <div
                   className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0"
                   style={{
@@ -204,10 +204,10 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                   </svg>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-lg font-bold text-white truncate" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  <h3 className="text-lg font-bold text-papier truncate" style={{ fontFamily: 'Poppins, sans-serif' }}>
                     {config.level}
                   </h3>
-                  <p className="text-[11px]" style={{ color: '#7A7874' }}>{config.tagline}</p>
+                  <p className="text-[11px]" style={{ color: '#9E9B96' }}>{config.tagline}</p>
                   <p className="text-[11px] mt-1" style={{ color: config.accentColor }}>
                     Dépôt min. <span className="font-bold">{config.deposit}</span> · {config.pronosPerDay}
                   </p>
@@ -215,7 +215,7 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
               </div>
 
               {/* Title procédure */}
-              <p className="text-[11px] uppercase tracking-widest font-bold mb-4" style={{ color: '#7A7874' }}>
+              <p className="text-[11px] uppercase tracking-widest font-bold mb-4" style={{ color: '#9E9B96' }}>
                 Procédure de déblocage
               </p>
 
@@ -224,22 +224,22 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                 <div className="flex items-center gap-2 mb-3">
                   <span
                     className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
-                    style={{ backgroundColor: '#14141A', color: config.accentColor, border: `1px solid ${config.accentColor}40` }}
+                    style={{ backgroundColor: '#191E22', color: config.accentColor, border: `1px solid ${config.accentColor}40` }}
                   >1</span>
-                  <span className="text-sm font-semibold text-white">Copie le code promo</span>
+                  <span className="text-sm font-semibold text-papier">Copie le code promo</span>
                 </div>
                 <button
                   onClick={copyCode}
                   className="w-full p-4 rounded-xl flex items-center justify-between transition-all"
                   style={{
-                    backgroundColor: '#0C0C10',
+                    backgroundColor: '#0F1316',
                     border: `1px solid ${config.accentColor}40`,
                     boxShadow: copied ? `0 0 20px ${config.accentColor}30` : 'none',
                   }}
                   aria-label="Copier le code promo VISION221"
                 >
                   <div>
-                    <div className="text-[10px] uppercase tracking-widest font-bold mb-1" style={{ color: '#7A7874' }}>
+                    <div className="text-[10px] uppercase tracking-widest font-bold mb-1" style={{ color: '#9E9B96' }}>
                       Code promo (majuscules)
                     </div>
                     <div className="font-mono text-2xl font-black tracking-[0.1em]" style={{ color: config.accentColor }}>
@@ -266,14 +266,14 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                 <div className="flex items-center gap-2 mb-3">
                   <span
                     className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
-                    style={{ backgroundColor: '#14141A', color: config.accentColor, border: `1px solid ${config.accentColor}40` }}
+                    style={{ backgroundColor: '#191E22', color: config.accentColor, border: `1px solid ${config.accentColor}40` }}
                   >2</span>
-                  <span className="text-sm font-semibold text-white">
+                  <span className="text-sm font-semibold text-papier">
                     Inscris-toi et dépose <span style={{ color: config.accentColor }}>{config.deposit}</span> minimum
                   </span>
                 </div>
-                <p className="text-[12px] mb-3 ml-9" style={{ color: '#7A7874' }}>
-                  Choisis ton bookmaker, inscris-toi avec le code <span className="font-mono font-bold text-white">VISION221</span>, puis effectue un dépôt via Wave, Orange Money, Free Money ou carte bancaire.
+                <p className="text-[12px] mb-3 ml-9" style={{ color: '#9E9B96' }}>
+                  Choisis ton bookmaker, inscris-toi avec le code <span className="font-mono font-bold text-papier">VISION221</span>, puis effectue un dépôt via Wave, Orange Money, Free Money ou carte bancaire.
                 </p>
                 <div className="grid grid-cols-2 gap-2 ml-9">
                   <a
@@ -281,7 +281,7 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                     rel="sponsored noopener"
                     target="_blank"
                     className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold transition-all"
-                    style={{ backgroundColor: config.accentColor, color: '#FFFFFF' }}
+                    style={{ backgroundColor: config.accentColor, color: '#F6F2E9' }}
                   >
                     Inscription Linebet →
                   </a>
@@ -306,12 +306,12 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                 <div className="flex items-center gap-2 mb-3">
                   <span
                     className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
-                    style={{ backgroundColor: '#14141A', color: config.accentColor, border: `1px solid ${config.accentColor}40` }}
+                    style={{ backgroundColor: '#191E22', color: config.accentColor, border: `1px solid ${config.accentColor}40` }}
                   >3</span>
-                  <span className="text-sm font-semibold text-white">Confirme ton accès via WhatsApp</span>
+                  <span className="text-sm font-semibold text-papier">Confirme ton accès via WhatsApp</span>
                 </div>
-                <p className="text-[12px] mb-3 ml-9" style={{ color: '#7A7874' }}>
-                  Envoie une capture de ton dépôt + ton ID joueur sur WhatsApp. Notre équipe active ton <span className="font-semibold text-white">{config.level}</span> en moins de 30 minutes.
+                <p className="text-[12px] mb-3 ml-9" style={{ color: '#9E9B96' }}>
+                  Envoie une capture de ton dépôt + ton ID joueur sur WhatsApp. Notre équipe active ton <span className="font-semibold text-papier">{config.level}</span> en moins de 30 minutes.
                 </p>
                 <a
                   href={`https://wa.me/15406704172?text=${encodeURIComponent(whatsappMsg)}`}
@@ -333,16 +333,16 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
               <div
                 className="p-4 rounded-xl mb-4"
                 style={{
-                  backgroundColor: '#0C0C10',
-                  border: '1px solid rgba(168, 162, 158, 0.15)',
+                  backgroundColor: '#0F1316',
+                  border: '1px solid rgba(224, 193, 145, 0.15)',
                 }}
               >
-                <p className="text-[10px] uppercase tracking-widest font-bold mb-2" style={{ color: '#7A7874' }}>
+                <p className="text-[10px] uppercase tracking-widest font-bold mb-2" style={{ color: '#9E9B96' }}>
                   Ce que tu débloques
                 </p>
                 <ul className="space-y-1.5">
                   {config.perks.map((perk, i) => (
-                    <li key={i} className="flex items-start gap-2 text-[12px]" style={{ color: '#A8A29E' }}>
+                    <li key={i} className="flex items-start gap-2 text-[12px]" style={{ color: '#E0C191' }}>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={config.accentColor} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5">
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
@@ -353,7 +353,7 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
               </div>
 
               {/* Confidentialité */}
-              <p className="text-[10px] text-center" style={{ color: '#7A7874' }}>
+              <p className="text-[10px] text-center" style={{ color: '#9E9B96' }}>
                 {config.duration} · 18+ | Jeu responsable | Aucune donnée bancaire collectée
               </p>
             </div>

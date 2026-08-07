@@ -23,15 +23,15 @@ export default function PromoBanner() {
               <div className="text-center">
                 {/* Logo placeholder */}
                 <div className="w-16 h-16 bg-gold/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FACC15" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E0C191" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/>
                   </svg>
                 </div>
 
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-papier mb-3">
                   Bonus Exclusif Linebet
                 </h2>
-                <p className="text-gray-400 mb-6 max-w-md mx-auto">
+                <p className="text-cendre mb-6 max-w-md mx-auto">
                   Inscrivez-vous avec le code promo{' '}
                   <span className="text-gold font-bold">{SITE.promoCode}</span>
                   {' '}et recevez jusqu'à <span className="text-emerald font-bold">150$</span> sur le premier dépôt
@@ -39,7 +39,7 @@ export default function PromoBanner() {
 
                 {/* Promo code display */}
                 <div className="inline-flex items-center gap-3 bg-dark-900/60 border border-dark-600 rounded-xl px-6 py-3 mb-6 glass-3d">
-                  <span className="text-xs text-gray-500">Code :</span>
+                  <span className="text-xs text-cendre">Code :</span>
                   <span className="text-gold font-mono font-bold text-xl tracking-widest animate-pulse-neon">{SITE.promoCode}</span>
                 </div>
 
@@ -57,13 +57,13 @@ export default function PromoBanner() {
                     href={AFFILIATE.linebetDownload}
                     rel={AFFILIATE.rel}
                     target="_blank"
-                    className="px-8 py-4 border border-white/10 text-white font-semibold rounded-xl text-base hover:bg-white/5 transition-all w-full sm:w-auto"
+                    className="px-8 py-4 border border-papier/10 text-papier font-semibold rounded-xl text-base hover:bg-papier/5 transition-all w-full sm:w-auto"
                   >
                     Télécharger l'App
                   </a>
                 </div>
 
-                <p className="text-xs text-gray-600">
+                <p className="text-xs text-couture">
                   Bonus soumis aux conditions de mise (mise x5, cote minimale 1,40). Offre limitée dans le temps.
                 </p>
               </div>

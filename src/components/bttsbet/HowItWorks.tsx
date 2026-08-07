@@ -98,7 +98,7 @@ export default function HowItWorks() {
               className="squircle-lg p-6 relative group hover:border-success/30 transition-all"
             >
               {/* Step number */}
-              <div className="absolute top-4 right-4 text-[10px] font-mono text-gray-400 tabular-nums">
+              <div className="absolute top-4 right-4 text-[10px] font-mono text-cendre tabular-nums">
                 {card.step}
               </div>
 
@@ -113,12 +113,12 @@ export default function HowItWorks() {
               </span>
 
               {/* Title */}
-              <h3 className="text-lg font-bold text-white mt-1 mb-3">
+              <h3 className="text-lg font-bold text-papier mt-1 mb-3">
                 {card.title}
               </h3>
 
               {/* Description */}
-              <p className="text-sm text-gray-400 leading-relaxed mb-4">
+              <p className="text-sm text-cendre leading-relaxed mb-4">
                 {card.description}
               </p>
 
@@ -126,8 +126,8 @@ export default function HowItWorks() {
               <div className="grid grid-cols-2 gap-2 pt-4 border-t border-edge">
                 {card.stats.map((stat, j) => (
                   <div key={j}>
-                    <div className="text-sm font-bold text-white tabular-nums">{stat.value}</div>
-                    <div className="text-[10px] text-gray-400 uppercase tracking-wider font-medium mt-0.5">
+                    <div className="text-sm font-bold text-papier tabular-nums">{stat.value}</div>
+                    <div className="text-[10px] text-cendre uppercase tracking-wider font-medium mt-0.5">
                       {stat.label}
                     </div>
                   </div>

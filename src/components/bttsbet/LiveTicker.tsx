@@ -215,8 +215,8 @@ export default function LiveTicker() {
                       </div>
                     ) : (
                       <div>
-                        <div className="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Heure</div>
-                        <div className="text-white font-bold text-xs font-mono tabular-nums">{timeLabel}</div>
+                        <div className="text-[10px] text-cendre uppercase tracking-widest font-bold">Heure</div>
+                        <div className="text-papier font-bold text-xs font-mono tabular-nums">{timeLabel}</div>
                       </div>
                     )}
                   </div>
@@ -228,9 +228,9 @@ export default function LiveTicker() {
                     {currentMatch.homeLogo && (
                       <img src={currentMatch.homeLogo} alt={`Logo ${home}`} className="w-5 h-5 object-contain flex-shrink-0" loading="lazy" />
                     )}
-                    <span className="text-white text-xs font-semibold truncate">{home}</span>
-                    <span className="text-gray-400 text-[10px] flex-shrink-0 font-mono">VS</span>
-                    <span className="text-white text-xs font-semibold truncate">{away}</span>
+                    <span className="text-papier text-xs font-semibold truncate">{home}</span>
+                    <span className="text-cendre text-[10px] flex-shrink-0 font-mono">VS</span>
+                    <span className="text-papier text-xs font-semibold truncate">{away}</span>
                     {currentMatch.awayLogo && (
                       <img src={currentMatch.awayLogo} alt={`Logo ${away}`} className="w-5 h-5 object-contain flex-shrink-0" loading="lazy" />
                     )}
@@ -239,7 +239,7 @@ export default function LiveTicker() {
                   <div className="hidden sm:block w-px h-8 bg-edge flex-shrink-0" />
 
                   {/* League */}
-                  <div className="hidden sm:block text-[10px] text-gray-400 truncate max-w-[120px] flex-shrink-0">
+                  <div className="hidden sm:block text-[10px] text-cendre truncate max-w-[120px] flex-shrink-0">
                     {currentMatch.league}
                   </div>
 
@@ -249,7 +249,7 @@ export default function LiveTicker() {
                   <div className="flex items-center gap-1.5 flex-shrink-0">
                     <span className="badge badge-cyan text-[9px]">{currentMatch.type}</span>
                     <span className="text-violet-light font-bold text-xs">{currentMatch.prediction}</span>
-                    <span className="text-gray-400 text-[10px] tabular-nums hidden sm:inline">({currentMatch.confidence}%)</span>
+                    <span className="text-cendre text-[10px] tabular-nums hidden sm:inline">({currentMatch.confidence}%)</span>
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -257,9 +257,9 @@ export default function LiveTicker() {
 
             {/* Counter — X/N */}
             <div className="hidden sm:flex items-center px-4 py-2.5 border-l border-edge bg-dark-800 flex-shrink-0">
-              <div className="text-[10px] text-gray-400 tabular-nums font-mono">
+              <div className="text-[10px] text-cendre tabular-nums font-mono">
                 <span className="text-violet-light font-bold">{currentIndex + 1}</span>
-                <span className="text-gray-400">/{matches.length}</span>
+                <span className="text-cendre">/{matches.length}</span>
               </div>
             </div>
           </div>

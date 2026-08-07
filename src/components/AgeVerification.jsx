@@ -78,12 +78,12 @@ export default function AgeVerification() {
             </div>
 
             {/* Title */}
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-papier mb-4">
               Vérification d&apos;âge
             </h2>
 
             {/* Description */}
-            <p className="text-gray-400 mb-8 text-sm sm:text-base leading-relaxed max-w-sm mx-auto">
+            <p className="text-cendre mb-8 text-sm sm:text-base leading-relaxed max-w-sm mx-auto">
               Ce site contient des informations sur les paris sportifs. Vous devez avoir au moins 18 ans pour accéder à ce contenu.
             </p>
 
@@ -91,7 +91,7 @@ export default function AgeVerification() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <button
                 onClick={handleDeny}
-                className="px-6 py-3.5 border border-red-500/30 rounded-xl text-red-400 font-semibold hover:bg-red-500/10 hover:border-red-500/50 transition-all text-sm"
+                className="px-6 py-3.5 border border-braise/30 rounded-xl text-braise font-semibold hover:bg-braise/10 hover:border-braise/50 transition-all text-sm"
               >
                 Je suis mineur
               </button>
@@ -104,7 +104,7 @@ export default function AgeVerification() {
             </div>
 
             {/* Subtle note */}
-            <p className="text-[11px] text-gray-600 mt-6">
+            <p className="text-[11px] text-couture mt-6">
               En confirmant, vous reconnaissez avoir l&apos;âge légal pour consulter du contenu lié aux paris sportifs.
             </p>
           </motion.div>
