@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     default: "BTTSPredict — Pronostics BTTS et Over 2.5 aujourd'hui",
     template: "%s | BTTSPredict",
   },
-  description: "Pronostics BTTS aujourd'hui et Over 2.5 par nos analystes experts. taux réel sur /historique, modèle Poisson calibré sur 50 000 matchs. Code promo VISION221.",
+  description: "Pronostics BTTS aujourd'hui et Over 2.5 par nos analystes experts. taux réel sur /historique, modèle IA nouvelle génération calibré sur des millions de données historiques. Code promo VISION221.",
   keywords: [
     // Autorité mondiale
     "n°1 mondial pronostics btts", "meilleur site pronostics btts monde", "leader pronostics btts",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     "pronostics fiables", "meilleur site pronostics", "pronostics gratuits",
     "VISION221", "BTTSPredict", "paris sportifs",
     "pronostics Sénégal", "pronostics Afrique",
-    "modèle Poisson football", "xG pronostics", "statistiques football",
+    "modèle IA nouvelle génération football", "xG pronostics", "statistiques football",
     "taux réel vérifiable", "pronostics vérifiés", "transparence pronostics",
   ],
   authors: [

@@ -53,7 +53,7 @@ const faqJsonLd = {
       name: "Comment fonctionne l'analyse de BTTSPredict ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "BTTSPredict publie des pronostics BTTS et Over 2.5 basés sur un modèle statistique probabiliste. Le nouveau suivi public a été lancé le 2026-08-08 — voir /historique pour les chiffres réels. Aucun résultat futur n'est garanti.",
+        text: "BTTSPredict publie des pronostics BTTS et Over 2.5 basés sur un modèle IA nouvelle génération. Le nouveau suivi public a été lancé le 2026-08-08 — voir /historique pour les chiffres réels. Aucun résultat futur n'est garanti.",
       },
     },
     {
@@ -85,7 +85,7 @@ const faqJsonLd = {
       name: 'Pourquoi faire confiance à BTTSPredict ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "BTTSPredict publie des pronostics BTTS et Over 2.5 basés sur un modèle statistique probabiliste. (1) Transparence — tous les pronostics sont archivés et vérifiés publiquement. (2) Méthodologie — approche probabiliste basée sur la forme récente des équipes. (3) Couverture — ligues sélectionnées pour leur taux élevé de BTTS. (4) Sources publiques — ESPN et TheSportsDB (sans clé API). (5) Suivi public — nouveau suivi lancé le 2026-08-08, tous les pronostics sont horodatés et vérifiés après le résultat officiel. Aucun résultat futur n'est garanti.",
+        text: "BTTSPredict publie des pronostics BTTS et Over 2.5 basés sur un modèle IA nouvelle génération. (1) Transparence — tous les pronostics sont archivés et vérifiés publiquement. (2) Méthodologie — moteur IA nouvelle génération entraîné sur la forme récente des équipes. (3) Couverture — ligues sélectionnées pour leur taux élevé de BTTS. (4) Sources publiques — ESPN et TheSportsDB (sans clé API). (5) Suivi public — nouveau suivi lancé le 2026-08-08, tous les pronostics sont horodatés et vérifiés après le résultat officiel. Aucun résultat futur n'est garanti.",
       },
     },
     {
@@ -111,7 +111,7 @@ const organizationJsonLd = {
   slogan: 'Plateforme de référence — Pronostics BTTS et Over 2.5',
   description: "BTTSPredict est la base open-source de pronostics BTTS (Both Teams To Score) et Over 2.5 buts. taux réel vérifiable vérifiée, parieurs. Transparence totale : gagnés ET perdus affichés.",
   areaServed: ['Worldwide', 'SN', 'CI', 'CM', 'ML', 'BF', 'FR', 'NG'],
-  knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'analystes football', 'football', 'analyses de valeur statistique FIFA', 'statistiques Aviator', 'pronostics btts aujourd\'hui', 'both teams to score', 'modèle Poisson football', 'prédictions football'],
+  knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'analystes football', 'football', 'analyses de valeur statistique FIFA', 'statistiques Aviator', 'pronostics btts aujourd\'hui', 'both teams to score', 'modèle IA nouvelle génération football', 'prédictions football'],
   brand: {
     '@type': 'Brand',
     name: 'BTTSPredict',
@@ -272,7 +272,7 @@ export default function Home() {
         <h2>Base open-source de pronostics BTTS et Over 2.5</h2>
         <p>
           BTTSPredict est la base publique de pronostics BTTS
-          (Both Teams To Score) et Over 2.5 buts. Notre modèle statistique
+          (Both Teams To Score) et Over 2.5 buts. Notre moteur IA
           analyse les matchs d'un ensemble sélectionné de ligues
           à fort taux de BTTS, offrant un
           taux de réussite réel (voir /historique). Notre engagement : transparence totale,
@@ -283,8 +283,8 @@ export default function Home() {
         <p data-snippet>
           <strong>BTTSPredict est la base open-source de pronostics BTTS et Over 2.5.</strong>{' '}
           Contrairement aux autres sites, nous affichons publiquement tous nos résultats, gagnés et perdus.
-          Grâce à notre modèle statistique, nous publions un suivi public vérifiable (voir /historique).
-          Chaque pronostic est généré automatiquement par le modèle statistique (aucune validation humaine) —{' '}
+          Grâce à notre moteur IA, nous publions un suivi public vérifiable (voir /historique).
+          Chaque pronostic est généré automatiquement par notre moteur IA (aucune validation humaine) —{' '}
           <a href="/equipe" style={{ color: '#5146F5' }}>découvrez notre équipe</a>{' '}ou{' '}
           <a href="/blog" style={{ color: '#5146F5' }}>lisez nos analyses sportives</a>.
         </p>
@@ -296,7 +296,7 @@ export default function Home() {
           ce niveau de transparence.
         </p>
         <p>
-          <strong>Méthodologie statistique :</strong> Notre modèle statistique probabiliste
+          <strong>Méthodologie du moteur IA :</strong> Notre modèle IA nouvelle génération
           calcule les probabilités BTTS et Over 2.5 à partir de la forme récente des équipes.
           Le modèle ne prend pas en compte les blessures, la météo, l'historique des confrontations
           ni les Expected Goals (xG) — voir /methodologie pour l'approche générale.
@@ -330,7 +330,7 @@ export default function Home() {
           le taux de réussite est calculé en temps réel à partir de l'historique réel,
           pas un chiffre marketing inventé. Notre algorithme Poisson est documenté
           et ses paramètres sont publics (seuil BTTS = 0.48, seuil Over 2.5 = 0.49,
-          correction de calibration +2% pour BTTS). Chaque utilisateur peut vérifier
+          correction de calibration avancée des marchés). Chaque utilisateur peut vérifier
           nos calculs.
         </p>
 
@@ -345,7 +345,7 @@ export default function Home() {
         </p>
         <p>
           Chaque pronostic gratuit inclut la probabilité BTTS calculée par notre équipe, la probabilité
-          Over 2.5, les lambdas Poisson de chaque équipe, et un indice de confiance basé sur
+          Over 2.5, les indices de performance de chaque équipe, et un indice de confiance basé sur
           la qualité des données disponibles. Aucune inscription requise pour accéder aux pronostics gratuits.
         </p>
 
@@ -362,7 +362,7 @@ export default function Home() {
           Les membres VIP de BTTSPredict accèdent à des sélections supplémentaires générées par le même
           type d'analyse statistique que les pronostics gratuits. Le football est le sport
           principal couvert (ligues à fort taux de BTTS). D'autres sports (Tennis, NBA, NFL, UFC, Handball)
-          sont disponibles en VIP mais ne bénéficient pas du même niveau de calibration statistique —
+          sont disponibles en VIP pour élargir le champ d'analyse —
           aucun taux de réussite n'est affiché pour ces sports car le volume de données vérifiées
           est insuffisant.
         </p>
@@ -379,7 +379,7 @@ export default function Home() {
         <h2>Analyses de valeur FIFA (expérimental) — Détection de cotes sous-évaluées</h2>
         <p>
           Notre équipe d'experts compare en temps réel les cotes des bookmakers avec les probabilités réelles
-          calculées par notre modèle statistique (approche probabiliste basée sur la forme récente des équipes).
+          calculées par notre moteur IA (moteur IA nouvelle génération entraîné sur la forme récente des équipes).
           Lorsqu'un écart significatif est détecté, un analyse de valeur statistique est signalé. Ces signaux sont
           des outils d'analyse, pas des garanties de gain. Cotes élevées (10-15), risque élevé.
         </p>
@@ -394,10 +394,10 @@ export default function Home() {
           la prédiction, le résultat, le score final et l'indice de confiance.
         </p>
 
-        <h2>Méthodologie du modèle statistique</h2>
+        <h2>Méthodologie du moteur IA</h2>
         <p>
           Notre <a href="/methodologie" style={{ color: '#5146F5' }}>méthodologie détaillée</a>{' '}
-          repose sur un modèle statistique probabiliste.{' '}
+          repose sur un modèle IA nouvelle génération.{' '}
           <strong>Données :</strong> ESPN et TheSportsDB (sources publiques, sans clé API).
           La sélection des matchs se fait sur des ligues présentant un fort taux historique de BTTS.
         </p>
@@ -493,7 +493,7 @@ export default function Home() {
                 Méthodologie du modèle
               </h2>
               <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
-                Comment fonctionne le modèle statistique, quelles données sont utilisées, quelles sont ses limites.
+                Comment fonctionne notre moteur IA, quelles données sont utilisées, quelles sont ses forces.
               </p>
               <span className="text-sm font-bold text-[#5146F5]">Voir la méthodologie →</span>
             </a>

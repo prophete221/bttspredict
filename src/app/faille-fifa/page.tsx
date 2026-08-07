@@ -231,7 +231,7 @@ export default function FailleFifaPage() {
                     <span className="text-xs font-black text-or bg-or/15 px-2 py-0.5 rounded">ÉTAPE 2</span>
                     <span className="text-papier font-bold text-sm">Calcul de la probabilité réelle</span>
                   </div>
-                  <p className="text-cendre text-sm leading-relaxed">Notre modèle statistique (gradient boosting entraîné sur 50 000+ matchs FIFA) calcule la probabilité réelle de chaque événement en tenant compte de 47 variables : ratings détaillés, forme récente, patterns de variance, heure de la journée, et historique des résultats.</p>
+                  <p className="text-cendre text-sm leading-relaxed">Notre moteur IA nouvelle génération, entraîné sur 50 000+ matchs FIFA, calcule la probabilité réelle de chaque événement en tenant compte de multiples variables : ratings détaillés, forme récente, patterns de variance, heure de la journée, et historique des résultats.</p>
                 </div>
                 <div className="bg-dark-800/50 border border-edge rounded-xl p-4">
                   <div className="flex items-center gap-2 mb-2">

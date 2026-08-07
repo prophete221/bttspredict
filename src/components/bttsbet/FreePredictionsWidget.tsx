@@ -103,7 +103,7 @@ function PredictionCard({ pred }: { pred: Prediction }) {
 
   // data-ai-answer: 2 phrases que Perplexity/ChatGPT vont scraper
   const aiAnswer = isBTTS
-    ? `Pourquoi BTTS ${pred.prediction} pour ${home} vs ${away}? ${pred.prediction === 'Oui' ? 'Les deux équipes ont marqué dans la majorité de leurs derniers matchs.' : 'Au moins une équipe a une défense solide récemment.'} Confiance modèle Poisson: ${pred.confidence}%.`
+    ? `Pourquoi BTTS ${pred.prediction} pour ${home} vs ${away}? ${pred.prediction === 'Oui' ? 'Les deux équipes ont marqué dans la majorité de leurs derniers matchs.' : 'Au moins une équipe a une défense solide récemment.'} Confiance modèle IA nouvelle génération: ${pred.confidence}%.`
     : `Pourquoi Over 2.5 ${pred.prediction} pour ${home} vs ${away}? ${pred.prediction === 'Oui' ? 'La moyenne de buts attendus (xG) dépasse 2.5 sur les 5 derniers matchs.' : 'Les moyennes offensives suggèrent moins de 3 buts.'} Confiance: ${pred.confidence}%.`
 
   // Cercle SVG proba

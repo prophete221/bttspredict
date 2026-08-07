@@ -4,12 +4,12 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: "Pronostics BTTS et Over 2.5 du jour",
-  description: "Pronostics BTTS et Over 2.5 du jour basés sur un modèle statistique probabiliste. Sélections filtrées par ligues à fort taux de BTTS et forme récente des équipes. 18+.",
+  description: "Pronostics BTTS et Over 2.5 du jour basés sur un modèle IA nouvelle génération. Sélections filtrées par ligues à fort taux de BTTS et forme récente des équipes. 18+.",
   alternates: { canonical: 'https://bttspredict.com/pronostics' },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Pronostics BTTS et Over 2.5 du jour — BTTSPredict",
-    description: "Pronostics BTTS et Over 2.5 basés sur un modèle statistique probabiliste. 18+. Aucun gain garanti.",
+    description: "Pronostics BTTS et Over 2.5 basés sur un modèle IA nouvelle génération. 18+. Aucun gain garanti.",
     url: 'https://bttspredict.com/pronostics',
     type: 'website',
   },
@@ -30,7 +30,7 @@ export default function PronosticsPage() {
               Pronostics BTTS et Over 2.5
             </h1>
             <p className="text-base sm:text-lg text-[#A5ABC5] leading-relaxed mb-3">
-              Sélections du jour générées par le modèle statistique probabiliste, filtrées par ligues à fort taux de BTTS et forme récente des équipes.
+              Sélections du jour générées par le modèle IA nouvelle génération, filtrées par ligues à fort taux de BTTS et forme récente des équipes.
             </p>
             <p className="text-sm text-[#6B7194] leading-relaxed">
               Aucun gain n'est garanti. Les pronostics sont publiés à titre informatif. 18+.

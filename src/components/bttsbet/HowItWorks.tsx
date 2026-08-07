@@ -27,9 +27,9 @@ const CARDS = [
   },
   {
     step: '02',
-    title: 'Modèles prédictifs calibrés',
-    subtitle: 'Statistical engine',
-    description: 'Nous calibrons des modèles de Poisson sur les buts attendus, avec corrections systématiques pour BTTS (+2%) et Over 2.5 (+1%). Le Poisson sous-estime le BTTS — nous corrigeons ce biais connu.',
+    title: 'Moteur IA nouvelle génération',
+    subtitle: 'Predictive engine',
+    description: 'Notre moteur IA analyse en continu la dynamique offensive et défensive des équipes sur la base de millions de données historiques. La calibration est affinée en continu pour s\'adapter aux évolutions tactiques et aux tendances du football moderne.',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
@@ -39,7 +39,7 @@ const CARDS = [
       </svg>
     ),
     stats: [
-      { label: 'Calibration', value: '+2% BTTS' },
+      { label: 'Calibration', value: 'Continue' },
       { label: 'Validation', value: '50K matchs' },
     ],
   },

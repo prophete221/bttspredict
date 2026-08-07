@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 }
 
 const FAQ = [
-  { q: "Comment sont analysés les matchs ?", a: "Chaque match est analysé avec 200+ variables : xG des deux équipes, forme récente, blessures, historique des confrontations, conditions météo. Le modèle Poisson calcule ensuite les probabilités BTTS et Over 2.5." },
+  { q: "Comment sont analysés les matchs ?", a: "Chaque match est analysé avec 200+ variables : xG des deux équipes, forme récente, blessures, historique des confrontations, conditions météo. Le modèle IA nouvelle génération calcule ensuite les probabilités BTTS et Over 2.5." },
   { q: "Combien de matchs analysés par jour ?", a: "BTTSPredict publie 6 pronostics gratuits par jour. Les membres VIP ont accès à 20+ pronostics premium par jour sur 6 sports." },
   { q: "Puis-je voir l'analyse détaillée d'un match ?", a: "Sur notre page d'accueil, chaque carte de match affiche les probabilités BTTS, Over 2.5, les buts attendus (xG) et l'indice de confiance." },
   { q: "Les pronostics par match sont-ils garantis ?", a: "Non. Aucun pronostic n'est garanti. Les paris sportifs comportent des risques. 18+ — Jeu responsable." },
@@ -61,7 +61,7 @@ export default function MatchPredictionsPage() {
         <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: '#0D1630', border: '1px solid rgba(247, 248, 255, 0.08)' }}>
           <h2 className="text-xl font-bold mb-4" style={{ color: '#F7F8FF', fontFamily: 'Poppins, sans-serif' }}>Analyse détaillée par match</h2>
           <div className="text-sm leading-relaxed space-y-3" style={{ color: '#A5ABC5' }}>
-            <p>Chaque match est analysé avec 200+ variables. Notre modèle Poisson calcule les probabilités pour chaque marché : BTTS (seuil 0.48), Over 2.5 (seuil 0.49), et score exact (matrice de Poisson complète).</p>
+            <p>Chaque match est analysé avec 200+ variables. Notre modèle IA nouvelle génération calcule les probabilités pour chaque marché : BTTS (seuil 0.48), Over 2.5 (seuil 0.49), et score exact (matrice de Poisson complète).</p>
             <p>Chaque carte de match sur notre page d'accueil affiche : les deux équipes, la ligue, la date/heure, les buts attendus (xG), les probabilités BTTS et Over 2.5, et un indice de confiance.</p>
             <p>Pour voir nos analyses de matchs, consultez notre <a href="/" style={{ color: '#5146F5' }}>page d'accueil</a> ou notre <a href="/historique" style={{ color: '#5146F5' }}>historique vérifié</a>.</p>
           </div>

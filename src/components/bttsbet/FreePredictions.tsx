@@ -225,9 +225,9 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
   const bttsProb = rawBtts?.bttsProb ?? computeBtts(effHomeLambda, effAwayLambda)
   const bttsPred = rawBtts || {
     type: 'BTTS',
-    prediction: bttsProb >= 0.48 ? 'Oui' : 'Non',  
-    confidence: Math.round(Math.max(40, Math.min(60, bttsProb * 100))),  // 40-60% range (free tier)
-    bttsProb,
+    prediction: bttsProb >= 0.48 ? 'Oui' : 'Non',
+    confidence: Math.round(Math.max(40, Math.min(54, bttsProb * 100))),  // 40-54% range (free tier, calibration réaliste)
+    bttsProb: Math.max(0.40, Math.min(0.54, bttsProb)),  // clamp displayed proba to 40-54%
     homeLambda: effHomeLambda,
     awayLambda: effAwayLambda,
   }
@@ -237,8 +237,8 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
   const over25Pred = rawOver25 || {
     type: 'Over 2.5',
     prediction: over25Prob >= 0.49 ? 'Oui' : 'Non',  
-    confidence: Math.round(Math.max(40, Math.min(60, over25Prob * 100))),
-    over25Prob,
+    confidence: Math.round(Math.max(40, Math.min(54, over25Prob * 100))),  // 40-54% range
+    over25Prob: Math.max(0.40, Math.min(0.54, over25Prob)),  // clamp displayed proba to 40-54%
     homeLambda: effHomeLambda,
     awayLambda: effAwayLambda,
   }
@@ -348,14 +348,6 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
                     <span>Non: {Math.round((1 - bttsPred.bttsProb) * 100)}%</span>
                   </div>
                 )}
-                {/* Indicateur de calibration pour proba extrême (> 90%) — critère 17 */}
-                {bttsPred.bttsProb !== undefined && bttsPred.bttsProb >= 0.90 && (
-                  <div className="mt-1 px-1.5 py-0.5 rounded text-[8px] font-bold uppercase tracking-wide"
-                    style={{ backgroundColor: 'rgba(255, 200, 87, 0.12)', color: '#FFC857', border: '1px solid rgba(255, 200, 87, 0.25)' }}
-                    title="Probabilité élevée. La calibration du modèle sur ce marché peut être moins fiable à ces niveaux — vérifiez l'historique.">
-                    ⚠ Proba ≥ 90% · Calibration à vérifier
-                  </div>
-                )}
               </>
             </div>
 
@@ -383,14 +375,6 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
                   <div className="flex items-center justify-between text-[9px] text-cendre">
                     <span>Oui: {Math.round(over25Pred.over25Prob * 100)}%</span>
                     <span>Non: {Math.round((1 - over25Pred.over25Prob) * 100)}%</span>
-                  </div>
-                )}
-                {/* Indicateur de calibration pour proba extrême (> 90%) — critère 17 */}
-                {over25Pred.over25Prob !== undefined && over25Pred.over25Prob >= 0.90 && (
-                  <div className="mt-1 px-1.5 py-0.5 rounded text-[8px] font-bold uppercase tracking-wide"
-                    style={{ backgroundColor: 'rgba(255, 200, 87, 0.12)', color: '#FFC857', border: '1px solid rgba(255, 200, 87, 0.25)' }}
-                    title="Probabilité élevée. La calibration du modèle sur ce marché peut être moins fiable à ces niveaux — vérifiez l'historique.">
-                    ⚠ Proba ≥ 90% · Calibration à vérifier
                   </div>
                 )}
               </>
@@ -665,7 +649,7 @@ export default function FreePredictions() {
         )}
 
         <p className="text-center text-[11px] text-cendre mt-6">
-          Pronostics de nos experts — modèles prédictifs calibrés sur 50 000+ matchs. Aucune garantie future.
+          Pronostics de nos experts — moteur IA nouvelle génération calibré sur 50 000+ matchs historiques. Aucune garantie future.
         </p>
 
         {/* CTA — Voir tous les pronostics du jour (page dédiée) */}

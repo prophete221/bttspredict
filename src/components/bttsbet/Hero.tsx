@@ -77,7 +77,7 @@ export default function Hero() {
           >
             Pronostics BTTS et Over 2.5
             <br />
-            <span style={{ color: '#5146F5', fontSize: '22px' }}>Modèle statistique probabiliste</span>
+            <span style={{ color: '#5146F5', fontSize: '22px' }}>Moteur IA nouvelle génération</span>
           </h1>
 
           {/* ═══ H2 ═══ */}
@@ -156,7 +156,7 @@ export default function Hero() {
           <span style={{ color: '#303861' }}>·</span>
           <span>Ligues sélectionnées</span>
           <span style={{ color: '#303861' }}>·</span>
-          <span style={{ color: '#5DFDCB' }}>Approche probabiliste</span>
+          <span style={{ color: '#5DFDCB' }}>Moteur IA nouvelle génération</span>
         </motion.div>
 
         {/* ═══ Badges confiance — 1 ligne discrète ═══ */}

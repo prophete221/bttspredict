@@ -3,7 +3,7 @@
   "description": "Nouvelle période de suivi public. Tous les pronostics publiés à partir de cette date sont enregistrés, horodatés et évalués après le résultat officiel du match. Les performances seront publiées progressivement, sans modification rétroactive. Aucun résultat futur n'est garanti.",
   "dataSource": "Sources publiques (ESPN et TheSportsDB), sans clé API",
   "markets": ["BTTS (Both Teams To Score)", "Over 2.5 goals"],
-  "publishingThreshold": "Seuil de probabilité élevé",
-  "maxPredictionsPerDay": "Nombre limité (sélection des meilleures probabilités)",
-  "disclaimer": "Pendant les premières semaines, le volume de résultats est insuffisant pour évaluer statistiquement la performance du modèle. Aucun résultat futur n'est garanti. Les pronostics sont publiés à titre informatif et ne constituent pas une incitation à parier."
+  "publishingThreshold": "Seuil de confiance élevé",
+  "maxPredictionsPerDay": "Sélection des meilleures opportunités",
+  "disclaimer": "Les paris sportifs comportent un risque de perte. Aucun résultat futur n'est garanti. Les pronostics sont publiés à titre informatif et ne constituent pas une incitation à parier. 18+."
 }

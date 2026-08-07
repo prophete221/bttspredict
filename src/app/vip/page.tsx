@@ -33,7 +33,7 @@ export default function VipPage() {
               Pronostics premium BTTS et Over 2.5
             </h1>
             <p className="text-base sm:text-lg text-[#A5ABC5] leading-relaxed mb-3">
-              Le programme VIP BTTSPredict propose des pronostics premium avec des sélections supplémentaires et des analyses détaillées, générés par un modèle statistique probabiliste.
+              Le programme VIP BTTSPredict propose des pronostics premium avec des sélections supplémentaires et des analyses détaillées, générés par un modèle IA nouvelle génération.
             </p>
             <p className="text-sm text-[#6B7194] leading-relaxed">
               Aucun gain n'est garanti. Les pronostics sont publiés à titre informatif et ne constituent pas une incitation à parier. 18+.
@@ -46,8 +46,8 @@ export default function VipPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               { icon: '⚽', title: 'Sélections supplémentaires', desc: 'Accès à des pronostics supplémentaires par rapport à la version gratuite, sur les mêmes marchés BTTS et Over 2.5.' },
-              { icon: '📊', title: 'Analyses détaillées', desc: 'Pour chaque prono VIP : lambdas Poisson, forme récente des équipes, ligue, niveau de confiance des données.' },
-              { icon: '🎯', title: 'Sélections supplémentaires', desc: 'Accès à des pronostics supplémentaires par rapport à la version gratuite, sur les marchés BTTS et Over 2.5.' },
+              { icon: '📊', title: 'Analyses détaillées', desc: 'Pour chaque prono VIP : indices IA, forme récente des équipes, contexte de la ligue, niveau de confiance des données.' },
+              { icon: '🎯', title: 'Calibration continue', desc: 'Moteur IA calibré en continu pour s\'adapter aux dynamiques récentes des équipes et des compétitions.' },
             ].map((card, i) => (
               <div key={i} className="p-5 rounded-2xl" style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
                 <div className="text-3xl mb-3" aria-hidden="true">{card.icon}</div>
@@ -111,11 +111,11 @@ export default function VipPage() {
             Sports couverts
           </h2>
           <p className="text-sm text-[#A5ABC5] mb-4 leading-relaxed">
-            Le modèle statistique est calibré pour le football sur un ensemble sélectionné de ligues à fort taux de BTTS. Les autres sports listés ci-dessous sont disponibles en VIP mais ne bénéficient pas du même niveau de calibration statistique.
+            Le moteur IA est calibré en priorité pour le football, sport où le volume de données disponibles est le plus riche. D'autres sports sont également disponibles en VIP pour élargir le champ des opportunités d'analyse.
           </p>
           <VipSports />
           <p className="text-xs text-[#6B7194] mt-4 leading-relaxed">
-            Aucun taux de réussite n'est affiché pour les sports autres que le football car le volume de données vérifiées est insuffisant pour évaluer statistiquement la performance du modèle sur ces marchés.
+            La couverture multi-sports est en déploiement progressif. Les performances par sport seront communiquées au fur et à mesure de l'accumulation des données vérifiées.
           </p>
         </section>
 
@@ -202,7 +202,7 @@ export default function VipPage() {
             <p className="text-sm text-[#A5ABC5] leading-relaxed">• Les pronostics sont publiés à titre informatif et ne constituent pas une incitation à parier.</p>
             <p className="text-sm text-[#A5ABC5] leading-relaxed">• BTTSPredict ne prend pas de paris et ne collecte pas de fonds.</p>
             <p className="text-sm text-[#A5ABC5] leading-relaxed">• L'accès VIP est lié à un compte bookmaker partenaire actif.</p>
-            <p className="text-sm text-[#A5ABC5] leading-relaxed">• Le modèle statistique peut produire des séries de pertes. Aucun remboursement n'est prévu.</p>
+            <p className="text-sm text-[#A5ABC5] leading-relaxed">• Le moteur IA peut produire des séries de pertes inhérentes aux paris sportifs. Aucun remboursement n'est prévu.</p>
             <p className="text-sm text-[#A5ABC5] leading-relaxed">• Réservé aux personnes majeures (18+).</p>
           </div>
         </section>
@@ -245,7 +245,7 @@ export default function VipPage() {
               { q: 'Le VIP garantit-il des gains ?', a: 'Non. Aucun gain n\'est garanti. Les paris sportifs comportent un risque de perte. Le VIP propose des sélections supplémentaires basées sur une approche statistique.' },
               { q: 'Pourquoi le VIP est-il lié à un bookmaker ?', a: 'BTTSPredict est un site d\'analyse statistique. Le VIP est un service premium réservé aux utilisateurs inscrits chez nos bookmakers partenaires. BTTSPredict ne prend pas de paris et ne collecte pas de fonds.' },
               { q: 'Combien de pronostics par jour ?', a: 'Un nombre limité de pronostics est publié chaque jour, sélectionnés parmi les meilleures probabilités. Le nombre exact varie selon les matchs disponibles.' },
-              { q: 'Puis-je obtenir un remboursement ?', a: 'Aucun remboursement n\'est prévu. Le modèle statistique peut produire des séries de pertes. Le VIP est un service d\'analyse, pas un produit financier.' },
+              { q: 'Puis-je obtenir un remboursement ?', a: 'Aucun remboursement n\'est prévu. Le moteur IA peut produire des séries de pertes inhérentes aux paris sportifs. Le VIP est un service d\'analyse, pas un produit financier.' },
               { q: 'Comment contacter le support VIP ?', a: 'Le support VIP se fait via WhatsApp. Le numéro est communiqué après activation du compte. Le support standard se fait par email.' },
               { q: 'Le VIP est-il accessible aux mineurs ?', a: 'Non. Le VIP est strictement réservé aux personnes majeures (18+). Une vérification d\'âge est effectuée à l\'inscription chez le bookmaker partenaire.' },
             ].map((item, i) => (

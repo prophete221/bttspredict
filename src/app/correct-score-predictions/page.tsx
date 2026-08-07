@@ -50,7 +50,7 @@ export default function CorrectScorePredictionsPage() {
             Correct Score <span style={{ color: '#5146F5' }}>Predictions</span>
           </h1>
           <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#A5ABC5' }}>
-            Pronostics score exact basés sur le modèle de distribution de Poisson. Analyse de chaque score possible, probabilités détaillées et statistiques par championnat.
+            Pronostics score exact basés sur le modèle de calibrage avancé. Analyse de chaque score possible, probabilités détaillées et statistiques par championnat.
           </p>
         </header>
 
@@ -66,7 +66,7 @@ export default function CorrectScorePredictionsPage() {
         <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(81, 70, 245, 0.05)', border: '1px solid rgba(81, 70, 245, 0.15)' }}>
           <h2 className="text-lg font-bold mb-2" style={{ color: '#F7F8FF' }}>Résumé</h2>
           <p className="text-sm" style={{ color: '#A5ABC5' }}>
-            Les pronostics score exact sont des marchés à haut risque et haute récompense. Notre modèle Poisson fournit les probabilités pour chaque score, mais aucun résultat n'est garanti. Utilisez ces pronostics comme outil d'aide à la décision. 18+ — Jeu responsable.
+            Les pronostics score exact sont des marchés à haut risque et haute récompense. Notre modèle IA nouvelle génération fournit les probabilités pour chaque score, mais aucun résultat n'est garanti. Utilisez ces pronostics comme outil d'aide à la décision. 18+ — Jeu responsable.
           </p>
         </section>
 

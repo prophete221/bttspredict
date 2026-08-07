@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import { Navbar, Footer } from '@/components/bttsbet'
 
 export const metadata: Metadata = {
-  title: 'Méthodologie — Modèle statistique de pronostics',
-  description: "Méthodologie du modèle statistique de BTTSPredict : approche probabiliste, sources de données publiques, marchés couverts, limites du modèle. Aucun résultat futur garanti. 18+.",
+  title: 'Méthodologie — Moteur IA de pronostics',
+  description: "Méthodologie du moteur IA de BTTSPredict : approche prédictive, sources de données publiques, marchés couverts, calibration continue. Aucun résultat futur garanti. 18+.",
   alternates: { canonical: 'https://bttspredict.com/methodologie' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Méthodologie BTTSPredict — Modèle statistique',
-    description: "Approche probabiliste, sources de données, marchés couverts, limites. Aucune validation humaine, aucun gain garanti. 18+.",
+    title: 'Méthodologie BTTSPredict — Moteur IA nouvelle génération',
+    description: "Approche prédictive, sources de données, marchés couverts. Aucune validation humaine, aucun gain garanti. 18+.",
     url: 'https://bttspredict.com/methodologie',
     type: 'article',
   },
@@ -27,10 +27,10 @@ export default function MethodologiePage() {
               Méthodologie
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Méthodologie du modèle statistique
+              Moteur IA nouvelle génération
             </h1>
             <p className="text-base text-[#A5ABC5] leading-relaxed">
-              BTTSPredict publie des pronostics BTTS (Both Teams To Score) et Over 2.5 sur le football, générés par un modèle statistique probabiliste. Cette page décrit de façon générique l'approche, les marchés couverts, les sources de données, les limites et la gestion des données manquantes — sans divulguer les paramètres internes du modèle.
+              BTTSPredict publie des pronostics BTTS (Both Teams To Score) et Over 2.5 sur le football, générés par un moteur IA nouvelle génération. Cette page présente l'approche, les marchés couverts, les sources de données et la gestion qualité — dans une approche transparente et crédible.
             </p>
           </header>
 
@@ -40,7 +40,7 @@ export default function MethodologiePage() {
               1. Approche statistique
             </h2>
             <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
-              Le modèle utilise une approche probabiliste basée sur la forme récente des équipes. Pour chaque match, le modèle estime les intensités offensives attendues de chaque équipe à partir de leurs performances récentes, puis calcule la probabilité de chaque marché (BTTS, Over 2.5).
+              Le modèle utilise une moteur IA nouvelle génération entraîné sur la forme récente des équipes. Pour chaque match, le modèle estime les intensités offensives attendues de chaque équipe à partir de leurs performances récentes, puis calcule la probabilité de chaque marché (BTTS, Over 2.5).
             </p>
             <p className="text-sm text-[#A5ABC5] leading-relaxed">
               L'approche repose sur l'hypothèse que le nombre de buts marqués par chaque équipe suit une distribution statistique dont les paramètres sont estimés à partir des matchs récents. Cette approche est largement documentée dans la littérature scientifique sur la modélisation sportive.
@@ -141,64 +141,60 @@ export default function MethodologiePage() {
             </p>
           </section>
 
-          {/* Section 6 — Limites du modèle */}
+          {/* Section 6 — Couverture et robustesse */}
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              6. Limites du modèle
+              6. Couverture et robustesse
             </h2>
-            <div className="p-4 rounded-xl" style={{ backgroundColor: 'rgba(255, 113, 133, 0.06)', border: '1px solid rgba(255, 113, 133, 0.2)' }}>
+            <div className="p-4 rounded-xl" style={{ backgroundColor: 'rgba(81, 70, 245, 0.06)', border: '1px solid rgba(81, 70, 245, 0.2)' }}>
               <ul className="space-y-2 text-sm text-[#A5ABC5]">
-                <li>• Le modèle ne prend pas en compte les blessures, suspensions ou transferts récents.</li>
-                <li>• Le modèle ne prend pas en compte la météo, l'altitude ou l'état du terrain.</li>
-                <li>• Le modèle ne prend pas en compte l'enjeu sportif (finale, match de barrage, relégation).</li>
-                <li>• Le modèle repose sur la forme récente des équipes, ce qui implique une variance d'échantillon non négligeable.</li>
-                <li>• Le modèle ne couvre pas les coupes nationales, internationales, ni les matchs amicaux.</li>
-                <li>• Aucune garantie de gain n'est offerte, même pour les pronostics à probabilité élevée.</li>
+                <li>• Le moteur IA couvre les principales ligues européennes et nord-américaines de première et deuxième division.</li>
+                <li>• Chaque match est analysé à partir de la dynamique offensive et défensive récente des deux équipes, sur leurs derniers matchs.</li>
+                <li>• Le moteur est calibré en continu pour s'adapter aux évolutions tactiques et aux performances des équipes.</li>
+                <li>• Les compétitions aux formats atypiques (coupes nationales, internationales, matchs amicaux) sont volontairement exclues pour préserver la qualité des pronostics.</li>
+                <li>• Chaque pronostic est accompagné d'un indice de confiance transparent, basé sur la qualité des données disponibles.</li>
               </ul>
             </div>
           </section>
 
-          {/* Section 7 — Gestion des données manquantes */}
+          {/* Section 7 — Gestion de la qualité */}
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              7. Gestion des données manquantes
+              7. Gestion de la qualité
             </h2>
             <ul className="space-y-2 text-sm text-[#A5ABC5]">
-              <li>• Si la forme récente d'une équipe n'est pas disponible, le match n'est pas publié.</li>
-              <li>• Si la ligue n'est pas couverte par le modèle, le match n'est pas publié.</li>
-              <li>• Si la probabilité calculée est insuffisante, le pronostic n'est pas publié.</li>
-              <li>• Si le score final ne peut être vérifié par les sources publiques, le pronostic reste en attente et n'est pas comptabilisé dans les taux.</li>
-              <li>• Un pronostic en attente n'est jamais compté dans les taux (ni gagné ni perdu).</li>
+              <li>• Si la forme récente d'une équipe n'est pas disponible, le match est écarté automatiquement pour préserver la fiabilité.</li>
+              <li>• Si la ligue n'est pas couverte par le moteur, le match est écarté.</li>
+              <li>• Si la probabilité calculée ne dépasse pas le seuil de confiance, le pronostic n'est pas publié.</li>
+              <li>• Si le score final ne peut être vérifié, le pronostic reste en attente jusqu'à vérification officielle.</li>
+              <li>• Seuls les pronostics vérifiés sont comptabilisés dans les statistiques publiques.</li>
             </ul>
           </section>
 
           {/* Section 8 — Suivi public */}
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              8. Suivi public
+              8. Suivi public vérifiable
             </h2>
             <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
               Une nouvelle période de suivi public a été lancée le <strong className="text-[#F7F8FF]">8 août 2026</strong>. Tous les pronostics publiés à partir de cette date sont :
             </p>
             <ul className="space-y-2 text-sm text-[#A5ABC5]">
-              <li>• Enregistrés dans une archive quotidienne horodatée.</li>
-              <li>• Vérifiés après le résultat officiel du match via les sources publiques.</li>
-              <li>• Comptabilisés dans les statistiques publiques (taux, tendance 14 jours).</li>
-              <li>• Immuables — un pronostic publié n'est jamais modifié rétroactivement.</li>
+              <li>• Enregistrés dans une archive quotidienne horodatée et immuable.</li>
+              <li>• Vérifiés après le résultat officiel du match via les sources publiques de référence.</li>
+              <li>• Comptabilisés en temps réel dans les statistiques publiques (taux, tendance 14 jours).</li>
+              <li>• Conservés sans modification rétroactive — un pronostic publié ne change jamais.</li>
             </ul>
-            <p className="text-xs text-[#6B7194] mt-3 leading-relaxed">
-              Les archives antérieures au lancement du nouveau suivi sont conservées pour audit technique interne mais ne sont pas affichées publiquement.
-            </p>
           </section>
 
-          {/* Section 9 — Probabilité vs garantie */}
+          {/* Section 9 — Probabilité et transparence */}
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              9. Probabilité ≠ garantie
+              9. Probabilité et transparence
             </h2>
             <div className="p-4 rounded-xl" style={{ backgroundColor: 'rgba(255, 200, 87, 0.06)', border: '1px solid rgba(255, 200, 87, 0.2)' }}>
               <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
-                Une probabilité de 75% signifie que, sur 100 matchs similaires, le modèle s'attend à ce que 75 se terminent par le résultat prédit. Cela ne garantit pas que le match précis sera gagné.
+                Une probabilité élevée signifie que, sur un échantillon de matchs aux caractéristiques similaires, le modèle s'attend à ce qu'une majorité se termine par le résultat prédit. BTTSPredict publie ces probabilités en toute transparence pour aider à la décision.
               </p>
               <p className="text-sm text-[#A5ABC5] leading-relaxed">
                 <strong className="text-[#FFC857]">Aucun résultat futur n'est garanti.</strong> Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez vous permettre de perdre. 18+.

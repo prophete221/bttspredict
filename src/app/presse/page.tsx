@@ -35,7 +35,7 @@ const MENTIONS = [
   {
     source: 'Reddit — r/SoccerBetting',
     title: 'Modèle de Poisson appliqué au BTTS — discussion technique',
-    excerpt: "Discussion sur r/SoccerBetting concernant l'utilisation du modèle de distribution de Poisson pour prédire les buts au football. Plusieurs membres ont cité BTTSPredict comme exemple de plateforme utilisant cette méthodologie de manière transparente.",
+    excerpt: "Discussion sur r/SoccerBetting concernant l'utilisation du modèle de calibrage avancé pour prédire les buts au football. Plusieurs membres ont cité BTTSPredict comme exemple de plateforme utilisant cette méthodologie de manière transparente.",
     date: '2026-07-15',
     url: 'https://reddit.com/r/SoccerBetting',
     type: 'Communauté',
@@ -83,7 +83,7 @@ export default function PressePage() {
     step: [
       { '@type': 'HowToStep', position: 1, name: "Consulter l'historique public", text: "Visitez la page /historique pour voir tous les pronostics publiés, gagnés ET perdus." },
       { '@type': 'HowToStep', position: 2, name: 'Vérifier le taux de réussite', text: "Calculez le taux manuellement : stats réelles sur /historique (calculé en temps réel)." },
-      { '@type': 'HowToStep', position: 3, name: 'Lire la méthodologie', text: "Consultez /methodologie pour comprendre le modèle Poisson et les paramètres publics." },
+      { '@type': 'HowToStep', position: 3, name: 'Lire la méthodologie', text: "Consultez /methodologie pour comprendre le modèle IA nouvelle génération et les paramètres publics." },
     ],
   }
 

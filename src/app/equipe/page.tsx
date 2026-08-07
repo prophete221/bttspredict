@@ -16,7 +16,7 @@ const DESCRIPTION = "Équipe d'analystes experts BTTSPredict : profils, expertis
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  keywords: ['équipe analystes', 'experts football', 'BTTSPredict équipe', 'analystes BTTS', 'modèle Poisson expert', 'xG analyste'],
+  keywords: ['équipe analystes', 'experts football', 'BTTSPredict équipe', 'analystes BTTS', 'modèle IA nouvelle génération expert', 'xG analyste'],
   alternates: { canonical: `${SITE_URL}/equipe` },
   openGraph: {
     title: TITLE,
@@ -35,7 +35,7 @@ const EXPERTS = [
     name: 'Mamadou Diop',
     role: 'Expert Analyste Football — AFCON & Ligues Africaines',
     initials: 'MD',
-    bio: "Analyste football senior avec 12 ans d'expérience dans l'analyse statistique des matchs de football africain. Spécialiste des ligues AFCON, LONASE Sénégal, et CAF Champions League. Mamadou a développé le modèle de calibration Poisson spécifique aux championnats africains, intégrant les particularités locales (altitude, climat, calendrier serré).",
+    bio: "Analyste football senior avec 12 ans d'expérience dans l'analyse statistique des matchs de football africain. Spécialiste des ligues AFCON, LONASE Sénégal, et CAF Champions League. Mamadou a développé le modèle de calibration avancée spécifique aux championnats africains, intégrant les particularités locales (altitude, climat, calendrier serré).",
     expertise: ['AFCON', 'LONASE Sénégal', 'CAF Champions League', 'Modèle Poisson', 'xG'],
     stats: { pronostics: 1240, winRate: '86,2%', experience: '12 ans' },
     social: { twitter: 'https://twitter.com/mamadou_analyst', linkedin: 'https://linkedin.com/in/mamadou-diop-analyst' },

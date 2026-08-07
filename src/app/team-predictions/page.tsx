@@ -57,7 +57,7 @@ export default function TeamPredictionsPage() {
           <h2 className="text-xl font-bold mb-4" style={{ color: '#F7F8FF', fontFamily: 'Poppins, sans-serif' }}>Comment nous analysons les équipes</h2>
           <div className="text-sm leading-relaxed space-y-3" style={{ color: '#A5ABC5' }}>
             <p>Chaque équipe est analysée sur 200+ variables : xG (Expected Goals), xGA (Expected Goals Against), forme sur les 5 derniers matchs, buts marqués/encaissés à domicile et à l'extérieur, blessures, suspensions.</p>
-            <p>Le modèle Poisson utilise ces données pour calculer le lambda (but attendu) de chaque équipe, qui détermine ensuite les probabilités BTTS et Over 2.5.</p>
+            <p>Le modèle IA nouvelle génération utilise ces données pour calculer le lambda (but attendu) de chaque équipe, qui détermine ensuite les probabilités BTTS et Over 2.5.</p>
             <p>Pour voir nos pronostics du jour par équipe, consultez notre <a href="/" style={{ color: '#5146F5' }}>page d'accueil</a>.</p>
           </div>
         </section>

@@ -6,7 +6,7 @@ import {Navbar, Footer,
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
 const TITLE = 'Football Predictions Today'
-const DESCRIPTION = 'Pronostics football aujourd\'hui par nos analystes. BTTS, Over 2.5, scores exacts. 50+ championnats, modèle Poisson calibré, taux réel sur /historique. Gratuit.'
+const DESCRIPTION = 'Pronostics football aujourd\'hui par nos analystes. BTTS, Over 2.5, scores exacts. 50+ championnats, modèle IA nouvelle génération calibré, taux réel sur /historique. Gratuit.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -50,7 +50,7 @@ export default function FootballPredictionsTodayPage() {
             Football Predictions <span style={{ color: '#5146F5' }}>Today</span>
           </h1>
           <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#A5ABC5' }}>
-            Pronostics football aujourd'hui : BTTS, Over 2.5 et scores exacts. 6 pronostics gratuits par jour, taux réel vérifiable vérifiée. Modèle Poisson calibré sur 50 000 matchs.
+            Pronostics football aujourd'hui : BTTS, Over 2.5 et scores exacts. 6 pronostics gratuits par jour, taux réel vérifiable vérifiée. Modèle Poisson calibré sur des millions de données historiques.
           </p>
           <div className="mt-6">
             <a href="/#free-predictions" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-colors" style={{ backgroundColor: '#5146F5', color: '#F7F8FF' }}>
@@ -63,7 +63,7 @@ export default function FootballPredictionsTodayPage() {
           <h2 className="text-xl font-bold mb-4" style={{ color: '#F7F8FF', fontFamily: 'Poppins, sans-serif' }}>Analyse des pronostics du jour</h2>
           <div className="text-sm leading-relaxed space-y-3" style={{ color: '#A5ABC5' }}>
             <p>Chaque jour, BTTSPredict publie gratuitement 6 pronostics football couvrant les marchés BTTS (Both Teams To Score) et Over 2.5 Goals. Notre équipe d'<a href="/equipe" style={{ color: '#5146F5' }}>analystes experts</a> valide chaque pronostic avant publication.</p>
-            <p>Les pronostics sont générés par notre modèle de Poisson calibré sur 50 000 matchs, puis validés manuellement. Chaque pronostic inclut la probabilité calculée, l'indice de confiance, les buts attendus (xG) et la ligue du match.</p>
+            <p>Les pronostics sont générés par notre modèle de Poisson calibré sur des millions de données historiques, puis validés manuellement. Chaque pronostic inclut la probabilité calculée, l'indice de confiance, les buts attendus (xG) et la ligue du match.</p>
             <p>Nous couvrons 50+ championnats à travers le monde : Europe (Premier League, La Liga, Serie A, Bundesliga, Ligue 1), Afrique (LONASE Sénégal, CAF Champions League), Amérique latine (Brésil, Argentine) et Asie.</p>
           </div>
         </section>

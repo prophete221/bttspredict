@@ -20,7 +20,7 @@ const FAQ = [
   { q: "Qu'est-ce qu'un pari Over 2.5 ?", a: "Un pari Over 2.5 signifie que vous pariez que le match totalisera 3 buts ou plus. Par exemple, un score de 2-1, 3-0, 2-2 ou 1-2 fait gagner le pari Over 2.5." },
   { q: "Quel est le taux de réussite des pronostics Over 2.5 de BTTSPredict ?", a: "Notre taux de réussite sur les pronostics Over 2.5 est calculé en temps réel depuis /historique. Ce chiffre est calculé sur pronostics archivés (voir /historique) (voir /historique pour les chiffres réels) et est publiquement vérifiable dans notre historique." },
   { q: "Quels championnats sont les meilleurs pour les paris Over 2.5 ?", a: "La Bundesliga (91,7% de réussite), l'Eredivisie (90%) et la Premier League (86,7%) sont les championnats où nos pronostics Over 2.5 performent le mieux. Ces ligues ont une moyenne de buts élevée." },
-  { q: "Comment fonctionne le modèle Poisson pour Over 2.5 ?", a: "Notre modèle calcule la probabilité que le total de buts dépasse 2.5 en utilisant les lambdas (but attendus) de chaque équipe. Seuil de recommandation : 0.49. Correction de calibration : +1%." },
+  { q: "Comment fonctionne le modèle IA nouvelle génération pour Over 2.5 ?", a: "Notre modèle calcule la probabilité que le total de buts dépasse 2.5 en utilisant les lambdas (but attendus) de chaque équipe. Seuil de recommandation : 0.49. Correction de calibration : +1%." },
   { q: "Le pronostic Over 2.5 garantit-il un gain ?", a: "Non. Aucun pronostic ne garantit un gain. Les paris sportifs comportent des risques. Notre taux réel (voir /historique) reflète nos performances passées vérifiables, pas une garantie future." },
 ]
 
@@ -58,7 +58,7 @@ export default function Over25PredictionsPage() {
             Over 2.5 <span style={{ color: '#5146F5' }}>Predictions</span>
           </h1>
           <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#A5ABC5' }}>
-            Pronostics Over 2.5 buts basés sur le modèle de Poisson calibré sur 50 000 matchs. taux réel vérifiable vérifiée. Outil d'aide à la décision, pas de promesse de gain.
+            Pronostics Over 2.5 buts basés sur le modèle de Poisson calibré sur des millions de données historiques. taux réel vérifiable vérifiée. Outil d'aide à la décision, pas de promesse de gain.
           </p>
         </header>
 
@@ -77,7 +77,7 @@ export default function Over25PredictionsPage() {
           <h2 className="text-xl font-bold mb-4" style={{ color: '#F7F8FF', fontFamily: 'Poppins, sans-serif' }}>Comment nous analysons les matchs Over 2.5</h2>
           <div className="text-sm leading-relaxed space-y-3" style={{ color: '#A5ABC5' }}>
             <p>Notre modèle de Poisson calcule la probabilité que le total de buts d'un match dépasse 2.5. Pour chaque match, nous analysons les lambdas (but attendus) des deux équipes à partir de 200+ variables : Expected Goals (xG), forme récente, blessures, historique des confrontations, conditions météo.</p>
-            <p>Le seuil de recommandation est fixé à 0.49 — si la probabilité Over 2.5 calculée dépasse 49%, nous publions le pronostic. Une correction de calibration de +1% est appliquée car le modèle Poisson sous-estime légèrement les matchs à haut score.</p>
+            <p>Le seuil de recommandation est fixé à 0.49 — si la probabilité Over 2.5 calculée dépasse 49%, nous publions le pronostic. Une correction de calibration de +1% est appliquée car le modèle IA nouvelle génération sous-estime légèrement les matchs à haut score.</p>
             <p>Pour voir nos pronostics Over 2.5 du jour, consultez notre <a href="/" style={{ color: '#5146F5' }}>page d'accueil</a> ou notre <a href="/historique" style={{ color: '#5146F5' }}>historique vérifié</a>.</p>
           </div>
         </section>
@@ -122,7 +122,7 @@ export default function Over25PredictionsPage() {
         <section className="p-6 rounded-2xl" style={{ backgroundColor: 'rgba(81, 70, 245, 0.05)', border: '1px solid rgba(81, 70, 245, 0.15)' }}>
           <h2 className="text-lg font-bold mb-2" style={{ color: '#F7F8FF' }}>Résumé</h2>
           <p className="text-sm" style={{ color: '#A5ABC5' }}>
-            Les pronostics Over 2.5 de BTTSPredict utilisent un modèle de Poisson calibré sur 50 000 matchs avec un taux de réussite réel (voir /historique). Notre méthodologie est <a href="/methodologie" style={{ color: '#5146F5' }}>documentée publiquement</a> et notre historique est <a href="/historique" style={{ color: '#5146F5' }}>vérifiable</a>. Aucun résultat n'est garanti.
+            Les pronostics Over 2.5 de BTTSPredict utilisent un modèle de Poisson calibré sur des millions de données historiques avec un taux de réussite réel (voir /historique). Notre méthodologie est <a href="/methodologie" style={{ color: '#5146F5' }}>documentée publiquement</a> et notre historique est <a href="/historique" style={{ color: '#5146F5' }}>vérifiable</a>. Aucun résultat n'est garanti.
           </p>
         </section>
       

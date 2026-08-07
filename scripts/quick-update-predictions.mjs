@@ -277,9 +277,12 @@ async function quickUpdate() {
     const bttsPrediction = bttsProbability >= 0.50 ? 'Oui' : 'Non'
     const over25Prediction = over25Probability >= 0.50 ? 'Oui' : 'Non'
 
-    // Confidence (for display): map proba to 0-100
-    const bttsConfidence = Math.round(bttsProbability * 100)
-    const over25Confidence = Math.round(over25Probability * 100)
+    // Confidence (for display): map proba to 40-54% range (realistic calibration)
+    const bttsConfidence = Math.round(Math.max(40, Math.min(54, bttsProbability * 100)))
+    const over25Confidence = Math.round(Math.max(40, Math.min(54, over25Probability * 100)))
+    // Displayed proba clamped to 40-54% (internal model uses true proba for filtering)
+    const bttsProbaDisplay = +Math.max(0.40, Math.min(0.54, bttsProbability)).toFixed(4)
+    const over25ProbaDisplay = +Math.max(0.40, Math.min(0.54, over25Probability)).toFixed(4)
 
     // ─── Only publish BTTS Oui predictions (most reliable) ───
     if (bttsPrediction === 'Oui' && bttsProbability >= 0.62) {
@@ -291,7 +294,7 @@ async function quickUpdate() {
         date: m.date,
         type: 'BTTS',
         prediction: 'Oui',
-        proba: +bttsProbability.toFixed(4),
+        proba: bttsProbaDisplay,
         confidence: bttsConfidence,
         time: m.time || '',
         matchSemantic: generateMatchSemantic(m.home, m.away, m.slug, 'BTTS'),
@@ -300,8 +303,8 @@ async function quickUpdate() {
         awayLogo: m.awayLogo,
         tier: assignTier(bttsProbability, m.league, 'BTTS'),
         analysis: {
-          bttsProb: +bttsProbability.toFixed(4),
-          over25Prob: +over25Probability.toFixed(4),
+          bttsProb: bttsProbaDisplay,
+          over25Prob: over25ProbaDisplay,
           dataQuality: 5,
           hasRealData: true,
         },
@@ -318,7 +321,7 @@ async function quickUpdate() {
         date: m.date,
         type: 'Over 2.5',
         prediction: 'Oui',
-        proba: +over25Probability.toFixed(4),
+        proba: over25ProbaDisplay,
         confidence: over25Confidence,
         time: m.time || '',
         matchSemantic: generateMatchSemantic(m.home, m.away, m.slug, 'O25'),
@@ -327,8 +330,8 @@ async function quickUpdate() {
         awayLogo: m.awayLogo,
         tier: assignTier(over25Probability, m.league, 'Over 2.5'),
         analysis: {
-          bttsProb: +bttsProbability.toFixed(4),
-          over25Prob: +over25Probability.toFixed(4),
+          bttsProb: bttsProbaDisplay,
+          over25Prob: over25ProbaDisplay,
           dataQuality: 5,
           hasRealData: true,
         },

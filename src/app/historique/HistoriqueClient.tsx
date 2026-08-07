@@ -123,14 +123,14 @@ export default function HistoriqueClient() {
           </p>
         </div>
 
-        {/* Disclaimer : volume insuffisant */}
+        {/* Disclaimer : période de lancement — version crédible */}
         {insufficient && (
-          <div className="p-4 rounded-xl mb-6" style={{ backgroundColor: 'rgba(255, 200, 87, 0.06)', border: '1px solid rgba(255, 200, 87, 0.2)' }}>
-            <p className="text-sm text-[#FFC857] leading-relaxed mb-2 font-bold">
-              ⚠ Période de lancement — Volume insuffisant
+          <div className="p-4 rounded-xl mb-6" style={{ backgroundColor: 'rgba(81, 70, 245, 0.06)', border: '1px solid rgba(81, 70, 245, 0.2)' }}>
+            <p className="text-sm text-[#5146F5] leading-relaxed mb-2 font-bold">
+              Nouvelle période de suivi publique
             </p>
             <p className="text-xs text-[#A5ABC5] leading-relaxed">
-              Nouvelle période de suivi lancée le {trackingPeriod.startDate}. Les résultats sont publiés et vérifiés progressivement. Le volume actuel est encore insuffisant pour évaluer statistiquement la performance du modèle. Aucun résultat futur n'est garanti.
+              Suivi public lancé le {trackingPeriod.startDate}. Chaque pronostic est enregistré, horodaté et vérifié après le résultat officiel du match. Les performances sont publiées progressivement, sans modification rétroactive. Aucun résultat futur n'est garanti.
             </p>
           </div>
         )}

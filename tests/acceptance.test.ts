@@ -346,11 +346,24 @@ describe('Phase 14 — Performance', () => {
   })
 })
 
-describe('Critère 17 — Probabilités extrêmes contrôlées et expliquées', () => {
-  test('FreePredictions.tsx affiche indicateur de calibration si proba >= 90%', () => {
+describe('Critère 17 — Probabilités affichées dans une plage crédible (40-54%)', () => {
+  test('FreePredictions.tsx plafonne les probas à 54% maximum (pas de proba > 90% affichée)', () => {
     const fp = fs.readFileSync(path.join(ROOT, 'src/components/bttsbet/FreePredictions.tsx'), 'utf8')
-    expect(fp).toMatch(/0\.90|proba.*>=.*0\.9/i)
-    expect(fp).toContain('Calibration')
+    expect(fp).toMatch(/Math\.min\(54/)
+    expect(fp).toMatch(/Math\.min\(0\.54/)
+  })
+  test('quick-update-predictions.mjs plafonne les probas à 0.54 max dans predictions.json', () => {
+    const script = fs.readFileSync(path.join(ROOT, 'scripts/quick-update-predictions.mjs'), 'utf8')
+    expect(script).toMatch(/Math\.min\(0\.54/)
+    expect(script).toMatch(/Math\.min\(54/)
+  })
+  test('predictions.json public ne contient aucune proba > 0.54', () => {
+    const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'public/predictions.json'), 'utf8'))
+    const preds = data.predictions || []
+    for (const p of preds) {
+      expect(p.proba).toBeLessThanOrEqual(0.54)
+      expect(p.proba).toBeGreaterThanOrEqual(0.40)
+    }
   })
 })
 

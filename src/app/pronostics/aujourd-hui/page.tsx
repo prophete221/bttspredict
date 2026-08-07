@@ -3,7 +3,7 @@ import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 
 export const metadata: Metadata = {
   title: "Pronostics BTTS du jour — Sélections aujourd'hui",
-  description: "Pronostics BTTS et Over 2.5 du jour basés sur un modèle statistique probabiliste. Sélections filtrées par ligues à fort taux de BTTS et forme récente. 18+.",
+  description: "Pronostics BTTS et Over 2.5 du jour basés sur un modèle IA nouvelle génération. Sélections filtrées par ligues à fort taux de BTTS et forme récente. 18+.",
   alternates: { canonical: 'https://bttspredict.com/pronostics/aujourd-hui' },
   robots: { index: true, follow: true },
 }
@@ -18,7 +18,7 @@ export default function PronosticsAujourdHuiPage() {
             Pronostics du jour
           </h1>
           <p className="text-sm text-[#A5ABC5] text-center mb-8">
-            Sélections BTTS et Over 2.5 du jour, générées par le modèle statistique probabiliste. Aucun gain garanti. 18+.
+            Sélections BTTS et Over 2.5 du jour, générées par le modèle IA nouvelle génération. Aucun gain garanti. 18+.
           </p>
         </section>
         <section className="max-w-6xl mx-auto px-4 pb-12">

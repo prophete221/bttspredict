@@ -199,7 +199,7 @@ export default function FailleFifaLinebetPage() {
                 <li className="flex items-start gap-3">
                   <span className="text-or font-bold mt-0.5">▸</span>
                   <span><strong className="text-papier">Modèle algorithmique</strong> — Les bookmakers utilisent un
-                  modèle statistique basé sur les résultats historiques des simulations FIFA. Ce modèle est mis
+                  moteur IA basé sur les résultats historiques des simulations FIFA. Ce modèle est mis
                   à jour périodiquement, mais pas en temps réel. Des changements de mise à jour du jeu FIFA
                   (patches, ajustements de gameplay) peuvent modifier les probabilités réelles sans que les cotes
                   reflètent immédiatement ces changements.</span>
