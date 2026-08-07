@@ -14,92 +14,207 @@
 @import "tailwindcss";
 
 @theme {
-  /* ═══ MONOLITH 1B — 9 couleurs, aucune autre ═══ */
-  --color-abyss: #05070A;
-  --color-vault: #0F1316;
-  --color-socle: #191E22;
-  --color-couture: #2A3137;
-  --color-papier: #F6F2E9;
-  --color-cendre: #9E9B96;
-  --color-or: #E0C191;
-  --color-braise: #FF4D1E;
-  --color-patina: #A8BEB0;
+  /* ═══ INSTITUTIONAL — 8 tokens canoniques, aucune autre couleur ═══ */
+  --color-bg-main: #0D0F12;
+  --color-bg-secondary: #1E2228;
+  --color-cta-bg: #D4AF37;
+  --color-cta-text: #0D0F12;
+  --color-accent: #2D5BFF;
+  --color-success: #00A87E;
+  --color-text-primary: #F4F7FA;
+  --color-text-secondary: #A8B3C7;
+  --color-border: #2A2E35;
 
-  /* Aliases sémantiques mappés sur MONOLITH 1B */
-  --color-dark-900: var(--color-abyss);
-  --color-dark-800: var(--color-vault);
-  --color-dark-700: var(--color-abyss);
-  --color-dark-600: var(--color-vault);
-  --color-dark-500: var(--color-vault);
-  --color-dark-400: var(--color-couture);
+  /* Hover states (per spec) */
+  --color-cta-bg-hover: #B9972F;
+  --color-cta-bg-active: #A8872A;
+  --color-accent-hover: #5A7CFF;
+  --color-success-hover: #008A66;
+  --color-border-hover: #3A3E47;
 
-  --color-card: var(--color-vault);
-  --color-card-hover: var(--color-socle);
-  --color-card-border: var(--color-couture);
-  --color-card-border-hover: var(--color-or);
+  /* Aliases mappés sur INSTITUTIONAL */
+  --color-abyss: var(--color-bg-main);
+  --color-vault: var(--color-bg-secondary);
+  --color-socle: var(--color-bg-secondary);
+  --color-couture: var(--color-border);
+  --color-papier: var(--color-text-primary);
+  --color-cendre: var(--color-text-secondary);
+  --color-or: var(--color-cta-bg);
+  --color-braise: var(--color-cta-bg);
+  --color-patina: var(--color-success);
 
-  --color-primary: var(--color-or);
-  --color-primary-dark: var(--color-cendre);
-  --color-primary-light: var(--color-or);
-  --color-primary-glow: rgba(224, 193, 145, 0.2);
-  --color-primary-pale: rgba(224, 193, 145, 0.10);
+  --color-dark-900: var(--color-bg-main);
+  --color-dark-800: var(--color-bg-secondary);
+  --color-dark-700: var(--color-bg-main);
+  --color-dark-600: var(--color-bg-secondary);
+  --color-dark-500: var(--color-bg-secondary);
+  --color-dark-400: var(--color-border);
 
-  --color-secondary: var(--color-or);
-  --color-secondary-dark: var(--color-cendre);
-  --color-secondary-light: var(--color-or);
-  --color-secondary-glow: rgba(224, 193, 145, 0.2);
+  --color-card: var(--color-bg-secondary);
+  --color-card-hover: var(--color-bg-secondary);
+  --color-card-border: var(--color-border);
+  --color-card-border-hover: var(--color-border-hover);
 
-  --color-success: var(--color-patina);
-  --color-success-dark: var(--color-patina);
-  --color-success-light: var(--color-patina);
-  --color-success-pale: rgba(168, 190, 176, 0.10);
+  --color-primary: var(--color-cta-bg);
+  --color-primary-dark: var(--color-cta-bg-hover);
+  --color-primary-light: var(--color-cta-bg);
+  --color-primary-glow: rgba(212, 175, 55, 0.2);
+  --color-primary-pale: rgba(212, 175, 55, 0.10);
 
-  --color-warning: var(--color-braise);
-  --color-warning-pale: rgba(255, 77, 30, 0.10);
-  --color-vip: var(--color-or);
-  --color-vip-glow: rgba(224, 193, 145, 0.2);
+  --color-secondary: var(--color-accent);
+  --color-secondary-dark: var(--color-accent-hover);
+  --color-secondary-light: var(--color-accent);
+  --color-secondary-glow: rgba(45, 91, 255, 0.2);
 
-  --color-danger: var(--color-braise);
-  --color-danger-light: var(--color-braise);
-  --color-danger-pale: rgba(255, 77, 30, 0.10);
+  --color-success-dark: var(--color-success-hover);
+  --color-success-light: var(--color-success);
+  --color-success-pale: rgba(0, 168, 126, 0.10);
 
-  --color-accent: var(--color-or);
-  --color-accent-light: var(--color-or);
-  --color-accent-glow: rgba(224, 193, 145, 0.2);
+  --color-warning: var(--color-cta-bg);
+  --color-warning-pale: rgba(212, 175, 55, 0.10);
+  --color-vip: var(--color-cta-bg);
+  --color-vip-glow: rgba(212, 175, 55, 0.2);
 
-  --color-neon: var(--color-or);
-  --color-neon-glow: rgba(224, 193, 145, 0.2);
-  --color-neon-green: var(--color-patina);
-  --color-emerald: var(--color-patina);
-  --color-emerald-soft: var(--color-patina);
-  --color-midnight: var(--color-abyss);
-  --color-edge: var(--color-couture);
-  --color-panel: var(--color-vault);
-  --color-rose: var(--color-or);
-  --color-linebet: var(--color-or);
-  --color-star888: var(--color-or);
-  --color-gold: var(--color-or);
-  --color-gold-light: var(--color-or);
-  --color-lose: var(--color-braise);
+  --color-danger: var(--color-cta-bg);
+  --color-danger-light: var(--color-cta-bg);
+  --color-danger-pale: rgba(212, 175, 55, 0.10);
 
-  --color-text-primary: var(--color-papier);
-  --color-text-secondary: var(--color-cendre);
-  --color-text-muted: var(--color-cendre);
-  --color-text-tertiary: var(--color-couture);
-  --color-text-on-dark: var(--color-papier);
-  --color-text-on-dark-secondary: var(--color-cendre);
+  --color-accent-light: var(--color-accent-hover);
+  --color-accent-glow: rgba(45, 91, 255, 0.2);
 
-  --grad-primary: linear-gradient(135deg, var(--color-or) 0%, var(--color-or) 100%);
-  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(224, 193, 145,0.06) 0%, transparent 60%),
-               radial-gradient(50% 50% at 85% 10%, rgba(255, 77, 30,0.03) 0%, transparent 60%);
+  --color-neon: var(--color-cta-bg);
+  --color-neon-glow: rgba(212, 175, 55, 0.2);
+  --color-neon-green: var(--color-success);
+  --color-emerald: var(--color-success);
+  --color-emerald-soft: var(--color-success);
+  --color-midnight: var(--color-bg-main);
+  --color-edge: var(--color-border);
+  --color-panel: var(--color-bg-secondary);
+  --color-rose: var(--color-cta-bg);
+  --color-linebet: var(--color-cta-bg);
+  --color-star888: var(--color-cta-bg);
+  --color-gold: var(--color-cta-bg);
+  --color-gold-light: var(--color-cta-bg);
+  --color-lose: var(--color-cta-bg);
+
+  --color-text-muted: var(--color-text-secondary);
+  --color-text-tertiary: var(--color-border);
+  --color-text-on-dark: var(--color-text-primary);
+  --color-text-on-dark-secondary: var(--color-text-secondary);
+
+  --grad-primary: linear-gradient(135deg, var(--color-cta-bg) 0%, var(--color-cta-bg) 100%);
+  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(212, 175, 55,0.06) 0%, transparent 60%),
+               radial-gradient(50% 50% at 85% 10%, rgba(45, 91, 255,0.04) 0%, transparent 60%);
 
   --font-display: 'Poppins', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --shadow-card: 0 1px 2px rgba(5, 7, 10,0.3), 0 8px 30px rgba(5, 7, 10,0.4);
-  --shadow-cta: 0 0 0 1px rgba(224, 193, 145,.2), 0 8px 32px rgba(224, 193, 145,.10);
-  --shadow-glass: 0 1px 0 rgba(246, 242, 233,0.03) inset, 0 8px 30px rgba(5, 7, 10,0.3);
+  --shadow-card: 0 1px 2px rgba(13, 15, 18,0.3), 0 8px 30px rgba(13, 15, 18,0.4);
+  --shadow-cta: 0 0 0 1px rgba(212, 175, 55,.2), 0 8px 32px rgba(212, 175, 55,.10);
+  --shadow-glass: 0 1px 0 rgba(244, 247, 250,0.03) inset, 0 8px 30px rgba(13, 15, 18,0.3);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   :root — INSTITUTIONAL TOKENS (8 variables canoniques)
+   ════════════════════════════════════════════════════════════════════════════ */
+:root {
+  --bg-main: #0D0F12;
+  --bg-secondary: #1E2228;
+  --cta-bg: #D4AF37;
+  --cta-text: #0D0F12;
+  --accent: #2D5BFF;
+  --success: #00A87E;
+  --text-primary: #F4F7FA;
+  --text-secondary: #A8B3C7;
+  --border: #2A2E35;
+
+  /* Hover states (per spec — Step 4) */
+  --cta-bg-hover: #B9972F;
+  --cta-bg-active: #A8872A;
+  --accent-hover: #5A7CFF;
+  --success-hover: #008A66;
+  --border-hover: #3A3E47;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   HOVER / ACTIVE / FOCUS STATES (Step 4 — MANDATORY)
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* CTA Hover: bg #B9972F, text #0D0F12, transition 200ms ease */
+.vip-glass-cta:hover,
+.btn-primary:hover,
+.btn-vip:hover,
+.btn-cta:hover,
+.cta:hover,
+button[type="submit"]:hover,
+.signup-button:hover,
+[data-variant="primary"]:hover {
+  background-color: var(--cta-bg-hover) !important;
+  color: var(--cta-text) !important;
+  transition: background-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
+}
+
+/* CTA Active: bg #A8872A */
+.vip-glass-cta:active,
+.btn-primary:active,
+.btn-vip:active,
+.btn-cta:active,
+.cta:active,
+button[type="submit"]:active,
+.signup-button:active,
+[data-variant="primary"]:active {
+  background-color: var(--cta-bg-active) !important;
+}
+
+/* Accent Hover: #5A7CFF (links, secondary buttons, tabs) */
+a:hover,
+.nav-link:hover,
+.link:hover,
+.breadcrumb a:hover,
+.btn-secondary:hover,
+.tab-active:hover,
+.secondary-button:hover {
+  color: var(--accent-hover);
+  transition: color 200ms ease;
+}
+
+/* Secondary button hover: bg rgba(45,91,255,0.1) */
+.btn-secondary:hover,
+.secondary-button:hover {
+  background-color: rgba(45, 91, 255, 0.1);
+  border-color: var(--accent);
+}
+
+/* Success Hover: #008A66 */
+.badge-success:hover,
+.win:hover,
+.success:hover,
+.positive:hover,
+.stat-positive:hover,
+.win-badge:hover,
+.profit:hover,
+.checkmark-success:hover {
+  background-color: var(--success-hover);
+  color: var(--text-primary);
+  transition: background-color 200ms ease;
+}
+
+/* Card Hover: border-color #3A3E47 */
+.card:hover,
+.container:hover,
+.panel:hover,
+.box:hover,
+.widget:hover,
+.modal:hover,
+.list-item:hover {
+  border-color: var(--border-hover);
+  transition: border-color 200ms ease;
+}
+
+/* Link Hover: underline color #2D5BFF */
+a:hover {
+  text-decoration-color: var(--accent);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -112,12 +227,12 @@ html {
 }
 
 body {
-  background: #05070A;
+  background: #0D0F12;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(224, 193, 145, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(255, 77, 30, 0.02) 0%, transparent 40%);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(212, 175, 55, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(212, 175, 55, 0.02) 0%, transparent 40%);
   background-attachment: fixed;
-  color: #F6F2E9;
+  color: #F4F7FA;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
@@ -140,8 +255,8 @@ body::before {
   pointer-events: none;
   z-index: -1;
   background-image: 
-    linear-gradient(rgba(246, 242, 233, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(246, 242, 233, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(244, 247, 250, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 247, 250, 0.02) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -155,7 +270,7 @@ h1, h2, h3, h4, h5, h6 {
 p { line-height: 1.7; }
 
 ::selection {
-  background: rgba(168, 190, 176, 0.4);
+  background: rgba(0, 168, 126, 0.4);
   color: #fff;
 }
 
@@ -287,7 +402,7 @@ a:hover { color: var(--color-primary-light); }
   border: 1px solid var(--color-card-border);
 }
 .btn-ghost:hover {
-  background: rgba(246, 242, 233, 0.05);
+  background: rgba(244, 247, 250, 0.05);
   border-color: var(--color-card-border-hover);
 }
 
@@ -319,25 +434,25 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .card-gradient {
-  background: linear-gradient(135deg, rgba(168, 190, 176, 0.1) 0%, rgba(168, 190, 176, 0.05) 100%);
-  border: 1px solid rgba(168, 190, 176, 0.2);
+  background: linear-gradient(135deg, rgba(0, 168, 126, 0.1) 0%, rgba(0, 168, 126, 0.05) 100%);
+  border: 1px solid rgba(0, 168, 126, 0.2);
   border-radius: var(--radius-xl);
   padding: 2rem;
 }
 
 .card-primary {
-  background: linear-gradient(135deg, rgba(168, 190, 176, 0.15) 0%, rgba(168, 190, 176, 0.1) 100%);
-  border: 1px solid rgba(168, 190, 176, 0.3);
+  background: linear-gradient(135deg, rgba(0, 168, 126, 0.15) 0%, rgba(0, 168, 126, 0.1) 100%);
+  border: 1px solid rgba(0, 168, 126, 0.3);
   border-radius: var(--radius-xl);
   padding: 1.5rem;
 }
 
 .card-vip {
-  background: linear-gradient(135deg, rgba(224, 193, 145, 0.1) 0%, rgba(224, 193, 145, 0.05) 100%);
-  border: 1px solid rgba(224, 193, 145, 0.3);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: var(--radius-xl);
   padding: 1.5rem;
-  box-shadow: 0 0 30px rgba(224, 193, 145, 0.1);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -354,40 +469,40 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .badge-primary {
-  background: rgba(168, 190, 176, 0.2);
+  background: rgba(0, 168, 126, 0.2);
   color: var(--color-primary-light);
-  border: 1px solid rgba(168, 190, 176, 0.3);
+  border: 1px solid rgba(0, 168, 126, 0.3);
 }
 
 .badge-success {
-  background: rgba(168, 190, 176, 0.2);
+  background: rgba(0, 168, 126, 0.2);
   color: var(--color-success-light);
-  border: 1px solid rgba(168, 190, 176, 0.3);
+  border: 1px solid rgba(0, 168, 126, 0.3);
 }
 
 .badge-warning {
-  background: rgba(224, 193, 145, 0.2);
+  background: rgba(212, 175, 55, 0.2);
   color: var(--color-warning-light);
-  border: 1px solid rgba(224, 193, 145, 0.3);
+  border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .badge-danger {
-  background: rgba(255, 77, 30, 0.2);
+  background: rgba(212, 175, 55, 0.2);
   color: var(--color-danger-light);
-  border: 1px solid rgba(255, 77, 30, 0.3);
+  border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .badge-vip {
-  background: linear-gradient(135deg, rgba(224, 193, 145, 0.2) 0%, rgba(224, 193, 145, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
   color: var(--color-vip);
-  border: 1px solid rgba(224, 193, 145, 0.3);
-  box-shadow: 0 0 20px rgba(224, 193, 145, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
 }
 
 .badge-live {
-  background: rgba(255, 77, 30, 0.2);
+  background: rgba(212, 175, 55, 0.2);
   color: var(--color-danger-light);
-  border: 1px solid rgba(255, 77, 30, 0.3);
+  border: 1px solid rgba(212, 175, 55, 0.3);
 }
 .badge-live::before {
   content: '';
@@ -461,8 +576,8 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .match-card.featured {
-  background: linear-gradient(135deg, rgba(168, 190, 176, 0.15) 0%, rgba(168, 190, 176, 0.1) 100%);
-  border: 1px solid rgba(168, 190, 176, 0.3);
+  background: linear-gradient(135deg, rgba(0, 168, 126, 0.15) 0%, rgba(0, 168, 126, 0.1) 100%);
+  border: 1px solid rgba(0, 168, 126, 0.3);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -777,7 +892,7 @@ a:hover { color: var(--color-primary-light); }
 /* Carte VIP Glassmorphism */
 .vip-glass-card {
   position: relative;
-  background: rgba(15, 19, 22, 0.65);
+  background: rgba(30, 34, 40, 0.65);
   backdrop-filter: blur(10px) saturate(180%);
   -webkit-backdrop-filter: blur(10px) saturate(180%);
   border: 1px solid transparent;
@@ -786,11 +901,11 @@ a:hover { color: var(--color-primary-light); }
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow:
-    0 8px 32px rgba(5, 7, 10, 0.5),
-    0 2px 8px rgba(5, 7, 10, 0.3),
-    inset 0 1px 0 rgba(246, 242, 233, 0.06);
-  background-image: linear-gradient(rgba(15, 19, 22, 0.65), rgba(15, 19, 22, 0.65)),
-                    linear-gradient(135deg, rgba(224, 193, 145, 0.15), rgba(224, 193, 145, 0.08));
+    0 8px 32px rgba(13, 15, 18, 0.5),
+    0 2px 8px rgba(13, 15, 18, 0.3),
+    inset 0 1px 0 rgba(244, 247, 250, 0.06);
+  background-image: linear-gradient(rgba(30, 34, 40, 0.65), rgba(30, 34, 40, 0.65)),
+                    linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.08));
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
@@ -802,7 +917,7 @@ a:hover { color: var(--color-primary-light); }
   inset: 0;
   border-radius: 16px;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(224, 193, 145, 0.5), rgba(224, 193, 145, 0.3), rgba(224, 193, 145, 0.1));
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -818,7 +933,7 @@ a:hover { color: var(--color-primary-light); }
   left: 20%;
   right: 20%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(224, 193, 145, 0.6), transparent);
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6), transparent);
   pointer-events: none;
 }
 
@@ -826,16 +941,16 @@ a:hover { color: var(--color-primary-light); }
 .vip-glass-card:hover {
   transform: translateY(-6px);
   box-shadow:
-    0 20px 48px rgba(5, 7, 10, 0.6),
-    0 8px 24px rgba(224, 193, 145, 0.15),
-    inset 0 1px 0 rgba(246, 242, 233, 0.08);
+    0 20px 48px rgba(13, 15, 18, 0.6),
+    0 8px 24px rgba(212, 175, 55, 0.15),
+    inset 0 1px 0 rgba(244, 247, 250, 0.08);
   backdrop-filter: blur(14px) saturate(200%);
   -webkit-backdrop-filter: blur(14px) saturate(200%);
 }
 
 /* Halo d'accent au hover */
 .vip-glass-card:hover::before {
-  background: linear-gradient(135deg, rgba(224, 193, 145, 0.8), rgba(224, 193, 145, 0.5), rgba(224, 193, 145, 0.3));
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.8), rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0.3));
 }
 
 /* En-tête carte : niveau VIP + logo */
@@ -852,8 +967,8 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 1.25rem;
-  color: #E0C191;
-  text-shadow: 0 0 20px rgba(224, 193, 145, 0.4);
+  color: #D4AF37;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
   letter-spacing: 0.02em;
 }
 
@@ -867,18 +982,18 @@ a:hover { color: var(--color-primary-light); }
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: linear-gradient(135deg, #E0C191, #E0C191);
+  background: linear-gradient(135deg, #D4AF37, #D4AF37);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 16px rgba(224, 193, 145, 0.4);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
 }
 
 .vip-glass-logo-text {
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
-  color: #F6F2E9;
+  color: #F4F7FA;
 }
 
 /* Corps carte : utilisateur + avantages */
@@ -891,7 +1006,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  color: #F6F2E9;
+  color: #F4F7FA;
   margin-bottom: 1rem;
 }
 
@@ -910,7 +1025,7 @@ a:hover { color: var(--color-primary-light); }
   gap: 0.625rem;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.8125rem;
-  color: #9E9B96;
+  color: #A8B3C7;
   line-height: 1.5;
 }
 
@@ -921,8 +1036,8 @@ a:hover { color: var(--color-primary-light); }
   height: 6px;
   margin-top: 6px;
   border-radius: 50%;
-  background: #E0C191;
-  box-shadow: 0 0 8px rgba(224, 193, 145, 0.6);
+  background: #D4AF37;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
 }
 
 /* Pied carte : statut */
@@ -932,7 +1047,7 @@ a:hover { color: var(--color-primary-light); }
   justify-content: space-between;
   margin-top: 1.25rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(246, 242, 233, 0.06);
+  border-top: 1px solid rgba(244, 247, 250, 0.06);
   position: relative;
   z-index: 2;
 }
@@ -944,7 +1059,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.6875rem;
   font-weight: 600;
-  color: #E0C191;
+  color: #D4AF37;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -954,8 +1069,8 @@ a:hover { color: var(--color-primary-light); }
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #E0C191;
-  box-shadow: 0 0 8px rgba(224, 193, 145, 0.8);
+  background: #D4AF37;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
   animation: vip-pulse 2s ease-in-out infinite;
 }
 
@@ -967,7 +1082,7 @@ a:hover { color: var(--color-primary-light); }
 .vip-glass-meta {
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.6875rem;
-  color: #2A3137;
+  color: #2A2E35;
 }
 
 /* CTA carte VIP glassmorphism */
@@ -979,8 +1094,8 @@ a:hover { color: var(--color-primary-light); }
   width: 100%;
   padding: 0.75rem 1.25rem;
   margin-top: 1.25rem;
-  background: linear-gradient(135deg, #FF4D1E 0%, #FF4D1E 100%);
-  color: #F6F2E9;
+  background: linear-gradient(135deg, #D4AF37 0%, #D4AF37 100%);
+  color: #F4F7FA;
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
@@ -988,15 +1103,15 @@ a:hover { color: var(--color-primary-light); }
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(255, 77, 30, 0.3);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
   position: relative;
   z-index: 2;
 }
 
 .vip-glass-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 77, 30, 0.5);
-  background: linear-gradient(135deg, #FF4D1E 0%, #FF4D1E 100%);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.5);
+  background: linear-gradient(135deg, #D4AF37 0%, #D4AF37 100%);
 }
 
 .vip-glass-cta:active {
@@ -1005,17 +1120,17 @@ a:hover { color: var(--color-primary-light); }
 
 /* Badge or champagne pour cartes premium */
 .vip-glass-card.gold {
-  background-image: linear-gradient(rgba(15, 19, 22, 0.65), rgba(15, 19, 22, 0.65)),
-                    linear-gradient(135deg, rgba(224, 193, 145, 0.2), rgba(224, 193, 145, 0.1));
+  background-image: linear-gradient(rgba(30, 34, 40, 0.65), rgba(30, 34, 40, 0.65)),
+                    linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
 }
 
 .vip-glass-card.gold::before {
-  background: linear-gradient(135deg, rgba(224, 193, 145, 0.6), rgba(224, 193, 145, 0.3), rgba(224, 193, 145, 0.2));
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.6), rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.2));
 }
 
 .vip-glass-card.gold .vip-glass-level {
-  color: #E0C191;
-  text-shadow: 0 0 24px rgba(224, 193, 145, 0.5);
+  color: #D4AF37;
+  text-shadow: 0 0 24px rgba(212, 175, 55, 0.5);
 }
 
 /* Responsive : padding réduit sur mobile */

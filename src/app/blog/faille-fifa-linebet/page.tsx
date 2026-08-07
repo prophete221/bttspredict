@@ -120,7 +120,7 @@ export default function FailleFifaLinebetPage() {
               style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
             >
               Faille FIFA Linebet & 888starz :{' '}
-              <span className="text-or" style={{ textShadow: '0 0 8px rgba(224, 193, 145,0.5), 0 0 24px rgba(224, 193, 145,0.3)' }}>
+              <span className="text-or" style={{ textShadow: '0 0 8px rgba(212, 175, 55,0.5), 0 0 24px rgba(212, 175, 55,0.3)' }}>
                 Détecter les Cotes Erronées
               </span> en 2026
             </h1>

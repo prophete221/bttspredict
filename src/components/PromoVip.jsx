@@ -104,7 +104,7 @@ function VipModal({ isOpen, onClose }) {
           transition={{ duration: 0.25 }}
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
           onClick={handleBackdropClick}
-          style={{ backgroundColor: 'rgba(5, 7, 10,0.75)' }}
+          style={{ backgroundColor: 'rgba(13, 15, 18,0.75)' }}
         >
           <motion.div
             ref={modalRef}

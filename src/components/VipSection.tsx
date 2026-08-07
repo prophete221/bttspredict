@@ -115,7 +115,7 @@ export default function VipSection() {
         </div>
 
         {/* CTA Section */}
-        <div className="relative overflow-hidden rounded-3xl p-8 lg:p-12" style={{ background: 'linear-gradient(135deg, rgba(224, 193, 145, 0.2) 0%, rgba(255, 77, 30, 0.1) 100%)', border: '1px solid rgba(224, 193, 145, 0.2)' }}>
+        <div className="relative overflow-hidden rounded-3xl p-8 lg:p-12" style={{ background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%)', border: '1px solid rgba(212, 175, 55, 0.2)' }}>
           {/* Decorative */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-vip)] rounded-full opacity-10 blur-[80px]"/>
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-[var(--color-primary)] rounded-full opacity-10 blur-[60px]"/>

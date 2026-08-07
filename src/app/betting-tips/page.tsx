@@ -37,48 +37,48 @@ export default function BettingTipsPage() {
       <Navbar />
       <main className="flex-1 relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 w-full">
         <nav aria-label="Fil d'Ariane" className="mb-8">
-          <ol className="flex items-center gap-2 text-sm" style={{ color: '#9E9B96' }}>
+          <ol className="flex items-center gap-2 text-sm" style={{ color: '#A8B3C7' }}>
             <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
             <li aria-hidden="true">/</li>
-            <li style={{ color: '#F6F2E9' }} aria-current="page">Betting Tips</li>
+            <li style={{ color: '#F4F7FA' }} aria-current="page">Betting Tips</li>
           </ol>
         </nav>
 
         <header className="mb-12 text-center">
           <span className="eyebrow">💡 Conseils Paris</span>
-          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F6F2E9', fontFamily: 'Poppins, sans-serif' }}>
-            Betting <span style={{ color: '#E0C191' }}>Tips</span>
+          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F4F7FA', fontFamily: 'Poppins, sans-serif' }}>
+            Betting <span style={{ color: '#D4AF37' }}>Tips</span>
           </h1>
-          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#9E9B96' }}>
+          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#A8B3C7' }}>
             Conseils et stratégies de paris sportifs football. BTTS, Over 2.5, value bets FIFA, gestion de bankroll. Méthodologie documentée, 84,5% vérifié.
           </p>
         </header>
 
-        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: '#0F1316', border: '1px solid rgba(246, 242, 233, 0.08)' }}>
-          <h2 className="text-xl font-bold mb-4" style={{ color: '#F6F2E9', fontFamily: 'Poppins, sans-serif' }}>Stratégies de paris football</h2>
-          <div className="text-sm leading-relaxed space-y-3" style={{ color: '#9E9B96' }}>
-            <p><strong style={{ color: '#F6F2E9' }}>1. BTTS (Both Teams To Score) :</strong> Pari sur le fait que les deux équipes marquent. Notre modèle Poisson identifie les matchs où les deux équipes ont un xG élevé. Seuil de recommandation : 0.48.</p>
-            <p><strong style={{ color: '#F6F2E9' }}>2. Over 2.5 Goals :</strong> Pari sur 3+ buts dans le match. Idéal pour les championnats offensifs (Bundesliga, Eredivisie). Seuil : 0.49.</p>
-            <p><strong style={{ color: '#F6F2E9' }}>3. Value Bets FIFA :</strong> Détection des cotes sous-évaluées sur les matchs FIFA virtuels. Risque élevé, cotes élevées (10-15).</p>
-            <p><strong style={{ color: '#F6F2E9' }}>4. Gestion de bankroll :</strong> Ne jamais miser plus de 1-5% de votre capital sur un pari. Consultez notre <a href="/blog/gestion-bankroll-paris-sportifs" style={{ color: '#E0C191' }}>guide complet</a>.</p>
-            <p>Pour voir nos pronostics du jour, consultez notre <a href="/" style={{ color: '#E0C191' }}>page d'accueil</a> ou nos <a href="/blog" style={{ color: '#E0C191' }}>analyses détaillées</a>.</p>
+        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: '#1E2228', border: '1px solid rgba(244, 247, 250, 0.08)' }}>
+          <h2 className="text-xl font-bold mb-4" style={{ color: '#F4F7FA', fontFamily: 'Poppins, sans-serif' }}>Stratégies de paris football</h2>
+          <div className="text-sm leading-relaxed space-y-3" style={{ color: '#A8B3C7' }}>
+            <p><strong style={{ color: '#F4F7FA' }}>1. BTTS (Both Teams To Score) :</strong> Pari sur le fait que les deux équipes marquent. Notre modèle Poisson identifie les matchs où les deux équipes ont un xG élevé. Seuil de recommandation : 0.48.</p>
+            <p><strong style={{ color: '#F4F7FA' }}>2. Over 2.5 Goals :</strong> Pari sur 3+ buts dans le match. Idéal pour les championnats offensifs (Bundesliga, Eredivisie). Seuil : 0.49.</p>
+            <p><strong style={{ color: '#F4F7FA' }}>3. Value Bets FIFA :</strong> Détection des cotes sous-évaluées sur les matchs FIFA virtuels. Risque élevé, cotes élevées (10-15).</p>
+            <p><strong style={{ color: '#F4F7FA' }}>4. Gestion de bankroll :</strong> Ne jamais miser plus de 1-5% de votre capital sur un pari. Consultez notre <a href="/blog/gestion-bankroll-paris-sportifs" style={{ color: '#D4AF37' }}>guide complet</a>.</p>
+            <p>Pour voir nos pronostics du jour, consultez notre <a href="/" style={{ color: '#D4AF37' }}>page d'accueil</a> ou nos <a href="/blog" style={{ color: '#D4AF37' }}>analyses détaillées</a>.</p>
           </div>
         </section>
 
-        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(224, 193, 145, 0.05)', border: '1px solid rgba(224, 193, 145, 0.15)' }}>
-          <h2 className="text-lg font-bold mb-2" style={{ color: '#F6F2E9' }}>Résumé</h2>
-          <p className="text-sm" style={{ color: '#9E9B96' }}>
-            BTTSPredict fournit des betting tips football basés sur un modèle de Poisson calibré sur 50 000 matchs. Taux de réussite vérifié 84,5%. Aucun résultat garanti. Consultez notre <a href="/methodologie" style={{ color: '#E0C191' }}>méthodologie</a> et notre <a href="/historique" style={{ color: '#E0C191' }}>historique vérifié</a>. 18+ — Jeu responsable.
+        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(212, 175, 55, 0.05)', border: '1px solid rgba(212, 175, 55, 0.15)' }}>
+          <h2 className="text-lg font-bold mb-2" style={{ color: '#F4F7FA' }}>Résumé</h2>
+          <p className="text-sm" style={{ color: '#A8B3C7' }}>
+            BTTSPredict fournit des betting tips football basés sur un modèle de Poisson calibré sur 50 000 matchs. Taux de réussite vérifié 84,5%. Aucun résultat garanti. Consultez notre <a href="/methodologie" style={{ color: '#D4AF37' }}>méthodologie</a> et notre <a href="/historique" style={{ color: '#D4AF37' }}>historique vérifié</a>. 18+ — Jeu responsable.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xl font-bold mb-4" style={{ color: '#F6F2E9', fontFamily: 'Poppins, sans-serif' }}>FAQ Betting Tips</h2>
+          <h2 className="text-xl font-bold mb-4" style={{ color: '#F4F7FA', fontFamily: 'Poppins, sans-serif' }}>FAQ Betting Tips</h2>
           <div className="space-y-2">
             {FAQ.map((item, i) => (
-              <details key={i} className="rounded-lg overflow-hidden" style={{ backgroundColor: '#0F1316', border: '1px solid rgba(246, 242, 233, 0.08)' }}>
-                <summary className="p-4 cursor-pointer text-sm font-semibold" style={{ color: '#F6F2E9' }}>{item.q}</summary>
-                <p className="px-4 pb-4 text-xs leading-relaxed" style={{ color: '#9E9B96' }} dangerouslySetInnerHTML={{ __html: item.a }} />
+              <details key={i} className="rounded-lg overflow-hidden" style={{ backgroundColor: '#1E2228', border: '1px solid rgba(244, 247, 250, 0.08)' }}>
+                <summary className="p-4 cursor-pointer text-sm font-semibold" style={{ color: '#F4F7FA' }}>{item.q}</summary>
+                <p className="px-4 pb-4 text-xs leading-relaxed" style={{ color: '#A8B3C7' }} dangerouslySetInnerHTML={{ __html: item.a }} />
               </details>
             ))}
           </div>

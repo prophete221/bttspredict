@@ -6,10 +6,10 @@ import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
 
 const C = {
-  bg: '#05070A', card: '#0F1316', border: 'rgba(246, 242, 233, 0.08)',
-  green: '#E0C191', greenLight: '#E0C191', gold: '#E0C191', cyan: '#E0C191', violet: '#E0C191',
-  text: '#F6F2E9', textSec: '#9E9B96', textMute: '#9E9B96',
-  danger: '#FF4D1E',
+  bg: '#0D0F12', card: '#1E2228', border: 'rgba(244, 247, 250, 0.08)',
+  green: '#D4AF37', greenLight: '#D4AF37', gold: '#D4AF37', cyan: '#D4AF37', violet: '#D4AF37',
+  text: '#F4F7FA', textSec: '#A8B3C7', textMute: '#A8B3C7',
+  danger: '#D4AF37',
 }
 
 function getHourlyServerSeed(): string {
@@ -81,7 +81,7 @@ export default function AviatorVip() {
 
   return (
     <>
-      <section ref={ref} id="aviator" className="section-pad overflow-x-hidden" style={{ paddingTop: '16px', paddingBottom: '16px', backgroundColor: '#05070A' }}>
+      <section ref={ref} id="aviator" className="section-pad overflow-x-hidden" style={{ paddingTop: '16px', paddingBottom: '16px', backgroundColor: '#0D0F12' }}>
         <div className="max-w-[440px] sm:max-w-2xl mx-auto">
           {/* Compact card */}
           <motion.div
@@ -89,7 +89,7 @@ export default function AviatorVip() {
             animate={isVisible ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.4 }}
             className="rounded-[14px] overflow-hidden"
-            style={{ backgroundColor: C.card, border: '1px solid ' + C.border, boxShadow: '0 4px 20px rgba(5, 7, 10,0.3)' }}
+            style={{ backgroundColor: C.card, border: '1px solid ' + C.border, boxShadow: '0 4px 20px rgba(13, 15, 18,0.3)' }}
           >
             {/* Top accent */}
             <div className="h-[2px]" style={{ background: 'linear-gradient(90deg, transparent, ' + C.danger + ', transparent)' }} />
@@ -97,21 +97,21 @@ export default function AviatorVip() {
             <div className="p-3.5">
               {/* Header — compact */}
               <div className="flex items-center gap-2.5 mb-3">
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(255, 77, 30,0.1)', border: '1px solid rgba(255, 77, 30,0.2)' }}>
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(212, 175, 55,0.1)', border: '1px solid rgba(212, 175, 55,0.2)' }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.danger} strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="text-sm font-bold text-papier">Stats Aviator</h3>
                   <p className="text-[9px]" style={{ color: C.textMute }}>Provably Fair · SHA-256</p>
                 </div>
-                <div className="flex items-center gap-1 px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(255, 77, 30,0.1)' }}>
+                <div className="flex items-center gap-1 px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(212, 175, 55,0.1)' }}>
                   <span className="w-1 h-1 rounded-full animate-pulse" style={{ backgroundColor: C.danger }} />
                   <span className="font-mono text-[8px] font-bold" style={{ color: C.danger }}>LIVE</span>
                 </div>
               </div>
 
               {/* Warning — compact */}
-              <div className="p-2 rounded-lg mb-3" style={{ backgroundColor: 'rgba(255, 77, 30,0.06)', border: '1px solid rgba(255, 77, 30,0.15)' }}>
+              <div className="p-2 rounded-lg mb-3" style={{ backgroundColor: 'rgba(212, 175, 55,0.06)', border: '1px solid rgba(212, 175, 55,0.15)' }}>
                 <p className="text-[9px] leading-relaxed" style={{ color: C.textSec }}>
                   ⚠️ <span style={{ color: C.danger }}>Provably Fair :</span> Aviator est 100% aléatoire. Aucun outil ne peut prédire un round futur.
                 </p>
@@ -119,19 +119,19 @@ export default function AviatorVip() {
 
               {/* KPI — 2x2 compact grid */}
               <div className="grid grid-cols-2 gap-1.5 mb-3">
-                <div className="p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(255, 77, 30,0.06)' }}>
+                <div className="p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(212, 175, 55,0.06)' }}>
                   <div className="text-sm font-bold tabular-nums" style={{ color: C.danger }}>{stats?.winRate || 0}%</div>
                   <div className="text-[8px] uppercase tracking-wider" style={{ color: C.textMute }}>Cash-out</div>
                 </div>
-                <div className="p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(224, 193, 145,0.06)' }}>
+                <div className="p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(212, 175, 55,0.06)' }}>
                   <div className="text-sm font-bold tabular-nums" style={{ color: C.cyan }}>{stats?.avgMult.toFixed(2) || '0.00'}x</div>
                   <div className="text-[8px] uppercase tracking-wider" style={{ color: C.textMute }}>Mult. moyen</div>
                 </div>
-                <div className="p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(224, 193, 145,0.06)' }}>
+                <div className="p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(212, 175, 55,0.06)' }}>
                   <div className="text-sm font-bold tabular-nums" style={{ color: C.gold }}>{stats?.maxMult.toFixed(2) || '0.00'}x</div>
                   <div className="text-[8px] uppercase tracking-wider" style={{ color: C.textMute }}>Max du jour</div>
                 </div>
-                <div className="p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(224, 193, 145,0.06)' }}>
+                <div className="p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(212, 175, 55,0.06)' }}>
                   <div className="text-sm font-bold tabular-nums" style={{ color: C.violet }}>{stats?.totalRounds || 0}</div>
                   <div className="text-[8px] uppercase tracking-wider" style={{ color: C.textMute }}>Rounds</div>
                 </div>
@@ -141,7 +141,7 @@ export default function AviatorVip() {
               <div className="relative">
                 <div className="space-y-1" style={{ filter: 'blur(5px)', opacity: 0.4, pointerEvents: 'none' }}>
                   {rounds.map((r, i) => (
-                    <div key={i} className="flex items-center justify-between px-2 py-1.5 rounded" style={{ backgroundColor: 'rgba(246, 242, 233,0.02)' }}>
+                    <div key={i} className="flex items-center justify-between px-2 py-1.5 rounded" style={{ backgroundColor: 'rgba(244, 247, 250,0.02)' }}>
                       <span className="font-mono text-[10px]" style={{ color: C.textSec }}>#{r.nonce}</span>
                       <span className="font-mono text-[10px] font-bold" style={{ color: C.gold }}>{r.multiplier.toFixed(2)}x</span>
                     </div>
@@ -153,7 +153,7 @@ export default function AviatorVip() {
               <button
                 onClick={() => setShowModal(true)}
                 className="w-full mt-3 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-xs font-bold transition-all"
-                style={{ background: 'linear-gradient(135deg, #FF4D1E, #FF4D1E)', color: '#F6F2E9' }}
+                style={{ background: 'linear-gradient(135deg, #D4AF37, #D4AF37)', color: '#F4F7FA' }}
               >
                 🔒 Débloquer les Stats Aviator VIP
               </button>

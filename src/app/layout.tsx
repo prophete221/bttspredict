@@ -121,7 +121,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#05070A",
+  themeColor: "#0D0F12",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -171,7 +171,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v55-monolith-1b-2026-08-07';
+                var VERSION = 'bttspredict-v56-institutional-2026-08-07';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){

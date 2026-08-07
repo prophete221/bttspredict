@@ -1,4 +1,4 @@
-export default function SectionDivider({ type = 'wave', flip = false, color = '#0F1316' }) {
+export default function SectionDivider({ type = 'wave', flip = false, color = '#1E2228' }) {
   const variants = {
     wave: (
       <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-[40px] sm:h-[60px]">
