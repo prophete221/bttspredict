@@ -70,20 +70,19 @@ export default function Hero() {
           <h1
             className="font-bold leading-[1.05] tracking-tight"
             style={{
-              fontSize: '32px',
+              fontSize: '28px',
               color: '#F7F8FF',
               fontFamily: 'Poppins, sans-serif',
             }}
           >
-            BTTS &amp; OVER 2.5
+            Football Predictions Today
             <br />
-            <span style={{ color: '#A5ABC5' }}>BASE OPEN-SOURCE</span>
+            <span style={{ color: '#5146F5', fontSize: '22px' }}>BTTS, Over 2.5 &amp; Correct Score AI</span>
           </h1>
 
           {/* ═══ H2 ═══ */}
           <p className="mt-3 text-[13px] leading-[1.6]" style={{ color: '#A5ABC5', maxWidth: '380px' }}>
-            2 909 pronostics archivés. Modèle Poisson. Vérification ESPN.
-            Liens affiliés identifiés. Pas de promesses, que des données.
+            Real football data. AI analysis. xG models. Team form. Historical performance. Daily predictions for every major league.
           </p>
         </motion.div>
 
@@ -94,12 +93,16 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-col gap-3"
         >
-          {/* CTA primaire: "Voir les résultats vérifiés" */}
+          {/* CTA primaire: "View Today's Predictions" */}
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => {
-              window.location.href = '/resultats-verifies'
+              if (window.location.pathname !== '/') {
+                window.location.href = '/#free-predictions'
+              } else {
+                document.getElementById('free-predictions')?.scrollIntoView({ behavior: 'smooth' })
+              }
             }}
             className="w-full h-[52px] rounded-[10px] font-bold text-[15px] flex items-center justify-center gap-2 transition-all"
             style={{
@@ -109,7 +112,7 @@ export default function Hero() {
               boxShadow: '0 4px 16px rgba(81, 70, 245, 0.25)',
             }}
             data-cta="hero-primary"
-            aria-label="Voir les résultats vérifiés"
+            aria-label="View Today's Predictions"
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = '#6258FF'
             }}
@@ -121,24 +124,20 @@ export default function Hero() {
               <circle cx="12" cy="12" r="10" />
               <polyline points="12 6 12 12 16 14" />
             </svg>
-            Voir les résultats vérifiés
+            View Today's Predictions
           </motion.button>
 
-          {/* Lien secondaire texte: "Découvrir les pronostics du jour" */}
+          {/* Lien secondaire texte */}
           <button
             onClick={() => {
-              if (window.location.pathname !== '/') {
-                window.location.href = '/#free-predictions'
-              } else {
-                document.getElementById('free-predictions')?.scrollIntoView({ behavior: 'smooth' })
-              }
+              window.location.href = '/resultats-verifies'
             }}
             className="w-full text-center text-[14px] font-medium transition-colors py-2"
             style={{ color: '#A5ABC5', background: 'transparent', border: 'none' }}
             onMouseEnter={(e) => (e.currentTarget.style.color = '#F7F8FF')}
             onMouseLeave={(e) => (e.currentTarget.style.color = '#A5ABC5')}
           >
-            Découvrir les pronostics du jour →
+            View Verified Results →
           </button>
         </motion.div>
 
