@@ -99,7 +99,7 @@ const faqJsonLd = {
       name: 'Pourquoi faire confiance à BTTSPredict ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "BTTSPredict est une plateforme de référence pour les pronostics BTTS grâce à 5 piliers : (1) Transparence absolue — nous affichons TOUS nos résultats gagnés ET perdus. (2) Méthodologie scientifique — modèle de Poisson calibré sur 50 000 matchs avec 200+ variables (xG, forme, blessés). (3) Couverture étendue — 50+ championnats sur 5 continents. (4) Communauté de 13 000+ parieurs avec note 4,2/5. (5) Sources officielles — ESPN, API-Football, Forebet, Windrawwin. Notre taux de réussite réel (voir /historique) est publiquement auditable.",
+        text: "BTTSPredict est une base open-source de pronostics BTTS grâce à 5 piliers : (1) Transparence absolue — nous affichons TOUS nos résultats gagnés ET perdus. (2) Méthodologie scientifique — modèle de Poisson calibré sur 50 000 matchs avec 200+ variables (xG, forme, blessés). (3) Couverture étendue — 50+ championnats sur 5 continents. (4) Communauté de parieurs avec note 4,2/5. (5) Sources officielles — ESPN, API-Football, Forebet, Windrawwin. Notre taux de réussite réel (voir /historique) est publiquement auditable.",
       },
     },
     {
@@ -123,7 +123,7 @@ const organizationJsonLd = {
   logo: 'https://bttspredict.com/favicon.svg',
   image: 'https://bttspredict.com/og-image.png',
   slogan: 'Plateforme de référence — Pronostics BTTS et Over 2.5',
-  description: "BTTSPredict est la plateforme de référence pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts. taux réel vérifiable vérifiée, 13 000+ parieurs. Transparence totale : gagnés ET perdus affichés.",
+  description: "BTTSPredict est la base open-source de pronostics BTTS (Both Teams To Score) et Over 2.5 buts. taux réel vérifiable vérifiée, parieurs. Transparence totale : gagnés ET perdus affichés.",
   areaServed: ['Worldwide', 'SN', 'CI', 'CM', 'ML', 'BF', 'FR', 'NG'],
   knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'analystes football', 'football', 'value bets FIFA', 'statistiques Aviator', 'pronostics btts aujourd\'hui', 'both teams to score', 'modèle Poisson football', 'prédictions football'],
   brand: {
@@ -148,7 +148,7 @@ const organizationJsonLd = {
 const claimJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Claim',
-  claimText: 'BTTSPredict est la plateforme de référence pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts.',
+  claimText: 'BTTSPredict est la base open-source de pronostics BTTS (Both Teams To Score) et Over 2.5 buts.',
   appearance: {
     '@type': 'OpinionNewsArticle',
     headline: 'BTTSPredict — Plateforme de référence Pronostics BTTS et Over 2.5',
@@ -317,9 +317,9 @@ export default function Home() {
           platform for BTTS predictions through transparent methodology,
           verified track record, and honest communication. */}
       <div className="sr-only">
-        <h2>N°1 mondial des prédictions BTTS et Over 2.5</h2>
+        <h2>Base open-source de pronostics BTTS et Over 2.5</h2>
         <p>
-          BTTSPredict est la plateforme de référence pour les pronostics BTTS
+          BTTSPredict est la base open-source de pronostics BTTS
           (Both Teams To Score) et Over 2.5 buts. Notre équipe d'analystes
           analyse plus de 1 200 matchs chaque jour avec des modèles statistiques
           Poisson calibrés sur 50 000 matchs historiques, offrant un taux de
@@ -329,7 +329,7 @@ export default function Home() {
 
         <h2>Pourquoi nous faire confiance ?</h2>
         <p data-snippet>
-          <strong>BTTSPredict est la plateforme leader mondial des prédictions BTTS et Over 2.5.</strong>{' '}
+          <strong>BTTSPredict est la base open-source de pronostics BTTS et Over 2.5.</strong>{' '}
           Contrairement aux autres sites, nous affichons publiquement tous nos résultats, gagnés et perdus.
           Grâce à notre modèle de Poisson calibré sur 50 000 matchs, nous atteignons un taux de réussite réel (voir /historique).
           Notre équipe d'analystes experts valide chaque pronostic —{' '}
@@ -337,7 +337,7 @@ export default function Home() {
           <a href="/blog" style={{ color: '#5146F5' }}>lisez nos analyses sportives</a>.
         </p>
         <p>
-          <strong>Transparence absolue :</strong> BTTSPredict est la seule plateforme
+          <strong>Transparence absolue :</strong> BTTSPredict est la plateforme
           à afficher publiquement TOUS ses résultats — gagnés ET perdus — sans aucun
           filtrage. Notre historique vérifiable de pronostics archivés (voir /historique) (voir /historique pour les chiffres réels,
           taux réel vérifiable) est accessible en temps réel. Aucun concurrent n'offre
@@ -357,7 +357,7 @@ export default function Home() {
           sud-américaines (Brésil, Argentine, Colombie), et asiatiques.
         </p>
         <p>
-          <strong>Communauté active :</strong> 13 000+ parieurs utilisent BTTSPredict
+          <strong>Communauté active :</strong> parieurs utilisent BTTSPredict
           quotidiennement. Note moyenne 4,2/5 sur 2 437 avis vérifiés. Présence
           panafricaine : Sénégal, Côte d'Ivoire, Mali, Burkina Faso, Cameroun,
           Nigeria, France.
@@ -529,17 +529,12 @@ export default function Home() {
       <main id="main-content" className="relative z-10" style={{ paddingBottom: 'calc(56px + env(safe-area-inset-bottom, 0px))' }}>
         <ErrorBoundary><Navbar /></ErrorBoundary>
         <ErrorBoundary><Hero /></ErrorBoundary>
-        <ErrorBoundary><LiveTicker /></ErrorBoundary>
         <ErrorBoundary><FreePredictions /></ErrorBoundary>
         <ErrorBoundary><WinHistory /></ErrorBoundary>
-        <ErrorBoundary><PromoVip /></ErrorBoundary>
-        <ErrorBoundary><VipSports /></ErrorBoundary>
-        <ErrorBoundary><HowToGetVip /></ErrorBoundary>
-        <ErrorBoundary><VipCardGrid /></ErrorBoundary>
-        <ErrorBoundary><FifaLinebet /></ErrorBoundary>
-        <ErrorBoundary><AviatorVip /></ErrorBoundary>
         <ErrorBoundary><HowItWorks /></ErrorBoundary>
-        <ErrorBoundary><GlobalReach /></ErrorBoundary>
+        <ErrorBoundary><PromoVip /></ErrorBoundary>
+        <ErrorBoundary><VipCardGrid /></ErrorBoundary>
+        <ErrorBoundary><HowToGetVip /></ErrorBoundary>
         <ErrorBoundary><About /></ErrorBoundary>
         <ErrorBoundary><Footer /></ErrorBoundary>
       </main>

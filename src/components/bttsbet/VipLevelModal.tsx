@@ -308,10 +308,10 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                     className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
                     style={{ backgroundColor: '#0D1630', color: config.accentColor, border: `1px solid ${config.accentColor}40` }}
                   >3</span>
-                  <span className="text-sm font-semibold text-papier">Confirme ton accès via WhatsApp</span>
+                  <span className="text-sm font-semibold text-papier">Contacte le support</span>
                 </div>
                 <p className="text-[12px] mb-3 ml-9" style={{ color: '#A5ABC5' }}>
-                  Envoie une capture de ton dépôt + ton ID joueur sur WhatsApp. Notre équipe active ton <span className="font-semibold text-papier">{config.level}</span> en moins de 30 minutes.
+                  Contacte le support avec ton ID joueur (pas de capture bancaire). Notre équipe active ton <span className="font-semibold text-papier">{config.level}</span> en moins de 30 minutes.
                 </p>
                 <a
                   href={`https://wa.me/15406704172?text=${encodeURIComponent(whatsappMsg)}`}
@@ -325,7 +325,7 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                   }}
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="#5146F5"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01-1.87-1.87-4.36-2.91-7.01-2.91zm0 1.67c2.2 0 4.27.86 5.82 2.42 1.56 1.56 2.42 3.63 2.42 5.82 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.81-1.29-1.24-2.79-1.24-4.34 0-4.54 3.7-8.24 8.24-8.24z"/></svg>
-                  Débloquer via WhatsApp
+                  Contacter le support
                 </a>
               </div>
 

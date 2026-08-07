@@ -42,7 +42,8 @@ export default function WinHistory() {
 
   const stats = data.stats
   const gold = stats.gold || { total: 0, won: 0, lost: 0, rate: 0 }
-  const hasGold = gold.total >= 1
+  const hasGold = gold.total >= 10
+  const goldBuilding = gold.total > 0 && gold.total < 10
 
   return (
     <section id="win-history" className="py-12 px-4">
@@ -77,7 +78,7 @@ export default function WinHistory() {
             </div>
           </div>
 
-          {/* Gold Picks — caché si gold.total === 0 */}
+          {/* Gold Picks — visible si gold.total >= 10, sinon "en construction" */}
           {hasGold && (
             <div className="rounded-[24px] bg-gradient-to-br from-[#FFC857] to-[#FF8A00] p-5">
               <div className="text-[10px] text-black/60 uppercase tracking-widest font-bold">Gold Picks • Haute confiance</div>
@@ -90,6 +91,19 @@ export default function WinHistory() {
               </div>
             </div>
           )}
+          {goldBuilding && (
+            <div className="rounded-[24px] bg-[#0D1630] border border-[#FFC857]/30 p-5">
+              <div className="text-[10px] text-[#FFC857] uppercase tracking-widest font-bold">Gold Picks • En construction</div>
+              <div className="mt-1 text-sm text-[#A5ABC5]">
+                Pool Gold en constitution ({gold.total}/10). Les pronos haute confiance sont vérifiés en continu via ESPN.
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Source des données */}
+        <div className="text-[10px] text-[#6B7194] px-1">
+          Calculé sur {stats.total} vérifiés • Source: ESPN public • Mise à jour: {new Date(data.generatedAt).toLocaleString('fr-FR')}
         </div>
 
         {/* Lien méthodologie */}

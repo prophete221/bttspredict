@@ -73,7 +73,7 @@ export default function About() {
             des parieurs <span className="text-success">pros africains</span>
           </h2>
           <p className="section-subtitle max-w-[440px] sm:max-w-2xl mx-auto">
-            BTTSPredict n'est pas un site affilié de plus. C'est une plateforme produit qui connecte
+            BTTSPredict utilise des liens affiliés identifiés comme tels. Nous ne prenons pas de paris. C'est une plateforme produit qui connecte
             les parieurs sérieux — au Sénégal, en Côte d'Ivoire, au Mali et au-delà — aux
             meilleurs bookmakers (Linebet, 888starz) via des pronostics IA transparents et fiables.
           </p>

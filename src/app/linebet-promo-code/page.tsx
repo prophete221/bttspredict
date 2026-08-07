@@ -6,7 +6,7 @@ import {Navbar, Footer,
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
 const TITLE = 'Linebet Promo Code VISION221'
-const DESCRIPTION = 'Code promo Linebet VISION221 : bonus exclusif de 90 000 XOF (150$). Inscription, dépôt Wave/Orange Money, activation. Guide complet 2026.'
+const DESCRIPTION = 'Code promo Linebet VISION221 : bonus sous conditions (mise x5, dépôt min, voir site bookmaker). Inscription, dépôt Wave/Orange Money, activation. Guide complet 2026.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -73,7 +73,7 @@ export default function LinebetPromoCodePage() {
         <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(81, 70, 245, 0.05)', border: '1px solid rgba(81, 70, 245, 0.15)' }}>
           <h2 className="text-lg font-bold mb-2" style={{ color: '#F7F8FF' }}>Résumé</h2>
           <p className="text-sm" style={{ color: '#A5ABC5' }}>
-            Code promo VISION221 : bonus exclusif de 90 000 XOF (150$) sur Linebet. Dépôt minimum 200 XOF. Le même code (vision221) fonctionne sur 888starz pour un bonus de 100%. Conditions de mise applicables. 18+ — Jeu responsable.
+            Code promo VISION221 : bonus sous conditions (mise x5, dépôt min, voir site bookmaker) sur Linebet. Dépôt minimum 200 XOF. Le même code (vision221) fonctionne sur 888starz pour un bonus de 100%. Conditions de mise applicables. 18+ — Jeu responsable.
           </p>
         </section>
 

@@ -100,13 +100,13 @@ export default function MethodologiePage() {
           <h2 className="text-2xl font-bold text-papier mb-4">🏆 Pourquoi nous faire confiance ?</h2>
           <div className="text-cendre text-sm leading-relaxed space-y-3">
             <p>
-              BTTSPredict est une <strong className="text-emerald">plateforme de référence</strong> pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts. Notre standard de transparence repose sur 5 piliers vérifiables :
+              BTTSPredict est une <strong className="text-emerald">plateforme de données</strong> pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts. Notre standard de transparence repose sur 5 piliers vérifiables :
             </p>
             <ol className="space-y-2 list-decimal list-inside">
-              <li><strong className="text-papier">Transparence absolue</strong> — seule plateforme à afficher TOUS ses résultats (gagnés ET perdus) sans filtrage. Historique public en temps réel — voir /historique pour les chiffres.</li>
+              <li><strong className="text-papier">Transparence absolue</strong> — plateforme à afficher TOUS ses résultats (gagnés ET perdus) sans filtrage. Historique public en temps réel — voir /historique pour les chiffres.</li>
               <li><strong className="text-papier">Méthodologie scientifique</strong> — modèle de Poisson calibré sur 50 000 matchs, 200+ variables par match (xG, forme, blessés, météo).</li>
               <li><strong className="text-papier">Couverture étendue</strong> — 50+ championnats sur 5 continents (Europe, Afrique, Amérique du Sud, Asie).</li>
-              <li><strong className="text-papier">Communauté active</strong> — 13 000+ parieurs quotidiens, note 4,2/5 sur 2 437 avis vérifiés.</li>
+              <li><strong className="text-papier">Communauté active</strong> — parieurs quotidiens, note 4,2/5 sur 2 437 avis vérifiés.</li>
               <li><strong className="text-papier">Sources officielles</strong> — ESPN, API-Football, Forebet, Windrawwin, Soccerbase, TheSportsDB.</li>
             </ol>
             <p>

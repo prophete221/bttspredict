@@ -9,7 +9,7 @@ import { motion } from 'framer-motion'
  *  - Afrique de l'Ouest : focus Sénégal, CI, Mali, BF, Cameroun, Nigeria, France
  */
 const GLOBAL_STATS = [
-  { value: '13 000+', label: 'Parieurs actifs' },
+  { value: '—', label: 'Parieurs actifs' },
   { value: '50+', label: 'Championnats couverts' },
   { value: '4', label: 'Continents' },
   { value: '4,2/5', label: 'Note moyenne (2 437 avis)' },

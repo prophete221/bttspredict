@@ -40,7 +40,7 @@ export const BOOKMAKERS = [
     downloadLink: AFFILIATE.linebetDownload,
     promoCode: 'VISION221',
     color: 'emerald',
-    bonus: 'Bonus 90 000 XOF (150$)',
+    bonus: 'Bonus soumis à conditions (mise x5, dépôt min 3000 XOF, voir site bookmaker)',
     description: 'Bookmaker #1 en Afrique — Bonus exclusif de 90 000 XOF (150$)',
     logoFull: '/logos/linebet.svg',
     logoIcon: '/logos/linebet-icon.svg',
@@ -52,8 +52,8 @@ export const BOOKMAKERS = [
     downloadLink: AFFILIATE.star888Download,
     promoCode: 'VISION221',
     color: 'gold',
-    bonus: 'Bonus 100%',
-    description: 'Nouveau bookmaker partenaire — Bonus 100% sur le 1er dépôt',
+    bonus: 'Bonus (voir conditions sur site)',
+    description: 'Nouveau bookmaker partenaire — Bonus (voir conditions sur site) sur le 1er dépôt',
     logoFull: '/logos/888starz.svg',
     logoIcon: '/logos/888starz-icon.svg',
   },
@@ -91,7 +91,7 @@ export const HOW_IT_WORKS = [
 
 export const HERO_STATS = [
   { value: 'Voir /historique', label: 'Taux de réussite réel', icon: 'target' },
-  { value: '2 909+', label: 'Pronostics archivés', icon: 'chart' },
+  { value: '—', label: 'Pronostics archivés (voir /historique)', icon: 'chart' },
   { value: '50+', label: 'Championnats couverts', icon: 'globe' },
 ]
 
@@ -149,7 +149,7 @@ export const LONASE = { name: 'LONASE', description: 'Loterie Nationale du Sén�
 export const URGENCY_MESSAGES = [
   "✅ {n} pronostics gagnants ce matin",
   "⚡ Série en cours : {n} victoires consécutives",
-  "🎯 Code VISION221 = Bonus 90 000 XOF (150$) sur Linebet",
+  "🎯 Code VISION221 = Bonus soumis à conditions (mise x5, dépôt min 3000 XOF, voir site bookmaker) sur Linebet",
 ]
 
 export const LEGAL = {

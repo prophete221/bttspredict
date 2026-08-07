@@ -32,10 +32,10 @@ type SportVip = {
 }
 
 const SPORTS: SportVip[] = [
-  { id: 'football', name: 'Football', logo: '/logos/sport-football.svg', accuracy: 75, color: C.neon },
+  { id: 'football', name: 'Football', logo: '/logos/sport-football.svg', accuracy: 0, color: C.neon },
   { id: 'tennis', name: 'Tennis', logo: '/logos/sport-tennis.svg', accuracy: 73, color: C.gold },
   { id: 'nba', name: 'NBA', logo: '/logos/sport-nba.svg', accuracy: 71, color: C.neon },
-  { id: 'nfl', name: 'NFL', logo: '/logos/sport-nfl.svg', accuracy: 69, color: C.neon },
+  { id: 'nfl', name: 'NFL', logo: '/logos/sport-nfl.svg', accuracy: 0, color: C.neon },
   { id: 'ufc', name: 'UFC', logo: '/logos/sport-ufc.svg', accuracy: 72, color: '#5146F5' },
   { id: 'handball', name: 'Handball', logo: '/logos/sport-handball.svg', accuracy: 77, color: C.success },
 ]
@@ -79,7 +79,7 @@ export default function VipSports() {
             <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: C.gold }}>ZONE PREMIUM</span>
             <h2 className="font-bold text-xl mt-1" style={{ color: C.text }}>VIP Multi-Sports</h2>
             <p className="text-[12px] mt-1" style={{ color: C.textSec }}>
-              Pronostics IA sur 6 sports — précision 69-77%
+              Pronostics IA sur 6 sports — taux réel sur /historique
             </p>
           </motion.div>
 

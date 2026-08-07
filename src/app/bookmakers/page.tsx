@@ -34,9 +34,9 @@ type Row = {
 const COMPARISON: Row[] = [
   {
     label: 'Bonus de bienvenue',
-    linebet: '90 000 XOF (150$)',
-    star888: '100% du 1er dépôt',
-    highlight: 'both',
+    linebet: 'Sous conditions (mise x5, dépôt min 3000 XOF)',
+    star888: 'Sous conditions (voir site 888starz)',
+    highlight: 'none',
   },
   {
     label: 'Code promo',
@@ -188,7 +188,7 @@ export default function BookmakersPage() {
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-star888 to-transparent" />
             <div className="flex items-center gap-3 mb-4">
               <img src="/logos/888starz.svg" alt="888starz" className="h-8 w-auto" loading="lazy" />
-              <span className="badge badge-rose">Bonus 100%</span>
+              <span className="badge badge-rose">Bonus (voir conditions sur site)</span>
             </div>
             <h2 className="text-2xl font-black text-papier mb-1">888starz</h2>
             <p className="text-sm text-cendre mb-4">

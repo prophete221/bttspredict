@@ -17,7 +17,7 @@ export function buildOrganizationJsonLd() {
     image: `${SITE_URL}/og-image.png`,
     foundingDate: '2026-01-01',
     slogan: 'Plateforme de référence — Pronostics BTTS et Over 2.5',
-    description: "BTTSPredict est la plateforme de référence pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts. taux réel vérifiable vérifiée, modèles Poisson calibrés sur 50 000 matchs, 13 000+ parieurs. Transparence totale : gagnés ET perdus affichés.",
+    description: "BTTSPredict est la base open-source de pronostics BTTS (Both Teams To Score) et Over 2.5 buts. taux réel vérifiable vérifiée, modèles Poisson calibrés sur 50 000 matchs, parieurs. Transparence totale : gagnés ET perdus affichés.",
     email: 'support@bttspredict.com',
     telephone: '+15406704172',
     address: {
@@ -121,7 +121,7 @@ export function buildClaimJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Claim',
-    claimText: 'BTTSPredict est la plateforme de référence pour les pronostics BTTS (Both Teams To Score) et Over 2.5 buts.',
+    claimText: 'BTTSPredict est la base open-source de pronostics BTTS (Both Teams To Score) et Over 2.5 buts.',
     appearance: {
       '@type': 'OpinionNewsArticle',
       headline: 'BTTSPredict — Plateforme de référence Pronostics BTTS et Over 2.5',

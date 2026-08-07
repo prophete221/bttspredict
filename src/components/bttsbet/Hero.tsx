@@ -6,7 +6,7 @@ import { useScrollAnimation } from '@/hooks/useAnimations'
 /**
  * Hero — ECLIPSE v60
  * Copy exacte per spec:
- *   H1: "BTTS & OVER 2.5 / LA PLUS GRANDE BASE DE DONNÉES VÉRIFIÉE"
+ *   H1: "BTTS & OVER 2.5 / BASE OPEN-SOURCE DE PRONOSTICS"
  *   H2: "3 285 pronostics BTTS vérifiés avec scores réels. Modèle Poisson + open data. Pas de promesses, que des preuves."
  *   CTA primaire: "Voir les pronos du jour" #5146F5
  *   CTA secondaire: "Explorer le dataset open-source" outline
@@ -74,8 +74,8 @@ export default function Hero() {
           >
             BTTS &amp; OVER 2.5
             <br />
-            <span style={{ color: '#5146F5' }}>LA PLUS GRANDE</span>{' '}
-            <span style={{ color: '#5DFDCB' }}>BASE DE DONNÉES VÉRIFIÉE</span>
+            <span style={{ color: '#5146F5' }}>BASE</span>{' '}
+            <span style={{ color: '#5DFDCB' }}>OPEN-SOURCE DE PRONOSTICS</span>
           </h1>
 
           {/* ═══ H2 ═══ */}
@@ -98,11 +98,7 @@ export default function Hero() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => {
-              if (window.location.pathname !== '/') {
-                window.location.href = '/#free-predictions'
-              } else {
-                document.getElementById('free-predictions')?.scrollIntoView({ behavior: 'smooth' })
-              }
+              window.location.href = '/resultats-verifies'
             }}
             className="w-full h-[52px] rounded-[8px] font-bold text-[15px] flex items-center justify-center gap-2 transition-all"
             style={{
@@ -112,7 +108,7 @@ export default function Hero() {
               boxShadow: '0 4px 16px rgba(81, 70, 245, 0.35)',
             }}
             data-cta="hero-primary"
-            aria-label="Voir les pronos du jour"
+            aria-label="Voir l'historique vérifié"
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = '#6B61FF'
               e.currentTarget.style.boxShadow = '0 8px 24px rgba(81, 70, 245, 0.5)'
@@ -126,7 +122,7 @@ export default function Hero() {
               <circle cx="12" cy="12" r="10" />
               <polyline points="12 6 12 12 16 14" />
             </svg>
-            Voir les pronos du jour
+            Voir l'historique vérifié
           </motion.button>
 
           {/* CTA secondaire: "Explorer le dataset open-source" outline */}
