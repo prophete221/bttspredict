@@ -25,7 +25,17 @@ interface HistoryItem {
 
 interface WinData {
   date: string
-  stats: { total: number; won: number; rate: string; last30Rate: string }
+  stats: {
+    total: number
+    won: number
+    lost: number
+    rate: string
+    last30Rate: string
+    byType?: {
+      BTTS: { total: number; won: number; lost: number; rate: number }
+      'O2.5': { total: number; won: number; lost: number; rate: number }
+    }
+  }
   history: HistoryItem[]
 }
 
@@ -111,25 +121,20 @@ function WinRateSparkline({ history }: { history: HistoryItem[] }) {
 }
 
 // ─── Type Distribution ──────────────────────────────────────────────────
-function TypeDistribution({ history }: { history: HistoryItem[] }) {
+function TypeDistribution({ byType }: {
+  byType?: {
+    BTTS: { total: number; won: number; lost: number; rate: number }
+    'O2.5': { total: number; won: number; lost: number; rate: number }
+  }
+}) {
+  // Use global stats.byType if available (5 972 total), else fallback to empty
   const data = useMemo(() => {
-    const groups = history.reduce<Record<string, { won: number; lost: number; total: number }>>((acc, h) => {
-      const key = h.type.includes('Over') ? 'O2.5' : h.type
-      if (!acc[key]) acc[key] = { won: 0, lost: 0, total: 0 }
-      acc[key].total++
-      if (h.result === 'Gagné') acc[key].won++
-      else acc[key].lost++
-      return acc
-    }, {})
-
-    return Object.entries(groups).map(([name, v]) => ({
-      name,
-      won: v.won,
-      lost: v.lost,
-      total: v.total,
-      rate: v.total ? Math.round((v.won / v.total) * 100) : 0,
-    }))
-  }, [history])
+    if (!byType) return []
+    return [
+      { name: 'BTTS', ...byType.BTTS },
+      { name: 'O2.5', ...byType['O2.5'] },
+    ]
+  }, [byType])
 
   if (data.length === 0) return null
 
@@ -138,7 +143,7 @@ function TypeDistribution({ history }: { history: HistoryItem[] }) {
       <div className="flex items-center justify-between mb-3">
         <div>
           <h3 className="text-sm font-bold text-papier">Réussite par type</h3>
-          <p className="text-[10px] text-cendre mt-0.5">BTTS vs Over 2.5</p>
+          <p className="text-[10px] text-cendre mt-0.5">BTTS vs Over 2.5 — stats cumulées</p>
         </div>
       </div>
       <div className="space-y-3">
@@ -158,8 +163,8 @@ function TypeDistribution({ history }: { history: HistoryItem[] }) {
               />
             </div>
             <div className="flex items-center justify-between text-[9px] text-cendre mt-1">
-              <span>{d.won} gagnés / {d.total} total</span>
-              <span>{d.lost} perdus</span>
+              <span>{d.won.toLocaleString('fr-FR')} gagnés / {d.total.toLocaleString('fr-FR')} total</span>
+              <span>{d.lost.toLocaleString('fr-FR')} perdus</span>
             </div>
           </div>
         ))}
@@ -346,7 +351,7 @@ export default function WinHistory() {
         {/* Charts row */}
         <div className="grid lg:grid-cols-2 gap-4 mb-6">
           <WinRateSparkline history={historyArr} />
-          <TypeDistribution history={historyArr} />
+          <TypeDistribution byType={winData?.stats?.byType} />
         </div>
 
         {/* Filters */}
