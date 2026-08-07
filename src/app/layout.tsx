@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Poppins, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import BottomNavigation from "@/components/bttsbet/BottomNavigation";
+import CookieConsent from "@/components/bttsbet/CookieConsent";
 
 const poppins = Poppins({
   variable: "--font-display",
@@ -171,7 +173,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v80-reliable-engine-2026-08-07';
+                var VERSION = 'bttspredict-v81-platform-refactor-2026-08-08';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
@@ -215,6 +217,12 @@ export default function RootLayout({
           }}
         />
         {children}
+        {/* BottomNavigation — visible on all pages, mobile + desktop */}
+        <BottomNavigation />
+        {/* CookieConsent — mounted globally, sits above BottomNavigation */}
+        <CookieConsent />
+        {/* Spacer to prevent content being hidden by fixed BottomNavigation */}
+        <div aria-hidden="true" style={{ height: 'calc(64px + env(safe-area-inset-bottom, 0px))' }} />
       </body>
     </html>
   );

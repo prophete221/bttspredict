@@ -3,26 +3,12 @@
 import {
   Navbar,
   Hero,
-  SportMarquee,
-  StickyVipBandeau,
-  LiveTicker,
+  ScrollProgressBar,
   HowItWorks,
   FreePredictions,
-  PromoVip,
-  VipSports,
-  AviatorVip,
-  WinHistory,
-  FifaLinebet,
-  About,
   Footer,
-  CookieConsent,
-  ScrollProgressBar,
   ErrorBoundary,
-  MobileTabBar,
   StickyCTABar,
-  HowToGetVip,
-  GlobalReach,
-  VipCardGrid,
 } from '@/components/bttsbet'
 
 // JSON-LD WebSite — SearchAction for Google SERP
@@ -523,30 +509,101 @@ export default function Home() {
       {/* Scroll Progress Bar */}
       <ScrollProgressBar />
 
-      {/* Main Content — ordre optimisé pour conversion (CRO brief section 5.11)
-          Hero → Pronostics gratuits → Historique/Preuve → Coupon VIP → Multi-Sports →
-          Value Bets → Aviator → Méthode IA → À propos → Témoignages (Footer) → FAQ (Footer) */}
-      <main id="main-content" className="relative z-10" style={{ paddingBottom: 'calc(56px + env(safe-area-inset-bottom, 0px))' }}>
+      {/* Main Content — ordre simplifié (Phase 4 du refactor)
+          1. Proposition de valeur (Hero)
+          2. Pronostics disponibles aujourd'hui (FreePredictions)
+          3. Explication courte de l'analyse (HowItWorks)
+          4. Accès à la méthodologie
+          5. Accès à l'historique du nouveau modèle
+          6. Bloc VIP court (CTA unique vers /vip)
+          7. Jeu responsable
+          8. Footer et mentions légales */}
+      <main id="main-content" className="relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
         <ErrorBoundary><Navbar /></ErrorBoundary>
         <ErrorBoundary><Hero /></ErrorBoundary>
         <ErrorBoundary><FreePredictions /></ErrorBoundary>
-        {/* WinHistory supprimé temporairement — nouveau système de vérification en cours */}
         <ErrorBoundary><HowItWorks /></ErrorBoundary>
-        <ErrorBoundary><PromoVip /></ErrorBoundary>
-        <ErrorBoundary><VipCardGrid /></ErrorBoundary>
-        <ErrorBoundary><HowToGetVip /></ErrorBoundary>
-        <ErrorBoundary><About /></ErrorBoundary>
+
+        {/* Accès méthodologie + historique */}
+        <section className="max-w-5xl mx-auto px-4 py-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="/methodologie" className="block p-6 rounded-2xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5] rounded-2xl"
+              style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
+              <div className="text-3xl mb-3" aria-hidden="true">📊</div>
+              <h2 className="text-lg font-bold mb-2 text-[#F7F8FF]" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                Méthodologie du modèle
+              </h2>
+              <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
+                Comment fonctionne le modèle Poisson V3-Reliability, quelles données sont utilisées, quelles sont ses limites.
+              </p>
+              <span className="text-sm font-bold text-[#5146F5]">Voir la méthodologie →</span>
+            </a>
+            <a href="/historique" className="block p-6 rounded-2xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5] rounded-2xl"
+              style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
+              <div className="text-3xl mb-3" aria-hidden="true">📈</div>
+              <h2 className="text-lg font-bold mb-2 text-[#F7F8FF]" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                Historique vérifié
+              </h2>
+              <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
+                Nouvelle période de suivi public. Chaque pronostic est enregistré, horodaté et vérifié après le résultat officiel.
+              </p>
+              <span className="text-sm font-bold text-[#5146F5]">Voir l'historique vérifié →</span>
+            </a>
+          </div>
+        </section>
+
+        {/* Bloc VIP court — un seul CTA vers /vip */}
+        <section className="max-w-5xl mx-auto px-4 py-10">
+          <div className="p-6 sm:p-8 rounded-2xl" style={{ backgroundColor: '#0D1630', border: '1px solid rgba(255, 200, 87, 0.25)' }}>
+            <div className="text-center mb-6">
+              <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-3"
+                style={{ backgroundColor: 'rgba(255, 200, 87, 0.12)', color: '#FFC857' }}>
+                Programme VIP
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                Pronostics premium BTTS et Over 2.5
+              </h2>
+              <p className="text-sm text-[#A5ABC5] leading-relaxed max-w-2xl mx-auto mb-2">
+                Le programme VIP propose des sélections supplémentaires et des analyses détaillées, basées sur le même modèle statistique Poisson V3-Reliability que nos pronostics gratuits.
+              </p>
+              <p className="text-xs text-[#6B7194] leading-relaxed max-w-2xl mx-auto">
+                Aucun gain n'est garanti. Lien d'affiliation rémunéré. BTTSPredict ne prend pas de paris et ne collecte pas de fonds. 18+.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <a href="/vip" className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
+                style={{ backgroundColor: '#FFC857', color: '#070B18' }}
+                data-cta="home-discover-vip">
+                Découvrir le VIP
+              </a>
+              <a href="/historique" className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
+                style={{ backgroundColor: 'transparent', color: '#A5ABC5', border: '1px solid #303861' }}>
+                Voir l'historique vérifié
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Jeu responsable */}
+        <section className="max-w-5xl mx-auto px-4 py-10">
+          <div className="p-5 rounded-2xl" style={{ backgroundColor: 'rgba(255, 113, 133, 0.06)', border: '1px solid rgba(255, 113, 133, 0.2)' }}>
+            <h2 className="text-lg font-bold mb-3 text-[#FF7185]" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              18+ · Jouer responsable
+            </h2>
+            <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
+              Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez vous permettre de perdre. BTTSPredict ne prend pas de paris et ne collecte pas de fonds.
+            </p>
+            <a href="/jouer-responsable" className="inline-flex items-center gap-2 text-sm font-bold text-[#5146F5] underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5] rounded">
+              En savoir plus sur le jeu responsable →
+            </a>
+          </div>
+        </section>
+
         <ErrorBoundary><Footer /></ErrorBoundary>
       </main>
 
-      {/* Mobile Tab Bar — bottom navigation */}
-      <MobileTabBar />
-
       {/* Sticky CTA Bar — mobile only, appears after 60% scroll */}
       <StickyCTABar />
-
-      {/* Cookie Consent Banner (RGPD) */}
-      <CookieConsent />
     </div>
   )
 }

@@ -55,9 +55,10 @@ export default function StickyCTABar() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
+          className="fixed left-0 right-0 z-40 md:hidden"
           style={{
-            paddingBottom: 'env(safe-area-inset-bottom, 0px)',
+            bottom: 'calc(64px + env(safe-area-inset-bottom, 0px))',
+            paddingBottom: '0px',
           }}
         >
           <div

@@ -1,0 +1,34 @@
+{
+  "startDate": "2026-08-08",
+  "modelVersion": "V3-Reliability",
+  "description": "Nouvelle période de suivi public. Tous les pronostics publiés à partir de cette date sont enregistrés, horodatés et évalués après le résultat officiel du match. Les performances seront publiées progressivement, sans modification rétroactive. Aucun résultat futur n'est garanti.",
+  "dataSource": "ESPN Soccer API (public, sans clé) + TheSportsDB v3 (public, sans clé)",
+  "model": "Poisson bivarié — lambdas home/away calculés à partir des 5 derniers matchs de chaque équipe",
+  "variables": 8,
+  "variablesDetail": ["homeForm.scoredIn", "homeForm.concededIn", "homeForm.avgScored", "homeForm.avgConceded", "awayForm.scoredIn", "awayForm.concededIn", "awayForm.avgScored", "awayForm.avgConceded"],
+  "filters": [
+    "Les 2 équipes ont marqué dans au moins 3 de leurs 5 derniers matchs",
+    "Les 2 équipes ont encaissé dans au moins 3 de leurs 5 derniers matchs",
+    "Le match se joue dans une des 11 ligues HIGH_BTTS (taux historique > 53%)",
+    "La probabilité Poisson du marché est >= 0.62"
+  ],
+  "markets": ["BTTS (Both Teams To Score)", "Over 2.5 goals"],
+  "leagues": [
+    "Premier League (eng.1)",
+    "Championship (eng.2)",
+    "Bundesliga (ger.1)",
+    "2. Bundesliga (ger.2)",
+    "Eredivisie (ned.1)",
+    "Jupiler Pro League (bel.1)",
+    "Swiss Super League (swi.1)",
+    "Liga Portugal (por.1)",
+    "Austrian Bundesliga (aut.1)",
+    "Scottish Premiership (sco.1)",
+    "MLS (usa.1)"
+  ],
+  "publishingThreshold": 0.62,
+  "goldTierThreshold": 0.75,
+  "goldTierAlternative": "proba >= 0.70 + ligue HIGH_BTTS + marché BTTS Oui",
+  "maxPredictionsPerDay": 5,
+  "disclaimer": "Pendant les premières semaines, le volume de résultats est insuffisant pour évaluer statistiquement la performance du modèle. Aucun résultat futur n'est garanti. Les pronostics sont publiés à titre informatif et ne constituent pas une incitation à parier."
+}
