@@ -21,7 +21,7 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "STANDARD"
     },
     {
       "match": "Norway vs England",
@@ -43,7 +43,7 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "tier": "GOLD"
+      "tier": "STANDARD"
     },
     {
       "match": "ML Vitebsk vs Uni Craiova",

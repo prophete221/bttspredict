@@ -70,8 +70,8 @@ const HIGH_BTTS_LEAGUES = [
 function assignTier(proba, league) {
   const ln = (league || '').toLowerCase();
   const isHigh = HIGH_BTTS_LEAGUES.some(l => ln.includes(l.toLowerCase()));
-  if (proba >= 0.72) return 'GOLD';
-  if (proba >= 0.68 && isHigh) return 'GOLD';
+  if (proba >= 0.75) return 'GOLD';
+  if (proba >= 0.70 && isHigh) return 'GOLD';
   return 'STANDARD';
 }
 

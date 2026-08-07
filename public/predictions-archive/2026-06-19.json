@@ -117,7 +117,7 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "finalScore": "0-1",
       "status": "LOST",
       "verifiedAt": "2026-08-07T14:29:22.019Z"
@@ -142,7 +142,7 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "finalScore": "0-1",
       "status": "LOST",
       "verifiedAt": "2026-08-07T14:29:22.019Z"
@@ -359,7 +359,7 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "status": "PENDING"
     },
     {
@@ -382,7 +382,7 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "status": "PENDING"
     },
     {
@@ -405,7 +405,7 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "status": "PENDING"
     },
     {
@@ -428,7 +428,7 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "status": "PENDING"
     },
     {
@@ -543,7 +543,7 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "status": "PENDING"
     },
     {
@@ -566,7 +566,7 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "status": "PENDING"
     },
     {
@@ -727,7 +727,7 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "status": "PENDING"
     },
     {
@@ -750,7 +750,7 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "status": "PENDING"
     },
     {

@@ -21,7 +21,7 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "finalScore": "4-2",
       "status": "WON",
       "verifiedAt": "2026-08-07T14:29:32.028Z"
@@ -46,7 +46,7 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "finalScore": "4-2",
       "status": "WON",
       "verifiedAt": "2026-08-07T14:29:32.028Z"
@@ -585,7 +585,7 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "status": "PENDING"
     },
     {
@@ -608,7 +608,7 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "status": "PENDING"
     },
     {
@@ -815,7 +815,7 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "status": "PENDING"
     },
     {
@@ -838,7 +838,7 @@
         "dataQuality": 0,
         "hasRealData": false
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "status": "PENDING"
     },
     {

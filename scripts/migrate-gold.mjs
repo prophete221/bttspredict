@@ -12,8 +12,8 @@ function tierOf(p) {
   if (!proba) proba = 0.6;
   const league = (p.league || '').toLowerCase();
   const isHigh = HIGH.some(h => league.includes(h));
-  if (proba >= 0.72) return 'GOLD';
-  if (proba >= 0.68 && isHigh) return 'GOLD';
+  if (proba >= 0.75) return 'GOLD';
+  if (proba >= 0.70 && isHigh) return 'GOLD';
   return 'STANDARD';
 }
 

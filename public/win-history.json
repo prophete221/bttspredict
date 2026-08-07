@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T17:06:56.966Z",
+  "generatedAt": "2026-08-07T17:20:30.896Z",
   "period": {
     "from": "2026-06-07",
     "to": "2026-08-07",
@@ -17,20 +17,20 @@
     "roi": -7.8,
     "yield": -7.8,
     "gold": {
-      "total": 77,
-      "won": 35,
-      "lost": 42,
-      "rate": 45.5,
+      "total": 59,
+      "won": 23,
+      "lost": 36,
+      "rate": 39,
       "avgOdds": 1.9,
-      "profit": -10.5,
-      "roi": -13.6,
-      "yield": -13.6
+      "profit": -15.3,
+      "roi": -25.9,
+      "yield": -25.9
     },
     "standard": {
-      "total": 558,
-      "won": 273,
-      "lost": 285,
-      "rate": 48.9
+      "total": 576,
+      "won": 285,
+      "lost": 291,
+      "rate": 49.5
     },
     "byType": {
       "btts": {
@@ -190,7 +190,7 @@
       "status": "WON",
       "finalScore": "4-3",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T17:02:17.506Z",
+      "verifiedAt": "2026-08-07T15:30:11.451Z",
       "source": "ESPN public"
     },
     {
@@ -206,7 +206,7 @@
       "status": "WON",
       "finalScore": "4-3",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T17:02:17.506Z",
+      "verifiedAt": "2026-08-07T15:30:11.451Z",
       "source": "ESPN public"
     },
     {
@@ -222,7 +222,7 @@
       "status": "WON",
       "finalScore": "3-4",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T17:02:17.505Z",
+      "verifiedAt": "2026-08-07T15:30:11.451Z",
       "source": "ESPN public"
     },
     {
@@ -238,7 +238,7 @@
       "status": "WON",
       "finalScore": "3-4",
       "profit": 0.9,
-      "verifiedAt": "2026-08-07T17:02:17.505Z",
+      "verifiedAt": "2026-08-07T15:30:11.451Z",
       "source": "ESPN public"
     },
     {
@@ -3702,7 +3702,7 @@
       "match": "Sportivo Luqueño vs Sportivo Trinidense",
       "league": "Primera Division (PAR)",
       "market": "over25",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 50,
       "coteProposee": 1.9,
       "coteCloture": null,
@@ -3718,7 +3718,7 @@
       "match": "Sportivo Luqueño vs Sportivo Trinidense",
       "league": "Primera Division (PAR)",
       "market": "btts",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 50,
       "coteProposee": 1.9,
       "coteCloture": null,
@@ -6998,7 +6998,7 @@
       "match": "Örgryte IS vs BK Häcken",
       "league": "Allsvenskan",
       "market": "over25",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 51,
       "coteProposee": 1.9,
       "coteCloture": null,
@@ -7014,7 +7014,7 @@
       "match": "Örgryte IS vs BK Häcken",
       "league": "Allsvenskan",
       "market": "btts",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 51,
       "coteProposee": 1.9,
       "coteCloture": null,
@@ -7030,7 +7030,7 @@
       "match": "Mjällby AIF vs AIK",
       "league": "Allsvenskan",
       "market": "over25",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 51,
       "coteProposee": 1.9,
       "coteCloture": null,
@@ -7046,7 +7046,7 @@
       "match": "Mjällby AIF vs AIK",
       "league": "Allsvenskan",
       "market": "btts",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 51,
       "coteProposee": 1.9,
       "coteCloture": null,
@@ -7158,7 +7158,7 @@
       "match": "Argentina vs Egypt",
       "league": "International Friendly",
       "market": "over25",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 52,
       "coteProposee": 1.9,
       "coteCloture": null,
@@ -7174,7 +7174,7 @@
       "match": "Argentina vs Egypt",
       "league": "International Friendly",
       "market": "btts",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 52,
       "coteProposee": 1.9,
       "coteCloture": null,
@@ -7734,7 +7734,7 @@
       "match": "Switzerland vs Algeria",
       "league": "International Friendly",
       "market": "over25",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 52,
       "coteProposee": 1.9,
       "coteCloture": null,
@@ -7750,7 +7750,7 @@
       "match": "Switzerland vs Algeria",
       "league": "International Friendly",
       "market": "btts",
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "proba": 52,
       "coteProposee": 1.9,
       "coteCloture": null,

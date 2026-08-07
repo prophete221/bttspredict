@@ -113,7 +113,7 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "finalScore": "2-0",
       "status": "LOST",
       "verifiedAt": "2026-08-07T14:28:57.731Z"
@@ -138,7 +138,7 @@
         "dataQuality": 2,
         "hasRealData": true
       },
-      "tier": "GOLD",
+      "tier": "STANDARD",
       "finalScore": "2-0",
       "status": "LOST",
       "verifiedAt": "2026-08-07T14:28:57.731Z"
