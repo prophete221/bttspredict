@@ -18,12 +18,19 @@ const TODAY = new Date().toISOString().split('T')[0]
 
 // ─── Pages SEO / Landing Pages ───
 const SEO_PAGES = [
-  { path: '/', priority: '1.0', changefreq: 'daily', lastmod: TODAY, image: true, imageTitle: 'BTTSPredict — Pronostics BTTS et Over 2.5 basés sur un modèle statistique', imageCaption: 'Pronostics football BTTS et Over 2.5 basés sur un modèle statistique Poisson V3-Reliability.' },
-  { path: '/pronostics', priority: '0.95', changefreq: 'daily', lastmod: TODAY, image: true, imageTitle: 'Pronostics BTTS et Over 2.5 du jour', imageCaption: 'Pronostics BTTS et Over 2.5 du jour basés sur un modèle statistique Poisson.' },
+  { path: '/', priority: '1.0', changefreq: 'daily', lastmod: TODAY, image: true, imageTitle: 'BTTSPredict — Pronostics BTTS et Over 2.5 basés sur un moteur IA', imageCaption: 'Pronostics football BTTS et Over 2.5 basés sur un moteur IA nouvelle génération.' },
+  { path: '/pronostics', priority: '0.95', changefreq: 'daily', lastmod: TODAY, image: true, imageTitle: 'Pronostics BTTS et Over 2.5 du jour', imageCaption: 'Pronostics BTTS et Over 2.5 du jour basés sur un moteur IA.' },
   { path: '/pronostics/aujourd-hui', priority: '0.9', changefreq: 'daily', lastmod: TODAY, image: false, imageTitle: '', imageCaption: '' },
   { path: '/historique', priority: '0.9', changefreq: 'daily', lastmod: TODAY, image: true, imageTitle: 'Historique vérifié — Nouveau suivi public', imageCaption: 'Nouveau suivi public des pronostics vérifiés BTTSPredict.' },
   { path: '/methodologie', priority: '0.85', changefreq: 'monthly', lastmod: TODAY, image: false, imageTitle: '', imageCaption: '' },
   { path: '/vip', priority: '0.85', changefreq: 'weekly', lastmod: TODAY, image: true, imageTitle: 'VIP BTTSPredict — Pronostics premium', imageCaption: 'Programme VIP BTTSPredict : pronostics premium et analyses détaillées.' },
+  // Topical authority — BTTS
+  { path: '/btts/predictions/today', priority: '0.85', changefreq: 'daily', lastmod: TODAY, image: false, imageTitle: '', imageCaption: '' },
+  { path: '/btts/predictions/tomorrow', priority: '0.8', changefreq: 'daily', lastmod: TODAY, image: false, imageTitle: '', imageCaption: '' },
+  { path: '/btts/statistics', priority: '0.8', changefreq: 'monthly', lastmod: TODAY, image: false, imageTitle: '', imageCaption: '' },
+  // Topical authority — Over 2.5
+  { path: '/over-2-5/predictions/today', priority: '0.85', changefreq: 'daily', lastmod: TODAY, image: false, imageTitle: '', imageCaption: '' },
+  { path: '/over-2-5/statistics', priority: '0.8', changefreq: 'monthly', lastmod: TODAY, image: false, imageTitle: '', imageCaption: '' },
   { path: '/resultats-verifies', priority: '0.7', changefreq: 'daily', lastmod: TODAY, image: false, imageTitle: '', imageCaption: '' },
   { path: '/btts-c-est-quoi', priority: '0.7', changefreq: 'monthly', lastmod: '2026-07-06', image: true, imageTitle: 'BTTS (Both Teams To Score) — Guide complet', imageCaption: 'Qu\'est-ce que le BTTS ? Guide explicatif avec FAQ et stratégies' },
   { path: '/code-promo-linebet-senegal', priority: '0.85', changefreq: 'weekly', lastmod: TODAY, image: true, imageTitle: 'Code promo Linebet Sénégal VISION221', imageCaption: 'Bonus Linebet Sénégal avec le code VISION221.' },
@@ -110,6 +117,44 @@ function generateSitemap() {
       <image:title>${escapeXml(article.title)}</image:title>
     </image:image>
   </url>\n\n`
+  }
+
+  // Match pages — dynamically generated from predictions-archive
+  try {
+    const archiveDir = path.join(__dirname, '..', 'public', 'predictions-archive')
+    if (fs.existsSync(archiveDir)) {
+      const files = fs.readdirSync(archiveDir).filter(f => f.endsWith('.json')).sort().slice(-90)
+      const seenSlugs = new Set()
+      for (const file of files) {
+        try {
+          const data = JSON.parse(fs.readFileSync(path.join(archiveDir, file), 'utf8'))
+          const preds = data.predictions || data
+          if (!Array.isArray(preds)) continue
+          for (const p of preds) {
+            const home = p.home || ''
+            const away = p.away || ''
+            const date = (p.date || '').slice(0, 10)
+            if (!home || !away || !date) continue
+            const hNorm = home.toLowerCase().replace(/^\d+\.\s*/, '').replace(/\d+/g, '').replace(/[^a-zà-ÿ\s-]/g, '').trim().replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') || 'equipe'
+            const aNorm = away.toLowerCase().replace(/^\d+\.\s*/, '').replace(/\d+/g, '').replace(/[^a-zà-ÿ\s-]/g, '').trim().replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') || 'equipe'
+            const slug = `${hNorm}-vs-${aNorm}-${date}`
+            if (seenSlugs.has(slug)) continue
+            seenSlugs.add(slug)
+            xml += `  <url>
+    <loc>${SITE_URL}/match/${slug}</loc>
+    <lastmod>${date}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fr-SN" href="${SITE_URL}/match/${slug}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}/match/${slug}"/>
+  </url>\n\n`
+          }
+        } catch (e) { continue }
+      }
+      console.log(`   ⚽ ${seenSlugs.size} match pages added to sitemap`)
+    }
+  } catch (e) {
+    console.warn('   ⚠ Could not add match pages:', e.message)
   }
 
   xml += `</urlset>`

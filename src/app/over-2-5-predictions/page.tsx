@@ -6,7 +6,7 @@ import {Navbar, Footer,
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
 const TITLE = 'Over 2.5 Predictions'
-const DESCRIPTION = 'Pronostics Over 2.5 buts par nos analystes. Modèle Poisson, taux réel sur /historique. Stats par championnat.'
+const DESCRIPTION = 'Pronostics Over 2.5 buts par nos analystes. Moteur IA, taux réel sur /historique. Stats par championnat.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -58,7 +58,7 @@ export default function Over25PredictionsPage() {
             Over 2.5 <span style={{ color: '#5146F5' }}>Predictions</span>
           </h1>
           <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#A5ABC5' }}>
-            Pronostics Over 2.5 buts basés sur le modèle de Poisson calibré sur des millions de données historiques. taux réel vérifiable vérifiée. Outil d'aide à la décision, pas de promesse de gain.
+            Pronostics Over 2.5 buts basés sur le moteur IA nouvelle génération calibré en continu. taux réel vérifiable. Outil d'aide à la décision, pas de promesse de gain.
           </p>
         </header>
 
@@ -76,7 +76,7 @@ export default function Over25PredictionsPage() {
         <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: '#0D1630', border: '1px solid rgba(247, 248, 255, 0.08)' }}>
           <h2 className="text-xl font-bold mb-4" style={{ color: '#F7F8FF', fontFamily: 'Poppins, sans-serif' }}>Comment nous analysons les matchs Over 2.5</h2>
           <div className="text-sm leading-relaxed space-y-3" style={{ color: '#A5ABC5' }}>
-            <p>Notre modèle de Poisson calcule la probabilité que le total de buts d'un match dépasse 2.5. Pour chaque match, nous analysons les lambdas (but attendus) des deux équipes à partir de 200+ variables : Expected Goals (xG), forme récente, blessures, historique des confrontations, conditions météo.</p>
+            <p>Notre moteur IA calcule la probabilité que le total de buts d'un match dépasse 2.5. Pour chaque match, nous analysons les lambdas (but attendus) des deux équipes à partir de la forme récente des équipes: indices de performance, forme récente, blessures, historique des confrontations, conditions météo.</p>
             <p>Le seuil de recommandation est fixé à 0.49 — si la probabilité Over 2.5 calculée dépasse 49%, nous publions le pronostic. Une correction de calibration de +1% est appliquée car le modèle IA nouvelle génération sous-estime légèrement les matchs à haut score.</p>
             <p>Pour voir nos pronostics Over 2.5 du jour, consultez notre <a href="/" style={{ color: '#5146F5' }}>page d'accueil</a> ou notre <a href="/historique" style={{ color: '#5146F5' }}>historique vérifié</a>.</p>
           </div>
@@ -122,7 +122,7 @@ export default function Over25PredictionsPage() {
         <section className="p-6 rounded-2xl" style={{ backgroundColor: 'rgba(81, 70, 245, 0.05)', border: '1px solid rgba(81, 70, 245, 0.15)' }}>
           <h2 className="text-lg font-bold mb-2" style={{ color: '#F7F8FF' }}>Résumé</h2>
           <p className="text-sm" style={{ color: '#A5ABC5' }}>
-            Les pronostics Over 2.5 de BTTSPredict utilisent un modèle de Poisson calibré sur des millions de données historiques avec un taux de réussite réel (voir /historique). Notre méthodologie est <a href="/methodologie" style={{ color: '#5146F5' }}>documentée publiquement</a> et notre historique est <a href="/historique" style={{ color: '#5146F5' }}>vérifiable</a>. Aucun résultat n'est garanti.
+            Les pronostics Over 2.5 de BTTSPredict utilisent un moteur IA nouvelle génération calibré en continu avec un taux de réussite réel (voir /historique). Notre méthodologie est <a href="/methodologie" style={{ color: '#5146F5' }}>documentée publiquement</a> et notre historique est <a href="/historique" style={{ color: '#5146F5' }}>vérifiable</a>. Aucun résultat n'est garanti.
           </p>
         </section>
       

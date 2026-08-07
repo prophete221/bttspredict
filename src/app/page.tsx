@@ -483,9 +483,9 @@ export default function Home() {
         <ErrorBoundary><FreePredictions /></ErrorBoundary>
         <ErrorBoundary><HowItWorks /></ErrorBoundary>
 
-        {/* Accès méthodologie + historique */}
+        {/* Accès méthodologie + historique + topical authority BTTS/Over */}
         <section className="max-w-5xl mx-auto px-4 py-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <a href="/methodologie" className="block p-6 rounded-2xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5] rounded-2xl"
               style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
               <div className="text-3xl mb-3" aria-hidden="true">📊</div>
@@ -507,6 +507,32 @@ export default function Home() {
                 Nouvelle période de suivi public. Chaque pronostic est enregistré, horodaté et vérifié après le résultat officiel.
               </p>
               <span className="text-sm font-bold text-[#5146F5]">Voir l'historique vérifié →</span>
+            </a>
+          </div>
+
+          {/* Topical authority BTTS + Over 2.5 (Phase 6 + 7 — internal linking) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="/btts/predictions/today" className="block p-6 rounded-2xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7C3AED] rounded-2xl"
+              style={{ backgroundColor: '#0D1630', border: '1px solid rgba(124, 58, 237, 0.25)' }}>
+              <div className="text-3xl mb-3" aria-hidden="true">⚽</div>
+              <h2 className="text-lg font-bold mb-2 text-[#F7F8FF]" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                Pronostics BTTS du jour
+              </h2>
+              <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
+                Both Teams To Score. Sélection des matchs où les deux équipes devraient marquer, générée par le moteur IA.
+              </p>
+              <span className="text-sm font-bold text-[#7C3AED]">BTTS Today →</span>
+            </a>
+            <a href="/over-2-5/predictions/today" className="block p-6 rounded-2xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5DFDCB] rounded-2xl"
+              style={{ backgroundColor: '#0D1630', border: '1px solid rgba(93, 253, 203, 0.25)' }}>
+              <div className="text-3xl mb-3" aria-hidden="true">🥅</div>
+              <h2 className="text-lg font-bold mb-2 text-[#F7F8FF]" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                Pronostics Over 2.5 du jour
+              </h2>
+              <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
+                Matchs où le total de buts devrait dépasser 2.5 (3 buts ou plus). Ligues offensives sélectionnées.
+              </p>
+              <span className="text-sm font-bold text-[#5DFDCB]">Over 2.5 Today →</span>
             </a>
           </div>
         </section>

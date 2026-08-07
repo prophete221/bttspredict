@@ -6,19 +6,19 @@ import {Navbar, Footer,
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
 const TITLE = 'Team Predictions — Pronostics par Équipe'
-const DESCRIPTION = 'Pronostics par équipe football : analyse xG, forme récente, statistiques offensives/défensives. BTTS et Over 2.5 par équipe, taux réel sur /historique.'
+const DESCRIPTION = 'Pronostics par équipe football : analyse indices de performance, forme récente, statistiques offensives/défensives. BTTS et Over 2.5 par équipe, taux réel sur /historique.'
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  keywords: ['team predictions', 'pronostics par équipe', 'équipe predictions', 'football team stats', 'xG par équipe'],
+  keywords: ['team predictions', 'pronostics par équipe', 'équipe predictions', 'football team stats', 'indices de performance par équipe'],
   alternates: { canonical: `${SITE_URL}/team-predictions` },
   openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/team-predictions`, siteName: 'BTTSPredict', type: 'article', images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'BTTSPredict' }] },
 }
 
 const FAQ = [
-  { q: "Comment analysez-vous une équipe ?", a: "Nous analysons 200+ variables par équipe : Expected Goals (xG), forme récente (5 derniers matchs), buts marqués/encaissés, blessures, suspensions, historique des confrontations directes." },
-  { q: "Quelles équipes sont les plus prévisibles ?", a: "Les équipes avec un xG stable et une forme régulière sont plus prévisibles. Les équipes offensives (Manchester City, Bayern Munich, Ajax) sont idéales pour les paris Over 2.5 et BTTS." },
+  { q: "Comment analysez-vous une équipe ?", a: "Nous analysons la forme récente des équipes : indices de performance, forme récente (5 derniers matchs), buts marqués/encaissés, blessures, suspensions, historique des confrontations directes." },
+  { q: "Quelles équipes sont les plus prévisibles ?", a: "Les équipes avec un indices de performance stable et une forme régulière sont plus prévisibles. Les équipes offensives (des équipes offensives régulières) sont idéales pour les paris Over 2.5 et BTTS." },
   { q: "Puis-je filtrer les pronostics par équipe ?", a: "Sur notre page d'accueil, vous pouvez voir tous les pronostics du jour. Notre historique vérifié permet de filtrer par ligue, ce qui inclut toutes les équipes de cette ligue." },
   { q: "Les stats par équipe garantissent-elles un gain ?", a: "Non. Les statistiques sont des outils d'aide à la décision. Aucun résultat n'est garanti. 18+ — Jeu responsable." },
 ]
@@ -56,7 +56,7 @@ export default function TeamPredictionsPage() {
         <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: '#0D1630', border: '1px solid rgba(247, 248, 255, 0.08)' }}>
           <h2 className="text-xl font-bold mb-4" style={{ color: '#F7F8FF', fontFamily: 'Poppins, sans-serif' }}>Comment nous analysons les équipes</h2>
           <div className="text-sm leading-relaxed space-y-3" style={{ color: '#A5ABC5' }}>
-            <p>Chaque équipe est analysée sur 200+ variables : xG (Expected Goals), xGA (Expected Goals Against), forme sur les 5 derniers matchs, buts marqués/encaissés à domicile et à l'extérieur, blessures, suspensions.</p>
+            <p>Chaque équipe est analysée sur la forme récente des équipes: indices de performance, indices défensifs, forme sur les 5 derniers matchs, buts marqués/encaissés à domicile et à l'extérieur, blessures, suspensions.</p>
             <p>Le modèle IA nouvelle génération utilise ces données pour calculer le lambda (but attendu) de chaque équipe, qui détermine ensuite les probabilités BTTS et Over 2.5.</p>
             <p>Pour voir nos pronostics du jour par équipe, consultez notre <a href="/" style={{ color: '#5146F5' }}>page d'accueil</a>.</p>
           </div>
@@ -65,7 +65,7 @@ export default function TeamPredictionsPage() {
         <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(81, 70, 245, 0.05)', border: '1px solid rgba(81, 70, 245, 0.15)' }}>
           <h2 className="text-lg font-bold mb-2" style={{ color: '#F7F8FF' }}>Résumé</h2>
           <p className="text-sm" style={{ color: '#A5ABC5' }}>
-            BTTSPredict analyse chaque équipe sur 200+ variables avec un taux de réussite réel (voir /historique). Consultez notre <a href="/methodologie" style={{ color: '#5146F5' }}>méthodologie</a> et notre <a href="/historique" style={{ color: '#5146F5' }}>historique</a>. 18+ — Jeu responsable.
+            BTTSPredict analyse chaque équipe sur la forme récente des équipesavec un taux de réussite réel (voir /historique). Consultez notre <a href="/methodologie" style={{ color: '#5146F5' }}>méthodologie</a> et notre <a href="/historique" style={{ color: '#5146F5' }}>historique</a>. 18+ — Jeu responsable.
           </p>
         </section>
 

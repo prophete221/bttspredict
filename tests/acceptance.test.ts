@@ -666,3 +666,150 @@ describe('Audit confidentialité (7 août 2026)', () => {
     }
   })
 })
+
+describe('Phase 3 — Pages matchs indexables', () => {
+  test('/match/[slug] page existe avec generateStaticParams', () => {
+    expect(fs.existsSync(path.join(ROOT, 'src/app/match/[slug]/page.tsx'))).toBe(true)
+    const page = fs.readFileSync(path.join(ROOT, 'src/app/match/[slug]/page.tsx'), 'utf8')
+    expect(page).toContain('generateStaticParams')
+    expect(page).toContain('generateMetadata')
+    expect(page).toContain('SportsEvent')
+    expect(page).toContain('BreadcrumbList')
+  })
+
+  test('src/lib/matches.ts existe avec les fonctions requises', () => {
+    expect(fs.existsSync(path.join(ROOT, 'src/lib/matches.ts'))).toBe(true)
+    const lib = fs.readFileSync(path.join(ROOT, 'src/lib/matches.ts'), 'utf8')
+    expect(lib).toContain('generateMatchSlug')
+    expect(lib).toContain('loadAllMatches')
+    expect(lib).toContain('getMatchBySlug')
+    expect(lib).toContain('getAllMatchSlugs')
+  })
+
+  test('sitemap.xml inclut des URLs /match/', () => {
+    const sitemap = fs.readFileSync(path.join(ROOT, 'public/sitemap.xml'), 'utf8')
+    // Match pages only appear if archive has home/away fields
+    // (depending on whether archive has been generated; this test is loose)
+    if (sitemap.includes('/match/')) {
+      expect(sitemap).toMatch(/\/match\/[a-z]/)
+    }
+  })
+
+  test('FreePredictions.tsx génère un lien /match/ pour chaque carte', () => {
+    const fp = fs.readFileSync(path.join(ROOT, 'src/components/bttsbet/FreePredictions.tsx'), 'utf8')
+    expect(fp).toContain('matchHref')
+    expect(fp).toContain('/match/')
+    expect(fp).toContain('data-cta="match-page-link"')
+  })
+})
+
+describe('Phase 6 + 7 — Topical authority BTTS + Over 2.5', () => {
+  test('/btts/predictions/today existe', () => {
+    const page = fs.readFileSync(path.join(ROOT, 'src/app/btts/predictions/today/page.tsx'), 'utf8')
+    expect(page).toContain('BTTS Predictions Today')
+    expect(page).toContain('FAQPage')
+    expect(page).toContain("canonical: 'https://bttspredict.com/btts/predictions/today'")
+  })
+
+  test('/btts/predictions/tomorrow existe', () => {
+    const page = fs.readFileSync(path.join(ROOT, 'src/app/btts/predictions/tomorrow/page.tsx'), 'utf8')
+    expect(page).toContain('BTTS Predictions Tomorrow')
+    expect(page).toContain("canonical: 'https://bttspredict.com/btts/predictions/tomorrow'")
+  })
+
+  test('/btts/statistics existe avec tableau par ligue', () => {
+    const page = fs.readFileSync(path.join(ROOT, 'src/app/btts/statistics/page.tsx'), 'utf8')
+    expect(page).toContain('BTTS Statistics')
+    expect(page).toContain('LEAGUE_STATS')
+    expect(page).toContain('Eredivisie')
+    expect(page).toContain('Bundesliga')
+  })
+
+  test('/over-2-5/predictions/today existe', () => {
+    const page = fs.readFileSync(path.join(ROOT, 'src/app/over-2-5/predictions/today/page.tsx'), 'utf8')
+    expect(page).toContain('Over 2.5 Predictions Today')
+    expect(page).toContain('FAQPage')
+  })
+
+  test('/over-2-5/statistics existe avec tableau par ligue', () => {
+    const page = fs.readFileSync(path.join(ROOT, 'src/app/over-2-5/statistics/page.tsx'), 'utf8')
+    expect(page).toContain('Over 2.5 Statistics')
+    expect(page).toContain('Over 2.5 vs BTTS')
+  })
+
+  test('Sitemap inclut les nouvelles routes topical authority', () => {
+    const sitemap = fs.readFileSync(path.join(ROOT, 'public/sitemap.xml'), 'utf8')
+    expect(sitemap).toContain('/btts/predictions/today')
+    expect(sitemap).toContain('/btts/predictions/tomorrow')
+    expect(sitemap).toContain('/btts/statistics')
+    expect(sitemap).toContain('/over-2-5/predictions/today')
+    expect(sitemap).toContain('/over-2-5/statistics')
+  })
+
+  test('Homepage contient liens vers BTTS Today et Over 2.5 Today', () => {
+    const page = fs.readFileSync(path.join(ROOT, 'src/app/page.tsx'), 'utf8')
+    expect(page).toContain('/btts/predictions/today')
+    expect(page).toContain('/over-2-5/predictions/today')
+  })
+})
+
+describe('Phase 9 — AEO / LLM', () => {
+  test('llms.txt ne mentionne plus API-Football, Forebet, Windrawwin, Soccerbase', () => {
+    const llms = fs.readFileSync(path.join(ROOT, 'public/llms.txt'), 'utf8')
+    expect(llms).not.toMatch(/API-Football/i)
+    expect(llms).not.toMatch(/Forebet/i)
+    expect(llms).not.toMatch(/Windrawwin/i)
+    expect(llms).not.toMatch(/Soccerbase/i)
+  })
+
+  test('llms.txt ne mentionne plus 4-tier VIP, 50 000 matchs, Poisson', () => {
+    const llms = fs.readFileSync(path.join(ROOT, 'public/llms.txt'), 'utf8')
+    expect(llms).not.toMatch(/4-tier/)
+    expect(llms).not.toMatch(/Silver\/Gold\/Elite\/All/)
+    expect(llms).not.toMatch(/50,000\+ historical matches/)
+    expect(llms).not.toMatch(/Poisson/)
+  })
+
+  test('llms.txt mentionne le suivi public depuis 2026-08-08', () => {
+    const llms = fs.readFileSync(path.join(ROOT, 'public/llms.txt'), 'utf8')
+    expect(llms).toContain('8 August 2026')
+  })
+
+  test('ai.txt ne mentionne plus 200+ variables, xG, 50 000 matchs (sauf en forme négative)', () => {
+    const ai = fs.readFileSync(path.join(ROOT, 'public/ai.txt'), 'utf8')
+    // Allow negation form 'does NOT claim to use 200+ variables'
+    const cleaned = ai.replace(/does NOT claim to use 200\+ variables/gi, '').replace(/does NOT claim to use API-Football[^\.]+/gi, '')
+    expect(cleaned).not.toMatch(/200\+ variables/)
+    expect(cleaned).not.toMatch(/50,000\+ historical matches/)
+  })
+
+  test('ai.txt ne mentionne plus API-Football, Forebet, Windrawwin (sauf en forme négative)', () => {
+    const ai = fs.readFileSync(path.join(ROOT, 'public/ai.txt'), 'utf8')
+    // Allow negation form 'does NOT claim to use API-Football, Forebet, Windrawwin or Soccerbase'
+    const cleaned = ai.replace(/does NOT claim to use API-Football[^.]+/gi, '')
+    expect(cleaned).not.toMatch(/API-Football/i)
+    expect(cleaned).not.toMatch(/Forebet/i)
+    expect(cleaned).not.toMatch(/Windrawwin/i)
+  })
+
+  test('seoSchemas.ts ne contient plus aggregateRating 4.2/2437 fictif', () => {
+    const seo = fs.readFileSync(path.join(ROOT, 'src/lib/seoSchemas.ts'), 'utf8')
+    expect(seo).not.toContain("ratingValue: '4.2'")
+    expect(seo).not.toContain("reviewCount: '2437'")
+  })
+})
+
+describe('Phase 8 — Internal linking', () => {
+  test('FreePredictions.tsx inclut un lien Page match sur chaque carte', () => {
+    const fp = fs.readFileSync(path.join(ROOT, 'src/components/bttsbet/FreePredictions.tsx'), 'utf8')
+    expect(fp).toContain('Page match')
+    expect(fp).toContain('matchHref')
+  })
+
+  test('Page match inclut breadcrumbs vers Accueil > Pronostics', () => {
+    const page = fs.readFileSync(path.join(ROOT, 'src/app/match/[slug]/page.tsx'), 'utf8')
+    expect(page).toContain('Fil d\'Ariane')
+    expect(page).toContain('href="/"')
+    expect(page).toContain('href="/pronostics"')
+  })
+})

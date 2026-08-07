@@ -57,13 +57,8 @@ export function buildOrganizationJsonLd() {
       availableLanguage: ['French', 'English'],
       url: `${SITE_URL}/#support`,
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.2',
-      reviewCount: '2437',
-      bestRating: '5',
-      worstRating: '1',
-    },
+    // NOTE : pas d'AggregateRating — la plateforme n'a pas de système d'avis vérifiable.
+    // Inventer une note serait une violation des guidelines Google Structured Data.
     sameAs: [
       'https://wa.me/15406704172',
       'https://twitter.com/bttspredict',

@@ -200,6 +200,19 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
   const away = teams[1]?.trim() || ''
   const homeLogo = match.homeLogo || resolveTeamLogo(home)
   const awayLogo = match.awayLogo || resolveTeamLogo(away)
+  // Build match page URL for internal linking (Phase 8 — internal linking)
+  const normalizeTeam = (s: string) => (s || '')
+    .toLowerCase()
+    .replace(/^\d+\.\s*/, '')
+    .replace(/\d+/g, '')
+    .replace(/[^a-zà-ÿ\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '') || 'equipe'
+  const matchDate = (match.date || '').slice(0, 10)
+  const matchSlug = home && away && matchDate ? `${normalizeTeam(home)}-vs-${normalizeTeam(away)}-${matchDate}` : ''
+  const matchHref = matchSlug ? `/match/${matchSlug}` : ''
 
   const status = getMatchStatus(match.date, match.time)
   const timeUntil = getTimeUntil(match.date, match.time)
@@ -428,18 +441,30 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
         </AnimatePresence>
 
         {/* Footer toggle — CTA contextualisé avec noms d'équipes */}
-        <button
-          onClick={() => setExpanded(e => !e)}
-          className="w-full flex items-center justify-center gap-1.5 mt-3 pt-3 border-t border-edge text-[11px] text-cendre hover:text-success transition-colors"
-          aria-expanded={expanded}
-          aria-label={expanded ? `Voir moins d'analyse pour ${home} – ${away}` : `Voir l'analyse ${home} – ${away}`}
-        >
-          {expanded ? (
-            <>Voir moins <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="18 15 12 9 6 15" /></svg></>
-          ) : (
-            <>Voir l'analyse {home} – {away} <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9" /></svg></>
+        <div className="flex items-stretch gap-2 mt-3 pt-3 border-t border-edge">
+          <button
+            onClick={() => setExpanded(e => !e)}
+            className="flex-1 flex items-center justify-center gap-1.5 text-[11px] text-cendre hover:text-success transition-colors"
+            aria-expanded={expanded}
+            aria-label={expanded ? `Voir moins d'analyse pour ${home} – ${away}` : `Voir l'analyse ${home} – ${away}`}
+          >
+            {expanded ? (
+              <>Voir moins <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="18 15 12 9 6 15" /></svg></>
+            ) : (
+              <>Voir l'analyse <span className="truncate max-w-[140px]">{home} – {away}</span> <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9" /></svg></>
+            )}
+          </button>
+          {matchHref && (
+            <a
+              href={matchHref}
+              className="px-3 flex items-center gap-1 text-[11px] font-bold text-[#5146F5] hover:text-[#6258FF] transition-colors whitespace-nowrap"
+              aria-label={`Page match ${home} vs ${away}`}
+              data-cta="match-page-link"
+            >
+              Page match →
+            </a>
           )}
-        </button>
+        </div>
       </div>
     </motion.div>
   )
