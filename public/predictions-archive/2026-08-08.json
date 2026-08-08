@@ -25,7 +25,7 @@
       },
       "finalScore": "4-3",
       "status": "WON",
-      "verifiedAt": "2026-08-08T17:11:44.762Z"
+      "verifiedAt": "2026-08-08T20:21:45.763Z"
     },
     {
       "match": "1. FC Heidenheim 1846 vs VfL Osnabruck",
@@ -51,7 +51,7 @@
       },
       "finalScore": "4-3",
       "status": "WON",
-      "verifiedAt": "2026-08-08T17:11:44.762Z"
+      "verifiedAt": "2026-08-08T20:21:45.764Z"
     },
     {
       "match": "St. Pauli vs SpVgg Greuther Fürth",
@@ -123,7 +123,9 @@
         "dataQuality": 5,
         "hasRealData": true
       },
-      "status": "PENDING"
+      "finalScore": "2-2",
+      "status": "WON",
+      "verifiedAt": "2026-08-08T20:21:45.764Z"
     }
   ]
 }

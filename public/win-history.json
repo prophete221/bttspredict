@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T17:16:58.383Z",
+  "generatedAt": "2026-08-08T20:28:35.552Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -7,23 +7,23 @@
     "insufficientVolume": true
   },
   "stats": {
-    "total": 2,
-    "won": 2,
+    "total": 3,
+    "won": 3,
     "lost": 0,
-    "pending": 3,
+    "pending": 2,
     "archivedTotal": 5,
     "rate": 100,
     "avgOdds": 1.9,
-    "profit": 1.8,
+    "profit": 2.7,
     "roi": 90,
     "yield": 90,
     "gold": {
-      "total": 2,
-      "won": 2,
+      "total": 3,
+      "won": 3,
       "lost": 0,
       "rate": 100,
       "avgOdds": 1.9,
-      "profit": 1.8,
+      "profit": 2.7,
       "roi": 90,
       "yield": 90
     },
@@ -35,8 +35,8 @@
     },
     "byType": {
       "btts": {
-        "total": 1,
-        "won": 1,
+        "total": 2,
+        "won": 2,
         "lost": 0,
         "rate": 100
       },
@@ -50,12 +50,12 @@
     "trend14": [
       {
         "date": "2026-08-08",
-        "total": 2,
-        "won": 2,
+        "total": 3,
+        "won": 3,
         "lost": 0,
         "rate": 100,
-        "profit": 1.8,
-        "equity": 1.8
+        "profit": 2.7,
+        "equity": 2.7
       }
     ],
     "maxDrawdown": 0,
@@ -66,6 +66,22 @@
     }
   },
   "history": [
+    {
+      "date": "2026-08-08",
+      "match": "PSV Eindhoven vs Fortuna Sittard",
+      "league": "Eredivisie",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.54,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "2-2",
+      "profit": 0.9,
+      "verifiedAt": "2026-08-08T20:21:45.764Z",
+      "source": "ESPN public"
+    },
     {
       "date": "2026-08-08",
       "match": "1. FC Heidenheim 1846 vs VfL Osnabruck",
@@ -79,7 +95,7 @@
       "status": "WON",
       "finalScore": "4-3",
       "profit": 0.9,
-      "verifiedAt": "2026-08-08T17:11:44.762Z",
+      "verifiedAt": "2026-08-08T20:21:45.764Z",
       "source": "ESPN public"
     },
     {
@@ -95,7 +111,7 @@
       "status": "WON",
       "finalScore": "4-3",
       "profit": 0.9,
-      "verifiedAt": "2026-08-08T17:11:44.762Z",
+      "verifiedAt": "2026-08-08T20:21:45.763Z",
       "source": "ESPN public"
     }
   ],
