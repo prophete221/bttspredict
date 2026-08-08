@@ -49,7 +49,21 @@ export default function VipPage() {
           <VipCardGrid />
         </section>
 
-        {/* 3. Proposition de valeur */}
+        {/* 3. Sports couverts (VIP Multi-Sports — placé juste après VIP Pro) */}
+        <section className="max-w-5xl mx-auto px-4 py-8">
+          <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            Sports couverts
+          </h2>
+          <p className="text-sm text-[#A5ABC5] mb-4 leading-relaxed">
+            Le moteur IA est calibré en priorité pour le football, sport où le volume de données disponibles est le plus riche. D'autres sports sont également disponibles en VIP pour élargir le champ des opportunités d'analyse.
+          </p>
+          <VipSports />
+          <p className="text-xs text-[#6B7194] mt-4 leading-relaxed">
+            La couverture multi-sports est en déploiement progressif. Les performances par sport seront communiquées au fur et à mesure de l'accumulation des données vérifiées.
+          </p>
+        </section>
+
+        {/* 4. Proposition de valeur */}
         <section className="max-w-5xl mx-auto px-4 py-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
@@ -66,7 +80,7 @@ export default function VipPage() {
           </div>
         </section>
 
-        {/* 4. Avantages réels de chaque niveau */}
+        {/* 5. Avantages réels de chaque niveau */}
         <section className="max-w-5xl mx-auto px-4 py-8">
           <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Ce que contient réellement chaque niveau
@@ -102,20 +116,6 @@ export default function VipPage() {
           </div>
           <p className="text-xs text-[#6B7194] mt-4 leading-relaxed">
             Les pronostics VIP offrent un volume de sélections plus important et un niveau de détail d'analyse supérieur aux pronostics gratuits.
-          </p>
-        </section>
-
-        {/* 5. Sports réellement couverts */}
-        <section className="max-w-5xl mx-auto px-4 py-8">
-          <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            Sports couverts
-          </h2>
-          <p className="text-sm text-[#A5ABC5] mb-4 leading-relaxed">
-            Le moteur IA est calibré en priorité pour le football, sport où le volume de données disponibles est le plus riche. D'autres sports sont également disponibles en VIP pour élargir le champ des opportunités d'analyse.
-          </p>
-          <VipSports />
-          <p className="text-xs text-[#6B7194] mt-4 leading-relaxed">
-            La couverture multi-sports est en déploiement progressif. Les performances par sport seront communiquées au fur et à mesure de l'accumulation des données vérifiées.
           </p>
         </section>
 
