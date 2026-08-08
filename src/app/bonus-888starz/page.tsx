@@ -10,7 +10,7 @@ import {Navbar, Footer,
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'bonus-888starz'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'Bonus 888starz — Code Promo & Inscription'
+const TITLE = "Bonus 888Starz Sénégal 2026 - Code Promo 130% [GRATUIT]"
 const DESCRIPTION = "Bonus 888starz avec code promo. Inscription, dépôt local et conditions d'offre analysées. 18+."
 
 export const metadata: Metadata = {

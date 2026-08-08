@@ -5,7 +5,7 @@ import {Navbar, Footer,
   LinebetApkButton} from '@/components/bttsbet'
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
-const TITLE = 'Football Predictions Today'
+const TITLE = "Prédictions Foot Aujourd'hui - BTTS & Over 2.5 Sénégal"
 const DESCRIPTION = 'Pronostics football du jour : BTTS, Over 2.5 et scores exacts par moteur IA. Sélection quotidienne. 18+.'
 
 export const metadata: Metadata = {
