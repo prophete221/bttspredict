@@ -67,6 +67,18 @@ jobs:
           cp public/robots.txt out/robots.txt 2>/dev/null || true
           cp public/sitemap.xml out/sitemap.xml 2>/dev/null || true
 
+          # CRITIQUE: s'assurer que _redirects NE contient PAS '/* /index.html 200'
+          # car cela force toutes les URLs vers index.html (duplicate content)
+          if grep -q '/* /index.html 200' out/_redirects 2>/dev/null; then
+            echo "⚠️ ATTENTION: _redirects contient '/* /index.html 200' — suppression..."
+            echo "# Routing géré par .htaccess" > out/_redirects
+          fi
+
+          echo "=== _redirects content ==="
+          cat out/_redirects
+          echo "=== .htaccess exists ==="
+          ls -la out/.htaccess
+
       - name: Commit data
         continue-on-error: true
         run: |

@@ -1,1 +1,4 @@
-/* /index.html 200
+# BTTSPredict — redirects
+# Routing géré par .htaccess (Apache/LWS)
+# Ce fichier est vide intentionnellement — ne pas ajouter /* /index.html 200
+# car cela force TOUTES les URLs à servir index.html (duplicate content)
