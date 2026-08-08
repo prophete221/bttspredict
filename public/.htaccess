@@ -1,19 +1,32 @@
-# BTTSPredict .htaccess
-# Redirection HTTP vers HTTPS
+# ─── Redirection HTTP vers HTTPS (301) ───
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-# Redirection www vers non-www
+# ─── Redirection www vers non-www ───
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
-# En-tetes de securite
+# ─── Routing HTML statique ───
+DirectorySlash Off
+RewriteRule \.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)/?$ /$1.html [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+
+# ─── En-tête HSTS (Strict Transport Security) ───
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+# ─── En-têtes de sécurité ───
 Header always set X-Content-Type-Options "nosniff"
 Header always set X-Frame-Options "SAMEORIGIN"
+Header always set X-XSS-Protection "1; mode=block"
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
-# Cache navigateur
+# ─── Cache navigateur ───
 ExpiresActive On
 ExpiresByType text/css "access plus 1 month"
 ExpiresByType application/javascript "access plus 1 month"
@@ -23,5 +36,5 @@ ExpiresByType image/svg+xml "access plus 6 months"
 ExpiresByType application/json "access plus 1 hour"
 ExpiresByType text/html "access plus 5 minutes"
 
-# Erreur 404
+# ─── Erreur 404 personnalisée ───
 ErrorDocument 404 /404.html
