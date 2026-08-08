@@ -9,6 +9,7 @@ import {
   Footer,
   ErrorBoundary,
   StickyCTABar,
+  VipSports,
 } from '@/components/bttsbet'
 
 // JSON-LD WebSite — SearchAction for Google SERP
@@ -538,6 +539,23 @@ export default function Home() {
               </a>
             </div>
           </div>
+        </section>
+
+        {/* ZONE PREMIUM — VIP Multi-Sports (placée juste après le bloc VIP Pro) */}
+        <section className="max-w-5xl mx-auto px-4 py-10">
+          <div className="text-center mb-8">
+            <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-3"
+              style={{ backgroundColor: 'rgba(255, 200, 87, 0.12)', color: '#FFC857' }}>
+              Zone Premium
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              VIP Multi-Sports — Pronostics premium
+            </h2>
+            <p className="text-sm text-[#A5ABC5] leading-relaxed max-w-2xl mx-auto">
+              Le moteur IA est calibré en priorité pour le football, sport où le volume de données disponibles est le plus riche. D'autres sports sont également disponibles en VIP pour élargir le champ des opportunités d'analyse.
+            </p>
+          </div>
+          <ErrorBoundary><VipSports /></ErrorBoundary>
         </section>
 
         {/* Jeu responsable */}
