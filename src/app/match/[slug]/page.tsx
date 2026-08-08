@@ -10,6 +10,10 @@ interface PageProps {
 
 export async function generateStaticParams() {
   const slugs = getAllMatchSlugs()
+  // Si aucune page match n'est disponible, on génère un fallback pour que le build SSG passe
+  if (slugs.length === 0) {
+    return [{ slug: '_placeholder' }]
+  }
   return slugs.map(slug => ({ slug }))
 }
 
@@ -28,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const league = match.league
   const date = match.date
   const title = `${home} vs ${away} — Pronostic BTTS et Over 2.5 (${date})`
-  const description = `Pronostic BTTS et Over 2.5 : ${home} vs ${away} (${league}, ${date}). Analyse, probabilités et résultat vérifié. 18+.`
+  const description = `Pronostic BTTS et Over 2.5 pour ${home} vs ${away} (${league}, ${date}). Analyse prédictive, probabilités, niveau de confiance, résultat vérifié. Suivi public BTTSPredict. Aucun gain garanti. 18+.`
 
   return {
     title,

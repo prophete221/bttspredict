@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Poppins, Inter, JetBrains_Mono } from "next/font/google";
-import "./globals.css";
 import BottomNavigation from "@/components/bttsbet/BottomNavigation";
 import CookieConsent from "@/components/bttsbet/CookieConsent";
+import { Poppins, Inter, JetBrains_Mono } from "next/font/google";
+import "./globals.css";
 
 const poppins = Poppins({
   variable: "--font-display",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     default: "BTTSPredict — Pronostics BTTS et Over 2.5 aujourd'hui",
     template: "%s | BTTSPredict",
   },
-  description: "Pronostics BTTS et Over 2.5 par moteur IA. Suivi public vérifié, code promo VISION221. 18+.",
+  description: "Pronostics BTTS aujourd'hui et Over 2.5 par nos analystes experts. 84,5% vérifié, modèle Poisson calibré sur 50 000 matchs. Code promo VISION221.",
   keywords: [
     // Autorité mondiale
     "n°1 mondial pronostics btts", "meilleur site pronostics btts monde", "leader pronostics btts",
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
     "pronostics fiables", "meilleur site pronostics", "pronostics gratuits",
     "VISION221", "BTTSPredict", "paris sportifs",
     "pronostics Sénégal", "pronostics Afrique",
-    "modèle IA nouvelle génération football", "xG pronostics", "statistiques football",
-    "taux réel vérifiable", "pronostics vérifiés", "transparence pronostics",
+    "modèle Poisson football", "xG pronostics", "statistiques football",
+    "84,5% réussite", "pronostics vérifiés", "transparence pronostics",
   ],
   authors: [
     { name: "BTTSPredict", url: "https://bttspredict.com" },
@@ -99,7 +99,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   openGraph: {
     title: "BTTSPredict — N°1 des Prédictions BTTS par nos experts",
-    description: "Pronostics BTTS et Over 2.5 par moteur IA. Suivi vérifié, code promo VISION221. 18+.",
+    description: "Pronostics BTTS fiables chaque jour. Résultats vérifiés et transparents. Code promo VISION221.",
     url: "https://bttspredict.com",
     siteName: "BTTSPredict",
     type: "website",
@@ -108,8 +108,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BTTSPredict — Pronostics BTTS fiables | taux réel sur /historique",
-    description: "Pronostics BTTS et Over 2.5 par moteur IA. Suivi vérifié, code promo VISION221. 18+.",
+    title: "BTTSPredict — Pronostics BTTS fiables | 84,5% vérifié",
+    description: "Pronostics btts aujourd'hui validés par nos analystes. 84,5% de réussite vérifiable. Code promo VISION221.",
     images: ["/og-image.png"],
   },
   category: "sports",
@@ -123,7 +123,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#070B18",
+  themeColor: "#0D0F12",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -173,7 +173,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v81-platform-refactor-2026-08-08';
+                var VERSION = 'bttspredict-v56-institutional-2026-08-07';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
@@ -217,11 +217,8 @@ export default function RootLayout({
           }}
         />
         {children}
-        {/* BottomNavigation — visible on all pages, mobile + desktop */}
         <BottomNavigation />
-        {/* CookieConsent — mounted globally, sits above BottomNavigation */}
         <CookieConsent />
-        {/* Spacer to prevent content being hidden by fixed BottomNavigation */}
         <div aria-hidden="true" style={{ height: 'calc(64px + env(safe-area-inset-bottom, 0px))' }} />
       </body>
     </html>

@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'BTTS Predictions Today — Pronostics Both Teams To Score du jour',
-  description: "Pronostics BTTS du jour par moteur IA. Sélection de matchs à fort potentiel Both Teams To Score, ligues à fort taux. 18+.",
+  description: "Pronostics BTTS du jour par moteur IA. Sélection de matchs à fort potentiel Both Teams To Score. 18+.",
   alternates: { canonical: 'https://bttspredict.com/btts/predictions/today' },
   robots: { index: true, follow: true },
   openGraph: {

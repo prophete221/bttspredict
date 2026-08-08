@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Over 2.5 Statistics — Statistiques Over 2.5 par ligue',
-  description: "Statistiques Over 2.5 par ligue : taux historique de matchs à 3+ buts. Bundesliga, Eredivisie, Premier League et plus. 18+.",
+  description: "Statistiques Over 2.5 par ligue : taux historique de matchs à 3+ buts sur les principales ligues couvertes par BTTSPredict. Bundesliga, Eredivisie, Premier League, etc. 18+.",
   alternates: { canonical: 'https://bttspredict.com/over-2-5/statistics' },
   robots: { index: true, follow: true },
   openGraph: {

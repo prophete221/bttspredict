@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'BTTS Statistics — Statistiques Both Teams To Score par ligue',
-  description: "Statistiques BTTS par ligue : taux historique de Both Teams To Score. Premier League, Bundesliga, Eredivisie et plus. 18+.",
+  description: "Statistiques BTTS par ligue : taux historique de Both Teams To Score sur les principales ligues couvertes par BTTSPredict. Premier League, Bundesliga, Eredivisie, Championship, etc. 18+.",
   alternates: { canonical: 'https://bttspredict.com/btts/statistics' },
   robots: { index: true, follow: true },
   openGraph: {

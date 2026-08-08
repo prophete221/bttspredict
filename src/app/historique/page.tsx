@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   openGraph: {
     title: 'Historique vérifié — BTTSPredict',
-    description: "Suivi public des pronostics vérifiés BTTSPredict. Nouvelle période depuis le 2026-08-08. 18+.",
+    description: "Nouveau suivi public des pronostics vérifiés. Volume insuffisant pendant les premières semaines. Aucun résultat futur n'est garanti.",
     url: 'https://bttspredict.com/historique',
     type: 'website',
   },
