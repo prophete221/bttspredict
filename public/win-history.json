@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T14:37:35.821Z",
+  "generatedAt": "2026-08-08T14:44:19.545Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -79,7 +79,7 @@
       "status": "WON",
       "finalScore": "4-3",
       "profit": 0.9,
-      "verifiedAt": "2026-08-08T14:28:05.759Z",
+      "verifiedAt": "2026-08-08T14:39:32.169Z",
       "source": "ESPN public"
     },
     {
@@ -95,7 +95,7 @@
       "status": "WON",
       "finalScore": "4-3",
       "profit": 0.9,
-      "verifiedAt": "2026-08-08T14:28:05.758Z",
+      "verifiedAt": "2026-08-08T14:39:32.168Z",
       "source": "ESPN public"
     }
   ],
