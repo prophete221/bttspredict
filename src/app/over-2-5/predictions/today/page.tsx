@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Over 2.5 Predictions Today — Pronostics Over 2.5 du jour',
-  description: "Pronostics Over 2.5 du jour générés par le moteur IA nouvelle génération de BTTSPredict. Sélection de matchs à fort potentiel de buts (3+). Ligues offensives, forme récente. Aucun gain garanti. 18+.",
+  description: "Pronostics Over 2.5 du jour par moteur IA. Matchs à fort potentiel de buts (3+), ligues offensives, forme récente. 18+.",
   alternates: { canonical: 'https://bttspredict.com/over-2-5/predictions/today' },
   robots: { index: true, follow: true },
   openGraph: {

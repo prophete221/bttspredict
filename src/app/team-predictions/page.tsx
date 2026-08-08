@@ -6,7 +6,7 @@ import {Navbar, Footer,
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
 const TITLE = 'Team Predictions — Pronostics par Équipe'
-const DESCRIPTION = 'Pronostics par équipe football : analyse indices de performance, forme récente, statistiques offensives/défensives. BTTS et Over 2.5 par équipe, taux réel sur /historique.'
+const DESCRIPTION = 'Pronostics par équipe : analyse de forme récente et statistiques offensives/défensives. BTTS et Over 2.5. 18+.'
 
 export const metadata: Metadata = {
   title: TITLE,

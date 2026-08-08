@@ -6,7 +6,7 @@ import {Navbar, Footer,
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
 const TITLE = 'Linebet Promo Code VISION221'
-const DESCRIPTION = 'Code promo Linebet VISION221 : bonus sous conditions (mise x5, dépôt min, voir site bookmaker). Inscription, dépôt Wave/Orange Money, activation. Guide complet 2026.'
+const DESCRIPTION = 'Code promo Linebet VISION221 : conditions de bonus, inscription, dépôt Wave/Orange Money et APK. 18+.'
 
 export const metadata: Metadata = {
   title: TITLE,

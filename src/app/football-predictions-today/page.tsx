@@ -6,7 +6,7 @@ import {Navbar, Footer,
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
 const TITLE = 'Football Predictions Today'
-const DESCRIPTION = 'Pronostics football aujourd\'hui par nos analystes. BTTS, Over 2.5, scores exacts. 50+ championnats, modèle IA nouvelle génération calibré, taux réel sur /historique. Gratuit.'
+const DESCRIPTION = 'Pronostics football du jour : BTTS, Over 2.5 et scores exacts par moteur IA. Sélection quotidienne. 18+.'
 
 export const metadata: Metadata = {
   title: TITLE,

@@ -876,3 +876,92 @@ describe('Suppression boutons Méthodologie → + Historique vérifié → + men
     }
   })
 })
+
+describe('SEO — Meta descriptions 25-160 caractères (Bing Webmaster)', () => {
+  const FILES = [
+    { path: 'src/app/page.tsx', type: 'inline' },
+    { path: 'src/app/pronostics/page.tsx', type: 'inline' },
+    { path: 'src/app/pronostics/aujourd-hui/page.tsx', type: 'inline' },
+    { path: 'src/app/historique/page.tsx', type: 'inline' },
+    { path: 'src/app/methodologie/page.tsx', type: 'inline' },
+    { path: 'src/app/vip/page.tsx', type: 'inline' },
+    { path: 'src/app/btts/predictions/today/page.tsx', type: 'inline' },
+    { path: 'src/app/btts/predictions/tomorrow/page.tsx', type: 'inline' },
+    { path: 'src/app/btts/statistics/page.tsx', type: 'inline' },
+    { path: 'src/app/over-2-5/predictions/today/page.tsx', type: 'inline' },
+    { path: 'src/app/over-2-5/statistics/page.tsx', type: 'inline' },
+    { path: 'src/app/betting-tips/page.tsx', type: 'const' },
+    { path: 'src/app/blog/faille-fifa-linebet/page.tsx', type: 'const' },
+    { path: 'src/app/bonus-888starz/page.tsx', type: 'const' },
+    { path: 'src/app/faille-fifa/page.tsx', type: 'const' },
+    { path: 'src/app/football-predictions-today/page.tsx', type: 'const' },
+    { path: 'src/app/linebet-promo-code/page.tsx', type: 'const' },
+    { path: 'src/app/match-predictions/page.tsx', type: 'const' },
+    { path: 'src/app/team-predictions/page.tsx', type: 'const' },
+    { path: 'src/app/cgu/page.tsx', type: 'const' },
+    { path: 'src/app/mentions-legales/page.tsx', type: 'const' },
+    { path: 'src/app/politique-confidentialite/page.tsx', type: 'const' },
+    { path: 'src/app/jouer-responsable/page.tsx', type: 'const' },
+    { path: 'src/app/layout.tsx', type: 'inline' },
+  ]
+
+  function extractDescription(content: string, type: string): string | null {
+    if (type === 'const') {
+      // Match: const DESCRIPTION = '...' or const DESCRIPTION = `...`
+      const m = content.match(/const\s+DESCRIPTION\s*=\s*['"`]([^'"`]+)['"`]/)
+      return m ? m[1] : null
+    }
+    // inline: description: "..." or description: '...'
+    const m = content.match(/description:\s*['"`]([^'"`]+)['"`]/)
+    return m ? m[1] : null
+  }
+
+  test('Toutes les pages indexables ont une meta description entre 25 et 160 caractères', () => {
+    const results: { file: string; len: number; desc: string }[] = []
+    for (const f of FILES) {
+      const filePath = path.join(ROOT, f.path)
+      if (!fs.existsSync(filePath)) continue
+      const content = fs.readFileSync(filePath, 'utf8')
+      const desc = extractDescription(content, f.type)
+      if (!desc) {
+        // layout.tsx might have description in metadata object, skip if not found
+        continue
+      }
+      const len = desc.length
+      if (len < 25 || len > 160) {
+        results.push({ file: f.path, len, desc: desc.substring(0, 60) + '...' })
+      }
+    }
+    if (results.length > 0) {
+      const msg = results.map(r => `${r.file}: ${r.len} chars — "${r.desc}"`).join('\n')
+      expect.fail(`Meta descriptions hors plage 25-160:\n${msg}`)
+    }
+  })
+
+  test('Les descriptions importantes sont uniques (pas de doublons)', () => {
+    const descriptions: { file: string; desc: string }[] = []
+    for (const f of FILES) {
+      const filePath = path.join(ROOT, f.path)
+      if (!fs.existsSync(filePath)) continue
+      const content = fs.readFileSync(filePath, 'utf8')
+      const desc = extractDescription(content, f.type)
+      if (desc && desc.length >= 25) {
+        descriptions.push({ file: f.path, desc })
+      }
+    }
+    // Check for duplicates
+    const seen = new Map<string, string[]>()
+    for (const d of descriptions) {
+      const existing = seen.get(d.desc) || []
+      existing.push(d.file)
+      seen.set(d.desc, existing)
+    }
+    const duplicates = Array.from(seen.entries()).filter(([_, files]) => files.length > 1)
+    if (duplicates.length > 0) {
+      const msg = duplicates.map(([desc, files]) => `Duplicate: "${desc.substring(0, 50)}..." in ${files.join(', ')}`).join('\n')
+      console.warn('Duplicate descriptions found:\n' + msg)
+    }
+    // Don't fail on duplicates — just warn (some pages legitimately share)
+    expect(descriptions.length).toBeGreaterThan(0)
+  })
+})

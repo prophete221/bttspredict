@@ -3,7 +3,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 
 export const metadata: Metadata = {
   title: 'Méthodologie — Moteur IA de pronostics',
-  description: "Méthodologie du moteur IA de BTTSPredict : approche prédictive, sources de données publiques, marchés couverts, calibration continue. Aucun résultat futur garanti. 18+.",
+  description: "Méthodologie du moteur IA BTTSPredict : approche prédictive, sources de données, marchés couverts, calibration continue. 18+.",
   alternates: { canonical: 'https://bttspredict.com/methodologie' },
   robots: { index: true, follow: true },
   openGraph: {

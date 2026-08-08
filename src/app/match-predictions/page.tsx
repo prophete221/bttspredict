@@ -6,7 +6,7 @@ import {Navbar, Footer,
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
 const TITLE = 'Match Predictions — Pronostics par Match'
-const DESCRIPTION = 'Pronostics par match : BTTS, Over 2.5, score exact. Analyse détaillée de chaque match avec indices de performance, probabilités Poisson et statistiques. taux réel sur /historique.'
+const DESCRIPTION = 'Pronostics par match : BTTS, Over 2.5, score exact. Analyse détaillée avec probabilités et statistiques. 18+.'
 
 export const metadata: Metadata = {
   title: TITLE,

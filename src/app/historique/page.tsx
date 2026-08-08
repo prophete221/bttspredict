@@ -4,12 +4,12 @@ import HistoriqueClient from './HistoriqueClient'
 
 export const metadata: Metadata = {
   title: 'Historique vérifié — Nouveau suivi public',
-  description: "Historique vérifié du nouveau modèle de suivi BTTSPredict. Chaque pronostic est enregistré, horodaté et évalué après le résultat officiel. Aucun résultat futur n'est garanti. 18+.",
+  description: "Historique vérifié BTTSPredict : chaque pronostic enregistré, horodaté et évalué après le résultat officiel. 18+.",
   alternates: { canonical: 'https://bttspredict.com/historique' },
   robots: { index: true, follow: true },
   openGraph: {
     title: 'Historique vérifié — BTTSPredict',
-    description: "Nouveau suivi public des pronostics vérifiés. Volume insuffisant pendant les premières semaines. Aucun résultat futur n'est garanti.",
+    description: "Suivi public des pronostics vérifiés BTTSPredict. Nouvelle période depuis le 2026-08-08. 18+.",
     url: 'https://bttspredict.com/historique',
     type: 'website',
   },

@@ -6,7 +6,7 @@ import {Navbar, Footer,
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
 const TITLE = 'Betting Tips Football'
-const DESCRIPTION = 'Betting tips football par BTTSPredict. BTTS, Over 2.5, analyses de valeur statistique FIFA. Méthodologie Poisson, gestion de bankroll, stratégie. taux réel sur /historique.'
+const DESCRIPTION = 'Betting tips football : BTTS, Over 2.5, analyses de valeur et gestion bankroll. Code promo VISION221. 18+.'
 
 export const metadata: Metadata = {
   title: TITLE,

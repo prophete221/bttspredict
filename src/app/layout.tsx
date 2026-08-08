@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     default: "BTTSPredict — Pronostics BTTS et Over 2.5 aujourd'hui",
     template: "%s | BTTSPredict",
   },
-  description: "Pronostics BTTS aujourd'hui et Over 2.5 par nos analystes experts. taux réel sur /historique, modèle IA nouvelle génération calibré sur des millions de données historiques. Code promo VISION221.",
+  description: "Pronostics BTTS et Over 2.5 par moteur IA. Suivi public vérifié, code promo VISION221. 18+.",
   keywords: [
     // Autorité mondiale
     "n°1 mondial pronostics btts", "meilleur site pronostics btts monde", "leader pronostics btts",
@@ -99,7 +99,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   openGraph: {
     title: "BTTSPredict — N°1 des Prédictions BTTS par nos experts",
-    description: "Pronostics BTTS fiables chaque jour. Résultats vérifiés et transparents. Code promo VISION221.",
+    description: "Pronostics BTTS et Over 2.5 par moteur IA. Suivi vérifié, code promo VISION221. 18+.",
     url: "https://bttspredict.com",
     siteName: "BTTSPredict",
     type: "website",
@@ -109,7 +109,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "BTTSPredict — Pronostics BTTS fiables | taux réel sur /historique",
-    description: "Pronostics btts aujourd'hui validés par nos analystes. taux réel vérifiable sur /historique. Code promo VISION221.",
+    description: "Pronostics BTTS et Over 2.5 par moteur IA. Suivi vérifié, code promo VISION221. 18+.",
     images: ["/og-image.png"],
   },
   category: "sports",

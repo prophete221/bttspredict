@@ -11,7 +11,7 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'analyses-fifa-linebet'
 const PAGE_URL = `${SITE_URL}/blog/${SLUG}`
 const TITLE = 'Analyses de valeur FIFA (expérimental) Linebet — Cotes Erronées 2026'
-const DESCRIPTION = 'Analyses de valeur FIFA (expérimental) sur Linebet et 888starz : comment détecter les cotes erronées des matchs FIFA virtuels et exploiter les analyses de valeur statistique. Jeu responsable.'
+const DESCRIPTION = 'Analyses de valeur FIFA sur Linebet et 888starz : détection des cotes erronées et value bets. 18+.'
 
 export const metadata: Metadata = {
   title: TITLE,

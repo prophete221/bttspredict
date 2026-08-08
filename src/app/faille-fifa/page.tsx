@@ -8,7 +8,7 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'faille-fifa'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Analyses de valeur FIFA (expérimental) Linebet — Cotes Erronées 2026'
-const DESCRIPTION = 'Analyses de valeur FIFA (expérimental) Linebet : détection des cotes erronées et analyses de valeur statistique. Méthode validée par nos analystes. Code VISION221.'
+const DESCRIPTION = 'Analyses de valeur FIFA Linebet : détection des cotes erronées et value bets. Méthode et code VISION221. 18+.'
 
 export const metadata: Metadata = {
   title: TITLE,
