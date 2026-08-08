@@ -119,6 +119,26 @@ function generateSitemap() {
   </url>\n\n`
   }
 
+<<<<<<< HEAD
+=======
+  // Topical authority pages — BTTS + Over 2.5
+  const TOPICAL_PAGES = [
+    '/btts/predictions/today',
+    '/btts/predictions/tomorrow',
+    '/btts/statistics',
+    '/over-2-5/predictions/today',
+    '/over-2-5/statistics',
+  ]
+  for (const p of TOPICAL_PAGES) {
+    xml += `  <url>
+    <loc>${SITE_URL}${p}</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>\n\n`
+  }
+
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
   // Match pages — dynamically generated from predictions-archive
   try {
     const archiveDir = path.join(__dirname, '..', 'public', 'predictions-archive')
@@ -131,6 +151,7 @@ function generateSitemap() {
           const preds = data.predictions || data
           if (!Array.isArray(preds)) continue
           for (const p of preds) {
+<<<<<<< HEAD
             const home = p.home || ''
             const away = p.away || ''
             const date = (p.date || '').slice(0, 10)
@@ -138,6 +159,14 @@ function generateSitemap() {
             const hNorm = home.toLowerCase().replace(/^\d+\.\s*/, '').replace(/\d+/g, '').replace(/[^a-zà-ÿ\s-]/g, '').trim().replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') || 'equipe'
             const aNorm = away.toLowerCase().replace(/^\d+\.\s*/, '').replace(/\d+/g, '').replace(/[^a-zà-ÿ\s-]/g, '').trim().replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') || 'equipe'
             const slug = `${hNorm}-vs-${aNorm}-${date}`
+=======
+            const home = p.home || (p.match ? p.match.split(/\s+vs?\s+/i)[0]?.trim() : '') || ''
+            const away = p.away || (p.match ? p.match.split(/\s+vs?\s+/i)[1]?.trim() : '') || ''
+            const date = (p.date || '').slice(0, 10)
+            if (!home || !away || !date) continue
+            const norm = (s) => (s || '').toLowerCase().replace(/^\d+\.\s*/, '').replace(/\d+/g, '').replace(/[^a-zà-ÿ\s-]/g, '').trim().replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') || 'equipe'
+            const slug = `${norm(home)}-vs-${norm(away)}-${date}`
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
             if (seenSlugs.has(slug)) continue
             seenSlugs.add(slug)
             xml += `  <url>
@@ -145,8 +174,11 @@ function generateSitemap() {
     <lastmod>${date}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+<<<<<<< HEAD
     <xhtml:link rel="alternate" hreflang="fr-SN" href="${SITE_URL}/match/${slug}"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}/match/${slug}"/>
+=======
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
   </url>\n\n`
           }
         } catch (e) { continue }

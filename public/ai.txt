@@ -14,7 +14,11 @@ The platform is operated by Elon Ervri (New Jersey, USA) and available at https:
 
 1. **Transparent track record** — Every prediction is archived daily. Wins AND losses are publicly displayed without filtering. The public tracking period was launched on 8 August 2026 and is verifiable at https://bttspredict.com/historique
 2. **Probabilistic engine** — Predictions are produced by a probabilistic engine (called "moteur IA nouvelle génération") that uses:
+<<<<<<< HEAD
    - ESPN Soccer API (public, no key) and TheSportsDB (public, no key) for fixtures and scores
+=======
+   - ESPN Soccer API (public) and TheSportsDB (public) for fixtures and scores
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
    - Per-team recent offensive and defensive form over the last matches
    - Continuous calibration to adapt to tactical trends
    - Internal parameters (variables, thresholds, league list, constants) are not publicly disclosed

@@ -1,6 +1,11 @@
 import type { Metadata } from 'next'
+<<<<<<< HEAD
 import { Navbar, Footer } from '@/components/bttsbet'
 import Link from 'next/link'
+=======
+import Link from 'next/link'
+import { Navbar, Footer } from '@/components/bttsbet'
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
 
 export const metadata: Metadata = {
   title: 'BTTS Statistics — Statistiques Both Teams To Score par ligue',
@@ -38,13 +43,20 @@ const faqJsonLd = {
   ],
 }
 
+<<<<<<< HEAD
 // Taux historique BTTS approximatif par ligue (données publiques, ordre indicatif)
+=======
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
 const LEAGUE_STATS = [
   { league: 'Eredivisie (Pays-Bas)', bttsRate: '57%', avgGoals: '3.15', note: 'Ligue offensive, BTTS fréquent' },
   { league: 'Bundesliga (Allemagne)', bttsRate: '58%', avgGoals: '3.05', note: 'Pressing haut, beaucoup de buts' },
   { league: '2. Bundesliga', bttsRate: '57%', avgGoals: '2.90', note: 'D2 allemande offensive' },
   { league: 'Championship (Angleterre D2)', bttsRate: '56%', avgGoals: '2.68', note: 'Championnat très ouvert' },
+<<<<<<< HEAD
   { league: 'Premier League (Angleterre)', bttsRate: '55%', avgGoals: '2.82', note: 'Top 5 européen, many goals' },
+=======
+  { league: 'Premier League (Angleterre)', bttsRate: '55%', avgGoals: '2.82', note: 'Top 5 européen' },
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
   { league: 'Jupiler Pro League (Belgique)', bttsRate: '55%', avgGoals: '2.85', note: 'Ligue belge, BTTS fréquent' },
   { league: 'MLS (États-Unis)', bttsRate: '56%', avgGoals: '3.10', note: 'Football offensif nord-américain' },
   { league: 'Liga Portugal', bttsRate: '55%', avgGoals: '2.72', note: 'Ligue portugaise offensive' },
@@ -77,9 +89,13 @@ export default function BTTSStatisticsPage() {
           </p>
 
           <section className="mb-10">
+<<<<<<< HEAD
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Taux BTTS par ligue
             </h2>
+=======
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>Taux BTTS par ligue</h2>
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
             <div className="overflow-x-auto">
               <table className="w-full text-sm" style={{ borderCollapse: 'collapse' }}>
                 <thead>
@@ -95,9 +111,13 @@ export default function BTTSStatisticsPage() {
                     <tr key={i} style={{ borderBottom: '1px solid #303861' }}>
                       <td className="py-3 px-4 text-[#F7F8FF] font-medium">{row.league}</td>
                       <td className="text-center py-3 px-4">
+<<<<<<< HEAD
                         <span className="inline-block px-2 py-1 rounded font-bold" style={{ backgroundColor: 'rgba(124, 58, 237, 0.15)', color: '#7C3AED' }}>
                           {row.bttsRate}
                         </span>
+=======
+                        <span className="inline-block px-2 py-1 rounded font-bold" style={{ backgroundColor: 'rgba(124, 58, 237, 0.15)', color: '#7C3AED' }}>{row.bttsRate}</span>
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
                       </td>
                       <td className="text-center py-3 px-4 text-[#A5ABC5] tabular-nums">{row.avgGoals}</td>
                       <td className="py-3 px-4 text-[#A5ABC5] text-xs hidden sm:table-cell">{row.note}</td>
@@ -111,6 +131,7 @@ export default function BTTSStatisticsPage() {
             </p>
           </section>
 
+<<<<<<< HEAD
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Comment lire ces statistiques
@@ -132,6 +153,10 @@ export default function BTTSStatisticsPage() {
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Voir aussi
             </h2>
+=======
+          <section>
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>Voir aussi</h2>
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5]"
                 style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>

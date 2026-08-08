@@ -225,11 +225,16 @@ export default function RootLayout({
           }}
         />
         {children}
+<<<<<<< HEAD
         {/* BottomNavigation — visible on all pages, mobile + desktop */}
         <BottomNavigation />
         {/* CookieConsent — mounted globally, sits above BottomNavigation */}
         <CookieConsent />
         {/* Spacer to prevent content being hidden by fixed BottomNavigation */}
+=======
+        <BottomNavigation />
+        <CookieConsent />
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
         <div aria-hidden="true" style={{ height: 'calc(64px + env(safe-area-inset-bottom, 0px))' }} />
       </body>
     </html>

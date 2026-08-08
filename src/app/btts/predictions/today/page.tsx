@@ -1,6 +1,11 @@
 import type { Metadata } from 'next'
+<<<<<<< HEAD
 import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import Link from 'next/link'
+=======
+import Link from 'next/link'
+import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
 
 export const metadata: Metadata = {
   title: 'BTTS Predictions Today — Pronostics Both Teams To Score du jour',
@@ -63,7 +68,11 @@ export default function BTTSPredictionsTodayPage() {
             Pronostics BTTS du jour générés par le moteur IA nouvelle génération de BTTSPredict. Chaque sélection est basée sur la forme offensive et défensive récente des deux équipes, sur des ligues à fort taux historique de BTTS.
           </p>
           <p className="text-sm text-[#6B7194] leading-relaxed max-w-3xl mx-auto">
+<<<<<<< HEAD
             Aucun gain n'est garanti. Les probabilités affichées sont comprises entre 40% et 54% — plage crédible de calibration. Les paris sportifs comportent un risque de perte. 18+.
+=======
+            Aucun gain n'est garanti. Les paris sportifs comportent un risque de perte. 18+.
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
           </p>
         </section>
 
@@ -72,15 +81,22 @@ export default function BTTSPredictionsTodayPage() {
         </section>
 
         <section className="max-w-3xl mx-auto px-4 pb-12">
+<<<<<<< HEAD
           <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Qu'est-ce que le BTTS ?
           </h2>
           <p className="text-sm text-[#A5ABC5] leading-relaxed mb-4">
             BTTS signifie <strong>Both Teams To Score</strong> — un marché de paris sportifs où le pronostic porte sur le fait que les deux équipes marquent au moins un but chacun pendant le match. Le résultat final du match n'a pas d'importance : seuls les buts marqués comptent.
+=======
+          <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>Qu'est-ce que le BTTS ?</h2>
+          <p className="text-sm text-[#A5ABC5] leading-relaxed mb-4">
+            BTTS signifie <strong>Both Teams To Score</strong> — un marché de paris sportifs où le pronostic porte sur le fait que les deux équipes marquent au moins un but chacune pendant le match. Le résultat final du match n'a pas d'importance : seuls les buts marqués comptent.
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
           </p>
           <p className="text-sm text-[#A5ABC5] leading-relaxed mb-4">
             Le BTTS est un marché populaire car il offre de l'action jusqu'au dernier moment — un but à la 90e minute peut faire gagner un pari BTTS qui semblait perdu. Le moteur IA de BTTSPredict identifie les matchs où la dynamique offensive des deux équipes et leur propension à encaisser rendent le BTTS probable.
           </p>
+<<<<<<< HEAD
           <p className="text-sm text-[#A5ABC5] leading-relaxed">
             Pour comprendre en détail comment fonctionne l'analyse BTTS, consultez notre <Link href="/methodologie" className="text-[#5146F5] underline">méthodologie du moteur IA</Link>.
           </p>
@@ -90,6 +106,12 @@ export default function BTTSPredictionsTodayPage() {
           <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Aller plus loin
           </h2>
+=======
+        </section>
+
+        <section className="max-w-3xl mx-auto px-4 pb-12">
+          <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>Aller plus loin</h2>
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Link href="/btts/statistics" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5]"
               style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>

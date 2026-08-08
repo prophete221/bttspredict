@@ -15,6 +15,7 @@ const OUT = './public/win-history.json';
 const TRACKING_PERIOD_FILE = './public/tracking-period.json';
 const AVG_ODDS = 1.90;
 
+<<<<<<< HEAD
 // ─── Load tracking period start date ───
 let TRACKING_START = '2026-08-08';
 let MODEL_VERSION = 'V3-Reliability';
@@ -22,25 +23,44 @@ try {
   const tp = JSON.parse(fs.readFileSync(TRACKING_PERIOD_FILE, 'utf8'));
   TRACKING_START = tp.startDate || TRACKING_START;
   MODEL_VERSION = tp.modelVersion || MODEL_VERSION;
+=======
+let TRACKING_START = '2026-08-08';
+try {
+  const tp = JSON.parse(fs.readFileSync(TRACKING_PERIOD_FILE, 'utf8'));
+  TRACKING_START = tp.startDate || TRACKING_START;
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
 } catch (e) {
   console.warn(`[update-win-history] tracking-period.json non trouvé, fallback ${TRACKING_START}`);
 }
 
 const TRACKING_START_TS = new Date(TRACKING_START + 'T00:00:00Z').getTime();
+<<<<<<< HEAD
 console.log(`[update-win-history] Nouveau suivi depuis ${TRACKING_START} (modèle ${MODEL_VERSION})`);
 
 // ─── HIGH_BTTS list (same as quick-update-predictions.mjs) ───
+=======
+console.log(`[update-win-history] Nouveau suivi depuis ${TRACKING_START}`);
+
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
 const HIGH_BTTS_KEYWORDS = [
   'bundesliga','eredivisie','jupiler','swiss','mls','championship',
   'premier league','liga portugal','austrian','scottish',
 ];
 
 function getTier(p) {
+<<<<<<< HEAD
   if (p.tier && p.tier !== 'STANDARD') return p.tier.toUpperCase();
   let proba = p.proba || p.probability || 0;
   if (!proba && p.analysis) proba = p.analysis.bttsProb || p.analysis.over25Prob || 0;
   if (!proba && p.confidence) proba = p.confidence / 100;
   if (!proba) proba = 0.62; // default to publishing threshold (never 0)
+=======
+  if (p.tier && p.tier.toUpperCase() === 'GOLD') return 'GOLD';
+  let proba = p.proba || p.probability || 0;
+  if (!proba && p.analysis) proba = p.analysis.bttsProb || p.analysis.over25Prob || 0;
+  if (!proba && p.confidence) proba = p.confidence / 100;
+  if (!proba) proba = 0.62;
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
   const lg = (p.league || '').toLowerCase();
   const isHigh = HIGH_BTTS_KEYWORDS.some(h => lg.includes(h));
   const market = (p.type || p.market || '').toLowerCase();
@@ -118,7 +138,11 @@ function processFile(file, bucket) {
       bucket.all.push({
         date, match: p.match || '', league: p.league || '',
         market: type, tier,
+<<<<<<< HEAD
         proba: p.proba || p.confidence / 100 || 0.62,
+=======
+        proba: p.proba || (p.confidence ? p.confidence / 100 : 0.62),
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
         coteProposee: ods, coteCloture: p.coteCloture || null,
         bookmaker: p.bookmaker || 'Linebet',
         status: isWon ? 'WON' : 'LOST',
@@ -154,14 +178,20 @@ function buildStats(bucket, periodFrom, periodTo, daysCount) {
   const overTotal = bucket.over25.won + bucket.over25.lost;
   const overRate = overTotal > 0 ? +(bucket.over25.won / overTotal * 100).toFixed(1) : 0;
 
+<<<<<<< HEAD
   // Equity curve (cumulative profit)
+=======
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
   let cumProfit = 0;
   const trend = Object.entries(bucket.daily)
     .sort(([a], [b]) => a.localeCompare(b))
     .slice(-14)
     .map(([d, v]) => { cumProfit += v.profit; return { date: d, ...v, equity: +cumProfit.toFixed(2) }; });
 
+<<<<<<< HEAD
   // Drawdown max
+=======
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
   let peak = 0, maxDD = 0;
   cumProfit = 0;
   for (const t of trend) { cumProfit += t.profit; if (cumProfit > peak) peak = cumProfit; const dd = peak - cumProfit; if (dd > maxDD) maxDD = dd; }
@@ -186,10 +216,20 @@ function buildStats(bucket, periodFrom, periodTo, daysCount) {
 }
 
 function main() {
+<<<<<<< HEAD
   const files = fs.readdirSync(DIR).filter(f => f.endsWith('.json')).sort();
   const allFiles = files.slice(-90);
 
   // Split files into 2 buckets: NEW (date >= TRACKING_START) and LEGACY (date < TRACKING_START)
+=======
+  if (!fs.existsSync(DIR)) {
+    console.warn(`[update-win-history] ${DIR} introuvable, generation vide`);
+    return;
+  }
+  const files = fs.readdirSync(DIR).filter(f => f.endsWith('.json')).sort();
+  const allFiles = files.slice(-90);
+
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
   const newBucket = emptyBucket();
   const legacyBucket = emptyBucket();
 
@@ -216,8 +256,11 @@ function main() {
   const newStats = buildStats(newBucket, newPeriodFrom, newPeriodTo, newDaysCount);
   const legacyStats = buildStats(legacyBucket, legacyPeriodFrom, legacyPeriodTo, legacyDaysCount);
 
+<<<<<<< HEAD
   // ─── Output: newStats PUBLIC, legacyStats PRIVATE (kept for technical audit only) ───
   // Note : ne pas exposer le nom de version interne du modèle publiquement (audit confidentialité)
+=======
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
   const out = {
     generatedAt: new Date().toISOString(),
     trackingPeriod: {
@@ -226,9 +269,14 @@ function main() {
       disclaimer: "Nouvelle période de suivi lancée le " + TRACKING_START + ". Les résultats sont publiés et vérifiés progressivement. Le volume actuel est encore insuffisant pour évaluer statistiquement la performance du modèle. Aucun résultat futur n'est garanti.",
       insufficientVolume: newStats.total < 30,
     },
+<<<<<<< HEAD
     stats: newStats,                     // ← PUBLIC (new tracking only)
     history: newBucket.all.slice(-500).reverse(),
     // ─── legacyStats est conservé pour audit technique interne, NON affiché publiquement ───
+=======
+    stats: newStats,
+    history: newBucket.all.slice(-500).reverse(),
+>>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
     legacyStats: {
       ...legacyStats,
       history: legacyBucket.all.slice(-200).reverse(),
