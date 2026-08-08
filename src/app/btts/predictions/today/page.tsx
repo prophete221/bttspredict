@@ -3,13 +3,13 @@ import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'BTTS Predictions Today — Pronostics Both Teams To Score du jour',
+  title: 'BTTS Predictions Today — Pronostics du jour',
   description: "Pronostics BTTS du jour par moteur IA. Sélection de matchs à fort potentiel Both Teams To Score. 18+.",
   alternates: { canonical: 'https://bttspredict.com/btts/predictions/today' },
   robots: { index: true, follow: true },
   openGraph: {
     title: 'BTTS Predictions Today — BTTSPredict',
-    description: 'Pronostics BTTS du jour générés par le moteur IA. Aucun gain garanti. 18+.',
+    description: 'Pronostics BTTS du jour par moteur IA. Aucun gain garanti. 18+.',
     url: 'https://bttspredict.com/btts/predictions/today',
     type: 'website',
   },

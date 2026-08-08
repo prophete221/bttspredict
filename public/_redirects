@@ -1,1 +1,6 @@
-/* /index.html 200
+# BTTSPredict — redirects
+# Ne PAS rediriger toutes les URLs vers index.html
+# Les fichiers .html sont servis directement par .htaccess
+
+# Pages avec ancres anciennes
+/pronostics/aujourdhui /pronostics/aujourd-hui 301

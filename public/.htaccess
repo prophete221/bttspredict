@@ -7,26 +7,25 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
-# ─── Routing HTML statique — gère les sous-dossiers ───
+# ─── Routing HTML statique ───
 DirectorySlash Off
 
 # Servir les fichiers .html directement
 RewriteRule \.html$ - [L]
 
-# Si le chemin correspond à un fichier .html, le servir
-RewriteCond %{REQUEST_FILENAME} !-f
+# Si le chemin correspond à un fichier existant, le servir tel quel
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Si /chemin n'existe pas mais /chemin.html existe → servir /chemin.html
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.+)/?$ /$1.html [L]
 
-# Si le chemin correspond à un fichier .html dans un sous-dossier
+# Fallback vers index.html (SPA routing) — uniquement si rien d'autre ne matche
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-RewriteRule ^(.+)/?$ /$1.html [L]
-
-# Fallback vers index.html (SPA routing)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html !-f
 RewriteRule . /index.html [L]
 
 # ─── En-tête HSTS (Strict Transport Security) ───
