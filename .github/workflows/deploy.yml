@@ -67,16 +67,20 @@ jobs:
           cp public/robots.txt out/robots.txt 2>/dev/null || true
           cp public/sitemap.xml out/sitemap.xml 2>/dev/null || true
 
-          # CRITIQUE: s'assurer que _redirects NE contient PAS '/* /index.html 200'
-          # car cela force toutes les URLs vers index.html (duplicate content)
-          if grep -q '/* /index.html 200' out/_redirects 2>/dev/null; then
-            echo "⚠️ ATTENTION: _redirects contient '/* /index.html 200' — suppression..."
-            echo "# Routing géré par .htaccess" > out/_redirects
-          fi
+          # CRITIQUE: générer _redirects avec règles explicites pour chaque page
+          # Le serveur LWS lit _redirects — chaque URL doit être mappée vers son .html
+          echo "# BTTSPredict — redirects (auto-généré)" > out/_redirects
+          echo "" >> out/_redirects
+          for f in $(find out -name "*.html" -not -name "index.html" -not -name "200.html" -not -name "404.html" -not -name "_not-found.html" | sed 's|out/||;s|\.html$||' | sort); do
+            echo "/$f /$f.html 200" >> out/_redirects
+          done
+          echo "" >> out/_redirects
+          echo "# Fallback pour toute autre URL" >> out/_redirects
+          echo "/* /index.html 200" >> out/_redirects
 
-          echo "=== _redirects content ==="
+          echo "=== _redirects généré ==="
           cat out/_redirects
-          echo "=== .htaccess exists ==="
+          echo "=== .htaccess existe ==="
           ls -la out/.htaccess
 
       - name: Commit data
