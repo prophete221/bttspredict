@@ -1,6 +1,17 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer, VipCardGrid, PromoVip, VipSports, AviatorVip, HowToGetVip, VipLevelModal, CopyableCode, LinebetApkButton } from '@/components/bttsbet'
+import dynamic from 'next/dynamic'
 import { SITE, AFFILIATE } from '@/lib/constants'
+
+const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
+const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
+const VipCardGrid = dynamic(() => import('@/components/bttsbet/VipCardGlass').then((m) => ({ default: m.VipCardGrid })), { loading: () => null })
+const PromoVip = dynamic(() => import('@/components/bttsbet/PromoVip'), { loading: () => null })
+const VipSports = dynamic(() => import('@/components/bttsbet/VipSports'), { loading: () => null })
+const AviatorVip = dynamic(() => import('@/components/bttsbet/AviatorVip'), { loading: () => null })
+const HowToGetVip = dynamic(() => import('@/components/bttsbet/HowToGetVip'), { loading: () => null })
+const VipLevelModal = dynamic(() => import('@/components/bttsbet/VipLevelModal'), { loading: () => null })
+const CopyableCode = dynamic(() => import('@/components/bttsbet/CopyableCode'), { loading: () => null })
+const LinebetApkButton = dynamic(() => import('@/components/bttsbet/LinebetApkButton'), { loading: () => null })
 
 export const metadata: Metadata = {
   title: 'VIP — Pronostics premium BTTS et Over 2.5',

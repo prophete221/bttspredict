@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import BottomNavigation from "@/components/bttsbet/BottomNavigation";
-import CookieConsent from "@/components/bttsbet/CookieConsent";
+import dynamic from "next/dynamic";
 import { Poppins, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+const BottomNavigation = dynamic(() => import("@/components/bttsbet/BottomNavigation"), { loading: () => null });
+const CookieConsent = dynamic(() => import("@/components/bttsbet/CookieConsent"), { loading: () => null });
 
 const poppins = Poppins({
   variable: "--font-display",

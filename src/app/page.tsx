@@ -1,14 +1,14 @@
-import {
-  Navbar,
-  Hero,
-  ScrollProgressBar,
-  HowItWorks,
-  FreePredictions,
-  Footer,
-  ErrorBoundary,
-  StickyCTABar,
-  VipSports,
-} from '@/components/bttsbet'
+import dynamic from 'next/dynamic'
+
+const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
+const Hero = dynamic(() => import('@/components/bttsbet/Hero'), { loading: () => null })
+const ScrollProgressBar = dynamic(() => import('@/components/bttsbet/ScrollProgressBar'), { loading: () => null })
+const HowItWorks = dynamic(() => import('@/components/bttsbet/HowItWorks'), { loading: () => null })
+const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictions'), { loading: () => null })
+const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
+const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
+const StickyCTABar = dynamic(() => import('@/components/bttsbet/StickyCTABar'), { loading: () => null })
+const VipSports = dynamic(() => import('@/components/bttsbet/VipSports'), { loading: () => null })
 
 // JSON-LD WebSite — SearchAction for Google SERP
 const jsonLd = {
