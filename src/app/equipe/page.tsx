@@ -11,7 +11,7 @@ import {
 } from '@/lib/seoSchemas'
 
 const TITLE = "Équipe Analystes BTTSPredict"
-const DESCRIPTION = "Équipe d'analystes experts BTTSPredict : profils, expertise en modélisation Poisson et xG. E-E-A-T vérifiable."
+const DESCRIPTION = "Équipe d'analystes BTTSPredict : profils et expertise en modélisation statistique football. 18+."
 
 export const metadata: Metadata = {
   title: TITLE,

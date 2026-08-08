@@ -11,7 +11,7 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'btts-c-est-quoi'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'BTTS Both Teams To Score — Guide'
-const DESCRIPTION = 'Qu\'est-ce que le BTTS ? Guide complet du pari Both Teams To Score : fonctionnement, stratégies, statistiques et FAQ.'
+const DESCRIPTION = 'Guide BTTS (Both Teams To Score) : fonctionnement, stratégies et exemples pour parier. 18+.'
 
 export const metadata: Metadata = {
   title: TITLE,
