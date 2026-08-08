@@ -30,7 +30,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://bttspredict.com/"),
   title: {
-    default: "BTTSPredict — Pronostics BTTS et Over 2.5 aujourd'hui",
+    default: "Pronostic BTTS Aujourd'hui Gratuit | BTTSPredict Sénégal",
     template: "%s | BTTSPredict",
   },
   description: "Pronostics BTTS et Over 2.5 par moteur IA. Suivi public vérifié, code promo VISION221. 18+.",
