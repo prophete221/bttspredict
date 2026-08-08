@@ -1,13 +1,13 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion' // removed for bundle size
 import { SITE, AFFILIATE, LEGAL, FAQ_ITEMS, LONASE } from '@/lib/constants'
 import { useScrollAnimation } from '@/hooks/useAnimations'
-import { staggerContainer, fadeInUp } from '@/lib/motionPresets'
+//import { staggerContainer, fadeInUp } from '@/lib/motionPresets'
 
 export default function Footer() {
-  const [ref, isVisible] = useScrollAnimation()
+  const ref = null as any
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   return (
@@ -15,7 +15,7 @@ export default function Footer() {
       <footer ref={ref} id="faq" className="border-t pt-10 pb-20 sm:pb-8 px-4" style={{ borderColor: '#5146F5', backgroundColor: '#070B18' }}>
         <div className="max-w-[440px] sm:max-w-2xl mx-auto">
           {/* Note de transparence (remplace les témoignages non vérifiables) */}
-          <motion.div variants={staggerContainer} initial="hidden" animate={isVisible ? 'visible' : 'hidden'} className="mb-6">
+          <div initial="hidden" className="mb-6">
             <div className="text-center mb-3">
               <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#5146F5]">Transparence</span>
             </div>
@@ -27,26 +27,26 @@ export default function Footer() {
                 un suivi public lancé le 2026-08-08. Aucun résultat futur n'est garanti.
               </p>
             </div>
-          </motion.div>
+          </div>
 
           {/* FAQ */}
-          <motion.div variants={staggerContainer} initial="hidden" animate={isVisible ? 'visible' : 'hidden'} className="mb-6">
+          <div initial="hidden" className="mb-6">
             <div className="text-center mb-3">
               <h3 className="text-sm font-bold text-papier">Questions fréquentes</h3>
             </div>
             <div className="space-y-2">
               {FAQ_ITEMS.slice(0, 4).map((item, i) => (
-                <motion.div key={item.q} variants={fadeInUp} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#0D1630', border: '1px solid rgba(247, 248, 255, 0.08)' }}>
+                <div key={item.q} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#0D1630', border: '1px solid rgba(247, 248, 255, 0.08)' }}>
                   <button onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i} className="w-full text-left px-4 py-3 text-xs font-semibold text-papier">
                     {item.q}
                   </button>
                   {openFaq === i && (
                     <div className="px-4 pb-3 text-[11px] text-[#5146F5] leading-relaxed">{item.a}</div>
                   )}
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Legal links */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">

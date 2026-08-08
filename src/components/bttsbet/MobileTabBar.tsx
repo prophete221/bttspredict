@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion' // removed for bundle size
 
 type TabId = 'home' | 'predictions' | 'history' | 'vip'
 
@@ -137,7 +137,7 @@ export default function MobileTabBar() {
           >
             {/* Pastille turquoise sous l'icône actif */}
             {isActive && (
-              <motion.span
+              <span
                 layoutId="tab-glow"
                 className="absolute top-0 left-1/2 -translate-x-1/2"
                 style={{
@@ -147,12 +147,11 @@ export default function MobileTabBar() {
                   background: '#5146F5',
                   boxShadow: '0 0 8px rgba(81, 70, 245, 0.6)',
                 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               />
             )}
-            <motion.div whileTap={{ scale: 0.88 }}>
+            <div>
               {tab.icon}
-            </motion.div>
+            </div>
             <span
               className="text-[9px] font-bold uppercase tracking-wider"
               style={{

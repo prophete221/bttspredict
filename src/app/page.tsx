@@ -1,5 +1,3 @@
-'use client'
-
 import {
   Navbar,
   Hero,
@@ -238,6 +236,7 @@ const breadcrumbJsonLd = {
 export default function Home() {
   return (
     <div className="min-h-screen bg-dark-800 relative">
+      <h1 className="sr-only">BTTSPredict — Pronostics BTTS et Over 2.5</h1>
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"

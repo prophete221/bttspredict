@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useMemo, useEffect } from 'react'
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion' // removed for bundle size
 import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
 
@@ -46,7 +46,7 @@ function generateFifaMatches(seed: number, count: number): FifaMatch[] {
 }
 
 export default function FifaLinebet() {
-  const [ref, isVisible] = useScrollAnimation()
+  const ref = null as any
   const [showModal, setShowModal] = useState(false)
 
   const today = new Date()
@@ -65,10 +65,7 @@ export default function FifaLinebet() {
       <section ref={ref} id="fifa-linebet" className="section-pad overflow-x-hidden" style={{ paddingTop: '16px', paddingBottom: '16px' }}>
         <div className="max-w-[440px] sm:max-w-2xl mx-auto">
           {/* Compact card */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : undefined}
-            transition={{ duration: 0.4 }}
+          <div
             className="rounded-[14px] overflow-hidden"
             style={{ backgroundColor: C.card, border: '1px solid ' + C.border, boxShadow: '0 4px 20px rgba(7, 11, 24,0.3)' }}
           >
@@ -139,7 +136,7 @@ export default function FifaLinebet() {
                 🔒 Débloquer les Analyses de valeur FIFA (expérimental)
               </button>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 

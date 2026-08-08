@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion' // removed for bundle size
 
 /**
  * GlobalReach — Section "Portée mondiale, racines panafricaines"
@@ -48,11 +48,8 @@ export default function GlobalReach() {
         </div>
 
         {/* Stats globales */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        <div
           viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
           className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8"
         >
           {GLOBAL_STATS.map((stat, i) => (
@@ -65,14 +62,11 @@ export default function GlobalReach() {
               <div className="text-[10px] text-cendre mt-1 uppercase tracking-wider">{stat.label}</div>
             </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Bloc Monde — régions Linebet */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        <div
           viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.1 }}
           className="mb-8"
         >
           <h3 className="text-xl font-bold text-papier mb-4 flex items-center gap-2">
@@ -94,14 +88,11 @@ export default function GlobalReach() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Bloc Afrique de l'Ouest — focus panafricain */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        <div
           viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.2 }}
         >
           <h3 className="text-xl font-bold text-papier mb-4 flex items-center gap-2">
             <span style={{ color: '#5146F5' }}>🌍</span>
@@ -128,14 +119,11 @@ export default function GlobalReach() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Vision roadmap */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        <div
           viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.3 }}
           className="mt-8 p-5 rounded-xl text-center"
           style={{
             background: 'linear-gradient(135deg, rgba(81, 70, 245, 0.05), rgba(81, 70, 245, 0.05))',
@@ -147,7 +135,7 @@ export default function GlobalReach() {
           <p className="text-cendre text-xs leading-relaxed max-w-sm mx-auto">
             Devenir la référence mondiale du pari sportif IA sur BTTS et Over 2.5, en imposant un approche de transparence inégalé dans l&apos;industrie.
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

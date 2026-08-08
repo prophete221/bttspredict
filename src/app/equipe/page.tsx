@@ -44,7 +44,7 @@ const EXPERTS = [
     name: 'Karim Benali',
     role: 'Expert Analyste Football — Ligues Européennes (Premier League, La Liga, Serie A)',
     initials: 'KB',
-    bio: "Analyste data football spécialisé dans les championnats européens majeurs. Diplômé en statistiques appliquées de l'Université de Lyon, Karim a calibré le modèle BTTSPredict sur 50 000 matchs européens. Expert en Expected Goals (xG), forme récente des équipes, et analyse des blessures/suspensions.",
+    bio: "Analyste data football spécialisé dans les championnats européens majeurs. Diplômé en statistiques appliquées de l'Université de Lyon, Karim a calibré le modèle BTTSPredict sur des matchs européens analysés via ESPN. Expert en Expected Goals (xG), forme récente des équipes, et analyse des blessures/suspensions.",
     expertise: ['Premier League', 'La Liga', 'Serie A', 'Bundesliga', 'xG', 'Poisson'],
     stats: { pronostics: 2180, winRate: '83,7%', experience: '10 ans' },
     social: { twitter: 'https://twitter.com/karim_benali', linkedin: 'https://linkedin.com/in/karim-benali' },

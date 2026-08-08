@@ -1,8 +1,8 @@
 'use client'
 
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion' // removed for bundle size
 import { useScrollAnimation } from '@/hooks/useAnimations'
-import { staggerContainer, staggerChildFadeUp } from '@/lib/motionPresets'
+//import { staggerContainer, staggerChildFadeUp } from '@/lib/motionPresets'
 
 const CARDS = [
   {
@@ -62,16 +62,13 @@ const CARDS = [
 ]
 
 export default function HowItWorks() {
-  const [ref, isVisible] = useScrollAnimation()
+  const ref = null as any
 
   return (
     <section ref={ref} id="how-it-works" className="section-pad overflow-x-hidden">
       <div className="max-w-[440px] sm:max-w-2xl mx-auto">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : undefined}
-          transition={{ duration: 0.5 }}
+        <div
           className="text-center mb-10"
         >
           <span className="eyebrow">Méthode IA</span>
@@ -82,19 +79,16 @@ export default function HowItWorks() {
             Trois couches technologiques pour des pronostics fiables.
             Aucune garantie future — les paris sportifs comportent des risques.
           </p>
-        </motion.div>
+        </div>
 
         {/* Cards */}
-        <motion.div
-          variants={staggerContainer}
+        <div
           initial="hidden"
-          animate={isVisible ? 'visible' : 'hidden'}
           className="grid md:grid-cols-3 gap-5"
         >
           {CARDS.map((card, i) => (
-            <motion.div
+            <div
               key={card.step}
-              variants={staggerChildFadeUp}
               className="squircle-lg p-6 relative group hover:border-success/30 transition-all"
             >
               {/* Step number */}
@@ -133,9 +127,9 @@ export default function HowItWorks() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   )
