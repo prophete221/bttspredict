@@ -22,7 +22,10 @@
         "over25Prob": 0.54,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "finalScore": "4-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-08T14:28:05.758Z"
     },
     {
       "match": "1. FC Heidenheim 1846 vs VfL Osnabruck",
@@ -45,7 +48,10 @@
         "over25Prob": 0.54,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "finalScore": "4-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-08T14:28:05.759Z"
     },
     {
       "match": "St. Pauli vs SpVgg Greuther Fürth",
@@ -68,7 +74,8 @@
         "over25Prob": 0.54,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "St. Pauli vs SpVgg Greuther Fürth",
@@ -91,7 +98,8 @@
         "over25Prob": 0.54,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "PSV Eindhoven vs Fortuna Sittard",
@@ -114,7 +122,8 @@
         "over25Prob": 0.54,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     }
   ]
 }
