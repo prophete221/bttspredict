@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
+
+const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
+const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
+const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictions'), { loading: () => null })
 
 export const metadata: Metadata = {
   title: 'BTTS Predictions Today — Pronostics du jour',
