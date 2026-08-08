@@ -26,7 +26,7 @@ const FAQ = [
 
 const STATS = [
   { label: 'Taux de réussite Over 2.5', value: 'Voir /historique' },
-  { label: 'Matchs analysés', value: '50 000+' },
+  { label: 'Matchs analysés', value: 'Ligues HIGH_BTTS' },
   { label: 'Championnats couverts', value: '50+' },
   { label: 'Pronostics par jour', value: '6+' },
 ]

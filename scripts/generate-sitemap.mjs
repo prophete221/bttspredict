@@ -43,6 +43,16 @@ const SEO_PAGES = [
   { path: '/mentions-legales', priority: '0.3', changefreq: 'yearly', lastmod: '2026-06-01' },
   { path: '/cgu', priority: '0.3', changefreq: 'yearly', lastmod: '2026-06-01' },
   { path: '/politique-confidentialite', priority: '0.3', changefreq: 'yearly', lastmod: '2026-06-01' },
+  // — 9 routes SEO manquantes (ajout P0 audit 08/08/2026) —
+  { path: '/betting-tips', priority: '0.8', changefreq: 'weekly', lastmod: TODAY, image: false, imageTitle: '', imageCaption: '' },
+  { path: '/bookmakers', priority: '0.8', changefreq: 'monthly', lastmod: TODAY, image: false, imageTitle: '', imageCaption: '' },
+  { path: '/correct-score-predictions', priority: '0.8', changefreq: 'weekly', lastmod: TODAY, image: false, imageTitle: '', imageCaption: '' },
+  { path: '/football-predictions-today', priority: '0.85', changefreq: 'daily', lastmod: TODAY, image: false, imageTitle: '', imageCaption: '' },
+  { path: '/league-predictions', priority: '0.8', changefreq: 'weekly', lastmod: TODAY, image: false, imageTitle: '', imageCaption: '' },
+  { path: '/linebet-promo-code', priority: '0.85', changefreq: 'weekly', lastmod: TODAY, image: false, imageTitle: '', imageCaption: '' },
+  { path: '/match-predictions', priority: '0.8', changefreq: 'weekly', lastmod: TODAY, image: false, imageTitle: '', imageCaption: '' },
+  { path: '/over-2-5-predictions', priority: '0.85', changefreq: 'daily', lastmod: TODAY, image: false, imageTitle: '', imageCaption: '' },
+  { path: '/team-predictions', priority: '0.8', changefreq: 'weekly', lastmod: TODAY, image: false, imageTitle: '', imageCaption: '' },
 ]
 
 // ─── Blog articles ───

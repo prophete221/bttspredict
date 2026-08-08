@@ -34,16 +34,16 @@ export const metadata: Metadata = {
   description: "Pronostics BTTS et Over 2.5 par moteur IA. Suivi public vérifié, code promo VISION221. 18+.",
   keywords: [
     // Autorité mondiale
-    "n°1 mondial pronostics btts", "meilleur site pronostics btts monde", "leader pronostics btts",
+    "plateforme btts", "btts predictions site", "leader pronostics btts",
     "plateforme n°1 btts", "world number 1 btts predictions", "best btts prediction site",
     // Mots-clés stratégiques avec "aujourd'hui" (priorité absolue)
     "pronostics btts aujourd'hui", "pronostic btts du jour", "prédiction btts gratuit aujourd'hui",
-    "pronostics over 2.5 aujourd'hui", "n°1 pronostics btts", "meilleur site pronostics btts",
+    "pronostics over 2.5 aujourd'hui", "pronostics btts", "site pronostics btts",
     "pronostics btts gratuit",
     // Mots-clés généraux
     "BTTS", "Both Teams To Score", "pronostics BTTS", "pronostics football",
     "Over 2.5", "prédictions football", "analyse statistique paris",
-    "pronostics fiables", "meilleur site pronostics", "pronostics gratuits",
+    "pronostics fiables", "pronostics", "pronostics gratuits",
     "VISION221", "BTTSPredict", "paris sportifs",
     "pronostics Sénégal", "pronostics Afrique",
     "modèle Poisson football", "xG pronostics", "statistiques football",

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion' // removed for bundle size
 import { AFFILIATE, SITE } from '@/lib/constants'
 
 /**
@@ -114,12 +114,9 @@ export default function HowToGetVip() {
         {/* 4 étapes */}
         <div className="space-y-3 mb-10">
           {STEPS.map((step, i) => (
-            <motion.div
+            <div
               key={step.num}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
               className="flex gap-4 p-4 rounded-xl"
               style={{ background: 'rgba(13, 22, 48, 0.6)', border: '1px solid rgba(81, 70, 245, 0.08)' }}
             >
@@ -160,16 +157,13 @@ export default function HowToGetVip() {
                   </a>
                 )}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Bouton Essai VIP 1 jour */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+        <div
           viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
           className="mb-10 p-5 rounded-xl text-center"
           style={{
             background: 'linear-gradient(135deg, rgba(81, 70, 245, 0.08), rgba(81, 70, 245, 0.08))',
@@ -197,7 +191,7 @@ export default function HowToGetVip() {
             </svg>
             Demander l'essai VIP gratuit
           </a>
-        </motion.div>
+        </div>
 
         {/* Mini FAQ VIP */}
         <div>
@@ -227,13 +221,11 @@ export default function HowToGetVip() {
                   </span>
                 </button>
                 {openFaq === i && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
+                  <div
                     className="px-4 pb-4"
                   >
                     <p className="text-cendre text-xs leading-relaxed">{item.a}</p>
-                  </motion.div>
+                  </div>
                 )}
               </div>
             ))}

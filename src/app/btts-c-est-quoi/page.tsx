@@ -117,7 +117,7 @@ function buildFaqJsonLd() {
         name: "Comment l'IA de BTTSPredict prédit le BTTS ?",
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Notre équipe analyse plus de 50 variables : Expected Goals (xG), forme récente des deux équipes, taux de BTTS historique, blessures, conditions météo, historique des confrontations directes, et statistiques défensives. L'algorithme est entraîné sur 50 000+ matchs avec un taux de réussite réel (voir /historique) (voir /historique pour les chiffres réels). Ces performances passées ne garantissent pas les résultats futurs.",
+          text: "Notre équipe analyse plus de 50 variables : Expected Goals (xG), forme récente des deux équipes, taux de BTTS historique, blessures, conditions météo, historique des confrontations directes, et statistiques défensives. L'algorithme est entraîné sur matchs analysés avec un taux de réussite vérifiable (voir /historique). Aucun résultat futur n'est garanti.",
         },
       },
       {

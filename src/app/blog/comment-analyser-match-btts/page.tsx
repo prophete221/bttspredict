@@ -358,7 +358,7 @@ export default function CommentAnalyserMatchBttsPage() {
               <p className="text-cendre leading-relaxed">
                 L&apos;analyse statistique de BTTSPredict analyse simultanément plus de 200 variables pour chaque match,
                 ce qu&apos;un humain ne peut pas faire manuellement. Notre modèle de machine learning est entraîné sur
-                plus de 50 000 matchs historiques et intègre des données en temps réel :
+                plus de matchs analysés historiques et intègre des données en temps réel :
               </p>
               <ul className="space-y-2 mt-3 text-cendre leading-relaxed">
                 <li className="flex items-start gap-3">
