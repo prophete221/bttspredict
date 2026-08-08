@@ -5,10 +5,7 @@ import Link from 'next/link'
 
 interface TrackingPeriod {
   startDate: string
-<<<<<<< HEAD
   modelVersion?: string  // Optionnel : ne plus exposer publiquement
-=======
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
   isPublicPeriod: boolean
   disclaimer: string
   insufficientVolume: boolean
@@ -21,7 +18,6 @@ interface Stats {
   pending: number
   archivedTotal: number
   rate: number
-<<<<<<< HEAD
   avgOdds: number
   profit: number
   roi: number
@@ -39,8 +35,6 @@ interface Stats {
     lost: number
     rate: number
   }
-=======
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
   byType: {
     btts: { total: number; won: number; lost: number; rate: number }
     over25: { total: number; won: number; lost: number; rate: number }
@@ -114,10 +108,7 @@ export default function HistoriqueClient() {
 
   return (
     <>
-<<<<<<< HEAD
       {/* Hero section : lancement officiel */}
-=======
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
       <section className="max-w-4xl mx-auto px-4 pt-12 pb-8 sm:pt-16">
         <div className="text-center mb-6">
           <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
@@ -132,10 +123,7 @@ export default function HistoriqueClient() {
           </p>
         </div>
 
-<<<<<<< HEAD
         {/* Disclaimer : période de lancement — version crédible */}
-=======
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
         {insufficient && (
           <div className="p-4 rounded-xl mb-6" style={{ backgroundColor: 'rgba(81, 70, 245, 0.06)', border: '1px solid rgba(81, 70, 245, 0.2)' }}>
             <p className="text-sm text-[#5146F5] leading-relaxed mb-2 font-bold">
@@ -148,10 +136,7 @@ export default function HistoriqueClient() {
         )}
       </section>
 
-<<<<<<< HEAD
       {/* Compteurs réels et dynamiques */}
-=======
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
       <section className="max-w-5xl mx-auto px-4 pb-8">
         <h2 className="text-xl font-bold mb-4 text-center" style={{ fontFamily: 'Poppins, sans-serif' }}>
           Compteurs en temps réel
@@ -182,10 +167,7 @@ export default function HistoriqueClient() {
         </p>
       </section>
 
-<<<<<<< HEAD
       {/* Taux de réussite — affiché uniquement si volume suffisant */}
-=======
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
       {!insufficient && stats.total > 0 && (
         <section className="max-w-5xl mx-auto px-4 pb-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -208,7 +190,6 @@ export default function HistoriqueClient() {
         </section>
       )}
 
-<<<<<<< HEAD
       {/* Trend 14j — affiché uniquement si volume suffisant */}
       {!insufficient && stats.trend14 && stats.trend14.length > 0 && (
         <section className="max-w-5xl mx-auto px-4 pb-8">
@@ -233,8 +214,6 @@ export default function HistoriqueClient() {
       )}
 
       {/* Tableau des pronostics vérifiés */}
-=======
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
       <section className="max-w-5xl mx-auto px-4 pb-12">
         <h2 className="text-xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
           Pronostics vérifiés du nouveau suivi
@@ -285,7 +264,6 @@ export default function HistoriqueClient() {
                       <td className="py-2 px-3 text-center">
                         {isWon ? (
                           <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-[10px] font-bold"
-<<<<<<< HEAD
                             style={{ backgroundColor: 'rgba(168, 224, 99, 0.15)', color: '#A8E063' }}>
                             ✓ Gagné
                           </span>
@@ -299,15 +277,6 @@ export default function HistoriqueClient() {
                             style={{ backgroundColor: 'rgba(165, 171, 197, 0.15)', color: '#A5ABC5' }}>
                             ⏳ En attente
                           </span>
-=======
-                            style={{ backgroundColor: 'rgba(168, 224, 99, 0.15)', color: '#A8E063' }}>✓ Gagné</span>
-                        ) : isLost ? (
-                          <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-[10px] font-bold"
-                            style={{ backgroundColor: 'rgba(255, 113, 133, 0.15)', color: '#FF7185' }}>✗ Perdu</span>
-                        ) : (
-                          <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-[10px] font-bold"
-                            style={{ backgroundColor: 'rgba(165, 171, 197, 0.15)', color: '#A5ABC5' }}>⏳ En attente</span>
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
                         )}
                       </td>
                     </tr>
@@ -319,7 +288,6 @@ export default function HistoriqueClient() {
         )}
       </section>
 
-<<<<<<< HEAD
       {/* Liens utiles */}
       <section className="max-w-5xl mx-auto px-4 pb-16">
         <div className="flex flex-wrap items-center justify-center gap-3">
@@ -327,10 +295,6 @@ export default function HistoriqueClient() {
             style={{ backgroundColor: '#0D1630', color: '#A5ABC5', border: '1px solid #303861' }}>
             Méthodologie du modèle →
           </Link>
-=======
-      <section className="max-w-5xl mx-auto px-4 pb-16">
-        <div className="flex flex-wrap items-center justify-center gap-3">
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
           <Link href="/pronostics" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
             style={{ backgroundColor: '#5146F5', color: '#F7F8FF' }}>
             Voir les pronostics du jour →
@@ -338,10 +302,7 @@ export default function HistoriqueClient() {
         </div>
       </section>
 
-<<<<<<< HEAD
       {/* 18+ disclaimer */}
-=======
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
       <section className="max-w-5xl mx-auto px-4 pb-12">
         <div className="p-4 rounded-xl text-center" style={{ backgroundColor: 'rgba(255, 113, 133, 0.06)', border: '1px solid rgba(255, 113, 133, 0.2)' }}>
           <p className="text-xs text-[#A5ABC5] leading-relaxed">

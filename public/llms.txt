@@ -24,11 +24,7 @@
 
 - Markets: BTTS (Both Teams To Score) and Over 2.5 goals
 - Leagues: selected European and North-American leagues with historically high BTTS rates
-<<<<<<< HEAD
 - Sources: ESPN Soccer API (public, no key) + TheSportsDB (public, no key)
-=======
-- Sources: ESPN Soccer API (public) + TheSportsDB (public)
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
 - Verification: post-match final scores retrieved from ESPN + TheSportsDB
 
 ## Methodology summary

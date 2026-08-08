@@ -1,11 +1,6 @@
 import type { Metadata } from 'next'
-<<<<<<< HEAD
 import { Navbar, Footer } from '@/components/bttsbet'
 import Link from 'next/link'
-=======
-import Link from 'next/link'
-import { Navbar, Footer } from '@/components/bttsbet'
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
 
 export const metadata: Metadata = {
   title: 'BTTS Predictions Tomorrow — Pronostics Both Teams To Score demain',
@@ -36,11 +31,7 @@ export default function BTTSPredictionsTomorrowPage() {
             BTTS Predictions Tomorrow
           </h1>
           <p className="text-base text-[#A5ABC5] leading-relaxed mb-6">
-<<<<<<< HEAD
             BTTSPredict publie chaque jour une nouvelle sélection de pronostics BTTS. Les pronostics pour les matchs de demain sont publiés la veille au soir et le jour même, plusieurs fois par jour (cron à 4h, 6h, 14h et 22h UTC). Chaque sélection est issue du moteur IA nouvelle génération, basée sur la forme récente des deux équipes.
-=======
-            BTTSPredict publie chaque jour une nouvelle sélection de pronostics BTTS. Les pronostics pour les matchs de demain sont publiés la veille au soir et le jour même, plusieurs fois par jour. Chaque sélection est issue du moteur IA nouvelle génération, basée sur la forme récente des deux équipes.
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
           </p>
 
           <div className="p-5 rounded-xl mb-6" style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
@@ -48,11 +39,7 @@ export default function BTTSPredictionsTomorrowPage() {
               Comment accéder aux pronostics BTTS de demain ?
             </h2>
             <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
-<<<<<<< HEAD
               Les pronostics de demain sont disponibles sur la page <Link href="/pronostics" className="text-[#5146F5] underline">Pronostics du jour</Link> dès qu'ils sont publiés par le moteur. La page est mise à jour automatiquement 4 fois par jour via GitHub Actions.
-=======
-              Les pronostics de demain sont disponibles sur la page <Link href="/pronostics" className="text-[#5146F5] underline">Pronostics du jour</Link> dès qu'ils sont publiés par le moteur. La page est mise à jour automatiquement plusieurs fois par jour via GitHub Actions.
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
             </p>
             <p className="text-sm text-[#A5ABC5] leading-relaxed">
               Vous pouvez filtrer par date (aujourd'hui, demain, 7 jours) directement sur la page des pronostics.

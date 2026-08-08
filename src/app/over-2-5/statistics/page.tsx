@@ -1,11 +1,6 @@
 import type { Metadata } from 'next'
-<<<<<<< HEAD
 import { Navbar, Footer } from '@/components/bttsbet'
 import Link from 'next/link'
-=======
-import Link from 'next/link'
-import { Navbar, Footer } from '@/components/bttsbet'
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
 
 export const metadata: Metadata = {
   title: 'Over 2.5 Statistics — Statistiques Over 2.5 par ligue',
@@ -46,11 +41,7 @@ const faqJsonLd = {
 const LEAGUE_STATS = [
   { league: 'Eredivisie (Pays-Bas)', over25Rate: '57%', avgGoals: '3.15', note: 'Ligue très offensive' },
   { league: 'MLS (États-Unis)', over25Rate: '56%', avgGoals: '3.10', note: 'Football offensif, beaucoup de buts' },
-<<<<<<< HEAD
   { league: 'Bundesliga (Allemagne)', bttsRate: '55%', avgGoals: '3.05', note: 'Pressing haut, score élevé' },
-=======
-  { league: 'Bundesliga (Allemagne)', over25Rate: '55%', avgGoals: '3.05', note: 'Pressing haut, score élevé' },
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
   { league: '2. Bundesliga', over25Rate: '54%', avgGoals: '2.90', note: 'D2 allemande offensive' },
   { league: 'Premier League (Angleterre)', over25Rate: '52%', avgGoals: '2.82', note: 'Top 5 européen' },
   { league: 'Jupiler Pro League (Belgique)', over25Rate: '53%', avgGoals: '2.85', note: 'Ligue belge' },
@@ -85,13 +76,9 @@ export default function Over25StatisticsPage() {
           </p>
 
           <section className="mb-10">
-<<<<<<< HEAD
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Taux Over 2.5 par ligue
             </h2>
-=======
-            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>Taux Over 2.5 par ligue</h2>
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
             <div className="overflow-x-auto">
               <table className="w-full text-sm" style={{ borderCollapse: 'collapse' }}>
                 <thead>
@@ -107,13 +94,9 @@ export default function Over25StatisticsPage() {
                     <tr key={i} style={{ borderBottom: '1px solid #303861' }}>
                       <td className="py-3 px-4 text-[#F7F8FF] font-medium">{row.league}</td>
                       <td className="text-center py-3 px-4">
-<<<<<<< HEAD
                         <span className="inline-block px-2 py-1 rounded font-bold" style={{ backgroundColor: 'rgba(93, 253, 203, 0.15)', color: '#5DFDCB' }}>
                           {row.over25Rate || row.bttsRate}
                         </span>
-=======
-                        <span className="inline-block px-2 py-1 rounded font-bold" style={{ backgroundColor: 'rgba(93, 253, 203, 0.15)', color: '#5DFDCB' }}>{row.over25Rate}</span>
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
                       </td>
                       <td className="text-center py-3 px-4 text-[#A5ABC5] tabular-nums">{row.avgGoals}</td>
                       <td className="py-3 px-4 text-[#A5ABC5] text-xs hidden sm:table-cell">{row.note}</td>
@@ -128,13 +111,9 @@ export default function Over25StatisticsPage() {
           </section>
 
           <section className="mb-10">
-<<<<<<< HEAD
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Over 2.5 vs BTTS : quelle différence ?
             </h2>
-=======
-            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>Over 2.5 vs BTTS : quelle différence ?</h2>
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="p-4 rounded-xl" style={{ backgroundColor: '#0D1630', border: '1px solid rgba(93, 253, 203, 0.25)' }}>
                 <h3 className="text-base font-bold mb-2 text-[#5DFDCB]">Over 2.5</h3>
@@ -155,13 +134,9 @@ export default function Over25StatisticsPage() {
           </section>
 
           <section>
-<<<<<<< HEAD
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Voir aussi
             </h2>
-=======
-            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>Voir aussi</h2>
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <Link href="/over-2-5/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5]"
                 style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>

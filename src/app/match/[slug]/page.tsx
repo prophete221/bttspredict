@@ -1,32 +1,22 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-<<<<<<< HEAD
 import { Navbar, Footer } from '@/components/bttsbet'
 import { generateMatchSlug, getAllMatchSlugs, getMatchBySlug } from '@/lib/matches'
 import Link from 'next/link'
-=======
-import Link from 'next/link'
-import { getAllMatchSlugs, getMatchBySlug } from '@/lib/matches'
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
 
 interface PageProps {
   params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
-<<<<<<< HEAD
   const slugs = getAllMatchSlugs()
   return slugs.map(slug => ({ slug }))
-=======
-  return getAllMatchSlugs().map(slug => ({ slug }))
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
   const match = getMatchBySlug(slug)
   if (!match) {
-<<<<<<< HEAD
     return {
       title: 'Match introuvable — BTTSPredict',
       robots: { index: false, follow: false },
@@ -40,13 +30,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const title = `${home} vs ${away} — Pronostic BTTS et Over 2.5 (${date})`
   const description = `Pronostic BTTS et Over 2.5 pour ${home} vs ${away} (${league}, ${date}). Analyse prédictive, probabilités, niveau de confiance, résultat vérifié. Suivi public BTTSPredict. Aucun gain garanti. 18+.`
 
-=======
-    return { title: 'Match introuvable — BTTSPredict', robots: { index: false, follow: false } }
-  }
-  const { home, away, league, date } = match
-  const title = `${home} vs ${away} — Pronostic BTTS et Over 2.5 (${date})`
-  const description = `Pronostic BTTS et Over 2.5 pour ${home} vs ${away} (${league}, ${date}). Analyse prédictive, probabilités, niveau de confiance, résultat vérifié. Aucun gain garanti. 18+.`
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
   return {
     title,
     description,
@@ -72,20 +55,14 @@ export default async function MatchPage({ params }: PageProps) {
 
   const { home, away, league, date, time, homeLogo, awayLogo, predictions } = match
 
-<<<<<<< HEAD
   // Aggregate verification status
-=======
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
   const verified = predictions.filter(p => p.status === 'WON' || p.status === 'LOST')
   const won = verified.filter(p => p.status === 'WON').length
   const lost = verified.filter(p => p.status === 'LOST').length
   const pending = predictions.length - verified.length
   const finalScore = verified[0]?.finalScore || predictions.find(p => p.finalScore && p.finalScore !== '-')?.finalScore || null
 
-<<<<<<< HEAD
   // Breadcrumb JSON-LD
-=======
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -96,10 +73,7 @@ export default async function MatchPage({ params }: PageProps) {
     ],
   }
 
-<<<<<<< HEAD
   // SportsEvent JSON-LD (if real data)
-=======
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
   const sportsEventJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'SportsEvent',
@@ -113,14 +87,10 @@ export default async function MatchPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-[#070B18] flex flex-col text-[#F7F8FF]">
-<<<<<<< HEAD
       <Navbar />
 
       <main id="main-content" className="flex-1">
         {/* Breadcrumb */}
-=======
-      <main id="main-content" className="flex-1">
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
         <nav aria-label="Fil d'Ariane" className="max-w-4xl mx-auto px-4 pt-6 pb-2 text-xs text-[#6B7194]">
           <Link href="/" className="hover:text-[#5146F5]">Accueil</Link>
           <span className="mx-1">/</span>
@@ -130,10 +100,7 @@ export default async function MatchPage({ params }: PageProps) {
         </nav>
 
         <article className="max-w-4xl mx-auto px-4 py-8">
-<<<<<<< HEAD
           {/* Header */}
-=======
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
           <header className="mb-8">
             <div className="flex items-center justify-center gap-4 sm:gap-8 mb-4">
               <div className="flex flex-col items-center gap-2 flex-1">
@@ -166,10 +133,7 @@ export default async function MatchPage({ params }: PageProps) {
             )}
           </header>
 
-<<<<<<< HEAD
           {/* Pronostics */}
-=======
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
           <section className="mb-10">
             <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Pronostics BTTS et Over 2.5
@@ -193,23 +157,16 @@ export default async function MatchPage({ params }: PageProps) {
                         {isBtts ? 'BTTS' : 'Over 2.5'}
                       </span>
                       {p.tier === 'GOLD' && (
-<<<<<<< HEAD
                         <span className="text-[10px] font-bold px-2 py-0.5 rounded" style={{ backgroundColor: 'rgba(255, 200, 87, 0.15)', color: '#FFC857' }}>
                           GOLD
                         </span>
                       )}
                     </div>
 
-=======
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded" style={{ backgroundColor: 'rgba(255, 200, 87, 0.15)', color: '#FFC857' }}>GOLD</span>
-                      )}
-                    </div>
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
                     <div className="flex items-baseline justify-between mb-2">
                       <span className="text-xl font-bold">{p.prediction}</span>
                       <span className="text-sm font-bold tabular-nums" style={{ color }}>{probaPct}%</span>
                     </div>
-<<<<<<< HEAD
 
                     <div className="w-full h-1.5 rounded-full mb-3" style={{ backgroundColor: '#1E2340' }}>
                       <div className="h-full rounded-full" style={{ width: `${probaPct}%`, backgroundColor: color }} />
@@ -231,20 +188,6 @@ export default async function MatchPage({ params }: PageProps) {
                       <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(165, 171, 197, 0.15)', color: '#A5ABC5' }}>
                         ⏳ En attente
                       </div>
-=======
-                    <div className="w-full h-1.5 rounded-full mb-3" style={{ backgroundColor: '#1E2340' }}>
-                      <div className="h-full rounded-full" style={{ width: `${probaPct}%`, backgroundColor: color }} />
-                    </div>
-                    <div className="text-xs text-[#6B7194] mb-2">Confiance : {p.confidence}%</div>
-                    {isWon && (
-                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(168, 224, 99, 0.15)', color: '#A8E063' }}>✓ Gagné</div>
-                    )}
-                    {isLost && (
-                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(255, 113, 133, 0.15)', color: '#FF7185' }}>✗ Perdu</div>
-                    )}
-                    {isPending && (
-                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(165, 171, 197, 0.15)', color: '#A5ABC5' }}>⏳ En attente</div>
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
                     )}
                   </div>
                 )
@@ -252,7 +195,6 @@ export default async function MatchPage({ params }: PageProps) {
             </div>
 
             <p className="text-xs text-[#6B7194] mt-4 leading-relaxed text-center">
-<<<<<<< HEAD
               Les probabilités affichées sont comprises entre 40% et 54% — plage crédible de calibration du moteur. Aucune probabilité n'est présentée comme une garantie. Aucun résultat futur n'est garanti. 18+.
             </p>
           </section>
@@ -276,19 +218,6 @@ export default async function MatchPage({ params }: PageProps) {
                   <div className="text-2xl font-bold text-[#A5ABC5]">{pending}</div>
                   <div className="text-xs text-[#6B7194] uppercase">En attente</div>
                 </div>
-=======
-              Aucune probabilité n'est présentée comme une garantie. Aucun résultat futur n'est garanti. 18+.
-            </p>
-          </section>
-
-          <section className="mb-10">
-            <h2 className="text-xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>Vérification</h2>
-            <div className="p-4 rounded-xl" style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
-              <div className="grid grid-cols-3 gap-4 text-center">
-                <div><div className="text-2xl font-bold text-[#A8E063]">{won}</div><div className="text-xs text-[#6B7194] uppercase">Gagnés</div></div>
-                <div><div className="text-2xl font-bold text-[#FF7185]">{lost}</div><div className="text-xs text-[#6B7194] uppercase">Perdus</div></div>
-                <div><div className="text-2xl font-bold text-[#A5ABC5]">{pending}</div><div className="text-xs text-[#6B7194] uppercase">En attente</div></div>
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
               </div>
               {verified.length > 0 && verified[0].verifiedAt && (
                 <p className="text-xs text-[#6B7194] mt-3 text-center">
@@ -301,16 +230,11 @@ export default async function MatchPage({ params }: PageProps) {
             </div>
           </section>
 
-<<<<<<< HEAD
           {/* Liens internes */}
           <section className="mb-10">
             <h2 className="text-xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Aller plus loin
             </h2>
-=======
-          <section className="mb-10">
-            <h2 className="text-xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>Aller plus loin</h2>
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Link href="/pronostics" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5]"
                 style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
@@ -325,10 +249,7 @@ export default async function MatchPage({ params }: PageProps) {
             </div>
           </section>
 
-<<<<<<< HEAD
           {/* Disclaimer */}
-=======
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
           <section>
             <div className="p-4 rounded-xl text-center" style={{ backgroundColor: 'rgba(255, 113, 133, 0.06)', border: '1px solid rgba(255, 113, 133, 0.2)' }}>
               <p className="text-xs text-[#A5ABC5] leading-relaxed">
@@ -339,11 +260,8 @@ export default async function MatchPage({ params }: PageProps) {
         </article>
       </main>
 
-<<<<<<< HEAD
       <Footer />
 
-=======
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(sportsEventJsonLd) }} />
     </div>

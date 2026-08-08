@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "generatedAt": "2026-08-08T00:00:48.639Z",
-=======
-  "generatedAt": "2026-08-08T04:06:33.087Z",
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
+  "generatedAt": "2026-08-08T04:28:49.816Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -14,13 +10,8 @@
     "total": 0,
     "won": 0,
     "lost": 0,
-<<<<<<< HEAD
     "pending": 5,
     "archivedTotal": 5,
-=======
-    "pending": 0,
-    "archivedTotal": 0,
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
     "rate": 0,
     "avgOdds": 0,
     "profit": 0,
@@ -59,20 +50,13 @@
     "trend14": [],
     "maxDrawdown": 0,
     "period": {
-<<<<<<< HEAD
       "from": "2026-08-08",
       "to": "2026-08-08",
       "days": 1
-=======
-      "from": null,
-      "to": null,
-      "days": 0
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
     }
   },
   "history": [],
   "legacyStats": {
-<<<<<<< HEAD
     "total": 632,
     "won": 304,
     "lost": 328,
@@ -242,56 +226,11 @@
       }
     ],
     "maxDrawdown": 31.1,
-=======
-    "total": 0,
-    "won": 0,
-    "lost": 0,
-    "pending": 2909,
-    "archivedTotal": 2909,
-    "rate": 0,
-    "avgOdds": 0,
-    "profit": 0,
-    "roi": 0,
-    "yield": 0,
-    "gold": {
-      "total": 0,
-      "won": 0,
-      "lost": 0,
-      "rate": 0,
-      "avgOdds": 0,
-      "profit": 0,
-      "roi": 0,
-      "yield": 0
-    },
-    "standard": {
-      "total": 0,
-      "won": 0,
-      "lost": 0,
-      "rate": 0
-    },
-    "byType": {
-      "btts": {
-        "total": 0,
-        "won": 0,
-        "lost": 0,
-        "rate": 0
-      },
-      "over25": {
-        "total": 0,
-        "won": 0,
-        "lost": 0,
-        "rate": 0
-      }
-    },
-    "trend14": [],
-    "maxDrawdown": 0,
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
     "period": {
       "from": "2026-06-07",
       "to": "2026-08-07",
       "days": 62
     },
-<<<<<<< HEAD
     "history": [
       {
         "date": "2026-08-07",
@@ -3494,9 +3433,6 @@
         "source": "ESPN public"
       }
     ],
-=======
-    "history": [],
->>>>>>> 54d988f9 (feat(seo+aeo): Prompt Maitre 15 phases — match SSG + topical + audit + tests)
     "isPrivate": true,
     "note": "Archives antérieures au nouveau suivi (avant 2026-08-08). Non affiché publiquement. Conservé pour audit technique et conformité."
   }
