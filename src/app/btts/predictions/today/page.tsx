@@ -7,12 +7,12 @@ const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: (
 const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictions'), { loading: () => null })
 
 export const metadata: Metadata = {
-  title: 'BTTS Predictions Today — Pronostics du jour',
-  description: "Pronostics BTTS du jour par moteur IA. Sélection de matchs à fort potentiel Both Teams To Score. 18+.",
+  title: "Pronostic BTTS Aujourd'hui Gratuit - Pronos Vérifiés Sénégal",
+  description: "Pronostics BTTS du jour gratuits et vérifiés. Mis à jour 4x/jour. Aucun gain garanti. 18+.",
   alternates: { canonical: 'https://bttspredict.com/btts/predictions/today' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'BTTS Predictions Today — BTTSPredict',
+    title: "Pronostic BTTS Aujourd'hui - BTTSPredict Sénégal",
     description: 'Pronostics BTTS du jour par moteur IA. Aucun gain garanti. 18+.',
     url: 'https://bttspredict.com/btts/predictions/today',
     type: 'website',
@@ -61,10 +61,10 @@ export default function BTTSPredictionsTodayPage() {
             BTTS · Both Teams To Score
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            BTTS Predictions Today
+            Pronostic BTTS Aujourd'hui Gratuit
           </h1>
           <p className="text-base sm:text-lg text-[#A5ABC5] leading-relaxed mb-3 max-w-3xl mx-auto">
-            Pronostics BTTS du jour générés par le moteur IA nouvelle génération de BTTSPredict. Chaque sélection est basée sur la forme offensive et défensive récente des deux équipes, sur des ligues à fort taux historique de BTTS.
+            Voici nos pronostics BTTS du {new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })} analysés par notre algorithme pour les championnats les plus ouverts. Pronos 100% gratuits, mis à jour à 08h, 12h, 16h et 20h.
           </p>
           <p className="text-sm text-[#6B7194] leading-relaxed max-w-3xl mx-auto">
             Aucun gain n'est garanti. Les probabilités affichées sont comprises entre 40% et 54% — plage crédible de calibration. Les paris sportifs comportent un risque de perte. 18+.
