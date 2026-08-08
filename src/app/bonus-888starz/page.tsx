@@ -11,7 +11,7 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'bonus-888starz'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const TITLE = 'Bonus 888starz — Code Promo & Inscription'
-const DESCRIPTION = 'Bonus 888starz avec code promo. Inscription, dépôt local et conditions d'offre analysées. 18+.'
+const DESCRIPTION = "Bonus 888starz avec code promo. Inscription, dépôt local et conditions d'offre analysées. 18+."
 
 export const metadata: Metadata = {
   title: TITLE,

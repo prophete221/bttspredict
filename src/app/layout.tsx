@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     "VISION221", "BTTSPredict", "paris sportifs",
     "pronostics Sénégal", "pronostics Afrique",
     "modèle Poisson football", "xG pronostics", "statistiques football",
-    "84,5% réussite", "pronostics vérifiés", "transparence pronostics",
+    "pronostics vérifiés", "transparence pronostics",
   ],
   authors: [
     { name: "BTTSPredict", url: "https://bttspredict.com" },
@@ -104,12 +104,12 @@ export const metadata: Metadata = {
     siteName: "BTTSPredict",
     type: "website",
     locale: "fr_FR",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "BTTSPredict — N°1 des prédictions BTTS par nos experts" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "BTTSPredict — Pronostics BTTS et Over 2.5" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "BTTSPredict — Pronostics BTTS et Over 2.5",
-    description: "Pronostics btts aujourd'hui validés par nos analystes. 84,5% de réussite vérifiable. Code promo VISION221.",
+    description: "Pronostics BTTS et Over 2.5 par moteur IA. Suivi vérifié, code promo VISION221. 18+.",
     images: ["/og-image.png"],
   },
   category: "sports",

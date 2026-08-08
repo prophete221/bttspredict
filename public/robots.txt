@@ -1,5 +1,32 @@
+# BTTSPredict — robots.txt
+# Autorise tous les crawlers y compris Googlebot et Bingbot
+
 User-agent: *
 Allow: /
-Disallow: /api/
 
+# Bots explicitement autorisés
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Pages à ne pas crawler
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin
+
+# Sitemap
 Sitemap: https://bttspredict.com/sitemap.xml
