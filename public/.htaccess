@@ -1,44 +1,19 @@
-# ─── Redirection HTTP vers HTTPS (301) ───
+# BTTSPredict .htaccess
+# Redirection HTTP vers HTTPS
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-# ─── Redirection www vers non-www ───
+# Redirection www vers non-www
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
-# ─── Routing pages statiques ───
-DirectorySlash Off
-Options -MultiViews
-
-# Servir les fichiers .html directement
-RewriteRule \.html$ - [L]
-
-# 1. Fichier existe → servir
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteRule ^ - [L]
-
-# 2. Dossier existe → servir
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
-
-# 3. /chemin → /chemin.html si le fichier existe
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.+)$ /$1.html [L]
-
-# 4. Fallback: servir index.html pour le routing SPA
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html !-f
-RewriteRule . /index.html [L]
-
-# ─── En-têtes de sécurité ───
+# En-tetes de securite
 Header always set X-Content-Type-Options "nosniff"
 Header always set X-Frame-Options "SAMEORIGIN"
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
-# ─── Cache navigateur ───
+# Cache navigateur
 ExpiresActive On
 ExpiresByType text/css "access plus 1 month"
 ExpiresByType application/javascript "access plus 1 month"
@@ -48,5 +23,5 @@ ExpiresByType image/svg+xml "access plus 6 months"
 ExpiresByType application/json "access plus 1 hour"
 ExpiresByType text/html "access plus 5 minutes"
 
-# ─── Erreur 404 ───
+# Erreur 404
 ErrorDocument 404 /404.html
