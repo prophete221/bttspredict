@@ -67,7 +67,7 @@ export default function Hero() {
           animate={isVisible ? { opacity: 1, y: 0 } : undefined}
           transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h1
+          <h2
             className="font-bold leading-[1.05] tracking-tight"
             style={{
               fontSize: '28px',
@@ -78,7 +78,7 @@ export default function Hero() {
             Pronostics BTTS et Over 2.5
             <br />
             <span style={{ color: '#5146F5', fontSize: '22px' }}>Moteur IA nouvelle génération</span>
-          </h1>
+          </h2>
 
           {/* ═══ H2 ═══ */}
           <p className="mt-3 text-[13px] leading-[1.6]" style={{ color: '#A5ABC5', maxWidth: '380px' }}>
