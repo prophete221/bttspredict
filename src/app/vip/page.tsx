@@ -2,19 +2,19 @@ import { VipCardGrid } from '@/components/bttsbet/VipCardGlass'
 import PromoVip from '@/components/bttsbet/PromoVip'
 import { SITE, AFFILIATE } from '@/lib/constants'
 export default function VipPage(){
-  return(<main className="min-h-screen bg-[#070A14] pt-20 pb-10">
+  return(<main className="min-h-screen bg-[#F1F2F3] pt-20 pb-10">
     <section className="max-w-5xl mx-auto px-4 text-center mb-6">
-      <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold tracking-widest border" style={{background:'rgba(212,175,55,0.1)',color:'#D4AF37',borderColor:'rgba(212,175,55,0.3)'}}>★ PROGRAMME VIP PREMIUM • FRAIS DU JOUR</span>
-      <h1 className="text-3xl md:text-4xl font-bold mt-4" style={{color:'#F1F5F9'}}>Cartes VIP • Contenu réel frais</h1>
-      <p className="text-sm mt-2 max-w-xl mx-auto" style={{color:'#94A3B8'}}>Pas de blabla. 4 offres + 6 matchs frais du jour (équipes visibles, pronos floutés). Débloque pour voir le frais.</p>
+      <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold tracking-widest border" style={{background:'rgba(212,175,55,0.1)',color:'#121212',borderColor:'rgba(212,175,55,0.3)'}}>★ PROGRAMME VIP PREMIUM • FRAIS DU JOUR</span>
+      <h1 className="text-3xl md:text-4xl font-bold mt-4" style={{color:'#111827'}}>Cartes VIP • Contenu réel frais</h1>
+      <p className="text-sm mt-2 max-w-xl mx-auto" style={{color:'#6B7280'}}>Pas de blabla. 4 offres + 6 matchs frais du jour (équipes visibles, pronos floutés). Débloque pour voir le frais.</p>
     </section>
     <section className="max-w-5xl mx-auto px-4 mb-8"><VipCardGrid /></section>
     <section className="max-w-5xl mx-auto px-4 mb-8"><PromoVip /></section>
     <section className="max-w-3xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-3 mb-8">
-      <div className="rounded-[14px] p-4 border" style={{background:'#111827',borderColor:'#1F2937'}}><p className="text-[11px] font-bold tracking-widest" style={{color:'#6B7194'}}>ÉTAPE 1</p><p className="font-bold mt-1" style={{color:'#F1F5F9'}}>Inscris-toi avec VISION221</p><a href={AFFILIATE.linebet} target="_blank" rel="sponsored nofollow" className="inline-block mt-2 px-4 py-2 rounded-full text-[12px] font-bold" style={{background:'#D4AF37',color:'#070A14'}}>S'inscrire</a></div>
-      <div className="rounded-[14px] p-4 border" style={{background:'#111827',borderColor:'#1F2937'}}><p className="text-[11px] font-bold tracking-widest" style={{color:'#6B7194'}}>ÉTAPE 2</p><p className="font-bold mt-1" style={{color:'#F1F5F9'}}>Dépose 3000F / 12000F</p><p className="text-[11px] mt-1" style={{color:'#94A3B8'}}>Reçois ID Linebet</p></div>
-      <div className="rounded-[14px] p-4 border" style={{background:'#111827',borderColor:'#1F2937'}}><p className="text-[11px] font-bold tracking-widest" style={{color:'#6B7194'}}>ÉTAPE 3</p><p className="font-bold mt-1" style={{color:'#F1F5F9'}}>Envoie ID sur WhatsApp</p><a href="https://wa.me/15406704172" target="_blank" className="inline-block mt-2 px-4 py-2 rounded-full text-[12px] font-bold border" style={{borderColor:'#10B981',color:'#10B981'}}>WhatsApp</a></div>
+      <div className="rounded-[14px] p-4 border" style={{background:'#FFFFFF',borderColor:'#E6E8EB'}}><p className="text-[11px] font-bold tracking-widest" style={{color:'#9CA3AF'}}>ÉTAPE 1</p><p className="font-bold mt-1" style={{color:'#111827'}}>Inscris-toi avec VISION221</p><a href={AFFILIATE.linebet} target="_blank" rel="sponsored nofollow" className="inline-block mt-2 px-4 py-2 rounded-full text-[12px] font-bold" style={{background:'#121212',color:'#F1F2F3'}}>S'inscrire</a></div>
+      <div className="rounded-[14px] p-4 border" style={{background:'#FFFFFF',borderColor:'#E6E8EB'}}><p className="text-[11px] font-bold tracking-widest" style={{color:'#9CA3AF'}}>ÉTAPE 2</p><p className="font-bold mt-1" style={{color:'#111827'}}>Dépose 3000F / 12000F</p><p className="text-[11px] mt-1" style={{color:'#6B7280'}}>Reçois ID Linebet</p></div>
+      <div className="rounded-[14px] p-4 border" style={{background:'#FFFFFF',borderColor:'#E6E8EB'}}><p className="text-[11px] font-bold tracking-widest" style={{color:'#9CA3AF'}}>ÉTAPE 3</p><p className="font-bold mt-1" style={{color:'#111827'}}>Envoie ID sur WhatsApp</p><a href="https://wa.me/15406704172" target="_blank" className="inline-block mt-2 px-4 py-2 rounded-full text-[12px] font-bold border" style={{borderColor:'#00C950',color:'#00C950'}}>WhatsApp</a></div>
     </section>
-    <section className="max-w-3xl mx-auto px-4 text-center"><p className="text-[11px] leading-relaxed" style={{color:'#6B7194'}}>Lien d'affiliation rémunéré. BTTSPredict ne prend pas de paris et ne collecte pas de fonds. 18+ • Aucun gain garanti • Contenu frais du jour généré depuis predictions.json + fallback réel. Code VISION221 (Linebet) / vision221 (888starz).</p></section>
+    <section className="max-w-3xl mx-auto px-4 text-center"><p className="text-[11px] leading-relaxed" style={{color:'#9CA3AF'}}>Lien d'affiliation rémunéré. BTTSPredict ne prend pas de paris et ne collecte pas de fonds. 18+ • Aucun gain garanti • Contenu frais du jour généré depuis predictions.json + fallback réel. Code VISION221 (Linebet) / vision221 (888starz).</p></section>
   </main>)
 }

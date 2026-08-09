@@ -16,22 +16,22 @@ export const metadata: Metadata = {
 
 export default function ResultatsVerifiesPage() {
   return (
-    <div className="min-h-screen bg-[#070A14] flex flex-col text-[#F1F5F9]">
+    <div className="min-h-screen bg-[#F1F2F3] flex flex-col text-[#111827]">
       <Navbar />
       <main id="main-content" className="flex-1 py-12 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <h1 className="text-3xl font-bold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Historique Vérifié — <span className="text-[#D4AF37]">Preuves ESPN</span>
+              Historique Vérifié — <span className="text-[#121212]">Preuves ESPN</span>
             </h1>
-            <p className="text-sm text-[#94A3B8]">
+            <p className="text-sm text-[#6B7280]">
               Tous les pronostics vérifiés avec scores réels ESPN. Aucun prono modifié ou supprimé après publication.
             </p>
           </div>
           <ResultatsClient />
-          <div className="mt-8 p-4 rounded-xl bg-[#111827] border border-[#1F2937]">
-            <p className="text-[11px] text-[#64748B] leading-relaxed">
-              <strong className="text-[#94A3B8]">Règle d'intégrité :</strong> Aucun pronostic n'est modifié ou supprimé après publication.
+          <div className="mt-8 p-4 rounded-xl bg-[#FFFFFF] border border-[#E6E8EB]">
+            <p className="text-[11px] text-[#9CA3AF] leading-relaxed">
+              <strong className="text-[#6B7280]">Règle d'intégrité :</strong> Aucun pronostic n'est modifié ou supprimé après publication.
               Chaque entrée contient la date, le match, le marché, la proba, le score final, le résultat et la source de vérification (ESPN).
               Cote moyenne utilisée pour le ROI: 1.75. Les performances passées ne garantissent pas les résultats futurs. 18+ — Jeu responsable.
             </p>

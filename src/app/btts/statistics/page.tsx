@@ -55,24 +55,24 @@ const LEAGUE_STATS = [
 
 export default function BTTSStatisticsPage() {
   return (
-    <div className="min-h-screen bg-[#070A14] flex flex-col text-[#F1F5F9]">
+    <div className="min-h-screen bg-[#F1F2F3] flex flex-col text-[#111827]">
       <Navbar />
       <main id="main-content" className="flex-1">
         <article className="max-w-4xl mx-auto px-4 py-12 sm:py-16">
-          <nav aria-label="Fil d'Ariane" className="text-xs text-[#64748B] mb-4">
-            <Link href="/" className="hover:text-[#D4AF37]">Accueil</Link>
+          <nav aria-label="Fil d'Ariane" className="text-xs text-[#9CA3AF] mb-4">
+            <Link href="/" className="hover:text-[#121212]">Accueil</Link>
             <span className="mx-1">/</span>
-            <span className="text-[#94A3B8]">BTTS Statistics</span>
+            <span className="text-[#6B7280]">BTTS Statistics</span>
           </nav>
 
           <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
-            style={{ backgroundColor: 'rgba(124, 58, 237, 0.12)', color: '#10B981', border: '1px solid rgba(124, 58, 237, 0.25)' }}>
+            style={{ backgroundColor: 'rgba(0, 201, 80, 0.12)', color: '#00C950', border: '1px solid rgba(0, 201, 80, 0.25)' }}>
             BTTS · Statistics
           </span>
           <h1 className="text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
             BTTS Statistics par ligue
           </h1>
-          <p className="text-base text-[#94A3B8] leading-relaxed mb-6">
+          <p className="text-base text-[#6B7280] leading-relaxed mb-6">
             Taux historique approximatif de Both Teams To Score sur les principales ligues couvertes par BTTSPredict. Ces statistiques sont indicatives et basées sur des données publiques. Elles expliquent pourquoi certaines ligues sont prioritaires dans la sélection du moteur IA.
           </p>
 
@@ -83,30 +83,30 @@ export default function BTTSStatisticsPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm" style={{ borderCollapse: 'collapse' }}>
                 <thead>
-                  <tr style={{ borderBottom: '2px solid #1F2937' }}>
-                    <th className="text-left py-3 px-4 font-bold text-[#94A3B8]">Ligue</th>
-                    <th className="text-center py-3 px-4 font-bold text-[#94A3B8]">Taux BTTS</th>
-                    <th className="text-center py-3 px-4 font-bold text-[#94A3B8]">Buts/match</th>
-                    <th className="text-left py-3 px-4 font-bold text-[#94A3B8] hidden sm:table-cell">Note</th>
+                  <tr style={{ borderBottom: '2px solid #E6E8EB' }}>
+                    <th className="text-left py-3 px-4 font-bold text-[#6B7280]">Ligue</th>
+                    <th className="text-center py-3 px-4 font-bold text-[#6B7280]">Taux BTTS</th>
+                    <th className="text-center py-3 px-4 font-bold text-[#6B7280]">Buts/match</th>
+                    <th className="text-left py-3 px-4 font-bold text-[#6B7280] hidden sm:table-cell">Note</th>
                   </tr>
                 </thead>
                 <tbody>
                   {LEAGUE_STATS.map((row, i) => (
-                    <tr key={i} style={{ borderBottom: '1px solid #1F2937' }}>
-                      <td className="py-3 px-4 text-[#F1F5F9] font-medium">{row.league}</td>
+                    <tr key={i} style={{ borderBottom: '1px solid #E6E8EB' }}>
+                      <td className="py-3 px-4 text-[#111827] font-medium">{row.league}</td>
                       <td className="text-center py-3 px-4">
-                        <span className="inline-block px-2 py-1 rounded font-bold" style={{ backgroundColor: 'rgba(124, 58, 237, 0.15)', color: '#10B981' }}>
+                        <span className="inline-block px-2 py-1 rounded font-bold" style={{ backgroundColor: 'rgba(0, 201, 80, 0.15)', color: '#00C950' }}>
                           {row.bttsRate}
                         </span>
                       </td>
-                      <td className="text-center py-3 px-4 text-[#94A3B8] tabular-nums">{row.avgGoals}</td>
-                      <td className="py-3 px-4 text-[#94A3B8] text-xs hidden sm:table-cell">{row.note}</td>
+                      <td className="text-center py-3 px-4 text-[#6B7280] tabular-nums">{row.avgGoals}</td>
+                      <td className="py-3 px-4 text-[#6B7280] text-xs hidden sm:table-cell">{row.note}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <p className="text-xs text-[#64748B] mt-4 leading-relaxed">
+            <p className="text-xs text-[#9CA3AF] mt-4 leading-relaxed">
               Ces taux sont des moyennes historiques indicatives calculées sur plusieurs saisons. Ils ne préjugent pas des résultats futurs. BTTSPredict sélectionne les ligues avec un taux historique supérieur à 53% pour ses pronostics BTTS.
             </p>
           </section>
@@ -115,15 +115,15 @@ export default function BTTSStatisticsPage() {
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Comment lire ces statistiques
             </h2>
-            <div className="space-y-3 text-sm text-[#94A3B8] leading-relaxed">
+            <div className="space-y-3 text-sm text-[#6B7280] leading-relaxed">
               <p>
-                <strong className="text-[#F1F5F9]">Taux BTTS</strong> : pourcentage de matchs où les deux équipes ont marqué au moins un but. Un taux de 55% signifie que, sur 100 matchs de cette ligue, environ 55 se sont terminés avec les deux équipes ayant marqué.
+                <strong className="text-[#111827]">Taux BTTS</strong> : pourcentage de matchs où les deux équipes ont marqué au moins un but. Un taux de 55% signifie que, sur 100 matchs de cette ligue, environ 55 se sont terminés avec les deux équipes ayant marqué.
               </p>
               <p>
-                <strong className="text-[#F1F5F9]">Buts par match</strong> : moyenne de buts totaux par match. Plus ce chiffre est élevé, plus le marché Over 2.5 est probable. Une moyenne de 2.80+ indique une ligue offensive.
+                <strong className="text-[#111827]">Buts par match</strong> : moyenne de buts totaux par match. Plus ce chiffre est élevé, plus le marché Over 2.5 est probable. Une moyenne de 2.80+ indique une ligue offensive.
               </p>
               <p>
-                Ces statistiques ne garantissent aucun résultat futur. Elles servent uniquement à comprendre la logique de sélection des ligues par le moteur IA. Pour voir les pronostics actuels, consultez la page <Link href="/btts/predictions/today" className="text-[#D4AF37] underline">BTTS Predictions Today</Link>.
+                Ces statistiques ne garantissent aucun résultat futur. Elles servent uniquement à comprendre la logique de sélection des ligues par le moteur IA. Pour voir les pronostics actuels, consultez la page <Link href="/btts/predictions/today" className="text-[#121212] underline">BTTS Predictions Today</Link>.
               </p>
             </div>
           </section>
@@ -133,20 +133,20 @@ export default function BTTSStatisticsPage() {
               Voir aussi
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]"
-                style={{ backgroundColor: '#111827', border: '1px solid #1F2937' }}>
-                <div className="text-sm font-bold text-[#F1F5F9]">BTTS Today →</div>
-                <div className="text-xs text-[#94A3B8] mt-1">Pronostics du jour</div>
+              <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#121212]"
+                style={{ backgroundColor: '#FFFFFF', border: '1px solid #E6E8EB' }}>
+                <div className="text-sm font-bold text-[#111827]">BTTS Today →</div>
+                <div className="text-xs text-[#6B7280] mt-1">Pronostics du jour</div>
               </Link>
-              <Link href="/historique" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]"
-                style={{ backgroundColor: '#111827', border: '1px solid #1F2937' }}>
-                <div className="text-sm font-bold text-[#F1F5F9]">Résultats vérifiés →</div>
-                <div className="text-xs text-[#94A3B8] mt-1">Historique complet</div>
+              <Link href="/historique" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#121212]"
+                style={{ backgroundColor: '#FFFFFF', border: '1px solid #E6E8EB' }}>
+                <div className="text-sm font-bold text-[#111827]">Résultats vérifiés →</div>
+                <div className="text-xs text-[#6B7280] mt-1">Historique complet</div>
               </Link>
-              <Link href="/resultats-verifies" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]"
-                style={{ backgroundColor: '#111827', border: '1px solid #1F2937' }}>
-                <div className="text-sm font-bold text-[#F1F5F9]">Vérifications →</div>
-                <div className="text-xs text-[#94A3B8] mt-1">Suivi public</div>
+              <Link href="/resultats-verifies" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#121212]"
+                style={{ backgroundColor: '#FFFFFF', border: '1px solid #E6E8EB' }}>
+                <div className="text-sm font-bold text-[#111827]">Vérifications →</div>
+                <div className="text-xs text-[#6B7280] mt-1">Suivi public</div>
               </Link>
             </div>
           </section>

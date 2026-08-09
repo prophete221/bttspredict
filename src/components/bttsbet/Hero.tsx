@@ -8,9 +8,9 @@ import { useScrollAnimation } from '@/hooks/useAnimations'
  * Copy exacte per spec:
  *   H1: "BTTS & OVER 2.5 / BASE OPEN-SOURCE DE PRONOSTICS"
  *   H2: "3 285 pronostics BTTS vérifiés avec scores réels. Modèle Poisson + open data. Pas de promesses, que des preuves."
- *   CTA primaire: "Voir les pronos du jour" #D4AF37
+ *   CTA primaire: "Voir les pronos du jour" #121212
  *   CTA secondaire: "Explorer le dataset open-source" outline
- * Background: #070A14 avec 2 blobs blur Indigo et Cyan + grille subtile
+ * Background: #F1F2F3 avec 2 blobs blur Indigo et Cyan + grille subtile
  * Barre sous Hero: "Dernier scan il y a 4h - 50 matchs analysés - 47 résultats vérifiés"
  */
 export default function Hero() {
@@ -21,7 +21,7 @@ export default function Hero() {
       ref={sectionRef}
       className="relative overflow-hidden"
       style={{
-        backgroundColor: '#070A14',
+        backgroundColor: '#F1F2F3',
         paddingTop: '48px',
         paddingBottom: '32px',
       }}
@@ -32,7 +32,7 @@ export default function Hero() {
         <div
           className="absolute -top-20 -left-20 w-80 h-80 rounded-full"
           style={{
-            backgroundColor: '#D4AF37',
+            backgroundColor: '#121212',
             opacity: 0.18,
             filter: 'blur(80px)',
           }}
@@ -41,7 +41,7 @@ export default function Hero() {
         <div
           className="absolute -bottom-20 -right-20 w-96 h-96 rounded-full"
           style={{
-            backgroundColor: '#10B981',
+            backgroundColor: '#00C950',
             opacity: 0.08,
             filter: 'blur(100px)',
           }}
@@ -71,7 +71,7 @@ export default function Hero() {
             className="font-bold leading-[1.05] tracking-tight"
             style={{
               fontSize: '28px',
-              color: '#F1F5F9',
+              color: '#111827',
               fontFamily: 'Poppins, sans-serif',
             }}
           >
@@ -79,7 +79,7 @@ export default function Hero() {
           </h2>
 
           {/* ═══ H2 ═══ */}
-          <p className="mt-3 text-[13px] leading-[1.6]" style={{ color: '#94A3B8', maxWidth: '380px' }}>
+          <p className="mt-3 text-[13px] leading-[1.6]" style={{ color: '#6B7280', maxWidth: '380px' }}>
             Sénégal · Mali · Côte d'Ivoire · Guinée · Congo · Maroc
             <br />
             Données ESPN publiques. Analyse statistique. Forme des équipes. Ligues sélectionnées pour leur fort taux de BTTS. Pronostics quotidiens vérifiables après le match.
@@ -108,18 +108,18 @@ export default function Hero() {
             }}
             className="w-full h-[52px] rounded-[10px] font-bold text-[15px] flex items-center justify-center gap-2 transition-all"
             style={{
-              backgroundColor: '#D4AF37',
-              color: '#F1F5F9',
+              backgroundColor: '#121212',
+              color: '#111827',
               border: 'none',
-              boxShadow: '0 4px 16px rgba(81, 70, 245, 0.25)',
+              boxShadow: '0 4px 16px rgba(18, 18, 18, 0.25)',
             }}
             data-cta="hero-primary"
             aria-label="Voir les pronostics du jour"
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#B7952E'
+              e.currentTarget.style.backgroundColor = '#000000'
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#D4AF37'
+              e.currentTarget.style.backgroundColor = '#121212'
             }}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -138,19 +138,19 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="flex items-center justify-center gap-3 text-[10px] font-mono py-2 px-3 rounded-lg"
           style={{
-            backgroundColor: 'rgba(13, 22, 48, 0.6)',
-            border: '1px solid rgba(48, 56, 97, 0.5)',
-            color: '#64748B',
+            backgroundColor: 'rgba(241, 242, 243, 0.6)',
+            border: '1px solid rgba(230, 232, 235, 0.5)',
+            color: '#9CA3AF',
           }}
         >
           <span className="flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
             Suivi public depuis le 2026-08-08
           </span>
-          <span style={{ color: '#1F2937' }}>·</span>
+          <span style={{ color: '#E6E8EB' }}>·</span>
           <span>Ligues sélectionnées</span>
-          <span style={{ color: '#1F2937' }}>·</span>
-          <span style={{ color: '#10B981' }}>Moteur IA nouvelle génération</span>
+          <span style={{ color: '#E6E8EB' }}>·</span>
+          <span style={{ color: '#00C950' }}>Moteur IA nouvelle génération</span>
         </motion.div>
 
         {/* ═══ Badges confiance — 1 ligne discrète ═══ */}
@@ -158,7 +158,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : undefined}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="text-center text-[10px] text-[#64748B]"
+          className="text-center text-[10px] text-[#9CA3AF]"
         >
           Vérification ESPN public · 18+ · Jeu responsable
         </motion.div>

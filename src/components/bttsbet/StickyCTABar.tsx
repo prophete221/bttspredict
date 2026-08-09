@@ -64,9 +64,9 @@ export default function StickyCTABar() {
           <div
             className="flex items-center gap-2 px-3 py-2.5 backdrop-blur-xl"
             style={{
-              backgroundColor: 'rgba(7, 11, 24, 0.95)',
-              borderTop: '1px solid rgba(81, 70, 245, 0.2)',
-              boxShadow: '0 -4px 20px rgba(7, 11, 24, 0.4)',
+              backgroundColor: 'rgba(241, 242, 243, 0.95)',
+              borderTop: '1px solid rgba(18, 18, 18, 0.2)',
+              boxShadow: '0 -4px 20px rgba(241, 242, 243, 0.4)',
             }}
           >
             {/* Copy code button */}
@@ -74,18 +74,18 @@ export default function StickyCTABar() {
               onClick={copyCode}
               className="flex items-center gap-2 px-3 h-[48px] rounded-[12px] flex-shrink-0 transition-all"
               style={{
-                backgroundColor: copied ? 'rgba(81, 70, 245, 0.12)' : '#111827',
-                border: '1px solid ' + (copied ? 'rgba(81, 70, 245, 0.3)' : 'rgba(247, 248, 255, 0.12)'),
+                backgroundColor: copied ? 'rgba(18, 18, 18, 0.12)' : '#FFFFFF',
+                border: '1px solid ' + (copied ? 'rgba(18, 18, 18, 0.3)' : 'rgba(17, 24, 39, 0.12)'),
               }}
               aria-label="Copier le code promo VISION221"
               data-cta="sticky-copy"
             >
               {copied ? (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#121212" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
               ) : (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(247, 248, 255,0.7)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(17, 24, 39,0.7)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
               )}
-              <span className="font-mono text-[13px] font-bold" style={{ color: copied ? '#D4AF37' : '#F1F5F9' }}>
+              <span className="font-mono text-[13px] font-bold" style={{ color: copied ? '#121212' : '#111827' }}>
                 {copied ? 'Copié!' : SITE.promoCode}
               </span>
             </button>
@@ -97,9 +97,9 @@ export default function StickyCTABar() {
               target="_blank"
               className="flex-1 flex items-center justify-center gap-1.5 h-[48px] rounded-[12px] font-bold text-[14px]"
               style={{
-                backgroundColor: '#D4AF37',
-                color: '#F1F5F9',
-                boxShadow: '0 0 0 1px rgba(81, 70, 245,.4), 0 4px 16px rgba(81, 70, 245,.22)',
+                backgroundColor: '#121212',
+                color: '#111827',
+                boxShadow: '0 0 0 1px rgba(18, 18, 18,.4), 0 4px 16px rgba(18, 18, 18,.22)',
               }}
               data-cta="sticky-register"
             >
@@ -111,10 +111,10 @@ export default function StickyCTABar() {
             <button
               onClick={() => setDismissed(true)}
               className="flex items-center justify-center w-[32px] h-[32px] rounded-[8px] flex-shrink-0"
-              style={{ backgroundColor: '#111827' }}
+              style={{ backgroundColor: '#FFFFFF' }}
               aria-label="Fermer"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(247, 248, 255,0.4)" strokeWidth="2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(17, 24, 39,0.4)" strokeWidth="2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
             </button>
           </div>
         </motion.div>

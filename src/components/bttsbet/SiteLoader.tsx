@@ -61,8 +61,8 @@ export default function SiteLoader() {
               <div
                 className="absolute inset-0 w-16 h-16"
               >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-gold rounded-full shadow-[0_0_10px_rgba(81, 70, 245,0.7)]" />
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-ultra rounded-full shadow-[0_0_8px_rgba(81, 70, 245,0.6)]" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-gold rounded-full shadow-[0_0_10px_rgba(18, 18, 18,0.7)]" />
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-ultra rounded-full shadow-[0_0_8px_rgba(18, 18, 18,0.6)]" />
               </div>
 
               {/* Inner pulsing circle */}
@@ -75,7 +75,7 @@ export default function SiteLoader() {
                   height="28"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#D4AF37"
+                  stroke="#121212"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"

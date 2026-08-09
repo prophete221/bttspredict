@@ -11,53 +11,53 @@ export const metadata: Metadata = {
 
 export default function BTTSPredictionsTomorrowPage() {
   return (
-    <div className="min-h-screen bg-[#070A14] flex flex-col text-[#F1F5F9]">
+    <div className="min-h-screen bg-[#F1F2F3] flex flex-col text-[#111827]">
       <Navbar />
       <main id="main-content" className="flex-1">
         <section className="max-w-4xl mx-auto px-4 py-12 sm:py-16">
-          <nav aria-label="Fil d'Ariane" className="text-xs text-[#64748B] mb-4">
-            <Link href="/" className="hover:text-[#D4AF37]">Accueil</Link>
+          <nav aria-label="Fil d'Ariane" className="text-xs text-[#9CA3AF] mb-4">
+            <Link href="/" className="hover:text-[#121212]">Accueil</Link>
             <span className="mx-1">/</span>
-            <Link href="/pronostics" className="hover:text-[#D4AF37]">Pronostics</Link>
+            <Link href="/pronostics" className="hover:text-[#121212]">Pronostics</Link>
             <span className="mx-1">/</span>
-            <span className="text-[#94A3B8]">BTTS Tomorrow</span>
+            <span className="text-[#6B7280]">BTTS Tomorrow</span>
           </nav>
 
           <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
-            style={{ backgroundColor: 'rgba(124, 58, 237, 0.12)', color: '#10B981', border: '1px solid rgba(124, 58, 237, 0.25)' }}>
+            style={{ backgroundColor: 'rgba(0, 201, 80, 0.12)', color: '#00C950', border: '1px solid rgba(0, 201, 80, 0.25)' }}>
             BTTS · Tomorrow
           </span>
           <h1 className="text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
             BTTS Predictions Tomorrow
           </h1>
-          <p className="text-base text-[#94A3B8] leading-relaxed mb-6">
+          <p className="text-base text-[#6B7280] leading-relaxed mb-6">
             BTTSPredict publie chaque jour une nouvelle sélection de pronostics BTTS. Les pronostics pour les matchs de demain sont publiés la veille au soir et le jour même, plusieurs fois par jour (cron à 4h, 6h, 14h et 22h UTC). Chaque sélection est issue du moteur IA nouvelle génération, basée sur la forme récente des deux équipes.
           </p>
 
-          <div className="p-5 rounded-xl mb-6" style={{ backgroundColor: '#111827', border: '1px solid #1F2937' }}>
+          <div className="p-5 rounded-xl mb-6" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E6E8EB' }}>
             <h2 className="text-lg font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Comment accéder aux pronostics BTTS de demain ?
             </h2>
-            <p className="text-sm text-[#94A3B8] leading-relaxed mb-3">
-              Les pronostics de demain sont disponibles sur la page <Link href="/pronostics" className="text-[#D4AF37] underline">Pronostics du jour</Link> dès qu'ils sont publiés par le moteur. La page est mise à jour automatiquement 4 fois par jour via GitHub Actions.
+            <p className="text-sm text-[#6B7280] leading-relaxed mb-3">
+              Les pronostics de demain sont disponibles sur la page <Link href="/pronostics" className="text-[#121212] underline">Pronostics du jour</Link> dès qu'ils sont publiés par le moteur. La page est mise à jour automatiquement 4 fois par jour via GitHub Actions.
             </p>
-            <p className="text-sm text-[#94A3B8] leading-relaxed">
+            <p className="text-sm text-[#6B7280] leading-relaxed">
               Vous pouvez filtrer par date (aujourd'hui, demain, 7 jours) directement sur la page des pronostics.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
             <Link href="/pronostics" className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
-              style={{ backgroundColor: '#D4AF37', color: '#F1F5F9' }}>
+              style={{ backgroundColor: '#121212', color: '#111827' }}>
               Voir les pronostics du jour →
             </Link>
             <Link href="/btts/predictions/today" className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
-              style={{ backgroundColor: '#111827', color: '#94A3B8', border: '1px solid #1F2937' }}>
+              style={{ backgroundColor: '#FFFFFF', color: '#6B7280', border: '1px solid #E6E8EB' }}>
               BTTS du jour →
             </Link>
           </div>
 
-          <p className="text-xs text-[#64748B] mt-8 leading-relaxed">
+          <p className="text-xs text-[#9CA3AF] mt-8 leading-relaxed">
             Aucun résultat futur n'est garanti. Les paris sportifs comportent un risque de perte. 18+ — Jouez responsable.
           </p>
         </section>
