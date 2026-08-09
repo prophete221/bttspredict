@@ -79,6 +79,9 @@ interface MatchData {
   homeLogo: string
   awayLogo: string
   predictions: Prediction[]
+  reliabilityScore?: number
+  xgTotal?: number
+  analysis?: string
 }
 
 type FilterType = 'all' | 'BTTS' | 'O2.5'
@@ -333,7 +336,14 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
               </div>
               <span className="text-[10px] uppercase tracking-widest font-bold text-success-light">Pronostic IA</span>
             </div>
-            <span className="text-[10px] text-cendre">BTTS + Over 2.5</span>
+            <div className="flex items-center gap-2">
+              {match.reliabilityScore && (
+                <span className="px-2 py-0.5 rounded-full text-[9px] font-bold" style={{backgroundColor:'rgba(199,244,100,0.15)',color:'#C7F464',border:'1px solid rgba(199,244,100,0.3)'}}>
+                  Fiabilite {match.reliabilityScore}%
+                </span>
+              )}
+              <span className="text-[10px] text-cendre">BTTS + Over 2.5</span>
+            </div>
           </div>
 
           {/* Two markets side by side in unified block */}
@@ -483,9 +493,14 @@ export default function FreePredictions() {
     fetch('/predictions.json')
       .then(r => r.json())
       .then(data => {
-        if (!data?.predictions) return
+        // v90: data.free || data.predictions (backward compat)
+        const rawPredictions = data?.free || data?.predictions || []
+        if (!rawPredictions || rawPredictions.length === 0) {
+          setLoading(false)
+          return
+        }
         const matchMap = new Map<string, MatchData>()
-        for (const p of data.predictions) {
+        for (const p of rawPredictions) {
           // v64.1 HOTFIX : on ne skippe PLUS les matchs "finished" au chargement.
           // Avant, si on était le 2026-08-10 et que predictions.json ne contenait
           // que des matchs datés 2026-08-09, le `continue` ci-dessous vidait
@@ -502,6 +517,9 @@ export default function FreePredictions() {
               homeLogo: p.homeLogo || '',
               awayLogo: p.awayLogo || '',
               predictions: [],
+              reliabilityScore: p.reliabilityScore,
+              xgTotal: p.xgTotal,
+              analysis: p.analysis,
             })
           }
           matchMap.get(key)!.predictions.push({
@@ -660,13 +678,13 @@ export default function FreePredictions() {
         ) : filteredMatches.length === 0 ? (
           <div className="squircle-xl p-10 text-center">
             <div className="w-14 h-14 bg-dark-800 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-edge">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B5C4C9" strokeWidth="1.5">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C7F464" strokeWidth="1.5">
+                <path d="M9 12l2 2 4-4" />
                 <circle cx="12" cy="12" r="10" />
-                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-                <path d="M2 12h20" />
               </svg>
             </div>
-            <p className="text-cendre text-sm">Aucun pronostic pour ces filtres. Reviens demain !</p>
+            <p className="text-papier text-sm font-bold mb-2">Aucun pronostic fiable aujourd'hui</p>
+            <p className="text-cendre text-xs">On prefere ne rien proposer que du hasardeux. Reviens demain.</p>
           </div>
         ) : (
           <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
@@ -677,7 +695,7 @@ export default function FreePredictions() {
         )}
 
         <p className="text-center text-[11px] text-cendre mt-6">
-          Pronostics de nos experts — moteur IA nouvelle génération calibré sur 50 000+ matchs historiques. Aucune garantie future.
+          Prediction statistique basee sur xG + modele Poisson. Aucune garantie future. 18+
         </p>
 
         {/* CTA — Voir tous les pronostics du jour (page dédiée) */}
