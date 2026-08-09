@@ -185,7 +185,7 @@ export default function MentionsLegalesPage() {
                 </h2>
                 <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
-                    Le site BTTSPredict est hébergé par un prestataire d&apos;hébergement professionnel assurant la disponibilité, la sécurité et la performance du service. Les coordonnées de l&apos;hébergeur sont disponibles sur demande via le canal de contact indiqué ci-dessus.
+                    Le site BTTSPredict est hébergé par <strong className="text-papier">LWS (LWS SAS)</strong>, prestataire d&apos;hébergement professionnel français assurant la disponibilité, la sécurité et la performance du service. Serveurs localisés en France.
                   </p>
                   <p>
                     L&apos;hébergeur assure la continuité de son service conformément aux obligations légales en vigueur. En cas d&apos;indisponibilité temporaire du site, due notamment à des opérations de maintenance, de mise à jour ou à des circonstances indépendantes de la volonté de l&apos;éditeur, BTTSPredict ne pourra être tenu responsable des conséquences directes ou indirectes liées à cette indisponibilité.
@@ -251,13 +251,13 @@ export default function MentionsLegalesPage() {
                 </h2>
                 <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
-                    Les présentes mentions légales sont régies par le droit camerounais et, de manière générale, par les dispositions applicables au sein de la zone CEMAC (Communauté Économique et Monétaire de l&apos;Afrique Centrale), et notamment l&apos;Acte Uniforme révisé de l&apos;OHADA relatif au droit commercial général.
+                    Les présentes mentions légales sont régies par le droit sénégalais (lieu d&apos;établissement de l&apos;éditeur) et, de manière générale, par les dispositions applicables au Sénégal et au Maroc (marchés cibles principaux). L&apos;éditeur respecte également les réglementations locales des pays africains couverts : Sénégal, Mali, Côte d&apos;Ivoire, Guinée, Congo et Maroc.
                   </p>
                   <p>
-                    En cas de litige relatif à l&apos;interprétation ou à l&apos;exécution des présentes, les parties s&apos;efforceront de trouver une solution amiable. À défaut d&apos;accord amiable dans un délai de trente (30) jours, le litige sera soumis aux juridictions compétentes du Cameroun.
+                    En cas de litige relatif à l&apos;interprétation ou à l&apos;exécution des présentes, les parties s&apos;efforceront de trouver une solution amiable. À défaut d&apos;accord amiable dans un délai de trente (30) jours, le litige sera soumis aux juridictions compétentes de Dakar (Sénégal), lieu d&apos;établissement de l&apos;éditeur.
                   </p>
                   <p>
-                    Les conventions internationales applicables en matière de propriété intellectuelle, de protection des données à caractère personnel et de commerce électronique s&apos;appliquent également dans la mesure où elles ont été ratifiées par le Cameroun ou les États membres de la CEMAC.
+                    Les conventions internationales applicables en matière de propriété intellectuelle, de protection des données à caractère personnel et de commerce électronique s&apos;appliquent également dans la mesure où elles ont été ratifiées par le Sénégal ou le Maroc.
                   </p>
                 </div>
               </article>
