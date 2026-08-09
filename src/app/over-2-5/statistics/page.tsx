@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer } from '@/components/bttsbet'
+import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -156,6 +156,9 @@ export default function Over25StatisticsPage() {
             </div>
           </section>
         </article>
+              <section className="max-w-5xl mx-auto px-4 py-8">
+          <FreePredictions />
+        </section>
       </main>
       <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />

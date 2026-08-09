@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer } from '@/components/bttsbet'
+import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import HistoriqueClient from './HistoriqueClient'
 
 export const metadata: Metadata = {
@@ -22,6 +22,9 @@ export default function HistoriquePage() {
       <main id="main-content" className="flex-1">
         <h1 className="sr-only">Historique vérifié — BTTSPredict</h1>
         <HistoriqueClient />
+              <section className="max-w-5xl mx-auto px-4 py-8">
+          <FreePredictions />
+        </section>
       </main>
       <Footer />
     </div>
