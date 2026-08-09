@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 /**
  * VIP page v65.2 — Plateforme PRO affiliée
  *
- * Pas de pricing 4900 F (supprimé en v65.2 — conflit avec modèle affilié).
+ * Pas de pricing (modèle affilié pur — déblocage VIP après vérification).
  *
  * Architecture :
  *   - 2 cartes côte à côte (Linebet VISION221 MAJ + 888Starz vision221 MIN)
