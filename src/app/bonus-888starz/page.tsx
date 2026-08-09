@@ -1,22 +1,35 @@
 import type { Metadata } from 'next'
-import {Navbar, Footer,
-  FreePredictionsWidget,
-  VipCardWidget,
-  LinebetApkButton} from '@/components/bttsbet'
+import dynamic from 'next/dynamic'
+import { checkSeo } from '@/lib/seo'
+
+const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
+const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
+const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
+const Star888Client = dynamic(() => import('./Star888Client'), { loading: () => null })
 
 /* ──────────────────────────────────────────────────────────────
-   Metadata
+   Metadata — Code Promo 888Starz Afrique v64.1
    ────────────────────────────────────────────────────────────── */
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'bonus-888starz'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = "Bonus 888Starz Sénégal 2026 - Code Promo 130% [GRATUIT]"
-const DESCRIPTION = "Bonus 888starz avec code promo. Inscription, dépôt local et conditions d'offre analysées. 18+."
+
+// SEO Bing — title court (39 chars) + description courte (128 chars).
+// Avec le template "%s | BTTSPredict" (14 chars), le title rendu fait
+// 39 + 14 = 53 chars, bien sous la limite hard 70.
+const TITLE = 'Code Promo 888Starz Afrique - Bonus 200%'
+const DESCRIPTION = "Code 888Starz VISION221: Bonus 200% sur 1er dépôt. Sénégal Mali CIV Guinée Congo Maroc. Dépôt Wave Orange Money dès 200 XOF. 18+"
+checkSeo('bonus-888starz', TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  keywords: ['bonus 888starz', 'code promo 888starz', '888starz inscription', '888starz senegal', '888starz depot', '888starz wave', '888starz orange money', 'paris sportifs 888starz', 'analyse de valeur statistique fifa 888starz', '888starz bonus'],
+  keywords: [
+    'code promo 888starz', 'bonus 888starz', 'vision221', '888starz senegal',
+    '888starz bonus', 'code promo 888starz senegal', '888starz afrique ouest',
+    '888starz maroc', '888starz mali', '888starz cote d\'ivoire',
+    '888starz wave', '888starz orange money', 'depot 888starz senegal',
+  ],
   alternates: {
     canonical: PAGE_URL,
   },
@@ -28,8 +41,8 @@ export const metadata: Metadata = {
     type: 'article',
     locale: 'fr_SN',
     publishedTime: '2026-07-06',
-    modifiedTime: '2026-07-06',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Bonus 888starz — Code Promo & Inscription' }],
+    modifiedTime: '2026-08-09',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: TITLE }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -40,7 +53,7 @@ export const metadata: Metadata = {
 }
 
 /* ──────────────────────────────────────────────────────────────
-   JSON-LD
+   JSON-LD — Article + Breadcrumb + FAQPage + HowTo
    ────────────────────────────────────────────────────────────── */
 function buildArticleJsonLd() {
   return {
@@ -50,25 +63,15 @@ function buildArticleJsonLd() {
     description: DESCRIPTION,
     url: PAGE_URL,
     datePublished: '2026-07-06',
-    dateModified: '2026-07-06',
-    author: {
-      '@type': 'Organization',
-      name: 'BTTSPredict',
-      url: SITE_URL,
-    },
+    dateModified: '2026-08-09',
+    author: { '@type': 'Organization', name: 'BTTSPredict', url: SITE_URL },
     publisher: {
       '@type': 'Organization',
       name: 'BTTSPredict',
       url: SITE_URL,
-      logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_URL}/favicon.svg`,
-      },
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.svg` },
     },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': PAGE_URL,
-    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE_URL },
   }
 }
 
@@ -78,7 +81,82 @@ function buildBreadcrumbJsonLd() {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_URL },
-      { '@type': 'ListItem', position: 2, name: 'Bonus 888starz', item: PAGE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Code Promo 888Starz Afrique', item: PAGE_URL },
+    ],
+  }
+}
+
+function buildHowToJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'Comment utiliser le code promo 888Starz VISION221 en Afrique',
+    description: "Guide complet pour activer le bonus 888Starz 200% avec le code VISION221 au Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc.",
+    totalTime: 'PT5M',
+    estimatedCost: { '@type': 'MonetaryAmount', currency: 'XOF', value: '200' },
+    supply: [{ '@type': 'HowToSupply', name: 'Code promo VISION221' }],
+    tool: [
+      { '@type': 'HowToTool', name: 'Application 888Starz ou site web' },
+      { '@type': 'HowToTool', name: 'Wave, Orange Money, MTN ou Moov' },
+    ],
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: "S'inscrire sur 888Starz via le lien de parrainage",
+        text: "Clique sur le lien d'inscription 888Starz, crée ton compte gratuit en 2 minutes.",
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: 'Saisir le code promo VISION221',
+        text: "Pendant l'inscription ou dans la section « Code Promo » de ton compte, colle exactement VISION221.",
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: 'Effectuer un premier dépôt dès 200 XOF',
+        text: "Dépose via Wave, Orange Money, MTN ou Moov. Le dépôt est instantané.",
+      },
+      {
+        '@type': 'HowToStep',
+        position: 4,
+        name: 'Recevoir le bonus 200%',
+        text: "Le bonus 200% sur 1er dépôt est activé automatiquement après validation du code VISION221.",
+      },
+    ],
+  }
+}
+
+function buildFaqJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Quel est le code promo 888Starz Afrique ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Le code promo exclusif est VISION221 — saisi en majuscules lors de l'inscription. Il débloque un bonus de 200% sur le premier dépôt, valable pour le Sénégal, le Mali, la Côte d'Ivoire, la Guinée, le Congo et le Maroc.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Comment déposer avec Wave sur 888Starz ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Sélectionne Wave dans la section Dépôt de 888Starz, entre le montant (minimum 200 XOF), valide avec ton code secret Wave. Le dépôt est instantané. Le bonus VISION221 est activé automatiquement sur le premier dépôt.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Le bonus 888Starz est-il valable au Maroc, Mali et Côte d\'Ivoire ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Oui. Le code VISION221 fonctionne pour les 6 pays couverts : Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc. Le bonus 200% est crédité après validation du code promo et du premier dépôt.",
+        },
+      },
     ],
   }
 }
@@ -86,7 +164,7 @@ function buildBreadcrumbJsonLd() {
 /* ──────────────────────────────────────────────────────────────
    Page
    ────────────────────────────────────────────────────────────── */
-export default function Bonus888starzPage() {
+export default function Bonus888StarzPage() {
   return (
     <div className="min-h-screen bg-dark-800 flex flex-col text-papier">
       {/* Structured Data */}
@@ -98,6 +176,14 @@ export default function Bonus888starzPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildBreadcrumbJsonLd()) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildHowToJsonLd()) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqJsonLd()) }}
+      />
 
       {/* Skip to content */}
       <a
@@ -107,173 +193,13 @@ export default function Bonus888starzPage() {
         Aller au contenu principal
       </a>
 
-      <Navbar />
+      <ErrorBoundary><Navbar /></ErrorBoundary>
 
-      <main id="main-content" className="flex-1 relative z-10">
-        {/* Breadcrumb */}
-        <nav aria-label="Fil d'Ariane" className="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-cendre">
-            <li>
-              <a href="/" className="hover:text-emerald transition-colors">
-                Accueil
-              </a>
-            </li>
-            <li aria-hidden="true" className="text-cendre">/</li>
-            <li>
-              <span className="text-cendre" aria-current="page">Bonus 888starz</span>
-            </li>
-          </ol>
-        </nav>
+      <main id="main-content" className="flex-1 relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
+        <Star888Client />
 
-        {/* Header */}
-        <section className="pb-8 sm:pb-10">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-            <h1
-              className="text-4xl sm:text-5xl text-papier mb-4"
-              style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
-            >
-              BONUS <span className="text-gold neon-glow">888STARZ</span>
-            </h1>
-            <p className="text-cendre text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              Bonus exclusif 888starz, inscription facile et analyses de valeur statistique FIFA détectées par nos experts. Guide complet pour maximiser votre bonus.
-            </p>
-            <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
-          </div>
-        </section>
-
-        {/* Content */}
-        <section className="pb-16 sm:pb-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6">
-            <div className="space-y-8">
-
-              {/* 1. Inscription 888starz */}
-              <article className="card p-6">
-                <h2
-                  className="text-2xl text-papier mb-4"
-                  style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
-                >
-                  1. Inscription sur 888starz
-                </h2>
-                <div className="space-y-4 text-cendre text-sm leading-relaxed">
-                  <div className="space-y-3">
-                    {[
-                      { step: '1', text: 'Visitez le site 888starz via notre lien de parrainage' },
-                      { step: '2', text: 'Créez votre compte en remplissant vos informations personnelles' },
-                      { step: '3', text: 'Confirmez votre inscription par email ou SMS' },
-                      { step: '4', text: 'Effectuez votre premier dépôt pour activer le bonus' },
-                    ].map((item) => (
-                      <div key={item.step} className="flex items-start gap-3">
-                        <span className="w-6 h-6 bg-gold text-dark-900 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">
-                          {item.step}
-                        </span>
-                        <p className="text-cendre">{item.text}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </article>
-
-              {/* 2. Dépôt */}
-              <article className="card p-6">
-                <h2
-                  className="text-2xl text-papier mb-4"
-                  style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
-                >
-                  2. Dépôt sur 888starz
-                </h2>
-                <div className="space-y-3 text-cendre text-sm leading-relaxed">
-                  <p>
-                    888starz propose plusieurs méthodes de dépôt adaptées aux utilisateurs africains :
-                  </p>
-                  <div className="grid gap-3 sm:grid-cols-3 mt-4">
-                    {[
-                      { name: 'Wave', icon: '📱', desc: 'Dépôt instantané via Wave' },
-                      { name: 'Orange Money', icon: '🟠', desc: 'Dépôt via Orange Money' },
-                      { name: 'Crypto', icon: '₿', desc: 'Bitcoin, USDT et autres cryptos' },
-                    ].map((item, i) => (
-                      <div key={i} className="bg-panel/40 border border-edge/30 rounded-xl p-4">
-                        <div className="flex items-center gap-2 mb-2">
-                          <span className="text-lg" aria-hidden="true">{item.icon}</span>
-                          <h3 className="text-papier font-semibold text-sm">{item.name}</h3>
-                        </div>
-                        <p className="text-cendre text-xs">{item.desc}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </article>
-
-              {/* 3. Analyses de valeur FIFA (expérimental) */}
-              <article className="card p-6">
-                <h2
-                  className="text-2xl text-papier mb-4"
-                  style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
-                >
-                  3. Analyses de valeur FIFA (expérimental) sur 888starz
-                </h2>
-                <div className="space-y-3 text-cendre text-sm leading-relaxed">
-                  <p>
-                    Notre équipe détecte les <strong className="text-gold">analyses de valeur statistique FIFA</strong> sur 888starz — des cotes erronées sur les matchs FIFA virtuels que l&apos;algorithme identifie automatiquement.
-                  </p>
-                  <p>
-                    Les analyses de valeur statistique FIFA sont des estimations statistiques basées sur l&apos;analyse de thousands de matchs FIFA virtuels. Elles ne constituent pas des garanties de gain.
-                  </p>
-                  <div className="mt-4">
-                    <a
-                      href="/methodologie"
-                      className="inline-block px-4 py-2 bg-gold/10 border border-gold/30 text-gold text-sm font-semibold rounded-lg hover:border-gold/50 transition-colors"
-                    >
-                      Voir notre méthodologie IA →
-                    </a>
-                  </div>
-                </div>
-              </article>
-
-              {/* 4. Aviator */}
-              <article className="card p-6">
-                <h2
-                  className="text-2xl text-papier mb-4"
-                  style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
-                >
-                  4. Aviator sur 888starz
-                </h2>
-                <div className="space-y-3 text-cendre text-sm leading-relaxed">
-                  <p>
-                    888starz propose le jeu <strong className="text-gold">Aviator</strong> — un jeu de multiplicateur basé sur un algorithme pseudo-aléatoire certifié « provably fair ».
-                  </p>
-                  <p>
-                    <strong className="text-lose">Important :</strong> Aviator est un jeu 100% aléatoire. Aucun outil ne peut prédire un round futur. Nos statistiques Aviator observent l&apos;historique, pas l&apos;avenir.
-                  </p>
-                  <div className="mt-4">
-                    <a
-                      href="/jouer-responsable"
-                      className="inline-block px-4 py-2 bg-gold/10 border border-gold/30 text-gold text-sm font-semibold rounded-lg hover:border-gold/50 transition-colors"
-                    >
-                      Jeu responsable →
-                    </a>
-                  </div>
-                </div>
-              </article>
-
-              {/* Disclaimer */}
-              <div className="bg-lose/10 border border-lose/30 rounded-xl p-4 text-center">
-                <p className="text-cendre text-xs">
-                  ⚠ BTTSPredict est un site informatif et d&apos;affiliation. Nous ne prenons aucun pari, ne collectons aucun fonds et ne sommes pas un bookmaker. Les bonus sont soumis aux conditions de 888starz. Aviator est un jeu aléatoire — aucune prédiction possible. Pariez responsable — <a href="/jouer-responsable" className="text-emerald underline underline-offset-2">en savoir plus</a>.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      
-        {/* Pronostics gratuits + VIP + APK sur toutes les pages */}
-        <FreePredictionsWidget />
-        <VipCardWidget />
-        <div className="text-center pb-6">
-          <LinebetApkButton />
-        </div>
+        <ErrorBoundary><Footer /></ErrorBoundary>
       </main>
-
-      <Footer />
     </div>
   )
 }

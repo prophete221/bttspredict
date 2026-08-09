@@ -30,14 +30,14 @@ const TABS: Tab[] = [
   {
     id: 'predictions',
     label: 'Pronos',
-    href: '/pronostics',
+    href: '/btts/predictions/today',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="12" cy="12" r="10" />
         <path d="M12 2 a10 10 0 0 1 10 10 l-10 0 z" fill="currentColor" />
       </svg>
     ),
-    matchPath: (p) => p === '/' || p.startsWith('/btts/') || p.startsWith('/match/'),
+    matchPath: (p) => p === '/btts/predictions/today' || p.startsWith('/btts/') || p.startsWith('/match/'),
   },
   {
     id: 'vip',
