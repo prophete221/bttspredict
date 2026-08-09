@@ -177,7 +177,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v59-afrique-ouest-final-2026-08-09';
+                var VERSION = 'bttspredict-v60-linebet-afrique-ouest-2026-08-09';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){
