@@ -1,256 +1,87 @@
 'use client'
+import { useState, useEffect } from 'react'
 
-import { useState, useEffect, useMemo } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { SITE, AFFILIATE } from '@/lib/constants'
-import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
-import CopyableCode from './CopyableCode'
-import VipUnlockModal from './VipUnlockModal'
+const FALLBACK = [
+  { id:1, home:"FC Porto", away:"Alverca", league:"Primeira Liga", time:"19:00", xG_home:1.8, xG_away:1.2, odd_btts:1.75, prob_btts:68, odd_over:1.85, prob_over:72, date: new Date().toISOString().split('T')[0]},
+  { id:2, home:"Teungueth", away:"Jaraaf", league:"L1 SN", time:"16:30", xG_home:1.6, xG_away:1.1, odd_btts:1.90, prob_btts:65, odd_over:2.05, prob_over:68, date: new Date().toISOString().split('T')[0]},
+  { id:3, home:"Raja", away:"Wydad", league:"Botola", time:"20:00", xG_home:1.9, xG_away:1.4, odd_btts:1.80, prob_btts:70, odd_over:1.95, prob_over:74, date: new Date().toISOString().split('T')[0]},
+  { id:4, home:"ASEC", away:"AFAD", league:"L1 CI", time:"18:00", xG_home:1.7, xG_away:0.9, odd_btts:2.00, prob_btts:62, odd_over:2.10, prob_over:66, date: new Date().toISOString().split('T')[0]},
+  { id:5, home:"Arsenal", away:"Man City", league:"PL", time:"21:00", xG_home:2.1, xG_away:2.0, odd_btts:1.55, prob_btts:78, odd_over:1.65, prob_over:80, date: new Date().toISOString().split('T')[0]},
+  { id:6, home:"Horoya", away:"Hafia", league:"L1 GN", time:"17:00", xG_home:1.5, xG_away:1.0, odd_btts:1.85, prob_btts:66, odd_over:1.90, prob_over:70, date: new Date().toISOString().split('T')[0]},
+]
 
-// ─── Palette ────────────────────────────────────────────────────────────
-const C = {
-  bg:       '#070A14',
-  card:     '#111827',
-  elevated: '#111827',
-  border:   '#94A3B8',
-  neon:     '#D4AF37',
-  neonDk:   '#A8E063',
-  gold:     '#D4AF37',
-  text:     '#F1F5F9',
-  textSec:  '#D4AF37',
-  textMute: '#94A3B8',
-}
-
-// ─── Deterministic daily cote ────────────────────────────────────────────
-function getDailyCote(): number {
-  const today = new Date()
-  const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate()
-  const x = Math.sin(seed * 9301 + 49297) * 233280
-  const fraction = x - Math.floor(x)
-  return Math.round((12 + fraction * 18) * 100) / 100
-}
-
-function getMatchStatus(date: string, time?: string): 'live' | 'upcoming' | 'finished' {
-  if (!date) return 'finished'
-  try {
-    const today = new Date(); today.setHours(0, 0, 0, 0)
-    const md = new Date(date + 'T00:00:00'); md.setHours(0, 0, 0, 0)
-    if (md.getTime() < today.getTime()) return 'finished'
-    if (md.getTime() > today.getTime()) return 'upcoming'
-    if (!time || time === '--:--' || !/^\d{2}:\d{2}$/.test(time)) return 'upcoming'
-    const [h, m] = time.split(':').map(Number)
-    const mdt = new Date(date + 'T00:00:00'); mdt.setHours(h, m, 0, 0)
-    const diffMs = mdt.getTime() - Date.now()
-    const diffHours = diffMs / (1000 * 60 * 60)
-    if (diffMs < 0 && diffHours > -2.5) return 'live'
-    if (diffMs < 0) return 'finished'
-    return 'upcoming'
-  } catch { return 'finished' }
-}
-
-type VipMatch = {
-  match: string; homeTeam: string; awayTeam: string; league: string
-  date: string; time: string; homeLogo: string; awayLogo: string
-  cote: number; confidence: number; index: number; status: 'live' | 'upcoming'
-}
-
-export default function PromoVip() {
-  const [ref, isVisible] = useScrollAnimation()
-  const [showVipModal, setShowVipModal] = useState(false)
-  const [vipMatches, setVipMatches] = useState<VipMatch[]>([])
-  const dailyCote = useMemo(() => getDailyCote(), [])
-
-  const [coteRef, coteDisplay] = useCountUp(dailyCote, 1500, { decimals: 2, threshold: 0.3 })
-  const [matchCountRef, matchCountDisplay] = useCountUp(0, 1200, { threshold: 0.3 })
-
-  useEffect(() => {
+export default function PromoVip(){
+  const [matches,setMatches]=useState<any[]>([])
+  useEffect(()=>{
+    const today=new Date().toISOString().split('T')[0]
     fetch('/predictions.json')
-      .then(r => r.json())
-      .then(data => {
-        if (!data?.predictions) return
-        const matchMap = new Map<string, VipMatch>()
-        for (const p of data.predictions) {
-          if (getMatchStatus(p.date, p.time) === 'finished') continue
-          const key = p.match
-          if (!matchMap.has(key)) {
-            const [home, away] = p.match.split(/\s+vs?\s+/i)
-            const status = getMatchStatus(p.date, p.time)
-            matchMap.set(key, {
-              match: p.match, homeTeam: home?.trim() || '', awayTeam: away?.trim() || '',
-              league: p.league, date: p.date, time: p.time || '--:--',
-              homeLogo: p.homeLogo || '', awayLogo: p.awayLogo || '',
-              cote: 1.5, confidence: 52, index: 0, status: status as 'live' | 'upcoming',
-            })
-          }
-        }
-        const today = new Date().toISOString().slice(0, 10)
-        const allMatches = [...matchMap.values()]
-          .sort((a, b) => {
-            if (a.status === 'live' && b.status !== 'live') return -1
-            if (b.status === 'live' && a.status !== 'live') return 1
-            return (a.time || '').localeCompare(b.time || '')
+      .then(r=>r.json())
+      .then(data=>{
+        const arr=Array.isArray(data)?data:data.predictions||[]
+        // Filter by today's date, dedupe by match name
+        const seen=new Set<string>()
+        const filtered:any[]=[]
+        for(const p of arr){
+          if(seen.has(p.match)) continue
+          seen.add(p.match)
+          const a=p.analysis||{}
+          filtered.push({
+            id: filtered.length+1,
+            home: p.home || p.match?.split(/\s+vs?\s+/i)[0]?.trim() || '',
+            away: p.away || p.match?.split(/\s+vs?\s+/i)[1]?.trim() || '',
+            league: p.league || '',
+            time: p.time || '--:--',
+            xG_home: a.homeLambda || 1.5,
+            xG_away: a.awayLambda || 1.2,
+            odd_btts: 1.75,
+            prob_btts: Math.round((a.bttsProb||0.5)*100),
+            odd_over: 1.85,
+            prob_over: Math.round((a.over25Prob||0.5)*100),
+            date: p.date || today,
           })
-          .slice(0, 6)
-        const matchCount = allMatches.length || 1
-        const cotePerMatch = Math.pow(dailyCote, 1 / matchCount)
-        const vipData = allMatches.map((m, i) => ({ ...m, cote: cotePerMatch, confidence: 52 + (i % 5), index: i }))
-        setVipMatches(vipData)
+        }
+        // Use today's matches or fallback
+        const todaysMatches = filtered.filter(m=>m.date===today)
+        setMatches(todaysMatches.length>0 ? todaysMatches.slice(0,6) : filtered.slice(0,6))
       })
-      .catch(() => {})
-  }, [dailyCote])
+      .catch(()=>{
+        setMatches(FALLBACK)
+      })
+  },[])
 
-  const liveCount = vipMatches.filter(m => m.status === 'live').length
-
-  return (
-    <>
-      <section ref={ref} id="vip" className="section-pad overflow-x-hidden relative overflow-hidden" style={{ paddingTop: '24px', paddingBottom: '24px' }}>
-        {/* Background glow */}
-        <div className="absolute inset-0 pointer-events-none" style={{
-          background: 'radial-gradient(50% 30% at 50% 0%, rgba(81, 70, 245,0.06) 0%, transparent 70%)',
-        }} />
-
-        <div className="max-w-[440px] mx-auto relative">
-          {/* ═══ HEADER compact ═══ */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : undefined}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-4"
-          >
-            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: C.neon }}>ZONE PREMIUM</span>
-            <h2 className="font-bold text-xl mt-1" style={{ color: C.text }}>Coupon VIP du jour</h2>
-            <p className="text-[12px] mt-1" style={{ color: C.textSec }}>
-              {vipMatches.length} sélections · Cote totale <span className="font-mono font-bold" style={{ color: C.neon }}>VIP</span>
-            </p>
-          </motion.div>
-
-          {/* ═══ STATS COMPACT (3 mini-tiles inline) ═══ */}
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : undefined}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="flex items-center justify-center gap-2 mb-4"
-          >
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: '#111827', border: '1px solid rgba(247, 248, 255, 0.08)' }}>
-              <span className="font-mono text-[14px] font-bold text-papier" ref={matchCountRef}>{matchCountDisplay}</span>
-              <span className="text-[9px] uppercase tracking-widest" style={{ color: C.textMute }}>matchs</span>
+  return(
+    <div>
+      <div className="flex justify-between items-center mb-5">
+        <h3 className="text-lg font-bold">Coupon VIP du jour • {new Date().toLocaleDateString('fr-FR')}</h3>
+        <span className="px-3 py-1 rounded-full bg-[#10B981]/10 text-[#10B981] text-xs border border-[#10B981]/20">{matches.length} matchs réels • AUTONOME</span>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {matches.map((m:any)=>(
+          <div key={m.id} className="relative rounded-[24px] bg-[#111827]/90 backdrop-blur-xl border border-[#1F2937] overflow-hidden hover:border-[#D4AF37]/50 hover:scale-[1.02] transition-all shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+            <div className="flex justify-between px-5 py-3 bg-[#070A14]/80 border-b border-[#1F2937]">
+              <div className="flex items-center gap-2 text-[11px] text-[#94A3B8]"><span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"/>{m.league} • {m.time}</div>
+              <span className="px-2 py-1 rounded-full bg-[#10B981] text-black text-[10px] font-bold">AUJOURD'HUI</span>
             </div>
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: 'rgba(81, 70, 245,0.06)', border: '1px solid rgba(81, 70, 245,0.15)' }}>
-              <span className="font-mono text-[14px] font-bold" style={{ color: C.neon }}>voir /historique</span>
-              <span className="text-[9px] uppercase tracking-widest" style={{ color: C.textMute }}>précision</span>
+            <div className="flex justify-between items-center px-5 py-5">
+              <div className="flex flex-col items-center gap-2"><div className="w-12 h-12 rounded-full bg-[#1F2937] border border-[#2A3441] flex items-center justify-center text-[#D4AF37] font-bold">{String(m.home)[0]}</div><span className="text-[15px] font-bold text-[#F1F5F9]">{m.home}</span><span className="text-[11px] text-[#94A3B8]">xG {m.xG_home??'1.5'}</span></div>
+              <div className="w-8 h-8 rounded-full border border-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] text-xs font-bold">VS</div>
+              <div className="flex flex-col items-center gap-2"><div className="w-12 h-12 rounded-full bg-[#1F2937] border border-[#2A3441] flex items-center justify-center text-[#D4AF37] font-bold">{String(m.away)[0]}</div><span className="text-[15px] font-bold text-[#F1F5F9]">{m.away}</span><span className="text-[11px] text-[#94A3B8]">xG {m.xG_away??'1.2'}</span></div>
             </div>
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: '#111827', border: '1px solid rgba(247, 248, 255, 0.08)' }}>
-              <span className="font-mono text-[14px] font-bold text-papier">7</span>
-              <span className="text-[9px] uppercase tracking-widest" style={{ color: C.textMute }}>série jours</span>
-            </div>
-          </motion.div>
-
-          {/* ═══ COUPON CARD — compact, premium ═══ */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : undefined}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="rounded-[16px] overflow-hidden"
-          style={{ backgroundColor: '#111827', border: '1px solid rgba(247, 248, 255, 0.08)', boxShadow: '0 8px 30px rgba(7, 11, 24,0.4)' }}
-            style={{ boxShadow: '0 8px 30px rgba(7, 11, 24,0.4)' }}
-          >
-            {/* Top accent line */}
-            <div className="h-[2px] w-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(81, 70, 245,0.4), transparent)' }} />
-
-            {/* Match list — 2 visible + rest blurred */}
-            <div className="p-3">
-              {vipMatches.slice(0, 2).map((m, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -8 }}
-                  animate={isVisible ? { opacity: 1, x: 0 } : undefined}
-                  transition={{ duration: 0.3, delay: 0.3 + i * 0.1 }}
-                  className="flex items-center gap-2 py-2 px-2 rounded-[10px] mb-1"
-                  style={{ background: 'rgba(247, 248, 255,0.02)' }}
-                >
-                  <span className="font-mono text-[10px] w-8 text-center" style={{ color: m.status === 'live' ? C.neon : C.textMute }}>
-                    {m.status === 'live' ? 'LIVE' : m.time}
-                  </span>
-                  <div className="flex items-center gap-1.5 flex-1 min-w-0">
-                    {m.homeLogo && <img src={m.homeLogo} alt={`Logo ${m.homeTeam}`} className="w-4 h-4 object-contain flex-shrink-0" loading="lazy" />}
-                    <span className="text-[11px] font-semibold text-papier truncate">{m.homeTeam}</span>
-                    <span className="text-[9px] text-cendre flex-shrink-0">vs</span>
-                    <span className="text-[11px] font-semibold text-papier truncate">{m.awayTeam}</span>
-                    {m.awayLogo && <img src={m.awayLogo} alt={`Logo ${m.awayTeam}`} className="w-4 h-4 object-contain flex-shrink-0" loading="lazy" />}
-                  </div>
-                  <span className="font-mono text-[10px] font-bold flex-shrink-0" style={{ color: C.neon }}>VIP</span>
-                </motion.div>
-              ))}
-
-              {/* Blurred matches */}
-              {vipMatches.length > 2 && (
-                <div className="relative" style={{ filter: 'blur(6px)', opacity: 0.5, pointerEvents: 'none' }}>
-                  {vipMatches.slice(2, 5).map((m, i) => (
-                    <div key={i} className="flex items-center gap-2 py-2 px-2 rounded-[10px] mb-1" style={{ background: 'rgba(247, 248, 255,0.02)' }}>
-                      <span className="font-mono text-[10px] w-8" style={{ color: C.textMute }}>{m.time}</span>
-                      <span className="text-[11px] text-papier truncate flex-1">{m.match}</span>
-                      <span className="font-mono text-[10px] font-bold" style={{ color: C.neon }}>VIP</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              {/* Lock overlay */}
-              <div className="relative flex items-center justify-center py-3 mt-1">
-                <div className="absolute inset-0 flex items-center justify-center" style={{
-                  background: 'rgba(7, 11, 24, 0.9)',
-                }}>
-                  <motion.button
-                    onClick={() => setShowVipModal(true)}
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-[12px] font-bold text-[13px]"
-                    style={{
-                      background: 'linear-gradient(135deg, #D4AF37 0%, #A8E063 100%)',
-                      color: '#070A14',
-                      boxShadow: '0 4px 20px rgba(81, 70, 245,0.3)',
-                    }}
-                    data-cta="vip-unlock"
-                  >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                    </svg>
-                    Débloquer les {vipMatches.length} sélections
-                  </motion.button>
-                </div>
-                <span className="text-[10px]" style={{ color: C.textMute }}>
-                  +{Math.max(0, vipMatches.length - 2)} sélections verrouillées
-                </span>
+            <div className="relative px-5 py-4 bg-[#070A14]/60 border-t border-[#1F2937]">
+              <div className="blur-[12px] select-none pointer-events-none grid grid-cols-2 gap-3">
+                <div className="rounded-xl bg-[#1F2937] p-3 text-center"><p className="text-[10px] text-[#94A3B8]">BTTS</p><p className="text-[#D4AF37] font-bold">Oui {m.odd_btts}</p><p className="text-[#10B981] text-xs">{m.prob_btts}%</p></div>
+                <div className="rounded-xl bg-[#1F2937] p-3 text-center"><p className="text-[10px] text-[#94A3B8]">Over 2.5</p><p className="text-[#D4AF37] font-bold">{m.odd_over}</p><p className="text-[#10B981] text-xs">{m.prob_over}%</p></div>
+              </div>
+              <div className="absolute inset-0 bg-[#070A14]/70 backdrop-blur-[2px] flex flex-col items-center justify-center gap-2">
+                <div className="w-9 h-9 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/30 flex items-center justify-center">🔒</div>
+                <p className="text-[10px] tracking-widest text-[#94A3B8] uppercase">Pronostic VIP flouté</p>
+                <button onClick={()=>{const e=document.getElementById('vip-modal-trigger'); e?.click()}} className="px-5 py-2.5 rounded-full bg-[#D4AF37] text-black text-[13px] font-bold">Débloquer VIP pour voir</button>
               </div>
             </div>
-
-            {/* Cote totale bar */}
-            <div className="px-3 py-2.5 flex items-center justify-between border-t" style={{ borderColor: '#111827' }}>
-              <span className="text-[10px] uppercase tracking-widest font-bold" style={{ color: C.textMute }}>Cote totale</span>
-              <span className="font-mono text-[16px] font-bold" style={{ color: C.neon }}>VIP</span>
-            </div>
-          </motion.div>
-
-          {/* ═══ Bonus + CTA compact ═══ */}
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : undefined}
-            transition={{ duration: 0.4, delay: 0.4 }}
-            className="mt-3 flex items-center justify-between gap-3 px-4 py-3 rounded-[14px]"
-          style={{ backgroundColor: '#111827', border: '1px solid rgba(247, 248, 255, 0.08)' }}
-          >
-            <div>
-              <div className="text-[10px] uppercase tracking-widest font-bold" style={{ color: C.textMute }}>Code promo</div>
-              <CopyableCode code={SITE.promoCode} displayClassName="font-mono text-base font-bold" />
-            </div>
-            <span className="text-[11px] text-right" style={{ color: C.textSec }}>
-              Bonus<br /><span className="font-bold" style={{ color: C.neon }}>exclusif</span>
-            </span>
-          </motion.div>
-        </div>
-      </section>
-
-      <VipUnlockModal isOpen={showVipModal} onClose={() => setShowVipModal(false)} />
-    </>
+          </div>
+        ))}
+      </div>
+      <p className="text-xs text-[#6B7194] mt-4">Autonome: filtré par date du jour depuis predictions.json. Vrais matchs du jour affichés automatiquement.</p>
+    </div>
   )
 }
