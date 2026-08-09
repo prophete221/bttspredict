@@ -19,6 +19,30 @@ RewriteRule ^(.+)/?$ /$1.html [L]
 # Redirection permanente 301 pour transférer le link equity et éliminer le duplicate content.
 RewriteRule ^linebet-promo-code/?$ /code-promo-linebet-senegal [R=301,L]
 
+# ─── Redirect 301: pages doorway supprimées en v64 → / (homepage) ───
+# Plateforme PRO : passage de 51 pages blog 2000 à ~18 pages plateforme type Flashscore.
+# Les anciennes doorway pages (templates identiques) sont supprimées du code mais
+# conservent une redirection 301 Apache pour transférer le link equity éventuel
+# vers la homepage qui contient désormais les pronostics du jour.
+RewriteRule ^betting-tips/?$ / [R=301,L]
+RewriteRule ^bookmakers/?$ / [R=301,L]
+RewriteRule ^correct-score-predictions/?$ / [R=301,L]
+RewriteRule ^football-predictions-today/?$ / [R=301,L]
+RewriteRule ^league-predictions/?$ / [R=301,L]
+RewriteRule ^match-predictions/?$ / [R=301,L]
+RewriteRule ^over-2-5-predictions/?$ / [R=301,L]
+RewriteRule ^team-predictions/?$ / [R=301,L]
+RewriteRule ^pronostics/?$ / [R=301,L]
+RewriteRule ^pronostics/aujourd-hui/?$ / [R=301,L]
+RewriteRule ^prediction-aviator/?$ / [R=301,L]
+RewriteRule ^faille-fifa/?$ / [R=301,L]
+RewriteRule ^blog/?$ / [R=301,L]
+RewriteRule ^blog/(.+)?$ / [R=301,L]
+RewriteRule ^presse/?$ / [R=301,L]
+RewriteRule ^equipe/?$ / [R=301,L]
+RewriteRule ^over-2-5/?$ / [R=301,L]
+RewriteRule ^over-2-5/(.+)?$ / [R=301,L]
+
 # ─── 404 spécifique pour /match/[slug] non généré ───
 # Les pages match sont pré-générées en SSG dans out/match/[slug]/index.html.
 # Si le fichier n'existe pas (match non dans la liste du jour), on renvoie 404.html

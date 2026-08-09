@@ -98,7 +98,13 @@ export default function Hero() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => {
-              window.location.href = '/pronostics'
+              // Plateforme PRO v64 : /pronostics supprimé, les pronostics sont sur la homepage
+              const el = document.getElementById('free-predictions') || document.getElementById('main-content')
+              if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              } else {
+                window.location.href = '/'
+              }
             }}
             className="w-full h-[52px] rounded-[10px] font-bold text-[15px] flex items-center justify-center gap-2 transition-all"
             style={{

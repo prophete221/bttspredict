@@ -37,7 +37,7 @@ const TABS: Tab[] = [
         <path d="M12 2 a10 10 0 0 1 10 10 l-10 0 z" fill="currentColor" />
       </svg>
     ),
-    matchPath: (p) => p.startsWith('/pronostics') || p.startsWith('/over-2-5-predictions') || p.startsWith('/correct-score-predictions') || p.startsWith('/football-predictions-today') || p.startsWith('/betting-tips') || p.startsWith('/league-predictions') || p.startsWith('/team-predictions') || p.startsWith('/match-predictions'),
+    matchPath: (p) => p === '/' || p.startsWith('/btts/') || p.startsWith('/match/'),
   },
   {
     id: 'vip',

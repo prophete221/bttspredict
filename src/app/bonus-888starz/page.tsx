@@ -220,10 +220,10 @@ export default function Bonus888starzPage() {
                   </p>
                   <div className="mt-4">
                     <a
-                      href="/analyses-fifa"
+                      href="/methodologie"
                       className="inline-block px-4 py-2 bg-gold/10 border border-gold/30 text-gold text-sm font-semibold rounded-lg hover:border-gold/50 transition-colors"
                     >
-                      En savoir plus sur les analyses de valeur statistique FIFA →
+                      Voir notre méthodologie IA →
                     </a>
                   </div>
                 </div>
@@ -246,10 +246,10 @@ export default function Bonus888starzPage() {
                   </p>
                   <div className="mt-4">
                     <a
-                      href="/aviator-stats"
+                      href="/jouer-responsable"
                       className="inline-block px-4 py-2 bg-gold/10 border border-gold/30 text-gold text-sm font-semibold rounded-lg hover:border-gold/50 transition-colors"
                     >
-                      Statistiques Aviator →
+                      Jeu responsable →
                     </a>
                   </div>
                 </div>

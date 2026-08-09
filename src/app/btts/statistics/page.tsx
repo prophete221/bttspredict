@@ -138,15 +138,15 @@ export default function BTTSStatisticsPage() {
                 <div className="text-sm font-bold text-[#F7F8FF]">BTTS Today →</div>
                 <div className="text-xs text-[#A5ABC5] mt-1">Pronostics du jour</div>
               </Link>
-              <Link href="/over-2-5/statistics" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5]"
-                style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
-                <div className="text-sm font-bold text-[#F7F8FF]">Over 2.5 Stats →</div>
-                <div className="text-xs text-[#A5ABC5] mt-1">Statistiques Over 2.5</div>
-              </Link>
               <Link href="/historique" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5]"
                 style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
-                <div className="text-sm font-bold text-[#F7F8FF]">Historique →</div>
-                <div className="text-xs text-[#A5ABC5] mt-1">Résultats vérifiés</div>
+                <div className="text-sm font-bold text-[#F7F8FF]">Résultats vérifiés →</div>
+                <div className="text-xs text-[#A5ABC5] mt-1">Historique complet</div>
+              </Link>
+              <Link href="/resultats-verifies" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5]"
+                style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
+                <div className="text-sm font-bold text-[#F7F8FF]">Vérifications →</div>
+                <div className="text-xs text-[#A5ABC5] mt-1">Suivi public</div>
               </Link>
             </div>
           </section>
