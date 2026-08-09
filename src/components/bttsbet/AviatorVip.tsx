@@ -1,15 +1,15 @@
 'use client'
 
 import { useState, useMemo, useEffect } from 'react'
-// import { motion } from 'framer-motion' // removed for bundle size
+import { motion } from 'framer-motion'
 import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
 
 const C = {
-  bg: '#070A14', card: '#111827', border: 'rgba(247, 248, 255, 0.08)',
-  green: '#D4AF37', greenLight: '#D4AF37', gold: '#D4AF37', cyan: '#D4AF37', violet: '#D4AF37',
-  text: '#F1F5F9', textSec: '#94A3B8', textMute: '#94A3B8',
-  danger: '#D4AF37',
+  bg: '#070B18', card: '#0D1630', border: 'rgba(247, 248, 255, 0.08)',
+  green: '#5146F5', greenLight: '#5146F5', gold: '#5146F5', cyan: '#5146F5', violet: '#5146F5',
+  text: '#F7F8FF', textSec: '#A5ABC5', textMute: '#A5ABC5',
+  danger: '#5146F5',
 }
 
 function getHourlyServerSeed(): string {
@@ -71,7 +71,7 @@ function computeDailyStats() {
 }
 
 export default function AviatorVip() {
-  const ref = null as any
+  const [ref, isVisible] = useScrollAnimation()
   const [showModal, setShowModal] = useState(false)
   const [mounted, setMounted] = useState(false)
   const stats = useMemo(() => mounted ? computeDailyStats() : null, [mounted])
@@ -81,10 +81,13 @@ export default function AviatorVip() {
 
   return (
     <>
-      <section ref={ref} id="aviator" className="section-pad overflow-x-hidden" style={{ paddingTop: '16px', paddingBottom: '16px', backgroundColor: '#070A14' }}>
+      <section ref={ref} id="aviator" className="section-pad overflow-x-hidden" style={{ paddingTop: '16px', paddingBottom: '16px', backgroundColor: '#070B18' }}>
         <div className="max-w-[440px] sm:max-w-2xl mx-auto">
           {/* Compact card */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : undefined}
+            transition={{ duration: 0.4 }}
             className="rounded-[14px] overflow-hidden"
             style={{ backgroundColor: C.card, border: '1px solid ' + C.border, boxShadow: '0 4px 20px rgba(7, 11, 24,0.3)' }}
           >
@@ -98,7 +101,7 @@ export default function AviatorVip() {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.danger} strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-bold text-papier">Stats historiques Aviator (informatif, non prédictif)</h3>
+                  <h3 className="text-sm font-bold text-papier">Stats Aviator</h3>
                   <p className="text-[9px]" style={{ color: C.textMute }}>Provably Fair · SHA-256</p>
                 </div>
                 <div className="flex items-center gap-1 px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(81, 70, 245,0.1)' }}>
@@ -150,16 +153,16 @@ export default function AviatorVip() {
               <button
                 onClick={() => setShowModal(true)}
                 className="w-full mt-3 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-xs font-bold transition-all"
-                style={{ background: 'linear-gradient(135deg, #D4AF37, #D4AF37)', color: '#F1F5F9' }}
+                style={{ background: 'linear-gradient(135deg, #5146F5, #5146F5)', color: '#F7F8FF' }}
               >
-                🔒 Débloquer les Stats historiques Aviator (informatif, non prédictif) VIP
+                🔒 Débloquer les Stats Aviator VIP
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      <VipUnlockModal isOpen={showModal} onClose={() => setShowModal(false)} title="Débloque les Stats historiques Aviator (informatif, non prédictif) VIP" />
+      <VipUnlockModal isOpen={showModal} onClose={() => setShowModal(false)} title="Débloque les Stats Aviator VIP" />
     </>
   )
 }
