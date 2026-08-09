@@ -64,7 +64,7 @@ const VIP_TIERS = [
     level: 'VIP Elite',
     levelId: 'elite',
     deposit: '12 000 XOF',
-    color: '#5146F5',
+    color: '#D4AF37',
     benefits: [
       '30+ pronostics premium par jour',
       'Tous les sports + marchés spéciaux',
@@ -128,11 +128,11 @@ export default function VipPage() {
             </span>
             <h2
               className="text-2xl sm:text-3xl font-bold mb-3"
-              style={{ fontFamily: 'Poppins, sans-serif', color: '#F7F8FF' }}
+              style={{ fontFamily: 'Poppins, sans-serif', color: '#F1F5F9' }}
             >
-              Choisis ton <span style={{ color: '#5146F5' }}>niveau VIP</span>
+              Choisis ton <span style={{ color: '#D4AF37' }}>niveau VIP</span>
             </h2>
-            <p className="text-sm max-w-md mx-auto" style={{ color: '#A5ABC5' }}>
+            <p className="text-sm max-w-md mx-auto" style={{ color: '#94A3B8' }}>
               Choisis le niveau qui te correspond. Activation en moins de 30 minutes via WhatsApp après dépôt.
               Ou déblocage gratuit via code VISION221 / vision221 + dépôt 3 000 F ci-dessus.
             </p>
@@ -145,7 +145,7 @@ export default function VipPage() {
                 key={tier.levelId}
                 className="rounded-2xl p-5 relative flex flex-col"
                 style={{
-                  backgroundColor: '#0D1630',
+                  backgroundColor: '#111827',
                   border: `1.5px solid ${tier.color}33`,
                   boxShadow: `0 8px 30px ${tier.color}11`,
                 }}
@@ -159,7 +159,7 @@ export default function VipPage() {
                 </div>
 
                 {/* Dépôt */}
-                <p className="text-[11px] uppercase tracking-widest mb-1" style={{ color: '#6B7194' }}>
+                <p className="text-[11px] uppercase tracking-widest mb-1" style={{ color: '#64748B' }}>
                   Dépôt min.
                 </p>
                 <p
@@ -172,7 +172,7 @@ export default function VipPage() {
                 {/* Avantages */}
                 <ul className="space-y-2 mb-5 flex-1">
                   {tier.benefits.map((benefit, i) => (
-                    <li key={i} className="flex items-start gap-2 text-[12px] leading-relaxed" style={{ color: '#A5ABC5' }}>
+                    <li key={i} className="flex items-start gap-2 text-[12px] leading-relaxed" style={{ color: '#94A3B8' }}>
                       <span className="flex-shrink-0 mt-0.5" style={{ color: tier.color }}>✓</span>
                       <span>{benefit}</span>
                     </li>
@@ -185,7 +185,7 @@ export default function VipPage() {
                   className="block text-center py-2.5 rounded-[10px] font-bold text-[12px] transition-all"
                   style={{
                     backgroundColor: tier.color,
-                    color: '#070B18',
+                    color: '#070A14',
                     border: 'none',
                   }}
                 >
@@ -196,7 +196,7 @@ export default function VipPage() {
           </div>
 
           {/* Note de transparence */}
-          <p className="text-center text-[11px] mt-5 leading-relaxed" style={{ color: '#6B7194' }}>
+          <p className="text-center text-[11px] mt-5 leading-relaxed" style={{ color: '#64748B' }}>
             💡 Tous les niveaux sont débloqués manuellement après vérification de ton dépôt via WhatsApp.
             Aucun paiement direct à BTTSPredict — les dépôts se font chez le bookmaker partenaire (Linebet / 888Starz)
             avec le code promo VISION221 / vision221. Valable 30 jours. 18+ Jouer responsable.

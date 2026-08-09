@@ -7,14 +7,14 @@ import VipLevelModal, { type VipLevelId } from './VipLevelModal'
 /**
  * VipCardGlass — Carte VIP "Glassmorphism" ultra-moderne
  *
- * Style : Verre dépoli (translucidité + backdrop-filter blur) sur fond sombre #0D1630
- * Accents : Émeraude vif #5146F5 + Or Champagne #5146F5
+ * Style : Verre dépoli (translucidité + backdrop-filter blur) sur fond sombre #111827
+ * Accents : Émeraude vif #D4AF37 + Or Champagne #D4AF37
  * Bordure : Ligne fine lumineuse dégradée (1px)
  * Profondeur : Ombres portées 3D pour effet de flottement
  *
  * Structure :
  * 1. En-tête : Niveau VIP en Or Champagne (Poppins Bold) + Logo BTTSPredict
- * 2. Corps : Nom utilisateur (Blanc cassé #F7F8FF) + Liste avantages (Gris #A5ABC5) avec puces émeraude
+ * 2. Corps : Nom utilisateur (Blanc cassé #F1F5F9) + Liste avantages (Gris #94A3B8) avec puces émeraude
  * 3. Pied : Statut "Actif" discret
  */
 
@@ -65,7 +65,7 @@ export default function VipCardGlass({
         </div>
         <div className="vip-glass-logo">
           <div className="vip-glass-logo-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#070B18" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#070A14" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M3 3v18h18" />
               <path d="M7 14l4-4 4 4 5-5" />
             </svg>
@@ -164,10 +164,10 @@ export function VipCardGrid() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-3" style={{ color: '#F7F8FF', fontFamily: 'Poppins, sans-serif' }}>
-            Offres <span style={{ color: '#5146F5' }}>VIP</span>
+          <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-3" style={{ color: '#F1F5F9', fontFamily: 'Poppins, sans-serif' }}>
+            Offres <span style={{ color: '#D4AF37' }}>VIP</span>
           </h2>
-          <p className="text-sm max-w-md mx-auto" style={{ color: '#A5ABC5' }}>
+          <p className="text-sm max-w-md mx-auto" style={{ color: '#94A3B8' }}>
             Accès pronostics premium. Dépôt chez Linebet/888starz — BTTSPredict ne reçoit pas vos fonds.
           </p>
         </div>

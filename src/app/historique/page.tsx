@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function HistoriquePage() {
   return (
-    <div className="min-h-screen bg-[#070B18] flex flex-col text-[#F7F8FF]">
+    <div className="min-h-screen bg-[#070A14] flex flex-col text-[#F1F5F9]">
       <Navbar />
       <main id="main-content" className="flex-1">
         <h1 className="sr-only">Historique vérifié — BTTSPredict</h1>

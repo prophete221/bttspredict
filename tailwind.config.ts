@@ -88,10 +88,10 @@ const config: Config = {
         glass: '24px',
       },
       boxShadow: {
-        card: '0 1px 2px rgba(7, 11, 24, 0.3), 0 8px 32px rgba(7, 11, 24, 0.4)',
-        cta: '0 0 0 1px rgba(81, 70, 245, 0.35), 0 8px 32px rgba(81, 70, 245, 0.10)',
-        glass: '0 1px 0 rgba(247, 248, 255, 0.03) inset, 0 8px 32px rgba(7, 11, 24, 0.3)',
-        'hover-glow': '0 0 20px rgba(81, 70, 245, 0.3), 0 8px 32px rgba(7, 11, 24, 0.5)',
+        card: '0 1px 2px rgba(7, 10, 20, 0.3), 0 8px 32px rgba(7, 10, 20, 0.4)',
+        cta: '0 0 0 1px rgba(212, 175, 55, 0.35), 0 8px 32px rgba(212, 175, 55, 0.10)',
+        glass: '0 1px 0 rgba(241, 245, 249, 0.03) inset, 0 8px 32px rgba(7, 10, 20, 0.3)',
+        'hover-glow': '0 0 20px rgba(212, 175, 55, 0.3), 0 8px 32px rgba(7, 10, 20, 0.5)',
       },
       transitionDuration: {
         DEFAULT: '200ms',

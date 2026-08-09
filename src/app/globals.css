@@ -17,58 +17,58 @@
   /* ═══ ECLIPSE v60 — "Data platform, not affiliation site" ═══ */
   /* Inspired by Stripe / Linear / FBRef design language */
 
-  /* — Fonds (5 niveaux) — */
-  --color-bg-main: #070B18;            /* Obsidienne — fond principal */
-  --color-bg-secondary: #0D1630;       /* Bleu Système — sections */
-  --color-bg-tertiary: #171A38;        /* Prune Nocturne — panels */
-  --color-card: #1E2340;               /* Card surface standard */
-  --color-card-hover: #24205A;         /* Card surface hover/sélection */
-  --color-border: #303861;             /* Border subtile */
-  --color-border-strong: #3E4A7A;      /* Border visible / focus */
+  /* — Fonds (5 niveaux) — v68 OR & ÉMERAUDE — */
+  --color-bg-main: #070A14;            /* Fond principal — noir bleuté profond */
+  --color-bg-secondary: #111827;       /* Sections — slate foncé */
+  --color-bg-tertiary: #1E293B;        /* Panels — slate medium */
+  --color-card: #111827;               /* Card surface standard */
+  --color-card-hover: #1E293B;         /* Card surface hover/sélection */
+  --color-border: #1F2937;             /* Border subtile */
+  --color-border-strong: #334155;      /* Border visible / focus */
 
   /* — Texte (3 niveaux) — */
-  --color-text-primary: #F7F8FF;      /* Blanc Lunaire — titres, chiffres */
-  --color-text-secondary: #A5ABC5;     /* Gris Lavande — labels, descriptions */
-  --color-text-tertiary: #6B7194;      /* Gris profond — muted, disabled */
+  --color-text-primary: #F1F5F9;      /* Titres, chiffres — slate-100 */
+  --color-text-secondary: #94A3B8;     /* Labels, descriptions — slate-400 */
+  --color-text-tertiary: #64748B;      /* Muted, disabled — slate-500 */
 
   /* — Surfaces — */
-  --color-surface-card: #141C35;
-  --color-surface-card-hover: #182242;
-  --color-surface-premium: #171C33;
+  --color-surface-card: #111827;
+  --color-surface-card-hover: #1E293B;
+  --color-surface-premium: #1E293B;
 
   /* — Borders — */
-  --color-border-default: #2B365E;
-  --color-border-hover: #3A4673;
+  --color-border-default: #1F2937;
+  --color-border-hover: #334155;
 
-  /* — Action (1 CTA primaire par viewport) — */
-  --color-action-primary: #5146F5;
-  --color-action-primary-hover: #6258FF;
-  --color-action-primary-text: #F7F8FF;
+  /* — Action (1 CTA primaire par viewport) — v68: OR #D4AF37 — */
+  --color-action-primary: #D4AF37;
+  --color-action-primary-hover: #B7952E;
+  --color-action-primary-text: #070A14;
   --color-action-secondary-bg: transparent;
-  --color-action-secondary-border: #3A4673;
-  --color-action-secondary-text: #A5ABC5;
+  --color-action-secondary-border: #D4AF37;
+  --color-action-secondary-text: #94A3B8;
 
-  /* — Market colors (badges/graphiques uniquement, jamais CTA) — */
-  --color-market-btts: #7C3AED;
-  --color-market-btts-muted: rgba(124, 58, 237, 0.14);
-  --color-market-over: #46DDB4;           /* assombri de #5DFDCB */
-  --color-market-over-muted: rgba(70, 221, 180, 0.14);
-  --color-market-over-border: rgba(70, 221, 180, 0.32);
+  /* — Market colors (badges/graphiques uniquement) — v68: ÉMERAUDE #10B981 — */
+  --color-market-btts: #10B981;
+  --color-market-btts-muted: rgba(16, 185, 129, 0.14);
+  --color-market-over: #10B981;
+  --color-market-over-muted: rgba(16, 185, 129, 0.14);
+  --color-market-over-border: rgba(16, 185, 129, 0.32);
 
-  /* — VIP (or mat, pas de gradient/glow) — */
-  --color-vip-accent: #D9A441;           /* or mat, pas casino */
-  --color-vip-accent-muted: rgba(217, 164, 65, 0.10);
-  --color-vip-border: rgba(217, 164, 65, 0.42);
+  /* — VIP (or mat) — */
+  --color-vip-accent: #D4AF37;
+  --color-vip-accent-muted: rgba(212, 175, 55, 0.10);
+  --color-vip-border: rgba(212, 175, 55, 0.42);
   --color-vip-gradient: none;
 
-  /* — Trust — */
-  --color-trust-accent: #8BCFF5;         /* assombri de #B9E7FF */
-  --color-trust-bg: rgba(139, 207, 245, 0.08);
-  --color-trust-border: rgba(139, 207, 245, 0.22);
+  /* — Trust — v68: Émeraude clair — */
+  --color-trust-accent: #10B981;
+  --color-trust-bg: rgba(16, 185, 129, 0.08);
+  --color-trust-border: rgba(16, 185, 129, 0.22);
 
   /* — Statut (capsules compactes uniquement) — */
-  --color-success-muted: #7FD65A;
-  --color-error: #FF7185;
+  --color-success-muted: #10B981;
+  --color-error: #EF4444;
 
   /* — Legacy aliases (compatibilité) — */
   --color-brand-indigo: var(--color-action-primary);
@@ -89,19 +89,19 @@
   --radius-card: 16px;
   --radius-control: 10px;
 
-  /* — Hover states — */
-  --color-cta-hover: #6B61FF;
-  --color-cta-active: #4338D4;
-  --color-trust-hover: #B9E7FF;
-  --color-stats-hover: #5146F5;
-  --color-vip-hover: #FFD687;
-  --color-success-hover: #A8E063;
-  --color-error-hover: #FF7185;
-  --color-border-hover: #5146F5;       /* Hover border → indigo (per spec) */
+  /* — Hover states — v68 OR & ÉMERAUDE — */
+  --color-cta-hover: #B7952E;
+  --color-cta-active: #92702A;
+  --color-trust-hover: #059669;
+  --color-stats-hover: #B7952E;
+  --color-vip-hover: #F5D674;
+  --color-success-hover: #34D399;
+  --color-error-hover: #F87171;
+  --color-border-hover: #D4AF37;       /* Hover border → or */
 
   /* — Glassmorphism — */
-  --color-glass: rgba(247, 248, 255, 0.08);
-  --color-glass-border: rgba(247, 248, 255, 0.12);
+  --color-glass: rgba(241, 245, 249, 0.08);
+  --color-glass-border: rgba(241, 245, 249, 0.12);
 
   /* ═══ Aliases mappés sur ECLIPSE v60 ═══ */
   --color-abyss: var(--color-bg-main);
@@ -129,31 +129,31 @@
   --color-primary: var(--color-cta);
   --color-primary-dark: var(--color-cta-active);
   --color-primary-light: var(--color-cta-hover);
-  --color-primary-glow: rgba(81, 70, 245, 0.3);
-  --color-primary-pale: rgba(81, 70, 245, 0.10);
+  --color-primary-glow: rgba(212, 175, 55, 0.3);
+  --color-primary-pale: rgba(212, 175, 55, 0.10);
 
   --color-secondary: var(--color-trust);
   --color-secondary-dark: var(--color-trust-hover);
   --color-secondary-light: var(--color-trust);
-  --color-secondary-glow: rgba(185, 231, 255, 0.2);
+  --color-secondary-glow: rgba(16, 185, 129, 0.2);
 
   --color-success-dark: var(--color-success-hover);
   --color-success-light: var(--color-success);
-  --color-success-pale: rgba(168, 224, 99, 0.10);
+  --color-success-pale: rgba(16, 185, 129, 0.10);
 
   --color-warning: var(--color-vip);
-  --color-warning-pale: rgba(255, 200, 87, 0.10);
-  --color-vip-glow: rgba(255, 200, 87, 0.2);
+  --color-warning-pale: rgba(212, 175, 55, 0.10);
+  --color-vip-glow: rgba(212, 175, 55, 0.2);
 
   --color-danger: var(--color-error);
   --color-danger-light: var(--color-error-hover);
-  --color-danger-pale: rgba(255, 113, 133, 0.10);
+  --color-danger-pale: rgba(239, 68, 68, 0.10);
 
   --color-accent-light: var(--color-trust-hover);
-  --color-accent-glow: rgba(185, 231, 255, 0.2);
+  --color-accent-glow: rgba(16, 185, 129, 0.2);
 
   --color-neon: var(--color-cta);
-  --color-neon-glow: rgba(81, 70, 245, 0.3);
+  --color-neon-glow: rgba(212, 175, 55, 0.3);
   --color-neon-green: var(--color-success);
   --color-emerald: var(--color-success);
   --color-emerald-soft: var(--color-success);
@@ -162,7 +162,7 @@
   --color-panel: var(--color-bg-secondary);
   --color-rose: var(--color-error);
   --color-linebet: var(--color-cta);
-  --color-star888: var(--color-cta);
+  --color-star888: #10B981;
   --color-gold: var(--color-vip);
   --color-gold-light: var(--color-vip-hover);
   --color-lose: var(--color-error);
@@ -172,65 +172,65 @@
   --color-text-on-dark: var(--color-text-primary);
   --color-text-on-dark-secondary: var(--color-text-secondary);
 
-  /* — Gradients premium (réservés hero, VIP, CTA importants) — */
-  --grad-primary: linear-gradient(135deg, #5146F5 0%, #24205A 100%);
-  --grad-premium: linear-gradient(135deg, #FFC857 0%, #FF8A00 100%);
-  --grad-brand-split: linear-gradient(90deg, #5146F5 0%, #5146F5 50%, #5DFDCB 50%, #5DFDCB 100%);
-  --grad-bg: radial-gradient(circle at top right, rgba(81, 70, 245, 0.18), transparent 38%), #070B18;
-  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(81, 70, 245,0.06) 0%, transparent 60%),
-               radial-gradient(50% 50% at 85% 10%, rgba(93, 253, 203, 0.04) 0%, transparent 60%);
+  /* — Gradients premium v68 OR & ÉMERAUDE — */
+  --grad-primary: linear-gradient(135deg, #D4AF37 0%, #B7952E 100%);
+  --grad-premium: linear-gradient(135deg, #D4AF37 0%, #FF8A00 100%);
+  --grad-brand-split: linear-gradient(90deg, #D4AF37 0%, #D4AF37 50%, #10B981 50%, #10B981 100%);
+  --grad-bg: radial-gradient(circle at top right, rgba(212, 175, 55, 0.12), transparent 38%), #070A14;
+  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(212, 175, 55, 0.04) 0%, transparent 60%),
+               radial-gradient(50% 50% at 85% 10%, rgba(16, 185, 129, 0.04) 0%, transparent 60%);
 
   --font-display: 'Poppins', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* — Shadows (style Linear / Stripe) — */
-  --shadow-card: 0 1px 2px rgba(7, 11, 24, 0.3), 0 8px 32px rgba(7, 11, 24, 0.4);
-  --shadow-cta: 0 0 0 1px rgba(81, 70, 245, 0.35), 0 8px 32px rgba(81, 70, 245, 0.10);
-  --shadow-glass: 0 1px 0 rgba(247, 248, 255, 0.03) inset, 0 8px 32px rgba(7, 11, 24, 0.3);
-  --shadow-hover-glow: 0 0 20px rgba(81, 70, 245, 0.3), 0 8px 32px rgba(7, 11, 24, 0.5);
+  /* — Shadows (v68 OR & ÉMERAUDE) — */
+  --shadow-card: 0 1px 2px rgba(7, 10, 20, 0.3), 0 8px 32px rgba(7, 10, 20, 0.4);
+  --shadow-cta: 0 0 0 1px rgba(212, 175, 55, 0.35), 0 8px 32px rgba(212, 175, 55, 0.10);
+  --shadow-glass: 0 1px 0 rgba(241, 245, 249, 0.03) inset, 0 8px 32px rgba(7, 10, 20, 0.3);
+  --shadow-hover-glow: 0 0 20px rgba(212, 175, 55, 0.3), 0 8px 32px rgba(7, 10, 20, 0.5);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
    :root — ECLIPSE v60 TOKENS (variables canoniques)
    ════════════════════════════════════════════════════════════════════════════ */
 :root {
-  /* Fonds */
-  --bg-main: #070B18;
-  --bg-secondary: #0D1630;
-  --bg-tertiary: #171A38;
-  --card: #1E2340;
-  --card-hover: #24205A;
-  --border: #303861;
-  --border-strong: #3E4A7A;
+  /* Fonds — v68 OR & ÉMERAUDE */
+  --bg-main: #070A14;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1E293B;
+  --card: #111827;
+  --card-hover: #1E293B;
+  --border: #1F2937;
+  --border-strong: #334155;
 
   /* Texte */
-  --text-primary: #F7F8FF;
-  --text-secondary: #A5ABC5;
-  --text-tertiary: #6B7194;
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-tertiary: #64748B;
 
-  /* Action */
-  --action-primary: #5146F5;
-  --action-primary-hover: #6258FF;
-  --action-primary-text: #F7F8FF;
-  --action-secondary-border: #3A4673;
-  --action-secondary-text: #A5ABC5;
-  /* Market */
-  --market-btts: #7C3AED;
-  --market-over: #46DDB4;
+  /* Action — v68: OR #D4AF37 */
+  --action-primary: #D4AF37;
+  --action-primary-hover: #B7952E;
+  --action-primary-text: #070A14;
+  --action-secondary-border: #D4AF37;
+  --action-secondary-text: #94A3B8;
+  /* Market — v68: ÉMERAUDE #10B981 */
+  --market-btts: #10B981;
+  --market-over: #10B981;
   /* VIP */
-  --vip-accent: #D9A441;
+  --vip-accent: #D4AF37;
   /* Trust */
-  --trust-accent: #8BCFF5;
+  --trust-accent: #10B981;
   /* Statut */
-  --success-muted: #7FD65A;
-  --error: #FF7185;
+  --success-muted: #10B981;
+  --error: #EF4444;
   /* Surfaces */
-  --surface-card: #141C35;
-  --surface-card-hover: #182242;
-  --surface-premium: #171C33;
-  --border-default: #2B365E;
-  --border-hover: #3A4673;
+  --surface-card: #111827;
+  --surface-card-hover: #1E293B;
+  --surface-premium: #1E293B;
+  --border-default: #1F2937;
+  --border-hover: #334155;
   /* Legacy */
   --brand-indigo: var(--action-primary);
   --brand-violet: var(--market-btts);
@@ -241,29 +241,63 @@
   --trust: var(--trust-accent);
   --vip: var(--vip-accent);
   --success: var(--success-muted);
-  --glass: rgba(247, 248, 255, 0.08);
-  --glass-border: rgba(247, 248, 255, 0.12);
+  --glass: rgba(241, 245, 249, 0.08);
+  --glass-border: rgba(241, 245, 249, 0.12);
 
-  /* Glassmorphism */
-  --glass: rgba(247, 248, 255, 0.08);
-  --glass-border: rgba(247, 248, 255, 0.12);
+  /* Hover states — v68 */
+  --cta-hover: #B7952E;
+  --cta-active: #92702A;
+  --trust-hover: #059669;
+  --stats-hover: #B7952E;
+  --vip-hover: #F5D674;
+  --success-hover: #34D399;
+  --error-hover: #F87171;
+  --border-hover: #D4AF37;
+}
 
-  /* Hover states */
-  --cta-hover: #6B61FF;
-  --cta-active: #4338D4;
-  --trust-hover: #B9E7FF;
-  --stats-hover: #5146F5;
-  --vip-hover: #FFD687;
-  --success-hover: #A8E063;
-  --error-hover: #FF7185;
-  --border-hover: #5146F5;
+/* ════════════════════════════════════════════════════════════════════════════
+   v68 OR & ÉMERAUDE — Utility classes
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Bouton Or — dégradé #D4AF37 → #B7952E, texte noir */
+.btn-gold {
+  background: linear-gradient(135deg, #D4AF37, #B7952E);
+  color: #070A14;
+  font-weight: 700;
+  border: none;
+  transition: all 200ms ease;
+}
+.btn-gold:hover {
+  background: linear-gradient(135deg, #E0BC42, #C4A033);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Badge Émeraude — fond #10B981, texte noir */
+.badge-emeraude {
+  background: #10B981;
+  color: #070A14;
+  font-weight: 700;
+  border: none;
+}
+
+/* Bouton Or outline — bordure or, texte clair */
+.btn-gold-outline {
+  background: transparent;
+  color: #F1F5F9;
+  border: 1.5px solid #D4AF37;
+  font-weight: 700;
+  transition: all 200ms ease;
+}
+.btn-gold-outline:hover {
+  background: rgba(212, 175, 55, 0.08);
+  border-color: #D4AF37;
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
    HOVER / ACTIVE / FOCUS STATES (Step 4 — MANDATORY)
    ════════════════════════════════════════════════════════════════════════════ */
 
-/* CTA Hover: bg #6B61FF (Indigo brighter), text #F7F8FF, transition 200ms ease */
+/* CTA Hover: bg #B7952E (Indigo brighter), text #F1F5F9, transition 200ms ease */
 .vip-glass-cta:hover,
 .btn-primary:hover,
 .btn-vip:hover,
@@ -277,7 +311,7 @@ button[type="submit"]:hover,
   transition: background-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
 }
 
-/* CTA Active: bg #4338D4 (Indigo darker) */
+/* CTA Active: bg #92702A (Indigo darker) */
 .vip-glass-cta:active,
 .btn-primary:active,
 .btn-vip:active,
@@ -322,7 +356,7 @@ a:hover,
   transition: background-color 200ms ease;
 }
 
-/* Card Hover: border-color #303861 */
+/* Card Hover: border-color #1F2937 */
 .card:hover,
 .container:hover,
 .panel:hover,
@@ -349,12 +383,12 @@ html {
 }
 
 body {
-  background: #070B18;
+  background: #070A14;
   background-image:
     radial-gradient(ellipse 80% 50% at 50% -20%, rgba(81, 70, 245, 0.04) 0%, transparent 50%),
     radial-gradient(ellipse 60% 40% at 80% 0%, rgba(81, 70, 245, 0.02) 0%, transparent 40%);
   background-attachment: fixed;
-  color: #F7F8FF;
+  color: #F1F5F9;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
@@ -1104,7 +1138,7 @@ a:hover { color: var(--color-primary-light); }
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: linear-gradient(135deg, #5146F5, #5146F5);
+  background: linear-gradient(135deg, #D4AF37, #D4AF37);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1115,7 +1149,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
-  color: #F7F8FF;
+  color: #F1F5F9;
 }
 
 /* Corps carte : utilisateur + avantages */
@@ -1128,7 +1162,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  color: #F7F8FF;
+  color: #F1F5F9;
   margin-bottom: 1rem;
 }
 
@@ -1147,7 +1181,7 @@ a:hover { color: var(--color-primary-light); }
   gap: 0.625rem;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.8125rem;
-  color: #A5ABC5;
+  color: #94A3B8;
   line-height: 1.5;
 }
 
@@ -1158,7 +1192,7 @@ a:hover { color: var(--color-primary-light); }
   height: 6px;
   margin-top: 6px;
   border-radius: 50%;
-  background: #5146F5;
+  background: #D4AF37;
   box-shadow: 0 0 8px rgba(81, 70, 245, 0.6);
 }
 
@@ -1181,7 +1215,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.6875rem;
   font-weight: 600;
-  color: #5146F5;
+  color: #D4AF37;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -1191,7 +1225,7 @@ a:hover { color: var(--color-primary-light); }
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #5146F5;
+  background: #D4AF37;
   box-shadow: 0 0 8px rgba(81, 70, 245, 0.8);
   animation: vip-pulse 2s ease-in-out infinite;
 }
@@ -1204,7 +1238,7 @@ a:hover { color: var(--color-primary-light); }
 .vip-glass-meta {
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.6875rem;
-  color: #303861;
+  color: #1F2937;
 }
 
 /* CTA carte VIP glassmorphism */
@@ -1216,8 +1250,8 @@ a:hover { color: var(--color-primary-light); }
   width: 100%;
   padding: 0.75rem 1.25rem;
   margin-top: 1.25rem;
-  background: linear-gradient(135deg, #5146F5 0%, #24205A 100%);
-  color: #F7F8FF;
+  background: linear-gradient(135deg, #D4AF37 0%, #1E293B 100%);
+  color: #F1F5F9;
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
@@ -1233,8 +1267,8 @@ a:hover { color: var(--color-primary-light); }
 .vip-glass-cta:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(81, 70, 245, 0.5);
-  background: linear-gradient(135deg, #6B61FF 0%, #5146F5 100%);
-  border-color: #6B61FF;
+  background: linear-gradient(135deg, #B7952E 0%, #D4AF37 100%);
+  border-color: #B7952E;
 }
 
 .vip-glass-cta:active {
@@ -1258,7 +1292,7 @@ a:hover { color: var(--color-primary-light); }
 
 /* Silver — Brume Bleutée sobre */
 .vip-glass-card.silver .vip-glass-level {
-  color: #A5ABC5;
+  color: #94A3B8;
   text-shadow: 0 0 16px rgba(165, 171, 197, 0.3);
 }
 
@@ -1302,7 +1336,7 @@ a:hover { color: var(--color-primary-light); }
 
 /* ═══ Focus visible — accessibility ═══ */
 *:focus-visible {
-  outline: 2px solid #5146F5;
+  outline: 2px solid #D4AF37;
   outline-offset: 2px;
   border-radius: 4px;
 }
