@@ -98,7 +98,7 @@ function PredictionCard({ pred }: { pred: Prediction }) {
   const isBTTS = pred.type === 'BTTS'
   const proba = isBTTS ? pred.analysis?.bttsProb ?? pred.confidence / 100 : pred.analysis?.over25Prob ?? pred.confidence / 100
   const probaPercent = Math.round(proba * 1000) / 10 // 1 décimale
-  const probaColor = isBTTS ? '#7C3AED' : '#46DDB4' // assombri cyan #5DFDCB → #46DDB4
+  const probaColor = isBTTS ? '#10B981' : '#10B981' // assombri cyan #10B981 → #10B981
   const isLive = false // could be derived from time vs now
 
   // data-ai-answer: 2 phrases que Perplexity/ChatGPT vont scraper
@@ -225,7 +225,7 @@ function TeamLogoMini({ src, alt }: { src?: string; alt: string }) {
     return (
       <span
         className="w-5 h-5 flex items-center justify-center text-[8px] font-bold rounded flex-shrink-0"
-        style={{ backgroundColor: '#1E2340', color: '#A5ABC5' }}
+        style={{ backgroundColor: '#111827', color: '#94A3B8' }}
         aria-label={alt}
         title={alt}
       >

@@ -99,7 +99,7 @@ export default function HowToGetVip() {
             style={{
               background: 'rgba(81, 70, 245, 0.06)',
               border: '1px solid rgba(81, 70, 245, 0.20)',
-              color: '#5146F5',
+              color: '#D4AF37',
             }}
           >
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -125,8 +125,8 @@ export default function HowToGetVip() {
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg"
                   style={{
-                    background: 'linear-gradient(135deg, #5146F5, #5146F5)',
-                    color: '#070B18',
+                    background: 'linear-gradient(135deg, #D4AF37, #D4AF37)',
+                    color: '#070A14',
                   }}
                 >
                   {step.num}
@@ -136,7 +136,7 @@ export default function HowToGetVip() {
               {/* Contenu */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
-                  <span style={{ color: '#5146F5' }}>{step.icon}</span>
+                  <span style={{ color: '#D4AF37' }}>{step.icon}</span>
                   <h3 className="text-papier font-bold text-sm sm:text-base">{step.title}</h3>
                 </div>
                 <p className="text-cendre text-xs sm:text-sm leading-relaxed">{step.desc}</p>
@@ -148,9 +148,9 @@ export default function HowToGetVip() {
                     className="inline-flex items-center gap-1.5 mt-2 px-3 py-1.5 rounded-lg text-xs font-bold transition-all"
                     style={{
                       background: step.cta.color === 'emerald'
-                        ? 'linear-gradient(135deg, #5146F5, #A8E063)'
-                        : '#5146F5',
-                      color: '#070B18',
+                        ? 'linear-gradient(135deg, #D4AF37, #A8E063)'
+                        : '#D4AF37',
+                      color: '#070A14',
                     }}
                   >
                     {step.cta.label} →
@@ -181,8 +181,8 @@ export default function HowToGetVip() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-all"
             style={{
-              background: 'linear-gradient(135deg, #5146F5, #5146F5)',
-              color: '#070B18',
+              background: 'linear-gradient(135deg, #D4AF37, #D4AF37)',
+              color: '#070A14',
               boxShadow: '0 4px 20px rgba(81, 70, 245, 0.3)',
             }}
           >
@@ -201,7 +201,7 @@ export default function HowToGetVip() {
               <div
                 key={i}
                 className="rounded-lg overflow-hidden"
-                style={{ background: 'rgba(13, 22, 48, 0.6)', border: '1px solid #0D1630' }}
+                style={{ background: 'rgba(13, 22, 48, 0.6)', border: '1px solid #111827' }}
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
@@ -212,7 +212,7 @@ export default function HowToGetVip() {
                     className="flex-shrink-0 transition-transform"
                     style={{
                       transform: openFaq === i ? 'rotate(180deg)' : 'none',
-                      color: '#5146F5',
+                      color: '#D4AF37',
                     }}
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">

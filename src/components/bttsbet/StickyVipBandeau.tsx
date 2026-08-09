@@ -48,7 +48,7 @@ export default function StickyVipBandeau() {
             style={{
               borderColor: 'rgba(81, 70, 245, 0.35)',
               background: 'linear-gradient(135deg, rgba(81, 70, 245, 0.12) 0%, rgba(7, 11, 24, 0.85) 50%, rgba(81, 70, 245, 0.08) 100%)',
-              boxShadow: '0 12px 32px rgba(7, 11, 24, 0.4), 0 0 60px rgba(81, 70, 245, 0.15), inset 0 1px 0 #A5ABC5',
+              boxShadow: '0 12px 32px rgba(7, 11, 24, 0.4), 0 0 60px rgba(81, 70, 245, 0.15), inset 0 1px 0 #94A3B8',
             }}
           >
             {/* Top shimmer line */}
@@ -59,7 +59,7 @@ export default function StickyVipBandeau() {
               <div className="flex items-center gap-3">
                 {/* Crown icon with glow */}
                 <div className="relative w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center flex-shrink-0">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#5146F5" stroke="#5146F5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z" />
                   </svg>
                   <motion.div
@@ -128,7 +128,7 @@ export default function StickyVipBandeau() {
                 {/* CTA */}
                 <button
                   onClick={handleCta}
-                  className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 btn-gold cta-glow text-[#0D1630] text-xs sm:text-sm font-bold rounded-lg whitespace-nowrap"
+                  className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 btn-gold cta-glow text-[#111827] text-xs sm:text-sm font-bold rounded-lg whitespace-nowrap"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />

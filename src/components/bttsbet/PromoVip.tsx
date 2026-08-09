@@ -9,16 +9,16 @@ import VipUnlockModal from './VipUnlockModal'
 
 // ─── Palette ────────────────────────────────────────────────────────────
 const C = {
-  bg:       '#070B18',
-  card:     '#0D1630',
-  elevated: '#0D1630',
-  border:   '#A5ABC5',
-  neon:     '#5146F5',
+  bg:       '#070A14',
+  card:     '#111827',
+  elevated: '#111827',
+  border:   '#94A3B8',
+  neon:     '#D4AF37',
   neonDk:   '#A8E063',
-  gold:     '#5146F5',
-  text:     '#F7F8FF',
-  textSec:  '#5146F5',
-  textMute: '#A5ABC5',
+  gold:     '#D4AF37',
+  text:     '#F1F5F9',
+  textSec:  '#D4AF37',
+  textMute: '#94A3B8',
 }
 
 // ─── Deterministic daily cote ────────────────────────────────────────────
@@ -131,7 +131,7 @@ export default function PromoVip() {
             transition={{ duration: 0.4, delay: 0.1 }}
             className="flex items-center justify-center gap-2 mb-4"
           >
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: '#0D1630', border: '1px solid rgba(247, 248, 255, 0.08)' }}>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: '#111827', border: '1px solid rgba(247, 248, 255, 0.08)' }}>
               <span className="font-mono text-[14px] font-bold text-papier" ref={matchCountRef}>{matchCountDisplay}</span>
               <span className="text-[9px] uppercase tracking-widest" style={{ color: C.textMute }}>matchs</span>
             </div>
@@ -139,7 +139,7 @@ export default function PromoVip() {
               <span className="font-mono text-[14px] font-bold" style={{ color: C.neon }}>voir /historique</span>
               <span className="text-[9px] uppercase tracking-widest" style={{ color: C.textMute }}>précision</span>
             </div>
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: '#0D1630', border: '1px solid rgba(247, 248, 255, 0.08)' }}>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-[10px]" style={{ background: '#111827', border: '1px solid rgba(247, 248, 255, 0.08)' }}>
               <span className="font-mono text-[14px] font-bold text-papier">7</span>
               <span className="text-[9px] uppercase tracking-widest" style={{ color: C.textMute }}>série jours</span>
             </div>
@@ -151,7 +151,7 @@ export default function PromoVip() {
             animate={isVisible ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="rounded-[16px] overflow-hidden"
-          style={{ backgroundColor: '#0D1630', border: '1px solid rgba(247, 248, 255, 0.08)', boxShadow: '0 8px 30px rgba(7, 11, 24,0.4)' }}
+          style={{ backgroundColor: '#111827', border: '1px solid rgba(247, 248, 255, 0.08)', boxShadow: '0 8px 30px rgba(7, 11, 24,0.4)' }}
             style={{ boxShadow: '0 8px 30px rgba(7, 11, 24,0.4)' }}
           >
             {/* Top accent line */}
@@ -206,8 +206,8 @@ export default function PromoVip() {
                     whileTap={{ scale: 0.97 }}
                     className="flex items-center gap-2 px-5 py-2.5 rounded-[12px] font-bold text-[13px]"
                     style={{
-                      background: 'linear-gradient(135deg, #5146F5 0%, #A8E063 100%)',
-                      color: '#070B18',
+                      background: 'linear-gradient(135deg, #D4AF37 0%, #A8E063 100%)',
+                      color: '#070A14',
                       boxShadow: '0 4px 20px rgba(81, 70, 245,0.3)',
                     }}
                     data-cta="vip-unlock"
@@ -225,7 +225,7 @@ export default function PromoVip() {
             </div>
 
             {/* Cote totale bar */}
-            <div className="px-3 py-2.5 flex items-center justify-between border-t" style={{ borderColor: '#0D1630' }}>
+            <div className="px-3 py-2.5 flex items-center justify-between border-t" style={{ borderColor: '#111827' }}>
               <span className="text-[10px] uppercase tracking-widest font-bold" style={{ color: C.textMute }}>Cote totale</span>
               <span className="font-mono text-[16px] font-bold" style={{ color: C.neon }}>VIP</span>
             </div>
@@ -237,7 +237,7 @@ export default function PromoVip() {
             animate={isVisible ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.4, delay: 0.4 }}
             className="mt-3 flex items-center justify-between gap-3 px-4 py-3 rounded-[14px]"
-          style={{ backgroundColor: '#0D1630', border: '1px solid rgba(247, 248, 255, 0.08)' }}
+          style={{ backgroundColor: '#111827', border: '1px solid rgba(247, 248, 255, 0.08)' }}
           >
             <div>
               <div className="text-[10px] uppercase tracking-widest font-bold" style={{ color: C.textMute }}>Code promo</div>

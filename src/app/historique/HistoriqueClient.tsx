@@ -81,8 +81,8 @@ export default function HistoriqueClient() {
   if (loading) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-20 text-center">
-        <div className="inline-block w-10 h-10 border-2 border-[#303861] border-t-[#5146F5] rounded-full animate-spin mb-4" aria-hidden="true" />
-        <p className="text-sm text-[#A5ABC5]">Chargement de l'historique vérifié…</p>
+        <div className="inline-block w-10 h-10 border-2 border-[#1F2937] border-t-[#D4AF37] rounded-full animate-spin mb-4" aria-hidden="true" />
+        <p className="text-sm text-[#94A3B8]">Chargement de l'historique vérifié…</p>
       </div>
     )
   }
@@ -90,11 +90,11 @@ export default function HistoriqueClient() {
   if (error) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-20 text-center">
-        <p className="text-sm text-[#FF7185] mb-3">Erreur de récupération des données</p>
-        <p className="text-xs text-[#6B7194]">{error}</p>
+        <p className="text-sm text-[#EF4444] mb-3">Erreur de récupération des données</p>
+        <p className="text-xs text-[#64748B]">{error}</p>
         <button onClick={() => window.location.reload()}
           className="mt-4 px-4 py-2 rounded-[10px] text-sm font-bold"
-          style={{ backgroundColor: '#5146F5', color: '#F7F8FF' }}>
+          style={{ backgroundColor: '#D4AF37', color: '#F1F5F9' }}>
           Réessayer
         </button>
       </div>
@@ -112,13 +112,13 @@ export default function HistoriqueClient() {
       <section className="max-w-4xl mx-auto px-4 pt-12 pb-8 sm:pt-16">
         <div className="text-center mb-6">
           <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
-            style={{ backgroundColor: 'rgba(81, 70, 245, 0.12)', color: '#5146F5', border: '1px solid rgba(81, 70, 245, 0.25)' }}>
+            style={{ backgroundColor: 'rgba(81, 70, 245, 0.12)', color: '#D4AF37', border: '1px solid rgba(81, 70, 245, 0.25)' }}>
             Nouveau suivi public
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Historique vérifié
           </h1>
-          <p className="text-base text-[#A5ABC5] leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base text-[#94A3B8] leading-relaxed max-w-2xl mx-auto">
             BTTSPredict lance une nouvelle période de suivi vérifié. Chaque pronostic publié est enregistré, horodaté et évalué après le résultat officiel du match. Les performances seront publiées progressivement, sans modification rétroactive.
           </p>
         </div>
@@ -126,10 +126,10 @@ export default function HistoriqueClient() {
         {/* Disclaimer : période de lancement — version crédible */}
         {insufficient && (
           <div className="p-4 rounded-xl mb-6" style={{ backgroundColor: 'rgba(81, 70, 245, 0.06)', border: '1px solid rgba(81, 70, 245, 0.2)' }}>
-            <p className="text-sm text-[#5146F5] leading-relaxed mb-2 font-bold">
+            <p className="text-sm text-[#D4AF37] leading-relaxed mb-2 font-bold">
               Nouvelle période de suivi publique
             </p>
-            <p className="text-xs text-[#A5ABC5] leading-relaxed">
+            <p className="text-xs text-[#94A3B8] leading-relaxed">
               Suivi public lancé le {trackingPeriod.startDate}. Chaque pronostic est enregistré, horodaté et vérifié après le résultat officiel du match. Les performances sont publiées progressivement, sans modification rétroactive. Aucun résultat futur n'est garanti.
             </p>
           </div>
@@ -151,17 +151,17 @@ export default function HistoriqueClient() {
             { label: 'Date de lancement', value: trackingPeriod.startDate, isText: true },
           ].map((card, i) => (
             <div key={i} className="p-4 rounded-xl text-center"
-              style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
-              <div className={card.isText ? "text-sm font-bold text-[#5DFDCB] mb-1" : "text-2xl font-bold text-[#F7F8FF] mb-1"}>
+              style={{ backgroundColor: '#111827', border: '1px solid #1F2937' }}>
+              <div className={card.isText ? "text-sm font-bold text-[#10B981] mb-1" : "text-2xl font-bold text-[#F1F5F9] mb-1"}>
                 {card.value}
               </div>
-              <div className="text-[10px] sm:text-[11px] uppercase tracking-wider text-[#6B7194] font-bold">
+              <div className="text-[10px] sm:text-[11px] uppercase tracking-wider text-[#64748B] font-bold">
                 {card.label}
               </div>
             </div>
           ))}
         </div>
-        <p className="text-xs text-[#6B7194] text-center mt-4 leading-relaxed">
+        <p className="text-xs text-[#64748B] text-center mt-4 leading-relaxed">
           Dernière mise à jour : {new Date(data.generatedAt).toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' })}
           {stats.period.from && ` · Période : ${stats.period.from} → ${stats.period.to || 'en cours'}`}
         </p>
@@ -171,20 +171,20 @@ export default function HistoriqueClient() {
       {!insufficient && stats.total > 0 && (
         <section className="max-w-5xl mx-auto px-4 pb-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-5 rounded-2xl" style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
-              <div className="text-[11px] uppercase tracking-wider text-[#6B7194] font-bold mb-2">Taux global</div>
-              <div className="text-3xl font-bold text-[#F7F8FF] mb-1">{stats.rate}%</div>
-              <div className="text-xs text-[#A5ABC5]">{stats.won} G · {stats.lost} P · {stats.total} vérifiés</div>
+            <div className="p-5 rounded-2xl" style={{ backgroundColor: '#111827', border: '1px solid #1F2937' }}>
+              <div className="text-[11px] uppercase tracking-wider text-[#64748B] font-bold mb-2">Taux global</div>
+              <div className="text-3xl font-bold text-[#F1F5F9] mb-1">{stats.rate}%</div>
+              <div className="text-xs text-[#94A3B8]">{stats.won} G · {stats.lost} P · {stats.total} vérifiés</div>
             </div>
-            <div className="p-5 rounded-2xl" style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
-              <div className="text-[11px] uppercase tracking-wider text-[#6B7194] font-bold mb-2">BTTS</div>
-              <div className="text-3xl font-bold text-[#7C3AED] mb-1">{stats.byType.btts.rate}%</div>
-              <div className="text-xs text-[#A5ABC5]">{stats.byType.btts.won} G · {stats.byType.btts.lost} P</div>
+            <div className="p-5 rounded-2xl" style={{ backgroundColor: '#111827', border: '1px solid #1F2937' }}>
+              <div className="text-[11px] uppercase tracking-wider text-[#64748B] font-bold mb-2">BTTS</div>
+              <div className="text-3xl font-bold text-[#10B981] mb-1">{stats.byType.btts.rate}%</div>
+              <div className="text-xs text-[#94A3B8]">{stats.byType.btts.won} G · {stats.byType.btts.lost} P</div>
             </div>
-            <div className="p-5 rounded-2xl" style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
-              <div className="text-[11px] uppercase tracking-wider text-[#6B7194] font-bold mb-2">Over 2.5</div>
-              <div className="text-3xl font-bold text-[#5DFDCB] mb-1">{stats.byType.over25.rate}%</div>
-              <div className="text-xs text-[#A5ABC5]">{stats.byType.over25.won} G · {stats.byType.over25.lost} P</div>
+            <div className="p-5 rounded-2xl" style={{ backgroundColor: '#111827', border: '1px solid #1F2937' }}>
+              <div className="text-[11px] uppercase tracking-wider text-[#64748B] font-bold mb-2">Over 2.5</div>
+              <div className="text-3xl font-bold text-[#10B981] mb-1">{stats.byType.over25.rate}%</div>
+              <div className="text-xs text-[#94A3B8]">{stats.byType.over25.won} G · {stats.byType.over25.lost} P</div>
             </div>
           </div>
         </section>
@@ -196,17 +196,17 @@ export default function HistoriqueClient() {
           <h2 className="text-xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Tendance 14 jours
           </h2>
-          <div className="flex items-end gap-1 h-32 p-4 rounded-xl" style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
+          <div className="flex items-end gap-1 h-32 p-4 rounded-xl" style={{ backgroundColor: '#111827', border: '1px solid #1F2937' }}>
             {stats.trend14.map((d, i) => (
               <div key={i} className="flex-1 flex flex-col items-center justify-end h-full" title={`${d.date}: ${d.won}G/${d.lost}P = ${d.rate}%`}>
                 <div className="w-full rounded-t-sm"
                   style={{
                     height: `${Math.min(100, d.rate)}%`,
-                    backgroundColor: d.rate >= 55 ? '#A8E063' : d.rate >= 45 ? '#5146F5' : '#FF7185',
+                    backgroundColor: d.rate >= 55 ? '#A8E063' : d.rate >= 45 ? '#D4AF37' : '#EF4444',
                     minHeight: '4px',
                   }}
                   aria-hidden="true" />
-                <div className="text-[9px] text-[#6B7194] mt-1 hidden sm:block">{d.date.slice(5)}</div>
+                <div className="text-[9px] text-[#64748B] mt-1 hidden sm:block">{d.date.slice(5)}</div>
               </div>
             ))}
           </div>
@@ -220,9 +220,9 @@ export default function HistoriqueClient() {
         </h2>
 
         {history.length === 0 ? (
-          <div className="p-6 rounded-xl text-center" style={{ backgroundColor: '#0D1630', border: '1px solid #303861' }}>
-            <p className="text-sm text-[#A5ABC5] mb-2">Aucun pronostic vérifié pour le moment.</p>
-            <p className="text-xs text-[#6B7194]">
+          <div className="p-6 rounded-xl text-center" style={{ backgroundColor: '#111827', border: '1px solid #1F2937' }}>
+            <p className="text-sm text-[#94A3B8] mb-2">Aucun pronostic vérifié pour le moment.</p>
+            <p className="text-xs text-[#64748B]">
               Les pronostics publiés à partir du {trackingPeriod.startDate} seront vérifiés après le résultat officiel des matchs.
             </p>
           </div>
@@ -230,13 +230,13 @@ export default function HistoriqueClient() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm" style={{ borderCollapse: 'collapse' }}>
               <thead>
-                <tr style={{ borderBottom: '2px solid #303861' }}>
-                  <th className="text-left py-3 px-3 font-bold text-[#A5ABC5]">Date</th>
-                  <th className="text-left py-3 px-3 font-bold text-[#A5ABC5]">Match</th>
-                  <th className="text-left py-3 px-3 font-bold text-[#A5ABC5] hidden sm:table-cell">Marché</th>
-                  <th className="text-right py-3 px-3 font-bold text-[#A5ABC5]">Proba</th>
-                  <th className="text-center py-3 px-3 font-bold text-[#A5ABC5]">Score</th>
-                  <th className="text-center py-3 px-3 font-bold text-[#A5ABC5]">Résultat</th>
+                <tr style={{ borderBottom: '2px solid #1F2937' }}>
+                  <th className="text-left py-3 px-3 font-bold text-[#94A3B8]">Date</th>
+                  <th className="text-left py-3 px-3 font-bold text-[#94A3B8]">Match</th>
+                  <th className="text-left py-3 px-3 font-bold text-[#94A3B8] hidden sm:table-cell">Marché</th>
+                  <th className="text-right py-3 px-3 font-bold text-[#94A3B8]">Proba</th>
+                  <th className="text-center py-3 px-3 font-bold text-[#94A3B8]">Score</th>
+                  <th className="text-center py-3 px-3 font-bold text-[#94A3B8]">Résultat</th>
                 </tr>
               </thead>
               <tbody>
@@ -244,23 +244,23 @@ export default function HistoriqueClient() {
                   const isWon = h.status === 'WON'
                   const isLost = h.status === 'LOST'
                   return (
-                    <tr key={i} style={{ borderBottom: '1px solid #303861' }}>
-                      <td className="py-2 px-3 text-[#6B7194] text-xs whitespace-nowrap">{h.date}</td>
-                      <td className="py-2 px-3 text-[#F7F8FF]">
+                    <tr key={i} style={{ borderBottom: '1px solid #1F2937' }}>
+                      <td className="py-2 px-3 text-[#64748B] text-xs whitespace-nowrap">{h.date}</td>
+                      <td className="py-2 px-3 text-[#F1F5F9]">
                         <div className="font-medium">{h.match}</div>
-                        <div className="text-[10px] text-[#6B7194] uppercase tracking-wide">{h.league}</div>
+                        <div className="text-[10px] text-[#64748B] uppercase tracking-wide">{h.league}</div>
                       </td>
-                      <td className="py-2 px-3 text-[#A5ABC5] hidden sm:table-cell">
+                      <td className="py-2 px-3 text-[#94A3B8] hidden sm:table-cell">
                         <span className="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase"
                           style={{
                             backgroundColor: h.market === 'btts' ? 'rgba(124, 58, 237, 0.15)' : 'rgba(93, 253, 203, 0.15)',
-                            color: h.market === 'btts' ? '#7C3AED' : '#5DFDCB',
+                            color: h.market === 'btts' ? '#10B981' : '#10B981',
                           }}>
                           {h.market === 'btts' ? 'BTTS' : 'Over 2.5'}
                         </span>
                       </td>
-                      <td className="py-2 px-3 text-right text-[#A5ABC5]">{(h.proba * 100).toFixed(0)}%</td>
-                      <td className="py-2 px-3 text-center text-[#A5ABC5]">{h.finalScore}</td>
+                      <td className="py-2 px-3 text-right text-[#94A3B8]">{(h.proba * 100).toFixed(0)}%</td>
+                      <td className="py-2 px-3 text-center text-[#94A3B8]">{h.finalScore}</td>
                       <td className="py-2 px-3 text-center">
                         {isWon ? (
                           <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-[10px] font-bold"
@@ -269,12 +269,12 @@ export default function HistoriqueClient() {
                           </span>
                         ) : isLost ? (
                           <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-[10px] font-bold"
-                            style={{ backgroundColor: 'rgba(255, 113, 133, 0.15)', color: '#FF7185' }}>
+                            style={{ backgroundColor: 'rgba(255, 113, 133, 0.15)', color: '#EF4444' }}>
                             ✗ Perdu
                           </span>
                         ) : (
                           <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-[10px] font-bold"
-                            style={{ backgroundColor: 'rgba(165, 171, 197, 0.15)', color: '#A5ABC5' }}>
+                            style={{ backgroundColor: 'rgba(165, 171, 197, 0.15)', color: '#94A3B8' }}>
                             ⏳ En attente
                           </span>
                         )}
@@ -292,11 +292,11 @@ export default function HistoriqueClient() {
       <section className="max-w-5xl mx-auto px-4 pb-16">
         <div className="flex flex-wrap items-center justify-center gap-3">
           <Link href="/methodologie" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
-            style={{ backgroundColor: '#0D1630', color: '#A5ABC5', border: '1px solid #303861' }}>
+            style={{ backgroundColor: '#111827', color: '#94A3B8', border: '1px solid #1F2937' }}>
             Méthodologie du modèle →
           </Link>
           <Link href="/pronostics" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
-            style={{ backgroundColor: '#5146F5', color: '#F7F8FF' }}>
+            style={{ backgroundColor: '#D4AF37', color: '#F1F5F9' }}>
             Voir les pronostics du jour →
           </Link>
         </div>
@@ -305,7 +305,7 @@ export default function HistoriqueClient() {
       {/* 18+ disclaimer */}
       <section className="max-w-5xl mx-auto px-4 pb-12">
         <div className="p-4 rounded-xl text-center" style={{ backgroundColor: 'rgba(255, 113, 133, 0.06)', border: '1px solid rgba(255, 113, 133, 0.2)' }}>
-          <p className="text-xs text-[#A5ABC5] leading-relaxed">
+          <p className="text-xs text-[#94A3B8] leading-relaxed">
             18+ · Les paris sportifs comportent un risque de perte. Aucun gain n'est garanti. BTTSPredict ne prend pas de paris et ne collecte pas de fonds. Jouez de manière responsable.
           </p>
         </div>

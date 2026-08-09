@@ -347,7 +347,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
               {/* BTTS prediction — always available (Poisson fallback) */}
               <>
                 <div className="flex items-baseline justify-between">
-                  <span className="text-xl sm:text-2xl font-bold" style={{ color: bttsPred.prediction === 'Oui' ? undefined : '#A5ABC5' }} >
+                  <span className="text-xl sm:text-2xl font-bold" style={{ color: bttsPred.prediction === 'Oui' ? undefined : '#94A3B8' }} >
                     <span className={bttsPred.prediction === 'Oui' ? 'text-success-light' : ''}>{bttsPred.prediction}</span>
                   </span>
                   <span className="text-xs font-bold text-cendre tabular-nums">{bttsPred.confidence}%</span>
@@ -376,7 +376,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
               {/* Over 2.5 prediction — always available (Poisson fallback) */}
               <>
                 <div className="flex items-baseline justify-between">
-                  <span className="text-xl sm:text-2xl font-bold" style={{ color: over25Pred.prediction === 'Oui' ? undefined : '#A5ABC5' }}>
+                  <span className="text-xl sm:text-2xl font-bold" style={{ color: over25Pred.prediction === 'Oui' ? undefined : '#94A3B8' }}>
                     <span className={over25Pred.prediction === 'Oui' ? 'text-gold-light' : ''}>{over25Pred.prediction}</span>
                   </span>
                   <span className="text-xs font-bold text-cendre tabular-nums">{over25Pred.confidence}%</span>
@@ -457,7 +457,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
           {matchHref && (
             <a
               href={matchHref}
-              className="px-3 flex items-center gap-1 text-[11px] font-bold text-[#5146F5] hover:text-[#6258FF] transition-colors whitespace-nowrap"
+              className="px-3 flex items-center gap-1 text-[11px] font-bold text-[#D4AF37] hover:text-[#B7952E] transition-colors whitespace-nowrap"
               aria-label={`Page match ${home} vs ${away}`}
               data-cta="match-page-link"
             >
@@ -660,7 +660,7 @@ export default function FreePredictions() {
         ) : filteredMatches.length === 0 ? (
           <div className="squircle-xl p-10 text-center">
             <div className="w-14 h-14 bg-dark-800 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-edge">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A5ABC5" strokeWidth="1.5">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" strokeWidth="1.5">
                 <circle cx="12" cy="12" r="10" />
                 <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
                 <path d="M2 12h20" />
@@ -686,8 +686,8 @@ export default function FreePredictions() {
             href="/pronostics"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold transition-all"
             style={{
-              background: 'linear-gradient(135deg, #5146F5, #A8E063)',
-              color: '#070B18',
+              background: 'linear-gradient(135deg, #D4AF37, #A8E063)',
+              color: '#070A14',
               boxShadow: '0 4px 16px rgba(81, 70, 245, 0.25)',
             }}
           >

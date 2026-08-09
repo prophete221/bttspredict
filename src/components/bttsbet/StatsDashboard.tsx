@@ -39,16 +39,16 @@ type WinHistory = {
 }
 
 const COLORS = {
-  gold: '#5146F5',
-  mint: '#5146F5',
+  gold: '#D4AF37',
+  mint: '#D4AF37',
   cyan: '#A8E063',
-  rose: '#5146F5',
-  panel: '#0D1630',
+  rose: '#D4AF37',
+  panel: '#111827',
   edge: 'rgba(247, 248, 255, 0.08)',
-  text: '#A5ABC5',
+  text: '#94A3B8',
 }
 
-const LEAGUE_COLORS = ['#5146F5', '#5146F5', '#A8E063', '#5146F5', '#5146F5', '#5146F5', '#5146F5', '#5146F5', '#5146F5', '#5146F5']
+const LEAGUE_COLORS = ['#D4AF37', '#D4AF37', '#A8E063', '#D4AF37', '#D4AF37', '#D4AF37', '#D4AF37', '#D4AF37', '#D4AF37', '#D4AF37']
 
 export default function StatsDashboard() {
   const [data, setData] = useState<WinHistory | null>(null)
@@ -224,11 +224,11 @@ export default function StatsDashboard() {
           </div>
           <div className="flex items-center gap-3 text-[10px]">
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#7C3AED' }} />
+              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#10B981' }} />
               <span className="text-cendre">BTTS</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#5DFDCB' }} />
+              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#10B981' }} />
               <span className="text-cendre">Over 2.5</span>
             </span>
           </div>
@@ -248,7 +248,7 @@ export default function StatsDashboard() {
                   fontSize: 12,
                   color: '#fff',
                 }}
-                labelStyle={{ color: '#F7F8FF', fontWeight: 700 }}
+                labelStyle={{ color: '#F1F5F9', fontWeight: 700 }}
                 formatter={(v: number | null, name: string) => [
                   v == null ? 'N/A' : `${v}%`,
                   name === 'btts' ? 'BTTS' : 'Over 2.5',
@@ -257,19 +257,19 @@ export default function StatsDashboard() {
               <Line
                 type="monotone"
                 dataKey="btts"
-                stroke="#7C3AED"
+                stroke="#10B981"
                 strokeWidth={2.5}
-                dot={{ fill: '#7C3AED', r: 3 }}
-                activeDot={{ r: 5, fill: '#7C3AED' }}
+                dot={{ fill: '#10B981', r: 3 }}
+                activeDot={{ r: 5, fill: '#10B981' }}
                 connectNulls
               />
               <Line
                 type="monotone"
                 dataKey="over25"
-                stroke="#5DFDCB"
+                stroke="#10B981"
                 strokeWidth={2.5}
-                dot={{ fill: '#5DFDCB', r: 3 }}
-                activeDot={{ r: 5, fill: '#5DFDCB' }}
+                dot={{ fill: '#10B981', r: 3 }}
+                activeDot={{ r: 5, fill: '#10B981' }}
                 connectNulls
               />
             </LineChart>
