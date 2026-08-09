@@ -7,12 +7,12 @@ const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: (
 const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictions'), { loading: () => null })
 
 export const metadata: Metadata = {
-  title: "Pronostic BTTS Aujourd'hui Gratuit - Pronos Vérifiés Sénégal",
+  title: "Pronostic BTTS Aujourd'hui — Pronos Vérifiés",
   description: "Pronostics BTTS du jour gratuits et vérifiés. Mis à jour 4x/jour. Aucun gain garanti. 18+.",
   alternates: { canonical: 'https://bttspredict.com/btts/predictions/today' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Pronostic BTTS Aujourd'hui - BTTSPredict Sénégal",
+    title: "Pronostic BTTS Aujourd'hui — BTTSPredict",
     description: 'Pronostics BTTS du jour par moteur IA. Aucun gain garanti. 18+.',
     url: 'https://bttspredict.com/btts/predictions/today',
     type: 'website',

@@ -5,7 +5,7 @@ import {Navbar, Footer,
   LinebetApkButton} from '@/components/bttsbet'
 import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
-const TITLE = "Conseils Paris BTTS Sénégal - Gagner avec les Deux Équipes Marquent"
+const TITLE = "Conseils Paris BTTS Sénégal"
 const DESCRIPTION = 'Betting tips football : BTTS, Over 2.5, analyses de valeur et gestion bankroll. Code promo VISION221. 18+.'
 
 export const metadata: Metadata = {

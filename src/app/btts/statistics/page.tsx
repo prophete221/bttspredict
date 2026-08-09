@@ -3,7 +3,7 @@ import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'BTTS Statistics — Statistiques Both Teams To Score par ligue',
+  title: 'Statistiques BTTS par ligue — Both Teams To Score',
   description: "Statistiques BTTS mises à jour quotidiennement : taux de réussite, historique et performance par ligue. Données publiques ESPN.",
   alternates: { canonical: 'https://bttspredict.com/btts/statistics' },
   robots: { index: true, follow: true },
