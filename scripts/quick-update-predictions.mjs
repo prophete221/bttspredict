@@ -21,8 +21,8 @@ const ARCHIVE_DIR = path.join(PUBLIC_DIR, 'predictions-archive')
 
 if (!fs.existsSync(ARCHIVE_DIR)) fs.mkdirSync(ARCHIVE_DIR, { recursive: true })
 
-const FUTURE_DAYS = 4
-const MAX_PREDICTIONS = 5 // Only top 5
+const FUTURE_DAYS = 7
+const MAX_PREDICTIONS = 10 // Top 10 instead of 5
 const DISPLAY_TZ = 'Europe/Paris'
 
 // ─── HIGH BTTS Leagues (taux historique >53%) ───
