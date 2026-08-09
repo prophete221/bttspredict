@@ -13,6 +13,17 @@ RewriteRule \.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.+)/?$ /$1.html [L]
+
+# ─── 404 spécifique pour /match/[slug] non généré ───
+# Les pages match sont pré-générées en SSG dans out/match/[slug]/index.html.
+# Si le fichier n'existe pas (match non dans la liste du jour), on renvoie 404.html
+# au lieu de servir la homepage via la fallback index.html (qui masquait le 404).
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^match/.+/?$ /404.html [L,R=404]
+
+# ─── Fallback générique (toutes les URLs non matchées) ───
+# Pour le routing côté client Next.js (pages dynamiques autres que /match/)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]

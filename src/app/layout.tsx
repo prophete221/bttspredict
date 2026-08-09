@@ -177,7 +177,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v61-bing-fix-global-2026-08-09';
+                var VERSION = 'bttspredict-v62-bing-404-global-2026-08-09';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){

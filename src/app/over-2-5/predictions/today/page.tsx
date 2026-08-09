@@ -7,7 +7,7 @@ const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: (
 const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictions'), { loading: () => null })
 
 export const metadata: Metadata = {
-  title: 'Over 2.5 Predictions Today — Pronostics Over 2.5 du jour',
+  title: 'Pronostics Over 2.5 du Jour — BTTS Predictions',
   description: "Pronostics Over 2.5 du jour par moteur IA. Matchs à fort potentiel de buts (3+), ligues offensives. 18+.",
   alternates: { canonical: 'https://bttspredict.com/over-2-5/predictions/today' },
   robots: { index: true, follow: true },
