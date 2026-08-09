@@ -12,6 +12,7 @@ const HowToGetVip = dynamic(() => import('@/components/bttsbet/HowToGetVip'), { 
 const VipLevelModal = dynamic(() => import('@/components/bttsbet/VipLevelModal'), { loading: () => null })
 const CopyableCode = dynamic(() => import('@/components/bttsbet/CopyableCode'), { loading: () => null })
 const LinebetApkButton = dynamic(() => import('@/components/bttsbet/LinebetApkButton'), { loading: () => null })
+const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictions'), { loading: () => null })
 
 export const metadata: Metadata = {
   title: 'VIP — Pronostics premium BTTS et Over 2.5',
@@ -284,6 +285,9 @@ export default function VipPage() {
               En savoir plus sur le jeu responsable →
             </a>
           </div>
+        </section>
+              <section className="max-w-5xl mx-auto px-4 py-8">
+          <FreePredictions />
         </section>
       </main>
 

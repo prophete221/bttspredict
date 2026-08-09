@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer } from '@/components/bttsbet'
+import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 
 export const metadata: Metadata = {
   title: 'Statistiques — BTTSPredict',
@@ -29,6 +29,9 @@ export default function StatistiquesPage() {
             Voir les pronos du jour →
           </a>
         </div>
+              <section className="max-w-5xl mx-auto px-4 py-8">
+          <FreePredictions />
+        </section>
       </main>
       <Footer />
     </div>

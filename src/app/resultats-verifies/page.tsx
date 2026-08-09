@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer } from '@/components/bttsbet'
+import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import ResultatsClient from './ResultatsClient'
 
 export const metadata: Metadata = {
@@ -37,6 +37,9 @@ export default function ResultatsVerifiesPage() {
             </p>
           </div>
         </div>
+              <section className="max-w-5xl mx-auto px-4 py-8">
+          <FreePredictions />
+        </section>
       </main>
       <Footer />
     </div>

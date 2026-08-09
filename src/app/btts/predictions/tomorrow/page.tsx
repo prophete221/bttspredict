@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer } from '@/components/bttsbet'
+import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -60,6 +60,9 @@ export default function BTTSPredictionsTomorrowPage() {
           <p className="text-xs text-[#6B7194] mt-8 leading-relaxed">
             Aucun résultat futur n'est garanti. Les paris sportifs comportent un risque de perte. 18+ — Jouez responsable.
           </p>
+        </section>
+              <section className="max-w-5xl mx-auto px-4 py-8">
+          <FreePredictions />
         </section>
       </main>
       <Footer />
