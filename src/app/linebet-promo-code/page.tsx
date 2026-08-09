@@ -1,102 +1,69 @@
 import type { Metadata } from 'next'
-import {Navbar, Footer,
-  FreePredictionsWidget,
-  VipCardWidget,
-  LinebetApkButton} from '@/components/bttsbet'
-import { buildOrganizationJsonLd, buildBreadcrumbJsonLd, buildArticleJsonLd, SITE_URL } from '@/lib/seoSchemas'
 
-const TITLE = 'Linebet Promo Code VISION221'
-const DESCRIPTION = 'Code promo Linebet VISION221 : conditions de bonus, inscription, dépôt Wave/Orange Money et APK. 18+.'
+/**
+ * Page /linebet-promo-code — redirige vers /code-promo-linebet-senegal
+ *
+ * En mode `output: 'export'` (statique), `redirect()` de next/navigation
+ * ne fonctionne pas côté serveur. On utilise donc :
+ *   1. .htaccess RewriteRule [R=301,L] pour la vraie redirection 301 Apache
+ *   2. meta http-equiv="refresh" + canonical comme fallback client-side
+ *
+ * Le sitemap.ts n'inclut PAS cette URL (doublon éliminé).
+ */
+
+const TARGET = '/code-promo-linebet-senegal'
+const SITE_URL = 'https://bttspredict.com'
 
 export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  keywords: ['linebet promo code', 'code promo linebet', 'VISION221', 'bonus linebet', 'linebet bonus 90000', 'linebet code'],
-  alternates: { canonical: `${SITE_URL}/linebet-promo-code` },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/linebet-promo-code`, siteName: 'BTTSPredict', type: 'article', images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'BTTSPredict' }] },
+  // Page de redirection — noindex pour éviter tout duplicate content
+  robots: { index: false, follow: true },
+  alternates: {
+    canonical: `${SITE_URL}${TARGET}`,
+  },
+  // meta refresh pour les navigateurs (fallback si .htaccess non atteint)
+  other: {
+    'http-equiv': 'refresh',
+    content: `0;url=${TARGET}`,
+  },
 }
 
-const FAQ = [
-  { q: "Quel est le code promo Linebet ?", a: "Le code promo Linebet est VISION221 (en majuscules). Saisissez-le lors de votre inscription ou dans la section 'Code Promo' de votre compte Linebet pour recevoir le bonus de 90 000 XOF (150$)." },
-  { q: "Quel est le montant du bonus Linebet ?", a: "Le bonus exclusif avec le code VISION221 est de 90 000 XOF (150$) sur votre premier dépôt. Le dépôt minimum sur Linebet est de 200 XOF." },
-  { q: "Comment utiliser le code VISION221 ?", a: "1. Inscrivez-vous sur Linebet via notre lien de parrainage. 2. Saisissez le code VISION221 lors de l'inscription. 3. Effectuez un dépôt minimum de 200 XOF via Wave, Orange Money ou carte bancaire. 4. Le bonus est crédité automatiquement." },
-  { q: "Le code VISION221 fonctionne-t-il sur 888starz ?", a: "Oui, le même code VISION221 fonctionne sur 888starz en minuscules (vision221). Le bonus 888starz est de 100% du premier dépôt." },
-  { q: "Le bonus est-il garanti ?", a: "Le bonus bookmaker est crédité par Linebet/888starz après vérification du compte. Les conditions de mise (rollover) s'appliquent. Consultez les CGU du bookmaker. 18+ — Jeu responsable." },
-]
-
-export default function LinebetPromoCodePage() {
-  const articleJsonLd = buildArticleJsonLd({ title: TITLE, description: DESCRIPTION, path: '/linebet-promo-code', datePublished: '2026-08-06', dateModified: '2026-08-06' })
-
+export default function LinebetPromoCodeRedirect() {
+  // Page HTML minimale — le navigateur suit le meta refresh automatiquement.
+  // L'utilisateur ne verra ce contenu qu'une fraction de seconde.
   return (
-    <div className="min-h-screen bg-dark-900 flex flex-col">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildOrganizationJsonLd()) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildBreadcrumbJsonLd([{ name: 'Accueil', path: '/' }, { name: 'Linebet Promo Code', path: '/linebet-promo-code' }])) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQ.map(item => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) }) }} />
-
-      <Navbar />
-      <main className="flex-1 relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 w-full">
-        <nav aria-label="Fil d'Ariane" className="mb-8">
-          <ol className="flex items-center gap-2 text-sm" style={{ color: '#A5ABC5' }}>
-            <li><a href="/" className="hover:text-emerald transition-colors">Accueil</a></li>
-            <li aria-hidden="true">/</li>
-            <li style={{ color: '#F7F8FF' }} aria-current="page">Linebet Promo Code</li>
-          </ol>
-        </nav>
-
-        <header className="mb-10 text-center">
-          <span className="eyebrow">🎟️ Code Promo</span>
-          <h1 className="text-3xl sm:text-4xl font-bold mt-3 mb-4" style={{ color: '#F7F8FF', fontFamily: 'Poppins, sans-serif' }}>
-            Linebet Promo Code <span style={{ color: '#5146F5' }}>VISION221</span>
-          </h1>
-          <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: '#A5ABC5' }}>
-            Code promo exclusif VISION221 pour un bonus de 90 000 XOF (150$) sur Linebet. Dépôt minimum 200 XOF via Wave, Orange Money, Free Money.
-          </p>
-          <div className="mt-6">
-            <a href="https://lb-aff.com/L?tag=d_5589568m_22611c_site&site=5589568&ad=22611&r=registration" rel="sponsored noopener" target="_blank" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-colors" style={{ backgroundColor: '#5146F5', color: '#F7F8FF' }}>
-              S'inscrire sur Linebet avec VISION221 →
-            </a>
-          </div>
-        </header>
-
-        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: '#0D1630', border: '1px solid rgba(247, 248, 255, 0.08)' }}>
-          <h2 className="text-xl font-bold mb-4" style={{ color: '#F7F8FF', fontFamily: 'Poppins, sans-serif' }}>Comment utiliser le code VISION221</h2>
-          <div className="text-sm leading-relaxed space-y-3" style={{ color: '#A5ABC5' }}>
-            <p><strong style={{ color: '#F7F8FF' }}>Étape 1 :</strong> Inscrivez-vous sur Linebet via notre lien de parrainage. Cliquez sur "Inscription" en haut à droite.</p>
-            <p><strong style={{ color: '#F7F8FF' }}>Étape 2 :</strong> Saisissez le code promo <strong style={{ color: '#5146F5' }}>VISION221</strong> dans le champ dédié lors de l'inscription.</p>
-            <p><strong style={{ color: '#F7F8FF' }}>Étape 3 :</strong> Effectuez un dépôt minimum de 200 XOF via Wave, Orange Money, Free Money ou carte bancaire.</p>
-            <p><strong style={{ color: '#F7F8FF' }}>Étape 4 :</strong> Le bonus de 90 000 XOF (150$) est crédité automatiquement sur votre compte.</p>
-            <p>Pour comparer Linebet et 888starz, consultez notre <a href="/bookmakers" style={{ color: '#5146F5' }}>comparatif détaillé</a>.</p>
-          </div>
-        </section>
-
-        <section className="mb-8 p-6 rounded-2xl" style={{ backgroundColor: 'rgba(81, 70, 245, 0.05)', border: '1px solid rgba(81, 70, 245, 0.15)' }}>
-          <h2 className="text-lg font-bold mb-2" style={{ color: '#F7F8FF' }}>Résumé</h2>
-          <p className="text-sm" style={{ color: '#A5ABC5' }}>
-            Code promo VISION221 : bonus sous conditions (mise x5, dépôt min, voir site bookmaker) sur Linebet. Dépôt minimum 200 XOF. Le même code (vision221) fonctionne sur 888starz pour un bonus de 100%. Conditions de mise applicables. 18+ — Jeu responsable.
-          </p>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-xl font-bold mb-4" style={{ color: '#F7F8FF', fontFamily: 'Poppins, sans-serif' }}>FAQ Code Promo Linebet</h2>
-          <div className="space-y-2">
-            {FAQ.map((item, i) => (
-              <details key={i} className="rounded-lg overflow-hidden" style={{ backgroundColor: '#0D1630', border: '1px solid rgba(247, 248, 255, 0.08)' }}>
-                <summary className="p-4 cursor-pointer text-sm font-semibold" style={{ color: '#F7F8FF' }}>{item.q}</summary>
-                <p className="px-4 pb-4 text-xs leading-relaxed" style={{ color: '#A5ABC5' }}>{item.a}</p>
-              </details>
-            ))}
-          </div>
-        </section>
-      
-        {/* Pronostics gratuits + VIP + APK sur toutes les pages */}
-        <FreePredictionsWidget />
-        <VipCardWidget />
-        <div className="text-center pb-6">
-          <LinebetApkButton />
-        </div>
-      </main>
-      <Footer />
+    <div
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#0A0B1A',
+        color: '#A5ABC5',
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        textAlign: 'center',
+        padding: '2rem',
+      }}
+    >
+      <div style={{ maxWidth: '400px' }}>
+        <p style={{ fontSize: '0.875rem', marginBottom: '1rem' }}>
+          Redirection vers la page Code Promo Linebet...
+        </p>
+        <a
+          href={TARGET}
+          style={{
+            display: 'inline-block',
+            padding: '0.75rem 1.5rem',
+            backgroundColor: '#5146F5',
+            color: '#F7F8FF',
+            fontWeight: 700,
+            borderRadius: '0.5rem',
+            textDecoration: 'none',
+            fontSize: '0.875rem',
+          }}
+        >
+          Continuer vers /code-promo-linebet-senegal
+        </a>
+      </div>
     </div>
   )
 }
