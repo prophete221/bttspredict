@@ -1,12 +1,13 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import dynamic from 'next/dynamic'
 import { AFFILIATE, SITE } from '@/lib/constants'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
+const PromoVip = dynamic(() => import('@/components/bttsbet/PromoVip'), { loading: () => null })
 
 /* ═══ VRAIS LIENS AFFILIÉS (src/lib/constants.ts) ═══ */
 const LIEN_LINEBET = AFFILIATE.linebet
@@ -20,13 +21,6 @@ const C = {
   bg: '#070A14', card: '#111827', border: '#1F2937',
   gold: '#D4AF37', goldDark: '#B7952E', emerald: '#10B981', emeraldDark: '#059669',
   whatsapp: '#25D366', text: '#F1F5F9', textSec: '#94A3B8', textMute: '#64748B', error: '#EF4444',
-}
-
-/* ═══ Types ═══ */
-type VipMatch = {
-  match: string; home: string; away: string; league: string
-  date: string; time: string; homeLogo: string; awayLogo: string
-  homeLambda: number; awayLambda: number; bttsProb: number; over25Prob: number
 }
 
 /* ═══ 4 Tiers (backup VipCardGlass) ═══ */
@@ -49,38 +43,9 @@ const FAQ = [
 ]
 
 export default function VipPage() {
-  const [matches, setMatches] = useState<VipMatch[]>([])
   const [copiedCode, setCopiedCode] = useState(false)
   const [toast, setToast] = useState('')
   const [bookmaker, setBookmaker] = useState<'linebet' | '888starz'>('linebet')
-
-  /* ═══ Section 9: PromoVip AUTONOME — fetch predictions, team visible, reste flouté ═══ */
-  useEffect(() => {
-    fetch('/predictions.json')
-      .then(r => r.json())
-      .then(data => {
-        if (!data?.predictions) return
-        const matchMap = new Map<string, VipMatch>()
-        for (const p of data.predictions) {
-          const key = p.match
-          if (!matchMap.has(key)) {
-            const [home, away] = (p.match || '').split(/\s+vs?\s+/i)
-            const a = p.analysis || {}
-            matchMap.set(key, {
-              match: p.match, home: home?.trim() || '', away: away?.trim() || '',
-              league: p.league || '', date: p.date || '', time: p.time || '--:--',
-              homeLogo: p.homeLogo || '', awayLogo: p.awayLogo || '',
-              homeLambda: a.homeLambda || 0, awayLambda: a.awayLambda || 0,
-              bttsProb: a.bttsProb || 0, over25Prob: a.over25Prob || 0,
-            })
-          }
-        }
-        // Fallback si moins de 6 matchs: on prend tout ce qu'on a
-        const all = [...matchMap.values()].slice(0, 6)
-        setMatches(all)
-      })
-      .catch(() => {})
-  }, [])
 
   const code = bookmaker === 'linebet' ? 'VISION221' : 'vision221'
   const inscriptionLink = bookmaker === 'linebet' ? LIEN_LINEBET : LIEN_888STARZ
@@ -252,85 +217,9 @@ export default function VipPage() {
           </div>
         </section>
 
-        {/* ═══ 9. COUPON VIP DU JOUR (PromoVip AUTONOME — team visible, reste flouté) ═══ */}
-        <section className="max-w-2xl mx-auto px-4 sm:px-6 pb-8">
-          <h2 className="text-lg font-bold mb-3 text-center">Coupon VIP du jour</h2>
-          <div className="rounded-[24px] overflow-hidden" style={{
-            backgroundColor: 'rgba(17, 24, 39, 0.9)', backdropFilter: 'blur(20px)',
-            border: `1px solid ${C.border}`, boxShadow: '0 8px 30px rgba(0,0,0,0.3)',
-          }}>
-            {/* Top accent */}
-            <div className="h-[2px] w-full" style={{ background: `linear-gradient(90deg, transparent, ${C.gold}55, transparent)` }} />
-
-            <div className="p-3">
-              {/* 2 matchs VISIBLES — noms équipes + logos + xG */}
-              {matches.slice(0, 2).map((m, i) => (
-                <div key={i} className="flex items-center gap-2 py-2 px-2 rounded-[10px] mb-1"
-                  style={{ background: 'rgba(241, 245, 249, 0.02)' }}>
-                  {/* Time + live dot */}
-                  <div className="flex items-center gap-1 flex-shrink-0 w-12">
-                    <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: C.emerald }} />
-                    <span className="font-mono text-[10px]" style={{ color: C.textMute }}>{m.time}</span>
-                  </div>
-                  {/* Home team */}
-                  <div className="flex items-center gap-1.5 flex-1 min-w-0">
-                    {m.homeLogo && <img src={m.homeLogo} alt="" className="w-6 h-6 object-contain" loading="lazy" />}
-                    <span className="text-[13px] font-bold truncate" style={{ color: C.text }}>{m.home}</span>
-                  </div>
-                  <span className="text-[9px] flex-shrink-0" style={{ color: C.textMute }}>vs</span>
-                  {/* Away team */}
-                  <div className="flex items-center gap-1.5 flex-1 min-w-0 justify-end">
-                    <span className="text-[13px] font-bold truncate" style={{ color: C.text }}>{m.away}</span>
-                    {m.awayLogo && <img src={m.awayLogo} alt="" className="w-6 h-6 object-contain" loading="lazy" />}
-                  </div>
-                  {/* xG visible */}
-                  <div className="flex-shrink-0 text-right ml-2">
-                    <span className="font-mono text-[10px] font-bold" style={{ color: C.emerald }}>xG {m.homeLambda?.toFixed(2) || '?'}</span>
-                  </div>
-                  <span className="font-mono text-[10px] font-bold flex-shrink-0" style={{ color: C.gold }}>VIP</span>
-                </div>
-              ))}
-
-              {/* Matchs FLOUTÉS — blur 12px + overlay + cadenas */}
-              {matches.length > 2 && (
-                <div className="relative" style={{ filter: 'blur(12px)', opacity: 0.5, pointerEvents: 'none' }}>
-                  {matches.slice(2, 6).map((m, i) => (
-                    <div key={i} className="flex items-center gap-2 py-2 px-2 rounded-[10px] mb-1"
-                      style={{ background: 'rgba(241, 245, 249, 0.02)' }}>
-                      <span className="font-mono text-[10px] w-12" style={{ color: C.textMute }}>{m.time}</span>
-                      <span className="text-[13px] font-bold truncate flex-1" style={{ color: C.text }}>{m.home} vs {m.away}</span>
-                      <span className="font-mono text-[10px] font-bold" style={{ color: C.emerald }}>xG ?</span>
-                      <span className="font-mono text-[10px] font-bold" style={{ color: C.gold }}>VIP</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              {/* Lock overlay + bouton Débloquer VIP */}
-              <div className="relative flex items-center justify-center py-4 mt-1">
-                <div className="absolute inset-0 flex items-center justify-center rounded-[10px]"
-                  style={{ background: 'rgba(7, 10, 20, 0.7)' }}>
-                  <a href="#verification" className="flex items-center gap-2 px-5 py-2.5 rounded-[12px] font-bold text-[13px] transition-all hover:scale-[1.02]"
-                    style={{ background: `linear-gradient(135deg, ${C.gold}, ${C.goldDark})`, color: C.bg, boxShadow: `0 4px 20px ${C.gold}33` }}
-                    data-cta="vip-unlock-coupon">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                    </svg>
-                    Débloquer VIP pour voir
-                  </a>
-                </div>
-                <span className="text-[10px] relative z-0" style={{ color: C.textMute }}>
-                  +{Math.max(0, matches.length - 2)} sélections verrouillées
-                </span>
-              </div>
-            </div>
-
-            {/* Cote totale bar */}
-            <div className="px-3 py-2.5 flex items-center justify-between border-t" style={{ borderColor: C.border }}>
-              <span className="text-[10px] uppercase tracking-widest font-bold" style={{ color: C.textMute }}>Cote totale</span>
-              <span className="font-mono text-[14px] font-bold" style={{ color: C.gold }}>VIP</span>
-            </div>
-          </div>
+        {/* ═══ 9. COUPON VIP DU JOUR — composant PromoVip autonome (6 cartes, team visible, reste flouté blur-12px) ═══ */}
+        <section className="max-w-5xl mx-auto px-4 sm:px-6 pb-8">
+          <PromoVip />
         </section>
 
         {/* ═══ 10. STATISTIQUES AVIATOR (informatif, non prédictif) ═══ */}
