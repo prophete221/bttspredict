@@ -76,97 +76,62 @@ export default function PromoVip() {
     })
   }
 
-  // Split: 3 visible + 3 flouté (never more visible than flouté)
-  const visible = matches.slice(0, 3)
-  const blurred = matches.slice(3, 6)
+  // TOUS les matchs sont floutés — aucun visible sans déblocage
+  const blurred = matches.slice(0, 6)
 
   return (
     <>
       <section ref={ref} id="coupon-vip" className="py-6 relative">
         <div className="max-w-[480px] mx-auto relative">
-          {/* Header — badge FRAIS discret */}
+          {/* Header — badge discret */}
           <div className="text-center mb-4">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider" style={{ backgroundColor: 'rgba(99,214,255,0.08)', border: '1px solid rgba(99,214,255,0.2)', color: C.neonDk }}>
               <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.neonDk }} />
               Mis à jour le {new Date().toLocaleDateString('fr-FR')}
             </span>
             <h2 className="font-bold text-[22px] mt-3" style={{ color: C.text }}>Coupon VIP du jour</h2>
-            <p className="text-[12px] mt-1" style={{ color: C.textSec }}>{matches.length} matchs · 3 visibles · 3 floutés · Débloque pour tout voir</p>
+            <p className="text-[12px] mt-1" style={{ color: C.textSec }}>{matches.length} matchs · Pronostics floutés · Débloque pour voir</p>
           </div>
 
-          {/* Coupon card */}
+          {/* Coupon card — tous floutés */}
           <div className="rounded-[20px] overflow-hidden" style={{ backgroundColor: C.card, border: `1px solid ${C.border}` }}>
             <div className="h-[2px] w-full" style={{ backgroundColor: C.neon }} />
 
             <div className="p-2.5 space-y-2">
-              {/* VISIBLE matches (max 3) */}
-              {visible.map((m, i) => (
-                <div key={m.id} className="relative rounded-[14px] overflow-hidden border" style={{ backgroundColor: '#0B1925', borderColor: C.border }}>
-                  <div className="flex justify-between items-center px-3 py-2" style={{ backgroundColor: C.bg }}>
-                    <span className="text-[10px] flex items-center gap-1.5" style={{ color: C.textSec }}>
-                      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.neonDk }} />
-                      {m.league} · {m.time}
-                    </span>
-                    <span className="px-2 py-0.5 rounded-full text-[9px] font-bold" style={{ backgroundColor: 'rgba(199,244,100,0.12)', color: C.neon, border: '1px solid rgba(199,244,100,0.25)' }}>
-                      Visible
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center px-4 py-3">
-                    <div className="flex flex-col items-center gap-1">
-                      <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-[13px]" style={{ backgroundColor: C.border, color: C.neon }}>{String(m.home)[0]}</div>
-                      <span className="text-[13px] font-bold" style={{ color: C.text }}>{m.home}</span>
-                      <span className="text-[10px]" style={{ color: C.textMute }}>xG {m.xG_h}</span>
-                    </div>
-                    <span className="text-[11px] px-2 py-1 rounded-full border" style={{ borderColor: 'rgba(199,244,100,0.2)', color: C.neon }}>VS</span>
-                    <div className="flex flex-col items-center gap-1">
-                      <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-[13px]" style={{ backgroundColor: C.border, color: C.neon }}>{String(m.away)[0]}</div>
-                      <span className="text-[13px] font-bold" style={{ color: C.text }}>{m.away}</span>
-                      <span className="text-[10px]" style={{ color: C.textMute }}>xG {m.xG_a}</span>
-                    </div>
-                  </div>
-                  <div className="relative px-3 py-2.5 border-t" style={{ borderColor: C.border, backgroundColor: C.inset }}>
-                    <div className="grid grid-cols-2 gap-2">
-                      <div className="rounded-[10px] p-2 text-center" style={{ backgroundColor: C.border }}>
-                        <p className="text-[9px]" style={{ color: C.textMute }}>BTTS · {m.prob_btts}%</p>
-                        <p className="font-bold text-[13px]" style={{ color: C.neonDk }}>{m.odd_btts}</p>
+              {/* TOUS FLOUTÉS */}
+              <div className="relative">
+                <div style={{ filter: 'blur(12px)', opacity: 0.5, pointerEvents: 'none' }}>
+                  {blurred.map((m, i) => (
+                    <div key={m.id} className="rounded-[14px] overflow-hidden border mb-2" style={{ backgroundColor: '#0B1925', borderColor: C.border }}>
+                      <div className="flex justify-between items-center px-3 py-2" style={{ backgroundColor: C.bg }}>
+                        <span className="text-[10px]" style={{ color: C.textSec }}>{m.league} · {m.time}</span>
+                        <span className="text-[9px]" style={{ color: C.textMute }}>VIP</span>
                       </div>
-                      <div className="rounded-[10px] p-2 text-center" style={{ backgroundColor: C.border }}>
-                        <p className="text-[9px]" style={{ color: C.textMute }}>Over 2.5 · {m.prob_over}%</p>
-                        <p className="font-bold text-[13px]" style={{ color: C.neonDk }}>{m.odd_over}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-
-              {/* FLOUTÉ matches (3) */}
-              {blurred.length > 0 && (
-                <div className="relative">
-                  <div style={{ filter: 'blur(12px)', opacity: 0.5, pointerEvents: 'none' }}>
-                    {blurred.map((m, i) => (
-                      <div key={m.id} className="rounded-[14px] overflow-hidden border mb-2" style={{ backgroundColor: '#0B1925', borderColor: C.border }}>
-                        <div className="flex justify-between items-center px-3 py-2" style={{ backgroundColor: C.bg }}>
-                          <span className="text-[10px]" style={{ color: C.textSec }}>{m.league} · {m.time}</span>
-                          <span className="text-[9px]" style={{ color: C.textMute }}>VIP</span>
-                        </div>
-                        <div className="flex justify-between items-center px-4 py-3">
+                      <div className="flex justify-between items-center px-4 py-3">
+                        <div className="flex flex-col items-center gap-1">
+                          <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-[13px]" style={{ backgroundColor: C.border, color: C.neon }}>{String(m.home)[0]}</div>
                           <span className="text-[13px] font-bold" style={{ color: C.text }}>{m.home}</span>
-                          <span className="text-[11px]" style={{ color: C.textMute }}>vs</span>
+                          <span className="text-[10px]" style={{ color: C.textMute }}>xG {m.xG_h}</span>
+                        </div>
+                        <span className="text-[11px] px-2 py-1 rounded-full border" style={{ borderColor: 'rgba(199,244,100,0.2)', color: C.neon }}>VS</span>
+                        <div className="flex flex-col items-center gap-1">
+                          <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-[13px]" style={{ backgroundColor: C.border, color: C.neon }}>{String(m.away)[0]}</div>
                           <span className="text-[13px] font-bold" style={{ color: C.text }}>{m.away}</span>
+                          <span className="text-[10px]" style={{ color: C.textMute }}>xG {m.xG_a}</span>
                         </div>
                       </div>
-                    ))}
-                  </div>
-                  {/* Lock overlay */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2" style={{ backgroundColor: 'rgba(7,17,26,0.75)' }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={C.neon} strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
-                    <span className="text-[10px] tracking-wider uppercase" style={{ color: C.textSec }}>3 pronostics floutés</span>
-                    <button onClick={() => setShowModal(true)} className="px-5 py-2 rounded-[10px] font-bold text-[12px]" style={{ backgroundColor: C.neon, color: C.bg }}>
-                      Débloquer VIP pour voir
-                    </button>
-                  </div>
+                    </div>
+                  ))}
                 </div>
-              )}
+                {/* Lock overlay */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2" style={{ backgroundColor: 'rgba(7,17,26,0.75)' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={C.neon} strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
+                  <span className="text-[10px] tracking-wider uppercase" style={{ color: C.textSec }}>{blurred.length} pronostics floutés</span>
+                  <button onClick={() => setShowModal(true)} className="px-5 py-2 rounded-[10px] font-bold text-[12px]" style={{ backgroundColor: C.neon, color: C.bg }}>
+                    Débloquer VIP pour voir
+                  </button>
+                </div>
+              </div>
             </div>
 
             {/* Cote totale */}
