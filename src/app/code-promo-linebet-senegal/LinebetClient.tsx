@@ -90,11 +90,18 @@ const INTERNAL_LINKS = [
 
 export default function LinebetClient() {
   const [copied, setCopied] = useState(false)
+  const [toast, setToast] = useState(false)
+
+  const showToast = () => {
+    setToast(true)
+    setTimeout(() => setToast(false), 2000)
+  }
 
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText('VISION221')
       setCopied(true)
+      showToast()
       setTimeout(() => setCopied(false), 2000)
     } catch {
       // Fallback pour anciens navigateurs
@@ -105,12 +112,33 @@ export default function LinebetClient() {
       try { document.execCommand('copy') } catch {}
       document.body.removeChild(el)
       setCopied(true)
+      showToast()
       setTimeout(() => setCopied(false), 2000)
     }
   }
 
+  // alias demandé par la spec : copyCode()
+  const copyCode = handleCopy
+
   return (
     <>
+      {/* Toast flottant — affiché quand le code est copié (clic sur bouton ou sur le code lui-même) */}
+      {toast && (
+        <div
+          className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] px-5 py-3 rounded-xl font-bold text-sm shadow-2xl"
+          style={{
+            backgroundColor: '#5DFDCB',
+            color: BG_DARK,
+            border: '1.5px solid #5DFDCB',
+            boxShadow: '0 10px 40px rgba(93, 253, 203, 0.4)',
+          }}
+          role="status"
+          aria-live="polite"
+        >
+          ✅ Code copié !
+        </div>
+      )}
+
       {/* Breadcrumb */}
       <nav aria-label="Fil d'Ariane" className="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
         <ol className="flex items-center gap-2 text-sm" style={{ color: TEXT_SEC }}>
@@ -160,26 +188,51 @@ export default function LinebetClient() {
               ★ Exclusif Afrique de l&apos;Ouest
             </div>
 
-            {/* Code VISION221 */}
+            {/* Code VISION221 — cliquable directement */}
             <p className="text-[11px] uppercase tracking-[0.25em] mb-2" style={{ color: TEXT_SEC }}>
               Code promo Linebet
             </p>
-            <p
-              className="text-5xl sm:text-6xl font-black tracking-[0.15em] mb-3 select-all"
+            <button
+              type="button"
+              onClick={copyCode}
+              title="Cliquer pour copier"
+              aria-label="Code promo VISION221 — cliquer pour copier dans le presse-papier"
+              className="inline-flex items-center justify-center gap-3 mb-3 select-all cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98] bg-transparent border-0 p-0"
               style={{
                 color: GOLD,
                 fontFamily: 'var(--font-mono), monospace',
                 textShadow: `0 0 30px ${GOLD}55, 0 0 12px ${GOLD}88`,
               }}
-              aria-label="Code promo VISION221"
             >
-              VISION221
-            </p>
+              <span className="text-5xl sm:text-6xl font-black tracking-[0.15em]">
+                VISION221
+              </span>
+              <span
+                className="inline-flex items-center justify-center w-9 h-9 rounded-lg flex-shrink-0"
+                style={{
+                  backgroundColor: copied ? '#5DFDCB' : `${GOLD}1A`,
+                  border: `1px solid ${copied ? '#5DFDCB' : GOLD}`,
+                  color: copied ? BG_DARK : GOLD,
+                }}
+                aria-hidden="true"
+              >
+                {copied ? (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                ) : (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                )}
+              </span>
+            </button>
             <p className="text-xs mb-6" style={{ color: TEXT_SEC }}>
               Bonus <strong style={{ color: GOLD }}>90 000 XOF</strong> (~150$) sur premier dépôt
             </p>
 
-            {/* 2 boutons */}
+            {/* 3 boutons : 1-Copier (or), 2-S'inscrire (violet), 3-Télécharger (outline) */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
               <button
                 onClick={handleCopy}
@@ -230,6 +283,28 @@ export default function LinebetClient() {
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
+              </a>
+
+              <a
+                href={LINEBET_SIGNUP}
+                target="_blank"
+                rel="noopener noreferrer nofollow sponsored"
+                className="flex-1 sm:flex-initial sm:min-w-[260px] h-[52px] rounded-[10px] font-bold text-[14px] flex items-center justify-center gap-2 transition-all"
+                style={{
+                  backgroundColor: 'transparent',
+                  color: '#C8CCDA',
+                  border: '1.5px solid #6B7194',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1a1f2e' }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent' }}
+                data-cta="linebet-download-v61"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Télécharger Linebet APK (Android &amp; iOS)
               </a>
             </div>
 
