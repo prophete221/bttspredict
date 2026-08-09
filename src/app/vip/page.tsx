@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import dynamic from 'next/dynamic'
 import { AFFILIATE, SITE } from '@/lib/constants'
 
@@ -9,61 +9,35 @@ const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: (
 const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
 const PromoVip = dynamic(() => import('@/components/bttsbet/PromoVip'), { loading: () => null })
 
-/* --- VRAIS LIENS AFFILIES (src/lib/constants.ts) --- */
+/* --- VRAIS LIENS AFFILIES --- */
 const LIEN_LINEBET = AFFILIATE.linebet
 const LIEN_LINEBET_APK = AFFILIATE.linebetDownload
 const LIEN_888STARZ = AFFILIATE.star888
 const LIEN_888STARZ_APK = AFFILIATE.star888Download
 const WHATSAPP = '15406704172'
 
-/* --- Palette Midnight Obsidian --- */
+/* --- Palette --- */
 const C = {
-  bg:'#07111A', elevated:'#0B1925', surface:'#102333', surfaceHover:'#142C3E', inset:'#061019',
-  borderSubtle:'#1C3546', borderStrong:'#2A4A60',
+  bg:'#07111A', surface:'#102333', border:'#1C3546',
   text:'#F2F7F5', textSec:'#B5C4C9', textMute:'#7F969E',
-  baobab:'#C7F464', baobabPressed:'#A6D941',
-  data:'#63D6FF', copper:'#FF9F5A',
-  success:'#7BE495', warning:'#FFD166', danger:'#FF7A7A',
+  baobab:'#C7F464', data:'#63D6FF', copper:'#FF9F5A',
+  success:'#7BE495', warning:'#FFD166',
 }
 
-/* --- Resultats verifies reels (depuis win-history.json, fetch cote client) --- */
-type VerifiedResult = { date:string; match:string; market:string; status:string; finalScore:string; prediction:string }
-
-/* --- Mini FAQ --- */
-const FAQ = [
-  { q:"Comment activer mon code VISION221 ?", a:"Inscris-toi sur Linebet via notre lien, saisis VISION221 en majuscules lors de l'inscription, depose 3 000 XOF minimum, puis envoie ton ID joueur via WhatsApp pour verification." },
-  { q:"Le paiement est-il securise ?", a:"Les depots se font directement chez le bookmaker (Linebet/888Starz) via Wave, Orange Money, MTN ou Moov. BTTSPredict ne collecte aucun fonds. Les transactions sont securisees par le bookmaker." },
-  { q:"Que faire si je n'ai pas encore de compte ?", a:"Clique sur << S'inscrire >> ci-dessous. Utilise le code VISION221 (Linebet) ou vision221 (888Starz). Une fois inscrit et le depot effectue, envoie ton ID via WhatsApp." },
-  { q:"Puis-je changer de niveau VIP ?", a:"Oui. Si tu as Silver et veux passer Gold, il te suffit d'augmenter ton depot cumule. Contacte-nous sur WhatsApp pour ajuster ton niveau." },
+/* --- 6 sports logos pour carte Multi-Sport --- */
+const SPORTS = [
+  { name:'Football', emoji:'\u26BD', color:'#C7F464' },
+  { name:'Tennis', emoji:'\u1F3BE', color:'#63D6FF' },
+  { name:'NBA', emoji:'\u1F3C0', color:'#FF9F5A' },
+  { name:'NFL', emoji:'\u1F3C8', color:'#7BE495' },
+  { name:'UFC', emoji:'\u1F94B', color:'#FF7A7A' },
+  { name:'Handball', emoji:'\u1F93C', color:'#FFD166' },
 ]
 
 export default function VipPage() {
   const [copiedCode,setCopiedCode]=useState(false)
   const [toast,setToast]=useState('')
   const [bookmaker,setBookmaker]=useState<'linebet'|'888starz'>('linebet')
-  const [stats,setStats]=useState<{total:number;won:number;lost:number;rate:number}>({total:0,won:0,lost:0,rate:0})
-  const [results,setResults]=useState<VerifiedResult[]>([])
-
-  /* Fetch real verified results from win-history.json */
-  useEffect(()=>{
-    fetch('/win-history.json').then(r=>r.json()).then(data=>{
-      if(data?.stats){
-        setStats({
-          total: data.stats.total||0,
-          won: data.stats.won||0,
-          lost: data.stats.lost||0,
-          rate: data.stats.rate||0,
-        })
-      }
-      if(data?.history){
-        setResults(data.history.slice(0,5).map((h:any)=>({
-          date:h.date||'', match:h.match||'', market:h.market||'',
-          status:h.status||'PENDING', finalScore:h.finalScore||'-',
-          prediction:h.prediction||h.market||'BTTS'
-        })))
-      }
-    }).catch(()=>{})
-  },[])
 
   const code=bookmaker==='linebet'?'VISION221':'vision221'
   const inscriptionLink=bookmaker==='linebet'?LIEN_LINEBET:LIEN_888STARZ
@@ -80,209 +54,196 @@ export default function VipPage() {
       <ErrorBoundary><Navbar /></ErrorBoundary>
       <main id="main-content" className="flex-1 relative z-10" style={{paddingBottom:'calc(80px + env(safe-area-inset-bottom, 0px))'}}>
 
-        {/* Toast */}
-        {toast&&<div className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] px-5 py-3 rounded-xl font-bold text-sm shadow-2xl" style={{backgroundColor:toast.startsWith('!')?C.danger:C.baobab,color:C.bg}} role="status">{toast}</div>}
+        {toast&&<div className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] px-5 py-3 rounded-xl font-bold text-sm shadow-2xl" style={{backgroundColor:C.baobab,color:C.bg}}>{toast}</div>}
 
-        {/* --- 1. HEADER + compteur credibilite --- */}
+        {/* --- HEADER --- */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-8 pb-6 text-center">
-          <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold tracking-wider mb-4" style={{backgroundColor:'rgba(199,244,100,0.1)',color:C.baobab,border:'1px solid rgba(199,244,100,0.3)'}}>
-            Programme VIP Premium
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-bold mb-3" style={{fontFamily:'Poppins, sans-serif'}}>
-            Pronostics premium BTTS et Over 2.5
+          <h1 className="text-2xl sm:text-3xl font-bold mb-2" style={{fontFamily:'Poppins, sans-serif'}}>
+            Pronostics VIP
           </h1>
-          <p className="text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-4" style={{color:C.textSec}}>
-            Selections supplementaires basees sur le modele Poisson + xG.
-            Donnees ESPN publiques, historique verifiable. Aucun gain garanti. 18+.
+          <p className="text-sm max-w-lg mx-auto" style={{color:C.textSec}}>
+            Football + Multi-Sports. Debloque avec VISION221 ou vision221.
           </p>
-          {/* Compteur credibilite dynamique */}
-          <div className="inline-flex items-center gap-4 px-4 py-2 rounded-xl" style={{backgroundColor:C.surface,border:`1px solid ${C.borderSubtle}`}}>
-            <div className="text-center">
-              <span className="font-mono text-lg font-bold" style={{color:C.data}}>{stats.total}</span>
-              <span className="text-[10px] block" style={{color:C.textMute}}>pronostics verifies</span>
-            </div>
-            <div className="w-px h-8" style={{backgroundColor:C.borderSubtle}} />
-            <div className="text-center">
-              <span className="font-mono text-lg font-bold" style={{color:stats.rate>=60?C.success:C.warning}}>{stats.rate}%</span>
-              <span className="text-[10px] block" style={{color:C.textMute}}>taux de reussite</span>
-            </div>
-            <div className="w-px h-8" style={{backgroundColor:C.borderSubtle}} />
-            <div className="text-center">
-              <span className="font-mono text-lg font-bold" style={{color:C.text}}>{stats.won}W / {stats.lost}L</span>
-              <span className="text-[10px] block" style={{color:C.textMute}}>depuis 08/08/2026</span>
-            </div>
-          </div>
         </section>
 
-        {/* --- 2. PREUVES DE RESULTATS --- */}
-        <section className="max-w-5xl mx-auto px-4 sm:px-6 pb-8">
-          <h2 className="text-lg font-bold mb-4 text-center" style={{fontFamily:'Poppins, sans-serif'}}>
-            Resultats verifies - 7 derniers jours
-          </h2>
-          {results.length>0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {results.map((r,i)=>(
-                <div key={i} className="rounded-xl p-4" style={{backgroundColor:C.surface,border:`1px solid ${C.borderSubtle}`}}>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] uppercase tracking-wider" style={{color:C.textMute}}>{r.date}</span>
-                    <span className="px-2 py-0.5 rounded-full text-[9px] font-bold" style={{
-                      backgroundColor: r.status==='WON'?'rgba(123,228,149,0.15)':'rgba(255,122,122,0.15)',
-                      color: r.status==='WON'?C.success:C.danger,
-                      border:`1px solid ${r.status==='WON'?'rgba(123,228,149,0.3)':'rgba(255,122,122,0.3)'}`,
-                    }}>{r.status==='WON'?'Gagne':'Perdu'}</span>
-                  </div>
-                  <p className="text-sm font-semibold mb-1" style={{color:C.text}}>{r.match}</p>
-                  <div className="flex items-center gap-3 text-[11px]" style={{color:C.textSec}}>
-                    <span>Marche: {r.market}</span>
-                    <span>Score: {r.finalScore}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p className="text-center text-sm" style={{color:C.textMute}}>Chargement des resultats verifies...</p>
-          )}
-          <div className="text-center mt-3">
-            <a href="/resultats-verifies" className="inline-flex items-center gap-1 text-sm font-bold underline" style={{color:C.data}}>
-              Voir tout l&apos;historique verifie
-            </a>
-          </div>
-        </section>
-
-        {/* --- 3. COUPON VIP DU JOUR --- */}
-        <section className="pb-8">
-          <PromoVip />
-        </section>
-
-        {/* --- 4. POURQUOI NOUS FAIRE CONFIANCE --- */}
-        <section className="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
-          <h2 className="text-lg font-bold mb-4 text-center" style={{fontFamily:'Poppins, sans-serif'}}>
-            Pourquoi nous faire confiance ?
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div className="rounded-xl p-5" style={{backgroundColor:C.surface,border:`1px solid ${C.borderSubtle}`}}>
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style={{backgroundColor:'rgba(99,214,255,0.1)',border:'1px solid rgba(99,214,255,0.2)'}}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={C.data} strokeWidth="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-              </div>
-              <h3 className="text-sm font-bold mb-2" style={{color:C.text}}>Methode IA + donnees publiques</h3>
-              <p className="text-[12px] leading-relaxed" style={{color:C.textSec}}>Modele Poisson calibre sur xG. Sources ESPN et TheSportsDB. Archive horodatee, verification post-match publique.</p>
-            </div>
-            <div className="rounded-xl p-5" style={{backgroundColor:C.surface,border:`1px solid ${C.borderSubtle}`}}>
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style={{backgroundColor:'rgba(123,228,149,0.1)',border:'1px solid rgba(123,228,149,0.2)'}}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={C.success} strokeWidth="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
-              </div>
-              <h3 className="text-sm font-bold mb-2" style={{color:C.text}}>Historique transparent</h3>
-              <p className="text-[12px] leading-relaxed" style={{color:C.textSec}}>Gagnes ET perdus affiches publiquement. Taux calcule dynamiquement depuis l&apos;archive. Aucun filtrage des pertes.</p>
-            </div>
-            <div className="rounded-xl p-5" style={{backgroundColor:C.surface,border:`1px solid ${C.borderSubtle}`}}>
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style={{backgroundColor:'rgba(199,244,100,0.1)',border:'1px solid rgba(199,244,100,0.2)'}}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={C.baobab} strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-              </div>
-              <h3 className="text-sm font-bold mb-2" style={{color:C.text}}>Support reactif</h3>
-              <p className="text-[12px] leading-relaxed" style={{color:C.textSec}}>WhatsApp prioritaire pour les membres VIP. Reponse en 15-60 min. Elite : support Telegram egalement.</p>
-            </div>
-          </div>
-        </section>
-
-        {/* --- 5. DEUX CARTES VIP - Linebet + 888Starz (matchs floutes) --- */}
+        {/* --- 2 CARTES 3D --- */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-8">
-          <h2 className="text-xl sm:text-2xl mb-5 text-center" style={{fontFamily:'Poppins, sans-serif'}}>
-            Debloque ton VIP
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* CARTE LINEBET */}
-            <div className="rounded-2xl p-6 text-center" style={{backgroundColor:C.surface,border:`1.5px solid ${C.baobab}44`}}>
-              <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-3" style={{backgroundColor:`${C.baobab}1A`,color:C.baobab,border:`1px solid ${C.baobab}44`}}>Linebet</span>
-              <p className="text-2xl font-black mb-1" style={{color:C.baobab,fontFamily:'var(--font-mono), monospace'}}>VISION221</p>
-              <p className="text-xs mb-4" style={{color:C.textSec}}>Bonus 90 000 XOF - Depot min 3 000 F</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+            {/* CARTE 3D - LINEBET FOOTBALL */}
+            <div
+              className="relative rounded-2xl p-6 text-center transition-all duration-300 hover:scale-[1.03]"
+              style={{
+                background: `linear-gradient(145deg, ${C.surface} 0%, ${C.bg} 100%)`,
+                border: `1px solid ${C.baobab}44`,
+                boxShadow: `0 10px 40px ${C.baobab}11, 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 0 ${C.baobab}22`,
+                transform: 'perspective(1000px) rotateX(2deg)',
+              }}
+            >
+              {/* Glow effect */}
+              <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{background:`radial-gradient(circle at 50% 0%, ${C.baobab}15, transparent 70%)`}} />
+
+              {/* Badge */}
+              <div className="relative mb-3">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider"
+                  style={{backgroundColor:`${C.baobab}1A`,color:C.baobab,border:`1px solid ${C.baobab}33`}}>
+                  {'\u26BD'} Football VIP
+                </span>
+              </div>
+
+              {/* Code promo */}
+              <p className="text-[10px] uppercase tracking-widest mb-1" style={{color:C.textMute}}>Code promo</p>
+              <p className="text-2xl font-black mb-1" style={{color:C.baobab,fontFamily:'var(--font-mono), monospace',textShadow:`0 0 20px ${C.baobab}44`}}>
+                VISION221
+              </p>
+              <p className="text-[11px] mb-4" style={{color:C.textSec}}>Bonus 90,000 XOF - Min deposit 3,000 F</p>
+
+              {/* Boutons */}
               <div className="space-y-2">
-                <a href={LIEN_LINEBET} target="_blank" rel="noopener noreferrer nofollow sponsored" className="block w-full h-[44px] rounded-[10px] font-bold text-[13px] flex items-center justify-center" style={{backgroundColor:C.baobab,color:C.bg}} data-cta="vip-linebet-card">S&apos;inscrire sur Linebet</a>
-                <a href={LIEN_LINEBET_APK} target="_blank" rel="noopener noreferrer nofollow sponsored" className="block w-full h-[44px] rounded-[10px] font-bold text-[13px] flex items-center justify-center" style={{backgroundColor:'transparent',color:C.text,border:`1.5px solid ${C.borderSubtle}`}} data-cta="vip-linebet-apk-card">Telecharger APK</a>
+                <a href={LIEN_LINEBET} target="_blank" rel="noopener noreferrer nofollow sponsored"
+                  className="block w-full h-[40px] rounded-lg font-bold text-[12px] flex items-center justify-center transition-all"
+                  style={{backgroundColor:C.baobab,color:C.bg,boxShadow:`0 2px 8px ${C.baobab}33`}}
+                  data-cta="vip-3d-linebet-inscription">
+                  S&apos;inscrire sur Linebet
+                </a>
+                <a href={LIEN_LINEBET_APK} target="_blank" rel="noopener noreferrer nofollow sponsored"
+                  className="block w-full h-[40px] rounded-lg font-bold text-[12px] flex items-center justify-center transition-all"
+                  style={{backgroundColor:'transparent',color:C.textSec,border:`1px solid ${C.border}`}}
+                  data-cta="vip-3d-linebet-apk">
+                  {'\u1F4E5'} Telecharger APK
+                </a>
               </div>
             </div>
-            {/* CARTE 888STARZ */}
-            <div className="rounded-2xl p-6 text-center" style={{backgroundColor:C.surface,border:`1.5px solid ${C.copper}44`}}>
-              <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-3" style={{backgroundColor:`${C.copper}1A`,color:C.copper,border:`1px solid ${C.copper}44`}}>888Starz</span>
-              <p className="text-2xl font-black mb-1" style={{color:C.copper,fontFamily:'var(--font-mono), monospace'}}>vision221</p>
-              <p className="text-xs mb-4" style={{color:C.textSec}}>Bonus 200% - Depot min 3 000 F</p>
+
+            {/* CARTE 3D - MULTI-SPORT */}
+            <div
+              className="relative rounded-2xl p-6 text-center transition-all duration-300 hover:scale-[1.03]"
+              style={{
+                background: `linear-gradient(145deg, ${C.surface} 0%, ${C.bg} 100%)`,
+                border: `1px solid ${C.data}44`,
+                boxShadow: `0 10px 40px ${C.data}11, 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 0 ${C.data}22`,
+                transform: 'perspective(1000px) rotateX(2deg)',
+              }}
+            >
+              {/* Glow */}
+              <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{background:`radial-gradient(circle at 50% 0%, ${C.data}15, transparent 70%)`}} />
+
+              {/* Badge */}
+              <div className="relative mb-3">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider"
+                  style={{backgroundColor:`${C.data}1A`,color:C.data,border:`1px solid ${C.data}33`}}>
+                  {'\u1F3AF'} Multi-Sports VIP
+                </span>
+              </div>
+
+              {/* 6 sports logos */}
+              <div className="grid grid-cols-6 gap-1 mb-3">
+                {SPORTS.map((s,i)=>(
+                  <div key={i} className="flex flex-col items-center gap-0.5">
+                    <div className="w-7 h-7 rounded-lg flex items-center justify-center text-[14px]"
+                      style={{backgroundColor:`${s.color}15`,border:`1px solid ${s.color}33`}}>
+                      {s.emoji}
+                    </div>
+                    <span className="text-[7px] font-bold" style={{color:C.textMute}}>{s.name.slice(0,3)}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Code promo */}
+              <p className="text-[10px] uppercase tracking-widest mb-1" style={{color:C.textMute}}>Code promo</p>
+              <p className="text-2xl font-black mb-1" style={{color:C.data,fontFamily:'var(--font-mono), monospace',textShadow:`0 0 20px ${C.data}44`}}>
+                vision221
+              </p>
+              <p className="text-[11px] mb-4" style={{color:C.textSec}}>
+                  Bonus 200% - Min deposit 3,000 F
+                </p>
+
+              {/* Boutons */}
               <div className="space-y-2">
-                <a href={LIEN_888STARZ} target="_blank" rel="noopener noreferrer nofollow sponsored" className="block w-full h-[44px] rounded-[10px] font-bold text-[13px] flex items-center justify-center" style={{backgroundColor:C.copper,color:C.bg}} data-cta="vip-888starz-card">S&apos;inscrire sur 888Starz</a>
-                <a href={LIEN_888STARZ_APK} target="_blank" rel="noopener noreferrer nofollow sponsored" className="block w-full h-[44px] rounded-[10px] font-bold text-[13px] flex items-center justify-center" style={{backgroundColor:'transparent',color:C.text,border:`1.5px solid ${C.borderSubtle}`}} data-cta="vip-888starz-apk-card">Telecharger APK</a>
+                <a href={LIEN_888STARZ} target="_blank" rel="noopener noreferrer nofollow sponsored"
+                  className="block w-full h-[40px] rounded-lg font-bold text-[12px] flex items-center justify-center transition-all"
+                  style={{backgroundColor:C.data,color:C.bg,boxShadow:`0 2px 8px ${C.data}33`}}
+                  data-cta="vip-3d-888starz-inscription">
+                  S&apos;inscrire sur 888Starz
+                </a>
+                <a href={LIEN_888STARZ_APK} target="_blank" rel="noopener noreferrer nofollow sponsored"
+                  className="block w-full h-[40px] rounded-lg font-bold text-[12px] flex items-center justify-center transition-all"
+                  style={{backgroundColor:'transparent',color:C.textSec,border:`1px solid ${C.border}`}}
+                  data-cta="vip-3d-888starz-apk">
+                  {'\u1F4E5'} Telecharger APK
+                </a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Section 6 - Tunnel deblocage 3 etapes */}
-        <section id="tunnel-inscription" className="max-w-2xl mx-auto px-4 sm:px-6 pb-8">
-          <h2 className="text-lg font-bold mb-4 text-center" style={{fontFamily:'Poppins, sans-serif'}}>Comment debloquer ton VIP</h2>
+        {/* --- COUPON FLOUTE --- */}
+        <section className="pb-8"><PromoVip /></section>
 
-          {/* Visuel progression */}
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <div className="flex items-center gap-2"><span className="w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold" style={{backgroundColor:C.baobab,color:C.bg}}>1</span><span className="text-[11px] font-bold" style={{color:C.text}}>Inscription</span></div>
-            <div className="w-8 h-px" style={{backgroundColor:C.borderStrong}} />
-            <div className="flex items-center gap-2"><span className="w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold" style={{backgroundColor:C.surface,border:`1px solid ${C.borderStrong}`,color:C.textSec}}>2</span><span className="text-[11px]" style={{color:C.textSec}}>Depot</span></div>
-            <div className="w-8 h-px" style={{backgroundColor:C.borderStrong}} />
-            <div className="flex items-center gap-2"><span className="w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold" style={{backgroundColor:C.surface,border:`1px solid ${C.borderStrong}`,color:C.textSec}}>3</span><span className="text-[11px]" style={{color:C.textSec}}>WhatsApp</span></div>
+        {/* --- TUNNEL DEBLOCAGE --- */}
+        <section id="tunnel" className="max-w-md mx-auto px-4 sm:px-6 pb-8">
+          <h2 className="text-base font-bold mb-4 text-center" style={{fontFamily:'Poppins, sans-serif'}}>Debloquer ton VIP</h2>
+
+          {/* Progression */}
+          <div className="flex items-center justify-center gap-2 mb-5">
+            <div className="flex items-center gap-1.5">
+              <span className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold" style={{backgroundColor:C.baobab,color:C.bg}}>1</span>
+              <span className="text-[10px] font-bold" style={{color:C.text}}>Inscription</span>
+            </div>
+            <div className="w-6 h-px" style={{backgroundColor:C.border}} />
+            <div className="flex items-center gap-1.5">
+              <span className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold" style={{backgroundColor:C.surface,border:`1px solid ${C.border}`,color:C.textSec}}>2</span>
+              <span className="text-[10px]" style={{color:C.textSec}}>Depot</span>
+            </div>
+            <div className="w-6 h-px" style={{backgroundColor:C.border}} />
+            <div className="flex items-center gap-1.5">
+              <span className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold" style={{backgroundColor:C.surface,border:`1px solid ${C.border}`,color:C.textSec}}>3</span>
+              <span className="text-[10px]" style={{color:C.textSec}}>WhatsApp</span>
+            </div>
           </div>
 
           {/* Choix bookmaker */}
-          <div className="flex gap-2 mb-4">
-            <button onClick={()=>setBookmaker('linebet')} className="flex-1 py-2 rounded-[10px] font-bold text-[12px]" style={{backgroundColor:bookmaker==='linebet'?C.baobab:'transparent',color:bookmaker==='linebet'?C.bg:C.textSec,border:`1.5px solid ${bookmaker==='linebet'?C.baobab:C.borderSubtle}`}}>Linebet (VISION221)</button>
-            <button onClick={()=>setBookmaker('888starz')} className="flex-1 py-2 rounded-[10px] font-bold text-[12px]" style={{backgroundColor:bookmaker==='888starz'?C.copper:'transparent',color:bookmaker==='888starz'?C.bg:C.textSec,border:`1.5px solid ${bookmaker==='888starz'?C.copper:C.borderSubtle}`}}>888Starz (vision221)</button>
+          <div className="flex gap-2 mb-3">
+            <button onClick={()=>setBookmaker('linebet')} className="flex-1 py-2 rounded-lg font-bold text-[11px]"
+              style={{backgroundColor:bookmaker==='linebet'?C.baobab:'transparent',color:bookmaker==='linebet'?C.bg:C.textSec,border:`1px solid ${bookmaker==='linebet'?C.baobab:C.border}`}}>
+              Linebet
+            </button>
+            <button onClick={()=>setBookmaker('888starz')} className="flex-1 py-2 rounded-lg font-bold text-[11px]"
+              style={{backgroundColor:bookmaker==='888starz'?C.data:'transparent',color:bookmaker==='888starz'?C.bg:C.textSec,border:`1px solid ${bookmaker==='888starz'?C.data:C.border}`}}>
+              888Starz
+            </button>
           </div>
 
-          {/* Code promo cliquable */}
-          <div className="text-center mb-4">
-            <p className="text-[10px] uppercase tracking-widest mb-2" style={{color:C.textMute}}>Code promo {bookmaker==='linebet'?'Linebet':'888Starz'}</p>
-            <button onClick={copyCode} title="Cliquer pour copier" className="inline-flex items-center gap-3 cursor-pointer bg-transparent border-0 p-0">
-              <span className="text-3xl font-black tracking-[0.15em]" style={{color:bookmaker==='linebet'?C.baobab:C.copper,fontFamily:'var(--font-mono), monospace'}}>{code}</span>
-              <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg" style={{backgroundColor:copiedCode?C.success:`${bookmaker==='linebet'?C.baobab:C.copper}1A`,border:`1px solid ${copiedCode?C.success:(bookmaker==='linebet'?C.baobab:C.copper)}`,color:copiedCode?C.bg:(bookmaker==='linebet'?C.baobab:C.copper)}}>
-                {copiedCode?(<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>):(<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>)}
+          {/* Code cliquable */}
+          <div className="text-center mb-3">
+            <button onClick={copyCode} className="inline-flex items-center gap-2 cursor-pointer bg-transparent border-0 p-0">
+              <span className="text-xl font-black tracking-[0.1em]" style={{color:bookmaker==='linebet'?C.baobab:C.data,fontFamily:'var(--font-mono), monospace'}}>{code}</span>
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded" style={{backgroundColor:copiedCode?C.success:`${bookmaker==='linebet'?C.baobab:C.data}1A`,border:`1px solid ${copiedCode?C.success:(bookmaker==='linebet'?C.baobab:C.data)}`,color:copiedCode?C.bg:(bookmaker==='linebet'?C.baobab:C.data)}}>
+                {copiedCode?'OK':'\u1F4CB'}
               </span>
             </button>
           </div>
 
-          {/* 3 boutons */}
-          <div className="space-y-2 mb-4">
-            <a href={inscriptionLink} target="_blank" rel="noopener noreferrer nofollow sponsored" className="block w-full h-[48px] rounded-[10px] font-bold text-[13px] flex items-center justify-center" style={{backgroundColor:bookmaker==='linebet'?C.baobab:C.copper,color:C.bg}} data-cta="vip-inscription">
-              S&apos;inscrire sur {bookmaker==='linebet'?'Linebet':'888Starz'}
-            </a>
-            <a href={apkLink} target="_blank" rel="noopener noreferrer nofollow sponsored" className="block w-full h-[48px] rounded-[10px] font-bold text-[13px] flex items-center justify-center" style={{backgroundColor:'transparent',color:C.text,border:`1.5px solid ${C.borderSubtle}`}} data-cta="vip-apk">
-              Telecharger APK {bookmaker==='linebet'?'Linebet':'888Starz'}
-            </a>
-          </div>
-
-          {/* WhatsApp */}
-          <a href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Salut BTTSPredict, je viens de m'inscrire avec ton code "+code+" Depot 3000F fait. Merci de verifier et debloquer mon VIP.")}`} target="_blank" rel="noopener noreferrer" className="block w-full h-[52px] rounded-[10px] font-bold text-[14px] flex items-center justify-center gap-2" style={{backgroundColor:C.success,color:C.bg,boxShadow:'0 4px 14px rgba(123,228,149,0.2)'}}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          {/* Boutons */}
+          <a href={inscriptionLink} target="_blank" rel="noopener noreferrer nofollow sponsored"
+            className="block w-full h-[44px] rounded-lg font-bold text-[13px] flex items-center justify-center mb-2"
+            style={{backgroundColor:bookmaker==='linebet'?C.baobab:C.data,color:C.bg}} data-cta="vip-tunnel-inscription">
+            S&apos;inscrire
+          </a>
+          <a href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Salut BTTSPredict, code "+code+" depot 3000F. Debloquer VIP.")}`} target="_blank" rel="noopener noreferrer"
+            className="block w-full h-[44px] rounded-lg font-bold text-[13px] flex items-center justify-center"
+            style={{backgroundColor:C.success,color:C.bg}} data-cta="vip-tunnel-whatsapp">
             Verifier via WhatsApp
           </a>
-          <p className="text-[11px] text-center mt-3" style={{color:C.textMute}}>Lien d&apos;affiliation remunere. BTTSPredict ne prend pas de paris. Delai 15-60 min.</p>
+          <p className="text-[10px] text-center mt-3" style={{color:C.textMute}}>Affiliation remunere. 18+. Aucun gain garanti. Delai 15-60 min.</p>
         </section>
 
-        {/* --- 7. MINI FAQ --- */}
-        <section className="max-w-2xl mx-auto px-4 sm:px-6 pb-8">
-          <h2 className="text-lg font-bold mb-4 text-center" style={{fontFamily:'Poppins, sans-serif'}}>Questions frequentes</h2>
-          <div className="space-y-3">
-            {FAQ.map((item,i)=>(
-              <details key={i} className="rounded-xl p-4" style={{backgroundColor:C.surface,border:`1px solid ${C.borderSubtle}`}}>
-                <summary className="cursor-pointer font-semibold text-sm" style={{color:C.text,listStyle:'none'}}>{item.q}</summary>
-                <p className="text-[12px] mt-2 leading-relaxed" style={{color:C.textSec}}>{item.a}</p>
-              </details>
-            ))}
-          </div>
-        </section>
-
-        {/* --- 8. FOOTER LEGAL --- */}
+        {/* --- FOOTER --- */}
         <section className="max-w-2xl mx-auto px-4 sm:px-6 pb-10">
-          <div className="rounded-xl p-4 text-center" style={{backgroundColor:'rgba(255,209,102,0.06)',border:'1px solid rgba(255,209,102,0.15)'}}>
-            <p className="text-[11px] leading-relaxed" style={{color:C.textSec}}>
-              18+ - Les paris sportifs comportent un risque de perte. Aucun gain n&apos;est garanti.
-              Lien d'affiliation remunere - BTTSPredict ne prend pas de paris et ne collecte pas de fonds.
-              Code VISION221 (Linebet) / vision221 (888Starz).
+          <div className="rounded-lg p-3 text-center" style={{backgroundColor:'rgba(255,209,102,0.06)',border:'1px solid rgba(255,209,102,0.15)'}}>
+            <p className="text-[10px]" style={{color:C.textMute}}>
+              18+ - Aucun gain garanti - Lien d&apos;affiliation remunere - BTTSPredict ne prend pas de paris.
               {' '}<a href="/jouer-responsable" className="underline" style={{color:C.warning}}>Jeu responsable</a>
-              {' '}-{' '}<a href="/mentions-legales" className="underline" style={{color:C.textMute}}>Mentions legales</a>
             </p>
           </div>
         </section>
