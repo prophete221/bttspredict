@@ -8,6 +8,17 @@ interface PageProps {
   params: Promise<{ slug: string }>
 }
 
+// Stratégie SSG explicite pour /match/[slug] :
+// - generateStaticParams() pré-génère toutes les pages match valides au build
+// - dynamicParams = false → toute URL /match/[slug] non pré-générée retourne 404
+//   (au lieu d'être servie côté serveur, ce qui casserait en mode `output: export`)
+// - dynamic = 'force-static' → garantie que la page est rendue en statique pur
+//
+// En cas de /match/[slug] introuvable, l'utilisateur voit la page /404.html
+// personnalisée (gérée par LWS via .htaccess).
+export const dynamicParams = false
+export const dynamic = 'force-static'
+
 export async function generateStaticParams() {
   const slugs = getAllMatchSlugs()
   // Si aucune page match n'est disponible, on génère un fallback pour que le build SSG passe

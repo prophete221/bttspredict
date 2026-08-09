@@ -16,7 +16,7 @@ const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictio
 
 export const metadata: Metadata = {
   title: 'VIP — Pronostics premium BTTS et Over 2.5',
-  description: "Programme VIP BTTSPredict : pronostics premium, multi-sports, analyses détaillées. Accès après activation chez le bookmaker partenaire. Aucun gain garanti. 18+.",
+  description: "Programme VIP BTTSPredict : pronostics premium et multi-sports. Accès après activation chez le bookmaker partenaire. Aucun gain garanti. 18+.",
   alternates: { canonical: 'https://bttspredict.com/vip' },
   robots: { index: true, follow: true },
   openGraph: {

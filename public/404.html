@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Page non trouvée — BttsBet</title>
-  <meta http-equiv="refresh" content="5;url=/">
+  <title>Page introuvable — BTTSPredict</title>
+  <meta name="description" content="La page demandée n'existe pas ou a été déplacée. Retour à l'accueil BTTSPredict.">
+  <meta name="robots" content="noindex, follow">
   <style>
     body {
       margin: 0;
@@ -22,42 +23,69 @@
       max-width: 480px;
       padding: 2rem;
     }
-    h1 {
+    .code {
+      display: inline-block;
+      font-size: 4rem;
+      font-weight: 800;
       color: #FACC15;
-      font-size: 1.5rem;
+      line-height: 1;
       margin-bottom: 0.5rem;
+    }
+    h1 {
+      color: #F7F8FF;
+      font-size: 1.5rem;
+      margin: 0.5rem 0;
     }
     p {
       font-size: 0.875rem;
       line-height: 1.6;
       margin-bottom: 1.5rem;
+      color: #A5ABC5;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
     }
     a {
       display: inline-block;
-      padding: 0.625rem 1.5rem;
-      background: #FACC15;
-      color: #0A0B1A;
-      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      font-weight: 700;
       border-radius: 0.5rem;
       text-decoration: none;
-      transition: background 0.2s;
+      font-size: 0.875rem;
+      transition: all 0.2s;
     }
-    a:hover {
-      background: #eab308;
+    .primary {
+      background: #5146F5;
+      color: #F7F8FF;
+    }
+    .primary:hover {
+      background: #6258FF;
+    }
+    .secondary {
+      background: transparent;
+      color: #F7F8FF;
+      border: 1px solid #303861;
+    }
+    .secondary:hover {
+      background: rgba(81, 70, 245, 0.1);
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Page non trouvée</h1>
-    <p>La page que vous cherchez n'existe pas ou a été déplacée. Vous allez être redirigé vers la page d'accueil automatiquement.</p>
-    <a href="/">Retour à l'accueil</a>
+    <span class="code">404</span>
+    <h1>Match ou page introuvable</h1>
+    <p>
+      La page que vous cherchez n'existe pas, a expiré, ou le match n'est plus dans notre sélection du jour.
+      Nos pronostics sont régénérés quotidiennement — les anciennes pages match ne sont plus servies.
+    </p>
+    <div class="actions">
+      <a href="/" class="primary">Retour à l'accueil</a>
+      <a href="/pronostics" class="secondary">Voir les pronostics du jour</a>
+    </div>
   </div>
-  <script>
-    // Fallback redirect if meta refresh doesn't work
-    setTimeout(function() {
-      window.location.href = '/';
-    }, 5000);
-  </script>
 </body>
 </html>
