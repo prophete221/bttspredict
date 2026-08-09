@@ -47,8 +47,8 @@ export default function Navbar() {
       <nav
         className="sticky top-0 z-50"
         style={{
-          backgroundColor: '#070A14',
-          borderBottom: '1px solid rgba(81, 70, 245, 0.15)',
+          backgroundColor: '#F1F2F3',
+          borderBottom: '1px solid rgba(18, 18, 18, 0.15)',
         }}
       >
         <div className="max-w-2xl mx-auto px-2">
@@ -62,7 +62,7 @@ export default function Navbar() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/favicon.svg" alt="BTTSPredict" width={24} height={24} className="flex-shrink-0" />
-              <span className="text-xs font-bold" style={{ color: '#D4AF37' }}>
+              <span className="text-xs font-bold" style={{ color: '#121212' }}>
                 BTTSPredict
               </span>
             </a>
@@ -73,8 +73,8 @@ export default function Navbar() {
                 onClick={copyCode}
                 className="hidden sm:block px-2 py-1 rounded text-[10px] font-mono font-bold"
                 style={{
-                  backgroundColor: 'rgba(81, 70, 245, 0.12)',
-                  border: '1px solid #D4AF37',
+                  backgroundColor: 'rgba(18, 18, 18, 0.12)',
+                  border: '1px solid #121212',
                   color: '#A8E063',
                 }}
               >
@@ -85,7 +85,7 @@ export default function Navbar() {
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
                 className="sm:hidden flex items-center justify-center w-9 h-9 rounded-lg"
-                style={{ color: '#F1F5F9' }}
+                style={{ color: '#111827' }}
                 aria-label="Menu"
                 aria-expanded={menuOpen}
               >
@@ -112,9 +112,9 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className="text-[10px] font-medium px-2 py-1 rounded whitespace-nowrap transition-colors"
-                style={{ color: '#94A3B8' }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = '#D4AF37'; e.currentTarget.style.backgroundColor = 'rgba(81, 70, 245, 0.08)' }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = '#94A3B8'; e.currentTarget.style.backgroundColor = 'transparent' }}
+                style={{ color: '#6B7280' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#121212'; e.currentTarget.style.backgroundColor = 'rgba(18, 18, 18, 0.08)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = '#6B7280'; e.currentTarget.style.backgroundColor = 'transparent' }}
               >
                 {link.label}
               </a>
@@ -137,18 +137,18 @@ export default function Navbar() {
           <div
             className="fixed top-0 left-0 right-0 z-[70] sm:hidden"
             style={{
-              backgroundColor: '#111827',
-              borderBottom: '1px solid #D4AF37',
+              backgroundColor: '#FFFFFF',
+              borderBottom: '1px solid #121212',
               boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
             }}
           >
             {/* Header du drawer */}
-            <div className="flex items-center justify-between px-4 py-3 border-b" style={{ borderColor: 'rgba(81, 70, 245, 0.15)' }}>
-              <span className="text-sm font-bold text-[#F1F5F9]">Navigation</span>
+            <div className="flex items-center justify-between px-4 py-3 border-b" style={{ borderColor: 'rgba(18, 18, 18, 0.15)' }}>
+              <span className="text-sm font-bold text-[#111827]">Navigation</span>
               <button
                 onClick={() => setMenuOpen(false)}
                 className="w-8 h-8 flex items-center justify-center rounded-lg"
-                style={{ color: '#94A3B8' }}
+                style={{ color: '#6B7280' }}
                 aria-label="Fermer le menu"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -167,12 +167,12 @@ export default function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   className="block px-3 py-3 rounded-lg text-xs font-semibold text-center transition-colors"
                   style={{
-                    color: '#F1F5F9',
-                    backgroundColor: 'rgba(81, 70, 245, 0.08)',
-                    border: '1px solid rgba(81, 70, 245, 0.2)',
+                    color: '#111827',
+                    backgroundColor: 'rgba(18, 18, 18, 0.08)',
+                    border: '1px solid rgba(18, 18, 18, 0.2)',
                   }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(81, 70, 245, 0.18)' }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(81, 70, 245, 0.08)' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(18, 18, 18, 0.18)' }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(18, 18, 18, 0.08)' }}
                 >
                   {link.label}
                 </a>
@@ -180,13 +180,13 @@ export default function Navbar() {
             </div>
 
             {/* Bouton CTA copier code en bas du drawer */}
-            <div className="px-4 py-3 border-t flex items-center gap-2" style={{ borderColor: 'rgba(81, 70, 245, 0.15)' }}>
+            <div className="px-4 py-3 border-t flex items-center gap-2" style={{ borderColor: 'rgba(18, 18, 18, 0.15)' }}>
               <button
                 onClick={() => { copyCode(); setMenuOpen(false) }}
                 className="flex-1 px-3 py-2 rounded-lg text-xs font-mono font-bold text-center"
                 style={{
-                  backgroundColor: 'rgba(81, 70, 245, 0.12)',
-                  border: '1px solid #D4AF37',
+                  backgroundColor: 'rgba(18, 18, 18, 0.12)',
+                  border: '1px solid #121212',
                   color: '#A8E063',
                 }}
               >

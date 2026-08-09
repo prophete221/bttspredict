@@ -67,11 +67,11 @@ export default function BottomNavigation() {
       className="fixed bottom-0 left-0 right-0 z-50"
       style={{
         display: 'flex',
-        backgroundColor: 'rgba(7, 11, 24, 0.97)',
+        backgroundColor: 'rgba(241, 242, 243, 0.97)',
         backdropFilter: 'blur(20px) saturate(180%)',
         WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-        borderTop: '1px solid #1F2937',
-        boxShadow: '0 -4px 16px rgba(7, 11, 24, 0.4)',
+        borderTop: '1px solid #E6E8EB',
+        boxShadow: '0 -4px 16px rgba(241, 242, 243, 0.4)',
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
         height: 'calc(64px + env(safe-area-inset-bottom, 0px))',
       }}
@@ -83,11 +83,11 @@ export default function BottomNavigation() {
           <a
             key={tab.id}
             href={tab.href}
-            className="flex-1 flex flex-col items-center justify-center gap-1 transition-colors duration-200 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-inset"
+            className="flex-1 flex flex-col items-center justify-center gap-1 transition-colors duration-200 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[#121212] focus-visible:ring-inset"
             style={{
-              color: isActive ? '#D4AF37' : '#94A3B8',
+              color: isActive ? '#121212' : '#6B7280',
               minHeight: '52px',
-              textShadow: isActive ? '0 0 8px rgba(81, 70, 245, 0.4)' : 'none',
+              textShadow: isActive ? '0 0 8px rgba(18, 18, 18, 0.4)' : 'none',
             }}
             aria-label={tab.label}
             aria-current={isActive ? 'page' : undefined}
@@ -100,8 +100,8 @@ export default function BottomNavigation() {
                   width: '32px',
                   height: '3px',
                   borderRadius: '2px',
-                  background: '#D4AF37',
-                  boxShadow: '0 0 8px rgba(81, 70, 245, 0.6)',
+                  background: '#121212',
+                  boxShadow: '0 0 8px rgba(18, 18, 18, 0.6)',
                 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               />
@@ -111,7 +111,7 @@ export default function BottomNavigation() {
             </motion.div>
             <span
               className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider"
-              style={{ color: isActive ? '#D4AF37' : '#94A3B8' }}
+              style={{ color: isActive ? '#121212' : '#6B7280' }}
             >
               {tab.label}
             </span>

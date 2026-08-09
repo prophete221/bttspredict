@@ -344,25 +344,25 @@ export default function Home() {
 
         {/* Bloc VIP court — un seul CTA vers /vip */}
         <section className="max-w-5xl mx-auto px-4 py-10">
-          <div className="p-6 sm:p-8 rounded-2xl" style={{ backgroundColor: '#111827', border: '1px solid rgba(255, 200, 87, 0.25)' }}>
+          <div className="p-6 sm:p-8 rounded-2xl" style={{ backgroundColor: '#FFFFFF', border: '1px solid rgba(18, 18, 18, 0.25)' }}>
             <div className="text-center mb-6">
               <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-3"
-                style={{ backgroundColor: 'rgba(255, 200, 87, 0.12)', color: '#FFC857' }}>
+                style={{ backgroundColor: 'rgba(18, 18, 18, 0.12)', color: '#121212' }}>
                 Programme VIP
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
                 Pronostics premium BTTS et Over 2.5
               </h2>
-              <p className="text-sm text-[#94A3B8] leading-relaxed max-w-2xl mx-auto mb-2">
+              <p className="text-sm text-[#6B7280] leading-relaxed max-w-2xl mx-auto mb-2">
                 Le programme VIP propose des sélections supplémentaires et des analyses détaillées, basées sur une approche statistique probabiliste.
               </p>
-              <p className="text-xs text-[#64748B] leading-relaxed max-w-2xl mx-auto">
+              <p className="text-xs text-[#9CA3AF] leading-relaxed max-w-2xl mx-auto">
                 Aucun gain n'est garanti. Lien d'affiliation rémunéré. BTTSPredict ne prend pas de paris et ne collecte pas de fonds. 18+.
               </p>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <a href="/vip" className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
-                style={{ backgroundColor: '#FFC857', color: '#070A14' }}
+                style={{ backgroundColor: '#121212', color: '#F1F2F3' }}
                 data-cta="home-discover-vip">
                 Découvrir le VIP
               </a>
@@ -372,14 +372,14 @@ export default function Home() {
 
         {/* Jeu responsable */}
         <section className="max-w-5xl mx-auto px-4 py-10">
-          <div className="p-5 rounded-2xl" style={{ backgroundColor: 'rgba(255, 113, 133, 0.06)', border: '1px solid rgba(255, 113, 133, 0.2)' }}>
-            <h2 className="text-lg font-bold mb-3 text-[#EF4444]" style={{ fontFamily: 'Poppins, sans-serif' }}>
+          <div className="p-5 rounded-2xl" style={{ backgroundColor: 'rgba(255, 59, 48, 0.06)', border: '1px solid rgba(255, 59, 48, 0.2)' }}>
+            <h2 className="text-lg font-bold mb-3 text-[#FF3B30]" style={{ fontFamily: 'Poppins, sans-serif' }}>
               18+ · Jouer responsable
             </h2>
-            <p className="text-sm text-[#94A3B8] leading-relaxed mb-3">
+            <p className="text-sm text-[#6B7280] leading-relaxed mb-3">
               Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez vous permettre de perdre. BTTSPredict ne prend pas de paris et ne collecte pas de fonds.
             </p>
-            <a href="/jouer-responsable" className="inline-flex items-center gap-2 text-sm font-bold text-[#D4AF37] underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded">
+            <a href="/jouer-responsable" className="inline-flex items-center gap-2 text-sm font-bold text-[#121212] underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#121212] rounded">
               En savoir plus sur le jeu responsable →
             </a>
           </div>
