@@ -175,7 +175,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v57-afrique-ouest-2026-08-09';
+                var VERSION = 'bttspredict-v58-afrique-ouest-2026-08-09';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){

@@ -17,9 +17,9 @@ const VipSports = dynamic(() => import('@/components/bttsbet/VipSports'), { load
 export function generateMetadata(): Metadata {
   const today = new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'long' })
   return {
-    title: `Pronostic BTTS Aujourd'hui Sénégal Gratuit & Vérifié - ${today} | BTTSPredict`,
+    title: `Pronostic BTTS Aujourd'hui Afrique Ouest & Maroc - Sénégal Mali CIV Guinée Congo - ${today} | BTTSPredict`,
     description:
-      "Pronostics BTTS et Over 2.5 gratuits du jour au Sénégal par IA. Données ESPN publiques, suivi public depuis 08-08-2026, vérifiable après match. Bonus Linebet & 888Starz. 18+ Jeu responsable.",
+      "Pronostics BTTS et Over 2.5 gratuits pour Sénégal, Mali, Côte d'Ivoire, Guinée, Congo, Maroc. IA, données ESPN publiques, vérifiable après match. 18+ Jeu responsable.",
     alternates: {
       canonical: 'https://bttspredict.com/',
     },
