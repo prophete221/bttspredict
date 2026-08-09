@@ -31,7 +31,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const away = match.away
   const league = match.league
   const date = match.date
-  const title = `${home} vs ${away} — Pronostic BTTS et Over 2.5 (${date})`
+  // Title court — limite Bing 70 chars (avec template " | BTTSPredict").
+  // Format: "Home vs Away BTTS 08/08" — on évite "Pronostic" pour les équipes longues.
+  const shortDate = date ? date.slice(5).replace('-', '/') : '' // "2026-08-08" → "08/08"
+  const title = `${home} vs ${away} BTTS${shortDate ? ` ${shortDate}` : ''}`
   const description = `Pronostic BTTS et Over 2.5 : ${home} vs ${away} (${league}, ${date}). Analyse, probabilités et résultat vérifié. 18+.`
 
   return {

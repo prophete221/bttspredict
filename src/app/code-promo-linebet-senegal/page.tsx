@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Navbar, Footer, FreePredictionsWidget, VipCardWidget, LinebetApkButton } from '@/components/bttsbet'
 import LinebetClient from './LinebetClient'
+import { checkSeo } from '@/lib/seo'
 
 /* ──────────────────────────────────────────────────────────────
    Metadata — SEO Afrique Ouest & Maroc
@@ -9,14 +10,18 @@ const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-linebet-senegal'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 
-const TITLE = 'Code Promo Linebet Afrique Ouest & Maroc VISION221 - Bonus 90 000 XOF (150$) 2026 | BTTSPredict'
-const DESCRIPTION = "Code promo Linebet VISION221 pour Sénégal, Mali, Côte d'Ivoire, Guinée, Congo, Maroc - Bonus 90 000 XOF (150$), dépôt Wave, Orange Money, MTN, Moov, Free Money dès 200 XOF. Guide complet 2026."
-const OG_TITLE = 'Code Promo Linebet VISION221 - Bonus 90 000 XOF Afrique Ouest & Maroc'
-const OG_DESC = 'Bonus 90 000 XOF avec VISION221 - Sénégal Mali CIV Guinée Congo Maroc - Dépôt Wave Orange Money dès 200 XOF'
+// SEO Bing — title court (41 chars) + description courte (117 chars).
+// Avec le template "%s | BTTSPredict" (14 chars), le title rendu final
+// fait 41 + 14 = 55 chars, bien sous la limite hard 70.
+// Anti-récidive: checkSeo() lance une erreur build-time si title > 60 ou desc > 150.
+const TITLE = 'Code Promo Linebet VISION221 : 90 000 XOF'
+const DESCRIPTION = "Code VISION221 Linebet: 90 000 XOF pour Sénégal Mali CIV Guinée Congo Maroc. Dépôt Wave Orange Money dès 200 XOF. 18+"
+checkSeo('code-promo-linebet-senegal', TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
-  // `absolute` bypasses layout.tsx template "%s | BTTSPredict" to avoid double "| BTTSPredict"
-  title: { absolute: TITLE },
+  // `title: TITLE` (pas `{ absolute: ... }`) — laisse le template du layout
+  // ajouter " | BTTSPredict" automatiquement.
+  title: TITLE,
   description: DESCRIPTION,
   keywords: [
     'code promo linebet', 'linebet senegal', 'bonus linebet', 'vision221', 'linebet wave',
@@ -30,20 +35,20 @@ export const metadata: Metadata = {
     canonical: PAGE_URL,
   },
   openGraph: {
-    title: OG_TITLE,
-    description: OG_DESC,
+    title: TITLE,
+    description: DESCRIPTION,
     url: PAGE_URL,
     siteName: 'BTTSPredict',
     type: 'article',
     locale: 'fr_SN',
     publishedTime: '2026-07-06',
     modifiedTime: '2026-08-09',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: OG_TITLE }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: TITLE }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: OG_TITLE,
-    description: OG_DESC,
+    title: TITLE,
+    description: DESCRIPTION,
     images: ['/og-image.png'],
   },
 }

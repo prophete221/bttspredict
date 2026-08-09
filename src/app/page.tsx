@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic'
 import type { Metadata } from 'next'
+import { checkSeo } from '@/lib/seo'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Hero = dynamic(() => import('@/components/bttsbet/Hero'), { loading: () => null })
@@ -11,19 +12,36 @@ const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary')
 const StickyCTABar = dynamic(() => import('@/components/bttsbet/StickyCTABar'), { loading: () => null })
 const VipSports = dynamic(() => import('@/components/bttsbet/VipSports'), { loading: () => null })
 
-// SEO homepage — title dynamique avec date du jour pour fraisceur SERP
-// generateMetadata (et non export const metadata) car new Date() n'est pas
-// sérialisable statiquement côté Next.js build.
-export function generateMetadata(): Metadata {
-  const today = new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'long' })
-  return {
-    title: `Pronostic BTTS Aujourd'hui Afrique Ouest & Maroc - Sénégal Mali CIV Guinée Congo - ${today} | BTTSPredict`,
-    description:
-      "Pronostics BTTS et Over 2.5 gratuits pour Sénégal, Mali, Côte d'Ivoire, Guinée, Congo, Maroc. IA, données ESPN publiques, vérifiable après match. 18+ Jeu responsable.",
-    alternates: {
-      canonical: 'https://bttspredict.com/',
-    },
-  }
+// SEO homepage — title court (49 chars) conforme aux limites Bing SERP.
+// Le template "%s | BTTSPredict" du layout ajoute " | BTTSPredict" (14 chars)
+// → title final rendu: 49 + 14 = 63 chars, sous la limite hard 70.
+// Description: 132 chars, sous la limite hard 160.
+// Anti-récidive: checkSeo() lance une erreur build-time si title > 60 ou desc > 150.
+const TITLE = "Pronostic BTTS Afrique Ouest & Maroc Aujourd'hui"
+const DESCRIPTION = "Pronostics BTTS & Over 2.5 pour Sénégal, Mali, CIV, Guinée, Congo, Maroc. IA gratuite, vérifiable après match. 18+"
+checkSeo('homepage', TITLE, DESCRIPTION)
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: {
+    canonical: 'https://bttspredict.com/',
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: 'https://bttspredict.com',
+    siteName: 'BTTSPredict',
+    type: 'website',
+    locale: 'fr_FR',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: TITLE }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ['/og-image.png'],
+  },
 }
 
 // JSON-LD WebSite — SearchAction for Google SERP

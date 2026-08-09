@@ -10,7 +10,7 @@ import {Navbar, Footer,
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'analyses-fifa-linebet'
 const PAGE_URL = `${SITE_URL}/blog/${SLUG}`
-const TITLE = 'Analyses de valeur FIFA (expérimental) Linebet — Cotes Erronées 2026'
+const TITLE = 'Value Bets FIFA Linebet — Cotes Erronées 2026'
 const DESCRIPTION = 'Analyses de valeur FIFA sur Linebet et 888starz : détection des cotes erronées et value bets. 18+.'
 
 export const metadata: Metadata = {
