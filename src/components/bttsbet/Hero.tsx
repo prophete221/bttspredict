@@ -75,13 +75,13 @@ export default function Hero() {
               fontFamily: 'Poppins, sans-serif',
             }}
           >
-            Pronostics BTTS et Over 2.5
-            <br />
-            <span style={{ color: '#5146F5', fontSize: '22px' }}>Moteur IA nouvelle génération</span>
+            Pronostics BTTS et Over 2.5 pour l'Afrique de l'Ouest & Maroc - Moteur IA
           </h2>
 
           {/* ═══ H2 ═══ */}
           <p className="mt-3 text-[13px] leading-[1.6]" style={{ color: '#A5ABC5', maxWidth: '380px' }}>
+            Sénégal · Mali · Côte d'Ivoire · Guinée · Congo · Maroc
+            <br />
             Données ESPN publiques. Analyse statistique. Forme des équipes. Ligues sélectionnées pour leur fort taux de BTTS. Pronostics quotidiens vérifiables après le match.
           </p>
         </motion.div>
