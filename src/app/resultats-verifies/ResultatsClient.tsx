@@ -88,6 +88,30 @@ export default function ResultatsClient() {
 
   return (
     <>
+      {/* Bandeau suivi public — v67 crédibilité */}
+      <div
+        className="rounded-xl p-4 mb-6"
+        style={{
+          backgroundColor: 'rgba(81, 70, 245, 0.08)',
+          border: '1px solid rgba(81, 70, 245, 0.2)',
+        }}
+      >
+        <p className="text-sm font-bold" style={{ color: '#5146F5' }}>
+          Suivi public depuis le 08/08/2026
+        </p>
+        <p className="text-xs mt-1" style={{ color: '#A5ABC5' }}>
+          Échantillon : <strong style={{ color: '#F7F8FF' }}>{total} pronostics vérifiés</strong> ({won} gagnés / {lost} perdus / {stats.pending || 0} en attente).
+          Taux BTTS : <strong style={{ color: '#F7F8FF' }}>{stats.rate}%</strong> — calculé dynamiquement depuis le tableau ci-dessous.
+          ROI cumulé : <strong style={{ color: stats.profit >= 0 ? '#5DFDCB' : '#FF7185' }}>{stats.profit >= 0 ? '+' : ''}{stats.profit}u</strong>.
+          {' '}
+          {total < 30 && (
+            <span style={{ color: '#FFC857' }}>
+              ⚠ En calibration — données démo jusqu&apos;au 15/08/2026 (volume insuffisant pour évaluer statistiquement la performance).
+            </span>
+          )}
+        </p>
+      </div>
+
       {/* Stats Summary — 3 cartes neutres, pas de ROI négatif */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
         {/* Carte 1: Vérifiés + Taux All */}

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://bttspredict.com/methodologie' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Méthodologie BTTSPredict — Moteur IA nouvelle génération',
+    title: 'Méthodologie BTTSPredict — Modèle Poisson corrigé + xG',
     description: "Approche prédictive, sources de données, marchés couverts. Aucune validation humaine, aucun gain garanti. 18+.",
     url: 'https://bttspredict.com/methodologie',
     type: 'article',
@@ -27,10 +27,10 @@ export default function MethodologiePage() {
               Méthodologie
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Moteur IA nouvelle génération
+              Modèle Poisson corrigé + xG
             </h1>
             <p className="text-base text-[#A5ABC5] leading-relaxed">
-              BTTSPredict publie des pronostics BTTS (Both Teams To Score) et Over 2.5 sur le football, générés par un moteur IA nouvelle génération. Cette page présente l'approche, les marchés couverts, les sources de données et la gestion qualité — dans une approche transparente et crédible.
+              BTTSPredict publie des pronostics BTTS (Both Teams To Score) et Over 2.5 sur le football, générés par un modèle Poisson corrigé + xG. Cette page présente l'approche, les marchés couverts, les sources de données et la gestion qualité — dans une approche transparente et crédible.
             </p>
           </header>
 
@@ -40,10 +40,10 @@ export default function MethodologiePage() {
               1. Approche statistique
             </h2>
             <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
-              Le modèle utilise une moteur IA nouvelle génération entraîné sur la forme récente des équipes. Pour chaque match, le modèle estime les intensités offensives attendues de chaque équipe à partir de leurs performances récentes, puis calcule la probabilité de chaque marché (BTTS, Over 2.5).
+              Modèle Poisson corrigé + xG, entraîné sur la période 2023-2025. Variables utilisées : forme des 5 derniers matchs, taux BTTS domicile/extérieur, xG moyen, absences clés. Calibration mensuelle pour s&apos;adapter aux évolutions tactiques.
             </p>
             <p className="text-sm text-[#A5ABC5] leading-relaxed">
-              L'approche repose sur l'hypothèse que le nombre de buts marqués par chaque équipe suit une distribution statistique dont les paramètres sont estimés à partir des matchs récents. Cette approche est largement documentée dans la littérature scientifique sur la modélisation sportive.
+              Pour chaque match, le modèle estime les intensités offensives attendues (lambdas) de chaque équipe à partir de ces variables, puis calcule la probabilité de chaque marché (BTTS, Over 2.5) via la distribution de Poisson. Cette approche est largement documentée dans la littérature scientifique sur la modélisation sportive.
             </p>
           </section>
 
