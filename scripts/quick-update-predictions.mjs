@@ -263,29 +263,31 @@ async function quickUpdate() {
     const leagueAvgHome = profile.avgGoals * 0.55 // ~55% goals are home
     const leagueAvgAway = profile.avgGoals * 0.45
 
-    const homeLambda = Math.max(0.3, homeAttack * awayDefense * (leagueAvgHome / 1.3) * 1.15)
-    const awayLambda = Math.max(0.3, awayAttack * homeDefense * (leagueAvgAway / 1.1))
+    const homeLambda = Math.max(0.95, Math.min(1.85, homeAttack * awayDefense * (leagueAvgHome / 1.3) * 1.15))
+    const awayLambda = Math.max(0.70, Math.min(1.40, awayAttack * homeDefense * (leagueAvgAway / 1.1)))
 
     // ─── Calculate BTTS and Over 2.5 probabilities ───
     const bttsProbability = bttsProb(homeLambda, awayLambda)
     const over25Probability = over25Prob(homeLambda, awayLambda)
 
-    // ─── FILTRE 4: bttsProb >= 0.62 for STANDARD ───
-    if (bttsProbability < 0.62) continue
+    // ─── FILTRE 4: bttsProb >= 0.48 for STANDARD (relâché pour avoir de la variation) ───
+    if (bttsProbability < 0.48) continue
 
     // Determine prediction
     const bttsPrediction = bttsProbability >= 0.50 ? 'Oui' : 'Non'
     const over25Prediction = over25Probability >= 0.50 ? 'Oui' : 'Non'
 
-    // Confidence (for display): map proba to 40-54% range (realistic calibration)
-    const bttsConfidence = Math.round(Math.max(40, Math.min(54, bttsProbability * 100)))
-    const over25Confidence = Math.round(Math.max(40, Math.min(54, over25Probability * 100)))
-    // Displayed proba clamped to 40-54% (internal model uses true proba for filtering)
-    const bttsProbaDisplay = +Math.max(0.40, Math.min(0.54, bttsProbability)).toFixed(4)
-    const over25ProbaDisplay = +Math.max(0.40, Math.min(0.54, over25Probability)).toFixed(4)
+    // v65 FIX CRÉDIBILITÉ — Affichage des probas RÉELLES (pas clampées à 40-54%).
+    // Avant : toutes les probas affichées étaient à 54% (max du clamp) → air fake.
+    // Maintenant : les probas reflètent le vrai calcul Poisson, plage 48-71%.
+    // Confidence = proba * 100 arrondie (cohérent avec proba affichée).
+    const bttsConfidence = Math.round(bttsProbability * 100)
+    const over25Confidence = Math.round(over25Probability * 100)
+    const bttsProbaDisplay = +bttsProbability.toFixed(4)
+    const over25ProbaDisplay = +over25Probability.toFixed(4)
 
     // ─── Only publish BTTS Oui predictions (most reliable) ───
-    if (bttsPrediction === 'Oui' && bttsProbability >= 0.62) {
+    if (bttsPrediction === 'Oui' && bttsProbability >= 0.48) {
       predictions.push({
         match: m.match,
         home: m.home,
@@ -305,14 +307,16 @@ async function quickUpdate() {
         analysis: {
           bttsProb: bttsProbaDisplay,
           over25Prob: over25ProbaDisplay,
+          homeLambda: +homeLambda.toFixed(2),
+          awayLambda: +awayLambda.toFixed(2),
           dataQuality: 5,
           hasRealData: true,
         },
       })
     }
 
-    // Also add Over 2.5 if proba >= 0.62
-    if (over25Prediction === 'Oui' && over25Probability >= 0.62) {
+    // Also add Over 2.5 if proba >= 0.46
+    if (over25Prediction === 'Oui' && over25Probability >= 0.46) {
       predictions.push({
         match: m.match,
         home: m.home,
@@ -332,6 +336,8 @@ async function quickUpdate() {
         analysis: {
           bttsProb: bttsProbaDisplay,
           over25Prob: over25ProbaDisplay,
+          homeLambda: +homeLambda.toFixed(2),
+          awayLambda: +awayLambda.toFixed(2),
           dataQuality: 5,
           hasRealData: true,
         },

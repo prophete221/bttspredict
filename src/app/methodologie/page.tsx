@@ -114,10 +114,10 @@ export default function MethodologiePage() {
               4. Ligues couvertes
             </h2>
             <p className="text-sm text-[#A5ABC5] leading-relaxed mb-3">
-              Le modèle est calibré sur un ensemble sélectionné de ligues présentant historiquement un taux élevé de BTTS. Cette sélection permet de concentrer les pronostics sur les matchs où le modèle a la meilleure calibration statistique.
+              Moteur entraîné sur 50+ championnats internationaux, prédictions appliquées en priorité Afrique de l&apos;Ouest (Sénégal, Mali, CIV, Guinée, Congo) &amp; Maroc + top ligues Europe pour volume. Cette sélection permet de concentrer les pronostics sur les matchs où le modèle a la meilleure calibration statistique.
             </p>
             <p className="text-sm text-[#A5ABC5] leading-relaxed">
-              Les ligues couvertes incluent des championnats européens et nord-américains de première et deuxième division. La liste exacte peut évoluer sans préavis pour préserver la qualité du modèle.
+              Ligues prioritaires Afrique : Ligue 1 Sénégal, Botola Pro (Maroc). Ligues européennes de volume : Bundesliga, Eredivisie, Jupiler Pro League, Championship, Liga Portugal. La liste exacte peut évoluer sans préavis.
             </p>
           </section>
 

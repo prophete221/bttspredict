@@ -74,7 +74,7 @@ export const HOW_IT_WORKS = [
   {
     step: '01',
     title: "L'IA scanne les matchs",
-    desc: "Notre analyse statistique analyse en temps réel plus de 200 variables statistiques pour chaque match : xG, forme récente, blessés, historique des confrontations.",
+    desc: "Notre moteur IA calcule les Expected Goals (xG) et la forme récente des équipes (5 derniers matchs) pour chaque match. Sources : ESPN et TheSportsDB.",
   },
   {
     step: '02',
@@ -101,7 +101,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Comment fonctionne l'analyse de BTTSPredict ?",
-    a: "Nos analystes utilisent un modèle statistique Poisson + agrégation multi-sources : Expected Goals (xG), forme récente des équipes (5 derniers matchs), blessés et suspensions, historique des confrontations directes, conditions météo. Le modèle est calibré sur plus de 50 000 matchs. Le taux de réussite réel est calculé quotidiennement depuis l'archive publique des pronostics (predictions-archive/) et affiché sans filtrage sur /historique. Chaque pronostic est accompagné d'un indice de confiance calculé par le modèle. Les performances passées ne garantissent pas les résultats futurs.",
+    a: "Notre moteur IA utilise un modèle statistique Poisson calibré sur la forme récente des équipes (5 derniers matchs) et les Expected Goals (xG). Sources : ESPN et TheSportsDB (données publiques). Le taux de réussite réel est calculé dynamiquement depuis l'archive publique des pronostics (predictions-archive/) et affiché sans filtrage sur /historique. Chaque pronostic est accompagné d'un indice de confiance calculé par le modèle. Les performances passées ne garantissent pas les résultats futurs.",
   },
   {
     q: 'Comment utiliser le code promo VISION221 ?',
@@ -113,7 +113,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: 'Quels championnats sont couverts ?',
-    a: "Nous couvrons plus de 50 championnats à travers le monde : Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Champions League, Europa League, et de nombreux championnats africains, asiatiques et sud-américains. Notre équipe s'adapte aux spécificités de chaque ligue pour fournir des pronostics les plus précis possibles.",
+    a: "Moteur entraîné sur 50+ championnats internationaux, prédictions appliquées en priorité Afrique de l'Ouest (Sénégal, Mali, CIV, Guinée, Congo) & Maroc + top ligues Europe pour volume. Ligues prioritaires : Ligue 1 Sénégal, Botola Pro (Maroc), Bundesliga, Eredivisie, Jupiler Pro League, Championship, Liga Portugal.",
   },
   {
     q: 'Comment utiliser les pronostics BTTSPredict ?',

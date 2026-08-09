@@ -153,7 +153,12 @@ const organizationJsonLd = {
   // NOTE: Pas d'AggregateRating — la plateforme n'a pas de système d'avis vérifiable.
   // Inventer des reviews serait une violation des guidelines Google Structured Data.
   // NOTE: pas de propriété founder tant que le vrai nom du fondateur n'est pas fourni.
-  sameAs: ['https://wa.me/15406704172'],
+  // NOTE v65: sameAs limité aux profils sociaux vérifiés — WhatsApp US supprimé.
+  sameAs: [
+    'https://twitter.com/bttspredict',
+    'https://www.facebook.com/bttspredict',
+    'https://www.instagram.com/bttspredict',
+  ],
 }
 
 // JSON-LD Claim — autorité pour Google et IA
@@ -179,8 +184,8 @@ const localBusinessJsonLd = {
   image: 'https://bttspredict.com/og-image.png',
   '@id': 'https://bttspredict.com',
   url: 'https://bttspredict.com',
-  telephone: '+15406704172',
-  email: 'support@bttspredict.com',
+  // v65: telephone US supprimé — contact via email pro uniquement
+  email: 'contact@bttspredict.com',
   priceRange: '€€',
   address: {
     '@type': 'PostalAddress',
@@ -191,7 +196,6 @@ const localBusinessJsonLd = {
   },
   geo: { '@type': 'GeoCoordinates', latitude: 14.6928, longitude: -17.4467 },
   sameAs: [
-    'https://wa.me/15406704172',
     'https://twitter.com/bttspredict',
     'https://www.facebook.com/bttspredict',
     'https://www.instagram.com/bttspredict',
