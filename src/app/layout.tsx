@@ -50,6 +50,8 @@ export const metadata: Metadata = {
     "pronostics Sénégal", "pronostics Afrique",
     "modèle Poisson football", "xG pronostics", "statistiques football",
     "pronostics vérifiés", "transparence pronostics",
+    // SEO v59 — cible Afrique de l'Ouest & Maroc
+    "pronostic btts afrique ouest", "pronostic btts maroc", "pronostic btts senegal mali cote d'ivoire guinee congo",
   ],
   authors: [
     { name: "BTTSPredict", url: "https://bttspredict.com" },
@@ -100,18 +102,18 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "BTTSPredict — Pronostics BTTS et Over 2.5",
-    description: "Pronostics BTTS et Over 2.5 par moteur IA. Suivi vérifié, code promo VISION221. 18+.",
+    title: "BTTSPredict — Pronostic BTTS Afrique Ouest & Maroc",
+    description: "Pronostics BTTS et Over 2.5 gratuits pour Sénégal, Mali, Côte d'Ivoire, Guinée, Congo, Maroc. IA, données ESPN publiques, vérifiable après match. 18+",
     url: "https://bttspredict.com",
     siteName: "BTTSPredict",
     type: "website",
     locale: "fr_FR",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "BTTSPredict — Pronostics BTTS et Over 2.5" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "BTTSPredict — Pronostic BTTS Afrique Ouest & Maroc" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "BTTSPredict — Pronostics BTTS et Over 2.5",
-    description: "Pronostics BTTS et Over 2.5 par moteur IA. Suivi vérifié, code promo VISION221. 18+.",
+    title: "BTTSPredict — Pronostic BTTS Afrique Ouest & Maroc",
+    description: "Pronostics BTTS et Over 2.5 gratuits pour Sénégal, Mali, Côte d'Ivoire, Guinée, Congo, Maroc. IA, données ESPN publiques, vérifiable après match. 18+",
     images: ["/og-image.png"],
   },
   category: "sports",
@@ -175,7 +177,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var VERSION = 'bttspredict-v58-afrique-ouest-2026-08-09';
+                var VERSION = 'bttspredict-v59-afrique-ouest-final-2026-08-09';
                 try {
                   if('serviceWorker' in navigator){
                     navigator.serviceWorker.getRegistrations().then(function(regs){

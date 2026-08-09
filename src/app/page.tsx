@@ -252,7 +252,7 @@ const breadcrumbJsonLd = {
 export default function Home() {
   return (
     <div className="min-h-screen bg-dark-800 relative">
-      <h1 className="sr-only">Pronostic BTTS Aujourd'hui au Sénégal - IA Over 2.5 Gratuit</h1>
+      <h1 className="sr-only">Pronostic BTTS Aujourd'hui Afrique Ouest & Maroc - IA Over 2.5 Gratuit</h1>
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
