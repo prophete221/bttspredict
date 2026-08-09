@@ -1,46 +1,55 @@
 import type { Metadata } from 'next'
-import {Navbar, Footer,
-  FreePredictionsWidget,
-  VipCardWidget,
-  LinebetApkButton} from '@/components/bttsbet'
+import { Navbar, Footer, FreePredictionsWidget, VipCardWidget, LinebetApkButton } from '@/components/bttsbet'
+import LinebetClient from './LinebetClient'
 
 /* ──────────────────────────────────────────────────────────────
-   Metadata
+   Metadata — SEO Afrique Ouest & Maroc
    ────────────────────────────────────────────────────────────── */
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-linebet-senegal'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'Code Promo Linebet VISION221'
-const DESCRIPTION = 'Code promo Linebet Sénégal VISION221 — bonus 90 000 XOF. Dépôt Wave, Orange Money, Free Money. Guide complet.'
+
+const TITLE = 'Code Promo Linebet Afrique Ouest & Maroc VISION221 - Bonus 90 000 XOF (150$) 2026 | BTTSPredict'
+const DESCRIPTION = "Code promo Linebet VISION221 pour Sénégal, Mali, Côte d'Ivoire, Guinée, Congo, Maroc - Bonus 90 000 XOF (150$), dépôt Wave, Orange Money, MTN, Moov, Free Money dès 200 XOF. Guide complet 2026."
+const OG_TITLE = 'Code Promo Linebet VISION221 - Bonus 90 000 XOF Afrique Ouest & Maroc'
+const OG_DESC = 'Bonus 90 000 XOF avec VISION221 - Sénégal Mali CIV Guinée Congo Maroc - Dépôt Wave Orange Money dès 200 XOF'
 
 export const metadata: Metadata = {
-  title: TITLE,
+  // `absolute` bypasses layout.tsx template "%s | BTTSPredict" to avoid double "| BTTSPredict"
+  title: { absolute: TITLE },
   description: DESCRIPTION,
-  keywords: ['code promo linebet', 'linebet senegal', 'bonus linebet', 'vision221', 'linebet wave', 'linebet orange money', 'code promo linebet senegal', 'bonus 90000 xof', 'linebet inscription', 'depot linebet senegal', 'linebet free money', 'paris sportifs senegal'],
+  keywords: [
+    'code promo linebet', 'linebet senegal', 'bonus linebet', 'vision221', 'linebet wave',
+    'linebet orange money', 'code promo linebet senegal', 'bonus 90000 xof', 'linebet inscription',
+    'depot linebet senegal', 'linebet free money', 'paris sportifs senegal',
+    // SEO v60 — cible Afrique de l'Ouest & Maroc
+    'code promo linebet afrique ouest', 'linebet maroc', 'linebet mali', 'linebet cote d\'ivoire',
+    'linebet guinee', 'linebet congo',
+  ],
   alternates: {
     canonical: PAGE_URL,
   },
   openGraph: {
-    title: TITLE,
-    description: 'Code promo Linebet Sénégal VISION221 — Bonus 90 000 XOF. Dépôt minimum 200 XOF.',
+    title: OG_TITLE,
+    description: OG_DESC,
     url: PAGE_URL,
     siteName: 'BTTSPredict',
     type: 'article',
     locale: 'fr_SN',
     publishedTime: '2026-07-06',
-    modifiedTime: '2026-07-06',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Code Promo Linebet Sénégal VISION221 — Bonus 90 000 XOF' }],
+    modifiedTime: '2026-08-09',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: OG_TITLE }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Code Promo Linebet Sénégal VISION221 — Bonus 90 000 XOF',
-    description: 'Pronostics IA football taux réel sur /historique (historique). Code VISION221 = Bonus 90 000 XOF sur Linebet. Dépôt minimum 200 XOF au Sénégal.',
+    title: OG_TITLE,
+    description: OG_DESC,
     images: ['/og-image.png'],
   },
 }
 
 /* ──────────────────────────────────────────────────────────────
-   JSON-LD
+   JSON-LD — Article + Breadcrumb + HowTo + FAQPage
    ────────────────────────────────────────────────────────────── */
 function buildArticleJsonLd() {
   return {
@@ -50,25 +59,15 @@ function buildArticleJsonLd() {
     description: DESCRIPTION,
     url: PAGE_URL,
     datePublished: '2026-07-06',
-    dateModified: '2026-07-06',
-    author: {
-      '@type': 'Organization',
-      name: 'BTTSPredict',
-      url: SITE_URL,
-    },
+    dateModified: '2026-08-09',
+    author: { '@type': 'Organization', name: 'BTTSPredict', url: SITE_URL },
     publisher: {
       '@type': 'Organization',
       name: 'BTTSPredict',
       url: SITE_URL,
-      logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_URL}/favicon.svg`,
-      },
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.svg` },
     },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': PAGE_URL,
-    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE_URL },
   }
 }
 
@@ -78,7 +77,49 @@ function buildBreadcrumbJsonLd() {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_URL },
-      { '@type': 'ListItem', position: 2, name: 'Code Promo Linebet Sénégal', item: PAGE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Code Promo Linebet Afrique Ouest & Maroc', item: PAGE_URL },
+    ],
+  }
+}
+
+function buildHowToJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'Comment utiliser le code promo Linebet VISION221 en Afrique de l\'Ouest & Maroc',
+    description: "Guide complet pour activer le bonus Linebet de 90 000 XOF (150$) avec le code promo VISION221 au Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc.",
+    totalTime: 'PT5M',
+    estimatedCost: { '@type': 'MonetaryAmount', currency: 'XOF', value: '200' },
+    supply: [{ '@type': 'HowToSupply', name: 'Code promo VISION221' }],
+    tool: [
+      { '@type': 'HowToTool', name: 'Application Linebet ou site web' },
+      { '@type': 'HowToTool', name: 'Wave, Orange Money, MTN, Moov ou Free Money' },
+    ],
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: "S'inscrire sur Linebet via le lien de parrainage",
+        text: "Clique sur le lien d'inscription Linebet, crée ton compte gratuit en 2 minutes avec ton email ou ton numéro.",
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: 'Saisir le code promo VISION221',
+        text: "Pendant l'inscription ou dans la section « Code Promo » de ton compte, colle exactement VISION221 en majuscules.",
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: 'Effectuer un premier dépôt dès 200 XOF',
+        text: "Dépose via Wave, Orange Money, MTN, Moov ou Free Money. Le dépôt est instantané.",
+      },
+      {
+        '@type': 'HowToStep',
+        position: 4,
+        name: 'Recevoir le bonus 90 000 XOF',
+        text: "Le bonus de 90 000 XOF (environ 150$) est activé automatiquement sur ton premier dépôt après validation du code VISION221.",
+      },
     ],
   }
 }
@@ -90,34 +131,26 @@ function buildFaqJsonLd() {
     mainEntity: [
       {
         '@type': 'Question',
-        name: 'Comment utiliser le code promo VISION221 sur Linebet ?',
+        name: 'Quel est le code promo Linebet Afrique Ouest ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Inscrivez-vous sur Linebet via notre lien de parrainage, puis saisissez le code promo VISION221 lors de votre inscription ou dans la section Code Promo de votre compte. Le bonus de 90 000 XOF (150$) sera activé sur votre premier dépôt.",
+          text: "Le code promo exclusif est VISION221 — saisi en majuscules lors de l'inscription ou dans la section « Code Promo » de ton compte. Il débloque un bonus de 90 000 XOF (~150$) sur ton premier dépôt, valable pour le Sénégal, le Mali, la Côte d'Ivoire, la Guinée, le Congo et le Maroc.",
         },
       },
       {
         '@type': 'Question',
-        name: 'Comment déposer sur Linebet au Sénégal ?',
+        name: 'Comment déposer avec Wave sur Linebet ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Linebet accepte les dépôts via Wave, Orange Money et Free Money au Sénégal. Le processus est simple : choisissez votre méthode de paiement dans la section Dépôt, entrez le montant, et validez. Le dépôt est instantané.",
+          text: "Sélectionne Wave dans la section Dépôt de Linebet, entre le montant (minimum 200 XOF), valide avec ton code secret Wave. Le dépôt est instantané. Le bonus VISION221 est activé automatiquement sur le premier dépôt, quel que soit le moyen utilisé.",
         },
       },
       {
         '@type': 'Question',
-        name: 'Quel est le montant du bonus Linebet avec le code VISION221 ?',
+        name: "Le bonus est-il valable au Maroc, Mali et Côte d'Ivoire ?",
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Le code promo VISION221 offre un bonus exclusif de 90 000 XOF (environ 150$) sur votre premier dépôt sur Linebet. Le bonus est crédité automatiquement après validation du code promo.",
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Linebet est-il disponible au Sénégal ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: "Oui, Linebet est accessible au Sénégal. Les utilisateurs sénégalais peuvent s'inscrire, déposer via votre méthode de paiement, et parier sur les sports populaires (football, NBA, tennis, UFC, etc.). L'application Android est également disponible.",
+          text: "Oui. Le code VISION221 fonctionne pour les 6 pays couverts : Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc. Le bonus de 90 000 XOF (ou équivalent dans ta devise locale) est crédité après validation du code promo et du premier dépôt.",
         },
       },
     ],
@@ -130,7 +163,7 @@ function buildFaqJsonLd() {
 export default function CodePromoLinebetSenegalPage() {
   return (
     <div className="min-h-screen bg-dark-800 flex flex-col text-papier">
-      {/* Structured Data */}
+      {/* Structured Data — Article + Breadcrumb + HowTo + FAQPage */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildArticleJsonLd()) }}
@@ -138,6 +171,10 @@ export default function CodePromoLinebetSenegalPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildBreadcrumbJsonLd()) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildHowToJsonLd()) }}
       />
       <script
         type="application/ld+json"
@@ -154,198 +191,10 @@ export default function CodePromoLinebetSenegalPage() {
 
       <Navbar />
 
-      <main id="main-content" className="flex-1 relative z-10">
-        {/* Breadcrumb */}
-        <nav aria-label="Fil d'Ariane" className="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
-          <ol className="flex items-center gap-2 text-sm text-cendre">
-            <li>
-              <a href="/" className="hover:text-emerald transition-colors">
-                Accueil
-              </a>
-            </li>
-            <li aria-hidden="true" className="text-cendre">/</li>
-            <li>
-              <span className="text-cendre" aria-current="page">Code Promo Linebet Sénégal</span>
-            </li>
-          </ol>
-        </nav>
+      <main id="main-content" className="flex-1 relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
+        <LinebetClient />
 
-        {/* Header */}
-        <section className="pb-8 sm:pb-10">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-            <h1
-              className="text-4xl sm:text-5xl text-papier mb-4"
-              style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
-            >
-              CODE PROMO <span className="text-gold neon-glow">LINEBET</span> SÉNÉGAL
-            </h1>
-            <p className="text-cendre text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              Bonus exclusif <strong className="text-gold">90 000 XOF (150$)</strong> avec le code <strong className="text-emerald">VISION221</strong>. Dépôt minimum 200 XOF.
-            </p>
-            <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
-          </div>
-        </section>
-
-        {/* Promo Banner */}
-        <section className="pb-6">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6">
-            <div className="bg-gold/10 border border-gold/30 rounded-xl p-4 sm:p-6 text-center">
-              <p className="text-gold font-bold text-3xl sm:text-4xl mb-2" style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}>
-                VISION221
-              </p>
-              <p className="text-cendre text-sm">
-                Code promo exclusif — Bonus <strong className="text-gold">90 000 XOF</strong> sur votre premier dépôt Linebet
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Content */}
-        <section className="pb-16 sm:pb-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6">
-            <div className="space-y-8">
-
-              {/* 1. Comment utiliser le code */}
-              <article className="card p-6">
-                <h2
-                  className="text-2xl text-papier mb-4"
-                  style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
-                >
-                  1. Comment utiliser le code promo VISION221
-                </h2>
-                <div className="space-y-4 text-cendre text-sm leading-relaxed">
-                  <div className="space-y-3">
-                    {[
-                      { step: '1', text: 'Inscrivez-vous sur Linebet via notre lien de parrainage' },
-                      { step: '2', text: 'Saisissez le code promo VISION221 lors de l\'inscription ou dans la section « Code Promo » de votre compte' },
-                      { step: '3', text: 'Effectuez votre premier dépôt via Wave, Orange Money ou Free Money' },
-                      { step: '4', text: 'Le bonus de 90 000 XOF (150$) est activé automatiquement' },
-                    ].map((item) => (
-                      <div key={item.step} className="flex items-start gap-3">
-                        <span className="w-6 h-6 bg-gold text-dark-900 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">
-                          {item.step}
-                        </span>
-                        <p className="text-cendre">{item.text}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </article>
-
-              {/* 2. Dépôt au Sénégal */}
-              <article className="card p-6">
-                <h2
-                  className="text-2xl text-papier mb-4"
-                  style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
-                >
-                  2. Dépôt sur Linebet au Sénégal
-                </h2>
-                <div className="space-y-3 text-cendre text-sm leading-relaxed">
-                  <p>
-                    Linebet accepte les méthodes de paiement locales au Sénégal, ce qui facilite les dépôts et retraits :
-                  </p>
-                  <div className="grid gap-3 sm:grid-cols-3 mt-4">
-                    {[
-                      { name: 'Wave', icon: '📱', desc: 'Dépôt instantané via l\'application Wave. Le moyen le plus rapide au Sénégal.' },
-                      { name: 'Orange Money', icon: '🟠', desc: 'Dépôt via Orange Money — disponible partout au Sénégal, même sans smartphone.' },
-                      { name: 'Free Money', icon: '🔵', desc: 'Dépôt via Free Money — simple et rapide pour les utilisateurs Free.' },
-                    ].map((item, i) => (
-                      <div key={i} className="bg-panel/40 border border-edge/30 rounded-xl p-4">
-                        <div className="flex items-center gap-2 mb-2">
-                          <span className="text-lg" aria-hidden="true">{item.icon}</span>
-                          <h3 className="text-papier font-semibold text-sm">{item.name}</h3>
-                        </div>
-                        <p className="text-cendre text-xs">{item.desc}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="mt-3">
-                    Tous les dépôts sont <strong className="text-emerald">instantanés</strong>. Les retraits sont traités dans un délai de 24 à 48 heures.
-                  </p>
-                </div>
-              </article>
-
-              {/* 3. Conditions du bonus */}
-              <article className="card p-6">
-                <h2
-                  className="text-2xl text-papier mb-4"
-                  style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
-                >
-                  3. Conditions du bonus Linebet
-                </h2>
-                <div className="space-y-3 text-cendre text-sm leading-relaxed">
-                  <ul className="space-y-2 ml-2">
-                    <li className="flex items-start gap-2">
-                      <span className="text-gold flex-shrink-0">•</span>
-                      <span>Le bonus est valable sur le <strong className="text-papier">premier dépôt uniquement</strong></span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-gold flex-shrink-0">•</span>
-                      <span>Montant minimum de dépôt requis pour activer le bonus</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-gold flex-shrink-0">•</span>
-                      <span>Des conditions de mise (wagering requirements) doivent être respectées avant le retrait du bonus</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-gold flex-shrink-0">•</span>
-                      <span>Le bonus est crédité automatiquement après validation du code VISION221</span>
-                    </li>
-                  </ul>
-                  <p className="mt-2">
-                    Consultez les conditions complètes sur Linebet pour connaître les exigences de mise et la durée de validité du bonus.
-                  </p>
-                </div>
-              </article>
-
-              {/* 4. Application Linebet */}
-              <article className="card p-6">
-                <h2
-                  className="text-2xl text-papier mb-4"
-                  style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
-                >
-                  4. Application Linebet Android
-                </h2>
-                <div className="space-y-3 text-cendre text-sm leading-relaxed">
-                  <p>
-                    Linebet propose une application Android optimisée pour les utilisateurs sénégalais :
-                  </p>
-                  <ul className="space-y-2 ml-2">
-                    <li className="flex items-start gap-2">
-                      <span className="text-emerald flex-shrink-0">✓</span>
-                      <span>Interface en français</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-emerald flex-shrink-0">✓</span>
-                      <span>Dépôt et retrait via Wave, Orange Money, Free Money</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-emerald flex-shrink-0">✓</span>
-                      <span>Pronostics en direct (live betting)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-emerald flex-shrink-0">✓</span>
-                      <span>Jeux casino, Aviator, FIFA virtuels</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-emerald flex-shrink-0">✓</span>
-                      <span>Notifications de résultats en temps réel</span>
-                    </li>
-                  </ul>
-                </div>
-              </article>
-
-              {/* Disclaimer */}
-              <div className="bg-lose/10 border border-lose/30 rounded-xl p-4 text-center">
-                <p className="text-cendre text-xs">
-                  ⚠ BTTSPredict est un site informatif et d&apos;affiliation. Nous ne prenons aucun pari, ne collectons aucun fonds et ne sommes pas un bookmaker. Les bonus sont soumis aux conditions de Linebet. Pariez responsable — <a href="/jouer-responsable" className="text-emerald underline underline-offset-2">en savoir plus</a>.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      
-        {/* Pronostics gratuits + VIP + APK sur toutes les pages */}
+        {/* Pronostics gratuits + VIP + APK — visibles sur toutes les pages */}
         <FreePredictionsWidget />
         <VipCardWidget />
         <div className="text-center pb-6">
