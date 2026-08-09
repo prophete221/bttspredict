@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic'
+import type { Metadata } from 'next'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Hero = dynamic(() => import('@/components/bttsbet/Hero'), { loading: () => null })
@@ -9,6 +10,21 @@ const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: (
 const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
 const StickyCTABar = dynamic(() => import('@/components/bttsbet/StickyCTABar'), { loading: () => null })
 const VipSports = dynamic(() => import('@/components/bttsbet/VipSports'), { loading: () => null })
+
+// SEO homepage — title dynamique avec date du jour pour fraisceur SERP
+// generateMetadata (et non export const metadata) car new Date() n'est pas
+// sérialisable statiquement côté Next.js build.
+export function generateMetadata(): Metadata {
+  const today = new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'long' })
+  return {
+    title: `Pronostic BTTS Aujourd'hui Sénégal Gratuit & Vérifié - ${today} | BTTSPredict`,
+    description:
+      "Pronostics BTTS et Over 2.5 gratuits du jour au Sénégal par IA. Données ESPN publiques, suivi public depuis 08-08-2026, vérifiable après match. Bonus Linebet & 888Starz. 18+ Jeu responsable.",
+    alternates: {
+      canonical: 'https://bttspredict.com/',
+    },
+  }
+}
 
 // JSON-LD WebSite — SearchAction for Google SERP
 const jsonLd = {
@@ -236,7 +252,7 @@ const breadcrumbJsonLd = {
 export default function Home() {
   return (
     <div className="min-h-screen bg-dark-800 relative">
-      <h1 className="sr-only">BTTSPredict — Pronostics BTTS et Over 2.5</h1>
+      <h1 className="sr-only">Pronostic BTTS Aujourd'hui au Sénégal - IA Over 2.5 Gratuit</h1>
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
@@ -571,6 +587,17 @@ export default function Home() {
             <a href="/jouer-responsable" className="inline-flex items-center gap-2 text-sm font-bold text-[#5146F5] underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5146F5] rounded">
               En savoir plus sur le jeu responsable →
             </a>
+          </div>
+        </section>
+
+        {/* Liens internes SEO — pages GSC qui reçoivent déjà des clics (3 clics / 2 clics / 2 clics) */}
+        <section className="px-4 py-6 space-y-3 max-w-5xl mx-auto">
+          <div className="flex flex-wrap gap-2 text-sm">
+            <a href="/bonus-888starz" className="underline">Bonus 888Starz Sénégal</a>
+            <span>·</span>
+            <a href="/code-promo-linebet-senegal" className="underline">Code Promo Linebet Sénégal</a>
+            <span>·</span>
+            <a href="/btts-c-est-quoi" className="underline">BTTS signification</a>
           </div>
         </section>
 
