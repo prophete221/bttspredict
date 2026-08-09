@@ -24,7 +24,10 @@
         "awayLambda": 1.08,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "finalScore": "2-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-09T19:16:48.119Z"
     },
     {
       "match": "FC Porto vs Alverca",
@@ -49,7 +52,10 @@
         "awayLambda": 1.08,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "finalScore": "2-0",
+      "status": "LOST",
+      "verifiedAt": "2026-08-09T19:16:48.119Z"
     }
   ]
 }
