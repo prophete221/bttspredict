@@ -24,7 +24,8 @@
         "awayLambda": 1.4,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "St. Pauli vs SpVgg Greuther Fürth",
@@ -49,7 +50,10 @@
         "awayLambda": 1.4,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "finalScore": "1-1",
+      "status": "WON",
+      "verifiedAt": "2026-08-09T13:47:37.943Z"
     },
     {
       "match": "Heerenveen vs FC Twente",
@@ -74,7 +78,8 @@
         "awayLambda": 1.4,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Zulte-Waregem vs Racing Genk",
@@ -99,7 +104,8 @@
         "awayLambda": 1.4,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "FC Porto vs Alverca",
@@ -124,7 +130,8 @@
         "awayLambda": 1.4,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Sporting CP vs Vitória de Guimaraes",
@@ -149,7 +156,8 @@
         "awayLambda": 1.4,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Académico de Viseu vs Santa Clara",
@@ -174,7 +182,8 @@
         "awayLambda": 1.4,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Wolfsberger vs RB Salzburg",
@@ -199,7 +208,8 @@
         "awayLambda": 1.4,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "CF Montréal vs D.C. United",
@@ -224,7 +234,8 @@
         "awayLambda": 1.4,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     },
     {
       "match": "Sheffield United vs Birmingham City",
@@ -249,7 +260,8 @@
         "awayLambda": 1.4,
         "dataQuality": 5,
         "hasRealData": true
-      }
+      },
+      "status": "PENDING"
     }
   ]
 }
