@@ -39,16 +39,16 @@ type WinHistory = {
 }
 
 const COLORS = {
-  gold: '#121212',
-  mint: '#121212',
+  gold: '#C7F464',
+  mint: '#C7F464',
   cyan: '#A8E063',
-  rose: '#121212',
-  panel: '#FFFFFF',
-  edge: 'rgba(17, 24, 39, 0.08)',
-  text: '#6B7280',
+  rose: '#C7F464',
+  panel: '#102333',
+  edge: 'rgba(242, 247, 245, 0.08)',
+  text: '#B5C4C9',
 }
 
-const LEAGUE_COLORS = ['#121212', '#121212', '#A8E063', '#121212', '#121212', '#121212', '#121212', '#121212', '#121212', '#121212']
+const LEAGUE_COLORS = ['#C7F464', '#C7F464', '#A8E063', '#C7F464', '#C7F464', '#C7F464', '#C7F464', '#C7F464', '#C7F464', '#C7F464']
 
 export default function StatsDashboard() {
   const [data, setData] = useState<WinHistory | null>(null)
@@ -224,11 +224,11 @@ export default function StatsDashboard() {
           </div>
           <div className="flex items-center gap-3 text-[10px]">
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#00C950' }} />
+              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#63D6FF' }} />
               <span className="text-cendre">BTTS</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#00C950' }} />
+              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#63D6FF' }} />
               <span className="text-cendre">Over 2.5</span>
             </span>
           </div>
@@ -248,7 +248,7 @@ export default function StatsDashboard() {
                   fontSize: 12,
                   color: '#fff',
                 }}
-                labelStyle={{ color: '#111827', fontWeight: 700 }}
+                labelStyle={{ color: '#F2F7F5', fontWeight: 700 }}
                 formatter={(v: number | null, name: string) => [
                   v == null ? 'N/A' : `${v}%`,
                   name === 'btts' ? 'BTTS' : 'Over 2.5',
@@ -257,19 +257,19 @@ export default function StatsDashboard() {
               <Line
                 type="monotone"
                 dataKey="btts"
-                stroke="#00C950"
+                stroke="#63D6FF"
                 strokeWidth={2.5}
-                dot={{ fill: '#00C950', r: 3 }}
-                activeDot={{ r: 5, fill: '#00C950' }}
+                dot={{ fill: '#63D6FF', r: 3 }}
+                activeDot={{ r: 5, fill: '#63D6FF' }}
                 connectNulls
               />
               <Line
                 type="monotone"
                 dataKey="over25"
-                stroke="#00C950"
+                stroke="#63D6FF"
                 strokeWidth={2.5}
-                dot={{ fill: '#00C950', r: 3 }}
-                activeDot={{ r: 5, fill: '#00C950' }}
+                dot={{ fill: '#63D6FF', r: 3 }}
+                activeDot={{ r: 5, fill: '#63D6FF' }}
                 connectNulls
               />
             </LineChart>
@@ -307,7 +307,7 @@ export default function StatsDashboard() {
                     fontSize: 12,
                     color: '#fff',
                   }}
-                  cursor={{ fill: 'rgba(18, 18, 18, 0.05)' }}
+                  cursor={{ fill: 'rgba(199, 244, 100, 0.05)' }}
                 />
                 <Bar dataKey="réussite" radius={[8, 8, 0, 0]} maxBarSize={64}>
                   {typeData.map((_, i) => (
@@ -339,7 +339,7 @@ export default function StatsDashboard() {
                     fontSize: 12,
                     color: '#fff',
                   }}
-                  cursor={{ fill: 'rgba(18, 18, 18, 0.05)' }}
+                  cursor={{ fill: 'rgba(199, 244, 100, 0.05)' }}
                 />
                 <Bar dataKey="réussite" radius={[8, 8, 0, 0]} maxBarSize={64}>
                   {confData.map((_, i) => (
