@@ -486,9 +486,12 @@ export default function FreePredictions() {
         if (!data?.predictions) return
         const matchMap = new Map<string, MatchData>()
         for (const p of data.predictions) {
-          if (getMatchStatus(p.date, p.time) === 'finished') continue
-          // Use match NAME as key (not matchSemantic which includes -btts/-o25 suffix,
-          // creating duplicate entries for the same match)
+          // v64.1 HOTFIX : on ne skippe PLUS les matchs "finished" au chargement.
+          // Avant, si on était le 2026-08-10 et que predictions.json ne contenait
+          // que des matchs datés 2026-08-09, le `continue` ci-dessous vidait
+          // complètement la liste → 0 pronostic affiché.
+          // Maintenant on garde TOUS les matchs ; le filtre actif (Tous/Auj/Dem/7j)
+          // et le sort par statut (live → upcoming → finished) s'occupent de l'ordre.
           const key = p.match
           if (!matchMap.has(key)) {
             matchMap.set(key, {
