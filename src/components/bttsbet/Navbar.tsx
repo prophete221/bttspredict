@@ -3,34 +3,36 @@
 import { useState, useCallback } from 'react'
 import { SITE } from '@/lib/constants'
 
+/**
+ * Navbar BTTSPredict v64 — Plateforme PRO
+ *
+ * Refonte du menu 22 liens → 6 liens.
+ * Plus de blog 2000, plus de doorway pages : on garde seulement
+ * les pages essentielles type Flashscore (Stats / Historique / Méthode)
+ * + 2 CTAs bookmakers (Linebet VISION221 + Bonus 888Starz).
+ *
+ * Liste définitive des 6 liens :
+ *   1. Accueil
+ *   2. Statistiques
+ *   3. Historique vérifié
+ *   4. Méthode
+ *   5. Code Linebet VISION221
+ *   6. Bonus 888Starz
+ *
+ * Plus de bouton "Plus", plus de drawer mobile complexe.
+ * Les 6 liens tiennent en une ligne sur desktop, en grille 2x3 sur mobile.
+ */
 const PAGE_LINKS = [
   { label: 'Accueil', href: '/' },
-  { label: 'Pronos', href: '/pronostics' },
-  { label: 'Over 2.5', href: '/over-2-5-predictions' },
-  { label: 'Score Exact', href: '/correct-score-predictions' },
-  { label: 'Today', href: '/football-predictions-today' },
-  { label: 'Betting Tips', href: '/betting-tips' },
-  { label: 'Ligues', href: '/league-predictions' },
-  { label: 'Équipes', href: '/team-predictions' },
-  { label: 'Matchs', href: '/match-predictions' },
-  { label: 'VIP', href: '/vip' },
-  { label: 'Historique', href: '/historique' },
-  { label: 'Stats', href: '/statistiques' },
+  { label: 'Statistiques', href: '/btts/statistics' },
+  { label: 'Historique vérifié', href: '/resultats-verifies' },
   { label: 'Méthode', href: '/methodologie' },
-  { label: 'Équipe', href: '/equipe' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Presse', href: '/presse' },
-  { label: 'Bookmakers', href: '/bookmakers' },
-  { label: 'Code VISION221', href: '/linebet-promo-code' },
-  { label: 'Bonus 888', href: '/bonus-888starz' },
-  { label: 'BTTS ?', href: '/btts-c-est-quoi' },
-  { label: 'Aviator', href: '/aviator-stats' },
-  { label: 'Analyses de valeur FIFA (expérimental)', href: '/analyses-fifa' },
+  { label: 'Code Linebet VISION221', href: '/code-promo-linebet-senegal' },
+  { label: 'Bonus 888Starz', href: '/bonus-888starz' },
 ]
 
 export default function Navbar() {
   const [copied, setCopied] = useState(false)
-  const [showAll, setShowAll] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
   const copyCode = useCallback(async () => {
@@ -39,10 +41,6 @@ export default function Navbar() {
     navigator.vibrate?.(15)
     setTimeout(() => setCopied(false), 2000)
   }, [])
-
-  // Liens principaux visibles par défaut
-  const mainLinks = PAGE_LINKS.slice(0, 7)
-  const moreLinks = PAGE_LINKS.slice(7)
 
   return (
     <>
@@ -54,7 +52,7 @@ export default function Navbar() {
         }}
       >
         <div className="max-w-2xl mx-auto px-2">
-          {/* Ligne 1: Logo + CTA */}
+          {/* Ligne 1: Logo + Code promo + Hamburger mobile */}
           <div className="flex items-center justify-between h-12 gap-2">
             {/* Logo BTTSPredict */}
             <a
@@ -69,7 +67,7 @@ export default function Navbar() {
               </span>
             </a>
 
-            {/* Code promo + CTA + Hamburger */}
+            {/* Code promo + Hamburger */}
             <div className="flex items-center gap-1.5">
               <button
                 onClick={copyCode}
@@ -82,18 +80,11 @@ export default function Navbar() {
               >
                 {copied ? '✓' : SITE.promoCode}
               </button>
-              <a
-                href="/pronostics"
-                className="hidden sm:block px-2.5 py-1.5 rounded text-[11px] font-bold transition-colors"
-                style={{ backgroundColor: '#5146F5', color: '#F7F8FF' }}
-              >
-                Pronos
-              </a>
 
-              {/* Hamburger - mobile only */}
+              {/* Hamburger - mobile only (les 6 liens dépliables) */}
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="lg:hidden flex items-center justify-center w-9 h-9 rounded-lg"
+                className="sm:hidden flex items-center justify-center w-9 h-9 rounded-lg"
                 style={{ color: '#F7F8FF' }}
                 aria-label="Menu"
                 aria-expanded={menuOpen}
@@ -114,9 +105,9 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Ligne 2: Liens principaux scrollables — desktop only (lg:flex) */}
-          <div className="hidden lg:flex items-center gap-0.5 overflow-x-auto no-scrollbar pb-1.5" style={{ scrollbarWidth: 'none' }}>
-            {mainLinks.map((link) => (
+          {/* Ligne 2: 6 liens desktop (sm+) — une seule ligne, scrollable si besoin */}
+          <div className="hidden sm:flex items-center gap-0.5 overflow-x-auto no-scrollbar pb-1.5" style={{ scrollbarWidth: 'none' }}>
+            {PAGE_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -128,51 +119,23 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            {/* Bouton "Plus" */}
-            <button
-              onClick={() => setShowAll(!showAll)}
-              className="text-[10px] font-medium px-2 py-1 rounded whitespace-nowrap transition-colors"
-              style={{ color: '#5146F5' }}
-            >
-              {showAll ? '✕ Fermer' : '+ Plus'}
-            </button>
           </div>
-
-          {/* Ligne 3: Tous les liens (dépliable) — desktop only */}
-          {showAll && (
-            <div className="hidden lg:block pb-2 pt-1 border-t" style={{ borderColor: 'rgba(81, 70, 245, 0.1)' }}>
-              <div className="grid grid-cols-3 gap-1">
-                {moreLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="text-[10px] font-medium px-2 py-1.5 rounded transition-colors text-center"
-                    style={{ color: '#A5ABC5', backgroundColor: 'rgba(247, 248, 255,0.02)' }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = '#5146F5'; e.currentTarget.style.backgroundColor = 'rgba(81, 70, 245, 0.08)' }}
-                    onMouseLeave={(e) => { e.currentTarget.style.color = '#A5ABC5'; e.currentTarget.style.backgroundColor = 'rgba(247, 248, 255,0.02)' }}
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </nav>
 
-      {/* === DRAWER MOBILE === */}
+      {/* === DRAWER MOBILE — grille 2x3 des 6 liens === */}
       {menuOpen && (
         <>
           {/* Fond semi-transparent */}
           <div
-            className="fixed inset-0 z-[60] lg:hidden"
+            className="fixed inset-0 z-[60] sm:hidden"
             style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}
             onClick={() => setMenuOpen(false)}
           />
 
           {/* Drawer */}
           <div
-            className="fixed top-0 left-0 right-0 z-[70] lg:hidden max-h-[80vh] overflow-y-auto"
+            className="fixed top-0 left-0 right-0 z-[70] sm:hidden"
             style={{
               backgroundColor: '#0D1630',
               borderBottom: '1px solid #5146F5',
@@ -195,24 +158,28 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Liens du drawer */}
-            <div className="px-2 py-2">
+            {/* 6 liens en grille 2x3 — finit en une seule "page" */}
+            <div className="p-3 grid grid-cols-2 gap-2">
               {PAGE_LINKS.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors"
-                  style={{ color: '#A5ABC5' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.color = '#A8E063'; e.currentTarget.style.backgroundColor = 'rgba(81, 70, 245, 0.08)' }}
-                  onMouseLeave={(e) => { e.currentTarget.style.color = '#A5ABC5'; e.currentTarget.style.backgroundColor = 'transparent' }}
+                  className="block px-3 py-3 rounded-lg text-xs font-semibold text-center transition-colors"
+                  style={{
+                    color: '#F7F8FF',
+                    backgroundColor: 'rgba(81, 70, 245, 0.08)',
+                    border: '1px solid rgba(81, 70, 245, 0.2)',
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(81, 70, 245, 0.18)' }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(81, 70, 245, 0.08)' }}
                 >
                   {link.label}
                 </a>
               ))}
             </div>
 
-            {/* Boutons CTA en bas du drawer */}
+            {/* Bouton CTA copier code en bas du drawer */}
             <div className="px-4 py-3 border-t flex items-center gap-2" style={{ borderColor: 'rgba(81, 70, 245, 0.15)' }}>
               <button
                 onClick={() => { copyCode(); setMenuOpen(false) }}
@@ -225,14 +192,6 @@ export default function Navbar() {
               >
                 {copied ? '✓ Copié' : SITE.promoCode}
               </button>
-              <a
-                href="/pronostics"
-                onClick={() => setMenuOpen(false)}
-                className="flex-1 px-3 py-2 rounded-lg text-xs font-bold text-center transition-colors"
-                style={{ backgroundColor: '#5146F5', color: '#F7F8FF' }}
-              >
-                Voir les Pronos
-              </a>
             </div>
           </div>
         </>
