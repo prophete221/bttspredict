@@ -14,6 +14,11 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.+)/?$ /$1.html [L]
 
+# ─── Redirect 301: /linebet-promo-code → /code-promo-linebet-senegal ───
+# Anti-doublon SEO : /linebet-promo-code est un doublon de /code-promo-linebet-senegal.
+# Redirection permanente 301 pour transférer le link equity et éliminer le duplicate content.
+RewriteRule ^linebet-promo-code/?$ /code-promo-linebet-senegal [R=301,L]
+
 # ─── 404 spécifique pour /match/[slug] non généré ───
 # Les pages match sont pré-générées en SSG dans out/match/[slug]/index.html.
 # Si le fichier n'existe pas (match non dans la liste du jour), on renvoie 404.html
