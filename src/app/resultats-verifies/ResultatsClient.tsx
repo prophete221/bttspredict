@@ -10,7 +10,7 @@ export default function ResultatsClient() {
   }, [])
 
   if (!data || !data.stats) {
-    return <div className="text-center py-8 text-[#9CA3AF]">Chargement…</div>
+    return <div className="text-center py-8 text-[#7F969E]">Chargement…</div>
   }
 
   const stats = data.stats
@@ -92,20 +92,20 @@ export default function ResultatsClient() {
       <div
         className="rounded-xl p-4 mb-6"
         style={{
-          backgroundColor: 'rgba(18, 18, 18, 0.08)',
-          border: '1px solid rgba(18, 18, 18, 0.2)',
+          backgroundColor: 'rgba(199, 244, 100, 0.08)',
+          border: '1px solid rgba(199, 244, 100, 0.2)',
         }}
       >
-        <p className="text-sm font-bold" style={{ color: '#121212' }}>
+        <p className="text-sm font-bold" style={{ color: '#C7F464' }}>
           Suivi public depuis le 08/08/2026
         </p>
-        <p className="text-xs mt-1" style={{ color: '#6B7280' }}>
-          Échantillon : <strong style={{ color: '#111827' }}>{total} pronostics vérifiés</strong> ({won} gagnés / {lost} perdus / {stats.pending || 0} en attente).
-          Taux BTTS : <strong style={{ color: '#111827' }}>{stats.rate}%</strong> — calculé dynamiquement depuis le tableau ci-dessous.
-          ROI cumulé : <strong style={{ color: stats.profit >= 0 ? '#00C950' : '#FF3B30' }}>{stats.profit >= 0 ? '+' : ''}{stats.profit}u</strong>.
+        <p className="text-xs mt-1" style={{ color: '#B5C4C9' }}>
+          Échantillon : <strong style={{ color: '#F2F7F5' }}>{total} pronostics vérifiés</strong> ({won} gagnés / {lost} perdus / {stats.pending || 0} en attente).
+          Taux BTTS : <strong style={{ color: '#F2F7F5' }}>{stats.rate}%</strong> — calculé dynamiquement depuis le tableau ci-dessous.
+          ROI cumulé : <strong style={{ color: stats.profit >= 0 ? '#63D6FF' : '#FF7A7A' }}>{stats.profit >= 0 ? '+' : ''}{stats.profit}u</strong>.
           {' '}
           {total < 30 && (
-            <span style={{ color: '#121212' }}>
+            <span style={{ color: '#C7F464' }}>
               ⚠ En calibration — données démo jusqu&apos;au 15/08/2026 (volume insuffisant pour évaluer statistiquement la performance).
             </span>
           )}
@@ -115,38 +115,38 @@ export default function ResultatsClient() {
       {/* Stats Summary — 3 cartes neutres, pas de ROI négatif */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
         {/* Carte 1: Vérifiés + Taux All */}
-        <div className="rounded-[16px] bg-[#FFFFFF] border border-[#E6E8EB] p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
-          <div className="text-[10px] text-[#9CA3AF] uppercase tracking-widest">Vérifiés</div>
+        <div className="rounded-[16px] bg-[#102333] border border-[#1C3546] p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
+          <div className="text-[10px] text-[#7F969E] uppercase tracking-widest">Vérifiés</div>
           <div className="mt-1 flex items-baseline gap-2">
-            <div className="text-3xl font-bold text-[#111827] font-mono">{total}</div>
-            <div className="text-xs text-[#6B7280]">{won}W / {lost}L</div>
+            <div className="text-3xl font-bold text-[#F2F7F5] font-mono">{total}</div>
+            <div className="text-xs text-[#B5C4C9]">{won}W / {lost}L</div>
           </div>
-          <div className="mt-2 text-[10px] text-[#9CA3AF]">
-            Taux All: <span className="text-[#111827] font-bold">{stats.rate}%</span>
+          <div className="mt-2 text-[10px] text-[#7F969E]">
+            Taux All: <span className="text-[#F2F7F5] font-bold">{stats.rate}%</span>
           </div>
         </div>
 
         {/* Carte 2: Gold */}
-        <div className="rounded-[16px] bg-[#F9FAFB] border border-[#121212]/42 p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
-          <div className="text-[10px] text-[#121212] uppercase tracking-widest font-bold">Gold Picks</div>
+        <div className="rounded-[16px] bg-[#142C3E] border border-[#C7F464]/42 p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
+          <div className="text-[10px] text-[#C7F464] uppercase tracking-widest font-bold">Gold Picks</div>
           <div className="mt-1 flex items-baseline gap-2">
-            <div className="text-3xl font-bold text-[#111827] font-mono">{goldRate}%</div>
-            <div className="text-xs text-[#6B7280]">{goldTotal} vérifiés</div>
+            <div className="text-3xl font-bold text-[#F2F7F5] font-mono">{goldRate}%</div>
+            <div className="text-xs text-[#B5C4C9]">{goldTotal} vérifiés</div>
           </div>
-          <div className="mt-2 text-[10px] text-[#9CA3AF]">
+          <div className="mt-2 text-[10px] text-[#7F969E]">
             Filtre proba ≥ 68%
-            {showGoldYield && <span className="ml-2 text-[#00C950]">Yield +{goldYield}%</span>}
+            {showGoldYield && <span className="ml-2 text-[#63D6FF]">Yield +{goldYield}%</span>}
           </div>
         </div>
 
         {/* Carte 3: 30 derniers jours */}
-        <div className="rounded-[16px] bg-[#FFFFFF] border border-[#E6E8EB] p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
-          <div className="text-[10px] text-[#9CA3AF] uppercase tracking-widest">Taux 30 derniers jours</div>
+        <div className="rounded-[16px] bg-[#102333] border border-[#1C3546] p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
+          <div className="text-[10px] text-[#7F969E] uppercase tracking-widest">Taux 30 derniers jours</div>
           <div className="mt-1 flex items-baseline gap-2">
-            <div className="text-3xl font-bold text-[#111827] font-mono">{rate30}%</div>
-            <div className="text-xs text-[#6B7280]">{w30}W / {l30}L</div>
+            <div className="text-3xl font-bold text-[#F2F7F5] font-mono">{rate30}%</div>
+            <div className="text-xs text-[#B5C4C9]">{w30}W / {l30}L</div>
           </div>
-          <div className="mt-2 text-[10px] text-[#9CA3AF]">
+          <div className="mt-2 text-[10px] text-[#7F969E]">
             Dernier scan: il y a {Math.round((now - new Date(data.generatedAt).getTime()) / 3600000)}h via ESPN
           </div>
         </div>
@@ -157,19 +157,19 @@ export default function ResultatsClient() {
         <button
           onClick={exportCSV}
           className="px-4 py-2 rounded-lg text-sm font-bold transition-all"
-          style={{ backgroundColor: '#121212', color: '#111827' }}
+          style={{ backgroundColor: '#C7F464', color: '#F2F7F5' }}
         >
           📥 Export CSV horodaté
         </button>
       </div>
 
       {/* Table */}
-      <div className="rounded-[16px] bg-[#FFFFFF] border border-[#E6E8EB] p-4">
-        <h2 className="text-sm font-bold text-[#111827] mb-3">Tableau détaillé (100 derniers)</h2>
+      <div className="rounded-[16px] bg-[#102333] border border-[#1C3546] p-4">
+        <h2 className="text-sm font-bold text-[#F2F7F5] mb-3">Tableau détaillé (100 derniers)</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-[11px]">
             <thead>
-              <tr className="text-[#9CA3AF] border-b border-[#E6E8EB]">
+              <tr className="text-[#7F969E] border-b border-[#1C3546]">
                 <th className="text-left py-2 px-2">Date</th>
                 <th className="text-left py-2 px-2">Match</th>
                 <th className="text-left py-2 px-2">Marché</th>
@@ -181,7 +181,7 @@ export default function ResultatsClient() {
             </thead>
             <tbody>
               {dedupedHistory.length === 0 ? (
-                <tr><td colSpan={7} className="text-center text-[#9CA3AF] py-8">Aucun résultat vérifié.</td></tr>
+                <tr><td colSpan={7} className="text-center text-[#7F969E] py-8">Aucun résultat vérifié.</td></tr>
               ) : (
                 dedupedHistory.slice(0, 100).map((h: any, i: number) => {
                   const isWon = h.status === 'WON' || h.isWon === true
@@ -190,19 +190,19 @@ export default function ResultatsClient() {
                   const market = getMarket(h)
                   const proba = getProba(h)
                   return (
-                    <tr key={i} className="border-b border-[#E6E8EB]/30">
-                      <td className="py-1.5 px-2 text-[#9CA3AF] font-mono">{(h.date||'').slice(5)}</td>
-                      <td className="py-1.5 px-2 text-[#6B7280]">{(h.match||'').substring(0,35)}</td>
-                      <td className="py-1.5 px-2 text-[#6B7280]">
+                    <tr key={i} className="border-b border-[#1C3546]/30">
+                      <td className="py-1.5 px-2 text-[#7F969E] font-mono">{(h.date||'').slice(5)}</td>
+                      <td className="py-1.5 px-2 text-[#B5C4C9]">{(h.match||'').substring(0,35)}</td>
+                      <td className="py-1.5 px-2 text-[#B5C4C9]">
                         {market}
-                        {isGold && <span className="ml-1 text-[8px] text-[#121212] font-bold">GOLD</span>}
+                        {isGold && <span className="ml-1 text-[8px] text-[#C7F464] font-bold">GOLD</span>}
                       </td>
-                      <td className="py-1.5 px-2 text-right text-[#6B7280] font-mono">{proba}</td>
-                      <td className="py-1.5 px-2 text-center text-[#111827] font-mono">{h.finalScore||h.score||'-'}</td>
-                      <td className="py-1.5 px-2 text-center" style={{ color: isWon ? '#00C950' : '#FF3B30' }}>
+                      <td className="py-1.5 px-2 text-right text-[#B5C4C9] font-mono">{proba}</td>
+                      <td className="py-1.5 px-2 text-center text-[#F2F7F5] font-mono">{h.finalScore||h.score||'-'}</td>
+                      <td className="py-1.5 px-2 text-center" style={{ color: isWon ? '#63D6FF' : '#FF7A7A' }}>
                         <strong>{isWon ? 'W' : 'L'}</strong>
                       </td>
-                      <td className="py-1.5 px-2 text-right font-mono" style={{ color: isWon ? '#00C950' : '#FF3B30' }}>{pl}</td>
+                      <td className="py-1.5 px-2 text-right font-mono" style={{ color: isWon ? '#63D6FF' : '#FF7A7A' }}>{pl}</td>
                     </tr>
                   )
                 })

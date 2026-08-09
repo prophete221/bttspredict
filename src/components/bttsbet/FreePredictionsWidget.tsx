@@ -98,7 +98,7 @@ function PredictionCard({ pred }: { pred: Prediction }) {
   const isBTTS = pred.type === 'BTTS'
   const proba = isBTTS ? pred.analysis?.bttsProb ?? pred.confidence / 100 : pred.analysis?.over25Prob ?? pred.confidence / 100
   const probaPercent = Math.round(proba * 1000) / 10 // 1 décimale
-  const probaColor = isBTTS ? '#00C950' : '#00C950' // assombri cyan #00C950 → #00C950
+  const probaColor = isBTTS ? '#63D6FF' : '#63D6FF' // assombri cyan #63D6FF → #63D6FF
   const isLive = false // could be derived from time vs now
 
   // data-ai-answer: 2 phrases que Perplexity/ChatGPT vont scraper
@@ -125,7 +125,7 @@ function PredictionCard({ pred }: { pred: Prediction }) {
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = 'translateY(-2px)'
         e.currentTarget.style.borderColor = 'var(--brand-indigo)'
-        e.currentTarget.style.boxShadow = '0 0 20px rgba(18, 18, 18, 0.3), 0 8px 32px rgba(241, 242, 243, 0.5)'
+        e.currentTarget.style.boxShadow = '0 0 20px rgba(199, 244, 100, 0.3), 0 8px 32px rgba(7, 17, 26, 0.5)'
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = 'translateY(0)'
@@ -167,9 +167,9 @@ function PredictionCard({ pred }: { pred: Prediction }) {
           <span
             className="text-[9px] font-bold px-1.5 py-0.5 rounded"
             style={{
-              backgroundColor: isBTTS ? 'rgba(0, 201, 80, 0.12)' : 'rgba(0, 201, 80, 0.12)',
+              backgroundColor: isBTTS ? 'rgba(99, 214, 255, 0.12)' : 'rgba(99, 214, 255, 0.12)',
               color: probaColor,
-              border: `1px solid ${isBTTS ? 'rgba(0, 201, 80, 0.25)' : 'rgba(0, 201, 80, 0.25)'}`,
+              border: `1px solid ${isBTTS ? 'rgba(99, 214, 255, 0.25)' : 'rgba(99, 214, 255, 0.25)'}`,
             }}
           >
             {isBTTS ? 'BTTS' : 'O2.5'} {pred.prediction}
@@ -225,7 +225,7 @@ function TeamLogoMini({ src, alt }: { src?: string; alt: string }) {
     return (
       <span
         className="w-5 h-5 flex items-center justify-center text-[8px] font-bold rounded flex-shrink-0"
-        style={{ backgroundColor: '#FFFFFF', color: '#6B7280' }}
+        style={{ backgroundColor: '#102333', color: '#B5C4C9' }}
         aria-label={alt}
         title={alt}
       >
