@@ -46,7 +46,7 @@ const jsonLd = {
   '@type': 'WebSite',
   name: 'BTTSPredict',
   url: 'https://bttspredict.com',
-  description: "Pronostics football BTTS & Over 2,5 par nos experts. Value bets FIFA sur Linebet et 888starz. Code promo VISION221.",
+  description: "Pronostics football BTTS & Over 2,5 par nos experts. Code promo VISION221 sur Linebet et 888starz.",
   inLanguage: 'fr',
   potentialAction: {
     '@type': 'SearchAction',
@@ -103,14 +103,6 @@ const faqJsonLd = {
     },
     {
       '@type': 'Question',
-      name: 'Peut-on prédire Aviator ou une faille de cotes FIFA ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "Non. Aviator est un jeu 100% aléatoire basé sur un générateur certifié 'provably fair' — aucun outil ne peut prédire un round futur. Nos statistiques Aviator observent l'historique, pas l'avenir. Les Analyses de valeur FIFA (expérimental) sont des estimations statistiques, pas des garanties de gain.",
-      },
-    },
-    {
-      '@type': 'Question',
       name: 'Pourquoi faire confiance à BTTSPredict ?',
       acceptedAnswer: {
         '@type': 'Answer',
@@ -140,7 +132,7 @@ const organizationJsonLd = {
   slogan: 'Plateforme de référence — Pronostics BTTS et Over 2.5',
   description: "BTTSPredict est la base open-source de pronostics BTTS (Both Teams To Score) et Over 2.5 buts. taux réel vérifiable vérifiée, parieurs. Transparence totale : gagnés ET perdus affichés.",
   areaServed: ['Worldwide', 'SN', 'CI', 'CM', 'ML', 'BF', 'FR', 'NG'],
-  knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'analystes football', 'football', 'analyses de valeur statistique FIFA', 'statistiques Aviator', 'pronostics btts aujourd\'hui', 'both teams to score', 'modèle IA nouvelle génération football', 'prédictions football'],
+  knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'analystes football', 'football', 'pronostics btts aujourd\'hui', 'both teams to score', 'modèle IA nouvelle génération football', 'prédictions football'],
   brand: {
     '@type': 'Brand',
     name: 'BTTSPredict',
@@ -220,7 +212,7 @@ const webPageJsonLd = {
   inLanguage: 'fr',
   datePublished: '2026-01-01',
   dateModified: new Date().toISOString().slice(0, 10),
-  keywords: 'BTTS, Over 2.5, pronostics btts aujourd\'hui, pronostics analystes, analyse statistique football, modèles Poisson, Analyses de valeur FIFA (expérimental), Aviator Provably Fair, code promo VISION221, Linebet, 888starz, pronostics football gratuits, pronostics Sénégal, both teams to score',
+  keywords: 'BTTS, Over 2.5, pronostics btts aujourd\'hui, pronostics analystes, analyse statistique football, modèles Poisson, code promo VISION221, Linebet, 888starz, pronostics football gratuits, pronostics Sénégal, both teams to score',
 }
 
 // JSON-LD Dataset — Transparency & credibility
@@ -263,7 +255,6 @@ const breadcrumbJsonLd = {
     { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://bttspredict.com/' },
     { '@type': 'ListItem', position: 2, name: 'Pronostics', item: 'https://bttspredict.com/#free-predictions' },
     { '@type': 'ListItem', position: 3, name: 'VIP', item: 'https://bttspredict.com/#vip' },
-    { '@type': 'ListItem', position: 4, name: 'Analyses de valeur FIFA (expérimental)', item: 'https://bttspredict.com/#fifa-linebet' },
   ],
 }
 

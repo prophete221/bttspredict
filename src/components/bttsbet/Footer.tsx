@@ -83,10 +83,6 @@ export default function Footer() {
                 color: '#C7F464',
                 border: '1px solid rgba(199, 244, 100, 0.2)',
               }}
-              onClick={(e) => {
-                e.preventDefault()
-                window.location.href = 'mailto:contact@bttspredict.com'
-              }}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -122,12 +118,11 @@ export default function Footer() {
             BTTSPredict n'est pas affilié à, ni exploité par, les sociétés de paris mentionnées.
           </p>
 
-          {/* Identité éditeur */}
+          {/* Identité éditeur — aligné avec LocalBusiness Schema.org (Dakar, Sénégal) */}
           <div className="text-center text-[10px] text-[#7F969E] mt-3 space-y-1">
-            <div>Éditeur: BTTSPredict — Elon Ervri, New Jersey, USA · Contact conformité: {''}
+            <div>Éditeur: BTTSPredict · Dakar, Sénégal · Contact conformité: {' '}
               <a href="mailto:contact@bttspredict.com" className="underline hover:text-[#B5C4C9]">contact@bttspredict.com</a>
             </div>
-            <div>Juridiction: USA · Responsable publication: Elon Ervri</div>
             <div>Les performances passées ne préjugent pas des résultats futurs — 18+ Jouez responsable</div>
           </div>
 
