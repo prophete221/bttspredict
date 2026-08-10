@@ -171,12 +171,12 @@ export default function VipSports() {
                 <div className="flex items-center gap-3">
                   <div className="text-center">
                     <div className="font-mono text-base font-bold text-papier">8</div>
-                    <div className="text-[8px] uppercase tracking-widest" style={{ color: C.textMute }}>matchs</div>
+                    <div className="text-[10px] uppercase tracking-widest" style={{ color: C.textMute }}>matchs</div>
                   </div>
                   <div className="w-px h-6 bg-dark-800" />
                   <div className="text-center">
                     <div className="font-mono text-base font-bold" style={{ color: activeSport.color }}>VIP</div>
-                    <div className="text-[8px] uppercase tracking-widest" style={{ color: C.textMute }}>cote</div>
+                    <div className="text-[10px] uppercase tracking-widest" style={{ color: C.textMute }}>cote</div>
                   </div>
                 </div>
               </div>
@@ -239,7 +239,7 @@ export default function VipSports() {
                 target="_blank"
                 rel="noopener"
                 className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold"
-                style={{ backgroundColor: '#C7F464', color: '#F2F7F5' }}
+                style={{ backgroundColor: '#C7F464', color: '#07111A' }}
               >
                 WhatsApp
               </a>

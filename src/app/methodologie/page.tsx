@@ -211,7 +211,7 @@ export default function MethodologiePage() {
           <section className="pt-8 border-t border-[#1C3546]">
             <div className="flex flex-wrap items-center justify-center gap-3">
               <a href="/pronostics" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
-                style={{ backgroundColor: '#C7F464', color: '#F2F7F5' }}>
+                style={{ backgroundColor: '#C7F464', color: '#07111A' }}>
                 Voir les pronostics du jour →
               </a>
               <a href="/jouer-responsable" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"

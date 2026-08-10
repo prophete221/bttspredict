@@ -24,7 +24,7 @@ export default function StatistiquesPage() {
           </p>
           <a href="/#free-predictions"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
-            style={{ backgroundColor: '#C7F464', color: '#F2F7F5' }}
+            style={{ backgroundColor: '#C7F464', color: '#07111A' }}
           >
             Voir les pronos du jour →
           </a>

@@ -157,7 +157,7 @@ export default function ResultatsClient() {
         <button
           onClick={exportCSV}
           className="px-4 py-2 rounded-lg text-sm font-bold transition-all"
-          style={{ backgroundColor: '#C7F464', color: '#F2F7F5' }}
+          style={{ backgroundColor: '#C7F464', color: '#07111A' }}
         >
           📥 Export CSV horodaté
         </button>
@@ -195,7 +195,7 @@ export default function ResultatsClient() {
                       <td className="py-1.5 px-2 text-[#B5C4C9]">{(h.match||'').substring(0,35)}</td>
                       <td className="py-1.5 px-2 text-[#B5C4C9]">
                         {market}
-                        {isGold && <span className="ml-1 text-[8px] text-[#C7F464] font-bold">GOLD</span>}
+                        {isGold && <span className="ml-1 text-[10px] text-[#C7F464] font-bold">GOLD</span>}
                       </td>
                       <td className="py-1.5 px-2 text-right text-[#B5C4C9] font-mono">{proba}</td>
                       <td className="py-1.5 px-2 text-center text-[#F2F7F5] font-mono">{h.finalScore||h.score||'-'}</td>

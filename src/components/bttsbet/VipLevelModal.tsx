@@ -281,7 +281,7 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                     rel="sponsored noopener"
                     target="_blank"
                     className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold transition-all"
-                    style={{ backgroundColor: '#C7F464', color: '#F2F7F5' }}
+                    style={{ backgroundColor: '#C7F464', color: '#07111A' }}
                   >
                     Inscription Linebet →
                   </a>

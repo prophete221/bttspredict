@@ -94,7 +94,7 @@ export default function HistoriqueClient() {
         <p className="text-xs text-[#7F969E]">{error}</p>
         <button onClick={() => window.location.reload()}
           className="mt-4 px-4 py-2 rounded-[10px] text-sm font-bold"
-          style={{ backgroundColor: '#C7F464', color: '#F2F7F5' }}>
+          style={{ backgroundColor: '#C7F464', color: '#07111A' }}>
           Réessayer
         </button>
       </div>
@@ -296,7 +296,7 @@ export default function HistoriqueClient() {
             Méthodologie du modèle →
           </Link>
           <Link href="/pronostics" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
-            style={{ backgroundColor: '#C7F464', color: '#F2F7F5' }}>
+            style={{ backgroundColor: '#C7F464', color: '#07111A' }}>
             Voir les pronostics du jour →
           </Link>
         </div>

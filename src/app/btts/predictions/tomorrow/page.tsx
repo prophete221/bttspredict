@@ -48,7 +48,7 @@ export default function BTTSPredictionsTomorrowPage() {
 
           <div className="flex flex-wrap items-center gap-3">
             <Link href="/pronostics" className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
-              style={{ backgroundColor: '#C7F464', color: '#F2F7F5' }}>
+              style={{ backgroundColor: '#C7F464', color: '#07111A' }}>
               Voir les pronostics du jour →
             </Link>
             <Link href="/btts/predictions/today" className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] font-bold text-sm transition-all"

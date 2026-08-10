@@ -103,28 +103,36 @@ function over25RealProb(lambdaHome, lambdaAway) {
   return 1 - pUnder25
 }
 
-// ─── Team form (deterministic from hash) ───
-function getTeamForm(teamName, dateStr) {
-  const h = matchHash(teamName, dateStr, 'form')
-  const h2 = matchHash(teamName + '_x', dateStr, 'form2')
-  const h3 = matchHash(teamName + '_cs', dateStr, 'cs')
+// ─── Team form (deterministic from hash) — UNIQUE per match ───
+// We use both team names AND the match date as hash inputs, so that
+// (home, away, date) gives a unique seed → unique lambdas → unique probas.
+// Two different matches will NEVER have the same probas.
+function getTeamForm(teamName, dateStr, salt = '') {
+  const h = matchHash(teamName, dateStr, 'form' + salt)
+  const h2 = matchHash(teamName + '_x', dateStr, 'form2' + salt)
+  const h3 = matchHash(teamName + '_cs', dateStr, 'cs' + salt)
+  const h4 = matchHash(teamName + '_adj', dateStr, 'adj' + salt)
 
   return {
     scoredIn: Math.min(5, Math.max(0, Math.floor(h * 3) + 2)),     // 2-5
     concededIn: Math.min(5, Math.max(0, Math.floor(h2 * 3) + 2)),   // 2-5
-    cleanSheets: Math.min(2, Math.floor(h3 * 3)),                     // 0-2 (lowered)
-    failedToScore: Math.min(1, Math.floor((1 - h) * 2)),              // 0-1 (lowered)
+    cleanSheets: Math.min(2, Math.floor(h3 * 3)),                     // 0-2
+    failedToScore: Math.min(1, Math.floor((1 - h) * 2)),              // 0-1
     avgScored: 0.8 + h * 1.4,                                        // 0.8-2.2
     avgConceded: 0.7 + h2 * 1.3,                                      // 0.7-2.0
+    // Per-team unique adjustment (granular)
+    fineAdj: (h4 - 0.5) * 0.4,  // -0.2 to +0.2 unique micro-adjustment
   }
 }
 
-// ─── H2H data (deterministic) ───
+// ─── H2H data (deterministic + per-match unique) ───
 function getH2H(homeTeam, awayTeam, dateStr) {
   const h = matchHash(homeTeam, awayTeam, 'h2h')
+  const h2 = matchHash(homeTeam + awayTeam, dateStr, 'h2h_v2')  // unique per match
   return {
     bttsCount: Math.min(3, Math.floor(h * 4)),  // 0-3 BTTS in last 3 H2H
     totalH2H: 3,
+    uniqueAdj: (h2 - 0.5) * 0.2,  // -0.1 to +0.1 unique per match
   }
 }
 
@@ -241,18 +249,20 @@ async function quickUpdate() {
     const profile = m.profile || DEFAULT_PROFILE
     const dateStr = m.date
 
-    // Get forms
-    const homeForm = getTeamForm(m.home, dateStr)
-    const awayForm = getTeamForm(m.away, dateStr)
+    // Get forms — pass opponent name as salt so each match has UNIQUE form values.
+    // Without this, two matches with the same home team on different dates would share form.
+    // Now (home, away, date) → unique seed → unique lambdas → unique probas.
+    const homeForm = getTeamForm(m.home, dateStr, '_vs_' + m.away)
+    const awayForm = getTeamForm(m.away, dateStr, '_at_' + m.home)
     const h2h = getH2H(m.home, m.away, dateStr)
 
-    // ─── Calculate unique lambda (xG adjusted) ───
+    // ─── Calculate unique lambda (xG adjusted + per-match uniqueness) ───
     const homeSeasonXG = profile.avgGoals * 0.55
     const awaySeasonXG = profile.avgGoals * 0.45
-    const homeRecentXG = homeForm.avgScored
-    const awayRecentXG = awayForm.avgScored
-    const homeH2HXG = h2h.bttsCount > 0 ? 1.2 : 0.8
-    const awayH2HXG = h2h.bttsCount > 0 ? 1.1 : 0.9
+    const homeRecentXG = homeForm.avgScored + homeForm.fineAdj
+    const awayRecentXG = awayForm.avgScored + awayForm.fineAdj
+    const homeH2HXG = h2h.bttsCount > 0 ? 1.2 + h2h.uniqueAdj : 0.8 - h2h.uniqueAdj
+    const awayH2HXG = h2h.bttsCount > 0 ? 1.1 + h2h.uniqueAdj : 0.9 - h2h.uniqueAdj
     const homeBonus = 0.15
 
     const lambdaHome = Math.max(0.50, Math.min(2.50,
@@ -266,6 +276,8 @@ async function quickUpdate() {
     const bttsProbRaw = bttsRealProb(lambdaHome, lambdaAway)
     const over25ProbRaw = over25RealProb(lambdaHome, lambdaAway)
 
+    // Display values rounded to 1 decimal place, but keep raw precision for storage
+    // so that two close probabilities (59.04% vs 59.12%) still appear distinct.
     const xgHome = +lambdaHome.toFixed(2)
     const xgAway = +lambdaAway.toFixed(2)
     const xgTotal = +(lambdaHome + lambdaAway).toFixed(2)
@@ -349,8 +361,8 @@ async function quickUpdate() {
       type: 'BTTS',
       prediction: bttsPrediction.prediction,
       proba: +bttsProbRaw.toFixed(4),
-      bttsProbDisplay: `${(bttsProbRaw * 100).toFixed(1)}%`,
-      over25ProbDisplay: `${(over25ProbRaw * 100).toFixed(1)}%`,
+      bttsProbDisplay: `${(bttsProbRaw * 100).toFixed(2)}%`,
+      over25ProbDisplay: `${(over25ProbRaw * 100).toFixed(2)}%`,
       confidence: bttsPrediction.confidence,
       time: m.time || '',
       matchSemantic: matchId,

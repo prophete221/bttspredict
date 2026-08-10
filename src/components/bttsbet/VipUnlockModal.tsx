@@ -283,7 +283,7 @@ export default function VipUnlockModal({
                   {selectedBookmaker === 'linebet' && (
                     <a href={AFFILIATE.linebet} rel="sponsored noopener" target="_blank"
                       className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold"
-                      style={{ backgroundColor: '#C7F464', color: '#F2F7F5' }}>
+                      style={{ backgroundColor: '#C7F464', color: '#07111A' }}>
                       Inscription Linebet →
                     </a>
                   )}
@@ -358,7 +358,7 @@ export default function VipUnlockModal({
                 <button
                   onClick={onClose}
                   className="w-full px-4 py-3 rounded-xl text-sm font-bold"
-                  style={{ backgroundColor: '#C7F464', color: '#F2F7F5' }}
+                  style={{ backgroundColor: '#C7F464', color: '#07111A' }}
                 >
                   Accéder aux pronostics VIP →
                 </button>

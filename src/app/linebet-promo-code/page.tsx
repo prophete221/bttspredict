@@ -54,7 +54,7 @@ export default function LinebetPromoCodeRedirect() {
             display: 'inline-block',
             padding: '0.75rem 1.5rem',
             backgroundColor: '#C7F464',
-            color: '#F2F7F5',
+            color: '#07111A',
             fontWeight: 700,
             borderRadius: '0.5rem',
             textDecoration: 'none',

@@ -38,17 +38,17 @@ export default function VipCardWidget() {
           {/* Étapes */}
           <div className="flex items-center gap-2 mb-3">
             <div className="flex items-center gap-1 text-[9px]" style={{ color: '#B5C4C9' }}>
-              <span className="w-5 h-5 rounded-full flex items-center justify-center font-bold text-[8px]" style={{ backgroundColor: '#C7F464', color: '#07111A' }}>1</span>
+              <span className="w-5 h-5 rounded-full flex items-center justify-center font-bold text-[10px]" style={{ backgroundColor: '#C7F464', color: '#07111A' }}>1</span>
               Inscris-toi
             </div>
             <span style={{ color: '#1C3546' }}>→</span>
             <div className="flex items-center gap-1 text-[9px]" style={{ color: '#B5C4C9' }}>
-              <span className="w-5 h-5 rounded-full flex items-center justify-center font-bold text-[8px]" style={{ backgroundColor: '#C7F464', color: '#07111A' }}>2</span>
+              <span className="w-5 h-5 rounded-full flex items-center justify-center font-bold text-[10px]" style={{ backgroundColor: '#C7F464', color: '#07111A' }}>2</span>
               Dépôt 3 000 / 6 000 / 12 000 XOF
             </div>
             <span style={{ color: '#1C3546' }}>→</span>
             <div className="flex items-center gap-1 text-[9px]" style={{ color: '#B5C4C9' }}>
-              <span className="w-5 h-5 rounded-full flex items-center justify-center font-bold text-[8px]" style={{ backgroundColor: '#C7F464', color: '#07111A' }}>3</span>
+              <span className="w-5 h-5 rounded-full flex items-center justify-center font-bold text-[10px]" style={{ backgroundColor: '#C7F464', color: '#07111A' }}>3</span>
               VIP activé
             </div>
           </div>

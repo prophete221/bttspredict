@@ -140,7 +140,7 @@ function PredictionCard({ pred }: { pred: Prediction }) {
         </span>
         <div className="flex items-center gap-1.5 flex-shrink-0">
           {isLive && (
-            <span className="flex items-center gap-1 text-[8px] font-bold" style={{ color: 'var(--error)' }}>
+            <span className="flex items-center gap-1 text-[10px] font-bold" style={{ color: 'var(--error)' }}>
               <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: 'var(--error)' }} />
               LIVE
             </span>
@@ -224,7 +224,7 @@ function TeamLogoMini({ src, alt }: { src?: string; alt: string }) {
     const initials = alt?.slice(0, 3).toUpperCase() || '?'
     return (
       <span
-        className="w-5 h-5 flex items-center justify-center text-[8px] font-bold rounded flex-shrink-0"
+        className="w-5 h-5 flex items-center justify-center text-[9px] font-bold rounded flex-shrink-0"
         style={{ backgroundColor: '#102333', color: '#B5C4C9' }}
         aria-label={alt}
         title={alt}

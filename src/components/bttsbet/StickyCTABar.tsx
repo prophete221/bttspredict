@@ -98,7 +98,7 @@ export default function StickyCTABar() {
               className="flex-1 flex items-center justify-center gap-1.5 h-[48px] rounded-[12px] font-bold text-[14px]"
               style={{
                 backgroundColor: '#C7F464',
-                color: '#F2F7F5',
+                color: '#07111A',
                 boxShadow: '0 0 0 1px rgba(199, 244, 100,.4), 0 4px 16px rgba(199, 244, 100,.22)',
               }}
               data-cta="sticky-register"

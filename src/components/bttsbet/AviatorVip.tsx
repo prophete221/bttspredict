@@ -106,7 +106,7 @@ export default function AviatorVip() {
                 </div>
                 <div className="flex items-center gap-1 px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(199, 244, 100,0.1)' }}>
                   <span className="w-1 h-1 rounded-full animate-pulse" style={{ backgroundColor: C.danger }} />
-                  <span className="font-mono text-[8px] font-bold" style={{ color: C.danger }}>LIVE</span>
+                  <span className="font-mono text-[10px] font-bold" style={{ color: C.danger }}>LIVE</span>
                 </div>
               </div>
 
@@ -121,19 +121,19 @@ export default function AviatorVip() {
               <div className="grid grid-cols-2 gap-1.5 mb-3">
                 <div className="p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(199, 244, 100,0.06)' }}>
                   <div className="text-sm font-bold tabular-nums" style={{ color: C.danger }}>{stats?.winRate || 0}%</div>
-                  <div className="text-[8px] uppercase tracking-wider" style={{ color: C.textMute }}>Cash-out</div>
+                  <div className="text-[10px] uppercase tracking-wider" style={{ color: C.textMute }}>Cash-out</div>
                 </div>
                 <div className="p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(199, 244, 100,0.06)' }}>
                   <div className="text-sm font-bold tabular-nums" style={{ color: C.cyan }}>{stats?.avgMult.toFixed(2) || '0.00'}x</div>
-                  <div className="text-[8px] uppercase tracking-wider" style={{ color: C.textMute }}>Mult. moyen</div>
+                  <div className="text-[10px] uppercase tracking-wider" style={{ color: C.textMute }}>Mult. moyen</div>
                 </div>
                 <div className="p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(199, 244, 100,0.06)' }}>
                   <div className="text-sm font-bold tabular-nums" style={{ color: C.gold }}>{stats?.maxMult.toFixed(2) || '0.00'}x</div>
-                  <div className="text-[8px] uppercase tracking-wider" style={{ color: C.textMute }}>Max du jour</div>
+                  <div className="text-[10px] uppercase tracking-wider" style={{ color: C.textMute }}>Max du jour</div>
                 </div>
                 <div className="p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(199, 244, 100,0.06)' }}>
                   <div className="text-sm font-bold tabular-nums" style={{ color: C.violet }}>{stats?.totalRounds || 0}</div>
-                  <div className="text-[8px] uppercase tracking-wider" style={{ color: C.textMute }}>Rounds</div>
+                  <div className="text-[10px] uppercase tracking-wider" style={{ color: C.textMute }}>Rounds</div>
                 </div>
               </div>
 
@@ -153,7 +153,7 @@ export default function AviatorVip() {
               <button
                 onClick={() => setShowModal(true)}
                 className="w-full mt-3 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-xs font-bold transition-all"
-                style={{ background: 'linear-gradient(135deg, #C7F464, #C7F464)', color: '#F2F7F5' }}
+                style={{ background: 'linear-gradient(135deg, #C7F464, #C7F464)', color: '#07111A' }}
               >
                 🔒 Débloquer les Stats Aviator VIP
               </button>

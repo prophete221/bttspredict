@@ -109,7 +109,7 @@ export default function Hero() {
             className="w-full h-[52px] rounded-[10px] font-bold text-[15px] flex items-center justify-center gap-2 transition-all"
             style={{
               backgroundColor: '#C7F464',
-              color: '#F2F7F5',
+              color: '#07111A',
               border: 'none',
               boxShadow: '0 4px 16px rgba(199, 244, 100, 0.25)',
             }}

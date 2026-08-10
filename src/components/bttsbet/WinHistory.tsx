@@ -142,7 +142,7 @@ export default function WinHistory() {
                     }}
                     title={`${d.date}: ${d.rate}% (${d.won}W/${d.lost}L)`}
                   />
-                  <span className="text-[8px] text-[#7F969E]">{d.date.slice(5)}</span>
+                  <span className="text-[10px] text-[#7F969E]">{d.date.slice(5)}</span>
                 </div>
               ))}
             </div>
@@ -172,7 +172,7 @@ export default function WinHistory() {
                       {isWon ? 'W' : 'L'}
                     </span>
                     {isGold && (
-                      <span className="px-1.5 py-0.5 rounded text-[8px] font-bold bg-[#C7F464]/14 text-[#C7F464] flex-shrink-0">
+                      <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#C7F464]/14 text-[#C7F464] flex-shrink-0">
                         GOLD
                       </span>
                     )}
