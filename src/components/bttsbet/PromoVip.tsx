@@ -1,8 +1,6 @@
 'use client'
 import { useState, useEffect, useMemo } from 'react'
-import { SITE } from '@/lib/constants'
 import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
-import CopyableCode from './CopyableCode'
 import VipUnlockModal from './VipUnlockModal'
 
 const C = { bg:'#07111A', card:'#102333', border:'#1C3546', neon:'#C7F464', neonDk:'#63D6FF', text:'#F2F7F5', textSec:'#B5C4C9', textMute:'#7F969E' }
@@ -83,71 +81,62 @@ export default function PromoVip() {
 
   return (
     <>
-      <section ref={ref} id="coupon-vip" className="py-6 relative">
-        <div className="max-w-[480px] mx-auto relative">
-          {/* Header — badge discret */}
-          <div className="text-center mb-4">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider" style={{ backgroundColor: 'rgba(99,214,255,0.08)', border: '1px solid rgba(99,214,255,0.2)', color: C.neonDk }}>
-              <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.neonDk }} />
-              Mis à jour le {new Date().toLocaleDateString('fr-FR')}
+      <section ref={ref} id="coupon-vip" className="py-3 relative">
+        <div className="max-w-md mx-auto relative">
+          {/* Header — compact */}
+          <div className="text-center mb-3">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9px] font-bold tracking-wider" style={{ backgroundColor: 'rgba(255,215,0,0.08)', border: '1px solid rgba(255,215,0,0.2)', color: '#FFD700' }}>
+              <span className="w-1 h-1 rounded-full" style={{ backgroundColor: '#FFD700' }} />
+              Coupon du jour
             </span>
-            <h2 className="font-bold text-[22px] mt-3" style={{ color: C.text }}>Coupon VIP du jour</h2>
-            <p className="text-[12px] mt-1" style={{ color: C.textSec }}>{matches.length} matchs · Pronostics floutés · Débloque pour voir</p>
+            <h2 className="font-bold text-[15px] mt-2" style={{ color: C.text }}>Pronostics VIP floutés</h2>
+            <p className="text-[10px] mt-0.5" style={{ color: C.textSec }}>{matches.length} matchs · Débloque pour voir</p>
           </div>
 
-          {/* Coupon card — tous floutés */}
-          <div className="rounded-[20px] overflow-hidden" style={{ backgroundColor: C.card, border: `1px solid ${C.border}` }}>
-            <div className="h-[2px] w-full" style={{ backgroundColor: C.neon }} />
+          {/* Coupon card — compact */}
+          <div className="rounded-xl overflow-hidden" style={{ backgroundColor: C.card, border: `1px solid ${C.border}` }}>
+            <div className="h-[2px] w-full" style={{ background: `linear-gradient(90deg, transparent, ${C.neon}, transparent)` }} />
 
-            <div className="p-2.5 space-y-2">
-              {/* TOUS FLOUTÉS */}
+            <div className="p-2 space-y-1.5">
+              {/* TOUS FLOUTÉS — compact cards */}
               <div className="relative">
-                <div style={{ filter: 'blur(12px)', opacity: 0.5, pointerEvents: 'none' }}>
+                <div style={{ filter: 'blur(10px)', opacity: 0.55, pointerEvents: 'none' }}>
                   {blurred.map((m, i) => (
-                    <div key={m.id} className="rounded-[14px] overflow-hidden border mb-2" style={{ backgroundColor: '#0B1925', borderColor: C.border }}>
-                      <div className="flex justify-between items-center px-3 py-2" style={{ backgroundColor: C.bg }}>
-                        <span className="text-[10px]" style={{ color: C.textSec }}>{m.league} · {m.time}</span>
-                        <span className="text-[9px]" style={{ color: C.textMute }}>VIP</span>
+                    <div key={m.id} className="rounded-lg overflow-hidden border mb-1.5" style={{ backgroundColor: '#0B1925', borderColor: C.border }}>
+                      <div className="flex justify-between items-center px-2.5 py-1.5" style={{ backgroundColor: C.bg }}>
+                        <span className="text-[9px]" style={{ color: C.textSec }}>{m.league} · {m.time}</span>
+                        <span className="text-[8px]" style={{ color: C.textMute }}>VIP</span>
                       </div>
-                      <div className="flex justify-between items-center px-4 py-3">
-                        <div className="flex flex-col items-center gap-1">
-                          <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-[13px]" style={{ backgroundColor: C.border, color: C.neon }}>{String(m.home)[0]}</div>
-                          <span className="text-[13px] font-bold" style={{ color: C.text }}>{m.home}</span>
+                      <div className="flex justify-between items-center px-3 py-2">
+                        <div className="flex flex-col items-center gap-0.5">
+                          <div className="w-7 h-7 rounded-full flex items-center justify-center font-bold text-[10px]" style={{ backgroundColor: C.border, color: C.neon }}>{String(m.home)[0]}</div>
+                          <span className="text-[10px] font-bold" style={{ color: C.text }}>{m.home}</span>
                         </div>
-                        <span className="text-[11px] px-2 py-1 rounded-full border" style={{ borderColor: 'rgba(199,244,100,0.2)', color: C.neon }}>VS</span>
-                        <div className="flex flex-col items-center gap-1">
-                          <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-[13px]" style={{ backgroundColor: C.border, color: C.neon }}>{String(m.away)[0]}</div>
-                          <span className="text-[13px] font-bold" style={{ color: C.text }}>{m.away}</span>
+                        <span className="text-[9px] px-1.5 py-0.5 rounded-full border" style={{ borderColor: 'rgba(199,244,100,0.2)', color: C.neon }}>VS</span>
+                        <div className="flex flex-col items-center gap-0.5">
+                          <div className="w-7 h-7 rounded-full flex items-center justify-center font-bold text-[10px]" style={{ backgroundColor: C.border, color: C.neon }}>{String(m.away)[0]}</div>
+                          <span className="text-[10px] font-bold" style={{ color: C.text }}>{m.away}</span>
                         </div>
                       </div>
                     </div>
                   ))}
                 </div>
-                {/* Lock overlay */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2" style={{ backgroundColor: 'rgba(7,17,26,0.75)' }}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={C.neon} strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
-                  <span className="text-[10px] tracking-wider uppercase" style={{ color: C.textSec }}>{blurred.length} pronostics floutés</span>
-                  <button onClick={() => setShowModal(true)} className="px-5 py-2 rounded-[10px] font-bold text-[12px]" style={{ backgroundColor: C.neon, color: C.bg }}>
-                    Débloquer VIP pour voir
+                {/* Lock overlay — compact */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5" style={{ backgroundColor: 'rgba(7,17,26,0.78)' }}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={C.neon} strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
+                  <span className="text-[10px] tracking-wider uppercase font-bold" style={{ color: C.textSec }}>{blurred.length} pronos floutés</span>
+                  <button onClick={() => setShowModal(true)} className="px-4 py-1.5 rounded-lg font-bold text-[11px] transition-all hover:scale-[1.02]" style={{ backgroundColor: C.neon, color: C.bg, boxShadow:`0 4px 14px ${C.neon}30` }}>
+                    🔓 Débloquer VIP
                   </button>
                 </div>
               </div>
             </div>
 
-            {/* Cote totale */}
-            <div className="flex justify-between items-center px-4 py-3 border-t" style={{ borderColor: C.border }}>
-              <span className="text-[10px] uppercase tracking-widest font-bold" style={{ color: C.textMute }}>Cote totale</span>
-              <span className="font-mono text-[18px] font-bold" ref={coteRef} style={{ color: C.neon }}>{coteDisplay}</span>
+            {/* Cote totale — compact */}
+            <div className="flex justify-between items-center px-3 py-2 border-t" style={{ borderColor: C.border }}>
+              <span className="text-[9px] uppercase tracking-widest font-bold" style={{ color: C.textMute }}>Cote totale</span>
+              <span className="font-mono text-[15px] font-bold" ref={coteRef} style={{ color: C.neon }}>{coteDisplay}</span>
             </div>
-          </div>
-
-          {/* Code promo bar */}
-          <div className="mt-3 flex justify-between items-center px-4 py-2.5 rounded-[12px]" style={{ backgroundColor: C.card, border: `1px solid ${C.border}` }}>
-            <div>
-              <div className="text-[9px] uppercase tracking-widest font-bold" style={{ color: C.textMute }}>Code promo</div>
-              <CopyableCode code={SITE.promoCode} displayClassName="font-mono text-[15px] font-bold" />
-            </div>
-            <span className="text-[10px] text-right" style={{ color: C.textSec }}>{matches.length} matchs<br /><span style={{ color: C.neonDk }}>aujourd'hui</span></span>
           </div>
         </div>
       </section>
