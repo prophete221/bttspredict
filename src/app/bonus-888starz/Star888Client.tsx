@@ -3,11 +3,11 @@
 import { useState } from 'react'
 import { AFFILIATE } from '@/lib/constants'
 
-/* ─── Palette locale (alignée sur le site) ───────────────────────────── */
-const ORANGE = '#63D6FF'      // v68: 888Starz card passe d'orange à Émeraude
-const ORANGE_DARK = '#4BA8CC' // v68: émeraude sombre
-const PRIMARY = '#C7F464'
-const PRIMARY_HOVER = '#A6D941'
+/* ─── Palette locale — 888Starz rouge clair (couleur de marque) ──────── */
+const ORANGE = '#FF7B7B'      // rouge clair 888Starz
+const ORANGE_DARK = '#E55A5A' // rouge clair sombre
+const PRIMARY = '#FF7B7B'     // boutons et accents en rouge clair
+const PRIMARY_HOVER = '#E55A5A'
 const TEXT = '#F2F7F5'
 const TEXT_SEC = '#B5C4C9'
 const BG_DARK = '#07111A'
@@ -125,9 +125,9 @@ export default function Star888Client() {
         <div
           className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] px-5 py-3 rounded-xl font-bold text-sm shadow-2xl"
           style={{
-            backgroundColor: '#63D6FF',
+            backgroundColor: '#FF7B7B',
             color: BG_DARK,
-            border: '1.5px solid #63D6FF',
+            border: '1.5px solid #FF7B7B',
             boxShadow: '0 10px 40px rgba(99, 214, 255, 0.4)',
           }}
           role="status"
@@ -164,7 +164,7 @@ export default function Star888Client() {
           </p>
           <p className="text-sm sm:text-base max-w-2xl mx-auto mt-3 leading-relaxed" style={{ color: TEXT_SEC }}>
             Bonus exclusif <strong style={{ color: ORANGE }}>200% sur 1er dépôt</strong> avec le code{' '}
-            <strong style={{ color: '#63D6FF' }}>VISION221</strong>. Dépôt minimum 200 XOF.
+            <strong style={{ color: '#FF7B7B' }}>VISION221</strong>. Dépôt minimum 200 XOF.
           </p>
         </div>
       </section>
@@ -208,8 +208,8 @@ export default function Star888Client() {
               <span
                 className="inline-flex items-center justify-center w-9 h-9 rounded-lg flex-shrink-0"
                 style={{
-                  backgroundColor: copied ? '#63D6FF' : `${ORANGE}1A`,
-                  border: `1px solid ${copied ? '#63D6FF' : ORANGE}`,
+                  backgroundColor: copied ? '#FF7B7B' : `${ORANGE}1A`,
+                  border: `1px solid ${copied ? '#FF7B7B' : ORANGE}`,
                   color: copied ? BG_DARK : ORANGE,
                 }}
                 aria-hidden="true"
@@ -236,7 +236,7 @@ export default function Star888Client() {
                 onClick={handleCopy}
                 className="flex-1 sm:flex-initial sm:min-w-[260px] h-[52px] rounded-[10px] font-bold text-[14px] flex items-center justify-center gap-2 transition-all"
                 style={{
-                  backgroundColor: copied ? '#63D6FF' : ORANGE,
+                  backgroundColor: copied ? '#FF7B7B' : ORANGE,
                   color: copied ? BG_DARK : BG_DARK,
                   border: 'none',
                   boxShadow: `0 6px 20px ${ORANGE}33`,
@@ -481,7 +481,7 @@ export default function Star888Client() {
           onClick={handleCopy}
           className="px-5 py-2.5 rounded-[10px] font-bold text-[13px]"
           style={{
-            backgroundColor: copied ? '#63D6FF' : ORANGE,
+            backgroundColor: copied ? '#FF7B7B' : ORANGE,
             color: BG_DARK,
           }}
         >

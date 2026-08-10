@@ -3,11 +3,11 @@
 import { useState } from 'react'
 import { AFFILIATE, SITE } from '@/lib/constants'
 
-/* ─── Palette locale (alignée sur le reste du site) ─────────────────── */
-const GOLD = '#C7F464'       // v68: or unifié
-const GOLD_LIGHT = '#333333' // v68: or clair
-const PRIMARY = '#C7F464'
-const PRIMARY_HOVER = '#A6D941'
+/* ─── Palette locale — Linebet vert clair (couleur de marque) ───────── */
+const GOLD = '#5DD9A0'       // vert clair Linebet
+const GOLD_LIGHT = '#3FBA7C' // vert clair sombre
+const PRIMARY = '#5DD9A0'    // boutons et accents en vert clair
+const PRIMARY_HOVER = '#3FBA7C'
 const TEXT = '#F2F7F5'
 const TEXT_SEC = '#B5C4C9'
 const BG_DARK = '#07111A'
@@ -127,9 +127,9 @@ export default function LinebetClient() {
         <div
           className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] px-5 py-3 rounded-xl font-bold text-sm shadow-2xl"
           style={{
-            backgroundColor: '#63D6FF',
+            backgroundColor: '#5DD9A0',
             color: BG_DARK,
-            border: '1.5px solid #63D6FF',
+            border: '1.5px solid #5DD9A0',
             boxShadow: '0 10px 40px rgba(99, 214, 255, 0.4)',
           }}
           role="status"
@@ -166,7 +166,7 @@ export default function LinebetClient() {
           </p>
           <p className="text-sm sm:text-base max-w-2xl mx-auto mt-3 leading-relaxed" style={{ color: TEXT_SEC }}>
             Bonus exclusif <strong style={{ color: GOLD }}>90 000 XOF (150$)</strong> avec le code{' '}
-            <strong style={{ color: '#63D6FF' }}>VISION221</strong>. Dépôt minimum 200 XOF.
+            <strong style={{ color: '#5DD9A0' }}>VISION221</strong>. Dépôt minimum 200 XOF.
           </p>
         </div>
       </section>
@@ -210,8 +210,8 @@ export default function LinebetClient() {
               <span
                 className="inline-flex items-center justify-center w-9 h-9 rounded-lg flex-shrink-0"
                 style={{
-                  backgroundColor: copied ? '#63D6FF' : `${GOLD}1A`,
-                  border: `1px solid ${copied ? '#63D6FF' : GOLD}`,
+                  backgroundColor: copied ? '#5DD9A0' : `${GOLD}1A`,
+                  border: `1px solid ${copied ? '#5DD9A0' : GOLD}`,
                   color: copied ? BG_DARK : GOLD,
                 }}
                 aria-hidden="true"
@@ -238,7 +238,7 @@ export default function LinebetClient() {
                 onClick={handleCopy}
                 className="flex-1 sm:flex-initial sm:min-w-[260px] h-[52px] rounded-[10px] font-bold text-[14px] flex items-center justify-center gap-2 transition-all"
                 style={{
-                  backgroundColor: copied ? '#63D6FF' : GOLD,
+                  backgroundColor: copied ? '#5DD9A0' : GOLD,
                   color: copied ? BG_DARK : BG_DARK,
                   border: 'none',
                   boxShadow: `0 6px 20px ${GOLD}33`,
@@ -397,7 +397,7 @@ export default function LinebetClient() {
               onClick={handleCopy}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] font-bold text-[13px] transition-all"
               style={{
-                backgroundColor: copied ? '#63D6FF' : GOLD,
+                backgroundColor: copied ? '#5DD9A0' : GOLD,
                 color: BG_DARK,
                 boxShadow: `0 4px 14px ${GOLD}33`,
               }}
@@ -536,7 +536,7 @@ export default function LinebetClient() {
           onClick={handleCopy}
           className="px-5 py-2.5 rounded-[10px] font-bold text-[13px]"
           style={{
-            backgroundColor: copied ? '#63D6FF' : GOLD,
+            backgroundColor: copied ? '#5DD9A0' : GOLD,
             color: BG_DARK,
           }}
         >
