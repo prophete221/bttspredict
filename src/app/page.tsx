@@ -10,13 +10,11 @@ const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: (
 const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
 const StickyCTABar = dynamic(() => import('@/components/bttsbet/StickyCTABar'), { loading: () => null })
 
-// SEO homepage — title court (49 chars) conforme aux limites Bing SERP.
-// Le template "%s | BTTSPredict" du layout ajoute " | BTTSPredict" (14 chars)
-// → title final rendu: 49 + 14 = 63 chars, sous la limite hard 70.
-// Description: 132 chars, sous la limite hard 160.
+// Tâche 002 — Title et description SEO alignés sur le Prompt Maître.
+// Title : 49 chars (limite soft 60) — description : 139 chars (limite soft 150).
 // Anti-récidive: checkSeo() lance une erreur build-time si title > 60 ou desc > 150.
-const TITLE = "Pronostic BTTS Afrique Ouest & Maroc Aujourd'hui"
-const DESCRIPTION = "Pronostics BTTS & Over 2.5 pour Sénégal, Mali, CIV, Guinée, Congo, Maroc. IA gratuite, vérifiable après match. 18+"
+const TITLE = "Pronostics BTTS et Over 2,5 du jour | BTTSPredict"
+const DESCRIPTION = "Analyses football du jour : BTTS, Over 2,5 et résultats vérifiés. Données horodatées, méthode transparente et aucune garantie de gain. 18+."
 checkSeo('homepage', TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
@@ -272,7 +270,7 @@ const breadcrumbJsonLd = {
 export default function Home() {
   return (
     <div className="min-h-screen bg-dark-800 relative">
-      <h1 className="sr-only">Pronostic BTTS Aujourd'hui Afrique Ouest & Maroc - IA Over 2.5 Gratuit</h1>
+      <h1 className="sr-only">Pronostics BTTS et Over 2,5 du jour</h1>
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"

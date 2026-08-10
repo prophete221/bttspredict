@@ -147,7 +147,7 @@ export default function HowToGetVip() {
                   <a
                     href={step.cta.href}
                     target={step.cta.href.startsWith('http') ? '_blank' : undefined}
-                    rel="sponsored noopener"
+                    rel="sponsored nofollow noopener noreferrer"
                     className="inline-flex items-center gap-1.5 mt-2 px-3 py-1.5 rounded-lg text-xs font-bold transition-all"
                     style={{
                       background: step.cta.color === 'emerald'

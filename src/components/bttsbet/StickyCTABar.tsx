@@ -93,7 +93,7 @@ export default function StickyCTABar() {
             {/* Register CTA — VERT, seule couleur d'action */}
             <a
               href={AFFILIATE.linebet}
-              rel="sponsored noopener"
+              rel="sponsored nofollow noopener noreferrer"
               target="_blank"
               className="flex-1 flex items-center justify-center gap-1.5 h-[48px] rounded-[12px] font-bold text-[14px]"
               style={{

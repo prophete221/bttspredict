@@ -73,7 +73,7 @@ export default function PremiumButton({
       whileHover="hover"
       whileTap="tap"
       href={href}
-      rel="sponsored nofollow"
+      rel="sponsored nofollow noopener noreferrer"
       target="_blank"
       className={`inline-flex items-center justify-center rounded-xl ${sizeClass} ${v.className} ${fullWidth ? 'w-full' : ''} ${className}`}
       {...rest}

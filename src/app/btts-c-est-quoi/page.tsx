@@ -10,8 +10,8 @@ import {Navbar, Footer,
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'btts-c-est-quoi'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'BTTS Both Teams To Score — Guide'
-const DESCRIPTION = 'Guide BTTS (Both Teams To Score) : fonctionnement, stratégies et exemples pour parier. 18+.'
+const TITLE = 'BTTS : définition, fonctionnement et exemples au football'
+const DESCRIPTION = 'Comprenez le pari BTTS, la différence entre BTTS Oui et Non, les exemples et les limites d’un pronostic football. 18+.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -185,7 +185,7 @@ export default function BttsGuidePage() {
               className="text-4xl sm:text-5xl text-papier mb-4"
               style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
             >
-              BTTS — <span className="text-gold neon-glow">GUIDE COMPLET</span>
+              BTTS : qu&apos;est-ce que cela signifie ?
             </h1>
             <p className="text-cendre text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Both Teams To Score : fonctionnement et exemples pour parier intelligemment.

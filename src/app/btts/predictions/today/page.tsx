@@ -7,13 +7,13 @@ const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: (
 const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictions'), { loading: () => null })
 
 export const metadata: Metadata = {
-  title: "Pronostic BTTS Aujourd'hui — Pronos Vérifiés",
-  description: "Pronostics BTTS du jour gratuits et vérifiés. Mis à jour 4x/jour. Aucun gain garanti. 18+.",
+  title: "BTTS du jour : pronostics où les deux équipes marquent",
+  description: "Analyses BTTS du jour basées sur les données disponibles. Matchs horodatés, méthode expliquée et résultats vérifiés après le match. Aucun gain n'est garanti. 18+.",
   alternates: { canonical: 'https://bttspredict.com/btts/predictions/today' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Pronostic BTTS Aujourd'hui — BTTSPredict",
-    description: 'Pronostics BTTS du jour par moteur IA. Aucun gain garanti. 18+.',
+    title: "BTTS du jour — les deux équipes marquent",
+    description: "Analyses BTTS du jour basées sur les données disponibles. Matchs horodatés, méthode expliquée et résultats vérifiés après le match. Aucun gain n'est garanti. 18+.",
     url: 'https://bttspredict.com/btts/predictions/today',
     type: 'website',
   },
@@ -61,7 +61,7 @@ export default function BTTSPredictionsTodayPage() {
             BTTS · Both Teams To Score
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            Pronostic BTTS Aujourd&apos;hui Gratuit
+            BTTS du jour — les deux équipes marquent
           </h1>
           <p className="text-base sm:text-lg text-[#B5C4C9] leading-relaxed mb-2 max-w-3xl mx-auto">
             Pronostics BTTS du {new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })} par notre moteur IA. 100% gratuits, mis à jour 4x/jour.

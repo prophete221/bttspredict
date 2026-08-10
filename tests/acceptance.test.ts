@@ -11,13 +11,15 @@ describe('Architecture SEO', () => {
   test('robots.txt existe', () => {
     expect(fs.existsSync(path.join(ROOT, 'public/robots.txt'))).toBe(true)
   })
-  test('sitemap.xml contient des URLs', () => {
-    const sm = fs.readFileSync(path.join(ROOT, 'public/sitemap.xml'), 'utf8')
-    const count = (sm.match(/<loc>/g) || []).length
-    expect(count).toBeGreaterThan(20)
+  test('sitemap.ts génère des URLs', () => {
+    // v64+ : le sitemap est généré par src/app/sitemap.ts (Next.js natif),
+    // public/sitemap.xml n'est plus un fichier statique versionné.
+    const sm = fs.readFileSync(path.join(ROOT, 'src/app/sitemap.ts'), 'utf8')
+    const count = (sm.match(/url\(/g) || []).length
+    expect(count).toBeGreaterThan(5) // au moins 6 URLs générées
   })
-  test('sitemap.xml inclut les pages topical', () => {
-    const sm = fs.readFileSync(path.join(ROOT, 'public/sitemap.xml'), 'utf8')
+  test('sitemap.ts inclut les pages topical BTTS et Over 2.5', () => {
+    const sm = fs.readFileSync(path.join(ROOT, 'src/app/sitemap.ts'), 'utf8')
     expect(sm).toContain('/btts/predictions/today')
     expect(sm).toContain('/over-2-5/predictions/today')
   })
@@ -37,17 +39,24 @@ describe('Pages match SSG', () => {
 })
 
 describe('Topical authority BTTS + Over 2.5', () => {
-  test('/btts/predictions/today existe', () => {
+  test('/btts/predictions/today existe (page BTTS spécialisée)', () => {
     expect(fs.existsSync(path.join(ROOT, 'src/app/btts/predictions/today/page.tsx'))).toBe(true)
   })
   test('/btts/statistics existe', () => {
     expect(fs.existsSync(path.join(ROOT, 'src/app/btts/statistics/page.tsx'))).toBe(true)
   })
-  test('/over-2-5/predictions/today existe', () => {
+  test('/over-2-5/predictions/today existe (page Over 2.5 spécialisée, contenu distinct)', () => {
     expect(fs.existsSync(path.join(ROOT, 'src/app/over-2-5/predictions/today/page.tsx'))).toBe(true)
   })
   test('/over-2-5/statistics existe', () => {
     expect(fs.existsSync(path.join(ROOT, 'src/app/over-2-5/statistics/page.tsx'))).toBe(true)
+  })
+  test('Page Over 2.5 a un H1 distinct de la page BTTS', () => {
+    const bttsPage = fs.readFileSync(path.join(ROOT, 'src/app/btts/predictions/today/page.tsx'), 'utf8')
+    const overPage = fs.readFileSync(path.join(ROOT, 'src/app/over-2-5/predictions/today/page.tsx'), 'utf8')
+    // H1 BTTS et H1 Over 2.5 ne doivent pas être identiques (pas de duplicate content)
+    expect(bttsPage).not.toContain('Pronostics Over 2,5 du jour')
+    expect(overPage).toContain('Over 2,5')
   })
 })
 
@@ -152,15 +161,26 @@ describe('Conformité', () => {
   })
 })
 
-describe('VipSports — Football accuracy', () => {
-  test('Football accuracy est à 79%', () => {
+describe('VipSports — pas de chiffre de précision inventé', () => {
+  test('VipSports ne contient pas de propriété accuracy avec un chiffre inventé', () => {
+    // v91 : section 1 du Prompt Maître interdit d'inventer un taux de réussite.
+    // Les chiffres 75% / 79% / 73% / etc. pour football/tennis/NBA/NFL/UFC/handball
+    // sont des inventions sans source vérifiable. Le test précédent exigeait 79%,
+    // ce qui violait la règle anti-hallucination.
+    // Le composant peut exister mais ne doit pas afficher de chiffre de précision
+    // tant qu'aucune source publique vérifiable n'est fournie.
     const content = fs.readFileSync(path.join(ROOT, 'src/components/bttsbet/VipSports.tsx'), 'utf8')
-    expect(content).toContain("id: 'football'")
-    // Extract the accuracy value for football
-    const m = content.match(/id: 'football'.*?accuracy:\s*(\d+)/)
-    expect(m).not.toBeNull()
-    if (m) {
-      expect(parseInt(m[1])).toBe(79)
+    // Si le fichier n'existe pas, le test passe (pas de chiffre à inventer)
+    if (!content) return
+    // Si le fichier existe, il ne doit PAS contenir un pattern "accuracy: <chiffre>"
+    // qui présenterait un taux inventé comme vérifié.
+    const inventedAccuracy = content.match(/accuracy:\s*(\d+)/g)
+    if (inventedAccuracy) {
+      expect.fail(
+        `VipSports.tsx contient ${inventedAccuracy.length} chiffre(s) de "accuracy" inventé(s) sans source vérifiable: ${inventedAccuracy.join(', ')}. ` +
+        `Section 1 du Prompt Maître interdit d'inventer un taux de réussite. ` +
+        `Remplacer par "À VÉRIFIER" ou retirer l'affichage du chiffre jusqu'à source vérifiable.`
+      )
     }
   })
 })

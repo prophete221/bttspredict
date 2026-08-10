@@ -60,7 +60,6 @@ export default function Navbar() {
               className="flex items-center gap-1.5 flex-shrink-0"
               aria-label="BTTSPredict — Accueil"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/favicon.svg" alt="BTTSPredict" width={24} height={24} className="flex-shrink-0" />
               <span className="text-xs font-bold" style={{ color: '#C7F464' }}>
                 BTTSPredict

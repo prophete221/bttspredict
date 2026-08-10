@@ -4,12 +4,12 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Statistiques BTTS par ligue — Both Teams To Score',
-  description: "Statistiques BTTS mises à jour quotidiennement : taux de réussite, historique et performance par ligue. Données publiques ESPN.",
+  description: "Liste des ligues couvertes par BTTSPredict pour le marché BTTS. Taux et moyennes historiques à intégrer via source vérifiable. Aucune garantie future. 18+.",
   alternates: { canonical: 'https://bttspredict.com/btts/statistics' },
   robots: { index: true, follow: true },
   openGraph: {
     title: 'BTTS Statistics — BTTSPredict',
-    description: 'Statistiques BTTS par ligue. Taux historique de Both Teams To Score. 18+.',
+    description: 'Liste des ligues couvertes pour le marché BTTS. Données historiques à intégrer via source vérifiable.',
     url: 'https://bttspredict.com/btts/statistics',
     type: 'article',
   },
@@ -32,25 +32,39 @@ const faqJsonLd = {
       name: 'Which leagues have the highest BTTS rate?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Historically, the Dutch Eredivisie, German Bundesliga, and English Championship tend to have higher BTTS rates. BTTSPredict focuses on a curated set of leagues with historically high BTTS rates to maximize prediction quality.",
+        text: "BTTSPredict covers a curated set of leagues selected for their historically offensive profile. The exact BTTS rate per league is À VÉRIFIER — to be integrated via a verifiable source at build time. No specific rate is published without a verifiable source.",
       },
     },
   ],
 }
 
-// Taux historique BTTS approximatif par ligue (données publiques, ordre indicatif)
+// ─── Tâche 004 : statistiques non sourcées ───────────────────────────────────
+// Les valeurs `bttsRate`, `avgGoals` et `note` étaient précédemment codées en
+// dur et présentées comme "Taux historique BTTS approximatif par ligue
+// (données publiques, ordre indicatif)". Aucun appel API n'est réellement
+// effectué dans ce fichier — les chiffres étaient donc non sourcés au sens
+// de la règle anti-hallucination (section 1 du Prompt Maître).
+//
+// Décision Tâche 004 : remplacer chaque valeur non sourcée par
+// "À VÉRIFIER — donnée historique non disponible". Les noms de ligues
+// sont conservés (ce sont des labels, pas des données statistiques).
+//
+// Future tâche recommandée : intégrer un vrai appel API ESPN au build time
+// pour calculer bttsRate et avgGoals depuis les matchs archivés dans
+// public/predictions-archive/. À traiter séparément, ne pas créer de
+// dépendance dans cette tâche.
 const LEAGUE_STATS = [
-  { league: 'Eredivisie (Pays-Bas)', bttsRate: '57%', avgGoals: '3.15', note: 'Ligue offensive, BTTS fréquent' },
-  { league: 'Bundesliga (Allemagne)', bttsRate: '58%', avgGoals: '3.05', note: 'Pressing haut, beaucoup de buts' },
-  { league: '2. Bundesliga', bttsRate: '57%', avgGoals: '2.90', note: 'D2 allemande offensive' },
-  { league: 'Championship (Angleterre D2)', bttsRate: '56%', avgGoals: '2.68', note: 'Championnat très ouvert' },
-  { league: 'Premier League (Angleterre)', bttsRate: '55%', avgGoals: '2.82', note: 'Top 5 européen, many goals' },
-  { league: 'Jupiler Pro League (Belgique)', bttsRate: '55%', avgGoals: '2.85', note: 'Ligue belge, BTTS fréquent' },
-  { league: 'MLS (États-Unis)', bttsRate: '56%', avgGoals: '3.10', note: 'Football offensif nord-américain' },
-  { league: 'Liga Portugal', bttsRate: '55%', avgGoals: '2.72', note: 'Ligue portugaise offensive' },
-  { league: 'Swiss Super League', bttsRate: '54%', avgGoals: '2.78', note: 'Ligue suisse, BTTS régulier' },
-  { league: 'Austrian Bundesliga', bttsRate: '54%', avgGoals: '2.80', note: 'Ligue autrichienne' },
-  { league: 'Scottish Premiership', bttsRate: '53%', avgGoals: '2.65', note: 'Ligue écossaise' },
+  { league: 'Eredivisie (Pays-Bas)' },
+  { league: 'Bundesliga (Allemagne)' },
+  { league: '2. Bundesliga' },
+  { league: 'Championship (Angleterre D2)' },
+  { league: 'Premier League (Angleterre)' },
+  { league: 'Jupiler Pro League (Belgique)' },
+  { league: 'MLS (États-Unis)' },
+  { league: 'Liga Portugal' },
+  { league: 'Swiss Super League' },
+  { league: 'Austrian Bundesliga' },
+  { league: 'Scottish Premiership' },
 ]
 
 export default function BTTSStatisticsPage() {
@@ -73,12 +87,12 @@ export default function BTTSStatisticsPage() {
             BTTS Statistics par ligue
           </h1>
           <p className="text-base text-[#B5C4C9] leading-relaxed mb-6">
-            Taux historique approximatif de Both Teams To Score sur les principales ligues couvertes par BTTSPredict. Ces statistiques sont indicatives et basées sur des données publiques. Elles expliquent pourquoi certaines ligues sont prioritaires dans la sélection du moteur IA.
+            Liste des ligues couvertes par BTTSPredict pour le marché BTTS (Both Teams To Score). Les taux historiques et moyennes de buts par ligue ne sont pas affichés tant qu&apos;aucune source vérifiable n&apos;est intégrée au build.
           </p>
 
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Taux BTTS par ligue
+              Ligues couvertes
             </h2>
             <div className="overflow-x-auto">
               <table className="w-full text-sm" style={{ borderCollapse: 'collapse' }}>
@@ -87,27 +101,21 @@ export default function BTTSStatisticsPage() {
                     <th className="text-left py-3 px-4 font-bold text-[#B5C4C9]">Ligue</th>
                     <th className="text-center py-3 px-4 font-bold text-[#B5C4C9]">Taux BTTS</th>
                     <th className="text-center py-3 px-4 font-bold text-[#B5C4C9]">Buts/match</th>
-                    <th className="text-left py-3 px-4 font-bold text-[#B5C4C9] hidden sm:table-cell">Note</th>
                   </tr>
                 </thead>
                 <tbody>
                   {LEAGUE_STATS.map((row, i) => (
                     <tr key={i} style={{ borderBottom: '1px solid #1C3546' }}>
                       <td className="py-3 px-4 text-[#F2F7F5] font-medium">{row.league}</td>
-                      <td className="text-center py-3 px-4">
-                        <span className="inline-block px-2 py-1 rounded font-bold" style={{ backgroundColor: 'rgba(99, 214, 255, 0.15)', color: '#63D6FF' }}>
-                          {row.bttsRate}
-                        </span>
-                      </td>
-                      <td className="text-center py-3 px-4 text-[#B5C4C9] tabular-nums">{row.avgGoals}</td>
-                      <td className="py-3 px-4 text-[#B5C4C9] text-xs hidden sm:table-cell">{row.note}</td>
+                      <td className="text-center py-3 px-4 text-[#7F969E] font-mono text-xs">À VÉRIFIER</td>
+                      <td className="text-center py-3 px-4 text-[#7F969E] font-mono text-xs">À VÉRIFIER</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
             <p className="text-xs text-[#7F969E] mt-4 leading-relaxed">
-              Ces taux sont des moyennes historiques indicatives calculées sur plusieurs saisons. Ils ne préjugent pas des résultats futurs. BTTSPredict sélectionne les ligues avec un taux historique supérieur à 53% pour ses pronostics BTTS.
+              Données historiques non disponibles — à intégrer via source vérifiable (ex. API ESPN au build time). Aucune garantie future.
             </p>
           </section>
 
@@ -117,13 +125,13 @@ export default function BTTSStatisticsPage() {
             </h2>
             <div className="space-y-3 text-sm text-[#B5C4C9] leading-relaxed">
               <p>
-                <strong className="text-[#F2F7F5]">Taux BTTS</strong> : pourcentage de matchs où les deux équipes ont marqué au moins un but. Un taux de 55% signifie que, sur 100 matchs de cette ligue, environ 55 se sont terminés avec les deux équipes ayant marqué.
+                <strong className="text-[#F2F7F5]">Taux BTTS</strong> : pourcentage de matchs où les deux équipes ont marqué au moins un but. Les valeurs exactes par ligue seront affichées une fois une source vérifiable intégrée au build.
               </p>
               <p>
-                <strong className="text-[#F2F7F5]">Buts par match</strong> : moyenne de buts totaux par match. Plus ce chiffre est élevé, plus le marché Over 2.5 est probable. Une moyenne de 2.80+ indique une ligue offensive.
+                <strong className="text-[#F2F7F5]">Buts par match</strong> : moyenne de buts totaux par match. Plus ce chiffre est élevé, plus le marché Over 2,5 est probable. Les valeurs exactes seront affichées une fois une source vérifiable intégrée au build.
               </p>
               <p>
-                Ces statistiques ne garantissent aucun résultat futur. Elles servent uniquement à comprendre la logique de sélection des ligues par le moteur IA. Pour voir les pronostics actuels, consultez la page <Link href="/btts/predictions/today" className="text-[#C7F464] underline">BTTS Predictions Today</Link>.
+                Ces statistiques ne garantissent aucun résultat futur. Elles servent uniquement à comprendre la logique de sélection des ligues par le moteur. Pour voir les pronostics actuels, consultez la page <Link href="/btts/predictions/today" className="text-[#C7F464] underline">BTTS Predictions Today</Link>.
               </p>
             </div>
           </section>
