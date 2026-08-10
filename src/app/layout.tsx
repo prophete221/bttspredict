@@ -208,10 +208,7 @@ export default function RootLayout({
         {/* Google Analytics — DÉSACTIVÉ en production.
             P0.4 : Le placeholder G-XXXXXXXXXX est interdit en production.
             Pour activer GA : définir NEXT_PUBLIC_GA_ID dans l'environnement
-            de build (GitHub Secret → env dans deploy.yml) avec un vrai ID
-            au format G-XXXXXXXXXX. Le tag ne se chargera QUE si cette
-            variable est présente ET non vide ET au format valide.
-            VRAI ID ANALYTICS À FOURNIR PAR LE PROPRIÉTAIRE. */}
+            de build avec un vrai ID au format G-XXXXXXXXXX. */}
         {process.env.NEXT_PUBLIC_GA_ID && /^[Gg]-[A-Za-z0-9]{10,}$/.test(process.env.NEXT_PUBLIC_GA_ID) && (
           <>
             <script

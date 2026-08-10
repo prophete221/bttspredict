@@ -77,8 +77,6 @@ export default function AviatorVip() {
   const stats = useMemo(() => mounted ? computeDailyStats() : null, [mounted])
   const rounds = useMemo(() => mounted ? generateRounds(4) : [], [mounted])
 
-  // P0.2 lint fix: defer setState to avoid cascading render
-  // (react-hooks/set-state-in-effect). Behavior unchanged.
   useEffect(() => { queueMicrotask(() => setMounted(true)) }, [])
 
   return (

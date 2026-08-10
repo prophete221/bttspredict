@@ -37,8 +37,6 @@ export function useCountUp(
 
     // Respect prefers-reduced-motion: show final value immediately
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      // P0.2 lint fix: defer setState to avoid cascading render
-      // (react-hooks/set-state-in-effect rule). Behavior unchanged.
       queueMicrotask(() => {
         setDisplay(target.toFixed(decimals))
         setHasAnimated(true)

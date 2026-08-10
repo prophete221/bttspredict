@@ -11,8 +11,6 @@ export function useIsMobile() {
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
     }
     mql.addEventListener("change", onChange)
-    // P0.2 lint fix: defer initial setState to avoid cascading render
-    // (react-hooks/set-state-in-effect rule). Behavior unchanged.
     queueMicrotask(() => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT))
     return () => mql.removeEventListener("change", onChange)
   }, [])

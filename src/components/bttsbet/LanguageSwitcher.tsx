@@ -17,8 +17,6 @@ export function useLanguage() {
 
   useEffect(() => {
     const saved = (typeof window !== 'undefined' && localStorage.getItem(STORAGE_KEY)) as Lang | null
-    // P0.2 lint fix: defer setState to avoid cascading render
-    // (react-hooks/set-state-in-effect). Behavior unchanged.
     if (saved === 'fr' || saved === 'en') queueMicrotask(() => setLang(saved))
   }, [])
 

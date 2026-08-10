@@ -56,15 +56,11 @@ export function AuthProvider({ children }) {
 
   // Check if Firebase is properly configured
   useEffect(() => {
-    // P0.2 lint fix: defer setState calls to avoid cascading render
-    // (react-hooks/set-state-in-effect). Behavior unchanged.
     queueMicrotask(() => {
       if (auth && firebaseConfig.apiKey !== 'AIzaSyDemoKeyReplaceMeWithYourOwn') {
         setIsFirebaseReady(true)
       } else {
-        // Fallback: use localStorage for demo/offline mode
         setIsFirebaseReady(false)
-        // Load from localStorage
         const saved = localStorage.getItem('bttsbet_user')
         if (saved) {
           try {

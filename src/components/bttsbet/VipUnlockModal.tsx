@@ -60,8 +60,6 @@ export default function VipUnlockModal({
     const handleEsc = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
     if (isOpen) {
       window.addEventListener('keydown', handleEsc)
-      // P0.2 lint fix: defer setState calls to avoid cascading render
-      // (react-hooks/set-state-in-effect). Behavior unchanged.
       queueMicrotask(() => {
         try {
           const stored = localStorage.getItem(STORAGE_KEY)
@@ -285,14 +283,14 @@ export default function VipUnlockModal({
                 {/* Buttons */}
                 <div className="grid grid-cols-2 gap-2 mb-4">
                   {selectedBookmaker === 'linebet' && (
-                    <a href={AFFILIATE.linebet} rel="sponsored nofollow noopener noreferrer" target="_blank"
+                    <a href={AFFILIATE.linebet} rel="sponsored noopener" target="_blank"
                       className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold"
                       style={{ backgroundColor: '#C7F464', color: '#07111A' }}>
                       Inscription Linebet →
                     </a>
                   )}
                   {selectedBookmaker === '888starz' && (
-                    <a href={AFFILIATE.star888} rel="sponsored nofollow noopener noreferrer" target="_blank"
+                    <a href={AFFILIATE.star888} rel="sponsored noopener" target="_blank"
                       className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold"
                       style={{ backgroundColor: '#C7F464', color: '#07111A' }}>
                       Inscription 888starz →

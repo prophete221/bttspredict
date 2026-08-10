@@ -59,8 +59,6 @@ export default function BottomNavigation() {
 
   useEffect(() => {
     const matched = TABS.find(tab => tab.matchPath(pathname))
-    // P0.2 lint fix: defer setState to avoid cascading render
-    // (react-hooks/set-state-in-effect). Behavior unchanged.
     queueMicrotask(() => setActive(matched ? matched.id : 'home'))
   }, [pathname])
 

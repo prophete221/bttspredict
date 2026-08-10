@@ -95,8 +95,6 @@ function Carousel({
 
   React.useEffect(() => {
     if (!api) return
-    // P0.2 lint fix: defer onSelect to avoid cascading render
-    // (react-hooks/set-state-in-effect). Behavior unchanged.
     queueMicrotask(() => onSelect(api))
     api.on("reInit", onSelect)
     api.on("select", onSelect)

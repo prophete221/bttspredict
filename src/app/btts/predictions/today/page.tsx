@@ -7,13 +7,13 @@ const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: (
 const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictions'), { loading: () => null })
 
 export const metadata: Metadata = {
-  title: "BTTS du jour : pronostics où les deux équipes marquent",
-  description: "Analyses BTTS du jour basées sur les données disponibles. Matchs horodatés, méthode expliquée et résultats vérifiés après le match. Aucun gain n'est garanti. 18+.",
+  title: "BTTS Predictions Today (100% Free) - AI Football Tips & Stats",
+  description: "Best Both Teams to Score (BTTS) predictions today. AI-powered football tips, stats, and high-probability betting predictions updated daily.",
   alternates: { canonical: 'https://bttspredict.com/btts/predictions/today' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "BTTS du jour — les deux équipes marquent",
-    description: "Analyses BTTS du jour basées sur les données disponibles. Matchs horodatés, méthode expliquée et résultats vérifiés après le match. Aucun gain n'est garanti. 18+.",
+    title: "BTTS Predictions Today (100% Free) - AI Football Tips & Stats",
+    description: "Best Both Teams to Score (BTTS) predictions today. AI-powered football tips, stats, and high-probability betting predictions updated daily.",
     url: 'https://bttspredict.com/btts/predictions/today',
     type: 'website',
   },
@@ -61,7 +61,7 @@ export default function BTTSPredictionsTodayPage() {
             BTTS · Both Teams To Score
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            BTTS du jour — les deux équipes marquent
+            Pronostic BTTS Aujourd&apos;hui Gratuit
           </h1>
           <p className="text-base sm:text-lg text-[#B5C4C9] leading-relaxed mb-2 max-w-3xl mx-auto">
             Pronostics BTTS du {new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })} par notre moteur IA. 100% gratuits, mis à jour 4x/jour.
@@ -86,18 +86,28 @@ export default function BTTSPredictionsTodayPage() {
 
         <section className="max-w-3xl mx-auto px-4 pb-12">
           <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            Aller plus loin
+            Quick Links
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <Link href="/btts-and-over-2-5-predictions-today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C7F464]"
+              style={{ backgroundColor: '#102333', border: '1px solid #1C3546' }}>
+              <div className="text-sm font-bold text-[#F2F7F5]">BTTS + Over 2.5 Combined →</div>
+              <div className="text-xs text-[#B5C4C9] mt-1">Both predictions in one</div>
+            </Link>
+            <Link href="/over-2-5/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C7F464]"
+              style={{ backgroundColor: '#102333', border: '1px solid #1C3546' }}>
+              <div className="text-sm font-bold text-[#F2F7F5]">Over 2.5 Predictions →</div>
+              <div className="text-xs text-[#B5C4C9] mt-1">Total goals ≥ 3</div>
+            </Link>
+            <Link href="/ai-correct-score-predictions" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C7F464]"
+              style={{ backgroundColor: '#102333', border: '1px solid #1C3546' }}>
+              <div className="text-sm font-bold text-[#F2F7F5]">AI Correct Score →</div>
+              <div className="text-xs text-[#B5C4C9] mt-1">Exact score probabilities</div>
+            </Link>
             <Link href="/btts/statistics" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C7F464]"
               style={{ backgroundColor: '#102333', border: '1px solid #1C3546' }}>
-              <div className="text-sm font-bold text-[#F2F7F5]">Statistiques BTTS →</div>
-              <div className="text-xs text-[#B5C4C9] mt-1">Taux par ligue</div>
-            </Link>
-            <Link href="/vip" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C7F464]"
-              style={{ backgroundColor: '#102333', border: '1px solid #1C3546' }}>
-              <div className="text-sm font-bold text-[#F2F7F5]">Pronostics premium →</div>
-              <div className="text-xs text-[#B5C4C9] mt-1">Programme VIP</div>
+              <div className="text-sm font-bold text-[#F2F7F5]">BTTS Statistics →</div>
+              <div className="text-xs text-[#B5C4C9] mt-1">League stats</div>
             </Link>
           </div>
         </section>
