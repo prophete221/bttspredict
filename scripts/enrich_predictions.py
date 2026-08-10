@@ -99,8 +99,11 @@ Pour CHAQUE match, génère un objet JSON STRICT respectant cette structure exac
   {{
     "id": 0,
     "ai_exact_score": "2-1",
+    "exact_score_prob": "18%",
+    "btts_prob": "74%",
+    "over25_prob": "68%",
     "ai_key_fact": "Statistique clé percutante (15 mots max, ex: 3/3 H2H avec BTTS et xG cumulé de 3.02)",
-    "ai_analysis": "Analyse statistique de 2 phrases sur la forme, les xG et la dynamique offensive."
+    "ai_analysis": "Analyse détaillée et complète de 3 à 4 phrases sur la dynamique offensive, la forme récente, les xG et les faiblesses défensives."
   }},
   ...
 ]
@@ -108,6 +111,9 @@ Pour CHAQUE match, génère un objet JSON STRICT respectant cette structure exac
 Règles :
 - Écris en français.
 - Le score exact (ai_exact_score) doit être réaliste, basé sur les xG (ex: "2-1", "1-1", "3-0").
+- exact_score_prob: probabilité en % que ce score exact se réalise (généralement 8-20%).
+- btts_prob: probabilité BTTS en % (ex: "74%").
+- over25_prob: probabilité Over 2.5 en % (ex: "68%").
 - Sois factuel, aucune garantie de gain.
 - N'utilise jamais "sure bet", "gain garanti" ou "100% sûr".
 - L'"id" doit correspondre exactement à l'index du match dans la liste ci-dessus."""
@@ -224,6 +230,9 @@ def main():
         for item in enrichments:
             idx = item.get("id")
             ai_exact_score = item.get("ai_exact_score", "").strip()
+            exact_score_prob = item.get("exact_score_prob", "").strip()
+            btts_prob = item.get("btts_prob", "").strip()
+            over25_prob = item.get("over25_prob", "").strip()
             ai_key_fact = item.get("ai_key_fact", "").strip()
             ai_analysis = item.get("ai_analysis", "").strip()
 
@@ -235,12 +244,18 @@ def main():
                 match = all_matches[idx]
                 if ai_exact_score:
                     match["ai_exact_score"] = ai_exact_score
+                if exact_score_prob:
+                    match["exact_score_prob"] = exact_score_prob
+                if btts_prob:
+                    match["ai_btts_prob"] = btts_prob
+                if over25_prob:
+                    match["ai_over25_prob"] = over25_prob
                 if ai_key_fact:
                     match["ai_key_fact"] = ai_key_fact
                 if ai_analysis:
                     match["ai_analysis"] = ai_analysis
                 match_name = f"{match.get('home', '?')} vs {match.get('away', '?')}"
-                print(f"  [{idx+1}] ✅ {match_name}: score={ai_exact_score}, fact='{ai_key_fact[:50]}...'")
+                print(f"  [{idx+1}] ✅ {match_name}: score={ai_exact_score} ({exact_score_prob}), BTTS={btts_prob}, O2.5={over25_prob}")
                 enriched_count += 1
 
         print(f"[enrich] Enriched {enriched_count}/{len(all_matches)} matches")

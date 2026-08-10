@@ -73,6 +73,9 @@ export default async function MatchPage({ params }: PageProps) {
 
   const { home, away, league, date, time, homeLogo, awayLogo, predictions } = match
   const aiExactScore = (match as any).ai_exact_score || null
+  const exactScoreProb = (match as any).exact_score_prob || null
+  const aiBttsProb = (match as any).ai_btts_prob || null
+  const aiOver25Prob = (match as any).ai_over25_prob || null
   const aiKeyFact = (match as any).ai_key_fact || null
   const aiAnalysis = (match as any).ai_analysis || null
 
@@ -156,7 +159,7 @@ export default async function MatchPage({ params }: PageProps) {
           {(aiKeyFact || aiExactScore) && (
             <section className="mb-10">
               <div className="rounded-2xl p-5" style={{ backgroundColor: 'rgba(99,214,255,0.06)', border: '1px solid rgba(99,214,255,0.2)' }}>
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#63D6FF" strokeWidth="2">
                       <path d="M12 2L2 7l10 5 10-5-10-5z" />
@@ -173,6 +176,31 @@ export default async function MatchPage({ params }: PageProps) {
                     </div>
                   )}
                 </div>
+
+                {/* Probabilities row */}
+                {(aiExactScore || aiBttsProb || aiOver25Prob) && (
+                  <div className="grid grid-cols-3 gap-2 mb-4">
+                    {aiExactScore && exactScoreProb && (
+                      <div className="text-center rounded-lg p-2" style={{ backgroundColor: 'rgba(199,244,100,0.08)' }}>
+                        <div className="text-[9px] uppercase tracking-wider text-[#7F969E] mb-1">Score exact</div>
+                        <div className="text-lg font-bold text-[#C7F464]">{exactScoreProb}</div>
+                      </div>
+                    )}
+                    {aiBttsProb && (
+                      <div className="text-center rounded-lg p-2" style={{ backgroundColor: 'rgba(123,228,149,0.08)' }}>
+                        <div className="text-[9px] uppercase tracking-wider text-[#7F969E] mb-1">BTTS</div>
+                        <div className="text-lg font-bold text-[#7BE495]">{aiBttsProb}</div>
+                      </div>
+                    )}
+                    {aiOver25Prob && (
+                      <div className="text-center rounded-lg p-2" style={{ backgroundColor: 'rgba(255,209,102,0.08)' }}>
+                        <div className="text-[9px] uppercase tracking-wider text-[#7F969E] mb-1">Over 2.5</div>
+                        <div className="text-lg font-bold text-[#FFD166]">{aiOver25Prob}</div>
+                      </div>
+                    )}
+                  </div>
+                )}
+
                 {aiKeyFact && (
                   <p className="text-sm text-[#F2F7F5] font-semibold mb-2">📊 {aiKeyFact}</p>
                 )}

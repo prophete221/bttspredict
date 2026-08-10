@@ -83,6 +83,9 @@ interface MatchData {
   xgTotal?: number
   analysis?: string
   aiExactScore?: string
+  exactScoreProb?: string
+  aiBttsProb?: string
+  aiOver25Prob?: string
   aiKeyFact?: string
   aiAnalysis?: string
 }
@@ -389,6 +392,31 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
                         </div>
                       )}
                     </div>
+
+                    {/* Probability row */}
+                    {(match.aiExactScore || match.aiBttsProb || match.aiOver25Prob) && (
+                      <div className="grid grid-cols-3 gap-1.5 mb-2">
+                        {match.aiExactScore && match.exactScoreProb && (
+                          <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(199,244,100,0.08)' }}>
+                            <div className="text-[8px] uppercase text-[#7F969E]">Score</div>
+                            <div className="text-[11px] font-bold text-[#C7F464]">{match.exactScoreProb}</div>
+                          </div>
+                        )}
+                        {match.aiBttsProb && (
+                          <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(123,228,149,0.08)' }}>
+                            <div className="text-[8px] uppercase text-[#7F969E]">BTTS</div>
+                            <div className="text-[11px] font-bold text-[#7BE495]">{match.aiBttsProb}</div>
+                          </div>
+                        )}
+                        {match.aiOver25Prob && (
+                          <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(255,209,102,0.08)' }}>
+                            <div className="text-[8px] uppercase text-[#7F969E]">Over 2.5</div>
+                            <div className="text-[11px] font-bold text-[#FFD166]">{match.aiOver25Prob}</div>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
                     {match.aiKeyFact && (
                       <p className="text-[11px] text-[#F2F7F5] font-semibold mb-2">📊 {match.aiKeyFact}</p>
                     )}
@@ -503,6 +531,10 @@ export default function FreePredictions() {
               analysis: p.analysis,
               aiKeyFact: p.ai_key_fact,
               aiAnalysis: p.ai_analysis,
+              aiExactScore: p.ai_exact_score,
+              exactScoreProb: p.exact_score_prob,
+              aiBttsProb: p.ai_btts_prob,
+              aiOver25Prob: p.ai_over25_prob,
             })
           }
         }
