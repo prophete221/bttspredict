@@ -457,16 +457,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
               <>Voir l'analyse <span className="truncate max-w-[140px]">{home} – {away}</span> <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9" /></svg></>
             )}
           </button>
-          {matchHref && (
-            <a
-              href={matchHref}
-              className="px-3 flex items-center gap-1 text-[11px] font-bold text-[#22c55e] hover:text-[#A6D941] transition-colors whitespace-nowrap"
-              aria-label={`Page match ${home} vs ${away}`}
-              data-cta="match-page-link"
-            >
-              Page match →
-            </a>
-          )}
+          {/* LIEN "PAGE MATCH" MASQUÉ TEMPORAIREMENT */}
         </div>
       </div>
     </motion.div>
