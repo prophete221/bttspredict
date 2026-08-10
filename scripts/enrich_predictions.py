@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """
-BTTSPredict — Enrichissement des pronostics avec Gemini 2.5 Flash
-==================================================================
+BTTSPredict — Enrichissement des pronostics avec Gemini 2.0 Flash (BATCH MODE)
+==============================================================================
 
-Pour chaque match dans public/predictions.json, appelle l'API Gemini
-pour générer :
-  - key_fact : une statistique clé percutante (ex: "80% de BTTS sur les 5 derniers H2H")
-  - analysis : un résumé explicatif de 2 phrases maximum
+UN SEUL appel API Gemini pour enrichir TOUS les matchs (Free + VIP)
+en une seule requête — évite les timeouts et les erreurs 429.
 
-Le résultat est sauvegardé dans public/predictions.json (champs ajoutés
-à chaque match : gemini_key_fact, gemini_analysis).
+Génère pour chaque match :
+  - gemini_key_fact : une statistique clé percutante (max 15 mots)
+  - gemini_analysis : un résumé explicatif de 2 phrases maximum
+
+Le résultat est sauvegardé dans public/predictions.json.
 
 Utilisation :
   GEMINI_API_KEY=your_key python3 scripts/enrich_predictions.py
@@ -28,9 +29,8 @@ from pathlib import Path
 MODEL = "gemini-2.0-flash"
 PREDICTIONS_FILE = Path(__file__).parent.parent / "public" / "predictions.json"
 MAX_RETRIES = 2
-RETRY_DELAY = 3  # seconds between retries
-REQUEST_DELAY = 6  # seconds between matches — 10 RPM max (safe under 15 RPM limit)
-RATE_LIMIT_WAIT = 20  # seconds on 429 — lets Google's 1-min sliding window reset
+RETRY_DELAY = 5  # seconds between retries
+RATE_LIMIT_WAIT = 20  # seconds on 429
 
 # ─── Gemini SDK ────────────────────────────────────────────────────────────
 try:
@@ -49,57 +49,71 @@ def get_client():
     return genai.Client(api_key=api_key)
 
 
-def build_prompt(match: dict) -> str:
-    """Build the structured prompt for a single match."""
-    home = match.get("home", "Unknown")
-    away = match.get("away", "Unknown")
-    league = match.get("league", "Unknown")
-    date = match.get("date", "Unknown")
-    time_str = match.get("time", "--:--")
-    xg_home = match.get("xgHome", match.get("homeLambda", 0))
-    xg_away = match.get("xgAway", match.get("awayLambda", 0))
-    btts_prob = match.get("bttsProb", 0)
-    over25_prob = match.get("over25Prob", 0)
-    reliability = match.get("reliabilityScore", 0)
-    existing_analysis = match.get("analysis", "")
+def build_batch_prompt(all_matches: list) -> str:
+    """Build a single batch prompt for ALL matches at once."""
+    matches_summary = []
+    for i, m in enumerate(all_matches):
+        home = m.get("home", "Unknown")
+        away = m.get("away", "Unknown")
+        league = m.get("league", "Unknown")
+        xg_home = m.get("xgHome", m.get("homeLambda", 0))
+        xg_away = m.get("xgAway", m.get("awayLambda", 0))
+        btts_prob = m.get("bttsProb", 0)
+        over25_prob = m.get("over25Prob", 0)
+        reliability = m.get("reliabilityScore", 0)
+        existing = m.get("analysis", "")
 
-    preds = match.get("predictions", [])
-    btts_pred = next((p for p in preds if p.get("type") == "BTTS"), {})
-    over_pred = next((p for p in preds if p.get("type", "").startswith("Over")), {})
-    btts_value = btts_pred.get("prediction", "N/A")
-    over_value = over_pred.get("prediction", "N/A")
+        preds = m.get("predictions", [])
+        btts_pred = next((p for p in preds if p.get("type") == "BTTS"), {})
+        over_pred = next((p for p in preds if p.get("type", "").startswith("Over")), {})
+        btts_value = btts_pred.get("prediction", "N/A")
+        over_value = over_pred.get("prediction", "N/A")
 
-    return f"""You are a football betting analyst. Analyze this match and provide a key fact + short analysis.
+        matches_summary.append({
+            "id": i,
+            "match": f"{home} vs {away}",
+            "league": league,
+            "xG_home": xg_home,
+            "xG_away": xg_away,
+            "BTTS_prob_pct": round(btts_prob * 100, 1),
+            "BTTS_prediction": btts_value,
+            "Over25_prob_pct": round(over25_prob * 100, 1),
+            "Over25_prediction": over_value,
+            "reliability": reliability,
+            "existing_data": existing,
+        })
 
-Match: {home} vs {away}
-League: {league}
-Date: {date} {time_str}
-Expected Goals (xG): Home {xg_home} / Away {xg_away}
-BTTS Probability: {btts_prob*100:.1f}% → Prediction: {btts_value}
-Over 2.5 Probability: {over25_prob*100:.1f}% → Prediction: {over_value}
-Reliability Score: {reliability}/100
-Existing data: {existing_analysis}
+    prompt = f"""Tu es un expert en analyse statistique de football.
+Analyse la liste suivante de {len(all_matches)} matchs :
 
-Respond in JSON format with exactly these two fields:
-{{
-  "key_fact": "One punchy key statistic (max 15 words, e.g. '80% BTTS rate in last 5 H2H meetings')",
-  "analysis": "2-sentence max explanation of why BTTS and Over 2.5 are predicted"
-}}
+{json.dumps(matches_summary, ensure_ascii=False, indent=2)}
 
-Write in French. Be factual, no guarantees. No 'sure bet' language."""
+Pour CHAQUE match, génère :
+1. "gemini_key_fact": Une stat clé percutante (max 15 mots, ex: "80% de BTTS sur les 5 derniers H2H").
+2. "gemini_analysis": Résumé de 2 phrases max expliquant la dynamique (xG, forme, fiabilité).
+
+Réponds STRICTEMENT sous forme d'un tableau JSON contenant un objet par match avec la structure :
+[
+  {{
+    "id": {matches_summary[0]["id"] if matches_summary else 0},
+    "gemini_key_fact": "...",
+    "gemini_analysis": "..."
+  }},
+  ...
+]
+
+Règles :
+- Écris en français.
+- Sois factuel, aucune garantie de gain.
+- N'utilise jamais "sure bet", "gain garanti" ou "100% sûr".
+- L'"id" doit correspondre exactement à l'index du match dans la liste ci-dessus."""
+
+    return prompt
 
 
-def enrich_match(client, match: dict, index: int) -> dict:
-    """Call Gemini API for a single match and return enriched match."""
-    home = match.get("home", "Unknown")
-    away = match.get("away", "Unknown")
-    match_name = f"{home} vs {away}"
-
-    # Default: keep existing data if API fails
-    match["gemini_key_fact"] = match.get("gemini_key_fact", "")
-    match["gemini_analysis"] = match.get("gemini_analysis", match.get("analysis", ""))
-
-    prompt = build_prompt(match)
+def call_gemini_batch(client, all_matches: list) -> list:
+    """Send a single batch API call to Gemini and return parsed results."""
+    prompt = build_batch_prompt(all_matches)
 
     for attempt in range(MAX_RETRIES + 1):
         try:
@@ -109,47 +123,43 @@ def enrich_match(client, match: dict, index: int) -> dict:
                 config={
                     "response_mime_type": "application/json",
                     "temperature": 0.7,
-                    "max_output_tokens": 200,
+                    "max_output_tokens": 4096,
                 },
             )
 
-            # Parse JSON response
+            # Parse JSON array response
             result = json.loads(response.text)
 
-            key_fact = result.get("key_fact", "").strip()
-            analysis = result.get("analysis", "").strip()
-
-            if key_fact and analysis:
-                match["gemini_key_fact"] = key_fact
-                match["gemini_analysis"] = analysis
-                print(f"  [{index+1}] ✅ {match_name}: '{key_fact[:60]}...'")
-                return match
+            if isinstance(result, list) and len(result) > 0:
+                print(f"[enrich] ✅ Received {len(result)} enrichments from Gemini")
+                return result
             else:
-                print(f"  [{index+1}] ⚠️ {match_name}: incomplete response (attempt {attempt+1})")
+                print(f"[enrich] ⚠️ Unexpected response format (attempt {attempt+1})")
 
         except json.JSONDecodeError as e:
-            print(f"  [{index+1}] ⚠️ {match_name}: JSON parse error (attempt {attempt+1}): {e}")
+            print(f"[enrich] ⚠️ JSON parse error (attempt {attempt+1}): {e}")
         except Exception as e:
             err_str = str(e)
             if "429" in err_str or "RESOURCE_EXHAUSTED" in err_str:
-                print(f"  [{index+1}] ⏳ {match_name}: rate limited, waiting {RATE_LIMIT_WAIT}s...")
+                print(f"[enrich] ⏳ Rate limited, waiting {RATE_LIMIT_WAIT}s...")
                 time.sleep(RATE_LIMIT_WAIT)
                 continue
             elif "quota" in err_str.lower():
-                print(f"  [{index+1}] ❌ {match_name}: quota exceeded — stopping enrichment")
-                return match
+                print(f"[enrich] ❌ Quota exceeded — skipping enrichment")
+                return []
             else:
-                print(f"  [{index+1}] ⚠️ {match_name}: API error (attempt {attempt+1}): {err_str[:100]}")
+                print(f"[enrich] ⚠️ API error (attempt {attempt+1}): {err_str[:150]}")
 
         if attempt < MAX_RETRIES:
+            print(f"[enrich] Retrying in {RETRY_DELAY}s...")
             time.sleep(RETRY_DELAY)
 
-    print(f"  [{index+1}] ❌ {match_name}: all retries exhausted, keeping existing data")
-    return match
+    print("[enrich] ❌ All retries exhausted — keeping existing data")
+    return []
 
 
 def main():
-    print("[enrich] Starting Gemini 2.0 Flash enrichment")
+    print("[enrich] Starting Gemini 2.0 Flash enrichment (BATCH MODE)")
 
     # Check predictions file exists
     if not PREDICTIONS_FILE.exists():
@@ -173,26 +183,41 @@ def main():
     # Get Gemini client
     client = get_client()
     if client is None:
-        # Dry-run mode: save file unchanged
         print("[enrich] Dry-run complete (no API key)")
         sys.exit(0)
 
-    # Enrich free matches
-    print(f"[enrich] Enriching {len(free_matches)} free matches...")
-    for i, match in enumerate(free_matches):
-        enrich_match(client, match, i)
-        if i < len(free_matches) - 1:
-            time.sleep(REQUEST_DELAY)  # ~15 RPM max
+    # Build combined list of all matches to enrich
+    all_matches = list(free_matches) + list(vip_matches)
+    print(f"[enrich] Sending 1 batch API call for {len(all_matches)} matches...")
 
-    # Enrich VIP matches
-    if vip_matches:
-        print(f"[enrich] Enriching {len(vip_matches)} VIP matches...")
-        for i, match in enumerate(vip_matches):
-            enrich_match(client, match, i + len(free_matches))
-            if i < len(vip_matches) - 1:
-                time.sleep(REQUEST_DELAY)  # ~15 RPM max
+    # Single batch API call
+    enrichments = call_gemini_batch(client, all_matches)
 
-    # Also enrich the legacy "predictions" array (same as free)
+    if not enrichments:
+        print("[enrich] No enrichments received — saving file unchanged")
+    else:
+        # Apply enrichments to matches by index
+        enriched_count = 0
+        for item in enrichments:
+            idx = item.get("id")
+            key_fact = item.get("gemini_key_fact", "").strip()
+            analysis = item.get("gemini_analysis", "").strip()
+
+            if idx is None or not key_fact or not analysis:
+                continue
+
+            idx = int(idx)
+            if 0 <= idx < len(all_matches):
+                match = all_matches[idx]
+                match["gemini_key_fact"] = key_fact
+                match["gemini_analysis"] = analysis
+                match_name = f"{match.get('home', '?')} vs {match.get('away', '?')}"
+                print(f"  [{idx+1}] ✅ {match_name}: '{key_fact[:60]}...'")
+                enriched_count += 1
+
+        print(f"[enrich] Enriched {enriched_count}/{len(all_matches)} matches")
+
+    # Sync legacy "predictions" array with free
     data["predictions"] = data.get("free", [])
 
     # Save enriched predictions
