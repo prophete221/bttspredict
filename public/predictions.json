@@ -56,7 +56,9 @@
       "bttsProb": 0.604,
       "over25Prob": 0.5808,
       "homeLambda": 1.62,
-      "awayLambda": 1.4
+      "awayLambda": 1.4,
+      "gemini_key_fact": "3/3 H2H avec les deux équipes marquent et xG cumulé de 3.02.",
+      "gemini_analysis": "Chicago Fire et Portland affichent de bonnes statistiques offensives récentes avec un xG combiné supérieur à 3.0. La forte récurrence des buts des deux côtés dans leurs confrontations directes renforce la probabilité de buts."
     },
     {
       "id": "norwichc-vs-westbrom-2026-08-15",
@@ -113,7 +115,9 @@
       "bttsProb": 0.576,
       "over25Prob": 0.5438,
       "homeLambda": 1.52,
-      "awayLambda": 1.34
+      "awayLambda": 1.34,
+      "gemini_key_fact": "xG cumulé de 2.86 et 100% de H2H avec BTTS.",
+      "gemini_analysis": "Norwich City et West Bromwich présentent des dynamiques offensives stables avec de récents matchs prolifiques. Les indicateurs statistiques suggèrent une rencontre ouverte propice aux buts de part et d'autre."
     },
     {
       "id": "sanjosee-vs-stlouisc-2026-08-15",
@@ -170,7 +174,9 @@
       "bttsProb": 0.6096,
       "over25Prob": 0.5889,
       "homeLambda": 1.65,
-      "awayLambda": 1.4
+      "awayLambda": 1.4,
+      "gemini_key_fact": "xG cumulé de 3.05 et un taux de fiabilité de 80%.",
+      "gemini_analysis": "San Jose et St. Louis affichent des xG élevés conjugués à une régularité offensive intéressante lors de leurs dernières sorties. L'analyse statistique indique un match potentiellement animé avec de bonnes bases pour les buts."
     },
     {
       "id": "lommelsk-vs-royalcha-2026-08-16",
@@ -227,7 +233,9 @@
       "bttsProb": 0.5827,
       "over25Prob": 0.5516,
       "homeLambda": 1.52,
-      "awayLambda": 1.37
+      "awayLambda": 1.37,
+      "gemini_key_fact": "xG cumulé de 2.89 avec un taux de BTTS estimé à 58.3%.",
+      "gemini_analysis": "Lommel et Charleroi montrent des statistiques offensives équilibrées et une propension récente à trouver le chemin des filets. La configuration du match favorise un scénario avec des buts de chaque côté."
     },
     {
       "id": "atlantau-vs-redbulln-2026-08-15",
@@ -284,7 +292,9 @@
       "bttsProb": 0.587,
       "over25Prob": 0.5637,
       "homeLambda": 1.64,
-      "awayLambda": 1.3
+      "awayLambda": 1.3,
+      "gemini_key_fact": "3/3 confrontations directes avec des buts des deux équipes.",
+      "gemini_analysis": "Atlanta United et Red Bull New York s'appuient sur des xG solides et un historique favorable aux matchs ouverts. Les données récentes confirment une tendance positive pour le marché des buts."
     },
     {
       "id": "holstein-vs-stpauli-2026-08-14",
@@ -341,7 +351,9 @@
       "bttsProb": 0.5769,
       "over25Prob": 0.5524,
       "homeLambda": 1.63,
-      "awayLambda": 1.27
+      "awayLambda": 1.27,
+      "gemini_key_fact": "xG cumulé de 2.90 et historique H2H 100% BTTS.",
+      "gemini_analysis": "Holstein Kiel et St. Pauli possèdent des statistiques offensives cohérentes et se neutralisent souvent offensivement par le passé. La fiabilité globale du match reste intéressante pour un scénario offensif."
     },
     {
       "id": "lafc-vs-sandiego-2026-08-15",
@@ -398,7 +410,9 @@
       "bttsProb": 0.5573,
       "over25Prob": 0.5363,
       "homeLambda": 1.66,
-      "awayLambda": 1.17
+      "awayLambda": 1.17,
+      "gemini_key_fact": "LAFC présente un xG dominant de 1.66.",
+      "gemini_analysis": "Malgré un profil offensif plus discret pour San Diego, la force de frappe du LAFC et les précédents H2H soutiennent l'hypothèse d'un match animé. Les indicateurs statistiques restent globalement favorables."
     },
     {
       "id": "middlesb-vs-lincolnc-2026-08-15",
@@ -455,7 +469,9 @@
       "bttsProb": 0.5922,
       "over25Prob": 0.5622,
       "homeLambda": 1.48,
-      "awayLambda": 1.46
+      "awayLambda": 1.46,
+      "gemini_key_fact": "xG cumulé de 2.94 avec des attaques régulières.",
+      "gemini_analysis": "Middlesbrough et Lincoln City affichent des xG proches et équilibrés, appuyés par une bonne régularité dans les derniers matchs. La probabilité d'un match ouvert est soutenue par les données."
     }
   ],
   "vipPreview": [
@@ -514,7 +530,9 @@
       "bttsProb": 0.5857,
       "over25Prob": 0.5572,
       "homeLambda": 1.56,
-      "awayLambda": 1.35
+      "awayLambda": 1.35,
+      "gemini_key_fact": "xG cumulé de 2.91 et 58.6% de probabilité BTTS.",
+      "gemini_analysis": "Toronto et New England démontrent des capacités offensives similaires et des historiques de confrontations assez ouverts. La solidité des xG suggère une bonne dynamique pour les buts."
     },
     {
       "id": "cerclebr-vs-sinttrui-2026-08-14",
@@ -571,7 +589,9 @@
       "bttsProb": 0.5801,
       "over25Prob": 0.5543,
       "homeLambda": 1.61,
-      "awayLambda": 1.29
+      "awayLambda": 1.29,
+      "gemini_key_fact": "Cercle Brugge affiche un xG solide de 1.61.",
+      "gemini_analysis": "L'efficacité récente des deux formations et un xG cumulé de 2.90 renforcent l'intérêt statistique pour cette affiche. Les tendances de forme confirment un profil de match productif."
     },
     {
       "id": "herthabe-vs-fcheiden-2026-08-15",
@@ -628,7 +648,9 @@
       "bttsProb": 0.5676,
       "over25Prob": 0.5309,
       "homeLambda": 1.44,
-      "awayLambda": 1.36
+      "awayLambda": 1.36,
+      "gemini_key_fact": "xG cumulé de 2.80 avec une fiabilité de 73.9%.",
+      "gemini_analysis": "Hertha Berlin et Heidenheim présentent des statistiques stables et des xG proches de la moyenne requise pour ce type de pari. Leurs confrontations passées soutiennent également cette tendance."
     },
     {
       "id": "kvkortri-vs-antwerp-2026-08-15",
@@ -685,7 +707,9 @@
       "bttsProb": 0.5667,
       "over25Prob": 0.5302,
       "homeLambda": 1.45,
-      "awayLambda": 1.35
+      "awayLambda": 1.35,
+      "gemini_key_fact": "xG cumulé de 2.80 malgré un historique H2H atypique.",
+      "gemini_analysis": "KV Kortrijk et Antwerp affichent des xG corrects et une régularité offensive intéressante sur leurs derniers matchs. Les indicateurs actuels prônent un rééquilibrage offensif dans ce duel."
     },
     {
       "id": "spvgggre-vs-fcnrnber-2026-08-15",
@@ -742,7 +766,9 @@
       "bttsProb": 0.5596,
       "over25Prob": 0.5203,
       "homeLambda": 1.38,
-      "awayLambda": 1.38
+      "awayLambda": 1.38,
+      "gemini_key_fact": "xG parfaitement équilibré de 1.38 pour chaque équipe.",
+      "gemini_analysis": "La symétrie des statistiques offensives et un historique H2H favorable marquent ce duel de 2. Bundesliga. Les données confirment une probabilité correcte pour les buts."
     },
     {
       "id": "houstond-vs-lagalaxy-2026-08-15",
@@ -799,7 +825,9 @@
       "bttsProb": 0.5974,
       "over25Prob": 0.5698,
       "homeLambda": 1.54,
-      "awayLambda": 1.43
+      "awayLambda": 1.43,
+      "gemini_key_fact": "xG cumulé de 2.97 avec 59.7% de probabilité BTTS.",
+      "gemini_analysis": "Houston Dynamo et LA Galaxy possèdent des xG élevés qui traduisent une production offensive constante. La dynamique statistique globale reste cohérente pour une rencontre ouverte."
     }
   ],
   "stats": {
@@ -866,7 +894,9 @@
       "bttsProb": 0.604,
       "over25Prob": 0.5808,
       "homeLambda": 1.62,
-      "awayLambda": 1.4
+      "awayLambda": 1.4,
+      "gemini_key_fact": "3/3 H2H avec les deux équipes marquent et xG cumulé de 3.02.",
+      "gemini_analysis": "Chicago Fire et Portland affichent de bonnes statistiques offensives récentes avec un xG combiné supérieur à 3.0. La forte récurrence des buts des deux côtés dans leurs confrontations directes renforce la probabilité de buts."
     },
     {
       "id": "norwichc-vs-westbrom-2026-08-15",
@@ -923,7 +953,9 @@
       "bttsProb": 0.576,
       "over25Prob": 0.5438,
       "homeLambda": 1.52,
-      "awayLambda": 1.34
+      "awayLambda": 1.34,
+      "gemini_key_fact": "xG cumulé de 2.86 et 100% de H2H avec BTTS.",
+      "gemini_analysis": "Norwich City et West Bromwich présentent des dynamiques offensives stables avec de récents matchs prolifiques. Les indicateurs statistiques suggèrent une rencontre ouverte propice aux buts de part et d'autre."
     },
     {
       "id": "sanjosee-vs-stlouisc-2026-08-15",
@@ -980,7 +1012,9 @@
       "bttsProb": 0.6096,
       "over25Prob": 0.5889,
       "homeLambda": 1.65,
-      "awayLambda": 1.4
+      "awayLambda": 1.4,
+      "gemini_key_fact": "xG cumulé de 3.05 et un taux de fiabilité de 80%.",
+      "gemini_analysis": "San Jose et St. Louis affichent des xG élevés conjugués à une régularité offensive intéressante lors de leurs dernières sorties. L'analyse statistique indique un match potentiellement animé avec de bonnes bases pour les buts."
     },
     {
       "id": "lommelsk-vs-royalcha-2026-08-16",
@@ -1037,7 +1071,9 @@
       "bttsProb": 0.5827,
       "over25Prob": 0.5516,
       "homeLambda": 1.52,
-      "awayLambda": 1.37
+      "awayLambda": 1.37,
+      "gemini_key_fact": "xG cumulé de 2.89 avec un taux de BTTS estimé à 58.3%.",
+      "gemini_analysis": "Lommel et Charleroi montrent des statistiques offensives équilibrées et une propension récente à trouver le chemin des filets. La configuration du match favorise un scénario avec des buts de chaque côté."
     },
     {
       "id": "atlantau-vs-redbulln-2026-08-15",
@@ -1094,7 +1130,9 @@
       "bttsProb": 0.587,
       "over25Prob": 0.5637,
       "homeLambda": 1.64,
-      "awayLambda": 1.3
+      "awayLambda": 1.3,
+      "gemini_key_fact": "3/3 confrontations directes avec des buts des deux équipes.",
+      "gemini_analysis": "Atlanta United et Red Bull New York s'appuient sur des xG solides et un historique favorable aux matchs ouverts. Les données récentes confirment une tendance positive pour le marché des buts."
     },
     {
       "id": "holstein-vs-stpauli-2026-08-14",
@@ -1151,7 +1189,9 @@
       "bttsProb": 0.5769,
       "over25Prob": 0.5524,
       "homeLambda": 1.63,
-      "awayLambda": 1.27
+      "awayLambda": 1.27,
+      "gemini_key_fact": "xG cumulé de 2.90 et historique H2H 100% BTTS.",
+      "gemini_analysis": "Holstein Kiel et St. Pauli possèdent des statistiques offensives cohérentes et se neutralisent souvent offensivement par le passé. La fiabilité globale du match reste intéressante pour un scénario offensif."
     },
     {
       "id": "lafc-vs-sandiego-2026-08-15",
@@ -1208,7 +1248,9 @@
       "bttsProb": 0.5573,
       "over25Prob": 0.5363,
       "homeLambda": 1.66,
-      "awayLambda": 1.17
+      "awayLambda": 1.17,
+      "gemini_key_fact": "LAFC présente un xG dominant de 1.66.",
+      "gemini_analysis": "Malgré un profil offensif plus discret pour San Diego, la force de frappe du LAFC et les précédents H2H soutiennent l'hypothèse d'un match animé. Les indicateurs statistiques restent globalement favorables."
     },
     {
       "id": "middlesb-vs-lincolnc-2026-08-15",
@@ -1265,7 +1307,9 @@
       "bttsProb": 0.5922,
       "over25Prob": 0.5622,
       "homeLambda": 1.48,
-      "awayLambda": 1.46
+      "awayLambda": 1.46,
+      "gemini_key_fact": "xG cumulé de 2.94 avec des attaques régulières.",
+      "gemini_analysis": "Middlesbrough et Lincoln City affichent des xG proches et équilibrés, appuyés par une bonne régularité dans les derniers matchs. La probabilité d'un match ouvert est soutenue par les données."
     }
   ]
 }
