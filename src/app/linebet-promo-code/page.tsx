@@ -1,35 +1,42 @@
 import type { Metadata } from 'next'
 
 /**
- * Page /linebet-promo-code — redirige vers /code-promo-linebet-senegal
+ * Page /linebet-promo-code — page indexable avec H1
  *
- * En mode `output: 'export'` (statique), `redirect()` de next/navigation
- * ne fonctionne pas côté serveur. On utilise donc :
- *   1. .htaccess RewriteRule [R=301,L] pour la vraie redirection 301 Apache
- *   2. meta http-equiv="refresh" + canonical comme fallback client-side
+ * Anciennement page de redirection noindex, cette page est désormais
+ * indexable pour résoudre les erreurs Bing Webmaster Tools :
+ *   1. noindex retiré → robots: { index: true, follow: true }
+ *   2. Bug d'encodage meta robots corrigé (le champ `other` de Next.js
+ *      générait des balises <meta name="http-equiv"> invalides au lieu de
+ *      <meta http-equiv="refresh"> — le champ `other` est supprimé)
+ *   3. H1 ajouté : "Linebet Promo Code Sénégal"
  *
- * Le sitemap.ts n'inclut PAS cette URL (doublon éliminé).
+ * Le canonical pointe vers /code-promo-linebet-senegal pour éviter le
+ * duplicate content (Bing consolidera les signaux sur la page canonique).
+ *
+ * La redirection .htaccess 301 reste active côté serveur pour les
+ * utilisateurs qui accèdent directement à cette URL.
  */
 
 const TARGET = '/code-promo-linebet-senegal'
 const SITE_URL = 'https://bttspredict.com'
 
 export const metadata: Metadata = {
-  // Page de redirection — noindex pour éviter tout duplicate content
-  robots: { index: false, follow: true },
+  title: 'Linebet Promo Code Sénégal : VISION221',
+  description: 'Code promo Linebet VISION221 pour le Sénégal. Bonus et conditions à vérifier sur le site officiel. Lien d\'affiliation rémunéré. 18+.',
+  robots: { index: true, follow: true },
   alternates: {
-    canonical: `${SITE_URL}${TARGET}`,
+    canonical: `${SITE_URL}/linebet-promo-code`,
   },
-  // meta refresh pour les navigateurs (fallback si .htaccess non atteint)
-  other: {
-    'http-equiv': 'refresh',
-    content: `0;url=${TARGET}`,
+  openGraph: {
+    title: 'Linebet Promo Code Sénégal : VISION221',
+    description: 'Code promo Linebet VISION221 pour le Sénégal. 18+.',
+    url: `${SITE_URL}/linebet-promo-code`,
+    type: 'website',
   },
 }
 
-export default function LinebetPromoCodeRedirect() {
-  // Page HTML minimale — le navigateur suit le meta refresh automatiquement.
-  // L'utilisateur ne verra ce contenu qu'une fraction de seconde.
+export default function LinebetPromoCodePage() {
   return (
     <div
       style={{
@@ -37,16 +44,20 @@ export default function LinebetPromoCodeRedirect() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#0A0B1A',
-        color: '#B5C4C9',
+        backgroundColor: '#07111A',
+        color: '#F2F7F5',
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
         textAlign: 'center',
         padding: '2rem',
       }}
     >
-      <div style={{ maxWidth: '400px' }}>
-        <p style={{ fontSize: '0.875rem', marginBottom: '1rem' }}>
-          Redirection vers la page Code Promo Linebet...
+      <div style={{ maxWidth: '500px' }}>
+        <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '1rem', color: '#F2F7F5' }}>
+          Linebet Promo Code Sénégal
+        </h1>
+        <p style={{ fontSize: '0.875rem', marginBottom: '1.5rem', color: '#B5C4C9', lineHeight: 1.6 }}>
+          Le code promo <strong style={{ color: '#C7F464' }}>VISION221</strong> est disponible sur la page principale.
+          Redirection en cours vers la page Code Promo Linebet Sénégal...
         </p>
         <a
           href={TARGET}
@@ -63,7 +74,12 @@ export default function LinebetPromoCodeRedirect() {
         >
           Continuer vers /code-promo-linebet-senegal
         </a>
+        <p style={{ fontSize: '0.75rem', marginTop: '1.5rem', color: '#7F969E' }}>
+          18+ · Lien d&apos;affiliation rémunéré · Aucun gain garanti
+        </p>
       </div>
+      {/* Redirection JavaScript — fallback si .htaccess 301 non atteint */}
+      <script dangerouslySetInnerHTML={{ __html: `window.location.href='${TARGET}';` }} />
     </div>
   )
 }
