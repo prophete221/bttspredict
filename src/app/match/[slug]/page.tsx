@@ -72,6 +72,9 @@ export default async function MatchPage({ params }: PageProps) {
   if (!match) notFound()
 
   const { home, away, league, date, time, homeLogo, awayLogo, predictions } = match
+  const aiExactScore = (match as any).ai_exact_score || null
+  const aiKeyFact = (match as any).ai_key_fact || null
+  const aiAnalysis = (match as any).ai_analysis || null
 
   // Aggregate verification status
   const verified = predictions.filter(p => p.status === 'WON' || p.status === 'LOST')
@@ -148,6 +151,37 @@ export default async function MatchPage({ params }: PageProps) {
               </div>
             )}
           </header>
+
+          {/* BTTSPredict AI Analysis */}
+          {(aiKeyFact || aiExactScore) && (
+            <section className="mb-10">
+              <div className="rounded-2xl p-5" style={{ backgroundColor: 'rgba(99,214,255,0.06)', border: '1px solid rgba(99,214,255,0.2)' }}>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#63D6FF" strokeWidth="2">
+                      <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                      <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                    </svg>
+                    <span className="text-xs uppercase tracking-widest font-bold text-[#63D6FF]">BTTSPredict AI</span>
+                  </div>
+                  {aiExactScore && (
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] uppercase tracking-wider text-[#7F969E]">Score prédit</span>
+                      <span className="text-xl font-black font-mono text-[#C7F464] px-3 py-1 rounded-lg" style={{ backgroundColor: 'rgba(199,244,100,0.12)' }}>
+                        {aiExactScore}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                {aiKeyFact && (
+                  <p className="text-sm text-[#F2F7F5] font-semibold mb-2">📊 {aiKeyFact}</p>
+                )}
+                {aiAnalysis && (
+                  <p className="text-sm text-[#B5C4C9] leading-relaxed">{aiAnalysis}</p>
+                )}
+              </div>
+            </section>
+          )}
 
           {/* Pronostics */}
           <section className="mb-10">

@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 """
-BTTSPredict — Enrichissement des pronostics avec Gemini 2.0 Flash (BATCH MODE)
-==============================================================================
+BTTSPredict — Enrichissement AI des pronostics (BATCH MODE, Marque Blanche)
+=============================================================================
 
-UN SEUL appel API Gemini pour enrichir TOUS les matchs (Free + VIP)
+UN SEUL appel API pour enrichir TOUS les matchs (Free + VIP)
 en une seule requête — évite les timeouts et les erreurs 429.
 
 Génère pour chaque match :
-  - gemini_key_fact : une statistique clé percutante (max 15 mots)
-  - gemini_analysis : un résumé explicatif de 2 phrases maximum
+  - ai_exact_score : le score exact prédit (ex: "2-1")
+  - ai_key_fact   : une statistique clé percutante (max 15 mots)
+  - ai_analysis    : une analyse statistique de 2 phrases max
 
-Le résultat est sauvegardé dans public/predictions.json.
+Marque blanche 100% BTTSPredict AI — aucune mention d'API tierce.
 
 Utilisation :
   GEMINI_API_KEY=your_key python3 scripts/enrich_predictions.py
@@ -88,27 +89,25 @@ def build_batch_prompt(all_matches: list) -> str:
             "existing_data": existing,
         })
 
-    prompt = f"""Tu es un expert en analyse statistique de football.
+    prompt = f"""Tu es le moteur d'analyse statistique de la plateforme BTTSPredict.
 Analyse la liste suivante de {len(all_matches)} matchs :
 
 {json.dumps(matches_summary, ensure_ascii=False, indent=2)}
 
-Pour CHAQUE match, génère :
-1. "gemini_key_fact": Une stat clé percutante (max 15 mots, ex: "80% de BTTS sur les 5 derniers H2H").
-2. "gemini_analysis": Résumé de 2 phrases max expliquant la dynamique (xG, forme, fiabilité).
-
-Réponds STRICTEMENT sous forme d'un tableau JSON contenant un objet par match avec la structure :
+Pour CHAQUE match, génère un objet JSON STRICT respectant cette structure exacte :
 [
   {{
-    "id": {matches_summary[0]["id"] if matches_summary else 0},
-    "gemini_key_fact": "...",
-    "gemini_analysis": "..."
+    "id": 0,
+    "ai_exact_score": "2-1",
+    "ai_key_fact": "Statistique clé percutante (15 mots max, ex: 3/3 H2H avec BTTS et xG cumulé de 3.02)",
+    "ai_analysis": "Analyse statistique de 2 phrases sur la forme, les xG et la dynamique offensive."
   }},
   ...
 ]
 
 Règles :
 - Écris en français.
+- Le score exact (ai_exact_score) doit être réaliste, basé sur les xG (ex: "2-1", "1-1", "3-0").
 - Sois factuel, aucune garantie de gain.
 - N'utilise jamais "sure bet", "gain garanti" ou "100% sûr".
 - L'"id" doit correspondre exactement à l'index du match dans la liste ci-dessus."""
@@ -175,7 +174,7 @@ def call_gemini_batch(client, all_matches: list) -> list:
 
 
 def main():
-    print("[enrich] Starting Gemini Flash-Lite enrichment (BATCH MODE)")
+    print("[enrich] Starting BTTSPredict AI enrichment (BATCH MODE)")
 
     # Check predictions file exists
     if not PREDICTIONS_FILE.exists():
@@ -204,6 +203,7 @@ def main():
 
     # Build combined list of all matches to enrich
     all_matches = list(free_matches) + list(vip_matches)
+
     # Diagnostic: list available models for this API key
     try:
         available = [m.name for m in client.models.list()]
@@ -223,19 +223,24 @@ def main():
         enriched_count = 0
         for item in enrichments:
             idx = item.get("id")
-            key_fact = item.get("gemini_key_fact", "").strip()
-            analysis = item.get("gemini_analysis", "").strip()
+            ai_exact_score = item.get("ai_exact_score", "").strip()
+            ai_key_fact = item.get("ai_key_fact", "").strip()
+            ai_analysis = item.get("ai_analysis", "").strip()
 
-            if idx is None or not key_fact or not analysis:
+            if idx is None:
                 continue
 
             idx = int(idx)
             if 0 <= idx < len(all_matches):
                 match = all_matches[idx]
-                match["gemini_key_fact"] = key_fact
-                match["gemini_analysis"] = analysis
+                if ai_exact_score:
+                    match["ai_exact_score"] = ai_exact_score
+                if ai_key_fact:
+                    match["ai_key_fact"] = ai_key_fact
+                if ai_analysis:
+                    match["ai_analysis"] = ai_analysis
                 match_name = f"{match.get('home', '?')} vs {match.get('away', '?')}"
-                print(f"  [{idx+1}] ✅ {match_name}: '{key_fact[:60]}...'")
+                print(f"  [{idx+1}] ✅ {match_name}: score={ai_exact_score}, fact='{ai_key_fact[:50]}...'")
                 enriched_count += 1
 
         print(f"[enrich] Enriched {enriched_count}/{len(all_matches)} matches")
