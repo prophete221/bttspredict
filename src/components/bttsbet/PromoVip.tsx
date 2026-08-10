@@ -30,7 +30,8 @@ export default function PromoVip() {
     fetch('/predictions.json')
       .then(r => r.json())
       .then(data => {
-        const arr: any[] = data?.predictions || data || []
+        // v91: data.free is the new structure (each entry = 1 match with predictions[])
+        const arr: any[] = data?.free || data?.predictions || []
         // Deduplicate by match name — each match appears ONLY ONCE
         const seen = new Set<string>()
         const unique: any[] = []
@@ -59,19 +60,20 @@ export default function PromoVip() {
   function formatMatches(arr: any[]): any[] {
     return arr.slice(0, 6).map((m, i) => {
       const [home, away] = m.match ? m.match.split(/\s+vs\s+/i) : [m.home, m.away]
-      const a = m.analysis || {}
+      // v91: lambdas/probas are at top-level on the prediction object
+      const a = m.analysisData || {}
       return {
         id: i + 1,
         home: home?.trim() || m.home || '',
         away: away?.trim() || m.away || '',
         league: m.league || '',
         time: m.time || '--:--',
-        xG_h: m.xG_h || a.homeLambda || 1.6,
-        xG_a: m.xG_a || a.awayLambda || 1.1,
-        odd_btts: m.odd_btts || 1.85,
-        prob_btts: m.prob_btts || Math.round((a.bttsProb || 0.5) * 100) || 68,
-        odd_over: m.odd_over || 1.95,
-        prob_over: m.prob_over || Math.round((a.over25Prob || 0.5) * 100) || 70,
+        xG_h: m.xgHome || m.homeLambda || a.homeLambda || 1.6,
+        xG_a: m.xgAway || m.awayLambda || a.awayLambda || 1.1,
+        odd_btts: m.estimatedCote || 1.85,
+        prob_btts: m.bttsProb ? Math.round(m.bttsProb * 100) : Math.round((a.bttsProb || 0.5) * 100) || 68,
+        odd_over: m.estimatedCoteOver || 1.95,
+        prob_over: m.over25Prob ? Math.round(m.over25Prob * 100) : Math.round((a.over25Prob || 0.5) * 100) || 70,
       }
     })
   }

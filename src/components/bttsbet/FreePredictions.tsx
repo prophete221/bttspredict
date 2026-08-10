@@ -493,7 +493,7 @@ export default function FreePredictions() {
     fetch('/predictions.json')
       .then(r => r.json())
       .then(data => {
-        // v90: data.free || data.predictions (backward compat)
+        // v91: data.free is an array of matches, each with predictions[] containing BOTH BTTS + Over 2.5
         const rawPredictions = data?.free || data?.predictions || []
         if (!rawPredictions || rawPredictions.length === 0) {
           setLoading(false)
@@ -501,12 +501,28 @@ export default function FreePredictions() {
         }
         const matchMap = new Map<string, MatchData>()
         for (const p of rawPredictions) {
-          // v64.1 HOTFIX : on ne skippe PLUS les matchs "finished" au chargement.
-          // Avant, si on était le 2026-08-10 et que predictions.json ne contenait
-          // que des matchs datés 2026-08-09, le `continue` ci-dessous vidait
-          // complètement la liste → 0 pronostic affiché.
-          // Maintenant on garde TOUS les matchs ; le filtre actif (Tous/Auj/Dem/7j)
-          // et le sort par statut (live → upcoming → finished) s'occupent de l'ordre.
+          // v91: each prediction already groups both markets under p.predictions[]
+          // If p.predictions[] exists, use it directly. Otherwise build from legacy fields.
+          const preds = Array.isArray(p.predictions) && p.predictions.length > 0
+            ? p.predictions.map(pr => ({
+                type: pr.type,
+                prediction: pr.prediction,
+                confidence: pr.confidence,
+                bttsProb: pr.bttsProb ?? p.bttsProb,
+                over25Prob: pr.over25Prob ?? p.over25Prob,
+                homeLambda: pr.homeLambda ?? p.homeLambda ?? p.xgHome,
+                awayLambda: pr.awayLambda ?? p.awayLambda ?? p.xgAway,
+              }))
+            : [{
+                type: p.type || 'BTTS',
+                prediction: p.prediction,
+                confidence: p.confidence,
+                bttsProb: p.bttsProb,
+                over25Prob: p.over25Prob,
+                homeLambda: p.homeLambda ?? p.xgHome,
+                awayLambda: p.awayLambda ?? p.xgAway,
+              }]
+
           const key = p.match
           if (!matchMap.has(key)) {
             matchMap.set(key, {
@@ -516,21 +532,12 @@ export default function FreePredictions() {
               time: p.time || '--:--',
               homeLogo: p.homeLogo || '',
               awayLogo: p.awayLogo || '',
-              predictions: [],
+              predictions: preds,
               reliabilityScore: p.reliabilityScore,
               xgTotal: p.xgTotal,
               analysis: p.analysis,
             })
           }
-          matchMap.get(key)!.predictions.push({
-            type: p.type,
-            prediction: p.prediction,
-            confidence: p.confidence,
-            bttsProb: p.analysis?.bttsProb,
-            over25Prob: p.analysis?.over25Prob,
-            homeLambda: p.analysis?.homeLambda,
-            awayLambda: p.analysis?.awayLambda,
-          })
         }
         const all = [...matchMap.values()].sort((a, b) => {
           const sa = getMatchStatus(a.date, a.time)
@@ -683,8 +690,8 @@ export default function FreePredictions() {
                 <circle cx="12" cy="12" r="10" />
               </svg>
             </div>
-            <p className="text-papier text-sm font-bold mb-2">Aucun pronostic fiable aujourd'hui</p>
-            <p className="text-cendre text-xs">On prefere ne rien proposer que du hasardeux. Reviens demain.</p>
+            <p className="text-papier text-sm font-bold mb-2">Aucun match sous ce filtre</p>
+            <p className="text-cendre text-xs">Essaie un autre filtre ou reviens plus tard.</p>
           </div>
         ) : (
           <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
@@ -701,7 +708,7 @@ export default function FreePredictions() {
         {/* CTA — Voir tous les pronostics du jour (page dédiée) */}
         <div className="text-center mt-5">
           <a
-            href="/pronostics"
+            href="/btts/predictions/today"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold transition-all"
             style={{
               background: 'linear-gradient(135deg, #C7F464, #A8E063)',

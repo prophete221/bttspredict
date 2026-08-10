@@ -299,20 +299,13 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
       />
 
-      {/* ═══ SEO CONTENT FOR CRAWLERS & AI — minimal v64 ═══ */}
-      {/* Plateforme PRO v64 : on garde un minimum de contenu sr-only pour les crawlers
-          (transparence méthodologie + sources), sans répéter 50 paragraphes. */}
+      {/* ═══ SEO CONTENT FOR CRAWLERS & AI — minimal v91 ═══ */}
       <div className="sr-only">
         <h2>Pronostics BTTS et Over 2.5 — Afrique de l&apos;Ouest &amp; Maroc</h2>
         <p>
-          BTTSPredict publie 6 pronostics BTTS &amp; Over 2.5 quotidiens pour le Sénégal, Mali,
+          BTTSPredict publie 8 pronostics BTTS &amp; Over 2.5 quotidiens pour le Sénégal, Mali,
           Côte d&apos;Ivoire, Guinée, Congo et Maroc. Données ESPN publiques. Suivi public
           depuis 2026-08-08, vérifiable après match. 18+ Jeu responsable.
-        </p>
-        <p>
-          <strong>Méthodologie :</strong> Modèle IA nouvelle génération calibré sur la forme
-          récente des équipes. Sources : ESPN et TheSportsDB. Archive horodatée, vérification
-          post-match publique. Aucune garantie de gain.
         </p>
       </div>
 
@@ -345,19 +338,16 @@ export default function Home() {
         {/* Bloc VIP court — un seul CTA vers /vip */}
         <section className="max-w-5xl mx-auto px-4 py-10">
           <div className="p-6 sm:p-8 rounded-2xl" style={{ backgroundColor: '#102333', border: '1px solid rgba(199, 244, 100, 0.25)' }}>
-            <div className="text-center mb-6">
+            <div className="text-center mb-5">
               <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-3"
                 style={{ backgroundColor: 'rgba(199, 244, 100, 0.12)', color: '#C7F464' }}>
                 Programme VIP
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              <h2 className="text-2xl sm:text-3xl font-bold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
                 Pronostics premium BTTS et Over 2.5
               </h2>
-              <p className="text-sm text-[#B5C4C9] leading-relaxed max-w-2xl mx-auto mb-2">
-                Le programme VIP propose des sélections supplémentaires et des analyses détaillées, basées sur une approche statistique probabiliste.
-              </p>
               <p className="text-xs text-[#7F969E] leading-relaxed max-w-2xl mx-auto">
-                Aucun gain n'est garanti. Lien d'affiliation rémunéré. BTTSPredict ne prend pas de paris et ne collecte pas de fonds. 18+.
+                Aucun gain garanti. Lien d&apos;affiliation rémunéré. 18+.
               </p>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-3">
@@ -373,14 +363,14 @@ export default function Home() {
         {/* Jeu responsable */}
         <section className="max-w-5xl mx-auto px-4 py-10">
           <div className="p-5 rounded-2xl" style={{ backgroundColor: 'rgba(255, 122, 122, 0.06)', border: '1px solid rgba(255, 122, 122, 0.2)' }}>
-            <h2 className="text-lg font-bold mb-3 text-[#FF7A7A]" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            <h2 className="text-lg font-bold mb-2 text-[#FF7A7A]" style={{ fontFamily: 'Poppins, sans-serif' }}>
               18+ · Jouer responsable
             </h2>
             <p className="text-sm text-[#B5C4C9] leading-relaxed mb-3">
-              Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez vous permettre de perdre. BTTSPredict ne prend pas de paris et ne collecte pas de fonds.
+              Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez perdre. 18+.
             </p>
             <a href="/jouer-responsable" className="inline-flex items-center gap-2 text-sm font-bold text-[#C7F464] underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C7F464] rounded">
-              En savoir plus sur le jeu responsable →
+              En savoir plus →
             </a>
           </div>
         </section>

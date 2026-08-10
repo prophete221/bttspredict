@@ -157,26 +157,22 @@ export default function MethodologiePage() {
             </div>
           </section>
 
-          {/* Section 7 - Gestion de la qualite (v90 - criteres stricts) */}
+          {/* Section 7 - Gestion de la qualite (v91 - display first) */}
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              7. Criteres de fiabilite stricts (v90)
+              7. Criteres de publication (v91)
             </h2>
             <p className="text-sm text-[#B5C4C9] leading-relaxed mb-3">
-              Depuis la version 90, BTTSPredict applique des filtres eliminatories rigoureux. Un match est rejete si:
+              Depuis la version 91, BTTSPredict applique une strategie display-first :
             </p>
             <ul className="space-y-2 text-sm text-[#B5C4C9]">
-              <li>• BTTS Probabilite Poisson &lt; 65% - rejeté (trop incertain)</li>
-              <li>• xG total (Home + Away) &lt; 2.4 - rejete (pas assez de potentiel offensif)</li>
-              <li>• xG Home ou xG Away &lt; 0.90 - rejete (une equipe ne peut marquer)</li>
-              <li>• Une equipe a 3 clean sheets sur 5 derniers matchs - rejete</li>
-              <li>• Une equipe n&apos;a pas marque dans 2/5 derniers matchs - rejete</li>
-              <li>• Cote BTTS estimee &lt; 1.60 - rejete (deja price par le bookmaker)</li>
+              <li>• Seuls les matchs avec BTTS ET Over 2.5 tous deux &lt; 35% sont rejetes.</li>
+              <li>• Les autres matchs sont publies, tries par score de fiabilite.</li>
+              <li>• Top 8 matchs en gratuit, top 6 suivants en apercu VIP.</li>
             </ul>
             <p className="text-sm text-[#B5C4C9] leading-relaxed mt-3">
-              Un score de fiabilite (0-100) est calcule pour chaque match restant:
-              <br />reliability = (BTTS prob * 0.40) + (xG score * 0.30) + (forme * 0.20) + (H2H * 0.10)
-              <br />Seul le top 5 avec fiabilite &gt;= 78% est publie en gratuit. Si aucun match n&apos;atteint 75%, aucun pronostic n&apos;est publie.
+              Un score de fiabilite (0-100) est calcule pour chaque match:
+              <br />reliability = (BTTS score * 0.40) + (xG score * 0.30) + (forme * 0.20) + (H2H * 0.10)
             </p>
           </section>
 

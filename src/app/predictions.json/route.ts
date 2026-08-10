@@ -10,12 +10,17 @@ export function GET() {
     const rawData = fs.readFileSync(predictionsPath, 'utf8')
     const data = JSON.parse(rawData)
 
+    // v91: return the FULL structure so the client gets free[] and vipPreview[] arrays
     const response = {
       date: data.date || new Date().toISOString().split('T')[0],
       lastUpdated: new Date().toISOString(),
       source: 'ESPN + TheSportsDB',
       disclaimer: 'Prédictions informatives, pas de gain garanti, 18+',
-      predictions: data.predictions || [],
+      free: data.free || [],
+      vipPreview: data.vipPreview || [],
+      stats: data.stats || {},
+      // Backward compat: predictions = free
+      predictions: data.free || data.predictions || [],
     }
 
     return NextResponse.json(response, {
@@ -31,6 +36,9 @@ export function GET() {
         lastUpdated: new Date().toISOString(),
         source: 'ESPN + TheSportsDB',
         disclaimer: 'Prédictions informatives, pas de gain garanti, 18+',
+        free: [],
+        vipPreview: [],
+        stats: {},
         predictions: [],
         status: 'no data yet',
       },

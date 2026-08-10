@@ -61,13 +61,13 @@ export default function BTTSPredictionsTodayPage() {
             BTTS · Both Teams To Score
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            Pronostic BTTS Aujourd'hui Gratuit
+            Pronostic BTTS Aujourd&apos;hui Gratuit
           </h1>
-          <p className="text-base sm:text-lg text-[#B5C4C9] leading-relaxed mb-3 max-w-3xl mx-auto">
-            Voici nos pronostics BTTS du {new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })} analysés par notre algorithme pour les championnats les plus ouverts. Pronos 100% gratuits, mis à jour à 08h, 12h, 16h et 20h.
+          <p className="text-base sm:text-lg text-[#B5C4C9] leading-relaxed mb-2 max-w-3xl mx-auto">
+            Pronostics BTTS du {new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })} par notre moteur IA. 100% gratuits, mis à jour 4x/jour.
           </p>
           <p className="text-sm text-[#7F969E] leading-relaxed max-w-3xl mx-auto">
-            Aucun gain n'est garanti. Les probabilités affichées sont comprises entre 40% et 54% — plage crédible de calibration. Les paris sportifs comportent un risque de perte. 18+.
+            Aucun gain garanti. Paris sportifs = risque de perte. 18+.
           </p>
         </section>
 
@@ -76,34 +76,28 @@ export default function BTTSPredictionsTodayPage() {
         </section>
 
         <section className="max-w-3xl mx-auto px-4 pb-12">
-          <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            Qu'est-ce que le BTTS ?
+          <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            Qu&apos;est-ce que le BTTS ?
           </h2>
-          <p className="text-sm text-[#B5C4C9] leading-relaxed mb-4">
-            BTTS signifie <strong>Both Teams To Score</strong> — un marché de paris sportifs où le pronostic porte sur le fait que les deux équipes marquent au moins un but chacun pendant le match. Le résultat final du match n'a pas d'importance : seuls les buts marqués comptent.
-          </p>
-          <p className="text-sm text-[#B5C4C9] leading-relaxed mb-4">
-            Le BTTS est un marché populaire car il offre de l'action jusqu'au dernier moment — un but à la 90e minute peut faire gagner un pari BTTS qui semblait perdu. Le moteur IA de BTTSPredict identifie les matchs où la dynamique offensive des deux équipes et leur propension à encaisser rendent le BTTS probable.
-          </p>
-          <p className="text-sm text-[#B5C4C9] leading-relaxed">
-            Pour comprendre en détail comment fonctionne l'analyse BTTS, consultez notre <Link href="/methodologie" className="text-[#C7F464] underline">méthodologie du moteur IA</Link>.
+          <p className="text-sm text-[#B5C4C9] leading-relaxed mb-3">
+            BTTS signifie <strong>Both Teams To Score</strong>. Les deux équipes doivent marquer au moins un but chacune pendant le match, peu importe le score final. Pour en savoir plus, consultez notre <Link href="/methodologie" className="text-[#C7F464] underline">méthodologie</Link>.
           </p>
         </section>
 
         <section className="max-w-3xl mx-auto px-4 pb-12">
-          <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+          <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Aller plus loin
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Link href="/btts/statistics" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C7F464]"
               style={{ backgroundColor: '#102333', border: '1px solid #1C3546' }}>
               <div className="text-sm font-bold text-[#F2F7F5]">Statistiques BTTS →</div>
-              <div className="text-xs text-[#B5C4C9] mt-1">Taux historique par ligue</div>
+              <div className="text-xs text-[#B5C4C9] mt-1">Taux par ligue</div>
             </Link>
             <Link href="/vip" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C7F464]"
               style={{ backgroundColor: '#102333', border: '1px solid #1C3546' }}>
               <div className="text-sm font-bold text-[#F2F7F5]">Pronostics premium →</div>
-              <div className="text-xs text-[#B5C4C9] mt-1">Programme VIP BTTSPredict</div>
+              <div className="text-xs text-[#B5C4C9] mt-1">Programme VIP</div>
             </Link>
           </div>
         </section>

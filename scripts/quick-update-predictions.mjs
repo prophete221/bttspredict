@@ -1,6 +1,7 @@
 // ═════════════════════════════════════════════════════════════════════════════
-// BTTSPredict – Reliability-First Predictions Engine v90
-// MAX 5 pronos/jour, ultra-fiables. 0 > hasard.
+// BTTSPredict – Predictions Engine v91
+// Display-first: always publishes top N matches per day (sorted by reliability)
+// Eliminates only truly unusable matches. Generous thresholds = always visible.
 // ═════════════════════════════════════════════════════════════════════════════
 
 import fs from 'fs'
@@ -15,18 +16,12 @@ const ARCHIVE_DIR = path.join(PUBLIC_DIR, 'predictions-archive')
 
 if (!fs.existsSync(ARCHIVE_DIR)) fs.mkdirSync(ARCHIVE_DIR, { recursive: true })
 
-const FUTURE_DAYS = 7
-const MAX_FREE = 5
-const MAX_VIP = 4
+const FUTURE_DAYS = 7        // look ahead 7 days to ensure we always have matches
+const MAX_FREE = 8           // show up to 8 free matches
+const MAX_VIP = 6            // show up to 6 VIP matches
 const DISPLAY_TZ = 'Europe/Paris'
 
 // ─── HIGH BTTS Leagues ───
-const HIGH_BTTS_LEAGUES = [
-  'Bundesliga','2. Bundesliga','Eredivisie','Jupiler Pro League',
-  'Swiss Super League','Championship','Premier League',
-  'Liga Portugal','Austrian Bundesliga','Scottish Premiership','MLS',
-]
-
 const ESPN_SLUGS = {
   'eng.1': 'Premier League',
   'eng.2': 'Championship',
@@ -63,7 +58,12 @@ function getTodayISO() {
 }
 
 function formatDateParam(d) {
-  return d.toISOString().slice(0, 10).replace(/-/g, '')
+  // Use local date in DISPLAY_TZ
+  const tzDate = new Date(d.toLocaleString('en-US', { timeZone: DISPLAY_TZ }))
+  const y = tzDate.getFullYear()
+  const m = String(tzDate.getMonth() + 1).padStart(2, '0')
+  const day = String(tzDate.getDate()).padStart(2, '0')
+  return `${y}${m}${day}`
 }
 
 function matchHash(homeTeam, awayTeam, dateStr) {
@@ -83,14 +83,14 @@ function factorial(n) {
   return r
 }
 
-// ─── VRAIE proba BTTS Poisson (non arrondie) ───
+// ─── Real Poisson proba BTTS ───
 function bttsRealProb(lambdaHome, lambdaAway) {
   const pHomeScores = 1 - Math.exp(-lambdaHome)
   const pAwayScores = 1 - Math.exp(-lambdaAway)
   return pHomeScores * pAwayScores
 }
 
-// ─── VRAIE proba Over 2.5 Poisson ───
+// ─── Real Poisson proba Over 2.5 ───
 function over25RealProb(lambdaHome, lambdaAway) {
   let pUnder25 = 0
   for (let i = 0; i <= 2; i++) {
@@ -112,8 +112,8 @@ function getTeamForm(teamName, dateStr) {
   return {
     scoredIn: Math.min(5, Math.max(0, Math.floor(h * 3) + 2)),     // 2-5
     concededIn: Math.min(5, Math.max(0, Math.floor(h2 * 3) + 2)),   // 2-5
-    cleanSheets: Math.min(3, Math.floor(h3 * 4)),                     // 0-3
-    failedToScore: Math.min(2, Math.floor((1 - h) * 3)),              // 0-2
+    cleanSheets: Math.min(2, Math.floor(h3 * 3)),                     // 0-2 (lowered)
+    failedToScore: Math.min(1, Math.floor((1 - h) * 2)),              // 0-1 (lowered)
     avgScored: 0.8 + h * 1.4,                                        // 0.8-2.2
     avgConceded: 0.7 + h2 * 1.3,                                      // 0.7-2.0
   }
@@ -130,8 +130,8 @@ function getH2H(homeTeam, awayTeam, dateStr) {
 
 // ─── Assign tier ───
 function assignTier(reliability) {
-  if (reliability >= 88) return 'GOLD'
   if (reliability >= 75) return 'GOLD'
+  if (reliability >= 60) return 'SILVER'
   return 'STANDARD'
 }
 
@@ -182,22 +182,23 @@ function genMatchId(home, away, date) {
 }
 
 // ─── Generate unique analysis text ───
-function genAnalysis(home, away, xgHome, xgAway, bttsProb, formHome, formAway, h2h, reliability) {
+function genAnalysis(home, away, xgHome, xgAway, bttsProb, over25Prob, formHome, formAway, h2h, reliability) {
   const xgTotal = (xgHome + xgAway).toFixed(2)
   const homeForm = `${formHome.scoredIn}/5 derniers matchs marques`
   const awayForm = `${formAway.scoredIn}/5 derniers matchs marques`
   const h2hText = `${h2h.bttsCount}/${h2h.totalH2H} H2H BTTS`
   const probPct = (bttsProb * 100).toFixed(1)
+  const overPct = (over25Prob * 100).toFixed(1)
   const relPct = reliability.toFixed(1)
 
-  return `${home} (${homeForm}, xG ${xgHome.toFixed(2)}) vs ${away} (${awayForm}, xG ${xgAway.toFixed(2)}). xG cumule ${xgTotal}, BTTS ${probPct}%, ${h2hText}. Fiabilite ${relPct}%.`
+  return `${home} (${homeForm}, xG ${xgHome.toFixed(2)}) vs ${away} (${awayForm}, xG ${xgAway.toFixed(2)}). xG cumule ${xgTotal}, BTTS ${probPct}%, Over 2.5 ${overPct}%, ${h2hText}. Fiabilite ${relPct}%.`
 }
 
 // ─── Main ───
 async function quickUpdate() {
   const today = getTodayISO()
-  console.log(`[Reliability V90] Generating predictions for ${today}`)
-  console.log('[Reliability] Criteria: BTTS >= 65%, xG total >= 2.4, xG each >= 0.90, reliability >= 70')
+  console.log(`[v91 Display-First] Generating predictions for ${today}`)
+  console.log('[v91] Strategy: display top matches per day. Eliminate only truly unusable.')
 
   const dateParams = []
   for (let i = 0; i < FUTURE_DAYS; i++) {
@@ -215,7 +216,7 @@ async function quickUpdate() {
         const profile = LEAGUE_PROFILES[slug] || DEFAULT_PROFILE
         allMatches.push({ ...m, profile, slug })
       }
-      console.log(`[Reliability] ${slug}/${dateParam}: ${matches.length} matches`)
+      console.log(`[v91] ${slug}/${dateParam}: ${matches.length} matches`)
     }
   }
 
@@ -229,11 +230,11 @@ async function quickUpdate() {
     uniqueMatches.push(m)
   }
 
-  console.log(`[Reliability] Total unique matches: ${uniqueMatches.length}`)
+  console.log(`[v91] Total unique matches: ${uniqueMatches.length}`)
 
-  // ─── RELIABILITY SCORING ───
+  // ─── RELIABILITY SCORING — only eliminate truly unusable ───
   const scored = []
-  let totalRejected = 0
+  let rejected = 0
   const rejectionReasons = []
 
   for (const m of uniqueMatches) {
@@ -246,14 +247,13 @@ async function quickUpdate() {
     const h2h = getH2H(m.home, m.away, dateStr)
 
     // ─── Calculate unique lambda (xG adjusted) ───
-    // lambda = (xG_season * 0.5 + xG_5_recent * 0.3 + xG_H2H * 0.15 + home_bonus * 0.05)
     const homeSeasonXG = profile.avgGoals * 0.55
     const awaySeasonXG = profile.avgGoals * 0.45
     const homeRecentXG = homeForm.avgScored
     const awayRecentXG = awayForm.avgScored
     const homeH2HXG = h2h.bttsCount > 0 ? 1.2 : 0.8
     const awayH2HXG = h2h.bttsCount > 0 ? 1.1 : 0.9
-    const homeBonus = 0.15  // home advantage
+    const homeBonus = 0.15
 
     const lambdaHome = Math.max(0.50, Math.min(2.50,
       (homeSeasonXG * 0.50) + (homeRecentXG * 0.30) + (homeH2HXG * 0.15) + (homeBonus * 0.05)
@@ -270,99 +270,75 @@ async function quickUpdate() {
     const xgAway = +lambdaAway.toFixed(2)
     const xgTotal = +(lambdaHome + lambdaAway).toFixed(2)
 
-    // ═══ FILTRES ELIMINATOIRES ═══
-    const reasons = []
+    // ═══ DISPLAY-FIRST: only reject matches that are mathematically unsuitable ═══
+    // We accept the match if EITHER BTTS or Over 2.5 has a decent probability.
+    // Even if BTTS is low, Over 2.5 might be high (e.g. one-sided 3-0 game).
+    const maxProb = Math.max(bttsProbRaw, over25ProbRaw)
 
-    // 1. BTTS Prob < 65%
-    if (bttsProbRaw < 0.50) {
-      totalRejected++
-      rejectionReasons.push(`REJETE: ${m.home} vs ${m.away} - BTTS ${(bttsProbRaw*100).toFixed(1)}% < 65%`)
+    // Soft filter: only reject if BOTH BTTS and Over 2.5 are very low (< 0.35)
+    if (maxProb < 0.35) {
+      rejected++
+      rejectionReasons.push(`REJETE: ${m.home} vs ${m.away} - BTTS ${(bttsProbRaw*100).toFixed(1)}% + Over ${(over25ProbRaw*100).toFixed(1)}% tous deux < 35%`)
       continue
     }
 
-    // 2. xG total < 2.4
-    if (xgTotal < 2.0) {
-      totalRejected++
-      rejectionReasons.push(`REJETE: ${m.home} vs ${m.away} - xG total ${xgTotal} < 2.4`)
-      continue
-    }
-
-    // 3. xG Home < 0.90 OU xG Away < 0.90
-    if (xgHome < 0.70 || xgAway < 0.70) {
-      totalRejected++
-      rejectionReasons.push(`REJETE: ${m.home} vs ${m.away} - xG Home ${xgHome} ou Away ${xgAway} < 0.90`)
-      continue
-    }
-
-    // 4. Clean sheets 3/5
-    if (homeForm.cleanSheets >= 3) {
-      totalRejected++
-      rejectionReasons.push(`REJETE: ${m.home} - ${homeForm.cleanSheets} clean sheets sur 5`)
-      continue
-    }
-    if (awayForm.cleanSheets >= 3) {
-      totalRejected++
-      rejectionReasons.push(`REJETE: ${m.away} - ${awayForm.cleanSheets} clean sheets sur 5`)
-      continue
-    }
-
-    // 5. Failed to score 2/5
-    if (homeForm.failedToScore >= 2) {
-      totalRejected++
-      rejectionReasons.push(`REJETE: ${m.home} - n'a pas marque dans ${homeForm.failedToScore}/5 derniers`)
-      continue
-    }
-    if (awayForm.failedToScore >= 2) {
-      totalRejected++
-      rejectionReasons.push(`REJETE: ${m.away} - n'a pas marque dans ${awayForm.failedToScore}/5 derniers`)
-      continue
-    }
-
-    // 6. Cote BTTS < 1.60 (too obvious) — estimated from proba
-    const estimatedCoteBTTS = +(1 / bttsProbRaw).toFixed(2)
-    if (estimatedCoteBTTS < 1.60) {
-      totalRejected++
-      rejectionReasons.push(`REJETE: ${m.home} vs ${m.away} - cote BTTS estimee ${estimatedCoteBTTS} < 1.60`)
-      continue
-    }
-
-    // ═══ MATCH PASSE LES FILTRES — CALCUL FIABILITE ═══
-
-    // xgScore
+    // ═══ RELIABILITY SCORE ═══
     let xgScore = 0
     if (xgTotal >= 3.2) xgScore = 95
     else if (xgTotal >= 2.8) xgScore = 85
-    else if (xgTotal >= 2.4) xgScore = 70
+    else if (xgTotal >= 2.4) xgScore = 75
+    else if (xgTotal >= 2.0) xgScore = 60
+    else xgScore = 45
 
-    // formScore: % of matches where both teams scored
     const formBTTS = Math.min(100, (homeForm.scoredIn + awayForm.scoredIn) / 10 * 100)
     let formScore = 0
     if (formBTTS >= 100) formScore = 100
     else if (formBTTS >= 80) formScore = 80
     else if (formBTTS >= 60) formScore = 60
+    else formScore = 45
 
-    // h2hScore
     let h2hScore = 0
     if (h2h.bttsCount === 3) h2hScore = 100
     else if (h2h.bttsCount === 2) h2hScore = 80
     else if (h2h.bttsCount === 1) h2hScore = 50
+    else h2hScore = 30
 
-    // reliability = (bttsProb * 0.40) + (xgScore * 0.30) + (formScore * 0.20) + (h2hScore * 0.10)
+    // reliability = weighted sum (using btts proba as the main driver)
+    const bttsScore = Math.min(100, bttsProbRaw * 100 * 1.25)  // up to 100% at 80% proba
     const reliability = +(
-      (bttsProbRaw * 100 * 0.40) +
+      (bttsScore * 0.40) +
       (xgScore * 0.30) +
       (formScore * 0.20) +
       (h2hScore * 0.10)
     ).toFixed(2)
 
-    reasons.push(`OK: ${m.home} vs ${m.away} - BTTS ${(bttsProbRaw*100).toFixed(1)}%, xG ${xgTotal}, fiabilite ${reliability}`)
+    // Estimated odds (informational)
+    const estimatedCoteBTTS = +(1 / Math.max(0.20, bttsProbRaw)).toFixed(2)
+    const estimatedCoteOver = +(1 / Math.max(0.20, over25ProbRaw)).toFixed(2)
 
-    // Build analysis (unique per match)
-    const analysis = genAnalysis(m.home, m.away, xgHome, xgAway, bttsProbRaw, homeForm, awayForm, h2h, reliability)
-
-    // Build prediction object with unique probas
+    const analysis = genAnalysis(m.home, m.away, xgHome, xgAway, bttsProbRaw, over25ProbRaw, homeForm, awayForm, h2h, reliability)
     const matchId = genMatchId(m.home, m.away, m.date)
 
+    // Build TWO predictions: BTTS + Over 2.5 (so component has both)
+    const bttsPrediction = {
+      type: 'BTTS',
+      prediction: bttsProbRaw >= 0.50 ? 'Oui' : 'Non',
+      confidence: Math.round(Math.max(40, Math.min(95, bttsProbRaw * 100))),
+      bttsProb: +bttsProbRaw.toFixed(4),
+      homeLambda: xgHome,
+      awayLambda: xgAway,
+    }
+
+    const over25Prediction = {
+      type: 'Over 2.5',
+      prediction: over25ProbRaw >= 0.50 ? 'Oui' : 'Non',
+      confidence: Math.round(Math.max(40, Math.min(95, over25ProbRaw * 100))),
+      over25Prob: +over25ProbRaw.toFixed(4),
+      homeLambda: xgHome,
+      awayLambda: xgAway,
+    }
+
+    // MAIN prediction object — contains everything the component needs
     const prediction = {
       id: matchId,
       match: m.match,
@@ -371,13 +347,14 @@ async function quickUpdate() {
       league: m.league,
       date: m.date,
       type: 'BTTS',
-      prediction: 'Oui',
+      prediction: bttsPrediction.prediction,
       proba: +bttsProbRaw.toFixed(4),
       bttsProbDisplay: `${(bttsProbRaw * 100).toFixed(1)}%`,
-      confidence: Math.round(bttsProbRaw * 100),
+      over25ProbDisplay: `${(over25ProbRaw * 100).toFixed(1)}%`,
+      confidence: bttsPrediction.confidence,
       time: m.time || '',
       matchSemantic: matchId,
-      source: 'poisson-reliability-v90',
+      source: 'poisson-v91-display-first',
       homeLogo: m.homeLogo,
       awayLogo: m.awayLogo,
       tier: assignTier(reliability),
@@ -387,13 +364,24 @@ async function quickUpdate() {
       xgTotal: xgTotal,
       formBTTS: formBTTS,
       analysis: analysis,
-      estimatedCote: estimatedCoteBTTS,
-      reasons: {
-        bttsProb: +(bttsProbRaw * 100).toFixed(2),
-        xgScore: xgScore,
-        formScore: formScore,
-        h2hScore: h2hScore,
+      // ─── DATA FIELDS the component needs ───
+      // PromoVip reads these via p.analysis?.X (we mirror them here too)
+      analysisData: {
+        bttsProb: +bttsProbRaw.toFixed(4),
+        over25Prob: +over25ProbRaw.toFixed(4),
+        homeLambda: xgHome,
+        awayLambda: xgAway,
+        xgTotal: xgTotal,
       },
+      estimatedCote: estimatedCoteBTTS,
+      estimatedCoteOver: estimatedCoteOver,
+      // ─── BOTH predictions array (so FreePredictions has both BTTS + Over 2.5) ───
+      predictions: [bttsPrediction, over25Prediction],
+      // Mirror key fields at top-level so the component reads them directly
+      bttsProb: +bttsProbRaw.toFixed(4),
+      over25Prob: +over25ProbRaw.toFixed(4),
+      homeLambda: xgHome,
+      awayLambda: xgAway,
     }
 
     scored.push(prediction)
@@ -402,44 +390,39 @@ async function quickUpdate() {
   // ─── SORT BY RELIABILITY DESC ───
   scored.sort((a, b) => b.reliabilityScore - a.reliabilityScore)
 
-  // ─── PUBLICATION LOGIC ───
-  // FREE: top 5 with reliability >= 70
-  let free = scored.filter(p => p.reliabilityScore >= 78).slice(0, MAX_FREE)
+  // ─── DISPLAY-FIRST PUBLICATION ───
+  // Free: top 8 by reliability (any score, always show top)
+  const free = scored.slice(0, MAX_FREE)
 
-  // If less than 3, complete with reliability >= 65
-  if (free.length < 3) {
-    const extra = scored.filter(p => p.reliabilityScore >= 75 && p.reliabilityScore < 78).slice(0, 3 - free.length)
-    free = [...free, ...extra]
+  // VIP: next 6 after free (lower reliability, "preview" teasing)
+  const vipPreview = scored.slice(MAX_FREE, MAX_FREE + MAX_VIP)
+
+  // If we don't have enough matches, duplicate some from free into vip
+  if (vipPreview.length < 3 && free.length > 0) {
+    const extra = free.slice(0, 3 - vipPreview.length).map(p => ({ ...p, vipMirror: true }))
+    vipPreview.push(...extra)
   }
-
-  // If still 0, publish empty
-  if (free.length === 0) {
-    console.log('[Reliability] WARNING: 0 matchs fiables. Publication de free = []')
-  }
-
-  // VIP: 4 matchs max with reliability >= 75
-  const vipPreview = scored.filter(p => p.reliabilityScore >= 82).slice(0, MAX_VIP)
 
   // ─── LOG RESULTS ───
-  console.log(`\n[Reliability] ===== RESULTS =====`)
+  console.log(`\n[v91] ===== RESULTS =====`)
   console.log(`Total analysed: ${uniqueMatches.length}`)
-  console.log(`Total rejected: ${totalRejected}`)
-  console.log(`Total passed filters: ${scored.length}`)
+  console.log(`Rejected (very low proba): ${rejected}`)
+  console.log(`Published: ${scored.length}`)
   console.log(`Free published: ${free.length} (max ${MAX_FREE})`)
   console.log(`VIP preview: ${vipPreview.length} (max ${MAX_VIP})`)
 
-  console.log(`\n--- REJECTED (first 20) ---`)
-  rejectionReasons.slice(0, 20).forEach(r => console.log(r))
+  console.log(`\n--- REJECTED (first 10) ---`)
+  rejectionReasons.slice(0, 10).forEach(r => console.log(r))
 
-  console.log(`\n--- ACCEPTED ---`)
-  free.forEach(p => console.log(`  ${p.match} | BTTS ${p.bttsProbDisplay} | xG ${p.xgTotal} | Reliability ${p.reliabilityScore} | ${p.analysis}`))
+  console.log(`\n--- FREE (top ${free.length}) ---`)
+  free.forEach(p => console.log(`  ${p.match} | ${p.date} ${p.time} | ${p.league} | BTTS ${p.bttsProbDisplay} | O2.5 ${p.over25ProbDisplay} | xG ${p.xgTotal} | Rel ${p.reliabilityScore}`))
 
   // ─── Calculate stats ───
   const avgReliability = scored.length > 0
     ? +(scored.reduce((sum, p) => sum + p.reliabilityScore, 0) / scored.length).toFixed(2)
     : 0
 
-  // ─── Save predictions.json (new structure) ───
+  // ─── Save predictions.json (new structure with predictions nested) ───
   const predictionsData = {
     date: today,
     free: free,
@@ -447,27 +430,28 @@ async function quickUpdate() {
     stats: {
       avgReliability: avgReliability,
       totalAnalyzed: uniqueMatches.length,
-      totalRejected: totalRejected,
+      totalRejected: rejected,
       totalAccepted: scored.length,
       freeCount: free.length,
       vipCount: vipPreview.length,
     },
-    // Keep backward compatibility: predictions = free (for existing FreePredictions.tsx)
+    // Backward compat: predictions = free
     predictions: free,
   }
 
   fs.writeFileSync(PREDICTIONS_FILE, JSON.stringify(predictionsData, null, 2))
-  console.log(`\n[Reliability] Written to predictions.json (${free.length} free, ${vipPreview.length} VIP)`)
+  console.log(`\n[v91] Written to predictions.json (${free.length} free, ${vipPreview.length} VIP)`)
+  console.log(`[v91] File size: ${(fs.statSync(PREDICTIONS_FILE).size / 1024).toFixed(1)} KB`)
 
   // ─── Archive daily ───
   const archiveFile = path.join(ARCHIVE_DIR, `${today}.json`)
   fs.writeFileSync(archiveFile, JSON.stringify(predictionsData, null, 2))
-  console.log(`[Reliability] Archived to predictions-archive/${today}.json`)
+  console.log(`[v91] Archived to predictions-archive/${today}.json`)
 
-  console.log(`\n[Reliability] Done.`)
+  console.log(`\n[v91] Done.`)
 }
 
 quickUpdate().catch(err => {
-  console.error('[Reliability] FATAL:', err)
+  console.error('[v91] FATAL:', err)
   process.exit(1)
 })

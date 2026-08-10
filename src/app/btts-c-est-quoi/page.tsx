@@ -188,7 +188,7 @@ export default function BttsGuidePage() {
               BTTS — <span className="text-gold neon-glow">GUIDE COMPLET</span>
             </h1>
             <p className="text-cendre text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              Both Teams To Score : fonctionnement, stratégies, statistiques et FAQ pour comprendre et parier intelligemment.
+              Both Teams To Score : fonctionnement et exemples pour parier intelligemment.
             </p>
             <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
           </div>
@@ -209,21 +209,18 @@ export default function BttsGuidePage() {
                 </h2>
                 <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
-                    <strong className="text-gold">BTTS</strong> signifie <strong className="text-emerald">Both Teams To Score</strong> — en français, « les deux équipes marquent ». C&apos;est un marché de paris sportifs où vous pariez que les deux équipes inscriront au moins un but pendant le match.
+                    <strong className="text-gold">BTTS</strong> signifie <strong className="text-emerald">Both Teams To Score</strong> : vous pariez que les deux équipes marqueront au moins un but, indépendamment du score final.
                   </p>
-                  <p>
-                    Le résultat final du match n&apos;a aucune importance. Que le score soit 1-1, 2-3, 4-2 ou 5-1, le pari BTTS est gagné dès que chaque équipe a marqué au moins un but.
-                  </p>
-                  <div className="bg-panel/40 border border-edge/30 rounded-xl p-4 mt-4">
-                    <h3 className="text-papier font-semibold text-sm mb-2">Exemples de résultats BTTS :</h3>
+                  <div className="bg-panel/40 border border-edge/30 rounded-xl p-4">
+                    <h3 className="text-papier font-semibold text-sm mb-2">Exemples :</h3>
                     <ul className="space-y-1.5 text-cendre">
                       <li className="flex items-center gap-2">
                         <span className="text-success">✓</span>
-                        <span>1-1, 2-1, 3-2, 2-3 → <strong className="text-emerald">BTTS Oui = Gagné</strong></span>
+                        <span>1-1, 2-1, 3-2 → <strong className="text-emerald">BTTS Oui = Gagné</strong></span>
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="text-lose">✗</span>
-                        <span>0-0, 2-0, 0-3, 1-0 → <strong className="text-lose">BTTS Oui = Perdu</strong></span>
+                        <span>0-0, 2-0, 0-3 → <strong className="text-lose">BTTS Oui = Perdu</strong></span>
                       </li>
                     </ul>
                   </div>
@@ -238,159 +235,114 @@ export default function BttsGuidePage() {
                 >
                   2. BTTS Oui vs BTTS Non
                 </h2>
-                <div className="space-y-3 text-cendre text-sm leading-relaxed">
-                  <p>
-                    Il existe deux variantes du pari BTTS :
-                  </p>
-                  <div className="grid gap-4 sm:grid-cols-2 mt-4">
-                    <div className="bg-panel/40 border border-emerald/20 rounded-xl p-4">
-                      <h3 className="text-emerald font-semibold mb-2">BTTS Oui</h3>
-                      <p className="text-cendre text-xs">Vous pariez que les deux équipes marqueront au moins un but. C&apos;est le pari le plus populaire sur ce marché. Les cotes sont généralement entre 1.5 et 2.5 selon les statistiques des équipes.</p>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="bg-panel/40 border border-emerald/20 rounded-xl p-4">
+                    <h3 className="text-emerald font-semibold mb-2">BTTS Oui</h3>
+                    <p className="text-cendre text-xs">Les deux équipes marquent au moins un but (cotes ~1.5–2.5).</p>
+                  </div>
+                  <div className="bg-panel/40 border border-lose/20 rounded-xl p-4">
+                    <h3 className="text-lose font-semibold mb-2">BTTS Non</h3>
+                    <p className="text-cendre text-xs">Au moins une équipe ne marque pas : 0-0, 2-0, 0-3… (cotes ~2.0–4.0).</p>
+                  </div>
+                </div>
+              </article>
+
+              {/* 3. Meilleurs championnats */}
+              <article className="card p-6">
+                <h2
+                  className="text-2xl text-papier mb-4"
+                  style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
+                >
+                  3. Les meilleurs championnats pour le BTTS
+                </h2>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {[
+                    { league: 'Eredivisie (Hollande)', rate: '~58%' },
+                    { league: 'Bundesliga (Allemagne)', rate: '~56%' },
+                    { league: 'Liga MX (Mexique)', rate: '~55%' },
+                    { league: 'Jupiler Pro League (Belgique)', rate: '~54%' },
+                    { league: 'Premier League (Angleterre)', rate: '~53%' },
+                    { league: 'Serie A (Italie)', rate: '~48%' },
+                  ].map((item, i) => (
+                    <div key={i} className="bg-panel/40 border border-edge/30 rounded-xl p-3 flex items-center justify-between">
+                      <h3 className="text-papier font-semibold text-sm">{item.league}</h3>
+                      <span className="text-gold font-mono text-xs">{item.rate}</span>
                     </div>
-                    <div className="bg-panel/40 border border-lose/20 rounded-xl p-4">
-                      <h3 className="text-lose font-semibold mb-2">BTTS Non</h3>
-                      <p className="text-cendre text-xs">Vous pariez qu&apos;au moins une équipe ne marquera pas. Ce pari est gagnant si le match se termine en 0-0, ou si une équipe garde sa cage inviolée. Les cotes sont souvent plus élevées (2.0–4.0).</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </article>
 
-              {/* 3. Différence BTTS vs Over 2.5 */}
+              {/* 4. Comment l'IA prédit le BTTS */}
               <article className="card p-6">
                 <h2
                   className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
-                  3. BTTS vs Over 2.5 — Quelle différence ?
+                  4. Comment l&apos;IA de BTTSPredict prédit le BTTS
                 </h2>
                 <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
-                    Bien que souvent associés, <strong className="text-gold">BTTS</strong> et <strong className="text-gold">Over 2.5</strong> sont deux marchés distincts :
+                    Notre algorithme analyse plus de 50 variables (xG, forme récente, taux BTTS historique, blessures, confrontations directes) pour estimer la probabilité que les deux équipes marquent.
                   </p>
-                  <div className="overflow-x-auto mt-4">
-                    <table className="w-full text-xs border border-edge/30 rounded-lg">
-                      <thead>
-                        <tr className="bg-panel/60 text-cendre">
-                          <th className="px-3 py-2 text-left">Score</th>
-                          <th className="px-3 py-2 text-center">BTTS Oui</th>
-                          <th className="px-3 py-2 text-center">Over 2.5</th>
-                        </tr>
-                      </thead>
-                      <tbody className="text-cendre">
-                        <tr className="border-t border-edge/20">
-                          <td className="px-3 py-2">1-1</td>
-                          <td className="px-3 py-2 text-center text-success">Gagné</td>
-                          <td className="px-3 py-2 text-center text-lose">Perdu</td>
-                        </tr>
-                        <tr className="border-t border-edge/20">
-                          <td className="px-3 py-2">2-1</td>
-                          <td className="px-3 py-2 text-center text-success">Gagné</td>
-                          <td className="px-3 py-2 text-center text-success">Gagné</td>
-                        </tr>
-                        <tr className="border-t border-edge/20">
-                          <td className="px-3 py-2">3-0</td>
-                          <td className="px-3 py-2 text-center text-lose">Perdu</td>
-                          <td className="px-3 py-2 text-center text-success">Gagné</td>
-                        </tr>
-                        <tr className="border-t border-edge/20">
-                          <td className="px-3 py-2">0-0</td>
-                          <td className="px-3 py-2 text-center text-lose">Perdu</td>
-                          <td className="px-3 py-2 text-center text-lose">Perdu</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <p className="mt-3">
-                    La combinaison <strong className="text-emerald">BTTS + Over 2.5</strong> est un marché très populaire : il exige que les deux équipes marquent ET que le total dépasse 2.5 buts. Les cotes sont plus élevées (2.5–4.0) mais la probabilité est plus faible.
-                  </p>
-                </div>
-              </article>
-
-              {/* 4. Meilleurs championnats */}
-              <article className="card p-6">
-                <h2
-                  className="text-2xl text-papier mb-4"
-                  style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
-                >
-                  4. Les meilleurs championnats pour le BTTS
-                </h2>
-                <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
-                    Certains championnats produisent naturellement plus de matchs BTTS en raison de leur style de jeu offensif :
+                    Détails complets sur notre <a href="/methodologie" className="text-emerald underline underline-offset-2">page Méthodologie</a>. Aucun résultat futur n&apos;est garanti.
                   </p>
-                  <div className="grid gap-3 sm:grid-cols-2 mt-4">
-                    {[
-                      { league: 'Eredivisie (Hollande)', rate: '~58%', reason: 'Jeu très offensif, défenses perméables' },
-                      { league: 'Bundesliga (Allemagne)', rate: '~56%', reason: 'High pressing, beaucoup de buts' },
-                      { league: 'Liga MX (Mexique)', rate: '~55%', reason: 'Style ouvert, matchs spectaculaires' },
-                      { league: 'Jupiler Pro League (Belgique)', rate: '~54%', reason: 'Equipes offensives, scores élevés' },
-                      { league: 'Premier League (Angleterre)', rate: '~53%', reason: 'Qualité offensive, variété tactique' },
-                      { league: 'Serie A (Italie)', rate: '~48%', reason: 'Plus défensive, BTTS Non intéressant' },
-                    ].map((item, i) => (
-                      <div key={i} className="bg-panel/40 border border-edge/30 rounded-xl p-3">
-                        <div className="flex items-center justify-between mb-1">
-                          <h3 className="text-papier font-semibold text-sm">{item.league}</h3>
-                          <span className="text-gold font-mono text-xs">{item.rate}</span>
-                        </div>
-                        <p className="text-cendre text-xs">{item.reason}</p>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </article>
 
-              {/* 5. Stratégies BTTS */}
+              {/* 5. BTTS vs Over 2.5 */}
               <article className="card p-6">
                 <h2
                   className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
-                  5. Stratégies pour parier sur le BTTS
+                  5. BTTS vs Over 2.5
                 </h2>
-                <div className="space-y-3 text-cendre text-sm leading-relaxed">
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-3">
-                      <span className="text-gold mt-0.5 flex-shrink-0">→</span>
-                      <div>
-                        <strong className="text-papier">Analyser les statistiques de buts</strong>
-                        <p className="text-cendre text-xs mt-0.5">Regardez le taux de BTTS des deux équipes sur les 10 derniers matchs. Si les deux équipes ont un taux &gt; 60%, le BTTS Oui est statistiquement favorable.</p>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-gold mt-0.5 flex-shrink-0">→</span>
-                      <div>
-                        <strong className="text-papier">Considérer les blessures</strong>
-                        <p className="text-cendre text-xs mt-0.5">L&apos;absence d&apos;un attaquant clé ou d&apos;un défenseur central peut significativement modifier la probabilité de BTTS.</p>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-gold mt-0.5 flex-shrink-0">→</span>
-                      <div>
-                        <strong className="text-papier">Utiliser l&apos;IA pour les prédictions</strong>
-                        <p className="text-cendre text-xs mt-0.5">Notre équipe analyse 50+ variables (xG, forme, historique) pour générer des pronostics BTTS avec un taux de réussite réel (voir /historique). Aucun résultat n&apos;est garanti.</p>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-gold mt-0.5 flex-shrink-0">→</span>
-                      <div>
-                        <strong className="text-papier">Combiner BTTS + Over 2.5</strong>
-                        <p className="text-cendre text-xs mt-0.5">Quand les statistiques indiquent un match ouvert avec beaucoup de buts, la combinaison BTTS + Over 2.5 offre des cotes plus élevées pour un risque calculé.</p>
-                      </div>
-                    </li>
-                  </ul>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-xs border border-edge/30 rounded-lg">
+                    <thead>
+                      <tr className="bg-panel/60 text-cendre">
+                        <th className="px-3 py-2 text-left">Score</th>
+                        <th className="px-3 py-2 text-center">BTTS Oui</th>
+                        <th className="px-3 py-2 text-center">Over 2.5</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-cendre">
+                      <tr className="border-t border-edge/20">
+                        <td className="px-3 py-2">1-1</td>
+                        <td className="px-3 py-2 text-center text-success">Gagné</td>
+                        <td className="px-3 py-2 text-center text-lose">Perdu</td>
+                      </tr>
+                      <tr className="border-t border-edge/20">
+                        <td className="px-3 py-2">2-1</td>
+                        <td className="px-3 py-2 text-center text-success">Gagné</td>
+                        <td className="px-3 py-2 text-center text-success">Gagné</td>
+                      </tr>
+                      <tr className="border-t border-edge/20">
+                        <td className="px-3 py-2">3-0</td>
+                        <td className="px-3 py-2 text-center text-lose">Perdu</td>
+                        <td className="px-3 py-2 text-center text-success">Gagné</td>
+                      </tr>
+                      <tr className="border-t border-edge/20">
+                        <td className="px-3 py-2">0-0</td>
+                        <td className="px-3 py-2 text-center text-lose">Perdu</td>
+                        <td className="px-3 py-2 text-center text-lose">Perdu</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </article>
 
               {/* Disclaimer */}
               <div className="bg-lose/10 border border-lose/30 rounded-xl p-4 text-center">
                 <p className="text-cendre text-xs">
-                  ⚠ Les paris sportifs comportent des risques financiers. Les statistiques mentionnées (voir /historique) sont basées sur des données historiques vérifiables et ne garantissent pas les résultats futurs. Pariez responsable — <a href="/jouer-responsable" className="text-emerald underline underline-offset-2">en savoir plus</a>.
+                  ⚠ Les paris sportifs comportent des risques. Les statistiques (voir <a href="/historique" className="text-emerald underline underline-offset-2">/historique</a>) ne garantissent pas les résultats futurs. Pariez responsable — <a href="/jouer-responsable" className="text-emerald underline underline-offset-2">en savoir plus</a>.
                 </p>
               </div>
             </div>
           </div>
         </section>
-      
+
         {/* Pronostics gratuits + VIP + APK sur toutes les pages */}
         <FreePredictionsWidget />
         <VipCardWidget />
