@@ -49,7 +49,7 @@ jobs:
       - name: Enrichir les pronostics avec Gemini
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        timeout-minutes: 5
+        timeout-minutes: 10
         run: python scripts/enrich_predictions.py
         continue-on-error: true
 
