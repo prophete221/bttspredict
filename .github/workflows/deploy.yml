@@ -38,6 +38,21 @@ jobs:
         timeout-minutes: 5
         run: node scripts/quick-update-predictions.mjs
 
+      - name: Setup Python for Gemini enrichment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install google-genai
+        run: pip install google-genai
+
+      - name: Enrichir les pronostics avec Gemini
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        timeout-minutes: 5
+        run: python scripts/enrich_predictions.py
+        continue-on-error: true
+
       - name: Verify results (GOLD priority — free ESPN, no API key)
         id: verify
         timeout-minutes: 20

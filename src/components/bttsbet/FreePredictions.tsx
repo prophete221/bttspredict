@@ -82,6 +82,8 @@ interface MatchData {
   reliabilityScore?: number
   xgTotal?: number
   analysis?: string
+  geminiKeyFact?: string
+  geminiAnalysis?: string
 }
 
 type FilterType = 'all' | 'BTTS' | 'O2.5'
@@ -366,6 +368,21 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
               className="overflow-hidden"
             >
               <div className="mt-4 pt-4 border-t border-edge space-y-3">
+                {/* Gemini AI enrichment */}
+                {match.geminiKeyFact && (
+                  <div className="bg-[#63D6FF]/5 rounded-lg p-3 border border-[#63D6FF]/20">
+                    <div className="flex items-center gap-1.5 mb-2">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#63D6FF" strokeWidth="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                      </svg>
+                      <span className="text-[10px] uppercase tracking-widest font-bold text-[#63D6FF]">AI Analysis</span>
+                    </div>
+                    <p className="text-[11px] text-[#F2F7F5] font-semibold mb-2">📊 {match.geminiKeyFact}</p>
+                    <p className="text-[11px] text-[#B5C4C9] leading-relaxed">{match.geminiAnalysis}</p>
+                  </div>
+                )}
+
                 {/* CTA */}
                 <div>
                   <div className="text-[10px] uppercase tracking-widest font-bold text-cendre mb-2">Parier sur ce match</div>
@@ -469,6 +486,8 @@ export default function FreePredictions() {
               reliabilityScore: p.reliabilityScore,
               xgTotal: p.xgTotal,
               analysis: p.analysis,
+              geminiKeyFact: p.gemini_key_fact,
+              geminiAnalysis: p.gemini_analysis,
             })
           }
         }
