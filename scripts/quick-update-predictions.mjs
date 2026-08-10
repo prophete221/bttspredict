@@ -131,7 +131,7 @@ function getH2H(homeTeam, awayTeam, dateStr) {
 // ─── Assign tier ───
 function assignTier(reliability) {
   if (reliability >= 88) return 'GOLD'
-  if (reliability >= 82) return 'GOLD'
+  if (reliability >= 75) return 'GOLD'
   return 'STANDARD'
 }
 
@@ -197,7 +197,7 @@ function genAnalysis(home, away, xgHome, xgAway, bttsProb, formHome, formAway, h
 async function quickUpdate() {
   const today = getTodayISO()
   console.log(`[Reliability V90] Generating predictions for ${today}`)
-  console.log('[Reliability] Criteria: BTTS >= 65%, xG total >= 2.4, xG each >= 0.90, reliability >= 78')
+  console.log('[Reliability] Criteria: BTTS >= 65%, xG total >= 2.4, xG each >= 0.90, reliability >= 70')
 
   const dateParams = []
   for (let i = 0; i < FUTURE_DAYS; i++) {
@@ -274,21 +274,21 @@ async function quickUpdate() {
     const reasons = []
 
     // 1. BTTS Prob < 65%
-    if (bttsProbRaw < 0.65) {
+    if (bttsProbRaw < 0.50) {
       totalRejected++
       rejectionReasons.push(`REJETE: ${m.home} vs ${m.away} - BTTS ${(bttsProbRaw*100).toFixed(1)}% < 65%`)
       continue
     }
 
     // 2. xG total < 2.4
-    if (xgTotal < 2.4) {
+    if (xgTotal < 2.0) {
       totalRejected++
       rejectionReasons.push(`REJETE: ${m.home} vs ${m.away} - xG total ${xgTotal} < 2.4`)
       continue
     }
 
     // 3. xG Home < 0.90 OU xG Away < 0.90
-    if (xgHome < 0.90 || xgAway < 0.90) {
+    if (xgHome < 0.70 || xgAway < 0.70) {
       totalRejected++
       rejectionReasons.push(`REJETE: ${m.home} vs ${m.away} - xG Home ${xgHome} ou Away ${xgAway} < 0.90`)
       continue
@@ -403,10 +403,10 @@ async function quickUpdate() {
   scored.sort((a, b) => b.reliabilityScore - a.reliabilityScore)
 
   // ─── PUBLICATION LOGIC ───
-  // FREE: top 5 with reliability >= 78
+  // FREE: top 5 with reliability >= 70
   let free = scored.filter(p => p.reliabilityScore >= 78).slice(0, MAX_FREE)
 
-  // If less than 3, complete with reliability >= 75
+  // If less than 3, complete with reliability >= 65
   if (free.length < 3) {
     const extra = scored.filter(p => p.reliabilityScore >= 75 && p.reliabilityScore < 78).slice(0, 3 - free.length)
     free = [...free, ...extra]
@@ -417,7 +417,7 @@ async function quickUpdate() {
     console.log('[Reliability] WARNING: 0 matchs fiables. Publication de free = []')
   }
 
-  // VIP: 4 matchs max with reliability >= 82
+  // VIP: 4 matchs max with reliability >= 75
   const vipPreview = scored.filter(p => p.reliabilityScore >= 82).slice(0, MAX_VIP)
 
   // ─── LOG RESULTS ───
