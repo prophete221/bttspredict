@@ -56,7 +56,9 @@
       "bttsProb": 0.604,
       "over25Prob": 0.5808,
       "homeLambda": 1.62,
-      "awayLambda": 1.4
+      "awayLambda": 1.4,
+      "gemini_key_fact": "",
+      "gemini_analysis": "Chicago Fire FC (4/5 derniers matchs marques, xG 1.62) vs Portland Timbers (4/5 derniers matchs marques, xG 1.40). xG cumule 3.02, BTTS 60.4%, Over 2.5 58.1%, 3/3 H2H BTTS. Fiabilite 81.7%."
     },
     {
       "id": "norwichc-vs-westbrom-2026-08-15",
@@ -113,7 +115,9 @@
       "bttsProb": 0.576,
       "over25Prob": 0.5438,
       "homeLambda": 1.52,
-      "awayLambda": 1.34
+      "awayLambda": 1.34,
+      "gemini_key_fact": "",
+      "gemini_analysis": "Norwich City (4/5 derniers matchs marques, xG 1.52) vs West Bromwich Albion (4/5 derniers matchs marques, xG 1.34). xG cumule 2.86, BTTS 57.6%, Over 2.5 54.4%, 3/3 H2H BTTS. Fiabilite 80.3%."
     },
     {
       "id": "sanjosee-vs-stlouisc-2026-08-15",
@@ -170,7 +174,9 @@
       "bttsProb": 0.6096,
       "over25Prob": 0.5889,
       "homeLambda": 1.65,
-      "awayLambda": 1.4
+      "awayLambda": 1.4,
+      "gemini_key_fact": "",
+      "gemini_analysis": "San Jose Earthquakes (4/5 derniers matchs marques, xG 1.65) vs St. Louis CITY SC (4/5 derniers matchs marques, xG 1.40). xG cumule 3.05, BTTS 61.0%, Over 2.5 58.9%, 2/3 H2H BTTS. Fiabilite 80.0%."
     },
     {
       "id": "lommelsk-vs-royalcha-2026-08-16",
@@ -227,7 +233,9 @@
       "bttsProb": 0.5827,
       "over25Prob": 0.5516,
       "homeLambda": 1.52,
-      "awayLambda": 1.37
+      "awayLambda": 1.37,
+      "gemini_key_fact": "",
+      "gemini_analysis": "Lommel SK (4/5 derniers matchs marques, xG 1.52) vs Royal Charleroi SC (4/5 derniers matchs marques, xG 1.37). xG cumule 2.89, BTTS 58.3%, Over 2.5 55.2%, 2/3 H2H BTTS. Fiabilite 78.6%."
     },
     {
       "id": "atlantau-vs-redbulln-2026-08-15",
@@ -284,7 +292,9 @@
       "bttsProb": 0.587,
       "over25Prob": 0.5637,
       "homeLambda": 1.64,
-      "awayLambda": 1.3
+      "awayLambda": 1.3,
+      "gemini_key_fact": "",
+      "gemini_analysis": "Atlanta United FC (4/5 derniers matchs marques, xG 1.64) vs Red Bull New York (3/5 derniers matchs marques, xG 1.30). xG cumule 2.94, BTTS 58.7%, Over 2.5 56.4%, 3/3 H2H BTTS. Fiabilite 76.8%."
     },
     {
       "id": "holstein-vs-stpauli-2026-08-14",
@@ -341,7 +351,9 @@
       "bttsProb": 0.5769,
       "over25Prob": 0.5524,
       "homeLambda": 1.63,
-      "awayLambda": 1.27
+      "awayLambda": 1.27,
+      "gemini_key_fact": "",
+      "gemini_analysis": "Holstein Kiel (4/5 derniers matchs marques, xG 1.63) vs St. Pauli (3/5 derniers matchs marques, xG 1.27). xG cumule 2.90, BTTS 57.7%, Over 2.5 55.2%, 3/3 H2H BTTS. Fiabilite 76.3%."
     },
     {
       "id": "lafc-vs-sandiego-2026-08-15",
@@ -398,7 +410,9 @@
       "bttsProb": 0.5573,
       "over25Prob": 0.5363,
       "homeLambda": 1.66,
-      "awayLambda": 1.17
+      "awayLambda": 1.17,
+      "gemini_key_fact": "",
+      "gemini_analysis": "LAFC (4/5 derniers matchs marques, xG 1.66) vs San Diego FC (2/5 derniers matchs marques, xG 1.17). xG cumule 2.83, BTTS 55.7%, Over 2.5 53.6%, 3/3 H2H BTTS. Fiabilite 75.4%."
     },
     {
       "id": "middlesb-vs-lincolnc-2026-08-15",
@@ -455,7 +469,9 @@
       "bttsProb": 0.5922,
       "over25Prob": 0.5622,
       "homeLambda": 1.48,
-      "awayLambda": 1.46
+      "awayLambda": 1.46,
+      "gemini_key_fact": "",
+      "gemini_analysis": "Middlesbrough (3/5 derniers matchs marques, xG 1.48) vs Lincoln City (4/5 derniers matchs marques, xG 1.46). xG cumule 2.94, BTTS 59.2%, Over 2.5 56.2%, 2/3 H2H BTTS. Fiabilite 75.1%."
     }
   ],
   "vipPreview": [
@@ -514,7 +530,9 @@
       "bttsProb": 0.5857,
       "over25Prob": 0.5572,
       "homeLambda": 1.56,
-      "awayLambda": 1.35
+      "awayLambda": 1.35,
+      "gemini_key_fact": "",
+      "gemini_analysis": "Toronto FC (4/5 derniers matchs marques, xG 1.56) vs New England Revolution (3/5 derniers matchs marques, xG 1.35). xG cumule 2.91, BTTS 58.6%, Over 2.5 55.7%, 2/3 H2H BTTS. Fiabilite 74.8%."
     },
     {
       "id": "cerclebr-vs-sinttrui-2026-08-14",
@@ -571,7 +589,9 @@
       "bttsProb": 0.5801,
       "over25Prob": 0.5543,
       "homeLambda": 1.61,
-      "awayLambda": 1.29
+      "awayLambda": 1.29,
+      "gemini_key_fact": "",
+      "gemini_analysis": "Cercle Brugge KSV (4/5 derniers matchs marques, xG 1.61) vs Sint-Truidense (3/5 derniers matchs marques, xG 1.29). xG cumule 2.90, BTTS 58.0%, Over 2.5 55.4%, 2/3 H2H BTTS. Fiabilite 74.5%."
     },
     {
       "id": "herthabe-vs-fcheiden-2026-08-15",
@@ -628,7 +648,9 @@
       "bttsProb": 0.5676,
       "over25Prob": 0.5309,
       "homeLambda": 1.44,
-      "awayLambda": 1.36
+      "awayLambda": 1.36,
+      "gemini_key_fact": "",
+      "gemini_analysis": "Hertha Berlin (3/5 derniers matchs marques, xG 1.44) vs 1. FC Heidenheim 1846 (4/5 derniers matchs marques, xG 1.36). xG cumule 2.80, BTTS 56.8%, Over 2.5 53.1%, 2/3 H2H BTTS. Fiabilite 73.9%."
     },
     {
       "id": "kvkortri-vs-antwerp-2026-08-15",
@@ -685,7 +707,9 @@
       "bttsProb": 0.5667,
       "over25Prob": 0.5302,
       "homeLambda": 1.45,
-      "awayLambda": 1.35
+      "awayLambda": 1.35,
+      "gemini_key_fact": "",
+      "gemini_analysis": "KV Kortrijk (4/5 derniers matchs marques, xG 1.45) vs Antwerp (4/5 derniers matchs marques, xG 1.35). xG cumule 2.80, BTTS 56.7%, Over 2.5 53.0%, 0/3 H2H BTTS. Fiabilite 72.8%."
     },
     {
       "id": "spvgggre-vs-fcnrnber-2026-08-15",
@@ -742,7 +766,9 @@
       "bttsProb": 0.5596,
       "over25Prob": 0.5203,
       "homeLambda": 1.38,
-      "awayLambda": 1.38
+      "awayLambda": 1.38,
+      "gemini_key_fact": "",
+      "gemini_analysis": "SpVgg Greuther Fürth (3/5 derniers matchs marques, xG 1.38) vs 1. FC Nürnberg (4/5 derniers matchs marques, xG 1.38). xG cumule 2.76, BTTS 56.0%, Over 2.5 52.0%, 3/3 H2H BTTS. Fiabilite 72.5%."
     },
     {
       "id": "houstond-vs-lagalaxy-2026-08-15",
@@ -799,7 +825,9 @@
       "bttsProb": 0.5974,
       "over25Prob": 0.5698,
       "homeLambda": 1.54,
-      "awayLambda": 1.43
+      "awayLambda": 1.43,
+      "gemini_key_fact": "",
+      "gemini_analysis": "Houston Dynamo FC (3/5 derniers matchs marques, xG 1.54) vs LA Galaxy (4/5 derniers matchs marques, xG 1.43). xG cumule 2.97, BTTS 59.7%, Over 2.5 57.0%, 1/3 H2H BTTS. Fiabilite 72.4%."
     }
   ],
   "stats": {
@@ -866,7 +894,9 @@
       "bttsProb": 0.604,
       "over25Prob": 0.5808,
       "homeLambda": 1.62,
-      "awayLambda": 1.4
+      "awayLambda": 1.4,
+      "gemini_key_fact": "",
+      "gemini_analysis": "Chicago Fire FC (4/5 derniers matchs marques, xG 1.62) vs Portland Timbers (4/5 derniers matchs marques, xG 1.40). xG cumule 3.02, BTTS 60.4%, Over 2.5 58.1%, 3/3 H2H BTTS. Fiabilite 81.7%."
     },
     {
       "id": "norwichc-vs-westbrom-2026-08-15",
@@ -923,7 +953,9 @@
       "bttsProb": 0.576,
       "over25Prob": 0.5438,
       "homeLambda": 1.52,
-      "awayLambda": 1.34
+      "awayLambda": 1.34,
+      "gemini_key_fact": "",
+      "gemini_analysis": "Norwich City (4/5 derniers matchs marques, xG 1.52) vs West Bromwich Albion (4/5 derniers matchs marques, xG 1.34). xG cumule 2.86, BTTS 57.6%, Over 2.5 54.4%, 3/3 H2H BTTS. Fiabilite 80.3%."
     },
     {
       "id": "sanjosee-vs-stlouisc-2026-08-15",
@@ -980,7 +1012,9 @@
       "bttsProb": 0.6096,
       "over25Prob": 0.5889,
       "homeLambda": 1.65,
-      "awayLambda": 1.4
+      "awayLambda": 1.4,
+      "gemini_key_fact": "",
+      "gemini_analysis": "San Jose Earthquakes (4/5 derniers matchs marques, xG 1.65) vs St. Louis CITY SC (4/5 derniers matchs marques, xG 1.40). xG cumule 3.05, BTTS 61.0%, Over 2.5 58.9%, 2/3 H2H BTTS. Fiabilite 80.0%."
     },
     {
       "id": "lommelsk-vs-royalcha-2026-08-16",
@@ -1037,7 +1071,9 @@
       "bttsProb": 0.5827,
       "over25Prob": 0.5516,
       "homeLambda": 1.52,
-      "awayLambda": 1.37
+      "awayLambda": 1.37,
+      "gemini_key_fact": "",
+      "gemini_analysis": "Lommel SK (4/5 derniers matchs marques, xG 1.52) vs Royal Charleroi SC (4/5 derniers matchs marques, xG 1.37). xG cumule 2.89, BTTS 58.3%, Over 2.5 55.2%, 2/3 H2H BTTS. Fiabilite 78.6%."
     },
     {
       "id": "atlantau-vs-redbulln-2026-08-15",
@@ -1094,7 +1130,9 @@
       "bttsProb": 0.587,
       "over25Prob": 0.5637,
       "homeLambda": 1.64,
-      "awayLambda": 1.3
+      "awayLambda": 1.3,
+      "gemini_key_fact": "",
+      "gemini_analysis": "Atlanta United FC (4/5 derniers matchs marques, xG 1.64) vs Red Bull New York (3/5 derniers matchs marques, xG 1.30). xG cumule 2.94, BTTS 58.7%, Over 2.5 56.4%, 3/3 H2H BTTS. Fiabilite 76.8%."
     },
     {
       "id": "holstein-vs-stpauli-2026-08-14",
@@ -1151,7 +1189,9 @@
       "bttsProb": 0.5769,
       "over25Prob": 0.5524,
       "homeLambda": 1.63,
-      "awayLambda": 1.27
+      "awayLambda": 1.27,
+      "gemini_key_fact": "",
+      "gemini_analysis": "Holstein Kiel (4/5 derniers matchs marques, xG 1.63) vs St. Pauli (3/5 derniers matchs marques, xG 1.27). xG cumule 2.90, BTTS 57.7%, Over 2.5 55.2%, 3/3 H2H BTTS. Fiabilite 76.3%."
     },
     {
       "id": "lafc-vs-sandiego-2026-08-15",
@@ -1208,7 +1248,9 @@
       "bttsProb": 0.5573,
       "over25Prob": 0.5363,
       "homeLambda": 1.66,
-      "awayLambda": 1.17
+      "awayLambda": 1.17,
+      "gemini_key_fact": "",
+      "gemini_analysis": "LAFC (4/5 derniers matchs marques, xG 1.66) vs San Diego FC (2/5 derniers matchs marques, xG 1.17). xG cumule 2.83, BTTS 55.7%, Over 2.5 53.6%, 3/3 H2H BTTS. Fiabilite 75.4%."
     },
     {
       "id": "middlesb-vs-lincolnc-2026-08-15",
@@ -1265,7 +1307,9 @@
       "bttsProb": 0.5922,
       "over25Prob": 0.5622,
       "homeLambda": 1.48,
-      "awayLambda": 1.46
+      "awayLambda": 1.46,
+      "gemini_key_fact": "",
+      "gemini_analysis": "Middlesbrough (3/5 derniers matchs marques, xG 1.48) vs Lincoln City (4/5 derniers matchs marques, xG 1.46). xG cumule 2.94, BTTS 59.2%, Over 2.5 56.2%, 2/3 H2H BTTS. Fiabilite 75.1%."
     }
   ]
 }
