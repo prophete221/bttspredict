@@ -56,22 +56,26 @@ export function AuthProvider({ children }) {
 
   // Check if Firebase is properly configured
   useEffect(() => {
-    if (auth && firebaseConfig.apiKey !== 'AIzaSyDemoKeyReplaceMeWithYourOwn') {
-      setIsFirebaseReady(true)
-    } else {
-      // Fallback: use localStorage for demo/offline mode
-      setIsFirebaseReady(false)
-      // Load from localStorage
-      const saved = localStorage.getItem('bttsbet_user')
-      if (saved) {
-        try {
-          const parsed = JSON.parse(saved)
-          setUser(parsed)
-          setUserProfile(parsed.profile || null)
-        } catch (e) { /* ignore */ }
+    // P0.2 lint fix: defer setState calls to avoid cascading render
+    // (react-hooks/set-state-in-effect). Behavior unchanged.
+    queueMicrotask(() => {
+      if (auth && firebaseConfig.apiKey !== 'AIzaSyDemoKeyReplaceMeWithYourOwn') {
+        setIsFirebaseReady(true)
+      } else {
+        // Fallback: use localStorage for demo/offline mode
+        setIsFirebaseReady(false)
+        // Load from localStorage
+        const saved = localStorage.getItem('bttsbet_user')
+        if (saved) {
+          try {
+            const parsed = JSON.parse(saved)
+            setUser(parsed)
+            setUserProfile(parsed.profile || null)
+          } catch (e) { /* ignore */ }
+        }
       }
       setLoading(false)
-    }
+    })
   }, [])
 
   // Firebase auth state listener

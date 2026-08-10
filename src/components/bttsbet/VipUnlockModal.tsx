@@ -60,14 +60,18 @@ export default function VipUnlockModal({
     const handleEsc = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
     if (isOpen) {
       window.addEventListener('keydown', handleEsc)
-      try {
-        const stored = localStorage.getItem(STORAGE_KEY)
-        if (stored === 'true') setAlreadyUnlocked(true)
-      } catch {}
-      setStep('conditions')
-      setSelectedBookmaker(null)
-      setPlayerId('')
-      setVerificationError('')
+      // P0.2 lint fix: defer setState calls to avoid cascading render
+      // (react-hooks/set-state-in-effect). Behavior unchanged.
+      queueMicrotask(() => {
+        try {
+          const stored = localStorage.getItem(STORAGE_KEY)
+          if (stored === 'true') setAlreadyUnlocked(true)
+        } catch {}
+        setStep('conditions')
+        setSelectedBookmaker(null)
+        setPlayerId('')
+        setVerificationError('')
+      })
     }
     return () => window.removeEventListener('keydown', handleEsc)
   }, [isOpen, onClose])

@@ -205,21 +205,31 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        {/* Google Analytics — remplacer G-XXXXXXXXXX par votre ID */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
-            `,
-          }}
-        />
+        {/* Google Analytics — DÉSACTIVÉ en production.
+            P0.4 : Le placeholder G-XXXXXXXXXX est interdit en production.
+            Pour activer GA : définir NEXT_PUBLIC_GA_ID dans l'environnement
+            de build (GitHub Secret → env dans deploy.yml) avec un vrai ID
+            au format G-XXXXXXXXXX. Le tag ne se chargera QUE si cette
+            variable est présente ET non vide ET au format valide.
+            VRAI ID ANALYTICS À FOURNIR PAR LE PROPRIÉTAIRE. */}
+        {process.env.NEXT_PUBLIC_GA_ID && /^[Gg]-[A-Za-z0-9]{10,}$/.test(process.env.NEXT_PUBLIC_GA_ID) && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', { anonymize_ip: true });
+                `,
+              }}
+            />
+          </>
+        )}
         {children}
         <BottomNavigation />
         <CookieConsent />

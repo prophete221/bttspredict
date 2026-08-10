@@ -23,21 +23,28 @@ const C = {
 }
 
 // ─── Sport data ─────────────────────────────────────────────────────────
+// P0 anti-hallucination : la propriété `accuracy` (taux de réussite par sport)
+// était inventée (75, 73, 71, 69, 72, 77) sans source vérifiable.
+// Section 1 du Prompt Maître interdit d'inventer un taux de réussite.
+// On retire les chiffres et on remplace par `accuracy: null` + texte "À VÉRIFIER".
+// Le taux réel est calculé en temps réel depuis /historique pour le football BTTS.
+// Pour les autres sports (tennis, NBA, NFL, UFC, handball), aucun suivi public
+// n'existe — afficher "À VÉRIFIER" au lieu d'un chiffre inventé.
 type SportVip = {
   id: string
   name: string
   logo: string
-  accuracy: number
+  accuracy: number | null
   color: string
 }
 
 const SPORTS: SportVip[] = [
-  { id: 'football', name: 'Football', logo: '/logos/sport-football.svg', accuracy: 75, color: C.neon },
-  { id: 'tennis', name: 'Tennis', logo: '/logos/sport-tennis.svg', accuracy: 73, color: C.gold },
-  { id: 'nba', name: 'NBA', logo: '/logos/sport-nba.svg', accuracy: 71, color: C.neon },
-  { id: 'nfl', name: 'NFL', logo: '/logos/sport-nfl.svg', accuracy: 69, color: C.neon },
-  { id: 'ufc', name: 'UFC', logo: '/logos/sport-ufc.svg', accuracy: 72, color: '#C7F464' },
-  { id: 'handball', name: 'Handball', logo: '/logos/sport-handball.svg', accuracy: 77, color: C.success },
+  { id: 'football', name: 'Football', logo: '/logos/sport-football.svg', accuracy: null, color: C.neon },
+  { id: 'tennis', name: 'Tennis', logo: '/logos/sport-tennis.svg', accuracy: null, color: C.gold },
+  { id: 'nba', name: 'NBA', logo: '/logos/sport-nba.svg', accuracy: null, color: C.neon },
+  { id: 'nfl', name: 'NFL', logo: '/logos/sport-nfl.svg', accuracy: null, color: C.neon },
+  { id: 'ufc', name: 'UFC', logo: '/logos/sport-ufc.svg', accuracy: null, color: '#C7F464' },
+  { id: 'handball', name: 'Handball', logo: '/logos/sport-handball.svg', accuracy: null, color: C.success },
 ]
 
 // Deterministic daily cote
@@ -155,7 +162,11 @@ export default function VipSports() {
                 <div className="flex-1">
                   <h3 className="text-lg font-bold text-papier">{activeSport.name}</h3>
                   <div className="flex items-center gap-2 mt-0.5">
-                    <span className="font-mono text-[12px] font-bold" style={{ color: activeSport.color }}>~{activeSport.accuracy}%</span>
+                    {activeSport.accuracy !== null ? (
+                      <span className="font-mono text-[12px] font-bold" style={{ color: activeSport.color }}>~{activeSport.accuracy}%</span>
+                    ) : (
+                      <span className="font-mono text-[10px] font-bold" style={{ color: C.textMute }}>À VÉRIFIER</span>
+                    )}
                     <span className="text-[10px]" style={{ color: C.textMute }}>précision VIP</span>
                   </div>
                 </div>
