@@ -131,28 +131,6 @@ export default function Hero() {
 
         </motion.div>
 
-        {/* ═══ Barre sous Hero — données temps réel ═══ */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isVisible ? { opacity: 1 } : undefined}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="flex items-center justify-center gap-3 text-[10px] font-mono py-2 px-3 rounded-lg"
-          style={{
-            backgroundColor: 'rgba(7, 17, 26, 0.6)',
-            border: '1px solid rgba(230, 232, 235, 0.5)',
-            color: '#7F969E',
-          }}
-        >
-          <span className="flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
-            Suivi public depuis le 2026-08-08
-          </span>
-          <span style={{ color: '#1C3546' }}>·</span>
-          <span>Ligues sélectionnées</span>
-          <span style={{ color: '#1C3546' }}>·</span>
-          <span style={{ color: '#63D6FF' }}>Moteur IA nouvelle génération</span>
-        </motion.div>
-
         {/* ═══ Badges confiance — 1 ligne discrète ═══ */}
         <motion.div
           initial={{ opacity: 0 }}

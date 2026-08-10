@@ -48,13 +48,6 @@ export default function ResultatsClient() {
     dedupedHistory.push(h)
   }
 
-  // Proba: ordre de fallback
-  function getProba(h: any): string {
-    const proba = h.proba || h.analysis?.bttsProb || h.analysis?.over25Prob || (h.confidence ? h.confidence / 100 : 0)
-    if (!proba || proba === 0) return '-'
-    return Math.round(proba * 100) + '%'
-  }
-
   // Marché display
   function getMarket(h: any): string {
     const t = (h.type || h.market || '').toUpperCase()
@@ -63,55 +56,8 @@ export default function ResultatsClient() {
     return t || '-'
   }
 
-  const exportCSV = () => {
-    const rows = [['Date', 'Match', 'Marché', 'Proba', 'Cote', 'Mise', 'Score', 'Résultat', 'P/L', 'Source', 'Vérifié le']]
-    for (const h of dedupedHistory) {
-      const isWon = h.status === 'WON' || h.isWon === true
-      rows.push([
-        h.date || '', h.match || '', getMarket(h),
-        getProba(h), '1.75', '1',
-        h.finalScore || h.score || '-',
-        isWon ? 'W' : 'L',
-        isWon ? '+0.75' : '-1.00',
-        h.verifiedSource || 'ESPN', h.verifiedAt || '',
-      ])
-    }
-    const csv = rows.map(r => r.map(c => `"${c}"`).join(',')).join('\n')
-    const blob = new Blob([csv], { type: 'text/csv' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `bttspredict-resultats-${new Date().toISOString().slice(0,10)}.csv`
-    a.click()
-    URL.revokeObjectURL(url)
-  }
-
   return (
     <>
-      {/* Bandeau suivi public — v67 crédibilité */}
-      <div
-        className="rounded-xl p-4 mb-6"
-        style={{
-          backgroundColor: 'rgba(199, 244, 100, 0.08)',
-          border: '1px solid rgba(199, 244, 100, 0.2)',
-        }}
-      >
-        <p className="text-sm font-bold" style={{ color: '#C7F464' }}>
-          Suivi public depuis le 08/08/2026
-        </p>
-        <p className="text-xs mt-1" style={{ color: '#B5C4C9' }}>
-          Échantillon : <strong style={{ color: '#F2F7F5' }}>{total} pronostics vérifiés</strong> ({won} gagnés / {lost} perdus / {stats.pending || 0} en attente).
-          Taux BTTS : <strong style={{ color: '#F2F7F5' }}>{stats.rate}%</strong> — calculé dynamiquement depuis le tableau ci-dessous.
-          ROI cumulé : <strong style={{ color: stats.profit >= 0 ? '#63D6FF' : '#FF7A7A' }}>{stats.profit >= 0 ? '+' : ''}{stats.profit}u</strong>.
-          {' '}
-          {total < 30 && (
-            <span style={{ color: '#C7F464' }}>
-              ⚠ En calibration — données démo jusqu&apos;au 15/08/2026 (volume insuffisant pour évaluer statistiquement la performance).
-            </span>
-          )}
-        </p>
-      </div>
-
       {/* Stats Summary — 3 cartes neutres, pas de ROI négatif */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
         {/* Carte 1: Vérifiés + Taux All */}
@@ -150,17 +96,6 @@ export default function ResultatsClient() {
             Dernier scan: il y a {Math.round((now - new Date(data.generatedAt).getTime()) / 3600000)}h via ESPN
           </div>
         </div>
-      </div>
-
-      {/* Export button */}
-      <div className="mb-4">
-        <button
-          onClick={exportCSV}
-          className="px-4 py-2 rounded-lg text-sm font-bold transition-all"
-          style={{ backgroundColor: '#C7F464', color: '#07111A' }}
-        >
-          📥 Export CSV horodaté
-        </button>
       </div>
 
       {/* Table */}
