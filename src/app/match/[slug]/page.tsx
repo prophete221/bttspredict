@@ -155,62 +155,6 @@ export default async function MatchPage({ params }: PageProps) {
             )}
           </header>
 
-          {/* BTTSPredict AI Analysis */}
-          {(aiKeyFact || aiExactScore) && (
-            <section className="mb-10">
-              <div className="rounded-2xl p-5" style={{ backgroundColor: 'rgba(99,214,255,0.06)', border: '1px solid rgba(99,214,255,0.2)' }}>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#63D6FF" strokeWidth="2">
-                      <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                      <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-                    </svg>
-                    <span className="text-xs uppercase tracking-widest font-bold text-[#63D6FF]">BTTSPredict AI</span>
-                  </div>
-                  {aiExactScore && (
-                    <div className="flex items-center gap-2">
-                      <span className="text-[10px] uppercase tracking-wider text-[#7F969E]">Score prédit</span>
-                      <span className="text-xl font-black font-mono text-[#C7F464] px-3 py-1 rounded-lg" style={{ backgroundColor: 'rgba(199,244,100,0.12)' }}>
-                        {aiExactScore}
-                      </span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Probabilities row */}
-                {(aiExactScore || aiBttsProb || aiOver25Prob) && (
-                  <div className="grid grid-cols-3 gap-2 mb-4">
-                    {aiExactScore && exactScoreProb && (
-                      <div className="text-center rounded-lg p-2" style={{ backgroundColor: 'rgba(199,244,100,0.08)' }}>
-                        <div className="text-[9px] uppercase tracking-wider text-[#7F969E] mb-1">Score exact</div>
-                        <div className="text-lg font-bold text-[#C7F464]">{exactScoreProb}</div>
-                      </div>
-                    )}
-                    {aiBttsProb && (
-                      <div className="text-center rounded-lg p-2" style={{ backgroundColor: 'rgba(123,228,149,0.08)' }}>
-                        <div className="text-[9px] uppercase tracking-wider text-[#7F969E] mb-1">BTTS</div>
-                        <div className="text-lg font-bold text-[#7BE495]">{aiBttsProb}</div>
-                      </div>
-                    )}
-                    {aiOver25Prob && (
-                      <div className="text-center rounded-lg p-2" style={{ backgroundColor: 'rgba(255,209,102,0.08)' }}>
-                        <div className="text-[9px] uppercase tracking-wider text-[#7F969E] mb-1">Over 2.5</div>
-                        <div className="text-lg font-bold text-[#FFD166]">{aiOver25Prob}</div>
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {aiKeyFact && (
-                  <p className="text-sm text-[#F2F7F5] font-semibold mb-2">📊 {aiKeyFact}</p>
-                )}
-                {aiAnalysis && (
-                  <p className="text-sm text-[#B5C4C9] leading-relaxed">{aiAnalysis}</p>
-                )}
-              </div>
-            </section>
-          )}
-
           {/* Pronostics */}
           <section className="mb-10">
             <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -222,10 +166,11 @@ export default async function MatchPage({ params }: PageProps) {
                 const market = (p.type || p.market || '').toLowerCase()
                 const isBtts = market.includes('btts')
                 const isOver = market.includes('over') || market.includes('o2.5') || market.includes('o25')
-                const color = isBtts ? '#63D6FF' : isOver ? '#63D6FF' : '#B5C4C9'
+                const color = isBtts ? '#63D6FF' : isOver ? '#FFD166' : '#B5C4C9'
                 const isWon = p.status === 'WON'
                 const isLost = p.status === 'LOST'
                 const isPending = !p.status || p.status === 'PENDING'
+                const probLabel = isBtts ? aiBttsProb : isOver ? aiOver25Prob : null
 
                 return (
                   <div key={i} className="p-5 rounded-2xl" style={{ backgroundColor: '#102333', border: `1px solid ${color}40` }}>
@@ -233,6 +178,11 @@ export default async function MatchPage({ params }: PageProps) {
                       <span className="text-xs font-bold uppercase tracking-wider" style={{ color }}>
                         {isBtts ? 'BTTS' : 'Over 2.5'}
                       </span>
+                      {probLabel && (
+                        <span className="text-xs font-bold font-mono px-2 py-0.5 rounded" style={{ backgroundColor: `${color}15`, color }}>
+                          {probLabel}
+                        </span>
+                      )}
                     </div>
 
                     <div className="text-2xl font-black mb-2" style={{ color: p.prediction === 'Oui' ? color : '#B5C4C9' }}>
@@ -263,6 +213,70 @@ export default async function MatchPage({ params }: PageProps) {
               Aucun résultat futur n&apos;est garanti. 18+.
             </p>
           </section>
+
+          {/* SECTION RAPPORT D'ANALYSE BTTSPREDICT AI */}
+          {(aiKeyFact || aiExactScore) && (
+            <section className="mb-10">
+              <div className="rounded-xl p-5 space-y-4" style={{ backgroundColor: '#1E1F20', border: '1px solid #2D2F31' }}>
+                <div className="flex items-center justify-between border-b border-[#2D2F31] pb-3">
+                  <h3 className="font-bold text-sm text-[#F0F4F9] flex items-center gap-2">
+                    <span className="text-[#06B6D4]">📊</span> Rapport d&apos;Analyse — BTTSPredict AI
+                  </h3>
+                  {aiExactScore && (
+                    <span className="px-2.5 py-1 text-xs font-black rounded-md" style={{ backgroundColor: 'rgba(245,158,11,0.1)', color: '#F59E0B', border: '1px solid rgba(245,158,11,0.3)' }}>
+                      Score Exact : {aiExactScore}
+                    </span>
+                  )}
+                </div>
+
+                {/* Probabilities row */}
+                {(exactScoreProb || aiBttsProb || aiOver25Prob) && (
+                  <div className="grid grid-cols-3 gap-2">
+                    {exactScoreProb && (
+                      <div className="text-center rounded-lg p-2" style={{ backgroundColor: 'rgba(245,158,11,0.08)' }}>
+                        <div className="text-[9px] uppercase tracking-wider text-[#7F969E]">Score exact</div>
+                        <div className="text-base font-bold text-[#F59E0B]">{exactScoreProb}</div>
+                      </div>
+                    )}
+                    {aiBttsProb && (
+                      <div className="text-center rounded-lg p-2" style={{ backgroundColor: 'rgba(6,182,212,0.08)' }}>
+                        <div className="text-[9px] uppercase tracking-wider text-[#7F969E]">BTTS</div>
+                        <div className="text-base font-bold text-[#06B6D4]">{aiBttsProb}</div>
+                      </div>
+                    )}
+                    {aiOver25Prob && (
+                      <div className="text-center rounded-lg p-2" style={{ backgroundColor: 'rgba(255,209,102,0.08)' }}>
+                        <div className="text-[9px] uppercase tracking-wider text-[#7F969E]">Over 2.5</div>
+                        <div className="text-base font-bold text-[#FFD166]">{aiOver25Prob}</div>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Statistique Clé */}
+                {aiKeyFact && (
+                  <div className="p-3 rounded-lg" style={{ backgroundColor: '#131314', border: '1px solid #2D2F31' }}>
+                    <span className="text-[11px] font-bold text-[#06B6D4] uppercase tracking-wider block mb-1">
+                      📌 Statistique Clé H2H / xG
+                    </span>
+                    <p className="text-xs text-[#F0F4F9] italic">&ldquo;{aiKeyFact}&rdquo;</p>
+                  </div>
+                )}
+
+                {/* Analyse Complète */}
+                {aiAnalysis && (
+                  <div className="p-3.5 rounded-lg" style={{ backgroundColor: '#131314', border: '1px solid #2D2F31' }}>
+                    <span className="text-[11px] font-bold text-[#9CA3AF] uppercase tracking-wider block mb-1">
+                      📝 Analyse Stratégique des Experts
+                    </span>
+                    <p className="text-xs text-[#9CA3AF] leading-relaxed">
+                      {aiAnalysis}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </section>
+          )}
 
           {/* Vérification */}
           <section className="mb-10">
