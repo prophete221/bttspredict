@@ -28,8 +28,9 @@ from pathlib import Path
 MODEL = "gemini-2.0-flash"
 PREDICTIONS_FILE = Path(__file__).parent.parent / "public" / "predictions.json"
 MAX_RETRIES = 2
-RETRY_DELAY = 3  # seconds (max 5s on rate limit)
-REQUEST_DELAY = 4  # seconds between matches — ~15 RPM max
+RETRY_DELAY = 3  # seconds between retries
+REQUEST_DELAY = 6  # seconds between matches — 10 RPM max (safe under 15 RPM limit)
+RATE_LIMIT_WAIT = 20  # seconds on 429 — lets Google's 1-min sliding window reset
 
 # ─── Gemini SDK ────────────────────────────────────────────────────────────
 try:
@@ -131,9 +132,8 @@ def enrich_match(client, match: dict, index: int) -> dict:
         except Exception as e:
             err_str = str(e)
             if "429" in err_str or "RESOURCE_EXHAUSTED" in err_str:
-                wait = min(RETRY_DELAY * (attempt + 1) * 2, 5)  # cap at 5s
-                print(f"  [{index+1}] ⏳ {match_name}: rate limited, waiting {wait}s...")
-                time.sleep(wait)
+                print(f"  [{index+1}] ⏳ {match_name}: rate limited, waiting {RATE_LIMIT_WAIT}s...")
+                time.sleep(RATE_LIMIT_WAIT)
                 continue
             elif "quota" in err_str.lower():
                 print(f"  [{index+1}] ❌ {match_name}: quota exceeded — stopping enrichment")
@@ -149,7 +149,7 @@ def enrich_match(client, match: dict, index: int) -> dict:
 
 
 def main():
-    print("[enrich] Starting Gemini 2.5 Flash enrichment")
+    print("[enrich] Starting Gemini 2.0 Flash enrichment")
 
     # Check predictions file exists
     if not PREDICTIONS_FILE.exists():
