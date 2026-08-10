@@ -25,7 +25,7 @@ import time
 from pathlib import Path
 
 # ─── Constants ──────────────────────────────────────────────────────────────
-MODEL = "gemini-2.5-flash"
+MODEL = "gemini-2.0-flash"
 PREDICTIONS_FILE = Path(__file__).parent.parent / "public" / "predictions.json"
 MAX_RETRIES = 2
 RETRY_DELAY = 3  # seconds
