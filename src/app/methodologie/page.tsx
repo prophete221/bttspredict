@@ -167,12 +167,12 @@ export default function MethodologiePage() {
             </p>
             <ul className="space-y-2 text-sm text-[#B5C4C9]">
               <li>• Seuls les matchs avec BTTS ET Over 2.5 tous deux &lt; 35% sont rejetes.</li>
-              <li>• Les autres matchs sont publies, tries par score de fiabilite.</li>
+              <li>• Les autres matchs sont publies, tries par score interne.</li>
               <li>• Top 8 matchs en gratuit, top 6 suivants en apercu VIP.</li>
+              <li>• Pour chaque match, seul le pronostic Oui/Non est affiche.</li>
             </ul>
             <p className="text-sm text-[#B5C4C9] leading-relaxed mt-3">
-              Un score de fiabilite (0-100) est calcule pour chaque match:
-              <br />reliability = (BTTS score * 0.40) + (xG score * 0.30) + (forme * 0.20) + (H2H * 0.10)
+              Aucun pourcentage ni score de fiabilite n&apos;est affiche sur le site. Seul le resultat Oui ou Non est montre, pour une lecture simple et rapide.
             </p>
           </section>
 

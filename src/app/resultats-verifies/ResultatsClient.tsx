@@ -134,7 +134,7 @@ export default function ResultatsClient() {
             <div className="text-xs text-[#B5C4C9]">{goldTotal} vérifiés</div>
           </div>
           <div className="mt-2 text-[10px] text-[#7F969E]">
-            Filtre proba ≥ 68%
+            Sélection premium
             {showGoldYield && <span className="ml-2 text-[#63D6FF]">Yield +{goldYield}%</span>}
           </div>
         </div>
@@ -173,7 +173,7 @@ export default function ResultatsClient() {
                 <th className="text-left py-2 px-2">Date</th>
                 <th className="text-left py-2 px-2">Match</th>
                 <th className="text-left py-2 px-2">Marché</th>
-                <th className="text-right py-2 px-2">Proba</th>
+                <th className="text-center py-2 px-2">Prévision</th>
                 <th className="text-center py-2 px-2">Score</th>
                 <th className="text-center py-2 px-2">Rés.</th>
                 <th className="text-right py-2 px-2">P/L</th>
@@ -188,7 +188,6 @@ export default function ResultatsClient() {
                   const pl = isWon ? '+0.75' : '-1.00'
                   const isGold = (h.tier || 'STANDARD').toUpperCase() === 'GOLD'
                   const market = getMarket(h)
-                  const proba = getProba(h)
                   return (
                     <tr key={i} className="border-b border-[#1C3546]/30">
                       <td className="py-1.5 px-2 text-[#7F969E] font-mono">{(h.date||'').slice(5)}</td>
@@ -197,7 +196,7 @@ export default function ResultatsClient() {
                         {market}
                         {isGold && <span className="ml-1 text-[10px] text-[#C7F464] font-bold">GOLD</span>}
                       </td>
-                      <td className="py-1.5 px-2 text-right text-[#B5C4C9] font-mono">{proba}</td>
+                      <td className="py-1.5 px-2 text-center text-[#B5C4C9] font-mono">{h.prediction || '—'}</td>
                       <td className="py-1.5 px-2 text-center text-[#F2F7F5] font-mono">{h.finalScore||h.score||'-'}</td>
                       <td className="py-1.5 px-2 text-center" style={{ color: isWon ? '#63D6FF' : '#FF7A7A' }}>
                         <strong>{isWon ? 'W' : 'L'}</strong>

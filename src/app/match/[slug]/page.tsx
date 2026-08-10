@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // Format: "Home vs Away BTTS 08/08" — on évite "Pronostic" pour les équipes longues.
   const shortDate = date ? date.slice(5).replace('-', '/') : '' // "2026-08-08" → "08/08"
   const title = `${home} vs ${away} BTTS${shortDate ? ` ${shortDate}` : ''}`
-  const description = `Pronostic BTTS et Over 2.5 : ${home} vs ${away} (${league}, ${date}). Analyse, probabilités et résultat vérifié. 18+.`
+  const description = `Pronostic BTTS et Over 2.5 : ${home} vs ${away} (${league}, ${date}). Analyse et résultat vérifié. 18+.`
 
   return {
     title,
@@ -163,7 +163,6 @@ export default async function MatchPage({ params }: PageProps) {
                 const isBtts = market.includes('btts')
                 const isOver = market.includes('over') || market.includes('o2.5') || market.includes('o25')
                 const color = isBtts ? '#63D6FF' : isOver ? '#63D6FF' : '#B5C4C9'
-                const probaPct = Math.round(p.proba * 100)
                 const isWon = p.status === 'WON'
                 const isLost = p.status === 'LOST'
                 const isPending = !p.status || p.status === 'PENDING'
@@ -174,23 +173,11 @@ export default async function MatchPage({ params }: PageProps) {
                       <span className="text-xs font-bold uppercase tracking-wider" style={{ color }}>
                         {isBtts ? 'BTTS' : 'Over 2.5'}
                       </span>
-                      {p.tier === 'GOLD' && (
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded" style={{ backgroundColor: 'rgba(199, 244, 100, 0.15)', color: '#C7F464' }}>
-                          GOLD
-                        </span>
-                      )}
                     </div>
 
-                    <div className="flex items-baseline justify-between mb-2">
-                      <span className="text-xl font-bold">{p.prediction}</span>
-                      <span className="text-sm font-bold tabular-nums" style={{ color }}>{probaPct}%</span>
+                    <div className="text-2xl font-black mb-2" style={{ color: p.prediction === 'Oui' ? color : '#B5C4C9' }}>
+                      {p.prediction}
                     </div>
-
-                    <div className="w-full h-1.5 rounded-full mb-3" style={{ backgroundColor: '#102333' }}>
-                      <div className="h-full rounded-full" style={{ width: `${probaPct}%`, backgroundColor: color }} />
-                    </div>
-
-                    <div className="text-xs text-[#7F969E] mb-2">Confiance : {p.confidence}%</div>
 
                     {isWon && (
                       <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(168, 224, 99, 0.15)', color: '#A8E063' }}>
@@ -213,7 +200,7 @@ export default async function MatchPage({ params }: PageProps) {
             </div>
 
             <p className="text-xs text-[#7F969E] mt-4 leading-relaxed text-center">
-              Les probabilités affichées sont comprises entre 40% et 54% — plage crédible de calibration du moteur. Aucune probabilité n'est présentée comme une garantie. Aucun résultat futur n'est garanti. 18+.
+              Aucun résultat futur n&apos;est garanti. 18+.
             </p>
           </section>
 

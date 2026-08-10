@@ -234,7 +234,7 @@ export default function HistoriqueClient() {
                   <th className="text-left py-3 px-3 font-bold text-[#B5C4C9]">Date</th>
                   <th className="text-left py-3 px-3 font-bold text-[#B5C4C9]">Match</th>
                   <th className="text-left py-3 px-3 font-bold text-[#B5C4C9] hidden sm:table-cell">Marché</th>
-                  <th className="text-right py-3 px-3 font-bold text-[#B5C4C9]">Proba</th>
+                  <th className="text-center py-3 px-3 font-bold text-[#B5C4C9]">Prévision</th>
                   <th className="text-center py-3 px-3 font-bold text-[#B5C4C9]">Score</th>
                   <th className="text-center py-3 px-3 font-bold text-[#B5C4C9]">Résultat</th>
                 </tr>
@@ -259,7 +259,7 @@ export default function HistoriqueClient() {
                           {h.market === 'btts' ? 'BTTS' : 'Over 2.5'}
                         </span>
                       </td>
-                      <td className="py-2 px-3 text-right text-[#B5C4C9]">{(h.proba * 100).toFixed(0)}%</td>
+                      <td className="py-2 px-3 text-right text-[#B5C4C9]">{h.prediction || '—'}</td>
                       <td className="py-2 px-3 text-center text-[#B5C4C9]">{h.finalScore}</td>
                       <td className="py-2 px-3 text-center">
                         {isWon ? (

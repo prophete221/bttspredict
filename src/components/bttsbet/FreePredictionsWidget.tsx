@@ -162,56 +162,18 @@ function PredictionCard({ pred }: { pred: Prediction }) {
       </div>
 
       {/* Type pill + proba cercle SVG */}
+      {/* Type pill — Oui/Non only */}
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span
-            className="text-[9px] font-bold px-1.5 py-0.5 rounded"
-            style={{
-              backgroundColor: isBTTS ? 'rgba(99, 214, 255, 0.12)' : 'rgba(99, 214, 255, 0.12)',
-              color: probaColor,
-              border: `1px solid ${isBTTS ? 'rgba(99, 214, 255, 0.25)' : 'rgba(99, 214, 255, 0.25)'}`,
-            }}
-          >
-            {isBTTS ? 'BTTS' : 'O2.5'} {pred.prediction}
-          </span>
-          {/* Barre confiance 4 niveaux */}
-          <div className="flex gap-0.5">
-            {[1, 2, 3, 4].map((n) => (
-              <span
-                key={n}
-                className="w-3 h-1 rounded-sm"
-                style={{
-                  backgroundColor: n <= Math.ceil(pred.confidence / 25) ? 'var(--brand-indigo)' : 'var(--border)',
-                }}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Cercle proba SVG */}
-        <div className="relative w-12 h-12 flex-shrink-0">
-          <svg width="48" height="48" viewBox="0 0 48 48">
-            <circle cx="24" cy="24" r={radius} fill="none" stroke="var(--border)" strokeWidth="3" />
-            <circle
-              cx="24"
-              cy="24"
-              r={radius}
-              fill="none"
-              stroke={probaColor}
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeDasharray={circumference}
-              strokeDashoffset={strokeDashoffset}
-              transform="rotate(-90 24 24)"
-              style={{ transition: 'stroke-dashoffset 0.8s ease' }}
-            />
-          </svg>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-mono text-[10px] font-bold" style={{ color: probaColor }}>
-              {probaPercent}%
-            </span>
-          </div>
-        </div>
+        <span
+          className="text-[9px] font-bold px-1.5 py-0.5 rounded"
+          style={{
+            backgroundColor: isBTTS ? 'rgba(99, 214, 255, 0.12)' : 'rgba(99, 214, 255, 0.12)',
+            color: probaColor,
+            border: `1px solid ${isBTTS ? 'rgba(99, 214, 255, 0.25)' : 'rgba(99, 214, 255, 0.25)'}`,
+          }}
+        >
+          {isBTTS ? 'BTTS' : 'O2.5'} {pred.prediction}
+        </span>
       </div>
     </div>
   )

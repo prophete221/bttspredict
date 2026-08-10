@@ -113,13 +113,11 @@ export default function PromoVip() {
                         <div className="flex flex-col items-center gap-1">
                           <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-[13px]" style={{ backgroundColor: C.border, color: C.neon }}>{String(m.home)[0]}</div>
                           <span className="text-[13px] font-bold" style={{ color: C.text }}>{m.home}</span>
-                          <span className="text-[10px]" style={{ color: C.textMute }}>xG {m.xG_h}</span>
                         </div>
                         <span className="text-[11px] px-2 py-1 rounded-full border" style={{ borderColor: 'rgba(199,244,100,0.2)', color: C.neon }}>VS</span>
                         <div className="flex flex-col items-center gap-1">
                           <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-[13px]" style={{ backgroundColor: C.border, color: C.neon }}>{String(m.away)[0]}</div>
                           <span className="text-[13px] font-bold" style={{ color: C.text }}>{m.away}</span>
-                          <span className="text-[10px]" style={{ color: C.textMute }}>xG {m.xG_a}</span>
                         </div>
                       </div>
                     </div>
