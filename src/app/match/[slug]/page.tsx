@@ -123,7 +123,6 @@ export default async function MatchPage({ params }: PageProps) {
             <div className="flex items-center justify-center gap-4 sm:gap-8 mb-4">
               <div className="flex flex-col items-center gap-2 flex-1">
                 {homeLogo && (
-                  // eslint-disable-next-line @next/next/no-img-element
                   <img src={homeLogo} alt={`Logo ${home}`} width={80} height={80} className="rounded-xl object-contain" loading="lazy" decoding="async" />
                 )}
                 <span className="text-sm sm:text-base font-bold text-center">{home}</span>
@@ -131,7 +130,6 @@ export default async function MatchPage({ params }: PageProps) {
               <div className="text-2xl font-bold text-[#7F969E]">vs</div>
               <div className="flex flex-col items-center gap-2 flex-1">
                 {awayLogo && (
-                  // eslint-disable-next-line @next/next/no-img-element
                   <img src={awayLogo} alt={`Logo ${away}`} width={80} height={80} className="rounded-xl object-contain" loading="lazy" decoding="async" />
                 )}
                 <span className="text-sm sm:text-base font-bold text-center">{away}</span>

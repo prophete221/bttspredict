@@ -57,42 +57,48 @@ function url(
   }
 }
 
-// ─── 12 URLs essentielles (spec v64) ───
+// ─── 14 URLs essentielles (spec v91 + tâche 002 : Over 2.5 restauré) ───
 const SEO_PAGES: MetadataRoute.Sitemap = [
   // 1. Homepage — priorité 1.0, lastModified aujourd'hui
   url('/', TODAY, 1.0, 'daily'),
 
-  // 2. BTTS predictions today — priorité 0.9
+  // 2. BTTS predictions today — priorité 0.9 (page BTTS spécialisée)
   url('/btts/predictions/today', TODAY, 0.9, 'daily'),
 
-  // 3. BTTS statistics — priorité 0.85
+  // 3. Over 2.5 predictions today — priorité 0.9 (page Over 2.5 spécialisée, contenu distinct)
+  url('/over-2-5/predictions/today', TODAY, 0.9, 'daily'),
+
+  // 4. BTTS statistics — priorité 0.85
   url('/btts/statistics', TODAY, 0.85, 'monthly'),
 
-  // 4. Résultats vérifiés — priorité 0.85
+  // 5. Over 2.5 statistics — priorité 0.85 (page spécialisée)
+  url('/over-2-5/statistics', TODAY, 0.85, 'monthly'),
+
+  // 6. Résultats vérifiés — priorité 0.85
   url('/resultats-verifies', TODAY, 0.85, 'daily'),
 
-  // 5. Historique — priorité 0.85
+  // 7. Historique — priorité 0.85
   url('/historique', TODAY, 0.85, 'daily'),
 
-  // 6. VIP — priorité 0.9 (page premium, mise à jour récente)
+  // 8. VIP — priorité 0.9 (page premium, mise à jour récente)
   url('/vip', TODAY, 0.9, 'daily'),
 
-  // 7. Méthodologie — priorité 0.8
+  // 9. Méthodologie — priorité 0.8
   url('/methodologie', TODAY, 0.8, 'monthly'),
 
-  // 8. BTTS c'est quoi — priorité 0.75
+  // 10. BTTS c'est quoi — priorité 0.75
   url('/btts-c-est-quoi', TODAY, 0.75, 'monthly'),
 
-  // 9. Code promo Linebet Sénégal — priorité 0.95, lastModified aujourd'hui
+  // 11. Code promo Linebet Sénégal — priorité 0.95
   url('/code-promo-linebet-senegal', TODAY, 0.95, 'weekly'),
 
-  // 10. Bonus 888starz — priorité 0.9
+  // 12. Bonus 888starz — priorité 0.9
   url('/bonus-888starz', TODAY, 0.9, 'weekly'),
 
-  // 11. Jouer responsable — priorité 0.5
+  // 13. Jouer responsable — priorité 0.5
   url('/jouer-responsable', TODAY, 0.5, 'yearly'),
 
-  // 12. Mentions légales — priorité 0.3
+  // 14. Mentions légales — priorité 0.3
   url('/mentions-legales', '2026-06-01', 0.3, 'yearly'),
 ]
 

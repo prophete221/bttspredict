@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 
 export const metadata: Metadata = {
-  title: 'Méthodologie — Moteur IA de pronostics',
-  description: "Méthodologie du moteur IA BTTSPredict : approche prédictive, sources de données, marchés couverts, calibration continue. 18+.",
+  title: 'Méthodologie BTTSPredict : comment sont analysés les matchs',
+  description: "Découvrez les données, filtres et limites utilisés pour analyser BTTS et Over 2,5. Méthode transparente, résultats vérifiables et aucune garantie.",
   alternates: { canonical: 'https://bttspredict.com/methodologie' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Méthodologie BTTSPredict — Modèle Poisson corrigé + xG',
-    description: "Approche prédictive, sources de données, marchés couverts. Aucune validation humaine, aucun gain garanti. 18+.",
+    title: 'Méthodologie BTTSPredict : comment sont analysés les matchs',
+    description: "Découvrez les données, filtres et limites utilisés pour analyser BTTS et Over 2,5. Méthode transparente, résultats vérifiables et aucune garantie.",
     url: 'https://bttspredict.com/methodologie',
     type: 'article',
   },
@@ -27,7 +27,7 @@ export default function MethodologiePage() {
               Méthodologie
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Modèle Poisson corrigé + xG
+              Notre méthodologie d&apos;analyse
             </h1>
             <p className="text-base text-[#B5C4C9] leading-relaxed">
               BTTSPredict publie des pronostics BTTS (Both Teams To Score) et Over 2.5 sur le football, générés par un modèle Poisson corrigé + xG. Cette page présente l'approche, les marchés couverts, les sources de données et la gestion qualité — dans une approche transparente et crédible.

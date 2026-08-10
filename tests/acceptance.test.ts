@@ -18,9 +18,10 @@ describe('Architecture SEO', () => {
     const count = (sm.match(/url\(/g) || []).length
     expect(count).toBeGreaterThan(5) // au moins 6 URLs générées
   })
-  test('sitemap.ts inclut les pages topical BTTS', () => {
+  test('sitemap.ts inclut les pages topical BTTS et Over 2.5', () => {
     const sm = fs.readFileSync(path.join(ROOT, 'src/app/sitemap.ts'), 'utf8')
     expect(sm).toContain('/btts/predictions/today')
+    expect(sm).toContain('/over-2-5/predictions/today')
   })
 })
 
@@ -38,20 +39,24 @@ describe('Pages match SSG', () => {
 })
 
 describe('Topical authority BTTS + Over 2.5', () => {
-  test('/btts/predictions/today existe (canonique unifié BTTS+O2.5)', () => {
+  test('/btts/predictions/today existe (page BTTS spécialisée)', () => {
     expect(fs.existsSync(path.join(ROOT, 'src/app/btts/predictions/today/page.tsx'))).toBe(true)
   })
   test('/btts/statistics existe', () => {
     expect(fs.existsSync(path.join(ROOT, 'src/app/btts/statistics/page.tsx'))).toBe(true)
   })
-  test('/over-2-5/predictions/today N\'EST PAS une route canonique séparée', () => {
-    // v91 : décision canonique — BTTS et Over 2.5 sont unifiés sur /btts/predictions/today
-    // pour éviter le duplicate content. La route /over-2-5/predictions/today n'est pas créée.
-    // Aucun lien interne ne pointe vers elle, et le sitemap ne la contient pas.
-    expect(fs.existsSync(path.join(ROOT, 'src/app/over-2-5/predictions/today/page.tsx'))).toBe(false)
+  test('/over-2-5/predictions/today existe (page Over 2.5 spécialisée, contenu distinct)', () => {
+    expect(fs.existsSync(path.join(ROOT, 'src/app/over-2-5/predictions/today/page.tsx'))).toBe(true)
   })
-  test('/over-2-5/statistics N\'EST PAS une route canonique séparée', () => {
-    expect(fs.existsSync(path.join(ROOT, 'src/app/over-2-5/statistics/page.tsx'))).toBe(false)
+  test('/over-2-5/statistics existe', () => {
+    expect(fs.existsSync(path.join(ROOT, 'src/app/over-2-5/statistics/page.tsx'))).toBe(true)
+  })
+  test('Page Over 2.5 a un H1 distinct de la page BTTS', () => {
+    const bttsPage = fs.readFileSync(path.join(ROOT, 'src/app/btts/predictions/today/page.tsx'), 'utf8')
+    const overPage = fs.readFileSync(path.join(ROOT, 'src/app/over-2-5/predictions/today/page.tsx'), 'utf8')
+    // H1 BTTS et H1 Over 2.5 ne doivent pas être identiques (pas de duplicate content)
+    expect(bttsPage).not.toContain('Pronostics Over 2,5 du jour')
+    expect(overPage).toContain('Over 2,5')
   })
 })
 
