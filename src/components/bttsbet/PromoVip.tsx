@@ -3,23 +3,33 @@ import { useState, useEffect, useMemo } from 'react'
 import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
 
-const C = { bg:'#07111A', card:'#102333', border:'#1C3546', neon:'#C7F464', neonDk:'#63D6FF', text:'#F2F7F5', textSec:'#B5C4C9', textMute:'#7F969E' }
+const C = {
+  bg:'#07111A', card:'#102333', border:'#1C3546',
+  neon:'#C7F464', gold:'#FFD700', data:'#63D6FF',
+  text:'#F2F7F5', textSec:'#B5C4C9', textMute:'#7F969E',
+  success:'#7BE495',
+}
 
-function getDailyCote(){ const t=new Date(); const s=t.getFullYear()*10000+(t.getMonth()+1)*100+t.getDate(); const x=Math.sin(s*9301+49297)*233280; return Math.round((12+(x-Math.floor(x))*18)*100)/100 }
+function getDailyCote(){
+  const t = new Date()
+  const s = t.getFullYear()*10000+(t.getMonth()+1)*100+t.getDate()
+  const x = Math.sin(s*9301+49297)*233280
+  return Math.round((12+(x-Math.floor(x))*18)*100)/100
+}
 
 const FALLBACK = [
-  { home:"Teungueth", away:"Jaraaf", league:"Ligue 1 Sénégal", time:"16:30", xG_h:1.6, xG_a:1.1, odd_btts:1.90, prob_btts:65, odd_over:2.05, prob_over:68 },
-  { home:"Raja", away:"Wydad", league:"Botola Pro (Maroc)", time:"20:00", xG_h:1.9, xG_a:1.4, odd_btts:1.80, prob_btts:70, odd_over:1.95, prob_over:74 },
-  { home:"ASEC", away:"AFAD", league:"Ligue 1 Côte d'Ivoire", time:"18:00", xG_h:1.7, xG_a:0.9, odd_btts:2.00, prob_btts:62, odd_over:2.10, prob_over:66 },
-  { home:"Arsenal", away:"Man City", league:"Premier League", time:"21:00", xG_h:2.1, xG_a:2.0, odd_btts:1.55, prob_btts:78, odd_over:1.65, prob_over:80 },
-  { home:"Horoya", away:"Hafia", league:"Ligue 1 Guinée", time:"17:00", xG_h:1.5, xG_a:1.0, odd_btts:1.85, prob_btts:66, odd_over:1.90, prob_over:70 },
-  { home:"FC Porto", away:"Alverca", league:"Primeira Liga", time:"19:00", xG_h:1.8, xG_a:1.2, odd_btts:1.75, prob_btts:68, odd_over:1.85, prob_over:72 },
+  { home:"Teungueth", away:"Jaraaf", league:"Ligue 1 Sénégal", time:"16:30" },
+  { home:"Raja", away:"Wydad", league:"Botola Pro (Maroc)", time:"20:00" },
+  { home:"ASEC", away:"AFAD", league:"Ligue 1 Côte d'Ivoire", time:"18:00" },
+  { home:"Arsenal", away:"Man City", league:"Premier League", time:"21:00" },
+  { home:"Horoya", away:"Hafia", league:"Ligue 1 Guinée", time:"17:00" },
+  { home:"FC Porto", away:"Alverca", league:"Primeira Liga", time:"19:00" },
 ]
 
 export default function PromoVip() {
   const [ref, isVisible] = useScrollAnimation()
   const [showModal, setShowModal] = useState(false)
-  const [matches, setMatches] = useState<any[]>([])
+  const [matchCount, setMatchCount] = useState(6)
   const dailyCote = useMemo(() => getDailyCote(), [])
   const [coteRef, coteDisplay] = useCountUp(dailyCote, 1500, { decimals: 2, threshold: 0.3 })
 
@@ -28,9 +38,7 @@ export default function PromoVip() {
     fetch('/predictions.json')
       .then(r => r.json())
       .then(data => {
-        // v91: data.free is the new structure (each entry = 1 match with predictions[])
-        const arr: any[] = data?.free || data?.predictions || []
-        // Deduplicate by match name — each match appears ONLY ONCE
+        const arr: any[] = data?.vipPreview || data?.free || data?.predictions || []
         const seen = new Set<string>()
         const unique: any[] = []
         for (const p of arr) {
@@ -38,105 +46,120 @@ export default function PromoVip() {
           seen.add(p.match)
           unique.push(p)
         }
-        // Take today's matches or upcoming, max 6 total
-        const filtered = unique.filter(p => p.date >= todayStr).slice(0, 6)
-        if (filtered.length >= 6) {
-          setMatches(formatMatches(filtered))
-        } else {
-          // Complete with FALLBACK — but never duplicate a match already present
-          const existingNames = new Set(filtered.map(p => p.match))
-          const fallbackFiltered = FALLBACK.filter(f => !existingNames.has(`${f.home} vs ${f.away}`))
-          const combined = [...filtered, ...fallbackFiltered.slice(0, 6 - filtered.length)]
-          setMatches(formatMatches(combined.length > 0 ? combined : FALLBACK))
-        }
+        const count = unique.filter(p => p.date >= todayStr).length || unique.length || 6
+        setMatchCount(Math.min(6, Math.max(4, count)))
       })
-      .catch(() => {
-        setMatches(formatMatches(FALLBACK))
-      })
+      .catch(() => setMatchCount(6))
   }, [dailyCote])
-
-  function formatMatches(arr: any[]): any[] {
-    return arr.slice(0, 6).map((m, i) => {
-      const [home, away] = m.match ? m.match.split(/\s+vs\s+/i) : [m.home, m.away]
-      // v91: lambdas/probas are at top-level on the prediction object
-      const a = m.analysisData || {}
-      return {
-        id: i + 1,
-        home: home?.trim() || m.home || '',
-        away: away?.trim() || m.away || '',
-        league: m.league || '',
-        time: m.time || '--:--',
-        xG_h: m.xgHome || m.homeLambda || a.homeLambda || 1.6,
-        xG_a: m.xgAway || m.awayLambda || a.awayLambda || 1.1,
-        odd_btts: m.estimatedCote || 1.85,
-        prob_btts: m.bttsProb ? Math.round(m.bttsProb * 100) : Math.round((a.bttsProb || 0.5) * 100) || 68,
-        odd_over: m.estimatedCoteOver || 1.95,
-        prob_over: m.over25Prob ? Math.round(m.over25Prob * 100) : Math.round((a.over25Prob || 0.5) * 100) || 70,
-      }
-    })
-  }
-
-  // TOUS les matchs sont floutés — aucun visible sans déblocage
-  const blurred = matches.slice(0, 6)
 
   return (
     <>
-      <section ref={ref} id="coupon-vip" className="py-3 relative">
-        <div className="max-w-md mx-auto relative">
-          {/* Header — compact */}
-          <div className="text-center mb-3">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9px] font-bold tracking-wider" style={{ backgroundColor: 'rgba(255,215,0,0.08)', border: '1px solid rgba(255,215,0,0.2)', color: '#FFD700' }}>
-              <span className="w-1 h-1 rounded-full" style={{ backgroundColor: '#FFD700' }} />
-              Coupon du jour
-            </span>
-            <h2 className="font-bold text-[15px] mt-2" style={{ color: C.text }}>Pronostics VIP floutés</h2>
-            <p className="text-[10px] mt-0.5" style={{ color: C.textSec }}>{matches.length} matchs · Débloque pour voir</p>
-          </div>
+      <section ref={ref} id="coupon-vip" className="py-4 relative">
+        <div className="max-w-md mx-auto relative px-4">
 
-          {/* Coupon card — compact */}
-          <div className="rounded-xl overflow-hidden" style={{ backgroundColor: C.card, border: `1px solid ${C.border}` }}>
-            <div className="h-[2px] w-full" style={{ background: `linear-gradient(90deg, transparent, ${C.neon}, transparent)` }} />
+          {/* ═══ CARTE VERROUILLÉE PREMIUM ═══ */}
+          <div
+            className="relative rounded-2xl overflow-hidden transition-all duration-500 hover:scale-[1.01]"
+            style={{
+              background: `linear-gradient(135deg, ${C.card} 0%, ${C.bg} 60%, #0A1822 100%)`,
+              border: `1px solid ${C.gold}30`,
+              boxShadow: `0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px ${C.gold}10, inset 0 1px 0 ${C.gold}15`,
+            }}
+          >
+            {/* Top accent gradient bar */}
+            <div className="h-[3px] w-full" style={{
+              background: `linear-gradient(90deg, transparent 0%, ${C.gold} 30%, ${C.neon} 50%, ${C.gold} 70%, transparent 100%)`,
+            }} />
 
-            <div className="p-2 space-y-1.5">
-              {/* TOUS FLOUTÉS — compact cards */}
-              <div className="relative">
-                <div style={{ filter: 'blur(10px)', opacity: 0.55, pointerEvents: 'none' }}>
-                  {blurred.map((m, i) => (
-                    <div key={m.id} className="rounded-lg overflow-hidden border mb-1.5" style={{ backgroundColor: '#0B1925', borderColor: C.border }}>
-                      <div className="flex justify-between items-center px-2.5 py-1.5" style={{ backgroundColor: C.bg }}>
-                        <span className="text-[9px]" style={{ color: C.textSec }}>{m.league} · {m.time}</span>
-                        <span className="text-[8px]" style={{ color: C.textMute }}>VIP</span>
-                      </div>
-                      <div className="flex justify-between items-center px-3 py-2">
-                        <div className="flex flex-col items-center gap-0.5">
-                          <div className="w-7 h-7 rounded-full flex items-center justify-center font-bold text-[10px]" style={{ backgroundColor: C.border, color: C.neon }}>{String(m.home)[0]}</div>
-                          <span className="text-[10px] font-bold" style={{ color: C.text }}>{m.home}</span>
-                        </div>
-                        <span className="text-[9px] px-1.5 py-0.5 rounded-full border" style={{ borderColor: 'rgba(199,244,100,0.2)', color: C.neon }}>VS</span>
-                        <div className="flex flex-col items-center gap-0.5">
-                          <div className="w-7 h-7 rounded-full flex items-center justify-center font-bold text-[10px]" style={{ backgroundColor: C.border, color: C.neon }}>{String(m.away)[0]}</div>
-                          <span className="text-[10px] font-bold" style={{ color: C.text }}>{m.away}</span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+            {/* Decorative glow */}
+            <div className="absolute inset-0 pointer-events-none" style={{
+              background: `radial-gradient(ellipse 60% 40% at 50% 0%, ${C.gold}12, transparent 70%)`,
+            }} />
+
+            <div className="relative p-5 text-center">
+
+              {/* Lock icon — premium */}
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-3 relative" style={{
+                background: `linear-gradient(135deg, ${C.gold}20, ${C.gold}08)`,
+                border: `1px solid ${C.gold}40`,
+                boxShadow: `0 0 24px ${C.gold}25, inset 0 1px 0 ${C.gold}30`,
+              }}>
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  <circle cx="12" cy="16" r="1" fill={C.gold} />
+                </svg>
+              </div>
+
+              {/* Badge */}
+              <span className="inline-block px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-[0.25em] mb-2"
+                style={{
+                  background: `linear-gradient(135deg, ${C.gold}25, ${C.gold}10)`,
+                  color: C.gold,
+                  border: `1px solid ${C.gold}40`,
+                }}>
+                ✦ Accès Premium ✦
+              </span>
+
+              {/* Title */}
+              <h2 className="text-xl font-black mb-1" style={{
+                fontFamily: 'Poppins, sans-serif',
+                background: `linear-gradient(135deg, ${C.gold} 0%, ${C.text} 100%)`,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}>
+                Pronostics Premium
+              </h2>
+
+              <p className="text-[11px] mb-4" style={{ color: C.textSec }}>
+                {matchCount} pronostics VIP · Cote totale <span className="font-bold" style={{ color: C.neon }}>{coteDisplay}</span>
+              </p>
+
+              {/* Premium features row */}
+              <div className="grid grid-cols-3 gap-2 mb-4">
+                <div className="rounded-lg py-2 px-1" style={{ backgroundColor: 'rgba(255,215,0,0.06)', border: `1px solid ${C.gold}20` }}>
+                  <div className="text-[9px] uppercase tracking-wider" style={{ color: C.textMute }}>BTTS</div>
+                  <div className="text-[11px] font-bold mt-0.5" style={{ color: C.gold }}>Oui/Non</div>
                 </div>
-                {/* Lock overlay — compact */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5" style={{ backgroundColor: 'rgba(7,17,26,0.78)' }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={C.neon} strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
-                  <span className="text-[10px] tracking-wider uppercase font-bold" style={{ color: C.textSec }}>{blurred.length} pronos floutés</span>
-                  <button onClick={() => setShowModal(true)} className="px-4 py-1.5 rounded-lg font-bold text-[11px] transition-all hover:scale-[1.02]" style={{ backgroundColor: C.neon, color: C.bg, boxShadow:`0 4px 14px ${C.neon}30` }}>
-                    🔓 Débloquer VIP
-                  </button>
+                <div className="rounded-lg py-2 px-1" style={{ backgroundColor: 'rgba(99,214,255,0.06)', border: `1px solid ${C.data}20` }}>
+                  <div className="text-[9px] uppercase tracking-wider" style={{ color: C.textMute }}>Over 2.5</div>
+                  <div className="text-[11px] font-bold mt-0.5" style={{ color: C.data }}>Oui/Non</div>
+                </div>
+                <div className="rounded-lg py-2 px-1" style={{ backgroundColor: 'rgba(123,228,149,0.06)', border: `1px solid ${C.success}20` }}>
+                  <div className="text-[9px] uppercase tracking-wider" style={{ color: C.textMute }}>Cote</div>
+                  <div className="text-[11px] font-bold mt-0.5" style={{ color: C.success }}>{coteDisplay}</div>
                 </div>
               </div>
+
+              {/* CTA — premium */}
+              <button
+                onClick={() => setShowModal(true)}
+                className="group block w-full h-[44px] rounded-xl font-black text-[13px] uppercase tracking-wider transition-all hover:scale-[1.02]"
+                style={{
+                  background: `linear-gradient(135deg, ${C.gold} 0%, ${C.neon} 100%)`,
+                  color: C.bg,
+                  boxShadow: `0 8px 24px ${C.gold}30, 0 4px 12px ${C.neon}20`,
+                }}
+              >
+                <span className="inline-flex items-center gap-2">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  </svg>
+                  Débloquer les pronostics
+                </span>
+              </button>
+
+              <p className="text-[9px] mt-3" style={{ color: C.textMute }}>
+                Accès immédiat après vérification · 18+
+              </p>
             </div>
 
-            {/* Cote totale — compact */}
-            <div className="flex justify-between items-center px-3 py-2 border-t" style={{ borderColor: C.border }}>
-              <span className="text-[9px] uppercase tracking-widest font-bold" style={{ color: C.textMute }}>Cote totale</span>
-              <span className="font-mono text-[15px] font-bold" ref={coteRef} style={{ color: C.neon }}>{coteDisplay}</span>
-            </div>
+            {/* Bottom subtle accent */}
+            <div className="h-px w-full" style={{
+              background: `linear-gradient(90deg, transparent, ${C.gold}30, transparent)`,
+            }} />
           </div>
         </div>
       </section>

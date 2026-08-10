@@ -25,7 +25,7 @@ const C = {
 const VIP_PERKS = [
   { icon: '🎯', title: 'Pronos premium', desc: 'Sélections exclusives BTTS + Over 2.5' },
   { icon: '⚡', title: 'Mise à jour 4x/jour', desc: '08h, 12h, 16h, 20h' },
-  { icon: '🔐', title: 'Coupon du jour', desc: '6 matchs floutés à débloquer' },
+  { icon: '🔐', title: 'Coupon du jour', desc: '6 pronostics premium à débloquer' },
   { icon: '💬', title: 'Support WhatsApp', desc: 'Vérification en 15-60 min' },
 ]
 
@@ -234,7 +234,7 @@ export default function VipPage() {
           </a>
         </section>
 
-        {/* ═══ COUPON FLOUTE — compact ═══ */}
+        {/* ═══ CARTE VERROUILLÉE PREMIUM ═══ */}
         <section className="pb-5"><PromoVip /></section>
 
         {/* ═══ FOOTER LÉGAL ═══ */}
