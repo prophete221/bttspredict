@@ -26,8 +26,7 @@ import time
 from pathlib import Path
 
 # ─── Constants ──────────────────────────────────────────────────────────────
-MODEL = "gemini-1.5-flash"
-FALLBACK_MODELS = ["gemini-2.0-flash", "gemini-1.5-pro"]
+MODELS_TO_TRY = ["gemini-2.0-flash-lite", "gemini-2.0-flash"]
 PREDICTIONS_FILE = Path(__file__).parent.parent / "public" / "predictions.json"
 MAX_RETRIES = 2
 RETRY_DELAY = 5  # seconds between retries
@@ -115,12 +114,11 @@ Règles :
 def call_gemini_batch(client, all_matches: list) -> list:
     """Send a single batch API call to Gemini and return parsed results.
 
-    Tries MODEL first, then FALLBACK_MODELS in order if primary fails.
+    Tries each model in MODELS_TO_TRY in order until one succeeds.
     """
     prompt = build_batch_prompt(all_matches)
-    models_to_try = [MODEL] + FALLBACK_MODELS
 
-    for model_name in models_to_try:
+    for model_name in MODELS_TO_TRY:
         print(f"[enrich] Trying model: {model_name}...")
 
         for attempt in range(MAX_RETRIES + 1):
@@ -172,7 +170,7 @@ def call_gemini_batch(client, all_matches: list) -> list:
 
 
 def main():
-    print("[enrich] Starting Gemini 1.5 Flash enrichment (BATCH MODE)")
+    print("[enrich] Starting Gemini 2.0 Flash-Lite enrichment (BATCH MODE)")
 
     # Check predictions file exists
     if not PREDICTIONS_FILE.exists():
@@ -201,6 +199,13 @@ def main():
 
     # Build combined list of all matches to enrich
     all_matches = list(free_matches) + list(vip_matches)
+    # Diagnostic: list available models for this API key
+    try:
+        available = [m.name for m in client.models.list()]
+        print(f"[enrich] Models available for this key: {available}")
+    except Exception as e:
+        print(f"[enrich] Could not list models: {e}")
+
     print(f"[enrich] Sending 1 batch API call for {len(all_matches)} matches...")
 
     # Single batch API call
