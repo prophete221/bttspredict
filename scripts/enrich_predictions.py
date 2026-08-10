@@ -26,7 +26,12 @@ import time
 from pathlib import Path
 
 # ─── Constants ──────────────────────────────────────────────────────────────
-MODELS_TO_TRY = ["gemini-2.0-flash-lite", "gemini-2.0-flash"]
+MODELS_TO_TRY = [
+    "gemini-flash-lite-latest",
+    "gemini-2.5-flash-lite",
+    "gemini-flash-latest",
+    "gemini-2.5-flash",
+]
 PREDICTIONS_FILE = Path(__file__).parent.parent / "public" / "predictions.json"
 MAX_RETRIES = 2
 RETRY_DELAY = 5  # seconds between retries
@@ -170,7 +175,7 @@ def call_gemini_batch(client, all_matches: list) -> list:
 
 
 def main():
-    print("[enrich] Starting Gemini 2.0 Flash-Lite enrichment (BATCH MODE)")
+    print("[enrich] Starting Gemini Flash-Lite enrichment (BATCH MODE)")
 
     # Check predictions file exists
     if not PREDICTIONS_FILE.exists():
