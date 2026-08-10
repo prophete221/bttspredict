@@ -12,7 +12,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // ── ECLIPSE v60 — Brand tokens ──
+        // ── Google AI Studio Dark palette ──
+        darkbg: '#131314',
+        darkcard: '#1e1f20',
+        darkhover: '#282a2c',
+        darkborder: '#2d2f31',
+        bttsGreen: '#22c55e',
+        aiBlue: '#06b6d4',
+        vipGold: '#f59e0b',
+        textMain: '#f0f4f9',
+        textMuted: '#9ca3af',
+        // ── CSS variable tokens (backward compat) ──
         bgMain: 'var(--bg-main)',
         bgSecondary: 'var(--bg-secondary)',
         bgTertiary: 'var(--bg-tertiary)',

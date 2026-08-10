@@ -1,78 +1,78 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════
-   BTTSPredict — ECLIPSE v60 Design System
-   Palette : 14 tokens, "Data platform, not affiliation site"
+   BTTSPredict — Google AI Studio Dark Design System
+   Palette : sombre, néon vert, cyan tech, or amber
    ═══════════════════════════════════════════════════════════════ */
 :root {
-  /* Fonds — palette indigo nocturne */
-  --bg-main: #070B18;
-  --bg-secondary: #0D1630;
-  --bg-tertiary: #171A38;
-  --card: #1E2340;
-  --card-hover: #24205A;
-  --border: #303861;
-  --border-strong: #3E4A7A;
+  /* Fonds — palette sombre Google AI Studio */
+  --bg-main: #131314;
+  --bg-secondary: #1e1f20;
+  --bg-tertiary: #282a2c;
+  --card: #1e1f20;
+  --card-hover: #282a2c;
+  --border: #2d2f31;
+  --border-strong: #2d2f31;
 
   /* Texte */
-  --text-primary: #F7F8FF;
-  --text-secondary: #A5ABC5;
-  --text-tertiary: #6B7194;
+  --text-primary: #f0f4f9;
+  --text-secondary: #9ca3af;
+  --text-tertiary: #9ca3af;
 
   /* Accents sémantiques */
-  --brand-indigo: #5146F5;     /* CTA principal BTTS */
-  --brand-violet: #7C3AED;     /* BTTS accent */
-  --brand-cyan: #5DFDCB;       /* Over 2.5 accent (NOUVEAU) */
-  --cta: #5146F5;              /* Alias brand-indigo */
-  --cta-text: #F7F8FF;
-  --trust: #B9E7FF;          /* Bleu Polaire */
-  --vip: #FFC857;            /* Or Solaire */
-  --success: #A8E063;        /* Vert Signal */
-  --error: #FF7185;          /* Rose Alerte */
+  --brand-indigo: #22c55e;     /* BTTS Oui / Over 2.5 / Succès — Vert Néon */
+  --brand-violet: #22c55e;
+  --brand-cyan: #06b6d4;       /* BTTSPredict AI — Cyan Tech */
+  --cta: #22c55e;              /* CTA principal — Vert Néon */
+  --cta-text: #131314;
+  --trust: #06b6d4;            /* Cyan Tech */
+  --vip: #f59e0b;              /* Or Amber — Score Exact & VIP */
+  --success: #22c55e;          /* Vert Néon */
+  --error: #FF7185;            /* Rose Alerte */
 
   /* Hover states */
-  --cta-hover: #6B61FF;
-  --cta-active: #4338D4;
-  --trust-hover: #B9E7FF;
-  --vip-hover: #FFD687;
-  --success-hover: #A8E063;
+  --cta-hover: #16a34a;
+  --cta-active: #15803d;
+  --trust-hover: #06b6d4;
+  --vip-hover: #f59e0b;
+  --success-hover: #16a34a;
   --error-hover: #FF7185;
-  --border-hover: #5146F5;
-  --glass: rgba(247, 248, 255, 0.08);
-  --glass-border: rgba(247, 248, 255, 0.12);
+  --border-hover: #22c55e;
+  --glass: rgba(240, 244, 249, 0.08);
+  --glass-border: rgba(240, 244, 249, 0.12);
 }
 
 @theme {
-  /* ── ECLIPSE v60 — 14 tokens canoniques ── */
-  --color-bg-main: #070B18;
-  --color-bg-secondary: #0D1630;
-  --color-bg-tertiary: #171A38;
-  --color-card: #1E2340;
-  --color-card-hover: #24205A;
-  --color-border: #303861;
-  --color-border-strong: #3E4A7A;
-  --color-text-primary: #F7F8FF;
-  --color-text-secondary: #A5ABC5;
-  --color-text-tertiary: #6B7194;
-  --color-brand-indigo: #5146F5;
-  --color-brand-violet: #7C3AED;
-  --color-brand-cyan: #5DFDCB;
-  --color-cta: #5146F5;
-  --color-cta-text: #F7F8FF;
-  --color-trust: #B9E7FF;
-  --color-stats: #5146F5;
-  --color-vip: #FFC857;
-  --color-success: #A8E063;
+  /* ── Google AI Studio Dark — tokens canoniques ── */
+  --color-bg-main: #131314;
+  --color-bg-secondary: #1e1f20;
+  --color-bg-tertiary: #282a2c;
+  --color-card: #1e1f20;
+  --color-card-hover: #282a2c;
+  --color-border: #2d2f31;
+  --color-border-strong: #2d2f31;
+  --color-text-primary: #f0f4f9;
+  --color-text-secondary: #9ca3af;
+  --color-text-tertiary: #9ca3af;
+  --color-brand-indigo: #22c55e;
+  --color-brand-violet: #22c55e;
+  --color-brand-cyan: #06b6d4;
+  --color-cta: #22c55e;
+  --color-cta-text: #131314;
+  --color-trust: #06b6d4;
+  --color-stats: #22c55e;
+  --color-vip: #f59e0b;
+  --color-success: #22c55e;
   --color-error: #FF7185;
 
   /* Hover states */
-  --color-cta-hover: #6B61FF;
-  --color-cta-active: #4338D4;
-  --color-trust-hover: #B9E7FF;
-  --color-vip-hover: #FFD687;
-  --color-success-hover: #A8E063;
+  --color-cta-hover: #16a34a;
+  --color-cta-active: #15803d;
+  --color-trust-hover: #06b6d4;
+  --color-vip-hover: #f59e0b;
+  --color-success-hover: #16a34a;
   --color-error-hover: #FF7185;
-  --color-border-hover: #303861;
+  --color-border-hover: #22c55e;
 
   /* Aliases mappés sur ECLIPSE v60 */
   --color-abyss: var(--color-bg-main);
@@ -378,13 +378,13 @@ h1, h2, h3, h4, h5, h6 {
 ::selection { background: rgba(168, 224, 99, 0.3); color: #fff; }
 
 /* ─── Blog Article Prose ─── */
-.prose-dark h2 { color: #A8E063; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+.prose-dark h2 { color: #22c55e; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
 .prose-dark h3 { color: #5146F5; font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
 .prose-dark p { color: #5146F5; line-height: 1.8; margin-bottom: 1rem; }
 .prose-dark ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
 .prose-dark li { color: #5146F5; line-height: 1.8; margin-bottom: 0.5rem; }
 .prose-dark strong { color: #F7F8FF; }
-.prose-dark blockquote { border-left: 3px solid #A8E063; padding-left: 1rem; margin: 1.5rem 0; color: #A5ABC5; font-style: italic; }
+.prose-dark blockquote { border-left: 3px solid #22c55e; padding-left: 1rem; margin: 1.5rem 0; color: #9ca3af; font-style: italic; }
 
 /* ─── Stat Card Motion Animations ─── */
 @keyframes statFloat {
@@ -430,7 +430,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Premium Button Styles ─── */
 .btn-emerald {
-  background: linear-gradient(135deg, #A8E063, #A8E063);
+  background: linear-gradient(135deg, #22c55e, #22c55e);
   color: #0D1630;
   font-weight: 700;
   border-radius: 12px;
@@ -474,7 +474,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── Section Accent Borders ─── */
 .accent-line-emerald {
   height: 2px;
-  background: linear-gradient(90deg, transparent, #A8E063, transparent);
+  background: linear-gradient(90deg, transparent, #22c55e, transparent);
 }
 .accent-line-gold {
   height: 2px;
@@ -509,7 +509,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Accessibility: Focus Visible ─── */
 *:focus-visible {
-  outline: 2px solid #A8E063;
+  outline: 2px solid #22c55e;
   outline-offset: 2px;
   border-radius: 4px;
 }

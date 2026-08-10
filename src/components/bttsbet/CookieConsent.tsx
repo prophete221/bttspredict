@@ -61,7 +61,7 @@ export default function CookieConsent() {
             <div className="flex flex-col sm:flex-row items-start gap-4 mb-4">
               <div className="flex items-start gap-3 flex-1">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(199, 244, 100, 0.1)' }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C7F464" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/>
                   </svg>
                 </div>
@@ -82,12 +82,12 @@ export default function CookieConsent() {
                           <input type="checkbox" checked={preferences[cookie.id as keyof typeof preferences]} onChange={() => togglePreference(cookie.id)} disabled={cookie.required} className="sr-only peer" />
                           <div className="w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all"
                             style={{
-                              backgroundColor: preferences[cookie.id as keyof typeof preferences] ? '#C7F464' : 'transparent',
-                              borderColor: preferences[cookie.id as keyof typeof preferences] ? '#C7F464' : 'rgba(242, 247, 245,0.2)',
+                              backgroundColor: preferences[cookie.id as keyof typeof preferences] ? '#22c55e' : 'transparent',
+                              borderColor: preferences[cookie.id as keyof typeof preferences] ? '#22c55e' : 'rgba(242, 247, 245,0.2)',
                               opacity: cookie.required ? 0.7 : 1,
                             }}>
                             {preferences[cookie.id as keyof typeof preferences] && (
-                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#07111A" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#131314" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                             )}
                           </div>
                         </div>
@@ -95,7 +95,7 @@ export default function CookieConsent() {
                           <div className="flex items-center gap-2">
                             <span className="text-sm text-papier font-medium">{cookie.label}</span>
                             {cookie.required && (
-                              <span className="text-[10px] px-2 py-0.5 rounded-full font-medium" style={{ backgroundColor: 'rgba(199, 244, 100,0.15)', color: '#C7F464' }}>Obligatoire</span>
+                              <span className="text-[10px] px-2 py-0.5 rounded-full font-medium" style={{ backgroundColor: 'rgba(199, 244, 100,0.15)', color: '#22c55e' }}>Obligatoire</span>
                             )}
                           </div>
                           <p className="text-xs text-cendre mt-0.5">{cookie.description}</p>
@@ -115,16 +115,16 @@ export default function CookieConsent() {
               <div className="flex gap-3 sm:ml-auto order-1 sm:order-2 w-full sm:w-auto">
                 <button onClick={handleRefuse}
                   className="flex-1 sm:flex-initial px-5 py-2.5 text-sm rounded-xl font-medium transition-all"
-                  style={{ border: '1px solid rgba(242, 247, 245,0.1)', color: '#B5C4C9', backgroundColor: 'transparent' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#102333'; e.currentTarget.style.color = '#F2F7F5' }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#B5C4C9' }}
+                  style={{ border: '1px solid rgba(242, 247, 245,0.1)', color: '#9ca3af', backgroundColor: 'transparent' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1e1f20'; e.currentTarget.style.color = '#f0f4f9' }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#9ca3af' }}
                 >
                   Refuser
                 </button>
                 {customize && (
                   <button onClick={handleSavePreferences}
                     className="flex-1 sm:flex-initial px-5 py-2.5 text-sm rounded-xl font-medium transition-all"
-                    style={{ border: '1px solid rgba(199, 244, 100,0.3)', color: '#C7F464', backgroundColor: 'transparent' }}
+                    style={{ border: '1px solid rgba(199, 244, 100,0.3)', color: '#22c55e', backgroundColor: 'transparent' }}
                   >
                     Enregistrer
                   </button>
@@ -132,8 +132,8 @@ export default function CookieConsent() {
                 <button onClick={handleAccept}
                   className="flex-1 sm:flex-initial px-5 py-2.5 text-sm rounded-xl font-bold transition-all"
                   style={{
-                    backgroundColor: '#C7F464',
-                    color: '#07111A',
+                    backgroundColor: '#22c55e',
+                    color: '#131314',
                     boxShadow: '0 0 0 1px rgba(199, 244, 100,.3), 0 4px 16px rgba(199, 244, 100,.2)',
                   }}
                   onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 0 0 1px rgba(199, 244, 100,.5), 0 8px 24px rgba(199, 244, 100,.3)'}

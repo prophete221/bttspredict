@@ -6,9 +6,9 @@ import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
 
 const C = {
-  bg: '#07111A', card: '#102333', border: 'rgba(242, 247, 245, 0.08)',
-  green: '#C7F464', greenLight: '#C7F464', gold: '#C7F464', cyan: '#C7F464', violet: '#C7F464',
-  text: '#F2F7F5', textSec: '#B5C4C9', textMute: '#B5C4C9',
+  bg: '#131314', card: '#1e1f20', border: 'rgba(242, 247, 245, 0.08)',
+  green: '#22c55e', greenLight: '#22c55e', gold: '#22c55e', cyan: '#22c55e', violet: '#22c55e',
+  text: '#f0f4f9', textSec: '#9ca3af', textMute: '#9ca3af',
 }
 
 const FIFA_TEAMS = [
@@ -97,7 +97,7 @@ export default function FifaLinebet() {
 
               {/* KPI — compact 3 inline */}
               <div className="flex items-center gap-1.5 mb-3">
-                <div className="flex-1 p-2 rounded-lg text-center" style={{ backgroundColor: '#102333' }}>
+                <div className="flex-1 p-2 rounded-lg text-center" style={{ backgroundColor: '#1e1f20' }}>
                   <div className="text-sm font-bold tabular-nums text-papier">{matches.length}</div>
                   <div className="text-[10px] uppercase tracking-wider" style={{ color: C.textMute }}>Matchs</div>
                 </div>
@@ -131,7 +131,7 @@ export default function FifaLinebet() {
               <button
                 onClick={() => setShowModal(true)}
                 className="w-full mt-3 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-xs font-bold transition-all"
-                style={{ background: 'linear-gradient(135deg, #C7F464, #C7F464)', color: '#07111A' }}
+                style={{ background: 'linear-gradient(135deg, #22c55e, #22c55e)', color: '#131314' }}
               >
                 🔒 Débloquer les Analyses de valeur FIFA (expérimental)
               </button>

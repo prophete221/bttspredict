@@ -4,15 +4,15 @@ import { useState } from 'react'
 import { AFFILIATE } from '@/lib/constants'
 
 /* ─── Palette locale (alignée sur LinebetClient / Star888Client) ─────── */
-const GOLD = '#C7F464'       // v68: or unifié
-const PRIMARY = '#C7F464'
+const GOLD = '#22c55e'       // v68: or unifié
+const PRIMARY = '#22c55e'
 const PRIMARY_HOVER = '#A6D941'
-const ORANGE = '#63D6FF'      // v68: 888Starz card passe d'orange à Émeraude
+const ORANGE = '#06b6d4'      // v68: 888Starz card passe d'orange à Émeraude
 const ORANGE_DARK = '#4BA8CC' // v68: émeraude sombre pour hover
-const TEXT = '#F2F7F5'
-const TEXT_SEC = '#B5C4C9'
-const BG_DARK = '#07111A'
-const BORDER_OUTLINE = '#7F969E'
+const TEXT = '#f0f4f9'
+const TEXT_SEC = '#9ca3af'
+const BG_DARK = '#131314'
+const BORDER_OUTLINE = '#9ca3af'
 
 const WHATSAPP_NUMBER = '15406704172'
 
@@ -177,9 +177,9 @@ export default function VipClient() {
         <div
           className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] px-5 py-3 rounded-xl font-bold text-sm shadow-2xl"
           style={{
-            backgroundColor: toast.startsWith('⚠') ? '#FF7A7A' : '#63D6FF',
+            backgroundColor: toast.startsWith('⚠') ? '#FF7185' : '#06b6d4',
             color: BG_DARK,
-            border: `1.5px solid ${toast.startsWith('⚠') ? '#FF7A7A' : '#63D6FF'}`,
+            border: `1.5px solid ${toast.startsWith('⚠') ? '#FF7185' : '#06b6d4'}`,
             boxShadow: '0 10px 40px rgba(99, 214, 255, 0.4)',
           }}
           role="status"
@@ -255,8 +255,8 @@ export default function VipClient() {
                 <span
                   className="inline-flex items-center justify-center w-9 h-9 rounded-lg flex-shrink-0"
                   style={{
-                    backgroundColor: copiedLinebet ? '#63D6FF' : `${GOLD}1A`,
-                    border: `1px solid ${copiedLinebet ? '#63D6FF' : GOLD}`,
+                    backgroundColor: copiedLinebet ? '#06b6d4' : `${GOLD}1A`,
+                    border: `1px solid ${copiedLinebet ? '#06b6d4' : GOLD}`,
                     color: copiedLinebet ? BG_DARK : GOLD,
                   }}
                   aria-hidden="true"
@@ -283,7 +283,7 @@ export default function VipClient() {
                   onClick={copyLinebet}
                   className="h-[44px] rounded-[10px] font-bold text-[13px] flex items-center justify-center gap-2 transition-all"
                   style={{
-                    backgroundColor: copiedLinebet ? '#63D6FF' : GOLD,
+                    backgroundColor: copiedLinebet ? '#06b6d4' : GOLD,
                     color: BG_DARK,
                     border: 'none',
                     boxShadow: `0 4px 14px ${GOLD}33`,
@@ -346,8 +346,8 @@ export default function VipClient() {
                 <span
                   className="inline-flex items-center justify-center w-9 h-9 rounded-lg flex-shrink-0"
                   style={{
-                    backgroundColor: copied888 ? '#63D6FF' : `${ORANGE}1A`,
-                    border: `1px solid ${copied888 ? '#63D6FF' : ORANGE}`,
+                    backgroundColor: copied888 ? '#06b6d4' : `${ORANGE}1A`,
+                    border: `1px solid ${copied888 ? '#06b6d4' : ORANGE}`,
                     color: copied888 ? BG_DARK : ORANGE,
                   }}
                   aria-hidden="true"
@@ -374,7 +374,7 @@ export default function VipClient() {
                   onClick={copy888}
                   className="h-[44px] rounded-[10px] font-bold text-[13px] flex items-center justify-center gap-2 transition-all"
                   style={{
-                    backgroundColor: copied888 ? '#63D6FF' : ORANGE,
+                    backgroundColor: copied888 ? '#06b6d4' : ORANGE,
                     color: BG_DARK,
                     border: 'none',
                     boxShadow: `0 4px 14px ${ORANGE}33`,
@@ -424,7 +424,7 @@ export default function VipClient() {
               <div
                 key={step.n}
                 className="rounded-2xl p-5 relative"
-                style={{ backgroundColor: '#102333', border: `1px solid ${GOLD}22` }}
+                style={{ backgroundColor: '#1e1f20', border: `1px solid ${GOLD}22` }}
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div
@@ -456,8 +456,8 @@ export default function VipClient() {
           <div
             className="rounded-2xl p-6 sm:p-8"
             style={{
-              backgroundColor: '#102333',
-              border: `1.5px solid #63D6FF`,
+              backgroundColor: '#1e1f20',
+              border: `1.5px solid #06b6d4`,
               boxShadow: '0 0 40px rgba(99, 214, 255, 0.15)',
             }}
           >
@@ -468,7 +468,7 @@ export default function VipClient() {
               Vérifier mon dépôt et débloquer VIP
             </h2>
             <p className="text-xs text-center mb-5" style={{ color: TEXT_SEC }}>
-              On vérifie dans le tableau de bord affilié que le code VISION221 / vision221 a bien été utilisé + dépôt min 3 000 F. Délai <strong style={{ color: '#63D6FF' }}>15-60 min</strong>.
+              On vérifie dans le tableau de bord affilié que le code VISION221 / vision221 a bien été utilisé + dépôt min 3 000 F. Délai <strong style={{ color: '#06b6d4' }}>15-60 min</strong>.
             </p>
 
             <div className="space-y-3">
@@ -486,12 +486,12 @@ export default function VipClient() {
                   className="w-full h-[48px] px-4 rounded-[10px] text-sm font-mono"
                   style={{
                     backgroundColor: BG_DARK,
-                    border: '1.5px solid #1C3546',
+                    border: '1.5px solid #2d2f31',
                     color: TEXT,
                     outline: 'none',
                   }}
-                  onFocus={(e) => { e.currentTarget.style.borderColor = '#63D6FF' }}
-                  onBlur={(e) => { e.currentTarget.style.borderColor = '#1C3546' }}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = '#06b6d4' }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = '#2d2f31' }}
                 />
               </div>
 
@@ -507,7 +507,7 @@ export default function VipClient() {
                   className="w-full h-[48px] px-4 rounded-[10px] text-sm font-semibold"
                   style={{
                     backgroundColor: BG_DARK,
-                    border: '1.5px solid #1C3546',
+                    border: '1.5px solid #2d2f31',
                     color: TEXT,
                     outline: 'none',
                   }}
@@ -525,7 +525,7 @@ export default function VipClient() {
                 onClick={handleVerifyClick}
                 className="block w-full h-[52px] rounded-[10px] font-bold text-[14px] flex items-center justify-center gap-2 transition-all mt-2"
                 style={{
-                  backgroundColor: '#63D6FF',
+                  backgroundColor: '#06b6d4',
                   color: BG_DARK,
                   border: 'none',
                   boxShadow: '0 6px 20px rgba(99, 214, 255, 0.3)',
@@ -538,9 +538,9 @@ export default function VipClient() {
               </a>
             </div>
 
-            <p className="text-[11px] text-center mt-4 leading-relaxed" style={{ color: '#7F969E' }}>
+            <p className="text-[11px] text-center mt-4 leading-relaxed" style={{ color: '#9ca3af' }}>
               Si OK, accès groupe VIP + 6 pronos BTTS / Over 2.5 par jour avec xG.
-              Numéro WhatsApp : <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="underline" style={{ color: '#63D6FF' }}>+1 540 670 4172</a>
+              Numéro WhatsApp : <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="underline" style={{ color: '#06b6d4' }}>+1 540 670 4172</a>
             </p>
           </div>
         </div>
@@ -560,7 +560,7 @@ export default function VipClient() {
               <div
                 key={adv.title}
                 className="rounded-2xl p-5 text-center"
-                style={{ backgroundColor: '#102333', border: `1px solid ${PRIMARY}22` }}
+                style={{ backgroundColor: '#1e1f20', border: `1px solid ${PRIMARY}22` }}
               >
                 <div
                   className="w-14 h-14 rounded-2xl mx-auto mb-3 flex items-center justify-center"
@@ -604,7 +604,7 @@ export default function VipClient() {
               <div
                 key={match.home}
                 className="relative rounded-2xl p-5 overflow-hidden"
-                style={{ backgroundColor: '#102333', border: `1px solid ${GOLD}22` }}
+                style={{ backgroundColor: '#1e1f20', border: `1px solid ${GOLD}22` }}
               >
                 {/* Blur overlay */}
                 <div
@@ -636,31 +636,31 @@ export default function VipClient() {
                   {/* xG affichés mais floutés */}
                   <div className="grid grid-cols-2 gap-2 mt-4">
                     <div>
-                      <span className="text-[9px] uppercase" style={{ color: '#7F969E' }}>xG home</span>
-                      <p className="text-base font-black" style={{ color: '#63D6FF', filter: 'blur(3px)', userSelect: 'none' }}>
+                      <span className="text-[9px] uppercase" style={{ color: '#9ca3af' }}>xG home</span>
+                      <p className="text-base font-black" style={{ color: '#06b6d4', filter: 'blur(3px)', userSelect: 'none' }}>
                         {match.xgHome}
                       </p>
                     </div>
                     <div>
-                      <span className="text-[9px] uppercase" style={{ color: '#7F969E' }}>xG away</span>
-                      <p className="text-base font-black" style={{ color: '#63D6FF', filter: 'blur(3px)', userSelect: 'none' }}>
+                      <span className="text-[9px] uppercase" style={{ color: '#9ca3af' }}>xG away</span>
+                      <p className="text-base font-black" style={{ color: '#06b6d4', filter: 'blur(3px)', userSelect: 'none' }}>
                         {match.xgAway}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-center justify-between mt-3 pt-3" style={{ borderTop: '1px solid rgba(199, 244, 100, 0.1)' }}>
                     <span className="text-[10px]" style={{ color: TEXT_SEC }}>BTTS</span>
-                    <span className="text-sm font-bold" style={{ color: '#63D6FF', filter: 'blur(3px)', userSelect: 'none' }}>{match.btts}</span>
+                    <span className="text-sm font-bold" style={{ color: '#06b6d4', filter: 'blur(3px)', userSelect: 'none' }}>{match.btts}</span>
                   </div>
                   <div className="flex items-center justify-between mt-1">
                     <span className="text-[10px]" style={{ color: TEXT_SEC }}>Over 2.5</span>
-                    <span className="text-sm font-bold" style={{ color: '#63D6FF', filter: 'blur(3px)', userSelect: 'none' }}>{match.over}</span>
+                    <span className="text-sm font-bold" style={{ color: '#06b6d4', filter: 'blur(3px)', userSelect: 'none' }}>{match.over}</span>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          <p className="text-center text-[11px] mt-4" style={{ color: '#7F969E' }}>
+          <p className="text-center text-[11px] mt-4" style={{ color: '#9ca3af' }}>
             🔒 xG différents par match (pas 1.30 vs 1.10 partout) — débloque l&apos;accès complet via WhatsApp ci-dessus
           </p>
         </div>
@@ -674,9 +674,9 @@ export default function VipClient() {
             style={{ backgroundColor: 'rgba(255, 122, 122, 0.06)', border: '1px solid rgba(255, 122, 122, 0.2)' }}
           >
             <p className="text-[11px] leading-relaxed" style={{ color: TEXT_SEC }}>
-              <strong style={{ color: '#FF7A7A' }}>Liens affiliés</strong> — 18+ — Aucune garantie de gain —
+              <strong style={{ color: '#FF7185' }}>Liens affiliés</strong> — 18+ — Aucune garantie de gain —
               On ne prend pas les paris, on ne collecte pas les fonds — Contact :{' '}
-              <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="underline" style={{ color: '#63D6FF' }}>
+              <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="underline" style={{ color: '#06b6d4' }}>
                 wa.me/15406704172
               </a>
             </p>

@@ -8,10 +8,10 @@ const ORANGE = '#FF7B7B'      // rouge clair 888Starz
 const ORANGE_DARK = '#E55A5A' // rouge clair sombre
 const PRIMARY = '#FF7B7B'     // boutons et accents en rouge clair
 const PRIMARY_HOVER = '#E55A5A'
-const TEXT = '#F2F7F5'
-const TEXT_SEC = '#B5C4C9'
-const BG_DARK = '#07111A'
-const BORDER_OUTLINE = '#7F969E'
+const TEXT = '#f0f4f9'
+const TEXT_SEC = '#9ca3af'
+const BG_DARK = '#131314'
+const BORDER_OUTLINE = '#9ca3af'
 
 /* Lien affilié 888Starz */
 const STAR888_SIGNUP = AFFILIATE.star888
@@ -67,7 +67,7 @@ const STEPS = [
 /* ─── Moyens de dépôt ─────────────────────────────────────────────────── */
 const PAYMENT_METHODS = [
   { name: 'Wave', color: '#1DC9FF', short: 'W' },
-  { name: 'Orange Money', color: '#63D6FF', short: 'OM' },
+  { name: 'Orange Money', color: '#06b6d4', short: 'OM' },
   { name: 'MTN', color: '#FFCC00', short: 'M' },
   { name: 'Moov', color: '#0066B3', short: 'M' },
 ]
@@ -306,7 +306,7 @@ export default function Star888Client() {
               </a>
             </div>
 
-            <p className="text-[10px] mt-4" style={{ color: '#7F969E' }}>
+            <p className="text-[10px] mt-4" style={{ color: '#9ca3af' }}>
               Lien d&apos;affiliation rémunéré · 18+ · Jouer responsable
             </p>
           </div>
@@ -322,7 +322,7 @@ export default function Star888Client() {
           >
             Détails du bonus 888Starz
           </h2>
-          <div className="rounded-2xl overflow-hidden" style={{ border: `1px solid ${ORANGE}33`, backgroundColor: '#102333' }}>
+          <div className="rounded-2xl overflow-hidden" style={{ border: `1px solid ${ORANGE}33`, backgroundColor: '#1e1f20' }}>
             <table className="w-full text-sm">
               <tbody>
                 {BONUS_ROWS.map((row, i) => (
@@ -362,7 +362,7 @@ export default function Star888Client() {
                 key={step.n}
                 className="rounded-2xl p-5 relative"
                 style={{
-                  backgroundColor: '#102333',
+                  backgroundColor: '#1e1f20',
                   border: `1px solid ${ORANGE}22`,
                 }}
               >
@@ -407,7 +407,7 @@ export default function Star888Client() {
               <div
                 key={m.name}
                 className="rounded-2xl p-4 text-center"
-                style={{ backgroundColor: '#102333', border: `1px solid ${m.color}33` }}
+                style={{ backgroundColor: '#1e1f20', border: `1px solid ${m.color}33` }}
               >
                 <div
                   className="w-12 h-12 rounded-full mx-auto mb-2 flex items-center justify-center font-bold text-base"
@@ -428,7 +428,7 @@ export default function Star888Client() {
       {/* ─────────── LIENS INTERNES ─────────── */}
       <section className="pb-10">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
-          <div className="rounded-2xl p-5 text-center" style={{ backgroundColor: '#102333', border: `1px solid ${ORANGE}22` }}>
+          <div className="rounded-2xl p-5 text-center" style={{ backgroundColor: '#1e1f20', border: `1px solid ${ORANGE}22` }}>
             <p className="text-[10px] uppercase tracking-widest mb-3" style={{ color: ORANGE }}>
               À découvrir sur BTTSPredict
             </p>

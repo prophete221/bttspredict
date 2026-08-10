@@ -326,22 +326,22 @@ export default function Home() {
 
         {/* Bloc VIP court — un seul CTA vers /vip */}
         <section className="max-w-5xl mx-auto px-4 py-10">
-          <div className="p-6 sm:p-8 rounded-2xl" style={{ backgroundColor: '#102333', border: '1px solid rgba(199, 244, 100, 0.25)' }}>
+          <div className="p-6 sm:p-8 rounded-2xl" style={{ backgroundColor: '#1e1f20', border: '1px solid rgba(199, 244, 100, 0.25)' }}>
             <div className="text-center mb-5">
               <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-3"
-                style={{ backgroundColor: 'rgba(199, 244, 100, 0.12)', color: '#C7F464' }}>
+                style={{ backgroundColor: 'rgba(199, 244, 100, 0.12)', color: '#22c55e' }}>
                 Programme VIP
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
                 Pronostics premium BTTS et Over 2.5
               </h2>
-              <p className="text-xs text-[#7F969E] leading-relaxed max-w-2xl mx-auto">
+              <p className="text-xs text-[#9ca3af] leading-relaxed max-w-2xl mx-auto">
                 Aucun gain garanti. Lien d&apos;affiliation rémunéré. 18+.
               </p>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <a href="/vip" className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
-                style={{ backgroundColor: '#C7F464', color: '#07111A' }}
+                style={{ backgroundColor: '#22c55e', color: '#131314' }}
                 data-cta="home-discover-vip">
                 Découvrir le VIP
               </a>
@@ -352,13 +352,13 @@ export default function Home() {
         {/* Jeu responsable */}
         <section className="max-w-5xl mx-auto px-4 py-10">
           <div className="p-5 rounded-2xl" style={{ backgroundColor: 'rgba(255, 122, 122, 0.06)', border: '1px solid rgba(255, 122, 122, 0.2)' }}>
-            <h2 className="text-lg font-bold mb-2 text-[#FF7A7A]" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            <h2 className="text-lg font-bold mb-2 text-[#FF7185]" style={{ fontFamily: 'Poppins, sans-serif' }}>
               18+ · Jouer responsable
             </h2>
-            <p className="text-sm text-[#B5C4C9] leading-relaxed mb-3">
+            <p className="text-sm text-[#9ca3af] leading-relaxed mb-3">
               Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez perdre. 18+.
             </p>
-            <a href="/jouer-responsable" className="inline-flex items-center gap-2 text-sm font-bold text-[#C7F464] underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C7F464] rounded">
+            <a href="/jouer-responsable" className="inline-flex items-center gap-2 text-sm font-bold text-[#22c55e] underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22c55e] rounded">
               En savoir plus →
             </a>
           </div>
