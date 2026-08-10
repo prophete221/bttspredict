@@ -3,7 +3,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 import Link from 'next/link'
 
 const TITLE = 'Statistiques Over 2,5 par ligue — Plus de 2,5 buts'
-const DESCRIPTION = "Statistiques Over 2,5 mises à jour quotidiennement : taux de matchs avec 3 buts ou plus, historique et performance par ligue. Données publiques ESPN. 18+."
+const DESCRIPTION = "Liste des ligues couvertes par BTTSPredict pour le marché Over 2,5. Moyennes et taux historiques à intégrer via source vérifiable. 18+."
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -35,27 +35,40 @@ const faqJsonLd = {
       name: 'Which leagues have the highest Over 2.5 rate?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Historically, the Dutch Eredivisie, German Bundesliga, and Austrian Bundesliga tend to have higher Over 2.5 rates due to their offensive playstyle. BTTSPredict focuses on a curated set of leagues with historically high goal rates.",
+        text: "BTTSPredict covers a curated set of leagues selected for their historically offensive profile. The exact Over 2.5 rate per league is À VÉRIFIER — to be integrated via a verifiable source at build time. No specific rate is published without a verifiable source.",
       },
     },
   ],
 }
 
-// ─── League data — REAL values from public ESPN/SportsDB historical data ────
-// Source: ESPN Soccer scoreboard (public, no API key) — league avgGoals profile.
-// These are LIFETIME league averages, not invented success rates.
+// ─── Tâche 004 : statistiques non sourcées ───────────────────────────────────
+// Les valeurs `avgGoals` et `over25Rate` étaient précédemment codées en dur
+// et présentées comme "données publiques ESPN" SANS qu'aucun appel API ne soit
+// réellement effectué dans ce fichier. Le commentaire prétendait une source
+// ESPN/SportsDB mais le code ne faisait aucun fetch — les chiffres étaient
+// donc non sourcés au sens de la règle anti-hallucination (section 1 du
+// Prompt Maître).
+//
+// Décision Tâche 004 : remplacer chaque valeur non sourcée par
+// "À VÉRIFIER — donnée historique non disponible". Les noms de ligues et
+// pays sont conservés (ce sont des labels, pas des données statistiques).
+//
+// Future tâche recommandée : intégrer un vrai appel API ESPN au build time
+// pour calculer avgGoals et over25Rate depuis les matchs archivés dans
+// public/predictions-archive/. À traiter séparément, ne pas créer de
+// dépendance dans cette tâche.
 const LEAGUES_OVER_25 = [
-  { name: 'Bundesliga', country: 'Allemagne', avgGoals: 3.05, over25Rate: 0.58 },
-  { name: 'Eredivisie', country: 'Pays-Bas', avgGoals: 3.15, over25Rate: 0.57 },
-  { name: '2. Bundesliga', country: 'Allemagne', avgGoals: 2.90, over25Rate: 0.57 },
-  { name: 'MLS', country: 'USA', avgGoals: 3.10, over25Rate: 0.56 },
-  { name: 'Jupiler Pro League', country: 'Belgique', avgGoals: 2.85, over25Rate: 0.55 },
-  { name: 'Austrian Bundesliga', country: 'Autriche', avgGoals: 2.80, over25Rate: 0.54 },
-  { name: 'Premier League', country: 'Angleterre', avgGoals: 2.82, over25Rate: 0.55 },
-  { name: 'Swiss Super League', country: 'Suisse', avgGoals: 2.78, over25Rate: 0.54 },
-  { name: 'Liga Portugal', country: 'Portugal', avgGoals: 2.72, over25Rate: 0.55 },
-  { name: 'Championship', country: 'Angleterre', avgGoals: 2.68, over25Rate: 0.56 },
-  { name: 'Scottish Premiership', country: 'Écosse', avgGoals: 2.65, over25Rate: 0.53 },
+  { name: 'Bundesliga', country: 'Allemagne' },
+  { name: 'Eredivisie', country: 'Pays-Bas' },
+  { name: '2. Bundesliga', country: 'Allemagne' },
+  { name: 'MLS', country: 'USA' },
+  { name: 'Jupiler Pro League', country: 'Belgique' },
+  { name: 'Austrian Bundesliga', country: 'Autriche' },
+  { name: 'Premier League', country: 'Angleterre' },
+  { name: 'Swiss Super League', country: 'Suisse' },
+  { name: 'Liga Portugal', country: 'Portugal' },
+  { name: 'Championship', country: 'Angleterre' },
+  { name: 'Scottish Premiership', country: 'Écosse' },
 ]
 
 export default function Over25StatisticsPage() {
@@ -77,10 +90,10 @@ export default function Over25StatisticsPage() {
             Statistiques Over 2,5 par ligue
           </h1>
           <p className="text-base text-[#B5C4C9] leading-relaxed mb-4">
-            Moyenne de buts historique par ligue et taux de matchs Over 2,5 (≥ 3 buts). Données issues des saisons récentes, sources ESPN publiques.
+            Liste des ligues couvertes par BTTSPredict pour le marché Over 2,5 (≥ 3 buts). Les moyennes historiques et taux par ligue ne sont pas affichés tant qu&apos;aucune source vérifiable n&apos;est intégrée au build.
           </p>
           <p className="text-xs text-[#7F969E] leading-relaxed">
-            Ces statistiques sont indicatives et ne garantissent aucun résultat futur. 18+.
+            Aucune garantie future. 18+.
           </p>
         </section>
 
@@ -100,15 +113,15 @@ export default function Over25StatisticsPage() {
                   <tr key={i} style={{ borderBottom: '1px solid #1C3546' }}>
                     <td className="py-2.5 px-3 font-semibold text-[#F2F7F5]">{league.name}</td>
                     <td className="py-2.5 px-3 text-[#7F969E] hidden sm:table-cell">{league.country}</td>
-                    <td className="py-2.5 px-3 text-right font-mono text-[#FFD166]">{league.avgGoals.toFixed(2)}</td>
-                    <td className="py-2.5 px-3 text-right font-mono text-[#C7F464]">{(league.over25Rate * 100).toFixed(0)}%</td>
+                    <td className="py-2.5 px-3 text-right font-mono text-[#7F969E] text-xs">À VÉRIFIER</td>
+                    <td className="py-2.5 px-3 text-right font-mono text-[#7F969E] text-xs">À VÉRIFIER</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p className="text-[10px] text-[#7F969E] mt-3 leading-relaxed">
-            Source : ESPN Soccer scoreboard (données publiques). Moyennes calculées sur les saisons récentes. Taux Over 2,5 = pourcentage de matchs avec ≥ 3 buts. Aucune garantie future.
+            Données historiques non disponibles — à intégrer via source vérifiable (ex. API ESPN au build time). Aucune garantie future.
           </p>
         </section>
 
