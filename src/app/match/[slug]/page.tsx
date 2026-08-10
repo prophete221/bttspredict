@@ -166,7 +166,8 @@ export default async function MatchPage({ params }: PageProps) {
                 const market = (p.type || p.market || '').toLowerCase()
                 const isBtts = market.includes('btts')
                 const isOver = market.includes('over') || market.includes('o2.5') || market.includes('o25')
-                const color = isBtts ? '#06b6d4' : isOver ? '#f59e0b' : '#9ca3af'
+                const color = isBtts ? '#06b6d4' : isOver ? '#22c55e' : '#9ca3af'
+                const label = isBtts ? 'BTTS' : isOver ? 'Over 2.5' : (p.type || p.market || 'Prediction')
                 const isWon = p.status === 'WON'
                 const isLost = p.status === 'LOST'
                 const isPending = !p.status || p.status === 'PENDING'
@@ -176,7 +177,7 @@ export default async function MatchPage({ params }: PageProps) {
                   <div key={i} className="p-5 rounded-2xl" style={{ backgroundColor: '#1e1f20', border: `1px solid ${color}40` }}>
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-xs font-bold uppercase tracking-wider" style={{ color }}>
-                        {isBtts ? 'BTTS' : 'Over 2.5'}
+                        {label}
                       </span>
                       {probLabel && (
                         <span className="text-xs font-bold font-mono px-2 py-0.5 rounded" style={{ backgroundColor: `${color}15`, color }}>
@@ -189,18 +190,23 @@ export default async function MatchPage({ params }: PageProps) {
                       {p.prediction}
                     </div>
 
+                    {/* Subtitle to make cards visually distinct */}
+                    <div className="text-[10px] text-[#9ca3af] mb-2">
+                      {isBtts ? 'Both Teams To Score' : isOver ? 'Total Goals ≥ 3' : ''}
+                    </div>
+
                     {isWon && (
-                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(168, 224, 99, 0.15)', color: '#22c55e' }}>
+                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(34, 197, 94, 0.15)', color: '#22c55e' }}>
                         ✓ Gagné
                       </div>
                     )}
                     {isLost && (
-                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(255, 122, 122, 0.15)', color: '#FF7185' }}>
+                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(255, 113, 133, 0.15)', color: '#FF7185' }}>
                         ✗ Perdu
                       </div>
                     )}
                     {isPending && (
-                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(165, 171, 197, 0.15)', color: '#9ca3af' }}>
+                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(156, 163, 175, 0.15)', color: '#9ca3af' }}>
                         ⏳ En attente
                       </div>
                     )}
