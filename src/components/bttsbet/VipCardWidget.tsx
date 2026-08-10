@@ -57,7 +57,7 @@ export default function VipCardWidget() {
           <div className="flex gap-2">
             <a
               href={AFFILIATE.linebet}
-              rel="sponsored noopener"
+              rel="sponsored nofollow noopener noreferrer"
               target="_blank"
               className="flex-1 text-center py-2 rounded-lg text-xs font-bold"
               style={{ backgroundColor: '#C7F464', color: '#07111A' }}

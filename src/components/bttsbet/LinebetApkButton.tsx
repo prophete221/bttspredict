@@ -9,7 +9,7 @@ export default function LinebetApkButton() {
   return (
     <a
       href={AFFILIATE.linebetDownload}
-      rel="sponsored noopener"
+      rel="sponsored nofollow noopener noreferrer"
       target="_blank"
       className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-bold transition-colors"
       style={{

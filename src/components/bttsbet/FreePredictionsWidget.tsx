@@ -75,7 +75,7 @@ export default function FreePredictionsWidget() {
         <div className="text-center mt-3">
           <a
             href={AFFILIATE.linebet}
-            rel="sponsored nofollow noopener"
+            rel="sponsored nofollow noopener noreferrer"
             target="_blank"
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold transition-all"
             style={{ backgroundColor: 'var(--brand-indigo)', color: 'var(--cta-text)' }}

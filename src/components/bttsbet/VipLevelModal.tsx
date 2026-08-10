@@ -278,7 +278,7 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                 <div className="grid grid-cols-2 gap-2 ml-9">
                   <a
                     href={AFFILIATE.linebet}
-                    rel="sponsored noopener"
+                    rel="sponsored nofollow noopener noreferrer"
                     target="_blank"
                     className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold transition-all"
                     style={{ backgroundColor: '#C7F464', color: '#07111A' }}
@@ -287,7 +287,7 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                   </a>
                   <a
                     href={AFFILIATE.star888}
-                    rel="sponsored noopener"
+                    rel="sponsored nofollow noopener noreferrer"
                     target="_blank"
                     className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold transition-all"
                     style={{
