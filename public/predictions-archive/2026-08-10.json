@@ -1,55 +1,14 @@
 {
   "date": "2026-08-10",
-  "predictions": [
-    {
-      "match": "FC Porto vs Alverca",
-      "home": "FC Porto",
-      "away": "Alverca",
-      "league": "Liga Portugal",
-      "date": "2026-08-09",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5324,
-      "confidence": 53,
-      "time": "19:00",
-      "matchSemantic": "fc-alve-por-btts",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/437.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21613.png",
-      "tier": "STANDARD",
-      "analysis": {
-        "bttsProb": 0.5324,
-        "over25Prob": 0.512,
-        "homeLambda": 1.64,
-        "awayLambda": 1.08,
-        "dataQuality": 5,
-        "hasRealData": true
-      }
-    },
-    {
-      "match": "FC Porto vs Alverca",
-      "home": "FC Porto",
-      "away": "Alverca",
-      "league": "Liga Portugal",
-      "date": "2026-08-09",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "proba": 0.512,
-      "confidence": 51,
-      "time": "19:00",
-      "matchSemantic": "fc-alve-por-o25",
-      "source": "poisson",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/437.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21613.png",
-      "tier": "STANDARD",
-      "analysis": {
-        "bttsProb": 0.5324,
-        "over25Prob": 0.512,
-        "homeLambda": 1.64,
-        "awayLambda": 1.08,
-        "dataQuality": 5,
-        "hasRealData": true
-      }
-    }
-  ]
+  "free": [],
+  "vipPreview": [],
+  "stats": {
+    "avgReliability": 0,
+    "totalAnalyzed": 67,
+    "totalRejected": 67,
+    "totalAccepted": 0,
+    "freeCount": 0,
+    "vipCount": 0
+  },
+  "predictions": []
 }
