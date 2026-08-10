@@ -7,6 +7,7 @@ import { AFFILIATE } from '@/lib/constants'
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
+const VipUnlockModal = dynamic(() => import('@/components/bttsbet/VipUnlockModal'), { loading: () => null })
 
 const LIEN_LINEBET = AFFILIATE.linebet
 const LIEN_LINEBET_APK = AFFILIATE.linebetDownload
@@ -46,6 +47,7 @@ export default function VipPage() {
   const [toast, setToast] = useState('')
   const [bookmaker, setBookmaker] = useState<'linebet'|'888starz'>('linebet')
   const [previewMatches, setPreviewMatches] = useState<PreviewMatch[]>([])
+  const [showModal, setShowModal] = useState(false)
 
   const code = bookmaker === 'linebet' ? 'VISION221' : 'vision221'
   const inscriptionLink = bookmaker === 'linebet' ? LIEN_LINEBET : LIEN_888STARZ
@@ -295,10 +297,10 @@ export default function VipPage() {
                 </div>
               </div>
 
-              {/* CTA déverrouiller */}
+              {/* CTA déverrouiller — ouvre le modal (instructions + vérificateur ID) */}
               <div className="px-3 pb-3">
-                <a href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Salut BTTSPredict, code '+code+' depot 3000F. Debloquer VIP.')}`}
-                  target="_blank" rel="noopener noreferrer"
+                <button
+                  onClick={() => setShowModal(true)}
                   className="block w-full h-[42px] rounded-xl font-black text-[12px] uppercase tracking-wider transition-all hover:scale-[1.02]"
                   style={{
                     background: `linear-gradient(135deg, ${C.gold} 0%, ${brandColor} 100%)`,
@@ -312,7 +314,7 @@ export default function VipPage() {
                     </svg>
                     Débloquer le coupon
                   </span>
-                </a>
+                </button>
                 <p className="text-[9px] text-center mt-2" style={{ color: C.textMute }}>
                   Accès immédiat · 6 pronostics premium · 18+
                 </p>
@@ -452,6 +454,11 @@ export default function VipPage() {
 
         <ErrorBoundary><Footer /></ErrorBoundary>
       </main>
+
+      {/* ═══ MODAL DE DÉVERROUILLAGE (instructions + vérificateur ID) ═══ */}
+      <ErrorBoundary>
+        <VipUnlockModal isOpen={showModal} onClose={() => setShowModal(false)} />
+      </ErrorBoundary>
     </div>
   )
 }
