@@ -1,14 +1,29 @@
 # BTTSPredict — robots.txt
-# Autorise tous les crawlers y compris Googlebot et Bingbot
+# Autorise tous les crawlers y compris Googlebot, Bingbot et tous les chatbots IA
 
 User-agent: *
 Allow: /
 
-# Bots explicitement autorisés
+# ─── Moteurs de recherche classiques ───
 User-agent: Googlebot
 Allow: /
 
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
 User-agent: Bingbot
+Allow: /
+
+User-agent: MSNBot
 Allow: /
 
 User-agent: Slurp
@@ -23,10 +38,137 @@ Allow: /
 User-agent: YandexBot
 Allow: /
 
-# Pages à ne pas crawler
+User-agent: Sogou
+Allow: /
+
+User-agent: Exabot
+Allow: /
+
+User-agent: facebot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Pinterest
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+# ─── Chatbots IA (OpenAI, Anthropic, Perplexity, Google, Meta, etc.) ───
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: PerplexityBot-User
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: GoogleOther-Image
+Allow: /
+
+User-agent: GoogleOther-Video
+Allow: /
+
+User-agent: ImagesiftBot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: aiHitBot
+Allow: /
+
+User-agent: researchscan
+Allow: /
+
+User-agent: semrushbot
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: MJ12bot
+Allow: /
+
+User-agent: DotBot
+Allow: /
+
+User-agent: PetalBot
+Allow: /
+
+# ─── Pages à ne pas crawler (système uniquement) ───
 Disallow: /api/
 Disallow: /_next/
 Disallow: /admin
 
-# Sitemap
+# ─── Sitemap ───
 Sitemap: https://bttspredict.com/sitemap.xml
+
+# ─── Host ───
+Host: https://bttspredict.com

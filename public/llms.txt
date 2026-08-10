@@ -14,11 +14,17 @@
 ## Key URLs
 
 - Homepage: https://bttspredict.com/
-- Daily predictions: https://bttspredict.com/pronostics
+- Daily predictions: https://bttspredict.com/btts/predictions/today
+- BTTS guide: https://bttspredict.com/btts-c-est-quoi
+- Statistics: https://bttspredict.com/btts/statistics
+- Verified results: https://bttspredict.com/resultats-verifies
 - Public verified history (since 2026-08-08): https://bttspredict.com/historique
 - Methodology: https://bttspredict.com/methodologie
 - VIP program: https://bttspredict.com/vip
+- Linebet promo code Senegal: https://bttspredict.com/code-promo-linebet-senegal
+- 888starz bonus: https://bttspredict.com/bonus-888starz
 - Responsible gambling: https://bttspredict.com/jouer-responsable
+- Legal notices: https://bttspredict.com/mentions-legales
 
 ## Coverage
 
@@ -56,4 +62,4 @@ Predictions published before 8 August 2026 are kept in a private archive for int
 
 ## Last updated
 
-2026-08-08
+2026-08-10

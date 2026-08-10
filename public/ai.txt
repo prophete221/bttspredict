@@ -75,4 +75,4 @@ BTTSPredict is a free informational site. It does NOT take bets and does NOT col
 
 ## Last updated
 
-2026-08-08
+2026-08-10

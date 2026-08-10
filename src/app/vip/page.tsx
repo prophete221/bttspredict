@@ -94,23 +94,35 @@ export default function VipPage() {
   }, [])
 
   const showToast = (m: string) => { setToast(m); setTimeout(() => setToast(''), 2500) }
-  const copyCode = async () => {
+
+  // ─── Copy the given code to clipboard + show toast ───
+  const copyToClipboard = async (codeToCopy: string) => {
     try {
-      await navigator.clipboard.writeText(code)
+      await navigator.clipboard.writeText(codeToCopy)
       setCopiedCode(true)
-      showToast('Code copié')
+      showToast(`Code ${codeToCopy} copié`)
       setTimeout(() => setCopiedCode(false), 2000)
     } catch {
       const el = document.createElement('textarea')
-      el.value = code
+      el.value = codeToCopy
       document.body.appendChild(el)
       el.select()
       try { document.execCommand('copy') } catch {}
       document.body.removeChild(el)
       setCopiedCode(true)
-      showToast('Code copié')
+      showToast(`Code ${codeToCopy} copié`)
       setTimeout(() => setCopiedCode(false), 2000)
     }
+  }
+
+  // ─── Legacy copyCode (used by manual copy button) ───
+  const copyCode = () => copyToClipboard(code)
+
+  // ─── Select bookmaker AND auto-copy its promo code at the same time ───
+  const selectBookmaker = (bk: 'linebet' | '888starz') => {
+    setBookmaker(bk)
+    const codeToCopy = bk === 'linebet' ? 'VISION221' : 'vision221'
+    copyToClipboard(codeToCopy)
   }
 
   return (
@@ -326,11 +338,11 @@ export default function VipPage() {
         {/* ═══ 2. SÉLECTEUR BOOKMAKER — couleurs de marque ═══ */}
         <section className="max-w-md mx-auto px-4 pb-4">
           <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] mb-2 text-center" style={{ color: C.textMute }}>
-            Choisis ton bookmaker
+            Choisis ton bookmaker · Code copié auto
           </h2>
           <div className="grid grid-cols-2 gap-2">
             {/* Linebet — VERT CLAIR */}
-            <button onClick={() => setBookmaker('linebet')}
+            <button onClick={() => selectBookmaker('linebet')}
               className="relative py-2.5 rounded-xl text-[12px] font-bold transition-all overflow-hidden"
               style={{
                 backgroundColor: bookmaker === 'linebet' ? BRAND.linebet.primary : 'transparent',
@@ -344,7 +356,7 @@ export default function VipPage() {
               )}
             </button>
             {/* 888Starz — ROUGE CLAIR */}
-            <button onClick={() => setBookmaker('888starz')}
+            <button onClick={() => selectBookmaker('888starz')}
               className="relative py-2.5 rounded-xl text-[12px] font-bold transition-all overflow-hidden"
               style={{
                 backgroundColor: bookmaker === '888starz' ? BRAND.star888.primary : 'transparent',

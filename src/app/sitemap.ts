@@ -74,14 +74,14 @@ const SEO_PAGES: MetadataRoute.Sitemap = [
   // 5. Historique — priorité 0.85
   url('/historique', TODAY, 0.85, 'daily'),
 
-  // 6. VIP — priorité 0.8
-  url('/vip', TODAY, 0.8, 'weekly'),
+  // 6. VIP — priorité 0.9 (page premium, mise à jour récente)
+  url('/vip', TODAY, 0.9, 'daily'),
 
   // 7. Méthodologie — priorité 0.8
-  url('/methodologie', '2026-07-06', 0.8, 'monthly'),
+  url('/methodologie', TODAY, 0.8, 'monthly'),
 
   // 8. BTTS c'est quoi — priorité 0.75
-  url('/btts-c-est-quoi', '2026-07-06', 0.75, 'monthly'),
+  url('/btts-c-est-quoi', TODAY, 0.75, 'monthly'),
 
   // 9. Code promo Linebet Sénégal — priorité 0.95, lastModified aujourd'hui
   url('/code-promo-linebet-senegal', TODAY, 0.95, 'weekly'),
@@ -90,7 +90,7 @@ const SEO_PAGES: MetadataRoute.Sitemap = [
   url('/bonus-888starz', TODAY, 0.9, 'weekly'),
 
   // 11. Jouer responsable — priorité 0.5
-  url('/jouer-responsable', '2026-06-01', 0.5, 'yearly'),
+  url('/jouer-responsable', TODAY, 0.5, 'yearly'),
 
   // 12. Mentions légales — priorité 0.3
   url('/mentions-legales', '2026-06-01', 0.3, 'yearly'),
