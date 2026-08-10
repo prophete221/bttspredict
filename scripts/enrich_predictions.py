@@ -26,7 +26,8 @@ import time
 from pathlib import Path
 
 # ─── Constants ──────────────────────────────────────────────────────────────
-MODEL = "gemini-2.0-flash"
+MODEL = "gemini-1.5-flash"
+FALLBACK_MODELS = ["gemini-2.0-flash", "gemini-1.5-pro"]
 PREDICTIONS_FILE = Path(__file__).parent.parent / "public" / "predictions.json"
 MAX_RETRIES = 2
 RETRY_DELAY = 5  # seconds between retries
@@ -112,54 +113,66 @@ Règles :
 
 
 def call_gemini_batch(client, all_matches: list) -> list:
-    """Send a single batch API call to Gemini and return parsed results."""
+    """Send a single batch API call to Gemini and return parsed results.
+
+    Tries MODEL first, then FALLBACK_MODELS in order if primary fails.
+    """
     prompt = build_batch_prompt(all_matches)
+    models_to_try = [MODEL] + FALLBACK_MODELS
 
-    for attempt in range(MAX_RETRIES + 1):
-        try:
-            response = client.models.generate_content(
-                model=MODEL,
-                contents=prompt,
-                config={
-                    "response_mime_type": "application/json",
-                    "temperature": 0.7,
-                    "max_output_tokens": 4096,
-                },
-            )
+    for model_name in models_to_try:
+        print(f"[enrich] Trying model: {model_name}...")
 
-            # Parse JSON array response
-            result = json.loads(response.text)
+        for attempt in range(MAX_RETRIES + 1):
+            try:
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=prompt,
+                    config={
+                        "response_mime_type": "application/json",
+                        "temperature": 0.7,
+                        "max_output_tokens": 4096,
+                    },
+                )
 
-            if isinstance(result, list) and len(result) > 0:
-                print(f"[enrich] ✅ Received {len(result)} enrichments from Gemini")
-                return result
-            else:
-                print(f"[enrich] ⚠️ Unexpected response format (attempt {attempt+1})")
+                # Parse JSON array response
+                result = json.loads(response.text)
 
-        except json.JSONDecodeError as e:
-            print(f"[enrich] ⚠️ JSON parse error (attempt {attempt+1}): {e}")
-        except Exception as e:
-            err_str = str(e)
-            if "429" in err_str or "RESOURCE_EXHAUSTED" in err_str:
-                print(f"[enrich] ⏳ Rate limited, waiting {RATE_LIMIT_WAIT}s...")
-                time.sleep(RATE_LIMIT_WAIT)
-                continue
-            elif "quota" in err_str.lower():
-                print(f"[enrich] ❌ Quota exceeded — skipping enrichment")
-                return []
-            else:
-                print(f"[enrich] ⚠️ API error (attempt {attempt+1}): {err_str[:150]}")
+                if isinstance(result, list) and len(result) > 0:
+                    print(f"[enrich] ✅ Received {len(result)} enrichments from {model_name}")
+                    return result
+                else:
+                    print(f"[enrich] ⚠️ Unexpected response format (attempt {attempt+1})")
 
-        if attempt < MAX_RETRIES:
-            print(f"[enrich] Retrying in {RETRY_DELAY}s...")
-            time.sleep(RETRY_DELAY)
+            except json.JSONDecodeError as e:
+                print(f"[enrich] ⚠️ JSON parse error (attempt {attempt+1}): {e}")
+            except Exception as e:
+                err_str = str(e)
+                if "429" in err_str or "RESOURCE_EXHAUSTED" in err_str:
+                    print(f"[enrich] ⏳ Rate limited on {model_name}, waiting {RATE_LIMIT_WAIT}s...")
+                    time.sleep(RATE_LIMIT_WAIT)
+                    continue
+                elif "quota" in err_str.lower():
+                    print(f"[enrich] ❌ Quota exceeded on {model_name} — skipping this model")
+                    break  # try next fallback model
+                elif "404" in err_str or "NOT_FOUND" in err_str:
+                    print(f"[enrich] ⚠️ Model {model_name} not found — trying fallback")
+                    break  # try next fallback model
+                else:
+                    print(f"[enrich] ⚠️ API error on {model_name} (attempt {attempt+1}): {err_str[:150]}")
 
-    print("[enrich] ❌ All retries exhausted — keeping existing data")
+            if attempt < MAX_RETRIES:
+                print(f"[enrich] Retrying in {RETRY_DELAY}s...")
+                time.sleep(RETRY_DELAY)
+
+        print(f"[enrich] {model_name} failed — trying next fallback model...")
+
+    print("[enrich] ❌ All models exhausted — keeping existing data")
     return []
 
 
 def main():
-    print("[enrich] Starting Gemini 2.0 Flash enrichment (BATCH MODE)")
+    print("[enrich] Starting Gemini 1.5 Flash enrichment (BATCH MODE)")
 
     # Check predictions file exists
     if not PREDICTIONS_FILE.exists():
