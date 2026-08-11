@@ -61,8 +61,8 @@
       "exact_score_prob": "16%",
       "ai_btts_prob": "60.4%",
       "ai_over25_prob": "58.1%",
-      "ai_key_fact": "3/3 confrontations directes avec BTTS validé et xG cumulé de 3.02.",
-      "ai_analysis": "Le Chicago Fire présente des statistiques offensives intéressantes à domicile avec un xG de 1.62, tandis que Portland Timbers s'exporte bien avec un xG de 1.40. Les deux formations possèdent des dynamiques récentes similaires devant le but. Bien que les indices de confiance plaident pour du spectacle, attention à la solidité défensive en fin de match qui reste perfectible."
+      "ai_key_fact": "3/3 H2H avec BTTS et xG cumulé élevé de 3.02.",
+      "ai_analysis": "Le Chicago Fire et les Portland Timbers affichent des xG solides respectifs de 1.62 et 1.40, favorisant une rencontre ouverte. La dynamique offensive récente des deux formations laisse présager des opportunités franches de part et d'autre. Historiquement, leurs confrontations directes ont systématiquement validé le pari des deux équipes marquent."
     },
     {
       "id": "norwichc-vs-westbrom-2026-08-15",
@@ -121,11 +121,11 @@
       "homeLambda": 1.52,
       "awayLambda": 1.34,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "17%",
+      "exact_score_prob": "15%",
       "ai_btts_prob": "57.6%",
       "ai_over25_prob": "54.4%",
-      "ai_key_fact": "Norwich et West Brom affichent tous deux 4/5 derniers matchs marqués.",
-      "ai_analysis": "Cette affiche de Championship met en scène deux équipes dotées d'une animation offensive correcte. L'xG cumulé de 2.86 reflète une probabilité notable de voir les deux filets trembler. L'historique récent des confrontations directes appuie ce scénario, même si la vigilance est de mise en raison des aléas du championnat anglais."
+      "ai_key_fact": "Norwich et West Brom affichent un xG cumulé de 2.86.",
+      "ai_analysis": "Norwich City s'appuie sur une animation offensive constante à domicile, illustrée par son xG de 1.52. West Bromwich Albion dispose des armes nécessaires pour répondre grâce à une production offensive correcte en déplacement. Les confrontations directes passées appuient la probabilité de voir les filets trembler dans les deux camps."
     },
     {
       "id": "sanjosee-vs-stlouisc-2026-08-15",
@@ -184,11 +184,11 @@
       "homeLambda": 1.65,
       "awayLambda": 1.4,
       "ai_exact_score": "2-2",
-      "exact_score_prob": "15%",
+      "exact_score_prob": "14%",
       "ai_btts_prob": "61.0%",
       "ai_over25_prob": "58.9%",
-      "ai_key_fact": "xG cumulé élevé de 3.05 avec une probabilité BTTS de 61.0%.",
-      "ai_analysis": "San Jose Earthquakes et St. Louis CITY SC démontrent des dispositions offensives prononcées dans ce championnat nord-américain. Leurs lignes arrière respectives laissent régulièrement des espaces exploitables, ce qui favorise la projection vers l'avant. La projection statistique pointe vers une rencontre ouverte et prolifique en occasions."
+      "ai_key_fact": "xG cumulé de 3.05 et probabilité BTTS maximale à 61.0%.",
+      "ai_analysis": "San Jose Earthquakes présente une moyenne d'xG intéressante de 1.65, tandis que St. Louis CITY SC se montre dangereux en transition. Cette opposition en MLS réunit des indicateurs statistiques parmi les plus favorables de la journée. Les largesses défensives récurrentes des deux côtés renforcent la perspective d'un match prolifique."
     },
     {
       "id": "lommelsk-vs-royalcha-2026-08-16",
@@ -250,8 +250,8 @@
       "exact_score_prob": "17%",
       "ai_btts_prob": "58.3%",
       "ai_over25_prob": "55.2%",
-      "ai_key_fact": "xG cumulé de 2.89 avec 2/3 confrontations directes validant le BTTS.",
-      "ai_analysis": "Lommel SK et le Royal Charleroi SC disposent d'arguments solides pour dynamiser la rencontre. La régularité offensive des deux équipes lors de leurs dernières sorties suggère un match animé. Néanmoins, la gestion des temps faibles sera déterminante pour confirmer ces tendances."
+      "ai_key_fact": "Lommel et Charleroi affichent un xG cumulé de 2.89.",
+      "ai_analysis": "Lommel SK maintient une régularité offensive notable à domicile avec un xG de 1.52. Royal Charleroi SC possède les ressources techniques pour exploiter les espaces laissés par l'adversaire. La solidité relative des défenses laisse entrevoir un scénario ouvert avec des buts de chaque côté."
     },
     {
       "id": "atlantau-vs-redbulln-2026-08-15",
@@ -313,8 +313,8 @@
       "exact_score_prob": "16%",
       "ai_btts_prob": "58.7%",
       "ai_over25_prob": "56.4%",
-      "ai_key_fact": "Atlanta et New York affichent un historique de 3/3 H2H avec BTTS.",
-      "ai_analysis": "Atlanta United s'appuie sur une production offensive constante à domicile (xG 1.64), tandis que New York conserve un profil dangereux en contre. Les statistiques avancées soutiennent l'hypothèse d'une partie rythmée où les deux gardiens devraient être sollicités. Aucune issue définitive ne peut toutefois être garantie."
+      "ai_key_fact": "3/3 H2H BTTS avec un xG combiné de 2.94.",
+      "ai_analysis": "Atlanta United développe un jeu tourné vers l'offensive avec un xG de 1.64 bien ancré. Red Bull New York, malgré une efficacité parfois inconstante, conserve un profil dangereux à l'extérieur. Les antécédents entre ces deux franchises de MLS penchent nettement en faveur d'un match animé."
     },
     {
       "id": "holstein-vs-stpauli-2026-08-14",
@@ -373,11 +373,11 @@
       "homeLambda": 1.63,
       "awayLambda": 1.27,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "17%",
+      "exact_score_prob": "15%",
       "ai_btts_prob": "57.7%",
       "ai_over25_prob": "55.2%",
       "ai_key_fact": "Holstein Kiel et St. Pauli affichent un xG combiné de 2.90.",
-      "ai_analysis": "Ce duel de 2. Bundesliga met aux prises des formations portées vers l'offensive. Les xG respectifs de 1.63 et 1.27 témoignent d'une capacité à se procurer des occasions franches. L'historique des confrontations directes montre également une propension à concéder au moins un but."
+      "ai_analysis": "Holstein Kiel s'appuie sur une attaque productive à la maison, soutenue par un xG de 1.63. St. Pauli montre des intentions claires à l'extérieur malgré une défense perfectible. Les confrontations directes montrent une propension marquée à concéder des occasions de part et d'autre."
     },
     {
       "id": "lafc-vs-sandiego-2026-08-15",
@@ -439,8 +439,8 @@
       "exact_score_prob": "18%",
       "ai_btts_prob": "55.7%",
       "ai_over25_prob": "53.6%",
-      "ai_key_fact": "LAFC présente un xG solide de 1.66 à domicile.",
-      "ai_analysis": "Le LAFC aborde cette rencontre avec un statut d'outsider offensif crédible grâce à ses récentes performances. San Diego FC, malgré une efficacité plus mesurée, possède les ressources pour trouver la faille. La configuration du match tend vers un scénario favorable aux attaquants."
+      "ai_key_fact": "LAFC présente un xG dominant de 1.66 à domicile.",
+      "ai_analysis": "Le LAFC dispose d'une force de frappe offensive redoutable capable de perforer n'importe quel bloc. San Diego FC, bien que plus mesuré offensivement, trouve régulièrement des solutions en contre. La configuration tactique du match favorise des buts des deux côtés du terrain."
     },
     {
       "id": "middlesb-vs-lincolnc-2026-08-15",
@@ -499,11 +499,11 @@
       "homeLambda": 1.48,
       "awayLambda": 1.46,
       "ai_exact_score": "2-2",
-      "exact_score_prob": "15%",
+      "exact_score_prob": "14%",
       "ai_btts_prob": "59.2%",
       "ai_over25_prob": "56.2%",
-      "ai_key_fact": "xG équilibré (1.48 vs 1.46) pour un total cumulé de 2.94.",
-      "ai_analysis": "Middlesbrough et Lincoln City affichent des statistiques offensives et défensives très proches sur leurs cinq dernières sorties. La répartition des xG suggère une rencontre disputée avec des opportunités de part et d'autre. La prudence reste de mise face à la volatilité inhérente à ce type de confrontation."
+      "ai_key_fact": "xG équilibré de 1.48 vs 1.46 pour un cumul de 2.94.",
+      "ai_analysis": "Middlesbrough et Lincoln City affichent des statistiques offensives et défensives très proches sur le papier. Leurs xG respectifs témoignent d'une capacité constante à se créer des situations de marquer. La physionomie de cette rencontre de Championship devrait offrir de nombreuses opportunités."
     },
     {
       "id": "torontof-vs-newengla-2026-08-15",
@@ -562,11 +562,11 @@
       "homeLambda": 1.56,
       "awayLambda": 1.35,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "17%",
+      "exact_score_prob": "16%",
       "ai_btts_prob": "58.6%",
       "ai_over25_prob": "55.7%",
-      "ai_key_fact": "Toronto FC et New England totalisent un xG cumulé de 2.91.",
-      "ai_analysis": "Toronto cherche à capitaliser sur son potentiel offensif à domicile, bien épaulé par des statistiques récentes encourageantes. New England Revolution montre des dispositions similaires à l'extérieur. Les indicateurs de probabilité s'accordent sur un match ouvert."
+      "ai_key_fact": "Toronto FC et New England affichent un xG cumulé de 2.91.",
+      "ai_analysis": "Toronto FC développe un jeu offensif cohérent à domicile appuyé par un xG de 1.56. New England Revolution éprouve des difficultés à verrouiller son arrière-garde en déplacement. Les indicateurs convergent vers une confrontation ouverte où les deux équipes peuvent marquer."
     },
     {
       "id": "cerclebr-vs-sinttrui-2026-08-14",
@@ -628,8 +628,8 @@
       "exact_score_prob": "17%",
       "ai_btts_prob": "58.0%",
       "ai_over25_prob": "55.4%",
-      "ai_key_fact": "Cercle Brugge affiche un xG de 1.61 dans son antre.",
-      "ai_analysis": "L'opposition entre le Cercle Brugge et Sint-Truidense s'annonce équilibrée sur le papier. Les hôtes bénéficient d'une dynamique offensive légèrement supérieure, mais les visiteurs savent saisir les opportunités en transition. Le profil statistique favorise une animation offensive constante."
+      "ai_key_fact": "Cercle Brugge affiche un xG de 1.61 à domicile.",
+      "ai_analysis": "Cercle Brugge KSV impose traditionnellement un rythme élevé sur sa pelouse, confirmée par des statistiques d'xG solides. Sint-Truidense, malgré un profil plus prudent, sait piquer en transition rapide. La solidité défensive relative des deux formations laisse présager des espaces à exploiter."
     },
     {
       "id": "herthabe-vs-fcheiden-2026-08-15",
@@ -691,8 +691,8 @@
       "exact_score_prob": "18%",
       "ai_btts_prob": "56.8%",
       "ai_over25_prob": "53.1%",
-      "ai_key_fact": "xG cumulé de 2.80 avec des dynamiques de marquage régulières.",
-      "ai_analysis": "Hertha Berlin et Heidenheim présentent des profils tactiques assez proches, axés sur la rigueur et l'efficacité ciblée. Leurs xG respectifs de 1.44 et 1.36 illustrent une capacité similaire à faire fructifier leurs temps forts. Un score serré est fortement envisageable selon les modèles prédictifs."
+      "ai_key_fact": "Hertha et Heidenheim totalisent un xG cumulé de 2.80.",
+      "ai_analysis": "Hertha Berlin cherche à bonifier ses phases de possession par une présence accrue dans la surface adverse. 1. FC Heidenheim aborde ce déplacement avec des intentions pragmatiques mais efficaces. Les xG mesurés suggèrent un match disputé avec des chances de buts partagées."
     },
     {
       "id": "kvkortri-vs-antwerp-2026-08-15",
@@ -754,8 +754,8 @@
       "exact_score_prob": "17%",
       "ai_btts_prob": "56.7%",
       "ai_over25_prob": "53.0%",
-      "ai_key_fact": "KV Kortrijk et Antwerp affichent tous deux un xG supérieur à 1.35.",
-      "ai_analysis": "Malgré un historique de confrontations directes sans BTTS récent, les données actuelles indiquent un rééquilibrage potentiel. Les deux équipes marquent régulièrement lors de leurs derniers matchs. La physionomie de la rencontre pourrait déjouer les statistiques historiques."
+      "ai_key_fact": "KV Kortrijk et Antwerp affichent un xG combiné de 2.80.",
+      "ai_analysis": "Malgré un historique de confrontations directes pauvre en buts, les métriques actuelles penchent pour un rééquilibrage. KV Kortrijk dispose d'un xG de 1.45 qui reflète son volume de jeu à domicile. Antwerp possède la qualité technique nécessaire pour répondre et trouver la faille."
     }
   ],
   "vipPreview": [
@@ -816,11 +816,11 @@
       "homeLambda": 1.38,
       "awayLambda": 1.38,
       "ai_exact_score": "1-1",
-      "exact_score_prob": "18%",
+      "exact_score_prob": "19%",
       "ai_btts_prob": "56.0%",
       "ai_over25_prob": "52.0%",
-      "ai_key_fact": "Parité parfaite des xG (1.38 partout) et 3/3 H2H avec BTTS.",
-      "ai_analysis": "Ce derby de 2. Bundesliga se caractérise par une symétrie remarquable dans les statistiques offensives. Les deux équipes se connaissent bien et affichent une propension historique à trouver le chemin des filets mutuellement. La prudence demeure toutefois quant au volume global d'occasions."
+      "ai_key_fact": "xG strictement symétrique de 1.38 pour chaque équipe.",
+      "ai_analysis": "SpVgg Greuther Fürth et 1. FC Nürnberg affichent des statistiques offensives rigoureusement identiques. Leurs récentes performances démontrent une capacité similaire à marquer et à concéder. Ce derby de 2. Bundesliga s'annonce équilibré et propice à des buts de part et d'autre."
     },
     {
       "id": "houstond-vs-lagalaxy-2026-08-15",
@@ -879,11 +879,11 @@
       "homeLambda": 1.54,
       "awayLambda": 1.43,
       "ai_exact_score": "2-2",
-      "exact_score_prob": "15%",
+      "exact_score_prob": "14%",
       "ai_btts_prob": "59.7%",
       "ai_over25_prob": "57.0%",
-      "ai_key_fact": "Houston et LA Galaxy affichent un xG cumulé attractif de 2.97.",
-      "ai_analysis": "La MLS offre ici un choc texan-californien traditionnellement propice au spectacle. Les xG de 1.54 et 1.43 confirment l'ambition offensive des deux collectifs. Les largesses défensives observées récemment renforcent la probabilité d'un match riche en buts."
+      "ai_key_fact": "xG cumulé de 2.97 et probabilité BTTS de 59.7%.",
+      "ai_analysis": "Houston Dynamo et le LA Galaxy possèdent des lignes offensives performantes dans ce championnat nord-américain. Les xG respectifs de 1.54 et 1.43 mettent en lumière un potentiel offensif supérieur à la moyenne. Les lacunes défensives des deux côtés facilitent la réalisation du pari."
     },
     {
       "id": "rioave-vs-fcporto-2026-08-15",
@@ -942,11 +942,11 @@
       "homeLambda": 1.52,
       "awayLambda": 1.14,
       "ai_exact_score": "1-1",
-      "exact_score_prob": "17%",
+      "exact_score_prob": "18%",
       "ai_btts_prob": "53.0%",
       "ai_over25_prob": "49.5%",
-      "ai_key_fact": "Rio Ave (xG 1.52) accueille un FC Porto (xG 1.14) accrocheur.",
-      "ai_analysis": "Match tactique en Liga Portugal où Rio Ave tente de faire valoir son efficacité à domicile. Le FC Porto conserve un statut de favori malgré des statistiques légèrement en retrait hors de ses bases. Les probabilités penchent pour un score étriqué."
+      "ai_key_fact": "Rio Ave reçoit le FC Porto avec un xG encourageant de 1.52.",
+      "ai_analysis": "Rio Ave sait capitaliser sur ses temps forts à domicile face aux cadors du championnat. Le FC Porto, malgré un xG extérieur de 1.14, reste une menace constante sur phases de jeu placées. L'analyse suggère une rencontre âpre où les locaux peuvent accrocher un score de parité."
     },
     {
       "id": "newyorkc-vs-philadel-2026-08-16",
@@ -1008,8 +1008,8 @@
       "exact_score_prob": "16%",
       "ai_btts_prob": "56.2%",
       "ai_over25_prob": "52.9%",
-      "ai_key_fact": "New York City (xG 1.53) et Philadelphia (xG 1.26) affichent 2/3 H2H BTTS.",
-      "ai_analysis": "New York City dispose d'un léger ascendant statistique à domicile, mais Philadelphia Union sait se montrer dangereux en phase offensive. La solidité des deux blocs sera mise à rude épreuve durant les phases de transition. Les indicateurs pointent vers un duel disputé."
+      "ai_key_fact": "NYCFC s'appuie sur un xG de 1.53 à domicile.",
+      "ai_analysis": "New York City FC développe un football dominateur à la maison qui génère de nombreuses situations. Philadelphia Union répond par une organisation rigoureuse et des contres rapides efficaces. Les statistiques de xG valident un léger avantage pour les locaux dans un match ouvert."
     },
     {
       "id": "excelsio-vs-psveindh-2026-08-15",
@@ -1068,11 +1068,11 @@
       "homeLambda": 1.49,
       "awayLambda": 1.28,
       "ai_exact_score": "1-2",
-      "exact_score_prob": "16%",
+      "exact_score_prob": "15%",
       "ai_btts_prob": "55.9%",
       "ai_over25_prob": "52.3%",
-      "ai_key_fact": "PSV Eindhoven (xG 1.28) se déplace avec des ambitions affichées.",
-      "ai_analysis": "Excelsior oppose sa résistance à domicile face à un mastodonte de l'Eredivisie. Les xG cumulés de 2.77 soutiennent l'hypothèse d'une rencontre où les visiteurs feront le jeu tout en s'exposant aux contres. Un scénario ouvert reste l'option privilégiée."
+      "ai_key_fact": "PSV se déplace avec un xG cumulé solide de 2.77.",
+      "ai_analysis": "Excelsior tente de compenser ses limites défensives par une agressivité offensive mesurée à domicile. Le PSV Eindhoven dispose d'un potentiel technique supérieur, matérialisé par un xG away de 1.28. La physionomie du match devrait permettre aux locaux de saisir au moins une opportunité de marquer."
     },
     {
       "id": "watford-vs-southamp-2026-08-16",
@@ -1135,7 +1135,7 @@
       "ai_btts_prob": "55.8%",
       "ai_over25_prob": "51.9%",
       "ai_key_fact": "Watford et Southampton affichent un xG combiné de 2.75.",
-      "ai_analysis": "Une opposition typique de Championship où l'intensité physique prime souvent sur la créativité pure. Les statistiques démontrent néanmoins une régularité correcte dans la finition pour les deux camps. La prudence reste de mise sur l'issue finale."
+      "ai_analysis": "Watford présente une animation offensive correcte dans son stade avec un xG de 1.40. Southampton possède l'expérience et la qualité pour s'exprimer offensivement malgré des déplacements délicats. Les indicateurs pointent vers un score serré où les défenses pourraient céder au moins une fois."
     },
     {
       "id": "orlandoc-vs-fccincin-2026-08-15",
@@ -1197,8 +1197,8 @@
       "exact_score_prob": "17%",
       "ai_btts_prob": "55.8%",
       "ai_over25_prob": "52.0%",
-      "ai_key_fact": "Orlando City et FC Cincinnati affichent un xG total de 2.76.",
-      "ai_analysis": "L'équilibre des forces en présence se reflète dans des xG très proches (1.46 vs 1.30). Les deux équipes adoptent des approches pragmatiques mais efficaces. Un partage des points avec des buts de chaque côté constitue une hypothèse cohérente."
+      "ai_key_fact": "xG équilibré de 1.46 vs 1.30 entre Orlando et Cincinnati.",
+      "ai_analysis": "Orlando City SC et le FC Cincinnati proposent des duels tactiques souvent fermés mais riches en intensité. Les xG cumulés de 2.76 traduisent un niveau global homogène entre les deux blocs. Une issue partagée avec des buts de chaque côté reste l'hypothèse la plus cohérente."
     },
     {
       "id": "fctwente-vs-peczwoll-2026-08-16",
@@ -1257,11 +1257,11 @@
       "homeLambda": 1.67,
       "awayLambda": 1.16,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "17%",
+      "exact_score_prob": "16%",
       "ai_btts_prob": "55.7%",
       "ai_over25_prob": "53.7%",
-      "ai_key_fact": "FC Twente affiche un solide xG de 1.67 à domicile.",
-      "ai_analysis": "Le FC Twente assume son rôle de favori logique sur sa pelouse face à PEC Zwolle. La puissance offensive des locaux (xG 1.67) devrait peser lourdement sur la défense adverse. Les visiteurs tenteront de capitaliser sur la moindre opportunité pour exister."
+      "ai_key_fact": "FC Twente affiche un xG dominant de 1.67 à domicile.",
+      "ai_analysis": "Le FC Twente imprime un rythme séduisant sur sa pelouse, soutenu par une production offensive estimée à 1.67 d'xG. PEC Zwolle tentera de faire dos rond avant de piquer en contre-attaque. Les statistiques globales soutiennent l'hypothèse d'une victoire locale étriquée avec un but encaissé."
     }
   ],
   "stats": {
@@ -1333,8 +1333,8 @@
       "exact_score_prob": "16%",
       "ai_btts_prob": "60.4%",
       "ai_over25_prob": "58.1%",
-      "ai_key_fact": "3/3 confrontations directes avec BTTS validé et xG cumulé de 3.02.",
-      "ai_analysis": "Le Chicago Fire présente des statistiques offensives intéressantes à domicile avec un xG de 1.62, tandis que Portland Timbers s'exporte bien avec un xG de 1.40. Les deux formations possèdent des dynamiques récentes similaires devant le but. Bien que les indices de confiance plaident pour du spectacle, attention à la solidité défensive en fin de match qui reste perfectible."
+      "ai_key_fact": "3/3 H2H avec BTTS et xG cumulé élevé de 3.02.",
+      "ai_analysis": "Le Chicago Fire et les Portland Timbers affichent des xG solides respectifs de 1.62 et 1.40, favorisant une rencontre ouverte. La dynamique offensive récente des deux formations laisse présager des opportunités franches de part et d'autre. Historiquement, leurs confrontations directes ont systématiquement validé le pari des deux équipes marquent."
     },
     {
       "id": "norwichc-vs-westbrom-2026-08-15",
@@ -1393,11 +1393,11 @@
       "homeLambda": 1.52,
       "awayLambda": 1.34,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "17%",
+      "exact_score_prob": "15%",
       "ai_btts_prob": "57.6%",
       "ai_over25_prob": "54.4%",
-      "ai_key_fact": "Norwich et West Brom affichent tous deux 4/5 derniers matchs marqués.",
-      "ai_analysis": "Cette affiche de Championship met en scène deux équipes dotées d'une animation offensive correcte. L'xG cumulé de 2.86 reflète une probabilité notable de voir les deux filets trembler. L'historique récent des confrontations directes appuie ce scénario, même si la vigilance est de mise en raison des aléas du championnat anglais."
+      "ai_key_fact": "Norwich et West Brom affichent un xG cumulé de 2.86.",
+      "ai_analysis": "Norwich City s'appuie sur une animation offensive constante à domicile, illustrée par son xG de 1.52. West Bromwich Albion dispose des armes nécessaires pour répondre grâce à une production offensive correcte en déplacement. Les confrontations directes passées appuient la probabilité de voir les filets trembler dans les deux camps."
     },
     {
       "id": "sanjosee-vs-stlouisc-2026-08-15",
@@ -1456,11 +1456,11 @@
       "homeLambda": 1.65,
       "awayLambda": 1.4,
       "ai_exact_score": "2-2",
-      "exact_score_prob": "15%",
+      "exact_score_prob": "14%",
       "ai_btts_prob": "61.0%",
       "ai_over25_prob": "58.9%",
-      "ai_key_fact": "xG cumulé élevé de 3.05 avec une probabilité BTTS de 61.0%.",
-      "ai_analysis": "San Jose Earthquakes et St. Louis CITY SC démontrent des dispositions offensives prononcées dans ce championnat nord-américain. Leurs lignes arrière respectives laissent régulièrement des espaces exploitables, ce qui favorise la projection vers l'avant. La projection statistique pointe vers une rencontre ouverte et prolifique en occasions."
+      "ai_key_fact": "xG cumulé de 3.05 et probabilité BTTS maximale à 61.0%.",
+      "ai_analysis": "San Jose Earthquakes présente une moyenne d'xG intéressante de 1.65, tandis que St. Louis CITY SC se montre dangereux en transition. Cette opposition en MLS réunit des indicateurs statistiques parmi les plus favorables de la journée. Les largesses défensives récurrentes des deux côtés renforcent la perspective d'un match prolifique."
     },
     {
       "id": "lommelsk-vs-royalcha-2026-08-16",
@@ -1522,8 +1522,8 @@
       "exact_score_prob": "17%",
       "ai_btts_prob": "58.3%",
       "ai_over25_prob": "55.2%",
-      "ai_key_fact": "xG cumulé de 2.89 avec 2/3 confrontations directes validant le BTTS.",
-      "ai_analysis": "Lommel SK et le Royal Charleroi SC disposent d'arguments solides pour dynamiser la rencontre. La régularité offensive des deux équipes lors de leurs dernières sorties suggère un match animé. Néanmoins, la gestion des temps faibles sera déterminante pour confirmer ces tendances."
+      "ai_key_fact": "Lommel et Charleroi affichent un xG cumulé de 2.89.",
+      "ai_analysis": "Lommel SK maintient une régularité offensive notable à domicile avec un xG de 1.52. Royal Charleroi SC possède les ressources techniques pour exploiter les espaces laissés par l'adversaire. La solidité relative des défenses laisse entrevoir un scénario ouvert avec des buts de chaque côté."
     },
     {
       "id": "atlantau-vs-redbulln-2026-08-15",
@@ -1585,8 +1585,8 @@
       "exact_score_prob": "16%",
       "ai_btts_prob": "58.7%",
       "ai_over25_prob": "56.4%",
-      "ai_key_fact": "Atlanta et New York affichent un historique de 3/3 H2H avec BTTS.",
-      "ai_analysis": "Atlanta United s'appuie sur une production offensive constante à domicile (xG 1.64), tandis que New York conserve un profil dangereux en contre. Les statistiques avancées soutiennent l'hypothèse d'une partie rythmée où les deux gardiens devraient être sollicités. Aucune issue définitive ne peut toutefois être garantie."
+      "ai_key_fact": "3/3 H2H BTTS avec un xG combiné de 2.94.",
+      "ai_analysis": "Atlanta United développe un jeu tourné vers l'offensive avec un xG de 1.64 bien ancré. Red Bull New York, malgré une efficacité parfois inconstante, conserve un profil dangereux à l'extérieur. Les antécédents entre ces deux franchises de MLS penchent nettement en faveur d'un match animé."
     },
     {
       "id": "holstein-vs-stpauli-2026-08-14",
@@ -1645,11 +1645,11 @@
       "homeLambda": 1.63,
       "awayLambda": 1.27,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "17%",
+      "exact_score_prob": "15%",
       "ai_btts_prob": "57.7%",
       "ai_over25_prob": "55.2%",
       "ai_key_fact": "Holstein Kiel et St. Pauli affichent un xG combiné de 2.90.",
-      "ai_analysis": "Ce duel de 2. Bundesliga met aux prises des formations portées vers l'offensive. Les xG respectifs de 1.63 et 1.27 témoignent d'une capacité à se procurer des occasions franches. L'historique des confrontations directes montre également une propension à concéder au moins un but."
+      "ai_analysis": "Holstein Kiel s'appuie sur une attaque productive à la maison, soutenue par un xG de 1.63. St. Pauli montre des intentions claires à l'extérieur malgré une défense perfectible. Les confrontations directes montrent une propension marquée à concéder des occasions de part et d'autre."
     },
     {
       "id": "lafc-vs-sandiego-2026-08-15",
@@ -1711,8 +1711,8 @@
       "exact_score_prob": "18%",
       "ai_btts_prob": "55.7%",
       "ai_over25_prob": "53.6%",
-      "ai_key_fact": "LAFC présente un xG solide de 1.66 à domicile.",
-      "ai_analysis": "Le LAFC aborde cette rencontre avec un statut d'outsider offensif crédible grâce à ses récentes performances. San Diego FC, malgré une efficacité plus mesurée, possède les ressources pour trouver la faille. La configuration du match tend vers un scénario favorable aux attaquants."
+      "ai_key_fact": "LAFC présente un xG dominant de 1.66 à domicile.",
+      "ai_analysis": "Le LAFC dispose d'une force de frappe offensive redoutable capable de perforer n'importe quel bloc. San Diego FC, bien que plus mesuré offensivement, trouve régulièrement des solutions en contre. La configuration tactique du match favorise des buts des deux côtés du terrain."
     },
     {
       "id": "middlesb-vs-lincolnc-2026-08-15",
@@ -1771,11 +1771,11 @@
       "homeLambda": 1.48,
       "awayLambda": 1.46,
       "ai_exact_score": "2-2",
-      "exact_score_prob": "15%",
+      "exact_score_prob": "14%",
       "ai_btts_prob": "59.2%",
       "ai_over25_prob": "56.2%",
-      "ai_key_fact": "xG équilibré (1.48 vs 1.46) pour un total cumulé de 2.94.",
-      "ai_analysis": "Middlesbrough et Lincoln City affichent des statistiques offensives et défensives très proches sur leurs cinq dernières sorties. La répartition des xG suggère une rencontre disputée avec des opportunités de part et d'autre. La prudence reste de mise face à la volatilité inhérente à ce type de confrontation."
+      "ai_key_fact": "xG équilibré de 1.48 vs 1.46 pour un cumul de 2.94.",
+      "ai_analysis": "Middlesbrough et Lincoln City affichent des statistiques offensives et défensives très proches sur le papier. Leurs xG respectifs témoignent d'une capacité constante à se créer des situations de marquer. La physionomie de cette rencontre de Championship devrait offrir de nombreuses opportunités."
     },
     {
       "id": "torontof-vs-newengla-2026-08-15",
@@ -1834,11 +1834,11 @@
       "homeLambda": 1.56,
       "awayLambda": 1.35,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "17%",
+      "exact_score_prob": "16%",
       "ai_btts_prob": "58.6%",
       "ai_over25_prob": "55.7%",
-      "ai_key_fact": "Toronto FC et New England totalisent un xG cumulé de 2.91.",
-      "ai_analysis": "Toronto cherche à capitaliser sur son potentiel offensif à domicile, bien épaulé par des statistiques récentes encourageantes. New England Revolution montre des dispositions similaires à l'extérieur. Les indicateurs de probabilité s'accordent sur un match ouvert."
+      "ai_key_fact": "Toronto FC et New England affichent un xG cumulé de 2.91.",
+      "ai_analysis": "Toronto FC développe un jeu offensif cohérent à domicile appuyé par un xG de 1.56. New England Revolution éprouve des difficultés à verrouiller son arrière-garde en déplacement. Les indicateurs convergent vers une confrontation ouverte où les deux équipes peuvent marquer."
     },
     {
       "id": "cerclebr-vs-sinttrui-2026-08-14",
@@ -1900,8 +1900,8 @@
       "exact_score_prob": "17%",
       "ai_btts_prob": "58.0%",
       "ai_over25_prob": "55.4%",
-      "ai_key_fact": "Cercle Brugge affiche un xG de 1.61 dans son antre.",
-      "ai_analysis": "L'opposition entre le Cercle Brugge et Sint-Truidense s'annonce équilibrée sur le papier. Les hôtes bénéficient d'une dynamique offensive légèrement supérieure, mais les visiteurs savent saisir les opportunités en transition. Le profil statistique favorise une animation offensive constante."
+      "ai_key_fact": "Cercle Brugge affiche un xG de 1.61 à domicile.",
+      "ai_analysis": "Cercle Brugge KSV impose traditionnellement un rythme élevé sur sa pelouse, confirmée par des statistiques d'xG solides. Sint-Truidense, malgré un profil plus prudent, sait piquer en transition rapide. La solidité défensive relative des deux formations laisse présager des espaces à exploiter."
     },
     {
       "id": "herthabe-vs-fcheiden-2026-08-15",
@@ -1963,8 +1963,8 @@
       "exact_score_prob": "18%",
       "ai_btts_prob": "56.8%",
       "ai_over25_prob": "53.1%",
-      "ai_key_fact": "xG cumulé de 2.80 avec des dynamiques de marquage régulières.",
-      "ai_analysis": "Hertha Berlin et Heidenheim présentent des profils tactiques assez proches, axés sur la rigueur et l'efficacité ciblée. Leurs xG respectifs de 1.44 et 1.36 illustrent une capacité similaire à faire fructifier leurs temps forts. Un score serré est fortement envisageable selon les modèles prédictifs."
+      "ai_key_fact": "Hertha et Heidenheim totalisent un xG cumulé de 2.80.",
+      "ai_analysis": "Hertha Berlin cherche à bonifier ses phases de possession par une présence accrue dans la surface adverse. 1. FC Heidenheim aborde ce déplacement avec des intentions pragmatiques mais efficaces. Les xG mesurés suggèrent un match disputé avec des chances de buts partagées."
     },
     {
       "id": "kvkortri-vs-antwerp-2026-08-15",
@@ -2026,8 +2026,8 @@
       "exact_score_prob": "17%",
       "ai_btts_prob": "56.7%",
       "ai_over25_prob": "53.0%",
-      "ai_key_fact": "KV Kortrijk et Antwerp affichent tous deux un xG supérieur à 1.35.",
-      "ai_analysis": "Malgré un historique de confrontations directes sans BTTS récent, les données actuelles indiquent un rééquilibrage potentiel. Les deux équipes marquent régulièrement lors de leurs derniers matchs. La physionomie de la rencontre pourrait déjouer les statistiques historiques."
+      "ai_key_fact": "KV Kortrijk et Antwerp affichent un xG combiné de 2.80.",
+      "ai_analysis": "Malgré un historique de confrontations directes pauvre en buts, les métriques actuelles penchent pour un rééquilibrage. KV Kortrijk dispose d'un xG de 1.45 qui reflète son volume de jeu à domicile. Antwerp possède la qualité technique nécessaire pour répondre et trouver la faille."
     }
   ]
 }
