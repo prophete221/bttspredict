@@ -74,11 +74,11 @@ const SEO_PAGES: MetadataRoute.Sitemap = [
   // 5. AI correct score predictions
   url('/ai-correct-score-predictions', TODAY, 0.85, 'daily'),
 
-  // 6. BTTS statistics
-  url('/btts/statistics', TODAY, 0.85, 'monthly'),
+  // 6. BTTS statistics — TEMPORAIREMENT RETIRÉ DU SITEMAP (données en préparation)
+  // url('/btts/statistics', TODAY, 0.85, 'monthly'),
 
-  // 7. Over 2.5 statistics
-  url('/over-2-5/statistics', TODAY, 0.85, 'monthly'),
+  // 7. Over 2.5 statistics — TEMPORAIREMENT RETIRÉ DU SITEMAP (données en préparation)
+  // url('/over-2-5/statistics', TODAY, 0.85, 'monthly'),
 
   // 8. Résultats vérifiés
   url('/resultats-verifies', TODAY, 0.85, 'daily'),

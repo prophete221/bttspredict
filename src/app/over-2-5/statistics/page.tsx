@@ -71,8 +71,8 @@ export default function Over25StatisticsPage() {
                   <tr key={i} style={{ borderBottom: '1px solid #2d2f31' }}>
                     <td className="py-2.5 px-3 font-semibold text-[#f0f4f9]">{league.name}</td>
                     <td className="py-2.5 px-3 text-[#9ca3af] hidden sm:table-cell">{league.country}</td>
-                    <td className="py-2.5 px-3 text-right font-mono text-[#9ca3af] text-xs">À VÉRIFIER</td>
-                    <td className="py-2.5 px-3 text-right font-mono text-[#9ca3af] text-xs">À VÉRIFIER</td>
+                    <td className="py-2.5 px-3 text-right font-mono text-[#9ca3af] text-xs">Données en préparation</td>
+                    <td className="py-2.5 px-3 text-right font-mono text-[#9ca3af] text-xs">Données en préparation</td>
                   </tr>
                 ))}
               </tbody>

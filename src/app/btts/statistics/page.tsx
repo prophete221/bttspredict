@@ -32,7 +32,7 @@ const faqJsonLd = {
       name: 'Which leagues have the highest BTTS rate?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "BTTSPredict covers a curated set of leagues selected for their historically offensive profile. The exact BTTS rate per league is À VÉRIFIER — to be integrated via a verifiable source at build time. No specific rate is published without a verifiable source.",
+        text: "BTTSPredict covers a curated set of leagues selected for their historically offensive profile. The exact BTTS rate per league is Données en préparation — to be integrated via a verifiable source at build time. No specific rate is published without a verifiable source.",
       },
     },
   ],
@@ -46,7 +46,7 @@ const faqJsonLd = {
 // de la règle anti-hallucination (section 1 du Prompt Maître).
 //
 // Décision Tâche 004 : remplacer chaque valeur non sourcée par
-// "À VÉRIFIER — donnée historique non disponible". Les noms de ligues
+// "Données en préparation — donnée historique non disponible". Les noms de ligues
 // sont conservés (ce sont des labels, pas des données statistiques).
 //
 // Future tâche recommandée : intégrer un vrai appel API ESPN au build time
@@ -107,8 +107,8 @@ export default function BTTSStatisticsPage() {
                   {LEAGUE_STATS.map((row, i) => (
                     <tr key={i} style={{ borderBottom: '1px solid #2d2f31' }}>
                       <td className="py-3 px-4 text-[#f0f4f9] font-medium">{row.league}</td>
-                      <td className="text-center py-3 px-4 text-[#9ca3af] font-mono text-xs">À VÉRIFIER</td>
-                      <td className="text-center py-3 px-4 text-[#9ca3af] font-mono text-xs">À VÉRIFIER</td>
+                      <td className="text-center py-3 px-4 text-[#9ca3af] font-mono text-xs">Données en préparation</td>
+                      <td className="text-center py-3 px-4 text-[#9ca3af] font-mono text-xs">Données en préparation</td>
                     </tr>
                   ))}
                 </tbody>

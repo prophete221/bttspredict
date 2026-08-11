@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<title>Archives des pronostics — BTTSPredict</title>
+<style>
+body{background:#131314;color:#f0f4f9;font-family:system-ui,sans-serif;max-width:600px;margin:0 auto;padding:2rem}
+h1{color:#22c55e;font-size:1.5rem}
+a{color:#06b6d4;text-decoration:none;display:block;padding:0.5rem 0;border-bottom:1px solid #2d2f31}
+a:hover{color:#22c55e}
+p{color:#9ca3af;font-size:0.875rem}
+</style>
+</head>
+<body>
+<h1>📊 Archives publiques des pronostics</h1>
+<p>Chaque fichier JSON contient les pronostics publiés ce jour-là, avec horodatage.</p>
+<p style="margin-bottom:1rem">Source : ESPN Soccer API · Suivi public depuis le 2026-08-08</p>
+<div id="archives"></div>
+<script>
+// Auto-list available archive files
+const archives = [
+  "2026-08-11.json",
+  "2026-08-10.json",
+  "2026-08-09.json",
+  "2026-08-08.json",
+  "2026-06-07.json",
+];
+const container = document.getElementById("archives");
+archives.forEach(function(f) {
+  const a = document.createElement("a");
+  a.href = f;
+  a.textContent = "📅 " + f;
+  container.appendChild(a);
+});
+</script>
+</body>
+</html>

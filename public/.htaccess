@@ -52,10 +52,10 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^match/.+/?$ /404.html [L,R=404]
 
 # ─── Fallback générique (toutes les URLs non matchées) ───
-# Pour le routing côté client Next.js (pages dynamiques autres que /match/)
+# CORRECTION 1+2: Retourner 404 au lieu de servir index.html (soft 404 fix)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.html [L]
+RewriteRule . /404.html [L,R=404]
 
 # ─── En-tête HSTS (Strict Transport Security) ───
 Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
@@ -63,8 +63,14 @@ Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains
 # ─── En-têtes de sécurité ───
 Header always set X-Content-Type-Options "nosniff"
 Header always set X-Frame-Options "SAMEORIGIN"
-Header always set X-XSS-Protection "1; mode=block"
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+# CORRECTION 8: Content-Security-Policy + Permissions-Policy
+Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https://a.espncdn.com data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+# CORRECTION 9: X-XSS-Protection retiré (déconseillé par OWASP)
+# (anciennement: Header always set X-XSS-Protection "1; mode=block" — supprimé)
 
 # ─── Cache navigateur ───
 ExpiresActive On

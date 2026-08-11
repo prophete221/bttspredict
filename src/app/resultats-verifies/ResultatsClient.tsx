@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from 'react'
 
-export default function ResultatsClient() {
-  const [data, setData] = useState<any>(null)
+export default function ResultatsClient({ initialData }: { initialData?: any }) {
+  const [data, setData] = useState<any>(initialData || null)
 
+  // Fallback: try client-side fetch if no initial data (e.g. during dev)
   useEffect(() => {
+    if (data) return
     fetch('/win-history.json').then(r => r.json()).then(d => setData(d)).catch(() => {})
-  }, [])
+  }, [data])
 
   if (!data || !data.stats) {
     return <div className="text-center py-8 text-[#9ca3af]">Chargement…</div>
