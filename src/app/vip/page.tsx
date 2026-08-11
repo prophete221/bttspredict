@@ -135,200 +135,133 @@ export default function VipPage() {
             style={{ backgroundColor: C.baobab, color: C.bg }}>{toast}</div>
         )}
 
-        {/* ═══ 1. CARTE VIP 3D VERROUILLÉE — EN HAUT DE LA PAGE ═══ */}
-        <section className="relative pt-6 pb-8 overflow-hidden">
-          {/* Background glow */}
+        {/* ═══ 1. VIP PREMIUM LOCKED CARD ═══ */}
+        <section className="relative pt-8 pb-6 overflow-hidden">
+          {/* Subtle background glow */}
           <div className="absolute inset-0 pointer-events-none" style={{
-            background: `radial-gradient(ellipse 70% 60% at 50% 0%, ${brandGlow}, transparent 70%)`,
-          }} />
-          <div className="absolute inset-0 pointer-events-none" style={{
-            background: `radial-gradient(ellipse 40% 30% at 50% 20%, ${C.gold}15, transparent 60%)`,
+            background: `radial-gradient(ellipse 50% 40% at 50% 0%, ${C.gold}12, transparent 70%)`,
           }} />
 
-          <div className="relative max-w-md mx-auto px-4">
-            {/* Premium badge */}
-            <div className="text-center mb-3">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl mb-2" style={{
-                background: `linear-gradient(135deg, ${C.gold}25, ${C.gold}08)`,
-                border: `1px solid ${C.gold}40`,
-                boxShadow: `0 0 24px ${C.gold}25, inset 0 1px 0 ${C.gold}30`,
-              }}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill={C.gold}>
-                  <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm0 2h14v2H5v-2z" />
-                </svg>
+          <div className="relative max-w-[400px] mx-auto px-4">
+            {/* Header — VIP Analysis */}
+            <div className="text-center mb-5">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-[0.25em] mb-3"
+                style={{ backgroundColor: `${C.gold}1A`, color: C.gold, border: `1px solid ${C.gold}40` }}>
+                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: C.gold }} />
+                Engine Online
               </div>
-              <span className="inline-block px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-[0.25em]"
-                style={{
-                  background: `linear-gradient(135deg, ${C.gold}25, ${C.gold}10)`,
-                  color: C.gold,
-                  border: `1px solid ${C.gold}40`,
-                }}>
-                ✦ Pronostics VIP ✦
-              </span>
-              <h1 className="text-2xl font-black mt-2 mb-1" style={{
-                fontFamily: 'Poppins, sans-serif',
-                background: `linear-gradient(135deg, ${C.gold} 0%, ${C.text} 100%)`,
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}>
-                Pronostics Premium
+              <h1 className="text-xl font-black mb-1" style={{ fontFamily: 'Poppins, sans-serif', color: C.text }}>
+                VIP Analysis
               </h1>
-              <p className="text-[11px]" style={{ color: C.textSec }}>
-                Coupon du jour · Débloque les marchés et cotes
+              <p className="text-[10px] uppercase tracking-[0.2em]" style={{ color: C.textSec }}>
+                AI + Statistical Engine
+              </p>
+              <p className="text-[11px] mt-1" style={{ color: C.textSec }}>
+                {previewMatches.length * 6} premium predictions · Updated {new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}
               </p>
             </div>
 
-            {/* ═══ CARTE 3D ═══ */}
-            <div
-              className="relative rounded-2xl overflow-hidden transition-all duration-500"
-              style={{
-                background: `linear-gradient(145deg, ${C.surface} 0%, ${C.bg} 50%, #0A1822 100%)`,
-                border: `1px solid ${C.gold}30`,
-                boxShadow: `
-                  0 20px 60px rgba(0,0,0,0.5),
-                  0 8px 24px ${brandGlow},
-                  0 0 0 1px ${C.gold}10,
-                  inset 0 1px 0 ${C.gold}25,
-                  inset 0 -1px 0 rgba(0,0,0,0.3)
-                `,
-                transform: 'perspective(1000px) rotateX(2deg)',
-              }}
-            >
-              {/* Top accent bar */}
-              <div className="h-[3px] w-full" style={{
-                background: `linear-gradient(90deg, transparent 0%, ${C.gold} 30%, ${brandColor} 50%, ${C.gold} 70%, transparent 100%)`,
+            {/* ═══ PREMIUM LOCKED CARD ═══ */}
+            <div className="relative rounded-[16px] overflow-hidden" style={{
+              background: `linear-gradient(145deg, ${C.surface} 0%, ${C.bg} 100%)`,
+              border: `1px solid ${C.gold}25`,
+              boxShadow: `0 12px 40px rgba(0,0,0,0.4), inset 0 1px 0 ${C.gold}15`,
+            }}>
+              {/* Top accent */}
+              <div className="h-[2px] w-full" style={{
+                background: `linear-gradient(90deg, transparent, ${C.gold}, transparent)`,
               }} />
 
-              {/* Header card */}
-              <div className="px-4 py-3 flex items-center justify-between" style={{
-                backgroundColor: 'rgba(7,17,26,0.6)',
-                borderBottom: `1px solid ${C.border}`,
-              }}>
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: brandColor, boxShadow: `0 0 8px ${brandColor}` }} />
-                  <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: C.textSec }}>
-                    Coupon VIP · {previewMatches.length} matchs
-                  </span>
-                </div>
-                <span className="text-[9px] font-black uppercase tracking-[0.15em] px-2 py-0.5 rounded" style={{
-                  backgroundColor: `${C.gold}15`,
-                  color: C.gold,
-                  border: `1px solid ${C.gold}30`,
-                }}>
-                  LOCKED
-                </span>
-              </div>
-
-              {/* ═══ 2 MATCHES — noms/logos visibles, marchés/cotes floutés ═══ */}
+              {/* Match cards */}
               <div className="p-3 space-y-2">
                 {previewMatches.map((m, i) => (
-                  <div key={i} className="relative rounded-xl overflow-hidden" style={{
-                    backgroundColor: '#0B1925',
+                  <div key={i} className="relative rounded-[12px] overflow-hidden" style={{
+                    backgroundColor: C.bg,
                     border: `1px solid ${C.border}`,
                   }}>
-                    {/* League header */}
-                    <div className="flex items-center justify-between px-3 py-1.5" style={{
-                      backgroundColor: C.bg,
-                      borderBottom: `1px solid ${C.border}`,
-                    }}>
-                      <span className="text-[9px] uppercase tracking-wider font-bold" style={{ color: C.textSec }}>
-                        {m.league}
-                      </span>
-                      <span className="text-[9px] font-mono" style={{ color: C.textMute }}>{m.time}</span>
+                    {/* Match header */}
+                    <div className="flex items-center justify-between px-3 py-2" style={{ borderBottom: `1px solid ${C.border}` }}>
+                      <span className="text-[9px] uppercase tracking-wider font-bold" style={{ color: C.textSec }}>{m.league}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-[9px] font-mono" style={{ color: C.textSec }}>{m.time}</span>
+                        <span className="px-1.5 py-0.5 rounded text-[8px] font-black uppercase" style={{ backgroundColor: `${C.gold}15`, color: C.gold }}>VIP</span>
+                      </div>
                     </div>
 
-                    {/* Teams visible — logos + names */}
-                    <div className="flex items-center justify-between px-3 py-3">
-                      <div className="flex items-center gap-2 flex-1 min-w-0">
+                    {/* Teams */}
+                    <div className="flex items-center justify-between px-4 py-3">
+                      <div className="flex flex-col items-center gap-1 flex-1 min-w-0">
                         <TeamLogoMini src={m.homeLogo} name={m.home} initial={m.homeInitial} />
-                        <span className="text-[12px] font-bold truncate" style={{ color: C.text }}>{m.home}</span>
+                        <span className="text-[11px] font-bold text-center truncate w-full" style={{ color: C.text }}>{m.home}</span>
                       </div>
-
                       <div className="flex flex-col items-center px-2 flex-shrink-0">
-                        <span className="text-[10px] font-black" style={{ color: brandColor }}>VS</span>
+                        <span className="text-[10px] font-black" style={{ color: C.gold }}>VS</span>
                       </div>
-
-                      <div className="flex items-center gap-2 flex-1 min-w-0 justify-end">
-                        <span className="text-[12px] font-bold truncate text-right" style={{ color: C.text }}>{m.away}</span>
+                      <div className="flex flex-col items-center gap-1 flex-1 min-w-0">
                         <TeamLogoMini src={m.awayLogo} name={m.away} initial={m.awayInitial} />
+                        <span className="text-[11px] font-bold text-center truncate w-full" style={{ color: C.text }}>{m.away}</span>
                       </div>
                     </div>
 
-                    {/* ═══ MARCHÉS + COTES — FLOUTÉS ═══ */}
+                    {/* ═══ LOCKED: AI Score + Markets — blurred ═══ */}
                     <div className="relative px-3 pb-3" style={{ borderTop: `1px solid ${C.border}` }}>
-                      <div className="pt-2 grid grid-cols-3 gap-1.5" style={{ filter: 'blur(6px)', opacity: 0.7, pointerEvents: 'none', userSelect: 'none' }}>
-                        <div className="rounded p-1.5 text-center" style={{ backgroundColor: 'rgba(99,214,255,0.1)' }}>
-                          <div className="text-[8px] uppercase tracking-wider" style={{ color: C.textMute }}>BTTS</div>
-                          <div className="text-[11px] font-black" style={{ color: C.data }}>1.85</div>
+                      <div style={{ filter: 'blur(7px)', opacity: 0.6, pointerEvents: 'none', userSelect: 'none' }}>
+                        {/* AI Exact Score */}
+                        <div className="text-center py-2">
+                          <div className="text-[8px] uppercase tracking-widest font-bold mb-1" style={{ color: C.textSec }}>AI Exact Score</div>
+                          <div className="text-2xl font-black font-mono" style={{ color: C.gold }}>2 — 1</div>
                         </div>
-                        <div className="rounded p-1.5 text-center" style={{ backgroundColor: 'rgba(123,228,149,0.1)' }}>
-                          <div className="text-[8px] uppercase tracking-wider" style={{ color: C.textMute }}>Over 2.5</div>
-                          <div className="text-[11px] font-black" style={{ color: C.success }}>1.92</div>
-                        </div>
-                        <div className="rounded p-1.5 text-center" style={{ backgroundColor: 'rgba(255,209,102,0.1)' }}>
-                          <div className="text-[8px] uppercase tracking-wider" style={{ color: C.textMute }}>Cote</div>
-                          <div className="text-[11px] font-black" style={{ color: C.warning }}>3.45</div>
+                        {/* Probability row */}
+                        <div className="grid grid-cols-3 gap-1.5">
+                          <div className="text-center rounded p-1.5" style={{ backgroundColor: `${C.success}10` }}>
+                            <div className="text-[7px] uppercase" style={{ color: C.textSec }}>BTTS</div>
+                            <div className="text-[11px] font-black" style={{ color: C.success }}>74%</div>
+                          </div>
+                          <div className="text-center rounded p-1.5" style={{ backgroundColor: `${C.warning}10` }}>
+                            <div className="text-[7px] uppercase" style={{ color: C.textSec }}>Over 2.5</div>
+                            <div className="text-[11px] font-black" style={{ color: C.warning }}>69%</div>
+                          </div>
+                          <div className="text-center rounded p-1.5" style={{ backgroundColor: `${C.data}10` }}>
+                            <div className="text-[7px] uppercase" style={{ color: C.textSec }}>xG</div>
+                            <div className="text-[11px] font-black" style={{ color: C.data }}>2.84</div>
+                          </div>
                         </div>
                       </div>
 
-                      {/* Lock overlay for markets */}
-                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ top: '8px' }}>
-                        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full" style={{
-                          backgroundColor: 'rgba(7,17,26,0.85)',
-                          border: `1px solid ${C.gold}40`,
-                          backdropFilter: 'blur(8px)',
-                        }}>
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="2.5">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                          </svg>
-                          <span className="text-[8px] font-black uppercase tracking-wider" style={{ color: C.gold }}>Marchés verrouillés</span>
-                        </div>
+                      {/* Lock overlay */}
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2" style={{ backgroundColor: 'rgba(15,23,42,0.8)' }}>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="2">
+                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>
+                        <span className="text-[9px] font-bold uppercase tracking-wider" style={{ color: C.gold }}>Detailed Analysis</span>
+                        <span className="text-[8px]" style={{ color: C.textSec }}>Score · Markets · Key Facts</span>
                       </div>
                     </div>
                   </div>
                 ))}
-
-                {/* Total cote — also blurred */}
-                <div className="relative flex items-center justify-between px-3 py-2 rounded-lg" style={{ backgroundColor: 'rgba(7,17,26,0.5)', border: `1px solid ${C.border}` }}>
-                  <div style={{ filter: 'blur(5px)', opacity: 0.7, pointerEvents: 'none' }}>
-                    <span className="text-[10px] uppercase tracking-widest font-bold" style={{ color: C.textMute }}>Cote totale</span>
-                    <span className="font-mono text-[16px] font-black ml-3" style={{ color: C.baobab }}>12.84</span>
-                  </div>
-                  <div className="absolute right-3 flex items-center gap-1.5 px-2 py-0.5 rounded-full" style={{
-                    backgroundColor: `${C.baobab}15`,
-                    border: `1px solid ${C.baobab}40`,
-                  }}>
-                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke={C.baobab} strokeWidth="2.5">
-                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                    </svg>
-                    <span className="text-[8px] font-black uppercase" style={{ color: C.baobab }}>VIP</span>
-                  </div>
-                </div>
               </div>
 
-              {/* CTA déverrouiller — ouvre le modal (instructions + vérificateur ID) */}
+              {/* Unlock CTA */}
               <div className="px-3 pb-3">
                 <button
                   onClick={() => setShowModal(true)}
-                  className="block w-full h-[42px] rounded-xl font-black text-[12px] uppercase tracking-wider transition-all hover:scale-[1.02]"
+                  className="block w-full h-[44px] rounded-[12px] font-black text-[12px] uppercase tracking-wider transition-all hover:scale-[1.02]"
                   style={{
-                    background: `linear-gradient(135deg, ${C.gold} 0%, ${brandColor} 100%)`,
+                    background: `linear-gradient(135deg, ${C.gold} 0%, ${C.gold}cc 100%)`,
                     color: C.bg,
-                    boxShadow: `0 8px 24px ${brandGlow}, 0 4px 12px ${C.gold}30`,
+                    boxShadow: `0 6px 20px ${C.gold}30`,
                   }} data-cta="vip-unlock-3d">
                   <span className="inline-flex items-center gap-2">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                       <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                     </svg>
-                    Débloquer le coupon
+                    Unlock Analysis
                   </span>
                 </button>
-                <p className="text-[9px] text-center mt-2" style={{ color: C.textMute }}>
-                  Accès immédiat · 6 pronostics premium · 18+
+                <p className="text-[9px] text-center mt-2" style={{ color: C.textSec }}>
+                  Instant access · 18+ · No guaranteed gains
                 </p>
               </div>
             </div>
