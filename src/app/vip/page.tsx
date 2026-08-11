@@ -47,6 +47,8 @@ export default function VipPage() {
   const [toast, setToast] = useState('')
   const [bookmaker, setBookmaker] = useState<'linebet'|'888starz'>('linebet')
   const [previewMatches, setPreviewMatches] = useState<PreviewMatch[]>([])
+  const [vipCount, setVipCount] = useState<number | null>(null)
+  const [generationDate, setGenerationDate] = useState<string | null>(null)
   const [showModal, setShowModal] = useState(false)
 
   const code = bookmaker === 'linebet' ? 'VISION221' : 'vision221'
@@ -57,15 +59,28 @@ export default function VipPage() {
   const brandGlow = bookmaker === 'linebet' ? BRAND.linebet.primaryGlow : BRAND.star888.primaryGlow
   const brandDark = bookmaker === 'linebet' ? BRAND.linebet.primaryDark : BRAND.star888.primaryDark
 
-  // Load 2 matches from predictions.json (vipPreview or free) to show as preview
+  // Load 2 real matches from predictions.json (vipPreview preferred, then free)
+  // — NO hardcoded fallback matches. If predictions.json provides fewer than 2,
+  // previewMatches stays empty and the card renders a neutral skeleton state.
+  // Real VIP prediction count + generation date come from stats / top-level date.
   useEffect(() => {
     fetch('/predictions.json')
       .then(r => r.json())
       .then(data => {
+        // Real VIP prediction count (from engine stats) and real generation date
+        const statsVipCount = data?.stats?.vipCount
+        if (typeof statsVipCount === 'number' && Number.isFinite(statsVipCount)) {
+          setVipCount(statsVipCount)
+        }
+        const topDate = data?.date
+        if (typeof topDate === 'string' && topDate.length > 0) {
+          setGenerationDate(topDate)
+        }
+        // Build preview from real match data only — no fallback demo matches
         const arr: any[] = data?.vipPreview || data?.free || data?.predictions || []
         const todayStr = new Date().toISOString().slice(0, 10)
         const upcoming = arr.filter((p: any) => p.date >= todayStr).slice(0, 2)
-        if (upcoming.length >= 2) {
+        if (upcoming.length > 0) {
           setPreviewMatches(upcoming.map((m: any) => ({
             home: m.home,
             away: m.away,
@@ -77,19 +92,11 @@ export default function VipPage() {
             homeInitial: String(m.home || '?')[0].toUpperCase(),
             awayInitial: String(m.away || '?')[0].toUpperCase(),
           })))
-        } else {
-          // Fallback demo matches
-          setPreviewMatches([
-            { home: 'Hannover 96', away: 'VfL Wolfsburg', league: '2. Bundesliga', time: '13:30', date: '2026-08-16', homeInitial: 'H', awayInitial: 'V' },
-            { home: 'LAFC', away: 'San Diego FC', league: 'MLS', time: '04:30', date: '2026-08-15', homeInitial: 'L', awayInitial: 'S' },
-          ])
         }
+        // Else: previewMatches remains [] — render empty state, no demo data
       })
       .catch(() => {
-        setPreviewMatches([
-          { home: 'Hannover 96', away: 'VfL Wolfsburg', league: '2. Bundesliga', time: '13:30', date: '2026-08-16', homeInitial: 'H', awayInitial: 'V' },
-          { home: 'LAFC', away: 'San Diego FC', league: 'MLS', time: '04:30', date: '2026-08-15', homeInitial: 'L', awayInitial: 'S' },
-        ])
+        // Network/parse failure — leave previewMatches empty (no fake matches)
       })
   }, [])
 
@@ -157,7 +164,8 @@ export default function VipPage() {
                 AI + Statistical Engine
               </p>
               <p className="text-[11px] mt-1" style={{ color: C.textSec }}>
-                {previewMatches.length * 6} premium predictions · Updated {new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}
+                {vipCount != null ? `${vipCount} premium predictions` : 'Premium predictions'}
+                {generationDate ? ` · ${generationDate}` : ''}
               </p>
             </div>
 
@@ -172,8 +180,20 @@ export default function VipPage() {
                 background: `linear-gradient(90deg, transparent, ${C.gold}, transparent)`,
               }} />
 
-              {/* Match cards */}
+              {/* Match cards — rendered from real predictions.json data only */}
               <div className="p-3 space-y-2">
+                {previewMatches.length === 0 && (
+                  <div className="relative rounded-[12px] overflow-hidden" style={{
+                    backgroundColor: C.bg,
+                    border: `1px solid ${C.border}`,
+                  }}>
+                    <div className="px-3 py-6 text-center">
+                      <span className="text-[10px] uppercase tracking-wider" style={{ color: C.textSec }}>
+                        Premium analysis temporarily unavailable
+                      </span>
+                    </div>
+                  </div>
+                )}
                 {previewMatches.map((m, i) => (
                   <div key={i} className="relative rounded-[12px] overflow-hidden" style={{
                     backgroundColor: C.bg,
@@ -203,27 +223,29 @@ export default function VipPage() {
                       </div>
                     </div>
 
-                    {/* ═══ LOCKED: AI Score + Markets — blurred ═══ */}
+                    {/* ═══ LOCKED: AI Score + Markets — blurred, neutral placeholders ═══ */}
+                    {/* No real VIP prediction values are exposed in the DOM before unlock. */}
+                    {/* No fabricated numbers either — only neutral placeholders (••, ••%, •.••). */}
                     <div className="relative px-3 pb-3" style={{ borderTop: `1px solid ${C.border}` }}>
                       <div style={{ filter: 'blur(7px)', opacity: 0.6, pointerEvents: 'none', userSelect: 'none' }}>
-                        {/* AI Exact Score */}
+                        {/* AI Exact Score — neutral placeholder */}
                         <div className="text-center py-2">
                           <div className="text-[8px] uppercase tracking-widest font-bold mb-1" style={{ color: C.textSec }}>AI Exact Score</div>
-                          <div className="text-2xl font-black font-mono" style={{ color: C.gold }}>2 — 1</div>
+                          <div className="text-2xl font-black font-mono" style={{ color: C.gold }}>• — •</div>
                         </div>
-                        {/* Probability row */}
+                        {/* Probability row — neutral placeholders */}
                         <div className="grid grid-cols-3 gap-1.5">
                           <div className="text-center rounded p-1.5" style={{ backgroundColor: `${C.success}10` }}>
                             <div className="text-[7px] uppercase" style={{ color: C.textSec }}>BTTS</div>
-                            <div className="text-[11px] font-black" style={{ color: C.success }}>74%</div>
+                            <div className="text-[11px] font-black" style={{ color: C.success }}>••%</div>
                           </div>
                           <div className="text-center rounded p-1.5" style={{ backgroundColor: `${C.warning}10` }}>
                             <div className="text-[7px] uppercase" style={{ color: C.textSec }}>Over 2.5</div>
-                            <div className="text-[11px] font-black" style={{ color: C.warning }}>69%</div>
+                            <div className="text-[11px] font-black" style={{ color: C.warning }}>••%</div>
                           </div>
                           <div className="text-center rounded p-1.5" style={{ backgroundColor: `${C.data}10` }}>
                             <div className="text-[7px] uppercase" style={{ color: C.textSec }}>xG</div>
-                            <div className="text-[11px] font-black" style={{ color: C.data }}>2.84</div>
+                            <div className="text-[11px] font-black" style={{ color: C.data }}>•.••</div>
                           </div>
                         </div>
                       </div>
