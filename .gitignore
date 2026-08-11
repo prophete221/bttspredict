@@ -75,4 +75,4 @@ download/*.py
 /dist/
 /examples/
 /mini-services/
-/3099
+/3099__pycache__/
