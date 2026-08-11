@@ -283,14 +283,14 @@ export default function VipUnlockModal({
                 {/* Buttons */}
                 <div className="grid grid-cols-2 gap-2 mb-4">
                   {selectedBookmaker === 'linebet' && (
-                    <a href={AFFILIATE.linebet} rel="sponsored noopener" target="_blank"
+                    <a href={AFFILIATE.linebet} rel="sponsored nofollow noopener noreferrer" target="_blank"
                       className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold"
                       style={{ backgroundColor: '#22c55e', color: '#131314' }}>
                       Inscription Linebet →
                     </a>
                   )}
                   {selectedBookmaker === '888starz' && (
-                    <a href={AFFILIATE.star888} rel="sponsored noopener" target="_blank"
+                    <a href={AFFILIATE.star888} rel="sponsored nofollow noopener noreferrer" target="_blank"
                       className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold"
                       style={{ backgroundColor: '#22c55e', color: '#131314' }}>
                       Inscription 888starz →

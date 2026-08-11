@@ -3,16 +3,6 @@
 import { motion } from 'framer-motion'
 import { useScrollAnimation } from '@/hooks/useAnimations'
 
-/**
- * Hero — ECLIPSE v60
- * Copy exacte per spec:
- *   H1: "BTTS & OVER 2.5 / BASE OPEN-SOURCE DE PRONOSTICS"
- *   H2: "3 285 pronostics BTTS vérifiés avec scores réels. Modèle Poisson + open data. Pas de promesses, que des preuves."
- *   CTA primaire: "Voir les pronos du jour" #22c55e
- *   CTA secondaire: "Explorer le dataset open-source" outline
- * Background: #131314 avec 2 blobs blur Indigo et Cyan + grille subtile
- * Barre sous Hero: "Dernier scan il y a 4h - 50 matchs analysés - 47 résultats vérifiés"
- */
 export default function Hero() {
   const [sectionRef, isVisible] = useScrollAnimation(0.05)
 
@@ -20,125 +10,111 @@ export default function Hero() {
     <section
       ref={sectionRef}
       className="relative overflow-hidden"
-      style={{
-        backgroundColor: '#131314',
-        paddingTop: '48px',
-        paddingBottom: '32px',
-      }}
+      style={{ backgroundColor: '#131314', paddingTop: '40px', paddingBottom: '24px' }}
     >
-      {/* ═══ Background blobs (assombris) + grille subtile ═══ */}
+      {/* Subtle background glow */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
-        {/* Blob Indigo — top left, opacity max 0.18 */}
-        <div
-          className="absolute -top-20 -left-20 w-80 h-80 rounded-full"
-          style={{
-            backgroundColor: '#22c55e',
-            opacity: 0.18,
-            filter: 'blur(80px)',
-          }}
-        />
-        {/* Blob Cyan — bottom right, opacity max 0.08 */}
-        <div
-          className="absolute -bottom-20 -right-20 w-96 h-96 rounded-full"
-          style={{
-            backgroundColor: '#06b6d4',
-            opacity: 0.08,
-            filter: 'blur(100px)',
-          }}
-        />
-        {/* Grille subtile — rgba(165,171,197,0.055) */}
-        <div
-          className="absolute inset-0"
-          style={{
-            opacity: 0.055,
-            backgroundImage: `
-              linear-gradient(rgba(165, 171, 197, 1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(165, 171, 197, 1) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px',
-          }}
-        />
+        <div className="absolute -top-20 left-1/4 w-72 h-72 rounded-full"
+          style={{ backgroundColor: '#22c55e', opacity: 0.06, filter: 'blur(80px)' }} />
+        <div className="absolute -bottom-10 right-1/4 w-64 h-64 rounded-full"
+          style={{ backgroundColor: '#06b6d4', opacity: 0.04, filter: 'blur(60px)' }} />
       </div>
 
-      <div className="relative z-10 max-w-[440px] mx-auto px-4 flex flex-col gap-5">
-        {/* ═══ H1 ═══ */}
+      <div className="relative z-10 max-w-[440px] mx-auto px-4">
+        {/* Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={isVisible ? { opacity: 1, y: 0 } : undefined}
-          transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.4, delay: 0.05 }}
+          className="mb-4"
         >
-          <h2
-            className="font-bold leading-[1.05] tracking-tight"
-            style={{
-              fontSize: '28px',
-              color: '#f0f4f9',
-              fontFamily: 'Poppins, sans-serif',
-            }}
-          >
-            Pronostics BTTS et Over 2.5 pour l'Afrique de l'Ouest & Maroc - Moteur IA
-          </h2>
-
-          {/* ═══ H2 ═══ */}
-          <p className="mt-3 text-[13px] leading-[1.6]" style={{ color: '#9ca3af', maxWidth: '380px' }}>
-            Sénégal · Mali · Côte d'Ivoire · Guinée · Congo · Maroc
-            <br />
-            Données ESPN publiques. Analyse statistique. Forme des équipes. Ligues sélectionnées pour leur fort taux de BTTS. Pronostics quotidiens vérifiables après le match.
-          </p>
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold"
+            style={{ backgroundColor: 'rgba(6, 182, 212, 0.1)', color: '#06b6d4', border: '1px solid rgba(6, 182, 212, 0.25)' }}>
+            <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#06b6d4' }} />
+            Analyse statistique · Données publiques ESPN
+          </span>
         </motion.div>
 
-        {/* ═══ CTA primaire + lien secondaire ═══ */}
+        {/* H1 — product-style, concise */}
+        <motion.h1
+          initial={{ opacity: 0, y: 12 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : undefined}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="font-bold leading-[1.1] tracking-tight mb-3"
+          style={{ fontSize: '26px', color: '#f0f4f9', fontFamily: 'Poppins, sans-serif' }}
+        >
+          Pronostics BTTS et Over 2.5
+          <br />
+          <span style={{ color: '#22c55e' }}>vérifiables après match</span>
+        </motion.h1>
+
+        {/* Subtitle — short, factual */}
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : undefined}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-[13px] leading-[1.6] mb-5"
+          style={{ color: '#9ca3af', maxWidth: '360px' }}
+        >
+          Données ESPN publiques · Modèle Poisson + xG · Suivi public depuis le 08/08/2026.
+        </motion.p>
+
+        {/* CTAs — primary + secondary */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={isVisible ? { opacity: 1, y: 0 } : undefined}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-col gap-3"
+          className="flex flex-col gap-2.5 mb-4"
         >
-          {/* CTA primaire: "Voir les pronostics du jour" */}
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => {
-              // Plateforme PRO v64 : /pronostics supprimé, les pronostics sont sur la homepage
               const el = document.getElementById('free-predictions') || document.getElementById('main-content')
-              if (el) {
-                el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-              } else {
-                window.location.href = '/'
-              }
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              else window.location.href = '/'
             }}
-            className="w-full h-[52px] rounded-[10px] font-bold text-[15px] flex items-center justify-center gap-2 transition-all"
-            style={{
-              backgroundColor: '#22c55e',
-              color: '#131314',
-              border: 'none',
-              boxShadow: '0 4px 16px rgba(199, 244, 100, 0.25)',
-            }}
+            className="w-full h-[48px] rounded-[12px] font-bold text-[14px] flex items-center justify-center gap-2 transition-all"
+            style={{ backgroundColor: '#22c55e', color: '#131314', border: 'none' }}
             data-cta="hero-primary"
             aria-label="Voir les pronostics du jour"
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#A6D941'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#22c55e'
-            }}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
             Voir les pronostics du jour
           </motion.button>
 
+          <a
+            href="/methodologie"
+            className="w-full h-[40px] rounded-[12px] font-semibold text-[12px] flex items-center justify-center gap-1.5 transition-all"
+            style={{ backgroundColor: 'transparent', color: '#9ca3af', border: '1px solid #2d2f31' }}
+            data-cta="hero-methodology"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+            </svg>
+            Voir la méthodologie
+          </a>
         </motion.div>
 
-        {/* ═══ Badges confiance — 1 ligne discrète ═══ */}
+        {/* Trust indicators — 1 line */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : undefined}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="text-center text-[10px] text-[#9ca3af]"
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="flex items-center justify-center gap-3 text-[10px]"
+          style={{ color: '#9ca3af' }}
         >
-          Vérification ESPN public · 18+ · Jeu responsable
+          <span className="flex items-center gap-1">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+            Vérifiable
+          </span>
+          <span style={{ color: '#2d2f31' }}>·</span>
+          <span>18+</span>
+          <span style={{ color: '#2d2f31' }}>·</span>
+          <span>Jeu responsable</span>
         </motion.div>
       </div>
     </section>

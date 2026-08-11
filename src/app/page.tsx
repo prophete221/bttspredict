@@ -321,57 +321,85 @@ export default function Home() {
         <ErrorBoundary><Hero /></ErrorBoundary>
         <ErrorBoundary><FreePredictions /></ErrorBoundary>
 
+        {/* Bloc transparence — 3 éléments visuels */}
+        <section className="max-w-[440px] mx-auto px-4 py-8">
+          <div className="grid grid-cols-3 gap-2">
+            <a href="/resultats-verifies" className="block p-3 rounded-xl text-center transition-all hover:scale-[1.02]"
+              style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
+              <div className="mb-1.5 flex justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2"><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" /></svg>
+              </div>
+              <div className="text-[10px] font-bold text-[#f0f4f9]">Historique vérifié</div>
+              <div className="text-[9px] text-[#9ca3af] mt-0.5">Gagnés et perdus</div>
+            </a>
+            <a href="/methodologie" className="block p-3 rounded-xl text-center transition-all hover:scale-[1.02]"
+              style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
+              <div className="mb-1.5 flex justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" strokeWidth="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></svg>
+              </div>
+              <div className="text-[10px] font-bold text-[#f0f4f9]">Méthodologie</div>
+              <div className="text-[9px] text-[#9ca3af] mt-0.5">Modèle Poisson + xG</div>
+            </a>
+            <a href="/predictions-archive/" className="block p-3 rounded-xl text-center transition-all hover:scale-[1.02]"
+              style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
+              <div className="mb-1.5 flex justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+              </div>
+              <div className="text-[10px] font-bold text-[#f0f4f9]">Données publiques</div>
+              <div className="text-[9px] text-[#9ca3af] mt-0.5">Archives horodatées</div>
+            </a>
+          </div>
+        </section>
 
-
-
-        {/* Bloc VIP court — un seul CTA vers /vip */}
-        <section className="max-w-5xl mx-auto px-4 py-10">
-          <div className="p-6 sm:p-8 rounded-2xl" style={{ backgroundColor: '#1e1f20', border: '1px solid rgba(199, 244, 100, 0.25)' }}>
-            <div className="text-center mb-5">
-              <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-3"
-                style={{ backgroundColor: 'rgba(199, 244, 100, 0.12)', color: '#22c55e' }}>
-                Programme VIP
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                Pronostics premium BTTS et Over 2.5
-              </h2>
-              <p className="text-xs text-[#9ca3af] leading-relaxed max-w-2xl mx-auto">
-                Aucun gain garanti. Lien d&apos;affiliation rémunéré. 18+.
-              </p>
+        {/* VIP — carte premium sobre */}
+        <section className="max-w-[440px] mx-auto px-4 py-6">
+          <div className="p-5 rounded-[16px]" style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#f59e0b' }}>VIP Premium</span>
+              <span className="text-[9px] text-[#9ca3af]">18+ · Affiliation rémunéré</span>
             </div>
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <a href="/vip" className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
-                style={{ backgroundColor: '#22c55e', color: '#131314' }}
-                data-cta="home-discover-vip">
-                Découvrir le VIP
+            <h2 className="text-lg font-bold mb-1.5" style={{ fontFamily: 'Poppins, sans-serif', color: '#f0f4f9' }}>
+              Pronostics premium BTTS et Over 2.5
+            </h2>
+            <p className="text-[11px] text-[#9ca3af] leading-relaxed mb-4">
+              Sélections supplémentaires et analyses détaillées. Aucun gain garanti.
+            </p>
+            <a href="/vip" className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-[10px] font-bold text-[12px] transition-all"
+              style={{ backgroundColor: '#f59e0b', color: '#131314' }}
+              data-cta="home-discover-vip">
+              Découvrir le VIP
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </a>
+          </div>
+        </section>
+
+        {/* Jeu responsable — compact et moderne */}
+        <section className="max-w-[440px] mx-auto px-4 pb-6">
+          <div className="p-4 rounded-[12px] flex items-start gap-3" style={{ backgroundColor: 'rgba(255, 113, 133, 0.05)', border: '1px solid rgba(255, 113, 133, 0.15)' }}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF7185" strokeWidth="2" className="flex-shrink-0 mt-0.5">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+              <line x1="12" y1="9" x2="12" y2="13" />
+              <line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
+            <div>
+              <p className="text-[11px] text-[#9ca3af] leading-relaxed mb-1">
+                <strong className="text-[#FF7185]">18+</strong> · Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez perdre.
+              </p>
+              <a href="/jouer-responsable" className="text-[11px] font-bold text-[#22c55e] underline">
+                En savoir plus →
               </a>
             </div>
           </div>
         </section>
 
-        {/* Jeu responsable */}
-        <section className="max-w-5xl mx-auto px-4 py-10">
-          <div className="p-5 rounded-2xl" style={{ backgroundColor: 'rgba(255, 122, 122, 0.06)', border: '1px solid rgba(255, 122, 122, 0.2)' }}>
-            <h2 className="text-lg font-bold mb-2 text-[#FF7185]" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              18+ · Jouer responsable
-            </h2>
-            <p className="text-sm text-[#9ca3af] leading-relaxed mb-3">
-              Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez perdre. 18+.
-            </p>
-            <a href="/jouer-responsable" className="inline-flex items-center gap-2 text-sm font-bold text-[#22c55e] underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22c55e] rounded">
-              En savoir plus →
-            </a>
-          </div>
-        </section>
-
-        {/* Liens internes SEO — pages GSC qui reçoivent déjà des clics (3 clics / 2 clics / 2 clics) */}
-        <section className="px-4 py-6 space-y-3 max-w-5xl mx-auto">
-          <div className="flex flex-wrap gap-2 text-sm">
-            <a href="/bonus-888starz" className="underline">Bonus 888Starz Sénégal</a>
-            <span>·</span>
-            <a href="/code-promo-linebet-senegal" className="underline">Code Promo Linebet Sénégal</a>
-            <span>·</span>
-            <a href="/btts-c-est-quoi" className="underline">BTTS signification</a>
+        {/* Liens internes SEO */}
+        <section className="px-4 py-4 max-w-[440px] mx-auto">
+          <div className="flex flex-wrap gap-2 text-[11px]">
+            <a href="/bonus-888starz" className="text-[#9ca3af] hover:text-[#22c55e] transition-colors">Bonus 888Starz</a>
+            <span className="text-[#2d2f31]">·</span>
+            <a href="/code-promo-linebet-senegal" className="text-[#9ca3af] hover:text-[#22c55e] transition-colors">Code Promo Linebet</a>
+            <span className="text-[#2d2f31]">·</span>
+            <a href="/btts-c-est-quoi" className="text-[#9ca3af] hover:text-[#22c55e] transition-colors">BTTS signification</a>
           </div>
         </section>
 
