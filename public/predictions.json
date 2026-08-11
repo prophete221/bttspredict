@@ -56,13 +56,7 @@
       "bttsProb": 0.604,
       "over25Prob": 0.5808,
       "homeLambda": 1.62,
-      "awayLambda": 1.4,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "17%",
-      "ai_btts_prob": "60.4%",
-      "ai_over25_prob": "58.1%",
-      "ai_key_fact": "3/3 H2H avec BTTS et xG cumulé de 3.02.",
-      "ai_analysis": "Le Chicago Fire FC montre des dispositions offensives intéressantes à domicile avec un xG de 1.62, bien que sa défense reste perméable. Portland Timbers présente un profil similaire avec une animation offensive à 1.40 xG par match. La confrontation directe historique soutient fortement l'hypothèse de buts des deux côtés, malgré l'absence de garantie absolue."
+      "awayLambda": 1.4
     },
     {
       "id": "norwichc-vs-westbrom-2026-08-15",
@@ -119,13 +113,7 @@
       "bttsProb": 0.576,
       "over25Prob": 0.5438,
       "homeLambda": 1.52,
-      "awayLambda": 1.34,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
-      "ai_btts_prob": "57.6%",
-      "ai_over25_prob": "54.4%",
-      "ai_key_fact": "3/3 H2H BTTS avec un xG cumulé solide de 2.86.",
-      "ai_analysis": "Norwich City s'appuie sur une attaque prolifique à Carrow Road, affichant un xG de 1.52. West Bromwich Albion dispose d'arguments offensifs suffisants en déplacement pour inquiéter l'arrière-garde locale avec ses 1.34 xG. Les statistiques croisées des deux formations confirment une tendance marquée vers des rencontres ouvertes et dynamiques."
+      "awayLambda": 1.34
     },
     {
       "id": "sanjosee-vs-stlouisc-2026-08-15",
@@ -182,13 +170,7 @@
       "bttsProb": 0.6096,
       "over25Prob": 0.5889,
       "homeLambda": 1.65,
-      "awayLambda": 1.4,
-      "ai_exact_score": "2-2",
-      "exact_score_prob": "15%",
-      "ai_btts_prob": "61.0%",
-      "ai_over25_prob": "58.9%",
-      "ai_key_fact": "xG cumulé de 3.05 et 2/3 confrontations directes avec BTTS.",
-      "ai_analysis": "San Jose Earthquakes affiche une production offensive séduisante à domicile avec 1.65 xG, favorisant des matchs à rebondissements. Face à eux, St. Louis CITY SC maintient une moyenne d'expected goals de 1.40, témoignant de leur capacité à marquer loin de leurs bases. Cette affiche présente de sérieux indicateurs pour un scénario offensif prolifique."
+      "awayLambda": 1.4
     },
     {
       "id": "lommelsk-vs-royalcha-2026-08-16",
@@ -245,13 +227,7 @@
       "bttsProb": 0.5827,
       "over25Prob": 0.5516,
       "homeLambda": 1.52,
-      "awayLambda": 1.37,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "17%",
-      "ai_btts_prob": "58.3%",
-      "ai_over25_prob": "55.2%",
-      "ai_key_fact": "2/3 H2H BTTS et un xG cumulé de 2.89.",
-      "ai_analysis": "Lommel SK imprime un rythme offensif constant avec un xG de 1.52, trouvant régulièrement la faille dans ses rencontres récentes. Royal Charleroi SC répond par des statistiques honorables en attaque (1.37 xG), ce qui équilibre les débats. La solidité défensive relative des deux camps laisse entrevoir des opportunités de part et d'autre."
+      "awayLambda": 1.37
     },
     {
       "id": "atlantau-vs-redbulln-2026-08-15",
@@ -308,13 +284,7 @@
       "bttsProb": 0.587,
       "over25Prob": 0.5637,
       "homeLambda": 1.64,
-      "awayLambda": 1.3,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "18%",
-      "ai_btts_prob": "58.7%",
-      "ai_over25_prob": "56.4%",
-      "ai_key_fact": "3/3 confrontations directes validant le pari BTTS.",
-      "ai_analysis": "Atlanta United FC se montre entreprenant sur sa pelouse avec un xG de 1.64, créant un volume important d'occasions. Red Bull New York, malgré des statistiques légèrement inférieures (1.30 xG), sait exploiter les espaces en transition. L'historique des confrontations renforce la probabilité d'une partie animée."
+      "awayLambda": 1.3
     },
     {
       "id": "holstein-vs-stpauli-2026-08-14",
@@ -371,13 +341,7 @@
       "bttsProb": 0.5769,
       "over25Prob": 0.5524,
       "homeLambda": 1.63,
-      "awayLambda": 1.27,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
-      "ai_btts_prob": "57.7%",
-      "ai_over25_prob": "55.2%",
-      "ai_key_fact": "xG combiné de 2.90 et 3/3 H2H avec des buts des deux côtés.",
-      "ai_analysis": "Holstein Kiel s'appuie sur une force de frappe à domicile évaluée à 1.63 xG, pesant constamment sur les défenses adverses. St. Pauli conserve une moyenne correcte de 1.27 xG en déplacement, suffisante pour inquiéter une arrière-garde locale perfectible. Le contexte tactique favorise l'expression des deux lignes offensives."
+      "awayLambda": 1.27
     },
     {
       "id": "lafc-vs-sandiego-2026-08-15",
@@ -434,13 +398,7 @@
       "bttsProb": 0.5573,
       "over25Prob": 0.5363,
       "homeLambda": 1.66,
-      "awayLambda": 1.17,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "17%",
-      "ai_btts_prob": "55.7%",
-      "ai_over25_prob": "53.6%",
-      "ai_key_fact": "LAFC affiche 1.66 xG et croise le fer avec San Diego.",
-      "ai_analysis": "LAFC déploie un jeu offensif ambitieux illustré par un xG de 1.66, dictant souvent le tempo à domicile. San Diego FC, avec un xG de 1.17, doit faire preuve de réalisme pour rivaliser mais dispose de ressources pour score. Les indices statistiques suggèrent une partie rythmée avec des occasions de part et d'autre."
+      "awayLambda": 1.17
     },
     {
       "id": "middlesb-vs-lincolnc-2026-08-15",
@@ -497,16 +455,8 @@
       "bttsProb": 0.5922,
       "over25Prob": 0.5622,
       "homeLambda": 1.48,
-      "awayLambda": 1.46,
-      "ai_exact_score": "2-2",
-      "exact_score_prob": "15%",
-      "ai_btts_prob": "59.2%",
-      "ai_over25_prob": "56.2%",
-      "ai_key_fact": "xG équilibré à 2.94 et 2/3 H2H BTTS récents.",
-      "ai_analysis": "Middlesbrough présente un xG de 1.48 qui traduit une animation offensive constante à domicile. Lincoln City se montre tout aussi entreprenant avec 1.46 xG, montrant de belles dispositions pour marquer hors de ses bases. La configuration de ce match profile un duel équilibré et propice aux buts."
-    }
-  ],
-  "vipPreview": [
+      "awayLambda": 1.46
+    },
     {
       "id": "torontof-vs-newengla-2026-08-15",
       "match": "Toronto FC vs New England Revolution",
@@ -562,13 +512,7 @@
       "bttsProb": 0.5857,
       "over25Prob": 0.5572,
       "homeLambda": 1.56,
-      "awayLambda": 1.35,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "17%",
-      "ai_btts_prob": "58.6%",
-      "ai_over25_prob": "55.7%",
-      "ai_key_fact": "Toronto FC (1.56 xG) accueille New England (1.35 xG).",
-      "ai_analysis": "Toronto FC valorise son terrain avec un xG de 1.56, se montrant régulier dans le dernier geste. New England Revolution applique une tactique portée vers l'avant (1.35 xG), ce qui l'amène à concéder autant qu'il ne marque. Les indicateurs de performance globale soutiennent l'hypothèse d'une rencontre ouverte."
+      "awayLambda": 1.35
     },
     {
       "id": "cerclebr-vs-sinttrui-2026-08-14",
@@ -625,13 +569,7 @@
       "bttsProb": 0.5801,
       "over25Prob": 0.5543,
       "homeLambda": 1.61,
-      "awayLambda": 1.29,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
-      "ai_btts_prob": "58.0%",
-      "ai_over25_prob": "55.4%",
-      "ai_key_fact": "Cercle Brugge (1.61 xG) face à Sint-Truidense (1.29 xG).",
-      "ai_analysis": "Cercle Brugge KSV développe un contenu offensif de qualité à domicile (1.61 xG) mais laisse des espaces derrière. Sint-Truidense possède les arguments pour punir ses hôtes avec une moyenne de 1.29 xG. Le profil des deux formations converge vers un match animé sur le plan offensif."
+      "awayLambda": 1.29
     },
     {
       "id": "herthabe-vs-fcheiden-2026-08-15",
@@ -688,13 +626,7 @@
       "bttsProb": 0.5676,
       "over25Prob": 0.5309,
       "homeLambda": 1.44,
-      "awayLambda": 1.36,
-      "ai_exact_score": "1-1",
-      "exact_score_prob": "18%",
-      "ai_btts_prob": "56.8%",
-      "ai_over25_prob": "53.1%",
-      "ai_key_fact": "xG cumulé de 2.80 avec Hertha (1.44) et Heidenheim (1.36).",
-      "ai_analysis": "Hertha Berlin cherche la régularité à domicile avec un xG de 1.44, s'appuyant sur des séquences de possession efficaces. 1. FC Heidenheim 1846 propose une réplique solide en déplacement (1.36 xG), menaçant régulièrement les défenses adverses. Ce choc s'annonce disputé avec des chances de voir chaque équipe trouver la faille."
+      "awayLambda": 1.36
     },
     {
       "id": "kvkortri-vs-antwerp-2026-08-15",
@@ -751,14 +683,10 @@
       "bttsProb": 0.5667,
       "over25Prob": 0.5302,
       "homeLambda": 1.45,
-      "awayLambda": 1.35,
-      "ai_exact_score": "1-1",
-      "exact_score_prob": "17%",
-      "ai_btts_prob": "56.7%",
-      "ai_over25_prob": "53.0%",
-      "ai_key_fact": "KV Kortrijk (1.45 xG) croise Antwerp (1.35 xG).",
-      "ai_analysis": "KV Kortrijk maintient une production offensive correcte (1.45 xG) mais souffre parfois de sa rigueur défensive. Antwerp dispose d'un effectif capable d'imposer son jeu (1.35 xG) et de concrétiser ses temps forts. Malgré un historique H2H mitigé, la dynamique actuelle suggère des opportunités de buts de part et d'autre."
-    },
+      "awayLambda": 1.35
+    }
+  ],
+  "vipPreview": [
     {
       "id": "spvgggre-vs-fcnrnber-2026-08-15",
       "match": "SpVgg Greuther Fürth vs 1. FC Nürnberg",
@@ -814,13 +742,7 @@
       "bttsProb": 0.5596,
       "over25Prob": 0.5203,
       "homeLambda": 1.38,
-      "awayLambda": 1.38,
-      "ai_exact_score": "1-1",
-      "exact_score_prob": "18%",
-      "ai_btts_prob": "56.0%",
-      "ai_over25_prob": "52.0%",
-      "ai_key_fact": "xG strictement égal à 1.38 pour les deux équipes.",
-      "ai_analysis": "SpVgg Greuther Fürth et le 1. FC Nürnberg affichent des métriques offensives parfaitement symétriques (1.38 xG chacun). Cette parité théorique se retrouve souvent dans des rencontres âprement disputées où les défenses sont mises à l'épreuve. L'historique récent des confrontations directes appuie la probabilité d'un score de parité avec des buts."
+      "awayLambda": 1.38
     },
     {
       "id": "houstond-vs-lagalaxy-2026-08-15",
@@ -877,13 +799,349 @@
       "bttsProb": 0.5974,
       "over25Prob": 0.5698,
       "homeLambda": 1.54,
-      "awayLambda": 1.43,
-      "ai_exact_score": "2-2",
-      "exact_score_prob": "15%",
-      "ai_btts_prob": "59.7%",
-      "ai_over25_prob": "57.0%",
-      "ai_key_fact": "Houston (1.54 xG) et LA Galaxy (1.43 xG) pour un xG de 2.97.",
-      "ai_analysis": "Houston Dynamo FC affiche un visage conquérant à la maison avec un xG de 1.54, générant de nombreuses situations de buts. LA Galaxy répond avec une animation percutante à l'extérieur (1.43 xG), profitant de la moindre largesse défensive. Les statistiques globales de la rencontre plaident pour un spectacle offensif."
+      "awayLambda": 1.43
+    },
+    {
+      "id": "rioave-vs-fcporto-2026-08-15",
+      "match": "Rio Ave vs FC Porto",
+      "home": "Rio Ave",
+      "away": "FC Porto",
+      "league": "Liga Portugal",
+      "date": "2026-08-15",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5301,
+      "bttsProbDisplay": "53.01%",
+      "over25ProbDisplay": "49.52%",
+      "confidence": 53,
+      "time": "21:30",
+      "matchSemantic": "rioave-vs-fcporto-2026-08-15",
+      "source": "poisson-v91-display-first",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3822.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/437.png",
+      "tier": "SILVER",
+      "reliabilityScore": 71.01,
+      "xgHome": 1.52,
+      "xgAway": 1.14,
+      "xgTotal": 2.65,
+      "formBTTS": 70,
+      "analysis": "Rio Ave (4/5 derniers matchs marques, xG 1.52) vs FC Porto (3/5 derniers matchs marques, xG 1.14). xG cumule 2.66, BTTS 53.0%, Over 2.5 49.5%, 3/3 H2H BTTS. Fiabilite 71.0%.",
+      "analysisData": {
+        "bttsProb": 0.5301,
+        "over25Prob": 0.4952,
+        "homeLambda": 1.52,
+        "awayLambda": 1.14,
+        "xgTotal": 2.65
+      },
+      "estimatedCote": 1.89,
+      "estimatedCoteOver": 2.02,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 53,
+          "bttsProb": 0.5301,
+          "homeLambda": 1.52,
+          "awayLambda": 1.14
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Non",
+          "confidence": 50,
+          "over25Prob": 0.4952,
+          "homeLambda": 1.52,
+          "awayLambda": 1.14
+        }
+      ],
+      "bttsProb": 0.5301,
+      "over25Prob": 0.4952,
+      "homeLambda": 1.52,
+      "awayLambda": 1.14
+    },
+    {
+      "id": "newyorkc-vs-philadel-2026-08-16",
+      "match": "New York City FC vs Philadelphia Union",
+      "home": "New York City FC",
+      "away": "Philadelphia Union",
+      "league": "MLS",
+      "date": "2026-08-16",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.562,
+      "bttsProbDisplay": "56.20%",
+      "over25ProbDisplay": "52.93%",
+      "confidence": 56,
+      "time": "00:00",
+      "matchSemantic": "newyorkc-vs-philadel-2026-08-16",
+      "source": "poisson-v91-display-first",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17606.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10739.png",
+      "tier": "SILVER",
+      "reliabilityScore": 70.6,
+      "xgHome": 1.53,
+      "xgAway": 1.26,
+      "xgTotal": 2.79,
+      "formBTTS": 70,
+      "analysis": "New York City FC (4/5 derniers matchs marques, xG 1.53) vs Philadelphia Union (3/5 derniers matchs marques, xG 1.26). xG cumule 2.79, BTTS 56.2%, Over 2.5 52.9%, 2/3 H2H BTTS. Fiabilite 70.6%.",
+      "analysisData": {
+        "bttsProb": 0.562,
+        "over25Prob": 0.5293,
+        "homeLambda": 1.53,
+        "awayLambda": 1.26,
+        "xgTotal": 2.79
+      },
+      "estimatedCote": 1.78,
+      "estimatedCoteOver": 1.89,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 56,
+          "bttsProb": 0.562,
+          "homeLambda": 1.53,
+          "awayLambda": 1.26
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 53,
+          "over25Prob": 0.5293,
+          "homeLambda": 1.53,
+          "awayLambda": 1.26
+        }
+      ],
+      "bttsProb": 0.562,
+      "over25Prob": 0.5293,
+      "homeLambda": 1.53,
+      "awayLambda": 1.26
+    },
+    {
+      "id": "excelsio-vs-psveindh-2026-08-15",
+      "match": "Excelsior vs PSV Eindhoven",
+      "home": "Excelsior",
+      "away": "PSV Eindhoven",
+      "league": "Eredivisie",
+      "date": "2026-08-15",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5588,
+      "bttsProbDisplay": "55.88%",
+      "over25ProbDisplay": "52.26%",
+      "confidence": 56,
+      "time": "20:00",
+      "matchSemantic": "excelsio-vs-psveindh-2026-08-15",
+      "source": "poisson-v91-display-first",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2566.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/148.png",
+      "tier": "SILVER",
+      "reliabilityScore": 70.44,
+      "xgHome": 1.49,
+      "xgAway": 1.28,
+      "xgTotal": 2.77,
+      "formBTTS": 60,
+      "analysis": "Excelsior (3/5 derniers matchs marques, xG 1.49) vs PSV Eindhoven (3/5 derniers matchs marques, xG 1.28). xG cumule 2.77, BTTS 55.9%, Over 2.5 52.3%, 2/3 H2H BTTS. Fiabilite 70.4%.",
+      "analysisData": {
+        "bttsProb": 0.5588,
+        "over25Prob": 0.5226,
+        "homeLambda": 1.49,
+        "awayLambda": 1.28,
+        "xgTotal": 2.77
+      },
+      "estimatedCote": 1.79,
+      "estimatedCoteOver": 1.91,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 56,
+          "bttsProb": 0.5588,
+          "homeLambda": 1.49,
+          "awayLambda": 1.28
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 52,
+          "over25Prob": 0.5226,
+          "homeLambda": 1.49,
+          "awayLambda": 1.28
+        }
+      ],
+      "bttsProb": 0.5588,
+      "over25Prob": 0.5226,
+      "homeLambda": 1.49,
+      "awayLambda": 1.28
+    },
+    {
+      "id": "watford-vs-southamp-2026-08-16",
+      "match": "Watford vs Southampton",
+      "home": "Watford",
+      "away": "Southampton",
+      "league": "Championship",
+      "date": "2026-08-16",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5583,
+      "bttsProbDisplay": "55.83%",
+      "over25ProbDisplay": "51.89%",
+      "confidence": 56,
+      "time": "14:30",
+      "matchSemantic": "watford-vs-southamp-2026-08-16",
+      "source": "poisson-v91-display-first",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/395.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/376.png",
+      "tier": "SILVER",
+      "reliabilityScore": 70.42,
+      "xgHome": 1.4,
+      "xgAway": 1.35,
+      "xgTotal": 2.75,
+      "formBTTS": 70,
+      "analysis": "Watford (3/5 derniers matchs marques, xG 1.40) vs Southampton (4/5 derniers matchs marques, xG 1.35). xG cumule 2.75, BTTS 55.8%, Over 2.5 51.9%, 2/3 H2H BTTS. Fiabilite 70.4%.",
+      "analysisData": {
+        "bttsProb": 0.5583,
+        "over25Prob": 0.5189,
+        "homeLambda": 1.4,
+        "awayLambda": 1.35,
+        "xgTotal": 2.75
+      },
+      "estimatedCote": 1.79,
+      "estimatedCoteOver": 1.93,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 56,
+          "bttsProb": 0.5583,
+          "homeLambda": 1.4,
+          "awayLambda": 1.35
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 52,
+          "over25Prob": 0.5189,
+          "homeLambda": 1.4,
+          "awayLambda": 1.35
+        }
+      ],
+      "bttsProb": 0.5583,
+      "over25Prob": 0.5189,
+      "homeLambda": 1.4,
+      "awayLambda": 1.35
+    },
+    {
+      "id": "orlandoc-vs-fccincin-2026-08-15",
+      "match": "Orlando City SC vs FC Cincinnati",
+      "home": "Orlando City SC",
+      "away": "FC Cincinnati",
+      "league": "MLS",
+      "date": "2026-08-15",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.558,
+      "bttsProbDisplay": "55.80%",
+      "over25ProbDisplay": "52.02%",
+      "confidence": 56,
+      "time": "01:30",
+      "matchSemantic": "orlandoc-vs-fccincin-2026-08-15",
+      "source": "poisson-v91-display-first",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12011.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18267.png",
+      "tier": "SILVER",
+      "reliabilityScore": 70.4,
+      "xgHome": 1.46,
+      "xgAway": 1.3,
+      "xgTotal": 2.76,
+      "formBTTS": 60,
+      "analysis": "Orlando City SC (3/5 derniers matchs marques, xG 1.46) vs FC Cincinnati (3/5 derniers matchs marques, xG 1.30). xG cumule 2.76, BTTS 55.8%, Over 2.5 52.0%, 2/3 H2H BTTS. Fiabilite 70.4%.",
+      "analysisData": {
+        "bttsProb": 0.558,
+        "over25Prob": 0.5202,
+        "homeLambda": 1.46,
+        "awayLambda": 1.3,
+        "xgTotal": 2.76
+      },
+      "estimatedCote": 1.79,
+      "estimatedCoteOver": 1.92,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 56,
+          "bttsProb": 0.558,
+          "homeLambda": 1.46,
+          "awayLambda": 1.3
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 52,
+          "over25Prob": 0.5202,
+          "homeLambda": 1.46,
+          "awayLambda": 1.3
+        }
+      ],
+      "bttsProb": 0.558,
+      "over25Prob": 0.5202,
+      "homeLambda": 1.46,
+      "awayLambda": 1.3
+    },
+    {
+      "id": "fctwente-vs-peczwoll-2026-08-16",
+      "match": "FC Twente vs PEC Zwolle",
+      "home": "FC Twente",
+      "away": "PEC Zwolle",
+      "league": "Eredivisie",
+      "date": "2026-08-16",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5567,
+      "bttsProbDisplay": "55.67%",
+      "over25ProbDisplay": "53.70%",
+      "confidence": 56,
+      "time": "14:30",
+      "matchSemantic": "fctwente-vs-peczwoll-2026-08-16",
+      "source": "poisson-v91-display-first",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/152.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2565.png",
+      "tier": "SILVER",
+      "reliabilityScore": 70.34,
+      "xgHome": 1.67,
+      "xgAway": 1.16,
+      "xgTotal": 2.83,
+      "formBTTS": 60,
+      "analysis": "FC Twente (4/5 derniers matchs marques, xG 1.67) vs PEC Zwolle (2/5 derniers matchs marques, xG 1.16). xG cumule 2.83, BTTS 55.7%, Over 2.5 53.7%, 1/3 H2H BTTS. Fiabilite 70.3%.",
+      "analysisData": {
+        "bttsProb": 0.5567,
+        "over25Prob": 0.537,
+        "homeLambda": 1.67,
+        "awayLambda": 1.16,
+        "xgTotal": 2.83
+      },
+      "estimatedCote": 1.8,
+      "estimatedCoteOver": 1.86,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 56,
+          "bttsProb": 0.5567,
+          "homeLambda": 1.67,
+          "awayLambda": 1.16
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 54,
+          "over25Prob": 0.537,
+          "homeLambda": 1.67,
+          "awayLambda": 1.16
+        }
+      ],
+      "bttsProb": 0.5567,
+      "over25Prob": 0.537,
+      "homeLambda": 1.67,
+      "awayLambda": 1.16
     }
   ],
   "stats": {
@@ -891,8 +1149,8 @@
     "totalAnalyzed": 69,
     "totalRejected": 0,
     "totalAccepted": 69,
-    "freeCount": 8,
-    "vipCount": 6
+    "freeCount": 12,
+    "vipCount": 8
   },
   "predictions": [
     {
@@ -950,13 +1208,7 @@
       "bttsProb": 0.604,
       "over25Prob": 0.5808,
       "homeLambda": 1.62,
-      "awayLambda": 1.4,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "17%",
-      "ai_btts_prob": "60.4%",
-      "ai_over25_prob": "58.1%",
-      "ai_key_fact": "3/3 H2H avec BTTS et xG cumulé de 3.02.",
-      "ai_analysis": "Le Chicago Fire FC montre des dispositions offensives intéressantes à domicile avec un xG de 1.62, bien que sa défense reste perméable. Portland Timbers présente un profil similaire avec une animation offensive à 1.40 xG par match. La confrontation directe historique soutient fortement l'hypothèse de buts des deux côtés, malgré l'absence de garantie absolue."
+      "awayLambda": 1.4
     },
     {
       "id": "norwichc-vs-westbrom-2026-08-15",
@@ -1013,13 +1265,7 @@
       "bttsProb": 0.576,
       "over25Prob": 0.5438,
       "homeLambda": 1.52,
-      "awayLambda": 1.34,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
-      "ai_btts_prob": "57.6%",
-      "ai_over25_prob": "54.4%",
-      "ai_key_fact": "3/3 H2H BTTS avec un xG cumulé solide de 2.86.",
-      "ai_analysis": "Norwich City s'appuie sur une attaque prolifique à Carrow Road, affichant un xG de 1.52. West Bromwich Albion dispose d'arguments offensifs suffisants en déplacement pour inquiéter l'arrière-garde locale avec ses 1.34 xG. Les statistiques croisées des deux formations confirment une tendance marquée vers des rencontres ouvertes et dynamiques."
+      "awayLambda": 1.34
     },
     {
       "id": "sanjosee-vs-stlouisc-2026-08-15",
@@ -1076,13 +1322,7 @@
       "bttsProb": 0.6096,
       "over25Prob": 0.5889,
       "homeLambda": 1.65,
-      "awayLambda": 1.4,
-      "ai_exact_score": "2-2",
-      "exact_score_prob": "15%",
-      "ai_btts_prob": "61.0%",
-      "ai_over25_prob": "58.9%",
-      "ai_key_fact": "xG cumulé de 3.05 et 2/3 confrontations directes avec BTTS.",
-      "ai_analysis": "San Jose Earthquakes affiche une production offensive séduisante à domicile avec 1.65 xG, favorisant des matchs à rebondissements. Face à eux, St. Louis CITY SC maintient une moyenne d'expected goals de 1.40, témoignant de leur capacité à marquer loin de leurs bases. Cette affiche présente de sérieux indicateurs pour un scénario offensif prolifique."
+      "awayLambda": 1.4
     },
     {
       "id": "lommelsk-vs-royalcha-2026-08-16",
@@ -1139,13 +1379,7 @@
       "bttsProb": 0.5827,
       "over25Prob": 0.5516,
       "homeLambda": 1.52,
-      "awayLambda": 1.37,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "17%",
-      "ai_btts_prob": "58.3%",
-      "ai_over25_prob": "55.2%",
-      "ai_key_fact": "2/3 H2H BTTS et un xG cumulé de 2.89.",
-      "ai_analysis": "Lommel SK imprime un rythme offensif constant avec un xG de 1.52, trouvant régulièrement la faille dans ses rencontres récentes. Royal Charleroi SC répond par des statistiques honorables en attaque (1.37 xG), ce qui équilibre les débats. La solidité défensive relative des deux camps laisse entrevoir des opportunités de part et d'autre."
+      "awayLambda": 1.37
     },
     {
       "id": "atlantau-vs-redbulln-2026-08-15",
@@ -1202,13 +1436,7 @@
       "bttsProb": 0.587,
       "over25Prob": 0.5637,
       "homeLambda": 1.64,
-      "awayLambda": 1.3,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "18%",
-      "ai_btts_prob": "58.7%",
-      "ai_over25_prob": "56.4%",
-      "ai_key_fact": "3/3 confrontations directes validant le pari BTTS.",
-      "ai_analysis": "Atlanta United FC se montre entreprenant sur sa pelouse avec un xG de 1.64, créant un volume important d'occasions. Red Bull New York, malgré des statistiques légèrement inférieures (1.30 xG), sait exploiter les espaces en transition. L'historique des confrontations renforce la probabilité d'une partie animée."
+      "awayLambda": 1.3
     },
     {
       "id": "holstein-vs-stpauli-2026-08-14",
@@ -1265,13 +1493,7 @@
       "bttsProb": 0.5769,
       "over25Prob": 0.5524,
       "homeLambda": 1.63,
-      "awayLambda": 1.27,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
-      "ai_btts_prob": "57.7%",
-      "ai_over25_prob": "55.2%",
-      "ai_key_fact": "xG combiné de 2.90 et 3/3 H2H avec des buts des deux côtés.",
-      "ai_analysis": "Holstein Kiel s'appuie sur une force de frappe à domicile évaluée à 1.63 xG, pesant constamment sur les défenses adverses. St. Pauli conserve une moyenne correcte de 1.27 xG en déplacement, suffisante pour inquiéter une arrière-garde locale perfectible. Le contexte tactique favorise l'expression des deux lignes offensives."
+      "awayLambda": 1.27
     },
     {
       "id": "lafc-vs-sandiego-2026-08-15",
@@ -1328,13 +1550,7 @@
       "bttsProb": 0.5573,
       "over25Prob": 0.5363,
       "homeLambda": 1.66,
-      "awayLambda": 1.17,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "17%",
-      "ai_btts_prob": "55.7%",
-      "ai_over25_prob": "53.6%",
-      "ai_key_fact": "LAFC affiche 1.66 xG et croise le fer avec San Diego.",
-      "ai_analysis": "LAFC déploie un jeu offensif ambitieux illustré par un xG de 1.66, dictant souvent le tempo à domicile. San Diego FC, avec un xG de 1.17, doit faire preuve de réalisme pour rivaliser mais dispose de ressources pour score. Les indices statistiques suggèrent une partie rythmée avec des occasions de part et d'autre."
+      "awayLambda": 1.17
     },
     {
       "id": "middlesb-vs-lincolnc-2026-08-15",
@@ -1391,13 +1607,235 @@
       "bttsProb": 0.5922,
       "over25Prob": 0.5622,
       "homeLambda": 1.48,
-      "awayLambda": 1.46,
-      "ai_exact_score": "2-2",
-      "exact_score_prob": "15%",
-      "ai_btts_prob": "59.2%",
-      "ai_over25_prob": "56.2%",
-      "ai_key_fact": "xG équilibré à 2.94 et 2/3 H2H BTTS récents.",
-      "ai_analysis": "Middlesbrough présente un xG de 1.48 qui traduit une animation offensive constante à domicile. Lincoln City se montre tout aussi entreprenant avec 1.46 xG, montrant de belles dispositions pour marquer hors de ses bases. La configuration de ce match profile un duel équilibré et propice aux buts."
+      "awayLambda": 1.46
+    },
+    {
+      "id": "torontof-vs-newengla-2026-08-15",
+      "match": "Toronto FC vs New England Revolution",
+      "home": "Toronto FC",
+      "away": "New England Revolution",
+      "league": "MLS",
+      "date": "2026-08-15",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5857,
+      "bttsProbDisplay": "58.57%",
+      "over25ProbDisplay": "55.72%",
+      "confidence": 59,
+      "time": "01:30",
+      "matchSemantic": "torontof-vs-newengla-2026-08-15",
+      "source": "poisson-v91-display-first",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7318.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/189.png",
+      "tier": "SILVER",
+      "reliabilityScore": 74.79,
+      "xgHome": 1.56,
+      "xgAway": 1.35,
+      "xgTotal": 2.91,
+      "formBTTS": 70,
+      "analysis": "Toronto FC (4/5 derniers matchs marques, xG 1.56) vs New England Revolution (3/5 derniers matchs marques, xG 1.35). xG cumule 2.91, BTTS 58.6%, Over 2.5 55.7%, 2/3 H2H BTTS. Fiabilite 74.8%.",
+      "analysisData": {
+        "bttsProb": 0.5857,
+        "over25Prob": 0.5572,
+        "homeLambda": 1.56,
+        "awayLambda": 1.35,
+        "xgTotal": 2.91
+      },
+      "estimatedCote": 1.71,
+      "estimatedCoteOver": 1.79,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 59,
+          "bttsProb": 0.5857,
+          "homeLambda": 1.56,
+          "awayLambda": 1.35
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 56,
+          "over25Prob": 0.5572,
+          "homeLambda": 1.56,
+          "awayLambda": 1.35
+        }
+      ],
+      "bttsProb": 0.5857,
+      "over25Prob": 0.5572,
+      "homeLambda": 1.56,
+      "awayLambda": 1.35
+    },
+    {
+      "id": "cerclebr-vs-sinttrui-2026-08-14",
+      "match": "Cercle Brugge KSV vs Sint-Truidense",
+      "home": "Cercle Brugge KSV",
+      "away": "Sint-Truidense",
+      "league": "Jupiler Pro League",
+      "date": "2026-08-14",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5801,
+      "bttsProbDisplay": "58.01%",
+      "over25ProbDisplay": "55.43%",
+      "confidence": 58,
+      "time": "20:45",
+      "matchSemantic": "cerclebr-vs-sinttrui-2026-08-14",
+      "source": "poisson-v91-display-first",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3610.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/936.png",
+      "tier": "SILVER",
+      "reliabilityScore": 74.51,
+      "xgHome": 1.61,
+      "xgAway": 1.29,
+      "xgTotal": 2.9,
+      "formBTTS": 70,
+      "analysis": "Cercle Brugge KSV (4/5 derniers matchs marques, xG 1.61) vs Sint-Truidense (3/5 derniers matchs marques, xG 1.29). xG cumule 2.90, BTTS 58.0%, Over 2.5 55.4%, 2/3 H2H BTTS. Fiabilite 74.5%.",
+      "analysisData": {
+        "bttsProb": 0.5801,
+        "over25Prob": 0.5543,
+        "homeLambda": 1.61,
+        "awayLambda": 1.29,
+        "xgTotal": 2.9
+      },
+      "estimatedCote": 1.72,
+      "estimatedCoteOver": 1.8,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 58,
+          "bttsProb": 0.5801,
+          "homeLambda": 1.61,
+          "awayLambda": 1.29
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 55,
+          "over25Prob": 0.5543,
+          "homeLambda": 1.61,
+          "awayLambda": 1.29
+        }
+      ],
+      "bttsProb": 0.5801,
+      "over25Prob": 0.5543,
+      "homeLambda": 1.61,
+      "awayLambda": 1.29
+    },
+    {
+      "id": "herthabe-vs-fcheiden-2026-08-15",
+      "match": "Hertha Berlin vs 1. FC Heidenheim 1846",
+      "home": "Hertha Berlin",
+      "away": "1. FC Heidenheim 1846",
+      "league": "2. Bundesliga",
+      "date": "2026-08-15",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5676,
+      "bttsProbDisplay": "56.76%",
+      "over25ProbDisplay": "53.09%",
+      "confidence": 57,
+      "time": "13:00",
+      "matchSemantic": "herthabe-vs-fcheiden-2026-08-15",
+      "source": "poisson-v91-display-first",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/129.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6418.png",
+      "tier": "SILVER",
+      "reliabilityScore": 73.88,
+      "xgHome": 1.44,
+      "xgAway": 1.36,
+      "xgTotal": 2.8,
+      "formBTTS": 70,
+      "analysis": "Hertha Berlin (3/5 derniers matchs marques, xG 1.44) vs 1. FC Heidenheim 1846 (4/5 derniers matchs marques, xG 1.36). xG cumule 2.80, BTTS 56.8%, Over 2.5 53.1%, 2/3 H2H BTTS. Fiabilite 73.9%.",
+      "analysisData": {
+        "bttsProb": 0.5676,
+        "over25Prob": 0.5309,
+        "homeLambda": 1.44,
+        "awayLambda": 1.36,
+        "xgTotal": 2.8
+      },
+      "estimatedCote": 1.76,
+      "estimatedCoteOver": 1.88,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 57,
+          "bttsProb": 0.5676,
+          "homeLambda": 1.44,
+          "awayLambda": 1.36
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 53,
+          "over25Prob": 0.5309,
+          "homeLambda": 1.44,
+          "awayLambda": 1.36
+        }
+      ],
+      "bttsProb": 0.5676,
+      "over25Prob": 0.5309,
+      "homeLambda": 1.44,
+      "awayLambda": 1.36
+    },
+    {
+      "id": "kvkortri-vs-antwerp-2026-08-15",
+      "match": "KV Kortrijk vs Antwerp",
+      "home": "KV Kortrijk",
+      "away": "Antwerp",
+      "league": "Jupiler Pro League",
+      "date": "2026-08-15",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5667,
+      "bttsProbDisplay": "56.67%",
+      "over25ProbDisplay": "53.02%",
+      "confidence": 57,
+      "time": "18:15",
+      "matchSemantic": "kvkortri-vs-antwerp-2026-08-15",
+      "source": "poisson-v91-display-first",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5786.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17544.png",
+      "tier": "SILVER",
+      "reliabilityScore": 72.83,
+      "xgHome": 1.45,
+      "xgAway": 1.35,
+      "xgTotal": 2.8,
+      "formBTTS": 80,
+      "analysis": "KV Kortrijk (4/5 derniers matchs marques, xG 1.45) vs Antwerp (4/5 derniers matchs marques, xG 1.35). xG cumule 2.80, BTTS 56.7%, Over 2.5 53.0%, 0/3 H2H BTTS. Fiabilite 72.8%.",
+      "analysisData": {
+        "bttsProb": 0.5667,
+        "over25Prob": 0.5302,
+        "homeLambda": 1.45,
+        "awayLambda": 1.35,
+        "xgTotal": 2.8
+      },
+      "estimatedCote": 1.76,
+      "estimatedCoteOver": 1.89,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 57,
+          "bttsProb": 0.5667,
+          "homeLambda": 1.45,
+          "awayLambda": 1.35
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 53,
+          "over25Prob": 0.5302,
+          "homeLambda": 1.45,
+          "awayLambda": 1.35
+        }
+      ],
+      "bttsProb": 0.5667,
+      "over25Prob": 0.5302,
+      "homeLambda": 1.45,
+      "awayLambda": 1.35
     }
   ]
 }

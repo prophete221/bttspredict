@@ -17,8 +17,8 @@ const ARCHIVE_DIR = path.join(PUBLIC_DIR, 'predictions-archive')
 if (!fs.existsSync(ARCHIVE_DIR)) fs.mkdirSync(ARCHIVE_DIR, { recursive: true })
 
 const FUTURE_DAYS = 7        // look ahead 7 days to ensure we always have matches
-const MAX_FREE = 8           // show up to 8 free matches
-const MAX_VIP = 6            // show up to 6 VIP matches
+const MAX_FREE = 12           // show up to 12 free matches (Gemini-powered analysis)
+const MAX_VIP = 8            // show up to 8 VIP matches
 const DISPLAY_TZ = 'Europe/Paris'
 
 // ─── HIGH BTTS Leagues ───
