@@ -105,17 +105,10 @@ export default function BTTSStatisticsPage() {
                 </thead>
                 <tbody>
                   {LEAGUE_STATS.map((row, i) => (
-<<<<<<< HEAD
                     <tr key={i} style={{ borderBottom: '1px solid #2d2f31' }}>
                       <td className="py-3 px-4 text-[#f0f4f9] font-medium">{row.league}</td>
                       <td className="text-center py-3 px-4 text-[#9ca3af] font-mono text-xs">Données en préparation</td>
                       <td className="text-center py-3 px-4 text-[#9ca3af] font-mono text-xs">Données en préparation</td>
-=======
-                    <tr key={i} style={{ borderBottom: '1px solid #334155' }}>
-                      <td className="py-3 px-4 text-[#F8FAFC] font-medium">{row.league}</td>
-                      <td className="text-center py-3 px-4 text-[#94A3B8] font-mono text-xs">À VÉRIFIER</td>
-                      <td className="text-center py-3 px-4 text-[#94A3B8] font-mono text-xs">À VÉRIFIER</td>
->>>>>>> c9bb6972 (design: uniformisation chromatique — Slate Design System)
                     </tr>
                   ))}
                 </tbody>

@@ -351,7 +351,6 @@ export default function Home() {
           </div>
         </section>
 
-<<<<<<< HEAD
         {/* VIP — carte premium sobre */}
         <section className="max-w-[440px] mx-auto px-4 py-6">
           <div className="p-5 rounded-[16px]" style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
@@ -388,36 +387,11 @@ export default function Home() {
               </p>
               <a href="/jouer-responsable" className="text-[11px] font-bold text-[#22c55e] underline">
                 En savoir plus →
-=======
-
-
-        {/* Bloc VIP court — un seul CTA vers /vip */}
-        <section className="max-w-5xl mx-auto px-4 py-10">
-          <div className="p-6 sm:p-8 rounded-2xl" style={{ backgroundColor: '#1E293B', border: '1px solid rgba(199, 244, 100, 0.25)' }}>
-            <div className="text-center mb-5">
-              <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-3"
-                style={{ backgroundColor: 'rgba(199, 244, 100, 0.12)', color: '#10B981' }}>
-                Programme VIP
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                Pronostics premium BTTS et Over 2.5
-              </h2>
-              <p className="text-xs text-[#94A3B8] leading-relaxed max-w-2xl mx-auto">
-                Aucun gain garanti. Lien d&apos;affiliation rémunéré. 18+.
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <a href="/vip" className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
-                style={{ backgroundColor: '#10B981', color: '#0F172A' }}
-                data-cta="home-discover-vip">
-                Découvrir le VIP
->>>>>>> c9bb6972 (design: uniformisation chromatique — Slate Design System)
               </a>
             </div>
           </div>
         </section>
 
-<<<<<<< HEAD
         {/* Liens internes SEO */}
         <section className="px-4 py-4 max-w-[440px] mx-auto">
           <div className="flex flex-wrap gap-2 text-[11px]">
@@ -426,31 +400,6 @@ export default function Home() {
             <a href="/code-promo-linebet-senegal" className="text-[#9ca3af] hover:text-[#22c55e] transition-colors">Code Promo Linebet</a>
             <span className="text-[#2d2f31]">·</span>
             <a href="/btts-c-est-quoi" className="text-[#9ca3af] hover:text-[#22c55e] transition-colors">BTTS signification</a>
-=======
-        {/* Jeu responsable */}
-        <section className="max-w-5xl mx-auto px-4 py-10">
-          <div className="p-5 rounded-2xl" style={{ backgroundColor: 'rgba(255, 122, 122, 0.06)', border: '1px solid rgba(255, 122, 122, 0.2)' }}>
-            <h2 className="text-lg font-bold mb-2 text-[#EF4444]" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              18+ · Jouer responsable
-            </h2>
-            <p className="text-sm text-[#94A3B8] leading-relaxed mb-3">
-              Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez perdre. 18+.
-            </p>
-            <a href="/jouer-responsable" className="inline-flex items-center gap-2 text-sm font-bold text-[#10B981] underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#10B981] rounded">
-              En savoir plus →
-            </a>
-          </div>
-        </section>
-
-        {/* Liens internes SEO — pages GSC qui reçoivent déjà des clics (3 clics / 2 clics / 2 clics) */}
-        <section className="px-4 py-6 space-y-3 max-w-5xl mx-auto">
-          <div className="flex flex-wrap gap-2 text-sm">
-            <a href="/bonus-888starz" className="underline">Bonus 888Starz Sénégal</a>
-            <span>·</span>
-            <a href="/code-promo-linebet-senegal" className="underline">Code Promo Linebet Sénégal</a>
-            <span>·</span>
-            <a href="/btts-c-est-quoi" className="underline">BTTS signification</a>
->>>>>>> c9bb6972 (design: uniformisation chromatique — Slate Design System)
           </div>
         </section>
 

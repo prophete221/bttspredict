@@ -44,17 +44,10 @@ export default function ResultatsVerifiesPage() {
               Tous les pronostics vérifiés avec scores réels ESPN. Aucun prono modifié ou supprimé après publication.
             </p>
           </div>
-<<<<<<< HEAD
           <ResultatsClient initialData={winHistory} />
           <div className="mt-8 p-4 rounded-xl bg-[#1e1f20] border border-[#2d2f31]">
             <p className="text-[11px] text-[#9ca3af] leading-relaxed">
               <strong className="text-[#9ca3af]">Règle d&apos;intégrité :</strong> Aucun pronostic n&apos;est modifié ou supprimé après publication.
-=======
-          <ResultatsClient />
-          <div className="mt-8 p-4 rounded-xl bg-[#1E293B] border border-[#334155]">
-            <p className="text-[11px] text-[#94A3B8] leading-relaxed">
-              <strong className="text-[#94A3B8]">Règle d'intégrité :</strong> Aucun pronostic n'est modifié ou supprimé après publication.
->>>>>>> c9bb6972 (design: uniformisation chromatique — Slate Design System)
               Chaque entrée contient la date, le match, le marché, la proba, le score final, le résultat et la source de vérification (ESPN).
               Cote moyenne utilisée pour le ROI: 1.75. Les performances passées ne garantissent pas les résultats futurs. 18+ — Jeu responsable.
             </p>
