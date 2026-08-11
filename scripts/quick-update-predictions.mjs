@@ -66,16 +66,14 @@ function formatDateParam(d) {
   return `${y}${m}${day}`
 }
 
-function matchHash(homeTeam, awayTeam, dateStr) {
-  let hash = 0
-  const str = `${homeTeam}-${awayTeam}-${dateStr}`
-  for (let i = 0; i < str.length; i++) {
-    hash = ((hash << 5) - hash) + str.charCodeAt(i)
-    hash |= 0
-  }
-  return (Math.abs(hash) % 1000) / 1000
-}
+// ─── SUPPRIMÉ: matchHash, getTeamForm (synthétique), getH2H (synthétique) ───
+// Ces fonctions fabriquaient des statistiques d'équipe à partir de hash pseudo-aléatoires.
+// Remplacées par fetchTeamStats() qui récupère les vrais résultats ESPN.
 
+// ─── Cache en mémoire pour les stats d'équipe (évite les requêtes dupliquées) ───
+const teamStatsCache = new Map()
+
+// ─── Poisson functions (conservées — mathématiquement correctes) ───
 function factorial(n) {
   if (n <= 1) return 1
   let r = 1
@@ -83,14 +81,12 @@ function factorial(n) {
   return r
 }
 
-// ─── Real Poisson proba BTTS ───
 function bttsRealProb(lambdaHome, lambdaAway) {
   const pHomeScores = 1 - Math.exp(-lambdaHome)
   const pAwayScores = 1 - Math.exp(-lambdaAway)
   return pHomeScores * pAwayScores
 }
 
-// ─── Real Poisson proba Over 2.5 ───
 function over25RealProb(lambdaHome, lambdaAway) {
   let pUnder25 = 0
   for (let i = 0; i <= 2; i++) {
@@ -103,37 +99,120 @@ function over25RealProb(lambdaHome, lambdaAway) {
   return 1 - pUnder25
 }
 
-// ─── Team form (deterministic from hash) — UNIQUE per match ───
-// We use both team names AND the match date as hash inputs, so that
-// (home, away, date) gives a unique seed → unique lambdas → unique probas.
-// Two different matches will NEVER have the same probas.
-function getTeamForm(teamName, dateStr, salt = '') {
-  const h = matchHash(teamName, dateStr, 'form' + salt)
-  const h2 = matchHash(teamName + '_x', dateStr, 'form2' + salt)
-  const h3 = matchHash(teamName + '_cs', dateStr, 'cs' + salt)
-  const h4 = matchHash(teamName + '_adj', dateStr, 'adj' + salt)
+// ─── Fetch real team stats from ESPN schedule API ───
+async function fetchTeamStats(slug, teamId, teamName) {
+  const cacheKey = `${slug}_${teamId}`
+  if (teamStatsCache.has(cacheKey)) return teamStatsCache.get(cacheKey)
 
-  return {
-    scoredIn: Math.min(5, Math.max(0, Math.floor(h * 3) + 2)),     // 2-5
-    concededIn: Math.min(5, Math.max(0, Math.floor(h2 * 3) + 2)),   // 2-5
-    cleanSheets: Math.min(2, Math.floor(h3 * 3)),                     // 0-2
-    failedToScore: Math.min(1, Math.floor((1 - h) * 2)),              // 0-1
-    avgScored: 0.8 + h * 1.4,                                        // 0.8-2.2
-    avgConceded: 0.7 + h2 * 1.3,                                      // 0.7-2.0
-    // Per-team unique adjustment (granular)
-    fineAdj: (h4 - 0.5) * 0.4,  // -0.2 to +0.2 unique micro-adjustment
-  }
-}
+  const maxRetries = 3
+  const baseDelay = 1000
 
-// ─── H2H data (deterministic + per-match unique) ───
-function getH2H(homeTeam, awayTeam, dateStr) {
-  const h = matchHash(homeTeam, awayTeam, 'h2h')
-  const h2 = matchHash(homeTeam + awayTeam, dateStr, 'h2h_v2')  // unique per match
-  return {
-    bttsCount: Math.min(3, Math.floor(h * 4)),  // 0-3 BTTS in last 3 H2H
-    totalH2H: 3,
-    uniqueAdj: (h2 - 0.5) * 0.2,  // -0.1 to +0.1 unique per match
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    try {
+      const res = await fetch(
+        `https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/teams/${teamId}/schedule`,
+        { headers: { 'User-Agent': 'Mozilla/5.0 (compatible; BTTSPredict/1.0)' }, signal: AbortSignal.timeout(8000) }
+      )
+      if (!res.ok) {
+        if (res.status === 429 || res.status >= 500) {
+          await new Promise(r => setTimeout(r, baseDelay * (attempt + 1)))
+          continue
+        }
+        break
+      }
+      const data = await res.json()
+      const events = data.events || []
+
+      const finishedMatches = []
+      for (const ev of events) {
+        const comp = ev.competitions?.[0]
+        if (!comp) continue
+        const status = comp.status?.type?.name
+        if (status !== 'STATUS_FULL_TIME' && status !== 'STATUS_FINAL') continue
+
+        const home = comp.competitors?.find(c => c.homeAway === 'home')
+        const away = comp.competitors?.find(c => c.homeAway === 'away')
+        if (!home || !away) continue
+
+        const homeScore = typeof home.score === 'object' ? home.score?.value : home.score
+        const awayScore = typeof away.score === 'object' ? away.score?.value : away.score
+        if (homeScore === undefined || awayScore === undefined || homeScore === null || awayScore === null) continue
+
+        const isHome = String(home.team?.id) === String(teamId)
+        const myScore = isHome ? homeScore : awayScore
+        const oppScore = isHome ? awayScore : homeScore
+        const oppName = isHome ? (away.team?.displayName || 'Unknown') : (home.team?.displayName || 'Unknown')
+
+        finishedMatches.push({
+          date: (ev.date || '').slice(0, 10),
+          opponent: oppName,
+          isHome,
+          goalsFor: parseInt(myScore, 10),
+          goalsAgainst: parseInt(oppScore, 10),
+          result: myScore > oppScore ? 'W' : myScore < oppScore ? 'L' : 'D',
+        })
+      }
+
+      // Take last 8 (most recent first in ESPN schedule)
+      const recent = finishedMatches.slice(0, 8)
+
+      if (recent.length === 0) {
+        const result = { dataQuality: 'LOW', matchCount: 0, available: false }
+        teamStatsCache.set(cacheKey, result)
+        return result
+      }
+
+      // Calculate real stats
+      const totalGoalsFor = recent.reduce((s, m) => s + m.goalsFor, 0)
+      const totalGoalsAgainst = recent.reduce((s, m) => s + m.goalsAgainst, 0)
+      const avgScored = totalGoalsFor / recent.length
+      const avgConceded = totalGoalsAgainst / recent.length
+
+      const homeMatches = recent.filter(m => m.isHome)
+      const awayMatches = recent.filter(m => !m.isHome)
+
+      const homeAvgScored = homeMatches.length > 0
+        ? homeMatches.reduce((s, m) => s + m.goalsFor, 0) / homeMatches.length
+        : null
+      const homeAvgConceded = homeMatches.length > 0
+        ? homeMatches.reduce((s, m) => s + m.goalsAgainst, 0) / homeMatches.length
+        : null
+      const awayAvgScored = awayMatches.length > 0
+        ? awayMatches.reduce((s, m) => s + m.goalsFor, 0) / awayMatches.length
+        : null
+      const awayAvgConceded = awayMatches.length > 0
+        ? awayMatches.reduce((s, m) => s + m.goalsAgainst, 0) / awayMatches.length
+        : null
+
+      const dataQuality = recent.length >= 8 ? 'HIGH' : recent.length >= 4 ? 'MEDIUM' : 'LOW'
+
+      const result = {
+        available: true,
+        matchCount: recent.length,
+        dataQuality,
+        avgScored,
+        avgConceded,
+        homeAvgScored,
+        homeAvgConceded,
+        awayAvgScored,
+        awayAvgConceded,
+        recent,
+      }
+
+      teamStatsCache.set(cacheKey, result)
+      return result
+
+    } catch (err) {
+      if (attempt < maxRetries - 1) {
+        await new Promise(r => setTimeout(r, baseDelay * (attempt + 1)))
+        continue
+      }
+    }
   }
+
+  const result = { dataQuality: 'LOW', matchCount: 0, available: false }
+  teamStatsCache.set(cacheKey, result)
+  return result
 }
 
 // ─── Assign tier ───
@@ -174,6 +253,8 @@ async function fetchESPNMatches(slug, dateParam) {
         homeLogo: homeComp.team?.logo || `https://a.espncdn.com/i/teamlogos/soccer/500/${homeComp.team?.id}.png`,
         awayLogo: awayComp.team?.logo || `https://a.espncdn.com/i/teamlogos/soccer/500/${awayComp.team?.id}.png`,
         slug,
+        homeTeamId: homeComp.team?.id,
+        awayTeamId: awayComp.team?.id,
       })
     }
     return matches
@@ -248,53 +329,69 @@ async function quickUpdate() {
   for (const m of uniqueMatches) {
     const profile = m.profile || DEFAULT_PROFILE
     const dateStr = m.date
+    const slug = m.slug
 
-    // Get forms — pass opponent name as salt so each match has UNIQUE form values.
-    // Without this, two matches with the same home team on different dates would share form.
-    // Now (home, away, date) → unique seed → unique lambdas → unique probas.
-    const homeForm = getTeamForm(m.home, dateStr, '_vs_' + m.away)
-    const awayForm = getTeamForm(m.away, dateStr, '_at_' + m.home)
-    const h2h = getH2H(m.home, m.away, dateStr)
+    // ─── Fetch REAL team stats from ESPN ───
+    const homeStats = m.homeTeamId ? await fetchTeamStats(slug, m.homeTeamId, m.home) : { available: false, dataQuality: 'LOW', matchCount: 0 }
+    const awayStats = m.awayTeamId ? await fetchTeamStats(slug, m.awayTeamId, m.away) : { available: false, dataQuality: 'LOW', matchCount: 0 }
 
-    // ─── Calculate unique lambda (xG adjusted + per-match uniqueness) ───
-    const homeSeasonXG = profile.avgGoals * 0.55
-    const awaySeasonXG = profile.avgGoals * 0.45
-    const homeRecentXG = homeForm.avgScored + homeForm.fineAdj
-    const awayRecentXG = awayForm.avgScored + awayForm.fineAdj
-    const homeH2HXG = h2h.bttsCount > 0 ? 1.2 + h2h.uniqueAdj : 0.8 - h2h.uniqueAdj
-    const awayH2HXG = h2h.bttsCount > 0 ? 1.1 + h2h.uniqueAdj : 0.9 - h2h.uniqueAdj
+    // Determine data quality (worst of both teams)
+    const homeQuality = homeStats.available ? homeStats.dataQuality : 'LOW'
+    const awayQuality = awayStats.available ? awayStats.dataQuality : 'LOW'
+    const qualityRank = { HIGH: 3, MEDIUM: 2, LOW: 1 }
+    const dataQuality = qualityRank[homeQuality] <= qualityRank[awayQuality] ? homeQuality : awayQuality
+
+    // ─── Calculate lambda from REAL data ───
+    // If real data available: use real avg scored/conceded (with home/away split when possible)
+    // If not available: fall back to LEAGUE_PROFILES (context only, not team-specific)
+    let homeAttackXG, homeDefenseXG, awayAttackXG, awayDefenseXG
+
+    if (homeStats.available && homeStats.matchCount >= 4) {
+      // Real data: prefer home-specific stats for home team
+      homeAttackXG = homeStats.homeAvgScored !== null ? homeStats.homeAvgScored : homeStats.avgScored
+      homeDefenseXG = homeStats.homeAvgConceded !== null ? homeStats.homeAvgConceded : homeStats.avgConceded
+    } else {
+      // Fallback: league average (not team-specific — data quality LOW)
+      homeAttackXG = profile.avgGoals * 0.55
+      homeDefenseXG = profile.avgGoals * 0.45
+    }
+
+    if (awayStats.available && awayStats.matchCount >= 4) {
+      // Real data: prefer away-specific stats for away team
+      awayAttackXG = awayStats.awayAvgScored !== null ? awayStats.awayAvgScored : awayStats.avgScored
+      awayDefenseXG = awayStats.awayAvgConceded !== null ? awayStats.awayAvgConceded : awayStats.avgConceded
+    } else {
+      awayAttackXG = profile.avgGoals * 0.45
+      awayDefenseXG = profile.avgGoals * 0.55
+    }
+
+    // Lambda = average of (team attack, opponent defense)
     const homeBonus = 0.15
-
-    const lambdaHome = Math.max(0.50, Math.min(2.50,
-      (homeSeasonXG * 0.50) + (homeRecentXG * 0.30) + (homeH2HXG * 0.15) + (homeBonus * 0.05)
+    const lambdaHome = Math.max(0.50, Math.min(3.00,
+      (homeAttackXG + awayDefenseXG) / 2 + homeBonus
     ))
-    const lambdaAway = Math.max(0.50, Math.min(2.50,
-      (awaySeasonXG * 0.50) + (awayRecentXG * 0.30) + (awayH2HXG * 0.15)
+    const lambdaAway = Math.max(0.50, Math.min(3.00,
+      (awayAttackXG + homeDefenseXG) / 2
     ))
 
-    // ─── Calculate REAL probas (not rounded) ───
+    // ─── Calculate REAL Poisson probas ───
     const bttsProbRaw = bttsRealProb(lambdaHome, lambdaAway)
     const over25ProbRaw = over25RealProb(lambdaHome, lambdaAway)
 
-    // Display values rounded to 1 decimal place, but keep raw precision for storage
-    // so that two close probabilities (59.04% vs 59.12%) still appear distinct.
     const xgHome = +lambdaHome.toFixed(2)
     const xgAway = +lambdaAway.toFixed(2)
     const xgTotal = +(lambdaHome + lambdaAway).toFixed(2)
 
-    // ═══ DISPLAY-FIRST: only reject matches that are mathematically unsuitable ═══
-    // We accept the match if EITHER BTTS or Over 2.5 has a decent probability.
-    // Even if BTTS is low, Over 2.5 might be high (e.g. one-sided 3-0 game).
+    // ═══ DISPLAY-FIRST: only reject if both BTTS and Over 2.5 are very low ═══
     const maxProb = Math.max(bttsProbRaw, over25ProbRaw)
-
-    // Soft filter: only reject if BOTH BTTS and Over 2.5 are very low (< 0.35)
     if (maxProb < 0.35) {
       rejected++
       rejectionReasons.push(`REJETE: ${m.home} vs ${m.away} - BTTS ${(bttsProbRaw*100).toFixed(1)}% + Over ${(over25ProbRaw*100).toFixed(1)}% tous deux < 35%`)
       continue
     }
 
-    // ═══ RELIABILITY SCORE ═══
+    // ═══ RELIABILITY SCORE — basé sur données réelles, pas de randomisation ═══
+    // xg score: higher xG total → higher score
     let xgScore = 0
     if (xgTotal >= 3.2) xgScore = 95
     else if (xgTotal >= 2.8) xgScore = 85
@@ -302,25 +399,23 @@ async function quickUpdate() {
     else if (xgTotal >= 2.0) xgScore = 60
     else xgScore = 45
 
-    const formBTTS = Math.min(100, (homeForm.scoredIn + awayForm.scoredIn) / 10 * 100)
-    let formScore = 0
-    if (formBTTS >= 100) formScore = 100
-    else if (formBTTS >= 80) formScore = 80
-    else if (formBTTS >= 60) formScore = 60
-    else formScore = 45
+    // data quality score: based on real data availability
+    let qualityScore = 0
+    if (dataQuality === 'HIGH') qualityScore = 100
+    else if (dataQuality === 'MEDIUM') qualityScore = 70
+    else qualityScore = 40
 
-    let h2hScore = 0
-    if (h2h.bttsCount === 3) h2hScore = 100
-    else if (h2h.bttsCount === 2) h2hScore = 80
-    else if (h2h.bttsCount === 1) h2hScore = 50
-    else h2hScore = 30
+    // BTTS probability score
+    const bttsScore = Math.min(100, bttsProbRaw * 100 * 1.25)
 
-    // reliability = weighted sum (using btts proba as the main driver)
-    const bttsScore = Math.min(100, bttsProbRaw * 100 * 1.25)  // up to 100% at 80% proba
+    // No H2H score — h2h_available is false by default (no synthetic H2H)
+    const h2hScore = 50 // neutral — no H2H data available
+
+    // Reliability = weighted by data quality
     const reliability = +(
-      (bttsScore * 0.40) +
-      (xgScore * 0.30) +
-      (formScore * 0.20) +
+      (bttsScore * 0.35) +
+      (xgScore * 0.25) +
+      (qualityScore * 0.30) +
       (h2hScore * 0.10)
     ).toFixed(2)
 
@@ -328,7 +423,7 @@ async function quickUpdate() {
     const estimatedCoteBTTS = +(1 / Math.max(0.20, bttsProbRaw)).toFixed(2)
     const estimatedCoteOver = +(1 / Math.max(0.20, over25ProbRaw)).toFixed(2)
 
-    const analysis = genAnalysis(m.home, m.away, xgHome, xgAway, bttsProbRaw, over25ProbRaw, homeForm, awayForm, h2h, reliability)
+    const analysis = `${m.home} (${homeStats.matchCount} matchs réels, xG ${xgHome.toFixed(2)}) vs ${m.away} (${awayStats.matchCount} matchs réels, xG ${xgAway.toFixed(2)}). xG cumulé ${xgTotal}, BTTS ${(bttsProbRaw*100).toFixed(1)}%, Over 2.5 ${(over25ProbRaw*100).toFixed(1)}%. Fiabilité ${reliability}%. Qualité données: ${dataQuality}.`
     const matchId = genMatchId(m.home, m.away, m.date)
 
     // Build TWO predictions: BTTS + Over 2.5 (so component has both)
@@ -366,15 +461,17 @@ async function quickUpdate() {
       confidence: bttsPrediction.confidence,
       time: m.time || '',
       matchSemantic: matchId,
-      source: 'poisson-v91-display-first',
+      source: 'poisson-v92-real-data',
       homeLogo: m.homeLogo,
       awayLogo: m.awayLogo,
       tier: assignTier(reliability),
       reliabilityScore: reliability,
+      dataQuality: dataQuality,
+      h2hAvailable: false,
       xgHome: xgHome,
       xgAway: xgAway,
       xgTotal: xgTotal,
-      formBTTS: formBTTS,
+      formBTTS: homeStats.available ? Math.round((homeStats.avgScored + awayStats.avgScored) / 10 * 100) : 0,
       analysis: analysis,
       // ─── DATA FIELDS the component needs ───
       // PromoVip reads these via p.analysis?.X (we mirror them here too)

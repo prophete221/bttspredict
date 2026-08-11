@@ -100,8 +100,8 @@ Pour CHAQUE match, génère un objet JSON STRICT respectant cette structure exac
     "id": 0,
     "ai_exact_score": "2-1",
     "exact_score_prob": "18%",
-    "btts_prob": "74%",
-    "over25_prob": "68%",
+    "ai_btts_view": "74%",
+    "ai_over25_view": "68%",
     "ai_key_fact": "Statistique clé percutante (15 mots max, ex: 3/3 H2H avec BTTS et xG cumulé de 3.02)",
     "ai_analysis": "Analyse détaillée et complète de 3 à 4 phrases sur la dynamique offensive, la forme récente, les xG et les faiblesses défensives."
   }},
@@ -112,10 +112,17 @@ Règles :
 - Écris en français.
 - Le score exact (ai_exact_score) doit être réaliste, basé sur les xG (ex: "2-1", "1-1", "3-0").
 - exact_score_prob: probabilité en % que ce score exact se réalise (généralement 8-20%).
-- btts_prob: probabilité BTTS en % (ex: "74%").
-- over25_prob: probabilité Over 2.5 en % (ex: "68%").
+- ai_btts_view: TA vue contextuelle de la probabilité BTTS en % (ex: "74%"). Ceci est une OPINION d'analyse, PAS un remplacement du calcul mathématique Poisson.
+- ai_over25_view: TA vue contextuelle de la probabilité Over 2.5 en % (ex: "68%"). Opinion d'analyse seulement.
 - Sois factuel, aucune garantie de gain.
 - N'utilise jamais "sure bet", "gain garanti" ou "100% sûr".
+
+ANTI-HALLUCINATION OBLIGATOIRE :
+- Utilise exclusivement les données fournies dans la liste ci-dessus.
+- Tu NE DOIS PAS inventer de statistiques, de H2H, de blessures, de classement, de résultat ou de xG.
+- Si une information est absente des données fournies, indique "donnée indisponible".
+- Ne prétends jamais avoir consulté une source qui ne t'a pas été fournie.
+- Ne transforme jamais une donnée manquante en estimation présentée comme réelle.
 - L'"id" doit correspondre exactement à l'index du match dans la liste ci-dessus."""
 
     return prompt
@@ -231,10 +238,19 @@ def main():
             idx = item.get("id")
             ai_exact_score = item.get("ai_exact_score", "").strip()
             exact_score_prob = item.get("exact_score_prob", "").strip()
-            btts_prob = item.get("btts_prob", "").strip()
-            over25_prob = item.get("over25_prob", "").strip()
+            ai_btts_view = item.get("ai_btts_view", "").strip()
+            ai_over25_view = item.get("ai_over25_view", "").strip()
             ai_key_fact = item.get("ai_key_fact", "").strip()
             ai_analysis = item.get("ai_analysis", "").strip()
+
+            # VALIDATION: vérifier que les probabilités sont valides
+            def validate_prob(val):
+                if not val: return False
+                try:
+                    num = float(val.replace('%', ''))
+                    return 0 <= num <= 100 and not (val == 'nan' or val == 'inf')
+                except:
+                    return False
 
             if idx is None:
                 continue
@@ -244,18 +260,21 @@ def main():
                 match = all_matches[idx]
                 if ai_exact_score:
                     match["ai_exact_score"] = ai_exact_score
-                if exact_score_prob:
+                if validate_prob(exact_score_prob):
                     match["exact_score_prob"] = exact_score_prob
-                if btts_prob:
-                    match["ai_btts_prob"] = btts_prob
-                if over25_prob:
-                    match["ai_over25_prob"] = over25_prob
+                if validate_prob(ai_btts_view):
+                    match["ai_btts_view"] = ai_btts_view
+                # Keep old field for backward compat (UI reads ai_btts_prob)
+                match["ai_btts_prob"] = ai_btts_view if validate_prob(ai_btts_view) else ""
+                if validate_prob(ai_over25_view):
+                    match["ai_over25_view"] = ai_over25_view
+                match["ai_over25_prob"] = ai_over25_view if validate_prob(ai_over25_view) else ""
                 if ai_key_fact:
                     match["ai_key_fact"] = ai_key_fact
                 if ai_analysis:
                     match["ai_analysis"] = ai_analysis
                 match_name = f"{match.get('home', '?')} vs {match.get('away', '?')}"
-                print(f"  [{idx+1}] ✅ {match_name}: score={ai_exact_score} ({exact_score_prob}), BTTS={btts_prob}, O2.5={over25_prob}")
+                print(f"  [{idx+1}] ✅ {match_name}: score={ai_exact_score} ({exact_score_prob}), BTTS_view={ai_btts_view}, O2.5_view={ai_over25_view}")
                 enriched_count += 1
 
         print(f"[enrich] Enriched {enriched_count}/{len(all_matches)} matches")
