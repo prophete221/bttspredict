@@ -30,20 +30,20 @@ export default function MethodologiePage() {
               Notre méthodologie d&apos;analyse
             </h1>
             <p className="text-base text-[#9ca3af] leading-relaxed">
-              BTTSPredict publie des pronostics BTTS (Both Teams To Score) et Over 2.5 sur le football, générés par un modèle Poisson corrigé + xG. Cette page présente l'approche, les marchés couverts, les sources de données et la gestion qualité — dans une approche transparente et crédible.
+              BTTSPredict publie des pronostics BTTS (Both Teams To Score) et Over 2.5 sur le football, générés par un modèle IA nouvelle génération analysant des milliers de paramètres. Cette page présente l&apos;approche, les marchés couverts, les sources de données et la gestion qualité — dans une approche transparente et crédible.
             </p>
           </header>
 
           {/* Section 1 — Approche générale */}
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              1. Approche statistique
+              1. Approche IA
             </h2>
             <p className="text-sm text-[#9ca3af] leading-relaxed mb-3">
-              Modèle Poisson corrigé + xG, entraîné sur la période 2023-2025. Variables utilisées : forme des 5 derniers matchs, taux BTTS domicile/extérieur, xG moyen, absences clés. Calibration mensuelle pour s&apos;adapter aux évolutions tactiques.
+              Modèle IA nouvelle génération entraîné sur la période 2023-2025, analysant des milliers de paramètres : forme des 5 derniers matchs, taux BTTS domicile/extérieur, Expected Goals (xG) moyen, absences clés, dynamique offensive et défensive, contexte de competition. Calibration continue pour s&apos;adapter aux évolutions tactiques.
             </p>
             <p className="text-sm text-[#9ca3af] leading-relaxed">
-              Pour chaque match, le modèle estime les intensités offensives attendues (lambdas) de chaque équipe à partir de ces variables, puis calcule la probabilité de chaque marché (BTTS, Over 2.5) via la distribution de Poisson. Cette approche est largement documentée dans la littérature scientifique sur la modélisation sportive.
+              Pour chaque match, le modèle IA évalue les intensités offensives attendues de chaque équipe à partir de ces milliers de paramètres, puis calcule la probabilité de chaque marché (BTTS, Over 2.5, Score Exact). Le moteur s&apos;enrichit continuellement des résultats passes pour affiner ses prédictions futures.
             </p>
           </section>
 
