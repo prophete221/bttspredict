@@ -9,6 +9,8 @@ RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
 # ─── Routing HTML statique ───
 DirectorySlash Off
+DirectoryIndex index.html
+Options -Indexes
 RewriteRule \.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}.html -f
@@ -53,6 +55,8 @@ RewriteRule ^match/.+/?$ /404.html [L,R=404]
 
 # ─── Fallback générique (toutes les URLs non matchées) ───
 # CORRECTION 1+2: Retourner 404 au lieu de servir index.html (soft 404 fix)
+# Exception: la racine / doit toujours servir index.html
+RewriteCond %{REQUEST_URI} !^/$
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /404.html [L,R=404]
