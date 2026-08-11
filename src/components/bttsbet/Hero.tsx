@@ -22,8 +22,8 @@ export default function Hero() {
       className="relative overflow-hidden"
       style={{
         backgroundColor: '#0F172A',
-        paddingTop: '48px',
-        paddingBottom: '32px',
+        paddingTop: '24px',
+        paddingBottom: '16px',
       }}
     >
       {/* ═══ Background blobs (assombris) + grille subtile ═══ */}

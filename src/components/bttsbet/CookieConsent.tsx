@@ -52,8 +52,8 @@ export default function CookieConsent() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="fixed left-0 right-0 z-[60] p-4 sm:p-6"
-          style={{ bottom: 'calc(64px + env(safe-area-inset-bottom, 0px))', backgroundColor: 'rgba(7, 17, 26, 0.98)', backdropFilter: 'blur(16px)', borderTop: '1px solid rgba(199, 244, 100, 0.15)' }}
+          className="fixed left-0 right-0 z-[60] p-3 sm:p-6"
+          style={{ bottom: 'calc(64px + env(safe-area-inset-bottom, 0px))', backgroundColor: 'rgba(15, 23, 42, 0.98)', backdropFilter: 'blur(16px)', borderTop: '1px solid #334155', maxHeight: '15vh', overflowY: 'auto' }}
           role="dialog"
           aria-label="Consentement aux cookies"
         >

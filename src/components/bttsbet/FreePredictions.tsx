@@ -343,20 +343,18 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {/* BTTS column */}
             <div className="space-y-2 text-center">
-              <div className="text-[10px] uppercase tracking-widest font-bold text-success-light">BTTS</div>
+              <div className="text-[10px] uppercase tracking-widest font-bold text-[#10B981]">BTTS</div>
               <div className="text-2xl sm:text-3xl font-black" style={{ color: bttsPred.prediction === 'Oui' ? '#10B981' : '#94A3B8' }}>
                 {bttsPred.prediction}
               </div>
-              <div className="text-[9px] text-cendre uppercase tracking-widest">Both Score</div>
             </div>
 
             {/* Over 2.5 column */}
-            <div className="space-y-2 text-center border-l border-edge/40 pl-3 sm:pl-4">
-              <div className="text-[10px] uppercase tracking-widest font-bold text-gold-light">Over 2.5</div>
-              <div className="text-2xl sm:text-3xl font-black" style={{ color: over25Pred.prediction === 'Oui' ? '#f59e0b' : '#94A3B8' }}>
+            <div className="space-y-2 text-center border-l border-[#334155] pl-3 sm:pl-4">
+              <div className="text-[10px] uppercase tracking-widest font-bold text-[#F59E0B]">Over 2.5</div>
+              <div className="text-2xl sm:text-3xl font-black" style={{ color: over25Pred.prediction === 'Oui' ? '#F59E0B' : '#94A3B8' }}>
                 {over25Pred.prediction}
               </div>
-              <div className="text-[9px] text-cendre uppercase tracking-widest">+2.5 buts</div>
             </div>
           </div>
         </div>
@@ -580,15 +578,15 @@ export default function FreePredictions() {
       {/* H2 for SEO (hidden visually) */}
       <h2 className="sr-only">Pronostics IA du jour — BTTS et Over 2.5 gratuits</h2>
       <div className="max-w-[440px] mx-auto">
-        {/* Ultra-compact filters — single horizontal scroll bar */}
+        {/* Compact filter chips — rounded-full, horizontal scroll */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}
-          className="mb-2 flex items-center gap-2 overflow-x-auto no-scrollbar pb-1"
+          className="mb-3 flex items-center gap-2 overflow-x-auto no-scrollbar pb-1"
         >
-          {/* Date filter pills */}
-          <div className="flex items-center gap-1 flex-shrink-0">
+          {/* Date filter chips */}
+          <div className="flex items-center gap-1.5 flex-shrink-0">
             {([
               { id: 'all', label: 'Tous' },
               { id: 'today', label: "Auj." },
@@ -599,21 +597,22 @@ export default function FreePredictions() {
                 key={f.id}
                 onClick={() => setActiveDate(f.id)}
                 aria-pressed={activeDate === f.id}
-                className={`px-2 py-0.5 rounded text-[11px] font-semibold transition-all whitespace-nowrap ${
+                className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-all duration-200 whitespace-nowrap ${
                   activeDate === f.id
-                    ? 'bg-success/15 text-success border border-success/30'
-                    : 'bg-panel/40 text-cendre border border-edge hover:text-cendre'
+                    ? 'text-white border-none'
+                    : 'text-[#94A3B8] border border-[#334155]'
                 }`}
+                style={activeDate === f.id ? { backgroundColor: '#10B981' } : { backgroundColor: '#1E293B' }}
               >
                 {f.label}
               </button>
             ))}
           </div>
 
-          <span className="w-px h-4 bg-edge flex-shrink-0" />
+          <span className="w-px h-4 bg-[#334155] flex-shrink-0" />
 
-          {/* Market filter pills */}
-          <div className="flex items-center gap-1 flex-shrink-0">
+          {/* Market filter chips */}
+          <div className="flex items-center gap-1.5 flex-shrink-0">
             {([
               { id: 'all', label: 'Tous' },
               { id: 'BTTS', label: 'BTTS' },
@@ -623,31 +622,33 @@ export default function FreePredictions() {
                 key={f.id}
                 onClick={() => setActiveType(f.id)}
                 aria-pressed={activeType === f.id}
-                className={`px-2 py-0.5 rounded text-[11px] font-semibold transition-all whitespace-nowrap ${
+                className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-all duration-200 whitespace-nowrap ${
                   activeType === f.id
-                    ? 'bg-success/15 text-success border border-success/30'
-                    : 'bg-panel/40 text-cendre border border-edge hover:text-cendre'
+                    ? 'text-white border-none'
+                    : 'text-[#94A3B8] border border-[#334155]'
                 }`}
+                style={activeType === f.id ? { backgroundColor: '#10B981' } : { backgroundColor: '#1E293B' }}
               >
                 {f.label}
               </button>
             ))}
           </div>
 
-          <span className="w-px h-4 bg-edge flex-shrink-0" />
+          <span className="w-px h-4 bg-[#334155] flex-shrink-0" />
 
-          {/* League filter pills */}
-          <div className="flex items-center gap-1 flex-shrink-0">
+          {/* League filter chips */}
+          <div className="flex items-center gap-1.5 flex-shrink-0">
             {leagues.map(league => (
               <button
                 key={league}
                 onClick={() => setActiveLeague(league)}
                 aria-pressed={activeLeague === league}
-                className={`px-2 py-0.5 rounded text-[11px] font-semibold transition-all whitespace-nowrap ${
+                className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-all duration-200 whitespace-nowrap ${
                   activeLeague === league
-                    ? 'bg-success/15 text-success border border-success/30'
-                    : 'bg-panel/40 text-cendre border border-edge hover:text-cendre'
+                    ? 'text-white border-none'
+                    : 'text-[#94A3B8] border border-[#334155]'
                 }`}
+                style={activeLeague === league ? { backgroundColor: '#10B981' } : { backgroundColor: '#1E293B' }}
               >
                 {league === 'all' ? 'Toutes' : league}
               </button>
@@ -657,7 +658,7 @@ export default function FreePredictions() {
           {/* Live count badge if matches live */}
           {stats.live > 0 && (
             <>
-              <span className="w-px h-4 bg-edge flex-shrink-0" />
+              <span className="w-px h-4 bg-[#334155] flex-shrink-0" />
               <span className="live-text text-[10px] uppercase tracking-widest font-bold whitespace-nowrap flex-shrink-0">
                 {stats.live} LIVE
               </span>
