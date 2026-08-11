@@ -12,16 +12,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // ── Google AI Studio Dark palette ──
-        darkbg: '#131314',
-        darkcard: '#1e1f20',
-        darkhover: '#282a2c',
-        darkborder: '#2d2f31',
-        bttsGreen: '#22c55e',
-        aiBlue: '#06b6d4',
-        vipGold: '#f59e0b',
-        textMain: '#f0f4f9',
-        textMuted: '#9ca3af',
+        // ── Slate Design System palette ──
+        darkbg: '#0F172A',
+        darkcard: '#1E293B',
+        darkhover: '#334155',
+        darkborder: '#334155',
+        bttsGreen: '#10B981',
+        aiBlue: '#3B82F6',
+        vipGold: '#F59E0B',
+        textMain: '#F8FAFC',
+        textMuted: '#94A3B8',
         // ── CSS variable tokens (backward compat) ──
         bgMain: 'var(--bg-main)',
         bgSecondary: 'var(--bg-secondary)',

@@ -44,29 +44,29 @@ const faqJsonLd = {
 
 export default function BTTSPredictionsTodayPage() {
   return (
-    <div className="min-h-screen bg-[#131314] flex flex-col text-[#f0f4f9]">
+    <div className="min-h-screen bg-[#0F172A] flex flex-col text-[#F8FAFC]">
       <Navbar />
       <main id="main-content" className="flex-1">
         <section className="max-w-5xl mx-auto px-4 pt-12 pb-6 sm:pt-16">
-          <nav aria-label="Fil d'Ariane" className="text-xs text-[#9ca3af] mb-4">
-            <Link href="/" className="hover:text-[#22c55e]">Accueil</Link>
+          <nav aria-label="Fil d'Ariane" className="text-xs text-[#94A3B8] mb-4">
+            <Link href="/" className="hover:text-[#10B981]">Accueil</Link>
             <span className="mx-1">/</span>
-            <Link href="/pronostics" className="hover:text-[#22c55e]">Pronostics</Link>
+            <Link href="/pronostics" className="hover:text-[#10B981]">Pronostics</Link>
             <span className="mx-1">/</span>
-            <span className="text-[#9ca3af]">BTTS Today</span>
+            <span className="text-[#94A3B8]">BTTS Today</span>
           </nav>
 
           <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
-            style={{ backgroundColor: 'rgba(99, 214, 255, 0.12)', color: '#06b6d4', border: '1px solid rgba(99, 214, 255, 0.25)' }}>
+            style={{ backgroundColor: 'rgba(99, 214, 255, 0.12)', color: '#3B82F6', border: '1px solid rgba(99, 214, 255, 0.25)' }}>
             BTTS · Both Teams To Score
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Pronostic BTTS Aujourd&apos;hui Gratuit
           </h1>
-          <p className="text-base sm:text-lg text-[#9ca3af] leading-relaxed mb-2 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-[#94A3B8] leading-relaxed mb-2 max-w-3xl mx-auto">
             Pronostics BTTS du {new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })} par notre moteur IA. 100% gratuits, mis à jour 4x/jour.
           </p>
-          <p className="text-sm text-[#9ca3af] leading-relaxed max-w-3xl mx-auto">
+          <p className="text-sm text-[#94A3B8] leading-relaxed max-w-3xl mx-auto">
             Aucun gain garanti. Paris sportifs = risque de perte. 18+.
           </p>
         </section>
@@ -79,8 +79,8 @@ export default function BTTSPredictionsTodayPage() {
           <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Qu&apos;est-ce que le BTTS ?
           </h2>
-          <p className="text-sm text-[#9ca3af] leading-relaxed mb-3">
-            BTTS signifie <strong>Both Teams To Score</strong>. Les deux équipes doivent marquer au moins un but chacune pendant le match, peu importe le score final. Pour en savoir plus, consultez notre <Link href="/methodologie" className="text-[#22c55e] underline">méthodologie</Link>.
+          <p className="text-sm text-[#94A3B8] leading-relaxed mb-3">
+            BTTS signifie <strong>Both Teams To Score</strong>. Les deux équipes doivent marquer au moins un but chacune pendant le match, peu importe le score final. Pour en savoir plus, consultez notre <Link href="/methodologie" className="text-[#10B981] underline">méthodologie</Link>.
           </p>
         </section>
 
@@ -89,25 +89,25 @@ export default function BTTSPredictionsTodayPage() {
             Quick Links
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <Link href="/btts-and-over-2-5-predictions-today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22c55e]"
-              style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
-              <div className="text-sm font-bold text-[#f0f4f9]">BTTS + Over 2.5 Combined →</div>
-              <div className="text-xs text-[#9ca3af] mt-1">Both predictions in one</div>
+            <Link href="/btts-and-over-2-5-predictions-today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#10B981]"
+              style={{ backgroundColor: '#1E293B', border: '1px solid #334155' }}>
+              <div className="text-sm font-bold text-[#F8FAFC]">BTTS + Over 2.5 Combined →</div>
+              <div className="text-xs text-[#94A3B8] mt-1">Both predictions in one</div>
             </Link>
-            <Link href="/over-2-5/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22c55e]"
-              style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
-              <div className="text-sm font-bold text-[#f0f4f9]">Over 2.5 Predictions →</div>
-              <div className="text-xs text-[#9ca3af] mt-1">Total goals ≥ 3</div>
+            <Link href="/over-2-5/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#10B981]"
+              style={{ backgroundColor: '#1E293B', border: '1px solid #334155' }}>
+              <div className="text-sm font-bold text-[#F8FAFC]">Over 2.5 Predictions →</div>
+              <div className="text-xs text-[#94A3B8] mt-1">Total goals ≥ 3</div>
             </Link>
-            <Link href="/ai-correct-score-predictions" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22c55e]"
-              style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
-              <div className="text-sm font-bold text-[#f0f4f9]">AI Correct Score →</div>
-              <div className="text-xs text-[#9ca3af] mt-1">Exact score probabilities</div>
+            <Link href="/ai-correct-score-predictions" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#10B981]"
+              style={{ backgroundColor: '#1E293B', border: '1px solid #334155' }}>
+              <div className="text-sm font-bold text-[#F8FAFC]">AI Correct Score →</div>
+              <div className="text-xs text-[#94A3B8] mt-1">Exact score probabilities</div>
             </Link>
-            <Link href="/btts/statistics" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22c55e]"
-              style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
-              <div className="text-sm font-bold text-[#f0f4f9]">BTTS Statistics →</div>
-              <div className="text-xs text-[#9ca3af] mt-1">League stats</div>
+            <Link href="/btts/statistics" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#10B981]"
+              style={{ backgroundColor: '#1E293B', border: '1px solid #334155' }}>
+              <div className="text-sm font-bold text-[#F8FAFC]">BTTS Statistics →</div>
+              <div className="text-xs text-[#94A3B8] mt-1">League stats</div>
             </Link>
           </div>
         </section>

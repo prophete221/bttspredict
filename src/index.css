@@ -1,78 +1,78 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════
-   BTTSPredict — Google AI Studio Dark Design System
-   Palette : sombre, néon vert, cyan tech, or amber
+   BTTSPredict — Slate Design System (uniformisation chromatique)
+   Palette : Slate 900/800/700 + Emerald + Royal Blue + Amber
    ═══════════════════════════════════════════════════════════════ */
 :root {
-  /* Fonds — palette sombre Google AI Studio */
-  --bg-main: #131314;
-  --bg-secondary: #1e1f20;
-  --bg-tertiary: #282a2c;
-  --card: #1e1f20;
-  --card-hover: #282a2c;
-  --border: #2d2f31;
-  --border-strong: #2d2f31;
+  /* Fonds — Slate palette */
+  --bg-main: #0F172A;          /* Slate 900 — fond principal */
+  --bg-secondary: #1E293B;     /* Slate 800 — surfaces/cartes */
+  --bg-tertiary: #334155;      /* Slate 700 — hover/bordures */
+  --card: #1E293B;             /* Slate 800 */
+  --card-hover: #334155;       /* Slate 700 */
+  --border: #334155;           /* Slate 700 */
+  --border-strong: #334155;
 
   /* Texte */
-  --text-primary: #f0f4f9;
-  --text-secondary: #9ca3af;
-  --text-tertiary: #9ca3af;
+  --text-primary: #F8FAFC;    /* Slate 50 */
+  --text-secondary: #94A3B8;  /* Slate 400 */
+  --text-tertiary: #94A3B8;
 
   /* Accents sémantiques */
-  --brand-indigo: #22c55e;     /* BTTS Oui / Over 2.5 / Succès — Vert Néon */
-  --brand-violet: #22c55e;
-  --brand-cyan: #06b6d4;       /* BTTSPredict AI — Cyan Tech */
-  --cta: #22c55e;              /* CTA principal — Vert Néon */
-  --cta-text: #131314;
-  --trust: #06b6d4;            /* Cyan Tech */
-  --vip: #f59e0b;              /* Or Amber — Score Exact & VIP */
-  --success: #22c55e;          /* Vert Néon */
-  --error: #FF7185;            /* Rose Alerte */
+  --brand-indigo: #10B981;    /* Emerald 500 — succès/action */
+  --brand-violet: #10B981;
+  --brand-cyan: #3B82F6;      /* Blue 500 — données/info */
+  --cta: #10B981;              /* Emerald 500 */
+  --cta-text: #0F172A;
+  --trust: #3B82F6;           /* Blue 500 */
+  --vip: #F59E0B;             /* Amber 500 — avertissement/VIP */
+  --success: #10B981;          /* Emerald 500 */
+  --error: #EF4444;            /* Red 500 */
 
   /* Hover states */
-  --cta-hover: #16a34a;
-  --cta-active: #15803d;
-  --trust-hover: #06b6d4;
-  --vip-hover: #f59e0b;
-  --success-hover: #16a34a;
-  --error-hover: #FF7185;
-  --border-hover: #22c55e;
-  --glass: rgba(240, 244, 249, 0.08);
-  --glass-border: rgba(240, 244, 249, 0.12);
+  --cta-hover: #059669;
+  --cta-active: #047857;
+  --trust-hover: #3B82F6;
+  --vip-hover: #F59E0B;
+  --success-hover: #059669;
+  --error-hover: #EF4444;
+  --border-hover: #10B981;
+  --glass: rgba(248, 250, 252, 0.08);
+  --glass-border: rgba(248, 250, 252, 0.12);
 }
 
 @theme {
-  /* ── Google AI Studio Dark — tokens canoniques ── */
-  --color-bg-main: #131314;
-  --color-bg-secondary: #1e1f20;
-  --color-bg-tertiary: #282a2c;
-  --color-card: #1e1f20;
-  --color-card-hover: #282a2c;
-  --color-border: #2d2f31;
-  --color-border-strong: #2d2f31;
-  --color-text-primary: #f0f4f9;
-  --color-text-secondary: #9ca3af;
-  --color-text-tertiary: #9ca3af;
-  --color-brand-indigo: #22c55e;
-  --color-brand-violet: #22c55e;
-  --color-brand-cyan: #06b6d4;
-  --color-cta: #22c55e;
-  --color-cta-text: #131314;
-  --color-trust: #06b6d4;
-  --color-stats: #22c55e;
-  --color-vip: #f59e0b;
-  --color-success: #22c55e;
-  --color-error: #FF7185;
+  /* ── Slate Design System — tokens canoniques ── */
+  --color-bg-main: #0F172A;
+  --color-bg-secondary: #1E293B;
+  --color-bg-tertiary: #334155;
+  --color-card: #1E293B;
+  --color-card-hover: #334155;
+  --color-border: #334155;
+  --color-border-strong: #334155;
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+  --color-text-tertiary: #94A3B8;
+  --color-brand-indigo: #10B981;
+  --color-brand-violet: #10B981;
+  --color-brand-cyan: #3B82F6;
+  --color-cta: #10B981;
+  --color-cta-text: #0F172A;
+  --color-trust: #3B82F6;
+  --color-stats: #10B981;
+  --color-vip: #F59E0B;
+  --color-success: #10B981;
+  --color-error: #EF4444;
 
   /* Hover states */
-  --color-cta-hover: #16a34a;
-  --color-cta-active: #15803d;
-  --color-trust-hover: #06b6d4;
-  --color-vip-hover: #f59e0b;
-  --color-success-hover: #16a34a;
-  --color-error-hover: #FF7185;
-  --color-border-hover: #22c55e;
+  --color-cta-hover: #059669;
+  --color-cta-active: #047857;
+  --color-trust-hover: #3B82F6;
+  --color-vip-hover: #F59E0B;
+  --color-success-hover: #059669;
+  --color-error-hover: #EF4444;
+  --color-border-hover: #10B981;
 
   /* Aliases mappés sur ECLIPSE v60 */
   --color-abyss: var(--color-bg-main);
@@ -378,13 +378,13 @@ h1, h2, h3, h4, h5, h6 {
 ::selection { background: rgba(168, 224, 99, 0.3); color: #fff; }
 
 /* ─── Blog Article Prose ─── */
-.prose-dark h2 { color: #22c55e; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+.prose-dark h2 { color: #10B981; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
 .prose-dark h3 { color: #5146F5; font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
 .prose-dark p { color: #5146F5; line-height: 1.8; margin-bottom: 1rem; }
 .prose-dark ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
 .prose-dark li { color: #5146F5; line-height: 1.8; margin-bottom: 0.5rem; }
 .prose-dark strong { color: #F7F8FF; }
-.prose-dark blockquote { border-left: 3px solid #22c55e; padding-left: 1rem; margin: 1.5rem 0; color: #9ca3af; font-style: italic; }
+.prose-dark blockquote { border-left: 3px solid #10B981; padding-left: 1rem; margin: 1.5rem 0; color: #94A3B8; font-style: italic; }
 
 /* ─── Stat Card Motion Animations ─── */
 @keyframes statFloat {
@@ -430,7 +430,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Premium Button Styles ─── */
 .btn-emerald {
-  background: linear-gradient(135deg, #22c55e, #22c55e);
+  background: linear-gradient(135deg, #10B981, #10B981);
   color: #0D1630;
   font-weight: 700;
   border-radius: 12px;
@@ -474,7 +474,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── Section Accent Borders ─── */
 .accent-line-emerald {
   height: 2px;
-  background: linear-gradient(90deg, transparent, #22c55e, transparent);
+  background: linear-gradient(90deg, transparent, #10B981, transparent);
 }
 .accent-line-gold {
   height: 2px;
@@ -509,7 +509,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Accessibility: Focus Visible ─── */
 *:focus-visible {
-  outline: 2px solid #22c55e;
+  outline: 2px solid #10B981;
   outline-offset: 2px;
   border-radius: 4px;
 }

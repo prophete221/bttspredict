@@ -24,9 +24,9 @@ const BRAND = {
 }
 
 const C = {
-  bg:'#131314', surface:'#1e1f20', border:'#2d2f31',
-  text:'#f0f4f9', textSec:'#9ca3af', textMute:'#9ca3af',
-  baobab:'#22c55e', data:'#06b6d4', success:'#22c55e', warning:'#f59e0b',
+  bg:'#0F172A', surface:'#1E293B', border:'#334155',
+  text:'#F8FAFC', textSec:'#94A3B8', textMute:'#94A3B8',
+  baobab:'#10B981', data:'#3B82F6', success:'#10B981', warning:'#f59e0b',
   gold:'#FFD700',
 }
 
@@ -482,7 +482,7 @@ function TeamLogoMini({ src, name, initial }: { src?: string; name: string; init
     return (
       <span
         className="w-7 h-7 flex items-center justify-center text-[11px] font-black rounded flex-shrink-0"
-        style={{ backgroundColor: '#2d2f31', color: '#22c55e' }}
+        style={{ backgroundColor: '#334155', color: '#10B981' }}
         aria-label={name}
         title={name}
       >

@@ -58,7 +58,7 @@ export default function GlobalReach() {
               className="text-center p-4 rounded-xl"
               style={{ background: 'rgba(7, 17, 26, 0.6)', border: '1px solid rgba(199, 244, 100, 0.08)' }}
             >
-              <div className="text-2xl font-bold" style={{ color: '#22c55e' }}>{stat.value}</div>
+              <div className="text-2xl font-bold" style={{ color: '#10B981' }}>{stat.value}</div>
               <div className="text-[10px] text-cendre mt-1 uppercase tracking-wider">{stat.label}</div>
             </div>
           ))}
@@ -70,7 +70,7 @@ export default function GlobalReach() {
           className="mb-8"
         >
           <h3 className="text-xl font-bold text-papier mb-4 flex items-center gap-2">
-            <span style={{ color: '#22c55e' }}>🌐</span>
+            <span style={{ color: '#10B981' }}>🌐</span>
             Disponible dans le monde entier
           </h3>
           <p className="text-cendre text-xs mb-4 leading-relaxed">
@@ -81,7 +81,7 @@ export default function GlobalReach() {
               <div
                 key={i}
                 className="p-4 rounded-lg"
-                style={{ background: 'rgba(7, 17, 26, 0.6)', border: '1px solid #1e1f20' }}
+                style={{ background: 'rgba(7, 17, 26, 0.6)', border: '1px solid #1E293B' }}
               >
                 <div className="text-sm font-bold text-papier mb-1">{region.name}</div>
                 <div className="text-[11px] text-cendre leading-relaxed">{region.countries}</div>
@@ -95,7 +95,7 @@ export default function GlobalReach() {
           viewport={{ once: true }}
         >
           <h3 className="text-xl font-bold text-papier mb-4 flex items-center gap-2">
-            <span style={{ color: '#22c55e' }}>🌍</span>
+            <span style={{ color: '#10B981' }}>🌍</span>
             Présence panafricaine
           </h3>
           <p className="text-cendre text-xs mb-4 leading-relaxed">
@@ -106,7 +106,7 @@ export default function GlobalReach() {
               <div
                 key={i}
                 className="flex items-center justify-between p-3 rounded-lg"
-                style={{ background: 'rgba(7, 17, 26, 0.6)', border: '1px solid #1e1f20' }}
+                style={{ background: 'rgba(7, 17, 26, 0.6)', border: '1px solid #1E293B' }}
               >
                 <div className="flex items-center gap-2">
                   <span className="text-lg">{item.flag}</span>
@@ -115,7 +115,7 @@ export default function GlobalReach() {
                     <div className="text-[10px] text-cendre">{item.city}</div>
                   </div>
                 </div>
-                <div className="text-xs font-bold" style={{ color: '#22c55e' }}>{item.users}</div>
+                <div className="text-xs font-bold" style={{ color: '#10B981' }}>{item.users}</div>
               </div>
             ))}
           </div>

@@ -83,27 +83,27 @@ export default function AICorrectScorePage() {
   const filtered = activeLeague === 'all' ? predictions : predictions.filter(p => p.league === activeLeague)
 
   return (
-    <div className="min-h-screen bg-[#131314] flex flex-col text-[#f0f4f9]">
+    <div className="min-h-screen bg-[#0F172A] flex flex-col text-[#F8FAFC]">
       <Navbar />
       <main id="main-content" className="flex-1">
-        <nav aria-label="Fil d'Ariane" className="text-xs text-[#9ca3af] mb-4 max-w-5xl mx-auto px-4 pt-8">
-          <Link href="/" className="hover:text-[#22c55e]">Accueil</Link>
+        <nav aria-label="Fil d'Ariane" className="text-xs text-[#94A3B8] mb-4 max-w-5xl mx-auto px-4 pt-8">
+          <Link href="/" className="hover:text-[#10B981]">Accueil</Link>
           <span className="mx-1">/</span>
-          <span className="text-[#9ca3af]">AI Correct Score</span>
+          <span className="text-[#94A3B8]">AI Correct Score</span>
         </nav>
 
         <section className="max-w-5xl mx-auto px-4 pt-4 pb-6">
           <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
-            style={{ backgroundColor: 'rgba(99, 214, 255, 0.12)', color: '#06b6d4', border: '1px solid rgba(99, 214, 255, 0.25)' }}>
+            style={{ backgroundColor: 'rgba(99, 214, 255, 0.12)', color: '#3B82F6', border: '1px solid rgba(99, 214, 255, 0.25)' }}>
             AI · Correct Score · Poisson Model
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
             AI Correct Score Predictions
           </h1>
-          <p className="text-base sm:text-lg text-[#9ca3af] leading-relaxed mb-3 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-[#94A3B8] leading-relaxed mb-3 max-w-3xl mx-auto">
             Most likely exact scores computed by the Poisson model from each team&apos;s expected goals (xG). The top 5 scorelines are shown per match, ranked by probability.
           </p>
-          <p className="text-sm text-[#9ca3af] leading-relaxed max-w-3xl mx-auto">
+          <p className="text-sm text-[#94A3B8] leading-relaxed max-w-3xl mx-auto">
             Aucun gain n&apos;est garanti. These are statistical probabilities, not certainties. 18+.
           </p>
         </section>
@@ -118,8 +118,8 @@ export default function AICorrectScorePage() {
                 aria-pressed={activeLeague === league}
                 className={`px-2.5 py-1 rounded text-[11px] font-semibold transition-all whitespace-nowrap ${
                   activeLeague === league
-                    ? 'bg-[#06b6d4]/15 text-[#06b6d4] border border-[#06b6d4]/30'
-                    : 'bg-[#1e1f20] text-[#9ca3af] border border-[#2d2f31] hover:text-[#9ca3af]'
+                    ? 'bg-[#3B82F6]/15 text-[#3B82F6] border border-[#3B82F6]/30'
+                    : 'bg-[#1E293B] text-[#94A3B8] border border-[#334155] hover:text-[#94A3B8]'
                 }`}
               >
                 {league === 'all' ? 'All Leagues' : league}
@@ -133,50 +133,50 @@ export default function AICorrectScorePage() {
           {loading ? (
             <div className="grid sm:grid-cols-2 gap-3">
               {[1, 2, 3, 4].map(i => (
-                <div key={i} className="rounded-xl h-48 animate-pulse" style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }} />
+                <div key={i} className="rounded-xl h-48 animate-pulse" style={{ backgroundColor: '#1E293B', border: '1px solid #334155' }} />
               ))}
             </div>
           ) : filtered.length === 0 ? (
-            <div className="rounded-xl p-10 text-center" style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
-              <p className="text-sm text-[#9ca3af]">No matches available today.</p>
+            <div className="rounded-xl p-10 text-center" style={{ backgroundColor: '#1E293B', border: '1px solid #334155' }}>
+              <p className="text-sm text-[#94A3B8]">No matches available today.</p>
             </div>
           ) : (
             <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
               {filtered.map((m, i) => (
-                <div key={`${m.home}-${m.away}-${i}`} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
+                <div key={`${m.home}-${m.away}-${i}`} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#1E293B', border: '1px solid #334155' }}>
                   {/* Header */}
-                  <div className="flex items-center justify-between px-3 py-2" style={{ backgroundColor: '#131314', borderBottom: '1px solid #2d2f31' }}>
-                    <span className="text-[10px] uppercase tracking-widest font-semibold text-[#9ca3af] truncate">{m.league}</span>
-                    <span className="text-[10px] font-mono text-[#9ca3af]">{m.time}</span>
+                  <div className="flex items-center justify-between px-3 py-2" style={{ backgroundColor: '#0F172A', borderBottom: '1px solid #334155' }}>
+                    <span className="text-[10px] uppercase tracking-widest font-semibold text-[#94A3B8] truncate">{m.league}</span>
+                    <span className="text-[10px] font-mono text-[#94A3B8]">{m.time}</span>
                   </div>
                   {/* Teams */}
                   <div className="px-3 py-3">
                     <div className="text-center mb-3">
-                      <span className="text-sm font-bold text-[#f0f4f9]">{m.home}</span>
-                      <span className="text-[#06b6d4] mx-2 font-mono text-xs">vs</span>
-                      <span className="text-sm font-bold text-[#f0f4f9]">{m.away}</span>
+                      <span className="text-sm font-bold text-[#F8FAFC]">{m.home}</span>
+                      <span className="text-[#3B82F6] mx-2 font-mono text-xs">vs</span>
+                      <span className="text-sm font-bold text-[#F8FAFC]">{m.away}</span>
                     </div>
                     {/* Top 5 scores */}
                     <div className="space-y-1.5">
                       {m.topScores.map((s, idx) => (
                         <div key={idx} className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
-                            <span className="text-[9px] font-mono text-[#9ca3af] w-4">#{idx + 1}</span>
-                            <span className="text-sm font-bold font-mono" style={{ color: idx === 0 ? '#22c55e' : '#f0f4f9' }}>{s.score}</span>
+                            <span className="text-[9px] font-mono text-[#94A3B8] w-4">#{idx + 1}</span>
+                            <span className="text-sm font-bold font-mono" style={{ color: idx === 0 ? '#10B981' : '#F8FAFC' }}>{s.score}</span>
                           </div>
                           <div className="flex items-center gap-2 flex-1 ml-3">
-                            <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ backgroundColor: '#131314' }}>
-                              <div className="h-full rounded-full" style={{ width: `${s.prob * 100}%`, backgroundColor: idx === 0 ? '#22c55e' : '#06b6d4' }} />
+                            <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ backgroundColor: '#0F172A' }}>
+                              <div className="h-full rounded-full" style={{ width: `${s.prob * 100}%`, backgroundColor: idx === 0 ? '#10B981' : '#3B82F6' }} />
                             </div>
-                            <span className="text-[10px] font-mono font-bold text-[#9ca3af] tabular-nums">{(s.prob * 100).toFixed(1)}%</span>
+                            <span className="text-[10px] font-mono font-bold text-[#94A3B8] tabular-nums">{(s.prob * 100).toFixed(1)}%</span>
                           </div>
                         </div>
                       ))}
                     </div>
                     {/* xG info */}
-                    <div className="mt-3 pt-2 border-t border-[#2d2f31] flex justify-between text-[9px] text-[#9ca3af]">
-                      <span>xG Home: <strong className="text-[#9ca3af] font-mono">{m.lambdaHome.toFixed(2)}</strong></span>
-                      <span>xG Away: <strong className="text-[#9ca3af] font-mono">{m.lambdaAway.toFixed(2)}</strong></span>
+                    <div className="mt-3 pt-2 border-t border-[#334155] flex justify-between text-[9px] text-[#94A3B8]">
+                      <span>xG Home: <strong className="text-[#94A3B8] font-mono">{m.lambdaHome.toFixed(2)}</strong></span>
+                      <span>xG Away: <strong className="text-[#94A3B8] font-mono">{m.lambdaAway.toFixed(2)}</strong></span>
                     </div>
                   </div>
                 </div>
@@ -187,17 +187,17 @@ export default function AICorrectScorePage() {
 
         {/* Explanation */}
         <section className="max-w-3xl mx-auto px-4 pb-8">
-          <div className="rounded-xl p-5" style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
+          <div className="rounded-xl p-5" style={{ backgroundColor: '#1E293B', border: '1px solid #334155' }}>
             <h2 className="text-lg font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
               How AI Correct Score works
             </h2>
-            <p className="text-sm text-[#9ca3af] leading-relaxed mb-3">
+            <p className="text-sm text-[#94A3B8] leading-relaxed mb-3">
               The Poisson model calculates the probability of each exact scoreline from the expected goals (xG) of both teams. For each team, the probability of scoring <em>k</em> goals follows a Poisson distribution: P(k) = (λᵏ × e⁻λ) / k!
             </p>
-            <p className="text-sm text-[#9ca3af] leading-relaxed mb-3">
+            <p className="text-sm text-[#94A3B8] leading-relaxed mb-3">
               The probability of a specific score (e.g. 2-1) is P(home=2) × P(away=1). We compute all 49 combinations (0-0 through 6-6) and rank the top 5 most likely scores.
             </p>
-            <p className="text-xs text-[#9ca3af] leading-relaxed">
+            <p className="text-xs text-[#94A3B8] leading-relaxed">
               ⚠ Correct score betting is high-risk. Even the most likely score typically has only 8-15% probability. These predictions are statistical estimates, not guarantees. 18+.
             </p>
           </div>
@@ -208,24 +208,24 @@ export default function AICorrectScorePage() {
           <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>Quick Links</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01]"
-              style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
-              <div className="text-sm font-bold text-[#f0f4f9]">BTTS Predictions Today →</div>
-              <div className="text-xs text-[#9ca3af] mt-1">Both teams to score</div>
+              style={{ backgroundColor: '#1E293B', border: '1px solid #334155' }}>
+              <div className="text-sm font-bold text-[#F8FAFC]">BTTS Predictions Today →</div>
+              <div className="text-xs text-[#94A3B8] mt-1">Both teams to score</div>
             </Link>
             <Link href="/over-2-5/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01]"
-              style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
-              <div className="text-sm font-bold text-[#f0f4f9]">Over 2.5 Predictions Today →</div>
-              <div className="text-xs text-[#9ca3af] mt-1">Total goals ≥ 3</div>
+              style={{ backgroundColor: '#1E293B', border: '1px solid #334155' }}>
+              <div className="text-sm font-bold text-[#F8FAFC]">Over 2.5 Predictions Today →</div>
+              <div className="text-xs text-[#94A3B8] mt-1">Total goals ≥ 3</div>
             </Link>
             <Link href="/btts-and-over-2-5-predictions-today" className="block p-4 rounded-xl transition-all hover:scale-[1.01]"
-              style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
-              <div className="text-sm font-bold text-[#f0f4f9]">BTTS + Over 2.5 Combined →</div>
-              <div className="text-xs text-[#9ca3af] mt-1">Both conditions met</div>
+              style={{ backgroundColor: '#1E293B', border: '1px solid #334155' }}>
+              <div className="text-sm font-bold text-[#F8FAFC]">BTTS + Over 2.5 Combined →</div>
+              <div className="text-xs text-[#94A3B8] mt-1">Both conditions met</div>
             </Link>
             <Link href="/methodologie" className="block p-4 rounded-xl transition-all hover:scale-[1.01]"
-              style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
-              <div className="text-sm font-bold text-[#f0f4f9]">Methodology →</div>
-              <div className="text-xs text-[#9ca3af] mt-1">How the model works</div>
+              style={{ backgroundColor: '#1E293B', border: '1px solid #334155' }}>
+              <div className="text-sm font-bold text-[#F8FAFC]">Methodology →</div>
+              <div className="text-xs text-[#94A3B8] mt-1">How the model works</div>
             </Link>
           </div>
         </section>

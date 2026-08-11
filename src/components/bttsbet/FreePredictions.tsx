@@ -327,7 +327,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-1.5">
               <div className="w-5 h-5 rounded bg-success/15 border border-success/30 flex items-center justify-center">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2.5">
                   <circle cx="12" cy="12" r="10" />
                   <path d="M8 14s1.5 2 4 2 4-2 4-2" />
                   <line x1="9" y1="9" x2="9.01" y2="9" />
@@ -344,7 +344,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
             {/* BTTS column */}
             <div className="space-y-2 text-center">
               <div className="text-[10px] uppercase tracking-widest font-bold text-success-light">BTTS</div>
-              <div className="text-2xl sm:text-3xl font-black" style={{ color: bttsPred.prediction === 'Oui' ? '#22c55e' : '#9ca3af' }}>
+              <div className="text-2xl sm:text-3xl font-black" style={{ color: bttsPred.prediction === 'Oui' ? '#10B981' : '#94A3B8' }}>
                 {bttsPred.prediction}
               </div>
               <div className="text-[9px] text-cendre uppercase tracking-widest">Both Score</div>
@@ -353,7 +353,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
             {/* Over 2.5 column */}
             <div className="space-y-2 text-center border-l border-edge/40 pl-3 sm:pl-4">
               <div className="text-[10px] uppercase tracking-widest font-bold text-gold-light">Over 2.5</div>
-              <div className="text-2xl sm:text-3xl font-black" style={{ color: over25Pred.prediction === 'Oui' ? '#f59e0b' : '#9ca3af' }}>
+              <div className="text-2xl sm:text-3xl font-black" style={{ color: over25Pred.prediction === 'Oui' ? '#f59e0b' : '#94A3B8' }}>
                 {over25Pred.prediction}
               </div>
               <div className="text-[9px] text-cendre uppercase tracking-widest">+2.5 buts</div>
@@ -374,19 +374,19 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
               <div className="mt-4 pt-4 border-t border-edge space-y-3">
                 {/* BTTSPredict AI enrichment */}
                 {(match.aiKeyFact || match.aiExactScore) && (
-                  <div className="bg-[#06b6d4]/5 rounded-lg p-3 border border-[#06b6d4]/20">
+                  <div className="bg-[#3B82F6]/5 rounded-lg p-3 border border-[#3B82F6]/20">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-1.5">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" strokeWidth="2">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" strokeWidth="2">
                           <path d="M12 2L2 7l10 5 10-5-10-5z" />
                           <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
                         </svg>
-                        <span className="text-[10px] uppercase tracking-widest font-bold text-[#06b6d4]">BTTSPredict AI</span>
+                        <span className="text-[10px] uppercase tracking-widest font-bold text-[#3B82F6]">BTTSPredict AI</span>
                       </div>
                       {match.aiExactScore && (
                         <div className="flex items-center gap-1">
-                          <span className="text-[9px] uppercase tracking-wider text-[#9ca3af]">Score prédit</span>
-                          <span className="text-sm font-black font-mono text-[#22c55e] px-2 py-0.5 rounded" style={{ backgroundColor: 'rgba(199,244,100,0.12)' }}>
+                          <span className="text-[9px] uppercase tracking-wider text-[#94A3B8]">Score prédit</span>
+                          <span className="text-sm font-black font-mono text-[#10B981] px-2 py-0.5 rounded" style={{ backgroundColor: 'rgba(199,244,100,0.12)' }}>
                             {match.aiExactScore}
                           </span>
                         </div>
@@ -398,19 +398,19 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
                       <div className="grid grid-cols-3 gap-1.5 mb-2">
                         {match.aiExactScore && match.exactScoreProb && (
                           <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(199,244,100,0.08)' }}>
-                            <div className="text-[8px] uppercase text-[#9ca3af]">Score</div>
-                            <div className="text-[11px] font-bold text-[#22c55e]">{match.exactScoreProb}</div>
+                            <div className="text-[8px] uppercase text-[#94A3B8]">Score</div>
+                            <div className="text-[11px] font-bold text-[#10B981]">{match.exactScoreProb}</div>
                           </div>
                         )}
                         {match.aiBttsProb && (
                           <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(123,228,149,0.08)' }}>
-                            <div className="text-[8px] uppercase text-[#9ca3af]">BTTS</div>
-                            <div className="text-[11px] font-bold text-[#22c55e]">{match.aiBttsProb}</div>
+                            <div className="text-[8px] uppercase text-[#94A3B8]">BTTS</div>
+                            <div className="text-[11px] font-bold text-[#10B981]">{match.aiBttsProb}</div>
                           </div>
                         )}
                         {match.aiOver25Prob && (
                           <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(255,209,102,0.08)' }}>
-                            <div className="text-[8px] uppercase text-[#9ca3af]">Over 2.5</div>
+                            <div className="text-[8px] uppercase text-[#94A3B8]">Over 2.5</div>
                             <div className="text-[11px] font-bold text-[#f59e0b]">{match.aiOver25Prob}</div>
                           </div>
                         )}
@@ -418,10 +418,10 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
                     )}
 
                     {match.aiKeyFact && (
-                      <p className="text-[11px] text-[#f0f4f9] font-semibold mb-2">📊 {match.aiKeyFact}</p>
+                      <p className="text-[11px] text-[#F8FAFC] font-semibold mb-2">📊 {match.aiKeyFact}</p>
                     )}
                     {match.aiAnalysis && (
-                      <p className="text-[11px] text-[#9ca3af] leading-relaxed">{match.aiAnalysis}</p>
+                      <p className="text-[11px] text-[#94A3B8] leading-relaxed">{match.aiAnalysis}</p>
                     )}
                   </div>
                 )}
@@ -675,7 +675,7 @@ export default function FreePredictions() {
         ) : filteredMatches.length === 0 ? (
           <div className="squircle-xl p-10 text-center">
             <div className="w-14 h-14 bg-dark-800 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-edge">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="1.5">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="1.5">
                 <path d="M9 12l2 2 4-4" />
                 <circle cx="12" cy="12" r="10" />
               </svg>
@@ -701,8 +701,8 @@ export default function FreePredictions() {
             href="/btts/predictions/today"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold transition-all"
             style={{
-              background: 'linear-gradient(135deg, #22c55e, #22c55e)',
-              color: '#131314',
+              background: 'linear-gradient(135deg, #10B981, #10B981)',
+              color: '#0F172A',
               boxShadow: '0 4px 16px rgba(199, 244, 100, 0.25)',
             }}
           >

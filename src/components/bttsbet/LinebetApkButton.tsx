@@ -14,8 +14,8 @@ export default function LinebetApkButton() {
       className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-bold transition-colors"
       style={{
         backgroundColor: 'rgba(199, 244, 100, 0.1)',
-        border: '1px solid #22c55e',
-        color: '#22c55e',
+        border: '1px solid #10B981',
+        color: '#10B981',
       }}
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

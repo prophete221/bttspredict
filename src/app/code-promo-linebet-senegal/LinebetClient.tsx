@@ -8,9 +8,9 @@ const GOLD = '#5DD9A0'       // vert clair Linebet
 const GOLD_LIGHT = '#3FBA7C' // vert clair sombre
 const PRIMARY = '#5DD9A0'    // boutons et accents en vert clair
 const PRIMARY_HOVER = '#3FBA7C'
-const TEXT = '#f0f4f9'
-const TEXT_SEC = '#9ca3af'
-const BG_DARK = '#131314'
+const TEXT = '#F8FAFC'
+const TEXT_SEC = '#94A3B8'
+const BG_DARK = '#0F172A'
 
 /* Lien affilié Linebet — registration */
 const LINEBET_SIGNUP = AFFILIATE.linebet
@@ -66,7 +66,7 @@ const STEPS = [
 /* ─── Moyens de dépôt ───────────────────────────────────────────────── */
 const PAYMENT_METHODS = [
   { name: 'Wave', color: '#1DC9FF', short: 'W' },
-  { name: 'Orange Money', color: '#06b6d4', short: 'OM' },
+  { name: 'Orange Money', color: '#3B82F6', short: 'OM' },
   { name: 'MTN', color: '#FFCC00', short: 'M' },
   { name: 'Moov', color: '#0066B3', short: 'M' },
   { name: 'Free Money', color: '#CC0066', short: 'F' },
@@ -293,7 +293,7 @@ export default function LinebetClient() {
                 style={{
                   backgroundColor: 'transparent',
                   color: '#C8CCDA',
-                  border: '1.5px solid #9ca3af',
+                  border: '1.5px solid #94A3B8',
                 }}
                 onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#142C3E' }}
                 onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent' }}
@@ -308,7 +308,7 @@ export default function LinebetClient() {
               </a>
             </div>
 
-            <p className="text-[10px] mt-4" style={{ color: '#9ca3af' }}>
+            <p className="text-[10px] mt-4" style={{ color: '#94A3B8' }}>
               Lien d&apos;affiliation rémunéré · 18+ · Jouer responsable
             </p>
           </div>
@@ -324,7 +324,7 @@ export default function LinebetClient() {
           >
             Détails du bonus Linebet
           </h2>
-          <div className="rounded-2xl overflow-hidden" style={{ border: `1px solid ${GOLD}33`, backgroundColor: '#1e1f20' }}>
+          <div className="rounded-2xl overflow-hidden" style={{ border: `1px solid ${GOLD}33`, backgroundColor: '#1E293B' }}>
             <table className="w-full text-sm">
               <tbody>
                 {BONUS_ROWS.map((row, i) => (
@@ -364,7 +364,7 @@ export default function LinebetClient() {
                 key={step.n}
                 className="rounded-2xl p-5 relative"
                 style={{
-                  backgroundColor: '#1e1f20',
+                  backgroundColor: '#1E293B',
                   border: `1px solid ${GOLD}22`,
                 }}
               >
@@ -425,7 +425,7 @@ export default function LinebetClient() {
               <div
                 key={m.name}
                 className="rounded-2xl p-4 text-center"
-                style={{ backgroundColor: '#1e1f20', border: `1px solid ${m.color}33` }}
+                style={{ backgroundColor: '#1E293B', border: `1px solid ${m.color}33` }}
               >
                 <div
                   className="w-12 h-12 rounded-full mx-auto mb-2 flex items-center justify-center font-bold text-base"
@@ -467,7 +467,7 @@ export default function LinebetClient() {
                 a: "Oui. Le code VISION221 fonctionne pour les 6 pays couverts : Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc. Le bonus de 90 000 XOF (ou équivalent dans ta devise locale) est crédité après validation du code promo et du premier dépôt.",
               },
             ].map((item) => (
-              <details key={item.q} className="rounded-2xl p-4" style={{ backgroundColor: '#1e1f20', border: `1px solid ${GOLD}22` }}>
+              <details key={item.q} className="rounded-2xl p-4" style={{ backgroundColor: '#1E293B', border: `1px solid ${GOLD}22` }}>
                 <summary className="cursor-pointer font-semibold text-sm" style={{ color: TEXT, listStyle: 'none' }}>
                   {item.q}
                 </summary>
@@ -483,7 +483,7 @@ export default function LinebetClient() {
       {/* ─────────── LIENS INTERNES ─────────── */}
       <section className="pb-10">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
-          <div className="rounded-2xl p-5 text-center" style={{ backgroundColor: '#1e1f20', border: `1px solid ${GOLD}22` }}>
+          <div className="rounded-2xl p-5 text-center" style={{ backgroundColor: '#1E293B', border: `1px solid ${GOLD}22` }}>
             <p className="text-[10px] uppercase tracking-widest mb-3" style={{ color: GOLD }}>
               À découvrir sur BTTSPredict
             </p>
