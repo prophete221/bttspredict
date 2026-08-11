@@ -40,24 +40,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={isVisible ? { opacity: 1, y: 0 } : undefined}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="font-bold leading-[1.1] tracking-tight mb-3"
+          className="font-bold leading-[1.05] tracking-tight mb-4"
           style={{ fontSize: '26px', color: '#f0f4f9', fontFamily: 'Poppins, sans-serif' }}
         >
-          Pronostics BTTS et Over 2.5
-          <br />
-          <span style={{ color: '#22c55e' }}>vérifiables après match</span>
+          Pronostics BTTS et Over 2.5 pour l&apos;Afrique de l&apos;Ouest &amp; Maroc - Moteur IA
         </motion.h1>
-
-        {/* Subtitle — short, factual */}
-        <motion.p
-          initial={{ opacity: 0, y: 8 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : undefined}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-[13px] leading-[1.6] mb-5"
-          style={{ color: '#9ca3af', maxWidth: '360px' }}
-        >
-          Données ESPN publiques · Modèle Poisson + xG · Suivi public depuis le 08/08/2026.
-        </motion.p>
 
         {/* CTAs — primary + secondary */}
         <motion.div
