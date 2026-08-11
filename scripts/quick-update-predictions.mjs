@@ -154,10 +154,12 @@ async function fetchTeamStats(slug, teamId, teamName) {
       }
 
       // Take last 8 (most recent first in ESPN schedule)
+      // Sort by date descending (most recent first) — ensures we get the 8 latest
+      finishedMatches.sort((a, b) => new Date(b.date) - new Date(a.date))
       const recent = finishedMatches.slice(0, 8)
 
       if (recent.length === 0) {
-        const result = { dataQuality: 'LOW', matchCount: 0, available: false }
+        const result = { dataQuality: 'LOW', matchCount: 0, available: false, dataSource: 'LEAGUE_FALLBACK' }
         teamStatsCache.set(cacheKey, result)
         return result
       }
@@ -188,6 +190,7 @@ async function fetchTeamStats(slug, teamId, teamName) {
 
       const result = {
         available: true,
+        dataSource: 'ESPN_TEAM_SCHEDULE',
         matchCount: recent.length,
         dataQuality,
         avgScored,
@@ -210,7 +213,7 @@ async function fetchTeamStats(slug, teamId, teamName) {
     }
   }
 
-  const result = { dataQuality: 'LOW', matchCount: 0, available: false }
+  const result = { dataQuality: 'LOW', matchCount: 0, available: false, dataSource: 'LEAGUE_FALLBACK' }
   teamStatsCache.set(cacheKey, result)
   return result
 }
@@ -467,6 +470,11 @@ async function quickUpdate() {
       tier: assignTier(reliability),
       reliabilityScore: reliability,
       dataQuality: dataQuality,
+      dataSource: homeStats.dataSource === 'ESPN_TEAM_SCHEDULE' && awayStats.dataSource === 'ESPN_TEAM_SCHEDULE'
+        ? 'ESPN_TEAM_SCHEDULE'
+        : 'LEAGUE_FALLBACK',
+      matchCountHome: homeStats.matchCount || 0,
+      matchCountAway: awayStats.matchCount || 0,
       h2hAvailable: false,
       xgHome: xgHome,
       xgAway: xgAway,
