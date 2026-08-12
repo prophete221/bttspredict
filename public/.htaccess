@@ -61,6 +61,9 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /404.html [L,R=404]
 
+# ─── Encodage des fichiers texte ───
+AddCharset UTF-8 .txt
+
 # ─── En-tête HSTS (Strict Transport Security) ───
 Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 

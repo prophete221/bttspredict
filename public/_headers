@@ -19,6 +19,9 @@
   Cache-Control: public, max-age=300
   Access-Control-Allow-Origin: *
 
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+
 /llms.txt
   Cache-Control: public, max-age=86400
   Content-Type: text/plain
