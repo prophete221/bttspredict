@@ -110,17 +110,17 @@ export default async function MatchPage({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-[#0F172A] flex flex-col text-[#F8FAFC]">
+    <div className="min-h-screen bg-[#07111F] flex flex-col text-[#F4F8FC]">
       <Navbar />
 
       <main id="main-content" className="flex-1">
         {/* Breadcrumb */}
-        <nav aria-label="Fil d'Ariane" className="max-w-4xl mx-auto px-4 pt-6 pb-2 text-xs text-[#94A3B8]">
-          <Link href="/" className="hover:text-[#10B981]">Accueil</Link>
+        <nav aria-label="Fil d'Ariane" className="max-w-4xl mx-auto px-4 pt-6 pb-2 text-xs text-[#B7C7D9]">
+          <Link href="/" className="hover:text-[#16A36A]">Accueil</Link>
           <span className="mx-1">/</span>
-          <Link href="/pronostics" className="hover:text-[#10B981]">Pronostics</Link>
+          <Link href="/pronostics" className="hover:text-[#16A36A]">Pronostics</Link>
           <span className="mx-1">/</span>
-          <span className="text-[#94A3B8]">{home} vs {away}</span>
+          <span className="text-[#B7C7D9]">{home} vs {away}</span>
         </nav>
 
         <article className="max-w-4xl mx-auto px-4 py-8">
@@ -133,7 +133,7 @@ export default async function MatchPage({ params }: PageProps) {
                 )}
                 <span className="text-sm sm:text-base font-bold text-center">{home}</span>
               </div>
-              <div className="text-2xl font-bold text-[#94A3B8]">vs</div>
+              <div className="text-2xl font-bold text-[#B7C7D9]">vs</div>
               <div className="flex flex-col items-center gap-2 flex-1">
                 {awayLogo && (
                   <img src={awayLogo} alt={`Logo ${away}`} width={80} height={80} className="rounded-xl object-contain" loading="lazy" decoding="async" />
@@ -142,13 +142,13 @@ export default async function MatchPage({ params }: PageProps) {
               </div>
             </div>
 
-            <div className="text-center text-sm text-[#94A3B8] mb-2">
+            <div className="text-center text-sm text-[#B7C7D9] mb-2">
               {league} · {date}{time ? ` · ${time}` : ''}
             </div>
 
             {finalScore && (
               <div className="text-center mb-2">
-                <span className="inline-block px-4 py-2 rounded-xl text-lg font-bold" style={{ backgroundColor: '#1E293B', border: '1px solid #334155' }}>
+                <span className="inline-block px-4 py-2 rounded-xl text-lg font-bold" style={{ backgroundColor: '#0D1B2A', border: '1px solid #29445F' }}>
                   Score final : {finalScore}
                 </span>
               </div>
@@ -166,7 +166,7 @@ export default async function MatchPage({ params }: PageProps) {
                 const market = (p.type || p.market || '').toLowerCase()
                 const isBtts = market.includes('btts')
                 const isOver = market.includes('over') || market.includes('o2.5') || market.includes('o25')
-                const color = isBtts ? '#3B82F6' : isOver ? '#10B981' : '#94A3B8'
+                const color = isBtts ? '#2176FF' : isOver ? '#16A36A' : '#B7C7D9'
                 const label = isBtts ? 'BTTS' : isOver ? 'Over 2.5' : (p.type || p.market || 'Prediction')
                 const isWon = p.status === 'WON'
                 const isLost = p.status === 'LOST'
@@ -174,7 +174,7 @@ export default async function MatchPage({ params }: PageProps) {
                 const probLabel = isBtts ? aiBttsProb : isOver ? aiOver25Prob : null
 
                 return (
-                  <div key={i} className="p-5 rounded-2xl" style={{ backgroundColor: '#1E293B', border: `1px solid ${color}40` }}>
+                  <div key={i} className="p-5 rounded-2xl" style={{ backgroundColor: '#0D1B2A', border: `1px solid ${color}40` }}>
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-xs font-bold uppercase tracking-wider" style={{ color }}>
                         {label}
@@ -186,27 +186,27 @@ export default async function MatchPage({ params }: PageProps) {
                       )}
                     </div>
 
-                    <div className="text-2xl font-black mb-2" style={{ color: p.prediction === 'Oui' ? color : '#94A3B8' }}>
+                    <div className="text-2xl font-black mb-2" style={{ color: p.prediction === 'Oui' ? color : '#B7C7D9' }}>
                       {p.prediction}
                     </div>
 
                     {/* Subtitle to make cards visually distinct */}
-                    <div className="text-[10px] text-[#94A3B8] mb-2">
+                    <div className="text-[10px] text-[#B7C7D9] mb-2">
                       {isBtts ? 'Both Teams To Score' : isOver ? 'Total Goals ≥ 3' : ''}
                     </div>
 
                     {isWon && (
-                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(34, 197, 94, 0.15)', color: '#10B981' }}>
+                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(34, 197, 94, 0.15)', color: '#16A36A' }}>
                         ✓ Gagné
                       </div>
                     )}
                     {isLost && (
-                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(255, 113, 133, 0.15)', color: '#EF4444' }}>
+                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(255, 113, 133, 0.15)', color: '#D94B4B' }}>
                         ✗ Perdu
                       </div>
                     )}
                     {isPending && (
-                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(156, 163, 175, 0.15)', color: '#94A3B8' }}>
+                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(156, 163, 175, 0.15)', color: '#B7C7D9' }}>
                         ⏳ En attente
                       </div>
                     )}
@@ -215,7 +215,7 @@ export default async function MatchPage({ params }: PageProps) {
               })}
             </div>
 
-            <p className="text-xs text-[#94A3B8] mt-4 leading-relaxed text-center">
+            <p className="text-xs text-[#B7C7D9] mt-4 leading-relaxed text-center">
               Aucun résultat futur n&apos;est garanti. 18+.
             </p>
           </section>
@@ -223,13 +223,13 @@ export default async function MatchPage({ params }: PageProps) {
           {/* SECTION RAPPORT D'ANALYSE BTTSPREDICT AI */}
           {(aiKeyFact || aiExactScore) && (
             <section className="mb-10">
-              <div className="rounded-xl p-5 space-y-4" style={{ backgroundColor: '#1E293B', border: '1px solid #334155' }}>
-                <div className="flex items-center justify-between border-b border-[#334155] pb-3">
-                  <h3 className="font-bold text-sm text-[#F8FAFC] flex items-center gap-2">
-                    <span className="text-[#3B82F6]">📊</span> Rapport d&apos;Analyse — BTTSPredict AI
+              <div className="rounded-xl p-5 space-y-4" style={{ backgroundColor: '#0D1B2A', border: '1px solid #29445F' }}>
+                <div className="flex items-center justify-between border-b border-[#29445F] pb-3">
+                  <h3 className="font-bold text-sm text-[#F4F8FC] flex items-center gap-2">
+                    <span className="text-[#2176FF]">📊</span> Rapport d&apos;Analyse — BTTSPredict AI
                   </h3>
                   {aiExactScore && (
-                    <span className="px-2.5 py-1 text-xs font-black rounded-md" style={{ backgroundColor: 'rgba(245,158,11,0.1)', color: '#F59E0B', border: '1px solid rgba(245,158,11,0.3)' }}>
+                    <span className="px-2.5 py-1 text-xs font-black rounded-md" style={{ backgroundColor: 'rgba(245,158,11,0.1)', color: '#F4A623', border: '1px solid rgba(245,158,11,0.3)' }}>
                       Score Exact : {aiExactScore}
                     </span>
                   )}
@@ -240,20 +240,20 @@ export default async function MatchPage({ params }: PageProps) {
                   <div className="grid grid-cols-3 gap-2">
                     {exactScoreProb && (
                       <div className="text-center rounded-lg p-2" style={{ backgroundColor: 'rgba(245,158,11,0.08)' }}>
-                        <div className="text-[9px] uppercase tracking-wider text-[#94A3B8]">Score exact</div>
-                        <div className="text-base font-bold text-[#F59E0B]">{exactScoreProb}</div>
+                        <div className="text-[9px] uppercase tracking-wider text-[#B7C7D9]">Score exact</div>
+                        <div className="text-base font-bold text-[#F4A623]">{exactScoreProb}</div>
                       </div>
                     )}
                     {aiBttsProb && (
                       <div className="text-center rounded-lg p-2" style={{ backgroundColor: 'rgba(6,182,212,0.08)' }}>
-                        <div className="text-[9px] uppercase tracking-wider text-[#94A3B8]">BTTS</div>
-                        <div className="text-base font-bold text-[#3B82F6]">{aiBttsProb}</div>
+                        <div className="text-[9px] uppercase tracking-wider text-[#B7C7D9]">BTTS</div>
+                        <div className="text-base font-bold text-[#2176FF]">{aiBttsProb}</div>
                       </div>
                     )}
                     {aiOver25Prob && (
                       <div className="text-center rounded-lg p-2" style={{ backgroundColor: 'rgba(255,209,102,0.08)' }}>
-                        <div className="text-[9px] uppercase tracking-wider text-[#94A3B8]">Over 2.5</div>
-                        <div className="text-base font-bold text-[#f59e0b]">{aiOver25Prob}</div>
+                        <div className="text-[9px] uppercase tracking-wider text-[#B7C7D9]">Over 2.5</div>
+                        <div className="text-base font-bold text-[#F4A623]">{aiOver25Prob}</div>
                       </div>
                     )}
                   </div>
@@ -261,21 +261,21 @@ export default async function MatchPage({ params }: PageProps) {
 
                 {/* Statistique Clé */}
                 {aiKeyFact && (
-                  <div className="p-3 rounded-lg" style={{ backgroundColor: '#0F172A', border: '1px solid #334155' }}>
-                    <span className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-wider block mb-1">
+                  <div className="p-3 rounded-lg" style={{ backgroundColor: '#07111F', border: '1px solid #29445F' }}>
+                    <span className="text-[11px] font-bold text-[#2176FF] uppercase tracking-wider block mb-1">
                       📌 Statistique clé — xG & données disponibles
                     </span>
-                    <p className="text-xs text-[#F8FAFC] italic">&ldquo;{aiKeyFact}&rdquo;</p>
+                    <p className="text-xs text-[#F4F8FC] italic">&ldquo;{aiKeyFact}&rdquo;</p>
                   </div>
                 )}
 
                 {/* Analyse Complète */}
                 {aiAnalysis && (
-                  <div className="p-3.5 rounded-lg" style={{ backgroundColor: '#0F172A', border: '1px solid #334155' }}>
-                    <span className="text-[11px] font-bold text-[#94A3B8] uppercase tracking-wider block mb-1">
+                  <div className="p-3.5 rounded-lg" style={{ backgroundColor: '#07111F', border: '1px solid #29445F' }}>
+                    <span className="text-[11px] font-bold text-[#B7C7D9] uppercase tracking-wider block mb-1">
                       📝 Analyse statistique
                     </span>
-                    <p className="text-xs text-[#94A3B8] leading-relaxed">
+                    <p className="text-xs text-[#B7C7D9] leading-relaxed">
                       {aiAnalysis}
                     </p>
                   </div>
@@ -289,27 +289,27 @@ export default async function MatchPage({ params }: PageProps) {
             <h2 className="text-xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Vérification
             </h2>
-            <div className="p-4 rounded-xl" style={{ backgroundColor: '#1E293B', border: '1px solid #334155' }}>
+            <div className="p-4 rounded-xl" style={{ backgroundColor: '#0D1B2A', border: '1px solid #29445F' }}>
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <div className="text-2xl font-bold text-[#10B981]">{won}</div>
-                  <div className="text-xs text-[#94A3B8] uppercase">Gagnés</div>
+                  <div className="text-2xl font-bold text-[#16A36A]">{won}</div>
+                  <div className="text-xs text-[#B7C7D9] uppercase">Gagnés</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-[#EF4444]">{lost}</div>
-                  <div className="text-xs text-[#94A3B8] uppercase">Perdus</div>
+                  <div className="text-2xl font-bold text-[#D94B4B]">{lost}</div>
+                  <div className="text-xs text-[#B7C7D9] uppercase">Perdus</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-[#94A3B8]">{pending}</div>
-                  <div className="text-xs text-[#94A3B8] uppercase">En attente</div>
+                  <div className="text-2xl font-bold text-[#B7C7D9]">{pending}</div>
+                  <div className="text-xs text-[#B7C7D9] uppercase">En attente</div>
                 </div>
               </div>
               {verified.length > 0 && verified[0].verifiedAt && (
-                <p className="text-xs text-[#94A3B8] mt-3 text-center">
+                <p className="text-xs text-[#B7C7D9] mt-3 text-center">
                   Vérifié le {new Date(verified[0].verifiedAt).toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' })}
                 </p>
               )}
-              <p className="text-xs text-[#94A3B8] mt-2 text-center">
+              <p className="text-xs text-[#B7C7D9] mt-2 text-center">
                 Source : ESPN et TheSportsDB. Suivi public depuis le 2026-08-08.
               </p>
             </div>
@@ -321,15 +321,15 @@ export default async function MatchPage({ params }: PageProps) {
               Aller plus loin
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <Link href="/pronostics" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#10B981]"
-                style={{ backgroundColor: '#1E293B', border: '1px solid #334155' }}>
-                <div className="text-sm font-bold text-[#F8FAFC] mb-1">Voir les pronostics du jour →</div>
-                <div className="text-xs text-[#94A3B8]">Tous les matchs sélectionnés par le moteur IA</div>
+              <Link href="/pronostics" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#16A36A]"
+                style={{ backgroundColor: '#0D1B2A', border: '1px solid #29445F' }}>
+                <div className="text-sm font-bold text-[#F4F8FC] mb-1">Voir les pronostics du jour →</div>
+                <div className="text-xs text-[#B7C7D9]">Tous les matchs sélectionnés par le moteur IA</div>
               </Link>
-              <Link href="/vip" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#10B981]"
-                style={{ backgroundColor: '#1E293B', border: '1px solid #334155' }}>
-                <div className="text-sm font-bold text-[#F8FAFC] mb-1">Pronostics premium →</div>
-                <div className="text-xs text-[#94A3B8]">Programme VIP BTTSPredict</div>
+              <Link href="/vip" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#16A36A]"
+                style={{ backgroundColor: '#0D1B2A', border: '1px solid #29445F' }}>
+                <div className="text-sm font-bold text-[#F4F8FC] mb-1">Pronostics premium →</div>
+                <div className="text-xs text-[#B7C7D9]">Programme VIP BTTSPredict</div>
               </Link>
             </div>
           </section>
@@ -337,7 +337,7 @@ export default async function MatchPage({ params }: PageProps) {
           {/* Disclaimer */}
           <section>
             <div className="p-4 rounded-xl text-center" style={{ backgroundColor: 'rgba(255, 122, 122, 0.06)', border: '1px solid rgba(255, 122, 122, 0.2)' }}>
-              <p className="text-xs text-[#94A3B8] leading-relaxed">
+              <p className="text-xs text-[#B7C7D9] leading-relaxed">
                 18+ · Les paris sportifs comportent un risque de perte. Aucun résultat futur n'est garanti. BTTSPredict ne prend pas de paris et ne collecte pas de fonds. Pronostic publié à titre informatif, ne constitue pas une incitation à parier.
               </p>
             </div>

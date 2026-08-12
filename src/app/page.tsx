@@ -325,47 +325,47 @@ export default function Home() {
         <section className="max-w-[440px] mx-auto px-4 py-8">
           <div className="grid grid-cols-3 gap-2">
             <a href="/resultats-verifies" className="block p-3 rounded-xl text-center transition-all hover:scale-[1.02]"
-              style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
+              style={{ backgroundColor: '#0D1B2A', border: '1px solid #29445F' }}>
               <div className="mb-1.5 flex justify-center">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2"><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" /></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16A36A" strokeWidth="2"><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" /></svg>
               </div>
-              <div className="text-[10px] font-bold text-[#f0f4f9]">Historique vérifié</div>
-              <div className="text-[9px] text-[#9ca3af] mt-0.5">Gagnés et perdus</div>
+              <div className="text-[10px] font-bold text-[#F4F8FC]">Historique vérifié</div>
+              <div className="text-[9px] text-[#B7C7D9] mt-0.5">Gagnés et perdus</div>
             </a>
             <a href="/methodologie" className="block p-3 rounded-xl text-center transition-all hover:scale-[1.02]"
-              style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
+              style={{ backgroundColor: '#0D1B2A', border: '1px solid #29445F' }}>
               <div className="mb-1.5 flex justify-center">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" strokeWidth="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2176FF" strokeWidth="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></svg>
               </div>
-              <div className="text-[10px] font-bold text-[#f0f4f9]">Méthodologie</div>
-              <div className="text-[9px] text-[#9ca3af] mt-0.5">Modèle Poisson + xG</div>
+              <div className="text-[10px] font-bold text-[#F4F8FC]">Méthodologie</div>
+              <div className="text-[9px] text-[#B7C7D9] mt-0.5">Modèle Poisson + xG</div>
             </a>
             <a href="/predictions-archive/" className="block p-3 rounded-xl text-center transition-all hover:scale-[1.02]"
-              style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
+              style={{ backgroundColor: '#0D1B2A', border: '1px solid #29445F' }}>
               <div className="mb-1.5 flex justify-center">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F4A623" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
               </div>
-              <div className="text-[10px] font-bold text-[#f0f4f9]">Données publiques</div>
-              <div className="text-[9px] text-[#9ca3af] mt-0.5">Archives horodatées</div>
+              <div className="text-[10px] font-bold text-[#F4F8FC]">Données publiques</div>
+              <div className="text-[9px] text-[#B7C7D9] mt-0.5">Archives horodatées</div>
             </a>
           </div>
         </section>
 
         {/* VIP — carte premium sobre */}
         <section className="max-w-[440px] mx-auto px-4 py-6">
-          <div className="p-5 rounded-[16px]" style={{ backgroundColor: '#1e1f20', border: '1px solid #2d2f31' }}>
+          <div className="p-5 rounded-[16px]" style={{ backgroundColor: '#0D1B2A', border: '1px solid #29445F' }}>
             <div className="flex items-center justify-between mb-3">
-              <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#f59e0b' }}>VIP Premium</span>
-              <span className="text-[9px] text-[#9ca3af]">18+ · Affiliation rémunéré</span>
+              <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#F4A623' }}>VIP Premium</span>
+              <span className="text-[9px] text-[#B7C7D9]">18+ · Affiliation rémunéré</span>
             </div>
-            <h2 className="text-lg font-bold mb-1.5" style={{ fontFamily: 'Poppins, sans-serif', color: '#f0f4f9' }}>
+            <h2 className="text-lg font-bold mb-1.5" style={{ fontFamily: 'Poppins, sans-serif', color: '#F4F8FC' }}>
               Pronostics premium BTTS et Over 2.5
             </h2>
-            <p className="text-[11px] text-[#9ca3af] leading-relaxed mb-4">
+            <p className="text-[11px] text-[#B7C7D9] leading-relaxed mb-4">
               Sélections supplémentaires et analyses détaillées. Aucun gain garanti.
             </p>
             <a href="/vip" className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-[10px] font-bold text-[12px] transition-all"
-              style={{ backgroundColor: '#f59e0b', color: '#131314' }}
+              style={{ backgroundColor: '#F4A623', color: '#07111F' }}
               data-cta="home-discover-vip">
               Découvrir le VIP
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
@@ -382,10 +382,10 @@ export default function Home() {
               <line x1="12" y1="17" x2="12.01" y2="17" />
             </svg>
             <div>
-              <p className="text-[11px] text-[#9ca3af] leading-relaxed mb-1">
+              <p className="text-[11px] text-[#B7C7D9] leading-relaxed mb-1">
                 <strong className="text-[#FF7185]">18+</strong> · Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez perdre.
               </p>
-              <a href="/jouer-responsable" className="text-[11px] font-bold text-[#22c55e] underline">
+              <a href="/jouer-responsable" className="text-[11px] font-bold text-[#16A36A] underline">
                 En savoir plus →
               </a>
             </div>
@@ -395,11 +395,11 @@ export default function Home() {
         {/* Liens internes SEO */}
         <section className="px-4 py-4 max-w-[440px] mx-auto">
           <div className="flex flex-wrap gap-2 text-[11px]">
-            <a href="/bonus-888starz" className="text-[#9ca3af] hover:text-[#22c55e] transition-colors">Bonus 888Starz</a>
-            <span className="text-[#2d2f31]">·</span>
-            <a href="/code-promo-linebet-senegal" className="text-[#9ca3af] hover:text-[#22c55e] transition-colors">Code Promo Linebet</a>
-            <span className="text-[#2d2f31]">·</span>
-            <a href="/btts-c-est-quoi" className="text-[#9ca3af] hover:text-[#22c55e] transition-colors">BTTS signification</a>
+            <a href="/bonus-888starz" className="text-[#B7C7D9] hover:text-[#16A36A] transition-colors">Bonus 888Starz</a>
+            <span className="text-[#29445F]">·</span>
+            <a href="/code-promo-linebet-senegal" className="text-[#B7C7D9] hover:text-[#16A36A] transition-colors">Code Promo Linebet</a>
+            <span className="text-[#29445F]">·</span>
+            <a href="/btts-c-est-quoi" className="text-[#B7C7D9] hover:text-[#16A36A] transition-colors">BTTS signification</a>
           </div>
         </section>
 

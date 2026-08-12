@@ -18,57 +18,62 @@
   /* Inspired by Stripe / Linear / FBRef design language */
 
   /* — Fonds (5 niveaux) — v68 OR & ÉMERAUDE — */
-  --color-bg-main: #07111A;            /* Fond principal — noir bleuté profond */
-  --color-bg-secondary: #102333;       /* Sections — slate foncé */
-  --color-bg-tertiary: #142C3E;        /* Panels — slate medium */
-  --color-card: #102333;               /* Card surface standard */
-  --color-card-hover: #142C3E;         /* Card surface hover/sélection */
-  --color-border: #1C3546;             /* Border subtile */
-  --color-border-strong: #2A4A60;      /* Border visible / focus */
+  --color-bg-main: #07111F;            /* Fond principal — noir bleuté profond */
+  --color-bg-secondary: #0D1B2A;       /* Sections — slate foncé */
+  --color-bg-tertiary: #17324D;        /* Panels — slate medium */
+  --color-card: #0D1B2A;               /* Card surface standard */
+  --color-card-hover: #17324D;         /* Card surface hover/sélection */
+  --color-border: #29445F;             /* Border subtile */
+  --color-border-strong: #3A5A7F;      /* Border visible / focus */
 
   /* — Texte (3 niveaux) — */
-  --color-text-primary: #F2F7F5;      /* Titres, chiffres — slate-100 */
-  --color-text-secondary: #B5C4C9;     /* Labels, descriptions — slate-400 */
-  --color-text-tertiary: #7F969E;      /* Muted, disabled — slate-500 */
+  --color-text-primary: #F4F8FC;      /* Titres, chiffres — slate-100 */
+  --color-text-secondary: #B7C7D9;     /* Labels, descriptions — slate-400 */
+  --color-text-tertiary: #7F95AA;      /* Muted, disabled — slate-500 */
 
   /* — Surfaces — */
-  --color-surface-card: #102333;
-  --color-surface-card-hover: #142C3E;
-  --color-surface-premium: #142C3E;
+  --color-surface-card: #0D1B2A;
+  --color-surface-card-hover: #17324D;
+  --color-surface-premium: #17324D;
 
   /* — Borders — */
-  --color-border-default: #1C3546;
-  --color-border-hover: #2A4A60;
+  --color-border-default: #29445F;
+  --color-border-hover: #3A5A7F;
 
-  /* — Action (1 CTA primaire par viewport) — v68: OR #C7F464 — */
-  --color-action-primary: #C7F464;
-  --color-action-primary-hover: #A6D941;
-  --color-action-primary-text: #07111A;
+  /* — Action (1 CTA primaire par viewport) — v68: OR #D9A441 — */
+  --color-action-primary: #D9A441;
+  --color-action-primary-hover: #B89034;
+  --color-action-primary-text: #07111F;
   --color-action-secondary-bg: transparent;
-  --color-action-secondary-border: #C7F464;
-  --color-action-secondary-text: #B5C4C9;
+  --color-action-secondary-border: #D9A441;
+  --color-action-secondary-text: #B7C7D9;
 
-  /* — Market colors (badges/graphiques uniquement) — v68: ÉMERAUDE #63D6FF — */
-  --color-market-btts: #63D6FF;
-  --color-market-btts-muted: rgba(99, 214, 255, 0.14);
-  --color-market-over: #63D6FF;
-  --color-market-over-muted: rgba(99, 214, 255, 0.14);
-  --color-market-over-border: rgba(99, 214, 255, 0.32);
+  /* — Market colors (badges/graphiques uniquement) — v68: ÉMERAUDE #2176FF — */
+  --color-market-btts: #2176FF;
+  --color-market-btts-muted: rgba(33, 118, 255, 0.14);
+  --color-market-over: #2176FF;
+  --color-market-over-muted: rgba(33, 118, 255, 0.14);
+  --color-market-over-border: rgba(33, 118, 255, 0.32);
 
   /* — VIP (or mat) — */
-  --color-vip-accent: #C7F464;
-  --color-vip-accent-muted: rgba(199, 244, 100, 0.10);
-  --color-vip-border: rgba(199, 244, 100, 0.42);
+  --color-vip-accent: #D9A441;
+  --color-vip-accent-muted: rgba(217, 164, 65, 0.10);
+  --color-vip-border: rgba(217, 164, 65, 0.42);
   --color-vip-gradient: none;
 
   /* — Trust — v68: Émeraude clair — */
-  --color-trust-accent: #63D6FF;
-  --color-trust-bg: rgba(99, 214, 255, 0.08);
-  --color-trust-border: rgba(99, 214, 255, 0.22);
+  --color-trust-accent: #2176FF;
+  --color-trust-bg: rgba(33, 118, 255, 0.08);
+  --color-trust-border: rgba(33, 118, 255, 0.22);
 
   /* — Statut (capsules compactes uniquement) — */
-  --color-success-muted: #63D6FF;
-  --color-error: #FF7A7A;
+  --color-success: #16A36A;
+  --color-success-muted: #16A36A;
+  --color-error: #D94B4B;
+  --color-warning: #F4A623;
+  --color-primary: #2176FF;
+  --color-primary-hover: #4C94FF;
+  --color-focus: #7DB4FF;
 
   /* — Legacy aliases (compatibilité) — */
   --color-brand-indigo: var(--color-action-primary);
@@ -90,14 +95,14 @@
   --radius-control: 10px;
 
   /* — Hover states — v68 OR & ÉMERAUDE — */
-  --color-cta-hover: #A6D941;
-  --color-cta-active: #92702A;
-  --color-trust-hover: #4BA8CC;
-  --color-stats-hover: #A6D941;
+  --color-cta-hover: #B89034;
+  --color-cta-active: #8A6A1F;
+  --color-trust-hover: #4C94FF;
+  --color-stats-hover: #B89034;
   --color-vip-hover: #333333;
-  --color-success-hover: #7BE495;
-  --color-error-hover: #FF9A9A;
-  --color-border-hover: #C7F464;       /* Hover border → or */
+  --color-success-hover: #16A36A;
+  --color-error-hover: #E87878;
+  --color-border-hover: #D9A441;       /* Hover border → or */
 
   /* — Glassmorphism — */
   --color-glass: rgba(242, 247, 245, 0.08);
@@ -126,7 +131,8 @@
   --color-card-border: var(--color-border);
   --color-card-border-hover: var(--color-border-hover);
 
-  --color-primary: var(--color-cta);
+  --color-primary: #2176FF;
+  --color-primary-hover: #4C94FF;
   --color-primary-dark: var(--color-cta-active);
   --color-primary-light: var(--color-cta-hover);
   --color-primary-glow: rgba(199, 244, 100, 0.3);
@@ -162,7 +168,7 @@
   --color-panel: var(--color-bg-secondary);
   --color-rose: var(--color-error);
   --color-linebet: var(--color-cta);
-  --color-star888: #63D6FF;
+  --color-star888: #2176FF;
   --color-gold: var(--color-vip);
   --color-gold-light: var(--color-vip-hover);
   --color-lose: var(--color-error);
@@ -173,10 +179,10 @@
   --color-text-on-dark-secondary: var(--color-text-secondary);
 
   /* — Gradients premium v68 OR & ÉMERAUDE — */
-  --grad-primary: linear-gradient(135deg, #C7F464 0%, #A6D941 100%);
-  --grad-premium: linear-gradient(135deg, #C7F464 0%, #C7F464 100%);
-  --grad-brand-split: linear-gradient(90deg, #C7F464 0%, #C7F464 50%, #63D6FF 50%, #63D6FF 100%);
-  --grad-bg: radial-gradient(circle at top right, rgba(199, 244, 100, 0.12), transparent 38%), #07111A;
+  --grad-primary: linear-gradient(135deg, #D9A441 0%, #B89034 100%);
+  --grad-premium: linear-gradient(135deg, #D9A441 0%, #D9A441 100%);
+  --grad-brand-split: linear-gradient(90deg, #D9A441 0%, #D9A441 50%, #2176FF 50%, #2176FF 100%);
+  --grad-bg: radial-gradient(circle at top right, rgba(199, 244, 100, 0.12), transparent 38%), #07111F;
   --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(199, 244, 100, 0.04) 0%, transparent 60%),
                radial-gradient(50% 50% at 85% 10%, rgba(99, 214, 255, 0.04) 0%, transparent 60%);
 
@@ -196,41 +202,47 @@
    ════════════════════════════════════════════════════════════════════════════ */
 :root {
   /* Fonds — v68 OR & ÉMERAUDE */
-  --bg-main: #07111A;
-  --bg-secondary: #102333;
-  --bg-tertiary: #142C3E;
-  --card: #102333;
-  --card-hover: #142C3E;
-  --border: #1C3546;
-  --border-strong: #2A4A60;
+  --bg-main: #07111F;
+  --bg-secondary: #0D1B2A;
+  --bg-tertiary: #17324D;
+  --card: #0D1B2A;
+  --card-hover: #17324D;
+  --border: #29445F;
+  --border-strong: #3A5A7F;
 
   /* Texte */
-  --text-primary: #F2F7F5;
-  --text-secondary: #B5C4C9;
-  --text-tertiary: #7F969E;
+  --text-primary: #F4F8FC;
+  --text-secondary: #B7C7D9;
+  --text-tertiary: #7F95AA;
+  --text-muted: #7F95AA;
 
-  /* Action — v68: OR #C7F464 */
-  --action-primary: #C7F464;
-  --action-primary-hover: #A6D941;
-  --action-primary-text: #07111A;
-  --action-secondary-border: #C7F464;
-  --action-secondary-text: #B5C4C9;
-  /* Market — v68: ÉMERAUDE #63D6FF */
-  --market-btts: #63D6FF;
-  --market-over: #63D6FF;
+  /* Action — v68: OR #D9A441 */
+  --action-primary: #D9A441;
+  --action-primary-hover: #B89034;
+  --action-primary-text: #07111F;
+  --action-secondary-border: #D9A441;
+  --action-secondary-text: #B7C7D9;
+  /* Market — v68: ÉMERAUDE #2176FF */
+  --market-btts: #2176FF;
+  --market-over: #2176FF;
   /* VIP */
-  --vip-accent: #C7F464;
+  --vip-accent: #D9A441;
   /* Trust */
-  --trust-accent: #63D6FF;
+  --trust-accent: #2176FF;
   /* Statut */
-  --success-muted: #63D6FF;
-  --error: #FF7A7A;
+  --success-muted: #16A36A;
+  --success: #16A36A;
+  --error: #D94B4B;
+  --warning: #F4A623;
+  --primary: #2176FF;
+  --primary-hover: #4C94FF;
+  --focus: #7DB4FF;
   /* Surfaces */
-  --surface-card: #102333;
-  --surface-card-hover: #142C3E;
-  --surface-premium: #142C3E;
-  --border-default: #1C3546;
-  --border-hover: #2A4A60;
+  --surface-card: #0D1B2A;
+  --surface-card-hover: #17324D;
+  --surface-premium: #17324D;
+  --border-default: #29445F;
+  --border-hover: #3A5A7F;
   /* Legacy */
   --brand-indigo: var(--action-primary);
   --brand-violet: var(--market-btts);
@@ -245,24 +257,24 @@
   --glass-border: rgba(242, 247, 245, 0.12);
 
   /* Hover states — v68 */
-  --cta-hover: #A6D941;
-  --cta-active: #92702A;
-  --trust-hover: #4BA8CC;
-  --stats-hover: #A6D941;
+  --cta-hover: #B89034;
+  --cta-active: #8A6A1F;
+  --trust-hover: #4C94FF;
+  --stats-hover: #B89034;
   --vip-hover: #333333;
-  --success-hover: #7BE495;
-  --error-hover: #FF9A9A;
-  --border-hover: #C7F464;
+  --success-hover: #16A36A;
+  --error-hover: #E87878;
+  --border-hover: #D9A441;
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
    v68 OR & ÉMERAUDE — Utility classes
    ════════════════════════════════════════════════════════════════════════════ */
 
-/* Bouton Or — dégradé #C7F464 → #A6D941, texte noir */
+/* Bouton Or — dégradé #D9A441 → #B89034, texte noir */
 .btn-gold {
-  background: linear-gradient(135deg, #C7F464, #A6D941);
-  color: #07111A;
+  background: linear-gradient(135deg, #D9A441, #B89034);
+  color: #07111F;
   font-weight: 700;
   border: none;
   transition: all 200ms ease;
@@ -272,10 +284,10 @@
   box-shadow: 0 0 20px rgba(199, 244, 100, 0.3);
 }
 
-/* Badge Émeraude — fond #63D6FF, texte noir */
+/* Badge Émeraude — fond #2176FF, texte noir */
 .badge-emeraude {
-  background: #63D6FF;
-  color: #07111A;
+  background: #2176FF;
+  color: #07111F;
   font-weight: 700;
   border: none;
 }
@@ -283,21 +295,21 @@
 /* Bouton Or outline — bordure or, texte clair */
 .btn-gold-outline {
   background: transparent;
-  color: #F2F7F5;
-  border: 1.5px solid #C7F464;
+  color: #F4F8FC;
+  border: 1.5px solid #D9A441;
   font-weight: 700;
   transition: all 200ms ease;
 }
 .btn-gold-outline:hover {
   background: rgba(199, 244, 100, 0.08);
-  border-color: #C7F464;
+  border-color: #D9A441;
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
    HOVER / ACTIVE / FOCUS STATES (Step 4 — MANDATORY)
    ════════════════════════════════════════════════════════════════════════════ */
 
-/* CTA Hover: bg #A6D941 (Indigo brighter), text #F2F7F5, transition 200ms ease */
+/* CTA Hover: bg #B89034 (Indigo brighter), text #F4F8FC, transition 200ms ease */
 .vip-glass-cta:hover,
 .btn-primary:hover,
 .btn-vip:hover,
@@ -311,7 +323,7 @@ button[type="submit"]:hover,
   transition: background-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
 }
 
-/* CTA Active: bg #92702A (Indigo darker) */
+/* CTA Active: bg #8A6A1F (Indigo darker) */
 .vip-glass-cta:active,
 .btn-primary:active,
 .btn-vip:active,
@@ -356,7 +368,7 @@ a:hover,
   transition: background-color 200ms ease;
 }
 
-/* Card Hover: border-color #1C3546 */
+/* Card Hover: border-color #29445F */
 .card:hover,
 .container:hover,
 .panel:hover,
@@ -383,12 +395,12 @@ html {
 }
 
 body {
-  background: #07111A;
+  background: #07111F;
   background-image:
     radial-gradient(ellipse 80% 50% at 50% -20%, rgba(199, 244, 100, 0.04) 0%, transparent 50%),
     radial-gradient(ellipse 60% 40% at 80% 0%, rgba(199, 244, 100, 0.02) 0%, transparent 40%);
   background-attachment: fixed;
-  color: #F2F7F5;
+  color: #F4F8FC;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
@@ -1123,7 +1135,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 1.25rem;
-  color: #C7F464;
+  color: #D9A441;
   text-shadow: 0 0 20px rgba(255, 159, 90, 0.3);
   letter-spacing: 0.02em;
 }
@@ -1138,7 +1150,7 @@ a:hover { color: var(--color-primary-light); }
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: linear-gradient(135deg, #C7F464, #C7F464);
+  background: linear-gradient(135deg, #D9A441, #D9A441);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1149,7 +1161,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
-  color: #F2F7F5;
+  color: #F4F8FC;
 }
 
 /* Corps carte : utilisateur + avantages */
@@ -1162,7 +1174,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  color: #F2F7F5;
+  color: #F4F8FC;
   margin-bottom: 1rem;
 }
 
@@ -1181,7 +1193,7 @@ a:hover { color: var(--color-primary-light); }
   gap: 0.625rem;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.8125rem;
-  color: #B5C4C9;
+  color: #B7C7D9;
   line-height: 1.5;
 }
 
@@ -1192,7 +1204,7 @@ a:hover { color: var(--color-primary-light); }
   height: 6px;
   margin-top: 6px;
   border-radius: 50%;
-  background: #C7F464;
+  background: #D9A441;
   box-shadow: 0 0 8px rgba(199, 244, 100, 0.6);
 }
 
@@ -1215,7 +1227,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.6875rem;
   font-weight: 600;
-  color: #C7F464;
+  color: #D9A441;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -1225,7 +1237,7 @@ a:hover { color: var(--color-primary-light); }
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #C7F464;
+  background: #D9A441;
   box-shadow: 0 0 8px rgba(199, 244, 100, 0.8);
   animation: vip-pulse 2s ease-in-out infinite;
 }
@@ -1238,7 +1250,7 @@ a:hover { color: var(--color-primary-light); }
 .vip-glass-meta {
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.6875rem;
-  color: #1C3546;
+  color: #29445F;
 }
 
 /* CTA carte VIP glassmorphism */
@@ -1250,8 +1262,8 @@ a:hover { color: var(--color-primary-light); }
   width: 100%;
   padding: 0.75rem 1.25rem;
   margin-top: 1.25rem;
-  background: linear-gradient(135deg, #C7F464 0%, #142C3E 100%);
-  color: #F2F7F5;
+  background: linear-gradient(135deg, #D9A441 0%, #17324D 100%);
+  color: #F4F8FC;
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
@@ -1267,8 +1279,8 @@ a:hover { color: var(--color-primary-light); }
 .vip-glass-cta:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(199, 244, 100, 0.5);
-  background: linear-gradient(135deg, #A6D941 0%, #C7F464 100%);
-  border-color: #A6D941;
+  background: linear-gradient(135deg, #B89034 0%, #D9A441 100%);
+  border-color: #B89034;
 }
 
 .vip-glass-cta:active {
@@ -1286,13 +1298,13 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .vip-glass-card.gold .vip-glass-level {
-  color: #C7F464;
+  color: #D9A441;
   text-shadow: 0 0 24px rgba(255, 159, 90, 0.5);
 }
 
 /* Silver — Brume Bleutée sobre */
 .vip-glass-card.silver .vip-glass-level {
-  color: #B5C4C9;
+  color: #B7C7D9;
   text-shadow: 0 0 16px rgba(165, 171, 197, 0.3);
 }
 
@@ -1307,7 +1319,7 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .vip-glass-card.elite .vip-glass-level {
-  color: #C7F464;
+  color: #D9A441;
   text-shadow: 0 0 28px rgba(255, 159, 90, 0.6);
 }
 
@@ -1336,7 +1348,7 @@ a:hover { color: var(--color-primary-light); }
 
 /* ═══ Focus visible — accessibility ═══ */
 *:focus-visible {
-  outline: 2px solid #C7F464;
+  outline: 2px solid #D9A441;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -1412,4 +1424,24 @@ body {
 .hover-tap:active {
   transform: scale(0.97);
   transition: transform 0.1s ease;
+}
+
+
+/* ════════════════════════════════════════════════════════════════════════════
+   Focus-visible states — accessibility (WCAG 2.1)
+   Applied to interactive elements for keyboard navigation
+   ════════════════════════════════════════════════════════════════════════════ */
+*:focus-visible {
+  outline: 2px solid #7DB4FF;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Hover state enhancements for cards and buttons */
+.card-hover {
+  transition: background-color 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+.card-hover:hover {
+  background-color: #17324D;
+  border-color: #3A5A7F;
 }
