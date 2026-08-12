@@ -493,13 +493,18 @@ export default function BttsTodayDashboard() {
   const [loading, setLoading] = useState(true)
   const [activeFilter, setActiveFilter] = useState<FilterType>('all')
   const [generationDate, setGenerationDate] = useState<string | null>(null)
+  const [todayMatches, setTodayMatches] = useState<MatchData[]>([])
+  const [upcomingMatches, setUpcomingMatches] = useState<MatchData[]>([])
 
   useEffect(() => {
     fetch('/predictions.json')
       .then(r => r.json())
       .then(data => {
         const raw: RawPrediction[] = data?.free || data?.predictions || []
-        const todayStr = new Date().toISOString().slice(0, 10)
+        // Today's date in Africa/Dakar (Senegal timezone = UTC+0 / GMT)
+        // Important: do NOT use UTC blindly — use Intl with explicit timezone to ensure
+        // the date matches the site's local day, even if the user's browser uses another TZ.
+        const todayStr = new Date().toLocaleDateString('sv-SE', { timeZone: 'Africa/Dakar' })
 
         // Group by match (predictions.json stores one row per market — BTTS or Over 2.5)
         const map = new Map<string, MatchData>()
@@ -556,13 +561,21 @@ export default function BttsTodayDashboard() {
           }
         }
 
-        const all = [...map.values()].filter(m => m.date >= todayStr).sort((a, b) => {
-          const da = `${a.date}T${a.time || '23:59'}`
-          const db = `${b.date}T${b.time || '23:59'}`
-          return da.localeCompare(db)
-        })
+        // Separate today's matches from upcoming matches.
+        // - todayMatches: date === todayStr (real today matches, Africa/Dakar)
+        // - upcomingMatches: date > todayStr (kept for the "À venir" section)
+        // We never show past matches (date < todayStr).
+        const all = [...map.values()]
+          .filter(m => m.date >= todayStr)
+          .sort((a, b) => {
+            const da = `${a.date}T${a.time || '23:59'}`
+            const db = `${b.date}T${b.time || '23:59'}`
+            return da.localeCompare(db)
+          })
 
         setMatches(all)
+        setTodayMatches(all.filter(m => m.date === todayStr))
+        setUpcomingMatches(all.filter(m => m.date > todayStr))
         if (typeof data?.date === 'string' && data.date.length > 0) setGenerationDate(data.date)
         setLoading(false)
       })
@@ -580,15 +593,17 @@ export default function BttsTodayDashboard() {
       ? Math.round(matches.reduce((s, m) => s + (m.reliabilityScore ?? 0), 0) / matches.length)
       : null
 
+    // todayCount = number of matches scheduled for today (Africa/Dakar)
+    // Does NOT include upcoming matches (those go to the "À venir" section).
     return {
-      todayCount: matches.length,  // = matchs réellement affichés (pas une comparaison de date locale)
+      todayCount: todayMatches.length,
       total: matches.length,
       bttsHigh,
       overHigh,
       highQuality,
       avgReliability,
     }
-  }, [matches])
+  }, [matches, todayMatches])
 
   // ─── AI COMBO OF THE DAY — deterministic selection from real data only ──
   // Eligibility filter (NO recalculation — uses predictions.json values as-is):
@@ -807,24 +822,82 @@ export default function BttsTodayDashboard() {
         ))}
       </div>
 
-      {/* ─── MATCH GRID ─── */}
+      {/* ─── TODAY'S MATCHES ─── */}
       {loading ? (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           {[1, 2, 3, 4].map(i => (
             <div key={i} className="rounded-xl h-64 animate-pulse" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }} />
           ))}
         </div>
-      ) : filteredMatches.length === 0 ? (
-        <div className="rounded-xl p-8 text-center" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
-          <p className="text-sm font-bold mb-1" style={{ color: C.text }}>No matches under this filter</p>
-          <p className="text-[11px]" style={{ color: C.textSec }}>Try another filter or come back later.</p>
-        </div>
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-          {filteredMatches.map((m, i) => (
-            <MatchCard key={m.key} match={m} index={i} />
-          ))}
-        </div>
+        <>
+          {/* ─── Section: Aujourd'hui ─── */}
+          <div className="mb-6">
+            <h3 className="text-xs uppercase tracking-widest font-black mb-3" style={{ color: C.text }}>
+              Aujourd&apos;hui
+              <span className="ml-2 px-2 py-0.5 rounded-full text-[10px] font-bold" style={{
+                backgroundColor: todayMatches.length > 0 ? `${C.success}20` : `${C.textMute}20`,
+                color: todayMatches.length > 0 ? C.success : C.textMute,
+              }}>
+                {todayMatches.length}
+              </span>
+            </h3>
+            {todayMatches.length === 0 ? (
+              <div className="rounded-xl p-8 text-center" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
+                <p className="text-sm font-bold mb-1" style={{ color: C.text }}>Aucun match disponible aujourd&apos;hui</p>
+                <p className="text-[11px]" style={{ color: C.textSec }}>Revenez plus tard ou consultez les matchs à venir ci-dessous.</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                {todayMatches
+                  .filter(m => {
+                    if (activeFilter === 'BTTS') return (m.bttsProb ?? 0) >= 0.5
+                    if (activeFilter === 'O2.5') return (m.over25Prob ?? 0) >= 0.5
+                    if (activeFilter === 'HIGH') return (m.reliabilityScore ?? 0) >= 80
+                    return true
+                  })
+                  .map((m, i) => (
+                    <MatchCard key={`today-${m.key}`} match={m} index={i} />
+                  ))}
+              </div>
+            )}
+          </div>
+
+          {/* ─── Section: À venir ─── */}
+          {upcomingMatches.length > 0 && (
+            <div>
+              <h3 className="text-xs uppercase tracking-widest font-black mb-3" style={{ color: C.text }}>
+                À venir
+                <span className="ml-2 px-2 py-0.5 rounded-full text-[10px] font-bold" style={{
+                  backgroundColor: `${C.textSec}20`,
+                  color: C.textSec,
+                }}>
+                  {upcomingMatches.length}
+                </span>
+              </h3>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                {upcomingMatches
+                  .filter(m => {
+                    if (activeFilter === 'BTTS') return (m.bttsProb ?? 0) >= 0.5
+                    if (activeFilter === 'O2.5') return (m.over25Prob ?? 0) >= 0.5
+                    if (activeFilter === 'HIGH') return (m.reliabilityScore ?? 0) >= 80
+                    return true
+                  })
+                  .map((m, i) => (
+                    <MatchCard key={`upcoming-${m.key}`} match={m} index={i} />
+                  ))}
+              </div>
+            </div>
+          )}
+
+          {/* Empty state when both sections are empty under current filter */}
+          {todayMatches.length === 0 && upcomingMatches.length === 0 && (
+            <div className="rounded-xl p-8 text-center" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
+              <p className="text-sm font-bold mb-1" style={{ color: C.text }}>No matches under this filter</p>
+              <p className="text-[11px]" style={{ color: C.textSec }}>Try another filter or come back later.</p>
+            </div>
+          )}
+        </>
       )}
 
       {/* ─── Footer disclaimer ─── */}

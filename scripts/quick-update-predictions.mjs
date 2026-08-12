@@ -19,7 +19,7 @@ if (!fs.existsSync(ARCHIVE_DIR)) fs.mkdirSync(ARCHIVE_DIR, { recursive: true })
 const FUTURE_DAYS = 7        // look ahead 7 days to ensure we always have matches
 const MAX_FREE = 12           // show up to 12 free matches (Gemini-powered analysis)
 const MAX_VIP = 8            // show up to 8 VIP matches
-const DISPLAY_TZ = 'Europe/Paris'
+const DISPLAY_TZ = 'Africa/Dakar'  // Senegal timezone = UTC+0 (GMT)
 
 // ─── HIGH BTTS Leagues ───
 const ESPN_SLUGS = {
@@ -504,8 +504,15 @@ async function quickUpdate() {
     scored.push(prediction)
   }
 
-  // ─── SORT BY RELIABILITY DESC ───
-  scored.sort((a, b) => b.reliabilityScore - a.reliabilityScore)
+  // ─── SORT BY DATE ASC FIRST, THEN RELIABILITY DESC ───
+  // Priority: matches scheduled for TODAY (Africa/Dakar) come first,
+  // then upcoming matches sorted by date ascending.
+  // Within the same date, sort by reliability descending.
+  scored.sort((a, b) => {
+    const dateCmp = (a.date || '').localeCompare(b.date || '')
+    if (dateCmp !== 0) return dateCmp
+    return b.reliabilityScore - a.reliabilityScore
+  })
 
   // ─── DISPLAY-FIRST PUBLICATION ───
   // Free: top 8 by reliability (any score, always show top)
