@@ -295,7 +295,7 @@ export default function HistoriqueClient() {
             style={{ backgroundColor: '#0D1B2A', color: '#B7C7D9', border: '1px solid #29445F' }}>
             Méthodologie du modèle →
           </Link>
-          <Link href="/pronostics" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
+          <Link href="/btts/predictions/today" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
             style={{ backgroundColor: '#16A36A', color: '#07111F' }}>
             Voir les pronostics du jour →
           </Link>

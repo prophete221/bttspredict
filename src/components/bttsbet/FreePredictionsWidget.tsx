@@ -60,7 +60,7 @@ export default function FreePredictionsWidget() {
           <h2 className="text-base font-bold" style={{ color: 'var(--text-primary)', fontFamily: 'Poppins, sans-serif' }}>
             Pronostics du jour
           </h2>
-          <a href="/pronostics" className="text-[11px] font-bold" style={{ color: 'var(--brand-indigo)' }}>
+          <a href="/btts/predictions/today" className="text-[11px] font-bold" style={{ color: 'var(--brand-indigo)' }}>
             Tous les pronostics →
           </a>
         </div>

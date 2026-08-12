@@ -6,7 +6,7 @@
  *
  * Used by:
  *  - src/app/match/[slug]/page.tsx (static generation)
- *  - Internal links from /pronostics cards
+ *  - Internal links from /btts/predictions/today cards
  *  - Sitemap generator
  */
 
@@ -141,7 +141,13 @@ export function loadAllMatches(): Map<string, MatchData> {
  */
 export function getMatchBySlug(slug: string): MatchData | null {
   const matches = loadAllMatches()
-  return matches.get(slug) || null
+  let decodedSlug = slug
+  try {
+    decodedSlug = decodeURIComponent(slug)
+  } catch {
+    // Keep the original slug when a malformed URL segment is supplied.
+  }
+  return matches.get(decodedSlug) || null
 }
 
 /**

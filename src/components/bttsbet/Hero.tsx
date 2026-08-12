@@ -98,7 +98,7 @@ export default function Hero() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => {
-              // Plateforme PRO v64 : /pronostics supprimé, les pronostics sont sur la homepage
+              // La page complète des pronostics est /btts/predictions/today ; ce CTA reste un scroll local.
               const el = document.getElementById('free-predictions') || document.getElementById('main-content')
               if (el) {
                 el.scrollIntoView({ behavior: 'smooth', block: 'start' })

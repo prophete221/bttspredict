@@ -209,7 +209,7 @@ export default function MethodologiePage() {
           {/* Liens utiles */}
           <section className="pt-8 border-t border-[#29445F]">
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <a href="/pronostics" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
+              <a href="/btts/predictions/today" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
                 style={{ backgroundColor: '#16A36A', color: '#07111F' }}>
                 Voir les pronostics du jour →
               </a>
