@@ -113,16 +113,14 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
                 <th className="text-center py-2 px-2">Prévision</th>
                 <th className="text-center py-2 px-2">Score</th>
                 <th className="text-center py-2 px-2">Rés.</th>
-                <th className="text-right py-2 px-2">P/L</th>
               </tr>
             </thead>
             <tbody>
               {dedupedHistory.length === 0 ? (
-                <tr><td colSpan={7} className="text-center text-[#94A3B8] py-8">Aucun résultat vérifié.</td></tr>
+                <tr><td colSpan={6} className="text-center text-[#94A3B8] py-8">Aucun résultat vérifié.</td></tr>
               ) : (
                 dedupedHistory.slice(0, 100).map((h: any, i: number) => {
                   const isWon = h.status === 'WON' || h.isWon === true
-                  const pl = isWon ? '+0.75' : '-1.00'
                   const isGold = (h.tier || 'STANDARD').toUpperCase() === 'GOLD'
                   const market = getMarket(h)
                   return (
@@ -138,7 +136,7 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
                       <td className="py-1.5 px-2 text-center" style={{ color: isWon ? '#3B82F6' : '#EF4444' }}>
                         <strong>{isWon ? 'W' : 'L'}</strong>
                       </td>
-                      <td className="py-1.5 px-2 text-right font-mono" style={{ color: isWon ? '#3B82F6' : '#EF4444' }}>{pl}</td>
+
                     </tr>
                   )
                 })

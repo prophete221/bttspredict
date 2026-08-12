@@ -274,7 +274,7 @@ export default function VipClient() {
                 </span>
               </button>
               <p className="text-xs mb-5" style={{ color: TEXT_SEC }}>
-                Bonus <strong style={{ color: GOLD }}>90 000 XOF</strong> · Dépôt min 3 000 F
+                Bonus · Conditions à vérifier auprès de Linebet · Dépôt min 3 000 F
               </p>
 
               {/* 3 boutons */}
@@ -328,7 +328,7 @@ export default function VipClient() {
               {/* Badge */}
               <div className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.18em] mb-4"
                 style={{ backgroundColor: `${ORANGE}1A`, color: ORANGE, border: `1px solid ${ORANGE}55` }}>
-                ★ Bonus 200% sur 1er dépôt
+                ★ Bonus · Conditions à vérifier auprès de 888Starz
               </div>
 
               <p className="text-[11px] uppercase tracking-[0.25em] mb-2" style={{ color: TEXT_SEC }}>

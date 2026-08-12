@@ -197,7 +197,7 @@ export default function PolitiqueConfidentialitePage() {
                   </p>
                   <ul className="list-disc list-inside space-y-1 ml-4 text-cendre">
                     <li><strong className="text-cendre">Cookies strictement nécessaires :</strong> indispensables au fonctionnement du site (session, sécurité, consentement).</li>
-                    <li><strong className="text-cendre">Cookies analytiques :</strong> permettent de comprendre comment les visiteurs utilisent le site (Google Analytics).</li>
+                    <li><strong className="text-cendre">Cookies analytiques :</strong> utilisés uniquement si un service d&apos;analyse est activé. À défaut, aucun cookie d&apos;analyse n&apos;est déposé.</li>
                     <li><strong className="text-cendre">Cookies de fonctionnalité :</strong> mémorisent vos préférences (thème, langue, paramètres d&apos;affichage).</li>
                     <li><strong className="text-cendre">Cookies marketing/affiliation :</strong> utilisés pour le suivi des conversions et le programme d&apos;affiliation avec nos partenaires.</li>
                   </ul>
@@ -245,9 +245,9 @@ export default function PolitiqueConfidentialitePage() {
                     BTTSPredict fait appel à des services tiers qui peuvent collecter des données lors de votre navigation :
                   </p>
 
-                  <h3 className="text-lg text-gold font-semibold mt-4 mb-2">4.1 Google Analytics</h3>
+                  <h3 className="text-lg text-gold font-semibold mt-4 mb-2">4.1 Service d&apos;analyse</h3>
                   <p>
-                    Nous utilisons Google Analytics, un service d&apos;analyse web fourni par Google LLC. Ce service utilise des cookies pour analyser l&apos;utilisation du site de manière anonyme. Les données collectées (pages visitées, durée de visite, source de trafic, données démographiques agrégées) sont transmises et stockées sur les serveurs de Google aux États-Unis. Google peut utiliser ces données pour contextualiser et personnaliser les annonces de son réseau publicitaire. Vous pouvez vous opposer au suivi par Google Analytics en installant le module complémentaire de désactivation pour navigateurs fourni par Google.
+                    Le site peut activer un service d&apos;analyse uniquement si un identifiant de mesure est configuré dans l&apos;environnement de build. À défaut, aucun cookie d&apos;analyse n&apos;est déposé.
                   </p>
 
                   <h3 className="text-lg text-gold font-semibold mt-4 mb-2">4.2 Programme d&apos;affiliation Linebet</h3>
@@ -316,7 +316,7 @@ export default function PolitiqueConfidentialitePage() {
                   <ul className="list-disc list-inside space-y-1 ml-4 text-cendre">
                     <li><strong className="text-cendre">Cookies de session :</strong> durée de la session de navigation.</li>
                     <li><strong className="text-cendre">Cookie de consentement :</strong> 13 mois à compter du dépôt.</li>
-                    <li><strong className="text-cendre">Cookies analytiques (Google Analytics) :</strong> 14 mois maximum (durée de conservation par défaut configurée).</li>
+                    <li><strong className="text-cendre">Cookies analytiques :</strong> uniquement si un service d&apos;analyse est activé dans l&apos;environnement de build.</li>
                     <li><strong className="text-cendre">Cookies d&apos;affiliation :</strong> 30 à 90 jours selon les conditions du programme d&apos;affiliation Linebet.</li>
                   </ul>
                   <p>

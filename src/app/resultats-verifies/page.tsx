@@ -5,11 +5,11 @@ import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import ResultatsClient from './ResultatsClient'
 
 export const metadata: Metadata = {
-  title: 'Résultats des pronostics BTTS et Over 2,5 vérifiés',
+  title: 'Résultats vérifiés des pronostics | BTTSPredict',
   description: "Consultez l'historique des pronostics publiés avant les matchs et leurs résultats vérifiés après coup. Données datées et méthode transparente.",
   alternates: { canonical: 'https://bttspredict.com/resultats-verifies' },
   openGraph: {
-    title: 'Résultats des pronostics BTTS et Over 2,5 vérifiés',
+    title: 'Résultats vérifiés des pronostics | BTTSPredict',
     description: "Consultez l'historique des pronostics publiés avant les matchs et leurs résultats vérifiés après coup. Données datées et méthode transparente.",
     url: 'https://bttspredict.com/resultats-verifies',
     type: 'website',
@@ -49,7 +49,7 @@ export default function ResultatsVerifiesPage() {
             <p className="text-[11px] text-[#9ca3af] leading-relaxed">
               <strong className="text-[#9ca3af]">Règle d&apos;intégrité :</strong> Aucun pronostic n&apos;est modifié ou supprimé après publication.
               Chaque entrée contient la date, le match, le marché, la proba, le score final, le résultat et la source de vérification (ESPN).
-              Cote moyenne utilisée pour le ROI: 1.75. Les performances passées ne garantissent pas les résultats futurs. 18+ — Jeu responsable.
+              Les résultats présentés correspondent aux prédictions et aux résultats effectivement enregistrés dans les données disponibles. Les performances historiques ne garantissent pas les résultats futurs. Aucune cote bookmaker n'est utilisée pour transformer une probabilité statistique en rendement garanti. 18+ — Jeu responsable.
             </p>
           </div>
         </div>

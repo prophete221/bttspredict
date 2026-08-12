@@ -3,7 +3,7 @@ import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Statistiques BTTS par ligue — Both Teams To Score',
+  title: 'Statistiques BTTS par ligue | BTTSPredict',
   description: "Liste des ligues couvertes par BTTSPredict pour le marché BTTS. Taux et moyennes historiques à intégrer via source vérifiable. Aucune garantie future. 18+.",
   alternates: { canonical: 'https://bttspredict.com/btts/statistics' },
   robots: { index: true, follow: true },
@@ -84,7 +84,7 @@ export default function BTTSStatisticsPage() {
             BTTS · Statistics
           </span>
           <h1 className="text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            BTTS Statistics par ligue
+            Statistiques BTTS par ligue
           </h1>
           <p className="text-base text-[#94A3B8] leading-relaxed mb-6">
             Liste des ligues couvertes par BTTSPredict pour le marché BTTS (Both Teams To Score). Les taux historiques et moyennes de buts par ligue ne sont pas affichés tant qu&apos;aucune source vérifiable n&apos;est intégrée au build.
