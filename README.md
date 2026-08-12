@@ -1,6 +1,6 @@
 # BTTSPredict — Pronostics BTTS & Over 2,5
 
-Plateforme de pronostics football BTTS (Both Teams To Score) et Over 2,5 basés sur un modèle Poisson + xG (Expected Goals). Données ESPN publiques, suivi public vérifiable depuis le 08/08/2026.
+Plateforme de pronostics football BTTS (Both Teams To Score) et Over 2,5 basés sur un modèle statistique (xG + Poisson lorsque ces données sont disponibles). Données ESPN publiques, suivi public vérifiable depuis le 08/08/2026.
 
 **URL de production** : https://bttspredict.com
 
@@ -18,20 +18,23 @@ Plateforme de pronostics football BTTS (Both Teams To Score) et Over 2,5 basés 
 src/
 ├── app/                    # Pages Next.js (App Router)
 │   ├── page.tsx           # Homepage — Pronostics BTTS et Over 2,5 du jour
-│   ├── vip/page.tsx       # Page VIP (carte 3D verrouillée + unlock modal)
+│   ├── vip/page.tsx       # Page VIP (carte premium verrouillée + unlock modal)
 │   ├── btts/              # BTTS predictions + statistics (spécialisé BTTS)
-│   │   ├── predictions/today/
+│   │   ├── predictions/today/        # Dashboard avec AI Combo of the Day
 │   │   ├── predictions/tomorrow/
 │   │   └── statistics/
 │   ├── over-2-5/          # Over 2.5 predictions + statistics (spécialisé Over 2,5)
 │   │   ├── predictions/today/
 │   │   └── statistics/
-│   ├── bonus-888starz/    # Page code promo 888Starz (pro)
-│   ├── code-promo-linebet-senegal/  # Page code promo Linebet (pro)
-│   ├── resultats-verifies/  # Historique auditable + Export CSV
+│   ├── btts-and-over-2-5-predictions-today/  # Page prédictions combinées
+│   ├── ai-correct-score-predictions/   # Page scores exacts (Poisson)
+│   ├── bonus-888starz/    # Page code promo 888Starz
+│   ├── code-promo-linebet-senegal/  # Page code promo Linebet
+│   ├── linebet-promo-code/  # Page redirect 301 → /code-promo-linebet-senegal
+│   ├── resultats-verifies/  # Historique auditable
 │   ├── historique/        # Historique complet vérifié
-│   ├── methodologie/      # Méthodologie modèle Poisson
-│   ├── sitemap.ts         # Sitemap Next.js natif (14 URLs)
+│   ├── methodologie/      # Méthodologie modèle statistique + critères qualité Combo
+│   ├── sitemap.ts         # Sitemap Next.js natif (16 URLs)
 │   └── layout.tsx         # Layout global + metadata + cache-busting
 ├── components/
 │   ├── bttsbet/           # Composants BTTSPredict
@@ -46,9 +49,10 @@ src/
 ├── lib/
 │   ├── constants.ts       # Liens affiliés (AFFILIATE.linebet/star888)
 │   ├── seo.ts             # checkSeo() anti-récidive (title ≤60, desc ≤150)
-│   └── matches.ts         # Chargement matchs SSG
+│   ├── teamLogos.ts       # Résolution logos ESPN
+│   └── motionPresets.ts   # Animations framer-motion réutilisables
 ├── hooks/                 # Hooks React (useAnimations, use-mobile, use-toast)
-└── app/globals.css        # Variables CSS Midnight Obsidian v90
+└── app/globals.css        # Variables CSS Slate Design System v68+
 
 public/
 ├── predictions.json       # Pronostics du jour (généré par CI)
@@ -66,7 +70,8 @@ public/
 └── logo/, logos/         # Logos équipes et bookmakers
 
 scripts/
-├── quick-update-predictions.mjs  # Génération pronostics (ESPN API + Poisson v91)
+├── quick-update-predictions.mjs  # Génération pronostics (ESPN API + Poisson v92 real-data)
+├── enrich_predictions.py         # Enrichissement Gemini 2.0 Flash (ai_analysis, ai_key_fact)
 ├── verify-results.mjs             # Vérification post-match (ESPN)
 ├── update-win-history.mjs         # Mise à jour historique
 ├── scrape-transfers.mjs          # Transferts joueurs
@@ -75,22 +80,24 @@ scripts/
 └── seo-report.mjs                 # Rapport SEO complet
 ```
 
-## Pages du site — 14 URLs canoniques (sitemap)
+## Pages du site — 16 URLs canoniques (sitemap)
 
 | Route | Description | Priorité | Fréquence |
 |-------|-------------|----------|-----------|
 | `/` | Homepage — Pronostics BTTS et Over 2,5 du jour | 1.0 | daily |
-| `/btts/predictions/today` | Pronostics BTTS du jour — les deux équipes marquent | 0.9 | daily |
-| `/over-2-5/predictions/today` | Pronostics Over 2,5 du jour — au moins 3 buts | 0.9 | daily |
+| `/btts/predictions/today` | Pronostics BTTS du jour + AI Combo of the Day | 0.9 | daily |
+| `/over-2-5/predictions/today` | Pronostics Over 2,5 du jour | 0.9 | daily |
+| `/btts-and-over-2-5-predictions-today` | Prédictions combinées BTTS + Over 2.5 | 0.9 | daily |
+| `/ai-correct-score-predictions` | Scores exacts (modèle Poisson) | 0.85 | daily |
 | `/btts/statistics` | Statistiques BTTS par ligue | 0.85 | monthly |
 | `/over-2-5/statistics` | Statistiques Over 2,5 par ligue | 0.85 | monthly |
-| `/resultats-verifies` | Résultats vérifiés + Export CSV | 0.85 | daily |
+| `/resultats-verifies` | Résultats vérifiés | 0.85 | daily |
 | `/historique` | Historique complet vérifié | 0.85 | daily |
-| `/vip` | Programme VIP (carte 3D + coupon verrouillé) | 0.9 | daily |
-| `/methodologie` | Méthodologie modèle Poisson | 0.8 | monthly |
+| `/vip` | Programme VIP (carte premium + unlock modal) | 0.9 | daily |
+| `/methodologie` | Méthodologie + critères qualité Combo | 0.8 | monthly |
 | `/btts-c-est-quoi` | Guide BTTS — définition et exemples | 0.75 | monthly |
-| `/code-promo-linebet-senegal` | Code promo Linebet VISION221 | 0.95 | weekly |
-| `/bonus-888starz` | Code promo 888Starz vision221 | 0.9 | weekly |
+| `/code-promo-linebet-senegal` | Code promo Linebet Sénégal | 0.95 | weekly |
+| `/bonus-888starz` | Code promo 888Starz Afrique | 0.9 | weekly |
 | `/jouer-responsable` | Jeu responsable — ressources d'aide | 0.5 | yearly |
 | `/mentions-legales` | Mentions légales | 0.3 | yearly |
 
@@ -99,13 +106,13 @@ scripts/
 | Route | Description |
 |-------|-------------|
 | `/btts/predictions/tomorrow` | Pronostics BTTS de demain |
-| `/match/[slug]` | Page match détaillée (SSG, 13+ matchs pré-générés) |
+| `/match/[slug]` | Page match détaillée (SSG, matchs pré-générés dynamiquement) |
 | `/cgu` | Conditions générales d'utilisation |
 | `/politique-confidentialite` | Politique de confidentialité |
-| `/statistiques` | Page placeholder (à supprimer — rediriger vers `/btts/statistics`) |
+| `/statistiques` | Page placeholder (statistiques en cours de compilation) |
 | `/linebet-promo-code` | Page redirect 301 → `/code-promo-linebet-senegal` |
 | `/predictions.json` | Route JSON (prédictions du jour) |
-| `/sitemap.xml` | Sitemap XML généré par Next.js |
+| `/sitemap.xml` | Sitemap XML généré par Next.js (16 URLs) |
 | `/404.html` | Page 404 personnalisée |
 
 ## Redirects 301 (`.htaccess`)
@@ -195,7 +202,7 @@ scripts/
 ## Liens SEO et crawlers
 
 ### Sitemap
-- `https://bttspredict.com/sitemap.xml` (14 URLs canoniques)
+- `https://bttspredict.com/sitemap.xml` (16 URLs canoniques)
 
 ### robots.txt
 Autorise **tous les bots** :
@@ -219,7 +226,7 @@ Autorise **tous les bots** :
 npm install --legacy-peer-deps
 npm run dev      # http://localhost:3000
 npm run build    # Build statique → out/
-npm test         # Tests Vitest (34 tests)
+npm test         # Tests Vitest (33 tests)
 npm run lint     # ESLint
 ```
 
@@ -244,28 +251,25 @@ Cron : `0 4,6,14,22 * * *` (4 mises à jour quotidiennes à 04h, 06h, 14h, 22h U
 
 - **Linebet** : `VISION221` (majuscules)
 - **888Starz** : `vision221` (minuscules)
-- Dépôt minimum : 3 000 XOF — **À VÉRIFIER** sur les sites officiels des bookmakers
+- Dépôt minimum : à vérifier sur les sites officiels des bookmakers
 - WhatsApp vérification : +1 540 670 4172
 
-⚠ **Avertissement** : Les bonus bookmakers ("90 000 XOF", "Bonus 200%", "mise x5") affichés sur le site sont des claims non sourcés. À vérifier sur les sites officiels Linebet et 888Starz avant publication commerciale.
+⚠ **Avertissement** : Les conditions et montants des bonus bookmakers peuvent évoluer. BTTSPredict ne présente plus de montants fixes ("90 000 XOF", "Bonus 200%") comme garantis — voir les mentions légales et les pages affiliées pour les formulations conditionnelles.
 
-## Palette de couleurs (Midnight Obsidian v90)
+## Palette de couleurs (Slate Design System)
 
 | Token | Couleur | Usage |
 |---|---|---|
-| `--bg-main` | `#07111A` | Fond principal (dark) |
-| `--card` | `#102333` | Cartes |
-| `--border` | `#1C3546` | Bordures |
-| `--text-primary` | `#F2F7F5` | Texte principal |
-| `--text-secondary` | `#B5C4C9` | Texte secondaire |
-| `--text-tertiary` | `#7F969E` | Texte tertiaire |
-| Baobab (CTA) | `#C7F464` | CTA principal (Linebet vert clair) |
-| Data | `#63D6FF` | Données, IA |
-| Copper | `#FF9F5A` | VIP/888Starz (rouge clair) |
-| Success | `#7BE495` | Succès |
-| Warning | `#FFD166` | Avertissement |
-| Danger | `#FF7A7A` | Erreur |
-| Gold | `#FFD700` | Premium VIP |
+| `bg` | `#0F172A` | Fond principal (Slate 900) |
+| `surface` | `#1E293B` | Cartes (Slate 800) |
+| `border` | `#334155` | Bordures (Slate 700) |
+| `text` | `#F8FAFC` | Texte principal (Slate 50) |
+| `textSec` | `#94A3B8` | Texte secondaire (Slate 400) |
+| Baobab / Success | `#10B981` | CTA principal, succès (Emerald 500) |
+| Data / IA | `#3B82F6` | Données, IA (Blue 500) |
+| Warning | `#F59E0B` | Avertissement, Over 2.5 (Amber 500) |
+| Danger | `#EF4444` | Erreur, LOW qualité (Red 500) |
+| Gold | `#FFD700` | Premium VIP, AI Combo of the Day |
 
 ## Conformité et anti-hallucination
 
@@ -273,9 +277,17 @@ Cron : `0 4,6,14,22 * * *` (4 mises à jour quotidiennes à 04h, 06h, 14h, 22h U
 - Toutes les valeurs statistiques sans source vérifiable sont marquées **"À VÉRIFIER"** dans l'UI
 - Les pages `/btts/statistics` et `/over-2-5/statistics` n'affichent aucun chiffre non sourcé
 - Aucun taux de réussite inventé pour les sports VIP
+- Aucune cote bookmaker artificielle (suppression de la colonne P/L basée sur cote 1.75 fixe)
+- Aucune promesse temporelle ("dans 7 jours", "100+ matchs vérifiés")
+
+### Affirmations éditoriales alignées avec le moteur
+- Le terme "modèle IA nouvelle génération", "50+ variables", "calibration mensuelle", "entraîné sur 2023-2025" ont été supprimés du site
+- Le terme "experts" est remplacé par "modèle statistique"
+- Aucune référence à blessures/météo/H2H comme données systématiquement utilisées
+- Le AI Combo of the Day est explicitement décrit comme sélection déterministe (pas Gemini)
 
 ### Placeholders désactivés
-- **Google Analytics** : `G-XXXXXXXXXX` désactivé via env-gating (`NEXT_PUBLIC_GA_ID` à définir dans GitHub Secrets)
+- **Google Analytics** : désactivé par défaut — activé uniquement si `NEXT_PUBLIC_GA_ID` est défini dans l'environnement de build (env-gating)
 - **Firebase** : `AIzaSyDemoKeyReplaceMeWithYourOwn` dans `AuthContext.jsx` (module mort non importé, non chargé en production)
 
 ### Liens affiliés
