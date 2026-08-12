@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-// import { motion } from 'framer-motion' // removed for bundle size
+import { motion } from 'framer-motion'
 import { SITE, AFFILIATE, LEGAL, FAQ_ITEMS, LONASE } from '@/lib/constants'
 import { useScrollAnimation } from '@/hooks/useAnimations'
 //import { staggerContainer, fadeInUp } from '@/lib/motionPresets'
@@ -15,7 +15,7 @@ export default function Footer() {
       <footer ref={ref} id="faq" className="border-t pt-10 pb-20 sm:pb-8 px-4" style={{ borderColor: '#16A36A', backgroundColor: '#07111F' }}>
         <div className="max-w-[440px] sm:max-w-2xl mx-auto">
           {/* Note de transparence (remplace les témoignages non vérifiables) */}
-          <div initial="hidden" className="mb-6">
+          <motion.div initial="hidden" className="mb-6">
             <div className="text-center mb-3">
               <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#16A36A]">Transparence</span>
             </div>
@@ -24,13 +24,13 @@ export default function Footer() {
                 BTTSPredict ne publie pas de témoignages clients. Notre engagement de transparence repose sur
                 un <a href="/historique" className="text-[#16A36A] underline">historique vérifiable publiquement</a>,
                 une <a href="/methodologie" className="text-[#16A36A] underline">méthodologie documentée</a> et
-                un suivi public lancé le 2026-08-08. Aucun résultat futur n'est garanti.
+                un suivi public lancé le 2026-08-08.                 Aucun résultat futur n'est garanti.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* FAQ */}
-          <div initial="hidden" className="mb-6">
+          <motion.div initial="hidden" className="mb-6">
             <div className="text-center mb-3">
               <h3 className="text-sm font-bold text-papier">Questions fréquentes</h3>
             </div>
@@ -46,7 +46,7 @@ export default function Footer() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Legal links */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">

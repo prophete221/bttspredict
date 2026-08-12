@@ -1,6 +1,6 @@
 'use client'
 
-// import { motion } from 'framer-motion' // removed for bundle size
+import { motion } from 'framer-motion'
 
 /**
  * GlobalReach — Section "Portée mondiale, racines panafricaines"
@@ -48,7 +48,7 @@ export default function GlobalReach() {
         </div>
 
         {/* Stats globales */}
-        <div
+        <motion.div
           viewport={{ once: true }}
           className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8"
         >
@@ -62,10 +62,10 @@ export default function GlobalReach() {
               <div className="text-[10px] text-cendre mt-1 uppercase tracking-wider">{stat.label}</div>
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Bloc Monde — régions Linebet */}
-        <div
+        <motion.div
           viewport={{ once: true }}
           className="mb-8"
         >
@@ -88,10 +88,10 @@ export default function GlobalReach() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Bloc Afrique de l'Ouest — focus panafricain */}
-        <div
+        <motion.div
           viewport={{ once: true }}
         >
           <h3 className="text-xl font-bold text-papier mb-4 flex items-center gap-2">
@@ -119,10 +119,10 @@ export default function GlobalReach() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Vision roadmap */}
-        <div
+        <motion.div
           viewport={{ once: true }}
           className="mt-8 p-5 rounded-xl text-center"
           style={{
@@ -135,7 +135,7 @@ export default function GlobalReach() {
           <p className="text-cendre text-xs leading-relaxed max-w-sm mx-auto">
             Devenir la référence mondiale du pari sportif IA sur BTTS et Over 2.5, en imposant un approche de transparence inégalé dans l&apos;industrie.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

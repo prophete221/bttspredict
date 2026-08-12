@@ -2,6 +2,19 @@
 
 import { useState, useEffect } from 'react'
 
+type ResultHistoryEntry = {
+  date: string
+  match: string
+  type?: string
+  market?: string
+  status?: string
+  isWon?: boolean
+  tier?: string
+  prediction?: string
+  finalScore?: string
+  score?: string
+}
+
 export default function ResultatsClient({ initialData }: { initialData?: any }) {
   const [data, setData] = useState<any>(initialData || null)
 
@@ -16,7 +29,7 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
   }
 
   const stats = data.stats
-  const history = data.history || []
+  const history: ResultHistoryEntry[] = data.history || []
   const won = stats.won || 0
   const lost = stats.lost || 0
   const total = won + lost
@@ -42,7 +55,7 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
 
   // Déduplication: clé date-match-type, garde les 2 lignes BTTS+Over mais avec Marché visible
   const seen = new Set()
-  const dedupedHistory = []
+  const dedupedHistory: ResultHistoryEntry[] = []
   for (const h of history) {
     const key = `${h.date}-${h.match}-${h.type || h.market || ''}`
     if (seen.has(key)) continue
@@ -119,7 +132,7 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
               {dedupedHistory.length === 0 ? (
                 <tr><td colSpan={6} className="text-center text-[#B7C7D9] py-8">Aucun résultat vérifié.</td></tr>
               ) : (
-                dedupedHistory.slice(0, 100).map((h: any, i: number) => {
+                dedupedHistory.slice(0, 100).map((h, i: number) => {
                   const isWon = h.status === 'WON' || h.isWon === true
                   const isGold = (h.tier || 'STANDARD').toUpperCase() === 'GOLD'
                   const market = getMarket(h)

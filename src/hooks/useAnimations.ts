@@ -145,8 +145,8 @@ export function useRevealOnScroll(
   return [ref, isVisible]
 }
 
-export function useScrollAnimation(threshold = 0.1): [React.RefObject<HTMLDivElement | null>, boolean] {
-  const ref = useRef<HTMLDivElement>(null)
+export function useScrollAnimation(threshold = 0.1): [React.RefObject<HTMLElement>, boolean] {
+  const ref = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -174,7 +174,7 @@ export function useScrollAnimation(threshold = 0.1): [React.RefObject<HTMLDivEle
     return () => observer.disconnect()
   }, [threshold])
 
-  return [ref, isVisible]
+  return [ref as React.RefObject<HTMLElement>, isVisible]
 }
 
 /**

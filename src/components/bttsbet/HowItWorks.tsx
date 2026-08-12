@@ -1,6 +1,6 @@
 'use client'
 
-// import { motion } from 'framer-motion' // removed for bundle size
+import { motion } from 'framer-motion'
 import { useScrollAnimation } from '@/hooks/useAnimations'
 //import { staggerContainer, staggerChildFadeUp } from '@/lib/motionPresets'
 
@@ -82,7 +82,7 @@ export default function HowItWorks() {
         </div>
 
         {/* Cards */}
-        <div
+        <motion.div
           initial="hidden"
           className="grid md:grid-cols-3 gap-5"
         >
@@ -129,7 +129,7 @@ export default function HowItWorks() {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
