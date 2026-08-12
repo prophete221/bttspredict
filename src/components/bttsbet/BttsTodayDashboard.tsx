@@ -105,6 +105,19 @@ interface MatchData {
 
 type FilterType = 'all' | 'BTTS' | 'O2.5' | 'HIGH' | 'VIP'
 
+// ─── AI Combo of the Day — selection type ───────────────────────────────
+// A ComboPick is a deterministic selection derived ONLY from data already
+// present in predictions.json. The frontend never recalculates probabilities;
+// it only filters, ranks, and chooses the higher qualifying market per match.
+interface ComboPick {
+  match: MatchData
+  market: 'BTTS' | 'OVER 2.5'
+  probability: number        // Real value from predictions.json (0..1) — untouched
+  reliabilityScore: number   // Real value from predictions.json (0..100)
+  dataQuality: string         // Real value from predictions.json (HIGH | MEDIUM | LOW)
+  matchCountTotal: number    // Real sum of matchCountHome + matchCountAway
+}
+
 // ─── Helpers ────────────────────────────────────────────────────────────
 function fmtPct(p?: number): string {
   if (p == null || !Number.isFinite(p)) return '—'
@@ -413,6 +426,67 @@ function MatchCard({ match, index }: { match: MatchData; index: number }) {
   )
 }
 
+// ─── ComboPickRow — one row inside AI COMBO OF THE DAY ──────────────────
+function ComboPickRow({ pick, index }: { pick: ComboPick; index: number }) {
+  const num = String(index + 1).padStart(2, '0')
+  const marketColor = pick.market === 'BTTS' ? C.success : C.warning
+
+  return (
+    <div className="rounded-lg p-2.5" style={{
+      backgroundColor: C.surface2,
+      border: `1px solid ${C.border}`,
+    }}>
+      {/* Row 1: number + match name + league/time */}
+      <div className="flex items-start gap-2 mb-1.5">
+        <span className="text-[12px] font-black tabular-nums flex-shrink-0 mt-0.5" style={{ color: C.gold }}>
+          {num}
+        </span>
+        <div className="flex-1 min-w-0">
+          <div className="text-[11px] font-bold truncate" style={{ color: C.text }}>
+            {pick.match.home} <span style={{ color: C.textSec }}>vs</span> {pick.match.away}
+          </div>
+          <div className="text-[9px] uppercase tracking-wider font-bold truncate" style={{ color: C.textSec }}>
+            {pick.match.league} · {pick.match.time || '--:--'}
+          </div>
+        </div>
+      </div>
+
+      {/* Row 2: market badge + real probability */}
+      <div className="flex items-center justify-between gap-2 mb-1.5">
+        <span
+          className="px-2 py-0.5 rounded text-[8px] font-black uppercase tracking-wider flex-shrink-0"
+          style={{
+            backgroundColor: `${marketColor}15`,
+            color: marketColor,
+            border: `1px solid ${marketColor}30`,
+          }}
+        >
+          {pick.market}
+        </span>
+        <span className="text-[14px] font-black tabular-nums" style={{ color: marketColor }}>
+          {(pick.probability * 100).toFixed(1)}%
+        </span>
+      </div>
+
+      {/* Row 3: meta info — source/quality/confidence (real values only) */}
+      <div className="flex items-center justify-between gap-2 mt-1.5 pt-1.5 text-[8px]" style={{
+        borderTop: `1px solid ${C.border}`,
+        color: C.textSec,
+      }}>
+        <span className="uppercase tracking-wider font-bold truncate flex-1 min-w-0">
+          {normalizeDataSource(pick.match.dataSource)} · {pick.dataQuality}
+        </span>
+        <span className="flex items-center gap-1 flex-shrink-0">
+          <span className="uppercase tracking-wider font-bold">Confidence</span>
+          <span className="font-black tabular-nums" style={{ color: C.gold }}>
+            {Math.round(pick.reliabilityScore)}%
+          </span>
+        </span>
+      </div>
+    </div>
+  )
+}
+
 // ─── Main Component ──────────────────────────────────────────────────────
 export default function BttsTodayDashboard() {
   const [matches, setMatches] = useState<MatchData[]>([])
@@ -516,6 +590,77 @@ export default function BttsTodayDashboard() {
     }
   }, [matches])
 
+  // ─── AI COMBO OF THE DAY — deterministic selection from real data only ──
+  // Eligibility filter (NO recalculation — uses predictions.json values as-is):
+  //   1. dataQuality !== 'LOW' (and must be a known value)
+  //   2. reliabilityScore >= 70
+  //   3. bttsProb >= 0.65 OR over25Prob >= 0.65
+  // For each qualifying match, the market with the higher qualifying probability
+  // is selected (deterministic — no randomization).
+  // Sort order (deterministic, stable):
+  //   1. reliabilityScore DESC
+  //   2. selected probability DESC
+  //   3. dataQuality HIGH > MEDIUM
+  //   4. matchCountTotal (real ESPN matches) DESC
+  //   5. alphabetical (home vs away) — stable tiebreak
+  const combo = useMemo<ComboPick[]>(() => {
+    if (loading || matches.length === 0) return []
+
+    const candidates: ComboPick[] = []
+
+    for (const m of matches) {
+      const dq = (m.dataQuality || '').toUpperCase()
+      if (dq === 'LOW' || dq === '') continue
+
+      const rs = m.reliabilityScore ?? 0
+      if (!Number.isFinite(rs) || rs < 70) continue
+
+      const btts = m.bttsProb ?? 0
+      const over = m.over25Prob ?? 0
+
+      const bttsQualifies = Number.isFinite(btts) && btts >= 0.65
+      const overQualifies = Number.isFinite(over) && over >= 0.65
+
+      if (!bttsQualifies && !overQualifies) continue
+
+      let market: 'BTTS' | 'OVER 2.5'
+      let probability: number
+      if (bttsQualifies && overQualifies) {
+        if (btts >= over) { market = 'BTTS'; probability = btts }
+        else { market = 'OVER 2.5'; probability = over }
+      } else if (bttsQualifies) {
+        market = 'BTTS'; probability = btts
+      } else {
+        market = 'OVER 2.5'; probability = over
+      }
+
+      candidates.push({
+        match: m,
+        market,
+        probability,
+        reliabilityScore: rs,
+        dataQuality: dq,
+        matchCountTotal: (m.matchCountHome ?? 0) + (m.matchCountAway ?? 0),
+      })
+    }
+
+    const dataQualityRank = (dq: string) => dq === 'HIGH' ? 2 : dq === 'MEDIUM' ? 1 : 0
+
+    candidates.sort((a, b) => {
+      if (a.reliabilityScore !== b.reliabilityScore) return b.reliabilityScore - a.reliabilityScore
+      if (a.probability !== b.probability) return b.probability - a.probability
+      const dqA = dataQualityRank(a.dataQuality)
+      const dqB = dataQualityRank(b.dataQuality)
+      if (dqA !== dqB) return dqB - dqA
+      if (a.matchCountTotal !== b.matchCountTotal) return b.matchCountTotal - a.matchCountTotal
+      const keyA = `${a.match.home} vs ${a.match.away}`
+      const keyB = `${b.match.home} vs ${b.match.away}`
+      return keyA.localeCompare(keyB)
+    })
+
+    return candidates.slice(0, 3)
+  }, [matches, loading])
+
   // ─── Filters ──────────────────────────────────────────────────────────
   const filters: { id: FilterType; label: string }[] = [
     { id: 'all',  label: 'All' },
@@ -581,6 +726,59 @@ export default function BttsTodayDashboard() {
           </div>
         )}
       </div>
+
+      {/* ─── AI COMBO OF THE DAY ─── */}
+      {/* Deterministic selection — NO Gemini call from client, NO recalculation. */}
+      {/* Source: /predictions.json fields only (bttsProb, over25Prob, reliabilityScore, dataQuality, dataSource). */}
+      {!loading && (
+        <div className="rounded-xl p-3 sm:p-4 mb-4" style={{
+          backgroundColor: C.surface,
+          border: `1px solid ${C.gold}40`,
+          boxShadow: `0 0 24px ${C.gold}08`,
+        }}>
+          {/* Header */}
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-base flex-shrink-0" style={{ color: C.gold }}>✦</span>
+            <div className="flex-1 min-w-0">
+              <div className="text-[10px] uppercase tracking-widest font-black" style={{ color: C.gold }}>
+                AI Combo of the Day
+              </div>
+              <div className="text-[9px]" style={{ color: C.textSec }}>
+                {combo.length === 3
+                  ? 'Statistical selection · 3 picks'
+                  : 'Statistical selection'}
+              </div>
+            </div>
+          </div>
+
+          {/* Picks — exactly 3 required, otherwise neutral empty state */}
+          {combo.length < 3 ? (
+            <div className="py-4 text-center">
+              <p className="text-[11px] font-bold" style={{ color: C.text }}>
+                Not enough qualifying selections today.
+              </p>
+              <p className="text-[9px] mt-1" style={{ color: C.textSec }}>
+                Eligibility: data quality not LOW, reliability ≥ 70%, BTTS or Over 2.5 ≥ 65%.
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-2">
+              {combo.map((pick, i) => (
+                <ComboPickRow
+                  key={`${pick.match.key}-${pick.market}`}
+                  pick={pick}
+                  index={i}
+                />
+              ))}
+            </div>
+          )}
+
+          {/* Disclaimer — discrete */}
+          <p className="text-[9px] mt-3 text-center" style={{ color: C.textMute }}>
+            AI selection based on statistical model outputs. No bet is guaranteed.
+          </p>
+        </div>
+      )}
 
       {/* ─── FILTERS ─── */}
       <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-2 mb-3">
