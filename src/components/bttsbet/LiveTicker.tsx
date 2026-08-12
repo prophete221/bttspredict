@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { formatDakarDateLabel, getDakarDateString, parseDakarDateTime } from '@/lib/dakar-date'
 
 type Match = {
   match: string
@@ -24,62 +25,38 @@ type LiveStatus = 'upcoming' | 'live' | 'finished'
  * - If date is today and time is in the past < 2.5h ago → live
  * - Otherwise → upcoming
  */
-function getMatchStatus(date: string, time?: string): LiveStatus {
-  if (!date) return 'finished'  // No date = skip it
+export function getMatchStatus(date: string, time?: string, now = new Date()): LiveStatus {
+  if (!date) return 'finished'
 
   try {
-    const today = new Date()
-    today.setHours(0, 0, 0, 0)
+    const today = getDakarDateString(now)
+    if (date < today) return 'finished'
+    if (date > today) return 'upcoming'
 
-    const matchDateOnly = new Date(date + 'T00:00:00')
-    matchDateOnly.setHours(0, 0, 0, 0)
-
-    // Match in a past day → definitely finished
-    if (matchDateOnly.getTime() < today.getTime()) return 'finished'
-
-    // Match in future day → upcoming
-    if (matchDateOnly.getTime() > today.getTime()) return 'upcoming'
-
-    // Match is today — check time
     if (!time || time === '--:--' || !/^\d{2}:\d{2}$/.test(time)) {
-      // Today, no time info — assume upcoming (visible)
       return 'upcoming'
     }
 
-    const [hours, minutes] = time.split(':').map(Number)
-    const matchDateTime = new Date(date + 'T00:00:00')
-    matchDateTime.setHours(hours, minutes, 0, 0)
+    const matchDateTime = parseDakarDateTime(date, time)
+    if (!matchDateTime) return 'finished'
 
-    const now = new Date()
     const diffMs = matchDateTime.getTime() - now.getTime()
     const diffHours = diffMs / (1000 * 60 * 60)
-
-    // Match started less than 2.5h ago → live
     if (diffMs < 0 && diffHours > -2.5) return 'live'
-    // Match started more than 2.5h ago → finished
     if (diffMs < 0) return 'finished'
-    // Match in the future → upcoming
     return 'upcoming'
   } catch {
     return 'finished'
   }
 }
 
-function getTimeUntilMatch(date: string, time?: string): string {
+export function getTimeUntilMatch(date: string, time?: string, now = new Date()): string {
   if (!date) return ''
   try {
-    let matchDateTime: Date
-    if (time && /^\d{2}:\d{2}$/.test(time)) {
-      const [h, m] = time.split(':').map(Number)
-      matchDateTime = new Date(date + 'T00:00:00')
-      matchDateTime.setHours(h, m, 0, 0)
-    } else {
-      matchDateTime = new Date(date + 'T12:00:00')
-    }
+    const matchDateTime = parseDakarDateTime(date, time && /^\d{2}:\d{2}$/.test(time) ? time : '12:00')
+    if (!matchDateTime) return ''
 
-    const now = new Date()
     const diffMs = matchDateTime.getTime() - now.getTime()
-
     if (diffMs < 0) return ''
     const diffMin = Math.floor(diffMs / (1000 * 60))
     const diffHours = Math.floor(diffMin / 60)
@@ -93,18 +70,9 @@ function getTimeUntilMatch(date: string, time?: string): string {
   }
 }
 
-function formatTime(date: string, time?: string): string {
+export function formatTime(date: string, time?: string, now = new Date()): string {
   if (!time || time === '--:--' || !/^\d{2}:\d{2}$/.test(time)) {
-    // No time — show date instead
-    try {
-      const d = new Date(date + 'T12:00:00')
-      const today = new Date(); today.setHours(0,0,0,0)
-      const matchDay = new Date(date + 'T00:00:00'); matchDay.setHours(0,0,0,0)
-      const diffDays = Math.round((matchDay.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
-      if (diffDays === 0) return 'Auj.'
-      if (diffDays === 1) return 'Dem.'
-      return d.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit' })
-    } catch { return '--:--' }
+    return formatDakarDateLabel(date, now)
   }
   return time
 }

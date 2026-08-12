@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect, useMemo } from 'react'
+import { getDakarDateSeed, getDakarDateString } from '@/lib/dakar-date'
 import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
 
@@ -11,8 +12,7 @@ const C = {
 }
 
 function getDailyCote(){
-  const t = new Date()
-  const s = t.getFullYear()*10000+(t.getMonth()+1)*100+t.getDate()
+  const s = getDakarDateSeed()
   const x = Math.sin(s*9301+49297)*233280
   return Math.round((12+(x-Math.floor(x))*18)*100)/100
 }
@@ -34,7 +34,7 @@ export default function PromoVip() {
   const [coteRef, coteDisplay] = useCountUp(dailyCote, 1500, { decimals: 2, threshold: 0.3 })
 
   useEffect(() => {
-    const todayStr = new Date().toISOString().slice(0, 10)
+    const todayStr = getDakarDateString()
     fetch('/predictions.json')
       .then(r => r.json())
       .then(data => {
