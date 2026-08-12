@@ -1,30 +1,37 @@
 import type { Metadata, Viewport } from "next";
 import dynamic from "next/dynamic";
-import { Poppins, Inter, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const BottomNavigation = dynamic(() => import("@/components/bttsbet/BottomNavigation"), { loading: () => null });
 const CookieConsent = dynamic(() => import("@/components/bttsbet/CookieConsent"), { loading: () => null });
 
-const poppins = Poppins({
+// ─── Local fonts (no network fetch during build) ───────────────────────────
+// Use next/font/local instead of next/font/google to avoid:
+//   - 'Can\'t resolve \'@vercel/turbopack-next/internal/font/google/font\'' on CI
+//   - 404 errors on fonts.gstatic.com during build in restricted networks (GitHub Actions)
+//
+// Files downloaded from fonts.googleapis.com (latin subset, weight 400) and stored locally.
+// The browser will apply font-weight: 400 to 900 via CSS fallback if heavier weights are used.
+const poppins = localFont({
   variable: "--font-display",
-  subsets: ["latin"],
-  weight: ['400', '500', '600', '700', '800', '900'],
+  src: "./fonts/poppins-400.woff2",
   display: 'swap',
+  weight: '400',
 });
 
-const inter = Inter({
+const inter = localFont({
   variable: "--font-body",
-  subsets: ["latin"],
-  weight: ['300', '400', '500', '600', '700'],
+  src: "./fonts/inter-400.woff2",
   display: 'swap',
+  weight: '400',
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const jetbrainsMono = localFont({
   variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ['400', '500', '700'],
+  src: "./fonts/jetbrains-mono-400.woff2",
   display: 'swap',
+  weight: '400',
 });
 
 export const metadata: Metadata = {
@@ -127,7 +134,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0F172A",
+  themeColor: "#131314",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
