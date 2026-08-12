@@ -39,16 +39,16 @@ type WinHistory = {
 }
 
 const COLORS = {
-  gold: '#10B981',
-  mint: '#10B981',
-  cyan: '#10B981',
-  rose: '#10B981',
-  panel: '#1E293B',
+  gold: '#16A36A',
+  mint: '#16A36A',
+  cyan: '#16A36A',
+  rose: '#16A36A',
+  panel: '#0D1B2A',
   edge: 'rgba(242, 247, 245, 0.08)',
-  text: '#94A3B8',
+  text: '#B7C7D9',
 }
 
-const LEAGUE_COLORS = ['#10B981', '#10B981', '#10B981', '#10B981', '#10B981', '#10B981', '#10B981', '#10B981', '#10B981', '#10B981']
+const LEAGUE_COLORS = ['#16A36A', '#16A36A', '#16A36A', '#16A36A', '#16A36A', '#16A36A', '#16A36A', '#16A36A', '#16A36A', '#16A36A']
 
 export default function StatsDashboard() {
   const [data, setData] = useState<WinHistory | null>(null)
@@ -224,11 +224,11 @@ export default function StatsDashboard() {
           </div>
           <div className="flex items-center gap-3 text-[10px]">
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#3B82F6' }} />
+              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#2176FF' }} />
               <span className="text-cendre">BTTS</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#3B82F6' }} />
+              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#2176FF' }} />
               <span className="text-cendre">Over 2.5</span>
             </span>
           </div>
@@ -248,7 +248,7 @@ export default function StatsDashboard() {
                   fontSize: 12,
                   color: '#fff',
                 }}
-                labelStyle={{ color: '#F8FAFC', fontWeight: 700 }}
+                labelStyle={{ color: '#F4F8FC', fontWeight: 700 }}
                 formatter={(v: number | null, name: string) => [
                   v == null ? 'N/A' : `${v}%`,
                   name === 'btts' ? 'BTTS' : 'Over 2.5',
@@ -257,19 +257,19 @@ export default function StatsDashboard() {
               <Line
                 type="monotone"
                 dataKey="btts"
-                stroke="#3B82F6"
+                stroke="#2176FF"
                 strokeWidth={2.5}
-                dot={{ fill: '#3B82F6', r: 3 }}
-                activeDot={{ r: 5, fill: '#3B82F6' }}
+                dot={{ fill: '#2176FF', r: 3 }}
+                activeDot={{ r: 5, fill: '#2176FF' }}
                 connectNulls
               />
               <Line
                 type="monotone"
                 dataKey="over25"
-                stroke="#3B82F6"
+                stroke="#2176FF"
                 strokeWidth={2.5}
-                dot={{ fill: '#3B82F6', r: 3 }}
-                activeDot={{ r: 5, fill: '#3B82F6' }}
+                dot={{ fill: '#2176FF', r: 3 }}
+                activeDot={{ r: 5, fill: '#2176FF' }}
                 connectNulls
               />
             </LineChart>

@@ -12,7 +12,7 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
   }, [data])
 
   if (!data || !data.stats) {
-    return <div className="text-center py-8 text-[#94A3B8]">Chargement…</div>
+    return <div className="text-center py-8 text-[#B7C7D9]">Chargement…</div>
   }
 
   const stats = data.stats
@@ -63,50 +63,50 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
       {/* Stats Summary — 3 cartes neutres, pas de ROI négatif */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
         {/* Carte 1: Vérifiés + Taux All */}
-        <div className="rounded-[16px] bg-[#1E293B] border border-[#334155] p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
-          <div className="text-[10px] text-[#94A3B8] uppercase tracking-widest">Vérifiés</div>
+        <div className="rounded-[16px] bg-[#0D1B2A] border border-[#29445F] p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
+          <div className="text-[10px] text-[#B7C7D9] uppercase tracking-widest">Vérifiés</div>
           <div className="mt-1 flex items-baseline gap-2">
-            <div className="text-3xl font-bold text-[#F8FAFC] font-mono">{total}</div>
-            <div className="text-xs text-[#94A3B8]">{won}W / {lost}L</div>
+            <div className="text-3xl font-bold text-[#F4F8FC] font-mono">{total}</div>
+            <div className="text-xs text-[#B7C7D9]">{won}W / {lost}L</div>
           </div>
-          <div className="mt-2 text-[10px] text-[#94A3B8]">
-            Taux All: <span className="text-[#F8FAFC] font-bold">{stats.rate}%</span>
+          <div className="mt-2 text-[10px] text-[#B7C7D9]">
+            Taux All: <span className="text-[#F4F8FC] font-bold">{stats.rate}%</span>
           </div>
         </div>
 
         {/* Carte 2: Gold */}
-        <div className="rounded-[16px] bg-[#142C3E] border border-[#10B981]/42 p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
-          <div className="text-[10px] text-[#10B981] uppercase tracking-widest font-bold">Gold Picks</div>
+        <div className="rounded-[16px] bg-[#17324D] border border-[#16A36A]/42 p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
+          <div className="text-[10px] text-[#16A36A] uppercase tracking-widest font-bold">Gold Picks</div>
           <div className="mt-1 flex items-baseline gap-2">
-            <div className="text-3xl font-bold text-[#F8FAFC] font-mono">{goldRate}%</div>
-            <div className="text-xs text-[#94A3B8]">{goldTotal} vérifiés</div>
+            <div className="text-3xl font-bold text-[#F4F8FC] font-mono">{goldRate}%</div>
+            <div className="text-xs text-[#B7C7D9]">{goldTotal} vérifiés</div>
           </div>
-          <div className="mt-2 text-[10px] text-[#94A3B8]">
+          <div className="mt-2 text-[10px] text-[#B7C7D9]">
             Sélection premium
-            {showGoldYield && <span className="ml-2 text-[#3B82F6]">Yield +{goldYield}%</span>}
+            {showGoldYield && <span className="ml-2 text-[#2176FF]">Yield +{goldYield}%</span>}
           </div>
         </div>
 
         {/* Carte 3: 30 derniers jours */}
-        <div className="rounded-[16px] bg-[#1E293B] border border-[#334155] p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
-          <div className="text-[10px] text-[#94A3B8] uppercase tracking-widest">Taux 30 derniers jours</div>
+        <div className="rounded-[16px] bg-[#0D1B2A] border border-[#29445F] p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
+          <div className="text-[10px] text-[#B7C7D9] uppercase tracking-widest">Taux 30 derniers jours</div>
           <div className="mt-1 flex items-baseline gap-2">
-            <div className="text-3xl font-bold text-[#F8FAFC] font-mono">{rate30}%</div>
-            <div className="text-xs text-[#94A3B8]">{w30}W / {l30}L</div>
+            <div className="text-3xl font-bold text-[#F4F8FC] font-mono">{rate30}%</div>
+            <div className="text-xs text-[#B7C7D9]">{w30}W / {l30}L</div>
           </div>
-          <div className="mt-2 text-[10px] text-[#94A3B8]">
+          <div className="mt-2 text-[10px] text-[#B7C7D9]">
             Dernier scan: il y a {Math.round((now - new Date(data.generatedAt).getTime()) / 3600000)}h via ESPN
           </div>
         </div>
       </div>
 
       {/* Table */}
-      <div className="rounded-[16px] bg-[#1E293B] border border-[#334155] p-4">
-        <h2 className="text-sm font-bold text-[#F8FAFC] mb-3">Tableau détaillé (100 derniers)</h2>
+      <div className="rounded-[16px] bg-[#0D1B2A] border border-[#29445F] p-4">
+        <h2 className="text-sm font-bold text-[#F4F8FC] mb-3">Tableau détaillé (100 derniers)</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-[11px]">
             <thead>
-              <tr className="text-[#94A3B8] border-b border-[#334155]">
+              <tr className="text-[#B7C7D9] border-b border-[#29445F]">
                 <th className="text-left py-2 px-2">Date</th>
                 <th className="text-left py-2 px-2">Match</th>
                 <th className="text-left py-2 px-2">Marché</th>
@@ -117,23 +117,23 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
             </thead>
             <tbody>
               {dedupedHistory.length === 0 ? (
-                <tr><td colSpan={6} className="text-center text-[#94A3B8] py-8">Aucun résultat vérifié.</td></tr>
+                <tr><td colSpan={6} className="text-center text-[#B7C7D9] py-8">Aucun résultat vérifié.</td></tr>
               ) : (
                 dedupedHistory.slice(0, 100).map((h: any, i: number) => {
                   const isWon = h.status === 'WON' || h.isWon === true
                   const isGold = (h.tier || 'STANDARD').toUpperCase() === 'GOLD'
                   const market = getMarket(h)
                   return (
-                    <tr key={i} className="border-b border-[#334155]/30">
-                      <td className="py-1.5 px-2 text-[#94A3B8] font-mono">{(h.date||'').slice(5)}</td>
-                      <td className="py-1.5 px-2 text-[#94A3B8]">{(h.match||'').substring(0,35)}</td>
-                      <td className="py-1.5 px-2 text-[#94A3B8]">
+                    <tr key={i} className="border-b border-[#29445F]/30">
+                      <td className="py-1.5 px-2 text-[#B7C7D9] font-mono">{(h.date||'').slice(5)}</td>
+                      <td className="py-1.5 px-2 text-[#B7C7D9]">{(h.match||'').substring(0,35)}</td>
+                      <td className="py-1.5 px-2 text-[#B7C7D9]">
                         {market}
-                        {isGold && <span className="ml-1 text-[10px] text-[#10B981] font-bold">GOLD</span>}
+                        {isGold && <span className="ml-1 text-[10px] text-[#16A36A] font-bold">GOLD</span>}
                       </td>
-                      <td className="py-1.5 px-2 text-center text-[#94A3B8] font-mono">{h.prediction || '—'}</td>
-                      <td className="py-1.5 px-2 text-center text-[#F8FAFC] font-mono">{h.finalScore||h.score||'-'}</td>
-                      <td className="py-1.5 px-2 text-center" style={{ color: isWon ? '#3B82F6' : '#EF4444' }}>
+                      <td className="py-1.5 px-2 text-center text-[#B7C7D9] font-mono">{h.prediction || '—'}</td>
+                      <td className="py-1.5 px-2 text-center text-[#F4F8FC] font-mono">{h.finalScore||h.score||'-'}</td>
+                      <td className="py-1.5 px-2 text-center" style={{ color: isWon ? '#2176FF' : '#D94B4B' }}>
                         <strong>{isWon ? 'W' : 'L'}</strong>
                       </td>
 

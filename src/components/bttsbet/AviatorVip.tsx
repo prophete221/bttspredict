@@ -6,10 +6,10 @@ import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
 
 const C = {
-  bg: '#0F172A', card: '#1E293B', border: 'rgba(242, 247, 245, 0.08)',
-  green: '#10B981', greenLight: '#10B981', gold: '#10B981', cyan: '#10B981', violet: '#10B981',
-  text: '#F8FAFC', textSec: '#94A3B8', textMute: '#94A3B8',
-  danger: '#10B981',
+  bg: '#07111F', card: '#0D1B2A', border: 'rgba(242, 247, 245, 0.08)',
+  green: '#16A36A', greenLight: '#16A36A', gold: '#16A36A', cyan: '#16A36A', violet: '#16A36A',
+  text: '#F4F8FC', textSec: '#B7C7D9', textMute: '#B7C7D9',
+  danger: '#16A36A',
 }
 
 function getHourlyServerSeed(): string {
@@ -81,7 +81,7 @@ export default function AviatorVip() {
 
   return (
     <>
-      <section ref={ref} id="aviator" className="section-pad overflow-x-hidden" style={{ paddingTop: '16px', paddingBottom: '16px', backgroundColor: '#0F172A' }}>
+      <section ref={ref} id="aviator" className="section-pad overflow-x-hidden" style={{ paddingTop: '16px', paddingBottom: '16px', backgroundColor: '#07111F' }}>
         <div className="max-w-[440px] sm:max-w-2xl mx-auto">
           {/* Compact card */}
           <motion.div
@@ -153,7 +153,7 @@ export default function AviatorVip() {
               <button
                 onClick={() => setShowModal(true)}
                 className="w-full mt-3 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-xs font-bold transition-all"
-                style={{ background: 'linear-gradient(135deg, #10B981, #10B981)', color: '#0F172A' }}
+                style={{ background: 'linear-gradient(135deg, #16A36A, #16A36A)', color: '#07111F' }}
               >
                 🔒 Débloquer les Stats Aviator VIP
               </button>
