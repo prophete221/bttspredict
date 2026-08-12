@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 
 export const metadata: Metadata = {
-  title: 'Méthodologie BTTSPredict : comment sont analysés les matchs',
+  title: 'Méthodologie | BTTSPredict',
   description: "Découvrez les données, filtres et limites utilisés pour analyser BTTS et Over 2,5. Méthode transparente, résultats vérifiables et aucune garantie.",
   alternates: { canonical: 'https://bttspredict.com/methodologie' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Méthodologie BTTSPredict : comment sont analysés les matchs',
+    title: 'Méthodologie | BTTSPredict',
     description: "Découvrez les données, filtres et limites utilisés pour analyser BTTS et Over 2,5. Méthode transparente, résultats vérifiables et aucune garantie.",
     url: 'https://bttspredict.com/methodologie',
     type: 'article',
@@ -30,20 +30,20 @@ export default function MethodologiePage() {
               Notre méthodologie d&apos;analyse
             </h1>
             <p className="text-base text-[#9ca3af] leading-relaxed">
-              BTTSPredict publie des pronostics BTTS (Both Teams To Score) et Over 2.5 sur le football, générés par un modèle IA nouvelle génération analysant des milliers de paramètres. Cette page présente l&apos;approche, les marchés couverts, les sources de données et la gestion qualité — dans une approche transparente et crédible.
+              BTTSPredict publie des pronostics BTTS (Both Teams To Score) et Over 2.5 sur le football, générés par un modèle statistique. Cette page présente l&apos;approche, les marchés couverts, les sources de données et la gestion qualité — dans une approche transparente et crédible.
             </p>
           </header>
 
           {/* Section 1 — Approche générale */}
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              1. Approche IA
+              1. Approche statistique
             </h2>
             <p className="text-sm text-[#9ca3af] leading-relaxed mb-3">
-              Modèle IA nouvelle génération entraîné sur la période 2023-2025, analysant des milliers de paramètres : forme des 5 derniers matchs, taux BTTS domicile/extérieur, Expected Goals (xG) moyen, absences clés, dynamique offensive et défensive, contexte de competition. Calibration continue pour s&apos;adapter aux évolutions tactiques.
+              BTTSPredict utilise un modèle statistique pour analyser les matchs de football à partir des données disponibles dans son système de prédiction. Les prédictions BTTS et Over 2.5 reposent notamment sur les données de buts, les expected goals (xG), les paramètres lambda et le modèle de Poisson lorsque ces données sont disponibles.
             </p>
             <p className="text-sm text-[#9ca3af] leading-relaxed">
-              Pour chaque match, le modèle IA évalue les intensités offensives attendues de chaque équipe à partir de ces milliers de paramètres, puis calcule la probabilité de chaque marché (BTTS, Over 2.5, Score Exact). Le moteur s&apos;enrichit continuellement des résultats passes pour affiner ses prédictions futures.
+              Pour chaque match, le modèle estime les intensités offensives attendues (lambdas) de chaque équipe à partir de ces variables, puis calcule la probabilité de chaque marché (BTTS, Over 2.5) via la distribution de Poisson. Cette approche est largement documentée dans la littérature scientifique sur la modélisation sportive.
             </p>
           </section>
 
@@ -114,7 +114,7 @@ export default function MethodologiePage() {
               4. Ligues couvertes
             </h2>
             <p className="text-sm text-[#94A3B8] leading-relaxed mb-3">
-              Moteur entraîné sur 50+ championnats internationaux, prédictions appliquées en priorité Afrique de l&apos;Ouest (Sénégal, Mali, CIV, Guinée, Congo) &amp; Maroc + top ligues Europe pour volume. Cette sélection permet de concentrer les pronostics sur les matchs où le modèle a la meilleure calibration statistique.
+              Les variables réellement disponibles dans les données de prédiction peuvent notamment inclure : buts marqués et encaissés ; xG ; paramètres lambda ; probabilités BTTS ; probabilités Over 2.5 ; score de fiabilité ; qualité des données ; nombre de matchs disponibles pour l&apos;analyse. Les données non disponibles ne sont pas remplacées par des statistiques fictives.
             </p>
             <p className="text-sm text-[#94A3B8] leading-relaxed">
               Ligues prioritaires Afrique : Ligue 1 Sénégal, Botola Pro (Maroc). Ligues européennes de volume : Bundesliga, Eredivisie, Jupiler Pro League, Championship, Liga Portugal. La liste exacte peut évoluer sans préavis.
@@ -148,31 +148,30 @@ export default function MethodologiePage() {
             </h2>
             <div className="p-4 rounded-xl" style={{ backgroundColor: 'rgba(199, 244, 100, 0.06)', border: '1px solid rgba(199, 244, 100, 0.2)' }}>
               <ul className="space-y-2 text-sm text-[#94A3B8]">
-                <li>• Le moteur IA couvre les principales ligues européennes et nord-américaines de première et deuxième division.</li>
+                <li>• Le moteur couvre les compétitions disponibles dans les données de prédiction.</li>
                 <li>• Chaque match est analysé à partir de la dynamique offensive et défensive récente des deux équipes, sur leurs derniers matchs.</li>
-                <li>• Le moteur est calibré en continu pour s'adapter aux évolutions tactiques et aux performances des équipes.</li>
+                <li>• Le moteur s&apos;appuie sur les données disponibles des équipes pour produire ses estimations.</li>
                 <li>• Les compétitions aux formats atypiques (coupes nationales, internationales, matchs amicaux) sont volontairement exclues pour préserver la qualité des pronostics.</li>
                 <li>• Chaque pronostic est accompagné d'un indice de confiance transparent, basé sur la qualité des données disponibles.</li>
               </ul>
             </div>
           </section>
 
-          {/* Section 7 - Gestion de la qualite (v91 - display first) */}
+          {/* Section 7 - Critères de qualité (combo of the day) */}
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              7. Criteres de publication (v91)
+              7. Critères de qualité
             </h2>
             <p className="text-sm text-[#94A3B8] leading-relaxed mb-3">
-              Depuis la version 91, BTTSPredict applique une strategie display-first :
+              BTTSPredict applique les critères de qualité suivants pour le AI Combo of the Day :
             </p>
             <ul className="space-y-2 text-sm text-[#94A3B8]">
-              <li>• Seuls les matchs avec BTTS ET Over 2.5 tous deux &lt; 35% sont rejetes.</li>
-              <li>• Les autres matchs sont publies, tries par score interne.</li>
-              <li>• Top 8 matchs en gratuit, top 6 suivants en apercu VIP.</li>
-              <li>• Pour chaque match, seul le pronostic Oui/Non est affiche.</li>
+              <li>• qualité des données différente de LOW ;</li>
+              <li>• score de fiabilité d&apos;au moins 70 ;</li>
+              <li>• probabilité BTTS d&apos;au moins 65 % ou probabilité Over 2.5 d&apos;au moins 65 %.</li>
             </ul>
             <p className="text-sm text-[#94A3B8] leading-relaxed mt-3">
-              Aucun pourcentage ni score de fiabilite n&apos;est affiche sur le site. Seul le resultat Oui ou Non est montre, pour une lecture simple et rapide.
+              Si moins de trois matchs satisfont ces critères, aucun combo complet de trois sélections n&apos;est affiché. Cette règle empêche le système de forcer artificiellement des sélections lorsque les données disponibles sont insuffisantes.
             </p>
           </section>
 

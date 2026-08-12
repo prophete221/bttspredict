@@ -54,8 +54,8 @@ const STEPS = [
   },
   {
     n: '04',
-    title: 'Reçois ton bonus 200%',
-    desc: "Bonus exclusif 200% sur ton 1er dépôt (jusqu'à 130% si conditions remplies). Activé automatiquement.",
+    title: 'Vérifie le bonus reçu',
+    desc: "Les conditions du bonus, les montants disponibles et les critères d'éligibilité peuvent évoluer. Vérifie toujours les conditions actuellement affichées par 888Starz avant toute inscription ou dépôt.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5L12 2z" />
@@ -74,7 +74,7 @@ const PAYMENT_METHODS = [
 
 /* ─── Détails bonus ──────────────────────────────────────────────────── */
 const BONUS_ROWS = [
-  { label: 'Bonus', value: '200% sur 1er dépôt', highlight: true },
+  { label: 'Bonus', value: 'Conditions à vérifier auprès de 888Starz', highlight: true },
   { label: 'Code', value: 'VISION221 (copiable)' },
   { label: 'Dépôt min', value: '200 XOF' },
   { label: 'Méthodes', value: 'Wave, Orange Money, MTN, Moov' },
@@ -163,8 +163,7 @@ export default function Star888Client() {
             Sénégal · Mali · Côte d&apos;Ivoire · Guinée · Congo · Maroc
           </p>
           <p className="text-sm sm:text-base max-w-2xl mx-auto mt-3 leading-relaxed" style={{ color: TEXT_SEC }}>
-            Bonus exclusif <strong style={{ color: ORANGE }}>200% sur 1er dépôt</strong> avec le code{' '}
-            <strong style={{ color: '#FF7B7B' }}>VISION221</strong>. Dépôt minimum 200 XOF.
+            Code promo <strong style={{ color: ORANGE }}>VISION221</strong>. Les conditions et montants du bonus peuvent évoluer — vérifiez les conditions affichées par 888Starz avant tout dépôt. Dépôt minimum 200 XOF.
           </p>
         </div>
       </section>
@@ -227,7 +226,7 @@ export default function Star888Client() {
               </span>
             </button>
             <p className="text-xs mb-6" style={{ color: TEXT_SEC }}>
-              Bonus <strong style={{ color: ORANGE }}>200%</strong> sur 1er dépôt · Code VISION221
+              Les conditions et montants du bonus peuvent évoluer · Code VISION221
             </p>
 
             {/* 3 boutons : 1-Copier (orange), 2-S'inscrire (violet), 3-Télécharger (outline) */}

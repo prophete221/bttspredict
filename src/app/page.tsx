@@ -46,7 +46,7 @@ const jsonLd = {
   '@type': 'WebSite',
   name: 'BTTSPredict',
   url: 'https://bttspredict.com',
-  description: "Pronostics football BTTS & Over 2,5 par nos experts. Code promo VISION221 sur Linebet et 888starz.",
+  description: "Pronostics football BTTS & Over 2,5 basés sur un modèle statistique. Code promo VISION221 sur Linebet et 888starz.",
   inLanguage: 'fr',
   potentialAction: {
     '@type': 'SearchAction',
@@ -82,7 +82,7 @@ const faqJsonLd = {
       name: "Comment fonctionne l'analyse de BTTSPredict ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "BTTSPredict publie des pronostics BTTS et Over 2.5 basés sur un modèle IA nouvelle génération. Le nouveau suivi public a été lancé le 2026-08-08 — voir /historique pour les chiffres réels. Aucun résultat futur n'est garanti.",
+        text: "BTTSPredict publie des pronostics BTTS et Over 2.5 basés sur un modèle statistique. Le nouveau suivi public a été lancé le 2026-08-08 — voir /historique pour les chiffres réels. Aucun résultat futur n'est garanti.",
       },
     },
     {
@@ -98,7 +98,7 @@ const faqJsonLd = {
       name: 'Les pronostics gratuits sont-ils fiables ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Nos pronostics gratuits sont validés par la même équipe d'analystes que nos pronostics premium. Ils couvrent les matchs les plus populaires du jour avec une analyse complète. Aucun résultat n'est garanti.",
+        text: "Nos pronostics gratuits sont produits par le même modèle statistique que nos pronostics premium. Ils couvrent les matchs les plus populaires du jour avec une analyse complète. Aucun résultat n'est garanti.",
       },
     },
     {
@@ -106,7 +106,7 @@ const faqJsonLd = {
       name: 'Pourquoi faire confiance à BTTSPredict ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "BTTSPredict publie des pronostics BTTS et Over 2.5 basés sur un modèle IA nouvelle génération. (1) Transparence — tous les pronostics sont archivés et vérifiés publiquement. (2) Méthodologie — moteur IA nouvelle génération entraîné sur la forme récente des équipes. (3) Couverture — ligues sélectionnées pour leur taux élevé de BTTS. (4) Sources publiques — ESPN et TheSportsDB. (5) Suivi public — nouveau suivi lancé le 2026-08-08, tous les pronostics sont horodatés et vérifiés après le résultat officiel. Aucun résultat futur n'est garanti.",
+        text: "BTTSPredict publie des pronostics BTTS et Over 2.5 basés sur un modèle statistique. (1) Transparence — tous les pronostics sont archivés et vérifiés publiquement. (2) Méthodologie — modèle statistique basé sur les données disponibles des équipes. (3) Couverture — compétitions disponibles dans les données du système. (4) Sources publiques — ESPN et TheSportsDB lorsque leurs données sont disponibles. (5) Suivi public — les pronostics sont horodatés et vérifiés après le résultat officiel. Aucun résultat futur n'est garanti.",
       },
     },
     {
@@ -132,7 +132,7 @@ const organizationJsonLd = {
   slogan: 'Plateforme de référence — Pronostics BTTS et Over 2.5',
   description: "BTTSPredict est la base open-source de pronostics BTTS (Both Teams To Score) et Over 2.5 buts. taux réel vérifiable vérifiée, parieurs. Transparence totale : gagnés ET perdus affichés.",
   areaServed: ['Worldwide', 'SN', 'CI', 'CM', 'ML', 'BF', 'FR', 'NG'],
-  knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'analystes football', 'football', 'pronostics btts aujourd\'hui', 'both teams to score', 'modèle IA nouvelle génération football', 'prédictions football'],
+  knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'football', 'pronostics btts aujourd\'hui', 'both teams to score', 'modèle statistique Poisson', 'prédictions football'],
   brand: {
     '@type': 'Brand',
     name: 'BTTSPredict',
@@ -197,14 +197,14 @@ const localBusinessJsonLd = {
 const webPageJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: 'BTTSPredict — Prédictions BTTS par nos experts',
+  name: 'BTTSPredict — Prédictions BTTS par modèle statistique',
   url: 'https://bttspredict.com',
   description: 'Plateforme de pronostics football BTTS et Over 2.5 par analyse statistique probabiliste. Ligues sélectionnées pour leur fort taux de BTTS. Taux de réussite transparent et vérifié publiquement. Aucun gain garanti. 18+.',
   isPartOf: { '@type': 'WebSite', name: 'BTTSPredict', url: 'https://bttspredict.com' },
   about: [
     { '@type': 'Thing', name: 'BTTS — Both Teams To Score' },
     { '@type': 'Thing', name: 'Over 2.5 Goals' },
-    { '@type': 'Thing', name: 'Pronostics football par nos experts' },
+    { '@type': 'Thing', name: 'Pronostics football par modèle statistique' },
     { '@type': 'Thing', name: 'Modèles Poisson calibrés' },
   ],
   author: { '@type': 'Organization', name: 'BTTSPredict', url: 'https://bttspredict.com' },
@@ -212,7 +212,7 @@ const webPageJsonLd = {
   inLanguage: 'fr',
   datePublished: '2026-01-01',
   dateModified: new Date().toISOString().slice(0, 10),
-  keywords: 'BTTS, Over 2.5, pronostics btts aujourd\'hui, pronostics analystes, analyse statistique football, modèles Poisson, code promo VISION221, Linebet, 888starz, pronostics football gratuits, pronostics Sénégal, both teams to score',
+  keywords: 'BTTS, Over 2.5, pronostics btts aujourd\'hui, analyse statistique football, modèles Poisson, code promo VISION221, Linebet, 888starz, pronostics football gratuits, pronostics Sénégal, both teams to score',
 }
 
 // JSON-LD Dataset — Transparency & credibility

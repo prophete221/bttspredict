@@ -53,8 +53,8 @@ const STEPS = [
   },
   {
     n: '04',
-    title: 'Reçois ton bonus 90 000 XOF',
-    desc: "Le bonus de 90 000 XOF (~150$) est activé automatiquement sur ton premier dépôt. Utilise-le pour parier avec nos pronostics.",
+    title: 'Vérifie le bonus reçu',
+    desc: "Les conditions du bonus, les montants disponibles et les critères d'éligibilité peuvent évoluer. Vérifie toujours les conditions actuellement affichées par Linebet avant toute inscription ou dépôt.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5L12 2z" />
@@ -74,7 +74,7 @@ const PAYMENT_METHODS = [
 
 /* ─── Détails bonus ──────────────────────────────────────────────────── */
 const BONUS_ROWS = [
-  { label: 'Bonus', value: '90 000 XOF (150$)', highlight: true },
+  { label: 'Bonus', value: 'Conditions à vérifier auprès de Linebet', highlight: true },
   { label: 'Code', value: 'VISION221 (copiable)' },
   { label: 'Dépôt min', value: '200 XOF' },
   { label: 'Méthodes', value: 'Wave, Orange Money, MTN, Moov, Free Money' },
@@ -165,8 +165,7 @@ export default function LinebetClient() {
             Sénégal · Mali · Côte d&apos;Ivoire · Guinée · Congo · Maroc
           </p>
           <p className="text-sm sm:text-base max-w-2xl mx-auto mt-3 leading-relaxed" style={{ color: TEXT_SEC }}>
-            Bonus exclusif <strong style={{ color: GOLD }}>90 000 XOF (150$)</strong> avec le code{' '}
-            <strong style={{ color: '#5DD9A0' }}>VISION221</strong>. Dépôt minimum 200 XOF.
+            Code promo <strong style={{ color: GOLD }}>VISION221</strong>. Les conditions du bonus et les montants disponibles peuvent évoluer — vérifiez toujours les conditions affichées par l'opérateur avant toute inscription ou dépôt.
           </p>
         </div>
       </section>
@@ -229,7 +228,7 @@ export default function LinebetClient() {
               </span>
             </button>
             <p className="text-xs mb-6" style={{ color: TEXT_SEC }}>
-              Bonus <strong style={{ color: GOLD }}>90 000 XOF</strong> (~150$) sur premier dépôt
+              Les conditions et montants du bonus peuvent évoluer — vérifiez les conditions affichées par Linebet avant tout dépôt.
             </p>
 
             {/* 3 boutons : 1-Copier (or), 2-S'inscrire (violet), 3-Télécharger (outline) */}
@@ -456,7 +455,7 @@ export default function LinebetClient() {
             {[
               {
                 q: 'Quel est le code promo Linebet Afrique Ouest ?',
-                a: "Le code promo exclusif est VISION221 — saisi en majuscules lors de l'inscription ou dans la section « Code Promo » de ton compte. Il débloque un bonus de 90 000 XOF (~150$) sur ton premier dépôt, valable pour le Sénégal, le Mali, la Côte d'Ivoire, la Guinée, le Congo et le Maroc.",
+                a: "Le code promo est VISION221 — saisi en majuscules lors de l'inscription ou dans la section « Code Promo » de ton compte. Les conditions du bonus, les montants disponibles et les critères d'éligibilité peuvent évoluer. Vérifie toujours les conditions actuellement affichées par Linebet avant toute inscription ou dépôt.",
               },
               {
                 q: 'Comment déposer avec Wave ?',
@@ -464,7 +463,7 @@ export default function LinebetClient() {
               },
               {
                 q: 'Le bonus est-il valable au Maroc, Mali et Côte d\'Ivoire ?',
-                a: "Oui. Le code VISION221 fonctionne pour les 6 pays couverts : Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc. Le bonus de 90 000 XOF (ou équivalent dans ta devise locale) est crédité après validation du code promo et du premier dépôt.",
+                a: "Oui. Le code VISION221 fonctionne pour les 6 pays couverts : Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc. Les conditions et montants du bonus peuvent évoluer ; vérifie les conditions actuellement affichées par Linebet avant toute inscription ou dépôt.",
               },
             ].map((item) => (
               <details key={item.q} className="rounded-2xl p-4" style={{ backgroundColor: '#1E293B', border: `1px solid ${GOLD}22` }}>

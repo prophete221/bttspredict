@@ -14,8 +14,8 @@ const PAGE_URL = `${SITE_URL}/${SLUG}`
 // Avec le template "%s | BTTSPredict" (14 chars), le title rendu final
 // fait 41 + 14 = 55 chars, bien sous la limite hard 70.
 // Anti-récidive: checkSeo() lance une erreur build-time si title > 60 ou desc > 150.
-const TITLE = 'Code Promo Linebet VISION221 : 90 000 XOF'
-const DESCRIPTION = "Code VISION221 Linebet: 90 000 XOF pour Sénégal Mali CIV Guinée Congo Maroc. Dépôt Wave Orange Money dès 200 XOF. 18+"
+const TITLE = 'Code Promo Linebet Sénégal | BTTSPredict'
+const DESCRIPTION = "Code promo Linebet Sénégal : VISION221. Conditions, montants et éligibilité à vérifier auprès de l'opérateur. Lien d'affiliation rémunéré. 18+."
 checkSeo('code-promo-linebet-senegal', TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
@@ -92,7 +92,7 @@ function buildHowToJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
     name: 'Comment utiliser le code promo Linebet VISION221 en Afrique de l\'Ouest & Maroc',
-    description: "Guide complet pour activer le bonus Linebet de 90 000 XOF (150$) avec le code promo VISION221 au Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc.",
+    description: "Guide complet pour activer un bonus Linebet avec le code promo VISION221 au Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc. Les conditions et montants peuvent évoluer.",
     totalTime: 'PT5M',
     estimatedCost: { '@type': 'MonetaryAmount', currency: 'XOF', value: '200' },
     supply: [{ '@type': 'HowToSupply', name: 'Code promo VISION221' }],
@@ -122,8 +122,8 @@ function buildHowToJsonLd() {
       {
         '@type': 'HowToStep',
         position: 4,
-        name: 'Recevoir le bonus 90 000 XOF',
-        text: "Le bonus de 90 000 XOF (environ 150$) est activé automatiquement sur ton premier dépôt après validation du code VISION221.",
+        name: 'Vérifier le bonus reçu',
+        text: "Les conditions du bonus, les montants disponibles et les critères d'éligibilité peuvent évoluer. Vérifiez toujours les conditions actuellement affichées par l'opérateur avant toute inscription ou dépôt.",
       },
     ],
   }
@@ -139,7 +139,7 @@ function buildFaqJsonLd() {
         name: 'Quel est le code promo Linebet Afrique Ouest ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Le code promo exclusif est VISION221 — saisi en majuscules lors de l'inscription ou dans la section « Code Promo » de ton compte. Il débloque un bonus de 90 000 XOF (~150$) sur ton premier dépôt, valable pour le Sénégal, le Mali, la Côte d'Ivoire, la Guinée, le Congo et le Maroc.",
+          text: "Le code promo exclusif est VISION221 — saisi en majuscules lors de l'inscription ou dans la section « Code Promo » de ton compte. Les conditions du bonus, les montants disponibles et les critères d'éligibilité peuvent évoluer. Vérifiez toujours les conditions actuellement affichées par l'opérateur avant toute inscription ou dépôt. Le code est valable pour le Sénégal, le Mali, la Côte d'Ivoire, la Guinée, le Congo et le Maroc.",
         },
       },
       {
@@ -155,7 +155,7 @@ function buildFaqJsonLd() {
         name: "Le bonus est-il valable au Maroc, Mali et Côte d'Ivoire ?",
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Oui. Le code VISION221 fonctionne pour les 6 pays couverts : Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc. Le bonus de 90 000 XOF (ou équivalent dans ta devise locale) est crédité après validation du code promo et du premier dépôt.",
+          text: "Oui. Le code VISION221 fonctionne pour les 6 pays couverts : Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc. Les conditions et montants du bonus peuvent évoluer ; vérifiez les conditions actuellement affichées par l'opérateur avant toute inscription ou dépôt.",
         },
       },
     ],

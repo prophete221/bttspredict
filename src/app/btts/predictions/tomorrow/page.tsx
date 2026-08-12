@@ -31,7 +31,7 @@ export default function BTTSPredictionsTomorrowPage() {
             BTTS Predictions Tomorrow
           </h1>
           <p className="text-base text-[#94A3B8] leading-relaxed mb-6">
-            BTTSPredict publie chaque jour une nouvelle sélection de pronostics BTTS. Les pronostics pour les matchs de demain sont publiés la veille au soir et le jour même, plusieurs fois par jour (cron à 4h, 6h, 14h et 22h UTC). Chaque sélection est issue du moteur IA nouvelle génération, basée sur la forme récente des deux équipes.
+            BTTSPredict publie chaque jour une nouvelle sélection de pronostics BTTS. Les pronostics pour les matchs de demain sont publiés la veille au soir et le jour même, plusieurs fois par jour. Chaque sélection est issue du modèle statistique, basée sur les données disponibles des deux équipes.
           </p>
 
           <div className="p-5 rounded-xl mb-6" style={{ backgroundColor: '#1E293B', border: '1px solid #334155' }}>

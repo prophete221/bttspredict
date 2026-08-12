@@ -114,10 +114,10 @@ function buildFaqJsonLd() {
       },
       {
         '@type': 'Question',
-        name: "Comment l'IA de BTTSPredict prédit le BTTS ?",
+        name: "Comment BTTSPredict calcule-t-il le BTTS ?",
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Notre équipe analyse plus de 50 variables : Expected Goals (xG), forme récente des deux équipes, taux de BTTS historique, blessures, conditions météo, historique des confrontations directes, et statistiques défensives. L'algorithme est entraîné sur matchs analysés avec un taux de réussite vérifiable (voir /historique). Aucun résultat futur n'est garanti.",
+          text: "BTTSPredict estime la probabilité que les deux équipes marquent au moins un but à partir des données disponibles dans son modèle statistique. Selon les données disponibles, l'analyse peut notamment utiliser les buts, les expected goals (xG), les paramètres lambda, les probabilités calculées par le modèle et les indicateurs de qualité des données. Les données non disponibles ne sont pas inventées pour compléter une analyse. Aucun résultat futur n'est garanti.",
         },
       },
       {
@@ -278,11 +278,11 @@ export default function BttsGuidePage() {
                   className="text-2xl text-papier mb-4"
                   style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em' }}
                 >
-                  4. Comment l&apos;IA de BTTSPredict prédit le BTTS
+                  4. Comment BTTSPredict calcule le BTTS
                 </h2>
                 <div className="space-y-3 text-cendre text-sm leading-relaxed">
                   <p>
-                    Notre algorithme analyse plus de 50 variables (xG, forme récente, taux BTTS historique, blessures, confrontations directes) pour estimer la probabilité que les deux équipes marquent.
+                    Le modèle statistique de BTTSPredict estime la probabilité que les deux équipes marquent à partir des données disponibles, notamment les buts, les expected goals (xG), les paramètres lambda et les indicateurs de qualité des données. Les données non disponibles ne sont pas inventées.
                   </p>
                   <p>
                     Détails complets sur notre <a href="/methodologie" className="text-emerald underline underline-offset-2">page Méthodologie</a>. Aucun résultat futur n&apos;est garanti.

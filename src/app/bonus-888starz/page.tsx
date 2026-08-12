@@ -17,8 +17,8 @@ const PAGE_URL = `${SITE_URL}/${SLUG}`
 // SEO Bing — title court (39 chars) + description courte (128 chars).
 // Avec le template "%s | BTTSPredict" (14 chars), le title rendu fait
 // 39 + 14 = 53 chars, bien sous la limite hard 70.
-const TITLE = 'Code Promo 888Starz Afrique - Bonus 200%'
-const DESCRIPTION = "Code 888Starz VISION221: Bonus 200% sur 1er dépôt. Sénégal Mali CIV Guinée Congo Maroc. Dépôt Wave Orange Money dès 200 XOF. 18+"
+const TITLE = 'Code Promo 888Starz Afrique | BTTSPredict'
+const DESCRIPTION = "Code promo 888Starz Afrique : VISION221. Conditions, montants et éligibilité à vérifier auprès de l'opérateur. Lien d'affiliation rémunéré. 18+."
 checkSeo('bonus-888starz', TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
@@ -91,7 +91,7 @@ function buildHowToJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
     name: 'Comment utiliser le code promo 888Starz VISION221 en Afrique',
-    description: "Guide complet pour activer le bonus 888Starz 200% avec le code VISION221 au Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc.",
+    description: "Guide complet pour activer un bonus 888Starz avec le code VISION221 au Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc. Les conditions et montants peuvent évoluer.",
     totalTime: 'PT5M',
     estimatedCost: { '@type': 'MonetaryAmount', currency: 'XOF', value: '200' },
     supply: [{ '@type': 'HowToSupply', name: 'Code promo VISION221' }],
@@ -121,8 +121,8 @@ function buildHowToJsonLd() {
       {
         '@type': 'HowToStep',
         position: 4,
-        name: 'Recevoir le bonus 200%',
-        text: "Le bonus 200% sur 1er dépôt est activé automatiquement après validation du code VISION221.",
+        name: 'Recevoir le bonus',
+        text: "Les conditions et montants des offres promotionnelles peuvent évoluer. Consultez les conditions actuellement affichées par l'opérateur avant toute inscription ou dépôt.",
       },
     ],
   }
@@ -138,7 +138,7 @@ function buildFaqJsonLd() {
         name: 'Quel est le code promo 888Starz Afrique ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Le code promo exclusif est VISION221 — saisi en majuscules lors de l'inscription. Il débloque un bonus de 200% sur le premier dépôt, valable pour le Sénégal, le Mali, la Côte d'Ivoire, la Guinée, le Congo et le Maroc.",
+          text: "Le code promo est VISION221 — saisi en majuscules lors de l'inscription. Les conditions du bonus, les montants disponibles et les critères d'éligibilité peuvent évoluer. Vérifiez toujours les conditions actuellement affichées par l'opérateur avant toute inscription ou dépôt. Le code est valable pour le Sénégal, le Mali, la Côte d'Ivoire, la Guinée, le Congo et le Maroc.",
         },
       },
       {
@@ -154,7 +154,7 @@ function buildFaqJsonLd() {
         name: 'Le bonus 888Starz est-il valable au Maroc, Mali et Côte d\'Ivoire ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Oui. Le code VISION221 fonctionne pour les 6 pays couverts : Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc. Le bonus 200% est crédité après validation du code promo et du premier dépôt.",
+          text: "Oui. Le code VISION221 fonctionne pour les 6 pays couverts : Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc. Les conditions et montants du bonus peuvent évoluer ; vérifiez les conditions actuellement affichées par l'opérateur avant toute inscription ou dépôt.",
         },
       },
     ],

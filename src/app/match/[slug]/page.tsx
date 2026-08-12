@@ -263,7 +263,7 @@ export default async function MatchPage({ params }: PageProps) {
                 {aiKeyFact && (
                   <div className="p-3 rounded-lg" style={{ backgroundColor: '#0F172A', border: '1px solid #334155' }}>
                     <span className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-wider block mb-1">
-                      📌 Statistique Clé H2H / xG
+                      📌 Statistique clé — xG & données disponibles
                     </span>
                     <p className="text-xs text-[#F8FAFC] italic">&ldquo;{aiKeyFact}&rdquo;</p>
                   </div>
@@ -273,7 +273,7 @@ export default async function MatchPage({ params }: PageProps) {
                 {aiAnalysis && (
                   <div className="p-3.5 rounded-lg" style={{ backgroundColor: '#0F172A', border: '1px solid #334155' }}>
                     <span className="text-[11px] font-bold text-[#94A3B8] uppercase tracking-wider block mb-1">
-                      📝 Analyse Stratégique des Experts
+                      📝 Analyse statistique
                     </span>
                     <p className="text-xs text-[#94A3B8] leading-relaxed">
                       {aiAnalysis}
