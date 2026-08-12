@@ -571,8 +571,8 @@ export default function BttsTodayDashboard() {
 
   // ─── Real stats from loaded data (no fabrication) ──────────────────────
   const stats = useMemo(() => {
-    const todayStr = new Date().toISOString().slice(0, 10)
-    const todayMatches = matches.filter(m => m.date === todayStr)
+    // « Today » = matchs réellement affichés (filtrés par date >= todayStr dans useEffect).
+    // On utilise matches.length qui correspond exactement à ce qui est rendu dans la grille.
     const bttsHigh = matches.filter(m => (m.bttsProb ?? 0) >= 0.6).length
     const overHigh = matches.filter(m => (m.over25Prob ?? 0) >= 0.6).length
     const highQuality = matches.filter(m => (m.dataQuality || '').toUpperCase() === 'HIGH').length
@@ -581,7 +581,7 @@ export default function BttsTodayDashboard() {
       : null
 
     return {
-      todayCount: todayMatches.length,
+      todayCount: matches.length,  // = matchs réellement affichés (pas une comparaison de date locale)
       total: matches.length,
       bttsHigh,
       overHigh,
@@ -713,16 +713,21 @@ export default function BttsTodayDashboard() {
 
         {/* ─── Stats row (real values only) ─── */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-3">
-          <StatBlock label="Today" value={fmtInt(stats.todayCount)} accent={C.text} />
+          <StatBlock label="Matches" value={fmtInt(stats.todayCount)} accent={C.text} />
           <StatBlock label="BTTS High" value={fmtInt(stats.bttsHigh)} accent={C.success} />
           <StatBlock label="Over 2.5 High" value={fmtInt(stats.overHigh)} accent={C.warning} />
           <StatBlock label="Data Quality" value={stats.highQuality > 0 ? 'HIGH' : '—'} accent={stats.highQuality > 0 ? C.success : C.textSec} />
         </div>
 
         {stats.avgReliability != null && (
-          <div className="mt-2 flex items-center gap-2 text-[10px]" style={{ color: C.textSec }}>
-            <span className="uppercase tracking-widest font-bold">Avg Data Confidence:</span>
-            <span className="font-black tabular-nums" style={{ color: C.gold }}>{stats.avgReliability}%</span>
+          <div className="mt-2 flex flex-col gap-1 text-[10px]" style={{ color: C.textSec }}>
+            <div className="flex items-center gap-2">
+              <span className="uppercase tracking-widest font-bold">Avg Data Confidence:</span>
+              <span className="font-black tabular-nums" style={{ color: C.gold }}>{stats.avgReliability}%</span>
+            </div>
+            <span className="text-[8px] italic" style={{ color: C.textMute }}>
+              Qualité des données disponibles — ce n&apos;est pas une probabilité de réussite.
+            </span>
           </div>
         )}
       </div>
@@ -747,6 +752,9 @@ export default function BttsTodayDashboard() {
                 {combo.length === 3
                   ? 'Statistical selection · 3 picks'
                   : 'Statistical selection'}
+              </div>
+              <div className="text-[8px] mt-0.5 italic" style={{ color: C.textMute }}>
+                Sélection déterministe basée sur les données disponibles — ne garantit aucun résultat.
               </div>
             </div>
           </div>
