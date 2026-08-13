@@ -4,10 +4,10 @@ import { useState } from 'react'
 import { AFFILIATE } from '@/lib/constants'
 
 /* ─── Palette locale (alignée sur LinebetClient / Star888Client) ─────── */
-const GOLD = '#18A879'       // v68: or unifié
-const PRIMARY = '#18A879'
-const PRIMARY_HOVER = '#18A879'
-const ORANGE = '#18A879'      // v68: 888Starz card passe d'orange à Émeraude
+const GOLD = '#5B7FA3'       // v68: or unifié
+const PRIMARY = '#5B7FA3'
+const PRIMARY_HOVER = '#5B7FA3'
+const ORANGE = '#5B7FA3'      // v68: 888Starz card passe d'orange à Émeraude
 const ORANGE_DARK = '#4C94FF' // v68: émeraude sombre pour hover
 const TEXT = '#F7F4EE'
 const TEXT_SEC = '#9BA7B8'
@@ -177,9 +177,9 @@ export default function VipClient() {
         <div
           className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] px-5 py-3 rounded-xl font-bold text-sm shadow-2xl"
           style={{
-            backgroundColor: toast.startsWith('⚠') ? '#C95A62' : '#18A879',
+            backgroundColor: toast.startsWith('⚠') ? '#C95A62' : '#5B7FA3',
             color: BG_DARK,
-            border: `1.5px solid ${toast.startsWith('⚠') ? '#C95A62' : '#18A879'}`,
+            border: `1.5px solid ${toast.startsWith('⚠') ? '#C95A62' : '#5B7FA3'}`,
             boxShadow: '0 10px 40px rgba(99, 214, 255, 0.4)',
           }}
           role="status"
@@ -203,7 +203,7 @@ export default function VipClient() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center pt-6">
           <span
             className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
-            style={{ backgroundColor: 'rgba(199, 244, 100, 0.12)', color: GOLD, border: `1px solid ${GOLD}55` }}
+            style={{ backgroundColor: 'rgba(91, 127, 163, 0.16)', color: GOLD, border: `1px solid ${GOLD}55` }}
           >
             ★ Programme VIP Affilié
           </span>
@@ -255,8 +255,8 @@ export default function VipClient() {
                 <span
                   className="inline-flex items-center justify-center w-9 h-9 rounded-lg flex-shrink-0"
                   style={{
-                    backgroundColor: copiedLinebet ? '#18A879' : `${GOLD}1A`,
-                    border: `1px solid ${copiedLinebet ? '#18A879' : GOLD}`,
+                    backgroundColor: copiedLinebet ? '#5B7FA3' : `${GOLD}1A`,
+                    border: `1px solid ${copiedLinebet ? '#5B7FA3' : GOLD}`,
                     color: copiedLinebet ? BG_DARK : GOLD,
                   }}
                   aria-hidden="true"
@@ -283,7 +283,7 @@ export default function VipClient() {
                   onClick={copyLinebet}
                   className="h-[44px] rounded-[10px] font-bold text-[13px] flex items-center justify-center gap-2 transition-all"
                   style={{
-                    backgroundColor: copiedLinebet ? '#18A879' : GOLD,
+                    backgroundColor: copiedLinebet ? '#5B7FA3' : GOLD,
                     color: BG_DARK,
                     border: 'none',
                     boxShadow: `0 4px 14px ${GOLD}33`,
@@ -346,8 +346,8 @@ export default function VipClient() {
                 <span
                   className="inline-flex items-center justify-center w-9 h-9 rounded-lg flex-shrink-0"
                   style={{
-                    backgroundColor: copied888 ? '#18A879' : `${ORANGE}1A`,
-                    border: `1px solid ${copied888 ? '#18A879' : ORANGE}`,
+                    backgroundColor: copied888 ? '#5B7FA3' : `${ORANGE}1A`,
+                    border: `1px solid ${copied888 ? '#5B7FA3' : ORANGE}`,
                     color: copied888 ? BG_DARK : ORANGE,
                   }}
                   aria-hidden="true"
@@ -374,7 +374,7 @@ export default function VipClient() {
                   onClick={copy888}
                   className="h-[44px] rounded-[10px] font-bold text-[13px] flex items-center justify-center gap-2 transition-all"
                   style={{
-                    backgroundColor: copied888 ? '#18A879' : ORANGE,
+                    backgroundColor: copied888 ? '#5B7FA3' : ORANGE,
                     color: BG_DARK,
                     border: 'none',
                     boxShadow: `0 4px 14px ${ORANGE}33`,
@@ -457,7 +457,7 @@ export default function VipClient() {
             className="rounded-2xl p-6 sm:p-8"
             style={{
               backgroundColor: '#111722',
-              border: `1.5px solid #18A879`,
+              border: `1.5px solid #5B7FA3`,
               boxShadow: '0 0 40px rgba(99, 214, 255, 0.15)',
             }}
           >
@@ -468,7 +468,7 @@ export default function VipClient() {
               Vérifier mon dépôt et débloquer VIP
             </h2>
             <p className="text-xs text-center mb-5" style={{ color: TEXT_SEC }}>
-              On vérifie dans le tableau de bord affilié que le code VISION221 / vision221 a bien été utilisé + dépôt min 3 000 F. Délai <strong style={{ color: '#18A879' }}>15-60 min</strong>.
+              On vérifie dans le tableau de bord affilié que le code VISION221 / vision221 a bien été utilisé + dépôt min 3 000 F. Délai <strong style={{ color: '#5B7FA3' }}>15-60 min</strong>.
             </p>
 
             <div className="space-y-3">
@@ -490,7 +490,7 @@ export default function VipClient() {
                     color: TEXT,
                     outline: 'none',
                   }}
-                  onFocus={(e) => { e.currentTarget.style.borderColor = '#18A879' }}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = '#5B7FA3' }}
                   onBlur={(e) => { e.currentTarget.style.borderColor = '#3A4556' }}
                 />
               </div>
@@ -525,7 +525,7 @@ export default function VipClient() {
                 onClick={handleVerifyClick}
                 className="block w-full h-[52px] rounded-[10px] font-bold text-[14px] flex items-center justify-center gap-2 transition-all mt-2"
                 style={{
-                  backgroundColor: '#18A879',
+                  backgroundColor: '#5B7FA3',
                   color: BG_DARK,
                   border: 'none',
                   boxShadow: '0 6px 20px rgba(99, 214, 255, 0.3)',
@@ -540,7 +540,7 @@ export default function VipClient() {
 
             <p className="text-[11px] text-center mt-4 leading-relaxed" style={{ color: '#9BA7B8' }}>
               Si OK, accès groupe VIP + 6 pronos BTTS / Over 2.5 par jour avec xG.
-              Numéro WhatsApp : <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="underline" style={{ color: '#18A879' }}>+1 540 670 4172</a>
+              Numéro WhatsApp : <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="underline" style={{ color: '#5B7FA3' }}>+1 540 670 4172</a>
             </p>
           </div>
         </div>
@@ -637,24 +637,24 @@ export default function VipClient() {
                   <div className="grid grid-cols-2 gap-2 mt-4">
                     <div>
                       <span className="text-[9px] uppercase" style={{ color: '#9BA7B8' }}>xG home</span>
-                      <p className="text-base font-black" style={{ color: '#18A879', filter: 'blur(3px)', userSelect: 'none' }}>
+                      <p className="text-base font-black" style={{ color: '#5B7FA3', filter: 'blur(3px)', userSelect: 'none' }}>
                         {match.xgHome}
                       </p>
                     </div>
                     <div>
                       <span className="text-[9px] uppercase" style={{ color: '#9BA7B8' }}>xG away</span>
-                      <p className="text-base font-black" style={{ color: '#18A879', filter: 'blur(3px)', userSelect: 'none' }}>
+                      <p className="text-base font-black" style={{ color: '#5B7FA3', filter: 'blur(3px)', userSelect: 'none' }}>
                         {match.xgAway}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-center justify-between mt-3 pt-3" style={{ borderTop: '1px solid rgba(199, 244, 100, 0.1)' }}>
                     <span className="text-[10px]" style={{ color: TEXT_SEC }}>BTTS</span>
-                    <span className="text-sm font-bold" style={{ color: '#18A879', filter: 'blur(3px)', userSelect: 'none' }}>{match.btts}</span>
+                    <span className="text-sm font-bold" style={{ color: '#5B7FA3', filter: 'blur(3px)', userSelect: 'none' }}>{match.btts}</span>
                   </div>
                   <div className="flex items-center justify-between mt-1">
                     <span className="text-[10px]" style={{ color: TEXT_SEC }}>Over 2.5</span>
-                    <span className="text-sm font-bold" style={{ color: '#18A879', filter: 'blur(3px)', userSelect: 'none' }}>{match.over}</span>
+                    <span className="text-sm font-bold" style={{ color: '#5B7FA3', filter: 'blur(3px)', userSelect: 'none' }}>{match.over}</span>
                   </div>
                 </div>
               </div>
@@ -676,7 +676,7 @@ export default function VipClient() {
             <p className="text-[11px] leading-relaxed" style={{ color: TEXT_SEC }}>
               <strong style={{ color: '#C95A62' }}>Liens affiliés</strong> — 18+ — Aucune garantie de gain —
               On ne prend pas les paris, on ne collecte pas les fonds — Contact :{' '}
-              <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="underline" style={{ color: '#18A879' }}>
+              <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="underline" style={{ color: '#5B7FA3' }}>
                 wa.me/15406704172
               </a>
             </p>

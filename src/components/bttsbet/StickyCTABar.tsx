@@ -74,18 +74,18 @@ export default function StickyCTABar() {
               onClick={copyCode}
               className="flex items-center gap-2 px-3 h-[48px] rounded-[12px] flex-shrink-0 transition-all"
               style={{
-                backgroundColor: copied ? 'rgba(199, 244, 100, 0.12)' : '#111722',
-                border: '1px solid ' + (copied ? 'rgba(199, 244, 100, 0.3)' : 'rgba(242, 247, 245, 0.12)'),
+                backgroundColor: copied ? 'rgba(91, 127, 163, 0.16)' : '#111722',
+                border: '1px solid ' + (copied ? 'rgba(91, 127, 163, 0.30)' : 'rgba(242, 247, 245, 0.12)'),
               }}
               aria-label="Copier le code promo VISION221"
               data-cta="sticky-copy"
             >
               {copied ? (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#18A879" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B7FA3" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
               ) : (
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(242, 247, 245,0.7)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
               )}
-              <span className="font-mono text-[13px] font-bold" style={{ color: copied ? '#18A879' : '#F7F4EE' }}>
+              <span className="font-mono text-[13px] font-bold" style={{ color: copied ? '#5B7FA3' : '#F7F4EE' }}>
                 {copied ? 'Copié!' : SITE.promoCode}
               </span>
             </button>
@@ -97,7 +97,7 @@ export default function StickyCTABar() {
               target="_blank"
               className="flex-1 flex items-center justify-center gap-1.5 h-[48px] rounded-[12px] font-bold text-[14px]"
               style={{
-                backgroundColor: '#18A879',
+                backgroundColor: '#5B7FA3',
                 color: '#080B12',
                 boxShadow: '0 0 0 1px rgba(199, 244, 100,.4), 0 4px 16px rgba(199, 244, 100,.22)',
               }}

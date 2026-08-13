@@ -34,9 +34,9 @@ const C = {
   text:     '#F7F4EE',
   textSec:  '#9BA7B8',
   textMute: '#64748B',
-  success:  '#18A879',
+  success:  '#5B7FA3',
   warning:  '#D6B36A',
-  data:     '#18A879',
+  data:     '#5B7FA3',
   gold:     '#D6B36A',
   danger:   '#C95A62',
 }

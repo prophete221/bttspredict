@@ -67,7 +67,7 @@ const STEPS = [
 /* ─── Moyens de dépôt ─────────────────────────────────────────────────── */
 const PAYMENT_METHODS = [
   { name: 'Wave', color: '#1DC9FF', short: 'W' },
-  { name: 'Orange Money', color: '#18A879', short: 'OM' },
+  { name: 'Orange Money', color: '#5B7FA3', short: 'OM' },
   { name: 'MTN', color: '#FFCC00', short: 'M' },
   { name: 'Moov', color: '#0066B3', short: 'M' },
 ]
@@ -269,7 +269,7 @@ export default function Star888Client() {
                   backgroundColor: PRIMARY,
                   color: TEXT,
                   border: 'none',
-                  boxShadow: '0 6px 20px rgba(199, 244, 100, 0.3)',
+                  boxShadow: '0 6px 20px rgba(91, 127, 163, 0.30)',
                 }}
                 onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = PRIMARY_HOVER }}
                 onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = PRIMARY }}

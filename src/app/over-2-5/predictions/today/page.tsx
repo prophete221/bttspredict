@@ -28,7 +28,7 @@ export default function Over25PredictionsTodayPage() {
       <Navbar />
       <main id="main-content" className="flex-1">
         <nav aria-label="Fil d'Ariane" className="text-xs text-[#9BA7B8] mb-4 max-w-5xl mx-auto px-4 pt-8">
-          <Link href="/" className="hover:text-[#18A879]">Accueil</Link>
+          <Link href="/" className="hover:text-[#5B7FA3]">Accueil</Link>
           <span className="mx-1">/</span>
           <span className="text-[#9BA7B8]">Over 2.5 Today</span>
         </nav>
@@ -61,7 +61,7 @@ export default function Over25PredictionsTodayPage() {
               <strong>Difference from BTTS:</strong> BTTS requires <em>both teams to score</em>. Over 2.5 requires <em>a high total goal count</em>. A 3-0 match wins Over 2.5 but loses BTTS. A 1-1 match wins BTTS but loses Over 2.5.
             </p>
             <p className="text-sm text-[#9BA7B8] leading-relaxed">
-              For the methodology, see our <Link href="/methodologie" className="text-[#18A879] underline">methodology page</Link>.
+              For the methodology, see our <Link href="/methodologie" className="text-[#5B7FA3] underline">methodology page</Link>.
             </p>
           </div>
         </section>
@@ -76,22 +76,22 @@ export default function Over25PredictionsTodayPage() {
             Quick Links
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#18A879]"
+            <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B7FA3]"
               style={{ backgroundColor: '#111722', border: '1px solid #3A4556' }}>
               <div className="text-sm font-bold text-[#F7F4EE]">BTTS Predictions Today →</div>
               <div className="text-xs text-[#9BA7B8] mt-1">Both teams to score</div>
             </Link>
-            <Link href="/btts-and-over-2-5-predictions-today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#18A879]"
+            <Link href="/btts-and-over-2-5-predictions-today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B7FA3]"
               style={{ backgroundColor: '#111722', border: '1px solid #3A4556' }}>
               <div className="text-sm font-bold text-[#F7F4EE]">BTTS + Over 2.5 Combined →</div>
               <div className="text-xs text-[#9BA7B8] mt-1">Both conditions met</div>
             </Link>
-            <Link href="/ai-correct-score-predictions" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#18A879]"
+            <Link href="/ai-correct-score-predictions" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B7FA3]"
               style={{ backgroundColor: '#111722', border: '1px solid #3A4556' }}>
               <div className="text-sm font-bold text-[#F7F4EE]">AI Correct Score →</div>
               <div className="text-xs text-[#9BA7B8] mt-1">Exact score probabilities</div>
             </Link>
-            <Link href="/over-2-5/statistics" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#18A879]"
+            <Link href="/over-2-5/statistics" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B7FA3]"
               style={{ backgroundColor: '#111722', border: '1px solid #3A4556' }}>
               <div className="text-sm font-bold text-[#F7F4EE]">Over 2.5 Statistics →</div>
               <div className="text-xs text-[#9BA7B8] mt-1">League stats</div>

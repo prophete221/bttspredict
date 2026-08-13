@@ -20,24 +20,24 @@
   --text-tertiary: #9BA7B8;
 
   /* Accents sémantiques */
-  --brand-indigo: #18A879;    /* Emerald 500 — succès/action */
-  --brand-violet: #18A879;
-  --brand-cyan: #18A879;      /* Blue 500 — données/info */
-  --cta: #18A879;              /* Emerald 500 */
+  --brand-indigo: #5B7FA3;    /* Emerald 500 — succès/action */
+  --brand-violet: #5B7FA3;
+  --brand-cyan: #5B7FA3;      /* Blue 500 — données/info */
+  --cta: #5B7FA3;              /* Emerald 500 */
   --cta-text: #080B12;
-  --trust: #18A879;           /* Blue 500 */
+  --trust: #5B7FA3;           /* Blue 500 */
   --vip: #D6B36A;             /* Amber 500 — avertissement/VIP */
-  --success: #18A879;          /* Emerald 500 */
+  --success: #5B7FA3;          /* Emerald 500 */
   --error: #C95A62;            /* Red 500 */
 
   /* Hover states */
-  --cta-hover: #18A879;
+  --cta-hover: #5B7FA3;
   --cta-active: #117A59;
-  --trust-hover: #18A879;
+  --trust-hover: #5B7FA3;
   --vip-hover: #D6B36A;
-  --success-hover: #18A879;
+  --success-hover: #5B7FA3;
   --error-hover: #C95A62;
-  --border-hover: #18A879;
+  --border-hover: #5B7FA3;
   --glass: rgba(248, 250, 252, 0.08);
   --glass-border: rgba(248, 250, 252, 0.12);
 }
@@ -54,25 +54,25 @@
   --color-text-primary: #F7F4EE;
   --color-text-secondary: #9BA7B8;
   --color-text-tertiary: #9BA7B8;
-  --color-brand-indigo: #18A879;
-  --color-brand-violet: #18A879;
-  --color-brand-cyan: #18A879;
-  --color-cta: #18A879;
+  --color-brand-indigo: #5B7FA3;
+  --color-brand-violet: #5B7FA3;
+  --color-brand-cyan: #5B7FA3;
+  --color-cta: #5B7FA3;
   --color-cta-text: #080B12;
-  --color-trust: #18A879;
-  --color-stats: #18A879;
+  --color-trust: #5B7FA3;
+  --color-stats: #5B7FA3;
   --color-vip: #D6B36A;
-  --color-success: #18A879;
+  --color-success: #5B7FA3;
   --color-error: #C95A62;
 
   /* Hover states */
-  --color-cta-hover: #18A879;
+  --color-cta-hover: #5B7FA3;
   --color-cta-active: #117A59;
-  --color-trust-hover: #18A879;
+  --color-trust-hover: #5B7FA3;
   --color-vip-hover: #D6B36A;
-  --color-success-hover: #18A879;
+  --color-success-hover: #5B7FA3;
   --color-error-hover: #C95A62;
-  --color-border-hover: #18A879;
+  --color-border-hover: #5B7FA3;
 
   /* Aliases mappés sur ECLIPSE v60 */
   --color-abyss: var(--color-bg-main);
@@ -378,13 +378,13 @@ h1, h2, h3, h4, h5, h6 {
 ::selection { background: rgba(168, 224, 99, 0.3); color: #fff; }
 
 /* ─── Blog Article Prose ─── */
-.prose-dark h2 { color: #18A879; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
-.prose-dark h3 { color: #18A879; font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
-.prose-dark p { color: #18A879; line-height: 1.8; margin-bottom: 1rem; }
+.prose-dark h2 { color: #5B7FA3; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+.prose-dark h3 { color: #5B7FA3; font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+.prose-dark p { color: #5B7FA3; line-height: 1.8; margin-bottom: 1rem; }
 .prose-dark ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
-.prose-dark li { color: #18A879; line-height: 1.8; margin-bottom: 0.5rem; }
+.prose-dark li { color: #5B7FA3; line-height: 1.8; margin-bottom: 0.5rem; }
 .prose-dark strong { color: #F7F4EE; }
-.prose-dark blockquote { border-left: 3px solid #18A879; padding-left: 1rem; margin: 1.5rem 0; color: #9BA7B8; font-style: italic; }
+.prose-dark blockquote { border-left: 3px solid #5B7FA3; padding-left: 1rem; margin: 1.5rem 0; color: #9BA7B8; font-style: italic; }
 
 /* ─── Stat Card Motion Animations ─── */
 @keyframes statFloat {
@@ -420,7 +420,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .promo-code-shimmer {
-  background: linear-gradient(90deg, #18A879 0%, #18A879 25%, #F7F4EE 50%, #18A879 75%, #18A879 100%);
+  background: linear-gradient(90deg, #5B7FA3 0%, #5B7FA3 25%, #F7F4EE 50%, #5B7FA3 75%, #5B7FA3 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -430,7 +430,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Premium Button Styles ─── */
 .btn-emerald {
-  background: linear-gradient(135deg, #18A879, #18A879);
+  background: linear-gradient(135deg, #5B7FA3, #5B7FA3);
   color: #0B1019;
   font-weight: 700;
   border-radius: 12px;
@@ -451,7 +451,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-gold {
-  background: linear-gradient(135deg, #18A879, #18A879);
+  background: linear-gradient(135deg, #5B7FA3, #5B7FA3);
   color: #0B1019;
   font-weight: 700;
   border-radius: 12px;
@@ -474,11 +474,11 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── Section Accent Borders ─── */
 .accent-line-emerald {
   height: 2px;
-  background: linear-gradient(90deg, transparent, #18A879, transparent);
+  background: linear-gradient(90deg, transparent, #5B7FA3, transparent);
 }
 .accent-line-gold {
   height: 2px;
-  background: linear-gradient(90deg, transparent, #18A879, transparent);
+  background: linear-gradient(90deg, transparent, #5B7FA3, transparent);
 }
 
 /* ─── Scrollbar-none for filter tabs ─── */
@@ -509,7 +509,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Accessibility: Focus Visible ─── */
 *:focus-visible {
-  outline: 2px solid #18A879;
+  outline: 2px solid #5B7FA3;
   outline-offset: 2px;
   border-radius: 4px;
 }

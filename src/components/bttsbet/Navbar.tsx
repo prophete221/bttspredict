@@ -61,7 +61,7 @@ export default function Navbar() {
               aria-label="BTTSPredict — Accueil"
             >
               <img src="/favicon.svg" alt="BTTSPredict" width={24} height={24} className="flex-shrink-0" />
-              <span className="text-xs font-bold" style={{ color: '#18A879' }}>
+              <span className="text-xs font-bold" style={{ color: '#5B7FA3' }}>
                 BTTSPredict
               </span>
             </a>
@@ -72,9 +72,9 @@ export default function Navbar() {
                 onClick={copyCode}
                 className="hidden sm:block px-2 py-1 rounded text-[10px] font-mono font-bold"
                 style={{
-                  backgroundColor: 'rgba(199, 244, 100, 0.12)',
-                  border: '1px solid #18A879',
-                  color: '#18A879',
+                  backgroundColor: 'rgba(91, 127, 163, 0.16)',
+                  border: '1px solid #5B7FA3',
+                  color: '#5B7FA3',
                 }}
               >
                 {copied ? '✓' : SITE.promoCode}
@@ -112,7 +112,7 @@ export default function Navbar() {
                 href={link.href}
                 className="text-[10px] font-medium px-2 py-1 rounded whitespace-nowrap transition-colors"
                 style={{ color: '#9BA7B8' }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = '#18A879'; e.currentTarget.style.backgroundColor = 'rgba(199, 244, 100, 0.08)' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#5B7FA3'; e.currentTarget.style.backgroundColor = 'rgba(199, 244, 100, 0.08)' }}
                 onMouseLeave={(e) => { e.currentTarget.style.color = '#9BA7B8'; e.currentTarget.style.backgroundColor = 'transparent' }}
               >
                 {link.label}
@@ -137,7 +137,7 @@ export default function Navbar() {
             className="fixed top-0 left-0 right-0 z-[70] sm:hidden"
             style={{
               backgroundColor: '#111722',
-              borderBottom: '1px solid #18A879',
+              borderBottom: '1px solid #5B7FA3',
               boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
             }}
           >
@@ -184,9 +184,9 @@ export default function Navbar() {
                 onClick={() => { copyCode(); setMenuOpen(false) }}
                 className="flex-1 px-3 py-2 rounded-lg text-xs font-mono font-bold text-center"
                 style={{
-                  backgroundColor: 'rgba(199, 244, 100, 0.12)',
-                  border: '1px solid #18A879',
-                  color: '#18A879',
+                  backgroundColor: 'rgba(91, 127, 163, 0.16)',
+                  border: '1px solid #5B7FA3',
+                  color: '#5B7FA3',
                 }}
               >
                 {copied ? '✓ Copié' : SITE.promoCode}

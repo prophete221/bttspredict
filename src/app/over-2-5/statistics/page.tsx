@@ -38,7 +38,7 @@ export default function Over25StatisticsPage() {
       <Navbar />
       <main id="main-content" className="flex-1">
         <nav aria-label="Fil d'Ariane" className="text-xs text-[#9BA7B8] mb-4 max-w-4xl mx-auto px-4 pt-8">
-          <Link href="/" className="hover:text-[#18A879]">Accueil</Link>
+          <Link href="/" className="hover:text-[#5B7FA3]">Accueil</Link>
           <span className="mx-1">/</span>
           <span className="text-[#9BA7B8]">Over 2.5 Statistics</span>
         </nav>

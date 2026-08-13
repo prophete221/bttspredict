@@ -7,7 +7,7 @@ import VipUnlockModal from './VipUnlockModal'
 
 const C = {
   bg: '#080B12', card: '#111722', border: 'rgba(242, 247, 245, 0.08)',
-  green: '#18A879', greenLight: '#18A879', gold: '#18A879', cyan: '#18A879', violet: '#18A879',
+  green: '#5B7FA3', greenLight: '#5B7FA3', gold: '#5B7FA3', cyan: '#5B7FA3', violet: '#5B7FA3',
   text: '#F7F4EE', textSec: '#9BA7B8', textMute: '#9BA7B8',
 }
 
@@ -131,7 +131,7 @@ export default function FifaLinebet() {
               <button
                 onClick={() => setShowModal(true)}
                 className="w-full mt-3 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-xs font-bold transition-all"
-                style={{ background: 'linear-gradient(135deg, #18A879, #18A879)', color: '#080B12' }}
+                style={{ background: 'linear-gradient(135deg, #5B7FA3, #5B7FA3)', color: '#080B12' }}
               >
                 🔒 Débloquer les Analyses de valeur FIFA (expérimental)
               </button>
