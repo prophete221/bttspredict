@@ -22,7 +22,7 @@ async function sha256(text: string): Promise<string> {
 export default function VipUnlockModal({
   isOpen,
   onClose,
-  title = 'Débloque les pronos VIP',
+  title = 'Débloque ton espace VIP',
 }: {
   isOpen: boolean
   onClose: () => void
@@ -143,7 +143,7 @@ export default function VipUnlockModal({
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-papier">{title}</h3>
-                    <p className="text-[11px] text-[#C2CCD8]">3 étapes pour accéder au VIP</p>
+                    <p className="text-[11px] text-[#C2CCD8]">Un parcours clair en 3 étapes</p>
                   </div>
                 </div>
 
@@ -211,7 +211,7 @@ export default function VipUnlockModal({
                           Code : <span className="font-mono font-bold text-[#7FA2C6]">VISION221</span>
                         </div>
                       </div>
-                      <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(75, 182, 135, 0.1)', color: '#7FA2C6' }}>Bonus exclusif</span>
+                      <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(75, 182, 135, 0.1)', color: '#7FA2C6' }}>Offre partenaire</span>
                     </div>
                   </button>
 
@@ -237,7 +237,7 @@ export default function VipUnlockModal({
                           Code : <span className="font-mono font-bold text-[#7FA2C6]">vision221</span>
                         </div>
                       </div>
-                      <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(75, 182, 135, 0.1)', color: '#7FA2C6' }}>Bonus exclusif</span>
+                      <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(75, 182, 135, 0.1)', color: '#7FA2C6' }}>Offre partenaire</span>
                     </div>
                   </button>
                 </div>
@@ -254,7 +254,7 @@ export default function VipUnlockModal({
                 <div className="mb-4 flex gap-3">
                   <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style={{ backgroundColor: '#111a2a', color: '#7FA2C6', border: '1px solid rgba(75, 182, 135,0.3)' }}>3</span>
                   <div className="text-sm text-[#7FA2C6]">
-                    <span className="text-papier font-semibold">Vérifie ton ID joueur</span> ci-dessous.
+                    <span className="text-papier font-semibold">Saisis ton ID joueur</span> pour la vérification locale.
                     <span className="block mt-1 text-[10px] text-[#C2CCD8]">🔒 Aucune donnée collectée — vérifié localement (SHA-256) dans ton navigateur.</span>
                   </div>
                 </div>
@@ -330,7 +330,7 @@ export default function VipUnlockModal({
                   }}
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="#7FA2C6"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01-1.87-1.87-4.36-2.91-7.01-2.91zm0 1.67c2.2 0 4.27.86 5.82 2.42 1.56 1.56 2.42 3.63 2.42 5.82 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.81-1.29-1.24-2.79-1.24-4.34 0-4.54 3.7-8.24 8.24-8.24z"/></svg>
-                  Déjà inscrit ? Débloque via WhatsApp
+                  Déjà inscrit ? Demander la vérification via WhatsApp
                 </a>
 
                 {/* Footer */}
@@ -352,9 +352,9 @@ export default function VipUnlockModal({
                 >
                   <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#7FA2C6" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
                 </motion.div>
-                <h3 className="text-xl font-bold text-papier mb-2">VIP débloqué ! 🎉</h3>
+                <h3 className="text-xl font-bold text-papier mb-2">Espace VIP débloqué</h3>
                 <p className="text-sm text-[#7FA2C6] mb-4">
-                  Ton ID <span className="font-mono text-[#7FA2C6]">{playerId.slice(0, 4)}•••••</span> a été vérifié chez{' '}
+                  Ton ID <span className="font-mono text-[#7FA2C6]">{playerId.slice(0, 4)}•••••</span> a été enregistré localement pour{' '}
                   <span className="text-papier font-semibold">{selectedBookmaker === 'linebet' ? 'Linebet' : '888starz'}</span>.
                 </p>
                 <button
