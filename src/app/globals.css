@@ -18,62 +18,62 @@
   /* Inspired by Stripe / Linear / FBRef design language */
 
   /* — Fonds (5 niveaux) — Quiet Trust Premium — */
-  --color-bg-main: #0B1220;            /* Fond principal — noir bleuté profond */
-  --color-bg-secondary: #111a2a;       /* Sections — slate foncé */
-  --color-bg-tertiary: #182438;        /* Panels — slate medium */
-  --color-card: #111a2a;               /* Card surface standard */
-  --color-card-hover: #182438;         /* Card surface hover/sélection */
-  --color-border: #7D90A7;             /* Border subtile */
-  --color-border-strong: #8fa2b8;      /* Border visible / focus */
+  --color-bg-main: #071018;            /* Fond principal — noir bleuté profond */
+  --color-bg-secondary: #0D1A20;       /* Sections — slate foncé */
+  --color-bg-tertiary: #11242B;        /* Panels — slate medium */
+  --color-card: #0D1A20;               /* Card surface standard */
+  --color-card-hover: #11242B;         /* Card surface hover/sélection */
+  --color-border: #5D7880;             /* Border subtile */
+  --color-border-strong: #7A9293;      /* Border visible / focus */
 
   /* — Texte (3 niveaux) — */
-  --color-text-primary: #F4F7FB;      /* Titres, chiffres — slate-100 */
-  --color-text-secondary: #C2CCD8;     /* Labels, descriptions — slate-400 */
-  --color-text-tertiary: #9aa9bb;      /* Muted, disabled — slate-500 */
+  --color-text-primary: #F5F8F3;      /* Titres, chiffres — slate-100 */
+  --color-text-secondary: #B7C4C1;     /* Labels, descriptions — slate-400 */
+  --color-text-tertiary: #9FB0B0;      /* Muted, disabled — slate-500 */
 
   /* — Surfaces — */
-  --color-surface-card: #111a2a;
-  --color-surface-card-hover: #182438;
-  --color-surface-premium: #182438;
+  --color-surface-card: #0D1A20;
+  --color-surface-card-hover: #11242B;
+  --color-surface-premium: #11242B;
 
   /* — Borders — */
-  --color-border-default: #7D90A7;
-  --color-border-hover: #8fa2b8;
+  --color-border-default: #5D7880;
+  --color-border-hover: #7A9293;
 
   /* — Action (1 CTA primaire par viewport) — or champagne désaturé — */
-  --color-action-primary: #D3B16D;
-  --color-action-primary-hover: #B58F4E;
-  --color-action-primary-text: #0B1220;
+  --color-action-primary: #B8FF1A;
+  --color-action-primary-hover: #7EC400;
+  --color-action-primary-text: #071018;
   --color-action-secondary-bg: transparent;
-  --color-action-secondary-border: #D3B16D;
-  --color-action-secondary-text: #C2CCD8;
+  --color-action-secondary-border: #B8FF1A;
+  --color-action-secondary-text: #B7C4C1;
 
   /* — Market colors (badges/graphiques uniquement) — bleu confiance désaturé — */
-  --color-market-btts: #7FA2C6;
-  --color-market-btts-muted: rgba(127, 162, 198, 0.14);
-  --color-market-over: #7FA2C6;
-  --color-market-over-muted: rgba(127, 162, 198, 0.14);
-  --color-market-over-border: rgba(127, 162, 198, 0.32);
+  --color-market-btts: #B8FF1A;
+  --color-market-btts-muted: rgba(184, 255, 26, 0.14);
+  --color-market-over: #B8FF1A;
+  --color-market-over-muted: rgba(184, 255, 26, 0.14);
+  --color-market-over-border: rgba(184, 255, 26, 0.32);
 
   /* — VIP (or mat) — */
-  --color-vip-accent: #D3B16D;
-  --color-vip-accent-muted: rgba(211, 177, 109, 0.10);
-  --color-vip-border: rgba(211, 177, 109, 0.42);
+  --color-vip-accent: #F5C451;
+  --color-vip-accent-muted: rgba(245, 196, 81, 0.12);
+  --color-vip-border: rgba(245, 196, 81, 0.45);
   --color-vip-gradient: none;
 
   /* — Trust — bleu confiance désaturé — */
-  --color-trust-accent: #7FA2C6;
-  --color-trust-bg: rgba(127, 162, 198, 0.08);
-  --color-trust-border: rgba(127, 162, 198, 0.22);
+  --color-trust-accent: #B8FF1A;
+  --color-trust-bg: rgba(184, 255, 26, 0.08);
+  --color-trust-border: rgba(184, 255, 26, 0.22);
 
   /* — Statut (capsules compactes uniquement) — */
-  --color-success: #4BB687;
-  --color-success-muted: #4BB687;
-  --color-error: #E07A83;
-  --color-warning: #D3B16D;
-  --color-primary: #7FA2C6;
-  --color-primary-hover: #A9C4DF;
-  --color-focus: #7DB4FF;
+  --color-success: #34D399;
+  --color-success-muted: #34D399;
+  --color-error: #FF7B7B;
+  --color-warning: #F5C451;
+  --color-primary: #B8FF1A;
+  --color-primary-hover: #D4FF72;
+  --color-focus: #B8FF1A;
 
   /* — Legacy aliases (compatibilité) — */
   --color-brand-indigo: var(--color-action-primary);
@@ -95,14 +95,14 @@
   --radius-control: 10px;
 
   /* — Hover states — Quiet Trust Premium — */
-  --color-cta-hover: #B58F4E;
+  --color-cta-hover: #7EC400;
   --color-cta-active: #8D6B2E;
-  --color-trust-hover: #A9C4DF;
-  --color-stats-hover: #B58F4E;
-  --color-vip-hover: #202b3d;
-  --color-success-hover: #4BB687;
+  --color-trust-hover: #D4FF72;
+  --color-stats-hover: #7EC400;
+  --color-vip-hover: #D6A83A;
+  --color-success-hover: #6EE7B7;
   --color-error-hover: #E87878;
-  --color-border-hover: #D3B16D;       /* Hover border → or */
+  --color-border-hover: #B8FF1A;       /* Hover border → or */
 
   /* — Glassmorphism — */
   --color-glass: rgba(244, 247, 251, 0.08);
@@ -131,35 +131,35 @@
   --color-card-border: var(--color-border);
   --color-card-border-hover: var(--color-border-hover);
 
-  --color-primary: #7FA2C6;
-  --color-primary-hover: #A9C4DF;
+  --color-primary: #B8FF1A;
+  --color-primary-hover: #D4FF72;
   --color-primary-dark: var(--color-cta-active);
   --color-primary-light: var(--color-cta-hover);
-  --color-primary-glow: rgba(127, 162, 198, 0.30);
-  --color-primary-pale: rgba(127, 162, 198, 0.12);
+  --color-primary-glow: rgba(184, 255, 26, 0.30);
+  --color-primary-pale: rgba(184, 255, 26, 0.12);
 
   --color-secondary: var(--color-trust);
   --color-secondary-dark: var(--color-trust-hover);
   --color-secondary-light: var(--color-trust);
-  --color-secondary-glow: rgba(169, 196, 223, 0.2);
+  --color-secondary-glow: rgba(212, 255, 114, 0.2);
 
   --color-success-dark: var(--color-success-hover);
   --color-success-light: var(--color-success);
-  --color-success-pale: rgba(169, 196, 223, 0.10);
+  --color-success-pale: rgba(212, 255, 114, 0.10);
 
   --color-warning: var(--color-vip);
-  --color-warning-pale: rgba(127, 162, 198, 0.12);
-  --color-vip-glow: rgba(75, 182, 135, 0.2);
+  --color-warning-pale: rgba(245, 196, 81, 0.14);
+  --color-vip-glow: rgba(52, 211, 153, 0.2);
 
   --color-danger: var(--color-error);
   --color-danger-light: var(--color-error-hover);
   --color-danger-pale: rgba(255, 122, 122, 0.10);
 
   --color-accent-light: var(--color-trust-hover);
-  --color-accent-glow: rgba(169, 196, 223, 0.2);
+  --color-accent-glow: rgba(212, 255, 114, 0.2);
 
   --color-neon: var(--color-cta);
-  --color-neon-glow: rgba(127, 162, 198, 0.30);
+  --color-neon-glow: rgba(184, 255, 26, 0.30);
   --color-neon-green: var(--color-success);
   --color-emerald: var(--color-success);
   --color-emerald-soft: var(--color-success);
@@ -168,7 +168,7 @@
   --color-panel: var(--color-bg-secondary);
   --color-rose: var(--color-error);
   --color-linebet: var(--color-cta);
-  --color-star888: #7FA2C6;
+  --color-star888: #B8FF1A;
   --color-gold: var(--color-vip);
   --color-gold-light: var(--color-vip-hover);
   --color-lose: var(--color-error);
@@ -179,12 +179,12 @@
   --color-text-on-dark-secondary: var(--color-text-secondary);
 
   /* — Gradients premium — Quiet Trust Premium — */
-  --grad-primary: linear-gradient(135deg, #D3B16D 0%, #B58F4E 100%);
-  --grad-premium: linear-gradient(135deg, #D3B16D 0%, #D3B16D 100%);
-  --grad-brand-split: linear-gradient(90deg, #D3B16D 0%, #D3B16D 50%, #7FA2C6 50%, #7FA2C6 100%);
-  --grad-bg: radial-gradient(circle at top right, rgba(127, 162, 198, 0.16), transparent 38%), #0B1220;
-  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(75, 182, 135, 0.04) 0%, transparent 60%),
-               radial-gradient(50% 50% at 85% 10%, rgba(169, 196, 223, 0.04) 0%, transparent 60%);
+  --grad-primary: linear-gradient(135deg, #B8FF1A 0%, #7EC400 100%);
+  --grad-premium: linear-gradient(135deg, #B8FF1A 0%, #B8FF1A 100%);
+  --grad-brand-split: linear-gradient(90deg, #B8FF1A 0%, #B8FF1A 50%, #B8FF1A 50%, #B8FF1A 100%);
+  --grad-bg: radial-gradient(circle at top right, rgba(184, 255, 26, 0.16), transparent 38%), #071018;
+  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(52, 211, 153, 0.04) 0%, transparent 60%),
+               radial-gradient(50% 50% at 85% 10%, rgba(212, 255, 114, 0.04) 0%, transparent 60%);
 
   --font-display: 'Poppins', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
@@ -192,9 +192,9 @@
 
   /* — Shadows (v68 OR & ÉMERAUDE) — */
   --shadow-card: 0 1px 2px rgba(7, 17, 26, 0.3), 0 8px 32px rgba(7, 17, 26, 0.4);
-  --shadow-cta: 0 0 0 1px rgba(75, 182, 135, 0.35), 0 8px 32px rgba(127, 162, 198, 0.12);
+  --shadow-cta: 0 0 0 1px rgba(52, 211, 153, 0.35), 0 8px 32px rgba(184, 255, 26, 0.12);
   --shadow-glass: 0 1px 0 rgba(244, 247, 251, 0.03) inset, 0 8px 32px rgba(7, 17, 26, 0.3);
-  --shadow-hover-glow: 0 0 20px rgba(127, 162, 198, 0.30), 0 8px 32px rgba(7, 17, 26, 0.5);
+  --shadow-hover-glow: 0 0 20px rgba(184, 255, 26, 0.30), 0 8px 32px rgba(7, 17, 26, 0.5);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -202,47 +202,47 @@
    ════════════════════════════════════════════════════════════════════════════ */
 :root {
   /* Fonds — v68 OR & ÉMERAUDE */
-  --bg-main: #0B1220;
-  --bg-secondary: #111a2a;
-  --bg-tertiary: #182438;
-  --card: #111a2a;
-  --card-hover: #182438;
-  --border: #7D90A7;
-  --border-strong: #8fa2b8;
+  --bg-main: #071018;
+  --bg-secondary: #0D1A20;
+  --bg-tertiary: #11242B;
+  --card: #0D1A20;
+  --card-hover: #11242B;
+  --border: #5D7880;
+  --border-strong: #7A9293;
 
   /* Texte */
-  --text-primary: #F4F7FB;
-  --text-secondary: #C2CCD8;
-  --text-tertiary: #9aa9bb;
-  --text-muted: #9aa9bb;
+  --text-primary: #F5F8F3;
+  --text-secondary: #B7C4C1;
+  --text-tertiary: #9FB0B0;
+  --text-muted: #9FB0B0;
 
-  /* Action — v68: OR #D3B16D */
-  --action-primary: #D3B16D;
-  --action-primary-hover: #B58F4E;
-  --action-primary-text: #0B1220;
-  --action-secondary-border: #D3B16D;
-  --action-secondary-text: #C2CCD8;
-  /* Market — v68: ÉMERAUDE #7FA2C6 */
-  --market-btts: #7FA2C6;
-  --market-over: #7FA2C6;
+  /* Action — v68: OR #B8FF1A */
+  --action-primary: #B8FF1A;
+  --action-primary-hover: #7EC400;
+  --action-primary-text: #071018;
+  --action-secondary-border: #B8FF1A;
+  --action-secondary-text: #B7C4C1;
+  /* Market — v68: ÉMERAUDE #B8FF1A */
+  --market-btts: #B8FF1A;
+  --market-over: #B8FF1A;
   /* VIP */
-  --vip-accent: #D3B16D;
+  --vip-accent: #F5C451;
   /* Trust */
-  --trust-accent: #7FA2C6;
+  --trust-accent: #B8FF1A;
   /* Statut */
-  --success-muted: #4BB687;
-  --success: #4BB687;
-  --error: #E07A83;
-  --warning: #D3B16D;
-  --primary: #7FA2C6;
-  --primary-hover: #A9C4DF;
-  --focus: #7DB4FF;
+  --success-muted: #34D399;
+  --success: #34D399;
+  --error: #FF7B7B;
+  --warning: #F5C451;
+  --primary: #B8FF1A;
+  --primary-hover: #D4FF72;
+  --focus: #B8FF1A;
   /* Surfaces */
-  --surface-card: #111a2a;
-  --surface-card-hover: #182438;
-  --surface-premium: #182438;
-  --border-default: #7D90A7;
-  --border-hover: #8fa2b8;
+  --surface-card: #0D1A20;
+  --surface-card-hover: #11242B;
+  --surface-premium: #11242B;
+  --border-default: #5D7880;
+  --border-hover: #7A9293;
   /* Legacy */
   --brand-indigo: var(--action-primary);
   --brand-violet: var(--market-btts);
@@ -257,37 +257,37 @@
   --glass-border: rgba(244, 247, 251, 0.12);
 
   /* Hover states — v68 */
-  --cta-hover: #B58F4E;
+  --cta-hover: #7EC400;
   --cta-active: #8D6B2E;
-  --trust-hover: #A9C4DF;
-  --stats-hover: #B58F4E;
-  --vip-hover: #202b3d;
-  --success-hover: #4BB687;
+  --trust-hover: #D4FF72;
+  --stats-hover: #7EC400;
+  --vip-hover: #D6A83A;
+  --success-hover: #6EE7B7;
   --error-hover: #E87878;
-  --border-hover: #D3B16D;
+  --border-hover: #B8FF1A;
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
    v68 OR & ÉMERAUDE — Utility classes
    ════════════════════════════════════════════════════════════════════════════ */
 
-/* Bouton Or — dégradé #D3B16D → #B58F4E, texte noir */
+/* Bouton Or — dégradé #B8FF1A → #7EC400, texte noir */
 .btn-gold {
-  background: linear-gradient(135deg, #D3B16D, #B58F4E);
-  color: #0B1220;
+  background: linear-gradient(135deg, #B8FF1A, #7EC400);
+  color: #071018;
   font-weight: 700;
   border: none;
   transition: all 200ms ease;
 }
 .btn-gold:hover {
   background: linear-gradient(135deg, #E0BC42, #C4A033);
-  box-shadow: 0 0 20px rgba(127, 162, 198, 0.30);
+  box-shadow: 0 0 20px rgba(184, 255, 26, 0.30);
 }
 
-/* Badge succès — fond #4BB687, texte noir */
+/* Badge succès — fond #B8FF1A, texte noir */
 .badge-emeraude {
-  background: #4BB687;
-  color: #0B1220;
+  background: #B8FF1A;
+  color: #071018;
   font-weight: 700;
   border: none;
 }
@@ -295,21 +295,21 @@
 /* Bouton Or outline — bordure or, texte clair */
 .btn-gold-outline {
   background: transparent;
-  color: #F4F7FB;
-  border: 1.5px solid #D3B16D;
+  color: #F5F8F3;
+  border: 1.5px solid #B8FF1A;
   font-weight: 700;
   transition: all 200ms ease;
 }
 .btn-gold-outline:hover {
-  background: rgba(75, 182, 135, 0.08);
-  border-color: #D3B16D;
+  background: rgba(52, 211, 153, 0.08);
+  border-color: #B8FF1A;
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
    HOVER / ACTIVE / FOCUS STATES (Step 4 — MANDATORY)
    ════════════════════════════════════════════════════════════════════════════ */
 
-/* CTA Hover: bg #B58F4E (Indigo brighter), text #F4F7FB, transition 200ms ease */
+/* CTA Hover: bg #7EC400 (Indigo brighter), text #F5F8F3, transition 200ms ease */
 .vip-glass-cta:hover,
 .btn-primary:hover,
 .btn-vip:hover,
@@ -335,7 +335,7 @@ button[type="submit"]:active,
   background-color: var(--cta-active) !important;
 }
 
-/* Accent Hover: #B9E7FF (links, secondary buttons, tabs) */
+/* Accent Hover: #D4FF72 (links, secondary buttons, tabs) */
 a:hover,
 .nav-link:hover,
 .link:hover,
@@ -347,10 +347,10 @@ a:hover,
   transition: color 200ms ease;
 }
 
-/* Secondary button hover: bg rgba(185, 231, 255,0.1) */
+/* Secondary button hover: bg rgba(212, 255, 114,0.1) */
 .btn-secondary:hover,
 .secondary-button:hover {
-  background-color: rgba(185, 231, 255, 0.1);
+  background-color: rgba(212, 255, 114, 0.1);
   border-color: var(--accent);
 }
 
@@ -368,7 +368,7 @@ a:hover,
   transition: background-color 200ms ease;
 }
 
-/* Card Hover: border-color #7D90A7 */
+/* Card Hover: border-color #5D7880 */
 .card:hover,
 .container:hover,
 .panel:hover,
@@ -380,7 +380,7 @@ a:hover,
   transition: border-color 200ms ease;
 }
 
-/* Link Hover: underline color #B9E7FF */
+/* Link Hover: underline color #D4FF72 */
 a:hover {
   text-decoration-color: var(--accent);
 }
@@ -395,12 +395,12 @@ html {
 }
 
 body {
-  background: #0B1220;
+  background: #071018;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(75, 182, 135, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(75, 182, 135, 0.02) 0%, transparent 40%);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(52, 211, 153, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(52, 211, 153, 0.02) 0%, transparent 40%);
   background-attachment: fixed;
-  color: #F4F7FB;
+  color: #F5F8F3;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
@@ -616,11 +616,11 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .card-vip {
-  background: linear-gradient(135deg, rgba(75, 182, 135, 0.1) 0%, rgba(75, 182, 135, 0.05) 100%);
-  border: 1px solid rgba(127, 162, 198, 0.30);
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.1) 0%, rgba(52, 211, 153, 0.05) 100%);
+  border: 1px solid rgba(184, 255, 26, 0.30);
   border-radius: var(--radius-xl);
   padding: 1.5rem;
-  box-shadow: 0 0 30px rgba(75, 182, 135, 0.1);
+  box-shadow: 0 0 30px rgba(52, 211, 153, 0.1);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -649,28 +649,28 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .badge-warning {
-  background: rgba(75, 182, 135, 0.2);
+  background: rgba(52, 211, 153, 0.2);
   color: var(--color-warning-light);
-  border: 1px solid rgba(127, 162, 198, 0.30);
+  border: 1px solid rgba(184, 255, 26, 0.30);
 }
 
 .badge-danger {
-  background: rgba(75, 182, 135, 0.2);
+  background: rgba(52, 211, 153, 0.2);
   color: var(--color-danger-light);
-  border: 1px solid rgba(127, 162, 198, 0.30);
+  border: 1px solid rgba(184, 255, 26, 0.30);
 }
 
 .badge-vip {
-  background: linear-gradient(135deg, rgba(75, 182, 135, 0.2) 0%, rgba(75, 182, 135, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.2) 0%, rgba(52, 211, 153, 0.1) 100%);
   color: var(--color-vip);
-  border: 1px solid rgba(127, 162, 198, 0.30);
-  box-shadow: 0 0 20px rgba(75, 182, 135, 0.1);
+  border: 1px solid rgba(184, 255, 26, 0.30);
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.1);
 }
 
 .badge-live {
-  background: rgba(75, 182, 135, 0.2);
+  background: rgba(52, 211, 153, 0.2);
   color: var(--color-danger-light);
-  border: 1px solid rgba(127, 162, 198, 0.30);
+  border: 1px solid rgba(184, 255, 26, 0.30);
 }
 .badge-live::before {
   content: '';
@@ -1073,7 +1073,7 @@ a:hover { color: var(--color-primary-light); }
     0 2px 8px rgba(7, 17, 26, 0.3),
     inset 0 1px 0 rgba(244, 247, 251, 0.06);
   background-image: linear-gradient(rgba(6, 16, 25, 0.65), rgba(6, 16, 25, 0.65)),
-                    linear-gradient(135deg, rgba(75, 182, 135, 0.15), rgba(75, 182, 135, 0.08));
+                    linear-gradient(135deg, rgba(52, 211, 153, 0.15), rgba(52, 211, 153, 0.08));
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
@@ -1085,7 +1085,7 @@ a:hover { color: var(--color-primary-light); }
   inset: 0;
   border-radius: 16px;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(75, 182, 135, 0.5), rgba(127, 162, 198, 0.30), rgba(75, 182, 135, 0.1));
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.5), rgba(184, 255, 26, 0.30), rgba(52, 211, 153, 0.1));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -1101,7 +1101,7 @@ a:hover { color: var(--color-primary-light); }
   left: 20%;
   right: 20%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(75, 182, 135, 0.6), transparent);
+  background: linear-gradient(90deg, transparent, rgba(52, 211, 153, 0.6), transparent);
   pointer-events: none;
 }
 
@@ -1110,7 +1110,7 @@ a:hover { color: var(--color-primary-light); }
   transform: translateY(-6px);
   box-shadow:
     0 20px 48px rgba(7, 17, 26, 0.6),
-    0 8px 24px rgba(75, 182, 135, 0.15),
+    0 8px 24px rgba(52, 211, 153, 0.15),
     inset 0 1px 0 rgba(244, 247, 251, 0.08);
   backdrop-filter: blur(14px) saturate(200%);
   -webkit-backdrop-filter: blur(14px) saturate(200%);
@@ -1118,7 +1118,7 @@ a:hover { color: var(--color-primary-light); }
 
 /* Halo d'accent au hover */
 .vip-glass-card:hover::before {
-  background: linear-gradient(135deg, rgba(75, 182, 135, 0.8), rgba(75, 182, 135, 0.5), rgba(127, 162, 198, 0.30));
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.8), rgba(52, 211, 153, 0.5), rgba(184, 255, 26, 0.30));
 }
 
 /* En-tête carte : niveau VIP + logo */
@@ -1135,7 +1135,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 1.25rem;
-  color: #D3B16D;
+  color: #B8FF1A;
   text-shadow: 0 0 20px rgba(255, 159, 90, 0.3);
   letter-spacing: 0.02em;
 }
@@ -1150,18 +1150,18 @@ a:hover { color: var(--color-primary-light); }
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: linear-gradient(135deg, #D3B16D, #D3B16D);
+  background: linear-gradient(135deg, #B8FF1A, #B8FF1A);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 16px rgba(75, 182, 135, 0.4);
+  box-shadow: 0 0 16px rgba(52, 211, 153, 0.4);
 }
 
 .vip-glass-logo-text {
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
-  color: #F4F7FB;
+  color: #F5F8F3;
 }
 
 /* Corps carte : utilisateur + avantages */
@@ -1174,7 +1174,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  color: #F4F7FB;
+  color: #F5F8F3;
   margin-bottom: 1rem;
 }
 
@@ -1193,7 +1193,7 @@ a:hover { color: var(--color-primary-light); }
   gap: 0.625rem;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.8125rem;
-  color: #C2CCD8;
+  color: #B7C4C1;
   line-height: 1.5;
 }
 
@@ -1204,8 +1204,8 @@ a:hover { color: var(--color-primary-light); }
   height: 6px;
   margin-top: 6px;
   border-radius: 50%;
-  background: #D3B16D;
-  box-shadow: 0 0 8px rgba(75, 182, 135, 0.6);
+  background: #B8FF1A;
+  box-shadow: 0 0 8px rgba(52, 211, 153, 0.6);
 }
 
 /* Pied carte : statut */
@@ -1227,7 +1227,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.6875rem;
   font-weight: 600;
-  color: #D3B16D;
+  color: #B8FF1A;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -1237,8 +1237,8 @@ a:hover { color: var(--color-primary-light); }
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #D3B16D;
-  box-shadow: 0 0 8px rgba(75, 182, 135, 0.8);
+  background: #B8FF1A;
+  box-shadow: 0 0 8px rgba(52, 211, 153, 0.8);
   animation: vip-pulse 2s ease-in-out infinite;
 }
 
@@ -1250,7 +1250,7 @@ a:hover { color: var(--color-primary-light); }
 .vip-glass-meta {
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.6875rem;
-  color: #7D90A7;
+  color: #5D7880;
 }
 
 /* CTA carte VIP glassmorphism */
@@ -1262,25 +1262,25 @@ a:hover { color: var(--color-primary-light); }
   width: 100%;
   padding: 0.75rem 1.25rem;
   margin-top: 1.25rem;
-  background: linear-gradient(135deg, #D3B16D 0%, #182438 100%);
-  color: #F4F7FB;
+  background: linear-gradient(135deg, #B8FF1A 0%, #11242B 100%);
+  color: #F5F8F3;
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
-  border: 1px solid rgba(75, 182, 135, 0.6);
+  border: 1px solid rgba(52, 211, 153, 0.6);
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(75, 182, 135, 0.35);
+  box-shadow: 0 4px 16px rgba(52, 211, 153, 0.35);
   position: relative;
   z-index: 2;
 }
 
 .vip-glass-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(75, 182, 135, 0.5);
-  background: linear-gradient(135deg, #B58F4E 0%, #D3B16D 100%);
-  border-color: #B58F4E;
+  box-shadow: 0 8px 24px rgba(52, 211, 153, 0.5);
+  background: linear-gradient(135deg, #7EC400 0%, #B8FF1A 100%);
+  border-color: #7EC400;
 }
 
 .vip-glass-cta:active {
@@ -1298,13 +1298,13 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .vip-glass-card.gold .vip-glass-level {
-  color: #D3B16D;
+  color: #B8FF1A;
   text-shadow: 0 0 24px rgba(255, 159, 90, 0.5);
 }
 
 /* Silver — Brume Bleutée sobre */
 .vip-glass-card.silver .vip-glass-level {
-  color: #C2CCD8;
+  color: #B7C4C1;
   text-shadow: 0 0 16px rgba(165, 171, 197, 0.3);
 }
 
@@ -1319,7 +1319,7 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .vip-glass-card.elite .vip-glass-level {
-  color: #D3B16D;
+  color: #B8FF1A;
   text-shadow: 0 0 28px rgba(255, 159, 90, 0.6);
 }
 
@@ -1348,7 +1348,7 @@ a:hover { color: var(--color-primary-light); }
 
 /* ═══ Focus visible — accessibility ═══ */
 *:focus-visible {
-  outline: 2px solid #D3B16D;
+  outline: 2px solid #B8FF1A;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -1432,7 +1432,7 @@ body {
    Applied to interactive elements for keyboard navigation
    ════════════════════════════════════════════════════════════════════════════ */
 *:focus-visible {
-  outline: 2px solid #7DB4FF;
+  outline: 2px solid #B8FF1A;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -1442,6 +1442,6 @@ body {
   transition: background-color 200ms ease, border-color 200ms ease, transform 200ms ease;
 }
 .card-hover:hover {
-  background-color: #182438;
-  border-color: #8fa2b8;
+  background-color: #11242B;
+  border-color: #7A9293;
 }

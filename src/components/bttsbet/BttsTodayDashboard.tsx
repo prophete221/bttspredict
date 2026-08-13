@@ -29,18 +29,18 @@ import { generateMatchSlug } from '@/lib/match-slug'
 
 // ─── Palette (Slate Design System — matches VIP / methodology) ──────────
 const C = {
-  bg:       '#0B1220',
-  surface:  '#111a2a',
-  surface2: '#0B1220',
-  border:   '#7D90A7',
-  text:     '#F4F7FB',
-  textSec:  '#C2CCD8',
+  bg:       '#071018',
+  surface:  '#0D1A20',
+  surface2: '#071018',
+  border:   '#5D7880',
+  text:     '#F5F8F3',
+  textSec:  '#B7C4C1',
   textMute: '#64748B',
-  success:  '#7FA2C6',
-  warning:  '#D3B16D',
-  data:     '#7FA2C6',
-  gold:     '#D3B16D',
-  danger:   '#E07A83',
+  success:  '#34D399',
+  warning:  '#B8FF1A',
+  data:     '#B8FF1A',
+  gold:     '#B8FF1A',
+  danger:   '#FF7B7B',
 }
 
 // ─── Types ──────────────────────────────────────────────────────────────
