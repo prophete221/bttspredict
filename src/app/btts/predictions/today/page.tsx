@@ -46,6 +46,7 @@ export default function BTTSPredictionsTodayPage() {
     <div className="min-h-screen bg-[#07111F] flex flex-col text-[#F4F8FC]">
       <Navbar />
       <main id="main-content" className="flex-1">
+        <h1 className="sr-only">BTTS Predictions Today</h1>
         <BttsTodayDashboard />
       </main>
       <Footer />

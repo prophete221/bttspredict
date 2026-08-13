@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { AFFILIATE } from '@/lib/constants'
+import { getDakarDateString } from '@/lib/dakar-date'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -78,7 +79,7 @@ export default function VipPage() {
         }
         // Build preview from real match data only — no fallback demo matches
         const arr: any[] = data?.vipPreview || data?.free || data?.predictions || []
-        const todayStr = new Date().toISOString().slice(0, 10)
+        const todayStr = getDakarDateString()
         const upcoming = arr.filter((p: any) => p.date >= todayStr).slice(0, 2)
         if (upcoming.length > 0) {
           setPreviewMatches(upcoming.map((m: any) => ({

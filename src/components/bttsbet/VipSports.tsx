@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { AFFILIATE, SITE } from '@/lib/constants'
+import { getDakarDateSeed } from '@/lib/dakar-date'
 import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
 import CopyableCode from './CopyableCode'
@@ -49,8 +50,7 @@ const SPORTS: SportVip[] = [
 
 // Deterministic daily cote
 function getDailyCote(sportId: string, min: number, max: number): number {
-  const today = new Date()
-  const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate() + sportId.length
+  const seed = getDakarDateSeed() + sportId.length
   const x = Math.sin(seed * 9301 + 49297) * 233280
   const fraction = x - Math.floor(x)
   return Math.round((min + fraction * (max - min)) * 100) / 100
