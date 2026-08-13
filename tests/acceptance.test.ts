@@ -208,3 +208,15 @@ describe('Meta descriptions 25-160 caractères', () => {
     }
   })
 })
+
+describe('AI Combo of the Day — sélection temporelle', () => {
+  test('utilise exclusivement todayMatches et reste masqué si aucun match du jour', () => {
+    const content = fs.readFileSync(
+      path.join(ROOT, 'src/components/bttsbet/BttsTodayDashboard.tsx'),
+      'utf8',
+    )
+    expect(content).toContain('for (const m of todayMatches)')
+    expect(content).toContain('{!loading && todayMatches.length > 0 && (')
+    expect(content).toContain('No combo available today.')
+  })
+})

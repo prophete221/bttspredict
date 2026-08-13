@@ -623,7 +623,7 @@ export default function BttsTodayDashboard() {
 
     const candidates: ComboPick[] = []
 
-    for (const m of matches) {
+    for (const m of todayMatches) {
       const dq = (m.dataQuality || '').toUpperCase()
       if (dq === 'LOW' || dq === '') continue
 
@@ -674,7 +674,7 @@ export default function BttsTodayDashboard() {
     })
 
     return candidates.slice(0, 3)
-  }, [matches, loading])
+  }, [todayMatches, loading])
 
   // ─── Filters ──────────────────────────────────────────────────────────
   const filters: { id: FilterType; label: string }[] = [
@@ -750,7 +750,7 @@ export default function BttsTodayDashboard() {
       {/* ─── AI COMBO OF THE DAY ─── */}
       {/* Deterministic selection — NO Gemini call from client, NO recalculation. */}
       {/* Source: /predictions.json fields only (bttsProb, over25Prob, reliabilityScore, dataQuality, dataSource). */}
-      {!loading && (
+      {!loading && todayMatches.length > 0 && (
         <div className="rounded-xl p-3 sm:p-4 mb-4" style={{
           backgroundColor: C.surface,
           border: `1px solid ${C.gold}40`,
@@ -778,7 +778,7 @@ export default function BttsTodayDashboard() {
           {combo.length < 3 ? (
             <div className="py-4 text-center">
               <p className="text-[11px] font-bold" style={{ color: C.text }}>
-                Not enough qualifying selections today.
+                No combo available today.
               </p>
               <p className="text-[9px] mt-1" style={{ color: C.textSec }}>
                 Eligibility: data quality not LOW, reliability ≥ 70%, BTTS or Over 2.5 ≥ 65%.
