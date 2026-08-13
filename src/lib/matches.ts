@@ -44,6 +44,11 @@ export interface MatchData {
   aiOver25Prob?: string
   aiKeyFact?: string
   aiAnalysis?: string
+  bttsProb?: number
+  over25Prob?: number
+  homeLambda?: number
+  awayLambda?: number
+  xgTotal?: number
 }
 
 /**
@@ -98,6 +103,11 @@ export function loadAllMatches(): Map<string, MatchData> {
             aiOver25Prob: p.ai_over25_prob,
             aiKeyFact: p.ai_key_fact,
             aiAnalysis: p.ai_analysis,
+            bttsProb: p.bttsProb,
+            over25Prob: p.over25Prob,
+            homeLambda: p.homeLambda,
+            awayLambda: p.awayLambda,
+            xgTotal: p.xgTotal,
           })
         }
 
@@ -108,6 +118,11 @@ export function loadAllMatches(): Map<string, MatchData> {
         if (!match.aiOver25Prob && p.ai_over25_prob) match.aiOver25Prob = p.ai_over25_prob
         if (!match.aiKeyFact && p.ai_key_fact) match.aiKeyFact = p.ai_key_fact
         if (!match.aiAnalysis && p.ai_analysis) match.aiAnalysis = p.ai_analysis
+        if (match.bttsProb == null && p.bttsProb != null) match.bttsProb = p.bttsProb
+        if (match.over25Prob == null && p.over25Prob != null) match.over25Prob = p.over25Prob
+        if (match.homeLambda == null && p.homeLambda != null) match.homeLambda = p.homeLambda
+        if (match.awayLambda == null && p.awayLambda != null) match.awayLambda = p.awayLambda
+        if (match.xgTotal == null && p.xgTotal != null) match.xgTotal = p.xgTotal
         match.predictions.push({
           type: p.type || p.market || '',
           market: p.type || p.market || '',
@@ -163,19 +178,32 @@ export function loadAllMatches(): Map<string, MatchData> {
           if (!match.aiOver25Prob && p.ai_over25_prob) match.aiOver25Prob = p.ai_over25_prob
           if (!match.aiKeyFact && p.ai_key_fact) match.aiKeyFact = p.ai_key_fact
           if (!match.aiAnalysis && p.ai_analysis) match.aiAnalysis = p.ai_analysis
-          if (match.predictions.length === 0) {
+          if (match.bttsProb == null && p.bttsProb != null) match.bttsProb = p.bttsProb
+          if (match.over25Prob == null && p.over25Prob != null) match.over25Prob = p.over25Prob
+          if (match.homeLambda == null && p.homeLambda != null) match.homeLambda = p.homeLambda
+          if (match.awayLambda == null && p.awayLambda != null) match.awayLambda = p.awayLambda
+          if (match.xgTotal == null && p.xgTotal != null) match.xgTotal = p.xgTotal
+          const sourceMarkets = Array.isArray(p.predictions) && p.predictions.length > 0
+            ? p.predictions
+            : [p]
+          for (const sourcePrediction of sourceMarkets) {
+            const marketType = sourcePrediction.type || sourcePrediction.market || p.type || p.market || 'BTTS'
+            const hasMarket = match.predictions.some(existing =>
+              (existing.type || existing.market || '').toLowerCase() === String(marketType).toLowerCase(),
+            )
+            if (hasMarket) continue
             match.predictions.push({
-              type: p.type || p.market || 'BTTS',
-              market: p.type || p.market || 'BTTS',
-              prediction: p.prediction || '',
-              proba: p.proba || p.confidence / 100 || 0.62,
-              confidence: p.confidence || 62,
-              tier: p.tier || 'STANDARD',
-              status: p.status,
-              isWon: p.isWon,
-              finalScore: p.finalScore,
-              verifiedAt: p.verifiedAt,
-              source: p.source || '',
+              type: marketType,
+              market: marketType,
+              prediction: sourcePrediction.prediction || p.prediction || '',
+              proba: sourcePrediction.proba || sourcePrediction.bttsProb || sourcePrediction.over25Prob || p.proba || p.confidence / 100 || 0.62,
+              confidence: sourcePrediction.confidence || p.confidence || 62,
+              tier: sourcePrediction.tier || p.tier || 'STANDARD',
+              status: sourcePrediction.status || p.status,
+              isWon: sourcePrediction.isWon ?? p.isWon,
+              finalScore: sourcePrediction.finalScore || p.finalScore,
+              verifiedAt: sourcePrediction.verifiedAt || p.verifiedAt,
+              source: sourcePrediction.source || p.source || '',
             })
           }
         }
