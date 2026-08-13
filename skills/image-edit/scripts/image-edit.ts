@@ -1,15 +1,16 @@
-import ZAI from 'z-ai-web-dev-sdk';
+import ZAI, { CreateImageEditBody } from 'z-ai-web-dev-sdk';
 import fs from 'fs';
 
 async function main(imageSource: string, prompt: string, size: '1024x1024' | '768x1344' | '864x1152' | '1344x768' | '1152x864' | '1440x720' | '720x1440', outFile: string) {
 	try {
 		const zai = await ZAI.create();
 
-		const response = await zai.images.generations.edit({
+		const request = {
 			prompt,
 			images: [{ url: imageSource }],  // Array of objects with url property
 			size
-		});
+		} as unknown as CreateImageEditBody;
+		const response = await zai.images.generations.edit(request);
 
 		const base64 = response?.data?.[0]?.base64;
 		if (!base64) {
