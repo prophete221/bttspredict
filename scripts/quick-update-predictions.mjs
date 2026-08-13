@@ -7,6 +7,7 @@
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { validatePredictionPayload } from './validate-predictions.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -15,6 +16,12 @@ const PREDICTIONS_FILE = path.join(PUBLIC_DIR, 'predictions.json')
 const ARCHIVE_DIR = path.join(PUBLIC_DIR, 'predictions-archive')
 
 if (!fs.existsSync(ARCHIVE_DIR)) fs.mkdirSync(ARCHIVE_DIR, { recursive: true })
+
+function writeJsonAtomically(file, payload) {
+  const tempFile = `${file}.${process.pid}.tmp`
+  fs.writeFileSync(tempFile, JSON.stringify(payload, null, 2))
+  fs.renameSync(tempFile, file)
+}
 
 const FUTURE_DAYS = 7        // look ahead 7 days to ensure we always have matches
 const MAX_FREE = 12           // show up to 12 free matches (Gemini-powered analysis)
@@ -322,9 +329,12 @@ async function quickUpdate() {
     uniqueMatches.push(m)
   }
 
-  console.log(`[v91] Total unique matches: ${uniqueMatches.length}`)
-
+    console.log(`[v91] Total unique matches: ${uniqueMatches.length}`)
+  if (uniqueMatches.length === 0) {
+    throw new Error(`[v91] ESPN returned no scheduled matches for ${today}; existing predictions.json was preserved`)
+  }
   // ─── RELIABILITY SCORING — only eliminate truly unusable ───
+
   const scored = []
   let rejected = 0
   const rejectionReasons = []
@@ -549,6 +559,8 @@ async function quickUpdate() {
   // ─── Save predictions.json (new structure with predictions nested) ───
   const predictionsData = {
     date: today,
+    lastUpdated: new Date().toISOString(),
+    source: 'ESPN + TheSportsDB',
     free: free,
     vipPreview: vipPreview,
     stats: {
@@ -563,13 +575,20 @@ async function quickUpdate() {
     predictions: free,
   }
 
-  fs.writeFileSync(PREDICTIONS_FILE, JSON.stringify(predictionsData, null, 2))
+    const validationErrors = validatePredictionPayload(predictionsData, {
+    today,
+    requireTimestamp: true,
+  })
+  if (validationErrors.length > 0) {
+    throw new Error(`[v91] Refusing to publish invalid predictions:\n${validationErrors.join('\n')}`)
+  }
+  writeJsonAtomically(PREDICTIONS_FILE, predictionsData)
   console.log(`\n[v91] Written to predictions.json (${free.length} free, ${vipPreview.length} VIP)`)
   console.log(`[v91] File size: ${(fs.statSync(PREDICTIONS_FILE).size / 1024).toFixed(1)} KB`)
-
   // ─── Archive daily ───
   const archiveFile = path.join(ARCHIVE_DIR, `${today}.json`)
-  fs.writeFileSync(archiveFile, JSON.stringify(predictionsData, null, 2))
+  writeJsonAtomically(archiveFile, predictionsData)
+
   console.log(`[v91] Archived to predictions-archive/${today}.json`)
 
   console.log(`\n[v91] Done.`)
