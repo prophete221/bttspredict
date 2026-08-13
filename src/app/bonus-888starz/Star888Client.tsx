@@ -67,7 +67,7 @@ const STEPS = [
 /* ─── Moyens de dépôt ─────────────────────────────────────────────────── */
 const PAYMENT_METHODS = [
   { name: 'Wave', color: '#1DC9FF', short: 'W' },
-  { name: 'Orange Money', color: '#5B7FA3', short: 'OM' },
+  { name: 'Orange Money', color: '#9CC4F4', short: 'OM' },
   { name: 'MTN', color: '#FFCC00', short: 'M' },
   { name: 'Moov', color: '#0066B3', short: 'M' },
 ]

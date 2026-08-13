@@ -28,7 +28,7 @@ export default function NotFound() {
           <Link
             href="/"
             className="inline-block px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
-            style={{ backgroundColor: '#5B7FA3', color: '#080B12' }}
+            style={{ backgroundColor: '#9CC4F4', color: '#080B12' }}
           >
             Retour à l&apos;accueil
           </Link>

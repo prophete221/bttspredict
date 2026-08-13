@@ -4,9 +4,9 @@ import { useState } from 'react'
 import { AFFILIATE, SITE } from '@/lib/constants'
 
 /* ─── Palette locale — Linebet vert clair (couleur de marque) ───────── */
-const GOLD = '#5B7FA3'       // vert clair Linebet
+const GOLD = '#9CC4F4'       // vert clair Linebet
 const GOLD_LIGHT = '#3FBA7C' // vert clair sombre
-const PRIMARY = '#5B7FA3'    // boutons et accents en vert clair
+const PRIMARY = '#9CC4F4'    // boutons et accents en vert clair
 const PRIMARY_HOVER = '#3FBA7C'
 const TEXT = '#F7F4EE'
 const TEXT_SEC = '#9BA7B8'
@@ -66,7 +66,7 @@ const STEPS = [
 /* ─── Moyens de dépôt ───────────────────────────────────────────────── */
 const PAYMENT_METHODS = [
   { name: 'Wave', color: '#1DC9FF', short: 'W' },
-  { name: 'Orange Money', color: '#5B7FA3', short: 'OM' },
+  { name: 'Orange Money', color: '#9CC4F4', short: 'OM' },
   { name: 'MTN', color: '#FFCC00', short: 'M' },
   { name: 'Moov', color: '#0066B3', short: 'M' },
   { name: 'Free Money', color: '#CC0066', short: 'F' },
@@ -127,9 +127,9 @@ export default function LinebetClient() {
         <div
           className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] px-5 py-3 rounded-xl font-bold text-sm shadow-2xl"
           style={{
-            backgroundColor: '#5B7FA3',
+            backgroundColor: '#9CC4F4',
             color: BG_DARK,
-            border: '1.5px solid #5B7FA3',
+            border: '1.5px solid #9CC4F4',
             boxShadow: '0 10px 40px rgba(99, 214, 255, 0.4)',
           }}
           role="status"
@@ -209,8 +209,8 @@ export default function LinebetClient() {
               <span
                 className="inline-flex items-center justify-center w-9 h-9 rounded-lg flex-shrink-0"
                 style={{
-                  backgroundColor: copied ? '#5B7FA3' : `${GOLD}1A`,
-                  border: `1px solid ${copied ? '#5B7FA3' : GOLD}`,
+                  backgroundColor: copied ? '#9CC4F4' : `${GOLD}1A`,
+                  border: `1px solid ${copied ? '#9CC4F4' : GOLD}`,
                   color: copied ? BG_DARK : GOLD,
                 }}
                 aria-hidden="true"
@@ -237,7 +237,7 @@ export default function LinebetClient() {
                 onClick={handleCopy}
                 className="flex-1 sm:flex-initial sm:min-w-[260px] h-[52px] rounded-[10px] font-bold text-[14px] flex items-center justify-center gap-2 transition-all"
                 style={{
-                  backgroundColor: copied ? '#5B7FA3' : GOLD,
+                  backgroundColor: copied ? '#9CC4F4' : GOLD,
                   color: copied ? BG_DARK : BG_DARK,
                   border: 'none',
                   boxShadow: `0 6px 20px ${GOLD}33`,
@@ -396,7 +396,7 @@ export default function LinebetClient() {
               onClick={handleCopy}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] font-bold text-[13px] transition-all"
               style={{
-                backgroundColor: copied ? '#5B7FA3' : GOLD,
+                backgroundColor: copied ? '#9CC4F4' : GOLD,
                 color: BG_DARK,
                 boxShadow: `0 4px 14px ${GOLD}33`,
               }}
@@ -535,7 +535,7 @@ export default function LinebetClient() {
           onClick={handleCopy}
           className="px-5 py-2.5 rounded-[10px] font-bold text-[13px]"
           style={{
-            backgroundColor: copied ? '#5B7FA3' : GOLD,
+            backgroundColor: copied ? '#9CC4F4' : GOLD,
             color: BG_DARK,
           }}
         >

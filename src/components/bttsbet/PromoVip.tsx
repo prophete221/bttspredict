@@ -6,9 +6,9 @@ import VipUnlockModal from './VipUnlockModal'
 
 const C = {
   bg:'#080B12', card:'#111722', border:'#3A4556',
-  neon:'#5B7FA3', gold:'#D6B36A', data:'#5B7FA3',
+  neon:'#9CC4F4', gold:'#D6B36A', data:'#9CC4F4',
   text:'#F7F4EE', textSec:'#9BA7B8', textMute:'#9BA7B8',
-  success:'#5B7FA3',
+  success:'#9CC4F4',
 }
 
 function getDailyCote(){

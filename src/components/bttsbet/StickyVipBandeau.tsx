@@ -59,7 +59,7 @@ export default function StickyVipBandeau() {
               <div className="flex items-center gap-3">
                 {/* Crown icon with glow */}
                 <div className="relative w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center flex-shrink-0">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#5B7FA3" stroke="#5B7FA3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#9CC4F4" stroke="#9CC4F4" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z" />
                   </svg>
                   <motion.div
@@ -86,25 +86,25 @@ export default function StickyVipBandeau() {
               {/* Middle: benefits (hidden on mobile) */}
               <div className="hidden sm:flex items-center justify-center gap-5 text-[11px]">
                 <div className="flex items-center gap-1.5">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#5B7FA3" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9CC4F4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                   <span className="text-cendre font-medium">+10 matchs/jour</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#5B7FA3" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9CC4F4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                   <span className="text-cendre font-medium">Précision VIP</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#5B7FA3" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9CC4F4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                   <span className="text-cendre font-medium">Historique complet</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#5B7FA3" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9CC4F4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                   <span className="text-cendre font-medium">5 sports VIP</span>
@@ -142,15 +142,15 @@ export default function StickyVipBandeau() {
             {/* Mobile benefits row (visible only on small screens) */}
             <div className="sm:hidden flex items-center justify-around gap-2 px-4 pb-3 text-[10px]">
               <div className="flex items-center gap-1">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#5B7FA3" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#9CC4F4" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
                 <span className="text-cendre">10 matchs/j</span>
               </div>
               <div className="flex items-center gap-1">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#5B7FA3" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#9CC4F4" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
                 <span className="text-cendre">Précision VIP</span>
               </div>
               <div className="flex items-center gap-1">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#5B7FA3" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#9CC4F4" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
                 <span className="text-cendre">5 sports</span>
               </div>
             </div>

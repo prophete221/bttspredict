@@ -87,14 +87,14 @@ export default function AICorrectScorePage() {
       <Navbar />
       <main id="main-content" className="flex-1">
         <nav aria-label="Fil d'Ariane" className="text-xs text-[#9BA7B8] mb-4 max-w-5xl mx-auto px-4 pt-8">
-          <Link href="/" className="hover:text-[#5B7FA3]">Accueil</Link>
+          <Link href="/" className="hover:text-[#9CC4F4]">Accueil</Link>
           <span className="mx-1">/</span>
           <span className="text-[#9BA7B8]">AI Correct Score</span>
         </nav>
 
         <section className="max-w-5xl mx-auto px-4 pt-4 pb-6">
           <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
-            style={{ backgroundColor: 'rgba(99, 214, 255, 0.12)', color: '#5B7FA3', border: '1px solid rgba(99, 214, 255, 0.25)' }}>
+            style={{ backgroundColor: 'rgba(99, 214, 255, 0.12)', color: '#9CC4F4', border: '1px solid rgba(99, 214, 255, 0.25)' }}>
             AI · Correct Score · Poisson Model
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -118,7 +118,7 @@ export default function AICorrectScorePage() {
                 aria-pressed={activeLeague === league}
                 className={`px-2.5 py-1 rounded text-[11px] font-semibold transition-all whitespace-nowrap ${
                   activeLeague === league
-                    ? 'bg-[#5B7FA3]/15 text-[#5B7FA3] border border-[#5B7FA3]/30'
+                    ? 'bg-[#9CC4F4]/15 text-[#9CC4F4] border border-[#9CC4F4]/30'
                     : 'bg-[#111722] text-[#9BA7B8] border border-[#3A4556] hover:text-[#9BA7B8]'
                 }`}
               >
@@ -153,7 +153,7 @@ export default function AICorrectScorePage() {
                   <div className="px-3 py-3">
                     <div className="text-center mb-3">
                       <span className="text-sm font-bold text-[#F7F4EE]">{m.home}</span>
-                      <span className="text-[#5B7FA3] mx-2 font-mono text-xs">vs</span>
+                      <span className="text-[#9CC4F4] mx-2 font-mono text-xs">vs</span>
                       <span className="text-sm font-bold text-[#F7F4EE]">{m.away}</span>
                     </div>
                     {/* Top 5 scores */}
@@ -162,11 +162,11 @@ export default function AICorrectScorePage() {
                         <div key={idx} className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
                             <span className="text-[9px] font-mono text-[#9BA7B8] w-4">#{idx + 1}</span>
-                            <span className="text-sm font-bold font-mono" style={{ color: idx === 0 ? '#5B7FA3' : '#F7F4EE' }}>{s.score}</span>
+                            <span className="text-sm font-bold font-mono" style={{ color: idx === 0 ? '#9CC4F4' : '#F7F4EE' }}>{s.score}</span>
                           </div>
                           <div className="flex items-center gap-2 flex-1 ml-3">
                             <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ backgroundColor: '#080B12' }}>
-                              <div className="h-full rounded-full" style={{ width: `${s.prob * 100}%`, backgroundColor: idx === 0 ? '#5B7FA3' : '#5B7FA3' }} />
+                              <div className="h-full rounded-full" style={{ width: `${s.prob * 100}%`, backgroundColor: idx === 0 ? '#9CC4F4' : '#9CC4F4' }} />
                             </div>
                             <span className="text-[10px] font-mono font-bold text-[#9BA7B8] tabular-nums">{(s.prob * 100).toFixed(1)}%</span>
                           </div>

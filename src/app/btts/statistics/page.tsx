@@ -74,13 +74,13 @@ export default function BTTSStatisticsPage() {
       <main id="main-content" className="flex-1">
         <article className="max-w-4xl mx-auto px-4 py-12 sm:py-16">
           <nav aria-label="Fil d'Ariane" className="text-xs text-[#9BA7B8] mb-4">
-            <Link href="/" className="hover:text-[#5B7FA3]">Accueil</Link>
+            <Link href="/" className="hover:text-[#9CC4F4]">Accueil</Link>
             <span className="mx-1">/</span>
             <span className="text-[#9BA7B8]">BTTS Statistics</span>
           </nav>
 
           <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
-            style={{ backgroundColor: 'rgba(99, 214, 255, 0.12)', color: '#5B7FA3', border: '1px solid rgba(99, 214, 255, 0.25)' }}>
+            style={{ backgroundColor: 'rgba(99, 214, 255, 0.12)', color: '#9CC4F4', border: '1px solid rgba(99, 214, 255, 0.25)' }}>
             BTTS · Statistics
           </span>
           <h1 className="text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -131,7 +131,7 @@ export default function BTTSStatisticsPage() {
                 <strong className="text-[#F7F4EE]">Buts par match</strong> : moyenne de buts totaux par match. Plus ce chiffre est élevé, plus le marché Over 2,5 est probable. Les valeurs exactes seront affichées une fois une source vérifiable intégrée au build.
               </p>
               <p>
-                Ces statistiques ne garantissent aucun résultat futur. Elles servent uniquement à comprendre la logique de sélection des ligues par le moteur. Pour voir les pronostics actuels, consultez la page <Link href="/btts/predictions/today" className="text-[#5B7FA3] underline">BTTS Predictions Today</Link>.
+                Ces statistiques ne garantissent aucun résultat futur. Elles servent uniquement à comprendre la logique de sélection des ligues par le moteur. Pour voir les pronostics actuels, consultez la page <Link href="/btts/predictions/today" className="text-[#9CC4F4] underline">BTTS Predictions Today</Link>.
               </p>
             </div>
           </section>
@@ -141,17 +141,17 @@ export default function BTTSStatisticsPage() {
               Voir aussi
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B7FA3]"
+              <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9CC4F4]"
                 style={{ backgroundColor: '#111722', border: '1px solid #3A4556' }}>
                 <div className="text-sm font-bold text-[#F7F4EE]">BTTS Today →</div>
                 <div className="text-xs text-[#9BA7B8] mt-1">Pronostics du jour</div>
               </Link>
-              <Link href="/historique" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B7FA3]"
+              <Link href="/historique" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9CC4F4]"
                 style={{ backgroundColor: '#111722', border: '1px solid #3A4556' }}>
                 <div className="text-sm font-bold text-[#F7F4EE]">Résultats vérifiés →</div>
                 <div className="text-xs text-[#9BA7B8] mt-1">Historique complet</div>
               </Link>
-              <Link href="/resultats-verifies" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B7FA3]"
+              <Link href="/resultats-verifies" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9CC4F4]"
                 style={{ backgroundColor: '#111722', border: '1px solid #3A4556' }}>
                 <div className="text-sm font-bold text-[#F7F4EE]">Vérifications →</div>
                 <div className="text-xs text-[#9BA7B8] mt-1">Suivi public</div>

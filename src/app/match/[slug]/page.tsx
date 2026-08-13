@@ -116,9 +116,9 @@ export default async function MatchPage({ params }: PageProps) {
       <main id="main-content" className="flex-1">
         {/* Breadcrumb */}
         <nav aria-label="Fil d'Ariane" className="max-w-4xl mx-auto px-4 pt-6 pb-2 text-xs text-[#9BA7B8]">
-          <Link href="/" className="hover:text-[#5B7FA3]">Accueil</Link>
+          <Link href="/" className="hover:text-[#9CC4F4]">Accueil</Link>
           <span className="mx-1">/</span>
-          <Link href="/btts/predictions/today" className="hover:text-[#5B7FA3]">Pronostics</Link>
+          <Link href="/btts/predictions/today" className="hover:text-[#9CC4F4]">Pronostics</Link>
           <span className="mx-1">/</span>
           <span className="text-[#9BA7B8]">{home} vs {away}</span>
         </nav>
@@ -166,7 +166,7 @@ export default async function MatchPage({ params }: PageProps) {
                 const market = (p.type || p.market || '').toLowerCase()
                 const isBtts = market.includes('btts')
                 const isOver = market.includes('over') || market.includes('o2.5') || market.includes('o25')
-                const color = isBtts ? '#5B7FA3' : isOver ? '#5B7FA3' : '#9BA7B8'
+                const color = isBtts ? '#9CC4F4' : isOver ? '#9CC4F4' : '#9BA7B8'
                 const label = isBtts ? 'BTTS' : isOver ? 'Over 2.5' : (p.type || p.market || 'Prediction')
                 const isWon = p.status === 'WON'
                 const isLost = p.status === 'LOST'
@@ -196,7 +196,7 @@ export default async function MatchPage({ params }: PageProps) {
                     </div>
 
                     {isWon && (
-                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(34, 197, 94, 0.15)', color: '#5B7FA3' }}>
+                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(34, 197, 94, 0.15)', color: '#9CC4F4' }}>
                         ✓ Gagné
                       </div>
                     )}
@@ -226,7 +226,7 @@ export default async function MatchPage({ params }: PageProps) {
               <div className="rounded-xl p-5 space-y-4" style={{ backgroundColor: '#111722', border: '1px solid #3A4556' }}>
                 <div className="flex items-center justify-between border-b border-[#3A4556] pb-3">
                   <h3 className="font-bold text-sm text-[#F7F4EE] flex items-center gap-2">
-                    <span className="text-[#5B7FA3]">📊</span> Rapport d&apos;Analyse — BTTSPredict AI
+                    <span className="text-[#9CC4F4]">📊</span> Rapport d&apos;Analyse — BTTSPredict AI
                   </h3>
                   {aiExactScore && (
                     <span className="px-2.5 py-1 text-xs font-black rounded-md" style={{ backgroundColor: 'rgba(245,158,11,0.1)', color: '#D6B36A', border: '1px solid rgba(245,158,11,0.3)' }}>
@@ -247,7 +247,7 @@ export default async function MatchPage({ params }: PageProps) {
                     {aiBttsProb && (
                       <div className="text-center rounded-lg p-2" style={{ backgroundColor: 'rgba(6,182,212,0.08)' }}>
                         <div className="text-[9px] uppercase tracking-wider text-[#9BA7B8]">BTTS</div>
-                        <div className="text-base font-bold text-[#5B7FA3]">{aiBttsProb}</div>
+                        <div className="text-base font-bold text-[#9CC4F4]">{aiBttsProb}</div>
                       </div>
                     )}
                     {aiOver25Prob && (
@@ -262,7 +262,7 @@ export default async function MatchPage({ params }: PageProps) {
                 {/* Statistique Clé */}
                 {aiKeyFact && (
                   <div className="p-3 rounded-lg" style={{ backgroundColor: '#080B12', border: '1px solid #3A4556' }}>
-                    <span className="text-[11px] font-bold text-[#5B7FA3] uppercase tracking-wider block mb-1">
+                    <span className="text-[11px] font-bold text-[#9CC4F4] uppercase tracking-wider block mb-1">
                       📌 Statistique clé — xG & données disponibles
                     </span>
                     <p className="text-xs text-[#F7F4EE] italic">&ldquo;{aiKeyFact}&rdquo;</p>
@@ -292,7 +292,7 @@ export default async function MatchPage({ params }: PageProps) {
             <div className="p-4 rounded-xl" style={{ backgroundColor: '#111722', border: '1px solid #3A4556' }}>
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <div className="text-2xl font-bold text-[#5B7FA3]">{won}</div>
+                  <div className="text-2xl font-bold text-[#9CC4F4]">{won}</div>
                   <div className="text-xs text-[#9BA7B8] uppercase">Gagnés</div>
                 </div>
                 <div>
@@ -321,12 +321,12 @@ export default async function MatchPage({ params }: PageProps) {
               Aller plus loin
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B7FA3]"
+              <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9CC4F4]"
                 style={{ backgroundColor: '#111722', border: '1px solid #3A4556' }}>
                 <div className="text-sm font-bold text-[#F7F4EE] mb-1">Voir les pronostics du jour →</div>
                 <div className="text-xs text-[#9BA7B8]">Tous les matchs sélectionnés par le moteur IA</div>
               </Link>
-              <Link href="/vip" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B7FA3]"
+              <Link href="/vip" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9CC4F4]"
                 style={{ backgroundColor: '#111722', border: '1px solid #3A4556' }}>
                 <div className="text-sm font-bold text-[#F7F4EE] mb-1">Pronostics premium →</div>
                 <div className="text-xs text-[#9BA7B8]">Programme VIP BTTSPredict</div>

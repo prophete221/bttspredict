@@ -48,10 +48,10 @@
   --color-action-secondary-border: #D6B36A;
   --color-action-secondary-text: #9BA7B8;
 
-  /* — Market colors (badges/graphiques uniquement) — v68: ÉMERAUDE #5B7FA3 — */
-  --color-market-btts: #5B7FA3;
+  /* — Market colors (badges/graphiques uniquement) — v68: ÉMERAUDE #9CC4F4 — */
+  --color-market-btts: #9CC4F4;
   --color-market-btts-muted: rgba(33, 118, 255, 0.14);
-  --color-market-over: #5B7FA3;
+  --color-market-over: #9CC4F4;
   --color-market-over-muted: rgba(33, 118, 255, 0.14);
   --color-market-over-border: rgba(33, 118, 255, 0.32);
 
@@ -62,7 +62,7 @@
   --color-vip-gradient: none;
 
   /* — Trust — v68: Émeraude clair — */
-  --color-trust-accent: #5B7FA3;
+  --color-trust-accent: #9CC4F4;
   --color-trust-bg: rgba(33, 118, 255, 0.08);
   --color-trust-border: rgba(33, 118, 255, 0.22);
 
@@ -71,8 +71,8 @@
   --color-success-muted: #18A879;
   --color-error: #C95A62;
   --color-warning: #D6B36A;
-  --color-primary: #5B7FA3;
-  --color-primary-hover: #4C94FF;
+  --color-primary: #9CC4F4;
+  --color-primary-hover: #B8D7F5;
   --color-focus: #7DB4FF;
 
   /* — Legacy aliases (compatibilité) — */
@@ -97,7 +97,7 @@
   /* — Hover states — v68 OR & ÉMERAUDE — */
   --color-cta-hover: #B99755;
   --color-cta-active: #8A6A1F;
-  --color-trust-hover: #4C94FF;
+  --color-trust-hover: #B8D7F5;
   --color-stats-hover: #B99755;
   --color-vip-hover: #333333;
   --color-success-hover: #18A879;
@@ -131,8 +131,8 @@
   --color-card-border: var(--color-border);
   --color-card-border-hover: var(--color-border-hover);
 
-  --color-primary: #5B7FA3;
-  --color-primary-hover: #4C94FF;
+  --color-primary: #9CC4F4;
+  --color-primary-hover: #B8D7F5;
   --color-primary-dark: var(--color-cta-active);
   --color-primary-light: var(--color-cta-hover);
   --color-primary-glow: rgba(91, 127, 163, 0.30);
@@ -168,7 +168,7 @@
   --color-panel: var(--color-bg-secondary);
   --color-rose: var(--color-error);
   --color-linebet: var(--color-cta);
-  --color-star888: #5B7FA3;
+  --color-star888: #9CC4F4;
   --color-gold: var(--color-vip);
   --color-gold-light: var(--color-vip-hover);
   --color-lose: var(--color-error);
@@ -181,7 +181,7 @@
   /* — Gradients premium v68 OR & ÉMERAUDE — */
   --grad-primary: linear-gradient(135deg, #D6B36A 0%, #B99755 100%);
   --grad-premium: linear-gradient(135deg, #D6B36A 0%, #D6B36A 100%);
-  --grad-brand-split: linear-gradient(90deg, #D6B36A 0%, #D6B36A 50%, #5B7FA3 50%, #5B7FA3 100%);
+  --grad-brand-split: linear-gradient(90deg, #D6B36A 0%, #D6B36A 50%, #9CC4F4 50%, #9CC4F4 100%);
   --grad-bg: radial-gradient(circle at top right, rgba(91, 127, 163, 0.16), transparent 38%), #080B12;
   --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(199, 244, 100, 0.04) 0%, transparent 60%),
                radial-gradient(50% 50% at 85% 10%, rgba(99, 214, 255, 0.04) 0%, transparent 60%);
@@ -222,20 +222,20 @@
   --action-primary-text: #080B12;
   --action-secondary-border: #D6B36A;
   --action-secondary-text: #9BA7B8;
-  /* Market — v68: ÉMERAUDE #5B7FA3 */
-  --market-btts: #5B7FA3;
-  --market-over: #5B7FA3;
+  /* Market — v68: ÉMERAUDE #9CC4F4 */
+  --market-btts: #9CC4F4;
+  --market-over: #9CC4F4;
   /* VIP */
   --vip-accent: #D6B36A;
   /* Trust */
-  --trust-accent: #5B7FA3;
+  --trust-accent: #9CC4F4;
   /* Statut */
   --success-muted: #18A879;
   --success: #18A879;
   --error: #C95A62;
   --warning: #D6B36A;
-  --primary: #5B7FA3;
-  --primary-hover: #4C94FF;
+  --primary: #9CC4F4;
+  --primary-hover: #B8D7F5;
   --focus: #7DB4FF;
   /* Surfaces */
   --surface-card: #111722;
@@ -259,7 +259,7 @@
   /* Hover states — v68 */
   --cta-hover: #B99755;
   --cta-active: #8A6A1F;
-  --trust-hover: #4C94FF;
+  --trust-hover: #B8D7F5;
   --stats-hover: #B99755;
   --vip-hover: #333333;
   --success-hover: #18A879;

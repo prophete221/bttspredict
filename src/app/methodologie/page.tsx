@@ -23,7 +23,7 @@ export default function MethodologiePage() {
         <article className="max-w-3xl mx-auto px-4 py-12 sm:py-16">
           <header className="mb-10">
             <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
-              style={{ backgroundColor: 'rgba(91, 127, 163, 0.16)', color: '#5B7FA3', border: '1px solid rgba(91, 127, 163, 0.30)' }}>
+              style={{ backgroundColor: 'rgba(91, 127, 163, 0.16)', color: '#9CC4F4', border: '1px solid rgba(91, 127, 163, 0.30)' }}>
               Méthodologie
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -82,7 +82,7 @@ export default function MethodologiePage() {
             <div className="space-y-3">
               <div className="p-4 rounded-xl flex items-start gap-3" style={{ backgroundColor: '#111722', border: '1px solid #3A4556' }}>
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(99, 214, 255, 0.15)' }}>
-                  <span className="text-xs font-bold text-[#5B7FA3]">BT</span>
+                  <span className="text-xs font-bold text-[#9CC4F4]">BT</span>
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-[#F7F4EE] mb-1">BTTS (Both Teams To Score)</h3>
@@ -93,7 +93,7 @@ export default function MethodologiePage() {
               </div>
               <div className="p-4 rounded-xl flex items-start gap-3" style={{ backgroundColor: '#111722', border: '1px solid #3A4556' }}>
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(99, 214, 255, 0.15)' }}>
-                  <span className="text-xs font-bold text-[#5B7FA3]">O2</span>
+                  <span className="text-xs font-bold text-[#9CC4F4]">O2</span>
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-[#F7F4EE] mb-1">Over 2.5 goals</h3>
@@ -130,11 +130,11 @@ export default function MethodologiePage() {
               Le contrôle qualité est entièrement automatisé :
             </p>
             <ul className="space-y-2 text-sm text-[#9BA7B8]">
-              <li className="flex items-start gap-2"><span className="text-[#5B7FA3]">✓</span> <span>Vérification automatique des critères de publication avant chaque pronostic.</span></li>
-              <li className="flex items-start gap-2"><span className="text-[#5B7FA3]">✓</span> <span>Nombre limité de pronostics publiés par jour (sélection des meilleures probabilités).</span></li>
-              <li className="flex items-start gap-2"><span className="text-[#5B7FA3]">✓</span> <span>Archive quotidienne horodatée et immuable (un pronostic publié n'est jamais modifié rétroactivement).</span></li>
-              <li className="flex items-start gap-2"><span className="text-[#5B7FA3]">✓</span> <span>Vérification post-match via les sources publiques.</span></li>
-              <li className="flex items-start gap-2"><span className="text-[#5B7FA3]">✓</span> <span>Gestion automatique des données manquantes (voir section 7).</span></li>
+              <li className="flex items-start gap-2"><span className="text-[#9CC4F4]">✓</span> <span>Vérification automatique des critères de publication avant chaque pronostic.</span></li>
+              <li className="flex items-start gap-2"><span className="text-[#9CC4F4]">✓</span> <span>Nombre limité de pronostics publiés par jour (sélection des meilleures probabilités).</span></li>
+              <li className="flex items-start gap-2"><span className="text-[#9CC4F4]">✓</span> <span>Archive quotidienne horodatée et immuable (un pronostic publié n'est jamais modifié rétroactivement).</span></li>
+              <li className="flex items-start gap-2"><span className="text-[#9CC4F4]">✓</span> <span>Vérification post-match via les sources publiques.</span></li>
+              <li className="flex items-start gap-2"><span className="text-[#9CC4F4]">✓</span> <span>Gestion automatique des données manquantes (voir section 7).</span></li>
             </ul>
             <p className="text-xs text-[#9BA7B8] mt-3 leading-relaxed">
               ⚠️ Il n'y a pas de validation humaine de chaque pronostic. Le modèle est exécuté automatiquement plusieurs fois par jour via GitHub Actions.
@@ -201,7 +201,7 @@ export default function MethodologiePage() {
                 Une probabilité élevée signifie que, sur un échantillon de matchs aux caractéristiques similaires, le modèle s'attend à ce qu'une majorité se termine par le résultat prédit. BTTSPredict publie ces probabilités en toute transparence pour aider à la décision.
               </p>
               <p className="text-sm text-[#9BA7B8] leading-relaxed">
-                <strong className="text-[#5B7FA3]">Aucun résultat futur n'est garanti.</strong> Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez vous permettre de perdre. 18+.
+                <strong className="text-[#9CC4F4]">Aucun résultat futur n'est garanti.</strong> Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez vous permettre de perdre. 18+.
               </p>
             </div>
           </section>
@@ -210,7 +210,7 @@ export default function MethodologiePage() {
           <section className="pt-8 border-t border-[#3A4556]">
             <div className="flex flex-wrap items-center justify-center gap-3">
               <a href="/btts/predictions/today" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"
-                style={{ backgroundColor: '#5B7FA3', color: '#080B12' }}>
+                style={{ backgroundColor: '#9CC4F4', color: '#080B12' }}>
                 Voir les pronostics du jour →
               </a>
               <a href="/jouer-responsable" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-bold transition-all"

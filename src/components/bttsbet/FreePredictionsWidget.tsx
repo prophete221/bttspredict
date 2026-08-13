@@ -98,7 +98,7 @@ function PredictionCard({ pred }: { pred: Prediction }) {
   const isBTTS = pred.type === 'BTTS'
   const proba = isBTTS ? pred.analysis?.bttsProb ?? pred.confidence / 100 : pred.analysis?.over25Prob ?? pred.confidence / 100
   const probaPercent = Math.round(proba * 1000) / 10 // 1 décimale
-  const probaColor = isBTTS ? '#5B7FA3' : '#5B7FA3' // assombri cyan #5B7FA3 → #5B7FA3
+  const probaColor = isBTTS ? '#9CC4F4' : '#9CC4F4' // assombri cyan #9CC4F4 → #9CC4F4
   const isLive = false // could be derived from time vs now
 
   // data-ai-answer: 2 phrases que Perplexity/ChatGPT vont scraper
