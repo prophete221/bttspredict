@@ -71,20 +71,11 @@ export default function Hero() {
           ))}
         </div>
 
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          <a href="/btts/predictions/today" className="inline-flex min-h-12 flex-1 items-center justify-center rounded-xl px-5 text-[13px] font-bold transition-transform hover:scale-[1.01]" style={{ background: '#B8FF1A', color: '#071018', boxShadow: '0 10px 30px rgba(211,177,109,0.16)' }} data-cta="hero-primary">
-            Ouvrir le tableau du jour
+        <div className="mt-6">
+          <a href="/btts/predictions/today" className="inline-flex min-h-12 w-full items-center justify-center rounded-xl px-5 text-[13px] font-bold transition-transform hover:scale-[1.01]" style={{ background: '#B8FF1A', color: '#071018', boxShadow: '0 10px 30px rgba(211,177,109,0.16)' }} data-cta="hero-primary">
+            Pronostic du jour
             <span className="ml-2" aria-hidden="true">→</span>
           </a>
-          <a href="/code-promo-linebet-senegal" className="inline-flex min-h-12 flex-1 items-center justify-center rounded-xl px-5 text-[13px] font-semibold transition-colors hover:bg-white/10" style={{ background: 'rgba(127,162,198,0.10)', border: '1px solid rgba(169,196,223,0.34)', color: '#F5F8F3' }} data-cta="hero-secondary">
-            Activer VISION221
-          </a>
-        </div>
-
-        <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px]" style={{ color: '#9FB0B0' }}>
-          <span className="inline-flex items-center gap-1.5"><span style={{ color: '#34D399' }}>✓</span> Publication avant match</span>
-          <span className="inline-flex items-center gap-1.5"><span style={{ color: '#34D399' }}>✓</span> Gagnés et perdus archivés</span>
-          <span className="inline-flex items-center gap-1.5"><span style={{ color: '#34D399' }}>✓</span> Aucune garantie de gain</span>
         </div>
       </div>
     </section>
