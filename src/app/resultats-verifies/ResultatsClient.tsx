@@ -88,15 +88,15 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
         </div>
 
         {/* Carte 2: Gold */}
-        <div className="rounded-[16px] bg-[#192231] border border-[#5B7FA3]/42 p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
-          <div className="text-[10px] text-[#5B7FA3] uppercase tracking-widest font-bold">Gold Picks</div>
+        <div className="rounded-[16px] bg-[#192231] border border-[#9CC4F4]/42 p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
+          <div className="text-[10px] text-[#9CC4F4] uppercase tracking-widest font-bold">Gold Picks</div>
           <div className="mt-1 flex items-baseline gap-2">
             <div className="text-3xl font-bold text-[#F7F4EE] font-mono">{goldRate}%</div>
             <div className="text-xs text-[#9BA7B8]">{goldTotal} vérifiés</div>
           </div>
           <div className="mt-2 text-[10px] text-[#9BA7B8]">
             Sélection premium
-            {showGoldYield && <span className="ml-2 text-[#5B7FA3]">Yield +{goldYield}%</span>}
+            {showGoldYield && <span className="ml-2 text-[#9CC4F4]">Yield +{goldYield}%</span>}
           </div>
         </div>
 
@@ -142,11 +142,11 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
                       <td className="py-1.5 px-2 text-[#9BA7B8]">{(h.match||'').substring(0,35)}</td>
                       <td className="py-1.5 px-2 text-[#9BA7B8]">
                         {market}
-                        {isGold && <span className="ml-1 text-[10px] text-[#5B7FA3] font-bold">GOLD</span>}
+                        {isGold && <span className="ml-1 text-[10px] text-[#9CC4F4] font-bold">GOLD</span>}
                       </td>
                       <td className="py-1.5 px-2 text-center text-[#9BA7B8] font-mono">{h.prediction || '—'}</td>
                       <td className="py-1.5 px-2 text-center text-[#F7F4EE] font-mono">{h.finalScore||h.score||'-'}</td>
-                      <td className="py-1.5 px-2 text-center" style={{ color: isWon ? '#5B7FA3' : '#C95A62' }}>
+                      <td className="py-1.5 px-2 text-center" style={{ color: isWon ? '#9CC4F4' : '#C95A62' }}>
                         <strong>{isWon ? 'W' : 'L'}</strong>
                       </td>
 

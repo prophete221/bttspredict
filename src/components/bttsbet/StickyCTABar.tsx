@@ -81,11 +81,11 @@ export default function StickyCTABar() {
               data-cta="sticky-copy"
             >
               {copied ? (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B7FA3" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CC4F4" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
               ) : (
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(242, 247, 245,0.7)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
               )}
-              <span className="font-mono text-[13px] font-bold" style={{ color: copied ? '#5B7FA3' : '#F7F4EE' }}>
+              <span className="font-mono text-[13px] font-bold" style={{ color: copied ? '#9CC4F4' : '#F7F4EE' }}>
                 {copied ? 'Copié!' : SITE.promoCode}
               </span>
             </button>
@@ -97,7 +97,7 @@ export default function StickyCTABar() {
               target="_blank"
               className="flex-1 flex items-center justify-center gap-1.5 h-[48px] rounded-[12px] font-bold text-[14px]"
               style={{
-                backgroundColor: '#5B7FA3',
+                backgroundColor: '#9CC4F4',
                 color: '#080B12',
                 boxShadow: '0 0 0 1px rgba(199, 244, 100,.4), 0 4px 16px rgba(199, 244, 100,.22)',
               }}

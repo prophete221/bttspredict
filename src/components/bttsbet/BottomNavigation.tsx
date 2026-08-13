@@ -83,9 +83,9 @@ export default function BottomNavigation() {
           <a
             key={tab.id}
             href={tab.href}
-            className="flex-1 flex flex-col items-center justify-center gap-1 transition-colors duration-200 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B7FA3] focus-visible:ring-inset"
+            className="flex-1 flex flex-col items-center justify-center gap-1 transition-colors duration-200 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9CC4F4] focus-visible:ring-inset"
             style={{
-              color: isActive ? '#5B7FA3' : '#9BA7B8',
+              color: isActive ? '#9CC4F4' : '#9BA7B8',
               minHeight: '52px',
               textShadow: isActive ? '0 0 8px rgba(199, 244, 100, 0.4)' : 'none',
             }}
@@ -100,7 +100,7 @@ export default function BottomNavigation() {
                   width: '32px',
                   height: '3px',
                   borderRadius: '2px',
-                  background: '#5B7FA3',
+                  background: '#9CC4F4',
                   boxShadow: '0 0 8px rgba(199, 244, 100, 0.6)',
                 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
@@ -111,7 +111,7 @@ export default function BottomNavigation() {
             </motion.div>
             <span
               className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider"
-              style={{ color: isActive ? '#5B7FA3' : '#9BA7B8' }}
+              style={{ color: isActive ? '#9CC4F4' : '#9BA7B8' }}
             >
               {tab.label}
             </span>

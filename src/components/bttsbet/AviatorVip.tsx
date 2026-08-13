@@ -7,9 +7,9 @@ import VipUnlockModal from './VipUnlockModal'
 
 const C = {
   bg: '#080B12', card: '#111722', border: 'rgba(242, 247, 245, 0.08)',
-  green: '#5B7FA3', greenLight: '#5B7FA3', gold: '#5B7FA3', cyan: '#5B7FA3', violet: '#5B7FA3',
+  green: '#9CC4F4', greenLight: '#9CC4F4', gold: '#9CC4F4', cyan: '#9CC4F4', violet: '#9CC4F4',
   text: '#F7F4EE', textSec: '#9BA7B8', textMute: '#9BA7B8',
-  danger: '#5B7FA3',
+  danger: '#9CC4F4',
 }
 
 function getHourlyServerSeed(): string {
@@ -153,7 +153,7 @@ export default function AviatorVip() {
               <button
                 onClick={() => setShowModal(true)}
                 className="w-full mt-3 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-xs font-bold transition-all"
-                style={{ background: 'linear-gradient(135deg, #5B7FA3, #5B7FA3)', color: '#080B12' }}
+                style={{ background: 'linear-gradient(135deg, #9CC4F4, #9CC4F4)', color: '#080B12' }}
               >
                 🔒 Débloquer les Stats Aviator VIP
               </button>

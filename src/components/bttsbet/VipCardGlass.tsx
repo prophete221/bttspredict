@@ -8,7 +8,7 @@ import VipLevelModal, { type VipLevelId } from './VipLevelModal'
  * VipCardGlass — Carte VIP "Glassmorphism" ultra-moderne
  *
  * Style : Verre dépoli (translucidité + backdrop-filter blur) sur fond sombre #111722
- * Accents : Émeraude vif #5B7FA3 + Or Champagne #5B7FA3
+ * Accents : Émeraude vif #9CC4F4 + Or Champagne #9CC4F4
  * Bordure : Ligne fine lumineuse dégradée (1px)
  * Profondeur : Ombres portées 3D pour effet de flottement
  *
@@ -203,7 +203,7 @@ export function VipCardGrid() {
         <div className="text-center mb-10">
           <span className="eyebrow">💎 Niveaux VIP</span>
           <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-3" style={{ color: '#F7F4EE', fontFamily: 'Poppins, sans-serif' }}>
-            Choisis ton <span style={{ color: '#5B7FA3' }}>niveau VIP</span>
+            Choisis ton <span style={{ color: '#9CC4F4' }}>niveau VIP</span>
           </h2>
           <p className="text-sm max-w-md mx-auto" style={{ color: '#9BA7B8' }}>
             Choisis le niveau qui te correspond. Activation en moins de 30 minutes via WhatsApp après dépôt.
