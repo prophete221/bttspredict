@@ -23,12 +23,12 @@ import { SITE } from '@/lib/constants'
  * Les 6 liens tiennent en une ligne sur desktop, en grille 2x3 sur mobile.
  */
 const PAGE_LINKS = [
-  { label: 'Accueil', href: '/' },
+  { label: 'Tableau du jour', href: '/btts/predictions/today' },
+  { label: 'Historique', href: '/resultats-verifies' },
   { label: 'Statistiques', href: '/btts/statistics' },
-  { label: 'Historique vérifié', href: '/resultats-verifies' },
   { label: 'Méthode', href: '/methodologie' },
-  { label: 'Code Linebet VISION221', href: '/code-promo-linebet-senegal' },
-  { label: 'Bonus 888Starz', href: '/bonus-888starz' },
+  { label: 'Linebet', href: '/code-promo-linebet-senegal' },
+  { label: '888Starz', href: '/bonus-888starz' },
 ]
 
 export default function Navbar() {
@@ -61,8 +61,9 @@ export default function Navbar() {
               aria-label="BTTSPredict — Accueil"
             >
               <img src="/favicon.svg" alt="BTTSPredict" width={24} height={24} className="flex-shrink-0" />
-              <span className="text-xs font-bold" style={{ color: '#7FA2C6' }}>
-                BTTSPredict
+              <span>
+                <span className="block text-xs font-bold leading-none" style={{ color: '#F4F7FB' }}>BTTSPredict</span>
+                <span className="mt-0.5 block text-[8px] font-semibold uppercase tracking-[0.16em]" style={{ color: '#7FA2C6' }}>Match intelligence</span>
               </span>
             </a>
 
@@ -104,7 +105,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Ligne 2: 6 liens desktop (sm+) — une seule ligne, scrollable si besoin */}
+          {/* Ligne 2: navigation produit desktop */}
           <div className="hidden sm:flex items-center gap-0.5 overflow-x-auto no-scrollbar pb-1.5" style={{ scrollbarWidth: 'none' }}>
             {PAGE_LINKS.map((link) => (
               <a
@@ -122,7 +123,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* === DRAWER MOBILE — grille 2x3 des 6 liens === */}
+      {/* === DRAWER MOBILE — navigation produit === */}
       {menuOpen && (
         <>
           {/* Fond semi-transparent */}

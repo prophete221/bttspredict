@@ -14,8 +14,8 @@ const PAGE_URL = `${SITE_URL}/${SLUG}`
 // Avec le template "%s | BTTSPredict" (14 chars), le title rendu final
 // fait 41 + 14 = 55 chars, bien sous la limite hard 70.
 // Anti-récidive: checkSeo() lance une erreur build-time si title > 60 ou desc > 150.
-const TITLE = 'Code Promo Linebet Sénégal | BTTSPredict'
-const DESCRIPTION = "Code promo Linebet Sénégal : VISION221. Conditions, montants et éligibilité à vérifier auprès de l'opérateur. Lien d'affiliation rémunéré. 18+."
+const TITLE = 'Code Promo Linebet VISION221 Sénégal | BTTSPredict'
+const DESCRIPTION = "Guide du code promo Linebet VISION221 au Sénégal : inscription, copie du code et vérification des conditions. 18+ et affiliation signalée."
 checkSeo('code-promo-linebet-senegal', TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
@@ -25,11 +25,11 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   keywords: [
     'code promo linebet', 'linebet senegal', 'bonus linebet', 'vision221', 'linebet wave',
-    'linebet orange money', 'code promo linebet senegal', 'bonus 90000 xof', 'linebet inscription',
+    'linebet orange money', 'code promo linebet senegal', 'linebet inscription',
     'depot linebet senegal', 'linebet free money', 'paris sportifs senegal',
     // SEO v60 — cible Afrique de l'Ouest & Maroc
     'code promo linebet afrique ouest', 'linebet maroc', 'linebet mali', 'linebet cote d\'ivoire',
-    'linebet guinee', 'linebet congo',
+    'linebet guinee', 'linebet congo', 'guide linebet vision221',
   ],
   alternates: {
     canonical: PAGE_URL,

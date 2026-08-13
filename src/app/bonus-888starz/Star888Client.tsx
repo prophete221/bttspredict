@@ -145,7 +145,7 @@ export default function Star888Client() {
           </li>
           <li aria-hidden="true">/</li>
           <li>
-            <span aria-current="page">Code Promo 888Starz Afrique</span>
+            <span aria-current="page">Guide Code Promo 888Starz</span>
           </li>
         </ol>
       </nav>
@@ -157,10 +157,10 @@ export default function Star888Client() {
             className="text-3xl sm:text-5xl mb-3 leading-tight"
             style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em', color: TEXT }}
           >
-            CODE PROMO <span style={{ color: ORANGE, textShadow: `0 0 22px ${ORANGE}66` }}>888STARZ</span> AFRIQUE - VISION221
+            GUIDE <span style={{ color: ORANGE, textShadow: `0 0 22px ${ORANGE}66` }}>888STARZ</span> VISION221 — AFRIQUE
           </h1>
           <p className="text-sm sm:text-base max-w-2xl mx-auto leading-relaxed" style={{ color: TEXT_SEC }}>
-            Sénégal · Mali · Côte d&apos;Ivoire · Guinée · Congo · Maroc
+            Inscription, code copiable et conditions à vérifier avant tout dépôt.
           </p>
           <p className="text-sm sm:text-base max-w-2xl mx-auto mt-3 leading-relaxed" style={{ color: TEXT_SEC }}>
             Code promo <strong style={{ color: ORANGE }}>VISION221</strong>. Les conditions et montants du bonus peuvent évoluer — vérifiez les conditions affichées par 888Starz avant tout dépôt. Dépôt minimum 200 XOF.
