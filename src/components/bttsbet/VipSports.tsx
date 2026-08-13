@@ -86,7 +86,7 @@ export default function VipSports() {
             <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: C.gold }}>ZONE PREMIUM</span>
             <h2 className="font-bold text-xl mt-1" style={{ color: C.text }}>VIP Multi-Sports</h2>
             <p className="text-[12px] mt-1" style={{ color: C.textSec }}>
-              Pronostics IA sur 6 sports — précision 69-77%
+              Pronostics IA sur 6 sports — accès premium
             </p>
           </motion.div>
 
