@@ -5,10 +5,10 @@ import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
 
 const C = {
-  bg:'#080B12', card:'#111722', border:'#3A4556',
-  neon:'#9CC4F4', gold:'#D6B36A', data:'#9CC4F4',
-  text:'#F7F4EE', textSec:'#9BA7B8', textMute:'#9BA7B8',
-  success:'#9CC4F4',
+  bg:'#0B1220', card:'#111a2a', border:'#7D90A7',
+  neon:'#7FA2C6', gold:'#D3B16D', data:'#7FA2C6',
+  text:'#F4F7FB', textSec:'#C2CCD8', textMute:'#C2CCD8',
+  success:'#7FA2C6',
 }
 
 function getDailyCote(){

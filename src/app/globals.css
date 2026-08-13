@@ -17,62 +17,62 @@
   /* ═══ ECLIPSE v60 — "Data platform, not affiliation site" ═══ */
   /* Inspired by Stripe / Linear / FBRef design language */
 
-  /* — Fonds (5 niveaux) — v68 OR & ÉMERAUDE — */
-  --color-bg-main: #080B12;            /* Fond principal — noir bleuté profond */
-  --color-bg-secondary: #111722;       /* Sections — slate foncé */
-  --color-bg-tertiary: #192231;        /* Panels — slate medium */
-  --color-card: #111722;               /* Card surface standard */
-  --color-card-hover: #192231;         /* Card surface hover/sélection */
-  --color-border: #3A4556;             /* Border subtile */
-  --color-border-strong: #556275;      /* Border visible / focus */
+  /* — Fonds (5 niveaux) — Quiet Trust Premium — */
+  --color-bg-main: #0B1220;            /* Fond principal — noir bleuté profond */
+  --color-bg-secondary: #111a2a;       /* Sections — slate foncé */
+  --color-bg-tertiary: #182438;        /* Panels — slate medium */
+  --color-card: #111a2a;               /* Card surface standard */
+  --color-card-hover: #182438;         /* Card surface hover/sélection */
+  --color-border: #7D90A7;             /* Border subtile */
+  --color-border-strong: #8fa2b8;      /* Border visible / focus */
 
   /* — Texte (3 niveaux) — */
-  --color-text-primary: #F7F4EE;      /* Titres, chiffres — slate-100 */
-  --color-text-secondary: #9BA7B8;     /* Labels, descriptions — slate-400 */
-  --color-text-tertiary: #778398;      /* Muted, disabled — slate-500 */
+  --color-text-primary: #F4F7FB;      /* Titres, chiffres — slate-100 */
+  --color-text-secondary: #C2CCD8;     /* Labels, descriptions — slate-400 */
+  --color-text-tertiary: #9aa9bb;      /* Muted, disabled — slate-500 */
 
   /* — Surfaces — */
-  --color-surface-card: #111722;
-  --color-surface-card-hover: #192231;
-  --color-surface-premium: #192231;
+  --color-surface-card: #111a2a;
+  --color-surface-card-hover: #182438;
+  --color-surface-premium: #182438;
 
   /* — Borders — */
-  --color-border-default: #3A4556;
-  --color-border-hover: #556275;
+  --color-border-default: #7D90A7;
+  --color-border-hover: #8fa2b8;
 
-  /* — Action (1 CTA primaire par viewport) — v68: OR #D6B36A — */
-  --color-action-primary: #D6B36A;
-  --color-action-primary-hover: #B99755;
-  --color-action-primary-text: #080B12;
+  /* — Action (1 CTA primaire par viewport) — or champagne désaturé — */
+  --color-action-primary: #D3B16D;
+  --color-action-primary-hover: #B58F4E;
+  --color-action-primary-text: #0B1220;
   --color-action-secondary-bg: transparent;
-  --color-action-secondary-border: #D6B36A;
-  --color-action-secondary-text: #9BA7B8;
+  --color-action-secondary-border: #D3B16D;
+  --color-action-secondary-text: #C2CCD8;
 
-  /* — Market colors (badges/graphiques uniquement) — v68: ÉMERAUDE #9CC4F4 — */
-  --color-market-btts: #9CC4F4;
-  --color-market-btts-muted: rgba(33, 118, 255, 0.14);
-  --color-market-over: #9CC4F4;
-  --color-market-over-muted: rgba(33, 118, 255, 0.14);
-  --color-market-over-border: rgba(33, 118, 255, 0.32);
+  /* — Market colors (badges/graphiques uniquement) — bleu confiance désaturé — */
+  --color-market-btts: #7FA2C6;
+  --color-market-btts-muted: rgba(127, 162, 198, 0.14);
+  --color-market-over: #7FA2C6;
+  --color-market-over-muted: rgba(127, 162, 198, 0.14);
+  --color-market-over-border: rgba(127, 162, 198, 0.32);
 
   /* — VIP (or mat) — */
-  --color-vip-accent: #D6B36A;
-  --color-vip-accent-muted: rgba(217, 164, 65, 0.10);
-  --color-vip-border: rgba(217, 164, 65, 0.42);
+  --color-vip-accent: #D3B16D;
+  --color-vip-accent-muted: rgba(211, 177, 109, 0.10);
+  --color-vip-border: rgba(211, 177, 109, 0.42);
   --color-vip-gradient: none;
 
-  /* — Trust — v68: Émeraude clair — */
-  --color-trust-accent: #9CC4F4;
-  --color-trust-bg: rgba(33, 118, 255, 0.08);
-  --color-trust-border: rgba(33, 118, 255, 0.22);
+  /* — Trust — bleu confiance désaturé — */
+  --color-trust-accent: #7FA2C6;
+  --color-trust-bg: rgba(127, 162, 198, 0.08);
+  --color-trust-border: rgba(127, 162, 198, 0.22);
 
   /* — Statut (capsules compactes uniquement) — */
-  --color-success: #18A879;
-  --color-success-muted: #18A879;
-  --color-error: #C95A62;
-  --color-warning: #D6B36A;
-  --color-primary: #9CC4F4;
-  --color-primary-hover: #B8D7F5;
+  --color-success: #4BB687;
+  --color-success-muted: #4BB687;
+  --color-error: #E07A83;
+  --color-warning: #D3B16D;
+  --color-primary: #7FA2C6;
+  --color-primary-hover: #A9C4DF;
   --color-focus: #7DB4FF;
 
   /* — Legacy aliases (compatibilité) — */
@@ -94,19 +94,19 @@
   --radius-card: 16px;
   --radius-control: 10px;
 
-  /* — Hover states — v68 OR & ÉMERAUDE — */
-  --color-cta-hover: #B99755;
-  --color-cta-active: #8A6A1F;
-  --color-trust-hover: #B8D7F5;
-  --color-stats-hover: #B99755;
-  --color-vip-hover: #333333;
-  --color-success-hover: #18A879;
+  /* — Hover states — Quiet Trust Premium — */
+  --color-cta-hover: #B58F4E;
+  --color-cta-active: #8D6B2E;
+  --color-trust-hover: #A9C4DF;
+  --color-stats-hover: #B58F4E;
+  --color-vip-hover: #202b3d;
+  --color-success-hover: #4BB687;
   --color-error-hover: #E87878;
-  --color-border-hover: #D6B36A;       /* Hover border → or */
+  --color-border-hover: #D3B16D;       /* Hover border → or */
 
   /* — Glassmorphism — */
-  --color-glass: rgba(242, 247, 245, 0.08);
-  --color-glass-border: rgba(242, 247, 245, 0.12);
+  --color-glass: rgba(244, 247, 251, 0.08);
+  --color-glass-border: rgba(244, 247, 251, 0.12);
 
   /* ═══ Aliases mappés sur ECLIPSE v60 ═══ */
   --color-abyss: var(--color-bg-main);
@@ -131,35 +131,35 @@
   --color-card-border: var(--color-border);
   --color-card-border-hover: var(--color-border-hover);
 
-  --color-primary: #9CC4F4;
-  --color-primary-hover: #B8D7F5;
+  --color-primary: #7FA2C6;
+  --color-primary-hover: #A9C4DF;
   --color-primary-dark: var(--color-cta-active);
   --color-primary-light: var(--color-cta-hover);
-  --color-primary-glow: rgba(91, 127, 163, 0.30);
-  --color-primary-pale: rgba(91, 127, 163, 0.12);
+  --color-primary-glow: rgba(127, 162, 198, 0.30);
+  --color-primary-pale: rgba(127, 162, 198, 0.12);
 
   --color-secondary: var(--color-trust);
   --color-secondary-dark: var(--color-trust-hover);
   --color-secondary-light: var(--color-trust);
-  --color-secondary-glow: rgba(99, 214, 255, 0.2);
+  --color-secondary-glow: rgba(169, 196, 223, 0.2);
 
   --color-success-dark: var(--color-success-hover);
   --color-success-light: var(--color-success);
-  --color-success-pale: rgba(99, 214, 255, 0.10);
+  --color-success-pale: rgba(169, 196, 223, 0.10);
 
   --color-warning: var(--color-vip);
-  --color-warning-pale: rgba(91, 127, 163, 0.12);
-  --color-vip-glow: rgba(199, 244, 100, 0.2);
+  --color-warning-pale: rgba(127, 162, 198, 0.12);
+  --color-vip-glow: rgba(75, 182, 135, 0.2);
 
   --color-danger: var(--color-error);
   --color-danger-light: var(--color-error-hover);
   --color-danger-pale: rgba(255, 122, 122, 0.10);
 
   --color-accent-light: var(--color-trust-hover);
-  --color-accent-glow: rgba(99, 214, 255, 0.2);
+  --color-accent-glow: rgba(169, 196, 223, 0.2);
 
   --color-neon: var(--color-cta);
-  --color-neon-glow: rgba(91, 127, 163, 0.30);
+  --color-neon-glow: rgba(127, 162, 198, 0.30);
   --color-neon-green: var(--color-success);
   --color-emerald: var(--color-success);
   --color-emerald-soft: var(--color-success);
@@ -168,7 +168,7 @@
   --color-panel: var(--color-bg-secondary);
   --color-rose: var(--color-error);
   --color-linebet: var(--color-cta);
-  --color-star888: #9CC4F4;
+  --color-star888: #7FA2C6;
   --color-gold: var(--color-vip);
   --color-gold-light: var(--color-vip-hover);
   --color-lose: var(--color-error);
@@ -178,13 +178,13 @@
   --color-text-on-dark: var(--color-text-primary);
   --color-text-on-dark-secondary: var(--color-text-secondary);
 
-  /* — Gradients premium v68 OR & ÉMERAUDE — */
-  --grad-primary: linear-gradient(135deg, #D6B36A 0%, #B99755 100%);
-  --grad-premium: linear-gradient(135deg, #D6B36A 0%, #D6B36A 100%);
-  --grad-brand-split: linear-gradient(90deg, #D6B36A 0%, #D6B36A 50%, #9CC4F4 50%, #9CC4F4 100%);
-  --grad-bg: radial-gradient(circle at top right, rgba(91, 127, 163, 0.16), transparent 38%), #080B12;
-  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(199, 244, 100, 0.04) 0%, transparent 60%),
-               radial-gradient(50% 50% at 85% 10%, rgba(99, 214, 255, 0.04) 0%, transparent 60%);
+  /* — Gradients premium — Quiet Trust Premium — */
+  --grad-primary: linear-gradient(135deg, #D3B16D 0%, #B58F4E 100%);
+  --grad-premium: linear-gradient(135deg, #D3B16D 0%, #D3B16D 100%);
+  --grad-brand-split: linear-gradient(90deg, #D3B16D 0%, #D3B16D 50%, #7FA2C6 50%, #7FA2C6 100%);
+  --grad-bg: radial-gradient(circle at top right, rgba(127, 162, 198, 0.16), transparent 38%), #0B1220;
+  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(75, 182, 135, 0.04) 0%, transparent 60%),
+               radial-gradient(50% 50% at 85% 10%, rgba(169, 196, 223, 0.04) 0%, transparent 60%);
 
   --font-display: 'Poppins', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
@@ -192,9 +192,9 @@
 
   /* — Shadows (v68 OR & ÉMERAUDE) — */
   --shadow-card: 0 1px 2px rgba(7, 17, 26, 0.3), 0 8px 32px rgba(7, 17, 26, 0.4);
-  --shadow-cta: 0 0 0 1px rgba(199, 244, 100, 0.35), 0 8px 32px rgba(91, 127, 163, 0.12);
-  --shadow-glass: 0 1px 0 rgba(242, 247, 245, 0.03) inset, 0 8px 32px rgba(7, 17, 26, 0.3);
-  --shadow-hover-glow: 0 0 20px rgba(91, 127, 163, 0.30), 0 8px 32px rgba(7, 17, 26, 0.5);
+  --shadow-cta: 0 0 0 1px rgba(75, 182, 135, 0.35), 0 8px 32px rgba(127, 162, 198, 0.12);
+  --shadow-glass: 0 1px 0 rgba(244, 247, 251, 0.03) inset, 0 8px 32px rgba(7, 17, 26, 0.3);
+  --shadow-hover-glow: 0 0 20px rgba(127, 162, 198, 0.30), 0 8px 32px rgba(7, 17, 26, 0.5);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -202,47 +202,47 @@
    ════════════════════════════════════════════════════════════════════════════ */
 :root {
   /* Fonds — v68 OR & ÉMERAUDE */
-  --bg-main: #080B12;
-  --bg-secondary: #111722;
-  --bg-tertiary: #192231;
-  --card: #111722;
-  --card-hover: #192231;
-  --border: #3A4556;
-  --border-strong: #556275;
+  --bg-main: #0B1220;
+  --bg-secondary: #111a2a;
+  --bg-tertiary: #182438;
+  --card: #111a2a;
+  --card-hover: #182438;
+  --border: #7D90A7;
+  --border-strong: #8fa2b8;
 
   /* Texte */
-  --text-primary: #F7F4EE;
-  --text-secondary: #9BA7B8;
-  --text-tertiary: #778398;
-  --text-muted: #778398;
+  --text-primary: #F4F7FB;
+  --text-secondary: #C2CCD8;
+  --text-tertiary: #9aa9bb;
+  --text-muted: #9aa9bb;
 
-  /* Action — v68: OR #D6B36A */
-  --action-primary: #D6B36A;
-  --action-primary-hover: #B99755;
-  --action-primary-text: #080B12;
-  --action-secondary-border: #D6B36A;
-  --action-secondary-text: #9BA7B8;
-  /* Market — v68: ÉMERAUDE #9CC4F4 */
-  --market-btts: #9CC4F4;
-  --market-over: #9CC4F4;
+  /* Action — v68: OR #D3B16D */
+  --action-primary: #D3B16D;
+  --action-primary-hover: #B58F4E;
+  --action-primary-text: #0B1220;
+  --action-secondary-border: #D3B16D;
+  --action-secondary-text: #C2CCD8;
+  /* Market — v68: ÉMERAUDE #7FA2C6 */
+  --market-btts: #7FA2C6;
+  --market-over: #7FA2C6;
   /* VIP */
-  --vip-accent: #D6B36A;
+  --vip-accent: #D3B16D;
   /* Trust */
-  --trust-accent: #9CC4F4;
+  --trust-accent: #7FA2C6;
   /* Statut */
-  --success-muted: #18A879;
-  --success: #18A879;
-  --error: #C95A62;
-  --warning: #D6B36A;
-  --primary: #9CC4F4;
-  --primary-hover: #B8D7F5;
+  --success-muted: #4BB687;
+  --success: #4BB687;
+  --error: #E07A83;
+  --warning: #D3B16D;
+  --primary: #7FA2C6;
+  --primary-hover: #A9C4DF;
   --focus: #7DB4FF;
   /* Surfaces */
-  --surface-card: #111722;
-  --surface-card-hover: #192231;
-  --surface-premium: #192231;
-  --border-default: #3A4556;
-  --border-hover: #556275;
+  --surface-card: #111a2a;
+  --surface-card-hover: #182438;
+  --surface-premium: #182438;
+  --border-default: #7D90A7;
+  --border-hover: #8fa2b8;
   /* Legacy */
   --brand-indigo: var(--action-primary);
   --brand-violet: var(--market-btts);
@@ -253,41 +253,41 @@
   --trust: var(--trust-accent);
   --vip: var(--vip-accent);
   --success: var(--success-muted);
-  --glass: rgba(242, 247, 245, 0.08);
-  --glass-border: rgba(242, 247, 245, 0.12);
+  --glass: rgba(244, 247, 251, 0.08);
+  --glass-border: rgba(244, 247, 251, 0.12);
 
   /* Hover states — v68 */
-  --cta-hover: #B99755;
-  --cta-active: #8A6A1F;
-  --trust-hover: #B8D7F5;
-  --stats-hover: #B99755;
-  --vip-hover: #333333;
-  --success-hover: #18A879;
+  --cta-hover: #B58F4E;
+  --cta-active: #8D6B2E;
+  --trust-hover: #A9C4DF;
+  --stats-hover: #B58F4E;
+  --vip-hover: #202b3d;
+  --success-hover: #4BB687;
   --error-hover: #E87878;
-  --border-hover: #D6B36A;
+  --border-hover: #D3B16D;
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
    v68 OR & ÉMERAUDE — Utility classes
    ════════════════════════════════════════════════════════════════════════════ */
 
-/* Bouton Or — dégradé #D6B36A → #B99755, texte noir */
+/* Bouton Or — dégradé #D3B16D → #B58F4E, texte noir */
 .btn-gold {
-  background: linear-gradient(135deg, #D6B36A, #B99755);
-  color: #080B12;
+  background: linear-gradient(135deg, #D3B16D, #B58F4E);
+  color: #0B1220;
   font-weight: 700;
   border: none;
   transition: all 200ms ease;
 }
 .btn-gold:hover {
   background: linear-gradient(135deg, #E0BC42, #C4A033);
-  box-shadow: 0 0 20px rgba(91, 127, 163, 0.30);
+  box-shadow: 0 0 20px rgba(127, 162, 198, 0.30);
 }
 
-/* Badge succès — fond #18A879, texte noir */
+/* Badge succès — fond #4BB687, texte noir */
 .badge-emeraude {
-  background: #18A879;
-  color: #080B12;
+  background: #4BB687;
+  color: #0B1220;
   font-weight: 700;
   border: none;
 }
@@ -295,21 +295,21 @@
 /* Bouton Or outline — bordure or, texte clair */
 .btn-gold-outline {
   background: transparent;
-  color: #F7F4EE;
-  border: 1.5px solid #D6B36A;
+  color: #F4F7FB;
+  border: 1.5px solid #D3B16D;
   font-weight: 700;
   transition: all 200ms ease;
 }
 .btn-gold-outline:hover {
-  background: rgba(199, 244, 100, 0.08);
-  border-color: #D6B36A;
+  background: rgba(75, 182, 135, 0.08);
+  border-color: #D3B16D;
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
    HOVER / ACTIVE / FOCUS STATES (Step 4 — MANDATORY)
    ════════════════════════════════════════════════════════════════════════════ */
 
-/* CTA Hover: bg #B99755 (Indigo brighter), text #F7F4EE, transition 200ms ease */
+/* CTA Hover: bg #B58F4E (Indigo brighter), text #F4F7FB, transition 200ms ease */
 .vip-glass-cta:hover,
 .btn-primary:hover,
 .btn-vip:hover,
@@ -323,7 +323,7 @@ button[type="submit"]:hover,
   transition: background-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
 }
 
-/* CTA Active: bg #8A6A1F (Indigo darker) */
+/* CTA Active: bg #8D6B2E (Indigo darker) */
 .vip-glass-cta:active,
 .btn-primary:active,
 .btn-vip:active,
@@ -368,7 +368,7 @@ a:hover,
   transition: background-color 200ms ease;
 }
 
-/* Card Hover: border-color #3A4556 */
+/* Card Hover: border-color #7D90A7 */
 .card:hover,
 .container:hover,
 .panel:hover,
@@ -395,12 +395,12 @@ html {
 }
 
 body {
-  background: #080B12;
+  background: #0B1220;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(199, 244, 100, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(199, 244, 100, 0.02) 0%, transparent 40%);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(75, 182, 135, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(75, 182, 135, 0.02) 0%, transparent 40%);
   background-attachment: fixed;
-  color: #F7F4EE;
+  color: #F4F7FB;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
@@ -423,8 +423,8 @@ body::before {
   pointer-events: none;
   z-index: -1;
   background-image: 
-    linear-gradient(rgba(242, 247, 245, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(242, 247, 245, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(244, 247, 251, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 247, 251, 0.02) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -570,7 +570,7 @@ a:hover { color: var(--color-primary-light); }
   border: 1px solid var(--color-card-border);
 }
 .btn-ghost:hover {
-  background: rgba(242, 247, 245, 0.05);
+  background: rgba(244, 247, 251, 0.05);
   border-color: var(--color-card-border-hover);
 }
 
@@ -616,11 +616,11 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .card-vip {
-  background: linear-gradient(135deg, rgba(199, 244, 100, 0.1) 0%, rgba(199, 244, 100, 0.05) 100%);
-  border: 1px solid rgba(91, 127, 163, 0.30);
+  background: linear-gradient(135deg, rgba(75, 182, 135, 0.1) 0%, rgba(75, 182, 135, 0.05) 100%);
+  border: 1px solid rgba(127, 162, 198, 0.30);
   border-radius: var(--radius-xl);
   padding: 1.5rem;
-  box-shadow: 0 0 30px rgba(199, 244, 100, 0.1);
+  box-shadow: 0 0 30px rgba(75, 182, 135, 0.1);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -649,28 +649,28 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .badge-warning {
-  background: rgba(199, 244, 100, 0.2);
+  background: rgba(75, 182, 135, 0.2);
   color: var(--color-warning-light);
-  border: 1px solid rgba(91, 127, 163, 0.30);
+  border: 1px solid rgba(127, 162, 198, 0.30);
 }
 
 .badge-danger {
-  background: rgba(199, 244, 100, 0.2);
+  background: rgba(75, 182, 135, 0.2);
   color: var(--color-danger-light);
-  border: 1px solid rgba(91, 127, 163, 0.30);
+  border: 1px solid rgba(127, 162, 198, 0.30);
 }
 
 .badge-vip {
-  background: linear-gradient(135deg, rgba(199, 244, 100, 0.2) 0%, rgba(199, 244, 100, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(75, 182, 135, 0.2) 0%, rgba(75, 182, 135, 0.1) 100%);
   color: var(--color-vip);
-  border: 1px solid rgba(91, 127, 163, 0.30);
-  box-shadow: 0 0 20px rgba(199, 244, 100, 0.1);
+  border: 1px solid rgba(127, 162, 198, 0.30);
+  box-shadow: 0 0 20px rgba(75, 182, 135, 0.1);
 }
 
 .badge-live {
-  background: rgba(199, 244, 100, 0.2);
+  background: rgba(75, 182, 135, 0.2);
   color: var(--color-danger-light);
-  border: 1px solid rgba(91, 127, 163, 0.30);
+  border: 1px solid rgba(127, 162, 198, 0.30);
 }
 .badge-live::before {
   content: '';
@@ -1071,9 +1071,9 @@ a:hover { color: var(--color-primary-light); }
   box-shadow:
     0 8px 32px rgba(7, 17, 26, 0.5),
     0 2px 8px rgba(7, 17, 26, 0.3),
-    inset 0 1px 0 rgba(242, 247, 245, 0.06);
+    inset 0 1px 0 rgba(244, 247, 251, 0.06);
   background-image: linear-gradient(rgba(6, 16, 25, 0.65), rgba(6, 16, 25, 0.65)),
-                    linear-gradient(135deg, rgba(199, 244, 100, 0.15), rgba(199, 244, 100, 0.08));
+                    linear-gradient(135deg, rgba(75, 182, 135, 0.15), rgba(75, 182, 135, 0.08));
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
@@ -1085,7 +1085,7 @@ a:hover { color: var(--color-primary-light); }
   inset: 0;
   border-radius: 16px;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(199, 244, 100, 0.5), rgba(91, 127, 163, 0.30), rgba(199, 244, 100, 0.1));
+  background: linear-gradient(135deg, rgba(75, 182, 135, 0.5), rgba(127, 162, 198, 0.30), rgba(75, 182, 135, 0.1));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -1101,7 +1101,7 @@ a:hover { color: var(--color-primary-light); }
   left: 20%;
   right: 20%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(199, 244, 100, 0.6), transparent);
+  background: linear-gradient(90deg, transparent, rgba(75, 182, 135, 0.6), transparent);
   pointer-events: none;
 }
 
@@ -1110,15 +1110,15 @@ a:hover { color: var(--color-primary-light); }
   transform: translateY(-6px);
   box-shadow:
     0 20px 48px rgba(7, 17, 26, 0.6),
-    0 8px 24px rgba(199, 244, 100, 0.15),
-    inset 0 1px 0 rgba(242, 247, 245, 0.08);
+    0 8px 24px rgba(75, 182, 135, 0.15),
+    inset 0 1px 0 rgba(244, 247, 251, 0.08);
   backdrop-filter: blur(14px) saturate(200%);
   -webkit-backdrop-filter: blur(14px) saturate(200%);
 }
 
 /* Halo d'accent au hover */
 .vip-glass-card:hover::before {
-  background: linear-gradient(135deg, rgba(199, 244, 100, 0.8), rgba(199, 244, 100, 0.5), rgba(91, 127, 163, 0.30));
+  background: linear-gradient(135deg, rgba(75, 182, 135, 0.8), rgba(75, 182, 135, 0.5), rgba(127, 162, 198, 0.30));
 }
 
 /* En-tête carte : niveau VIP + logo */
@@ -1135,7 +1135,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 1.25rem;
-  color: #D6B36A;
+  color: #D3B16D;
   text-shadow: 0 0 20px rgba(255, 159, 90, 0.3);
   letter-spacing: 0.02em;
 }
@@ -1150,18 +1150,18 @@ a:hover { color: var(--color-primary-light); }
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: linear-gradient(135deg, #D6B36A, #D6B36A);
+  background: linear-gradient(135deg, #D3B16D, #D3B16D);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 16px rgba(199, 244, 100, 0.4);
+  box-shadow: 0 0 16px rgba(75, 182, 135, 0.4);
 }
 
 .vip-glass-logo-text {
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
-  color: #F7F4EE;
+  color: #F4F7FB;
 }
 
 /* Corps carte : utilisateur + avantages */
@@ -1174,7 +1174,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  color: #F7F4EE;
+  color: #F4F7FB;
   margin-bottom: 1rem;
 }
 
@@ -1193,7 +1193,7 @@ a:hover { color: var(--color-primary-light); }
   gap: 0.625rem;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.8125rem;
-  color: #9BA7B8;
+  color: #C2CCD8;
   line-height: 1.5;
 }
 
@@ -1204,8 +1204,8 @@ a:hover { color: var(--color-primary-light); }
   height: 6px;
   margin-top: 6px;
   border-radius: 50%;
-  background: #D6B36A;
-  box-shadow: 0 0 8px rgba(199, 244, 100, 0.6);
+  background: #D3B16D;
+  box-shadow: 0 0 8px rgba(75, 182, 135, 0.6);
 }
 
 /* Pied carte : statut */
@@ -1215,7 +1215,7 @@ a:hover { color: var(--color-primary-light); }
   justify-content: space-between;
   margin-top: 1.25rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(242, 247, 245, 0.06);
+  border-top: 1px solid rgba(244, 247, 251, 0.06);
   position: relative;
   z-index: 2;
 }
@@ -1227,7 +1227,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.6875rem;
   font-weight: 600;
-  color: #D6B36A;
+  color: #D3B16D;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -1237,8 +1237,8 @@ a:hover { color: var(--color-primary-light); }
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #D6B36A;
-  box-shadow: 0 0 8px rgba(199, 244, 100, 0.8);
+  background: #D3B16D;
+  box-shadow: 0 0 8px rgba(75, 182, 135, 0.8);
   animation: vip-pulse 2s ease-in-out infinite;
 }
 
@@ -1250,7 +1250,7 @@ a:hover { color: var(--color-primary-light); }
 .vip-glass-meta {
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.6875rem;
-  color: #3A4556;
+  color: #7D90A7;
 }
 
 /* CTA carte VIP glassmorphism */
@@ -1262,25 +1262,25 @@ a:hover { color: var(--color-primary-light); }
   width: 100%;
   padding: 0.75rem 1.25rem;
   margin-top: 1.25rem;
-  background: linear-gradient(135deg, #D6B36A 0%, #192231 100%);
-  color: #F7F4EE;
+  background: linear-gradient(135deg, #D3B16D 0%, #182438 100%);
+  color: #F4F7FB;
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
-  border: 1px solid rgba(199, 244, 100, 0.6);
+  border: 1px solid rgba(75, 182, 135, 0.6);
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(199, 244, 100, 0.35);
+  box-shadow: 0 4px 16px rgba(75, 182, 135, 0.35);
   position: relative;
   z-index: 2;
 }
 
 .vip-glass-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(199, 244, 100, 0.5);
-  background: linear-gradient(135deg, #B99755 0%, #D6B36A 100%);
-  border-color: #B99755;
+  box-shadow: 0 8px 24px rgba(75, 182, 135, 0.5);
+  background: linear-gradient(135deg, #B58F4E 0%, #D3B16D 100%);
+  border-color: #B58F4E;
 }
 
 .vip-glass-cta:active {
@@ -1298,13 +1298,13 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .vip-glass-card.gold .vip-glass-level {
-  color: #D6B36A;
+  color: #D3B16D;
   text-shadow: 0 0 24px rgba(255, 159, 90, 0.5);
 }
 
 /* Silver — Brume Bleutée sobre */
 .vip-glass-card.silver .vip-glass-level {
-  color: #9BA7B8;
+  color: #C2CCD8;
   text-shadow: 0 0 16px rgba(165, 171, 197, 0.3);
 }
 
@@ -1319,7 +1319,7 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .vip-glass-card.elite .vip-glass-level {
-  color: #D6B36A;
+  color: #D3B16D;
   text-shadow: 0 0 28px rgba(255, 159, 90, 0.6);
 }
 
@@ -1348,7 +1348,7 @@ a:hover { color: var(--color-primary-light); }
 
 /* ═══ Focus visible — accessibility ═══ */
 *:focus-visible {
-  outline: 2px solid #D6B36A;
+  outline: 2px solid #D3B16D;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -1442,6 +1442,6 @@ body {
   transition: background-color 200ms ease, border-color 200ms ease, transform 200ms ease;
 }
 .card-hover:hover {
-  background-color: #192231;
-  border-color: #556275;
+  background-color: #182438;
+  border-color: #8fa2b8;
 }

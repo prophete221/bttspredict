@@ -7,14 +7,14 @@ import VipLevelModal, { type VipLevelId } from './VipLevelModal'
 /**
  * VipCardGlass — Carte VIP "Glassmorphism" ultra-moderne
  *
- * Style : Verre dépoli (translucidité + backdrop-filter blur) sur fond sombre #111722
- * Accents : Émeraude vif #9CC4F4 + Or Champagne #9CC4F4
+ * Style : Verre dépoli (translucidité + backdrop-filter blur) sur fond sombre #111a2a
+ * Accents : Émeraude vif #7FA2C6 + Or Champagne #7FA2C6
  * Bordure : Ligne fine lumineuse dégradée (1px)
  * Profondeur : Ombres portées 3D pour effet de flottement
  *
  * Structure :
  * 1. En-tête : Niveau VIP en Or Champagne (Poppins Bold) + Logo BTTSPredict
- * 2. Corps : Nom utilisateur (Blanc cassé #F7F4EE) + Liste avantages (Gris #9BA7B8) avec puces émeraude
+ * 2. Corps : Nom utilisateur (Blanc cassé #F4F7FB) + Liste avantages (Gris #C2CCD8) avec puces émeraude
  * 3. Pied : Statut "Actif" discret
  */
 
@@ -65,7 +65,7 @@ export default function VipCardGlass({
         </div>
         <div className="vip-glass-logo">
           <div className="vip-glass-logo-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#080B12" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B1220" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M3 3v18h18" />
               <path d="M7 14l4-4 4 4 5-5" />
             </svg>
@@ -202,10 +202,10 @@ export function VipCardGrid() {
         {/* Header */}
         <div className="text-center mb-10">
           <span className="eyebrow">💎 Niveaux VIP</span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-3" style={{ color: '#F7F4EE', fontFamily: 'Poppins, sans-serif' }}>
-            Choisis ton <span style={{ color: '#9CC4F4' }}>niveau VIP</span>
+          <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-3" style={{ color: '#F4F7FB', fontFamily: 'Poppins, sans-serif' }}>
+            Choisis ton <span style={{ color: '#7FA2C6' }}>niveau VIP</span>
           </h2>
-          <p className="text-sm max-w-md mx-auto" style={{ color: '#9BA7B8' }}>
+          <p className="text-sm max-w-md mx-auto" style={{ color: '#C2CCD8' }}>
             Choisis le niveau qui te correspond. Activation en moins de 30 minutes via WhatsApp après dépôt.
           </p>
         </div>
