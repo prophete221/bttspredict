@@ -70,7 +70,7 @@ export default function BottomNavigation() {
         backgroundColor: 'rgba(7, 17, 26, 0.97)',
         backdropFilter: 'blur(20px) saturate(180%)',
         WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-        borderTop: '1px solid #7D90A7',
+        borderTop: '1px solid #5D7880',
         boxShadow: '0 -4px 16px rgba(7, 17, 26, 0.4)',
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
         height: 'calc(64px + env(safe-area-inset-bottom, 0px))',
@@ -83,9 +83,9 @@ export default function BottomNavigation() {
           <a
             key={tab.id}
             href={tab.href}
-            className="flex-1 flex flex-col items-center justify-center gap-1 transition-colors duration-200 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7FA2C6] focus-visible:ring-inset"
+            className="flex-1 flex flex-col items-center justify-center gap-1 transition-colors duration-200 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8FF1A] focus-visible:ring-inset"
             style={{
-              color: isActive ? '#7FA2C6' : '#C2CCD8',
+              color: isActive ? '#B8FF1A' : '#B7C4C1',
               minHeight: '52px',
               textShadow: isActive ? '0 0 8px rgba(75, 182, 135, 0.4)' : 'none',
             }}
@@ -100,7 +100,7 @@ export default function BottomNavigation() {
                   width: '32px',
                   height: '3px',
                   borderRadius: '2px',
-                  background: '#7FA2C6',
+                  background: '#B8FF1A',
                   boxShadow: '0 0 8px rgba(75, 182, 135, 0.6)',
                 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
@@ -111,7 +111,7 @@ export default function BottomNavigation() {
             </motion.div>
             <span
               className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider"
-              style={{ color: isActive ? '#7FA2C6' : '#C2CCD8' }}
+              style={{ color: isActive ? '#B8FF1A' : '#B7C4C1' }}
             >
               {tab.label}
             </span>

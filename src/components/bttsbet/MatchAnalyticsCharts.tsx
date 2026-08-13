@@ -21,11 +21,11 @@ interface MatchAnalyticsChartsProps {
 }
 
 const COLORS = {
-  blue: '#7FA2C6',
-  gold: '#D3B16D',
-  slate: '#C2CCD8',
+  blue: '#B8FF1A',
+  gold: '#B8FF1A',
+  slate: '#B7C4C1',
   grid: '#2B3A50',
-  surface: '#0B1220',
+  surface: '#071018',
 }
 
 function percent(value?: number): number | null {
@@ -42,9 +42,9 @@ function exactPercent(value?: string): number | null {
 function TooltipContent({ active, payload, label }: { active?: boolean; payload?: Array<{ value?: number }>; label?: string }) {
   if (!active || !payload?.length) return null
   return (
-    <div className="rounded-lg border border-[#50627A] bg-[#0B1220] px-3 py-2 text-xs shadow-xl">
-      <div className="mb-1 font-semibold text-[#F4F7FB]">{label}</div>
-      <div className="font-mono text-[#D3B16D]">{payload[0].value}%</div>
+    <div className="rounded-lg border border-[#304951] bg-[#071018] px-3 py-2 text-xs shadow-xl">
+      <div className="mb-1 font-semibold text-[#F5F8F3]">{label}</div>
+      <div className="font-mono text-[#B8FF1A]">{payload[0].value}%</div>
     </div>
   )
 }
@@ -69,18 +69,18 @@ export default function MatchAnalyticsCharts(props: MatchAnalyticsChartsProps) {
     <section className="mb-8" aria-labelledby="match-analytics-title">
       <div className="mb-3 flex items-end justify-between gap-3">
         <div>
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#7FA2C6]">Signal analytics</p>
-          <h2 id="match-analytics-title" className="mt-1 text-xl font-bold text-[#F4F7FB]">Lecture des données</h2>
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#B8FF1A]">Signal analytics</p>
+          <h2 id="match-analytics-title" className="mt-1 text-xl font-bold text-[#F5F8F3]">Lecture des données</h2>
         </div>
-        <span className="text-right text-[10px] text-[#9AA9BB]">Valeurs issues du modèle publié</span>
+        <span className="text-right text-[10px] text-[#9FB0B0]">Valeurs issues du modèle publié</span>
       </div>
 
       <div className="grid gap-4 lg:grid-cols-2">
         {marketData.length > 0 && (
-          <div className="rounded-2xl border border-[#50627A] bg-[#111A2A] p-4 shadow-[0_18px_50px_rgba(0,0,0,0.18)]">
+          <div className="rounded-2xl border border-[#304951] bg-[#0D1A20] p-4 shadow-[0_18px_50px_rgba(0,0,0,0.18)]">
             <div className="mb-3 flex items-center justify-between">
-              <h3 className="text-sm font-bold text-[#F4F7FB]">Probabilités par marché</h3>
-              <span className="text-[10px] uppercase tracking-wider text-[#9AA9BB]">0–100 %</span>
+              <h3 className="text-sm font-bold text-[#F5F8F3]">Probabilités par marché</h3>
+              <span className="text-[10px] uppercase tracking-wider text-[#9FB0B0]">0–100 %</span>
             </div>
             <div className="h-52" role="img" aria-label="Graphique des probabilités BTTS, Over 2.5 et score exact">
               <ResponsiveContainer width="100%" height="100%">
@@ -95,15 +95,15 @@ export default function MatchAnalyticsCharts(props: MatchAnalyticsChartsProps) {
                 </BarChart>
               </ResponsiveContainer>
             </div>
-            <p className="mt-2 text-[10px] leading-relaxed text-[#9AA9BB]">Une probabilité n’est pas une garantie et ne remplace pas l’analyse du risque.</p>
+            <p className="mt-2 text-[10px] leading-relaxed text-[#9FB0B0]">Une probabilité n’est pas une garantie et ne remplace pas l’analyse du risque.</p>
           </div>
         )}
 
         {xgData.length > 0 && (
-          <div className="rounded-2xl border border-[#50627A] bg-[#111A2A] p-4 shadow-[0_18px_50px_rgba(0,0,0,0.18)]">
+          <div className="rounded-2xl border border-[#304951] bg-[#0D1A20] p-4 shadow-[0_18px_50px_rgba(0,0,0,0.18)]">
             <div className="mb-3 flex items-center justify-between">
-              <h3 className="text-sm font-bold text-[#F4F7FB]">Expected goals (xG)</h3>
-              <span className="text-[10px] uppercase tracking-wider text-[#9AA9BB]">projection</span>
+              <h3 className="text-sm font-bold text-[#F5F8F3]">Expected goals (xG)</h3>
+              <span className="text-[10px] uppercase tracking-wider text-[#9FB0B0]">projection</span>
             </div>
             <div className="h-52" role="img" aria-label="Graphique des expected goals de l'équipe à domicile et de l'équipe extérieure">
               <ResponsiveContainer width="100%" height="100%">
@@ -116,9 +116,9 @@ export default function MatchAnalyticsCharts(props: MatchAnalyticsChartsProps) {
                 </BarChart>
               </ResponsiveContainer>
             </div>
-            <div className="mt-2 flex items-center justify-between text-[10px] text-[#9AA9BB]">
+            <div className="mt-2 flex items-center justify-between text-[10px] text-[#9FB0B0]">
               <span>Total xG</span>
-              <strong className="font-mono text-[#D3B16D]">{props.xgTotal?.toFixed(2) ?? '—'}</strong>
+              <strong className="font-mono text-[#B8FF1A]">{props.xgTotal?.toFixed(2) ?? '—'}</strong>
             </div>
           </div>
         )}

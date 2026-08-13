@@ -4,14 +4,14 @@ import { useState } from 'react'
 import { AFFILIATE } from '@/lib/constants'
 
 /* ─── Palette locale — 888Starz rouge clair (couleur de marque) ──────── */
-const ORANGE = '#E07A83'      // rouge clair 888Starz
+const ORANGE = '#FF7B7B'      // rouge clair 888Starz
 const ORANGE_DARK = '#E55A5A' // rouge clair sombre
-const PRIMARY = '#E07A83'     // boutons et accents en rouge clair
+const PRIMARY = '#FF7B7B'     // boutons et accents en rouge clair
 const PRIMARY_HOVER = '#E55A5A'
-const TEXT = '#F4F7FB'
-const TEXT_SEC = '#C2CCD8'
-const BG_DARK = '#0B1220'
-const BORDER_OUTLINE = '#C2CCD8'
+const TEXT = '#F5F8F3'
+const TEXT_SEC = '#B7C4C1'
+const BG_DARK = '#071018'
+const BORDER_OUTLINE = '#B7C4C1'
 
 /* Lien affilié 888Starz */
 const STAR888_SIGNUP = AFFILIATE.star888
@@ -67,7 +67,7 @@ const STEPS = [
 /* ─── Moyens de dépôt ─────────────────────────────────────────────────── */
 const PAYMENT_METHODS = [
   { name: 'Wave', color: '#1DC9FF', short: 'W' },
-  { name: 'Orange Money', color: '#7FA2C6', short: 'OM' },
+  { name: 'Orange Money', color: '#B8FF1A', short: 'OM' },
   { name: 'MTN', color: '#FFCC00', short: 'M' },
   { name: 'Moov', color: '#0066B3', short: 'M' },
 ]
@@ -125,9 +125,9 @@ export default function Star888Client() {
         <div
           className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] px-5 py-3 rounded-xl font-bold text-sm shadow-2xl"
           style={{
-            backgroundColor: '#E07A83',
+            backgroundColor: '#FF7B7B',
             color: BG_DARK,
-            border: '1.5px solid #E07A83',
+            border: '1.5px solid #FF7B7B',
             boxShadow: '0 10px 40px rgba(169, 196, 223, 0.4)',
           }}
           role="status"
@@ -174,7 +174,7 @@ export default function Star888Client() {
           <div
             className="rounded-2xl p-8 text-center relative overflow-hidden"
             style={{
-              background: `linear-gradient(135deg, ${BG_DARK} 0%, #182438 100%)`,
+              background: `linear-gradient(135deg, ${BG_DARK} 0%, #11242B 100%)`,
               border: `1.5px solid ${ORANGE}`,
               boxShadow: `0 0 60px ${ORANGE}22, 0 10px 40px rgba(0,0,0,0.4), inset 0 1px 0 ${ORANGE}33`,
             }}
@@ -207,8 +207,8 @@ export default function Star888Client() {
               <span
                 className="inline-flex items-center justify-center w-9 h-9 rounded-lg flex-shrink-0"
                 style={{
-                  backgroundColor: copied ? '#E07A83' : `${ORANGE}1A`,
-                  border: `1px solid ${copied ? '#E07A83' : ORANGE}`,
+                  backgroundColor: copied ? '#FF7B7B' : `${ORANGE}1A`,
+                  border: `1px solid ${copied ? '#FF7B7B' : ORANGE}`,
                   color: copied ? BG_DARK : ORANGE,
                 }}
                 aria-hidden="true"
@@ -235,7 +235,7 @@ export default function Star888Client() {
                 onClick={handleCopy}
                 className="flex-1 sm:flex-initial sm:min-w-[260px] h-[52px] rounded-[10px] font-bold text-[14px] flex items-center justify-center gap-2 transition-all"
                 style={{
-                  backgroundColor: copied ? '#E07A83' : ORANGE,
+                  backgroundColor: copied ? '#FF7B7B' : ORANGE,
                   color: copied ? BG_DARK : BG_DARK,
                   border: 'none',
                   boxShadow: `0 6px 20px ${ORANGE}33`,
@@ -292,7 +292,7 @@ export default function Star888Client() {
                   color: '#C8CCDA',
                   border: `1.5px solid ${BORDER_OUTLINE}`,
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#182438' }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#11242B' }}
                 onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent' }}
                 data-cta="888starz-download-v641"
               >
@@ -305,7 +305,7 @@ export default function Star888Client() {
               </a>
             </div>
 
-            <p className="text-[10px] mt-4" style={{ color: '#C2CCD8' }}>
+            <p className="text-[10px] mt-4" style={{ color: '#B7C4C1' }}>
               Lien d&apos;affiliation rémunéré · 18+ · Jouer responsable
             </p>
           </div>
@@ -321,7 +321,7 @@ export default function Star888Client() {
           >
             Détails du bonus 888Starz
           </h2>
-          <div className="rounded-2xl overflow-hidden" style={{ border: `1px solid ${ORANGE}33`, backgroundColor: '#111a2a' }}>
+          <div className="rounded-2xl overflow-hidden" style={{ border: `1px solid ${ORANGE}33`, backgroundColor: '#0D1A20' }}>
             <table className="w-full text-sm">
               <tbody>
                 {BONUS_ROWS.map((row, i) => (
@@ -361,7 +361,7 @@ export default function Star888Client() {
                 key={step.n}
                 className="rounded-2xl p-5 relative"
                 style={{
-                  backgroundColor: '#111a2a',
+                  backgroundColor: '#0D1A20',
                   border: `1px solid ${ORANGE}22`,
                 }}
               >
@@ -406,7 +406,7 @@ export default function Star888Client() {
               <div
                 key={m.name}
                 className="rounded-2xl p-4 text-center"
-                style={{ backgroundColor: '#111a2a', border: `1px solid ${m.color}33` }}
+                style={{ backgroundColor: '#0D1A20', border: `1px solid ${m.color}33` }}
               >
                 <div
                   className="w-12 h-12 rounded-full mx-auto mb-2 flex items-center justify-center font-bold text-base"
@@ -427,7 +427,7 @@ export default function Star888Client() {
       {/* ─────────── LIENS INTERNES ─────────── */}
       <section className="pb-10">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
-          <div className="rounded-2xl p-5 text-center" style={{ backgroundColor: '#111a2a', border: `1px solid ${ORANGE}22` }}>
+          <div className="rounded-2xl p-5 text-center" style={{ backgroundColor: '#0D1A20', border: `1px solid ${ORANGE}22` }}>
             <p className="text-[10px] uppercase tracking-widest mb-3" style={{ color: ORANGE }}>
               À découvrir sur BTTSPredict
             </p>
@@ -480,7 +480,7 @@ export default function Star888Client() {
           onClick={handleCopy}
           className="px-5 py-2.5 rounded-[10px] font-bold text-[13px]"
           style={{
-            backgroundColor: copied ? '#E07A83' : ORANGE,
+            backgroundColor: copied ? '#FF7B7B' : ORANGE,
             color: BG_DARK,
           }}
         >

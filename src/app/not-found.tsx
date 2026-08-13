@@ -15,11 +15,11 @@ export default function NotFound() {
         </span>
         <h1
           className="text-2xl font-bold mb-3"
-          style={{ color: '#F4F7FB', fontFamily: 'Poppins, sans-serif' }}
+          style={{ color: '#F5F8F3', fontFamily: 'Poppins, sans-serif' }}
         >
           Match ou page introuvable
         </h1>
-        <p className="text-sm mb-6 leading-relaxed" style={{ color: '#C2CCD8' }}>
+        <p className="text-sm mb-6 leading-relaxed" style={{ color: '#B7C4C1' }}>
           La page que vous cherchez n&apos;existe pas, a expiré, ou le match n&apos;est plus dans
           notre sélection du jour. Nos pronostics sont régénérés quotidiennement — les anciennes
           pages match ne sont plus servies.
@@ -28,14 +28,14 @@ export default function NotFound() {
           <Link
             href="/"
             className="inline-block px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
-            style={{ backgroundColor: '#7FA2C6', color: '#0B1220' }}
+            style={{ backgroundColor: '#B8FF1A', color: '#071018' }}
           >
             Retour à l&apos;accueil
           </Link>
           <Link
             href="/btts/predictions/today"
             className="inline-block px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
-            style={{ backgroundColor: 'transparent', color: '#F4F7FB', border: '1px solid #7D90A7' }}
+            style={{ backgroundColor: 'transparent', color: '#F5F8F3', border: '1px solid #5D7880' }}
           >
             Pronostics du jour
           </Link>
