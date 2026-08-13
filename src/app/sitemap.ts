@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { getDakarDateString } from '@/lib/dakar-date'
 
 /**
  * Sitemap Next.js natif v64 — Plateforme PRO
@@ -7,6 +8,7 @@ import type { MetadataRoute } from 'next'
  * identiques) à 12 URLs essentielles type Flashscore.
  *
  * Règles strictes :
+ * - PAS de /pronostics (alias non canonique de /btts/predictions/today)
  * - PAS de /linebet-promo-code (redirigé 301 vers /code-promo-linebet-senegal)
  * - PAS de /match/[slug] dans le sitemap (pages trop éphémères)
  * - PAS de blog, PAS de doorway pages
@@ -32,8 +34,8 @@ export const dynamic = 'force-static'
 
 const SITE_URL = 'https://bttspredict.com'
 
-// Date du jour (YYYY-MM-DD) pour lastModified dynamique
-const TODAY = new Date().toISOString().split('T')[0]
+// Date métier du jour (YYYY-MM-DD), explicitement basée sur Africa/Dakar.
+const TODAY = getDakarDateString()
 
 // Helper : génère une URL sitemap avec hreflang
 function url(

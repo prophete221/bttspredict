@@ -28,7 +28,7 @@ BTTSPredict is a football predictions platform that publishes daily BTTS (Both T
 ## Key URLs
 
 - Homepage: https://bttspredict.com/
-- Daily predictions: https://bttspredict.com/pronostics
+- Daily predictions: https://bttspredict.com/btts/predictions/today
 - Public verified history (since 2026-08-08): https://bttspredict.com/historique
 - Methodology: https://bttspredict.com/methodologie
 - VIP program: https://bttspredict.com/vip

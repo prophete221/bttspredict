@@ -107,6 +107,9 @@ jobs:
         run: node scripts/scrape-transfers.mjs
         continue-on-error: true
 
+      - name: Validate predictions dataset
+        run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp
+
       - name: Build static export
         run: npm run build
         env:
