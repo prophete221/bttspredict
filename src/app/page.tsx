@@ -13,8 +13,8 @@ const StickyCTABar = dynamic(() => import('@/components/bttsbet/StickyCTABar'), 
 // Tâche 002 — Title et description SEO alignés sur le Prompt Maître.
 // Title : 49 chars (limite soft 60) — description : 139 chars (limite soft 150).
 // Anti-récidive: checkSeo() lance une erreur build-time si title > 60 ou desc > 150.
-const TITLE = "Pronostics BTTS et Over 2,5 du jour | BTTSPredict"
-const DESCRIPTION = "Analyses football du jour : BTTS, Over 2,5 et résultats vérifiés. Données horodatées, méthode transparente et aucune garantie de gain. 18+."
+const TITLE = "Plateforme BTTS, Over 2,5 et Score Exact | BTTSPredict"
+const DESCRIPTION = "Plateforme de sélections BTTS, Over 2,5 et score exact : matchs internationaux, données horodatées et résultats vérifiés. 18+."
 checkSeo('homepage', TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
@@ -46,7 +46,7 @@ const jsonLd = {
   '@type': 'WebSite',
   name: 'BTTSPredict',
   url: 'https://bttspredict.com',
-  description: "Pronostics football BTTS & Over 2,5 basés sur un modèle statistique. Code promo VISION221 sur Linebet et 888starz.",
+  description: "Plateforme de sélections football BTTS, Over 2,5 et score exact pour les parieurs africains. Matchs internationaux, données publiques et historique vérifiable.",
   inLanguage: 'fr',
   potentialAction: {
     '@type': 'SearchAction',
@@ -253,7 +253,7 @@ const breadcrumbJsonLd = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://bttspredict.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Pronostics', item: 'https://bttspredict.com/#free-predictions' },
+    { '@type': 'ListItem', position: 2, name: 'Tableau des pronostics', item: 'https://bttspredict.com/btts/predictions/today' },
     { '@type': 'ListItem', position: 3, name: 'VIP', item: 'https://bttspredict.com/#vip' },
   ],
 }
@@ -261,7 +261,7 @@ const breadcrumbJsonLd = {
 export default function Home() {
   return (
     <div className="min-h-screen bg-dark-800 relative">
-      <h1 className="sr-only">Pronostics BTTS et Over 2,5 du jour</h1>
+
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
@@ -290,11 +290,11 @@ export default function Home() {
 
       {/* ═══ SEO CONTENT FOR CRAWLERS & AI — minimal v91 ═══ */}
       <div className="sr-only">
-        <h2>Pronostics BTTS et Over 2.5 — Afrique de l&apos;Ouest &amp; Maroc</h2>
+        <h2>Plateforme de sélections BTTS, Over 2.5 et score exact</h2>
         <p>
-          BTTSPredict publie 8 pronostics BTTS &amp; Over 2.5 quotidiens pour le Sénégal, Mali,
-          Côte d&apos;Ivoire, Guinée, Congo et Maroc. Données ESPN publiques. Suivi public
-          depuis 2026-08-08, vérifiable après match. 18+ Jeu responsable.
+          BTTSPredict aide les parieurs africains à lire des sélections de matchs internationaux :
+          BTTS, Over 2.5 et projection de score exact. Les données sont publiées avant le match,
+          les résultats gagnés et perdus sont archivés, et aucun gain futur n&apos;est garanti.
         </p>
       </div>
 

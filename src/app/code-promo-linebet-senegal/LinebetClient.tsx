@@ -83,7 +83,7 @@ const BONUS_ROWS = [
 
 /* ─── Liens internes ─────────────────────────────────────────────────── */
 const INTERNAL_LINKS = [
-  { href: '/', label: 'Pronostics BTTS Afrique Ouest' },
+  { href: '/btts/predictions/today', label: 'Tableau des sélections internationales' },
   { href: '/bonus-888starz', label: 'Bonus 888Starz' },
   { href: '/btts-c-est-quoi', label: "C'est quoi BTTS ?" },
 ]
@@ -159,10 +159,10 @@ export default function LinebetClient() {
             className="text-3xl sm:text-5xl mb-3 leading-tight"
             style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em', color: TEXT }}
           >
-            CODE PROMO <span style={{ color: GOLD, textShadow: `0 0 22px ${GOLD}66` }}>LINEBET</span> AFRIQUE OUEST &amp; MAROC - VISION221
+            GUIDE <span style={{ color: GOLD, textShadow: `0 0 22px ${GOLD}66` }}>LINEBET</span> VISION221 — SÉNÉGAL
           </h1>
           <p className="text-sm sm:text-base max-w-2xl mx-auto leading-relaxed" style={{ color: TEXT_SEC }}>
-            Sénégal · Mali · Côte d&apos;Ivoire · Guinée · Congo · Maroc
+            Inscription, code copiable et conditions à vérifier avant tout dépôt.
           </p>
           <p className="text-sm sm:text-base max-w-2xl mx-auto mt-3 leading-relaxed" style={{ color: TEXT_SEC }}>
             Code promo <strong style={{ color: GOLD }}>VISION221</strong>. Les conditions du bonus et les montants disponibles peuvent évoluer — vérifiez toujours les conditions affichées par l'opérateur avant toute inscription ou dépôt.
