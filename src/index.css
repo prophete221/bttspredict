@@ -6,73 +6,73 @@
    ═══════════════════════════════════════════════════════════════ */
 :root {
   /* Fonds — Slate palette */
-  --bg-main: #07111F;          /* Slate 900 — fond principal */
-  --bg-secondary: #0D1B2A;     /* Slate 800 — surfaces/cartes */
-  --bg-tertiary: #29445F;      /* Slate 700 — hover/bordures */
-  --card: #0D1B2A;             /* Slate 800 */
-  --card-hover: #29445F;       /* Slate 700 */
-  --border: #29445F;           /* Slate 700 */
-  --border-strong: #29445F;
+  --bg-main: #080B12;          /* Slate 900 — fond principal */
+  --bg-secondary: #111722;     /* Slate 800 — surfaces/cartes */
+  --bg-tertiary: #3A4556;      /* Slate 700 — hover/bordures */
+  --card: #111722;             /* Slate 800 */
+  --card-hover: #3A4556;       /* Slate 700 */
+  --border: #3A4556;           /* Slate 700 */
+  --border-strong: #3A4556;
 
   /* Texte */
-  --text-primary: #F4F8FC;    /* Slate 50 */
-  --text-secondary: #B7C7D9;  /* Slate 400 */
-  --text-tertiary: #B7C7D9;
+  --text-primary: #F7F4EE;    /* Slate 50 */
+  --text-secondary: #9BA7B8;  /* Slate 400 */
+  --text-tertiary: #9BA7B8;
 
   /* Accents sémantiques */
-  --brand-indigo: #16A36A;    /* Emerald 500 — succès/action */
-  --brand-violet: #16A36A;
-  --brand-cyan: #2176FF;      /* Blue 500 — données/info */
-  --cta: #16A36A;              /* Emerald 500 */
-  --cta-text: #07111F;
-  --trust: #2176FF;           /* Blue 500 */
-  --vip: #F4A623;             /* Amber 500 — avertissement/VIP */
-  --success: #16A36A;          /* Emerald 500 */
-  --error: #D94B4B;            /* Red 500 */
+  --brand-indigo: #18A879;    /* Emerald 500 — succès/action */
+  --brand-violet: #18A879;
+  --brand-cyan: #18A879;      /* Blue 500 — données/info */
+  --cta: #18A879;              /* Emerald 500 */
+  --cta-text: #080B12;
+  --trust: #18A879;           /* Blue 500 */
+  --vip: #D6B36A;             /* Amber 500 — avertissement/VIP */
+  --success: #18A879;          /* Emerald 500 */
+  --error: #C95A62;            /* Red 500 */
 
   /* Hover states */
-  --cta-hover: #16A36A;
-  --cta-active: #047857;
-  --trust-hover: #2176FF;
-  --vip-hover: #F4A623;
-  --success-hover: #16A36A;
-  --error-hover: #D94B4B;
-  --border-hover: #16A36A;
+  --cta-hover: #18A879;
+  --cta-active: #117A59;
+  --trust-hover: #18A879;
+  --vip-hover: #D6B36A;
+  --success-hover: #18A879;
+  --error-hover: #C95A62;
+  --border-hover: #18A879;
   --glass: rgba(248, 250, 252, 0.08);
   --glass-border: rgba(248, 250, 252, 0.12);
 }
 
 @theme {
   /* ── Slate Design System — tokens canoniques ── */
-  --color-bg-main: #07111F;
-  --color-bg-secondary: #0D1B2A;
-  --color-bg-tertiary: #29445F;
-  --color-card: #0D1B2A;
-  --color-card-hover: #29445F;
-  --color-border: #29445F;
-  --color-border-strong: #29445F;
-  --color-text-primary: #F4F8FC;
-  --color-text-secondary: #B7C7D9;
-  --color-text-tertiary: #B7C7D9;
-  --color-brand-indigo: #16A36A;
-  --color-brand-violet: #16A36A;
-  --color-brand-cyan: #2176FF;
-  --color-cta: #16A36A;
-  --color-cta-text: #07111F;
-  --color-trust: #2176FF;
-  --color-stats: #16A36A;
-  --color-vip: #F4A623;
-  --color-success: #16A36A;
-  --color-error: #D94B4B;
+  --color-bg-main: #080B12;
+  --color-bg-secondary: #111722;
+  --color-bg-tertiary: #3A4556;
+  --color-card: #111722;
+  --color-card-hover: #3A4556;
+  --color-border: #3A4556;
+  --color-border-strong: #3A4556;
+  --color-text-primary: #F7F4EE;
+  --color-text-secondary: #9BA7B8;
+  --color-text-tertiary: #9BA7B8;
+  --color-brand-indigo: #18A879;
+  --color-brand-violet: #18A879;
+  --color-brand-cyan: #18A879;
+  --color-cta: #18A879;
+  --color-cta-text: #080B12;
+  --color-trust: #18A879;
+  --color-stats: #18A879;
+  --color-vip: #D6B36A;
+  --color-success: #18A879;
+  --color-error: #C95A62;
 
   /* Hover states */
-  --color-cta-hover: #16A36A;
-  --color-cta-active: #047857;
-  --color-trust-hover: #2176FF;
-  --color-vip-hover: #F4A623;
-  --color-success-hover: #16A36A;
-  --color-error-hover: #D94B4B;
-  --color-border-hover: #16A36A;
+  --color-cta-hover: #18A879;
+  --color-cta-active: #117A59;
+  --color-trust-hover: #18A879;
+  --color-vip-hover: #D6B36A;
+  --color-success-hover: #18A879;
+  --color-error-hover: #C95A62;
+  --color-border-hover: #18A879;
 
   /* Aliases mappés sur ECLIPSE v60 */
   --color-abyss: var(--color-bg-main);
@@ -143,8 +143,8 @@ html {
 }
 
 body {
-  background-color: #0D1630;
-  color: #F7F8FF;
+  background-color: #0B1019;
+  color: #F7F4EE;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 15px;
   overflow-x: hidden;
@@ -228,8 +228,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Premium Card ─── */
 .card {
-  background: #0D1630;
-  border: 1px solid #0D1630;
+  background: #0B1019;
+  border: 1px solid #0B1019;
   border-radius: 12px;
   transition: all 0.3s ease;
   position: relative;
@@ -237,7 +237,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 16px rgba(7, 11, 24, 0.4), inset 0 1px 0 rgba(168, 224, 99, 0.03);
 }
 .card:hover {
-  background: #0D1630;
+  background: #0B1019;
   border-color: rgba(168, 224, 99, 0.3);
   box-shadow: 0 8px 32px rgba(7, 11, 24, 0.5), 0 0 24px rgba(168, 224, 99, 0.1), inset 0 1px 0 rgba(168, 224, 99, 0.05);
 }
@@ -370,7 +370,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Scrollbar ─── */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0D1630; }
+::-webkit-scrollbar-track { background: #0B1019; }
 ::-webkit-scrollbar-thumb { background: rgba(168, 224, 99, 0.2); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(168, 224, 99, 0.4); }
 
@@ -378,13 +378,13 @@ h1, h2, h3, h4, h5, h6 {
 ::selection { background: rgba(168, 224, 99, 0.3); color: #fff; }
 
 /* ─── Blog Article Prose ─── */
-.prose-dark h2 { color: #16A36A; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
-.prose-dark h3 { color: #2176FF; font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
-.prose-dark p { color: #2176FF; line-height: 1.8; margin-bottom: 1rem; }
+.prose-dark h2 { color: #18A879; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+.prose-dark h3 { color: #18A879; font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+.prose-dark p { color: #18A879; line-height: 1.8; margin-bottom: 1rem; }
 .prose-dark ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
-.prose-dark li { color: #2176FF; line-height: 1.8; margin-bottom: 0.5rem; }
-.prose-dark strong { color: #F7F8FF; }
-.prose-dark blockquote { border-left: 3px solid #16A36A; padding-left: 1rem; margin: 1.5rem 0; color: #B7C7D9; font-style: italic; }
+.prose-dark li { color: #18A879; line-height: 1.8; margin-bottom: 0.5rem; }
+.prose-dark strong { color: #F7F4EE; }
+.prose-dark blockquote { border-left: 3px solid #18A879; padding-left: 1rem; margin: 1.5rem 0; color: #9BA7B8; font-style: italic; }
 
 /* ─── Stat Card Motion Animations ─── */
 @keyframes statFloat {
@@ -420,7 +420,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .promo-code-shimmer {
-  background: linear-gradient(90deg, #2176FF 0%, #2176FF 25%, #F7F8FF 50%, #2176FF 75%, #2176FF 100%);
+  background: linear-gradient(90deg, #18A879 0%, #18A879 25%, #F7F4EE 50%, #18A879 75%, #18A879 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -430,8 +430,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Premium Button Styles ─── */
 .btn-emerald {
-  background: linear-gradient(135deg, #16A36A, #16A36A);
-  color: #0D1630;
+  background: linear-gradient(135deg, #18A879, #18A879);
+  color: #0B1019;
   font-weight: 700;
   border-radius: 12px;
   transition: all 0.3s ease;
@@ -451,8 +451,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-gold {
-  background: linear-gradient(135deg, #2176FF, #2176FF);
-  color: #0D1630;
+  background: linear-gradient(135deg, #18A879, #18A879);
+  color: #0B1019;
   font-weight: 700;
   border-radius: 12px;
   transition: all 0.3s ease;
@@ -474,11 +474,11 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── Section Accent Borders ─── */
 .accent-line-emerald {
   height: 2px;
-  background: linear-gradient(90deg, transparent, #16A36A, transparent);
+  background: linear-gradient(90deg, transparent, #18A879, transparent);
 }
 .accent-line-gold {
   height: 2px;
-  background: linear-gradient(90deg, transparent, #2176FF, transparent);
+  background: linear-gradient(90deg, transparent, #18A879, transparent);
 }
 
 /* ─── Scrollbar-none for filter tabs ─── */
@@ -509,7 +509,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Accessibility: Focus Visible ─── */
 *:focus-visible {
-  outline: 2px solid #16A36A;
+  outline: 2px solid #18A879;
   outline-offset: 2px;
   border-radius: 4px;
 }

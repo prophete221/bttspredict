@@ -27,18 +27,18 @@ import { useEffect, useMemo, useState } from 'react'
 
 // ─── Palette (Slate Design System — matches VIP / methodology) ──────────
 const C = {
-  bg:       '#07111F',
-  surface:  '#0D1B2A',
+  bg:       '#080B12',
+  surface:  '#111722',
   surface2: '#0B1220',
-  border:   '#29445F',
-  text:     '#F4F8FC',
-  textSec:  '#B7C7D9',
+  border:   '#3A4556',
+  text:     '#F7F4EE',
+  textSec:  '#9BA7B8',
   textMute: '#64748B',
-  success:  '#16A36A',
-  warning:  '#F4A623',
-  data:     '#2176FF',
-  gold:     '#D9A441',
-  danger:   '#D94B4B',
+  success:  '#18A879',
+  warning:  '#D6B36A',
+  data:     '#18A879',
+  gold:     '#D6B36A',
+  danger:   '#C95A62',
 }
 
 // ─── Types ──────────────────────────────────────────────────────────────
