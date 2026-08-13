@@ -92,7 +92,7 @@ export default async function MatchPage({ params }: PageProps) {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: 'Pronostics', item: `${SITE_URL}/pronostics` },
+      { '@type': 'ListItem', position: 2, name: 'Pronostics', item: `${SITE_URL}/btts/predictions/today` },
       { '@type': 'ListItem', position: 3, name: `${home} vs ${away}`, item: `${SITE_URL}/match/${slug}` },
     ],
   }
@@ -118,7 +118,7 @@ export default async function MatchPage({ params }: PageProps) {
         <nav aria-label="Fil d'Ariane" className="max-w-4xl mx-auto px-4 pt-6 pb-2 text-xs text-[#B7C7D9]">
           <Link href="/" className="hover:text-[#16A36A]">Accueil</Link>
           <span className="mx-1">/</span>
-          <Link href="/pronostics" className="hover:text-[#16A36A]">Pronostics</Link>
+          <Link href="/btts/predictions/today" className="hover:text-[#16A36A]">Pronostics</Link>
           <span className="mx-1">/</span>
           <span className="text-[#B7C7D9]">{home} vs {away}</span>
         </nav>
@@ -321,7 +321,7 @@ export default async function MatchPage({ params }: PageProps) {
               Aller plus loin
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <Link href="/pronostics" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#16A36A]"
+              <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#16A36A]"
                 style={{ backgroundColor: '#0D1B2A', border: '1px solid #29445F' }}>
                 <div className="text-sm font-bold text-[#F4F8FC] mb-1">Voir les pronostics du jour →</div>
                 <div className="text-xs text-[#B7C7D9]">Tous les matchs sélectionnés par le moteur IA</div>

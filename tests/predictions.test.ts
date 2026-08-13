@@ -23,6 +23,9 @@ describe('generateMatchSlug', () => {
   test('fallback equipe si nom vide', () => {
     expect(generateMatchSlug('', 'Chelsea', '2026-08-15')).toBe('equipe-vs-chelsea-2026-08-15')
   })
+  test('préserve les caractères accentués dans les slugs existants', () => {
+    expect(generateMatchSlug('Café Étoile', 'München Ü', '2026-08-14')).toBe('café-étoile-vs-münchen-ü-2026-08-14')
+  })
 })
 
 describe('loadAllMatches', () => {
@@ -36,6 +39,18 @@ describe('getMatchBySlug', () => {
   test('retourne null pour slug inexistant', () => {
     const m = getMatchBySlug('nonexistent-slug-2026-01-01')
     expect(m).toBeNull()
+  })
+  test('décode un slug percent-encodé pour Sporting CP vs Vitória de Guimarães', () => {
+    const slug = 'sporting-cp-vs-vitória-de-guimaraes-2026-08-14'
+    const match = getMatchBySlug(encodeURIComponent(slug))
+    expect(match?.home).toBe('Sporting CP')
+    expect(match?.away).toBe('Vitória de Guimaraes')
+  })
+  test('décode un slug percent-encodé pour St. Pauli vs SpVgg Greuther Fürth', () => {
+    const slug = 'st-pauli-vs-spvgg-greuther-fürth-2026-08-09'
+    const match = getMatchBySlug(encodeURIComponent(slug))
+    expect(match?.home).toBe('St. Pauli')
+    expect(match?.away).toBe('SpVgg Greuther Fürth')
   })
 })
 

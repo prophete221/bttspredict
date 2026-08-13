@@ -33,7 +33,7 @@ export default function NotFound() {
             Retour à l&apos;accueil
           </Link>
           <Link
-            href="/pronostics"
+            href="/btts/predictions/today"
             className="inline-block px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
             style={{ backgroundColor: 'transparent', color: '#F4F8FC', border: '1px solid #29445F' }}
           >
