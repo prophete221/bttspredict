@@ -25,7 +25,7 @@ export default function WinHistory() {
     return (
       <section id="win-history" className="py-12 px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="inline-block w-8 h-8 border-2 border-[#18A879]/30 border-t-[#18A879] rounded-full animate-spin" />
+          <div className="inline-block w-8 h-8 border-2 border-[#5B7FA3]/30 border-t-[#5B7FA3] rounded-full animate-spin" />
         </div>
       </section>
     )
@@ -54,14 +54,14 @@ export default function WinHistory() {
         {/* Header */}
         <div className="text-center mb-6">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#F7F4EE]" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            Historique Vérifié — <span className="text-[#18A879]">{stats.total} matchs vérifiés via ESPN</span>
+            Historique Vérifié — <span className="text-[#5B7FA3]">{stats.total} matchs vérifiés via ESPN</span>
           </h2>
         </div>
 
         {/* Bandeau compact */}
         <div className="rounded-[16px] bg-[#192231] border border-[#3A4556]/50 p-3 flex items-center justify-between text-xs text-[#9BA7B8]">
           <span className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-[#18A879] rounded-full animate-pulse"></span>
+            <span className="w-2 h-2 bg-[#5B7FA3] rounded-full animate-pulse"></span>
             {stats.total} vérifiés
           </span>
           <span className="text-[#9BA7B8]">
@@ -82,14 +82,14 @@ export default function WinHistory() {
               {stats.total} vérifiés • Vérifié via ESPN • Maj {majTime}
             </div>
             <div className="mt-3 h-1.5 bg-[#080B12] rounded-full">
-              <div className="h-full bg-[#18A879] rounded-full transition-all duration-700" style={{ width: `${stats.rate}%` }}></div>
+              <div className="h-full bg-[#5B7FA3] rounded-full transition-all duration-700" style={{ width: `${stats.rate}%` }}></div>
             </div>
           </div>
 
           {/* Carte 2 — Gold Picks */}
           {hasGold && goldReady && (
-            <div className="rounded-[16px] bg-[#192231] border border-[#18A879]/42 p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
-              <div className="text-[10px] text-[#18A879] uppercase tracking-widest font-bold">Gold Picks</div>
+            <div className="rounded-[16px] bg-[#192231] border border-[#5B7FA3]/42 p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
+              <div className="text-[10px] text-[#5B7FA3] uppercase tracking-widest font-bold">Gold Picks</div>
               <div className="mt-1 flex items-baseline gap-2">
                 <div className="text-3xl font-bold text-[#F7F4EE] font-mono">{gold.rate}%</div>
                 <div className="text-xs text-[#9BA7B8]">{gold.won}W/{gold.lost}L</div>
@@ -98,13 +98,13 @@ export default function WinHistory() {
                 {gold.total} vérifiés
               </div>
               <div className="mt-3 h-1.5 bg-[#080B12] rounded-full">
-                <div className="h-full bg-[#18A879] rounded-full transition-all duration-700" style={{ width: `${gold.rate}%` }}></div>
+                <div className="h-full bg-[#5B7FA3] rounded-full transition-all duration-700" style={{ width: `${gold.rate}%` }}></div>
               </div>
             </div>
           )}
           {hasGold && !goldReady && (
             <div className="rounded-[16px] bg-[#192231] border border-[#3A4556] p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
-              <div className="text-[10px] text-[#18A879] uppercase tracking-widest font-bold">Gold Picks</div>
+              <div className="text-[10px] text-[#5B7FA3] uppercase tracking-widest font-bold">Gold Picks</div>
               <div className="mt-2 text-sm text-[#9BA7B8]">
                 {gold.total} vérifiés • Phase d'optimisation — Objectif 60%+
               </div>
@@ -112,7 +112,7 @@ export default function WinHistory() {
           )}
           {goldBuilding && (
             <div className="rounded-[16px] bg-[#192231] border border-[#3A4556] p-5">
-              <div className="text-[10px] text-[#18A879] uppercase tracking-widest font-bold">Gold Picks</div>
+              <div className="text-[10px] text-[#5B7FA3] uppercase tracking-widest font-bold">Gold Picks</div>
               <div className="mt-2 text-sm text-[#9BA7B8]">
                 {gold.total} vérifiés • Phase d'optimisation — Objectif 60%+
               </div>
@@ -137,7 +137,7 @@ export default function WinHistory() {
                     className="w-full rounded-t transition-all duration-500"
                     style={{
                       height: `${Math.max(d.rate, 4)}%`,
-                      backgroundColor: d.rate >= 55 ? '#18A879' : d.rate >= 40 ? '#18A879' : '#C95A62',
+                      backgroundColor: d.rate >= 55 ? '#5B7FA3' : d.rate >= 40 ? '#5B7FA3' : '#C95A62',
                       minHeight: '4px',
                     }}
                     title={`${d.date}: ${d.rate}% (${d.won}W/${d.lost}L)`}
@@ -166,13 +166,13 @@ export default function WinHistory() {
                     <span className="text-[#F7F4EE] font-mono flex-shrink-0">{h.finalScore || h.score || '-'}</span>
                     <span
                       className={`px-1.5 py-0.5 rounded text-[9px] font-bold flex-shrink-0 ${
-                        isWon ? 'bg-[#18A879]/14 text-[#18A879]' : 'bg-[#C95A62]/14 text-[#C95A62]'
+                        isWon ? 'bg-[#5B7FA3]/14 text-[#5B7FA3]' : 'bg-[#C95A62]/14 text-[#C95A62]'
                       }`}
                     >
                       {isWon ? 'W' : 'L'}
                     </span>
                     {isGold && (
-                      <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#18A879]/14 text-[#18A879] flex-shrink-0">
+                      <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#5B7FA3]/14 text-[#5B7FA3] flex-shrink-0">
                         GOLD
                       </span>
                     )}

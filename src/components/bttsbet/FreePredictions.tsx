@@ -327,7 +327,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-1.5">
               <div className="w-5 h-5 rounded bg-success/15 border border-success/30 flex items-center justify-center">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#18A879" strokeWidth="2.5">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#5B7FA3" strokeWidth="2.5">
                   <circle cx="12" cy="12" r="10" />
                   <path d="M8 14s1.5 2 4 2 4-2 4-2" />
                   <line x1="9" y1="9" x2="9.01" y2="9" />
@@ -343,8 +343,8 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {/* BTTS column */}
             <div className="space-y-2 text-center">
-              <div className="text-[10px] uppercase tracking-widest font-bold text-[#18A879]">BTTS</div>
-              <div className="text-2xl sm:text-3xl font-black" style={{ color: bttsPred.prediction === 'Oui' ? '#18A879' : '#9BA7B8' }}>
+              <div className="text-[10px] uppercase tracking-widest font-bold text-[#5B7FA3]">BTTS</div>
+              <div className="text-2xl sm:text-3xl font-black" style={{ color: bttsPred.prediction === 'Oui' ? '#5B7FA3' : '#9BA7B8' }}>
                 {bttsPred.prediction}
               </div>
             </div>
@@ -372,19 +372,19 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
               <div className="mt-4 pt-4 border-t border-edge space-y-3">
                 {/* BTTSPredict AI enrichment */}
                 {(match.aiKeyFact || match.aiExactScore) && (
-                  <div className="bg-[#18A879]/5 rounded-lg p-3 border border-[#18A879]/20">
+                  <div className="bg-[#5B7FA3]/5 rounded-lg p-3 border border-[#5B7FA3]/20">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-1.5">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#18A879" strokeWidth="2">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#5B7FA3" strokeWidth="2">
                           <path d="M12 2L2 7l10 5 10-5-10-5z" />
                           <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
                         </svg>
-                        <span className="text-[10px] uppercase tracking-widest font-bold text-[#18A879]">BTTSPredict AI</span>
+                        <span className="text-[10px] uppercase tracking-widest font-bold text-[#5B7FA3]">BTTSPredict AI</span>
                       </div>
                       {match.aiExactScore && (
                         <div className="flex items-center gap-1">
                           <span className="text-[9px] uppercase tracking-wider text-[#9BA7B8]">Score prédit</span>
-                          <span className="text-sm font-black font-mono text-[#18A879] px-2 py-0.5 rounded" style={{ backgroundColor: 'rgba(199,244,100,0.12)' }}>
+                          <span className="text-sm font-black font-mono text-[#5B7FA3] px-2 py-0.5 rounded" style={{ backgroundColor: 'rgba(199,244,100,0.12)' }}>
                             {match.aiExactScore}
                           </span>
                         </div>
@@ -397,13 +397,13 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
                         {match.aiExactScore && match.exactScoreProb && (
                           <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(199,244,100,0.08)' }}>
                             <div className="text-[8px] uppercase text-[#9BA7B8]">Score</div>
-                            <div className="text-[11px] font-bold text-[#18A879]">{match.exactScoreProb}</div>
+                            <div className="text-[11px] font-bold text-[#5B7FA3]">{match.exactScoreProb}</div>
                           </div>
                         )}
                         {match.aiBttsProb && (
                           <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(123,228,149,0.08)' }}>
                             <div className="text-[8px] uppercase text-[#9BA7B8]">BTTS</div>
-                            <div className="text-[11px] font-bold text-[#18A879]">{match.aiBttsProb}</div>
+                            <div className="text-[11px] font-bold text-[#5B7FA3]">{match.aiBttsProb}</div>
                           </div>
                         )}
                         {match.aiOver25Prob && (
@@ -602,7 +602,7 @@ export default function FreePredictions() {
                     ? 'text-white border-none'
                     : 'text-[#9BA7B8] border border-[#3A4556]'
                 }`}
-                style={activeDate === f.id ? { backgroundColor: '#18A879' } : { backgroundColor: '#111722' }}
+                style={activeDate === f.id ? { backgroundColor: '#5B7FA3' } : { backgroundColor: '#111722' }}
               >
                 {f.label}
               </button>
@@ -627,7 +627,7 @@ export default function FreePredictions() {
                     ? 'text-white border-none'
                     : 'text-[#9BA7B8] border border-[#3A4556]'
                 }`}
-                style={activeType === f.id ? { backgroundColor: '#18A879' } : { backgroundColor: '#111722' }}
+                style={activeType === f.id ? { backgroundColor: '#5B7FA3' } : { backgroundColor: '#111722' }}
               >
                 {f.label}
               </button>
@@ -648,7 +648,7 @@ export default function FreePredictions() {
                     ? 'text-white border-none'
                     : 'text-[#9BA7B8] border border-[#3A4556]'
                 }`}
-                style={activeLeague === league ? { backgroundColor: '#18A879' } : { backgroundColor: '#111722' }}
+                style={activeLeague === league ? { backgroundColor: '#5B7FA3' } : { backgroundColor: '#111722' }}
               >
                 {league === 'all' ? 'Toutes' : league}
               </button>
@@ -676,7 +676,7 @@ export default function FreePredictions() {
         ) : filteredMatches.length === 0 ? (
           <div className="squircle-xl p-10 text-center">
             <div className="w-14 h-14 bg-dark-800 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-edge">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#18A879" strokeWidth="1.5">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B7FA3" strokeWidth="1.5">
                 <path d="M9 12l2 2 4-4" />
                 <circle cx="12" cy="12" r="10" />
               </svg>
@@ -702,9 +702,9 @@ export default function FreePredictions() {
             href="/btts/predictions/today"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold transition-all"
             style={{
-              background: 'linear-gradient(135deg, #18A879, #18A879)',
+              background: 'linear-gradient(135deg, #5B7FA3, #5B7FA3)',
               color: '#080B12',
-              boxShadow: '0 4px 16px rgba(199, 244, 100, 0.25)',
+              boxShadow: '0 4px 16px rgba(91, 127, 163, 0.30)',
             }}
           >
             Voir tous les pronostics du jour →

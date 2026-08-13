@@ -48,10 +48,10 @@
   --color-action-secondary-border: #D6B36A;
   --color-action-secondary-text: #9BA7B8;
 
-  /* — Market colors (badges/graphiques uniquement) — v68: ÉMERAUDE #18A879 — */
-  --color-market-btts: #18A879;
+  /* — Market colors (badges/graphiques uniquement) — v68: ÉMERAUDE #5B7FA3 — */
+  --color-market-btts: #5B7FA3;
   --color-market-btts-muted: rgba(33, 118, 255, 0.14);
-  --color-market-over: #18A879;
+  --color-market-over: #5B7FA3;
   --color-market-over-muted: rgba(33, 118, 255, 0.14);
   --color-market-over-border: rgba(33, 118, 255, 0.32);
 
@@ -62,7 +62,7 @@
   --color-vip-gradient: none;
 
   /* — Trust — v68: Émeraude clair — */
-  --color-trust-accent: #18A879;
+  --color-trust-accent: #5B7FA3;
   --color-trust-bg: rgba(33, 118, 255, 0.08);
   --color-trust-border: rgba(33, 118, 255, 0.22);
 
@@ -71,7 +71,7 @@
   --color-success-muted: #18A879;
   --color-error: #C95A62;
   --color-warning: #D6B36A;
-  --color-primary: #18A879;
+  --color-primary: #5B7FA3;
   --color-primary-hover: #4C94FF;
   --color-focus: #7DB4FF;
 
@@ -131,12 +131,12 @@
   --color-card-border: var(--color-border);
   --color-card-border-hover: var(--color-border-hover);
 
-  --color-primary: #18A879;
+  --color-primary: #5B7FA3;
   --color-primary-hover: #4C94FF;
   --color-primary-dark: var(--color-cta-active);
   --color-primary-light: var(--color-cta-hover);
-  --color-primary-glow: rgba(199, 244, 100, 0.3);
-  --color-primary-pale: rgba(199, 244, 100, 0.10);
+  --color-primary-glow: rgba(91, 127, 163, 0.30);
+  --color-primary-pale: rgba(91, 127, 163, 0.12);
 
   --color-secondary: var(--color-trust);
   --color-secondary-dark: var(--color-trust-hover);
@@ -148,7 +148,7 @@
   --color-success-pale: rgba(99, 214, 255, 0.10);
 
   --color-warning: var(--color-vip);
-  --color-warning-pale: rgba(199, 244, 100, 0.10);
+  --color-warning-pale: rgba(91, 127, 163, 0.12);
   --color-vip-glow: rgba(199, 244, 100, 0.2);
 
   --color-danger: var(--color-error);
@@ -159,7 +159,7 @@
   --color-accent-glow: rgba(99, 214, 255, 0.2);
 
   --color-neon: var(--color-cta);
-  --color-neon-glow: rgba(199, 244, 100, 0.3);
+  --color-neon-glow: rgba(91, 127, 163, 0.30);
   --color-neon-green: var(--color-success);
   --color-emerald: var(--color-success);
   --color-emerald-soft: var(--color-success);
@@ -168,7 +168,7 @@
   --color-panel: var(--color-bg-secondary);
   --color-rose: var(--color-error);
   --color-linebet: var(--color-cta);
-  --color-star888: #18A879;
+  --color-star888: #5B7FA3;
   --color-gold: var(--color-vip);
   --color-gold-light: var(--color-vip-hover);
   --color-lose: var(--color-error);
@@ -181,8 +181,8 @@
   /* — Gradients premium v68 OR & ÉMERAUDE — */
   --grad-primary: linear-gradient(135deg, #D6B36A 0%, #B99755 100%);
   --grad-premium: linear-gradient(135deg, #D6B36A 0%, #D6B36A 100%);
-  --grad-brand-split: linear-gradient(90deg, #D6B36A 0%, #D6B36A 50%, #18A879 50%, #18A879 100%);
-  --grad-bg: radial-gradient(circle at top right, rgba(199, 244, 100, 0.12), transparent 38%), #080B12;
+  --grad-brand-split: linear-gradient(90deg, #D6B36A 0%, #D6B36A 50%, #5B7FA3 50%, #5B7FA3 100%);
+  --grad-bg: radial-gradient(circle at top right, rgba(91, 127, 163, 0.16), transparent 38%), #080B12;
   --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(199, 244, 100, 0.04) 0%, transparent 60%),
                radial-gradient(50% 50% at 85% 10%, rgba(99, 214, 255, 0.04) 0%, transparent 60%);
 
@@ -192,9 +192,9 @@
 
   /* — Shadows (v68 OR & ÉMERAUDE) — */
   --shadow-card: 0 1px 2px rgba(7, 17, 26, 0.3), 0 8px 32px rgba(7, 17, 26, 0.4);
-  --shadow-cta: 0 0 0 1px rgba(199, 244, 100, 0.35), 0 8px 32px rgba(199, 244, 100, 0.10);
+  --shadow-cta: 0 0 0 1px rgba(199, 244, 100, 0.35), 0 8px 32px rgba(91, 127, 163, 0.12);
   --shadow-glass: 0 1px 0 rgba(242, 247, 245, 0.03) inset, 0 8px 32px rgba(7, 17, 26, 0.3);
-  --shadow-hover-glow: 0 0 20px rgba(199, 244, 100, 0.3), 0 8px 32px rgba(7, 17, 26, 0.5);
+  --shadow-hover-glow: 0 0 20px rgba(91, 127, 163, 0.30), 0 8px 32px rgba(7, 17, 26, 0.5);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -222,19 +222,19 @@
   --action-primary-text: #080B12;
   --action-secondary-border: #D6B36A;
   --action-secondary-text: #9BA7B8;
-  /* Market — v68: ÉMERAUDE #18A879 */
-  --market-btts: #18A879;
-  --market-over: #18A879;
+  /* Market — v68: ÉMERAUDE #5B7FA3 */
+  --market-btts: #5B7FA3;
+  --market-over: #5B7FA3;
   /* VIP */
   --vip-accent: #D6B36A;
   /* Trust */
-  --trust-accent: #18A879;
+  --trust-accent: #5B7FA3;
   /* Statut */
   --success-muted: #18A879;
   --success: #18A879;
   --error: #C95A62;
   --warning: #D6B36A;
-  --primary: #18A879;
+  --primary: #5B7FA3;
   --primary-hover: #4C94FF;
   --focus: #7DB4FF;
   /* Surfaces */
@@ -281,10 +281,10 @@
 }
 .btn-gold:hover {
   background: linear-gradient(135deg, #E0BC42, #C4A033);
-  box-shadow: 0 0 20px rgba(199, 244, 100, 0.3);
+  box-shadow: 0 0 20px rgba(91, 127, 163, 0.30);
 }
 
-/* Badge Émeraude — fond #18A879, texte noir */
+/* Badge succès — fond #18A879, texte noir */
 .badge-emeraude {
   background: #18A879;
   color: #080B12;
@@ -354,7 +354,7 @@ a:hover,
   border-color: var(--accent);
 }
 
-/* Success Hover: #A8E063 */
+/* Success Hover: #6E89A8 */
 .badge-success:hover,
 .win:hover,
 .success:hover,
@@ -617,7 +617,7 @@ a:hover { color: var(--color-primary-light); }
 
 .card-vip {
   background: linear-gradient(135deg, rgba(199, 244, 100, 0.1) 0%, rgba(199, 244, 100, 0.05) 100%);
-  border: 1px solid rgba(199, 244, 100, 0.3);
+  border: 1px solid rgba(91, 127, 163, 0.30);
   border-radius: var(--radius-xl);
   padding: 1.5rem;
   box-shadow: 0 0 30px rgba(199, 244, 100, 0.1);
@@ -651,26 +651,26 @@ a:hover { color: var(--color-primary-light); }
 .badge-warning {
   background: rgba(199, 244, 100, 0.2);
   color: var(--color-warning-light);
-  border: 1px solid rgba(199, 244, 100, 0.3);
+  border: 1px solid rgba(91, 127, 163, 0.30);
 }
 
 .badge-danger {
   background: rgba(199, 244, 100, 0.2);
   color: var(--color-danger-light);
-  border: 1px solid rgba(199, 244, 100, 0.3);
+  border: 1px solid rgba(91, 127, 163, 0.30);
 }
 
 .badge-vip {
   background: linear-gradient(135deg, rgba(199, 244, 100, 0.2) 0%, rgba(199, 244, 100, 0.1) 100%);
   color: var(--color-vip);
-  border: 1px solid rgba(199, 244, 100, 0.3);
+  border: 1px solid rgba(91, 127, 163, 0.30);
   box-shadow: 0 0 20px rgba(199, 244, 100, 0.1);
 }
 
 .badge-live {
   background: rgba(199, 244, 100, 0.2);
   color: var(--color-danger-light);
-  border: 1px solid rgba(199, 244, 100, 0.3);
+  border: 1px solid rgba(91, 127, 163, 0.30);
 }
 .badge-live::before {
   content: '';
@@ -1085,7 +1085,7 @@ a:hover { color: var(--color-primary-light); }
   inset: 0;
   border-radius: 16px;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(199, 244, 100, 0.5), rgba(199, 244, 100, 0.3), rgba(199, 244, 100, 0.1));
+  background: linear-gradient(135deg, rgba(199, 244, 100, 0.5), rgba(91, 127, 163, 0.30), rgba(199, 244, 100, 0.1));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -1118,7 +1118,7 @@ a:hover { color: var(--color-primary-light); }
 
 /* Halo d'accent au hover */
 .vip-glass-card:hover::before {
-  background: linear-gradient(135deg, rgba(199, 244, 100, 0.8), rgba(199, 244, 100, 0.5), rgba(199, 244, 100, 0.3));
+  background: linear-gradient(135deg, rgba(199, 244, 100, 0.8), rgba(199, 244, 100, 0.5), rgba(91, 127, 163, 0.30));
 }
 
 /* En-tête carte : niveau VIP + logo */

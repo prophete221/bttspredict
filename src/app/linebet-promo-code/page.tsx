@@ -56,7 +56,7 @@ export default function LinebetPromoCodePage() {
           Linebet Promo Code Sénégal
         </h1>
         <p style={{ fontSize: '0.875rem', marginBottom: '1.5rem', color: '#9BA7B8', lineHeight: 1.6 }}>
-          Le code promo <strong style={{ color: '#18A879' }}>VISION221</strong> est disponible sur la page principale.
+          Le code promo <strong style={{ color: '#5B7FA3' }}>VISION221</strong> est disponible sur la page principale.
           Redirection en cours vers la page Code Promo Linebet Sénégal...
         </p>
         <a
@@ -64,7 +64,7 @@ export default function LinebetPromoCodePage() {
           style={{
             display: 'inline-block',
             padding: '0.75rem 1.5rem',
-            backgroundColor: '#18A879',
+            backgroundColor: '#5B7FA3',
             color: '#080B12',
             fontWeight: 700,
             borderRadius: '0.5rem',

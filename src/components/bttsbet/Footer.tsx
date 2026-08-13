@@ -12,18 +12,18 @@ export default function Footer() {
 
   return (
     <>
-      <footer ref={ref} id="faq" className="border-t pt-10 pb-20 sm:pb-8 px-4" style={{ borderColor: '#18A879', backgroundColor: '#080B12' }}>
+      <footer ref={ref} id="faq" className="border-t pt-10 pb-20 sm:pb-8 px-4" style={{ borderColor: '#5B7FA3', backgroundColor: '#080B12' }}>
         <div className="max-w-[440px] sm:max-w-2xl mx-auto">
           {/* Note de transparence (remplace les témoignages non vérifiables) */}
           <motion.div initial="hidden" className="mb-6">
             <div className="text-center mb-3">
-              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#18A879]">Transparence</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#5B7FA3]">Transparence</span>
             </div>
             <div className="p-4 rounded-xl text-center" style={{ backgroundColor: '#111722', border: '1px solid rgba(242, 247, 245, 0.08)' }}>
               <p className="text-[11px] text-[#9BA7B8] leading-relaxed">
                 BTTSPredict ne publie pas de témoignages clients. Notre engagement de transparence repose sur
-                un <a href="/historique" className="text-[#18A879] underline">historique vérifiable publiquement</a>,
-                une <a href="/methodologie" className="text-[#18A879] underline">méthodologie documentée</a> et
+                un <a href="/historique" className="text-[#5B7FA3] underline">historique vérifiable publiquement</a>,
+                une <a href="/methodologie" className="text-[#5B7FA3] underline">méthodologie documentée</a> et
                 un suivi public lancé le 2026-08-08.                 Aucun résultat futur n'est garanti.
               </p>
             </div>
@@ -41,7 +41,7 @@ export default function Footer() {
                     {item.q}
                   </button>
                   {openFaq === i && (
-                    <div className="px-4 pb-3 text-[11px] text-[#18A879] leading-relaxed">{item.a}</div>
+                    <div className="px-4 pb-3 text-[11px] text-[#5B7FA3] leading-relaxed">{item.a}</div>
                   )}
                 </div>
               ))}
@@ -56,7 +56,7 @@ export default function Footer() {
               { label: 'Confidentialité', href: '/politique-confidentialite' },
               { label: 'Jouer responsable', href: '/jouer-responsable' },
             ].map(link => (
-              <a key={link.label} href={link.href} className="text-center text-[10px] text-[#9BA7B8] hover:text-[#18A879] transition-colors py-2">
+              <a key={link.label} href={link.href} className="text-center text-[10px] text-[#9BA7B8] hover:text-[#5B7FA3] transition-colors py-2">
                 {link.label}
               </a>
             ))}
@@ -65,11 +65,11 @@ export default function Footer() {
           {/* Legal text */}
           <div className="rounded-xl p-4 mb-3" style={{ backgroundColor: '#111722' }}>
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-[#18A879] font-extrabold text-xs">18+</span>
+              <span className="text-[#5B7FA3] font-extrabold text-xs">18+</span>
               <span className="text-[10px] text-[#9BA7B8]">| {LONASE.name} | Jeu responsable</span>
             </div>
             <p className="text-[10px] text-[#9BA7B8] leading-relaxed">
-              <strong className="text-[#18A879]">Avertissement :</strong> {LEGAL.disclaimer}
+              <strong className="text-[#5B7FA3]">Avertissement :</strong> {LEGAL.disclaimer}
             </p>
           </div>
 
@@ -80,7 +80,7 @@ export default function Footer() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold transition-colors"
               style={{
                 backgroundColor: 'rgba(199, 244, 100, 0.08)',
-                color: '#18A879',
+                color: '#5B7FA3',
                 border: '1px solid rgba(199, 244, 100, 0.2)',
               }}
             >

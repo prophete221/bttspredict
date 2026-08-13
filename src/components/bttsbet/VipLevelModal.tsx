@@ -64,7 +64,7 @@ export const VIP_LEVELS: Record<VipLevelId, VipLevelConfig> = {
       'Support WhatsApp prioritaire',
       'Alertes matchs en temps réel',
     ],
-    accentColor: '#18A879',
+    accentColor: '#5B7FA3',
   },
   elite: {
     id: 'elite',
@@ -90,7 +90,7 @@ export const VIP_LEVELS: Record<VipLevelId, VipLevelConfig> = {
       'Accès anticipé aux nouvelles fonctionnalités',
       'Replays des analyses expert',
     ],
-    accentColor: '#18A879',
+    accentColor: '#5B7FA3',
   },
   all: {
     id: 'all',
@@ -117,7 +117,7 @@ export const VIP_LEVELS: Record<VipLevelId, VipLevelConfig> = {
       'Analyse personnalisée par notre expert',
       'Replays et archives complètes',
     ],
-    accentColor: '#18A879',
+    accentColor: '#5B7FA3',
   },
 }
 
@@ -281,7 +281,7 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                     rel="sponsored nofollow noopener noreferrer"
                     target="_blank"
                     className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold transition-all"
-                    style={{ backgroundColor: '#18A879', color: '#080B12' }}
+                    style={{ backgroundColor: '#5B7FA3', color: '#080B12' }}
                   >
                     Inscription Linebet →
                   </a>
@@ -319,12 +319,12 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                   rel="noopener"
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-lg text-sm font-bold ml-9"
                   style={{
-                    backgroundColor: 'rgba(199, 244, 100, 0.12)',
+                    backgroundColor: 'rgba(91, 127, 163, 0.16)',
                     border: '1px solid rgba(199, 244, 100, 0.4)',
-                    color: '#18A879',
+                    color: '#5B7FA3',
                   }}
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#18A879"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01-1.87-1.87-4.36-2.91-7.01-2.91zm0 1.67c2.2 0 4.27.86 5.82 2.42 1.56 1.56 2.42 3.63 2.42 5.82 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.81-1.29-1.24-2.79-1.24-4.34 0-4.54 3.7-8.24 8.24-8.24z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#5B7FA3"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01-1.87-1.87-4.36-2.91-7.01-2.91zm0 1.67c2.2 0 4.27.86 5.82 2.42 1.56 1.56 2.42 3.63 2.42 5.82 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.81-1.29-1.24-2.79-1.24-4.34 0-4.54 3.7-8.24 8.24-8.24z"/></svg>
                   Débloquer via WhatsApp
                 </a>
               </div>
@@ -343,7 +343,7 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                 <ul className="space-y-1.5">
                   {config.perks.map((perk, i) => (
                     <li key={i} className="flex items-start gap-2 text-[12px]" style={{ color: '#9BA7B8' }}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#18A879" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B7FA3" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5">
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
                       <span>{perk}</span>

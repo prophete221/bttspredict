@@ -39,16 +39,16 @@ type WinHistory = {
 }
 
 const COLORS = {
-  gold: '#18A879',
-  mint: '#18A879',
-  cyan: '#18A879',
-  rose: '#18A879',
+  gold: '#5B7FA3',
+  mint: '#5B7FA3',
+  cyan: '#5B7FA3',
+  rose: '#5B7FA3',
   panel: '#111722',
   edge: 'rgba(242, 247, 245, 0.08)',
   text: '#9BA7B8',
 }
 
-const LEAGUE_COLORS = ['#18A879', '#18A879', '#18A879', '#18A879', '#18A879', '#18A879', '#18A879', '#18A879', '#18A879', '#18A879']
+const LEAGUE_COLORS = ['#5B7FA3', '#5B7FA3', '#5B7FA3', '#5B7FA3', '#5B7FA3', '#5B7FA3', '#5B7FA3', '#5B7FA3', '#5B7FA3', '#5B7FA3']
 
 export default function StatsDashboard() {
   const [data, setData] = useState<WinHistory | null>(null)
@@ -224,11 +224,11 @@ export default function StatsDashboard() {
           </div>
           <div className="flex items-center gap-3 text-[10px]">
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#18A879' }} />
+              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#5B7FA3' }} />
               <span className="text-cendre">BTTS</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#18A879' }} />
+              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#5B7FA3' }} />
               <span className="text-cendre">Over 2.5</span>
             </span>
           </div>
@@ -257,19 +257,19 @@ export default function StatsDashboard() {
               <Line
                 type="monotone"
                 dataKey="btts"
-                stroke="#18A879"
+                stroke="#5B7FA3"
                 strokeWidth={2.5}
-                dot={{ fill: '#18A879', r: 3 }}
-                activeDot={{ r: 5, fill: '#18A879' }}
+                dot={{ fill: '#5B7FA3', r: 3 }}
+                activeDot={{ r: 5, fill: '#5B7FA3' }}
                 connectNulls
               />
               <Line
                 type="monotone"
                 dataKey="over25"
-                stroke="#18A879"
+                stroke="#5B7FA3"
                 strokeWidth={2.5}
-                dot={{ fill: '#18A879', r: 3 }}
-                activeDot={{ r: 5, fill: '#18A879' }}
+                dot={{ fill: '#5B7FA3', r: 3 }}
+                activeDot={{ r: 5, fill: '#5B7FA3' }}
                 connectNulls
               />
             </LineChart>
