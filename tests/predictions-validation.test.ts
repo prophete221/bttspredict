@@ -43,7 +43,9 @@ describe('validatePredictionPayload', () => {
   })
 
   test('refuse un timestamp manquant et une probabilité hors limites', () => {
-    const invalid = payload({ proba: 1.2 })
+    const invalid = payload({ proba: 1.2 }) as Omit<ReturnType<typeof payload>, 'lastUpdated'> & {
+      lastUpdated?: string
+    }
     delete invalid.lastUpdated
     const errors = validatePredictionPayload(invalid, {
       today: '2026-08-12',
