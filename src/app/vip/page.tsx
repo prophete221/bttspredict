@@ -309,7 +309,10 @@ export default function VipPage() {
                 border: `1px solid ${bookmaker === 'linebet' ? BRAND.linebet.primary : C.border}`,
                 boxShadow: bookmaker === 'linebet' ? `0 4px 16px ${BRAND.linebet.primaryGlow}` : 'none',
               }}>
-              Linebet
+              <span className="inline-flex items-center gap-2">
+                <span className="flex h-5 w-8 items-center justify-center rounded bg-white px-1"><img src="/logos/linebet-provided.jpg" alt="" className="max-h-4 w-auto object-contain" width={1280} height={465} /></span>
+                Linebet
+              </span>
               {bookmaker === 'linebet' && (
                 <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.bg }} />
               )}
@@ -323,7 +326,10 @@ export default function VipPage() {
                 border: `1px solid ${bookmaker === '888starz' ? BRAND.star888.primary : C.border}`,
                 boxShadow: bookmaker === '888starz' ? `0 4px 16px ${BRAND.star888.primaryGlow}` : 'none',
               }}>
-              888Starz
+              <span className="inline-flex items-center gap-2">
+                <span className="flex h-5 w-8 items-center justify-center rounded bg-white px-1"><img src="/logos/888starz-provided.webp" alt="" className="max-h-4 w-auto object-contain" width={1920} height={894} /></span>
+                888Starz
+              </span>
               {bookmaker === '888starz' && (
                 <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.bg }} />
               )}

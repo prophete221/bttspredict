@@ -30,13 +30,13 @@ const VARIANTS: Record<Variant, {
 }> = {
   linebet: {
     className: 'btn-linebet cta-glow text-[#071018] font-bold',
-    logo: '/logos/linebet.svg',
+    logo: '/logos/linebet-provided.jpg',
     logoAlt: 'Linebet',
     logoClass: 'h-4 sm:h-5 w-auto',
   },
   star888: {
     className: 'btn-star888 cta-glow text-[#071018] font-bold',
-    logo: '/logos/888starz.svg',
+    logo: '/logos/888starz-provided.webp',
     logoAlt: '888starz',
     logoClass: 'h-4 sm:h-5 w-auto',
   },

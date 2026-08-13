@@ -161,6 +161,9 @@ export default function LinebetClient() {
           >
             GUIDE <span style={{ color: GOLD, textShadow: `0 0 22px ${GOLD}66` }}>LINEBET</span> VISION221 — SÉNÉGAL
           </h1>
+          <div className="mx-auto mb-4 flex min-h-16 max-w-[280px] items-center justify-center rounded-xl bg-white px-4 py-2 shadow-lg sm:max-w-[340px]">
+            <img src="/logos/linebet-provided.jpg" alt="Logo officiel Linebet" className="max-h-14 w-auto object-contain" width={1280} height={465} loading="eager" />
+          </div>
           <p className="text-sm sm:text-base max-w-2xl mx-auto leading-relaxed" style={{ color: TEXT_SEC }}>
             Inscription, code copiable et conditions à vérifier avant tout dépôt.
           </p>
