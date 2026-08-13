@@ -158,16 +158,14 @@ jobs:
           exit 0
 
       - name: Deploy to bttspredict.com via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: "out/"
           server-dir: "./"
-          # Désactive le nettoyage automatique — géré par le step lftp ci-dessus
-          # qui ignore proprement les dossiers déjà supprimés (vs FTP-Deploy qui crash).
-          remove-existing-files: false
+          # v4.4.0 corrige l'erreur FTP 550 lors de la suppression de dossiers.
           exclude: |
             **/.git*
             **/node_modules/**
