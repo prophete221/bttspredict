@@ -14,7 +14,7 @@ const PAGE_URL = `${SITE_URL}/${SLUG}`
 // Avec le template "%s | BTTSPredict" (14 chars), le title rendu final
 // fait 41 + 14 = 55 chars, bien sous la limite hard 70.
 // Anti-récidive: checkSeo() lance une erreur build-time si title > 60 ou desc > 150.
-const TITLE = 'Code Promo Linebet VISION221 Sénégal | BTTSPredict'
+const TITLE = 'Code Promo Linebet VISION221 Sénégal'
 const DESCRIPTION = "Guide du code promo Linebet VISION221 au Sénégal : inscription, copie du code et vérification des conditions. 18+ et affiliation signalée."
 checkSeo('code-promo-linebet-senegal', TITLE, DESCRIPTION)
 

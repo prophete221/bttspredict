@@ -17,7 +17,7 @@ const PAGE_URL = `${SITE_URL}/${SLUG}`
 // SEO Bing — title court (39 chars) + description courte (128 chars).
 // Avec le template "%s | BTTSPredict" (14 chars), le title rendu fait
 // 39 + 14 = 53 chars, bien sous la limite hard 70.
-const TITLE = 'Code Promo 888Starz VISION221 Afrique | BTTSPredict'
+const TITLE = 'Code Promo 888Starz VISION221 Afrique'
 const DESCRIPTION = "Guide du code promo 888Starz VISION221 : inscription, code copiable et conditions à vérifier auprès de l'opérateur. 18+ et affiliation signalée."
 checkSeo('bonus-888starz', TITLE, DESCRIPTION)
 
