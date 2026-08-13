@@ -20,15 +20,15 @@ const WHATSAPP = '15406704172'
 // Linebet = vert clair (light green)
 // 888Starz = rouge clair (light red)
 const BRAND = {
-  linebet: { primary: '#16A36A', primaryGlow: '#16A36A30', primaryDark: '#3FBA7C' },
-  star888: { primary: '#D94B4B', primaryGlow: '#D94B4B30', primaryDark: '#E55A5A' },
+  linebet: { primary: '#18A879', primaryGlow: '#18A87930', primaryDark: '#3FBA7C' },
+  star888: { primary: '#C95A62', primaryGlow: '#C95A6230', primaryDark: '#E55A5A' },
 }
 
 const C = {
-  bg:'#07111F', surface:'#0D1B2A', border:'#29445F',
-  text:'#F4F8FC', textSec:'#B7C7D9', textMute:'#B7C7D9',
-  baobab:'#16A36A', data:'#2176FF', success:'#16A36A', warning:'#F4A623',
-  gold:'#D9A441',
+  bg:'#080B12', surface:'#111722', border:'#3A4556',
+  text:'#F7F4EE', textSec:'#9BA7B8', textMute:'#9BA7B8',
+  baobab:'#18A879', data:'#18A879', success:'#18A879', warning:'#D6B36A',
+  gold:'#D6B36A',
 }
 
 interface PreviewMatch {
@@ -438,7 +438,7 @@ function TeamLogoMini({ src, name, initial }: { src?: string; name: string; init
     return (
       <span
         className="w-7 h-7 flex items-center justify-center text-[11px] font-black rounded flex-shrink-0"
-        style={{ backgroundColor: '#29445F', color: '#16A36A' }}
+        style={{ backgroundColor: '#3A4556', color: '#18A879' }}
         aria-label={name}
         title={name}
       >
