@@ -72,12 +72,12 @@ export default async function MatchPage({ params }: PageProps) {
   if (!match) notFound()
 
   const { home, away, league, date, time, homeLogo, awayLogo, predictions } = match
-  const aiExactScore = (match as any).ai_exact_score || null
-  const exactScoreProb = (match as any).exact_score_prob || null
-  const aiBttsProb = (match as any).ai_btts_prob || null
-  const aiOver25Prob = (match as any).ai_over25_prob || null
-  const aiKeyFact = (match as any).ai_key_fact || null
-  const aiAnalysis = (match as any).ai_analysis || null
+  const aiExactScore = match.aiExactScore || null
+  const exactScoreProb = match.exactScoreProb || null
+  const aiBttsProb = match.aiBttsProb || null
+  const aiOver25Prob = match.aiOver25Prob || null
+  const aiKeyFact = match.aiKeyFact || null
+  const aiAnalysis = match.aiAnalysis || null
 
   // Aggregate verification status
   const verified = predictions.filter(p => p.status === 'WON' || p.status === 'LOST')

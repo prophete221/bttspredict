@@ -24,6 +24,8 @@
  */
 
 import { useEffect, useMemo, useState } from 'react'
+import Link from 'next/link'
+import { generateMatchSlug } from '@/lib/match-slug'
 
 // ─── Palette (Slate Design System — matches VIP / methodology) ──────────
 const C = {
@@ -335,6 +337,28 @@ function MatchCard({ match, index }: { match: MatchData; index: number }) {
         </div>
       </div>
 
+      {/* ─── EXACT SCORE — source data only ─── */}
+      <div className="px-3 pb-3">
+        <div className="rounded-md p-2.5" style={{ backgroundColor: `${C.gold}10`, border: `1px solid ${C.gold}35` }}>
+          <div className="flex items-center justify-between gap-2">
+            <span className="text-[8px] uppercase tracking-widest font-bold" style={{ color: C.textSec }}>
+              Score exact proposé
+            </span>
+            {match.exactScoreProb && (
+              <span className="text-[9px] font-mono font-bold" style={{ color: C.gold }}>
+                {match.exactScoreProb}
+              </span>
+            )}
+          </div>
+          <div className="mt-1 text-lg font-black tabular-nums" style={{ color: match.aiExactScore ? C.gold : C.textSec }}>
+            {match.aiExactScore || 'Non publié — données insuffisantes'}
+          </div>
+          <p className="text-[8px] mt-1" style={{ color: C.textMute }}>
+            Projection issue des données disponibles, sans garantie de résultat.
+          </p>
+        </div>
+      </div>
+
       {/* ─── DATA SOURCE / DATA QUALITY ─── */}
       <div className="px-3 py-2 flex flex-wrap items-center justify-between gap-2" style={{
         borderTop: `1px solid ${C.border}`,
@@ -396,23 +420,37 @@ function MatchCard({ match, index }: { match: MatchData; index: number }) {
             {match.aiKeyFact}
           </p>
         )}
+        {!expanded && match.aiAnalysis && (
+          <p className="text-[10px] leading-relaxed mt-1" style={{ color: C.textSec }}>
+            {match.aiAnalysis.length > 180 ? `${match.aiAnalysis.slice(0, 177)}…` : match.aiAnalysis}
+          </p>
+        )}
         {expanded && match.aiAnalysis && (
           <p className="text-[10px] leading-relaxed mt-1" style={{ color: C.textSec }}>
             {match.aiAnalysis}
           </p>
         )}
 
-        {match.aiAnalysis && (
-          <button
-            onClick={() => setExpanded(e => !e)}
-            aria-expanded={expanded}
-            aria-label={expanded ? `Hide full analysis for ${match.home} vs ${match.away}` : `View full analysis for ${match.home} vs ${match.away}`}
-            className="mt-1 text-[9px] uppercase tracking-widest font-bold transition-colors"
-            style={{ color: C.data }}
+        <div className="flex flex-wrap items-center gap-3 mt-2">
+          {match.aiAnalysis && (
+            <button
+              onClick={() => setExpanded(e => !e)}
+              aria-expanded={expanded}
+              aria-label={expanded ? `Masquer l'analyse complète de ${match.home} vs ${match.away}` : `Voir l'analyse complète de ${match.home} vs ${match.away}`}
+              className="text-[9px] uppercase tracking-widest font-bold transition-colors"
+              style={{ color: C.data }}
+            >
+              {expanded ? 'Masquer l’analyse' : 'Voir l’analyse complète'}
+            </button>
+          )}
+          <Link
+            href={`/match/${generateMatchSlug(match.home, match.away, match.date)}`}
+            className="text-[9px] uppercase tracking-widest font-bold transition-colors"
+            style={{ color: C.gold }}
           >
-            {expanded ? 'Hide full analysis' : 'View full analysis'}
-          </button>
-        )}
+            Ouvrir la page du match →
+          </Link>
+        </div>
       </div>
 
       {/* ─── Inline keyframes ─── */}
