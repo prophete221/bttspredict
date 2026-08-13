@@ -249,8 +249,8 @@ export default function StatsDashboard() {
                   color: '#fff',
                 }}
                 labelStyle={{ color: '#F4F8FC', fontWeight: 700 }}
-                formatter={(v: number | null, name: string) => [
-                  v == null ? 'N/A' : `${v}%`,
+                formatter={(value, name) => [
+                  typeof value === 'number' ? `${value}%` : 'N/A',
                   name === 'btts' ? 'BTTS' : 'Over 2.5',
                 ]}
               />

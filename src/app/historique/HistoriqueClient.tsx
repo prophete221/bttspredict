@@ -48,6 +48,7 @@ interface HistoryEntry {
   match: string
   league: string
   market: string
+  prediction?: string
   tier: string
   proba: number
   status: 'WON' | 'LOST' | 'PENDING' | string

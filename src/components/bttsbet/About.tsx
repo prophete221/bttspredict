@@ -1,6 +1,6 @@
 'use client'
 
-// import { motion } from 'framer-motion' // removed for bundle size
+import { motion } from 'framer-motion'
 import { useScrollAnimation } from '@/hooks/useAnimations'
 //import { staggerContainer, staggerChildFadeUp } from '@/lib/motionPresets'
 
@@ -77,7 +77,7 @@ export default function About() {
         </div>
 
         {/* Stats grid */}
-        <div
+        <motion.div
           initial="hidden"
           className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-12"
         >
@@ -90,7 +90,7 @@ export default function About() {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Countries */}
         <div
@@ -123,7 +123,7 @@ export default function About() {
           </p>
         </div>
 
-        <div
+        <motion.div
           initial="hidden"
           className="grid md:grid-cols-2 gap-4"
         >
@@ -147,7 +147,7 @@ export default function About() {
               </div>
             )
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
