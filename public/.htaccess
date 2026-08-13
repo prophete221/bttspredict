@@ -21,11 +21,8 @@ RewriteRule ^(.+)/?$ /$1.html [L]
 # Redirection permanente 301 pour transférer le link equity et éliminer le duplicate content.
 RewriteRule ^linebet-promo-code/?$ /code-promo-linebet-senegal [R=301,L]
 
-# ─── Redirect 301: pages doorway supprimées en v64 → / (homepage) ───
-# Plateforme PRO : passage de 51 pages blog 2000 à ~18 pages plateforme type Flashscore.
-# Les anciennes doorway pages (templates identiques) sont supprimées du code mais
-# conservent une redirection 301 Apache pour transférer le link equity éventuel
-# vers la homepage qui contient désormais les pronostics du jour.
+# ─── Redirects 301: anciennes doorway pages supprimées en v64 → / ───
+# /pronostics est désormais une route officielle alias des pronostics du jour.
 RewriteRule ^betting-tips/?$ / [R=301,L]
 RewriteRule ^bookmakers/?$ / [R=301,L]
 RewriteRule ^correct-score-predictions/?$ / [R=301,L]
@@ -34,8 +31,7 @@ RewriteRule ^league-predictions/?$ / [R=301,L]
 RewriteRule ^match-predictions/?$ / [R=301,L]
 RewriteRule ^over-2-5-predictions/?$ / [R=301,L]
 RewriteRule ^team-predictions/?$ / [R=301,L]
-RewriteRule ^pronostics/?$ / [R=301,L]
-RewriteRule ^pronostics/aujourd-hui/?$ / [R=301,L]
+RewriteRule ^pronostics/aujourd-hui/?$ /pronostics [R=301,L]
 RewriteRule ^prediction-aviator/?$ / [R=301,L]
 RewriteRule ^faille-fifa/?$ / [R=301,L]
 RewriteRule ^blog/?$ / [R=301,L]
@@ -61,7 +57,8 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /404.html [L,R=404]
 
-# ─── Encodage des fichiers texte ───
+# ─── Encodage UTF-8 des réponses texte et HTML statiques ───
+AddDefaultCharset UTF-8
 AddCharset UTF-8 .txt
 
 # ─── En-tête HSTS (Strict Transport Security) ───
