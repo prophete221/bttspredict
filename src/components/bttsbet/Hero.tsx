@@ -52,10 +52,10 @@ export default function Hero() {
         </div>
 
         <h1 className="max-w-[520px] text-[clamp(2rem,8vw,3.7rem)] font-semibold leading-[0.98] tracking-[-0.055em]" style={{ color: '#F4F7FB', fontFamily: 'Poppins, sans-serif' }}>
-          Les matchs qui méritent vraiment votre attention.
+          La plateforme mondiale de référence pour les prédictions BTTS.
         </h1>
         <p className="mt-4 max-w-[480px] text-[14px] leading-[1.65] sm:text-[15px]" style={{ color: '#C2CCD8' }}>
-          Une plateforme de sélection BTTS, Over 2,5 et score exact pour les parieurs africains. Matchs internationaux, données horodatées et résultats vérifiés après le coup de sifflet final.
+          Sélections BTTS, Over 2,5 et score exact sur des matchs internationaux, avec données horodatées, historique public et méthode documentée.
         </p>
 
         <div className="mt-6 grid grid-cols-3 gap-2 sm:max-w-[430px]">
