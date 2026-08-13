@@ -27,8 +27,8 @@ const BRAND = {
 const C = {
   bg:'#071018', surface:'#0D1A20', border:'#5D7880',
   text:'#F5F8F3', textSec:'#B7C4C1', textMute:'#B7C4C1',
-  baobab:'#B8FF1A', data:'#B8FF1A',   success:'#B8FF1A', warning:'#B8FF1A',
-  gold:'#B8FF1A',
+  baobab:'#B8FF1A', data:'#8FE3B5', success:'#34D399', warning:'#F5C451',
+  gold:'#F5C451',
 }
 
 interface PreviewMatch {
@@ -155,22 +155,36 @@ export default function VipPage() {
             <div className="text-center mb-5">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-[0.25em] mb-3"
                 style={{ backgroundColor: `${C.gold}1A`, color: C.gold, border: `1px solid ${C.gold}40` }}>
-                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: C.gold }} />
-                Engine Online
+                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.gold }} />
+                ESPACE VIP · ACCÈS PRIVÉ
               </div>
-              <h1 className="text-xl font-black mb-1" style={{ fontFamily: 'Poppins, sans-serif', color: C.text }}>
-                Accès VIP — analyse avancée
+              <h1 className="text-2xl sm:text-3xl font-black mb-2 tracking-tight" style={{ fontFamily: 'Poppins, sans-serif', color: C.text }}>
+                Le centre privé de tes analyses
               </h1>
-              <p className="text-[10px] uppercase tracking-[0.2em]" style={{ color: C.textSec }}>
-                BTTS · Over 2,5 · Score exact · International
+              <p className="text-[10px] uppercase tracking-[0.2em] font-semibold" style={{ color: C.gold }}>
+                BTTS · Over 2,5 · Score exact · Matchs internationaux
               </p>
-              <p className="text-[11px] mt-1" style={{ color: C.textSec }}>
-                {vipCount != null ? `${vipCount} premium predictions` : 'Premium predictions'}
-                {generationDate ? ` · ${generationDate}` : ''}
+              <p className="text-[11px] mt-2" style={{ color: C.textSec }}>
+                {vipCount != null ? `${vipCount} sélections premium publiées` : 'Sélections premium publiées'}
+                {generationDate ? ` · mise à jour ${generationDate}` : ''}
               </p>
-              <p className="max-w-[330px] mx-auto text-[11px] leading-relaxed mt-3" style={{ color: C.textSec }}>
-                Un espace réservé aux analyses détaillées, construit autour de données publiées avant match et d’un historique consultable.
+              <p className="max-w-[340px] mx-auto text-xs leading-relaxed mt-3" style={{ color: C.textSec }}>
+                Une lecture plus complète des matchs, avec des éléments publiés avant le coup d’envoi et une méthode présentée sans promesse de gain.
               </p>
+              <div className="grid grid-cols-3 gap-2 mt-4 text-left">
+                <div className="rounded-xl px-2 py-2" style={{ backgroundColor: `${C.gold}0D`, border: `1px solid ${C.gold}30` }}>
+                  <div className="text-[10px] font-black" style={{ color: C.gold }}>01</div>
+                  <div className="text-[9px] mt-1" style={{ color: C.textSec }}>Sélections</div>
+                </div>
+                <div className="rounded-xl px-2 py-2" style={{ backgroundColor: `${C.success}0D`, border: `1px solid ${C.success}30` }}>
+                  <div className="text-[10px] font-black" style={{ color: C.success }}>02</div>
+                  <div className="text-[9px] mt-1" style={{ color: C.textSec }}>Contexte</div>
+                </div>
+                <div className="rounded-xl px-2 py-2" style={{ backgroundColor: `${C.data}0D`, border: `1px solid ${C.data}30` }}>
+                  <div className="text-[10px] font-black" style={{ color: C.data }}>03</div>
+                  <div className="text-[9px] mt-1" style={{ color: C.textSec }}>Historique</div>
+                </div>
+              </div>
             </div>
 
             {/* ═══ PREMIUM LOCKED CARD ═══ */}
@@ -294,14 +308,41 @@ export default function VipPage() {
           </div>
         </section>
 
-        {/* ═══ 2. SÉLECTEUR BOOKMAKER — couleurs de marque ═══ */}
+        {/* ═══ 2. VALEUR VIP — bénéfices réels, sans promesse de performance ═══ */}
+        <section className="max-w-md mx-auto px-4 pb-5" aria-labelledby="vip-benefits-title">
+          <div className="rounded-2xl p-4" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
+            <div className="flex items-center justify-between gap-3 mb-3">
+              <div>
+                <p className="text-[9px] uppercase tracking-[0.22em] font-bold" style={{ color: C.gold }}>Ce que tu déverrouilles</p>
+                <h2 id="vip-benefits-title" className="text-sm font-black mt-1" style={{ color: C.text }}>Une fiche de match plus complète</h2>
+              </div>
+              <span className="rounded-full px-2 py-1 text-[9px] font-bold" style={{ color: C.success, backgroundColor: `${C.success}12`, border: `1px solid ${C.success}35` }}>18+</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <div className="rounded-xl p-3" style={{ backgroundColor: C.bg }}>
+                <div className="text-xs font-black" style={{ color: C.gold }}>BTTS</div>
+                <p className="text-[10px] leading-relaxed mt-1" style={{ color: C.textSec }}>Lecture du marché et contexte du match.</p>
+              </div>
+              <div className="rounded-xl p-3" style={{ backgroundColor: C.bg }}>
+                <div className="text-xs font-black" style={{ color: C.success }}>O2.5</div>
+                <p className="text-[10px] leading-relaxed mt-1" style={{ color: C.textSec }}>Indicateurs complémentaires affichés clairement.</p>
+              </div>
+              <div className="rounded-xl p-3" style={{ backgroundColor: C.bg }}>
+                <div className="text-xs font-black" style={{ color: C.data }}>SCORE</div>
+                <p className="text-[10px] leading-relaxed mt-1" style={{ color: C.textSec }}>Projection exacte présentée comme une estimation.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══ 3. SÉLECTEUR BOOKMAKER — couleurs de marque ═══ */}
         <section className="max-w-md mx-auto px-4 pb-4">
           <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] mb-2 text-center" style={{ color: C.textMute }}>
-            Choisis ton parcours d’accès · code copié automatiquement
+            Choisis ton partenaire d’accès · code copié automatiquement
           </h2>
           <div className="grid grid-cols-2 gap-2">
             {/* Linebet — VERT CLAIR */}
-            <button onClick={() => selectBookmaker('linebet')}
+            <button onClick={() => selectBookmaker('linebet')} aria-pressed={bookmaker === 'linebet'}
               className="relative py-2.5 rounded-xl text-[12px] font-bold transition-all overflow-hidden"
               style={{
                 backgroundColor: bookmaker === 'linebet' ? BRAND.linebet.primary : 'transparent',
@@ -318,7 +359,7 @@ export default function VipPage() {
               )}
             </button>
             {/* 888Starz — ROUGE CLAIR */}
-            <button onClick={() => selectBookmaker('888starz')}
+            <button onClick={() => selectBookmaker('888starz')} aria-pressed={bookmaker === '888starz'}
               className="relative py-2.5 rounded-xl text-[12px] font-bold transition-all overflow-hidden"
               style={{
                 backgroundColor: bookmaker === '888starz' ? BRAND.star888.primary : 'transparent',
@@ -397,7 +438,7 @@ export default function VipPage() {
         {/* ═══ 4. ÉTAPES DÉVERROUILLAGE ═══ */}
         <section className="max-w-md mx-auto px-4 pb-4">
           <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] mb-3 text-center" style={{ color: C.textMute }}>
-            Un parcours clair en 3 étapes
+            Activation simple et transparente
           </h2>
           <div className="space-y-1.5 mb-3">
             <div className="rounded-lg p-2.5 flex items-center gap-3" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>

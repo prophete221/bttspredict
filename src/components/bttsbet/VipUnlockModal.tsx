@@ -202,6 +202,9 @@ export default function VipUnlockModal({
                     <div className="flex items-center justify-between">
                       <div>
                         <div className="flex items-center gap-2 mb-1">
+                          <span className="flex h-6 w-10 items-center justify-center rounded bg-white px-1">
+                            <img src="/logos/linebet-provided.jpg" alt="" width={1280} height={465} className="max-h-4 w-auto object-contain" />
+                          </span>
                           <span className="text-sm font-bold text-papier">Linebet</span>
                           {selectedBookmaker === 'linebet' && (
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B8FF1A" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
@@ -211,7 +214,7 @@ export default function VipUnlockModal({
                           Code : <span className="font-mono font-bold text-[#B8FF1A]">VISION221</span>
                         </div>
                       </div>
-                      <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(75, 182, 135, 0.1)', color: '#B8FF1A' }}>Offre partenaire</span>
+                      <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(245, 196, 81, 0.12)', color: '#F5C451' }}>Partenaire officiel</span>
                     </div>
                   </button>
 
@@ -228,7 +231,10 @@ export default function VipUnlockModal({
                     <div className="flex items-center justify-between">
                       <div>
                         <div className="flex items-center gap-2 mb-1">
-                          <span className="text-sm font-bold text-papier">888starz</span>
+                          <span className="flex h-6 w-10 items-center justify-center rounded bg-white px-1">
+                            <img src="/logos/888starz-provided.webp" alt="" width={1920} height={894} className="max-h-4 w-auto object-contain" />
+                          </span>
+                          <span className="text-sm font-bold text-papier">888Starz</span>
                           {selectedBookmaker === '888starz' && (
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B8FF1A" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
                           )}
@@ -237,7 +243,7 @@ export default function VipUnlockModal({
                           Code : <span className="font-mono font-bold text-[#B8FF1A]">vision221</span>
                         </div>
                       </div>
-                      <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(75, 182, 135, 0.1)', color: '#B8FF1A' }}>Offre partenaire</span>
+                      <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(245, 196, 81, 0.12)', color: '#F5C451' }}>Partenaire officiel</span>
                     </div>
                   </button>
                 </div>
