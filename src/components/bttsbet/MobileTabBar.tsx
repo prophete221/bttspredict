@@ -106,7 +106,7 @@ export default function MobileTabBar() {
         backdropFilter: 'blur(20px) saturate(180%)',
         WebkitBackdropFilter: 'blur(20px) saturate(180%)',
         // Bordure subtile en haut — sobre
-        borderTop: '1px solid #3A4556',
+        borderTop: '1px solid #7D90A7',
         // Ombre légère — pas de halo agressif
         boxShadow: '0 -4px 16px rgba(7, 17, 26, 0.4)',
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
@@ -123,13 +123,13 @@ export default function MobileTabBar() {
             className="flex-1 flex flex-col items-center justify-center gap-1 transition-all duration-200 relative"
             style={{
               // Actif = turquoise sobre, Inactif = gris lisible
-              color: isActive ? '#9CC4F4' : '#9BA7B8',
+              color: isActive ? '#7FA2C6' : '#C2CCD8',
               minHeight: '48px',
               textShadow: isActive
-                ? '0 0 8px rgba(199, 244, 100, 0.4)'
+                ? '0 0 8px rgba(75, 182, 135, 0.4)'
                 : 'none',
               filter: isActive
-                ? 'drop-shadow(0 0 4px rgba(199, 244, 100, 0.4))'
+                ? 'drop-shadow(0 0 4px rgba(75, 182, 135, 0.4))'
                 : 'none',
             }}
             aria-label={tab.label}
@@ -144,8 +144,8 @@ export default function MobileTabBar() {
                   width: '32px',
                   height: '3px',
                   borderRadius: '2px',
-                  background: '#9CC4F4',
-                  boxShadow: '0 0 8px rgba(199, 244, 100, 0.6)',
+                  background: '#7FA2C6',
+                  boxShadow: '0 0 8px rgba(75, 182, 135, 0.6)',
                 }}
               />
             )}
@@ -155,7 +155,7 @@ export default function MobileTabBar() {
             <span
               className="text-[9px] font-bold uppercase tracking-wider"
               style={{
-                color: isActive ? '#9CC4F4' : '#9BA7B8',
+                color: isActive ? '#7FA2C6' : '#C2CCD8',
               }}
             >
               {tab.label}

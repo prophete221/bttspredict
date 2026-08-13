@@ -23,11 +23,11 @@ export default function SportMarquee() {
       {/* Fade edges */}
       <div
         className="absolute left-0 top-0 bottom-0 z-10 w-16 sm:w-24 pointer-events-none"
-        style={{ background: 'linear-gradient(90deg, #080B12, transparent)' }}
+        style={{ background: 'linear-gradient(90deg, #0B1220, transparent)' }}
       />
       <div
         className="absolute right-0 top-0 bottom-0 z-10 w-16 sm:w-24 pointer-events-none"
-        style={{ background: 'linear-gradient(270deg, #080B12, transparent)' }}
+        style={{ background: 'linear-gradient(270deg, #0B1220, transparent)' }}
       />
 
       {/* Scrolling track */}
@@ -54,7 +54,7 @@ export default function SportMarquee() {
               onMouseEnter={(e) => {
                 e.currentTarget.style.filter = 'grayscale(0) brightness(1)'
                 e.currentTarget.style.opacity = '1'
-                ;(e.currentTarget.style as any).dropShadow = '0 0 12px rgba(199, 244, 100, 0.5)'
+                ;(e.currentTarget.style as any).dropShadow = '0 0 12px rgba(75, 182, 135, 0.5)'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.filter = 'grayscale(1) brightness(0.7)'
@@ -63,9 +63,9 @@ export default function SportMarquee() {
             />
             <span
               className="text-xs sm:text-sm font-semibold transition-colors duration-300"
-              style={{ color: '#9BA7B8' }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = '#9CC4F4' }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = '#9BA7B8' }}
+              style={{ color: '#C2CCD8' }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = '#7FA2C6' }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = '#C2CCD8' }}
             >
               {sport.name}
             </span>

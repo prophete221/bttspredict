@@ -32,7 +32,7 @@ export default function ResultatsVerifiesPage() {
   const winHistory = getWinHistory()
 
   return (
-    <div className="min-h-screen bg-[#080B12] flex flex-col text-[#F7F4EE]">
+    <div className="min-h-screen bg-[#0B1220] flex flex-col text-[#F4F7FB]">
       <Navbar />
       <main id="main-content" className="flex-1 py-12 px-4">
         <div className="max-w-4xl mx-auto">
@@ -40,14 +40,14 @@ export default function ResultatsVerifiesPage() {
             <h1 className="text-3xl font-bold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Résultats vérifiés des pronostics
             </h1>
-            <p className="text-sm text-[#9BA7B8]">
+            <p className="text-sm text-[#C2CCD8]">
               Tous les pronostics vérifiés avec scores réels ESPN. Aucun prono modifié ou supprimé après publication.
             </p>
           </div>
           <ResultatsClient initialData={winHistory} />
-          <div className="mt-8 p-4 rounded-xl bg-[#111722] border border-[#3A4556]">
-            <p className="text-[11px] text-[#9BA7B8] leading-relaxed">
-              <strong className="text-[#9BA7B8]">Règle d&apos;intégrité :</strong> Aucun pronostic n&apos;est modifié ou supprimé après publication.
+          <div className="mt-8 p-4 rounded-xl bg-[#111a2a] border border-[#7D90A7]">
+            <p className="text-[11px] text-[#C2CCD8] leading-relaxed">
+              <strong className="text-[#C2CCD8]">Règle d&apos;intégrité :</strong> Aucun pronostic n&apos;est modifié ou supprimé après publication.
               Chaque entrée contient la date, le match, le marché, la proba, le score final, le résultat et la source de vérification (ESPN).
               Les résultats présentés correspondent aux prédictions et aux résultats effectivement enregistrés dans les données disponibles. Les performances historiques ne garantissent pas les résultats futurs. Aucune cote bookmaker n'est utilisée pour transformer une probabilité statistique en rendement garanti. 18+ — Jeu responsable.
             </p>

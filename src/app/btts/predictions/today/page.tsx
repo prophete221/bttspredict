@@ -43,7 +43,7 @@ const faqJsonLd = {
 
 export default function BTTSPredictionsTodayPage() {
   return (
-    <div className="min-h-screen bg-[#080B12] flex flex-col text-[#F7F4EE]">
+    <div className="min-h-screen bg-[#0B1220] flex flex-col text-[#F4F7FB]">
       <Navbar />
       <main id="main-content" className="flex-1">
         <h1 className="sr-only">BTTS Predictions Today</h1>
