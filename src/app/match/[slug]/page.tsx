@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { Navbar, Footer } from '@/components/bttsbet'
 import { generateMatchSlug, getAllMatchSlugs, getMatchBySlug } from '@/lib/matches'
 import Link from 'next/link'
+import MatchAnalyticsCharts from '@/components/bttsbet/MatchAnalyticsCharts'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -79,12 +80,22 @@ export default async function MatchPage({ params }: PageProps) {
   const aiKeyFact = match.aiKeyFact || null
   const aiAnalysis = match.aiAnalysis || null
 
-  // Aggregate verification status
-  const verified = predictions.filter(p => p.status === 'WON' || p.status === 'LOST')
+  // One market card per prediction type. Archived feeds can contain repeated
+  // rows for the same market; the match page must never present duplicates.
+  const marketMap = new Map<string, (typeof predictions)[number]>()
+  for (const prediction of predictions) {
+    const market = (prediction.type || prediction.market || 'prediction').toLowerCase()
+    const existing = marketMap.get(market)
+    if (!existing || (!existing.status && prediction.status)) marketMap.set(market, prediction)
+  }
+  const marketPredictions = Array.from(marketMap.values())
+
+  // Aggregate verification status from unique markets only.
+  const verified = marketPredictions.filter(p => p.status === 'WON' || p.status === 'LOST')
   const won = verified.filter(p => p.status === 'WON').length
   const lost = verified.filter(p => p.status === 'LOST').length
-  const pending = predictions.length - verified.length
-  const finalScore = verified[0]?.finalScore || predictions.find(p => p.finalScore && p.finalScore !== '-')?.finalScore || null
+  const pending = marketPredictions.filter(p => !p.status || p.status === 'PENDING').length
+  const finalScore = verified[0]?.finalScore || marketPredictions.find(p => p.finalScore && p.finalScore !== '-')?.finalScore || null
 
   // Breadcrumb JSON-LD
   const breadcrumbJsonLd = {
@@ -123,9 +134,9 @@ export default async function MatchPage({ params }: PageProps) {
           <span className="text-[#C2CCD8]">{home} vs {away}</span>
         </nav>
 
-        <article className="max-w-4xl mx-auto px-4 py-8">
+        <article className="max-w-6xl mx-auto px-4 py-8">
           {/* Header */}
-          <header className="mb-8">
+          <header className="mb-8 rounded-3xl border border-[#50627A] bg-[#111A2A] p-5 shadow-[0_20px_70px_rgba(0,0,0,0.22)] sm:p-8">
             <div className="flex items-center justify-center gap-4 sm:gap-8 mb-4">
               <div className="flex flex-col items-center gap-2 flex-1">
                 {homeLogo && (
@@ -157,12 +168,18 @@ export default async function MatchPage({ params }: PageProps) {
 
           {/* Pronostics */}
           <section className="mb-10">
-            <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Pronostics BTTS et Over 2.5
-            </h1>
+            <div className="mb-6 flex items-end justify-between gap-3">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#7FA2C6]">Match intelligence</p>
+                <h1 className="mt-1 text-2xl font-bold sm:text-3xl" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  Signal report
+                </h1>
+              </div>
+              <span className="text-right text-[10px] uppercase tracking-wider text-[#9AA9BB]">Données publiées</span>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {predictions.map((p, i) => {
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              {marketPredictions.map((p, i) => {
                 const market = (p.type || p.market || '').toLowerCase()
                 const isBtts = market.includes('btts')
                 const isOver = market.includes('over') || market.includes('o2.5') || market.includes('o25')
@@ -220,14 +237,23 @@ export default async function MatchPage({ params }: PageProps) {
             </p>
           </section>
 
+          <MatchAnalyticsCharts
+            bttsProb={match.bttsProb}
+            over25Prob={match.over25Prob}
+            exactScoreProb={exactScoreProb || undefined}
+            homeLambda={match.homeLambda}
+            awayLambda={match.awayLambda}
+            xgTotal={match.xgTotal}
+          />
+
           {/* SECTION RAPPORT D'ANALYSE BTTSPREDICT AI */}
           {(aiKeyFact || aiExactScore) && (
             <section className="mb-10">
-              <div className="rounded-xl p-5 space-y-4" style={{ backgroundColor: '#111a2a', border: '1px solid #7D90A7' }}>
-                <div className="flex items-center justify-between border-b border-[#7D90A7] pb-3">
-                  <h3 className="font-bold text-sm text-[#F4F7FB] flex items-center gap-2">
-                    <span className="text-[#7FA2C6]">📊</span> Rapport d&apos;Analyse — BTTSPredict AI
-                  </h3>
+              <div className="rounded-2xl border border-[#50627A] bg-[#111A2A] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.18)] sm:p-6">
+                <div className="flex items-center justify-between border-b border-[#50627A] pb-3">
+                  <h2 className="flex items-center gap-2 text-sm font-bold text-[#F4F7FB]">
+                    <span className="text-[#7FA2C6]">Signal report</span> — BTTSPredict AI
+                  </h2>
                   {aiExactScore && (
                     <span className="px-2.5 py-1 text-xs font-black rounded-md" style={{ backgroundColor: 'rgba(245,158,11,0.1)', color: '#D3B16D', border: '1px solid rgba(245,158,11,0.3)' }}>
                       Score Exact : {aiExactScore}
