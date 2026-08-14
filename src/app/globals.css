@@ -1526,3 +1526,167 @@ body {
     will-change: auto;
   }
 }
+
+
+/* ═══ HERO MARKET COMMAND CENTER — dashboard animé léger ═══ */
+.hero-market-dashboard {
+  position: relative;
+  overflow: hidden;
+  padding: 0.7rem;
+  border: 1px solid rgba(169, 196, 223, 0.28);
+  border-radius: 1.15rem;
+  background: linear-gradient(145deg, rgba(17, 26, 42, 0.94), rgba(7, 16, 24, 0.9));
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(245, 248, 243, 0.08);
+}
+
+.hero-market-dashboard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 20%, rgba(184, 255, 26, 0.08) 48%, transparent 72%);
+  background-size: 220% 100%;
+  animation: hero-dashboard-scan 5.2s ease-in-out infinite;
+}
+
+.hero-market-dashboard__header,
+.hero-market-card__topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-market-dashboard__header {
+  position: relative;
+  z-index: 1;
+  padding: 0 0.25rem 0.55rem;
+  color: #b7c4c1;
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-market-dashboard__status {
+  color: #b8ff1a;
+  font-size: 0.52rem;
+}
+
+.hero-market-dashboard__pulse,
+.hero-market-card__dot {
+  display: inline-block;
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 999px;
+  background: #b8ff1a;
+  box-shadow: 0 0 0 4px rgba(184, 255, 26, 0.1), 0 0 14px rgba(184, 255, 26, 0.72);
+}
+
+.hero-market-dashboard__pulse {
+  animation: hero-dashboard-pulse 2s ease-in-out infinite;
+}
+
+.hero-market-card {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0.65rem 0.62rem 0.55rem;
+  border: 1px solid rgba(127, 162, 198, 0.28);
+  border-radius: 0.85rem;
+  background: linear-gradient(155deg, rgba(22, 34, 53, 0.98), rgba(11, 20, 32, 0.96));
+  box-shadow: inset 0 1px 0 rgba(245, 248, 243, 0.06), 0 8px 18px rgba(0, 0, 0, 0.18);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.hero-market-card:hover,
+.hero-market-card:focus-within {
+  transform: translateY(-3px);
+  border-color: rgba(184, 255, 26, 0.62);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24), 0 0 18px rgba(184, 255, 26, 0.08);
+}
+
+.hero-market-card__topline {
+  color: #9fb0b0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.48rem;
+  letter-spacing: 0.12em;
+}
+
+.hero-market-card__dot {
+  width: 0.28rem;
+  height: 0.28rem;
+  box-shadow: 0 0 8px rgba(184, 255, 26, 0.72);
+}
+
+.hero-market-card__label {
+  margin-top: 0.45rem;
+  color: #b8ff1a;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.hero-market-card__signal {
+  display: flex;
+  align-items: end;
+  gap: 0.16rem;
+  height: 1.1rem;
+  margin-top: 0.6rem;
+  opacity: 0.82;
+}
+
+.hero-market-card__signal span {
+  display: block;
+  width: 0.24rem;
+  height: 35%;
+  border-radius: 999px;
+  background: linear-gradient(to top, rgba(184, 255, 26, 0.26), #b8ff1a);
+  animation: hero-signal-wave 1.25s ease-in-out infinite alternate;
+}
+
+.hero-market-card__signal span:nth-child(2) { animation-delay: 120ms; height: 68%; }
+.hero-market-card__signal span:nth-child(3) { animation-delay: 240ms; height: 48%; }
+.hero-market-card__signal span:nth-child(4) { animation-delay: 360ms; height: 82%; }
+.hero-market-card__signal span:nth-child(5) { animation-delay: 480ms; height: 58%; }
+
+.hero-market-card__footer {
+  margin-top: 0.38rem;
+  color: #9fb0b0;
+  font-size: 0.47rem;
+  letter-spacing: 0.04em;
+}
+
+@keyframes hero-dashboard-scan {
+  0%, 20% { background-position: 130% 0; }
+  58%, 100% { background-position: -30% 0; }
+}
+
+@keyframes hero-dashboard-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.8); }
+}
+
+@keyframes hero-signal-wave {
+  from { transform: scaleY(0.72); opacity: 0.55; }
+  to { transform: scaleY(1.08); opacity: 1; }
+}
+
+@media (max-width: 380px) {
+  .hero-market-card { padding-inline: 0.45rem; }
+  .hero-market-card__label { font-size: 0.68rem; }
+  .hero-market-card__footer { font-size: 0.42rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-market-dashboard::before,
+  .hero-market-dashboard__pulse,
+  .hero-market-card__signal span {
+    animation: none;
+  }
+
+  .hero-market-card:hover,
+  .hero-market-card:focus-within {
+    transform: none;
+  }
+}
