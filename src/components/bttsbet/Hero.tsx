@@ -3,7 +3,7 @@
 
 import { useScrollAnimation } from '@/hooks/useAnimations'
 import { useLanguage } from './LanguageSwitcher'
-import { translationsFor } from '@/lib/i18n'
+import { translationsFor, type Locale } from '@/lib/i18n'
 
 /**
  * Hero — Command Center
@@ -11,9 +11,10 @@ import { translationsFor } from '@/lib/i18n'
  * Un point d'entrée de plateforme, pas un article : le visiteur comprend
  * immédiatement le marché couvert, l'état des données et l'action suivante.
  */
-export default function Hero() {
+export default function Hero({ initialLocale }: { initialLocale?: Locale } = {}) {
   const [sectionRef, isVisible] = useScrollAnimation(0.05)
-  const { lang } = useLanguage()
+  const { lang: detectedLang } = useLanguage()
+  const lang = initialLocale ?? detectedLang
   const t = translationsFor(lang)
 
   return (
