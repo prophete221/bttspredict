@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useLanguage } from './LanguageSwitcher'
-import { translationsFor } from '@/lib/i18n'
+import { localizedPath, translationsFor } from '@/lib/i18n'
 import { motion } from 'framer-motion'
 import { LEGAL, FAQ_ITEMS, LONASE } from '@/lib/constants'
 import { useScrollAnimation } from '@/hooks/useAnimations'
@@ -13,6 +13,11 @@ export default function Footer() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const { lang } = useLanguage()
   const t = translationsFor(lang)
+  const legalLinks = lang === 'fr'
+    ? [{ label: 'CGU', href: '/cgu' }, { label: 'Mentions légales', href: '/mentions-legales' }, { label: 'Confidentialité', href: '/politique-confidentialite' }, { label: 'Jouer responsable', href: '/jouer-responsable' }]
+    : lang === 'en'
+      ? [{ label: 'Terms', href: '/cgu' }, { label: 'Legal notice', href: '/mentions-legales' }, { label: 'Privacy', href: '/politique-confidentialite' }, { label: 'Play responsibly', href: '/jouer-responsable' }]
+      : [{ label: 'الشروط', href: '/cgu' }, { label: 'الإشعار القانوني', href: '/mentions-legales' }, { label: 'الخصوصية', href: '/politique-confidentialite' }, { label: 'العب بمسؤولية', href: '/jouer-responsable' }]
 
   return (
     <>
@@ -26,11 +31,11 @@ export default function Footer() {
             <div className="p-4 rounded-xl text-center" style={{ backgroundColor: '#0D1A20', border: '1px solid rgba(244, 247, 251, 0.08)' }}>
               <p className="text-[11px] text-[#B7C4C1] leading-relaxed">
                 {lang === 'fr' ? (
-                  <>BTTSPredict ne publie pas de témoignages clients. Notre engagement de transparence repose sur un <a href="/historique" className="text-[#B8FF1A] underline">historique vérifiable publiquement</a>, une <a href="/methodologie" className="text-[#B8FF1A] underline">méthodologie documentée</a> et un suivi public lancé le 2026-08-08. Aucun résultat futur n’est garanti.</>
+                  <>BTTSPredict ne publie pas de témoignages clients. Notre engagement de transparence repose sur un <a href={localizedPath('/resultats-verifies', lang)} className="text-[#B8FF1A] underline">historique vérifiable publiquement</a>, une <a href={localizedPath('/methodologie', lang)} className="text-[#B8FF1A] underline">méthodologie documentée</a> et un suivi public lancé le 2026-08-08. Aucun résultat futur n’est garanti.</>
                 ) : lang === 'en' ? (
-                  <>BTTSPredict does not publish customer testimonials. Our transparency commitment is based on a <a href="/en/historique" className="text-[#B8FF1A] underline">publicly verifiable history</a>, a <a href="/en/methodologie" className="text-[#B8FF1A] underline">documented method</a> and public tracking. No future result is guaranteed.</>
+                  <>BTTSPredict does not publish customer testimonials. Our transparency commitment is based on a <a href={localizedPath('/resultats-verifies', lang)} className="text-[#B8FF1A] underline">publicly verifiable history</a>, a <a href={localizedPath('/methodologie', lang)} className="text-[#B8FF1A] underline">documented method</a> and public tracking. No future result is guaranteed.</>
                 ) : (
-                  <>لا تنشر BTTSPredict شهادات العملاء. تعتمد الشفافية على <a href="/ar/historique" className="text-[#B8FF1A] underline">سجل عام موثق</a> و<a href="/ar/methodologie" className="text-[#B8FF1A] underline">منهجية موثقة</a> وتتبع علني. لا توجد ضمانات لأي نتيجة مستقبلية.</>
+                  <>لا تنشر BTTSPredict شهادات العملاء. تعتمد الشفافية على <a href={localizedPath('/resultats-verifies', lang)} className="text-[#B8FF1A] underline">سجل عام موثق</a> و<a href={localizedPath('/methodologie', lang)} className="text-[#B8FF1A] underline">منهجية موثقة</a> وتتبع علني. لا توجد ضمانات لأي نتيجة مستقبلية.</>
                 )}
               </p>
             </div>
@@ -57,13 +62,8 @@ export default function Footer() {
 
           {/* Legal links */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
-            {[
-              { label: 'CGU', href: '/cgu' },
-              { label: 'Mentions légales', href: '/mentions-legales' },
-              { label: 'Confidentialité', href: '/politique-confidentialite' },
-              { label: 'Jouer responsable', href: '/jouer-responsable' },
-            ].map(link => (
-              <a key={link.label} href={link.href} className="text-center text-[10px] text-[#B7C4C1] hover:text-[#B8FF1A] transition-colors py-2">
+            {legalLinks.map(link => (
+              <a key={link.label} href={localizedPath(link.href, lang)} className="text-center text-[10px] text-[#B7C4C1] hover:text-[#B8FF1A] transition-colors py-2">
                 {link.label}
               </a>
             ))}

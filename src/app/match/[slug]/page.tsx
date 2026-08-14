@@ -4,7 +4,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 import { generateMatchSlug, getAllMatchSlugs, getMatchBySlug, getVerifiedHistoryForMatch, verifiedMarketKey } from '@/lib/matches'
 import Link from 'next/link'
 import MatchAnalyticsCharts from '@/components/bttsbet/MatchAnalyticsCharts'
-import type { Locale } from '@/lib/i18n'
+import { localizedPath, type Locale } from '@/lib/i18n'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -71,11 +71,11 @@ const MATCH_COPY: Record<Locale, {
   home: string; predictions: string; breadcrumb: string; finalScore: string; report: string; published: string;
   bttsSubtitle: string; overSubtitle: string; won: string; lost: string; pending: string; noFuture: string;
   keyFact: string; analysis: string; verification: string; verifiedAt: string; source: string;
-  further: string; today: string; todayDesc: string; premium: string; vipDesc: string; disclaimer: string;
+  intelligence: string; further: string; today: string; todayDesc: string; premium: string; vipDesc: string; disclaimer: string;
 }> = {
-  fr: { home: 'Accueil', predictions: 'Pronostics', breadcrumb: 'Fil d’Ariane', finalScore: 'Score final', report: 'Rapport de signal', published: 'Données publiées', bttsSubtitle: 'Les deux équipes marquent', overSubtitle: 'Total de buts ≥ 3', won: 'Gagné', lost: 'Perdu', pending: 'En attente', noFuture: 'Aucun résultat futur n’est garanti. 18+.', keyFact: 'Statistique clé — xG & données disponibles', analysis: 'Analyse statistique', verification: 'Vérification', verifiedAt: 'Vérifié le', source: 'Source : ESPN et TheSportsDB. Suivi public depuis le 2026-08-08.', further: 'Aller plus loin', today: 'Voir les pronostics du jour →', todayDesc: 'Tous les matchs sélectionnés par le moteur IA', premium: 'Pronostics premium →', vipDesc: 'Programme VIP BTTSPredict', disclaimer: '18+ · Les paris sportifs comportent un risque de perte. Aucun résultat futur n’est garanti. BTTSPredict ne prend pas de paris et ne collecte pas de fonds. Pronostic publié à titre informatif, ne constitue pas une incitation à parier.' },
-  en: { home: 'Home', predictions: 'Predictions', breadcrumb: 'Breadcrumb', finalScore: 'Final score', report: 'Signal report', published: 'Published data', bttsSubtitle: 'Both teams to score', overSubtitle: 'Total goals ≥ 3', won: 'Won', lost: 'Lost', pending: 'Pending', noFuture: 'No future result is guaranteed. 18+.', keyFact: 'Key statistic — xG & available data', analysis: 'Statistical analysis', verification: 'Verification', verifiedAt: 'Verified on', source: 'Source: ESPN and TheSportsDB. Public tracking since 2026-08-08.', further: 'Explore further', today: 'View today’s predictions →', todayDesc: 'All matches selected by the AI engine', premium: 'Premium predictions →', vipDesc: 'BTTSPredict VIP programme', disclaimer: '18+ · Sports betting carries a risk of loss. No future result is guaranteed. BTTSPredict does not take bets or hold funds. This prediction is informational and is not an invitation to bet.' },
-  ar: { home: 'الرئيسية', predictions: 'التوقعات', breadcrumb: 'مسار التنقل', finalScore: 'النتيجة النهائية', report: 'تقرير الإشارة', published: 'بيانات منشورة', bttsSubtitle: 'كلا الفريقين يسجلان', overSubtitle: 'إجمالي الأهداف ≥ 3', won: 'فوز', lost: 'خسارة', pending: 'قيد الانتظار', noFuture: 'لا توجد ضمانات لأي نتيجة مستقبلية. 18+.', keyFact: 'إحصائية أساسية — xG والبيانات المتاحة', analysis: 'تحليل إحصائي', verification: 'التحقق', verifiedAt: 'تم التحقق في', source: 'المصدر: ESPN وTheSportsDB. متابعة عامة منذ 2026-08-08.', further: 'استكشف المزيد', today: 'عرض توقعات اليوم ←', todayDesc: 'جميع المباريات التي اختارها محرك الذكاء الاصطناعي', premium: 'التوقعات المميزة ←', vipDesc: 'برنامج VIP من BTTSPredict', disclaimer: '18+ · المراهنات الرياضية تنطوي على خطر الخسارة. لا توجد ضمانات لأي نتيجة مستقبلية. BTTSPredict لا يقبل الرهانات ولا يحتفظ بالأموال. هذا التوقع إعلامي وليس دعوة للمراهنة.' },
+  fr: { home: 'Accueil', predictions: 'Pronostics', breadcrumb: 'Fil d’Ariane', finalScore: 'Score final', report: 'Rapport de signal', published: 'Données publiées', bttsSubtitle: 'Les deux équipes marquent', overSubtitle: 'Total de buts ≥ 3', won: 'Gagné', lost: 'Perdu', pending: 'En attente', noFuture: 'Aucun résultat futur n’est garanti. 18+.', keyFact: 'Statistique clé — xG & données disponibles', analysis: 'Analyse statistique', verification: 'Vérification', verifiedAt: 'Vérifié le', source: 'Source : ESPN et TheSportsDB. Suivi public depuis le 2026-08-08.', intelligence: 'Intelligence du match', further: 'Aller plus loin', today: 'Voir les pronostics du jour →', todayDesc: 'Tous les matchs sélectionnés par le moteur IA', premium: 'Pronostics premium →', vipDesc: 'Programme VIP BTTSPredict', disclaimer: '18+ · Les paris sportifs comportent un risque de perte. Aucun résultat futur n’est garanti. BTTSPredict ne prend pas de paris et ne collecte pas de fonds. Pronostic publié à titre informatif, ne constitue pas une incitation à parier.' },
+  en: { home: 'Home', predictions: 'Predictions', breadcrumb: 'Breadcrumb', finalScore: 'Final score', report: 'Signal report', published: 'Published data', bttsSubtitle: 'Both teams to score', overSubtitle: 'Total goals ≥ 3', won: 'Won', lost: 'Lost', pending: 'Pending', noFuture: 'No future result is guaranteed. 18+.', keyFact: 'Key statistic — xG & available data', analysis: 'Statistical analysis', verification: 'Verification', verifiedAt: 'Verified on', source: 'Source: ESPN and TheSportsDB. Public tracking since 2026-08-08.', intelligence: 'Match intelligence', further: 'Explore further', today: 'View today’s predictions →', todayDesc: 'All matches selected by the AI engine', premium: 'Premium predictions →', vipDesc: 'BTTSPredict VIP programme', disclaimer: '18+ · Sports betting carries a risk of loss. No future result is guaranteed. BTTSPredict does not take bets or hold funds. This prediction is informational and is not an invitation to bet.' },
+  ar: { home: 'الرئيسية', predictions: 'التوقعات', breadcrumb: 'مسار التنقل', finalScore: 'النتيجة النهائية', report: 'تقرير الإشارة', published: 'بيانات منشورة', bttsSubtitle: 'كلا الفريقين يسجلان', overSubtitle: 'إجمالي الأهداف ≥ 3', won: 'فوز', lost: 'خسارة', pending: 'قيد الانتظار', noFuture: 'لا توجد ضمانات لأي نتيجة مستقبلية. 18+.', keyFact: 'إحصائية أساسية — xG والبيانات المتاحة', analysis: 'تحليل إحصائي', verification: 'التحقق', verifiedAt: 'تم التحقق في', source: 'المصدر: ESPN وTheSportsDB. متابعة عامة منذ 2026-08-08.', intelligence: 'ذكاء المباراة', further: 'استكشف المزيد', today: 'عرض توقعات اليوم ←', todayDesc: 'جميع المباريات التي اختارها محرك الذكاء الاصطناعي', premium: 'التوقعات المميزة ←', vipDesc: 'برنامج VIP من BTTSPredict', disclaimer: '18+ · المراهنات الرياضية تنطوي على خطر الخسارة. لا توجد ضمانات لأي نتيجة مستقبلية. BTTSPredict لا يقبل الرهانات ولا يحتفظ بالأموال. هذا التوقع إعلامي وليس دعوة للمراهنة.' },
 }
 
 export default async function MatchPage({ params, locale = 'fr' }: PageProps & { locale?: Locale }) {
@@ -152,9 +152,9 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
       <main id="main-content" className="flex-1">
         {/* Breadcrumb */}
         <nav aria-label={copy.breadcrumb} className="max-w-4xl mx-auto px-4 pt-6 pb-2 text-xs text-[#B7C4C1]">
-          <Link href="/" className="hover:text-[#B8FF1A]">{copy.home}</Link>
+          <Link href={localizedPath('/', locale)} className="hover:text-[#B8FF1A]">{copy.home}</Link>
           <span className="mx-1">/</span>
-          <Link href="/btts/predictions/today" className="hover:text-[#B8FF1A]">{copy.predictions}</Link>
+          <Link href={localizedPath('/btts/predictions/today', locale)} className="hover:text-[#B8FF1A]">{copy.predictions}</Link>
           <span className="mx-1">/</span>
           <span className="text-[#B7C4C1]">{home} vs {away}</span>
         </nav>
@@ -195,7 +195,7 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
           <section className="mb-10">
             <div className="mb-6 flex items-end justify-between gap-3">
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#B8FF1A]">Match intelligence</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#B8FF1A]">{copy.intelligence}</p>
                 <h1 className="mt-1 text-2xl font-bold sm:text-3xl" style={{ fontFamily: 'Poppins, sans-serif' }}>
                   {copy.report}
                 </h1>
@@ -229,7 +229,7 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
                     </div>
 
                     <div className="text-2xl font-black mb-2" style={{ color: p.prediction === 'Oui' ? color : '#B7C4C1' }}>
-                      {p.prediction}
+                      {p.prediction === 'Oui' ? (locale === 'ar' ? 'نعم' : locale === 'en' ? 'Yes' : 'Oui') : p.prediction === 'Non' ? (locale === 'ar' ? 'لا' : locale === 'en' ? 'No' : 'Non') : p.prediction}
                     </div>
 
                     {/* Subtitle to make cards visually distinct */}
@@ -369,18 +369,18 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
           {/* Liens internes */}
           <section className="mb-10">
             <h2 className="text-xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Aller plus loin
+              {copy.further}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8FF1A]"
+              <Link href={localizedPath('/btts/predictions/today', locale)} className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8FF1A]"
                 style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
-                <div className="text-sm font-bold text-[#F5F8F3] mb-1">Voir les pronostics du jour →</div>
-                <div className="text-xs text-[#B7C4C1]">Tous les matchs sélectionnés par le moteur IA</div>
+                <div className="text-sm font-bold text-[#F5F8F3] mb-1">{copy.today}</div>
+                <div className="text-xs text-[#B7C4C1]">{copy.todayDesc}</div>
               </Link>
-              <Link href="/vip" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8FF1A]"
+              <Link href={localizedPath('/vip', locale)} className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8FF1A]"
                 style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
-                <div className="text-sm font-bold text-[#F5F8F3] mb-1">Pronostics premium →</div>
-                <div className="text-xs text-[#B7C4C1]">Programme VIP BTTSPredict</div>
+                <div className="text-sm font-bold text-[#F5F8F3] mb-1">{copy.premium}</div>
+                <div className="text-xs text-[#B7C4C1]">{copy.vipDesc}</div>
               </Link>
             </div>
           </section>
