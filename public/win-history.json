@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T22:41:24.196Z",
+  "generatedAt": "2026-08-14T23:12:14.710Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -97,7 +97,7 @@
       "status": "WON",
       "finalScore": "2-2",
       "profit": 0.9,
-      "verifiedAt": "2026-08-14T22:34:26.822Z",
+      "verifiedAt": "2026-08-14T23:06:44.994Z",
       "source": "ESPN public"
     },
     {
@@ -113,7 +113,7 @@
       "status": "WON",
       "finalScore": "3-2",
       "profit": 0.9,
-      "verifiedAt": "2026-08-14T22:34:26.822Z",
+      "verifiedAt": "2026-08-14T23:06:44.994Z",
       "source": "ESPN public"
     },
     {
@@ -129,7 +129,7 @@
       "status": "WON",
       "finalScore": "4-1",
       "profit": 0.9,
-      "verifiedAt": "2026-08-14T22:34:26.822Z",
+      "verifiedAt": "2026-08-14T23:06:44.993Z",
       "source": "ESPN public"
     },
     {
@@ -145,7 +145,7 @@
       "status": "WON",
       "finalScore": "3-3",
       "profit": 0.9,
-      "verifiedAt": "2026-08-14T22:34:26.822Z",
+      "verifiedAt": "2026-08-14T23:06:44.993Z",
       "source": "ESPN public"
     },
     {
@@ -161,7 +161,7 @@
       "status": "LOST",
       "finalScore": "0-1",
       "profit": -1,
-      "verifiedAt": "2026-08-14T22:34:26.822Z",
+      "verifiedAt": "2026-08-14T23:06:44.993Z",
       "source": "ESPN public"
     },
     {
@@ -177,7 +177,7 @@
       "status": "WON",
       "finalScore": "2-2",
       "profit": 0.9,
-      "verifiedAt": "2026-08-14T22:34:26.822Z",
+      "verifiedAt": "2026-08-14T23:06:44.993Z",
       "source": "ESPN public"
     },
     {
@@ -193,7 +193,7 @@
       "status": "WON",
       "finalScore": "1-3",
       "profit": 0.9,
-      "verifiedAt": "2026-08-14T22:34:26.822Z",
+      "verifiedAt": "2026-08-14T23:06:44.993Z",
       "source": "ESPN public"
     },
     {
