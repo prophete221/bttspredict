@@ -33,7 +33,7 @@ import { getDakarDateString } from '@/lib/dakar-date'
 export const dynamic = 'force-static'
 
 const SITE_URL = 'https://bttspredict.com'
-const LOCALIZED_PATHS = new Set(['/', '/btts/predictions/today', '/over-2-5/predictions/today', '/ai-correct-score-predictions'])
+const LOCALIZED_PATHS = new Set(['/', '/btts/predictions/today', '/over-2-5/predictions/today', '/ai-correct-score-predictions', '/vip'])
 
 // Date métier du jour (YYYY-MM-DD), explicitement basée sur Africa/Dakar.
 const TODAY = getDakarDateString()
