@@ -58,17 +58,34 @@ export default function Hero() {
           Sélections BTTS, Over 2,5 et score exact sur des matchs internationaux, avec données horodatées, historique public et méthode documentée.
         </p>
 
-        <div className="mt-6 grid grid-cols-3 gap-2 sm:max-w-[430px]">
-          {[
-            ['BTTS', 'Les deux marquent'],
-            ['O2.5', 'Total de buts'],
-            ['SCORE', 'Projection exacte'],
-          ].map(([label, caption]) => (
-            <div key={label} className="rounded-2xl px-3 py-3" style={{ background: 'rgba(17,26,42,0.78)', border: '1px solid rgba(127,162,198,0.28)' }}>
-              <div className="text-[12px] font-bold tracking-[0.12em]" style={{ color: '#B8FF1A' }}>{label}</div>
-              <div className="mt-1 text-[10px] leading-tight" style={{ color: '#9FB0B0' }}>{caption}</div>
+        <div className="hero-market-dashboard mt-6" aria-label="Marchés couverts par BTTSPredict">
+          <div className="hero-market-dashboard__header">
+            <div className="flex items-center gap-2">
+              <span className="hero-market-dashboard__pulse" aria-hidden="true" />
+              <span>Market command center</span>
             </div>
-          ))}
+            <span className="hero-market-dashboard__status">Live data</span>
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            {[
+              ['BTTS', 'Les deux marquent', 'BTTS'],
+              ['O2.5', 'Total de buts', 'TOTAL'],
+              ['SCORE', 'Projection exacte', 'EXACT'],
+            ].map(([label, caption, code], index) => (
+              <div key={label} className="hero-market-card">
+                <div className="hero-market-card__topline">
+                  <span className="hero-market-card__code">{code}</span>
+                  <span className="hero-market-card__dot" aria-hidden="true" />
+                </div>
+                <div className="hero-market-card__label">{label}</div>
+                <div className="mt-1 text-[10px] leading-tight" style={{ color: '#B7C4C1' }}>{caption}</div>
+                <div className="hero-market-card__signal" aria-hidden="true">
+                  <span /><span /><span /><span /><span />
+                </div>
+                <div className="hero-market-card__footer">Analyse active</div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-6">
