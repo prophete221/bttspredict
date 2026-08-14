@@ -1,14 +1,18 @@
 'use client'
 
 import { useState } from 'react'
+import { useLanguage } from './LanguageSwitcher'
+import { translationsFor } from '@/lib/i18n'
 import { motion } from 'framer-motion'
-import { SITE, AFFILIATE, LEGAL, FAQ_ITEMS, LONASE } from '@/lib/constants'
+import { LEGAL, FAQ_ITEMS, LONASE } from '@/lib/constants'
 import { useScrollAnimation } from '@/hooks/useAnimations'
 //import { staggerContainer, fadeInUp } from '@/lib/motionPresets'
 
 export default function Footer() {
   const ref = null as any
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const { lang } = useLanguage()
+  const t = translationsFor(lang)
 
   return (
     <>
@@ -17,14 +21,17 @@ export default function Footer() {
           {/* Note de transparence (remplace les témoignages non vérifiables) */}
           <motion.div initial="hidden" className="mb-6">
             <div className="text-center mb-3">
-              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#B8FF1A]">Transparence</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#B8FF1A]">{t.common.transparency}</span>
             </div>
             <div className="p-4 rounded-xl text-center" style={{ backgroundColor: '#0D1A20', border: '1px solid rgba(244, 247, 251, 0.08)' }}>
               <p className="text-[11px] text-[#B7C4C1] leading-relaxed">
-                BTTSPredict ne publie pas de témoignages clients. Notre engagement de transparence repose sur
-                un <a href="/historique" className="text-[#B8FF1A] underline">historique vérifiable publiquement</a>,
-                une <a href="/methodologie" className="text-[#B8FF1A] underline">méthodologie documentée</a> et
-                un suivi public lancé le 2026-08-08.                 Aucun résultat futur n'est garanti.
+                {lang === 'fr' ? (
+                  <>BTTSPredict ne publie pas de témoignages clients. Notre engagement de transparence repose sur un <a href="/historique" className="text-[#B8FF1A] underline">historique vérifiable publiquement</a>, une <a href="/methodologie" className="text-[#B8FF1A] underline">méthodologie documentée</a> et un suivi public lancé le 2026-08-08. Aucun résultat futur n’est garanti.</>
+                ) : lang === 'en' ? (
+                  <>BTTSPredict does not publish customer testimonials. Our transparency commitment is based on a <a href="/en/historique" className="text-[#B8FF1A] underline">publicly verifiable history</a>, a <a href="/en/methodologie" className="text-[#B8FF1A] underline">documented method</a> and public tracking. No future result is guaranteed.</>
+                ) : (
+                  <>لا تنشر BTTSPredict شهادات العملاء. تعتمد الشفافية على <a href="/ar/historique" className="text-[#B8FF1A] underline">سجل عام موثق</a> و<a href="/ar/methodologie" className="text-[#B8FF1A] underline">منهجية موثقة</a> وتتبع علني. لا توجد ضمانات لأي نتيجة مستقبلية.</>
+                )}
               </p>
             </div>
           </motion.div>
@@ -32,10 +39,10 @@ export default function Footer() {
           {/* FAQ */}
           <motion.div initial="hidden" className="mb-6">
             <div className="text-center mb-3">
-              <h3 className="text-sm font-bold text-papier">Questions fréquentes</h3>
+              <h3 className="text-sm font-bold text-papier">{t.common.faq}</h3>
             </div>
             <div className="space-y-2">
-              {FAQ_ITEMS.slice(0, 4).map((item, i) => (
+              {(lang === 'fr' ? FAQ_ITEMS.slice(0, 4) : t.faqItems).map((item, i) => (
                 <div key={item.q} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#0D1A20', border: '1px solid rgba(244, 247, 251, 0.08)' }}>
                   <button onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i} className="w-full text-left px-4 py-3 text-xs font-semibold text-papier">
                     {item.q}
@@ -66,10 +73,10 @@ export default function Footer() {
           <div className="rounded-xl p-4 mb-3" style={{ backgroundColor: '#0D1A20' }}>
             <div className="flex items-center gap-2 mb-2">
               <span className="text-[#B8FF1A] font-extrabold text-xs">18+</span>
-              <span className="text-[10px] text-[#B7C4C1]">| {LONASE.name} | Jeu responsable</span>
+              <span className="text-[10px] text-[#B7C4C1]">| {LONASE.name} | {t.common.responsible}</span>
             </div>
             <p className="text-[10px] text-[#B7C4C1] leading-relaxed">
-              <strong className="text-[#B8FF1A]">Avertissement :</strong> {LEGAL.disclaimer}
+              <strong className="text-[#B8FF1A]">{t.common.warning} :</strong> {lang === 'fr' ? LEGAL.disclaimer : t.legal.risk + ' ' + t.legal.noGuarantee + ' ' + t.legal.eighteen}
             </p>
           </div>
 
@@ -113,17 +120,15 @@ export default function Footer() {
 
           {/* Affiliation disclaimer */}
           <p className="text-center text-[10px] text-[#B7C4C1] mb-2 leading-relaxed">
-            Liens d'affiliation — BTTSPredict est un site informatif indépendant, nous ne prenons pas de paris.
-            Les liens vers les bookmakers partenaires sont des liens d'affiliation rémunérés.
-            BTTSPredict n'est pas affilié à, ni exploité par, les sociétés de paris mentionnées.
+            {t.common.affiliate} {lang === 'fr' ? 'Les liens vers les bookmakers partenaires sont des liens d’affiliation rémunérés. BTTSPredict n’est pas affilié aux sociétés de paris mentionnées.' : ''}
           </p>
 
           {/* Identité éditeur — aligné avec LocalBusiness Schema.org (Dakar, Sénégal) */}
           <div className="text-center text-[10px] text-[#B7C4C1] mt-3 space-y-1">
-            <div>Éditeur: BTTSPredict · Dakar, Sénégal · Contact conformité: {' '}
+            <div>{t.common.publisher} · Contact conformité: {' '}
               <a href="mailto:contact@bttspredict.com" className="underline hover:text-[#B7C4C1]">contact@bttspredict.com</a>
             </div>
-            <div>Les performances passées ne préjugent pas des résultats futurs — 18+ Jouez responsable</div>
+            <div>{t.legal.noGuarantee} — 18+ {t.common.responsible}</div>
           </div>
 
           <div className="text-center text-[10px] text-[#5D7880] mt-2">

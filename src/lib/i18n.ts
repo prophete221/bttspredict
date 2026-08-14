@@ -54,7 +54,13 @@ export const TRANSLATIONS = {
       responsible: 'Jouer de manière responsable', learnMore: 'En savoir plus', noGuarantee: 'Aucun résultat futur n’est garanti.',
       affiliation: 'Site informatif et d’affiliation. Nous ne prenons pas de paris et ne collectons pas de fonds.',
     },
-    common: { home: 'Accueil', quickLinks: 'Liens rapides', methodology: 'Méthodologie', statistics: 'Statistiques', verifiedHistory: 'Historique vérifié', publicData: 'Données publiques' },
+    common: { home: 'Accueil', quickLinks: 'Liens rapides', methodology: 'Méthodologie', statistics: 'Statistiques', verifiedHistory: 'Historique vérifié', publicData: 'Données publiques', transparency: 'Transparence', faq: 'Questions fréquentes', warning: 'Avertissement', responsible: 'Jeu responsable', affiliate: "Liens d’affiliation — BTTSPredict est un site informatif indépendant et ne prend pas de paris.", publisher: 'Éditeur : BTTSPredict · Dakar, Sénégal' },
+    faqItems: [
+      { q: 'Qu’est-ce que le BTTS ?', a: 'BTTS signifie que les deux équipes marquent au moins un but. Il s’agit d’une estimation statistique, jamais d’une garantie.' },
+      { q: 'Les pronostics sont-ils garantis ?', a: 'Non. Les paris sportifs comportent un risque de perte et aucun résultat futur n’est garanti.' },
+      { q: 'Comment les données sont-elles suivies ?', a: 'Les pronostics sont horodatés puis comparés au résultat officiel après le match.' },
+      { q: 'BTTSPredict prend-il des paris ?', a: 'Non. BTTSPredict est un site informatif et d’affiliation et ne collecte pas de fonds.' },
+    ],
   },
   en: {
     nav: {
@@ -78,7 +84,13 @@ export const TRANSLATIONS = {
       responsible: 'Play responsibly', learnMore: 'Learn more', noGuarantee: 'No future result is guaranteed.',
       affiliation: 'Informational and affiliate website. We do not take bets or hold funds.',
     },
-    common: { home: 'Home', quickLinks: 'Quick links', methodology: 'Methodology', statistics: 'Statistics', verifiedHistory: 'Verified history', publicData: 'Public data' },
+    common: { home: 'Home', quickLinks: 'Quick links', methodology: 'Methodology', statistics: 'Statistics', verifiedHistory: 'Verified history', publicData: 'Public data', transparency: 'Transparency', faq: 'Frequently asked questions', warning: 'Warning', responsible: 'Play responsibly', affiliate: 'Affiliate links — BTTSPredict is an independent informational website and does not take bets.', publisher: 'Publisher: BTTSPredict · Dakar, Senegal' },
+    faqItems: [
+      { q: 'What does BTTS mean?', a: 'BTTS means that both teams score at least one goal. It is a statistical estimate, never a guarantee.' },
+      { q: 'Are predictions guaranteed?', a: 'No. Sports betting carries a risk of loss and no future result is guaranteed.' },
+      { q: 'How are results tracked?', a: 'Predictions are time-stamped and compared with the official result after the match.' },
+      { q: 'Does BTTSPredict take bets?', a: 'No. BTTSPredict is an informational and affiliate website and does not hold funds.' },
+    ],
   },
   ar: {
     nav: {
@@ -102,7 +114,13 @@ export const TRANSLATIONS = {
       responsible: 'العب بمسؤولية', learnMore: 'معرفة المزيد', noGuarantee: 'لا توجد ضمانات لأي نتيجة مستقبلية.',
       affiliation: 'موقع معلومات وتسويق بالعمولة. لا نقبل الرهانات ولا نحتفظ بالأموال.',
     },
-    common: { home: 'الرئيسية', quickLinks: 'روابط سريعة', methodology: 'المنهجية', statistics: 'الإحصائيات', verifiedHistory: 'سجل موثق', publicData: 'بيانات عامة' },
+    common: { home: 'الرئيسية', quickLinks: 'روابط سريعة', methodology: 'المنهجية', statistics: 'الإحصائيات', verifiedHistory: 'سجل موثق', publicData: 'بيانات عامة', transparency: 'الشفافية', faq: 'الأسئلة الشائعة', warning: 'تحذير', responsible: 'العب بمسؤولية', affiliate: 'روابط تسويق بالعمولة — BTTSPredict موقع معلومات مستقل ولا يقبل الرهانات.', publisher: 'الناشر: BTTSPredict · داكار، السنغال' },
+    faqItems: [
+      { q: 'ما معنى BTTS؟', a: 'يعني BTTS أن يسجل كلا الفريقين هدفاً واحداً على الأقل. إنه تقدير إحصائي وليس ضماناً.' },
+      { q: 'هل التوقعات مضمونة؟', a: 'لا. المراهنات الرياضية تنطوي على خطر الخسارة ولا توجد ضمانات لأي نتيجة مستقبلية.' },
+      { q: 'كيف يتم تتبع النتائج؟', a: 'يتم تأريخ التوقعات ومقارنتها بالنتيجة الرسمية بعد انتهاء المباراة.' },
+      { q: 'هل تقبل BTTSPredict الرهانات؟', a: 'لا. BTTSPredict موقع معلومات وتسويق بالعمولة ولا يحتفظ بالأموال.' },
+    ],
   },
 } as const
 

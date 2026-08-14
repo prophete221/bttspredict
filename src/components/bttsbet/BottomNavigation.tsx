@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
+import { localizedPath, translationsFor } from '@/lib/i18n'
+import { useLanguage } from './LanguageSwitcher'
 
 type TabId = 'home' | 'predictions' | 'vip'
 
@@ -55,12 +57,20 @@ const TABS: Tab[] = [
 
 export default function BottomNavigation() {
   const pathname = usePathname() || '/'
+  const { lang } = useLanguage()
+  const t = translationsFor(lang)
+  const normalizedPathname = pathname.replace(/^\/(en|ar)(?=\/|$)/, '') || '/'
+  const tabs = TABS.map(tab => ({
+    ...tab,
+    href: localizedPath(tab.href, lang),
+    label: tab.id === 'home' ? t.nav.home : tab.id === 'predictions' ? t.nav.predictions : t.nav.vip,
+  }))
   const [active, setActive] = useState<TabId>('home')
 
   useEffect(() => {
-    const matched = TABS.find(tab => tab.matchPath(pathname))
+    const matched = TABS.find(tab => tab.matchPath(normalizedPathname))
     queueMicrotask(() => setActive(matched ? matched.id : 'home'))
-  }, [pathname])
+  }, [normalizedPathname])
 
   return (
     <nav
@@ -75,9 +85,9 @@ export default function BottomNavigation() {
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
         height: 'calc(64px + env(safe-area-inset-bottom, 0px))',
       }}
-      aria-label="Navigation principale"
+      aria-label={lang === 'fr' ? 'Navigation principale' : lang === 'en' ? 'Main navigation' : 'التنقل الرئيسي'}
     >
-      {TABS.map(tab => {
+      {tabs.map(tab => {
         const isActive = active === tab.id
         return (
           <a

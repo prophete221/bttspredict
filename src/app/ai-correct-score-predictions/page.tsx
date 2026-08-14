@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
+import { translationsFor } from '@/lib/i18n'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -48,6 +50,8 @@ function computeTopScores(lambdaHome: number, lambdaAway: number, topN = 5): { s
 }
 
 export default function AICorrectScorePage() {
+  const { lang } = useLanguage()
+  const t = translationsFor(lang)
   const [predictions, setPredictions] = useState<ScorePrediction[]>([])
   const [loading, setLoading] = useState(true)
   const [activeLeague, setActiveLeague] = useState<string>('all')
@@ -87,7 +91,7 @@ export default function AICorrectScorePage() {
       <Navbar />
       <main id="main-content" className="flex-1">
         <nav aria-label="Fil d'Ariane" className="text-xs text-[#B7C4C1] mb-4 max-w-5xl mx-auto px-4 pt-8">
-          <Link href="/" className="hover:text-[#B8FF1A]">Accueil</Link>
+          <Link href={lang === 'fr' ? '/' : `/${lang}`} className="hover:text-[#B8FF1A]">{t.common.home}</Link>
           <span className="mx-1">/</span>
           <span className="text-[#B7C4C1]">AI Correct Score</span>
         </nav>
@@ -95,16 +99,16 @@ export default function AICorrectScorePage() {
         <section className="max-w-5xl mx-auto px-4 pt-4 pb-6">
           <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
             style={{ backgroundColor: 'rgba(169, 196, 223, 0.12)', color: '#B8FF1A', border: '1px solid rgba(169, 196, 223, 0.25)' }}>
-            AI · Correct Score · Poisson Model
+            {lang === 'fr' ? 'IA · Score exact · Modèle de Poisson' : lang === 'en' ? 'AI · Correct Score · Poisson Model' : 'الذكاء الاصطناعي · النتيجة الدقيقة · نموذج بواسون'}
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            AI Correct Score Predictions
+            {lang === 'fr' ? 'Prédictions de score exact par IA' : lang === 'en' ? 'AI Correct Score Predictions' : 'توقعات النتيجة الدقيقة بالذكاء الاصطناعي'}
           </h1>
           <p className="text-base sm:text-lg text-[#B7C4C1] leading-relaxed mb-3 max-w-3xl mx-auto">
-            Most likely exact scores computed by the Poisson model from each team&apos;s expected goals (xG). The top 5 scorelines are shown per match, ranked by probability.
+            {lang === 'fr' ? 'Les scores exacts les plus probables sont calculés par le modèle de Poisson à partir des buts attendus (xG) de chaque équipe. Les cinq scores les plus probables sont affichés pour chaque match.' : lang === 'en' ? 'Most likely exact scores computed by the Poisson model from each team’s expected goals (xG). The top 5 scorelines are shown per match, ranked by probability.' : 'يحسب نموذج بواسون النتائج الدقيقة الأكثر احتمالاً من الأهداف المتوقعة لكل فريق. نعرض أفضل خمسة نتائج مرتبة حسب الاحتمال.'}
           </p>
           <p className="text-sm text-[#B7C4C1] leading-relaxed max-w-3xl mx-auto">
-            Aucun gain n&apos;est garanti. These are statistical probabilities, not certainties. 18+.
+            {t.legal.noGuarantee} {lang === 'fr' ? 'Il s’agit de probabilités statistiques, pas de certitudes.' : lang === 'en' ? 'These are statistical probabilities, not certainties.' : 'هذه احتمالات إحصائية وليست يقيناً.'} {t.legal.eighteen}
           </p>
         </section>
 
@@ -122,7 +126,7 @@ export default function AICorrectScorePage() {
                     : 'bg-[#0D1A20] text-[#B7C4C1] border border-[#5D7880] hover:text-[#B7C4C1]'
                 }`}
               >
-                {league === 'all' ? 'All Leagues' : league}
+                {league === 'all' ? t.predictions.leagues : league}
               </button>
             ))}
           </div>
@@ -138,7 +142,7 @@ export default function AICorrectScorePage() {
             </div>
           ) : filtered.length === 0 ? (
             <div className="rounded-xl p-10 text-center" style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
-              <p className="text-sm text-[#B7C4C1]">No matches available today.</p>
+              <p className="text-sm text-[#B7C4C1]">{lang === 'fr' ? 'Aucun match disponible aujourd’hui.' : lang === 'en' ? 'No matches available today.' : 'لا توجد مباريات متاحة اليوم.'}</p>
             </div>
           ) : (
             <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
@@ -189,43 +193,43 @@ export default function AICorrectScorePage() {
         <section className="max-w-3xl mx-auto px-4 pb-8">
           <div className="rounded-xl p-5" style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
             <h2 className="text-lg font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              How AI Correct Score works
+              {lang === 'fr' ? 'Comment fonctionne le score exact IA' : lang === 'en' ? 'How AI Correct Score works' : 'كيف تعمل توقعات النتيجة الدقيقة'}
             </h2>
             <p className="text-sm text-[#B7C4C1] leading-relaxed mb-3">
-              The Poisson model calculates the probability of each exact scoreline from the expected goals (xG) of both teams. For each team, the probability of scoring <em>k</em> goals follows a Poisson distribution: P(k) = (λᵏ × e⁻λ) / k!
+              {lang === 'fr' ? <>Le modèle de Poisson calcule la probabilité de chaque score exact à partir des buts attendus (xG) des deux équipes. Pour chaque équipe, la probabilité de marquer <em>k</em> buts suit une distribution de Poisson.</> : lang === 'en' ? <>The Poisson model calculates the probability of each exact scoreline from both teams’ expected goals (xG). For each team, the probability of scoring <em>k</em> goals follows a Poisson distribution.</> : <>يحسب نموذج بواسون احتمال كل نتيجة دقيقة من الأهداف المتوقعة للفريقين. احتمال تسجيل <em>k</em> أهداف يتبع توزيع بواسون.</>}
             </p>
             <p className="text-sm text-[#B7C4C1] leading-relaxed mb-3">
-              The probability of a specific score (e.g. 2-1) is P(home=2) × P(away=1). We compute all 49 combinations (0-0 through 6-6) and rank the top 5 most likely scores.
+              {lang === 'fr' ? 'La probabilité d’un score précis comme 2-1 est le produit des probabilités de buts des deux équipes. Nous calculons 49 combinaisons et classons les cinq scores les plus probables.' : lang === 'en' ? 'The probability of a specific score such as 2-1 is P(home=2) × P(away=1). We compute 49 combinations from 0-0 to 6-6 and rank the five most likely scores.' : 'احتمال نتيجة محددة مثل 2-1 هو حاصل ضرب احتمال أهداف صاحب الأرض والضيف. نحسب 49 تركيبة ونرتب النتائج الخمس الأكثر احتمالاً.'}
             </p>
             <p className="text-xs text-[#B7C4C1] leading-relaxed">
-              ⚠ Correct score betting is high-risk. Even the most likely score typically has only 8-15% probability. These predictions are statistical estimates, not guarantees. 18+.
+              {lang === 'fr' ? '⚠ Les paris sur le score exact comportent un risque élevé. Même le score le plus probable ne représente généralement que 8 à 15 %. Ces estimations ne sont pas des garanties. 18+.' : lang === 'en' ? '⚠ Correct-score betting is high-risk. Even the most likely score typically has only 8–15% probability. These are estimates, not guarantees. 18+.' : '⚠ المراهنة على النتيجة الدقيقة عالية المخاطر. حتى النتيجة الأكثر احتمالاً تكون عادة بين 8 و15%. هذه تقديرات وليست ضمانات. 18+.'}
             </p>
           </div>
         </section>
 
         {/* Quick Links */}
         <section className="max-w-3xl mx-auto px-4 pb-12">
-          <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>Quick Links</h2>
+          <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>{t.common.quickLinks}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01]"
               style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
-              <div className="text-sm font-bold text-[#F5F8F3]">BTTS Predictions Today →</div>
-              <div className="text-xs text-[#B7C4C1] mt-1">Both teams to score</div>
+              <div className="text-sm font-bold text-[#F5F8F3]">{lang === 'fr' ? 'Prédictions BTTS du jour →' : lang === 'en' ? 'BTTS Predictions Today →' : 'توقعات BTTS اليوم ←'}</div>
+              <div className="text-xs text-[#B7C4C1] mt-1">{lang === 'fr' ? 'Les deux équipes marquent' : lang === 'en' ? 'Both teams to score' : 'كلا الفريقين يسجلان'}</div>
             </Link>
             <Link href="/over-2-5/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01]"
               style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
-              <div className="text-sm font-bold text-[#F5F8F3]">Over 2.5 Predictions Today →</div>
-              <div className="text-xs text-[#B7C4C1] mt-1">Total goals ≥ 3</div>
+              <div className="text-sm font-bold text-[#F5F8F3]">{lang === 'fr' ? 'Prédictions Over 2.5 du jour →' : lang === 'en' ? 'Over 2.5 Predictions Today →' : 'توقعات Over 2.5 اليوم ←'}</div>
+              <div className="text-xs text-[#B7C4C1] mt-1">{lang === 'fr' ? 'Total de buts ≥ 3' : lang === 'en' ? 'Total goals ≥ 3' : 'إجمالي الأهداف ≥ 3'}</div>
             </Link>
             <Link href="/btts-and-over-2-5-predictions-today" className="block p-4 rounded-xl transition-all hover:scale-[1.01]"
               style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
-              <div className="text-sm font-bold text-[#F5F8F3]">BTTS + Over 2.5 Combined →</div>
-              <div className="text-xs text-[#B7C4C1] mt-1">Both conditions met</div>
+              <div className="text-sm font-bold text-[#F5F8F3]">{lang === 'fr' ? 'BTTS + Over 2.5 combiné →' : lang === 'en' ? 'BTTS + Over 2.5 Combined →' : 'BTTS + Over 2.5 معاً ←'}</div>
+              <div className="text-xs text-[#B7C4C1] mt-1">{lang === 'fr' ? 'Les deux conditions réunies' : lang === 'en' ? 'Both conditions met' : 'تحقق الشرطان'}</div>
             </Link>
             <Link href="/methodologie" className="block p-4 rounded-xl transition-all hover:scale-[1.01]"
               style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
-              <div className="text-sm font-bold text-[#F5F8F3]">Methodology →</div>
-              <div className="text-xs text-[#B7C4C1] mt-1">How the model works</div>
+              <div className="text-sm font-bold text-[#F5F8F3]">{lang === 'fr' ? 'Méthodologie →' : lang === 'en' ? 'Methodology →' : 'المنهجية ←'}</div>
+              <div className="text-xs text-[#B7C4C1] mt-1">{lang === 'fr' ? 'Fonctionnement du modèle' : lang === 'en' ? 'How the model works' : 'كيف يعمل النموذج'}</div>
             </Link>
           </div>
         </section>
