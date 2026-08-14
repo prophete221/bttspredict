@@ -4,6 +4,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 import { generateMatchSlug, getAllMatchSlugs, getMatchBySlug } from '@/lib/matches'
 import Link from 'next/link'
 import MatchAnalyticsCharts from '@/components/bttsbet/MatchAnalyticsCharts'
+import type { Locale } from '@/lib/i18n'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -66,11 +67,23 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 const SITE_URL = 'https://bttspredict.com'
 
-export default async function MatchPage({ params }: PageProps) {
+const MATCH_COPY: Record<Locale, {
+  home: string; predictions: string; breadcrumb: string; finalScore: string; report: string; published: string;
+  bttsSubtitle: string; overSubtitle: string; won: string; lost: string; pending: string; noFuture: string;
+  keyFact: string; analysis: string; verification: string; verifiedAt: string; source: string;
+  further: string; today: string; todayDesc: string; premium: string; vipDesc: string; disclaimer: string;
+}> = {
+  fr: { home: 'Accueil', predictions: 'Pronostics', breadcrumb: 'Fil d’Ariane', finalScore: 'Score final', report: 'Rapport de signal', published: 'Données publiées', bttsSubtitle: 'Les deux équipes marquent', overSubtitle: 'Total de buts ≥ 3', won: 'Gagné', lost: 'Perdu', pending: 'En attente', noFuture: 'Aucun résultat futur n’est garanti. 18+.', keyFact: 'Statistique clé — xG & données disponibles', analysis: 'Analyse statistique', verification: 'Vérification', verifiedAt: 'Vérifié le', source: 'Source : ESPN et TheSportsDB. Suivi public depuis le 2026-08-08.', further: 'Aller plus loin', today: 'Voir les pronostics du jour →', todayDesc: 'Tous les matchs sélectionnés par le moteur IA', premium: 'Pronostics premium →', vipDesc: 'Programme VIP BTTSPredict', disclaimer: '18+ · Les paris sportifs comportent un risque de perte. Aucun résultat futur n’est garanti. BTTSPredict ne prend pas de paris et ne collecte pas de fonds. Pronostic publié à titre informatif, ne constitue pas une incitation à parier.' },
+  en: { home: 'Home', predictions: 'Predictions', breadcrumb: 'Breadcrumb', finalScore: 'Final score', report: 'Signal report', published: 'Published data', bttsSubtitle: 'Both teams to score', overSubtitle: 'Total goals ≥ 3', won: 'Won', lost: 'Lost', pending: 'Pending', noFuture: 'No future result is guaranteed. 18+.', keyFact: 'Key statistic — xG & available data', analysis: 'Statistical analysis', verification: 'Verification', verifiedAt: 'Verified on', source: 'Source: ESPN and TheSportsDB. Public tracking since 2026-08-08.', further: 'Explore further', today: 'View today’s predictions →', todayDesc: 'All matches selected by the AI engine', premium: 'Premium predictions →', vipDesc: 'BTTSPredict VIP programme', disclaimer: '18+ · Sports betting carries a risk of loss. No future result is guaranteed. BTTSPredict does not take bets or hold funds. This prediction is informational and is not an invitation to bet.' },
+  ar: { home: 'الرئيسية', predictions: 'التوقعات', breadcrumb: 'مسار التنقل', finalScore: 'النتيجة النهائية', report: 'تقرير الإشارة', published: 'بيانات منشورة', bttsSubtitle: 'كلا الفريقين يسجلان', overSubtitle: 'إجمالي الأهداف ≥ 3', won: 'فوز', lost: 'خسارة', pending: 'قيد الانتظار', noFuture: 'لا توجد ضمانات لأي نتيجة مستقبلية. 18+.', keyFact: 'إحصائية أساسية — xG والبيانات المتاحة', analysis: 'تحليل إحصائي', verification: 'التحقق', verifiedAt: 'تم التحقق في', source: 'المصدر: ESPN وTheSportsDB. متابعة عامة منذ 2026-08-08.', further: 'استكشف المزيد', today: 'عرض توقعات اليوم ←', todayDesc: 'جميع المباريات التي اختارها محرك الذكاء الاصطناعي', premium: 'التوقعات المميزة ←', vipDesc: 'برنامج VIP من BTTSPredict', disclaimer: '18+ · المراهنات الرياضية تنطوي على خطر الخسارة. لا توجد ضمانات لأي نتيجة مستقبلية. BTTSPredict لا يقبل الرهانات ولا يحتفظ بالأموال. هذا التوقع إعلامي وليس دعوة للمراهنة.' },
+}
+
+export default async function MatchPage({ params, locale = 'fr' }: PageProps & { locale?: Locale }) {
   const { slug } = await params
   const match = getMatchBySlug(slug)
 
   if (!match) notFound()
+  const copy = MATCH_COPY[locale]
 
   const { home, away, league, date, time, homeLogo, awayLogo, predictions } = match
   const aiExactScore = match.aiExactScore || null
@@ -126,10 +139,10 @@ export default async function MatchPage({ params }: PageProps) {
 
       <main id="main-content" className="flex-1">
         {/* Breadcrumb */}
-        <nav aria-label="Fil d'Ariane" className="max-w-4xl mx-auto px-4 pt-6 pb-2 text-xs text-[#B7C4C1]">
-          <Link href="/" className="hover:text-[#B8FF1A]">Accueil</Link>
+        <nav aria-label={copy.breadcrumb} className="max-w-4xl mx-auto px-4 pt-6 pb-2 text-xs text-[#B7C4C1]">
+          <Link href="/" className="hover:text-[#B8FF1A]">{copy.home}</Link>
           <span className="mx-1">/</span>
-          <Link href="/btts/predictions/today" className="hover:text-[#B8FF1A]">Pronostics</Link>
+          <Link href="/btts/predictions/today" className="hover:text-[#B8FF1A]">{copy.predictions}</Link>
           <span className="mx-1">/</span>
           <span className="text-[#B7C4C1]">{home} vs {away}</span>
         </nav>
@@ -160,7 +173,7 @@ export default async function MatchPage({ params }: PageProps) {
             {finalScore && (
               <div className="text-center mb-2">
                 <span className="inline-block px-4 py-2 rounded-xl text-lg font-bold" style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
-                  Score final : {finalScore}
+                  {copy.finalScore} : {finalScore}
                 </span>
               </div>
             )}
@@ -172,10 +185,10 @@ export default async function MatchPage({ params }: PageProps) {
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#B8FF1A]">Match intelligence</p>
                 <h1 className="mt-1 text-2xl font-bold sm:text-3xl" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                  Signal report
+                  {copy.report}
                 </h1>
               </div>
-              <span className="text-right text-[10px] uppercase tracking-wider text-[#9FB0B0]">Données publiées</span>
+              <span className="text-right text-[10px] uppercase tracking-wider text-[#9FB0B0]">{copy.published}</span>
             </div>
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -209,22 +222,22 @@ export default async function MatchPage({ params }: PageProps) {
 
                     {/* Subtitle to make cards visually distinct */}
                     <div className="text-[10px] text-[#B7C4C1] mb-2">
-                      {isBtts ? 'Both Teams To Score' : isOver ? 'Total Goals ≥ 3' : ''}
+                      {isBtts ? copy.bttsSubtitle : isOver ? copy.overSubtitle : ''}
                     </div>
 
                     {isWon && (
                       <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(34, 197, 94, 0.15)', color: '#B8FF1A' }}>
-                        ✓ Gagné
+                        ✓ {copy.won}
                       </div>
                     )}
                     {isLost && (
                       <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(255, 113, 133, 0.15)', color: '#FF7B7B' }}>
-                        ✗ Perdu
+                        ✗ {copy.lost}
                       </div>
                     )}
                     {isPending && (
                       <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(156, 163, 175, 0.15)', color: '#B7C4C1' }}>
-                        ⏳ En attente
+                        ⏳ {copy.pending}
                       </div>
                     )}
                   </div>
@@ -233,7 +246,7 @@ export default async function MatchPage({ params }: PageProps) {
             </div>
 
             <p className="text-xs text-[#B7C4C1] mt-4 leading-relaxed text-center">
-              Aucun résultat futur n&apos;est garanti. 18+.
+              {copy.noFuture}
             </p>
           </section>
 
@@ -252,11 +265,11 @@ export default async function MatchPage({ params }: PageProps) {
               <div className="rounded-2xl border border-[#304951] bg-[#0D1A20] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.18)] sm:p-6">
                 <div className="flex items-center justify-between border-b border-[#304951] pb-3">
                   <h2 className="flex items-center gap-2 text-sm font-bold text-[#F5F8F3]">
-                    <span className="text-[#B8FF1A]">Signal report</span> — BTTSPredict AI
+                    <span className="text-[#B8FF1A]">{copy.report}</span> — BTTSPredict AI
                   </h2>
                   {aiExactScore && (
                     <span className="px-2.5 py-1 text-xs font-black rounded-md" style={{ backgroundColor: 'rgba(245,158,11,0.1)', color: '#B8FF1A', border: '1px solid rgba(245,158,11,0.3)' }}>
-                      Score Exact : {aiExactScore}
+                      {copy.finalScore} : {aiExactScore}
                     </span>
                   )}
                 </div>
@@ -289,7 +302,7 @@ export default async function MatchPage({ params }: PageProps) {
                 {aiKeyFact && (
                   <div className="p-3 rounded-lg" style={{ backgroundColor: '#071018', border: '1px solid #5D7880' }}>
                     <span className="text-[11px] font-bold text-[#B8FF1A] uppercase tracking-wider block mb-1">
-                      📌 Statistique clé — xG & données disponibles
+                      📌 {copy.keyFact}
                     </span>
                     <p className="text-xs text-[#F5F8F3] italic">&ldquo;{aiKeyFact}&rdquo;</p>
                   </div>
@@ -299,7 +312,7 @@ export default async function MatchPage({ params }: PageProps) {
                 {aiAnalysis && (
                   <div className="p-3.5 rounded-lg" style={{ backgroundColor: '#071018', border: '1px solid #5D7880' }}>
                     <span className="text-[11px] font-bold text-[#B7C4C1] uppercase tracking-wider block mb-1">
-                      📝 Analyse statistique
+                      📝 {copy.analysis}
                     </span>
                     <p className="text-xs text-[#B7C4C1] leading-relaxed">
                       {aiAnalysis}
@@ -313,30 +326,30 @@ export default async function MatchPage({ params }: PageProps) {
           {/* Vérification */}
           <section className="mb-10">
             <h2 className="text-xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Vérification
+              {copy.verification}
             </h2>
             <div className="p-4 rounded-xl" style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
                   <div className="text-2xl font-bold text-[#B8FF1A]">{won}</div>
-                  <div className="text-xs text-[#B7C4C1] uppercase">Gagnés</div>
+                  <div className="text-xs text-[#B7C4C1] uppercase">{copy.won}</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-[#FF7B7B]">{lost}</div>
-                  <div className="text-xs text-[#B7C4C1] uppercase">Perdus</div>
+                  <div className="text-xs text-[#B7C4C1] uppercase">{copy.lost}</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-[#B7C4C1]">{pending}</div>
-                  <div className="text-xs text-[#B7C4C1] uppercase">En attente</div>
+                  <div className="text-xs text-[#B7C4C1] uppercase">{copy.pending}</div>
                 </div>
               </div>
               {verified.length > 0 && verified[0].verifiedAt && (
                 <p className="text-xs text-[#B7C4C1] mt-3 text-center">
-                  Vérifié le {new Date(verified[0].verifiedAt).toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' })}
+                  {copy.verifiedAt} {new Date(verified[0].verifiedAt).toLocaleString(locale === 'ar' ? 'ar' : locale === 'en' ? 'en-GB' : 'fr-FR', { dateStyle: 'short', timeStyle: 'short' })}
                 </p>
               )}
               <p className="text-xs text-[#B7C4C1] mt-2 text-center">
-                Source : ESPN et TheSportsDB. Suivi public depuis le 2026-08-08.
+                {copy.source}
               </p>
             </div>
           </section>
@@ -364,7 +377,7 @@ export default async function MatchPage({ params }: PageProps) {
           <section>
             <div className="p-4 rounded-xl text-center" style={{ backgroundColor: 'rgba(255, 122, 122, 0.06)', border: '1px solid rgba(255, 122, 122, 0.2)' }}>
               <p className="text-xs text-[#B7C4C1] leading-relaxed">
-                18+ · Les paris sportifs comportent un risque de perte. Aucun résultat futur n'est garanti. BTTSPredict ne prend pas de paris et ne collecte pas de fonds. Pronostic publié à titre informatif, ne constitue pas une incitation à parier.
+                {copy.disclaimer}
               </p>
             </div>
           </section>
