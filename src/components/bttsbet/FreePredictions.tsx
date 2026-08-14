@@ -47,7 +47,7 @@ function getTimeUntil(date: string, time?: string): { value: string; label: stri
   } catch { return null }
 }
 
-function formatDateShort(dateStr: string) {
+function formatDateShort(dateStr: string, lang: 'fr' | 'en' | 'ar' = 'fr') {
   if (!dateStr) return ''
   try {
     const d = new Date(dateStr + 'T12:00:00')
@@ -56,10 +56,10 @@ function formatDateShort(dateStr: string) {
     const today = new Date(); today.setHours(12, 0, 0, 0)
     const matchDate = new Date(dateStr + 'T12:00:00')
     const diffDays = Math.round((matchDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
-    if (diffDays === 0) return "Aujourd'hui"
-    if (diffDays === 1) return 'Demain'
-    const weekdays = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam']
-    return `${weekdays[d.getDay()]} ${day}/${month}`
+    const labels = lang === 'en' ? { today: 'Today', tomorrow: 'Tomorrow', weekdays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] } : lang === 'ar' ? { today: 'اليوم', tomorrow: 'غداً', weekdays: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'] } : { today: "Aujourd'hui", tomorrow: 'Demain', weekdays: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'] }
+    if (diffDays === 0) return labels.today
+    if (diffDays === 1) return labels.tomorrow
+    return `${labels.weekdays[d.getDay()]} ${day}/${month}`
   } catch { return dateStr }
 }
 
@@ -229,7 +229,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
 
   const status = getMatchStatus(match.date, match.time)
   const timeUntil = getTimeUntil(match.date, match.time)
-  const dateLabel = formatDateShort(match.date)
+  const dateLabel = formatDateShort(match.date, lang)
 
   // ─── Fallback Poisson: ensure EVERY match has both BTTS + Over 2.5 ──
   // If a prediction is missing, compute it from available lambdas.
@@ -582,7 +582,7 @@ export default function FreePredictions() {
   return (
     <section ref={ref} id="free-predictions" className="section-pad overflow-x-hidden" style={{ paddingTop: 0, paddingBottom: 'clamp(2rem, 5vw, 4rem)' }}>
       {/* H2 for SEO (hidden visually) */}
-      <h2 className="sr-only">Pronostics IA du jour — BTTS et Over 2.5 gratuits</h2>
+      <h2 className="sr-only">{lang === 'en' ? "Today's AI predictions — free BTTS and Over 2.5" : lang === 'ar' ? 'توقعات الذكاء الاصطناعي لليوم — BTTS وOver 2.5 مجاناً' : 'Pronostics IA du jour — BTTS et Over 2.5 gratuits'}</h2>
       <div className="max-w-[440px] mx-auto">
         {/* Compact filter chips — rounded-full, horizontal scroll */}
         <motion.div
@@ -605,7 +605,7 @@ export default function FreePredictions() {
               { id: 'all', label: t.predictions.all },
               { id: 'today', label: t.predictions.today },
               { id: 'tomorrow', label: t.predictions.tomorrow },
-              { id: '7days', label: '7j' },
+              { id: '7days', label: lang === 'en' ? '7d' : lang === 'ar' ? '7 أيام' : '7j' },
             ] as { id: DateFilter; label: string }[]).map(f => (
               <button
                 key={f.id}
