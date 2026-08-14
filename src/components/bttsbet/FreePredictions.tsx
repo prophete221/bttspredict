@@ -7,6 +7,8 @@ import { AFFILIATE } from '@/lib/constants'
 import { staggerContainer, staggerChildFadeUp, subtleHover } from '@/lib/motionPresets'
 import { resolveTeamLogo } from '@/lib/teamLogos'
 import PremiumButton from './PremiumButton'
+import { useLanguage } from './LanguageSwitcher'
+import { translationsFor } from '@/lib/i18n'
 
 // ─── Helpers ────────────────────────────────────────────────────────────
 function getMatchStatus(date: string, time?: string): 'live' | 'upcoming' | 'finished' {
@@ -204,6 +206,8 @@ function computeBtts(homeLambda: number, awayLambda: number): number {
 // ─── PredictionCard ──────────────────────────────────────────────────────
 function PredictionCard({ match, index }: { match: MatchData; index: number }) {
   const [expanded, setExpanded] = useState(false)
+  const { lang } = useLanguage()
+  const t = translationsFor(lang)
   const teams = match.match.split(/\s+vs?\s+/i)
   const home = teams[0]?.trim() || ''
   const away = teams[1]?.trim() || ''
@@ -334,7 +338,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
                   <line x1="15" y1="9" x2="15.01" y2="9" />
                 </svg>
               </div>
-              <span className="text-[10px] uppercase tracking-widest font-bold text-success-light">Pronostic IA</span>
+              <span className="text-[10px] uppercase tracking-widest font-bold text-success-light">{t.predictions.aiPick}</span>
             </div>
             <span className="text-[10px] text-cendre">BTTS + Over 2.5</span>
           </div>
@@ -345,7 +349,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
             <div className="space-y-2 text-center">
               <div className="text-[10px] uppercase tracking-widest font-bold text-[#B8FF1A]">BTTS</div>
               <div className="text-2xl sm:text-3xl font-black" style={{ color: bttsPred.prediction === 'Oui' ? '#B8FF1A' : '#B7C4C1' }}>
-                {bttsPred.prediction}
+                {bttsPred.prediction === 'Oui' ? t.predictions.bttsYes : t.predictions.bttsNo}
               </div>
             </div>
 
@@ -353,7 +357,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
             <div className="space-y-2 text-center border-l border-[#5D7880] pl-3 sm:pl-4">
               <div className="text-[10px] uppercase tracking-widest font-bold text-[#B8FF1A]">Over 2.5</div>
               <div className="text-2xl sm:text-3xl font-black" style={{ color: over25Pred.prediction === 'Oui' ? '#B8FF1A' : '#B7C4C1' }}>
-                {over25Pred.prediction}
+                {over25Pred.prediction === 'Oui' ? t.predictions.bttsYes : t.predictions.bttsNo}
               </div>
             </div>
           </div>
@@ -383,7 +387,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
                       </div>
                       {match.aiExactScore && (
                         <div className="flex items-center gap-1">
-                          <span className="text-[9px] uppercase tracking-wider text-[#B7C4C1]">Score prédit</span>
+                          <span className="text-[9px] uppercase tracking-wider text-[#B7C4C1]">{t.predictions.predictedScore}</span>
                           <span className="text-sm font-black font-mono text-[#B8FF1A] px-2 py-0.5 rounded" style={{ backgroundColor: 'rgba(199,244,100,0.12)' }}>
                             {match.aiExactScore}
                           </span>
@@ -426,7 +430,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
 
                 {/* CTA */}
                 <div>
-                  <div className="text-[10px] uppercase tracking-widest font-bold text-cendre mb-2">Parier sur ce match</div>
+                  <div className="text-[10px] uppercase tracking-widest font-bold text-cendre mb-2">{t.predictions.betMatch}</div>
                   <div className="grid grid-cols-2 gap-2">
                     <PremiumButton variant="linebet" href={AFFILIATE.linebet} size="sm" fullWidth>
                       Linebet
@@ -450,9 +454,9 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
             aria-label={expanded ? `Voir moins d'analyse pour ${home} – ${away}` : `Voir l'analyse ${home} – ${away}`}
           >
             {expanded ? (
-              <>Voir moins <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="18 15 12 9 6 15" /></svg></>
+              <>{t.predictions.analysis} <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="18 15 12 9 6 15" /></svg></>
             ) : (
-              <>Voir l'analyse <span className="truncate max-w-[140px]">{home} – {away}</span> <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9" /></svg></>
+              <>{t.predictions.analysis} <span className="truncate max-w-[140px]">{home} – {away}</span> <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9" /></svg></>
             )}
           </button>
           {/* LIEN "PAGE MATCH" MASQUÉ TEMPORAIREMENT */}
@@ -465,6 +469,8 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
 // ─── Main Component ─────────────────────────────────────────────────────
 export default function FreePredictions() {
   const [ref, isVisible] = useScrollAnimation()
+  const { lang } = useLanguage()
+  const t = translationsFor(lang)
   const [matches, setMatches] = useState<MatchData[]>([])
   const [loading, setLoading] = useState(true)
   const [activeLeague, setActiveLeague] = useState<string>('all')
@@ -588,17 +594,17 @@ export default function FreePredictions() {
           <div className="filter-command-dashboard__header">
             <div className="flex items-center gap-2">
               <span className="filter-command-dashboard__pulse" aria-hidden="true" />
-              <span>Filter control</span>
+              <span>{t.hero.commandCenter}</span>
             </div>
-            <span className="filter-command-dashboard__mode">Live filters</span>
+            <span className="filter-command-dashboard__mode">{t.hero.liveData}</span>
           </div>
           <div className="filter-command-dashboard__track">
           {/* Date filter chips */}
           <div className="flex items-center gap-1.5 flex-shrink-0">
             {([
-              { id: 'all', label: 'Tous' },
-              { id: 'today', label: "Auj." },
-              { id: 'tomorrow', label: 'Dem.' },
+              { id: 'all', label: t.predictions.all },
+              { id: 'today', label: t.predictions.today },
+              { id: 'tomorrow', label: t.predictions.tomorrow },
               { id: '7days', label: '7j' },
             ] as { id: DateFilter; label: string }[]).map(f => (
               <button
@@ -622,7 +628,7 @@ export default function FreePredictions() {
           {/* Market filter chips */}
           <div className="flex items-center gap-1.5 flex-shrink-0">
             {([
-              { id: 'all', label: 'Tous' },
+              { id: 'all', label: t.predictions.all },
               { id: 'BTTS', label: 'BTTS' },
               { id: 'O2.5', label: 'O2.5' },
             ] as { id: FilterType; label: string }[]).map(f => (
@@ -658,7 +664,7 @@ export default function FreePredictions() {
                 }`}
                 style={activeLeague === league ? { backgroundColor: '#B8FF1A' } : { backgroundColor: '#0D1A20' }}
               >
-                {league === 'all' ? 'Toutes' : league}
+                {league === 'all' ? t.predictions.leagues : league}
               </button>
             ))}
           </div>
@@ -690,8 +696,8 @@ export default function FreePredictions() {
                 <circle cx="12" cy="12" r="10" />
               </svg>
             </div>
-            <p className="text-papier text-sm font-bold mb-2">Aucun match sous ce filtre</p>
-            <p className="text-cendre text-xs">Essaie un autre filtre ou reviens plus tard.</p>
+            <p className="text-papier text-sm font-bold mb-2">{t.predictions.noMatches}</p>
+            <p className="text-cendre text-xs">{lang === 'ar' ? 'جرّب فلترًا آخر أو عد لاحقاً.' : lang === 'en' ? 'Try another filter or come back later.' : 'Essaie un autre filtre ou reviens plus tard.'}</p>
           </div>
         ) : (
           <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
@@ -702,7 +708,7 @@ export default function FreePredictions() {
         )}
 
         <p className="text-center text-[11px] text-cendre mt-6">
-          Prediction statistique basee sur xG + modele Poisson. Aucune garantie future. 18+
+          {lang === 'ar' ? 'توقع إحصائي مبني على xG ونموذج بواسون. لا توجد ضمانات مستقبلية. 18+' : lang === 'en' ? 'Statistical prediction based on xG and a Poisson model. No future guarantee. 18+.' : 'Prediction statistique basee sur xG + modele Poisson. Aucune garantie future. 18+'}
         </p>
 
         {/* CTA — Voir tous les pronostics du jour (page dédiée) */}
@@ -716,7 +722,7 @@ export default function FreePredictions() {
               boxShadow: '0 4px 16px rgba(127, 162, 198, 0.30)',
             }}
           >
-            Voir tous les pronostics du jour →
+            {t.predictions.seeAll} →
           </a>
         </div>
       </div>

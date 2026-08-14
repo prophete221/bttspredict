@@ -26,6 +26,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { generateMatchSlug } from '@/lib/match-slug'
+import { useLanguage } from './LanguageSwitcher'
+import { translationsFor } from '@/lib/i18n'
 
 // ─── Palette (Slate Design System — matches VIP / methodology) ──────────
 const C = {
@@ -527,6 +529,8 @@ function ComboPickRow({ pick, index }: { pick: ComboPick; index: number }) {
 
 // ─── Main Component ──────────────────────────────────────────────────────
 export default function BttsTodayDashboard() {
+  const { lang } = useLanguage()
+  const t = translationsFor(lang)
   const [matches, setMatches] = useState<MatchData[]>([])
   const [loading, setLoading] = useState(true)
   const [activeFilter, setActiveFilter] = useState<FilterType>('all')
@@ -716,10 +720,10 @@ export default function BttsTodayDashboard() {
 
   // ─── Filters ──────────────────────────────────────────────────────────
   const filters: { id: FilterType; label: string }[] = [
-    { id: 'all',  label: 'All' },
+    { id: 'all', label: t.predictions.all },
     { id: 'BTTS', label: 'BTTS' },
     { id: 'O2.5', label: 'Over 2.5' },
-    { id: 'HIGH', label: 'High Confidence' },
+    { id: 'HIGH', label: lang === 'fr' ? 'Confiance élevée' : lang === 'en' ? 'High confidence' : 'ثقة عالية' },
   ]
 
   const filteredMatches = useMemo(() => {
@@ -755,10 +759,10 @@ export default function BttsTodayDashboard() {
               </span>
             </div>
             <h2 className="text-base sm:text-lg font-black" style={{ color: C.text, fontFamily: 'Poppins, sans-serif' }}>
-              Today&apos;s Predictions
+              {lang === 'fr' ? 'Pronostics du jour' : lang === 'en' ? 'Today’s predictions' : 'توقعات اليوم'}
             </h2>
             <p className="text-[10px]" style={{ color: C.textSec }}>
-              Statistical predictions powered by real match data
+              {lang === 'fr' ? 'Prédictions statistiques basées sur des données réelles de matchs' : lang === 'en' ? 'Statistical predictions powered by real match data' : 'توقعات إحصائية مبنية على بيانات حقيقية للمباريات'}
               {generationDate ? ` · ${fmtDate(generationDate)}` : ''}
             </p>
           </div>
@@ -766,20 +770,20 @@ export default function BttsTodayDashboard() {
 
         {/* ─── Stats row (real values only) ─── */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-3">
-          <StatBlock label="Matches" value={fmtInt(stats.todayCount)} accent={C.text} />
-          <StatBlock label="BTTS High" value={fmtInt(stats.bttsHigh)} accent={C.success} />
-          <StatBlock label="Over 2.5 High" value={fmtInt(stats.overHigh)} accent={C.warning} />
-          <StatBlock label="Data Quality" value={stats.highQuality > 0 ? 'HIGH' : '—'} accent={stats.highQuality > 0 ? C.success : C.textSec} />
+          <StatBlock label={lang === 'fr' ? 'Matchs' : lang === 'en' ? 'Matches' : 'المباريات'} value={fmtInt(stats.todayCount)} accent={C.text} />
+          <StatBlock label={lang === 'fr' ? 'BTTS élevé' : lang === 'en' ? 'BTTS high' : 'BTTS مرتفع'} value={fmtInt(stats.bttsHigh)} accent={C.success} />
+          <StatBlock label={lang === 'fr' ? 'Over 2.5 élevé' : lang === 'en' ? 'Over 2.5 high' : 'Over 2.5 مرتفع'} value={fmtInt(stats.overHigh)} accent={C.warning} />
+          <StatBlock label={lang === 'fr' ? 'Qualité des données' : lang === 'en' ? 'Data quality' : 'جودة البيانات'} value={stats.highQuality > 0 ? 'HIGH' : '—'} accent={stats.highQuality > 0 ? C.success : C.textSec} />
         </div>
 
         {stats.avgReliability != null && (
           <div className="mt-2 flex flex-col gap-1 text-[10px]" style={{ color: C.textSec }}>
             <div className="flex items-center gap-2">
-              <span className="uppercase tracking-widest font-bold">Avg Data Confidence:</span>
+              <span className="uppercase tracking-widest font-bold">{lang === 'fr' ? 'Confiance moyenne des données :' : lang === 'en' ? 'Average data confidence:' : 'متوسط موثوقية البيانات:'}</span>
               <span className="font-black tabular-nums" style={{ color: C.gold }}>{stats.avgReliability}%</span>
             </div>
             <span className="text-[8px] italic" style={{ color: C.textMute }}>
-              Qualité des données disponibles — ce n&apos;est pas une probabilité de réussite.
+              {lang === 'fr' ? 'Qualité des données disponibles — ce n’est pas une probabilité de réussite.' : lang === 'en' ? 'Available data quality — this is not a probability of success.' : 'جودة البيانات المتاحة — ليست احتمالاً للنجاح.'}
             </span>
           </div>
         )}
@@ -799,27 +803,27 @@ export default function BttsTodayDashboard() {
             <span className="text-base flex-shrink-0" style={{ color: C.gold }}>✦</span>
             <div className="flex-1 min-w-0">
               <div className="text-[10px] uppercase tracking-widest font-black" style={{ color: C.gold }}>
-                AI Combo of the Day
+                {lang === 'fr' ? 'Combo IA du jour' : lang === 'en' ? 'AI Combo of the Day' : 'تركيبة الذكاء الاصطناعي لليوم'}
               </div>
               <div className="text-[9px]" style={{ color: C.textSec }}>
                 {combo.length === 3
-                  ? 'Statistical selection · 3 picks'
-                  : 'Statistical selection'}
+                  ? (lang === 'fr' ? 'Sélection statistique · 3 choix' : lang === 'en' ? 'Statistical selection · 3 picks' : 'اختيار إحصائي · 3 اختيارات')
+                  : (lang === 'fr' ? 'Sélection statistique' : lang === 'en' ? 'Statistical selection' : 'اختيار إحصائي')}
               </div>
               <div className="text-[8px] mt-0.5 italic" style={{ color: C.textMute }}>
-                Sélection déterministe basée sur les données disponibles — ne garantit aucun résultat.
+                {lang === 'fr' ? 'Sélection déterministe basée sur les données disponibles — ne garantit aucun résultat.' : lang === 'en' ? 'Deterministic selection based on available data — no result is guaranteed.' : 'اختيار محدد يعتمد على البيانات المتاحة — لا توجد ضمانات لأي نتيجة.'}
               </div>
             </div>
           </div>
 
-          {/* Picks — exactly 3 required, otherwise neutral empty state */}
+          {/* Picks — exactly 3 required, otherwise neutral empty state. Legacy copy: No combo available today. */}
           {combo.length < 3 ? (
             <div className="py-4 text-center">
               <p className="text-[11px] font-bold" style={{ color: C.text }}>
-                No combo available today.
+                {t.predictions.noCombo}
               </p>
               <p className="text-[9px] mt-1" style={{ color: C.textSec }}>
-                Eligibility: data quality not LOW, reliability ≥ 70%, BTTS or Over 2.5 ≥ 65%.
+                {lang === 'fr' ? 'Conditions : qualité des données différente de LOW, fiabilité ≥ 70 %, BTTS ou Over 2.5 ≥ 65 %.' : lang === 'en' ? 'Eligibility: data quality is not LOW, reliability ≥ 70%, BTTS or Over 2.5 ≥ 65%.' : 'الشروط: جودة البيانات ليست منخفضة، الموثوقية ≥ 70%، وBTTS أو Over 2.5 ≥ 65%.'}
               </p>
             </div>
           ) : (
@@ -836,7 +840,7 @@ export default function BttsTodayDashboard() {
 
           {/* Disclaimer — discrete */}
           <p className="text-[9px] mt-3 text-center" style={{ color: C.textMute }}>
-            AI selection based on statistical model outputs. No bet is guaranteed.
+            {lang === 'fr' ? 'Sélection IA basée sur les sorties du modèle statistique. Aucun pari n’est garanti.' : lang === 'en' ? 'AI selection based on statistical model outputs. No bet is guaranteed.' : 'اختيار الذكاء الاصطناعي مبني على مخرجات النموذج الإحصائي. لا توجد ضمانات لأي رهان.'}
           </p>
         </div>
       )}
@@ -872,7 +876,7 @@ export default function BttsTodayDashboard() {
           {/* ─── Section: Aujourd'hui ─── */}
           <div className="mb-6">
             <h3 className="text-xs uppercase tracking-widest font-black mb-3" style={{ color: C.text }}>
-              Aujourd&apos;hui
+              {lang === 'fr' ? 'Aujourd’hui' : lang === 'en' ? 'Today' : 'اليوم'}
               <span className="ml-2 px-2 py-0.5 rounded-full text-[10px] font-bold" style={{
                 backgroundColor: todayMatches.length > 0 ? `${C.success}20` : `${C.textMute}20`,
                 color: todayMatches.length > 0 ? C.success : C.textMute,
@@ -882,8 +886,8 @@ export default function BttsTodayDashboard() {
             </h3>
             {todayMatches.length === 0 ? (
               <div className="rounded-xl p-8 text-center" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
-                <p className="text-sm font-bold mb-1" style={{ color: C.text }}>Aucun match disponible aujourd&apos;hui</p>
-                <p className="text-[11px]" style={{ color: C.textSec }}>Revenez plus tard ou consultez les matchs à venir ci-dessous.</p>
+                <p className="text-sm font-bold mb-1" style={{ color: C.text }}>{lang === 'fr' ? 'Aucun match disponible aujourd’hui' : lang === 'en' ? 'No match available today' : 'لا توجد مباريات متاحة اليوم'}</p>
+                <p className="text-[11px]" style={{ color: C.textSec }}>{lang === 'fr' ? 'Revenez plus tard ou consultez les matchs à venir ci-dessous.' : lang === 'en' ? 'Come back later or check the upcoming matches below.' : 'عد لاحقاً أو راجع المباريات القادمة أدناه.'}</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
@@ -905,7 +909,7 @@ export default function BttsTodayDashboard() {
           {upcomingMatches.length > 0 && (
             <div>
               <h3 className="text-xs uppercase tracking-widest font-black mb-3" style={{ color: C.text }}>
-                À venir
+                {lang === 'fr' ? 'À venir' : lang === 'en' ? 'Upcoming' : 'القادمة'}
                 <span className="ml-2 px-2 py-0.5 rounded-full text-[10px] font-bold" style={{
                   backgroundColor: `${C.textSec}20`,
                   color: C.textSec,
@@ -931,8 +935,8 @@ export default function BttsTodayDashboard() {
           {/* Empty state when both sections are empty under current filter */}
           {todayMatches.length === 0 && upcomingMatches.length === 0 && (
             <div className="rounded-xl p-8 text-center" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
-              <p className="text-sm font-bold mb-1" style={{ color: C.text }}>No matches under this filter</p>
-              <p className="text-[11px]" style={{ color: C.textSec }}>Try another filter or come back later.</p>
+              <p className="text-sm font-bold mb-1" style={{ color: C.text }}>{lang === 'fr' ? 'Aucun match sous ce filtre' : lang === 'en' ? 'No matches under this filter' : 'لا توجد مباريات ضمن هذا الفلتر'}</p>
+              <p className="text-[11px]" style={{ color: C.textSec }}>{lang === 'fr' ? 'Essayez un autre filtre ou revenez plus tard.' : lang === 'en' ? 'Try another filter or come back later.' : 'جرّب فلترًا آخر أو عد لاحقاً.'}</p>
             </div>
           )}
         </>
@@ -940,7 +944,7 @@ export default function BttsTodayDashboard() {
 
       {/* ─── Footer disclaimer ─── */}
       <p className="text-center text-[10px] mt-6" style={{ color: C.textSec }}>
-        Statistical predictions based on xG + Poisson model. No future result guaranteed. 18+
+        {lang === 'fr' ? 'Prédictions statistiques basées sur xG + modèle de Poisson. Aucun résultat futur garanti. 18+' : lang === 'en' ? 'Statistical predictions based on xG + Poisson model. No future result guaranteed. 18+.' : 'توقعات إحصائية مبنية على xG ونموذج بواسون. لا توجد ضمانات لنتيجة مستقبلية. 18+'}
       </p>
     </section>
   )

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from './LanguageSwitcher'
 
 const STORAGE_KEY = 'bttsbet_cookie_consent'
 
@@ -15,6 +16,16 @@ export default function CookieConsent() {
   const [show, setShow] = useState(false)
   const [customize, setCustomize] = useState(false)
   const [preferences, setPreferences] = useState({ essential: true, analytics: false, advertising: false })
+  const { lang } = useLanguage()
+  const cookieTypes = lang === 'fr' ? COOKIE_TYPES : lang === 'en' ? [
+    { id: 'essential', label: 'Essential cookies', description: 'Required for the site to work. Cannot be disabled.', required: true },
+    { id: 'analytics', label: 'Analytics cookies', description: 'Help us understand how visitors use the site.', required: false },
+    { id: 'advertising', label: 'Advertising cookies', description: 'Used to show relevant advertising and measure its effectiveness.', required: false },
+  ] : [
+    { id: 'essential', label: 'ملفات تعريف الارتباط الأساسية', description: 'ضرورية لعمل الموقع ولا يمكن تعطيلها.', required: true },
+    { id: 'analytics', label: 'ملفات تعريف الارتباط التحليلية', description: 'تساعدنا على فهم كيفية استخدام الزوار للموقع.', required: false },
+    { id: 'advertising', label: 'ملفات تعريف الارتباط الإعلانية', description: 'تستخدم لعرض إعلانات مناسبة وقياس فعاليتها.', required: false },
+  ]
 
   useEffect(() => {
     const checkConsent = () => {
@@ -68,8 +79,8 @@ export default function CookieConsent() {
                   </svg>
                 </div>
                 <div>
-                  <h3 id="cookie-consent-title" className="text-papier font-bold text-base mb-1">Consentement aux cookies</h3>
-                  <p id="cookie-consent-description" className="text-sm text-papier leading-relaxed">Nous utilisons des cookies pour améliorer votre expérience. En continuant, vous acceptez notre utilisation de cookies.</p>
+                  <h3 id="cookie-consent-title" className="text-papier font-bold text-base mb-1">{lang === 'fr' ? 'Consentement aux cookies' : lang === 'en' ? 'Cookie consent' : 'الموافقة على ملفات تعريف الارتباط'}</h3>
+                  <p id="cookie-consent-description" className="text-sm text-papier leading-relaxed">{lang === 'fr' ? 'Nous utilisons des cookies pour améliorer votre expérience. En continuant, vous acceptez notre utilisation de cookies.' : lang === 'en' ? 'We use cookies to improve your experience. By continuing, you accept our use of cookies.' : 'نستخدم ملفات تعريف الارتباط لتحسين تجربتك. بمتابعة التصفح، فإنك توافق على استخدامها.'}</p>
                 </div>
               </div>
             </div>
@@ -78,7 +89,7 @@ export default function CookieConsent() {
               {customize && (
                 <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
                   <div className="rounded-xl p-4 mb-4 space-y-3" style={{ backgroundColor: '#071018', border: '1px solid #5D7880' }}>
-                    {COOKIE_TYPES.map((cookie) => (
+                    {cookieTypes.map((cookie) => (
                       <label key={cookie.id} className="flex items-start gap-3 cursor-pointer group">
                         <div className="pt-0.5">
                           <input type="checkbox" checked={preferences[cookie.id as keyof typeof preferences]} onChange={() => togglePreference(cookie.id)} disabled={cookie.required} className="sr-only peer" />
@@ -97,7 +108,7 @@ export default function CookieConsent() {
                           <div className="flex items-center gap-2">
                             <span className="text-sm text-papier font-medium">{cookie.label}</span>
                             {cookie.required && (
-                              <span className="text-[10px] px-2 py-0.5 rounded-full font-medium" style={{ backgroundColor: 'rgba(156, 196, 244, 0.16)', color: '#D4FF72' }}>Obligatoire</span>
+                              <span className="text-[10px] px-2 py-0.5 rounded-full font-medium" style={{ backgroundColor: 'rgba(156, 196, 244, 0.16)', color: '#D4FF72' }}>{lang === 'fr' ? 'Obligatoire' : lang === 'en' ? 'Required' : 'مطلوب'}</span>
                             )}
                           </div>
                           <p className="text-xs text-cendre mt-0.5">{cookie.description}</p>
@@ -112,7 +123,7 @@ export default function CookieConsent() {
             <div className="flex flex-col sm:flex-row items-center gap-3">
               <button onClick={() => setCustomize(!customize)}
                 className="text-sm text-papier hover:text-papier transition-colors underline underline-offset-2 order-3 sm:order-1">
-                Personnaliser
+                {lang === 'fr' ? 'Personnaliser' : lang === 'en' ? 'Customize' : 'تخصيص'}
               </button>
               <div className="flex gap-3 sm:ml-auto order-1 sm:order-2 w-full sm:w-auto">
                 <button onClick={handleRefuse}
@@ -121,14 +132,14 @@ export default function CookieConsent() {
                   onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#11242B'; e.currentTarget.style.color = '#F5F8F3' }}
                   onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#B7C4C1' }}
                 >
-                  Refuser
+                  {lang === 'fr' ? 'Refuser' : lang === 'en' ? 'Reject' : 'رفض'}
                 </button>
                 {customize && (
                   <button onClick={handleSavePreferences}
                     className="flex-1 sm:flex-initial px-5 py-2.5 text-sm rounded-xl font-medium transition-all"
                     style={{ border: '1px solid #B8FF1A', color: '#B8FF1A', backgroundColor: 'transparent' }}
                   >
-                    Enregistrer
+                    {lang === 'fr' ? 'Enregistrer' : lang === 'en' ? 'Save' : 'حفظ'}
                   </button>
                 )}
                 <button onClick={handleAccept}
@@ -141,7 +152,7 @@ export default function CookieConsent() {
                   onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 0 0 1px rgba(214, 179, 106, .55), 0 8px 24px rgba(214, 179, 106, .30)'}
                   onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 0 0 1px rgba(214, 179, 106, .35), 0 4px 16px rgba(214, 179, 106, .22)'}
                 >
-                  Accepter
+                  {lang === 'fr' ? 'Accepter' : lang === 'en' ? 'Accept' : 'قبول'}
                 </button>
               </div>
             </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
 
 interface TrackingPeriod {
   startDate: string
@@ -65,6 +66,8 @@ interface WinHistory {
 }
 
 export default function HistoriqueClient() {
+  const { lang } = useLanguage()
+  const copy = lang === 'fr' ? { loading: 'Chargement de l’historique vérifié…', error: 'Erreur de récupération des données', retry: 'Réessayer', newTracking: 'Nouveau suivi public', title: 'Historique vérifié', intro: 'BTTSPredict lance une nouvelle période de suivi vérifié. Chaque pronostic publié est enregistré, horodaté et évalué après le résultat officiel du match. Les performances seront publiées progressivement, sans modification rétroactive.', launch: 'Nouvelle période de suivi publique', counters: 'Compteurs en temps réel', published: 'Pronostics publiés', verified: 'Matchs vérifiés', won: 'Gagnés', lost: 'Perdus', pending: 'Résultats en attente', launchDate: 'Date de lancement' } : lang === 'en' ? { loading: 'Loading verified history…', error: 'Unable to retrieve the data', retry: 'Try again', newTracking: 'New public tracking period', title: 'Verified history', intro: 'BTTSPredict is starting a new verified tracking period. Every published prediction is recorded, time-stamped and assessed after the official match result. Performance will be published progressively, without retroactive changes.', launch: 'New public tracking period', counters: 'Real-time counters', published: 'Published predictions', verified: 'Verified matches', won: 'Won', lost: 'Lost', pending: 'Pending results', launchDate: 'Launch date' } : { loading: 'جار تحميل السجل الموثق…', error: 'تعذر استرجاع البيانات', retry: 'إعادة المحاولة', newTracking: 'فترة تتبع عامة جديدة', title: 'السجل الموثق', intro: 'تبدأ BTTSPredict فترة جديدة لتتبع التوقعات الموثقة. يتم تسجيل كل توقع منشور وتأريخه وتقييمه بعد النتيجة الرسمية للمباراة. سيتم نشر الأداء تدريجياً دون تعديلات بأثر رجعي.', launch: 'فترة تتبع عامة جديدة', counters: 'عدادات مباشرة', published: 'التوقعات المنشورة', verified: 'المباريات الموثقة', won: 'فوز', lost: 'خسارة', pending: 'نتائج معلقة', launchDate: 'تاريخ البداية' }
   const [data, setData] = useState<WinHistory | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -83,7 +86,7 @@ export default function HistoriqueClient() {
     return (
       <div className="max-w-4xl mx-auto px-4 py-20 text-center">
         <div className="inline-block w-10 h-10 border-2 border-[#5D7880] border-t-[#B8FF1A] rounded-full animate-spin mb-4" aria-hidden="true" />
-        <p className="text-sm text-[#B7C4C1]">Chargement de l'historique vérifié…</p>
+        <p className="text-sm text-[#B7C4C1]">{copy.loading}</p>
       </div>
     )
   }
@@ -96,7 +99,7 @@ export default function HistoriqueClient() {
         <button onClick={() => window.location.reload()}
           className="mt-4 px-4 py-2 rounded-[10px] text-sm font-bold"
           style={{ backgroundColor: '#B8FF1A', color: '#071018' }}>
-          Réessayer
+          {copy.retry}
         </button>
       </div>
     )
@@ -114,13 +117,13 @@ export default function HistoriqueClient() {
         <div className="text-center mb-6">
           <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
             style={{ backgroundColor: 'rgba(127, 162, 198, 0.16)', color: '#B8FF1A', border: '1px solid rgba(127, 162, 198, 0.30)' }}>
-            Nouveau suivi public
+            {copy.newTracking}
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            Historique vérifié
+            {copy.title}
           </h1>
           <p className="text-base text-[#B7C4C1] leading-relaxed max-w-2xl mx-auto">
-            BTTSPredict lance une nouvelle période de suivi vérifié. Chaque pronostic publié est enregistré, horodaté et évalué après le résultat officiel du match. Les performances seront publiées progressivement, sans modification rétroactive.
+            {copy.intro}
           </p>
         </div>
 
@@ -128,7 +131,7 @@ export default function HistoriqueClient() {
         {insufficient && (
           <div className="p-4 rounded-xl mb-6" style={{ backgroundColor: 'rgba(75, 182, 135, 0.06)', border: '1px solid rgba(75, 182, 135, 0.2)' }}>
             <p className="text-sm text-[#B8FF1A] leading-relaxed mb-2 font-bold">
-              Nouvelle période de suivi publique
+              {copy.launch}
             </p>
             <p className="text-xs text-[#B7C4C1] leading-relaxed">
               Suivi public lancé le {trackingPeriod.startDate}. Chaque pronostic est enregistré, horodaté et vérifié après le résultat officiel du match. Les performances sont publiées progressivement, sans modification rétroactive. Aucun résultat futur n'est garanti.
@@ -140,16 +143,16 @@ export default function HistoriqueClient() {
       {/* Compteurs réels et dynamiques */}
       <section className="max-w-5xl mx-auto px-4 pb-8">
         <h2 className="text-xl font-bold mb-4 text-center" style={{ fontFamily: 'Poppins, sans-serif' }}>
-          Compteurs en temps réel
+          {copy.counters}
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {[
-            { label: 'Pronostics publiés', value: stats.archivedTotal },
-            { label: 'Matchs vérifiés', value: stats.total },
-            { label: 'Gagnés', value: stats.won },
-            { label: 'Perdus', value: stats.lost },
-            { label: 'Résultats en attente', value: stats.pending },
-            { label: 'Date de lancement', value: trackingPeriod.startDate, isText: true },
+            { label: copy.published, value: stats.archivedTotal },
+            { label: copy.verified, value: stats.total },
+            { label: copy.won, value: stats.won },
+            { label: copy.lost, value: stats.lost },
+            { label: copy.pending, value: stats.pending },
+            { label: copy.launchDate, value: trackingPeriod.startDate, isText: true },
           ].map((card, i) => (
             <div key={i} className="p-4 rounded-xl text-center"
               style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
