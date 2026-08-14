@@ -1807,3 +1807,112 @@ body {
     transform: none;
   }
 }
+
+
+/* ═══ PREDICTION MATCH CARDS — premium match intelligence ═══ */
+.prediction-match-card {
+  position: relative;
+  border: 1px solid rgba(169, 196, 223, 0.24);
+  background: linear-gradient(148deg, rgba(17, 26, 42, 0.96), rgba(7, 16, 24, 0.98));
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16), inset 0 1px 0 rgba(245, 248, 243, 0.04);
+  transition: transform 220ms cubic-bezier(0.23, 1, 0.32, 1), border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.prediction-match-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(184, 255, 26, 0.48);
+  box-shadow: 0 20px 38px rgba(0, 0, 0, 0.24), 0 0 24px rgba(184, 255, 26, 0.06);
+}
+
+.prediction-match-card__accent {
+  opacity: 0.85;
+  animation: prediction-card-scan 4.8s ease-in-out infinite;
+}
+
+.prediction-match-card__meta {
+  min-height: 1.15rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(169, 196, 223, 0.14);
+}
+
+.prediction-match-card__teams {
+  position: relative;
+  padding: 0.5rem 0 0.15rem;
+}
+
+.prediction-match-card__teams::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 13%;
+  right: 13%;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(169, 196, 223, 0.16), transparent);
+}
+
+.prediction-match-card__team {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.prediction-match-card__team img,
+.prediction-match-card__team > div {
+  filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.25));
+  transition: transform 200ms ease;
+}
+
+.prediction-match-card:hover .prediction-match-card__team img,
+.prediction-match-card:hover .prediction-match-card__team > div {
+  transform: translateY(-2px);
+}
+
+.prediction-match-card__analysis {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(169, 196, 223, 0.3) !important;
+  background: linear-gradient(150deg, rgba(7, 16, 24, 0.88), rgba(13, 26, 32, 0.78)) !important;
+}
+
+.prediction-match-card__analysis::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 28%, rgba(184, 255, 26, 0.05) 50%, transparent 72%);
+  transform: translateX(-100%);
+  transition: transform 700ms ease;
+}
+
+.prediction-match-card:hover .prediction-match-card__analysis::after {
+  transform: translateX(100%);
+}
+
+@keyframes prediction-card-scan {
+  0%, 18% { opacity: 0.5; }
+  50%, 72% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+@media (max-width: 380px) {
+  .prediction-match-card__body { padding: 0.8rem; }
+  .prediction-match-card__team span { font-size: 0.78rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prediction-match-card,
+  .prediction-match-card__accent,
+  .prediction-match-card__team img,
+  .prediction-match-card__team > div,
+  .prediction-match-card__analysis::after {
+    animation: none;
+    transition: none;
+  }
+
+  .prediction-match-card:hover,
+  .prediction-match-card:hover .prediction-match-card__team img,
+  .prediction-match-card:hover .prediction-match-card__team > div {
+    transform: none;
+  }
+}

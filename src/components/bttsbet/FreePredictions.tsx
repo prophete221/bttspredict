@@ -274,14 +274,14 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: Math.min(index * 0.03, 0.2) }}
-      className="squircle-lg overflow-hidden hover:border-success/30 transition-all"
+      className="prediction-match-card squircle-lg overflow-hidden hover:border-success/30 transition-all"
     >
       {/* Top accent line */}
-      <div className="h-px bg-gradient-to-r from-transparent via-success/40 to-transparent" />
+      <div className="prediction-match-card__accent h-px bg-gradient-to-r from-transparent via-success/40 to-transparent" />
 
-      <div className="p-4 sm:p-5">
+      <div className="prediction-match-card__body p-4 sm:p-5">
         {/* Header row: status + league */}
-        <div className="flex items-center justify-between mb-4">
+        <div className="prediction-match-card__meta flex items-center justify-between mb-4">
           <div className="flex items-center gap-2 min-w-0">
             {status === 'live' && (
               <span className="badge badge-live">
@@ -291,7 +291,7 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
             {status === 'upcoming' && (
               <span className="text-[10px] text-cendre mono tabular-nums">{match.time || '--:--'}</span>
             )}
-            {(status === 'finished' || status !== 'live') && (
+            {status === 'finished' && (
               <span className="text-[10px] text-cendre mono tabular-nums">{match.time || '--:--'}</span>
             )}
             <span className="text-[10px] text-cendre uppercase tracking-widest font-semibold truncate">
@@ -302,9 +302,9 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
         </div>
 
         {/* Teams */}
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mb-4">
+        <div className="prediction-match-card__teams grid grid-cols-[1fr_auto_1fr] items-center gap-2 mb-4">
           {/* Home */}
-          <div className="flex flex-col items-center text-center gap-2">
+          <div className="prediction-match-card__team flex flex-col items-center text-center gap-2">
             <TeamLogo src={homeLogo} name={home} size={40} />
             <span className="text-sm font-semibold text-papier truncate max-w-full leading-tight">{home}</span>
           </div>
@@ -316,14 +316,14 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
           </div>
 
           {/* Away */}
-          <div className="flex flex-col items-center text-center gap-2">
+          <div className="prediction-match-card__team flex flex-col items-center text-center gap-2">
             <TeamLogo src={awayLogo} name={away} size={40} />
             <span className="text-sm font-semibold text-papier truncate max-w-full leading-tight">{away}</span>
           </div>
         </div>
 
         {/* ═══ UNIFIED PREDICTION — BTTS + Over 2.5 in ONE block (Oui/Non only) ═══ */}
-        <div className="bg-dark-900 border border-edge rounded-lg p-3 sm:p-4">
+        <div className="prediction-match-card__analysis bg-dark-900 border border-edge rounded-lg p-3 sm:p-4">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-1.5">
               <div className="w-5 h-5 rounded bg-success/15 border border-success/30 flex items-center justify-center">
