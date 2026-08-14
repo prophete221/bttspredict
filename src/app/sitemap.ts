@@ -33,7 +33,7 @@ import { getDakarDateString } from '@/lib/dakar-date'
 export const dynamic = 'force-static'
 
 const SITE_URL = 'https://bttspredict.com'
-const LOCALIZED_PATHS = new Set(['/', '/btts/predictions/today', '/over-2-5/predictions/today', '/ai-correct-score-predictions', '/vip', '/statistiques', '/resultats-verifies', '/methodologie', '/btts-and-over-2-5-predictions-today', '/code-promo-linebet-senegal', '/bonus-888starz'])
+const LOCALIZED_PATHS = new Set(['/', '/btts/predictions/today', '/over-2-5/predictions/today', '/ai-correct-score-predictions', '/vip', '/statistiques', '/resultats-verifies', '/methodologie', '/btts-and-over-2-5-predictions-today', '/code-promo-linebet-senegal', '/bonus-888starz', '/cgu', '/politique-confidentialite', '/mentions-legales', '/jouer-responsable'])
 
 // Date métier du jour (YYYY-MM-DD), explicitement basée sur Africa/Dakar.
 const TODAY = getDakarDateString()
@@ -101,6 +101,18 @@ const SEO_PAGES: MetadataRoute.Sitemap = [
 
   // 12. Méthodologie
   url('/methodologie', TODAY, 0.8, 'monthly'),
+
+  // 13. Conditions générales
+  url('/cgu', TODAY, 0.3, 'yearly'),
+
+  // 14. Confidentialité
+  url('/politique-confidentialite', TODAY, 0.3, 'yearly'),
+
+  // 15. Mentions légales
+  url('/mentions-legales', TODAY, 0.3, 'yearly'),
+
+  // 16. Jeu responsable
+  url('/jouer-responsable', TODAY, 0.5, 'yearly'),
 
   // 12. BTTS c'est quoi
   url('/btts-c-est-quoi', TODAY, 0.75, 'monthly'),
