@@ -33,7 +33,7 @@ import { getDakarDateString } from '@/lib/dakar-date'
 export const dynamic = 'force-static'
 
 const SITE_URL = 'https://bttspredict.com'
-const LOCALIZED_PATHS = new Set(['/', '/btts/predictions/today', '/over-2-5/predictions/today', '/ai-correct-score-predictions', '/vip'])
+const LOCALIZED_PATHS = new Set(['/', '/btts/predictions/today', '/over-2-5/predictions/today', '/ai-correct-score-predictions', '/vip', '/statistiques', '/resultats-verifies'])
 
 // Date métier du jour (YYYY-MM-DD), explicitement basée sur Africa/Dakar.
 const TODAY = getDakarDateString()
@@ -96,7 +96,10 @@ const SEO_PAGES: MetadataRoute.Sitemap = [
   // 10. VIP
   url('/vip', TODAY, 0.9, 'daily'),
 
-  // 11. Méthodologie
+  // 11. Statistiques générales
+  url('/statistiques', TODAY, 0.75, 'monthly'),
+
+  // 12. Méthodologie
   url('/methodologie', TODAY, 0.8, 'monthly'),
 
   // 12. BTTS c'est quoi
