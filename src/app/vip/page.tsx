@@ -49,11 +49,11 @@ export default function VipPage() {
   const { lang } = useLanguage()
   const t = translationsFor(lang)
   const vipCopy = lang === 'fr' ? {
-    access: 'ESPACE VIP · ACCÈS PRIVÉ', title: 'Le centre privé de tes analyses', subtitle: 'BTTS · Over 2,5 · Score exact · Matchs internationaux', published: 'sélections premium publiées', description: 'Une lecture plus complète des matchs, avec des éléments publiés avant le coup d’envoi et une méthode présentée sans promesse de gain.', unlock: 'Débloquer l’analyse VIP', benefits: 'Ce que tu déverrouilles', benefitTitle: 'Une fiche de match plus complète', choose: 'Choisis ton partenaire d’accès · code copié automatiquement', selected: 'Partenaire sélectionné', deposit: 'Dépôt min 3 000 F', signup: 'S’inscrire sur', download: 'Télécharger APK', steps: 'Activation simple et transparente', step1: 'Inscris-toi avec le code', step2: 'Effectue le dépôt minimum indiqué par le partenaire', step3: 'Envoie ton ID sur WhatsApp pour finaliser la vérification', verify: 'Finaliser ma vérification via WhatsApp' }
+    access: 'ESPACE VIP · ACCÈS PRIVÉ', title: 'Le centre privé de tes analyses', subtitle: 'BTTS · Over 2,5 · Score exact · Matchs internationaux', published: 'sélections premium publiées', description: 'Une lecture plus complète des matchs, avec des éléments publiés avant le coup d’envoi et une méthode présentée sans promesse de gain.', unlock: 'Débloquer l’analyse VIP', benefits: 'Ce que tu déverrouilles', benefitTitle: 'Une fiche de match plus complète', choose: 'Choisis ton partenaire d’accès · code copié automatiquement', selected: 'Partenaire sélectionné', deposit: 'Dépôt min 3 000 F', signup: 'S’inscrire sur', download: 'Télécharger APK', steps: 'Activation simple et transparente', step1: 'Inscris-toi avec le code', step2: 'Effectue le dépôt minimum indiqué par le partenaire', step3: 'Envoie ton ID sur WhatsApp pour finaliser la vérification', verify: 'Finaliser ma vérification via WhatsApp', desk: 'BUREAU D’INTELLIGENCE PRIVÉ', secure: 'APERÇU SÉCURISÉ', selections: 'Sélections', context: 'Contexte', history: 'Historique', locked: 'ANALYSE PROTÉGÉE', preview: 'Aperçu des matchs · données protégées', encrypted: 'CHIFFRÉ', unavailable: 'Aperçu premium indisponible pour le moment — aucune donnée fictive n’est affichée.', detailed: 'Analyse détaillée', scoreMarkets: 'Score · Marchés · Faits clés', accessNote: 'Accès après vérification · 18+ · Aucun gain garanti', conditions: 'Les conditions commerciales sont définies par le partenaire et doivent être vérifiées avant toute inscription.', partnerSelected: 'Partenaire sélectionné', depositNote: 'Dépôt minimum indiqué par le partenaire', downloadApk: 'Télécharger APK' }
   : lang === 'en' ? {
-    access: 'VIP DESK · PRIVATE ACCESS', title: 'Your private analysis desk', subtitle: 'BTTS · Over 2.5 · Correct score · International matches', published: 'premium selections published', description: 'A deeper match view with pre-kickoff information and a documented method without profit promises.', unlock: 'Unlock VIP analysis', benefits: 'What you unlock', benefitTitle: 'A more complete match file', choose: 'Choose your access partner · code copied automatically', selected: 'Selected partner', deposit: 'Minimum deposit 3,000 XOF', signup: 'Sign up on', download: 'Download APK', steps: 'Simple and transparent activation', step1: 'Sign up with code', step2: 'Make the minimum deposit indicated by the partner', step3: 'Send your ID on WhatsApp to complete verification', verify: 'Complete my verification on WhatsApp' }
+    access: 'VIP DESK · PRIVATE ACCESS', title: 'Your private analysis desk', subtitle: 'BTTS · Over 2.5 · Correct score · International matches', published: 'premium selections published', description: 'A deeper match view with pre-kickoff information and a documented method without profit promises.', unlock: 'Unlock VIP analysis', benefits: 'What you unlock', benefitTitle: 'A more complete match file', choose: 'Choose your access partner · code copied automatically', selected: 'Selected partner', deposit: 'Minimum deposit 3,000 XOF', signup: 'Sign up on', download: 'Download APK', steps: 'Simple and transparent activation', step1: 'Sign up with code', step2: 'Make the minimum deposit indicated by the partner', step3: 'Send your ID on WhatsApp to complete verification', verify: 'Complete my verification on WhatsApp', desk: 'PRIVATE INTELLIGENCE DESK', secure: 'SECURE PREVIEW', selections: 'Selections', context: 'Context', history: 'History', locked: 'PRO ANALYSIS / LOCKED', preview: 'Match preview · protected data', encrypted: 'ENCRYPTED', unavailable: 'Premium preview is currently unavailable — no fictional data is displayed.', detailed: 'Detailed analysis', scoreMarkets: 'Score · Markets · Key facts', accessNote: 'Access after verification · 18+ · No profit is guaranteed', conditions: 'Commercial terms are set by the partner and must be checked before registration.', partnerSelected: 'Selected partner', depositNote: 'Minimum deposit set by the partner', downloadApk: 'Download APK' }
   : {
-    access: 'مساحة VIP · وصول خاص', title: 'مكتبك الخاص للتحليل', subtitle: 'BTTS · أكثر من 2.5 · النتيجة الدقيقة · مباريات دولية', published: 'اختيارات مميزة منشورة', description: 'رؤية أعمق للمباراة مع معلومات قبل البداية ومنهجية موثقة دون وعود بالربح.', unlock: 'فتح تحليل VIP', benefits: 'ما الذي تحصل عليه', benefitTitle: 'ملف مباراة أكثر اكتمالاً', choose: 'اختر شريك الوصول · يتم نسخ الرمز تلقائياً', selected: 'الشريك المختار', deposit: 'الحد الأدنى للإيداع 3000 XOF', signup: 'التسجيل في', download: 'تحميل التطبيق', steps: 'تفعيل بسيط وشفاف', step1: 'سجّل باستخدام الرمز', step2: 'أجرِ الحد الأدنى للإيداع الذي يحدده الشريك', step3: 'أرسل هويتك عبر واتساب لإكمال التحقق', verify: 'إكمال التحقق عبر واتساب' }
+    access: 'مساحة VIP · وصول خاص', title: 'مكتبك الخاص للتحليل', subtitle: 'BTTS · أكثر من 2.5 · النتيجة الدقيقة · مباريات دولية', published: 'اختيارات مميزة منشورة', description: 'رؤية أعمق للمباراة مع معلومات قبل البداية ومنهجية موثقة دون وعود بالربح.', unlock: 'فتح تحليل VIP', benefits: 'ما الذي تحصل عليه', benefitTitle: 'ملف مباراة أكثر اكتمالاً', choose: 'اختر شريك الوصول · يتم نسخ الرمز تلقائياً', selected: 'الشريك المختار', deposit: 'الحد الأدنى للإيداع 3000 XOF', signup: 'التسجيل في', download: 'تحميل التطبيق', steps: 'تفعيل بسيط وشفاف', step1: 'سجّل باستخدام الرمز', step2: 'أجرِ الحد الأدنى للإيداع الذي يحدده الشريك', step3: 'أرسل هويتك عبر واتساب لإكمال التحقق', verify: 'إكمال التحقق عبر واتساب', desk: 'مكتب الذكاء الخاص', secure: 'معاينة آمنة', selections: 'الاختيارات', context: 'السياق', history: 'السجل', locked: 'تحليل احترافي محمي', preview: 'معاينة المباريات · بيانات محمية', encrypted: 'مشفّر', unavailable: 'المعاينة المميزة غير متاحة حالياً — لا يتم عرض بيانات وهمية.', detailed: 'تحليل مفصل', scoreMarkets: 'النتيجة · الأسواق · الحقائق الأساسية', accessNote: 'الوصول بعد التحقق · 18+ · لا يوجد ربح مضمون', conditions: 'يحدد الشريك الشروط التجارية ويجب التحقق منها قبل التسجيل.', partnerSelected: 'الشريك المختار', depositNote: 'الحد الأدنى للإيداع يحدده الشريك', downloadApk: 'تحميل التطبيق' }
   const [copiedCode, setCopiedCode] = useState(false)
   const [toast, setToast] = useState('')
   const [bookmaker, setBookmaker] = useState<'linebet'|'888starz'>('linebet')
@@ -183,21 +183,21 @@ export default function VipPage() {
               </p>
               <div className="vip-command-status mt-4" aria-label="État du centre d’analyse VIP">
                 <div className="vip-command-status__top">
-                  <span className="inline-flex items-center gap-2"><span className="vip-status-dot" aria-hidden="true" /> PRIVATE INTELLIGENCE DESK</span>
-                  <span>SECURE PREVIEW</span>
+                  <span className="inline-flex items-center gap-2"><span className="vip-status-dot" aria-hidden="true" /> {vipCopy.desk}</span>
+                  <span>{vipCopy.secure}</span>
                 </div>
                 <div className="grid grid-cols-3 gap-2 text-left">
                 <div className="vip-telemetry-module rounded-xl px-2 py-2" style={{ backgroundColor: `${C.gold}0D`, border: `1px solid ${C.gold}30` }}>
                   <div className="text-[10px] font-black" style={{ color: C.gold }}>01</div>
-                  <div className="text-[9px] mt-1" style={{ color: C.textSec }}>Sélections</div>
+                  <div className="text-[9px] mt-1" style={{ color: C.textSec }}>{vipCopy.selections}</div>
                 </div>
                 <div className="vip-telemetry-module rounded-xl px-2 py-2" style={{ backgroundColor: `${C.success}0D`, border: `1px solid ${C.success}30` }}>
                   <div className="text-[10px] font-black" style={{ color: C.success }}>02</div>
-                  <div className="text-[9px] mt-1" style={{ color: C.textSec }}>Contexte</div>
+                  <div className="text-[9px] mt-1" style={{ color: C.textSec }}>{vipCopy.context}</div>
                 </div>
                 <div className="vip-telemetry-module rounded-xl px-2 py-2" style={{ backgroundColor: `${C.data}0D`, border: `1px solid ${C.data}30` }}>
                   <div className="text-[10px] font-black" style={{ color: C.data }}>03</div>
-                  <div className="text-[9px] mt-1" style={{ color: C.textSec }}>Historique</div>
+                  <div className="text-[9px] mt-1" style={{ color: C.textSec }}>{vipCopy.history}</div>
                 </div>
                 </div>
               </div>
@@ -218,11 +218,11 @@ export default function VipPage() {
                 <div className="flex items-center gap-2">
                   <span className="vip-terminal-bar__icon" aria-hidden="true">⌁</span>
                   <div>
-                    <div className="text-[9px] font-black uppercase tracking-[0.18em]" style={{ color: C.text }}>PRO ANALYSIS / LOCKED</div>
-                    <div className="text-[8px] uppercase tracking-[0.12em] mt-0.5" style={{ color: C.textSec }}>Preview des matchs · données protégées</div>
+                    <div className="text-[9px] font-black uppercase tracking-[0.18em]" style={{ color: C.text }}>{vipCopy.locked}</div>
+                    <div className="text-[8px] uppercase tracking-[0.12em] mt-0.5" style={{ color: C.textSec }}>{vipCopy.preview}</div>
                   </div>
                 </div>
-                <span className="vip-terminal-bar__signal">ENCRYPTED</span>
+                <span className="vip-terminal-bar__signal">{vipCopy.encrypted}</span>
               </div>
 
               {/* Match cards — rendered from real predictions.json data only */}
@@ -234,7 +234,7 @@ export default function VipPage() {
                   }}>
                     <div className="px-3 py-6 text-center">
                       <span className="text-[10px] uppercase tracking-wider" style={{ color: C.textSec }}>
-                        Aperçu premium indisponible pour le moment — aucune donnée fictive n’est affichée.
+                        {vipCopy.unavailable}
                       </span>
                     </div>
                   </div>
@@ -301,8 +301,8 @@ export default function VipPage() {
                           <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                           <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                         </svg>
-                        <span className="text-[9px] font-bold uppercase tracking-wider" style={{ color: C.gold }}>Detailed Analysis</span>
-                        <span className="text-[8px]" style={{ color: C.textSec }}>Score · Markets · Key Facts</span>
+                        <span className="text-[9px] font-bold uppercase tracking-wider" style={{ color: C.gold }}>{vipCopy.detailed}</span>
+                        <span className="text-[8px]" style={{ color: C.textSec }}>{vipCopy.scoreMarkets}</span>
                       </div>
                     </div>
                   </div>
@@ -328,7 +328,7 @@ export default function VipPage() {
                   </span>
                 </button>
                 <p className="text-[9px] text-center mt-2" style={{ color: C.textSec }}>
-                  Accès après vérification · 18+ · Aucun gain garanti
+                  {vipCopy.accessNote}
                 </p>
               </div>
             </div>
@@ -341,7 +341,7 @@ export default function VipPage() {
             <div className="flex items-center justify-between gap-3 mb-3">
               <div>
                     <p className="text-[9px] uppercase tracking-[0.22em] font-bold" style={{ color: C.gold }}>{vipCopy.benefits}</p>
-                <h2 id="vip-benefits-title" className="text-sm font-black mt-1" style={{ color: C.text }}>Une fiche de match plus complète</h2>
+                <h2 id="vip-benefits-title" className="text-sm font-black mt-1" style={{ color: C.text }}>{vipCopy.benefitTitle}</h2>
               </div>
               <span className="rounded-full px-2 py-1 text-[9px] font-bold" style={{ color: C.success, backgroundColor: `${C.success}12`, border: `1px solid ${C.success}35` }}>18+</span>
             </div>
@@ -415,7 +415,7 @@ export default function VipPage() {
             <div className="h-[2px] w-full" style={{ background: `linear-gradient(90deg, ${brandColor}, ${C.gold}, ${brandColor})` }} />
 
             <div className="p-4 text-center">
-              <p className="text-[9px] uppercase tracking-[0.25em] mb-1" style={{ color: C.textMute }}>Partenaire sélectionné · {bookmaker === 'linebet' ? 'Linebet' : '888Starz'}</p>
+              <p className="text-[9px] uppercase tracking-[0.25em] mb-1" style={{ color: C.textMute }}>{vipCopy.partnerSelected} · {bookmaker === 'linebet' ? 'Linebet' : '888Starz'}</p>
 
               <button onClick={copyCode} className="inline-flex items-center gap-2 px-5 py-2 rounded-lg transition-all hover:scale-[1.02] mb-2"
                 style={{ backgroundColor: `${brandColor}15`, border: `1px dashed ${brandColor}50` }}>
@@ -433,10 +433,10 @@ export default function VipPage() {
               </button>
 
                 <p className="text-[10px]" style={{ color: C.textSec }}>
-                <span className="font-bold" style={{ color: brandColor }}>{bonus}</span> · Dépôt min 3 000 F
+                <span className="font-bold" style={{ color: brandColor }}>{bonus}</span> · {vipCopy.depositNote}
               </p>
               <p className="text-[9px] leading-relaxed mt-2" style={{ color: C.textMute }}>
-                Les conditions commerciales sont définies par le partenaire et doivent être vérifiées avant toute inscription.
+                {vipCopy.conditions}
               </p>
 
               {/* Boutons */}
@@ -455,7 +455,7 @@ export default function VipPage() {
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
                   </svg>
-                  Télécharger APK
+                  {vipCopy.downloadApk}
                 </a>
               </div>
             </div>
