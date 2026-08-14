@@ -16,6 +16,52 @@ import { generateMatchSlug } from './match-slug'
 
 export { generateMatchSlug } from './match-slug'
 
+export interface VerifiedHistoryEntry {
+  match?: string
+  date?: string
+  market?: string
+  type?: string
+  status?: string
+  isWon?: boolean
+  finalScore?: string
+  score?: string
+  verifiedAt?: string
+  source?: string
+}
+
+function normalizeMatchName(value: string): string {
+  return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
+}
+
+function marketKey(value: string | undefined): string {
+  const normalized = (value || '').toLowerCase().replace(/[^a-z0-9]/g, '')
+  if (normalized.includes('btts')) return 'btts'
+  if (normalized.includes('over25') || normalized.includes('o25')) return 'over25'
+  return normalized
+}
+
+/** Read only the public verified history for a specific match. */
+export function getVerifiedHistoryForMatch(home: string, away: string, date?: string): VerifiedHistoryEntry[] {
+  const historyPath = path.join(process.cwd(), 'public', 'win-history.json')
+  if (!fs.existsSync(historyPath)) return []
+  try {
+    const payload = JSON.parse(fs.readFileSync(historyPath, 'utf8')) as { history?: VerifiedHistoryEntry[] }
+    const expected = `${normalizeMatchName(home)} vs ${normalizeMatchName(away)}`
+    return (payload.history || []).filter(entry => {
+      const match = normalizeMatchName(entry.match || '')
+      const sameTeams = match === expected
+      const sameDate = !date || !entry.date || entry.date.slice(0, 10) === date.slice(0, 10)
+      return sameTeams && sameDate
+    })
+  } catch {
+    return []
+  }
+}
+
+export function verifiedMarketKey(value: string | undefined): string {
+  return marketKey(value)
+}
+
 export interface MatchData {
   slug: string
   home: string

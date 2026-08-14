@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { Navbar, Footer } from '@/components/bttsbet'
-import { generateMatchSlug, getAllMatchSlugs, getMatchBySlug } from '@/lib/matches'
+import { generateMatchSlug, getAllMatchSlugs, getMatchBySlug, getVerifiedHistoryForMatch, verifiedMarketKey } from '@/lib/matches'
 import Link from 'next/link'
 import MatchAnalyticsCharts from '@/components/bttsbet/MatchAnalyticsCharts'
 import type { Locale } from '@/lib/i18n'
@@ -86,6 +86,7 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
   const copy = MATCH_COPY[locale]
 
   const { home, away, league, date, time, homeLogo, awayLogo, predictions } = match
+  const verifiedHistory = getVerifiedHistoryForMatch(home, away, date)
   const aiExactScore = match.aiExactScore || null
   const exactScoreProb = match.exactScoreProb || null
   const aiBttsProb = match.aiBttsProb || null
@@ -101,7 +102,18 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
     const existing = marketMap.get(market)
     if (!existing || (!existing.status && prediction.status)) marketMap.set(market, prediction)
   }
-  const marketPredictions = Array.from(marketMap.values())
+  const marketPredictions = Array.from(marketMap.values()).map(prediction => {
+    const verified = verifiedHistory.find(entry => verifiedMarketKey(entry.market || entry.type) === verifiedMarketKey(prediction.type || prediction.market))
+    if (!verified) return prediction
+    return {
+      ...prediction,
+      status: verified.status || (verified.isWon === true ? 'WON' : verified.isWon === false ? 'LOST' : prediction.status),
+      isWon: verified.isWon,
+      finalScore: verified.finalScore || verified.score || prediction.finalScore,
+      verifiedAt: verified.verifiedAt || prediction.verifiedAt,
+      source: verified.source || prediction.source,
+    }
+  })
 
   // Aggregate verification status from unique markets only.
   const verified = marketPredictions.filter(p => p.status === 'WON' || p.status === 'LOST')
