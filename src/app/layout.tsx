@@ -69,6 +69,8 @@ export const metadata: Metadata = {
     languages: {
       'fr-SN': 'https://bttspredict.com/',
       'fr': 'https://bttspredict.com/',
+      'en': 'https://bttspredict.com/en',
+      'ar': 'https://bttspredict.com/ar',
       'x-default': 'https://bttspredict.com/',
     },
   },
@@ -161,7 +163,18 @@ export default function RootLayout({
         {/* Hreflang pour internationalisation */}
         <link rel="alternate" hrefLang="fr-SN" href="https://bttspredict.com/" />
         <link rel="alternate" hrefLang="fr" href="https://bttspredict.com/" />
+        <link rel="alternate" hrefLang="en" href="https://bttspredict.com/en" />
+        <link rel="alternate" hrefLang="ar" href="https://bttspredict.com/ar" />
         <link rel="alternate" hrefLang="x-default" href="https://bttspredict.com/" />
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function(){
+            var locale = location.pathname.split('/')[1];
+            if (locale === 'en' || locale === 'ar') {
+              document.documentElement.lang = locale;
+              document.documentElement.dir = locale === 'ar' ? 'rtl' : 'ltr';
+            }
+          })();
+        ` }} />
         {/* Trust signals for crawlers */}
         <meta name="author" content="BTTSPredict" />
         <meta name="rating" content="general" />

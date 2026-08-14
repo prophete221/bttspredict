@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react'
 import { SITE } from '@/lib/constants'
+import LanguageSwitcher from './LanguageSwitcher'
 
 /**
  * Navbar BTTSPredict v64 — Plateforme PRO
@@ -69,6 +70,7 @@ export default function Navbar() {
 
             {/* Code promo + Hamburger */}
             <div className="flex items-center gap-1.5">
+              <LanguageSwitcher compact />
               <button
                 onClick={copyCode}
                 className="hidden sm:block px-2 py-1 rounded text-[10px] font-mono font-bold"

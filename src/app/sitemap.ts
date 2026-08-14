@@ -33,6 +33,7 @@ import { getDakarDateString } from '@/lib/dakar-date'
 export const dynamic = 'force-static'
 
 const SITE_URL = 'https://bttspredict.com'
+const LOCALIZED_PATHS = new Set(['/', '/btts/predictions/today', '/over-2-5/predictions/today', '/ai-correct-score-predictions'])
 
 // Date métier du jour (YYYY-MM-DD), explicitement basée sur Africa/Dakar.
 const TODAY = getDakarDateString()
@@ -45,6 +46,9 @@ function url(
   changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'],
 ): MetadataRoute.Sitemap[number] {
   const fullUrl = path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`
+  const localizedSuffix = path === '/' ? '' : path
+  const enUrl = `${SITE_URL}/en${localizedSuffix}`
+  const arUrl = `${SITE_URL}/ar${localizedSuffix}`
   return {
     url: fullUrl,
     lastModified: new Date(lastModified),
@@ -53,6 +57,7 @@ function url(
     alternates: {
       languages: {
         'fr-SN': fullUrl,
+        ...(LOCALIZED_PATHS.has(path) ? { en: enUrl, ar: arUrl } : {}),
         'x-default': fullUrl,
       },
     },
