@@ -583,8 +583,16 @@ export default function FreePredictions() {
           variants={staggerContainer}
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}
-          className="mb-3 flex items-center gap-2 overflow-x-auto no-scrollbar pb-1"
+          className="filter-command-dashboard mb-3"
         >
+          <div className="filter-command-dashboard__header">
+            <div className="flex items-center gap-2">
+              <span className="filter-command-dashboard__pulse" aria-hidden="true" />
+              <span>Filter control</span>
+            </div>
+            <span className="filter-command-dashboard__mode">Live filters</span>
+          </div>
+          <div className="filter-command-dashboard__track">
           {/* Date filter chips */}
           <div className="flex items-center gap-1.5 flex-shrink-0">
             {([
@@ -599,7 +607,7 @@ export default function FreePredictions() {
                 aria-pressed={activeDate === f.id}
                 className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-all duration-200 whitespace-nowrap ${
                   activeDate === f.id
-                    ? 'text-white border-none'
+                    ? 'text-[#071018] border-none'
                     : 'text-[#B7C4C1] border border-[#5D7880]'
                 }`}
                 style={activeDate === f.id ? { backgroundColor: '#B8FF1A' } : { backgroundColor: '#0D1A20' }}
@@ -624,7 +632,7 @@ export default function FreePredictions() {
                 aria-pressed={activeType === f.id}
                 className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-all duration-200 whitespace-nowrap ${
                   activeType === f.id
-                    ? 'text-white border-none'
+                    ? 'text-[#071018] border-none'
                     : 'text-[#B7C4C1] border border-[#5D7880]'
                 }`}
                 style={activeType === f.id ? { backgroundColor: '#B8FF1A' } : { backgroundColor: '#0D1A20' }}
@@ -645,7 +653,7 @@ export default function FreePredictions() {
                 aria-pressed={activeLeague === league}
                 className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-all duration-200 whitespace-nowrap ${
                   activeLeague === league
-                    ? 'text-white border-none'
+                    ? 'text-[#071018] border-none'
                     : 'text-[#B7C4C1] border border-[#5D7880]'
                 }`}
                 style={activeLeague === league ? { backgroundColor: '#B8FF1A' } : { backgroundColor: '#0D1A20' }}
@@ -664,6 +672,7 @@ export default function FreePredictions() {
               </span>
             </>
           )}
+          </div>
         </motion.div>
 
         {/* Cards grid */}
