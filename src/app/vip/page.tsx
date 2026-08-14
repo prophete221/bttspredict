@@ -188,7 +188,7 @@ export default function VipPage() {
             </div>
 
             {/* ═══ PREMIUM LOCKED CARD ═══ */}
-            <div className="relative rounded-[16px] overflow-hidden" style={{
+            <div className="vip-3d-card relative rounded-[16px] overflow-hidden" style={{
               background: `linear-gradient(145deg, ${C.surface} 0%, ${C.bg} 100%)`,
               border: `1px solid ${C.gold}25`,
               boxShadow: `0 12px 40px rgba(0,0,0,0.4), inset 0 1px 0 ${C.gold}15`,
@@ -310,7 +310,7 @@ export default function VipPage() {
 
         {/* ═══ 2. VALEUR VIP — bénéfices réels, sans promesse de performance ═══ */}
         <section className="max-w-md mx-auto px-4 pb-5" aria-labelledby="vip-benefits-title">
-          <div className="rounded-2xl p-4" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
+          <div className="vip-3d-card rounded-2xl p-4" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
             <div className="flex items-center justify-between gap-3 mb-3">
               <div>
                 <p className="text-[9px] uppercase tracking-[0.22em] font-bold" style={{ color: C.gold }}>Ce que tu déverrouilles</p>
@@ -319,15 +319,15 @@ export default function VipPage() {
               <span className="rounded-full px-2 py-1 text-[9px] font-bold" style={{ color: C.success, backgroundColor: `${C.success}12`, border: `1px solid ${C.success}35` }}>18+</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-              <div className="rounded-xl p-3" style={{ backgroundColor: C.bg }}>
+              <div className="vip-3d-card vip-3d-card--gold rounded-xl p-3" style={{ backgroundColor: C.bg }}>
                 <div className="text-xs font-black" style={{ color: C.gold }}>BTTS</div>
                 <p className="text-[10px] leading-relaxed mt-1" style={{ color: C.textSec }}>Lecture du marché et contexte du match.</p>
               </div>
-              <div className="rounded-xl p-3" style={{ backgroundColor: C.bg }}>
+              <div className="vip-3d-card vip-3d-card--success rounded-xl p-3" style={{ backgroundColor: C.bg }}>
                 <div className="text-xs font-black" style={{ color: C.success }}>O2.5</div>
                 <p className="text-[10px] leading-relaxed mt-1" style={{ color: C.textSec }}>Indicateurs complémentaires affichés clairement.</p>
               </div>
-              <div className="rounded-xl p-3" style={{ backgroundColor: C.bg }}>
+              <div className="vip-3d-card vip-3d-card--data rounded-xl p-3" style={{ backgroundColor: C.bg }}>
                 <div className="text-xs font-black" style={{ color: C.data }}>SCORE</div>
                 <p className="text-[10px] leading-relaxed mt-1" style={{ color: C.textSec }}>Projection exacte présentée comme une estimation.</p>
               </div>

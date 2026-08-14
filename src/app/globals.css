@@ -1445,3 +1445,84 @@ body {
   background-color: #11242B;
   border-color: #7A9293;
 }
+
+
+/* ═══ VIP 3D CARDS — profondeur premium légère et accessible ═══ */
+.vip-3d-card {
+  position: relative;
+  isolation: isolate;
+  transform: translateZ(0);
+  transform-style: preserve-3d;
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 420ms ease, border-color 420ms ease;
+  will-change: transform;
+}
+
+.vip-3d-card::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 0%, rgba(245, 196, 81, 0.16), transparent 42%);
+  opacity: 0.7;
+  transform: translateZ(1px);
+  transition: opacity 420ms ease, transform 420ms ease;
+}
+
+.vip-3d-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 20%, rgba(245, 248, 243, 0.08) 42%, transparent 58%);
+  background-size: 220% 100%;
+  background-position: 130% 0;
+  opacity: 0;
+  transition: opacity 420ms ease, background-position 700ms ease;
+}
+
+.vip-3d-card:hover,
+.vip-3d-card:focus-within {
+  transform: perspective(900px) rotateX(2deg) rotateY(-2deg) translateY(-5px) translateZ(8px);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.42), 0 8px 22px rgba(245, 196, 81, 0.10), inset 0 1px 0 rgba(245, 248, 243, 0.12) !important;
+}
+
+.vip-3d-card:hover::before,
+.vip-3d-card:focus-within::before {
+  opacity: 1;
+  transform: translateZ(8px) scale(1.02);
+}
+
+.vip-3d-card:hover::after,
+.vip-3d-card:focus-within::after {
+  opacity: 1;
+  background-position: -30% 0;
+}
+
+.vip-3d-card--success::before {
+  background: radial-gradient(circle at 20% 0%, rgba(52, 211, 153, 0.16), transparent 42%);
+}
+
+.vip-3d-card--data::before {
+  background: radial-gradient(circle at 20% 0%, rgba(143, 227, 181, 0.16), transparent 42%);
+}
+
+@media (max-width: 640px) {
+  .vip-3d-card:hover,
+  .vip-3d-card:focus-within {
+    transform: translateY(-3px) translateZ(3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vip-3d-card,
+  .vip-3d-card::before,
+  .vip-3d-card::after {
+    transform: none !important;
+    transition: none !important;
+    will-change: auto;
+  }
+}
