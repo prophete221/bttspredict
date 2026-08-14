@@ -171,18 +171,24 @@ export default function VipPage() {
               <p className="max-w-[340px] mx-auto text-xs leading-relaxed mt-3" style={{ color: C.textSec }}>
                 Une lecture plus complète des matchs, avec des éléments publiés avant le coup d’envoi et une méthode présentée sans promesse de gain.
               </p>
-              <div className="grid grid-cols-3 gap-2 mt-4 text-left">
-                <div className="rounded-xl px-2 py-2" style={{ backgroundColor: `${C.gold}0D`, border: `1px solid ${C.gold}30` }}>
+              <div className="vip-command-status mt-4" aria-label="État du centre d’analyse VIP">
+                <div className="vip-command-status__top">
+                  <span className="inline-flex items-center gap-2"><span className="vip-status-dot" aria-hidden="true" /> PRIVATE INTELLIGENCE DESK</span>
+                  <span>SECURE PREVIEW</span>
+                </div>
+                <div className="grid grid-cols-3 gap-2 text-left">
+                <div className="vip-telemetry-module rounded-xl px-2 py-2" style={{ backgroundColor: `${C.gold}0D`, border: `1px solid ${C.gold}30` }}>
                   <div className="text-[10px] font-black" style={{ color: C.gold }}>01</div>
                   <div className="text-[9px] mt-1" style={{ color: C.textSec }}>Sélections</div>
                 </div>
-                <div className="rounded-xl px-2 py-2" style={{ backgroundColor: `${C.success}0D`, border: `1px solid ${C.success}30` }}>
+                <div className="vip-telemetry-module rounded-xl px-2 py-2" style={{ backgroundColor: `${C.success}0D`, border: `1px solid ${C.success}30` }}>
                   <div className="text-[10px] font-black" style={{ color: C.success }}>02</div>
                   <div className="text-[9px] mt-1" style={{ color: C.textSec }}>Contexte</div>
                 </div>
-                <div className="rounded-xl px-2 py-2" style={{ backgroundColor: `${C.data}0D`, border: `1px solid ${C.data}30` }}>
+                <div className="vip-telemetry-module rounded-xl px-2 py-2" style={{ backgroundColor: `${C.data}0D`, border: `1px solid ${C.data}30` }}>
                   <div className="text-[10px] font-black" style={{ color: C.data }}>03</div>
                   <div className="text-[9px] mt-1" style={{ color: C.textSec }}>Historique</div>
+                </div>
                 </div>
               </div>
             </div>
@@ -197,6 +203,17 @@ export default function VipPage() {
               <div className="h-[2px] w-full" style={{
                 background: `linear-gradient(90deg, transparent, ${C.gold}, transparent)`,
               }} />
+
+              <div className="vip-terminal-bar">
+                <div className="flex items-center gap-2">
+                  <span className="vip-terminal-bar__icon" aria-hidden="true">⌁</span>
+                  <div>
+                    <div className="text-[9px] font-black uppercase tracking-[0.18em]" style={{ color: C.text }}>PRO ANALYSIS / LOCKED</div>
+                    <div className="text-[8px] uppercase tracking-[0.12em] mt-0.5" style={{ color: C.textSec }}>Preview des matchs · données protégées</div>
+                  </div>
+                </div>
+                <span className="vip-terminal-bar__signal">ENCRYPTED</span>
+              </div>
 
               {/* Match cards — rendered from real predictions.json data only */}
               <div className="p-3 space-y-2">
@@ -318,7 +335,7 @@ export default function VipPage() {
               </div>
               <span className="rounded-full px-2 py-1 text-[9px] font-bold" style={{ color: C.success, backgroundColor: `${C.success}12`, border: `1px solid ${C.success}35` }}>18+</span>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <div className="vip-benefit-grid grid grid-cols-1 sm:grid-cols-3 gap-2">
               <div className="vip-3d-card vip-3d-card--gold rounded-xl p-3" style={{ backgroundColor: C.bg }}>
                 <div className="text-xs font-black" style={{ color: C.gold }}>BTTS</div>
                 <p className="text-[10px] leading-relaxed mt-1" style={{ color: C.textSec }}>Lecture du marché et contexte du match.</p>
