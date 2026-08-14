@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { AFFILIATE, SITE } from '@/lib/constants'
+import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 
 /* ─── Palette locale — Linebet vert clair (couleur de marque) ───────── */
 const GOLD = '#B8FF1A'       // vert clair Linebet
@@ -98,6 +99,7 @@ export default function LinebetClient() {
   }
 
   const handleCopy = async () => {
+    trackAffiliateCodeCopy('linebet', 'linebet-promo-code-card')
     try {
       await navigator.clipboard.writeText('VISION221')
       setCopied(true)
@@ -279,6 +281,7 @@ export default function LinebetClient() {
                 onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = PRIMARY_HOVER }}
                 onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = PRIMARY }}
                 data-cta="linebet-signup-v60"
+                onClick={() => trackAffiliateAction('linebet', 'signup', 'linebet-promo-code-card')}
               >
                 S&apos;inscrire sur Linebet
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -300,6 +303,7 @@ export default function LinebetClient() {
                 onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#11242B' }}
                 onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent' }}
                 data-cta="linebet-download-v61"
+                onClick={() => trackAffiliateAction('linebet', 'download', 'linebet-promo-code-card')}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />

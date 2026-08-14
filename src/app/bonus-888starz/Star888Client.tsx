@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { AFFILIATE } from '@/lib/constants'
+import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 
 /* ─── Palette locale — 888Starz rouge clair (couleur de marque) ──────── */
 const ORANGE = '#FF7B7B'      // rouge clair 888Starz
@@ -98,6 +99,7 @@ export default function Star888Client() {
   }
 
   const handleCopy = async () => {
+    trackAffiliateCodeCopy('888starz', '888starz-promo-code-card')
     try {
       await navigator.clipboard.writeText('VISION221')
       setCopied(true)
@@ -277,6 +279,7 @@ export default function Star888Client() {
                 onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = PRIMARY_HOVER }}
                 onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = PRIMARY }}
                 data-cta="888starz-signup-v641"
+                onClick={() => trackAffiliateAction('888starz', 'signup', '888starz-promo-code-card')}
               >
                 S&apos;inscrire sur 888Starz
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -298,6 +301,7 @@ export default function Star888Client() {
                 onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#11242B' }}
                 onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent' }}
                 data-cta="888starz-download-v641"
+                onClick={() => trackAffiliateAction('888starz', 'download', '888starz-promo-code-card')}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
