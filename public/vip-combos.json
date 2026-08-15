@@ -2,11 +2,10 @@
   "date": "2026-08-15",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-15T09:36:23.392Z",
-  "status": "unavailable",
-  "reason": "missing_api_key",
+  "fetchedAt": "2026-08-15T09:41:38.506Z",
+  "status": "insufficient_verified_odds",
   "combos": {
     "target2": null,
     "target5": null
   }
-}\n
+}
