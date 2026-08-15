@@ -10,12 +10,6 @@ function dakarDate(date = new Date()) {
   return new Intl.DateTimeFormat('en-CA', { timeZone: TIME_ZONE, year: 'numeric', month: '2-digit', day: '2-digit' }).format(date)
 }
 
-function normalise(value = '') {
-  return value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\b(fc|sc|cf|afc)\b/g, '').replace(/[^a-z0-9]/g, '')
-}
-
-function eventKey(home, away) { return `${normalise(home)}:${normalise(away)}` }
-
 function asDecimal(value) {
   const n = Number(value)
   return Number.isFinite(n) && n >= 1.01 && n <= 100 ? Number(n.toFixed(2)) : null
@@ -94,15 +88,15 @@ async function main() {
     await writeUnavailable('missing_api_key')
     return
   }
-  const predictions = JSON.parse(await fs.readFile('public/predictions.json', 'utf8'))
-  const published = [...(predictions.vipPreview || []), ...(predictions.free || [])].filter(x => x?.date === today)
-  const from = `${today}T00:00:00-00:00`
-  const to = `${today}T23:59:59-00:00`
+  const from = `${today}T00:00:00Z`
+  const to = `${today}T23:59:59Z`
   const events = await getJson(`${API_BASE}/events?apiKey=${encodeURIComponent(API_KEY)}&sport=football&status=pending&from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}&limit=100`)
   const eventList = Array.isArray(events) ? events : events?.events || []
-  const candidates = eventList.filter(e => published.some(p => eventKey(p.home || p.match?.split(/\s+vs?\s+/i)[0], p.away || p.match?.split(/\s+vs?\s+/i)[1]) === eventKey(e.home, e.away)))
+  // Odds-API.io is the source of truth for event identity here. ESPN and bookmaker
+  // names are not stable enough for an exact join; filtering by ESPN caused events=0.
+  const candidates = eventList.filter(e => e?.id && e?.home && e?.away && e?.date)
   const legs = []
-  for (const event of candidates.slice(0, 20)) {
+  for (const event of candidates.slice(0, 40)) {
     try {
       const data = await getJson(`${API_BASE}/odds?apiKey=${encodeURIComponent(API_KEY)}&eventId=${encodeURIComponent(event.id)}&bookmakers=${encodeURIComponent(BOOKMAKERS)}`)
       legs.push(...extractLegs(event, data))
@@ -110,6 +104,7 @@ async function main() {
   }
   const payload = {
     date: today, timezone: TIME_ZONE, source: 'Odds-API.io', fetchedAt: new Date().toISOString(),
+    eventCount: candidates.length, legCount: legs.length,
     status: 'available', combos: { target2: chooseCombo(legs, 2), target5: chooseCombo(legs, 5) },
   }
   if (!payload.combos.target2 || !payload.combos.target5) payload.status = 'insufficient_verified_odds'
