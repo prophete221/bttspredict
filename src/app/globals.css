@@ -2221,3 +2221,92 @@ body {
     transition: none;
   }
 }
+
+
+/* ═══ VIP PRIVATE DASHBOARD — structure produit, pas blog ═══ */
+.vip-dashboard-page {
+  background:
+    linear-gradient(180deg, rgba(7, 16, 24, 0.98) 0%, rgba(8, 20, 28, 0.96) 42%, rgba(7, 16, 24, 1) 100%);
+}
+
+.vip-dashboard-shell {
+  max-width: 920px !important;
+  padding-inline: 1.25rem;
+}
+
+.vip-dashboard-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(245, 196, 81, 0.22);
+  border-radius: 1.4rem;
+  background:
+    linear-gradient(135deg, rgba(20, 37, 45, 0.96), rgba(7, 16, 24, 0.88)),
+    radial-gradient(circle at 90% 10%, rgba(245, 196, 81, 0.14), transparent 42%);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(245, 248, 243, 0.10);
+  text-align: left;
+}
+
+.vip-dashboard-heading > div:first-child {
+  justify-self: start;
+}
+
+.vip-dashboard-heading > h1,
+.vip-dashboard-heading > p,
+.vip-dashboard-heading > .vip-command-status {
+  grid-column: 1 / -1;
+}
+
+.vip-dashboard-heading > .vip-command-status {
+  margin-top: 0;
+}
+
+.vip-dashboard-page .vip-dashboard-shell > .vip-combo-deck,
+.vip-dashboard-page .vip-dashboard-shell > .vip-3d-card {
+  width: 100%;
+}
+
+.vip-combo-deck__masthead {
+  min-height: 4.5rem;
+  padding: 0.2rem 0.2rem 0.75rem;
+  border-bottom: 1px solid rgba(245, 248, 243, 0.10);
+}
+
+.vip-combo-deck__masthead::after {
+  content: 'LIVE / VERIFIED';
+  align-self: flex-start;
+  padding: 0.32rem 0.5rem;
+  border: 1px solid rgba(52, 211, 153, 0.38);
+  border-radius: 999px;
+  color: #34D399;
+  background: rgba(52, 211, 153, 0.08);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.52rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.vip-dashboard-page > section:not(.vip-future-hero) {
+  max-width: 920px !important;
+}
+
+.vip-dashboard-page > section:not(.vip-future-hero) > .vip-3d-card,
+.vip-dashboard-page > section:not(.vip-future-hero) > div {
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(245, 248, 243, 0.08);
+}
+
+@media (max-width: 640px) {
+  .vip-dashboard-shell { padding-inline: 0.9rem; }
+  .vip-dashboard-heading {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    padding: 1.1rem;
+  }
+  .vip-dashboard-heading > div:first-child { justify-self: center; }
+  .vip-dashboard-heading > h1,
+  .vip-dashboard-heading > p { text-align: center; }
+  .vip-combo-deck__masthead { align-items: flex-start; }
+  .vip-combo-deck__masthead::after { font-size: 0.44rem; }
+}
