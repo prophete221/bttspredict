@@ -1,6 +1,6 @@
 {
   "date": "2026-08-15",
-  "lastUpdated": "2026-08-15T16:00:24.144Z",
+  "lastUpdated": "2026-08-15T19:15:53.057Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -707,14 +707,14 @@
       "reliabilityScore": 68.85,
       "dataQuality": "LOW",
       "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 1,
-      "matchCountAway": 1,
+      "matchCountHome": 2,
+      "matchCountAway": 2,
       "h2hAvailable": false,
       "xgHome": 1.88,
       "xgAway": 1.42,
       "xgTotal": 3.3,
-      "formBTTS": 20,
-      "analysis": "Willem II (1 matchs réels, xG 1.88) vs NEC Nijmegen (1 matchs réels, xG 1.42). xG cumulé 3.3, BTTS 64.2%, Over 2.5 64.1%. Fiabilité 68.85%. Qualité données: LOW.",
+      "formBTTS": 35,
+      "analysis": "Willem II (2 matchs réels, xG 1.88) vs NEC Nijmegen (2 matchs réels, xG 1.42). xG cumulé 3.3, BTTS 64.2%, Over 2.5 64.1%. Fiabilité 68.85%. Qualité données: LOW.",
       "analysisData": {
         "bttsProb": 0.6424,
         "over25Prob": 0.6406,
@@ -1315,7 +1315,8 @@
       "bttsProb": 0.7508,
       "over25Prob": 0.7691,
       "homeLambda": 1.88,
-      "awayLambda": 2.17
+      "awayLambda": 2.17,
+      "status": "PENDING"
     },
     {
       "id": "orlandoc-vs-fccincin-2026-08-15",
@@ -1377,7 +1378,8 @@
       "bttsProb": 0.7477,
       "over25Prob": 0.7715,
       "homeLambda": 2.27,
-      "awayLambda": 1.79
+      "awayLambda": 1.79,
+      "status": "PENDING"
     },
     {
       "id": "atlantau-vs-redbulln-2026-08-15",
@@ -1439,7 +1441,8 @@
       "bttsProb": 0.7125,
       "over25Prob": 0.7202,
       "homeLambda": 1.98,
-      "awayLambda": 1.75
+      "awayLambda": 1.75,
+      "status": "PENDING"
     },
     {
       "id": "torontof-vs-newengla-2026-08-15",
@@ -1501,7 +1504,8 @@
       "bttsProb": 0.6675,
       "over25Prob": 0.6603,
       "homeLambda": 1.65,
-      "awayLambda": 1.75
+      "awayLambda": 1.75,
+      "status": "PENDING"
     },
     {
       "id": "charlott-vs-columbus-2026-08-15",
@@ -1563,7 +1567,8 @@
       "bttsProb": 0.6176,
       "over25Prob": 0.6406,
       "homeLambda": 2.08,
-      "awayLambda": 1.23
+      "awayLambda": 1.23,
+      "status": "PENDING"
     },
     {
       "id": "realsalt-vs-minnesot-2026-08-15",
@@ -1625,7 +1630,8 @@
       "bttsProb": 0.5698,
       "over25Prob": 0.6439,
       "homeLambda": 2.32,
-      "awayLambda": 1
+      "awayLambda": 1,
+      "status": "PENDING"
     },
     {
       "id": "sanjosee-vs-stlouisc-2026-08-15",
@@ -1687,7 +1693,8 @@
       "bttsProb": 0.5376,
       "over25Prob": 0.5636,
       "homeLambda": 0.98,
-      "awayLambda": 1.96
+      "awayLambda": 1.96,
+      "status": "PENDING"
     },
     {
       "id": "colorado-vs-sporting-2026-08-15",
@@ -1749,7 +1756,8 @@
       "bttsProb": 0.5232,
       "over25Prob": 0.6096,
       "homeLambda": 2.27,
-      "awayLambda": 0.88
+      "awayLambda": 0.88,
+      "status": "PENDING"
     },
     {
       "id": "cfmontra-vs-dcunited-2026-08-15",
@@ -1811,7 +1819,8 @@
       "bttsProb": 0.5176,
       "over25Prob": 0.4732,
       "homeLambda": 1.15,
-      "awayLambda": 1.42
+      "awayLambda": 1.42,
+      "status": "PENDING"
     },
     {
       "id": "lafc-vs-sandiego-2026-08-15",
@@ -1873,7 +1882,8 @@
       "bttsProb": 0.512,
       "over25Prob": 0.5145,
       "homeLambda": 1.77,
-      "awayLambda": 0.96
+      "awayLambda": 0.96,
+      "status": "PENDING"
     },
     {
       "id": "houstond-vs-lagalaxy-2026-08-15",
@@ -1935,7 +1945,8 @@
       "bttsProb": 0.48,
       "over25Prob": 0.4626,
       "homeLambda": 1.61,
-      "awayLambda": 0.92
+      "awayLambda": 0.92,
+      "status": "PENDING"
     },
     {
       "id": "willemii-vs-necnijme-2026-08-15",
@@ -1959,14 +1970,14 @@
       "reliabilityScore": 68.85,
       "dataQuality": "LOW",
       "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 1,
-      "matchCountAway": 1,
+      "matchCountHome": 2,
+      "matchCountAway": 2,
       "h2hAvailable": false,
       "xgHome": 1.88,
       "xgAway": 1.42,
       "xgTotal": 3.3,
-      "formBTTS": 20,
-      "analysis": "Willem II (1 matchs réels, xG 1.88) vs NEC Nijmegen (1 matchs réels, xG 1.42). xG cumulé 3.3, BTTS 64.2%, Over 2.5 64.1%. Fiabilité 68.85%. Qualité données: LOW.",
+      "formBTTS": 35,
+      "analysis": "Willem II (2 matchs réels, xG 1.88) vs NEC Nijmegen (2 matchs réels, xG 1.42). xG cumulé 3.3, BTTS 64.2%, Over 2.5 64.1%. Fiabilité 68.85%. Qualité données: LOW.",
       "analysisData": {
         "bttsProb": 0.6424,
         "over25Prob": 0.6406,
@@ -1997,7 +2008,10 @@
       "bttsProb": 0.6424,
       "over25Prob": 0.6406,
       "homeLambda": 1.88,
-      "awayLambda": 1.42
+      "awayLambda": 1.42,
+      "finalScore": "1-4",
+      "status": "WON",
+      "verifiedAt": "2026-08-15T19:16:26.031Z"
     }
   ]
 }

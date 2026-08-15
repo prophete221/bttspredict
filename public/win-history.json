@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T16:08:43.698Z",
+  "generatedAt": "2026-08-15T19:24:58.176Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -7,16 +7,16 @@
     "insufficientVolume": true
   },
   "stats": {
-    "total": 12,
-    "won": 9,
+    "total": 13,
+    "won": 10,
     "lost": 3,
-    "pending": 63,
+    "pending": 62,
     "archivedTotal": 75,
-    "rate": 75,
+    "rate": 76.9,
     "avgOdds": 1.9,
-    "profit": 5.1,
-    "roi": 42.5,
-    "yield": 42.5,
+    "profit": 6,
+    "roi": 46.2,
+    "yield": 46.2,
     "gold": {
       "total": 3,
       "won": 3,
@@ -28,17 +28,17 @@
       "yield": 90
     },
     "standard": {
-      "total": 9,
-      "won": 6,
+      "total": 10,
+      "won": 7,
       "lost": 3,
-      "rate": 66.7
+      "rate": 70
     },
     "byType": {
       "btts": {
-        "total": 10,
-        "won": 8,
+        "total": 11,
+        "won": 9,
         "lost": 2,
-        "rate": 80
+        "rate": 81.8
       },
       "over25": {
         "total": 2,
@@ -74,6 +74,15 @@
         "rate": 85.7,
         "profit": 4.4,
         "equity": 5.1
+      },
+      {
+        "date": "2026-08-15",
+        "total": 1,
+        "won": 1,
+        "lost": 0,
+        "rate": 100,
+        "profit": 0.9,
+        "equity": 6
       }
     ],
     "maxDrawdown": 2,
@@ -84,6 +93,22 @@
     }
   },
   "history": [
+    {
+      "date": "2026-08-15",
+      "match": "Willem II vs NEC Nijmegen",
+      "league": "Eredivisie",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.6424,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "1-4",
+      "profit": 0.9,
+      "verifiedAt": "2026-08-15T19:16:26.031Z",
+      "source": "ESPN public"
+    },
     {
       "date": "2026-08-14",
       "match": "Wolverhampton Wanderers vs Blackburn Rovers",
