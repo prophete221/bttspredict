@@ -91,7 +91,13 @@ export default function VipUnlockModal({
         localStorage.setItem(ID_HASH_KEY, idHash)
         localStorage.setItem('bttsbet_vip_bookmaker', selectedBookmaker)
       } catch {}
-      setTimeout(() => { setIsUnlocking(false); setStep('success') }, 1200)
+      const whatsappText = `Bonjour BTTSPredict, j'ai confirmé mon inscription et mon dépôt. Bookmaker: ${selectedBookmaker}. ID joueur: ${playerId.trim()}. Code promo: ${selectedBookmaker === '888starz' ? 'vision221' : 'VISION221'}. Je demande la validation de mon accès VIP.`
+      const whatsappUrl = `https://wa.me/15406704172?text=${encodeURIComponent(whatsappText)}`
+      setTimeout(() => {
+        setIsUnlocking(false)
+        setStep('success')
+        window.location.assign(whatsappUrl)
+      }, 1200)
     } catch { setVerificationError('Erreur de vérification. Réessaie.'); setIsUnlocking(false) }
   }
 
@@ -203,7 +209,7 @@ export default function VipUnlockModal({
                       <div>
                         <div className="flex items-center gap-2 mb-1">
                           <span className="flex h-6 w-10 items-center justify-center rounded bg-white px-1">
-                            <img src="/logos/linebet-provided.jpg" alt="" width={1280} height={465} className="max-h-4 w-auto object-contain" />
+                            <img src="/logos/linebet-provided.jpg" alt="Logo Linebet" width={1280} height={465} className="max-h-4 w-auto object-contain" />
                           </span>
                           <span className="text-sm font-bold text-papier">Linebet</span>
                           {selectedBookmaker === 'linebet' && (
@@ -232,7 +238,7 @@ export default function VipUnlockModal({
                       <div>
                         <div className="flex items-center gap-2 mb-1">
                           <span className="flex h-6 w-10 items-center justify-center rounded bg-white px-1">
-                            <img src="/logos/888starz-provided.webp" alt="" width={1920} height={894} className="max-h-4 w-auto object-contain" />
+                            <img src="/logos/888starz-provided.webp" alt="Logo 888Starz" width={1920} height={894} className="max-h-4 w-auto object-contain" />
                           </span>
                           <span className="text-sm font-bold text-papier">888Starz</span>
                           {selectedBookmaker === '888starz' && (

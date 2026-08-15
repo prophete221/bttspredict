@@ -45,21 +45,40 @@ interface PreviewMatch {
   awayInitial: string
 }
 
+interface VipComboLeg {
+  eventId?: string
+  home: string
+  away: string
+  league: string
+  kickoff: string
+  bookmaker: string
+  market: string
+  selection: string
+  odds: number
+  updatedAt: string
+}
+
+interface VipCombo {
+  totalOdds: number
+  legs: VipComboLeg[]
+}
+
 export default function VipPage() {
   const { lang } = useLanguage()
   const t = translationsFor(lang)
   const vipCopy = lang === 'fr' ? {
-    access: 'ESPACE VIP · ACCÈS PRIVÉ', title: 'Le centre privé de tes analyses', subtitle: 'BTTS · Over 2,5 · Score exact · Matchs internationaux', published: 'sélections premium publiées', description: 'Une lecture plus complète des matchs, avec des éléments publiés avant le coup d’envoi et une méthode présentée sans promesse de gain.', unlock: 'Débloquer l’analyse VIP', benefits: 'Ce que tu déverrouilles', benefitTitle: 'Une fiche de match plus complète', choose: 'Choisis ton partenaire d’accès · code copié automatiquement', selected: 'Partenaire sélectionné', deposit: 'Dépôt min 3 000 F', signup: 'S’inscrire sur', download: 'Télécharger APK', steps: 'Activation simple et transparente', step1: 'Inscris-toi avec le code', step2: 'Effectue le dépôt minimum indiqué par le partenaire', step3: 'Envoie ton ID sur WhatsApp pour finaliser la vérification', verify: 'Finaliser ma vérification via WhatsApp', desk: 'BUREAU D’INTELLIGENCE PRIVÉ', secure: 'APERÇU SÉCURISÉ', selections: 'Sélections', context: 'Contexte', history: 'Historique', locked: 'ANALYSE PROTÉGÉE', preview: 'Aperçu des matchs · données protégées', encrypted: 'CHIFFRÉ', unavailable: 'Aperçu premium indisponible pour le moment — aucune donnée fictive n’est affichée.', detailed: 'Analyse détaillée', scoreMarkets: 'Score · Marchés · Faits clés', accessNote: 'Accès après vérification · 18+ · Aucun gain garanti', conditions: 'Les conditions commerciales sont définies par le partenaire et doivent être vérifiées avant toute inscription.', partnerSelected: 'Partenaire sélectionné', depositNote: 'Dépôt minimum indiqué par le partenaire', downloadApk: 'Télécharger APK' }
+    access: 'ESPACE VIP · ACCÈS PRIVÉ', title: 'Le centre privé de tes analyses', subtitle: 'BTTS · Over 2,5 · Score exact · Matchs internationaux', published: 'sélections premium publiées', description: 'Une lecture plus complète des matchs, avec des éléments publiés avant le coup d’envoi et une méthode présentée sans promesse de gain.', unlock: 'Débloquer l’analyse VIP', benefits: 'Ce que tu déverrouilles', benefitTitle: 'Une fiche de match plus complète', choose: 'Choisis ton partenaire d’accès · code copié automatiquement', selected: 'Partenaire sélectionné', deposit: 'Dépôt min 3 000 F', signup: 'S’inscrire sur', download: 'Télécharger APK', steps: 'Activation simple et transparente', step1: 'Inscris-toi avec le code', step2: 'Effectue le dépôt minimum indiqué par le partenaire', step3: 'Envoie ton ID sur WhatsApp pour finaliser la vérification', verify: 'Finaliser ma vérification via WhatsApp', desk: 'BUREAU D’INTELLIGENCE PRIVÉ', secure: 'APERÇU SÉCURISÉ', selections: 'Sélections', context: 'Contexte', history: 'Historique', locked: 'ANALYSE PROTÉGÉE', preview: 'Aperçu des matchs · données protégées', encrypted: 'CHIFFRÉ', unavailable: 'Aperçu premium indisponible pour le moment — aucune donnée fictive n’est affichée.', detailed: 'Analyse détaillée', scoreMarkets: 'Score · Marchés · Faits clés', accessNote: 'Accès après vérification · 18+ · Aucun gain garanti', conditions: 'Les conditions commerciales sont définies par le partenaire et doivent être vérifiées avant toute inscription.', partnerSelected: 'Partenaire sélectionné', depositNote: 'Dépôt minimum indiqué par le partenaire', downloadApk: 'Télécharger APK', combo2: 'Combiné cible cote 2', combo5: 'Combiné cible cote 5', comboUnavailable: 'Aucun combiné vérifié disponible pour le moment.', comboSource: 'Cotes bookmaker vérifiées · données du jour', comboUpdated: 'Mise à jour' }
   : lang === 'en' ? {
-    access: 'VIP DESK · PRIVATE ACCESS', title: 'Your private analysis desk', subtitle: 'BTTS · Over 2.5 · Correct score · International matches', published: 'premium selections published', description: 'A deeper match view with pre-kickoff information and a documented method without profit promises.', unlock: 'Unlock VIP analysis', benefits: 'What you unlock', benefitTitle: 'A more complete match file', choose: 'Choose your access partner · code copied automatically', selected: 'Selected partner', deposit: 'Minimum deposit 3,000 XOF', signup: 'Sign up on', download: 'Download APK', steps: 'Simple and transparent activation', step1: 'Sign up with code', step2: 'Make the minimum deposit indicated by the partner', step3: 'Send your ID on WhatsApp to complete verification', verify: 'Complete my verification on WhatsApp', desk: 'PRIVATE INTELLIGENCE DESK', secure: 'SECURE PREVIEW', selections: 'Selections', context: 'Context', history: 'History', locked: 'PRO ANALYSIS / LOCKED', preview: 'Match preview · protected data', encrypted: 'ENCRYPTED', unavailable: 'Premium preview is currently unavailable — no fictional data is displayed.', detailed: 'Detailed analysis', scoreMarkets: 'Score · Markets · Key facts', accessNote: 'Access after verification · 18+ · No profit is guaranteed', conditions: 'Commercial terms are set by the partner and must be checked before registration.', partnerSelected: 'Selected partner', depositNote: 'Minimum deposit set by the partner', downloadApk: 'Download APK' }
+    access: 'VIP DESK · PRIVATE ACCESS', title: 'Your private analysis desk', subtitle: 'BTTS · Over 2.5 · Correct score · International matches', published: 'premium selections published', description: 'A deeper match view with pre-kickoff information and a documented method without profit promises.', unlock: 'Unlock VIP analysis', benefits: 'What you unlock', benefitTitle: 'A more complete match file', choose: 'Choose your access partner · code copied automatically', selected: 'Selected partner', deposit: 'Minimum deposit 3,000 XOF', signup: 'Sign up on', download: 'Download APK', steps: 'Simple and transparent activation', step1: 'Sign up with code', step2: 'Make the minimum deposit indicated by the partner', step3: 'Send your ID on WhatsApp to complete verification', verify: 'Complete my verification on WhatsApp', desk: 'PRIVATE INTELLIGENCE DESK', secure: 'SECURE PREVIEW', selections: 'Selections', context: 'Context', history: 'History', locked: 'PRO ANALYSIS / LOCKED', preview: 'Match preview · protected data', encrypted: 'ENCRYPTED', unavailable: 'Premium preview is currently unavailable — no fictional data is displayed.', detailed: 'Detailed analysis', scoreMarkets: 'Score · Markets · Key facts', accessNote: 'Access after verification · 18+ · No profit is guaranteed', conditions: 'Commercial terms are set by the partner and must be checked before registration.', partnerSelected: 'Selected partner', depositNote: 'Minimum deposit set by the partner', downloadApk: 'Download APK', combo2: 'Target odds 2 combo', combo5: 'Target odds 5 combo', comboUnavailable: 'No verified combo is available right now.', comboSource: "Verified bookmaker odds · today’s data", comboUpdated: 'Updated' }
   : {
-    access: 'مساحة VIP · وصول خاص', title: 'مكتبك الخاص للتحليل', subtitle: 'BTTS · أكثر من 2.5 · النتيجة الدقيقة · مباريات دولية', published: 'اختيارات مميزة منشورة', description: 'رؤية أعمق للمباراة مع معلومات قبل البداية ومنهجية موثقة دون وعود بالربح.', unlock: 'فتح تحليل VIP', benefits: 'ما الذي تحصل عليه', benefitTitle: 'ملف مباراة أكثر اكتمالاً', choose: 'اختر شريك الوصول · يتم نسخ الرمز تلقائياً', selected: 'الشريك المختار', deposit: 'الحد الأدنى للإيداع 3000 XOF', signup: 'التسجيل في', download: 'تحميل التطبيق', steps: 'تفعيل بسيط وشفاف', step1: 'سجّل باستخدام الرمز', step2: 'أجرِ الحد الأدنى للإيداع الذي يحدده الشريك', step3: 'أرسل هويتك عبر واتساب لإكمال التحقق', verify: 'إكمال التحقق عبر واتساب', desk: 'مكتب الذكاء الخاص', secure: 'معاينة آمنة', selections: 'الاختيارات', context: 'السياق', history: 'السجل', locked: 'تحليل احترافي محمي', preview: 'معاينة المباريات · بيانات محمية', encrypted: 'مشفّر', unavailable: 'المعاينة المميزة غير متاحة حالياً — لا يتم عرض بيانات وهمية.', detailed: 'تحليل مفصل', scoreMarkets: 'النتيجة · الأسواق · الحقائق الأساسية', accessNote: 'الوصول بعد التحقق · 18+ · لا يوجد ربح مضمون', conditions: 'يحدد الشريك الشروط التجارية ويجب التحقق منها قبل التسجيل.', partnerSelected: 'الشريك المختار', depositNote: 'الحد الأدنى للإيداع يحدده الشريك', downloadApk: 'تحميل التطبيق' }
+    access: 'مساحة VIP · وصول خاص', title: 'مكتبك الخاص للتحليل', subtitle: 'BTTS · أكثر من 2.5 · النتيجة الدقيقة · مباريات دولية', published: 'اختيارات مميزة منشورة', description: 'رؤية أعمق للمباراة مع معلومات قبل البداية ومنهجية موثقة دون وعود بالربح.', unlock: 'فتح تحليل VIP', benefits: 'ما الذي تحصل عليه', benefitTitle: 'ملف مباراة أكثر اكتمالاً', choose: 'اختر شريك الوصول · يتم نسخ الرمز تلقائياً', selected: 'الشريك المختار', deposit: 'الحد الأدنى للإيداع 3000 XOF', signup: 'التسجيل في', download: 'تحميل التطبيق', steps: 'تفعيل بسيط وشفاف', step1: 'سجّل باستخدام الرمز', step2: 'أجرِ الحد الأدنى للإيداع الذي يحدده الشريك', step3: 'أرسل هويتك عبر واتساب لإكمال التحقق', verify: 'إكمال التحقق عبر واتساب', desk: 'مكتب الذكاء الخاص', secure: 'معاينة آمنة', selections: 'الاختيارات', context: 'السياق', history: 'السجل', locked: 'تحليل احترافي محمي', preview: 'معاينة المباريات · بيانات محمية', encrypted: 'مشفّر', unavailable: 'المعاينة المميزة غير متاحة حالياً — لا يتم عرض بيانات وهمية.', detailed: 'تحليل مفصل', scoreMarkets: 'النتيجة · الأسواق · الحقائق الأساسية', accessNote: 'الوصول بعد التحقق · 18+ · لا يوجد ربح مضمون', conditions: 'يحدد الشريك الشروط التجارية ويجب التحقق منها قبل التسجيل.', partnerSelected: 'الشريك المختار', depositNote: 'الحد الأدنى للإيداع يحدده الشريك', downloadApk: 'تحميل التطبيق', combo2: 'تركيبة بهدف معامل 2', combo5: 'تركيبة بهدف معامل 5', comboUnavailable: 'لا توجد تركيبة موثقة متاحة حالياً.', comboSource: 'كوتات مراهنات موثقة · بيانات اليوم', comboUpdated: 'آخر تحديث' }
   const [copiedCode, setCopiedCode] = useState(false)
   const [toast, setToast] = useState('')
   const [bookmaker, setBookmaker] = useState<'linebet'|'888starz'>('linebet')
   const [previewMatches, setPreviewMatches] = useState<PreviewMatch[]>([])
   const [vipCount, setVipCount] = useState<number | null>(null)
   const [generationDate, setGenerationDate] = useState<string | null>(null)
+  const [vipCombos, setVipCombos] = useState<{ target2: VipCombo | null; target5: VipCombo | null; date?: string; fetchedAt?: string; status?: string } | null>(null)
   const [showModal, setShowModal] = useState(false)
 
   const code = bookmaker === 'linebet' ? 'VISION221' : 'vision221'
@@ -109,6 +128,15 @@ export default function VipPage() {
       .catch(() => {
         // Network/parse failure — leave previewMatches empty (no fake matches)
       })
+  }, [])
+
+  useEffect(() => {
+    fetch('/vip-combos.json')
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (data && typeof data === 'object') setVipCombos(data)
+      })
+      .catch(() => setVipCombos(null))
   }, [])
 
   const showToast = (m: string) => { setToast(m); setTimeout(() => setToast(''), 2500) }
@@ -202,6 +230,26 @@ export default function VipPage() {
                 </div>
               </div>
             </div>
+
+            {/* ═══ VERIFIED DAILY COMBOS ═══ */}
+            <section className="mb-5 rounded-2xl p-3" style={{ backgroundColor: `${C.surface}CC`, border: `1px solid ${C.gold}35` }} aria-label="Combinés VIP du jour">
+              <div className="flex items-center justify-between mb-3">
+                <div>
+                  <div className="text-[10px] font-black uppercase tracking-[0.16em]" style={{ color: C.gold }}>{vipCopy.combo2} · {vipCopy.combo5}</div>
+                  <div className="text-[9px] mt-1" style={{ color: C.textSec }}>{vipCopy.comboSource}</div>
+                </div>
+                {vipCombos?.fetchedAt && <span className="text-[8px]" style={{ color: C.textSec }}>{vipCopy.comboUpdated} {new Date(vipCombos.fetchedAt).toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', timeZone: 'Africa/Dakar' })}</span>}
+              </div>
+              <div className="grid gap-2 sm:grid-cols-2">
+                {([['target2', vipCopy.combo2], ['target5', vipCopy.combo5]] as const).map(([key, label]) => {
+                  const combo = vipCombos?.[key]
+                  return <div key={key} className="rounded-xl p-3" style={{ backgroundColor: C.bg, border: `1px solid ${C.border}` }}>
+                    <div className="flex items-center justify-between mb-2"><span className="text-[10px] font-black uppercase" style={{ color: C.gold }}>{label}</span>{combo && <strong style={{ color: C.success }}>@{combo.totalOdds.toFixed(2)}</strong>}</div>
+                    {combo ? <div className="space-y-1">{combo.legs.map((leg, index) => <div key={`${leg.eventId || index}-${leg.selection}`} className="text-[9px]" style={{ color: C.textSec }}>{leg.home} — {leg.away}<br /><span style={{ color: C.text }}>{leg.selection} @{leg.odds.toFixed(2)}</span> · {leg.bookmaker}</div>)}</div> : <div className="text-[9px]" style={{ color: C.textSec }}>{vipCopy.comboUnavailable}</div>}
+                  </div>
+                })}
+              </div>
+            </section>
 
             {/* ═══ PREMIUM LOCKED CARD ═══ */}
             <div className="vip-3d-card relative rounded-[16px] overflow-hidden" style={{
