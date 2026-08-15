@@ -2,38 +2,38 @@
   "date": "2026-08-15",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-15T19:16:21.807Z",
-  "eventCount": 100,
-  "legCount": 69,
+  "fetchedAt": "2026-08-15T22:30:22.949Z",
+  "eventCount": 33,
+  "legCount": 86,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "73265166",
-          "home": "Estudiantes de La Plata",
-          "away": "Gimnasia y Esgrima La Plata",
-          "league": "Argentina - Primera LPF, Clausura",
-          "kickoff": "2026-08-15T19:45:00Z",
-          "bookmaker": "Bet365",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.13,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T19:12:53.182Z"
-        },
-        {
-          "eventId": "73663046",
-          "home": "Estudiantes de Merida",
-          "away": "Academia Anzoategui FC",
-          "league": "Venezuela - Primera Division, Clausura",
-          "kickoff": "2026-08-15T20:00:00Z",
+          "eventId": "73204498",
+          "home": "CF Pachuca",
+          "away": "Pumas Unam",
+          "league": "Mexico - Liga MX, Women, Apertura",
+          "kickoff": "2026-08-15T23:00:00Z",
           "bookmaker": "Unibet",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 1.77,
+          "odds": 1.45,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-13T01:01:26.676Z"
+          "updatedAt": "2026-08-15T05:46:06.689Z"
+        },
+        {
+          "eventId": "73610362",
+          "home": "Portuguesa FC",
+          "away": "Trujillanos FC",
+          "league": "Venezuela - Primera Division, Clausura",
+          "kickoff": "2026-08-15T23:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.38,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-15T21:50:58.075Z"
         }
       ],
       "totalOdds": 2
@@ -41,43 +41,30 @@
     "target5": {
       "legs": [
         {
-          "eventId": "73734484",
-          "home": "Zamora FC Barinas II",
-          "away": "Atletico El Vigia",
-          "league": "Venezuela - Segunda Division, Central-West",
-          "kickoff": "2026-08-15T19:30:00Z",
-          "bookmaker": "Bet365 (no latency)",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.82,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T19:14:19.979Z"
-        },
-        {
-          "eventId": "73274374",
-          "home": "CS Alagoano AL",
-          "away": "Uberlandia EC MG",
-          "league": "Brazil - Brasileiro Serie D, Knockout Stage",
-          "kickoff": "2026-08-15T20:00:00Z",
+          "eventId": "66299342",
+          "home": "CF Montreal",
+          "away": "DC United",
+          "league": "USA - MLS",
+          "kickoff": "2026-08-15T23:30:00Z",
           "bookmaker": "Unibet",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 2.02,
+          "odds": 1.54,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-14T04:31:19.436Z"
+          "updatedAt": "2026-08-15T01:22:28.604Z"
         },
         {
-          "eventId": "69255236",
-          "home": "Amazonas FC AM",
-          "away": "Botafogo FC PB",
-          "league": "Brazil - Brasileiro Serie C",
-          "kickoff": "2026-08-15T20:00:00Z",
+          "eventId": "66299340",
+          "home": "Charlotte FC",
+          "away": "Columbus Crew",
+          "league": "USA - MLS",
+          "kickoff": "2026-08-15T23:30:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.36,
+          "odds": 3.25,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T10:11:24.931Z"
+          "updatedAt": "2026-08-15T21:21:26.556Z"
         }
       ],
       "totalOdds": 5
