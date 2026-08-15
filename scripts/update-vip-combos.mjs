@@ -83,8 +83,23 @@ async function getJson(url) {
   return response.json()
 }
 
+async function readExisting() {
+  try { return JSON.parse(await fs.readFile(OUTPUT, 'utf8')) } catch { return null }
+}
+
 async function writeUnavailable(reason) {
-  await fs.writeFile(OUTPUT, `${JSON.stringify({ date: dakarDate(), timezone: TIME_ZONE, source: 'Odds-API.io', fetchedAt: new Date().toISOString(), status: 'unavailable', reason, combos: { target2: null, target5: null } }, null, 2)}\\n`)
+  const today = dakarDate()
+  const now = new Date().toISOString()
+  const existing = await readExisting()
+  const sameDayVerified = existing?.date === today && existing?.status === 'available' && existing?.combos?.target2 && existing?.combos?.target5
+  if (sameDayVerified) {
+    const preserved = { ...existing, lastAttemptedAt: now, refreshStatus: reason }
+    await fs.writeFile(OUTPUT, `${JSON.stringify(preserved, null, 2)}\n`)
+    console.warn(`[vip-combos] ${reason}; preserved verified same-day combos from ${existing.fetchedAt}`)
+    return true
+  }
+  await fs.writeFile(OUTPUT, `${JSON.stringify({ date: today, timezone: TIME_ZONE, source: 'Odds-API.io', fetchedAt: now, status: 'unavailable', reason, combos: { target2: null, target5: null } }, null, 2)}\n`)
+  return false
 }
 
 async function main() {
@@ -113,7 +128,11 @@ async function main() {
     eventCount: candidates.length, legCount: legs.length,
     status: 'available', combos: { target2: chooseCombo(legs, 2), target5: chooseCombo(legs, 5) },
   }
-  if (!payload.combos.target2 || !payload.combos.target5) payload.status = 'insufficient_verified_odds'
+  if (!payload.combos.target2 || !payload.combos.target5) {
+    const preserved = await writeUnavailable('insufficient_verified_odds')
+    if (preserved) return
+    payload.status = 'insufficient_verified_odds'
+  }
   await fs.writeFile(OUTPUT, `${JSON.stringify(payload, null, 2)}\n`)
   console.log(`[vip-combos] ${payload.status}; events=${candidates.length}; legs=${legs.length}`)
 }
