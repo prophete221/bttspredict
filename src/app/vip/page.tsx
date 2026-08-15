@@ -82,6 +82,25 @@ export default function VipPage() {
   const [showModal, setShowModal] = useState(false)
   const openVipUnlock = () => setShowModal(true)
 
+  useEffect(() => {
+    const nodes = Array.from(document.querySelectorAll<HTMLElement>('[data-vip-reveal]'))
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduced) {
+      nodes.forEach(node => node.classList.add('is-visible'))
+      return
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          observer.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' })
+    nodes.forEach(node => observer.observe(node))
+    return () => observer.disconnect()
+  }, [])
+
   const code = bookmaker === 'linebet' ? 'VISION221' : 'vision221'
   const inscriptionLink = bookmaker === 'linebet' ? LIEN_LINEBET : LIEN_888STARZ
   const apkLink = bookmaker === 'linebet' ? LIEN_LINEBET_APK : LIEN_888STARZ_APK
@@ -194,7 +213,7 @@ export default function VipPage() {
         )}
 
         {/* ═══ 1. VIP PREMIUM LOCKED CARD ═══ */}
-        <section className="vip-future-hero relative pt-8 pb-6 overflow-hidden">
+        <section data-vip-reveal className="vip-future-hero relative pt-8 pb-6 overflow-hidden">
           {/* Subtle background glow */}
           <div className="absolute inset-0 pointer-events-none" style={{
             background: `radial-gradient(ellipse 50% 40% at 50% 0%, ${C.gold}12, transparent 70%)`,
@@ -244,7 +263,7 @@ export default function VipPage() {
             </div>
 
             {/* ═══ VERIFIED DAILY COMBOS ═══ */}
-            <section className="vip-combo-deck mb-5 rounded-2xl p-3" style={{ backgroundColor: `${C.surface}CC`, border: `1px solid ${C.gold}35` }} aria-label="Combinés VIP du jour">
+            <section data-vip-reveal className="vip-combo-deck mb-5 rounded-2xl p-3" style={{ backgroundColor: `${C.surface}CC`, border: `1px solid ${C.gold}35` }} aria-label="Combinés VIP du jour">
               <div className="flex items-center justify-between mb-3">
                 <div>
                   <div className="text-[10px] font-black uppercase tracking-[0.16em]" style={{ color: C.gold }}>{vipCopy.combo2} · {vipCopy.combo5}</div>
@@ -407,7 +426,7 @@ export default function VipPage() {
         </section>
 
         {/* ═══ 2. VALEUR VIP — bénéfices réels, sans promesse de performance ═══ */}
-        <section className="max-w-md mx-auto px-4 pb-5" aria-labelledby="vip-benefits-title">
+        <section data-vip-reveal className="max-w-md mx-auto px-4 pb-5" aria-labelledby="vip-benefits-title">
           <div className="vip-3d-card rounded-2xl p-4" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
             <div className="flex items-center justify-between gap-3 mb-3">
               <div>
@@ -562,7 +581,7 @@ export default function VipPage() {
         </section>
 
         {/* ═══ FOOTER LÉGAL ═══ */}
-        <section className="max-w-md mx-auto px-4 pb-10">
+        <section data-vip-reveal className="max-w-md mx-auto px-4 pb-10">
           <div className="rounded-lg p-2.5 text-center" style={{ backgroundColor: 'rgba(255,209,102,0.06)', border: '1px solid rgba(255,209,102,0.15)' }}>
             <p className="text-[10px]" style={{ color: C.textMute }}>
               {t.legal.eighteen} · {t.legal.noGuarantee} · {t.legal.affiliation} ·{' '}
