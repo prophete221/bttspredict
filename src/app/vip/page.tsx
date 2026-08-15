@@ -135,7 +135,17 @@ export default function VipPage() {
     fetch(`/vip-combos.json?ts=${Date.now()}`, { cache: 'no-store' })
       .then(r => r.ok ? r.json() : null)
       .then(data => {
-        if (data && typeof data === 'object') setVipCombos(data)
+        // The public payload wraps the two cards under `combos`.
+        // Normalize it here so the UI cannot mistake valid data for an unavailable combo.
+        if (data && typeof data === 'object' && data.combos && typeof data.combos === 'object') {
+          setVipCombos({
+            target2: data.combos.target2 ?? null,
+            target5: data.combos.target5 ?? null,
+            date: typeof data.date === 'string' ? data.date : undefined,
+            fetchedAt: typeof data.fetchedAt === 'string' ? data.fetchedAt : undefined,
+            status: typeof data.status === 'string' ? data.status : undefined,
+          })
+        }
       })
       .catch(() => setVipCombos(null))
   }, [])
