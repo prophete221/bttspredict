@@ -2,72 +2,72 @@
   "date": "2026-08-15",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-15T13:37:18.782Z",
+  "fetchedAt": "2026-08-15T14:31:09.276Z",
   "eventCount": 100,
-  "legCount": 48,
+  "legCount": 50,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "72084112",
-          "home": "Sunderland AFC",
-          "away": "Stade Rennais FC",
+          "eventId": "72224288",
+          "home": "AC Milan",
+          "away": "Manchester United",
           "league": "International Clubs - Club Friendly Games",
-          "kickoff": "2026-08-15T14:00:00Z",
+          "kickoff": "2026-08-15T14:45:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.2,
+          "odds": 1.15,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-14T16:35:49.405Z"
+          "updatedAt": "2026-08-15T14:16:43.663Z"
         },
         {
-          "eventId": "72346242",
-          "home": "Bangor FC",
-          "away": "Cliftonville FC",
-          "league": "Northern Ireland - Premiership",
-          "kickoff": "2026-08-15T14:00:00Z",
+          "eventId": "72300710",
+          "home": "FK Pribram",
+          "away": "1.SK Prostejov",
+          "league": "Czechia - FNL",
+          "kickoff": "2026-08-15T15:00:00Z",
           "bookmaker": "Bet365",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 1.67,
+          "odds": 1.73,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T13:36:05.096Z"
+          "updatedAt": "2026-08-15T14:30:50.795Z"
         }
       ],
-      "totalOdds": 2
+      "totalOdds": 1.99
     },
     "target5": {
       "legs": [
         {
-          "eventId": "72084112",
-          "home": "Sunderland AFC",
-          "away": "Stade Rennais FC",
-          "league": "International Clubs - Club Friendly Games",
-          "kickoff": "2026-08-15T14:00:00Z",
-          "bookmaker": "Unibet",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.56,
+          "eventId": "72607912",
+          "home": "1. FC Slovacko Uherske Hradiste",
+          "away": "SK Sigma Olomouc",
+          "league": "Czechia - 1. Liga",
+          "kickoff": "2026-08-15T15:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 3.5,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-14T16:35:49.405Z"
+          "updatedAt": "2026-08-15T14:29:02.849Z"
         },
         {
-          "eventId": "72223978",
-          "home": "FC Neptunas Klaipeda",
-          "away": "FK Babrungas Plunge",
-          "league": "Lithuania - 1 Lyga",
-          "kickoff": "2026-08-15T14:00:00Z",
+          "eventId": "72970470",
+          "home": "Fulham FC",
+          "away": "VfB Stuttgart",
+          "league": "International Clubs - Club Friendly Games",
+          "kickoff": "2026-08-15T15:00:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 3.2,
+          "odds": 1.43,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-10T17:10:25.22Z"
+          "updatedAt": "2026-08-14T16:35:49.405Z"
         }
       ],
-      "totalOdds": 4.99
+      "totalOdds": 5
     }
   }
 }
