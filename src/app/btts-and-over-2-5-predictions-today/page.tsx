@@ -7,12 +7,12 @@ const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: (
 const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictions'), { loading: () => null })
 
 export const metadata: Metadata = {
-  title: 'BTTS and Over 2.5 Predictions Today — Combined AI Tips',
+  title: 'BTTS + Over 2.5 Predictions Today | BTTSPredict',
   description: "Today's best BTTS + Over 2.5 combined predictions. AI-powered football tips where both teams score AND total goals exceed 2.5. Free, updated 4x daily. 18+.",
   alternates: { canonical: 'https://bttspredict.com/btts-and-over-2-5-predictions-today' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'BTTS and Over 2.5 Predictions Today — Combined AI Tips',
+    title: 'BTTS + Over 2.5 Predictions Today | BTTSPredict',
     description: "Today's best BTTS + Over 2.5 combined predictions. AI-powered football tips. 18+.",
     url: 'https://bttspredict.com/btts-and-over-2-5-predictions-today',
     type: 'website',

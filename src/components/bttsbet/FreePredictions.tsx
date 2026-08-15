@@ -8,7 +8,7 @@ import { staggerContainer, staggerChildFadeUp, subtleHover } from '@/lib/motionP
 import { resolveTeamLogo } from '@/lib/teamLogos'
 import PremiumButton from './PremiumButton'
 import { useLanguage } from './LanguageSwitcher'
-import { translationsFor } from '@/lib/i18n'
+import { translationsFor, type Locale } from '@/lib/i18n'
 
 // ─── Helpers ────────────────────────────────────────────────────────────
 function getMatchStatus(date: string, time?: string): 'live' | 'upcoming' | 'finished' {
@@ -204,9 +204,10 @@ function computeBtts(homeLambda: number, awayLambda: number): number {
 }
 
 // ─── PredictionCard ──────────────────────────────────────────────────────
-function PredictionCard({ match, index }: { match: MatchData; index: number }) {
+function PredictionCard({ match, index, initialLocale }: { match: MatchData; index: number; initialLocale?: Locale }) {
   const [expanded, setExpanded] = useState(false)
-  const { lang } = useLanguage()
+  const { lang: detectedLang } = useLanguage()
+  const lang = initialLocale ?? detectedLang
   const t = translationsFor(lang)
   const teams = match.match.split(/\s+vs?\s+/i)
   const home = teams[0]?.trim() || ''
@@ -467,9 +468,10 @@ function PredictionCard({ match, index }: { match: MatchData; index: number }) {
 }
 
 // ─── Main Component ─────────────────────────────────────────────────────
-export default function FreePredictions() {
+export default function FreePredictions({ initialLocale }: { initialLocale?: Locale } = {}) {
   const [ref, isVisible] = useScrollAnimation()
-  const { lang } = useLanguage()
+  const { lang: detectedLang } = useLanguage()
+  const lang = initialLocale ?? detectedLang
   const t = translationsFor(lang)
   const [matches, setMatches] = useState<MatchData[]>([])
   const [loading, setLoading] = useState(true)
@@ -702,7 +704,7 @@ export default function FreePredictions() {
         ) : (
           <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
             {filteredMatches.map((m, i) => (
-              <PredictionCard key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} />
+              <PredictionCard key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} initialLocale={lang} />
             ))}
           </div>
         )}

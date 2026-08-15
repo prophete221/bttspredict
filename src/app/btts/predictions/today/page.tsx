@@ -6,12 +6,12 @@ const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: (
 const BttsTodayDashboard = dynamic(() => import('@/components/bttsbet/BttsTodayDashboard'), { loading: () => null })
 
 export const metadata: Metadata = {
-  title: "BTTS Predictions Today (100% Free) - AI Football Tips & Stats",
+  title: "BTTS Predictions Today — Free AI Tips | BTTSPredict",
   description: "Best Both Teams to Score (BTTS) predictions today. AI-powered football tips, stats, and high-probability betting predictions updated daily.",
   alternates: { canonical: 'https://bttspredict.com/btts/predictions/today' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "BTTS Predictions Today (100% Free) - AI Football Tips & Stats",
+    title: "BTTS Predictions Today — Free AI Tips | BTTSPredict",
     description: "Best Both Teams to Score (BTTS) predictions today. AI-powered football tips, stats, and high-probability betting predictions updated daily.",
     url: 'https://bttspredict.com/btts/predictions/today',
     type: 'website',

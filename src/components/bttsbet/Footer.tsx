@@ -2,16 +2,17 @@
 
 import { useState } from 'react'
 import { useLanguage } from './LanguageSwitcher'
-import { localizedPath, translationsFor } from '@/lib/i18n'
+import { localizedPath, translationsFor, type Locale } from '@/lib/i18n'
 import { motion } from 'framer-motion'
 import { LEGAL, FAQ_ITEMS, LONASE } from '@/lib/constants'
 import { useScrollAnimation } from '@/hooks/useAnimations'
 //import { staggerContainer, fadeInUp } from '@/lib/motionPresets'
 
-export default function Footer() {
+export default function Footer({ initialLocale }: { initialLocale?: Locale } = {}) {
   const ref = null as any
   const [openFaq, setOpenFaq] = useState<number | null>(null)
-  const { lang } = useLanguage()
+  const { lang: detectedLang } = useLanguage()
+  const lang = initialLocale ?? detectedLang
   const t = translationsFor(lang)
   const legalLinks = lang === 'fr'
     ? [{ label: 'CGU', href: '/cgu' }, { label: 'Mentions légales', href: '/mentions-legales' }, { label: 'Confidentialité', href: '/politique-confidentialite' }, { label: 'Jouer responsable', href: '/jouer-responsable' }]

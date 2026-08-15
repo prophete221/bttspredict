@@ -26,19 +26,21 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   }
 }
 
-export default function LocalizedHomePage() {
+export default async function LocalizedHomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale: value } = await params
+  const locale = isLocale(value) && value !== 'fr' ? value as Locale : 'en'
   return (
     <div className="min-h-screen bg-dark-800 relative">
       <main id="main-content" className="relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
         <Navbar />
-        <Hero />
-        <FreePredictions />
+        <Hero initialLocale={locale} />
+        <FreePredictions initialLocale={locale} />
         <section className="max-w-[440px] mx-auto px-4 py-8">
           <div className="rounded-xl p-4 text-center" style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
             <p className="text-sm text-[#B7C4C1]">18+ · Sports betting carries risk. No future result is guaranteed.</p>
           </div>
         </section>
-        <Footer />
+        <Footer initialLocale={locale} />
       </main>
     </div>
   )
