@@ -23,14 +23,16 @@ function extractLegs(event, oddsResponse) {
       const marketName = String(market?.name || '').toLowerCase()
       const odds = Array.isArray(market?.odds) ? market.odds : []
       const isPeriodMarket = /(?:^|\s)(ht|1h|2h|half|period|first half|second half)(?:\s|$)/i.test(marketName)
-      if (isPeriodMarket) continue
+      const isBttsMarket = marketName === 'btts' || marketName === 'both teams to score'
+      const isTotalsMarket = marketName === 'totals' || marketName === 'total goals'
+      if (isPeriodMarket || (!isBttsMarket && !isTotalsMarket)) continue
       for (const quote of odds) {
         let selection = null
         let price = null
         if (marketName.includes('btts') || marketName.includes('both teams')) {
           selection = quote.yes != null ? 'BTTS — Oui' : quote.no != null ? 'BTTS — Non' : null
           price = asDecimal(quote.yes ?? quote.no)
-        } else if (marketName.includes('total') || marketName.includes('over')) {
+        } else if (isTotalsMarket) {
           const label = String(quote.label || '2.5')
           if (!/2[.,]5/.test(label) && !/over\s*2[.,]5/.test(marketName)) continue
           const over = quote.over ?? quote.Over
