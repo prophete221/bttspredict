@@ -1,312 +1,195 @@
-# BTTSPredict — Pronostics BTTS & Over 2,5
+# BTTSPredict
 
-Plateforme de pronostics football BTTS (Both Teams To Score) et Over 2,5 basés sur un modèle statistique (xG + Poisson lorsque ces données sont disponibles). Données ESPN publiques, suivi public vérifiable depuis le 08/08/2026.
+**BTTSPredict** est une plateforme statique internationale consacrée aux prédictions **BTTS**, **Over 2,5** et **score exact** sur des matchs de football internationaux. Le site publie des sélections horodatées, un historique public des résultats et un espace VIP avec des combinés quotidiens fondés sur des cotes bookmaker vérifiées.
 
-**URL de production** : https://bttspredict.com
+> BTTSPredict est un site informatif et d’affiliation. Il ne prend pas de paris, ne collecte pas de fonds et ne garantit aucun résultat futur. Les paris sportifs comportent un risque financier ; l’utilisateur doit jouer de manière responsable et respecter l’âge légal applicable.
 
-## Stack
+## Vue d’ensemble technique
 
-- **Next.js 16** (App Router, `output: export` — site statique)
-- **TypeScript** + **Tailwind CSS v4**
-- **framer-motion** (animations)
-- **shadcn/ui** (composants UI)
-- Déploiement via **GitHub Actions** → **LWS** (FTP)
-
-## Structure du projet
-
-```
-src/
-├── app/                    # Pages Next.js (App Router)
-│   ├── page.tsx           # Homepage — Pronostics BTTS et Over 2,5 du jour
-│   ├── vip/page.tsx       # Page VIP (carte premium verrouillée + unlock modal)
-│   ├── btts/              # BTTS predictions + statistics (spécialisé BTTS)
-│   │   ├── predictions/today/        # Dashboard avec AI Combo of the Day
-│   │   ├── predictions/tomorrow/
-│   │   └── statistics/
-│   ├── over-2-5/          # Over 2.5 predictions + statistics (spécialisé Over 2,5)
-│   │   ├── predictions/today/
-│   │   └── statistics/
-│   ├── btts-and-over-2-5-predictions-today/  # Page prédictions combinées
-│   ├── ai-correct-score-predictions/   # Page scores exacts (Poisson)
-│   ├── bonus-888starz/    # Page code promo 888Starz
-│   ├── code-promo-linebet-senegal/  # Page code promo Linebet
-│   ├── linebet-promo-code/  # Page redirect 301 → /code-promo-linebet-senegal
-│   ├── resultats-verifies/  # Historique auditable
-│   ├── historique/        # Historique complet vérifié
-│   ├── methodologie/      # Méthodologie modèle statistique + critères qualité Combo
-│   ├── sitemap.ts         # Sitemap Next.js natif (16 URLs)
-│   └── layout.tsx         # Layout global + metadata + cache-busting
-├── components/
-│   ├── bttsbet/           # Composants BTTSPredict
-│   │   ├── Navbar.tsx     # Navigation
-│   │   ├── Hero.tsx       # Hero homepage
-│   │   ├── FreePredictions.tsx  # Cartes matchs gratuits (BTTS + Over 2,5)
-│   │   ├── PromoVip.tsx   # Carte VIP verrouillée
-│   │   ├── VipUnlockModal.tsx  # Modal déverrouillage (instructions + vérif ID)
-│   │   ├── Footer.tsx     # Footer (liens légaux + sociaux)
-│   │   └── ...
-│   └── ui/                # Composants shadcn/ui
-├── lib/
-│   ├── constants.ts       # Liens affiliés (AFFILIATE.linebet/star888)
-│   ├── seo.ts             # checkSeo() anti-récidive (title ≤60, desc ≤150)
-│   ├── teamLogos.ts       # Résolution logos ESPN
-│   └── motionPresets.ts   # Animations framer-motion réutilisables
-├── hooks/                 # Hooks React (useAnimations, use-mobile, use-toast)
-└── app/globals.css        # Variables CSS Slate Design System v68+
-
-public/
-├── predictions.json       # Pronostics du jour (généré par CI)
-├── win-history.json       # Historique vérifié (généré par CI)
-├── predictions-archive/   # Archive quotidienne horodatée
-├── tracking-period.json  # Période de suivi public
-├── robots.txt            # Autorise tous les bots + chatbots IA
-├── sitemap.xml           # Généré par Next.js (14 URLs)
-├── manifest.json         # PWA manifest
-├── llms.txt              # Contexte pour LLMs (ChatGPT, Perplexity, Claude)
-├── ai.txt                # Contexte pour AI assistants
-├── humans.txt            # Équipe et mission
-├── .htaccess             # Redirects 301 + routing statique
-├── 404.html              # Page 404 custom
-└── logo/, logos/         # Logos équipes et bookmakers
-
-scripts/
-├── quick-update-predictions.mjs  # Génération pronostics (ESPN API + Poisson v92 real-data)
-├── enrich_predictions.py         # Enrichissement Gemini 2.0 Flash (ai_analysis, ai_key_fact)
-├── verify-results.mjs             # Vérification post-match (ESPN)
-├── update-win-history.mjs         # Mise à jour historique
-├── scrape-transfers.mjs          # Transferts joueurs
-├── submit-indexnow.mjs            # Indexation Bing IndexNow
-├── verify-seo.mjs                 # Audit SEO post-build (title ≤70, desc ≤160)
-└── seo-report.mjs                 # Rapport SEO complet
-```
-
-## Pages du site — 16 URLs canoniques (sitemap)
-
-| Route | Description | Priorité | Fréquence |
-|-------|-------------|----------|-----------|
-| `/` | Homepage — Pronostics BTTS et Over 2,5 du jour | 1.0 | daily |
-| `/btts/predictions/today` | Pronostics BTTS du jour + AI Combo of the Day | 0.9 | daily |
-| `/over-2-5/predictions/today` | Pronostics Over 2,5 du jour | 0.9 | daily |
-| `/btts-and-over-2-5-predictions-today` | Prédictions combinées BTTS + Over 2.5 | 0.9 | daily |
-| `/ai-correct-score-predictions` | Scores exacts (modèle Poisson) | 0.85 | daily |
-| `/btts/statistics` | Statistiques BTTS par ligue | 0.85 | monthly |
-| `/over-2-5/statistics` | Statistiques Over 2,5 par ligue | 0.85 | monthly |
-| `/resultats-verifies` | Résultats vérifiés | 0.85 | daily |
-| `/historique` | Historique complet vérifié | 0.85 | daily |
-| `/vip` | Programme VIP (carte premium + unlock modal) | 0.9 | daily |
-| `/methodologie` | Méthodologie + critères qualité Combo | 0.8 | monthly |
-| `/btts-c-est-quoi` | Guide BTTS — définition et exemples | 0.75 | monthly |
-| `/code-promo-linebet-senegal` | Code promo Linebet Sénégal | 0.95 | weekly |
-| `/bonus-888starz` | Code promo 888Starz Afrique | 0.9 | weekly |
-| `/jouer-responsable` | Jeu responsable — ressources d'aide | 0.5 | yearly |
-| `/mentions-legales` | Mentions légales | 0.3 | yearly |
-
-## Pages additionnelles (hors sitemap)
-
-| Route | Description |
-|-------|-------------|
-| `/btts/predictions/tomorrow` | Pronostics BTTS de demain |
-| `/match/[slug]` | Page match détaillée (SSG, matchs pré-générés dynamiquement) |
-| `/cgu` | Conditions générales d'utilisation |
-| `/politique-confidentialite` | Politique de confidentialité |
-| `/statistiques` | Page placeholder (statistiques en cours de compilation) |
-| `/linebet-promo-code` | Page redirect 301 → `/code-promo-linebet-senegal` |
-| `/predictions.json` | Route JSON (prédictions du jour) |
-| `/sitemap.xml` | Sitemap XML généré par Next.js (16 URLs) |
-| `/404.html` | Page 404 personnalisée |
-
-## Redirects 301 (`.htaccess`)
-
-| Ancienne URL | Redirigée vers |
+| Élément | Implémentation actuelle |
 |---|---|
-| `http://*` | `https://*` (HTTPS forcé) |
-| `www.bttspredict.com` | `bttspredict.com` (non-www) |
-| `/linebet-promo-code` | `/code-promo-linebet-senegal` |
-| `/betting-tips` | `/` |
-| `/bookmakers` | `/` |
-| `/correct-score-predictions` | `/` |
-| `/football-predictions-today` | `/` |
-| `/league-predictions` | `/` |
-| `/match-predictions` | `/` |
-| `/over-2-5-predictions` | `/` |
-| `/team-predictions` | `/` |
-| `/pronostics` | `/` |
-| `/pronostics/aujourd-hui` | `/` |
-| `/prediction-aviator` | `/` |
-| `/faille-fifa` | `/` |
-| `/blog` | `/` |
-| `/blog/*` | `/` |
-| `/presse` | `/` |
-| `/equipe` | `/` |
-| `/over-2-5` | `/` |
-| `/over-2-5/*` | `/` |
+| Framework | Next.js 16 avec App Router et TypeScript |
+| Rendu | Export statique vers `out/` pour hébergement FTP |
+| Style | Tailwind CSS v4 et styles globaux dans `src/app/globals.css` |
+| Interface | React, Framer Motion et composants réutilisables dans `src/components/` |
+| Internationalisation | Français par défaut, anglais sous `/en/` et arabe sous `/ar/` avec support RTL |
+| Fuseau métier | `Africa/Dakar` pour les dates de matchs et les données quotidiennes |
+| Données | Fichiers JSON versionnés dans `public/` et `public/predictions-archive/` |
+| Déploiement | GitHub Actions puis transfert FTP vers l’hébergement LWS |
+| Tests | Vitest, ESLint et vérification TypeScript |
 
-## Liens internes (navigation)
+## Démarrage local
 
-### Navbar
-- Logo → `/`
-- 6 liens : Accueil, Pronostics BTTS, Statistiques BTTS, Résultats vérifiés, VIP, Code promo Linebet
-
-### Footer
-- Liens légaux : `/cgu`, `/mentions-legales`, `/politique-confidentialite`, `/jouer-responsable`
-- Liens internes : `/historique`, `/methodologie`
-
-## Liens affiliés (20 liens, tous avec `rel="sponsored nofollow noopener noreferrer"`)
-
-### Linebet
-- **Inscription** : `https://lb-aff.com/L?tag=d_5589568m_22611c_site&site=5589568&ad=22611&r=registration`
-- **Téléchargement APK** : `https://lb-aff.com/L?tag=d_5589568m_66803c_apk1&site=5589568&ad=66803`
-- **Liens sociaux Linebet** :
-  - `https://vision221.lineorgs.com/`
-  - `https://linebet.press/vision221`
-  - `https://linebetop.com/en?promocode=VISION221`
-
-### 888Starz
-- **Inscription** : `https://888ghta.com/8hwF6V`
-- **Téléchargement APK** : `https://888ghta.com/5o6glw`
-
-### Composants utilisant ces liens
-| Composant | Lien(s) |
-|---|---|
-| `src/app/vip/page.tsx` | Linebet inscription + APK, 888Starz inscription + APK |
-| `src/app/vip/VipClient.tsx` | 4 liens (Linebet + 888Starz, inscription + APK) |
-| `src/app/code-promo-linebet-senegal/LinebetClient.tsx` | 2 liens Linebet |
-| `src/app/bonus-888starz/Star888Client.tsx` | 2 liens 888Starz |
-| `src/components/bttsbet/PremiumButton.tsx` | 1 lien générique (href en prop) |
-| `src/components/bttsbet/FreePredictionsWidget.tsx` | 1 lien Linebet |
-| `src/components/bttsbet/StickyCTABar.tsx` | 1 lien Linebet |
-| `src/components/bttsbet/VipCardWidget.tsx` | 1 lien Linebet |
-| `src/components/bttsbet/VipLevelModal.tsx` | 2 liens (Linebet + 888Starz) |
-| `src/components/bttsbet/VipUnlockModal.tsx` | 2 liens (Linebet + 888Starz) |
-| `src/components/bttsbet/LinebetApkButton.tsx` | 1 lien Linebet APK |
-| `src/components/bttsbet/HowToGetVip.tsx` | 1 lien Linebet (dynamique) |
-
-## Liens externes (sociaux et contact)
-
-### Réseaux sociaux (Footer)
-- **X (Twitter)** : `https://twitter.com/bttspredict`
-- **Facebook** : `https://www.facebook.com/bttspredict`
-- **Instagram** : `https://www.instagram.com/bttspredict`
-- **LinkedIn** : `https://www.linkedin.com/company/bttspredict`
-- **YouTube** : `https://www.youtube.com/@bttspredict`
-
-### Contact
-- **Email** : `mailto:contact@bttspredict.com`
-- **WhatsApp** : `https://wa.me/15406704172` (vérification VIP)
-
-### Sources de données
-- **ESPN Soccer API** : `https://site.api.espn.com/apis/site/v2/sports/soccer/`
-- **TheSportsDB** : `https://www.thesportsdb.com/`
-- **ESPN team logos** : `https://a.espncdn.com/i/teamlogos/soccer/500/`
-
-## Liens SEO et crawlers
-
-### Sitemap
-- `https://bttspredict.com/sitemap.xml` (16 URLs canoniques)
-
-### robots.txt
-Autorise **tous les bots** :
-- **Moteurs** : Googlebot, Bingbot, DuckDuckBot, Baiduspider, YandexBot, Slurp, Sogou, Exabot, PetalBot
-- **Sociaux** : Twitterbot, LinkedInBot, FacebookBot, TelegramBot, WhatsApp, Discordbot, Pinterest, Applebot
-- **Chatbots IA** : GPTBot, ChatGPT-User, OAI-SearchBot, ClaudeBot, Claude-Web, anthropic-ai, PerplexityBot, Perplexity-User, Bytespider, Meta-ExternalAgent, Meta-ExternalFetcher, CCBot, Amazonbot, Applebot-Extended, cohere-ai, Google-Extended, GoogleOther
-- **SEO tools** : semrushbot, AhrefsBot, MJ12bot, DotBot, ImagesiftBot, Diffbot
-
-### IndexNow
-- Clé : `ba48253f4d8544b3a93cc49a1498381a`
-- Fichier de vérification : `public/ba48253f4d8544b3a93cc49a1498381a.txt`
-
-### Fichiers contextuels pour LLMs
-- `public/llms.txt` — Contexte pour ChatGPT, Perplexity, Claude, Gemini
-- `public/ai.txt` — Contexte pour AI assistants
-- `public/humans.txt` — Équipe et mission
-
-## Démarrage
+Le projet nécessite Node.js 22 ou une version compatible avec la configuration du dépôt.
 
 ```bash
-npm install --legacy-peer-deps
-npm run dev      # http://localhost:3000
-npm run build    # Build statique → out/
-npm test         # Tests Vitest (33 tests)
-npm run lint     # ESLint
+npm ci --legacy-peer-deps
+npm run dev
 ```
 
-## Déploiement
+Le serveur de développement est disponible sur [http://localhost:3000](http://localhost:3000).
 
-Le déploiement est automatique via GitHub Actions (`.github/workflows/deploy.yml`) sur push vers `main` :
+| Commande | Fonction |
+|---|---|
+| `npm run dev` | Lance Next.js en mode développement sur le port 3000 |
+| `npm run build` | Génère le build statique dans `out/` |
+| `npm run start` | Sert le dossier `out/` localement sur le port 3000 |
+| `npm test` | Exécute la suite Vitest en mode ponctuel |
+| `npm run test:watch` | Lance Vitest en mode interactif |
+| `npm run test:ci` | Exécute Vitest avec un rapport détaillé |
+| `npm run lint` | Exécute ESLint sur le dépôt |
+| `npx tsc --noEmit` | Vérifie les types TypeScript sans produire de fichiers |
 
-1. Checkout `main`
-2. Setup Node.js 22
-3. `npm ci --legacy-peer-deps`
-4. Génération pronostics (`scripts/quick-update-predictions.mjs` — ESPN API)
-5. Vérification résultats (`scripts/verify-results.mjs`)
-6. Mise à jour historique (`scripts/update-win-history.mjs`)
-7. Build statique (`npm run build`)
-8. Copy routing files (`.htaccess`, `404.html`, `robots.txt`, `sitemap.xml`)
-9. Commit data (auto-update predictions, win-history, transfers)
-10. Déploiement FTP vers LWS via `lftp`
+## Structure du dépôt
 
-Cron : `0 4,6,14,22 * * *` (4 mises à jour quotidiennes à 04h, 06h, 14h, 22h UTC)
+```text
+src/
+  app/                  Pages App Router, layouts, metadata et routes dynamiques
+  components/           Composants d’interface partagés, dashboard et VIP
+  hooks/                Hooks React réutilisables
+  lib/                  Internationalisation, dates Dakar et constantes métier
+public/
+  predictions.json      Jeu de prédictions courant exposé publiquement
+  vip-combos.json       Combinés VIP du jour
+  win-history.json      Historique public des résultats
+  transfers.json        Données de transferts publiées
+  predictions-archive/  Archives quotidiennes des prédictions
+  robots.txt             Directives pour les robots
+  sitemap.xml            Sitemap public
+scripts/
+  quick-update-predictions.mjs  Génération et mise à jour des prédictions
+  update-vip-combos.mjs         Génération des combinés VIP à partir des cotes
+  verify-results.mjs             Vérification des matchs terminés
+  update-win-history.mjs         Mise à jour de l’historique
+  validate-predictions.mjs      Validation du schéma des données
+  scrape-transfers.mjs          Mise à jour des transferts
+.github/workflows/
+  deploy.yml             Génération quotidienne, tests, build et déploiement FTP
+```
 
-## Codes promo affiliés
+## Routes principales
 
-- **Linebet** : `VISION221` (majuscules)
-- **888Starz** : `vision221` (minuscules)
-- Dépôt minimum : à vérifier sur les sites officiels des bookmakers
-- WhatsApp vérification : +1 540 670 4172
+Les routes françaises historiques restent disponibles sans préfixe. Les versions anglaise et arabe utilisent respectivement `/en/` et `/ar/`.
 
-⚠ **Avertissement** : Les conditions et montants des bonus bookmakers peuvent évoluer. BTTSPredict ne présente plus de montants fixes ("90 000 XOF", "Bonus 200%") comme garantis — voir les mentions légales et les pages affiliées pour les formulations conditionnelles.
+| Route | Rôle |
+|---|---|
+| `/` | Accueil de la plateforme |
+| `/btts/predictions/today` | Pronostics BTTS du jour |
+| `/over-2-5/predictions/today` | Pronostics Over 2,5 du jour |
+| `/ai-correct-score-predictions` | Prédictions de score exact |
+| `/match/[slug]` | Fiche détaillée d’un match généré statiquement |
+| `/vip` | Dashboard VIP et combinés du jour |
+| `/historique` | Historique des résultats vérifiés |
+| `/statistiques` | Statistiques publiques |
+| `/methodologie` | Méthodologie et limites du système |
+| `/code-promo-linebet-senegal` | Page affiliée Linebet |
+| `/bonus-888starz` | Page affiliée 888Starz |
+| `/sitemap.xml` | Sitemap généré pour l’indexation |
+| `/robots.txt` | Directives d’exploration |
+| `/predictions.json` | Données publiques du jour |
 
-## Palette de couleurs (Slate Design System)
+Les routes dynamiques de match utilisent des slugs normalisés et sont générées par `generateStaticParams`. Les caractères accentués des noms d’équipes sont pris en charge, notamment `Fürth` et `Vitória`.
 
-| Token | Couleur | Usage |
-|---|---|---|
-| `bg` | `#0F172A` | Fond principal (Slate 900) |
-| `surface` | `#1E293B` | Cartes (Slate 800) |
-| `border` | `#334155` | Bordures (Slate 700) |
-| `text` | `#F8FAFC` | Texte principal (Slate 50) |
-| `textSec` | `#94A3B8` | Texte secondaire (Slate 400) |
-| Baobab / Success | `#10B981` | CTA principal, succès (Emerald 500) |
-| Data / IA | `#3B82F6` | Données, IA (Blue 500) |
-| Warning | `#F59E0B` | Avertissement, Over 2.5 (Amber 500) |
-| Danger | `#EF4444` | Erreur, LOW qualité (Red 500) |
-| Gold | `#FFD700` | Premium VIP, AI Combo of the Day |
+## Internationalisation et dates
 
-## Conformité et anti-hallucination
+Le français constitue la langue par défaut. Les dictionnaires sont centralisés dans `src/lib/i18n.ts`, tandis que les pages localisées sont générées sous `/en/` et `/ar/`. L’interface arabe applique le sens de lecture RTL sans dupliquer la logique métier.
 
-### Données non sourcées
-- Toutes les valeurs statistiques sans source vérifiable sont marquées **"À VÉRIFIER"** dans l'UI
-- Les pages `/btts/statistics` et `/over-2-5/statistics` n'affichent aucun chiffre non sourcé
-- Aucun taux de réussite inventé pour les sports VIP
-- Aucune cote bookmaker artificielle (suppression de la colonne P/L basée sur cote 1.75 fixe)
-- Aucune promesse temporelle ("dans 7 jours", "100+ matchs vérifiés")
+Toutes les dates qui influencent le comportement visible du produit utilisent le fuseau **`Africa/Dakar`**, centralisé dans `src/lib/dakar-date.ts`. Cela concerne notamment la séparation entre matchs du jour et matchs à venir, les indications « aujourd’hui » et « demain », les statuts du ticker et la date des combinés VIP.
 
-### Affirmations éditoriales alignées avec le moteur
-- Le terme "modèle IA nouvelle génération", "50+ variables", "calibration mensuelle", "entraîné sur 2023-2025" ont été supprimés du site
-- Le terme "experts" est remplacé par "modèle statistique"
-- Aucune référence à blessures/météo/H2H comme données systématiquement utilisées
-- Le AI Combo of the Day est explicitement décrit comme sélection déterministe (pas Gemini)
+## Données de prédictions
 
-### Placeholders désactivés
-- **Google Analytics** : désactivé par défaut — activé uniquement si `NEXT_PUBLIC_GA_ID` est défini dans l'environnement de build (env-gating)
-- **Firebase** : `AIzaSyDemoKeyReplaceMeWithYourOwn` dans `AuthContext.jsx` (module mort non importé, non chargé en production)
+Le fichier `public/predictions.json` constitue le jeu courant publié par le site. Les archives quotidiennes sont conservées sous `public/predictions-archive/` afin de permettre la vérification historique.
 
-### Liens affiliés
-- **20/20 liens** avec `rel="sponsored nofollow noopener noreferrer"` (4 attributs complets)
-- Disclosure visible sur toutes les pages affiliées : "Lien d'affiliation rémunéré. BTTSPredict ne prend pas de paris et ne collecte pas de fonds."
+Le validateur `scripts/validate-predictions.mjs` contrôle notamment les dates ISO, les champs obligatoires et, dans le workflow de production, la présence d’un horodatage `lastUpdated`. Les prédictions affichées comme celles du jour doivent correspondre à la date métier de Dakar ; les matchs futurs restent dans les sections à venir.
 
-## 18+ Jeu responsable
+Les sources et résultats sont traités avec prudence : une donnée indisponible n’est pas remplacée par une valeur fictive, une statistique non vérifiable n’est pas présentée comme une précision réelle et les résultats gagnés comme perdus restent représentés dans l’historique public.
 
-BTTSPredict est un site informatif d'affiliation. Il ne prend pas de paris et ne collecte pas de fonds. Aucun gain n'est garanti. Les paris sportifs comportent un risque de perte. Jouez de manière responsable.
+## Combinés VIP du jour
 
-Ressources d'aide : `/jouer-responsable`
+Le générateur `scripts/update-vip-combos.mjs` produit `public/vip-combos.json`. Il utilise les matchs du jour, filtre les marchés **à temps réglementaire** et ne retient que les sélections compatibles avec le pipeline de cotes bookmaker configuré.
 
-## Documentation
+| Carte | Libellé affiché |
+|---|---|
+| Cible proche de 2 | `Combiné cote 2 du jour · [date]` |
+| Cible proche de 5 | `Combiné cote 5 du jour · [date]` |
 
-- `GLM_MASTER_EXECUTION_REPORT.md` — Rapport d'exécution complet (Tâches 001-002)
-- `GLM_TASK_003_REPORT.md` — Audit pré-merge
-- `GLM_TASK_004_REPORT.md` — Statistiques sourcées
-- `GLM_TASK_005_REPORT.md` — Harmonisation liens affiliés
+Les cotes affichées sont les cotes reçues du fournisseur configuré, et non des estimations calculées artificiellement. La source actuelle est **Odds-API.io** lorsque la clé serveur est disponible. La clé ne doit jamais être placée dans le code ou dans `public/`.
 
-## Licence
+En cas de réponse HTTP 429 après une récupération valide, le générateur conserve uniquement les combinés vérifiés du même jour et dont les deux cibles sont présentes. Il ne réutilise jamais une donnée d’une journée précédente. Si aucune donnée valide n’est disponible, le dashboard affiche un état indisponible explicite.
 
-Données ESPN publiques. Code propriétaire BTTSPredict. Aucune garantie future. 18+.
+## Déblocage VIP et WhatsApp
+
+Le déblocage VIP est géré par `src/components/bttsbet/VipUnlockModal.tsx`. Le parcours demande le bookmaker et le **Player ID**, effectue une vérification locale et redirige ensuite vers WhatsApp. Le message généré inclut le bookmaker, l’ID joueur saisi et le code promo sélectionné.
+
+| Partenaire | Code promo |
+|---|---|
+| Linebet | `VISION221` |
+| 888Starz | `vision221` |
+
+Les conditions commerciales, les bonus et les dépôts minimums doivent être vérifiés directement auprès du partenaire. Ils peuvent évoluer et ne constituent pas une garantie de gain.
+
+## Pipeline GitHub Actions et déploiement
+
+Le workflow `.github/workflows/deploy.yml` est déclenché sur les changements de `main` et contrôle séparément les pull requests. Une pull request exécute les tests, le lint, le typecheck et le build sans déclencher de transfert FTP de production.
+
+Sur `main`, le workflow effectue les opérations suivantes :
+
+1. Installe les dépendances avec `npm ci --legacy-peer-deps`.
+2. Met à jour les prédictions depuis les sources publiques configurées.
+3. Enrichit les données lorsque les secrets correspondants sont disponibles.
+4. Génère les combinés VIP depuis les cotes bookmaker configurées.
+5. Vérifie les résultats terminés et met à jour l’historique.
+6. Met à jour les transferts lorsque la source est disponible.
+7. Valide `public/predictions.json`.
+8. Construit l’export statique avec `npm run build`.
+9. Copie les fichiers de routage nécessaires dans `out/`.
+10. Committe les données générées lorsqu’elles ont changé.
+11. Nettoie de manière prudente les anciens répertoires de build `_next/` sur le serveur FTP.
+12. Transfère `out/` vers l’hébergement LWS.
+13. Notifie IndexNow après le déploiement.
+
+Les secrets sont configurés dans GitHub Actions et ne doivent pas être ajoutés au dépôt. Les noms actuellement utilisés par le workflow incluent notamment `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`, `ODDS_API_KEY` et les identifiants nécessaires aux sources optionnelles.
+
+## SEO, accessibilité et fichiers publics
+
+Les métadonnées sont définies dans les layouts et pages App Router. Les routes prioritaires disposent de titres localisés, de données structurées lorsque nécessaire et d’alternatives textuelles pour les logos et images. Les fichiers publics suivants participent à l’exploration et au contexte du site :
+
+| Fichier | Fonction |
+|---|---|
+| `public/robots.txt` | Règles pour les robots d’exploration |
+| `public/sitemap.xml` | Liste des URLs canoniques publiées |
+| `public/llms.txt` | Contexte synthétique destiné aux assistants IA |
+| `public/ai.txt` | Informations complémentaires pour les systèmes IA |
+| `public/manifest.json` | Métadonnées d’installation et d’interface |
+
+Après une modification de route ou de metadata, vérifier le build statique et les fichiers générés dans `out/` avant déploiement.
+
+## Tests et vérifications recommandées
+
+Avant une pull request, exécuter les contrôles suivants :
+
+```bash
+npm test
+npm run lint
+npx tsc --noEmit
+npm run build
+git diff --check
+```
+
+Pour une modification touchant les dates, vérifier au minimum un environnement navigateur dont le fuseau diffère de Dakar. Pour une modification du générateur VIP, vérifier la date du payload, la présence des deux cibles, les marchés à temps réglementaire et le comportement sur réponse HTTP 429.
+
+## Limites et responsabilité
+
+BTTSPredict ne fournit pas de conseil financier personnalisé et ne promet pas de performance future. Les probabilités, scores exacts, marchés BTTS et marchés Over 2,5 sont des estimations produites à partir des données disponibles au moment de la publication. Une absence de donnée doit rester visible comme telle plutôt qu’être remplacée par une affirmation non vérifiable.
+
+## Références
+
+[1]: https://nextjs.org/docs "Documentation officielle Next.js"
+[2]: https://nextjs.org/docs/app/building-your-application/deploying/static-exports "Next.js — Static Exports"
+[3]: https://docs.github.com/en/actions "Documentation GitHub Actions"
+[4]: https://www.odds-api.io/ "Odds-API.io"
+[5]: https://www.bttspredict.com/ "BTTSPredict — site public"
+
+## Licence et propriété
+
+Le code applicatif et la marque BTTSPredict sont propriétaires. Les données publiques utilisées par les scripts doivent respecter les conditions des sources correspondantes. Aucune partie de ce README ne constitue une garantie de résultat de pari.
