@@ -2,10 +2,72 @@
   "date": "2026-08-15",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-15T09:41:38.506Z",
-  "status": "insufficient_verified_odds",
+  "fetchedAt": "2026-08-15T10:37:06.533Z",
+  "eventCount": 100,
+  "legCount": 218,
+  "status": "available",
   "combos": {
-    "target2": null,
-    "target5": null
+    "target2": {
+      "legs": [
+        {
+          "eventId": "72044278",
+          "home": "Hillerod Fodbold",
+          "away": "Aarhus Fremad",
+          "league": "Denmark - 1st Division",
+          "kickoff": "2026-08-15T11:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.61,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-15T10:35:09.3Z"
+        },
+        {
+          "eventId": "66918244",
+          "home": "IK Uppsala Fotboll",
+          "away": "Malmo FF",
+          "league": "Sweden - Damallsvenskan, Women",
+          "kickoff": "2026-08-15T11:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.24,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-14T18:39:48.323Z"
+        }
+      ],
+      "totalOdds": 2
+    },
+    "target5": {
+      "legs": [
+        {
+          "eventId": "72575692",
+          "home": "Sparta Prague U19",
+          "away": "FC Zlin U19",
+          "league": "Czechia - U19 1. Liga",
+          "kickoff": "2026-08-15T11:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Totals HT",
+          "selection": "Over 2.5",
+          "odds": 2,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-14T08:45:18.21Z"
+        },
+        {
+          "eventId": "68311744",
+          "home": "BK Olympic",
+          "away": "Ariana FC",
+          "league": "Sweden - Ettan, Sodra",
+          "kickoff": "2026-08-15T11:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Both Teams To Score 2H",
+          "selection": "BTTS — Oui",
+          "odds": 2.5,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-15T10:35:09.3Z"
+        }
+      ],
+      "totalOdds": 5
+    }
   }
 }
