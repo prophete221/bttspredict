@@ -80,6 +80,7 @@ export default function VipPage() {
   const [generationDate, setGenerationDate] = useState<string | null>(null)
   const [vipCombos, setVipCombos] = useState<{ target2: VipCombo | null; target5: VipCombo | null; date?: string; fetchedAt?: string; status?: string } | null>(null)
   const [showModal, setShowModal] = useState(false)
+  const openVipUnlock = () => setShowModal(true)
 
   const code = bookmaker === 'linebet' ? 'VISION221' : 'vision221'
   const inscriptionLink = bookmaker === 'linebet' ? LIEN_LINEBET : LIEN_888STARZ
@@ -193,7 +194,7 @@ export default function VipPage() {
         )}
 
         {/* ═══ 1. VIP PREMIUM LOCKED CARD ═══ */}
-        <section className="relative pt-8 pb-6 overflow-hidden">
+        <section className="vip-future-hero relative pt-8 pb-6 overflow-hidden">
           {/* Subtle background glow */}
           <div className="absolute inset-0 pointer-events-none" style={{
             background: `radial-gradient(ellipse 50% 40% at 50% 0%, ${C.gold}12, transparent 70%)`,
@@ -243,7 +244,7 @@ export default function VipPage() {
             </div>
 
             {/* ═══ VERIFIED DAILY COMBOS ═══ */}
-            <section className="mb-5 rounded-2xl p-3" style={{ backgroundColor: `${C.surface}CC`, border: `1px solid ${C.gold}35` }} aria-label="Combinés VIP du jour">
+            <section className="vip-combo-deck mb-5 rounded-2xl p-3" style={{ backgroundColor: `${C.surface}CC`, border: `1px solid ${C.gold}35` }} aria-label="Combinés VIP du jour">
               <div className="flex items-center justify-between mb-3">
                 <div>
                   <div className="text-[10px] font-black uppercase tracking-[0.16em]" style={{ color: C.gold }}>{vipCopy.combo2} · {vipCopy.combo5}</div>
@@ -254,17 +255,17 @@ export default function VipPage() {
               <div className="grid gap-2 sm:grid-cols-2">
                 {([['target2', vipCopy.combo2], ['target5', vipCopy.combo5]] as const).map(([key, label]) => {
                   const combo = vipCombos?.[key]
-                  return <div key={key} className="rounded-xl p-3 relative overflow-hidden" style={{ backgroundColor: C.bg, border: `1px solid ${C.border}` }}>
-                    <div className="flex items-center justify-between mb-2"><span className="text-[10px] font-black uppercase" style={{ color: C.gold }}>{label}</span>{combo && <strong style={{ color: C.success }}>@{combo.totalOdds.toFixed(2)}</strong>}</div>
+                  return <div key={key} className="vip-combo-card vip-3d-card rounded-xl p-3 relative overflow-hidden" style={{ backgroundColor: C.bg, border: `1px solid ${C.border}` }}>
+                    <div className="vip-combo-card__head flex items-center justify-between mb-2"><span className="text-[10px] font-black uppercase" style={{ color: C.gold }}>{label}</span>{combo && <strong className="vip-combo-card__odds" style={{ color: C.success }}>@{combo.totalOdds.toFixed(2)}</strong>}</div>
                     {combo ? <>
                       <div className="text-[9px] mb-2" style={{ color: C.textSec }}>{combo.legs.length} sélections vérifiées · détails protégés</div>
-                      <div className="relative rounded-lg p-2" style={{ border: `1px solid ${C.border}`, minHeight: 54 }}>
+                      <div className="vip-combo-card__locked relative rounded-lg p-2" style={{ border: `1px solid ${C.border}`, minHeight: 54 }}>
                         <div className="space-y-1" style={{ filter: 'blur(5px)', opacity: 0.55, userSelect: 'none' }} aria-hidden="true">
                           {combo.legs.map((leg, index) => <div key={`${leg.eventId || index}-${leg.selection}`} className="text-[9px]" style={{ color: C.textSec }}>{leg.home} — {leg.away} · {leg.selection} @{leg.odds.toFixed(2)}</div>)}
                         </div>
-                        <div className="absolute inset-0 flex items-center justify-center gap-1.5" style={{ backgroundColor: 'rgba(7,16,24,0.62)' }}>
-                          <span aria-hidden="true" style={{ color: C.gold }}>▣</span><span className="text-[8px] font-black uppercase tracking-wider" style={{ color: C.gold }}>VIP · Débloquer les matchs</span>
-                        </div>
+                        <button type="button" className="vip-combo-card__lock absolute inset-0 flex items-center justify-center gap-1.5 cursor-pointer" style={{ backgroundColor: 'rgba(7,16,24,0.62)' }} onClick={openVipUnlock} aria-label={vipCopy.unlock}>
+                          <span aria-hidden="true" style={{ color: C.gold }}>▣</span><span className="text-[8px] font-black uppercase tracking-wider" style={{ color: C.gold }}>{vipCopy.unlock}</span>
+                        </button>
                       </div>
                     </> : <div className="text-[9px]" style={{ color: C.textSec }}>{vipCopy.comboUnavailable}</div>}
                   </div>
@@ -365,14 +366,15 @@ export default function VipPage() {
                       </div>
 
                       {/* Lock overlay */}
-                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2" style={{ backgroundColor: 'rgba(15,23,42,0.8)' }}>
+                      <button type="button" className="absolute inset-0 flex flex-col items-center justify-center gap-2 cursor-pointer" style={{ backgroundColor: 'rgba(15,23,42,0.8)' }} onClick={openVipUnlock} aria-label={vipCopy.unlock}>
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="2">
                           <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                           <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                         </svg>
                         <span className="text-[9px] font-bold uppercase tracking-wider" style={{ color: C.gold }}>{vipCopy.detailed}</span>
                         <span className="text-[8px]" style={{ color: C.textSec }}>{vipCopy.scoreMarkets}</span>
-                      </div>
+                        <span className="text-[8px] font-black uppercase tracking-wider" style={{ color: C.gold }}>{vipCopy.unlock}</span>
+                      </button>
                     </div>
                   </div>
                 ))}
@@ -381,7 +383,7 @@ export default function VipPage() {
               {/* Unlock CTA */}
               <div className="px-3 pb-3">
                 <button
-                  onClick={() => setShowModal(true)}
+                  onClick={openVipUnlock}
                   className="block w-full h-[44px] rounded-[12px] font-black text-[12px] uppercase tracking-wider transition-all hover:scale-[1.02]"
                   style={{
                     background: `linear-gradient(135deg, ${C.gold} 0%, ${C.gold}cc 100%)`,

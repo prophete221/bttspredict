@@ -2038,3 +2038,156 @@ body {
   .vip-telemetry-module { animation: none; transition: none; }
   .vip-telemetry-module:hover { transform: none; }
 }
+
+
+/* ═══ VIP FUTURE DECK — immersive premium cards ═══ */
+.vip-future-hero {
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(245, 196, 81, 0.13), transparent 28%),
+    radial-gradient(circle at 88% 22%, rgba(143, 227, 181, 0.10), transparent 30%),
+    linear-gradient(180deg, rgba(7, 16, 24, 0.98), rgba(7, 16, 24, 0.86));
+}
+
+.vip-future-hero::before,
+.vip-future-hero::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 999px;
+  filter: blur(24px);
+  opacity: 0.42;
+}
+
+.vip-future-hero::before {
+  width: 11rem;
+  height: 11rem;
+  top: 4rem;
+  left: -5rem;
+  background: rgba(245, 196, 81, 0.18);
+}
+
+.vip-future-hero::after {
+  width: 14rem;
+  height: 14rem;
+  top: 16rem;
+  right: -7rem;
+  background: rgba(52, 211, 153, 0.13);
+}
+
+.vip-combo-deck {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(18, 35, 43, 0.94), rgba(7, 16, 24, 0.94)),
+    radial-gradient(circle at 50% 0%, rgba(245, 196, 81, 0.15), transparent 52%);
+  box-shadow:
+    0 24px 55px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(245, 248, 243, 0.12),
+    inset 0 -1px 0 rgba(245, 196, 81, 0.10);
+  transform: perspective(1200px) rotateX(1deg);
+}
+
+.vip-combo-deck::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(245, 248, 243, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 248, 243, 0.035) 1px, transparent 1px);
+  background-size: 20px 20px;
+  mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+.vip-combo-card {
+  min-height: 154px;
+  background:
+    linear-gradient(155deg, rgba(19, 38, 45, 0.98), rgba(7, 16, 24, 0.98)) !important;
+  border-color: rgba(245, 196, 81, 0.36) !important;
+  box-shadow:
+    0 15px 28px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(245, 248, 243, 0.10),
+    inset 0 -1px 0 rgba(245, 196, 81, 0.10);
+}
+
+.vip-combo-card:nth-child(2) {
+  border-color: rgba(143, 227, 181, 0.36) !important;
+}
+
+.vip-combo-card::before {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(245, 196, 81, 0.23), transparent 44%),
+    linear-gradient(135deg, rgba(245, 248, 243, 0.05), transparent 45%) !important;
+}
+
+.vip-combo-card:nth-child(2)::before {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(143, 227, 181, 0.20), transparent 44%),
+    linear-gradient(135deg, rgba(245, 248, 243, 0.05), transparent 45%) !important;
+}
+
+.vip-combo-card__head {
+  position: relative;
+  z-index: 3;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(245, 248, 243, 0.10);
+}
+
+.vip-combo-card__odds {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.7rem;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid rgba(52, 211, 153, 0.42);
+  border-radius: 999px;
+  background: rgba(52, 211, 153, 0.10);
+  box-shadow: 0 0 18px rgba(52, 211, 153, 0.12), inset 0 1px 0 rgba(245, 248, 243, 0.10);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.04em;
+}
+
+.vip-combo-card__locked {
+  overflow: hidden;
+  border-color: rgba(245, 248, 243, 0.18) !important;
+  background: rgba(7, 16, 24, 0.68);
+  box-shadow: inset 0 1px 0 rgba(245, 248, 243, 0.08);
+}
+
+.vip-combo-card__locked::after {
+  content: '';
+  position: absolute;
+  inset: -40% -20%;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 42%, rgba(245, 196, 81, 0.14) 50%, transparent 58%);
+  transform: translateX(-60%);
+  animation: vip-card-scan 4.8s ease-in-out infinite;
+}
+
+.vip-combo-card__lock {
+  z-index: 2;
+  background: linear-gradient(90deg, rgba(7, 16, 24, 0.90), rgba(20, 32, 38, 0.76), rgba(7, 16, 24, 0.90)) !important;
+  backdrop-filter: blur(4px);
+}
+
+@keyframes vip-card-scan {
+  0%, 18% { transform: translateX(-60%); opacity: 0; }
+  35%, 68% { transform: translateX(60%); opacity: 1; }
+  84%, 100% { transform: translateX(60%); opacity: 0; }
+}
+
+@media (max-width: 640px) {
+  .vip-combo-deck { transform: none; }
+  .vip-combo-card { min-height: 146px; }
+  .vip-combo-card__odds { min-width: 3.35rem; padding-inline: 0.45rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vip-combo-deck,
+  .vip-combo-card__locked::after {
+    animation: none !important;
+    transform: none !important;
+  }
+}
