@@ -22,6 +22,8 @@ function extractLegs(event, oddsResponse) {
     for (const market of Array.isArray(markets) ? markets : []) {
       const marketName = String(market?.name || '').toLowerCase()
       const odds = Array.isArray(market?.odds) ? market.odds : []
+      const isPeriodMarket = /(?:^|\s)(ht|1h|2h|half|period|first half|second half)(?:\s|$)/i.test(marketName)
+      if (isPeriodMarket) continue
       for (const quote of odds) {
         let selection = null
         let price = null
@@ -29,8 +31,10 @@ function extractLegs(event, oddsResponse) {
           selection = quote.yes != null ? 'BTTS — Oui' : quote.no != null ? 'BTTS — Non' : null
           price = asDecimal(quote.yes ?? quote.no)
         } else if (marketName.includes('total') || marketName.includes('over')) {
+          const label = String(quote.label || '2.5')
+          if (!/2[.,]5/.test(label) && !/over\s*2[.,]5/.test(marketName)) continue
           const over = quote.over ?? quote.Over
-          if (over != null) { selection = `Over ${quote.label || '2.5'}`; price = asDecimal(over) }
+          if (over != null) { selection = 'Over 2.5'; price = asDecimal(over) }
         }
         if (selection && price) {
           legs.push({
