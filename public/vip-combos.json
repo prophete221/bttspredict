@@ -2,82 +2,82 @@
   "date": "2026-08-15",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-15T11:53:52.150Z",
+  "fetchedAt": "2026-08-15T12:46:41.918Z",
   "eventCount": 100,
-  "legCount": 33,
+  "legCount": 51,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "73322266",
-          "home": "FK IMT U19",
-          "away": "FK Novi Pazar U19",
-          "league": "Serbia - U19 League",
-          "kickoff": "2026-08-15T12:00:00Z",
-          "bookmaker": "Bet365 (no latency)",
+          "eventId": "72531508",
+          "home": "UD Leiria",
+          "away": "SL Benfica B",
+          "league": "Portugal - Liga Portugal 2",
+          "kickoff": "2026-08-15T13:00:00Z",
+          "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.5,
+          "odds": 1.26,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T10:53:37.749Z"
+          "updatedAt": "2026-08-15T12:33:52.721Z"
         },
         {
-          "eventId": "73412784",
-          "home": "Geylang International FC",
-          "away": "Eastern District",
-          "league": "International Clubs - Club Friendly Games",
-          "kickoff": "2026-08-15T12:00:00Z",
-          "bookmaker": "Bet365 (no latency)",
+          "eventId": "72594438",
+          "home": "BVV Barendrecht",
+          "away": "HHC Hardenberg",
+          "league": "Netherlands - Tweede Divisie",
+          "kickoff": "2026-08-15T13:00:00Z",
+          "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.33,
+          "odds": 1.41,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T09:20:50.271Z"
+          "updatedAt": "2026-08-15T12:33:52.721Z"
+        },
+        {
+          "eventId": "73258756",
+          "home": "AmaZulu FC",
+          "away": "Siwelele FC",
+          "league": "South Africa - Premiership",
+          "kickoff": "2026-08-15T13:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.13,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-15T10:42:36.439Z"
         }
       ],
-      "totalOdds": 2
+      "totalOdds": 2.01
     },
     "target5": {
       "legs": [
         {
-          "eventId": "72500670",
-          "home": "Naesby BK",
-          "away": "Bronshoj BK",
-          "league": "Denmark - 3rd Division",
-          "kickoff": "2026-08-15T12:00:00Z",
+          "eventId": "72594442",
+          "home": "Jong Sparta Rotterdam",
+          "away": "Rohda Raalte",
+          "league": "Netherlands - Tweede Divisie",
+          "kickoff": "2026-08-15T13:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.45,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-15T12:14:01.062Z"
+        },
+        {
+          "eventId": "67604932",
+          "home": "JIPPO",
+          "away": "SJK Akatemia",
+          "league": "Finland - Ykkosliiga",
+          "kickoff": "2026-08-15T13:00:00Z",
           "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 2,
+          "odds": 3.45,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T11:31:36.088Z"
-        },
-        {
-          "eventId": "73412784",
-          "home": "Geylang International FC",
-          "away": "Eastern District",
-          "league": "International Clubs - Club Friendly Games",
-          "kickoff": "2026-08-15T12:00:00Z",
-          "bookmaker": "Bet365 (no latency)",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.33,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T09:20:50.271Z"
-        },
-        {
-          "eventId": "73180566",
-          "home": "Ferencvarosi Budapest",
-          "away": "Ujpesti TE",
-          "league": "Hungary - NB I, Women",
-          "kickoff": "2026-08-15T12:00:00Z",
-          "bookmaker": "Bet365",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.88,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T09:03:08.967Z"
+          "updatedAt": "2026-08-15T12:46:22.566Z"
         }
       ],
       "totalOdds": 5
