@@ -2,85 +2,11 @@
   "date": "2026-08-15",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-15T14:54:20.338Z",
-  "eventCount": 100,
-  "legCount": 14,
-  "status": "available",
+  "fetchedAt": "2026-08-15T15:27:12.316Z",
+  "status": "unavailable",
+  "reason": "provider_request_failed",
   "combos": {
-    "target2": {
-      "legs": [
-        {
-          "eventId": "72607912",
-          "home": "1. FC Slovacko Uherske Hradiste",
-          "away": "SK Sigma Olomouc",
-          "league": "Czechia - 1. Liga",
-          "kickoff": "2026-08-15T15:00:00Z",
-          "bookmaker": "Bet365",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.06,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T14:33:49.537Z"
-        },
-        {
-          "eventId": "72607914",
-          "home": "Sparta Prague",
-          "away": "FK Teplice",
-          "league": "Czechia - 1. Liga",
-          "kickoff": "2026-08-15T15:00:00Z",
-          "bookmaker": "Unibet",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.82,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T14:44:13.615Z"
-        }
-      ],
-      "totalOdds": 1.93
-    },
-    "target5": {
-      "legs": [
-        {
-          "eventId": "72607904",
-          "home": "FK Pardubice",
-          "away": "FK Mlada Boleslav",
-          "league": "Czechia - 1. Liga",
-          "kickoff": "2026-08-15T15:00:00Z",
-          "bookmaker": "Unibet",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 2.6,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T14:44:13.615Z"
-        },
-        {
-          "eventId": "72607912",
-          "home": "1. FC Slovacko Uherske Hradiste",
-          "away": "SK Sigma Olomouc",
-          "league": "Czechia - 1. Liga",
-          "kickoff": "2026-08-15T15:00:00Z",
-          "bookmaker": "Bet365",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.06,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T14:33:49.537Z"
-        },
-        {
-          "eventId": "72607914",
-          "home": "Sparta Prague",
-          "away": "FK Teplice",
-          "league": "Czechia - 1. Liga",
-          "kickoff": "2026-08-15T15:00:00Z",
-          "bookmaker": "Unibet",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.82,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T14:44:13.615Z"
-        }
-      ],
-      "totalOdds": 5.02
-    }
+    "target2": null,
+    "target5": null
   }
-}
+}\n
