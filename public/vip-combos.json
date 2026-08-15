@@ -2,43 +2,12 @@
   "date": "2026-08-15",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-15T14:31:09.276Z",
+  "fetchedAt": "2026-08-15T14:54:20.338Z",
   "eventCount": 100,
-  "legCount": 50,
+  "legCount": 14,
   "status": "available",
   "combos": {
     "target2": {
-      "legs": [
-        {
-          "eventId": "72224288",
-          "home": "AC Milan",
-          "away": "Manchester United",
-          "league": "International Clubs - Club Friendly Games",
-          "kickoff": "2026-08-15T14:45:00Z",
-          "bookmaker": "Unibet",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.15,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T14:16:43.663Z"
-        },
-        {
-          "eventId": "72300710",
-          "home": "FK Pribram",
-          "away": "1.SK Prostejov",
-          "league": "Czechia - FNL",
-          "kickoff": "2026-08-15T15:00:00Z",
-          "bookmaker": "Bet365",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.73,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T14:30:50.795Z"
-        }
-      ],
-      "totalOdds": 1.99
-    },
-    "target5": {
       "legs": [
         {
           "eventId": "72607912",
@@ -49,25 +18,69 @@
           "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 3.5,
+          "odds": 1.06,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T14:29:02.849Z"
+          "updatedAt": "2026-08-15T14:33:49.537Z"
         },
         {
-          "eventId": "72970470",
-          "home": "Fulham FC",
-          "away": "VfB Stuttgart",
-          "league": "International Clubs - Club Friendly Games",
+          "eventId": "72607914",
+          "home": "Sparta Prague",
+          "away": "FK Teplice",
+          "league": "Czechia - 1. Liga",
+          "kickoff": "2026-08-15T15:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.82,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-15T14:44:13.615Z"
+        }
+      ],
+      "totalOdds": 1.93
+    },
+    "target5": {
+      "legs": [
+        {
+          "eventId": "72607904",
+          "home": "FK Pardubice",
+          "away": "FK Mlada Boleslav",
+          "league": "Czechia - 1. Liga",
           "kickoff": "2026-08-15T15:00:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.43,
+          "odds": 2.6,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-14T16:35:49.405Z"
+          "updatedAt": "2026-08-15T14:44:13.615Z"
+        },
+        {
+          "eventId": "72607912",
+          "home": "1. FC Slovacko Uherske Hradiste",
+          "away": "SK Sigma Olomouc",
+          "league": "Czechia - 1. Liga",
+          "kickoff": "2026-08-15T15:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.06,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-15T14:33:49.537Z"
+        },
+        {
+          "eventId": "72607914",
+          "home": "Sparta Prague",
+          "away": "FK Teplice",
+          "league": "Czechia - 1. Liga",
+          "kickoff": "2026-08-15T15:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.82,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-15T14:44:13.615Z"
         }
       ],
-      "totalOdds": 5
+      "totalOdds": 5.02
     }
   }
 }
