@@ -247,6 +247,16 @@ async function fetchESPNMatches(slug, dateParam) {
       if (!comp) continue
       const statusType = comp.status?.type?.name
       if (['STATUS_FINAL', 'STATUS_POSTPONED', 'STATUS_CANCELED'].includes(statusType)) continue
+
+      // Never publish a match whose kickoff has already passed on the Dakar day.
+      // ESPN can keep a started event non-final for a while; it must not enter a
+      // fresh prediction batch and will be handled by the result verifier instead.
+      const matchDate = dateParam.slice(0, 4) + '-' + dateParam.slice(4, 6) + '-' + dateParam.slice(6, 8)
+      if (matchDate === getTodayISO() && comp.date) {
+        const kickoff = new Date(comp.date).getTime()
+        if (Number.isFinite(kickoff) && kickoff <= Date.now()) continue
+      }
+
       const homeComp = comp.competitors?.find(c => c.homeAway === 'home')
       const awayComp = comp.competitors?.find(c => c.homeAway === 'away')
       if (!homeComp || !awayComp) continue
@@ -575,10 +585,13 @@ async function quickUpdate() {
     predictions: free,
   }
 
-    const validationErrors = validatePredictionPayload(predictionsData, {
+  const validationErrors = validatePredictionPayload(predictionsData, {
     today,
     requireTimestamp: true,
+    checkKickoff: true,
+    now: new Date(),
   })
+
   if (validationErrors.length > 0) {
     throw new Error(`[v91] Refusing to publish invalid predictions:\n${validationErrors.join('\n')}`)
   }

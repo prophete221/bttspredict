@@ -13,11 +13,14 @@ export function validatePredictionPayload(payload, options = {}) {
   const errors = []
   const today = options.today || new Date().toLocaleDateString('sv-SE', { timeZone: 'Africa/Dakar' })
   const requireTimestamp = options.requireTimestamp === true
+  const checkKickoff = options.checkKickoff === true
+  const now = options.now instanceof Date ? options.now : new Date()
 
   if (!payload || typeof payload !== 'object') {
     return ['payload must be an object']
   }
   if (!ISO_DATE.test(payload.date || '')) errors.push('top-level date must be YYYY-MM-DD')
+  else if (payload.date !== today) errors.push('top-level date is not Africa/Dakar today')
   if (requireTimestamp && !ISO_TIMESTAMP.test(payload.lastUpdated || '')) {
     errors.push('lastUpdated must be an ISO UTC timestamp')
   }
@@ -49,6 +52,12 @@ export function validatePredictionPayload(payload, options = {}) {
     if (prediction?.time && !/^\d{2}:\d{2}$/.test(prediction.time)) {
       errors.push(`${prefix}.time must be HH:MM when present`)
     }
+    if (checkKickoff && prediction?.date === today && /^\d{2}:\d{2}$/.test(prediction.time || '')) {
+      const kickoff = Date.parse(`${prediction.date}T${prediction.time}:00Z`)
+      if (Number.isFinite(kickoff) && kickoff <= now.getTime()) {
+        errors.push(`${prefix}.time is already started in Africa/Dakar`)
+      }
+    }
   })
 
   return errors
@@ -57,7 +66,10 @@ export function validatePredictionPayload(payload, options = {}) {
 if (import.meta.url === `file://${process.argv[1]}`) {
   const file = process.argv[2] || 'public/predictions.json'
   const payload = JSON.parse(await import('node:fs/promises').then(fs => fs.readFile(file, 'utf8')))
-  const errors = validatePredictionPayload(payload, { requireTimestamp: process.argv.includes('--require-timestamp') })
+  const errors = validatePredictionPayload(payload, {
+    requireTimestamp: process.argv.includes('--require-timestamp'),
+    checkKickoff: true,
+  })
   if (errors.length > 0) {
     console.error(errors.join('\n'))
     process.exitCode = 1
