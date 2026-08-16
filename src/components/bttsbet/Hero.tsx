@@ -43,9 +43,8 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
           }}
         />
       </div>
-
       <div
-        className="relative z-10 mx-auto max-w-[560px] px-4 pb-8 pt-7 sm:px-6 sm:pb-10 sm:pt-9"
+        className="relative z-10 mx-auto max-w-[980px] px-4 pb-8 pt-7 sm:px-6 sm:pb-10 sm:pt-9"
         style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(8px)', transition: 'opacity 420ms ease, transform 420ms ease' }}
       >
         <div className="mb-5 flex items-center justify-between gap-3">
@@ -63,7 +62,7 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
           {t.hero.subtitle}
         </p>
 
-          <div className="hero-market-dashboard mt-6" aria-label={t.hero.commandCenter}>
+          <div className="hero-market-dashboard hero-market-dashboard--premium mt-7" aria-label={t.hero.commandCenter}>
           <div className="hero-market-dashboard__header">
             <div className="flex items-center gap-2">
               <span className="hero-market-dashboard__pulse" aria-hidden="true" />
@@ -71,19 +70,19 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
             </div>
             <span className="hero-market-dashboard__status">{t.hero.liveData}</span>
           </div>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="hero-market-grid grid grid-cols-3 gap-3 sm:gap-5">
             {[
               ['BTTS', t.hero.btts, 'BTTS'],
               ['O2.5', t.hero.goals, 'TOTAL'],
               ['SCORE', t.hero.exact, 'EXACT'],
             ].map(([label, caption, code], index) => (
-              <div key={label} className="hero-market-card">
+              <div key={label} className={`hero-market-card hero-market-card--${index}`}>
                 <div className="hero-market-card__topline">
                   <span className="hero-market-card__code">{code}</span>
                   <span className="hero-market-card__dot" aria-hidden="true" />
                 </div>
                 <div className="hero-market-card__label">{label}</div>
-                <div className="mt-1 text-[10px] leading-tight" style={{ color: '#B7C4C1' }}>{caption}</div>
+                <div className="mt-1 text-[10px] leading-tight sm:text-[12px]" style={{ color: '#B7C4C1' }}>{caption}</div>
                 <div className="hero-market-card__signal" aria-hidden="true">
                   <span /><span /><span /><span /><span />
                 </div>
