@@ -2,82 +2,69 @@
   "date": "2026-08-16",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-16T16:24:30.563Z",
-  "eventCount": 100,
-  "legCount": 69,
+  "fetchedAt": "2026-08-16T20:21:46.259Z",
+  "eventCount": 92,
+  "legCount": 99,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "71901842",
-          "home": "Vilnius FK Zalgiris",
-          "away": "FK Banga Gargzdai",
-          "league": "Lithuania - A Lyga",
-          "kickoff": "2026-08-16T16:30:00Z",
-          "bookmaker": "Unibet",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.21,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T15:53:47.039Z"
-        },
-        {
-          "eventId": "73584050",
-          "home": "Hapoel Ironi Kiryat Shmona FC",
-          "away": "Hapoel Tel Aviv FC",
-          "league": "Israel - League Cup, Premier, Playoffs",
-          "kickoff": "2026-08-16T17:00:00Z",
+          "eventId": "72904468",
+          "home": "CD Choloma",
+          "away": "CD Marathon San Pedro Sula",
+          "league": "Honduras - Liga Nacional, Apertura",
+          "kickoff": "2026-08-16T21:00:00Z",
           "bookmaker": "Bet365",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.67,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T16:24:14.729Z"
-        }
-      ],
-      "totalOdds": 2.02
-    },
-    "target5": {
-      "legs": [
-        {
-          "eventId": "67681974",
-          "home": "Nublense",
-          "away": "Deportes Union La Calera",
-          "league": "Chile - Primera Division",
-          "kickoff": "2026-08-16T16:30:00Z",
-          "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
           "odds": 1.85,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T16:22:21.7Z"
+          "updatedAt": "2026-08-16T12:27:58.058Z"
         },
         {
-          "eventId": "72531512",
-          "home": "FC Porto B",
-          "away": "SC Farense",
-          "league": "Portugal - Liga Portugal 2",
-          "kickoff": "2026-08-16T17:00:00Z",
-          "bookmaker": "Unibet",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.4,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T11:39:52.533Z"
-        },
-        {
-          "eventId": "72304412",
-          "home": "FK Jedinstvo Bijelo Polje",
-          "away": "FK Berane",
-          "league": "Montenegro - 2. CFL",
-          "kickoff": "2026-08-16T17:00:00Z",
+          "eventId": "66299362",
+          "home": "Chicago Fire",
+          "away": "Portland Timbers",
+          "league": "USA - MLS",
+          "kickoff": "2026-08-16T22:00:00Z",
           "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.93,
+          "odds": 1.08,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T12:55:43.926Z"
+          "updatedAt": "2026-08-16T20:18:17.632Z"
+        }
+      ],
+      "totalOdds": 2
+    },
+    "target5": {
+      "legs": [
+        {
+          "eventId": "71936038",
+          "home": "FC Cajamarca",
+          "away": "Universitario de Deportes",
+          "league": "Peru - Primera Division, Clausura",
+          "kickoff": "2026-08-16T20:30:00Z",
+          "bookmaker": "Bet365",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 2,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-16T20:17:14.328Z"
+        },
+        {
+          "eventId": "73569552",
+          "home": "CA Penarol Montevideo",
+          "away": "Central Espanol FC",
+          "league": "Uruguay - Primera Division, Clausura",
+          "kickoff": "2026-08-16T21:30:00Z",
+          "bookmaker": "Bet365",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 2.5,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-16T20:20:52.546Z"
         }
       ],
       "totalOdds": 5
