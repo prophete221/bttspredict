@@ -4,10 +4,34 @@ import LocalizedPromoClient from '@/components/bttsbet/LocalizedPromoClient'
 import { SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
 
 export function generateStaticParams() { return SUPPORTED_LOCALES.filter(locale => locale !== 'fr').map(locale => ({ locale })) }
+const SITE_URL = 'https://bttspredict.com'
+const SLUG = 'bonus-888starz'
+const REVIEW_DATE = new Date().toISOString().slice(0, 10)
+const YEAR = new Date().getUTCFullYear()
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  if (locale === 'en') return { title: '888Starz Promo Code | BTTSPredict', description: '888Starz promo code and sign-up guide with terms to verify.', alternates: { canonical: 'https://bttspredict.com/en/bonus-888starz' } }
-  if (locale === 'ar') return { title: 'رمز 888Starz الترويجي | BTTSPredict', description: 'دليل التسجيل ورمز 888Starz مع شروط يجب التحقق منها.', alternates: { canonical: 'https://bttspredict.com/ar/bonus-888starz' } }
+  if (locale === 'en') return {
+    title: `888Starz Promo Code ${YEAR}: VISION221 Bonus`,
+    description: `888Starz promo code ${YEAR}: VISION221 sign-up guide, bonus terms by country and responsible gambling notice.`,
+    keywords: ['888starz promo code', '888starz bonus', '888starz code', '888starz Senegal', 'VISION221'],
+    alternates: {
+      canonical: `${SITE_URL}/en/${SLUG}`,
+      languages: { fr: `${SITE_URL}/${SLUG}`, en: `${SITE_URL}/en/${SLUG}`, ar: `${SITE_URL}/ar/${SLUG}`, 'x-default': `${SITE_URL}/${SLUG}` },
+    },
+    robots: { index: true, follow: true },
+  }
+  if (locale === 'ar') return {
+    title: `رمز 888Starz الترويجي ${YEAR}: VISION221`,
+    description: `دليل رمز 888Starz الترويجي ${YEAR}: التسجيل والرمز VISION221 وشروط المكافأة حسب البلد. 18+ واللعب المسؤول.`,
+    keywords: ['رمز 888Starz الترويجي', 'مكافأة 888Starz', 'كود 888Starz', 'VISION221'],
+    alternates: {
+      canonical: `${SITE_URL}/ar/${SLUG}`,
+      languages: { fr: `${SITE_URL}/${SLUG}`, en: `${SITE_URL}/en/${SLUG}`, ar: `${SITE_URL}/ar/${SLUG}`, 'x-default': `${SITE_URL}/${SLUG}` },
+    },
+    robots: { index: true, follow: true },
+  }
   return {}
 }
-export default async function Localized888StarzPage({ params }: { params: Promise<{ locale: string }> }) { const { locale } = await params; if (!SUPPORTED_LOCALES.includes(locale as Locale) || locale === 'fr') notFound(); return <LocalizedPromoClient bookmaker="888starz" /> }
+export default async function Localized888StarzPage({ params }: { params: Promise<{ locale: string }> }) { const { locale } = await params; if (!SUPPORTED_LOCALES.includes(locale as Locale) || locale === 'fr') notFound();   return <LocalizedPromoClient bookmaker="888starz" reviewDate={REVIEW_DATE} />
+ }
