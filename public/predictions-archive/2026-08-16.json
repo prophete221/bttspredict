@@ -1,6 +1,6 @@
 {
   "date": "2026-08-16",
-  "lastUpdated": "2026-08-16T14:58:31.041Z",
+  "lastUpdated": "2026-08-16T15:59:08.924Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -376,68 +376,6 @@
       "awayLambda": 1.22
     },
     {
-      "id": "braga-vs-gilvicen-2026-08-16",
-      "match": "Braga vs Gil Vicente",
-      "home": "Braga",
-      "away": "Gil Vicente",
-      "league": "Liga Portugal",
-      "date": "2026-08-16",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5698,
-      "bttsProbDisplay": "56.98%",
-      "over25ProbDisplay": "54.71%",
-      "confidence": 57,
-      "time": "19:30",
-      "matchSemantic": "braga-vs-gilvicen-2026-08-16",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2994.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3699.png",
-      "tier": "SILVER",
-      "reliabilityScore": 63.18,
-      "dataQuality": "LOW",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 1,
-      "matchCountAway": 1,
-      "h2hAvailable": false,
-      "xgHome": 1.65,
-      "xgAway": 1.22,
-      "xgTotal": 2.87,
-      "formBTTS": 30,
-      "analysis": "Braga (1 matchs réels, xG 1.65) vs Gil Vicente (1 matchs réels, xG 1.22). xG cumulé 2.87, BTTS 57.0%, Over 2.5 54.7%. Fiabilité 63.18%. Qualité données: LOW.",
-      "analysisData": {
-        "bttsProb": 0.5698,
-        "over25Prob": 0.5471,
-        "homeLambda": 1.65,
-        "awayLambda": 1.22,
-        "xgTotal": 2.87
-      },
-      "estimatedCote": 1.75,
-      "estimatedCoteOver": 1.83,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 57,
-          "bttsProb": 0.5698,
-          "homeLambda": 1.65,
-          "awayLambda": 1.22
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 55,
-          "over25Prob": 0.5471,
-          "homeLambda": 1.65,
-          "awayLambda": 1.22
-        }
-      ],
-      "bttsProb": 0.5698,
-      "over25Prob": 0.5471,
-      "homeLambda": 1.65,
-      "awayLambda": 1.22
-    },
-    {
       "id": "fcfamali-vs-maritimo-2026-08-16",
       "match": "FC Famalicao vs Maritimo",
       "home": "FC Famalicao",
@@ -746,9 +684,7 @@
       "over25Prob": 0.5377,
       "homeLambda": 1.62,
       "awayLambda": 1.21
-    }
-  ],
-  "vipPreview": [
+    },
     {
       "id": "fccincin-vs-newyorkc-2026-08-19",
       "match": "FC Cincinnati vs New York City FC",
@@ -810,7 +746,9 @@
       "over25Prob": 0.8667,
       "homeLambda": 2.77,
       "awayLambda": 2.13
-    },
+    }
+  ],
+  "vipPreview": [
     {
       "id": "philadel-vs-intermia-2026-08-19",
       "match": "Philadelphia Union vs Inter Miami CF",
@@ -1244,13 +1182,75 @@
       "over25Prob": 0.727,
       "homeLambda": 1.73,
       "awayLambda": 2.04
+    },
+    {
+      "id": "seattles-vs-austinfc-2026-08-20",
+      "match": "Seattle Sounders FC vs Austin FC",
+      "home": "Seattle Sounders FC",
+      "away": "Austin FC",
+      "league": "MLS",
+      "date": "2026-08-20",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6785,
+      "bttsProbDisplay": "67.85%",
+      "over25ProbDisplay": "70.17%",
+      "confidence": 68,
+      "time": "01:30",
+      "matchSemantic": "seattles-vs-austinfc-2026-08-20",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9726.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20906.png",
+      "tier": "GOLD",
+      "reliabilityScore": 88.43,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.17,
+      "xgAway": 1.45,
+      "xgTotal": 3.63,
+      "formBTTS": 19,
+      "analysis": "Seattle Sounders FC (8 matchs réels, xG 2.17) vs Austin FC (8 matchs réels, xG 1.45). xG cumulé 3.63, BTTS 67.8%, Over 2.5 70.2%. Fiabilité 88.43%. Qualité données: HIGH.",
+      "analysisData": {
+        "bttsProb": 0.6785,
+        "over25Prob": 0.7017,
+        "homeLambda": 2.17,
+        "awayLambda": 1.45,
+        "xgTotal": 3.63
+      },
+      "estimatedCote": 1.47,
+      "estimatedCoteOver": 1.43,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "bttsProb": 0.6785,
+          "homeLambda": 2.17,
+          "awayLambda": 1.45
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 70,
+          "over25Prob": 0.7017,
+          "homeLambda": 2.17,
+          "awayLambda": 1.45
+        }
+      ],
+      "bttsProb": 0.6785,
+      "over25Prob": 0.7017,
+      "homeLambda": 2.17,
+      "awayLambda": 1.45
     }
   ],
   "stats": {
-    "avgReliability": 73.39,
-    "totalAnalyzed": 71,
+    "avgReliability": 73.53,
+    "totalAnalyzed": 70,
     "totalRejected": 0,
-    "totalAccepted": 71,
+    "totalAccepted": 70,
     "freeCount": 12,
     "vipCount": 8
   },
@@ -1628,68 +1628,6 @@
       "awayLambda": 1.22
     },
     {
-      "id": "braga-vs-gilvicen-2026-08-16",
-      "match": "Braga vs Gil Vicente",
-      "home": "Braga",
-      "away": "Gil Vicente",
-      "league": "Liga Portugal",
-      "date": "2026-08-16",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5698,
-      "bttsProbDisplay": "56.98%",
-      "over25ProbDisplay": "54.71%",
-      "confidence": 57,
-      "time": "19:30",
-      "matchSemantic": "braga-vs-gilvicen-2026-08-16",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2994.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3699.png",
-      "tier": "SILVER",
-      "reliabilityScore": 63.18,
-      "dataQuality": "LOW",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 1,
-      "matchCountAway": 1,
-      "h2hAvailable": false,
-      "xgHome": 1.65,
-      "xgAway": 1.22,
-      "xgTotal": 2.87,
-      "formBTTS": 30,
-      "analysis": "Braga (1 matchs réels, xG 1.65) vs Gil Vicente (1 matchs réels, xG 1.22). xG cumulé 2.87, BTTS 57.0%, Over 2.5 54.7%. Fiabilité 63.18%. Qualité données: LOW.",
-      "analysisData": {
-        "bttsProb": 0.5698,
-        "over25Prob": 0.5471,
-        "homeLambda": 1.65,
-        "awayLambda": 1.22,
-        "xgTotal": 2.87
-      },
-      "estimatedCote": 1.75,
-      "estimatedCoteOver": 1.83,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 57,
-          "bttsProb": 0.5698,
-          "homeLambda": 1.65,
-          "awayLambda": 1.22
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 55,
-          "over25Prob": 0.5471,
-          "homeLambda": 1.65,
-          "awayLambda": 1.22
-        }
-      ],
-      "bttsProb": 0.5698,
-      "over25Prob": 0.5471,
-      "homeLambda": 1.65,
-      "awayLambda": 1.22
-    },
-    {
       "id": "fcfamali-vs-maritimo-2026-08-16",
       "match": "FC Famalicao vs Maritimo",
       "home": "FC Famalicao",
@@ -1998,6 +1936,68 @@
       "over25Prob": 0.5377,
       "homeLambda": 1.62,
       "awayLambda": 1.21
+    },
+    {
+      "id": "fccincin-vs-newyorkc-2026-08-19",
+      "match": "FC Cincinnati vs New York City FC",
+      "home": "FC Cincinnati",
+      "away": "New York City FC",
+      "league": "MLS",
+      "date": "2026-08-19",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.8257,
+      "bttsProbDisplay": "82.57%",
+      "over25ProbDisplay": "86.67%",
+      "confidence": 83,
+      "time": "23:30",
+      "matchSemantic": "fccincin-vs-newyorkc-2026-08-19",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18267.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17606.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.77,
+      "xgAway": 2.13,
+      "xgTotal": 4.9,
+      "formBTTS": 45,
+      "analysis": "FC Cincinnati (8 matchs réels, xG 2.77) vs New York City FC (8 matchs réels, xG 2.13). xG cumulé 4.9, BTTS 82.6%, Over 2.5 86.7%. Fiabilité 93.75%. Qualité données: HIGH.",
+      "analysisData": {
+        "bttsProb": 0.8257,
+        "over25Prob": 0.8667,
+        "homeLambda": 2.77,
+        "awayLambda": 2.13,
+        "xgTotal": 4.9
+      },
+      "estimatedCote": 1.21,
+      "estimatedCoteOver": 1.15,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 83,
+          "bttsProb": 0.8257,
+          "homeLambda": 2.77,
+          "awayLambda": 2.13
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 87,
+          "over25Prob": 0.8667,
+          "homeLambda": 2.77,
+          "awayLambda": 2.13
+        }
+      ],
+      "bttsProb": 0.8257,
+      "over25Prob": 0.8667,
+      "homeLambda": 2.77,
+      "awayLambda": 2.13
     }
   ]
 }
