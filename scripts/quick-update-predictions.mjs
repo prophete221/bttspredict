@@ -248,11 +248,14 @@ async function fetchESPNMatches(slug, dateParam) {
       const statusType = comp.status?.type?.name
       if (['STATUS_FINAL', 'STATUS_POSTPONED', 'STATUS_CANCELED'].includes(statusType)) continue
 
-      // Never publish a match whose kickoff has already passed on the Dakar day.
-      // ESPN can keep a started event non-final for a while; it must not enter a
-      // fresh prediction batch and will be handled by the result verifier instead.
-      const matchDate = dateParam.slice(0, 4) + '-' + dateParam.slice(4, 6) + '-' + dateParam.slice(6, 8)
-      if (matchDate === getTodayISO() && comp.date) {
+      // Use the event's real calendar date in Africa/Dakar. The ESPN query date
+      // is not reliable for late UTC kickoffs that belong to the next Dakar day.
+      const matchDate = comp.date
+        ? new Date(comp.date).toLocaleDateString('sv-SE', { timeZone: DISPLAY_TZ })
+        : dateParam.slice(0, 4) + '-' + dateParam.slice(4, 6) + '-' + dateParam.slice(6, 8)
+      const today = getTodayISO()
+      if (matchDate < today) continue
+      if (matchDate === today && comp.date) {
         const kickoff = new Date(comp.date).getTime()
         if (Number.isFinite(kickoff) && kickoff <= Date.now()) continue
       }
@@ -268,7 +271,7 @@ async function fetchESPNMatches(slug, dateParam) {
         home: homeTeam,
         away: awayTeam,
         league: ESPN_SLUGS[slug] || slug,
-        date: dateParam.slice(0, 4) + '-' + dateParam.slice(4, 6) + '-' + dateParam.slice(6, 8),
+        date: matchDate,
         time,
         homeLogo: homeComp.team?.logo || `https://a.espncdn.com/i/teamlogos/soccer/500/${homeComp.team?.id}.png`,
         awayLogo: awayComp.team?.logo || `https://a.espncdn.com/i/teamlogos/soccer/500/${awayComp.team?.id}.png`,
