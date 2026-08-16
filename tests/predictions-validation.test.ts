@@ -34,12 +34,30 @@ describe('validatePredictionPayload', () => {
     })).toEqual([])
   })
 
+  test('refuse un payload dont la date métier est obsolète', () => {
+    const errors = validatePredictionPayload(payload(), {
+      today: '2026-08-13',
+      requireTimestamp: true,
+    })
+    expect(errors).toContain('top-level date is not Africa/Dakar today')
+  })
+
   test('refuse un match antérieur à la date Africa/Dakar', () => {
     const errors = validatePredictionPayload(payload({ date: '2026-08-11' }), {
       today: '2026-08-12',
       requireTimestamp: true,
     })
     expect(errors).toContain('prediction[0].date is older than Africa/Dakar today')
+  })
+
+  test('refuse un coup d’envoi déjà passé le même jour', () => {
+    const errors = validatePredictionPayload(payload({ time: '09:00' }), {
+      today: '2026-08-12',
+      requireTimestamp: true,
+      checkKickoff: true,
+      now: new Date('2026-08-12T10:00:00.000Z'),
+    })
+    expect(errors).toContain('prediction[0].time is already started in Africa/Dakar')
   })
 
   test('refuse un timestamp manquant et une probabilité hors limites', () => {
