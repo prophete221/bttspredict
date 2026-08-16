@@ -2,38 +2,38 @@
   "date": "2026-08-16",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-16T12:38:37.070Z",
+  "fetchedAt": "2026-08-16T14:58:56.051Z",
   "eventCount": 100,
-  "legCount": 65,
+  "legCount": 86,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "72531504",
-          "home": "Amarante FC",
-          "away": "Lusitania FC Lourosa",
-          "league": "Portugal - Liga Portugal 2",
-          "kickoff": "2026-08-16T13:00:00Z",
-          "bookmaker": "Unibet",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.74,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T12:23:36.299Z"
-        },
-        {
-          "eventId": "72542672",
-          "home": "Nottingham Forest",
-          "away": "Stade Brest 29",
-          "league": "International Clubs - Club Friendly Games",
-          "kickoff": "2026-08-16T13:00:00Z",
+          "eventId": "73183462",
+          "home": "Glasgow Rangers",
+          "away": "St Mirren FC",
+          "league": "Scotland - League Cup, Group C",
+          "kickoff": "2026-08-16T15:00:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.15,
+          "odds": 1.13,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T09:11:20.127Z"
+          "updatedAt": "2026-08-16T14:41:37.389Z"
+        },
+        {
+          "eventId": "67015330",
+          "home": "Molde FK",
+          "away": "Tromsoe IL",
+          "league": "Norway - Eliteserien",
+          "kickoff": "2026-08-16T15:00:00Z",
+          "bookmaker": "Bet365 (no latency)",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.77,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-16T14:58:50.332Z"
         }
       ],
       "totalOdds": 2
@@ -41,30 +41,30 @@
     "target5": {
       "legs": [
         {
-          "eventId": "72043072",
-          "home": "LKP Motor Lublin",
-          "away": "GKS Katowice",
-          "league": "Poland - Ekstraklasa",
-          "kickoff": "2026-08-16T12:45:00Z",
-          "bookmaker": "Unibet",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 4.1,
+          "eventId": "72477298",
+          "home": "SD Eibar",
+          "away": "Tenerife CD",
+          "league": "Spain - LaLiga 2",
+          "kickoff": "2026-08-16T15:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 2,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T12:23:36.299Z"
+          "updatedAt": "2026-08-16T14:58:10.297Z"
         },
         {
-          "eventId": "66918242",
-          "home": "IFK Norrkoping DFK",
-          "away": "Kristianstads DFF",
-          "league": "Sweden - Damallsvenskan, Women",
-          "kickoff": "2026-08-16T13:00:00Z",
-          "bookmaker": "Unibet",
+          "eventId": "73207362",
+          "home": "AD Camacha",
+          "away": "SC Salgueiros",
+          "league": "Portugal - Campeonato de Portugal, Group D",
+          "kickoff": "2026-08-16T15:00:00Z",
+          "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.22,
+          "odds": 2.5,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T10:11:24.931Z"
+          "updatedAt": "2026-08-16T06:51:19.94Z"
         }
       ],
       "totalOdds": 5
