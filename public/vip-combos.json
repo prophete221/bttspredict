@@ -2,38 +2,38 @@
   "date": "2026-08-16",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-16T04:44:07.166Z",
+  "fetchedAt": "2026-08-16T06:30:23.320Z",
   "eventCount": 100,
-  "legCount": 51,
+  "legCount": 44,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "67905320",
-          "home": "Gold Coast United FC U23",
-          "away": "Eastern Suburbs U23",
-          "league": "Australia - U23 Queensland NPL",
-          "kickoff": "2026-08-16T05:00:00Z",
-          "bookmaker": "Bet365 (no latency)",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.53,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-14T08:58:19.792Z"
-        },
-        {
-          "eventId": "67905318",
-          "home": "Wynnum Wolves FC U23",
-          "away": "Magic United TFA U23",
-          "league": "Australia - U23 Queensland NPL",
-          "kickoff": "2026-08-16T05:00:00Z",
+          "eventId": "69767458",
+          "home": "Sorrento FC",
+          "away": "Uwa Nedlands FC",
+          "league": "Australia - Western Australia NPL, Women",
+          "kickoff": "2026-08-16T07:00:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
           "odds": 1.3,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-14T12:00:01.481Z"
+          "updatedAt": "2026-08-15T06:29:34.94Z"
+        },
+        {
+          "eventId": "72440606",
+          "home": "First Vienna FC 1894",
+          "away": "FC Liefering",
+          "league": "Austria - 2. Liga",
+          "kickoff": "2026-08-16T08:30:00Z",
+          "bookmaker": "Bet365",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.53,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-16T06:28:34.223Z"
         }
       ],
       "totalOdds": 1.99
@@ -41,30 +41,43 @@
     "target5": {
       "legs": [
         {
-          "eventId": "67905318",
-          "home": "Wynnum Wolves FC U23",
-          "away": "Magic United TFA U23",
-          "league": "Australia - U23 Queensland NPL",
-          "kickoff": "2026-08-16T05:00:00Z",
-          "bookmaker": "Unibet",
+          "eventId": "69767462",
+          "home": "Subiaco AFC",
+          "away": "Perth Redstar FC",
+          "league": "Australia - Western Australia NPL, Women",
+          "kickoff": "2026-08-16T07:45:00Z",
+          "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.3,
+          "odds": 1.93,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-14T12:00:01.481Z"
+          "updatedAt": "2026-08-16T06:10:24.28Z"
         },
         {
-          "eventId": "67904296",
-          "home": "Grange Thistle",
-          "away": "Caloundra FC",
-          "league": "Australia - Queensland Premier League 2",
-          "kickoff": "2026-08-16T05:45:00Z",
-          "bookmaker": "Unibet",
+          "eventId": "72300714",
+          "home": "FK Viktoria Zizkov",
+          "away": "FC Banik Ostrava B",
+          "league": "Czechia - FNL",
+          "kickoff": "2026-08-16T08:15:00Z",
+          "bookmaker": "Bet365",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.61,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-16T06:29:51.05Z"
+        },
+        {
+          "eventId": "72440606",
+          "home": "First Vienna FC 1894",
+          "away": "FC Liefering",
+          "league": "Austria - 2. Liga",
+          "kickoff": "2026-08-16T08:30:00Z",
+          "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 3.85,
+          "odds": 1.61,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T14:01:47.879Z"
+          "updatedAt": "2026-08-16T06:26:17.691Z"
         }
       ],
       "totalOdds": 5
