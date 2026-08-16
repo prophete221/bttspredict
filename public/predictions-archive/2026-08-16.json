@@ -1,6 +1,6 @@
 {
   "date": "2026-08-16",
-  "lastUpdated": "2026-08-16T08:29:14.734Z",
+  "lastUpdated": "2026-08-16T10:39:43.771Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -126,68 +126,6 @@
       "over25Prob": 0.7655,
       "homeLambda": 1.86,
       "awayLambda": 2.17
-    },
-    {
-      "id": "adodenha-vs-fcgronin-2026-08-16",
-      "match": "ADO Den Haag vs FC Groningen",
-      "home": "ADO Den Haag",
-      "away": "FC Groningen",
-      "league": "Eredivisie",
-      "date": "2026-08-16",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.6424,
-      "bttsProbDisplay": "64.24%",
-      "over25ProbDisplay": "64.06%",
-      "confidence": 64,
-      "time": "10:15",
-      "matchSemantic": "adodenha-vs-fcgronin-2026-08-16",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2726.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/145.png",
-      "tier": "SILVER",
-      "reliabilityScore": 68.85,
-      "dataQuality": "LOW",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 1,
-      "matchCountAway": 1,
-      "h2hAvailable": false,
-      "xgHome": 1.88,
-      "xgAway": 1.42,
-      "xgTotal": 3.3,
-      "formBTTS": 20,
-      "analysis": "ADO Den Haag (1 matchs réels, xG 1.88) vs FC Groningen (1 matchs réels, xG 1.42). xG cumulé 3.3, BTTS 64.2%, Over 2.5 64.1%. Fiabilité 68.85%. Qualité données: LOW.",
-      "analysisData": {
-        "bttsProb": 0.6424,
-        "over25Prob": 0.6406,
-        "homeLambda": 1.88,
-        "awayLambda": 1.42,
-        "xgTotal": 3.3
-      },
-      "estimatedCote": 1.56,
-      "estimatedCoteOver": 1.56,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 64,
-          "bttsProb": 0.6424,
-          "homeLambda": 1.88,
-          "awayLambda": 1.42
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 64,
-          "over25Prob": 0.6406,
-          "homeLambda": 1.88,
-          "awayLambda": 1.42
-        }
-      ],
-      "bttsProb": 0.6424,
-      "over25Prob": 0.6406,
-      "homeLambda": 1.88,
-      "awayLambda": 1.42
     },
     {
       "id": "fctwente-vs-peczwoll-2026-08-16",
@@ -746,9 +684,7 @@
       "over25Prob": 0.5768,
       "homeLambda": 1.72,
       "awayLambda": 1.28
-    }
-  ],
-  "vipPreview": [
+    },
     {
       "id": "lommelsk-vs-royalcha-2026-08-16",
       "match": "Lommel SK vs Royal Charleroi SC",
@@ -810,7 +746,9 @@
       "over25Prob": 0.5768,
       "homeLambda": 1.72,
       "awayLambda": 1.28
-    },
+    }
+  ],
+  "vipPreview": [
     {
       "id": "tsvhartb-vs-austriav-2026-08-16",
       "match": "TSV Hartberg vs Austria Vienna",
@@ -1244,13 +1182,75 @@
       "over25Prob": 0.5471,
       "homeLambda": 1.65,
       "awayLambda": 1.22
+    },
+    {
+      "id": "watford-vs-southamp-2026-08-16",
+      "match": "Watford vs Southampton",
+      "home": "Watford",
+      "away": "Southampton",
+      "league": "Championship",
+      "date": "2026-08-16",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5625,
+      "bttsProbDisplay": "56.25%",
+      "over25ProbDisplay": "53.77%",
+      "confidence": 56,
+      "time": "12:30",
+      "matchSemantic": "watford-vs-southamp-2026-08-16",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/395.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/376.png",
+      "tier": "SILVER",
+      "reliabilityScore": 62.86,
+      "dataQuality": "LOW",
+      "dataSource": "LEAGUE_FALLBACK",
+      "matchCountHome": 0,
+      "matchCountAway": 0,
+      "h2hAvailable": false,
+      "xgHome": 1.62,
+      "xgAway": 1.21,
+      "xgTotal": 2.83,
+      "formBTTS": 0,
+      "analysis": "Watford (0 matchs réels, xG 1.62) vs Southampton (0 matchs réels, xG 1.21). xG cumulé 2.83, BTTS 56.3%, Over 2.5 53.8%. Fiabilité 62.86%. Qualité données: LOW.",
+      "analysisData": {
+        "bttsProb": 0.5625,
+        "over25Prob": 0.5377,
+        "homeLambda": 1.62,
+        "awayLambda": 1.21,
+        "xgTotal": 2.83
+      },
+      "estimatedCote": 1.78,
+      "estimatedCoteOver": 1.86,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 56,
+          "bttsProb": 0.5625,
+          "homeLambda": 1.62,
+          "awayLambda": 1.21
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 54,
+          "over25Prob": 0.5377,
+          "homeLambda": 1.62,
+          "awayLambda": 1.21
+        }
+      ],
+      "bttsProb": 0.5625,
+      "over25Prob": 0.5377,
+      "homeLambda": 1.62,
+      "awayLambda": 1.21
     }
   ],
   "stats": {
-    "avgReliability": 72.05,
-    "totalAnalyzed": 85,
+    "avgReliability": 72.09,
+    "totalAnalyzed": 84,
     "totalRejected": 0,
-    "totalAccepted": 85,
+    "totalAccepted": 84,
     "freeCount": 12,
     "vipCount": 8
   },
@@ -1378,68 +1378,6 @@
       "over25Prob": 0.7655,
       "homeLambda": 1.86,
       "awayLambda": 2.17
-    },
-    {
-      "id": "adodenha-vs-fcgronin-2026-08-16",
-      "match": "ADO Den Haag vs FC Groningen",
-      "home": "ADO Den Haag",
-      "away": "FC Groningen",
-      "league": "Eredivisie",
-      "date": "2026-08-16",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.6424,
-      "bttsProbDisplay": "64.24%",
-      "over25ProbDisplay": "64.06%",
-      "confidence": 64,
-      "time": "10:15",
-      "matchSemantic": "adodenha-vs-fcgronin-2026-08-16",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2726.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/145.png",
-      "tier": "SILVER",
-      "reliabilityScore": 68.85,
-      "dataQuality": "LOW",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 1,
-      "matchCountAway": 1,
-      "h2hAvailable": false,
-      "xgHome": 1.88,
-      "xgAway": 1.42,
-      "xgTotal": 3.3,
-      "formBTTS": 20,
-      "analysis": "ADO Den Haag (1 matchs réels, xG 1.88) vs FC Groningen (1 matchs réels, xG 1.42). xG cumulé 3.3, BTTS 64.2%, Over 2.5 64.1%. Fiabilité 68.85%. Qualité données: LOW.",
-      "analysisData": {
-        "bttsProb": 0.6424,
-        "over25Prob": 0.6406,
-        "homeLambda": 1.88,
-        "awayLambda": 1.42,
-        "xgTotal": 3.3
-      },
-      "estimatedCote": 1.56,
-      "estimatedCoteOver": 1.56,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 64,
-          "bttsProb": 0.6424,
-          "homeLambda": 1.88,
-          "awayLambda": 1.42
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 64,
-          "over25Prob": 0.6406,
-          "homeLambda": 1.88,
-          "awayLambda": 1.42
-        }
-      ],
-      "bttsProb": 0.6424,
-      "over25Prob": 0.6406,
-      "homeLambda": 1.88,
-      "awayLambda": 1.42
     },
     {
       "id": "fctwente-vs-peczwoll-2026-08-16",
@@ -1967,6 +1905,68 @@
       "xgTotal": 3,
       "formBTTS": 20,
       "analysis": "KV Mechelen (1 matchs réels, xG 1.72) vs Standard Liege (1 matchs réels, xG 1.28). xG cumulé 3, BTTS 59.3%, Over 2.5 57.7%. Fiabilité 64.19%. Qualité données: LOW.",
+      "analysisData": {
+        "bttsProb": 0.5929,
+        "over25Prob": 0.5768,
+        "homeLambda": 1.72,
+        "awayLambda": 1.28,
+        "xgTotal": 3
+      },
+      "estimatedCote": 1.69,
+      "estimatedCoteOver": 1.73,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 59,
+          "bttsProb": 0.5929,
+          "homeLambda": 1.72,
+          "awayLambda": 1.28
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 58,
+          "over25Prob": 0.5768,
+          "homeLambda": 1.72,
+          "awayLambda": 1.28
+        }
+      ],
+      "bttsProb": 0.5929,
+      "over25Prob": 0.5768,
+      "homeLambda": 1.72,
+      "awayLambda": 1.28
+    },
+    {
+      "id": "lommelsk-vs-royalcha-2026-08-16",
+      "match": "Lommel SK vs Royal Charleroi SC",
+      "home": "Lommel SK",
+      "away": "Royal Charleroi SC",
+      "league": "Jupiler Pro League",
+      "date": "2026-08-16",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5929,
+      "bttsProbDisplay": "59.29%",
+      "over25ProbDisplay": "57.68%",
+      "confidence": 59,
+      "time": "17:15",
+      "matchSemantic": "lommelsk-vs-royalcha-2026-08-16",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22269.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3616.png",
+      "tier": "SILVER",
+      "reliabilityScore": 64.19,
+      "dataQuality": "LOW",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 1,
+      "matchCountAway": 1,
+      "h2hAvailable": false,
+      "xgHome": 1.72,
+      "xgAway": 1.28,
+      "xgTotal": 3,
+      "formBTTS": 40,
+      "analysis": "Lommel SK (1 matchs réels, xG 1.72) vs Royal Charleroi SC (1 matchs réels, xG 1.28). xG cumulé 3, BTTS 59.3%, Over 2.5 57.7%. Fiabilité 64.19%. Qualité données: LOW.",
       "analysisData": {
         "bttsProb": 0.5929,
         "over25Prob": 0.5768,
