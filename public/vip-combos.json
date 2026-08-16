@@ -2,38 +2,38 @@
   "date": "2026-08-16",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-16T10:40:24.981Z",
+  "fetchedAt": "2026-08-16T12:38:37.070Z",
   "eventCount": 100,
-  "legCount": 77,
+  "legCount": 65,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "72398604",
-          "home": "Zawisza Bydgoszcz",
-          "away": "KS Lechia Zielona Gora",
-          "league": "Poland - II Liga",
-          "kickoff": "2026-08-16T11:00:00Z",
-          "bookmaker": "Unibet",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.23,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T10:39:53.785Z"
-        },
-        {
-          "eventId": "72202978",
-          "home": "SK Beveren",
-          "away": "RSC Anderlecht",
-          "league": "Belgium - First Division A",
-          "kickoff": "2026-08-16T11:30:00Z",
+          "eventId": "72531504",
+          "home": "Amarante FC",
+          "away": "Lusitania FC Lourosa",
+          "league": "Portugal - Liga Portugal 2",
+          "kickoff": "2026-08-16T13:00:00Z",
           "bookmaker": "Unibet",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 1.63,
+          "odds": 1.74,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T05:47:15.651Z"
+          "updatedAt": "2026-08-16T12:23:36.299Z"
+        },
+        {
+          "eventId": "72542672",
+          "home": "Nottingham Forest",
+          "away": "Stade Brest 29",
+          "league": "International Clubs - Club Friendly Games",
+          "kickoff": "2026-08-16T13:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.15,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-16T09:11:20.127Z"
         }
       ],
       "totalOdds": 2
@@ -41,30 +41,30 @@
     "target5": {
       "legs": [
         {
-          "eventId": "72542686",
-          "home": "Tottenham Hotspur",
-          "away": "TSG Hoffenheim",
-          "league": "International Clubs - Club Friendly Games",
-          "kickoff": "2026-08-16T11:00:00Z",
-          "bookmaker": "Bet365 (no latency)",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.82,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T10:37:35.473Z"
-        },
-        {
-          "eventId": "67126278",
-          "home": "IFK Varnamo",
-          "away": "Ostersunds FK",
-          "league": "Sweden - Superettan",
-          "kickoff": "2026-08-16T11:00:00Z",
+          "eventId": "72043072",
+          "home": "LKP Motor Lublin",
+          "away": "GKS Katowice",
+          "league": "Poland - Ekstraklasa",
+          "kickoff": "2026-08-16T12:45:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 2.75,
+          "odds": 4.1,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T10:26:05.338Z"
+          "updatedAt": "2026-08-16T12:23:36.299Z"
+        },
+        {
+          "eventId": "66918242",
+          "home": "IFK Norrkoping DFK",
+          "away": "Kristianstads DFF",
+          "league": "Sweden - Damallsvenskan, Women",
+          "kickoff": "2026-08-16T13:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.22,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-15T10:11:24.931Z"
         }
       ],
       "totalOdds": 5
