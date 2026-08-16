@@ -17,22 +17,31 @@ const PAGE_URL = `${SITE_URL}/${SLUG}`
 // SEO Bing — title court (39 chars) + description courte (128 chars).
 // Avec le template "%s | BTTSPredict" (14 chars), le title rendu fait
 // 39 + 14 = 53 chars, bien sous la limite hard 70.
-const TITLE = 'Code Promo 888Starz VISION221 Afrique'
-const DESCRIPTION = "Guide du code promo 888Starz VISION221 : inscription, code copiable et conditions à vérifier auprès de l'opérateur. 18+ et affiliation signalée."
+const CURRENT_YEAR = new Date().getUTCFullYear()
+const REVIEW_DATE = new Date().toISOString().slice(0, 10)
+const TITLE = `Code promo 888Starz ${CURRENT_YEAR} : bonus VISION221`
+const DESCRIPTION = `Code promo 888Starz ${CURRENT_YEAR} : VISION221, inscription et conditions du bonus selon le pays. Guide vérifié, affiliation signalée, 18+.`
 checkSeo('bonus-888starz', TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   keywords: [
-    'code promo 888starz', 'bonus 888starz', 'vision221', '888starz senegal',
-    '888starz bonus', 'code promo 888starz senegal', 'guide code 888starz', '888starz afrique ouest',
-    '888starz maroc', '888starz mali', '888starz cote d\'ivoire',
-    '888starz wave', '888starz orange money', 'depot 888starz senegal',
+    'code promo 888starz', '888starz promo code', `bonus 888starz ${CURRENT_YEAR}`, '888starz bonus',
+    'code 888starz', 'vision221', '888starz senegal', 'code promo 888starz senegal',
+    '888starz mali', '888starz maroc', '888starz cote d\'ivoire', '888starz guinee', '888starz congo',
+    '888starz wave', '888starz orange money', 'inscription 888starz',
   ],
   alternates: {
     canonical: PAGE_URL,
+    languages: {
+      fr: PAGE_URL,
+      en: `${SITE_URL}/en/${SLUG}`,
+      ar: `${SITE_URL}/ar/${SLUG}`,
+      'x-default': PAGE_URL,
+    },
   },
+  robots: { index: true, follow: true },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
@@ -41,7 +50,7 @@ export const metadata: Metadata = {
     type: 'article',
     locale: 'fr_SN',
     publishedTime: '2026-07-06',
-    modifiedTime: '2026-08-09',
+    modifiedTime: REVIEW_DATE,
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: TITLE }],
   },
   twitter: {
@@ -63,7 +72,7 @@ function buildArticleJsonLd() {
     description: DESCRIPTION,
     url: PAGE_URL,
     datePublished: '2026-07-06',
-    dateModified: '2026-08-09',
+    dateModified: REVIEW_DATE,
     author: { '@type': 'Organization', name: 'BTTSPredict', url: SITE_URL },
     publisher: {
       '@type': 'Organization',
@@ -93,7 +102,6 @@ function buildHowToJsonLd() {
     name: 'Comment utiliser le code promo 888Starz VISION221 en Afrique',
     description: "Guide complet pour activer un bonus 888Starz avec le code VISION221 au Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc. Les conditions et montants peuvent évoluer.",
     totalTime: 'PT5M',
-    estimatedCost: { '@type': 'MonetaryAmount', currency: 'XOF', value: '200' },
     supply: [{ '@type': 'HowToSupply', name: 'Code promo VISION221' }],
     tool: [
       { '@type': 'HowToTool', name: 'Application 888Starz ou site web' },
@@ -115,8 +123,8 @@ function buildHowToJsonLd() {
       {
         '@type': 'HowToStep',
         position: 3,
-        name: 'Effectuer un premier dépôt dès 200 XOF',
-        text: "Dépose via Wave, Orange Money, MTN ou Moov. Le dépôt est instantané.",
+        name: 'Vérifier les conditions du premier dépôt',
+        text: "Consulte les conditions affichées par 888Starz pour le premier dépôt et choisis un moyen de paiement disponible dans ton pays.",
       },
       {
         '@type': 'HowToStep',
@@ -135,26 +143,34 @@ function buildFaqJsonLd() {
     mainEntity: [
       {
         '@type': 'Question',
-        name: 'Quel est le code promo 888Starz Afrique ?',
+        name: 'Quel est le code promo 888Starz ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Le code promo est VISION221 — saisi en majuscules lors de l'inscription. Les conditions du bonus, les montants disponibles et les critères d'éligibilité peuvent évoluer. Vérifiez toujours les conditions actuellement affichées par l'opérateur avant toute inscription ou dépôt. Le code est valable pour le Sénégal, le Mali, la Côte d'Ivoire, la Guinée, le Congo et le Maroc.",
+          text: "Le code présenté sur cette page est VISION221. Saisissez-le en majuscules et vérifiez son acceptation pendant l'inscription.",
         },
       },
       {
         '@type': 'Question',
-        name: 'Comment déposer avec Wave sur 888Starz ?',
+        name: `Quel est le bonus 888Starz en ${CURRENT_YEAR} ?`,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Sélectionne Wave dans la section Dépôt de 888Starz, entre le montant (minimum 200 XOF), valide avec ton code secret Wave. Le dépôt est instantané. Le bonus VISION221 est activé automatiquement sur le premier dépôt.",
+          text: "Les montants, conditions et critères d’éligibilité du bonus 888Starz peuvent varier selon le pays et la période. Consulte l’offre actuellement affichée par l’opérateur avant toute inscription ou dépôt. Le code présenté sur cette page est VISION221.",
         },
       },
       {
         '@type': 'Question',
-        name: 'Le bonus 888Starz est-il valable au Maroc, Mali et Côte d\'Ivoire ?',
+        name: 'Comment utiliser VISION221 ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Oui. Le code VISION221 fonctionne pour les 6 pays couverts : Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc. Les conditions et montants du bonus peuvent évoluer ; vérifiez les conditions actuellement affichées par l'opérateur avant toute inscription ou dépôt.",
+          text: "Ouvrez le lien d'inscription, créez votre compte, saisissez VISION221 dans le champ prévu puis vérifiez les conditions du premier dépôt et du bonus affichées pour votre pays.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Le code fonctionne-t-il dans tous les pays ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "La disponibilité peut dépendre du pays, du compte et de la période. Vérifiez votre éligibilité directement auprès de 888Starz avant de déposer.",
         },
       },
     ],
@@ -196,7 +212,7 @@ export default function Bonus888StarzPage() {
       <ErrorBoundary><Navbar /></ErrorBoundary>
 
       <main id="main-content" className="flex-1 relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
-        <Star888Client />
+        <Star888Client reviewDate={REVIEW_DATE} />
 
         <ErrorBoundary><Footer /></ErrorBoundary>
       </main>

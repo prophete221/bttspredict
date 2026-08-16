@@ -43,8 +43,8 @@ const STEPS = [
   },
   {
     n: '03',
-    title: 'Dépose dès 200 XOF',
-    desc: "Wave, Orange Money, MTN ou Moov. Dépôt instantané, compte crédité en quelques secondes.",
+    title: 'Vérifie le premier dépôt',
+    desc: "Choisis un moyen de paiement disponible dans ton pays et vérifie le montant minimum ainsi que les conditions affichées par 888Starz.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="6" width="20" height="12" rx="2" />
@@ -77,8 +77,8 @@ const PAYMENT_METHODS = [
 const BONUS_ROWS = [
   { label: 'Bonus', value: 'Conditions à vérifier auprès de 888Starz', highlight: true },
   { label: 'Code', value: 'VISION221 (copiable)' },
-  { label: 'Dépôt min', value: '200 XOF' },
-  { label: 'Méthodes', value: 'Wave, Orange Money, MTN, Moov' },
+  { label: 'Dépôt', value: 'Montant et conditions à vérifier auprès de 888Starz' },
+  { label: 'Méthodes', value: 'Disponibilité à vérifier selon le pays' },
   { label: 'Pays', value: 'Sénégal, Mali, CIV, Guinée, Congo, Maroc' },
 ]
 
@@ -89,7 +89,9 @@ const INTERNAL_LINKS = [
   { href: '/btts-c-est-quoi', label: "C'est quoi BTTS ?" },
 ]
 
-export default function Star888Client() {
+export default function Star888Client({ reviewDate }: { reviewDate: string }) {
+  const reviewYear = reviewDate.slice(0, 4)
+  const reviewDateLabel = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long', timeZone: 'Africa/Dakar' }).format(new Date(`${reviewDate}T12:00:00Z`))
   const [copied, setCopied] = useState(false)
   const [toast, setToast] = useState(false)
 
@@ -159,7 +161,7 @@ export default function Star888Client() {
             className="text-3xl sm:text-5xl mb-3 leading-tight"
             style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em', color: TEXT }}
           >
-            GUIDE <span style={{ color: ORANGE, textShadow: `0 0 22px ${ORANGE}66` }}>888STARZ</span> VISION221 — AFRIQUE
+            CODE PROMO <span style={{ color: ORANGE, textShadow: `0 0 22px ${ORANGE}66` }}>888STARZ</span> {reviewYear} : BONUS VISION221
           </h1>
           <div className="mx-auto mb-4 flex min-h-16 max-w-[340px] items-center justify-center rounded-xl bg-white px-4 py-2 shadow-lg sm:max-w-[440px]">
             <img src="/logos/888starz-provided.webp" alt="Logo officiel 888Starz" className="max-h-14 w-auto object-contain" width={1920} height={894} loading="eager" />
@@ -168,7 +170,10 @@ export default function Star888Client() {
             Inscription, code copiable et conditions à vérifier avant tout dépôt.
           </p>
           <p className="text-sm sm:text-base max-w-2xl mx-auto mt-3 leading-relaxed" style={{ color: TEXT_SEC }}>
-            Code promo <strong style={{ color: ORANGE }}>VISION221</strong>. Les conditions et montants du bonus peuvent évoluer — vérifiez les conditions affichées par 888Starz avant tout dépôt. Dépôt minimum 200 XOF.
+            Code promo <strong style={{ color: ORANGE }}>VISION221</strong>. Les conditions et montants du bonus peuvent évoluer — vérifiez les conditions affichées par 888Starz avant tout dépôt.
+          </p>
+          <p className="text-[11px] mt-3" style={{ color: TEXT_SEC }}>
+            Guide vérifié le <time dateTime={reviewDate}>{reviewDateLabel}</time> · informations susceptibles de varier selon le pays · 18+
           </p>
         </div>
       </section>
@@ -406,7 +411,7 @@ export default function Star888Client() {
             Moyens de dépôt 888Starz
           </h2>
           <p className="text-center text-sm mb-6" style={{ color: TEXT_SEC }}>
-            Dépôt instantané dès 200 XOF en Afrique de l&apos;Ouest.
+            Moyens de paiement possibles selon le pays · disponibilité et conditions à vérifier.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {PAYMENT_METHODS.map((m) => (
@@ -454,13 +459,40 @@ export default function Star888Client() {
         </div>
       </section>
 
+      {/* ─────────── FAQ VISIBLE — cohérente avec le JSON-LD ─────────── */}
+      <section className="pb-10" aria-labelledby="faq-888starz">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6">
+          <h2 id="faq-888starz" className="text-xl sm:text-2xl mb-4 text-center" style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em', color: TEXT }}>
+            Questions fréquentes sur le code promo 888Starz
+          </h2>
+          <div className="space-y-2">
+            <details className="rounded-xl p-4" style={{ backgroundColor: '#0D1A20', border: `1px solid ${ORANGE}22` }}>
+              <summary className="cursor-pointer font-bold" style={{ color: TEXT }}>Quel est le code promo 888Starz ?</summary>
+              <p className="mt-3 text-sm leading-relaxed" style={{ color: TEXT_SEC }}>Le code présenté sur cette page est <strong style={{ color: ORANGE }}>VISION221</strong>. Saisis-le en majuscules et vérifie son acceptation pendant l’inscription.</p>
+            </details>
+            <details className="rounded-xl p-4" style={{ backgroundColor: '#0D1A20', border: `1px solid ${ORANGE}22` }}>
+              <summary className="cursor-pointer font-bold" style={{ color: TEXT }}>Quel est le bonus 888Starz en {reviewYear} ?</summary>
+              <p className="mt-3 text-sm leading-relaxed" style={{ color: TEXT_SEC }}>Les montants, conditions et critères d’éligibilité peuvent varier selon le pays et la période. Consulte l’offre actuellement affichée par 888Starz avant toute inscription ou dépôt.</p>
+            </details>
+            <details className="rounded-xl p-4" style={{ backgroundColor: '#0D1A20', border: `1px solid ${ORANGE}22` }}>
+              <summary className="cursor-pointer font-bold" style={{ color: TEXT }}>Comment utiliser VISION221 ?</summary>
+              <p className="mt-3 text-sm leading-relaxed" style={{ color: TEXT_SEC }}>Ouvre le lien d’inscription, crée ton compte, saisis VISION221 dans le champ prévu puis vérifie les conditions du premier dépôt et du bonus affichées pour ton pays.</p>
+            </details>
+            <details className="rounded-xl p-4" style={{ backgroundColor: '#0D1A20', border: `1px solid ${ORANGE}22` }}>
+              <summary className="cursor-pointer font-bold" style={{ color: TEXT }}>Le code fonctionne-t-il dans tous les pays ?</summary>
+              <p className="mt-3 text-sm leading-relaxed" style={{ color: TEXT_SEC }}>La disponibilité peut dépendre du pays, du compte et de la période. Vérifie l’éligibilité directement auprès de 888Starz avant de déposer.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
       {/* ─────────── Disclaimer 18+ ─────────── */}
       <section className="pb-10">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
           <div className="rounded-xl p-4 text-center" style={{ backgroundColor: 'rgba(255, 122, 122, 0.06)', border: '1px solid rgba(255, 122, 122, 0.2)' }}>
             <p className="text-[11px] leading-relaxed" style={{ color: TEXT_SEC }}>
               ⚠ BTTSPredict est un site informatif et d&apos;affiliation. Nous ne prenons aucun pari, ne collectons aucun fonds et ne sommes pas un bookmaker.
-              Les bonus sont soumis aux conditions de 888Starz (mise, dépôt min 200 XOF — voir site bookmaker).
+              Les bonus sont soumis aux conditions de 888Starz (mise, dépôt et éligibilité — voir site bookmaker).
               Pariez responsable · <a href="/jouer-responsable" className="underline" style={{ color: PRIMARY }}>en savoir plus</a> · 18+.
             </p>
           </div>
