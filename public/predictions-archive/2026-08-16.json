@@ -1,6 +1,6 @@
 {
   "date": "2026-08-16",
-  "lastUpdated": "2026-08-16T15:59:08.924Z",
+  "lastUpdated": "2026-08-16T16:24:04.926Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -126,68 +126,6 @@
       "over25Prob": 0.7655,
       "homeLambda": 1.86,
       "awayLambda": 2.17
-    },
-    {
-      "id": "kvmechel-vs-standard-2026-08-16",
-      "match": "KV Mechelen vs Standard Liege",
-      "home": "KV Mechelen",
-      "away": "Standard Liege",
-      "league": "Jupiler Pro League",
-      "date": "2026-08-16",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5929,
-      "bttsProbDisplay": "59.29%",
-      "over25ProbDisplay": "57.68%",
-      "confidence": 59,
-      "time": "16:30",
-      "matchSemantic": "kvmechel-vs-standard-2026-08-16",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7879.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/559.png",
-      "tier": "SILVER",
-      "reliabilityScore": 64.19,
-      "dataQuality": "LOW",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 1,
-      "matchCountAway": 1,
-      "h2hAvailable": false,
-      "xgHome": 1.72,
-      "xgAway": 1.28,
-      "xgTotal": 3,
-      "formBTTS": 20,
-      "analysis": "KV Mechelen (1 matchs réels, xG 1.72) vs Standard Liege (1 matchs réels, xG 1.28). xG cumulé 3, BTTS 59.3%, Over 2.5 57.7%. Fiabilité 64.19%. Qualité données: LOW.",
-      "analysisData": {
-        "bttsProb": 0.5929,
-        "over25Prob": 0.5768,
-        "homeLambda": 1.72,
-        "awayLambda": 1.28,
-        "xgTotal": 3
-      },
-      "estimatedCote": 1.69,
-      "estimatedCoteOver": 1.73,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 59,
-          "bttsProb": 0.5929,
-          "homeLambda": 1.72,
-          "awayLambda": 1.28
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 58,
-          "over25Prob": 0.5768,
-          "homeLambda": 1.72,
-          "awayLambda": 1.28
-        }
-      ],
-      "bttsProb": 0.5929,
-      "over25Prob": 0.5768,
-      "homeLambda": 1.72,
-      "awayLambda": 1.28
     },
     {
       "id": "lommelsk-vs-royalcha-2026-08-16",
@@ -746,9 +684,7 @@
       "over25Prob": 0.8667,
       "homeLambda": 2.77,
       "awayLambda": 2.13
-    }
-  ],
-  "vipPreview": [
+    },
     {
       "id": "philadel-vs-intermia-2026-08-19",
       "match": "Philadelphia Union vs Inter Miami CF",
@@ -810,7 +746,9 @@
       "over25Prob": 0.7391,
       "homeLambda": 2.08,
       "awayLambda": 1.77
-    },
+    }
+  ],
+  "vipPreview": [
     {
       "id": "torontof-vs-charlott-2026-08-19",
       "match": "Toronto FC vs Charlotte FC",
@@ -1244,13 +1182,75 @@
       "over25Prob": 0.7017,
       "homeLambda": 2.17,
       "awayLambda": 1.45
+    },
+    {
+      "id": "sporting-vs-stlouisc-2026-08-20",
+      "match": "Sporting Kansas City vs St. Louis CITY SC",
+      "home": "Sporting Kansas City",
+      "away": "St. Louis CITY SC",
+      "league": "MLS",
+      "date": "2026-08-20",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6426,
+      "bttsProbDisplay": "64.26%",
+      "over25ProbDisplay": "64.39%",
+      "confidence": 64,
+      "time": "00:00",
+      "matchSemantic": "sporting-vs-stlouisc-2026-08-20",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/186.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21812.png",
+      "tier": "GOLD",
+      "reliabilityScore": 86.86,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.4,
+      "xgAway": 1.92,
+      "xgTotal": 3.32,
+      "formBTTS": 34,
+      "analysis": "Sporting Kansas City (8 matchs réels, xG 1.40) vs St. Louis CITY SC (8 matchs réels, xG 1.92). xG cumulé 3.32, BTTS 64.3%, Over 2.5 64.4%. Fiabilité 86.86%. Qualité données: HIGH.",
+      "analysisData": {
+        "bttsProb": 0.6426,
+        "over25Prob": 0.6439,
+        "homeLambda": 1.4,
+        "awayLambda": 1.92,
+        "xgTotal": 3.32
+      },
+      "estimatedCote": 1.56,
+      "estimatedCoteOver": 1.55,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 64,
+          "bttsProb": 0.6426,
+          "homeLambda": 1.4,
+          "awayLambda": 1.92
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 64,
+          "over25Prob": 0.6439,
+          "homeLambda": 1.4,
+          "awayLambda": 1.92
+        }
+      ],
+      "bttsProb": 0.6426,
+      "over25Prob": 0.6439,
+      "homeLambda": 1.4,
+      "awayLambda": 1.92
     }
   ],
   "stats": {
-    "avgReliability": 73.53,
-    "totalAnalyzed": 70,
+    "avgReliability": 73.67,
+    "totalAnalyzed": 69,
     "totalRejected": 0,
-    "totalAccepted": 70,
+    "totalAccepted": 69,
     "freeCount": 12,
     "vipCount": 8
   },
@@ -1378,68 +1378,6 @@
       "over25Prob": 0.7655,
       "homeLambda": 1.86,
       "awayLambda": 2.17
-    },
-    {
-      "id": "kvmechel-vs-standard-2026-08-16",
-      "match": "KV Mechelen vs Standard Liege",
-      "home": "KV Mechelen",
-      "away": "Standard Liege",
-      "league": "Jupiler Pro League",
-      "date": "2026-08-16",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5929,
-      "bttsProbDisplay": "59.29%",
-      "over25ProbDisplay": "57.68%",
-      "confidence": 59,
-      "time": "16:30",
-      "matchSemantic": "kvmechel-vs-standard-2026-08-16",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7879.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/559.png",
-      "tier": "SILVER",
-      "reliabilityScore": 64.19,
-      "dataQuality": "LOW",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 1,
-      "matchCountAway": 1,
-      "h2hAvailable": false,
-      "xgHome": 1.72,
-      "xgAway": 1.28,
-      "xgTotal": 3,
-      "formBTTS": 20,
-      "analysis": "KV Mechelen (1 matchs réels, xG 1.72) vs Standard Liege (1 matchs réels, xG 1.28). xG cumulé 3, BTTS 59.3%, Over 2.5 57.7%. Fiabilité 64.19%. Qualité données: LOW.",
-      "analysisData": {
-        "bttsProb": 0.5929,
-        "over25Prob": 0.5768,
-        "homeLambda": 1.72,
-        "awayLambda": 1.28,
-        "xgTotal": 3
-      },
-      "estimatedCote": 1.69,
-      "estimatedCoteOver": 1.73,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 59,
-          "bttsProb": 0.5929,
-          "homeLambda": 1.72,
-          "awayLambda": 1.28
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 58,
-          "over25Prob": 0.5768,
-          "homeLambda": 1.72,
-          "awayLambda": 1.28
-        }
-      ],
-      "bttsProb": 0.5929,
-      "over25Prob": 0.5768,
-      "homeLambda": 1.72,
-      "awayLambda": 1.28
     },
     {
       "id": "lommelsk-vs-royalcha-2026-08-16",
@@ -1998,6 +1936,68 @@
       "over25Prob": 0.8667,
       "homeLambda": 2.77,
       "awayLambda": 2.13
+    },
+    {
+      "id": "philadel-vs-intermia-2026-08-19",
+      "match": "Philadelphia Union vs Inter Miami CF",
+      "home": "Philadelphia Union",
+      "away": "Inter Miami CF",
+      "league": "MLS",
+      "date": "2026-08-19",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.7262,
+      "bttsProbDisplay": "72.62%",
+      "over25ProbDisplay": "73.91%",
+      "confidence": 73,
+      "time": "23:30",
+      "matchSemantic": "philadel-vs-intermia-2026-08-19",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10739.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20232.png",
+      "tier": "GOLD",
+      "reliabilityScore": 90.52,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.08,
+      "xgAway": 1.77,
+      "xgTotal": 3.85,
+      "formBTTS": 50,
+      "analysis": "Philadelphia Union (8 matchs réels, xG 2.08) vs Inter Miami CF (8 matchs réels, xG 1.77). xG cumulé 3.85, BTTS 72.6%, Over 2.5 73.9%. Fiabilité 90.52%. Qualité données: HIGH.",
+      "analysisData": {
+        "bttsProb": 0.7262,
+        "over25Prob": 0.7391,
+        "homeLambda": 2.08,
+        "awayLambda": 1.77,
+        "xgTotal": 3.85
+      },
+      "estimatedCote": 1.38,
+      "estimatedCoteOver": 1.35,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 73,
+          "bttsProb": 0.7262,
+          "homeLambda": 2.08,
+          "awayLambda": 1.77
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 74,
+          "over25Prob": 0.7391,
+          "homeLambda": 2.08,
+          "awayLambda": 1.77
+        }
+      ],
+      "bttsProb": 0.7262,
+      "over25Prob": 0.7391,
+      "homeLambda": 2.08,
+      "awayLambda": 1.77
     }
   ]
 }

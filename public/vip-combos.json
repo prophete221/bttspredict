@@ -2,67 +2,80 @@
   "date": "2026-08-16",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-16T15:59:35.647Z",
+  "fetchedAt": "2026-08-16T16:24:30.563Z",
   "eventCount": 100,
-  "legCount": 96,
+  "legCount": 69,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "73207372",
-          "home": "CF Uniao de Lamas",
-          "away": "Florgrade FC",
-          "league": "Portugal - Campeonato de Portugal, Group D",
-          "kickoff": "2026-08-16T16:00:00Z",
+          "eventId": "71901842",
+          "home": "Vilnius FK Zalgiris",
+          "away": "FK Banga Gargzdai",
+          "league": "Lithuania - A Lyga",
+          "kickoff": "2026-08-16T16:30:00Z",
+          "bookmaker": "Unibet",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.21,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-16T15:53:47.039Z"
+        },
+        {
+          "eventId": "73584050",
+          "home": "Hapoel Ironi Kiryat Shmona FC",
+          "away": "Hapoel Tel Aviv FC",
+          "league": "Israel - League Cup, Premier, Playoffs",
+          "kickoff": "2026-08-16T17:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.67,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-16T16:24:14.729Z"
+        }
+      ],
+      "totalOdds": 2.02
+    },
+    "target5": {
+      "legs": [
+        {
+          "eventId": "67681974",
+          "home": "Nublense",
+          "away": "Deportes Union La Calera",
+          "league": "Chile - Primera Division",
+          "kickoff": "2026-08-16T16:30:00Z",
+          "bookmaker": "Bet365 (no latency)",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.85,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-16T16:22:21.7Z"
+        },
+        {
+          "eventId": "72531512",
+          "home": "FC Porto B",
+          "away": "SC Farense",
+          "league": "Portugal - Liga Portugal 2",
+          "kickoff": "2026-08-16T17:00:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
           "odds": 1.4,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T15:38:40.98Z"
+          "updatedAt": "2026-08-16T11:39:52.533Z"
         },
         {
-          "eventId": "68686072",
-          "home": "FC Supra Du Quebec",
-          "away": "Atletico Ottawa",
-          "league": "Canada - Canadian Premier League",
-          "kickoff": "2026-08-16T16:00:00Z",
-          "bookmaker": "Unibet",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.43,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T22:12:45.143Z"
-        }
-      ],
-      "totalOdds": 2
-    },
-    "target5": {
-      "legs": [
-        {
-          "eventId": "73207372",
-          "home": "CF Uniao de Lamas",
-          "away": "Florgrade FC",
-          "league": "Portugal - Campeonato de Portugal, Group D",
-          "kickoff": "2026-08-16T16:00:00Z",
-          "bookmaker": "Bet365 (no latency)",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 2.5,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T11:42:20.626Z"
-        },
-        {
-          "eventId": "73206802",
-          "home": "CD Celoricense",
-          "away": "CDC Montalegre",
-          "league": "Portugal - Campeonato de Portugal, Group A",
-          "kickoff": "2026-08-16T16:00:00Z",
+          "eventId": "72304412",
+          "home": "FK Jedinstvo Bijelo Polje",
+          "away": "FK Berane",
+          "league": "Montenegro - 2. CFL",
+          "kickoff": "2026-08-16T17:00:00Z",
           "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 2,
+          "odds": 1.93,
           "source": "Odds-API.io",
           "updatedAt": "2026-08-15T12:55:43.926Z"
         }
