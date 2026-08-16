@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { formatDakarDateLabel, getDakarDateString, parseDakarDateTime } from '@/lib/dakar-date'
+import { formatDakarDateLabel, getDakarDateString, getDakarMatchStatus, parseDakarDateTime } from '@/lib/dakar-date'
 
 type Match = {
   match: string
@@ -26,28 +26,7 @@ type LiveStatus = 'upcoming' | 'live' | 'finished'
  * - Otherwise → upcoming
  */
 export function getMatchStatus(date: string, time?: string, now = new Date()): LiveStatus {
-  if (!date) return 'finished'
-
-  try {
-    const today = getDakarDateString(now)
-    if (date < today) return 'finished'
-    if (date > today) return 'upcoming'
-
-    if (!time || time === '--:--' || !/^\d{2}:\d{2}$/.test(time)) {
-      return 'upcoming'
-    }
-
-    const matchDateTime = parseDakarDateTime(date, time)
-    if (!matchDateTime) return 'finished'
-
-    const diffMs = matchDateTime.getTime() - now.getTime()
-    const diffHours = diffMs / (1000 * 60 * 60)
-    if (diffMs < 0 && diffHours > -2.5) return 'live'
-    if (diffMs < 0) return 'finished'
-    return 'upcoming'
-  } catch {
-    return 'finished'
-  }
+  return getDakarMatchStatus(date, time, now)
 }
 
 export function getTimeUntilMatch(date: string, time?: string, now = new Date()): string {

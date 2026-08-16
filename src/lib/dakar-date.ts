@@ -26,6 +26,8 @@ export function getDakarDateString(now = new Date()): string {
  * Convertit une date et une heure de calendrier Africa/Dakar en instant.
  * Dakar est UTC+0 ; Date.UTC conserve donc exactement le calendrier métier.
  */
+export type DakarMatchStatus = 'upcoming' | 'live' | 'finished'
+
 export function parseDakarDateTime(date: string, time = '12:00'): Date | null {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !/^\d{2}:\d{2}$/.test(time)) return null
   const [year, month, day] = date.split('-').map(Number)
@@ -34,6 +36,22 @@ export function parseDakarDateTime(date: string, time = '12:00'): Date | null {
 
   const result = new Date(Date.UTC(year, month - 1, day, hours, minutes, 0, 0))
   return Number.isNaN(result.getTime()) ? null : result
+}
+
+/** Classe un match selon son horaire de coup d’envoi Africa/Dakar. */
+export function getDakarMatchStatus(date: string, time?: string, now = new Date()): DakarMatchStatus {
+  if (!date) return 'finished'
+  const today = getDakarDateString(now)
+  if (date < today) return 'finished'
+  if (date > today) return 'upcoming'
+  if (!time || time === '--:--' || !/^\d{2}:\d{2}$/.test(time)) return 'upcoming'
+
+  const matchDateTime = parseDakarDateTime(date, time)
+  if (!matchDateTime) return 'finished'
+  const diffMs = matchDateTime.getTime() - now.getTime()
+  if (diffMs < 0 && diffMs >= -(150 * 60 * 1000)) return 'live'
+  if (diffMs < 0) return 'finished'
+  return 'upcoming'
 }
 
 export function formatDakarDateLabel(date: string, now = new Date()): string {

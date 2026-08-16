@@ -28,6 +28,7 @@ import Link from 'next/link'
 import { generateMatchSlug } from '@/lib/match-slug'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor } from '@/lib/i18n'
+import { getDakarDateString, getDakarMatchStatus } from '@/lib/dakar-date'
 
 // ─── Palette (Slate Design System — matches VIP / methodology) ──────────
 const C = {
@@ -148,6 +149,13 @@ function fmtDate(dateStr?: string): string {
   } catch {
     return dateStr
   }
+}
+
+function passesFilter(match: MatchData, activeFilter: FilterType): boolean {
+  if (activeFilter === 'BTTS') return (match.bttsProb ?? 0) >= 0.5
+  if (activeFilter === 'O2.5') return (match.over25Prob ?? 0) >= 0.5
+  if (activeFilter === 'HIGH') return (match.reliabilityScore ?? 0) >= 80
+  return true
 }
 
 function normalizeDataSource(s?: string): string {
@@ -537,6 +545,12 @@ export default function BttsTodayDashboard() {
   const [generationDate, setGenerationDate] = useState<string | null>(null)
   const [todayMatches, setTodayMatches] = useState<MatchData[]>([])
   const [upcomingMatches, setUpcomingMatches] = useState<MatchData[]>([])
+  const [now, setNow] = useState<number>(() => Date.now())
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setNow(Date.now()), 60_000)
+    return () => window.clearInterval(timer)
+  }, [])
 
   useEffect(() => {
     fetch('/predictions.json')
@@ -546,7 +560,7 @@ export default function BttsTodayDashboard() {
         // Today's date in Africa/Dakar (Senegal timezone = UTC+0 / GMT)
         // Important: do NOT use UTC blindly — use Intl with explicit timezone to ensure
         // the date matches the site's local day, even if the user's browser uses another TZ.
-        const todayStr = new Date().toLocaleDateString('sv-SE', { timeZone: 'Africa/Dakar' })
+        const todayStr = getDakarDateString()
 
         // Group by match (predictions.json stores one row per market — BTTS or Over 2.5)
         const map = new Map<string, MatchData>()
@@ -624,6 +638,19 @@ export default function BttsTodayDashboard() {
       .catch(() => setLoading(false))
   }, [])
 
+  const finishedTodayMatches = useMemo(
+    () => todayMatches.filter(m => getDakarMatchStatus(m.date, m.time, new Date(now)) === 'finished'),
+    [todayMatches, now],
+  )
+  const liveTodayMatches = useMemo(
+    () => todayMatches.filter(m => getDakarMatchStatus(m.date, m.time, new Date(now)) === 'live'),
+    [todayMatches, now],
+  )
+  const scheduledTodayMatches = useMemo(
+    () => todayMatches.filter(m => getDakarMatchStatus(m.date, m.time, new Date(now)) === 'upcoming'),
+    [todayMatches, now],
+  )
+
   // ─── Real stats from loaded data (no fabrication) ──────────────────────
   const stats = useMemo(() => {
     // « Today » = matchs réellement affichés (filtrés par date >= todayStr dans useEffect).
@@ -635,17 +662,17 @@ export default function BttsTodayDashboard() {
       ? Math.round(matches.reduce((s, m) => s + (m.reliabilityScore ?? 0), 0) / matches.length)
       : null
 
-    // todayCount = number of matches scheduled for today (Africa/Dakar)
-    // Does NOT include upcoming matches (those go to the "À venir" section).
+    // todayCount = number of active/scheduled matches for today (Africa/Dakar).
+    // Finished matches remain visible in their own section but are not counted as current selections.
     return {
-      todayCount: todayMatches.length,
+      todayCount: scheduledTodayMatches.length + liveTodayMatches.length,
       total: matches.length,
       bttsHigh,
       overHigh,
       highQuality,
       avgReliability,
     }
-  }, [matches, todayMatches])
+  }, [matches, scheduledTodayMatches, liveTodayMatches])
 
   // ─── AI COMBO OF THE DAY — deterministic selection from real data only ──
   // Eligibility filter (NO recalculation — uses predictions.json values as-is):
@@ -665,7 +692,7 @@ export default function BttsTodayDashboard() {
 
     const candidates: ComboPick[] = []
 
-    for (const m of todayMatches) {
+    for (const m of [...liveTodayMatches, ...scheduledTodayMatches]) {
       const dq = (m.dataQuality || '').toUpperCase()
       if (dq === 'LOW' || dq === '') continue
 
@@ -716,7 +743,7 @@ export default function BttsTodayDashboard() {
     })
 
     return candidates.slice(0, 3)
-  }, [todayMatches, loading])
+  }, [liveTodayMatches, scheduledTodayMatches, loading])
 
   // ─── Filters ──────────────────────────────────────────────────────────
   const filters: { id: FilterType; label: string }[] = [
@@ -792,7 +819,7 @@ export default function BttsTodayDashboard() {
       {/* ─── AI COMBO OF THE DAY ─── */}
       {/* Deterministic selection — NO Gemini call from client, NO recalculation. */}
       {/* Source: /predictions.json fields only (bttsProb, over25Prob, reliabilityScore, dataQuality, dataSource). */}
-      {!loading && todayMatches.length > 0 && (
+      {!loading && (liveTodayMatches.length > 0 || scheduledTodayMatches.length > 0) && (
         <div className="rounded-xl p-3 sm:p-4 mb-4" style={{
           backgroundColor: C.surface,
           border: `1px solid ${C.gold}40`,
@@ -876,34 +903,61 @@ export default function BttsTodayDashboard() {
           {/* ─── Section: Aujourd'hui ─── */}
           <div className="mb-6">
             <h3 className="text-xs uppercase tracking-widest font-black mb-3" style={{ color: C.text }}>
-              {lang === 'fr' ? 'Aujourd’hui' : lang === 'en' ? 'Today' : 'اليوم'}
+              {lang === 'fr' ? 'À venir aujourd’hui' : lang === 'en' ? 'Today — upcoming' : 'المباريات القادمة اليوم'}
               <span className="ml-2 px-2 py-0.5 rounded-full text-[10px] font-bold" style={{
-                backgroundColor: todayMatches.length > 0 ? `${C.success}20` : `${C.textMute}20`,
-                color: todayMatches.length > 0 ? C.success : C.textMute,
+                backgroundColor: (scheduledTodayMatches.length + liveTodayMatches.length) > 0 ? `${C.success}20` : `${C.textMute}20`,
+                color: (scheduledTodayMatches.length + liveTodayMatches.length) > 0 ? C.success : C.textMute,
               }}>
-                {todayMatches.length}
+                {scheduledTodayMatches.length + liveTodayMatches.length}
               </span>
             </h3>
-            {todayMatches.length === 0 ? (
+            {scheduledTodayMatches.length === 0 ? (
               <div className="rounded-xl p-8 text-center" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
                 <p className="text-sm font-bold mb-1" style={{ color: C.text }}>{lang === 'fr' ? 'Aucun match disponible aujourd’hui' : lang === 'en' ? 'No match available today' : 'لا توجد مباريات متاحة اليوم'}</p>
                 <p className="text-[11px]" style={{ color: C.textSec }}>{lang === 'fr' ? 'Revenez plus tard ou consultez les matchs à venir ci-dessous.' : lang === 'en' ? 'Come back later or check the upcoming matches below.' : 'عد لاحقاً أو راجع المباريات القادمة أدناه.'}</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-                {todayMatches
-                  .filter(m => {
-                    if (activeFilter === 'BTTS') return (m.bttsProb ?? 0) >= 0.5
-                    if (activeFilter === 'O2.5') return (m.over25Prob ?? 0) >= 0.5
-                    if (activeFilter === 'HIGH') return (m.reliabilityScore ?? 0) >= 80
-                    return true
-                  })
+                {[...liveTodayMatches, ...scheduledTodayMatches]
+                  .filter(m => passesFilter(m, activeFilter))
                   .map((m, i) => (
                     <MatchCard key={`today-${m.key}`} match={m} index={i} />
                   ))}
               </div>
             )}
           </div>
+
+          {finishedTodayMatches.length > 0 && (
+            <div className="mb-6">
+              <h3 className="text-xs uppercase tracking-widest font-black mb-3" style={{ color: C.textSec }}>
+                {lang === 'fr' ? 'Terminés aujourd’hui' : lang === 'en' ? 'Finished today' : 'انتهت اليوم'}
+                <span className="ml-2 px-2 py-0.5 rounded-full text-[10px] font-bold" style={{ backgroundColor: `${C.textMute}20`, color: C.textMute }}>
+                  {finishedTodayMatches.length}
+                </span>
+              </h3>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 opacity-80">
+                {finishedTodayMatches.filter(m => passesFilter(m, activeFilter)).map((m, i) => (
+                  <MatchCard key={`finished-${m.key}`} match={m} index={i} />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {liveTodayMatches.length > 0 && (
+            <div className="mb-6">
+              <h3 className="text-xs uppercase tracking-widest font-black mb-3" style={{ color: C.success }}>
+                {lang === 'fr' ? 'En direct / en cours' : lang === 'en' ? 'Live / in progress' : 'مباشر / قيد اللعب'}
+                <span className="ml-2 px-2 py-0.5 rounded-full text-[10px] font-bold" style={{ backgroundColor: `${C.success}20`, color: C.success }}>
+                  {liveTodayMatches.length}
+                </span>
+              </h3>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                {liveTodayMatches.filter(m => passesFilter(m, activeFilter)).map((m, i) => (
+                  <MatchCard key={`live-${m.key}`} match={m} index={i} />
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* ─── Section: À venir ─── */}
           {upcomingMatches.length > 0 && (
@@ -919,12 +973,7 @@ export default function BttsTodayDashboard() {
               </h3>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
                 {upcomingMatches
-                  .filter(m => {
-                    if (activeFilter === 'BTTS') return (m.bttsProb ?? 0) >= 0.5
-                    if (activeFilter === 'O2.5') return (m.over25Prob ?? 0) >= 0.5
-                    if (activeFilter === 'HIGH') return (m.reliabilityScore ?? 0) >= 80
-                    return true
-                  })
+                  .filter(m => passesFilter(m, activeFilter))
                   .map((m, i) => (
                     <MatchCard key={`upcoming-${m.key}`} match={m} index={i} />
                   ))}
@@ -933,7 +982,7 @@ export default function BttsTodayDashboard() {
           )}
 
           {/* Empty state when both sections are empty under current filter */}
-          {todayMatches.length === 0 && upcomingMatches.length === 0 && (
+          {scheduledTodayMatches.length === 0 && liveTodayMatches.length === 0 && upcomingMatches.length === 0 && (
             <div className="rounded-xl p-8 text-center" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
               <p className="text-sm font-bold mb-1" style={{ color: C.text }}>{lang === 'fr' ? 'Aucun match sous ce filtre' : lang === 'en' ? 'No matches under this filter' : 'لا توجد مباريات ضمن هذا الفلتر'}</p>
               <p className="text-[11px]" style={{ color: C.textSec }}>{lang === 'fr' ? 'Essayez un autre filtre ou revenez plus tard.' : lang === 'en' ? 'Try another filter or come back later.' : 'جرّب فلترًا آخر أو عد لاحقاً.'}</p>
