@@ -1,70 +1,70 @@
 {
-  "date": "2026-08-15",
+  "date": "2026-08-16",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-15T22:30:22.949Z",
-  "eventCount": 33,
-  "legCount": 86,
+  "fetchedAt": "2026-08-16T04:44:07.166Z",
+  "eventCount": 100,
+  "legCount": 51,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "73204498",
-          "home": "CF Pachuca",
-          "away": "Pumas Unam",
-          "league": "Mexico - Liga MX, Women, Apertura",
-          "kickoff": "2026-08-15T23:00:00Z",
-          "bookmaker": "Unibet",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.45,
+          "eventId": "67905320",
+          "home": "Gold Coast United FC U23",
+          "away": "Eastern Suburbs U23",
+          "league": "Australia - U23 Queensland NPL",
+          "kickoff": "2026-08-16T05:00:00Z",
+          "bookmaker": "Bet365 (no latency)",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.53,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T05:46:06.689Z"
+          "updatedAt": "2026-08-14T08:58:19.792Z"
         },
         {
-          "eventId": "73610362",
-          "home": "Portuguesa FC",
-          "away": "Trujillanos FC",
-          "league": "Venezuela - Primera Division, Clausura",
-          "kickoff": "2026-08-15T23:00:00Z",
+          "eventId": "67905318",
+          "home": "Wynnum Wolves FC U23",
+          "away": "Magic United TFA U23",
+          "league": "Australia - U23 Queensland NPL",
+          "kickoff": "2026-08-16T05:00:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.38,
+          "odds": 1.3,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T21:50:58.075Z"
+          "updatedAt": "2026-08-14T12:00:01.481Z"
         }
       ],
-      "totalOdds": 2
+      "totalOdds": 1.99
     },
     "target5": {
       "legs": [
         {
-          "eventId": "66299342",
-          "home": "CF Montreal",
-          "away": "DC United",
-          "league": "USA - MLS",
-          "kickoff": "2026-08-15T23:30:00Z",
-          "bookmaker": "Unibet",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.54,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T01:22:28.604Z"
-        },
-        {
-          "eventId": "66299340",
-          "home": "Charlotte FC",
-          "away": "Columbus Crew",
-          "league": "USA - MLS",
-          "kickoff": "2026-08-15T23:30:00Z",
+          "eventId": "67905318",
+          "home": "Wynnum Wolves FC U23",
+          "away": "Magic United TFA U23",
+          "league": "Australia - U23 Queensland NPL",
+          "kickoff": "2026-08-16T05:00:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 3.25,
+          "odds": 1.3,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T21:21:26.556Z"
+          "updatedAt": "2026-08-14T12:00:01.481Z"
+        },
+        {
+          "eventId": "67904296",
+          "home": "Grange Thistle",
+          "away": "Caloundra FC",
+          "league": "Australia - Queensland Premier League 2",
+          "kickoff": "2026-08-16T05:45:00Z",
+          "bookmaker": "Unibet",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 3.85,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-15T14:01:47.879Z"
         }
       ],
       "totalOdds": 5
