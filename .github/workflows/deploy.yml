@@ -78,6 +78,9 @@ jobs:
         timeout-minutes: 5
         run: node scripts/quick-update-predictions.mjs
 
+      - name: Validate fresh predictions before enrichment
+        run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp
+
       - name: Setup Python for Gemini enrichment
         uses: actions/setup-python@v5
         with:
@@ -116,7 +119,7 @@ jobs:
         run: node scripts/scrape-transfers.mjs
         continue-on-error: true
 
-      - name: Validate predictions dataset
+      - name: Validate predictions dataset before build
         run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp
 
       - name: Build static export
