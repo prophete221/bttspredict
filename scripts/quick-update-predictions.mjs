@@ -27,6 +27,7 @@ const FUTURE_DAYS = 7        // look ahead 7 days to ensure we always have match
 const MAX_FREE = 12           // show up to 12 free matches (Gemini-powered analysis)
 const MAX_VIP = 8            // show up to 8 VIP matches
 const DISPLAY_TZ = 'Africa/Dakar'  // Senegal timezone = UTC+0 (GMT)
+const MIN_KICKOFF_LEAD_MINUTES = 30 // safety buffer for long enrichment/verification steps
 
 // ─── HIGH BTTS Leagues ───
 const ESPN_SLUGS = {
@@ -257,7 +258,7 @@ async function fetchESPNMatches(slug, dateParam) {
       if (matchDate < today) continue
       if (matchDate === today && comp.date) {
         const kickoff = new Date(comp.date).getTime()
-        if (Number.isFinite(kickoff) && kickoff <= Date.now()) continue
+        if (Number.isFinite(kickoff) && kickoff <= Date.now() + MIN_KICKOFF_LEAD_MINUTES * 60 * 1000) continue
       }
 
       const homeComp = comp.competitors?.find(c => c.homeAway === 'home')
