@@ -1,6 +1,6 @@
 {
   "date": "2026-08-16",
-  "lastUpdated": "2026-08-16T07:07:37.702Z",
+  "lastUpdated": "2026-08-16T08:29:14.734Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -64,14 +64,14 @@
       "over25Prob": 0.8606,
       "homeLambda": 3,
       "awayLambda": 1.83,
-      "ai_exact_score": "3-2",
-      "exact_score_prob": "14%",
-      "ai_btts_view": "80%",
-      "ai_btts_prob": "80%",
+      "ai_exact_score": "2-1",
+      "exact_score_prob": "16%",
+      "ai_btts_view": "78%",
+      "ai_btts_prob": "78%",
       "ai_over25_view": "85%",
       "ai_over25_prob": "85%",
-      "ai_key_fact": "xG cumulé de 4.83 avec 8 matchs réels analysés par équipe.",
-      "ai_analysis": "New York City FC présente un xG de 3.00 tandis que Philadelphia Union affiche un xG de 1.83. La qualité des données est élevée avec 8 matchs réels par formation. Le modèle confirme une forte probabilité de buts des deux côtés et un total de buts élevé."
+      "ai_key_fact": "xG cumulé élevé de 4.83 avec une haute fiabilité de 93.68%.",
+      "ai_analysis": "New York City FC affiche un xG de 3.00 sur 8 matchs réels, tandis que Philadelphia Union présente un xG de 1.83. Ces statistiques offensives solides soutiennent une forte probabilité de buts des deux côtés. La qualité des données est jugée haute selon les indicateurs disponibles."
     },
     {
       "id": "chicagof-vs-portland-2026-08-16",
@@ -135,13 +135,13 @@
       "homeLambda": 1.86,
       "awayLambda": 2.17,
       "ai_exact_score": "2-2",
-      "exact_score_prob": "15%",
+      "exact_score_prob": "14%",
       "ai_btts_view": "75%",
       "ai_btts_prob": "75%",
       "ai_over25_view": "77%",
       "ai_over25_prob": "77%",
-      "ai_key_fact": "xG cumulé de 4.03 avec des attaques prolifiques en MLS.",
-      "ai_analysis": "Chicago Fire FC affiche un xG de 1.86 et Portland Timbers un xG de 2.17. La fiabilité est excellente à 91.45% grâce à 8 matchs réels pour chaque équipe. Les statistiques confirment une rencontre ouverte avec de nombreuses occasions de part et d'autre."
+      "ai_key_fact": "xG cumulé de 4.03 avec des performances offensives équilibrées.",
+      "ai_analysis": "Chicago Fire FC possède un xG de 1.86 sur 8 matchs réels, contre 2.17 pour Portland Timbers sur la même période. La confrontation présente des profils offensifs dynamiques et proches. La fiabilité globale atteint 91.45% avec une qualité de données élevée."
     },
     {
       "id": "adodenha-vs-fcgronin-2026-08-16",
@@ -205,13 +205,13 @@
       "homeLambda": 1.88,
       "awayLambda": 1.42,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
+      "exact_score_prob": "15%",
       "ai_btts_view": "63%",
       "ai_btts_prob": "63%",
-      "ai_over25_view": "65%",
-      "ai_over25_prob": "65%",
-      "ai_key_fact": "xG cumulé de 3.3 avec des données basées sur 1 match réel.",
-      "ai_analysis": "ADO Den Haag et FC Groningen affichent respectivement 1.88 et 1.42 de xG. La qualité des données est jugée faible en raison du faible échantillon de matchs réels disponibles. L'analyse contextuelle penche tout de même vers une rencontre animée."
+      "ai_over25_view": "63%",
+      "ai_over25_prob": "63%",
+      "ai_key_fact": "xG cumulé de 3.3 basé sur un échantillon de 1 match réel.",
+      "ai_analysis": "ADO Den Haag affiche un xG de 1.88 pour 1 match réel, tout comme FC Groningen avec 1.42. La qualité des données est considérée comme faible en raison du faible échantillon de matchs réels disponibles. L'analyse reste prudente face à cette limitation statistique."
     },
     {
       "id": "fctwente-vs-peczwoll-2026-08-16",
@@ -275,13 +275,13 @@
       "homeLambda": 1.88,
       "awayLambda": 1.42,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
+      "exact_score_prob": "15%",
       "ai_btts_view": "63%",
       "ai_btts_prob": "63%",
-      "ai_over25_view": "65%",
-      "ai_over25_prob": "65%",
-      "ai_key_fact": "xG combiné de 3.30 basé sur un échantillon limité de 1 match.",
-      "ai_analysis": "FC Twente présente un xG de 1.88 contre 1.42 pour PEC Zwolle. La fiabilité globale est de 68.85% avec une qualité de données basse. Malgré cela, la production offensive estimée suggère des espaces exploitables pour les deux équipes."
+      "ai_over25_view": "63%",
+      "ai_over25_prob": "63%",
+      "ai_key_fact": "xG cumulé de 3.3 avec des données limitées à un match réel.",
+      "ai_analysis": "FC Twente présente un xG de 1.88 et PEC Zwolle un xG de 1.42 sur la base d'un unique match réel. La fiabilité est estimée à 68.85% avec une qualité de données basse. Les indicateurs suggèrent toutefois un potentiel offensif suffisant pour animer la rencontre."
     },
     {
       "id": "feyenoor-vs-goaheade-2026-08-16",
@@ -345,13 +345,13 @@
       "homeLambda": 1.88,
       "awayLambda": 1.42,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
+      "exact_score_prob": "15%",
       "ai_btts_view": "63%",
       "ai_btts_prob": "63%",
-      "ai_over25_view": "65%",
-      "ai_over25_prob": "65%",
-      "ai_key_fact": "xG cumulé de 3.3 dans un contexte de données faible.",
-      "ai_analysis": "Feyenoord Rotterdam enregistre un xG de 1.88 face aux 1.42 de Go Ahead Eagles. Avec seulement 1 match réel comme base pour chaque club, la prudence reste de mise. Les indicateurs offensifs restent néanmoins favorables aux deux formations."
+      "ai_over25_view": "63%",
+      "ai_over25_prob": "63%",
+      "ai_key_fact": "xG cumulé de 3.3 avec un historique de 1 match réel.",
+      "ai_analysis": "Feyenoord Rotterdam affiche un xG de 1.88 et Go Ahead Eagles un xG de 1.42 sur 1 match réel. La qualité des données est faible et la fiabilité s'établit à 68.85%. La configuration des xG indique des opportunités de part et d'autre."
     },
     {
       "id": "ajaxamst-vs-heerenve-2026-08-16",
@@ -415,13 +415,13 @@
       "homeLambda": 1.88,
       "awayLambda": 1.42,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
+      "exact_score_prob": "15%",
       "ai_btts_view": "63%",
       "ai_btts_prob": "63%",
-      "ai_over25_view": "65%",
-      "ai_over25_prob": "65%",
-      "ai_key_fact": "xG total de 3.30 avec une fiabilité de 68.85%.",
-      "ai_analysis": "Ajax Amsterdam et Heerenveen affichent des xG respectifs de 1.88 et 1.42. La qualité des données est qualifiée de basse en raison d'un unique match réel pris en compte. L'analyse des xG indique un potentiel offensif suffisant pour voir les deux équipes marquer."
+      "ai_over25_view": "63%",
+      "ai_over25_prob": "63%",
+      "ai_key_fact": "xG cumulé de 3.3 basé sur un échantillon restreint de données.",
+      "ai_analysis": "Ajax Amsterdam présente un xG de 1.88 contre 1.42 pour Heerenveen sur 1 match réel. La fiabilité de 68.85% reflète la qualité de données basse. La prudence est de mise pour l'interprétation de ces chiffres limités."
     },
     {
       "id": "arminiab-vs-energiec-2026-08-16",
@@ -490,8 +490,8 @@
       "ai_btts_prob": "60%",
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
-      "ai_key_fact": "xG cumulé de 3.05 en 2. Bundesliga avec 1 match réel.",
-      "ai_analysis": "Arminia Bielefeld (xG 1.74) affronte Energie Cottbus (xG 1.30). La fiabilité s'établit à 64.57% avec une qualité de données basse. La configuration statistique montre un léger avantage pour les locaux tout en préservant des chances pour les visiteurs."
+      "ai_key_fact": "xG cumulé de 3.05 sur la base de 1 match réel par équipe.",
+      "ai_analysis": "Arminia Bielefeld affiche un xG de 1.74 et Energie Cottbus un xG de 1.30. La qualité des données est basse avec une fiabilité de 64.57%. Les statistiques suggèrent un match potentiellement ouvert malgré l'échantillon réduit."
     },
     {
       "id": "dynamodr-vs-svdarmst-2026-08-16",
@@ -561,7 +561,7 @@
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
       "ai_key_fact": "xG cumulé de 3.05 avec un échantillon de 1 match réel.",
-      "ai_analysis": "Dynamo Dresden possède un xG de 1.74 face aux 1.30 de SV Darmstadt 98. La qualité des données est basse, limitant la portée des tendances historiques. Les chiffres bruts suggèrent toutefois une rencontre disputée avec des opportunités de part et d'autre."
+      "ai_analysis": "Dynamo Dresden présente un xG de 1.74 et SV Darmstadt 98 un xG de 1.30. La fiabilité est de 64.57% et la qualité des données est qualifiée de basse. Les estimations reposent sur ces rares données factuelles."
     },
     {
       "id": "hannover-vs-vflwolfs-2026-08-16",
@@ -630,8 +630,8 @@
       "ai_btts_prob": "60%",
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
-      "ai_key_fact": "xG total de 3.05 basé sur des données limitées.",
-      "ai_analysis": "Hannover 96 (xG 1.74) et VfL Wolfsburg (xG 1.30) présentent des statistiques similaires à ce niveau de compétition. La fiabilité atteint 64.57% avec une qualité de données basse. Les projections offensives penchent pour un score serré mais actif."
+      "ai_key_fact": "xG cumulé de 3.05 issu de données limitées.",
+      "ai_analysis": "Hannover 96 affiche un xG de 1.74 face à VfL Wolfsburg et son xG de 1.30. Avec une qualité de données basse et une fiabilité de 64.57%, l'analyse montre une tendance modérée pour les buts. Donnée indisponible pour le reste de l'historique."
     },
     {
       "id": "waasland-vs-anderlec-2026-08-16",
@@ -700,8 +700,8 @@
       "ai_btts_prob": "59%",
       "ai_over25_view": "57%",
       "ai_over25_prob": "57%",
-      "ai_key_fact": "xG cumulé de 3.00 en Jupiler Pro League.",
-      "ai_analysis": "Waasland-Beveren affiche 1.72 de xG contre 1.28 pour Anderlecht, sur la base de 1 match réel. La fiabilité est de 64.19% avec une qualité de données basse. Les indicateurs restent cohérents pour un scénario avec des buts de chaque côté."
+      "ai_key_fact": "xG cumulé de 3.0 avec une fiabilité de 64.19%.",
+      "ai_analysis": "Waasland-Beveren possède un xG de 1.72 et Anderlecht un xG de 1.28 sur 1 match réel. La qualité des données est basse, limitant la portée des tendances. Les indicateurs mathématiques pointent vers une probabilité modérée de buts."
     },
     {
       "id": "raallalo-vs-kaagent-2026-08-16",
@@ -770,8 +770,8 @@
       "ai_btts_prob": "59%",
       "ai_over25_view": "57%",
       "ai_over25_prob": "57%",
-      "ai_key_fact": "xG combiné de 3.00 avec des données de qualité basse.",
-      "ai_analysis": "RAAL La Louvière (xG 1.72) et KAA Gent (xG 1.28) affichent une base de 1 match réel. La fiabilité est mesurée à 64.19%. La physionomie statistique laisse entrevoir une opposition équilibrée où l'attaque pourrait prendre le pas sur la défense."
+      "ai_key_fact": "xG cumulé de 3.0 basé sur 1 match réel par formation.",
+      "ai_analysis": "RAAL La Louvière affiche un xG de 1.72 contre 1.28 pour KAA Gent. La fiabilité est de 64.19% et la qualité des données est basse. Aucune information supplémentaire n'est disponible pour affiner cette lecture."
     },
     {
       "id": "kvmechel-vs-standard-2026-08-16",
@@ -840,8 +840,8 @@
       "ai_btts_prob": "59%",
       "ai_over25_view": "57%",
       "ai_over25_prob": "57%",
-      "ai_key_fact": "xG total de 3.00 avec une fiabilité de 64.19%.",
-      "ai_analysis": "KV Mechelen présente un xG de 1.72 face à Standard Liege et ses 1.28 de xG. La qualité des données est basse en raison du nombre réduit de matchs réels analysés. Les probabilités mathématiques soutiennent modérément le marché des buts."
+      "ai_key_fact": "xG cumulé de 3.0 avec un échantillon de 1 match réel.",
+      "ai_analysis": "KV Mechelen présente un xG de 1.72 et Standard Liege un xG de 1.28. La qualité des données est basse et la fiabilité atteint 64.19%. L'analyse demeure strictement alignée sur ces données de base."
     }
   ],
   "vipPreview": [
@@ -912,8 +912,8 @@
       "ai_btts_prob": "59%",
       "ai_over25_view": "57%",
       "ai_over25_prob": "57%",
-      "ai_key_fact": "xG cumulé de 3.00 basé sur 1 match réel par équipe.",
-      "ai_analysis": "Lommel SK (xG 1.72) accueille Royal Charleroi SC (xG 1.28) dans un contexte de données faible. La fiabilité globale s'élève à 64.19%. L'analyse des xG pointe vers une rencontre ouverte malgré les limites de l'échantillon."
+      "ai_key_fact": "xG cumulé de 3.0 sur 1 match réel.",
+      "ai_analysis": "Lommel SK affiche un xG de 1.72 et Royal Charleroi SC un xG de 1.28. La fiabilité est de 64.19% avec une qualité de données basse. Les statistiques disponibles permettent d'évaluer prudemment le potentiel offensif."
     },
     {
       "id": "tsvhartb-vs-austriav-2026-08-16",
@@ -982,8 +982,8 @@
       "ai_btts_prob": "58%",
       "ai_over25_view": "56%",
       "ai_over25_prob": "56%",
-      "ai_key_fact": "xG cumulé de 2.95 avec 2 matchs réels par équipe.",
-      "ai_analysis": "TSV Hartberg enregistre un xG de 1.69 contre 1.26 pour Austria Vienna. La fiabilité est de 63.81% avec une qualité de données basse. Les statistiques suggèrent une efficacité offensive suffisante pour valider les options de buts."
+      "ai_key_fact": "xG cumulé de 2.95 basé sur 2 matchs réels.",
+      "ai_analysis": "TSV Hartberg possède un xG de 1.69 et Austria Vienna un xG de 1.26 sur 2 matchs réels. La qualité des données reste basse avec une fiabilité de 63.81%. Les xG indiquent des capacités offensives comparables."
     },
     {
       "id": "wsgswaro-vs-rbsalzbu-2026-08-16",
@@ -1052,8 +1052,8 @@
       "ai_btts_prob": "58%",
       "ai_over25_view": "56%",
       "ai_over25_prob": "56%",
-      "ai_key_fact": "xG total de 2.95 en provenance de l'Austrian Bundesliga.",
-      "ai_analysis": "WSG Swarovski Tirol (xG 1.69) affronte RB Salzburg (xG 1.26) sur une base de 2 matchs réels. La fiabilité est de 63.81% et la qualité des données est basse. La production offensive estimée reste correcte pour ce championnat."
+      "ai_key_fact": "xG cumulé de 2.95 avec un échantillon de 2 matchs réels.",
+      "ai_analysis": "WSG Swarovski Tirol affiche un xG de 1.69 face à RB Salzburg et son xG de 1.26. La fiabilité est de 63.81% pour une qualité de données basse. L'analyse se limite strictement aux métriques fournies."
     },
     {
       "id": "rapidvie-vs-grazerak-2026-08-16",
@@ -1122,8 +1122,8 @@
       "ai_btts_prob": "58%",
       "ai_over25_view": "56%",
       "ai_over25_prob": "56%",
-      "ai_key_fact": "xG cumulé de 2.95 avec un échantillon de 2 matchs réels.",
-      "ai_analysis": "Rapid Vienna (xG 1.69) et Grazer AK (xG 1.26) affichent des métriques homogènes. La fiabilité est de 63.81% avec une qualité de données basse. Les tendances indiquent des opportunités de score pour les deux camps."
+      "ai_key_fact": "xG cumulé de 2.95 sur 2 matchs réels.",
+      "ai_analysis": "Rapid Vienna présente un xG de 1.69 et Grazer AK un xG de 1.26. La qualité des données est basse avec une fiabilité de 63.81%. Les indicateurs suggèrent des opportunités mesurées pour le marché des buts."
     },
     {
       "id": "cdnacion-vs-estoril-2026-08-16",
@@ -1190,10 +1190,10 @@
       "exact_score_prob": "15%",
       "ai_btts_view": "57%",
       "ai_btts_prob": "57%",
-      "ai_over25_view": "55%",
-      "ai_over25_prob": "55%",
-      "ai_key_fact": "xG cumulé de 2.87 en Liga Portugal avec 1 match réel.",
-      "ai_analysis": "C.D. Nacional affiche un xG de 1.65 face à Estoril et ses 1.22 de xG. La fiabilité est de 63.18% avec une qualité de données basse. L'analyse des xG montre un profil de match légèrement favorable aux attaques."
+      "ai_over25_view": "54%",
+      "ai_over25_prob": "54%",
+      "ai_key_fact": "xG cumulé de 2.87 basé sur 1 match réel.",
+      "ai_analysis": "C.D. Nacional affiche un xG de 1.65 et Estoril un xG de 1.22 sur 1 match réel. La fiabilité est de 63.18% avec une qualité de données basse. Les données externes font défaut pour compléter cette évaluation."
     },
     {
       "id": "arouca-vs-moreiren-2026-08-16",
@@ -1260,10 +1260,10 @@
       "exact_score_prob": "15%",
       "ai_btts_view": "57%",
       "ai_btts_prob": "57%",
-      "ai_over25_view": "55%",
-      "ai_over25_prob": "55%",
-      "ai_key_fact": "xG total de 2.87 basé sur des données de qualité basse.",
-      "ai_analysis": "Arouca (xG 1.65) et Moreirense (xG 1.22) disposent d'une base de 1 match réel. La fiabilité est établie à 63.18%. Les indicateurs statistiques soutiennent modérément une rencontre animée."
+      "ai_over25_view": "54%",
+      "ai_over25_prob": "54%",
+      "ai_key_fact": "xG cumulé de 2.87 avec un échantillon de 1 match réel.",
+      "ai_analysis": "Arouca possède un xG de 1.65 et Moreirense un xG de 1.22. La qualité des données est basse et la fiabilité s'établit à 63.18%. Les chiffres montrent des tendances offensives modérées."
     },
     {
       "id": "braga-vs-gilvicen-2026-08-16",
@@ -1330,10 +1330,10 @@
       "exact_score_prob": "15%",
       "ai_btts_view": "57%",
       "ai_btts_prob": "57%",
-      "ai_over25_view": "55%",
-      "ai_over25_prob": "55%",
-      "ai_key_fact": "xG cumulé de 2.87 avec une fiabilité de 63.18%.",
-      "ai_analysis": "Braga présente un xG de 1.65 contre 1.22 pour Gil Vicente. La qualité des données est basse en raison d'un échantillon limité à 1 match réel. Les projections offensives restent cohérentes pour un match ouvert."
+      "ai_over25_view": "54%",
+      "ai_over25_prob": "54%",
+      "ai_key_fact": "xG cumulé de 2.87 issu d'un match réel par équipe.",
+      "ai_analysis": "Braga affiche un xG de 1.65 contre 1.22 pour Gil Vicente. La fiabilité de 63.18% s'accompagne d'une qualité de données basse. L'analyse repose strictement sur ces paramètres quantitatifs."
     },
     {
       "id": "fcfamali-vs-maritimo-2026-08-16",
@@ -1400,10 +1400,10 @@
       "exact_score_prob": "15%",
       "ai_btts_view": "57%",
       "ai_btts_prob": "57%",
-      "ai_over25_view": "55%",
-      "ai_over25_prob": "55%",
-      "ai_key_fact": "xG total de 2.87 en Liga Portugal.",
-      "ai_analysis": "FC Famalicao (xG 1.65) affronte Maritimo (xG 1.22) avec une fiabilité de 63.18%. La qualité des données est basse. L'évaluation contextuelle suggère une capacité des deux équipes à se créer des occasions."
+      "ai_over25_view": "54%",
+      "ai_over25_prob": "54%",
+      "ai_key_fact": "xG cumulé de 2.87 sur la base de 1 match réel.",
+      "ai_analysis": "FC Famalicao présente un xG de 1.65 et Maritimo un xG de 1.22. La qualité des données est basse avec une fiabilité de 63.18%. Aucune information supplémentaire n'est disponible pour appuyer un scénario plus précis."
     }
   ],
   "stats": {
@@ -1476,14 +1476,14 @@
       "over25Prob": 0.8606,
       "homeLambda": 3,
       "awayLambda": 1.83,
-      "ai_exact_score": "3-2",
-      "exact_score_prob": "14%",
-      "ai_btts_view": "80%",
-      "ai_btts_prob": "80%",
+      "ai_exact_score": "2-1",
+      "exact_score_prob": "16%",
+      "ai_btts_view": "78%",
+      "ai_btts_prob": "78%",
       "ai_over25_view": "85%",
       "ai_over25_prob": "85%",
-      "ai_key_fact": "xG cumulé de 4.83 avec 8 matchs réels analysés par équipe.",
-      "ai_analysis": "New York City FC présente un xG de 3.00 tandis que Philadelphia Union affiche un xG de 1.83. La qualité des données est élevée avec 8 matchs réels par formation. Le modèle confirme une forte probabilité de buts des deux côtés et un total de buts élevé."
+      "ai_key_fact": "xG cumulé élevé de 4.83 avec une haute fiabilité de 93.68%.",
+      "ai_analysis": "New York City FC affiche un xG de 3.00 sur 8 matchs réels, tandis que Philadelphia Union présente un xG de 1.83. Ces statistiques offensives solides soutiennent une forte probabilité de buts des deux côtés. La qualité des données est jugée haute selon les indicateurs disponibles."
     },
     {
       "id": "chicagof-vs-portland-2026-08-16",
@@ -1547,13 +1547,13 @@
       "homeLambda": 1.86,
       "awayLambda": 2.17,
       "ai_exact_score": "2-2",
-      "exact_score_prob": "15%",
+      "exact_score_prob": "14%",
       "ai_btts_view": "75%",
       "ai_btts_prob": "75%",
       "ai_over25_view": "77%",
       "ai_over25_prob": "77%",
-      "ai_key_fact": "xG cumulé de 4.03 avec des attaques prolifiques en MLS.",
-      "ai_analysis": "Chicago Fire FC affiche un xG de 1.86 et Portland Timbers un xG de 2.17. La fiabilité est excellente à 91.45% grâce à 8 matchs réels pour chaque équipe. Les statistiques confirment une rencontre ouverte avec de nombreuses occasions de part et d'autre."
+      "ai_key_fact": "xG cumulé de 4.03 avec des performances offensives équilibrées.",
+      "ai_analysis": "Chicago Fire FC possède un xG de 1.86 sur 8 matchs réels, contre 2.17 pour Portland Timbers sur la même période. La confrontation présente des profils offensifs dynamiques et proches. La fiabilité globale atteint 91.45% avec une qualité de données élevée."
     },
     {
       "id": "adodenha-vs-fcgronin-2026-08-16",
@@ -1617,13 +1617,13 @@
       "homeLambda": 1.88,
       "awayLambda": 1.42,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
+      "exact_score_prob": "15%",
       "ai_btts_view": "63%",
       "ai_btts_prob": "63%",
-      "ai_over25_view": "65%",
-      "ai_over25_prob": "65%",
-      "ai_key_fact": "xG cumulé de 3.3 avec des données basées sur 1 match réel.",
-      "ai_analysis": "ADO Den Haag et FC Groningen affichent respectivement 1.88 et 1.42 de xG. La qualité des données est jugée faible en raison du faible échantillon de matchs réels disponibles. L'analyse contextuelle penche tout de même vers une rencontre animée."
+      "ai_over25_view": "63%",
+      "ai_over25_prob": "63%",
+      "ai_key_fact": "xG cumulé de 3.3 basé sur un échantillon de 1 match réel.",
+      "ai_analysis": "ADO Den Haag affiche un xG de 1.88 pour 1 match réel, tout comme FC Groningen avec 1.42. La qualité des données est considérée comme faible en raison du faible échantillon de matchs réels disponibles. L'analyse reste prudente face à cette limitation statistique."
     },
     {
       "id": "fctwente-vs-peczwoll-2026-08-16",
@@ -1687,13 +1687,13 @@
       "homeLambda": 1.88,
       "awayLambda": 1.42,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
+      "exact_score_prob": "15%",
       "ai_btts_view": "63%",
       "ai_btts_prob": "63%",
-      "ai_over25_view": "65%",
-      "ai_over25_prob": "65%",
-      "ai_key_fact": "xG combiné de 3.30 basé sur un échantillon limité de 1 match.",
-      "ai_analysis": "FC Twente présente un xG de 1.88 contre 1.42 pour PEC Zwolle. La fiabilité globale est de 68.85% avec une qualité de données basse. Malgré cela, la production offensive estimée suggère des espaces exploitables pour les deux équipes."
+      "ai_over25_view": "63%",
+      "ai_over25_prob": "63%",
+      "ai_key_fact": "xG cumulé de 3.3 avec des données limitées à un match réel.",
+      "ai_analysis": "FC Twente présente un xG de 1.88 et PEC Zwolle un xG de 1.42 sur la base d'un unique match réel. La fiabilité est estimée à 68.85% avec une qualité de données basse. Les indicateurs suggèrent toutefois un potentiel offensif suffisant pour animer la rencontre."
     },
     {
       "id": "feyenoor-vs-goaheade-2026-08-16",
@@ -1757,13 +1757,13 @@
       "homeLambda": 1.88,
       "awayLambda": 1.42,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
+      "exact_score_prob": "15%",
       "ai_btts_view": "63%",
       "ai_btts_prob": "63%",
-      "ai_over25_view": "65%",
-      "ai_over25_prob": "65%",
-      "ai_key_fact": "xG cumulé de 3.3 dans un contexte de données faible.",
-      "ai_analysis": "Feyenoord Rotterdam enregistre un xG de 1.88 face aux 1.42 de Go Ahead Eagles. Avec seulement 1 match réel comme base pour chaque club, la prudence reste de mise. Les indicateurs offensifs restent néanmoins favorables aux deux formations."
+      "ai_over25_view": "63%",
+      "ai_over25_prob": "63%",
+      "ai_key_fact": "xG cumulé de 3.3 avec un historique de 1 match réel.",
+      "ai_analysis": "Feyenoord Rotterdam affiche un xG de 1.88 et Go Ahead Eagles un xG de 1.42 sur 1 match réel. La qualité des données est faible et la fiabilité s'établit à 68.85%. La configuration des xG indique des opportunités de part et d'autre."
     },
     {
       "id": "ajaxamst-vs-heerenve-2026-08-16",
@@ -1827,13 +1827,13 @@
       "homeLambda": 1.88,
       "awayLambda": 1.42,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
+      "exact_score_prob": "15%",
       "ai_btts_view": "63%",
       "ai_btts_prob": "63%",
-      "ai_over25_view": "65%",
-      "ai_over25_prob": "65%",
-      "ai_key_fact": "xG total de 3.30 avec une fiabilité de 68.85%.",
-      "ai_analysis": "Ajax Amsterdam et Heerenveen affichent des xG respectifs de 1.88 et 1.42. La qualité des données est qualifiée de basse en raison d'un unique match réel pris en compte. L'analyse des xG indique un potentiel offensif suffisant pour voir les deux équipes marquer."
+      "ai_over25_view": "63%",
+      "ai_over25_prob": "63%",
+      "ai_key_fact": "xG cumulé de 3.3 basé sur un échantillon restreint de données.",
+      "ai_analysis": "Ajax Amsterdam présente un xG de 1.88 contre 1.42 pour Heerenveen sur 1 match réel. La fiabilité de 68.85% reflète la qualité de données basse. La prudence est de mise pour l'interprétation de ces chiffres limités."
     },
     {
       "id": "arminiab-vs-energiec-2026-08-16",
@@ -1902,8 +1902,8 @@
       "ai_btts_prob": "60%",
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
-      "ai_key_fact": "xG cumulé de 3.05 en 2. Bundesliga avec 1 match réel.",
-      "ai_analysis": "Arminia Bielefeld (xG 1.74) affronte Energie Cottbus (xG 1.30). La fiabilité s'établit à 64.57% avec une qualité de données basse. La configuration statistique montre un léger avantage pour les locaux tout en préservant des chances pour les visiteurs."
+      "ai_key_fact": "xG cumulé de 3.05 sur la base de 1 match réel par équipe.",
+      "ai_analysis": "Arminia Bielefeld affiche un xG de 1.74 et Energie Cottbus un xG de 1.30. La qualité des données est basse avec une fiabilité de 64.57%. Les statistiques suggèrent un match potentiellement ouvert malgré l'échantillon réduit."
     },
     {
       "id": "dynamodr-vs-svdarmst-2026-08-16",
@@ -1973,7 +1973,7 @@
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
       "ai_key_fact": "xG cumulé de 3.05 avec un échantillon de 1 match réel.",
-      "ai_analysis": "Dynamo Dresden possède un xG de 1.74 face aux 1.30 de SV Darmstadt 98. La qualité des données est basse, limitant la portée des tendances historiques. Les chiffres bruts suggèrent toutefois une rencontre disputée avec des opportunités de part et d'autre."
+      "ai_analysis": "Dynamo Dresden présente un xG de 1.74 et SV Darmstadt 98 un xG de 1.30. La fiabilité est de 64.57% et la qualité des données est qualifiée de basse. Les estimations reposent sur ces rares données factuelles."
     },
     {
       "id": "hannover-vs-vflwolfs-2026-08-16",
@@ -2042,8 +2042,8 @@
       "ai_btts_prob": "60%",
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
-      "ai_key_fact": "xG total de 3.05 basé sur des données limitées.",
-      "ai_analysis": "Hannover 96 (xG 1.74) et VfL Wolfsburg (xG 1.30) présentent des statistiques similaires à ce niveau de compétition. La fiabilité atteint 64.57% avec une qualité de données basse. Les projections offensives penchent pour un score serré mais actif."
+      "ai_key_fact": "xG cumulé de 3.05 issu de données limitées.",
+      "ai_analysis": "Hannover 96 affiche un xG de 1.74 face à VfL Wolfsburg et son xG de 1.30. Avec une qualité de données basse et une fiabilité de 64.57%, l'analyse montre une tendance modérée pour les buts. Donnée indisponible pour le reste de l'historique."
     },
     {
       "id": "waasland-vs-anderlec-2026-08-16",
@@ -2112,8 +2112,8 @@
       "ai_btts_prob": "59%",
       "ai_over25_view": "57%",
       "ai_over25_prob": "57%",
-      "ai_key_fact": "xG cumulé de 3.00 en Jupiler Pro League.",
-      "ai_analysis": "Waasland-Beveren affiche 1.72 de xG contre 1.28 pour Anderlecht, sur la base de 1 match réel. La fiabilité est de 64.19% avec une qualité de données basse. Les indicateurs restent cohérents pour un scénario avec des buts de chaque côté."
+      "ai_key_fact": "xG cumulé de 3.0 avec une fiabilité de 64.19%.",
+      "ai_analysis": "Waasland-Beveren possède un xG de 1.72 et Anderlecht un xG de 1.28 sur 1 match réel. La qualité des données est basse, limitant la portée des tendances. Les indicateurs mathématiques pointent vers une probabilité modérée de buts."
     },
     {
       "id": "raallalo-vs-kaagent-2026-08-16",
@@ -2182,8 +2182,8 @@
       "ai_btts_prob": "59%",
       "ai_over25_view": "57%",
       "ai_over25_prob": "57%",
-      "ai_key_fact": "xG combiné de 3.00 avec des données de qualité basse.",
-      "ai_analysis": "RAAL La Louvière (xG 1.72) et KAA Gent (xG 1.28) affichent une base de 1 match réel. La fiabilité est mesurée à 64.19%. La physionomie statistique laisse entrevoir une opposition équilibrée où l'attaque pourrait prendre le pas sur la défense."
+      "ai_key_fact": "xG cumulé de 3.0 basé sur 1 match réel par formation.",
+      "ai_analysis": "RAAL La Louvière affiche un xG de 1.72 contre 1.28 pour KAA Gent. La fiabilité est de 64.19% et la qualité des données est basse. Aucune information supplémentaire n'est disponible pour affiner cette lecture."
     },
     {
       "id": "kvmechel-vs-standard-2026-08-16",
@@ -2252,8 +2252,8 @@
       "ai_btts_prob": "59%",
       "ai_over25_view": "57%",
       "ai_over25_prob": "57%",
-      "ai_key_fact": "xG total de 3.00 avec une fiabilité de 64.19%.",
-      "ai_analysis": "KV Mechelen présente un xG de 1.72 face à Standard Liege et ses 1.28 de xG. La qualité des données est basse en raison du nombre réduit de matchs réels analysés. Les probabilités mathématiques soutiennent modérément le marché des buts."
+      "ai_key_fact": "xG cumulé de 3.0 avec un échantillon de 1 match réel.",
+      "ai_analysis": "KV Mechelen présente un xG de 1.72 et Standard Liege un xG de 1.28. La qualité des données est basse et la fiabilité atteint 64.19%. L'analyse demeure strictement alignée sur ces données de base."
     }
   ]
 }

@@ -2,9 +2,9 @@
   "date": "2026-08-16",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-16T07:08:00.889Z",
+  "fetchedAt": "2026-08-16T08:29:41.753Z",
   "eventCount": 100,
-  "legCount": 48,
+  "legCount": 61,
   "status": "available",
   "combos": {
     "target2": {
@@ -18,9 +18,9 @@
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.2,
+          "odds": 1.19,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T14:16:43.663Z"
+          "updatedAt": "2026-08-16T08:09:38.357Z"
         },
         {
           "eventId": "72305126",
@@ -36,36 +36,10 @@
           "updatedAt": "2026-08-13T09:28:09.865Z"
         }
       ],
-      "totalOdds": 2.02
+      "totalOdds": 2
     },
     "target5": {
       "legs": [
-        {
-          "eventId": "72415484",
-          "home": "FK Pardubice B",
-          "away": "FK Banik Most-Sous",
-          "league": "Czechia - CFL, Group B",
-          "kickoff": "2026-08-16T08:15:00Z",
-          "bookmaker": "Bet365",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.8,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T15:29:28.487Z"
-        },
-        {
-          "eventId": "72305124",
-          "home": "OFK Dynamo Malzenice",
-          "away": "MSK Povazska Bystrica",
-          "league": "Slovakia - 2. Liga",
-          "kickoff": "2026-08-16T08:30:00Z",
-          "bookmaker": "Unibet",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.57,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-15T14:16:43.663Z"
-        },
         {
           "eventId": "72151064",
           "home": "Yokohama FC",
@@ -73,14 +47,27 @@
           "league": "Japan - J.League 2",
           "kickoff": "2026-08-16T09:00:00Z",
           "bookmaker": "Unibet",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.77,
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 3.35,
           "source": "Odds-API.io",
           "updatedAt": "2026-08-16T05:47:15.651Z"
+        },
+        {
+          "eventId": "72398906",
+          "home": "MKS Znicz Pruszkow",
+          "away": "Olimpia Grudziadz",
+          "league": "Poland - II Liga",
+          "kickoff": "2026-08-16T10:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.49,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-15T09:36:45.144Z"
         }
       ],
-      "totalOdds": 5
+      "totalOdds": 4.99
     }
   }
 }
