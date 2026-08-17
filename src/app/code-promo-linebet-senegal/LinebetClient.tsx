@@ -42,8 +42,8 @@ const STEPS = [
   },
   {
     n: '03',
-    title: 'Dépose dès 200 XOF',
-    desc: "Wave, Orange Money, MTN, Moov ou Free Money. Le dépôt est instantané — ton compte est crédité en quelques secondes.",
+    title: 'Vérifie les conditions de dépôt',
+    desc: "Les moyens de paiement, montants minimums et délais dépendent du pays et de l’offre affichée par Linebet.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="6" width="20" height="12" rx="2" />
@@ -77,9 +77,9 @@ const PAYMENT_METHODS = [
 const BONUS_ROWS = [
   { label: 'Bonus', value: 'Conditions à vérifier auprès de Linebet', highlight: true },
   { label: 'Code', value: 'VISION221 (copiable)' },
-  { label: 'Dépôt min', value: '200 XOF' },
-  { label: 'Méthodes', value: 'Wave, Orange Money, MTN, Moov, Free Money' },
-  { label: 'Pays', value: '6 pays Afrique Ouest & Maroc' },
+  { label: 'Dépôt min', value: 'À vérifier sur l’offre officielle' },
+  { label: 'Méthodes', value: 'Selon le pays et les options affichées par Linebet' },
+  { label: 'Pays', value: 'Disponibilité à vérifier selon le pays' },
 ]
 
 /* ─── Liens internes ─────────────────────────────────────────────────── */
@@ -424,7 +424,7 @@ export default function LinebetClient() {
             Moyens de dépôt Linebet
           </h2>
           <p className="text-center text-sm mb-6" style={{ color: TEXT_SEC }}>
-            Dépôt instantané dès 200 XOF dans toute l&apos;Afrique de l&apos;Ouest &amp; au Maroc.
+            Les moyens de paiement et conditions de dépôt peuvent varier selon le pays et la période.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
             {PAYMENT_METHODS.map((m) => (
@@ -466,11 +466,12 @@ export default function LinebetClient() {
               },
               {
                 q: 'Comment déposer avec Wave ?',
-                a: "Sélectionne Wave dans la section Dépôt de Linebet, entre le montant (minimum 200 XOF), valide avec ton code secret Wave. Le dépôt est instantané. Le bonus VISION221 est activé automatiquement sur le premier dépôt, quel que soit le moyen utilisé.",
+                                    a: "Si Wave est disponible pour ton pays, sélectionne-le dans la section Dépôt de Linebet, puis vérifie le montant minimum, les délais et les conditions affichées avant de confirmer.",
+
               },
               {
                 q: 'Le bonus est-il valable au Maroc, Mali et Côte d\'Ivoire ?',
-                a: "Oui. Le code VISION221 fonctionne pour les 6 pays couverts : Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc. Les conditions et montants du bonus peuvent évoluer ; vérifie les conditions actuellement affichées par Linebet avant toute inscription ou dépôt.",
+                a: "La disponibilité du code et de l'offre dépend du pays, du compte et de la période. Vérifie ton éligibilité et les conditions actuellement affichées par Linebet avant toute inscription ou dépôt.",
               },
             ].map((item) => (
               <details key={item.q} className="rounded-2xl p-4" style={{ backgroundColor: '#0D1A20', border: `1px solid ${GOLD}22` }}>
@@ -515,7 +516,7 @@ export default function LinebetClient() {
           <div className="rounded-xl p-4 text-center" style={{ backgroundColor: 'rgba(255, 122, 122, 0.06)', border: '1px solid rgba(255, 122, 122, 0.2)' }}>
             <p className="text-[11px] leading-relaxed" style={{ color: TEXT_SEC }}>
               ⚠ BTTSPredict est un site informatif et d&apos;affiliation. Nous ne prenons aucun pari, ne collectons aucun fonds et ne sommes pas un bookmaker.
-              Les bonus sont soumis aux conditions de Linebet (mise x5, dépôt min 200 XOF — voir site bookmaker).
+              Les bonus, montants, conditions de mise et éventuels dépôts minimums sont soumis aux conditions de Linebet.
               Pariez responsable · <a href="/jouer-responsable" className="underline" style={{ color: PRIMARY }}>en savoir plus</a> · 18+.
             </p>
           </div>

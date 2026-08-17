@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { AFFILIATE } from '@/lib/constants'
+import { trackAffiliateAction } from '@/lib/affiliateTracking'
 
 interface Prediction {
   match: string
@@ -37,9 +38,9 @@ export default function FreePredictionsWidget() {
       .then(r => r.json())
       .then(data => {
         const preds = data.predictions || []
-        const today = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Paris' })
+        const today = new Date().toLocaleDateString('sv-SE', { timeZone: 'Africa/Dakar' })
         const todayPreds = preds.filter((p: Prediction) => p.date === today).slice(0, 4)
-        setPredictions(todayPreds.length > 0 ? todayPreds : preds.slice(0, 4))
+        setPredictions(todayPreds)
         setLoading(false)
       })
       .catch(() => setLoading(false))
@@ -65,12 +66,29 @@ export default function FreePredictionsWidget() {
           </a>
         </div>
 
-        {/* Mobile swipe horizontal — desktop grid 2 cols */}
-        <div className="flex sm:grid sm:grid-cols-2 gap-2 overflow-x-auto snap-x snap-mandatory sm:overflow-visible pb-2 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0">
-          {predictions.map((pred, i) => (
-            <PredictionCard key={i} pred={pred} />
-          ))}
+        <div className="mb-4 rounded-xl border px-3 py-2.5" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--card)' }}>
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-[11px] leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+              Pour suivre une sélection, vérifie d’abord les conditions de l’opérateur. Code promo : <strong style={{ color: 'var(--brand-indigo)' }}>VISION221</strong>.
+            </p>
+            <a href="/code-promo-linebet-senegal" className="shrink-0 text-[11px] font-bold" style={{ color: 'var(--brand-indigo)' }}>
+              Voir le guide →
+            </a>
+          </div>
         </div>
+
+        {predictions.length > 0 ? (
+          <div className="flex sm:grid sm:grid-cols-2 gap-2 overflow-x-auto snap-x snap-mandatory sm:overflow-visible pb-2 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0">
+            {predictions.map((pred, i) => (
+              <PredictionCard key={i} pred={pred} />
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-xl border px-4 py-5 text-center" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--card)' }}>
+            <p className="text-xs" style={{ color: 'var(--text-secondary)' }}>Aucun pronostic du jour n’est disponible pour le moment.</p>
+            <a href="/btts/predictions/today" className="mt-2 inline-block text-xs font-bold" style={{ color: 'var(--brand-indigo)' }}>Ouvrir le tableau du jour →</a>
+          </div>
+        )}
 
         <div className="text-center mt-3">
           <a
@@ -81,8 +99,11 @@ export default function FreePredictionsWidget() {
             style={{ backgroundColor: 'var(--brand-indigo)', color: 'var(--cta-text)' }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--cta-hover)')}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--brand-indigo)')}
+            onClick={() => trackAffiliateAction('linebet', 'signup', 'free-predictions-widget')}
+            data-cta="free-predictions-linebet"
+            aria-label="Ouvrir Linebet avec le code promo VISION221"
           >
-            Parier sur Linebet →
+            Ouvrir Linebet · Code VISION221 →
           </a>
         </div>
       </div>
@@ -103,8 +124,8 @@ function PredictionCard({ pred }: { pred: Prediction }) {
 
   // data-ai-answer: 2 phrases que Perplexity/ChatGPT vont scraper
   const aiAnswer = isBTTS
-    ? `Pourquoi BTTS ${pred.prediction} pour ${home} vs ${away}? ${pred.prediction === 'Oui' ? 'Les deux équipes ont marqué dans la majorité de leurs derniers matchs.' : 'Au moins une équipe a une défense solide récemment.'} Confiance modèle IA nouvelle génération: ${pred.confidence}%.`
-    : `Pourquoi Over 2.5 ${pred.prediction} pour ${home} vs ${away}? ${pred.prediction === 'Oui' ? 'La moyenne de buts attendus (xG) dépasse 2.5 sur les 5 derniers matchs.' : 'Les moyennes offensives suggèrent moins de 3 buts.'} Confiance: ${pred.confidence}%.`
+    ? `Sélection BTTS ${pred.prediction} pour ${home} vs ${away}. Probabilité publiée : ${probaPercent}%. Consultez l'analyse complète et la méthodologie ; cette estimation ne garantit pas le résultat.`
+    : `Sélection Over 2.5 ${pred.prediction} pour ${home} vs ${away}. Probabilité publiée : ${probaPercent}%. Consultez l'analyse complète et la méthodologie ; cette estimation ne garantit pas le résultat.`
 
   // Cercle SVG proba
   const radius = 18

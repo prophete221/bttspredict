@@ -94,11 +94,10 @@ function buildHowToJsonLd() {
     name: 'Comment utiliser le code promo Linebet VISION221 en Afrique de l\'Ouest & Maroc',
     description: "Guide complet pour activer un bonus Linebet avec le code promo VISION221 au Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc. Les conditions et montants peuvent évoluer.",
     totalTime: 'PT5M',
-    estimatedCost: { '@type': 'MonetaryAmount', currency: 'XOF', value: '200' },
     supply: [{ '@type': 'HowToSupply', name: 'Code promo VISION221' }],
     tool: [
       { '@type': 'HowToTool', name: 'Application Linebet ou site web' },
-      { '@type': 'HowToTool', name: 'Wave, Orange Money, MTN, Moov ou Free Money' },
+      { '@type': 'HowToTool', name: 'Moyens de paiement disponibles selon le pays' },
     ],
     step: [
       {
@@ -116,8 +115,8 @@ function buildHowToJsonLd() {
       {
         '@type': 'HowToStep',
         position: 3,
-        name: 'Effectuer un premier dépôt dès 200 XOF',
-        text: "Dépose via Wave, Orange Money, MTN, Moov ou Free Money. Le dépôt est instantané.",
+        name: 'Vérifier les conditions du premier dépôt',
+        text: "Vérifie les moyens de paiement, le montant minimum, les délais et les conditions affichées pour ton pays avant de confirmer.",
       },
       {
         '@type': 'HowToStep',
@@ -147,7 +146,7 @@ function buildFaqJsonLd() {
         name: 'Comment déposer avec Wave sur Linebet ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Sélectionne Wave dans la section Dépôt de Linebet, entre le montant (minimum 200 XOF), valide avec ton code secret Wave. Le dépôt est instantané. Le bonus VISION221 est activé automatiquement sur le premier dépôt, quel que soit le moyen utilisé.",
+          text: "Si Wave est disponible pour ton pays, sélectionne-le dans la section Dépôt de Linebet, puis vérifie le montant minimum, les délais et les conditions affichées avant de confirmer.",
         },
       },
       {
@@ -155,7 +154,7 @@ function buildFaqJsonLd() {
         name: "Le bonus est-il valable au Maroc, Mali et Côte d'Ivoire ?",
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Oui. Le code VISION221 fonctionne pour les 6 pays couverts : Sénégal, Mali, Côte d'Ivoire, Guinée, Congo et Maroc. Les conditions et montants du bonus peuvent évoluer ; vérifiez les conditions actuellement affichées par l'opérateur avant toute inscription ou dépôt.",
+          text: "La disponibilité du code et de l'offre dépend du pays, du compte et de la période. Vérifiez votre éligibilité et les conditions actuellement affichées par Linebet avant toute inscription ou dépôt.",
         },
       },
     ],
