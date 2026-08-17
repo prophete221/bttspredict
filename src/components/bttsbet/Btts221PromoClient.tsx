@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useMemo, useState } from 'react'
 import { AFFILIATE } from '@/lib/constants'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
@@ -13,12 +14,16 @@ const COPY: Record<Lang, {
   eyebrow: string
   title: string
   intro: string
+  partner: string
+  codeLabel: string
+  codeHint: string
   offerLabel: string
   offerText: string
   conditions: string
   copy: string
   copied: string
   signup: string
+  mobileSignup: string
   guide: string
   stepsTitle: string
   steps: string[]
@@ -29,27 +34,33 @@ const COPY: Record<Lang, {
   responsible: string
   home: string
   predictions: string
+  guideLink: string
+  termsTag: string
 }> = {
   fr: {
     dir: 'ltr',
-    eyebrow: 'OFFRE DÉDIÉE · 888STARZ',
-    title: 'Code promo 888Starz btts221 : offre 150 free spins',
-    intro: 'Une page indépendante pour vérifier le code btts221, consulter les conditions affichées et ouvrir 888Starz avec le bon code.',
-    offerLabel: 'Campagne btts221 annoncée',
+    eyebrow: 'OFFRE PARTENAIRE · 888STARZ',
+    title: 'Ton code 888Starz exclusif',
+    intro: 'Copie le code btts221, vérifie les conditions affichées pour ton pays, puis ouvre 888Starz depuis le lien sécurisé.',
+    partner: 'BTTSPredict × 888Starz',
+    codeLabel: 'CODE PROMO',
+    codeHint: 'À saisir exactement en minuscules',
+    offerLabel: 'CAMPAGNE btts221 ANNONCÉE',
     offerText: '150 free spins à l’inscription et dépôt minimum annoncé à 1 USD — disponibilité, éligibilité et conditions à confirmer directement sur 888Starz.',
-    conditions: 'Les bonus peuvent varier selon le pays, le compte, la période et les conditions de mise. Ne dépose rien avant d’avoir vérifié l’offre officielle.',
-    copy: 'Copier btts221',
+    conditions: 'Les bonus varient selon le pays, le compte, la période et les conditions de mise. Ne dépose rien avant d’avoir vérifié l’offre officielle.',
+    copy: 'Copier le code',
     copied: 'Code copié',
-    signup: 'Ouvrir 888Starz avec btts221',
-    guide: 'Comment utiliser le code',
-    stepsTitle: 'Activer le code promo 888Starz btts221',
+    signup: 'S’inscrire avec btts221',
+    mobileSignup: 'Ouvrir 888Starz',
+    guide: 'Activation en 4 étapes',
+    stepsTitle: 'Comment utiliser btts221',
     steps: [
-      'Ouvre le lien officiel 888Starz depuis cette page.',
+      'Ouvre 888Starz depuis le bouton ci-dessus.',
       'Crée ton compte et saisis exactement btts221 en minuscules si le champ est disponible.',
       'Vérifie l’offre affichée pour ton pays avant tout dépôt.',
       'Lis les conditions des free spins, du dépôt et de la mise avant de confirmer.',
     ],
-    faqTitle: 'Questions sur btts221 et le bonus 888Starz',
+    faqTitle: 'Questions sur btts221 et 888Starz',
     faq: [
       { q: 'Quel est le code promo 888Starz ?', a: 'Le code présenté sur cette page est btts221, en minuscules. Vérifie son acceptation pendant l’inscription.' },
       { q: 'Le code donne-t-il 150 free spins ?', a: 'La campagne annoncée mentionne 150 free spins, mais l’offre doit être confirmée sur 888Starz selon ton pays, ton compte et la période.' },
@@ -61,27 +72,33 @@ const COPY: Record<Lang, {
     responsible: 'Jouer responsable',
     home: 'Accueil',
     predictions: 'Voir les prédictions',
+    guideLink: 'Guide 888Starz',
+    termsTag: 'Conditions à vérifier',
   },
   en: {
     dir: 'ltr',
-    eyebrow: 'DEDICATED OFFER · 888STARZ',
-    title: '888Starz promo code btts221: 150 free spins offer',
-    intro: 'A dedicated page to check the btts221 code, review the displayed terms and open 888Starz with the correct code.',
-    offerLabel: 'btts221 campaign announced',
+    eyebrow: 'PARTNER OFFER · 888STARZ',
+    title: 'Your exclusive 888Starz code',
+    intro: 'Copy btts221, check the terms shown for your country, then open 888Starz through the secure link.',
+    partner: 'BTTSPredict × 888Starz',
+    codeLabel: 'PROMO CODE',
+    codeHint: 'Enter exactly in lowercase',
+    offerLabel: 'btts221 CAMPAIGN ANNOUNCED',
     offerText: '150 free spins at sign-up and a $1 minimum deposit announced — availability, eligibility and terms must be confirmed directly on 888Starz.',
-    conditions: 'Bonuses may vary by country, account, period and wagering terms. Do not deposit before checking the official offer.',
-    copy: 'Copy btts221',
+    conditions: 'Bonuses vary by country, account, period and wagering terms. Do not deposit before checking the official offer.',
+    copy: 'Copy code',
     copied: 'Code copied',
-    signup: 'Open 888Starz with btts221',
-    guide: 'How to use the code',
-    stepsTitle: 'Activate the 888Starz btts221 promo code',
+    signup: 'Sign up with btts221',
+    mobileSignup: 'Open 888Starz',
+    guide: 'Activation in 4 steps',
+    stepsTitle: 'How to use btts221',
     steps: [
-      'Open the official 888Starz link from this page.',
+      'Open 888Starz from the button above.',
       'Create your account and enter btts221 in lowercase if the field is available.',
       'Check the offer displayed for your country before depositing.',
       'Read the free spins, deposit and wagering terms before confirming.',
     ],
-    faqTitle: 'Questions about btts221 and the 888Starz bonus',
+    faqTitle: 'Questions about btts221 and 888Starz',
     faq: [
       { q: 'What is the 888Starz promo code?', a: 'The code shown on this page is btts221 in lowercase. Check that it is accepted during registration.' },
       { q: 'Does the code give 150 free spins?', a: 'The announced campaign mentions 150 free spins, but the offer must be confirmed on 888Starz for your country, account and period.' },
@@ -93,27 +110,33 @@ const COPY: Record<Lang, {
     responsible: 'Play responsibly',
     home: 'Home',
     predictions: 'View predictions',
+    guideLink: '888Starz guide',
+    termsTag: 'Terms to verify',
   },
   ar: {
     dir: 'rtl',
-    eyebrow: 'عرض خاص · 888STARZ',
-    title: 'رمز 888Starz الترويجي btts221: عرض 150 لفة مجانية',
-    intro: 'صفحة مستقلة للتحقق من الرمز btts221 وقراءة الشروط المعروضة وفتح 888Starz باستخدام الرمز الصحيح.',
+    eyebrow: 'عرض الشريك · 888STARZ',
+    title: 'رمزك الحصري في 888Starz',
+    intro: 'انسخ الرمز btts221، تحقق من الشروط الظاهرة لبلدك، ثم افتح 888Starz عبر الرابط الآمن.',
+    partner: 'BTTSPredict × 888Starz',
+    codeLabel: 'الرمز الترويجي',
+    codeHint: 'أدخله تماماً بأحرف صغيرة',
     offerLabel: 'حملة btts221 المعلنة',
     offerText: '150 لفة مجانية عند التسجيل وحد أدنى معلن للإيداع قدره 1 دولار — يجب تأكيد التوفر والأهلية والشروط مباشرة على 888Starz.',
     conditions: 'قد تختلف المكافآت حسب البلد والحساب والفترة وشروط المراهنة. لا تقم بالإيداع قبل التحقق من العرض الرسمي.',
-    copy: 'نسخ btts221',
+    copy: 'نسخ الرمز',
     copied: 'تم نسخ الرمز',
-    signup: 'فتح 888Starz باستخدام btts221',
-    guide: 'طريقة استخدام الرمز',
-    stepsTitle: 'تفعيل رمز 888Starz الترويجي btts221',
+    signup: 'التسجيل باستخدام btts221',
+    mobileSignup: 'فتح 888Starz',
+    guide: 'التفعيل في 4 خطوات',
+    stepsTitle: 'كيفية استخدام btts221',
     steps: [
-      'افتح رابط 888Starz الرسمي من هذه الصفحة.',
+      'افتح 888Starz من الزر أعلاه.',
       'أنشئ حسابك وأدخل btts221 بأحرف صغيرة إذا كان الحقل متاحاً.',
       'تحقق من العرض الظاهر لبلدك قبل الإيداع.',
       'اقرأ شروط اللفات المجانية والإيداع ومتطلبات المراهنة قبل التأكيد.',
     ],
-    faqTitle: 'أسئلة حول btts221 ومكافأة 888Starz',
+    faqTitle: 'أسئلة حول btts221 و888Starz',
     faq: [
       { q: 'ما هو الرمز الترويجي لـ 888Starz؟', a: 'الرمز المعروض في هذه الصفحة هو btts221 بأحرف صغيرة. تحقق من قبوله أثناء التسجيل.' },
       { q: 'هل يمنح الرمز 150 لفة مجانية؟', a: 'تشير الحملة المعلنة إلى 150 لفة مجانية، لكن يجب تأكيد العرض على 888Starz حسب بلدك وحسابك والفترة.' },
@@ -125,6 +148,8 @@ const COPY: Record<Lang, {
     responsible: 'اللعب المسؤول',
     home: 'الرئيسية',
     predictions: 'عرض التوقعات',
+    guideLink: 'دليل 888Starz',
+    termsTag: 'تحقق من الشروط',
   },
 }
 
@@ -136,7 +161,6 @@ function formatDate(value: string, lang: Lang) {
 
 export default function Btts221PromoClient({ lang, reviewDate }: { lang: Lang; reviewDate: string }) {
   const [copied, setCopied] = useState(false)
-  const today = reviewDate
   const copy = useMemo(() => COPY[lang], [lang])
 
   const handleCopy = async () => {
@@ -147,69 +171,108 @@ export default function Btts221PromoClient({ lang, reviewDate }: { lang: Lang; r
   }
 
   const handleSignup = () => trackAffiliateAction('888starz', 'signup', `btts221-${lang}-hero`)
+  const signupLabel = copied ? copy.copied : copy.copy
 
   return (
-    <main dir={copy.dir} className="min-h-screen bg-dark-800 text-papier pb-20">
-      <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-10">
-        <nav aria-label="Breadcrumb" className="mb-6 text-xs text-cendre">
-          <a href={lang === 'fr' ? '/' : `/${lang}`} className="hover:text-papier">{copy.home}</a>
-          <span className="mx-2">/</span>
-          <span aria-current="page">888Starz btts221</span>
-        </nav>
+    <main dir={copy.dir} className="min-h-screen overflow-hidden bg-[#07090D] pb-24 text-white">
+      <div className="relative isolate">
+        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[680px] bg-[radial-gradient(circle_at_12%_0%,rgba(255,77,109,.18),transparent_32%),radial-gradient(circle_at_88%_6%,rgba(255,215,0,.12),transparent_28%),linear-gradient(180deg,#11141B_0%,#07090D_78%)]" />
+        <div className="mx-auto max-w-6xl px-4 pb-10 pt-5 sm:px-6 sm:pb-16 sm:pt-8">
+          <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs text-[#9CA3AF]">
+            <a href={lang === 'fr' ? '/' : `/${lang}`} className="transition-colors hover:text-white">{copy.home}</a>
+            <span>/</span>
+            <span aria-current="page" className="text-[#E5E7EB]">888Starz btts221</span>
+          </nav>
 
-        <section className="relative overflow-hidden rounded-3xl border border-[#D6B36A]/35 bg-[radial-gradient(circle_at_top_right,rgba(214,179,106,.18),transparent_42%),linear-gradient(135deg,#071018,#101C29)] px-5 py-8 shadow-[0_24px_80px_rgba(0,0,0,.35)] sm:px-10 sm:py-12">
-          <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-[#D6B36A]/10 blur-3xl" />
-          <div className="relative max-w-3xl">
-            <p className="mb-3 text-[10px] font-bold uppercase tracking-[.22em] text-[#D6B36A]">{copy.eyebrow}</p>
-            <h1 className="text-4xl leading-[.98] tracking-tight text-papier sm:text-6xl">{copy.title}</h1>
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-[#C8D2DA] sm:text-base">{copy.intro}</p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <button type="button" onClick={handleCopy} className="rounded-xl border border-[#D6B36A]/60 bg-[#D6B36A] px-5 py-3 text-sm font-black text-[#071018] shadow-[0_10px_30px_rgba(214,179,106,.2)] transition-transform hover:-translate-y-0.5">
-                {copied ? copy.copied : copy.copy}
-              </button>
-              <a href={AFFILIATE.star888} target="_blank" rel="sponsored nofollow noopener noreferrer" onClick={handleSignup} data-cta={`btts221-${lang}-signup`} className="rounded-xl border border-[#8BA9C7]/50 bg-[#8BA9C7]/15 px-5 py-3 text-center text-sm font-bold text-papier transition-colors hover:bg-[#8BA9C7]/25">
-                {copy.signup}
-              </a>
+          <section className="relative overflow-hidden rounded-[2rem] border border-[#FF4D6D]/30 bg-[#11141B]/90 shadow-[0_30px_100px_rgba(0,0,0,.45)]">
+            <div className="pointer-events-none absolute -right-24 -top-32 h-80 w-80 rounded-full bg-[#FF4D6D]/15 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-24 left-1/3 h-64 w-64 rounded-full bg-[#FFD700]/10 blur-3xl" />
+            <div className="relative grid gap-8 p-5 sm:p-8 lg:grid-cols-[1.02fr_.98fr] lg:items-center lg:gap-12 lg:p-12">
+              <div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <Image src="/logos/888starz.svg" alt="888Starz" width={200} height={56} priority className="h-11 w-auto drop-shadow-[0_8px_24px_rgba(255,77,109,.22)]" />
+                  <span className="rounded-full border border-[#FFD700]/35 bg-[#FFD700]/10 px-3 py-1 text-[10px] font-black uppercase tracking-[.18em] text-[#FFD700]">{copy.partner}</span>
+                </div>
+                <p className="mt-7 text-[10px] font-black uppercase tracking-[.25em] text-[#FF8095]">{copy.eyebrow}</p>
+                <h1 className="mt-3 max-w-2xl text-[2.7rem] font-black leading-[.95] tracking-[-.055em] text-white sm:text-6xl">{copy.title}</h1>
+                <p className="mt-5 max-w-xl text-sm leading-7 text-[#B9C0CA] sm:text-base">{copy.intro}</p>
+                <div className="mt-6 flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-[.12em] text-[#C9CED7]">
+                  <span className="rounded-full border border-white/10 bg-white/[.04] px-3 py-2">18+</span>
+                  <span className="rounded-full border border-white/10 bg-white/[.04] px-3 py-2">888Starz</span>
+                  <span className="rounded-full border border-white/10 bg-white/[.04] px-3 py-2">{copy.termsTag}</span>
+                </div>
+              </div>
+
+              <div className="relative rounded-[1.6rem] border border-[#FFD700]/45 bg-[linear-gradient(145deg,rgba(255,215,0,.12),rgba(255,77,109,.08)_46%,rgba(5,7,11,.5))] p-4 shadow-[0_20px_60px_rgba(0,0,0,.3)] sm:p-6">
+                <div className="flex items-center justify-between gap-3">
+                  <p className="text-[10px] font-black uppercase tracking-[.22em] text-[#FFD700]">{copy.codeLabel}</p>
+                  <span className="h-2 w-2 rounded-full bg-[#63E6BE] shadow-[0_0_14px_#63E6BE]" aria-label="Active campaign" />
+                </div>
+                <div className="mt-4 rounded-2xl border border-white/10 bg-[#07090D]/80 px-4 py-6 text-center sm:py-8">
+                  <code className="block text-[3.65rem] font-black leading-none tracking-[.12em] text-white sm:text-7xl">{CODE}</code>
+                  <p className="mt-3 text-xs text-[#AEB5C0]">{copy.codeHint}</p>
+                </div>
+                <button type="button" onClick={handleCopy} className="mt-4 w-full rounded-xl border border-[#FFD700] bg-[#FFD700] px-5 py-3.5 text-sm font-black text-[#13100A] shadow-[0_12px_30px_rgba(255,215,0,.2)] transition-all hover:-translate-y-0.5 hover:bg-[#FFE47A] active:scale-[.98] focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-offset-2 focus:ring-offset-[#11141B]" aria-live="polite">
+                  {signupLabel}
+                </button>
+                <a href={AFFILIATE.star888} target="_blank" rel="sponsored nofollow noopener noreferrer" onClick={handleSignup} data-cta={`btts221-${lang}-signup`} className="mt-3 flex w-full items-center justify-center rounded-xl bg-[linear-gradient(135deg,#FF4D6D,#D63148)] px-5 py-4 text-center text-sm font-black text-white shadow-[0_14px_34px_rgba(214,49,72,.28)] transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-[.98] focus:outline-none focus:ring-2 focus:ring-[#FF8095] focus:ring-offset-2 focus:ring-offset-[#11141B]">
+                  {copy.signup}
+                </a>
+                <p className="mt-3 text-center text-[10px] leading-5 text-[#8E96A3]">{copy.verified} <time dateTime={reviewDate}>{formatDate(reviewDate, lang)}</time></p>
+              </div>
             </div>
-            <p className="mt-4 text-[11px] text-[#AAB8C2]">{copy.verified} <time dateTime={today}>{formatDate(today, lang)}</time> · {copy.affiliate}</p>
-          </div>
-        </section>
+          </section>
 
-        <section className="mt-6 grid gap-4 md:grid-cols-[1.25fr_.75fr]">
-          <div className="rounded-2xl border border-[#D6B36A]/35 bg-[#0D1A20] p-5 sm:p-7">
-            <p className="text-[10px] font-bold uppercase tracking-[.2em] text-[#D6B36A]">{copy.offerLabel}</p>
-            <p className="mt-3 text-lg font-bold leading-8 text-papier">{copy.offerText}</p>
-            <p className="mt-4 text-xs leading-6 text-[#AAB8C2]">{copy.conditions}</p>
-          </div>
-          <div className="rounded-2xl border border-[#8BA9C7]/30 bg-[#0D1A20] p-5 sm:p-7">
-            <p className="text-[10px] font-bold uppercase tracking-[.2em] text-[#8BA9C7]">{copy.guide}</p>
-            <ol className="mt-4 space-y-3 text-sm leading-6 text-[#C8D2DA]">
-              {copy.steps.slice(0, 3).map((step, index) => <li key={step}><span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#8BA9C7]/20 text-xs font-bold text-[#8BA9C7]">{index + 1}</span>{step}</li>)}
-            </ol>
-          </div>
-        </section>
+          <section className="mt-5 grid gap-4 lg:grid-cols-[1.2fr_.8fr]">
+            <div className="rounded-3xl border border-[#FF4D6D]/25 bg-[linear-gradient(135deg,rgba(255,77,109,.11),rgba(17,20,27,.94)_58%)] p-5 sm:p-7">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-[.2em] text-[#FF8095]">{copy.offerLabel}</p>
+                  <p className="mt-3 text-xl font-black leading-8 text-white sm:text-2xl">{copy.offerText}</p>
+                </div>
+                <span className="hidden shrink-0 rounded-full border border-[#FFD700]/30 bg-[#FFD700]/10 px-3 py-1 text-[10px] font-bold uppercase text-[#FFD700] sm:inline-flex">888Starz</span>
+              </div>
+              <p className="mt-4 max-w-3xl text-xs leading-6 text-[#AEB5C0]">{copy.conditions}</p>
+            </div>
+            <div className="rounded-3xl border border-white/10 bg-[#11141B] p-5 sm:p-7">
+              <p className="text-[10px] font-black uppercase tracking-[.2em] text-[#FFD700]">{copy.guide}</p>
+              <ol className="mt-4 space-y-3 text-sm leading-6 text-[#D5DAE2]">
+                {copy.steps.slice(0, 3).map((step, index) => <li key={step} className="flex gap-3"><span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#FF4D6D]/15 text-xs font-black text-[#FF8095]">{index + 1}</span><span>{step}</span></li>)}
+              </ol>
+            </div>
+          </section>
+        </div>
+      </div>
 
-        <section className="mt-10">
-          <h2 className="text-2xl font-bold text-papier sm:text-3xl">{copy.stepsTitle}</h2>
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <section className="mt-2 sm:mt-4">
+          <h2 className="text-2xl font-black tracking-tight text-white sm:text-3xl">{copy.stepsTitle}</h2>
           <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {copy.steps.map((step, index) => <article key={step} className="rounded-2xl border border-white/10 bg-[#0D1A20] p-5"><span className="text-xs font-bold text-[#D6B36A]">0{index + 1}</span><p className="mt-3 text-sm leading-6 text-[#C8D2DA]">{step}</p></article>)}
+            {copy.steps.map((step, index) => <article key={step} className="rounded-2xl border border-white/10 bg-[#11141B] p-5 transition-colors hover:border-[#FF4D6D]/35"><span className="text-xs font-black text-[#FFD700]">0{index + 1}</span><p className="mt-3 text-sm leading-6 text-[#C7CDD6]">{step}</p></article>)}
           </div>
         </section>
 
         <section className="mt-10" aria-labelledby="btts221-faq">
-          <h2 id="btts221-faq" className="text-2xl font-bold text-papier sm:text-3xl">{copy.faqTitle}</h2>
+          <h2 id="btts221-faq" className="text-2xl font-black tracking-tight text-white sm:text-3xl">{copy.faqTitle}</h2>
           <div className="mt-5 space-y-3">
-            {copy.faq.map((item) => <details key={item.q} className="rounded-2xl border border-white/10 bg-[#0D1A20] p-5"><summary className="cursor-pointer font-bold text-papier">{item.q}</summary><p className="mt-3 text-sm leading-7 text-[#C8D2DA]">{item.a}</p></details>)}
+            {copy.faq.map((item) => <details key={item.q} className="rounded-2xl border border-white/10 bg-[#11141B] p-5"><summary className="cursor-pointer font-bold text-white">{item.q}</summary><p className="mt-3 text-sm leading-7 text-[#B9C0CA]">{item.a}</p></details>)}
           </div>
         </section>
 
-        <section className="mt-10 rounded-2xl border border-[#FF7B7B]/25 bg-[#FF7B7B]/5 p-5 text-center">
-          <p className="text-xs leading-6 text-[#C8D2DA]">{copy.affiliate} <a className="underline" href={lang === 'fr' ? '/jouer-responsable' : `/${lang}/jouer-responsable`}>{copy.responsible}</a></p>
+        <section className="mt-10 rounded-2xl border border-[#FF4D6D]/25 bg-[#FF4D6D]/5 p-5 text-center">
+          <p className="text-xs leading-6 text-[#C2C8D1]">{copy.affiliate} <a className="font-bold text-[#FFD700] underline underline-offset-2" href={lang === 'fr' ? '/jouer-responsable' : `/${lang}/jouer-responsable`}>{copy.responsible}</a></p>
         </section>
 
-        <div className="mt-8 flex flex-wrap justify-center gap-4 text-xs font-bold text-[#8BA9C7]">
-          <a href={lang === 'fr' ? '/btts/predictions/today' : `/${lang}/btts/predictions/today`} className="hover:text-papier">{copy.predictions}</a>
-          <a href={lang === 'fr' ? '/bonus-888starz' : `/${lang}/bonus-888starz`} className="hover:text-papier">888Starz guide</a>
+        <div className="mt-8 flex flex-wrap justify-center gap-4 text-xs font-bold text-[#FF8095]">
+          <a href={lang === 'fr' ? '/btts/predictions/today' : `/${lang}/btts/predictions/today`} className="hover:text-white">{copy.predictions}</a>
+          <a href={lang === 'fr' ? '/bonus-888starz' : `/${lang}/bonus-888starz`} className="hover:text-white">{copy.guideLink}</a>
+        </div>
+      </div>
+
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-[#FF4D6D]/30 bg-[#07090D]/95 p-3 shadow-[0_-12px_35px_rgba(0,0,0,.45)] backdrop-blur-xl md:hidden">
+        <div className="mx-auto flex max-w-lg items-center gap-2">
+          <button type="button" onClick={handleCopy} className="flex min-w-0 flex-1 items-center justify-center gap-2 rounded-xl border border-[#FFD700]/70 bg-[#FFD700] px-3 py-3 text-sm font-black text-[#13100A] active:scale-[.98]">{copied ? copy.copied : <><code className="tracking-[.12em]">{CODE}</code><span className="text-xs">{copy.copy}</span></>}</button>
+          <a href={AFFILIATE.star888} target="_blank" rel="sponsored nofollow noopener noreferrer" onClick={handleSignup} className="flex-1 rounded-xl bg-[linear-gradient(135deg,#FF4D6D,#D63148)] px-3 py-3 text-center text-sm font-black text-white active:scale-[.98]">{copy.mobileSignup}</a>
         </div>
       </div>
     </main>

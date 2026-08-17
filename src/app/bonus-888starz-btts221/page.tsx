@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic'
 import { getDakarDateString } from '@/lib/dakar-date'
 import { checkSeo } from '@/lib/seo'
 
-const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const Btts221PromoClient = dynamic(() => import('@/components/bttsbet/Btts221PromoClient'), { loading: () => null })
 
@@ -109,7 +108,6 @@ export default function Bonus888StarzBtts221Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd()) }} />
-      <Navbar />
       <Btts221PromoClient lang="fr" reviewDate={REVIEW_DATE} />
       <Footer />
     </div>
