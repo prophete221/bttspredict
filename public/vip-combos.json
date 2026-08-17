@@ -1,39 +1,39 @@
 {
-  "date": "2026-08-16",
+  "date": "2026-08-17",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-16T20:21:46.259Z",
-  "eventCount": 92,
-  "legCount": 99,
+  "fetchedAt": "2026-08-17T01:13:59.916Z",
+  "eventCount": 100,
+  "legCount": 36,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "72904468",
-          "home": "CD Choloma",
-          "away": "CD Marathon San Pedro Sula",
+          "eventId": "72904472",
+          "home": "Olancho FC",
+          "away": "Juticalpa FC",
           "league": "Honduras - Liga Nacional, Apertura",
-          "kickoff": "2026-08-16T21:00:00Z",
+          "kickoff": "2026-08-17T01:30:00Z",
           "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.85,
+          "odds": 1.98,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T12:27:58.058Z"
+          "updatedAt": "2026-08-17T01:08:17.128Z"
         },
         {
-          "eventId": "66299362",
-          "home": "Chicago Fire",
-          "away": "Portland Timbers",
-          "league": "USA - MLS",
-          "kickoff": "2026-08-16T22:00:00Z",
-          "bookmaker": "Bet365",
+          "eventId": "72055096",
+          "home": "Club Tijuana de Caliente",
+          "away": "CF Cruz Azul",
+          "league": "Mexico - Liga MX, Apertura",
+          "kickoff": "2026-08-17T03:10:00Z",
+          "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.08,
+          "odds": 1.01,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T20:18:17.632Z"
+          "updatedAt": "2026-08-16T19:37:52.407Z"
         }
       ],
       "totalOdds": 2
@@ -41,30 +41,43 @@
     "target5": {
       "legs": [
         {
-          "eventId": "71936038",
-          "home": "FC Cajamarca",
-          "away": "Universitario de Deportes",
-          "league": "Peru - Primera Division, Clausura",
-          "kickoff": "2026-08-16T20:30:00Z",
+          "eventId": "72335010",
+          "home": "CD Once Caldas",
+          "away": "Alianza FC Valledupar",
+          "league": "Colombia - Liga DIMAYOR, Finalizacion",
+          "kickoff": "2026-08-17T01:15:00Z",
           "bookmaker": "Bet365",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 2,
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.8,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T20:17:14.328Z"
+          "updatedAt": "2026-08-14T11:53:02.881Z"
         },
         {
-          "eventId": "73569552",
-          "home": "CA Penarol Montevideo",
-          "away": "Central Espanol FC",
-          "league": "Uruguay - Primera Division, Clausura",
-          "kickoff": "2026-08-16T21:30:00Z",
-          "bookmaker": "Bet365",
+          "eventId": "66299366",
+          "home": "Seattle Sounders",
+          "away": "Vancouver Whitecaps FC",
+          "league": "USA - MLS",
+          "kickoff": "2026-08-17T02:30:00Z",
+          "bookmaker": "Unibet",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 2.5,
+          "odds": 1.44,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T20:20:52.546Z"
+          "updatedAt": "2026-08-16T22:19:36.844Z"
+        },
+        {
+          "eventId": "68160714",
+          "home": "FC Bulleen Lions",
+          "away": "North Sunshine Eagles FC",
+          "league": "Australia - Victoria Premier League 1",
+          "kickoff": "2026-08-17T10:30:00Z",
+          "bookmaker": "Bet365",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.93,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-17T01:08:45.429Z"
         }
       ],
       "totalOdds": 5

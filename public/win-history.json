@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T20:29:18.318Z",
+  "generatedAt": "2026-08-17T01:20:06.324Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -7,25 +7,25 @@
     "insufficientVolume": true
   },
   "stats": {
-    "total": 24,
-    "won": 18,
+    "total": 26,
+    "won": 20,
     "lost": 6,
-    "pending": 63,
-    "archivedTotal": 87,
-    "rate": 75,
+    "pending": 73,
+    "archivedTotal": 99,
+    "rate": 76.9,
     "avgOdds": 1.9,
-    "profit": 10.2,
-    "roi": 42.5,
-    "yield": 42.5,
+    "profit": 12,
+    "roi": 46.2,
+    "yield": 46.2,
     "gold": {
-      "total": 13,
-      "won": 11,
+      "total": 15,
+      "won": 13,
       "lost": 2,
-      "rate": 84.6,
+      "rate": 86.7,
       "avgOdds": 1.9,
-      "profit": 7.9,
-      "roi": 60.8,
-      "yield": 60.8
+      "profit": 9.7,
+      "roi": 64.7,
+      "yield": 64.7
     },
     "standard": {
       "total": 11,
@@ -35,10 +35,10 @@
     },
     "byType": {
       "btts": {
-        "total": 22,
-        "won": 17,
+        "total": 24,
+        "won": 19,
         "lost": 5,
-        "rate": 77.3
+        "rate": 79.2
       },
       "over25": {
         "total": 2,
@@ -83,16 +83,57 @@
         "rate": 75,
         "profit": 5.1,
         "equity": 10.2
+      },
+      {
+        "date": "2026-08-16",
+        "total": 2,
+        "won": 2,
+        "lost": 0,
+        "rate": 100,
+        "profit": 1.8,
+        "equity": 12
       }
     ],
     "maxDrawdown": 2,
     "period": {
       "from": "2026-08-08",
-      "to": "2026-08-16",
-      "days": 9
+      "to": "2026-08-17",
+      "days": 10
     }
   },
   "history": [
+    {
+      "date": "2026-08-16",
+      "match": "Chicago Fire FC vs Portland Timbers",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7474,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "2-1",
+      "profit": 0.9,
+      "verifiedAt": "2026-08-17T01:14:07.457Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-08-16",
+      "match": "New York City FC vs Philadelphia Union",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7983,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "2-3",
+      "profit": 0.9,
+      "verifiedAt": "2026-08-17T01:14:07.456Z",
+      "source": "ESPN public"
+    },
     {
       "date": "2026-08-15",
       "match": "Willem II vs NEC Nijmegen",
