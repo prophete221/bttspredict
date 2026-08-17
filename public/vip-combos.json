@@ -2,69 +2,82 @@
   "date": "2026-08-17",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-17T17:24:50.694Z",
-  "eventCount": 70,
-  "legCount": 120,
+  "fetchedAt": "2026-08-17T18:58:11.676Z",
+  "eventCount": 32,
+  "legCount": 20,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "67850080",
-          "home": "AB Argir",
-          "away": "KI Klaksvik",
-          "league": "Faroe Islands - Premier League",
-          "kickoff": "2026-08-17T17:30:00Z",
-          "bookmaker": "Bet365 (no latency)",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.6,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-17T17:23:13.279Z"
-        },
-        {
-          "eventId": "71998130",
-          "home": "FC Arda Kardzhali",
-          "away": "FC Lokomotiv 1929 Sofia",
-          "league": "Bulgaria - Parva Liga",
-          "kickoff": "2026-08-17T18:15:00Z",
+          "eventId": "73185370",
+          "home": "AD Cariari Pococi",
+          "away": "AD Municipal Santa Ana",
+          "league": "Costa Rica - Liga de Ascenso, Apertura, Group 2",
+          "kickoff": "2026-08-17T19:00:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
           "odds": 1.25,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-17T17:20:30.338Z"
+          "updatedAt": "2026-08-17T09:47:27.639Z"
+        },
+        {
+          "eventId": "72339690",
+          "home": "Cardiff City",
+          "away": "Wrexham AFC",
+          "league": "England - Championship",
+          "kickoff": "2026-08-17T19:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.58,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-17T18:46:50.948Z"
         }
       ],
-      "totalOdds": 2
+      "totalOdds": 1.98
     },
     "target5": {
       "legs": [
         {
-          "eventId": "67123312",
-          "home": "Leones de Rosario FC",
-          "away": "Defensores de Cambaceres",
-          "league": "Argentina - Primera C",
-          "kickoff": "2026-08-17T18:00:00Z",
+          "eventId": "73185370",
+          "home": "AD Cariari Pococi",
+          "away": "AD Municipal Santa Ana",
+          "league": "Costa Rica - Liga de Ascenso, Apertura, Group 2",
+          "kickoff": "2026-08-17T19:00:00Z",
           "bookmaker": "Bet365",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 2.5,
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.82,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-17T17:24:26.817Z"
+          "updatedAt": "2026-08-15T00:23:54.145Z"
         },
         {
-          "eventId": "71802266",
-          "home": "Al-Raed Club",
-          "away": "Al Hilal SFC",
-          "league": "Saudi Arabia - Kings Cup",
-          "kickoff": "2026-08-17T18:00:00Z",
-          "bookmaker": "Bet365",
+          "eventId": "72339690",
+          "home": "Cardiff City",
+          "away": "Wrexham AFC",
+          "league": "England - Championship",
+          "kickoff": "2026-08-17T19:00:00Z",
+          "bookmaker": "Unibet",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 2,
+          "odds": 1.58,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-17T17:24:26.817Z"
+          "updatedAt": "2026-08-17T18:46:50.948Z"
+        },
+        {
+          "eventId": "72336430",
+          "home": "Palermo FC",
+          "away": "US Lecce",
+          "league": "Italy - Coppa Italia",
+          "kickoff": "2026-08-17T19:15:00Z",
+          "bookmaker": "Unibet",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.74,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-17T18:46:50.948Z"
         }
       ],
       "totalOdds": 5
