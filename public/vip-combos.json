@@ -2,9 +2,9 @@
   "date": "2026-08-17",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-17T11:14:08.983Z",
+  "fetchedAt": "2026-08-17T11:41:58.013Z",
   "eventCount": 100,
-  "legCount": 48,
+  "legCount": 52,
   "status": "available",
   "combos": {
     "target2": {
@@ -20,7 +20,7 @@
           "selection": "Over 2.5",
           "odds": 1.16,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-17T11:10:02.226Z"
+          "updatedAt": "2026-08-17T11:40:11.934Z"
         },
         {
           "eventId": "72305122",
@@ -44,12 +44,12 @@
           "bookmaker": "Unibet",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 1.49,
+          "odds": 1.46,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T22:19:36.844Z"
+          "updatedAt": "2026-08-17T11:18:26.086Z"
         }
       ],
-      "totalOdds": 2.02
+      "totalOdds": 1.98
     },
     "target5": {
       "legs": [
