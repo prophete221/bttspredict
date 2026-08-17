@@ -1446,7 +1446,9 @@
       "over25Prob": 0.7091,
       "homeLambda": 1.56,
       "awayLambda": 2.11,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-08-17T04:42:16.089Z"
     },
     {
       "id": "austinfc-vs-fcdallas-2026-08-17",
@@ -1509,7 +1511,9 @@
       "over25Prob": 0.554,
       "homeLambda": 1.65,
       "awayLambda": 1.25,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-08-17T04:42:16.090Z"
     },
     {
       "id": "casapia-vs-benfica-2026-08-17",

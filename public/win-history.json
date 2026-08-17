@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T01:20:06.324Z",
+  "generatedAt": "2026-08-17T04:48:53.744Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -7,25 +7,25 @@
     "insufficientVolume": true
   },
   "stats": {
-    "total": 26,
-    "won": 20,
-    "lost": 6,
-    "pending": 73,
+    "total": 28,
+    "won": 21,
+    "lost": 7,
+    "pending": 71,
     "archivedTotal": 99,
-    "rate": 76.9,
+    "rate": 75,
     "avgOdds": 1.9,
-    "profit": 12,
-    "roi": 46.2,
-    "yield": 46.2,
+    "profit": 11.9,
+    "roi": 42.5,
+    "yield": 42.5,
     "gold": {
-      "total": 15,
-      "won": 13,
-      "lost": 2,
-      "rate": 86.7,
+      "total": 17,
+      "won": 14,
+      "lost": 3,
+      "rate": 82.4,
       "avgOdds": 1.9,
-      "profit": 9.7,
-      "roi": 64.7,
-      "yield": 64.7
+      "profit": 9.6,
+      "roi": 56.5,
+      "yield": 56.5
     },
     "standard": {
       "total": 11,
@@ -35,10 +35,10 @@
     },
     "byType": {
       "btts": {
-        "total": 24,
-        "won": 19,
-        "lost": 5,
-        "rate": 79.2
+        "total": 26,
+        "won": 20,
+        "lost": 6,
+        "rate": 76.9
       },
       "over25": {
         "total": 2,
@@ -86,12 +86,12 @@
       },
       {
         "date": "2026-08-16",
-        "total": 2,
-        "won": 2,
-        "lost": 0,
-        "rate": 100,
-        "profit": 1.8,
-        "equity": 12
+        "total": 4,
+        "won": 3,
+        "lost": 1,
+        "rate": 75,
+        "profit": 1.7,
+        "equity": 11.9
       }
     ],
     "maxDrawdown": 2,
@@ -102,6 +102,38 @@
     }
   },
   "history": [
+    {
+      "date": "2026-08-16",
+      "match": "Austin FC vs FC Dallas",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5765,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "1-2",
+      "profit": 0.9,
+      "verifiedAt": "2026-08-17T04:42:16.090Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-08-16",
+      "match": "Seattle Sounders FC vs Vancouver Whitecaps",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.694,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "0-2",
+      "profit": -1,
+      "verifiedAt": "2026-08-17T04:42:16.089Z",
+      "source": "ESPN public"
+    },
     {
       "date": "2026-08-16",
       "match": "Chicago Fire FC vs Portland Timbers",

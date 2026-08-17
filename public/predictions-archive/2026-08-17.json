@@ -1,6 +1,6 @@
 {
   "date": "2026-08-17",
-  "lastUpdated": "2026-08-17T01:13:18.972Z",
+  "lastUpdated": "2026-08-17T04:41:40.541Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -651,7 +651,7 @@
       "xgHome": 2.17,
       "xgAway": 1.45,
       "xgTotal": 3.63,
-      "formBTTS": 19,
+      "formBTTS": 18,
       "analysis": "Seattle Sounders FC (8 matchs réels, xG 2.17) vs Austin FC (8 matchs réels, xG 1.45). xG cumulé 3.63, BTTS 67.8%, Over 2.5 70.2%. Fiabilité 88.43%. Qualité données: HIGH.",
       "analysisData": {
         "bttsProb": 0.6785,
@@ -750,6 +750,68 @@
   ],
   "vipPreview": [
     {
+      "id": "realsalt-vs-fcdallas-2026-08-20",
+      "match": "Real Salt Lake vs FC Dallas",
+      "home": "Real Salt Lake",
+      "away": "FC Dallas",
+      "league": "MLS",
+      "date": "2026-08-20",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5446,
+      "bttsProbDisplay": "54.46%",
+      "over25ProbDisplay": "53.45%",
+      "confidence": 54,
+      "time": "01:30",
+      "matchSemantic": "realsalt-vs-fcdallas-2026-08-20",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4771.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/185.png",
+      "tier": "GOLD",
+      "reliabilityScore": 80.08,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.73,
+      "xgAway": 1.08,
+      "xgTotal": 2.82,
+      "formBTTS": 31,
+      "analysis": "Real Salt Lake (8 matchs réels, xG 1.73) vs FC Dallas (8 matchs réels, xG 1.08). xG cumulé 2.82, BTTS 54.5%, Over 2.5 53.5%. Fiabilité 80.08%. Qualité données: HIGH.",
+      "analysisData": {
+        "bttsProb": 0.5446,
+        "over25Prob": 0.5345,
+        "homeLambda": 1.73,
+        "awayLambda": 1.08,
+        "xgTotal": 2.82
+      },
+      "estimatedCote": 1.84,
+      "estimatedCoteOver": 1.87,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 54,
+          "bttsProb": 0.5446,
+          "homeLambda": 1.73,
+          "awayLambda": 1.08
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 53,
+          "over25Prob": 0.5345,
+          "homeLambda": 1.73,
+          "awayLambda": 1.08
+        }
+      ],
+      "bttsProb": 0.5446,
+      "over25Prob": 0.5345,
+      "homeLambda": 1.73,
+      "awayLambda": 1.08
+    },
+    {
       "id": "portland-vs-sandiego-2026-08-20",
       "match": "Portland Timbers vs San Diego FC",
       "home": "Portland Timbers",
@@ -810,68 +872,6 @@
       "over25Prob": 0.494,
       "homeLambda": 1.4,
       "awayLambda": 1.25
-    },
-    {
-      "id": "realsalt-vs-fcdallas-2026-08-20",
-      "match": "Real Salt Lake vs FC Dallas",
-      "home": "Real Salt Lake",
-      "away": "FC Dallas",
-      "league": "MLS",
-      "date": "2026-08-20",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5345,
-      "bttsProbDisplay": "53.45%",
-      "over25ProbDisplay": "51.45%",
-      "confidence": 53,
-      "time": "01:30",
-      "matchSemantic": "realsalt-vs-fcdallas-2026-08-20",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4771.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/185.png",
-      "tier": "GOLD",
-      "reliabilityScore": 77.13,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1.65,
-      "xgAway": 1.08,
-      "xgTotal": 2.73,
-      "formBTTS": 31,
-      "analysis": "Real Salt Lake (8 matchs réels, xG 1.65) vs FC Dallas (8 matchs réels, xG 1.08). xG cumulé 2.73, BTTS 53.4%, Over 2.5 51.5%. Fiabilité 77.13%. Qualité données: HIGH.",
-      "analysisData": {
-        "bttsProb": 0.5345,
-        "over25Prob": 0.5145,
-        "homeLambda": 1.65,
-        "awayLambda": 1.08,
-        "xgTotal": 2.73
-      },
-      "estimatedCote": 1.87,
-      "estimatedCoteOver": 1.94,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 53,
-          "bttsProb": 0.5345,
-          "homeLambda": 1.65,
-          "awayLambda": 1.08
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 51,
-          "over25Prob": 0.5145,
-          "homeLambda": 1.65,
-          "awayLambda": 1.08
-        }
-      ],
-      "bttsProb": 0.5345,
-      "over25Prob": 0.5145,
-      "homeLambda": 1.65,
-      "awayLambda": 1.08
     },
     {
       "id": "colorado-vs-lafc-2026-08-20",
@@ -1247,7 +1247,7 @@
     }
   ],
   "stats": {
-    "avgReliability": 72.16,
+    "avgReliability": 72.21,
     "totalAnalyzed": 75,
     "totalRejected": 0,
     "totalAccepted": 75,
@@ -1903,7 +1903,7 @@
       "xgHome": 2.17,
       "xgAway": 1.45,
       "xgTotal": 3.63,
-      "formBTTS": 19,
+      "formBTTS": 18,
       "analysis": "Seattle Sounders FC (8 matchs réels, xG 2.17) vs Austin FC (8 matchs réels, xG 1.45). xG cumulé 3.63, BTTS 67.8%, Over 2.5 70.2%. Fiabilité 88.43%. Qualité données: HIGH.",
       "analysisData": {
         "bttsProb": 0.6785,

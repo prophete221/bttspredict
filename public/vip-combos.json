@@ -2,69 +2,25 @@
   "date": "2026-08-17",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-17T01:13:59.916Z",
+  "fetchedAt": "2026-08-17T04:42:05.944Z",
   "eventCount": 100,
-  "legCount": 36,
+  "legCount": 29,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "72904472",
-          "home": "Olancho FC",
-          "away": "Juticalpa FC",
-          "league": "Honduras - Liga Nacional, Apertura",
-          "kickoff": "2026-08-17T01:30:00Z",
-          "bookmaker": "Bet365",
+          "eventId": "68161086",
+          "home": "FC Bulleen Lions U23",
+          "away": "North Sunshine Eagles FC U23",
+          "league": "Australia - U23 Victoria Premier League 1",
+          "kickoff": "2026-08-17T08:15:00Z",
+          "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.98,
+          "odds": 1.05,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-17T01:08:17.128Z"
-        },
-        {
-          "eventId": "72055096",
-          "home": "Club Tijuana de Caliente",
-          "away": "CF Cruz Azul",
-          "league": "Mexico - Liga MX, Apertura",
-          "kickoff": "2026-08-17T03:10:00Z",
-          "bookmaker": "Unibet",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.01,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T19:37:52.407Z"
-        }
-      ],
-      "totalOdds": 2
-    },
-    "target5": {
-      "legs": [
-        {
-          "eventId": "72335010",
-          "home": "CD Once Caldas",
-          "away": "Alianza FC Valledupar",
-          "league": "Colombia - Liga DIMAYOR, Finalizacion",
-          "kickoff": "2026-08-17T01:15:00Z",
-          "bookmaker": "Bet365",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.8,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-14T11:53:02.881Z"
-        },
-        {
-          "eventId": "66299366",
-          "home": "Seattle Sounders",
-          "away": "Vancouver Whitecaps FC",
-          "league": "USA - MLS",
-          "kickoff": "2026-08-17T02:30:00Z",
-          "bookmaker": "Unibet",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.44,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-16T22:19:36.844Z"
+          "updatedAt": "2026-08-16T22:09:46.731Z"
         },
         {
           "eventId": "68160714",
@@ -75,9 +31,53 @@
           "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.93,
+          "odds": 1.9,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-17T01:08:45.429Z"
+          "updatedAt": "2026-08-17T02:47:21.526Z"
+        }
+      ],
+      "totalOdds": 1.99
+    },
+    "target5": {
+      "legs": [
+        {
+          "eventId": "30745009188",
+          "home": "CA Huracán",
+          "away": "Independiente",
+          "league": "Argentina - Primera Division A, Women",
+          "kickoff": "2026-08-17T13:00:00Z",
+          "bookmaker": "Bet365 (no latency)",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 2.25,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-17T04:16:39.666Z"
+        },
+        {
+          "eventId": "67919804",
+          "home": "Molde FK 2",
+          "away": "Rosenborg BK 2",
+          "league": "Norway - 3rd Division, Group 2",
+          "kickoff": "2026-08-17T13:00:00Z",
+          "bookmaker": "Bet365 (no latency)",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.14,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-17T04:34:44.2Z"
+        },
+        {
+          "eventId": "73436426",
+          "home": "Samsunspor U19",
+          "away": "Goztepe U19",
+          "league": "Turkiye Amateur - U19 PAF Ligi",
+          "kickoff": "2026-08-17T14:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.95,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-16T13:18:49.392Z"
         }
       ],
       "totalOdds": 5
