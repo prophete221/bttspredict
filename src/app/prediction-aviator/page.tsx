@@ -3,13 +3,13 @@ import Link from 'next/link'
 import { Navbar, Footer, AviatorVip } from '@/components/bttsbet'
 
 export const metadata: Metadata = {
-  title: 'Aviator 2026 : statistiques historiques | BTTSPredict',
-  description: 'Consultez des statistiques historiques Aviator et comprenez le fonctionnement provably fair. Informations uniquement, aucun multiplicateur futur ne peut être prédit.',
+  title: 'Aviator 2026 : statistiques historiques',
+  description: 'Statistiques historiques Aviator et principe provably fair. Aucun multiplicateur futur ne peut être prédit. Informations 18+.',
   alternates: { canonical: 'https://bttspredict.com/prediction-aviator' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Aviator 2026 : statistiques historiques | BTTSPredict',
-    description: 'Statistiques historiques et informations transparentes sur Aviator. Aucun outil ne peut prédire un round futur.',
+    title: 'Aviator 2026 : statistiques historiques',
+    description: 'Statistiques historiques Aviator et informations transparentes. Aucun outil ne peut prédire un round futur.',
     url: 'https://bttspredict.com/prediction-aviator',
     type: 'article',
   },

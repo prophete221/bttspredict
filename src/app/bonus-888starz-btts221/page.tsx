@@ -11,7 +11,7 @@ const SLUG = 'bonus-888starz-btts221'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
 const REVIEW_DATE = getDakarDateString()
 const YEAR = Number(REVIEW_DATE.slice(0, 4))
-const TITLE = `Code promo 888Starz btts221 : 150 free spins à vérifier`
+const TITLE = `Code promo 888Starz btts221 ${YEAR}`
 const DESCRIPTION = `Code promo 888Starz btts221 : offre annoncée de 150 free spins et dépôt de 1 USD à vérifier selon le pays, le compte et la période. Guide ${YEAR}, 18+.`
 
 checkSeo('bonus-888starz-btts221', TITLE, DESCRIPTION)

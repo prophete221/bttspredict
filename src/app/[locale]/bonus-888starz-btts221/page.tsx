@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   if (locale === 'en') {
     return {
-      title: `888Starz promo code btts221: 150 free spins offer`,
+      title: `888Starz btts221 Promo Code ${YEAR}`,
       description: `888Starz promo code btts221: announced 150 free spins and $1 minimum deposit offer to verify by country, account and period. ${YEAR} guide, 18+.`,
       keywords: ['888starz btts221', '888starz promo code btts221', '888starz 150 free spins', '888starz bonus', '888starz promo code'],
       alternates: { canonical: `${SITE_URL}/en/${SLUG}`, languages: { fr: `${SITE_URL}/${SLUG}`, en: `${SITE_URL}/en/${SLUG}`, ar: `${SITE_URL}/ar/${SLUG}`, 'x-default': `${SITE_URL}/${SLUG}` } },
@@ -74,7 +74,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   }
   if (locale === 'ar') {
     return {
-      title: `رمز 888Starz btts221: عرض 150 لفة مجانية`,
+      title: `رمز 888Starz الترويجي btts221 ${YEAR}`,
       description: `رمز 888Starz الترويجي btts221: عرض معلن يتضمن 150 لفة مجانية وحد إيداع 1 دولار للتحقق حسب البلد والحساب والفترة. +18.`,
       keywords: ['888starz btts221', 'رمز 888starz btts221', 'مكافأة 888starz', 'لفات مجانية 888starz', 'رمز 888starz الترويجي'],
       alternates: { canonical: `${SITE_URL}/ar/${SLUG}`, languages: { fr: `${SITE_URL}/${SLUG}`, en: `${SITE_URL}/en/${SLUG}`, ar: `${SITE_URL}/ar/${SLUG}`, 'x-default': `${SITE_URL}/${SLUG}` } },
