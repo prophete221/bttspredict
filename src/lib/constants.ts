@@ -40,8 +40,8 @@ export const BOOKMAKERS = [
     downloadLink: AFFILIATE.linebetDownload,
     promoCode: 'VISION221',
     color: 'emerald',
-    bonus: 'Bonus soumis à conditions (mise x5, dépôt min 3000 XOF, voir site bookmaker)',
-    description: 'Bookmaker #1 en Afrique — Bonus exclusif de 90 000 XOF (150$)',
+    bonus: 'Bonus et conditions à vérifier sur le site officiel',
+    description: 'Partenaire d’affiliation — offre et éligibilité à vérifier selon le pays',
     logoFull: '/logos/linebet.svg',
     logoIcon: '/logos/linebet-icon.svg',
   },
@@ -105,7 +105,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: 'Comment utiliser le code promo VISION221 ?',
-    a: "C'est très simple : inscrivez-vous sur Linebet via notre lien de parrainage, puis saisissez le code promo VISION221 lors de votre inscription ou dans la section \"Code Promo\" de votre compte. Vous recevrez automatiquement un bonus exclusif sur votre premier dépôt. Ce bonus vous permettra de commencer à parier avec un capital supplémentaire et de tester nos pronostics avec un budget accru.",
+    a: "Inscrivez-vous sur Linebet via notre lien de parrainage, puis saisissez le code promo VISION221 lors de votre inscription ou dans la section \"Code Promo\" de votre compte. Vérifiez ensuite l'offre, les conditions et votre éligibilité directement auprès de Linebet avant tout dépôt. Les conditions commerciales peuvent changer.",
   },
   {
     q: 'Les pronostics gratuits sont-ils fiables ?',

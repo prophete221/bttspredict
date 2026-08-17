@@ -1,6 +1,7 @@
 'use client'
 
 import { AFFILIATE, SITE } from '@/lib/constants'
+import { trackAffiliateAction } from '@/lib/affiliateTracking'
 
 /**
  * VipCardWidget — Carte VIP compacte
@@ -25,14 +26,14 @@ export default function VipCardWidget() {
             >
               ⭐ VIP PREMIUM
             </span>
-            <span className="text-[10px]" style={{ color: '#B7C4C1' }}>Taux réel sur /historique</span>
+            <span className="text-[10px]" style={{ color: '#B7C4C1' }}>Résultats publics sur /historique</span>
           </div>
 
           <h3 className="text-sm font-bold mb-2" style={{ color: '#F5F8F3', fontFamily: 'Poppins, sans-serif' }}>
-            Débloque 20+ pronostics premium par jour
+            Accède aux sélections premium du jour
           </h3>
           <p className="text-[11px] mb-3" style={{ color: '#B7C4C1' }}>
-            6 sports (Football, Tennis, NBA, NFL, UFC, Handball) · Analyses de valeur FIFA (expérimental) · Cotes détaillées
+            Analyses et sélections premium · conditions d’accès à vérifier avant toute inscription ou dépôt
           </p>
 
           {/* Étapes */}
@@ -44,7 +45,7 @@ export default function VipCardWidget() {
             <span style={{ color: '#5D7880' }}>→</span>
             <div className="flex items-center gap-1 text-[9px]" style={{ color: '#B7C4C1' }}>
               <span className="w-5 h-5 rounded-full flex items-center justify-center font-bold text-[10px]" style={{ backgroundColor: '#B8FF1A', color: '#071018' }}>2</span>
-              Dépôt 3 000 / 6 000 / 12 000 XOF
+              Vérifie les conditions
             </div>
             <span style={{ color: '#5D7880' }}>→</span>
             <div className="flex items-center gap-1 text-[9px]" style={{ color: '#B7C4C1' }}>
@@ -61,8 +62,10 @@ export default function VipCardWidget() {
               target="_blank"
               className="flex-1 text-center py-2 rounded-lg text-xs font-bold"
               style={{ backgroundColor: '#B8FF1A', color: '#071018' }}
+              onClick={() => trackAffiliateAction('linebet', 'signup', 'vip-card-widget')}
+              data-cta="vip-card-linebet"
             >
-              Débloquer le VIP
+              Voir l’accès VIP
             </a>
             <a
               href="https://wa.me/15406704172"
