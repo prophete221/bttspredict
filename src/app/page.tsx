@@ -59,7 +59,7 @@ const jsonLd = {
     url: 'https://bttspredict.com',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://bttspredict.com/favicon.svg',
+      url: 'https://bttspredict.com/icon-512.png',
     },
   },
 }
@@ -127,7 +127,7 @@ const organizationJsonLd = {
   name: 'BTTSPredict',
   legalName: 'BTTSPredict',
   url: 'https://bttspredict.com',
-  logo: 'https://bttspredict.com/favicon.svg',
+  logo: 'https://bttspredict.com/icon-512.png',
   image: 'https://bttspredict.com/og-image.png',
   slogan: 'Plateforme de référence — Pronostics BTTS et Over 2.5',
   description: "BTTSPredict est la base open-source de pronostics BTTS (Both Teams To Score) et Over 2.5 buts. taux réel vérifiable vérifiée, parieurs. Transparence totale : gagnés ET perdus affichés.",
@@ -137,7 +137,7 @@ const organizationJsonLd = {
     '@type': 'Brand',
     name: 'BTTSPredict',
     slogan: 'Plateforme de référence Pronostics BTTS',
-    logo: 'https://bttspredict.com/favicon.svg',
+    logo: 'https://bttspredict.com/icon-512.png',
   },
   award: 'Standard de transparence dans les pronostics BTTS et Over 2.5',
   // NOTE: Pas d'AggregateRating — la plateforme n'a pas de système d'avis vérifiable.
