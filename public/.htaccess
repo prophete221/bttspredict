@@ -7,22 +7,12 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
-# ─── Routing HTML statique ───
-DirectorySlash Off
-DirectoryIndex index.html
-Options -Indexes
-RewriteRule \.html$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.+)/?$ /$1.html [L]
-
-# ─── Redirect 301: /linebet-promo-code → /code-promo-linebet-senegal ───
-# Anti-doublon SEO : /linebet-promo-code est un doublon de /code-promo-linebet-senegal.
-# Redirection permanente 301 pour transférer le link equity et éliminer le duplicate content.
+# ─── Redirects 301 legacy — avant toute résolution de fichier statique ───
+# Ces règles doivent précéder le routage HTML : sinon une page générée
+# (par exemple /linebet-promo-code.html) est servie en 200 avant d'atteindre la 301.
+# /linebet-promo-code est un doublon de /code-promo-linebet-senegal.
 RewriteRule ^linebet-promo-code/?$ /code-promo-linebet-senegal [R=301,L]
-
-# ─── Redirects 301: anciennes doorway pages supprimées en v64 → / ───
-# /pronostics est désormais une route officielle alias des pronostics du jour.
+# /pronostics reste une route publique compatible, son canonical pointe vers le jour.
 RewriteRule ^betting-tips/?$ / [R=301,L]
 RewriteRule ^bookmakers/?$ / [R=301,L]
 RewriteRule ^correct-score-predictions/?$ / [R=301,L]
@@ -39,6 +29,15 @@ RewriteRule ^presse/?$ / [R=301,L]
 RewriteRule ^equipe/?$ / [R=301,L]
 RewriteRule ^over-2-5/?$ / [R=301,L]
 RewriteRule ^over-2-5/(.+)?$ / [R=301,L]
+
+# ─── Routing HTML statique ───
+DirectorySlash Off
+DirectoryIndex index.html
+Options -Indexes
+RewriteRule \.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)/?$ /$1.html [L]
 
 # ─── 404 spécifique pour /match/[slug] non généré ───
 # Les pages match sont pré-générées en SSG dans out/match/[slug]/index.html.
