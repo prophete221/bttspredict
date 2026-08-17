@@ -2,9 +2,9 @@
   "date": "2026-08-17",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-17T12:43:21.711Z",
+  "fetchedAt": "2026-08-17T13:54:57.096Z",
   "eventCount": 100,
-  "legCount": 69,
+  "legCount": 71,
   "status": "available",
   "combos": {
     "target2": {
@@ -41,33 +41,33 @@
     "target5": {
       "legs": [
         {
-          "eventId": "73778766",
-          "home": "Liga Desportiva De Sofala",
-          "away": "Ferroviario de Lichinga",
-          "league": "Mozambique - Mocambola",
-          "kickoff": "2026-08-17T12:45:00Z",
+          "eventId": "73700944",
+          "home": "Juventud de Las Piedras",
+          "away": "Boston River",
+          "league": "Uruguay - Tercera Division, Reserves",
+          "kickoff": "2026-08-17T14:00:00Z",
           "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 2,
+          "odds": 3,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-17T12:06:21.139Z"
+          "updatedAt": "2026-08-17T13:33:39.18Z"
         },
         {
-          "eventId": "73669908",
-          "home": "Social Atletico Television",
-          "away": "CA San Lorenzo de Almagro",
-          "league": "Argentina - Primera Division A, Women, Clausura",
-          "kickoff": "2026-08-17T14:00:00Z",
-          "bookmaker": "Bet365 (no latency)",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 2.5,
+          "eventId": "72302574",
+          "home": "Zalaegerszeg TE",
+          "away": "Ferencvarosi Budapest",
+          "league": "Hungary - NB I",
+          "kickoff": "2026-08-17T15:30:00Z",
+          "bookmaker": "Bet365",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.67,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-17T09:31:58.079Z"
+          "updatedAt": "2026-08-17T13:54:34.044Z"
         }
       ],
-      "totalOdds": 5
+      "totalOdds": 5.01
     }
   }
 }
