@@ -22,8 +22,8 @@ const WHATSAPP = '15406704172'
 // Linebet = vert clair (light green)
 // 888Starz = rouge clair (light red)
 const BRAND = {
-  linebet: { primary: '#B8FF1A', primaryGlow: '#B8FF1A30', primaryDark: '#3FBA7C' },
-  star888: { primary: '#FF7B7B', primaryGlow: '#FF7B7B30', primaryDark: '#E55A5A' },
+  linebet: { primary: '#E6A24C', primaryGlow: '#E6A24C30', primaryDark: '#3FBA7C' },
+  star888: { primary: '#E56B6F', primaryGlow: '#E56B6F30', primaryDark: '#E55A5A' },
 }
 
 const C = {
@@ -622,7 +622,7 @@ function TeamLogoMini({ src, name, initial }: { src?: string; name: string; init
     return (
       <span
         className="w-7 h-7 flex items-center justify-center text-[11px] font-black rounded flex-shrink-0"
-        style={{ backgroundColor: '#5D7880', color: '#B8FF1A' }}
+        style={{ backgroundColor: '#23495C', color: '#E6A24C' }}
         aria-label={name}
         title={name}
       >

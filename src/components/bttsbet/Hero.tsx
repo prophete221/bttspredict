@@ -22,7 +22,7 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
       ref={sectionRef}
       className="relative overflow-hidden"
       style={{
-        background: 'linear-gradient(145deg, #071018 0%, #101A2B 58%, #071018 100%)',
+        background: 'linear-gradient(145deg, #07131D 0%, #101A2B 58%, #07131D 100%)',
         borderBottom: '1px solid rgba(169, 196, 223, 0.16)',
       }}
     >
@@ -48,17 +48,17 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
         style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(8px)', transition: 'opacity 420ms ease, transform 420ms ease' }}
       >
         <div className="mb-5 flex items-center justify-between gap-3">
-          <span className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em]" style={{ background: 'rgba(127,162,198,0.12)', border: '1px solid rgba(169,196,223,0.34)', color: '#D4FF72' }}>
-            <span className="h-1.5 w-1.5 rounded-full" style={{ background: '#B8FF1A', boxShadow: '0 0 0 4px rgba(75,182,135,0.14)' }} />
+          <span className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em]" style={{ background: 'rgba(127,162,198,0.12)', border: '1px solid rgba(169,196,223,0.34)', color: '#9896FF' }}>
+            <span className="h-1.5 w-1.5 rounded-full" style={{ background: '#E6A24C', boxShadow: '0 0 0 4px rgba(75,182,135,0.14)' }} />
             {t.hero.badge}
           </span>
-          <span className="text-[10px] font-medium tabular-nums" style={{ color: '#9FB0B0' }}>{t.hero.timezone}</span>
+          <span className="text-[10px] font-medium tabular-nums" style={{ color: '#7F98A4' }}>{t.hero.timezone}</span>
         </div>
 
-        <h1 className="max-w-[520px] text-[clamp(2rem,8vw,3.7rem)] font-semibold leading-[0.98] tracking-[-0.055em]" style={{ color: '#F5F8F3', fontFamily: 'Poppins, sans-serif' }}>
+        <h1 className="max-w-[520px] text-[clamp(2rem,8vw,3.7rem)] font-semibold leading-[0.98] tracking-[-0.055em]" style={{ color: '#F3F7F5', fontFamily: 'Poppins, sans-serif' }}>
           {t.hero.title}
         </h1>
-        <p className="mt-4 max-w-[480px] text-[14px] leading-[1.65] sm:text-[15px]" style={{ color: '#B7C4C1' }}>
+        <p className="mt-4 max-w-[480px] text-[14px] leading-[1.65] sm:text-[15px]" style={{ color: '#B4C4CC' }}>
           {t.hero.subtitle}
         </p>
 
@@ -82,7 +82,7 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
                   <span className="hero-market-card__dot" aria-hidden="true" />
                 </div>
                 <div className="hero-market-card__label">{label}</div>
-                <div className="mt-1 text-[10px] leading-tight sm:text-[12px]" style={{ color: '#B7C4C1' }}>{caption}</div>
+                <div className="mt-1 text-[10px] leading-tight sm:text-[12px]" style={{ color: '#B4C4CC' }}>{caption}</div>
                 <div className="hero-market-card__signal" aria-hidden="true">
                   <span /><span /><span /><span /><span />
                 </div>
@@ -93,7 +93,7 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
         </div>
 
         <div className="mt-6">
-          <a href="/btts/predictions/today" className="inline-flex min-h-12 w-full items-center justify-center rounded-xl px-5 text-[13px] font-bold transition-transform hover:scale-[1.01]" style={{ background: '#B8FF1A', color: '#071018', boxShadow: '0 10px 30px rgba(211,177,109,0.16)' }} data-cta="hero-primary">
+          <a href="/btts/predictions/today" className="inline-flex min-h-12 w-full items-center justify-center rounded-xl px-5 text-[13px] font-bold transition-transform hover:scale-[1.01]" style={{ background: '#E6A24C', color: '#07131D', boxShadow: '0 10px 30px rgba(211,177,109,0.16)' }} data-cta="hero-primary">
             {t.hero.cta}
             <span className="ml-2" aria-hidden="true">→</span>
           </a>

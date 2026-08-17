@@ -36,8 +36,8 @@ export default async function LocalizedHomePage({ params }: { params: Promise<{ 
         <Hero initialLocale={locale} />
         <FreePredictions initialLocale={locale} />
         <section className="max-w-[440px] mx-auto px-4 py-8">
-          <div className="rounded-xl p-4 text-center" style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
-            <p className="text-sm text-[#B7C4C1]">18+ · Sports betting carries risk. No future result is guaranteed.</p>
+          <div className="rounded-xl p-4 text-center" style={{ backgroundColor: '#0D202D', border: '1px solid #23495C' }}>
+            <p className="text-sm text-[#B4C4CC]">18+ · Sports betting carries risk. No future result is guaranteed.</p>
           </div>
         </section>
         <Footer initialLocale={locale} />

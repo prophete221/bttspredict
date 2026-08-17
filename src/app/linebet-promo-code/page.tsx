@@ -44,19 +44,19 @@ export default function LinebetPromoCodePage() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#071018',
-        color: '#F5F8F3',
+        backgroundColor: '#07131D',
+        color: '#F3F7F5',
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
         textAlign: 'center',
         padding: '2rem',
       }}
     >
       <div style={{ maxWidth: '500px' }}>
-        <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '1rem', color: '#F5F8F3' }}>
+        <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '1rem', color: '#F3F7F5' }}>
           Linebet Promo Code Sénégal
         </h1>
-        <p style={{ fontSize: '0.875rem', marginBottom: '1.5rem', color: '#B7C4C1', lineHeight: 1.6 }}>
-          Le code promo <strong style={{ color: '#B8FF1A' }}>VISION221</strong> est disponible sur la page principale.
+        <p style={{ fontSize: '0.875rem', marginBottom: '1.5rem', color: '#B4C4CC', lineHeight: 1.6 }}>
+          Le code promo <strong style={{ color: '#E6A24C' }}>VISION221</strong> est disponible sur la page principale.
           Redirection en cours vers la page Code Promo Linebet Sénégal...
         </p>
         <a
@@ -64,8 +64,8 @@ export default function LinebetPromoCodePage() {
           style={{
             display: 'inline-block',
             padding: '0.75rem 1.5rem',
-            backgroundColor: '#B8FF1A',
-            color: '#071018',
+            backgroundColor: '#E6A24C',
+            color: '#07131D',
             fontWeight: 700,
             borderRadius: '0.5rem',
             textDecoration: 'none',
@@ -74,7 +74,7 @@ export default function LinebetPromoCodePage() {
         >
           Continuer vers /code-promo-linebet-senegal
         </a>
-        <p style={{ fontSize: '0.75rem', marginTop: '1.5rem', color: '#B7C4C1' }}>
+        <p style={{ fontSize: '0.75rem', marginTop: '1.5rem', color: '#B4C4CC' }}>
           18+ · Lien d&apos;affiliation rémunéré · Aucun gain garanti
         </p>
       </div>
