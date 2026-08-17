@@ -1,6 +1,6 @@
 {
   "date": "2026-08-17",
-  "lastUpdated": "2026-08-17T13:54:32.009Z",
+  "lastUpdated": "2026-08-17T16:27:33.964Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -70,8 +70,8 @@
       "ai_btts_prob": "59%",
       "ai_over25_view": "56%",
       "ai_over25_prob": "56%",
-      "ai_key_fact": "Casa Pia et Benfica affichent un xG cumulé de 2.87 selon les données.",
-      "ai_analysis": "L'analyse statistique de Casa Pia (xG 1.65) face à Benfica (xG 1.22) montre un potentiel offensif modéré. Les probabilités indiquent une tendance favorable au BTTS à 57.0% et à l'Over 2.5 à 54.7%. La qualité des données est jugée faible en raison d'un historique limité à 1 match réel."
+      "ai_key_fact": "xG cumulé de 2.87 basé sur 1 match réel pour chaque équipe.",
+      "ai_analysis": "Casa Pia affiche un xG de 1.65 tandis que Benfica présente un xG de 1.22 sur la base de leurs données actuelles. L'analyse statistique indique une probabilité BTTS de 57.0% et un Over 2.5 à 54.7%. La fiabilité globale de cette confrontation est de 63.18% avec une qualité de données jugée faible."
     },
     {
       "id": "cardiffc-vs-wrexham-2026-08-17",
@@ -140,8 +140,8 @@
       "ai_btts_prob": "58%",
       "ai_over25_view": "55%",
       "ai_over25_prob": "55%",
-      "ai_key_fact": "Cardiff City et Wrexham totalisent un xG cumulé de 2.83.",
-      "ai_analysis": "Ce duel entre Cardiff City (xG 1.62) et Wrexham (xG 1.21) présente un profil équilibré. Le modèle évalue le BTTS à 56.2% et l'Over 2.5 à 53.8%. Aucune donnée réelle n'est encore disponible pour ces équipes dans cette base, classant la fiabilité à 62.86%."
+      "ai_key_fact": "xG cumulé de 2.83 avec 0 match réel enregistré pour les deux formations.",
+      "ai_analysis": "Cardiff City dispose d'un xG estimé de 1.62 contre 1.21 pour Wrexham. La probabilité BTTS calculée est de 56.2% avec un Over 2.5 à 53.8%. Les statistiques affichent une fiabilité de 62.86% dans un contexte de données de qualité faible."
     },
     {
       "id": "fccincin-vs-newyorkc-2026-08-19",
@@ -210,8 +210,8 @@
       "ai_btts_prob": "85%",
       "ai_over25_view": "88%",
       "ai_over25_prob": "88%",
-      "ai_key_fact": "Forte production offensive avec un xG cumulé de 4.90 pour les deux formations.",
-      "ai_analysis": "FC Cincinnati (xG 2.77) et New York City FC (xG 2.13) affichent des statistiques offensives très élevées sur 8 matchs réels. La probabilité BTTS atteint 82.6% tandis que l'Over 2.5 culmine à 86.7%. La fiabilité des données est maximale à 93.75% (qualité HIGH)."
+      "ai_key_fact": "xG cumulé élevé de 4.90 soutenu par 8 matchs réels par équipe.",
+      "ai_analysis": "FC Cincinnati démontre une solide force offensive avec un xG de 2.77, complété par New York City FC à 2.13. Le modèle statistique indique une probabilité BTTS importante de 82.6% et un Over 2.5 à 86.7%. La fiabilité atteint 93.75% grâce à une haute qualité de données."
     },
     {
       "id": "philadel-vs-intermia-2026-08-19",
@@ -280,8 +280,8 @@
       "ai_btts_prob": "78%",
       "ai_over25_view": "80%",
       "ai_over25_prob": "80%",
-      "ai_key_fact": "xG cumulé élevé de 4.15 basé sur 8 matchs réels.",
-      "ai_analysis": "Philadelphia Union (xG 2.27) accueille Inter Miami CF (xG 1.88) dans une configuration très offensive. Les indicateurs penchent nettement pour un match animé avec 76.0% de probabilité BTTS et 78.3% pour l'Over 2.5. La fiabilité est excellente à 91.98%."
+      "ai_key_fact": "xG cumulé de 4.15 basé sur un échantillon de 8 matchs réels.",
+      "ai_analysis": "Philadelphia Union présente un xG de 2.27 face à Inter Miami CF et ses 1.88 xG. Les prédictions indiquent un BTTS à 76.0% et un Over 2.5 à 78.3%. L'indice de fiabilité est robuste à 91.98% avec des données qualifiées de élevées."
     },
     {
       "id": "torontof-vs-charlott-2026-08-19",
@@ -345,13 +345,13 @@
       "homeLambda": 1.65,
       "awayLambda": 2,
       "ai_exact_score": "2-2",
-      "exact_score_prob": "14%",
+      "exact_score_prob": "15%",
       "ai_btts_view": "71%",
       "ai_btts_prob": "71%",
       "ai_over25_view": "72%",
       "ai_over25_prob": "72%",
-      "ai_key_fact": "xG cumulé de 3.65 avec une production solide de Toronto et Charlotte.",
-      "ai_analysis": "Toronto FC (xG 1.65) affronte Charlotte FC (xG 2.00) sur la base de 8 matchs réels. Le modèle statistique anticipe une rencontre ouverte avec un BTTS évalué à 69.9% et un Over 2.5 à 70.6%. La fiabilité globale atteint un niveau élevé de 89.31%."
+      "ai_key_fact": "xG cumulé de 3.65 avec 8 matchs réels pour chaque équipe.",
+      "ai_analysis": "Toronto FC enregistre un xG de 1.65 contre 2.00 pour Charlotte FC. La probabilité BTTS s'établit à 69.9% et l'Over 2.5 à 70.6%. La fiabilité globale s'élève à 89.31% avec une haute qualité de données."
     },
     {
       "id": "columbus-vs-cfmontra-2026-08-19",
@@ -414,14 +414,14 @@
       "over25Prob": 0.7202,
       "homeLambda": 2.23,
       "awayLambda": 1.5,
-      "ai_exact_score": "3-1",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "71%",
-      "ai_btts_prob": "71%",
-      "ai_over25_view": "74%",
-      "ai_over25_prob": "74%",
-      "ai_key_fact": "Columbus Crew domine les xG à domicile avec 2.23 pour un total cumulé de 3.73.",
-      "ai_analysis": "Face à CF Montréal (xG 1.50), Columbus Crew (xG 2.23) possède un net avantage statistique sur 8 matchs réels. La probabilité BTTS est de 69.4% et l'Over 2.5 atteint 72.0%. La qualité des données est élevée avec une fiabilité de 89.1%."
+      "ai_exact_score": "2-1",
+      "exact_score_prob": "16%",
+      "ai_btts_view": "70%",
+      "ai_btts_prob": "70%",
+      "ai_over25_view": "73%",
+      "ai_over25_prob": "73%",
+      "ai_key_fact": "xG cumulé de 3.73 basé sur 8 matchs réels analysés.",
+      "ai_analysis": "Columbus Crew affiche un xG de 2.23 dominant les 1.50 xG de CF Montréal. Les indicateurs affichent une probabilité BTTS de 69.4% et un Over 2.5 de 72.0%. La fiabilité de cette analyse est de 89.1% avec une qualité de données haute."
     },
     {
       "id": "dcunited-vs-newengla-2026-08-19",
@@ -484,14 +484,14 @@
       "over25Prob": 0.6943,
       "homeLambda": 1.98,
       "awayLambda": 1.6,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "14%",
+      "ai_exact_score": "2-2",
+      "exact_score_prob": "15%",
       "ai_btts_view": "70%",
       "ai_btts_prob": "70%",
       "ai_over25_view": "71%",
       "ai_over25_prob": "71%",
-      "ai_key_fact": "xG cumulé de 3.58 entre D.C. United et New England Revolution.",
-      "ai_analysis": "D.C. United (xG 1.98) et New England Revolution (xG 1.60) affichent des statistiques cohérentes sur 8 matchs réels. Le BTTS est estimé à 68.8% et l'Over 2.5 à 69.4%. La fiabilité de l'analyse est solide à 88.86%."
+      "ai_key_fact": "xG cumulé de 3.58 issu de 8 matchs réels par formation.",
+      "ai_analysis": "D.C. United possède un xG de 1.98 face à New England Revolution qui totalise 1.60 xG. Le modèle évalue le BTTS à 68.8% et l'Over 2.5 à 69.4%. Cette rencontre bénéficie d'une fiabilité de 88.86% avec des données de haute qualité."
     },
     {
       "id": "orlandoc-vs-chicagof-2026-08-19",
@@ -555,13 +555,13 @@
       "homeLambda": 1.9,
       "awayLambda": 1.63,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "14%",
-      "ai_btts_view": "70%",
-      "ai_btts_prob": "70%",
+      "exact_score_prob": "16%",
+      "ai_btts_view": "69%",
+      "ai_btts_prob": "69%",
       "ai_over25_view": "70%",
       "ai_over25_prob": "70%",
-      "ai_key_fact": "xG cumulé de 3.52 sur un échantillon de 8 matchs réels.",
-      "ai_analysis": "Orlando City SC (xG 1.90) et Chicago Fire FC (xG 1.63) présentent des indices proches de part et d'autre. La probabilité BTTS s'établit à 68.3% tandis que l'Over 2.5 est attendu à 68.4%. La fiabilité atteint 88.63% avec des données de qualité HIGH."
+      "ai_key_fact": "xG cumulé de 3.52 basé sur 8 matchs réels.",
+      "ai_analysis": "Orlando City SC présente un xG de 1.90 contre 1.63 pour Chicago Fire FC. La probabilité BTTS est chiffrée à 68.3% tandis que l'Over 2.5 atteint 68.4%. La fiabilité de l'analyse est de 88.63% avec une qualité de données haute."
     },
     {
       "id": "redbulln-vs-nashvill-2026-08-19",
@@ -624,14 +624,14 @@
       "over25Prob": 0.627,
       "homeLambda": 1.52,
       "awayLambda": 1.71,
-      "ai_exact_score": "2-2",
-      "exact_score_prob": "13%",
+      "ai_exact_score": "1-2",
+      "exact_score_prob": "15%",
       "ai_btts_view": "65%",
       "ai_btts_prob": "65%",
       "ai_over25_view": "64%",
       "ai_over25_prob": "64%",
-      "ai_key_fact": "xG cumulé de 3.23 entre Red Bull New York et Nashville SC.",
-      "ai_analysis": "Red Bull New York (xG 1.52) rencontre Nashville SC (xG 1.71) avec un équilibre notable des xG sur 8 matchs réels. Le modèle projette un BTTS à 64.1% et un Over 2.5 à 62.7%. L'indice de fiabilité est de 86.78%."
+      "ai_key_fact": "xG cumulé de 3.23 avec 8 matchs réels pour chaque club.",
+      "ai_analysis": "Red Bull New York affiche un xG de 1.52 comparativement à 1.71 pour Nashville SC. Le modèle statistique indique un BTTS à 64.1% et un Over 2.5 à 62.7%. L'indice de fiabilité atteint 86.78% grâce à des données de haute qualité."
     },
     {
       "id": "lagalaxy-vs-sanjosee-2026-08-20",
@@ -698,10 +698,10 @@
       "exact_score_prob": "15%",
       "ai_btts_view": "73%",
       "ai_btts_prob": "73%",
-      "ai_over25_view": "75%",
-      "ai_over25_prob": "75%",
-      "ai_key_fact": "San Jose Earthquakes présente un xG à l'extérieur de 2.04 pour un total de 3.78.",
-      "ai_analysis": "LA Galaxy (xG 1.73) et San Jose Earthquakes (xG 2.04) disposent de statistiques offensives percutantes sur 8 matchs réels. Le BTTS est évalué à 71.6% et l'Over 2.5 à 72.7%. La fiabilité atteint 90.09%."
+      "ai_over25_view": "74%",
+      "ai_over25_prob": "74%",
+      "ai_key_fact": "xG cumulé de 3.78 basé sur 8 matchs réels.",
+      "ai_analysis": "LA Galaxy enregistre un xG de 1.73 face aux 2.04 xG de San Jose Earthquakes. La probabilité BTTS est évaluée à 71.6% avec un Over 2.5 à 72.7%. La fiabilité est solide à 90.09% avec une qualité de données haute."
     },
     {
       "id": "seattles-vs-austinfc-2026-08-20",
@@ -765,13 +765,13 @@
       "homeLambda": 2.05,
       "awayLambda": 1.57,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "14%",
-      "ai_btts_view": "71%",
-      "ai_btts_prob": "71%",
-      "ai_over25_view": "72%",
-      "ai_over25_prob": "72%",
-      "ai_key_fact": "Seattle Sounders affiche un xG de 2.05 pour un total cumulé de 3.63.",
-      "ai_analysis": "Seattle Sounders FC (xG 2.05) reçoit Austin FC (xG 1.57) sur la base de 8 matchs réels. Le modèle statistique indique un BTTS à 69.1% et un Over 2.5 à 70.2%. La fiabilité de la prévision est de 88.98%."
+      "exact_score_prob": "16%",
+      "ai_btts_view": "70%",
+      "ai_btts_prob": "70%",
+      "ai_over25_view": "71%",
+      "ai_over25_prob": "71%",
+      "ai_key_fact": "xG cumulé de 3.63 basé sur 8 matchs réels.",
+      "ai_analysis": "Seattle Sounders FC présente un xG de 2.05 face à Austin FC et ses 1.57 xG. Les statistiques indiquent un BTTS de 69.1% et un Over 2.5 de 70.2%. La fiabilité de l'analyse est de 88.98% avec des données de haute qualité."
     },
     {
       "id": "sporting-vs-stlouisc-2026-08-20",
@@ -835,13 +835,13 @@
       "homeLambda": 1.4,
       "awayLambda": 1.92,
       "ai_exact_score": "1-2",
-      "exact_score_prob": "14%",
-      "ai_btts_view": "66%",
-      "ai_btts_prob": "66%",
+      "exact_score_prob": "15%",
+      "ai_btts_view": "65%",
+      "ai_btts_prob": "65%",
       "ai_over25_view": "66%",
       "ai_over25_prob": "66%",
-      "ai_key_fact": "St. Louis CITY SC domine légèrement les xG à l'extérieur avec 1.92.",
-      "ai_analysis": "Sporting Kansas City (xG 1.40) affronte St. Louis CITY SC (xG 1.92) avec un xG cumulé de 3.32 sur 8 matchs réels. La probabilité BTTS est de 64.3% et l'Over 2.5 atteint 64.4%. La fiabilité s'établit à 86.86%."
+      "ai_key_fact": "xG cumulé de 3.32 avec 8 matchs réels par équipe.",
+      "ai_analysis": "Sporting Kansas City affiche un xG de 1.40 contre 1.92 pour St. Louis CITY SC. La probabilité BTTS est estimée à 64.3% et l'Over 2.5 à 64.4%. L'évaluation présente une fiabilité de 86.86% avec une qualité de données haute."
     }
   ],
   "vipPreview": [
@@ -907,13 +907,13 @@
       "homeLambda": 1.73,
       "awayLambda": 1.08,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "56%",
-      "ai_btts_prob": "56%",
-      "ai_over25_view": "55%",
-      "ai_over25_prob": "55%",
-      "ai_key_fact": "xG cumulé modéré de 2.82 entre Real Salt Lake et FC Dallas.",
-      "ai_analysis": "Real Salt Lake (xG 1.73) part favori face à FC Dallas (xG 1.08) selon les 8 matchs réels analysés. Le BTTS est estimé à 54.5% et l'Over 2.5 à 53.4%. La fiabilité globale est de 80.08%."
+      "exact_score_prob": "16%",
+      "ai_btts_view": "55%",
+      "ai_btts_prob": "55%",
+      "ai_over25_view": "54%",
+      "ai_over25_prob": "54%",
+      "ai_key_fact": "xG cumulé de 2.82 basé sur 8 matchs réels.",
+      "ai_analysis": "Real Salt Lake totalise un xG de 1.73 face à FC Dallas qui enregistre 1.08 xG. Le modèle prévoit un BTTS à 54.5% et un Over 2.5 à 53.4%. La fiabilité globale est de 80.08% avec une qualité de données haute."
     },
     {
       "id": "portland-vs-sandiego-2026-08-20",
@@ -977,13 +977,13 @@
       "homeLambda": 1.4,
       "awayLambda": 1.25,
       "ai_exact_score": "1-1",
-      "exact_score_prob": "16%",
-      "ai_btts_view": "55%",
-      "ai_btts_prob": "55%",
-      "ai_over25_view": "48%",
-      "ai_over25_prob": "48%",
-      "ai_key_fact": "xG cumulé de 2.65 avec une prédiction Over 2.5 invalidée.",
-      "ai_analysis": "Portland Timbers (xG 1.40) et San Diego FC (xG 1.25) présentent des statistiques serrées sur 8 matchs réels. Le BTTS est prévu à 53.8% mais l'Over 2.5 est sous la barre des 50% (49.4%). La fiabilité est de 77.27%."
+      "exact_score_prob": "17%",
+      "ai_btts_view": "54%",
+      "ai_btts_prob": "54%",
+      "ai_over25_view": "49%",
+      "ai_over25_prob": "49%",
+      "ai_key_fact": "xG cumulé de 2.65 avec 8 matchs réels par formation.",
+      "ai_analysis": "Portland Timbers présente un xG de 1.40 contre 1.25 pour San Diego FC. La probabilité BTTS est calculée à 53.8% tandis que l'Over 2.5 est évalué à 49.4% avec une prédiction Non. La fiabilité s'établit à 77.27% avec une haute qualité de données."
     },
     {
       "id": "colorado-vs-lafc-2026-08-20",
@@ -1047,13 +1047,13 @@
       "homeLambda": 1.4,
       "awayLambda": 1.18,
       "ai_exact_score": "1-1",
-      "exact_score_prob": "16%",
-      "ai_btts_view": "53%",
-      "ai_btts_prob": "53%",
-      "ai_over25_view": "46%",
-      "ai_over25_prob": "46%",
-      "ai_key_fact": "xG cumulé de 2.58 avec une tendance prudente sur les buts.",
-      "ai_analysis": "Colorado Rapids (xG 1.40) et LAFC (xG 1.18) affichent des chiffres mesurés sur 8 matchs réels. Le BTTS est évalué à 52.1%, tandis que l'Over 2.5 est prédit négatif à 47.5%. La fiabilité atteint 76.53%."
+      "exact_score_prob": "17%",
+      "ai_btts_view": "52%",
+      "ai_btts_prob": "52%",
+      "ai_over25_view": "47%",
+      "ai_over25_prob": "47%",
+      "ai_key_fact": "xG cumulé de 2.58 basé sur 8 matchs réels.",
+      "ai_analysis": "Colorado Rapids affiche un xG de 1.40 face à LAFC et ses 1.18 xG. Les indicateurs montrent un BTTS de 52.1% et un Over 2.5 à 47.5% avec une prédiction Non. La fiabilité est de 76.53% avec des données de haute qualité."
     },
     {
       "id": "minnesot-vs-atlantau-2026-08-20",
@@ -1117,13 +1117,13 @@
       "homeLambda": 1.63,
       "awayLambda": 1,
       "ai_exact_score": "1-1",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "52%",
-      "ai_btts_prob": "52%",
-      "ai_over25_view": "48%",
-      "ai_over25_prob": "48%",
-      "ai_key_fact": "xG cumulé de 2.63 avec une attaque d'Atlanta limitée à 1.00.",
-      "ai_analysis": "Minnesota United FC (xG 1.63) et Atlanta United FC (xG 1.00) affichent des volumes offensifs restreints sur 8 matchs réels. Le BTTS est tout juste positif à 50.9%, mais l'Over 2.5 est rejeté à 49.0%. Fiabilité de 76%."
+      "exact_score_prob": "17%",
+      "ai_btts_view": "51%",
+      "ai_btts_prob": "51%",
+      "ai_over25_view": "49%",
+      "ai_over25_prob": "49%",
+      "ai_key_fact": "xG cumulé de 2.63 avec 8 matchs réels par équipe.",
+      "ai_analysis": "Minnesota United FC possède un xG de 1.63 contre 1.00 pour Atlanta United FC. Le modèle statistique indique un BTTS à 50.9% et un Over 2.5 à 49.0% avec une prédiction Non. La fiabilité atteint 76.0% avec une qualité de données haute."
     },
     {
       "id": "vancouve-vs-houstond-2026-08-20",
@@ -1187,13 +1187,13 @@
       "homeLambda": 1.15,
       "awayLambda": 1.13,
       "ai_exact_score": "1-1",
-      "exact_score_prob": "17%",
-      "ai_btts_view": "45%",
-      "ai_btts_prob": "45%",
+      "exact_score_prob": "18%",
+      "ai_btts_view": "46%",
+      "ai_btts_prob": "46%",
       "ai_over25_view": "40%",
       "ai_over25_prob": "40%",
-      "ai_key_fact": "xG cumulé faible de 2.27 avec des prédictions négatives pour le BTTS.",
-      "ai_analysis": "Vancouver Whitecaps (xG 1.15) et Houston Dynamo FC (xG 1.13) proposent des indicateurs faibles sur 8 matchs réels. Le BTTS est prédit non (46.2%) et l'Over 2.5 est également écarté (39.7%). La fiabilité s'établit à 70.19%."
+      "ai_key_fact": "xG cumulé faible de 2.27 basé sur 8 matchs réels.",
+      "ai_analysis": "Vancouver Whitecaps enregistre un xG de 1.15 face à Houston Dynamo FC et ses 1.13 xG. La probabilité BTTS est de 46.2% avec une prédiction Non, et l'Over 2.5 est de 39.7% également prédit Non. La fiabilité est de 70.19% avec une haute qualité de données."
     },
     {
       "id": "standard-vs-raallalo-2026-08-21",
@@ -1258,12 +1258,12 @@
       "awayLambda": 1.28,
       "ai_exact_score": "2-1",
       "exact_score_prob": "14%",
-      "ai_btts_view": "61%",
-      "ai_btts_prob": "61%",
-      "ai_over25_view": "59%",
-      "ai_over25_prob": "59%",
-      "ai_key_fact": "xG cumulé de 3.00 basé sur un échantillon réduit de 2 matchs réels.",
-      "ai_analysis": "Standard Liege (xG 1.72) et RAAL La Louvière (xG 1.28) montrent un profil de buts intéressant. Le modèle attribue 59.3% au BTTS et 57.7% à l'Over 2.5. La qualité des données est faible avec une fiabilité de 64.19%."
+      "ai_btts_view": "60%",
+      "ai_btts_prob": "60%",
+      "ai_over25_view": "58%",
+      "ai_over25_prob": "58%",
+      "ai_key_fact": "xG cumulé de 3.00 basé sur 2 matchs réels par club.",
+      "ai_analysis": "Standard Liege présente un xG de 1.72 contre 1.28 pour RAAL La Louvière. L'analyse statistique indique une probabilité BTTS de 59.3% et un Over 2.5 à 57.7%. La fiabilité est de 64.19% dans un contexte de qualité de données faible."
     },
     {
       "id": "arsenal-vs-coventry-2026-08-21",
@@ -1328,12 +1328,12 @@
       "awayLambda": 1.27,
       "ai_exact_score": "2-1",
       "exact_score_prob": "14%",
-      "ai_btts_view": "60%",
-      "ai_btts_prob": "60%",
-      "ai_over25_view": "58%",
-      "ai_over25_prob": "58%",
-      "ai_key_fact": "Arsenal et Coventry City enregistrent un xG cumulé de 2.97.",
-      "ai_analysis": "Arsenal (xG 1.70) et Coventry City (xG 1.27) n'ont pas de matchs réels enregistrés dans la base actuelle. Les probabilités calculées indiquent 58.8% pour le BTTS et 57.0% pour l'Over 2.5. Fiabilité de 63.96% avec des données de qualité LOW."
+      "ai_btts_view": "59%",
+      "ai_btts_prob": "59%",
+      "ai_over25_view": "57%",
+      "ai_over25_prob": "57%",
+      "ai_key_fact": "xG cumulé de 2.97 avec 0 match réel enregistré.",
+      "ai_analysis": "Arsenal dispose d'un xG estimé à 1.70 face à Coventry City qui totalise 1.27 xG. Le modèle évalue le BTTS à 58.8% et l'Over 2.5 à 57.0%. L'indice de fiabilité est de 63.96% avec une qualité de données faible."
     },
     {
       "id": "svjoskor-vs-grazerak-2026-08-21",
@@ -1398,12 +1398,12 @@
       "awayLambda": 1.26,
       "ai_exact_score": "2-1",
       "exact_score_prob": "14%",
-      "ai_btts_view": "60%",
-      "ai_btts_prob": "60%",
-      "ai_over25_view": "57%",
-      "ai_over25_prob": "57%",
-      "ai_key_fact": "xG cumulé de 2.95 établi sur 3 matchs réels.",
-      "ai_analysis": "SV Josko Ried (xG 1.69) et Grazer AK (xG 1.26) affichent des statistiques proches de la moyenne de 3 buts. Le BTTS est estimé à 58.4% et l'Over 2.5 à 56.5%. La qualité des données reste faible avec une fiabilité de 63.81%."
+      "ai_btts_view": "58%",
+      "ai_btts_prob": "58%",
+      "ai_over25_view": "56%",
+      "ai_over25_prob": "56%",
+      "ai_key_fact": "xG cumulé de 2.95 basé sur 3 matchs réels par équipe.",
+      "ai_analysis": "SV Josko Ried affiche un xG de 1.69 comparativement à 1.26 pour Grazer AK. La probabilité BTTS calculée est de 58.4% et l'Over 2.5 atteint 56.5%. La fiabilité de cette analyse est de 63.81% avec des données de qualité faible."
     }
   ],
   "stats": {
@@ -1482,8 +1482,8 @@
       "ai_btts_prob": "59%",
       "ai_over25_view": "56%",
       "ai_over25_prob": "56%",
-      "ai_key_fact": "Casa Pia et Benfica affichent un xG cumulé de 2.87 selon les données.",
-      "ai_analysis": "L'analyse statistique de Casa Pia (xG 1.65) face à Benfica (xG 1.22) montre un potentiel offensif modéré. Les probabilités indiquent une tendance favorable au BTTS à 57.0% et à l'Over 2.5 à 54.7%. La qualité des données est jugée faible en raison d'un historique limité à 1 match réel."
+      "ai_key_fact": "xG cumulé de 2.87 basé sur 1 match réel pour chaque équipe.",
+      "ai_analysis": "Casa Pia affiche un xG de 1.65 tandis que Benfica présente un xG de 1.22 sur la base de leurs données actuelles. L'analyse statistique indique une probabilité BTTS de 57.0% et un Over 2.5 à 54.7%. La fiabilité globale de cette confrontation est de 63.18% avec une qualité de données jugée faible."
     },
     {
       "id": "cardiffc-vs-wrexham-2026-08-17",
@@ -1552,8 +1552,8 @@
       "ai_btts_prob": "58%",
       "ai_over25_view": "55%",
       "ai_over25_prob": "55%",
-      "ai_key_fact": "Cardiff City et Wrexham totalisent un xG cumulé de 2.83.",
-      "ai_analysis": "Ce duel entre Cardiff City (xG 1.62) et Wrexham (xG 1.21) présente un profil équilibré. Le modèle évalue le BTTS à 56.2% et l'Over 2.5 à 53.8%. Aucune donnée réelle n'est encore disponible pour ces équipes dans cette base, classant la fiabilité à 62.86%."
+      "ai_key_fact": "xG cumulé de 2.83 avec 0 match réel enregistré pour les deux formations.",
+      "ai_analysis": "Cardiff City dispose d'un xG estimé de 1.62 contre 1.21 pour Wrexham. La probabilité BTTS calculée est de 56.2% avec un Over 2.5 à 53.8%. Les statistiques affichent une fiabilité de 62.86% dans un contexte de données de qualité faible."
     },
     {
       "id": "fccincin-vs-newyorkc-2026-08-19",
@@ -1622,8 +1622,8 @@
       "ai_btts_prob": "85%",
       "ai_over25_view": "88%",
       "ai_over25_prob": "88%",
-      "ai_key_fact": "Forte production offensive avec un xG cumulé de 4.90 pour les deux formations.",
-      "ai_analysis": "FC Cincinnati (xG 2.77) et New York City FC (xG 2.13) affichent des statistiques offensives très élevées sur 8 matchs réels. La probabilité BTTS atteint 82.6% tandis que l'Over 2.5 culmine à 86.7%. La fiabilité des données est maximale à 93.75% (qualité HIGH)."
+      "ai_key_fact": "xG cumulé élevé de 4.90 soutenu par 8 matchs réels par équipe.",
+      "ai_analysis": "FC Cincinnati démontre une solide force offensive avec un xG de 2.77, complété par New York City FC à 2.13. Le modèle statistique indique une probabilité BTTS importante de 82.6% et un Over 2.5 à 86.7%. La fiabilité atteint 93.75% grâce à une haute qualité de données."
     },
     {
       "id": "philadel-vs-intermia-2026-08-19",
@@ -1692,8 +1692,8 @@
       "ai_btts_prob": "78%",
       "ai_over25_view": "80%",
       "ai_over25_prob": "80%",
-      "ai_key_fact": "xG cumulé élevé de 4.15 basé sur 8 matchs réels.",
-      "ai_analysis": "Philadelphia Union (xG 2.27) accueille Inter Miami CF (xG 1.88) dans une configuration très offensive. Les indicateurs penchent nettement pour un match animé avec 76.0% de probabilité BTTS et 78.3% pour l'Over 2.5. La fiabilité est excellente à 91.98%."
+      "ai_key_fact": "xG cumulé de 4.15 basé sur un échantillon de 8 matchs réels.",
+      "ai_analysis": "Philadelphia Union présente un xG de 2.27 face à Inter Miami CF et ses 1.88 xG. Les prédictions indiquent un BTTS à 76.0% et un Over 2.5 à 78.3%. L'indice de fiabilité est robuste à 91.98% avec des données qualifiées de élevées."
     },
     {
       "id": "torontof-vs-charlott-2026-08-19",
@@ -1757,13 +1757,13 @@
       "homeLambda": 1.65,
       "awayLambda": 2,
       "ai_exact_score": "2-2",
-      "exact_score_prob": "14%",
+      "exact_score_prob": "15%",
       "ai_btts_view": "71%",
       "ai_btts_prob": "71%",
       "ai_over25_view": "72%",
       "ai_over25_prob": "72%",
-      "ai_key_fact": "xG cumulé de 3.65 avec une production solide de Toronto et Charlotte.",
-      "ai_analysis": "Toronto FC (xG 1.65) affronte Charlotte FC (xG 2.00) sur la base de 8 matchs réels. Le modèle statistique anticipe une rencontre ouverte avec un BTTS évalué à 69.9% et un Over 2.5 à 70.6%. La fiabilité globale atteint un niveau élevé de 89.31%."
+      "ai_key_fact": "xG cumulé de 3.65 avec 8 matchs réels pour chaque équipe.",
+      "ai_analysis": "Toronto FC enregistre un xG de 1.65 contre 2.00 pour Charlotte FC. La probabilité BTTS s'établit à 69.9% et l'Over 2.5 à 70.6%. La fiabilité globale s'élève à 89.31% avec une haute qualité de données."
     },
     {
       "id": "columbus-vs-cfmontra-2026-08-19",
@@ -1826,14 +1826,14 @@
       "over25Prob": 0.7202,
       "homeLambda": 2.23,
       "awayLambda": 1.5,
-      "ai_exact_score": "3-1",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "71%",
-      "ai_btts_prob": "71%",
-      "ai_over25_view": "74%",
-      "ai_over25_prob": "74%",
-      "ai_key_fact": "Columbus Crew domine les xG à domicile avec 2.23 pour un total cumulé de 3.73.",
-      "ai_analysis": "Face à CF Montréal (xG 1.50), Columbus Crew (xG 2.23) possède un net avantage statistique sur 8 matchs réels. La probabilité BTTS est de 69.4% et l'Over 2.5 atteint 72.0%. La qualité des données est élevée avec une fiabilité de 89.1%."
+      "ai_exact_score": "2-1",
+      "exact_score_prob": "16%",
+      "ai_btts_view": "70%",
+      "ai_btts_prob": "70%",
+      "ai_over25_view": "73%",
+      "ai_over25_prob": "73%",
+      "ai_key_fact": "xG cumulé de 3.73 basé sur 8 matchs réels analysés.",
+      "ai_analysis": "Columbus Crew affiche un xG de 2.23 dominant les 1.50 xG de CF Montréal. Les indicateurs affichent une probabilité BTTS de 69.4% et un Over 2.5 de 72.0%. La fiabilité de cette analyse est de 89.1% avec une qualité de données haute."
     },
     {
       "id": "dcunited-vs-newengla-2026-08-19",
@@ -1896,14 +1896,14 @@
       "over25Prob": 0.6943,
       "homeLambda": 1.98,
       "awayLambda": 1.6,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "14%",
+      "ai_exact_score": "2-2",
+      "exact_score_prob": "15%",
       "ai_btts_view": "70%",
       "ai_btts_prob": "70%",
       "ai_over25_view": "71%",
       "ai_over25_prob": "71%",
-      "ai_key_fact": "xG cumulé de 3.58 entre D.C. United et New England Revolution.",
-      "ai_analysis": "D.C. United (xG 1.98) et New England Revolution (xG 1.60) affichent des statistiques cohérentes sur 8 matchs réels. Le BTTS est estimé à 68.8% et l'Over 2.5 à 69.4%. La fiabilité de l'analyse est solide à 88.86%."
+      "ai_key_fact": "xG cumulé de 3.58 issu de 8 matchs réels par formation.",
+      "ai_analysis": "D.C. United possède un xG de 1.98 face à New England Revolution qui totalise 1.60 xG. Le modèle évalue le BTTS à 68.8% et l'Over 2.5 à 69.4%. Cette rencontre bénéficie d'une fiabilité de 88.86% avec des données de haute qualité."
     },
     {
       "id": "orlandoc-vs-chicagof-2026-08-19",
@@ -1967,13 +1967,13 @@
       "homeLambda": 1.9,
       "awayLambda": 1.63,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "14%",
-      "ai_btts_view": "70%",
-      "ai_btts_prob": "70%",
+      "exact_score_prob": "16%",
+      "ai_btts_view": "69%",
+      "ai_btts_prob": "69%",
       "ai_over25_view": "70%",
       "ai_over25_prob": "70%",
-      "ai_key_fact": "xG cumulé de 3.52 sur un échantillon de 8 matchs réels.",
-      "ai_analysis": "Orlando City SC (xG 1.90) et Chicago Fire FC (xG 1.63) présentent des indices proches de part et d'autre. La probabilité BTTS s'établit à 68.3% tandis que l'Over 2.5 est attendu à 68.4%. La fiabilité atteint 88.63% avec des données de qualité HIGH."
+      "ai_key_fact": "xG cumulé de 3.52 basé sur 8 matchs réels.",
+      "ai_analysis": "Orlando City SC présente un xG de 1.90 contre 1.63 pour Chicago Fire FC. La probabilité BTTS est chiffrée à 68.3% tandis que l'Over 2.5 atteint 68.4%. La fiabilité de l'analyse est de 88.63% avec une qualité de données haute."
     },
     {
       "id": "redbulln-vs-nashvill-2026-08-19",
@@ -2036,14 +2036,14 @@
       "over25Prob": 0.627,
       "homeLambda": 1.52,
       "awayLambda": 1.71,
-      "ai_exact_score": "2-2",
-      "exact_score_prob": "13%",
+      "ai_exact_score": "1-2",
+      "exact_score_prob": "15%",
       "ai_btts_view": "65%",
       "ai_btts_prob": "65%",
       "ai_over25_view": "64%",
       "ai_over25_prob": "64%",
-      "ai_key_fact": "xG cumulé de 3.23 entre Red Bull New York et Nashville SC.",
-      "ai_analysis": "Red Bull New York (xG 1.52) rencontre Nashville SC (xG 1.71) avec un équilibre notable des xG sur 8 matchs réels. Le modèle projette un BTTS à 64.1% et un Over 2.5 à 62.7%. L'indice de fiabilité est de 86.78%."
+      "ai_key_fact": "xG cumulé de 3.23 avec 8 matchs réels pour chaque club.",
+      "ai_analysis": "Red Bull New York affiche un xG de 1.52 comparativement à 1.71 pour Nashville SC. Le modèle statistique indique un BTTS à 64.1% et un Over 2.5 à 62.7%. L'indice de fiabilité atteint 86.78% grâce à des données de haute qualité."
     },
     {
       "id": "lagalaxy-vs-sanjosee-2026-08-20",
@@ -2110,10 +2110,10 @@
       "exact_score_prob": "15%",
       "ai_btts_view": "73%",
       "ai_btts_prob": "73%",
-      "ai_over25_view": "75%",
-      "ai_over25_prob": "75%",
-      "ai_key_fact": "San Jose Earthquakes présente un xG à l'extérieur de 2.04 pour un total de 3.78.",
-      "ai_analysis": "LA Galaxy (xG 1.73) et San Jose Earthquakes (xG 2.04) disposent de statistiques offensives percutantes sur 8 matchs réels. Le BTTS est évalué à 71.6% et l'Over 2.5 à 72.7%. La fiabilité atteint 90.09%."
+      "ai_over25_view": "74%",
+      "ai_over25_prob": "74%",
+      "ai_key_fact": "xG cumulé de 3.78 basé sur 8 matchs réels.",
+      "ai_analysis": "LA Galaxy enregistre un xG de 1.73 face aux 2.04 xG de San Jose Earthquakes. La probabilité BTTS est évaluée à 71.6% avec un Over 2.5 à 72.7%. La fiabilité est solide à 90.09% avec une qualité de données haute."
     },
     {
       "id": "seattles-vs-austinfc-2026-08-20",
@@ -2177,13 +2177,13 @@
       "homeLambda": 2.05,
       "awayLambda": 1.57,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "14%",
-      "ai_btts_view": "71%",
-      "ai_btts_prob": "71%",
-      "ai_over25_view": "72%",
-      "ai_over25_prob": "72%",
-      "ai_key_fact": "Seattle Sounders affiche un xG de 2.05 pour un total cumulé de 3.63.",
-      "ai_analysis": "Seattle Sounders FC (xG 2.05) reçoit Austin FC (xG 1.57) sur la base de 8 matchs réels. Le modèle statistique indique un BTTS à 69.1% et un Over 2.5 à 70.2%. La fiabilité de la prévision est de 88.98%."
+      "exact_score_prob": "16%",
+      "ai_btts_view": "70%",
+      "ai_btts_prob": "70%",
+      "ai_over25_view": "71%",
+      "ai_over25_prob": "71%",
+      "ai_key_fact": "xG cumulé de 3.63 basé sur 8 matchs réels.",
+      "ai_analysis": "Seattle Sounders FC présente un xG de 2.05 face à Austin FC et ses 1.57 xG. Les statistiques indiquent un BTTS de 69.1% et un Over 2.5 de 70.2%. La fiabilité de l'analyse est de 88.98% avec des données de haute qualité."
     },
     {
       "id": "sporting-vs-stlouisc-2026-08-20",
@@ -2247,13 +2247,13 @@
       "homeLambda": 1.4,
       "awayLambda": 1.92,
       "ai_exact_score": "1-2",
-      "exact_score_prob": "14%",
-      "ai_btts_view": "66%",
-      "ai_btts_prob": "66%",
+      "exact_score_prob": "15%",
+      "ai_btts_view": "65%",
+      "ai_btts_prob": "65%",
       "ai_over25_view": "66%",
       "ai_over25_prob": "66%",
-      "ai_key_fact": "St. Louis CITY SC domine légèrement les xG à l'extérieur avec 1.92.",
-      "ai_analysis": "Sporting Kansas City (xG 1.40) affronte St. Louis CITY SC (xG 1.92) avec un xG cumulé de 3.32 sur 8 matchs réels. La probabilité BTTS est de 64.3% et l'Over 2.5 atteint 64.4%. La fiabilité s'établit à 86.86%."
+      "ai_key_fact": "xG cumulé de 3.32 avec 8 matchs réels par équipe.",
+      "ai_analysis": "Sporting Kansas City affiche un xG de 1.40 contre 1.92 pour St. Louis CITY SC. La probabilité BTTS est estimée à 64.3% et l'Over 2.5 à 64.4%. L'évaluation présente une fiabilité de 86.86% avec une qualité de données haute."
     }
   ]
 }
