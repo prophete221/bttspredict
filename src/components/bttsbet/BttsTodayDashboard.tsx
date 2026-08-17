@@ -79,6 +79,21 @@ interface RawPrediction {
   ai_analysis?: string
 }
 
+interface DashboardLabels {
+  exactScore: string
+  projection: string
+  source: string
+  quality: string
+  matches: string
+  dataConfidence: string
+  aiAnalysis: string
+  score: string
+  xgHome: string
+  xgAway: string
+  xgTotal: string
+  openMatch: string
+}
+
 interface MatchData {
   key: string
   home: string
@@ -174,6 +189,12 @@ function qualityColor(q?: string): string {
   return C.textSec
 }
 
+function hasSufficientData(match: MatchData): boolean {
+  const quality = (match.dataQuality || '').toUpperCase()
+  const sampleSize = (match.matchCountHome ?? 0) + (match.matchCountAway ?? 0)
+  return quality !== 'LOW' && sampleSize >= 2
+}
+
 // ─── Team Logo (compact, dashboard-grade) ───────────────────────────────
 function TeamLogo({ src, name, size = 36 }: { src?: string; name: string; size?: number }) {
   const [err, setErr] = useState(false)
@@ -265,12 +286,13 @@ function DataBadge({ label, value, accent }: { label: string; value: string; acc
 }
 
 // ─── Match Card — terminal-style ─────────────────────────────────────────
-function MatchCard({ match, index }: { match: MatchData; index: number }) {
+function MatchCard({ match, index, insufficientDataLabel, labels }: { match: MatchData; index: number; insufficientDataLabel: string; labels: DashboardLabels }) {
   const [expanded, setExpanded] = useState(false)
 
   const dataSourceLabel = normalizeDataSource(match.dataSource)
   const quality = match.dataQuality?.toUpperCase() || '—'
   const qualityColorVal = qualityColor(match.dataQuality)
+  const sufficientData = hasSufficientData(match)
 
   return (
     <article
@@ -320,28 +342,28 @@ function MatchCard({ match, index }: { match: MatchData; index: number }) {
       {/* ─── PROBABILITIES — primary block ─── */}
       <div className="px-3 pb-3">
         <div className="grid grid-cols-2 gap-1.5 mb-2">
-          <ProbBlock label="BTTS" value={fmtPct(match.bttsProb)} accent={C.success} />
-          <ProbBlock label="Over 2.5" value={fmtPct(match.over25Prob)} accent={C.warning} />
+          <ProbBlock label="BTTS" value={sufficientData ? fmtPct(match.bttsProb) : '—'} accent={C.success} />
+          <ProbBlock label="Over 2.5" value={sufficientData ? fmtPct(match.over25Prob) : '—'} accent={C.warning} />
         </div>
 
         {/* xG row */}
         <div className="grid grid-cols-3 gap-1.5">
           <div className="rounded-md p-2 text-center" style={{ backgroundColor: `${C.data}08` }}>
-            <div className="text-[7px] uppercase tracking-wider font-bold mb-0.5" style={{ color: C.textSec }}>xG Home</div>
+            <div className="text-[7px] uppercase tracking-wider font-bold mb-0.5" style={{ color: C.textSec }}>{labels.xgHome}</div>
             <div className="text-[11px] font-black tabular-nums" style={{ color: C.data }}>
-              {fmtNum(match.homeLambda ?? match.xgHome)}
+              {sufficientData ? fmtNum(match.homeLambda ?? match.xgHome) : '—'}
             </div>
           </div>
           <div className="rounded-md p-2 text-center" style={{ backgroundColor: `${C.data}08` }}>
-            <div className="text-[7px] uppercase tracking-wider font-bold mb-0.5" style={{ color: C.textSec }}>xG Away</div>
+            <div className="text-[7px] uppercase tracking-wider font-bold mb-0.5" style={{ color: C.textSec }}>{labels.xgAway}</div>
             <div className="text-[11px] font-black tabular-nums" style={{ color: C.data }}>
-              {fmtNum(match.awayLambda ?? match.xgAway)}
+              {sufficientData ? fmtNum(match.awayLambda ?? match.xgAway) : '—'}
             </div>
           </div>
           <div className="rounded-md p-2 text-center" style={{ backgroundColor: `${C.data}08` }}>
-            <div className="text-[7px] uppercase tracking-wider font-bold mb-0.5" style={{ color: C.textSec }}>xG Total</div>
+            <div className="text-[7px] uppercase tracking-wider font-bold mb-0.5" style={{ color: C.textSec }}>{labels.xgTotal}</div>
             <div className="text-[11px] font-black tabular-nums" style={{ color: C.data }}>
-              {fmtNum(match.xgTotal ?? ((match.homeLambda ?? match.xgHome ?? 0) + (match.awayLambda ?? match.xgAway ?? 0)))}
+              {sufficientData ? fmtNum(match.xgTotal ?? ((match.homeLambda ?? match.xgHome ?? 0) + (match.awayLambda ?? match.xgAway ?? 0))) : '—'}
             </div>
           </div>
         </div>
@@ -352,19 +374,19 @@ function MatchCard({ match, index }: { match: MatchData; index: number }) {
         <div className="rounded-md p-2.5" style={{ backgroundColor: `${C.gold}10`, border: `1px solid ${C.gold}35` }}>
           <div className="flex items-center justify-between gap-2">
             <span className="text-[8px] uppercase tracking-widest font-bold" style={{ color: C.textSec }}>
-              Score exact proposé
+              {labels.exactScore}
             </span>
-            {match.exactScoreProb && (
+            {sufficientData && match.exactScoreProb && (
               <span className="text-[9px] font-mono font-bold" style={{ color: C.gold }}>
                 {match.exactScoreProb}
               </span>
             )}
           </div>
           <div className="mt-1 text-lg font-black tabular-nums" style={{ color: match.aiExactScore ? C.gold : C.textSec }}>
-            {match.aiExactScore || 'Non publié — données insuffisantes'}
+            {sufficientData && match.aiExactScore ? match.aiExactScore : 'Non publié — données insuffisantes'}
           </div>
           <p className="text-[8px] mt-1" style={{ color: C.textMute }}>
-            Projection issue des données disponibles, sans garantie de résultat.
+            {sufficientData ? labels.projection : insufficientDataLabel}
           </p>
         </div>
       </div>
@@ -374,10 +396,10 @@ function MatchCard({ match, index }: { match: MatchData; index: number }) {
         borderTop: `1px solid ${C.border}`,
         backgroundColor: C.surface2,
       }}>
-        <DataBadge label="Source" value={dataSourceLabel} accent={C.data} />
-        <DataBadge label="Quality" value={quality} accent={qualityColorVal} />
+        <DataBadge label={labels.source} value={dataSourceLabel} accent={C.data} />
+        <DataBadge label={labels.quality} value={quality} accent={qualityColorVal} />
         <span className="text-[8px] uppercase tracking-wider font-bold" style={{ color: C.textSec }}>
-          {fmtInt(match.matchCountHome)} + {fmtInt(match.matchCountAway)} matches
+          {fmtInt(match.matchCountHome)} + {fmtInt(match.matchCountAway)} {labels.matches}
         </span>
       </div>
 
@@ -386,7 +408,7 @@ function MatchCard({ match, index }: { match: MatchData; index: number }) {
         <div className="px-3 py-2" style={{ borderTop: `1px solid ${C.border}` }}>
           <div className="flex items-center justify-between mb-1">
             <span className="text-[8px] uppercase tracking-widest font-bold" style={{ color: C.textSec }}>
-              Data Confidence
+              {labels.dataConfidence}
             </span>
             <span className="text-[11px] font-black tabular-nums" style={{ color: C.gold }}>
               {Math.round(match.reliabilityScore)}%
@@ -414,35 +436,35 @@ function MatchCard({ match, index }: { match: MatchData; index: number }) {
               style={{ backgroundColor: C.data, boxShadow: `0 0 6px ${C.data}` }}
             />
             <span className="text-[9px] uppercase tracking-widest font-bold" style={{ color: C.data }}>
-              AI Analysis
+              {labels.aiAnalysis}
             </span>
           </div>
-          {match.aiExactScore && (
+          {sufficientData && match.aiExactScore && (
             <span className="text-[9px] font-mono tabular-nums" style={{ color: C.textSec }}>
-              Score: <span style={{ color: C.gold }}>{match.aiExactScore}</span>
+              {labels.score}: <span style={{ color: C.gold }}>{match.aiExactScore}</span>
               {match.exactScoreProb ? ` (${match.exactScoreProb})` : ''}
             </span>
           )}
         </div>
 
-        {match.aiKeyFact && (
+        {sufficientData && match.aiKeyFact && (
           <p className="text-[10px] font-semibold mb-1" style={{ color: C.text }}>
             {match.aiKeyFact}
           </p>
         )}
-        {!expanded && match.aiAnalysis && (
+        {sufficientData && !expanded && match.aiAnalysis && (
           <p className="text-[10px] leading-relaxed mt-1" style={{ color: C.textSec }}>
             {match.aiAnalysis.length > 180 ? `${match.aiAnalysis.slice(0, 177)}…` : match.aiAnalysis}
           </p>
         )}
-        {expanded && match.aiAnalysis && (
+        {sufficientData && expanded && match.aiAnalysis && (
           <p className="text-[10px] leading-relaxed mt-1" style={{ color: C.textSec }}>
             {match.aiAnalysis}
           </p>
         )}
 
         <div className="flex flex-wrap items-center gap-3 mt-2">
-          {match.aiAnalysis && (
+          {sufficientData && match.aiAnalysis && (
             <button
               onClick={() => setExpanded(e => !e)}
               aria-expanded={expanded}
@@ -458,7 +480,7 @@ function MatchCard({ match, index }: { match: MatchData; index: number }) {
             className="text-[9px] uppercase tracking-widest font-bold transition-colors"
             style={{ color: C.gold }}
           >
-            Ouvrir la page du match →
+            {labels.openMatch} →
           </Link>
         </div>
       </div>
@@ -696,6 +718,9 @@ export default function BttsTodayDashboard() {
       const dq = (m.dataQuality || '').toUpperCase()
       if (dq === 'LOW' || dq === '') continue
 
+      const sampleSize = (m.matchCountHome ?? 0) + (m.matchCountAway ?? 0)
+      if (sampleSize < 2) continue
+
       const rs = m.reliabilityScore ?? 0
       if (!Number.isFinite(rs) || rs < 70) continue
 
@@ -761,6 +786,17 @@ export default function BttsTodayDashboard() {
       return true
     })
   }, [matches, activeFilter])
+
+  const insufficientDataLabel = lang === 'fr'
+    ? 'Projection masquée : échantillon de données insuffisant.'
+    : lang === 'en'
+      ? 'Projection hidden: insufficient data sample.'
+      : 'تم إخفاء التوقع: عينة البيانات غير كافية.'
+  const labels: DashboardLabels = lang === 'fr'
+    ? { exactScore: 'Score exact proposé', projection: 'Projection issue des données disponibles, sans garantie de résultat.', source: 'Source', quality: 'Qualité', matches: 'matchs', dataConfidence: 'Confiance des données', aiAnalysis: 'Analyse IA', score: 'Score', xgHome: 'xG domicile', xgAway: 'xG extérieur', xgTotal: 'xG total', openMatch: 'Ouvrir la page du match' }
+    : lang === 'en'
+      ? { exactScore: 'Proposed exact score', projection: 'Projection based on available data, with no result guaranteed.', source: 'Source', quality: 'Quality', matches: 'matches', dataConfidence: 'Data confidence', aiAnalysis: 'AI analysis', score: 'Score', xgHome: 'Home xG', xgAway: 'Away xG', xgTotal: 'Total xG', openMatch: 'Open match page' }
+      : { exactScore: 'النتيجة الدقيقة المقترحة', projection: 'توقع مبني على البيانات المتاحة دون ضمان للنتيجة.', source: 'المصدر', quality: 'الجودة', matches: 'مباريات', dataConfidence: 'موثوقية البيانات', aiAnalysis: 'تحليل الذكاء الاصطناعي', score: 'النتيجة', xgHome: 'xG صاحب الأرض', xgAway: 'xG الضيف', xgTotal: 'إجمالي xG', openMatch: 'فتح صفحة المباراة' }
 
   // ─── Render ───────────────────────────────────────────────────────────
   return (
@@ -921,7 +957,7 @@ export default function BttsTodayDashboard() {
                 {[...liveTodayMatches, ...scheduledTodayMatches]
                   .filter(m => passesFilter(m, activeFilter))
                   .map((m, i) => (
-                    <MatchCard key={`today-${m.key}`} match={m} index={i} />
+                    <MatchCard key={`today-${m.key}`} match={m} index={i} insufficientDataLabel={insufficientDataLabel} labels={labels} />
                   ))}
               </div>
             )}
@@ -937,7 +973,7 @@ export default function BttsTodayDashboard() {
               </h3>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 opacity-80">
                 {finishedTodayMatches.filter(m => passesFilter(m, activeFilter)).map((m, i) => (
-                  <MatchCard key={`finished-${m.key}`} match={m} index={i} />
+                  <MatchCard key={`finished-${m.key}`} match={m} index={i} insufficientDataLabel={insufficientDataLabel} labels={labels} />
                 ))}
               </div>
             </div>
@@ -953,7 +989,7 @@ export default function BttsTodayDashboard() {
               </h3>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
                 {liveTodayMatches.filter(m => passesFilter(m, activeFilter)).map((m, i) => (
-                  <MatchCard key={`live-${m.key}`} match={m} index={i} />
+                  <MatchCard key={`live-${m.key}`} match={m} index={i} insufficientDataLabel={insufficientDataLabel} labels={labels} />
                 ))}
               </div>
             </div>
@@ -975,7 +1011,7 @@ export default function BttsTodayDashboard() {
                 {upcomingMatches
                   .filter(m => passesFilter(m, activeFilter))
                   .map((m, i) => (
-                    <MatchCard key={`upcoming-${m.key}`} match={m} index={i} />
+                    <MatchCard key={`upcoming-${m.key}`} match={m} index={i} insufficientDataLabel={insufficientDataLabel} labels={labels} />
                   ))}
               </div>
             </div>

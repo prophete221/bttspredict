@@ -28,7 +28,6 @@ RewriteRule ^blog/(.+)?$ / [R=301,L]
 RewriteRule ^presse/?$ / [R=301,L]
 RewriteRule ^equipe/?$ / [R=301,L]
 RewriteRule ^over-2-5/?$ / [R=301,L]
-RewriteRule ^over-2-5/(.+)?$ / [R=301,L]
 
 # ─── Routing HTML statique ───
 DirectorySlash Off
