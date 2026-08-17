@@ -1,6 +1,6 @@
 {
   "date": "2026-08-17",
-  "lastUpdated": "2026-08-17T04:41:40.541Z",
+  "lastUpdated": "2026-08-17T06:51:52.391Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -632,58 +632,58 @@
       "date": "2026-08-20",
       "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.6785,
-      "bttsProbDisplay": "67.85%",
+      "proba": 0.6909,
+      "bttsProbDisplay": "69.09%",
       "over25ProbDisplay": "70.17%",
-      "confidence": 68,
+      "confidence": 69,
       "time": "01:30",
       "matchSemantic": "seattles-vs-austinfc-2026-08-20",
       "source": "poisson-v92-real-data",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9726.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20906.png",
       "tier": "GOLD",
-      "reliabilityScore": 88.43,
+      "reliabilityScore": 88.98,
       "dataQuality": "HIGH",
       "dataSource": "ESPN_TEAM_SCHEDULE",
       "matchCountHome": 8,
       "matchCountAway": 8,
       "h2hAvailable": false,
-      "xgHome": 2.17,
-      "xgAway": 1.45,
+      "xgHome": 2.05,
+      "xgAway": 1.57,
       "xgTotal": 3.63,
-      "formBTTS": 18,
-      "analysis": "Seattle Sounders FC (8 matchs réels, xG 2.17) vs Austin FC (8 matchs réels, xG 1.45). xG cumulé 3.63, BTTS 67.8%, Over 2.5 70.2%. Fiabilité 88.43%. Qualité données: HIGH.",
+      "formBTTS": 16,
+      "analysis": "Seattle Sounders FC (8 matchs réels, xG 2.05) vs Austin FC (8 matchs réels, xG 1.57). xG cumulé 3.63, BTTS 69.1%, Over 2.5 70.2%. Fiabilité 88.98%. Qualité données: HIGH.",
       "analysisData": {
-        "bttsProb": 0.6785,
+        "bttsProb": 0.6909,
         "over25Prob": 0.7017,
-        "homeLambda": 2.17,
-        "awayLambda": 1.45,
+        "homeLambda": 2.05,
+        "awayLambda": 1.57,
         "xgTotal": 3.63
       },
-      "estimatedCote": 1.47,
+      "estimatedCote": 1.45,
       "estimatedCoteOver": 1.43,
       "predictions": [
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 68,
-          "bttsProb": 0.6785,
-          "homeLambda": 2.17,
-          "awayLambda": 1.45
+          "confidence": 69,
+          "bttsProb": 0.6909,
+          "homeLambda": 2.05,
+          "awayLambda": 1.57
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 70,
           "over25Prob": 0.7017,
-          "homeLambda": 2.17,
-          "awayLambda": 1.45
+          "homeLambda": 2.05,
+          "awayLambda": 1.57
         }
       ],
-      "bttsProb": 0.6785,
+      "bttsProb": 0.6909,
       "over25Prob": 0.7017,
-      "homeLambda": 2.17,
-      "awayLambda": 1.45
+      "homeLambda": 2.05,
+      "awayLambda": 1.57
     },
     {
       "id": "sporting-vs-stlouisc-2026-08-20",
@@ -1025,7 +1025,7 @@
       "xgHome": 1.15,
       "xgAway": 1.13,
       "xgTotal": 2.27,
-      "formBTTS": 30,
+      "formBTTS": 31,
       "analysis": "Vancouver Whitecaps (8 matchs réels, xG 1.15) vs Houston Dynamo FC (8 matchs réels, xG 1.13). xG cumulé 2.27, BTTS 46.2%, Over 2.5 39.7%. Fiabilité 70.19%. Qualité données: HIGH.",
       "analysisData": {
         "bttsProb": 0.4615,
@@ -1247,7 +1247,7 @@
     }
   ],
   "stats": {
-    "avgReliability": 72.21,
+    "avgReliability": 72.22,
     "totalAnalyzed": 75,
     "totalRejected": 0,
     "totalAccepted": 75,
@@ -1884,58 +1884,58 @@
       "date": "2026-08-20",
       "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.6785,
-      "bttsProbDisplay": "67.85%",
+      "proba": 0.6909,
+      "bttsProbDisplay": "69.09%",
       "over25ProbDisplay": "70.17%",
-      "confidence": 68,
+      "confidence": 69,
       "time": "01:30",
       "matchSemantic": "seattles-vs-austinfc-2026-08-20",
       "source": "poisson-v92-real-data",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9726.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20906.png",
       "tier": "GOLD",
-      "reliabilityScore": 88.43,
+      "reliabilityScore": 88.98,
       "dataQuality": "HIGH",
       "dataSource": "ESPN_TEAM_SCHEDULE",
       "matchCountHome": 8,
       "matchCountAway": 8,
       "h2hAvailable": false,
-      "xgHome": 2.17,
-      "xgAway": 1.45,
+      "xgHome": 2.05,
+      "xgAway": 1.57,
       "xgTotal": 3.63,
-      "formBTTS": 18,
-      "analysis": "Seattle Sounders FC (8 matchs réels, xG 2.17) vs Austin FC (8 matchs réels, xG 1.45). xG cumulé 3.63, BTTS 67.8%, Over 2.5 70.2%. Fiabilité 88.43%. Qualité données: HIGH.",
+      "formBTTS": 16,
+      "analysis": "Seattle Sounders FC (8 matchs réels, xG 2.05) vs Austin FC (8 matchs réels, xG 1.57). xG cumulé 3.63, BTTS 69.1%, Over 2.5 70.2%. Fiabilité 88.98%. Qualité données: HIGH.",
       "analysisData": {
-        "bttsProb": 0.6785,
+        "bttsProb": 0.6909,
         "over25Prob": 0.7017,
-        "homeLambda": 2.17,
-        "awayLambda": 1.45,
+        "homeLambda": 2.05,
+        "awayLambda": 1.57,
         "xgTotal": 3.63
       },
-      "estimatedCote": 1.47,
+      "estimatedCote": 1.45,
       "estimatedCoteOver": 1.43,
       "predictions": [
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 68,
-          "bttsProb": 0.6785,
-          "homeLambda": 2.17,
-          "awayLambda": 1.45
+          "confidence": 69,
+          "bttsProb": 0.6909,
+          "homeLambda": 2.05,
+          "awayLambda": 1.57
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 70,
           "over25Prob": 0.7017,
-          "homeLambda": 2.17,
-          "awayLambda": 1.45
+          "homeLambda": 2.05,
+          "awayLambda": 1.57
         }
       ],
-      "bttsProb": 0.6785,
+      "bttsProb": 0.6909,
       "over25Prob": 0.7017,
-      "homeLambda": 2.17,
-      "awayLambda": 1.45
+      "homeLambda": 2.05,
+      "awayLambda": 1.57
     },
     {
       "id": "sporting-vs-stlouisc-2026-08-20",
