@@ -92,52 +92,52 @@ export default function LocalizedPromoClient({ bookmaker, reviewDate }: { bookma
   const reviewDateLabel = new Intl.DateTimeFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB' : 'fr-FR', { dateStyle: 'long', timeZone: 'Africa/Dakar' }).format(new Date(`${effectiveReviewDate}T12:00:00Z`))
 
   return (
-    <div className="min-h-screen bg-[#071018] flex flex-col text-[#F5F8F3]">
+    <div className="min-h-screen bg-[#07131D] flex flex-col text-[#F3F7F5]">
       <main className="flex-1 max-w-3xl mx-auto w-full px-4 py-12">
-        <nav aria-label="Breadcrumb" className="text-sm text-[#B7C4C1] mb-8">
+        <nav aria-label="Breadcrumb" className="text-sm text-[#B4C4CC] mb-8">
           <a href="/">BTTSPredict</a> <span aria-hidden="true">/</span> <span>{brand}</span>
         </nav>
         <div className="text-center mb-10">
-          <p className="text-xs uppercase tracking-[0.2em] text-[#B8FF1A]">{brand}</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-[#E6A24C]">{brand}</p>
           <h1 className="text-4xl font-black mt-3" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.title}</h1>
-          <p className="text-sm text-[#B7C4C1] mt-4">{copy.intro}</p>
-          <p className="text-xs text-[#B7C4C1] mt-3">{copy.verified} <time dateTime={effectiveReviewDate}>{reviewDateLabel}</time>
+          <p className="text-sm text-[#B4C4CC] mt-4">{copy.intro}</p>
+          <p className="text-xs text-[#B4C4CC] mt-3">{copy.verified} <time dateTime={effectiveReviewDate}>{reviewDateLabel}</time>
  · 18+</p>
         </div>
 
-        <section className="rounded-2xl p-6 bg-[#0D1A20] border border-[#5D7880] text-center" aria-labelledby="localized-code-title">
-          <p id="localized-code-title" className="text-xs uppercase tracking-widest text-[#B7C4C1]">{copy.codeLabel}</p>
-          <button onClick={handleCopy} className="mt-3 px-6 py-3 rounded-xl text-xl font-black tracking-widest" style={{ backgroundColor: '#B8FF1A', color: '#071018' }} aria-label={`${code} — copy`}>{code}</button>
-          {copied && <p className="text-xs text-[#34D399] mt-2" role="status" aria-live="polite">{copy.copied}</p>}
+        <section className="rounded-2xl p-6 bg-[#0D202D] border border-[#23495C] text-center" aria-labelledby="localized-code-title">
+          <p id="localized-code-title" className="text-xs uppercase tracking-widest text-[#B4C4CC]">{copy.codeLabel}</p>
+          <button onClick={handleCopy} className="mt-3 px-6 py-3 rounded-xl text-xl font-black tracking-widest" style={{ backgroundColor: '#E6A24C', color: '#07131D' }} aria-label={`${code} — copy`}>{code}</button>
+          {copied && <p className="text-xs text-[#28C59B] mt-2" role="status" aria-live="polite">{copy.copied}</p>}
           <div className="grid gap-3 mt-6">
-            <a href={signup} target="_blank" rel="noopener noreferrer nofollow sponsored" onClick={() => track('signup')} className="rounded-xl py-3 font-bold" style={{ backgroundColor: '#B8FF1A', color: '#071018' }}>{copy.signup}</a>
-            <a href={download} target="_blank" rel="noopener noreferrer nofollow sponsored" onClick={() => track('download')} className="rounded-xl py-3 font-bold border border-[#5D7880] text-[#F5F8F3]">{copy.download}</a>
+            <a href={signup} target="_blank" rel="noopener noreferrer nofollow sponsored" onClick={() => track('signup')} className="rounded-xl py-3 font-bold" style={{ backgroundColor: '#E6A24C', color: '#07131D' }}>{copy.signup}</a>
+            <a href={download} target="_blank" rel="noopener noreferrer nofollow sponsored" onClick={() => track('download')} className="rounded-xl py-3 font-bold border border-[#23495C] text-[#F3F7F5]">{copy.download}</a>
           </div>
-          <p className="text-xs text-[#B7C4C1] mt-4">{copy.conditions}</p>
+          <p className="text-xs text-[#B4C4CC] mt-4">{copy.conditions}</p>
         </section>
 
-        <section className="mt-8 rounded-2xl p-6 bg-[#0D1A20] border border-[#5D7880]" aria-labelledby="localized-steps-title">
+        <section className="mt-8 rounded-2xl p-6 bg-[#0D202D] border border-[#23495C]" aria-labelledby="localized-steps-title">
           <h2 id="localized-steps-title" className="text-xl font-bold mb-4">{copy.steps}</h2>
-          <ol className="space-y-3 text-sm text-[#B7C4C1] list-decimal list-inside">
+          <ol className="space-y-3 text-sm text-[#B4C4CC] list-decimal list-inside">
             <li>{copy.one}</li>
             <li>{copy.two}</li>
             <li>{copy.three}</li>
           </ol>
         </section>
 
-        <section className="mt-8 rounded-2xl p-6 bg-[#0D1A20] border border-[#5D7880]" aria-labelledby="localized-faq-title">
+        <section className="mt-8 rounded-2xl p-6 bg-[#0D202D] border border-[#23495C]" aria-labelledby="localized-faq-title">
           <h2 id="localized-faq-title" className="text-xl font-bold mb-4">{copy.faqTitle}</h2>
-          <details className="border-b border-[#5D7880] py-3">
+          <details className="border-b border-[#23495C] py-3">
             <summary className="cursor-pointer font-bold">{copy.faqBonus}</summary>
-            <p className="text-sm text-[#B7C4C1] mt-2">{copy.faqBonusAnswer}</p>
+            <p className="text-sm text-[#B4C4CC] mt-2">{copy.faqBonusAnswer}</p>
           </details>
           <details className="py-3">
             <summary className="cursor-pointer font-bold">{copy.faqCountry}</summary>
-            <p className="text-sm text-[#B7C4C1] mt-2">{copy.faqCountryAnswer}</p>
+            <p className="text-sm text-[#B4C4CC] mt-2">{copy.faqCountryAnswer}</p>
           </details>
         </section>
 
-        <p className="text-center text-xs text-[#B7C4C1] mt-8">18+ · {copy.responsible} · Aucun résultat futur n’est garanti.</p>
+        <p className="text-center text-xs text-[#B4C4CC] mt-8">18+ · {copy.responsible} · Aucun résultat futur n’est garanti.</p>
       </main>
     </div>
   )
