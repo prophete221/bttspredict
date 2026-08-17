@@ -2,9 +2,9 @@
   "date": "2026-08-17",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-17T06:52:13.758Z",
+  "fetchedAt": "2026-08-17T07:33:19.326Z",
   "eventCount": 100,
-  "legCount": 29,
+  "legCount": 27,
   "status": "available",
   "combos": {
     "target2": {
@@ -23,17 +23,17 @@
           "updatedAt": "2026-08-16T22:09:46.731Z"
         },
         {
-          "eventId": "73723174",
-          "home": "Mohun Bagan Super Giant",
-          "away": "Jamshedpur FC",
-          "league": "India - Durand Cup, Knockout Stage",
+          "eventId": "68160714",
+          "home": "FC Bulleen Lions",
+          "away": "North Sunshine Eagles FC",
+          "league": "Australia - Victoria Premier League 1",
           "kickoff": "2026-08-17T10:30:00Z",
           "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
           "odds": 1.9,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-17T01:24:31.578Z"
+          "updatedAt": "2026-08-17T07:21:57.208Z"
         }
       ],
       "totalOdds": 1.99
@@ -51,20 +51,20 @@
           "selection": "Over 2.5",
           "odds": 1.4,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-17T06:47:32.292Z"
+          "updatedAt": "2026-08-17T07:29:08.354Z"
         },
         {
-          "eventId": "68160714",
-          "home": "FC Bulleen Lions",
-          "away": "North Sunshine Eagles FC",
-          "league": "Australia - Victoria Premier League 1",
-          "kickoff": "2026-08-17T10:30:00Z",
+          "eventId": "73700940",
+          "home": "Defensor Sporting",
+          "away": "Racing Club Montevideo",
+          "league": "Uruguay - Tercera Division, Reserves",
+          "kickoff": "2026-08-17T12:00:00Z",
           "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
           "odds": 1.85,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-17T06:01:10.111Z"
+          "updatedAt": "2026-08-17T01:30:02.639Z"
         },
         {
           "eventId": "73700942",
