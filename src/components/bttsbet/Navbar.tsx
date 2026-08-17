@@ -50,7 +50,7 @@ export default function Navbar() {
       <nav
         className="sticky top-0 z-50"
         style={{
-          backgroundColor: '#07131D',
+          backgroundColor: '#071018',
           borderBottom: '1px solid rgba(75, 182, 135, 0.15)',
         }}
       >
@@ -65,8 +65,8 @@ export default function Navbar() {
             >
               <img src="/favicon.svg" alt="BTTSPredict" width={24} height={24} className="flex-shrink-0" />
               <span>
-                <span className="block text-xs font-bold leading-none" style={{ color: '#F3F7F5' }}>BTTSPredict</span>
-                <span className="mt-0.5 block text-[8px] font-semibold uppercase tracking-[0.16em]" style={{ color: '#E6A24C' }}>Match intelligence</span>
+                <span className="block text-xs font-bold leading-none" style={{ color: '#F5F8F3' }}>BTTSPredict</span>
+                <span className="mt-0.5 block text-[8px] font-semibold uppercase tracking-[0.16em]" style={{ color: '#B8FF1A' }}>Match intelligence</span>
               </span>
             </a>
 
@@ -78,8 +78,8 @@ export default function Navbar() {
                 className="hidden sm:block px-2 py-1 rounded text-[10px] font-mono font-bold"
                 style={{
                   backgroundColor: 'rgba(127, 162, 198, 0.16)',
-                  border: '1px solid #E6A24C',
-                  color: '#E6A24C',
+                  border: '1px solid #B8FF1A',
+                  color: '#B8FF1A',
                 }}
               >
                 {copied ? '✓' : SITE.promoCode}
@@ -89,7 +89,7 @@ export default function Navbar() {
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
                 className="sm:hidden flex items-center justify-center w-9 h-9 rounded-lg"
-                style={{ color: '#F3F7F5' }}
+                style={{ color: '#F5F8F3' }}
                 aria-label={t.nav.openMenu}
                 aria-expanded={menuOpen}
               >
@@ -116,9 +116,9 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className="text-[10px] font-medium px-2 py-1 rounded whitespace-nowrap transition-colors"
-                style={{ color: '#B4C4CC' }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = '#E6A24C'; e.currentTarget.style.backgroundColor = 'rgba(75, 182, 135, 0.08)' }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = '#B4C4CC'; e.currentTarget.style.backgroundColor = 'transparent' }}
+                style={{ color: '#B7C4C1' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#B8FF1A'; e.currentTarget.style.backgroundColor = 'rgba(75, 182, 135, 0.08)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = '#B7C4C1'; e.currentTarget.style.backgroundColor = 'transparent' }}
               >
                 {link.label}
               </a>
@@ -141,18 +141,18 @@ export default function Navbar() {
           <div
             className="fixed top-0 left-0 right-0 z-[70] sm:hidden"
             style={{
-              backgroundColor: '#0D202D',
-              borderBottom: '1px solid #E6A24C',
+              backgroundColor: '#0D1A20',
+              borderBottom: '1px solid #B8FF1A',
               boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
             }}
           >
             {/* Header du drawer */}
             <div className="flex items-center justify-between px-4 py-3 border-b" style={{ borderColor: 'rgba(75, 182, 135, 0.15)' }}>
-              <span className="text-sm font-bold text-[#F3F7F5]">{t.nav.menu}</span>
+              <span className="text-sm font-bold text-[#F5F8F3]">{t.nav.menu}</span>
               <button
                 onClick={() => setMenuOpen(false)}
                 className="w-8 h-8 flex items-center justify-center rounded-lg"
-                style={{ color: '#B4C4CC' }}
+                style={{ color: '#B7C4C1' }}
                 aria-label={t.nav.closeMenu}
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -171,7 +171,7 @@ export default function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   className="block px-3 py-3 rounded-lg text-xs font-semibold text-center transition-colors"
                   style={{
-                    color: '#F3F7F5',
+                    color: '#F5F8F3',
                     backgroundColor: 'rgba(75, 182, 135, 0.08)',
                     border: '1px solid rgba(75, 182, 135, 0.2)',
                   }}
@@ -190,8 +190,8 @@ export default function Navbar() {
                 className="flex-1 px-3 py-2 rounded-lg text-xs font-mono font-bold text-center"
                 style={{
                   backgroundColor: 'rgba(127, 162, 198, 0.16)',
-                  border: '1px solid #E6A24C',
-                  color: '#E6A24C',
+                  border: '1px solid #B8FF1A',
+                  color: '#B8FF1A',
                 }}
               >
                 {copied ? '✓' : SITE.promoCode}

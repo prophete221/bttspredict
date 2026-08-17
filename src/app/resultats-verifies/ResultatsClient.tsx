@@ -65,7 +65,7 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
     fetch('/win-history.json').then(r => r.json()).then(d => setData(d)).catch(() => {})
   }, [data])
 
-  if (!data || !data.stats) return <div className="text-center py-8 text-[#B4C4CC]">{copy.loading}</div>
+  if (!data || !data.stats) return <div className="text-center py-8 text-[#B7C4C1]">{copy.loading}</div>
 
   const stats = data.stats
   const history: ResultHistoryEntry[] = data.history || []
@@ -122,42 +122,42 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
-        <div className="rounded-[16px] bg-[#0D202D] border border-[#23495C] p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
-          <div className="text-[10px] text-[#B4C4CC] uppercase tracking-widest">{copy.verified}</div>
-          <div className="mt-1 flex items-baseline gap-2"><div className="text-3xl font-bold text-[#F3F7F5] font-mono">{total}</div><div className="text-xs text-[#B4C4CC]">{won}W / {lost}L</div></div>
-          <div className="mt-2 text-[10px] text-[#B4C4CC]">{copy.allRate}: <span className="text-[#F3F7F5] font-bold">{stats.rate}%</span></div>
+        <div className="rounded-[16px] bg-[#0D1A20] border border-[#5D7880] p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
+          <div className="text-[10px] text-[#B7C4C1] uppercase tracking-widest">{copy.verified}</div>
+          <div className="mt-1 flex items-baseline gap-2"><div className="text-3xl font-bold text-[#F5F8F3] font-mono">{total}</div><div className="text-xs text-[#B7C4C1]">{won}W / {lost}L</div></div>
+          <div className="mt-2 text-[10px] text-[#B7C4C1]">{copy.allRate}: <span className="text-[#F5F8F3] font-bold">{stats.rate}%</span></div>
         </div>
-        <div className="rounded-[16px] bg-[#142D3D] border border-[#E6A24C]/42 p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
-          <div className="text-[10px] text-[#E6A24C] uppercase tracking-widest font-bold">{copy.goldPicks}</div>
-          <div className="mt-1 flex items-baseline gap-2"><div className="text-3xl font-bold text-[#F3F7F5] font-mono">{goldRate}%</div><div className="text-xs text-[#B4C4CC]">{goldTotal} {copy.verifiedCount}</div></div>
-          <div className="mt-2 text-[10px] text-[#B4C4CC]">{copy.premiumSelection}{showGoldYield && <span className="ml-2 text-[#E6A24C]">Yield +{goldYield}%</span>}</div>
+        <div className="rounded-[16px] bg-[#11242B] border border-[#B8FF1A]/42 p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
+          <div className="text-[10px] text-[#B8FF1A] uppercase tracking-widest font-bold">{copy.goldPicks}</div>
+          <div className="mt-1 flex items-baseline gap-2"><div className="text-3xl font-bold text-[#F5F8F3] font-mono">{goldRate}%</div><div className="text-xs text-[#B7C4C1]">{goldTotal} {copy.verifiedCount}</div></div>
+          <div className="mt-2 text-[10px] text-[#B7C4C1]">{copy.premiumSelection}{showGoldYield && <span className="ml-2 text-[#B8FF1A]">Yield +{goldYield}%</span>}</div>
         </div>
-        <div className="rounded-[16px] bg-[#0D202D] border border-[#23495C] p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
-          <div className="text-[10px] text-[#B4C4CC] uppercase tracking-widest">{copy.last30}</div>
-          <div className="mt-1 flex items-baseline gap-2"><div className="text-3xl font-bold text-[#F3F7F5] font-mono">{rate30}%</div><div className="text-xs text-[#B4C4CC]">{w30}W / {l30}L</div></div>
-          <div className="mt-2 text-[10px] text-[#B4C4CC]">{scanLabel}</div>
+        <div className="rounded-[16px] bg-[#0D1A20] border border-[#5D7880] p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
+          <div className="text-[10px] text-[#B7C4C1] uppercase tracking-widest">{copy.last30}</div>
+          <div className="mt-1 flex items-baseline gap-2"><div className="text-3xl font-bold text-[#F5F8F3] font-mono">{rate30}%</div><div className="text-xs text-[#B7C4C1]">{w30}W / {l30}L</div></div>
+          <div className="mt-2 text-[10px] text-[#B7C4C1]">{scanLabel}</div>
         </div>
       </div>
 
-      <section className="rounded-[16px] bg-[#0D202D] border border-[#23495C] p-4 mb-6" aria-labelledby="market-breakdown-title">
-        <h2 id="market-breakdown-title" className="text-sm font-bold text-[#F3F7F5] mb-3">{copy.marketBreakdown}</h2>
+      <section className="rounded-[16px] bg-[#0D1A20] border border-[#5D7880] p-4 mb-6" aria-labelledby="market-breakdown-title">
+        <h2 id="market-breakdown-title" className="text-sm font-bold text-[#F5F8F3] mb-3">{copy.marketBreakdown}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {marketStats.map(item => (
-            <div key={item.label} className="rounded-xl border border-[#23495C]/60 px-3 py-3">
-              <div className="text-xs font-bold text-[#F3F7F5]">{item.label}</div>
-              <div className="mt-1 text-xl font-bold text-[#E6A24C]">{item.rate}%</div>
-              <div className="text-[10px] text-[#B4C4CC]">{item.wins} {copy.won} · {item.losses} {copy.lost} · {item.count} {copy.sample}</div>
+            <div key={item.label} className="rounded-xl border border-[#5D7880]/60 px-3 py-3">
+              <div className="text-xs font-bold text-[#F5F8F3]">{item.label}</div>
+              <div className="mt-1 text-xl font-bold text-[#B8FF1A]">{item.rate}%</div>
+              <div className="text-[10px] text-[#B7C4C1]">{item.wins} {copy.won} · {item.losses} {copy.lost} · {item.count} {copy.sample}</div>
             </div>
           ))}
         </div>
-        {marketStats.every(item => item.count === 0) && <p className="text-xs text-[#B4C4CC] mt-3">{copy.noMarketData}</p>}
+        {marketStats.every(item => item.count === 0) && <p className="text-xs text-[#B7C4C1] mt-3">{copy.noMarketData}</p>}
       </section>
 
-      <div className="rounded-[16px] bg-[#0D202D] border border-[#23495C] p-4">
-        <h2 className="text-sm font-bold text-[#F3F7F5] mb-3">{copy.detailed}</h2>
+      <div className="rounded-[16px] bg-[#0D1A20] border border-[#5D7880] p-4">
+        <h2 className="text-sm font-bold text-[#F5F8F3] mb-3">{copy.detailed}</h2>
         <div className="overflow-x-auto">
-          <table className="w-full text-[11px]"><thead><tr className="text-[#B4C4CC] border-b border-[#23495C]"><th className="text-left py-2 px-2">{copy.date}</th><th className="text-left py-2 px-2">{copy.match}</th><th className="text-left py-2 px-2">{copy.market}</th><th className="text-center py-2 px-2">{copy.prediction}</th><th className="text-center py-2 px-2">{copy.score}</th><th className="text-center py-2 px-2">{copy.result}</th></tr></thead>
-            <tbody>{dedupedHistory.length === 0 ? <tr><td colSpan={6} className="text-center text-[#B4C4CC] py-8">{copy.empty}</td></tr> : dedupedHistory.slice(0, 100).map((h, i) => { const isWon = h.status === 'WON' || h.isWon === true; const isGold = (h.tier || 'STANDARD').toUpperCase() === 'GOLD'; return <tr key={i} className="border-b border-[#23495C]/30"><td className="py-1.5 px-2 text-[#B4C4CC] font-mono">{(h.date || '').slice(5)}</td><td className="py-1.5 px-2 text-[#B4C4CC]">{(h.match || '').substring(0, 35)}</td><td className="py-1.5 px-2 text-[#B4C4CC]">{getMarket(h)}{isGold && <span className="ml-1 text-[10px] text-[#E6A24C] font-bold">GOLD</span>}</td><td className="py-1.5 px-2 text-center text-[#B4C4CC] font-mono">{h.prediction || '—'}</td><td className="py-1.5 px-2 text-center text-[#F3F7F5] font-mono">{h.finalScore || h.score || '-'}</td><td className="py-1.5 px-2 text-center" style={{ color: isWon ? '#E6A24C' : '#E56B6F' }}><strong>{isWon ? 'W' : 'L'}</strong></td></tr> })}</tbody>
+          <table className="w-full text-[11px]"><thead><tr className="text-[#B7C4C1] border-b border-[#5D7880]"><th className="text-left py-2 px-2">{copy.date}</th><th className="text-left py-2 px-2">{copy.match}</th><th className="text-left py-2 px-2">{copy.market}</th><th className="text-center py-2 px-2">{copy.prediction}</th><th className="text-center py-2 px-2">{copy.score}</th><th className="text-center py-2 px-2">{copy.result}</th></tr></thead>
+            <tbody>{dedupedHistory.length === 0 ? <tr><td colSpan={6} className="text-center text-[#B7C4C1] py-8">{copy.empty}</td></tr> : dedupedHistory.slice(0, 100).map((h, i) => { const isWon = h.status === 'WON' || h.isWon === true; const isGold = (h.tier || 'STANDARD').toUpperCase() === 'GOLD'; return <tr key={i} className="border-b border-[#5D7880]/30"><td className="py-1.5 px-2 text-[#B7C4C1] font-mono">{(h.date || '').slice(5)}</td><td className="py-1.5 px-2 text-[#B7C4C1]">{(h.match || '').substring(0, 35)}</td><td className="py-1.5 px-2 text-[#B7C4C1]">{getMarket(h)}{isGold && <span className="ml-1 text-[10px] text-[#B8FF1A] font-bold">GOLD</span>}</td><td className="py-1.5 px-2 text-center text-[#B7C4C1] font-mono">{h.prediction || '—'}</td><td className="py-1.5 px-2 text-center text-[#F5F8F3] font-mono">{h.finalScore || h.score || '-'}</td><td className="py-1.5 px-2 text-center" style={{ color: isWon ? '#B8FF1A' : '#FF7B7B' }}><strong>{isWon ? 'W' : 'L'}</strong></td></tr> })}</tbody>
           </table>
         </div>
       </div>
