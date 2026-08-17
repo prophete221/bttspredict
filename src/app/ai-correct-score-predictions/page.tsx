@@ -87,27 +87,27 @@ export default function AICorrectScorePage() {
   const filtered = activeLeague === 'all' ? predictions : predictions.filter(p => p.league === activeLeague)
 
   return (
-    <div className="min-h-screen bg-[#07131D] flex flex-col text-[#F3F7F5]">
+    <div className="min-h-screen bg-[#071018] flex flex-col text-[#F5F8F3]">
       <Navbar />
       <main id="main-content" className="flex-1">
-        <nav aria-label="Fil d'Ariane" className="text-xs text-[#B4C4CC] mb-4 max-w-5xl mx-auto px-4 pt-8">
-          <Link href={lang === 'fr' ? '/' : `/${lang}`} className="hover:text-[#E6A24C]">{t.common.home}</Link>
+        <nav aria-label="Fil d'Ariane" className="text-xs text-[#B7C4C1] mb-4 max-w-5xl mx-auto px-4 pt-8">
+          <Link href={lang === 'fr' ? '/' : `/${lang}`} className="hover:text-[#B8FF1A]">{t.common.home}</Link>
           <span className="mx-1">/</span>
-          <span className="text-[#B4C4CC]">AI Correct Score</span>
+          <span className="text-[#B7C4C1]">AI Correct Score</span>
         </nav>
 
         <section className="max-w-5xl mx-auto px-4 pt-4 pb-6">
           <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
-            style={{ backgroundColor: 'rgba(169, 196, 223, 0.12)', color: '#E6A24C', border: '1px solid rgba(169, 196, 223, 0.25)' }}>
+            style={{ backgroundColor: 'rgba(169, 196, 223, 0.12)', color: '#B8FF1A', border: '1px solid rgba(169, 196, 223, 0.25)' }}>
             {lang === 'fr' ? 'IA · Score exact · Modèle de Poisson' : lang === 'en' ? 'AI · Correct Score · Poisson Model' : 'الذكاء الاصطناعي · النتيجة الدقيقة · نموذج بواسون'}
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
             {lang === 'fr' ? 'Prédictions de score exact par IA' : lang === 'en' ? 'AI Correct Score Predictions' : 'توقعات النتيجة الدقيقة بالذكاء الاصطناعي'}
           </h1>
-          <p className="text-base sm:text-lg text-[#B4C4CC] leading-relaxed mb-3 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-[#B7C4C1] leading-relaxed mb-3 max-w-3xl mx-auto">
             {lang === 'fr' ? 'Les scores exacts les plus probables sont calculés par le modèle de Poisson à partir des buts attendus (xG) de chaque équipe. Les cinq scores les plus probables sont affichés pour chaque match.' : lang === 'en' ? 'Most likely exact scores computed by the Poisson model from each team’s expected goals (xG). The top 5 scorelines are shown per match, ranked by probability.' : 'يحسب نموذج بواسون النتائج الدقيقة الأكثر احتمالاً من الأهداف المتوقعة لكل فريق. نعرض أفضل خمسة نتائج مرتبة حسب الاحتمال.'}
           </p>
-          <p className="text-sm text-[#B4C4CC] leading-relaxed max-w-3xl mx-auto">
+          <p className="text-sm text-[#B7C4C1] leading-relaxed max-w-3xl mx-auto">
             {t.legal.noGuarantee} {lang === 'fr' ? 'Il s’agit de probabilités statistiques, pas de certitudes.' : lang === 'en' ? 'These are statistical probabilities, not certainties.' : 'هذه احتمالات إحصائية وليست يقيناً.'} {t.legal.eighteen}
           </p>
         </section>
@@ -122,8 +122,8 @@ export default function AICorrectScorePage() {
                 aria-pressed={activeLeague === league}
                 className={`px-2.5 py-1 rounded text-[11px] font-semibold transition-all whitespace-nowrap ${
                   activeLeague === league
-                    ? 'bg-[#E6A24C]/15 text-[#E6A24C] border border-[#E6A24C]/30'
-                    : 'bg-[#0D202D] text-[#B4C4CC] border border-[#23495C] hover:text-[#B4C4CC]'
+                    ? 'bg-[#B8FF1A]/15 text-[#B8FF1A] border border-[#B8FF1A]/30'
+                    : 'bg-[#0D1A20] text-[#B7C4C1] border border-[#5D7880] hover:text-[#B7C4C1]'
                 }`}
               >
                 {league === 'all' ? t.predictions.leagues : league}
@@ -137,50 +137,50 @@ export default function AICorrectScorePage() {
           {loading ? (
             <div className="grid sm:grid-cols-2 gap-3">
               {[1, 2, 3, 4].map(i => (
-                <div key={i} className="rounded-xl h-48 animate-pulse" style={{ backgroundColor: '#0D202D', border: '1px solid #23495C' }} />
+                <div key={i} className="rounded-xl h-48 animate-pulse" style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }} />
               ))}
             </div>
           ) : filtered.length === 0 ? (
-            <div className="rounded-xl p-10 text-center" style={{ backgroundColor: '#0D202D', border: '1px solid #23495C' }}>
-              <p className="text-sm text-[#B4C4CC]">{lang === 'fr' ? 'Aucun match disponible aujourd’hui.' : lang === 'en' ? 'No matches available today.' : 'لا توجد مباريات متاحة اليوم.'}</p>
+            <div className="rounded-xl p-10 text-center" style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
+              <p className="text-sm text-[#B7C4C1]">{lang === 'fr' ? 'Aucun match disponible aujourd’hui.' : lang === 'en' ? 'No matches available today.' : 'لا توجد مباريات متاحة اليوم.'}</p>
             </div>
           ) : (
             <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
               {filtered.map((m, i) => (
-                <div key={`${m.home}-${m.away}-${i}`} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#0D202D', border: '1px solid #23495C' }}>
+                <div key={`${m.home}-${m.away}-${i}`} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
                   {/* Header */}
-                  <div className="flex items-center justify-between px-3 py-2" style={{ backgroundColor: '#07131D', borderBottom: '1px solid #23495C' }}>
-                    <span className="text-[10px] uppercase tracking-widest font-semibold text-[#B4C4CC] truncate">{m.league}</span>
-                    <span className="text-[10px] font-mono text-[#B4C4CC]">{m.time}</span>
+                  <div className="flex items-center justify-between px-3 py-2" style={{ backgroundColor: '#071018', borderBottom: '1px solid #5D7880' }}>
+                    <span className="text-[10px] uppercase tracking-widest font-semibold text-[#B7C4C1] truncate">{m.league}</span>
+                    <span className="text-[10px] font-mono text-[#B7C4C1]">{m.time}</span>
                   </div>
                   {/* Teams */}
                   <div className="px-3 py-3">
                     <div className="text-center mb-3">
-                      <span className="text-sm font-bold text-[#F3F7F5]">{m.home}</span>
-                      <span className="text-[#E6A24C] mx-2 font-mono text-xs">vs</span>
-                      <span className="text-sm font-bold text-[#F3F7F5]">{m.away}</span>
+                      <span className="text-sm font-bold text-[#F5F8F3]">{m.home}</span>
+                      <span className="text-[#B8FF1A] mx-2 font-mono text-xs">vs</span>
+                      <span className="text-sm font-bold text-[#F5F8F3]">{m.away}</span>
                     </div>
                     {/* Top 5 scores */}
                     <div className="space-y-1.5">
                       {m.topScores.map((s, idx) => (
                         <div key={idx} className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
-                            <span className="text-[9px] font-mono text-[#B4C4CC] w-4">#{idx + 1}</span>
-                            <span className="text-sm font-bold font-mono" style={{ color: idx === 0 ? '#E6A24C' : '#F3F7F5' }}>{s.score}</span>
+                            <span className="text-[9px] font-mono text-[#B7C4C1] w-4">#{idx + 1}</span>
+                            <span className="text-sm font-bold font-mono" style={{ color: idx === 0 ? '#B8FF1A' : '#F5F8F3' }}>{s.score}</span>
                           </div>
                           <div className="flex items-center gap-2 flex-1 ml-3">
-                            <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ backgroundColor: '#07131D' }}>
-                              <div className="h-full rounded-full" style={{ width: `${s.prob * 100}%`, backgroundColor: idx === 0 ? '#E6A24C' : '#E6A24C' }} />
+                            <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ backgroundColor: '#071018' }}>
+                              <div className="h-full rounded-full" style={{ width: `${s.prob * 100}%`, backgroundColor: idx === 0 ? '#B8FF1A' : '#B8FF1A' }} />
                             </div>
-                            <span className="text-[10px] font-mono font-bold text-[#B4C4CC] tabular-nums">{(s.prob * 100).toFixed(1)}%</span>
+                            <span className="text-[10px] font-mono font-bold text-[#B7C4C1] tabular-nums">{(s.prob * 100).toFixed(1)}%</span>
                           </div>
                         </div>
                       ))}
                     </div>
                     {/* xG info */}
-                    <div className="mt-3 pt-2 border-t border-[#23495C] flex justify-between text-[9px] text-[#B4C4CC]">
-                      <span>xG Home: <strong className="text-[#B4C4CC] font-mono">{m.lambdaHome.toFixed(2)}</strong></span>
-                      <span>xG Away: <strong className="text-[#B4C4CC] font-mono">{m.lambdaAway.toFixed(2)}</strong></span>
+                    <div className="mt-3 pt-2 border-t border-[#5D7880] flex justify-between text-[9px] text-[#B7C4C1]">
+                      <span>xG Home: <strong className="text-[#B7C4C1] font-mono">{m.lambdaHome.toFixed(2)}</strong></span>
+                      <span>xG Away: <strong className="text-[#B7C4C1] font-mono">{m.lambdaAway.toFixed(2)}</strong></span>
                     </div>
                   </div>
                 </div>
@@ -191,17 +191,17 @@ export default function AICorrectScorePage() {
 
         {/* Explanation */}
         <section className="max-w-3xl mx-auto px-4 pb-8">
-          <div className="rounded-xl p-5" style={{ backgroundColor: '#0D202D', border: '1px solid #23495C' }}>
+          <div className="rounded-xl p-5" style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
             <h2 className="text-lg font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
               {lang === 'fr' ? 'Comment fonctionne le score exact IA' : lang === 'en' ? 'How AI Correct Score works' : 'كيف تعمل توقعات النتيجة الدقيقة'}
             </h2>
-            <p className="text-sm text-[#B4C4CC] leading-relaxed mb-3">
+            <p className="text-sm text-[#B7C4C1] leading-relaxed mb-3">
               {lang === 'fr' ? <>Le modèle de Poisson calcule la probabilité de chaque score exact à partir des buts attendus (xG) des deux équipes. Pour chaque équipe, la probabilité de marquer <em>k</em> buts suit une distribution de Poisson.</> : lang === 'en' ? <>The Poisson model calculates the probability of each exact scoreline from both teams’ expected goals (xG). For each team, the probability of scoring <em>k</em> goals follows a Poisson distribution.</> : <>يحسب نموذج بواسون احتمال كل نتيجة دقيقة من الأهداف المتوقعة للفريقين. احتمال تسجيل <em>k</em> أهداف يتبع توزيع بواسون.</>}
             </p>
-            <p className="text-sm text-[#B4C4CC] leading-relaxed mb-3">
+            <p className="text-sm text-[#B7C4C1] leading-relaxed mb-3">
               {lang === 'fr' ? 'La probabilité d’un score précis comme 2-1 est le produit des probabilités de buts des deux équipes. Nous calculons 49 combinaisons et classons les cinq scores les plus probables.' : lang === 'en' ? 'The probability of a specific score such as 2-1 is P(home=2) × P(away=1). We compute 49 combinations from 0-0 to 6-6 and rank the five most likely scores.' : 'احتمال نتيجة محددة مثل 2-1 هو حاصل ضرب احتمال أهداف صاحب الأرض والضيف. نحسب 49 تركيبة ونرتب النتائج الخمس الأكثر احتمالاً.'}
             </p>
-            <p className="text-xs text-[#B4C4CC] leading-relaxed">
+            <p className="text-xs text-[#B7C4C1] leading-relaxed">
               {lang === 'fr' ? '⚠ Les paris sur le score exact comportent un risque élevé. Même le score le plus probable ne représente généralement que 8 à 15 %. Ces estimations ne sont pas des garanties. 18+.' : lang === 'en' ? '⚠ Correct-score betting is high-risk. Even the most likely score typically has only 8–15% probability. These are estimates, not guarantees. 18+.' : '⚠ المراهنة على النتيجة الدقيقة عالية المخاطر. حتى النتيجة الأكثر احتمالاً تكون عادة بين 8 و15%. هذه تقديرات وليست ضمانات. 18+.'}
             </p>
           </div>
@@ -212,24 +212,24 @@ export default function AICorrectScorePage() {
           <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>{t.common.quickLinks}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01]"
-              style={{ backgroundColor: '#0D202D', border: '1px solid #23495C' }}>
-              <div className="text-sm font-bold text-[#F3F7F5]">{lang === 'fr' ? 'Prédictions BTTS du jour →' : lang === 'en' ? 'BTTS Predictions Today →' : 'توقعات BTTS اليوم ←'}</div>
-              <div className="text-xs text-[#B4C4CC] mt-1">{lang === 'fr' ? 'Les deux équipes marquent' : lang === 'en' ? 'Both teams to score' : 'كلا الفريقين يسجلان'}</div>
+              style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
+              <div className="text-sm font-bold text-[#F5F8F3]">{lang === 'fr' ? 'Prédictions BTTS du jour →' : lang === 'en' ? 'BTTS Predictions Today →' : 'توقعات BTTS اليوم ←'}</div>
+              <div className="text-xs text-[#B7C4C1] mt-1">{lang === 'fr' ? 'Les deux équipes marquent' : lang === 'en' ? 'Both teams to score' : 'كلا الفريقين يسجلان'}</div>
             </Link>
             <Link href="/over-2-5/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01]"
-              style={{ backgroundColor: '#0D202D', border: '1px solid #23495C' }}>
-              <div className="text-sm font-bold text-[#F3F7F5]">{lang === 'fr' ? 'Prédictions Over 2.5 du jour →' : lang === 'en' ? 'Over 2.5 Predictions Today →' : 'توقعات Over 2.5 اليوم ←'}</div>
-              <div className="text-xs text-[#B4C4CC] mt-1">{lang === 'fr' ? 'Total de buts ≥ 3' : lang === 'en' ? 'Total goals ≥ 3' : 'إجمالي الأهداف ≥ 3'}</div>
+              style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
+              <div className="text-sm font-bold text-[#F5F8F3]">{lang === 'fr' ? 'Prédictions Over 2.5 du jour →' : lang === 'en' ? 'Over 2.5 Predictions Today →' : 'توقعات Over 2.5 اليوم ←'}</div>
+              <div className="text-xs text-[#B7C4C1] mt-1">{lang === 'fr' ? 'Total de buts ≥ 3' : lang === 'en' ? 'Total goals ≥ 3' : 'إجمالي الأهداف ≥ 3'}</div>
             </Link>
             <Link href="/btts-and-over-2-5-predictions-today" className="block p-4 rounded-xl transition-all hover:scale-[1.01]"
-              style={{ backgroundColor: '#0D202D', border: '1px solid #23495C' }}>
-              <div className="text-sm font-bold text-[#F3F7F5]">{lang === 'fr' ? 'BTTS + Over 2.5 combiné →' : lang === 'en' ? 'BTTS + Over 2.5 Combined →' : 'BTTS + Over 2.5 معاً ←'}</div>
-              <div className="text-xs text-[#B4C4CC] mt-1">{lang === 'fr' ? 'Les deux conditions réunies' : lang === 'en' ? 'Both conditions met' : 'تحقق الشرطان'}</div>
+              style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
+              <div className="text-sm font-bold text-[#F5F8F3]">{lang === 'fr' ? 'BTTS + Over 2.5 combiné →' : lang === 'en' ? 'BTTS + Over 2.5 Combined →' : 'BTTS + Over 2.5 معاً ←'}</div>
+              <div className="text-xs text-[#B7C4C1] mt-1">{lang === 'fr' ? 'Les deux conditions réunies' : lang === 'en' ? 'Both conditions met' : 'تحقق الشرطان'}</div>
             </Link>
             <Link href="/methodologie" className="block p-4 rounded-xl transition-all hover:scale-[1.01]"
-              style={{ backgroundColor: '#0D202D', border: '1px solid #23495C' }}>
-              <div className="text-sm font-bold text-[#F3F7F5]">{lang === 'fr' ? 'Méthodologie →' : lang === 'en' ? 'Methodology →' : 'المنهجية ←'}</div>
-              <div className="text-xs text-[#B4C4CC] mt-1">{lang === 'fr' ? 'Fonctionnement du modèle' : lang === 'en' ? 'How the model works' : 'كيف يعمل النموذج'}</div>
+              style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
+              <div className="text-sm font-bold text-[#F5F8F3]">{lang === 'fr' ? 'Méthodologie →' : lang === 'en' ? 'Methodology →' : 'المنهجية ←'}</div>
+              <div className="text-xs text-[#B7C4C1] mt-1">{lang === 'fr' ? 'Fonctionnement du modèle' : lang === 'en' ? 'How the model works' : 'كيف يعمل النموذج'}</div>
             </Link>
           </div>
         </section>

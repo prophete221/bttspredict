@@ -5,14 +5,14 @@ import { AFFILIATE } from '@/lib/constants'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 
 /* ─── Palette locale — 888Starz rouge clair (couleur de marque) ──────── */
-const ORANGE = '#E56B6F'      // rouge clair 888Starz
+const ORANGE = '#FF7B7B'      // rouge clair 888Starz
 const ORANGE_DARK = '#E55A5A' // rouge clair sombre
-const PRIMARY = '#E56B6F'     // boutons et accents en rouge clair
+const PRIMARY = '#FF7B7B'     // boutons et accents en rouge clair
 const PRIMARY_HOVER = '#E55A5A'
-const TEXT = '#F3F7F5'
-const TEXT_SEC = '#B4C4CC'
-const BG_DARK = '#07131D'
-const BORDER_OUTLINE = '#B4C4CC'
+const TEXT = '#F5F8F3'
+const TEXT_SEC = '#B7C4C1'
+const BG_DARK = '#071018'
+const BORDER_OUTLINE = '#B7C4C1'
 
 /* Lien affilié 888Starz */
 const STAR888_SIGNUP = AFFILIATE.star888
@@ -68,7 +68,7 @@ const STEPS = [
 /* ─── Moyens de dépôt ─────────────────────────────────────────────────── */
 const PAYMENT_METHODS = [
   { name: 'Wave', color: '#1DC9FF', short: 'W' },
-  { name: 'Orange Money', color: '#E6A24C', short: 'OM' },
+  { name: 'Orange Money', color: '#B8FF1A', short: 'OM' },
   { name: 'MTN', color: '#FFCC00', short: 'M' },
   { name: 'Moov', color: '#0066B3', short: 'M' },
 ]
@@ -129,9 +129,9 @@ export default function Star888Client({ reviewDate }: { reviewDate: string }) {
         <div
           className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] px-5 py-3 rounded-xl font-bold text-sm shadow-2xl"
           style={{
-            backgroundColor: '#E56B6F',
+            backgroundColor: '#FF7B7B',
             color: BG_DARK,
-            border: '1.5px solid #E56B6F',
+            border: '1.5px solid #FF7B7B',
             boxShadow: '0 10px 40px rgba(169, 196, 223, 0.4)',
           }}
           role="status"
@@ -184,7 +184,7 @@ export default function Star888Client({ reviewDate }: { reviewDate: string }) {
           <div
             className="rounded-2xl p-8 text-center relative overflow-hidden"
             style={{
-              background: `linear-gradient(135deg, ${BG_DARK} 0%, #142D3D 100%)`,
+              background: `linear-gradient(135deg, ${BG_DARK} 0%, #11242B 100%)`,
               border: `1.5px solid ${ORANGE}`,
               boxShadow: `0 0 60px ${ORANGE}22, 0 10px 40px rgba(0,0,0,0.4), inset 0 1px 0 ${ORANGE}33`,
             }}
@@ -217,8 +217,8 @@ export default function Star888Client({ reviewDate }: { reviewDate: string }) {
               <span
                 className="inline-flex items-center justify-center w-9 h-9 rounded-lg flex-shrink-0"
                 style={{
-                  backgroundColor: copied ? '#E56B6F' : `${ORANGE}1A`,
-                  border: `1px solid ${copied ? '#E56B6F' : ORANGE}`,
+                  backgroundColor: copied ? '#FF7B7B' : `${ORANGE}1A`,
+                  border: `1px solid ${copied ? '#FF7B7B' : ORANGE}`,
                   color: copied ? BG_DARK : ORANGE,
                 }}
                 aria-hidden="true"
@@ -245,7 +245,7 @@ export default function Star888Client({ reviewDate }: { reviewDate: string }) {
                 onClick={handleCopy}
                 className="flex-1 sm:flex-initial sm:min-w-[260px] h-[52px] rounded-[10px] font-bold text-[14px] flex items-center justify-center gap-2 transition-all"
                 style={{
-                  backgroundColor: copied ? '#E56B6F' : ORANGE,
+                  backgroundColor: copied ? '#FF7B7B' : ORANGE,
                   color: copied ? BG_DARK : BG_DARK,
                   border: 'none',
                   boxShadow: `0 6px 20px ${ORANGE}33`,
@@ -303,7 +303,7 @@ export default function Star888Client({ reviewDate }: { reviewDate: string }) {
                   color: '#C8CCDA',
                   border: `1.5px solid ${BORDER_OUTLINE}`,
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#142D3D' }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#11242B' }}
                 onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent' }}
                 data-cta="888starz-download-v641"
                 onClick={() => trackAffiliateAction('888starz', 'download', '888starz-promo-code-card')}
@@ -317,7 +317,7 @@ export default function Star888Client({ reviewDate }: { reviewDate: string }) {
               </a>
             </div>
 
-            <p className="text-[10px] mt-4" style={{ color: '#B4C4CC' }}>
+            <p className="text-[10px] mt-4" style={{ color: '#B7C4C1' }}>
               Lien d&apos;affiliation rémunéré · 18+ · Jouer responsable
             </p>
           </div>
@@ -333,7 +333,7 @@ export default function Star888Client({ reviewDate }: { reviewDate: string }) {
           >
             Détails du bonus 888Starz
           </h2>
-          <div className="rounded-2xl overflow-hidden" style={{ border: `1px solid ${ORANGE}33`, backgroundColor: '#0D202D' }}>
+          <div className="rounded-2xl overflow-hidden" style={{ border: `1px solid ${ORANGE}33`, backgroundColor: '#0D1A20' }}>
             <table className="w-full text-sm">
               <tbody>
                 {BONUS_ROWS.map((row, i) => (
@@ -373,7 +373,7 @@ export default function Star888Client({ reviewDate }: { reviewDate: string }) {
                 key={step.n}
                 className="rounded-2xl p-5 relative"
                 style={{
-                  backgroundColor: '#0D202D',
+                  backgroundColor: '#0D1A20',
                   border: `1px solid ${ORANGE}22`,
                 }}
               >
@@ -418,7 +418,7 @@ export default function Star888Client({ reviewDate }: { reviewDate: string }) {
               <div
                 key={m.name}
                 className="rounded-2xl p-4 text-center"
-                style={{ backgroundColor: '#0D202D', border: `1px solid ${m.color}33` }}
+                style={{ backgroundColor: '#0D1A20', border: `1px solid ${m.color}33` }}
               >
                 <div
                   className="w-12 h-12 rounded-full mx-auto mb-2 flex items-center justify-center font-bold text-base"
@@ -439,7 +439,7 @@ export default function Star888Client({ reviewDate }: { reviewDate: string }) {
       {/* ─────────── LIENS INTERNES ─────────── */}
       <section className="pb-10">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
-          <div className="rounded-2xl p-5 text-center" style={{ backgroundColor: '#0D202D', border: `1px solid ${ORANGE}22` }}>
+          <div className="rounded-2xl p-5 text-center" style={{ backgroundColor: '#0D1A20', border: `1px solid ${ORANGE}22` }}>
             <p className="text-[10px] uppercase tracking-widest mb-3" style={{ color: ORANGE }}>
               À découvrir sur BTTSPredict
             </p>
@@ -466,19 +466,19 @@ export default function Star888Client({ reviewDate }: { reviewDate: string }) {
             Questions fréquentes sur le code promo 888Starz
           </h2>
           <div className="space-y-2">
-            <details className="rounded-xl p-4" style={{ backgroundColor: '#0D202D', border: `1px solid ${ORANGE}22` }}>
+            <details className="rounded-xl p-4" style={{ backgroundColor: '#0D1A20', border: `1px solid ${ORANGE}22` }}>
               <summary className="cursor-pointer font-bold" style={{ color: TEXT }}>Quel est le code promo 888Starz ?</summary>
               <p className="mt-3 text-sm leading-relaxed" style={{ color: TEXT_SEC }}>Le code présenté sur cette page est <strong style={{ color: ORANGE }}>VISION221</strong>. Saisis-le en majuscules et vérifie son acceptation pendant l’inscription.</p>
             </details>
-            <details className="rounded-xl p-4" style={{ backgroundColor: '#0D202D', border: `1px solid ${ORANGE}22` }}>
+            <details className="rounded-xl p-4" style={{ backgroundColor: '#0D1A20', border: `1px solid ${ORANGE}22` }}>
               <summary className="cursor-pointer font-bold" style={{ color: TEXT }}>Quel est le bonus 888Starz en {reviewYear} ?</summary>
               <p className="mt-3 text-sm leading-relaxed" style={{ color: TEXT_SEC }}>Les montants, conditions et critères d’éligibilité peuvent varier selon le pays et la période. Consulte l’offre actuellement affichée par 888Starz avant toute inscription ou dépôt.</p>
             </details>
-            <details className="rounded-xl p-4" style={{ backgroundColor: '#0D202D', border: `1px solid ${ORANGE}22` }}>
+            <details className="rounded-xl p-4" style={{ backgroundColor: '#0D1A20', border: `1px solid ${ORANGE}22` }}>
               <summary className="cursor-pointer font-bold" style={{ color: TEXT }}>Comment utiliser VISION221 ?</summary>
               <p className="mt-3 text-sm leading-relaxed" style={{ color: TEXT_SEC }}>Ouvre le lien d’inscription, crée ton compte, saisis VISION221 dans le champ prévu puis vérifie les conditions du premier dépôt et du bonus affichées pour ton pays.</p>
             </details>
-            <details className="rounded-xl p-4" style={{ backgroundColor: '#0D202D', border: `1px solid ${ORANGE}22` }}>
+            <details className="rounded-xl p-4" style={{ backgroundColor: '#0D1A20', border: `1px solid ${ORANGE}22` }}>
               <summary className="cursor-pointer font-bold" style={{ color: TEXT }}>Le code fonctionne-t-il dans tous les pays ?</summary>
               <p className="mt-3 text-sm leading-relaxed" style={{ color: TEXT_SEC }}>La disponibilité peut dépendre du pays, du compte et de la période. Vérifie l’éligibilité directement auprès de 888Starz avant de déposer.</p>
             </details>
@@ -519,7 +519,7 @@ export default function Star888Client({ reviewDate }: { reviewDate: string }) {
           onClick={handleCopy}
           className="px-5 py-2.5 rounded-[10px] font-bold text-[13px]"
           style={{
-            backgroundColor: copied ? '#E56B6F' : ORANGE,
+            backgroundColor: copied ? '#FF7B7B' : ORANGE,
             color: BG_DARK,
           }}
         >

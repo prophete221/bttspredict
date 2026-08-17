@@ -106,7 +106,7 @@ export default function MobileTabBar() {
         backdropFilter: 'blur(20px) saturate(180%)',
         WebkitBackdropFilter: 'blur(20px) saturate(180%)',
         // Bordure subtile en haut — sobre
-        borderTop: '1px solid #23495C',
+        borderTop: '1px solid #5D7880',
         // Ombre légère — pas de halo agressif
         boxShadow: '0 -4px 16px rgba(7, 17, 26, 0.4)',
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
@@ -123,7 +123,7 @@ export default function MobileTabBar() {
             className="flex-1 flex flex-col items-center justify-center gap-1 transition-all duration-200 relative"
             style={{
               // Actif = turquoise sobre, Inactif = gris lisible
-              color: isActive ? '#E6A24C' : '#B4C4CC',
+              color: isActive ? '#B8FF1A' : '#B7C4C1',
               minHeight: '48px',
               textShadow: isActive
                 ? '0 0 8px rgba(75, 182, 135, 0.4)'
@@ -144,7 +144,7 @@ export default function MobileTabBar() {
                   width: '32px',
                   height: '3px',
                   borderRadius: '2px',
-                  background: '#E6A24C',
+                  background: '#B8FF1A',
                   boxShadow: '0 0 8px rgba(75, 182, 135, 0.6)',
                 }}
               />
@@ -155,7 +155,7 @@ export default function MobileTabBar() {
             <span
               className="text-[9px] font-bold uppercase tracking-wider"
               style={{
-                color: isActive ? '#E6A24C' : '#B4C4CC',
+                color: isActive ? '#B8FF1A' : '#B7C4C1',
               }}
             >
               {tab.label}

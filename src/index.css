@@ -6,73 +6,73 @@
    ═══════════════════════════════════════════════════════════════ */
 :root {
   /* Fonds — Slate palette */
-  --bg-main: #07131D;          /* Slate 900 — fond principal */
-  --bg-secondary: #0D202D;     /* Slate 800 — surfaces/cartes */
-  --bg-tertiary: #142D3D;      /* Surface intermédiaire */
-  --card: #0D202D;             /* Surface carte */
-  --card-hover: #142D3D;       /* Surface carte active */
-  --border: #23495C;           /* Slate 700 */
-  --border-strong: #23495C;
+  --bg-main: #071018;          /* Slate 900 — fond principal */
+  --bg-secondary: #0D1A20;     /* Slate 800 — surfaces/cartes */
+  --bg-tertiary: #11242B;      /* Surface intermédiaire */
+  --card: #0D1A20;             /* Surface carte */
+  --card-hover: #11242B;       /* Surface carte active */
+  --border: #5D7880;           /* Slate 700 */
+  --border-strong: #5D7880;
 
   /* Texte */
-  --text-primary: #F3F7F5;    /* Slate 50 */
-  --text-secondary: #B4C4CC;  /* Slate 400 */
-  --text-tertiary: #B4C4CC;
+  --text-primary: #F5F8F3;    /* Slate 50 */
+  --text-secondary: #B7C4C1;  /* Slate 400 */
+  --text-tertiary: #B7C4C1;
 
   /* Accents sémantiques */
-  --brand-indigo: #E6A24C;    /* Emerald 500 — succès/action */
-  --brand-violet: #E6A24C;
-  --brand-cyan: #E6A24C;      /* Blue 500 — données/info */
-  --cta: #E6A24C;              /* Emerald 500 */
-  --cta-text: #07131D;
-  --trust: #E6A24C;           /* Blue 500 */
-  --vip: #E6A24C;             /* Amber 500 — avertissement/VIP */
-  --success: #28C59B;          /* Emerald 500 */
-  --error: #E56B6F;            /* Red 500 */
+  --brand-indigo: #B8FF1A;    /* Emerald 500 — succès/action */
+  --brand-violet: #B8FF1A;
+  --brand-cyan: #B8FF1A;      /* Blue 500 — données/info */
+  --cta: #B8FF1A;              /* Emerald 500 */
+  --cta-text: #071018;
+  --trust: #B8FF1A;           /* Blue 500 */
+  --vip: #F5C451;             /* Amber 500 — avertissement/VIP */
+  --success: #34D399;          /* Emerald 500 */
+  --error: #FF7B7B;            /* Red 500 */
 
   /* Hover states */
-  --cta-hover: #E6A24C;
-  --cta-active: #E6A24C;
-  --trust-hover: #E6A24C;
-  --vip-hover: #E6A24C;
-  --success-hover: #6FE0BE;
-  --error-hover: #E56B6F;
-  --border-hover: #E6A24C;
+  --cta-hover: #B8FF1A;
+  --cta-active: #B8FF1A;
+  --trust-hover: #B8FF1A;
+  --vip-hover: #B8FF1A;
+  --success-hover: #6EE7B7;
+  --error-hover: #FF7B7B;
+  --border-hover: #B8FF1A;
   --glass: rgba(248, 250, 252, 0.08);
   --glass-border: rgba(248, 250, 252, 0.12);
 }
 
 @theme {
   /* ── Slate Design System — tokens canoniques ── */
-  --color-bg-main: #07131D;
-  --color-bg-secondary: #0D202D;
-  --color-bg-tertiary: #142D3D;
-  --color-card: #0D202D;
-  --color-card-hover: #142D3D;
-  --color-border: #23495C;
-  --color-border-strong: #23495C;
-  --color-text-primary: #F3F7F5;
-  --color-text-secondary: #B4C4CC;
-  --color-text-tertiary: #B4C4CC;
-  --color-brand-indigo: #E6A24C;
-  --color-brand-violet: #E6A24C;
-  --color-brand-cyan: #E6A24C;
-  --color-cta: #E6A24C;
-  --color-cta-text: #07131D;
-  --color-trust: #E6A24C;
-  --color-stats: #E6A24C;
-  --color-vip: #E6A24C;
-  --color-success: #28C59B;
-  --color-error: #E56B6F;
+  --color-bg-main: #071018;
+  --color-bg-secondary: #0D1A20;
+  --color-bg-tertiary: #11242B;
+  --color-card: #0D1A20;
+  --color-card-hover: #11242B;
+  --color-border: #5D7880;
+  --color-border-strong: #5D7880;
+  --color-text-primary: #F5F8F3;
+  --color-text-secondary: #B7C4C1;
+  --color-text-tertiary: #B7C4C1;
+  --color-brand-indigo: #B8FF1A;
+  --color-brand-violet: #B8FF1A;
+  --color-brand-cyan: #B8FF1A;
+  --color-cta: #B8FF1A;
+  --color-cta-text: #071018;
+  --color-trust: #B8FF1A;
+  --color-stats: #B8FF1A;
+  --color-vip: #F5C451;
+  --color-success: #34D399;
+  --color-error: #FF7B7B;
 
   /* Hover states */
-  --color-cta-hover: #E6A24C;
-  --color-cta-active: #E6A24C;
-  --color-trust-hover: #E6A24C;
+  --color-cta-hover: #B8FF1A;
+  --color-cta-active: #B8FF1A;
+  --color-trust-hover: #B8FF1A;
   --color-vip-hover: #D6A83A;
-  --color-success-hover: #6FE0BE;
-  --color-error-hover: #E56B6F;
-  --color-border-hover: #E6A24C;
+  --color-success-hover: #6EE7B7;
+  --color-error-hover: #FF7B7B;
+  --color-border-hover: #B8FF1A;
 
   /* Aliases mappés sur ECLIPSE v60 */
   --color-abyss: var(--color-bg-main);
@@ -144,7 +144,7 @@ html {
 
 body {
   background-color: #0F1726;
-  color: #F3F7F5;
+  color: #F5F8F3;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 15px;
   overflow-x: hidden;
@@ -378,13 +378,13 @@ h1, h2, h3, h4, h5, h6 {
 ::selection { background: rgba(168, 224, 99, 0.3); color: #fff; }
 
 /* ─── Blog Article Prose ─── */
-.prose-dark h2 { color: #E6A24C; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
-.prose-dark h3 { color: #E6A24C; font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
-.prose-dark p { color: #E6A24C; line-height: 1.8; margin-bottom: 1rem; }
+.prose-dark h2 { color: #B8FF1A; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+.prose-dark h3 { color: #B8FF1A; font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+.prose-dark p { color: #B8FF1A; line-height: 1.8; margin-bottom: 1rem; }
 .prose-dark ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
-.prose-dark li { color: #E6A24C; line-height: 1.8; margin-bottom: 0.5rem; }
-.prose-dark strong { color: #F3F7F5; }
-.prose-dark blockquote { border-left: 3px solid #E6A24C; padding-left: 1rem; margin: 1.5rem 0; color: #B4C4CC; font-style: italic; }
+.prose-dark li { color: #B8FF1A; line-height: 1.8; margin-bottom: 0.5rem; }
+.prose-dark strong { color: #F5F8F3; }
+.prose-dark blockquote { border-left: 3px solid #B8FF1A; padding-left: 1rem; margin: 1.5rem 0; color: #B7C4C1; font-style: italic; }
 
 /* ─── Stat Card Motion Animations ─── */
 @keyframes statFloat {
@@ -420,7 +420,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .promo-code-shimmer {
-  background: linear-gradient(90deg, #E6A24C 0%, #E6A24C 25%, #F3F7F5 50%, #E6A24C 75%, #E6A24C 100%);
+  background: linear-gradient(90deg, #B8FF1A 0%, #B8FF1A 25%, #F5F8F3 50%, #B8FF1A 75%, #B8FF1A 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -430,7 +430,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Premium Button Styles ─── */
 .btn-emerald {
-  background: linear-gradient(135deg, #E6A24C, #E6A24C);
+  background: linear-gradient(135deg, #B8FF1A, #B8FF1A);
   color: #0F1726;
   font-weight: 700;
   border-radius: 12px;
@@ -451,7 +451,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-gold {
-  background: linear-gradient(135deg, #E6A24C, #E6A24C);
+  background: linear-gradient(135deg, #B8FF1A, #B8FF1A);
   color: #0F1726;
   font-weight: 700;
   border-radius: 12px;
@@ -474,11 +474,11 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── Section Accent Borders ─── */
 .accent-line-emerald {
   height: 2px;
-  background: linear-gradient(90deg, transparent, #E6A24C, transparent);
+  background: linear-gradient(90deg, transparent, #B8FF1A, transparent);
 }
 .accent-line-gold {
   height: 2px;
-  background: linear-gradient(90deg, transparent, #E6A24C, transparent);
+  background: linear-gradient(90deg, transparent, #B8FF1A, transparent);
 }
 
 /* ─── Scrollbar-none for filter tabs ─── */
@@ -509,7 +509,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Accessibility: Focus Visible ─── */
 *:focus-visible {
-  outline: 2px solid #E6A24C;
+  outline: 2px solid #B8FF1A;
   outline-offset: 2px;
   border-radius: 4px;
 }

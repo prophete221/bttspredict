@@ -27,17 +27,17 @@ export default async function LocalizedOver25TodayPage({ params }: { params: Pro
   if (!isLocale(value) || value === 'fr') notFound()
   const t = translationsFor(value)
   return (
-    <div className="min-h-screen bg-[#07131D] flex flex-col text-[#F3F7F5]">
+    <div className="min-h-screen bg-[#071018] flex flex-col text-[#F5F8F3]">
       <Navbar />
       <main id="main-content" className="flex-1">
-        <nav aria-label={t.common.home} className="text-xs text-[#B4C4CC] mb-4 max-w-5xl mx-auto px-4 pt-8">
-          <Link href={`/${value}`} className="hover:text-[#E6A24C]">{t.common.home}</Link><span className="mx-1">/</span><span>Over 2.5 Today</span>
+        <nav aria-label={t.common.home} className="text-xs text-[#B7C4C1] mb-4 max-w-5xl mx-auto px-4 pt-8">
+          <Link href={`/${value}`} className="hover:text-[#B8FF1A]">{t.common.home}</Link><span className="mx-1">/</span><span>Over 2.5 Today</span>
         </nav>
         <section className="max-w-5xl mx-auto px-4 pt-4 pb-6">
-          <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4" style={{ backgroundColor: 'rgba(255, 209, 102, 0.12)', color: '#E6A24C', border: '1px solid rgba(255, 209, 102, 0.25)' }}>Over 2.5 · Total goals</span>
+          <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4" style={{ backgroundColor: 'rgba(255, 209, 102, 0.12)', color: '#B8FF1A', border: '1px solid rgba(255, 209, 102, 0.25)' }}>Over 2.5 · Total goals</span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>{value === 'ar' ? 'توقعات Over 2.5 اليوم' : 'Over 2.5 Predictions Today'}</h1>
-          <p className="text-base sm:text-lg text-[#B4C4CC] leading-relaxed mb-3 max-w-3xl mx-auto">{value === 'ar' ? 'مباريات يُتوقع أن يتجاوز فيها إجمالي الأهداف 2.5، أي ثلاثة أهداف على الأقل. يتم التحديث والتحقق من النتائج بعد المباراة.' : "Today's Over 2.5 predictions: matches where total goals are expected to exceed 2.5, meaning at least 3 goals. Updated and checked after the match."}</p>
-          <p className="text-sm text-[#B4C4CC] leading-relaxed max-w-3xl mx-auto">{t.legal.noGuarantee} {t.legal.eighteen}</p>
+          <p className="text-base sm:text-lg text-[#B7C4C1] leading-relaxed mb-3 max-w-3xl mx-auto">{value === 'ar' ? 'مباريات يُتوقع أن يتجاوز فيها إجمالي الأهداف 2.5، أي ثلاثة أهداف على الأقل. يتم التحديث والتحقق من النتائج بعد المباراة.' : "Today's Over 2.5 predictions: matches where total goals are expected to exceed 2.5, meaning at least 3 goals. Updated and checked after the match."}</p>
+          <p className="text-sm text-[#B7C4C1] leading-relaxed max-w-3xl mx-auto">{t.legal.noGuarantee} {t.legal.eighteen}</p>
         </section>
         <section className="max-w-5xl mx-auto px-4 pb-12"><FreePredictions /></section>
       </main>
