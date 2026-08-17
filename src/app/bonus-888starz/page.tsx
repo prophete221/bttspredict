@@ -78,7 +78,7 @@ function buildArticleJsonLd() {
       '@type': 'Organization',
       name: 'BTTSPredict',
       url: SITE_URL,
-      logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.svg` },
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon-512.png` },
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE_URL },
   }
