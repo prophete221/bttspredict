@@ -2,57 +2,44 @@
   "date": "2026-08-18",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-18T01:11:44.270Z",
+  "fetchedAt": "2026-08-18T02:07:30.994Z",
   "eventCount": 100,
-  "legCount": 52,
+  "legCount": 49,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
-        {
-          "eventId": "73095418",
-          "home": "Sporting FC",
-          "away": "CD Escorpiones Belen",
-          "league": "Costa Rica - Primera Division, Apertura",
-          "kickoff": "2026-08-18T02:00:00Z",
-          "bookmaker": "Bet365 (no latency)",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.85,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-18T01:09:00.272Z"
-        },
         {
           "eventId": "73790810",
           "home": "Shanghai Shenhua FC",
           "away": "Beijing Guoan",
           "league": "China - Chinese Super League",
           "kickoff": "2026-08-18T11:35:00Z",
-          "bookmaker": "Unibet",
+          "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.08,
+          "odds": 1.01,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-17T13:19:18.313Z"
+          "updatedAt": "2026-08-18T01:57:40.528Z"
+        },
+        {
+          "eventId": "73550270",
+          "home": "Thailand",
+          "away": "Singapore",
+          "league": "International - ASEAN Championship, Playoffs",
+          "kickoff": "2026-08-18T13:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.98,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-17T15:56:31.234Z"
         }
       ],
       "totalOdds": 2
     },
     "target5": {
       "legs": [
-        {
-          "eventId": "73095418",
-          "home": "Sporting FC",
-          "away": "CD Escorpiones Belen",
-          "league": "Costa Rica - Primera Division, Apertura",
-          "kickoff": "2026-08-18T02:00:00Z",
-          "bookmaker": "Bet365",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 2,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-18T01:11:05.425Z"
-        },
         {
           "eventId": "73790810",
           "home": "Shanghai Shenhua FC",
@@ -78,6 +65,19 @@
           "odds": 1.88,
           "source": "Odds-API.io",
           "updatedAt": "2026-08-17T16:59:54.381Z"
+        },
+        {
+          "eventId": "73601682",
+          "home": "Cardiff City U21",
+          "away": "Barnsley FC U21",
+          "league": "England Amateur - U21 Professional Development League",
+          "kickoff": "2026-08-18T13:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 2,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-17T22:20:29.293Z"
         }
       ],
       "totalOdds": 5
