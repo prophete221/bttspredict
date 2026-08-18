@@ -2,25 +2,25 @@
   "date": "2026-08-18",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-18T04:35:55.942Z",
+  "fetchedAt": "2026-08-18T08:32:47.882Z",
   "eventCount": 100,
-  "legCount": 47,
+  "legCount": 53,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "31866770721",
-          "home": "Meghalaya Police FT",
-          "away": "Langsning FC",
-          "league": "India - Shillong Premier League",
-          "kickoff": "2026-08-18T10:30:00Z",
+          "eventId": "73576534",
+          "home": "Slovan Bratislava U19",
+          "away": "FC Kosice U19",
+          "league": "Slovakia - U19 1. Liga",
+          "kickoff": "2026-08-18T09:00:00Z",
           "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
           "odds": 1.85,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-18T01:11:20.777Z"
+          "updatedAt": "2026-08-18T08:29:51.455Z"
         },
         {
           "eventId": "73790810",
@@ -41,43 +41,43 @@
     "target5": {
       "legs": [
         {
-          "eventId": "73583368",
-          "home": "Mindil Aces",
-          "away": "Darwin Olympic SC",
-          "league": "Australia - Northern Territory Premier League",
-          "kickoff": "2026-08-18T10:30:00Z",
-          "bookmaker": "Bet365",
+          "eventId": "73807900",
+          "home": "Patha Chakra",
+          "away": "Railway FC",
+          "league": "India - Calcutta Premier Division, Group A",
+          "kickoff": "2026-08-18T09:30:00Z",
+          "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.88,
+          "odds": 1.65,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-18T03:39:03.127Z"
+          "updatedAt": "2026-08-18T08:19:28.285Z"
         },
         {
-          "eventId": "73790810",
-          "home": "Shanghai Shenhua FC",
-          "away": "Beijing Guoan",
-          "league": "China - Chinese Super League",
-          "kickoff": "2026-08-18T11:35:00Z",
+          "eventId": "73706204",
+          "home": "Kingsley Westside FC",
+          "away": "Gwelup Croatia SC",
+          "league": "Australia - Western Australia State League 1",
+          "kickoff": "2026-08-18T11:30:00Z",
+          "bookmaker": "Bet365 (no latency)",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.53,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-18T08:22:23.584Z"
+        },
+        {
+          "eventId": "73550270",
+          "home": "Thailand",
+          "away": "Singapore",
+          "league": "International - ASEAN Championship, Playoffs",
+          "kickoff": "2026-08-18T13:00:00Z",
           "bookmaker": "Unibet",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 1.33,
+          "odds": 1.98,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-17T13:19:18.313Z"
-        },
-        {
-          "eventId": "73601682",
-          "home": "Cardiff City U21",
-          "away": "Barnsley FC U21",
-          "league": "England Amateur - U21 Professional Development League",
-          "kickoff": "2026-08-18T13:00:00Z",
-          "bookmaker": "Bet365",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 2,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-17T22:20:29.293Z"
+          "updatedAt": "2026-08-17T15:56:31.234Z"
         }
       ],
       "totalOdds": 5
