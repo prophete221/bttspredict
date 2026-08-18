@@ -2,38 +2,38 @@
   "date": "2026-08-18",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-18T16:31:22.064Z",
-  "eventCount": 100,
-  "legCount": 52,
+  "fetchedAt": "2026-08-18T20:23:24.980Z",
+  "eventCount": 10,
+  "legCount": 21,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "73705286",
-          "home": "Nykoebing FC",
-          "away": "Naestved BK",
-          "league": "Denmark - DBU Pokalen",
-          "kickoff": "2026-08-18T17:00:00Z",
-          "bookmaker": "Bet365",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.57,
+          "eventId": "71805348",
+          "home": "Recoleta FC",
+          "away": "Boca Juniors",
+          "league": "International Clubs - CONMEBOL Sudamericana, Knockout stage",
+          "kickoff": "2026-08-18T22:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.03,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-18T16:31:15.223Z"
+          "updatedAt": "2026-08-18T18:29:10.505Z"
         },
         {
-          "eventId": "72532786",
-          "home": "Keflavik IF",
-          "away": "KR Reykjavik",
-          "league": "Iceland - 1. deild, Women",
-          "kickoff": "2026-08-18T18:00:00Z",
+          "eventId": "71913668",
+          "home": "Mount Pleasant FC",
+          "away": "Cibao CF",
+          "league": "International Clubs - CONCACAF Caribbean Cup, Group B",
+          "kickoff": "2026-08-18T22:00:00Z",
           "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.28,
+          "odds": 1.95,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-18T16:25:14.589Z"
+          "updatedAt": "2026-08-18T20:09:28.176Z"
         }
       ],
       "totalOdds": 2.01
@@ -41,33 +41,46 @@
     "target5": {
       "legs": [
         {
-          "eventId": "73761758",
-          "home": "UD Mutilvera",
-          "away": "Pena Sport FC",
-          "league": "International Clubs - Club Friendly Games",
-          "kickoff": "2026-08-18T17:00:00Z",
+          "eventId": "73550320",
+          "home": "Guabira Montero",
+          "away": "FC Universitario de Vinto",
+          "league": "Bolivia - Copa Bolivia",
+          "kickoff": "2026-08-18T22:00:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 2.38,
+          "odds": 2.43,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-18T13:33:02.201Z"
+          "updatedAt": "2026-08-18T14:45:27.786Z"
         },
         {
-          "eventId": "73444010",
-          "home": "Newells Old Boys",
-          "away": "CA Lanus",
-          "league": "Argentina - Primera LPF, Reserves, Clausura, Group B",
-          "kickoff": "2026-08-18T18:00:00Z",
-          "bookmaker": "Bet365 (no latency)",
+          "eventId": "71805348",
+          "home": "Recoleta FC",
+          "away": "Boca Juniors",
+          "league": "International Clubs - CONMEBOL Sudamericana, Knockout stage",
+          "kickoff": "2026-08-18T22:00:00Z",
+          "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 2.1,
+          "odds": 1.03,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-18T07:47:47.492Z"
+          "updatedAt": "2026-08-18T18:29:10.505Z"
+        },
+        {
+          "eventId": "68823172",
+          "home": "Londrina EC PR",
+          "away": "AC Goianiense GO",
+          "league": "Brazil - Brasileiro Serie B",
+          "kickoff": "2026-08-18T22:30:00Z",
+          "bookmaker": "Bet365",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 2,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-18T20:22:32.104Z"
         }
       ],
-      "totalOdds": 5
+      "totalOdds": 5.01
     }
   }
 }
