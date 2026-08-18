@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import { getDakarDateString } from '@/lib/dakar-date'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -23,76 +24,87 @@ export const metadata: Metadata = {
 }
 
 export default function Over25PredictionsTodayPage() {
+  const dakarDate = getDakarDateString()
+  const dakarDateLabel = new Intl.DateTimeFormat('fr-FR', {
+    timeZone: 'Africa/Dakar',
+    dateStyle: 'full',
+  }).format(new Date(`${dakarDate}T12:00:00Z`))
+
   return (
     <div className="min-h-screen bg-[#071018] flex flex-col text-[#F5F8F3]">
       <Navbar />
       <main id="main-content" className="flex-1">
-        <nav aria-label="Fil d'Ariane" className="text-xs text-[#B7C4C1] mb-4 max-w-5xl mx-auto px-4 pt-8">
+        <nav aria-label="Fil d'Ariane" className="text-xs text-[#B7C4C1] mb-4 max-w-5xl mx-auto px-4 pt-6 sm:pt-8">
           <Link href="/" className="hover:text-[#B8FF1A]">Accueil</Link>
           <span className="mx-1">/</span>
           <span className="text-[#B7C4C1]">Over 2.5 Today</span>
         </nav>
 
-        <section className="max-w-5xl mx-auto px-4 pt-4 pb-6">
-          <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
-            style={{ backgroundColor: 'rgba(255, 209, 102, 0.12)', color: '#B8FF1A', border: '1px solid rgba(255, 209, 102, 0.25)' }}>
-            Over 2.5 · Plus de 2,5 buts
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            Over 2.5 Predictions Today
-          </h1>
-          <p className="text-base sm:text-lg text-[#B7C4C1] leading-relaxed mb-3 max-w-3xl mx-auto">
-            Today&apos;s Over 2.5 predictions: matches where the total goals are expected to exceed 2.5 (at least 3 goals). Updated 4x daily, verified post-match.
-          </p>
-          <p className="text-sm text-[#B7C4C1] leading-relaxed max-w-3xl mx-auto">
-            Aucun gain n&apos;est garanti. 18+.
-          </p>
+        <section className="max-w-5xl mx-auto px-4 pt-2 pb-6 sm:pt-4">
+          <div className="rounded-2xl p-5 sm:p-7" style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
+            <div className="flex flex-wrap items-center gap-2 mb-4">
+              <span className="inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider"
+                style={{ backgroundColor: 'rgba(184, 255, 26, 0.12)', color: '#B8FF1A', border: '1px solid rgba(184, 255, 26, 0.25)' }}>
+                Over 2.5 · 3 buts ou plus
+              </span>
+              <span className="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold" style={{ backgroundColor: 'rgba(52, 211, 153, 0.12)', color: '#34D399', border: '1px solid rgba(52, 211, 153, 0.28)' }}>
+                Aujourd&apos;hui · {dakarDateLabel}
+              </span>
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              Pronostics Over 2.5 du jour
+            </h1>
+            <p className="text-base sm:text-lg text-[#B7C4C1] leading-relaxed max-w-3xl">
+              Les matchs sélectionnés aujourd&apos;hui selon la probabilité d&apos;au moins 3 buts.
+            </p>
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <a href="#over25-dashboard" className="inline-flex min-h-11 items-center justify-center rounded-xl px-5 py-3 text-sm font-bold transition hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8FF1A]" style={{ backgroundColor: '#B8FF1A', color: '#071018' }}>
+                Voir les matchs du jour
+              </a>
+              <Link href="/methodologie" className="inline-flex min-h-11 items-center justify-center rounded-xl border px-5 py-3 text-sm font-semibold transition hover:border-[#B8FF1A] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8FF1A]" style={{ borderColor: '#5D7880', color: '#F5F8F3' }}>
+                Comprendre la méthode
+              </Link>
+            </div>
+            <p className="mt-4 text-xs text-[#7F98A4]">Mise à jour 4 fois par jour · Aucun gain garanti · 18+</p>
+          </div>
         </section>
 
-        <section className="max-w-3xl mx-auto px-4 pb-8">
+        <section id="over25-dashboard" aria-label="Pronostics Over 2.5 du jour" className="max-w-5xl mx-auto px-4 pb-10 scroll-mt-6">
+          <FreePredictions />
+        </section>
+
+        <section className="max-w-3xl mx-auto px-4 pb-10">
           <div className="rounded-xl p-5" style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
             <h2 className="text-lg font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              What is Over 2.5?
+              Comprendre Over 2.5 en 30 secondes
             </h2>
             <p className="text-sm text-[#B7C4C1] leading-relaxed mb-3">
-              <strong>Over 2.5 goals</strong> is won if <strong>at least 3 goals</strong> are scored in the match, regardless of who scores. Scores like 2-1, 3-0, 1-2, 4-1 win Over 2.5. Scores like 0-0, 1-0, 0-1, 1-1, 2-0, 0-2 lose.
-            </p>
-            <p className="text-sm text-[#B7C4C1] leading-relaxed mb-3">
-              <strong>Difference from BTTS:</strong> BTTS requires <em>both teams to score</em>. Over 2.5 requires <em>a high total goal count</em>. A 3-0 match wins Over 2.5 but loses BTTS. A 1-1 match wins BTTS but loses Over 2.5.
+              <strong>Over 2.5</strong> est validé si le match produit au moins 3 buts, quel que soit le vainqueur : 2-1, 3-0, 1-2 et 4-1 sont gagnants ; 0-0, 1-0, 1-1 et 2-0 ne le sont pas.
             </p>
             <p className="text-sm text-[#B7C4C1] leading-relaxed">
-              For the methodology, see our <Link href="/methodologie" className="text-[#B8FF1A] underline">methodology page</Link>.
+              À la différence du BTTS, Over 2.5 mesure le total de buts et non le fait que les deux équipes marquent. Consultez notre <Link href="/methodologie" className="text-[#B8FF1A] underline">méthodologie documentée</Link> pour le détail.
             </p>
           </div>
         </section>
 
-        <section className="max-w-5xl mx-auto px-4 pb-12">
-          <FreePredictions />
-        </section>
-
-        {/* Quick Links */}
         <section className="max-w-3xl mx-auto px-4 pb-12">
           <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Quick Links
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8FF1A]"
-              style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
+            <Link href="/btts/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8FF1A]" style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
               <div className="text-sm font-bold text-[#F5F8F3]">BTTS Predictions Today →</div>
               <div className="text-xs text-[#B7C4C1] mt-1">Both teams to score</div>
             </Link>
-            <Link href="/btts-and-over-2-5-predictions-today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8FF1A]"
-              style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
+            <Link href="/btts-and-over-2-5-predictions-today" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8FF1A]" style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
               <div className="text-sm font-bold text-[#F5F8F3]">BTTS + Over 2.5 Combined →</div>
               <div className="text-xs text-[#B7C4C1] mt-1">Both conditions met</div>
             </Link>
-            <Link href="/ai-correct-score-predictions" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8FF1A]"
-              style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
+            <Link href="/ai-correct-score-predictions" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8FF1A]" style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
               <div className="text-sm font-bold text-[#F5F8F3]">AI Correct Score →</div>
               <div className="text-xs text-[#B7C4C1] mt-1">Exact score probabilities</div>
             </Link>
-            <Link href="/over-2-5/statistics" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8FF1A]"
-              style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
+            <Link href="/over-2-5/statistics" className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8FF1A]" style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
               <div className="text-sm font-bold text-[#F5F8F3]">Over 2.5 Statistics →</div>
               <div className="text-xs text-[#B7C4C1] mt-1">League stats</div>
             </Link>
