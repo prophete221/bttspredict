@@ -295,14 +295,20 @@ export default function VipPage() {
                 {([['target2', vipCopy.combo2], ['target5', vipCopy.combo5]] as const).map(([key, label]) => {
                   const combo = vipCombos?.[key]
                   return <div key={key} className={`vip-combo-card vip-3d-card rounded-xl p-3 relative overflow-hidden ${key === 'target2' ? 'vip-combo-card--primary' : ''}`} style={{ backgroundColor: C.bg, border: `1px solid ${C.border}` }}>
-                    <div className="vip-combo-card__head flex items-center justify-between mb-2"><span className="text-[10px] font-black uppercase" style={{ color: C.gold }}>{label} <em className="not-italic font-semibold" style={{ color: C.textSec }}>· {comboDateLabel}</em></span>{combo && <strong className="vip-combo-card__odds" style={{ color: C.success }}>@{combo.totalOdds.toFixed(2)}</strong>}</div>
+                    <div className="vip-combo-card__head flex items-center justify-between mb-2"><span className="text-[10px] font-black uppercase" style={{ color: C.gold }}>{label} <em className="not-italic font-semibold" style={{ color: C.textSec }}>· {comboDateLabel}</em></span>{combo && <span className="vip-combo-card__odds text-[9px] font-bold" style={{ color: C.textSec }}>Cote protégée</span>}</div>
                     {combo ? <>
-                      <div className="text-[9px] mb-2" style={{ color: C.textSec }}>{combo.legs.length} sélections vérifiées · détails protégés</div>
+                      <div className="text-[9px] mb-2" style={{ color: C.textSec }}>{combo.legs.length} matchs du jour · marchés protégés</div>
                       <div className="vip-combo-card__locked relative rounded-lg p-2" style={{ border: `1px solid ${C.border}`, minHeight: 54 }}>
-                        <div className="space-y-1" style={{ filter: 'blur(5px)', opacity: 0.55, userSelect: 'none' }} aria-hidden="true">
-                          {combo.legs.map((leg, index) => <div key={`${leg.eventId || index}-${leg.selection}`} className="text-[9px]" style={{ color: C.textSec }}>{leg.home} — {leg.away} · {leg.selection} @{leg.odds.toFixed(2)}</div>)}
+                        <div className="space-y-1.5" aria-label="Matchs visibles, marchés protégés">
+                          {combo.legs.map((leg, index) => <div key={`${leg.eventId || index}-${leg.selection}`} className="flex items-center justify-between gap-2 text-[9px]" style={{ color: C.text }}>
+                            <span className="min-w-0 truncate font-semibold">{leg.home} <span style={{ color: C.textSec }}>—</span> {leg.away}</span>
+                            <span className="shrink-0 rounded px-1.5 py-0.5" style={{ backgroundColor: `${C.surface}CC` }}>
+                              <span className="inline-block" style={{ filter: 'blur(5px)', opacity: 0.7, userSelect: 'none' }} aria-hidden="true">{leg.selection} @{leg.odds.toFixed(2)}</span>
+                              <span className="sr-only">Marché et cote protégés</span>
+                            </span>
+                          </div>)}
                         </div>
-                        <button type="button" className="vip-combo-card__lock absolute inset-0 flex items-center justify-center gap-1.5 cursor-pointer" style={{ backgroundColor: 'rgba(7,16,24,0.62)' }} onClick={openVipUnlock} aria-label={vipCopy.accessCta}>
+                        <button type="button" className="vip-combo-card__lock absolute inset-0 flex items-center justify-center gap-1.5 cursor-pointer" style={{ backgroundColor: 'rgba(7,16,24,0.28)' }} onClick={openVipUnlock} aria-label={vipCopy.accessCta}>
                           <span aria-hidden="true" style={{ color: C.gold }}>▣</span><span className="text-[8px] font-black uppercase tracking-wider" style={{ color: C.gold }}>{vipCopy.accessCta}</span>
                         </button>
                       </div>
