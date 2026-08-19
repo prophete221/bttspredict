@@ -2,38 +2,38 @@
   "date": "2026-08-19",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-19T21:20:29.827Z",
-  "eventCount": 48,
-  "legCount": 38,
+  "fetchedAt": "2026-08-19T22:08:05.753Z",
+  "eventCount": 33,
+  "legCount": 82,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "73550326",
-          "home": "Independiente Petrolero",
-          "away": "Blooming Santa Cruz",
-          "league": "Bolivia - Copa Bolivia",
-          "kickoff": "2026-08-19T22:00:00Z",
-          "bookmaker": "Bet365 (no latency)",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.85,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T21:15:14.033Z"
-        },
-        {
-          "eventId": "71805798",
-          "home": "Cerro Porteno",
-          "away": "SE Palmeiras SP",
-          "league": "International Clubs - CONMEBOL Libertadores, Knockout stage",
-          "kickoff": "2026-08-19T22:00:00Z",
+          "eventId": "72963604",
+          "home": "Racing Club Avellaneda",
+          "away": "CA Belgrano de Cordoba",
+          "league": "Argentina - Copa Argentina",
+          "kickoff": "2026-08-19T22:15:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.08,
+          "odds": 1.1,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T20:07:40.867Z"
+          "updatedAt": "2026-08-19T21:23:48.624Z"
+        },
+        {
+          "eventId": "73062012",
+          "home": "Champs Academy Guatemala",
+          "away": "Csd Chiquimulilla",
+          "league": "Guatemala - Primera Division, Apertura, Group B",
+          "kickoff": "2026-08-19T23:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.82,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-19T11:41:56.647Z"
         }
       ],
       "totalOdds": 2
@@ -41,30 +41,30 @@
     "target5": {
       "legs": [
         {
-          "eventId": "71805812",
-          "home": "Coquimbo Unido",
-          "away": "CA Platense",
-          "league": "International Clubs - CONMEBOL Libertadores, Knockout stage",
-          "kickoff": "2026-08-19T22:00:00Z",
-          "bookmaker": "Bet365",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 2.5,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T21:19:19.393Z"
-        },
-        {
-          "eventId": "73443750",
-          "home": "CA Talleres de Cordoba Reserve",
-          "away": "Rosario Central Reserve",
-          "league": "Argentina - Primera LPF, Reserves, Clausura, Group B",
-          "kickoff": "2026-08-19T22:00:00Z",
-          "bookmaker": "Bet365",
+          "eventId": "72963604",
+          "home": "Racing Club Avellaneda",
+          "away": "CA Belgrano de Cordoba",
+          "league": "Argentina - Copa Argentina",
+          "kickoff": "2026-08-19T22:15:00Z",
+          "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 2,
+          "odds": 1.82,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T17:14:41.134Z"
+          "updatedAt": "2026-08-19T22:06:20.835Z"
+        },
+        {
+          "eventId": "66299368",
+          "home": "FC Cincinnati",
+          "away": "New York City FC",
+          "league": "USA - MLS",
+          "kickoff": "2026-08-19T23:30:00Z",
+          "bookmaker": "Unibet",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 2.75,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-19T10:58:46.59Z"
         }
       ],
       "totalOdds": 5
