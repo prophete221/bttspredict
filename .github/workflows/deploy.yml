@@ -212,18 +212,22 @@ jobs:
           exit 0
 
       - name: Deploy to bttspredict.com via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: "out/"
-          server-dir: "./"
-          # v4.4.0 corrige l'erreur FTP 550 lors de la suppression de dossiers.
-          exclude: |
-            **/.git*
-            **/node_modules/**
-            **/.ftp-deploy-sync-file.json
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          set -euo pipefail
+          # Synchronisation explicite du build statique vers la racine du site.
+          # Sans --delete : aucun fichier distant non lié au build n'est supprimé.
+          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "ftp://$FTP_SERVER" -e "
+            set ssl:verify no
+            set net:timeout 30
+            set net:max-retries 1
+            set mirror:use-pget-n 4
+            mirror --reverse --verbose --parallel=4 out/ ./
+            bye
+          "
 
       - name: Notify Bing via IndexNow
         if: success()
