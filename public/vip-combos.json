@@ -2,38 +2,38 @@
   "date": "2026-08-19",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-19T16:32:02.823Z",
-  "eventCount": 100,
-  "legCount": 55,
+  "fetchedAt": "2026-08-19T20:37:08.093Z",
+  "eventCount": 55,
+  "legCount": 95,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "72515880",
-          "home": "Polonia Sroda Wielkopolska",
-          "away": "Blekitni Stargard",
-          "league": "Poland - III Liga, Group 2",
-          "kickoff": "2026-08-19T17:00:00Z",
+          "eventId": "68157012",
+          "home": "New York City FC II",
+          "away": "FC Cincinnati 2",
+          "league": "USA - MLS Next Pro",
+          "kickoff": "2026-08-19T21:00:00Z",
           "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.43,
+          "odds": 1.8,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T16:15:45.377Z"
+          "updatedAt": "2026-08-19T20:36:34.954Z"
         },
         {
-          "eventId": "72520838",
-          "home": "SC Bruhl St Gallen",
-          "away": "FC Biel-Bienne",
-          "league": "Switzerland - Promotion League",
-          "kickoff": "2026-08-19T17:30:00Z",
-          "bookmaker": "Bet365 (no latency)",
+          "eventId": "73740838",
+          "home": "Aguilas Doradas Rionegro",
+          "away": "Llaneros FC",
+          "league": "Colombia - Liga DIMAYOR, Finalizacion",
+          "kickoff": "2026-08-19T21:00:00Z",
+          "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.4,
+          "odds": 1.11,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T16:24:06.642Z"
+          "updatedAt": "2026-08-19T20:36:34.954Z"
         }
       ],
       "totalOdds": 2
@@ -41,33 +41,33 @@
     "target5": {
       "legs": [
         {
-          "eventId": "72120782",
-          "home": "FK Bor 1919",
-          "away": "FK Vozdovac Belgrade",
-          "league": "Serbia - Prva Liga",
-          "kickoff": "2026-08-19T17:00:00Z",
-          "bookmaker": "Unibet",
+          "eventId": "71805812",
+          "home": "Coquimbo Unido",
+          "away": "CA Platense",
+          "league": "International Clubs - CONMEBOL Libertadores, Knockout stage",
+          "kickoff": "2026-08-19T22:00:00Z",
+          "bookmaker": "Bet365",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 2.02,
+          "odds": 2.5,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T11:18:47.586Z"
+          "updatedAt": "2026-08-19T20:36:49.853Z"
         },
         {
-          "eventId": "72652402",
-          "home": "Dbk Fortuna Hjoerring",
-          "away": "AGF Aarhus",
-          "league": "Denmark - A Liga, Women",
-          "kickoff": "2026-08-19T17:00:00Z",
-          "bookmaker": "Unibet",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 2.48,
+          "eventId": "71805352",
+          "home": "Atletico Mineiro MG",
+          "away": "Red Bull Bragantino SP",
+          "league": "International Clubs - CONMEBOL Sudamericana, Knockout stage",
+          "kickoff": "2026-08-19T22:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 2,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T03:03:41.854Z"
+          "updatedAt": "2026-08-19T20:36:49.853Z"
         }
       ],
-      "totalOdds": 5.01
+      "totalOdds": 5
     }
   }
 }
