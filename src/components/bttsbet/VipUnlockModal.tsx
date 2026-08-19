@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE } from '@/lib/constants'
+import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 
 const STORAGE_KEY = 'bttsbet_vip_unlocked'
 const ID_HASH_KEY = 'bttsbet_vip_id_hash'
@@ -22,7 +23,7 @@ async function sha256(text: string): Promise<string> {
 export default function VipUnlockModal({
   isOpen,
   onClose,
-  title = 'Débloque ton espace VIP',
+  title = 'Prépare ta demande VIP',
 }: {
   isOpen: boolean
   onClose: () => void
@@ -51,6 +52,7 @@ export default function VipUnlockModal({
       document.execCommand('copy')
       document.body.removeChild(ta)
     }
+    trackAffiliateCodeCopy(selectedBookmaker ?? 'linebet', 'vip-modal-code')
     setCopied(true)
     navigator.vibrate?.(15)
     setTimeout(() => setCopied(false), 2000)
@@ -91,7 +93,7 @@ export default function VipUnlockModal({
         localStorage.setItem(ID_HASH_KEY, idHash)
         localStorage.setItem('bttsbet_vip_bookmaker', selectedBookmaker)
       } catch {}
-      const whatsappText = `Bonjour BTTSPredict, j'ai confirmé mon inscription et mon dépôt. Bookmaker: ${selectedBookmaker}. ID joueur: ${playerId.trim()}. Code promo: ${selectedBookmaker === '888starz' ? 'vision221' : 'VISION221'}. Je demande la validation de mon accès VIP.`
+      const whatsappText = `Bonjour BTTSPredict, je souhaite demander la validation de mon accès VIP. Bookmaker: ${selectedBookmaker}. ID joueur: ${playerId.trim()}. Code promo: ${selectedBookmaker === '888starz' ? 'vision221' : 'VISION221'}. Merci de confirmer les conditions applicables.`
       const whatsappUrl = `https://wa.me/15406704172?text=${encodeURIComponent(whatsappText)}`
       setTimeout(() => {
         setIsUnlocking(false)
@@ -149,14 +151,14 @@ export default function VipUnlockModal({
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-papier">{title}</h3>
-                    <p className="text-[11px] text-[#B7C4C1]">Un parcours clair en 3 étapes</p>
+                    <p className="text-[11px] text-[#B7C4C1]">Un parcours clair en 3 étapes, puis une demande WhatsApp</p>
                   </div>
                 </div>
 
                 {alreadyUnlocked && (
                   <div className="mb-4 p-3 rounded-lg flex items-center gap-2" style={{ backgroundColor: 'rgba(75, 182, 135,0.1)', border: '1px solid rgba(75, 182, 135,0.3)' }}>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B8FF1A" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                    <span className="text-xs text-[#B8FF1A] font-semibold">Tu as déjà débloqué le VIP.</span>
+                    <span className="text-xs text-[#B8FF1A] font-semibold">Une demande VIP a déjà été préparée sur cet appareil.</span>
                   </div>
                 )}
 
@@ -265,10 +267,11 @@ export default function VipUnlockModal({
                 {/* Step 3 — ID */}
                 <div className="mb-4 flex gap-3">
                   <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style={{ backgroundColor: '#0D1A20', color: '#B8FF1A', border: '1px solid rgba(75, 182, 135,0.3)' }}>3</span>
-                  <div className="text-sm text-[#B8FF1A]">
-                    <span className="text-papier font-semibold">Saisis ton ID joueur</span> pour la vérification locale.
-                    <span className="block mt-1 text-[10px] text-[#B7C4C1]">🔒 Aucune donnée collectée — vérifié localement (SHA-256) dans ton navigateur.</span>
+                                      <div className="text-sm text-[#B8FF1A]">
+                    <span className="text-papier font-semibold">Saisis ton ID joueur</span> pour préparer le message WhatsApp.
+                    <span className="block mt-1 text-[10px] text-[#B7C4C1]">🔒 BTTSPredict ne reçoit pas ton ID : il est inclus dans le message WhatsApp que tu choisis d’envoyer.</span>
                   </div>
+
                 </div>
 
                 {/* ID input */}
@@ -296,6 +299,7 @@ export default function VipUnlockModal({
                 <div className="grid grid-cols-2 gap-2 mb-4">
                   {selectedBookmaker === 'linebet' && (
                     <a href={AFFILIATE.linebet} rel="sponsored nofollow noopener noreferrer" target="_blank"
+                      onClick={() => trackAffiliateAction('linebet', 'signup', 'vip-modal-linebet')}
                       className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold"
                       style={{ backgroundColor: '#B8FF1A', color: '#071018' }}>
                       Inscription Linebet →
@@ -303,6 +307,7 @@ export default function VipUnlockModal({
                   )}
                   {selectedBookmaker === '888starz' && (
                     <a href={AFFILIATE.star888} rel="sponsored nofollow noopener noreferrer" target="_blank"
+                      onClick={() => trackAffiliateAction('888starz', 'signup', 'vip-modal-888starz')}
                       className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold"
                       style={{ backgroundColor: '#B8FF1A', color: '#071018' }}>
                       Inscription 888starz →
@@ -318,20 +323,20 @@ export default function VipUnlockModal({
                       cursor: !selectedBookmaker || !playerId.trim() ? 'not-allowed' : 'pointer',
                     }}
                   >
-                    {isUnlocking ? 'Vérification…' : '✓ Vérifier mon ID'}
+                    {isUnlocking ? 'Préparation…' : '✓ Préparer ma demande'}
                   </button>
                 </div>
 
                 {/* Privacy */}
                 <div className="p-3 rounded-lg" style={{ backgroundColor: '#0D1A20', border: '1px solid rgba(244, 247, 251, 0.08)' }}>
                   <p className="text-[10px] text-[#B7C4C1] leading-relaxed">
-                    <span className="text-[#B8FF1A] font-semibold">Confidentialité totale :</span> ton ID n'est jamais envoyé à nos serveurs. Hashé localement (SHA-256) et stocké uniquement dans ton navigateur.
+                    <span className="text-[#B8FF1A] font-semibold">Transparence :</span> ton ID n'est pas envoyé à BTTSPredict. Il est inséré dans le message WhatsApp ouvert après ta demande.
                   </p>
                 </div>
 
                 {/* WhatsApp support */}
                 <a
-                  href={`https://wa.me/15406704172?text=${encodeURIComponent("Bonjour, j'ai confirmé mon inscription et mon dépôt avec le code VISION221. Je veux débloquer mon accès VIP.")}`}
+                  href={`https://wa.me/15406704172?text=${encodeURIComponent("Bonjour, je souhaite demander la validation de mon accès VIP avec le code VISION221. Merci de confirmer les conditions applicables.")}`}
                   target="_blank"
                   rel="noopener"
                   className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-xs font-bold mb-3"
@@ -340,6 +345,7 @@ export default function VipUnlockModal({
                     border: '1px solid rgba(127, 162, 198, 0.30)',
                     color: '#B8FF1A',
                   }}
+                  onClick={() => trackAffiliateAction(selectedBookmaker ?? 'linebet', 'whatsapp_click', 'vip-modal-whatsapp')}
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="#B8FF1A"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01-1.87-1.87-4.36-2.91-7.01-2.91zm0 1.67c2.2 0 4.27.86 5.82 2.42 1.56 1.56 2.42 3.63 2.42 5.82 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.81-1.29-1.24-2.79-1.24-4.34 0-4.54 3.7-8.24 8.24-8.24z"/></svg>
                   Déjà inscrit ? Demander la vérification via WhatsApp
@@ -364,17 +370,16 @@ export default function VipUnlockModal({
                 >
                   <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#B8FF1A" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
                 </motion.div>
-                <h3 className="text-xl font-bold text-papier mb-2">Espace VIP débloqué</h3>
+                <h3 className="text-xl font-bold text-papier mb-2">Demande VIP préparée</h3>
                 <p className="text-sm text-[#B8FF1A] mb-4">
-                  Ton ID <span className="font-mono text-[#B8FF1A]">{playerId.slice(0, 4)}•••••</span> a été enregistré localement pour{' '}
-                  <span className="text-papier font-semibold">{selectedBookmaker === 'linebet' ? 'Linebet' : '888starz'}</span>.
+                  Ton message WhatsApp est prêt pour <span className="text-papier font-semibold">{selectedBookmaker === 'linebet' ? 'Linebet' : '888starz'}</span>. La validation finale dépend du support et des conditions du partenaire.
                 </p>
                 <button
                   onClick={onClose}
                   className="w-full px-4 py-3 rounded-xl text-sm font-bold"
                   style={{ backgroundColor: '#B8FF1A', color: '#071018' }}
                 >
-                  Accéder aux pronostics VIP →
+                  Retourner à l’espace VIP →
                 </button>
               </div>
             )}

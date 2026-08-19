@@ -4,6 +4,7 @@ import { useState, useCallback } from 'react'
 import { SITE } from '@/lib/constants'
 import LanguageSwitcher, { useLanguage } from './LanguageSwitcher'
 import { localizedPath, translationsFor } from '@/lib/i18n'
+import { trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 
 /**
  * Navbar BTTSPredict v64 — Plateforme PRO
@@ -40,6 +41,7 @@ export default function Navbar() {
 
   const copyCode = useCallback(async () => {
     try { await navigator.clipboard.writeText(SITE.promoCode) } catch {}
+    trackAffiliateCodeCopy('linebet', 'navbar-vision221')
     setCopied(true)
     navigator.vibrate?.(15)
     setTimeout(() => setCopied(false), 2000)

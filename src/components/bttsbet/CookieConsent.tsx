@@ -38,17 +38,20 @@ export default function CookieConsent() {
     return () => window.removeEventListener('cookie-consent-reopen', handleReopen)
   }, [])
 
-  const handleAccept = () => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ status: 'accepted', preferences: { essential: true, analytics: true, advertising: true }, timestamp: new Date().toISOString() }))
+  const persistConsent = (status: string, nextPreferences: typeof preferences) => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ status, preferences: nextPreferences, timestamp: new Date().toISOString() }))
+    window.dispatchEvent(new CustomEvent('cookie-consent-changed', { detail: nextPreferences }))
     setShow(false)
+  }
+
+  const handleAccept = () => {
+    persistConsent('accepted', { essential: true, analytics: true, advertising: true })
   }
   const handleRefuse = () => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ status: 'refused', preferences: { essential: true, analytics: false, advertising: false }, timestamp: new Date().toISOString() }))
-    setShow(false)
+    persistConsent('refused', { essential: true, analytics: false, advertising: false })
   }
   const handleSavePreferences = () => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ status: preferences.analytics || preferences.advertising ? 'customized' : 'refused', preferences, timestamp: new Date().toISOString() }))
-    setShow(false)
+    persistConsent(preferences.analytics || preferences.advertising ? 'customized' : 'refused', preferences)
   }
   const togglePreference = (id: string) => {
     if (id === 'essential') return

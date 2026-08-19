@@ -5,6 +5,7 @@ import "./globals.css";
 
 const BottomNavigation = dynamic(() => import("@/components/bttsbet/BottomNavigation"), { loading: () => null });
 const CookieConsent = dynamic(() => import("@/components/bttsbet/CookieConsent"), { loading: () => null });
+const AnalyticsLoader = dynamic(() => import("@/components/bttsbet/AnalyticsLoader"), { loading: () => null });
 
 // ─── Local fonts (no network fetch during build) ───────────────────────────
 // Use next/font/local instead of next/font/google to avoid:
@@ -224,28 +225,7 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        {/* Google Analytics — DÉSACTIVÉ en production.
-            P0.4 : Le placeholder G-XXXXXXXXXX est interdit en production.
-            Pour activer GA : définir NEXT_PUBLIC_GA_ID dans l'environnement
-            de build avec un vrai ID au format G-XXXXXXXXXX. */}
-        {process.env.NEXT_PUBLIC_GA_ID && /^[Gg]-[A-Za-z0-9]{10,}$/.test(process.env.NEXT_PUBLIC_GA_ID) && (
-          <>
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', { anonymize_ip: true });
-                `,
-              }}
-            />
-          </>
-        )}
+        <AnalyticsLoader />
         {children}
         <BottomNavigation />
         <CookieConsent />
