@@ -2,25 +2,25 @@
   "date": "2026-08-19",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-19T01:13:17.369Z",
+  "fetchedAt": "2026-08-19T04:37:03.112Z",
   "eventCount": 100,
-  "legCount": 57,
+  "legCount": 63,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "73722822",
-          "home": "Elche Ilicitano CF",
-          "away": "FC Cartagena",
-          "league": "International Clubs - Club Friendly Games",
-          "kickoff": "2026-08-19T08:00:00Z",
+          "eventId": "73705892",
+          "home": "APIA Leichhardt",
+          "away": "Melbourne Victory",
+          "league": "Australia - Australia Cup, Knockout Stage",
+          "kickoff": "2026-08-19T09:30:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.21,
+          "odds": 1.18,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-18T19:09:12.967Z"
+          "updatedAt": "2026-08-19T04:16:53.699Z"
         },
         {
           "eventId": "73807904",
@@ -31,12 +31,12 @@
           "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.65,
+          "odds": 1.7,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-18T23:59:26.925Z"
+          "updatedAt": "2026-08-19T04:29:54.807Z"
         }
       ],
-      "totalOdds": 2
+      "totalOdds": 2.01
     },
     "target5": {
       "legs": [
