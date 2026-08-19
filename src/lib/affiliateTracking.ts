@@ -1,5 +1,5 @@
 export type AffiliatePartner = 'linebet' | '888starz'
-export type AffiliateAction = 'signup' | 'download' | 'copy_code'
+export type AffiliateAction = 'signup' | 'download' | 'copy_code' | 'promo_view' | 'vip_unlock_open' | 'whatsapp_click'
 
 /**
  * Emits an anonymous affiliate-funnel event when an analytics layer is present.
@@ -19,13 +19,12 @@ export function trackAffiliateAction(
     affiliate_placement: placement,
   }
 
-  const dataLayer = (window as Window & {
+  const analyticsWindow = window as Window & {
     dataLayer?: Array<Record<string, string>>
-  }).dataLayer
-
-  if (Array.isArray(dataLayer)) {
-    dataLayer.push(event)
   }
+  const dataLayer = analyticsWindow.dataLayer ?? []
+  analyticsWindow.dataLayer = dataLayer
+  dataLayer.push(event)
 
   const gtag = (window as Window & {
     gtag?: (...args: unknown[]) => void

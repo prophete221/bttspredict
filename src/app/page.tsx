@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic'
 import type { Metadata } from 'next'
 import { checkSeo } from '@/lib/seo'
+import { AFFILIATE } from '@/lib/constants'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Hero = dynamic(() => import('@/components/bttsbet/Hero'), { loading: () => null })
@@ -9,6 +10,7 @@ const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictio
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
 const StickyCTABar = dynamic(() => import('@/components/bttsbet/StickyCTABar'), { loading: () => null })
+const AffiliateSignupCta = dynamic(() => import('@/components/bttsbet/AffiliateSignupCta'), { loading: () => null })
 
 // Tâche 002 — Title et description SEO alignés sur le Prompt Maître.
 // Title : 49 chars (limite soft 60) — description : 139 chars (limite soft 150).
@@ -364,12 +366,21 @@ export default function Home() {
             <p className="text-[11px] text-[#B7C4C1] leading-relaxed mb-4">
               Sélections supplémentaires et analyses détaillées. Aucun gain garanti.
             </p>
-            <a href="/vip" className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-[10px] font-bold text-[12px] transition-all"
-              style={{ backgroundColor: '#B8FF1A', color: '#071018' }}
-              data-cta="home-discover-vip">
-              Découvrir le VIP
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-            </a>
+            <div className="flex flex-wrap items-center gap-2">
+              <AffiliateSignupCta
+                href={AFFILIATE.linebet}
+                partner="linebet"
+                placement="home-vision221-signup"
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-[10px] font-bold text-[12px] transition-all"
+                style={{ backgroundColor: '#B8FF1A', color: '#071018' }}
+              >
+                S&apos;inscrire avec VISION221
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+              </AffiliateSignupCta>
+              <a href="/vip" className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-[10px] font-bold text-[12px] transition-all" style={{ border: '1px solid #5D7880', color: '#F5F8F3' }} data-cta="home-discover-vip">
+                Accéder au VIP
+              </a>
+            </div>
           </div>
         </section>
 
