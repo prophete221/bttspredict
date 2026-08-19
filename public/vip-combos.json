@@ -2,25 +2,25 @@
   "date": "2026-08-19",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-19T04:37:03.112Z",
+  "fetchedAt": "2026-08-19T08:37:16.496Z",
   "eventCount": 100,
-  "legCount": 63,
+  "legCount": 77,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "73705892",
-          "home": "APIA Leichhardt",
-          "away": "Melbourne Victory",
-          "league": "Australia - Australia Cup, Knockout Stage",
+          "eventId": "72053450",
+          "home": "Src Hiroshima",
+          "away": "Maruyasu Okazaki",
+          "league": "Japan - Emperor Cup",
           "kickoff": "2026-08-19T09:30:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
           "odds": 1.18,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T04:16:53.699Z"
+          "updatedAt": "2026-08-19T04:38:52.7Z"
         },
         {
           "eventId": "73807904",
@@ -33,7 +33,7 @@
           "selection": "Over 2.5",
           "odds": 1.7,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T04:29:54.807Z"
+          "updatedAt": "2026-08-19T05:20:26.66Z"
         }
       ],
       "totalOdds": 2.01
@@ -41,30 +41,43 @@
     "target5": {
       "legs": [
         {
-          "eventId": "73569678",
-          "home": "Veroskronos Tsuno",
-          "away": "Kamatamare Sanuki",
+          "eventId": "72053450",
+          "home": "Src Hiroshima",
+          "away": "Maruyasu Okazaki",
           "league": "Japan - Emperor Cup",
-          "kickoff": "2026-08-19T10:00:00Z",
+          "kickoff": "2026-08-19T09:30:00Z",
           "bookmaker": "Unibet",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 2.55,
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.68,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-18T19:48:45.892Z"
+          "updatedAt": "2026-08-19T04:38:52.7Z"
         },
         {
-          "eventId": "73569670",
-          "home": "Gainare Tottori",
-          "away": "Roasso Kumamoto",
+          "eventId": "73569690",
+          "home": "Kagoshima United",
+          "away": "Renofa Yamaguchi",
           "league": "Japan - Emperor Cup",
           "kickoff": "2026-08-19T10:00:00Z",
           "bookmaker": "Unibet",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 1.96,
+          "odds": 1.86,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-18T19:48:45.892Z"
+          "updatedAt": "2026-08-19T02:42:46.947Z"
+        },
+        {
+          "eventId": "73296086",
+          "home": "FC Pohang Steelers",
+          "away": "Jinju Citizen FC",
+          "league": "Republic of Korea - Korea Cup",
+          "kickoff": "2026-08-19T10:00:00Z",
+          "bookmaker": "Bet365 (no latency)",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.6,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-19T08:13:05.071Z"
         }
       ],
       "totalOdds": 5
