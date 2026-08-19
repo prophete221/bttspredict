@@ -2,38 +2,38 @@
   "date": "2026-08-19",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-19T12:45:07.855Z",
+  "fetchedAt": "2026-08-19T16:32:02.823Z",
   "eventCount": 100,
-  "legCount": 67,
+  "legCount": 55,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "73715300",
-          "home": "SC Popesti Leordeni",
-          "away": "ACS FC Bacau",
-          "league": "Romania - Cupa Romaniei, Knockout Stage",
-          "kickoff": "2026-08-19T14:30:00Z",
-          "bookmaker": "Unibet",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.63,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T12:03:59.532Z"
-        },
-        {
-          "eventId": "73715308",
-          "home": "AS Usv Iasi",
-          "away": "CS Sporting Liesti",
-          "league": "Romania - Cupa Romaniei, Knockout Stage",
-          "kickoff": "2026-08-19T14:30:00Z",
-          "bookmaker": "Unibet",
+          "eventId": "72515880",
+          "home": "Polonia Sroda Wielkopolska",
+          "away": "Blekitni Stargard",
+          "league": "Poland - III Liga, Group 2",
+          "kickoff": "2026-08-19T17:00:00Z",
+          "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.23,
+          "odds": 1.43,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T09:45:23.57Z"
+          "updatedAt": "2026-08-19T16:15:45.377Z"
+        },
+        {
+          "eventId": "72520838",
+          "home": "SC Bruhl St Gallen",
+          "away": "FC Biel-Bienne",
+          "league": "Switzerland - Promotion League",
+          "kickoff": "2026-08-19T17:30:00Z",
+          "bookmaker": "Bet365 (no latency)",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.4,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-19T16:24:06.642Z"
         }
       ],
       "totalOdds": 2
@@ -41,33 +41,33 @@
     "target5": {
       "legs": [
         {
-          "eventId": "73019490",
-          "home": "Pamba Jiji SC",
-          "away": "Simba SC",
-          "league": "Tanzania - Premier League",
-          "kickoff": "2026-08-19T13:15:00Z",
-          "bookmaker": "Bet365",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 2,
+          "eventId": "72120782",
+          "home": "FK Bor 1919",
+          "away": "FK Vozdovac Belgrade",
+          "league": "Serbia - Prva Liga",
+          "kickoff": "2026-08-19T17:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 2.02,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T11:23:41.548Z"
+          "updatedAt": "2026-08-19T11:18:47.586Z"
         },
         {
-          "eventId": "72120786",
-          "home": "RFK Graficar Beograd",
-          "away": "FK Loznica",
-          "league": "Serbia - Prva Liga",
-          "kickoff": "2026-08-19T15:00:00Z",
-          "bookmaker": "Bet365 (no latency)",
+          "eventId": "72652402",
+          "home": "Dbk Fortuna Hjoerring",
+          "away": "AGF Aarhus",
+          "league": "Denmark - A Liga, Women",
+          "kickoff": "2026-08-19T17:00:00Z",
+          "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 2.5,
+          "odds": 2.48,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T12:42:30.193Z"
+          "updatedAt": "2026-08-19T03:03:41.854Z"
         }
       ],
-      "totalOdds": 5
+      "totalOdds": 5.01
     }
   }
 }
