@@ -2,82 +2,69 @@
   "date": "2026-08-19",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-19T08:37:16.496Z",
+  "fetchedAt": "2026-08-19T12:45:07.855Z",
   "eventCount": 100,
-  "legCount": 77,
+  "legCount": 67,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "72053450",
-          "home": "Src Hiroshima",
-          "away": "Maruyasu Okazaki",
-          "league": "Japan - Emperor Cup",
-          "kickoff": "2026-08-19T09:30:00Z",
+          "eventId": "73715300",
+          "home": "SC Popesti Leordeni",
+          "away": "ACS FC Bacau",
+          "league": "Romania - Cupa Romaniei, Knockout Stage",
+          "kickoff": "2026-08-19T14:30:00Z",
+          "bookmaker": "Unibet",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.63,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-19T12:03:59.532Z"
+        },
+        {
+          "eventId": "73715308",
+          "home": "AS Usv Iasi",
+          "away": "CS Sporting Liesti",
+          "league": "Romania - Cupa Romaniei, Knockout Stage",
+          "kickoff": "2026-08-19T14:30:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.18,
+          "odds": 1.23,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T04:38:52.7Z"
-        },
-        {
-          "eventId": "73807904",
-          "home": "Bhawanipore FC",
-          "away": "Bss Sporting Club",
-          "league": "India - Calcutta Premier Division, Group A",
-          "kickoff": "2026-08-19T09:30:00Z",
-          "bookmaker": "Bet365 (no latency)",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.7,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T05:20:26.66Z"
+          "updatedAt": "2026-08-19T09:45:23.57Z"
         }
       ],
-      "totalOdds": 2.01
+      "totalOdds": 2
     },
     "target5": {
       "legs": [
         {
-          "eventId": "72053450",
-          "home": "Src Hiroshima",
-          "away": "Maruyasu Okazaki",
-          "league": "Japan - Emperor Cup",
-          "kickoff": "2026-08-19T09:30:00Z",
-          "bookmaker": "Unibet",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.68,
+          "eventId": "73019490",
+          "home": "Pamba Jiji SC",
+          "away": "Simba SC",
+          "league": "Tanzania - Premier League",
+          "kickoff": "2026-08-19T13:15:00Z",
+          "bookmaker": "Bet365",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 2,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T04:38:52.7Z"
+          "updatedAt": "2026-08-19T11:23:41.548Z"
         },
         {
-          "eventId": "73569690",
-          "home": "Kagoshima United",
-          "away": "Renofa Yamaguchi",
-          "league": "Japan - Emperor Cup",
-          "kickoff": "2026-08-19T10:00:00Z",
-          "bookmaker": "Unibet",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.86,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T02:42:46.947Z"
-        },
-        {
-          "eventId": "73296086",
-          "home": "FC Pohang Steelers",
-          "away": "Jinju Citizen FC",
-          "league": "Republic of Korea - Korea Cup",
-          "kickoff": "2026-08-19T10:00:00Z",
+          "eventId": "72120786",
+          "home": "RFK Graficar Beograd",
+          "away": "FK Loznica",
+          "league": "Serbia - Prva Liga",
+          "kickoff": "2026-08-19T15:00:00Z",
           "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.6,
+          "odds": 2.5,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T08:13:05.071Z"
+          "updatedAt": "2026-08-19T12:42:30.193Z"
         }
       ],
       "totalOdds": 5
