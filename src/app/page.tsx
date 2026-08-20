@@ -324,8 +324,8 @@ export default function Home() {
         <ErrorBoundary><FreePredictions /></ErrorBoundary>
 
         {/* Bloc transparence — 3 éléments visuels */}
-        <section className="max-w-[440px] mx-auto px-4 py-8">
-          <div className="grid grid-cols-3 gap-2">
+        <section className="mx-auto max-w-[980px] px-4 py-8 sm:px-6">
+          <div className="grid gap-3 sm:grid-cols-3">
             <a href="/resultats-verifies" className="block p-3 rounded-xl text-center transition-all hover:scale-[1.02]"
               style={{ backgroundColor: '#0D1722', border: '1px solid #324758' }}>
               <div className="mb-1.5 flex justify-center">
@@ -354,7 +354,7 @@ export default function Home() {
         </section>
 
         {/* VIP — carte premium sobre */}
-        <section className="max-w-[440px] mx-auto px-4 py-6">
+        <section className="mx-auto max-w-[980px] px-4 py-6 sm:px-6">
           <div className="p-5 rounded-[16px]" style={{ backgroundColor: '#0D1722', border: '1px solid #324758' }}>
             <div className="flex items-center justify-between mb-3">
               <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#F5C451' }}>VIP Premium</span>
@@ -385,7 +385,7 @@ export default function Home() {
         </section>
 
         {/* Jeu responsable — compact et moderne */}
-        <section className="max-w-[440px] mx-auto px-4 pb-6">
+        <section className="mx-auto max-w-[980px] px-4 pb-6 sm:px-6">
           <div className="p-4 rounded-[12px] flex items-start gap-3" style={{ backgroundColor: 'rgba(255, 113, 133, 0.05)', border: '1px solid rgba(255, 113, 133, 0.15)' }}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF7185" strokeWidth="2" className="flex-shrink-0 mt-0.5">
               <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
@@ -404,7 +404,7 @@ export default function Home() {
         </section>
 
         {/* Liens internes SEO */}
-        <section className="px-4 py-4 max-w-[440px] mx-auto">
+        <section className="mx-auto max-w-[980px] px-4 py-4 sm:px-6">
           <div className="flex flex-wrap gap-2 text-[11px]">
             <a href="/bonus-888starz" className="text-[#A8B5C3] hover:text-[#B8FF1A] transition-colors">Bonus 888Starz</a>
             <span className="text-[#324758]">·</span>
