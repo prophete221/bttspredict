@@ -2,72 +2,85 @@
   "date": "2026-08-20",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-20T16:35:29.148Z",
+  "fetchedAt": "2026-08-20T20:28:10.409Z",
   "eventCount": 100,
-  "legCount": 93,
+  "legCount": 27,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "69923808",
-          "home": "FC Lasten",
-          "away": "Saaksjaerven Loiske",
-          "league": "Finland - Kolmonen, Western, Group 2",
-          "kickoff": "2026-08-20T17:00:00Z",
-          "bookmaker": "Bet365 (no latency)",
+          "eventId": "71805796",
+          "home": "LDU Quito",
+          "away": "Mirassol FC SP",
+          "league": "International Clubs - CONMEBOL Libertadores, Knockout stage",
+          "kickoff": "2026-08-20T22:00:00Z",
+          "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.11,
+          "odds": 1.93,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-20T14:42:39.262Z"
+          "updatedAt": "2026-08-20T18:47:49.656Z"
         },
         {
-          "eventId": "73399186",
-          "home": "Tromsoe IL",
-          "away": "Brighton & Hove Albion",
-          "league": "International Clubs - UEFA Conference League, Playoff Round",
-          "kickoff": "2026-08-20T17:00:00Z",
-          "bookmaker": "Bet365",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.8,
+          "eventId": "71805728",
+          "home": "CSD Macara",
+          "away": "Santos FC SP",
+          "league": "International Clubs - CONMEBOL Sudamericana, Knockout stage",
+          "kickoff": "2026-08-20T22:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.04,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-20T16:34:44.192Z"
+          "updatedAt": "2026-08-20T17:03:39.238Z"
         }
       ],
-      "totalOdds": 2
+      "totalOdds": 2.01
     },
     "target5": {
       "legs": [
         {
-          "eventId": "73398324",
-          "home": "CS Universitatea Craiova",
-          "away": "FC Ararat-Armenia",
-          "league": "International Clubs - UEFA Europa League, Playoff Round",
-          "kickoff": "2026-08-20T17:00:00Z",
-          "bookmaker": "Bet365",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 2,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-20T16:34:44.192Z"
-        },
-        {
-          "eventId": "73399090",
-          "home": "KI Klaksvik",
-          "away": "Riga FC",
-          "league": "International Clubs - UEFA Conference League, Playoff Round",
-          "kickoff": "2026-08-20T17:30:00Z",
+          "eventId": "73746128",
+          "home": "CD Real Santander",
+          "away": "Barranquilla FC",
+          "league": "Colombia - Torneo DIMAYOR, Clausura",
+          "kickoff": "2026-08-20T20:30:00Z",
           "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 2.5,
+          "odds": 1.9,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-20T16:25:39.681Z"
+          "updatedAt": "2026-08-20T19:53:55.262Z"
+        },
+        {
+          "eventId": "71805796",
+          "home": "LDU Quito",
+          "away": "Mirassol FC SP",
+          "league": "International Clubs - CONMEBOL Libertadores, Knockout stage",
+          "kickoff": "2026-08-20T22:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.93,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-20T18:47:49.656Z"
+        },
+        {
+          "eventId": "71805728",
+          "home": "CSD Macara",
+          "away": "Santos FC SP",
+          "league": "International Clubs - CONMEBOL Sudamericana, Knockout stage",
+          "kickoff": "2026-08-20T22:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.36,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-20T20:19:56.323Z"
         }
       ],
-      "totalOdds": 5
+      "totalOdds": 4.99
     }
   }
 }
