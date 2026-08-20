@@ -17,26 +17,26 @@
 
   /* — Fonds (5 niveaux) — Quiet Trust Premium — */
   --color-bg-main: #071018;            /* Fond principal — noir bleuté profond */
-  --color-bg-secondary: #0D1A20;       /* Sections — slate foncé */
-  --color-bg-tertiary: #11242B;        /* Panels — slate medium */
-  --color-card: #0D1A20;               /* Card surface standard */
-  --color-card-hover: #11242B;         /* Card surface hover/sélection */
-  --color-border: #5D7880;             /* Border subtile */
-  --color-border-strong: #7A9293;      /* Border visible / focus */
+  --color-bg-secondary: #0D1722;       /* Sections — slate foncé */
+  --color-bg-tertiary: #111E2B;        /* Panels — slate medium */
+  --color-card: #0D1722;               /* Card surface standard */
+  --color-card-hover: #111E2B;         /* Card surface hover/sélection */
+  --color-border: #324758;             /* Border subtile */
+  --color-border-strong: #526A7D;      /* Border visible / focus */
 
   /* — Texte (3 niveaux) — */
-  --color-text-primary: #F5F8F3;      /* Titres, chiffres — slate-100 */
-  --color-text-secondary: #B7C4C1;     /* Labels, descriptions — slate-400 */
-  --color-text-tertiary: #9FB0B0;      /* Muted, disabled — slate-500 */
+  --color-text-primary: #F3F7FA;      /* Titres, chiffres — slate-100 */
+  --color-text-secondary: #A8B5C3;     /* Labels, descriptions — slate-400 */
+  --color-text-tertiary: #8292A3;      /* Muted, disabled — slate-500 */
 
   /* — Surfaces — */
-  --color-surface-card: #0D1A20;
-  --color-surface-card-hover: #11242B;
-  --color-surface-premium: #11242B;
+  --color-surface-card: #0D1722;
+  --color-surface-card-hover: #111E2B;
+  --color-surface-premium: #111E2B;
 
   /* — Borders — */
-  --color-border-default: #5D7880;
-  --color-border-hover: #7A9293;
+  --color-border-default: #324758;
+  --color-border-hover: #526A7D;
 
   /* — Action (1 CTA primaire par viewport) — or champagne désaturé — */
   --color-action-primary: #B8FF1A;
@@ -44,14 +44,14 @@
   --color-action-primary-text: #071018;
   --color-action-secondary-bg: transparent;
   --color-action-secondary-border: #B8FF1A;
-  --color-action-secondary-text: #B7C4C1;
+  --color-action-secondary-text: #A8B5C3;
 
   /* — Market colors (badges/graphiques uniquement) — bleu confiance désaturé — */
-  --color-market-btts: #B8FF1A;
-  --color-market-btts-muted: rgba(184, 255, 26, 0.14);
-  --color-market-over: #B8FF1A;
-  --color-market-over-muted: rgba(184, 255, 26, 0.14);
-  --color-market-over-border: rgba(184, 255, 26, 0.32);
+  --color-market-btts: #45C7F7;
+  --color-market-btts-muted: rgba(69, 199, 247, 0.14);
+  --color-market-over: #5BA9FF;
+  --color-market-over-muted: rgba(91, 169, 255, 0.14);
+  --color-market-over-border: rgba(91, 169, 255, 0.32);
 
   /* — VIP (or mat) — */
   --color-vip-accent: #F5C451;
@@ -60,9 +60,9 @@
   --color-vip-gradient: none;
 
   /* — Trust — bleu confiance désaturé — */
-  --color-trust-accent: #B8FF1A;
-  --color-trust-bg: rgba(184, 255, 26, 0.08);
-  --color-trust-border: rgba(184, 255, 26, 0.22);
+  --color-trust-accent: #5BA9FF;
+  --color-trust-bg: rgba(91, 169, 255, 0.10);
+  --color-trust-border: rgba(91, 169, 255, 0.28);
 
   /* — Statut (capsules compactes uniquement) — */
   --color-success: #34D399;
@@ -103,8 +103,8 @@
   --color-border-hover: #B8FF1A;       /* Hover border → or */
 
   /* — Glassmorphism — */
-  --color-glass: rgba(244, 247, 251, 0.08);
-  --color-glass-border: rgba(244, 247, 251, 0.12);
+  --color-glass: rgba(148, 183, 214, 0.08);
+  --color-glass-border: rgba(148, 183, 214, 0.18);
 
   /* ═══ Aliases mappés sur ECLIPSE v60 ═══ */
   --color-abyss: var(--color-bg-main);
@@ -147,7 +147,7 @@
 
   --color-warning: var(--color-vip);
   --color-warning-pale: rgba(245, 196, 81, 0.14);
-  --color-vip-glow: rgba(52, 211, 153, 0.2);
+  --color-vip-glow: rgba(245, 196, 81, 0.18);
 
   --color-danger: var(--color-error);
   --color-danger-light: var(--color-error-hover);
@@ -180,9 +180,9 @@
   --grad-primary: linear-gradient(135deg, #B8FF1A 0%, #7EC400 100%);
   --grad-premium: linear-gradient(135deg, #B8FF1A 0%, #B8FF1A 100%);
   --grad-brand-split: linear-gradient(90deg, #B8FF1A 0%, #B8FF1A 50%, #B8FF1A 50%, #B8FF1A 100%);
-  --grad-bg: radial-gradient(circle at top right, rgba(184, 255, 26, 0.16), transparent 38%), #071018;
-  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(52, 211, 153, 0.04) 0%, transparent 60%),
-               radial-gradient(50% 50% at 85% 10%, rgba(212, 255, 114, 0.04) 0%, transparent 60%);
+  --grad-bg: radial-gradient(circle at top right, rgba(69, 199, 247, 0.12), transparent 38%), #071018;
+  --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(69, 199, 247, 0.06) 0%, transparent 60%),
+               radial-gradient(50% 50% at 85% 10%, rgba(91, 169, 255, 0.05) 0%, transparent 60%);
 
   --font-display: 'Poppins', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
@@ -201,18 +201,18 @@
 :root {
   /* Fonds — v68 OR & ÉMERAUDE */
   --bg-main: #071018;
-  --bg-secondary: #0D1A20;
-  --bg-tertiary: #11242B;
-  --card: #0D1A20;
-  --card-hover: #11242B;
-  --border: #5D7880;
-  --border-strong: #7A9293;
+  --bg-secondary: #0D1722;
+  --bg-tertiary: #111E2B;
+  --card: #0D1722;
+  --card-hover: #111E2B;
+  --border: #324758;
+  --border-strong: #526A7D;
 
   /* Texte */
-  --text-primary: #F5F8F3;
-  --text-secondary: #B7C4C1;
-  --text-tertiary: #9FB0B0;
-  --text-muted: #9FB0B0;
+  --text-primary: #F3F7FA;
+  --text-secondary: #A8B5C3;
+  --text-tertiary: #8292A3;
+  --text-muted: #8292A3;
 
   /* Action — v68: OR #B8FF1A */
   --action-primary: #B8FF1A;
@@ -236,11 +236,11 @@
   --primary-hover: #D4FF72;
   --focus: #B8FF1A;
   /* Surfaces */
-  --surface-card: #0D1A20;
-  --surface-card-hover: #11242B;
-  --surface-premium: #11242B;
-  --border-default: #5D7880;
-  --border-hover: #7A9293;
+  --surface-card: #0D1722;
+  --surface-card-hover: #111E2B;
+  --surface-premium: #111E2B;
+  --border-default: #324758;
+  --border-hover: #526A7D;
   /* Legacy */
   --brand-indigo: var(--action-primary);
   --brand-violet: var(--market-btts);
@@ -251,8 +251,8 @@
   --trust: var(--trust-accent);
   --vip: var(--vip-accent);
   --success: var(--success-muted);
-  --glass: rgba(244, 247, 251, 0.08);
-  --glass-border: rgba(244, 247, 251, 0.12);
+  --glass: rgba(148, 183, 214, 0.08);
+  --glass-border: rgba(148, 183, 214, 0.18);
 
   /* Hover states — v68 */
   --cta-hover: #7EC400;
@@ -293,7 +293,7 @@
 /* Bouton Or outline — bordure or, texte clair */
 .btn-gold-outline {
   background: transparent;
-  color: #F5F8F3;
+  color: #F3F7FA;
   border: 1.5px solid #B8FF1A;
   font-weight: 700;
   transition: all 200ms ease;
@@ -395,10 +395,10 @@ html {
 body {
   background: #071018;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(52, 211, 153, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(52, 211, 153, 0.02) 0%, transparent 40%);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(69, 199, 247, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(91, 169, 255, 0.04) 0%, transparent 40%);
   background-attachment: fixed;
-  color: #F5F8F3;
+  color: #F3F7FA;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
@@ -421,8 +421,8 @@ body::before {
   pointer-events: none;
   z-index: -1;
   background-image: 
-    linear-gradient(rgba(244, 247, 251, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(244, 247, 251, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(91, 169, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91, 169, 255, 0.035) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -614,8 +614,8 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .card-vip {
-  background: linear-gradient(135deg, rgba(52, 211, 153, 0.1) 0%, rgba(52, 211, 153, 0.05) 100%);
-  border: 1px solid rgba(184, 255, 26, 0.30);
+  background: linear-gradient(135deg, rgba(245, 196, 81, 0.10) 0%, rgba(245, 196, 81, 0.04) 100%);
+  border: 1px solid rgba(245, 196, 81, 0.34);
   border-radius: var(--radius-xl);
   padding: 1.5rem;
   box-shadow: 0 0 30px rgba(52, 211, 153, 0.1);
@@ -659,7 +659,7 @@ a:hover { color: var(--color-primary-light); }
 }
 
 .badge-vip {
-  background: linear-gradient(135deg, rgba(52, 211, 153, 0.2) 0%, rgba(52, 211, 153, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(245, 196, 81, 0.18) 0%, rgba(245, 196, 81, 0.06) 100%);
   color: var(--color-vip);
   border: 1px solid rgba(184, 255, 26, 0.30);
   box-shadow: 0 0 20px rgba(52, 211, 153, 0.1);
@@ -1159,7 +1159,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
-  color: #F5F8F3;
+  color: #F3F7FA;
 }
 
 /* Corps carte : utilisateur + avantages */
@@ -1172,7 +1172,7 @@ a:hover { color: var(--color-primary-light); }
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  color: #F5F8F3;
+  color: #F3F7FA;
   margin-bottom: 1rem;
 }
 
@@ -1261,7 +1261,7 @@ a:hover { color: var(--color-primary-light); }
   padding: 0.75rem 1.25rem;
   margin-top: 1.25rem;
   background: linear-gradient(135deg, #B8FF1A 0%, #11242B 100%);
-  color: #F5F8F3;
+  color: #F3F7FA;
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
@@ -1542,7 +1542,7 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(110deg, transparent 20%, rgba(184, 255, 26, 0.08) 48%, transparent 72%);
+  background: linear-gradient(110deg, transparent 20%, rgba(69, 199, 247, 0.08) 48%, transparent 72%);
   background-size: 220% 100%;
   animation: hero-dashboard-scan 5.2s ease-in-out infinite;
 }
@@ -1558,7 +1558,7 @@ body {
   position: relative;
   z-index: 1;
   padding: 0 0.25rem 0.55rem;
-  color: #b7c4c1;
+  color: #a8b5c3;
   font-size: 0.56rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -1566,7 +1566,7 @@ body {
 }
 
 .hero-market-dashboard__status {
-  color: #b8ff1a;
+  color: #45c7f7;
   font-size: 0.52rem;
 }
 
@@ -1600,12 +1600,12 @@ body {
 .hero-market-card:hover,
 .hero-market-card:focus-within {
   transform: translateY(-3px);
-  border-color: rgba(184, 255, 26, 0.62);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24), 0 0 18px rgba(184, 255, 26, 0.08);
+  border-color: rgba(69, 199, 247, 0.62);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24), 0 0 18px rgba(69, 199, 247, 0.08);
 }
 
 .hero-market-card__topline {
-  color: #9fb0b0;
+  color: #8292a3;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.48rem;
   letter-spacing: 0.12em;
@@ -1614,12 +1614,12 @@ body {
 .hero-market-card__dot {
   width: 0.28rem;
   height: 0.28rem;
-  box-shadow: 0 0 8px rgba(184, 255, 26, 0.72);
+  box-shadow: 0 0 8px rgba(69, 199, 247, 0.72);
 }
 
 .hero-market-card__label {
   margin-top: 0.45rem;
-  color: #b8ff1a;
+  color: #45c7f7;
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -1639,7 +1639,7 @@ body {
   width: 0.24rem;
   height: 35%;
   border-radius: 999px;
-  background: linear-gradient(to top, rgba(184, 255, 26, 0.26), #b8ff1a);
+  background: linear-gradient(to top, rgba(69, 199, 247, 0.26), #45c7f7);
   animation: hero-signal-wave 1.25s ease-in-out infinite alternate;
 }
 
@@ -1650,7 +1650,7 @@ body {
 
 .hero-market-card__footer {
   margin-top: 0.38rem;
-  color: #9fb0b0;
+  color: #8292a3;
   font-size: 0.47rem;
   letter-spacing: 0.04em;
 }
@@ -1719,7 +1719,7 @@ body {
   justify-content: space-between;
   min-height: 1rem;
   padding: 0 0.2rem 0.5rem;
-  color: #b7c4c1;
+  color: #a8b5c3;
   font-size: 0.52rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -1727,7 +1727,7 @@ body {
 }
 
 .filter-command-dashboard__mode {
-  color: #b8ff1a;
+  color: #45c7f7;
   font-size: 0.48rem;
 }
 
@@ -1944,7 +1944,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 0.15rem 0.55rem;
-  color: #b7c4c1;
+  color: #a8b5c3;
   font-size: 0.47rem;
   font-weight: 800;
   letter-spacing: 0.14em;
