@@ -1,6 +1,6 @@
 {
   "date": "2026-08-20",
-  "lastUpdated": "2026-08-20T04:36:38.946Z",
+  "lastUpdated": "2026-08-20T08:37:40.956Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -500,68 +500,6 @@
       "awayLambda": 1
     },
     {
-      "id": "cfmontra-vs-lagalaxy-2026-08-22",
-      "match": "CF Montréal vs LA Galaxy",
-      "home": "CF Montréal",
-      "away": "LA Galaxy",
-      "league": "MLS",
-      "date": "2026-08-22",
-      "type": "BTTS",
-      "prediction": "Non",
-      "proba": 0.4394,
-      "bttsProbDisplay": "43.94%",
-      "over25ProbDisplay": "37.06%",
-      "confidence": 44,
-      "time": "23:30",
-      "matchSemantic": "cfmontra-vs-lagalaxy-2026-08-22",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9720.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/187.png",
-      "tier": "SILVER",
-      "reliabilityScore": 69.23,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1.07,
-      "xgAway": 1.1,
-      "xgTotal": 2.17,
-      "formBTTS": 19,
-      "analysis": "CF Montréal (8 matchs réels, xG 1.07) vs LA Galaxy (8 matchs réels, xG 1.10). xG cumulé 2.17, BTTS 43.9%, Over 2.5 37.1%. Fiabilité 69.23%. Qualité données: HIGH.",
-      "analysisData": {
-        "bttsProb": 0.4394,
-        "over25Prob": 0.3706,
-        "homeLambda": 1.07,
-        "awayLambda": 1.1,
-        "xgTotal": 2.17
-      },
-      "estimatedCote": 2.28,
-      "estimatedCoteOver": 2.7,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Non",
-          "confidence": 44,
-          "bttsProb": 0.4394,
-          "homeLambda": 1.07,
-          "awayLambda": 1.1
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Non",
-          "confidence": 40,
-          "over25Prob": 0.3706,
-          "homeLambda": 1.07,
-          "awayLambda": 1.1
-        }
-      ],
-      "bttsProb": 0.4394,
-      "over25Prob": 0.3706,
-      "homeLambda": 1.07,
-      "awayLambda": 1.1
-    },
-    {
       "id": "fortunas-vs-azalkmaa-2026-08-22",
       "match": "Fortuna Sittard vs AZ Alkmaar",
       "home": "Fortuna Sittard",
@@ -746,9 +684,7 @@
       "over25Prob": 0.6406,
       "homeLambda": 1.88,
       "awayLambda": 1.42
-    }
-  ],
-  "vipPreview": [
+    },
     {
       "id": "zultewar-vs-waasland-2026-08-22",
       "match": "Zulte-Waregem vs Waasland-Beveren",
@@ -810,7 +746,9 @@
       "over25Prob": 0.5768,
       "homeLambda": 1.72,
       "awayLambda": 1.28
-    },
+    }
+  ],
+  "vipPreview": [
     {
       "id": "royalcha-vs-kvmechel-2026-08-22",
       "match": "Royal Charleroi SC vs KV Mechelen",
@@ -1244,10 +1182,72 @@
       "over25Prob": 0.5701,
       "homeLambda": 1.7,
       "awayLambda": 1.27
+    },
+    {
+      "id": "scrheind-vs-tsvhartb-2026-08-22",
+      "match": "SC Rheindorf Altach vs TSV Hartberg",
+      "home": "SC Rheindorf Altach",
+      "away": "TSV Hartberg",
+      "league": "Austrian Bundesliga",
+      "date": "2026-08-22",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5842,
+      "bttsProbDisplay": "58.42%",
+      "over25ProbDisplay": "56.55%",
+      "confidence": 58,
+      "time": "15:00",
+      "matchSemantic": "scrheind-vs-tsvhartb-2026-08-22",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4405.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6907.png",
+      "tier": "SILVER",
+      "reliabilityScore": 63.81,
+      "dataQuality": "LOW",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 3,
+      "matchCountAway": 3,
+      "h2hAvailable": false,
+      "xgHome": 1.69,
+      "xgAway": 1.26,
+      "xgTotal": 2.95,
+      "formBTTS": 10,
+      "analysis": "SC Rheindorf Altach (3 matchs réels, xG 1.69) vs TSV Hartberg (3 matchs réels, xG 1.26). xG cumulé 2.95, BTTS 58.4%, Over 2.5 56.6%. Fiabilité 63.81%. Qualité données: LOW.",
+      "analysisData": {
+        "bttsProb": 0.5842,
+        "over25Prob": 0.5655,
+        "homeLambda": 1.69,
+        "awayLambda": 1.26,
+        "xgTotal": 2.95
+      },
+      "estimatedCote": 1.71,
+      "estimatedCoteOver": 1.77,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 58,
+          "bttsProb": 0.5842,
+          "homeLambda": 1.69,
+          "awayLambda": 1.26
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 57,
+          "over25Prob": 0.5655,
+          "homeLambda": 1.69,
+          "awayLambda": 1.26
+        }
+      ],
+      "bttsProb": 0.5842,
+      "over25Prob": 0.5655,
+      "homeLambda": 1.69,
+      "awayLambda": 1.26
     }
   ],
   "stats": {
-    "avgReliability": 68.88,
+    "avgReliability": 68.75,
     "totalAnalyzed": 60,
     "totalRejected": 0,
     "totalAccepted": 60,
@@ -1752,68 +1752,6 @@
       "awayLambda": 1
     },
     {
-      "id": "cfmontra-vs-lagalaxy-2026-08-22",
-      "match": "CF Montréal vs LA Galaxy",
-      "home": "CF Montréal",
-      "away": "LA Galaxy",
-      "league": "MLS",
-      "date": "2026-08-22",
-      "type": "BTTS",
-      "prediction": "Non",
-      "proba": 0.4394,
-      "bttsProbDisplay": "43.94%",
-      "over25ProbDisplay": "37.06%",
-      "confidence": 44,
-      "time": "23:30",
-      "matchSemantic": "cfmontra-vs-lagalaxy-2026-08-22",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9720.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/187.png",
-      "tier": "SILVER",
-      "reliabilityScore": 69.23,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1.07,
-      "xgAway": 1.1,
-      "xgTotal": 2.17,
-      "formBTTS": 19,
-      "analysis": "CF Montréal (8 matchs réels, xG 1.07) vs LA Galaxy (8 matchs réels, xG 1.10). xG cumulé 2.17, BTTS 43.9%, Over 2.5 37.1%. Fiabilité 69.23%. Qualité données: HIGH.",
-      "analysisData": {
-        "bttsProb": 0.4394,
-        "over25Prob": 0.3706,
-        "homeLambda": 1.07,
-        "awayLambda": 1.1,
-        "xgTotal": 2.17
-      },
-      "estimatedCote": 2.28,
-      "estimatedCoteOver": 2.7,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Non",
-          "confidence": 44,
-          "bttsProb": 0.4394,
-          "homeLambda": 1.07,
-          "awayLambda": 1.1
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Non",
-          "confidence": 40,
-          "over25Prob": 0.3706,
-          "homeLambda": 1.07,
-          "awayLambda": 1.1
-        }
-      ],
-      "bttsProb": 0.4394,
-      "over25Prob": 0.3706,
-      "homeLambda": 1.07,
-      "awayLambda": 1.1
-    },
-    {
       "id": "fortunas-vs-azalkmaa-2026-08-22",
       "match": "Fortuna Sittard vs AZ Alkmaar",
       "home": "Fortuna Sittard",
@@ -1998,6 +1936,68 @@
       "over25Prob": 0.6406,
       "homeLambda": 1.88,
       "awayLambda": 1.42
+    },
+    {
+      "id": "zultewar-vs-waasland-2026-08-22",
+      "match": "Zulte-Waregem vs Waasland-Beveren",
+      "home": "Zulte-Waregem",
+      "away": "Waasland-Beveren",
+      "league": "Jupiler Pro League",
+      "date": "2026-08-22",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5929,
+      "bttsProbDisplay": "59.29%",
+      "over25ProbDisplay": "57.68%",
+      "confidence": 59,
+      "time": "14:00",
+      "matchSemantic": "zultewar-vs-waasland-2026-08-22",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4691.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/13450.png",
+      "tier": "SILVER",
+      "reliabilityScore": 64.19,
+      "dataQuality": "LOW",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 2,
+      "matchCountAway": 2,
+      "h2hAvailable": false,
+      "xgHome": 1.72,
+      "xgAway": 1.28,
+      "xgTotal": 3,
+      "formBTTS": 20,
+      "analysis": "Zulte-Waregem (2 matchs réels, xG 1.72) vs Waasland-Beveren (2 matchs réels, xG 1.28). xG cumulé 3, BTTS 59.3%, Over 2.5 57.7%. Fiabilité 64.19%. Qualité données: LOW.",
+      "analysisData": {
+        "bttsProb": 0.5929,
+        "over25Prob": 0.5768,
+        "homeLambda": 1.72,
+        "awayLambda": 1.28,
+        "xgTotal": 3
+      },
+      "estimatedCote": 1.69,
+      "estimatedCoteOver": 1.73,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 59,
+          "bttsProb": 0.5929,
+          "homeLambda": 1.72,
+          "awayLambda": 1.28
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 58,
+          "over25Prob": 0.5768,
+          "homeLambda": 1.72,
+          "awayLambda": 1.28
+        }
+      ],
+      "bttsProb": 0.5929,
+      "over25Prob": 0.5768,
+      "homeLambda": 1.72,
+      "awayLambda": 1.28
     }
   ]
 }

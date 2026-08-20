@@ -2,9 +2,9 @@
   "date": "2026-08-20",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-20T04:37:07.486Z",
+  "fetchedAt": "2026-08-20T08:38:04.360Z",
   "eventCount": 100,
-  "legCount": 34,
+  "legCount": 40,
   "status": "available",
   "combos": {
     "target2": {
@@ -31,41 +31,10 @@
           "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.16,
+          "odds": 1.14,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-20T01:15:35.57Z"
+          "updatedAt": "2026-08-20T07:44:20.671Z"
         },
-        {
-          "eventId": "68852200",
-          "home": "FA Tartu Kalev",
-          "away": "Tartu JK Tammeka U21",
-          "league": "Estonia - Esiliiga B",
-          "kickoff": "2026-08-20T12:00:00Z",
-          "bookmaker": "Unibet",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.18,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-17T12:53:09.749Z"
-        },
-        {
-          "eventId": "73742938",
-          "home": "FC Van Charentsavan",
-          "away": "FC Syunik",
-          "league": "Armenia - Premier League",
-          "kickoff": "2026-08-20T12:00:00Z",
-          "bookmaker": "Unibet",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.24,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T16:58:47.985Z"
-        }
-      ],
-      "totalOdds": 1.99
-    },
-    "target5": {
-      "legs": [
         {
           "eventId": "32161039514",
           "home": "Drukpa",
@@ -78,32 +47,50 @@
           "odds": 1.5,
           "source": "Odds-API.io",
           "updatedAt": "2026-08-20T02:47:42.26Z"
+        }
+      ],
+      "totalOdds": 2
+    },
+    "target5": {
+      "legs": [
+        {
+          "eventId": "73715378",
+          "home": "Dinaz Vyshgorod",
+          "away": "FSK Mariupol",
+          "league": "Ukraine - Ukraine Cup",
+          "kickoff": "2026-08-20T09:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.17,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-19T22:35:16.253Z"
         },
         {
-          "eventId": "68852258",
-          "home": "JK Tabasalu",
-          "away": "FC Phoenix Johvi",
+          "eventId": "73706170",
+          "home": "Tromsoe IL U19",
+          "away": "Lillestrom SK U19",
+          "league": "Norway - U19 Nasjonal, Playoffs",
+          "kickoff": "2026-08-20T11:00:00Z",
+          "bookmaker": "Bet365 (no latency)",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.14,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-20T07:44:20.671Z"
+        },
+        {
+          "eventId": "68852202",
+          "home": "Parnu JK Vaprus II",
+          "away": "Viljandi JK Tulevik",
           "league": "Estonia - Esiliiga B",
           "kickoff": "2026-08-20T12:00:00Z",
-          "bookmaker": "Bet365",
+          "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.8,
+          "odds": 3.75,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-20T04:06:33.968Z"
-        },
-        {
-          "eventId": "68959658",
-          "home": "Tallinna FC Flora",
-          "away": "Saku Sporting",
-          "league": "Estonia - Meistriliiga Women",
-          "kickoff": "2026-08-20T12:00:00Z",
-          "bookmaker": "Bet365",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.85,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-18T20:24:54.987Z"
+          "updatedAt": "2026-08-20T04:26:13.846Z"
         }
       ],
       "totalOdds": 5
