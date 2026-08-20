@@ -82,5 +82,7 @@
       ],
       "totalOdds": 4.99
     }
-  }
+  },
+  "lastAttemptedAt": "2026-08-20T22:13:29.437Z",
+  "refreshStatus": "insufficient_verified_odds"
 }
