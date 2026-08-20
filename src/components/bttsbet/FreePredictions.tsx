@@ -349,15 +349,15 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
             {/* BTTS column */}
             <div className="space-y-2 text-center">
               <div className="text-[10px] uppercase tracking-widest font-bold text-[#B8FF1A]">BTTS</div>
-              <div className="text-2xl sm:text-3xl font-black" style={{ color: bttsPred.prediction === 'Oui' ? '#B8FF1A' : '#B7C4C1' }}>
+              <div className="text-2xl sm:text-3xl font-black" style={{ color: bttsPred.prediction === 'Oui' ? '#B8FF1A' : '#A8B5C3' }}>
                 {bttsPred.prediction === 'Oui' ? t.predictions.bttsYes : t.predictions.bttsNo}
               </div>
             </div>
 
             {/* Over 2.5 column */}
-            <div className="space-y-2 text-center border-l border-[#5D7880] pl-3 sm:pl-4">
+            <div className="space-y-2 text-center border-l border-[#324758] pl-3 sm:pl-4">
               <div className="text-[10px] uppercase tracking-widest font-bold text-[#B8FF1A]">Over 2.5</div>
-              <div className="text-2xl sm:text-3xl font-black" style={{ color: over25Pred.prediction === 'Oui' ? '#B8FF1A' : '#B7C4C1' }}>
+              <div className="text-2xl sm:text-3xl font-black" style={{ color: over25Pred.prediction === 'Oui' ? '#B8FF1A' : '#A8B5C3' }}>
                 {over25Pred.prediction === 'Oui' ? t.predictions.bttsYes : t.predictions.bttsNo}
               </div>
             </div>
@@ -388,7 +388,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
                       </div>
                       {match.aiExactScore && (
                         <div className="flex items-center gap-1">
-                          <span className="text-[9px] uppercase tracking-wider text-[#B7C4C1]">{t.predictions.predictedScore}</span>
+                          <span className="text-[9px] uppercase tracking-wider text-[#A8B5C3]">{t.predictions.predictedScore}</span>
                           <span className="text-sm font-black font-mono text-[#B8FF1A] px-2 py-0.5 rounded" style={{ backgroundColor: 'rgba(199,244,100,0.12)' }}>
                             {match.aiExactScore}
                           </span>
@@ -401,19 +401,19 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
                       <div className="grid grid-cols-3 gap-1.5 mb-2">
                         {match.aiExactScore && match.exactScoreProb && (
                           <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(199,244,100,0.08)' }}>
-                            <div className="text-[8px] uppercase text-[#B7C4C1]">Score</div>
+                            <div className="text-[8px] uppercase text-[#A8B5C3]">Score</div>
                             <div className="text-[11px] font-bold text-[#B8FF1A]">{match.exactScoreProb}</div>
                           </div>
                         )}
                         {match.aiBttsProb && (
                           <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(123,228,149,0.08)' }}>
-                            <div className="text-[8px] uppercase text-[#B7C4C1]">BTTS</div>
+                            <div className="text-[8px] uppercase text-[#A8B5C3]">BTTS</div>
                             <div className="text-[11px] font-bold text-[#B8FF1A]">{match.aiBttsProb}</div>
                           </div>
                         )}
                         {match.aiOver25Prob && (
                           <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(255,209,102,0.08)' }}>
-                            <div className="text-[8px] uppercase text-[#B7C4C1]">Over 2.5</div>
+                            <div className="text-[8px] uppercase text-[#A8B5C3]">Over 2.5</div>
                             <div className="text-[11px] font-bold text-[#B8FF1A]">{match.aiOver25Prob}</div>
                           </div>
                         )}
@@ -421,10 +421,10 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
                     )}
 
                     {match.aiKeyFact && (
-                      <p className="text-[11px] text-[#F5F8F3] font-semibold mb-2">📊 {match.aiKeyFact}</p>
+                      <p className="text-[11px] text-[#F3F7FA] font-semibold mb-2">📊 {match.aiKeyFact}</p>
                     )}
                     {match.aiAnalysis && (
-                      <p className="text-[11px] text-[#B7C4C1] leading-relaxed">{match.aiAnalysis}</p>
+                      <p className="text-[11px] text-[#A8B5C3] leading-relaxed">{match.aiAnalysis}</p>
                     )}
                   </div>
                 )}
@@ -473,6 +473,9 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
   const t = translationsFor(lang)
+  const intelligenceTitle = lang === 'en' ? "Today's intelligence" : lang === 'ar' ? 'ذكاء اليوم' : 'Intelligence du jour'
+  const intelligenceSubtitle = lang === 'en' ? 'Live selections, market signals and match analysis' : lang === 'ar' ? 'اختيارات مباشرة وإشارات السوق وتحليل المباريات' : 'Sélections en direct, signaux de marché et analyse des matchs'
+  const filtersLabel = lang === 'en' ? 'Filters' : lang === 'ar' ? 'الفلاتر' : 'Filtres'
   const [matches, setMatches] = useState<MatchData[]>([])
   const [loading, setLoading] = useState(true)
   const [activeLeague, setActiveLeague] = useState<string>('all')
@@ -582,25 +585,32 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
   }), [matches])
 
   return (
-    <section ref={ref} id="free-predictions" className="section-pad overflow-x-hidden" style={{ paddingTop: 0, paddingBottom: 'clamp(2rem, 5vw, 4rem)' }}>
-      {/* H2 for SEO (hidden visually) */}
-      <h2 className="sr-only">{lang === 'en' ? "Today's AI predictions — free BTTS and Over 2.5" : lang === 'ar' ? 'توقعات الذكاء الاصطناعي لليوم — BTTS وOver 2.5 مجاناً' : 'Pronostics IA du jour — BTTS et Over 2.5 gratuits'}</h2>
-      <div className="max-w-[440px] mx-auto">
-        {/* Compact filter chips — rounded-full, horizontal scroll */}
+    <section ref={ref} id="free-predictions" className="section-pad overflow-x-hidden" style={{ paddingTop: 'clamp(1.5rem, 4vw, 3rem)', paddingBottom: 'clamp(2rem, 5vw, 4rem)' }}>
+      <div className="mx-auto max-w-[980px] px-4 sm:px-6">
+        <div className="prediction-section-heading mb-5 flex items-end justify-between gap-4">
+          <div>
+            <span className="prediction-section-heading__eyebrow">{filtersLabel}</span>
+            <h2 className="prediction-section-heading__title">{intelligenceTitle}</h2>
+            <p className="prediction-section-heading__subtitle">{intelligenceSubtitle}</p>
+          </div>
+          <span className="prediction-section-heading__count hidden sm:inline-flex">{stats.total} {lang === 'en' ? 'matches' : lang === 'ar' ? 'مباريات' : 'matchs'}</span>
+        </div>
+
+        {/* Filtres de la section — un panneau de contrôle, pas un second hero */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}
-          className="filter-command-dashboard mb-3"
+          className="prediction-filter-panel mb-5"
         >
-          <div className="filter-command-dashboard__header">
+          <div className="prediction-filter-panel__header">
             <div className="flex items-center gap-2">
-              <span className="filter-command-dashboard__pulse" aria-hidden="true" />
-              <span>{t.hero.commandCenter}</span>
+              <span className="prediction-filter-panel__pulse" aria-hidden="true" />
+              <span>{filtersLabel}</span>
             </div>
-            <span className="filter-command-dashboard__mode">{t.hero.liveData}</span>
+            <span className="prediction-filter-panel__mode">{t.hero.liveData}</span>
           </div>
-          <div className="filter-command-dashboard__track">
+          <div className="prediction-filter-panel__track">
           {/* Date filter chips */}
           <div className="flex items-center gap-1.5 flex-shrink-0">
             {([
@@ -616,16 +626,16 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
                 className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-all duration-200 whitespace-nowrap ${
                   activeDate === f.id
                     ? 'text-[#071018] border-none'
-                    : 'text-[#B7C4C1] border border-[#5D7880]'
+                    : 'text-[#A8B5C3] border border-[#324758]'
                 }`}
-                style={activeDate === f.id ? { backgroundColor: '#B8FF1A' } : { backgroundColor: '#0D1A20' }}
+                style={activeDate === f.id ? { backgroundColor: '#B8FF1A' } : { backgroundColor: '#0D1722' }}
               >
                 {f.label}
               </button>
             ))}
           </div>
 
-          <span className="w-px h-4 bg-[#5D7880] flex-shrink-0" />
+          <span className="w-px h-4 bg-[#324758] flex-shrink-0" />
 
           {/* Market filter chips */}
           <div className="flex items-center gap-1.5 flex-shrink-0">
@@ -641,16 +651,16 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
                 className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-all duration-200 whitespace-nowrap ${
                   activeType === f.id
                     ? 'text-[#071018] border-none'
-                    : 'text-[#B7C4C1] border border-[#5D7880]'
+                    : 'text-[#A8B5C3] border border-[#324758]'
                 }`}
-                style={activeType === f.id ? { backgroundColor: '#B8FF1A' } : { backgroundColor: '#0D1A20' }}
+                style={activeType === f.id ? { backgroundColor: '#B8FF1A' } : { backgroundColor: '#0D1722' }}
               >
                 {f.label}
               </button>
             ))}
           </div>
 
-          <span className="w-px h-4 bg-[#5D7880] flex-shrink-0" />
+          <span className="w-px h-4 bg-[#324758] flex-shrink-0" />
 
           {/* League filter chips */}
           <div className="flex items-center gap-1.5 flex-shrink-0">
@@ -662,9 +672,9 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
                 className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-all duration-200 whitespace-nowrap ${
                   activeLeague === league
                     ? 'text-[#071018] border-none'
-                    : 'text-[#B7C4C1] border border-[#5D7880]'
+                    : 'text-[#A8B5C3] border border-[#324758]'
                 }`}
-                style={activeLeague === league ? { backgroundColor: '#B8FF1A' } : { backgroundColor: '#0D1A20' }}
+                style={activeLeague === league ? { backgroundColor: '#B8FF1A' } : { backgroundColor: '#0D1722' }}
               >
                 {league === 'all' ? t.predictions.leagues : league}
               </button>
@@ -674,7 +684,7 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
           {/* Live count badge if matches live */}
           {stats.live > 0 && (
             <>
-              <span className="w-px h-4 bg-[#5D7880] flex-shrink-0" />
+              <span className="w-px h-4 bg-[#324758] flex-shrink-0" />
               <span className="live-text text-[10px] uppercase tracking-widest font-bold whitespace-nowrap flex-shrink-0">
                 {stats.live} LIVE
               </span>
@@ -683,7 +693,7 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
           </div>
         </motion.div>
 
-        {/* Cards grid */}
+        {/* Cartes de matchs réels du jour */}
         {loading ? (
           <div className="grid sm:grid-cols-2 gap-3">
             {[1, 2, 3, 4].map(i => (
@@ -702,7 +712,7 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
             <p className="text-cendre text-xs">{lang === 'ar' ? 'جرّب فلترًا آخر أو عد لاحقاً.' : lang === 'en' ? 'Try another filter or come back later.' : 'Essaie un autre filtre ou reviens plus tard.'}</p>
           </div>
         ) : (
-          <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
+          <div className="grid gap-4 md:grid-cols-2">
             {filteredMatches.map((m, i) => (
               <PredictionCard key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} initialLocale={lang} />
             ))}
