@@ -2,7 +2,7 @@
   "date": "2026-08-21",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-21T04:38:28.743Z",
+  "fetchedAt": "2026-08-21T07:09:34.625Z",
   "eventCount": 100,
   "legCount": 71,
   "status": "available",
@@ -10,33 +10,33 @@
     "target2": {
       "legs": [
         {
-          "eventId": "73811756",
-          "home": "Cadiz CF Mirandilla",
-          "away": "Lion City Sailors FC",
-          "league": "International Clubs - Club Friendly Games",
-          "kickoff": "2026-08-21T08:30:00Z",
-          "bookmaker": "Bet365 (no latency)",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.9,
+          "eventId": "68160336",
+          "home": "Green Gully SC",
+          "away": "ST Albans Saints Dinamo SC",
+          "league": "Australia - Victoria NPL",
+          "kickoff": "2026-08-21T09:30:00Z",
+          "bookmaker": "Bet365",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.5,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T04:15:53.637Z"
+          "updatedAt": "2026-08-21T07:09:12.857Z"
         },
         {
-          "eventId": "71128004",
-          "home": "Garuda FC",
-          "away": "Darwin Olympic SC",
-          "league": "Australia - Northern Territory Premier League",
-          "kickoff": "2026-08-21T11:00:00Z",
+          "eventId": "68161866",
+          "home": "Essendon Royals SC",
+          "away": "Keilor Park SC",
+          "league": "Australia - Victoria Premier League 2",
+          "kickoff": "2026-08-21T10:30:00Z",
           "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.05,
+          "odds": 1.33,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T01:37:26.228Z"
+          "updatedAt": "2026-08-21T07:07:50.651Z"
         }
       ],
-      "totalOdds": 1.99
+      "totalOdds": 2
     },
     "target5": {
       "legs": [
