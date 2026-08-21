@@ -1,39 +1,39 @@
 {
-  "date": "2026-08-20",
+  "date": "2026-08-21",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-20T20:28:10.409Z",
+  "fetchedAt": "2026-08-21T01:15:49.315Z",
   "eventCount": 100,
-  "legCount": 27,
+  "legCount": 34,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "71805796",
-          "home": "LDU Quito",
-          "away": "Mirassol FC SP",
-          "league": "International Clubs - CONMEBOL Libertadores, Knockout stage",
-          "kickoff": "2026-08-20T22:00:00Z",
+          "eventId": "68160336",
+          "home": "Green Gully SC",
+          "away": "ST Albans Saints Dinamo SC",
+          "league": "Australia - Victoria NPL",
+          "kickoff": "2026-08-21T09:30:00Z",
           "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.93,
+          "odds": 1.03,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-20T18:47:49.656Z"
+          "updatedAt": "2026-08-21T00:27:56.668Z"
         },
         {
-          "eventId": "71805728",
-          "home": "CSD Macara",
-          "away": "Santos FC SP",
-          "league": "International Clubs - CONMEBOL Sudamericana, Knockout stage",
-          "kickoff": "2026-08-20T22:00:00Z",
-          "bookmaker": "Unibet",
+          "eventId": "73807918",
+          "home": "Calcutta Police Club",
+          "away": "Peerless SC",
+          "league": "India - Calcutta Premier Division, Group A",
+          "kickoff": "2026-08-21T09:30:00Z",
+          "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.04,
+          "odds": 1.95,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-20T17:03:39.238Z"
+          "updatedAt": "2026-08-20T04:03:46.188Z"
         }
       ],
       "totalOdds": 2.01
@@ -41,48 +41,46 @@
     "target5": {
       "legs": [
         {
-          "eventId": "73746128",
-          "home": "CD Real Santander",
-          "away": "Barranquilla FC",
-          "league": "Colombia - Torneo DIMAYOR, Clausura",
-          "kickoff": "2026-08-20T20:30:00Z",
+          "eventId": "68160336",
+          "home": "Green Gully SC",
+          "away": "ST Albans Saints Dinamo SC",
+          "league": "Australia - Victoria NPL",
+          "kickoff": "2026-08-21T09:30:00Z",
           "bookmaker": "Bet365",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.9,
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.57,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-20T19:53:55.262Z"
+          "updatedAt": "2026-08-21T01:13:56.089Z"
         },
         {
-          "eventId": "71805796",
-          "home": "LDU Quito",
-          "away": "Mirassol FC SP",
-          "league": "International Clubs - CONMEBOL Libertadores, Knockout stage",
-          "kickoff": "2026-08-20T22:00:00Z",
-          "bookmaker": "Bet365",
+          "eventId": "72149636",
+          "home": "Kashiwa Reysol",
+          "away": "V-Varen Nagasaki",
+          "league": "Japan - J.League",
+          "kickoff": "2026-08-21T10:00:00Z",
+          "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.93,
+          "odds": 1.75,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-20T18:47:49.656Z"
+          "updatedAt": "2026-08-20T18:53:48.446Z"
         },
         {
-          "eventId": "71805728",
-          "home": "CSD Macara",
-          "away": "Santos FC SP",
-          "league": "International Clubs - CONMEBOL Sudamericana, Knockout stage",
-          "kickoff": "2026-08-20T22:00:00Z",
+          "eventId": "73781380",
+          "home": "Adelaide Olympic FC",
+          "away": "Adelaide Atletico VSC",
+          "league": "Australia - South Australia State League 1, Playoffs",
+          "kickoff": "2026-08-21T10:00:00Z",
           "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.36,
+          "odds": 1.82,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-20T20:19:56.323Z"
+          "updatedAt": "2026-08-19T07:01:59.525Z"
         }
       ],
-      "totalOdds": 4.99
+      "totalOdds": 5
     }
-  },
-  "lastAttemptedAt": "2026-08-20T22:46:19.130Z",
-  "refreshStatus": "insufficient_verified_odds"
+  }
 }

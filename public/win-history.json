@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T22:51:30.389Z",
+  "generatedAt": "2026-08-21T01:20:39.560Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -10,8 +10,8 @@
     "total": 36,
     "won": 26,
     "lost": 10,
-    "pending": 99,
-    "archivedTotal": 135,
+    "pending": 111,
+    "archivedTotal": 147,
     "rate": 72.2,
     "avgOdds": 1.9,
     "profit": 13.4,
@@ -106,8 +106,8 @@
     "maxDrawdown": 2,
     "period": {
       "from": "2026-08-08",
-      "to": "2026-08-20",
-      "days": 13
+      "to": "2026-08-21",
+      "days": 14
     }
   },
   "history": [
