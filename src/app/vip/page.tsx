@@ -113,7 +113,7 @@ export default function VipPage() {
     return () => observer.disconnect()
   }, [])
 
-  const code = bookmaker === 'linebet' ? 'VISION221' : 'vision221'
+  const code = bookmaker === 'linebet' ? 'VISION221' : 'btts221'
   const inscriptionLink = bookmaker === 'linebet' ? LIEN_LINEBET : LIEN_888STARZ
   const apkLink = bookmaker === 'linebet' ? LIEN_LINEBET_APK : LIEN_888STARZ_APK
   const bonus = bookmaker === 'linebet' ? 'Bonus 90 000 XOF' : 'Bonus 200%'
@@ -212,7 +212,7 @@ export default function VipPage() {
   // ─── Select bookmaker AND auto-copy its promo code at the same time ───
   const selectBookmaker = (bk: 'linebet' | '888starz') => {
     setBookmaker(bk)
-    const codeToCopy = bk === 'linebet' ? 'VISION221' : 'vision221'
+    const codeToCopy = bk === 'linebet' ? 'VISION221' : 'btts221'
     copyToClipboard(codeToCopy)
   }
 
@@ -254,12 +254,20 @@ export default function VipPage() {
               <p className="max-w-[340px] mx-auto text-xs leading-relaxed mt-3" style={{ color: C.textSec }}>
                 {vipCopy.description}
               </p>
+              <button
+                type="button"
+                onClick={openVipUnlock}
+                className="vip-hero-unlock-cta mt-4 inline-flex min-h-11 items-center justify-center rounded-xl px-5 text-xs font-black uppercase tracking-[0.12em] transition-transform hover:scale-[1.01]"
+                data-cta="vip-hero-unlock"
+              >
+                {vipCopy.accessCta} <span aria-hidden="true">→</span>
+              </button>
               <div className="vip-command-status mt-4" aria-label="État du centre d’analyse VIP">
                 <div className="vip-command-status__top">
                   <span className="inline-flex items-center gap-2"><span className="vip-status-dot" aria-hidden="true" /> {vipCopy.desk}</span>
                   <span>{vipCopy.secure}</span>
                 </div>
-                <div className="grid grid-cols-3 gap-2 text-left">
+                <div className="vip-telemetry-row flex gap-2 text-left">
                 <div className="vip-telemetry-module rounded-xl px-2 py-2" style={{ backgroundColor: `${C.gold}0D`, border: `1px solid ${C.gold}30` }}>
                   <div className="text-[10px] font-black" style={{ color: C.gold }}>01</div>
                   <div className="text-[9px] mt-1" style={{ color: C.textSec }}>{vipCopy.selections}</div>
@@ -486,7 +494,7 @@ export default function VipPage() {
           <div className="grid grid-cols-2 gap-2">
             {/* Linebet — VERT CLAIR */}
             <button onClick={() => selectBookmaker('linebet')} aria-pressed={bookmaker === 'linebet'}
-              className="relative py-2.5 rounded-xl text-[12px] font-bold transition-all overflow-hidden"
+              className="vip-bookmaker-button relative py-2.5 rounded-xl text-[12px] font-bold transition-all overflow-hidden"
               style={{
                 backgroundColor: bookmaker === 'linebet' ? BRAND.linebet.primary : 'transparent',
                 color: bookmaker === 'linebet' ? C.bg : BRAND.linebet.primary,
@@ -503,7 +511,7 @@ export default function VipPage() {
             </button>
             {/* 888Starz — ROUGE CLAIR */}
             <button onClick={() => selectBookmaker('888starz')} aria-pressed={bookmaker === '888starz'}
-              className="relative py-2.5 rounded-xl text-[12px] font-bold transition-all overflow-hidden"
+              className="vip-bookmaker-button relative py-2.5 rounded-xl text-[12px] font-bold transition-all overflow-hidden"
               style={{
                 backgroundColor: bookmaker === '888starz' ? BRAND.star888.primary : 'transparent',
                 color: bookmaker === '888starz' ? C.bg : BRAND.star888.primary,
@@ -533,7 +541,7 @@ export default function VipPage() {
             <div className="p-4 text-center">
               <p className="text-[9px] uppercase tracking-[0.25em] mb-1" style={{ color: C.textMute }}>{vipCopy.partnerSelected} · {bookmaker === 'linebet' ? 'Linebet' : '888Starz'}</p>
 
-              <button onClick={copyCode} className="inline-flex items-center gap-2 px-5 py-2 rounded-lg transition-all hover:scale-[1.02] mb-2"
+              <button onClick={copyCode} className="vip-copy-code inline-flex items-center gap-2 px-5 py-2 rounded-lg transition-all hover:scale-[1.02] mb-2"
                 style={{ backgroundColor: `${brandColor}15`, border: `1px dashed ${brandColor}50` }}>
                 <span className="text-xl font-black tracking-wider" style={{
                   color: brandColor,
@@ -600,7 +608,7 @@ export default function VipPage() {
             </div>
           </div>
 
-          <a href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Salut BTTSPredict, code '+code+' depot 3000F. Debloquer VIP.')}`} target="_blank" rel="noopener noreferrer"
+          <a href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Salut BTTSPredict, code '+code+' dépôt minimum indiqué par le partenaire. Débloquer VIP.')}`} target="_blank" rel="noopener noreferrer"
             className="block w-full h-[40px] rounded-lg font-bold text-[12px] flex items-center justify-center gap-2 transition-all hover:scale-[1.01]"
             style={{ backgroundColor: C.success, color: C.bg, boxShadow: `0 4px 14px ${C.success}30` }} data-cta="vip-whatsapp"
             onClick={() => trackAffiliateAction(bookmaker, 'whatsapp_click', 'vip-whatsapp')}>

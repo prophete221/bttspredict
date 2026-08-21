@@ -2741,3 +2741,60 @@ body {
   .hero-market-dashboard--compact,
   .hero-market-option { transition: none; }
 }
+
+/* VIP v2 — hiérarchie mobile et accessibilité */
+.vip-hero-unlock-cta {
+  background: linear-gradient(135deg, #D4AF5A 0%, #E6C873 100%);
+  color: #07111F;
+  box-shadow: 0 8px 22px rgba(212, 175, 90, 0.20);
+}
+
+.vip-hero-unlock-cta:focus-visible,
+.vip-bookmaker-button:focus-visible,
+.vip-copy-code:focus-visible,
+.vip-combo-card__lock:focus-visible {
+  outline: 3px solid #F8FAFC;
+  outline-offset: 3px;
+}
+
+.vip-telemetry-row {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.vip-telemetry-row::-webkit-scrollbar { display: none; }
+
+.vip-telemetry-module {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.vip-telemetry-module > div:last-child {
+  font-size: 0.65rem;
+  line-height: 1.25;
+}
+
+.vip-3d-card:hover,
+.vip-3d-card:focus-within {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(245, 248, 243, 0.10) !important;
+}
+
+.vip-3d-card:hover::after,
+.vip-3d-card:focus-within::after {
+  opacity: 0.45;
+}
+
+@media (max-width: 640px) {
+  .vip-hero-unlock-cta { width: 100%; }
+  .vip-telemetry-module { min-width: 6.4rem; }
+  .vip-telemetry-module > div:last-child { font-size: 0.6rem; }
+  .vip-3d-card:hover,
+  .vip-3d-card:focus-within { transform: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vip-hero-unlock-cta,
+  .vip-bookmaker-button,
+  .vip-copy-code { transition: none; }
+}

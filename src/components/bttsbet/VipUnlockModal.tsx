@@ -39,7 +39,7 @@ export default function VipUnlockModal({
   const [copied, setCopied] = useState(false)
 
   // Get the correct code based on selected bookmaker
-  const currentCode = selectedBookmaker === 'linebet' ? 'VISION221' : selectedBookmaker === '888starz' ? 'vision221' : 'VISION221'
+  const currentCode = selectedBookmaker === 'linebet' ? 'VISION221' : selectedBookmaker === '888starz' ? 'btts221' : 'VISION221'
 
   const copyCode = async () => {
     try { await navigator.clipboard.writeText(currentCode) } catch {
@@ -93,7 +93,7 @@ export default function VipUnlockModal({
         localStorage.setItem(ID_HASH_KEY, idHash)
         localStorage.setItem('bttsbet_vip_bookmaker', selectedBookmaker)
       } catch {}
-      const whatsappText = `Bonjour BTTSPredict, je souhaite demander la validation de mon accès VIP. Bookmaker: ${selectedBookmaker}. ID joueur: ${playerId.trim()}. Code promo: ${selectedBookmaker === '888starz' ? 'vision221' : 'VISION221'}. Merci de confirmer les conditions applicables.`
+      const whatsappText = `Bonjour BTTSPredict, je souhaite demander la validation de mon accès VIP. Bookmaker: ${selectedBookmaker}. ID joueur: ${playerId.trim()}. Code promo: ${selectedBookmaker === '888starz' ? 'btts221' : 'VISION221'}. Merci de confirmer les conditions applicables.`
       const whatsappUrl = `https://wa.me/15406704172?text=${encodeURIComponent(whatsappText)}`
       setTimeout(() => {
         setIsUnlocking(false)
