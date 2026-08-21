@@ -13,11 +13,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!isLocale(value) || value === 'fr') return {}
   const locale = value as Locale
   const url = `https://bttspredict.com/${locale}/over-2-5/predictions/today`
-  const title = locale === 'ar' ? 'توقعات Over 2.5 اليوم | BTTSPredict' : 'Over 2.5 Predictions Today — AI Goal Analysis | BTTSPredict'
+  const title = locale === 'ar' ? 'توقعات Over 2.5 اليوم' : 'Over 2.5 Predictions Today — Goal Analysis'
   const description = locale === 'ar' ? 'توقعات أكثر من 2.5 هدف للمباريات الدولية، مع تحليل إحصائي وتحديثات يومية. لا توجد ضمانات للنتائج. 18+.' : 'Over 2.5 goals predictions for international football matches, with statistical analysis and daily updates. No future result is guaranteed. 18+.'
   return {
     title, description,
-    alternates: { canonical: url, languages: { 'fr-SN': 'https://bttspredict.com/over-2-5/predictions/today', en: 'https://bttspredict.com/en/over-2-5/predictions/today', ar: 'https://bttspredict.com/ar/over-2-5/predictions/today', 'x-default': 'https://bttspredict.com/over-2-5/predictions/today' } },
+    alternates: { canonical: url, languages: { fr: 'https://bttspredict.com/over-2-5/predictions/today', en: 'https://bttspredict.com/en/over-2-5/predictions/today', ar: 'https://bttspredict.com/ar/over-2-5/predictions/today', 'x-default': 'https://bttspredict.com/over-2-5/predictions/today' } },
     openGraph: { title, description, url, siteName: 'BTTSPredict', type: 'website', locale: LOCALE_META[locale].htmlLang },
   }
 }

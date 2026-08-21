@@ -15,8 +15,8 @@ const AffiliateSignupCta = dynamic(() => import('@/components/bttsbet/AffiliateS
 // Tâche 002 — Title et description SEO alignés sur le Prompt Maître.
 // Title : 49 chars (limite soft 60) — description : 139 chars (limite soft 150).
 // Anti-récidive: checkSeo() lance une erreur build-time si title > 60 ou desc > 150.
-const TITLE = "Plateforme BTTS, Over 2,5 et Score Exact | BTTSPredict"
-const DESCRIPTION = "Plateforme de sélections BTTS, Over 2,5 et score exact : matchs internationaux, données horodatées et résultats vérifiés. 18+."
+const TITLE = "BTTSPredict — Pronostics BTTS du jour et Over 2,5"
+const DESCRIPTION = "Pronostics BTTS du jour sur des matchs internationaux, avec sélections horodatées, historique public et méthode documentée. 18+."
 checkSeo('homepage', TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
@@ -24,6 +24,12 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   alternates: {
     canonical: 'https://bttspredict.com/',
+    languages: {
+      fr: 'https://bttspredict.com/',
+      en: 'https://bttspredict.com/en',
+      ar: 'https://bttspredict.com/ar',
+      'x-default': 'https://bttspredict.com/',
+    },
   },
   openGraph: {
     title: TITLE,
@@ -32,6 +38,7 @@ export const metadata: Metadata = {
     siteName: 'BTTSPredict',
     type: 'website',
     locale: 'fr_FR',
+    alternateLocale: ['en_US', 'ar_SA'],
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: TITLE }],
   },
   twitter: {
@@ -50,11 +57,6 @@ const jsonLd = {
   url: 'https://bttspredict.com',
   description: "Plateforme de sélections football BTTS, Over 2,5 et score exact pour les parieurs africains. Matchs internationaux, données publiques et historique vérifiable.",
   inLanguage: 'fr',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: 'https://bttspredict.com/?q={search_term_string}',
-    'query-input': 'required name=search_term_string',
-  },
   publisher: {
     '@type': 'Organization',
     name: 'BTTSPredict',
@@ -103,95 +105,22 @@ const faqJsonLd = {
         text: "Nos pronostics gratuits sont produits par le même modèle statistique que nos pronostics premium. Ils couvrent les matchs les plus populaires du jour avec une analyse complète. Aucun résultat n'est garanti.",
       },
     },
-    {
-      '@type': 'Question',
-      name: 'Pourquoi faire confiance à BTTSPredict ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "BTTSPredict publie des pronostics BTTS et Over 2.5 basés sur un modèle statistique. (1) Transparence — tous les pronostics sont archivés et vérifiés publiquement. (2) Méthodologie — modèle statistique basé sur les données disponibles des équipes. (3) Couverture — compétitions disponibles dans les données du système. (4) Sources publiques — ESPN et TheSportsDB lorsque leurs données sont disponibles. (5) Suivi public — les pronostics sont horodatés et vérifiés après le résultat officiel. Aucun résultat futur n'est garanti.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'BTTSPredict est-il un site de pronostics fiable ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "Oui. BTTSPredict publie un historique public vérifiable (gagnés ET perdus), une méthodologie documentée et un suivi public lancé le 2026-08-08. Le taux de réussite est calculé en temps réel à partir des résultats réels (voir /historique), pas un chiffre marketing. Aucun résultat n'est garanti — les paris sportifs comportent des risques.",
-      },
-    },
   ],
 }
 
-// JSON-LD Organization — E-E-A-T entity recognition
+// JSON-LD Organization — identité éditoriale vérifiable, sans récompense ni autorité auto-déclarée.
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'BTTSPredict',
-  legalName: 'BTTSPredict',
   url: 'https://bttspredict.com',
   logo: 'https://bttspredict.com/icon-512.png',
-  image: 'https://bttspredict.com/og-image.png',
-  slogan: 'Plateforme de référence — Pronostics BTTS et Over 2.5',
-  description: "BTTSPredict est la base open-source de pronostics BTTS (Both Teams To Score) et Over 2.5 buts. taux réel vérifiable vérifiée, parieurs. Transparence totale : gagnés ET perdus affichés.",
-  areaServed: ['Worldwide', 'SN', 'CI', 'CM', 'ML', 'BF', 'FR', 'NG'],
-  knowsAbout: ['BTTS', 'Over 2.5', 'paris sportifs', 'football', 'pronostics btts aujourd\'hui', 'both teams to score', 'modèle statistique Poisson', 'prédictions football'],
-  brand: {
-    '@type': 'Brand',
-    name: 'BTTSPredict',
-    slogan: 'Plateforme de référence Pronostics BTTS',
-    logo: 'https://bttspredict.com/icon-512.png',
-  },
-  award: 'Standard de transparence dans les pronostics BTTS et Over 2.5',
-  // NOTE: Pas d'AggregateRating — la plateforme n'a pas de système d'avis vérifiable.
-  // Inventer des reviews serait une violation des guidelines Google Structured Data.
-  // NOTE: pas de propriété founder tant que le vrai nom du fondateur n'est pas fourni.
-  // NOTE v65: sameAs limité aux profils sociaux vérifiés — WhatsApp US supprimé.
+  description: 'Site informatif consacré aux sélections BTTS, Over 2.5 et score exact sur des matchs internationaux.',
+  knowsAbout: ['BTTS', 'Over 2.5', 'football', 'modèle statistique Poisson'],
   sameAs: [
     'https://twitter.com/bttspredict',
     'https://www.facebook.com/bttspredict',
     'https://www.instagram.com/bttspredict',
-  ],
-}
-
-// JSON-LD Claim — autorité pour Google et IA
-const claimJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Claim',
-  claimText: 'BTTSPredict est la base open-source de pronostics BTTS (Both Teams To Score) et Over 2.5 buts.',
-  appearance: {
-    '@type': 'OpinionNewsArticle',
-    headline: 'BTTSPredict — Plateforme de référence Pronostics BTTS et Over 2.5',
-    url: 'https://bttspredict.com',
-    datePublished: '2026-01-01',
-    author: { '@type': 'Organization', name: 'BTTSPredict', url: 'https://bttspredict.com' },
-    publisher: { '@type': 'Organization', name: 'BTTSPredict', url: 'https://bttspredict.com' },
-  },
-}
-
-// JSON-LD LocalBusiness — schéma entreprise locale
-const localBusinessJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'BTTSPredict',
-  image: 'https://bttspredict.com/og-image.png',
-  '@id': 'https://bttspredict.com',
-  url: 'https://bttspredict.com',
-  // v65: telephone US supprimé — contact via email pro uniquement
-  email: 'contact@bttspredict.com',
-  priceRange: '€€',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Dakar',
-    addressLocality: 'Dakar',
-    addressRegion: 'Dakar',
-    addressCountry: 'SN',
-  },
-  geo: { '@type': 'GeoCoordinates', latitude: 14.6928, longitude: -17.4467 },
-  sameAs: [
-    'https://twitter.com/bttspredict',
-    'https://www.facebook.com/bttspredict',
-    'https://www.instagram.com/bttspredict',
-    'https://www.linkedin.com/company/bttspredict',
   ],
 }
 
@@ -256,7 +185,7 @@ const breadcrumbJsonLd = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://bttspredict.com/' },
     { '@type': 'ListItem', position: 2, name: 'Tableau des pronostics', item: 'https://bttspredict.com/btts/predictions/today' },
-    { '@type': 'ListItem', position: 3, name: 'VIP', item: 'https://bttspredict.com/#vip' },
+    { '@type': 'ListItem', position: 3, name: 'VIP', item: 'https://bttspredict.com/vip' },
   ],
 }
 
@@ -280,14 +209,6 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(claimJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
       />
 
       {/* ═══ SEO CONTENT FOR CRAWLERS & AI — minimal v91 ═══ */}
@@ -342,7 +263,7 @@ export default function Home() {
               <div className="text-[10px] font-bold text-[#F3F7FA]">Méthodologie</div>
               <div className="text-[9px] text-[#A8B5C3] mt-0.5">Modèle Poisson + xG</div>
             </a>
-            <a href="/predictions-archive/" className="block p-3 rounded-xl text-center transition-all hover:scale-[1.02]"
+            <a href="/historique" className="block p-3 rounded-xl text-center transition-all hover:scale-[1.02]"
               style={{ backgroundColor: '#0D1722', border: '1px solid #324758' }}>
               <div className="mb-1.5 flex justify-center">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#45C7F7" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>

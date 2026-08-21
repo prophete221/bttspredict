@@ -56,7 +56,7 @@ function url(
     priority,
     alternates: {
       languages: {
-        'fr-SN': fullUrl,
+        fr: fullUrl,
         ...(LOCALIZED_PATHS.has(path) ? { en: enUrl, ar: arUrl } : {}),
         'x-default': fullUrl,
       },
@@ -64,7 +64,7 @@ function url(
   }
 }
 
-// ─── 16 URLs essentielles (spec v91 + combo + AI correct score) ───
+// Pages essentielles indexables, sans doublons ni alias non canoniques.
 const SEO_PAGES: MetadataRoute.Sitemap = [
   // 1. Homepage
   url('/', TODAY, 1.0, 'daily'),
@@ -126,11 +126,6 @@ const SEO_PAGES: MetadataRoute.Sitemap = [
   // 15. Page dédiée btts221 — offre à vérifier quotidiennement
   url('/bonus-888starz-btts221', TODAY, 0.95, 'daily'),
 
-  // 15. Jouer responsable
-  url('/jouer-responsable', TODAY, 0.5, 'yearly'),
-
-  // 16. Mentions légales
-  url('/mentions-legales', '2026-06-01', 0.3, 'yearly'),
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

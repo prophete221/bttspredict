@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const description = locale === 'ar' ? 'توقعات BTTS للمباريات الدولية مع بيانات إحصائية وسجل عام. لا توجد ضمانات للنتائج المستقبلية. 18+.' : 'Free BTTS predictions for international football matches, with statistical data, public history and responsible betting information. 18+.'
   return {
     title, description,
-    alternates: { canonical: url, languages: { 'fr-SN': 'https://bttspredict.com/btts/predictions/today', en: 'https://bttspredict.com/en/btts/predictions/today', ar: 'https://bttspredict.com/ar/btts/predictions/today', 'x-default': 'https://bttspredict.com/btts/predictions/today' } },
+    alternates: { canonical: url, languages: { fr: 'https://bttspredict.com/btts/predictions/today', en: 'https://bttspredict.com/en/btts/predictions/today', ar: 'https://bttspredict.com/ar/btts/predictions/today', 'x-default': 'https://bttspredict.com/btts/predictions/today' } },
     openGraph: { title, description, url, siteName: 'BTTSPredict', type: 'website', locale: LOCALE_META[locale].htmlLang },
   }
 }
