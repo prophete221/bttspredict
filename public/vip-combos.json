@@ -2,25 +2,25 @@
   "date": "2026-08-21",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-21T07:09:34.625Z",
+  "fetchedAt": "2026-08-21T08:40:50.551Z",
   "eventCount": 100,
-  "legCount": 71,
+  "legCount": 62,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "68160336",
-          "home": "Green Gully SC",
-          "away": "ST Albans Saints Dinamo SC",
-          "league": "Australia - Victoria NPL",
-          "kickoff": "2026-08-21T09:30:00Z",
-          "bookmaker": "Bet365",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.5,
+          "eventId": "69976370",
+          "home": "Incheon Hyundai Steel Red Angels",
+          "away": "Mungyeong Sangmu Wfc",
+          "league": "Republic of Korea - WK-League",
+          "kickoff": "2026-08-21T10:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.22,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T07:09:12.857Z"
+          "updatedAt": "2026-08-18T21:03:12.179Z"
         },
         {
           "eventId": "68161866",
@@ -31,9 +31,22 @@
           "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.33,
+          "odds": 1.28,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T07:07:50.651Z"
+          "updatedAt": "2026-08-21T08:36:20.508Z"
+        },
+        {
+          "eventId": "68161868",
+          "home": "Whittlesea United SC",
+          "away": "Moreland City FC",
+          "league": "Australia - Victoria Premier League 2",
+          "kickoff": "2026-08-21T10:30:00Z",
+          "bookmaker": "Bet365 (no latency)",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.28,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-21T07:42:36.532Z"
         }
       ],
       "totalOdds": 2
