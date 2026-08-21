@@ -39,9 +39,8 @@ export const TRANSLATIONS = {
       changeLanguage: 'Changer de langue', moreLanguages: 'Langues disponibles',
     },
     hero: {
-      badge: 'Plateforme mondiale de prédictions BTTS', title: 'La plateforme mondiale de référence pour les prédictions BTTS.',
-      subtitle: 'Sélections BTTS, Over 2,5 et score exact sur des matchs internationaux, avec données horodatées, historique public et méthode documentée.',
-      commandCenter: 'Market command center', liveData: 'Données en direct', btts: 'Les deux marquent', goals: 'Total de buts', exact: 'Projection exacte', active: 'Analyse active',
+      badge: 'Plateforme mondiale de prédictions BTTS', title: 'La référence mondiale des prédictions BTTS.',
+      subtitle: 'BTTS, Over 2,5 et score exact sur des matchs internationaux. Données horodatées et méthode documentée.', commandCenter: 'Marchés suivis', liveData: 'Données en direct', btts: 'Les deux marquent', goals: 'Total de buts', exact: 'Projection exacte', active: 'Analyse active',
       cta: 'Pronostic du jour', timezone: 'Heure officielle Africa/Dakar',
     },
     predictions: {
@@ -69,9 +68,8 @@ export const TRANSLATIONS = {
       changeLanguage: 'Change language', moreLanguages: 'Available languages',
     },
     hero: {
-      badge: 'Global BTTS prediction platform', title: 'The global reference platform for BTTS predictions.',
-      subtitle: 'BTTS, Over 2.5 and exact-score selections for international matches, with time-stamped data, a public history and a documented method.',
-      commandCenter: 'Market command center', liveData: 'Live data', btts: 'Both teams to score', goals: 'Total goals', exact: 'Exact-score projection', active: 'Analysis active',
+      badge: 'Global BTTS prediction platform', title: 'The global reference for BTTS predictions.',
+      subtitle: 'BTTS, Over 2.5 and exact-score selections for international matches. Time-stamped data and a documented method.', commandCenter: 'Markets monitored', liveData: 'Live data', btts: 'Both teams to score', goals: 'Total goals', exact: 'Exact-score projection', active: 'Analysis active',
       cta: 'Today’s predictions', timezone: 'Official Africa/Dakar time',
     },
     predictions: {
@@ -99,9 +97,8 @@ export const TRANSLATIONS = {
       changeLanguage: 'تغيير اللغة', moreLanguages: 'اللغات المتاحة',
     },
     hero: {
-      badge: 'منصة عالمية لتوقعات BTTS', title: 'المنصة العالمية المرجعية لتوقعات BTTS.',
-      subtitle: 'اختيارات BTTS وOver 2.5 والنتيجة الدقيقة للمباريات الدولية، مع بيانات مؤرخة وسجل عام ومنهجية موثقة.',
-      commandCenter: 'مركز الأسواق', liveData: 'بيانات مباشرة', btts: 'كلا الفريقين يسجلان', goals: 'إجمالي الأهداف', exact: 'توقع النتيجة الدقيقة', active: 'التحليل نشط',
+      badge: 'منصة عالمية لتوقعات BTTS', title: 'المرجع العالمي لتوقعات BTTS.',
+      subtitle: 'توقعات BTTS وOver 2.5 والنتيجة الدقيقة للمباريات الدولية، مع بيانات مؤرخة ومنهجية موثقة.', commandCenter: 'الأسواق المتابعة', liveData: 'بيانات مباشرة', btts: 'كلا الفريقين يسجلان', goals: 'إجمالي الأهداف', exact: 'توقع النتيجة الدقيقة', active: 'التحليل نشط',
       cta: 'توقعات اليوم', timezone: 'التوقيت الرسمي: إفريقيا/داكار',
     },
     predictions: {

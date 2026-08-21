@@ -2652,3 +2652,92 @@ body {
   .hero-market-card:hover,
   .hero-market-card:focus-within { transform: none; }
 }
+
+/* Hero v2 — command strip sobre, orienté lecture mobile */
+.hero-market-dashboard--compact {
+  padding: 0.58rem;
+  border-radius: 0.9rem;
+  border-color: rgba(169, 196, 223, 0.22);
+  background: rgba(10, 23, 36, 0.78);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(245, 248, 243, 0.06);
+}
+
+.hero-market-dashboard--compact::before,
+.hero-market-dashboard--compact::after {
+  display: none;
+}
+
+.hero-market-dashboard--compact .hero-market-dashboard__header {
+  min-height: 0;
+  padding: 0 0.2rem 0.45rem;
+  color: #9AAABD;
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+}
+
+.hero-market-dashboard--compact .hero-market-dashboard__status {
+  color: #53D8EE;
+  font-size: 0.52rem;
+  text-shadow: none;
+}
+
+.hero-market-dashboard--compact .hero-market-dashboard__pulse {
+  width: 0.32rem;
+  height: 0.32rem;
+  box-shadow: 0 0 0 3px rgba(184, 255, 26, 0.08);
+  animation: none;
+}
+
+.hero-market-grid--compact {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+.hero-market-option {
+  min-width: 0;
+  padding: 0.62rem 0.68rem;
+  border: 1px solid rgba(127, 162, 198, 0.22);
+  border-left: 2px solid rgba(69, 199, 247, 0.72);
+  border-radius: 0.68rem;
+  background: rgba(18, 34, 53, 0.68);
+}
+
+.hero-market-option__code {
+  display: block;
+  color: #8292A3;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.45rem;
+  letter-spacing: 0.12em;
+}
+
+.hero-market-option__label {
+  display: block;
+  margin-top: 0.28rem;
+  color: #53D8EE;
+  font-size: clamp(0.78rem, 2.5vw, 1rem);
+  letter-spacing: 0.05em;
+}
+
+.hero-market-option__caption {
+  display: block;
+  margin-top: 0.18rem;
+  overflow: hidden;
+  color: #A8B5C3;
+  font-size: 0.58rem;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .hero-meta { align-items: flex-start; }
+  .hero-timezone { max-width: 7.5rem; line-height: 1.35; }
+  .hero-market-option { padding: 0.55rem 0.5rem; }
+  .hero-market-option__caption { font-size: 0.52rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-market-dashboard--compact,
+  .hero-market-option { transition: none; }
+}
