@@ -2,41 +2,41 @@
   "date": "2026-08-21",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-21T01:15:49.315Z",
+  "fetchedAt": "2026-08-21T04:38:28.743Z",
   "eventCount": 100,
-  "legCount": 34,
+  "legCount": 71,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "68160336",
-          "home": "Green Gully SC",
-          "away": "ST Albans Saints Dinamo SC",
-          "league": "Australia - Victoria NPL",
-          "kickoff": "2026-08-21T09:30:00Z",
-          "bookmaker": "Bet365",
+          "eventId": "73811756",
+          "home": "Cadiz CF Mirandilla",
+          "away": "Lion City Sailors FC",
+          "league": "International Clubs - Club Friendly Games",
+          "kickoff": "2026-08-21T08:30:00Z",
+          "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.03,
+          "odds": 1.9,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T00:27:56.668Z"
+          "updatedAt": "2026-08-21T04:15:53.637Z"
         },
         {
-          "eventId": "73807918",
-          "home": "Calcutta Police Club",
-          "away": "Peerless SC",
-          "league": "India - Calcutta Premier Division, Group A",
-          "kickoff": "2026-08-21T09:30:00Z",
-          "bookmaker": "Bet365",
+          "eventId": "71128004",
+          "home": "Garuda FC",
+          "away": "Darwin Olympic SC",
+          "league": "Australia - Northern Territory Premier League",
+          "kickoff": "2026-08-21T11:00:00Z",
+          "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.95,
+          "odds": 1.05,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-20T04:03:46.188Z"
+          "updatedAt": "2026-08-21T01:37:26.228Z"
         }
       ],
-      "totalOdds": 2.01
+      "totalOdds": 1.99
     },
     "target5": {
       "legs": [
@@ -46,38 +46,25 @@
           "away": "ST Albans Saints Dinamo SC",
           "league": "Australia - Victoria NPL",
           "kickoff": "2026-08-21T09:30:00Z",
-          "bookmaker": "Bet365",
+          "bookmaker": "Unibet",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 1.57,
+          "odds": 1.47,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T01:13:56.089Z"
+          "updatedAt": "2026-08-16T09:52:03.555Z"
         },
         {
-          "eventId": "72149636",
-          "home": "Kashiwa Reysol",
-          "away": "V-Varen Nagasaki",
-          "league": "Japan - J.League",
-          "kickoff": "2026-08-21T10:00:00Z",
-          "bookmaker": "Bet365 (no latency)",
+          "eventId": "32161039514",
+          "home": "Drukpa",
+          "away": "Thimphu City",
+          "league": "Bhutan - Premier League",
+          "kickoff": "2026-08-21T12:00:00Z",
+          "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.75,
+          "odds": 3.4,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-20T18:53:48.446Z"
-        },
-        {
-          "eventId": "73781380",
-          "home": "Adelaide Olympic FC",
-          "away": "Adelaide Atletico VSC",
-          "league": "Australia - South Australia State League 1, Playoffs",
-          "kickoff": "2026-08-21T10:00:00Z",
-          "bookmaker": "Bet365",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.82,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-19T07:01:59.525Z"
+          "updatedAt": "2026-08-21T01:36:12.877Z"
         }
       ],
       "totalOdds": 5
