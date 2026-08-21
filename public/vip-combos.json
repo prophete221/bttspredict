@@ -2,69 +2,69 @@
   "date": "2026-08-21",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-21T16:34:07.775Z",
-  "eventCount": 100,
-  "legCount": 37,
+  "fetchedAt": "2026-08-21T20:25:33.663Z",
+  "eventCount": 27,
+  "legCount": 62,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "73074134",
-          "home": "Al-Nasr Dubai CSC",
-          "away": "Al Wahda FC (UAE)",
-          "league": "United Arab Emirates - Pro League",
-          "kickoff": "2026-08-21T16:35:00Z",
+          "eventId": "72335020",
+          "home": "Jaguares de Cordoba",
+          "away": "Boyaca Chico FC",
+          "league": "Colombia - Liga DIMAYOR, Finalizacion",
+          "kickoff": "2026-08-21T21:05:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.2,
+          "odds": 1.08,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T16:08:47.072Z"
+          "updatedAt": "2026-08-21T18:27:53.73Z"
         },
         {
-          "eventId": "72044292",
-          "home": "FC Fredericia",
-          "away": "Aarhus Fremad",
-          "league": "Denmark - 1st Division",
-          "kickoff": "2026-08-21T17:00:00Z",
-          "bookmaker": "Bet365",
+          "eventId": "73038502",
+          "home": "Rubio Nu",
+          "away": "Sportivo Trinidense",
+          "league": "Paraguay - Division de Honor, Clausura",
+          "kickoff": "2026-08-21T21:30:00Z",
+          "bookmaker": "Unibet",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 1.67,
+          "odds": 1.86,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T16:32:19.054Z"
+          "updatedAt": "2026-08-18T13:33:02.201Z"
         }
       ],
-      "totalOdds": 2
+      "totalOdds": 2.01
     },
     "target5": {
       "legs": [
         {
-          "eventId": "73074134",
-          "home": "Al-Nasr Dubai CSC",
-          "away": "Al Wahda FC (UAE)",
-          "league": "United Arab Emirates - Pro League",
-          "kickoff": "2026-08-21T16:35:00Z",
-          "bookmaker": "Bet365",
+          "eventId": "73441332",
+          "home": "Sport Huancayo Reserve",
+          "away": "CD Estudiantil Cni",
+          "league": "Peru - Liga 2, Group B",
+          "kickoff": "2026-08-21T20:30:00Z",
+          "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 2.38,
+          "odds": 2,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T16:33:38.99Z"
+          "updatedAt": "2026-08-21T20:23:58.165Z"
         },
         {
-          "eventId": "73080184",
-          "home": "Hyeres FC",
-          "away": "FC Limonest Dardilly Saint-Didier",
-          "league": "France - National 2, Group C",
-          "kickoff": "2026-08-21T17:00:00Z",
+          "eventId": "67117892",
+          "home": "Deportivo Madryn",
+          "away": "Mitre Santiago del Estero",
+          "league": "Argentina - Primera B Nacional",
+          "kickoff": "2026-08-21T22:00:00Z",
           "bookmaker": "Bet365",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 2.1,
+          "odds": 2.5,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T16:32:19.054Z"
+          "updatedAt": "2026-08-21T20:23:45.586Z"
         }
       ],
       "totalOdds": 5
