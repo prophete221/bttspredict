@@ -69,5 +69,7 @@
       ],
       "totalOdds": 5
     }
-  }
+  },
+  "lastAttemptedAt": "2026-08-21T22:26:38.883Z",
+  "refreshStatus": "insufficient_verified_odds"
 }
