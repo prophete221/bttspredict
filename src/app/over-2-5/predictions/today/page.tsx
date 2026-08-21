@@ -7,19 +7,29 @@ const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: (
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictions'), { loading: () => null })
 
-const TITLE = "Over 2.5 Predictions Today — AI Goal Analysis"
-const DESCRIPTION = "Today's Over 2.5 goals predictions. AI-powered football tips where total match goals exceed 2.5. Free, updated 4x daily, verified post-match. 18+."
+const TITLE = 'Pronostics Over 2,5 du jour'
+const DESCRIPTION = 'Pronostics Over 2,5 du jour sur des matchs internationaux : sélection statistique, date Africa/Dakar et méthode documentée. 18+.'
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: 'https://bttspredict.com/over-2-5/predictions/today' },
+  alternates: {
+    canonical: 'https://bttspredict.com/over-2-5/predictions/today',
+    languages: {
+      fr: 'https://bttspredict.com/over-2-5/predictions/today',
+      en: 'https://bttspredict.com/en/over-2-5/predictions/today',
+      ar: 'https://bttspredict.com/ar/over-2-5/predictions/today',
+      'x-default': 'https://bttspredict.com/over-2-5/predictions/today',
+    },
+  },
   robots: { index: true, follow: true },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
     url: 'https://bttspredict.com/over-2-5/predictions/today',
+    siteName: 'BTTSPredict',
     type: 'website',
+    locale: 'fr_FR',
   },
 }
 

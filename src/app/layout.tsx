@@ -38,28 +38,10 @@ const jetbrainsMono = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://bttspredict.com/"),
   title: {
-    default: "Plateforme BTTS, Over 2,5 et Score Exact | BTTSPredict",
+    default: "BTTSPredict — Pronostics BTTS, Over 2,5 et Score exact",
     template: "%s | BTTSPredict",
   },
-  description: "Plateforme de sélections BTTS, Over 2,5 et score exact sur des matchs internationaux. Données horodatées, historique vérifiable et 18+.",
-  keywords: [
-    // Autorité mondiale
-    "plateforme btts", "btts predictions site", "leader pronostics btts", "best btts prediction site",
-    // Mots-clés stratégiques avec "aujourd'hui" (priorité absolue)
-    "pronostics btts aujourd'hui", "pronostic btts du jour", "prédiction btts gratuit aujourd'hui",
-    "pronostics over 2.5 aujourd'hui", "pronostics btts", "site pronostics btts",
-    "pronostics btts gratuit",
-    // Mots-clés généraux
-    "BTTS", "Both Teams To Score", "pronostics BTTS", "pronostics football",
-    "Over 2.5", "prédictions football", "analyse statistique paris",
-    "pronostics fiables", "pronostics", "pronostics gratuits",
-    "VISION221", "BTTSPredict", "paris sportifs",
-    "pronostics Sénégal", "pronostics Afrique",
-    "modèle Poisson football", "xG pronostics", "statistiques football",
-    "pronostics vérifiés", "transparence pronostics",
-    // Audience africaine, couverture des matchs internationaux
-    "pronostic btts afrique", "pronostic btts sénégal", "pronostic btts maroc", "btts predictions today",
-  ],
+  description: "Pronostics BTTS, Over 2,5 et score exact sur des matchs internationaux. Données horodatées, historique public et méthode documentée. 18+.",
   authors: [
     { name: "BTTSPredict", url: "https://bttspredict.com" },
   ],
@@ -68,7 +50,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://bttspredict.com/",
     languages: {
-      'fr-SN': 'https://bttspredict.com/',
       'fr': 'https://bttspredict.com/',
       'en': 'https://bttspredict.com/en',
       'ar': 'https://bttspredict.com/ar',
@@ -76,23 +57,7 @@ export const metadata: Metadata = {
     },
   },
   other: {
-    'geo.region': 'SN',
-    'geo.placename': 'Dakar',
-    'geo.position': '14.6928;-17.4467',
-    ICBM: '14.6928, -17.4467',
-    'language': 'fr',
-    'rating': 'general',
-    'distribution': 'global',
-    'revisit-after': '1 day',
-    'googlebot': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
-    'bingbot': 'index, follow, max-image-preview:large',
-    'author': 'BTTSPredict',
     'referrer': 'strict-origin-when-cross-origin',
-    // Signaux d'autorité pour les crawlers
-    'rating-agency': 'BTTSPredict — Plateforme de référence Pronostics BTTS',
-    'priority': '1',
-    'worldwide': 'true',
-    'category': 'BTTS predictions platform',
   },
   robots: {
     index: true,
@@ -114,8 +79,8 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "BTTSPredict — Plateforme BTTS et Over 2,5",
-    description: "Sélections BTTS, Over 2,5 et score exact sur des matchs internationaux. Données publiques, publication avant match et résultats vérifiés. 18+",
+    title: "BTTSPredict — Pronostics BTTS du jour et Over 2,5",
+    description: "Sélections BTTS, Over 2,5 et score exact sur des matchs internationaux, avec données horodatées et méthode documentée. 18+.",
     url: "https://bttspredict.com",
     siteName: "BTTSPredict",
     type: "website",
@@ -124,17 +89,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BTTSPredict — Plateforme BTTS et Over 2,5",
-    description: "Sélections BTTS, Over 2,5 et score exact sur des matchs internationaux. Données publiques, publication avant match et résultats vérifiés. 18+",
+    title: "BTTSPredict — Pronostics BTTS du jour et Over 2,5",
+    description: "Sélections BTTS, Over 2,5 et score exact sur des matchs internationaux, avec données horodatées et méthode documentée. 18+.",
     images: ["/og-image.png"],
   },
   category: "sports",
   // Vérification des moteurs de recherche
   verification: {
-    google: "bttspredict-gsc-verification-pending",
-    other: {
-      "msvalidate.01": "DCC3F51EC848E81F65438B72666C59ED",
-    },
+      other: {
+        "msvalidate.01": "DCC3F51EC848E81F65438B72666C59ED",
+      },
   },
 };
 
@@ -154,7 +118,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr-SN" className="dark" suppressHydrationWarning>
+    <html lang="fr" className="dark" suppressHydrationWarning>
       <head>
         <meta name="format-detection" content="telephone=no" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -162,12 +126,6 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="BTTSPredict" />
         {/* Préchargement des ressources critiques */}
         <link rel="dns-prefetch" href="https://bttspredict.com" />
-        {/* Hreflang pour internationalisation */}
-        <link rel="alternate" hrefLang="fr-SN" href="https://bttspredict.com/" />
-        <link rel="alternate" hrefLang="fr" href="https://bttspredict.com/" />
-        <link rel="alternate" hrefLang="en" href="https://bttspredict.com/en" />
-        <link rel="alternate" hrefLang="ar" href="https://bttspredict.com/ar" />
-        <link rel="alternate" hrefLang="x-default" href="https://bttspredict.com/" />
         <script dangerouslySetInnerHTML={{ __html: `
           (function(){
             var locale = location.pathname.split('/')[1];

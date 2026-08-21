@@ -5,40 +5,30 @@ const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: (
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const BttsTodayDashboard = dynamic(() => import('@/components/bttsbet/BttsTodayDashboard'), { loading: () => null })
 
+const TITLE = 'Pronostics BTTS du jour — Sélections gratuites'
+const DESCRIPTION = 'Pronostics BTTS du jour sur des matchs internationaux : sélections statistiques, données horodatées et méthode documentée. 18+.'
+
 export const metadata: Metadata = {
-  title: 'BTTS Predictions Today — Free AI Tips',
-  description: "Best Both Teams to Score (BTTS) predictions today. AI-powered football tips, stats, and high-probability betting predictions updated daily.",
-  alternates: { canonical: 'https://bttspredict.com/btts/predictions/today' },
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: {
+    canonical: 'https://bttspredict.com/btts/predictions/today',
+    languages: {
+      fr: 'https://bttspredict.com/btts/predictions/today',
+      en: 'https://bttspredict.com/en/btts/predictions/today',
+      ar: 'https://bttspredict.com/ar/btts/predictions/today',
+      'x-default': 'https://bttspredict.com/btts/predictions/today',
+    },
+  },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'BTTS Predictions Today — Free AI Tips',
-    description: "Best Both Teams to Score (BTTS) predictions today. AI-powered football tips, stats, and high-probability betting predictions updated daily.",
+    title: TITLE,
+    description: DESCRIPTION,
     url: 'https://bttspredict.com/btts/predictions/today',
+    siteName: 'BTTSPredict',
     type: 'website',
+    locale: 'fr_FR',
   },
-}
-
-const faqJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: "What are today's BTTS predictions?",
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "Today's BTTS predictions are football matches where both teams are predicted to score at least one goal. BTTSPredict publishes a daily selection of BTTS picks produced by an AI engine based on recent team form, calibrated continuously. Predictions are archived and verified after the official match result.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Are BTTS predictions guaranteed?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "No. No future result is guaranteed. BTTS predictions are probabilistic estimates, not certainties. Sports betting carries a risk of loss. 18+.",
-      },
-    },
-  ],
 }
 
 export default function BTTSPredictionsTodayPage() {
@@ -46,11 +36,10 @@ export default function BTTSPredictionsTodayPage() {
     <div className="min-h-screen bg-[#071018] flex flex-col text-[#F5F8F3]">
       <Navbar />
       <main id="main-content" className="flex-1">
-        <h1 className="sr-only">BTTS Predictions Today</h1>
+        <h1 className="sr-only">Pronostics BTTS du jour</h1>
         <BttsTodayDashboard />
       </main>
       <Footer />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
     </div>
   )
 }
