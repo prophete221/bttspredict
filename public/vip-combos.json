@@ -2,41 +2,41 @@
   "date": "2026-08-21",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-21T20:38:56.196Z",
-  "eventCount": 24,
-  "legCount": 58,
+  "fetchedAt": "2026-08-21T21:52:11.656Z",
+  "eventCount": 17,
+  "legCount": 39,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "72335020",
-          "home": "Jaguares de Cordoba",
-          "away": "Boyaca Chico FC",
-          "league": "Colombia - Liga DIMAYOR, Finalizacion",
-          "kickoff": "2026-08-21T21:05:00Z",
-          "bookmaker": "Unibet",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.08,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T18:27:53.73Z"
-        },
-        {
-          "eventId": "73038502",
-          "home": "Rubio Nu",
-          "away": "Sportivo Trinidense",
-          "league": "Paraguay - Division de Honor, Clausura",
-          "kickoff": "2026-08-21T21:30:00Z",
+          "eventId": "73814482",
+          "home": "Plaza Colonia",
+          "away": "Colon FC",
+          "league": "Uruguay - Segunda Division",
+          "kickoff": "2026-08-21T22:00:00Z",
           "bookmaker": "Unibet",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 1.86,
+          "odds": 2,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-18T13:33:02.201Z"
+          "updatedAt": "2026-08-21T21:21:10.465Z"
+        },
+        {
+          "eventId": "73204512",
+          "home": "Pumas Unam",
+          "away": "Queretaro FC",
+          "league": "Mexico - Liga MX, Women, Apertura",
+          "kickoff": "2026-08-21T23:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.01,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-21T21:51:57.074Z"
         }
       ],
-      "totalOdds": 2.01
+      "totalOdds": 2.02
     },
     "target5": {
       "legs": [
@@ -51,20 +51,20 @@
           "selection": "BTTS — Oui",
           "odds": 2.5,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T20:36:36.604Z"
+          "updatedAt": "2026-08-21T21:45:04.105Z"
         },
         {
-          "eventId": "73487098",
-          "home": "The Strongest",
-          "away": "FC Universitario de Vinto",
-          "league": "Bolivia - Division Profesional",
-          "kickoff": "2026-08-21T22:30:00Z",
-          "bookmaker": "Bet365 (no latency)",
-          "market": "Totals",
-          "selection": "Over 2.5",
+          "eventId": "73814482",
+          "home": "Plaza Colonia",
+          "away": "Colon FC",
+          "league": "Uruguay - Segunda Division",
+          "kickoff": "2026-08-21T22:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
           "odds": 2,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T20:31:29.794Z"
+          "updatedAt": "2026-08-21T21:21:10.465Z"
         }
       ],
       "totalOdds": 5
