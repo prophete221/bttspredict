@@ -14,18 +14,6 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
   const lang = initialLocale ?? detectedLang
   const t = translationsFor(lang)
 
-  const marketRoutes = {
-    btts: lang === 'fr' ? '/btts/predictions/today' : `/${lang}/btts/predictions/today`,
-    goals: lang === 'fr' ? '/over-2-5/predictions/today' : `/${lang}/over-2-5/predictions/today`,
-    exact: lang === 'fr' ? '/ai-correct-score-predictions' : `/${lang}/ai-correct-score-predictions`,
-  } as const
-
-  const markets = [
-    ['BTTS', t.hero.btts, 'BTTS', marketRoutes.btts],
-    ['O2.5', t.hero.goals, 'TOTAL', marketRoutes.goals],
-    ['SCORE', t.hero.exact, 'EXACT', marketRoutes.exact],
-  ] as const
-
   return (
     <section ref={sectionRef} className="home-hero relative overflow-hidden">
       <div className="home-hero__media" aria-hidden="true" />
@@ -61,33 +49,25 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
             </div>
           </div>
 
-          <aside className="home-hero__markets" aria-label={t.hero.commandCenter}>
-            <div className="home-hero__markets-head">
-              <div className="home-hero__markets-title">
+          <aside className="home-hero__focus" aria-label={t.hero.commandCenter}>
+            <div className="home-hero__focus-field" aria-hidden="true">
+              <span className="home-hero__focus-center" />
+              <span className="home-hero__focus-arc home-hero__focus-arc--top" />
+              <span className="home-hero__focus-arc home-hero__focus-arc--bottom" />
+            </div>
+            <div className="home-hero__focus-content">
+              <div className="home-hero__focus-head">
                 <span className="home-hero__live-dot" aria-hidden="true" />
                 <span>{t.hero.commandCenter}</span>
+                <span className="home-hero__live-label">{t.hero.liveData}</span>
               </div>
-              <span className="home-hero__live-label">{t.hero.liveData}</span>
+              <p>{t.hero.subtitle}</p>
+              <div className="home-hero__focus-tags" aria-label={`${t.hero.btts}, ${t.hero.goals}, ${t.hero.exact}`}>
+                <span>{t.hero.btts}</span>
+                <span>{t.hero.goals}</span>
+                <span>{t.hero.exact}</span>
+              </div>
             </div>
-
-            <div className="home-hero__market-list">
-              {markets.map(([label, caption, code, href]) => (
-                <a
-                  key={label}
-                  href={href}
-                  className="home-hero__market"
-                  aria-label={`${label} — ${t.hero.cta}`}
-                >
-                  <span className="home-hero__market-code">{code}</span>
-                  <span className="home-hero__market-copy">
-                    <strong>{label}</strong>
-                    <span>{caption}</span>
-                  </span>
-                  <span className="home-hero__market-arrow" aria-hidden="true">→</span>
-                </a>
-              ))}
-            </div>
-
           </aside>
         </div>
       </div>
