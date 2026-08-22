@@ -2,72 +2,72 @@
   "date": "2026-08-22",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-22T18:47:07.668Z",
+  "fetchedAt": "2026-08-22T19:41:56.176Z",
   "eventCount": 100,
-  "legCount": 119,
+  "legCount": 108,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "73038494",
-          "home": "Sportivo Ameliano",
-          "away": "Recoleta FC",
-          "league": "Paraguay - Division de Honor, Clausura",
-          "kickoff": "2026-08-22T19:00:00Z",
+          "eventId": "73203242",
+          "home": "Deportes Linares",
+          "away": "Santiago City FC",
+          "league": "Chile - Liga Segunda Division, Promotion Round",
+          "kickoff": "2026-08-22T20:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.2,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-22T19:30:43.578Z"
+        },
+        {
+          "eventId": "68686082",
+          "home": "Cavalry FC",
+          "away": "Atletico Ottawa",
+          "league": "Canada - Canadian Premier League",
+          "kickoff": "2026-08-22T20:30:00Z",
           "bookmaker": "Unibet",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 1.7,
+          "odds": 1.67,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T18:35:18.586Z"
-        },
-        {
-          "eventId": "71913040",
-          "home": "GNK Dinamo Zagreb",
-          "away": "NK Varazdin",
-          "league": "Croatia - HNL",
-          "kickoff": "2026-08-22T19:00:00Z",
-          "bookmaker": "Bet365",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.18,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T18:27:00.018Z"
+          "updatedAt": "2026-08-21T20:59:11.084Z"
         }
       ],
-      "totalOdds": 2.01
+      "totalOdds": 2
     },
     "target5": {
       "legs": [
         {
-          "eventId": "73693898",
-          "home": "CA Chaco For Ever",
-          "away": "Club Atletico Los Andes",
-          "league": "Argentina - Primera B Nacional",
-          "kickoff": "2026-08-22T19:00:00Z",
+          "eventId": "69255248",
+          "home": "Volta Redonda FC RJ",
+          "away": "Floresta EC CE",
+          "league": "Brazil - Brasileiro Serie C",
+          "kickoff": "2026-08-22T20:00:00Z",
           "bookmaker": "Bet365",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 2.5,
+          "odds": 3,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T18:40:34.424Z"
+          "updatedAt": "2026-08-22T19:40:34.458Z"
         },
         {
-          "eventId": "72083004",
-          "home": "OFK Beograd",
-          "away": "FK Zemun",
-          "league": "Serbia - Super Liga",
-          "kickoff": "2026-08-22T19:00:00Z",
-          "bookmaker": "Bet365",
+          "eventId": "68686082",
+          "home": "Cavalry FC",
+          "away": "Atletico Ottawa",
+          "league": "Canada - Canadian Premier League",
+          "kickoff": "2026-08-22T20:30:00Z",
+          "bookmaker": "Unibet",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 2,
+          "odds": 1.67,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T18:43:40.133Z"
+          "updatedAt": "2026-08-21T20:59:11.084Z"
         }
       ],
-      "totalOdds": 5
+      "totalOdds": 5.01
     }
   }
 }
