@@ -79,8 +79,10 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
                   aria-label={`${label} — ${t.hero.cta}`}
                 >
                   <span className="home-hero__market-code">{code}</span>
-                  <strong>{label}</strong>
-                  <span>{caption}</span>
+                  <span className="home-hero__market-copy">
+                    <strong>{label}</strong>
+                    <span>{caption}</span>
+                  </span>
                   <span className="home-hero__market-arrow" aria-hidden="true">→</span>
                 </a>
               ))}
