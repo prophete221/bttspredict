@@ -296,7 +296,7 @@ function MatchCard({ match, index, insufficientDataLabel, labels }: { match: Mat
 
   return (
     <article
-      className="rounded-xl overflow-hidden transition-all"
+      className="btts-match-card rounded-xl overflow-hidden transition-all"
       style={{
         backgroundColor: C.surface,
         border: `1px solid ${C.border}`,
@@ -803,7 +803,7 @@ export default function BttsTodayDashboard() {
     <section id="btts-today-dashboard" className="max-w-[1200px] mx-auto px-3 sm:px-4 py-4 sm:py-6">
 
       {/* ─── DASHBOARD HEADER ─── */}
-      <div className="rounded-xl p-3 sm:p-4 mb-4" style={{
+      <div className="btts-today-header rounded-xl p-3 sm:p-4 mb-4" style={{
         backgroundColor: C.surface,
         border: `1px solid ${C.border}`,
       }}>
@@ -832,7 +832,7 @@ export default function BttsTodayDashboard() {
         </div>
 
         {/* ─── Stats row (real values only) ─── */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-3">
+        <div className="btts-today-stats grid grid-cols-2 sm:grid-cols-4 gap-2 mt-3">
           <StatBlock label={lang === 'fr' ? 'Matchs' : lang === 'en' ? 'Matches' : 'المباريات'} value={fmtInt(stats.todayCount)} accent={C.text} />
           <StatBlock label={lang === 'fr' ? 'BTTS élevé' : lang === 'en' ? 'BTTS high' : 'BTTS مرتفع'} value={fmtInt(stats.bttsHigh)} accent={C.success} />
           <StatBlock label={lang === 'fr' ? 'Over 2.5 élevé' : lang === 'en' ? 'Over 2.5 high' : 'Over 2.5 مرتفع'} value={fmtInt(stats.overHigh)} accent={C.warning} />
@@ -856,7 +856,7 @@ export default function BttsTodayDashboard() {
       {/* Deterministic selection — NO Gemini call from client, NO recalculation. */}
       {/* Source: /predictions.json fields only (bttsProb, over25Prob, reliabilityScore, dataQuality, dataSource). */}
       {!loading && (liveTodayMatches.length > 0 || scheduledTodayMatches.length > 0) && (
-        <div className="rounded-xl p-3 sm:p-4 mb-4" style={{
+        <div className="btts-today-combo rounded-xl p-3 sm:p-4 mb-4" style={{
           backgroundColor: C.surface,
           border: `1px solid ${C.gold}40`,
           boxShadow: `0 0 24px ${C.gold}08`,
@@ -909,7 +909,7 @@ export default function BttsTodayDashboard() {
       )}
 
       {/* ─── FILTERS ─── */}
-      <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-2 mb-3">
+      <div className="btts-today-filters flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-2 mb-3">
         {filters.map(f => (
           <button
             key={f.id}
@@ -929,7 +929,7 @@ export default function BttsTodayDashboard() {
 
       {/* ─── TODAY'S MATCHES ─── */}
       {loading ? (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        <div className="btts-match-grid grid grid-cols-1 lg:grid-cols-2 gap-3">
           {[1, 2, 3, 4].map(i => (
             <div key={i} className="rounded-xl h-64 animate-pulse" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }} />
           ))}
@@ -953,7 +953,7 @@ export default function BttsTodayDashboard() {
                 <p className="text-[11px]" style={{ color: C.textSec }}>{lang === 'fr' ? 'Revenez plus tard ou consultez les matchs à venir ci-dessous.' : lang === 'en' ? 'Come back later or check the upcoming matches below.' : 'عد لاحقاً أو راجع المباريات القادمة أدناه.'}</p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+              <div className="btts-match-grid grid grid-cols-1 lg:grid-cols-2 gap-3">
                 {[...liveTodayMatches, ...scheduledTodayMatches]
                   .filter(m => passesFilter(m, activeFilter))
                   .map((m, i) => (
@@ -971,7 +971,7 @@ export default function BttsTodayDashboard() {
                   {finishedTodayMatches.length}
                 </span>
               </h3>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 opacity-80">
+              <div className="btts-match-grid grid grid-cols-1 lg:grid-cols-2 gap-3 opacity-80">
                 {finishedTodayMatches.filter(m => passesFilter(m, activeFilter)).map((m, i) => (
                   <MatchCard key={`finished-${m.key}`} match={m} index={i} insufficientDataLabel={insufficientDataLabel} labels={labels} />
                 ))}
@@ -987,7 +987,7 @@ export default function BttsTodayDashboard() {
                   {liveTodayMatches.length}
                 </span>
               </h3>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+              <div className="btts-match-grid grid grid-cols-1 lg:grid-cols-2 gap-3">
                 {liveTodayMatches.filter(m => passesFilter(m, activeFilter)).map((m, i) => (
                   <MatchCard key={`live-${m.key}`} match={m} index={i} insufficientDataLabel={insufficientDataLabel} labels={labels} />
                 ))}
@@ -1007,7 +1007,7 @@ export default function BttsTodayDashboard() {
                   {upcomingMatches.length}
                 </span>
               </h3>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+              <div className="btts-match-grid grid grid-cols-1 lg:grid-cols-2 gap-3">
                 {upcomingMatches
                   .filter(m => passesFilter(m, activeFilter))
                   .map((m, i) => (
