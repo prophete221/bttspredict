@@ -2,57 +2,44 @@
   "date": "2026-08-22",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-22T00:23:08.444Z",
+  "fetchedAt": "2026-08-22T01:11:40.929Z",
   "eventCount": 100,
-  "legCount": 75,
+  "legCount": 54,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "72053582",
-          "home": "Puntarenas FC",
-          "away": "Perez Zeledon",
-          "league": "Costa Rica - Primera Division, Apertura",
-          "kickoff": "2026-08-22T01:00:00Z",
-          "bookmaker": "Bet365",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.67,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T00:22:42.704Z"
-        },
-        {
-          "eventId": "73786722",
-          "home": "West Torrens Birkalla Reserve",
-          "away": "Sturt Lions Reserve",
-          "league": "Australia - South Australia NPL, Reserves, Playoffs",
-          "kickoff": "2026-08-22T03:00:00Z",
-          "bookmaker": "Unibet",
+          "eventId": "69195950",
+          "home": "Canberra White Eagles FC U23",
+          "away": "Monaro Panthers FC U23",
+          "league": "Australia - U23 Capital NPL",
+          "kickoff": "2026-08-22T02:45:00Z",
+          "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.2,
+          "odds": 1.33,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-17T08:49:43.436Z"
+          "updatedAt": "2026-08-21T23:39:28.219Z"
+        },
+        {
+          "eventId": "69460762",
+          "home": "Western Springs AFC",
+          "away": "Tauranga City AFC",
+          "league": "New Zealand - Northern League",
+          "kickoff": "2026-08-22T03:00:00Z",
+          "bookmaker": "Bet365 (no latency)",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.5,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-22T00:13:57.154Z"
         }
       ],
       "totalOdds": 2
     },
     "target5": {
       "legs": [
-        {
-          "eventId": "69463122",
-          "home": "Western Suburbs FC",
-          "away": "Waterside Karori",
-          "league": "New Zealand - Central League",
-          "kickoff": "2026-08-22T00:30:00Z",
-          "bookmaker": "Bet365",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.85,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T14:42:20.801Z"
-        },
         {
           "eventId": "67912242",
           "home": "San Diego Wave FC",
@@ -65,6 +52,19 @@
           "odds": 2.7,
           "source": "Odds-API.io",
           "updatedAt": "2026-08-21T12:39:06.398Z"
+        },
+        {
+          "eventId": "69195950",
+          "home": "Canberra White Eagles FC U23",
+          "away": "Monaro Panthers FC U23",
+          "league": "Australia - U23 Capital NPL",
+          "kickoff": "2026-08-22T02:45:00Z",
+          "bookmaker": "Bet365",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.85,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-21T23:03:07.618Z"
         }
       ],
       "totalOdds": 5
