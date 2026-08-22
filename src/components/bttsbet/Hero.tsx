@@ -32,7 +32,7 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
       <div className="home-hero__veil" aria-hidden="true" />
 
       <div
-        className="relative z-10 mx-auto max-w-[1180px] px-4 pb-8 pt-6 sm:px-6 sm:pb-12 sm:pt-10"
+        className="home-hero__inner relative z-10 mx-auto max-w-[1180px] px-4 pb-8 pt-6 sm:px-6 sm:pb-12 sm:pt-10"
         style={{
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? 'translateY(0)' : 'translateY(8px)',
