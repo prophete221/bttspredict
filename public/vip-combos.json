@@ -2,69 +2,82 @@
   "date": "2026-08-22",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-22T08:29:37.660Z",
+  "fetchedAt": "2026-08-22T12:38:28.502Z",
   "eventCount": 100,
-  "legCount": 59,
+  "legCount": 39,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "72149638",
-          "home": "Kashima Antlers",
-          "away": "Avispa Fukuoka",
-          "league": "Japan - J.League",
-          "kickoff": "2026-08-22T09:00:00Z",
+          "eventId": "73705124",
+          "home": "FC Hunters",
+          "away": "Hardrock FC",
+          "league": "Zimbabwe - Premier Soccer League",
+          "kickoff": "2026-08-22T13:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.75,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-21T17:44:19.723Z"
+        },
+        {
+          "eventId": "72321544",
+          "home": "Lillehammer FK",
+          "away": "Stroemmen IF",
+          "league": "Norway - NM Cup",
+          "kickoff": "2026-08-22T13:00:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.07,
+          "odds": 1.15,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T08:22:36.942Z"
-        },
-        {
-          "eventId": "72579006",
-          "home": "MSK Zilina U19",
-          "away": "Spartak Trnava U19",
-          "league": "Slovakia - U19 1. Liga",
-          "kickoff": "2026-08-22T09:00:00Z",
-          "bookmaker": "Bet365 (no latency)",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.87,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T14:48:25.372Z"
+          "updatedAt": "2026-08-22T12:10:35.522Z"
         }
       ],
-      "totalOdds": 2
+      "totalOdds": 2.01
     },
     "target5": {
       "legs": [
         {
-          "eventId": "72471356",
-          "home": "AS Trencin B",
-          "away": "KFC Komarno B",
-          "league": "Slovakia - 3. Liga, West",
-          "kickoff": "2026-08-22T08:30:00Z",
+          "eventId": "72531536",
+          "home": "FC Vizela",
+          "away": "Amarante FC",
+          "league": "Portugal - Liga Portugal 2",
+          "kickoff": "2026-08-22T13:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.88,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-22T12:30:57.845Z"
+        },
+        {
+          "eventId": "73062360",
+          "home": "Kelantan Red Warrior FC",
+          "away": "Selangor FC",
+          "league": "Malaysia - Super League",
+          "kickoff": "2026-08-22T13:00:00Z",
           "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
           "odds": 2,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T23:33:56.051Z"
+          "updatedAt": "2026-08-21T23:00:01.85Z"
         },
         {
-          "eventId": "72151070",
-          "home": "Blaublitz Akita",
-          "away": "Ventforet Kofu",
-          "league": "Japan - J.League 2",
-          "kickoff": "2026-08-22T09:00:00Z",
+          "eventId": "72576616",
+          "home": "MKS Myszkow",
+          "away": "KKP Stomilanki Olsztyn",
+          "league": "Poland - 1. Liga, Women",
+          "kickoff": "2026-08-22T13:00:00Z",
           "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 2.5,
+          "odds": 1.33,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T08:21:00.45Z"
+          "updatedAt": "2026-08-22T11:44:50.34Z"
         }
       ],
       "totalOdds": 5

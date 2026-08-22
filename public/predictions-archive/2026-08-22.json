@@ -1,6 +1,6 @@
 {
   "date": "2026-08-22",
-  "lastUpdated": "2026-08-22T08:29:07.105Z",
+  "lastUpdated": "2026-08-22T12:38:05.036Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -686,70 +686,6 @@
       "awayLambda": 1.28
     },
     {
-      "id": "hullcity-vs-manchest-2026-08-22",
-      "match": "Hull City vs Manchester United",
-      "home": "Hull City",
-      "away": "Manchester United",
-      "league": "Premier League",
-      "date": "2026-08-22",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5877,
-      "bttsProbDisplay": "58.77%",
-      "over25ProbDisplay": "57.01%",
-      "confidence": 59,
-      "time": "11:30",
-      "matchSemantic": "hullcity-vs-manchest-2026-08-22",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/306.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/360.png",
-      "tier": "SILVER",
-      "reliabilityScore": 63.96,
-      "dataQuality": "LOW",
-      "dataSource": "LEAGUE_FALLBACK",
-      "matchCountHome": 0,
-      "matchCountAway": 0,
-      "h2hAvailable": false,
-      "xgHome": 1.7,
-      "xgAway": 1.27,
-      "xgTotal": 2.97,
-      "formBTTS": 0,
-      "analysis": "Hull City (0 matchs réels, xG 1.70) vs Manchester United (0 matchs réels, xG 1.27). xG cumulé 2.97, BTTS 58.8%, Over 2.5 57.0%. Fiabilité 63.96%. Qualité données: LOW.",
-      "analysisData": {
-        "bttsProb": 0.5877,
-        "over25Prob": 0.5701,
-        "homeLambda": 1.7,
-        "awayLambda": 1.27,
-        "xgTotal": 2.97
-      },
-      "estimatedCote": 1.7,
-      "estimatedCoteOver": 1.75,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 59,
-          "bttsProb": 0.5877,
-          "homeLambda": 1.7,
-          "awayLambda": 1.27
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 57,
-          "over25Prob": 0.5701,
-          "homeLambda": 1.7,
-          "awayLambda": 1.27
-        }
-      ],
-      "bttsProb": 0.5877,
-      "over25Prob": 0.5701,
-      "homeLambda": 1.7,
-      "awayLambda": 1.27
-    }
-  ],
-  "vipPreview": [
-    {
       "id": "everton-vs-crystalp-2026-08-22",
       "match": "Everton vs Crystal Palace",
       "home": "Everton",
@@ -810,7 +746,9 @@
       "over25Prob": 0.5701,
       "homeLambda": 1.7,
       "awayLambda": 1.27
-    },
+    }
+  ],
+  "vipPreview": [
     {
       "id": "ipswicht-vs-sunderla-2026-08-22",
       "match": "Ipswich Town vs Sunderland",
@@ -1244,13 +1182,75 @@
       "over25Prob": 0.5471,
       "homeLambda": 1.65,
       "awayLambda": 1.22
+    },
+    {
+      "id": "sporting-vs-alverca-2026-08-22",
+      "match": "Sporting CP vs Alverca",
+      "home": "Sporting CP",
+      "away": "Alverca",
+      "league": "Liga Portugal",
+      "date": "2026-08-22",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5698,
+      "bttsProbDisplay": "56.98%",
+      "over25ProbDisplay": "54.71%",
+      "confidence": 57,
+      "time": "19:30",
+      "matchSemantic": "sporting-vs-alverca-2026-08-22",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21613.png",
+      "tier": "SILVER",
+      "reliabilityScore": 63.18,
+      "dataQuality": "LOW",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 2,
+      "matchCountAway": 2,
+      "h2hAvailable": false,
+      "xgHome": 1.65,
+      "xgAway": 1.22,
+      "xgTotal": 2.87,
+      "formBTTS": 35,
+      "analysis": "Sporting CP (2 matchs réels, xG 1.65) vs Alverca (2 matchs réels, xG 1.22). xG cumulé 2.87, BTTS 57.0%, Over 2.5 54.7%. Fiabilité 63.18%. Qualité données: LOW.",
+      "analysisData": {
+        "bttsProb": 0.5698,
+        "over25Prob": 0.5471,
+        "homeLambda": 1.65,
+        "awayLambda": 1.22,
+        "xgTotal": 2.87
+      },
+      "estimatedCote": 1.75,
+      "estimatedCoteOver": 1.83,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 57,
+          "bttsProb": 0.5698,
+          "homeLambda": 1.65,
+          "awayLambda": 1.22
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 55,
+          "over25Prob": 0.5471,
+          "homeLambda": 1.65,
+          "awayLambda": 1.22
+        }
+      ],
+      "bttsProb": 0.5698,
+      "over25Prob": 0.5471,
+      "homeLambda": 1.65,
+      "awayLambda": 1.22
     }
   ],
   "stats": {
-    "avgReliability": 68.45,
-    "totalAnalyzed": 66,
+    "avgReliability": 68.79,
+    "totalAnalyzed": 62,
     "totalRejected": 0,
-    "totalAccepted": 66,
+    "totalAccepted": 62,
     "freeCount": 12,
     "vipCount": 8
   },
@@ -1938,10 +1938,10 @@
       "awayLambda": 1.28
     },
     {
-      "id": "hullcity-vs-manchest-2026-08-22",
-      "match": "Hull City vs Manchester United",
-      "home": "Hull City",
-      "away": "Manchester United",
+      "id": "everton-vs-crystalp-2026-08-22",
+      "match": "Everton vs Crystal Palace",
+      "home": "Everton",
+      "away": "Crystal Palace",
       "league": "Premier League",
       "date": "2026-08-22",
       "type": "BTTS",
@@ -1950,11 +1950,11 @@
       "bttsProbDisplay": "58.77%",
       "over25ProbDisplay": "57.01%",
       "confidence": 59,
-      "time": "11:30",
-      "matchSemantic": "hullcity-vs-manchest-2026-08-22",
+      "time": "14:00",
+      "matchSemantic": "everton-vs-crystalp-2026-08-22",
       "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/306.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/360.png",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/368.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/384.png",
       "tier": "SILVER",
       "reliabilityScore": 63.96,
       "dataQuality": "LOW",
@@ -1966,7 +1966,7 @@
       "xgAway": 1.27,
       "xgTotal": 2.97,
       "formBTTS": 0,
-      "analysis": "Hull City (0 matchs réels, xG 1.70) vs Manchester United (0 matchs réels, xG 1.27). xG cumulé 2.97, BTTS 58.8%, Over 2.5 57.0%. Fiabilité 63.96%. Qualité données: LOW.",
+      "analysis": "Everton (0 matchs réels, xG 1.70) vs Crystal Palace (0 matchs réels, xG 1.27). xG cumulé 2.97, BTTS 58.8%, Over 2.5 57.0%. Fiabilité 63.96%. Qualité données: LOW.",
       "analysisData": {
         "bttsProb": 0.5877,
         "over25Prob": 0.5701,

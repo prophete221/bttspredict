@@ -1,6 +1,6 @@
 {
   "date": "2026-08-22",
-  "lastUpdated": "2026-08-22T08:29:07.105Z",
+  "lastUpdated": "2026-08-22T12:38:05.036Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -64,14 +64,14 @@
       "over25Prob": 0.8236,
       "homeLambda": 2.92,
       "awayLambda": 1.55,
-      "ai_exact_score": "3-2",
-      "exact_score_prob": "12%",
+      "ai_exact_score": "3-1",
+      "exact_score_prob": "14%",
       "ai_btts_view": "75%",
       "ai_btts_prob": "75%",
       "ai_over25_view": "82%",
       "ai_over25_prob": "82%",
-      "ai_key_fact": "FC Cincinnati affiche un xG élevé de 2.92 avec une fiabilité de 91.36%.",
-      "ai_analysis": "Le FC Cincinnati démontre une solide dynamique offensive avec un xG de 2.92, bien épaulé par Seattle Sounders FC à 1.55. L'xG cumulé de 4.47 appuie nettement une rencontre ouverte et prolifique. La forte fiabilité de 91.36% renforce la probabilité d'un match avec des buts des deux côtés."
+      "ai_key_fact": "xG cumulé de 4.47 avec une forte dynamique offensive pour le FC Cincinnati.",
+      "ai_analysis": "Le FC Cincinnati affiche un xG élevé de 2.92 sur ses 8 matchs réels, ce qui démontre une animation offensive redoutable. De son côté, Seattle Sounders FC contribue avec un xG de 1.55, portant le total cumulé à 4.47. Les probabilités indiquent clairement un match ouvert où les deux équipes ont de fortes chances de marquer."
     },
     {
       "id": "redbulln-vs-chicagof-2026-08-22",
@@ -135,13 +135,13 @@
       "homeLambda": 1.65,
       "awayLambda": 1.8,
       "ai_exact_score": "2-2",
-      "exact_score_prob": "14%",
-      "ai_btts_view": "68%",
-      "ai_btts_prob": "68%",
+      "exact_score_prob": "12%",
+      "ai_btts_view": "67%",
+      "ai_btts_prob": "67%",
       "ai_over25_view": "67%",
       "ai_over25_prob": "67%",
-      "ai_key_fact": "Red Bull New York et Chicago Fire affichent des xG équilibrés à 1.65 et 1.80.",
-      "ai_analysis": "Cette opposition de MLS présente des statistiques offensives très proches, avec un xG cumulé de 3.45. La qualité des données est élevée et la fiabilité atteint 88.25%, ce qui suggère des opportunités de part et d'autre. Les faiblesses défensives constatées favorisent un scénario à fort total de buts."
+      "ai_key_fact": "xG cumulé de 3.45 reflétant un équilibre offensif entre les deux formations.",
+      "ai_analysis": "Red Bull New York présente un xG de 1.65 tandis que Chicago Fire FC affiche 1.80 sur 8 matchs réels. Ces chiffres illustrent des lignes d'attaque productives mais des défenses potentiellement perméables. Le scénario d'un score partagé avec des buts des deux côtés est statistiquement cohérent."
     },
     {
       "id": "intermia-vs-torontof-2026-08-22",
@@ -210,8 +210,8 @@
       "ai_btts_prob": "67%",
       "ai_over25_view": "73%",
       "ai_over25_prob": "73%",
-      "ai_key_fact": "Inter Miami CF domine le xG à domicile avec 2.44 face à Toronto FC.",
-      "ai_analysis": "Inter Miami CF s'appuie sur une attaque performante (xG 2.44), tandis que Toronto FC apporte un complément de 1.33. Avec un xG cumulé de 3.77 et une fiabilité de 88.16%, les conditions sont réunies pour voir les deux équipes marquer. Le profil de la rencontre penche logiquement vers un score en faveur des locaux."
+      "ai_key_fact": "Inter Miami domine les xG à domicile avec 2.44 par match.",
+      "ai_analysis": "Inter Miami CF s'appuie sur une production offensive solide avec 2.44 xG, bien soutenue par Toronto FC qui enregistre 1.33 xG. Le cumul de 3.77 favorise un total de buts supérieur à la moyenne. La probabilité d'assister à des réalisations de part et d'autre reste élevée."
     },
     {
       "id": "orlandoc-vs-realsalt-2026-08-22",
@@ -280,8 +280,8 @@
       "ai_btts_prob": "59%",
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
-      "ai_key_fact": "Orlando City SC présente un xG de 1.82 contre 1.20 pour Real Salt Lake.",
-      "ai_analysis": "La confrontation en MLS entre Orlando City et Real Salt Lake se caractérise par un xG cumulé de 3.02. Avec une fiabilité de 81.89% et une qualité de données élevée, le match s'annonce disputé. L'équilibre des forces tend vers un léger avantage pour les locaux tout en maintenant l'option du BTTS."
+      "ai_key_fact": "xG cumulé modéré de 3.02 basé sur 8 matchs réels.",
+      "ai_analysis": "Orlando City SC présente un xG de 1.82 face à Real Salt Lake qui affiche 1.20. Bien que les indicateurs penchent légèrement vers une rencontre animée, la marge reste mesurée. Les probabilités de BTTS et d'Over 2.5 se situent juste sous la barre des 60%."
     },
     {
       "id": "charlott-vs-dcunited-2026-08-22",
@@ -344,14 +344,14 @@
       "over25Prob": 0.4689,
       "homeLambda": 1.55,
       "awayLambda": 1,
-      "ai_exact_score": "1-0",
-      "exact_score_prob": "17%",
+      "ai_exact_score": "1-1",
+      "exact_score_prob": "13%",
       "ai_btts_view": "50%",
       "ai_btts_prob": "50%",
       "ai_over25_view": "47%",
       "ai_over25_prob": "47%",
-      "ai_key_fact": "Charlotte FC et D.C. United affichent un xG cumulé modeste de 2.55.",
-      "ai_analysis": "Ce duel de MLS montre des statistiques plus fermées, avec un xG de 1.55 pour Charlotte FC et 1.00 pour D.C. United. La fiabilité de 75.54% et les probabilités sous la barre des 50% pour le BTTS et l'Over 2.5 indiquent un match prudent. Les options de buts multiples risquent d'être limitées."
+      "ai_key_fact": "xG cumulé limité à 2.55 sur un échantillon de 8 matchs réels.",
+      "ai_analysis": "Charlotte FC (xG 1.55) et D.C. United (xG 1.00) affichent des statistiques offensives plus modestes. Le modèle anticipe un match relativement fermé où le score pourrait rester sous les standards habituels. Les prévisions pour le BTTS et l'Over 2.5 sont évaluées sous la barre des 50%."
     },
     {
       "id": "fortunas-vs-azalkmaa-2026-08-22",
@@ -414,14 +414,14 @@
       "over25Prob": 0.6406,
       "homeLambda": 1.88,
       "awayLambda": 1.42,
-      "ai_exact_score": "2-2",
-      "exact_score_prob": "13%",
+      "ai_exact_score": "2-1",
+      "exact_score_prob": "15%",
       "ai_btts_view": "64%",
       "ai_btts_prob": "64%",
       "ai_over25_view": "64%",
       "ai_over25_prob": "64%",
-      "ai_key_fact": "Fortuna Sittard et AZ Alkmaar affichent des xG identiques de 1.88 et 1.42.",
-      "ai_analysis": "En Eredivisie, les données reposent sur 2 matchs réels avec une qualité de données jugée faible. Le xG cumulé de 3.3 et la fiabilité de 68.85% laissent entrevoir une partie ouverte. La prudence reste de mise en raison du faible échantillon de données réelles disponible."
+      "ai_key_fact": "xG cumulé de 3.30 avec une qualité de données jugée faible.",
+      "ai_analysis": "Fortuna Sittard et AZ Alkmaar affichent des xG respectifs de 1.88 et 1.42 basés sur seulement 2 matchs réels. Cette faible profondeur de données invite à la prudence malgré un xG cumulé intéressant. Les probabilités suggèrent tout de même un match à buts."
     },
     {
       "id": "spartaro-vs-fcutrech-2026-08-22",
@@ -484,14 +484,14 @@
       "over25Prob": 0.6406,
       "homeLambda": 1.88,
       "awayLambda": 1.42,
-      "ai_exact_score": "2-2",
-      "exact_score_prob": "13%",
+      "ai_exact_score": "2-1",
+      "exact_score_prob": "15%",
       "ai_btts_view": "64%",
       "ai_btts_prob": "64%",
       "ai_over25_view": "64%",
       "ai_over25_prob": "64%",
-      "ai_key_fact": "Sparta Rotterdam et FC Utrecht affichent des xG de 1.88 et 1.42.",
-      "ai_analysis": "Ce match d'Eredivisie partage les mêmes métriques statistiques que d'autres rencontres du championnat en raison d'un échantillon limité à 2 matchs réels. L'xG cumulé de 3.3 soutient une probabilité de BTTS à 64.2%. La fiabilité globale de 68.85% reflète une qualité de données faible."
+      "ai_key_fact": "xG cumulé identique de 3.30 pour Sparta Rotterdam et FC Utrecht.",
+      "ai_analysis": "Avec 1.88 xG pour Sparta Rotterdam et 1.42 xG pour FC Utrecht sur 2 matchs réels, les indicateurs offensifs sont alignés. La qualité des données est faible en raison de l'échantillon réduit. Le profil statistique reste toutefois favorable aux buts."
     },
     {
       "id": "heerenve-vs-peczwoll-2026-08-22",
@@ -554,14 +554,14 @@
       "over25Prob": 0.6406,
       "homeLambda": 1.88,
       "awayLambda": 1.42,
-      "ai_exact_score": "2-2",
-      "exact_score_prob": "13%",
+      "ai_exact_score": "2-1",
+      "exact_score_prob": "15%",
       "ai_btts_view": "64%",
       "ai_btts_prob": "64%",
       "ai_over25_view": "64%",
       "ai_over25_prob": "64%",
-      "ai_key_fact": "Heerenveen et PEC Zwolle partagent un xG cumulé de 3.3.",
-      "ai_analysis": "Basé sur 2 matchs réels, cet affrontement d'Eredivisie présente des indicateurs similaires aux autres affiches de la ligue. La fiabilité s'établit à 68.85% avec une qualité de données qualifiée de faible. Les statistiques d'xG suggèrent toutefois une propension aux buts des deux côtés."
+      "ai_key_fact": "xG cumulé de 3.30 issu de 2 matchs réels pour chaque équipe.",
+      "ai_analysis": "Heerenveen (xG 1.88) reçoit PEC Zwolle (xG 1.42) dans un contexte de données limité. Les probabilités de BTTS et d'Over 2.5 s'établissent toutes deux autour de 64%. La prudence reste de mise au vu de la taille de l'échantillon."
     },
     {
       "id": "zultewar-vs-waasland-2026-08-22",
@@ -625,13 +625,13 @@
       "homeLambda": 1.72,
       "awayLambda": 1.28,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
+      "exact_score_prob": "16%",
       "ai_btts_view": "59%",
       "ai_btts_prob": "59%",
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
-      "ai_key_fact": "Zulte-Waregem et Waasland-Beveren affichent un xG cumulé de 3.0.",
-      "ai_analysis": "En Jupiler Pro League, les données se limitent à 2 matchs réels par équipe, induisant une qualité de données faible et une fiabilité de 64.19%. Les xG de 1.72 et 1.28 soutiennent une modérée tendance offensive. Le scénario penche vers un match disputé avec des buts."
+      "ai_key_fact": "xG cumulé de 3.00 avec un historique basé sur 2 matchs réels.",
+      "ai_analysis": "Zulte-Waregem (xG 1.72) affronte Waasland-Beveren (xG 1.28) en Jupiler Pro League. La qualité des données est signalée comme faible. Les prévisions modérées reflètent un match potentiellement disputé."
     },
     {
       "id": "royalcha-vs-kvmechel-2026-08-22",
@@ -695,13 +695,13 @@
       "homeLambda": 1.72,
       "awayLambda": 1.28,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
+      "exact_score_prob": "16%",
       "ai_btts_view": "59%",
       "ai_btts_prob": "59%",
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
-      "ai_key_fact": "Royal Charleroi SC et KV Mechelen enregistrent un xG cumulé de 3.0.",
-      "ai_analysis": "Cette rencontre de Jupiler Pro League présente un profil statistique similaire aux autres matchs du championnat, s'appuyant sur 2 matchs réels. La fiabilité est de 64.19% avec une qualité de données faible. Les indicateurs penchent modérément pour un score ouvert."
+      "ai_key_fact": "xG cumulé de 3.00 avec des statistiques limitées à 2 matchs réels.",
+      "ai_analysis": "Royal Charleroi SC (xG 1.72) et KV Mechelen (xG 1.28) partagent des métriques offensives similaires. L'analyse statistique indique des probabilités de l'ordre de 59% pour le BTTS. L'échantillon restreint limite la portée de la prévision."
     },
     {
       "id": "antwerp-vs-racingge-2026-08-22",
@@ -765,86 +765,14 @@
       "homeLambda": 1.72,
       "awayLambda": 1.28,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
+      "exact_score_prob": "16%",
       "ai_btts_view": "59%",
       "ai_btts_prob": "59%",
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
-      "ai_key_fact": "Antwerp et Racing Genk affichent des xG de 1.72 et 1.28.",
-      "ai_analysis": "Le choc de Jupiler Pro League entre l'Antwerp et Genk bénéficie d'une base de 2 matchs réels par formation. La fiabilité est évaluée à 64.19% avec une qualité de données faible. L'xG cumulé de 3.0 maintient des probabilités équilibrées pour le marché des buts."
+      "ai_key_fact": "xG cumulé de 3.00 pour une affiche de Jupiler Pro League.",
+      "ai_analysis": "Antwerp (xG 1.72) contre Racing Genk (xG 1.28) présente un profil similaire aux autres rencontres du championnat belge dans cette liste. Les données reposent sur 2 matchs réels par équipe. Une issue ouverte est envisagée par les modèles."
     },
-    {
-      "id": "hullcity-vs-manchest-2026-08-22",
-      "match": "Hull City vs Manchester United",
-      "home": "Hull City",
-      "away": "Manchester United",
-      "league": "Premier League",
-      "date": "2026-08-22",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5877,
-      "bttsProbDisplay": "58.77%",
-      "over25ProbDisplay": "57.01%",
-      "confidence": 59,
-      "time": "11:30",
-      "matchSemantic": "hullcity-vs-manchest-2026-08-22",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/306.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/360.png",
-      "tier": "SILVER",
-      "reliabilityScore": 63.96,
-      "dataQuality": "LOW",
-      "dataSource": "LEAGUE_FALLBACK",
-      "matchCountHome": 0,
-      "matchCountAway": 0,
-      "h2hAvailable": false,
-      "xgHome": 1.7,
-      "xgAway": 1.27,
-      "xgTotal": 2.97,
-      "formBTTS": 0,
-      "analysis": "Hull City (0 matchs réels, xG 1.70) vs Manchester United (0 matchs réels, xG 1.27). xG cumulé 2.97, BTTS 58.8%, Over 2.5 57.0%. Fiabilité 63.96%. Qualité données: LOW.",
-      "analysisData": {
-        "bttsProb": 0.5877,
-        "over25Prob": 0.5701,
-        "homeLambda": 1.7,
-        "awayLambda": 1.27,
-        "xgTotal": 2.97
-      },
-      "estimatedCote": 1.7,
-      "estimatedCoteOver": 1.75,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 59,
-          "bttsProb": 0.5877,
-          "homeLambda": 1.7,
-          "awayLambda": 1.27
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 57,
-          "over25Prob": 0.5701,
-          "homeLambda": 1.7,
-          "awayLambda": 1.27
-        }
-      ],
-      "bttsProb": 0.5877,
-      "over25Prob": 0.5701,
-      "homeLambda": 1.7,
-      "awayLambda": 1.27,
-      "ai_exact_score": "1-2",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "59%",
-      "ai_btts_prob": "59%",
-      "ai_over25_view": "57%",
-      "ai_over25_prob": "57%",
-      "ai_key_fact": "Hull City et Manchester United affichent un xG cumulé de 2.97 sans matchs réels enregistrés.",
-      "ai_analysis": "En Premier League, l'absence de matchs réels (0 match) réduit la qualité des données à un niveau faible, avec une fiabilité de 63.96%. Les xG projetés de 1.70 et 1.27 indiquent une légère supériorité des visiteurs. L'analyse demeure prudente face au manque d'historique réel."
-    }
-  ],
-  "vipPreview": [
     {
       "id": "everton-vs-crystalp-2026-08-22",
       "match": "Everton vs Crystal Palace",
@@ -906,15 +834,17 @@
       "over25Prob": 0.5701,
       "homeLambda": 1.7,
       "awayLambda": 1.27,
-      "ai_exact_score": "1-1",
+      "ai_exact_score": "2-1",
       "exact_score_prob": "16%",
       "ai_btts_view": "59%",
       "ai_btts_prob": "59%",
       "ai_over25_view": "57%",
       "ai_over25_prob": "57%",
-      "ai_key_fact": "Everton et Crystal Palace affichent 0 match réel avec un xG cumulé de 2.97.",
-      "ai_analysis": "Cette affiche de Premier League souffre d'une qualité de données faible en raison de l'absence de matchs réels pris en compte dans le modèle. La fiabilité est de 63.96%, traduisant une incertitude inhérente aux projections. Les statistiques suggèrent toutefois un match serré."
-    },
+      "ai_key_fact": "xG cumulé de 2.97 sans matchs réels enregistrés.",
+      "ai_analysis": "Everton (xG 1.70) et Crystal Palace (xG 1.27) affichent des xG basés sur 0 match réel dans la base actuelle. La qualité des données est donc faible. L'analyse repose entièrement sur les projections mathématiques de base."
+    }
+  ],
+  "vipPreview": [
     {
       "id": "ipswicht-vs-sunderla-2026-08-22",
       "match": "Ipswich Town vs Sunderland",
@@ -976,14 +906,14 @@
       "over25Prob": 0.5701,
       "homeLambda": 1.7,
       "awayLambda": 1.27,
-      "ai_exact_score": "1-1",
+      "ai_exact_score": "2-1",
       "exact_score_prob": "16%",
       "ai_btts_view": "59%",
       "ai_btts_prob": "59%",
       "ai_over25_view": "57%",
       "ai_over25_prob": "57%",
-      "ai_key_fact": "Ipswich Town et Sunderland affichent un xG cumulé de 2.97 basé sur 0 match réel.",
-      "ai_analysis": "Les projections pour ce match de Premier League reposent sur des données non consolidées par des matchs réels (0 match). La fiabilité s'établit à 63.96% avec une qualité de données faible. Les estimations d'xG pointent vers un affrontement équilibré."
+      "ai_key_fact": "xG cumulé de 2.97 avec des données de référence limitées.",
+      "ai_analysis": "Ipswich Town (xG 1.70) et Sunderland (xG 1.27) ne disposent d'aucun match réel dans la base de données actuelle. Les prévisions de BTTS à 58.8% et Over 2.5 à 57.0% proviennent d'estimations globales. La prudence est indispensable."
     },
     {
       "id": "nottingh-vs-leedsuni-2026-08-22",
@@ -1046,14 +976,14 @@
       "over25Prob": 0.5701,
       "homeLambda": 1.7,
       "awayLambda": 1.27,
-      "ai_exact_score": "1-1",
+      "ai_exact_score": "2-1",
       "exact_score_prob": "16%",
       "ai_btts_view": "59%",
       "ai_btts_prob": "59%",
       "ai_over25_view": "57%",
       "ai_over25_prob": "57%",
-      "ai_key_fact": "Nottingham Forest et Leeds United affichent des xG de 1.70 et 1.27 avec 0 match réel.",
-      "ai_analysis": "Ce duel de Premier League présente des indicateurs entièrement basés sur des projections xG, sans historique de matchs réels dans ce jeu de données. La fiabilité est de 63.96% et la qualité est faible. Les probabilités de buts restent modérées."
+      "ai_key_fact": "xG cumulé de 2.97 en l'absence de données de matchs réels.",
+      "ai_analysis": "Nottingham Forest (xG 1.70) affronte Leeds United (xG 1.27) avec une qualité de données jugée faible. Les probabilités indiquent une tendance favorable au BTTS malgré l'absence d'historique chiffré récent dans le système."
     },
     {
       "id": "brentfor-vs-tottenha-2026-08-22",
@@ -1116,14 +1046,14 @@
       "over25Prob": 0.5701,
       "homeLambda": 1.7,
       "awayLambda": 1.27,
-      "ai_exact_score": "1-2",
-      "exact_score_prob": "15%",
+      "ai_exact_score": "2-1",
+      "exact_score_prob": "16%",
       "ai_btts_view": "59%",
       "ai_btts_prob": "59%",
       "ai_over25_view": "57%",
       "ai_over25_prob": "57%",
-      "ai_key_fact": "Brentford et Tottenham Hotspur affichent un xG cumulé de 2.97 avec 0 match réel.",
-      "ai_analysis": "L'analyse de cette rencontre de Premier League est limitée par une qualité de données faible et l'absence de matchs réels. La fiabilité atteint 63.96%. Les projections favorisent légèrement Tottenham au vu du xG away de 1.27 contre 1.70 pour les locaux."
+      "ai_key_fact": "xG cumulé de 2.97 basé sur des estimations théoriques.",
+      "ai_analysis": "Brentford (xG 1.70) et Tottenham Hotspur (xG 1.27) présentent 0 match réel enregistré. L'analyse statistique suggère une probabilité de 58.8% pour le BTTS. Ces chiffres doivent être interprétés avec recul."
     },
     {
       "id": "scrheind-vs-tsvhartb-2026-08-22",
@@ -1187,13 +1117,13 @@
       "homeLambda": 1.69,
       "awayLambda": 1.26,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
+      "exact_score_prob": "16%",
       "ai_btts_view": "58%",
       "ai_btts_prob": "58%",
-      "ai_over25_view": "56%",
-      "ai_over25_prob": "56%",
-      "ai_key_fact": "SC Rheindorf Altach et TSV Hartberg affichent un xG cumulé de 2.95 sur 3 matchs réels.",
-      "ai_analysis": "En Austrian Bundesliga, l'échantillon de 3 matchs réels permet d'obtenir une estimation stable mais classée en qualité de données faible. La fiabilité est de 63.81%. Les xG de 1.69 et 1.26 penchent légèrement pour un succès étriqué des locaux."
+      "ai_over25_view": "57%",
+      "ai_over25_prob": "57%",
+      "ai_key_fact": "xG cumulé de 2.95 avec un historique de 3 matchs réels.",
+      "ai_analysis": "SC Rheindorf Altach (xG 1.69) et TSV Hartberg (xG 1.26) affichent des métriques proches de 3 buts attendus au total. La fiabilité est modérée avec une qualité de données faible. Le scénario penche légèrement pour des buts de part et d'autre."
     },
     {
       "id": "sksturmg-vs-austrial-2026-08-22",
@@ -1256,14 +1186,14 @@
       "over25Prob": 0.5655,
       "homeLambda": 1.69,
       "awayLambda": 1.26,
-      "ai_exact_score": "2-0",
+      "ai_exact_score": "2-1",
       "exact_score_prob": "16%",
       "ai_btts_view": "58%",
       "ai_btts_prob": "58%",
-      "ai_over25_view": "56%",
-      "ai_over25_prob": "56%",
-      "ai_key_fact": "SK Sturm Graz domine nettement les xG avec 1.69 face à Austria Lustenau.",
-      "ai_analysis": "Ce match d'Austrian Bundesliga s'appuie sur 3 matchs réels et une fiabilité de 63.81%. La qualité des données est faible, mais la supériorité affichée dans les xG par Sturm Graz suggère un ascendant logique. Les perspectives de buts des deux côtés restent mesurées."
+      "ai_over25_view": "57%",
+      "ai_over25_prob": "57%",
+      "ai_key_fact": "xG cumulé de 2.95 issu de 3 matchs réels par équipe.",
+      "ai_analysis": "SK Sturm Graz (xG 1.69) reçoit Austria Lustenau (xG 1.26) dans le cadre de la Bundesliga autrichienne. Les indicateurs statistiques restent stables par rapport aux autres affiches du championnat. L'analyse montre une probabilité de BTTS de 58.4%."
     },
     {
       "id": "maritimo-vs-acadmico-2026-08-22",
@@ -1327,13 +1257,13 @@
       "homeLambda": 1.65,
       "awayLambda": 1.22,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
+      "exact_score_prob": "17%",
       "ai_btts_view": "57%",
       "ai_btts_prob": "57%",
       "ai_over25_view": "55%",
       "ai_over25_prob": "55%",
-      "ai_key_fact": "Maritimo et Académico de Viseu affichent un xG cumulé de 2.87 sur 2 matchs réels.",
-      "ai_analysis": "En Liga Portugal, les données reposent sur 2 matchs réels avec une qualité de données faible et une fiabilité de 63.18%. Les xG de 1.65 et 1.22 dessinent une rencontre disputée avec un léger avantage pour Maritimo à domicile. L'issue incertaine invite à la prudence."
+      "ai_key_fact": "xG cumulé de 2.87 basé sur 2 matchs réels.",
+      "ai_analysis": "Maritimo (xG 1.65) et Académico de Viseu (xG 1.22) affichent des xG légèrement inférieurs à la moyenne des autres ligues. La probabilité de BTTS est estimée à 57.0% avec un Over 2.5 à 54.7%. La qualité des données demeure faible."
     },
     {
       "id": "estoril-vs-rioave-2026-08-22",
@@ -1396,21 +1326,91 @@
       "over25Prob": 0.5471,
       "homeLambda": 1.65,
       "awayLambda": 1.22,
-      "ai_exact_score": "1-1",
-      "exact_score_prob": "16%",
+      "ai_exact_score": "2-1",
+      "exact_score_prob": "17%",
       "ai_btts_view": "57%",
       "ai_btts_prob": "57%",
       "ai_over25_view": "55%",
       "ai_over25_prob": "55%",
-      "ai_key_fact": "Estoril et Rio Ave affichent des xG équilibrés à 1.65 et 1.22.",
-      "ai_analysis": "Cette confrontation de Liga Portugal partage les mêmes métriques d'échantillon (2 matchs réels) et une fiabilité de 63.18%. La qualité des données est faible. L'équilibre des xG cumulés à 2.87 laisse présager un match serré où un partage des points est envisageable."
+      "ai_key_fact": "xG cumulé de 2.87 pour une confrontation de Liga Portugal.",
+      "ai_analysis": "Estoril (xG 1.65) contre Rio Ave (xG 1.22) présente des statistiques calquées sur les standards du championnat. L'échantillon de 2 matchs réels limite la portée analytique. Les prévisions de buts restent mesurées."
+    },
+    {
+      "id": "sporting-vs-alverca-2026-08-22",
+      "match": "Sporting CP vs Alverca",
+      "home": "Sporting CP",
+      "away": "Alverca",
+      "league": "Liga Portugal",
+      "date": "2026-08-22",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5698,
+      "bttsProbDisplay": "56.98%",
+      "over25ProbDisplay": "54.71%",
+      "confidence": 57,
+      "time": "19:30",
+      "matchSemantic": "sporting-vs-alverca-2026-08-22",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21613.png",
+      "tier": "SILVER",
+      "reliabilityScore": 63.18,
+      "dataQuality": "LOW",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 2,
+      "matchCountAway": 2,
+      "h2hAvailable": false,
+      "xgHome": 1.65,
+      "xgAway": 1.22,
+      "xgTotal": 2.87,
+      "formBTTS": 35,
+      "analysis": "Sporting CP (2 matchs réels, xG 1.65) vs Alverca (2 matchs réels, xG 1.22). xG cumulé 2.87, BTTS 57.0%, Over 2.5 54.7%. Fiabilité 63.18%. Qualité données: LOW.",
+      "analysisData": {
+        "bttsProb": 0.5698,
+        "over25Prob": 0.5471,
+        "homeLambda": 1.65,
+        "awayLambda": 1.22,
+        "xgTotal": 2.87
+      },
+      "estimatedCote": 1.75,
+      "estimatedCoteOver": 1.83,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 57,
+          "bttsProb": 0.5698,
+          "homeLambda": 1.65,
+          "awayLambda": 1.22
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 55,
+          "over25Prob": 0.5471,
+          "homeLambda": 1.65,
+          "awayLambda": 1.22
+        }
+      ],
+      "bttsProb": 0.5698,
+      "over25Prob": 0.5471,
+      "homeLambda": 1.65,
+      "awayLambda": 1.22,
+      "ai_exact_score": "2-1",
+      "exact_score_prob": "17%",
+      "ai_btts_view": "57%",
+      "ai_btts_prob": "57%",
+      "ai_over25_view": "55%",
+      "ai_over25_prob": "55%",
+      "ai_key_fact": "xG cumulé de 2.87 avec des données limitées à 2 matchs réels.",
+      "ai_analysis": "Sporting CP (xG 1.65) affronte Alverca (xG 1.22) avec un profil statistique similaire aux autres matchs portugais de la liste. La fiabilité s'établit à 63.18%. L'analyse pointe vers un match potentiellement ouvert mais sans certitude majeure."
     }
   ],
   "stats": {
-    "avgReliability": 68.45,
-    "totalAnalyzed": 66,
+    "avgReliability": 68.79,
+    "totalAnalyzed": 62,
     "totalRejected": 0,
-    "totalAccepted": 66,
+    "totalAccepted": 62,
     "freeCount": 12,
     "vipCount": 8
   },
@@ -1476,14 +1476,14 @@
       "over25Prob": 0.8236,
       "homeLambda": 2.92,
       "awayLambda": 1.55,
-      "ai_exact_score": "3-2",
-      "exact_score_prob": "12%",
+      "ai_exact_score": "3-1",
+      "exact_score_prob": "14%",
       "ai_btts_view": "75%",
       "ai_btts_prob": "75%",
       "ai_over25_view": "82%",
       "ai_over25_prob": "82%",
-      "ai_key_fact": "FC Cincinnati affiche un xG élevé de 2.92 avec une fiabilité de 91.36%.",
-      "ai_analysis": "Le FC Cincinnati démontre une solide dynamique offensive avec un xG de 2.92, bien épaulé par Seattle Sounders FC à 1.55. L'xG cumulé de 4.47 appuie nettement une rencontre ouverte et prolifique. La forte fiabilité de 91.36% renforce la probabilité d'un match avec des buts des deux côtés."
+      "ai_key_fact": "xG cumulé de 4.47 avec une forte dynamique offensive pour le FC Cincinnati.",
+      "ai_analysis": "Le FC Cincinnati affiche un xG élevé de 2.92 sur ses 8 matchs réels, ce qui démontre une animation offensive redoutable. De son côté, Seattle Sounders FC contribue avec un xG de 1.55, portant le total cumulé à 4.47. Les probabilités indiquent clairement un match ouvert où les deux équipes ont de fortes chances de marquer."
     },
     {
       "id": "redbulln-vs-chicagof-2026-08-22",
@@ -1547,13 +1547,13 @@
       "homeLambda": 1.65,
       "awayLambda": 1.8,
       "ai_exact_score": "2-2",
-      "exact_score_prob": "14%",
-      "ai_btts_view": "68%",
-      "ai_btts_prob": "68%",
+      "exact_score_prob": "12%",
+      "ai_btts_view": "67%",
+      "ai_btts_prob": "67%",
       "ai_over25_view": "67%",
       "ai_over25_prob": "67%",
-      "ai_key_fact": "Red Bull New York et Chicago Fire affichent des xG équilibrés à 1.65 et 1.80.",
-      "ai_analysis": "Cette opposition de MLS présente des statistiques offensives très proches, avec un xG cumulé de 3.45. La qualité des données est élevée et la fiabilité atteint 88.25%, ce qui suggère des opportunités de part et d'autre. Les faiblesses défensives constatées favorisent un scénario à fort total de buts."
+      "ai_key_fact": "xG cumulé de 3.45 reflétant un équilibre offensif entre les deux formations.",
+      "ai_analysis": "Red Bull New York présente un xG de 1.65 tandis que Chicago Fire FC affiche 1.80 sur 8 matchs réels. Ces chiffres illustrent des lignes d'attaque productives mais des défenses potentiellement perméables. Le scénario d'un score partagé avec des buts des deux côtés est statistiquement cohérent."
     },
     {
       "id": "intermia-vs-torontof-2026-08-22",
@@ -1622,8 +1622,8 @@
       "ai_btts_prob": "67%",
       "ai_over25_view": "73%",
       "ai_over25_prob": "73%",
-      "ai_key_fact": "Inter Miami CF domine le xG à domicile avec 2.44 face à Toronto FC.",
-      "ai_analysis": "Inter Miami CF s'appuie sur une attaque performante (xG 2.44), tandis que Toronto FC apporte un complément de 1.33. Avec un xG cumulé de 3.77 et une fiabilité de 88.16%, les conditions sont réunies pour voir les deux équipes marquer. Le profil de la rencontre penche logiquement vers un score en faveur des locaux."
+      "ai_key_fact": "Inter Miami domine les xG à domicile avec 2.44 par match.",
+      "ai_analysis": "Inter Miami CF s'appuie sur une production offensive solide avec 2.44 xG, bien soutenue par Toronto FC qui enregistre 1.33 xG. Le cumul de 3.77 favorise un total de buts supérieur à la moyenne. La probabilité d'assister à des réalisations de part et d'autre reste élevée."
     },
     {
       "id": "orlandoc-vs-realsalt-2026-08-22",
@@ -1692,8 +1692,8 @@
       "ai_btts_prob": "59%",
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
-      "ai_key_fact": "Orlando City SC présente un xG de 1.82 contre 1.20 pour Real Salt Lake.",
-      "ai_analysis": "La confrontation en MLS entre Orlando City et Real Salt Lake se caractérise par un xG cumulé de 3.02. Avec une fiabilité de 81.89% et une qualité de données élevée, le match s'annonce disputé. L'équilibre des forces tend vers un léger avantage pour les locaux tout en maintenant l'option du BTTS."
+      "ai_key_fact": "xG cumulé modéré de 3.02 basé sur 8 matchs réels.",
+      "ai_analysis": "Orlando City SC présente un xG de 1.82 face à Real Salt Lake qui affiche 1.20. Bien que les indicateurs penchent légèrement vers une rencontre animée, la marge reste mesurée. Les probabilités de BTTS et d'Over 2.5 se situent juste sous la barre des 60%."
     },
     {
       "id": "charlott-vs-dcunited-2026-08-22",
@@ -1756,14 +1756,14 @@
       "over25Prob": 0.4689,
       "homeLambda": 1.55,
       "awayLambda": 1,
-      "ai_exact_score": "1-0",
-      "exact_score_prob": "17%",
+      "ai_exact_score": "1-1",
+      "exact_score_prob": "13%",
       "ai_btts_view": "50%",
       "ai_btts_prob": "50%",
       "ai_over25_view": "47%",
       "ai_over25_prob": "47%",
-      "ai_key_fact": "Charlotte FC et D.C. United affichent un xG cumulé modeste de 2.55.",
-      "ai_analysis": "Ce duel de MLS montre des statistiques plus fermées, avec un xG de 1.55 pour Charlotte FC et 1.00 pour D.C. United. La fiabilité de 75.54% et les probabilités sous la barre des 50% pour le BTTS et l'Over 2.5 indiquent un match prudent. Les options de buts multiples risquent d'être limitées."
+      "ai_key_fact": "xG cumulé limité à 2.55 sur un échantillon de 8 matchs réels.",
+      "ai_analysis": "Charlotte FC (xG 1.55) et D.C. United (xG 1.00) affichent des statistiques offensives plus modestes. Le modèle anticipe un match relativement fermé où le score pourrait rester sous les standards habituels. Les prévisions pour le BTTS et l'Over 2.5 sont évaluées sous la barre des 50%."
     },
     {
       "id": "fortunas-vs-azalkmaa-2026-08-22",
@@ -1826,14 +1826,14 @@
       "over25Prob": 0.6406,
       "homeLambda": 1.88,
       "awayLambda": 1.42,
-      "ai_exact_score": "2-2",
-      "exact_score_prob": "13%",
+      "ai_exact_score": "2-1",
+      "exact_score_prob": "15%",
       "ai_btts_view": "64%",
       "ai_btts_prob": "64%",
       "ai_over25_view": "64%",
       "ai_over25_prob": "64%",
-      "ai_key_fact": "Fortuna Sittard et AZ Alkmaar affichent des xG identiques de 1.88 et 1.42.",
-      "ai_analysis": "En Eredivisie, les données reposent sur 2 matchs réels avec une qualité de données jugée faible. Le xG cumulé de 3.3 et la fiabilité de 68.85% laissent entrevoir une partie ouverte. La prudence reste de mise en raison du faible échantillon de données réelles disponible."
+      "ai_key_fact": "xG cumulé de 3.30 avec une qualité de données jugée faible.",
+      "ai_analysis": "Fortuna Sittard et AZ Alkmaar affichent des xG respectifs de 1.88 et 1.42 basés sur seulement 2 matchs réels. Cette faible profondeur de données invite à la prudence malgré un xG cumulé intéressant. Les probabilités suggèrent tout de même un match à buts."
     },
     {
       "id": "spartaro-vs-fcutrech-2026-08-22",
@@ -1896,14 +1896,14 @@
       "over25Prob": 0.6406,
       "homeLambda": 1.88,
       "awayLambda": 1.42,
-      "ai_exact_score": "2-2",
-      "exact_score_prob": "13%",
+      "ai_exact_score": "2-1",
+      "exact_score_prob": "15%",
       "ai_btts_view": "64%",
       "ai_btts_prob": "64%",
       "ai_over25_view": "64%",
       "ai_over25_prob": "64%",
-      "ai_key_fact": "Sparta Rotterdam et FC Utrecht affichent des xG de 1.88 et 1.42.",
-      "ai_analysis": "Ce match d'Eredivisie partage les mêmes métriques statistiques que d'autres rencontres du championnat en raison d'un échantillon limité à 2 matchs réels. L'xG cumulé de 3.3 soutient une probabilité de BTTS à 64.2%. La fiabilité globale de 68.85% reflète une qualité de données faible."
+      "ai_key_fact": "xG cumulé identique de 3.30 pour Sparta Rotterdam et FC Utrecht.",
+      "ai_analysis": "Avec 1.88 xG pour Sparta Rotterdam et 1.42 xG pour FC Utrecht sur 2 matchs réels, les indicateurs offensifs sont alignés. La qualité des données est faible en raison de l'échantillon réduit. Le profil statistique reste toutefois favorable aux buts."
     },
     {
       "id": "heerenve-vs-peczwoll-2026-08-22",
@@ -1966,14 +1966,14 @@
       "over25Prob": 0.6406,
       "homeLambda": 1.88,
       "awayLambda": 1.42,
-      "ai_exact_score": "2-2",
-      "exact_score_prob": "13%",
+      "ai_exact_score": "2-1",
+      "exact_score_prob": "15%",
       "ai_btts_view": "64%",
       "ai_btts_prob": "64%",
       "ai_over25_view": "64%",
       "ai_over25_prob": "64%",
-      "ai_key_fact": "Heerenveen et PEC Zwolle partagent un xG cumulé de 3.3.",
-      "ai_analysis": "Basé sur 2 matchs réels, cet affrontement d'Eredivisie présente des indicateurs similaires aux autres affiches de la ligue. La fiabilité s'établit à 68.85% avec une qualité de données qualifiée de faible. Les statistiques d'xG suggèrent toutefois une propension aux buts des deux côtés."
+      "ai_key_fact": "xG cumulé de 3.30 issu de 2 matchs réels pour chaque équipe.",
+      "ai_analysis": "Heerenveen (xG 1.88) reçoit PEC Zwolle (xG 1.42) dans un contexte de données limité. Les probabilités de BTTS et d'Over 2.5 s'établissent toutes deux autour de 64%. La prudence reste de mise au vu de la taille de l'échantillon."
     },
     {
       "id": "zultewar-vs-waasland-2026-08-22",
@@ -2037,13 +2037,13 @@
       "homeLambda": 1.72,
       "awayLambda": 1.28,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
+      "exact_score_prob": "16%",
       "ai_btts_view": "59%",
       "ai_btts_prob": "59%",
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
-      "ai_key_fact": "Zulte-Waregem et Waasland-Beveren affichent un xG cumulé de 3.0.",
-      "ai_analysis": "En Jupiler Pro League, les données se limitent à 2 matchs réels par équipe, induisant une qualité de données faible et une fiabilité de 64.19%. Les xG de 1.72 et 1.28 soutiennent une modérée tendance offensive. Le scénario penche vers un match disputé avec des buts."
+      "ai_key_fact": "xG cumulé de 3.00 avec un historique basé sur 2 matchs réels.",
+      "ai_analysis": "Zulte-Waregem (xG 1.72) affronte Waasland-Beveren (xG 1.28) en Jupiler Pro League. La qualité des données est signalée comme faible. Les prévisions modérées reflètent un match potentiellement disputé."
     },
     {
       "id": "royalcha-vs-kvmechel-2026-08-22",
@@ -2107,13 +2107,13 @@
       "homeLambda": 1.72,
       "awayLambda": 1.28,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
+      "exact_score_prob": "16%",
       "ai_btts_view": "59%",
       "ai_btts_prob": "59%",
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
-      "ai_key_fact": "Royal Charleroi SC et KV Mechelen enregistrent un xG cumulé de 3.0.",
-      "ai_analysis": "Cette rencontre de Jupiler Pro League présente un profil statistique similaire aux autres matchs du championnat, s'appuyant sur 2 matchs réels. La fiabilité est de 64.19% avec une qualité de données faible. Les indicateurs penchent modérément pour un score ouvert."
+      "ai_key_fact": "xG cumulé de 3.00 avec des statistiques limitées à 2 matchs réels.",
+      "ai_analysis": "Royal Charleroi SC (xG 1.72) et KV Mechelen (xG 1.28) partagent des métriques offensives similaires. L'analyse statistique indique des probabilités de l'ordre de 59% pour le BTTS. L'échantillon restreint limite la portée de la prévision."
     },
     {
       "id": "antwerp-vs-racingge-2026-08-22",
@@ -2177,19 +2177,19 @@
       "homeLambda": 1.72,
       "awayLambda": 1.28,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
+      "exact_score_prob": "16%",
       "ai_btts_view": "59%",
       "ai_btts_prob": "59%",
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
-      "ai_key_fact": "Antwerp et Racing Genk affichent des xG de 1.72 et 1.28.",
-      "ai_analysis": "Le choc de Jupiler Pro League entre l'Antwerp et Genk bénéficie d'une base de 2 matchs réels par formation. La fiabilité est évaluée à 64.19% avec une qualité de données faible. L'xG cumulé de 3.0 maintient des probabilités équilibrées pour le marché des buts."
+      "ai_key_fact": "xG cumulé de 3.00 pour une affiche de Jupiler Pro League.",
+      "ai_analysis": "Antwerp (xG 1.72) contre Racing Genk (xG 1.28) présente un profil similaire aux autres rencontres du championnat belge dans cette liste. Les données reposent sur 2 matchs réels par équipe. Une issue ouverte est envisagée par les modèles."
     },
     {
-      "id": "hullcity-vs-manchest-2026-08-22",
-      "match": "Hull City vs Manchester United",
-      "home": "Hull City",
-      "away": "Manchester United",
+      "id": "everton-vs-crystalp-2026-08-22",
+      "match": "Everton vs Crystal Palace",
+      "home": "Everton",
+      "away": "Crystal Palace",
       "league": "Premier League",
       "date": "2026-08-22",
       "type": "BTTS",
@@ -2198,11 +2198,11 @@
       "bttsProbDisplay": "58.77%",
       "over25ProbDisplay": "57.01%",
       "confidence": 59,
-      "time": "11:30",
-      "matchSemantic": "hullcity-vs-manchest-2026-08-22",
+      "time": "14:00",
+      "matchSemantic": "everton-vs-crystalp-2026-08-22",
       "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/306.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/360.png",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/368.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/384.png",
       "tier": "SILVER",
       "reliabilityScore": 63.96,
       "dataQuality": "LOW",
@@ -2214,7 +2214,7 @@
       "xgAway": 1.27,
       "xgTotal": 2.97,
       "formBTTS": 0,
-      "analysis": "Hull City (0 matchs réels, xG 1.70) vs Manchester United (0 matchs réels, xG 1.27). xG cumulé 2.97, BTTS 58.8%, Over 2.5 57.0%. Fiabilité 63.96%. Qualité données: LOW.",
+      "analysis": "Everton (0 matchs réels, xG 1.70) vs Crystal Palace (0 matchs réels, xG 1.27). xG cumulé 2.97, BTTS 58.8%, Over 2.5 57.0%. Fiabilité 63.96%. Qualité données: LOW.",
       "analysisData": {
         "bttsProb": 0.5877,
         "over25Prob": 0.5701,
@@ -2246,14 +2246,14 @@
       "over25Prob": 0.5701,
       "homeLambda": 1.7,
       "awayLambda": 1.27,
-      "ai_exact_score": "1-2",
-      "exact_score_prob": "15%",
+      "ai_exact_score": "2-1",
+      "exact_score_prob": "16%",
       "ai_btts_view": "59%",
       "ai_btts_prob": "59%",
       "ai_over25_view": "57%",
       "ai_over25_prob": "57%",
-      "ai_key_fact": "Hull City et Manchester United affichent un xG cumulé de 2.97 sans matchs réels enregistrés.",
-      "ai_analysis": "En Premier League, l'absence de matchs réels (0 match) réduit la qualité des données à un niveau faible, avec une fiabilité de 63.96%. Les xG projetés de 1.70 et 1.27 indiquent une légère supériorité des visiteurs. L'analyse demeure prudente face au manque d'historique réel."
+      "ai_key_fact": "xG cumulé de 2.97 sans matchs réels enregistrés.",
+      "ai_analysis": "Everton (xG 1.70) et Crystal Palace (xG 1.27) affichent des xG basés sur 0 match réel dans la base actuelle. La qualité des données est donc faible. L'analyse repose entièrement sur les projections mathématiques de base."
     }
   ]
 }
