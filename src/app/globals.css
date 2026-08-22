@@ -16,7 +16,7 @@
   /* Inspired by Stripe / Linear / FBRef design language */
 
   /* — Fonds (5 niveaux) — Quiet Trust Premium — */
-  --color-bg-main: #071018;            /* Fond principal — noir bleuté profond */
+  --color-bg-main: #000000;            /* Fond principal — noir */
   --color-bg-secondary: #0D1722;       /* Sections — slate foncé */
   --color-bg-tertiary: #111E2B;        /* Panels — slate medium */
   --color-card: #0D1722;               /* Card surface standard */
@@ -180,7 +180,7 @@
   --grad-primary: linear-gradient(135deg, #B8FF1A 0%, #7EC400 100%);
   --grad-premium: linear-gradient(135deg, #B8FF1A 0%, #B8FF1A 100%);
   --grad-brand-split: linear-gradient(90deg, #B8FF1A 0%, #B8FF1A 50%, #B8FF1A 50%, #B8FF1A 100%);
-  --grad-bg: radial-gradient(circle at top right, rgba(69, 199, 247, 0.12), transparent 38%), #071018;
+  --grad-bg: #000000;
   --grad-mesh: radial-gradient(60% 50% at 20% 0%, rgba(69, 199, 247, 0.06) 0%, transparent 60%),
                radial-gradient(50% 50% at 85% 10%, rgba(91, 169, 255, 0.05) 0%, transparent 60%);
 
@@ -200,7 +200,7 @@
    ════════════════════════════════════════════════════════════════════════════ */
 :root {
   /* Fonds — v68 OR & ÉMERAUDE */
-  --bg-main: #071018;
+  --bg-main: #000000;
   --bg-secondary: #0D1722;
   --bg-tertiary: #111E2B;
   --card: #0D1722;
@@ -393,10 +393,8 @@ html {
 }
 
 body {
-  background: #071018;
-  background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(69, 199, 247, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(91, 169, 255, 0.04) 0%, transparent 40%);
+  background: var(--color-bg-main);
+  background-image: none;
   background-attachment: fixed;
   color: #F3F7FA;
   font-family: 'Inter', system-ui, sans-serif;
