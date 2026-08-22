@@ -120,7 +120,7 @@ export default function VipUnlockModal({
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0.95, y: 10 }}
             transition={{ duration: 0.2 }}
-            className="relative w-full max-w-md max-h-[90vh] overflow-y-auto rounded-2xl"
+            className="vip-unlock-modal relative w-full max-w-md max-h-[90vh] overflow-y-auto rounded-2xl"
             style={{
               backgroundColor: '#071018',
               border: '1px solid rgba(127, 162, 198, 0.30)',
@@ -248,7 +248,7 @@ export default function VipUnlockModal({
                           )}
                         </div>
                         <div className="text-[11px] text-[#B8FF1A]">
-                          Code : <span className="font-mono font-bold text-[#B8FF1A]">vision221</span>
+                          Code : <span className="font-mono font-bold text-[#B8FF1A]">btts221</span>
                         </div>
                       </div>
                       <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(245, 196, 81, 0.12)', color: '#F5C451' }}>Partenaire officiel</span>
@@ -336,7 +336,7 @@ export default function VipUnlockModal({
 
                 {/* WhatsApp support */}
                 <a
-                  href={`https://wa.me/15406704172?text=${encodeURIComponent("Bonjour, je souhaite demander la validation de mon accès VIP avec le code VISION221. Merci de confirmer les conditions applicables.")}`}
+                  href={`https://wa.me/15406704172?text=${encodeURIComponent(`Bonjour BTTSPredict, je souhaite demander la validation de mon accès VIP. Bookmaker: ${selectedBookmaker ?? 'linebet'}. Code promo: ${currentCode}. Je vais fournir mon ID joueur dans WhatsApp. Merci de confirmer les conditions applicables.`)}`}
                   target="_blank"
                   rel="noopener"
                   className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-xs font-bold mb-3"

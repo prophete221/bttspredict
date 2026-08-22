@@ -3038,3 +3038,156 @@ body {
   .btts-match-card .pb-3 { padding-bottom: 0.65rem; }
   .btts-match-card .text-lg { font-size: 1rem; }
 }
+
+/* VIP v3 — accès clair, surfaces sobres, activation progressive */
+.vip-hero-v3 {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.vip-hero-v3 .vip-dashboard-heading {
+  display: block;
+  padding: 1.15rem;
+  border-color: rgba(212, 175, 90, 0.28);
+  background: linear-gradient(145deg, rgba(13, 27, 45, 0.96), rgba(7, 17, 31, 0.98));
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(245, 248, 243, 0.06);
+  text-align: center;
+}
+
+.vip-hero-v3 .vip-dashboard-heading h1 {
+  max-width: 28rem;
+  margin-inline: auto;
+  font-size: clamp(1.55rem, 4vw, 2.15rem);
+  line-height: 1.12;
+}
+
+.vip-hero-v3 .vip-dashboard-heading > div:first-child { justify-self: center; }
+
+.vip-hero-v3 .vip-dashboard-heading > p:nth-of-type(2) {
+  margin-top: 0.55rem;
+  color: var(--color-text-secondary) !important;
+  font-size: 0.72rem;
+}
+
+.vip-hero-proof {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 0.7rem;
+  color: var(--color-text-secondary);
+  font-size: 0.68rem;
+  line-height: 1.35;
+}
+
+.vip-hero-proof span + span::before {
+  content: '·';
+  margin-right: 0.7rem;
+  color: var(--color-vip-accent);
+}
+
+.vip-combo-deck-v3 {
+  border-color: rgba(212, 175, 90, 0.28) !important;
+  background: rgba(13, 27, 45, 0.84) !important;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2) !important;
+}
+
+.vip-combo-card-v3 {
+  border-color: rgba(148, 163, 184, 0.25) !important;
+  box-shadow: none !important;
+  transition: border-color 180ms ease, background-color 180ms ease;
+}
+
+.vip-combo-card-v3.vip-combo-card--primary {
+  border-color: rgba(212, 175, 90, 0.58) !important;
+  box-shadow: inset 0 1px 0 rgba(212, 175, 90, 0.14) !important;
+}
+
+.vip-combo-card-v3:hover,
+.vip-combo-card-v3:focus-within {
+  transform: none !important;
+  border-color: rgba(212, 175, 90, 0.62) !important;
+}
+
+.vip-progress-flow {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem;
+  padding: 0.85rem 0.45rem 0.7rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 0.95rem;
+  background: rgba(13, 27, 45, 0.72);
+}
+
+.vip-progress-flow__line {
+  position: absolute;
+  top: 1.45rem;
+  right: 16%;
+  left: 16%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-vip-accent), rgba(148, 163, 184, 0.32), rgba(148, 163, 184, 0.32));
+}
+
+.vip-progress-flow__step {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+  text-align: center;
+}
+
+.vip-progress-flow__number {
+  display: grid;
+  width: 1.35rem;
+  height: 1.35rem;
+  place-items: center;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 999px;
+  background: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  font-size: 0.65rem;
+  font-weight: 900;
+}
+
+.vip-progress-flow__step p {
+  max-width: 9rem;
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.vip-readable {
+  font-size: 0.75rem !important;
+  line-height: 1.45;
+}
+
+.vip-hero-v3 button:focus-visible,
+.vip-hero-v3 a:focus-visible,
+.vip-dashboard-page button:focus-visible,
+.vip-dashboard-page a:focus-visible,
+.vip-unlock-modal button:focus-visible,
+.vip-unlock-modal a:focus-visible,
+.vip-unlock-modal input:focus-visible {
+  outline: 3px solid var(--color-text-primary);
+  outline-offset: 3px;
+}
+
+.vip-unlock-modal button,
+.vip-unlock-modal a { min-height: 2.75rem; }
+
+@media (max-width: 640px) {
+  .vip-hero-v3 { padding-top: 0.7rem; }
+  .vip-hero-v3 .vip-dashboard-heading { padding: 0.9rem; border-radius: 1.05rem; }
+  .vip-hero-v3 .vip-dashboard-heading h1 { font-size: 1.45rem; }
+  .vip-hero-proof { font-size: 0.65rem; }
+  .vip-combo-deck-v3 { padding: 0.7rem !important; }
+  .vip-progress-flow { gap: 0.2rem; padding-inline: 0.2rem; }
+  .vip-progress-flow__step p { font-size: 0.68rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vip-combo-card-v3 { transition: none; }
+}
