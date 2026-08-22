@@ -2,38 +2,38 @@
   "date": "2026-08-22",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-22T19:41:56.176Z",
-  "eventCount": 100,
-  "legCount": 108,
+  "fetchedAt": "2026-08-22T20:22:08.754Z",
+  "eventCount": 78,
+  "legCount": 135,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "73203242",
-          "home": "Deportes Linares",
-          "away": "Santiago City FC",
-          "league": "Chile - Liga Segunda Division, Promotion Round",
-          "kickoff": "2026-08-22T20:00:00Z",
+          "eventId": "68687836",
+          "home": "CD Tecnico Universitario",
+          "away": "Guayaquil City FC",
+          "league": "Ecuador - Serie A",
+          "kickoff": "2026-08-22T21:30:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.2,
+          "odds": 1.07,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T19:30:43.578Z"
+          "updatedAt": "2026-08-22T08:22:36.942Z"
         },
         {
-          "eventId": "68686082",
-          "home": "Cavalry FC",
-          "away": "Atletico Ottawa",
-          "league": "Canada - Canadian Premier League",
-          "kickoff": "2026-08-22T20:30:00Z",
+          "eventId": "73729818",
+          "home": "Deportivo Maldonado",
+          "away": "CA Penarol Montevideo",
+          "league": "Uruguay - Primera Division, Clausura",
+          "kickoff": "2026-08-22T21:30:00Z",
           "bookmaker": "Unibet",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 1.67,
+          "odds": 1.87,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T20:59:11.084Z"
+          "updatedAt": "2026-08-22T15:39:20.306Z"
         }
       ],
       "totalOdds": 2
@@ -41,33 +41,33 @@
     "target5": {
       "legs": [
         {
-          "eventId": "69255248",
-          "home": "Volta Redonda FC RJ",
-          "away": "Floresta EC CE",
-          "league": "Brazil - Brasileiro Serie C",
-          "kickoff": "2026-08-22T20:00:00Z",
-          "bookmaker": "Bet365",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 3,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T19:40:34.458Z"
-        },
-        {
-          "eventId": "68686082",
-          "home": "Cavalry FC",
-          "away": "Atletico Ottawa",
-          "league": "Canada - Canadian Premier League",
-          "kickoff": "2026-08-22T20:30:00Z",
+          "eventId": "73062020",
+          "home": "AFF Guatemala",
+          "away": "CD Sayaxche",
+          "league": "Guatemala - Primera Division, Apertura, Group B",
+          "kickoff": "2026-08-22T21:00:00Z",
           "bookmaker": "Unibet",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 1.67,
+          "odds": 2,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T20:59:11.084Z"
+          "updatedAt": "2026-08-22T07:12:20.364Z"
+        },
+        {
+          "eventId": "68215958",
+          "home": "Sao Paulo FC SP",
+          "away": "Mixto EC MT",
+          "league": "Brazil - Brasileiro A1, Women",
+          "kickoff": "2026-08-22T21:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 2.5,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-22T20:20:37.587Z"
         }
       ],
-      "totalOdds": 5.01
+      "totalOdds": 5
     }
   }
 }
