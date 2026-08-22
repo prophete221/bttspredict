@@ -2798,3 +2798,179 @@ body {
   .vip-bookmaker-button,
   .vip-copy-code { transition: none; }
 }
+
+/* Homepage v3 — dashboard de sélections, rail compact et feed lisible */
+.home-support-rail {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.home-support-rail__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.home-support-chip {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 0.85rem;
+  background: rgba(13, 23, 34, 0.78);
+  color: #F3F7FA;
+  transition: border-color 180ms ease, background-color 180ms ease, transform 160ms ease;
+}
+
+.home-support-chip:hover {
+  border-color: rgba(69, 199, 247, 0.46);
+  background: rgba(17, 34, 48, 0.92);
+  transform: translateY(-1px);
+}
+
+.home-support-chip:focus-visible,
+.home-vip-strip__primary:focus-visible,
+.home-vip-strip__secondary:focus-visible {
+  outline: 3px solid #F8FAFC;
+  outline-offset: 3px;
+}
+
+.home-support-chip__icon {
+  display: grid;
+  flex: 0 0 auto;
+  width: 1.5rem;
+  height: 1.5rem;
+  place-items: center;
+  border: 1px solid rgba(69, 199, 247, 0.42);
+  border-radius: 999px;
+  color: #45C7F7;
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.home-support-chip > span:last-child {
+  display: grid;
+  min-width: 0;
+  gap: 0.14rem;
+}
+
+.home-support-chip strong,
+.home-support-chip small,
+.home-vip-strip__copy strong,
+.home-vip-strip__copy small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.home-support-chip strong {
+  font-size: 0.68rem;
+  line-height: 1.15;
+}
+
+.home-support-chip small {
+  color: #A8B5C3;
+  font-size: 0.58rem;
+  line-height: 1.2;
+}
+
+.home-vip-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(212, 175, 90, 0.34);
+  border-radius: 1rem;
+  background: linear-gradient(110deg, rgba(28, 35, 39, 0.96), rgba(13, 23, 34, 0.86));
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(245, 248, 243, 0.08);
+}
+
+.home-vip-strip__copy {
+  display: grid;
+  min-width: 0;
+  gap: 0.18rem;
+}
+
+.home-vip-strip__eyebrow {
+  color: #D4AF5A;
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.home-vip-strip__copy strong {
+  color: #F3F7FA;
+  font-size: 0.82rem;
+  line-height: 1.25;
+}
+
+.home-vip-strip__copy small {
+  color: #A8B5C3;
+  font-size: 0.65rem;
+}
+
+.home-vip-strip__actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.home-vip-strip__primary,
+.home-vip-strip__secondary {
+  display: inline-flex;
+  min-height: 2.35rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border-radius: 0.65rem;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.68rem;
+  font-weight: 900;
+  white-space: nowrap;
+  transition: transform 160ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.home-vip-strip__primary:hover,
+.home-vip-strip__secondary:hover { transform: translateY(-1px); }
+
+.home-vip-strip__secondary {
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  color: #F3F7FA;
+}
+
+.home-vip-strip__secondary:hover { border-color: rgba(212, 175, 90, 0.55); }
+
+.prediction-match-card--compact .prediction-match-card__body { padding: 0.85rem; }
+.prediction-match-card--compact .prediction-match-card__meta { margin-bottom: 0.65rem; }
+.prediction-match-card--compact .prediction-match-card__teams { margin-bottom: 0.7rem; }
+.prediction-match-card--compact .prediction-match-card__team { gap: 0.35rem; }
+.prediction-match-card--compact .prediction-match-card__team img,
+.prediction-match-card--compact .prediction-match-card__team > div { width: 2rem !important; height: 2rem !important; }
+.prediction-match-card--compact .prediction-match-card__team span { font-size: 0.75rem; }
+.prediction-match-card--compact .prediction-match-card__analysis { padding: 0.7rem; }
+.prediction-match-card--compact .prediction-match-card__analysis .text-2xl { font-size: 1.45rem; }
+.prediction-match-card--compact .prediction-match-card__analysis .text-3xl { font-size: 1.65rem; }
+.prediction-match-card--compact .prediction-match-card__footer { margin-top: 0.6rem; padding-top: 0.6rem; }
+
+@media (max-width: 640px) {
+  .home-support-rail { padding-top: 1rem; padding-bottom: 1.25rem; }
+  .home-support-rail__grid { grid-template-columns: 1fr; gap: 0.4rem; }
+  .home-support-chip { padding: 0.58rem 0.7rem; }
+  .home-support-chip strong { font-size: 0.66rem; }
+  .home-support-chip small { font-size: 0.56rem; }
+  .home-vip-strip { display: grid; gap: 0.75rem; padding: 0.85rem; }
+  .home-vip-strip__actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .home-vip-strip__primary,
+  .home-vip-strip__secondary { width: 100%; padding-inline: 0.55rem; font-size: 0.62rem; }
+  .prediction-match-card--compact .prediction-match-card__body { padding: 0.75rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-support-chip,
+  .home-vip-strip__primary,
+  .home-vip-strip__secondary { transition: none; }
+}

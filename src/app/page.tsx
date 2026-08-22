@@ -244,63 +244,40 @@ export default function Home() {
         <ErrorBoundary><Hero /></ErrorBoundary>
         <ErrorBoundary><FreePredictions /></ErrorBoundary>
 
-        {/* Bloc transparence — 3 éléments visuels */}
-        <section className="mx-auto max-w-[980px] px-4 py-8 sm:px-6">
-          <div className="grid gap-3 sm:grid-cols-3">
-            <a href="/resultats-verifies" className="block p-3 rounded-xl text-center transition-all hover:scale-[1.02]"
-              style={{ backgroundColor: '#0D1722', border: '1px solid #324758' }}>
-              <div className="mb-1.5 flex justify-center">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#45C7F7" strokeWidth="2"><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" /></svg>
-              </div>
-              <div className="text-[10px] font-bold text-[#F3F7FA]">Historique vérifié</div>
-              <div className="text-[9px] text-[#A8B5C3] mt-0.5">Gagnés et perdus</div>
+        {/* Rail de confiance + accès premium : un seul niveau de support sous le feed */}
+        <section className="home-support-rail mx-auto max-w-[980px] px-4 py-5 sm:px-6" aria-label="Ressources et accès premium">
+          <div className="home-support-rail__grid">
+            <a href="/resultats-verifies" className="home-support-chip" data-cta="home-verified-results">
+              <span className="home-support-chip__icon" aria-hidden="true">✓</span>
+              <span><strong>Historique vérifié</strong><small>Gagnés et perdus</small></span>
             </a>
-            <a href="/methodologie" className="block p-3 rounded-xl text-center transition-all hover:scale-[1.02]"
-              style={{ backgroundColor: '#0D1722', border: '1px solid #324758' }}>
-              <div className="mb-1.5 flex justify-center">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#45C7F7" strokeWidth="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></svg>
-              </div>
-              <div className="text-[10px] font-bold text-[#F3F7FA]">Méthodologie</div>
-              <div className="text-[9px] text-[#A8B5C3] mt-0.5">Modèle Poisson + xG</div>
+            <a href="/methodologie" className="home-support-chip" data-cta="home-methodology">
+              <span className="home-support-chip__icon" aria-hidden="true">↗</span>
+              <span><strong>Méthodologie</strong><small>Poisson + xG</small></span>
             </a>
-            <a href="/historique" className="block p-3 rounded-xl text-center transition-all hover:scale-[1.02]"
-              style={{ backgroundColor: '#0D1722', border: '1px solid #324758' }}>
-              <div className="mb-1.5 flex justify-center">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#45C7F7" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
-              </div>
-              <div className="text-[10px] font-bold text-[#F3F7FA]">Données publiques</div>
-              <div className="text-[9px] text-[#A8B5C3] mt-0.5">Archives horodatées</div>
+            <a href="/historique" className="home-support-chip" data-cta="home-public-data">
+              <span className="home-support-chip__icon" aria-hidden="true">↧</span>
+              <span><strong>Données publiques</strong><small>Archives horodatées</small></span>
             </a>
           </div>
-        </section>
 
-        {/* VIP — carte premium sobre */}
-        <section className="mx-auto max-w-[980px] px-4 py-6 sm:px-6">
-          <div className="p-5 rounded-[16px]" style={{ backgroundColor: '#0D1722', border: '1px solid #324758' }}>
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#F5C451' }}>VIP Premium</span>
-              <span className="text-[9px] text-[#A8B5C3]">18+ · Affiliation rémunéré</span>
+          <div className="home-vip-strip">
+            <div className="home-vip-strip__copy">
+              <span className="home-vip-strip__eyebrow">VIP Premium · 18+</span>
+              <strong>Des sélections supplémentaires, au même endroit.</strong>
+              <small>Analyses détaillées. Aucun gain garanti.</small>
             </div>
-            <h2 className="text-lg font-bold mb-1.5" style={{ fontFamily: 'Poppins, sans-serif', color: '#F3F7FA' }}>
-              Pronostics premium BTTS et Over 2.5
-            </h2>
-            <p className="text-[11px] text-[#A8B5C3] leading-relaxed mb-4">
-              Sélections supplémentaires et analyses détaillées. Aucun gain garanti.
-            </p>
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="home-vip-strip__actions">
               <AffiliateSignupCta
                 href={AFFILIATE.linebet}
                 partner="linebet"
                 placement="home-vision221-signup"
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-[10px] font-bold text-[12px] transition-all"
+                className="home-vip-strip__primary"
                 style={{ backgroundColor: '#B8FF1A', color: '#071018' }}
               >
-                S&apos;inscrire avec VISION221
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                S&apos;inscrire avec VISION221 <span aria-hidden="true">→</span>
               </AffiliateSignupCta>
-              <a href="/vip" className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-[10px] font-bold text-[12px] transition-all" style={{ border: '1px solid #324758', color: '#F3F7FA' }} data-cta="home-discover-vip">
-                Accéder au VIP
-              </a>
+              <a href="/vip" className="home-vip-strip__secondary" data-cta="home-discover-vip">Accéder au VIP</a>
             </div>
           </div>
         </section>

@@ -82,7 +82,7 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
 
           <div className="mt-5">
             <a
-              href="/btts/predictions/today"
+              href="#free-predictions"
               className="inline-flex min-h-11 w-full items-center justify-center rounded-lg px-5 text-[13px] font-bold transition-transform hover:scale-[1.01] sm:w-auto sm:min-w-[220px]"
               style={{ background: '#B8FF1A', color: '#071018', boxShadow: '0 8px 20px rgba(184,255,26,0.12)' }}
               data-cta="hero-primary"
@@ -108,11 +108,17 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
                 ['O2.5', t.hero.goals, 'TOTAL'],
                 ['SCORE', t.hero.exact, 'EXACT'],
               ].map(([label, caption, code]) => (
-                <div key={label} className="hero-market-option">
+                <a
+                  key={label}
+                  href="#free-predictions"
+                  className="hero-market-option"
+                  aria-label={`${label} — ${t.hero.cta}`}
+                >
                   <span className="hero-market-option__code">{code}</span>
                   <strong className="hero-market-option__label">{label}</strong>
                   <span className="hero-market-option__caption">{caption}</span>
-                </div>
+                  <span className="hero-market-option__action" aria-hidden="true">Voir</span>
+                </a>
               ))}
             </div>
           </div>
