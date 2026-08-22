@@ -2974,3 +2974,67 @@ body {
   .home-vip-strip__primary,
   .home-vip-strip__secondary { transition: none; }
 }
+
+/* BTTS today v2 — même rythme visuel que la homepage */
+.btts-today-header {
+  background: linear-gradient(135deg, rgba(13, 26, 32, 0.98), rgba(7, 16, 24, 0.94));
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(245, 248, 243, 0.05);
+}
+
+.btts-today-stats > * {
+  min-width: 0;
+  border-color: rgba(148, 163, 184, 0.22) !important;
+  background: rgba(7, 16, 24, 0.74) !important;
+}
+
+.btts-today-combo {
+  background: linear-gradient(135deg, rgba(27, 31, 26, 0.96), rgba(13, 26, 32, 0.96)) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(245, 248, 243, 0.05) !important;
+}
+
+.btts-today-filters {
+  padding: 0.35rem;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 0.8rem;
+  background: rgba(13, 26, 32, 0.72);
+}
+
+.btts-today-filters button {
+  min-height: 2.15rem;
+}
+
+.btts-match-grid { align-items: start; }
+
+.btts-match-card {
+  border-color: rgba(148, 163, 184, 0.24) !important;
+  background: linear-gradient(145deg, rgba(13, 26, 32, 0.98), rgba(7, 16, 24, 0.98)) !important;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16);
+}
+
+.btts-match-card:hover {
+  border-color: rgba(69, 199, 247, 0.48) !important;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.24), 0 0 0 1px rgba(69, 199, 247, 0.08);
+}
+
+.btts-match-card button:focus-visible,
+.btts-match-card a:focus-visible,
+.btts-today-filters button:focus-visible {
+  outline: 3px solid #F8FAFC;
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  #btts-today-dashboard { padding-top: 0.75rem; padding-bottom: 1.5rem; }
+  .btts-today-header { padding: 0.8rem !important; margin-bottom: 0.7rem !important; }
+  .btts-today-header h2 { font-size: 1.05rem; line-height: 1.2; }
+  .btts-today-stats { gap: 0.35rem !important; margin-top: 0.65rem !important; }
+  .btts-today-stats > * { padding: 0.55rem !important; }
+  .btts-today-combo { padding: 0.8rem !important; margin-bottom: 0.7rem !important; }
+  .btts-today-filters { margin-bottom: 0.65rem !important; overflow-x: auto; }
+  .btts-match-grid { gap: 0.55rem !important; }
+  .btts-match-card > div:not(:first-child) { }
+  .btts-match-card .px-3 { padding-inline: 0.7rem; }
+  .btts-match-card .py-3 { padding-block: 0.6rem; }
+  .btts-match-card .pb-3 { padding-bottom: 0.65rem; }
+  .btts-match-card .text-lg { font-size: 1rem; }
+}
