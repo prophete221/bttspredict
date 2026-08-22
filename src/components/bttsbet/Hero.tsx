@@ -14,10 +14,16 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
   const lang = initialLocale ?? detectedLang
   const t = translationsFor(lang)
 
+  const marketRoutes = {
+    btts: lang === 'fr' ? '/btts/predictions/today' : `/${lang}/btts/predictions/today`,
+    goals: lang === 'fr' ? '/over-2-5/predictions/today' : `/${lang}/over-2-5/predictions/today`,
+    exact: lang === 'fr' ? '/ai-correct-score-predictions' : `/${lang}/ai-correct-score-predictions`,
+  } as const
+
   const markets = [
-    ['BTTS', t.hero.btts, 'BTTS'],
-    ['O2.5', t.hero.goals, 'TOTAL'],
-    ['SCORE', t.hero.exact, 'EXACT'],
+    ['BTTS', t.hero.btts, 'BTTS', marketRoutes.btts],
+    ['O2.5', t.hero.goals, 'TOTAL', marketRoutes.goals],
+    ['SCORE', t.hero.exact, 'EXACT', marketRoutes.exact],
   ] as const
 
   return (
@@ -65,10 +71,10 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
             </div>
 
             <div className="home-hero__market-list">
-              {markets.map(([label, caption, code]) => (
+              {markets.map(([label, caption, code, href]) => (
                 <a
                   key={label}
-                  href="#free-predictions"
+                  href={href}
                   className="home-hero__market"
                   aria-label={`${label} — ${t.hero.cta}`}
                 >
