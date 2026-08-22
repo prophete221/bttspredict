@@ -86,7 +86,6 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
               ))}
             </div>
 
-            <p className="home-hero__markets-foot">Sélections BTTS, Over 2,5 et score exact</p>
           </aside>
         </div>
       </div>
