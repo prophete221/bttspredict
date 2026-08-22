@@ -74,11 +74,11 @@ export default function VipPage() {
   const { lang } = useLanguage()
   const t = translationsFor(lang)
   const vipCopy = lang === 'fr' ? {
-    access: 'CENTRE VIP · INTELLIGENCE MATCH PRIVÉE', title: 'Centre VIP — Intelligence match privée', subtitle: 'Fiches documentées · publiées avant le coup d’envoi · accès vérifié', published: 'sélections premium publiées', description: 'Des fiches de match documentées, publiées avant le coup d’envoi et consultables via un accès vérifié.', trustPublished: 'Publié avant match', trustHistory: 'Historique vérifiable', trustMethod: 'Méthode documentée', trustResponsible: '18+ · aucun gain garanti', dossier: 'DOSSIERS VIP DU JOUR', dossierIntro: 'Sélections vérifiées · contexte protégé', accessCta: 'Accéder au dossier VIP', unlock: 'Débloquer l’analyse VIP', benefits: 'Ce que tu déverrouilles', benefitTitle: 'Une fiche de match plus complète', choose: 'Choisis ton partenaire d’accès · code copié automatiquement', selected: 'Partenaire sélectionné', deposit: 'Dépôt min 3 000 F', signup: 'S’inscrire sur', download: 'Télécharger APK', steps: 'Activation simple et transparente', step1: 'Inscris-toi avec le code', step2: 'Effectue le dépôt minimum indiqué par le partenaire', step3: 'Envoie ton ID sur WhatsApp pour finaliser la vérification', verify: 'Finaliser ma vérification via WhatsApp', desk: 'BUREAU D’INTELLIGENCE PRIVÉ', secure: 'APERÇU SÉCURISÉ', selections: 'Sélections', context: 'Contexte', history: 'Historique', locked: 'ANALYSE PROTÉGÉE', preview: 'Aperçu des matchs · données protégées', encrypted: 'CHIFFRÉ', unavailable: 'Aperçu premium indisponible pour le moment — aucune donnée fictive n’est affichée.', detailed: 'Analyse détaillée', scoreMarkets: 'Score · Marchés · Faits clés', accessNote: 'Accès après vérification · 18+ · Aucun gain garanti', conditions: 'Les conditions commerciales sont définies par le partenaire et doivent être vérifiées avant toute inscription.', partnerSelected: 'Partenaire sélectionné', depositNote: 'Dépôt minimum indiqué par le partenaire', downloadApk: 'Télécharger APK', combo2: 'Combiné cote 2 du jour', combo5: 'Combiné cote 5 du jour', comboUnavailable: 'Aucun combiné vérifié disponible pour le moment.', comboSource: 'Cotes bookmaker vérifiées · données du jour', comboUpdated: 'Mise à jour' }
+    access: 'VIP · ACCÈS VÉRIFIÉ', title: 'Accès VIP aux fiches de match', subtitle: 'Fiches du jour · accès vérifié', published: 'sélections premium publiées', description: 'Débloque les fiches du jour, publiées avant le coup d’envoi et accompagnées de leur contexte.', trustPublished: 'Publié avant match', trustHistory: 'Historique vérifiable', trustMethod: 'Méthode documentée', trustResponsible: '18+ · aucun gain garanti', dossier: 'DOSSIERS VIP DU JOUR', dossierIntro: 'Sélections vérifiées · contexte protégé', accessCta: 'Accéder au dossier VIP', unlock: 'Débloquer l’analyse VIP', benefits: 'Ce que tu déverrouilles', benefitTitle: 'Une fiche de match plus complète', choose: 'Choisis ton partenaire d’accès · code copié automatiquement', selected: 'Partenaire sélectionné', deposit: 'Dépôt min 3 000 F', signup: 'S’inscrire sur', download: 'Télécharger APK', steps: 'Activation simple et transparente', step1: 'Inscris-toi avec le code', step2: 'Effectue le dépôt minimum indiqué par le partenaire', step3: 'Envoie ton ID sur WhatsApp pour finaliser la vérification', verify: 'Finaliser ma vérification via WhatsApp', desk: 'BUREAU D’INTELLIGENCE PRIVÉ', secure: 'APERÇU SÉCURISÉ', selections: 'Sélections', context: 'Contexte', history: 'Historique', locked: 'ANALYSE PROTÉGÉE', preview: 'Aperçu des matchs · données protégées', encrypted: 'CHIFFRÉ', unavailable: 'Aperçu premium indisponible pour le moment — aucune donnée fictive n’est affichée.', detailed: 'Analyse détaillée', scoreMarkets: 'Score · Marchés · Faits clés', accessNote: 'Accès après vérification · 18+ · Aucun gain garanti', conditions: 'Les conditions commerciales sont définies par le partenaire et doivent être vérifiées avant toute inscription.', partnerSelected: 'Partenaire sélectionné', depositNote: 'Dépôt minimum indiqué par le partenaire', downloadApk: 'Télécharger APK', combo2: 'Combiné cote 2 du jour', combo5: 'Combiné cote 5 du jour', comboUnavailable: 'Aucun combiné vérifié disponible pour le moment.', comboSource: 'Cotes bookmaker vérifiées · données du jour', comboUpdated: 'Mise à jour' }
   : lang === 'en' ? {
-    access: 'VIP CENTRE · PRIVATE MATCH INTELLIGENCE', title: 'VIP Centre — Private match intelligence', subtitle: 'Documented files · published before kickoff · verified access', published: 'premium selections published', description: 'Documented match files published before kickoff and available through verified access.', trustPublished: 'Published before kickoff', trustHistory: 'Verifiable history', trustMethod: 'Documented method', trustResponsible: '18+ · no profit guaranteed', dossier: 'TODAY’S VIP FILES', dossierIntro: 'Verified selections · protected context', accessCta: 'Access the VIP file', unlock: 'Unlock VIP analysis', benefits: 'What you unlock', benefitTitle: 'A more complete match file', choose: 'Choose your access partner · code copied automatically', selected: 'Selected partner', deposit: 'Minimum deposit 3,000 XOF', signup: 'Sign up on', download: 'Download APK', steps: 'Simple and transparent activation', step1: 'Sign up with code', step2: 'Make the minimum deposit indicated by the partner', step3: 'Send your ID on WhatsApp to complete verification', verify: 'Complete my verification on WhatsApp', desk: 'PRIVATE INTELLIGENCE DESK', secure: 'SECURE PREVIEW', selections: 'Selections', context: 'Context', history: 'History', locked: 'PRO ANALYSIS / LOCKED', preview: 'Match preview · protected data', encrypted: 'ENCRYPTED', unavailable: 'Premium preview is currently unavailable — no fictional data is displayed.', detailed: 'Detailed analysis', scoreMarkets: 'Score · Markets · Key facts', accessNote: 'Access after verification · 18+ · No profit is guaranteed', conditions: 'Commercial terms are set by the partner and must be checked before registration.', partnerSelected: 'Selected partner', depositNote: 'Minimum deposit set by the partner', downloadApk: 'Download APK', combo2: 'Odds 2 combo of the day', combo5: 'Odds 5 combo of the day', comboUnavailable: 'No verified combo is available right now.', comboSource: "Verified bookmaker odds · today’s data", comboUpdated: 'Updated' }
+    access: 'VIP · VERIFIED ACCESS', title: 'VIP access to match files', subtitle: 'Today’s files · verified access', published: 'premium selections published', description: 'Unlock today’s files, published before kickoff with their supporting context.', trustPublished: 'Published before kickoff', trustHistory: 'Verifiable history', trustMethod: 'Documented method', trustResponsible: '18+ · no profit guaranteed', dossier: 'TODAY’S VIP FILES', dossierIntro: 'Verified selections · protected context', accessCta: 'Access the VIP file', unlock: 'Unlock VIP analysis', benefits: 'What you unlock', benefitTitle: 'A more complete match file', choose: 'Choose your access partner · code copied automatically', selected: 'Selected partner', deposit: 'Minimum deposit 3,000 XOF', signup: 'Sign up on', download: 'Download APK', steps: 'Simple and transparent activation', step1: 'Sign up with code', step2: 'Make the minimum deposit indicated by the partner', step3: 'Send your ID on WhatsApp to complete verification', verify: 'Complete my verification on WhatsApp', desk: 'PRIVATE INTELLIGENCE DESK', secure: 'SECURE PREVIEW', selections: 'Selections', context: 'Context', history: 'History', locked: 'PRO ANALYSIS / LOCKED', preview: 'Match preview · protected data', encrypted: 'ENCRYPTED', unavailable: 'Premium preview is currently unavailable — no fictional data is displayed.', detailed: 'Detailed analysis', scoreMarkets: 'Score · Markets · Key facts', accessNote: 'Access after verification · 18+ · No profit is guaranteed', conditions: 'Commercial terms are set by the partner and must be checked before registration.', partnerSelected: 'Selected partner', depositNote: 'Minimum deposit set by the partner', downloadApk: 'Download APK', combo2: 'Odds 2 combo of the day', combo5: 'Odds 5 combo of the day', comboUnavailable: 'No verified combo is available right now.', comboSource: "Verified bookmaker odds · today’s data", comboUpdated: 'Updated' }
   : {
-    access: 'مركز VIP · ذكاء المباراة الخاص', title: 'مركز VIP — ذكاء المباراة الخاص', subtitle: 'ملفات موثقة · منشورة قبل البداية · وصول موثق', published: 'اختيارات مميزة منشورة', description: 'ملفات مباريات موثقة تنشر قبل البداية ومتاحة عبر وصول موثق.', trustPublished: 'منشور قبل المباراة', trustHistory: 'سجل قابل للتحقق', trustMethod: 'منهجية موثقة', trustResponsible: '18+ · لا يوجد ربح مضمون', dossier: 'ملفات VIP لليوم', dossierIntro: 'اختيارات موثقة · سياق محمي', accessCta: 'الوصول إلى ملف VIP', unlock: 'فتح تحليل VIP', benefits: 'ما الذي تحصل عليه', benefitTitle: 'ملف مباراة أكثر اكتمالاً', choose: 'اختر شريك الوصول · يتم نسخ الرمز تلقائياً', selected: 'الشريك المختار', deposit: 'الحد الأدنى للإيداع 3000 XOF', signup: 'التسجيل في', download: 'تحميل التطبيق', steps: 'تفعيل بسيط وشفاف', step1: 'سجّل باستخدام الرمز', step2: 'أجرِ الحد الأدنى للإيداع الذي يحدده الشريك', step3: 'أرسل هويتك عبر واتساب لإكمال التحقق', verify: 'إكمال التحقق عبر واتساب', desk: 'مكتب الذكاء الخاص', secure: 'معاينة آمنة', selections: 'الاختيارات', context: 'السياق', history: 'السجل', locked: 'تحليل احترافي محمي', preview: 'معاينة المباريات · بيانات محمية', encrypted: 'مشفّر', unavailable: 'المعاينة المميزة غير متاحة حالياً — لا يتم عرض بيانات وهمية.', detailed: 'تحليل مفصل', scoreMarkets: 'النتيجة · الأسواق · الحقائق الأساسية', accessNote: 'الوصول بعد التحقق · 18+ · لا يوجد ربح مضمون', conditions: 'يحدد الشريك الشروط التجارية ويجب التحقق منها قبل التسجيل.', partnerSelected: 'الشريك المختار', depositNote: 'الحد الأدنى للإيداع يحدده الشريك', downloadApk: 'تحميل التطبيق', combo2: 'تركيبة معامل 2 لليوم', combo5: 'تركيبة معامل 5 لليوم', comboUnavailable: 'لا توجد تركيبة موثقة متاحة حالياً.', comboSource: 'كوتات مراهنات موثقة · بيانات اليوم', comboUpdated: 'آخر تحديث' }
+    access: 'VIP · وصول موثق', title: 'الوصول إلى ملفات مباريات VIP', subtitle: 'ملفات اليوم · وصول موثق', published: 'اختيارات مميزة منشورة', description: 'افتح ملفات اليوم المنشورة قبل البداية مع سياق المباراة.', trustPublished: 'منشور قبل المباراة', trustHistory: 'سجل قابل للتحقق', trustMethod: 'منهجية موثقة', trustResponsible: '18+ · لا يوجد ربح مضمون', dossier: 'ملفات VIP لليوم', dossierIntro: 'اختيارات موثقة · سياق محمي', accessCta: 'الوصول إلى ملف VIP', unlock: 'فتح تحليل VIP', benefits: 'ما الذي تحصل عليه', benefitTitle: 'ملف مباراة أكثر اكتمالاً', choose: 'اختر شريك الوصول · يتم نسخ الرمز تلقائياً', selected: 'الشريك المختار', deposit: 'الحد الأدنى للإيداع 3000 XOF', signup: 'التسجيل في', download: 'تحميل التطبيق', steps: 'تفعيل بسيط وشفاف', step1: 'سجّل باستخدام الرمز', step2: 'أجرِ الحد الأدنى للإيداع الذي يحدده الشريك', step3: 'أرسل هويتك عبر واتساب لإكمال التحقق', verify: 'إكمال التحقق عبر واتساب', desk: 'مكتب الذكاء الخاص', secure: 'معاينة آمنة', selections: 'الاختيارات', context: 'السياق', history: 'السجل', locked: 'تحليل احترافي محمي', preview: 'معاينة المباريات · بيانات محمية', encrypted: 'مشفّر', unavailable: 'المعاينة المميزة غير متاحة حالياً — لا يتم عرض بيانات وهمية.', detailed: 'تحليل مفصل', scoreMarkets: 'النتيجة · الأسواق · الحقائق الأساسية', accessNote: 'الوصول بعد التحقق · 18+ · لا يوجد ربح مضمون', conditions: 'يحدد الشريك الشروط التجارية ويجب التحقق منها قبل التسجيل.', partnerSelected: 'الشريك المختار', depositNote: 'الحد الأدنى للإيداع يحدده الشريك', downloadApk: 'تحميل التطبيق', combo2: 'تركيبة معامل 2 لليوم', combo5: 'تركيبة معامل 5 لليوم', comboUnavailable: 'لا توجد تركيبة موثقة متاحة حالياً.', comboSource: 'كوتات مراهنات موثقة · بيانات اليوم', comboUpdated: 'آخر تحديث' }
   const [copiedCode, setCopiedCode] = useState(false)
   const [toast, setToast] = useState('')
   const [bookmaker, setBookmaker] = useState<'linebet'|'888starz'>('linebet')
@@ -227,7 +227,7 @@ export default function VipPage() {
         )}
 
         {/* ═══ 1. VIP PREMIUM LOCKED CARD ═══ */}
-        <section data-vip-reveal className="vip-future-hero relative pt-8 pb-6 overflow-hidden">
+        <section data-vip-reveal className="vip-future-hero vip-hero-v3 relative pt-8 pb-6 overflow-hidden">
           {/* Subtle background glow */}
           <div className="absolute inset-0 pointer-events-none" style={{
             background: `radial-gradient(ellipse 50% 40% at 50% 0%, ${C.gold}12, transparent 70%)`,
@@ -244,14 +244,14 @@ export default function VipPage() {
               <h1 className="text-2xl sm:text-3xl font-black mb-2 tracking-tight" style={{ fontFamily: 'Poppins, sans-serif', color: C.text }}>
                 {vipCopy.title}
               </h1>
-              <p className="text-[10px] uppercase tracking-[0.2em] font-semibold" style={{ color: C.gold }}>
+              <p className="vip-readable text-[10px] font-semibold" style={{ color: C.gold }}>
                 {vipCopy.subtitle}
               </p>
               <p className="text-[11px] mt-2" style={{ color: C.textSec }}>
                 {vipCount != null ? `${vipCount} ${vipCopy.published}` : vipCopy.published}
                 {generationDate ? ` · mise à jour ${generationDate}` : ''}
               </p>
-              <p className="max-w-[340px] mx-auto text-xs leading-relaxed mt-3" style={{ color: C.textSec }}>
+              <p className="vip-readable max-w-[340px] mx-auto text-xs leading-relaxed mt-3" style={{ color: C.textSec }}>
                 {vipCopy.description}
               </p>
               <button
@@ -262,35 +262,14 @@ export default function VipPage() {
               >
                 {vipCopy.accessCta} <span aria-hidden="true">→</span>
               </button>
-              <div className="vip-command-status mt-4" aria-label="État du centre d’analyse VIP">
-                <div className="vip-command-status__top">
-                  <span className="inline-flex items-center gap-2"><span className="vip-status-dot" aria-hidden="true" /> {vipCopy.desk}</span>
-                  <span>{vipCopy.secure}</span>
-                </div>
-                <div className="vip-telemetry-row flex gap-2 text-left">
-                <div className="vip-telemetry-module rounded-xl px-2 py-2" style={{ backgroundColor: `${C.gold}0D`, border: `1px solid ${C.gold}30` }}>
-                  <div className="text-[10px] font-black" style={{ color: C.gold }}>01</div>
-                  <div className="text-[9px] mt-1" style={{ color: C.textSec }}>{vipCopy.selections}</div>
-                </div>
-                <div className="vip-telemetry-module rounded-xl px-2 py-2" style={{ backgroundColor: `${C.success}0D`, border: `1px solid ${C.success}30` }}>
-                  <div className="text-[10px] font-black" style={{ color: C.success }}>02</div>
-                  <div className="text-[9px] mt-1" style={{ color: C.textSec }}>{vipCopy.context}</div>
-                </div>
-                <div className="vip-telemetry-module rounded-xl px-2 py-2" style={{ backgroundColor: `${C.data}0D`, border: `1px solid ${C.data}30` }}>
-                  <div className="text-[10px] font-black" style={{ color: C.data }}>03</div>
-                  <div className="text-[9px] mt-1" style={{ color: C.textSec }}>{vipCopy.history}</div>
-                </div>
-                </div>
-              </div>
-              <div className="vip-trust-strip" aria-label="Signaux de confiance">
-                <span><i aria-hidden="true">✓</i>{vipCopy.trustPublished}</span>
-                <span><i aria-hidden="true">↗</i>{vipCopy.trustHistory}</span>
-                <span><i aria-hidden="true">◌</i>{vipCopy.trustMethod}</span>
-                <span><i aria-hidden="true">18+</i>{vipCopy.trustResponsible}</span>
+              <div className="vip-hero-proof vip-readable mt-4" aria-label="Informations d’accès VIP">
+                <span>18+</span>
+                <span>{vipCopy.trustPublished}</span>
+                <span>{vipCopy.trustMethod}</span>
               </div>
             </div>
             {/* ═══ VERIFIED DAILY COMBOS ═══ */}
-            <section data-vip-reveal className="vip-combo-deck mb-5 rounded-2xl p-3" style={{ backgroundColor: `${C.surface}CC`, border: `1px solid ${C.gold}35` }} aria-label={vipCopy.dossier}>
+            <section data-vip-reveal className="vip-combo-deck vip-combo-deck-v3 mb-5 rounded-2xl p-3" style={{ backgroundColor: `${C.surface}CC`, border: `1px solid ${C.gold}35` }} aria-label={vipCopy.dossier}>
               <div className="vip-combo-deck__masthead flex items-center justify-between mb-3">
                 <div>
                   <div className="text-[9px] font-black uppercase tracking-[0.22em]" style={{ color: C.gold }}>VIP / {comboDateLabel}</div>
@@ -302,7 +281,7 @@ export default function VipPage() {
               <div className="grid gap-2 sm:grid-cols-2">
                 {([['target2', vipCopy.combo2], ['target5', vipCopy.combo5]] as const).map(([key, label]) => {
                   const combo = vipCombos?.[key]
-                  return <div key={key} className={`vip-combo-card vip-3d-card rounded-xl p-3 relative overflow-hidden ${key === 'target2' ? 'vip-combo-card--primary' : ''}`} style={{ backgroundColor: C.bg, border: `1px solid ${C.border}` }}>
+                  return <div key={key} className={`vip-combo-card vip-combo-card-v3 vip-3d-card rounded-xl p-3 relative overflow-hidden ${key === 'target2' ? 'vip-combo-card--primary' : ''}`} style={{ backgroundColor: C.bg, border: `1px solid ${C.border}` }}>
                     <div className="vip-combo-card__head flex items-center justify-between mb-2"><span className="text-[10px] font-black uppercase" style={{ color: C.gold }}>{label} <em className="not-italic font-semibold" style={{ color: C.textSec }}>· {comboDateLabel}</em></span>{combo && <span className="vip-combo-card__odds text-[9px] font-bold" style={{ color: C.textSec }}>Cote protégée</span>}</div>
                     {combo ? <>
                       <div className="text-[9px] mb-2" style={{ color: C.textSec }}>{combo.legs.length} matchs du jour · marchés protégés</div>
@@ -345,7 +324,7 @@ export default function VipPage() {
                     <div className="text-[8px] uppercase tracking-[0.12em] mt-0.5" style={{ color: C.textSec }}>{vipCopy.preview}</div>
                   </div>
                 </div>
-                <span className="vip-terminal-bar__signal">{vipCopy.encrypted}</span>
+                <span className="vip-terminal-bar__signal">VIP</span>
               </div>
 
               {/* Match cards — rendered from real predictions.json data only */}
@@ -593,22 +572,23 @@ export default function VipPage() {
           <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] mb-3 text-center" style={{ color: C.textMute }}>
             {vipCopy.steps}
           </h2>
-          <div className="space-y-1.5 mb-3">
-            <div className="rounded-lg p-2.5 flex items-center gap-3" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
-              <span className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black flex-shrink-0" style={{ backgroundColor: brandColor, color: C.bg }}>1</span>
-              <p className="text-[11px]" style={{ color: C.text }}>{vipCopy.step1} <strong style={{ color: brandColor }}>{code}</strong></p>
+          <div className="vip-progress-flow mb-3" aria-label={vipCopy.steps}>
+            <div className="vip-progress-flow__line" aria-hidden="true" />
+            <div className="vip-progress-flow__step">
+              <span className="vip-progress-flow__number" style={{ backgroundColor: brandColor, color: C.bg }}>1</span>
+              <p className="vip-readable">{vipCopy.step1} <strong style={{ color: brandColor }}>{code}</strong></p>
             </div>
-            <div className="rounded-lg p-2.5 flex items-center gap-3" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
-              <span className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black flex-shrink-0" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, color: C.textSec }}>2</span>
-              <p className="text-[11px]" style={{ color: C.textSec }}>{vipCopy.step2}</p>
+            <div className="vip-progress-flow__step">
+              <span className="vip-progress-flow__number">2</span>
+              <p className="vip-readable">{vipCopy.step2}</p>
             </div>
-            <div className="rounded-lg p-2.5 flex items-center gap-3" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
-              <span className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black flex-shrink-0" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, color: C.textSec }}>3</span>
-              <p className="text-[11px]" style={{ color: C.textSec }}>{vipCopy.step3}</p>
+            <div className="vip-progress-flow__step">
+              <span className="vip-progress-flow__number">3</span>
+              <p className="vip-readable">{vipCopy.step3}</p>
             </div>
           </div>
 
-          <a href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Salut BTTSPredict, code '+code+' dépôt minimum indiqué par le partenaire. Débloquer VIP.')}`} target="_blank" rel="noopener noreferrer"
+          <a href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Bonjour BTTSPredict, je souhaite demander la validation de mon accès VIP. Bookmaker: '+bookmaker+'. Code promo: '+code+'. Je vais fournir mon ID joueur dans WhatsApp. Merci de confirmer les conditions applicables.')}`} target="_blank" rel="noopener noreferrer"
             className="block w-full h-[40px] rounded-lg font-bold text-[12px] flex items-center justify-center gap-2 transition-all hover:scale-[1.01]"
             style={{ backgroundColor: C.success, color: C.bg, boxShadow: `0 4px 14px ${C.success}30` }} data-cta="vip-whatsapp"
             onClick={() => trackAffiliateAction(bookmaker, 'whatsapp_click', 'vip-whatsapp')}>
