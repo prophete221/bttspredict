@@ -2,9 +2,9 @@
   "date": "2026-08-22",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-22T04:33:03.851Z",
+  "fetchedAt": "2026-08-22T05:13:00.544Z",
   "eventCount": 100,
-  "legCount": 60,
+  "legCount": 85,
   "status": "available",
   "combos": {
     "target2": {
@@ -41,33 +41,33 @@
     "target5": {
       "legs": [
         {
-          "eventId": "67692794",
-          "home": "NWS Spirit FC",
-          "away": "Manly United FC",
-          "league": "Australia - NSW NPL 1, Women",
-          "kickoff": "2026-08-22T05:00:00Z",
+          "eventId": "68160342",
+          "home": "Hume City",
+          "away": "Caroline Springs George Cross FC",
+          "league": "Australia - Victoria NPL",
+          "kickoff": "2026-08-22T06:00:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 3.1,
+          "odds": 4,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-17T05:15:28.006Z"
+          "updatedAt": "2026-08-21T19:59:26.75Z"
         },
         {
-          "eventId": "68160344",
-          "home": "Altona Magic SC",
-          "away": "Avondale FC",
-          "league": "Australia - Victoria NPL",
-          "kickoff": "2026-08-22T05:15:00Z",
-          "bookmaker": "Bet365",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.61,
+          "eventId": "67693272",
+          "home": "St George FC U20",
+          "away": "Blacktown City FC U20",
+          "league": "Australia - U20 NSW NPL",
+          "kickoff": "2026-08-22T06:30:00Z",
+          "bookmaker": "Bet365 (no latency)",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.25,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T04:32:46.714Z"
+          "updatedAt": "2026-08-22T02:42:38.279Z"
         }
       ],
-      "totalOdds": 4.99
+      "totalOdds": 5
     }
   }
 }
