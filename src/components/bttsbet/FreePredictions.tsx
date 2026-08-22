@@ -279,7 +279,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: Math.min(index * 0.03, 0.2) }}
-      className="prediction-match-card squircle-lg overflow-hidden hover:border-success/30 transition-all"
+      className="prediction-match-card prediction-match-card--compact squircle-lg overflow-hidden hover:border-success/30 transition-all"
     >
       {/* Top accent line */}
       <div className="prediction-match-card__accent h-px bg-gradient-to-r from-transparent via-success/40 to-transparent" />
