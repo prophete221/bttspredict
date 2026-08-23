@@ -1,52 +1,39 @@
 {
-  "date": "2026-08-22",
+  "date": "2026-08-23",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-22T22:14:31.524Z",
-  "eventCount": 36,
-  "legCount": 24,
+  "fetchedAt": "2026-08-23T01:17:59.654Z",
+  "eventCount": 100,
+  "legCount": 80,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "67912244",
-          "home": "Kansas City Current",
-          "away": "Seattle Reign FC",
-          "league": "USA - National Women's Soccer League",
-          "kickoff": "2026-08-22T22:30:00Z",
-          "bookmaker": "Bet365",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.04,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T09:22:10.339Z"
-        },
-        {
-          "eventId": "69255254",
-          "home": "Santa Cruz FC PE",
-          "away": "SER Caxias do Sul",
-          "league": "Brazil - Brasileiro Serie C",
-          "kickoff": "2026-08-22T22:30:00Z",
+          "eventId": "72053586",
+          "home": "CS Herediano",
+          "away": "Sporting FC",
+          "league": "Costa Rica - Primera Division, Apertura",
+          "kickoff": "2026-08-23T02:00:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
           "odds": 1.07,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T22:09:58.574Z"
+          "updatedAt": "2026-08-21T18:51:01.396Z"
         },
         {
-          "eventId": "73095420",
-          "home": "CD Escorpiones Belen",
-          "away": "CS Cartagines",
-          "league": "Costa Rica - Primera Division, Apertura",
-          "kickoff": "2026-08-22T23:00:00Z",
-          "bookmaker": "Bet365",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.8,
+          "eventId": "73760900",
+          "home": "South Hobart FC",
+          "away": "Devonport City SC",
+          "league": "Australia - Tasmania NPL, Playoffs",
+          "kickoff": "2026-08-23T04:00:00Z",
+          "bookmaker": "Bet365 (no latency)",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.87,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T22:14:09.642Z"
+          "updatedAt": "2026-08-22T23:17:11.322Z"
         }
       ],
       "totalOdds": 2
@@ -54,48 +41,33 @@
     "target5": {
       "legs": [
         {
-          "eventId": "69255254",
-          "home": "Santa Cruz FC PE",
-          "away": "SER Caxias do Sul",
-          "league": "Brazil - Brasileiro Serie C",
-          "kickoff": "2026-08-22T22:30:00Z",
-          "bookmaker": "Bet365",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 2.1,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T22:13:58.933Z"
-        },
-        {
-          "eventId": "69255244",
-          "home": "AD Confianca SE",
-          "away": "Anapolis FC GO",
-          "league": "Brazil - Brasileiro Serie C",
-          "kickoff": "2026-08-22T22:30:00Z",
+          "eventId": "72661182",
+          "home": "Veraguas United FC",
+          "away": "San Francisco FC",
+          "league": "Panama - Liga Panamena de Futbol, Apertura",
+          "kickoff": "2026-08-23T01:30:00Z",
           "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.4,
+          "odds": 1.9,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T22:08:36.661Z"
+          "updatedAt": "2026-08-21T01:48:00.419Z"
         },
         {
-          "eventId": "73095420",
-          "home": "CD Escorpiones Belen",
-          "away": "CS Cartagines",
-          "league": "Costa Rica - Primera Division, Apertura",
-          "kickoff": "2026-08-22T23:00:00Z",
+          "eventId": "66299420",
+          "home": "San Diego FC",
+          "away": "Colorado Rapids",
+          "league": "USA - MLS",
+          "kickoff": "2026-08-23T02:30:00Z",
           "bookmaker": "Unibet",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.7,
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 2.63,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T20:59:11.084Z"
+          "updatedAt": "2026-08-21T23:16:07.793Z"
         }
       ],
       "totalOdds": 5
     }
-  },
-  "lastAttemptedAt": "2026-08-22T23:34:45.909Z",
-  "refreshStatus": "provider_request_failed"
+  }
 }
