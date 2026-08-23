@@ -70,7 +70,7 @@ function formatKickoff(value: string, lang: Locale) {
   }).format(date)
 }
 
-function hasFutureLegs(combo?: VipCombo | null) {
+function hasFutureLegs(combo?: VipCombo | null): combo is VipCombo {
   if (!combo?.legs?.length) return false
   return combo.legs.every((leg) => {
     const kickoff = Date.parse(leg.kickoff)
@@ -191,7 +191,14 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
   const code = selected.code
   const combo2 = dailyCombos?.combos?.target2
   const combo5 = dailyCombos?.combos?.target5
-  const combosReady = dailyCombos?.date === dakarDate() && dailyCombos.status === 'available' && hasFutureLegs(combo2) && hasFutureLegs(combo5)
+  const today = dakarDate()
+  const combosDate = dailyCombos?.date ?? today
+  const availableCombos = dailyCombos?.date === today
+    ? [
+        hasFutureLegs(combo2) ? { key: 'target2' as const, combo: combo2, title: text.combo2 } : null,
+        hasFutureLegs(combo5) ? { key: 'target5' as const, combo: combo5, title: text.combo5 } : null,
+      ].filter((item): item is NonNullable<typeof item> => item !== null)
+    : []
 
   useEffect(() => {
     if (!toast) return
@@ -366,12 +373,9 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
             )}
           </div>
 
-          {combosReady && combo2 && combo5 ? (
+          {availableCombos.length > 0 ? (
             <div className="vip-access-combos__grid">
-              {([
-                ['target2', combo2, text.combo2],
-                ['target5', combo5, text.combo5],
-              ] as const).map(([key, combo, title]) => (
+              {availableCombos.map(({ key, combo, title }) => (
                 <article key={key} className={`vip-access-combo-card ${key === 'target5' ? 'is-featured' : ''}`}>
                   <header className="vip-access-combo-card__header">
                     <div>
@@ -380,7 +384,7 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
                     </div>
                     <span className="vip-access-combo-card__lock" aria-label={text.locked}>LOCK</span>
                   </header>
-                  <div className="vip-access-combo-card__source">{text.dataFreshness} · {dailyCombos.date}</div>
+                  <div className="vip-access-combo-card__source">{text.dataFreshness} · {combosDate}</div>
                   <div className="vip-access-combo-card__legs">
                     {combo.legs.map((leg) => (
                       <div className="vip-access-combo-leg" key={`${key}-${leg.eventId}`}>
