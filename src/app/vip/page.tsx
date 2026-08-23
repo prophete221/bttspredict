@@ -46,19 +46,6 @@ type PredictionFixture = {
   kickoff?: string
 }
 
-type VipCombosPayload = {
-  date: string
-  timezone: string
-  source: string
-  fetchedAt: string
-  status: string
-  refreshStatus?: string
-  combos?: {
-    target2?: VipCombo | null
-    target5?: VipCombo | null
-  }
-}
-
 function dakarDate(date = new Date()) {
   return new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Africa/Dakar',
@@ -244,30 +231,20 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
   const [copied, setCopied] = useState(false)
   const [toast, setToast] = useState('')
   const [showModal, setShowModal] = useState(false)
-  const [dailyCombos, setDailyCombos] = useState<VipCombosPayload | null>(null)
   const [matchOnlyCombos, setMatchOnlyCombos] = useState<{ target2: VipCombo | null; target5: VipCombo | null } | null>(null)
 
   const selected = BRAND[bookmaker]
   const signupLink = bookmaker === 'linebet' ? AFFILIATE.linebet : AFFILIATE.star888
   const downloadLink = bookmaker === 'linebet' ? AFFILIATE.linebetDownload : AFFILIATE.star888Download
   const code = selected.code
-  const combo2 = dailyCombos?.combos?.target2
-  const combo5 = dailyCombos?.combos?.target5
   const today = dakarDate()
-  const combosDate = dailyCombos?.date ?? today
-  const verifiedCombo2 = hasFutureLegs(dailyCombos?.date === today ? combo2 : null) ? combo2 : null
-  const verifiedCombo5 = hasFutureLegs(dailyCombos?.date === today ? combo5 : null) ? combo5 : null
   const availableCombos = [
-    verifiedCombo2
-      ? { key: 'target2' as const, combo: verifiedCombo2, title: text.combo2, matchOnly: false }
-      : hasFutureLegs(matchOnlyCombos?.target2)
-        ? { key: 'target2' as const, combo: matchOnlyCombos.target2, title: text.combo2MatchOnly, matchOnly: true }
-        : null,
-    verifiedCombo5
-      ? { key: 'target5' as const, combo: verifiedCombo5, title: text.combo5, matchOnly: false }
-      : hasFutureLegs(matchOnlyCombos?.target5)
-        ? { key: 'target5' as const, combo: matchOnlyCombos.target5, title: text.combo5MatchOnly, matchOnly: true }
-        : null,
+    hasFutureLegs(matchOnlyCombos?.target2)
+      ? { key: 'target2' as const, combo: matchOnlyCombos.target2, title: text.combo2MatchOnly }
+      : null,
+    hasFutureLegs(matchOnlyCombos?.target5)
+      ? { key: 'target5' as const, combo: matchOnlyCombos.target5, title: text.combo5MatchOnly }
+      : null,
   ].filter((item): item is NonNullable<typeof item> => item !== null)
 
   useEffect(() => {
@@ -275,19 +252,6 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
     const timer = window.setTimeout(() => setToast(''), 2200)
     return () => window.clearTimeout(timer)
   }, [toast])
-
-  useEffect(() => {
-    let cancelled = false
-    fetch('/vip-combos.json', { cache: 'no-store' })
-      .then((response) => response.ok ? response.json() as Promise<VipCombosPayload> : null)
-      .then((payload) => {
-        if (!cancelled && payload && payload.date === dakarDate()) setDailyCombos(payload)
-      })
-      .catch(() => {
-        if (!cancelled) setDailyCombos(null)
-      })
-    return () => { cancelled = true }
-  }, [])
 
   useEffect(() => {
     let cancelled = false
@@ -372,23 +336,21 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
               <h2 id="vip-access-combos-title">{text.combosTitle}</h2>
               <p>{text.combosIntro}</p>
             </div>
-            {dailyCombos?.date === dakarDate() && (
-              <time className="vip-access-combos__date" dateTime={dailyCombos.date}>{dailyCombos.date}</time>
-            )}
+            <time className="vip-access-combos__date" dateTime={today}>{today}</time>
           </div>
 
           {availableCombos.length > 0 ? (
             <div className="vip-access-combos__grid">
-              {availableCombos.map(({ key, combo, title, matchOnly }) => (
+              {availableCombos.map(({ key, combo, title }) => (
                 <article key={key} className={`vip-access-combo-card ${key === 'target5' ? 'is-featured' : ''}`}>
                   <header className="vip-access-combo-card__header">
                     <div>
                       <span className="vip-access-combo-card__eyebrow">{title}</span>
-                      <strong className="vip-access-combo-card__odds">{matchOnly ? text.matchOnlyBadge : combo.totalOdds?.toFixed(2)}</strong>
+                      <strong className="vip-access-combo-card__odds">{text.matchOnlyBadge}</strong>
                     </div>
                     <span className="vip-access-combo-card__lock" aria-label={text.locked}>LOCK</span>
                   </header>
-                  <div className="vip-access-combo-card__source">{matchOnly ? text.matchOnlySource : `${text.dataFreshness} · ${combosDate}`}</div>
+                  <div className="vip-access-combo-card__source">{text.matchOnlySource} · {today}</div>
                   <div className="vip-access-combo-card__legs">
                     {combo.legs.map((leg) => (
                       <div className="vip-access-combo-leg" key={`${key}-${leg.eventId}`}>
