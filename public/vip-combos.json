@@ -2,69 +2,82 @@
   "date": "2026-08-23",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-23T10:42:14.486Z",
+  "fetchedAt": "2026-08-23T11:12:59.321Z",
   "eventCount": 100,
-  "legCount": 74,
+  "legCount": 67,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "68995342",
-          "home": "Liaoning Tieren FC",
-          "away": "Henan",
+          "eventId": "69911086",
+          "home": "Chengdu Rongcheng B",
+          "away": "Jiangxi Lushan",
+          "league": "China - China League 2, South",
+          "kickoff": "2026-08-23T11:30:00Z",
+          "bookmaker": "Bet365",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.85,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-23T10:56:21.335Z"
+        },
+        {
+          "eventId": "68995344",
+          "home": "Shanghai Port FC",
+          "away": "Qingdao Hainiu FC",
           "league": "China - Chinese Super League",
-          "kickoff": "2026-08-23T11:00:00Z",
+          "kickoff": "2026-08-23T11:35:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.16,
+          "odds": 1.08,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T05:50:27.598Z"
-        },
-        {
-          "eventId": "69456522",
-          "home": "Changchun Yatai",
-          "away": "Foshan Nanshi FC",
-          "league": "China - China League 1",
-          "kickoff": "2026-08-23T11:00:00Z",
-          "bookmaker": "Bet365",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.73,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-23T10:41:44.417Z"
+          "updatedAt": "2026-08-23T11:07:40.005Z"
         }
       ],
-      "totalOdds": 2.01
+      "totalOdds": 2
     },
     "target5": {
       "legs": [
-        {
-          "eventId": "71960088",
-          "home": "Greuther Furth",
-          "away": "VfL Bochum",
-          "league": "Germany - DFB Pokal",
-          "kickoff": "2026-08-23T11:00:00Z",
-          "bookmaker": "Unibet",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.19,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-23T10:35:09.237Z"
-        },
         {
           "eventId": "69911082",
           "home": "Xiamen Feilu",
           "away": "Wenzhou Professional FC",
           "league": "China - China League 2, South",
           "kickoff": "2026-08-23T11:30:00Z",
+          "bookmaker": "Bet365",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 2,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-23T10:50:19.038Z"
+        },
+        {
+          "eventId": "69911092",
+          "home": "Shenzhen 2028 FC",
+          "away": "Hubei Istar",
+          "league": "China - China League 2, South",
+          "kickoff": "2026-08-23T11:30:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 4.2,
+          "odds": 1.25,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T15:39:20.306Z"
+          "updatedAt": "2026-08-23T10:20:01.261Z"
+        },
+        {
+          "eventId": "72533816",
+          "home": "East Bengal FC",
+          "away": "Sabah FA",
+          "league": "International Clubs - AFC Champions League, Women, Prelim., Group A",
+          "kickoff": "2026-08-23T12:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 2,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-23T00:12:28.465Z"
         }
       ],
       "totalOdds": 5
