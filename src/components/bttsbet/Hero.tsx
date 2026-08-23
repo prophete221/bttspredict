@@ -49,26 +49,6 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
             </div>
           </div>
 
-          <aside className="home-hero__focus" aria-label={t.hero.commandCenter}>
-            <div className="home-hero__focus-field" aria-hidden="true">
-              <span className="home-hero__focus-center" />
-              <span className="home-hero__focus-arc home-hero__focus-arc--top" />
-              <span className="home-hero__focus-arc home-hero__focus-arc--bottom" />
-            </div>
-            <div className="home-hero__focus-content">
-              <div className="home-hero__focus-head">
-                <span className="home-hero__live-dot" aria-hidden="true" />
-                <span>{t.hero.commandCenter}</span>
-                <span className="home-hero__live-label">{t.hero.liveData}</span>
-              </div>
-              <p>{t.hero.subtitle}</p>
-              <div className="home-hero__focus-tags" aria-label={`${t.hero.btts}, ${t.hero.goals}, ${t.hero.exact}`}>
-                <span>{t.hero.btts}</span>
-                <span>{t.hero.goals}</span>
-                <span>{t.hero.exact}</span>
-              </div>
-            </div>
-          </aside>
         </div>
       </div>
     </section>
