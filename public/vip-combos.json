@@ -2,25 +2,56 @@
   "date": "2026-08-23",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-23T05:54:47.048Z",
+  "fetchedAt": "2026-08-23T06:25:19.503Z",
   "eventCount": 100,
-  "legCount": 50,
+  "legCount": 54,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "67692806",
-          "home": "Sydney Olympic FC",
-          "away": "Gladesville Ravens",
-          "league": "Australia - NSW NPL 1, Women",
-          "kickoff": "2026-08-23T07:40:00Z",
-          "bookmaker": "Bet365 (no latency)",
+          "eventId": "73086526",
+          "home": "CSC 1599 Selimbar",
+          "away": "CS Afumati",
+          "league": "Romania - Liga 2",
+          "kickoff": "2026-08-23T08:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.75,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-22T20:40:47.774Z"
+        },
+        {
+          "eventId": "72305142",
+          "home": "MSK Zilina B",
+          "away": "OFK Dynamo Malzenice",
+          "league": "Slovakia - 2. Liga",
+          "kickoff": "2026-08-23T08:30:00Z",
+          "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.33,
+          "odds": 1.15,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-23T05:54:23.751Z"
+          "updatedAt": "2026-08-21T16:48:01.774Z"
+        }
+      ],
+      "totalOdds": 2.01
+    },
+    "target5": {
+      "legs": [
+        {
+          "eventId": "69767470",
+          "home": "Uwa Nedlands FC",
+          "away": "Subiaco AFC",
+          "league": "Australia - Western Australia NPL, Women",
+          "kickoff": "2026-08-23T07:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 1.85,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-23T05:52:09.352Z"
         },
         {
           "eventId": "73782782",
@@ -31,53 +62,22 @@
           "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.53,
+          "odds": 1.5,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-23T05:50:56.778Z"
-        }
-      ],
-      "totalOdds": 2.03
-    },
-    "target5": {
-      "legs": [
+          "updatedAt": "2026-08-23T06:23:15.712Z"
+        },
         {
-          "eventId": "69767464",
-          "home": "Perth Redstar FC",
-          "away": "Perth Azzurri",
-          "league": "Australia - Western Australia NPL, Women",
-          "kickoff": "2026-08-23T07:00:00Z",
+          "eventId": "72415496",
+          "home": "FC Hradec Kralove B",
+          "away": "MFK Chrudim",
+          "league": "Czechia - CFL, Group B",
+          "kickoff": "2026-08-23T08:15:00Z",
           "bookmaker": "Bet365",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 2.02,
+          "odds": 1.8,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-23T05:50:50.432Z"
-        },
-        {
-          "eventId": "67692806",
-          "home": "Sydney Olympic FC",
-          "away": "Gladesville Ravens",
-          "league": "Australia - NSW NPL 1, Women",
-          "kickoff": "2026-08-23T07:40:00Z",
-          "bookmaker": "Bet365 (no latency)",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.33,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-23T05:54:23.751Z"
-        },
-        {
-          "eventId": "73086538",
-          "home": "Csa Steaua Bucuresti",
-          "away": "CSC Dumbravita",
-          "league": "Romania - Liga 2",
-          "kickoff": "2026-08-23T08:00:00Z",
-          "bookmaker": "Unibet",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.86,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T09:21:56.303Z"
+          "updatedAt": "2026-08-22T04:11:34.54Z"
         }
       ],
       "totalOdds": 5
