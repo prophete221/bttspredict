@@ -96,7 +96,7 @@ function buildMatchOnlyCombos(payload: { free?: PredictionFixture[]; vipPreview?
   })
   const toCombo = (target: 2 | 5): VipCombo | null => {
     const selected = fixtures.slice(0, target)
-    if (selected.length < target) return null
+    if (selected.length < (target === 2 ? 1 : target)) return null
     return {
       totalOdds: null,
       legs: selected.map((fixture, index) => {
@@ -142,6 +142,7 @@ const copy = {
     combo5: 'Combiné cote 5 du jour',
     combo2MatchOnly: 'Sélection VIP · 2 matchs du jour',
     combo5MatchOnly: 'Sélection VIP · 5 matchs du jour',
+    matchOnlySingle: 'Match VIP réel du jour',
     matchOnlyBadge: 'Matchs réels uniquement',
     matchOnlySource: 'Matchs futurs vérifiés · cotes masquées jusqu’au déblocage',
     totalOdds: 'Cote totale',
@@ -177,6 +178,7 @@ const copy = {
     combo5: 'Today’s odds 5 combo',
     combo2MatchOnly: 'VIP selection · 2 matches today',
     combo5MatchOnly: 'VIP selection · 5 matches today',
+    matchOnlySingle: 'Real VIP match today',
     matchOnlyBadge: 'Real matches only',
     matchOnlySource: 'Future matches verified · odds hidden until unlock',
     totalOdds: 'Total odds',
@@ -212,6 +214,7 @@ const copy = {
     combo5: 'مركب بمعامل 5 لليوم',
     combo2MatchOnly: 'اختيار VIP · مباراتان اليوم',
     combo5MatchOnly: 'اختيار VIP · 5 مباريات اليوم',
+    matchOnlySingle: 'مباراة VIP حقيقية اليوم',
     matchOnlyBadge: 'مباريات حقيقية فقط',
     matchOnlySource: 'مباريات مستقبلية موثقة · المعاملات مخفية حتى الفتح',
     totalOdds: 'المعامل الإجمالي',
@@ -240,7 +243,7 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
   const today = dakarDate()
   const availableCombos = [
     hasFutureLegs(matchOnlyCombos?.target2)
-      ? { key: 'target2' as const, combo: matchOnlyCombos.target2, title: text.combo2MatchOnly }
+      ? { key: 'target2' as const, combo: matchOnlyCombos.target2, title: matchOnlyCombos.target2.legs.length === 1 ? text.matchOnlySingle : text.combo2MatchOnly }
       : null,
     hasFutureLegs(matchOnlyCombos?.target5)
       ? { key: 'target5' as const, combo: matchOnlyCombos.target5, title: text.combo5MatchOnly }
