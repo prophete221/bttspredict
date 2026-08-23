@@ -25,15 +25,25 @@ type ComboLeg = {
   away: string
   league: string
   kickoff: string
-  bookmaker: string
-  market: string
-  selection: string
-  odds: number
+  bookmaker?: string
+  market?: string
+  selection?: string
+  odds?: number
 }
 
 type VipCombo = {
   legs: ComboLeg[]
-  totalOdds: number
+  totalOdds?: number | null
+}
+
+type PredictionFixture = {
+  id?: string
+  home?: string
+  away?: string
+  league?: string
+  date?: string
+  time?: string
+  kickoff?: string
 }
 
 type VipCombosPayload = {
@@ -78,6 +88,45 @@ function hasFutureLegs(combo?: VipCombo | null): combo is VipCombo {
   })
 }
 
+function fixtureKickoff(fixture: PredictionFixture) {
+  const raw = fixture.kickoff || (fixture.date && fixture.time ? `${fixture.date}T${fixture.time}:00Z` : '')
+  const timestamp = Date.parse(raw)
+  return { raw, timestamp }
+}
+
+function buildMatchOnlyCombos(payload: { free?: PredictionFixture[]; vipPreview?: PredictionFixture[]; predictions?: PredictionFixture[] } | null, today: string) {
+  const rows = [...(payload?.free || []), ...(payload?.vipPreview || []), ...(payload?.predictions || [])]
+  const seen = new Set<string>()
+  const fixtures = rows.filter((fixture) => {
+    const home = fixture.home?.trim()
+    const away = fixture.away?.trim()
+    const { timestamp } = fixtureKickoff(fixture)
+    if (!home || !away || !Number.isFinite(timestamp) || timestamp <= Date.now() || dakarDate(new Date(timestamp)) !== today) return false
+    const key = `${home.toLowerCase()}|${away.toLowerCase()}|${timestamp}`
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+  const toCombo = (target: 2 | 5): VipCombo | null => {
+    const selected = fixtures.slice(0, target)
+    if (selected.length < target) return null
+    return {
+      totalOdds: null,
+      legs: selected.map((fixture, index) => {
+        const { raw } = fixtureKickoff(fixture)
+        return {
+          eventId: fixture.id || `fixture-${target}-${index}-${raw}`,
+          home: fixture.home!.trim(),
+          away: fixture.away!.trim(),
+          league: fixture.league?.trim() || 'Football',
+          kickoff: raw,
+        }
+      }),
+    }
+  }
+  return { target2: toCombo(2), target5: toCombo(5) }
+}
+
 const copy = {
   fr: {
     eyebrow: 'ACCÈS PRIVÉ · VIP',
@@ -104,10 +153,14 @@ const copy = {
     combosIntro: 'Les matchs sont visibles. Les marchés et sélections restent verrouillés jusqu’à ta demande VIP.',
     combo2: 'Combiné cote 2 du jour',
     combo5: 'Combiné cote 5 du jour',
+    combo2MatchOnly: 'Sélection VIP · 2 matchs du jour',
+    combo5MatchOnly: 'Sélection VIP · 5 matchs du jour',
+    matchOnlyBadge: 'Matchs réels uniquement',
+    matchOnlySource: 'Matchs futurs vérifiés · cotes masquées jusqu’au déblocage',
     totalOdds: 'Cote totale',
     kickoff: 'Coup d’envoi',
     locked: 'Marchés verrouillés',
-    unavailable: 'Les cotes vérifiées du jour ne sont pas encore disponibles. Reviens après la prochaine mise à jour.',
+    unavailable: 'Les matchs futurs du jour ne sont pas encore disponibles. Reviens après la prochaine mise à jour.',
     dataFreshness: 'Données horodatées depuis la source de cotes partenaire',
   },
   en: {
@@ -135,10 +188,14 @@ const copy = {
     combosIntro: 'Matches stay visible. Markets and selections remain locked until you request VIP access.',
     combo2: 'Today’s odds 2 combo',
     combo5: 'Today’s odds 5 combo',
+    combo2MatchOnly: 'VIP selection · 2 matches today',
+    combo5MatchOnly: 'VIP selection · 5 matches today',
+    matchOnlyBadge: 'Real matches only',
+    matchOnlySource: 'Future matches verified · odds hidden until unlock',
     totalOdds: 'Total odds',
     kickoff: 'Kick-off',
     locked: 'Markets locked',
-    unavailable: 'Verified odds for today are not available yet. Check back after the next update.',
+    unavailable: 'Future matches for today are not available yet. Check back after the next update.',
     dataFreshness: 'Timestamped data from the partner odds source',
   },
   ar: {
@@ -166,10 +223,14 @@ const copy = {
     combosIntro: 'المباريات ظاهرة. تبقى الأسواق والاختيارات مقفلة حتى تطلب وصول VIP.',
     combo2: 'مركب بمعامل 2 لليوم',
     combo5: 'مركب بمعامل 5 لليوم',
+    combo2MatchOnly: 'اختيار VIP · مباراتان اليوم',
+    combo5MatchOnly: 'اختيار VIP · 5 مباريات اليوم',
+    matchOnlyBadge: 'مباريات حقيقية فقط',
+    matchOnlySource: 'مباريات مستقبلية موثقة · المعاملات مخفية حتى الفتح',
     totalOdds: 'المعامل الإجمالي',
     kickoff: 'موعد البداية',
     locked: 'الأسواق مقفلة',
-    unavailable: 'المعاملات الموثقة لليوم غير متاحة بعد. عد بعد التحديث القادم.',
+    unavailable: 'المباريات المستقبلية لليوم غير متاحة بعد. عد بعد التحديث القادم.',
     dataFreshness: 'بيانات مؤرخة من مصدر معاملات الشريك',
   },
 } as const
@@ -184,6 +245,7 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
   const [toast, setToast] = useState('')
   const [showModal, setShowModal] = useState(false)
   const [dailyCombos, setDailyCombos] = useState<VipCombosPayload | null>(null)
+  const [matchOnlyCombos, setMatchOnlyCombos] = useState<{ target2: VipCombo | null; target5: VipCombo | null } | null>(null)
 
   const selected = BRAND[bookmaker]
   const signupLink = bookmaker === 'linebet' ? AFFILIATE.linebet : AFFILIATE.star888
@@ -193,12 +255,20 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
   const combo5 = dailyCombos?.combos?.target5
   const today = dakarDate()
   const combosDate = dailyCombos?.date ?? today
-  const availableCombos = dailyCombos?.date === today
-    ? [
-        hasFutureLegs(combo2) ? { key: 'target2' as const, combo: combo2, title: text.combo2 } : null,
-        hasFutureLegs(combo5) ? { key: 'target5' as const, combo: combo5, title: text.combo5 } : null,
-      ].filter((item): item is NonNullable<typeof item> => item !== null)
-    : []
+  const verifiedCombo2 = hasFutureLegs(dailyCombos?.date === today ? combo2 : null) ? combo2 : null
+  const verifiedCombo5 = hasFutureLegs(dailyCombos?.date === today ? combo5 : null) ? combo5 : null
+  const availableCombos = [
+    verifiedCombo2
+      ? { key: 'target2' as const, combo: verifiedCombo2, title: text.combo2, matchOnly: false }
+      : hasFutureLegs(matchOnlyCombos?.target2)
+        ? { key: 'target2' as const, combo: matchOnlyCombos.target2, title: text.combo2MatchOnly, matchOnly: true }
+        : null,
+    verifiedCombo5
+      ? { key: 'target5' as const, combo: verifiedCombo5, title: text.combo5, matchOnly: false }
+      : hasFutureLegs(matchOnlyCombos?.target5)
+        ? { key: 'target5' as const, combo: matchOnlyCombos.target5, title: text.combo5MatchOnly, matchOnly: true }
+        : null,
+  ].filter((item): item is NonNullable<typeof item> => item !== null)
 
   useEffect(() => {
     if (!toast) return
@@ -215,6 +285,19 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
       })
       .catch(() => {
         if (!cancelled) setDailyCombos(null)
+      })
+    return () => { cancelled = true }
+  }, [])
+
+  useEffect(() => {
+    let cancelled = false
+    fetch('/predictions.json', { cache: 'no-store' })
+      .then((response) => response.ok ? response.json() as Promise<{ date?: string; free?: PredictionFixture[]; vipPreview?: PredictionFixture[]; predictions?: PredictionFixture[] }> : null)
+      .then((payload) => {
+        if (!cancelled && payload?.date === dakarDate()) setMatchOnlyCombos(buildMatchOnlyCombos(payload, dakarDate()))
+      })
+      .catch(() => {
+        if (!cancelled) setMatchOnlyCombos(null)
       })
     return () => { cancelled = true }
   }, [])
@@ -296,16 +379,16 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
 
           {availableCombos.length > 0 ? (
             <div className="vip-access-combos__grid">
-              {availableCombos.map(({ key, combo, title }) => (
+              {availableCombos.map(({ key, combo, title, matchOnly }) => (
                 <article key={key} className={`vip-access-combo-card ${key === 'target5' ? 'is-featured' : ''}`}>
                   <header className="vip-access-combo-card__header">
                     <div>
                       <span className="vip-access-combo-card__eyebrow">{title}</span>
-                      <strong className="vip-access-combo-card__odds">{combo.totalOdds.toFixed(2)}</strong>
+                      <strong className="vip-access-combo-card__odds">{matchOnly ? text.matchOnlyBadge : combo.totalOdds?.toFixed(2)}</strong>
                     </div>
                     <span className="vip-access-combo-card__lock" aria-label={text.locked}>LOCK</span>
                   </header>
-                  <div className="vip-access-combo-card__source">{text.dataFreshness} · {combosDate}</div>
+                  <div className="vip-access-combo-card__source">{matchOnly ? text.matchOnlySource : `${text.dataFreshness} · ${combosDate}`}</div>
                   <div className="vip-access-combo-card__legs">
                     {combo.legs.map((leg) => (
                       <div className="vip-access-combo-leg" key={`${key}-${leg.eventId}`}>
