@@ -223,7 +223,7 @@ jobs:
             set net:timeout 30
             set net:max-retries 1
             set mirror:use-pget-n 4
-            mirror --reverse --no-perms --verbose --parallel=4 out/ ./
+            mirror --reverse --no-perms --overwrite --verbose --parallel=4 out/ ./
             bye
           "
 
