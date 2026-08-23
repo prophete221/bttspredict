@@ -2,85 +2,42 @@
   "date": "2026-08-23",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-23T12:37:59.612Z",
-  "eventCount": 12,
-  "legCount": 29,
-  "status": "available",
+  "fetchedAt": "2026-08-23T14:16:30.667Z",
+  "eventCount": 4,
+  "legCount": 16,
+  "status": "insufficient_verified_odds",
   "combos": {
-    "target2": {
-      "legs": [
-        {
-          "eventId": "71960090",
-          "home": "VfB 1921 Krieschow",
-          "away": "FSV Mainz",
-          "league": "Germany - DFB Pokal",
-          "kickoff": "2026-08-23T13:30:00Z",
-          "bookmaker": "Bet365",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.93,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-23T05:15:09.068Z"
-        },
-        {
-          "eventId": "71960110",
-          "home": "Eintracht Braunschweig",
-          "away": "Union Berlin",
-          "league": "Germany - DFB Pokal",
-          "kickoff": "2026-08-23T13:30:00Z",
-          "bookmaker": "Bet365",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.03,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-23T12:27:21.456Z"
-        }
-      ],
-      "totalOdds": 1.99
-    },
+    "target2": null,
     "target5": {
       "legs": [
         {
-          "eventId": "71960064",
-          "home": "Bahlinger SC",
-          "away": "1. FC Magdeburg",
-          "league": "Germany - DFB Pokal",
-          "kickoff": "2026-08-23T13:30:00Z",
-          "bookmaker": "Bet365",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 2.63,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-23T12:37:04.096Z"
-        },
-        {
-          "eventId": "71960110",
-          "home": "Eintracht Braunschweig",
-          "away": "Union Berlin",
-          "league": "Germany - DFB Pokal",
-          "kickoff": "2026-08-23T13:30:00Z",
-          "bookmaker": "Bet365",
+          "eventId": "72036112",
+          "home": "Le Havre AC",
+          "away": "AS Monaco",
+          "league": "France - Ligue 1",
+          "kickoff": "2026-08-23T15:15:00Z",
+          "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.03,
+          "odds": 2.63,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-23T12:27:21.456Z"
+          "updatedAt": "2026-08-23T10:35:09.237Z"
         },
         {
-          "eventId": "73070270",
-          "home": "NK BSK Bijelo Brdo",
-          "away": "Gnk Dinamo Zagreb II",
-          "league": "Croatia - Prva NL",
-          "kickoff": "2026-08-23T13:45:00Z",
+          "eventId": "72387946",
+          "home": "CS Universitatea Craiova",
+          "away": "SC FC Voluntari",
+          "league": "Romania - Superliga",
+          "kickoff": "2026-08-23T15:30:00Z",
           "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.85,
+          "odds": 1.9,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T10:53:31.562Z"
+          "updatedAt": "2026-08-23T13:46:23.402Z"
         }
       ],
-      "totalOdds": 5.01
+      "totalOdds": 5
     }
   }
 }
