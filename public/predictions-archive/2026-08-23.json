@@ -1,6 +1,6 @@
 {
   "date": "2026-08-23",
-  "lastUpdated": "2026-08-23T16:24:51.079Z",
+  "lastUpdated": "2026-08-23T17:22:22.321Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -126,68 +126,6 @@
       "over25Prob": 0.4816,
       "homeLambda": 1.5,
       "awayLambda": 1.1
-    },
-    {
-      "id": "santacla-vs-fcfamali-2026-08-23",
-      "match": "Santa Clara vs FC Famalicao",
-      "home": "Santa Clara",
-      "away": "FC Famalicao",
-      "league": "Liga Portugal",
-      "date": "2026-08-23",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5698,
-      "bttsProbDisplay": "56.98%",
-      "over25ProbDisplay": "54.71%",
-      "confidence": 57,
-      "time": "17:00",
-      "matchSemantic": "santacla-vs-fcfamali-2026-08-23",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12215.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12698.png",
-      "tier": "SILVER",
-      "reliabilityScore": 63.18,
-      "dataQuality": "LOW",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 2,
-      "matchCountAway": 2,
-      "h2hAvailable": false,
-      "xgHome": 1.65,
-      "xgAway": 1.22,
-      "xgTotal": 2.87,
-      "formBTTS": 25,
-      "analysis": "Santa Clara (2 matchs réels, xG 1.65) vs FC Famalicao (2 matchs réels, xG 1.22). xG cumulé 2.87, BTTS 57.0%, Over 2.5 54.7%. Fiabilité 63.18%. Qualité données: LOW.",
-      "analysisData": {
-        "bttsProb": 0.5698,
-        "over25Prob": 0.5471,
-        "homeLambda": 1.65,
-        "awayLambda": 1.22,
-        "xgTotal": 2.87
-      },
-      "estimatedCote": 1.75,
-      "estimatedCoteOver": 1.83,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 57,
-          "bttsProb": 0.5698,
-          "homeLambda": 1.65,
-          "awayLambda": 1.22
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 55,
-          "over25Prob": 0.5471,
-          "homeLambda": 1.65,
-          "awayLambda": 1.22
-        }
-      ],
-      "bttsProb": 0.5698,
-      "over25Prob": 0.5471,
-      "homeLambda": 1.65,
-      "awayLambda": 1.22
     },
     {
       "id": "fcporto-vs-arouca-2026-08-23",
@@ -746,9 +684,7 @@
       "over25Prob": 0.5701,
       "homeLambda": 1.7,
       "awayLambda": 1.27
-    }
-  ],
-  "vipPreview": [
+    },
     {
       "id": "rioave-vs-sporting-2026-08-28",
       "match": "Rio Ave vs Sporting CP",
@@ -810,7 +746,9 @@
       "over25Prob": 0.5471,
       "homeLambda": 1.65,
       "awayLambda": 1.22
-    },
+    }
+  ],
+  "vipPreview": [
     {
       "id": "wrexham-vs-birmingh-2026-08-28",
       "match": "Wrexham vs Birmingham City",
@@ -1244,13 +1182,75 @@
       "over25Prob": 0.6943,
       "homeLambda": 1.28,
       "awayLambda": 2.3
+    },
+    {
+      "id": "dcunited-vs-lafc-2026-08-29",
+      "match": "D.C. United vs LAFC",
+      "home": "D.C. United",
+      "away": "LAFC",
+      "league": "MLS",
+      "date": "2026-08-29",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6212,
+      "bttsProbDisplay": "62.12%",
+      "over25ProbDisplay": "60.96%",
+      "confidence": 62,
+      "time": "23:30",
+      "matchSemantic": "dcunited-vs-lafc-2026-08-29",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/193.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18966.png",
+      "tier": "GOLD",
+      "reliabilityScore": 83.43,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.38,
+      "xgAway": 1.77,
+      "xgTotal": 3.15,
+      "formBTTS": 31,
+      "analysis": "D.C. United (8 matchs réels, xG 1.38) vs LAFC (8 matchs réels, xG 1.77). xG cumulé 3.15, BTTS 62.1%, Over 2.5 61.0%. Fiabilité 83.43%. Qualité données: HIGH.",
+      "analysisData": {
+        "bttsProb": 0.6212,
+        "over25Prob": 0.6096,
+        "homeLambda": 1.38,
+        "awayLambda": 1.77,
+        "xgTotal": 3.15
+      },
+      "estimatedCote": 1.61,
+      "estimatedCoteOver": 1.64,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 62,
+          "bttsProb": 0.6212,
+          "homeLambda": 1.38,
+          "awayLambda": 1.77
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 61,
+          "over25Prob": 0.6096,
+          "homeLambda": 1.38,
+          "awayLambda": 1.77
+        }
+      ],
+      "bttsProb": 0.6212,
+      "over25Prob": 0.6096,
+      "homeLambda": 1.38,
+      "awayLambda": 1.77
     }
   ],
   "stats": {
-    "avgReliability": 68.93,
-    "totalAnalyzed": 69,
+    "avgReliability": 69.02,
+    "totalAnalyzed": 68,
     "totalRejected": 0,
-    "totalAccepted": 69,
+    "totalAccepted": 68,
     "freeCount": 12,
     "vipCount": 8
   },
@@ -1378,68 +1378,6 @@
       "over25Prob": 0.4816,
       "homeLambda": 1.5,
       "awayLambda": 1.1
-    },
-    {
-      "id": "santacla-vs-fcfamali-2026-08-23",
-      "match": "Santa Clara vs FC Famalicao",
-      "home": "Santa Clara",
-      "away": "FC Famalicao",
-      "league": "Liga Portugal",
-      "date": "2026-08-23",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5698,
-      "bttsProbDisplay": "56.98%",
-      "over25ProbDisplay": "54.71%",
-      "confidence": 57,
-      "time": "17:00",
-      "matchSemantic": "santacla-vs-fcfamali-2026-08-23",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12215.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12698.png",
-      "tier": "SILVER",
-      "reliabilityScore": 63.18,
-      "dataQuality": "LOW",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 2,
-      "matchCountAway": 2,
-      "h2hAvailable": false,
-      "xgHome": 1.65,
-      "xgAway": 1.22,
-      "xgTotal": 2.87,
-      "formBTTS": 25,
-      "analysis": "Santa Clara (2 matchs réels, xG 1.65) vs FC Famalicao (2 matchs réels, xG 1.22). xG cumulé 2.87, BTTS 57.0%, Over 2.5 54.7%. Fiabilité 63.18%. Qualité données: LOW.",
-      "analysisData": {
-        "bttsProb": 0.5698,
-        "over25Prob": 0.5471,
-        "homeLambda": 1.65,
-        "awayLambda": 1.22,
-        "xgTotal": 2.87
-      },
-      "estimatedCote": 1.75,
-      "estimatedCoteOver": 1.83,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 57,
-          "bttsProb": 0.5698,
-          "homeLambda": 1.65,
-          "awayLambda": 1.22
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 55,
-          "over25Prob": 0.5471,
-          "homeLambda": 1.65,
-          "awayLambda": 1.22
-        }
-      ],
-      "bttsProb": 0.5698,
-      "over25Prob": 0.5471,
-      "homeLambda": 1.65,
-      "awayLambda": 1.22
     },
     {
       "id": "fcporto-vs-arouca-2026-08-23",
@@ -1998,6 +1936,68 @@
       "over25Prob": 0.5701,
       "homeLambda": 1.7,
       "awayLambda": 1.27
+    },
+    {
+      "id": "rioave-vs-sporting-2026-08-28",
+      "match": "Rio Ave vs Sporting CP",
+      "home": "Rio Ave",
+      "away": "Sporting CP",
+      "league": "Liga Portugal",
+      "date": "2026-08-28",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5698,
+      "bttsProbDisplay": "56.98%",
+      "over25ProbDisplay": "54.71%",
+      "confidence": 57,
+      "time": "19:15",
+      "matchSemantic": "rioave-vs-sporting-2026-08-28",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3822.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png",
+      "tier": "SILVER",
+      "reliabilityScore": 63.18,
+      "dataQuality": "LOW",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 3,
+      "matchCountAway": 3,
+      "h2hAvailable": false,
+      "xgHome": 1.65,
+      "xgAway": 1.22,
+      "xgTotal": 2.87,
+      "formBTTS": 33,
+      "analysis": "Rio Ave (3 matchs réels, xG 1.65) vs Sporting CP (3 matchs réels, xG 1.22). xG cumulé 2.87, BTTS 57.0%, Over 2.5 54.7%. Fiabilité 63.18%. Qualité données: LOW.",
+      "analysisData": {
+        "bttsProb": 0.5698,
+        "over25Prob": 0.5471,
+        "homeLambda": 1.65,
+        "awayLambda": 1.22,
+        "xgTotal": 2.87
+      },
+      "estimatedCote": 1.75,
+      "estimatedCoteOver": 1.83,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 57,
+          "bttsProb": 0.5698,
+          "homeLambda": 1.65,
+          "awayLambda": 1.22
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 55,
+          "over25Prob": 0.5471,
+          "homeLambda": 1.65,
+          "awayLambda": 1.22
+        }
+      ],
+      "bttsProb": 0.5698,
+      "over25Prob": 0.5471,
+      "homeLambda": 1.65,
+      "awayLambda": 1.22
     }
   ]
 }
