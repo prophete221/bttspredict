@@ -98,7 +98,6 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
           ODDS_BOOKMAKERS: Bet365,Unibet
-        timeout-minutes: 5
         run: node scripts/update-vip-combos.mjs
         continue-on-error: true
 
