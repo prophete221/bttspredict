@@ -19,6 +19,65 @@ const BRAND = {
 
 type Bookmaker = keyof typeof BRAND
 
+type ComboLeg = {
+  eventId: string
+  home: string
+  away: string
+  league: string
+  kickoff: string
+  bookmaker: string
+  market: string
+  selection: string
+  odds: number
+}
+
+type VipCombo = {
+  legs: ComboLeg[]
+  totalOdds: number
+}
+
+type VipCombosPayload = {
+  date: string
+  timezone: string
+  source: string
+  fetchedAt: string
+  status: string
+  refreshStatus?: string
+  combos?: {
+    target2?: VipCombo | null
+    target5?: VipCombo | null
+  }
+}
+
+function dakarDate(date = new Date()) {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Africa/Dakar',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(date)
+}
+
+function formatKickoff(value: string, lang: Locale) {
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) return '—'
+  return new Intl.DateTimeFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB' : 'fr-FR', {
+    timeZone: 'Africa/Dakar',
+    day: '2-digit',
+    month: 'short',
+    hour: '2-digit',
+    minute: '2-digit',
+  }).format(date)
+}
+
+function hasFutureLegs(combo?: VipCombo | null) {
+  if (!combo?.legs?.length) return false
+  return combo.legs.every((leg) => {
+    const kickoff = Date.parse(leg.kickoff)
+    return Number.isFinite(kickoff) && kickoff > Date.now()
+  })
+}
+
 const copy = {
   fr: {
     eyebrow: 'ACCÈS PRIVÉ · VIP',
@@ -40,6 +99,16 @@ const copy = {
     star888Code: 'Code btts221',
     selected: 'Sélectionné',
     unlock: 'Débloquer avec WhatsApp',
+    combosEyebrow: 'SÉLECTIONS DU JOUR · VIP',
+    combosTitle: 'Combinés réels du jour',
+    combosIntro: 'Les matchs sont visibles. Les marchés et sélections restent verrouillés jusqu’à ta demande VIP.',
+    combo2: 'Combiné cote 2 du jour',
+    combo5: 'Combiné cote 5 du jour',
+    totalOdds: 'Cote totale',
+    kickoff: 'Coup d’envoi',
+    locked: 'Marchés verrouillés',
+    unavailable: 'Les cotes vérifiées du jour ne sont pas encore disponibles. Reviens après la prochaine mise à jour.',
+    dataFreshness: 'Données horodatées depuis la source de cotes partenaire',
   },
   en: {
     eyebrow: 'PRIVATE ACCESS · VIP',
@@ -61,6 +130,16 @@ const copy = {
     star888Code: 'Code btts221',
     selected: 'Selected',
     unlock: 'Unlock with WhatsApp',
+    combosEyebrow: 'TODAY’S PICKS · VIP',
+    combosTitle: 'Real combos for today',
+    combosIntro: 'Matches stay visible. Markets and selections remain locked until you request VIP access.',
+    combo2: 'Today’s odds 2 combo',
+    combo5: 'Today’s odds 5 combo',
+    totalOdds: 'Total odds',
+    kickoff: 'Kick-off',
+    locked: 'Markets locked',
+    unavailable: 'Verified odds for today are not available yet. Check back after the next update.',
+    dataFreshness: 'Timestamped data from the partner odds source',
   },
   ar: {
     eyebrow: 'وصول خاص · VIP',
@@ -82,6 +161,16 @@ const copy = {
     star888Code: 'الرمز btts221',
     selected: 'محدد',
     unlock: 'فتح عبر واتساب',
+    combosEyebrow: 'اختيارات اليوم · VIP',
+    combosTitle: 'رهانات مركبة حقيقية لليوم',
+    combosIntro: 'المباريات ظاهرة. تبقى الأسواق والاختيارات مقفلة حتى تطلب وصول VIP.',
+    combo2: 'مركب بمعامل 2 لليوم',
+    combo5: 'مركب بمعامل 5 لليوم',
+    totalOdds: 'المعامل الإجمالي',
+    kickoff: 'موعد البداية',
+    locked: 'الأسواق مقفلة',
+    unavailable: 'المعاملات الموثقة لليوم غير متاحة بعد. عد بعد التحديث القادم.',
+    dataFreshness: 'بيانات مؤرخة من مصدر معاملات الشريك',
   },
 } as const
 
@@ -94,17 +183,34 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
   const [copied, setCopied] = useState(false)
   const [toast, setToast] = useState('')
   const [showModal, setShowModal] = useState(false)
+  const [dailyCombos, setDailyCombos] = useState<VipCombosPayload | null>(null)
 
   const selected = BRAND[bookmaker]
   const signupLink = bookmaker === 'linebet' ? AFFILIATE.linebet : AFFILIATE.star888
   const downloadLink = bookmaker === 'linebet' ? AFFILIATE.linebetDownload : AFFILIATE.star888Download
   const code = selected.code
+  const combo2 = dailyCombos?.combos?.target2
+  const combo5 = dailyCombos?.combos?.target5
+  const combosReady = dailyCombos?.date === dakarDate() && dailyCombos.status === 'available' && hasFutureLegs(combo2) && hasFutureLegs(combo5)
 
   useEffect(() => {
     if (!toast) return
     const timer = window.setTimeout(() => setToast(''), 2200)
     return () => window.clearTimeout(timer)
   }, [toast])
+
+  useEffect(() => {
+    let cancelled = false
+    fetch('/vip-combos.json', { cache: 'no-store' })
+      .then((response) => response.ok ? response.json() as Promise<VipCombosPayload> : null)
+      .then((payload) => {
+        if (!cancelled && payload && payload.date === dakarDate()) setDailyCombos(payload)
+      })
+      .catch(() => {
+        if (!cancelled) setDailyCombos(null)
+      })
+    return () => { cancelled = true }
+  }, [])
 
   const openUnlock = () => {
     trackAffiliateAction(bookmaker, 'vip_unlock_open', 'vip-access-page')
@@ -246,6 +352,62 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
 
           <p className="vip-access-privacy">{text.privacy}</p>
           <p className="vip-access-responsible">{text.responsible}</p>
+        </section>
+
+        <section className="vip-access-combos vip-access-shell" aria-labelledby="vip-access-combos-title">
+          <div className="vip-access-combos__header">
+            <div>
+              <span className="vip-access-overline">{text.combosEyebrow}</span>
+              <h2 id="vip-access-combos-title">{text.combosTitle}</h2>
+              <p>{text.combosIntro}</p>
+            </div>
+            {dailyCombos?.date === dakarDate() && (
+              <time className="vip-access-combos__date" dateTime={dailyCombos.date}>{dailyCombos.date}</time>
+            )}
+          </div>
+
+          {combosReady && combo2 && combo5 ? (
+            <div className="vip-access-combos__grid">
+              {([
+                ['target2', combo2, text.combo2],
+                ['target5', combo5, text.combo5],
+              ] as const).map(([key, combo, title]) => (
+                <article key={key} className={`vip-access-combo-card ${key === 'target5' ? 'is-featured' : ''}`}>
+                  <header className="vip-access-combo-card__header">
+                    <div>
+                      <span className="vip-access-combo-card__eyebrow">{title}</span>
+                      <strong className="vip-access-combo-card__odds">{combo.totalOdds.toFixed(2)}</strong>
+                    </div>
+                    <span className="vip-access-combo-card__lock" aria-label={text.locked}>LOCK</span>
+                  </header>
+                  <div className="vip-access-combo-card__source">{text.dataFreshness} · {dailyCombos.date}</div>
+                  <div className="vip-access-combo-card__legs">
+                    {combo.legs.map((leg) => (
+                      <div className="vip-access-combo-leg" key={`${key}-${leg.eventId}`}>
+                        <div className="vip-access-combo-leg__teams">
+                          <small>{leg.league}</small>
+                          <strong>{leg.home} <span>vs</span> {leg.away}</strong>
+                        </div>
+                        <time dateTime={leg.kickoff} className="vip-access-combo-leg__time">
+                          <span>{text.kickoff}</span>{formatKickoff(leg.kickoff, lang)}
+                        </time>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="vip-access-combo-card__locked">
+                    <span className="vip-access-combo-card__locked-icon" aria-hidden="true">⌁</span>
+                    <span>{text.locked}</span>
+                    <button type="button" onClick={openUnlock}>{text.primary}</button>
+                  </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="vip-access-combos__empty" role="status">
+              <span className="vip-access-combos__empty-icon" aria-hidden="true">—</span>
+              <p>{text.unavailable}</p>
+            </div>
+          )}
         </section>
       </main>
 
