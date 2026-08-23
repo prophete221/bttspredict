@@ -30,9 +30,9 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
         <div className="home-hero__layout">
           <div className="home-hero__copy">
             <div className="home-hero__meta">
-              <span className="home-hero__badge">
+              <span className="home-hero__badge" aria-label={t.hero.liveData}>
                 <span className="home-hero__badge-dot" aria-hidden="true" />
-                {t.hero.badge}
+                <span>LIVE</span>
               </span>
               <span className="home-hero__timezone">{t.hero.timezone}</span>
             </div>
