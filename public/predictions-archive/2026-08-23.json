@@ -1,6 +1,6 @@
 {
   "date": "2026-08-23",
-  "lastUpdated": "2026-08-23T15:51:18.153Z",
+  "lastUpdated": "2026-08-23T16:14:18.882Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -126,68 +126,6 @@
       "over25Prob": 0.4816,
       "homeLambda": 1.5,
       "awayLambda": 1.1
-    },
-    {
-      "id": "clubbrug-vs-cerclebr-2026-08-23",
-      "match": "Club Brugge vs Cercle Brugge KSV",
-      "home": "Club Brugge",
-      "away": "Cercle Brugge KSV",
-      "league": "Jupiler Pro League",
-      "date": "2026-08-23",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5929,
-      "bttsProbDisplay": "59.29%",
-      "over25ProbDisplay": "57.68%",
-      "confidence": 59,
-      "time": "16:30",
-      "matchSemantic": "clubbrug-vs-cerclebr-2026-08-23",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/570.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3610.png",
-      "tier": "SILVER",
-      "reliabilityScore": 64.19,
-      "dataQuality": "LOW",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 2,
-      "matchCountAway": 2,
-      "h2hAvailable": false,
-      "xgHome": 1.72,
-      "xgAway": 1.28,
-      "xgTotal": 3,
-      "formBTTS": 55,
-      "analysis": "Club Brugge (2 matchs réels, xG 1.72) vs Cercle Brugge KSV (2 matchs réels, xG 1.28). xG cumulé 3, BTTS 59.3%, Over 2.5 57.7%. Fiabilité 64.19%. Qualité données: LOW.",
-      "analysisData": {
-        "bttsProb": 0.5929,
-        "over25Prob": 0.5768,
-        "homeLambda": 1.72,
-        "awayLambda": 1.28,
-        "xgTotal": 3
-      },
-      "estimatedCote": 1.69,
-      "estimatedCoteOver": 1.73,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 59,
-          "bttsProb": 0.5929,
-          "homeLambda": 1.72,
-          "awayLambda": 1.28
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 58,
-          "over25Prob": 0.5768,
-          "homeLambda": 1.72,
-          "awayLambda": 1.28
-        }
-      ],
-      "bttsProb": 0.5929,
-      "over25Prob": 0.5768,
-      "homeLambda": 1.72,
-      "awayLambda": 1.28
     },
     {
       "id": "santacla-vs-fcfamali-2026-08-23",
@@ -746,9 +684,7 @@
       "over25Prob": 0.5768,
       "homeLambda": 1.72,
       "awayLambda": 1.28
-    }
-  ],
-  "vipPreview": [
+    },
     {
       "id": "crystalp-vs-manchest-2026-08-28",
       "match": "Crystal Palace vs Manchester City",
@@ -810,7 +746,9 @@
       "over25Prob": 0.5701,
       "homeLambda": 1.7,
       "awayLambda": 1.27
-    },
+    }
+  ],
+  "vipPreview": [
     {
       "id": "rioave-vs-sporting-2026-08-28",
       "match": "Rio Ave vs Sporting CP",
@@ -1244,13 +1182,75 @@
       "over25Prob": 0.6761,
       "homeLambda": 1.98,
       "awayLambda": 1.5
+    },
+    {
+      "id": "seattles-vs-chicagof-2026-08-29",
+      "match": "Seattle Sounders FC vs Chicago Fire FC",
+      "home": "Seattle Sounders FC",
+      "away": "Chicago Fire FC",
+      "league": "MLS",
+      "date": "2026-08-29",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6504,
+      "bttsProbDisplay": "65.04%",
+      "over25ProbDisplay": "69.43%",
+      "confidence": 65,
+      "time": "20:30",
+      "matchSemantic": "seattles-vs-chicagof-2026-08-29",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9726.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/182.png",
+      "tier": "GOLD",
+      "reliabilityScore": 87.21,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.28,
+      "xgAway": 2.3,
+      "xgTotal": 3.58,
+      "formBTTS": 24,
+      "analysis": "Seattle Sounders FC (8 matchs réels, xG 1.28) vs Chicago Fire FC (8 matchs réels, xG 2.30). xG cumulé 3.58, BTTS 65.0%, Over 2.5 69.4%. Fiabilité 87.21%. Qualité données: HIGH.",
+      "analysisData": {
+        "bttsProb": 0.6504,
+        "over25Prob": 0.6943,
+        "homeLambda": 1.28,
+        "awayLambda": 2.3,
+        "xgTotal": 3.58
+      },
+      "estimatedCote": 1.54,
+      "estimatedCoteOver": 1.44,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "bttsProb": 0.6504,
+          "homeLambda": 1.28,
+          "awayLambda": 2.3
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 69,
+          "over25Prob": 0.6943,
+          "homeLambda": 1.28,
+          "awayLambda": 2.3
+        }
+      ],
+      "bttsProb": 0.6504,
+      "over25Prob": 0.6943,
+      "homeLambda": 1.28,
+      "awayLambda": 2.3
     }
   ],
   "stats": {
-    "avgReliability": 68.86,
-    "totalAnalyzed": 70,
+    "avgReliability": 68.93,
+    "totalAnalyzed": 69,
     "totalRejected": 0,
-    "totalAccepted": 70,
+    "totalAccepted": 69,
     "freeCount": 12,
     "vipCount": 8
   },
@@ -1378,68 +1378,6 @@
       "over25Prob": 0.4816,
       "homeLambda": 1.5,
       "awayLambda": 1.1
-    },
-    {
-      "id": "clubbrug-vs-cerclebr-2026-08-23",
-      "match": "Club Brugge vs Cercle Brugge KSV",
-      "home": "Club Brugge",
-      "away": "Cercle Brugge KSV",
-      "league": "Jupiler Pro League",
-      "date": "2026-08-23",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5929,
-      "bttsProbDisplay": "59.29%",
-      "over25ProbDisplay": "57.68%",
-      "confidence": 59,
-      "time": "16:30",
-      "matchSemantic": "clubbrug-vs-cerclebr-2026-08-23",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/570.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3610.png",
-      "tier": "SILVER",
-      "reliabilityScore": 64.19,
-      "dataQuality": "LOW",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 2,
-      "matchCountAway": 2,
-      "h2hAvailable": false,
-      "xgHome": 1.72,
-      "xgAway": 1.28,
-      "xgTotal": 3,
-      "formBTTS": 55,
-      "analysis": "Club Brugge (2 matchs réels, xG 1.72) vs Cercle Brugge KSV (2 matchs réels, xG 1.28). xG cumulé 3, BTTS 59.3%, Over 2.5 57.7%. Fiabilité 64.19%. Qualité données: LOW.",
-      "analysisData": {
-        "bttsProb": 0.5929,
-        "over25Prob": 0.5768,
-        "homeLambda": 1.72,
-        "awayLambda": 1.28,
-        "xgTotal": 3
-      },
-      "estimatedCote": 1.69,
-      "estimatedCoteOver": 1.73,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 59,
-          "bttsProb": 0.5929,
-          "homeLambda": 1.72,
-          "awayLambda": 1.28
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 58,
-          "over25Prob": 0.5768,
-          "homeLambda": 1.72,
-          "awayLambda": 1.28
-        }
-      ],
-      "bttsProb": 0.5929,
-      "over25Prob": 0.5768,
-      "homeLambda": 1.72,
-      "awayLambda": 1.28
     },
     {
       "id": "santacla-vs-fcfamali-2026-08-23",
@@ -1998,6 +1936,68 @@
       "over25Prob": 0.5768,
       "homeLambda": 1.72,
       "awayLambda": 1.28
+    },
+    {
+      "id": "crystalp-vs-manchest-2026-08-28",
+      "match": "Crystal Palace vs Manchester City",
+      "home": "Crystal Palace",
+      "away": "Manchester City",
+      "league": "Premier League",
+      "date": "2026-08-28",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5877,
+      "bttsProbDisplay": "58.77%",
+      "over25ProbDisplay": "57.01%",
+      "confidence": 59,
+      "time": "19:00",
+      "matchSemantic": "crystalp-vs-manchest-2026-08-28",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/384.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png",
+      "tier": "SILVER",
+      "reliabilityScore": 63.96,
+      "dataQuality": "LOW",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 1,
+      "matchCountAway": 1,
+      "h2hAvailable": false,
+      "xgHome": 1.7,
+      "xgAway": 1.27,
+      "xgTotal": 2.97,
+      "formBTTS": 20,
+      "analysis": "Crystal Palace (1 matchs réels, xG 1.70) vs Manchester City (1 matchs réels, xG 1.27). xG cumulé 2.97, BTTS 58.8%, Over 2.5 57.0%. Fiabilité 63.96%. Qualité données: LOW.",
+      "analysisData": {
+        "bttsProb": 0.5877,
+        "over25Prob": 0.5701,
+        "homeLambda": 1.7,
+        "awayLambda": 1.27,
+        "xgTotal": 2.97
+      },
+      "estimatedCote": 1.7,
+      "estimatedCoteOver": 1.75,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 59,
+          "bttsProb": 0.5877,
+          "homeLambda": 1.7,
+          "awayLambda": 1.27
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 57,
+          "over25Prob": 0.5701,
+          "homeLambda": 1.7,
+          "awayLambda": 1.27
+        }
+      ],
+      "bttsProb": 0.5877,
+      "over25Prob": 0.5701,
+      "homeLambda": 1.7,
+      "awayLambda": 1.27
     }
   ]
 }
