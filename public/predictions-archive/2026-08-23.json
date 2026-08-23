@@ -1,6 +1,6 @@
 {
   "date": "2026-08-23",
-  "lastUpdated": "2026-08-23T04:47:24.068Z",
+  "lastUpdated": "2026-08-23T05:17:53.378Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -1247,7 +1247,7 @@
     }
   ],
   "stats": {
-    "avgReliability": 68.48,
+    "avgReliability": 68.47,
     "totalAnalyzed": 79,
     "totalRejected": 0,
     "totalAccepted": 79,

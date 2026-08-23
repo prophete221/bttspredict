@@ -2,85 +2,72 @@
   "date": "2026-08-23",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-23T04:48:50.443Z",
+  "fetchedAt": "2026-08-23T05:18:16.194Z",
   "eventCount": 100,
-  "legCount": 44,
+  "legCount": 53,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "67691090",
-          "home": "Wollongong Wolves FC",
-          "away": "Western Sydney Youth",
-          "league": "Australia - NSW NPL 1",
-          "kickoff": "2026-08-23T05:00:00Z",
-          "bookmaker": "Unibet",
+          "eventId": "68160348",
+          "home": "South Melbourne FC",
+          "away": "Heidelberg United FC",
+          "league": "Australia - Victoria NPL",
+          "kickoff": "2026-08-23T05:30:00Z",
+          "bookmaker": "Bet365",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 1.47,
+          "odds": 1.61,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T18:51:01.396Z"
+          "updatedAt": "2026-08-23T05:17:42.768Z"
         },
         {
-          "eventId": "68160728",
-          "home": "Melbourne Knights",
-          "away": "Langwarrin SC",
-          "league": "Australia - Victoria Premier League 1",
-          "kickoff": "2026-08-23T05:00:00Z",
-          "bookmaker": "Bet365 (no latency)",
+          "eventId": "69767470",
+          "home": "Uwa Nedlands FC",
+          "away": "Subiaco AFC",
+          "league": "Australia - Western Australia NPL, Women",
+          "kickoff": "2026-08-23T07:00:00Z",
+          "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.36,
+          "odds": 1.26,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-23T04:33:22.472Z"
+          "updatedAt": "2026-08-21T16:48:01.774Z"
         }
       ],
-      "totalOdds": 2
+      "totalOdds": 2.03
     },
     "target5": {
       "legs": [
         {
-          "eventId": "67691082",
-          "home": "Sydney Olympic FC",
-          "away": "Marconi Stallions",
-          "league": "Australia - NSW NPL 1",
-          "kickoff": "2026-08-23T05:00:00Z",
-          "bookmaker": "Unibet",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 2.5,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T18:51:01.396Z"
-        },
-        {
-          "eventId": "67691090",
-          "home": "Wollongong Wolves FC",
-          "away": "Western Sydney Youth",
-          "league": "Australia - NSW NPL 1",
-          "kickoff": "2026-08-23T05:00:00Z",
-          "bookmaker": "Unibet",
+          "eventId": "68160348",
+          "home": "South Melbourne FC",
+          "away": "Heidelberg United FC",
+          "league": "Australia - Victoria NPL",
+          "kickoff": "2026-08-23T05:30:00Z",
+          "bookmaker": "Bet365",
           "market": "Both Teams To Score",
           "selection": "BTTS — Oui",
-          "odds": 1.47,
+          "odds": 1.61,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T18:51:01.396Z"
+          "updatedAt": "2026-08-23T05:17:42.768Z"
         },
         {
-          "eventId": "68160728",
-          "home": "Melbourne Knights",
-          "away": "Langwarrin SC",
-          "league": "Australia - Victoria Premier League 1",
-          "kickoff": "2026-08-23T05:00:00Z",
-          "bookmaker": "Bet365 (no latency)",
+          "eventId": "73782782",
+          "home": "Capalaba FC",
+          "away": "Caboolture FC",
+          "league": "Australia - Queensland NPL, Women, Prom/Relegation Round",
+          "kickoff": "2026-08-23T08:00:00Z",
+          "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.36,
+          "odds": 3.1,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-23T04:33:22.472Z"
+          "updatedAt": "2026-08-22T23:22:21.368Z"
         }
       ],
-      "totalOdds": 5
+      "totalOdds": 4.99
     }
   }
 }
