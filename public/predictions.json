@@ -1,6 +1,6 @@
 {
   "date": "2026-08-23",
-  "lastUpdated": "2026-08-23T14:46:58.523Z",
+  "lastUpdated": "2026-08-23T15:23:27.209Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -66,12 +66,12 @@
       "awayLambda": 1,
       "ai_exact_score": "2-1",
       "exact_score_prob": "15%",
-      "ai_btts_view": "60%",
-      "ai_btts_prob": "60%",
-      "ai_over25_view": "68%",
-      "ai_over25_prob": "68%",
-      "ai_key_fact": "xG cumulé de 3.4 et qualité de données HIGH sur 8 matchs réels.",
-      "ai_analysis": "Atlanta United FC présente un xG solide de 2.40 à domicile, tandis que Sporting Kansas City affiche un xG de 1.00. La dynamique offensive suggère des opportunités des deux côtés du terrain. Avec un xG cumulé de 3.4, la probabilité d'un match ouvert est notable. Fiabilité globale de l'analyse établie à 83.9%."
+      "ai_btts_view": "62%",
+      "ai_btts_prob": "62%",
+      "ai_over25_view": "70%",
+      "ai_over25_prob": "70%",
+      "ai_key_fact": "xG cumulé de 3.4 et fiabilité de 83.9% avec des données de qualité HIGH.",
+      "ai_analysis": "Atlanta United FC présente un xG à domicile de 2.40 sur la base de 8 matchs réels, ce qui démontre un fort potentiel offensif. Sporting Kansas City affiche de son côté un xG de 1.00. La conjonction de ces métriques appuie un scénario ouvert avec de bonnes probabilités de voir les deux équipes marquer et de dépasser la barre des 2.5 buts."
     },
     {
       "id": "newengla-vs-newyorkc-2026-08-23",
@@ -135,13 +135,13 @@
       "homeLambda": 1.5,
       "awayLambda": 1.1,
       "ai_exact_score": "1-1",
-      "exact_score_prob": "16%",
+      "exact_score_prob": "18%",
       "ai_btts_view": "53%",
       "ai_btts_prob": "53%",
-      "ai_over25_view": "46%",
-      "ai_over25_prob": "46%",
-      "ai_key_fact": "xG cumulé modéré de 2.6 avec des données de haute qualité.",
-      "ai_analysis": "New England Revolution affiche un xG de 1.50 contre 1.10 pour New York City FC sur 8 matchs réels. L'équilibre des forces suggère une rencontre serrée avec des options de buts limitées en raison de la configuration tactique. Le marché des plus de 2.5 buts présente des perspectives plus partagées. Fiabilité de 76.42% basée sur les données disponibles."
+      "ai_over25_view": "45%",
+      "ai_over25_prob": "45%",
+      "ai_key_fact": "xG cumulé modeste de 2.6 avec un équilibre notable entre les formations.",
+      "ai_analysis": "New England Revolution possède un xG de 1.50 contre 1.10 pour New York City FC d'après les 8 matchs réels analysés. Les statistiques suggèrent une opposition fermée où la probabilité de l'Over 2.5 reste sous la barre des 50%. Néanmoins, le BTTS demeure légèrement favorisé par les indicateurs contextuels."
     },
     {
       "id": "clubbrug-vs-cerclebr-2026-08-23",
@@ -206,82 +206,12 @@
       "awayLambda": 1.28,
       "ai_exact_score": "2-1",
       "exact_score_prob": "14%",
-      "ai_btts_view": "61%",
-      "ai_btts_prob": "61%",
-      "ai_over25_view": "59%",
-      "ai_over25_prob": "59%",
-      "ai_key_fact": "xG cumulé de 3.0 sur 2 matchs réels avec qualité de données LOW.",
-      "ai_analysis": "Club Brugge dispose d'un xG de 1.72 face à Cercle Brugge KSV et ses 1.28 xG. Les volumes offensifs restent corrects malgré un échantillon de matchs réels limité à 2. La configuration globale soutient une tendance favorable aux buts des deux côtés. Fiabilité de 64.19% en raison de la faible volumétrie."
-    },
-    {
-      "id": "newcastl-vs-liverpoo-2026-08-23",
-      "match": "Newcastle United vs Liverpool",
-      "home": "Newcastle United",
-      "away": "Liverpool",
-      "league": "Premier League",
-      "date": "2026-08-23",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5877,
-      "bttsProbDisplay": "58.77%",
-      "over25ProbDisplay": "57.01%",
-      "confidence": 59,
-      "time": "15:30",
-      "matchSemantic": "newcastl-vs-liverpoo-2026-08-23",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/361.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
-      "tier": "SILVER",
-      "reliabilityScore": 63.96,
-      "dataQuality": "LOW",
-      "dataSource": "LEAGUE_FALLBACK",
-      "matchCountHome": 0,
-      "matchCountAway": 0,
-      "h2hAvailable": false,
-      "xgHome": 1.7,
-      "xgAway": 1.27,
-      "xgTotal": 2.97,
-      "formBTTS": 0,
-      "analysis": "Newcastle United (0 matchs réels, xG 1.70) vs Liverpool (0 matchs réels, xG 1.27). xG cumulé 2.97, BTTS 58.8%, Over 2.5 57.0%. Fiabilité 63.96%. Qualité données: LOW.",
-      "analysisData": {
-        "bttsProb": 0.5877,
-        "over25Prob": 0.5701,
-        "homeLambda": 1.7,
-        "awayLambda": 1.27,
-        "xgTotal": 2.97
-      },
-      "estimatedCote": 1.7,
-      "estimatedCoteOver": 1.75,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 59,
-          "bttsProb": 0.5877,
-          "homeLambda": 1.7,
-          "awayLambda": 1.27
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 57,
-          "over25Prob": 0.5701,
-          "homeLambda": 1.7,
-          "awayLambda": 1.27
-        }
-      ],
-      "bttsProb": 0.5877,
-      "over25Prob": 0.5701,
-      "homeLambda": 1.7,
-      "awayLambda": 1.27,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "14%",
       "ai_btts_view": "60%",
       "ai_btts_prob": "60%",
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
-      "ai_key_fact": "xG cumulé de 2.97 avec des données actuellement indisponibles sur les matchs réels.",
-      "ai_analysis": "Newcastle United présente un xG de 1.70 face à Liverpool et ses 1.27 xG. Les statistiques de référence proviennent d'estimations sans matchs réels enregistrés pour l'instant. L'analyse contextuelle indique un potentiel offensif intéressant de part et d'autre. Fiabilité de 63.96% liée à la qualité de données LOW."
+      "ai_key_fact": "Faible qualité des données avec un xG cumulé de 3 basé sur 2 matchs.",
+      "ai_analysis": "Club Brugge dispose d'un xG de 1.72 face à Cercle Brugge KSV et ses 1.28 d'xG. La fiabilité est limitée à 64.19% en raison du faible échantillon de 2 matchs réels. L'analyse penche tout de même vers un match animé avec des buts des deux côtés."
     },
     {
       "id": "santacla-vs-fcfamali-2026-08-23",
@@ -350,8 +280,8 @@
       "ai_btts_prob": "58%",
       "ai_over25_view": "55%",
       "ai_over25_prob": "55%",
-      "ai_key_fact": "xG cumulé de 2.87 basé sur 2 matchs réels pour chaque équipe.",
-      "ai_analysis": "Santa Clara enregistre un xG de 1.65 contre 1.22 pour le FC Famalicao. Les indicateurs offensifs sont homogènes et laissent entrevoir des espaces dans les défenses respectives. La projection penche vers une configuration ouverte malgré la faible quantité de données. Fiabilité globale de 63.18%."
+      "ai_key_fact": "xG cumulé de 2.87 avec un échantillon restreint de 2 matchs réels.",
+      "ai_analysis": "Santa Clara présente un xG de 1.65 contre 1.22 pour le FC Famalicao. Malgré une qualité de données jugée faible, les projections xG soutiennent une tendance favorable au BTTS. La prudence reste de mise au vu de la volatilité de l'échantillon."
     },
     {
       "id": "fcporto-vs-arouca-2026-08-23",
@@ -420,8 +350,8 @@
       "ai_btts_prob": "58%",
       "ai_over25_view": "55%",
       "ai_over25_prob": "55%",
-      "ai_key_fact": "xG cumulé de 2.87 avec un profil offensif favorable à l'équipe locale.",
-      "ai_analysis": "FC Porto détient un xG de 1.65 face aux 1.22 xG d'Arouca sur la base de 2 matchs réels. L'assise offensive du FC Porto à domicile oriente les probabilités vers des opportunités franches. La prudence reste de mise avec une qualité de données évaluée à LOW."
+      "ai_key_fact": "xG cumulé de 2.87 basé sur un échantillon limité de 2 matchs réels.",
+      "ai_analysis": "FC Porto affiche un xG de 1.65 face à Arouca et ses 1.22 d'xG. La fiabilité de 63.18% reflète la faible qualité des données disponibles. Les indicateurs mathématiques tendent néanmoins vers une rencontre où les deux équipes pourraient trouver le chemin des filets."
     },
     {
       "id": "fulham-vs-chelsea-2026-08-24",
@@ -490,8 +420,8 @@
       "ai_btts_prob": "60%",
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
-      "ai_key_fact": "xG cumulé de 2.97 sans matchs réels recensés à ce stade.",
-      "ai_analysis": "Fulham affiche un xG de 1.70 face à Chelsea et son xG de 1.27. Les données de base reposent sur des estimations sans historique de matchs réels fournis. Les projections statistiques maintiennent une chance correcte de voir les deux formations marquer. Fiabilité de 63.96%."
+      "ai_key_fact": "xG cumulé de 2.97 sans matchs réels disponibles dans la base.",
+      "ai_analysis": "Fulham possède un xG estimé à 1.70 contre 1.27 pour Chelsea. Les données proviennent d'un échantillon de 0 match réel, ce qui attribue une qualité LOW et une fiabilité de 63.96%. L'analyse contextuelle suggère une probabilité modérée de buts des deux côtés."
     },
     {
       "id": "gilvicen-vs-casapia-2026-08-24",
@@ -560,8 +490,8 @@
       "ai_btts_prob": "58%",
       "ai_over25_view": "55%",
       "ai_over25_prob": "55%",
-      "ai_key_fact": "xG cumulé de 2.87 avec 1 match réel pour Gil Vicente et 2 pour Casa Pia.",
-      "ai_analysis": "Gil Vicente présente un xG de 1.65 face aux 1.22 xG de Casa Pia. La physionomie du match s'annonce disputée avec des lignes arrières potentiellement perméables. Les données disponibles restent de qualité limitée (LOW) pour une précision accrue."
+      "ai_key_fact": "xG cumulé de 2.87 avec des données de qualité LOW.",
+      "ai_analysis": "Gil Vicente (1 match réel, xG 1.65) accueille Casa Pia (2 matchs réels, xG 1.22). La fiabilité de 63.18% traduit le peu de profondeur statistique. Les projections affichent une légère inclinaison vers le BTTS et l'Over 2.5."
     },
     {
       "id": "fcgronin-vs-fortunas-2026-08-28",
@@ -585,14 +515,14 @@
       "reliabilityScore": 68.85,
       "dataQuality": "LOW",
       "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 2,
+      "matchCountHome": 3,
       "matchCountAway": 3,
       "h2hAvailable": false,
       "xgHome": 1.88,
       "xgAway": 1.42,
       "xgTotal": 3.3,
-      "formBTTS": 47,
-      "analysis": "FC Groningen (2 matchs réels, xG 1.88) vs Fortuna Sittard (3 matchs réels, xG 1.42). xG cumulé 3.3, BTTS 64.2%, Over 2.5 64.1%. Fiabilité 68.85%. Qualité données: LOW.",
+      "formBTTS": 40,
+      "analysis": "FC Groningen (3 matchs réels, xG 1.88) vs Fortuna Sittard (3 matchs réels, xG 1.42). xG cumulé 3.3, BTTS 64.2%, Over 2.5 64.1%. Fiabilité 68.85%. Qualité données: LOW.",
       "analysisData": {
         "bttsProb": 0.6424,
         "over25Prob": 0.6406,
@@ -626,12 +556,12 @@
       "awayLambda": 1.42,
       "ai_exact_score": "2-2",
       "exact_score_prob": "13%",
-      "ai_btts_view": "66%",
-      "ai_btts_prob": "66%",
-      "ai_over25_view": "65%",
-      "ai_over25_prob": "65%",
-      "ai_key_fact": "xG cumulé élevé de 3.3 avec des volumes offensifs intéressants.",
-      "ai_analysis": "FC Groningen totalise un xG de 1.88 contre 1.42 pour Fortuna Sittard sur la base de quelques matchs réels. Ces chiffres traduisent une production offensive supérieure à la moyenne du championnat. La probabilité de voir les deux équipes marquer s'établit à un niveau élevé. Fiabilité de 68.85%."
+      "ai_btts_view": "65%",
+      "ai_btts_prob": "65%",
+      "ai_over25_view": "66%",
+      "ai_over25_prob": "66%",
+      "ai_key_fact": "xG cumulé élevé de 3.3 avec 3 matchs réels pour chaque équipe.",
+      "ai_analysis": "FC Groningen enregistre un xG de 1.88 à domicile, tandis que Fortuna Sittard présente un xG de 1.42. La fiabilité atteint 68.85% malgré une qualité de données qualifiée de LOW. Les chiffres favorisent nettement un match prolifique en occasions et en buts."
     },
     {
       "id": "bayernmu-vs-vfbstutt-2026-08-28",
@@ -696,12 +626,12 @@
       "awayLambda": 1.37,
       "ai_exact_score": "2-1",
       "exact_score_prob": "14%",
-      "ai_btts_view": "64%",
-      "ai_btts_prob": "64%",
+      "ai_btts_view": "63%",
+      "ai_btts_prob": "63%",
       "ai_over25_view": "63%",
       "ai_over25_prob": "63%",
-      "ai_key_fact": "xG cumulé de 3.2 avec une production offensive marquée du Bayern.",
-      "ai_analysis": "Bayern Munich affiche un xG de 1.83 à domicile face à VfB Stuttgart et ses 1.37 xG. Bien que les matchs réels fassent défaut, les valeurs xG théoriques soutiennent un scénario riche en occasions. L'indice de fiabilité atteint 68.16% avec une qualité de données jugée LOW."
+      "ai_key_fact": "xG cumulé de 3.2 sans matchs réels répertoriés dans la base.",
+      "ai_analysis": "Bayern Munich affiche un xG de 1.83 face à VfB Stuttgart et ses 1.37 d'xG. Avec une qualité de données LOW et une fiabilité de 68.16%, l'analyse repose strictement sur les projections de xG. Celles-ci convergent vers un scénario offensif favorable aux deux équipes."
     },
     {
       "id": "tsveintr-vs-herthabe-2026-08-28",
@@ -766,12 +696,12 @@
       "awayLambda": 1.3,
       "ai_exact_score": "2-1",
       "exact_score_prob": "15%",
-      "ai_btts_view": "62%",
-      "ai_btts_prob": "62%",
+      "ai_btts_view": "61%",
+      "ai_btts_prob": "61%",
       "ai_over25_view": "60%",
       "ai_over25_prob": "60%",
-      "ai_key_fact": "xG cumulé de 3.05 sur 2 matchs réels pour chaque formation.",
-      "ai_analysis": "TSV Eintracht Braunschweig possède un xG de 1.74 face à Hertha Berlin et son xG de 1.30. Les statistiques avancées montrent un potentiel de création d'occasions des deux côtés. L'analyse des lignes défensives appuie l'hypothèse d'une rencontre ouverte. Fiabilité de 64.57%."
+      "ai_key_fact": "xG cumulé de 3.05 basé sur un échantillon de 2 matchs réels.",
+      "ai_analysis": "TSV Eintracht Braunschweig présente un xG de 1.74 contre 1.30 pour Hertha Berlin. La fiabilité s'établit à 64.57% avec une qualité de données LOW. Le profil statistique indique une propension intéressante pour le marché du BTTS."
     },
     {
       "id": "vflbochu-vs-vflosnab-2026-08-28",
@@ -836,15 +766,13 @@
       "awayLambda": 1.3,
       "ai_exact_score": "2-1",
       "exact_score_prob": "15%",
-      "ai_btts_view": "62%",
-      "ai_btts_prob": "62%",
+      "ai_btts_view": "61%",
+      "ai_btts_prob": "61%",
       "ai_over25_view": "60%",
       "ai_over25_prob": "60%",
-      "ai_key_fact": "xG cumulé de 3.05 avec un échantillon de 2 matchs réels.",
-      "ai_analysis": "VfL Bochum enregistre un xG de 1.74 contre 1.30 pour VfL Osnabruck. Les indicateurs offensifs démontrent une capacité à perforer les blocs adverses. Les perspectives de buts multiples sont soutenues par la structure des xG. Fiabilité globale de 64.57%."
-    }
-  ],
-  "vipPreview": [
+      "ai_key_fact": "xG cumulé de 3.05 avec un échantillon restreint de 2 matchs réels.",
+      "ai_analysis": "VfL Bochum affiche un xG de 1.74 face à VfL Osnabruck et ses 1.30 d'xG. Les données de qualité LOW donnent une fiabilité de 64.57%. La tendance statistique soutient un match disputé avec des perspectives favorables pour les preneurs de buts."
+    },
     {
       "id": "racingge-vs-waasland-2026-08-28",
       "match": "Racing Genk vs Waasland-Beveren",
@@ -908,13 +836,15 @@
       "awayLambda": 1.28,
       "ai_exact_score": "2-1",
       "exact_score_prob": "14%",
-      "ai_btts_view": "61%",
-      "ai_btts_prob": "61%",
-      "ai_over25_view": "59%",
-      "ai_over25_prob": "59%",
-      "ai_key_fact": "xG cumulé de 3.0 basé sur 3 matchs réels pour chaque équipe.",
-      "ai_analysis": "Racing Genk présente un xG de 1.72 face à Waasland-Beveren et ses 1.28 xG. La constance relative de l'échantillon permet d'observer un léger ascendant des locaux. Le profil du match reste propice à des phases offensives variées. Fiabilité de 64.19%."
-    },
+      "ai_btts_view": "60%",
+      "ai_btts_prob": "60%",
+      "ai_over25_view": "58%",
+      "ai_over25_prob": "58%",
+      "ai_key_fact": "xG cumulé de 3 établi sur un échantillon de 3 matchs réels.",
+      "ai_analysis": "Racing Genk possède un xG de 1.72 contre 1.28 pour Waasland-Beveren. Malgré une qualité de données LOW, la fiabilité atteint 64.19%. Les métriques offensives soutiennent une probabilité correcte de voir les deux formations marquer."
+    }
+  ],
+  "vipPreview": [
     {
       "id": "crystalp-vs-manchest-2026-08-28",
       "match": "Crystal Palace vs Manchester City",
@@ -936,15 +866,15 @@
       "tier": "SILVER",
       "reliabilityScore": 63.96,
       "dataQuality": "LOW",
-      "dataSource": "LEAGUE_FALLBACK",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
       "matchCountHome": 1,
-      "matchCountAway": 0,
+      "matchCountAway": 1,
       "h2hAvailable": false,
       "xgHome": 1.7,
       "xgAway": 1.27,
       "xgTotal": 2.97,
-      "formBTTS": null,
-      "analysis": "Crystal Palace (1 matchs réels, xG 1.70) vs Manchester City (0 matchs réels, xG 1.27). xG cumulé 2.97, BTTS 58.8%, Over 2.5 57.0%. Fiabilité 63.96%. Qualité données: LOW.",
+      "formBTTS": 20,
+      "analysis": "Crystal Palace (1 matchs réels, xG 1.70) vs Manchester City (1 matchs réels, xG 1.27). xG cumulé 2.97, BTTS 58.8%, Over 2.5 57.0%. Fiabilité 63.96%. Qualité données: LOW.",
       "analysisData": {
         "bttsProb": 0.5877,
         "over25Prob": 0.5701,
@@ -976,14 +906,14 @@
       "over25Prob": 0.5701,
       "homeLambda": 1.7,
       "awayLambda": 1.27,
-      "ai_exact_score": "1-2",
+      "ai_exact_score": "2-1",
       "exact_score_prob": "14%",
       "ai_btts_view": "60%",
       "ai_btts_prob": "60%",
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
-      "ai_key_fact": "xG cumulé de 2.97 avec Crystal Palace (1 match réel) et Manchester City (0).",
-      "ai_analysis": "Crystal Palace dispose d'un xG de 1.70 face aux 1.27 xG de Manchester City. Malgré l'absence de données complètes pour les visiteurs, le xG modélisé reste compétitif. La configuration tactique annonce une opposition animée. Fiabilité de 63.96%."
+      "ai_key_fact": "xG cumulé de 2.97 avec seulement 1 match réel par équipe.",
+      "ai_analysis": "Crystal Palace affiche un xG de 1.70 face à Manchester City et ses 1.27 d'xG. La fiabilité de 63.96% reflète la prudence nécessaire face à un échantillon réduit (qualité LOW). L'analyse des xG pointe néanmoins vers un match ouvert."
     },
     {
       "id": "rioave-vs-sporting-2026-08-28",
@@ -1046,14 +976,14 @@
       "over25Prob": 0.5471,
       "homeLambda": 1.65,
       "awayLambda": 1.22,
-      "ai_exact_score": "1-2",
+      "ai_exact_score": "2-1",
       "exact_score_prob": "15%",
       "ai_btts_view": "58%",
       "ai_btts_prob": "58%",
       "ai_over25_view": "55%",
       "ai_over25_prob": "55%",
-      "ai_key_fact": "xG cumulé de 2.87 avec 3 matchs réels pour chaque club.",
-      "ai_analysis": "Rio Ave affiche un xG de 1.65 contre 1.22 pour Sporting CP. Les statistiques enregistrées sur plusieurs rencontres apportent une consistance modérée à l'analyse. Les visiteurs possèdent des arguments pour s'imposer tout en concédant des opportunités. Fiabilité de 63.18%."
+      "ai_key_fact": "xG cumulé de 2.87 s'appuyant sur 3 matchs réels.",
+      "ai_analysis": "Rio Ave présente un xG de 1.65 contre 1.22 pour le Sporting CP. La qualité des données est évaluée à LOW pour une fiabilité de 63.18%. Les indicateurs suggèrent une configuration de match propice aux buts des deux côtés."
     },
     {
       "id": "wrexham-vs-birmingh-2026-08-28",
@@ -1122,8 +1052,8 @@
       "ai_btts_prob": "57%",
       "ai_over25_view": "54%",
       "ai_over25_prob": "54%",
-      "ai_key_fact": "xG cumulé de 2.83 sur 2 matchs réels pour Wrexham et Birmingham City.",
-      "ai_analysis": "Wrexham totalise un xG de 1.62 face à Birmingham City et ses 1.21 xG. Les métriques offensives s'équilibrent autour d'une production correcte pour le niveau de compétition. Les indicateurs penchent modérément vers un match disputé. Fiabilité de 62.86%."
+      "ai_key_fact": "xG cumulé de 2.83 avec 2 matchs réels pour chaque club.",
+      "ai_analysis": "Wrexham affiche un xG de 1.62 face à Birmingham City et ses 1.21 d'xG. La fiabilité s'établit à 62.86% avec des données de qualité LOW. L'analyse statistique penche modérément en faveur d'un score avec des buts de part et d'autre."
     },
     {
       "id": "austrial-vs-wsgswaro-2026-08-28",
@@ -1187,13 +1117,13 @@
       "homeLambda": 1.67,
       "awayLambda": 1.13,
       "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "56%",
-      "ai_btts_prob": "56%",
+      "exact_score_prob": "16%",
+      "ai_btts_view": "55%",
+      "ai_btts_prob": "55%",
       "ai_over25_view": "53%",
       "ai_over25_prob": "53%",
-      "ai_key_fact": "xG cumulé de 2.8 avec des données issues de 4 et 3 matchs réels.",
-      "ai_analysis": "Austria Lustenau détient un xG de 1.67 face à WSG Swarovski Tirol et ses 1.13 xG. La structure de ces données offre une vision cohérente des forces en présence. Le potentiel de concrétisation reste modéré mais suffisant pour animer la partie. Fiabilité de 62.29%."
+      "ai_key_fact": "xG cumulé de 2.8 avec une fiabilité de 62.29%.",
+      "ai_analysis": "Austria Lustenau (4 matchs réels, xG 1.67) reçoit WSG Swarovski Tirol (3 matchs réels, xG 1.13). Malgré une qualité de données LOW, les chiffres laissent entrevoir un léger avantage pour une rencontre animée avec un score étriqué mais actif."
     },
     {
       "id": "intermia-vs-cfmontra-2026-08-29",
@@ -1258,12 +1188,12 @@
       "awayLambda": 2,
       "ai_exact_score": "3-2",
       "exact_score_prob": "12%",
-      "ai_btts_view": "82%",
-      "ai_btts_prob": "82%",
+      "ai_btts_view": "81%",
+      "ai_btts_prob": "81%",
       "ai_over25_view": "85%",
       "ai_over25_prob": "85%",
-      "ai_key_fact": "xG cumulé massif de 4.55 avec une qualité de données HIGH sur 8 matchs.",
-      "ai_analysis": "Inter Miami CF présente un xG très élevé de 2.55 à domicile face à CF Montréal et son xG de 2.00. Ces statistiques illustrent des attaques redoutables et des défenses régulièrement exposées. La probabilité d'un match prolifique en buts est l'une des plus fortes de la sélection. Fiabilité de 93.63%."
+      "ai_key_fact": "xG cumulé exceptionnel de 4.55 avec une forte fiabilité de 93.63%.",
+      "ai_analysis": "Inter Miami CF (xG de 2.55) et CF Montréal (xG de 2.00) affichent des statistiques offensives très élevées basées sur 8 matchs réels. La qualité des données HIGH et la fiabilité supérieure à 93% renforcent grandement la probabilité d'un match très prolifique."
     },
     {
       "id": "redbulln-vs-philadel-2026-08-29",
@@ -1326,14 +1256,14 @@
       "over25Prob": 0.7875,
       "homeLambda": 2.15,
       "awayLambda": 2.03,
-      "ai_exact_score": "2-2",
+      "ai_exact_score": "3-2",
       "exact_score_prob": "13%",
-      "ai_btts_view": "79%",
-      "ai_btts_prob": "79%",
+      "ai_btts_view": "78%",
+      "ai_btts_prob": "78%",
       "ai_over25_view": "80%",
       "ai_over25_prob": "80%",
-      "ai_key_fact": "xG cumulé impressionnant de 4.18 appuyé par 8 matchs réels.",
-      "ai_analysis": "Red Bull New York affiche un xG de 2.15 contre 2.03 pour Philadelphia Union. Les indicateurs confirment une production offensive constante de part et d'autre, surpassant nettement les standards habituels. L'analyse statistique valide une tendance très forte vers un score large. Fiabilité de 92.34%."
+      "ai_key_fact": "xG cumulé massif de 4.18 et fiabilité de 92.34% (Qualité HIGH).",
+      "ai_analysis": "Red Bull New York présente un xG de 2.15 contre 2.03 pour Philadelphia Union, sur un échantillon solide de 8 matchs réels. Les indicateurs de performance offensive soutiennent massivement un match spectaculaire avec de nombreuses occasions de part et d'autre."
     },
     {
       "id": "torontof-vs-newyorkc-2026-08-29",
@@ -1397,20 +1327,90 @@
       "homeLambda": 2,
       "awayLambda": 1.6,
       "ai_exact_score": "2-2",
-      "exact_score_prob": "13%",
+      "exact_score_prob": "14%",
       "ai_btts_view": "71%",
       "ai_btts_prob": "71%",
-      "ai_over25_view": "71%",
-      "ai_over25_prob": "71%",
-      "ai_key_fact": "xG cumulé de 3.6 avec un niveau de fiabilité élevé de 88.94%.",
-      "ai_analysis": "Toronto FC enregistre un xG de 2.00 face à New York City FC et ses 1.60 xG sur 8 matchs réels. L'analyse des performances récentes met en lumière des lignes offensives performantes et des arrières-gardes friables. Les perspectives de voir les filets trembler des deux côtés sont particulièrement élevées. Fiabilité de 88.94%."
+      "ai_over25_view": "72%",
+      "ai_over25_prob": "72%",
+      "ai_key_fact": "xG cumulé solide de 3.6 avec une fiabilité de 88.94%.",
+      "ai_analysis": "Toronto FC (8 matchs réels, xG 2.00) affronte New York City FC (8 matchs réels, xG 1.60). La qualité des données HIGH garantit une analyse robuste pointant vers une forte probabilité de BTTS et un Over 2.5 nettement confirmé."
+    },
+    {
+      "id": "atlantau-vs-charlott-2026-08-29",
+      "match": "Atlanta United FC vs Charlotte FC",
+      "home": "Atlanta United FC",
+      "away": "Charlotte FC",
+      "league": "MLS",
+      "date": "2026-08-29",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.67,
+      "bttsProbDisplay": "67.00%",
+      "over25ProbDisplay": "67.61%",
+      "confidence": 67,
+      "time": "23:30",
+      "matchSemantic": "atlantau-vs-charlott-2026-08-29",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18418.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21300.png",
+      "tier": "GOLD",
+      "reliabilityScore": 88.06,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.98,
+      "xgAway": 1.5,
+      "xgTotal": 3.48,
+      "formBTTS": 35,
+      "analysis": "Atlanta United FC (8 matchs réels, xG 1.98) vs Charlotte FC (8 matchs réels, xG 1.50). xG cumulé 3.48, BTTS 67.0%, Over 2.5 67.6%. Fiabilité 88.06%. Qualité données: HIGH.",
+      "analysisData": {
+        "bttsProb": 0.67,
+        "over25Prob": 0.6761,
+        "homeLambda": 1.98,
+        "awayLambda": 1.5,
+        "xgTotal": 3.48
+      },
+      "estimatedCote": 1.49,
+      "estimatedCoteOver": 1.48,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 67,
+          "bttsProb": 0.67,
+          "homeLambda": 1.98,
+          "awayLambda": 1.5
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 68,
+          "over25Prob": 0.6761,
+          "homeLambda": 1.98,
+          "awayLambda": 1.5
+        }
+      ],
+      "bttsProb": 0.67,
+      "over25Prob": 0.6761,
+      "homeLambda": 1.98,
+      "awayLambda": 1.5,
+      "ai_exact_score": "2-1",
+      "exact_score_prob": "15%",
+      "ai_btts_view": "69%",
+      "ai_btts_prob": "69%",
+      "ai_over25_view": "68%",
+      "ai_over25_prob": "68%",
+      "ai_key_fact": "xG cumulé de 3.48 avec une haute fiabilité de 88.06%.",
+      "ai_analysis": "Atlanta United FC (8 matchs réels, xG 1.98) rencontre Charlotte FC (8 matchs réels, xG 1.50). Les données de qualité HIGH permettent d'établir des projections fiables qui favorisent nettement le marché des buts et un scénario offensif."
     }
   ],
   "stats": {
-    "avgReliability": 68.79,
-    "totalAnalyzed": 71,
+    "avgReliability": 68.86,
+    "totalAnalyzed": 70,
     "totalRejected": 0,
-    "totalAccepted": 71,
+    "totalAccepted": 70,
     "freeCount": 12,
     "vipCount": 8
   },
@@ -1478,12 +1478,12 @@
       "awayLambda": 1,
       "ai_exact_score": "2-1",
       "exact_score_prob": "15%",
-      "ai_btts_view": "60%",
-      "ai_btts_prob": "60%",
-      "ai_over25_view": "68%",
-      "ai_over25_prob": "68%",
-      "ai_key_fact": "xG cumulé de 3.4 et qualité de données HIGH sur 8 matchs réels.",
-      "ai_analysis": "Atlanta United FC présente un xG solide de 2.40 à domicile, tandis que Sporting Kansas City affiche un xG de 1.00. La dynamique offensive suggère des opportunités des deux côtés du terrain. Avec un xG cumulé de 3.4, la probabilité d'un match ouvert est notable. Fiabilité globale de l'analyse établie à 83.9%."
+      "ai_btts_view": "62%",
+      "ai_btts_prob": "62%",
+      "ai_over25_view": "70%",
+      "ai_over25_prob": "70%",
+      "ai_key_fact": "xG cumulé de 3.4 et fiabilité de 83.9% avec des données de qualité HIGH.",
+      "ai_analysis": "Atlanta United FC présente un xG à domicile de 2.40 sur la base de 8 matchs réels, ce qui démontre un fort potentiel offensif. Sporting Kansas City affiche de son côté un xG de 1.00. La conjonction de ces métriques appuie un scénario ouvert avec de bonnes probabilités de voir les deux équipes marquer et de dépasser la barre des 2.5 buts."
     },
     {
       "id": "newengla-vs-newyorkc-2026-08-23",
@@ -1547,13 +1547,13 @@
       "homeLambda": 1.5,
       "awayLambda": 1.1,
       "ai_exact_score": "1-1",
-      "exact_score_prob": "16%",
+      "exact_score_prob": "18%",
       "ai_btts_view": "53%",
       "ai_btts_prob": "53%",
-      "ai_over25_view": "46%",
-      "ai_over25_prob": "46%",
-      "ai_key_fact": "xG cumulé modéré de 2.6 avec des données de haute qualité.",
-      "ai_analysis": "New England Revolution affiche un xG de 1.50 contre 1.10 pour New York City FC sur 8 matchs réels. L'équilibre des forces suggère une rencontre serrée avec des options de buts limitées en raison de la configuration tactique. Le marché des plus de 2.5 buts présente des perspectives plus partagées. Fiabilité de 76.42% basée sur les données disponibles."
+      "ai_over25_view": "45%",
+      "ai_over25_prob": "45%",
+      "ai_key_fact": "xG cumulé modeste de 2.6 avec un équilibre notable entre les formations.",
+      "ai_analysis": "New England Revolution possède un xG de 1.50 contre 1.10 pour New York City FC d'après les 8 matchs réels analysés. Les statistiques suggèrent une opposition fermée où la probabilité de l'Over 2.5 reste sous la barre des 50%. Néanmoins, le BTTS demeure légèrement favorisé par les indicateurs contextuels."
     },
     {
       "id": "clubbrug-vs-cerclebr-2026-08-23",
@@ -1618,82 +1618,12 @@
       "awayLambda": 1.28,
       "ai_exact_score": "2-1",
       "exact_score_prob": "14%",
-      "ai_btts_view": "61%",
-      "ai_btts_prob": "61%",
-      "ai_over25_view": "59%",
-      "ai_over25_prob": "59%",
-      "ai_key_fact": "xG cumulé de 3.0 sur 2 matchs réels avec qualité de données LOW.",
-      "ai_analysis": "Club Brugge dispose d'un xG de 1.72 face à Cercle Brugge KSV et ses 1.28 xG. Les volumes offensifs restent corrects malgré un échantillon de matchs réels limité à 2. La configuration globale soutient une tendance favorable aux buts des deux côtés. Fiabilité de 64.19% en raison de la faible volumétrie."
-    },
-    {
-      "id": "newcastl-vs-liverpoo-2026-08-23",
-      "match": "Newcastle United vs Liverpool",
-      "home": "Newcastle United",
-      "away": "Liverpool",
-      "league": "Premier League",
-      "date": "2026-08-23",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5877,
-      "bttsProbDisplay": "58.77%",
-      "over25ProbDisplay": "57.01%",
-      "confidence": 59,
-      "time": "15:30",
-      "matchSemantic": "newcastl-vs-liverpoo-2026-08-23",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/361.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
-      "tier": "SILVER",
-      "reliabilityScore": 63.96,
-      "dataQuality": "LOW",
-      "dataSource": "LEAGUE_FALLBACK",
-      "matchCountHome": 0,
-      "matchCountAway": 0,
-      "h2hAvailable": false,
-      "xgHome": 1.7,
-      "xgAway": 1.27,
-      "xgTotal": 2.97,
-      "formBTTS": 0,
-      "analysis": "Newcastle United (0 matchs réels, xG 1.70) vs Liverpool (0 matchs réels, xG 1.27). xG cumulé 2.97, BTTS 58.8%, Over 2.5 57.0%. Fiabilité 63.96%. Qualité données: LOW.",
-      "analysisData": {
-        "bttsProb": 0.5877,
-        "over25Prob": 0.5701,
-        "homeLambda": 1.7,
-        "awayLambda": 1.27,
-        "xgTotal": 2.97
-      },
-      "estimatedCote": 1.7,
-      "estimatedCoteOver": 1.75,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 59,
-          "bttsProb": 0.5877,
-          "homeLambda": 1.7,
-          "awayLambda": 1.27
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 57,
-          "over25Prob": 0.5701,
-          "homeLambda": 1.7,
-          "awayLambda": 1.27
-        }
-      ],
-      "bttsProb": 0.5877,
-      "over25Prob": 0.5701,
-      "homeLambda": 1.7,
-      "awayLambda": 1.27,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "14%",
       "ai_btts_view": "60%",
       "ai_btts_prob": "60%",
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
-      "ai_key_fact": "xG cumulé de 2.97 avec des données actuellement indisponibles sur les matchs réels.",
-      "ai_analysis": "Newcastle United présente un xG de 1.70 face à Liverpool et ses 1.27 xG. Les statistiques de référence proviennent d'estimations sans matchs réels enregistrés pour l'instant. L'analyse contextuelle indique un potentiel offensif intéressant de part et d'autre. Fiabilité de 63.96% liée à la qualité de données LOW."
+      "ai_key_fact": "Faible qualité des données avec un xG cumulé de 3 basé sur 2 matchs.",
+      "ai_analysis": "Club Brugge dispose d'un xG de 1.72 face à Cercle Brugge KSV et ses 1.28 d'xG. La fiabilité est limitée à 64.19% en raison du faible échantillon de 2 matchs réels. L'analyse penche tout de même vers un match animé avec des buts des deux côtés."
     },
     {
       "id": "santacla-vs-fcfamali-2026-08-23",
@@ -1762,8 +1692,8 @@
       "ai_btts_prob": "58%",
       "ai_over25_view": "55%",
       "ai_over25_prob": "55%",
-      "ai_key_fact": "xG cumulé de 2.87 basé sur 2 matchs réels pour chaque équipe.",
-      "ai_analysis": "Santa Clara enregistre un xG de 1.65 contre 1.22 pour le FC Famalicao. Les indicateurs offensifs sont homogènes et laissent entrevoir des espaces dans les défenses respectives. La projection penche vers une configuration ouverte malgré la faible quantité de données. Fiabilité globale de 63.18%."
+      "ai_key_fact": "xG cumulé de 2.87 avec un échantillon restreint de 2 matchs réels.",
+      "ai_analysis": "Santa Clara présente un xG de 1.65 contre 1.22 pour le FC Famalicao. Malgré une qualité de données jugée faible, les projections xG soutiennent une tendance favorable au BTTS. La prudence reste de mise au vu de la volatilité de l'échantillon."
     },
     {
       "id": "fcporto-vs-arouca-2026-08-23",
@@ -1832,8 +1762,8 @@
       "ai_btts_prob": "58%",
       "ai_over25_view": "55%",
       "ai_over25_prob": "55%",
-      "ai_key_fact": "xG cumulé de 2.87 avec un profil offensif favorable à l'équipe locale.",
-      "ai_analysis": "FC Porto détient un xG de 1.65 face aux 1.22 xG d'Arouca sur la base de 2 matchs réels. L'assise offensive du FC Porto à domicile oriente les probabilités vers des opportunités franches. La prudence reste de mise avec une qualité de données évaluée à LOW."
+      "ai_key_fact": "xG cumulé de 2.87 basé sur un échantillon limité de 2 matchs réels.",
+      "ai_analysis": "FC Porto affiche un xG de 1.65 face à Arouca et ses 1.22 d'xG. La fiabilité de 63.18% reflète la faible qualité des données disponibles. Les indicateurs mathématiques tendent néanmoins vers une rencontre où les deux équipes pourraient trouver le chemin des filets."
     },
     {
       "id": "fulham-vs-chelsea-2026-08-24",
@@ -1902,8 +1832,8 @@
       "ai_btts_prob": "60%",
       "ai_over25_view": "58%",
       "ai_over25_prob": "58%",
-      "ai_key_fact": "xG cumulé de 2.97 sans matchs réels recensés à ce stade.",
-      "ai_analysis": "Fulham affiche un xG de 1.70 face à Chelsea et son xG de 1.27. Les données de base reposent sur des estimations sans historique de matchs réels fournis. Les projections statistiques maintiennent une chance correcte de voir les deux formations marquer. Fiabilité de 63.96%."
+      "ai_key_fact": "xG cumulé de 2.97 sans matchs réels disponibles dans la base.",
+      "ai_analysis": "Fulham possède un xG estimé à 1.70 contre 1.27 pour Chelsea. Les données proviennent d'un échantillon de 0 match réel, ce qui attribue une qualité LOW et une fiabilité de 63.96%. L'analyse contextuelle suggère une probabilité modérée de buts des deux côtés."
     },
     {
       "id": "gilvicen-vs-casapia-2026-08-24",
@@ -1972,8 +1902,8 @@
       "ai_btts_prob": "58%",
       "ai_over25_view": "55%",
       "ai_over25_prob": "55%",
-      "ai_key_fact": "xG cumulé de 2.87 avec 1 match réel pour Gil Vicente et 2 pour Casa Pia.",
-      "ai_analysis": "Gil Vicente présente un xG de 1.65 face aux 1.22 xG de Casa Pia. La physionomie du match s'annonce disputée avec des lignes arrières potentiellement perméables. Les données disponibles restent de qualité limitée (LOW) pour une précision accrue."
+      "ai_key_fact": "xG cumulé de 2.87 avec des données de qualité LOW.",
+      "ai_analysis": "Gil Vicente (1 match réel, xG 1.65) accueille Casa Pia (2 matchs réels, xG 1.22). La fiabilité de 63.18% traduit le peu de profondeur statistique. Les projections affichent une légère inclinaison vers le BTTS et l'Over 2.5."
     },
     {
       "id": "fcgronin-vs-fortunas-2026-08-28",
@@ -1997,14 +1927,14 @@
       "reliabilityScore": 68.85,
       "dataQuality": "LOW",
       "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 2,
+      "matchCountHome": 3,
       "matchCountAway": 3,
       "h2hAvailable": false,
       "xgHome": 1.88,
       "xgAway": 1.42,
       "xgTotal": 3.3,
-      "formBTTS": 47,
-      "analysis": "FC Groningen (2 matchs réels, xG 1.88) vs Fortuna Sittard (3 matchs réels, xG 1.42). xG cumulé 3.3, BTTS 64.2%, Over 2.5 64.1%. Fiabilité 68.85%. Qualité données: LOW.",
+      "formBTTS": 40,
+      "analysis": "FC Groningen (3 matchs réels, xG 1.88) vs Fortuna Sittard (3 matchs réels, xG 1.42). xG cumulé 3.3, BTTS 64.2%, Over 2.5 64.1%. Fiabilité 68.85%. Qualité données: LOW.",
       "analysisData": {
         "bttsProb": 0.6424,
         "over25Prob": 0.6406,
@@ -2038,12 +1968,12 @@
       "awayLambda": 1.42,
       "ai_exact_score": "2-2",
       "exact_score_prob": "13%",
-      "ai_btts_view": "66%",
-      "ai_btts_prob": "66%",
-      "ai_over25_view": "65%",
-      "ai_over25_prob": "65%",
-      "ai_key_fact": "xG cumulé élevé de 3.3 avec des volumes offensifs intéressants.",
-      "ai_analysis": "FC Groningen totalise un xG de 1.88 contre 1.42 pour Fortuna Sittard sur la base de quelques matchs réels. Ces chiffres traduisent une production offensive supérieure à la moyenne du championnat. La probabilité de voir les deux équipes marquer s'établit à un niveau élevé. Fiabilité de 68.85%."
+      "ai_btts_view": "65%",
+      "ai_btts_prob": "65%",
+      "ai_over25_view": "66%",
+      "ai_over25_prob": "66%",
+      "ai_key_fact": "xG cumulé élevé de 3.3 avec 3 matchs réels pour chaque équipe.",
+      "ai_analysis": "FC Groningen enregistre un xG de 1.88 à domicile, tandis que Fortuna Sittard présente un xG de 1.42. La fiabilité atteint 68.85% malgré une qualité de données qualifiée de LOW. Les chiffres favorisent nettement un match prolifique en occasions et en buts."
     },
     {
       "id": "bayernmu-vs-vfbstutt-2026-08-28",
@@ -2108,12 +2038,12 @@
       "awayLambda": 1.37,
       "ai_exact_score": "2-1",
       "exact_score_prob": "14%",
-      "ai_btts_view": "64%",
-      "ai_btts_prob": "64%",
+      "ai_btts_view": "63%",
+      "ai_btts_prob": "63%",
       "ai_over25_view": "63%",
       "ai_over25_prob": "63%",
-      "ai_key_fact": "xG cumulé de 3.2 avec une production offensive marquée du Bayern.",
-      "ai_analysis": "Bayern Munich affiche un xG de 1.83 à domicile face à VfB Stuttgart et ses 1.37 xG. Bien que les matchs réels fassent défaut, les valeurs xG théoriques soutiennent un scénario riche en occasions. L'indice de fiabilité atteint 68.16% avec une qualité de données jugée LOW."
+      "ai_key_fact": "xG cumulé de 3.2 sans matchs réels répertoriés dans la base.",
+      "ai_analysis": "Bayern Munich affiche un xG de 1.83 face à VfB Stuttgart et ses 1.37 d'xG. Avec une qualité de données LOW et une fiabilité de 68.16%, l'analyse repose strictement sur les projections de xG. Celles-ci convergent vers un scénario offensif favorable aux deux équipes."
     },
     {
       "id": "tsveintr-vs-herthabe-2026-08-28",
@@ -2178,12 +2108,12 @@
       "awayLambda": 1.3,
       "ai_exact_score": "2-1",
       "exact_score_prob": "15%",
-      "ai_btts_view": "62%",
-      "ai_btts_prob": "62%",
+      "ai_btts_view": "61%",
+      "ai_btts_prob": "61%",
       "ai_over25_view": "60%",
       "ai_over25_prob": "60%",
-      "ai_key_fact": "xG cumulé de 3.05 sur 2 matchs réels pour chaque formation.",
-      "ai_analysis": "TSV Eintracht Braunschweig possède un xG de 1.74 face à Hertha Berlin et son xG de 1.30. Les statistiques avancées montrent un potentiel de création d'occasions des deux côtés. L'analyse des lignes défensives appuie l'hypothèse d'une rencontre ouverte. Fiabilité de 64.57%."
+      "ai_key_fact": "xG cumulé de 3.05 basé sur un échantillon de 2 matchs réels.",
+      "ai_analysis": "TSV Eintracht Braunschweig présente un xG de 1.74 contre 1.30 pour Hertha Berlin. La fiabilité s'établit à 64.57% avec une qualité de données LOW. Le profil statistique indique une propension intéressante pour le marché du BTTS."
     },
     {
       "id": "vflbochu-vs-vflosnab-2026-08-28",
@@ -2248,12 +2178,82 @@
       "awayLambda": 1.3,
       "ai_exact_score": "2-1",
       "exact_score_prob": "15%",
-      "ai_btts_view": "62%",
-      "ai_btts_prob": "62%",
+      "ai_btts_view": "61%",
+      "ai_btts_prob": "61%",
       "ai_over25_view": "60%",
       "ai_over25_prob": "60%",
-      "ai_key_fact": "xG cumulé de 3.05 avec un échantillon de 2 matchs réels.",
-      "ai_analysis": "VfL Bochum enregistre un xG de 1.74 contre 1.30 pour VfL Osnabruck. Les indicateurs offensifs démontrent une capacité à perforer les blocs adverses. Les perspectives de buts multiples sont soutenues par la structure des xG. Fiabilité globale de 64.57%."
+      "ai_key_fact": "xG cumulé de 3.05 avec un échantillon restreint de 2 matchs réels.",
+      "ai_analysis": "VfL Bochum affiche un xG de 1.74 face à VfL Osnabruck et ses 1.30 d'xG. Les données de qualité LOW donnent une fiabilité de 64.57%. La tendance statistique soutient un match disputé avec des perspectives favorables pour les preneurs de buts."
+    },
+    {
+      "id": "racingge-vs-waasland-2026-08-28",
+      "match": "Racing Genk vs Waasland-Beveren",
+      "home": "Racing Genk",
+      "away": "Waasland-Beveren",
+      "league": "Jupiler Pro League",
+      "date": "2026-08-28",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5929,
+      "bttsProbDisplay": "59.29%",
+      "over25ProbDisplay": "57.68%",
+      "confidence": 59,
+      "time": "18:45",
+      "matchSemantic": "racingge-vs-waasland-2026-08-28",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/938.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/13450.png",
+      "tier": "SILVER",
+      "reliabilityScore": 64.19,
+      "dataQuality": "LOW",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 3,
+      "matchCountAway": 3,
+      "h2hAvailable": false,
+      "xgHome": 1.72,
+      "xgAway": 1.28,
+      "xgTotal": 3,
+      "formBTTS": 33,
+      "analysis": "Racing Genk (3 matchs réels, xG 1.72) vs Waasland-Beveren (3 matchs réels, xG 1.28). xG cumulé 3, BTTS 59.3%, Over 2.5 57.7%. Fiabilité 64.19%. Qualité données: LOW.",
+      "analysisData": {
+        "bttsProb": 0.5929,
+        "over25Prob": 0.5768,
+        "homeLambda": 1.72,
+        "awayLambda": 1.28,
+        "xgTotal": 3
+      },
+      "estimatedCote": 1.69,
+      "estimatedCoteOver": 1.73,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 59,
+          "bttsProb": 0.5929,
+          "homeLambda": 1.72,
+          "awayLambda": 1.28
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 58,
+          "over25Prob": 0.5768,
+          "homeLambda": 1.72,
+          "awayLambda": 1.28
+        }
+      ],
+      "bttsProb": 0.5929,
+      "over25Prob": 0.5768,
+      "homeLambda": 1.72,
+      "awayLambda": 1.28,
+      "ai_exact_score": "2-1",
+      "exact_score_prob": "14%",
+      "ai_btts_view": "60%",
+      "ai_btts_prob": "60%",
+      "ai_over25_view": "58%",
+      "ai_over25_prob": "58%",
+      "ai_key_fact": "xG cumulé de 3 établi sur un échantillon de 3 matchs réels.",
+      "ai_analysis": "Racing Genk possède un xG de 1.72 contre 1.28 pour Waasland-Beveren. Malgré une qualité de données LOW, la fiabilité atteint 64.19%. Les métriques offensives soutiennent une probabilité correcte de voir les deux formations marquer."
     }
   ]
 }

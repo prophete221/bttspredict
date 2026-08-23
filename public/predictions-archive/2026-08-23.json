@@ -1,6 +1,6 @@
 {
   "date": "2026-08-23",
-  "lastUpdated": "2026-08-23T14:46:58.523Z",
+  "lastUpdated": "2026-08-23T15:23:27.209Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -188,68 +188,6 @@
       "over25Prob": 0.5768,
       "homeLambda": 1.72,
       "awayLambda": 1.28
-    },
-    {
-      "id": "newcastl-vs-liverpoo-2026-08-23",
-      "match": "Newcastle United vs Liverpool",
-      "home": "Newcastle United",
-      "away": "Liverpool",
-      "league": "Premier League",
-      "date": "2026-08-23",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5877,
-      "bttsProbDisplay": "58.77%",
-      "over25ProbDisplay": "57.01%",
-      "confidence": 59,
-      "time": "15:30",
-      "matchSemantic": "newcastl-vs-liverpoo-2026-08-23",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/361.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
-      "tier": "SILVER",
-      "reliabilityScore": 63.96,
-      "dataQuality": "LOW",
-      "dataSource": "LEAGUE_FALLBACK",
-      "matchCountHome": 0,
-      "matchCountAway": 0,
-      "h2hAvailable": false,
-      "xgHome": 1.7,
-      "xgAway": 1.27,
-      "xgTotal": 2.97,
-      "formBTTS": 0,
-      "analysis": "Newcastle United (0 matchs réels, xG 1.70) vs Liverpool (0 matchs réels, xG 1.27). xG cumulé 2.97, BTTS 58.8%, Over 2.5 57.0%. Fiabilité 63.96%. Qualité données: LOW.",
-      "analysisData": {
-        "bttsProb": 0.5877,
-        "over25Prob": 0.5701,
-        "homeLambda": 1.7,
-        "awayLambda": 1.27,
-        "xgTotal": 2.97
-      },
-      "estimatedCote": 1.7,
-      "estimatedCoteOver": 1.75,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 59,
-          "bttsProb": 0.5877,
-          "homeLambda": 1.7,
-          "awayLambda": 1.27
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 57,
-          "over25Prob": 0.5701,
-          "homeLambda": 1.7,
-          "awayLambda": 1.27
-        }
-      ],
-      "bttsProb": 0.5877,
-      "over25Prob": 0.5701,
-      "homeLambda": 1.7,
-      "awayLambda": 1.27
     },
     {
       "id": "santacla-vs-fcfamali-2026-08-23",
@@ -521,14 +459,14 @@
       "reliabilityScore": 68.85,
       "dataQuality": "LOW",
       "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 2,
+      "matchCountHome": 3,
       "matchCountAway": 3,
       "h2hAvailable": false,
       "xgHome": 1.88,
       "xgAway": 1.42,
       "xgTotal": 3.3,
-      "formBTTS": 47,
-      "analysis": "FC Groningen (2 matchs réels, xG 1.88) vs Fortuna Sittard (3 matchs réels, xG 1.42). xG cumulé 3.3, BTTS 64.2%, Over 2.5 64.1%. Fiabilité 68.85%. Qualité données: LOW.",
+      "formBTTS": 40,
+      "analysis": "FC Groningen (3 matchs réels, xG 1.88) vs Fortuna Sittard (3 matchs réels, xG 1.42). xG cumulé 3.3, BTTS 64.2%, Over 2.5 64.1%. Fiabilité 68.85%. Qualité données: LOW.",
       "analysisData": {
         "bttsProb": 0.6424,
         "over25Prob": 0.6406,
@@ -746,9 +684,7 @@
       "over25Prob": 0.5879,
       "homeLambda": 1.74,
       "awayLambda": 1.3
-    }
-  ],
-  "vipPreview": [
+    },
     {
       "id": "racingge-vs-waasland-2026-08-28",
       "match": "Racing Genk vs Waasland-Beveren",
@@ -810,7 +746,9 @@
       "over25Prob": 0.5768,
       "homeLambda": 1.72,
       "awayLambda": 1.28
-    },
+    }
+  ],
+  "vipPreview": [
     {
       "id": "crystalp-vs-manchest-2026-08-28",
       "match": "Crystal Palace vs Manchester City",
@@ -832,15 +770,15 @@
       "tier": "SILVER",
       "reliabilityScore": 63.96,
       "dataQuality": "LOW",
-      "dataSource": "LEAGUE_FALLBACK",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
       "matchCountHome": 1,
-      "matchCountAway": 0,
+      "matchCountAway": 1,
       "h2hAvailable": false,
       "xgHome": 1.7,
       "xgAway": 1.27,
       "xgTotal": 2.97,
-      "formBTTS": null,
-      "analysis": "Crystal Palace (1 matchs réels, xG 1.70) vs Manchester City (0 matchs réels, xG 1.27). xG cumulé 2.97, BTTS 58.8%, Over 2.5 57.0%. Fiabilité 63.96%. Qualité données: LOW.",
+      "formBTTS": 20,
+      "analysis": "Crystal Palace (1 matchs réels, xG 1.70) vs Manchester City (1 matchs réels, xG 1.27). xG cumulé 2.97, BTTS 58.8%, Over 2.5 57.0%. Fiabilité 63.96%. Qualité données: LOW.",
       "analysisData": {
         "bttsProb": 0.5877,
         "over25Prob": 0.5701,
@@ -1244,13 +1182,75 @@
       "over25Prob": 0.6973,
       "homeLambda": 2,
       "awayLambda": 1.6
+    },
+    {
+      "id": "atlantau-vs-charlott-2026-08-29",
+      "match": "Atlanta United FC vs Charlotte FC",
+      "home": "Atlanta United FC",
+      "away": "Charlotte FC",
+      "league": "MLS",
+      "date": "2026-08-29",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.67,
+      "bttsProbDisplay": "67.00%",
+      "over25ProbDisplay": "67.61%",
+      "confidence": 67,
+      "time": "23:30",
+      "matchSemantic": "atlantau-vs-charlott-2026-08-29",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18418.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21300.png",
+      "tier": "GOLD",
+      "reliabilityScore": 88.06,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.98,
+      "xgAway": 1.5,
+      "xgTotal": 3.48,
+      "formBTTS": 35,
+      "analysis": "Atlanta United FC (8 matchs réels, xG 1.98) vs Charlotte FC (8 matchs réels, xG 1.50). xG cumulé 3.48, BTTS 67.0%, Over 2.5 67.6%. Fiabilité 88.06%. Qualité données: HIGH.",
+      "analysisData": {
+        "bttsProb": 0.67,
+        "over25Prob": 0.6761,
+        "homeLambda": 1.98,
+        "awayLambda": 1.5,
+        "xgTotal": 3.48
+      },
+      "estimatedCote": 1.49,
+      "estimatedCoteOver": 1.48,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 67,
+          "bttsProb": 0.67,
+          "homeLambda": 1.98,
+          "awayLambda": 1.5
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 68,
+          "over25Prob": 0.6761,
+          "homeLambda": 1.98,
+          "awayLambda": 1.5
+        }
+      ],
+      "bttsProb": 0.67,
+      "over25Prob": 0.6761,
+      "homeLambda": 1.98,
+      "awayLambda": 1.5
     }
   ],
   "stats": {
-    "avgReliability": 68.79,
-    "totalAnalyzed": 71,
+    "avgReliability": 68.86,
+    "totalAnalyzed": 70,
     "totalRejected": 0,
-    "totalAccepted": 71,
+    "totalAccepted": 70,
     "freeCount": 12,
     "vipCount": 8
   },
@@ -1440,68 +1440,6 @@
       "over25Prob": 0.5768,
       "homeLambda": 1.72,
       "awayLambda": 1.28
-    },
-    {
-      "id": "newcastl-vs-liverpoo-2026-08-23",
-      "match": "Newcastle United vs Liverpool",
-      "home": "Newcastle United",
-      "away": "Liverpool",
-      "league": "Premier League",
-      "date": "2026-08-23",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5877,
-      "bttsProbDisplay": "58.77%",
-      "over25ProbDisplay": "57.01%",
-      "confidence": 59,
-      "time": "15:30",
-      "matchSemantic": "newcastl-vs-liverpoo-2026-08-23",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/361.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
-      "tier": "SILVER",
-      "reliabilityScore": 63.96,
-      "dataQuality": "LOW",
-      "dataSource": "LEAGUE_FALLBACK",
-      "matchCountHome": 0,
-      "matchCountAway": 0,
-      "h2hAvailable": false,
-      "xgHome": 1.7,
-      "xgAway": 1.27,
-      "xgTotal": 2.97,
-      "formBTTS": 0,
-      "analysis": "Newcastle United (0 matchs réels, xG 1.70) vs Liverpool (0 matchs réels, xG 1.27). xG cumulé 2.97, BTTS 58.8%, Over 2.5 57.0%. Fiabilité 63.96%. Qualité données: LOW.",
-      "analysisData": {
-        "bttsProb": 0.5877,
-        "over25Prob": 0.5701,
-        "homeLambda": 1.7,
-        "awayLambda": 1.27,
-        "xgTotal": 2.97
-      },
-      "estimatedCote": 1.7,
-      "estimatedCoteOver": 1.75,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 59,
-          "bttsProb": 0.5877,
-          "homeLambda": 1.7,
-          "awayLambda": 1.27
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 57,
-          "over25Prob": 0.5701,
-          "homeLambda": 1.7,
-          "awayLambda": 1.27
-        }
-      ],
-      "bttsProb": 0.5877,
-      "over25Prob": 0.5701,
-      "homeLambda": 1.7,
-      "awayLambda": 1.27
     },
     {
       "id": "santacla-vs-fcfamali-2026-08-23",
@@ -1773,14 +1711,14 @@
       "reliabilityScore": 68.85,
       "dataQuality": "LOW",
       "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 2,
+      "matchCountHome": 3,
       "matchCountAway": 3,
       "h2hAvailable": false,
       "xgHome": 1.88,
       "xgAway": 1.42,
       "xgTotal": 3.3,
-      "formBTTS": 47,
-      "analysis": "FC Groningen (2 matchs réels, xG 1.88) vs Fortuna Sittard (3 matchs réels, xG 1.42). xG cumulé 3.3, BTTS 64.2%, Over 2.5 64.1%. Fiabilité 68.85%. Qualité données: LOW.",
+      "formBTTS": 40,
+      "analysis": "FC Groningen (3 matchs réels, xG 1.88) vs Fortuna Sittard (3 matchs réels, xG 1.42). xG cumulé 3.3, BTTS 64.2%, Over 2.5 64.1%. Fiabilité 68.85%. Qualité données: LOW.",
       "analysisData": {
         "bttsProb": 0.6424,
         "over25Prob": 0.6406,
@@ -1998,6 +1936,68 @@
       "over25Prob": 0.5879,
       "homeLambda": 1.74,
       "awayLambda": 1.3
+    },
+    {
+      "id": "racingge-vs-waasland-2026-08-28",
+      "match": "Racing Genk vs Waasland-Beveren",
+      "home": "Racing Genk",
+      "away": "Waasland-Beveren",
+      "league": "Jupiler Pro League",
+      "date": "2026-08-28",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5929,
+      "bttsProbDisplay": "59.29%",
+      "over25ProbDisplay": "57.68%",
+      "confidence": 59,
+      "time": "18:45",
+      "matchSemantic": "racingge-vs-waasland-2026-08-28",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/938.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/13450.png",
+      "tier": "SILVER",
+      "reliabilityScore": 64.19,
+      "dataQuality": "LOW",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 3,
+      "matchCountAway": 3,
+      "h2hAvailable": false,
+      "xgHome": 1.72,
+      "xgAway": 1.28,
+      "xgTotal": 3,
+      "formBTTS": 33,
+      "analysis": "Racing Genk (3 matchs réels, xG 1.72) vs Waasland-Beveren (3 matchs réels, xG 1.28). xG cumulé 3, BTTS 59.3%, Over 2.5 57.7%. Fiabilité 64.19%. Qualité données: LOW.",
+      "analysisData": {
+        "bttsProb": 0.5929,
+        "over25Prob": 0.5768,
+        "homeLambda": 1.72,
+        "awayLambda": 1.28,
+        "xgTotal": 3
+      },
+      "estimatedCote": 1.69,
+      "estimatedCoteOver": 1.73,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 59,
+          "bttsProb": 0.5929,
+          "homeLambda": 1.72,
+          "awayLambda": 1.28
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 58,
+          "over25Prob": 0.5768,
+          "homeLambda": 1.72,
+          "awayLambda": 1.28
+        }
+      ],
+      "bttsProb": 0.5929,
+      "over25Prob": 0.5768,
+      "homeLambda": 1.72,
+      "awayLambda": 1.28
     }
   ]
 }
