@@ -87,11 +87,18 @@ async function readExisting() {
   try { return JSON.parse(await fs.readFile(OUTPUT, 'utf8')) } catch { return null }
 }
 
+function hasFutureLegs(combo) {
+  return Array.isArray(combo?.legs) && combo.legs.length > 0 && combo.legs.every(leg => {
+    const kickoff = Date.parse(leg?.kickoff)
+    return Number.isFinite(kickoff) && kickoff > Date.now()
+  })
+}
+
 async function writeUnavailable(reason) {
   const today = dakarDate()
   const now = new Date().toISOString()
   const existing = await readExisting()
-  const sameDayVerified = existing?.date === today && existing?.status === 'available' && existing?.combos?.target2 && existing?.combos?.target5
+  const sameDayVerified = existing?.date === today && existing?.status === 'available' && hasFutureLegs(existing?.combos?.target2) && hasFutureLegs(existing?.combos?.target5)
   if (sameDayVerified) {
     const preserved = { ...existing, lastAttemptedAt: now, refreshStatus: reason }
     await fs.writeFile(OUTPUT, `${JSON.stringify(preserved, null, 2)}\n`)
@@ -115,7 +122,11 @@ async function main() {
   const eventList = Array.isArray(events) ? events : events?.events || []
   // Odds-API.io is the source of truth for event identity here. ESPN and bookmaker
   // names are not stable enough for an exact join; filtering by ESPN caused events=0.
-  const candidates = eventList.filter(e => e?.id && e?.home && e?.away && e?.date)
+  const now = Date.now()
+  const candidates = eventList.filter(e => {
+    const kickoff = Date.parse(e?.date)
+    return e?.id && e?.home && e?.away && e?.date && Number.isFinite(kickoff) && kickoff > now && dakarDate(new Date(kickoff)) === today
+  })
   const legs = []
   for (const event of candidates.slice(0, 40)) {
     try {
