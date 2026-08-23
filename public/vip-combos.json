@@ -2,38 +2,38 @@
   "date": "2026-08-23",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-23T06:25:19.503Z",
+  "fetchedAt": "2026-08-23T10:42:14.486Z",
   "eventCount": 100,
-  "legCount": 54,
+  "legCount": 74,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "73086526",
-          "home": "CSC 1599 Selimbar",
-          "away": "CS Afumati",
-          "league": "Romania - Liga 2",
-          "kickoff": "2026-08-23T08:00:00Z",
-          "bookmaker": "Unibet",
-          "market": "Both Teams To Score",
-          "selection": "BTTS — Oui",
-          "odds": 1.75,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T20:40:47.774Z"
-        },
-        {
-          "eventId": "72305142",
-          "home": "MSK Zilina B",
-          "away": "OFK Dynamo Malzenice",
-          "league": "Slovakia - 2. Liga",
-          "kickoff": "2026-08-23T08:30:00Z",
+          "eventId": "68995342",
+          "home": "Liaoning Tieren FC",
+          "away": "Henan",
+          "league": "China - Chinese Super League",
+          "kickoff": "2026-08-23T11:00:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.15,
+          "odds": 1.16,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T16:48:01.774Z"
+          "updatedAt": "2026-08-22T05:50:27.598Z"
+        },
+        {
+          "eventId": "69456522",
+          "home": "Changchun Yatai",
+          "away": "Foshan Nanshi FC",
+          "league": "China - China League 1",
+          "kickoff": "2026-08-23T11:00:00Z",
+          "bookmaker": "Bet365",
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.73,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-23T10:41:44.417Z"
         }
       ],
       "totalOdds": 2.01
@@ -41,48 +41,33 @@
     "target5": {
       "legs": [
         {
-          "eventId": "69767470",
-          "home": "Uwa Nedlands FC",
-          "away": "Subiaco AFC",
-          "league": "Australia - Western Australia NPL, Women",
-          "kickoff": "2026-08-23T07:00:00Z",
-          "bookmaker": "Bet365",
+          "eventId": "71960088",
+          "home": "Greuther Furth",
+          "away": "VfL Bochum",
+          "league": "Germany - DFB Pokal",
+          "kickoff": "2026-08-23T11:00:00Z",
+          "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.85,
+          "odds": 1.19,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-23T05:52:09.352Z"
+          "updatedAt": "2026-08-23T10:35:09.237Z"
         },
         {
-          "eventId": "73782782",
-          "home": "Capalaba FC",
-          "away": "Caboolture FC",
-          "league": "Australia - Queensland NPL, Women, Prom/Relegation Round",
-          "kickoff": "2026-08-23T08:00:00Z",
-          "bookmaker": "Bet365 (no latency)",
+          "eventId": "69911082",
+          "home": "Xiamen Feilu",
+          "away": "Wenzhou Professional FC",
+          "league": "China - China League 2, South",
+          "kickoff": "2026-08-23T11:30:00Z",
+          "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.5,
+          "odds": 4.2,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-23T06:23:15.712Z"
-        },
-        {
-          "eventId": "72415496",
-          "home": "FC Hradec Kralove B",
-          "away": "MFK Chrudim",
-          "league": "Czechia - CFL, Group B",
-          "kickoff": "2026-08-23T08:15:00Z",
-          "bookmaker": "Bet365",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.8,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T04:11:34.54Z"
+          "updatedAt": "2026-08-22T15:39:20.306Z"
         }
       ],
       "totalOdds": 5
     }
-  },
-  "lastAttemptedAt": "2026-08-23T08:58:24.501Z",
-  "refreshStatus": "insufficient_verified_odds"
+  }
 }
