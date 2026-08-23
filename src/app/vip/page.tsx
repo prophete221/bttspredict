@@ -282,6 +282,58 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
           </div>
         </section>
 
+        <section className="vip-access-combos vip-access-shell" aria-labelledby="vip-access-combos-title">
+          <div className="vip-access-combos__header">
+            <div>
+              <span className="vip-access-overline">{text.combosEyebrow}</span>
+              <h2 id="vip-access-combos-title">{text.combosTitle}</h2>
+              <p>{text.combosIntro}</p>
+            </div>
+            {dailyCombos?.date === dakarDate() && (
+              <time className="vip-access-combos__date" dateTime={dailyCombos.date}>{dailyCombos.date}</time>
+            )}
+          </div>
+
+          {availableCombos.length > 0 ? (
+            <div className="vip-access-combos__grid">
+              {availableCombos.map(({ key, combo, title }) => (
+                <article key={key} className={`vip-access-combo-card ${key === 'target5' ? 'is-featured' : ''}`}>
+                  <header className="vip-access-combo-card__header">
+                    <div>
+                      <span className="vip-access-combo-card__eyebrow">{title}</span>
+                      <strong className="vip-access-combo-card__odds">{combo.totalOdds.toFixed(2)}</strong>
+                    </div>
+                    <span className="vip-access-combo-card__lock" aria-label={text.locked}>LOCK</span>
+                  </header>
+                  <div className="vip-access-combo-card__source">{text.dataFreshness} · {combosDate}</div>
+                  <div className="vip-access-combo-card__legs">
+                    {combo.legs.map((leg) => (
+                      <div className="vip-access-combo-leg" key={`${key}-${leg.eventId}`}>
+                        <div className="vip-access-combo-leg__teams">
+                          <small>{leg.league}</small>
+                          <strong>{leg.home} <span>vs</span> {leg.away}</strong>
+                        </div>
+                        <time dateTime={leg.kickoff} className="vip-access-combo-leg__time">
+                          <span>{text.kickoff}</span>{formatKickoff(leg.kickoff, lang)}
+                        </time>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="vip-access-combo-card__locked">
+                    <span className="vip-access-combo-card__locked-icon" aria-hidden="true">⌁</span>
+                    <span>{text.locked}</span>
+                    <button type="button" onClick={openUnlock}>{text.primary}</button>
+                  </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="vip-access-combos__empty" role="status">
+              <span className="vip-access-combos__empty-icon" aria-hidden="true">—</span>
+              <p>{text.unavailable}</p>
+            </div>
+          )}
+        </section>
         <section className="vip-access-panel vip-access-shell" aria-labelledby="vip-access-flow-title">
           <div className="vip-access-panel__header">
             <div>
@@ -361,58 +413,6 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
           <p className="vip-access-responsible">{text.responsible}</p>
         </section>
 
-        <section className="vip-access-combos vip-access-shell" aria-labelledby="vip-access-combos-title">
-          <div className="vip-access-combos__header">
-            <div>
-              <span className="vip-access-overline">{text.combosEyebrow}</span>
-              <h2 id="vip-access-combos-title">{text.combosTitle}</h2>
-              <p>{text.combosIntro}</p>
-            </div>
-            {dailyCombos?.date === dakarDate() && (
-              <time className="vip-access-combos__date" dateTime={dailyCombos.date}>{dailyCombos.date}</time>
-            )}
-          </div>
-
-          {availableCombos.length > 0 ? (
-            <div className="vip-access-combos__grid">
-              {availableCombos.map(({ key, combo, title }) => (
-                <article key={key} className={`vip-access-combo-card ${key === 'target5' ? 'is-featured' : ''}`}>
-                  <header className="vip-access-combo-card__header">
-                    <div>
-                      <span className="vip-access-combo-card__eyebrow">{title}</span>
-                      <strong className="vip-access-combo-card__odds">{combo.totalOdds.toFixed(2)}</strong>
-                    </div>
-                    <span className="vip-access-combo-card__lock" aria-label={text.locked}>LOCK</span>
-                  </header>
-                  <div className="vip-access-combo-card__source">{text.dataFreshness} · {combosDate}</div>
-                  <div className="vip-access-combo-card__legs">
-                    {combo.legs.map((leg) => (
-                      <div className="vip-access-combo-leg" key={`${key}-${leg.eventId}`}>
-                        <div className="vip-access-combo-leg__teams">
-                          <small>{leg.league}</small>
-                          <strong>{leg.home} <span>vs</span> {leg.away}</strong>
-                        </div>
-                        <time dateTime={leg.kickoff} className="vip-access-combo-leg__time">
-                          <span>{text.kickoff}</span>{formatKickoff(leg.kickoff, lang)}
-                        </time>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="vip-access-combo-card__locked">
-                    <span className="vip-access-combo-card__locked-icon" aria-hidden="true">⌁</span>
-                    <span>{text.locked}</span>
-                    <button type="button" onClick={openUnlock}>{text.primary}</button>
-                  </div>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <div className="vip-access-combos__empty" role="status">
-              <span className="vip-access-combos__empty-icon" aria-hidden="true">—</span>
-              <p>{text.unavailable}</p>
-            </div>
-          )}
-        </section>
       </main>
 
       <ErrorBoundary><Footer /></ErrorBoundary>

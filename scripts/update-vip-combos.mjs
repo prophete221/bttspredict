@@ -80,10 +80,24 @@ function chooseCombo(legs, target) {
   return combo
 }
 
-async function getJson(url) {
-  const response = await fetch(url, { headers: { accept: 'application/json' } })
-  if (!response.ok) throw new Error(`Odds API HTTP ${response.status}`)
-  return response.json()
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms))
+
+async function getJson(url, maxAttempts = 3) {
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    const response = await fetch(url, { headers: { accept: 'application/json' } })
+    if (response.ok) return response.json()
+    if (response.status === 429 && attempt < maxAttempts) {
+      const retryAfter = Number(response.headers.get('retry-after'))
+      const resetAt = Date.parse(response.headers.get('x-ratelimit-reset') || '')
+      const resetDelay = Number.isFinite(resetAt) ? Math.max(resetAt - Date.now(), 5_000) : 0
+      const delay = Math.min(Math.max(Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : resetDelay || 15_000, 5_000), 60 * 60 * 1000)
+      console.warn(`[vip-combos] Odds API HTTP 429; retry ${attempt + 1}/${maxAttempts} in ${Math.ceil(delay / 1000)}s`)
+      await sleep(delay)
+      continue
+    }
+    throw new Error(`Odds API HTTP ${response.status}`)
+  }
+  throw new Error('Odds API request exhausted')
 }
 
 function chunks(items, size) {
