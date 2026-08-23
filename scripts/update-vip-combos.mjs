@@ -86,6 +86,12 @@ async function getJson(url) {
   return response.json()
 }
 
+function chunks(items, size) {
+  const result = []
+  for (let i = 0; i < items.length; i += size) result.push(items.slice(i, i + size))
+  return result
+}
+
 async function readExisting() {
   try { return JSON.parse(await fs.readFile(OUTPUT, 'utf8')) } catch { return null }
 }
@@ -126,7 +132,8 @@ async function main() {
   }
   const from = `${today}T00:00:00Z`
   const to = `${today}T23:59:59Z`
-  const events = await getJson(`${API_BASE}/events?apiKey=${encodeURIComponent(API_KEY)}&sport=football&status=pending&from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}&limit=100`)
+  const eventBookmaker = BOOKMAKERS.split(',')[0].trim()
+  const events = await getJson(`${API_BASE}/events?apiKey=${encodeURIComponent(API_KEY)}&sport=football&status=pending&bookmaker=${encodeURIComponent(eventBookmaker)}&from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}&limit=100`)
   const eventList = Array.isArray(events) ? events : events?.events || []
   // Odds-API.io is the source of truth for event identity here. ESPN and bookmaker
   // names are not stable enough for an exact join; filtering by ESPN caused events=0.
@@ -136,11 +143,20 @@ async function main() {
     return e?.id && e?.home && e?.away && e?.date && Number.isFinite(kickoff) && kickoff > now + MIN_PUBLISH_LEAD_MS && dakarDate(new Date(kickoff)) === today
   })
   const legs = []
-  for (const event of candidates.slice(0, 40)) {
+  for (const eventBatch of chunks(candidates.slice(0, 40), 10)) {
     try {
-      const data = await getJson(`${API_BASE}/odds?apiKey=${encodeURIComponent(API_KEY)}&eventId=${encodeURIComponent(event.id)}&bookmakers=${encodeURIComponent(BOOKMAKERS)}`)
-      legs.push(...extractLegs(event, data))
-    } catch (error) { console.warn(`[vip-combos] odds unavailable for ${event.home} vs ${event.away}: ${error.message}`) }
+      const eventIds = eventBatch.map(event => event.id).join(',')
+      const data = await getJson(`${API_BASE}/odds/multi?apiKey=${encodeURIComponent(API_KEY)}&eventIds=${encodeURIComponent(eventIds)}&bookmakers=${encodeURIComponent(BOOKMAKERS)}`)
+      const oddsEvents = Array.isArray(data) ? data : data?.events || []
+      for (const oddsEvent of oddsEvents) {
+        const sourceEvent = eventBatch.find(event => String(event.id) === String(oddsEvent?.id))
+        if (!sourceEvent || !oddsEvent?.bookmakers) continue
+        const mergedEvent = { ...sourceEvent, ...oddsEvent, id: oddsEvent.id ?? sourceEvent.id, date: oddsEvent.date ?? sourceEvent.date }
+        legs.push(...extractLegs(mergedEvent, oddsEvent))
+      }
+    } catch (error) {
+      console.warn(`[vip-combos] odds batch unavailable (${eventBatch.length} events): ${error.message}`)
+    }
   }
   const payload = {
     date: today, timezone: TIME_ZONE, source: 'Odds-API.io', fetchedAt: new Date().toISOString(),
