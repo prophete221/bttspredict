@@ -72,6 +72,13 @@ jobs:
         env:
           PUPPETEER_SKIP_DOWNLOAD: 'true'
 
+      - name: Generate VIP combos from verified bookmaker odds
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          ODDS_BOOKMAKERS: Bet365,Unibet
+        run: node scripts/update-vip-combos.mjs
+        continue-on-error: true
+
       - name: Update predictions (ESPN API)
         timeout-minutes: 5
         run: node scripts/quick-update-predictions.mjs
@@ -92,13 +99,6 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         timeout-minutes: 10
         run: python scripts/enrich_predictions.py
-        continue-on-error: true
-
-      - name: Generate VIP combos from verified bookmaker odds
-        env:
-          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-          ODDS_BOOKMAKERS: Bet365,Unibet
-        run: node scripts/update-vip-combos.mjs
         continue-on-error: true
 
       - name: Verify results (GOLD priority — free ESPN, no API key)
