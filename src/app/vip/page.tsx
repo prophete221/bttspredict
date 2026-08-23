@@ -81,22 +81,22 @@ function fixtureKickoff(fixture: PredictionFixture) {
   return { raw, timestamp }
 }
 
-function buildMatchOnlyCombos(payload: { free?: PredictionFixture[]; vipPreview?: PredictionFixture[]; predictions?: PredictionFixture[] } | null, today: string) {
+function buildMatchOnlyCombos(payload: { free?: PredictionFixture[]; vipPreview?: PredictionFixture[]; predictions?: PredictionFixture[] } | null) {
   const rows = [...(payload?.free || []), ...(payload?.vipPreview || []), ...(payload?.predictions || [])]
   const seen = new Set<string>()
   const fixtures = rows.filter((fixture) => {
     const home = fixture.home?.trim()
     const away = fixture.away?.trim()
     const { timestamp } = fixtureKickoff(fixture)
-    if (!home || !away || !Number.isFinite(timestamp) || timestamp <= Date.now() || dakarDate(new Date(timestamp)) !== today) return false
+    if (!home || !away || !Number.isFinite(timestamp) || timestamp <= Date.now()) return false
     const key = `${home.toLowerCase()}|${away.toLowerCase()}|${timestamp}`
     if (seen.has(key)) return false
     seen.add(key)
     return true
   })
-  const toCombo = (target: 2 | 5): VipCombo | null => {
+  const toCombo = (target: 3 | 5): VipCombo | null => {
     const selected = fixtures.slice(0, target)
-    if (selected.length < (target === 2 ? 1 : target)) return null
+    if (selected.length < target) return null
     return {
       totalOdds: null,
       legs: selected.map((fixture, index) => {
@@ -111,7 +111,7 @@ function buildMatchOnlyCombos(payload: { free?: PredictionFixture[]; vipPreview?
       }),
     }
   }
-  return { target2: toCombo(2), target5: toCombo(5) }
+  return { target3: toCombo(3), target5: toCombo(5) }
 }
 
 const copy = {
@@ -136,15 +136,14 @@ const copy = {
     selected: 'Sélectionné',
     unlock: 'Débloquer avec WhatsApp',
     combosEyebrow: 'SÉLECTIONS DU JOUR · VIP',
-    combosTitle: 'Combinés réels du jour',
-    combosIntro: 'Les matchs sont visibles. Les marchés et sélections restent verrouillés jusqu’à ta demande VIP.',
-    combo2: 'Combiné cote 2 du jour',
-    combo5: 'Combiné cote 5 du jour',
-    combo2MatchOnly: 'Sélection VIP · 2 matchs du jour',
-    combo5MatchOnly: 'Sélection VIP · 5 matchs du jour',
-    matchOnlySingle: 'Match VIP réel du jour',
-    matchOnlyBadge: 'Matchs réels uniquement',
-    matchOnlySource: 'Matchs futurs vérifiés · cotes masquées jusqu’au déblocage',
+    combosTitle: 'Matchs réels',
+    combosIntro: 'Les matchs sont visibles. Le marché et la sélection du combiné restent verrouillés jusqu’à ta demande VIP.',
+    combo2: 'Combiné VIP du jour',
+    combo5: 'Combiné VIP · 5 matchs',
+    comboVipToday: 'Combiné VIP du jour',
+    combo5MatchOnly: 'Combiné VIP · 5 matchs',
+    matchOnlyBadge: 'Matchs réels',
+    matchOnlySource: 'Matchs futurs · informations protégées jusqu’au déblocage',
     totalOdds: 'Cote totale',
     kickoff: 'Coup d’envoi',
     locked: 'Marchés verrouillés',
@@ -172,15 +171,14 @@ const copy = {
     selected: 'Selected',
     unlock: 'Unlock with WhatsApp',
     combosEyebrow: 'TODAY’S PICKS · VIP',
-    combosTitle: 'Real combos for today',
-    combosIntro: 'Matches stay visible. Markets and selections remain locked until you request VIP access.',
-    combo2: 'Today’s odds 2 combo',
-    combo5: 'Today’s odds 5 combo',
-    combo2MatchOnly: 'VIP selection · 2 matches today',
-    combo5MatchOnly: 'VIP selection · 5 matches today',
-    matchOnlySingle: 'Real VIP match today',
-    matchOnlyBadge: 'Real matches only',
-    matchOnlySource: 'Future matches verified · odds hidden until unlock',
+    combosTitle: 'Real matches',
+    combosIntro: 'Matches stay visible. The combo market and selection remain locked until you request VIP access.',
+    combo2: 'Today’s VIP combo',
+    combo5: 'VIP combo · 5 matches',
+    comboVipToday: 'Today’s VIP combo',
+    combo5MatchOnly: 'VIP combo · 5 matches',
+    matchOnlyBadge: 'Real matches',
+    matchOnlySource: 'Future matches · information protected until unlock',
     totalOdds: 'Total odds',
     kickoff: 'Kick-off',
     locked: 'Markets locked',
@@ -208,15 +206,14 @@ const copy = {
     selected: 'محدد',
     unlock: 'فتح عبر واتساب',
     combosEyebrow: 'اختيارات اليوم · VIP',
-    combosTitle: 'رهانات مركبة حقيقية لليوم',
-    combosIntro: 'المباريات ظاهرة. تبقى الأسواق والاختيارات مقفلة حتى تطلب وصول VIP.',
-    combo2: 'مركب بمعامل 2 لليوم',
-    combo5: 'مركب بمعامل 5 لليوم',
-    combo2MatchOnly: 'اختيار VIP · مباراتان اليوم',
-    combo5MatchOnly: 'اختيار VIP · 5 مباريات اليوم',
-    matchOnlySingle: 'مباراة VIP حقيقية اليوم',
-    matchOnlyBadge: 'مباريات حقيقية فقط',
-    matchOnlySource: 'مباريات مستقبلية موثقة · المعاملات مخفية حتى الفتح',
+    combosTitle: 'المباريات الحقيقية',
+    combosIntro: 'المباريات ظاهرة. يبقى سوق الاختيار المركب والاختيار نفسه مقفلين حتى تطلب وصول VIP.',
+    combo2: 'المركب VIP لليوم',
+    combo5: 'المركب VIP · 5 مباريات',
+    comboVipToday: 'المركب VIP لليوم',
+    combo5MatchOnly: 'المركب VIP · 5 مباريات',
+    matchOnlyBadge: 'مباريات حقيقية',
+    matchOnlySource: 'مباريات مستقبلية · المعلومات محمية حتى الفتح',
     totalOdds: 'المعامل الإجمالي',
     kickoff: 'موعد البداية',
     locked: 'الأسواق مقفلة',
@@ -234,7 +231,7 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
   const [copied, setCopied] = useState(false)
   const [toast, setToast] = useState('')
   const [showModal, setShowModal] = useState(false)
-  const [matchOnlyCombos, setMatchOnlyCombos] = useState<{ target2: VipCombo | null; target5: VipCombo | null } | null>(null)
+  const [matchOnlyCombos, setMatchOnlyCombos] = useState<{ target3: VipCombo | null; target5: VipCombo | null } | null>(null)
 
   const selected = BRAND[bookmaker]
   const signupLink = bookmaker === 'linebet' ? AFFILIATE.linebet : AFFILIATE.star888
@@ -242,8 +239,8 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
   const code = selected.code
   const today = dakarDate()
   const availableCombos = [
-    hasFutureLegs(matchOnlyCombos?.target2)
-      ? { key: 'target2' as const, combo: matchOnlyCombos.target2, title: matchOnlyCombos.target2.legs.length === 1 ? text.matchOnlySingle : text.combo2MatchOnly }
+    hasFutureLegs(matchOnlyCombos?.target3)
+      ? { key: 'target3' as const, combo: matchOnlyCombos.target3, title: text.comboVipToday }
       : null,
     hasFutureLegs(matchOnlyCombos?.target5)
       ? { key: 'target5' as const, combo: matchOnlyCombos.target5, title: text.combo5MatchOnly }
@@ -261,7 +258,7 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
     fetch('/predictions.json', { cache: 'no-store' })
       .then((response) => response.ok ? response.json() as Promise<{ date?: string; free?: PredictionFixture[]; vipPreview?: PredictionFixture[]; predictions?: PredictionFixture[] }> : null)
       .then((payload) => {
-        if (!cancelled && payload?.date === dakarDate()) setMatchOnlyCombos(buildMatchOnlyCombos(payload, dakarDate()))
+        if (!cancelled && payload?.date === dakarDate()) setMatchOnlyCombos(buildMatchOnlyCombos(payload))
       })
       .catch(() => {
         if (!cancelled) setMatchOnlyCombos(null)
