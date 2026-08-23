@@ -248,7 +248,7 @@ export default function VipUnlockModal({
                           )}
                         </div>
                         <div className="text-[11px] text-[#B8FF1A]">
-                          Code : <span className="font-mono font-bold text-[#B8FF1A]">vision221</span>
+                          Code : <span className="font-mono font-bold text-[#B8FF1A]">btts221</span>
                         </div>
                       </div>
                       <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(245, 196, 81, 0.12)', color: '#F5C451' }}>Partenaire officiel</span>
