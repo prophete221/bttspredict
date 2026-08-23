@@ -97,15 +97,20 @@ function hasFutureLegs(combo) {
   })
 }
 
-async function writeUnavailable(reason) {
+async function writeUnavailable(reason, candidateCombos = null) {
   const today = dakarDate()
   const now = new Date().toISOString()
   const existing = await readExisting()
-  const sameDayVerified = existing?.date === today && existing?.status === 'available' && hasFutureLegs(existing?.combos?.target2) && hasFutureLegs(existing?.combos?.target5)
-  if (sameDayVerified) {
-    const preserved = { ...existing, lastAttemptedAt: now, refreshStatus: reason }
-    await fs.writeFile(OUTPUT, `${JSON.stringify(preserved, null, 2)}\n`)
-    console.warn(`[vip-combos] ${reason}; preserved verified same-day combos from ${existing.fetchedAt}`)
+  const sameDayCombos = existing?.date === today ? existing.combos : null
+  const target2 = hasFutureLegs(candidateCombos?.target2) ? candidateCombos.target2 : hasFutureLegs(sameDayCombos?.target2) ? sameDayCombos.target2 : null
+  const target5 = hasFutureLegs(candidateCombos?.target5) ? candidateCombos.target5 : hasFutureLegs(sameDayCombos?.target5) ? sameDayCombos.target5 : null
+  if (target2 || target5) {
+    const partial = {
+      date: today, timezone: TIME_ZONE, source: 'Odds-API.io', fetchedAt: now,
+      status: 'partial_verified_odds', reason, combos: { target2, target5 },
+    }
+    await fs.writeFile(OUTPUT, `${JSON.stringify(partial, null, 2)}\n`)
+    console.warn(`[vip-combos] ${reason}; published the verified future combo(s) available`)
     return true
   }
   await fs.writeFile(OUTPUT, `${JSON.stringify({ date: today, timezone: TIME_ZONE, source: 'Odds-API.io', fetchedAt: now, status: 'unavailable', reason, combos: { target2: null, target5: null } }, null, 2)}\n`)
@@ -143,7 +148,7 @@ async function main() {
     status: 'available', combos: { target2: chooseCombo(legs, 2), target5: chooseCombo(legs, 5) },
   }
   if (!payload.combos.target2 || !payload.combos.target5) {
-    const preserved = await writeUnavailable('insufficient_verified_odds')
+    const preserved = await writeUnavailable('insufficient_verified_odds', payload.combos)
     if (preserved) return
     payload.status = 'insufficient_verified_odds'
   }
