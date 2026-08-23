@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T01:26:17.064Z",
+  "generatedAt": "2026-08-23T04:41:11.112Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -7,25 +7,25 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 36,
-    "won": 26,
-    "lost": 10,
-    "pending": 135,
+    "total": 43,
+    "won": 31,
+    "lost": 12,
+    "pending": 128,
     "archivedTotal": 171,
-    "rate": 72.2,
+    "rate": 72.1,
     "avgOdds": 1.9,
-    "profit": 13.4,
-    "roi": 37.2,
-    "yield": 37.2,
+    "profit": 15.9,
+    "roi": 37,
+    "yield": 37,
     "gold": {
-      "total": 24,
-      "won": 19,
-      "lost": 5,
-      "rate": 79.2,
+      "total": 31,
+      "won": 24,
+      "lost": 7,
+      "rate": 77.4,
       "avgOdds": 1.9,
-      "profit": 12.1,
-      "roi": 50.4,
-      "yield": 50.4
+      "profit": 14.6,
+      "roi": 47.1,
+      "yield": 47.1
     },
     "standard": {
       "total": 12,
@@ -35,10 +35,10 @@
     },
     "byType": {
       "btts": {
-        "total": 34,
-        "won": 25,
-        "lost": 9,
-        "rate": 73.5
+        "total": 41,
+        "won": 30,
+        "lost": 11,
+        "rate": 73.2
       },
       "over25": {
         "total": 2,
@@ -101,6 +101,15 @@
         "rate": 62.5,
         "profit": 1.5,
         "equity": 13.4
+      },
+      {
+        "date": "2026-08-22",
+        "total": 7,
+        "won": 5,
+        "lost": 2,
+        "rate": 71.4,
+        "profit": 2.5,
+        "equity": 15.9
       }
     ],
     "maxDrawdown": 2,
@@ -111,6 +120,118 @@
     }
   },
   "history": [
+    {
+      "date": "2026-08-22",
+      "match": "St. Louis CITY SC vs Houston Dynamo FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.4866,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "2-1",
+      "profit": 0.9,
+      "verifiedAt": "2026-08-23T04:36:56.502Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-08-22",
+      "match": "Vancouver Whitecaps vs FC Dallas",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5108,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "5-0",
+      "profit": -1,
+      "verifiedAt": "2026-08-23T04:36:56.502Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-08-22",
+      "match": "San Diego FC vs Colorado Rapids",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6087,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "3-0",
+      "profit": -1,
+      "verifiedAt": "2026-08-23T04:36:56.499Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-08-22",
+      "match": "LAFC vs Portland Timbers",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6153,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "1-1",
+      "profit": 0.9,
+      "verifiedAt": "2026-08-23T04:36:56.499Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-08-22",
+      "match": "Nashville SC vs Columbus Crew",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6198,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "3-2",
+      "profit": 0.9,
+      "verifiedAt": "2026-08-23T04:36:56.498Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-08-22",
+      "match": "San Jose Earthquakes vs Minnesota United FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6546,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "1-5",
+      "profit": 0.9,
+      "verifiedAt": "2026-08-23T04:36:56.498Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-08-22",
+      "match": "Austin FC vs Philadelphia Union",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.8714,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "1-1",
+      "profit": 0.9,
+      "verifiedAt": "2026-08-23T04:36:56.497Z",
+      "source": "ESPN public"
+    },
     {
       "date": "2026-08-19",
       "match": "Vancouver Whitecaps vs Houston Dynamo FC",

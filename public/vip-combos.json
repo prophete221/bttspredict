@@ -2,38 +2,38 @@
   "date": "2026-08-23",
   "timezone": "Africa/Dakar",
   "source": "Odds-API.io",
-  "fetchedAt": "2026-08-23T01:17:59.654Z",
+  "fetchedAt": "2026-08-23T04:36:50.095Z",
   "eventCount": 100,
-  "legCount": 80,
+  "legCount": 47,
   "status": "available",
   "combos": {
     "target2": {
       "legs": [
         {
-          "eventId": "72053586",
-          "home": "CS Herediano",
-          "away": "Sporting FC",
-          "league": "Costa Rica - Primera Division, Apertura",
-          "kickoff": "2026-08-23T02:00:00Z",
+          "eventId": "67691090",
+          "home": "Wollongong Wolves FC",
+          "away": "Western Sydney Youth",
+          "league": "Australia - NSW NPL 1",
+          "kickoff": "2026-08-23T05:00:00Z",
           "bookmaker": "Unibet",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.07,
+          "market": "Both Teams To Score",
+          "selection": "BTTS — Oui",
+          "odds": 1.47,
           "source": "Odds-API.io",
           "updatedAt": "2026-08-21T18:51:01.396Z"
         },
         {
-          "eventId": "73760900",
-          "home": "South Hobart FC",
-          "away": "Devonport City SC",
-          "league": "Australia - Tasmania NPL, Playoffs",
-          "kickoff": "2026-08-23T04:00:00Z",
+          "eventId": "68160728",
+          "home": "Melbourne Knights",
+          "away": "Langwarrin SC",
+          "league": "Australia - Victoria Premier League 1",
+          "kickoff": "2026-08-23T05:00:00Z",
           "bookmaker": "Bet365 (no latency)",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 1.87,
+          "odds": 1.36,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-22T23:17:11.322Z"
+          "updatedAt": "2026-08-23T04:33:22.472Z"
         }
       ],
       "totalOdds": 2
@@ -41,33 +41,33 @@
     "target5": {
       "legs": [
         {
-          "eventId": "72661182",
-          "home": "Veraguas United FC",
-          "away": "San Francisco FC",
-          "league": "Panama - Liga Panamena de Futbol, Apertura",
-          "kickoff": "2026-08-23T01:30:00Z",
-          "bookmaker": "Bet365",
-          "market": "Totals",
-          "selection": "Over 2.5",
-          "odds": 1.9,
-          "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T01:48:00.419Z"
-        },
-        {
-          "eventId": "66299420",
-          "home": "San Diego FC",
-          "away": "Colorado Rapids",
-          "league": "USA - MLS",
-          "kickoff": "2026-08-23T02:30:00Z",
+          "eventId": "68160728",
+          "home": "Melbourne Knights",
+          "away": "Langwarrin SC",
+          "league": "Australia - Victoria Premier League 1",
+          "kickoff": "2026-08-23T05:00:00Z",
           "bookmaker": "Unibet",
           "market": "Totals",
           "selection": "Over 2.5",
-          "odds": 2.63,
+          "odds": 1.28,
           "source": "Odds-API.io",
-          "updatedAt": "2026-08-21T23:16:07.793Z"
+          "updatedAt": "2026-08-21T18:51:01.396Z"
+        },
+        {
+          "eventId": "69767464",
+          "home": "Perth Redstar FC",
+          "away": "Perth Azzurri",
+          "league": "Australia - Western Australia NPL, Women",
+          "kickoff": "2026-08-23T07:00:00Z",
+          "bookmaker": "Unibet",
+          "market": "Totals",
+          "selection": "Over 2.5",
+          "odds": 3.9,
+          "source": "Odds-API.io",
+          "updatedAt": "2026-08-21T16:48:01.774Z"
         }
       ],
-      "totalOdds": 5
+      "totalOdds": 4.99
     }
   }
 }
