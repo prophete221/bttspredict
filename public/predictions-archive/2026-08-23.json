@@ -1,70 +1,8 @@
 {
   "date": "2026-08-23",
-  "lastUpdated": "2026-08-23T21:56:57.054Z",
+  "lastUpdated": "2026-08-23T22:32:42.030Z",
   "source": "ESPN + TheSportsDB",
   "free": [
-    {
-      "id": "atlantau-vs-sporting-2026-08-23",
-      "match": "Atlanta United FC vs Sporting Kansas City",
-      "home": "Atlanta United FC",
-      "away": "Sporting Kansas City",
-      "league": "MLS",
-      "date": "2026-08-23",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5748,
-      "bttsProbDisplay": "57.48%",
-      "over25ProbDisplay": "66.03%",
-      "confidence": 57,
-      "time": "23:00",
-      "matchSemantic": "atlantau-vs-sporting-2026-08-23",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18418.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/186.png",
-      "tier": "GOLD",
-      "reliabilityScore": 83.9,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 2.4,
-      "xgAway": 1,
-      "xgTotal": 3.4,
-      "formBTTS": 23,
-      "analysis": "Atlanta United FC (8 matchs réels, xG 2.40) vs Sporting Kansas City (8 matchs réels, xG 1.00). xG cumulé 3.4, BTTS 57.5%, Over 2.5 66.0%. Fiabilité 83.9%. Qualité données: HIGH.",
-      "analysisData": {
-        "bttsProb": 0.5748,
-        "over25Prob": 0.6603,
-        "homeLambda": 2.4,
-        "awayLambda": 1,
-        "xgTotal": 3.4
-      },
-      "estimatedCote": 1.74,
-      "estimatedCoteOver": 1.51,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 57,
-          "bttsProb": 0.5748,
-          "homeLambda": 2.4,
-          "awayLambda": 1
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 66,
-          "over25Prob": 0.6603,
-          "homeLambda": 2.4,
-          "awayLambda": 1
-        }
-      ],
-      "bttsProb": 0.5748,
-      "over25Prob": 0.6603,
-      "homeLambda": 2.4,
-      "awayLambda": 1
-    },
     {
       "id": "fulham-vs-chelsea-2026-08-24",
       "match": "Fulham vs Chelsea",
@@ -746,9 +684,7 @@
       "over25Prob": 0.5305,
       "homeLambda": 1.67,
       "awayLambda": 1.13
-    }
-  ],
-  "vipPreview": [
+    },
     {
       "id": "intermia-vs-cfmontra-2026-08-29",
       "match": "Inter Miami CF vs CF Montréal",
@@ -810,7 +746,9 @@
       "over25Prob": 0.832,
       "homeLambda": 2.55,
       "awayLambda": 2
-    },
+    }
+  ],
+  "vipPreview": [
     {
       "id": "redbulln-vs-philadel-2026-08-29",
       "match": "Red Bull New York vs Philadelphia Union",
@@ -1244,79 +1182,79 @@
       "over25Prob": 0.6406,
       "homeLambda": 1.88,
       "awayLambda": 1.42
-    }
-  ],
-  "stats": {
-    "avgReliability": 68.99,
-    "totalAnalyzed": 66,
-    "totalRejected": 0,
-    "totalAccepted": 66,
-    "freeCount": 12,
-    "vipCount": 8
-  },
-  "predictions": [
+    },
     {
-      "id": "atlantau-vs-sporting-2026-08-23",
-      "match": "Atlanta United FC vs Sporting Kansas City",
-      "home": "Atlanta United FC",
-      "away": "Sporting Kansas City",
-      "league": "MLS",
-      "date": "2026-08-23",
+      "id": "azalkmaa-vs-goaheade-2026-08-29",
+      "match": "AZ Alkmaar vs Go Ahead Eagles",
+      "home": "AZ Alkmaar",
+      "away": "Go Ahead Eagles",
+      "league": "Eredivisie",
+      "date": "2026-08-29",
       "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.5748,
-      "bttsProbDisplay": "57.48%",
-      "over25ProbDisplay": "66.03%",
-      "confidence": 57,
-      "time": "23:00",
-      "matchSemantic": "atlantau-vs-sporting-2026-08-23",
+      "proba": 0.6424,
+      "bttsProbDisplay": "64.24%",
+      "over25ProbDisplay": "64.06%",
+      "confidence": 64,
+      "time": "16:45",
+      "matchSemantic": "azalkmaa-vs-goaheade-2026-08-29",
       "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18418.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/186.png",
-      "tier": "GOLD",
-      "reliabilityScore": 83.9,
-      "dataQuality": "HIGH",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/140.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3706.png",
+      "tier": "SILVER",
+      "reliabilityScore": 68.85,
+      "dataQuality": "LOW",
       "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
+      "matchCountHome": 3,
+      "matchCountAway": 3,
       "h2hAvailable": false,
-      "xgHome": 2.4,
-      "xgAway": 1,
-      "xgTotal": 3.4,
-      "formBTTS": 23,
-      "analysis": "Atlanta United FC (8 matchs réels, xG 2.40) vs Sporting Kansas City (8 matchs réels, xG 1.00). xG cumulé 3.4, BTTS 57.5%, Over 2.5 66.0%. Fiabilité 83.9%. Qualité données: HIGH.",
+      "xgHome": 1.88,
+      "xgAway": 1.42,
+      "xgTotal": 3.3,
+      "formBTTS": 57,
+      "analysis": "AZ Alkmaar (3 matchs réels, xG 1.88) vs Go Ahead Eagles (3 matchs réels, xG 1.42). xG cumulé 3.3, BTTS 64.2%, Over 2.5 64.1%. Fiabilité 68.85%. Qualité données: LOW.",
       "analysisData": {
-        "bttsProb": 0.5748,
-        "over25Prob": 0.6603,
-        "homeLambda": 2.4,
-        "awayLambda": 1,
-        "xgTotal": 3.4
+        "bttsProb": 0.6424,
+        "over25Prob": 0.6406,
+        "homeLambda": 1.88,
+        "awayLambda": 1.42,
+        "xgTotal": 3.3
       },
-      "estimatedCote": 1.74,
-      "estimatedCoteOver": 1.51,
+      "estimatedCote": 1.56,
+      "estimatedCoteOver": 1.56,
       "predictions": [
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 57,
-          "bttsProb": 0.5748,
-          "homeLambda": 2.4,
-          "awayLambda": 1
+          "confidence": 64,
+          "bttsProb": 0.6424,
+          "homeLambda": 1.88,
+          "awayLambda": 1.42
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 66,
-          "over25Prob": 0.6603,
-          "homeLambda": 2.4,
-          "awayLambda": 1
+          "confidence": 64,
+          "over25Prob": 0.6406,
+          "homeLambda": 1.88,
+          "awayLambda": 1.42
         }
       ],
-      "bttsProb": 0.5748,
-      "over25Prob": 0.6603,
-      "homeLambda": 2.4,
-      "awayLambda": 1
-    },
+      "bttsProb": 0.6424,
+      "over25Prob": 0.6406,
+      "homeLambda": 1.88,
+      "awayLambda": 1.42
+    }
+  ],
+  "stats": {
+    "avgReliability": 68.76,
+    "totalAnalyzed": 65,
+    "totalRejected": 0,
+    "totalAccepted": 65,
+    "freeCount": 12,
+    "vipCount": 8
+  },
+  "predictions": [
     {
       "id": "fulham-vs-chelsea-2026-08-24",
       "match": "Fulham vs Chelsea",
@@ -1998,6 +1936,68 @@
       "over25Prob": 0.5305,
       "homeLambda": 1.67,
       "awayLambda": 1.13
+    },
+    {
+      "id": "intermia-vs-cfmontra-2026-08-29",
+      "match": "Inter Miami CF vs CF Montréal",
+      "home": "Inter Miami CF",
+      "away": "CF Montréal",
+      "league": "MLS",
+      "date": "2026-08-29",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.7972,
+      "bttsProbDisplay": "79.72%",
+      "over25ProbDisplay": "83.20%",
+      "confidence": 80,
+      "time": "23:30",
+      "matchSemantic": "intermia-vs-cfmontra-2026-08-29",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20232.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9720.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.63,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.55,
+      "xgAway": 2,
+      "xgTotal": 4.55,
+      "formBTTS": 36,
+      "analysis": "Inter Miami CF (8 matchs réels, xG 2.55) vs CF Montréal (8 matchs réels, xG 2.00). xG cumulé 4.55, BTTS 79.7%, Over 2.5 83.2%. Fiabilité 93.63%. Qualité données: HIGH.",
+      "analysisData": {
+        "bttsProb": 0.7972,
+        "over25Prob": 0.832,
+        "homeLambda": 2.55,
+        "awayLambda": 2,
+        "xgTotal": 4.55
+      },
+      "estimatedCote": 1.25,
+      "estimatedCoteOver": 1.2,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 80,
+          "bttsProb": 0.7972,
+          "homeLambda": 2.55,
+          "awayLambda": 2
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 83,
+          "over25Prob": 0.832,
+          "homeLambda": 2.55,
+          "awayLambda": 2
+        }
+      ],
+      "bttsProb": 0.7972,
+      "over25Prob": 0.832,
+      "homeLambda": 2.55,
+      "awayLambda": 2
     }
   ]
 }
