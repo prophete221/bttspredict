@@ -4,6 +4,9 @@ const API_KEY = process.env.ODDS_API_KEY
 const OUTPUT = 'public/vip-combos.json'
 const API_BASE = 'https://api.odds-api.io/v3'
 const TIME_ZONE = 'Africa/Dakar'
+// The full production pipeline recently took about 22 minutes. Keep a measured
+// lead time so a combo is not already started when the generated site goes live.
+const MIN_PUBLISH_LEAD_MS = 45 * 60 * 1000
 const BOOKMAKERS = process.env.ODDS_BOOKMAKERS || 'Bet365,Unibet'
 
 function dakarDate(date = new Date()) {
@@ -125,7 +128,7 @@ async function main() {
   const now = Date.now()
   const candidates = eventList.filter(e => {
     const kickoff = Date.parse(e?.date)
-    return e?.id && e?.home && e?.away && e?.date && Number.isFinite(kickoff) && kickoff > now && dakarDate(new Date(kickoff)) === today
+    return e?.id && e?.home && e?.away && e?.date && Number.isFinite(kickoff) && kickoff > now + MIN_PUBLISH_LEAD_MS && dakarDate(new Date(kickoff)) === today
   })
   const legs = []
   for (const event of candidates.slice(0, 40)) {
