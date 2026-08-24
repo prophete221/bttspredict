@@ -1,6 +1,6 @@
 {
   "date": "2026-08-24",
-  "lastUpdated": "2026-08-24T01:15:12.755Z",
+  "lastUpdated": "2026-08-24T02:11:16.210Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -901,7 +901,7 @@
       "xgHome": 1.98,
       "xgAway": 1.5,
       "xgTotal": 3.48,
-      "formBTTS": 35,
+      "formBTTS": 36,
       "analysis": "Atlanta United FC (8 matchs réels, xG 1.98) vs Charlotte FC (8 matchs réels, xG 1.50). xG cumulé 3.48, BTTS 67.0%, Over 2.5 67.6%. Fiabilité 88.06%. Qualité données: HIGH.",
       "analysisData": {
         "bttsProb": 0.67,
