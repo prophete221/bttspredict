@@ -89,12 +89,27 @@ def build_batch_prompt(all_matches: list) -> str:
             "existing_data": existing,
         })
 
-    prompt = f"""Tu es le moteur d'analyse statistique de la plateforme BTTSPredict.
-Analyse la liste suivante de {len(all_matches)} matchs :
+        prompt = f"""# ROLE
+Tu es un analyste de football quantitatif pour BTTSPredict. Ton objectif est de modéliser chaque match à partir de données fournies, pas de donner un avis de fan.
 
+# CADRE DE DONNÉES ET DE FRAÎCHEUR
+Le pipeline amont a déjà collecté et calculé les données transmises ci-dessous. La date et l'heure du match présentes dans l'entrée sont la seule référence temporelle autorisée.
+Tu ne dois pas prétendre utiliser un navigateur, une recherche web, une API externe ou Python dans cet appel Gemini. Tu ne dois citer une source que si elle est explicitement présente dans les données fournies. Si une source, une date de source ou une donnée récente n'est pas fournie, écris « donnée indisponible » au lieu de l'inventer.
+
+Analyse les {len(all_matches)} matchs suivants :
 {json.dumps(matches_summary, ensure_ascii=False, indent=2)}
 
-Pour CHAQUE match, génère un objet JSON STRICT respectant cette structure exacte :
+# MÉTHODE QUANTITATIVE EN 4 ÉTAPES
+ÉTAPE 1 — COLLECTE STRICTE : utilise uniquement les équipes, la ligue, les dates, les xG, les probabilités, la fiabilité et l'analyse fournis. Pour la composition probable, les blessés, les suspendus, la forme détaillée, le classement, la motivation, la fatigue ou la météo, indique « Donnée insuffisante: [nom] » si le champ n'est pas présent.
+
+ÉTAPE 2 — MODÉLISATION : les probabilités BTTS et Over 2.5 transmises par le pipeline sont les calculs Poisson de référence. Ne les remplace pas par une intuition. Si les moyennes de buts, xGA ou composantes nécessaires aux formules sont absentes, n'invente pas de force offensive ou défensive et indique la donnée manquante. Le score exact doit rester cohérent avec les xG fournis.
+
+ÉTAPE 3 — INCERTITUDE : une information critique absente doit être signalée clairement dans l'analyse. Ne bloque pas les autres champs, mais réduis la confiance lorsque les données sont faibles ou incomplètes.
+
+ÉTAPE 4 — DÉCISION : transforme uniquement les données disponibles en probabilités prudentes. Aucune garantie de gain n'est autorisée.
+
+# FORMAT FINAL STRICT
+Retourne uniquement un tableau JSON valide, sans Markdown et sans texte avant ou après :
 [
   {{
     "id": 0,
@@ -102,25 +117,30 @@ Pour CHAQUE match, génère un objet JSON STRICT respectant cette structure exac
     "exact_score_prob": "18%",
     "ai_btts_view": "74%",
     "ai_over25_view": "68%",
-    "ai_key_fact": "Statistique clé percutante (15 mots max, ex: 3/3 H2H avec BTTS et xG cumulé de 3.02)",
-    "ai_analysis": "Analyse détaillée et complète de 3 à 4 phrases sur la dynamique offensive, la forme récente, les xG et les faiblesses défensives."
+    "winner": "1 / N / 2",
+    "winner_prob": "XX%",
+    "team_over15": "Equipe: OUI/NON",
+    "double_chance": "1X / X2 / 12",
+    "main_prediction": "Phrase unique, prudente",
+    "risk": "FAIBLE / MOYEN / ÉLEVÉ",
+    "ai_key_fact": "Statistique clé, 15 mots maximum",
+    "ai_analysis": "Justification de 3 à 5 phrases maximum, basée uniquement sur les chiffres fournis."
   }},
   ...
 ]
 
-Règles :
+# RÈGLES DE SORTIE
 - Écris en français.
-- Le score exact (ai_exact_score) doit être réaliste, basé sur les xG (ex: "2-1", "1-1", "3-0").
-- exact_score_prob: probabilité en % que ce score exact se réalise (généralement 8-20%).
-- ai_btts_view: TA vue contextuelle de la probabilité BTTS en % (ex: "74%"). Ceci est une OPINION d'analyse, PAS un remplacement du calcul mathématique Poisson.
-- ai_over25_view: TA vue contextuelle de la probabilité Over 2.5 en % (ex: "68%"). Opinion d'analyse seulement.
-- Sois factuel, aucune garantie de gain.
-- N'utilise jamais "sure bet", "gain garanti" ou "100% sûr".
+- Le score exact doit être réaliste et basé sur les xG fournis.
+- Les probabilités doivent être exprimées en pourcentage avec le signe %. Ne fabrique aucune précision non justifiée.
+- « winner » doit être 1, N ou 2, et « double_chance » doit être 1X, X2 ou 12. Si les données ne permettent pas une décision fiable, utilise « Donnée insuffisante » dans le champ concerné.
+- « main_prediction » doit rester prudente et ne jamais promettre un résultat.
+- N'utilise jamais « sure bet », « gain garanti » ou « 100% sûr ».
 
-ANTI-HALLUCINATION OBLIGATOIRE :
-- Utilise exclusivement les données fournies dans la liste ci-dessus.
-- Tu NE DOIS PAS inventer de statistiques, de H2H, de blessures, de classement, de résultat ou de xG.
-- Si une information est absente des données fournies, indique "donnée indisponible".
+# ANTI-HALLUCINATION OBLIGATOIRE
+- Utilise exclusivement les données présentes dans la liste ci-dessus.
+- Tu NE DOIS PAS inventer de statistiques, de H2H, de blessures, de classement, de résultats, de météo, de sources ou de xG.
+- Si une donnée manque, écris exactement « donnée indisponible » ou « Donnée insuffisante: [nom] ».
 - Ne prétends jamais avoir consulté une source qui ne t'a pas été fournie.
 - Ne transforme jamais une donnée manquante en estimation présentée comme réelle.
 - L'"id" doit correspondre exactement à l'index du match dans la liste ci-dessus."""
@@ -242,6 +262,12 @@ def main():
             ai_over25_view = item.get("ai_over25_view", "").strip()
             ai_key_fact = item.get("ai_key_fact", "").strip()
             ai_analysis = item.get("ai_analysis", "").strip()
+            winner = item.get("winner", "").strip()
+            winner_prob = item.get("winner_prob", "").strip()
+            team_over15 = item.get("team_over15", "").strip()
+            double_chance = item.get("double_chance", "").strip()
+            main_prediction = item.get("main_prediction", "").strip()
+            risk = item.get("risk", "").strip()
 
             # VALIDATION: vérifier que les probabilités sont valides
             def validate_prob(val):
@@ -273,6 +299,18 @@ def main():
                     match["ai_key_fact"] = ai_key_fact
                 if ai_analysis:
                     match["ai_analysis"] = ai_analysis
+                if winner:
+                    match["ai_winner"] = winner
+                if validate_prob(winner_prob):
+                    match["ai_winner_prob"] = winner_prob
+                if team_over15:
+                    match["ai_team_over15"] = team_over15
+                if double_chance:
+                    match["ai_double_chance"] = double_chance
+                if main_prediction:
+                    match["ai_main_prediction"] = main_prediction
+                if risk:
+                    match["ai_risk"] = risk
                 match_name = f"{match.get('home', '?')} vs {match.get('away', '?')}"
                 print(f"  [{idx+1}] ✅ {match_name}: score={ai_exact_score} ({exact_score_prob}), BTTS_view={ai_btts_view}, O2.5_view={ai_over25_view}")
                 enriched_count += 1
