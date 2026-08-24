@@ -63,15 +63,7 @@
       "bttsProb": 0.5877,
       "over25Prob": 0.5701,
       "homeLambda": 1.7,
-      "awayLambda": 1.27,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "60%",
-      "ai_btts_prob": "60%",
-      "ai_over25_view": "59%",
-      "ai_over25_prob": "59%",
-      "ai_key_fact": "xG cumulé de 2.97 avec Fulham et Chelsea affichant des données initiales basées sur 0 match réel.",
-      "ai_analysis": "Fulham et Chelsea présentent des xG de 1.70 et 1.27 respectivement, sans historique de matchs réels enregistrés dans les données. La qualité des données est évaluée à LOW avec une fiabilité de 63.96%. Le profil offensif suggère tout de même une tendance favorable aux buts de part et d'autre."
+      "awayLambda": 1.27
     },
     {
       "id": "gilvicen-vs-casapia-2026-08-24",
@@ -133,15 +125,7 @@
       "bttsProb": 0.5698,
       "over25Prob": 0.5471,
       "homeLambda": 1.65,
-      "awayLambda": 1.22,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
-      "ai_btts_view": "58%",
-      "ai_btts_prob": "58%",
-      "ai_over25_view": "55%",
-      "ai_over25_prob": "55%",
-      "ai_key_fact": "Gil Vicente (1 match) et Casa Pia (2 matchs) affichent un xG cumulé de 2.87.",
-      "ai_analysis": "Cette rencontre de Liga Portugal s'appuie sur des volumes de matchs réels très faibles (1 et 2 matchs). Avec des xG de 1.65 et 1.22, les probabilités de BTTS et d'Over 2.5 restent modérées autour de 55-57%. L'indice de fiabilité atteint 63.18% avec une qualité de données LOW."
+      "awayLambda": 1.22
     },
     {
       "id": "fcgronin-vs-fortunas-2026-08-28",
@@ -203,15 +187,7 @@
       "bttsProb": 0.6424,
       "over25Prob": 0.6406,
       "homeLambda": 1.88,
-      "awayLambda": 1.42,
-      "ai_exact_score": "2-2",
-      "exact_score_prob": "14%",
-      "ai_btts_view": "65%",
-      "ai_btts_prob": "65%",
-      "ai_over25_view": "65%",
-      "ai_over25_prob": "65%",
-      "ai_key_fact": "xG cumulé élevé de 3.3 avec 3 matchs réels pour chaque équipe.",
-      "ai_analysis": "FC Groningen et Fortuna Sittard affichent des xG respectifs de 1.88 et 1.42, traduisant un potentiel offensif intéressant en Eredivisie. Les probabilités mathématiques de BTTS et d'Over 2.5 dépassent les 64%. La fiabilité globale s'établit à 68.85% malgré une qualité de données jugée LOW."
+      "awayLambda": 1.42
     },
     {
       "id": "bayernmu-vs-vfbstutt-2026-08-28",
@@ -273,15 +249,7 @@
       "bttsProb": 0.6265,
       "over25Prob": 0.6201,
       "homeLambda": 1.83,
-      "awayLambda": 1.37,
-      "ai_exact_score": "3-1",
-      "exact_score_prob": "13%",
-      "ai_btts_view": "63%",
-      "ai_btts_prob": "63%",
-      "ai_over25_view": "62%",
-      "ai_over25_prob": "62%",
-      "ai_key_fact": "Bayern Munich et VfB Stuttgart totalisent un xG cumulé de 3.2 sans matchs réels enregistrés.",
-      "ai_analysis": "Ce choc de Bundesliga propose des xG de 1.83 pour le Bayern Munich et 1.37 pour Stuttgart. Les probabilités calculées indiquent 62.6% pour le BTTS et 62.0% pour l'Over 2.5. La fiabilité atteint 68.16% malgré la classification LOW de la qualité des données."
+      "awayLambda": 1.37
     },
     {
       "id": "tsveintr-vs-herthabe-2026-08-28",
@@ -343,15 +311,7 @@
       "bttsProb": 0.6015,
       "over25Prob": 0.5879,
       "homeLambda": 1.74,
-      "awayLambda": 1.3,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "61%",
-      "ai_btts_prob": "61%",
-      "ai_over25_view": "59%",
-      "ai_over25_prob": "59%",
-      "ai_key_fact": "xG cumulé de 3.05 basé sur 2 matchs réels pour chaque formation de 2. Bundesliga.",
-      "ai_analysis": "TSV Eintracht Braunschweig et Hertha Berlin présentent des xG de 1.74 et 1.30. La projection mathématique penche vers un scénario ouvert avec 60.2% de probabilité BTTS. L'analyse repose sur une base de données de qualité LOW avec une fiabilité de 64.57%."
+      "awayLambda": 1.3
     },
     {
       "id": "vflbochu-vs-vflosnab-2026-08-28",
@@ -413,15 +373,7 @@
       "bttsProb": 0.6015,
       "over25Prob": 0.5879,
       "homeLambda": 1.74,
-      "awayLambda": 1.3,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "61%",
-      "ai_btts_prob": "61%",
-      "ai_over25_view": "59%",
-      "ai_over25_prob": "59%",
-      "ai_key_fact": "Mêmes métriques xG (1.74 vs 1.30) et xG cumulé de 3.05 que l'autre affiche de 2. Bundesliga.",
-      "ai_analysis": "VfL Bochum et VfL Osnabruck affichent des statistiques strictement similaires dans notre base avec 2 matchs réels chacun. Les probabilités de BTTS s'élèvent à 60.2% et l'Over 2.5 à 58.8%. La fiabilité est mesurée à 64.57% pour des données de qualité LOW."
+      "awayLambda": 1.3
     },
     {
       "id": "racingge-vs-waasland-2026-08-28",
@@ -483,15 +435,7 @@
       "bttsProb": 0.5929,
       "over25Prob": 0.5768,
       "homeLambda": 1.72,
-      "awayLambda": 1.28,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
-      "ai_btts_view": "60%",
-      "ai_btts_prob": "60%",
-      "ai_over25_view": "58%",
-      "ai_over25_prob": "58%",
-      "ai_key_fact": "Racing Genk (3 matchs) et Waasland-Beveren (3 matchs) affichent un xG cumulé de 3.",
-      "ai_analysis": "En Jupiler Pro League, Genk (xG 1.72) accueille Waasland-Beveren (xG 1.28). Le modèle évalue le BTTS à 59.3% et l'Over 2.5 à 57.7%. La fiabilité est de 64.19% avec une qualité de données LOW."
+      "awayLambda": 1.28
     },
     {
       "id": "crystalp-vs-manchest-2026-08-28",
@@ -553,15 +497,7 @@
       "bttsProb": 0.5877,
       "over25Prob": 0.5701,
       "homeLambda": 1.7,
-      "awayLambda": 1.27,
-      "ai_exact_score": "1-2",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "60%",
-      "ai_btts_prob": "60%",
-      "ai_over25_view": "58%",
-      "ai_over25_prob": "58%",
-      "ai_key_fact": "xG cumulé de 2.97 avec 1 match réel pour Crystal Palace et Manchester City.",
-      "ai_analysis": "Crystal Palace (xG 1.70) et Manchester City (xG 1.27) affichent des indicateurs identiques à un autre match de Premier League. Les probabilités de BTTS et d'Over 2.5 se situent autour de 58-57%. La fiabilité s'établit à 63.96% avec une qualité de données LOW."
+      "awayLambda": 1.27
     },
     {
       "id": "rioave-vs-sporting-2026-08-28",
@@ -623,15 +559,7 @@
       "bttsProb": 0.5698,
       "over25Prob": 0.5471,
       "homeLambda": 1.65,
-      "awayLambda": 1.22,
-      "ai_exact_score": "1-2",
-      "exact_score_prob": "16%",
-      "ai_btts_view": "58%",
-      "ai_btts_prob": "58%",
-      "ai_over25_view": "55%",
-      "ai_over25_prob": "55%",
-      "ai_key_fact": "Rio Ave et Sporting CP affichent tous deux 3 matchs réels et un xG cumulé de 2.87.",
-      "ai_analysis": "En Liga Portugal, Rio Ave (xG 1.65) et Sporting CP (xG 1.22) présentent des perspectives de buts équilibrées. Le BTTS est estimé à 57.0% et l'Over 2.5 à 54.7%. La fiabilité atteint 63.18% avec une qualité de données LOW."
+      "awayLambda": 1.22
     },
     {
       "id": "wrexham-vs-birmingh-2026-08-28",
@@ -693,15 +621,7 @@
       "bttsProb": 0.5625,
       "over25Prob": 0.5377,
       "homeLambda": 1.62,
-      "awayLambda": 1.21,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
-      "ai_btts_view": "57%",
-      "ai_btts_prob": "57%",
-      "ai_over25_view": "54%",
-      "ai_over25_prob": "54%",
-      "ai_key_fact": "xG cumulé de 2.83 en Championship avec 2 matchs réels par équipe.",
-      "ai_analysis": "Wrexham (xG 1.62) et Birmingham City (xG 1.21) affichent des statistiques proches de 56.3% pour le BTTS et 53.8% pour l'Over 2.5. La fiabilité globale est de 62.86% sur la base de données de qualité LOW."
+      "awayLambda": 1.21
     },
     {
       "id": "austrial-vs-wsgswaro-2026-08-28",
@@ -763,15 +683,7 @@
       "bttsProb": 0.5495,
       "over25Prob": 0.5305,
       "homeLambda": 1.67,
-      "awayLambda": 1.13,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "17%",
-      "ai_btts_view": "55%",
-      "ai_btts_prob": "55%",
-      "ai_over25_view": "53%",
-      "ai_over25_prob": "53%",
-      "ai_key_fact": "xG cumulé de 2.8 en Austrian Bundesliga avec un échantillon de 4 et 3 matchs réels.",
-      "ai_analysis": "Austria Lustenau (xG 1.67) et WSG Swarovski Tirol (xG 1.13) proposent des probabilités de BTTS de 54.9% et d'Over 2.5 de 53.0%. La fiabilité de prévision est de 62.29% avec une qualité de données LOW."
+      "awayLambda": 1.13
     },
     {
       "id": "intermia-vs-cfmontra-2026-08-29",
@@ -833,15 +745,7 @@
       "bttsProb": 0.7972,
       "over25Prob": 0.832,
       "homeLambda": 2.55,
-      "awayLambda": 2,
-      "ai_exact_score": "3-2",
-      "exact_score_prob": "12%",
-      "ai_btts_view": "81%",
-      "ai_btts_prob": "81%",
-      "ai_over25_view": "84%",
-      "ai_over25_prob": "84%",
-      "ai_key_fact": "xG cumulé très élevé de 4.55 avec 8 matchs réels par équipe en MLS.",
-      "ai_analysis": "Inter Miami CF (xG 2.55) et CF Montréal (xG 2.00) affichent les statistiques offensives les plus fortes de cette sélection. Le BTTS atteint 79.7% et l'Over 2.5 grimpe à 83.2%. La fiabilité globale est excellente à 93.63% grâce à une qualité de données HIGH."
+      "awayLambda": 2
     }
   ],
   "vipPreview": [
@@ -905,15 +809,7 @@
       "bttsProb": 0.7679,
       "over25Prob": 0.7875,
       "homeLambda": 2.15,
-      "awayLambda": 2.03,
-      "ai_exact_score": "2-2",
-      "exact_score_prob": "13%",
-      "ai_btts_view": "78%",
-      "ai_btts_prob": "78%",
-      "ai_over25_view": "80%",
-      "ai_over25_prob": "80%",
-      "ai_key_fact": "xG cumulé de 4.18 avec une base solide de 8 matchs réels pour chaque club de MLS.",
-      "ai_analysis": "Red Bull New York (xG 2.15) et Philadelphia Union (xG 2.03) disposent d'un profil très offensif. Les probabilités de BTTS (76.8%) et d'Over 2.5 (78.8%) témoignent d'un match ouvert. La fiabilité de prévision atteint 92.34% avec une qualité de données HIGH."
+      "awayLambda": 2.03
     },
     {
       "id": "torontof-vs-newyorkc-2026-08-29",
@@ -975,15 +871,7 @@
       "bttsProb": 0.7004,
       "over25Prob": 0.7146,
       "homeLambda": 2.1,
-      "awayLambda": 1.6,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "71%",
-      "ai_btts_prob": "71%",
-      "ai_over25_view": "72%",
-      "ai_over25_prob": "72%",
-      "ai_key_fact": "xG cumulé de 3.7 fondé sur 8 matchs réels pour Toronto FC et New York City FC.",
-      "ai_analysis": "En MLS, Toronto FC (xG 2.10) et New York City FC (xG 1.60) présentent de solides garanties statistiques. Le BTTS est évalué à 70.0% et l'Over 2.5 à 71.5%. La fiabilité atteint 89.39% avec une qualité de données HIGH."
+      "awayLambda": 1.6
     },
     {
       "id": "atlantau-vs-charlott-2026-08-29",
@@ -1045,15 +933,7 @@
       "bttsProb": 0.67,
       "over25Prob": 0.6761,
       "homeLambda": 1.98,
-      "awayLambda": 1.5,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
-      "ai_btts_view": "68%",
-      "ai_btts_prob": "68%",
-      "ai_over25_view": "69%",
-      "ai_over25_prob": "69%",
-      "ai_key_fact": "xG cumulé de 3.48 avec 8 matchs réels pour Atlanta United et Charlotte FC.",
-      "ai_analysis": "Atlanta United FC (xG 1.98) et Charlotte FC (xG 1.50) affichent des indicateurs cohérents pour un match prolifique en MLS. Le BTTS s'établit à 67.0% et l'Over 2.5 à 67.6%. La fiabilité est élevée à 88.06% (qualité HIGH)."
+      "awayLambda": 1.5
     },
     {
       "id": "seattles-vs-chicagof-2026-08-29",
@@ -1115,15 +995,7 @@
       "bttsProb": 0.6504,
       "over25Prob": 0.6943,
       "homeLambda": 1.28,
-      "awayLambda": 2.3,
-      "ai_exact_score": "1-2",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "66%",
-      "ai_btts_prob": "66%",
-      "ai_over25_view": "70%",
-      "ai_over25_prob": "70%",
-      "ai_key_fact": "xG cumulé de 3.58 avec une domination offensive extérieure marquée (Chicago xG 2.30).",
-      "ai_analysis": "Seattle Sounders (xG 1.28) reçoit Chicago Fire (xG 2.30) sur la base de 8 matchs réels chacun. Le modèle indique 65.0% de chances de BTTS et 69.4% pour l'Over 2.5. La fiabilité est forte à 87.21% avec une qualité de données HIGH."
+      "awayLambda": 2.3
     },
     {
       "id": "dcunited-vs-lafc-2026-08-29",
@@ -1185,15 +1057,7 @@
       "bttsProb": 0.6212,
       "over25Prob": 0.6096,
       "homeLambda": 1.38,
-      "awayLambda": 1.77,
-      "ai_exact_score": "1-2",
-      "exact_score_prob": "16%",
-      "ai_btts_view": "63%",
-      "ai_btts_prob": "63%",
-      "ai_over25_view": "62%",
-      "ai_over25_prob": "62%",
-      "ai_key_fact": "xG cumulé de 3.15 avec 8 matchs réels pour D.C. United et LAFC.",
-      "ai_analysis": "D.C. United (xG 1.38) et LAFC (xG 1.77) affichent des probabilités de BTTS à 62.1% et d'Over 2.5 à 61.0%. L'analyse s'appuie sur des données de qualité HIGH avec une fiabilité de 83.43%."
+      "awayLambda": 1.77
     },
     {
       "id": "columbus-vs-newengla-2026-08-29",
@@ -1255,15 +1119,7 @@
       "bttsProb": 0.5846,
       "over25Prob": 0.554,
       "homeLambda": 1.52,
-      "awayLambda": 1.38,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "17%",
-      "ai_btts_view": "60%",
-      "ai_btts_prob": "60%",
-      "ai_over25_view": "57%",
-      "ai_over25_prob": "57%",
-      "ai_key_fact": "xG cumulé de 2.9 avec 8 matchs réels pour Columbus Crew et New England Revolution.",
-      "ai_analysis": "Columbus Crew (xG 1.52) et New England Revolution (xG 1.38) affichent les métriques les plus mesurées de la section MLS. Le BTTS est estimé à 58.5% et l'Over 2.5 à 55.4%. La fiabilité globale atteint 81.82% avec une qualité de données HIGH."
+      "awayLambda": 1.38
     },
     {
       "id": "excelsio-vs-spartaro-2026-08-29",
@@ -1325,15 +1181,7 @@
       "bttsProb": 0.6424,
       "over25Prob": 0.6406,
       "homeLambda": 1.88,
-      "awayLambda": 1.42,
-      "ai_exact_score": "2-2",
-      "exact_score_prob": "14%",
-      "ai_btts_view": "65%",
-      "ai_btts_prob": "65%",
-      "ai_over25_view": "65%",
-      "ai_over25_prob": "65%",
-      "ai_key_fact": "xG cumulé de 3.3 avec Excelsior (2 matchs) et Sparta Rotterdam (3 matchs).",
-      "ai_analysis": "Ce derby d'Eredivisie réunit Excelsior (xG 1.88) et Sparta Rotterdam (xG 1.42). Les probabilités de BTTS et d'Over 2.5 s'élèvent toutes deux à environ 64.2%. La fiabilité est de 68.85% malgré une qualité de données LOW."
+      "awayLambda": 1.42
     },
     {
       "id": "azalkmaa-vs-goaheade-2026-08-29",
@@ -1395,15 +1243,7 @@
       "bttsProb": 0.6424,
       "over25Prob": 0.6406,
       "homeLambda": 1.88,
-      "awayLambda": 1.42,
-      "ai_exact_score": "2-2",
-      "exact_score_prob": "14%",
-      "ai_btts_view": "65%",
-      "ai_btts_prob": "65%",
-      "ai_over25_view": "65%",
-      "ai_over25_prob": "65%",
-      "ai_key_fact": "xG cumulé de 3.3 avec AZ Alkmaar (3 matchs) et Go Ahead Eagles (3 matchs).",
-      "ai_analysis": "AZ Alkmaar (xG 1.88) et Go Ahead Eagles (xG 1.42) partagent le même profil statistique que d'autres affiches d'Eredivisie. Le BTTS est évalué à 64.2% et l'Over 2.5 à 64.1%. La fiabilité s'établit à 68.85% sur une base de données de qualité LOW."
+      "awayLambda": 1.42
     }
   ],
   "stats": {
@@ -1475,15 +1315,7 @@
       "bttsProb": 0.5877,
       "over25Prob": 0.5701,
       "homeLambda": 1.7,
-      "awayLambda": 1.27,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "60%",
-      "ai_btts_prob": "60%",
-      "ai_over25_view": "59%",
-      "ai_over25_prob": "59%",
-      "ai_key_fact": "xG cumulé de 2.97 avec Fulham et Chelsea affichant des données initiales basées sur 0 match réel.",
-      "ai_analysis": "Fulham et Chelsea présentent des xG de 1.70 et 1.27 respectivement, sans historique de matchs réels enregistrés dans les données. La qualité des données est évaluée à LOW avec une fiabilité de 63.96%. Le profil offensif suggère tout de même une tendance favorable aux buts de part et d'autre."
+      "awayLambda": 1.27
     },
     {
       "id": "gilvicen-vs-casapia-2026-08-24",
@@ -1545,15 +1377,7 @@
       "bttsProb": 0.5698,
       "over25Prob": 0.5471,
       "homeLambda": 1.65,
-      "awayLambda": 1.22,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
-      "ai_btts_view": "58%",
-      "ai_btts_prob": "58%",
-      "ai_over25_view": "55%",
-      "ai_over25_prob": "55%",
-      "ai_key_fact": "Gil Vicente (1 match) et Casa Pia (2 matchs) affichent un xG cumulé de 2.87.",
-      "ai_analysis": "Cette rencontre de Liga Portugal s'appuie sur des volumes de matchs réels très faibles (1 et 2 matchs). Avec des xG de 1.65 et 1.22, les probabilités de BTTS et d'Over 2.5 restent modérées autour de 55-57%. L'indice de fiabilité atteint 63.18% avec une qualité de données LOW."
+      "awayLambda": 1.22
     },
     {
       "id": "fcgronin-vs-fortunas-2026-08-28",
@@ -1615,15 +1439,7 @@
       "bttsProb": 0.6424,
       "over25Prob": 0.6406,
       "homeLambda": 1.88,
-      "awayLambda": 1.42,
-      "ai_exact_score": "2-2",
-      "exact_score_prob": "14%",
-      "ai_btts_view": "65%",
-      "ai_btts_prob": "65%",
-      "ai_over25_view": "65%",
-      "ai_over25_prob": "65%",
-      "ai_key_fact": "xG cumulé élevé de 3.3 avec 3 matchs réels pour chaque équipe.",
-      "ai_analysis": "FC Groningen et Fortuna Sittard affichent des xG respectifs de 1.88 et 1.42, traduisant un potentiel offensif intéressant en Eredivisie. Les probabilités mathématiques de BTTS et d'Over 2.5 dépassent les 64%. La fiabilité globale s'établit à 68.85% malgré une qualité de données jugée LOW."
+      "awayLambda": 1.42
     },
     {
       "id": "bayernmu-vs-vfbstutt-2026-08-28",
@@ -1685,15 +1501,7 @@
       "bttsProb": 0.6265,
       "over25Prob": 0.6201,
       "homeLambda": 1.83,
-      "awayLambda": 1.37,
-      "ai_exact_score": "3-1",
-      "exact_score_prob": "13%",
-      "ai_btts_view": "63%",
-      "ai_btts_prob": "63%",
-      "ai_over25_view": "62%",
-      "ai_over25_prob": "62%",
-      "ai_key_fact": "Bayern Munich et VfB Stuttgart totalisent un xG cumulé de 3.2 sans matchs réels enregistrés.",
-      "ai_analysis": "Ce choc de Bundesliga propose des xG de 1.83 pour le Bayern Munich et 1.37 pour Stuttgart. Les probabilités calculées indiquent 62.6% pour le BTTS et 62.0% pour l'Over 2.5. La fiabilité atteint 68.16% malgré la classification LOW de la qualité des données."
+      "awayLambda": 1.37
     },
     {
       "id": "tsveintr-vs-herthabe-2026-08-28",
@@ -1755,15 +1563,7 @@
       "bttsProb": 0.6015,
       "over25Prob": 0.5879,
       "homeLambda": 1.74,
-      "awayLambda": 1.3,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "61%",
-      "ai_btts_prob": "61%",
-      "ai_over25_view": "59%",
-      "ai_over25_prob": "59%",
-      "ai_key_fact": "xG cumulé de 3.05 basé sur 2 matchs réels pour chaque formation de 2. Bundesliga.",
-      "ai_analysis": "TSV Eintracht Braunschweig et Hertha Berlin présentent des xG de 1.74 et 1.30. La projection mathématique penche vers un scénario ouvert avec 60.2% de probabilité BTTS. L'analyse repose sur une base de données de qualité LOW avec une fiabilité de 64.57%."
+      "awayLambda": 1.3
     },
     {
       "id": "vflbochu-vs-vflosnab-2026-08-28",
@@ -1825,15 +1625,7 @@
       "bttsProb": 0.6015,
       "over25Prob": 0.5879,
       "homeLambda": 1.74,
-      "awayLambda": 1.3,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "61%",
-      "ai_btts_prob": "61%",
-      "ai_over25_view": "59%",
-      "ai_over25_prob": "59%",
-      "ai_key_fact": "Mêmes métriques xG (1.74 vs 1.30) et xG cumulé de 3.05 que l'autre affiche de 2. Bundesliga.",
-      "ai_analysis": "VfL Bochum et VfL Osnabruck affichent des statistiques strictement similaires dans notre base avec 2 matchs réels chacun. Les probabilités de BTTS s'élèvent à 60.2% et l'Over 2.5 à 58.8%. La fiabilité est mesurée à 64.57% pour des données de qualité LOW."
+      "awayLambda": 1.3
     },
     {
       "id": "racingge-vs-waasland-2026-08-28",
@@ -1895,15 +1687,7 @@
       "bttsProb": 0.5929,
       "over25Prob": 0.5768,
       "homeLambda": 1.72,
-      "awayLambda": 1.28,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
-      "ai_btts_view": "60%",
-      "ai_btts_prob": "60%",
-      "ai_over25_view": "58%",
-      "ai_over25_prob": "58%",
-      "ai_key_fact": "Racing Genk (3 matchs) et Waasland-Beveren (3 matchs) affichent un xG cumulé de 3.",
-      "ai_analysis": "En Jupiler Pro League, Genk (xG 1.72) accueille Waasland-Beveren (xG 1.28). Le modèle évalue le BTTS à 59.3% et l'Over 2.5 à 57.7%. La fiabilité est de 64.19% avec une qualité de données LOW."
+      "awayLambda": 1.28
     },
     {
       "id": "crystalp-vs-manchest-2026-08-28",
@@ -1965,15 +1749,7 @@
       "bttsProb": 0.5877,
       "over25Prob": 0.5701,
       "homeLambda": 1.7,
-      "awayLambda": 1.27,
-      "ai_exact_score": "1-2",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "60%",
-      "ai_btts_prob": "60%",
-      "ai_over25_view": "58%",
-      "ai_over25_prob": "58%",
-      "ai_key_fact": "xG cumulé de 2.97 avec 1 match réel pour Crystal Palace et Manchester City.",
-      "ai_analysis": "Crystal Palace (xG 1.70) et Manchester City (xG 1.27) affichent des indicateurs identiques à un autre match de Premier League. Les probabilités de BTTS et d'Over 2.5 se situent autour de 58-57%. La fiabilité s'établit à 63.96% avec une qualité de données LOW."
+      "awayLambda": 1.27
     },
     {
       "id": "rioave-vs-sporting-2026-08-28",
@@ -2035,15 +1811,7 @@
       "bttsProb": 0.5698,
       "over25Prob": 0.5471,
       "homeLambda": 1.65,
-      "awayLambda": 1.22,
-      "ai_exact_score": "1-2",
-      "exact_score_prob": "16%",
-      "ai_btts_view": "58%",
-      "ai_btts_prob": "58%",
-      "ai_over25_view": "55%",
-      "ai_over25_prob": "55%",
-      "ai_key_fact": "Rio Ave et Sporting CP affichent tous deux 3 matchs réels et un xG cumulé de 2.87.",
-      "ai_analysis": "En Liga Portugal, Rio Ave (xG 1.65) et Sporting CP (xG 1.22) présentent des perspectives de buts équilibrées. Le BTTS est estimé à 57.0% et l'Over 2.5 à 54.7%. La fiabilité atteint 63.18% avec une qualité de données LOW."
+      "awayLambda": 1.22
     },
     {
       "id": "wrexham-vs-birmingh-2026-08-28",
@@ -2105,15 +1873,7 @@
       "bttsProb": 0.5625,
       "over25Prob": 0.5377,
       "homeLambda": 1.62,
-      "awayLambda": 1.21,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "16%",
-      "ai_btts_view": "57%",
-      "ai_btts_prob": "57%",
-      "ai_over25_view": "54%",
-      "ai_over25_prob": "54%",
-      "ai_key_fact": "xG cumulé de 2.83 en Championship avec 2 matchs réels par équipe.",
-      "ai_analysis": "Wrexham (xG 1.62) et Birmingham City (xG 1.21) affichent des statistiques proches de 56.3% pour le BTTS et 53.8% pour l'Over 2.5. La fiabilité globale est de 62.86% sur la base de données de qualité LOW."
+      "awayLambda": 1.21
     },
     {
       "id": "austrial-vs-wsgswaro-2026-08-28",
@@ -2175,15 +1935,7 @@
       "bttsProb": 0.5495,
       "over25Prob": 0.5305,
       "homeLambda": 1.67,
-      "awayLambda": 1.13,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "17%",
-      "ai_btts_view": "55%",
-      "ai_btts_prob": "55%",
-      "ai_over25_view": "53%",
-      "ai_over25_prob": "53%",
-      "ai_key_fact": "xG cumulé de 2.8 en Austrian Bundesliga avec un échantillon de 4 et 3 matchs réels.",
-      "ai_analysis": "Austria Lustenau (xG 1.67) et WSG Swarovski Tirol (xG 1.13) proposent des probabilités de BTTS de 54.9% et d'Over 2.5 de 53.0%. La fiabilité de prévision est de 62.29% avec une qualité de données LOW."
+      "awayLambda": 1.13
     },
     {
       "id": "intermia-vs-cfmontra-2026-08-29",
@@ -2245,15 +1997,7 @@
       "bttsProb": 0.7972,
       "over25Prob": 0.832,
       "homeLambda": 2.55,
-      "awayLambda": 2,
-      "ai_exact_score": "3-2",
-      "exact_score_prob": "12%",
-      "ai_btts_view": "81%",
-      "ai_btts_prob": "81%",
-      "ai_over25_view": "84%",
-      "ai_over25_prob": "84%",
-      "ai_key_fact": "xG cumulé très élevé de 4.55 avec 8 matchs réels par équipe en MLS.",
-      "ai_analysis": "Inter Miami CF (xG 2.55) et CF Montréal (xG 2.00) affichent les statistiques offensives les plus fortes de cette sélection. Le BTTS atteint 79.7% et l'Over 2.5 grimpe à 83.2%. La fiabilité globale est excellente à 93.63% grâce à une qualité de données HIGH."
+      "awayLambda": 2
     }
   ]
 }
