@@ -376,17 +376,17 @@ function MatchCard({ match, index, insufficientDataLabel, labels }: { match: Mat
             <span className="text-[8px] uppercase tracking-widest font-bold" style={{ color: C.textSec }}>
               {labels.exactScore}
             </span>
-            {sufficientData && match.exactScoreProb && (
+            {match.exactScoreProb && (
               <span className="text-[9px] font-mono font-bold" style={{ color: C.gold }}>
                 {match.exactScoreProb}
               </span>
             )}
           </div>
           <div className="mt-1 text-lg font-black tabular-nums" style={{ color: match.aiExactScore ? C.gold : C.textSec }}>
-            {sufficientData && match.aiExactScore ? match.aiExactScore : 'Non publié — données insuffisantes'}
+            {match.aiExactScore ? match.aiExactScore : 'Non publié — données insuffisantes'}
           </div>
           <p className="text-[8px] mt-1" style={{ color: C.textMute }}>
-            {sufficientData ? labels.projection : insufficientDataLabel}
+            {match.aiExactScore || match.exactScoreProb ? labels.projection : insufficientDataLabel}
           </p>
         </div>
       </div>
@@ -439,7 +439,7 @@ function MatchCard({ match, index, insufficientDataLabel, labels }: { match: Mat
               {labels.aiAnalysis}
             </span>
           </div>
-          {sufficientData && match.aiExactScore && (
+          {match.aiExactScore && (
             <span className="text-[9px] font-mono tabular-nums" style={{ color: C.textSec }}>
               {labels.score}: <span style={{ color: C.gold }}>{match.aiExactScore}</span>
               {match.exactScoreProb ? ` (${match.exactScoreProb})` : ''}
@@ -447,24 +447,30 @@ function MatchCard({ match, index, insufficientDataLabel, labels }: { match: Mat
           )}
         </div>
 
-        {sufficientData && match.aiKeyFact && (
+        {(match.aiBttsView || match.aiOver25View) && (
+          <div className="grid grid-cols-2 gap-1.5 mb-2">
+            {match.aiBttsView && <ProbBlock label="BTTS · IA" value={match.aiBttsView} accent={C.success} />}
+            {match.aiOver25View && <ProbBlock label="Over 2.5 · IA" value={match.aiOver25View} accent={C.warning} />}
+          </div>
+        )}
+        {match.aiKeyFact && (
           <p className="text-[10px] font-semibold mb-1" style={{ color: C.text }}>
             {match.aiKeyFact}
           </p>
         )}
-        {sufficientData && !expanded && match.aiAnalysis && (
+        {!expanded && match.aiAnalysis && (
           <p className="text-[10px] leading-relaxed mt-1" style={{ color: C.textSec }}>
             {match.aiAnalysis.length > 180 ? `${match.aiAnalysis.slice(0, 177)}…` : match.aiAnalysis}
           </p>
         )}
-        {sufficientData && expanded && match.aiAnalysis && (
+        {expanded && match.aiAnalysis && (
           <p className="text-[10px] leading-relaxed mt-1" style={{ color: C.textSec }}>
             {match.aiAnalysis}
           </p>
         )}
 
         <div className="flex flex-wrap items-center gap-3 mt-2">
-          {sufficientData && match.aiAnalysis && (
+          {match.aiAnalysis && (
             <button
               onClick={() => setExpanded(e => !e)}
               aria-expanded={expanded}
@@ -793,10 +799,10 @@ export default function BttsTodayDashboard() {
       ? 'Projection hidden: insufficient data sample.'
       : 'تم إخفاء التوقع: عينة البيانات غير كافية.'
   const labels: DashboardLabels = lang === 'fr'
-    ? { exactScore: 'Score exact proposé', projection: 'Projection issue des données disponibles, sans garantie de résultat.', source: 'Source', quality: 'Qualité', matches: 'matchs', dataConfidence: 'Confiance des données', aiAnalysis: 'Analyse IA', score: 'Score', xgHome: 'xG domicile', xgAway: 'xG extérieur', xgTotal: 'xG total', openMatch: 'Ouvrir la page du match' }
+    ? { exactScore: 'Score exact proposé', projection: 'Projection issue des données disponibles, sans garantie de résultat.', source: 'Source', quality: 'Qualité', matches: 'matchs', dataConfidence: 'Confiance des données', aiAnalysis: 'Analyse IA Gemini', score: 'Score', xgHome: 'xG domicile', xgAway: 'xG extérieur', xgTotal: 'xG total', openMatch: 'Ouvrir la page du match' }
     : lang === 'en'
-      ? { exactScore: 'Proposed exact score', projection: 'Projection based on available data, with no result guaranteed.', source: 'Source', quality: 'Quality', matches: 'matches', dataConfidence: 'Data confidence', aiAnalysis: 'AI analysis', score: 'Score', xgHome: 'Home xG', xgAway: 'Away xG', xgTotal: 'Total xG', openMatch: 'Open match page' }
-      : { exactScore: 'النتيجة الدقيقة المقترحة', projection: 'توقع مبني على البيانات المتاحة دون ضمان للنتيجة.', source: 'المصدر', quality: 'الجودة', matches: 'مباريات', dataConfidence: 'موثوقية البيانات', aiAnalysis: 'تحليل الذكاء الاصطناعي', score: 'النتيجة', xgHome: 'xG صاحب الأرض', xgAway: 'xG الضيف', xgTotal: 'إجمالي xG', openMatch: 'فتح صفحة المباراة' }
+      ? { exactScore: 'Proposed exact score', projection: 'Projection based on available data, with no result guaranteed.', source: 'Source', quality: 'Quality', matches: 'matches', dataConfidence: 'Data confidence', aiAnalysis: 'Gemini AI analysis', score: 'Score', xgHome: 'Home xG', xgAway: 'Away xG', xgTotal: 'Total xG', openMatch: 'Open match page' }
+      : { exactScore: 'النتيجة الدقيقة المقترحة', projection: 'توقع مبني على البيانات المتاحة دون ضمان للنتيجة.', source: 'المصدر', quality: 'الجودة', matches: 'مباريات', dataConfidence: 'موثوقية البيانات', aiAnalysis: 'تحليل Gemini بالذكاء الاصطناعي', score: 'النتيجة', xgHome: 'xG صاحب الأرض', xgAway: 'xG الضيف', xgTotal: 'إجمالي xG', openMatch: 'فتح صفحة المباراة' }
 
   // ─── Render ───────────────────────────────────────────────────────────
   return (
