@@ -136,18 +136,18 @@ const copy = {
     selected: 'Sélectionné',
     unlock: 'Débloquer avec WhatsApp',
     combosEyebrow: 'SÉLECTIONS DU JOUR · VIP',
-    combosTitle: 'Matchs réels',
+    combosTitle: 'Combiné VIP du jour',
     combosIntro: 'Les matchs sont visibles. Le marché et la sélection du combiné restent verrouillés jusqu’à ta demande VIP.',
     combo2: 'Combiné VIP du jour',
     combo5: 'Combiné VIP · 5 matchs',
     comboVipToday: 'Combiné VIP du jour',
     combo5MatchOnly: 'Combiné VIP · 5 matchs',
-    matchOnlyBadge: 'Matchs réels',
-    matchOnlySource: 'Matchs futurs · informations protégées jusqu’au déblocage',
+    matchOnlyBadge: 'VIP',
+    matchOnlySource: 'Combiné VIP du jour · contenu protégé jusqu’au déblocage',
     totalOdds: 'Cote totale',
     kickoff: 'Coup d’envoi',
     locked: 'Marchés verrouillés',
-    unavailable: 'Les matchs futurs du jour ne sont pas encore disponibles. Reviens après la prochaine mise à jour.',
+    unavailable: 'Le combiné VIP du jour sera disponible après la prochaine mise à jour.',
     dataFreshness: 'Données horodatées depuis la source de cotes partenaire',
   },
   en: {
@@ -171,18 +171,18 @@ const copy = {
     selected: 'Selected',
     unlock: 'Unlock with WhatsApp',
     combosEyebrow: 'TODAY’S PICKS · VIP',
-    combosTitle: 'Real matches',
+    combosTitle: "Today's VIP combo",
     combosIntro: 'Matches stay visible. The combo market and selection remain locked until you request VIP access.',
     combo2: 'Today’s VIP combo',
     combo5: 'VIP combo · 5 matches',
     comboVipToday: 'Today’s VIP combo',
     combo5MatchOnly: 'VIP combo · 5 matches',
-    matchOnlyBadge: 'Real matches',
-    matchOnlySource: 'Future matches · information protected until unlock',
+    matchOnlyBadge: 'VIP',
+    matchOnlySource: "Today's VIP combo · content protected until unlock",
     totalOdds: 'Total odds',
     kickoff: 'Kick-off',
     locked: 'Markets locked',
-    unavailable: 'Future matches for today are not available yet. Check back after the next update.',
+    unavailable: "Today's VIP combo will be available after the next update.",
     dataFreshness: 'Timestamped data from the partner odds source',
   },
   ar: {
@@ -206,18 +206,18 @@ const copy = {
     selected: 'محدد',
     unlock: 'فتح عبر واتساب',
     combosEyebrow: 'اختيارات اليوم · VIP',
-    combosTitle: 'المباريات الحقيقية',
+    combosTitle: 'المركب VIP لليوم',
     combosIntro: 'المباريات ظاهرة. يبقى سوق الاختيار المركب والاختيار نفسه مقفلين حتى تطلب وصول VIP.',
     combo2: 'المركب VIP لليوم',
     combo5: 'المركب VIP · 5 مباريات',
     comboVipToday: 'المركب VIP لليوم',
     combo5MatchOnly: 'المركب VIP · 5 مباريات',
-    matchOnlyBadge: 'مباريات حقيقية',
-    matchOnlySource: 'مباريات مستقبلية · المعلومات محمية حتى الفتح',
+    matchOnlyBadge: 'VIP',
+    matchOnlySource: 'المركب VIP لليوم · المحتوى محمي حتى الفتح',
     totalOdds: 'المعامل الإجمالي',
     kickoff: 'موعد البداية',
     locked: 'الأسواق مقفلة',
-    unavailable: 'المباريات المستقبلية لليوم غير متاحة بعد. عد بعد التحديث القادم.',
+    unavailable: 'سيكون المركب VIP لليوم متاحاً بعد التحديث القادم.',
     dataFreshness: 'بيانات مؤرخة من مصدر معاملات الشريك',
   },
 } as const
@@ -240,10 +240,10 @@ export default function VipPage({ initialLocale }: { initialLocale?: Locale } = 
   const today = dakarDate()
   const availableCombos = [
     hasFutureLegs(matchOnlyCombos?.target3)
-      ? { key: 'target3' as const, combo: matchOnlyCombos.target3, title: text.comboVipToday }
+      ? { key: 'target3' as const, combo: matchOnlyCombos.target3, title: `${text.comboVipToday} — ${today}` }
       : null,
     hasFutureLegs(matchOnlyCombos?.target5)
-      ? { key: 'target5' as const, combo: matchOnlyCombos.target5, title: text.combo5MatchOnly }
+      ? { key: 'target5' as const, combo: matchOnlyCombos.target5, title: `${text.combo5MatchOnly} — ${today}` }
       : null,
   ].filter((item): item is NonNullable<typeof item> => item !== null)
 
