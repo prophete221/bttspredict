@@ -55,10 +55,10 @@ def get_client():
     return genai.Client(api_key=api_key)
 
 
-def build_batch_prompt(all_matches: list) -> str:
+def build_batch_prompt(all_matches: list, id_offset: int = 0) -> str:
     """Build a single batch prompt for ALL matches at once."""
     matches_summary = []
-    for i, m in enumerate(all_matches):
+    for i, m in enumerate(all_matches, start=id_offset):
         home = m.get("home", "Unknown")
         away = m.get("away", "Unknown")
         league = m.get("league", "Unknown")
@@ -89,7 +89,7 @@ def build_batch_prompt(all_matches: list) -> str:
             "existing_data": existing,
         })
 
-        prompt = f"""# ROLE
+    prompt = f"""# ROLE
 Tu es un analyste de football quantitatif pour BTTSPredict. Ton objectif est de modéliser chaque match à partir de données fournies, pas de donner un avis de fan.
 
 # CADRE DE DONNÉES ET DE FRAÎCHEUR
@@ -148,15 +148,12 @@ Retourne uniquement un tableau JSON valide, sans Markdown et sans texte avant ou
     return prompt
 
 
-def call_gemini_batch(client, all_matches: list) -> list:
-    """Send a single batch API call to Gemini and return parsed results.
-
-    Tries each model in MODELS_TO_TRY in order until one succeeds.
-    """
-    prompt = build_batch_prompt(all_matches)
+def _call_gemini_chunk(client, matches: list, id_offset: int) -> list:
+    """Enrich one small chunk so the strict JSON response is not truncated."""
+    prompt = build_batch_prompt(matches, id_offset=id_offset)
 
     for model_name in MODELS_TO_TRY:
-        print(f"[enrich] Trying model: {model_name}...")
+        print(f"[enrich] Trying model: {model_name} for chunk {id_offset + 1}-{id_offset + len(matches)}...")
 
         for attempt in range(MAX_RETRIES + 1):
             try:
@@ -170,31 +167,27 @@ def call_gemini_batch(client, all_matches: list) -> list:
                     },
                 )
 
-                # Parse JSON array response
-                result = json.loads(response.text)
-
+                result = json.loads(response.text or "")
                 if isinstance(result, list) and len(result) > 0:
                     print(f"[enrich] ✅ Received {len(result)} enrichments from {model_name}")
                     return result
-                else:
-                    print(f"[enrich] ⚠️ Unexpected response format (attempt {attempt+1})")
+                print(f"[enrich] ⚠️ Unexpected response format (attempt {attempt + 1})")
 
             except json.JSONDecodeError as e:
-                print(f"[enrich] ⚠️ JSON parse error (attempt {attempt+1}): {e}")
+                print(f"[enrich] ⚠️ JSON parse error (attempt {attempt + 1}): {e}")
             except Exception as e:
                 err_str = str(e)
                 if "429" in err_str or "RESOURCE_EXHAUSTED" in err_str:
                     print(f"[enrich] ⏳ Rate limited on {model_name}, waiting {RATE_LIMIT_WAIT}s...")
                     time.sleep(RATE_LIMIT_WAIT)
                     continue
-                elif "quota" in err_str.lower():
+                if "quota" in err_str.lower():
                     print(f"[enrich] ❌ Quota exceeded on {model_name} — skipping this model")
-                    break  # try next fallback model
-                elif "404" in err_str or "NOT_FOUND" in err_str:
+                    break
+                if "404" in err_str or "NOT_FOUND" in err_str:
                     print(f"[enrich] ⚠️ Model {model_name} not found — trying fallback")
-                    break  # try next fallback model
-                else:
-                    print(f"[enrich] ⚠️ API error on {model_name} (attempt {attempt+1}): {err_str[:150]}")
+                    break
+                print(f"[enrich] ⚠️ API error on {model_name} (attempt {attempt + 1}): {err_str[:150]}")
 
             if attempt < MAX_RETRIES:
                 print(f"[enrich] Retrying in {RETRY_DELAY}s...")
@@ -202,8 +195,22 @@ def call_gemini_batch(client, all_matches: list) -> list:
 
         print(f"[enrich] {model_name} failed — trying next fallback model...")
 
-    print("[enrich] ❌ All models exhausted — keeping existing data")
+    print(f"[enrich] ❌ All models exhausted for chunk {id_offset + 1}-{id_offset + len(matches)}")
     return []
+
+
+def call_gemini_batch(client, all_matches: list) -> list:
+    """Enrich all matches in small chunks and preserve global match indexes."""
+    chunk_size = 4
+    enrichments = []
+    for id_offset in range(0, len(all_matches), chunk_size):
+        chunk = all_matches[id_offset:id_offset + chunk_size]
+        result = _call_gemini_chunk(client, chunk, id_offset)
+        enrichments.extend(result)
+        if not result:
+            print(f"[enrich] ⚠️ Chunk {id_offset + 1}-{id_offset + len(chunk)} returned no enrichment")
+    print(f"[enrich] Received {len(enrichments)}/{len(all_matches)} total enrichments")
+    return enrichments
 
 
 def main():
