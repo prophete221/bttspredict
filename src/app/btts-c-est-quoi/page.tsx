@@ -10,7 +10,7 @@ import {Navbar, Footer,
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'btts-c-est-quoi'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const TITLE = 'BTTS : définition, fonctionnement et exemples au football'
+const TITLE = 'BTTS : définition et fonctionnement'
 const DESCRIPTION = 'Comprenez le pari BTTS, la différence entre BTTS Oui et Non, les exemples et les limites d’un pronostic football. 18+.'
 
 export const metadata: Metadata = {

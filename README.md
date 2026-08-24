@@ -34,7 +34,7 @@ src/
 │   ├── resultats-verifies/  # Historique auditable
 │   ├── historique/        # Historique complet vérifié
 │   ├── methodologie/      # Méthodologie modèle statistique + critères qualité Combo
-│   ├── sitemap.ts         # Sitemap Next.js natif (16 URLs)
+│   ├── sitemap.ts         # Sitemap Next.js natif (18 URLs actives)
 │   └── layout.tsx         # Layout global + metadata + cache-busting
 ├── components/
 │   ├── bttsbet/           # Composants BTTSPredict
@@ -60,7 +60,7 @@ public/
 ├── predictions-archive/   # Archive quotidienne horodatée
 ├── tracking-period.json  # Période de suivi public
 ├── robots.txt            # Autorise tous les bots + chatbots IA
-├── sitemap.xml           # Généré par Next.js (14 URLs)
+├── sitemap.xml           # Généré par Next.js (18 URLs)
 ├── manifest.json         # PWA manifest
 ├── llms.txt              # Contexte pour LLMs (ChatGPT, Perplexity, Claude)
 ├── ai.txt                # Contexte pour AI assistants
@@ -71,7 +71,7 @@ public/
 
 scripts/
 ├── quick-update-predictions.mjs  # Génération pronostics (ESPN API + Poisson v92 real-data)
-├── enrich_predictions.py         # Enrichissement Gemini 2.0 Flash (ai_analysis, ai_key_fact)
+├── enrich_predictions.py         # Enrichissement Gemini par lots (champs ai_*)
 ├── verify-results.mjs             # Vérification post-match (ESPN)
 ├── update-win-history.mjs         # Mise à jour historique
 ├── scrape-transfers.mjs          # Transferts joueurs
@@ -80,26 +80,30 @@ scripts/
 └── seo-report.mjs                 # Rapport SEO complet
 ```
 
-## Pages du site — 16 URLs canoniques (sitemap)
+## Pages du site — 18 URLs canoniques (sitemap)
+
+La source de vérité est `src/app/sitemap.ts`. Le XML public contient 18 entrées actives, avec les pages de pronostics, les pages éditoriales, les pages légales et les pages affiliées distinctes.
 
 | Route | Description | Priorité | Fréquence |
 |-------|-------------|----------|-----------|
 | `/` | Homepage — Pronostics BTTS et Over 2,5 du jour | 1.0 | daily |
-| `/btts/predictions/today` | Pronostics BTTS du jour + AI Combo of the Day | 0.9 | daily |
+| `/btts/predictions/today` | Pronostics BTTS du jour + analyse Gemini | 0.9 | daily |
 | `/over-2-5/predictions/today` | Pronostics Over 2,5 du jour | 0.9 | daily |
 | `/btts-and-over-2-5-predictions-today` | Prédictions combinées BTTS + Over 2.5 | 0.9 | daily |
-| `/ai-correct-score-predictions` | Scores exacts (modèle Poisson) | 0.85 | daily |
-| `/btts/statistics` | Statistiques BTTS par ligue | 0.85 | monthly |
-| `/over-2-5/statistics` | Statistiques Over 2,5 par ligue | 0.85 | monthly |
+| `/ai-correct-score-predictions` | Scores exacts calculés par Poisson | 0.85 | daily |
 | `/resultats-verifies` | Résultats vérifiés | 0.85 | daily |
 | `/historique` | Historique complet vérifié | 0.85 | daily |
-| `/vip` | Programme VIP (carte premium + unlock modal) | 0.9 | daily |
-| `/methodologie` | Méthodologie + critères qualité Combo | 0.8 | monthly |
+| `/vip` | Combinés VIP verrouillés et déblocage | 0.9 | daily |
+| `/statistiques` | Page statistiques générale | 0.75 | monthly |
+| `/methodologie` | Méthodologie du modèle statistique | 0.8 | monthly |
+| `/cgu` | Conditions générales d’utilisation | 0.3 | yearly |
+| `/politique-confidentialite` | Politique de confidentialité | 0.3 | yearly |
+| `/mentions-legales` | Mentions légales | 0.3 | yearly |
+| `/jouer-responsable` | Jeu responsable — ressources d’aide | 0.5 | yearly |
 | `/btts-c-est-quoi` | Guide BTTS — définition et exemples | 0.75 | monthly |
 | `/code-promo-linebet-senegal` | Code promo Linebet Sénégal | 0.95 | weekly |
-| `/bonus-888starz` | Code promo 888Starz Afrique | 0.9 | weekly |
-| `/jouer-responsable` | Jeu responsable — ressources d'aide | 0.5 | yearly |
-| `/mentions-legales` | Mentions légales | 0.3 | yearly |
+| `/bonus-888starz` | Page historique code promo 888Starz | 0.9 | weekly |
+| `/bonus-888starz-btts221` | Page dédiée au code `btts221` | 0.95 | daily |
 
 ## Pages additionnelles (hors sitemap)
 
@@ -130,8 +134,8 @@ scripts/
 | `/match-predictions` | `/` |
 | `/over-2-5-predictions` | `/` |
 | `/team-predictions` | `/` |
-| `/pronostics` | `/` |
-| `/pronostics/aujourd-hui` | `/` |
+| `/pronostics` | Alias public, canonical vers `/btts/predictions/today` |
+| `/pronostics/aujourd'hui` | `/pronostics` |
 | `/prediction-aviator` | `/` |
 | `/faille-fifa` | `/` |
 | `/blog` | `/` |
@@ -202,7 +206,7 @@ scripts/
 ## Liens SEO et crawlers
 
 ### Sitemap
-- `https://bttspredict.com/sitemap.xml` (16 URLs canoniques)
+- `https://bttspredict.com/sitemap.xml` (18 URLs canoniques)
 
 ### robots.txt
 Autorise **tous les bots** :
@@ -226,7 +230,7 @@ Autorise **tous les bots** :
 npm install --legacy-peer-deps
 npm run dev      # http://localhost:3000
 npm run build    # Build statique → out/
-npm test         # Tests Vitest (33 tests)
+npm test         # Tests Vitest
 npm run lint     # ESLint
 ```
 
@@ -234,23 +238,22 @@ npm run lint     # ESLint
 
 Le déploiement est automatique via GitHub Actions (`.github/workflows/deploy.yml`) sur push vers `main` :
 
-1. Checkout `main`
-2. Setup Node.js 22
-3. `npm ci --legacy-peer-deps`
-4. Génération pronostics (`scripts/quick-update-predictions.mjs` — ESPN API)
-5. Vérification résultats (`scripts/verify-results.mjs`)
-6. Mise à jour historique (`scripts/update-win-history.mjs`)
-7. Build statique (`npm run build`)
-8. Copy routing files (`.htaccess`, `404.html`, `robots.txt`, `sitemap.xml`)
-9. Commit data (auto-update predictions, win-history, transfers)
-10. Déploiement FTP vers LWS via `lftp`
+1. Sur une PR vers `main`, le job de contrôle teste le commit de la PR avec tests, lint, typecheck et build ; aucun FTP n’est lancé.
+2. Sur push vers `main`, tag `v*`, planification ou lancement manuel, le job de déploiement utilise Node.js 22 et `npm ci --legacy-peer-deps`.
+3. Génération des pronostics (`scripts/quick-update-predictions.mjs`) depuis ESPN + TheSportsDB et validation du timestamp/coup d’envoi.
+4. Enrichissement Gemini (`scripts/enrich_predictions.py`) par lots de quatre matchs ; l’étape est tolérante à l’absence de clé ou à un échec de modèle.
+5. Vérification des résultats, mise à jour de l’historique et des transferts.
+6. Validation du dataset, build statique, copie des fichiers de routage et commit des données générées.
+7. Nettoyage prudent des anciens dossiers `_next/`, puis miroir FTP vers la racine LWS via `lftp` sans suppression générale (`--delete` absent).
+8. Notification IndexNow après un déploiement réussi.
 
-Cron : `0 4,6,14,22 * * *` (4 mises à jour quotidiennes à 04h, 06h, 14h, 22h UTC)
+Cron : `0 */4 * * *` (six exécutions quotidiennes, toutes les quatre heures, en UTC).
 
 ## Codes promo affiliés
 
 - **Linebet** : `VISION221` (majuscules)
-- **888Starz** : `vision221` (minuscules)
+- **888Starz — parcours VIP et page dédiée** : `btts221` (minuscules)
+- **Page historique `/bonus-888starz`** : conserve son contenu promotionnel historique `VISION221` ; ne pas confondre cette page avec la page dédiée `/bonus-888starz-btts221`.
 - Dépôt minimum : à vérifier sur les sites officiels des bookmakers
 - WhatsApp vérification : +1 540 670 4172
 
@@ -260,16 +263,15 @@ Cron : `0 4,6,14,22 * * *` (4 mises à jour quotidiennes à 04h, 06h, 14h, 22h U
 
 | Token | Couleur | Usage |
 |---|---|---|
-| `bg` | `#0F172A` | Fond principal (Slate 900) |
-| `surface` | `#1E293B` | Cartes (Slate 800) |
-| `border` | `#334155` | Bordures (Slate 700) |
-| `text` | `#F8FAFC` | Texte principal (Slate 50) |
-| `textSec` | `#94A3B8` | Texte secondaire (Slate 400) |
-| Baobab / Success | `#10B981` | CTA principal, succès (Emerald 500) |
-| Data / IA | `#3B82F6` | Données, IA (Blue 500) |
-| Warning | `#F59E0B` | Avertissement, Over 2.5 (Amber 500) |
-| Danger | `#EF4444` | Erreur, LOW qualité (Red 500) |
-| Gold | `#FFD700` | Premium VIP, AI Combo of the Day |
+| `bg` | `#071018` | Fond principal |
+| `surface` | `#0D1A20` | Cartes et panneaux |
+| `border` | `#5D7880` | Bordures et séparateurs |
+| `text` | `#F5F8F3` | Texte principal |
+| `textSec` | `#B7C4C1` | Texte secondaire |
+| Success / CTA | `#34D399` | État positif et données validées |
+| Data / IA / Gold | `#B8FF1A` | Pronostics, IA et accents premium |
+| Warning | `#B8FF1A` | Indicateur secondaire Over 2.5 |
+| Danger | `#FF7B7B` | Erreur et qualité LOW |
 
 ## Conformité et anti-hallucination
 

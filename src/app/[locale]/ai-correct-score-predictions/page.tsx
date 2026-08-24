@@ -8,7 +8,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!isLocale(value) || value === 'fr') return {}
   const locale = value as Locale
   const url = `https://bttspredict.com/${locale}/ai-correct-score-predictions`
-  const title = locale === 'ar' ? 'توقعات النتيجة الدقيقة بالذكاء الاصطناعي | BTTSPredict' : 'AI Correct Score Predictions — Exact Score Probabilities | BTTSPredict'
+  const title = locale === 'ar' ? 'توقعات النتيجة الدقيقة بالذكاء الاصطناعي | BTTSPredict' : 'AI Correct Score Predictions — Exact Scores'
   const description = locale === 'ar' ? 'احتمالات النتائج الدقيقة المحسوبة بنموذج بواسون. تقديرات إحصائية وليست ضمانات. 18+.' : 'Exact-score probabilities calculated with a Poisson model. Statistical estimates, not guarantees. 18+.'
   return {
     title, description,
