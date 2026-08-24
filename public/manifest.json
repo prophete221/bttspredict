@@ -1,7 +1,7 @@
 {
   "name": "BTTSPredict — Pronostics BTTS et Over 2.5",
   "short_name": "BTTSPredict",
-  "description": "Pronostics BTTS et Over 2.5 générés par un moteur IA nouvelle génération. Suivi public vérifié depuis le 8 août 2026. Aucun gain garanti. 18+.",
+  "description": "Pronostics BTTS et Over 2.5 basés sur des données publiques et un modèle statistique. Suivi public vérifié depuis le 8 août 2026. Aucun gain garanti. 18+.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#070B18",
@@ -40,7 +40,7 @@
     {
       "name": "Pronostics du jour",
       "short_name": "Pronos",
-      "url": "/pronostics",
+      "url": "/btts/predictions/today",
       "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     },
     {

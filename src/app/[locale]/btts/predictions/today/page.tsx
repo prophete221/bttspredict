@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!isLocale(value) || value === 'fr') return {}
   const locale = value as Locale
   const url = `https://bttspredict.com/${locale}/btts/predictions/today`
-  const title = locale === 'ar' ? 'توقعات BTTS اليوم مجاناً | BTTSPredict' : 'BTTS Predictions Today — Free AI Football Tips | BTTSPredict'
+  const title = locale === 'ar' ? 'توقعات BTTS اليوم مجاناً | BTTSPredict' : 'BTTS Predictions Today — Free AI Tips'
   const description = locale === 'ar' ? 'توقعات BTTS للمباريات الدولية مع بيانات إحصائية وسجل عام. لا توجد ضمانات للنتائج المستقبلية. 18+.' : 'Free BTTS predictions for international football matches, with statistical data, public history and responsible betting information. 18+.'
   return {
     title, description,

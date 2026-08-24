@@ -2,31 +2,21 @@ import type { MetadataRoute } from 'next'
 import { getDakarDateString } from '@/lib/dakar-date'
 
 /**
- * Sitemap Next.js natif v64 — Plateforme PRO
+ * Sitemap Next.js natif — pages indexables vérifiées
  *
- * Refonte anti-doorway : passage de 43 URLs (blog 2000 + doorway pages
- * identiques) à 12 URLs essentielles type Flashscore.
+ * Le sitemap contient les pages éditoriales, les pages de pronostics,
+ * les pages légales et les pages affiliées distinctes réellement publiées.
  *
  * Règles strictes :
  * - PAS de /pronostics (alias non canonique de /btts/predictions/today)
  * - PAS de /linebet-promo-code (redirigé 301 vers /code-promo-linebet-senegal)
  * - PAS de /match/[slug] dans le sitemap (pages trop éphémères)
  * - PAS de blog, PAS de doorway pages
- * - lastModified = today pour / et /code-promo-linebet-senegal
+ * - lastModified = la date du jour Africa/Dakar pour toutes les entrées actives
  *
- * Les 12 URLs KEEP (ordre spec v64) :
- *   1.  /
- *   2.  /btts/predictions/today
- *   3.  /btts/statistics
- *   4.  /resultats-verifies
- *   5.  /historique
- *   6.  /vip
- *   7.  /methodologie
- *   8.  /btts-c-est-quoi
- *   9.  /code-promo-linebet-senegal
- *   10. /bonus-888starz
- *   11. /jouer-responsable
- *   12. /mentions-legales
+ * Les 18 URLs actives sont définies dans SEO_PAGES ci-dessous :
+ * Les pages statistiques spécialisées BTTS et Over 2.5 restent volontairement
+ * exclues tant que leurs données dédiées ne sont pas publiées.
  */
 
 // Requis pour `output: 'export'` — sinon Next.js throw une erreur.
@@ -114,16 +104,16 @@ const SEO_PAGES: MetadataRoute.Sitemap = [
   // 16. Jeu responsable
   url('/jouer-responsable', TODAY, 0.5, 'yearly'),
 
-  // 12. BTTS c'est quoi
+  // 15. BTTS c'est quoi
   url('/btts-c-est-quoi', TODAY, 0.75, 'monthly'),
 
-  // 13. Code promo Linebet Sénégal
+  // 16. Code promo Linebet Sénégal
   url('/code-promo-linebet-senegal', TODAY, 0.95, 'weekly'),
 
-  // 14. Bonus 888starz
+  // 17. Bonus 888starz
   url('/bonus-888starz', TODAY, 0.9, 'weekly'),
 
-  // 15. Page dédiée btts221 — offre à vérifier quotidiennement
+  // 18. Page dédiée btts221 — offre à vérifier quotidiennement
   url('/bonus-888starz-btts221', TODAY, 0.95, 'daily'),
 
 ]
