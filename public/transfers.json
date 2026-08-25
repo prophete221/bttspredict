@@ -1,79 +1,79 @@
 {
-  "date": "2026-08-24",
-  "updatedAt": "2026-08-24T20:38:24.583Z",
+  "date": "2026-08-25",
+  "updatedAt": "2026-08-25T01:20:23.710Z",
   "count": 8,
   "transfers": [
     {
-      "player": "Jude Bellingham",
-      "from": "Dortmund",
-      "to": "Real Madrid",
-      "fee": "103M€",
-      "league": "La Liga",
-      "country": "🇪🇸",
-      "date": "2026-08-24"
+      "player": "Eden Hazard",
+      "from": "Real Madrid",
+      "to": "Retrait",
+      "fee": "—",
+      "league": "Retrait",
+      "country": "🏳️",
+      "date": "2026-08-25"
     },
     {
-      "player": "Khvicha Kvaratskhelia",
-      "from": "Naples",
-      "to": "PSG",
-      "fee": "75M€",
-      "league": "Ligue 1",
-      "country": "🇫🇷",
-      "date": "2026-08-24"
-    },
-    {
-      "player": "Ismaël Bennacer",
-      "from": "AC Milan",
-      "to": "Atlético Madrid",
-      "fee": "25M€",
-      "league": "La Liga",
-      "country": "🇪🇸",
-      "date": "2026-08-24"
-    },
-    {
-      "player": "Florian Wirtz",
+      "player": "Edmond Tapsoba",
       "from": "Leverkusen",
-      "to": "Bayern Munich",
-      "fee": "80M€",
-      "league": "Bundesliga",
-      "country": "🇩🇪",
-      "date": "2026-08-24"
+      "to": "Newcastle",
+      "fee": "45M€",
+      "league": "Premier League",
+      "country": "🇬🇧",
+      "date": "2026-08-25"
     },
     {
-      "player": "Wilfried Zaha",
-      "from": "Galatasaray",
-      "to": "Lyon",
-      "fee": "Prêt",
-      "league": "Ligue 1",
-      "country": "🇫🇷",
-      "date": "2026-08-24"
+      "player": "Neymar Jr",
+      "from": "Al-Hilal",
+      "to": "Santos",
+      "fee": "Libre",
+      "league": "Brasileirão",
+      "country": "🇧🇷",
+      "date": "2026-08-25"
     },
     {
-      "player": "Sadio Mané",
-      "from": "Al-Nassr",
-      "to": "Al-Ahli",
-      "fee": "30M€",
+      "player": "Gabriel Martinelli",
+      "from": "Arsenal",
+      "to": "Atlético Madrid",
+      "fee": "50M€",
+      "league": "La Liga",
+      "country": "🇪🇸",
+      "date": "2026-08-25"
+    },
+    {
+      "player": "Erling Haaland",
+      "from": "Dortmund",
+      "to": "Manchester City",
+      "fee": "60M€",
+      "league": "Premier League",
+      "country": "🇬🇧",
+      "date": "2026-08-25"
+    },
+    {
+      "player": "Rafael Leão",
+      "from": "AC Milan",
+      "to": "Al-Nassr",
+      "fee": "90M€",
       "league": "Saudi Pro League",
       "country": "🇸🇦",
-      "date": "2026-08-24"
+      "date": "2026-08-25"
     },
     {
-      "player": "Sékou Koïta",
-      "from": "Red Bull Salzburg",
-      "to": "Antwerp",
-      "fee": "8M€",
-      "league": "Jupiler Pro League",
-      "country": "🇧🇪",
-      "date": "2026-08-24"
+      "player": "Serge Gnaby",
+      "from": "Lyon",
+      "to": "Al-Ahli",
+      "fee": "15M€",
+      "league": "Saudi Pro League",
+      "country": "🇸🇦",
+      "date": "2026-08-25"
     },
     {
-      "player": "Victor Osimhen",
-      "from": "Naples",
-      "to": "Galatasaray",
-      "fee": "Prêt",
-      "league": "Süper Lig",
-      "country": "🇹🇷",
-      "date": "2026-08-24"
+      "player": "Antoine Griezmann",
+      "from": "Atlético Madrid",
+      "to": "Retrait",
+      "fee": "—",
+      "league": "Retrait",
+      "country": "🏳️",
+      "date": "2026-08-25"
     }
   ]
 }
