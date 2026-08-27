@@ -1,6 +1,6 @@
 {
   "date": "2026-08-27",
-  "lastUpdated": "2026-08-27T07:45:52.155Z",
+  "lastUpdated": "2026-08-27T18:53:02.758Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -936,68 +936,6 @@
       "awayLambda": 1.77
     },
     {
-      "id": "columbus-vs-newengla-2026-08-29",
-      "match": "Columbus Crew vs New England Revolution",
-      "home": "Columbus Crew",
-      "away": "New England Revolution",
-      "league": "MLS",
-      "date": "2026-08-29",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5846,
-      "bttsProbDisplay": "58.46%",
-      "over25ProbDisplay": "55.40%",
-      "confidence": 58,
-      "time": "23:30",
-      "matchSemantic": "columbus-vs-newengla-2026-08-29",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/183.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/189.png",
-      "tier": "GOLD",
-      "reliabilityScore": 81.82,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1.52,
-      "xgAway": 1.38,
-      "xgTotal": 2.9,
-      "formBTTS": 29,
-      "analysis": "Columbus Crew (8 matchs réels, xG 1.52) vs New England Revolution (8 matchs réels, xG 1.38). xG cumulé 2.9, BTTS 58.5%, Over 2.5 55.4%. Fiabilité 81.82%. Qualité données: HIGH.",
-      "analysisData": {
-        "bttsProb": 0.5846,
-        "over25Prob": 0.554,
-        "homeLambda": 1.52,
-        "awayLambda": 1.38,
-        "xgTotal": 2.9
-      },
-      "estimatedCote": 1.71,
-      "estimatedCoteOver": 1.8,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 58,
-          "bttsProb": 0.5846,
-          "homeLambda": 1.52,
-          "awayLambda": 1.38
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 55,
-          "over25Prob": 0.554,
-          "homeLambda": 1.52,
-          "awayLambda": 1.38
-        }
-      ],
-      "bttsProb": 0.5846,
-      "over25Prob": 0.554,
-      "homeLambda": 1.52,
-      "awayLambda": 1.38
-    },
-    {
       "id": "excelsio-vs-spartaro-2026-08-29",
       "match": "Excelsior vs Sparta Rotterdam",
       "home": "Excelsior",
@@ -1213,6 +1151,68 @@
       "xgTotal": 3.2,
       "formBTTS": 0,
       "analysis": "1. FC Union Berlin (0 matchs réels, xG 1.83) vs Eintracht Frankfurt (0 matchs réels, xG 1.37). xG cumulé 3.2, BTTS 62.6%, Over 2.5 62.0%. Fiabilité 68.16%. Qualité données: LOW.",
+      "analysisData": {
+        "bttsProb": 0.6265,
+        "over25Prob": 0.6201,
+        "homeLambda": 1.83,
+        "awayLambda": 1.37,
+        "xgTotal": 3.2
+      },
+      "estimatedCote": 1.6,
+      "estimatedCoteOver": 1.61,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 63,
+          "bttsProb": 0.6265,
+          "homeLambda": 1.83,
+          "awayLambda": 1.37
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 62,
+          "over25Prob": 0.6201,
+          "homeLambda": 1.83,
+          "awayLambda": 1.37
+        }
+      ],
+      "bttsProb": 0.6265,
+      "over25Prob": 0.6201,
+      "homeLambda": 1.83,
+      "awayLambda": 1.37
+    },
+    {
+      "id": "fccologn-vs-tsghoffe-2026-08-29",
+      "match": "FC Cologne vs TSG Hoffenheim",
+      "home": "FC Cologne",
+      "away": "TSG Hoffenheim",
+      "league": "Bundesliga",
+      "date": "2026-08-29",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6265,
+      "bttsProbDisplay": "62.65%",
+      "over25ProbDisplay": "62.01%",
+      "confidence": 63,
+      "time": "13:30",
+      "matchSemantic": "fccologn-vs-tsghoffe-2026-08-29",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/122.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7911.png",
+      "tier": "SILVER",
+      "reliabilityScore": 68.16,
+      "dataQuality": "LOW",
+      "dataSource": "LEAGUE_FALLBACK",
+      "matchCountHome": 0,
+      "matchCountAway": 0,
+      "h2hAvailable": false,
+      "xgHome": 1.83,
+      "xgAway": 1.37,
+      "xgTotal": 3.2,
+      "formBTTS": 0,
+      "analysis": "FC Cologne (0 matchs réels, xG 1.83) vs TSG Hoffenheim (0 matchs réels, xG 1.37). xG cumulé 3.2, BTTS 62.6%, Over 2.5 62.0%. Fiabilité 68.16%. Qualité données: LOW.",
       "analysisData": {
         "bttsProb": 0.6265,
         "over25Prob": 0.6201,
