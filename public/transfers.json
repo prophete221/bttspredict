@@ -1,79 +1,79 @@
 {
-  "date": "2026-08-27",
-  "updatedAt": "2026-08-27T18:59:01.196Z",
+  "date": "2026-08-28",
+  "updatedAt": "2026-08-28T04:09:37.339Z",
   "count": 8,
   "transfers": [
     {
-      "player": "Nicolas Pépé",
-      "from": "Trabzonspor",
-      "to": "Villarreal",
+      "player": "Kylian Mbappé",
+      "from": "PSG",
+      "to": "Real Madrid",
       "fee": "Libre",
       "league": "La Liga",
       "country": "🇪🇸",
-      "date": "2026-08-27"
+      "date": "2026-08-28"
     },
     {
-      "player": "Lamine Yamal",
-      "from": "Barça B",
-      "to": "FC Barcelona",
-      "fee": "Promotion",
-      "league": "La Liga",
-      "country": "🇪🇸",
-      "date": "2026-08-27"
-    },
-    {
-      "player": "Achraf Hakimi",
-      "from": "PSG",
-      "to": "Real Madrid",
-      "fee": "60M€",
-      "league": "La Liga",
-      "country": "🇪🇸",
-      "date": "2026-08-27"
-    },
-    {
-      "player": "Jude Bellingham",
-      "from": "Dortmund",
-      "to": "Real Madrid",
-      "fee": "103M€",
-      "league": "La Liga",
-      "country": "🇪🇸",
-      "date": "2026-08-27"
-    },
-    {
-      "player": "Khvicha Kvaratskhelia",
-      "from": "Naples",
-      "to": "PSG",
-      "fee": "75M€",
-      "league": "Ligue 1",
-      "country": "🇫🇷",
-      "date": "2026-08-27"
-    },
-    {
-      "player": "Ismaël Bennacer",
-      "from": "AC Milan",
+      "player": "Lautaro Martínez",
+      "from": "Inter",
       "to": "Atlético Madrid",
-      "fee": "25M€",
+      "fee": "70M€",
       "league": "La Liga",
       "country": "🇪🇸",
-      "date": "2026-08-27"
+      "date": "2026-08-28"
     },
     {
-      "player": "Florian Wirtz",
-      "from": "Leverkusen",
-      "to": "Bayern Munich",
-      "fee": "80M€",
-      "league": "Bundesliga",
-      "country": "🇩🇪",
-      "date": "2026-08-27"
-    },
-    {
-      "player": "Wilfried Zaha",
+      "player": "Hakim Ziyech",
       "from": "Galatasaray",
-      "to": "Lyon",
-      "fee": "Prêt",
-      "league": "Ligue 1",
-      "country": "🇫🇷",
-      "date": "2026-08-27"
+      "to": "Al-Duhail",
+      "fee": "Libre",
+      "league": "Qatar Stars League",
+      "country": "🇶🇦",
+      "date": "2026-08-28"
+    },
+    {
+      "player": "Eden Hazard",
+      "from": "Real Madrid",
+      "to": "Retrait",
+      "fee": "—",
+      "league": "Retrait",
+      "country": "🏳️",
+      "date": "2026-08-28"
+    },
+    {
+      "player": "Edmond Tapsoba",
+      "from": "Leverkusen",
+      "to": "Newcastle",
+      "fee": "45M€",
+      "league": "Premier League",
+      "country": "🇬🇧",
+      "date": "2026-08-28"
+    },
+    {
+      "player": "Neymar Jr",
+      "from": "Al-Hilal",
+      "to": "Santos",
+      "fee": "Libre",
+      "league": "Brasileirão",
+      "country": "🇧🇷",
+      "date": "2026-08-28"
+    },
+    {
+      "player": "Gabriel Martinelli",
+      "from": "Arsenal",
+      "to": "Atlético Madrid",
+      "fee": "50M€",
+      "league": "La Liga",
+      "country": "🇪🇸",
+      "date": "2026-08-28"
+    },
+    {
+      "player": "Erling Haaland",
+      "from": "Dortmund",
+      "to": "Manchester City",
+      "fee": "60M€",
+      "league": "Premier League",
+      "country": "🇬🇧",
+      "date": "2026-08-28"
     }
   ]
 }
