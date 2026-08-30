@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-30T04:03:01.056Z",
+  "generatedAt": "2026-08-30T09:53:46.981Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -7,25 +7,25 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 51,
-    "won": 35,
+    "total": 53,
+    "won": 37,
     "lost": 16,
-    "pending": 204,
+    "pending": 202,
     "archivedTotal": 255,
-    "rate": 68.6,
+    "rate": 69.8,
     "avgOdds": 1.9,
-    "profit": 15.5,
-    "roi": 30.4,
-    "yield": 30.4,
+    "profit": 17.3,
+    "roi": 32.6,
+    "yield": 32.6,
     "gold": {
-      "total": 39,
-      "won": 28,
+      "total": 41,
+      "won": 30,
       "lost": 11,
-      "rate": 71.8,
+      "rate": 73.2,
       "avgOdds": 1.9,
-      "profit": 14.2,
-      "roi": 36.4,
-      "yield": 36.4
+      "profit": 16,
+      "roi": 39,
+      "yield": 39
     },
     "standard": {
       "total": 12,
@@ -35,10 +35,10 @@
     },
     "byType": {
       "btts": {
-        "total": 49,
-        "won": 34,
+        "total": 51,
+        "won": 36,
         "lost": 15,
-        "rate": 69.4
+        "rate": 70.6
       },
       "over25": {
         "total": 2,
@@ -113,12 +113,12 @@
       },
       {
         "date": "2026-08-29",
-        "total": 8,
-        "won": 4,
+        "total": 10,
+        "won": 6,
         "lost": 4,
-        "rate": 50,
-        "profit": -0.4,
-        "equity": 15.5
+        "rate": 60,
+        "profit": 1.4,
+        "equity": 17.3
       }
     ],
     "maxDrawdown": 2,
@@ -147,6 +147,22 @@
     },
     {
       "date": "2026-08-29",
+      "match": "Portland Timbers vs Austin FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5743,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "1-2",
+      "profit": 0.9,
+      "verifiedAt": "2026-08-30T09:47:32.879Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-08-29",
       "match": "Nashville SC vs FC Cincinnati",
       "league": "MLS",
       "market": "btts",
@@ -159,6 +175,22 @@
       "finalScore": "4-0",
       "profit": -1,
       "verifiedAt": "2026-08-30T03:54:43.681Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-08-29",
+      "match": "San Diego FC vs LA Galaxy",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.64,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "3-1",
+      "profit": 0.9,
+      "verifiedAt": "2026-08-30T09:47:32.878Z",
       "source": "ESPN public"
     },
     {

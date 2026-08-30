@@ -1706,7 +1706,9 @@
       "over25Prob": 0.6439,
       "homeLambda": 1.94,
       "awayLambda": 1.38,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-08-30T09:47:32.878Z"
     },
     {
       "id": "nashvill-vs-fccincin-2026-08-30",
@@ -1897,7 +1899,9 @@
       "over25Prob": 0.6201,
       "homeLambda": 2.15,
       "awayLambda": 1.05,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-08-30T09:47:32.879Z"
     },
     {
       "id": "sporting-vs-vancouve-2026-08-30",
