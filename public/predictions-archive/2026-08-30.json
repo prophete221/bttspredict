@@ -1315,7 +1315,10 @@
       "bttsProb": 0.6154,
       "over25Prob": 0.6406,
       "homeLambda": 2.09,
-      "awayLambda": 1.21
+      "awayLambda": 1.21,
+      "finalScore": "3-3",
+      "status": "WON",
+      "verifiedAt": "2026-08-31T03:57:12.133Z"
     },
     {
       "id": "astonvil-vs-arsenal-2026-08-31",
@@ -1377,7 +1380,8 @@
       "bttsProb": 0.5877,
       "over25Prob": 0.5701,
       "homeLambda": 1.7,
-      "awayLambda": 1.27
+      "awayLambda": 1.27,
+      "status": "PENDING"
     },
     {
       "id": "benfica-vs-estoril-2026-08-31",
@@ -1439,7 +1443,8 @@
       "bttsProb": 0.5698,
       "over25Prob": 0.5471,
       "homeLambda": 1.65,
-      "awayLambda": 1.22
+      "awayLambda": 1.22,
+      "status": "PENDING"
     },
     {
       "id": "braga-vs-vitriade-2026-08-31",
@@ -1501,7 +1506,8 @@
       "bttsProb": 0.5698,
       "over25Prob": 0.5471,
       "homeLambda": 1.65,
-      "awayLambda": 1.22
+      "awayLambda": 1.22,
+      "status": "PENDING"
     },
     {
       "id": "wolfsber-vs-lasklinz-2026-09-01",
@@ -1563,7 +1569,8 @@
       "bttsProb": 0.4876,
       "over25Prob": 0.4303,
       "homeLambda": 1.15,
-      "awayLambda": 1.25
+      "awayLambda": 1.25,
+      "status": "PENDING"
     },
     {
       "id": "lincolnc-vs-blackbur-2026-09-01",
@@ -1625,7 +1632,8 @@
       "bttsProb": 0.5625,
       "over25Prob": 0.5377,
       "homeLambda": 1.62,
-      "awayLambda": 1.21
+      "awayLambda": 1.21,
+      "status": "PENDING"
     },
     {
       "id": "portsmou-vs-derbycou-2026-09-01",
@@ -1687,7 +1695,8 @@
       "bttsProb": 0.5625,
       "over25Prob": 0.5377,
       "homeLambda": 1.62,
-      "awayLambda": 1.21
+      "awayLambda": 1.21,
+      "status": "PENDING"
     },
     {
       "id": "prestonn-vs-bristolc-2026-09-01",
@@ -1749,7 +1758,8 @@
       "bttsProb": 0.5625,
       "over25Prob": 0.5377,
       "homeLambda": 1.62,
-      "awayLambda": 1.21
+      "awayLambda": 1.21,
+      "status": "PENDING"
     },
     {
       "id": "sheffiel-vs-boltonwa-2026-09-01",
@@ -1811,7 +1821,8 @@
       "bttsProb": 0.5625,
       "over25Prob": 0.5377,
       "homeLambda": 1.62,
-      "awayLambda": 1.21
+      "awayLambda": 1.21,
+      "status": "PENDING"
     },
     {
       "id": "swanseac-vs-watford-2026-09-01",
@@ -1873,7 +1884,8 @@
       "bttsProb": 0.5625,
       "over25Prob": 0.5377,
       "homeLambda": 1.62,
-      "awayLambda": 1.21
+      "awayLambda": 1.21,
+      "status": "PENDING"
     },
     {
       "id": "westhamu-vs-wolverha-2026-09-01",
@@ -1935,7 +1947,8 @@
       "bttsProb": 0.5625,
       "over25Prob": 0.5377,
       "homeLambda": 1.62,
-      "awayLambda": 1.21
+      "awayLambda": 1.21,
+      "status": "PENDING"
     },
     {
       "id": "birmingh-vs-southamp-2026-09-01",
@@ -1997,7 +2010,8 @@
       "bttsProb": 0.5625,
       "over25Prob": 0.5377,
       "homeLambda": 1.62,
-      "awayLambda": 1.21
+      "awayLambda": 1.21,
+      "status": "PENDING"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-30T22:34:33.577Z",
+  "generatedAt": "2026-08-31T04:03:05.118Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -7,25 +7,25 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 53,
-    "won": 37,
+    "total": 54,
+    "won": 38,
     "lost": 16,
-    "pending": 202,
-    "archivedTotal": 255,
-    "rate": 69.8,
+    "pending": 213,
+    "archivedTotal": 267,
+    "rate": 70.4,
     "avgOdds": 1.9,
-    "profit": 17.3,
-    "roi": 32.6,
-    "yield": 32.6,
+    "profit": 18.2,
+    "roi": 33.7,
+    "yield": 33.7,
     "gold": {
-      "total": 41,
-      "won": 30,
+      "total": 42,
+      "won": 31,
       "lost": 11,
-      "rate": 73.2,
+      "rate": 73.8,
       "avgOdds": 1.9,
-      "profit": 16,
-      "roi": 39,
-      "yield": 39
+      "profit": 16.9,
+      "roi": 40.2,
+      "yield": 40.2
     },
     "standard": {
       "total": 12,
@@ -35,10 +35,10 @@
     },
     "byType": {
       "btts": {
-        "total": 51,
-        "won": 36,
+        "total": 52,
+        "won": 37,
         "lost": 15,
-        "rate": 70.6
+        "rate": 71.2
       },
       "over25": {
         "total": 2,
@@ -119,16 +119,41 @@
         "rate": 60,
         "profit": 1.4,
         "equity": 17.3
+      },
+      {
+        "date": "2026-08-30",
+        "total": 1,
+        "won": 1,
+        "lost": 0,
+        "rate": 100,
+        "profit": 0.9,
+        "equity": 18.2
       }
     ],
     "maxDrawdown": 2,
     "period": {
       "from": "2026-08-08",
-      "to": "2026-08-30",
-      "days": 23
+      "to": "2026-08-31",
+      "days": 24
     }
   },
   "history": [
+    {
+      "date": "2026-08-30",
+      "match": "St. Louis CITY SC vs FC Dallas",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6154,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "3-3",
+      "profit": 0.9,
+      "verifiedAt": "2026-08-31T03:57:12.133Z",
+      "source": "ESPN public"
+    },
     {
       "date": "2026-08-29",
       "match": "Sporting Kansas City vs Vancouver Whitecaps",
