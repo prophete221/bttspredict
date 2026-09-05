@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T22:17:10.080Z",
+  "generatedAt": "2026-09-05T03:19:41.219Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -7,25 +7,25 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 54,
+    "total": 55,
     "won": 38,
-    "lost": 16,
-    "pending": 261,
-    "archivedTotal": 315,
-    "rate": 70.4,
+    "lost": 17,
+    "pending": 272,
+    "archivedTotal": 327,
+    "rate": 69.1,
     "avgOdds": 1.9,
-    "profit": 18.2,
-    "roi": 33.7,
-    "yield": 33.7,
+    "profit": 17.2,
+    "roi": 31.3,
+    "yield": 31.3,
     "gold": {
-      "total": 42,
+      "total": 43,
       "won": 31,
-      "lost": 11,
-      "rate": 73.8,
+      "lost": 12,
+      "rate": 72.1,
       "avgOdds": 1.9,
-      "profit": 16.9,
-      "roi": 40.2,
-      "yield": 40.2
+      "profit": 15.9,
+      "roi": 37,
+      "yield": 37
     },
     "standard": {
       "total": 12,
@@ -35,10 +35,10 @@
     },
     "byType": {
       "btts": {
-        "total": 52,
+        "total": 53,
         "won": 37,
-        "lost": 15,
-        "rate": 71.2
+        "lost": 16,
+        "rate": 69.8
       },
       "over25": {
         "total": 2,
@@ -128,16 +128,41 @@
         "rate": 100,
         "profit": 0.9,
         "equity": 18.2
+      },
+      {
+        "date": "2026-09-04",
+        "total": 1,
+        "won": 0,
+        "lost": 1,
+        "rate": 0,
+        "profit": -1,
+        "equity": 17.2
       }
     ],
     "maxDrawdown": 2,
     "period": {
       "from": "2026-08-08",
-      "to": "2026-09-04",
-      "days": 28
+      "to": "2026-09-05",
+      "days": 29
     }
   },
   "history": [
+    {
+      "date": "2026-09-04",
+      "match": "New York City FC vs Nashville SC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.595,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "0-0",
+      "profit": -1,
+      "verifiedAt": "2026-09-05T03:11:06.353Z",
+      "source": "ESPN public"
+    },
     {
       "date": "2026-08-30",
       "match": "St. Louis CITY SC vs FC Dallas",
@@ -1004,25 +1029,25 @@
     }
   ],
   "legacyStats": {
-    "total": 632,
-    "won": 304,
+    "total": 631,
+    "won": 303,
     "lost": 328,
-    "pending": 2242,
-    "archivedTotal": 2874,
-    "rate": 48.1,
+    "pending": 2238,
+    "archivedTotal": 2869,
+    "rate": 48,
     "avgOdds": 1.9,
-    "profit": -54.4,
-    "roi": -8.6,
-    "yield": -8.6,
+    "profit": -55.3,
+    "roi": -8.8,
+    "yield": -8.8,
     "gold": {
-      "total": 53,
-      "won": 20,
+      "total": 52,
+      "won": 19,
       "lost": 33,
-      "rate": 37.7,
+      "rate": 36.5,
       "avgOdds": 1.9,
-      "profit": -15,
-      "roi": -28.3,
-      "yield": -28.3
+      "profit": -15.9,
+      "roi": -30.6,
+      "yield": -30.6
     },
     "standard": {
       "total": 579,
@@ -1032,10 +1057,10 @@
     },
     "byType": {
       "btts": {
-        "total": 317,
-        "won": 148,
+        "total": 316,
+        "won": 147,
         "lost": 169,
-        "rate": 46.7
+        "rate": 46.5
       },
       "over25": {
         "total": 315,
@@ -1174,9 +1199,9 @@
     ],
     "maxDrawdown": 31.1,
     "period": {
-      "from": "2026-06-07",
+      "from": "2026-06-08",
       "to": "2026-08-07",
-      "days": 62
+      "days": 61
     },
     "history": [
       {

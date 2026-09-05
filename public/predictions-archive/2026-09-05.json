@@ -1,70 +1,8 @@
 {
-  "date": "2026-09-04",
-  "lastUpdated": "2026-09-04T22:09:22.694Z",
+  "date": "2026-09-05",
+  "lastUpdated": "2026-09-05T03:10:34.552Z",
   "source": "ESPN + TheSportsDB",
   "free": [
-    {
-      "id": "newyorkc-vs-nashvill-2026-09-04",
-      "match": "New York City FC vs Nashville SC",
-      "home": "New York City FC",
-      "away": "Nashville SC",
-      "league": "MLS",
-      "date": "2026-09-04",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.595,
-      "bttsProbDisplay": "59.50%",
-      "over25ProbDisplay": "57.31%",
-      "confidence": 59,
-      "time": "23:30",
-      "matchSemantic": "newyorkc-vs-nashvill-2026-09-04",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17606.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18986.png",
-      "tier": "GOLD",
-      "reliabilityScore": 82.28,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1.65,
-      "xgAway": 1.33,
-      "xgTotal": 2.98,
-      "formBTTS": 35,
-      "analysis": "New York City FC (8 matchs réels, xG 1.65) vs Nashville SC (8 matchs réels, xG 1.33). xG cumulé 2.98, BTTS 59.5%, Over 2.5 57.3%. Fiabilité 82.28%. Qualité données: HIGH.",
-      "analysisData": {
-        "bttsProb": 0.595,
-        "over25Prob": 0.5731,
-        "homeLambda": 1.65,
-        "awayLambda": 1.33,
-        "xgTotal": 2.98
-      },
-      "estimatedCote": 1.68,
-      "estimatedCoteOver": 1.75,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 59,
-          "bttsProb": 0.595,
-          "homeLambda": 1.65,
-          "awayLambda": 1.33
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 57,
-          "over25Prob": 0.5731,
-          "homeLambda": 1.65,
-          "awayLambda": 1.33
-        }
-      ],
-      "bttsProb": 0.595,
-      "over25Prob": 0.5731,
-      "homeLambda": 1.65,
-      "awayLambda": 1.33
-    },
     {
       "id": "intermia-vs-atlantau-2026-09-05",
       "match": "Inter Miami CF vs Atlanta United FC",
@@ -746,9 +684,7 @@
       "over25Prob": 0.706,
       "homeLambda": 1.9,
       "awayLambda": 1.75
-    }
-  ],
-  "vipPreview": [
+    },
     {
       "id": "burnley-vs-bristolc-2026-09-05",
       "match": "Burnley vs Bristol City",
@@ -810,7 +746,9 @@
       "over25Prob": 0.706,
       "homeLambda": 1.65,
       "awayLambda": 2
-    },
+    }
+  ],
+  "vipPreview": [
     {
       "id": "portsmou-vs-cardiffc-2026-09-05",
       "match": "Portsmouth vs Cardiff City",
@@ -1244,82 +1182,79 @@
       "over25Prob": 0.793,
       "homeLambda": 1.52,
       "awayLambda": 2.71
-    }
-  ],
-  "stats": {
-    "avgReliability": 73.15,
-    "totalAnalyzed": 110,
-    "totalRejected": 1,
-    "totalAccepted": 109,
-    "freeCount": 12,
-    "vipCount": 8
-  },
-  "predictions": [
+    },
     {
-      "id": "newyorkc-vs-nashvill-2026-09-04",
-      "match": "New York City FC vs Nashville SC",
-      "home": "New York City FC",
-      "away": "Nashville SC",
-      "league": "MLS",
-      "date": "2026-09-04",
+      "id": "millwall-vs-boltonwa-2026-09-05",
+      "match": "Millwall vs Bolton Wanderers",
+      "home": "Millwall",
+      "away": "Bolton Wanderers",
+      "league": "Championship",
+      "date": "2026-09-05",
       "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.595,
-      "bttsProbDisplay": "59.50%",
-      "over25ProbDisplay": "57.31%",
-      "confidence": 59,
-      "time": "23:30",
-      "matchSemantic": "newyorkc-vs-nashvill-2026-09-04",
+      "proba": 0.5765,
+      "bttsProbDisplay": "57.65%",
+      "over25ProbDisplay": "55.40%",
+      "confidence": 58,
+      "time": "14:00",
+      "matchSemantic": "millwall-vs-boltonwa-2026-09-05",
       "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17606.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18986.png",
-      "tier": "GOLD",
-      "reliabilityScore": 82.28,
-      "dataQuality": "HIGH",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/391.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/358.png",
+      "tier": "SILVER",
+      "reliabilityScore": 72.47,
+      "dataQuality": "MEDIUM",
       "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
+      "matchCountHome": 4,
+      "matchCountAway": 4,
       "h2hAvailable": false,
       "xgHome": 1.65,
-      "xgAway": 1.33,
-      "xgTotal": 2.98,
-      "formBTTS": 35,
-      "analysis": "New York City FC (8 matchs réels, xG 1.65) vs Nashville SC (8 matchs réels, xG 1.33). xG cumulé 2.98, BTTS 59.5%, Over 2.5 57.3%. Fiabilité 82.28%. Qualité données: HIGH.",
+      "xgAway": 1.25,
+      "xgTotal": 2.9,
+      "formBTTS": 25,
+      "analysis": "Millwall (4 matchs réels, xG 1.65) vs Bolton Wanderers (4 matchs réels, xG 1.25). xG cumulé 2.9, BTTS 57.6%, Over 2.5 55.4%. Fiabilité 72.47%. Qualité données: MEDIUM.",
       "analysisData": {
-        "bttsProb": 0.595,
-        "over25Prob": 0.5731,
+        "bttsProb": 0.5765,
+        "over25Prob": 0.554,
         "homeLambda": 1.65,
-        "awayLambda": 1.33,
-        "xgTotal": 2.98
+        "awayLambda": 1.25,
+        "xgTotal": 2.9
       },
-      "estimatedCote": 1.68,
-      "estimatedCoteOver": 1.75,
+      "estimatedCote": 1.73,
+      "estimatedCoteOver": 1.8,
       "predictions": [
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 59,
-          "bttsProb": 0.595,
+          "confidence": 58,
+          "bttsProb": 0.5765,
           "homeLambda": 1.65,
-          "awayLambda": 1.33
+          "awayLambda": 1.25
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 57,
-          "over25Prob": 0.5731,
+          "confidence": 55,
+          "over25Prob": 0.554,
           "homeLambda": 1.65,
-          "awayLambda": 1.33
+          "awayLambda": 1.25
         }
       ],
-      "bttsProb": 0.595,
-      "over25Prob": 0.5731,
+      "bttsProb": 0.5765,
+      "over25Prob": 0.554,
       "homeLambda": 1.65,
-      "awayLambda": 1.33,
-      "finalScore": "0-0",
-      "status": "LOST",
-      "verifiedAt": "2026-09-05T03:11:06.353Z"
-    },
+      "awayLambda": 1.25
+    }
+  ],
+  "stats": {
+    "avgReliability": 72.93,
+    "totalAnalyzed": 116,
+    "totalRejected": 1,
+    "totalAccepted": 115,
+    "freeCount": 12,
+    "vipCount": 8
+  },
+  "predictions": [
     {
       "id": "intermia-vs-atlantau-2026-09-05",
       "match": "Inter Miami CF vs Atlanta United FC",
@@ -1380,8 +1315,7 @@
       "bttsProb": 0.7931,
       "over25Prob": 0.8575,
       "homeLambda": 3,
-      "awayLambda": 1.8,
-      "status": "PENDING"
+      "awayLambda": 1.8
     },
     {
       "id": "torontof-vs-chicagof-2026-09-05",
@@ -1443,8 +1377,7 @@
       "bttsProb": 0.711,
       "over25Prob": 0.7284,
       "homeLambda": 2.15,
-      "awayLambda": 1.63,
-      "status": "PENDING"
+      "awayLambda": 1.63
     },
     {
       "id": "fccincin-vs-dcunited-2026-09-05",
@@ -1506,8 +1439,7 @@
       "bttsProb": 0.7019,
       "over25Prob": 0.7739,
       "homeLambda": 2.68,
-      "awayLambda": 1.4,
-      "status": "PENDING"
+      "awayLambda": 1.4
     },
     {
       "id": "philadel-vs-cfmontra-2026-09-05",
@@ -1569,8 +1501,7 @@
       "bttsProb": 0.6332,
       "over25Prob": 0.7469,
       "homeLambda": 2.77,
-      "awayLambda": 1.13,
-      "status": "PENDING"
+      "awayLambda": 1.13
     },
     {
       "id": "fcutrech-vs-goaheade-2026-09-05",
@@ -1632,8 +1563,7 @@
       "bttsProb": 0.864,
       "over25Prob": 0.9052,
       "homeLambda": 2.4,
-      "awayLambda": 3,
-      "status": "PENDING"
+      "awayLambda": 3
     },
     {
       "id": "kvmechel-vs-kvcweste-2026-09-05",
@@ -1695,8 +1625,7 @@
       "bttsProb": 0.8216,
       "over25Prob": 0.8753,
       "homeLambda": 3,
-      "awayLambda": 2,
-      "status": "PENDING"
+      "awayLambda": 2
     },
     {
       "id": "aberdeen-vs-kilmarno-2026-09-05",
@@ -1758,8 +1687,7 @@
       "bttsProb": 0.8036,
       "over25Prob": 0.8426,
       "homeLambda": 2.65,
-      "awayLambda": 2,
-      "status": "PENDING"
+      "awayLambda": 2
     },
     {
       "id": "stmirren-vs-celtic-2026-09-05",
@@ -1821,8 +1749,7 @@
       "bttsProb": 0.7677,
       "over25Prob": 0.8426,
       "homeLambda": 1.65,
-      "awayLambda": 3,
-      "status": "PENDING"
+      "awayLambda": 3
     },
     {
       "id": "royalcha-vs-unionstg-2026-09-05",
@@ -1884,8 +1811,7 @@
       "bttsProb": 0.7228,
       "over25Prob": 0.7469,
       "homeLambda": 1.65,
-      "awayLambda": 2.25,
-      "status": "PENDING"
+      "awayLambda": 2.25
     },
     {
       "id": "rangers-vs-motherwe-2026-09-05",
@@ -1947,8 +1873,7 @@
       "bttsProb": 0.7228,
       "over25Prob": 0.7469,
       "homeLambda": 1.65,
-      "awayLambda": 2.25,
-      "status": "PENDING"
+      "awayLambda": 2.25
     },
     {
       "id": "westhamu-vs-derbycou-2026-09-05",
@@ -2010,8 +1935,69 @@
       "bttsProb": 0.7026,
       "over25Prob": 0.706,
       "homeLambda": 1.9,
-      "awayLambda": 1.75,
-      "status": "PENDING"
+      "awayLambda": 1.75
+    },
+    {
+      "id": "burnley-vs-bristolc-2026-09-05",
+      "match": "Burnley vs Bristol City",
+      "home": "Burnley",
+      "away": "Bristol City",
+      "league": "Championship",
+      "date": "2026-09-05",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6986,
+      "bttsProbDisplay": "69.86%",
+      "over25ProbDisplay": "70.60%",
+      "confidence": 70,
+      "time": "14:00",
+      "matchSemantic": "burnley-vs-bristolc-2026-09-05",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/379.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/333.png",
+      "tier": "GOLD",
+      "reliabilityScore": 80.31,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 4,
+      "matchCountAway": 4,
+      "h2hAvailable": false,
+      "xgHome": 1.65,
+      "xgAway": 2,
+      "xgTotal": 3.65,
+      "formBTTS": 30,
+      "analysis": "Burnley (4 matchs réels, xG 1.65) vs Bristol City (4 matchs réels, xG 2.00). xG cumulé 3.65, BTTS 69.9%, Over 2.5 70.6%. Fiabilité 80.31%. Qualité données: MEDIUM.",
+      "analysisData": {
+        "bttsProb": 0.6986,
+        "over25Prob": 0.706,
+        "homeLambda": 1.65,
+        "awayLambda": 2,
+        "xgTotal": 3.65
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.42,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.6986,
+          "homeLambda": 1.65,
+          "awayLambda": 2
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 71,
+          "over25Prob": 0.706,
+          "homeLambda": 1.65,
+          "awayLambda": 2
+        }
+      ],
+      "bttsProb": 0.6986,
+      "over25Prob": 0.706,
+      "homeLambda": 1.65,
+      "awayLambda": 2
     }
   ]
 }
