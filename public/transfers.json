@@ -1,79 +1,79 @@
 {
-  "date": "2026-09-05",
-  "updatedAt": "2026-09-05T22:04:38.940Z",
+  "date": "2026-09-06",
+  "updatedAt": "2026-09-06T03:19:11.969Z",
   "count": 8,
   "transfers": [
     {
-      "player": "Hakim Ziyech",
-      "from": "Galatasaray",
-      "to": "Al-Duhail",
-      "fee": "Libre",
-      "league": "Qatar Stars League",
-      "country": "🇶🇦",
-      "date": "2026-09-05"
+      "player": "Victor Osimhen",
+      "from": "Naples",
+      "to": "Galatasaray",
+      "fee": "Prêt",
+      "league": "Süper Lig",
+      "country": "🇹🇷",
+      "date": "2026-09-06"
     },
     {
-      "player": "Eden Hazard",
-      "from": "Real Madrid",
-      "to": "Retrait",
-      "fee": "—",
-      "league": "Retrait",
-      "country": "🏳️",
-      "date": "2026-09-05"
+      "player": "Marcus Rashford",
+      "from": "Man United",
+      "to": "PSG",
+      "fee": "Prêt",
+      "league": "Ligue 1",
+      "country": "🇫🇷",
+      "date": "2026-09-06"
     },
     {
-      "player": "Edmond Tapsoba",
-      "from": "Leverkusen",
-      "to": "Newcastle",
-      "fee": "45M€",
-      "league": "Premier League",
-      "country": "🇬🇧",
-      "date": "2026-09-05"
-    },
-    {
-      "player": "Neymar Jr",
-      "from": "Al-Hilal",
-      "to": "Santos",
-      "fee": "Libre",
-      "league": "Brasileirão",
-      "country": "🇧🇷",
-      "date": "2026-09-05"
-    },
-    {
-      "player": "Gabriel Martinelli",
-      "from": "Arsenal",
+      "player": "Cristian Romero",
+      "from": "Tottenham",
       "to": "Atlético Madrid",
-      "fee": "50M€",
+      "fee": "55M€",
       "league": "La Liga",
       "country": "🇪🇸",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     },
     {
-      "player": "Erling Haaland",
-      "from": "Dortmund",
-      "to": "Manchester City",
+      "player": "Bruno Guimarães",
+      "from": "Newcastle",
+      "to": "Al-Hilal",
       "fee": "60M€",
-      "league": "Premier League",
-      "country": "🇬🇧",
-      "date": "2026-09-05"
+      "league": "Saudi Pro League",
+      "country": "🇸🇦",
+      "date": "2026-09-06"
     },
     {
-      "player": "Rafael Leão",
-      "from": "AC Milan",
+      "player": "André Onana",
+      "from": "Man United",
       "to": "Al-Nassr",
-      "fee": "90M€",
+      "fee": "25M€",
       "league": "Saudi Pro League",
       "country": "🇸🇦",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     },
     {
-      "player": "Serge Gnaby",
-      "from": "Lyon",
-      "to": "Al-Ahli",
-      "fee": "15M€",
+      "player": "Pierre-Emerick Aubameyang",
+      "from": "Marseille",
+      "to": "Al-Qadsiah",
+      "fee": "Libre",
       "league": "Saudi Pro League",
       "country": "🇸🇦",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
+    },
+    {
+      "player": "Ibrahim Sangaré",
+      "from": "Nottingham Forest",
+      "to": "Al-Ahli",
+      "fee": "35M€",
+      "league": "Saudi Pro League",
+      "country": "🇸🇦",
+      "date": "2026-09-06"
+    },
+    {
+      "player": "Mohamed Salah",
+      "from": "Liverpool",
+      "to": "Al-Hilal",
+      "fee": "Libre",
+      "league": "Saudi Pro League",
+      "country": "🇸🇦",
+      "date": "2026-09-06"
     }
   ]
 }
