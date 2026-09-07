@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T22:06:30.765Z",
+  "generatedAt": "2026-09-07T03:17:14.163Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -10,8 +10,8 @@
     "total": 65,
     "won": 43,
     "lost": 22,
-    "pending": 274,
-    "archivedTotal": 339,
+    "pending": 286,
+    "archivedTotal": 351,
     "rate": 66.2,
     "avgOdds": 1.9,
     "profit": 16.7,
@@ -151,8 +151,8 @@
     "maxDrawdown": 2,
     "period": {
       "from": "2026-08-08",
-      "to": "2026-09-06",
-      "days": 30
+      "to": "2026-09-07",
+      "days": 31
     }
   },
   "history": [
@@ -1201,8 +1201,8 @@
     "total": 627,
     "won": 303,
     "lost": 324,
-    "pending": 2198,
-    "archivedTotal": 2825,
+    "pending": 2150,
+    "archivedTotal": 2777,
     "rate": 48.3,
     "avgOdds": 1.9,
     "profit": -51.3,
@@ -1368,9 +1368,9 @@
     ],
     "maxDrawdown": 31.1,
     "period": {
-      "from": "2026-06-09",
+      "from": "2026-06-10",
       "to": "2026-08-07",
-      "days": 60
+      "days": 59
     },
     "history": [
       {
