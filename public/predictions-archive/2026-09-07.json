@@ -1,70 +1,8 @@
 {
   "date": "2026-09-07",
-  "lastUpdated": "2026-09-07T17:20:52.037Z",
+  "lastUpdated": "2026-09-07T22:33:08.546Z",
   "source": "ESPN + TheSportsDB",
   "free": [
-    {
-      "id": "estoril-vs-arouca-2026-09-07",
-      "match": "Estoril vs Arouca",
-      "home": "Estoril",
-      "away": "Arouca",
-      "league": "Liga Portugal",
-      "date": "2026-09-07",
-      "type": "BTTS",
-      "prediction": "Non",
-      "proba": 0.3751,
-      "bttsProbDisplay": "37.51%",
-      "over25ProbDisplay": "29.63%",
-      "confidence": 40,
-      "time": "19:15",
-      "matchSemantic": "estoril-vs-arouca-2026-09-07",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12216.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/15784.png",
-      "tier": "STANDARD",
-      "reliabilityScore": 53.66,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 4,
-      "matchCountAway": 4,
-      "h2hAvailable": false,
-      "xgHome": 0.9,
-      "xgAway": 1,
-      "xgTotal": 1.9,
-      "formBTTS": 23,
-      "analysis": "Estoril (4 matchs réels, xG 0.90) vs Arouca (4 matchs réels, xG 1.00). xG cumulé 1.9, BTTS 37.5%, Over 2.5 29.6%. Fiabilité 53.66%. Qualité données: MEDIUM.",
-      "analysisData": {
-        "bttsProb": 0.3751,
-        "over25Prob": 0.2963,
-        "homeLambda": 0.9,
-        "awayLambda": 1,
-        "xgTotal": 1.9
-      },
-      "estimatedCote": 2.67,
-      "estimatedCoteOver": 3.38,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Non",
-          "confidence": 40,
-          "bttsProb": 0.3751,
-          "homeLambda": 0.9,
-          "awayLambda": 1
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Non",
-          "confidence": 40,
-          "over25Prob": 0.2963,
-          "homeLambda": 0.9,
-          "awayLambda": 1
-        }
-      ],
-      "bttsProb": 0.3751,
-      "over25Prob": 0.2963,
-      "homeLambda": 0.9,
-      "awayLambda": 1
-    },
     {
       "id": "fcutrech-vs-goaheade-2026-09-08",
       "match": "FC Utrecht vs Go Ahead Eagles",
@@ -746,9 +684,7 @@
       "over25Prob": 0.6355,
       "homeLambda": 1.77,
       "awayLambda": 1.5
-    }
-  ],
-  "vipPreview": [
+    },
     {
       "id": "stjohnst-vs-celtic-2026-09-09",
       "match": "St Johnstone vs Celtic",
@@ -810,7 +746,9 @@
       "over25Prob": 0.8667,
       "homeLambda": 2.15,
       "awayLambda": 2.75
-    },
+    }
+  ],
+  "vipPreview": [
     {
       "id": "cfmontra-vs-charlott-2026-09-09",
       "match": "CF Montréal vs Charlotte FC",
@@ -1244,79 +1182,79 @@
       "over25Prob": 0.554,
       "homeLambda": 1.65,
       "awayLambda": 1.25
+    },
+    {
+      "id": "portland-vs-stlouisc-2026-09-10",
+      "match": "Portland Timbers vs St. Louis CITY SC",
+      "home": "Portland Timbers",
+      "away": "St. Louis CITY SC",
+      "league": "MLS",
+      "date": "2026-09-10",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.753,
+      "bttsProbDisplay": "75.30%",
+      "over25ProbDisplay": "77.15%",
+      "confidence": 75,
+      "time": "02:30",
+      "matchSemantic": "portland-vs-stlouisc-2026-09-10",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9723.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21812.png",
+      "tier": "GOLD",
+      "reliabilityScore": 91.69,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.9,
+      "xgAway": 2.17,
+      "xgTotal": 4.07,
+      "formBTTS": 43,
+      "analysis": "Portland Timbers (8 matchs réels, xG 1.90) vs St. Louis CITY SC (8 matchs réels, xG 2.17). xG cumulé 4.07, BTTS 75.3%, Over 2.5 77.2%. Fiabilité 91.69%. Qualité données: HIGH.",
+      "analysisData": {
+        "bttsProb": 0.753,
+        "over25Prob": 0.7715,
+        "homeLambda": 1.9,
+        "awayLambda": 2.17,
+        "xgTotal": 4.07
+      },
+      "estimatedCote": 1.33,
+      "estimatedCoteOver": 1.3,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 75,
+          "bttsProb": 0.753,
+          "homeLambda": 1.9,
+          "awayLambda": 2.17
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 77,
+          "over25Prob": 0.7715,
+          "homeLambda": 1.9,
+          "awayLambda": 2.17
+        }
+      ],
+      "bttsProb": 0.753,
+      "over25Prob": 0.7715,
+      "homeLambda": 1.9,
+      "awayLambda": 2.17
     }
   ],
   "stats": {
-    "avgReliability": 74.78,
-    "totalAnalyzed": 115,
+    "avgReliability": 74.97,
+    "totalAnalyzed": 114,
     "totalRejected": 2,
-    "totalAccepted": 113,
+    "totalAccepted": 112,
     "freeCount": 12,
     "vipCount": 8
   },
   "predictions": [
-    {
-      "id": "estoril-vs-arouca-2026-09-07",
-      "match": "Estoril vs Arouca",
-      "home": "Estoril",
-      "away": "Arouca",
-      "league": "Liga Portugal",
-      "date": "2026-09-07",
-      "type": "BTTS",
-      "prediction": "Non",
-      "proba": 0.3751,
-      "bttsProbDisplay": "37.51%",
-      "over25ProbDisplay": "29.63%",
-      "confidence": 40,
-      "time": "19:15",
-      "matchSemantic": "estoril-vs-arouca-2026-09-07",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12216.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/15784.png",
-      "tier": "STANDARD",
-      "reliabilityScore": 53.66,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 4,
-      "matchCountAway": 4,
-      "h2hAvailable": false,
-      "xgHome": 0.9,
-      "xgAway": 1,
-      "xgTotal": 1.9,
-      "formBTTS": 23,
-      "analysis": "Estoril (4 matchs réels, xG 0.90) vs Arouca (4 matchs réels, xG 1.00). xG cumulé 1.9, BTTS 37.5%, Over 2.5 29.6%. Fiabilité 53.66%. Qualité données: MEDIUM.",
-      "analysisData": {
-        "bttsProb": 0.3751,
-        "over25Prob": 0.2963,
-        "homeLambda": 0.9,
-        "awayLambda": 1,
-        "xgTotal": 1.9
-      },
-      "estimatedCote": 2.67,
-      "estimatedCoteOver": 3.38,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Non",
-          "confidence": 40,
-          "bttsProb": 0.3751,
-          "homeLambda": 0.9,
-          "awayLambda": 1
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Non",
-          "confidence": 40,
-          "over25Prob": 0.2963,
-          "homeLambda": 0.9,
-          "awayLambda": 1
-        }
-      ],
-      "bttsProb": 0.3751,
-      "over25Prob": 0.2963,
-      "homeLambda": 0.9,
-      "awayLambda": 1
-    },
     {
       "id": "fcutrech-vs-goaheade-2026-09-08",
       "match": "FC Utrecht vs Go Ahead Eagles",
@@ -1998,6 +1936,68 @@
       "over25Prob": 0.6355,
       "homeLambda": 1.77,
       "awayLambda": 1.5
+    },
+    {
+      "id": "stjohnst-vs-celtic-2026-09-09",
+      "match": "St Johnstone vs Celtic",
+      "home": "St Johnstone",
+      "away": "Celtic",
+      "league": "Scottish Premiership",
+      "date": "2026-09-09",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.827,
+      "bttsProbDisplay": "82.70%",
+      "over25ProbDisplay": "86.67%",
+      "confidence": 83,
+      "time": "19:00",
+      "matchSemantic": "stjohnst-vs-celtic-2026-09-09",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/267.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/256.png",
+      "tier": "GOLD",
+      "reliabilityScore": 84.75,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 5,
+      "matchCountAway": 5,
+      "h2hAvailable": false,
+      "xgHome": 2.15,
+      "xgAway": 2.75,
+      "xgTotal": 4.9,
+      "formBTTS": 42,
+      "analysis": "St Johnstone (5 matchs réels, xG 2.15) vs Celtic (5 matchs réels, xG 2.75). xG cumulé 4.9, BTTS 82.7%, Over 2.5 86.7%. Fiabilité 84.75%. Qualité données: MEDIUM.",
+      "analysisData": {
+        "bttsProb": 0.827,
+        "over25Prob": 0.8667,
+        "homeLambda": 2.15,
+        "awayLambda": 2.75,
+        "xgTotal": 4.9
+      },
+      "estimatedCote": 1.21,
+      "estimatedCoteOver": 1.15,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 83,
+          "bttsProb": 0.827,
+          "homeLambda": 2.15,
+          "awayLambda": 2.75
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 87,
+          "over25Prob": 0.8667,
+          "homeLambda": 2.15,
+          "awayLambda": 2.75
+        }
+      ],
+      "bttsProb": 0.827,
+      "over25Prob": 0.8667,
+      "homeLambda": 2.15,
+      "awayLambda": 2.75
     }
   ]
 }
