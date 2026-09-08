@@ -1,70 +1,8 @@
 {
   "date": "2026-09-08",
-  "lastUpdated": "2026-09-08T08:38:40.120Z",
+  "lastUpdated": "2026-09-08T16:04:59.159Z",
   "source": "ESPN + TheSportsDB",
   "free": [
-    {
-      "id": "fcutrech-vs-goaheade-2026-09-08",
-      "match": "FC Utrecht vs Go Ahead Eagles",
-      "home": "FC Utrecht",
-      "away": "Go Ahead Eagles",
-      "league": "Eredivisie",
-      "date": "2026-09-08",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.864,
-      "bttsProbDisplay": "86.40%",
-      "over25ProbDisplay": "90.52%",
-      "confidence": 86,
-      "time": "12:00",
-      "matchSemantic": "fcutrech-vs-goaheade-2026-09-08",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/153.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3706.png",
-      "tier": "GOLD",
-      "reliabilityScore": 84.75,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 4,
-      "matchCountAway": 4,
-      "h2hAvailable": false,
-      "xgHome": 2.4,
-      "xgAway": 3,
-      "xgTotal": 5.4,
-      "formBTTS": 43,
-      "analysis": "FC Utrecht (4 matchs réels, xG 2.40) vs Go Ahead Eagles (4 matchs réels, xG 3.00). xG cumulé 5.4, BTTS 86.4%, Over 2.5 90.5%. Fiabilité 84.75%. Qualité données: MEDIUM.",
-      "analysisData": {
-        "bttsProb": 0.864,
-        "over25Prob": 0.9052,
-        "homeLambda": 2.4,
-        "awayLambda": 3,
-        "xgTotal": 5.4
-      },
-      "estimatedCote": 1.16,
-      "estimatedCoteOver": 1.1,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 86,
-          "bttsProb": 0.864,
-          "homeLambda": 2.4,
-          "awayLambda": 3
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 91,
-          "over25Prob": 0.9052,
-          "homeLambda": 2.4,
-          "awayLambda": 3
-        }
-      ],
-      "bttsProb": 0.864,
-      "over25Prob": 0.9052,
-      "homeLambda": 2.4,
-      "awayLambda": 3
-    },
     {
       "id": "southamp-vs-swanseac-2026-09-08",
       "match": "Southampton vs Swansea City",
@@ -746,9 +684,7 @@
       "over25Prob": 0.8667,
       "homeLambda": 2.15,
       "awayLambda": 2.75
-    }
-  ],
-  "vipPreview": [
+    },
     {
       "id": "cfmontra-vs-charlott-2026-09-09",
       "match": "CF Montréal vs Charlotte FC",
@@ -810,7 +746,9 @@
       "over25Prob": 0.6096,
       "homeLambda": 1.4,
       "awayLambda": 1.75
-    },
+    }
+  ],
+  "vipPreview": [
     {
       "id": "philadel-vs-fccincin-2026-09-09",
       "match": "Philadelphia Union vs FC Cincinnati",
@@ -1244,79 +1182,79 @@
       "over25Prob": 0.7715,
       "homeLambda": 1.9,
       "awayLambda": 2.17
-    }
-  ],
-  "stats": {
-    "avgReliability": 74.79,
-    "totalAnalyzed": 118,
-    "totalRejected": 2,
-    "totalAccepted": 116,
-    "freeCount": 12,
-    "vipCount": 8
-  },
-  "predictions": [
+    },
     {
-      "id": "fcutrech-vs-goaheade-2026-09-08",
-      "match": "FC Utrecht vs Go Ahead Eagles",
-      "home": "FC Utrecht",
-      "away": "Go Ahead Eagles",
-      "league": "Eredivisie",
-      "date": "2026-09-08",
+      "id": "minnesot-vs-fcdallas-2026-09-10",
+      "match": "Minnesota United FC vs FC Dallas",
+      "home": "Minnesota United FC",
+      "away": "FC Dallas",
+      "league": "MLS",
+      "date": "2026-09-10",
       "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.864,
-      "bttsProbDisplay": "86.40%",
-      "over25ProbDisplay": "90.52%",
-      "confidence": 86,
-      "time": "12:00",
-      "matchSemantic": "fcutrech-vs-goaheade-2026-09-08",
+      "proba": 0.6609,
+      "bttsProbDisplay": "66.09%",
+      "over25ProbDisplay": "65.68%",
+      "confidence": 66,
+      "time": "00:30",
+      "matchSemantic": "minnesot-vs-fcdallas-2026-09-10",
       "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/153.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3706.png",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17362.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/185.png",
       "tier": "GOLD",
-      "reliabilityScore": 84.75,
-      "dataQuality": "MEDIUM",
+      "reliabilityScore": 87.66,
+      "dataQuality": "HIGH",
       "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 4,
-      "matchCountAway": 4,
+      "matchCountHome": 8,
+      "matchCountAway": 8,
       "h2hAvailable": false,
-      "xgHome": 2.4,
-      "xgAway": 3,
-      "xgTotal": 5.4,
-      "formBTTS": 43,
-      "analysis": "FC Utrecht (4 matchs réels, xG 2.40) vs Go Ahead Eagles (4 matchs réels, xG 3.00). xG cumulé 5.4, BTTS 86.4%, Over 2.5 90.5%. Fiabilité 84.75%. Qualité données: MEDIUM.",
+      "xgHome": 1.85,
+      "xgAway": 1.54,
+      "xgTotal": 3.38,
+      "formBTTS": 39,
+      "analysis": "Minnesota United FC (8 matchs réels, xG 1.85) vs FC Dallas (8 matchs réels, xG 1.54). xG cumulé 3.38, BTTS 66.1%, Over 2.5 65.7%. Fiabilité 87.66%. Qualité données: HIGH.",
       "analysisData": {
-        "bttsProb": 0.864,
-        "over25Prob": 0.9052,
-        "homeLambda": 2.4,
-        "awayLambda": 3,
-        "xgTotal": 5.4
+        "bttsProb": 0.6609,
+        "over25Prob": 0.6568,
+        "homeLambda": 1.85,
+        "awayLambda": 1.54,
+        "xgTotal": 3.38
       },
-      "estimatedCote": 1.16,
-      "estimatedCoteOver": 1.1,
+      "estimatedCote": 1.51,
+      "estimatedCoteOver": 1.52,
       "predictions": [
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 86,
-          "bttsProb": 0.864,
-          "homeLambda": 2.4,
-          "awayLambda": 3
+          "confidence": 66,
+          "bttsProb": 0.6609,
+          "homeLambda": 1.85,
+          "awayLambda": 1.54
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 91,
-          "over25Prob": 0.9052,
-          "homeLambda": 2.4,
-          "awayLambda": 3
+          "confidence": 66,
+          "over25Prob": 0.6568,
+          "homeLambda": 1.85,
+          "awayLambda": 1.54
         }
       ],
-      "bttsProb": 0.864,
-      "over25Prob": 0.9052,
-      "homeLambda": 2.4,
-      "awayLambda": 3
-    },
+      "bttsProb": 0.6609,
+      "over25Prob": 0.6568,
+      "homeLambda": 1.85,
+      "awayLambda": 1.54
+    }
+  ],
+  "stats": {
+    "avgReliability": 74.7,
+    "totalAnalyzed": 117,
+    "totalRejected": 2,
+    "totalAccepted": 115,
+    "freeCount": 12,
+    "vipCount": 8
+  },
+  "predictions": [
     {
       "id": "southamp-vs-swanseac-2026-09-08",
       "match": "Southampton vs Swansea City",
@@ -1998,6 +1936,68 @@
       "over25Prob": 0.8667,
       "homeLambda": 2.15,
       "awayLambda": 2.75
+    },
+    {
+      "id": "cfmontra-vs-charlott-2026-09-09",
+      "match": "CF Montréal vs Charlotte FC",
+      "home": "CF Montréal",
+      "away": "Charlotte FC",
+      "league": "MLS",
+      "date": "2026-09-09",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6225,
+      "bttsProbDisplay": "62.25%",
+      "over25ProbDisplay": "60.96%",
+      "confidence": 62,
+      "time": "23:30",
+      "matchSemantic": "cfmontra-vs-charlott-2026-09-09",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9720.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21300.png",
+      "tier": "GOLD",
+      "reliabilityScore": 83.48,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.4,
+      "xgAway": 1.75,
+      "xgTotal": 3.15,
+      "formBTTS": 30,
+      "analysis": "CF Montréal (8 matchs réels, xG 1.40) vs Charlotte FC (8 matchs réels, xG 1.75). xG cumulé 3.15, BTTS 62.2%, Over 2.5 61.0%. Fiabilité 83.48%. Qualité données: HIGH.",
+      "analysisData": {
+        "bttsProb": 0.6225,
+        "over25Prob": 0.6096,
+        "homeLambda": 1.4,
+        "awayLambda": 1.75,
+        "xgTotal": 3.15
+      },
+      "estimatedCote": 1.61,
+      "estimatedCoteOver": 1.64,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 62,
+          "bttsProb": 0.6225,
+          "homeLambda": 1.4,
+          "awayLambda": 1.75
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 61,
+          "over25Prob": 0.6096,
+          "homeLambda": 1.4,
+          "awayLambda": 1.75
+        }
+      ],
+      "bttsProb": 0.6225,
+      "over25Prob": 0.6096,
+      "homeLambda": 1.4,
+      "awayLambda": 1.75
     }
   ]
 }
