@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T22:39:53.709Z",
+  "generatedAt": "2026-09-10T03:29:26.451Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -7,38 +7,38 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 65,
-    "won": 43,
-    "lost": 22,
-    "pending": 310,
-    "archivedTotal": 375,
-    "rate": 66.2,
+    "total": 74,
+    "won": 51,
+    "lost": 23,
+    "pending": 313,
+    "archivedTotal": 387,
+    "rate": 68.9,
     "avgOdds": 1.9,
-    "profit": 16.7,
-    "roi": 25.7,
-    "yield": 25.7,
+    "profit": 22.9,
+    "roi": 30.9,
+    "yield": 30.9,
     "gold": {
-      "total": 51,
-      "won": 36,
-      "lost": 15,
-      "rate": 70.6,
+      "total": 59,
+      "won": 43,
+      "lost": 16,
+      "rate": 72.9,
       "avgOdds": 1.9,
-      "profit": 17.4,
-      "roi": 34.1,
-      "yield": 34.1
+      "profit": 22.7,
+      "roi": 38.5,
+      "yield": 38.5
     },
     "standard": {
-      "total": 14,
-      "won": 7,
+      "total": 15,
+      "won": 8,
       "lost": 7,
-      "rate": 50
+      "rate": 53.3
     },
     "byType": {
       "btts": {
-        "total": 63,
-        "won": 42,
-        "lost": 21,
-        "rate": 66.7
+        "total": 72,
+        "won": 50,
+        "lost": 22,
+        "rate": 69.4
       },
       "over25": {
         "total": 2,
@@ -146,16 +146,169 @@
         "rate": 50,
         "profit": -0.5,
         "equity": 16.7
+      },
+      {
+        "date": "2026-09-09",
+        "total": 9,
+        "won": 8,
+        "lost": 1,
+        "rate": 88.9,
+        "profit": 6.2,
+        "equity": 22.9
       }
     ],
     "maxDrawdown": 2,
     "period": {
       "from": "2026-08-08",
-      "to": "2026-09-09",
-      "days": 33
+      "to": "2026-09-10",
+      "days": 34
     }
   },
   "history": [
+    {
+      "date": "2026-09-09",
+      "match": "Austin FC vs Colorado Rapids",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.4059,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "1-1",
+      "profit": 0.9,
+      "verifiedAt": "2026-09-10T03:20:13.280Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-09",
+      "match": "Chicago Fire FC vs Inter Miami CF",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6084,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "1-1",
+      "profit": 0.9,
+      "verifiedAt": "2026-09-10T03:20:13.279Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-09",
+      "match": "New York City FC vs New England Revolution",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6409,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "1-2",
+      "profit": 0.9,
+      "verifiedAt": "2026-09-10T03:20:13.279Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-09",
+      "match": "Minnesota United FC vs FC Dallas",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6609,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "1-2",
+      "profit": 0.9,
+      "verifiedAt": "2026-09-10T03:20:13.279Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-09",
+      "match": "Philadelphia Union vs FC Cincinnati",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.515,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "5-0",
+      "profit": -1,
+      "verifiedAt": "2026-09-10T03:20:13.278Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-09",
+      "match": "CF Montréal vs Charlotte FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6225,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "1-2",
+      "profit": 0.9,
+      "verifiedAt": "2026-09-10T03:20:13.278Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-09",
+      "match": "Toronto FC vs Nashville SC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6452,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "2-1",
+      "profit": 0.9,
+      "verifiedAt": "2026-09-10T03:20:13.278Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-09",
+      "match": "Atlanta United FC vs Orlando City SC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7415,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "2-3",
+      "profit": 0.9,
+      "verifiedAt": "2026-09-10T03:20:13.278Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-09",
+      "match": "D.C. United vs Columbus Crew",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7545,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "2-1",
+      "profit": 0.9,
+      "verifiedAt": "2026-09-10T03:20:13.278Z",
+      "source": "ESPN public"
+    },
     {
       "date": "2026-09-05",
       "match": "Vancouver Whitecaps vs St. Louis CITY SC",
@@ -1198,16 +1351,16 @@
     }
   ],
   "legacyStats": {
-    "total": 621,
-    "won": 300,
-    "lost": 321,
-    "pending": 2058,
-    "archivedTotal": 2679,
-    "rate": 48.3,
+    "total": 615,
+    "won": 296,
+    "lost": 319,
+    "pending": 2014,
+    "archivedTotal": 2629,
+    "rate": 48.1,
     "avgOdds": 1.9,
-    "profit": -51,
-    "roi": -8.2,
-    "yield": -8.2,
+    "profit": -52.6,
+    "roi": -8.6,
+    "yield": -8.6,
     "gold": {
       "total": 52,
       "won": 19,
@@ -1219,23 +1372,23 @@
       "yield": -30.6
     },
     "standard": {
-      "total": 569,
-      "won": 281,
-      "lost": 288,
-      "rate": 49.4
+      "total": 563,
+      "won": 277,
+      "lost": 286,
+      "rate": 49.2
     },
     "byType": {
       "btts": {
-        "total": 311,
-        "won": 145,
+        "total": 308,
+        "won": 142,
         "lost": 166,
-        "rate": 46.6
+        "rate": 46.1
       },
       "over25": {
-        "total": 310,
-        "won": 155,
-        "lost": 155,
-        "rate": 50
+        "total": 307,
+        "won": 154,
+        "lost": 153,
+        "rate": 50.2
       }
     },
     "trend14": [
@@ -1368,9 +1521,9 @@
     ],
     "maxDrawdown": 31.1,
     "period": {
-      "from": "2026-06-12",
+      "from": "2026-06-13",
       "to": "2026-08-07",
-      "days": 57
+      "days": 56
     },
     "history": [
       {
