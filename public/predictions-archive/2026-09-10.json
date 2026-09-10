@@ -1,6 +1,6 @@
 {
   "date": "2026-09-10",
-  "lastUpdated": "2026-09-10T03:19:32.831Z",
+  "lastUpdated": "2026-09-10T08:41:09.992Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -998,68 +998,6 @@
       "awayLambda": 1.75
     },
     {
-      "id": "columbus-vs-redbulln-2026-09-12",
-      "match": "Columbus Crew vs Red Bull New York",
-      "home": "Columbus Crew",
-      "away": "Red Bull New York",
-      "league": "MLS",
-      "date": "2026-09-12",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5584,
-      "bttsProbDisplay": "55.84%",
-      "over25ProbDisplay": "56.36%",
-      "confidence": 56,
-      "time": "23:30",
-      "matchSemantic": "columbus-vs-redbulln-2026-09-12",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/183.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/190.png",
-      "tier": "GOLD",
-      "reliabilityScore": 80.68,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1.86,
-      "xgAway": 1.08,
-      "xgTotal": 2.94,
-      "formBTTS": 25,
-      "analysis": "Columbus Crew (8 matchs réels, xG 1.86) vs Red Bull New York (8 matchs réels, xG 1.08). xG cumulé 2.94, BTTS 55.8%, Over 2.5 56.4%. Fiabilité 80.68%. Qualité données: HIGH.",
-      "analysisData": {
-        "bttsProb": 0.5584,
-        "over25Prob": 0.5636,
-        "homeLambda": 1.86,
-        "awayLambda": 1.08,
-        "xgTotal": 2.94
-      },
-      "estimatedCote": 1.79,
-      "estimatedCoteOver": 1.77,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 56,
-          "bttsProb": 0.5584,
-          "homeLambda": 1.86,
-          "awayLambda": 1.08
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 56,
-          "over25Prob": 0.5636,
-          "homeLambda": 1.86,
-          "awayLambda": 1.08
-        }
-      ],
-      "bttsProb": 0.5584,
-      "over25Prob": 0.5636,
-      "homeLambda": 1.86,
-      "awayLambda": 1.08
-    },
-    {
       "id": "blackbur-vs-millwall-2026-09-12",
       "match": "Blackburn Rovers vs Millwall",
       "home": "Blackburn Rovers",
@@ -1244,13 +1182,75 @@
       "over25Prob": 0.7831,
       "homeLambda": 1.15,
       "awayLambda": 3
+    },
+    {
+      "id": "stpauli-vs-vflwolfs-2026-09-12",
+      "match": "St. Pauli vs VfL Wolfsburg",
+      "home": "St. Pauli",
+      "away": "VfL Wolfsburg",
+      "league": "2. Bundesliga",
+      "date": "2026-09-12",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6113,
+      "bttsProbDisplay": "61.13%",
+      "over25ProbDisplay": "66.03%",
+      "confidence": 61,
+      "time": "18:30",
+      "matchSemantic": "stpauli-vs-vflwolfs-2026-09-12",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/270.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/138.png",
+      "tier": "GOLD",
+      "reliabilityScore": 76.5,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 4,
+      "matchCountAway": 4,
+      "h2hAvailable": false,
+      "xgHome": 1.15,
+      "xgAway": 2.25,
+      "xgTotal": 3.4,
+      "formBTTS": 40,
+      "analysis": "St. Pauli (4 matchs réels, xG 1.15) vs VfL Wolfsburg (4 matchs réels, xG 2.25). xG cumulé 3.4, BTTS 61.1%, Over 2.5 66.0%. Fiabilité 76.5%. Qualité données: MEDIUM.",
+      "analysisData": {
+        "bttsProb": 0.6113,
+        "over25Prob": 0.6603,
+        "homeLambda": 1.15,
+        "awayLambda": 2.25,
+        "xgTotal": 3.4
+      },
+      "estimatedCote": 1.64,
+      "estimatedCoteOver": 1.51,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 61,
+          "bttsProb": 0.6113,
+          "homeLambda": 1.15,
+          "awayLambda": 2.25
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 66,
+          "over25Prob": 0.6603,
+          "homeLambda": 1.15,
+          "awayLambda": 2.25
+        }
+      ],
+      "bttsProb": 0.6113,
+      "over25Prob": 0.6603,
+      "homeLambda": 1.15,
+      "awayLambda": 2.25
     }
   ],
   "stats": {
-    "avgReliability": 73.27,
+    "avgReliability": 73.24,
     "totalAnalyzed": 95,
-    "totalRejected": 1,
-    "totalAccepted": 94,
+    "totalRejected": 2,
+    "totalAccepted": 93,
     "freeCount": 12,
     "vipCount": 8
   },

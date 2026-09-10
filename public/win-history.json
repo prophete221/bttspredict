@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10T03:29:26.451Z",
+  "generatedAt": "2026-09-10T08:46:35.997Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -7,38 +7,38 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 74,
-    "won": 51,
-    "lost": 23,
-    "pending": 313,
+    "total": 77,
+    "won": 52,
+    "lost": 25,
+    "pending": 310,
     "archivedTotal": 387,
-    "rate": 68.9,
+    "rate": 67.5,
     "avgOdds": 1.9,
-    "profit": 22.9,
-    "roi": 30.9,
-    "yield": 30.9,
+    "profit": 21.8,
+    "roi": 28.3,
+    "yield": 28.3,
     "gold": {
-      "total": 59,
-      "won": 43,
-      "lost": 16,
-      "rate": 72.9,
+      "total": 61,
+      "won": 44,
+      "lost": 17,
+      "rate": 72.1,
       "avgOdds": 1.9,
-      "profit": 22.7,
-      "roi": 38.5,
-      "yield": 38.5
+      "profit": 22.6,
+      "roi": 37,
+      "yield": 37
     },
     "standard": {
-      "total": 15,
+      "total": 16,
       "won": 8,
-      "lost": 7,
-      "rate": 53.3
+      "lost": 8,
+      "rate": 50
     },
     "byType": {
       "btts": {
-        "total": 72,
-        "won": 50,
-        "lost": 22,
-        "rate": 69.4
+        "total": 75,
+        "won": 51,
+        "lost": 24,
+        "rate": 68
       },
       "over25": {
         "total": 2,
@@ -149,12 +149,12 @@
       },
       {
         "date": "2026-09-09",
-        "total": 9,
-        "won": 8,
-        "lost": 1,
-        "rate": 88.9,
-        "profit": 6.2,
-        "equity": 22.9
+        "total": 12,
+        "won": 9,
+        "lost": 3,
+        "rate": 75,
+        "profit": 5.1,
+        "equity": 21.8
       }
     ],
     "maxDrawdown": 2,
@@ -179,6 +179,38 @@
       "finalScore": "1-1",
       "profit": 0.9,
       "verifiedAt": "2026-09-10T03:20:13.280Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-09",
+      "match": "LAFC vs Red Bull New York",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.4377,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "2-0",
+      "profit": -1,
+      "verifiedAt": "2026-09-10T08:41:40.104Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-09",
+      "match": "Vancouver Whitecaps vs LA Galaxy",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5743,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "3-0",
+      "profit": -1,
+      "verifiedAt": "2026-09-10T08:41:40.104Z",
       "source": "ESPN public"
     },
     {
@@ -227,6 +259,22 @@
       "finalScore": "1-2",
       "profit": 0.9,
       "verifiedAt": "2026-09-10T03:20:13.279Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-09",
+      "match": "Portland Timbers vs St. Louis CITY SC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.753,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "2-2",
+      "profit": 0.9,
+      "verifiedAt": "2026-09-10T08:41:40.103Z",
       "source": "ESPN public"
     },
     {
