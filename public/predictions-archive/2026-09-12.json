@@ -1771,7 +1771,9 @@
       "over25Prob": 0.6761,
       "homeLambda": 1.82,
       "awayLambda": 1.67,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-09-13T09:02:04.140Z"
     },
     {
       "id": "fcheiden-vs-holstein-2026-09-13",

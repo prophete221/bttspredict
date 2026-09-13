@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T03:34:42.571Z",
+  "generatedAt": "2026-09-13T09:13:03.549Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -7,25 +7,25 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 84,
+    "total": 85,
     "won": 56,
-    "lost": 28,
-    "pending": 339,
+    "lost": 29,
+    "pending": 338,
     "archivedTotal": 423,
-    "rate": 66.7,
+    "rate": 65.9,
     "avgOdds": 1.9,
-    "profit": 22.4,
-    "roi": 26.7,
-    "yield": 26.7,
+    "profit": 21.4,
+    "roi": 25.2,
+    "yield": 25.2,
     "gold": {
-      "total": 68,
+      "total": 69,
       "won": 48,
-      "lost": 20,
-      "rate": 70.6,
+      "lost": 21,
+      "rate": 69.6,
       "avgOdds": 1.9,
-      "profit": 23.2,
-      "roi": 34.1,
-      "yield": 34.1
+      "profit": 22.2,
+      "roi": 32.2,
+      "yield": 32.2
     },
     "standard": {
       "total": 16,
@@ -35,10 +35,10 @@
     },
     "byType": {
       "btts": {
-        "total": 82,
+        "total": 83,
         "won": 55,
-        "lost": 27,
-        "rate": 67.1
+        "lost": 28,
+        "rate": 66.3
       },
       "over25": {
         "total": 2,
@@ -158,12 +158,12 @@
       },
       {
         "date": "2026-09-12",
-        "total": 7,
+        "total": 8,
         "won": 4,
-        "lost": 3,
-        "rate": 57.1,
-        "profit": 0.6,
-        "equity": 22.4
+        "lost": 4,
+        "rate": 50,
+        "profit": -0.4,
+        "equity": 21.4
       }
     ],
     "maxDrawdown": 2,
@@ -174,6 +174,22 @@
     }
   },
   "history": [
+    {
+      "date": "2026-09-12",
+      "match": "Real Salt Lake vs New York City FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6793,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "0-2",
+      "profit": -1,
+      "verifiedAt": "2026-09-13T09:02:04.140Z",
+      "source": "ESPN public"
+    },
     {
       "date": "2026-09-12",
       "match": "St. Louis CITY SC vs Minnesota United FC",
