@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T22:17:16.725Z",
+  "generatedAt": "2026-09-14T03:43:36.635Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -7,25 +7,25 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 85,
+    "total": 86,
     "won": 56,
-    "lost": 29,
-    "pending": 338,
-    "archivedTotal": 423,
-    "rate": 65.9,
+    "lost": 30,
+    "pending": 349,
+    "archivedTotal": 435,
+    "rate": 65.1,
     "avgOdds": 1.9,
-    "profit": 21.4,
-    "roi": 25.2,
-    "yield": 25.2,
+    "profit": 20.4,
+    "roi": 23.7,
+    "yield": 23.7,
     "gold": {
-      "total": 69,
+      "total": 70,
       "won": 48,
-      "lost": 21,
-      "rate": 69.6,
+      "lost": 22,
+      "rate": 68.6,
       "avgOdds": 1.9,
-      "profit": 22.2,
-      "roi": 32.2,
-      "yield": 32.2
+      "profit": 21.2,
+      "roi": 30.3,
+      "yield": 30.3
     },
     "standard": {
       "total": 16,
@@ -35,10 +35,10 @@
     },
     "byType": {
       "btts": {
-        "total": 83,
+        "total": 84,
         "won": 55,
-        "lost": 28,
-        "rate": 66.3
+        "lost": 29,
+        "rate": 65.5
       },
       "over25": {
         "total": 2,
@@ -164,16 +164,41 @@
         "rate": 50,
         "profit": -0.4,
         "equity": 21.4
+      },
+      {
+        "date": "2026-09-13",
+        "total": 1,
+        "won": 0,
+        "lost": 1,
+        "rate": 0,
+        "profit": -1,
+        "equity": 20.4
       }
     ],
     "maxDrawdown": 2,
     "period": {
       "from": "2026-08-08",
-      "to": "2026-09-13",
-      "days": 37
+      "to": "2026-09-14",
+      "days": 38
     }
   },
   "history": [
+    {
+      "date": "2026-09-13",
+      "match": "San Diego FC vs Philadelphia Union",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6948,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "0-5",
+      "profit": -1,
+      "verifiedAt": "2026-09-14T03:37:20.252Z",
+      "source": "ESPN public"
+    },
     {
       "date": "2026-09-12",
       "match": "Real Salt Lake vs New York City FC",
@@ -1536,44 +1561,44 @@
     }
   ],
   "legacyStats": {
-    "total": 579,
-    "won": 275,
-    "lost": 304,
-    "pending": 1900,
-    "archivedTotal": 2479,
-    "rate": 47.5,
+    "total": 573,
+    "won": 270,
+    "lost": 303,
+    "pending": 1856,
+    "archivedTotal": 2429,
+    "rate": 47.1,
     "avgOdds": 1.9,
-    "profit": -56.5,
-    "roi": -9.8,
-    "yield": -9.8,
+    "profit": -60,
+    "roi": -10.5,
+    "yield": -10.5,
     "gold": {
-      "total": 46,
-      "won": 17,
-      "lost": 29,
-      "rate": 37,
+      "total": 44,
+      "won": 16,
+      "lost": 28,
+      "rate": 36.4,
       "avgOdds": 1.9,
-      "profit": -13.7,
-      "roi": -29.8,
-      "yield": -29.8
+      "profit": -13.6,
+      "roi": -30.9,
+      "yield": -30.9
     },
     "standard": {
-      "total": 533,
-      "won": 258,
+      "total": 529,
+      "won": 254,
       "lost": 275,
-      "rate": 48.4
+      "rate": 48
     },
     "byType": {
       "btts": {
-        "total": 290,
-        "won": 130,
-        "lost": 160,
-        "rate": 44.8
+        "total": 287,
+        "won": 128,
+        "lost": 159,
+        "rate": 44.6
       },
       "over25": {
-        "total": 289,
-        "won": 145,
+        "total": 286,
+        "won": 142,
         "lost": 144,
-        "rate": 50.2
+        "rate": 49.7
       }
     },
     "trend14": [
@@ -1706,9 +1731,9 @@
     ],
     "maxDrawdown": 31.1,
     "period": {
-      "from": "2026-06-16",
+      "from": "2026-06-17",
       "to": "2026-08-07",
-      "days": 53
+      "days": 52
     },
     "history": [
       {
