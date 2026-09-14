@@ -1,6 +1,6 @@
 {
   "date": "2026-09-14",
-  "lastUpdated": "2026-09-14T09:36:44.852Z",
+  "lastUpdated": "2026-09-14T17:48:18.636Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -64,68 +64,6 @@
       "over25Prob": 0.706,
       "homeLambda": 1.4,
       "awayLambda": 2.25
-    },
-    {
-      "id": "rioave-vs-estrela-2026-09-14",
-      "match": "Rio Ave vs Estrela",
-      "home": "Rio Ave",
-      "away": "Estrela",
-      "league": "Liga Portugal",
-      "date": "2026-09-14",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.6397,
-      "bttsProbDisplay": "63.97%",
-      "over25ProbDisplay": "74.69%",
-      "confidence": 64,
-      "time": "17:45",
-      "matchSemantic": "rioave-vs-estrela-2026-09-14",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3822.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21610.png",
-      "tier": "GOLD",
-      "reliabilityScore": 77.74,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 5,
-      "matchCountAway": 5,
-      "h2hAvailable": false,
-      "xgHome": 1.15,
-      "xgAway": 2.75,
-      "xgTotal": 3.9,
-      "formBTTS": 26,
-      "analysis": "Rio Ave (5 matchs réels, xG 1.15) vs Estrela (5 matchs réels, xG 2.75). xG cumulé 3.9, BTTS 64.0%, Over 2.5 74.7%. Fiabilité 77.74%. Qualité données: MEDIUM.",
-      "analysisData": {
-        "bttsProb": 0.6397,
-        "over25Prob": 0.7469,
-        "homeLambda": 1.15,
-        "awayLambda": 2.75,
-        "xgTotal": 3.9
-      },
-      "estimatedCote": 1.56,
-      "estimatedCoteOver": 1.34,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 64,
-          "bttsProb": 0.6397,
-          "homeLambda": 1.15,
-          "awayLambda": 2.75
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 75,
-          "over25Prob": 0.7469,
-          "homeLambda": 1.15,
-          "awayLambda": 2.75
-        }
-      ],
-      "bttsProb": 0.6397,
-      "over25Prob": 0.7469,
-      "homeLambda": 1.15,
-      "awayLambda": 2.75
     },
     {
       "id": "leedsuni-vs-newcastl-2026-09-14",
@@ -746,9 +684,7 @@
       "over25Prob": 0.706,
       "homeLambda": 2.32,
       "awayLambda": 1.33
-    }
-  ],
-  "vipPreview": [
+    },
     {
       "id": "rapidvie-vs-wsgswaro-2026-09-18",
       "match": "Rapid Vienna vs WSG Swarovski Tirol",
@@ -810,7 +746,9 @@
       "over25Prob": 0.7338,
       "homeLambda": 2.65,
       "awayLambda": 1.17
-    },
+    }
+  ],
+  "vipPreview": [
     {
       "id": "brentfor-vs-chelsea-2026-09-18",
       "match": "Brentford vs Chelsea",
@@ -1244,13 +1182,75 @@
       "over25Prob": 0.7338,
       "homeLambda": 1.73,
       "awayLambda": 2.08
+    },
+    {
+      "id": "cfmontra-vs-columbus-2026-09-19",
+      "match": "CF Montréal vs Columbus Crew",
+      "home": "CF Montréal",
+      "away": "Columbus Crew",
+      "league": "MLS",
+      "date": "2026-09-19",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.7095,
+      "bttsProbDisplay": "70.95%",
+      "over25ProbDisplay": "72.70%",
+      "confidence": 71,
+      "time": "23:30",
+      "matchSemantic": "cfmontra-vs-columbus-2026-09-19",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9720.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/183.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.79,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.15,
+      "xgAway": 1.63,
+      "xgTotal": 3.77,
+      "formBTTS": 25,
+      "analysis": "CF Montréal (8 matchs réels, xG 2.15) vs Columbus Crew (8 matchs réels, xG 1.63). xG cumulé 3.77, BTTS 71.0%, Over 2.5 72.7%. Fiabilité 89.79%. Qualité données: HIGH.",
+      "analysisData": {
+        "bttsProb": 0.7095,
+        "over25Prob": 0.727,
+        "homeLambda": 2.15,
+        "awayLambda": 1.63,
+        "xgTotal": 3.77
+      },
+      "estimatedCote": 1.41,
+      "estimatedCoteOver": 1.38,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 71,
+          "bttsProb": 0.7095,
+          "homeLambda": 2.15,
+          "awayLambda": 1.63
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 73,
+          "over25Prob": 0.727,
+          "homeLambda": 2.15,
+          "awayLambda": 1.63
+        }
+      ],
+      "bttsProb": 0.7095,
+      "over25Prob": 0.727,
+      "homeLambda": 2.15,
+      "awayLambda": 1.63
     }
   ],
   "stats": {
-    "avgReliability": 74.4,
-    "totalAnalyzed": 104,
+    "avgReliability": 74.37,
+    "totalAnalyzed": 103,
     "totalRejected": 5,
-    "totalAccepted": 99,
+    "totalAccepted": 98,
     "freeCount": 12,
     "vipCount": 8
   },
@@ -1316,68 +1316,6 @@
       "over25Prob": 0.706,
       "homeLambda": 1.4,
       "awayLambda": 2.25
-    },
-    {
-      "id": "rioave-vs-estrela-2026-09-14",
-      "match": "Rio Ave vs Estrela",
-      "home": "Rio Ave",
-      "away": "Estrela",
-      "league": "Liga Portugal",
-      "date": "2026-09-14",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.6397,
-      "bttsProbDisplay": "63.97%",
-      "over25ProbDisplay": "74.69%",
-      "confidence": 64,
-      "time": "17:45",
-      "matchSemantic": "rioave-vs-estrela-2026-09-14",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3822.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21610.png",
-      "tier": "GOLD",
-      "reliabilityScore": 77.74,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 5,
-      "matchCountAway": 5,
-      "h2hAvailable": false,
-      "xgHome": 1.15,
-      "xgAway": 2.75,
-      "xgTotal": 3.9,
-      "formBTTS": 26,
-      "analysis": "Rio Ave (5 matchs réels, xG 1.15) vs Estrela (5 matchs réels, xG 2.75). xG cumulé 3.9, BTTS 64.0%, Over 2.5 74.7%. Fiabilité 77.74%. Qualité données: MEDIUM.",
-      "analysisData": {
-        "bttsProb": 0.6397,
-        "over25Prob": 0.7469,
-        "homeLambda": 1.15,
-        "awayLambda": 2.75,
-        "xgTotal": 3.9
-      },
-      "estimatedCote": 1.56,
-      "estimatedCoteOver": 1.34,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 64,
-          "bttsProb": 0.6397,
-          "homeLambda": 1.15,
-          "awayLambda": 2.75
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 75,
-          "over25Prob": 0.7469,
-          "homeLambda": 1.15,
-          "awayLambda": 2.75
-        }
-      ],
-      "bttsProb": 0.6397,
-      "over25Prob": 0.7469,
-      "homeLambda": 1.15,
-      "awayLambda": 2.75
     },
     {
       "id": "leedsuni-vs-newcastl-2026-09-14",
@@ -1998,6 +1936,68 @@
       "over25Prob": 0.706,
       "homeLambda": 2.32,
       "awayLambda": 1.33
+    },
+    {
+      "id": "rapidvie-vs-wsgswaro-2026-09-18",
+      "match": "Rapid Vienna vs WSG Swarovski Tirol",
+      "home": "Rapid Vienna",
+      "away": "WSG Swarovski Tirol",
+      "league": "Austrian Bundesliga",
+      "date": "2026-09-18",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6399,
+      "bttsProbDisplay": "63.99%",
+      "over25ProbDisplay": "73.38%",
+      "confidence": 64,
+      "time": "17:30",
+      "matchSemantic": "rapidvie-vs-wsgswaro-2026-09-18",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/519.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18794.png",
+      "tier": "GOLD",
+      "reliabilityScore": 77.75,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 6,
+      "matchCountAway": 6,
+      "h2hAvailable": false,
+      "xgHome": 2.65,
+      "xgAway": 1.17,
+      "xgTotal": 3.82,
+      "formBTTS": 45,
+      "analysis": "Rapid Vienna (6 matchs réels, xG 2.65) vs WSG Swarovski Tirol (6 matchs réels, xG 1.17). xG cumulé 3.82, BTTS 64.0%, Over 2.5 73.4%. Fiabilité 77.75%. Qualité données: MEDIUM.",
+      "analysisData": {
+        "bttsProb": 0.6399,
+        "over25Prob": 0.7338,
+        "homeLambda": 2.65,
+        "awayLambda": 1.17,
+        "xgTotal": 3.82
+      },
+      "estimatedCote": 1.56,
+      "estimatedCoteOver": 1.36,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 64,
+          "bttsProb": 0.6399,
+          "homeLambda": 2.65,
+          "awayLambda": 1.17
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 73,
+          "over25Prob": 0.7338,
+          "homeLambda": 2.65,
+          "awayLambda": 1.17
+        }
+      ],
+      "bttsProb": 0.6399,
+      "over25Prob": 0.7338,
+      "homeLambda": 2.65,
+      "awayLambda": 1.17
     }
   ]
 }
