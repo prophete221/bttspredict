@@ -117,7 +117,7 @@ export function loadAllMatches(): Map<string, MatchData> {
 
   if (!fs.existsSync(archiveDir)) return matches
 
-  const files = fs.readdirSync(archiveDir).filter(f => f.endsWith('.json')).sort().slice(-90) // last 90 days
+  const files = fs.readdirSync(archiveDir).filter(f => f.endsWith('.json')).sort().slice(-14) // last 14 days only — reduce inode pressure on shared hosting
 
   for (const file of files) {
     try {
