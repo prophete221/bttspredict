@@ -210,12 +210,14 @@ jobs:
           set -euo pipefail
           # Synchronisation explicite du build statique vers la racine du site.
           # Sans --delete : aucun fichier distant non lié au build n'est supprimé.
+          # Parallel=1 + retries plus élevés pour éviter les 550 race conditions
+          # lors de la création des nouveaux dossiers /match/...
           lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "ftp://$FTP_SERVER" -e "
             set ssl:verify no
-            set net:timeout 30
-            set net:max-retries 1
-            set mirror:use-pget-n 4
-            mirror --reverse --no-perms --overwrite --verbose --parallel=4 out/ ./
+            set net:timeout 60
+            set net:max-retries 5
+            set mirror:use-pget-n 1
+            mirror --reverse --no-perms --overwrite --verbose --parallel=1 out/ ./
             bye
           "
 
