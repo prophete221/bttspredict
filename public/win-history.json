@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T23:07:38.736Z",
+  "generatedAt": "2026-09-15T03:48:34.426Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -10,8 +10,8 @@
     "total": 86,
     "won": 56,
     "lost": 30,
-    "pending": 349,
-    "archivedTotal": 435,
+    "pending": 361,
+    "archivedTotal": 447,
     "rate": 65.1,
     "avgOdds": 1.9,
     "profit": 20.4,
@@ -178,8 +178,8 @@
     "maxDrawdown": 2,
     "period": {
       "from": "2026-08-08",
-      "to": "2026-09-14",
-      "days": 38
+      "to": "2026-09-15",
+      "days": 39
     }
   },
   "history": [
@@ -1561,44 +1561,44 @@
     }
   ],
   "legacyStats": {
-    "total": 573,
-    "won": 270,
-    "lost": 303,
-    "pending": 1856,
-    "archivedTotal": 2429,
-    "rate": 47.1,
+    "total": 567,
+    "won": 266,
+    "lost": 301,
+    "pending": 1812,
+    "archivedTotal": 2379,
+    "rate": 46.9,
     "avgOdds": 1.9,
-    "profit": -60,
-    "roi": -10.5,
-    "yield": -10.5,
+    "profit": -61.6,
+    "roi": -10.9,
+    "yield": -10.9,
     "gold": {
-      "total": 44,
+      "total": 42,
       "won": 16,
-      "lost": 28,
-      "rate": 36.4,
+      "lost": 26,
+      "rate": 38.1,
       "avgOdds": 1.9,
-      "profit": -13.6,
-      "roi": -30.9,
-      "yield": -30.9
+      "profit": -11.6,
+      "roi": -27.6,
+      "yield": -27.6
     },
     "standard": {
-      "total": 529,
-      "won": 254,
+      "total": 525,
+      "won": 250,
       "lost": 275,
-      "rate": 48
+      "rate": 47.6
     },
     "byType": {
       "btts": {
-        "total": 287,
-        "won": 128,
-        "lost": 159,
-        "rate": 44.6
+        "total": 284,
+        "won": 126,
+        "lost": 158,
+        "rate": 44.4
       },
       "over25": {
-        "total": 286,
-        "won": 142,
-        "lost": 144,
-        "rate": 49.7
+        "total": 283,
+        "won": 140,
+        "lost": 143,
+        "rate": 49.5
       }
     },
     "trend14": [
@@ -1731,9 +1731,9 @@
     ],
     "maxDrawdown": 31.1,
     "period": {
-      "from": "2026-06-17",
+      "from": "2026-06-18",
       "to": "2026-08-07",
-      "days": 52
+      "days": 51
     },
     "history": [
       {
