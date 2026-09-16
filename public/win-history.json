@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T22:53:09.739Z",
+  "generatedAt": "2026-09-16T03:37:02.265Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -10,8 +10,8 @@
     "total": 86,
     "won": 56,
     "lost": 30,
-    "pending": 361,
-    "archivedTotal": 447,
+    "pending": 373,
+    "archivedTotal": 459,
     "rate": 65.1,
     "avgOdds": 1.9,
     "profit": 20.4,
@@ -178,8 +178,8 @@
     "maxDrawdown": 2,
     "period": {
       "from": "2026-08-08",
-      "to": "2026-09-15",
-      "days": 39
+      "to": "2026-09-16",
+      "days": 40
     }
   },
   "history": [
@@ -1561,44 +1561,44 @@
     }
   ],
   "legacyStats": {
-    "total": 567,
-    "won": 266,
-    "lost": 301,
-    "pending": 1812,
-    "archivedTotal": 2379,
-    "rate": 46.9,
+    "total": 557,
+    "won": 262,
+    "lost": 295,
+    "pending": 1772,
+    "archivedTotal": 2329,
+    "rate": 47,
     "avgOdds": 1.9,
-    "profit": -61.6,
-    "roi": -10.9,
-    "yield": -10.9,
+    "profit": -59.2,
+    "roi": -10.6,
+    "yield": -10.6,
     "gold": {
-      "total": 42,
+      "total": 40,
       "won": 16,
-      "lost": 26,
-      "rate": 38.1,
+      "lost": 24,
+      "rate": 40,
       "avgOdds": 1.9,
-      "profit": -11.6,
-      "roi": -27.6,
-      "yield": -27.6
+      "profit": -9.6,
+      "roi": -24,
+      "yield": -24
     },
     "standard": {
-      "total": 525,
-      "won": 250,
-      "lost": 275,
+      "total": 517,
+      "won": 246,
+      "lost": 271,
       "rate": 47.6
     },
     "byType": {
       "btts": {
-        "total": 284,
-        "won": 126,
-        "lost": 158,
+        "total": 279,
+        "won": 124,
+        "lost": 155,
         "rate": 44.4
       },
       "over25": {
-        "total": 283,
-        "won": 140,
-        "lost": 143,
-        "rate": 49.5
+        "total": 278,
+        "won": 138,
+        "lost": 140,
+        "rate": 49.6
       }
     },
     "trend14": [
@@ -1731,9 +1731,9 @@
     ],
     "maxDrawdown": 31.1,
     "period": {
-      "from": "2026-06-18",
+      "from": "2026-06-19",
       "to": "2026-08-07",
-      "days": 51
+      "days": 50
     },
     "history": [
       {
