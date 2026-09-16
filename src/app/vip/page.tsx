@@ -160,6 +160,25 @@ const copy = {
     unlockEyebrow: 'Système de déblocage',
     unlockTitle: 'Comment débloquer ton accès VIP ?',
     unlockSub: 'Aucune ambiguïté : voici exactement les 4 conditions à remplir, dans l’ordre. Chaque étape est vérifiée avant l’activation de ton accès.',
+    cardSub: 'Toute la procédure est dans cette carte VIP. Clique sur chaque étape : une fenêtre détaillée s’ouvre avec les instructions exactes et les bons boutons.',
+    progressDone: 'étapes validées',
+    stepOpen: 'Ouvrir',
+    stepDone: 'Fait',
+    close: 'Fermer',
+    next: 'Étape suivante',
+    modalStep: 'Étape {n} sur 4',
+    cond1Short: 'Linebet ou 888Starz — clic = code copié',
+    cond2Short: 'Colle-le lors de ton inscription',
+    cond3Short: 'Dépôt minimum de 5 $ — obligatoire',
+    cond4Short: 'Message pré-rempli + ton ID joueur',
+    m2NoBook: 'Choisis d’abord ton bookmaker à l’étape 1.',
+    m2Paste: 'Où coller le code ?',
+    m2Where: 'Dans le champ « Code promo » du formulaire d’inscription du bookmaker (ou dans ton compte, section code promo).',
+    m3Confirm: 'Je confirme : dépôt de 5 $ effectué',
+    m4Id: 'Ajoute ton ID joueur dans le message WhatsApp avant d’envoyer.',
+    m4After: 'Dès que l’équipe confirme ton inscription et ton dépôt, ton accès VIP est activé et les combinés se déverrouillent.',
+    matchesTitle: 'Les matchs VIP du jour',
+    matchesSub: 'Les affiches analysées par le moteur. La sélection reste verrouillée jusqu’à la vérification de ton accès.',
     conditionsTitle: 'Conditions de déblocage',
     cond1Title: 'Choisis ton bookmaker',
     cond1Desc: 'Clique sur la carte Linebet ou 888Starz ci-contre. Le clic sélectionne ton bookmaker et copie automatiquement le bon code promo dans ton presse-papiers.',
@@ -175,7 +194,7 @@ const copy = {
     chooseHint: 'Le clic copie automatiquement ton code promo',
     autoCopied: 'Code copié automatiquement',
     selected: 'Sélectionné',
-    tapToCopy: 'Clique pour copier le code',
+    tapToCopy: 'Copier le code',
     codeLabel: 'Ton code promo',
     codeIdle: 'Choisis un bookmaker',
     copyBtn: 'Copier le code',
@@ -249,6 +268,25 @@ const copy = {
     unlockEyebrow: 'Unlock system',
     unlockTitle: 'How to unlock your VIP access?',
     unlockSub: 'Zero guesswork: these are the exact 4 conditions to meet, in order. Each step is checked before your access is activated.',
+    cardSub: 'The whole process lives in this VIP card. Tap any step: a detailed popup opens with the exact instructions and the right buttons.',
+    progressDone: 'steps completed',
+    stepOpen: 'Open',
+    stepDone: 'Done',
+    close: 'Close',
+    next: 'Next step',
+    modalStep: 'Step {n} of 4',
+    cond1Short: 'Linebet or 888Starz — tap = code copied',
+    cond2Short: 'Paste it during sign-up',
+    cond3Short: 'Minimum $5 deposit — mandatory',
+    cond4Short: 'Pre-filled message + your player ID',
+    m2NoBook: 'Pick your bookmaker in step 1 first.',
+    m2Paste: 'Where to paste the code?',
+    m2Where: 'In the “Promo code” field of the bookmaker’s sign-up form (or in your account, promo code section).',
+    m3Confirm: 'I confirm: $5 deposit made',
+    m4Id: 'Add your player ID to the WhatsApp message before sending.',
+    m4After: 'As soon as the team confirms your sign-up and deposit, your VIP access is activated and the combos unlock.',
+    matchesTitle: 'Today’s VIP matches',
+    matchesSub: 'The fixtures analysed by the engine. The selection stays locked until your access is verified.',
     conditionsTitle: 'Unlock conditions',
     cond1Title: 'Choose your bookmaker',
     cond1Desc: 'Tap the Linebet or 888Starz card next to this one. The tap selects your bookmaker and automatically copies the correct promo code to your clipboard.',
@@ -264,7 +302,7 @@ const copy = {
     chooseHint: 'Tapping copies your promo code automatically',
     autoCopied: 'Code copied automatically',
     selected: 'Selected',
-    tapToCopy: 'Tap to copy the code',
+    tapToCopy: 'Tap to copy',
     codeLabel: 'Your promo code',
     codeIdle: 'Pick a bookmaker',
     copyBtn: 'Copy code',
@@ -338,6 +376,25 @@ const copy = {
     unlockEyebrow: 'نظام الفتح',
     unlockTitle: 'كيف تفتح وصولك إلى VIP؟',
     unlockSub: 'بلا أي غموض: هذه هي الشروط الأربعة المطلوبة بالترتيب. يتم التحقق من كل خطوة قبل تفعيل وصولك.',
+    cardSub: 'الإجراء كامل داخل بطاقة VIP هذه. اضغط على كل خطوة: تُفتح نافذة مفصلة بالتعليمات الدقيقة والأزرار المناسبة.',
+    progressDone: 'خطوات مكتملة',
+    stepOpen: 'فتح',
+    stepDone: 'منجز',
+    close: 'إغلاق',
+    next: 'الخطوة التالية',
+    modalStep: 'الخطوة {n} من 4',
+    cond1Short: 'Linebet أو 888Starz — الضغط ينسخ الرمز',
+    cond2Short: 'الصقه عند التسجيل',
+    cond3Short: 'إيداع أدنى 5 دولارات — إلزامي',
+    cond4Short: 'رسالة جاهزة + معرّف لاعبك',
+    m2NoBook: 'اختر شركة المراهنات أولاً في الخطوة 1.',
+    m2Paste: 'أين تلصق الرمز؟',
+    m2Where: 'في حقل «الرمز الترويجي» في استمارة التسجيل لدى الشركة (أو في حسابك، قسم الرمز الترويجي).',
+    m3Confirm: 'أؤكد: تم الإيداع 5 دولارات',
+    m4Id: 'أضف معرّف لاعبك في رسالة واتساب قبل الإرسال.',
+    m4After: 'بمجرد أن يؤكد الفريق التسجيل والإيداع، يُفعَّل وصولك إلى VIP وتُفتح التركيبات.',
+    matchesTitle: 'مباريات VIP اليوم',
+    matchesSub: 'المواجهات التي حللها المحرك. يبقى الاختيار مقفلاً حتى يتم التحقق من وصولك.',
     conditionsTitle: 'شروط الفتح',
     cond1Title: 'اختر شركة المراهنات',
     cond1Desc: 'اضغط على بطاقة Linebet أو 888Starz المجاورة. تؤدي الضغطة إلى اختيار شركتك ونسخ الرمز الترويجي الصحيح تلقائياً إلى الحافظة.',
@@ -422,12 +479,13 @@ export default function VipPage() {
 
   const [bookmaker, setBookmaker] = useState<Bookmaker | null>(null)
   const [copied, setCopied] = useState(false)
+  const [depositConfirmed, setDepositConfirmed] = useState(false)
   const [verifyOpened, setVerifyOpened] = useState(false)
+  const [openStep, setOpenStep] = useState<1 | 2 | 3 | 4 | null>(null)
   const [toast, setToast] = useState('')
   const [fixtures, setFixtures] = useState<PredictionFixture[]>([])
 
   const memberTilt = useTilt(9)
-  const cardTilt = useTilt(5)
 
   const selected = bookmaker ? BRAND[bookmaker] : null
   const signupLink = bookmaker === 'linebet' ? AFFILIATE.linebet : bookmaker === '888starz' ? AFFILIATE.star888 : '#deblocage'
@@ -438,6 +496,21 @@ export default function VipPage() {
     const timer = window.setTimeout(() => setToast(''), 2600)
     return () => window.clearTimeout(timer)
   }, [toast])
+
+  /* Fenêtres pop : Escape ferme + scroll bloqué tant qu'une étape est ouverte */
+  useEffect(() => {
+    if (openStep === null) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpenStep(null)
+    }
+    window.addEventListener('keydown', onKey)
+    const previous = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      document.body.style.overflow = previous
+    }
+  }, [openStep])
 
   /* Aperçu VIP : fixtures à venir depuis predictions.json (sélections verrouillées) */
   useEffect(() => {
@@ -507,14 +580,21 @@ export default function VipPage() {
           : `Bonjour BTTSPredict, je souhaite faire vérifier mon accès VIP. Bookmaker : ${selected.label}. Code promo utilisé : ${selected.code}. Dépôt minimum de 5 $ effectué. Mon ID joueur : `
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
     window.open(url, '_blank', 'noopener,noreferrer')
+    setOpenStep(null)
   }
 
-  const checklist = [
-    { label: text.check1, done: bookmaker !== null },
-    { label: text.check2, done: copied },
-    { label: text.check3, done: false },
-    { label: text.check4, done: verifyOpened },
+  const steps = [
+    { n: 1 as const, title: text.cond1Title, short: text.cond1Short, done: bookmaker !== null },
+    { n: 2 as const, title: text.cond2Title, short: text.cond2Short, done: copied },
+    { n: 3 as const, title: text.cond3Title, short: text.cond3Short, done: depositConfirmed },
+    { n: 4 as const, title: text.cond4Title, short: text.cond4Short, done: verifyOpened },
   ]
+  const doneCount = steps.filter((step) => step.done).length
+
+  const openStepModal = (n: 1 | 2 | 3 | 4) => {
+    trackAffiliateAction(bookmaker ?? 'linebet', 'vip_unlock_open', `vip-step-${n}`)
+    setOpenStep(n)
+  }
 
   return (
     <div className="vipx" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
@@ -532,7 +612,7 @@ export default function VipPage() {
               <h1>{text.title}</h1>
               <p className="vipx-hero__sub">{text.heroSub}</p>
               <div className="vipx-hero__cta">
-                <a className="vipx-btn vipx-btn--gold" href="#deblocage">{text.ctaUnlock}<span aria-hidden="true">→</span></a>
+                <a className="vipx-btn vipx-btn--gold" href="#deblocage" onClick={() => setOpenStep(1)}>{text.ctaUnlock}<span aria-hidden="true">→</span></a>
                 <a className="vipx-btn vipx-btn--ghost" href="/historique">{text.trustLink}</a>
               </div>
               <ul className="vipx-hero__trust">
@@ -565,171 +645,211 @@ export default function VipPage() {
           </div>
         </section>
 
-        {/* ═══════════ SYSTÈME DE DÉBLOCAGE ═══════════ */}
+        {/* ═══════════ CARTE VIP — PROCÉDURE COMPLÈTE ═══════════ */}
         <section id="deblocage" className="vipx-unlock vipx-shell">
           <header className="vipx-section-head">
             <span className="vipx-eyebrow"><i aria-hidden="true" />{text.unlockEyebrow}</span>
             <h2>{text.unlockTitle}</h2>
-            <p>{text.unlockSub}</p>
+            <p>{text.cardSub}</p>
           </header>
 
-          <div className="vipx-unlock__grid">
-            {/* Carte 3D des conditions */}
-            <div className="vipx-scene vipx-unlock__conditions">
-              <article className="vipx-conditions vipx-tilt" ref={cardTilt.ref} onPointerMove={cardTilt.onPointerMove} onPointerLeave={cardTilt.onPointerLeave}>
-                <h3><Icon.lock />{text.conditionsTitle}</h3>
-                <ol>
-                  <li>
-                    <span className="vipx-conditions__num" aria-hidden="true">1</span>
-                    <div><strong>{text.cond1Title}</strong><p>{text.cond1Desc}</p></div>
-                  </li>
-                  <li>
-                    <span className="vipx-conditions__num" aria-hidden="true">2</span>
-                    <div><strong>{text.cond2Title}</strong><p>{text.cond2Desc}</p></div>
-                  </li>
-                  <li>
-                    <span className="vipx-conditions__num" aria-hidden="true">3</span>
-                    <div><strong>{text.cond3Title}</strong><p>{text.cond3Desc}</p></div>
-                  </li>
-                  <li>
-                    <span className="vipx-conditions__num" aria-hidden="true">4</span>
-                    <div><strong>{text.cond4Title}</strong><p>{text.cond4Desc}</p></div>
-                  </li>
-                </ol>
-                {/* Dépôt minimum — condition clé mise en avant */}
-                <div className="vipx-deposit">
-                  <span className="vipx-deposit__label">{text.depositLabel}</span>
-                  <strong className="vipx-deposit__value">5 $</strong>
-                  <span className="vipx-deposit__note">{text.depositNote}</span>
-                </div>
-              </article>
+          <article className="vipx-card">
+            <div className="vipx-card__head">
+              <span className="vipx-card__badge"><Icon.crown />VIP</span>
+              <div className="vipx-card__progress">
+                <strong>{doneCount} / 4</strong>
+                <span>{text.progressDone}</span>
+                <div className="vipx-card__bar" aria-hidden="true"><i style={{ width: `${Math.round((doneCount / 4) * 100)}%` }} /></div>
+              </div>
             </div>
 
-            {/* Choix bookmaker + actions + progression */}
-            <div className="vipx-unlock__side">
-              <div className="vipx-choose">
-                <h3>{text.chooseTitle}</h3>
-                <p className="vipx-choose__hint">{text.chooseHint}</p>
+            {/* Étapes cliquables — chaque clic ouvre une fenêtre pop détaillée */}
+            <ol className="vipx-steps">
+              {steps.map((step) => (
+                <li key={step.n}>
+                  <button type="button" className={`vipx-step${step.done ? ' is-done' : ''}`} onClick={() => openStepModal(step.n)} aria-haspopup="dialog">
+                    <span className="vipx-step__num" aria-hidden="true">{step.done ? <Icon.check /> : step.n}</span>
+                    <span className="vipx-step__body">
+                      <strong>{step.title}</strong>
+                      <small>{step.short}</small>
+                    </span>
+                    <span className="vipx-step__cta">{step.done ? text.stepDone : text.stepOpen}<span aria-hidden="true">→</span></span>
+                  </button>
+                </li>
+              ))}
+            </ol>
 
-                <div className="vipx-bookmakers" role="group" aria-label={text.chooseTitle}>
-                  {(Object.keys(BRAND) as Bookmaker[]).map((key) => {
-                    const brand = BRAND[key]
-                    const isSelected = bookmaker === key
+            {/* Matchs VIP affichés dans la carte */}
+            <div className="vipx-card__matches">
+              <div className="vipx-card__matches-head">
+                <h4><Icon.target />{text.matchesTitle}</h4>
+                <time dateTime={today}>{today}</time>
+              </div>
+              <p className="vipx-card__matches-sub">{text.matchesSub}</p>
+              {fixtures.length > 0 ? (
+                <ul className="vipx-matches">
+                  {fixtures.map((fixture, index) => {
+                    const { raw } = fixtureKickoff(fixture)
                     return (
-                      <button
-                        key={key}
-                        type="button"
-                        onClick={() => chooseBookmaker(key)}
-                        className={`vipx-bookmaker${isSelected ? ' is-selected' : ''}`}
-                        aria-pressed={isSelected}
-                      >
-                        <span className="vipx-bookmaker__logo" aria-hidden="true">
-                          <img src={key === 'linebet' ? '/logos/linebet-provided.jpg' : '/logos/888starz-provided.webp'} alt="" />
-                        </span>
-                        <span className="vipx-bookmaker__body">
-                          <strong>{brand.label}</strong>
-                          <small className="vipx-bookmaker__code">{brand.code}</small>
-                        </span>
-                        <span className={`vipx-bookmaker__state${isSelected ? ' is-on' : ''}`}>
-                          {isSelected ? (copied ? <><Icon.check />{text.selected}</> : text.selected) : <><Icon.copy />{text.tapToCopy}</>}
-                        </span>
-                      </button>
+                      <li key={`${fixture.home}-${fixture.away}-${raw}-${index}`}>
+                        <div className="vipx-matches__teams">
+                          <small>{fixture.league?.trim() || 'Football'}</small>
+                          <strong>{fixture.home} <span aria-hidden="true">vs</span> {fixture.away}</strong>
+                        </div>
+                        <div className="vipx-matches__right">
+                          <time dateTime={raw}>{formatKickoff(raw, lang)}</time>
+                          <span className="vipx-matches__hidden"><Icon.lock />VIP</span>
+                        </div>
+                      </li>
                     )
                   })}
-                </div>
-
-                {/* Chip code promo (copie manuelle de secours) */}
-                <div className={`vipx-code${bookmaker ? '' : ' is-idle'}`}>
-                  <div className="vipx-code__body">
-                    <span>{text.codeLabel}</span>
-                    <strong>{selected ? selected.code : text.codeIdle}</strong>
-                  </div>
-                  <button type="button" className="vipx-code__copy" onClick={manualCopy} disabled={!bookmaker}>
-                    {copied ? <Icon.check /> : <Icon.copy />}{copied ? text.copiedBtn : text.copyBtn}
-                  </button>
-                </div>
-              </div>
-
-              {/* Actions : inscription partenaire + vérification WhatsApp */}
-              <div className="vipx-actions">
-                {bookmaker ? (
-                  <a
-                    href={signupLink}
-                    target="_blank"
-                    rel="sponsored nofollow noopener noreferrer"
-                    className="vipx-btn vipx-btn--gold vipx-btn--block"
-                    onClick={() => trackAffiliateAction(bookmaker, 'signup', 'vip-page')}
-                    data-cta="vip-signup"
-                  >
-                    {text.signup} {selected?.label}<span aria-hidden="true">↗</span>
-                  </a>
-                ) : (
-                  <button type="button" className="vipx-btn vipx-btn--gold vipx-btn--block" disabled>
-                    {text.needBookmaker}
-                  </button>
-                )}
-                <button
-                  type="button"
-                  className="vipx-btn vipx-btn--wa vipx-btn--block"
-                  onClick={openVerification}
-                  disabled={!bookmaker}
-                  data-cta="vip-verify-whatsapp"
-                >
-                  <Icon.whatsapp />{text.verify}
-                </button>
-                <p className="vipx-actions__hint">{text.verifyHint}</p>
-              </div>
-
-              {/* Checklist de progression */}
-              <div className="vipx-checklist" aria-label={text.checklistTitle}>
-                <h4>{text.checklistTitle}</h4>
-                <ul>
-                  {checklist.map((item) => (
-                    <li key={item.label} className={item.done ? 'is-done' : ''}>
-                      <span className="vipx-checklist__dot" aria-hidden="true">{item.done ? <Icon.check /> : '·'}</span>
-                      <span className="vipx-checklist__label">{item.label}</span>
-                      <small className={item.done ? 'is-done' : ''}>{item.done ? text.done : text.todo}</small>
-                    </li>
-                  ))}
                 </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ═══════════ APERÇU VERROUILLÉ ═══════════ */}
-        <section className="vipx-combos vipx-shell">
-          <header className="vipx-section-head">
-            <span className="vipx-eyebrow"><i aria-hidden="true" />{text.combosEyebrow}</span>
-            <h2>{text.combosTitle}</h2>
-            <p>{text.combosIntro}</p>
-            <time className="vipx-combos__date" dateTime={today}>{today}</time>
-          </header>
-
-          {fixtures.length > 0 ? (
-            <div className="vipx-combos__card">
-              <ul className="vipx-combos__list">
-                {fixtures.map((fixture, index) => {
-                  const { raw } = fixtureKickoff(fixture)
-                  return (
-                    <li key={`${fixture.home}-${fixture.away}-${raw}-${index}`}>
-                      <div className="vipx-combos__teams">
-                        <small>{fixture.league?.trim() || 'Football'}</small>
-                        <strong>{fixture.home} <span aria-hidden="true">vs</span> {fixture.away}</strong>
-                      </div>
-                      <time dateTime={raw}>{formatKickoff(raw, lang)}</time>
-                    </li>
-                  )
-                })}
-              </ul>
-              <div className="vipx-combos__locked">
+              ) : (
+                <p className="vipx-matches__empty" role="status">{text.combosEmpty}</p>
+              )}
+              <div className="vipx-matches__locked">
                 <Icon.lock />
                 <span>{text.locked}</span>
-                <a href="#deblocage" className="vipx-btn vipx-btn--gold vipx-btn--sm">{text.lockedCta}</a>
+                <button type="button" className="vipx-btn vipx-btn--gold vipx-btn--sm" onClick={() => openStepModal(1)}>{text.lockedCta}</button>
               </div>
             </div>
-          ) : (
-            <div className="vipx-combos__empty" role="status">{text.combosEmpty}</div>
+
+            {/* Vérification WhatsApp — toujours visible en bas de carte */}
+            <div className="vipx-card__footer">
+              <button type="button" className="vipx-btn vipx-btn--wa vipx-btn--block" onClick={openVerification} disabled={!bookmaker} data-cta="vip-verify-whatsapp">
+                <Icon.whatsapp />{text.verify}
+              </button>
+              <p className="vipx-card__hint">{text.verifyHint}</p>
+            </div>
+          </article>
+
+          {/* Fenêtres pop détaillées — une par étape */}
+          {openStep !== null && (
+            <div className="vipx-modal" role="dialog" aria-modal="true" onClick={(e) => { if (e.target === e.currentTarget) setOpenStep(null) }}>
+              <div className="vipx-modal__panel">
+                <button type="button" className="vipx-modal__close" onClick={() => setOpenStep(null)} aria-label={text.close}>&times;</button>
+                <span className="vipx-modal__step">{text.modalStep.replace('{n}', String(openStep))}</span>
+
+                {openStep === 1 && (
+                  <>
+                    <h3 className="vipx-modal__title">{text.cond1Title}</h3>
+                    <div className="vipx-modal__body">
+                      <p>{text.cond1Desc}</p>
+                      <div className="vipx-bookmakers" role="group" aria-label={text.chooseTitle}>
+                        {(Object.keys(BRAND) as Bookmaker[]).map((key) => {
+                          const brand = BRAND[key]
+                          const isSelected = bookmaker === key
+                          return (
+                            <button
+                              key={key}
+                              type="button"
+                              onClick={() => chooseBookmaker(key)}
+                              className={`vipx-bookmaker${isSelected ? ' is-selected' : ''}`}
+                              aria-pressed={isSelected}
+                            >
+                              <span className="vipx-bookmaker__logo" aria-hidden="true">
+                                <img src={key === 'linebet' ? '/logos/linebet-provided.jpg' : '/logos/888starz-provided.webp'} alt="" />
+                              </span>
+                              <span className="vipx-bookmaker__body">
+                                <strong>{brand.label}</strong>
+                                <small className="vipx-bookmaker__code">{brand.code}</small>
+                              </span>
+                              <span className={`vipx-bookmaker__state${isSelected ? ' is-on' : ''}`}>
+                                {isSelected ? (copied ? <><Icon.check />{text.selected}</> : text.selected) : <><Icon.copy />{text.tapToCopy}</>}
+                              </span>
+                            </button>
+                          )
+                        })}
+                      </div>
+                      {bookmaker && (
+                        <p className="vipx-modal__ok"><Icon.check />{BRAND[bookmaker].code} — {text.autoCopied}</p>
+                      )}
+                    </div>
+                  </>
+                )}
+
+                {openStep === 2 && (
+                  <>
+                    <h3 className="vipx-modal__title">{text.cond2Title}</h3>
+                    <div className="vipx-modal__body">
+                      {bookmaker && selected ? (
+                        <>
+                          <p>{text.cond2Desc}</p>
+                          <div className="vipx-code">
+                            <div className="vipx-code__body">
+                              <span>{text.codeLabel}</span>
+                              <strong>{selected.code}</strong>
+                            </div>
+                            <button type="button" className="vipx-code__copy" onClick={manualCopy}>
+                              {copied ? <Icon.check /> : <Icon.copy />}{copied ? text.copiedBtn : text.copyBtn}
+                            </button>
+                          </div>
+                          <p><strong>{text.m2Paste}</strong> {text.m2Where}</p>
+                          <a
+                            href={signupLink}
+                            target="_blank"
+                            rel="sponsored nofollow noopener noreferrer"
+                            className="vipx-btn vipx-btn--gold vipx-btn--block"
+                            onClick={() => trackAffiliateAction(bookmaker, 'signup', 'vip-modal-step2')}
+                            data-cta="vip-modal-signup"
+                          >
+                            {text.signup} {selected.label}<span aria-hidden="true">↗</span>
+                          </a>
+                        </>
+                      ) : (
+                        <p className="vipx-modal__warn"><Icon.lock />{text.m2NoBook}</p>
+                      )}
+                    </div>
+                  </>
+                )}
+
+                {openStep === 3 && (
+                  <>
+                    <h3 className="vipx-modal__title">{text.cond3Title}</h3>
+                    <div className="vipx-modal__body">
+                      <p>{text.cond3Desc}</p>
+                      <div className="vipx-deposit">
+                        <span className="vipx-deposit__label">{text.depositLabel}</span>
+                        <strong className="vipx-deposit__value">5 $</strong>
+                        <span className="vipx-deposit__note">{text.depositNote}</span>
+                      </div>
+                      <button
+                        type="button"
+                        className={`vipx-btn vipx-btn--block ${depositConfirmed ? 'vipx-btn--ghost' : 'vipx-btn--gold'}`}
+                        onClick={() => setDepositConfirmed(true)}
+                        disabled={depositConfirmed}
+                      >
+                        {depositConfirmed ? <><Icon.check />{text.stepDone}</> : text.m3Confirm}
+                      </button>
+                    </div>
+                  </>
+                )}
+
+                {openStep === 4 && (
+                  <>
+                    <h3 className="vipx-modal__title">{text.cond4Title}</h3>
+                    <div className="vipx-modal__body">
+                      <p>{text.cond4Desc}</p>
+                      <p><strong>{text.m4Id}</strong></p>
+                      <button type="button" className="vipx-btn vipx-btn--wa vipx-btn--block" onClick={openVerification} disabled={!bookmaker}>
+                        <Icon.whatsapp />{text.verify}
+                      </button>
+                      <p>{text.m4After}</p>
+                    </div>
+                  </>
+                )}
+
+                <div className="vipx-modal__foot">
+                  {openStep < 4 ? (
+                    <button type="button" className="vipx-btn vipx-btn--gold" onClick={() => setOpenStep((openStep + 1) as 1 | 2 | 3 | 4)}>
+                      {text.next}<span aria-hidden="true">→</span>
+                    </button>
+                  ) : (
+                    <button type="button" className="vipx-btn vipx-btn--ghost" onClick={() => setOpenStep(null)}>{text.close}</button>
+                  )}
+                </div>
+              </div>
+            </div>
           )}
         </section>
 

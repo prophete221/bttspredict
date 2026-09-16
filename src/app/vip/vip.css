@@ -346,49 +346,105 @@
 .vipx-unlock {
   padding: 64px 0 26px;
 }
-.vipx-unlock__grid {
-  display: grid;
-  gap: 26px;
-}
+/* Carte VIP unique — procédure complète */
 
-/* Carte 3D des conditions */
-
-.vipx-conditions {
-  position: relative;
-  height: 100%;
-  padding: 26px 24px;
-  border-radius: 24px;
+.vipx-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 22px;
+  border-radius: 26px;
   background:
-    linear-gradient(150deg, rgba(232, 201, 122, 0.09), rgba(232, 201, 122, 0.015) 40%),
+    linear-gradient(155deg, rgba(232, 201, 122, 0.10), rgba(232, 201, 122, 0.02) 34%),
     linear-gradient(160deg, var(--vipx-card-2), var(--vipx-bg-2));
   border: 1px solid var(--vipx-line);
   box-shadow: var(--vipx-shadow), inset 0 1px 0 rgba(244, 223, 166, 0.12);
 }
-.vipx-conditions h3 {
+.vipx-card__head {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 0 0 22px;
+  justify-content: space-between;
+  gap: 16px;
+}
+.vipx-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--vipx-gold-hi), var(--vipx-gold-deep));
+  color: #1a1408;
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+}
+.vipx-card__badge svg { width: 15px; height: 15px; }
+.vipx-card__progress {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+.vipx-card__progress strong {
   font-size: 18px;
   color: var(--vipx-gold);
+  line-height: 1;
 }
-.vipx-conditions h3 svg { width: 19px; height: 19px; }
-.vipx-conditions ol {
+.vipx-card__progress span {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vipx-muted);
+}
+.vipx-card__bar {
+  width: 130px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(244, 239, 227, 0.08);
+  overflow: hidden;
+}
+.vipx-card__bar i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--vipx-gold-deep), var(--vipx-gold-hi));
+  transition: width 0.35s ease;
+}
+
+/* Étapes cliquables — chaque clic ouvre une fenêtre pop */
+
+.vipx-steps {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 10px;
 }
-.vipx-conditions li {
+.vipx-step {
+  width: 100%;
   display: flex;
-  gap: 14px;
+  align-items: center;
+  gap: 13px;
+  padding: 14px 15px;
+  border-radius: 16px;
+  background: var(--vipx-bg-2);
+  border: 1px solid rgba(244, 239, 227, 0.09);
+  color: var(--vipx-text);
+  cursor: pointer;
+  text-align: start;
+  transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease;
 }
-.vipx-conditions__num {
+.vipx-step:hover { transform: translateY(-1px); border-color: var(--vipx-line); }
+.vipx-step.is-done {
+  border-color: var(--vipx-line);
+  background: var(--vipx-gold-soft);
+}
+.vipx-step__num {
   flex-shrink: 0;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -398,19 +454,260 @@
   color: var(--vipx-gold);
   font-weight: 900;
   font-size: 15px;
-  transform: translateZ(16px);
 }
-.vipx-conditions li strong {
-  display: block;
-  margin-bottom: 5px;
+.vipx-step__num svg { width: 15px; height: 15px; }
+.vipx-step.is-done .vipx-step__num {
+  background: linear-gradient(135deg, var(--vipx-gold-hi), var(--vipx-gold-deep));
+  color: #1a1408;
+  border-color: transparent;
+}
+.vipx-step__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.vipx-step__body strong { font-size: 14.5px; }
+.vipx-step__body small { color: var(--vipx-muted); font-size: 12px; }
+.vipx-step__cta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--vipx-gold);
+  font-weight: 800;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* Matchs VIP dans la carte */
+
+.vipx-card__matches {
+  padding: 18px;
+  border-radius: 18px;
+  border: 1.5px dashed var(--vipx-line);
+  background: rgba(232, 201, 122, 0.05);
+}
+.vipx-card__matches-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.vipx-card__matches-head h4 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
   font-size: 15px;
-  color: var(--vipx-text);
+  color: var(--vipx-gold);
 }
-.vipx-conditions li p {
+.vipx-card__matches-head h4 svg { width: 17px; height: 17px; }
+.vipx-card__matches-head time {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--vipx-muted);
+}
+.vipx-card__matches-sub {
+  margin: 6px 0 0;
+  color: var(--vipx-muted);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+.vipx-matches {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+}
+.vipx-matches li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 2px;
+  border-bottom: 1px solid rgba(244, 239, 227, 0.06);
+}
+.vipx-matches__teams { min-width: 0; }
+.vipx-matches__teams small {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--vipx-muted);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.vipx-matches__teams strong { font-size: 14px; }
+.vipx-matches__teams strong span { color: var(--vipx-muted); font-weight: 500; }
+.vipx-matches__right {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+.vipx-matches__right time {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--vipx-muted);
+}
+.vipx-matches__hidden {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(244, 239, 227, 0.05);
+  border: 1px solid rgba(244, 239, 227, 0.12);
+  color: var(--vipx-muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+.vipx-matches__hidden svg { width: 11px; height: 11px; }
+.vipx-matches__empty {
+  margin: 12px 0 0;
+  color: var(--vipx-muted);
+  font-size: 13px;
+}
+.vipx-matches__locked {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 13px;
+  background: linear-gradient(120deg, rgba(232, 201, 122, 0.12), rgba(232, 201, 122, 0.04));
+  border: 1px solid var(--vipx-line);
+  color: var(--vipx-gold);
+  font-size: 13px;
+  font-weight: 800;
+}
+.vipx-matches__locked svg { width: 16px; height: 16px; flex-shrink: 0; }
+.vipx-matches__locked .vipx-btn { margin-inline-start: auto; }
+
+.vipx-card__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 2px;
+}
+.vipx-card__hint {
+  margin: 0;
+  color: var(--vipx-muted);
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Fenêtres pop des étapes */
+
+.vipx-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(4, 3, 8, 0.8);
+  backdrop-filter: blur(5px);
+  animation: vipx-fade 0.2s ease;
+}
+.vipx-modal__panel {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 26px 22px 22px;
+  border-radius: 22px;
+  background: linear-gradient(160deg, var(--vipx-card-2), var(--vipx-bg-2));
+  border: 1px solid var(--vipx-line);
+  box-shadow: var(--vipx-shadow);
+  animation: vipx-pop 0.22s ease;
+}
+.vipx-modal__close {
+  position: absolute;
+  top: 14px;
+  inset-inline-end: 14px;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(244, 239, 227, 0.06);
+  border: 1px solid rgba(244, 239, 227, 0.14);
+  color: var(--vipx-muted);
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.vipx-modal__close:hover { color: var(--vipx-text); border-color: var(--vipx-line); }
+.vipx-modal__step {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--vipx-gold);
+}
+.vipx-modal__title {
+  margin: 8px 0 14px;
+  padding-inline-end: 34px;
+  font-size: 20px;
+  line-height: 1.25;
+}
+.vipx-modal__body {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.vipx-modal__body p {
   margin: 0;
   color: var(--vipx-muted);
   font-size: 13.5px;
   line-height: 1.65;
+}
+.vipx-modal__body p strong { color: var(--vipx-text); }
+.vipx-modal__ok {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  background: var(--vipx-gold-soft);
+  border: 1px solid var(--vipx-line);
+  color: var(--vipx-gold);
+  font-weight: 700;
+  font-size: 13px;
+}
+.vipx-modal__ok svg { width: 15px; height: 15px; flex-shrink: 0; }
+.vipx-modal__warn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(244, 239, 227, 0.04);
+  border: 1px dashed var(--vipx-line);
+  color: var(--vipx-text);
+  font-weight: 600;
+  font-size: 13px;
+}
+.vipx-modal__warn svg { width: 15px; height: 15px; flex-shrink: 0; color: var(--vipx-gold); }
+.vipx-modal__foot {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+}
+.vipx-modal__foot .vipx-btn { flex: 1; }
+@keyframes vipx-fade { from { opacity: 0; } }
+@keyframes vipx-pop {
+  from { opacity: 0; transform: translateY(10px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* Bandeau dépôt minimum 5 $ */
@@ -449,30 +746,7 @@
   line-height: 1.55;
 }
 
-/* Colonne latérale : choix bookmaker + actions + progression */
-
-.vipx-unlock__side {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.vipx-choose {
-  padding: 22px;
-  border-radius: var(--vipx-radius);
-  background: var(--vipx-card);
-  border: 1px solid var(--vipx-line-faint);
-}
-.vipx-choose h3 {
-  margin: 0 0 4px;
-  font-size: 17px;
-}
-.vipx-choose__hint {
-  margin: 0 0 16px;
-  color: var(--vipx-gold);
-  font-size: 12.5px;
-  font-weight: 600;
-}
+/* Choix bookmaker — réutilisé dans la fenêtre pop étape 1 */
 
 .vipx-bookmakers {
   display: grid;
@@ -608,176 +882,7 @@
   cursor: not-allowed;
 }
 
-/* Actions */
 
-.vipx-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 11px;
-  padding: 22px;
-  border-radius: var(--vipx-radius);
-  background: var(--vipx-card);
-  border: 1px solid var(--vipx-line-faint);
-}
-.vipx-actions__hint {
-  margin: 2px 0 0;
-  color: var(--vipx-muted);
-  font-size: 12px;
-  line-height: 1.6;
-  text-align: center;
-}
-
-/* Checklist de progression */
-
-.vipx-checklist {
-  padding: 22px;
-  border-radius: var(--vipx-radius);
-  background: var(--vipx-card);
-  border: 1px solid var(--vipx-line-faint);
-}
-.vipx-checklist h4 {
-  margin: 0 0 14px;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--vipx-gold);
-}
-.vipx-checklist ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 11px;
-}
-.vipx-checklist li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 11px 13px;
-  border-radius: 12px;
-  background: rgba(244, 239, 227, 0.025);
-  border: 1px solid rgba(244, 239, 227, 0.06);
-  transition: border-color 0.2s ease, background 0.2s ease;
-}
-.vipx-checklist li.is-done {
-  border-color: var(--vipx-line);
-  background: var(--vipx-gold-soft);
-}
-.vipx-checklist__dot {
-  flex-shrink: 0;
-  width: 26px;
-  height: 26px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: rgba(244, 239, 227, 0.06);
-  color: var(--vipx-muted);
-  font-weight: 900;
-  font-size: 15px;
-}
-.vipx-checklist li.is-done .vipx-checklist__dot {
-  background: linear-gradient(135deg, var(--vipx-gold-hi), var(--vipx-gold-deep));
-  color: #1a1408;
-}
-.vipx-checklist__dot svg { width: 13px; height: 13px; }
-.vipx-checklist__label {
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--vipx-text);
-}
-.vipx-checklist small {
-  margin-inline-start: auto;
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--vipx-muted);
-  white-space: nowrap;
-}
-.vipx-checklist small.is-done { color: var(--vipx-gold); }
-
-/* ─────────── APERÇU VERROUILLÉ ─────────── */
-
-.vipx-combos {
-  padding: 44px 20px 26px;
-}
-.vipx-combos__date {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: var(--vipx-gold-soft);
-  border: 1px solid var(--vipx-line);
-  color: var(--vipx-gold);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-.vipx-combos__card {
-  border-radius: 22px;
-  background: var(--vipx-card);
-  border: 1px solid var(--vipx-line-faint);
-  overflow: hidden;
-}
-.vipx-combos__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.vipx-combos__list li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 16px 20px;
-  border-bottom: 1px solid rgba(244, 239, 227, 0.05);
-}
-.vipx-combos__teams { min-width: 0; }
-.vipx-combos__teams small {
-  display: block;
-  margin-bottom: 3px;
-  color: var(--vipx-muted);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.vipx-combos__teams strong {
-  font-size: 14.5px;
-  color: var(--vipx-text);
-}
-.vipx-combos__teams strong span { color: var(--vipx-muted); font-weight: 500; }
-.vipx-combos__list time {
-  flex-shrink: 0;
-  color: var(--vipx-muted);
-  font-size: 12.5px;
-  font-weight: 600;
-}
-.vipx-combos__locked {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 15px 20px;
-  background: linear-gradient(120deg, rgba(232, 201, 122, 0.1), rgba(232, 201, 122, 0.03));
-  border-top: 1px solid var(--vipx-line-faint);
-  color: var(--vipx-gold);
-  font-size: 13px;
-  font-weight: 800;
-}
-.vipx-combos__locked svg { width: 16px; height: 16px; flex-shrink: 0; }
-.vipx-combos__locked .vipx-btn { margin-inline-start: auto; }
-.vipx-combos__empty {
-  padding: 26px;
-  border-radius: 18px;
-  background: var(--vipx-card);
-  border: 1px dashed var(--vipx-line-faint);
-  color: var(--vipx-muted);
-  font-size: 14px;
-  text-align: center;
-}
 
 /* ─────────── BÉNÉFICES ─────────── */
 
@@ -969,14 +1074,9 @@
 @media (min-width: 960px) {
   .vipx-hero { padding: 92px 0 72px; }
   .vipx-hero__grid { grid-template-columns: 1.08fr 0.92fr; gap: 40px; }
-  .vipx-unlock__grid {
-    grid-template-columns: 1.02fr 0.98fr;
-    gap: 30px;
-    align-items: start;
-  }
+  .vipx-card { padding: 28px; max-width: 780px; margin-inline: auto; }
   .vipx-benefits__grid { grid-template-columns: repeat(3, 1fr); }
   .vipx-unlock { padding: 84px 0 30px; }
-  .vipx-combos,
   .vipx-benefits,
   .vipx-trust,
   .vipx-faq { padding-top: 56px; }
@@ -984,4 +1084,4 @@
 
 /* RTL — ajustements mineurs */
 .vipx[dir='rtl'] .vipx-bookmaker__state { margin-inline-start: auto; }
-.vipx[dir='rtl'] .vipx-combos__locked .vipx-btn { margin-inline-start: auto; }
+.vipx[dir='rtl'] .vipx-matches__locked .vipx-btn { margin-inline-start: auto; }
