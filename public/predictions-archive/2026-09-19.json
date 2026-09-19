@@ -1,70 +1,8 @@
 {
-  "date": "2026-09-18",
-  "lastUpdated": "2026-09-18T22:20:31.743Z",
+  "date": "2026-09-19",
+  "lastUpdated": "2026-09-19T03:22:10.600Z",
   "source": "ESPN + TheSportsDB",
   "free": [
-    {
-      "id": "newyorkc-vs-redbulln-2026-09-18",
-      "match": "New York City FC vs Red Bull New York",
-      "home": "New York City FC",
-      "away": "Red Bull New York",
-      "league": "MLS",
-      "date": "2026-09-18",
-      "type": "BTTS",
-      "prediction": "Non",
-      "proba": 0.432,
-      "bttsProbDisplay": "43.20%",
-      "over25ProbDisplay": "36.39%",
-      "confidence": 43,
-      "time": "23:30",
-      "matchSemantic": "newyorkc-vs-redbulln-2026-09-18",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17606.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/190.png",
-      "tier": "SILVER",
-      "reliabilityScore": 68.9,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1.15,
-      "xgAway": 1,
-      "xgTotal": 2.15,
-      "formBTTS": 20,
-      "analysis": "New York City FC (8 matchs réels, xG 1.15) vs Red Bull New York (8 matchs réels, xG 1.00). xG cumulé 2.15, BTTS 43.2%, Over 2.5 36.4%. Fiabilité 68.9%. Qualité données: HIGH.",
-      "analysisData": {
-        "bttsProb": 0.432,
-        "over25Prob": 0.3639,
-        "homeLambda": 1.15,
-        "awayLambda": 1,
-        "xgTotal": 2.15
-      },
-      "estimatedCote": 2.31,
-      "estimatedCoteOver": 2.75,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Non",
-          "confidence": 43,
-          "bttsProb": 0.432,
-          "homeLambda": 1.15,
-          "awayLambda": 1
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Non",
-          "confidence": 40,
-          "over25Prob": 0.3639,
-          "homeLambda": 1.15,
-          "awayLambda": 1
-        }
-      ],
-      "bttsProb": 0.432,
-      "over25Prob": 0.3639,
-      "homeLambda": 1.15,
-      "awayLambda": 1
-    },
     {
       "id": "newengla-vs-orlandoc-2026-09-19",
       "match": "New England Revolution vs Orlando City SC",
@@ -746,9 +684,7 @@
       "over25Prob": 0.7594,
       "homeLambda": 1.98,
       "awayLambda": 2
-    }
-  ],
-  "vipPreview": [
+    },
     {
       "id": "kaisersl-vs-tsveintr-2026-09-19",
       "match": "Kaiserslautern vs TSV Eintracht Braunschweig",
@@ -810,7 +746,9 @@
       "over25Prob": 0.706,
       "homeLambda": 1.9,
       "awayLambda": 1.75
-    },
+    }
+  ],
+  "vipPreview": [
     {
       "id": "millwall-vs-westhamu-2026-09-19",
       "match": "Millwall vs West Ham United",
@@ -1244,82 +1182,79 @@
       "over25Prob": 0.5731,
       "homeLambda": 1.65,
       "awayLambda": 1.33
+    },
+    {
+      "id": "dundee-vs-motherwe-2026-09-19",
+      "match": "Dundee vs Motherwell",
+      "home": "Dundee",
+      "away": "Motherwell",
+      "league": "Scottish Premiership",
+      "date": "2026-09-19",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.595,
+      "bttsProbDisplay": "59.50%",
+      "over25ProbDisplay": "57.31%",
+      "confidence": 59,
+      "time": "14:00",
+      "matchSemantic": "dundee-vs-motherwe-2026-09-19",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/261.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/266.png",
+      "tier": "SILVER",
+      "reliabilityScore": 73.28,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 6,
+      "matchCountAway": 6,
+      "h2hAvailable": false,
+      "xgHome": 1.65,
+      "xgAway": 1.33,
+      "xgTotal": 2.98,
+      "formBTTS": 25,
+      "analysis": "Dundee (6 matchs réels, xG 1.65) vs Motherwell (6 matchs réels, xG 1.33). xG cumulé 2.98, BTTS 59.5%, Over 2.5 57.3%. Fiabilité 73.28%. Qualité données: MEDIUM.",
+      "analysisData": {
+        "bttsProb": 0.595,
+        "over25Prob": 0.5731,
+        "homeLambda": 1.65,
+        "awayLambda": 1.33,
+        "xgTotal": 2.98
+      },
+      "estimatedCote": 1.68,
+      "estimatedCoteOver": 1.75,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 59,
+          "bttsProb": 0.595,
+          "homeLambda": 1.65,
+          "awayLambda": 1.33
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 57,
+          "over25Prob": 0.5731,
+          "homeLambda": 1.65,
+          "awayLambda": 1.33
+        }
+      ],
+      "bttsProb": 0.595,
+      "over25Prob": 0.5731,
+      "homeLambda": 1.65,
+      "awayLambda": 1.33
     }
   ],
   "stats": {
-    "avgReliability": 75.24,
-    "totalAnalyzed": 87,
+    "avgReliability": 75.31,
+    "totalAnalyzed": 86,
     "totalRejected": 5,
-    "totalAccepted": 82,
+    "totalAccepted": 81,
     "freeCount": 12,
     "vipCount": 8
   },
   "predictions": [
-    {
-      "id": "newyorkc-vs-redbulln-2026-09-18",
-      "match": "New York City FC vs Red Bull New York",
-      "home": "New York City FC",
-      "away": "Red Bull New York",
-      "league": "MLS",
-      "date": "2026-09-18",
-      "type": "BTTS",
-      "prediction": "Non",
-      "proba": 0.432,
-      "bttsProbDisplay": "43.20%",
-      "over25ProbDisplay": "36.39%",
-      "confidence": 43,
-      "time": "23:30",
-      "matchSemantic": "newyorkc-vs-redbulln-2026-09-18",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17606.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/190.png",
-      "tier": "SILVER",
-      "reliabilityScore": 68.9,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1.15,
-      "xgAway": 1,
-      "xgTotal": 2.15,
-      "formBTTS": 20,
-      "analysis": "New York City FC (8 matchs réels, xG 1.15) vs Red Bull New York (8 matchs réels, xG 1.00). xG cumulé 2.15, BTTS 43.2%, Over 2.5 36.4%. Fiabilité 68.9%. Qualité données: HIGH.",
-      "analysisData": {
-        "bttsProb": 0.432,
-        "over25Prob": 0.3639,
-        "homeLambda": 1.15,
-        "awayLambda": 1,
-        "xgTotal": 2.15
-      },
-      "estimatedCote": 2.31,
-      "estimatedCoteOver": 2.75,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Non",
-          "confidence": 43,
-          "bttsProb": 0.432,
-          "homeLambda": 1.15,
-          "awayLambda": 1
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Non",
-          "confidence": 40,
-          "over25Prob": 0.3639,
-          "homeLambda": 1.15,
-          "awayLambda": 1
-        }
-      ],
-      "bttsProb": 0.432,
-      "over25Prob": 0.3639,
-      "homeLambda": 1.15,
-      "awayLambda": 1,
-      "finalScore": "0-1",
-      "status": "LOST",
-      "verifiedAt": "2026-09-19T03:22:47.640Z"
-    },
     {
       "id": "newengla-vs-orlandoc-2026-09-19",
       "match": "New England Revolution vs Orlando City SC",
@@ -1380,8 +1315,7 @@
       "bttsProb": 0.7208,
       "over25Prob": 0.7338,
       "homeLambda": 1.73,
-      "awayLambda": 2.08,
-      "status": "PENDING"
+      "awayLambda": 2.08
     },
     {
       "id": "cfmontra-vs-columbus-2026-09-19",
@@ -1443,8 +1377,7 @@
       "bttsProb": 0.7095,
       "over25Prob": 0.727,
       "homeLambda": 2.15,
-      "awayLambda": 1.63,
-      "status": "PENDING"
+      "awayLambda": 1.63
     },
     {
       "id": "dcunited-vs-charlott-2026-09-19",
@@ -1506,8 +1439,7 @@
       "bttsProb": 0.6414,
       "over25Prob": 0.627,
       "homeLambda": 1.55,
-      "awayLambda": 1.68,
-      "status": "PENDING"
+      "awayLambda": 1.68
     },
     {
       "id": "adodenha-vs-sccambuu-2026-09-19",
@@ -1569,8 +1501,7 @@
       "bttsProb": 0.811,
       "over25Prob": 0.8426,
       "homeLambda": 2.15,
-      "awayLambda": 2.5,
-      "status": "PENDING"
+      "awayLambda": 2.5
     },
     {
       "id": "karlsruh-vs-fcnrnber-2026-09-19",
@@ -1632,8 +1563,7 @@
       "bttsProb": 0.7957,
       "over25Prob": 0.859,
       "homeLambda": 1.82,
-      "awayLambda": 3,
-      "status": "PENDING"
+      "awayLambda": 3
     },
     {
       "id": "everton-vs-ipswicht-2026-09-19",
@@ -1695,8 +1625,7 @@
       "bttsProb": 0.7808,
       "over25Prob": 0.8426,
       "homeLambda": 2.9,
-      "awayLambda": 1.75,
-      "status": "PENDING"
+      "awayLambda": 1.75
     },
     {
       "id": "ajaxamst-vs-excelsio-2026-09-19",
@@ -1758,8 +1687,7 @@
       "bttsProb": 0.7687,
       "over25Prob": 0.8047,
       "homeLambda": 1.82,
-      "awayLambda": 2.5,
-      "status": "PENDING"
+      "awayLambda": 2.5
     },
     {
       "id": "holstein-vs-vflosnab-2026-09-19",
@@ -1821,8 +1749,7 @@
       "bttsProb": 0.7639,
       "over25Prob": 0.7831,
       "homeLambda": 2.15,
-      "awayLambda": 2,
-      "status": "PENDING"
+      "awayLambda": 2
     },
     {
       "id": "willemii-vs-fortunas-2026-09-19",
@@ -1884,8 +1811,7 @@
       "bttsProb": 0.7604,
       "over25Prob": 0.8245,
       "homeLambda": 1.65,
-      "awayLambda": 2.83,
-      "status": "PENDING"
+      "awayLambda": 2.83
     },
     {
       "id": "sanjosee-vs-lafc-2026-09-19",
@@ -1947,8 +1873,7 @@
       "bttsProb": 0.6099,
       "over25Prob": 0.5952,
       "homeLambda": 1.35,
-      "awayLambda": 1.73,
-      "status": "PENDING"
+      "awayLambda": 1.73
     },
     {
       "id": "spartaro-vs-heerenve-2026-09-19",
@@ -2010,8 +1935,69 @@
       "bttsProb": 0.7457,
       "over25Prob": 0.7594,
       "homeLambda": 1.98,
-      "awayLambda": 2,
-      "status": "PENDING"
+      "awayLambda": 2
+    },
+    {
+      "id": "kaisersl-vs-tsveintr-2026-09-19",
+      "match": "Kaiserslautern vs TSV Eintracht Braunschweig",
+      "home": "Kaiserslautern",
+      "away": "TSV Eintracht Braunschweig",
+      "league": "2. Bundesliga",
+      "date": "2026-09-19",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.7026,
+      "bttsProbDisplay": "70.26%",
+      "over25ProbDisplay": "70.60%",
+      "confidence": 70,
+      "time": "11:00",
+      "matchSemantic": "kaisersl-vs-tsveintr-2026-09-19",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/130.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3067.png",
+      "tier": "GOLD",
+      "reliabilityScore": 80.49,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 5,
+      "matchCountAway": 5,
+      "h2hAvailable": false,
+      "xgHome": 1.9,
+      "xgAway": 1.75,
+      "xgTotal": 3.65,
+      "formBTTS": 34,
+      "analysis": "Kaiserslautern (5 matchs réels, xG 1.90) vs TSV Eintracht Braunschweig (5 matchs réels, xG 1.75). xG cumulé 3.65, BTTS 70.3%, Over 2.5 70.6%. Fiabilité 80.49%. Qualité données: MEDIUM.",
+      "analysisData": {
+        "bttsProb": 0.7026,
+        "over25Prob": 0.706,
+        "homeLambda": 1.9,
+        "awayLambda": 1.75,
+        "xgTotal": 3.65
+      },
+      "estimatedCote": 1.42,
+      "estimatedCoteOver": 1.42,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7026,
+          "homeLambda": 1.9,
+          "awayLambda": 1.75
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 71,
+          "over25Prob": 0.706,
+          "homeLambda": 1.9,
+          "awayLambda": 1.75
+        }
+      ],
+      "bttsProb": 0.7026,
+      "over25Prob": 0.706,
+      "homeLambda": 1.9,
+      "awayLambda": 1.75
     }
   ]
 }

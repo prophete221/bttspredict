@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T22:27:51.759Z",
+  "generatedAt": "2026-09-19T03:30:53.166Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -7,16 +7,16 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 86,
+    "total": 87,
     "won": 56,
-    "lost": 30,
-    "pending": 397,
-    "archivedTotal": 483,
-    "rate": 65.1,
+    "lost": 31,
+    "pending": 408,
+    "archivedTotal": 495,
+    "rate": 64.4,
     "avgOdds": 1.9,
-    "profit": 20.4,
-    "roi": 23.7,
-    "yield": 23.7,
+    "profit": 19.4,
+    "roi": 22.3,
+    "yield": 22.3,
     "gold": {
       "total": 70,
       "won": 48,
@@ -28,17 +28,17 @@
       "yield": 30.3
     },
     "standard": {
-      "total": 16,
+      "total": 17,
       "won": 8,
-      "lost": 8,
-      "rate": 50
+      "lost": 9,
+      "rate": 47.1
     },
     "byType": {
       "btts": {
-        "total": 84,
+        "total": 85,
         "won": 55,
-        "lost": 29,
-        "rate": 65.5
+        "lost": 30,
+        "rate": 64.7
       },
       "over25": {
         "total": 2,
@@ -49,22 +49,13 @@
     },
     "trend14": [
       {
-        "date": "2026-08-08",
-        "total": 3,
-        "won": 3,
-        "lost": 0,
-        "rate": 100,
-        "profit": 2.7,
-        "equity": 2.7
-      },
-      {
         "date": "2026-08-09",
         "total": 2,
         "won": 0,
         "lost": 2,
         "rate": 0,
         "profit": -2,
-        "equity": 0.7
+        "equity": -2
       },
       {
         "date": "2026-08-14",
@@ -73,7 +64,7 @@
         "lost": 1,
         "rate": 85.7,
         "profit": 4.4,
-        "equity": 5.1
+        "equity": 2.4
       },
       {
         "date": "2026-08-15",
@@ -82,7 +73,7 @@
         "lost": 3,
         "rate": 75,
         "profit": 5.1,
-        "equity": 10.2
+        "equity": 7.5
       },
       {
         "date": "2026-08-16",
@@ -91,7 +82,7 @@
         "lost": 1,
         "rate": 75,
         "profit": 1.7,
-        "equity": 11.9
+        "equity": 9.2
       },
       {
         "date": "2026-08-19",
@@ -100,7 +91,7 @@
         "lost": 3,
         "rate": 62.5,
         "profit": 1.5,
-        "equity": 13.4
+        "equity": 10.7
       },
       {
         "date": "2026-08-22",
@@ -109,7 +100,7 @@
         "lost": 2,
         "rate": 71.4,
         "profit": 2.5,
-        "equity": 15.9
+        "equity": 13.2
       },
       {
         "date": "2026-08-29",
@@ -118,7 +109,7 @@
         "lost": 4,
         "rate": 60,
         "profit": 1.4,
-        "equity": 17.3
+        "equity": 14.6
       },
       {
         "date": "2026-08-30",
@@ -127,7 +118,7 @@
         "lost": 0,
         "rate": 100,
         "profit": 0.9,
-        "equity": 18.2
+        "equity": 15.5
       },
       {
         "date": "2026-09-04",
@@ -136,7 +127,7 @@
         "lost": 1,
         "rate": 0,
         "profit": -1,
-        "equity": 17.2
+        "equity": 14.5
       },
       {
         "date": "2026-09-05",
@@ -145,7 +136,7 @@
         "lost": 5,
         "rate": 50,
         "profit": -0.5,
-        "equity": 16.7
+        "equity": 14
       },
       {
         "date": "2026-09-09",
@@ -154,7 +145,7 @@
         "lost": 3,
         "rate": 75,
         "profit": 5.1,
-        "equity": 21.8
+        "equity": 19.1
       },
       {
         "date": "2026-09-12",
@@ -163,7 +154,7 @@
         "lost": 4,
         "rate": 50,
         "profit": -0.4,
-        "equity": 21.4
+        "equity": 18.7
       },
       {
         "date": "2026-09-13",
@@ -172,17 +163,42 @@
         "lost": 1,
         "rate": 0,
         "profit": -1,
-        "equity": 20.4
+        "equity": 17.7
+      },
+      {
+        "date": "2026-09-18",
+        "total": 1,
+        "won": 0,
+        "lost": 1,
+        "rate": 0,
+        "profit": -1,
+        "equity": 16.7
       }
     ],
-    "maxDrawdown": 2,
+    "maxDrawdown": 2.4,
     "period": {
       "from": "2026-08-08",
-      "to": "2026-09-18",
-      "days": 42
+      "to": "2026-09-19",
+      "days": 43
     }
   },
   "history": [
+    {
+      "date": "2026-09-18",
+      "match": "New York City FC vs Red Bull New York",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.432,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "0-1",
+      "profit": -1,
+      "verifiedAt": "2026-09-19T03:22:47.640Z",
+      "source": "ESPN public"
+    },
     {
       "date": "2026-09-13",
       "match": "San Diego FC vs Philadelphia Union",
@@ -1561,16 +1577,16 @@
     }
   ],
   "legacyStats": {
-    "total": 543,
-    "won": 257,
-    "lost": 286,
-    "pending": 1686,
-    "archivedTotal": 2229,
-    "rate": 47.3,
+    "total": 537,
+    "won": 253,
+    "lost": 284,
+    "pending": 1642,
+    "archivedTotal": 2179,
+    "rate": 47.1,
     "avgOdds": 1.9,
-    "profit": -54.7,
-    "roi": -10.1,
-    "yield": -10.1,
+    "profit": -56.3,
+    "roi": -10.5,
+    "yield": -10.5,
     "gold": {
       "total": 40,
       "won": 16,
@@ -1582,23 +1598,23 @@
       "yield": -24
     },
     "standard": {
-      "total": 503,
-      "won": 241,
-      "lost": 262,
-      "rate": 47.9
+      "total": 497,
+      "won": 237,
+      "lost": 260,
+      "rate": 47.7
     },
     "byType": {
       "btts": {
-        "total": 272,
-        "won": 122,
-        "lost": 150,
-        "rate": 44.9
+        "total": 269,
+        "won": 120,
+        "lost": 149,
+        "rate": 44.6
       },
       "over25": {
-        "total": 271,
-        "won": 135,
-        "lost": 136,
-        "rate": 49.8
+        "total": 268,
+        "won": 133,
+        "lost": 135,
+        "rate": 49.6
       }
     },
     "trend14": [
@@ -1731,9 +1747,9 @@
     ],
     "maxDrawdown": 31.1,
     "period": {
-      "from": "2026-06-21",
+      "from": "2026-06-22",
       "to": "2026-08-07",
-      "days": 48
+      "days": 47
     },
     "history": [
       {
