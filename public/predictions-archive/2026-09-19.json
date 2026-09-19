@@ -1,6 +1,6 @@
 {
   "date": "2026-09-19",
-  "lastUpdated": "2026-09-19T18:26:48.763Z",
+  "lastUpdated": "2026-09-19T22:09:02.740Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -190,68 +190,6 @@
       "awayLambda": 1.68
     },
     {
-      "id": "willemii-vs-fortunas-2026-09-19",
-      "match": "Willem II vs Fortuna Sittard",
-      "home": "Willem II",
-      "away": "Fortuna Sittard",
-      "league": "Eredivisie",
-      "date": "2026-09-19",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.7604,
-      "bttsProbDisplay": "76.04%",
-      "over25ProbDisplay": "82.45%",
-      "confidence": 76,
-      "time": "19:00",
-      "matchSemantic": "willemii-vs-fortunas-2026-09-19",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/156.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/143.png",
-      "tier": "GOLD",
-      "reliabilityScore": 83.02,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 6,
-      "matchCountAway": 6,
-      "h2hAvailable": false,
-      "xgHome": 1.65,
-      "xgAway": 2.83,
-      "xgTotal": 4.48,
-      "formBTTS": 30,
-      "analysis": "Willem II (6 matchs réels, xG 1.65) vs Fortuna Sittard (6 matchs réels, xG 2.83). xG cumulé 4.48, BTTS 76.0%, Over 2.5 82.5%. Fiabilité 83.02%. Qualité données: MEDIUM.",
-      "analysisData": {
-        "bttsProb": 0.7604,
-        "over25Prob": 0.8245,
-        "homeLambda": 1.65,
-        "awayLambda": 2.83,
-        "xgTotal": 4.48
-      },
-      "estimatedCote": 1.32,
-      "estimatedCoteOver": 1.21,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 76,
-          "bttsProb": 0.7604,
-          "homeLambda": 1.65,
-          "awayLambda": 2.83
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 82,
-          "over25Prob": 0.8245,
-          "homeLambda": 1.65,
-          "awayLambda": 2.83
-        }
-      ],
-      "bttsProb": 0.7604,
-      "over25Prob": 0.8245,
-      "homeLambda": 1.65,
-      "awayLambda": 2.83
-    },
-    {
       "id": "sanjosee-vs-lafc-2026-09-19",
       "match": "San Jose Earthquakes vs LAFC",
       "home": "San Jose Earthquakes",
@@ -312,68 +250,6 @@
       "over25Prob": 0.5952,
       "homeLambda": 1.35,
       "awayLambda": 1.73
-    },
-    {
-      "id": "sporting-vs-arouca-2026-09-19",
-      "match": "Sporting CP vs Arouca",
-      "home": "Sporting CP",
-      "away": "Arouca",
-      "league": "Liga Portugal",
-      "date": "2026-09-19",
-      "type": "BTTS",
-      "prediction": "Non",
-      "proba": 0.4075,
-      "bttsProbDisplay": "40.75%",
-      "over25ProbDisplay": "45.19%",
-      "confidence": 41,
-      "time": "19:30",
-      "matchSemantic": "sporting-vs-arouca-2026-09-19",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/15784.png",
-      "tier": "SILVER",
-      "reliabilityScore": 62.58,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 6,
-      "matchCountAway": 6,
-      "h2hAvailable": false,
-      "xgHome": 1.82,
-      "xgAway": 0.67,
-      "xgTotal": 2.48,
-      "formBTTS": 38,
-      "analysis": "Sporting CP (6 matchs réels, xG 1.82) vs Arouca (6 matchs réels, xG 0.67). xG cumulé 2.48, BTTS 40.7%, Over 2.5 45.2%. Fiabilité 62.58%. Qualité données: MEDIUM.",
-      "analysisData": {
-        "bttsProb": 0.4075,
-        "over25Prob": 0.4519,
-        "homeLambda": 1.82,
-        "awayLambda": 0.67,
-        "xgTotal": 2.48
-      },
-      "estimatedCote": 2.45,
-      "estimatedCoteOver": 2.21,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Non",
-          "confidence": 41,
-          "bttsProb": 0.4075,
-          "homeLambda": 1.82,
-          "awayLambda": 0.67
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Non",
-          "confidence": 45,
-          "over25Prob": 0.4519,
-          "homeLambda": 1.82,
-          "awayLambda": 0.67
-        }
-      ],
-      "bttsProb": 0.4075,
-      "over25Prob": 0.4519,
-      "homeLambda": 1.82,
-      "awayLambda": 0.67
     },
     {
       "id": "nashvill-vs-chicagof-2026-09-20",
@@ -746,9 +622,7 @@
       "over25Prob": 0.6698,
       "homeLambda": 2.17,
       "awayLambda": 1.27
-    }
-  ],
-  "vipPreview": [
+    },
     {
       "id": "sporting-vs-philadel-2026-09-20",
       "match": "Sporting Kansas City vs Philadelphia Union",
@@ -872,7 +746,9 @@
       "over25Prob": 0.8667,
       "homeLambda": 2.65,
       "awayLambda": 2.25
-    },
+    }
+  ],
+  "vipPreview": [
     {
       "id": "necnijme-vs-goaheade-2026-09-20",
       "match": "NEC Nijmegen vs Go Ahead Eagles",
@@ -1244,13 +1120,137 @@
       "over25Prob": 0.7338,
       "homeLambda": 2.15,
       "awayLambda": 1.67
+    },
+    {
+      "id": "fctwente-vs-psveindh-2026-09-20",
+      "match": "FC Twente vs PSV Eindhoven",
+      "home": "FC Twente",
+      "away": "PSV Eindhoven",
+      "league": "Eredivisie",
+      "date": "2026-09-20",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6986,
+      "bttsProbDisplay": "69.86%",
+      "over25ProbDisplay": "70.60%",
+      "confidence": 70,
+      "time": "12:30",
+      "matchSemantic": "fctwente-vs-psveindh-2026-09-20",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/152.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/148.png",
+      "tier": "GOLD",
+      "reliabilityScore": 80.31,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 6,
+      "matchCountAway": 6,
+      "h2hAvailable": false,
+      "xgHome": 1.65,
+      "xgAway": 2,
+      "xgTotal": 3.65,
+      "formBTTS": 57,
+      "analysis": "FC Twente (6 matchs réels, xG 1.65) vs PSV Eindhoven (6 matchs réels, xG 2.00). xG cumulé 3.65, BTTS 69.9%, Over 2.5 70.6%. Fiabilité 80.31%. Qualité données: MEDIUM.",
+      "analysisData": {
+        "bttsProb": 0.6986,
+        "over25Prob": 0.706,
+        "homeLambda": 1.65,
+        "awayLambda": 2,
+        "xgTotal": 3.65
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.42,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.6986,
+          "homeLambda": 1.65,
+          "awayLambda": 2
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 71,
+          "over25Prob": 0.706,
+          "homeLambda": 1.65,
+          "awayLambda": 2
+        }
+      ],
+      "bttsProb": 0.6986,
+      "over25Prob": 0.706,
+      "homeLambda": 1.65,
+      "awayLambda": 2
+    },
+    {
+      "id": "wolverha-vs-westbrom-2026-09-20",
+      "match": "Wolverhampton Wanderers vs West Bromwich Albion",
+      "home": "Wolverhampton Wanderers",
+      "away": "West Bromwich Albion",
+      "league": "Championship",
+      "date": "2026-09-20",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6828,
+      "bttsProbDisplay": "68.28%",
+      "over25ProbDisplay": "72.02%",
+      "confidence": 68,
+      "time": "11:00",
+      "matchSemantic": "wolverha-vs-westbrom-2026-09-20",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/380.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/383.png",
+      "tier": "GOLD",
+      "reliabilityScore": 79.62,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 6,
+      "matchCountAway": 7,
+      "h2hAvailable": false,
+      "xgHome": 2.32,
+      "xgAway": 1.42,
+      "xgTotal": 3.73,
+      "formBTTS": 38,
+      "analysis": "Wolverhampton Wanderers (6 matchs réels, xG 2.32) vs West Bromwich Albion (7 matchs réels, xG 1.42). xG cumulé 3.73, BTTS 68.3%, Over 2.5 72.0%. Fiabilité 79.62%. Qualité données: MEDIUM.",
+      "analysisData": {
+        "bttsProb": 0.6828,
+        "over25Prob": 0.7202,
+        "homeLambda": 2.32,
+        "awayLambda": 1.42,
+        "xgTotal": 3.73
+      },
+      "estimatedCote": 1.46,
+      "estimatedCoteOver": 1.39,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "bttsProb": 0.6828,
+          "homeLambda": 2.32,
+          "awayLambda": 1.42
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 72,
+          "over25Prob": 0.7202,
+          "homeLambda": 2.32,
+          "awayLambda": 1.42
+        }
+      ],
+      "bttsProb": 0.6828,
+      "over25Prob": 0.7202,
+      "homeLambda": 2.32,
+      "awayLambda": 1.42
     }
   ],
   "stats": {
-    "avgReliability": 77.99,
-    "totalAnalyzed": 46,
+    "avgReliability": 78.24,
+    "totalAnalyzed": 44,
     "totalRejected": 3,
-    "totalAccepted": 43,
+    "totalAccepted": 41,
     "freeCount": 12,
     "vipCount": 8
   },
@@ -1442,68 +1442,6 @@
       "awayLambda": 1.68
     },
     {
-      "id": "willemii-vs-fortunas-2026-09-19",
-      "match": "Willem II vs Fortuna Sittard",
-      "home": "Willem II",
-      "away": "Fortuna Sittard",
-      "league": "Eredivisie",
-      "date": "2026-09-19",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.7604,
-      "bttsProbDisplay": "76.04%",
-      "over25ProbDisplay": "82.45%",
-      "confidence": 76,
-      "time": "19:00",
-      "matchSemantic": "willemii-vs-fortunas-2026-09-19",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/156.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/143.png",
-      "tier": "GOLD",
-      "reliabilityScore": 83.02,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 6,
-      "matchCountAway": 6,
-      "h2hAvailable": false,
-      "xgHome": 1.65,
-      "xgAway": 2.83,
-      "xgTotal": 4.48,
-      "formBTTS": 30,
-      "analysis": "Willem II (6 matchs réels, xG 1.65) vs Fortuna Sittard (6 matchs réels, xG 2.83). xG cumulé 4.48, BTTS 76.0%, Over 2.5 82.5%. Fiabilité 83.02%. Qualité données: MEDIUM.",
-      "analysisData": {
-        "bttsProb": 0.7604,
-        "over25Prob": 0.8245,
-        "homeLambda": 1.65,
-        "awayLambda": 2.83,
-        "xgTotal": 4.48
-      },
-      "estimatedCote": 1.32,
-      "estimatedCoteOver": 1.21,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 76,
-          "bttsProb": 0.7604,
-          "homeLambda": 1.65,
-          "awayLambda": 2.83
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 82,
-          "over25Prob": 0.8245,
-          "homeLambda": 1.65,
-          "awayLambda": 2.83
-        }
-      ],
-      "bttsProb": 0.7604,
-      "over25Prob": 0.8245,
-      "homeLambda": 1.65,
-      "awayLambda": 2.83
-    },
-    {
       "id": "sanjosee-vs-lafc-2026-09-19",
       "match": "San Jose Earthquakes vs LAFC",
       "home": "San Jose Earthquakes",
@@ -1564,68 +1502,6 @@
       "over25Prob": 0.5952,
       "homeLambda": 1.35,
       "awayLambda": 1.73
-    },
-    {
-      "id": "sporting-vs-arouca-2026-09-19",
-      "match": "Sporting CP vs Arouca",
-      "home": "Sporting CP",
-      "away": "Arouca",
-      "league": "Liga Portugal",
-      "date": "2026-09-19",
-      "type": "BTTS",
-      "prediction": "Non",
-      "proba": 0.4075,
-      "bttsProbDisplay": "40.75%",
-      "over25ProbDisplay": "45.19%",
-      "confidence": 41,
-      "time": "19:30",
-      "matchSemantic": "sporting-vs-arouca-2026-09-19",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/15784.png",
-      "tier": "SILVER",
-      "reliabilityScore": 62.58,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 6,
-      "matchCountAway": 6,
-      "h2hAvailable": false,
-      "xgHome": 1.82,
-      "xgAway": 0.67,
-      "xgTotal": 2.48,
-      "formBTTS": 38,
-      "analysis": "Sporting CP (6 matchs réels, xG 1.82) vs Arouca (6 matchs réels, xG 0.67). xG cumulé 2.48, BTTS 40.7%, Over 2.5 45.2%. Fiabilité 62.58%. Qualité données: MEDIUM.",
-      "analysisData": {
-        "bttsProb": 0.4075,
-        "over25Prob": 0.4519,
-        "homeLambda": 1.82,
-        "awayLambda": 0.67,
-        "xgTotal": 2.48
-      },
-      "estimatedCote": 2.45,
-      "estimatedCoteOver": 2.21,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Non",
-          "confidence": 41,
-          "bttsProb": 0.4075,
-          "homeLambda": 1.82,
-          "awayLambda": 0.67
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Non",
-          "confidence": 45,
-          "over25Prob": 0.4519,
-          "homeLambda": 1.82,
-          "awayLambda": 0.67
-        }
-      ],
-      "bttsProb": 0.4075,
-      "over25Prob": 0.4519,
-      "homeLambda": 1.82,
-      "awayLambda": 0.67
     },
     {
       "id": "nashvill-vs-chicagof-2026-09-20",
@@ -1998,6 +1874,130 @@
       "over25Prob": 0.6698,
       "homeLambda": 2.17,
       "awayLambda": 1.27
+    },
+    {
+      "id": "sporting-vs-philadel-2026-09-20",
+      "match": "Sporting Kansas City vs Philadelphia Union",
+      "home": "Sporting Kansas City",
+      "away": "Philadelphia Union",
+      "league": "MLS",
+      "date": "2026-09-20",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6198,
+      "bttsProbDisplay": "61.98%",
+      "over25ProbDisplay": "68.38%",
+      "confidence": 62,
+      "time": "00:30",
+      "matchSemantic": "sporting-vs-philadel-2026-09-20",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/186.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10739.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85.87,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.15,
+      "xgAway": 2.38,
+      "xgTotal": 3.52,
+      "formBTTS": 40,
+      "analysis": "Sporting Kansas City (8 matchs réels, xG 1.15) vs Philadelphia Union (8 matchs réels, xG 2.38). xG cumulé 3.52, BTTS 62.0%, Over 2.5 68.4%. Fiabilité 85.87%. Qualité données: HIGH.",
+      "analysisData": {
+        "bttsProb": 0.6198,
+        "over25Prob": 0.6838,
+        "homeLambda": 1.15,
+        "awayLambda": 2.38,
+        "xgTotal": 3.52
+      },
+      "estimatedCote": 1.61,
+      "estimatedCoteOver": 1.46,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 62,
+          "bttsProb": 0.6198,
+          "homeLambda": 1.15,
+          "awayLambda": 2.38
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 68,
+          "over25Prob": 0.6838,
+          "homeLambda": 1.15,
+          "awayLambda": 2.38
+        }
+      ],
+      "bttsProb": 0.6198,
+      "over25Prob": 0.6838,
+      "homeLambda": 1.15,
+      "awayLambda": 2.38
+    },
+    {
+      "id": "energiec-vs-stpauli-2026-09-20",
+      "match": "Energie Cottbus vs St. Pauli",
+      "home": "Energie Cottbus",
+      "away": "St. Pauli",
+      "league": "2. Bundesliga",
+      "date": "2026-09-20",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.8314,
+      "bttsProbDisplay": "83.14%",
+      "over25ProbDisplay": "86.67%",
+      "confidence": 83,
+      "time": "11:30",
+      "matchSemantic": "energiec-vs-stpauli-2026-09-20",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/123.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/270.png",
+      "tier": "GOLD",
+      "reliabilityScore": 84.75,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 5,
+      "matchCountAway": 5,
+      "h2hAvailable": false,
+      "xgHome": 2.65,
+      "xgAway": 2.25,
+      "xgTotal": 4.9,
+      "formBTTS": 40,
+      "analysis": "Energie Cottbus (5 matchs réels, xG 2.65) vs St. Pauli (5 matchs réels, xG 2.25). xG cumulé 4.9, BTTS 83.1%, Over 2.5 86.7%. Fiabilité 84.75%. Qualité données: MEDIUM.",
+      "analysisData": {
+        "bttsProb": 0.8314,
+        "over25Prob": 0.8667,
+        "homeLambda": 2.65,
+        "awayLambda": 2.25,
+        "xgTotal": 4.9
+      },
+      "estimatedCote": 1.2,
+      "estimatedCoteOver": 1.15,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 83,
+          "bttsProb": 0.8314,
+          "homeLambda": 2.65,
+          "awayLambda": 2.25
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 87,
+          "over25Prob": 0.8667,
+          "homeLambda": 2.65,
+          "awayLambda": 2.25
+        }
+      ],
+      "bttsProb": 0.8314,
+      "over25Prob": 0.8667,
+      "homeLambda": 2.65,
+      "awayLambda": 2.25
     }
   ]
 }
