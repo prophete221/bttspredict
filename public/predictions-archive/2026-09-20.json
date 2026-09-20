@@ -1,6 +1,6 @@
 {
   "date": "2026-09-20",
-  "lastUpdated": "2026-09-20T18:30:30.573Z",
+  "lastUpdated": "2026-09-20T22:13:10.512Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -64,68 +64,6 @@
       "over25Prob": 0.6698,
       "homeLambda": 2.17,
       "awayLambda": 1.27
-    },
-    {
-      "id": "fcporto-vs-benfica-2026-09-20",
-      "match": "FC Porto vs Benfica",
-      "home": "FC Porto",
-      "away": "Benfica",
-      "league": "Liga Portugal",
-      "date": "2026-09-20",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.6273,
-      "bttsProbDisplay": "62.73%",
-      "over25ProbDisplay": "70.60%",
-      "confidence": 63,
-      "time": "19:30",
-      "matchSemantic": "fcporto-vs-benfica-2026-09-20",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/437.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1929.png",
-      "tier": "GOLD",
-      "reliabilityScore": 77.19,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 6,
-      "matchCountAway": 6,
-      "h2hAvailable": false,
-      "xgHome": 1.15,
-      "xgAway": 2.5,
-      "xgTotal": 3.65,
-      "formBTTS": 60,
-      "analysis": "FC Porto (6 matchs réels, xG 1.15) vs Benfica (6 matchs réels, xG 2.50). xG cumulé 3.65, BTTS 62.7%, Over 2.5 70.6%. Fiabilité 77.19%. Qualité données: MEDIUM.",
-      "analysisData": {
-        "bttsProb": 0.6273,
-        "over25Prob": 0.706,
-        "homeLambda": 1.15,
-        "awayLambda": 2.5,
-        "xgTotal": 3.65
-      },
-      "estimatedCote": 1.59,
-      "estimatedCoteOver": 1.42,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 63,
-          "bttsProb": 0.6273,
-          "homeLambda": 1.15,
-          "awayLambda": 2.5
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 71,
-          "over25Prob": 0.706,
-          "homeLambda": 1.15,
-          "awayLambda": 2.5
-        }
-      ],
-      "bttsProb": 0.6273,
-      "over25Prob": 0.706,
-      "homeLambda": 1.15,
-      "awayLambda": 2.5
     },
     {
       "id": "seattles-vs-realsalt-2026-09-24",
@@ -746,9 +684,7 @@
       "over25Prob": 0.6304,
       "homeLambda": 2.15,
       "awayLambda": 1.1
-    }
-  ],
-  "vipPreview": [
+    },
     {
       "id": "nashvill-vs-torontof-2026-09-27",
       "match": "Nashville SC vs Toronto FC",
@@ -810,7 +746,9 @@
       "over25Prob": 0.743,
       "homeLambda": 3,
       "awayLambda": 0.88
-    },
+    }
+  ],
+  "vipPreview": [
     {
       "id": "fcdallas-vs-lafc-2026-09-27",
       "match": "FC Dallas vs LAFC",
@@ -1061,12 +999,12 @@
     }
   ],
   "stats": {
-    "avgReliability": 82.59,
-    "totalAnalyzed": 17,
+    "avgReliability": 82.93,
+    "totalAnalyzed": 16,
     "totalRejected": 0,
-    "totalAccepted": 17,
+    "totalAccepted": 16,
     "freeCount": 12,
-    "vipCount": 5
+    "vipCount": 4
   },
   "predictions": [
     {
@@ -1130,68 +1068,6 @@
       "over25Prob": 0.6698,
       "homeLambda": 2.17,
       "awayLambda": 1.27
-    },
-    {
-      "id": "fcporto-vs-benfica-2026-09-20",
-      "match": "FC Porto vs Benfica",
-      "home": "FC Porto",
-      "away": "Benfica",
-      "league": "Liga Portugal",
-      "date": "2026-09-20",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.6273,
-      "bttsProbDisplay": "62.73%",
-      "over25ProbDisplay": "70.60%",
-      "confidence": 63,
-      "time": "19:30",
-      "matchSemantic": "fcporto-vs-benfica-2026-09-20",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/437.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1929.png",
-      "tier": "GOLD",
-      "reliabilityScore": 77.19,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 6,
-      "matchCountAway": 6,
-      "h2hAvailable": false,
-      "xgHome": 1.15,
-      "xgAway": 2.5,
-      "xgTotal": 3.65,
-      "formBTTS": 60,
-      "analysis": "FC Porto (6 matchs réels, xG 1.15) vs Benfica (6 matchs réels, xG 2.50). xG cumulé 3.65, BTTS 62.7%, Over 2.5 70.6%. Fiabilité 77.19%. Qualité données: MEDIUM.",
-      "analysisData": {
-        "bttsProb": 0.6273,
-        "over25Prob": 0.706,
-        "homeLambda": 1.15,
-        "awayLambda": 2.5,
-        "xgTotal": 3.65
-      },
-      "estimatedCote": 1.59,
-      "estimatedCoteOver": 1.42,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 63,
-          "bttsProb": 0.6273,
-          "homeLambda": 1.15,
-          "awayLambda": 2.5
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 71,
-          "over25Prob": 0.706,
-          "homeLambda": 1.15,
-          "awayLambda": 2.5
-        }
-      ],
-      "bttsProb": 0.6273,
-      "over25Prob": 0.706,
-      "homeLambda": 1.15,
-      "awayLambda": 2.5
     },
     {
       "id": "seattles-vs-realsalt-2026-09-24",
@@ -1812,6 +1688,68 @@
       "over25Prob": 0.6304,
       "homeLambda": 2.15,
       "awayLambda": 1.1
+    },
+    {
+      "id": "nashvill-vs-torontof-2026-09-27",
+      "match": "Nashville SC vs Toronto FC",
+      "home": "Nashville SC",
+      "away": "Toronto FC",
+      "league": "MLS",
+      "date": "2026-09-27",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5541,
+      "bttsProbDisplay": "55.41%",
+      "over25ProbDisplay": "74.30%",
+      "confidence": 55,
+      "time": "00:30",
+      "matchSemantic": "nashvill-vs-torontof-2026-09-27",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18986.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7318.png",
+      "tier": "GOLD",
+      "reliabilityScore": 82.99,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 0.88,
+      "xgTotal": 3.88,
+      "formBTTS": 41,
+      "analysis": "Nashville SC (8 matchs réels, xG 3.00) vs Toronto FC (8 matchs réels, xG 0.88). xG cumulé 3.88, BTTS 55.4%, Over 2.5 74.3%. Fiabilité 82.99%. Qualité données: HIGH.",
+      "analysisData": {
+        "bttsProb": 0.5541,
+        "over25Prob": 0.743,
+        "homeLambda": 3,
+        "awayLambda": 0.88,
+        "xgTotal": 3.88
+      },
+      "estimatedCote": 1.8,
+      "estimatedCoteOver": 1.35,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 55,
+          "bttsProb": 0.5541,
+          "homeLambda": 3,
+          "awayLambda": 0.88
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 74,
+          "over25Prob": 0.743,
+          "homeLambda": 3,
+          "awayLambda": 0.88
+        }
+      ],
+      "bttsProb": 0.5541,
+      "over25Prob": 0.743,
+      "homeLambda": 3,
+      "awayLambda": 0.88
     }
   ]
 }
