@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T03:50:55.942Z",
+  "generatedAt": "2026-09-20T09:15:51.869Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -7,25 +7,25 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 96,
+    "total": 97,
     "won": 62,
-    "lost": 34,
-    "pending": 411,
+    "lost": 35,
+    "pending": 410,
     "archivedTotal": 507,
-    "rate": 64.6,
+    "rate": 63.9,
     "avgOdds": 1.9,
-    "profit": 21.8,
-    "roi": 22.7,
-    "yield": 22.7,
+    "profit": 20.8,
+    "roi": 21.4,
+    "yield": 21.4,
     "gold": {
-      "total": 79,
+      "total": 80,
       "won": 54,
-      "lost": 25,
-      "rate": 68.4,
+      "lost": 26,
+      "rate": 67.5,
       "avgOdds": 1.9,
-      "profit": 23.6,
-      "roi": 29.9,
-      "yield": 29.9
+      "profit": 22.6,
+      "roi": 28.2,
+      "yield": 28.2
     },
     "standard": {
       "total": 17,
@@ -35,10 +35,10 @@
     },
     "byType": {
       "btts": {
-        "total": 94,
+        "total": 95,
         "won": 61,
-        "lost": 33,
-        "rate": 64.9
+        "lost": 34,
+        "rate": 64.2
       },
       "over25": {
         "total": 2,
@@ -167,12 +167,12 @@
       },
       {
         "date": "2026-09-19",
-        "total": 9,
+        "total": 10,
         "won": 6,
-        "lost": 3,
-        "rate": 66.7,
-        "profit": 2.4,
-        "equity": 21.1
+        "lost": 4,
+        "rate": 60,
+        "profit": 1.4,
+        "equity": 20.1
       }
     ],
     "maxDrawdown": 2.4,
@@ -245,6 +245,22 @@
       "finalScore": "0-0",
       "profit": -1,
       "verifiedAt": "2026-09-20T03:39:29.585Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-19",
+      "match": "Portland Timbers vs Atlanta United FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7347,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "0-1",
+      "profit": -1,
+      "verifiedAt": "2026-09-20T09:07:04.959Z",
       "source": "ESPN public"
     },
     {

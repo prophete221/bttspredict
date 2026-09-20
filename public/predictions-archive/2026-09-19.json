@@ -1641,7 +1641,9 @@
       "over25Prob": 0.7545,
       "homeLambda": 2.2,
       "awayLambda": 1.75,
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-09-20T09:07:04.959Z"
     },
     {
       "id": "fcdallas-vs-austinfc-2026-09-20",
