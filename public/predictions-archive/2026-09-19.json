@@ -1315,7 +1315,10 @@
       "bttsProb": 0.7208,
       "over25Prob": 0.7338,
       "homeLambda": 1.73,
-      "awayLambda": 2.08
+      "awayLambda": 2.08,
+      "finalScore": "4-2",
+      "status": "WON",
+      "verifiedAt": "2026-09-20T03:39:29.580Z"
     },
     {
       "id": "cfmontra-vs-columbus-2026-09-19",
@@ -1377,7 +1380,10 @@
       "bttsProb": 0.7095,
       "over25Prob": 0.727,
       "homeLambda": 2.15,
-      "awayLambda": 1.63
+      "awayLambda": 1.63,
+      "finalScore": "0-2",
+      "status": "LOST",
+      "verifiedAt": "2026-09-20T03:39:29.581Z"
     },
     {
       "id": "dcunited-vs-charlott-2026-09-19",
@@ -1439,7 +1445,10 @@
       "bttsProb": 0.6414,
       "over25Prob": 0.627,
       "homeLambda": 1.55,
-      "awayLambda": 1.68
+      "awayLambda": 1.68,
+      "finalScore": "1-2",
+      "status": "WON",
+      "verifiedAt": "2026-09-20T03:39:29.582Z"
     },
     {
       "id": "sanjosee-vs-lafc-2026-09-19",
@@ -1501,7 +1510,10 @@
       "bttsProb": 0.6099,
       "over25Prob": 0.5952,
       "homeLambda": 1.35,
-      "awayLambda": 1.73
+      "awayLambda": 1.73,
+      "finalScore": "2-2",
+      "status": "WON",
+      "verifiedAt": "2026-09-20T03:39:29.583Z"
     },
     {
       "id": "nashvill-vs-chicagof-2026-09-20",
@@ -1563,7 +1575,10 @@
       "bttsProb": 0.7624,
       "over25Prob": 0.8382,
       "homeLambda": 2.98,
-      "awayLambda": 1.63
+      "awayLambda": 1.63,
+      "finalScore": "3-0",
+      "status": "LOST",
+      "verifiedAt": "2026-09-20T03:39:29.583Z"
     },
     {
       "id": "portland-vs-atlantau-2026-09-20",
@@ -1625,7 +1640,8 @@
       "bttsProb": 0.7347,
       "over25Prob": 0.7545,
       "homeLambda": 2.2,
-      "awayLambda": 1.75
+      "awayLambda": 1.75,
+      "status": "PENDING"
     },
     {
       "id": "fcdallas-vs-austinfc-2026-09-20",
@@ -1687,7 +1703,10 @@
       "bttsProb": 0.73,
       "over25Prob": 0.7469,
       "homeLambda": 2.15,
-      "awayLambda": 1.75
+      "awayLambda": 1.75,
+      "finalScore": "0-0",
+      "status": "LOST",
+      "verifiedAt": "2026-09-20T03:39:29.585Z"
     },
     {
       "id": "stlouisc-vs-torontof-2026-09-20",
@@ -1749,7 +1768,10 @@
       "bttsProb": 0.6671,
       "over25Prob": 0.6987,
       "homeLambda": 2.23,
-      "awayLambda": 1.38
+      "awayLambda": 1.38,
+      "finalScore": "3-1",
+      "status": "WON",
+      "verifiedAt": "2026-09-20T03:39:29.586Z"
     },
     {
       "id": "minnesot-vs-lagalaxy-2026-09-20",
@@ -1811,7 +1833,10 @@
       "bttsProb": 0.6485,
       "over25Prob": 0.6603,
       "homeLambda": 2.02,
-      "awayLambda": 1.38
+      "awayLambda": 1.38,
+      "finalScore": "2-3",
+      "status": "WON",
+      "verifiedAt": "2026-09-20T03:39:29.586Z"
     },
     {
       "id": "intermia-vs-sandiego-2026-09-20",
@@ -1873,7 +1898,8 @@
       "bttsProb": 0.6387,
       "over25Prob": 0.6698,
       "homeLambda": 2.17,
-      "awayLambda": 1.27
+      "awayLambda": 1.27,
+      "status": "PENDING"
     },
     {
       "id": "sporting-vs-philadel-2026-09-20",
@@ -1935,7 +1961,10 @@
       "bttsProb": 0.6198,
       "over25Prob": 0.6838,
       "homeLambda": 1.15,
-      "awayLambda": 2.38
+      "awayLambda": 2.38,
+      "finalScore": "3-4",
+      "status": "WON",
+      "verifiedAt": "2026-09-20T03:39:29.587Z"
     },
     {
       "id": "energiec-vs-stpauli-2026-09-20",
@@ -1997,7 +2026,8 @@
       "bttsProb": 0.8314,
       "over25Prob": 0.8667,
       "homeLambda": 2.65,
-      "awayLambda": 2.25
+      "awayLambda": 2.25,
+      "status": "PENDING"
     }
   ]
 }
