@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T22:21:25.628Z",
+  "generatedAt": "2026-09-21T03:41:02.879Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -7,25 +7,25 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 97,
-    "won": 62,
+    "total": 98,
+    "won": 63,
     "lost": 35,
-    "pending": 410,
-    "archivedTotal": 507,
-    "rate": 63.9,
+    "pending": 421,
+    "archivedTotal": 519,
+    "rate": 64.3,
     "avgOdds": 1.9,
-    "profit": 20.8,
-    "roi": 21.4,
-    "yield": 21.4,
+    "profit": 21.7,
+    "roi": 22.1,
+    "yield": 22.1,
     "gold": {
-      "total": 80,
-      "won": 54,
+      "total": 81,
+      "won": 55,
       "lost": 26,
-      "rate": 67.5,
+      "rate": 67.9,
       "avgOdds": 1.9,
-      "profit": 22.6,
-      "roi": 28.2,
-      "yield": 28.2
+      "profit": 23.5,
+      "roi": 29,
+      "yield": 29
     },
     "standard": {
       "total": 17,
@@ -35,10 +35,10 @@
     },
     "byType": {
       "btts": {
-        "total": 95,
-        "won": 61,
+        "total": 96,
+        "won": 62,
         "lost": 34,
-        "rate": 64.2
+        "rate": 64.6
       },
       "over25": {
         "total": 2,
@@ -49,22 +49,13 @@
     },
     "trend14": [
       {
-        "date": "2026-08-14",
-        "total": 7,
-        "won": 6,
-        "lost": 1,
-        "rate": 85.7,
-        "profit": 4.4,
-        "equity": 4.4
-      },
-      {
         "date": "2026-08-15",
         "total": 12,
         "won": 9,
         "lost": 3,
         "rate": 75,
         "profit": 5.1,
-        "equity": 9.5
+        "equity": 5.1
       },
       {
         "date": "2026-08-16",
@@ -73,7 +64,7 @@
         "lost": 1,
         "rate": 75,
         "profit": 1.7,
-        "equity": 11.2
+        "equity": 6.8
       },
       {
         "date": "2026-08-19",
@@ -82,7 +73,7 @@
         "lost": 3,
         "rate": 62.5,
         "profit": 1.5,
-        "equity": 12.7
+        "equity": 8.3
       },
       {
         "date": "2026-08-22",
@@ -91,7 +82,7 @@
         "lost": 2,
         "rate": 71.4,
         "profit": 2.5,
-        "equity": 15.2
+        "equity": 10.8
       },
       {
         "date": "2026-08-29",
@@ -100,7 +91,7 @@
         "lost": 4,
         "rate": 60,
         "profit": 1.4,
-        "equity": 16.6
+        "equity": 12.2
       },
       {
         "date": "2026-08-30",
@@ -109,7 +100,7 @@
         "lost": 0,
         "rate": 100,
         "profit": 0.9,
-        "equity": 17.5
+        "equity": 13.1
       },
       {
         "date": "2026-09-04",
@@ -118,7 +109,7 @@
         "lost": 1,
         "rate": 0,
         "profit": -1,
-        "equity": 16.5
+        "equity": 12.1
       },
       {
         "date": "2026-09-05",
@@ -127,7 +118,7 @@
         "lost": 5,
         "rate": 50,
         "profit": -0.5,
-        "equity": 16
+        "equity": 11.6
       },
       {
         "date": "2026-09-09",
@@ -136,7 +127,7 @@
         "lost": 3,
         "rate": 75,
         "profit": 5.1,
-        "equity": 21.1
+        "equity": 16.7
       },
       {
         "date": "2026-09-12",
@@ -145,7 +136,7 @@
         "lost": 4,
         "rate": 50,
         "profit": -0.4,
-        "equity": 20.7
+        "equity": 16.3
       },
       {
         "date": "2026-09-13",
@@ -154,7 +145,7 @@
         "lost": 1,
         "rate": 0,
         "profit": -1,
-        "equity": 19.7
+        "equity": 15.3
       },
       {
         "date": "2026-09-18",
@@ -163,7 +154,7 @@
         "lost": 1,
         "rate": 0,
         "profit": -1,
-        "equity": 18.7
+        "equity": 14.3
       },
       {
         "date": "2026-09-19",
@@ -172,17 +163,42 @@
         "lost": 4,
         "rate": 60,
         "profit": 1.4,
-        "equity": 20.1
+        "equity": 15.7
+      },
+      {
+        "date": "2026-09-20",
+        "total": 1,
+        "won": 1,
+        "lost": 0,
+        "rate": 100,
+        "profit": 0.9,
+        "equity": 16.6
       }
     ],
     "maxDrawdown": 2.4,
     "period": {
       "from": "2026-08-08",
-      "to": "2026-09-20",
-      "days": 44
+      "to": "2026-09-21",
+      "days": 45
     }
   },
   "history": [
+    {
+      "date": "2026-09-20",
+      "match": "Inter Miami CF vs San Diego FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6387,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "2-2",
+      "profit": 0.9,
+      "verifiedAt": "2026-09-21T03:34:08.153Z",
+      "source": "ESPN public"
+    },
     {
       "date": "2026-09-19",
       "match": "Sporting Kansas City vs Philadelphia Union",
@@ -1737,16 +1753,16 @@
     }
   ],
   "legacyStats": {
-    "total": 531,
-    "won": 248,
-    "lost": 283,
-    "pending": 1598,
-    "archivedTotal": 2129,
-    "rate": 46.7,
+    "total": 525,
+    "won": 247,
+    "lost": 278,
+    "pending": 1554,
+    "archivedTotal": 2079,
+    "rate": 47,
     "avgOdds": 1.9,
-    "profit": -59.8,
-    "roi": -11.3,
-    "yield": -11.3,
+    "profit": -55.7,
+    "roi": -10.6,
+    "yield": -10.6,
     "gold": {
       "total": 40,
       "won": 16,
@@ -1758,23 +1774,23 @@
       "yield": -24
     },
     "standard": {
-      "total": 491,
-      "won": 232,
-      "lost": 259,
-      "rate": 47.3
+      "total": 485,
+      "won": 231,
+      "lost": 254,
+      "rate": 47.6
     },
     "byType": {
       "btts": {
-        "total": 266,
+        "total": 263,
         "won": 118,
-        "lost": 148,
-        "rate": 44.4
+        "lost": 145,
+        "rate": 44.9
       },
       "over25": {
-        "total": 265,
-        "won": 130,
-        "lost": 135,
-        "rate": 49.1
+        "total": 262,
+        "won": 129,
+        "lost": 133,
+        "rate": 49.2
       }
     },
     "trend14": [
@@ -1907,9 +1923,9 @@
     ],
     "maxDrawdown": 31.1,
     "period": {
-      "from": "2026-06-23",
+      "from": "2026-06-24",
       "to": "2026-08-07",
-      "days": 46
+      "days": 45
     },
     "history": [
       {
