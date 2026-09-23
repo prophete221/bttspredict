@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T22:55:21.679Z",
+  "generatedAt": "2026-09-23T03:40:16.021Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -10,8 +10,8 @@
     "total": 98,
     "won": 63,
     "lost": 35,
-    "pending": 433,
-    "archivedTotal": 531,
+    "pending": 445,
+    "archivedTotal": 543,
     "rate": 64.3,
     "avgOdds": 1.9,
     "profit": 21.7,
@@ -178,8 +178,8 @@
     "maxDrawdown": 2.4,
     "period": {
       "from": "2026-08-08",
-      "to": "2026-09-22",
-      "days": 46
+      "to": "2026-09-23",
+      "days": 47
     }
   },
   "history": [
@@ -1753,16 +1753,16 @@
     }
   ],
   "legacyStats": {
-    "total": 513,
-    "won": 239,
-    "lost": 274,
-    "pending": 1516,
-    "archivedTotal": 2029,
-    "rate": 46.6,
+    "total": 505,
+    "won": 234,
+    "lost": 271,
+    "pending": 1474,
+    "archivedTotal": 1979,
+    "rate": 46.3,
     "avgOdds": 1.9,
-    "profit": -58.9,
-    "roi": -11.5,
-    "yield": -11.5,
+    "profit": -60.4,
+    "roi": -12,
+    "yield": -12,
     "gold": {
       "total": 40,
       "won": 16,
@@ -1774,22 +1774,22 @@
       "yield": -24
     },
     "standard": {
-      "total": 473,
-      "won": 223,
-      "lost": 250,
-      "rate": 47.1
+      "total": 465,
+      "won": 218,
+      "lost": 247,
+      "rate": 46.9
     },
     "byType": {
       "btts": {
-        "total": 257,
-        "won": 115,
-        "lost": 142,
-        "rate": 44.7
+        "total": 253,
+        "won": 112,
+        "lost": 141,
+        "rate": 44.3
       },
       "over25": {
-        "total": 256,
-        "won": 124,
-        "lost": 132,
+        "total": 252,
+        "won": 122,
+        "lost": 130,
         "rate": 48.4
       }
     },
@@ -1923,9 +1923,9 @@
     ],
     "maxDrawdown": 31.1,
     "period": {
-      "from": "2026-06-25",
+      "from": "2026-06-26",
       "to": "2026-08-07",
-      "days": 44
+      "days": 43
     },
     "history": [
       {
