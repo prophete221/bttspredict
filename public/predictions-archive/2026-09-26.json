@@ -1,6 +1,6 @@
 {
   "date": "2026-09-26",
-  "lastUpdated": "2026-09-26T19:03:06.037Z",
+  "lastUpdated": "2026-09-26T22:24:00.059Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -252,68 +252,6 @@
       "awayLambda": 1.5
     },
     {
-      "id": "redbulln-vs-stlouisc-2026-09-26",
-      "match": "Red Bull New York vs St. Louis CITY SC",
-      "home": "Red Bull New York",
-      "away": "St. Louis CITY SC",
-      "league": "MLS",
-      "date": "2026-09-26",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5754,
-      "bttsProbDisplay": "57.54%",
-      "over25ProbDisplay": "59.16%",
-      "confidence": 58,
-      "time": "23:30",
-      "matchSemantic": "redbulln-vs-stlouisc-2026-09-26",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/190.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21812.png",
-      "tier": "GOLD",
-      "reliabilityScore": 81.42,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1.11,
-      "xgAway": 1.96,
-      "xgTotal": 3.07,
-      "formBTTS": 33,
-      "analysis": "Red Bull New York (8 matchs réels, xG 1.11) vs St. Louis CITY SC (8 matchs réels, xG 1.96). xG cumulé 3.07, BTTS 57.5%, Over 2.5 59.2%. Fiabilité 81.42%. Qualité données: HIGH.",
-      "analysisData": {
-        "bttsProb": 0.5754,
-        "over25Prob": 0.5916,
-        "homeLambda": 1.11,
-        "awayLambda": 1.96,
-        "xgTotal": 3.07
-      },
-      "estimatedCote": 1.74,
-      "estimatedCoteOver": 1.69,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 58,
-          "bttsProb": 0.5754,
-          "homeLambda": 1.11,
-          "awayLambda": 1.96
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 59,
-          "over25Prob": 0.5916,
-          "homeLambda": 1.11,
-          "awayLambda": 1.96
-        }
-      ],
-      "bttsProb": 0.5754,
-      "over25Prob": 0.5916,
-      "homeLambda": 1.11,
-      "awayLambda": 1.96
-    },
-    {
       "id": "seattles-vs-minnesot-2026-09-27",
       "match": "Seattle Sounders FC vs Minnesota United FC",
       "home": "Seattle Sounders FC",
@@ -746,9 +684,7 @@
       "over25Prob": 0.6024,
       "homeLambda": 1.95,
       "awayLambda": 1.17
-    }
-  ],
-  "vipPreview": [
+    },
     {
       "id": "houstond-vs-sporting-2026-09-27",
       "match": "Houston Dynamo FC vs Sporting Kansas City",
@@ -810,7 +746,9 @@
       "over25Prob": 0.6096,
       "homeLambda": 2.11,
       "awayLambda": 1.04
-    },
+    }
+  ],
+  "vipPreview": [
     {
       "id": "austinfc-vs-sandiego-2026-09-27",
       "match": "Austin FC vs San Diego FC",
@@ -999,12 +937,12 @@
     }
   ],
   "stats": {
-    "avgReliability": 84.05,
-    "totalAnalyzed": 16,
+    "avgReliability": 84.23,
+    "totalAnalyzed": 15,
     "totalRejected": 0,
-    "totalAccepted": 16,
+    "totalAccepted": 15,
     "freeCount": 12,
-    "vipCount": 4
+    "vipCount": 3
   },
   "predictions": [
     {
@@ -1256,68 +1194,6 @@
       "awayLambda": 1.5
     },
     {
-      "id": "redbulln-vs-stlouisc-2026-09-26",
-      "match": "Red Bull New York vs St. Louis CITY SC",
-      "home": "Red Bull New York",
-      "away": "St. Louis CITY SC",
-      "league": "MLS",
-      "date": "2026-09-26",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5754,
-      "bttsProbDisplay": "57.54%",
-      "over25ProbDisplay": "59.16%",
-      "confidence": 58,
-      "time": "23:30",
-      "matchSemantic": "redbulln-vs-stlouisc-2026-09-26",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/190.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21812.png",
-      "tier": "GOLD",
-      "reliabilityScore": 81.42,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1.11,
-      "xgAway": 1.96,
-      "xgTotal": 3.07,
-      "formBTTS": 33,
-      "analysis": "Red Bull New York (8 matchs réels, xG 1.11) vs St. Louis CITY SC (8 matchs réels, xG 1.96). xG cumulé 3.07, BTTS 57.5%, Over 2.5 59.2%. Fiabilité 81.42%. Qualité données: HIGH.",
-      "analysisData": {
-        "bttsProb": 0.5754,
-        "over25Prob": 0.5916,
-        "homeLambda": 1.11,
-        "awayLambda": 1.96,
-        "xgTotal": 3.07
-      },
-      "estimatedCote": 1.74,
-      "estimatedCoteOver": 1.69,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 58,
-          "bttsProb": 0.5754,
-          "homeLambda": 1.11,
-          "awayLambda": 1.96
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 59,
-          "over25Prob": 0.5916,
-          "homeLambda": 1.11,
-          "awayLambda": 1.96
-        }
-      ],
-      "bttsProb": 0.5754,
-      "over25Prob": 0.5916,
-      "homeLambda": 1.11,
-      "awayLambda": 1.96
-    },
-    {
       "id": "seattles-vs-minnesot-2026-09-27",
       "match": "Seattle Sounders FC vs Minnesota United FC",
       "home": "Seattle Sounders FC",
@@ -1750,6 +1626,68 @@
       "over25Prob": 0.6024,
       "homeLambda": 1.95,
       "awayLambda": 1.17
+    },
+    {
+      "id": "houstond-vs-sporting-2026-09-27",
+      "match": "Houston Dynamo FC vs Sporting Kansas City",
+      "home": "Houston Dynamo FC",
+      "away": "Sporting Kansas City",
+      "league": "MLS",
+      "date": "2026-09-27",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5685,
+      "bttsProbDisplay": "56.85%",
+      "over25ProbDisplay": "60.96%",
+      "confidence": 57,
+      "time": "00:30",
+      "matchSemantic": "houstond-vs-sporting-2026-09-27",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6077.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/186.png",
+      "tier": "GOLD",
+      "reliabilityScore": 81.12,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.11,
+      "xgAway": 1.04,
+      "xgTotal": 3.15,
+      "formBTTS": 23,
+      "analysis": "Houston Dynamo FC (8 matchs réels, xG 2.11) vs Sporting Kansas City (8 matchs réels, xG 1.04). xG cumulé 3.15, BTTS 56.9%, Over 2.5 61.0%. Fiabilité 81.12%. Qualité données: HIGH.",
+      "analysisData": {
+        "bttsProb": 0.5685,
+        "over25Prob": 0.6096,
+        "homeLambda": 2.11,
+        "awayLambda": 1.04,
+        "xgTotal": 3.15
+      },
+      "estimatedCote": 1.76,
+      "estimatedCoteOver": 1.64,
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 57,
+          "bttsProb": 0.5685,
+          "homeLambda": 2.11,
+          "awayLambda": 1.04
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 61,
+          "over25Prob": 0.6096,
+          "homeLambda": 2.11,
+          "awayLambda": 1.04
+        }
+      ],
+      "bttsProb": 0.5685,
+      "over25Prob": 0.6096,
+      "homeLambda": 2.11,
+      "awayLambda": 1.04
     }
   ]
 }
