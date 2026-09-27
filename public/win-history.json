@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T04:07:47.331Z",
+  "generatedAt": "2026-09-27T09:59:55.208Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -7,25 +7,25 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 108,
-    "won": 67,
+    "total": 110,
+    "won": 69,
     "lost": 41,
-    "pending": 473,
+    "pending": 471,
     "archivedTotal": 581,
-    "rate": 62,
+    "rate": 62.7,
     "avgOdds": 1.9,
-    "profit": 19.3,
-    "roi": 17.9,
-    "yield": 17.9,
+    "profit": 21.1,
+    "roi": 19.2,
+    "yield": 19.2,
     "gold": {
-      "total": 91,
-      "won": 59,
+      "total": 93,
+      "won": 61,
       "lost": 32,
-      "rate": 64.8,
+      "rate": 65.6,
       "avgOdds": 1.9,
-      "profit": 21.1,
-      "roi": 23.2,
-      "yield": 23.2
+      "profit": 22.9,
+      "roi": 24.6,
+      "yield": 24.6
     },
     "standard": {
       "total": 17,
@@ -35,10 +35,10 @@
     },
     "byType": {
       "btts": {
-        "total": 106,
-        "won": 66,
+        "total": 108,
+        "won": 68,
         "lost": 40,
-        "rate": 62.3
+        "rate": 63
       },
       "over25": {
         "total": 2,
@@ -167,15 +167,15 @@
       },
       {
         "date": "2026-09-26",
-        "total": 9,
-        "won": 4,
+        "total": 11,
+        "won": 6,
         "lost": 5,
-        "rate": 44.4,
-        "profit": -1.4,
-        "equity": 7.4
+        "rate": 54.5,
+        "profit": 0.4,
+        "equity": 9.2
       }
     ],
-    "maxDrawdown": 2.5,
+    "maxDrawdown": 2.4,
     "period": {
       "from": "2026-08-08",
       "to": "2026-09-27",
@@ -229,6 +229,38 @@
       "finalScore": "2-0",
       "profit": -1,
       "verifiedAt": "2026-09-27T03:56:07.190Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-26",
+      "match": "Vancouver Whitecaps vs D.C. United",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5894,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "3-3",
+      "profit": 0.9,
+      "verifiedAt": "2026-09-27T09:51:53.172Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-26",
+      "match": "San Jose Earthquakes vs Portland Timbers",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6608,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "3-1",
+      "profit": 0.9,
+      "verifiedAt": "2026-09-27T09:51:53.171Z",
       "source": "ESPN public"
     },
     {

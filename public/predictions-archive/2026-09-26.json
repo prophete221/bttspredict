@@ -1396,7 +1396,9 @@
       "over25Prob": 0.6522,
       "homeLambda": 1.61,
       "awayLambda": 1.75,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-09-27T09:51:53.171Z"
     },
     {
       "id": "columbus-vs-intermia-2026-09-27",
@@ -1522,7 +1524,9 @@
       "over25Prob": 0.6304,
       "homeLambda": 2.15,
       "awayLambda": 1.1,
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-3",
+      "verifiedAt": "2026-09-27T09:51:53.172Z"
     },
     {
       "id": "nashvill-vs-torontof-2026-09-27",
