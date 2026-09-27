@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-26T22:33:09.350Z",
+  "generatedAt": "2026-09-27T04:07:47.331Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -7,25 +7,25 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 99,
-    "won": 63,
-    "lost": 36,
-    "pending": 480,
-    "archivedTotal": 579,
-    "rate": 63.6,
+    "total": 108,
+    "won": 67,
+    "lost": 41,
+    "pending": 473,
+    "archivedTotal": 581,
+    "rate": 62,
     "avgOdds": 1.9,
-    "profit": 20.7,
-    "roi": 20.9,
-    "yield": 20.9,
+    "profit": 19.3,
+    "roi": 17.9,
+    "yield": 17.9,
     "gold": {
-      "total": 82,
-      "won": 55,
-      "lost": 27,
-      "rate": 67.1,
+      "total": 91,
+      "won": 59,
+      "lost": 32,
+      "rate": 64.8,
       "avgOdds": 1.9,
-      "profit": 22.5,
-      "roi": 27.4,
-      "yield": 27.4
+      "profit": 21.1,
+      "roi": 23.2,
+      "yield": 23.2
     },
     "standard": {
       "total": 17,
@@ -35,10 +35,10 @@
     },
     "byType": {
       "btts": {
-        "total": 97,
-        "won": 62,
-        "lost": 35,
-        "rate": 63.9
+        "total": 106,
+        "won": 66,
+        "lost": 40,
+        "rate": 62.3
       },
       "over25": {
         "total": 2,
@@ -49,22 +49,13 @@
     },
     "trend14": [
       {
-        "date": "2026-08-16",
-        "total": 4,
-        "won": 3,
-        "lost": 1,
-        "rate": 75,
-        "profit": 1.7,
-        "equity": 1.7
-      },
-      {
         "date": "2026-08-19",
         "total": 8,
         "won": 5,
         "lost": 3,
         "rate": 62.5,
         "profit": 1.5,
-        "equity": 3.2
+        "equity": 1.5
       },
       {
         "date": "2026-08-22",
@@ -73,7 +64,7 @@
         "lost": 2,
         "rate": 71.4,
         "profit": 2.5,
-        "equity": 5.7
+        "equity": 4
       },
       {
         "date": "2026-08-29",
@@ -82,7 +73,7 @@
         "lost": 4,
         "rate": 60,
         "profit": 1.4,
-        "equity": 7.1
+        "equity": 5.4
       },
       {
         "date": "2026-08-30",
@@ -91,7 +82,7 @@
         "lost": 0,
         "rate": 100,
         "profit": 0.9,
-        "equity": 8
+        "equity": 6.3
       },
       {
         "date": "2026-09-04",
@@ -100,7 +91,7 @@
         "lost": 1,
         "rate": 0,
         "profit": -1,
-        "equity": 7
+        "equity": 5.3
       },
       {
         "date": "2026-09-05",
@@ -109,7 +100,7 @@
         "lost": 5,
         "rate": 50,
         "profit": -0.5,
-        "equity": 6.5
+        "equity": 4.8
       },
       {
         "date": "2026-09-09",
@@ -118,7 +109,7 @@
         "lost": 3,
         "rate": 75,
         "profit": 5.1,
-        "equity": 11.6
+        "equity": 9.9
       },
       {
         "date": "2026-09-12",
@@ -127,7 +118,7 @@
         "lost": 4,
         "rate": 50,
         "profit": -0.4,
-        "equity": 11.2
+        "equity": 9.5
       },
       {
         "date": "2026-09-13",
@@ -136,7 +127,7 @@
         "lost": 1,
         "rate": 0,
         "profit": -1,
-        "equity": 10.2
+        "equity": 8.5
       },
       {
         "date": "2026-09-18",
@@ -145,7 +136,7 @@
         "lost": 1,
         "rate": 0,
         "profit": -1,
-        "equity": 9.2
+        "equity": 7.5
       },
       {
         "date": "2026-09-19",
@@ -154,7 +145,7 @@
         "lost": 4,
         "rate": 60,
         "profit": 1.4,
-        "equity": 10.6
+        "equity": 8.9
       },
       {
         "date": "2026-09-20",
@@ -163,7 +154,7 @@
         "lost": 0,
         "rate": 100,
         "profit": 0.9,
-        "equity": 11.5
+        "equity": 9.8
       },
       {
         "date": "2026-09-23",
@@ -172,17 +163,170 @@
         "lost": 1,
         "rate": 0,
         "profit": -1,
-        "equity": 10.5
+        "equity": 8.8
+      },
+      {
+        "date": "2026-09-26",
+        "total": 9,
+        "won": 4,
+        "lost": 5,
+        "rate": 44.4,
+        "profit": -1.4,
+        "equity": 7.4
       }
     ],
-    "maxDrawdown": 2.4,
+    "maxDrawdown": 2.5,
     "period": {
       "from": "2026-08-08",
-      "to": "2026-09-26",
-      "days": 50
+      "to": "2026-09-27",
+      "days": 51
     }
   },
   "history": [
+    {
+      "date": "2026-09-26",
+      "match": "Houston Dynamo FC vs Sporting Kansas City",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5685,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "0-2",
+      "profit": -1,
+      "verifiedAt": "2026-09-27T03:56:07.190Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-26",
+      "match": "FC Dallas vs LAFC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5906,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "1-0",
+      "profit": -1,
+      "verifiedAt": "2026-09-27T03:56:07.190Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-26",
+      "match": "Nashville SC vs Toronto FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5541,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "2-0",
+      "profit": -1,
+      "verifiedAt": "2026-09-27T03:56:07.190Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-26",
+      "match": "Real Salt Lake vs New England Revolution",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6738,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "3-0",
+      "profit": -1,
+      "verifiedAt": "2026-09-27T03:56:07.189Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-26",
+      "match": "Seattle Sounders FC vs Minnesota United FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7617,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "3-1",
+      "profit": 0.9,
+      "verifiedAt": "2026-09-27T03:56:07.188Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-26",
+      "match": "Atlanta United FC vs New York City FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5853,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "2-2",
+      "profit": 0.9,
+      "verifiedAt": "2026-09-27T03:56:07.188Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-26",
+      "match": "CF Montréal vs FC Cincinnati",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6304,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "3-1",
+      "profit": 0.9,
+      "verifiedAt": "2026-09-27T03:56:07.188Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-26",
+      "match": "Charlotte FC vs Chicago Fire FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.634,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "LOST",
+      "finalScore": "0-1",
+      "profit": -1,
+      "verifiedAt": "2026-09-27T03:56:07.188Z",
+      "source": "ESPN public"
+    },
+    {
+      "date": "2026-09-26",
+      "match": "Philadelphia Union vs Orlando City SC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7707,
+      "coteProposee": 1.9,
+      "coteCloture": null,
+      "bookmaker": "Linebet",
+      "status": "WON",
+      "finalScore": "4-2",
+      "profit": 0.9,
+      "verifiedAt": "2026-09-27T03:56:07.188Z",
+      "source": "ESPN public"
+    },
     {
       "date": "2026-09-23",
       "match": "Seattle Sounders FC vs Real Salt Lake",
@@ -1769,16 +1913,16 @@
     }
   ],
   "legacyStats": {
-    "total": 483,
-    "won": 224,
+    "total": 481,
+    "won": 222,
     "lost": 259,
-    "pending": 1366,
-    "archivedTotal": 1849,
-    "rate": 46.4,
+    "pending": 1330,
+    "archivedTotal": 1811,
+    "rate": 46.2,
     "avgOdds": 1.9,
-    "profit": -57.4,
-    "roi": -11.9,
-    "yield": -11.9,
+    "profit": -59.2,
+    "roi": -12.3,
+    "yield": -12.3,
     "gold": {
       "total": 40,
       "won": 16,
@@ -1790,23 +1934,23 @@
       "yield": -24
     },
     "standard": {
-      "total": 443,
-      "won": 208,
+      "total": 441,
+      "won": 206,
       "lost": 235,
-      "rate": 47
+      "rate": 46.7
     },
     "byType": {
       "btts": {
-        "total": 242,
-        "won": 107,
+        "total": 241,
+        "won": 106,
         "lost": 135,
-        "rate": 44.2
+        "rate": 44
       },
       "over25": {
-        "total": 241,
-        "won": 117,
+        "total": 240,
+        "won": 116,
         "lost": 124,
-        "rate": 48.5
+        "rate": 48.3
       }
     },
     "trend14": [
@@ -1939,9 +2083,9 @@
     ],
     "maxDrawdown": 31.1,
     "period": {
-      "from": "2026-06-29",
+      "from": "2026-06-30",
       "to": "2026-08-07",
-      "days": 40
+      "days": 39
     },
     "history": [
       {
