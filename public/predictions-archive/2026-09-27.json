@@ -1,70 +1,8 @@
 {
   "date": "2026-09-27",
-  "lastUpdated": "2026-09-27T16:29:26.956Z",
+  "lastUpdated": "2026-09-27T22:50:47.329Z",
   "source": "ESPN + TheSportsDB",
   "free": [
-    {
-      "id": "columbus-vs-intermia-2026-09-27",
-      "match": "Columbus Crew vs Inter Miami CF",
-      "home": "Columbus Crew",
-      "away": "Inter Miami CF",
-      "league": "MLS",
-      "date": "2026-09-27",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.6488,
-      "bttsProbDisplay": "64.88%",
-      "over25ProbDisplay": "65.22%",
-      "confidence": 65,
-      "time": "23:00",
-      "matchSemantic": "columbus-vs-intermia-2026-09-27",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/183.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20232.png",
-      "tier": "GOLD",
-      "reliabilityScore": 87.14,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1.94,
-      "xgAway": 1.42,
-      "xgTotal": 3.36,
-      "formBTTS": 36,
-      "analysis": "Columbus Crew (8 matchs réels, xG 1.94) vs Inter Miami CF (8 matchs réels, xG 1.42). xG cumulé 3.36, BTTS 64.9%, Over 2.5 65.2%. Fiabilité 87.14%. Qualité données: HIGH.",
-      "analysisData": {
-        "bttsProb": 0.6488,
-        "over25Prob": 0.6522,
-        "homeLambda": 1.94,
-        "awayLambda": 1.42,
-        "xgTotal": 3.36
-      },
-      "estimatedCote": 1.54,
-      "estimatedCoteOver": 1.53,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 65,
-          "bttsProb": 0.6488,
-          "homeLambda": 1.94,
-          "awayLambda": 1.42
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 65,
-          "over25Prob": 0.6522,
-          "homeLambda": 1.94,
-          "awayLambda": 1.42
-        }
-      ],
-      "bttsProb": 0.6488,
-      "over25Prob": 0.6522,
-      "homeLambda": 1.94,
-      "awayLambda": 1.42
-    },
     {
       "id": "redbulln-vs-stlouisc-2026-09-30",
       "match": "Red Bull New York vs St. Louis CITY SC",
@@ -191,69 +129,6 @@
     }
   ],
   "vipPreview": [
-    {
-      "id": "columbus-vs-intermia-2026-09-27",
-      "match": "Columbus Crew vs Inter Miami CF",
-      "home": "Columbus Crew",
-      "away": "Inter Miami CF",
-      "league": "MLS",
-      "date": "2026-09-27",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.6488,
-      "bttsProbDisplay": "64.88%",
-      "over25ProbDisplay": "65.22%",
-      "confidence": 65,
-      "time": "23:00",
-      "matchSemantic": "columbus-vs-intermia-2026-09-27",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/183.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20232.png",
-      "tier": "GOLD",
-      "reliabilityScore": 87.14,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1.94,
-      "xgAway": 1.42,
-      "xgTotal": 3.36,
-      "formBTTS": 36,
-      "analysis": "Columbus Crew (8 matchs réels, xG 1.94) vs Inter Miami CF (8 matchs réels, xG 1.42). xG cumulé 3.36, BTTS 64.9%, Over 2.5 65.2%. Fiabilité 87.14%. Qualité données: HIGH.",
-      "analysisData": {
-        "bttsProb": 0.6488,
-        "over25Prob": 0.6522,
-        "homeLambda": 1.94,
-        "awayLambda": 1.42,
-        "xgTotal": 3.36
-      },
-      "estimatedCote": 1.54,
-      "estimatedCoteOver": 1.53,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 65,
-          "bttsProb": 0.6488,
-          "homeLambda": 1.94,
-          "awayLambda": 1.42
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 65,
-          "over25Prob": 0.6522,
-          "homeLambda": 1.94,
-          "awayLambda": 1.42
-        }
-      ],
-      "bttsProb": 0.6488,
-      "over25Prob": 0.6522,
-      "homeLambda": 1.94,
-      "awayLambda": 1.42,
-      "vipMirror": true
-    },
     {
       "id": "redbulln-vs-stlouisc-2026-09-30",
       "match": "Red Bull New York vs St. Louis CITY SC",
@@ -382,76 +257,14 @@
     }
   ],
   "stats": {
-    "avgReliability": 84.69,
-    "totalAnalyzed": 3,
+    "avgReliability": 83.47,
+    "totalAnalyzed": 2,
     "totalRejected": 0,
-    "totalAccepted": 3,
-    "freeCount": 3,
-    "vipCount": 3
+    "totalAccepted": 2,
+    "freeCount": 2,
+    "vipCount": 2
   },
   "predictions": [
-    {
-      "id": "columbus-vs-intermia-2026-09-27",
-      "match": "Columbus Crew vs Inter Miami CF",
-      "home": "Columbus Crew",
-      "away": "Inter Miami CF",
-      "league": "MLS",
-      "date": "2026-09-27",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.6488,
-      "bttsProbDisplay": "64.88%",
-      "over25ProbDisplay": "65.22%",
-      "confidence": 65,
-      "time": "23:00",
-      "matchSemantic": "columbus-vs-intermia-2026-09-27",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/183.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20232.png",
-      "tier": "GOLD",
-      "reliabilityScore": 87.14,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1.94,
-      "xgAway": 1.42,
-      "xgTotal": 3.36,
-      "formBTTS": 36,
-      "analysis": "Columbus Crew (8 matchs réels, xG 1.94) vs Inter Miami CF (8 matchs réels, xG 1.42). xG cumulé 3.36, BTTS 64.9%, Over 2.5 65.2%. Fiabilité 87.14%. Qualité données: HIGH.",
-      "analysisData": {
-        "bttsProb": 0.6488,
-        "over25Prob": 0.6522,
-        "homeLambda": 1.94,
-        "awayLambda": 1.42,
-        "xgTotal": 3.36
-      },
-      "estimatedCote": 1.54,
-      "estimatedCoteOver": 1.53,
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 65,
-          "bttsProb": 0.6488,
-          "homeLambda": 1.94,
-          "awayLambda": 1.42
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 65,
-          "over25Prob": 0.6522,
-          "homeLambda": 1.94,
-          "awayLambda": 1.42
-        }
-      ],
-      "bttsProb": 0.6488,
-      "over25Prob": 0.6522,
-      "homeLambda": 1.94,
-      "awayLambda": 1.42
-    },
     {
       "id": "redbulln-vs-stlouisc-2026-09-30",
       "match": "Red Bull New York vs St. Louis CITY SC",
