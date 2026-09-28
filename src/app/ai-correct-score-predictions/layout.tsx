@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 // héritait du canonical racine (deindexation) alors qu'elle figure au sitemap.
 // Ce layout fournit les metadata complètes ; canonical self-contenu.
 export const metadata: Metadata = {
-  title: 'Pronostics score exact par IA — Poisson | BTTSPredict',
+  title: 'Pronostics score exact par IA — Poisson',
   description: 'Scores exacts modélisés par Poisson sur les buts récents des équipes (ESPN). Probabilités informatives, aucune garantie de gain. 18+.',
   alternates: {
     canonical: 'https://bttspredict.com/ai-correct-score-predictions',
