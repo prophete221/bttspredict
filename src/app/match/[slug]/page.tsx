@@ -4,6 +4,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 import { generateMatchSlug, getAllMatchSlugs, getMatchBySlug, getVerifiedHistoryForMatch, verifiedMarketKey } from '@/lib/matches'
 import Link from 'next/link'
 import MatchAnalyticsCharts from '@/components/bttsbet/MatchAnalyticsCharts'
+import MatchViewTracker from '@/components/bttsbet/MatchViewTracker'
 import { localizedPath, type Locale } from '@/lib/i18n'
 
 interface PageProps {
@@ -148,6 +149,7 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
   return (
     <div className="min-h-screen bg-[#071018] flex flex-col text-[#F5F8F3]">
       <Navbar />
+      <MatchViewTracker match={`${home} vs ${away}`} league={league} />
 
       <main id="main-content" className="flex-1">
         {/* Breadcrumb */}

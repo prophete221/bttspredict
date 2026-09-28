@@ -24,6 +24,7 @@
  */
 
 import { useEffect, useMemo, useState } from 'react'
+import { trackAffiliateAction } from '@/lib/affiliateTracking'
 import Link from 'next/link'
 import { generateMatchSlug } from '@/lib/match-slug'
 import { useLanguage } from './LanguageSwitcher'
@@ -567,6 +568,11 @@ function ComboPickRow({ pick, index }: { pick: ComboPick; index: number }) {
 export default function BttsTodayDashboard() {
   const { lang } = useLanguage()
   const t = translationsFor(lang)
+
+  // Vue du dashboard de prédictions (1×/session) — funnel : PRÉDICTION.
+  useEffect(() => {
+    trackAffiliateAction('linebet', 'prediction_view', `dashboard:${window.location.pathname}`, { lang })
+  }, [lang])
   const [matches, setMatches] = useState<MatchData[]>([])
   const [loading, setLoading] = useState(true)
   const [activeFilter, setActiveFilter] = useState<FilterType>('all')
