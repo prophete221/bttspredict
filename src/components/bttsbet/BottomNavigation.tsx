@@ -74,9 +74,8 @@ export default function BottomNavigation() {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-50 lg:hidden"
+      className="fixed bottom-0 left-0 right-0 z-50 flex lg:hidden"
       style={{
-        display: 'flex',
         backgroundColor: 'rgba(11, 15, 20, 0.96)',
         backdropFilter: 'blur(16px) saturate(160%)',
         WebkitBackdropFilter: 'blur(16px) saturate(160%)',
