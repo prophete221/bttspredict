@@ -31,7 +31,7 @@ export default function Navbar() {
   const pageLinks = [
     { label: t.nav.today, href: localizedPath('/btts/predictions/today', lang) },
     { label: t.nav.history, href: localizedPath('/resultats-verifies', lang) },
-    { label: t.nav.statistics, href: localizedPath('/btts/statistics', lang) },
+    { label: t.nav.statistics, href: lang === 'fr' ? '/btts/statistics' : localizedPath('/statistiques', lang) },
     { label: t.nav.methodology, href: localizedPath('/methodologie', lang) },
     { label: 'Linebet', href: localizedPath('/code-promo-linebet-senegal', lang) },
     { label: '888Starz', href: localizedPath('/bonus-888starz', lang) },
