@@ -22,9 +22,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-2",
-      "verifiedAt": "2026-08-07T14:28:06.217Z"
+      "verifiedAt": "2026-08-07T14:28:06.217Z",
+      "recalculatedAt": "2026-09-28T12:13:59.188Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Deportivo Cuenca vs Universidad Católica (Quito)",
@@ -47,9 +49,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-2",
-      "verifiedAt": "2026-08-07T14:28:06.217Z"
+      "verifiedAt": "2026-08-07T14:28:06.217Z",
+      "recalculatedAt": "2026-09-28T12:13:59.188Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Liga de Quito vs Leones",
@@ -72,9 +76,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-1",
-      "verifiedAt": "2026-08-07T14:28:06.217Z"
+      "verifiedAt": "2026-08-07T14:28:06.217Z",
+      "recalculatedAt": "2026-09-28T12:13:59.188Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Liga de Quito vs Leones",
@@ -97,9 +103,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-1",
-      "verifiedAt": "2026-08-07T14:28:06.219Z"
+      "verifiedAt": "2026-08-07T14:28:06.219Z",
+      "recalculatedAt": "2026-09-28T12:13:59.188Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "ADT vs Universitario",
@@ -657,9 +665,11 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-07T14:28:06.232Z"
+      "verifiedAt": "2026-08-07T14:28:06.232Z",
+      "recalculatedAt": "2026-09-28T12:13:59.188Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Peñarol vs Boston River",
@@ -707,9 +717,11 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "3-0",
-      "verifiedAt": "2026-08-07T14:28:06.232Z"
+      "verifiedAt": "2026-08-07T14:28:06.232Z",
+      "recalculatedAt": "2026-09-28T12:13:59.188Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Deportivo Moquegua vs Comerciantes Unidos",
@@ -1113,8 +1125,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "1-4",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T12:16:08.240Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:08.240Z",
+      "recalculatedAt": "2026-09-28T12:13:59.188Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Hamarkameratene vs Tromso",
@@ -1163,8 +1177,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "0-3",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T12:16:08.240Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:08.240Z",
+      "recalculatedAt": "2026-09-28T12:13:59.188Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "IK Start vs Rosenborg",

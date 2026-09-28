@@ -1966,9 +1966,11 @@
       "over25Prob": 0.4626,
       "homeLambda": 1.61,
       "awayLambda": 0.92,
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-16T04:44:21.330Z"
+      "verifiedAt": "2026-08-16T04:44:21.330Z",
+      "recalculatedAt": "2026-09-28T12:13:59.198Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "id": "willemii-vs-necnijme-2026-08-15",

@@ -161,8 +161,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "1-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T14:31:05.693Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:31:05.693Z",
+      "recalculatedAt": "2026-09-28T12:13:59.176Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Colombia vs Ghana",
@@ -186,8 +188,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "1-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T14:31:05.693Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:31:05.693Z",
+      "recalculatedAt": "2026-09-28T12:13:59.176Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Canada vs Morocco",

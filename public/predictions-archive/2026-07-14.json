@@ -140,8 +140,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "0-1",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T14:29:52.358Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:29:52.358Z",
+      "recalculatedAt": "2026-09-28T12:13:59.186Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Libertad (Ecuador) vs Técnico Universitario",

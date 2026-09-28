@@ -23,8 +23,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "0-1",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T14:27:44.502Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:27:44.502Z",
+      "recalculatedAt": "2026-09-28T12:13:59.188Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Técnico Universitario vs Aucas",
@@ -48,8 +50,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "0-1",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T14:27:44.502Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:27:44.502Z",
+      "recalculatedAt": "2026-09-28T12:13:59.188Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Guayaquil City FC vs Manta F.C.",
@@ -73,8 +77,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "1-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T14:27:44.502Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:27:44.502Z",
+      "recalculatedAt": "2026-09-28T12:13:59.188Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Guayaquil City FC vs Manta F.C.",
@@ -98,8 +104,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "1-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T14:27:44.502Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:27:44.502Z",
+      "recalculatedAt": "2026-09-28T12:13:59.188Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Tromso vs Hradec Kralove",

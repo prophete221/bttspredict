@@ -22,9 +22,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "1-1",
-      "verifiedAt": "2026-08-07T14:26:51.136Z"
+      "verifiedAt": "2026-08-07T14:26:51.136Z",
+      "recalculatedAt": "2026-09-28T12:13:59.189Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Leones vs Guayaquil City FC",
@@ -47,9 +49,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "1-1",
-      "verifiedAt": "2026-08-07T14:26:51.137Z"
+      "verifiedAt": "2026-08-07T14:26:51.137Z",
+      "recalculatedAt": "2026-09-28T12:13:59.189Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Orense vs Aucas",
@@ -72,9 +76,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "2-1",
-      "verifiedAt": "2026-08-07T14:26:51.137Z"
+      "verifiedAt": "2026-08-07T14:26:51.137Z",
+      "recalculatedAt": "2026-09-28T12:13:59.189Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Orense vs Aucas",
@@ -97,9 +103,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "2-1",
-      "verifiedAt": "2026-08-07T14:26:51.137Z"
+      "verifiedAt": "2026-08-07T14:26:51.137Z",
+      "recalculatedAt": "2026-09-28T12:13:59.189Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Emelec vs United States",
@@ -453,8 +461,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "2-1",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T12:16:32.062Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:32.062Z",
+      "recalculatedAt": "2026-09-28T12:13:59.189Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Belgrano (Córdoba) vs Rosario Central",
@@ -478,8 +488,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "2-1",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T12:16:32.062Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:32.062Z",
+      "recalculatedAt": "2026-09-28T12:13:59.189Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Sarmiento (Junín) vs Argentinos Juniors",

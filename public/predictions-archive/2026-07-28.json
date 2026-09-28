@@ -46,10 +46,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "LOST",
+      "status": "WON",
       "tier": "STANDARD",
       "finalScore": "1-1",
-      "verifiedAt": "2026-08-07T14:30:26.578Z"
+      "verifiedAt": "2026-08-07T14:30:26.578Z",
+      "recalculatedAt": "2026-09-28T12:13:59.191Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "2 de Mayo vs Cerro Porteño",
@@ -96,10 +98,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "WON",
+      "status": "LOST",
       "tier": "STANDARD",
       "finalScore": "2-1",
-      "verifiedAt": "2026-08-07T14:30:26.578Z"
+      "verifiedAt": "2026-08-07T14:30:26.578Z",
+      "recalculatedAt": "2026-09-28T12:13:59.191Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Banfield vs Sarmiento (Junín)",
@@ -254,10 +258,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "WON",
+      "status": "LOST",
       "tier": "STANDARD",
       "finalScore": "3-0",
-      "verifiedAt": "2026-08-07T12:16:59.319Z"
+      "verifiedAt": "2026-08-07T12:16:59.319Z",
+      "recalculatedAt": "2026-09-28T12:13:59.191Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Rosario Central vs Racing Club",
@@ -279,10 +285,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "LOST",
+      "status": "WON",
       "tier": "STANDARD",
       "finalScore": "0-0",
-      "verifiedAt": "2026-08-07T12:16:59.319Z"
+      "verifiedAt": "2026-08-07T12:16:59.319Z",
+      "recalculatedAt": "2026-09-28T12:13:59.191Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Rosario Central vs Racing Club",

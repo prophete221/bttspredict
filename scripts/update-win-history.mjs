@@ -13,7 +13,8 @@ import path from 'path';
 const DIR = './public/predictions-archive';
 const OUT = './public/win-history.json';
 const TRACKING_PERIOD_FILE = './public/tracking-period.json';
-const AVG_ODDS = 1.90;
+// (2026-09-28) Suppression de AVG_ODDS = 1.90 : cote fictive — aucun ROI/yield/profit
+// ne doit être calculé tant que le site ne collecte pas de cotes réelles.
 
 let TRACKING_START = '2026-08-08';
 try {
@@ -52,23 +53,18 @@ function getType(p) {
   return 'over25';
 }
 
-function calcProfit(isWon, ods) {
-  return isWon ? (ods - 1) : -1;
-}
+// calcProfit supprimé (2026-09-28) : dépendait de la cote fictive 1.90.
+// Les cotes réelles ne sont pas collectées → pas de ROI/yield/profit publié.
 
 function emptyBucket() {
   return {
     won: 0, lost: 0, pending: 0,
-    gold: { won: 0, lost: 0, profit: 0 },
-    std: { won: 0, lost: 0, profit: 0 },
+    gold: { won: 0, lost: 0 },
+    std: { won: 0, lost: 0 },
     btts: { won: 0, lost: 0 },
     over25: { won: 0, lost: 0 },
     daily: {},
     all: [],
-    totalProfit: 0,
-    goldProfit: 0,
-    oddsSum: 0, oddsCount: 0,
-    goldOddsSum: 0, goldOddsCount: 0,
     archivedTotal: 0,
   };
 }
@@ -81,30 +77,24 @@ function processFile(file, bucket) {
   if (!Array.isArray(preds)) return;
 
   bucket.archivedTotal += preds.length;
-  let dW = 0, dL = 0, dProfit = 0;
+  let dW = 0, dL = 0;
 
   for (const p of preds) {
     const tier = getTier(p);
     const type = getType(p);
-    const ods = p.coteProposee || p.odds || AVG_ODDS;
     const isWon = p.status === 'WON' || p.isWon === true;
     const isLost = p.status === 'LOST' || p.isWon === false;
     const isVerified = isWon || isLost;
-    const profit = isVerified ? calcProfit(isWon, ods) : 0;
 
     if (isWon) {
       bucket.won++; dW++;
-      bucket.totalProfit += profit; dProfit += profit;
-      bucket.oddsSum += ods; bucket.oddsCount++;
-      if (tier === 'GOLD') { bucket.gold.won++; bucket.gold.profit += profit; bucket.goldOddsSum += ods; bucket.goldOddsCount++; }
-      else { bucket.std.won++; bucket.std.profit += profit; }
+      if (tier === 'GOLD') bucket.gold.won++;
+      else bucket.std.won++;
       if (type === 'btts') bucket.btts.won++; else bucket.over25.won++;
     } else if (isLost) {
       bucket.lost++; dL++;
-      bucket.totalProfit += profit; dProfit += profit;
-      bucket.oddsSum += ods; bucket.oddsCount++;
-      if (tier === 'GOLD') { bucket.gold.lost++; bucket.gold.profit += profit; bucket.goldOddsSum += ods; bucket.goldOddsCount++; }
-      else { bucket.std.lost++; bucket.std.profit += profit; }
+      if (tier === 'GOLD') bucket.gold.lost++;
+      else bucket.std.lost++;
       if (type === 'btts') bucket.btts.lost++; else bucket.over25.lost++;
     } else {
       bucket.pending++;
@@ -115,11 +105,8 @@ function processFile(file, bucket) {
         date, match: p.match || '', league: p.league || '',
         market: type, tier,
         proba: p.proba || (p.confidence ? p.confidence / 100 : 0.62),
-        coteProposee: ods, coteCloture: p.coteCloture || null,
-        bookmaker: p.bookmaker || 'Linebet',
         status: isWon ? 'WON' : 'LOST',
         finalScore: p.finalScore || p.score || '-',
-        profit: +profit.toFixed(2),
         verifiedAt: p.verifiedAt || '',
         source: 'ESPN public',
       });
@@ -127,20 +114,16 @@ function processFile(file, bucket) {
   }
 
   if (dW + dL > 0) {
-    bucket.daily[date] = { total: dW + dL, won: dW, lost: dL, rate: +(dW / (dW + dL) * 100).toFixed(1), profit: +dProfit.toFixed(2) };
+    bucket.daily[date] = { total: dW + dL, won: dW, lost: dL, rate: +(dW / (dW + dL) * 100).toFixed(1) };
   }
 }
 
 function buildStats(bucket, periodFrom, periodTo, daysCount) {
   const total = bucket.won + bucket.lost;
   const rate = total > 0 ? +(bucket.won / total * 100).toFixed(1) : 0;
-  const avgOdds = bucket.oddsCount > 0 ? +(bucket.oddsSum / bucket.oddsCount).toFixed(2) : 0;
-  const roi = total > 0 ? +((bucket.totalProfit / total) * 100).toFixed(1) : 0;
 
   const goldTotal = bucket.gold.won + bucket.gold.lost;
   const goldRate = goldTotal > 0 ? +(bucket.gold.won / goldTotal * 100).toFixed(1) : 0;
-  const goldAvgOdds = bucket.goldOddsCount > 0 ? +(bucket.goldOddsSum / bucket.goldOddsCount).toFixed(2) : 0;
-  const goldRoi = goldTotal > 0 ? +((bucket.gold.profit / goldTotal) * 100).toFixed(1) : 0;
 
   const stdTotal = bucket.std.won + bucket.std.lost;
   const stdRate = stdTotal > 0 ? +(bucket.std.won / stdTotal * 100).toFixed(1) : 0;
@@ -150,23 +133,20 @@ function buildStats(bucket, periodFrom, periodTo, daysCount) {
   const overTotal = bucket.over25.won + bucket.over25.lost;
   const overRate = overTotal > 0 ? +(bucket.over25.won / overTotal * 100).toFixed(1) : 0;
 
-  let cumProfit = 0;
   const trend = Object.entries(bucket.daily)
     .sort(([a], [b]) => a.localeCompare(b))
     .slice(-14)
-    .map(([d, v]) => { cumProfit += v.profit; return { date: d, ...v, equity: +cumProfit.toFixed(2) }; });
-
-  let peak = 0, maxDD = 0;
-  cumProfit = 0;
-  for (const t of trend) { cumProfit += t.profit; if (cumProfit > peak) peak = cumProfit; const dd = peak - cumProfit; if (dd > maxDD) maxDD = dd; }
+    .map(([d, v]) => ({ date: d, ...v }));
 
   return {
     total, won: bucket.won, lost: bucket.lost, pending: bucket.pending,
     archivedTotal: bucket.archivedTotal,
-    rate, avgOdds, profit: +bucket.totalProfit.toFixed(2), roi, yield: roi,
+    rate,
+    // (2026-09-28) avgOdds / profit / roi / yield / maxDrawdown supprimés :
+    // ils dépendaient de la cote fictive 1.90. Ils reviendront uniquement
+    // si des cotes réelles sont collectées (ex. via Odds-API, cf. vip-combos).
     gold: {
       total: goldTotal, won: bucket.gold.won, lost: bucket.gold.lost, rate: goldRate,
-      avgOdds: goldAvgOdds, profit: +bucket.gold.profit.toFixed(2), roi: goldRoi, yield: goldRoi,
     },
     standard: { total: stdTotal, won: bucket.std.won, lost: bucket.std.lost, rate: stdRate },
     byType: {
@@ -174,7 +154,6 @@ function buildStats(bucket, periodFrom, periodTo, daysCount) {
       over25: { total: overTotal, won: bucket.over25.won, lost: bucket.over25.lost, rate: overRate },
     },
     trend14: trend,
-    maxDrawdown: +maxDD.toFixed(2),
     period: { from: periodFrom, to: periodTo, days: daysCount },
   };
 }
@@ -234,10 +213,10 @@ function main() {
   fs.writeFileSync(OUT, JSON.stringify(out, null, 2));
 
   console.log(`[update-win-history] ─────────────────────────────────────────`);
-  console.log(`[update-win-history] NEW (public) ${newStats.total} vérifiés | ${newStats.rate}% | ROI ${newStats.roi}% | ${newStats.archivedTotal} archivés | ${newStats.pending} en attente`);
-  console.log(`[update-win-history]   GOLD ${newStats.gold.total} ${newStats.gold.rate}% | ROI ${newStats.gold.roi}%`);
+  console.log(`[update-win-history] NEW (public) ${newStats.total} vérifiés | ${newStats.rate}% | ${newStats.archivedTotal} archivés | ${newStats.pending} en attente`);
+  console.log(`[update-win-history]   GOLD ${newStats.gold.total} ${newStats.gold.rate}%`);
   console.log(`[update-win-history]   Period ${newPeriodFrom || '—'} → ${newPeriodTo || '—'} (${newDaysCount}j)`);
-  console.log(`[update-win-history] LEGACY (privé) ${legacyStats.total} vérifiés | ${legacyStats.rate}% | ROI ${legacyStats.roi}%`);
+  console.log(`[update-win-history] LEGACY (privé) ${legacyStats.total} vérifiés | ${legacyStats.rate}%`);
   console.log(`[update-win-history]   Period ${legacyPeriodFrom || '—'} → ${legacyPeriodTo || '—'} (${legacyDaysCount}j)`);
   console.log(`[update-win-history] ─────────────────────────────────────────`);
   if (newStats.total < 30) {

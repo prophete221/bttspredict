@@ -1143,8 +1143,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "0-2",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T12:15:41.836Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:15:41.836Z",
+      "recalculatedAt": "2026-09-28T12:13:59.186Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "KFUM Oslo vs Bodo/Glimt",

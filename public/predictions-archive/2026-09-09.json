@@ -1966,9 +1966,11 @@
       "over25Prob": 0.5043,
       "homeLambda": 1.98,
       "awayLambda": 0.71,
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "2-0",
-      "verifiedAt": "2026-09-10T08:41:40.104Z"
+      "verifiedAt": "2026-09-10T08:41:40.104Z",
+      "recalculatedAt": "2026-09-28T12:13:59.207Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "id": "austinfc-vs-colorado-2026-09-10",
@@ -2032,8 +2034,10 @@
       "homeLambda": 2.07,
       "awayLambda": 0.63,
       "finalScore": "1-1",
-      "status": "WON",
-      "verifiedAt": "2026-09-10T03:20:13.280Z"
+      "status": "LOST",
+      "verifiedAt": "2026-09-10T03:20:13.280Z",
+      "recalculatedAt": "2026-09-28T12:13:59.207Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     }
   ]
 }
