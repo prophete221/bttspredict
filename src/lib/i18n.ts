@@ -44,7 +44,7 @@ export const TRANSLATIONS = {
       cta: 'Pronostic du jour', timezone: 'Heure officielle Africa/Dakar',
     },
     predictions: {
-      all: 'Tous', today: 'Auj.', tomorrow: 'Dem.', leagues: 'Toutes', noMatches: 'Aucun match sous ce filtre', seeAll: 'Voir tous les pronostics du jour',
+      all: 'Tous', today: 'Auj.', tomorrow: 'Dem.', leagues: 'Toutes', noMatches: 'Aucun match sous ce filtre', seeAll: 'Voir tous les pronostics du jour', matchPage: 'Analyse',
       aiPick: 'Pronostic IA', predictedScore: 'Score prédit', betMatch: 'Parier sur ce match', analysis: "Voir l’analyse", bttsYes: 'Oui', bttsNo: 'Non',
       updated: 'Mis à jour quotidiennement', noCombo: 'Aucun combo disponible aujourd’hui.',
     },
@@ -73,7 +73,7 @@ export const TRANSLATIONS = {
       cta: 'Today’s predictions', timezone: 'Official Africa/Dakar time',
     },
     predictions: {
-      all: 'All', today: 'Today', tomorrow: 'Tomorrow', leagues: 'All leagues', noMatches: 'No match under this filter', seeAll: 'See all today’s predictions',
+      all: 'All', today: 'Today', tomorrow: 'Tomorrow', leagues: 'All leagues', noMatches: 'No match under this filter', seeAll: 'See all today’s predictions', matchPage: 'Analysis',
       aiPick: 'AI pick', predictedScore: 'Predicted score', betMatch: 'Bet on this match', analysis: 'View analysis', bttsYes: 'Yes', bttsNo: 'No',
       updated: 'Updated daily', noCombo: 'No combo is available today.',
     },
@@ -102,7 +102,7 @@ export const TRANSLATIONS = {
       cta: 'توقعات اليوم', timezone: 'التوقيت الرسمي: إفريقيا/داكار',
     },
     predictions: {
-      all: 'الكل', today: 'اليوم', tomorrow: 'غداً', leagues: 'كل البطولات', noMatches: 'لا توجد مباراة ضمن هذا الفلتر', seeAll: 'عرض كل توقعات اليوم',
+      all: 'الكل', today: 'اليوم', tomorrow: 'غداً', leagues: 'كل البطولات', noMatches: 'لا توجد مباراة ضمن هذا الفلتر', seeAll: 'عرض كل توقعات اليوم', matchPage: 'تحليل',
       aiPick: 'توقع الذكاء الاصطناعي', predictedScore: 'النتيجة المتوقعة', betMatch: 'المراهنة على المباراة', analysis: 'عرض التحليل', bttsYes: 'نعم', bttsNo: 'لا',
       updated: 'يتم التحديث يومياً', noCombo: 'لا توجد تركيبة متاحة اليوم.',
     },

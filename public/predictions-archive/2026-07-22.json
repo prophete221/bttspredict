@@ -69,8 +69,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "3-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T12:16:27.574Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:27.574Z",
+      "recalculatedAt": "2026-09-28T12:13:59.189Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Bodo/Glimt vs Hamarkameratene",
@@ -118,9 +120,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "3-0",
-      "verifiedAt": "2026-08-07T14:30:40.585Z"
+      "verifiedAt": "2026-08-07T14:30:40.585Z",
+      "recalculatedAt": "2026-09-28T12:13:59.189Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Independiente del Valle vs Técnico Universitario",
@@ -143,9 +147,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "3-0",
-      "verifiedAt": "2026-08-07T14:30:40.585Z"
+      "verifiedAt": "2026-08-07T14:30:40.585Z",
+      "recalculatedAt": "2026-09-28T12:13:59.189Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Lillestrom vs Viking FK",
@@ -218,9 +224,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "3-0",
-      "verifiedAt": "2026-08-07T14:30:40.585Z"
+      "verifiedAt": "2026-08-07T14:30:40.585Z",
+      "recalculatedAt": "2026-09-28T12:13:59.189Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Macará vs Deportivo Cuenca",
@@ -243,9 +251,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "3-0",
-      "verifiedAt": "2026-08-07T14:30:40.585Z"
+      "verifiedAt": "2026-08-07T14:30:40.585Z",
+      "recalculatedAt": "2026-09-28T12:13:59.189Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "O Nicosia vs Kairat Almaty",

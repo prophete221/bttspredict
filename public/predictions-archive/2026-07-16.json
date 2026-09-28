@@ -23,8 +23,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "0-3",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T14:29:01.176Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:29:01.176Z",
+      "recalculatedAt": "2026-09-28T12:13:59.187Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Aucas vs Independiente del Valle",
@@ -48,8 +50,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "0-3",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T14:29:01.176Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T14:29:01.176Z",
+      "recalculatedAt": "2026-09-28T12:13:59.187Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Derry City vs CSKA Sofia",

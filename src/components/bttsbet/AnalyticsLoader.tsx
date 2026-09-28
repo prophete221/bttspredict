@@ -4,9 +4,11 @@ import { useEffect } from 'react'
 
 const CONSENT_KEY = 'bttsbet_cookie_consent'
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID
+// Ne charge GA qu'en build de production (next dev / preview exclus).
+const IS_PRODUCTION_BUILD = process.env.NODE_ENV === 'production'
 
 function analyticsAllowed(): boolean {
-  if (!GA_ID) return false
+  if (!GA_ID || !IS_PRODUCTION_BUILD) return false
   try {
     const stored = localStorage.getItem(CONSENT_KEY)
     if (!stored) return false

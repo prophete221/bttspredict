@@ -23,8 +23,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "1-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T14:30:45.526Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:30:45.526Z",
+      "recalculatedAt": "2026-09-28T12:13:59.188Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Libertad (Ecuador) vs Delfín",
@@ -48,8 +50,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "1-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T14:30:45.526Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:30:45.526Z",
+      "recalculatedAt": "2026-09-28T12:13:59.188Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "GAIS vs Nordsjaelland",

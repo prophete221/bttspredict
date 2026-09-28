@@ -165,8 +165,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "2-1",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T14:28:57.731Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T14:28:57.731Z",
+      "recalculatedAt": "2026-09-28T12:13:59.175Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Portugal vs Croatia",
@@ -190,8 +192,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "2-1",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T14:28:57.731Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T14:28:57.731Z",
+      "recalculatedAt": "2026-09-28T12:13:59.175Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "United States vs Egypt",

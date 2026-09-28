@@ -100,10 +100,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "WON",
+      "status": "LOST",
       "tier": "STANDARD",
       "finalScore": "1-2",
-      "verifiedAt": "2026-08-07T14:24:09.053Z"
+      "verifiedAt": "2026-08-07T14:24:09.053Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Peñarol vs Montevideo Wanderers",
@@ -125,10 +127,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "WON",
+      "status": "LOST",
       "tier": "STANDARD",
       "finalScore": "5-1",
-      "verifiedAt": "2026-08-07T14:24:09.053Z"
+      "verifiedAt": "2026-08-07T14:24:09.053Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Peñarol vs Montevideo Wanderers",
@@ -150,10 +154,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "WON",
+      "status": "LOST",
       "tier": "STANDARD",
       "finalScore": "5-1",
-      "verifiedAt": "2026-08-07T14:24:09.053Z"
+      "verifiedAt": "2026-08-07T14:24:09.053Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Internacional de Bogotá vs Jaguares de Córdoba",
@@ -200,10 +206,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "LOST",
+      "status": "WON",
       "tier": "STANDARD",
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-07T14:24:09.053Z"
+      "verifiedAt": "2026-08-07T14:24:09.053Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Tigre vs Belgrano (Córdoba)",
@@ -225,10 +233,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "LOST",
+      "status": "WON",
       "tier": "STANDARD",
       "finalScore": "0-0",
-      "verifiedAt": "2026-08-07T12:17:39.228Z"
+      "verifiedAt": "2026-08-07T12:17:39.228Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Tigre vs Belgrano (Córdoba)",
@@ -300,10 +310,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "LOST",
+      "status": "WON",
       "tier": "STANDARD",
       "finalScore": "0-1",
-      "verifiedAt": "2026-08-07T14:24:09.053Z"
+      "verifiedAt": "2026-08-07T14:24:09.053Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Rayo Zuliano vs Anzoátegui FC",

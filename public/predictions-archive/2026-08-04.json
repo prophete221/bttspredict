@@ -23,8 +23,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "2-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T14:24:36.401Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:24:36.401Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Carabobo vs Trujillanos",
@@ -48,8 +50,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "2-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T14:24:36.401Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:24:36.401Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Llaneros FC vs Fortaleza CEIF",
@@ -98,8 +102,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "3-1",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T14:24:36.401Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T14:24:36.401Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "UCV FC vs Monagas SC",
@@ -148,8 +154,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "2-1",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T14:24:36.401Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T14:24:36.401Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Deportivo Táchira vs Portuguesa",
@@ -173,8 +181,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "1-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T14:24:36.401Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:24:36.401Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Deportivo Táchira vs Portuguesa",
@@ -198,8 +208,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "1-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T14:24:36.401Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:24:36.401Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Deportes Tolima vs Independiente Medellín",
@@ -223,8 +235,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "2-3",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T14:24:36.401Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T14:24:36.401Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Deportes Tolima vs Independiente Medellín",
@@ -248,8 +262,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "2-3",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T14:24:36.401Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T14:24:36.401Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Millonarios vs Deportivo Pasto",
@@ -298,8 +314,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "2-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T14:24:36.401Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:24:36.401Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Boca Juniors vs Estudiantes de La Plata",

@@ -299,7 +299,7 @@ export default function VipUnlockModal({
                 <div className="grid grid-cols-2 gap-2 mb-4">
                   {selectedBookmaker === 'linebet' && (
                     <a href={AFFILIATE.linebet} rel="sponsored nofollow noopener noreferrer" target="_blank"
-                      onClick={() => trackAffiliateAction('linebet', 'signup', 'vip-modal-linebet')}
+                      onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'vip-modal-linebet')}
                       className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold"
                       style={{ backgroundColor: '#B8FF1A', color: '#071018' }}>
                       Inscription Linebet →
@@ -307,7 +307,7 @@ export default function VipUnlockModal({
                   )}
                   {selectedBookmaker === '888starz' && (
                     <a href={AFFILIATE.star888} rel="sponsored nofollow noopener noreferrer" target="_blank"
-                      onClick={() => trackAffiliateAction('888starz', 'signup', 'vip-modal-888starz')}
+                      onClick={() => trackAffiliateAction('888starz', 'signup_cta_click', 'vip-modal-888starz')}
                       className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold"
                       style={{ backgroundColor: '#B8FF1A', color: '#071018' }}>
                       Inscription 888starz →

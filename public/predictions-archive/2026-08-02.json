@@ -23,8 +23,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "2-1",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T12:17:24.547Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:24.547Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "FC Midtjylland vs AC Horsens",
@@ -48,8 +50,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "2-1",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T12:17:24.547Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:24.547Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "FC Nordsjælland vs Randers FC",
@@ -73,8 +77,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "1-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T12:17:24.547Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:24.547Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "FC Nordsjælland vs Randers FC",
@@ -248,8 +254,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "4-3",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T12:17:24.547Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:24.547Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Gazovik Orenburg vs Zenit St Petersburg",
@@ -272,9 +280,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-3",
-      "verifiedAt": "2026-08-07T14:30:04.765Z"
+      "verifiedAt": "2026-08-07T14:30:04.765Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Gazovik Orenburg vs Zenit St Petersburg",
@@ -297,9 +307,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "0-3",
-      "verifiedAt": "2026-08-07T14:30:04.765Z"
+      "verifiedAt": "2026-08-07T14:30:04.765Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Richards Bay FC vs Polokwane City FC",
@@ -322,9 +334,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "1-2",
-      "verifiedAt": "2026-08-07T14:30:04.765Z"
+      "verifiedAt": "2026-08-07T14:30:04.765Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Richards Bay FC vs Polokwane City FC",
@@ -347,9 +361,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "1-2",
-      "verifiedAt": "2026-08-07T14:30:04.765Z"
+      "verifiedAt": "2026-08-07T14:30:04.765Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Brøndby IF vs Viborg FF",
@@ -722,9 +738,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-07T14:30:04.765Z"
+      "verifiedAt": "2026-08-07T14:30:04.765Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Racing (Montevideo) vs Boston River",
@@ -747,9 +765,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-07T14:30:04.766Z"
+      "verifiedAt": "2026-08-07T14:30:04.766Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Krasnodar vs Fakel Voronezh",
@@ -772,9 +792,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "3-2",
-      "verifiedAt": "2026-08-07T14:30:04.766Z"
+      "verifiedAt": "2026-08-07T14:30:04.766Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Krasnodar vs Fakel Voronezh",
@@ -797,9 +819,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "3-2",
-      "verifiedAt": "2026-08-07T14:30:04.766Z"
+      "verifiedAt": "2026-08-07T14:30:04.766Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Hibernian vs Motherwell",
@@ -823,8 +847,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "1-2",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T12:17:24.548Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:24.548Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Hibernian vs Motherwell",
@@ -872,9 +898,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "2-2",
-      "verifiedAt": "2026-08-07T14:30:04.766Z"
+      "verifiedAt": "2026-08-07T14:30:04.766Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Siwelele vs TS Galaxy FC",
@@ -897,9 +925,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "2-2",
-      "verifiedAt": "2026-08-07T14:30:04.766Z"
+      "verifiedAt": "2026-08-07T14:30:04.766Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Silkeborg IF vs F.C. København",
@@ -972,9 +1002,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "2-0",
-      "verifiedAt": "2026-08-07T14:30:04.766Z"
+      "verifiedAt": "2026-08-07T14:30:04.766Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Sporting Cristal vs Juan Pablo II",
@@ -997,9 +1029,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "2-0",
-      "verifiedAt": "2026-08-07T14:30:04.766Z"
+      "verifiedAt": "2026-08-07T14:30:04.766Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Deportes Concepcion vs Universidad Católica",
@@ -1047,9 +1081,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "3-0",
-      "verifiedAt": "2026-08-07T14:30:04.766Z"
+      "verifiedAt": "2026-08-07T14:30:04.766Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Rapid Vienna vs SC Rheindorf Altach",
@@ -1172,9 +1208,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "1-2",
-      "verifiedAt": "2026-08-07T14:30:04.766Z"
+      "verifiedAt": "2026-08-07T14:30:04.766Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Akhmat Grozny vs Spartak Moscow",
@@ -1197,9 +1235,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "1-2",
-      "verifiedAt": "2026-08-07T14:30:04.766Z"
+      "verifiedAt": "2026-08-07T14:30:04.766Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Aldosivi vs Gimnasia La Plata",
@@ -1223,8 +1263,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "1-2",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T12:17:24.549Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:24.549Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Aldosivi vs Gimnasia La Plata",
@@ -1248,8 +1290,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "1-2",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T12:17:24.549Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:24.549Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     }
   ]
 }

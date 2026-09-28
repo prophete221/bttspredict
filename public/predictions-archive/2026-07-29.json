@@ -47,9 +47,11 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "1-4",
-      "verifiedAt": "2026-08-07T14:25:01.989Z"
+      "verifiedAt": "2026-08-07T14:25:01.989Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Nacional Asunción vs Club Olimpia",
@@ -97,9 +99,11 @@
         "hasRealData": false
       },
       "tier": "GOLD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "2-0",
-      "verifiedAt": "2026-08-07T14:25:01.989Z"
+      "verifiedAt": "2026-08-07T14:25:01.989Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Barracas Central vs Aldosivi",
@@ -123,8 +127,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "1-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T12:17:04.568Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:04.568Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Barracas Central vs Aldosivi",
@@ -148,8 +154,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "1-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T12:17:04.568Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:04.568Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "United States vs Deportivo Riestra",

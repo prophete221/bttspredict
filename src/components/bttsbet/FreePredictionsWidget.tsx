@@ -99,7 +99,7 @@ export default function FreePredictionsWidget() {
             style={{ backgroundColor: 'var(--brand-indigo)', color: 'var(--cta-text)' }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--cta-hover)')}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--brand-indigo)')}
-            onClick={() => trackAffiliateAction('linebet', 'signup', 'free-predictions-widget')}
+            onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'free-predictions-widget')}
             data-cta="free-predictions-linebet"
             aria-label="Ouvrir Linebet avec le code promo VISION221"
           >

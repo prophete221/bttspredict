@@ -25,7 +25,7 @@ export default function AffiliateSignupCta({
       rel="sponsored nofollow noopener noreferrer"
       className={className}
       style={style}
-      onClick={() => trackAffiliateAction(partner, 'signup', placement)}
+      onClick={() => trackAffiliateAction(partner, 'signup_cta_click', placement)}
     >
       {children}
     </a>

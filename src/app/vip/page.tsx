@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { AFFILIATE } from '@/lib/constants'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
@@ -83,9 +83,13 @@ async function copyText(value: string) {
 }
 
 /* Effet 3D : inclinaison douce au survol / au doigt (désactivée si prefers-reduced-motion) */
-function useTilt(max = 8) {
-  const ref = useRef<HTMLDivElement>(null)
-  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+/* Le ref est créé dans le composant (pattern standard) et passé en paramètre :
+   aucune propriété de ref n'est exposée dans l'objet retourné (react-hooks/refs). */
+function useTilt(
+  ref: React.RefObject<HTMLDivElement | null>,
+  max = 8,
+) {
+  const onPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     const el = ref.current
     if (!el) return
     if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -93,11 +97,11 @@ function useTilt(max = 8) {
     const px = (e.clientX - rect.left) / rect.width - 0.5
     const py = (e.clientY - rect.top) / rect.height - 0.5
     el.style.transform = `rotateY(${(px * max).toFixed(2)}deg) rotateX(${(-py * max).toFixed(2)}deg)`
-  }
-  const onPointerLeave = () => {
+  }, [ref, max])
+  const onPointerLeave = useCallback(() => {
     if (ref.current) ref.current.style.transform = ''
-  }
-  return { ref, onPointerMove, onPointerLeave }
+  }, [ref])
+  return { onPointerMove, onPointerLeave }
 }
 
 /* ────────────────────────── Icônes inline ────────────────────────── */
@@ -485,7 +489,8 @@ export default function VipPage() {
   const [toast, setToast] = useState('')
   const [fixtures, setFixtures] = useState<PredictionFixture[]>([])
 
-  const memberTilt = useTilt(9)
+  const memberCardRef = useRef<HTMLDivElement | null>(null)
+  const memberTilt = useTilt(memberCardRef, 9)
 
   const selected = bookmaker ? BRAND[bookmaker] : null
   const signupLink = bookmaker === 'linebet' ? AFFILIATE.linebet : bookmaker === '888starz' ? AFFILIATE.star888 : '#deblocage'
@@ -625,7 +630,7 @@ export default function VipPage() {
             {/* Carte membre 3D */}
             <div className="vipx-hero__card">
               <div className="vipx-scene">
-                <div className="vipx-member vipx-tilt" ref={memberTilt.ref} onPointerMove={memberTilt.onPointerMove} onPointerLeave={memberTilt.onPointerLeave}>
+                <div className="vipx-member vipx-tilt" ref={memberCardRef} onPointerMove={memberTilt.onPointerMove} onPointerLeave={memberTilt.onPointerLeave}>
                   <div className="vipx-member__row">
                     <strong>{text.memberTop}</strong>
                     <span className="vipx-member__crown"><Icon.crown />VIP</span>
@@ -790,7 +795,7 @@ export default function VipPage() {
                             target="_blank"
                             rel="sponsored nofollow noopener noreferrer"
                             className="vipx-btn vipx-btn--gold vipx-btn--block"
-                            onClick={() => trackAffiliateAction(bookmaker, 'signup', 'vip-modal-step2')}
+                            onClick={() => trackAffiliateAction(bookmaker, 'signup_cta_click', 'vip-modal-step2')}
                             data-cta="vip-modal-signup"
                           >
                             {text.signup} {selected.label}<span aria-hidden="true">↗</span>

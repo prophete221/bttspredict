@@ -22,9 +22,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "1-2",
-      "verifiedAt": "2026-08-07T14:30:08.832Z"
+      "verifiedAt": "2026-08-07T14:30:08.832Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Akron Tolyatti vs Rubin Kazan",
@@ -47,9 +49,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "1-2",
-      "verifiedAt": "2026-08-07T14:30:08.832Z"
+      "verifiedAt": "2026-08-07T14:30:08.832Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "BK Häcken vs Kalmar FF",
@@ -122,9 +126,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-0",
-      "verifiedAt": "2026-08-07T14:30:08.833Z"
+      "verifiedAt": "2026-08-07T14:30:08.833Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Golden Arrows vs Chippa United",
@@ -147,9 +153,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-0",
-      "verifiedAt": "2026-08-07T14:30:08.833Z"
+      "verifiedAt": "2026-08-07T14:30:08.833Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Orlando Pirates vs Milford FC",
@@ -197,9 +205,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "2-0",
-      "verifiedAt": "2026-08-07T14:30:08.833Z"
+      "verifiedAt": "2026-08-07T14:30:08.833Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Stellenbosch vs AmaZulu",
@@ -247,9 +257,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-1",
-      "verifiedAt": "2026-08-07T14:30:08.833Z"
+      "verifiedAt": "2026-08-07T14:30:08.833Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "CSKA Moscow vs Krylia Sovetov",
@@ -297,9 +309,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "1-1",
-      "verifiedAt": "2026-08-07T14:30:08.834Z"
+      "verifiedAt": "2026-08-07T14:30:08.834Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Falkirk vs St Mirren",
@@ -497,9 +511,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "2-2",
-      "verifiedAt": "2026-08-07T14:30:08.834Z"
+      "verifiedAt": "2026-08-07T14:30:08.834Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Dynamo Makhachkala vs Lokomotiv Moscow",
@@ -547,9 +563,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "2-1",
-      "verifiedAt": "2026-08-07T14:30:08.834Z"
+      "verifiedAt": "2026-08-07T14:30:08.834Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Sekhukhune United FC vs Durban City",
@@ -572,9 +590,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-07T14:30:08.834Z"
+      "verifiedAt": "2026-08-07T14:30:08.834Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Sekhukhune United FC vs Durban City",
@@ -597,9 +617,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-07T14:30:08.834Z"
+      "verifiedAt": "2026-08-07T14:30:08.834Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Lyngby Boldklub vs AGF",
@@ -797,9 +819,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "4-0",
-      "verifiedAt": "2026-08-07T14:30:08.834Z"
+      "verifiedAt": "2026-08-07T14:30:08.834Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "RB Salzburg vs TSV Hartberg",
@@ -897,9 +921,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "2-1",
-      "verifiedAt": "2026-08-07T14:30:08.835Z"
+      "verifiedAt": "2026-08-07T14:30:08.835Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Deportivo Maldonado vs Juventud",
@@ -922,9 +948,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-0",
-      "verifiedAt": "2026-08-07T14:30:08.835Z"
+      "verifiedAt": "2026-08-07T14:30:08.835Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Deportivo Maldonado vs Juventud",
@@ -947,9 +975,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-0",
-      "verifiedAt": "2026-08-07T14:30:08.835Z"
+      "verifiedAt": "2026-08-07T14:30:08.835Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "FC Cajamarca vs Sport Huancayo",
@@ -972,9 +1002,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-2",
-      "verifiedAt": "2026-08-07T14:30:08.835Z"
+      "verifiedAt": "2026-08-07T14:30:08.835Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "FC Cajamarca vs Sport Huancayo",
@@ -997,9 +1029,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-2",
-      "verifiedAt": "2026-08-07T14:30:08.835Z"
+      "verifiedAt": "2026-08-07T14:30:08.835Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Kruger United vs Kaizer Chiefs",
@@ -1022,9 +1056,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "1-3",
-      "verifiedAt": "2026-08-07T14:30:08.835Z"
+      "verifiedAt": "2026-08-07T14:30:08.835Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Kruger United vs Kaizer Chiefs",
@@ -1047,9 +1083,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "1-3",
-      "verifiedAt": "2026-08-07T14:30:08.835Z"
+      "verifiedAt": "2026-08-07T14:30:08.835Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Estudiantes de Río Cuarto vs Banfield",
@@ -1073,8 +1111,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "0-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T12:17:19.368Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:19.368Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Estudiantes de Río Cuarto vs Banfield",
@@ -1098,8 +1138,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "0-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T12:17:19.368Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:19.368Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Gimnasia (Mendoza) vs Unión (Santa Fe)",
@@ -1148,8 +1190,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "2-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T12:17:19.369Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:17:19.369Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Deportivo Pasto vs Águilas Doradas",
@@ -1172,9 +1216,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "1-2",
-      "verifiedAt": "2026-08-07T14:30:08.835Z"
+      "verifiedAt": "2026-08-07T14:30:08.835Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Deportivo Pasto vs Águilas Doradas",
@@ -1197,9 +1243,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "1-2",
-      "verifiedAt": "2026-08-07T14:30:08.835Z"
+      "verifiedAt": "2026-08-07T14:30:08.835Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Manta F.C. vs Mushuc Runa",
@@ -1222,9 +1270,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "1-2",
-      "verifiedAt": "2026-08-07T14:30:08.835Z"
+      "verifiedAt": "2026-08-07T14:30:08.835Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Manta F.C. vs Mushuc Runa",
@@ -1247,9 +1297,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "1-2",
-      "verifiedAt": "2026-08-07T14:30:08.835Z"
+      "verifiedAt": "2026-08-07T14:30:08.835Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     }
   ]
 }

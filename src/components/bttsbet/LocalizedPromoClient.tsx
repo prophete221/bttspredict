@@ -88,7 +88,7 @@ export default function LocalizedPromoClient({ bookmaker, reviewDate }: { bookma
     }
   }
 
-  const track = (event: 'signup' | 'download') => trackAffiliateAction(bookmaker, event, `localized-${bookmaker}`)
+  const track = (event: 'signup_cta_click' | 'download_click') => trackAffiliateAction(bookmaker, event, `localized-${bookmaker}`)
   const reviewDateLabel = new Intl.DateTimeFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB' : 'fr-FR', { dateStyle: 'long', timeZone: 'Africa/Dakar' }).format(new Date(`${effectiveReviewDate}T12:00:00Z`))
 
   return (
@@ -110,8 +110,8 @@ export default function LocalizedPromoClient({ bookmaker, reviewDate }: { bookma
           <button onClick={handleCopy} className="mt-3 px-6 py-3 rounded-xl text-xl font-black tracking-widest" style={{ backgroundColor: '#B8FF1A', color: '#071018' }} aria-label={`${code} — copy`}>{code}</button>
           {copied && <p className="text-xs text-[#34D399] mt-2" role="status" aria-live="polite">{copy.copied}</p>}
           <div className="grid gap-3 mt-6">
-            <a href={signup} target="_blank" rel="noopener noreferrer nofollow sponsored" onClick={() => track('signup')} className="rounded-xl py-3 font-bold" style={{ backgroundColor: '#B8FF1A', color: '#071018' }}>{copy.signup}</a>
-            <a href={download} target="_blank" rel="noopener noreferrer nofollow sponsored" onClick={() => track('download')} className="rounded-xl py-3 font-bold border border-[#5D7880] text-[#F5F8F3]">{copy.download}</a>
+            <a href={signup} target="_blank" rel="noopener noreferrer nofollow sponsored" onClick={() => track('signup_cta_click')} className="rounded-xl py-3 font-bold" style={{ backgroundColor: '#B8FF1A', color: '#071018' }}>{copy.signup}</a>
+            <a href={download} target="_blank" rel="noopener noreferrer nofollow sponsored" onClick={() => track('download_click')} className="rounded-xl py-3 font-bold border border-[#5D7880] text-[#F5F8F3]">{copy.download}</a>
           </div>
           <p className="text-xs text-[#B7C4C1] mt-4">{copy.conditions}</p>
         </section>
