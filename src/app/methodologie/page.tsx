@@ -146,7 +146,7 @@ export default function MethodologiePage() {
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
               6. Couverture et robustesse
             </h2>
-            <div className="p-4 rounded-xl" style={{ backgroundColor: 'rgba(75, 182, 135, 0.06)', border: '1px solid rgba(75, 182, 135, 0.2)' }}>
+            <div className="p-4 rounded-xl" style={{ backgroundColor: 'rgba(47, 125, 255, 0.06)', border: '1px solid rgba(47, 125, 255, 0.2)' }}>
               <ul className="space-y-2 text-sm text-[#9DABBB]">
                 <li>• Le moteur couvre les compétitions disponibles dans les données de prédiction.</li>
                 <li>• Chaque match est analysé à partir de la dynamique offensive et défensive récente des deux équipes, sur leurs derniers matchs.</li>
@@ -196,7 +196,7 @@ export default function MethodologiePage() {
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
               9. Probabilité et transparence
             </h2>
-            <div className="p-4 rounded-xl" style={{ backgroundColor: 'rgba(75, 182, 135, 0.06)', border: '1px solid rgba(75, 182, 135, 0.2)' }}>
+            <div className="p-4 rounded-xl" style={{ backgroundColor: 'rgba(47, 125, 255, 0.06)', border: '1px solid rgba(47, 125, 255, 0.2)' }}>
               <p className="text-sm text-[#9DABBB] leading-relaxed mb-3">
                 Une probabilité élevée signifie que, sur un échantillon de matchs aux caractéristiques similaires, le modèle s'attend à ce qu'une majorité se termine par le résultat prédit. BTTSPredict publie ces probabilités en toute transparence pour aider à la décision.
               </p>

@@ -97,8 +97,8 @@ export default function HowToGetVip() {
           <div
             className="inline-flex items-center gap-1.5 mt-3 px-3 py-1.5 rounded-full text-[11px]"
             style={{
-              background: 'rgba(75, 182, 135, 0.06)',
-              border: '1px solid rgba(75, 182, 135, 0.20)',
+              background: 'rgba(47, 125, 255, 0.06)',
+              border: '1px solid rgba(47, 125, 255, 0.20)',
               color: '#2F7DFF',
             }}
           >
@@ -121,7 +121,7 @@ export default function HowToGetVip() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
               className="flex gap-4 p-4 rounded-xl"
-              style={{ background: 'rgba(7, 17, 26, 0.6)', border: '1px solid rgba(75, 182, 135, 0.08)' }}
+              style={{ background: 'rgba(7, 17, 26, 0.6)', border: '1px solid rgba(47, 125, 255, 0.08)' }}
             >
               {/* Numéro + icône */}
               <div className="flex-shrink-0">
@@ -172,7 +172,7 @@ export default function HowToGetVip() {
           transition={{ duration: 0.4 }}
           className="mb-10 p-5 rounded-xl text-center"
           style={{
-            background: 'linear-gradient(135deg, rgba(75, 182, 135, 0.08), rgba(75, 182, 135, 0.08))',
+            background: 'linear-gradient(135deg, rgba(47, 125, 255, 0.08), rgba(47, 125, 255, 0.08))',
             border: '1px solid rgba(127, 162, 198, 0.30)',
           }}
         >

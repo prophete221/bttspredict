@@ -54,7 +54,7 @@ export default function SportMarquee() {
               onMouseEnter={(e) => {
                 e.currentTarget.style.filter = 'grayscale(0) brightness(1)'
                 e.currentTarget.style.opacity = '1'
-                ;(e.currentTarget.style as any).dropShadow = '0 0 12px rgba(75, 182, 135, 0.5)'
+                ;(e.currentTarget.style as any).dropShadow = '0 0 12px rgba(47, 125, 255, 0.5)'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.filter = 'grayscale(1) brightness(0.7)'

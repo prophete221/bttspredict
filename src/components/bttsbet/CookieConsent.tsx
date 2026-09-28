@@ -91,7 +91,7 @@ export default function CookieConsent() {
             <AnimatePresence>
               {customize && (
                 <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
-                  <div className="rounded-xl p-3 sm:p-4 mb-3 sm:mb-4 space-y-3" style={{ backgroundColor: '#FFFFFF', border: '1px solid #6B7A8C' }}>
+                  <div className="rounded-xl p-3 sm:p-4 mb-3 sm:mb-4 space-y-3" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
                     {cookieTypes.map((cookie) => (
                       <label key={cookie.id} className="flex items-start gap-3 cursor-pointer group">
                         <div className="pt-0.5">
@@ -111,7 +111,7 @@ export default function CookieConsent() {
                           <div className="flex items-center gap-2">
                             <span className="text-sm text-papier font-medium">{cookie.label}</span>
                             {cookie.required && (
-                              <span className="text-[10px] px-2 py-0.5 rounded-full font-medium" style={{ backgroundColor: 'rgba(156, 196, 244, 0.16)', color: '#4A90FF' }}>{lang === 'fr' ? 'Obligatoire' : lang === 'en' ? 'Required' : 'مطلوب'}</span>
+                              <span className="text-xs px-2 py-0.5 rounded-full font-medium" style={{ backgroundColor: 'rgba(47, 125, 255, 0.14)', color: '#4A90FF' }}>{lang === 'fr' ? 'Obligatoire' : lang === 'en' ? 'Required' : 'مطلوب'}</span>
                             )}
                           </div>
                           <p className="text-xs text-cendre mt-0.5">{cookie.description}</p>
@@ -131,7 +131,7 @@ export default function CookieConsent() {
               <div className="flex gap-2 sm:gap-3 sm:ml-auto order-1 sm:order-2 w-full sm:w-auto">
                 <button onClick={handleRefuse}
                   className="flex-1 sm:flex-initial px-3 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm rounded-xl font-medium transition-all"
-                  style={{ border: '1px solid #7A9293', color: '#9DABBB', backgroundColor: 'transparent' }}
+                  style={{ border: '1px solid #35485C', color: '#9DABBB', backgroundColor: 'transparent' }}
                   onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1A242F'; e.currentTarget.style.color = '#F2F6FA' }}
                   onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#9DABBB' }}
                 >
@@ -150,10 +150,10 @@ export default function CookieConsent() {
                   style={{
                     backgroundColor: '#2F7DFF',
                     color: '#FFFFFF',
-                    boxShadow: '0 0 0 1px rgba(214, 179, 106, .35), 0 4px 16px rgba(214, 179, 106, .22)',
+                    boxShadow: '0 4px 16px rgba(47, 125, 255, 0.28)',
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 0 0 1px rgba(214, 179, 106, .55), 0 8px 24px rgba(214, 179, 106, .30)'}
-                  onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 0 0 1px rgba(214, 179, 106, .35), 0 4px 16px rgba(214, 179, 106, .22)'}
+                  onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 6px 20px rgba(47, 125, 255, 0.38)'}
+                  onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 4px 16px rgba(47, 125, 255, 0.28)'}
                 >
                   {lang === 'fr' ? 'Accepter' : lang === 'en' ? 'Accept' : 'قبول'}
                 </button>

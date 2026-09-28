@@ -129,7 +129,7 @@ export default function HistoriqueClient() {
 
         {/* Disclaimer : période de lancement — version crédible */}
         {insufficient && (
-          <div className="p-4 rounded-xl mb-6" style={{ backgroundColor: 'rgba(75, 182, 135, 0.06)', border: '1px solid rgba(75, 182, 135, 0.2)' }}>
+          <div className="p-4 rounded-xl mb-6" style={{ backgroundColor: 'rgba(47, 125, 255, 0.06)', border: '1px solid rgba(47, 125, 255, 0.2)' }}>
             <p className="text-sm text-[#2F7DFF] leading-relaxed mb-2 font-bold">
               {copy.launch}
             </p>

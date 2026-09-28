@@ -191,7 +191,7 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
 
             <div className="p-5 sm:p-6">
               {/* Header — résumé du niveau */}
-              <div className="flex items-center gap-3 mb-5 pb-5 border-b" style={{ borderColor: 'rgba(75, 182, 135, 0.15)' }}>
+              <div className="flex items-center gap-3 mb-5 pb-5 border-b" style={{ borderColor: 'rgba(47, 125, 255, 0.15)' }}>
                 <div
                   className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0"
                   style={{
@@ -320,7 +320,7 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-lg text-sm font-bold ml-9"
                   style={{
                     backgroundColor: 'rgba(127, 162, 198, 0.16)',
-                    border: '1px solid rgba(75, 182, 135, 0.4)',
+                    border: '1px solid rgba(47, 125, 255, 0.4)',
                     color: '#2F7DFF',
                   }}
                 >
@@ -334,7 +334,7 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                 className="p-4 rounded-xl mb-4"
                 style={{
                   backgroundColor: '#141C25',
-                  border: '1px solid rgba(75, 182, 135, 0.15)',
+                  border: '1px solid rgba(47, 125, 255, 0.15)',
                 }}
               >
                 <p className="text-[10px] uppercase tracking-widest font-bold mb-2" style={{ color: '#9DABBB' }}>

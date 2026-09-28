@@ -194,7 +194,7 @@ export default function RootLayout({
         {children}
         <BottomNavigation />
         <CookieConsent />
-        <div aria-hidden="true" style={{ height: 'calc(64px + env(safe-area-inset-bottom, 0px))' }} />
+        <div aria-hidden="true" className="lg:hidden" style={{ height: 'calc(64px + env(safe-area-inset-bottom, 0px))' }} />
       </body>
     </html>
   );

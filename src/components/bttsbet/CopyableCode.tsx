@@ -66,7 +66,7 @@ export default function CopyableCode({
   // Gold glow intensity based on scroll (0 → max when centered)
   const glowIntensity = gold ? 0.4 + scrollProgress * 0.6 : 0
   const goldGlow = gold
-    ? `text-shadow: 0 0 ${10 + scrollProgress * 20}px rgba(75, 182, 135, ${glowIntensity}), 0 0 ${20 + scrollProgress * 40}px rgba(75, 182, 135, ${glowIntensity * 0.5});`
+    ? `text-shadow: 0 0 ${10 + scrollProgress * 20}px rgba(47, 125, 255, ${glowIntensity}), 0 0 ${20 + scrollProgress * 40}px rgba(47, 125, 255, ${glowIntensity * 0.5});`
     : ''
 
   if (gold) {
@@ -87,7 +87,7 @@ export default function CopyableCode({
             WebkitTextFillColor: 'transparent',
             animation: 'goldShimmer 3s ease-in-out infinite',
             ...(goldGlow ? { cssText: goldGlow } : {}),
-            borderBottom: '2px solid rgba(75, 182, 135, 0.4)',
+            borderBottom: '2px solid rgba(47, 125, 255, 0.4)',
           }}
         >
           {code}

@@ -14,7 +14,7 @@ export default function VipCardWidget() {
         <div
           className="rounded-xl p-5 relative overflow-hidden"
           style={{
-            background: 'linear-gradient(135deg, rgba(7, 17, 26, 0.9), rgba(75, 182, 135, 0.08))',
+            background: 'linear-gradient(135deg, rgba(7, 17, 26, 0.9), rgba(47, 125, 255, 0.08))',
             border: '1px solid rgba(127, 162, 198, 0.30)',
           }}
         >
@@ -72,7 +72,7 @@ export default function VipCardWidget() {
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 py-2 rounded-lg text-xs font-bold"
-              style={{ backgroundColor: 'rgba(75, 182, 135, 0.15)', border: '1px solid #2F7DFF', color: '#2F7DFF' }}
+              style={{ backgroundColor: 'rgba(47, 125, 255, 0.15)', border: '1px solid #2F7DFF', color: '#2F7DFF' }}
             >
               WhatsApp
             </a>

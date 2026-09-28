@@ -46,9 +46,9 @@ export default function StickyVipBandeau() {
             transition={{ duration: 0.4, ease: [0.2, 0.8, 0.2, 1] }}
             className="relative squircle-xl overflow-hidden border-2"
             style={{
-              borderColor: 'rgba(75, 182, 135, 0.35)',
-              background: 'linear-gradient(135deg, rgba(127, 162, 198, 0.16) 0%, rgba(7, 17, 26, 0.85) 50%, rgba(75, 182, 135, 0.08) 100%)',
-              boxShadow: '0 12px 32px rgba(7, 17, 26, 0.4), 0 0 60px rgba(75, 182, 135, 0.15), inset 0 1px 0 #9DABBB',
+              borderColor: 'rgba(47, 125, 255, 0.35)',
+              background: 'linear-gradient(135deg, rgba(127, 162, 198, 0.16) 0%, rgba(7, 17, 26, 0.85) 50%, rgba(47, 125, 255, 0.08) 100%)',
+              boxShadow: '0 12px 32px rgba(7, 17, 26, 0.4), 0 0 60px rgba(47, 125, 255, 0.15), inset 0 1px 0 #9DABBB',
             }}
           >
             {/* Top shimmer line */}

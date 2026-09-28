@@ -5,7 +5,7 @@ import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
 
 const C = {
-  bg:'##0B0F14', card:'#141C25', border:'#6B7A8C',
+  bg:'#0B0F14', card:'#141C25', border:'#6B7A8C',
   neon:'#2F7DFF', gold:'#2F7DFF', data:'#2F7DFF',
   text:'#F2F6FA', textSec:'#9DABBB', textMute:'#9DABBB',
   success:'#2F7DFF',

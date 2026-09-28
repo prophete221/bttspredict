@@ -30,19 +30,19 @@ import { useLanguage } from './LanguageSwitcher'
 import { translationsFor } from '@/lib/i18n'
 import { getDakarDateString, getDakarMatchStatus } from '@/lib/dakar-date'
 
-// ─── Palette (Slate Design System — matches VIP / methodology) ──────────
+// ─── Palette (Design V2 — bleu analyse, sémantique WIN/LOST/PENDING) ──────────
 const C = {
-  bg:       '##0B0F14',
+  bg:       '#0B0F14',
   surface:  '#141C25',
   surface2: '#0B0F14',
-  border:   '#6B7A8C',
+  border:   '#223041',
   text:     '#F2F6FA',
   textSec:  '#9DABBB',
-  textMute: '#64748B',
+  textMute: '#6B7A8C',
   success:  '#34D399',
-  warning:  '#2F7DFF',
+  warning:  '#FBBF24',
   data:     '#2F7DFF',
-  gold:     '#2F7DFF',
+  gold:     '#E8C268',
   danger:   '#F87171',
 }
 
@@ -202,7 +202,7 @@ function TeamLogo({ src, name, size = 36 }: { src?: string; name: string; size?:
   if (!src || err) {
     return (
       <div
-        className="rounded-md flex items-center justify-center font-black flex-shrink-0"
+        className="rounded-md flex items-center justify-center font-bold flex-shrink-0"
         style={{
           width: size,
           height: size,
@@ -240,10 +240,10 @@ function StatBlock({ label, value, accent }: { label: string; value: string; acc
       backgroundColor: C.surface2,
       border: `1px solid ${C.border}`,
     }}>
-      <div className="text-[8px] sm:text-[9px] uppercase tracking-widest font-bold mb-0.5" style={{ color: C.textSec }}>
+      <div className="text-xs uppercase tracking-widest font-semibold mb-0.5" style={{ color: C.textSec }}>
         {label}
       </div>
-      <div className="text-base sm:text-lg font-black tabular-nums" style={{ color: accent || C.text }}>
+      <div className="text-base sm:text-lg font-bold tabular-nums" style={{ color: accent || C.text }}>
         {value}
       </div>
     </div>
@@ -254,10 +254,10 @@ function StatBlock({ label, value, accent }: { label: string; value: string; acc
 function ProbBlock({ label, value, accent }: { label: string; value: string; accent: string }) {
   return (
     <div className="rounded-md p-2 text-center" style={{ backgroundColor: `${accent}10` }}>
-      <div className="text-[8px] uppercase tracking-widest font-bold mb-1" style={{ color: C.textSec }}>
+      <div className="text-xs uppercase tracking-widest font-semibold mb-1" style={{ color: C.textSec }}>
         {label}
       </div>
-      <div className="text-base sm:text-lg font-black tabular-nums" style={{ color: accent }}>
+      <div className="text-base sm:text-lg font-bold tabular-nums" style={{ color: accent }}>
         {value}
       </div>
     </div>
@@ -268,11 +268,11 @@ function ProbBlock({ label, value, accent }: { label: string; value: string; acc
 function DataBadge({ label, value, accent }: { label: string; value: string; accent?: string }) {
   return (
     <div className="flex items-center gap-1.5">
-      <span className="text-[8px] uppercase tracking-widest font-bold" style={{ color: C.textSec }}>
+      <span className="text-xs uppercase tracking-widest font-semibold" style={{ color: C.textSec }}>
         {label}
       </span>
       <span
-        className="px-1.5 py-0.5 rounded text-[8px] font-black uppercase tracking-wider"
+        className="px-1.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider"
         style={{
           backgroundColor: `${accent || C.textSec}15`,
           color: accent || C.textSec,
@@ -310,11 +310,11 @@ function MatchCard({ match, index, insufficientDataLabel, labels }: { match: Mat
 
       {/* ─── HEADER: League + Time ─── */}
       <div className="flex items-center justify-between px-3 py-2" style={{ borderBottom: `1px solid ${C.border}` }}>
-        <span className="text-[9px] uppercase tracking-widest font-bold truncate" style={{ color: C.textSec }}>
+        <span className="text-xs uppercase tracking-widest font-semibold truncate" style={{ color: C.textSec }}>
           {match.league}
         </span>
         <div className="flex items-center gap-2 flex-shrink-0">
-          <span className="text-[10px] font-mono tabular-nums" style={{ color: C.textSec }}>
+          <span className="text-xs font-mono tabular-nums" style={{ color: C.textSec }}>
             {match.time || '--:--'}
           </span>
         </div>
@@ -324,16 +324,16 @@ function MatchCard({ match, index, insufficientDataLabel, labels }: { match: Mat
       <div className="flex items-center justify-between px-3 py-3 gap-2">
         <div className="flex flex-col items-center gap-1 flex-1 min-w-0">
           <TeamLogo src={match.homeLogo} name={match.home} size={36} />
-          <span className="text-[11px] font-bold text-center truncate w-full" style={{ color: C.text }}>
+          <span className="text-sm font-semibold text-center truncate w-full" style={{ color: C.text }}>
             {match.home}
           </span>
         </div>
         <div className="flex flex-col items-center px-1 flex-shrink-0">
-          <span className="text-[10px] font-black" style={{ color: C.gold }}>VS</span>
+          <span className="text-xs font-bold" style={{ color: C.textMute }}>VS</span>
         </div>
         <div className="flex flex-col items-center gap-1 flex-1 min-w-0">
           <TeamLogo src={match.awayLogo} name={match.away} size={36} />
-          <span className="text-[11px] font-bold text-center truncate w-full" style={{ color: C.text }}>
+          <span className="text-sm font-semibold text-center truncate w-full" style={{ color: C.text }}>
             {match.away}
           </span>
         </div>
@@ -349,20 +349,20 @@ function MatchCard({ match, index, insufficientDataLabel, labels }: { match: Mat
         {/* xG row */}
         <div className="grid grid-cols-3 gap-1.5">
           <div className="rounded-md p-2 text-center" style={{ backgroundColor: `${C.data}08` }}>
-            <div className="text-[7px] uppercase tracking-wider font-bold mb-0.5" style={{ color: C.textSec }}>{labels.xgHome}</div>
-            <div className="text-[11px] font-black tabular-nums" style={{ color: C.data }}>
+            <div className="text-xs uppercase tracking-wider font-semibold mb-0.5" style={{ color: C.textSec }}>{labels.xgHome}</div>
+            <div className="text-sm font-bold tabular-nums" style={{ color: C.data }}>
               {sufficientData ? fmtNum(match.homeLambda ?? match.xgHome) : '—'}
             </div>
           </div>
           <div className="rounded-md p-2 text-center" style={{ backgroundColor: `${C.data}08` }}>
-            <div className="text-[7px] uppercase tracking-wider font-bold mb-0.5" style={{ color: C.textSec }}>{labels.xgAway}</div>
-            <div className="text-[11px] font-black tabular-nums" style={{ color: C.data }}>
+            <div className="text-xs uppercase tracking-wider font-semibold mb-0.5" style={{ color: C.textSec }}>{labels.xgAway}</div>
+            <div className="text-sm font-bold tabular-nums" style={{ color: C.data }}>
               {sufficientData ? fmtNum(match.awayLambda ?? match.xgAway) : '—'}
             </div>
           </div>
           <div className="rounded-md p-2 text-center" style={{ backgroundColor: `${C.data}08` }}>
-            <div className="text-[7px] uppercase tracking-wider font-bold mb-0.5" style={{ color: C.textSec }}>{labels.xgTotal}</div>
-            <div className="text-[11px] font-black tabular-nums" style={{ color: C.data }}>
+            <div className="text-xs uppercase tracking-wider font-semibold mb-0.5" style={{ color: C.textSec }}>{labels.xgTotal}</div>
+            <div className="text-sm font-bold tabular-nums" style={{ color: C.data }}>
               {sufficientData ? fmtNum(match.xgTotal ?? ((match.homeLambda ?? match.xgHome ?? 0) + (match.awayLambda ?? match.xgAway ?? 0))) : '—'}
             </div>
           </div>
@@ -371,21 +371,21 @@ function MatchCard({ match, index, insufficientDataLabel, labels }: { match: Mat
 
       {/* ─── EXACT SCORE — source data only ─── */}
       <div className="px-3 pb-3">
-        <div className="rounded-md p-2.5" style={{ backgroundColor: `${C.gold}10`, border: `1px solid ${C.gold}35` }}>
+        <div className="rounded-md p-2.5" style={{ backgroundColor: 'rgba(47, 125, 255, 0.08)', border: '1px solid rgba(47, 125, 255, 0.25)' }}>
           <div className="flex items-center justify-between gap-2">
-            <span className="text-[8px] uppercase tracking-widest font-bold" style={{ color: C.textSec }}>
+            <span className="text-xs uppercase tracking-widest font-semibold" style={{ color: C.textSec }}>
               {labels.exactScore}
             </span>
             {match.exactScoreProb && (
-              <span className="text-[9px] font-mono font-bold" style={{ color: C.gold }}>
+              <span className="text-xs font-mono font-semibold" style={{ color: C.data }}>
                 {match.exactScoreProb}
               </span>
             )}
           </div>
-          <div className="mt-1 text-lg font-black tabular-nums" style={{ color: match.aiExactScore ? C.gold : C.textSec }}>
+          <div className="mt-1 text-lg font-bold tabular-nums" style={{ color: match.aiExactScore ? C.data : C.textSec }}>
             {match.aiExactScore ? match.aiExactScore : 'Non publié — données insuffisantes'}
           </div>
-          <p className="text-[8px] mt-1" style={{ color: C.textMute }}>
+          <p className="text-xs mt-1" style={{ color: C.textMute }}>
             {match.aiExactScore || match.exactScoreProb ? labels.projection : insufficientDataLabel}
           </p>
         </div>
@@ -398,7 +398,7 @@ function MatchCard({ match, index, insufficientDataLabel, labels }: { match: Mat
       }}>
         <DataBadge label={labels.source} value={dataSourceLabel} accent={C.data} />
         <DataBadge label={labels.quality} value={quality} accent={qualityColorVal} />
-        <span className="text-[8px] uppercase tracking-wider font-bold" style={{ color: C.textSec }}>
+        <span className="text-xs uppercase tracking-wider font-semibold" style={{ color: C.textSec }}>
           {fmtInt(match.matchCountHome)} + {fmtInt(match.matchCountAway)} {labels.matches}
         </span>
       </div>
@@ -407,10 +407,10 @@ function MatchCard({ match, index, insufficientDataLabel, labels }: { match: Mat
       {match.reliabilityScore != null && Number.isFinite(match.reliabilityScore) && (
         <div className="px-3 py-2" style={{ borderTop: `1px solid ${C.border}` }}>
           <div className="flex items-center justify-between mb-1">
-            <span className="text-[8px] uppercase tracking-widest font-bold" style={{ color: C.textSec }}>
+            <span className="text-xs uppercase tracking-widest font-semibold" style={{ color: C.textSec }}>
               {labels.dataConfidence}
             </span>
-            <span className="text-[11px] font-black tabular-nums" style={{ color: C.gold }}>
+            <span className="text-sm font-bold tabular-nums" style={{ color: C.data }}>
               {Math.round(match.reliabilityScore)}%
             </span>
           </div>
@@ -419,8 +419,8 @@ function MatchCard({ match, index, insufficientDataLabel, labels }: { match: Mat
               className="absolute inset-y-0 left-0 rounded-full"
               style={{
                 width: `${Math.min(100, Math.max(0, match.reliabilityScore))}%`,
-                background: `linear-gradient(90deg, ${C.gold}aa, ${C.gold})`,
-                boxShadow: `0 0 8px ${C.gold}66`,
+                background: 'linear-gradient(90deg, rgba(47, 125, 255, 0.7), #2F7DFF)',
+                boxShadow: 'none',
               }}
             />
           </div>
@@ -435,13 +435,13 @@ function MatchCard({ match, index, insufficientDataLabel, labels }: { match: Mat
               className="w-1.5 h-1.5 rounded-full"
               style={{ backgroundColor: C.data, boxShadow: `0 0 6px ${C.data}` }}
             />
-            <span className="text-[9px] uppercase tracking-widest font-bold" style={{ color: C.data }}>
+            <span className="text-xs uppercase tracking-widest font-semibold" style={{ color: C.data }}>
               {labels.aiAnalysis}
             </span>
           </div>
           {match.aiExactScore && (
-            <span className="text-[9px] font-mono tabular-nums" style={{ color: C.textSec }}>
-              {labels.score}: <span style={{ color: C.gold }}>{match.aiExactScore}</span>
+            <span className="text-xs font-mono tabular-nums" style={{ color: C.textSec }}>
+              {labels.score}: <span style={{ color: C.data }}>{match.aiExactScore}</span>
               {match.exactScoreProb ? ` (${match.exactScoreProb})` : ''}
             </span>
           )}
@@ -454,17 +454,17 @@ function MatchCard({ match, index, insufficientDataLabel, labels }: { match: Mat
           </div>
         )}
         {match.aiKeyFact && (
-          <p className="text-[10px] font-semibold mb-1" style={{ color: C.text }}>
+          <p className="text-xs font-semibold mb-1" style={{ color: C.text }}>
             {match.aiKeyFact}
           </p>
         )}
         {!expanded && match.aiAnalysis && (
-          <p className="text-[10px] leading-relaxed mt-1" style={{ color: C.textSec }}>
+          <p className="text-xs leading-relaxed mt-1" style={{ color: C.textSec }}>
             {match.aiAnalysis.length > 180 ? `${match.aiAnalysis.slice(0, 177)}…` : match.aiAnalysis}
           </p>
         )}
         {expanded && match.aiAnalysis && (
-          <p className="text-[10px] leading-relaxed mt-1" style={{ color: C.textSec }}>
+          <p className="text-xs leading-relaxed mt-1" style={{ color: C.textSec }}>
             {match.aiAnalysis}
           </p>
         )}
@@ -475,7 +475,7 @@ function MatchCard({ match, index, insufficientDataLabel, labels }: { match: Mat
               onClick={() => setExpanded(e => !e)}
               aria-expanded={expanded}
               aria-label={expanded ? `Masquer l'analyse complète de ${match.home} vs ${match.away}` : `Voir l'analyse complète de ${match.home} vs ${match.away}`}
-              className="text-[9px] uppercase tracking-widest font-bold transition-colors"
+              className="text-xs uppercase tracking-widest font-semibold transition-colors"
               style={{ color: C.data }}
             >
               {expanded ? 'Masquer l’analyse' : 'Voir l’analyse complète'}
@@ -483,8 +483,8 @@ function MatchCard({ match, index, insufficientDataLabel, labels }: { match: Mat
           )}
           <Link
             href={`/match/${generateMatchSlug(match.home, match.away, match.date)}`}
-            className="text-[9px] uppercase tracking-widest font-bold transition-colors"
-            style={{ color: C.gold }}
+            className="text-xs uppercase tracking-widest font-semibold transition-colors"
+            style={{ color: C.data }}
           >
             {labels.openMatch} →
           </Link>
@@ -514,14 +514,14 @@ function ComboPickRow({ pick, index }: { pick: ComboPick; index: number }) {
     }}>
       {/* Row 1: number + match name + league/time */}
       <div className="flex items-start gap-2 mb-1.5">
-        <span className="text-[12px] font-black tabular-nums flex-shrink-0 mt-0.5" style={{ color: C.gold }}>
+        <span className="text-xs font-bold tabular-nums flex-shrink-0 mt-0.5" style={{ color: C.data }}>
           {num}
         </span>
         <div className="flex-1 min-w-0">
-          <div className="text-[11px] font-bold truncate" style={{ color: C.text }}>
+          <div className="text-sm font-semibold truncate" style={{ color: C.text }}>
             {pick.match.home} <span style={{ color: C.textSec }}>vs</span> {pick.match.away}
           </div>
-          <div className="text-[9px] uppercase tracking-wider font-bold truncate" style={{ color: C.textSec }}>
+          <div className="text-xs uppercase tracking-wider font-semibold truncate" style={{ color: C.textSec }}>
             {pick.match.league} · {pick.match.time || '--:--'}
           </div>
         </div>
@@ -530,7 +530,7 @@ function ComboPickRow({ pick, index }: { pick: ComboPick; index: number }) {
       {/* Row 2: market badge + real probability */}
       <div className="flex items-center justify-between gap-2 mb-1.5">
         <span
-          className="px-2 py-0.5 rounded text-[8px] font-black uppercase tracking-wider flex-shrink-0"
+          className="px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider flex-shrink-0"
           style={{
             backgroundColor: `${marketColor}15`,
             color: marketColor,
@@ -539,13 +539,13 @@ function ComboPickRow({ pick, index }: { pick: ComboPick; index: number }) {
         >
           {pick.market}
         </span>
-        <span className="text-[14px] font-black tabular-nums" style={{ color: marketColor }}>
+        <span className="text-[14px] font-bold tabular-nums" style={{ color: marketColor }}>
           {(pick.probability * 100).toFixed(1)}%
         </span>
       </div>
 
       {/* Row 3: meta info — source/quality/confidence (real values only) */}
-      <div className="flex items-center justify-between gap-2 mt-1.5 pt-1.5 text-[8px]" style={{
+      <div className="flex items-center justify-between gap-2 mt-1.5 pt-1.5 text-xs" style={{
         borderTop: `1px solid ${C.border}`,
         color: C.textSec,
       }}>
@@ -554,7 +554,7 @@ function ComboPickRow({ pick, index }: { pick: ComboPick; index: number }) {
         </span>
         <span className="flex items-center gap-1 flex-shrink-0">
           <span className="uppercase tracking-wider font-bold">Confidence</span>
-          <span className="font-black tabular-nums" style={{ color: C.gold }}>
+          <span className="font-bold tabular-nums" style={{ color: C.data }}>
             {Math.round(pick.reliabilityScore)}%
           </span>
         </span>
@@ -818,19 +818,19 @@ export default function BttsTodayDashboard() {
             <div className="flex items-center gap-1.5 mb-1">
               <span
                 className="w-1.5 h-1.5 rounded-full"
-                style={{ backgroundColor: C.success, boxShadow: `0 0 6px ${C.success}` }}
+                style={{ backgroundColor: C.data }}
               />
-              <span className="text-[9px] uppercase tracking-widest font-black" style={{ color: C.success }}>
+              <span className="text-xs uppercase tracking-widest font-semibold" style={{ color: C.data }}>
                 BTTSPredict
               </span>
-              <span className="text-[9px] uppercase tracking-widest" style={{ color: C.textSec }}>
+              <span className="text-xs uppercase tracking-widest" style={{ color: C.textSec }}>
                 · AI + Statistical Engine
               </span>
             </div>
-            <h2 className="text-base sm:text-lg font-black" style={{ color: C.text, fontFamily: 'Poppins, sans-serif' }}>
+            <h2 className="text-base sm:text-lg font-bold" style={{ color: C.text, fontFamily: 'var(--font-display), system-ui, sans-serif' }}>
               {lang === 'fr' ? 'Pronostics du jour' : lang === 'en' ? 'Today’s predictions' : 'توقعات اليوم'}
             </h2>
-            <p className="text-[10px]" style={{ color: C.textSec }}>
+            <p className="text-xs" style={{ color: C.textSec }}>
               {lang === 'fr' ? 'Prédictions statistiques basées sur des données réelles de matchs' : lang === 'en' ? 'Statistical predictions powered by real match data' : 'توقعات إحصائية مبنية على بيانات حقيقية للمباريات'}
               {generationDate ? ` · ${fmtDate(generationDate)}` : ''}
             </p>
@@ -840,18 +840,18 @@ export default function BttsTodayDashboard() {
         {/* ─── Stats row (real values only) ─── */}
         <div className="btts-today-stats grid grid-cols-2 sm:grid-cols-4 gap-2 mt-3">
           <StatBlock label={lang === 'fr' ? 'Matchs' : lang === 'en' ? 'Matches' : 'المباريات'} value={fmtInt(stats.todayCount)} accent={C.text} />
-          <StatBlock label={lang === 'fr' ? 'BTTS élevé' : lang === 'en' ? 'BTTS high' : 'BTTS مرتفع'} value={fmtInt(stats.bttsHigh)} accent={C.success} />
+          <StatBlock label={lang === 'fr' ? 'BTTS élevé' : lang === 'en' ? 'BTTS high' : 'BTTS مرتفع'} value={fmtInt(stats.bttsHigh)} accent={C.data} />
           <StatBlock label={lang === 'fr' ? 'Over 2.5 élevé' : lang === 'en' ? 'Over 2.5 high' : 'Over 2.5 مرتفع'} value={fmtInt(stats.overHigh)} accent={C.warning} />
-          <StatBlock label={lang === 'fr' ? 'Qualité des données' : lang === 'en' ? 'Data quality' : 'جودة البيانات'} value={stats.highQuality > 0 ? 'HIGH' : '—'} accent={stats.highQuality > 0 ? C.success : C.textSec} />
+          <StatBlock label={lang === 'fr' ? 'Qualité des données' : lang === 'en' ? 'Data quality' : 'جودة البيانات'} value={stats.highQuality > 0 ? 'HIGH' : '—'} accent={stats.highQuality > 0 ? C.data : C.textSec} />
         </div>
 
         {stats.avgReliability != null && (
-          <div className="mt-2 flex flex-col gap-1 text-[10px]" style={{ color: C.textSec }}>
+          <div className="mt-2 flex flex-col gap-1 text-xs" style={{ color: C.textSec }}>
             <div className="flex items-center gap-2">
               <span className="uppercase tracking-widest font-bold">{lang === 'fr' ? 'Confiance moyenne des données :' : lang === 'en' ? 'Average data confidence:' : 'متوسط موثوقية البيانات:'}</span>
-              <span className="font-black tabular-nums" style={{ color: C.gold }}>{stats.avgReliability}%</span>
+              <span className="font-bold tabular-nums" style={{ color: C.data }}>{stats.avgReliability}%</span>
             </div>
-            <span className="text-[8px] italic" style={{ color: C.textMute }}>
+            <span className="text-xs italic" style={{ color: C.textMute }}>
               {lang === 'fr' ? 'Qualité des données disponibles — ce n’est pas une probabilité de réussite.' : lang === 'en' ? 'Available data quality — this is not a probability of success.' : 'جودة البيانات المتاحة — ليست احتمالاً للنجاح.'}
             </span>
           </div>
@@ -864,22 +864,22 @@ export default function BttsTodayDashboard() {
       {!loading && (liveTodayMatches.length > 0 || scheduledTodayMatches.length > 0) && (
         <div className="btts-today-combo rounded-xl p-3 sm:p-4 mb-4" style={{
           backgroundColor: C.surface,
-          border: `1px solid ${C.gold}40`,
-          boxShadow: `0 0 24px ${C.gold}08`,
+          border: `1px solid rgba(47, 125, 255, 0.30)`,
+          boxShadow: '0 8px 24px rgba(47, 125, 255, 0.06)',
         }}>
           {/* Header */}
           <div className="flex items-center gap-2 mb-3">
-            <span className="text-base flex-shrink-0" style={{ color: C.gold }}>✦</span>
+            <span className="text-base flex-shrink-0" style={{ color: C.data }}>✦</span>
             <div className="flex-1 min-w-0">
-              <div className="text-[10px] uppercase tracking-widest font-black" style={{ color: C.gold }}>
+              <div className="text-xs uppercase tracking-widest font-semibold" style={{ color: C.data }}>
                 {lang === 'fr' ? 'Combo IA du jour' : lang === 'en' ? 'AI Combo of the Day' : 'تركيبة الذكاء الاصطناعي لليوم'}
               </div>
-              <div className="text-[9px]" style={{ color: C.textSec }}>
+              <div className="text-xs" style={{ color: C.textSec }}>
                 {combo.length === 3
                   ? (lang === 'fr' ? 'Sélection statistique · 3 choix' : lang === 'en' ? 'Statistical selection · 3 picks' : 'اختيار إحصائي · 3 اختيارات')
                   : (lang === 'fr' ? 'Sélection statistique' : lang === 'en' ? 'Statistical selection' : 'اختيار إحصائي')}
               </div>
-              <div className="text-[8px] mt-0.5 italic" style={{ color: C.textMute }}>
+              <div className="text-xs mt-0.5 italic" style={{ color: C.textMute }}>
                 {lang === 'fr' ? 'Sélection déterministe basée sur les données disponibles — ne garantit aucun résultat.' : lang === 'en' ? 'Deterministic selection based on available data — no result is guaranteed.' : 'اختيار محدد يعتمد على البيانات المتاحة — لا توجد ضمانات لأي نتيجة.'}
               </div>
             </div>
@@ -888,10 +888,10 @@ export default function BttsTodayDashboard() {
           {/* Picks — exactly 3 required, otherwise neutral empty state. Legacy copy: No combo available today. */}
           {combo.length < 3 ? (
             <div className="py-4 text-center">
-              <p className="text-[11px] font-bold" style={{ color: C.text }}>
+              <p className="text-sm font-semibold" style={{ color: C.text }}>
                 {t.predictions.noCombo}
               </p>
-              <p className="text-[9px] mt-1" style={{ color: C.textSec }}>
+              <p className="text-xs mt-1" style={{ color: C.textSec }}>
                 {lang === 'fr' ? 'Conditions : qualité des données différente de LOW, fiabilité ≥ 70 %, BTTS ou Over 2.5 ≥ 65 %.' : lang === 'en' ? 'Eligibility: data quality is not LOW, reliability ≥ 70%, BTTS or Over 2.5 ≥ 65%.' : 'الشروط: جودة البيانات ليست منخفضة، الموثوقية ≥ 70%، وBTTS أو Over 2.5 ≥ 65%.'}
               </p>
             </div>
@@ -908,7 +908,7 @@ export default function BttsTodayDashboard() {
           )}
 
           {/* Disclaimer — discrete */}
-          <p className="text-[9px] mt-3 text-center" style={{ color: C.textMute }}>
+          <p className="text-xs mt-3 text-center" style={{ color: C.textMute }}>
             {lang === 'fr' ? 'Sélection IA basée sur les sorties du modèle statistique. Aucun pari n’est garanti.' : lang === 'en' ? 'AI selection based on statistical model outputs. No bet is guaranteed.' : 'اختيار الذكاء الاصطناعي مبني على مخرجات النموذج الإحصائي. لا توجد ضمانات لأي رهان.'}
           </p>
         </div>
@@ -921,9 +921,9 @@ export default function BttsTodayDashboard() {
             key={f.id}
             onClick={() => setActiveFilter(f.id)}
             aria-pressed={activeFilter === f.id}
-            className="px-3 py-1.5 rounded-full text-[11px] font-bold transition-all whitespace-nowrap flex-shrink-0"
+            className="px-3 py-1.5 rounded-full text-sm font-semibold transition-all whitespace-nowrap flex-shrink-0"
             style={{
-              backgroundColor: activeFilter === f.id ? C.success : C.surface,
+              backgroundColor: activeFilter === f.id ? C.data : C.surface,
               color: activeFilter === f.id ? C.bg : C.textSec,
               border: `1px solid ${activeFilter === f.id ? C.success : C.border}`,
             }}
@@ -944,9 +944,9 @@ export default function BttsTodayDashboard() {
         <>
           {/* ─── Section: Aujourd'hui ─── */}
           <div className="mb-6">
-            <h3 className="text-xs uppercase tracking-widest font-black mb-3" style={{ color: C.text }}>
+            <h3 className="text-xs uppercase tracking-widest font-bold mb-3" style={{ color: C.text }}>
               {lang === 'fr' ? 'À venir aujourd’hui' : lang === 'en' ? 'Today — upcoming' : 'المباريات القادمة اليوم'}
-              <span className="ml-2 px-2 py-0.5 rounded-full text-[10px] font-bold" style={{
+              <span className="ml-2 px-2 py-0.5 rounded-full text-xs font-semibold" style={{
                 backgroundColor: (scheduledTodayMatches.length + liveTodayMatches.length) > 0 ? `${C.success}20` : `${C.textMute}20`,
                 color: (scheduledTodayMatches.length + liveTodayMatches.length) > 0 ? C.success : C.textMute,
               }}>
@@ -956,7 +956,7 @@ export default function BttsTodayDashboard() {
             {scheduledTodayMatches.length === 0 ? (
               <div className="rounded-xl p-8 text-center" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
                 <p className="text-sm font-bold mb-1" style={{ color: C.text }}>{lang === 'fr' ? 'Aucun match disponible aujourd’hui' : lang === 'en' ? 'No match available today' : 'لا توجد مباريات متاحة اليوم'}</p>
-                <p className="text-[11px]" style={{ color: C.textSec }}>{lang === 'fr' ? 'Revenez plus tard ou consultez les matchs à venir ci-dessous.' : lang === 'en' ? 'Come back later or check the upcoming matches below.' : 'عد لاحقاً أو راجع المباريات القادمة أدناه.'}</p>
+                <p className="text-[13px]" style={{ color: C.textSec }}>{lang === 'fr' ? 'Revenez plus tard ou consultez les matchs à venir ci-dessous.' : lang === 'en' ? 'Come back later or check the upcoming matches below.' : 'عد لاحقاً أو راجع المباريات القادمة أدناه.'}</p>
               </div>
             ) : (
               <div className="btts-match-grid grid grid-cols-1 lg:grid-cols-2 gap-3">
@@ -971,9 +971,9 @@ export default function BttsTodayDashboard() {
 
           {finishedTodayMatches.length > 0 && (
             <div className="mb-6">
-              <h3 className="text-xs uppercase tracking-widest font-black mb-3" style={{ color: C.textSec }}>
+              <h3 className="text-xs uppercase tracking-widest font-bold mb-3" style={{ color: C.textSec }}>
                 {lang === 'fr' ? 'Terminés aujourd’hui' : lang === 'en' ? 'Finished today' : 'انتهت اليوم'}
-                <span className="ml-2 px-2 py-0.5 rounded-full text-[10px] font-bold" style={{ backgroundColor: `${C.textMute}20`, color: C.textMute }}>
+                <span className="ml-2 px-2 py-0.5 rounded-full text-xs font-semibold" style={{ backgroundColor: `${C.textMute}20`, color: C.textMute }}>
                   {finishedTodayMatches.length}
                 </span>
               </h3>
@@ -987,9 +987,9 @@ export default function BttsTodayDashboard() {
 
           {liveTodayMatches.length > 0 && (
             <div className="mb-6">
-              <h3 className="text-xs uppercase tracking-widest font-black mb-3" style={{ color: C.success }}>
+              <h3 className="text-xs uppercase tracking-widest font-bold mb-3" style={{ color: C.success }}>
                 {lang === 'fr' ? 'En direct / en cours' : lang === 'en' ? 'Live / in progress' : 'مباشر / قيد اللعب'}
-                <span className="ml-2 px-2 py-0.5 rounded-full text-[10px] font-bold" style={{ backgroundColor: `${C.success}20`, color: C.success }}>
+                <span className="ml-2 px-2 py-0.5 rounded-full text-xs font-semibold" style={{ backgroundColor: `${C.success}20`, color: C.success }}>
                   {liveTodayMatches.length}
                 </span>
               </h3>
@@ -1004,9 +1004,9 @@ export default function BttsTodayDashboard() {
           {/* ─── Section: À venir ─── */}
           {upcomingMatches.length > 0 && (
             <div>
-              <h3 className="text-xs uppercase tracking-widest font-black mb-3" style={{ color: C.text }}>
+              <h3 className="text-xs uppercase tracking-widest font-bold mb-3" style={{ color: C.text }}>
                 {lang === 'fr' ? 'À venir' : lang === 'en' ? 'Upcoming' : 'القادمة'}
-                <span className="ml-2 px-2 py-0.5 rounded-full text-[10px] font-bold" style={{
+                <span className="ml-2 px-2 py-0.5 rounded-full text-xs font-semibold" style={{
                   backgroundColor: `${C.textSec}20`,
                   color: C.textSec,
                 }}>
@@ -1027,14 +1027,14 @@ export default function BttsTodayDashboard() {
           {scheduledTodayMatches.length === 0 && liveTodayMatches.length === 0 && upcomingMatches.length === 0 && (
             <div className="rounded-xl p-8 text-center" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
               <p className="text-sm font-bold mb-1" style={{ color: C.text }}>{lang === 'fr' ? 'Aucun match sous ce filtre' : lang === 'en' ? 'No matches under this filter' : 'لا توجد مباريات ضمن هذا الفلتر'}</p>
-              <p className="text-[11px]" style={{ color: C.textSec }}>{lang === 'fr' ? 'Essayez un autre filtre ou revenez plus tard.' : lang === 'en' ? 'Try another filter or come back later.' : 'جرّب فلترًا آخر أو عد لاحقاً.'}</p>
+              <p className="text-[13px]" style={{ color: C.textSec }}>{lang === 'fr' ? 'Essayez un autre filtre ou revenez plus tard.' : lang === 'en' ? 'Try another filter or come back later.' : 'جرّب فلترًا آخر أو عد لاحقاً.'}</p>
             </div>
           )}
         </>
       )}
 
       {/* ─── Footer disclaimer ─── */}
-      <p className="text-center text-[10px] mt-6" style={{ color: C.textSec }}>
+      <p className="text-center text-xs mt-6" style={{ color: C.textSec }}>
         {lang === 'fr' ? 'Prédictions statistiques basées sur xG + modèle de Poisson. Aucun résultat futur garanti. 18+' : lang === 'en' ? 'Statistical predictions based on xG + Poisson model. No future result guaranteed. 18+.' : 'توقعات إحصائية مبنية على xG ونموذج بواسون. لا توجد ضمانات لنتيجة مستقبلية. 18+'}
       </p>
     </section>

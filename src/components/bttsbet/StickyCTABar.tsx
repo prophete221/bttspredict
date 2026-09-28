@@ -67,7 +67,7 @@ export default function StickyCTABar() {
             className="flex items-center gap-2 px-3 py-2.5 backdrop-blur-xl"
             style={{
               backgroundColor: 'rgba(7, 17, 26, 0.95)',
-              borderTop: '1px solid rgba(75, 182, 135, 0.2)',
+              borderTop: '1px solid rgba(47, 125, 255, 0.2)',
               boxShadow: '0 -4px 20px rgba(7, 17, 26, 0.4)',
             }}
           >
@@ -92,7 +92,7 @@ export default function StickyCTABar() {
               </span>
             </button>
 
-            {/* Register CTA — VERT, seule couleur d'action */}
+            {/* Register CTA — bleu analyse (V2) */}
             <a
               href={AFFILIATE.linebet}
               rel="sponsored nofollow noopener noreferrer"
@@ -101,7 +101,7 @@ export default function StickyCTABar() {
               style={{
                 backgroundColor: '#2F7DFF',
                 color: '#FFFFFF',
-                boxShadow: '0 0 0 1px rgba(75, 182, 135,.4), 0 4px 16px rgba(75, 182, 135,.22)',
+                boxShadow: '0 4px 16px rgba(47, 125, 255, 0.28)',
               }}
               data-cta="sticky-register"
               onClick={() => trackAffiliateAction('linebet', 'signup', 'sticky-register')}

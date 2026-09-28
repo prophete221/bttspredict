@@ -17,8 +17,8 @@ interface PremiumButtonProps extends Omit<HTMLMotionProps<'a'>, 'ref'> {
 }
 
 const SIZES: Record<Size, string> = {
-  sm: 'px-3 py-2 text-xs gap-1.5',
-  md: 'px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm gap-2',
+  sm: 'px-4 py-2.5 text-[13px] gap-1.5',
+  md: 'px-5 py-2.5 sm:px-6 sm:py-3 text-sm gap-2',
   lg: 'px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base gap-2.5',
 }
 
@@ -29,25 +29,25 @@ const VARIANTS: Record<Variant, {
   logoClass?: string
 }> = {
   linebet: {
-    className: 'btn-linebet cta-glow text-[#FFFFFF] font-bold',
+    className: 'btn-linebet cta-glow text-[#FFFFFF] font-semibold',
     logo: '/logos/linebet-provided.jpg',
     logoAlt: 'Linebet',
     logoClass: 'h-4 sm:h-5 w-auto',
   },
   star888: {
-    className: 'btn-star888 cta-glow text-[#FFFFFF] font-bold',
+    className: 'btn-star888 cta-glow text-[#E8C268] font-semibold',
     logo: '/logos/888starz-provided.webp',
     logoAlt: '888starz',
     logoClass: 'h-4 sm:h-5 w-auto',
   },
   gold: {
-    className: 'btn-gold cta-glow text-[#141C25] font-bold',
+    className: 'btn-gold cta-glow text-[#FFFFFF] font-semibold',
   },
   ghost: {
     className: 'btn-ghost font-semibold',
   },
   download: {
-    className: 'btn-gold cta-glow text-[#141C25] font-bold',
+    className: 'btn-gold cta-glow text-[#FFFFFF] font-semibold',
     logo: '/logos/google-play.svg',
     logoAlt: 'Google Play',
     logoClass: 'h-4 sm:h-5 w-4 sm:w-5',

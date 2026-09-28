@@ -103,7 +103,7 @@ function ProbabilityBar({ value, prediction, color = 'green' }: { value: number;
 
   return (
     <div className="space-y-1">
-      <div className="flex items-center justify-between text-[11px]">
+      <div className="flex items-center justify-between text-sm">
         <span className={`font-bold ${isPositive ? 'text-success-light' : 'text-cendre'}`}>
           {prediction}
         </span>
@@ -282,7 +282,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
       className="prediction-match-card prediction-match-card--compact squircle-lg overflow-hidden hover:border-success/30 transition-all"
     >
       {/* Top accent line */}
-      <div className="prediction-match-card__accent h-px bg-gradient-to-r from-transparent via-success/40 to-transparent" />
+      <div className="prediction-match-card__accent h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
 
       <div className="prediction-match-card__body p-4 sm:p-5">
         {/* Header row: status + league */}
@@ -294,16 +294,16 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
               </span>
             )}
             {status === 'upcoming' && (
-              <span className="text-[10px] text-cendre mono tabular-nums">{match.time || '--:--'}</span>
+              <span className="text-xs text-cendre mono tabular-nums">{match.time || '--:--'}</span>
             )}
             {status === 'finished' && (
-              <span className="text-[10px] text-cendre mono tabular-nums">{match.time || '--:--'}</span>
+              <span className="text-xs text-cendre mono tabular-nums">{match.time || '--:--'}</span>
             )}
-            <span className="text-[10px] text-cendre uppercase tracking-widest font-semibold truncate">
+            <span className="text-xs text-cendre uppercase tracking-widest font-semibold truncate">
               {match.league}
             </span>
           </div>
-          <span className="text-[10px] text-cendre mono whitespace-nowrap">{dateLabel}</span>
+          <span className="text-xs text-cendre mono whitespace-nowrap">{dateLabel}</span>
         </div>
 
         {/* Teams */}
@@ -316,8 +316,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
 
           {/* VS */}
           <div className="flex flex-col items-center">
-            <span className="text-base font-bold text-success mono">VS</span>
-            <span className="text-[9px] text-cendre uppercase tracking-widest mt-1">match</span>
+            <span className="text-sm font-bold text-tertiary-muted mono tabular-nums" style={{ color: '#6B7A8C' }}>VS</span>
           </div>
 
           {/* Away */}
@@ -339,25 +338,25 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
                   <line x1="15" y1="9" x2="15.01" y2="9" />
                 </svg>
               </div>
-              <span className="text-[10px] uppercase tracking-widest font-bold text-success-light">{t.predictions.aiPick}</span>
+              <span className="text-xs uppercase tracking-widest font-semibold text-cendre">{t.predictions.aiPick}</span>
             </div>
-            <span className="text-[10px] text-cendre">BTTS + Over 2.5</span>
+            <span className="text-xs text-cendre">BTTS + Over 2.5</span>
           </div>
 
           {/* Two markets side by side — Oui/Non only */}
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {/* BTTS column */}
             <div className="space-y-2 text-center">
-              <div className="text-[10px] uppercase tracking-widest font-bold text-[#2F7DFF]">BTTS</div>
-              <div className="text-2xl sm:text-3xl font-black" style={{ color: bttsPred.prediction === 'Oui' ? '#2F7DFF' : '#9DABBB' }}>
+              <div className="text-xs uppercase tracking-widest font-semibold text-primary">BTTS</div>
+              <div className="text-2xl sm:text-3xl font-bold" style={{ color: bttsPred.prediction === 'Oui' ? '#2F7DFF' : '#9DABBB' }}>
                 {bttsPred.prediction === 'Oui' ? t.predictions.bttsYes : t.predictions.bttsNo}
               </div>
             </div>
 
             {/* Over 2.5 column */}
             <div className="space-y-2 text-center border-l border-[#223041] pl-3 sm:pl-4">
-              <div className="text-[10px] uppercase tracking-widest font-bold text-[#2F7DFF]">Over 2.5</div>
-              <div className="text-2xl sm:text-3xl font-black" style={{ color: over25Pred.prediction === 'Oui' ? '#2F7DFF' : '#9DABBB' }}>
+              <div className="text-xs uppercase tracking-widest font-semibold text-primary">Over 2.5</div>
+              <div className="text-2xl sm:text-3xl font-bold" style={{ color: over25Pred.prediction === 'Oui' ? '#2F7DFF' : '#9DABBB' }}>
                 {over25Pred.prediction === 'Oui' ? t.predictions.bttsYes : t.predictions.bttsNo}
               </div>
             </div>
@@ -384,11 +383,11 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
                           <path d="M12 2L2 7l10 5 10-5-10-5z" />
                           <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
                         </svg>
-                        <span className="text-[10px] uppercase tracking-widest font-bold text-[#2F7DFF]">BTTSPredict AI</span>
+                        <span className="text-xs uppercase tracking-widest font-semibold text-[#4A90FF]">BTTSPredict AI</span>
                       </div>
                       {match.aiExactScore && (
                         <div className="flex items-center gap-1">
-                          <span className="text-[9px] uppercase tracking-wider text-[#9DABBB]">{t.predictions.predictedScore}</span>
+                          <span className="text-xs uppercase tracking-wider text-cendre">{t.predictions.predictedScore}</span>
                           <span className="text-sm font-black font-mono text-[#2F7DFF] px-2 py-0.5 rounded" style={{ backgroundColor: 'rgba(199,244,100,0.12)' }}>
                             {match.aiExactScore}
                           </span>
@@ -401,37 +400,37 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
                       <div className="grid grid-cols-3 gap-1.5 mb-2">
                         {match.aiExactScore && match.exactScoreProb && (
                           <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(199,244,100,0.08)' }}>
-                            <div className="text-[8px] uppercase text-[#9DABBB]">Score</div>
-                            <div className="text-[11px] font-bold text-[#2F7DFF]">{match.exactScoreProb}</div>
+                            <div className="text-xs uppercase text-cendre">Score</div>
+                            <div className="text-sm font-bold text-[#2F7DFF]">{match.exactScoreProb}</div>
                           </div>
                         )}
                         {match.aiBttsProb && (
                           <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(52, 211, 153,0.08)' }}>
-                            <div className="text-[8px] uppercase text-[#9DABBB]">BTTS</div>
-                            <div className="text-[11px] font-bold text-[#2F7DFF]">{match.aiBttsProb}</div>
+                            <div className="text-xs uppercase text-cendre">BTTS</div>
+                            <div className="text-sm font-bold text-[#2F7DFF]">{match.aiBttsProb}</div>
                           </div>
                         )}
                         {match.aiOver25Prob && (
                           <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(91, 169, 255,0.08)' }}>
-                            <div className="text-[8px] uppercase text-[#9DABBB]">Over 2.5</div>
-                            <div className="text-[11px] font-bold text-[#2F7DFF]">{match.aiOver25Prob}</div>
+                            <div className="text-xs uppercase text-cendre">Over 2.5</div>
+                            <div className="text-sm font-bold text-[#2F7DFF]">{match.aiOver25Prob}</div>
                           </div>
                         )}
                       </div>
                     )}
 
                     {match.aiKeyFact && (
-                      <p className="text-[11px] text-[#F2F6FA] font-semibold mb-2">📊 {match.aiKeyFact}</p>
+                      <p className="text-sm text-[#F2F6FA] font-semibold mb-2">📊 {match.aiKeyFact}</p>
                     )}
                     {match.aiAnalysis && (
-                      <p className="text-[11px] text-[#9DABBB] leading-relaxed">{match.aiAnalysis}</p>
+                      <p className="text-[13px] text-[#9DABBB] leading-relaxed">{match.aiAnalysis}</p>
                     )}
                   </div>
                 )}
 
                 {/* CTA */}
                 <div>
-                  <div className="text-[10px] uppercase tracking-widest font-bold text-cendre mb-2">{t.predictions.betMatch}</div>
+                  <div className="text-xs uppercase tracking-widest font-semibold text-cendre mb-2">{t.predictions.betMatch}</div>
                   <div className="grid grid-cols-2 gap-2">
                     <PremiumButton variant="linebet" href={AFFILIATE.linebet} size="sm" fullWidth>
                       Linebet
@@ -450,7 +449,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
         <div className="flex items-stretch gap-2 mt-3 pt-3 border-t border-edge">
           <button
             onClick={() => setExpanded(e => !e)}
-            className="flex-1 flex items-center justify-center gap-1.5 text-[11px] text-cendre hover:text-success transition-colors"
+            className="flex-1 flex items-center justify-center gap-1.5 text-[13px] text-cendre hover:text-success transition-colors"
             aria-expanded={expanded}
             aria-label={expanded ? `Voir moins d'analyse pour ${home} – ${away}` : `Voir l'analyse ${home} – ${away}`}
           >
@@ -623,7 +622,7 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
                 key={f.id}
                 onClick={() => setActiveDate(f.id)}
                 aria-pressed={activeDate === f.id}
-                className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-all duration-200 whitespace-nowrap ${
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 whitespace-nowrap ${
                   activeDate === f.id
                     ? 'text-[#FFFFFF] border-none'
                     : 'text-[#9DABBB] border border-[#223041]'
@@ -648,7 +647,7 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
                 key={f.id}
                 onClick={() => setActiveType(f.id)}
                 aria-pressed={activeType === f.id}
-                className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-all duration-200 whitespace-nowrap ${
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 whitespace-nowrap ${
                   activeType === f.id
                     ? 'text-[#FFFFFF] border-none'
                     : 'text-[#9DABBB] border border-[#223041]'
@@ -669,7 +668,7 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
                 key={league}
                 onClick={() => setActiveLeague(league)}
                 aria-pressed={activeLeague === league}
-                className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-all duration-200 whitespace-nowrap ${
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 whitespace-nowrap ${
                   activeLeague === league
                     ? 'text-[#FFFFFF] border-none'
                     : 'text-[#9DABBB] border border-[#223041]'
@@ -685,7 +684,7 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
           {stats.live > 0 && (
             <>
               <span className="w-px h-4 bg-[#223041] flex-shrink-0" />
-              <span className="live-text text-[10px] uppercase tracking-widest font-bold whitespace-nowrap flex-shrink-0">
+              <span className="live-text text-xs uppercase tracking-widest font-semibold whitespace-nowrap flex-shrink-0">
                 {stats.live} LIVE
               </span>
             </>
@@ -719,7 +718,7 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
           </div>
         )}
 
-        <p className="text-center text-[11px] text-cendre mt-6">
+        <p className="text-center text-sm text-cendre mt-6">
           {lang === 'ar' ? 'توقع إحصائي مبني على xG ونموذج بواسون. لا توجد ضمانات مستقبلية. 18+' : lang === 'en' ? 'Statistical prediction based on xG and a Poisson model. No future guarantee. 18+.' : 'Prediction statistique basee sur xG + modele Poisson. Aucune garantie future. 18+'}
         </p>
 

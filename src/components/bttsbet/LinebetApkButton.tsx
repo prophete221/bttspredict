@@ -13,7 +13,7 @@ export default function LinebetApkButton() {
       target="_blank"
       className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-bold transition-colors"
       style={{
-        backgroundColor: 'rgba(75, 182, 135, 0.1)',
+        backgroundColor: 'rgba(47, 125, 255, 0.1)',
         border: '1px solid #2F7DFF',
         color: '#2F7DFF',
       }}

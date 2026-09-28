@@ -6,7 +6,7 @@ import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
 
 const C = {
-  bg: '##0B0F14', card: '#141C25', border: 'rgba(244, 247, 251, 0.08)',
+  bg: '#0B0F14', card: '#141C25', border: 'rgba(244, 247, 251, 0.08)',
   green: '#2F7DFF', greenLight: '#2F7DFF', gold: '#2F7DFF', cyan: '#2F7DFF', violet: '#2F7DFF',
   text: '#F2F6FA', textSec: '#9DABBB', textMute: '#9DABBB',
 }
@@ -75,21 +75,21 @@ export default function FifaLinebet() {
             <div className="p-3.5">
               {/* Header — compact */}
               <div className="flex items-center gap-2.5 mb-3">
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(75, 182, 135,0.1)', border: '1px solid rgba(75, 182, 135,0.2)' }}>
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(47, 125, 255,0.1)', border: '1px solid rgba(47, 125, 255,0.2)' }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="2"><line x1="6" y1="11" x2="10" y2="11"/><line x1="8" y1="9" x2="8" y2="13"/><line x1="15" y1="12" x2="17" y2="12"/><line x1="17" y1="10" x2="17" y2="14"/><rect x="2" y="6" width="20" height="12" rx="2"/></svg>
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="text-sm font-bold text-papier">Analyses de valeur FIFA (expérimental)</h3>
                   <p className="text-[9px]" style={{ color: C.textMute }}>IA détection de cotes sous-évaluées</p>
                 </div>
-                <div className="flex items-center gap-1 px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(75, 182, 135,0.1)' }}>
+                <div className="flex items-center gap-1 px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(47, 125, 255,0.1)' }}>
                   <span className="w-1 h-1 rounded-full animate-pulse" style={{ backgroundColor: C.gold }} />
                   <span className="font-mono text-[10px] font-bold" style={{ color: C.gold }}>LIVE</span>
                 </div>
               </div>
 
               {/* Warning — compact */}
-              <div className="p-2 rounded-lg mb-3" style={{ backgroundColor: 'rgba(75, 182, 135,0.06)', border: '1px solid rgba(75, 182, 135,0.15)' }}>
+              <div className="p-2 rounded-lg mb-3" style={{ backgroundColor: 'rgba(47, 125, 255,0.06)', border: '1px solid rgba(47, 125, 255,0.15)' }}>
                 <p className="text-[9px] leading-relaxed" style={{ color: C.textSec }}>
                   ⚠️ <span style={{ color: C.gold }}>Value Bets :</span> Estimations statistiques. Cotes élevées, risque élevé. Pas de garantie de gain.
                 </p>
@@ -101,11 +101,11 @@ export default function FifaLinebet() {
                   <div className="text-sm font-bold tabular-nums text-papier">{matches.length}</div>
                   <div className="text-[10px] uppercase tracking-wider" style={{ color: C.textMute }}>Matchs</div>
                 </div>
-                <div className="flex-1 p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(75, 182, 135,0.06)' }}>
+                <div className="flex-1 p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(47, 125, 255,0.06)' }}>
                   <div className="text-sm font-bold tabular-nums" style={{ color: C.gold }}>VIP</div>
                   <div className="text-[10px] uppercase tracking-wider" style={{ color: C.textMute }}>Cote totale</div>
                 </div>
-                <div className="flex-1 p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(75, 182, 135,0.06)' }}>
+                <div className="flex-1 p-2 rounded-lg text-center" style={{ backgroundColor: 'rgba(47, 125, 255,0.06)' }}>
                   <div className="text-sm font-bold tabular-nums" style={{ color: C.cyan }}>~74%</div>
                   <div className="text-[10px] uppercase tracking-wider" style={{ color: C.textMute }}>Précision</div>
                 </div>

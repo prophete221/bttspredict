@@ -126,10 +126,10 @@ export default function MobileTabBar() {
               color: isActive ? '#2F7DFF' : '#9DABBB',
               minHeight: '48px',
               textShadow: isActive
-                ? '0 0 8px rgba(75, 182, 135, 0.4)'
+                ? '0 0 8px rgba(47, 125, 255, 0.4)'
                 : 'none',
               filter: isActive
-                ? 'drop-shadow(0 0 4px rgba(75, 182, 135, 0.4))'
+                ? 'drop-shadow(0 0 4px rgba(47, 125, 255, 0.4))'
                 : 'none',
             }}
             aria-label={tab.label}
@@ -145,7 +145,7 @@ export default function MobileTabBar() {
                   height: '3px',
                   borderRadius: '2px',
                   background: '#2F7DFF',
-                  boxShadow: '0 0 8px rgba(75, 182, 135, 0.6)',
+                  boxShadow: '0 0 8px rgba(47, 125, 255, 0.6)',
                 }}
               />
             )}

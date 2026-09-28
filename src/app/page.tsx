@@ -285,16 +285,16 @@ export default function Home() {
         {/* Jeu responsable — compact et moderne */}
         <section className="mx-auto max-w-[980px] px-4 pb-6 sm:px-6">
           <div className="p-4 rounded-[12px] flex items-start gap-3" style={{ backgroundColor: 'rgba(248, 113, 113, 0.05)', border: '1px solid rgba(248, 113, 113, 0.15)' }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF7185" strokeWidth="2" className="flex-shrink-0 mt-0.5">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F87171" strokeWidth="2" className="flex-shrink-0 mt-0.5">
               <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
               <line x1="12" y1="9" x2="12" y2="13" />
               <line x1="12" y1="17" x2="12.01" y2="17" />
             </svg>
             <div>
-              <p className="text-[11px] text-[#9DABBB] leading-relaxed mb-1">
-                <strong className="text-[#FF7185]">18+</strong> · Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez perdre.
+              <p className="text-sm text-[#9DABBB] leading-relaxed mb-1">
+                <strong className="text-[#F87171]">18+</strong> · Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez perdre.
               </p>
-              <a href="/jouer-responsable" className="text-[11px] font-bold text-[#2F7DFF] underline">
+              <a href="/jouer-responsable" className="text-sm font-semibold text-[#4A90FF] underline">
                 En savoir plus →
               </a>
             </div>
@@ -303,7 +303,7 @@ export default function Home() {
 
         {/* Liens internes SEO */}
         <section className="mx-auto max-w-[980px] px-4 py-4 sm:px-6">
-          <div className="flex flex-wrap gap-2 text-[11px]">
+          <div className="flex flex-wrap gap-2 text-xs">
             <a href="/bonus-888starz" className="text-[#9DABBB] hover:text-[#2F7DFF] transition-colors">Bonus 888Starz</a>
             <span className="text-[#223041]">·</span>
             <a href="/code-promo-linebet-senegal" className="text-[#9DABBB] hover:text-[#2F7DFF] transition-colors">Code Promo Linebet</a>

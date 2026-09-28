@@ -56,7 +56,7 @@ export default function GlobalReach() {
             <div
               key={i}
               className="text-center p-4 rounded-xl"
-              style={{ background: 'rgba(7, 17, 26, 0.6)', border: '1px solid rgba(75, 182, 135, 0.08)' }}
+              style={{ background: 'rgba(7, 17, 26, 0.6)', border: '1px solid rgba(47, 125, 255, 0.08)' }}
             >
               <div className="text-2xl font-bold" style={{ color: '#2F7DFF' }}>{stat.value}</div>
               <div className="text-[10px] text-cendre mt-1 uppercase tracking-wider">{stat.label}</div>
@@ -126,8 +126,8 @@ export default function GlobalReach() {
           viewport={{ once: true }}
           className="mt-8 p-5 rounded-xl text-center"
           style={{
-            background: 'linear-gradient(135deg, rgba(75, 182, 135, 0.05), rgba(75, 182, 135, 0.05))',
-            border: '1px solid rgba(75, 182, 135, 0.15)',
+            background: 'linear-gradient(135deg, rgba(47, 125, 255, 0.05), rgba(47, 125, 255, 0.05))',
+            border: '1px solid rgba(47, 125, 255, 0.15)',
           }}
         >
           <div className="text-2xl mb-2">🎯</div>

@@ -3,13 +3,9 @@
 import { useState } from 'react'
 import { useLanguage } from './LanguageSwitcher'
 import { localizedPath, translationsFor, type Locale } from '@/lib/i18n'
-import { motion } from 'framer-motion'
 import { LEGAL, FAQ_ITEMS, LONASE } from '@/lib/constants'
-import { useScrollAnimation } from '@/hooks/useAnimations'
-//import { staggerContainer, fadeInUp } from '@/lib/motionPresets'
 
 export default function Footer({ initialLocale }: { initialLocale?: Locale } = {}) {
-  const ref = null as any
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
@@ -22,74 +18,74 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
 
   return (
     <>
-      <footer ref={ref} id="faq" className="border-t pt-10 pb-20 sm:pb-8 px-4" style={{ borderColor: '#2F7DFF', backgroundColor: '#FFFFFF' }}>
-        <div className="max-w-[440px] sm:max-w-2xl mx-auto">
+      <footer id="faq" className="border-t pt-10 pb-20 lg:pb-8 px-4 sm:px-6" style={{ borderColor: '#223041', backgroundColor: 'transparent' }}>
+        <div className="max-w-2xl lg:max-w-3xl mx-auto">
           {/* Note de transparence (remplace les témoignages non vérifiables) */}
-          <motion.div initial="hidden" className="mb-6">
+          <div className="mb-8">
             <div className="text-center mb-3">
-              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#2F7DFF]">{t.common.transparency}</span>
+              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">{t.common.transparency}</span>
             </div>
-            <div className="p-4 rounded-xl text-center" style={{ backgroundColor: '#141C25', border: '1px solid rgba(244, 247, 251, 0.08)' }}>
-              <p className="text-[11px] text-[#9DABBB] leading-relaxed">
+            <div className="p-4 sm:p-5 rounded-xl text-center" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
+              <p className="text-sm text-cendre leading-relaxed">
                 {lang === 'fr' ? (
-                  <>BTTSPredict ne publie pas de témoignages clients. Notre engagement de transparence repose sur un <a href={localizedPath('/resultats-verifies', lang)} className="text-[#2F7DFF] underline">historique vérifiable publiquement</a>, une <a href={localizedPath('/methodologie', lang)} className="text-[#2F7DFF] underline">méthodologie documentée</a> et un suivi public lancé le 2026-08-08. Aucun résultat futur n’est garanti.</>
+                  <>BTTSPredict ne publie pas de témoignages clients. Notre engagement de transparence repose sur un <a href={localizedPath('/resultats-verifies', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">historique vérifiable publiquement</a>, une <a href={localizedPath('/methodologie', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">méthodologie documentée</a> et un suivi public lancé le 2026-08-08. Aucun résultat futur n’est garanti.</>
                 ) : lang === 'en' ? (
-                  <>BTTSPredict does not publish customer testimonials. Our transparency commitment is based on a <a href={localizedPath('/resultats-verifies', lang)} className="text-[#2F7DFF] underline">publicly verifiable history</a>, a <a href={localizedPath('/methodologie', lang)} className="text-[#2F7DFF] underline">documented method</a> and public tracking. No future result is guaranteed.</>
+                  <>BTTSPredict does not publish customer testimonials. Our transparency commitment is based on a <a href={localizedPath('/resultats-verifies', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">publicly verifiable history</a>, a <a href={localizedPath('/methodologie', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">documented method</a> and public tracking. No future result is guaranteed.</>
                 ) : (
-                  <>لا تنشر BTTSPredict شهادات العملاء. تعتمد الشفافية على <a href={localizedPath('/resultats-verifies', lang)} className="text-[#2F7DFF] underline">سجل عام موثق</a> و<a href={localizedPath('/methodologie', lang)} className="text-[#2F7DFF] underline">منهجية موثقة</a> وتتبع علني. لا توجد ضمانات لأي نتيجة مستقبلية.</>
+                  <>لا تنشر BTTSPredict شهادات العملاء. تعتمد الشفافية على <a href={localizedPath('/resultats-verifies', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">سجل عام موثق</a> و<a href={localizedPath('/methodologie', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">منهجية موثقة</a> وتتبع علني. لا توجد ضمانات لأي نتيجة مستقبلية.</>
                 )}
               </p>
             </div>
-          </motion.div>
+          </div>
 
           {/* FAQ */}
-          <motion.div initial="hidden" className="mb-6">
-            <div className="text-center mb-3">
-              <h3 className="text-sm font-bold text-papier">{t.common.faq}</h3>
+          <div className="mb-8">
+            <div className="text-center mb-4">
+              <h3 className="text-base font-bold text-papier">{t.common.faq}</h3>
             </div>
             <div className="space-y-2">
               {(lang === 'fr' ? FAQ_ITEMS.slice(0, 4) : t.faqItems).map((item, i) => (
-                <div key={item.q} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#141C25', border: '1px solid rgba(244, 247, 251, 0.08)' }}>
-                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i} className="w-full text-left px-4 py-3 text-xs font-semibold text-papier">
+                <div key={item.q} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
+                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i} className="w-full text-left px-4 py-3.5 text-sm font-semibold text-papier hover:bg-white/[0.03] transition-colors">
                     {item.q}
                   </button>
                   {openFaq === i && (
-                    <div className="px-4 pb-3 text-[11px] text-[#2F7DFF] leading-relaxed">{item.a}</div>
+                    <div className="px-4 pb-4 text-sm text-cendre leading-relaxed">{item.a}</div>
                   )}
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Legal links */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5">
             {legalLinks.map(link => (
-              <a key={link.label} href={localizedPath(link.href, lang)} className="text-center text-[10px] text-[#9DABBB] hover:text-[#2F7DFF] transition-colors py-2">
+              <a key={link.label} href={localizedPath(link.href, lang)} className="text-center text-xs text-cendre hover:text-papier transition-colors py-2">
                 {link.label}
               </a>
             ))}
           </div>
 
           {/* Legal text */}
-          <div className="rounded-xl p-4 mb-3" style={{ backgroundColor: '#141C25' }}>
+          <div className="rounded-xl p-4 sm:p-5 mb-4" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-[#2F7DFF] font-extrabold text-xs">18+</span>
-              <span className="text-[10px] text-[#9DABBB]">| {LONASE.name} | {t.common.responsible}</span>
+              <span className="text-lose font-bold text-xs">18+</span>
+              <span className="text-xs text-cendre">| {LONASE.name} | {t.common.responsible}</span>
             </div>
-            <p className="text-[10px] text-[#9DABBB] leading-relaxed">
-              <strong className="text-[#2F7DFF]">{t.common.warning} :</strong> {lang === 'fr' ? LEGAL.disclaimer : t.legal.risk + ' ' + t.legal.noGuarantee + ' ' + t.legal.eighteen}
+            <p className="text-xs text-cendre leading-relaxed">
+              <strong className="text-lose">{t.common.warning} :</strong> {lang === 'fr' ? LEGAL.disclaimer : t.legal.risk + ' ' + t.legal.noGuarantee + ' ' + t.legal.eighteen}
             </p>
           </div>
 
-          {/* Email pro contact (signal de confiance humain — v65 supprime WhatsApp US) */}
-          <div className="flex items-center justify-center gap-2 mb-3">
+          {/* Email pro contact */}
+          <div className="flex items-center justify-center gap-2 mb-4">
             <a
               href="mailto:contact@bttspredict.com"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors"
               style={{
-                backgroundColor: 'rgba(75, 182, 135, 0.08)',
-                color: '#2F7DFF',
-                border: '1px solid rgba(75, 182, 135, 0.2)',
+                backgroundColor: 'rgba(47, 125, 255, 0.10)',
+                color: '#4A90FF',
+                border: '1px solid rgba(47, 125, 255, 0.30)',
               }}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -100,8 +96,8 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
             </a>
           </div>
 
-          {/* Réseaux sociaux (v65: WhatsApp US supprimé — email pro suffit) */}
-          <div className="flex items-center justify-center gap-3 mb-4">
+          {/* Réseaux sociaux */}
+          <div className="flex items-center justify-center gap-4 mb-5">
             <a href="https://twitter.com/bttspredict" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="opacity-60 hover:opacity-100 transition-opacity">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="#9DABBB"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
@@ -120,19 +116,19 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
           </div>
 
           {/* Affiliation disclaimer */}
-          <p className="text-center text-[10px] text-[#9DABBB] mb-2 leading-relaxed">
+          <p className="text-center text-xs text-cendre mb-2 leading-relaxed">
             {t.common.affiliate} {lang === 'fr' ? 'Les liens vers les bookmakers partenaires sont des liens d’affiliation rémunérés. BTTSPredict n’est pas affilié aux sociétés de paris mentionnées.' : ''}
           </p>
 
           {/* Identité éditeur — aligné avec LocalBusiness Schema.org (Dakar, Sénégal) */}
-          <div className="text-center text-[10px] text-[#9DABBB] mt-3 space-y-1">
+          <div className="text-center text-xs text-cendre mt-4 space-y-1.5">
             <div>{t.common.publisher} · Contact conformité: {' '}
-              <a href="mailto:contact@bttspredict.com" className="underline hover:text-[#9DABBB]">contact@bttspredict.com</a>
+              <a href="mailto:contact@bttspredict.com" className="underline hover:text-papier transition-colors">contact@bttspredict.com</a>
             </div>
             <div>{t.legal.noGuarantee} — 18+ {t.common.responsible}</div>
           </div>
 
-          <div className="text-center text-[10px] text-[#6B7A8C] mt-2">
+          <div className="text-center text-xs text-cendre opacity-70 mt-3">
             {LEGAL.copyright}
           </div>
         </div>

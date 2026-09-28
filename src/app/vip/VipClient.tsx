@@ -655,7 +655,7 @@ export default function VipClient() {
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center justify-between mt-3 pt-3" style={{ borderTop: '1px solid rgba(75, 182, 135, 0.1)' }}>
+                  <div className="flex items-center justify-between mt-3 pt-3" style={{ borderTop: '1px solid rgba(47, 125, 255, 0.1)' }}>
                     <span className="text-[10px]" style={{ color: TEXT_SEC }}>BTTS</span>
                     <span className="text-sm font-bold" style={{ color: '#2F7DFF', filter: 'blur(3px)', userSelect: 'none' }}>{match.btts}</span>
                   </div>
