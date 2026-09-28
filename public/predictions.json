@@ -1,6 +1,6 @@
 {
   "date": "2026-09-28",
-  "lastUpdated": "2026-09-28T10:38:27.750Z",
+  "lastUpdated": "2026-09-28T15:43:28.444Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -63,21 +63,7 @@
       "bttsProb": 0.5754,
       "over25Prob": 0.5916,
       "homeLambda": 1.11,
-      "awayLambda": 1.96,
-      "ai_exact_score": "1-2",
-      "exact_score_prob": "13%",
-      "ai_btts_view": "57.5%",
-      "ai_btts_prob": "57.5%",
-      "ai_over25_view": "59.2%",
-      "ai_over25_prob": "59.2%",
-      "ai_key_fact": "xG cumulé de 3.07 et probabilité BTTS estimée à 57.5%.",
-      "ai_analysis": "Red Bull New York présente un xG domicile de 1.11, tandis que St. Louis CITY SC affiche un xG extérieur supérieur de 1.96. Les probabilités calculées indiquent 57.5% pour le BTTS et 59.2% pour l'Over 2.5. La fiabilité globale du modèle est de 81.42% sur la base de 8 matchs réels. Donnée insuffisante: composition probable, blessés, suspendus, forme détaillée, classement, motivation, fatigue ou météo.",
-      "ai_winner": "2",
-      "ai_winner_prob": "46%",
-      "ai_team_over15": "St. Louis CITY SC: OUI",
-      "ai_double_chance": "X2",
-      "ai_main_prediction": "Match ouvert avec un xG cumulé de 3.07 favorisant un score final avec des buts des deux côtés.",
-      "ai_risk": "MOYEN"
+      "awayLambda": 1.96
     },
     {
       "id": "seattles-vs-sporting-2026-10-02",
@@ -139,21 +125,7 @@
       "bttsProb": 0.612,
       "over25Prob": 0.6201,
       "homeLambda": 1.95,
-      "awayLambda": 1.25,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "61.2%",
-      "ai_btts_prob": "61.2%",
-      "ai_over25_view": "62.0%",
-      "ai_over25_prob": "62.0%",
-      "ai_key_fact": "Seattle présente un xG domicile de 1.95 pour un xG cumulé de 3.2.",
-      "ai_analysis": "Les données fournies montrent un xG de 1.95 pour Seattle Sounders FC et de 1.25 pour Sporting Kansas City. Les probabilités obtenues atteignent 61.2% pour le BTTS et 62.0% pour l'Over 2.5. La fiabilité de cette analyse repose sur un indice de 85.52% issu de 8 matchs réels. Donnée insuffisante: composition probable, blessés, suspendus, forme détaillée, classement, motivation, fatigue ou météo.",
-      "ai_winner": "1",
-      "ai_winner_prob": "52%",
-      "ai_team_over15": "Seattle Sounders FC: OUI",
-      "ai_double_chance": "1X",
-      "ai_main_prediction": "Seattle Sounders FC dispose d'un avantage xG à domicile face à Sporting Kansas City.",
-      "ai_risk": "MOYEN"
+      "awayLambda": 1.25
     }
   ],
   "vipPreview": [
@@ -218,21 +190,7 @@
       "over25Prob": 0.5916,
       "homeLambda": 1.11,
       "awayLambda": 1.96,
-      "vipMirror": true,
-      "ai_exact_score": "1-2",
-      "exact_score_prob": "13%",
-      "ai_btts_view": "57.5%",
-      "ai_btts_prob": "57.5%",
-      "ai_over25_view": "59.2%",
-      "ai_over25_prob": "59.2%",
-      "ai_key_fact": "xG cumulé de 3.07 et probabilité BTTS estimée à 57.5%.",
-      "ai_analysis": "Red Bull New York présente un xG domicile de 1.11, tandis que St. Louis CITY SC affiche un xG extérieur supérieur de 1.96. Les probabilités calculées indiquent 57.5% pour le BTTS et 59.2% pour l'Over 2.5. La fiabilité globale du modèle est de 81.42% sur la base de 8 matchs réels. Donnée insuffisante: composition probable, blessés, suspendus, forme détaillée, classement, motivation, fatigue ou météo.",
-      "ai_winner": "2",
-      "ai_winner_prob": "46%",
-      "ai_team_over15": "St. Louis CITY SC: OUI",
-      "ai_double_chance": "X2",
-      "ai_main_prediction": "Match ouvert avec un xG cumulé de 3.07 favorisant un score final avec des buts des deux côtés.",
-      "ai_risk": "MOYEN"
+      "vipMirror": true
     },
     {
       "id": "seattles-vs-sporting-2026-10-02",
@@ -295,21 +253,7 @@
       "over25Prob": 0.6201,
       "homeLambda": 1.95,
       "awayLambda": 1.25,
-      "vipMirror": true,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "61.2%",
-      "ai_btts_prob": "61.2%",
-      "ai_over25_view": "62.0%",
-      "ai_over25_prob": "62.0%",
-      "ai_key_fact": "Seattle présente un xG domicile de 1.95 pour un xG cumulé de 3.2.",
-      "ai_analysis": "Les données fournies montrent un xG de 1.95 pour Seattle Sounders FC et de 1.25 pour Sporting Kansas City. Les probabilités obtenues atteignent 61.2% pour le BTTS et 62.0% pour l'Over 2.5. La fiabilité de cette analyse repose sur un indice de 85.52% issu de 8 matchs réels. Donnée insuffisante: composition probable, blessés, suspendus, forme détaillée, classement, motivation, fatigue ou météo.",
-      "ai_winner": "1",
-      "ai_winner_prob": "52%",
-      "ai_team_over15": "Seattle Sounders FC: OUI",
-      "ai_double_chance": "1X",
-      "ai_main_prediction": "Seattle Sounders FC dispose d'un avantage xG à domicile face à Sporting Kansas City.",
-      "ai_risk": "MOYEN"
+      "vipMirror": true
     }
   ],
   "stats": {
@@ -381,21 +325,7 @@
       "bttsProb": 0.5754,
       "over25Prob": 0.5916,
       "homeLambda": 1.11,
-      "awayLambda": 1.96,
-      "ai_exact_score": "1-2",
-      "exact_score_prob": "13%",
-      "ai_btts_view": "57.5%",
-      "ai_btts_prob": "57.5%",
-      "ai_over25_view": "59.2%",
-      "ai_over25_prob": "59.2%",
-      "ai_key_fact": "xG cumulé de 3.07 et probabilité BTTS estimée à 57.5%.",
-      "ai_analysis": "Red Bull New York présente un xG domicile de 1.11, tandis que St. Louis CITY SC affiche un xG extérieur supérieur de 1.96. Les probabilités calculées indiquent 57.5% pour le BTTS et 59.2% pour l'Over 2.5. La fiabilité globale du modèle est de 81.42% sur la base de 8 matchs réels. Donnée insuffisante: composition probable, blessés, suspendus, forme détaillée, classement, motivation, fatigue ou météo.",
-      "ai_winner": "2",
-      "ai_winner_prob": "46%",
-      "ai_team_over15": "St. Louis CITY SC: OUI",
-      "ai_double_chance": "X2",
-      "ai_main_prediction": "Match ouvert avec un xG cumulé de 3.07 favorisant un score final avec des buts des deux côtés.",
-      "ai_risk": "MOYEN"
+      "awayLambda": 1.96
     },
     {
       "id": "seattles-vs-sporting-2026-10-02",
@@ -457,21 +387,7 @@
       "bttsProb": 0.612,
       "over25Prob": 0.6201,
       "homeLambda": 1.95,
-      "awayLambda": 1.25,
-      "ai_exact_score": "2-1",
-      "exact_score_prob": "15%",
-      "ai_btts_view": "61.2%",
-      "ai_btts_prob": "61.2%",
-      "ai_over25_view": "62.0%",
-      "ai_over25_prob": "62.0%",
-      "ai_key_fact": "Seattle présente un xG domicile de 1.95 pour un xG cumulé de 3.2.",
-      "ai_analysis": "Les données fournies montrent un xG de 1.95 pour Seattle Sounders FC et de 1.25 pour Sporting Kansas City. Les probabilités obtenues atteignent 61.2% pour le BTTS et 62.0% pour l'Over 2.5. La fiabilité de cette analyse repose sur un indice de 85.52% issu de 8 matchs réels. Donnée insuffisante: composition probable, blessés, suspendus, forme détaillée, classement, motivation, fatigue ou météo.",
-      "ai_winner": "1",
-      "ai_winner_prob": "52%",
-      "ai_team_over15": "Seattle Sounders FC: OUI",
-      "ai_double_chance": "1X",
-      "ai_main_prediction": "Seattle Sounders FC dispose d'un avantage xG à domicile face à Sporting Kansas City.",
-      "ai_risk": "MOYEN"
+      "awayLambda": 1.25
     }
   ]
 }
