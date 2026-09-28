@@ -75,7 +75,7 @@ export default function SiteLoader() {
                   height="28"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#B8FF1A"
+                  stroke="#2F7DFF"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"

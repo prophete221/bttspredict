@@ -39,16 +39,16 @@ type WinHistory = {
 }
 
 const COLORS = {
-  gold: '#B8FF1A',
-  mint: '#B8FF1A',
-  cyan: '#B8FF1A',
-  rose: '#B8FF1A',
-  panel: '#0D1A20',
+  gold: '#2F7DFF',
+  mint: '#2F7DFF',
+  cyan: '#2F7DFF',
+  rose: '#2F7DFF',
+  panel: '#141C25',
   edge: 'rgba(244, 247, 251, 0.08)',
-  text: '#B7C4C1',
+  text: '#9DABBB',
 }
 
-const LEAGUE_COLORS = ['#B8FF1A', '#B8FF1A', '#B8FF1A', '#B8FF1A', '#B8FF1A', '#B8FF1A', '#B8FF1A', '#B8FF1A', '#B8FF1A', '#B8FF1A']
+const LEAGUE_COLORS = ['#2F7DFF', '#2F7DFF', '#2F7DFF', '#2F7DFF', '#2F7DFF', '#2F7DFF', '#2F7DFF', '#2F7DFF', '#2F7DFF', '#2F7DFF']
 
 export default function StatsDashboard() {
   const [data, setData] = useState<WinHistory | null>(null)
@@ -175,7 +175,7 @@ export default function StatsDashboard() {
       {/* ── KPI ROW ─────────────────────────────────────────── */}
       {isUpdating && pending > 100 && (
         <div className="mb-4 p-4 rounded-xl flex items-start gap-3" style={{ backgroundColor: 'rgba(99, 216, 208, 0.08)', border: '1px solid rgba(99, 216, 208, 0.25)' }}>
-          <svg className="flex-shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4FF72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg className="flex-shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A90FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
           </svg>
           <div>
@@ -224,11 +224,11 @@ export default function StatsDashboard() {
           </div>
           <div className="flex items-center gap-3 text-[10px]">
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#B8FF1A' }} />
+              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#2F7DFF' }} />
               <span className="text-cendre">BTTS</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#B8FF1A' }} />
+              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: '#2F7DFF' }} />
               <span className="text-cendre">Over 2.5</span>
             </span>
           </div>
@@ -248,7 +248,7 @@ export default function StatsDashboard() {
                   fontSize: 12,
                   color: '#fff',
                 }}
-                labelStyle={{ color: '#F5F8F3', fontWeight: 700 }}
+                labelStyle={{ color: '#F2F6FA', fontWeight: 700 }}
                 formatter={(value, name) => [
                   typeof value === 'number' ? `${value}%` : 'N/A',
                   name === 'btts' ? 'BTTS' : 'Over 2.5',
@@ -257,19 +257,19 @@ export default function StatsDashboard() {
               <Line
                 type="monotone"
                 dataKey="btts"
-                stroke="#B8FF1A"
+                stroke="#2F7DFF"
                 strokeWidth={2.5}
-                dot={{ fill: '#B8FF1A', r: 3 }}
-                activeDot={{ r: 5, fill: '#B8FF1A' }}
+                dot={{ fill: '#2F7DFF', r: 3 }}
+                activeDot={{ r: 5, fill: '#2F7DFF' }}
                 connectNulls
               />
               <Line
                 type="monotone"
                 dataKey="over25"
-                stroke="#B8FF1A"
+                stroke="#2F7DFF"
                 strokeWidth={2.5}
-                dot={{ fill: '#B8FF1A', r: 3 }}
-                activeDot={{ r: 5, fill: '#B8FF1A' }}
+                dot={{ fill: '#2F7DFF', r: 3 }}
+                activeDot={{ r: 5, fill: '#2F7DFF' }}
                 connectNulls
               />
             </LineChart>

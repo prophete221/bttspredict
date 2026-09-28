@@ -26,7 +26,7 @@ export default async function LocalizedBttsTodayPage({ params }: { params: Promi
   if (!isLocale(value) || value === 'fr') notFound()
 
   return (
-    <div className="min-h-screen bg-[#071018] flex flex-col text-[#F5F8F3]">
+    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
       <Navbar />
       <main id="main-content" className="flex-1">
         <h1 className="sr-only">{value === 'ar' ? 'توقعات BTTS اليوم' : 'BTTS Predictions Today'}</h1>

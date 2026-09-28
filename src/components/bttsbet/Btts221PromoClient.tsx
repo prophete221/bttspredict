@@ -176,7 +176,7 @@ export default function Btts221PromoClient({ lang, reviewDate }: { lang: Lang; r
   return (
     <main dir={copy.dir} className="min-h-screen overflow-hidden bg-[#07090D] pb-24 text-white">
       <div className="relative isolate">
-        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[680px] bg-[radial-gradient(circle_at_12%_0%,rgba(255,77,109,.18),transparent_32%),radial-gradient(circle_at_88%_6%,rgba(255,215,0,.12),transparent_28%),linear-gradient(180deg,#11141B_0%,#07090D_78%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[680px] bg-[radial-gradient(circle_at_12%_0%,rgba(248, 113, 113,.18),transparent_32%),radial-gradient(circle_at_88%_6%,rgba(255,215,0,.12),transparent_28%),linear-gradient(180deg,#11141B_0%,#07090D_78%)]" />
         <div className="mx-auto max-w-6xl px-4 pb-10 pt-5 sm:px-6 sm:pb-16 sm:pt-8">
           <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs text-[#9CA3AF]">
             <a href={lang === 'fr' ? '/' : `/${lang}`} className="transition-colors hover:text-white">{copy.home}</a>
@@ -184,16 +184,16 @@ export default function Btts221PromoClient({ lang, reviewDate }: { lang: Lang; r
             <span aria-current="page" className="text-[#E5E7EB]">888Starz btts221</span>
           </nav>
 
-          <section className="relative overflow-hidden rounded-[2rem] border border-[#FF4D6D]/30 bg-[#11141B]/90 shadow-[0_30px_100px_rgba(0,0,0,.45)]">
-            <div className="pointer-events-none absolute -right-24 -top-32 h-80 w-80 rounded-full bg-[#FF4D6D]/15 blur-3xl" />
-            <div className="pointer-events-none absolute -bottom-24 left-1/3 h-64 w-64 rounded-full bg-[#FFD700]/10 blur-3xl" />
+          <section className="relative overflow-hidden rounded-[2rem] border border-[#F87171]/30 bg-[#10161D]/90 shadow-[0_30px_100px_rgba(0,0,0,.45)]">
+            <div className="pointer-events-none absolute -right-24 -top-32 h-80 w-80 rounded-full bg-[#F87171]/15 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-24 left-1/3 h-64 w-64 rounded-full bg-[#E8C268]/10 blur-3xl" />
             <div className="relative grid gap-8 p-5 sm:p-8 lg:grid-cols-[1.02fr_.98fr] lg:items-center lg:gap-12 lg:p-12">
               <div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <Image src="/logos/888starz.svg" alt="888Starz" width={200} height={56} priority className="h-11 w-auto drop-shadow-[0_8px_24px_rgba(255,77,109,.22)]" />
-                  <span className="rounded-full border border-[#FFD700]/35 bg-[#FFD700]/10 px-3 py-1 text-[10px] font-black uppercase tracking-[.18em] text-[#FFD700]">{copy.partner}</span>
+                  <Image src="/logos/888starz.svg" alt="888Starz" width={200} height={56} priority className="h-11 w-auto drop-shadow-[0_8px_24px_rgba(248, 113, 113,.22)]" />
+                  <span className="rounded-full border border-[#E8C268]/35 bg-[#E8C268]/10 px-3 py-1 text-[10px] font-black uppercase tracking-[.18em] text-[#E8C268]">{copy.partner}</span>
                 </div>
-                <p className="mt-7 text-[10px] font-black uppercase tracking-[.25em] text-[#FF8095]">{copy.eyebrow}</p>
+                <p className="mt-7 text-[10px] font-black uppercase tracking-[.25em] text-[#F87171]">{copy.eyebrow}</p>
                 <h1 className="mt-3 max-w-2xl text-[2.7rem] font-black leading-[.95] tracking-[-.055em] text-white sm:text-6xl">{copy.title}</h1>
                 <p className="mt-5 max-w-xl text-sm leading-7 text-[#B9C0CA] sm:text-base">{copy.intro}</p>
                 <div className="mt-6 flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-[.12em] text-[#C9CED7]">
@@ -203,19 +203,19 @@ export default function Btts221PromoClient({ lang, reviewDate }: { lang: Lang; r
                 </div>
               </div>
 
-              <div className="relative rounded-[1.6rem] border border-[#FFD700]/45 bg-[linear-gradient(145deg,rgba(255,215,0,.12),rgba(255,77,109,.08)_46%,rgba(5,7,11,.5))] p-4 shadow-[0_20px_60px_rgba(0,0,0,.3)] sm:p-6">
+              <div className="relative rounded-[1.6rem] border border-[#E8C268]/45 bg-[linear-gradient(145deg,rgba(255,215,0,.12),rgba(248, 113, 113,.08)_46%,rgba(5,7,11,.5))] p-4 shadow-[0_20px_60px_rgba(0,0,0,.3)] sm:p-6">
                 <div className="flex items-center justify-between gap-3">
-                  <p className="text-[10px] font-black uppercase tracking-[.22em] text-[#FFD700]">{copy.codeLabel}</p>
+                  <p className="text-[10px] font-black uppercase tracking-[.22em] text-[#E8C268]">{copy.codeLabel}</p>
                   <span className="h-2 w-2 rounded-full bg-[#63E6BE] shadow-[0_0_14px_#63E6BE]" aria-label="Active campaign" />
                 </div>
                 <div className="mt-4 rounded-2xl border border-white/10 bg-[#07090D]/80 px-4 py-6 text-center sm:py-8">
                   <code className="block text-[3.65rem] font-black leading-none tracking-[.12em] text-white sm:text-7xl">{CODE}</code>
                   <p className="mt-3 text-xs text-[#AEB5C0]">{copy.codeHint}</p>
                 </div>
-                <button type="button" onClick={handleCopy} className="mt-4 w-full rounded-xl border border-[#FFD700] bg-[#FFD700] px-5 py-3.5 text-sm font-black text-[#13100A] shadow-[0_12px_30px_rgba(255,215,0,.2)] transition-all hover:-translate-y-0.5 hover:bg-[#FFE47A] active:scale-[.98] focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-offset-2 focus:ring-offset-[#11141B]" aria-live="polite">
+                <button type="button" onClick={handleCopy} className="mt-4 w-full rounded-xl border border-[#E8C268] bg-[#E8C268] px-5 py-3.5 text-sm font-black text-[#13100A] shadow-[0_12px_30px_rgba(255,215,0,.2)] transition-all hover:-translate-y-0.5 hover:bg-[#FFE47A] active:scale-[.98] focus:outline-none focus:ring-2 focus:ring-[#E8C268] focus:ring-offset-2 focus:ring-offset-[#10161D]" aria-live="polite">
                   {signupLabel}
                 </button>
-                <a href={AFFILIATE.star888} target="_blank" rel="sponsored nofollow noopener noreferrer" onClick={handleSignup} data-cta={`btts221-${lang}-signup`} className="mt-3 flex w-full items-center justify-center rounded-xl bg-[linear-gradient(135deg,#FF4D6D,#D63148)] px-5 py-4 text-center text-sm font-black text-white shadow-[0_14px_34px_rgba(214,49,72,.28)] transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-[.98] focus:outline-none focus:ring-2 focus:ring-[#FF8095] focus:ring-offset-2 focus:ring-offset-[#11141B]">
+                <a href={AFFILIATE.star888} target="_blank" rel="sponsored nofollow noopener noreferrer" onClick={handleSignup} data-cta={`btts221-${lang}-signup`} className="mt-3 flex w-full items-center justify-center rounded-xl bg-[linear-gradient(135deg,#F87171,#D63148)] px-5 py-4 text-center text-sm font-black text-white shadow-[0_14px_34px_rgba(214,49,72,.28)] transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-[.98] focus:outline-none focus:ring-2 focus:ring-[#F87171] focus:ring-offset-2 focus:ring-offset-[#10161D]">
                   {copy.signup}
                 </a>
                 <p className="mt-3 text-center text-[10px] leading-5 text-[#8E96A3]">{copy.verified} <time dateTime={reviewDate}>{formatDate(reviewDate, lang)}</time></p>
@@ -224,20 +224,20 @@ export default function Btts221PromoClient({ lang, reviewDate }: { lang: Lang; r
           </section>
 
           <section className="mt-5 grid gap-4 lg:grid-cols-[1.2fr_.8fr]">
-            <div className="rounded-3xl border border-[#FF4D6D]/25 bg-[linear-gradient(135deg,rgba(255,77,109,.11),rgba(17,20,27,.94)_58%)] p-5 sm:p-7">
+            <div className="rounded-3xl border border-[#F87171]/25 bg-[linear-gradient(135deg,rgba(248, 113, 113,.11),rgba(17,20,27,.94)_58%)] p-5 sm:p-7">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-[.2em] text-[#FF8095]">{copy.offerLabel}</p>
+                  <p className="text-[10px] font-black uppercase tracking-[.2em] text-[#F87171]">{copy.offerLabel}</p>
                   <p className="mt-3 text-xl font-black leading-8 text-white sm:text-2xl">{copy.offerText}</p>
                 </div>
-                <span className="hidden shrink-0 rounded-full border border-[#FFD700]/30 bg-[#FFD700]/10 px-3 py-1 text-[10px] font-bold uppercase text-[#FFD700] sm:inline-flex">888Starz</span>
+                <span className="hidden shrink-0 rounded-full border border-[#E8C268]/30 bg-[#E8C268]/10 px-3 py-1 text-[10px] font-bold uppercase text-[#E8C268] sm:inline-flex">888Starz</span>
               </div>
               <p className="mt-4 max-w-3xl text-xs leading-6 text-[#AEB5C0]">{copy.conditions}</p>
             </div>
-            <div className="rounded-3xl border border-white/10 bg-[#11141B] p-5 sm:p-7">
-              <p className="text-[10px] font-black uppercase tracking-[.2em] text-[#FFD700]">{copy.guide}</p>
+            <div className="rounded-3xl border border-white/10 bg-[#10161D] p-5 sm:p-7">
+              <p className="text-[10px] font-black uppercase tracking-[.2em] text-[#E8C268]">{copy.guide}</p>
               <ol className="mt-4 space-y-3 text-sm leading-6 text-[#D5DAE2]">
-                {copy.steps.slice(0, 3).map((step, index) => <li key={step} className="flex gap-3"><span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#FF4D6D]/15 text-xs font-black text-[#FF8095]">{index + 1}</span><span>{step}</span></li>)}
+                {copy.steps.slice(0, 3).map((step, index) => <li key={step} className="flex gap-3"><span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#F87171]/15 text-xs font-black text-[#F87171]">{index + 1}</span><span>{step}</span></li>)}
               </ol>
             </div>
           </section>
@@ -248,31 +248,31 @@ export default function Btts221PromoClient({ lang, reviewDate }: { lang: Lang; r
         <section className="mt-2 sm:mt-4">
           <h2 className="text-2xl font-black tracking-tight text-white sm:text-3xl">{copy.stepsTitle}</h2>
           <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {copy.steps.map((step, index) => <article key={step} className="rounded-2xl border border-white/10 bg-[#11141B] p-5 transition-colors hover:border-[#FF4D6D]/35"><span className="text-xs font-black text-[#FFD700]">0{index + 1}</span><p className="mt-3 text-sm leading-6 text-[#C7CDD6]">{step}</p></article>)}
+            {copy.steps.map((step, index) => <article key={step} className="rounded-2xl border border-white/10 bg-[#10161D] p-5 transition-colors hover:border-[#F87171]/35"><span className="text-xs font-black text-[#E8C268]">0{index + 1}</span><p className="mt-3 text-sm leading-6 text-[#C7CDD6]">{step}</p></article>)}
           </div>
         </section>
 
         <section className="mt-10" aria-labelledby="btts221-faq">
           <h2 id="btts221-faq" className="text-2xl font-black tracking-tight text-white sm:text-3xl">{copy.faqTitle}</h2>
           <div className="mt-5 space-y-3">
-            {copy.faq.map((item) => <details key={item.q} className="rounded-2xl border border-white/10 bg-[#11141B] p-5"><summary className="cursor-pointer font-bold text-white">{item.q}</summary><p className="mt-3 text-sm leading-7 text-[#B9C0CA]">{item.a}</p></details>)}
+            {copy.faq.map((item) => <details key={item.q} className="rounded-2xl border border-white/10 bg-[#10161D] p-5"><summary className="cursor-pointer font-bold text-white">{item.q}</summary><p className="mt-3 text-sm leading-7 text-[#B9C0CA]">{item.a}</p></details>)}
           </div>
         </section>
 
-        <section className="mt-10 rounded-2xl border border-[#FF4D6D]/25 bg-[#FF4D6D]/5 p-5 text-center">
-          <p className="text-xs leading-6 text-[#C2C8D1]">{copy.affiliate} <a className="font-bold text-[#FFD700] underline underline-offset-2" href={lang === 'fr' ? '/jouer-responsable' : `/${lang}/jouer-responsable`}>{copy.responsible}</a></p>
+        <section className="mt-10 rounded-2xl border border-[#F87171]/25 bg-[#F87171]/5 p-5 text-center">
+          <p className="text-xs leading-6 text-[#C2C8D1]">{copy.affiliate} <a className="font-bold text-[#E8C268] underline underline-offset-2" href={lang === 'fr' ? '/jouer-responsable' : `/${lang}/jouer-responsable`}>{copy.responsible}</a></p>
         </section>
 
-        <div className="mt-8 flex flex-wrap justify-center gap-4 text-xs font-bold text-[#FF8095]">
+        <div className="mt-8 flex flex-wrap justify-center gap-4 text-xs font-bold text-[#F87171]">
           <a href={lang === 'fr' ? '/btts/predictions/today' : `/${lang}/btts/predictions/today`} className="hover:text-white">{copy.predictions}</a>
           <a href={lang === 'fr' ? '/bonus-888starz' : `/${lang}/bonus-888starz`} className="hover:text-white">{copy.guideLink}</a>
         </div>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-[#FF4D6D]/30 bg-[#07090D]/95 p-3 shadow-[0_-12px_35px_rgba(0,0,0,.45)] backdrop-blur-xl md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-[#F87171]/30 bg-[#07090D]/95 p-3 shadow-[0_-12px_35px_rgba(0,0,0,.45)] backdrop-blur-xl md:hidden">
         <div className="mx-auto flex max-w-lg items-center gap-2">
-          <button type="button" onClick={handleCopy} className="flex min-w-0 flex-1 items-center justify-center gap-2 rounded-xl border border-[#FFD700]/70 bg-[#FFD700] px-3 py-3 text-sm font-black text-[#13100A] active:scale-[.98]">{copied ? copy.copied : <><code className="tracking-[.12em]">{CODE}</code><span className="text-xs">{copy.copy}</span></>}</button>
-          <a href={AFFILIATE.star888} target="_blank" rel="sponsored nofollow noopener noreferrer" onClick={handleSignup} className="flex-1 rounded-xl bg-[linear-gradient(135deg,#FF4D6D,#D63148)] px-3 py-3 text-center text-sm font-black text-white active:scale-[.98]">{copy.mobileSignup}</a>
+          <button type="button" onClick={handleCopy} className="flex min-w-0 flex-1 items-center justify-center gap-2 rounded-xl border border-[#E8C268]/70 bg-[#E8C268] px-3 py-3 text-sm font-black text-[#13100A] active:scale-[.98]">{copied ? copy.copied : <><code className="tracking-[.12em]">{CODE}</code><span className="text-xs">{copy.copy}</span></>}</button>
+          <a href={AFFILIATE.star888} target="_blank" rel="sponsored nofollow noopener noreferrer" onClick={handleSignup} className="flex-1 rounded-xl bg-[linear-gradient(135deg,#F87171,#D63148)] px-3 py-3 text-center text-sm font-black text-white active:scale-[.98]">{copy.mobileSignup}</a>
         </div>
       </div>
     </main>

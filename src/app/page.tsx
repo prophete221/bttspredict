@@ -273,7 +273,7 @@ export default function Home() {
                 partner="linebet"
                 placement="home-vision221-signup"
                 className="home-vip-strip__primary"
-                style={{ backgroundColor: '#B8FF1A', color: '#071018' }}
+                style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}
               >
                 S&apos;inscrire avec VISION221 <span aria-hidden="true">→</span>
               </AffiliateSignupCta>
@@ -284,17 +284,17 @@ export default function Home() {
 
         {/* Jeu responsable — compact et moderne */}
         <section className="mx-auto max-w-[980px] px-4 pb-6 sm:px-6">
-          <div className="p-4 rounded-[12px] flex items-start gap-3" style={{ backgroundColor: 'rgba(255, 113, 133, 0.05)', border: '1px solid rgba(255, 113, 133, 0.15)' }}>
+          <div className="p-4 rounded-[12px] flex items-start gap-3" style={{ backgroundColor: 'rgba(248, 113, 113, 0.05)', border: '1px solid rgba(248, 113, 113, 0.15)' }}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF7185" strokeWidth="2" className="flex-shrink-0 mt-0.5">
               <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
               <line x1="12" y1="9" x2="12" y2="13" />
               <line x1="12" y1="17" x2="12.01" y2="17" />
             </svg>
             <div>
-              <p className="text-[11px] text-[#A8B5C3] leading-relaxed mb-1">
+              <p className="text-[11px] text-[#9DABBB] leading-relaxed mb-1">
                 <strong className="text-[#FF7185]">18+</strong> · Les paris sportifs comportent un risque de perte. Ne pariez jamais plus que ce que vous pouvez perdre.
               </p>
-              <a href="/jouer-responsable" className="text-[11px] font-bold text-[#B8FF1A] underline">
+              <a href="/jouer-responsable" className="text-[11px] font-bold text-[#2F7DFF] underline">
                 En savoir plus →
               </a>
             </div>
@@ -304,11 +304,11 @@ export default function Home() {
         {/* Liens internes SEO */}
         <section className="mx-auto max-w-[980px] px-4 py-4 sm:px-6">
           <div className="flex flex-wrap gap-2 text-[11px]">
-            <a href="/bonus-888starz" className="text-[#A8B5C3] hover:text-[#B8FF1A] transition-colors">Bonus 888Starz</a>
-            <span className="text-[#324758]">·</span>
-            <a href="/code-promo-linebet-senegal" className="text-[#A8B5C3] hover:text-[#B8FF1A] transition-colors">Code Promo Linebet</a>
-            <span className="text-[#324758]">·</span>
-            <a href="/btts-c-est-quoi" className="text-[#A8B5C3] hover:text-[#B8FF1A] transition-colors">BTTS signification</a>
+            <a href="/bonus-888starz" className="text-[#9DABBB] hover:text-[#2F7DFF] transition-colors">Bonus 888Starz</a>
+            <span className="text-[#223041]">·</span>
+            <a href="/code-promo-linebet-senegal" className="text-[#9DABBB] hover:text-[#2F7DFF] transition-colors">Code Promo Linebet</a>
+            <span className="text-[#223041]">·</span>
+            <a href="/btts-c-est-quoi" className="text-[#9DABBB] hover:text-[#2F7DFF] transition-colors">BTTS signification</a>
           </div>
         </section>
 

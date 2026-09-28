@@ -32,18 +32,18 @@ import { getDakarDateString, getDakarMatchStatus } from '@/lib/dakar-date'
 
 // ─── Palette (Slate Design System — matches VIP / methodology) ──────────
 const C = {
-  bg:       '#071018',
-  surface:  '#0D1A20',
-  surface2: '#071018',
-  border:   '#5D7880',
-  text:     '#F5F8F3',
-  textSec:  '#B7C4C1',
+  bg:       '##0B0F14',
+  surface:  '#141C25',
+  surface2: '#0B0F14',
+  border:   '#6B7A8C',
+  text:     '#F2F6FA',
+  textSec:  '#9DABBB',
   textMute: '#64748B',
   success:  '#34D399',
-  warning:  '#B8FF1A',
-  data:     '#B8FF1A',
-  gold:     '#B8FF1A',
-  danger:   '#FF7B7B',
+  warning:  '#2F7DFF',
+  data:     '#2F7DFF',
+  gold:     '#2F7DFF',
+  danger:   '#F87171',
 }
 
 // ─── Types ──────────────────────────────────────────────────────────────

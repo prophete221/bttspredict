@@ -15,13 +15,13 @@ export default function ResultatsLocalizedShell({ initialData }: { initialData: 
   }
 
   return (
-    <div className="min-h-screen bg-[#071018] flex flex-col text-[#F5F8F3]">
+    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
       <Navbar />
       <main id="main-content" className="flex-1 py-12 px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8"><h1 className="text-3xl font-bold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.title}</h1><p className="text-sm text-[#B7C4C1]">{copy.intro}</p></div>
+          <div className="mb-8"><h1 className="text-3xl font-bold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.title}</h1><p className="text-sm text-[#9DABBB]">{copy.intro}</p></div>
           <ResultatsClient initialData={initialData} />
-          <div className="mt-8 p-4 rounded-xl bg-[#0D1A20] border border-[#5D7880]"><p className="text-[11px] text-[#B7C4C1] leading-relaxed"><strong className="text-[#B7C4C1]">{copy.rule}</strong> {copy.body}</p></div>
+          <div className="mt-8 p-4 rounded-xl bg-[#141C25] border border-[#6B7A8C]"><p className="text-[11px] text-[#9DABBB] leading-relaxed"><strong className="text-[#9DABBB]">{copy.rule}</strong> {copy.body}</p></div>
         </div>
         <section className="max-w-5xl mx-auto px-4 py-8"><FreePredictions /></section>
       </main>

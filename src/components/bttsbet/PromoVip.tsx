@@ -5,10 +5,10 @@ import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
 
 const C = {
-  bg:'#071018', card:'#0D1A20', border:'#5D7880',
-  neon:'#B8FF1A', gold:'#B8FF1A', data:'#B8FF1A',
-  text:'#F5F8F3', textSec:'#B7C4C1', textMute:'#B7C4C1',
-  success:'#B8FF1A',
+  bg:'##0B0F14', card:'#141C25', border:'#6B7A8C',
+  neon:'#2F7DFF', gold:'#2F7DFF', data:'#2F7DFF',
+  text:'#F2F6FA', textSec:'#9DABBB', textMute:'#9DABBB',
+  success:'#2F7DFF',
 }
 
 function getDailyCote(){
@@ -126,7 +126,7 @@ export default function PromoVip() {
                   <div className="text-[9px] uppercase tracking-wider" style={{ color: C.textMute }}>Over 2.5</div>
                   <div className="text-[11px] font-bold mt-0.5" style={{ color: C.data }}>Oui/Non</div>
                 </div>
-                <div className="rounded-lg py-2 px-1" style={{ backgroundColor: 'rgba(123,228,149,0.06)', border: `1px solid ${C.success}20` }}>
+                <div className="rounded-lg py-2 px-1" style={{ backgroundColor: 'rgba(52, 211, 153,0.06)', border: `1px solid ${C.success}20` }}>
                   <div className="text-[9px] uppercase tracking-wider" style={{ color: C.textMute }}>Cote</div>
                   <div className="text-[11px] font-bold mt-0.5" style={{ color: C.success }}>{coteDisplay}</div>
                 </div>

@@ -34,51 +34,51 @@ const LEAGUES = [
 
 export default function Over25StatisticsPage() {
   return (
-    <div className="min-h-screen bg-[#071018] flex flex-col text-[#F5F8F3]">
+    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
       <Navbar />
       <main id="main-content" className="flex-1">
-        <nav aria-label="Fil d'Ariane" className="text-xs text-[#B7C4C1] mb-4 max-w-4xl mx-auto px-4 pt-8">
-          <Link href="/" className="hover:text-[#B8FF1A]">Accueil</Link>
+        <nav aria-label="Fil d'Ariane" className="text-xs text-[#9DABBB] mb-4 max-w-4xl mx-auto px-4 pt-8">
+          <Link href="/" className="hover:text-[#2F7DFF]">Accueil</Link>
           <span className="mx-1">/</span>
-          <span className="text-[#B7C4C1]">Over 2.5 Statistics</span>
+          <span className="text-[#9DABBB]">Over 2.5 Statistics</span>
         </nav>
 
         <section className="max-w-4xl mx-auto px-4 pt-4 pb-8">
           <h1 className="text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Over 2.5 Statistics by League
           </h1>
-          <p className="text-base text-[#B7C4C1] leading-relaxed mb-4">
+          <p className="text-base text-[#9DABBB] leading-relaxed mb-4">
             Leagues covered by BTTSPredict for the Over 2.5 market (≥ 3 goals). Historical averages and rates per league will be displayed once a verifiable source is integrated at build time.
           </p>
-          <p className="text-xs text-[#B7C4C1] leading-relaxed">
+          <p className="text-xs text-[#9DABBB] leading-relaxed">
             Aucune garantie future. 18+.
           </p>
         </section>
 
         <section className="max-w-4xl mx-auto px-4 pb-12">
-          <div className="overflow-x-auto rounded-xl" style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
+          <div className="overflow-x-auto rounded-xl" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
             <table className="w-full text-sm" style={{ borderCollapse: 'collapse' }}>
               <thead>
-                <tr style={{ borderBottom: '2px solid #5D7880' }}>
-                  <th className="text-left py-3 px-3 font-bold text-[#B7C4C1]">League</th>
-                  <th className="text-left py-3 px-3 font-bold text-[#B7C4C1] hidden sm:table-cell">Country</th>
-                  <th className="text-right py-3 px-3 font-bold text-[#B7C4C1]">Goals/match</th>
-                  <th className="text-right py-3 px-3 font-bold text-[#B7C4C1]">Over 2.5 Rate</th>
+                <tr style={{ borderBottom: '2px solid #6B7A8C' }}>
+                  <th className="text-left py-3 px-3 font-bold text-[#9DABBB]">League</th>
+                  <th className="text-left py-3 px-3 font-bold text-[#9DABBB] hidden sm:table-cell">Country</th>
+                  <th className="text-right py-3 px-3 font-bold text-[#9DABBB]">Goals/match</th>
+                  <th className="text-right py-3 px-3 font-bold text-[#9DABBB]">Over 2.5 Rate</th>
                 </tr>
               </thead>
               <tbody>
                 {LEAGUES.map((league, i) => (
-                  <tr key={i} style={{ borderBottom: '1px solid #5D7880' }}>
-                    <td className="py-2.5 px-3 font-semibold text-[#F5F8F3]">{league.name}</td>
-                    <td className="py-2.5 px-3 text-[#B7C4C1] hidden sm:table-cell">{league.country}</td>
-                    <td className="py-2.5 px-3 text-right font-mono text-[#B7C4C1] text-xs">Données en préparation</td>
-                    <td className="py-2.5 px-3 text-right font-mono text-[#B7C4C1] text-xs">Données en préparation</td>
+                  <tr key={i} style={{ borderBottom: '1px solid #6B7A8C' }}>
+                    <td className="py-2.5 px-3 font-semibold text-[#F2F6FA]">{league.name}</td>
+                    <td className="py-2.5 px-3 text-[#9DABBB] hidden sm:table-cell">{league.country}</td>
+                    <td className="py-2.5 px-3 text-right font-mono text-[#9DABBB] text-xs">Données en préparation</td>
+                    <td className="py-2.5 px-3 text-right font-mono text-[#9DABBB] text-xs">Données en préparation</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p className="text-[10px] text-[#B7C4C1] mt-3 leading-relaxed">
+          <p className="text-[10px] text-[#9DABBB] mt-3 leading-relaxed">
             Historical data not available — to be integrated via verifiable source. Aucune garantie future.
           </p>
         </section>
@@ -86,14 +86,14 @@ export default function Over25StatisticsPage() {
         <section className="max-w-3xl mx-auto px-4 pb-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Link href="/over-2-5/predictions/today" className="block p-4 rounded-xl transition-all hover:scale-[1.01]"
-              style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
-              <div className="text-sm font-bold text-[#F5F8F3]">Over 2.5 Predictions Today →</div>
-              <div className="text-xs text-[#B7C4C1] mt-1">Today's picks</div>
+              style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
+              <div className="text-sm font-bold text-[#F2F6FA]">Over 2.5 Predictions Today →</div>
+              <div className="text-xs text-[#9DABBB] mt-1">Today's picks</div>
             </Link>
             <Link href="/btts/statistics" className="block p-4 rounded-xl transition-all hover:scale-[1.01]"
-              style={{ backgroundColor: '#0D1A20', border: '1px solid #5D7880' }}>
-              <div className="text-sm font-bold text-[#F5F8F3]">BTTS Statistics →</div>
-              <div className="text-xs text-[#B7C4C1] mt-1">Both teams to score</div>
+              style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
+              <div className="text-sm font-bold text-[#F2F6FA]">BTTS Statistics →</div>
+              <div className="text-xs text-[#9DABBB] mt-1">Both teams to score</div>
             </Link>
           </div>
         </section>

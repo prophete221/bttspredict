@@ -332,7 +332,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-1.5">
               <div className="w-5 h-5 rounded bg-success/15 border border-success/30 flex items-center justify-center">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#B8FF1A" strokeWidth="2.5">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="2.5">
                   <circle cx="12" cy="12" r="10" />
                   <path d="M8 14s1.5 2 4 2 4-2 4-2" />
                   <line x1="9" y1="9" x2="9.01" y2="9" />
@@ -348,16 +348,16 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {/* BTTS column */}
             <div className="space-y-2 text-center">
-              <div className="text-[10px] uppercase tracking-widest font-bold text-[#B8FF1A]">BTTS</div>
-              <div className="text-2xl sm:text-3xl font-black" style={{ color: bttsPred.prediction === 'Oui' ? '#B8FF1A' : '#A8B5C3' }}>
+              <div className="text-[10px] uppercase tracking-widest font-bold text-[#2F7DFF]">BTTS</div>
+              <div className="text-2xl sm:text-3xl font-black" style={{ color: bttsPred.prediction === 'Oui' ? '#2F7DFF' : '#9DABBB' }}>
                 {bttsPred.prediction === 'Oui' ? t.predictions.bttsYes : t.predictions.bttsNo}
               </div>
             </div>
 
             {/* Over 2.5 column */}
-            <div className="space-y-2 text-center border-l border-[#324758] pl-3 sm:pl-4">
-              <div className="text-[10px] uppercase tracking-widest font-bold text-[#B8FF1A]">Over 2.5</div>
-              <div className="text-2xl sm:text-3xl font-black" style={{ color: over25Pred.prediction === 'Oui' ? '#B8FF1A' : '#A8B5C3' }}>
+            <div className="space-y-2 text-center border-l border-[#223041] pl-3 sm:pl-4">
+              <div className="text-[10px] uppercase tracking-widest font-bold text-[#2F7DFF]">Over 2.5</div>
+              <div className="text-2xl sm:text-3xl font-black" style={{ color: over25Pred.prediction === 'Oui' ? '#2F7DFF' : '#9DABBB' }}>
                 {over25Pred.prediction === 'Oui' ? t.predictions.bttsYes : t.predictions.bttsNo}
               </div>
             </div>
@@ -377,19 +377,19 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
               <div className="mt-4 pt-4 border-t border-edge space-y-3">
                 {/* BTTSPredict AI enrichment */}
                 {(match.aiKeyFact || match.aiExactScore) && (
-                  <div className="bg-[#B8FF1A]/5 rounded-lg p-3 border border-[#B8FF1A]/20">
+                  <div className="bg-[#2F7DFF]/5 rounded-lg p-3 border border-[#2F7DFF]/20">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-1.5">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B8FF1A" strokeWidth="2">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="2">
                           <path d="M12 2L2 7l10 5 10-5-10-5z" />
                           <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
                         </svg>
-                        <span className="text-[10px] uppercase tracking-widest font-bold text-[#B8FF1A]">BTTSPredict AI</span>
+                        <span className="text-[10px] uppercase tracking-widest font-bold text-[#2F7DFF]">BTTSPredict AI</span>
                       </div>
                       {match.aiExactScore && (
                         <div className="flex items-center gap-1">
-                          <span className="text-[9px] uppercase tracking-wider text-[#A8B5C3]">{t.predictions.predictedScore}</span>
-                          <span className="text-sm font-black font-mono text-[#B8FF1A] px-2 py-0.5 rounded" style={{ backgroundColor: 'rgba(199,244,100,0.12)' }}>
+                          <span className="text-[9px] uppercase tracking-wider text-[#9DABBB]">{t.predictions.predictedScore}</span>
+                          <span className="text-sm font-black font-mono text-[#2F7DFF] px-2 py-0.5 rounded" style={{ backgroundColor: 'rgba(199,244,100,0.12)' }}>
                             {match.aiExactScore}
                           </span>
                         </div>
@@ -401,30 +401,30 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
                       <div className="grid grid-cols-3 gap-1.5 mb-2">
                         {match.aiExactScore && match.exactScoreProb && (
                           <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(199,244,100,0.08)' }}>
-                            <div className="text-[8px] uppercase text-[#A8B5C3]">Score</div>
-                            <div className="text-[11px] font-bold text-[#B8FF1A]">{match.exactScoreProb}</div>
+                            <div className="text-[8px] uppercase text-[#9DABBB]">Score</div>
+                            <div className="text-[11px] font-bold text-[#2F7DFF]">{match.exactScoreProb}</div>
                           </div>
                         )}
                         {match.aiBttsProb && (
-                          <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(123,228,149,0.08)' }}>
-                            <div className="text-[8px] uppercase text-[#A8B5C3]">BTTS</div>
-                            <div className="text-[11px] font-bold text-[#B8FF1A]">{match.aiBttsProb}</div>
+                          <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(52, 211, 153,0.08)' }}>
+                            <div className="text-[8px] uppercase text-[#9DABBB]">BTTS</div>
+                            <div className="text-[11px] font-bold text-[#2F7DFF]">{match.aiBttsProb}</div>
                           </div>
                         )}
                         {match.aiOver25Prob && (
-                          <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(255,209,102,0.08)' }}>
-                            <div className="text-[8px] uppercase text-[#A8B5C3]">Over 2.5</div>
-                            <div className="text-[11px] font-bold text-[#B8FF1A]">{match.aiOver25Prob}</div>
+                          <div className="text-center rounded p-1.5" style={{ backgroundColor: 'rgba(91, 169, 255,0.08)' }}>
+                            <div className="text-[8px] uppercase text-[#9DABBB]">Over 2.5</div>
+                            <div className="text-[11px] font-bold text-[#2F7DFF]">{match.aiOver25Prob}</div>
                           </div>
                         )}
                       </div>
                     )}
 
                     {match.aiKeyFact && (
-                      <p className="text-[11px] text-[#F3F7FA] font-semibold mb-2">📊 {match.aiKeyFact}</p>
+                      <p className="text-[11px] text-[#F2F6FA] font-semibold mb-2">📊 {match.aiKeyFact}</p>
                     )}
                     {match.aiAnalysis && (
-                      <p className="text-[11px] text-[#A8B5C3] leading-relaxed">{match.aiAnalysis}</p>
+                      <p className="text-[11px] text-[#9DABBB] leading-relaxed">{match.aiAnalysis}</p>
                     )}
                   </div>
                 )}
@@ -625,17 +625,17 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
                 aria-pressed={activeDate === f.id}
                 className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-all duration-200 whitespace-nowrap ${
                   activeDate === f.id
-                    ? 'text-[#071018] border-none'
-                    : 'text-[#A8B5C3] border border-[#324758]'
+                    ? 'text-[#FFFFFF] border-none'
+                    : 'text-[#9DABBB] border border-[#223041]'
                 }`}
-                style={activeDate === f.id ? { backgroundColor: '#B8FF1A' } : { backgroundColor: '#0D1722' }}
+                style={activeDate === f.id ? { backgroundColor: '#2F7DFF' } : { backgroundColor: '#141C25' }}
               >
                 {f.label}
               </button>
             ))}
           </div>
 
-          <span className="w-px h-4 bg-[#324758] flex-shrink-0" />
+          <span className="w-px h-4 bg-[#223041] flex-shrink-0" />
 
           {/* Market filter chips */}
           <div className="flex items-center gap-1.5 flex-shrink-0">
@@ -650,17 +650,17 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
                 aria-pressed={activeType === f.id}
                 className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-all duration-200 whitespace-nowrap ${
                   activeType === f.id
-                    ? 'text-[#071018] border-none'
-                    : 'text-[#A8B5C3] border border-[#324758]'
+                    ? 'text-[#FFFFFF] border-none'
+                    : 'text-[#9DABBB] border border-[#223041]'
                 }`}
-                style={activeType === f.id ? { backgroundColor: '#B8FF1A' } : { backgroundColor: '#0D1722' }}
+                style={activeType === f.id ? { backgroundColor: '#2F7DFF' } : { backgroundColor: '#141C25' }}
               >
                 {f.label}
               </button>
             ))}
           </div>
 
-          <span className="w-px h-4 bg-[#324758] flex-shrink-0" />
+          <span className="w-px h-4 bg-[#223041] flex-shrink-0" />
 
           {/* League filter chips */}
           <div className="flex items-center gap-1.5 flex-shrink-0">
@@ -671,10 +671,10 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
                 aria-pressed={activeLeague === league}
                 className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-all duration-200 whitespace-nowrap ${
                   activeLeague === league
-                    ? 'text-[#071018] border-none'
-                    : 'text-[#A8B5C3] border border-[#324758]'
+                    ? 'text-[#FFFFFF] border-none'
+                    : 'text-[#9DABBB] border border-[#223041]'
                 }`}
-                style={activeLeague === league ? { backgroundColor: '#B8FF1A' } : { backgroundColor: '#0D1722' }}
+                style={activeLeague === league ? { backgroundColor: '#2F7DFF' } : { backgroundColor: '#141C25' }}
               >
                 {league === 'all' ? t.predictions.leagues : league}
               </button>
@@ -684,7 +684,7 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
           {/* Live count badge if matches live */}
           {stats.live > 0 && (
             <>
-              <span className="w-px h-4 bg-[#324758] flex-shrink-0" />
+              <span className="w-px h-4 bg-[#223041] flex-shrink-0" />
               <span className="live-text text-[10px] uppercase tracking-widest font-bold whitespace-nowrap flex-shrink-0">
                 {stats.live} LIVE
               </span>
@@ -703,7 +703,7 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
         ) : filteredMatches.length === 0 ? (
           <div className="squircle-xl p-10 text-center">
             <div className="w-14 h-14 bg-dark-800 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-edge">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8FF1A" strokeWidth="1.5">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="1.5">
                 <path d="M9 12l2 2 4-4" />
                 <circle cx="12" cy="12" r="10" />
               </svg>
@@ -729,8 +729,8 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
             href="/btts/predictions/today"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold transition-all"
             style={{
-              background: 'linear-gradient(135deg, #B8FF1A, #B8FF1A)',
-              color: '#071018',
+              background: 'linear-gradient(135deg, #2F7DFF, #2F7DFF)',
+              color: '#FFFFFF',
               boxShadow: '0 4px 16px rgba(127, 162, 198, 0.30)',
             }}
           >

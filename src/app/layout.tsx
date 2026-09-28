@@ -12,27 +12,34 @@ const AnalyticsLoader = dynamic(() => import("@/components/bttsbet/AnalyticsLoad
 //   - 'Can\'t resolve \'@vercel/turbopack-next/internal/font/google/font\'' on CI
 //   - 404 errors on fonts.gstatic.com during build in restricted networks (GitHub Actions)
 //
-// Files downloaded from fonts.googleapis.com (latin subset, weight 400) and stored locally.
-// The browser will apply font-weight: 400 to 900 via CSS fallback if heavier weights are used.
+// Files downloaded from fonts.googleapis.com (latin subset) and stored locally.
+// Design v2 : vrais poids chargés — plus de faux gras (synthetic bold) partout.
+// Inter & JetBrains Mono sont servis en fontes VARIABLES (1 fichier = tous les poids).
 const poppins = localFont({
   variable: "--font-display",
-  src: "./fonts/poppins-400.woff2",
+  src: [
+    { path: "./fonts/poppins-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/poppins-500.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/poppins-600.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/poppins-700.woff2", weight: "700", style: "normal" },
+  ],
   display: 'swap',
-  weight: '400',
 });
 
 const inter = localFont({
   variable: "--font-body",
-  src: "./fonts/inter-400.woff2",
+  src: "./fonts/inter-var.woff2",
   display: 'swap',
-  weight: '400',
+  weight: '400 700',
 });
 
 const jetbrainsMono = localFont({
   variable: "--font-mono",
-  src: "./fonts/jetbrains-mono-400.woff2",
+  src: [
+    { path: "./fonts/jetbrains-mono-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/jetbrains-mono-var.woff2", weight: "500 600", style: "normal" },
+  ],
   display: 'swap',
-  weight: '400',
 });
 
 export const metadata: Metadata = {
@@ -103,7 +110,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#071018",
+  themeColor: "#0B0F14",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,

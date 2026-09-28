@@ -13,8 +13,8 @@ const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary')
 const VipUnlockModal = dynamic(() => import('@/components/bttsbet/VipUnlockModal'), { loading: () => null })
 
 const BRAND = {
-  linebet: { accent: '#B8FF1A', soft: 'rgba(184,255,26,0.12)', label: 'Linebet', code: 'VISION221' },
-  '888starz': { accent: '#FF7B7B', soft: 'rgba(255,123,123,0.12)', label: '888Starz', code: 'btts221' },
+  linebet: { accent: '#2F7DFF', soft: 'rgba(47, 125, 255,0.12)', label: 'Linebet', code: 'VISION221' },
+  '888starz': { accent: '#F87171', soft: 'rgba(248, 113, 113,0.12)', label: '888Starz', code: 'btts221' },
 } as const
 
 type Bookmaker = keyof typeof BRAND
