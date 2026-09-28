@@ -73,10 +73,12 @@ const MATCH_COPY: Record<Locale, {
   bttsSubtitle: string; overSubtitle: string; won: string; lost: string; pending: string; noFuture: string;
   keyFact: string; analysis: string; verification: string; verifiedAt: string; source: string;
   intelligence: string; further: string; today: string; todayDesc: string; premium: string; vipDesc: string; disclaimer: string;
+  dataUsed: string; dataUsedDesc: string; matchesAnalyzed: string; perTeam: string; lambdaLabel: string; lambdaHint: string;
+  xgTotalLabel: string; recentForm: string; formBttsLabel: string; formNote: string; conclusion: string; qualityNote: string;
 }> = {
-  fr: { home: 'Accueil', predictions: 'Pronostics', breadcrumb: 'Fil d’Ariane', finalScore: 'Score final', report: 'Rapport de signal', published: 'Données publiées', bttsSubtitle: 'Les deux équipes marquent', overSubtitle: 'Total de buts ≥ 3', won: 'Gagné', lost: 'Perdu', pending: 'En attente', noFuture: 'Aucun résultat futur n’est garanti. 18+.', keyFact: 'Statistique clé — xG & données disponibles', analysis: 'Analyse statistique', verification: 'Vérification', verifiedAt: 'Vérifié le', source: 'Source : ESPN et TheSportsDB. Suivi public depuis le 2026-08-08.', intelligence: 'Intelligence du match', further: 'Aller plus loin', today: 'Voir les pronostics du jour →', todayDesc: 'Tous les matchs sélectionnés par le moteur IA', premium: 'Pronostics premium →', vipDesc: 'Programme VIP BTTSPredict', disclaimer: '18+ · Les paris sportifs comportent un risque de perte. Aucun résultat futur n’est garanti. BTTSPredict ne prend pas de paris et ne collecte pas de fonds. Pronostic publié à titre informatif, ne constitue pas une incitation à parier.' },
-  en: { home: 'Home', predictions: 'Predictions', breadcrumb: 'Breadcrumb', finalScore: 'Final score', report: 'Signal report', published: 'Published data', bttsSubtitle: 'Both teams to score', overSubtitle: 'Total goals ≥ 3', won: 'Won', lost: 'Lost', pending: 'Pending', noFuture: 'No future result is guaranteed. 18+.', keyFact: 'Key statistic — xG & available data', analysis: 'Statistical analysis', verification: 'Verification', verifiedAt: 'Verified on', source: 'Source: ESPN and TheSportsDB. Public tracking since 2026-08-08.', intelligence: 'Match intelligence', further: 'Explore further', today: 'View today’s predictions →', todayDesc: 'All matches selected by the AI engine', premium: 'Premium predictions →', vipDesc: 'BTTSPredict VIP programme', disclaimer: '18+ · Sports betting carries a risk of loss. No future result is guaranteed. BTTSPredict does not take bets or hold funds. This prediction is informational and is not an invitation to bet.' },
-  ar: { home: 'الرئيسية', predictions: 'التوقعات', breadcrumb: 'مسار التنقل', finalScore: 'النتيجة النهائية', report: 'تقرير الإشارة', published: 'بيانات منشورة', bttsSubtitle: 'كلا الفريقين يسجلان', overSubtitle: 'إجمالي الأهداف ≥ 3', won: 'فوز', lost: 'خسارة', pending: 'قيد الانتظار', noFuture: 'لا توجد ضمانات لأي نتيجة مستقبلية. 18+.', keyFact: 'إحصائية أساسية — xG والبيانات المتاحة', analysis: 'تحليل إحصائي', verification: 'التحقق', verifiedAt: 'تم التحقق في', source: 'المصدر: ESPN وTheSportsDB. متابعة عامة منذ 2026-08-08.', intelligence: 'ذكاء المباراة', further: 'استكشف المزيد', today: 'عرض توقعات اليوم ←', todayDesc: 'جميع المباريات التي اختارها محرك الذكاء الاصطناعي', premium: 'التوقعات المميزة ←', vipDesc: 'برنامج VIP من BTTSPredict', disclaimer: '18+ · المراهنات الرياضية تنطوي على خطر الخسارة. لا توجد ضمانات لأي نتيجة مستقبلية. BTTSPredict لا يقبل الرهانات ولا يحتفظ بالأموال. هذا التوقع إعلامي وليس دعوة للمراهنة.' },
+  fr: { home: 'Accueil', predictions: 'Pronostics', breadcrumb: 'Fil d’Ariane', finalScore: 'Score final', report: 'Rapport de signal', published: 'Données publiées', bttsSubtitle: 'Les deux équipes marquent', overSubtitle: 'Total de buts ≥ 3', won: 'Gagné', lost: 'Perdu', pending: 'En attente', noFuture: 'Aucun résultat futur n’est garanti. 18+.', keyFact: 'Statistique clé — buts attendus modélisés & données disponibles', analysis: 'Analyse statistique', verification: 'Vérification', verifiedAt: 'Vérifié le', source: 'Source : ESPN et TheSportsDB. Suivi public depuis le 2026-08-08.', intelligence: 'Intelligence du match', further: 'Aller plus loin', today: 'Voir les pronostics du jour →', todayDesc: 'Tous les matchs sélectionnés par le moteur IA', premium: 'Pronostics premium →', vipDesc: 'Programme VIP BTTSPredict', disclaimer: '18+ · Les paris sportifs comportent un risque de perte. Aucun résultat futur n’est garanti. BTTSPredict ne prend pas de paris et ne collecte pas de fonds. Pronostic publié à titre informatif, ne constitue pas une incitation à parier.', dataUsed: 'Données utilisées', dataUsedDesc: 'Ce que le modèle a réellement consommé pour ce match — rien d’autre.', matchesAnalyzed: 'Matchs réels analysés', perTeam: 'par équipe', lambdaLabel: 'Buts attendus modélisés (λ)', lambdaHint: 'Dérivés des buts récents réels (ESPN) — pas des xG de fournisseur.', xgTotalLabel: 'Total λ du match', recentForm: 'Forme récente & contexte', formBttsLabel: 'BTTS sur les matchs récents', formNote: 'La forme est présentée via les données récentes réelles (volume de matchs, buts modélisés). Aucun indicateur de forme n’est inventé.', conclusion: 'Conclusion', qualityNote: 'Qualité des données disponibles pour ce match — ce n’est pas une probabilité de réussite.' },
+  en: { home: 'Home', predictions: 'Predictions', breadcrumb: 'Breadcrumb', finalScore: 'Final score', report: 'Signal report', published: 'Published data', bttsSubtitle: 'Both teams to score', overSubtitle: 'Total goals ≥ 3', won: 'Won', lost: 'Lost', pending: 'Pending', noFuture: 'No future result is guaranteed. 18+.', keyFact: 'Key statistic — modeled expected goals & available data', analysis: 'Statistical analysis', verification: 'Verification', verifiedAt: 'Verified on', source: 'Source: ESPN and TheSportsDB. Public tracking since 2026-08-08.', intelligence: 'Match intelligence', further: 'Explore further', today: 'View today’s predictions →', todayDesc: 'All matches selected by the AI engine', premium: 'Premium predictions →', vipDesc: 'BTTSPredict VIP programme', disclaimer: '18+ · Sports betting carries a risk of loss. No future result is guaranteed. BTTSPredict does not take bets or hold funds. This prediction is informational and is not an invitation to bet.', dataUsed: 'Data used', dataUsedDesc: 'What the model actually consumed for this match — nothing else.', matchesAnalyzed: 'Real matches analyzed', perTeam: 'per team', lambdaLabel: 'Modeled expected goals (λ)', lambdaHint: 'Derived from recent real goals (ESPN) — not provider xG.', xgTotalLabel: 'Match total λ', recentForm: 'Recent form & context', formBttsLabel: 'BTTS in recent matches', formNote: 'Form is presented through real recent data (match volume, modeled goals). No form indicator is fabricated.', conclusion: 'Conclusion', qualityNote: 'Data quality available for this match — not a success probability.' },
+  ar: { home: 'الرئيسية', predictions: 'التوقعات', breadcrumb: 'مسار التنقل', finalScore: 'النتيجة النهائية', report: 'تقرير الإشارة', published: 'بيانات منشورة', bttsSubtitle: 'كلا الفريقين يسجلان', overSubtitle: 'إجمالي الأهداف ≥ 3', won: 'فوز', lost: 'خسارة', pending: 'قيد الانتظار', noFuture: 'لا توجد ضمانات لأي نتيجة مستقبلية. 18+.', keyFact: 'إحصائية أساسية — أهداف متوقعة نمذجة وبيانات متاحة', analysis: 'تحليل إحصائي', verification: 'التحقق', verifiedAt: 'تم التحقق في', source: 'المصدر: ESPN وTheSportsDB. متابعة عامة منذ 2026-08-08.', intelligence: 'ذكاء المباراة', further: 'استكشف المزيد', today: 'عرض توقعات اليوم ←', todayDesc: 'جميع المباريات التي اختارها محرك الذكاء الاصطناعي', premium: 'التوقعات المميزة ←', vipDesc: 'برنامج VIP من BTTSPredict', disclaimer: '18+ · المراهنات الرياضية تنطوي على خطر الخسارة. لا توجد ضمانات لأي نتيجة مستقبلية. BTTSPredict لا يقبل الرهانات ولا يحتفظ بالأموال. هذا التوقع إعلامي وليس دعوة للمراهنة.', dataUsed: 'البيانات المستخدمة', dataUsedDesc: 'ما استهلاكه النموذج فعلياً لهذه المباراة — لا شيء غير ذلك.', matchesAnalyzed: 'مباريات حقيقية محللة', perTeam: 'لكل فريق', lambdaLabel: 'أهداف متوقعة نمذجة (λ)', lambdaHint: 'مشتقة من أهداف حقيقية حديثة (ESPN) — ليست xG من مزود.', xgTotalLabel: 'إجمالي λ للمباراة', recentForm: 'الفورمة الأخيرة والسياق', formBttsLabel: 'BTTS في المباريات الأخيرة', formNote: 'تُعرض الفورمة عبر بيانات حقيقية حديثة (حجم المباريات، الأهداف النمذجة). لا يُؤلَّف أي مؤشر فورمة.', conclusion: 'الخاتمة', qualityNote: 'جودة البيانات المتاحة لهذه المباراة — ليست احتمال نجاح.' },
 }
 
 export default async function MatchPage({ params, locale = 'fr' }: PageProps & { locale?: Locale }) {
@@ -122,6 +124,13 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
   const lost = verified.filter(p => p.status === 'LOST').length
   const pending = marketPredictions.filter(p => !p.status || p.status === 'PENDING').length
   const finalScore = verified[0]?.finalScore || marketPredictions.find(p => p.finalScore && p.finalScore !== '-')?.finalScore || null
+
+  // Données réelles disponibles (aucune invention : section affichée seulement si présentes)
+  const hasUsageData = match.dataQuality || match.dataSource || match.matchCountHome != null || match.aiRisk
+  const hasLambda = match.homeLambda != null || match.awayLambda != null || match.xgTotal != null
+  const matchCountTotal = match.matchCountHome != null && match.matchCountAway != null
+    ? match.matchCountHome + match.matchCountAway
+    : null
 
   // Breadcrumb JSON-LD
   const breadcrumbJsonLd = {
@@ -186,23 +195,23 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
 
             {finalScore && (
               <div className="text-center mb-2">
-                <span className="inline-block px-4 py-2 rounded-xl text-lg font-bold" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
+                <span className="inline-block px-4 py-2 rounded-xl text-lg font-bold" style={{ backgroundColor: '#10161D', border: '1px solid #223041' }}>
                   {copy.finalScore} : {finalScore}
                 </span>
               </div>
             )}
           </header>
 
-          {/* Pronostics */}
+          {/* 1. PRONOSTICS */}
           <section className="mb-10">
             <div className="mb-6 flex items-end justify-between gap-3">
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#2F7DFF]">{copy.intelligence}</p>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#2F7DFF]">{copy.intelligence}</p>
                 <h1 className="mt-1 text-2xl font-bold sm:text-3xl" style={{ fontFamily: 'Poppins, sans-serif' }}>
                   {copy.report}
                 </h1>
               </div>
-              <span className="text-right text-[10px] uppercase tracking-wider text-[#9DABBB]">{copy.published}</span>
+              <span className="text-right text-xs uppercase tracking-wider text-[#9DABBB]">{copy.published}</span>
             </div>
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -210,7 +219,6 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
                 const market = (p.type || p.market || '').toLowerCase()
                 const isBtts = market.includes('btts')
                 const isOver = market.includes('over') || market.includes('o2.5') || market.includes('o25')
-                const color = isBtts ? '#2F7DFF' : isOver ? '#2F7DFF' : '#9DABBB'
                 const label = isBtts ? 'BTTS' : isOver ? 'Over 2.5' : (p.type || p.market || 'Prediction')
                 const isWon = p.status === 'WON'
                 const isLost = p.status === 'LOST'
@@ -218,40 +226,43 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
                 const probLabel = isBtts ? aiBttsProb : isOver ? aiOver25Prob : null
 
                 return (
-                  <div key={i} className="p-5 rounded-2xl" style={{ backgroundColor: '#141C25', border: `1px solid ${color}40` }}>
+                  <div key={i} className="p-5 rounded-2xl bg-[#141C25] border border-[#223041]">
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-xs font-bold uppercase tracking-wider" style={{ color }}>
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#2F7DFF]">
                         {label}
                       </span>
                       {probLabel && (
-                        <span className="text-xs font-bold font-mono px-2 py-0.5 rounded" style={{ backgroundColor: `${color}15`, color }}>
+                        <span className="text-xs font-bold font-mono px-2 py-0.5 rounded" style={{ backgroundColor: 'rgba(47,125,255,0.12)', color: '#2F7DFF' }}>
                           {probLabel}
                         </span>
                       )}
                     </div>
 
-                    <div className="text-2xl font-black mb-2" style={{ color: p.prediction === 'Oui' ? color : '#9DABBB' }}>
+                    <div className="text-2xl font-black mb-2" style={{ color: p.prediction === 'Oui' ? '#F2F6FA' : '#9DABBB' }}>
                       {p.prediction === 'Oui' ? (locale === 'ar' ? 'نعم' : locale === 'en' ? 'Yes' : 'Oui') : p.prediction === 'Non' ? (locale === 'ar' ? 'لا' : locale === 'en' ? 'No' : 'Non') : p.prediction}
                     </div>
 
                     {/* Subtitle to make cards visually distinct */}
-                    <div className="text-[10px] text-[#9DABBB] mb-2">
+                    <div className="text-xs text-[#9DABBB] mb-3">
                       {isBtts ? copy.bttsSubtitle : isOver ? copy.overSubtitle : ''}
                     </div>
 
                     {isWon && (
-                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(34, 197, 94, 0.15)', color: '#2F7DFF' }}>
-                        ✓ {copy.won}
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold" style={{ backgroundColor: 'rgba(52, 211, 153, 0.13)', color: '#34D399' }}>
+                        <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#34D399' }} aria-hidden="true" />
+                        {copy.won}
                       </div>
                     )}
                     {isLost && (
-                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(248, 113, 113, 0.15)', color: '#F87171' }}>
-                        ✗ {copy.lost}
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold" style={{ backgroundColor: 'rgba(248, 113, 113, 0.13)', color: '#F87171' }}>
+                        <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#F87171' }} aria-hidden="true" />
+                        {copy.lost}
                       </div>
                     )}
                     {isPending && (
-                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: 'rgba(156, 163, 175, 0.15)', color: '#9DABBB' }}>
-                        ⏳ {copy.pending}
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold" style={{ backgroundColor: 'rgba(251, 191, 36, 0.12)', color: '#FBBF24' }}>
+                        <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#FBBF24' }} aria-hidden="true" />
+                        {copy.pending}
                       </div>
                     )}
                   </div>
@@ -264,60 +275,133 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
             </p>
           </section>
 
-          <MatchAnalyticsCharts
-            bttsProb={match.bttsProb}
-            over25Prob={match.over25Prob}
-            exactScoreProb={exactScoreProb || undefined}
-            homeLambda={match.homeLambda}
-            awayLambda={match.awayLambda}
-            xgTotal={match.xgTotal}
-          />
+          {/* 2. DONNÉES UTILISÉES */}
+          {hasUsageData && (
+            <section className="mb-10" aria-labelledby="match-data-used">
+              <h2 id="match-data-used" className="text-xl font-bold mb-1" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.dataUsed}</h2>
+              <p className="text-xs text-[#9DABBB] mb-4">{copy.dataUsedDesc}</p>
+              <div className="rounded-2xl border border-[#223041] bg-[#141C25] p-4 sm:p-5">
+                <dl className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+                  <div className="rounded-xl bg-[#10161D] border border-[#223041] p-3">
+                    <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">{copy.matchesAnalyzed}</dt>
+                    <dd className="text-lg font-bold text-[#F2F6FA] font-mono mt-1">
+                      {match.matchCountHome != null && match.matchCountAway != null
+                        ? `${match.matchCountHome} + ${match.matchCountAway}`
+                        : '—'}
+                    </dd>
+                    <dd className="text-xs text-[#6B7A8C]">{copy.perTeam}</dd>
+                  </div>
+                  {hasLambda && (
+                    <div className="rounded-xl bg-[#10161D] border border-[#223041] p-3">
+                      <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">λ H / λ A</dt>
+                      <dd className="text-lg font-bold text-[#F2F6FA] font-mono mt-1">
+                        {match.homeLambda != null && match.awayLambda != null
+                          ? `${match.homeLambda.toFixed(2)} / ${match.awayLambda.toFixed(2)}`
+                          : '—'}
+                      </dd>
+                      <dd className="text-xs text-[#6B7A8C]">{copy.lambdaLabel.toLowerCase()}</dd>
+                    </div>
+                  )}
+                  {match.xgTotal != null && (
+                    <div className="rounded-xl bg-[#10161D] border border-[#223041] p-3">
+                      <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">{copy.xgTotalLabel}</dt>
+                      <dd className="text-lg font-bold text-[#F2F6FA] font-mono mt-1">{match.xgTotal.toFixed(2)}</dd>
+                      <dd className="text-xs text-[#6B7A8C]">Poisson</dd>
+                    </div>
+                  )}
+                  <div className="rounded-xl bg-[#10161D] border border-[#223041] p-3">
+                    <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">Source</dt>
+                    <dd className="text-sm font-bold text-[#F2F6FA] mt-1 break-words">{match.dataSource || 'ESPN'}</dd>
+                    <dd className="text-xs text-[#6B7A8C]">{match.dataQuality || ''}</dd>
+                  </div>
+                </dl>
+                <p className="text-xs text-[#9DABBB] mt-3 leading-relaxed">{copy.lambdaHint}</p>
+              </div>
+            </section>
+          )}
 
-          {/* Qualité et provenance des données — transparence (mission) */}
-          {(match.dataQuality || match.dataSource || match.matchCountHome != null || match.aiRisk) && (
+          {/* 3. FORME RÉCENTE & CONTEXTE (données réelles uniquement) */}
+          {(matchCountTotal != null || match.formBtts) && (
+            <section className="mb-10" aria-labelledby="match-recent-form">
+              <h2 id="match-recent-form" className="text-xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.recentForm}</h2>
+              <div className="rounded-2xl border border-[#223041] bg-[#141C25] p-4 sm:p-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {matchCountTotal != null && (
+                    <div className="flex items-center justify-between rounded-xl bg-[#10161D] border border-[#223041] px-4 py-3">
+                      <span className="text-sm text-[#9DABBB]">{copy.matchesAnalyzed}</span>
+                      <span className="text-sm font-bold text-[#F2F6FA] font-mono">{match.matchCountHome} + {match.matchCountAway} <span className="text-[#6B7A8C] font-normal">({copy.perTeam})</span></span>
+                    </div>
+                  )}
+                  {match.formBtts && (
+                    <div className="flex items-center justify-between rounded-xl bg-[#10161D] border border-[#223041] px-4 py-3">
+                      <span className="text-sm text-[#9DABBB]">{copy.formBttsLabel}</span>
+                      <span className="text-sm font-bold text-[#F2F6FA] font-mono">{match.formBtts}%</span>
+                    </div>
+                  )}
+                </div>
+                <p className="text-xs text-[#6B7A8C] mt-3 leading-relaxed">{copy.formNote}</p>
+              </div>
+            </section>
+          )}
+
+          {/* 4. INDICATEURS */}
+          <section className="mb-10" aria-label={copy.intelligence}>
+            <MatchAnalyticsCharts
+              bttsProb={match.bttsProb}
+              over25Prob={match.over25Prob}
+              exactScoreProb={exactScoreProb || undefined}
+              homeLambda={match.homeLambda}
+              awayLambda={match.awayLambda}
+              xgTotal={match.xgTotal}
+            />
+          </section>
+
+          {/* 5. QUALITÉ DES DONNÉES — transparence (mission) */}
+          {hasUsageData && (
             <section
-              className="rounded-[16px] bg-[#0D1A20] border border-[#5D7880] p-4 mt-4"
+              className="rounded-[16px] bg-[#10161D] border border-[#223041] p-4 sm:p-5 mb-10"
               aria-label="Qualité des données"
             >
-              <h2 className="text-sm font-bold text-[#F5F8F3] mb-3">Qualité des données</h2>
+              <h2 className="text-sm font-bold text-[#F2F6FA] mb-3">Qualité des données</h2>
               <dl className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
-                <div className="rounded-lg bg-[#11242B] p-2">
-                  <dt className="text-[9px] uppercase tracking-wider text-[#B7C4C1]">Qualité</dt>
-                  <dd className="text-xs font-bold text-[#F5F8F3] mt-1">{match.dataQuality || 'unavailable'}</dd>
+                <div className="rounded-lg bg-[#141C25] border border-[#223041] p-2">
+                  <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">Qualité</dt>
+                  <dd className="text-xs font-bold text-[#F2F6FA] mt-1">{match.dataQuality || 'unavailable'}</dd>
                 </div>
-                <div className="rounded-lg bg-[#11242B] p-2">
-                  <dt className="text-[9px] uppercase tracking-wider text-[#B7C4C1]">Matchs analysés</dt>
-                  <dd className="text-xs font-bold text-[#F5F8F3] mt-1">
+                <div className="rounded-lg bg-[#141C25] border border-[#223041] p-2">
+                  <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">Matchs analysés</dt>
+                  <dd className="text-xs font-bold text-[#F2F6FA] mt-1">
                     {match.matchCountHome != null && match.matchCountAway != null
                       ? `${match.matchCountHome} + ${match.matchCountAway}`
                       : 'unavailable'}
                   </dd>
                 </div>
-                <div className="rounded-lg bg-[#11242B] p-2">
-                  <dt className="text-[9px] uppercase tracking-wider text-[#B7C4C1]">Niveau de risque (IA)</dt>
-                  <dd className="text-xs font-bold text-[#F5F8F3] mt-1">{match.aiRisk || 'unavailable'}</dd>
+                <div className="rounded-lg bg-[#141C25] border border-[#223041] p-2">
+                  <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">Niveau de risque (IA)</dt>
+                  <dd className="text-xs font-bold text-[#F2F6FA] mt-1">{match.aiRisk || 'unavailable'}</dd>
                 </div>
-                <div className="rounded-lg bg-[#11242B] p-2">
-                  <dt className="text-[9px] uppercase tracking-wider text-[#B7C4C1]">Source</dt>
-                  <dd className="text-xs font-bold text-[#F5F8F3] mt-1">{match.dataSource || 'unavailable'}</dd>
+                <div className="rounded-lg bg-[#141C25] border border-[#223041] p-2">
+                  <dt className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">Source</dt>
+                  <dd className="text-xs font-bold text-[#F2F6FA] mt-1">{match.dataSource || 'unavailable'}</dd>
                 </div>
               </dl>
-              <p className="text-[10px] text-[#B7C4C1] mt-2">
-                Qualité des données disponibles pour ce match — ce n&apos;est pas une probabilité de réussite.
+              <p className="text-xs text-[#9DABBB] mt-3">
+                {copy.qualityNote}
               </p>
             </section>
           )}
 
-          {/* SECTION RAPPORT D'ANALYSE BTTSPREDICT AI */}
-          {(aiKeyFact || aiExactScore) && (
-            <section className="mb-10">
+          {/* 6. CONCLUSION — SECTION RAPPORT D'ANALYSE BTTSPREDICT AI */}
+          {(aiKeyFact || aiAnalysis || aiExactScore) && (
+            <section className="mb-10" aria-labelledby="match-conclusion">
+              <h2 id="match-conclusion" className="text-xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.conclusion}</h2>
               <div className="rounded-2xl border border-[#223041] bg-[#141C25] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.18)] sm:p-6">
-                <div className="flex items-center justify-between border-b border-[#223041] pb-3">
-                  <h2 className="flex items-center gap-2 text-sm font-bold text-[#F2F6FA]">
+                <div className="flex items-center justify-between border-b border-[#223041] pb-3 mb-4">
+                  <h3 className="flex items-center gap-2 text-sm font-bold text-[#F2F6FA]">
                     <span className="text-[#2F7DFF]">{copy.report}</span> — BTTSPredict AI
-                  </h2>
+                  </h3>
                   {aiExactScore && (
-                    <span className="px-2.5 py-1 text-xs font-black rounded-md" style={{ backgroundColor: 'rgba(245,158,11,0.1)', color: '#2F7DFF', border: '1px solid rgba(245,158,11,0.3)' }}>
+                    <span className="px-2.5 py-1 text-xs font-bold rounded-md font-mono" style={{ backgroundColor: 'rgba(47,125,255,0.12)', color: '#2F7DFF', border: '1px solid rgba(47,125,255,0.3)' }}>
                       {copy.finalScore} : {aiExactScore}
                     </span>
                   )}
@@ -325,23 +409,23 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
 
                 {/* Probabilities row */}
                 {(exactScoreProb || aiBttsProb || aiOver25Prob) && (
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="grid grid-cols-3 gap-2 mb-4">
                     {exactScoreProb && (
-                      <div className="text-center rounded-lg p-2" style={{ backgroundColor: 'rgba(245,158,11,0.08)' }}>
-                        <div className="text-[9px] uppercase tracking-wider text-[#9DABBB]">Score exact</div>
-                        <div className="text-base font-bold text-[#2F7DFF]">{exactScoreProb}</div>
+                      <div className="text-center rounded-lg p-2 bg-[#10161D] border border-[#223041]">
+                        <div className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">Score exact</div>
+                        <div className="text-base font-bold text-[#F2F6FA] font-mono">{exactScoreProb}</div>
                       </div>
                     )}
                     {aiBttsProb && (
-                      <div className="text-center rounded-lg p-2" style={{ backgroundColor: 'rgba(6,182,212,0.08)' }}>
-                        <div className="text-[9px] uppercase tracking-wider text-[#9DABBB]">BTTS</div>
-                        <div className="text-base font-bold text-[#2F7DFF]">{aiBttsProb}</div>
+                      <div className="text-center rounded-lg p-2 bg-[#10161D] border border-[#223041]">
+                        <div className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">BTTS</div>
+                        <div className="text-base font-bold text-[#F2F6FA] font-mono">{aiBttsProb}</div>
                       </div>
                     )}
                     {aiOver25Prob && (
-                      <div className="text-center rounded-lg p-2" style={{ backgroundColor: 'rgba(91, 169, 255,0.08)' }}>
-                        <div className="text-[9px] uppercase tracking-wider text-[#9DABBB]">Over 2.5</div>
-                        <div className="text-base font-bold text-[#2F7DFF]">{aiOver25Prob}</div>
+                      <div className="text-center rounded-lg p-2 bg-[#10161D] border border-[#223041]">
+                        <div className="text-xs uppercase tracking-wider text-[#9DABBB] font-bold">Over 2.5</div>
+                        <div className="text-base font-bold text-[#F2F6FA] font-mono">{aiOver25Prob}</div>
                       </div>
                     )}
                   </div>
@@ -349,21 +433,21 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
 
                 {/* Statistique Clé */}
                 {aiKeyFact && (
-                  <div className="p-3 rounded-lg" style={{ backgroundColor: '#FFFFFF', border: '1px solid #6B7A8C' }}>
-                    <span className="text-[11px] font-bold text-[#2F7DFF] uppercase tracking-wider block mb-1">
-                      📌 {copy.keyFact}
+                  <div className="p-3 rounded-lg bg-[#10161D] border border-[#223041] mb-3">
+                    <span className="text-xs font-bold text-[#2F7DFF] uppercase tracking-wider block mb-1">
+                      {copy.keyFact}
                     </span>
-                    <p className="text-xs text-[#F2F6FA] italic">&ldquo;{aiKeyFact}&rdquo;</p>
+                    <p className="text-sm text-[#F2F6FA] leading-relaxed">&ldquo;{aiKeyFact}&rdquo;</p>
                   </div>
                 )}
 
                 {/* Analyse Complète */}
                 {aiAnalysis && (
-                  <div className="p-3.5 rounded-lg" style={{ backgroundColor: '#FFFFFF', border: '1px solid #6B7A8C' }}>
-                    <span className="text-[11px] font-bold text-[#9DABBB] uppercase tracking-wider block mb-1">
-                      📝 {copy.analysis}
+                  <div className="p-3.5 rounded-lg bg-[#10161D] border border-[#223041]">
+                    <span className="text-xs font-bold text-[#9DABBB] uppercase tracking-wider block mb-1">
+                      {copy.analysis}
                     </span>
-                    <p className="text-xs text-[#9DABBB] leading-relaxed">
+                    <p className="text-sm text-[#9DABBB] leading-relaxed">
                       {aiAnalysis}
                     </p>
                   </div>
@@ -372,23 +456,23 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
             </section>
           )}
 
-          {/* Vérification */}
+          {/* 7. Vérification */}
           <section className="mb-10">
             <h2 className="text-xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
               {copy.verification}
             </h2>
-            <div className="p-4 rounded-xl" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
+            <div className="p-4 rounded-xl" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <div className="text-2xl font-bold text-[#2F7DFF]">{won}</div>
+                  <div className="text-2xl font-bold" style={{ color: '#34D399' }}>{won}</div>
                   <div className="text-xs text-[#9DABBB] uppercase">{copy.won}</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-[#F87171]">{lost}</div>
+                  <div className="text-2xl font-bold" style={{ color: '#F87171' }}>{lost}</div>
                   <div className="text-xs text-[#9DABBB] uppercase">{copy.lost}</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-[#9DABBB]">{pending}</div>
+                  <div className="text-2xl font-bold font-mono" style={{ color: '#FBBF24' }}>{pending}</div>
                   <div className="text-xs text-[#9DABBB] uppercase">{copy.pending}</div>
                 </div>
               </div>
@@ -409,13 +493,13 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
               {copy.further}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <Link href={localizedPath('/btts/predictions/today', locale)} className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]"
-                style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
+              <Link href={localizedPath('/btts/predictions/today', locale)} className="block p-4 rounded-xl transition-colors hover:border-[#2F7DFF]/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]"
+                style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
                 <div className="text-sm font-bold text-[#F2F6FA] mb-1">{copy.today}</div>
                 <div className="text-xs text-[#9DABBB]">{copy.todayDesc}</div>
               </Link>
-              <Link href={localizedPath('/vip', locale)} className="block p-4 rounded-xl transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]"
-                style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
+              <Link href={localizedPath('/vip', locale)} className="block p-4 rounded-xl transition-colors hover:border-[#2F7DFF]/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]"
+                style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
                 <div className="text-sm font-bold text-[#F2F6FA] mb-1">{copy.premium}</div>
                 <div className="text-xs text-[#9DABBB]">{copy.vipDesc}</div>
               </Link>

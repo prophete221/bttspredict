@@ -3,7 +3,7 @@ import StatistiquesClient from './StatistiquesClient'
 
 export const metadata: Metadata = {
   title: 'Statistiques',
-  description: "Les statistiques détaillées seront affichées lorsque suffisamment de données vérifiées seront disponibles. Aucune donnée n'est inventée.",
+  description: "Statistiques vérifiées du suivi public : taux avec dénominateurs explicites, évolution des résultats, répartition par marché et par compétition. Aucune donnée inventée, aucune projection.",
   alternates: { canonical: 'https://bttspredict.com/statistiques' },
 }
 
