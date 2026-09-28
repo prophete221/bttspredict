@@ -284,7 +284,7 @@ export default function Star888Client({ reviewDate }: { reviewDate: string }) {
                 onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = PRIMARY_HOVER }}
                 onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = PRIMARY }}
                 data-cta="888starz-signup-v641"
-                onClick={() => trackAffiliateAction('888starz', 'signup', '888starz-promo-code-card')}
+                onClick={() => trackAffiliateAction('888starz', 'signup_cta_click', '888starz-promo-code-card')}
               >
                 S&apos;inscrire sur 888Starz
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -306,7 +306,7 @@ export default function Star888Client({ reviewDate }: { reviewDate: string }) {
                 onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1A242F' }}
                 onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent' }}
                 data-cta="888starz-download-v641"
-                onClick={() => trackAffiliateAction('888starz', 'download', '888starz-promo-code-card')}
+                onClick={() => trackAffiliateAction('888starz', 'download_click', '888starz-promo-code-card')}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />

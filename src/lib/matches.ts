@@ -95,6 +95,13 @@ export interface MatchData {
   homeLambda?: number
   awayLambda?: number
   xgTotal?: number
+  // Qualité / provenance des données (mission : page match transparente)
+  dataQuality?: string
+  dataSource?: string
+  matchCountHome?: number
+  matchCountAway?: number
+  aiRisk?: string
+  formBtts?: string
 }
 
 /**
@@ -154,6 +161,12 @@ export function loadAllMatches(): Map<string, MatchData> {
             homeLambda: p.homeLambda,
             awayLambda: p.awayLambda,
             xgTotal: p.xgTotal,
+            dataQuality: p.dataQuality,
+            dataSource: p.dataSource,
+            matchCountHome: p.matchCountHome,
+            matchCountAway: p.matchCountAway,
+            aiRisk: p.ai_risk,
+            formBtts: p.formBTTS,
           })
         }
 
@@ -169,6 +182,12 @@ export function loadAllMatches(): Map<string, MatchData> {
         if (match.homeLambda == null && p.homeLambda != null) match.homeLambda = p.homeLambda
         if (match.awayLambda == null && p.awayLambda != null) match.awayLambda = p.awayLambda
         if (match.xgTotal == null && p.xgTotal != null) match.xgTotal = p.xgTotal
+        if (!match.dataQuality && p.dataQuality) match.dataQuality = p.dataQuality
+        if (!match.dataSource && p.dataSource) match.dataSource = p.dataSource
+        if (match.matchCountHome == null && p.matchCountHome != null) match.matchCountHome = p.matchCountHome
+        if (match.matchCountAway == null && p.matchCountAway != null) match.matchCountAway = p.matchCountAway
+        if (!match.aiRisk && p.ai_risk) match.aiRisk = p.ai_risk
+        if (!match.formBtts && p.formBTTS) match.formBtts = p.formBTTS
         match.predictions.push({
           type: p.type || p.market || '',
           market: p.type || p.market || '',

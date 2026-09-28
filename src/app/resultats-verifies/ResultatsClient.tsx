@@ -85,8 +85,8 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
     }
   }
   const rate30 = (w30 + l30) > 0 ? ((w30 / (w30 + l30)) * 100).toFixed(1) : '—'
-  const goldYield = stats.gold?.yield || 0
-  const showGoldYield = goldYield > 0
+  // (2026-09-28) Yield/ROI retirés : ils dépendaient d'une cote fictive 1,90.
+  // Aucun chiffre financier ne sera affiché tant que des cotes réelles ne sont pas collectées.
 
   const seen = new Set<string>()
   const dedupedHistory: ResultHistoryEntry[] = []
@@ -130,7 +130,7 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
         <div className="rounded-[16px] bg-[#1A242F] border border-[#2F7DFF]/42 p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
           <div className="text-[10px] text-[#2F7DFF] uppercase tracking-widest font-bold">{copy.goldPicks}</div>
           <div className="mt-1 flex items-baseline gap-2"><div className="text-3xl font-bold text-[#F2F6FA] font-mono">{goldRate}%</div><div className="text-xs text-[#9DABBB]">{goldTotal} {copy.verifiedCount}</div></div>
-          <div className="mt-2 text-[10px] text-[#9DABBB]">{copy.premiumSelection}{showGoldYield && <span className="ml-2 text-[#2F7DFF]">Yield +{goldYield}%</span>}</div>
+          <div className="mt-2 text-[10px] text-[#9DABBB]">{copy.premiumSelection}</div>
         </div>
         <div className="rounded-[16px] bg-[#141C25] border border-[#6B7A8C] p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
           <div className="text-[10px] text-[#9DABBB] uppercase tracking-widest">{copy.last30}</div>

@@ -59,6 +59,10 @@ jobs:
         run: npm run build
         env:
           NODE_OPTIONS: --max-old-space-size=4096
+          # GA4 — définir la variable de dépôt "NEXT_PUBLIC_GA_ID"
+          # (Settings > Secrets and variables > Actions > Variables).
+          # Si absente, le build reste fonctionnel, sans tracking.
+          NEXT_PUBLIC_GA_ID: ${{ vars.NEXT_PUBLIC_GA_ID }}
 
   deploy:
     if: github.event_name != 'pull_request'
@@ -127,6 +131,10 @@ jobs:
         run: npm run build
         env:
           NODE_OPTIONS: --max-old-space-size=4096
+          # GA4 — définir la variable de dépôt "NEXT_PUBLIC_GA_ID"
+          # (Settings > Secrets and variables > Actions > Variables).
+          # Si absente, le build reste fonctionnel, sans tracking.
+          NEXT_PUBLIC_GA_ID: ${{ vars.NEXT_PUBLIC_GA_ID }}
 
       - name: Copy routing files
         run: |

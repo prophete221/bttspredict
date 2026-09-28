@@ -47,9 +47,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-1",
-      "verifiedAt": "2026-08-07T14:23:44.178Z"
+      "verifiedAt": "2026-08-07T14:23:44.178Z",
+      "recalculatedAt": "2026-09-28T12:13:59.196Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Alianza Atlético vs Cienciano del Cusco",
@@ -97,9 +99,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-07T14:23:44.178Z"
+      "verifiedAt": "2026-08-07T14:23:44.178Z",
+      "recalculatedAt": "2026-09-28T12:13:59.196Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Estudiantes de Mérida vs Zamora FC",
@@ -147,9 +151,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-07T14:23:44.178Z"
+      "verifiedAt": "2026-08-07T14:23:44.178Z",
+      "recalculatedAt": "2026-09-28T12:13:59.196Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Unión (Santa Fe) vs Lanús",
@@ -198,8 +204,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "2-1",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T12:17:43.422Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:17:43.422Z",
+      "recalculatedAt": "2026-09-28T12:13:59.196Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Academia Puerto Cabello vs Caracas FC",
@@ -222,9 +230,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "3-1",
-      "verifiedAt": "2026-08-07T14:23:44.178Z"
+      "verifiedAt": "2026-08-07T14:23:44.178Z",
+      "recalculatedAt": "2026-09-28T12:13:59.196Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Academia Puerto Cabello vs Caracas FC",
@@ -247,9 +257,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "3-1",
-      "verifiedAt": "2026-08-07T14:23:44.178Z"
+      "verifiedAt": "2026-08-07T14:23:44.178Z",
+      "recalculatedAt": "2026-09-28T12:13:59.196Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Yokohama F. Marinos vs Kashima Antlers",

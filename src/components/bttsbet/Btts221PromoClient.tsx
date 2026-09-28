@@ -170,7 +170,7 @@ export default function Btts221PromoClient({ lang, reviewDate }: { lang: Lang; r
     window.setTimeout(() => setCopied(false), 2200)
   }
 
-  const handleSignup = () => trackAffiliateAction('888starz', 'signup', `btts221-${lang}-hero`)
+  const handleSignup = () => trackAffiliateAction('888starz', 'signup_cta_click', `btts221-${lang}-hero`)
   const signupLabel = copied ? copy.copied : copy.copy
 
   return (

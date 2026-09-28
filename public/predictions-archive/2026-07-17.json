@@ -47,9 +47,11 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-1",
-      "verifiedAt": "2026-08-07T14:28:33.122Z"
+      "verifiedAt": "2026-08-07T14:28:33.122Z",
+      "recalculatedAt": "2026-09-28T12:13:59.187Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Cove Rangers vs St Mirren",
@@ -395,8 +397,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "0-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T12:16:03.402Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T12:16:03.402Z",
+      "recalculatedAt": "2026-09-28T12:13:59.187Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Mjällby AIF vs Västerås SK",
@@ -679,8 +683,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "2-1",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T12:16:03.402Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:03.402Z",
+      "recalculatedAt": "2026-09-28T12:13:59.187Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "IFK Göteborg vs IF Brommapojkarna",

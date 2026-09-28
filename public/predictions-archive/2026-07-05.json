@@ -172,9 +172,11 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-07T14:28:48.076Z"
+      "verifiedAt": "2026-08-07T14:28:48.076Z",
+      "recalculatedAt": "2026-09-28T12:13:59.177Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Macará vs Liga de Quito",

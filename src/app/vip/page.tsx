@@ -1,40 +1,29 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { AFFILIATE } from '@/lib/constants'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
-import { translationsFor, type Locale } from '@/lib/i18n'
+import type { Locale } from '@/lib/i18n'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
+import './vip.css'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
-const VipUnlockModal = dynamic(() => import('@/components/bttsbet/VipUnlockModal'), { loading: () => null })
+
+/* ────────────────────────── Données partenaires (LIENS + CODES INTACTS) ────────────────────────── */
 
 const BRAND = {
-  linebet: { accent: '#2F7DFF', soft: 'rgba(47, 125, 255,0.12)', label: 'Linebet', code: 'VISION221' },
-  '888starz': { accent: '#F87171', soft: 'rgba(248, 113, 113,0.12)', label: '888Starz', code: 'btts221' },
+  linebet: { accent: '#E8C268', soft: 'rgba(232, 194, 104,0.12)', label: 'Linebet', code: 'VISION221' },
+  '888starz': { accent: '#E8C268', soft: 'rgba(232, 194, 104,0.12)', label: '888Starz', code: 'btts221' },
 } as const
 
 type Bookmaker = keyof typeof BRAND
 
-type ComboLeg = {
-  eventId: string
-  home: string
-  away: string
-  league: string
-  kickoff: string
-  bookmaker?: string
-  market?: string
-  selection?: string
-  odds?: number
-}
+const WHATSAPP_NUMBER = '15406704172' // inchangé
 
-type VipCombo = {
-  legs: ComboLeg[]
-  totalOdds?: number | null
-}
+/* ────────────────────────── Types & helpers ────────────────────────── */
 
 type PredictionFixture = {
   id?: string
@@ -67,406 +56,876 @@ function formatKickoff(value: string, lang: Locale) {
   }).format(date)
 }
 
-function hasFutureLegs(combo?: VipCombo | null): combo is VipCombo {
-  if (!combo?.legs?.length) return false
-  return combo.legs.every((leg) => {
-    const kickoff = Date.parse(leg.kickoff)
-    return Number.isFinite(kickoff) && kickoff > Date.now()
-  })
-}
-
 function fixtureKickoff(fixture: PredictionFixture) {
   const raw = fixture.kickoff || (fixture.date && fixture.time ? `${fixture.date}T${fixture.time}:00Z` : '')
-  const timestamp = Date.parse(raw)
-  return { raw, timestamp }
+  return { raw, timestamp: Date.parse(raw) }
 }
 
-function buildMatchOnlyCombos(payload: { free?: PredictionFixture[]; vipPreview?: PredictionFixture[]; predictions?: PredictionFixture[] } | null) {
-  const rows = [...(payload?.free || []), ...(payload?.vipPreview || []), ...(payload?.predictions || [])]
-  const seen = new Set<string>()
-  const fixtures = rows.filter((fixture) => {
-    const home = fixture.home?.trim()
-    const away = fixture.away?.trim()
-    const { timestamp } = fixtureKickoff(fixture)
-    if (!home || !away || !Number.isFinite(timestamp) || timestamp <= Date.now()) return false
-    const key = `${home.toLowerCase()}|${away.toLowerCase()}|${timestamp}`
-    if (seen.has(key)) return false
-    seen.add(key)
+async function copyText(value: string) {
+  try {
+    await navigator.clipboard.writeText(value)
     return true
-  })
-  const toCombo = (target: 3 | 5): VipCombo | null => {
-    const selected = fixtures.slice(0, target)
-    if (selected.length < target) return null
-    return {
-      totalOdds: null,
-      legs: selected.map((fixture, index) => {
-        const { raw } = fixtureKickoff(fixture)
-        return {
-          eventId: fixture.id || `fixture-${target}-${index}-${raw}`,
-          home: fixture.home!.trim(),
-          away: fixture.away!.trim(),
-          league: fixture.league?.trim() || 'Football',
-          kickoff: raw,
-        }
-      }),
-    }
-  }
-  return { target3: toCombo(3), target5: toCombo(5) }
-}
-
-const copy = {
-  fr: {
-    eyebrow: 'ACCÈS PRIVÉ · VIP',
-    title: 'Débloque ton espace VIP',
-    intro: 'Un seul parcours. Choisis ton bookmaker, utilise le code affiché, puis envoie ton ID joueur pour demander l’accès.',
-    primary: 'Débloquer le combiné VIP',
-    partner: '1. Choisis ton bookmaker',
-    codeLabel: 'Ton code est copié automatiquement',
-    copy: 'Copier',
-    copied: 'Copié',
-    signup: 'S’inscrire sur',
-    download: 'Télécharger l’application',
-    stepTwo: '2. Inscris-toi avec le code et effectue le dépôt demandé par le partenaire',
-    stepThree: '3. Ouvre le déblocage, saisis ton ID joueur et envoie la demande sur WhatsApp',
-    privacy: 'Ton ID reste dans le message WhatsApp que tu choisis d’envoyer. BTTSPredict ne le reçoit pas.',
-    responsible: '18+ · Aucun gain n’est garanti. Vérifie toujours les conditions du partenaire.',
-    modalTitle: 'Prépare ta demande VIP',
-    linebetCode: 'Code VISION221',
-    star888Code: 'Code btts221',
-    selected: 'Sélectionné',
-    unlock: 'Débloquer avec WhatsApp',
-    combosEyebrow: 'SÉLECTIONS DU JOUR · VIP',
-    combosTitle: 'Combiné VIP du jour',
-    combosIntro: 'Les matchs sont visibles. Le marché et la sélection du combiné restent verrouillés jusqu’à ta demande VIP.',
-    combo2: 'Combiné VIP du jour',
-    combo5: 'Combiné VIP · 5 matchs',
-    comboVipToday: 'Combiné VIP du jour',
-    combo5MatchOnly: 'Combiné VIP · 5 matchs',
-    matchOnlyBadge: 'VIP',
-    matchOnlySource: 'Combiné VIP du jour · contenu protégé jusqu’au déblocage',
-    totalOdds: 'Cote totale',
-    kickoff: 'Coup d’envoi',
-    locked: 'Marchés verrouillés',
-    unavailable: 'Le combiné VIP du jour sera disponible après la prochaine mise à jour.',
-    dataFreshness: 'Données horodatées depuis la source de cotes partenaire',
-  },
-  en: {
-    eyebrow: 'PRIVATE ACCESS · VIP',
-    title: 'Unlock your VIP access',
-    intro: 'One clear path. Choose your bookmaker, use the displayed code, then send your player ID to request access.',
-    primary: 'Unlock VIP combo',
-    partner: '1. Choose your bookmaker',
-    codeLabel: 'Your code is copied automatically',
-    copy: 'Copy',
-    copied: 'Copied',
-    signup: 'Sign up on',
-    download: 'Download the app',
-    stepTwo: '2. Register with the code and make the deposit requested by the partner',
-    stepThree: '3. Open the unlock flow, enter your player ID and send the request on WhatsApp',
-    privacy: 'Your ID stays in the WhatsApp message you choose to send. BTTSPredict does not receive it.',
-    responsible: '18+ · No profit is guaranteed. Always check the partner’s terms.',
-    modalTitle: 'Prepare your VIP request',
-    linebetCode: 'Code VISION221',
-    star888Code: 'Code btts221',
-    selected: 'Selected',
-    unlock: 'Unlock with WhatsApp',
-    combosEyebrow: 'TODAY’S PICKS · VIP',
-    combosTitle: "Today's VIP combo",
-    combosIntro: 'Matches stay visible. The combo market and selection remain locked until you request VIP access.',
-    combo2: 'Today’s VIP combo',
-    combo5: 'VIP combo · 5 matches',
-    comboVipToday: 'Today’s VIP combo',
-    combo5MatchOnly: 'VIP combo · 5 matches',
-    matchOnlyBadge: 'VIP',
-    matchOnlySource: "Today's VIP combo · content protected until unlock",
-    totalOdds: 'Total odds',
-    kickoff: 'Kick-off',
-    locked: 'Markets locked',
-    unavailable: "Today's VIP combo will be available after the next update.",
-    dataFreshness: 'Timestamped data from the partner odds source',
-  },
-  ar: {
-    eyebrow: 'وصول خاص · VIP',
-    title: 'افتح وصولك إلى VIP',
-    intro: 'مسار واضح واحد. اختر شركة المراهنات، استخدم الرمز الظاهر، ثم أرسل معرف اللاعب لطلب الوصول.',
-    primary: 'فتح المركب VIP',
-    partner: '1. اختر شركة المراهنات',
-    codeLabel: 'يتم نسخ الرمز تلقائياً',
-    copy: 'نسخ',
-    copied: 'تم النسخ',
-    signup: 'التسجيل في',
-    download: 'تحميل التطبيق',
-    stepTwo: '2. سجّل بالرمز وأجرِ الإيداع الذي تحدده الشركة',
-    stepThree: '3. افتح مسار التحقق، أدخل معرف اللاعب وأرسل الطلب عبر واتساب',
-    privacy: 'يبقى معرفك داخل رسالة واتساب التي تختار إرسالها. لا تستلمه BTTSPredict.',
-    responsible: '18+ · لا يوجد ربح مضمون. تحقق دائماً من شروط الشريك.',
-    modalTitle: 'جهّز طلب VIP',
-    linebetCode: 'الرمز VISION221',
-    star888Code: 'الرمز btts221',
-    selected: 'محدد',
-    unlock: 'فتح عبر واتساب',
-    combosEyebrow: 'اختيارات اليوم · VIP',
-    combosTitle: 'المركب VIP لليوم',
-    combosIntro: 'المباريات ظاهرة. يبقى سوق الاختيار المركب والاختيار نفسه مقفلين حتى تطلب وصول VIP.',
-    combo2: 'المركب VIP لليوم',
-    combo5: 'المركب VIP · 5 مباريات',
-    comboVipToday: 'المركب VIP لليوم',
-    combo5MatchOnly: 'المركب VIP · 5 مباريات',
-    matchOnlyBadge: 'VIP',
-    matchOnlySource: 'المركب VIP لليوم · المحتوى محمي حتى الفتح',
-    totalOdds: 'المعامل الإجمالي',
-    kickoff: 'موعد البداية',
-    locked: 'الأسواق مقفلة',
-    unavailable: 'سيكون المركب VIP لليوم متاحاً بعد التحديث القادم.',
-    dataFreshness: 'بيانات مؤرخة من مصدر معاملات الشريك',
-  },
-} as const
-
-export default function VipPage({ initialLocale }: { initialLocale?: Locale } = {}) {
-  const { lang: detectedLang } = useLanguage()
-  const lang = initialLocale ?? detectedLang
-  const t = translationsFor(lang)
-  const text = copy[lang]
-  const [bookmaker, setBookmaker] = useState<Bookmaker>('linebet')
-  const [copied, setCopied] = useState(false)
-  const [toast, setToast] = useState('')
-  const [showModal, setShowModal] = useState(false)
-  const [matchOnlyCombos, setMatchOnlyCombos] = useState<{ target3: VipCombo | null; target5: VipCombo | null } | null>(null)
-
-  const selected = BRAND[bookmaker]
-  const signupLink = bookmaker === 'linebet' ? AFFILIATE.linebet : AFFILIATE.star888
-  const downloadLink = bookmaker === 'linebet' ? AFFILIATE.linebetDownload : AFFILIATE.star888Download
-  const code = selected.code
-  const today = dakarDate()
-  const availableCombos = [
-    hasFutureLegs(matchOnlyCombos?.target3)
-      ? { key: 'target3' as const, combo: matchOnlyCombos.target3, title: `${text.comboVipToday} — ${today}` }
-      : null,
-    hasFutureLegs(matchOnlyCombos?.target5)
-      ? { key: 'target5' as const, combo: matchOnlyCombos.target5, title: `${text.combo5MatchOnly} — ${today}` }
-      : null,
-  ].filter((item): item is NonNullable<typeof item> => item !== null)
-
-  useEffect(() => {
-    if (!toast) return
-    const timer = window.setTimeout(() => setToast(''), 2200)
-    return () => window.clearTimeout(timer)
-  }, [toast])
-
-  useEffect(() => {
-    let cancelled = false
-    fetch('/predictions.json', { cache: 'no-store' })
-      .then((response) => response.ok ? response.json() as Promise<{ date?: string; free?: PredictionFixture[]; vipPreview?: PredictionFixture[]; predictions?: PredictionFixture[] }> : null)
-      .then((payload) => {
-        if (!cancelled && payload?.date === dakarDate()) setMatchOnlyCombos(buildMatchOnlyCombos(payload))
-      })
-      .catch(() => {
-        if (!cancelled) setMatchOnlyCombos(null)
-      })
-    return () => { cancelled = true }
-  }, [])
-
-  const openUnlock = () => {
-    trackAffiliateAction(bookmaker, 'vip_unlock_open', 'vip-access-page')
-    setShowModal(true)
-  }
-
-  const copyCode = async () => {
+  } catch {
     try {
-      await navigator.clipboard.writeText(code)
-    } catch {
       const textarea = document.createElement('textarea')
-      textarea.value = code
+      textarea.value = value
       textarea.style.position = 'fixed'
       textarea.style.opacity = '0'
       document.body.appendChild(textarea)
       textarea.select()
-      try { document.execCommand('copy') } catch {}
+      document.execCommand('copy')
       document.body.removeChild(textarea)
+      return true
+    } catch {
+      return false
     }
-    trackAffiliateCodeCopy(bookmaker, 'vip-access-code')
-    setCopied(true)
-    setToast(`${code} · ${text.copied}`)
-    window.setTimeout(() => setCopied(false), 2000)
+  }
+}
+
+/* Effet 3D : inclinaison douce au survol / au doigt (désactivée si prefers-reduced-motion) */
+/* Le ref est créé dans le composant (pattern standard) et passé en paramètre :
+   aucune propriété de ref n'est exposée dans l'objet retourné (react-hooks/refs). */
+function useTilt(
+  ref: React.RefObject<HTMLDivElement | null>,
+  max = 8,
+) {
+  const onPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    const el = ref.current
+    if (!el) return
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const rect = el.getBoundingClientRect()
+    const px = (e.clientX - rect.left) / rect.width - 0.5
+    const py = (e.clientY - rect.top) / rect.height - 0.5
+    el.style.transform = `rotateY(${(px * max).toFixed(2)}deg) rotateX(${(-py * max).toFixed(2)}deg)`
+  }, [ref, max])
+  const onPointerLeave = useCallback(() => {
+    if (ref.current) ref.current.style.transform = ''
+  }, [ref])
+  return { onPointerMove, onPointerLeave }
+}
+
+/* ────────────────────────── Icônes inline ────────────────────────── */
+
+const Icon = {
+  shield: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z" /></svg>
+  ),
+  eye: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" /><circle cx="12" cy="12" r="3" /></svg>
+  ),
+  clock: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+  ),
+  check: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+  ),
+  copy: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+  ),
+  lock: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
+  ),
+  crown: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2 18h20M4 18l-1.5-9 5.5 4 4-7 4 7 5.5-4L20 18" /></svg>
+  ),
+  whatsapp: () => (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01-1.87-1.87-4.36-2.91-7.01-2.91zm0 1.67c2.2 0 4.27.86 5.82 2.42 1.56 1.56 2.42 3.63 2.42 5.82 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.81-1.29-1.24-2.79-1.24-4.34 0-4.54 3.7-8.24 8.24-8.24z" /><path d="M9.1 7.3c-.2-.45-.42-.46-.6-.47l-.52-.01c-.18 0-.47.07-.72.34-.25.27-.94.92-.94 2.24 0 1.32.96 2.6 1.1 2.78.13.18 1.88 3 4.6 4.09 2.27.9 2.73.72 3.23.68.5-.05 1.6-.65 1.82-1.29.23-.63.23-1.17.16-1.29-.07-.11-.25-.18-.52-.32-.27-.13-1.6-.79-1.85-.88-.25-.09-.43-.13-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.72-1.34-1.6-1.5-1.87-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.13-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.13-.6-1.47-.83-2.01z" /></svg>
+  ),
+  spark: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" /></svg>
+  ),
+  target: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>
+  ),
+  chart: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 3v18h18" /><path d="M7 15l4-6 4 3 5-8" /></svg>
+  ),
+  users: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+  ),
+}
+
+/* ────────────────────────── Copy FR / EN / AR ────────────────────────── */
+
+const copy = {
+  fr: {
+    eyebrow: 'Accès VIP privé',
+    title: 'Débloque ton accès VIP en 4 étapes claires',
+    heroSub: 'Choisis ton bookmaker : le code promo est copié automatiquement. Dépose au minimum 5 $, fais vérifier ton accès sur WhatsApp — et entre dans l’espace VIP.',
+    ctaUnlock: 'Débloquer mon accès',
+    trustLink: 'Historique public',
+    trust1: 'Scores vérifiés ESPN',
+    trust2: 'Historique 100 % public',
+    trust3: 'Pronos publiés avant le coup d’envoi',
+    memberTop: 'BTTSPredict',
+    memberKind: 'Carte membre',
+    memberPerks: 'BTTS · Over 2.5 · Score exact',
+    memberVerified: 'Membre vérifié',
+    unlockEyebrow: 'Système de déblocage',
+    unlockTitle: 'Comment débloquer ton accès VIP ?',
+    unlockSub: 'Aucune ambiguïté : voici exactement les 4 conditions à remplir, dans l’ordre. Chaque étape est vérifiée avant l’activation de ton accès.',
+    cardSub: 'Toute la procédure est dans cette carte VIP. Clique sur chaque étape : une fenêtre détaillée s’ouvre avec les instructions exactes et les bons boutons.',
+    progressDone: 'étapes validées',
+    stepOpen: 'Ouvrir',
+    stepDone: 'Fait',
+    close: 'Fermer',
+    next: 'Étape suivante',
+    modalStep: 'Étape {n} sur 4',
+    cond1Short: 'Linebet ou 888Starz — clic = code copié',
+    cond2Short: 'Colle-le lors de ton inscription',
+    cond3Short: 'Dépôt minimum de 5 $ — obligatoire',
+    cond4Short: 'Message pré-rempli + ton ID joueur',
+    m2NoBook: 'Choisis d’abord ton bookmaker à l’étape 1.',
+    m2Paste: 'Où coller le code ?',
+    m2Where: 'Dans le champ « Code promo » du formulaire d’inscription du bookmaker (ou dans ton compte, section code promo).',
+    m3Confirm: 'Je confirme : dépôt de 5 $ effectué',
+    m4Id: 'Ajoute ton ID joueur dans le message WhatsApp avant d’envoyer.',
+    m4After: 'Dès que l’équipe confirme ton inscription et ton dépôt, ton accès VIP est activé et les combinés se déverrouillent.',
+    matchesTitle: 'Les matchs VIP du jour',
+    matchesSub: 'Les affiches analysées par le moteur. La sélection reste verrouillée jusqu’à la vérification de ton accès.',
+    conditionsTitle: 'Conditions de déblocage',
+    cond1Title: 'Choisis ton bookmaker',
+    cond1Desc: 'Clique sur la carte Linebet ou 888Starz ci-contre. Le clic sélectionne ton bookmaker et copie automatiquement le bon code promo dans ton presse-papiers.',
+    cond2Title: 'Le code promo est copié automatiquement',
+    cond2Desc: 'VISION221 pour Linebet, btts221 pour 888Starz. Colle-le lors de ton inscription sur le site du bookmaker. Tu peux aussi le recopier manuellement avec le bouton prévu.',
+    cond3Title: 'Crée ton compte et dépose au minimum 5 $',
+    cond3Desc: 'Inscris-toi via le bouton du partenaire, puis effectue un dépôt minimum de 5 $ (≈ 3 000 XOF) avec ton code promo. Ce dépôt est obligatoire : sans lui, la vérification ne peut pas aboutir.',
+    cond4Title: 'Fais vérifier ton accès sur WhatsApp',
+    cond4Desc: 'Clique sur le bouton de vérification : WhatsApp s’ouvre avec un message pré-rempli (bookmaker + code). Ajoute ton ID joueur et envoie — l’équipe active ton accès après contrôle.',
+    depositLabel: 'Dépôt minimum requis',
+    depositNote: '≈ 3 000 XOF · Obligatoire — sans ce dépôt minimum, l’accès VIP ne peut pas être activé.',
+    chooseTitle: 'Choisis ton bookmaker',
+    chooseHint: 'Le clic copie automatiquement ton code promo',
+    autoCopied: 'Code copié automatiquement',
+    selected: 'Sélectionné',
+    tapToCopy: 'Copier le code',
+    codeLabel: 'Ton code promo',
+    codeIdle: 'Choisis un bookmaker',
+    copyBtn: 'Copier le code',
+    copiedBtn: 'Copié',
+    signup: 'Créer mon compte',
+    signupWith: 'Inscription avec le code collé',
+    needBookmaker: 'Choisis d’abord ton bookmaker ci-dessus',
+    verify: 'Vérifier mon accès sur WhatsApp',
+    verifyHint: 'Redirection WhatsApp avec message pré-rempli : ton bookmaker + ton code promo. Ajoute simplement ton ID joueur avant d’envoyer.',
+    checklistTitle: 'Ta progression',
+    check1: 'Bookmaker choisi',
+    check2: 'Code promo copié',
+    check3: 'Dépôt de 5 $ effectué (chez le bookmaker)',
+    check4: 'Demande WhatsApp envoyée',
+    done: 'Fait',
+    todo: 'À faire',
+    combosEyebrow: 'Aperçu VIP',
+    combosTitle: 'Les matchs sont visibles. La sélection reste verrouillée.',
+    combosIntro: 'Voici les affiches analysées aujourd’hui. Le marché et la sélection VIP se déverrouillent après vérification de ton accès.',
+    kickoff: 'Coup d’envoi',
+    locked: 'Sélection verrouillée',
+    lockedCta: 'Débloquer',
+    combosEmpty: 'Les affiches du jour arrivent avec la prochaine mise à jour.',
+    benefitsEyebrow: 'Ce que tu débloques',
+    benefitsTitle: 'Un espace VIP complet, pas juste une liste',
+    b1Title: 'Pronos VIP du jour',
+    b1Desc: 'BTTS, Over 2.5 et score exact analysés par le moteur IA, publiés avant le coup d’envoi.',
+    b2Title: 'Combinés exclusifs',
+    b2Desc: 'Des combinés construits sur les sélections VIP, réservés aux membres vérifiés.',
+    b3Title: 'Indice de confiance',
+    b3Desc: 'Chaque pronostic affiche la probabilité calculée par le modèle (xG + forme récente).',
+    b4Title: 'Historique transparent',
+    b4Desc: 'Tous les pronos, gagnés et perdus, restent consultables publiquement sur la page historique.',
+    b5Title: 'Liberté totale',
+    b5Desc: 'Utilise tes pronos sur Linebet, 888Starz ou ton bookmaker habituel — tu restes maître de tes mises.',
+    b6Title: 'Support WhatsApp',
+    b6Desc: 'Une question sur ton accès ou ton code promo ? Une réponse directe sur WhatsApp.',
+    trustEyebrow: 'Confiance & transparence',
+    trustTitle: 'Vérifiable — pas des promesses',
+    trustDesc: 'Chaque prono est archivé avec son résultat réel, scores vérifiés via ESPN. Rien n’est filtré : les pronos perdus restent visibles au même titre que les gagnants. Aucun gain n’est garanti — le pari sportif comporte toujours un risque.',
+    faqTitle: 'Questions fréquentes',
+    faq1Q: 'Pourquoi un dépôt minimum de 5 $ ?',
+    faq1A: 'L’accès VIP est financé par nos partenaires bookmakers. Le dépôt minimum de 5 $ (≈ 3 000 XOF), effectué avec ton code promo, conditionne l’activation de ton accès : c’est ce qui confirme que ton compte partenaire est réellement actif. Sans ce dépôt, la vérification ne peut pas aboutir — c’est la règle, appliquée à tout le monde.',
+    faq2Q: 'Le code promo n’a pas été copié, que faire ?',
+    faq2A: 'Clique à nouveau sur la carte de ton bookmaker : le code est recopié automatiquement. Tu peux aussi utiliser le bouton « Copier le code ». En dernier recours, saisis-le manuellement : VISION221 pour Linebet, btts221 pour 888Starz.',
+    faq3Q: 'Combien de temps prend la vérification ?',
+    faq3A: 'Envoie ta demande sur WhatsApp avec ton ID joueur après ton dépôt. La vérification est traitée dans la journée, aux heures de publication des pronos. Tu reçois une confirmation dès que ton accès est activé.',
+    faq4Q: 'Mes données sont-elles en sécurité ?',
+    faq4A: 'Ton ID joueur reste dans le message WhatsApp que tu choisis d’envoyer : BTTSPredict ne le reçoit pas via le site. Aucune donnée bancaire ne transite par nos pages — le dépôt se fait directement chez le bookmaker.',
+    faq5Q: 'Des gains sont-ils garantis ?',
+    faq5A: 'Non. Aucun résultat n’est garanti dans les paris sportifs. L’historique public affiche gagnés ET perdus, sans filtrage. Ne mise jamais plus que ce que tu peux te permettre de perdre (18+).',
+    finalTitle: 'Prêt à entrer dans l’espace VIP ?',
+    finalDesc: 'Choisis ton bookmaker, colle ton code promo, dépose au minimum 5 $ et fais vérifier ton accès sur WhatsApp. 4 étapes, zéro ambiguïté.',
+    finalCta: 'Débloquer mon accès',
+    responsible: '18+ · Les paris sportifs comportent des risques : endettement, isolement, dépendance. Pour être aidé : 09 74 75 13 13 (gratuit, France) ou begambleaware.org. Aucun gain n’est garanti.',
+    footerNote: 'BTTSPredict est un site informatif et d’affiliation : nous ne prenons pas de paris et ne collectons aucun fonds.',
+  },
+  en: {
+    eyebrow: 'Private VIP access',
+    title: 'Unlock your VIP access in 4 clear steps',
+    heroSub: 'Pick your bookmaker: the promo code is copied automatically. Deposit at least $5, get your access verified on WhatsApp — and step into the VIP space.',
+    ctaUnlock: 'Unlock my access',
+    trustLink: 'Public history',
+    trust1: 'ESPN-verified scores',
+    trust2: '100% public history',
+    trust3: 'Picks published before kick-off',
+    memberTop: 'BTTSPredict',
+    memberKind: 'Member card',
+    memberPerks: 'BTTS · Over 2.5 · Exact score',
+    memberVerified: 'Verified member',
+    unlockEyebrow: 'Unlock system',
+    unlockTitle: 'How to unlock your VIP access?',
+    unlockSub: 'Zero guesswork: these are the exact 4 conditions to meet, in order. Each step is checked before your access is activated.',
+    cardSub: 'The whole process lives in this VIP card. Tap any step: a detailed popup opens with the exact instructions and the right buttons.',
+    progressDone: 'steps completed',
+    stepOpen: 'Open',
+    stepDone: 'Done',
+    close: 'Close',
+    next: 'Next step',
+    modalStep: 'Step {n} of 4',
+    cond1Short: 'Linebet or 888Starz — tap = code copied',
+    cond2Short: 'Paste it during sign-up',
+    cond3Short: 'Minimum $5 deposit — mandatory',
+    cond4Short: 'Pre-filled message + your player ID',
+    m2NoBook: 'Pick your bookmaker in step 1 first.',
+    m2Paste: 'Where to paste the code?',
+    m2Where: 'In the “Promo code” field of the bookmaker’s sign-up form (or in your account, promo code section).',
+    m3Confirm: 'I confirm: $5 deposit made',
+    m4Id: 'Add your player ID to the WhatsApp message before sending.',
+    m4After: 'As soon as the team confirms your sign-up and deposit, your VIP access is activated and the combos unlock.',
+    matchesTitle: 'Today’s VIP matches',
+    matchesSub: 'The fixtures analysed by the engine. The selection stays locked until your access is verified.',
+    conditionsTitle: 'Unlock conditions',
+    cond1Title: 'Choose your bookmaker',
+    cond1Desc: 'Tap the Linebet or 888Starz card next to this one. The tap selects your bookmaker and automatically copies the correct promo code to your clipboard.',
+    cond2Title: 'The promo code is copied automatically',
+    cond2Desc: 'VISION221 for Linebet, btts221 for 888Starz. Paste it when registering on the bookmaker’s site. You can also copy it manually with the dedicated button.',
+    cond3Title: 'Create your account and deposit at least $5',
+    cond3Desc: 'Sign up through the partner button, then make a minimum deposit of $5 (≈ 3,000 XOF) using your promo code. This deposit is mandatory: without it, verification cannot go through.',
+    cond4Title: 'Get your access verified on WhatsApp',
+    cond4Desc: 'Tap the verification button: WhatsApp opens with a pre-filled message (bookmaker + code). Add your player ID and send — the team activates your access after review.',
+    depositLabel: 'Minimum deposit required',
+    depositNote: '≈ 3,000 XOF · Mandatory — without this minimum deposit, VIP access cannot be activated.',
+    chooseTitle: 'Choose your bookmaker',
+    chooseHint: 'Tapping copies your promo code automatically',
+    autoCopied: 'Code copied automatically',
+    selected: 'Selected',
+    tapToCopy: 'Tap to copy',
+    codeLabel: 'Your promo code',
+    codeIdle: 'Pick a bookmaker',
+    copyBtn: 'Copy code',
+    copiedBtn: 'Copied',
+    signup: 'Create my account',
+    signupWith: 'Sign-up with the pasted code',
+    needBookmaker: 'Pick your bookmaker above first',
+    verify: 'Verify my access on WhatsApp',
+    verifyHint: 'Redirects to WhatsApp with a pre-filled message: your bookmaker + your promo code. Just add your player ID before sending.',
+    checklistTitle: 'Your progress',
+    check1: 'Bookmaker chosen',
+    check2: 'Promo code copied',
+    check3: '$5 deposit made (with the bookmaker)',
+    check4: 'WhatsApp request sent',
+    done: 'Done',
+    todo: 'To do',
+    combosEyebrow: 'VIP preview',
+    combosTitle: 'Matches are visible. The selection stays locked.',
+    combosIntro: 'Here are today’s analysed fixtures. The VIP market and selection unlock once your access is verified.',
+    kickoff: 'Kick-off',
+    locked: 'Selection locked',
+    lockedCta: 'Unlock',
+    combosEmpty: 'Today’s fixtures will arrive with the next update.',
+    benefitsEyebrow: 'What you unlock',
+    benefitsTitle: 'A complete VIP space, not just a list',
+    b1Title: 'Daily VIP picks',
+    b1Desc: 'BTTS, Over 2.5 and exact score analysed by the AI engine, published before kick-off.',
+    b2Title: 'Exclusive combos',
+    b2Desc: 'Combos built from VIP selections, reserved for verified members.',
+    b3Title: 'Confidence index',
+    b3Desc: 'Every pick shows the probability computed by the model (xG + recent form).',
+    b4Title: 'Transparent history',
+    b4Desc: 'All picks, wins and losses, stay publicly visible on the history page.',
+    b5Title: 'Full freedom',
+    b5Desc: 'Use your picks on Linebet, 888Starz or your usual bookmaker — you stay in control of your stakes.',
+    b6Title: 'WhatsApp support',
+    b6Desc: 'A question about your access or promo code? A direct answer on WhatsApp.',
+    trustEyebrow: 'Trust & transparency',
+    trustTitle: 'Verifiable — not promises',
+    trustDesc: 'Every pick is archived with its real result, scores verified via ESPN. Nothing is filtered: losing picks stay visible just like winners. No profit is guaranteed — sports betting always carries risk.',
+    faqTitle: 'Frequently asked questions',
+    faq1Q: 'Why a $5 minimum deposit?',
+    faq1A: 'VIP access is funded by our bookmaker partners. The $5 minimum deposit (≈ 3,000 XOF), made with your promo code, conditions the activation of your access: it confirms your partner account is actually active. Without this deposit, verification cannot go through — that rule applies to everyone.',
+    faq2Q: 'The promo code wasn’t copied, what now?',
+    faq2A: 'Tap your bookmaker’s card again: the code is copied again automatically. You can also use the “Copy code” button. As a last resort, type it manually: VISION221 for Linebet, btts221 for 888Starz.',
+    faq3Q: 'How long does verification take?',
+    faq3A: 'Send your request on WhatsApp with your player ID after your deposit. Verification is handled within the day, during pick publishing hours. You receive a confirmation once your access is activated.',
+    faq4Q: 'Is my data safe?',
+    faq4A: 'Your player ID stays inside the WhatsApp message you choose to send: BTTSPredict does not receive it through the site. No banking data goes through our pages — the deposit happens directly with the bookmaker.',
+    faq5Q: 'Are winnings guaranteed?',
+    faq5A: 'No. No result is guaranteed in sports betting. The public history shows wins AND losses, unfiltered. Never bet more than you can afford to lose (18+).',
+    finalTitle: 'Ready to step into the VIP space?',
+    finalDesc: 'Pick your bookmaker, paste your promo code, deposit at least $5 and get your access verified on WhatsApp. 4 steps, zero guesswork.',
+    finalCta: 'Unlock my access',
+    responsible: '18+ · Sports betting carries risks: debt, isolation, addiction. For help: begambleaware.org. No profit is guaranteed.',
+    footerNote: 'BTTSPredict is an informational and affiliate website: we do not take bets and we do not collect funds.',
+  },
+  ar: {
+    eyebrow: 'وصول VIP خاص',
+    title: 'افتح وصولك إلى VIP في 4 خطوات واضحة',
+    heroSub: 'اختر شركة المراهنات: يتم نسخ الرمز الترويجي تلقائياً. أودع 5 دولارات على الأقل، ثم اطلب التحقق من وصولك عبر واتساب — وادخل إلى فضاء VIP.',
+    ctaUnlock: 'افتح وصولي',
+    trustLink: 'السجل العام',
+    trust1: 'نتائج موثقة من ESPN',
+    trust2: 'سجل عام 100%',
+    trust3: 'توقعات منشورة قبل انطلاق المباراة',
+    memberTop: 'BTTSPredict',
+    memberKind: 'بطاقة عضوية',
+    memberPerks: 'BTTS · أكثر من 2.5 · النتيجة الدقيقة',
+    memberVerified: 'عضو موثق',
+    unlockEyebrow: 'نظام الفتح',
+    unlockTitle: 'كيف تفتح وصولك إلى VIP؟',
+    unlockSub: 'بلا أي غموض: هذه هي الشروط الأربعة المطلوبة بالترتيب. يتم التحقق من كل خطوة قبل تفعيل وصولك.',
+    cardSub: 'الإجراء كامل داخل بطاقة VIP هذه. اضغط على كل خطوة: تُفتح نافذة مفصلة بالتعليمات الدقيقة والأزرار المناسبة.',
+    progressDone: 'خطوات مكتملة',
+    stepOpen: 'فتح',
+    stepDone: 'منجز',
+    close: 'إغلاق',
+    next: 'الخطوة التالية',
+    modalStep: 'الخطوة {n} من 4',
+    cond1Short: 'Linebet أو 888Starz — الضغط ينسخ الرمز',
+    cond2Short: 'الصقه عند التسجيل',
+    cond3Short: 'إيداع أدنى 5 دولارات — إلزامي',
+    cond4Short: 'رسالة جاهزة + معرّف لاعبك',
+    m2NoBook: 'اختر شركة المراهنات أولاً في الخطوة 1.',
+    m2Paste: 'أين تلصق الرمز؟',
+    m2Where: 'في حقل «الرمز الترويجي» في استمارة التسجيل لدى الشركة (أو في حسابك، قسم الرمز الترويجي).',
+    m3Confirm: 'أؤكد: تم الإيداع 5 دولارات',
+    m4Id: 'أضف معرّف لاعبك في رسالة واتساب قبل الإرسال.',
+    m4After: 'بمجرد أن يؤكد الفريق التسجيل والإيداع، يُفعَّل وصولك إلى VIP وتُفتح التركيبات.',
+    matchesTitle: 'مباريات VIP اليوم',
+    matchesSub: 'المواجهات التي حللها المحرك. يبقى الاختيار مقفلاً حتى يتم التحقق من وصولك.',
+    conditionsTitle: 'شروط الفتح',
+    cond1Title: 'اختر شركة المراهنات',
+    cond1Desc: 'اضغط على بطاقة Linebet أو 888Starz المجاورة. تؤدي الضغطة إلى اختيار شركتك ونسخ الرمز الترويجي الصحيح تلقائياً إلى الحافظة.',
+    cond2Title: 'يُنسخ الرمز الترويجي تلقائياً',
+    cond2Desc: 'VISION221 لـ Linebet، وbtts221 لـ 888Starz. الصقه عند التسجيل في موقع الشركة. يمكنك أيضاً نسخه يدوياً عبر الزر المخصص.',
+    cond3Title: 'أنشئ حسابك وأودع 5 دولارات على الأقل',
+    cond3Desc: 'سجّل عبر زر الشريك، ثم أجرِ إيداعاً بحد أدنى 5 دولارات (≈ 3,000 XOF) باستخدام رمزك الترويجي. هذا الإيداع إلزامي: بدونه لا يمكن إتمام التحقق.',
+    cond4Title: 'اطلب التحقق من وصولك عبر واتساب',
+    cond4Desc: 'اضغط زر التحقق: يفتح واتساب برسالة جاهزة (الشركة + الرمز). أضف معرّف لاعبك وأرسل — يقوم الفريق بتفعيل وصولك بعد المراجعة.',
+    depositLabel: 'الحد الأدنى للإيداع مطلوب',
+    depositNote: '≈ 3,000 XOF · إلزامي — بدون هذا الإيداع لا يمكن تفعيل وصول VIP.',
+    chooseTitle: 'اختر شركة المراهنات',
+    chooseHint: 'الضغط ينسخ رمزك الترويجي تلقائياً',
+    autoCopied: 'تم نسخ الرمز تلقائياً',
+    selected: 'محدد',
+    tapToCopy: 'اضغط لنسخ الرمز',
+    codeLabel: 'رمزك الترويجي',
+    codeIdle: 'اختر شركة المراهنات',
+    copyBtn: 'نسخ الرمز',
+    copiedBtn: 'تم النسخ',
+    signup: 'أنشئ حسابي',
+    signupWith: 'التسجيل بالرمز المنسوخ',
+    needBookmaker: 'اختر شركة المراهنات أولاً بالأعلى',
+    verify: 'تحقق من وصولي عبر واتساب',
+    verifyHint: 'تحويل إلى واتساب برسالة جاهزة: شركتك + رمزك الترويجي. أضف فقط معرّف لاعبك قبل الإرسال.',
+    checklistTitle: 'تقدمك',
+    check1: 'تم اختيار الشركة',
+    check2: 'تم نسخ الرمز الترويجي',
+    check3: 'تم إيداع 5 دولارات (لدى الشركة)',
+    check4: 'تم إرسال طلب واتساب',
+    done: 'منجز',
+    todo: 'للإنجاز',
+    combosEyebrow: 'معاينة VIP',
+    combosTitle: 'المباريات ظاهرة. الاختيار يبقى مقفلاً.',
+    combosIntro: 'هذه مواجهات اليوم التي تم تحليلها. يُفتح سوق واختيار VIP بعد التحقق من وصولك.',
+    kickoff: 'انطلاق المباراة',
+    locked: 'الاختيار مقفل',
+    lockedCta: 'فتح',
+    combosEmpty: 'ستصل مواجهات اليوم مع التحديث القادم.',
+    benefitsEyebrow: 'ماذا تفتح',
+    benefitsTitle: 'فضاء VIP كامل، وليس مجرد قائمة',
+    b1Title: 'توقعات VIP اليومية',
+    b1Desc: 'BTTS وأكثر من 2.5 والنتيجة الدقيقة يحللها محرك الذكاء الاصطناعي وتُنشر قبل انطلاق المباريات.',
+    b2Title: 'تركيبات حصرية',
+    b2Desc: 'تركيبات مبنية على اختيارات VIP، محجوزة للأعضاء الموثقين.',
+    b3Title: 'مؤشر الثقة',
+    b3Desc: 'كل توقيع يعرض الاحتمالية المحسوبة من النموذج (xG + الفورمة الحديثة).',
+    b4Title: 'سجل شفاف',
+    b4Desc: 'كل التوقعات، الرابحة والخاسرة، تبقى متاحة للعموم في صفحة السجل.',
+    b5Title: 'حرية كاملة',
+    b5Desc: 'استخدم توقعاتك على Linebet أو 888Starz أو شركتك المعتادة — أنت من يتحكم في رهاناتك.',
+    b6Title: 'دعم واتساب',
+    b6Desc: 'سؤال حول وصولك أو رمزك الترويجي؟ إجابة مباشرة عبر واتساب.',
+    trustEyebrow: 'الثقة والشفافية',
+    trustTitle: 'قابل للتحقق — لا وعود',
+    trustDesc: 'كل توقعة تُؤرشف بنتيجتها الحقيقية، مع نتائج موثقة من ESPN. لا يوجد أي ترشيح: التوقعات الخاسرة تبقى ظاهرة كالرابحة. لا يوجد ربح مضمون — المراهنات الرياضية تنطوي دائماً على مخاطر.',
+    faqTitle: 'الأسئلة الشائعة',
+    faq1Q: 'لماذا إيداع أدنى 5 دولارات؟',
+    faq1A: 'يتم تمويل وصول VIP من قبل شركائنا شركات المراهنات. الإيداع الأدنى 5 دولارات (≈ 3,000 XOF) باستخدام رمزك الترويجي هو شرط تفعيل وصولك: فهو يؤكد أن حسابك لدى الشريك نشط فعلاً. بدون هذا الإيداع لا يمكن إتمام التحقق — قاعدة مطبقة على الجميع.',
+    faq2Q: 'لم يُنسخ الرمز الترويجي، ماذا أفعل؟',
+    faq2A: 'اضغط مرة أخرى على بطاقة شركتك: يُنسخ الرمز تلقائياً من جديد. يمكنك أيضاً استخدام زر «نسخ الرمز». وكحل أخير، أدخله يدوياً: VISION221 لـ Linebet، وbtts221 لـ 888Starz.',
+    faq3Q: 'كم يستغرق التحقق؟',
+    faq3A: 'أرسل طلبك عبر واتساب مع معرّف لاعبك بعد الإيداع. تُعالج عملية التحقق خلال اليوم، في أوقات نشر التوقعات. تتلقى تأكيداً بمجرد تفعيل وصولك.',
+    faq4Q: 'هل بياناتي آمنة؟',
+    faq4A: 'يبقى معرّف لاعبك داخل رسالة واتساب التي تختار إرسالها: لا يستلمه BTTSPredict عبر الموقع. ولا تمر أي بيانات بنكية عبر صفحاتنا — الإيداع يتم مباشرة لدى شركة المراهنات.',
+    faq5Q: 'هل الأرباح مضمونة؟',
+    faq5A: 'لا. لا نتيجة مضمونة في المراهنات الرياضية. السجل العام يعرض الرابح والخاسر بلا ترشيح. لا تراهن أبداً بأكثر مما يمكنك تحمل خسارته (18+).',
+    finalTitle: 'جاهز للدخول إلى فضاء VIP؟',
+    finalDesc: 'اختر شركتك، الصق رمزك الترويجي، أودع 5 دولارات على الأقل واطلب التحقق عبر واتساب. 4 خطوات، بلا غموض.',
+    finalCta: 'افتح وصولي',
+    responsible: '18+ · تنطوي المراهنات الرياضية على مخاطر: المديونية، العزلة، الإدمان. للمساعدة: begambleaware.org. لا يوجد ربح مضمون.',
+    footerNote: 'BTTSPredict موقع معلوماتي وتسويق بالعمولة: نحن لا نقبل الرهانات ولا نجمع أموالاً.',
+  },
+} as const
+
+/* ────────────────────────── Page ────────────────────────── */
+
+export default function VipPage() {
+  const { lang: detectedLang } = useLanguage()
+  const lang: Locale = detectedLang
+  const text = copy[lang]
+
+  const [bookmaker, setBookmaker] = useState<Bookmaker | null>(null)
+  const [copied, setCopied] = useState(false)
+  const [depositConfirmed, setDepositConfirmed] = useState(false)
+  const [verifyOpened, setVerifyOpened] = useState(false)
+  const [openStep, setOpenStep] = useState<1 | 2 | 3 | 4 | null>(null)
+  const [toast, setToast] = useState('')
+  const [fixtures, setFixtures] = useState<PredictionFixture[]>([])
+
+  const memberCardRef = useRef<HTMLDivElement | null>(null)
+  const memberTilt = useTilt(memberCardRef, 9)
+
+  const selected = bookmaker ? BRAND[bookmaker] : null
+  const signupLink = bookmaker === 'linebet' ? AFFILIATE.linebet : bookmaker === '888starz' ? AFFILIATE.star888 : '#deblocage'
+  const today = dakarDate()
+
+  useEffect(() => {
+    if (!toast) return
+    const timer = window.setTimeout(() => setToast(''), 2600)
+    return () => window.clearTimeout(timer)
+  }, [toast])
+
+  /* Fenêtres pop : Escape ferme + scroll bloqué tant qu'une étape est ouverte */
+  useEffect(() => {
+    if (openStep === null) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpenStep(null)
+    }
+    window.addEventListener('keydown', onKey)
+    const previous = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      document.body.style.overflow = previous
+    }
+  }, [openStep])
+
+  /* Aperçu VIP : fixtures à venir depuis predictions.json (sélections verrouillées) */
+  useEffect(() => {
+    let cancelled = false
+    fetch('/predictions.json', { cache: 'no-store' })
+      .then((response) => (response.ok ? (response.json() as Promise<{ date?: string; free?: PredictionFixture[]; vipPreview?: PredictionFixture[]; predictions?: PredictionFixture[] }>) : null))
+      .then((payload) => {
+        if (cancelled || !payload || payload.date !== dakarDate()) return
+        const rows = [...(payload.vipPreview || []), ...(payload.free || []), ...(payload.predictions || [])]
+        const seen = new Set<string>()
+        const upcoming: PredictionFixture[] = []
+        for (const fixture of rows) {
+          const home = fixture.home?.trim()
+          const away = fixture.away?.trim()
+          const { raw, timestamp } = fixtureKickoff(fixture)
+          if (!home || !away || !Number.isFinite(timestamp) || timestamp <= Date.now()) continue
+          const key = `${home.toLowerCase()}|${away.toLowerCase()}|${timestamp}`
+          if (seen.has(key)) continue
+          seen.add(key)
+          upcoming.push({ ...fixture, kickoff: raw })
+          if (upcoming.length >= 4) break
+        }
+        if (!cancelled) setFixtures(upcoming)
+      })
+      .catch(() => {
+        if (!cancelled) setFixtures([])
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  /* Clic bookmaker = sélection + COPIE AUTOMATIQUE du code promo */
+  const chooseBookmaker = async (key: Bookmaker) => {
+    setBookmaker(key)
+    trackAffiliateAction(key, 'promo_view', 'vip-page')
+    const ok = await copyText(BRAND[key].code)
+    if (ok) {
+      setCopied(true)
+      trackAffiliateCodeCopy(key, 'vip-bookmaker-card')
+      setToast(`${BRAND[key].code} — ${text.autoCopied}`)
+    } else {
+      setToast(`${BRAND[key].code}`)
+    }
   }
 
-  const chooseBookmaker = (next: Bookmaker) => {
-    setBookmaker(next)
-    setCopied(false)
-    trackAffiliateAction(next, 'promo_view', 'vip-access-page')
-    const nextCode = BRAND[next].code
-    navigator.clipboard?.writeText(nextCode).catch(() => undefined)
-    trackAffiliateCodeCopy(next, 'vip-access-auto-copy')
+  const manualCopy = async () => {
+    if (!bookmaker) return
+    const ok = await copyText(BRAND[bookmaker].code)
+    if (ok) {
+      setCopied(true)
+      trackAffiliateCodeCopy(bookmaker, 'vip-code-chip')
+      setToast(`${BRAND[bookmaker].code} — ${text.copiedBtn}`)
+    }
+  }
+
+  /* Bouton de vérification → redirection WhatsApp (message pré-rempli) */
+  const openVerification = () => {
+    if (!bookmaker || !selected) return
+    trackAffiliateAction(bookmaker, 'whatsapp_click', 'vip-verify')
+    setVerifyOpened(true)
+    const message =
+      lang === 'en'
+        ? `Hello BTTSPredict, I would like to verify my VIP access. Bookmaker: ${selected.label}. Promo code used: ${selected.code}. Minimum deposit of $5 made. My player ID: `
+        : lang === 'ar'
+          ? `مرحباً BTTSPredict، أرغب في التحقق من وصولي إلى VIP. شركة المراهنات: ${selected.label}. الرمز الترويجي المستخدم: ${selected.code}. تم الإيداع الأدنى 5 دولارات. معرّف لاعبي: `
+          : `Bonjour BTTSPredict, je souhaite faire vérifier mon accès VIP. Bookmaker : ${selected.label}. Code promo utilisé : ${selected.code}. Dépôt minimum de 5 $ effectué. Mon ID joueur : `
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+    window.open(url, '_blank', 'noopener,noreferrer')
+    setOpenStep(null)
+  }
+
+  const steps = [
+    { n: 1 as const, title: text.cond1Title, short: text.cond1Short, done: bookmaker !== null },
+    { n: 2 as const, title: text.cond2Title, short: text.cond2Short, done: copied },
+    { n: 3 as const, title: text.cond3Title, short: text.cond3Short, done: depositConfirmed },
+    { n: 4 as const, title: text.cond4Title, short: text.cond4Short, done: verifyOpened },
+  ]
+  const doneCount = steps.filter((step) => step.done).length
+
+  const openStepModal = (n: 1 | 2 | 3 | 4) => {
+    trackAffiliateAction(bookmaker ?? 'linebet', 'vip_unlock_open', `vip-step-${n}`)
+    setOpenStep(n)
   }
 
   return (
-    <div className="vip-access-page min-h-screen" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+    <div className="vipx" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
       <ErrorBoundary><Navbar /></ErrorBoundary>
 
-      <main id="main-content" className="vip-access-main">
-        {toast && <div className="vip-access-toast" role="status">{toast}</div>}
+      {toast && <div className="vipx-toast" role="status"><Icon.check /> {toast}</div>}
 
-        <section className="vip-access-hero" aria-labelledby="vip-access-title">
-          <div className="vip-access-hero__glow" aria-hidden="true" />
-          <div className="vip-access-shell">
-            <div className="vip-access-kicker"><span aria-hidden="true" />{text.eyebrow}</div>
-            <div className="vip-access-hero__grid">
-              <div className="vip-access-hero__copy">
-                <h1 id="vip-access-title">{text.title}</h1>
-                <p>{text.intro}</p>
-                <div className="vip-access-proof" aria-label="VIP access information">
-                  <span><b>01</b> {t.hero.btts}</span>
-                  <span><b>02</b> {t.hero.goals}</span>
-                  <span><b>03</b> {t.hero.exact}</span>
-                </div>
+      <main id="main-content">
+        {/* ═══════════ HERO ═══════════ */}
+        <section className="vipx-hero">
+          <div className="vipx-hero__aura" aria-hidden="true" />
+          <div className="vipx-hero__grid vipx-shell">
+            <div className="vipx-hero__copy">
+              <span className="vipx-eyebrow"><i aria-hidden="true" />{text.eyebrow}</span>
+              <h1>{text.title}</h1>
+              <p className="vipx-hero__sub">{text.heroSub}</p>
+              <div className="vipx-hero__cta">
+                <a className="vipx-btn vipx-btn--gold" href="#deblocage" onClick={() => setOpenStep(1)}>{text.ctaUnlock}<span aria-hidden="true">→</span></a>
+                <a className="vipx-btn vipx-btn--ghost" href="/historique">{text.trustLink}</a>
               </div>
-              <div className="vip-access-hero__lock" aria-hidden="true">
-                <div className="vip-access-lock-ring"><span>VIP</span></div>
-                <div className="vip-access-hero__lock-line" />
-                <small>18+ · VERIFIED ACCESS</small>
+              <ul className="vipx-hero__trust">
+                <li><Icon.shield />{text.trust1}</li>
+                <li><Icon.eye />{text.trust2}</li>
+                <li><Icon.clock />{text.trust3}</li>
+              </ul>
+            </div>
+
+            {/* Carte membre 3D */}
+            <div className="vipx-hero__card">
+              <div className="vipx-scene">
+                <div className="vipx-member vipx-tilt" ref={memberCardRef} onPointerMove={memberTilt.onPointerMove} onPointerLeave={memberTilt.onPointerLeave}>
+                  <div className="vipx-member__row">
+                    <strong>{text.memberTop}</strong>
+                    <span className="vipx-member__crown"><Icon.crown />VIP</span>
+                  </div>
+                  <div className="vipx-member__chip" aria-hidden="true" />
+                  <div className="vipx-member__middle">
+                    <span>{text.memberKind}</span>
+                    <small>{text.memberPerks}</small>
+                  </div>
+                  <div className="vipx-member__row vipx-member__row--bottom">
+                    <span className="vipx-member__verified"><Icon.check />{text.memberVerified}</span>
+                    <span className="vipx-member__stars" aria-hidden="true">★★★★★</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="vip-access-combos vip-access-shell" aria-labelledby="vip-access-combos-title">
-          <div className="vip-access-combos__header">
-            <div>
-              <span className="vip-access-overline">{text.combosEyebrow}</span>
-              <h2 id="vip-access-combos-title">{text.combosTitle}</h2>
-              <p>{text.combosIntro}</p>
-            </div>
-            <time className="vip-access-combos__date" dateTime={today}>{today}</time>
-          </div>
+        {/* ═══════════ CARTE VIP — PROCÉDURE COMPLÈTE ═══════════ */}
+        <section id="deblocage" className="vipx-unlock vipx-shell">
+          <header className="vipx-section-head">
+            <span className="vipx-eyebrow"><i aria-hidden="true" />{text.unlockEyebrow}</span>
+            <h2>{text.unlockTitle}</h2>
+            <p>{text.cardSub}</p>
+          </header>
 
-          {availableCombos.length > 0 ? (
-            <div className="vip-access-combos__grid">
-              {availableCombos.map(({ key, combo, title }) => (
-                <article key={key} className={`vip-access-combo-card ${key === 'target5' ? 'is-featured' : ''}`}>
-                  <header className="vip-access-combo-card__header">
-                    <div>
-                      <span className="vip-access-combo-card__eyebrow">{title}</span>
-                      <strong className="vip-access-combo-card__odds">{text.matchOnlyBadge}</strong>
-                    </div>
-                    <span className="vip-access-combo-card__lock" aria-label={text.locked}>LOCK</span>
-                  </header>
-                  <div className="vip-access-combo-card__source">{text.matchOnlySource} · {today}</div>
-                  <div className="vip-access-combo-card__legs">
-                    {combo.legs.map((leg) => (
-                      <div className="vip-access-combo-leg" key={`${key}-${leg.eventId}`}>
-                        <div className="vip-access-combo-leg__teams">
-                          <small>{leg.league}</small>
-                          <strong>{leg.home} <span>vs</span> {leg.away}</strong>
-                        </div>
-                        <time dateTime={leg.kickoff} className="vip-access-combo-leg__time">
-                          <span>{text.kickoff}</span>{formatKickoff(leg.kickoff, lang)}
-                        </time>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="vip-access-combo-card__locked">
-                    <span className="vip-access-combo-card__locked-icon" aria-hidden="true">⌁</span>
-                    <span>{text.locked}</span>
-                    <button type="button" onClick={openUnlock}>{text.primary}</button>
-                  </div>
-                </article>
-              ))}
+          <article className="vipx-card">
+            <div className="vipx-card__head">
+              <span className="vipx-card__badge"><Icon.crown />VIP</span>
+              <div className="vipx-card__progress">
+                <strong>{doneCount} / 4</strong>
+                <span>{text.progressDone}</span>
+                <div className="vipx-card__bar" aria-hidden="true"><i style={{ width: `${Math.round((doneCount / 4) * 100)}%` }} /></div>
+              </div>
             </div>
-          ) : (
-            <div className="vip-access-combos__empty" role="status">
-              <span className="vip-access-combos__empty-icon" aria-hidden="true">—</span>
-              <p>{text.unavailable}</p>
+
+            {/* Étapes cliquables — chaque clic ouvre une fenêtre pop détaillée */}
+            <ol className="vipx-steps">
+              {steps.map((step) => (
+                <li key={step.n}>
+                  <button type="button" className={`vipx-step${step.done ? ' is-done' : ''}`} onClick={() => openStepModal(step.n)} aria-haspopup="dialog">
+                    <span className="vipx-step__num" aria-hidden="true">{step.done ? <Icon.check /> : step.n}</span>
+                    <span className="vipx-step__body">
+                      <strong>{step.title}</strong>
+                      <small>{step.short}</small>
+                    </span>
+                    <span className="vipx-step__cta">{step.done ? text.stepDone : text.stepOpen}<span aria-hidden="true">→</span></span>
+                  </button>
+                </li>
+              ))}
+            </ol>
+
+            {/* Matchs VIP affichés dans la carte */}
+            <div className="vipx-card__matches">
+              <div className="vipx-card__matches-head">
+                <h4><Icon.target />{text.matchesTitle}</h4>
+                <time dateTime={today}>{today}</time>
+              </div>
+              <p className="vipx-card__matches-sub">{text.matchesSub}</p>
+              {fixtures.length > 0 ? (
+                <ul className="vipx-matches">
+                  {fixtures.map((fixture, index) => {
+                    const { raw } = fixtureKickoff(fixture)
+                    return (
+                      <li key={`${fixture.home}-${fixture.away}-${raw}-${index}`}>
+                        <div className="vipx-matches__teams">
+                          <small>{fixture.league?.trim() || 'Football'}</small>
+                          <strong>{fixture.home} <span aria-hidden="true">vs</span> {fixture.away}</strong>
+                        </div>
+                        <div className="vipx-matches__right">
+                          <time dateTime={raw}>{formatKickoff(raw, lang)}</time>
+                          <span className="vipx-matches__hidden"><Icon.lock />VIP</span>
+                        </div>
+                      </li>
+                    )
+                  })}
+                </ul>
+              ) : (
+                <p className="vipx-matches__empty" role="status">{text.combosEmpty}</p>
+              )}
+              <div className="vipx-matches__locked">
+                <Icon.lock />
+                <span>{text.locked}</span>
+                <button type="button" className="vipx-btn vipx-btn--gold vipx-btn--sm" onClick={() => openStepModal(1)}>{text.lockedCta}</button>
+              </div>
+            </div>
+
+            {/* Vérification WhatsApp — toujours visible en bas de carte */}
+            <div className="vipx-card__footer">
+              <button type="button" className="vipx-btn vipx-btn--wa vipx-btn--block" onClick={openVerification} disabled={!bookmaker} data-cta="vip-verify-whatsapp">
+                <Icon.whatsapp />{text.verify}
+              </button>
+              <p className="vipx-card__hint">{text.verifyHint}</p>
+            </div>
+          </article>
+
+          {/* Fenêtres pop détaillées — une par étape */}
+          {openStep !== null && (
+            <div className="vipx-modal" role="dialog" aria-modal="true" onClick={(e) => { if (e.target === e.currentTarget) setOpenStep(null) }}>
+              <div className="vipx-modal__panel">
+                <button type="button" className="vipx-modal__close" onClick={() => setOpenStep(null)} aria-label={text.close}>&times;</button>
+                <span className="vipx-modal__step">{text.modalStep.replace('{n}', String(openStep))}</span>
+
+                {openStep === 1 && (
+                  <>
+                    <h3 className="vipx-modal__title">{text.cond1Title}</h3>
+                    <div className="vipx-modal__body">
+                      <p>{text.cond1Desc}</p>
+                      <div className="vipx-bookmakers" role="group" aria-label={text.chooseTitle}>
+                        {(Object.keys(BRAND) as Bookmaker[]).map((key) => {
+                          const brand = BRAND[key]
+                          const isSelected = bookmaker === key
+                          return (
+                            <button
+                              key={key}
+                              type="button"
+                              onClick={() => chooseBookmaker(key)}
+                              className={`vipx-bookmaker${isSelected ? ' is-selected' : ''}`}
+                              aria-pressed={isSelected}
+                            >
+                              <span className="vipx-bookmaker__logo" aria-hidden="true">
+                                <img src={key === 'linebet' ? '/logos/linebet-provided.jpg' : '/logos/888starz-provided.webp'} alt="" />
+                              </span>
+                              <span className="vipx-bookmaker__body">
+                                <strong>{brand.label}</strong>
+                                <small className="vipx-bookmaker__code">{brand.code}</small>
+                              </span>
+                              <span className={`vipx-bookmaker__state${isSelected ? ' is-on' : ''}`}>
+                                {isSelected ? (copied ? <><Icon.check />{text.selected}</> : text.selected) : <><Icon.copy />{text.tapToCopy}</>}
+                              </span>
+                            </button>
+                          )
+                        })}
+                      </div>
+                      {bookmaker && (
+                        <p className="vipx-modal__ok"><Icon.check />{BRAND[bookmaker].code} — {text.autoCopied}</p>
+                      )}
+                    </div>
+                  </>
+                )}
+
+                {openStep === 2 && (
+                  <>
+                    <h3 className="vipx-modal__title">{text.cond2Title}</h3>
+                    <div className="vipx-modal__body">
+                      {bookmaker && selected ? (
+                        <>
+                          <p>{text.cond2Desc}</p>
+                          <div className="vipx-code">
+                            <div className="vipx-code__body">
+                              <span>{text.codeLabel}</span>
+                              <strong>{selected.code}</strong>
+                            </div>
+                            <button type="button" className="vipx-code__copy" onClick={manualCopy}>
+                              {copied ? <Icon.check /> : <Icon.copy />}{copied ? text.copiedBtn : text.copyBtn}
+                            </button>
+                          </div>
+                          <p><strong>{text.m2Paste}</strong> {text.m2Where}</p>
+                          <a
+                            href={signupLink}
+                            target="_blank"
+                            rel="sponsored nofollow noopener noreferrer"
+                            className="vipx-btn vipx-btn--gold vipx-btn--block"
+                            onClick={() => trackAffiliateAction(bookmaker, 'signup_cta_click', 'vip-modal-step2')}
+                            data-cta="vip-modal-signup"
+                          >
+                            {text.signup} {selected.label}<span aria-hidden="true">↗</span>
+                          </a>
+                        </>
+                      ) : (
+                        <p className="vipx-modal__warn"><Icon.lock />{text.m2NoBook}</p>
+                      )}
+                    </div>
+                  </>
+                )}
+
+                {openStep === 3 && (
+                  <>
+                    <h3 className="vipx-modal__title">{text.cond3Title}</h3>
+                    <div className="vipx-modal__body">
+                      <p>{text.cond3Desc}</p>
+                      <div className="vipx-deposit">
+                        <span className="vipx-deposit__label">{text.depositLabel}</span>
+                        <strong className="vipx-deposit__value">5 $</strong>
+                        <span className="vipx-deposit__note">{text.depositNote}</span>
+                      </div>
+                      <button
+                        type="button"
+                        className={`vipx-btn vipx-btn--block ${depositConfirmed ? 'vipx-btn--ghost' : 'vipx-btn--gold'}`}
+                        onClick={() => setDepositConfirmed(true)}
+                        disabled={depositConfirmed}
+                      >
+                        {depositConfirmed ? <><Icon.check />{text.stepDone}</> : text.m3Confirm}
+                      </button>
+                    </div>
+                  </>
+                )}
+
+                {openStep === 4 && (
+                  <>
+                    <h3 className="vipx-modal__title">{text.cond4Title}</h3>
+                    <div className="vipx-modal__body">
+                      <p>{text.cond4Desc}</p>
+                      <p><strong>{text.m4Id}</strong></p>
+                      <button type="button" className="vipx-btn vipx-btn--wa vipx-btn--block" onClick={openVerification} disabled={!bookmaker}>
+                        <Icon.whatsapp />{text.verify}
+                      </button>
+                      <p>{text.m4After}</p>
+                    </div>
+                  </>
+                )}
+
+                <div className="vipx-modal__foot">
+                  {openStep < 4 ? (
+                    <button type="button" className="vipx-btn vipx-btn--gold" onClick={() => setOpenStep((openStep + 1) as 1 | 2 | 3 | 4)}>
+                      {text.next}<span aria-hidden="true">→</span>
+                    </button>
+                  ) : (
+                    <button type="button" className="vipx-btn vipx-btn--ghost" onClick={() => setOpenStep(null)}>{text.close}</button>
+                  )}
+                </div>
+              </div>
             </div>
           )}
         </section>
-        <section className="vip-access-panel vip-access-shell" aria-labelledby="vip-access-flow-title">
-          <div className="vip-access-panel__header">
-            <div>
-              <span className="vip-access-overline">VIP ACCESS FLOW</span>
-              <h2 id="vip-access-flow-title">{text.partner}</h2>
-            </div>
-            <span className="vip-access-status"><i aria-hidden="true" /> {text.selected}</span>
+
+        {/* ═══════════ BÉNÉFICES ═══════════ */}
+        <section className="vipx-benefits vipx-shell">
+          <header className="vipx-section-head">
+            <span className="vipx-eyebrow"><i aria-hidden="true" />{text.benefitsEyebrow}</span>
+            <h2>{text.benefitsTitle}</h2>
+          </header>
+          <div className="vipx-benefits__grid">
+            <article><span className="vipx-benefits__icon"><Icon.spark /></span><h3>{text.b1Title}</h3><p>{text.b1Desc}</p></article>
+            <article><span className="vipx-benefits__icon"><Icon.lock /></span><h3>{text.b2Title}</h3><p>{text.b2Desc}</p></article>
+            <article><span className="vipx-benefits__icon"><Icon.target /></span><h3>{text.b3Title}</h3><p>{text.b3Desc}</p></article>
+            <article><span className="vipx-benefits__icon"><Icon.eye /></span><h3>{text.b4Title}</h3><p>{text.b4Desc}</p></article>
+            <article><span className="vipx-benefits__icon"><Icon.chart /></span><h3>{text.b5Title}</h3><p>{text.b5Desc}</p></article>
+            <article><span className="vipx-benefits__icon"><Icon.users /></span><h3>{text.b6Title}</h3><p>{text.b6Desc}</p></article>
           </div>
-
-          <div className="vip-access-partners" role="group" aria-label={text.partner}>
-            {(Object.keys(BRAND) as Bookmaker[]).map((key) => {
-              const brand = BRAND[key]
-              const isSelected = bookmaker === key
-              return (
-                <button
-                  key={key}
-                  type="button"
-                  onClick={() => chooseBookmaker(key)}
-                  className={`vip-access-partner ${isSelected ? 'is-selected' : ''}`}
-                  style={isSelected ? { '--vip-brand': brand.accent, '--vip-brand-soft': brand.soft } as React.CSSProperties : undefined}
-                  aria-pressed={isSelected}
-                >
-                  <span className="vip-access-partner__logo"><img src={key === 'linebet' ? '/logos/linebet-provided.jpg' : '/logos/888starz-provided.webp'} alt={`${brand.label} logo`} /></span>
-                  <span className="vip-access-partner__body"><strong>{brand.label}</strong><small>{key === 'linebet' ? text.linebetCode : text.star888Code}</small></span>
-                  {isSelected && <span className="vip-access-partner__check" aria-hidden="true">✓</span>}
-                </button>
-              )
-            })}
-          </div>
-
-          <div className="vip-access-code" style={{ '--vip-brand': selected.accent, '--vip-brand-soft': selected.soft } as React.CSSProperties}>
-            <div>
-              <span>{text.codeLabel}</span>
-              <strong>{code}</strong>
-            </div>
-            <button type="button" onClick={copyCode} className="vip-access-code__copy" aria-label={`${text.copy} ${code}`}>
-              <span aria-hidden="true">{copied ? '✓' : '⧉'}</span>{copied ? text.copied : text.copy}
-            </button>
-          </div>
-
-          <div className="vip-access-actions">
-            <a
-              href={signupLink}
-              target="_blank"
-              rel="sponsored nofollow noopener noreferrer"
-              onClick={() => trackAffiliateAction(bookmaker, 'signup', 'vip-access-page')}
-              className="vip-access-primary"
-              data-cta="vip-access-signup"
-            >
-              {text.signup} {selected.label} <span aria-hidden="true">↗</span>
-            </a>
-            <a
-              href={downloadLink}
-              target="_blank"
-              rel="sponsored nofollow noopener noreferrer"
-              onClick={() => trackAffiliateAction(bookmaker, 'download', 'vip-access-page')}
-              className="vip-access-secondary"
-              data-cta="vip-access-download"
-            >
-              {text.download}
-            </a>
-          </div>
-
-          <div className="vip-access-steps" aria-label="VIP activation steps">
-            <div className="vip-access-step vip-access-step--active"><span>1</span><p>{text.partner.replace(/^\d+\.\s*/, '')}</p></div>
-            <div className="vip-access-step"><span>2</span><p>{text.stepTwo.replace(/^\d+\.\s*/, '')}</p></div>
-            <div className="vip-access-step"><span>3</span><p>{text.stepThree.replace(/^\d+\.\s*/, '')}</p></div>
-          </div>
-
-          <button type="button" onClick={openUnlock} className="vip-access-unlock" data-cta="vip-access-unlock">
-            <span className="vip-access-unlock__icon" aria-hidden="true">⌁</span>
-            <span>{text.primary}</span>
-            <span aria-hidden="true">→</span>
-          </button>
-
-          <p className="vip-access-privacy">{text.privacy}</p>
-          <p className="vip-access-responsible">{text.responsible}</p>
         </section>
 
+        {/* ═══════════ CONFIANCE ═══════════ */}
+        <section className="vipx-trust vipx-shell">
+          <div className="vipx-trust__card">
+            <span className="vipx-eyebrow"><i aria-hidden="true" />{text.trustEyebrow}</span>
+            <h2>{text.trustTitle}</h2>
+            <p>{text.trustDesc}</p>
+            <a className="vipx-btn vipx-btn--ghost" href="/historique">{text.trustLink}<span aria-hidden="true">→</span></a>
+          </div>
+        </section>
+
+        {/* ═══════════ FAQ ═══════════ */}
+        <section className="vipx-faq vipx-shell">
+          <header className="vipx-section-head">
+            <h2>{text.faqTitle}</h2>
+          </header>
+          <div className="vipx-faq__list">
+            <details>
+              <summary>{text.faq1Q}</summary>
+              <p>{text.faq1A}</p>
+            </details>
+            <details>
+              <summary>{text.faq2Q}</summary>
+              <p>{text.faq2A}</p>
+            </details>
+            <details>
+              <summary>{text.faq3Q}</summary>
+              <p>{text.faq3A}</p>
+            </details>
+            <details>
+              <summary>{text.faq4Q}</summary>
+              <p>{text.faq4A}</p>
+            </details>
+            <details>
+              <summary>{text.faq5Q}</summary>
+              <p>{text.faq5A}</p>
+            </details>
+          </div>
+        </section>
+
+        {/* ═══════════ CTA FINAL ═══════════ */}
+        <section className="vipx-final">
+          <div className="vipx-final__card vipx-shell">
+            <h2>{text.finalTitle}</h2>
+            <p>{text.finalDesc}</p>
+            <a className="vipx-btn vipx-btn--gold" href="#deblocage">{text.finalCta}<span aria-hidden="true">→</span></a>
+            <p className="vipx-final__responsible">{text.responsible}</p>
+            <p className="vipx-final__note">{text.footerNote}</p>
+          </div>
+        </section>
       </main>
 
       <ErrorBoundary><Footer /></ErrorBoundary>
-
-      <VipUnlockModal
-        isOpen={showModal}
-        onClose={() => setShowModal(false)}
-        title={text.modalTitle}
-      />
     </div>
   )
 }

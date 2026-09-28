@@ -21,10 +21,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "LOST",
+      "status": "WON",
       "tier": "STANDARD",
       "finalScore": "0-1",
-      "verifiedAt": "2026-08-07T14:30:17.446Z"
+      "verifiedAt": "2026-08-07T14:30:17.446Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Sportivo San Lorenzo vs Guaraní",
@@ -46,10 +48,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "LOST",
+      "status": "WON",
       "tier": "STANDARD",
       "finalScore": "0-1",
-      "verifiedAt": "2026-08-07T14:30:17.446Z"
+      "verifiedAt": "2026-08-07T14:30:17.446Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Libertad vs Deportivo Recoleta",
@@ -96,10 +100,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "WON",
+      "status": "LOST",
       "tier": "STANDARD",
       "finalScore": "4-1",
-      "verifiedAt": "2026-08-07T14:30:17.446Z"
+      "verifiedAt": "2026-08-07T14:30:17.446Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Independiente Rivadavia vs Huracán",
@@ -200,10 +206,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "WON",
+      "status": "LOST",
       "tier": "STANDARD",
       "finalScore": "1-3",
-      "verifiedAt": "2026-08-07T12:17:09.373Z"
+      "verifiedAt": "2026-08-07T12:17:09.373Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Corinthians vs Athletico-PR",
@@ -250,10 +258,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "LOST",
+      "status": "WON",
       "tier": "STANDARD",
       "finalScore": "0-0",
-      "verifiedAt": "2026-08-07T12:17:09.373Z"
+      "verifiedAt": "2026-08-07T12:17:09.373Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Central Córdoba (Santiago del Estero) vs Atlético Tucumán",
@@ -300,10 +310,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "LOST",
+      "status": "WON",
       "tier": "STANDARD",
       "finalScore": "0-2",
-      "verifiedAt": "2026-08-07T12:17:09.373Z"
+      "verifiedAt": "2026-08-07T12:17:09.373Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Independiente vs Newell's Old Boys",
@@ -350,10 +362,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "LOST",
+      "status": "WON",
       "tier": "STANDARD",
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-07T12:17:09.373Z"
+      "verifiedAt": "2026-08-07T12:17:09.373Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Coritiba vs Cruzeiro",
@@ -450,10 +464,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "LOST",
+      "status": "WON",
       "tier": "STANDARD",
       "finalScore": "1-1",
-      "verifiedAt": "2026-08-07T14:30:17.446Z"
+      "verifiedAt": "2026-08-07T14:30:17.446Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Vålerenga vs Hamarkameratene",

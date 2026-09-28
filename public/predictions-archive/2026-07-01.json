@@ -207,8 +207,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "2-0",
-      "status": "LOST",
-      "verifiedAt": "2026-08-07T14:29:02.811Z"
+      "status": "WON",
+      "verifiedAt": "2026-08-07T14:29:02.811Z",
+      "recalculatedAt": "2026-09-28T12:13:59.173Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "United States vs Bosnia-Herzegovina",

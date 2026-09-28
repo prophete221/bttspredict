@@ -177,10 +177,10 @@ export default function AICorrectScorePage() {
                         </div>
                       ))}
                     </div>
-                    {/* xG info */}
-                    <div className="mt-3 pt-2 border-t border-[#6B7A8C] flex justify-between text-[9px] text-[#9DABBB]">
-                      <span>xG Home: <strong className="text-[#9DABBB] font-mono">{m.lambdaHome.toFixed(2)}</strong></span>
-                      <span>xG Away: <strong className="text-[#9DABBB] font-mono">{m.lambdaAway.toFixed(2)}</strong></span>
+                    {/* Buts attendus modélisés (λ du modèle Poisson, source ESPN) */}
+                    <div className="mt-3 pt-2 border-t border-[#6B7A8C] flex justify-between text-[9px] text-[#9DABBB]" title="Buts attendus modélisés (λ) : moyennes de buts récents (ESPN) converties en modèle Poisson. Pas des xG de fournisseur.">
+                      <span>λ Home: <strong className="text-[#9DABBB] font-mono">{m.lambdaHome.toFixed(2)}</strong></span>
+                      <span>λ Away: <strong className="text-[#9DABBB] font-mono">{m.lambdaAway.toFixed(2)}</strong></span>
                     </div>
                   </div>
                 </div>

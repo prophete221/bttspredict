@@ -5,14 +5,14 @@
 export const SITE = {
   name: 'BTTSPredict',
   url: 'https://bttspredict.com',
-  tagline: "Pronostics football BTTS & Over 2,5 validés par nos analystes pour parieurs sérieux",
+  tagline: "Pronostics football BTTS & Over 2,5 calculés par un modèle statistique transparent pour parieurs sérieux",
   promoCode: 'VISION221',
   // Stats RÉELLES calculées par scripts/update-win-history.mjs depuis public/predictions-archive/
   // → Aucune stat figée ici. Les chiffres proviennent de public/win-history.json.
   // → Pour afficher le taux dans l'UI, lire win-history.json (côté client) ou fetch /win-history.json
   accuracy: 'Calculé en temps réel depuis l\'archive publique',
   vipAccuracy: 'Calculé en temps réel depuis l\'archive publique',
-  vipMinDeposit: '3 000 / 6 000 / 12 000 XOF',
+  vipMinDeposit: '5 USD (≈ 3 000 XOF)',
   historyRate: 'Voir /historique',
   last30Rate: 'Voir /historique',
 }
@@ -74,7 +74,7 @@ export const HOW_IT_WORKS = [
   {
     step: '01',
     title: "L'IA scanne les matchs",
-    desc: "Notre moteur IA calcule les Expected Goals (xG) et la forme récente des équipes (5 derniers matchs) pour chaque match. Sources : ESPN et TheSportsDB.",
+    desc: "Notre moteur estime des buts attendus modélisés (lambda, modèle Poisson) à partir des buts réels des 8 derniers matchs de chaque équipe. Sources : ESPN et TheSportsDB.",
   },
   {
     step: '02',
@@ -101,7 +101,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Comment fonctionne l'analyse de BTTSPredict ?",
-    a: "Notre moteur IA utilise un modèle statistique Poisson calibré sur la forme récente des équipes (5 derniers matchs) et les Expected Goals (xG). Sources : ESPN et TheSportsDB (données publiques). Le taux de réussite réel est calculé dynamiquement depuis l'archive publique des pronostics (predictions-archive/) et affiché sans filtrage sur /historique. Chaque pronostic est accompagné d'un indice de confiance calculé par le modèle. Les performances passées ne garantissent pas les résultats futurs.",
+    a: "Notre moteur utilise un modèle statistique Poisson calibré sur la forme récente des équipes (8 derniers matchs réels) et des buts attendus modélisés (lambda). Sources : ESPN et TheSportsDB (données publiques). Le taux de réussite réel est calculé dynamiquement depuis l'archive publique des pronostics (predictions-archive/) et affiché sans filtrage sur /historique. Chaque pronostic est accompagné d'un indice de confiance calculé par le modèle. Les performances passées ne garantissent pas les résultats futurs.",
   },
   {
     q: 'Comment utiliser le code promo VISION221 ?',
@@ -109,7 +109,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: 'Les pronostics gratuits sont-ils fiables ?',
-    a: "Nos pronostics gratuits sont validés par la même équipe d'analystes que nos pronostics premium. Ils couvrent les matchs les plus populaires du jour avec une analyse complète. La différence avec les pronostics premium réside dans le nombre de matchs analysés et l'accès à des marchés supplémentaires. Comme pour tout pronostic, aucun résultat n'est garanti — les performances historiques ne préjugent pas des résultats futurs.",
+    a: "Nos pronostics gratuits sont calculés par le même modèle statistique que nos pronostics premium. Ils couvrent les matchs les plus populaires du jour avec une analyse complète. La différence avec les pronostics premium réside dans le nombre de matchs analysés et l'accès à des marchés supplémentaires. Comme pour tout pronostic, aucun résultat n'est garanti — les performances historiques ne préjugent pas des résultats futurs.",
   },
   {
     q: 'Quels championnats sont couverts ?',
@@ -125,34 +125,13 @@ export const FAQ_ITEMS = [
   },
 ]
 
-export const TESTIMONIALS = [
-  { name: 'Mamadou D.', city: 'Dakar', text: "L'analyse xG m'aide à filtrer mes matchs. Je parie moins souvent mais avec plus de confiance.", rating: 4 },
-  { name: 'Kouassi A.', city: 'Abidjan', text: "Le tableau de bord IA est clair. Les barres de probabilité BTTS me font gagner du temps dans mes analyses.", rating: 4 },
-  { name: 'Ibrahim S.', city: 'Bamako', text: "BTTSPredict a remplacé mes groupes WhatsApp. Les données sont structurées et les sources sont citées.", rating: 5 },
-  { name: 'Patrick N.', city: 'Douala', text: "L'historique transparent avec gagnés et perdus m'a donné confiance. Aucune promesse de gain facile.", rating: 4 },
-  { name: 'Ousmane B.', city: 'Ouagadougou', text: "L'outil est honnête : le taux de réussite est calculé en temps réel depuis l'archive publique, vérifiable sur /historique. C'est ce que je cherchais.", rating: 5 },
-  { name: 'Fatou M.', city: 'Dakar', text: "Le code VISION221 m'a permis de commencer sur Linebet avec un bonus. L'interface est propre et rapide.", rating: 4 },
-]
-
-export const SOCIAL_PROOF = {
-  members: 2437,
-  winsToday: 12,
-  currentStreak: 7,
-}
-
 export const VIP_DESCRIPTION = 'VIP: Historique complet + 10 matchs/jour — Débloque avec inscription via VISION221'
 
 
 export const LONASE = { name: 'LONASE', description: 'Loterie Nationale du Sénégal' }
 
-export const URGENCY_MESSAGES = [
-  "✅ {n} pronostics gagnants ce matin",
-  "⚡ Série en cours : {n} victoires consécutives",
-  "🎯 Code VISION221 = Bonus soumis à conditions (mise x5, dépôt min 3000 XOF, voir site bookmaker) sur Linebet",
-]
-
 export const LEGAL = {
-  disclaimer: "Les paris sportifs comportent des risques financiers. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre. Notre taux de réussite est calculé en temps réel depuis l'archive publique des pronostics (predictions-archive/), avec scores finaux vérifiés via API-Football et ESPN. Aucun filtrage — gagnés ET perdus affichés sur /historique. Aucun résultat futur n'est garanti. BTTSPredict est un site informatif et d'affiliation : nous ne prenons pas de paris et ne collectons pas de fonds. Les témoignages présentés sur ce site reflètent des expériences individuelles et ne constituent pas une garantie de résultats. Jouez de manière responsable (18+).",
+  disclaimer: "Les paris sportifs comportent des risques financiers. Ne misez jamais plus que ce que vous pouvez vous permettre de perdre. Nos résultats sont vérifiés 6 fois par jour depuis l'archive publique des pronostics (predictions-archive/), avec scores finaux vérifiés via ESPN et TheSportsDB. Aucun filtrage — gagnés ET perdus affichés sur /historique. Aucun résultat futur n'est garanti. BTTSPredict est un site informatif et d'affiliation : nous ne prenons pas de paris et ne collectons pas de fonds. Ce site ne publie pas de témoignages de clients ni de statistiques non sourcées. Jouez de manière responsable (18+).",
   responsible: "Si vous ou un proche avez un problème lié aux jeux d'argent, contactez la ligne d'écoute nationale de votre pays. En France : 09-74-75-13-13 (Joueurs Info Service). Au Cameroun : contactez le MINSANT. Au Sénégal : 33 867 22 22. Ressource internationale : https://www.begambleaware.org/",
   copyright: `© ${new Date().getFullYear()} BTTSPredict. Tous droits réservés.`,
   links: [

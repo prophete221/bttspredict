@@ -22,16 +22,20 @@ const TARGET = '/code-promo-linebet-senegal'
 const SITE_URL = 'https://bttspredict.com'
 
 export const metadata: Metadata = {
-  title: 'Code Promo Linebet Sénégal | BTTSPredict',
+  title: 'Code Promo Linebet Sénégal',
   description: 'Code promo Linebet Sénégal. Conditions et montants à vérifier auprès de l\'opérateur. Lien d\'affiliation rémunéré. 18+.',
   robots: { index: true, follow: true },
   alternates: {
-    canonical: `${SITE_URL}/linebet-promo-code`,
+    // (2026-09-28) Canonical vers la page principale — conformément à
+    // l'intention documentée en tête de fichier. La 301 serveur (.htaccess)
+    // reste le mécanisme principal ; ce canonical consolide les signaux
+    // SEO sur /code-promo-linebet-senegal si le fichier statique est servi.
+    canonical: `${SITE_URL}${TARGET}`,
   },
   openGraph: {
     title: 'Code Promo Linebet Sénégal | BTTSPredict',
     description: 'Code promo Linebet Sénégal. 18+.',
-    url: `${SITE_URL}/linebet-promo-code`,
+    url: `${SITE_URL}${TARGET}`,
     type: 'website',
   },
 }

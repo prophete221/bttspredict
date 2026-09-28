@@ -9,7 +9,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  if (locale === 'en') return { title: 'Methodology | BTTSPredict', description: 'Transparent BTTS and Over 2.5 methodology, data sources and limitations.', alternates: { canonical: 'https://bttspredict.com/en/methodologie' } }
+  if (locale === 'en') return { title: 'Methodology', description: 'Transparent BTTS and Over 2.5 methodology, data sources and limitations.', alternates: { canonical: 'https://bttspredict.com/en/methodologie' } }
   if (locale === 'ar') return { title: 'منهجية BTTSPredict', description: 'منهجية شفافة لتوقعات BTTS وOver 2.5 ومصادر البيانات والحدود.', alternates: { canonical: 'https://bttspredict.com/ar/methodologie' } }
   return {}
 }

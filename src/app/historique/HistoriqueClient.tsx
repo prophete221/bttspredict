@@ -19,16 +19,11 @@ interface Stats {
   pending: number
   archivedTotal: number
   rate: number
-  avgOdds: number
-  profit: number
-  roi: number
-  yield: number
   gold: {
     total: number
     won: number
     lost: number
     rate: number
-    roi: number
   }
   standard: {
     total: number
@@ -40,7 +35,7 @@ interface Stats {
     btts: { total: number; won: number; lost: number; rate: number }
     over25: { total: number; won: number; lost: number; rate: number }
   }
-  trend14: Array<{ date: string; total: number; won: number; lost: number; rate: number; equity: number }>
+  trend14: Array<{ date: string; total: number; won: number; lost: number; rate: number }>
   period: { from: string; to: string; days: number }
 }
 

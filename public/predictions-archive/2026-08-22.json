@@ -1833,8 +1833,10 @@
       "homeLambda": 1.27,
       "awayLambda": 1.13,
       "finalScore": "2-1",
-      "status": "WON",
-      "verifiedAt": "2026-08-23T04:36:56.502Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-23T04:36:56.502Z",
+      "recalculatedAt": "2026-09-28T12:13:59.201Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "id": "goaheade-vs-adodenha-2026-08-23",

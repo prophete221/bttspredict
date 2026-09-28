@@ -1512,8 +1512,10 @@
       "homeLambda": 1.42,
       "awayLambda": 1.07,
       "finalScore": "3-0",
-      "status": "LOST",
-      "verifiedAt": "2026-09-13T03:26:59.801Z"
+      "status": "WON",
+      "verifiedAt": "2026-09-13T03:26:59.801Z",
+      "recalculatedAt": "2026-09-28T12:13:59.209Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "id": "columbus-vs-redbulln-2026-09-12",
@@ -1577,8 +1579,10 @@
       "homeLambda": 1.69,
       "awayLambda": 0.92,
       "finalScore": "0-1",
-      "status": "LOST",
-      "verifiedAt": "2026-09-13T03:26:59.801Z"
+      "status": "WON",
+      "verifiedAt": "2026-09-13T03:26:59.801Z",
+      "recalculatedAt": "2026-09-28T12:13:59.209Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "id": "fcdallas-vs-portland-2026-09-13",

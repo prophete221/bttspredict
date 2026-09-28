@@ -4,7 +4,7 @@ import path from 'path'
 import ResultatsLocalizedShell from './ResultatsLocalizedShell'
 
 export const metadata: Metadata = {
-  title: 'Résultats vérifiés des pronostics | BTTSPredict',
+  title: 'Résultats vérifiés des pronostics',
   description: "Consultez l'historique des pronostics publiés avant les matchs et leurs résultats vérifiés après coup. Données datées et méthode transparente.",
   alternates: { canonical: 'https://bttspredict.com/resultats-verifies' },
   openGraph: {

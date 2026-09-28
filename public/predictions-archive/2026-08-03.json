@@ -246,10 +246,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "WON",
+      "status": "LOST",
       "tier": "STANDARD",
       "finalScore": "3-0",
-      "verifiedAt": "2026-08-07T14:30:00.822Z"
+      "verifiedAt": "2026-08-07T14:30:00.822Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Sarmiento (Junín) vs Independiente Rivadavia",
@@ -301,7 +303,9 @@
       "verifiedAt": "2026-08-07T12:17:29.533Z",
       "verifiedSource": "thesportsdb",
       "tier": "STANDARD",
-      "status": "WON"
+      "status": "LOST",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Deportivo Recoleta vs Nacional Asunción",
@@ -323,10 +327,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "WON",
+      "status": "LOST",
       "tier": "STANDARD",
       "finalScore": "3-2",
-      "verifiedAt": "2026-08-07T14:30:00.822Z"
+      "verifiedAt": "2026-08-07T14:30:00.822Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Deportivo Recoleta vs Nacional Asunción",
@@ -348,10 +354,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "WON",
+      "status": "LOST",
       "tier": "STANDARD",
       "finalScore": "3-2",
-      "verifiedAt": "2026-08-07T14:30:00.822Z"
+      "verifiedAt": "2026-08-07T14:30:00.822Z",
+      "recalculatedAt": "2026-09-28T12:13:59.194Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Defensor Sporting vs Cerro",
@@ -398,10 +406,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "WON",
+      "status": "LOST",
       "tier": "STANDARD",
       "finalScore": "2-1",
-      "verifiedAt": "2026-08-07T14:30:00.822Z"
+      "verifiedAt": "2026-08-07T14:30:00.822Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Platense vs Talleres (Córdoba)",
@@ -477,10 +487,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "LOST",
+      "status": "WON",
       "tier": "STANDARD",
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-07T12:17:29.533Z"
+      "verifiedAt": "2026-08-07T12:17:29.533Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Vélez Sarsfield vs Independiente",
@@ -502,10 +514,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "LOST",
+      "status": "WON",
       "tier": "STANDARD",
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-07T12:17:29.533Z"
+      "verifiedAt": "2026-08-07T12:17:29.533Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Caracas FC vs Estudiantes de Mérida",
@@ -527,10 +541,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "WON",
+      "status": "LOST",
       "tier": "STANDARD",
       "finalScore": "2-2",
-      "verifiedAt": "2026-08-07T14:30:00.822Z"
+      "verifiedAt": "2026-08-07T14:30:00.822Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Caracas FC vs Estudiantes de Mérida",
@@ -552,10 +568,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "WON",
+      "status": "LOST",
       "tier": "STANDARD",
       "finalScore": "2-2",
-      "verifiedAt": "2026-08-07T14:30:00.822Z"
+      "verifiedAt": "2026-08-07T14:30:00.822Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Liga de Quito vs Delfín",
@@ -602,10 +620,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "WON",
+      "status": "LOST",
       "tier": "STANDARD",
       "finalScore": "2-1",
-      "verifiedAt": "2026-08-07T14:30:00.822Z"
+      "verifiedAt": "2026-08-07T14:30:00.822Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Central Córdoba (Santiago del Estero) vs San Lorenzo",
@@ -657,7 +677,9 @@
       "verifiedAt": "2026-08-07T12:17:29.533Z",
       "verifiedSource": "thesportsdb",
       "tier": "STANDARD",
-      "status": "LOST"
+      "status": "WON",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Huracán vs Atlético Tucumán",
@@ -709,7 +731,9 @@
       "verifiedAt": "2026-08-07T12:17:29.533Z",
       "verifiedSource": "thesportsdb",
       "tier": "STANDARD",
-      "status": "LOST"
+      "status": "WON",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Atlético Bucaramanga vs Cúcuta Deportivo",
@@ -756,10 +780,12 @@
         "dataQuality": 4,
         "hasRealData": true
       },
-      "status": "LOST",
+      "status": "WON",
       "tier": "STANDARD",
       "finalScore": "1-1",
-      "verifiedAt": "2026-08-07T14:30:00.822Z"
+      "verifiedAt": "2026-08-07T14:30:00.822Z",
+      "recalculatedAt": "2026-09-28T12:13:59.195Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Carabobo vs Trujillanos",

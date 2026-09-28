@@ -9,6 +9,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { computeVerdict } from './verdict.mjs';
 
 const ARCHIVE_DIR = './public/predictions-archive';
 const LEAGUES = [
@@ -52,8 +53,7 @@ function fuzzyMatch(ph, pa, ah, aa) {
   return false;
 }
 
-function isBTTS(h, a) { return h > 0 && a > 0; }
-function isOver(h, a) { return h + a >= 3; }
+// isBTTS / isOver / verdict déplacés dans scripts/verdict.mjs (source unique testée)
 
 function isGoldProno(p) {
   if (p.tier === 'GOLD') return true;
@@ -180,10 +180,9 @@ async function main() {
 
       if (!f) { p.status = 'PENDING'; continue; }
 
-      const b = isBTTS(f.hs, f.as);
-      const o = isOver(f.hs, f.as);
-      const type = (p.type || '').toUpperCase();
-      const win = type.includes('BTTS') ? b : o;
+      // Verdict corrigé : lit p.prediction ("Oui"/"Non") — bug 2026-09-28 :
+      // l'ancien code (win = type.includes('BTTS') ? b : o) inversait les pronos "Non".
+      const win = computeVerdict(p.type, p.prediction, f.hs, f.as) === 'WON';
 
       p.finalScore = `${f.hs}-${f.as}`;
       p.status = win ? 'WON' : 'LOST';

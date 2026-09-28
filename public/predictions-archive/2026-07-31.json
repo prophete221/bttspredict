@@ -72,9 +72,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "2-4",
-      "verifiedAt": "2026-08-07T14:30:12.984Z"
+      "verifiedAt": "2026-08-07T14:30:12.984Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Rodina Moscow vs Rostov",
@@ -97,9 +99,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "2-4",
-      "verifiedAt": "2026-08-07T14:30:12.984Z"
+      "verifiedAt": "2026-08-07T14:30:12.984Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "LASK Linz vs Grazer AK",
@@ -297,9 +301,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "3-2",
-      "verifiedAt": "2026-08-07T14:30:12.984Z"
+      "verifiedAt": "2026-08-07T14:30:12.984Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Portuguesa vs Carabobo",
@@ -322,9 +328,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-07T14:30:12.984Z"
+      "verifiedAt": "2026-08-07T14:30:12.984Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Portuguesa vs Carabobo",
@@ -347,9 +355,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-07T14:30:12.984Z"
+      "verifiedAt": "2026-08-07T14:30:12.984Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Montevideo City Torque vs Montevideo Wanderers",
@@ -372,9 +382,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-2",
-      "verifiedAt": "2026-08-07T14:30:12.984Z"
+      "verifiedAt": "2026-08-07T14:30:12.984Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Montevideo City Torque vs Montevideo Wanderers",
@@ -397,9 +409,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-2",
-      "verifiedAt": "2026-08-07T14:30:12.984Z"
+      "verifiedAt": "2026-08-07T14:30:12.984Z",
+      "recalculatedAt": "2026-09-28T12:13:59.192Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Anzoátegui FC vs Deportivo Táchira",
@@ -543,9 +557,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "3-0",
-      "verifiedAt": "2026-08-07T14:30:12.985Z"
+      "verifiedAt": "2026-08-07T14:30:12.985Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Universidad de Concepción vs Audax Italiano",
@@ -643,9 +659,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-0",
-      "verifiedAt": "2026-08-07T14:30:12.985Z"
+      "verifiedAt": "2026-08-07T14:30:12.985Z",
+      "recalculatedAt": "2026-09-28T12:13:59.193Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Puebla vs Guadalajara",

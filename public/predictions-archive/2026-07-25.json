@@ -47,9 +47,11 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "1-1",
-      "verifiedAt": "2026-08-07T14:25:58.502Z"
+      "verifiedAt": "2026-08-07T14:25:58.502Z",
+      "recalculatedAt": "2026-09-28T12:13:59.190Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Santos vs Chapecoense",
@@ -73,8 +75,10 @@
       },
       "tier": "STANDARD",
       "finalScore": "2-2",
-      "status": "WON",
-      "verifiedAt": "2026-08-07T12:16:42.306Z"
+      "status": "LOST",
+      "verifiedAt": "2026-08-07T12:16:42.306Z",
+      "recalculatedAt": "2026-09-28T12:13:59.190Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Santos vs Chapecoense",
@@ -172,9 +176,11 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "3-3",
-      "verifiedAt": "2026-08-07T14:25:58.502Z"
+      "verifiedAt": "2026-08-07T14:25:58.502Z",
+      "recalculatedAt": "2026-09-28T12:13:59.190Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Huachipato vs Cobresal",
@@ -197,9 +203,11 @@
         "hasRealData": false
       },
       "tier": "STANDARD",
-      "status": "WON",
+      "status": "LOST",
       "finalScore": "3-3",
-      "verifiedAt": "2026-08-07T14:25:58.502Z"
+      "verifiedAt": "2026-08-07T14:25:58.502Z",
+      "recalculatedAt": "2026-09-28T12:13:59.190Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Sarpsborg FK vs Hamarkameratene",
@@ -314,9 +322,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-07T14:25:58.503Z"
+      "verifiedAt": "2026-08-07T14:25:58.503Z",
+      "recalculatedAt": "2026-09-28T12:13:59.190Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Técnico Universitario vs Manta F.C.",
@@ -339,9 +349,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "1-0",
-      "verifiedAt": "2026-08-07T14:25:58.503Z"
+      "verifiedAt": "2026-08-07T14:25:58.503Z",
+      "recalculatedAt": "2026-09-28T12:13:59.190Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Philadelphia Union vs Seattle Sounders FC",

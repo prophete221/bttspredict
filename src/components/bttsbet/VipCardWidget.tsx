@@ -62,7 +62,7 @@ export default function VipCardWidget() {
               target="_blank"
               className="flex-1 text-center py-2 rounded-lg text-xs font-bold"
               style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}
-              onClick={() => trackAffiliateAction('linebet', 'signup', 'vip-card-widget')}
+              onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'vip-card-widget')}
               data-cta="vip-card-linebet"
             >
               Voir l’accès VIP

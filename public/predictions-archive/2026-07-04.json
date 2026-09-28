@@ -122,9 +122,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-1",
-      "verifiedAt": "2026-08-07T14:28:52.909Z"
+      "verifiedAt": "2026-08-07T14:28:52.909Z",
+      "recalculatedAt": "2026-09-28T12:13:59.176Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Paraguay vs France",
@@ -147,9 +149,11 @@
         "hasRealData": true
       },
       "tier": "STANDARD",
-      "status": "LOST",
+      "status": "WON",
       "finalScore": "0-1",
-      "verifiedAt": "2026-08-07T14:28:52.909Z"
+      "verifiedAt": "2026-08-07T14:28:52.909Z",
+      "recalculatedAt": "2026-09-28T12:13:59.176Z",
+      "recalculationReason": "verdict-bug-fix-2026-09-28"
     },
     {
       "match": "Degerfors IF vs Malmö FF",

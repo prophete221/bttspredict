@@ -9,7 +9,7 @@ import {Navbar, Footer,
    ────────────────────────────────────────────────────────────── */
 const SITE_URL = 'https://bttspredict.com'
 const PAGE_URL = `${SITE_URL}/politique-confidentialite`
-const TITLE = 'Politique de Confidentialité | BTTSPredict'
+const TITLE = 'Politique de Confidentialité '
 const DESCRIPTION =
   'Politique de confidentialité de BTTSPredict — collecte de données, utilisation, services tiers, droits des utilisateurs, politique de cookies et contact.'
 

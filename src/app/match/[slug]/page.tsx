@@ -4,6 +4,7 @@ import { Navbar, Footer } from '@/components/bttsbet'
 import { generateMatchSlug, getAllMatchSlugs, getMatchBySlug, getVerifiedHistoryForMatch, verifiedMarketKey } from '@/lib/matches'
 import Link from 'next/link'
 import MatchAnalyticsCharts from '@/components/bttsbet/MatchAnalyticsCharts'
+import MatchViewTracker from '@/components/bttsbet/MatchViewTracker'
 import { localizedPath, type Locale } from '@/lib/i18n'
 
 interface PageProps {
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const match = getMatchBySlug(slug)
   if (!match) {
     return {
-      title: 'Match introuvable — BTTSPredict',
+      title: 'Match introuvable',
       robots: { index: false, follow: false },
     }
   }
@@ -148,6 +149,7 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
   return (
     <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
       <Navbar />
+      <MatchViewTracker match={`${home} vs ${away}`} league={league} />
 
       <main id="main-content" className="flex-1">
         {/* Breadcrumb */}
@@ -270,6 +272,41 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
             awayLambda={match.awayLambda}
             xgTotal={match.xgTotal}
           />
+
+          {/* Qualité et provenance des données — transparence (mission) */}
+          {(match.dataQuality || match.dataSource || match.matchCountHome != null || match.aiRisk) && (
+            <section
+              className="rounded-[16px] bg-[#0D1A20] border border-[#5D7880] p-4 mt-4"
+              aria-label="Qualité des données"
+            >
+              <h2 className="text-sm font-bold text-[#F5F8F3] mb-3">Qualité des données</h2>
+              <dl className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
+                <div className="rounded-lg bg-[#11242B] p-2">
+                  <dt className="text-[9px] uppercase tracking-wider text-[#B7C4C1]">Qualité</dt>
+                  <dd className="text-xs font-bold text-[#F5F8F3] mt-1">{match.dataQuality || 'unavailable'}</dd>
+                </div>
+                <div className="rounded-lg bg-[#11242B] p-2">
+                  <dt className="text-[9px] uppercase tracking-wider text-[#B7C4C1]">Matchs analysés</dt>
+                  <dd className="text-xs font-bold text-[#F5F8F3] mt-1">
+                    {match.matchCountHome != null && match.matchCountAway != null
+                      ? `${match.matchCountHome} + ${match.matchCountAway}`
+                      : 'unavailable'}
+                  </dd>
+                </div>
+                <div className="rounded-lg bg-[#11242B] p-2">
+                  <dt className="text-[9px] uppercase tracking-wider text-[#B7C4C1]">Niveau de risque (IA)</dt>
+                  <dd className="text-xs font-bold text-[#F5F8F3] mt-1">{match.aiRisk || 'unavailable'}</dd>
+                </div>
+                <div className="rounded-lg bg-[#11242B] p-2">
+                  <dt className="text-[9px] uppercase tracking-wider text-[#B7C4C1]">Source</dt>
+                  <dd className="text-xs font-bold text-[#F5F8F3] mt-1">{match.dataSource || 'unavailable'}</dd>
+                </div>
+              </dl>
+              <p className="text-[10px] text-[#B7C4C1] mt-2">
+                Qualité des données disponibles pour ce match — ce n&apos;est pas une probabilité de réussite.
+              </p>
+            </section>
+          )}
 
           {/* SECTION RAPPORT D'ANALYSE BTTSPREDICT AI */}
           {(aiKeyFact || aiExactScore) && (

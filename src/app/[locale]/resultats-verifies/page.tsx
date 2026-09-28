@@ -9,8 +9,8 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  if (locale === 'en') return { title: 'Verified prediction results | BTTSPredict', description: 'Publicly verified prediction results with dated data and transparent methodology.', alternates: { canonical: 'https://bttspredict.com/en/resultats-verifies' } }
-  if (locale === 'ar') return { title: 'نتائج التوقعات الموثقة | BTTSPredict', description: 'نتائج توقعات موثقة وبيانات مؤرخة ومنهجية شفافة.', alternates: { canonical: 'https://bttspredict.com/ar/resultats-verifies' } }
+  if (locale === 'en') return { title: 'Verified prediction results', description: 'Publicly verified prediction results with dated data and transparent methodology.', alternates: { canonical: 'https://bttspredict.com/en/resultats-verifies' } }
+  if (locale === 'ar') return { title: 'نتائج التوقعات الموثقة', description: 'نتائج توقعات موثقة وبيانات مؤرخة ومنهجية شفافة.', alternates: { canonical: 'https://bttspredict.com/ar/resultats-verifies' } }
   return {}
 }
 

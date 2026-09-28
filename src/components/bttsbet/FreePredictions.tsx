@@ -9,6 +9,8 @@ import { resolveTeamLogo } from '@/lib/teamLogos'
 import PremiumButton from './PremiumButton'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale } from '@/lib/i18n'
+import { generateMatchSlug } from '@/lib/match-slug'
+import { trackAffiliateAction } from '@/lib/affiliateTracking'
 
 // ─── Helpers ────────────────────────────────────────────────────────────
 function getMatchStatus(date: string, time?: string): 'live' | 'upcoming' | 'finished' {
@@ -214,19 +216,10 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
   const away = teams[1]?.trim() || ''
   const homeLogo = match.homeLogo || resolveTeamLogo(home)
   const awayLogo = match.awayLogo || resolveTeamLogo(away)
-  // Build match page URL for internal linking (Phase 8 — internal linking)
-  const normalizeTeam = (s: string) => (s || '')
-    .toLowerCase()
-    .replace(/^\d+\.\s*/, '')
-    .replace(/\d+/g, '')
-    .replace(/[^a-zà-ÿ\s-]/g, '')
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '') || 'equipe'
+  // Slug officiel partagé avec le SSG de /match/[slug] (src/lib/match-slug.ts)
+  // — garantit un lien interne sans 404.
   const matchDate = (match.date || '').slice(0, 10)
-  const matchSlug = home && away && matchDate ? `${normalizeTeam(home)}-vs-${normalizeTeam(away)}-${matchDate}` : ''
-  const matchHref = matchSlug ? `/match/${matchSlug}` : ''
+  const matchHref = home && away && matchDate ? `/match/${generateMatchSlug(home, away, matchDate)}` : ''
 
   const status = getMatchStatus(match.date, match.time)
   const timeUntil = getTimeUntil(match.date, match.time)
@@ -428,16 +421,28 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
                   </div>
                 )}
 
-                {/* CTA */}
+                {/* CTA — Linebet principal, 888starz secondaire (mission : pas de double CTA agressif) */}
                 <div>
                   <div className="text-xs uppercase tracking-widest font-semibold text-cendre mb-2">{t.predictions.betMatch}</div>
-                  <div className="grid grid-cols-2 gap-2">
-                    <PremiumButton variant="linebet" href={AFFILIATE.linebet} size="sm" fullWidth>
+                  <div className="flex flex-col gap-2">
+                    <PremiumButton
+                      variant="linebet"
+                      href={AFFILIATE.linebet}
+                      size="sm"
+                      fullWidth
+                      onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'match-card', { match: match.match, market: 'BTTS', lang })}
+                    >
                       Linebet
                     </PremiumButton>
-                    <PremiumButton variant="star888" href={AFFILIATE.star888} size="sm" fullWidth>
+                    <a
+                      href={AFFILIATE.star888}
+                      target="_blank"
+                      rel="noopener noreferrer nofollow sponsored"
+                      onClick={() => trackAffiliateAction('888starz', 'signup_cta_click', 'match-card-secondary', { match: match.match, market: 'BTTS', lang })}
+                      className="text-center text-[10px] text-cendre underline decoration-dotted hover:text-[#F5F8F3] transition-colors"
+                    >
                       888starz
-                    </PremiumButton>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -448,7 +453,17 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
         {/* Footer toggle — CTA contextualisé avec noms d'équipes */}
         <div className="flex items-stretch gap-2 mt-3 pt-3 border-t border-edge">
           <button
-            onClick={() => setExpanded(e => !e)}
+            onClick={() => {
+              const opening = !expanded
+              setExpanded(e => !e)
+              if (opening) {
+                trackAffiliateAction('linebet', 'prediction_view', `card-expand:${window.location.pathname}`, {
+                  match: match.match,
+                  market: 'BTTS',
+                  lang,
+                })
+              }
+            }}
             className="flex-1 flex items-center justify-center gap-1.5 text-[13px] text-cendre hover:text-success transition-colors"
             aria-expanded={expanded}
             aria-label={expanded ? `Voir moins d'analyse pour ${home} – ${away}` : `Voir l'analyse ${home} – ${away}`}
@@ -459,7 +474,16 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
               <>{t.predictions.analysis} <span className="truncate max-w-[140px]">{home} – {away}</span> <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9" /></svg></>
             )}
           </button>
-          {/* LIEN "PAGE MATCH" MASQUÉ TEMPORAIREMENT */}
+          {/* Lien vers la page d'analyse détaillée du match (tunnel PRÉDICTION → ANALYSE) */}
+          {matchHref && (
+            <a
+              href={matchHref}
+              className="flex items-center gap-1 px-3 text-[11px] font-semibold text-[#B8FF1A] hover:text-[#D4FF66] transition-colors whitespace-nowrap"
+              aria-label={`Analyse détaillée ${home} – ${away}`}
+            >
+              {t.predictions.matchPage || 'Match'} <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 6 15 12 9 18" /></svg>
+            </a>
+          )}
         </div>
       </div>
     </motion.div>
@@ -471,6 +495,12 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
   const [ref, isVisible] = useScrollAnimation()
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
+
+  // Vue du feed de prédictions (1×/session et par page) — funnel : PRÉDICTION.
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    trackAffiliateAction('linebet', 'prediction_view', `feed:${window.location.pathname}`, { lang })
+  }, [lang])
   const t = translationsFor(lang)
   const intelligenceTitle = lang === 'en' ? "Today's intelligence" : lang === 'ar' ? 'ذكاء اليوم' : 'Intelligence du jour'
   const intelligenceSubtitle = lang === 'en' ? 'Live selections, market signals and match analysis' : lang === 'ar' ? 'اختيارات مباشرة وإشارات السوق وتحليل المباريات' : 'Sélections en direct, signaux de marché et analyse des matchs'
