@@ -1,20 +1,135 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// BTTSPredict — update-win-history V8 (New Tracking Period)
+// BTTSPredict — update-win-history V8.1 (New Tracking Period + Garde-fou)
 // ═══════════════════════════════════════════════════════════════════════════════
 // Calcule 2 buckets :
 //  - newStats     : pronos publiés depuis tracking-period.startDate (PUBLIC)
 //  - legacyStats  : pronos publiés avant startDate (PRIVÉ, non affiché publiquement)
 // Source unique de vérité : public/win-history.json
+//
+// GARDE-FOU ANTI-RÉGRESSION (2026-09-28) :
+//  Aucune écriture n'est possible sans passer par validateWinHistoryPayload() :
+//   - scan récursif des champs interdits (roi / yield / avgOdds / profit /
+//     coteProposee / coteCloture / bookmaker) — ils dépendaient de la cote
+//     fictive 1.90 et ne doivent réapparaître qu'avec des cotes réelles ;
+//   - validation de schéma (clés requises, cohérence total = won + lost,
+//     cohérence rate, statuts WON|LOST, legacyStats.isPrivate) ;
+//   - anti-downgrade : refuse d'écraser un fichier en schéma plus récent.
+//  En cas d'échec : exit(1), message explicite, win-history.json INTACT.
+//  Outils : --dry-run (valide sans écrire) / --validate <fichier> (vérifie un JSON).
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import fs from 'fs';
 import path from 'path';
+import { pathToFileURL } from 'url';
 
 const DIR = './public/predictions-archive';
 const OUT = './public/win-history.json';
 const TRACKING_PERIOD_FILE = './public/tracking-period.json';
 // (2026-09-28) Suppression de AVG_ODDS = 1.90 : cote fictive — aucun ROI/yield/profit
 // ne doit être calculé tant que le site ne collecte pas de cotes réelles.
+
+// ── Garde-fou : contrat de format ────────────────────────────────────────────
+export const SCHEMA_VERSION = 3;
+
+/** Champs bannis du fichier public (issus de l'ancien calcul sur cote fictive). */
+export const FORBIDDEN_KEYS = ['roi', 'yield', 'avgOdds', 'profit', 'coteProposee', 'coteCloture', 'bookmaker'];
+
+const REQUIRED_TOP_KEYS = ['generatedAt', 'trackingPeriod', 'stats', 'history', 'legacyStats'];
+const REQUIRED_STATS_KEYS = ['total', 'won', 'lost', 'pending', 'archivedTotal', 'rate', 'gold', 'standard', 'byType', 'trend14', 'period'];
+const HISTORY_ENTRY_KEYS = ['date', 'match', 'league', 'market', 'tier', 'proba', 'status', 'finalScore', 'verifiedAt', 'source'];
+
+export class WinHistoryValidationError extends Error {}
+
+/**
+ * Parcourt récursivement l'objet et retourne les chemins des clés interdites.
+ * (Scan des CLÉS uniquement — les valeurs textuelles ne déclenchent rien.)
+ */
+export function findForbiddenKeys(node, prefix = '', out = []) {
+  if (Array.isArray(node)) {
+    node.forEach((item, i) => findForbiddenKeys(item, `${prefix}[${i}]`, out));
+  } else if (node && typeof node === 'object') {
+    for (const key of Object.keys(node)) {
+      const p = prefix ? `${prefix}.${key}` : key;
+      if (FORBIDDEN_KEYS.includes(key)) out.push(p);
+      findForbiddenKeys(node[key], p, out);
+    }
+  }
+  return out;
+}
+
+/**
+ * Validation de schéma stricte AVANT écriture.
+ * Lève WinHistoryValidationError avec la liste exhaustive des problèmes.
+ */
+export function validateWinHistoryPayload(payload) {
+  const errors = [];
+
+  if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
+    throw new WinHistoryValidationError('payload invalide : objet JSON attendu');
+  }
+
+  for (const k of REQUIRED_TOP_KEYS) {
+    if (!(k in payload)) errors.push(`clé racine manquante : ${k}`);
+  }
+  if ('schemaVersion' in payload && payload.schemaVersion !== SCHEMA_VERSION) {
+    errors.push(`schemaVersion inattendue : ${payload.schemaVersion} (attendu ${SCHEMA_VERSION})`);
+  }
+
+  const stats = payload.stats;
+  if (stats && typeof stats === 'object' && !Array.isArray(stats)) {
+    for (const k of REQUIRED_STATS_KEYS) {
+      if (!(k in stats)) errors.push(`stats.${k} manquant`);
+    }
+    if (typeof stats.total === 'number' && typeof stats.won === 'number' && typeof stats.lost === 'number') {
+      if (stats.total !== stats.won + stats.lost) {
+        errors.push(`incohérence stats.total : ${stats.total} ≠ won + lost (${stats.won} + ${stats.lost})`);
+      }
+    }
+    if (typeof stats.total === 'number' && stats.total > 0 && typeof stats.won === 'number' && typeof stats.rate === 'number') {
+      const expected = +(stats.won / stats.total * 100).toFixed(1);
+      if (stats.rate !== expected) {
+        errors.push(`incohérence stats.rate : ${stats.rate} ≠ won/total recalculé = ${expected}`);
+      }
+    }
+  } else if (stats !== undefined) {
+    errors.push('stats doit être un objet');
+  }
+
+  const hist = payload.history;
+  if (Array.isArray(hist)) {
+    hist.forEach((e, i) => {
+      if (!e || typeof e !== 'object' || Array.isArray(e)) {
+        errors.push(`history[${i}] invalide : objet attendu`);
+        return;
+      }
+      for (const k of HISTORY_ENTRY_KEYS) {
+        if (!(k in e)) errors.push(`history[${i}].${k} manquant`);
+      }
+      if ('status' in e && !['WON', 'LOST'].includes(e.status)) {
+        errors.push(`history[${i}].status invalide : "${e.status}" (WON|LOST attendus — PENDING ne doit jamais être dans history)`);
+      }
+    });
+  } else if (hist !== undefined) {
+    errors.push('history doit être un tableau');
+  }
+
+  const legacy = payload.legacyStats;
+  if (legacy && typeof legacy === 'object' && !Array.isArray(legacy) && legacy.isPrivate !== true) {
+    errors.push('legacyStats.isPrivate doit être true');
+  }
+
+  const forbidden = findForbiddenKeys(payload);
+  if (forbidden.length) {
+    errors.unshift(...forbidden.map(p => `champ interdit détecté : ${p}`));
+  }
+
+  if (errors.length) {
+    throw new WinHistoryValidationError(
+      `format refusé — ${errors.length} problème(s) détecté(s) :\n  - ` + errors.join('\n  - ')
+    );
+  }
+}
+// ── Fin garde-fou ────────────────────────────────────────────────────────────
 
 let TRACKING_START = '2026-08-08';
 try {
@@ -158,7 +273,13 @@ function buildStats(bucket, periodFrom, periodTo, daysCount) {
   };
 }
 
-function main() {
+function resolveOutPath() {
+  // WIN_HISTORY_OUT : surcharge pour tests/diagnostics uniquement.
+  // Le chemin de production reste public/win-history.json.
+  return process.env.WIN_HISTORY_OUT || OUT;
+}
+
+function run({ write }) {
   if (!fs.existsSync(DIR)) {
     console.warn(`[update-win-history] ${DIR} introuvable`);
     return;
@@ -193,6 +314,7 @@ function main() {
   const legacyStats = buildStats(legacyBucket, legacyPeriodFrom, legacyPeriodTo, legacyDaysCount);
 
   const out = {
+    schemaVersion: SCHEMA_VERSION,
     generatedAt: new Date().toISOString(),
     trackingPeriod: {
       startDate: TRACKING_START,
@@ -210,7 +332,36 @@ function main() {
     },
   };
 
-  fs.writeFileSync(OUT, JSON.stringify(out, null, 2));
+  // GARDE-FOU — validation stricte AVANT toute écriture.
+  try {
+    validateWinHistoryPayload(out);
+  } catch (err) {
+    console.error(`[update-win-history] ✕ ÉCRITURE REFUSÉE — ${err.message}`);
+    console.error(`[update-win-history] ✕ ${resolveOutPath()} n'a PAS été modifié.`);
+    process.exit(1);
+  }
+
+  // Anti-downgrade : ne jamais écraser un fichier en schéma plus récent.
+  const outPath = resolveOutPath();
+  if (fs.existsSync(outPath)) {
+    try {
+      const existing = JSON.parse(fs.readFileSync(outPath, 'utf8'));
+      if (existing && typeof existing === 'object' && typeof existing.schemaVersion === 'number' && existing.schemaVersion > SCHEMA_VERSION) {
+        console.error(`[update-win-history] ✕ ÉCRITURE REFUSÉE — fichier existant en schéma v${existing.schemaVersion} > script v${SCHEMA_VERSION} (downgrade interdit).`);
+        console.error(`[update-win-history] ✕ ${outPath} n'a PAS été modifié.`);
+        process.exit(1);
+      }
+    } catch (e) {
+      // fichier existant illisible : la validation du nouveau payload ci-dessus suffit
+    }
+  }
+
+  if (!write) {
+    console.log(`[update-win-history] --dry-run : schéma v${SCHEMA_VERSION} valide, AUCUNE écriture effectuée (${outPath})`);
+    return out;
+  }
+
+  fs.writeFileSync(outPath, JSON.stringify(out, null, 2));
 
   console.log(`[update-win-history] ─────────────────────────────────────────`);
   console.log(`[update-win-history] NEW (public) ${newStats.total} vérifiés | ${newStats.rate}% | ${newStats.archivedTotal} archivés | ${newStats.pending} en attente`);
@@ -222,6 +373,43 @@ function main() {
   if (newStats.total < 30) {
     console.log(`[update-win-history] ⚠ Volume nouveau suivi insuffisant (${newStats.total}/30). Affichage public restreint.`);
   }
+  return out;
 }
 
-main();
+function main() {
+  const args = process.argv.slice(2);
+
+  if (args[0] === '--validate') {
+    const file = args[1];
+    if (!file) {
+      console.error('usage: node scripts/update-win-history.mjs --validate <fichier.json>');
+      process.exit(2);
+    }
+    try {
+      const payload = JSON.parse(fs.readFileSync(file, 'utf8'));
+      validateWinHistoryPayload(payload);
+      console.log(`[update-win-history] ✓ ${file} : schéma v${SCHEMA_VERSION} valide, aucun champ interdit.`);
+    } catch (err) {
+      console.error(`[update-win-history] ✕ VALIDATION REFUSÉE — ${err.message}`);
+      process.exit(1);
+    }
+    return;
+  }
+
+  if (args[0] === '--dry-run') {
+    run({ write: false });
+    return;
+  }
+
+  if (args[0] === '--help' || args[0] === '-h') {
+    console.log('usage: node scripts/update-win-history.mjs [--dry-run | --validate <fichier.json>]');
+    return;
+  }
+
+  run({ write: true });
+}
+
+// Exécuté en direct uniquement (le bot GitHub) ; l'import en tant que module
+// (tests vitest) n'exécute rien.
+const isDirectRun = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+if (isDirectRun) main();
