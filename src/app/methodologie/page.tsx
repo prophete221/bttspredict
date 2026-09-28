@@ -114,7 +114,7 @@ export default function MethodologiePage() {
               4. Ligues couvertes
             </h2>
             <p className="text-sm text-[#B7C4C1] leading-relaxed mb-3">
-              Les variables réellement disponibles dans les données de prédiction peuvent notamment inclure : buts marqués et encaissés ; xG ; paramètres lambda ; probabilités BTTS ; probabilités Over 2.5 ; score de fiabilité ; qualité des données ; nombre de matchs disponibles pour l&apos;analyse. Les données non disponibles ne sont pas remplacées par des statistiques fictives.
+              Les variables réellement disponibles dans les données de prédiction peuvent notamment inclure : buts marqués et encaissés ; paramètres lambda (buts attendus modélisés) ; probabilités BTTS ; probabilités Over 2.5 ; score de fiabilité ; qualité des données ; nombre de matchs disponibles pour l&apos;analyse. Les données non disponibles ne sont pas remplacées par des statistiques fictives.
             </p>
             <p className="text-sm text-[#B7C4C1] leading-relaxed">
               Ligues prioritaires Afrique : Ligue 1 Sénégal, Botola Pro (Maroc). Ligues européennes de volume : Bundesliga, Eredivisie, Jupiler Pro League, Championship, Liga Portugal. La liste exacte peut évoluer sans préavis.

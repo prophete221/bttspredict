@@ -13,8 +13,9 @@
  *   match, league, date, time, homeLogo, awayLogo,
  *   home, away,
  *   bttsProb, over25Prob,                  ← Poisson probabilities (0..1)
- *   homeLambda, awayLambda,                ← expected goals (xG)
- *   xgHome, xgAway, xgTotal,               ← xG display fallback
+ *   homeLambda, awayLambda,                ← buts attendus modélisés (λ du modèle Poisson,
+ *                                              issus des buts réels récents ESPN — PAS des xG d'un fournisseur)
+ *   xgHome, xgAway, xgTotal,               ← fallback affichage λ
  *   reliabilityScore,                      ← 0..100 data confidence (NOT a win chance)
  *   dataSource, dataQuality,               ← ESPN_TEAM_SCHEDULE | LEAGUE_FALLBACK ; HIGH|MEDIUM|LOW
  *   matchCountHome, matchCountAway,        ← real ESPN matches analysed per team
@@ -92,6 +93,7 @@ interface DashboardLabels {
   xgHome: string
   xgAway: string
   xgTotal: string
+  xgHint: string
   openMatch: string
 }
 
@@ -805,10 +807,10 @@ export default function BttsTodayDashboard() {
       ? 'Projection hidden: insufficient data sample.'
       : 'تم إخفاء التوقع: عينة البيانات غير كافية.'
   const labels: DashboardLabels = lang === 'fr'
-    ? { exactScore: 'Score exact proposé', projection: 'Projection issue des données disponibles, sans garantie de résultat.', source: 'Source', quality: 'Qualité', matches: 'matchs', dataConfidence: 'Confiance des données', aiAnalysis: 'Analyse IA Gemini', score: 'Score', xgHome: 'xG domicile', xgAway: 'xG extérieur', xgTotal: 'xG total', openMatch: 'Ouvrir la page du match' }
+    ? { exactScore: 'Score exact proposé', projection: 'Projection issue des données disponibles, sans garantie de résultat.', source: 'Source', quality: 'Qualité', matches: 'matchs', dataConfidence: 'Confiance des données', aiAnalysis: 'Analyse IA Gemini', score: 'Score', xgHome: 'λ domicile', xgAway: 'λ extérieur', xgTotal: 'λ total', xgHint: 'Buteurs attendus modélisés (λ) : moyennes de buts récents (ESPN) converties en modèle Poisson. Pas des xG de fournisseur.', openMatch: 'Ouvrir la page du match' }
     : lang === 'en'
-      ? { exactScore: 'Proposed exact score', projection: 'Projection based on available data, with no result guaranteed.', source: 'Source', quality: 'Quality', matches: 'matches', dataConfidence: 'Data confidence', aiAnalysis: 'Gemini AI analysis', score: 'Score', xgHome: 'Home xG', xgAway: 'Away xG', xgTotal: 'Total xG', openMatch: 'Open match page' }
-      : { exactScore: 'النتيجة الدقيقة المقترحة', projection: 'توقع مبني على البيانات المتاحة دون ضمان للنتيجة.', source: 'المصدر', quality: 'الجودة', matches: 'مباريات', dataConfidence: 'موثوقية البيانات', aiAnalysis: 'تحليل Gemini بالذكاء الاصطناعي', score: 'النتيجة', xgHome: 'xG صاحب الأرض', xgAway: 'xG الضيف', xgTotal: 'إجمالي xG', openMatch: 'فتح صفحة المباراة' }
+      ? { exactScore: 'Proposed exact score', projection: 'Projection based on available data, with no result guaranteed.', source: 'Source', quality: 'Quality', matches: 'matches', dataConfidence: 'Data confidence', aiAnalysis: 'Gemini AI analysis', score: 'Score', xgHome: 'Home λ', xgAway: 'Away λ', xgTotal: 'Total λ', xgHint: 'Modeled expected goals (λ): recent real goals averages (ESPN) converted via the Poisson model. Not provider xG.', openMatch: 'Open match page' }
+      : { exactScore: 'النتيجة الدقيقة المقترحة', projection: 'توقع مبني على البيانات المتاحة دون ضمان للنتيجة.', source: 'المصدر', quality: 'الجودة', matches: 'مباريات', dataConfidence: 'موثوقية البيانات', aiAnalysis: 'تحليل Gemini بالذكاء الاصطناعي', score: 'النتيجة', xgHome: 'λ صاحب الأرض', xgAway: 'λ الضيف', xgTotal: 'إجمالي λ', xgHint: 'أهداف متوقعة نمذجة (λ) من متوسطات أهداف حقيقية حديثة (ESPN) عبر نموذج بواسون.', openMatch: 'فتح صفحة المباراة' }
 
   // ─── Render ───────────────────────────────────────────────────────────
   return (
@@ -1041,7 +1043,7 @@ export default function BttsTodayDashboard() {
 
       {/* ─── Footer disclaimer ─── */}
       <p className="text-center text-[10px] mt-6" style={{ color: C.textSec }}>
-        {lang === 'fr' ? 'Prédictions statistiques basées sur xG + modèle de Poisson. Aucun résultat futur garanti. 18+' : lang === 'en' ? 'Statistical predictions based on xG + Poisson model. No future result guaranteed. 18+.' : 'توقعات إحصائية مبنية على xG ونموذج بواسون. لا توجد ضمانات لنتيجة مستقبلية. 18+'}
+        {lang === 'fr' ? 'Prédictions statistiques basées sur des buts attendus modélisés (λ) issus des buts récents réels (ESPN) et le modèle de Poisson. Aucun résultat futur garanti. 18+' : lang === 'en' ? 'Statistical predictions based on modeled expected goals (λ) from recent real goals (ESPN) and the Poisson model. No future result guaranteed. 18+.' : 'توقعات إحصائية مبنية على أهداف متوقعة نمذجة (λ) من أهداف حقيقية حديثة (ESPN) ونموذج بواسون. لا توجد ضمانات لنتيجة مستقبلية. 18+'}
       </p>
     </section>
   )
