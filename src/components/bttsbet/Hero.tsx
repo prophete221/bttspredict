@@ -10,6 +10,7 @@ interface WinHistoryStats {
   won?: number
   lost?: number
   pending?: number
+  rate?: number
   displayedWinRate?: number
 }
 
@@ -37,7 +38,7 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
   }, [])
 
   const verified = stats?.total
-  const winRate = stats?.displayedWinRate
+  const winRate = stats?.rate ?? stats?.displayedWinRate
 
   return (
     <section ref={sectionRef} className="home-hero relative overflow-hidden">

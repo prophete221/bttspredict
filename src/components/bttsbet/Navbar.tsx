@@ -69,7 +69,7 @@ export default function Navbar() {
               <img src="/favicon.svg" alt="" width={26} height={26} className="flex-shrink-0 rounded" />
               <span>
                 <span className="block text-sm font-bold leading-tight text-papier tracking-tight">BTTSPredict</span>
-                <span className="block text-[10px] font-semibold uppercase tracking-[0.18em] text-primary leading-none">Match intelligence</span>
+                <span className="block max-[379px]:hidden text-[10px] font-semibold uppercase tracking-[0.18em] text-primary leading-none">Match intelligence</span>
               </span>
             </a>
 
