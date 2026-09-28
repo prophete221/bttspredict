@@ -15,6 +15,9 @@ const BG_DARK = '#071018'
 
 /* Lien affilié Linebet — registration */
 const LINEBET_SIGNUP = AFFILIATE.linebet
+/* Vrai lien affilié de téléchargement (APK) — fix : le bouton "Télécharger"
+   pointait vers la registration. Aucune URL fabriquée, cf. constants.ts. */
+const LINEBET_DOWNLOAD = AFFILIATE.linebetDownload
 
 /* ─── Étapes (4) — design moderne avec icônes SVG ───────────────────── */
 const STEPS = [
@@ -291,7 +294,7 @@ export default function LinebetClient() {
               </a>
 
               <a
-                href={LINEBET_SIGNUP}
+                href={LINEBET_DOWNLOAD}
                 target="_blank"
                 rel="noopener noreferrer nofollow sponsored"
                 className="flex-1 sm:flex-initial sm:min-w-[260px] h-[52px] rounded-[10px] font-bold text-[14px] flex items-center justify-center gap-2 transition-all"
@@ -302,8 +305,8 @@ export default function LinebetClient() {
                 }}
                 onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#11242B' }}
                 onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent' }}
-                data-cta="linebet-download-v61"
-                onClick={() => trackAffiliateAction('linebet', 'download_click', 'linebet-promo-code-card')}
+                data-cta="linebet-download-v62"
+                onClick={() => trackAffiliateAction('linebet', 'download_click', 'linebet-promo-code-card', { link_target: 'download' })}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
