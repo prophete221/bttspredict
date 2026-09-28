@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://bttspredict.com/btts/statistics' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'BTTS Statistics — BTTSPredict',
+    title: 'BTTS Statistics',
     description: 'Liste des ligues couvertes pour le marché BTTS. Données historiques à intégrer via source vérifiable.',
     url: 'https://bttspredict.com/btts/statistics',
     type: 'article',

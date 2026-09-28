@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://bttspredict.com/historique' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Historique vérifié — BTTSPredict',
+    title: 'Historique vérifié',
     description: "Nouveau suivi public des pronostics vérifiés. Volume insuffisant pendant les premières semaines. Aucun résultat futur n'est garanti.",
     url: 'https://bttspredict.com/historique',
     type: 'website',

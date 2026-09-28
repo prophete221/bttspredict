@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const match = getMatchBySlug(slug)
   if (!match) {
     return {
-      title: 'Match introuvable — BTTSPredict',
+      title: 'Match introuvable',
       robots: { index: false, follow: false },
     }
   }
