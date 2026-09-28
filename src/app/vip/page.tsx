@@ -790,7 +790,7 @@ export default function VipPage() {
                             target="_blank"
                             rel="sponsored nofollow noopener noreferrer"
                             className="vipx-btn vipx-btn--gold vipx-btn--block"
-                            onClick={() => trackAffiliateAction(bookmaker, 'signup', 'vip-modal-step2')}
+                            onClick={() => trackAffiliateAction(bookmaker, 'signup_cta_click', 'vip-modal-step2')}
                             data-cta="vip-modal-signup"
                           >
                             {text.signup} {selected.label}<span aria-hidden="true">↗</span>

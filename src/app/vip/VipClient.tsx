@@ -302,7 +302,7 @@ export default function VipClient() {
                   style={{ backgroundColor: PRIMARY, color: TEXT, border: 'none' }}
                   onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = PRIMARY_HOVER }}
                   onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = PRIMARY }}
-                  onClick={() => trackAffiliateAction('linebet', 'signup', 'vip-partner-card')}
+                  onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'vip-partner-card')}
                 >
                   S&apos;inscrire sur Linebet →
                 </a>
@@ -314,7 +314,7 @@ export default function VipClient() {
                   style={{ backgroundColor: 'transparent', color: '#C8CCDA', border: `1.5px solid ${BORDER_OUTLINE}` }}
                   onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#11242B' }}
                   onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent' }}
-                  onClick={() => trackAffiliateAction('linebet', 'download', 'vip-partner-card')}
+                  onClick={() => trackAffiliateAction('linebet', 'download_click', 'vip-partner-card')}
                 >
                   📥 Télécharger APK Linebet
                 </a>
@@ -395,7 +395,7 @@ export default function VipClient() {
                   style={{ backgroundColor: PRIMARY, color: TEXT, border: 'none' }}
                   onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = PRIMARY_HOVER }}
                   onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = PRIMARY }}
-                  onClick={() => trackAffiliateAction('888starz', 'signup', 'vip-partner-card')}
+                  onClick={() => trackAffiliateAction('888starz', 'signup_cta_click', 'vip-partner-card')}
                 >
                   S&apos;inscrire sur 888Starz →
                 </a>
@@ -407,7 +407,7 @@ export default function VipClient() {
                   style={{ backgroundColor: 'transparent', color: '#C8CCDA', border: `1.5px solid ${BORDER_OUTLINE}` }}
                   onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#11242B' }}
                   onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent' }}
-                  onClick={() => trackAffiliateAction('888starz', 'download', 'vip-partner-card')}
+                  onClick={() => trackAffiliateAction('888starz', 'download_click', 'vip-partner-card')}
                 >
                   📥 Télécharger APK 888Starz
                 </a>
