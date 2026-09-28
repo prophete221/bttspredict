@@ -9,7 +9,7 @@ import {Navbar, Footer,
    ────────────────────────────────────────────────────────────── */
 const SITE_URL = 'https://bttspredict.com'
 const PAGE_URL = `${SITE_URL}/mentions-legales`
-const TITLE = 'Mentions Légales | BTTSPredict'
+const TITLE = 'Mentions Légales '
 const DESCRIPTION =
   'Mentions légales BTTSPredict : éditeur, hébergement, propriété intellectuelle, responsabilité et droit applicable.'
 

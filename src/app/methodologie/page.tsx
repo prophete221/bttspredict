@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 
 export const metadata: Metadata = {
-  title: 'Méthodologie | BTTSPredict',
+  title: 'Méthodologie',
   description: "Découvrez les données, filtres et limites utilisés pour analyser BTTS et Over 2,5. Méthode transparente, résultats vérifiables et aucune garantie.",
   alternates: { canonical: 'https://bttspredict.com/methodologie' },
   robots: { index: true, follow: true },

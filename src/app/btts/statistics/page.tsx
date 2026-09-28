@@ -3,7 +3,7 @@ import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Statistiques BTTS par ligue | BTTSPredict',
+  title: 'Statistiques BTTS par ligue',
   description: "Liste des ligues couvertes par BTTSPredict pour le marché BTTS. Taux et moyennes historiques à intégrer via source vérifiable. Aucune garantie future. 18+.",
   alternates: { canonical: 'https://bttspredict.com/btts/statistics' },
   robots: { index: true, follow: true },

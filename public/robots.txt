@@ -163,8 +163,10 @@ User-agent: PetalBot
 Allow: /
 
 # ─── Pages à ne pas crawler (système uniquement) ───
+# NOTE (2026-09-28) : /_next/ n'est PAS bloqué — ces ressources (JS/CSS) sont
+# nécessaires au rendu des pages côté Googlebot (les prédictions sont chargées
+# client-side). Cf. recommandation Google "Avoid blocking Googlebot".
 Disallow: /api/
-Disallow: /_next/
 Disallow: /admin
 
 # ─── Sitemap ───

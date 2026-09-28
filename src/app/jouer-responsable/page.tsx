@@ -9,7 +9,7 @@ import {Navbar, Footer,
    ────────────────────────────────────────────────────────────── */
 const SITE_URL = 'https://bttspredict.com'
 const PAGE_URL = `${SITE_URL}/jouer-responsable`
-const TITLE = 'Jouer Responsable | BTTSPredict'
+const TITLE = 'Jouer Responsable '
 const DESCRIPTION =
   'Jouer responsable avec BTTSPredict : risques, addiction, conseils et ressources d\'aide. 18+ uniquement.'
 
