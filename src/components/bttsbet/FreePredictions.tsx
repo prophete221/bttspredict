@@ -505,6 +505,10 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
   const intelligenceTitle = lang === 'en' ? "Today's intelligence" : lang === 'ar' ? 'ذكاء اليوم' : 'Intelligence du jour'
   const intelligenceSubtitle = lang === 'en' ? 'Live selections, market signals and match analysis' : lang === 'ar' ? 'اختيارات مباشرة وإشارات السوق وتحليل المباريات' : 'Sélections en direct, signaux de marché et analyse des matchs'
   const filtersLabel = lang === 'en' ? 'Filters' : lang === 'ar' ? 'الفلاتر' : 'Filtres'
+  // Polish UI — étiquettes des groupes de filtres (2 catégories lisibles + ligue)
+  const groupPeriodLabel = lang === 'en' ? 'Period' : lang === 'ar' ? 'الفترة' : 'Période'
+  const groupMarketLabel = lang === 'en' ? 'Market' : lang === 'ar' ? 'السوق' : 'Marché'
+  const groupLeagueLabel = lang === 'en' ? 'League' : lang === 'ar' ? 'الدوري' : 'Ligue'
   const [matches, setMatches] = useState<MatchData[]>([])
   const [loading, setLoading] = useState(true)
   const [activeLeague, setActiveLeague] = useState<string>('all')
@@ -640,8 +644,10 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
             <span className="prediction-filter-panel__mode">{t.hero.liveData}</span>
           </div>
           <div className="prediction-filter-panel__track">
-          {/* Date filter chips */}
-          <div className="flex items-center gap-1.5 flex-shrink-0">
+          {/* Groupe PÉRIODE — chips de date */}
+          <div className="prediction-filter-panel__group">
+            <span className="prediction-filter-panel__grouplabel" aria-hidden="true">{groupPeriodLabel}</span>
+            <div className="prediction-filter-panel__chips">
             {([
               { id: 'all', label: t.predictions.all },
               { id: 'today', label: t.predictions.today },
@@ -662,12 +668,13 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
                 {f.label}
               </button>
             ))}
+            </div>
           </div>
 
-          <span className="w-px h-4 bg-[#223041] flex-shrink-0" />
-
-          {/* Market filter chips */}
-          <div className="flex items-center gap-1.5 flex-shrink-0">
+          {/* Groupe MARCHÉ — chips de marché (+ compteur LIVE) */}
+          <div className="prediction-filter-panel__group">
+            <span className="prediction-filter-panel__grouplabel" aria-hidden="true">{groupMarketLabel}</span>
+            <div className="prediction-filter-panel__chips">
             {([
               { id: 'all', label: t.predictions.all },
               { id: 'BTTS', label: 'BTTS' },
@@ -687,12 +694,18 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
                 {f.label}
               </button>
             ))}
+            {stats.live > 0 && (
+              <span className="live-text text-xs uppercase tracking-widest font-semibold whitespace-nowrap flex-shrink-0 pl-1">
+                {stats.live} LIVE
+              </span>
+            )}
+            </div>
           </div>
 
-          <span className="w-px h-4 bg-[#223041] flex-shrink-0" />
-
-          {/* League filter chips */}
-          <div className="flex items-center gap-1.5 flex-shrink-0">
+          {/* Groupe LIGUE — chips de compétition (fonctionnalité conservée) */}
+          <div className="prediction-filter-panel__group">
+            <span className="prediction-filter-panel__grouplabel" aria-hidden="true">{groupLeagueLabel}</span>
+            <div className="prediction-filter-panel__chips">
             {leagues.map(league => (
               <button
                 key={league}
@@ -708,17 +721,8 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
                 {league === 'all' ? t.predictions.leagues : league}
               </button>
             ))}
+            </div>
           </div>
-
-          {/* Live count badge if matches live */}
-          {stats.live > 0 && (
-            <>
-              <span className="w-px h-4 bg-[#223041] flex-shrink-0" />
-              <span className="live-text text-xs uppercase tracking-widest font-semibold whitespace-nowrap flex-shrink-0">
-                {stats.live} LIVE
-              </span>
-            </>
-          )}
           </div>
         </motion.div>
 
@@ -741,7 +745,7 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
             <p className="text-cendre text-xs">{lang === 'ar' ? 'جرّب فلترًا آخر أو عد لاحقاً.' : lang === 'en' ? 'Try another filter or come back later.' : 'Essaie un autre filtre ou reviens plus tard.'}</p>
           </div>
         ) : (
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-3 md:gap-4 md:grid-cols-2">
             {filteredMatches.map((m, i) => (
               <PredictionCard key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} initialLocale={lang} />
             ))}
