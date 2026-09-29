@@ -1,6 +1,6 @@
 {
   "date": "2026-09-29",
-  "lastUpdated": "2026-09-29T10:26:08.980Z",
+  "lastUpdated": "2026-09-29T17:43:47.965Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -70,13 +70,13 @@
       "ai_btts_prob": "57.5%",
       "ai_over25_view": "59.2%",
       "ai_over25_prob": "59.2%",
-      "ai_key_fact": "xG cumulé de 3.07 basé sur 8 matchs réels.",
-      "ai_analysis": "Les xG de St. Louis CITY SC à l'extérieur s'élèvent à 1.96, tandis que Red Bull New York présente un xG à domicile de 1.11. Les probabilités calculées indiquent 57.5% pour les deux équipes marquent et 59.2% pour l'Over 2.5. La fiabilité du modèle est de 81.42%. Donnée insuffisante: compositions, blessés.",
+      "ai_key_fact": "xG extérieur de 1.96 pour St. Louis CITY SC sur 8 matchs réels.",
+      "ai_analysis": "D'après les données fournies, Red Bull New York présente un xG à domicile de 1.11 tandis que St. Louis CITY SC affiche un xG à l'extérieur de 1.96. Les probabilités calculées indiquent un BTTS à 57.5% et un Over 2.5 à 59.2%. La fiabilité globale de l'analyse est de 81.42%. Les autres éléments contextuels restent au statut de donnée indisponible.",
       "ai_winner": "2",
-      "ai_winner_prob": "46%",
+      "ai_winner_prob": "45%",
       "ai_team_over15": "St. Louis CITY SC: OUI",
       "ai_double_chance": "X2",
-      "ai_main_prediction": "Match ouvert avec des buts des deux côtés selon les xG fournis.",
+      "ai_main_prediction": "St. Louis CITY SC ou match nul avec un xG extérieur supérieur.",
       "ai_risk": "MOYEN"
     },
     {
@@ -146,13 +146,13 @@
       "ai_btts_prob": "61.2%",
       "ai_over25_view": "62.0%",
       "ai_over25_prob": "62.0%",
-      "ai_key_fact": "xG cumulé de 3.2 avec une fiabilité de 85.52%.",
-      "ai_analysis": "Seattle Sounders FC affiche un xG de 1.95 contre 1.25 pour Sporting Kansas City. Les probabilités basées sur 8 matchs réels sont de 61.2% pour le BTTS et 62.0% pour l'Over 2.5. La qualité des données est jugée haute par le pipeline. Donnée insuffisante: forme détaillée, classement.",
+      "ai_key_fact": "xG à domicile de 1.95 pour Seattle Sounders FC sur 8 matchs réels.",
+      "ai_analysis": "Seattle Sounders FC domine les métriques xG à domicile avec 1.95 contre 1.25 pour Sporting Kansas City à l'extérieur. Le modèle indique une probabilité de BTTS à 61.2% et un Over 2.5 à 62.0%. La fiabilité de la modélisation atteint 85.52%. Les informations sur la composition et les blessés sont classées comme Donnée insuffisante.",
       "ai_winner": "1",
-      "ai_winner_prob": "52%",
+      "ai_winner_prob": "50%",
       "ai_team_over15": "Seattle Sounders FC: OUI",
       "ai_double_chance": "1X",
-      "ai_main_prediction": "Seattle Sounders FC dispose d'un avantage xG à domicile.",
+      "ai_main_prediction": "Victoire de Seattle Sounders FC ou match nul avec des buts des deux côtés.",
       "ai_risk": "MOYEN"
     }
   ],
@@ -225,13 +225,13 @@
       "ai_btts_prob": "57.5%",
       "ai_over25_view": "59.2%",
       "ai_over25_prob": "59.2%",
-      "ai_key_fact": "xG cumulé de 3.07 basé sur 8 matchs réels.",
-      "ai_analysis": "Les xG de St. Louis CITY SC à l'extérieur s'élèvent à 1.96, tandis que Red Bull New York présente un xG à domicile de 1.11. Les probabilités calculées indiquent 57.5% pour les deux équipes marquent et 59.2% pour l'Over 2.5. La fiabilité du modèle est de 81.42%. Donnée insuffisante: compositions, blessés.",
+      "ai_key_fact": "xG cumulé de 3.07 pour Red Bull New York vs St. Louis CITY SC.",
+      "ai_analysis": "Les données de référence montrent un xG de 1.96 pour St. Louis CITY SC contre 1.11 pour Red Bull New York sur 8 matchs réels. Le BTTS est estimé à 57.5% et l'Over 2.5 à 59.2%. La fiabilité globale est de 81.42%. Les données non fournies sont signalées comme indisponibles.",
       "ai_winner": "2",
-      "ai_winner_prob": "46%",
+      "ai_winner_prob": "45%",
       "ai_team_over15": "St. Louis CITY SC: OUI",
       "ai_double_chance": "X2",
-      "ai_main_prediction": "Rencontre équilibrée avec un léger avantage xG pour les visiteurs.",
+      "ai_main_prediction": "St. Louis CITY SC favorisé par ses xG à l'extérieur dans une rencontre ouverte.",
       "ai_risk": "MOYEN"
     },
     {
@@ -302,13 +302,13 @@
       "ai_btts_prob": "61.2%",
       "ai_over25_view": "62.0%",
       "ai_over25_prob": "62.0%",
-      "ai_key_fact": "xG cumulé de 3.2 avec une fiabilité de 85.52%.",
-      "ai_analysis": "Seattle Sounders FC affiche un xG de 1.95 contre 1.25 pour Sporting Kansas City. Les probabilités basées sur 8 matchs réels sont de 61.2% pour le BTTS et 62.0% pour l'Over 2.5. La qualité des données est jugée haute par le pipeline. Donnée insuffisante: forme détaillée, classement.",
+      "ai_key_fact": "Fiabilité de 85.52% avec un xG cumulé de 3.2 pour Seattle Sounders FC vs Sporting Kansas City.",
+      "ai_analysis": "Avec 8 matchs réels de référence, Seattle Sounders FC présente un xG de 1.95 supérieur au xG extérieur de Sporting Kansas City (1.25). Les probabilités atteignent 61.2% pour le BTTS et 62.0% pour l'Over 2.5. Le reste des paramètres contextuels est une donnée indisponible.",
       "ai_winner": "1",
-      "ai_winner_prob": "52%",
+      "ai_winner_prob": "50%",
       "ai_team_over15": "Seattle Sounders FC: OUI",
       "ai_double_chance": "1X",
-      "ai_main_prediction": "Seattle Sounders FC est attendu offensivement selon les xG fournis.",
+      "ai_main_prediction": "Seattle Sounders FC s'appuie sur un xG solide à domicile pour viser la victoire.",
       "ai_risk": "MOYEN"
     }
   ],
@@ -388,13 +388,13 @@
       "ai_btts_prob": "57.5%",
       "ai_over25_view": "59.2%",
       "ai_over25_prob": "59.2%",
-      "ai_key_fact": "xG cumulé de 3.07 basé sur 8 matchs réels.",
-      "ai_analysis": "Les xG de St. Louis CITY SC à l'extérieur s'élèvent à 1.96, tandis que Red Bull New York présente un xG à domicile de 1.11. Les probabilités calculées indiquent 57.5% pour les deux équipes marquent et 59.2% pour l'Over 2.5. La fiabilité du modèle est de 81.42%. Donnée insuffisante: compositions, blessés.",
+      "ai_key_fact": "xG extérieur de 1.96 pour St. Louis CITY SC sur 8 matchs réels.",
+      "ai_analysis": "D'après les données fournies, Red Bull New York présente un xG à domicile de 1.11 tandis que St. Louis CITY SC affiche un xG à l'extérieur de 1.96. Les probabilités calculées indiquent un BTTS à 57.5% et un Over 2.5 à 59.2%. La fiabilité globale de l'analyse est de 81.42%. Les autres éléments contextuels restent au statut de donnée indisponible.",
       "ai_winner": "2",
-      "ai_winner_prob": "46%",
+      "ai_winner_prob": "45%",
       "ai_team_over15": "St. Louis CITY SC: OUI",
       "ai_double_chance": "X2",
-      "ai_main_prediction": "Match ouvert avec des buts des deux côtés selon les xG fournis.",
+      "ai_main_prediction": "St. Louis CITY SC ou match nul avec un xG extérieur supérieur.",
       "ai_risk": "MOYEN"
     },
     {
@@ -464,13 +464,13 @@
       "ai_btts_prob": "61.2%",
       "ai_over25_view": "62.0%",
       "ai_over25_prob": "62.0%",
-      "ai_key_fact": "xG cumulé de 3.2 avec une fiabilité de 85.52%.",
-      "ai_analysis": "Seattle Sounders FC affiche un xG de 1.95 contre 1.25 pour Sporting Kansas City. Les probabilités basées sur 8 matchs réels sont de 61.2% pour le BTTS et 62.0% pour l'Over 2.5. La qualité des données est jugée haute par le pipeline. Donnée insuffisante: forme détaillée, classement.",
+      "ai_key_fact": "xG à domicile de 1.95 pour Seattle Sounders FC sur 8 matchs réels.",
+      "ai_analysis": "Seattle Sounders FC domine les métriques xG à domicile avec 1.95 contre 1.25 pour Sporting Kansas City à l'extérieur. Le modèle indique une probabilité de BTTS à 61.2% et un Over 2.5 à 62.0%. La fiabilité de la modélisation atteint 85.52%. Les informations sur la composition et les blessés sont classées comme Donnée insuffisante.",
       "ai_winner": "1",
-      "ai_winner_prob": "52%",
+      "ai_winner_prob": "50%",
       "ai_team_over15": "Seattle Sounders FC: OUI",
       "ai_double_chance": "1X",
-      "ai_main_prediction": "Seattle Sounders FC dispose d'un avantage xG à domicile.",
+      "ai_main_prediction": "Victoire de Seattle Sounders FC ou match nul avec des buts des deux côtés.",
       "ai_risk": "MOYEN"
     }
   ]
