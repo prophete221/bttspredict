@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-09-30T20:43:53.873Z",
+  "generatedAt": "2026-10-01T04:32:32.646Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -8,17 +8,17 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 110,
+    "total": 111,
     "won": 76,
-    "lost": 34,
-    "pending": 478,
-    "archivedTotal": 588,
-    "rate": 69.1,
+    "lost": 35,
+    "pending": 479,
+    "archivedTotal": 590,
+    "rate": 68.5,
     "gold": {
-      "total": 93,
+      "total": 94,
       "won": 63,
-      "lost": 30,
-      "rate": 67.7
+      "lost": 31,
+      "rate": 67
     },
     "standard": {
       "total": 17,
@@ -28,10 +28,10 @@
     },
     "byType": {
       "btts": {
-        "total": 108,
+        "total": 109,
         "won": 75,
-        "lost": 33,
-        "rate": 69.4
+        "lost": 34,
+        "rate": 68.8
       },
       "over25": {
         "total": 2,
@@ -41,13 +41,6 @@
       }
     },
     "trend14": [
-      {
-        "date": "2026-08-19",
-        "total": 8,
-        "won": 6,
-        "lost": 2,
-        "rate": 75
-      },
       {
         "date": "2026-08-22",
         "total": 7,
@@ -138,15 +131,34 @@
         "won": 6,
         "lost": 5,
         "rate": 54.5
+      },
+      {
+        "date": "2026-09-30",
+        "total": 1,
+        "won": 0,
+        "lost": 1,
+        "rate": 0
       }
     ],
     "period": {
       "from": "2026-08-08",
-      "to": "2026-09-30",
-      "days": 54
+      "to": "2026-10-01",
+      "days": 55
     }
   },
   "history": [
+    {
+      "date": "2026-09-30",
+      "match": "Red Bull New York vs St. Louis CITY SC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5754,
+      "status": "LOST",
+      "finalScore": "0-3",
+      "verifiedAt": "2026-10-01T04:25:45.005Z",
+      "source": "ESPN public"
+    },
     {
       "date": "2026-09-26",
       "match": "Houston Dynamo FC vs Sporting Kansas City",
@@ -1469,12 +1481,12 @@
     }
   ],
   "legacyStats": {
-    "total": 467,
-    "won": 239,
-    "lost": 228,
-    "pending": 1234,
-    "archivedTotal": 1701,
-    "rate": 51.2,
+    "total": 463,
+    "won": 236,
+    "lost": 227,
+    "pending": 1198,
+    "archivedTotal": 1661,
+    "rate": 51,
     "gold": {
       "total": 40,
       "won": 17,
@@ -1482,23 +1494,23 @@
       "rate": 42.5
     },
     "standard": {
-      "total": 427,
-      "won": 222,
-      "lost": 205,
-      "rate": 52
+      "total": 423,
+      "won": 219,
+      "lost": 204,
+      "rate": 51.8
     },
     "byType": {
       "btts": {
-        "total": 234,
-        "won": 115,
-        "lost": 119,
+        "total": 232,
+        "won": 114,
+        "lost": 118,
         "rate": 49.1
       },
       "over25": {
-        "total": 233,
-        "won": 124,
+        "total": 231,
+        "won": 122,
         "lost": 109,
-        "rate": 53.2
+        "rate": 52.8
       }
     },
     "trend14": [
@@ -1602,9 +1614,9 @@
       }
     ],
     "period": {
-      "from": "2026-07-03",
+      "from": "2026-07-04",
       "to": "2026-08-07",
-      "days": 36
+      "days": 35
     },
     "history": [
       {
