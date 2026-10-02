@@ -1,6 +1,6 @@
 {
   "date": "2026-10-02",
-  "lastUpdated": "2026-10-02T14:29:28.551Z",
+  "lastUpdated": "2026-10-02T20:23:02.765Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -70,13 +70,13 @@
       "ai_btts_prob": "42.8%",
       "ai_over25_view": "55.4%",
       "ai_over25_prob": "55.4%",
-      "ai_key_fact": "xG extérieur de Vancouver à 2.25 contre 0.65 pour Chicago.",
-      "ai_analysis": "L'analyse des xG fournis montre un déséquilibre prononcé en faveur de Vancouver Whitecaps avec 2.25 xG contre seulement 0.65 xG pour Chicago Fire FC. La probabilité BTTS est estimée à 42.8%, ce qui indique un scénario où les deux équipes ne marquent probablement pas. L'Over 2.5 est évalué à 55.4% sur la base d'un xG cumulé de 2.9. La fiabilité globale du modèle est de 74.96% avec une qualité de données jugée haute.",
+      "ai_key_fact": "xG extérieur de 2.25 pour Vancouver Whitecaps contre 0.65 à domicile pour Chicago Fire FC.",
+      "ai_analysis": "Les données fournies indiquent un xG de 0.65 pour Chicago Fire FC et de 2.25 pour Vancouver Whitecaps sur 8 matchs réels. La probabilité BTTS est estimée à 42.8% tandis que l'Over 2.5 est à 55.4%. La fiabilité globale du modèle est de 74.96%. Donnée insuffisante: compositions, blessés, classement, H2H.",
       "ai_winner": "2",
       "ai_winner_prob": "65%",
       "ai_team_over15": "Vancouver Whitecaps: OUI",
       "ai_double_chance": "X2",
-      "ai_main_prediction": "Vancouver Whitecaps gagne ou fait match nul avec un total de plus de 2.5 buts dans le match.",
+      "ai_main_prediction": "Vancouver Whitecaps gagne ou fait match nul avec un total supérieur à 2.5 buts.",
       "ai_risk": "MOYEN"
     }
   ],
@@ -149,13 +149,13 @@
       "ai_btts_prob": "42.8%",
       "ai_over25_view": "55.4%",
       "ai_over25_prob": "55.4%",
-      "ai_key_fact": "xG extérieur de Vancouver à 2.25 contre 0.65 pour Chicago.",
-      "ai_analysis": "L'analyse des xG fournis montre un déséquilibre prononcé en faveur de Vancouver Whitecaps avec 2.25 xG contre seulement 0.65 xG pour Chicago Fire FC. La probabilité BTTS est estimée à 42.8%, ce qui indique un scénario où les deux équipes ne marquent probablement pas. L'Over 2.5 est évalué à 55.4% sur la base d'un xG cumulé de 2.9. La fiabilité globale du modèle est de 74.96% avec une qualité de données jugée haute.",
+      "ai_key_fact": "xG cumulé de 2.9 avec une nette domination offensive de Vancouver Whitecaps (2.25).",
+      "ai_analysis": "L'analyse repose sur les 8 matchs réels fournis avec un xG de 0.65 pour Chicago Fire FC et 2.25 pour Vancouver Whitecaps. Le BTTS est évalué à 42.8% et l'Over 2.5 à 55.4% avec une fiabilité de 74.96%. Donnée insuffisante: météo, forme détaillée, suspensions, historique récent.",
       "ai_winner": "2",
       "ai_winner_prob": "65%",
       "ai_team_over15": "Vancouver Whitecaps: OUI",
       "ai_double_chance": "X2",
-      "ai_main_prediction": "Vancouver Whitecaps gagne ou fait match nul avec un total de plus de 2.5 buts dans le match.",
+      "ai_main_prediction": "Vancouver Whitecaps s'impose ou fait match nul selon les xG fournis.",
       "ai_risk": "MOYEN"
     }
   ],
@@ -235,13 +235,13 @@
       "ai_btts_prob": "42.8%",
       "ai_over25_view": "55.4%",
       "ai_over25_prob": "55.4%",
-      "ai_key_fact": "xG extérieur de Vancouver à 2.25 contre 0.65 pour Chicago.",
-      "ai_analysis": "L'analyse des xG fournis montre un déséquilibre prononcé en faveur de Vancouver Whitecaps avec 2.25 xG contre seulement 0.65 xG pour Chicago Fire FC. La probabilité BTTS est estimée à 42.8%, ce qui indique un scénario où les deux équipes ne marquent probablement pas. L'Over 2.5 est évalué à 55.4% sur la base d'un xG cumulé de 2.9. La fiabilité globale du modèle est de 74.96% avec une qualité de données jugée haute.",
+      "ai_key_fact": "xG extérieur de 2.25 pour Vancouver Whitecaps contre 0.65 à domicile pour Chicago Fire FC.",
+      "ai_analysis": "Les données fournies indiquent un xG de 0.65 pour Chicago Fire FC et de 2.25 pour Vancouver Whitecaps sur 8 matchs réels. La probabilité BTTS est estimée à 42.8% tandis que l'Over 2.5 est à 55.4%. La fiabilité globale du modèle est de 74.96%. Donnée insuffisante: compositions, blessés, classement, H2H.",
       "ai_winner": "2",
       "ai_winner_prob": "65%",
       "ai_team_over15": "Vancouver Whitecaps: OUI",
       "ai_double_chance": "X2",
-      "ai_main_prediction": "Vancouver Whitecaps gagne ou fait match nul avec un total de plus de 2.5 buts dans le match.",
+      "ai_main_prediction": "Vancouver Whitecaps gagne ou fait match nul avec un total supérieur à 2.5 buts.",
       "ai_risk": "MOYEN"
     }
   ]
