@@ -1,10 +1,10 @@
 'use client'
 
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useScrollAnimation } from '@/hooks/useAnimations'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale } from '@/lib/i18n'
-import { AFFILIATE, SITE } from '@/lib/constants'
+import { SITE, AFFILIATE } from '@/lib/constants'
 import AffiliateSignupCta from './AffiliateSignupCta'
 import { trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 
@@ -18,23 +18,32 @@ interface WinHistoryStats {
 }
 
 /**
- * Hero — composition SaaS « sports analytics » :
- * 1. barre méta discrète (analyse en direct + fuseau),
- * 2. titre court = unique focus visuel,
- * 3. CTA dominant vers les analyses du jour (+ lien secondaire),
- * 4. mini-dashboard de preuves alimenté UNIQUEMENT par win-history.json
- *    (aucune statistique inventée — si la donnée manque, rien ne s'affiche),
- * 5. funnel DONNÉES → ANALYSE → PRONOSTIC → ACTION,
- * 6. module partenaire LINEBET compact et subordonné au contenu éditorial.
+ * Hero — conversion-first, mobile-first.
+ *
+ * Priorité visuelle :
+ *  1. Badge live + timezone Africa/Dakar
+ *  2. H1 orienté action + sous-titre
+ *  3. Bloc "Étape 1 — Active ton bonus" : code VISION221 copiable en 1 tap
+ *     + CTA PRIMAIRE d'inscription Linebet (AffiliateSignupCta, tracking intégré)
+ *  4. Actions secondaires : voir les pronostics (#free-predictions) + méthode
+ *  5. Colonne droite (desktop) : stats 100% win-history.json (si dispo),
+ *     3 trust points, mini bloc partenaire Linebet secondaire
+ *
+ * Conformité :
+ *  - Aucune stat inventée : uniquement win-history.json (sinon rien n'est affiché)
+ *  - Aucun contenu masqué derrière opacity: 0 (fix opacity-trap)
+ *  - Liens affiliés via AffiliateSignupCta (rel="sponsored nofollow noopener noreferrer")
+ *  - Mention 18+ · Aucun gain garanti · Lien d'affiliation
  */
 export default function Hero({ initialLocale }: { initialLocale?: Locale } = {}) {
-  const [sectionRef, isVisible] = useScrollAnimation(0.05)
+  // Le hook reste pour la classe `is-visible` (amélioration visuelle) —
+  // il ne masque plus jamais le contenu (isVisible init = true + fallback hard).
+  const [sectionRef] = useScrollAnimation(0.05)
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
   const t = translationsFor(lang)
   const [stats, setStats] = useState<WinHistoryStats | null>(null)
   const [copied, setCopied] = useState(false)
-  const copyTimer = useRef<number | null>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -47,41 +56,39 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
     return () => { cancelled = true }
   }, [])
 
-  useEffect(() => () => {
-    if (copyTimer.current) window.clearTimeout(copyTimer.current)
-  }, [])
-
-  const handleCopyCode = async () => {
-    try {
-      await navigator.clipboard.writeText(SITE.promoCode)
-      trackAffiliateCodeCopy('linebet', 'home-hero-partner')
-      setCopied(true)
-      if (copyTimer.current) window.clearTimeout(copyTimer.current)
-      copyTimer.current = window.setTimeout(() => setCopied(false), 2200)
-    } catch {
-      /* presse-papiers indisponible : pas de feedback, pas d'erreur bloquante */
-    }
-  }
-
   const verified = stats?.total
   const winRate = stats?.rate ?? stats?.displayedWinRate
-  const funnelSteps = [t.hero.funnelData, t.hero.funnelAnalysis, t.hero.funnelPick, t.hero.funnelAction]
+
+  const copyCode = async () => {
+    try {
+      await navigator.clipboard.writeText(SITE.promoCode)
+    } catch {
+      const ta = document.createElement('textarea')
+      ta.value = SITE.promoCode
+      ta.style.position = 'fixed'
+      ta.style.opacity = '0'
+      document.body.appendChild(ta)
+      ta.select()
+      document.execCommand('copy')
+      document.body.removeChild(ta)
+    }
+    trackAffiliateCodeCopy('linebet', 'home-hero-partner')
+    setCopied(true)
+    if (typeof navigator !== 'undefined' && navigator.vibrate) {
+      navigator.vibrate(15)
+    }
+    setTimeout(() => setCopied(false), 2000)
+  }
 
   return (
     <section ref={sectionRef} className="home-hero relative overflow-hidden">
       <div className="home-hero__media" aria-hidden="true" />
-      <div className="home-hero__grid" aria-hidden="true" />
       <div className="home-hero__veil" aria-hidden="true" />
 
-      <div
-        className="home-hero__inner relative z-10 mx-auto max-w-[1180px] px-4 pb-7 pt-5 sm:px-6 sm:pb-10 sm:pt-8"
-        style={{
-          opacity: isVisible ? 1 : 0,
-          transform: isVisible ? 'translateY(0)' : 'translateY(8px)',
-          transition: 'opacity 360ms ease, transform 360ms ease',
-        }}
-      >
-        <div className="home-hero__layout">
+      {/* Toujours visible — plus aucun style conditionnel opacity/transform */}
+      <div className="home-hero__inner relative z-10 mx-auto max-w-[1180px] px-4 pb-8 pt-6 sm:px-6 sm:pb-12 sm:pt-10">
+        <div className="home-hero__layout home-hero__layout--convert">
+          {/* ═══ Colonne principale : promesse → bonus → CTA inscription ═══ */}
           <div className="home-hero__copy">
             <div className="home-hero__meta">
               <span className="home-hero__badge" aria-label={t.hero.liveData}>
@@ -95,99 +102,106 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
               {t.hero.title1}
               <span className="home-hero__title-accent">{t.hero.title2}</span>
             </h1>
-
             <p className="home-hero__subtitle">{t.hero.subtitle}</p>
 
-            <div className="home-hero__actions">
-              <a href="#free-predictions" className="home-hero__cta" data-cta="hero-primary">
-                {t.hero.cta}
+            {/* Étape 1 — Active ton bonus (CTA #1 = inscription Linebet) */}
+            <div className="home-hero__convert">
+              <p className="home-hero__convert-label">{t.hero.convertLabel}</p>
+              <div className="home-hero__convert-code-row">
+                <span className="home-hero__convert-code-label">{t.hero.promoLabel}</span>
+                <code className="home-hero__convert-code">{SITE.promoCode}</code>
+                <button
+                  type="button"
+                  onClick={copyCode}
+                  className={`home-hero__convert-copy${copied ? ' is-copied' : ''}`}
+                  aria-label={`${t.hero.copy} ${SITE.promoCode}`}
+                  data-cta="hero-copy-vision221"
+                >
+                  {copied ? t.hero.copied : t.hero.copy}
+                </button>
+              </div>
+              <AffiliateSignupCta
+                href={AFFILIATE.linebet}
+                partner="linebet"
+                placement="home-hero-primary"
+                className="home-hero__convert-cta"
+              >
+                {t.hero.partnerCta}
                 <span aria-hidden="true">→</span>
+              </AffiliateSignupCta>
+              <p className="home-hero__convert-bonus">{t.hero.bonus}</p>
+            </div>
+
+            {/* Actions secondaires — explorer d'abord, convertir déjà proposé */}
+            <div className="home-hero__actions--secondary">
+              <a href="#free-predictions" className="home-hero__cta-secondary" data-cta="hero-free-predictions">
+                {t.hero.cta}
+                <span aria-hidden="true">↓</span>
               </a>
-              <a href="/methodologie" className="home-hero__cta-secondary" data-cta="hero-secondary">
+              <a href="/methodologie" className="home-hero__cta-ghost" data-cta="hero-method">
                 {t.hero.ctaSecondary}
               </a>
             </div>
-
-            <p className="home-hero__note">{t.hero.note18}</p>
+            <span className="home-hero__note">{t.hero.note18}</span>
           </div>
 
-          <div className="home-hero__panel">
-            {/* Élément analytics purement décoratif : aucune valeur chiffrée inventée */}
-            <div className="home-hero__trend" aria-hidden="true">
-              <span className="home-hero__trend-label">{t.hero.trendLabel}</span>
-              <svg className="home-hero__trend-spark" viewBox="0 0 96 24" focusable="false">
-                <polyline points="0,19 12,17 24,18 36,13 48,14 60,10 72,11 84,6 96,4" />
-              </svg>
-            </div>
-
-            {/* Preuves chiffrées — 100 % issues de win-history.json */}
+          {/* ═══ Colonne droite (desktop) : preuve + confiance + partenaire ═══ */}
+          <div className="home-hero__side">
+            {/* Preuves chiffrées — 100% issues de win-history.json, sinon rien */}
             {verified !== undefined && (
               <div className="home-hero__stats">
                 {winRate !== undefined && (
-                  <div className="home-hero__stat">
+                  <span className="home-hero__stat">
                     <span className="home-hero__stat-value home-hero__stat-value--win">
                       {winRate.toLocaleString(lang === 'en' ? 'en-US' : 'fr-FR', { minimumFractionDigits: 1 })}
                       &nbsp;%
                     </span>
                     <span className="home-hero__stat-label">{t.hero.statsRate}</span>
-                  </div>
+                  </span>
                 )}
-                <div className="home-hero__stat">
+                <span className="home-hero__stat">
                   <span className="home-hero__stat-value">{verified}</span>
                   <span className="home-hero__stat-label">{t.hero.statsTotal}</span>
-                </div>
+                </span>
                 {stats?.won !== undefined && stats?.lost !== undefined && (
-                  <div className="home-hero__stat">
-                    <span className="home-hero__stat-value">{stats.won}W&nbsp;·&nbsp;{stats.lost}L</span>
+                  <span className="home-hero__stat">
+                    <span className="home-hero__stat-value">{stats.won}W · {stats.lost}L</span>
                     <span className="home-hero__stat-label">{t.hero.statsRecord}</span>
-                  </div>
+                  </span>
                 )}
               </div>
             )}
 
-            {/* Funnel éditorial — fine ligne de progression, pas des cartes */}
-            <div className="home-hero__funnel">
-              {funnelSteps.map((label, i) => (
-                <Fragment key={label}>
-                  {i > 0 && (
-                    <span className="home-hero__funnel-arrow" aria-hidden="true">→</span>
-                  )}
-                  <span className={`home-hero__funnel-step${i === funnelSteps.length - 1 ? ' home-hero__funnel-step--action' : ''}`}>
-                    <i aria-hidden="true">0{i + 1}</i>
-                    {label}
-                  </span>
-                </Fragment>
-              ))}
-            </div>
+            <ul className="home-hero__trust-list">
+              <li className="home-hero__trust-item">
+                <span className="home-hero__trust-icon" aria-hidden="true">✓</span>
+                <span>{t.hero.trust1}</span>
+              </li>
+              <li className="home-hero__trust-item">
+                <span className="home-hero__trust-icon" aria-hidden="true">✓</span>
+                <span>{t.hero.trust2}</span>
+              </li>
+              <li className="home-hero__trust-item">
+                <span className="home-hero__trust-icon" aria-hidden="true">✓</span>
+                <span>{t.hero.trust3}</span>
+              </li>
+            </ul>
 
-            {/* Module partenaire — compact, premium, subordonné au contenu */}
-            <aside className="home-hero__partner" aria-label="LINEBET, partenaire">
+            {/* Mini bloc partenaire — secondaire, jamais au même niveau que la marque */}
+            <div className="home-hero__partner">
               <span className="home-hero__partner-eyebrow">{t.hero.partnerEyebrow}</span>
-              <p className="home-hero__partner-question">{t.hero.partnerQuestion}</p>
-              <p className="home-hero__partner-join">{t.hero.partnerJoin}</p>
-              <div className="home-hero__partner-promo">
-                <span className="home-hero__partner-promo-label">{t.hero.promoLabel}</span>
-                <code className="home-hero__partner-code">{SITE.promoCode}</code>
-                <button
-                  type="button"
-                  className={`home-hero__partner-copy${copied ? ' is-copied' : ''}`}
-                  onClick={handleCopyCode}
-                >
-                  {copied ? t.hero.copied : t.hero.copy}
-                </button>
-              </div>
-              <p className="home-hero__partner-bonus">{t.hero.bonus}</p>
+              <span className="home-hero__partner-join">{t.hero.partnerJoin}</span>
               <AffiliateSignupCta
                 href={AFFILIATE.linebet}
                 partner="linebet"
                 placement="home-hero-partner"
                 className="home-hero__partner-cta"
               >
-                {t.hero.partnerCta}
+                {t.hero.partnerCtaShort}
                 <span aria-hidden="true">→</span>
               </AffiliateSignupCta>
-              <p className="home-hero__partner-disclaimer">{t.hero.partnerDisclaimer}</p>
-            </aside>
+              <span className="home-hero__partner-disclaimer">{t.hero.partnerDisclaimer}</span>
+            </div>
           </div>
         </div>
       </div>

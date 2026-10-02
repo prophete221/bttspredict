@@ -6,9 +6,11 @@ import { SITE, AFFILIATE } from '@/lib/constants'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 
 /**
- * StickyCTABar — Mobile-only sticky CTA bar (appears after 60% scroll)
+ * StickyCTABar — Mobile-only sticky CTA bar (appears after 40% scroll)
  * Height: 64px, safe-area iOS respected, dismissible
  * Two actions: Copy code + Register
+ * Fix: guard division par zéro (denom <= 0), seuil 40 %, listener resize,
+ * état calculé au mount.
  */
 export default function StickyCTABar() {
   const [visible, setVisible] = useState(false)
@@ -18,11 +20,19 @@ export default function StickyCTABar() {
   useEffect(() => {
     if (dismissed) return
     const onScroll = () => {
-      const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)
-      setVisible(scrollPercent > 0.6)
+      // FIX division par zéro : page plus courte que le viewport (scrollHeight ≈ innerHeight)
+      const denom = document.documentElement.scrollHeight - window.innerHeight
+      if (denom <= 0) { setVisible(false); return }
+      const scrollPercent = window.scrollY / denom
+      setVisible(scrollPercent > 0.4) // 40 % au lieu de 60 % — conversion plus tôt
     }
+    onScroll() // état correct dès le mount (pas d'attente du 1er scroll)
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    window.addEventListener('resize', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
   }, [dismissed])
 
   const copyCode = async () => {

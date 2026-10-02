@@ -147,7 +147,10 @@ export function useRevealOnScroll(
 
 export function useScrollAnimation(threshold = 0.1): [React.RefObject<HTMLElement>, boolean] {
   const ref = useRef<HTMLElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
+  // FIX opacity-trap : isVisible démarre à `true` — le contenu ne doit JAMAIS
+  // être rendu en opacity: 0 (export statique, iOS Safari, hydratation lente,
+  // IntersectionObserver qui ne fire pas). L'animation ne peut qu'améliorer.
+  const [isVisible, setIsVisible] = useState(true)
 
   useEffect(() => {
     const el = ref.current
@@ -156,6 +159,21 @@ export function useScrollAnimation(threshold = 0.1): [React.RefObject<HTMLElemen
     if (visibleElements.has(el)) {
       queueMicrotask(() => setIsVisible(true))
       el.classList.add('is-visible')
+      return
+    }
+
+    // Au mount : si l'élément est déjà dans le viewport (above-the-fold,
+    // Hero) → forcer visible + classe is-visible immédiatement.
+    const rect = el.getBoundingClientRect()
+    const inViewport =
+      rect.top < window.innerHeight &&
+      rect.bottom > 0 &&
+      rect.left < window.innerWidth &&
+      rect.right > 0
+    if (inViewport) {
+      visibleElements.add(el)
+      el.classList.add('is-visible')
+      setIsVisible(true)
       return
     }
 
@@ -168,10 +186,21 @@ export function useScrollAnimation(threshold = 0.1): [React.RefObject<HTMLElemen
           observer.unobserve(el)
         }
       },
-      { threshold, rootMargin: '0px 0px -40px 0px' }
+      { threshold, rootMargin: '40px 0px 0px 0px' }
     )
     observer.observe(el)
-    return () => observer.disconnect()
+
+    // Fallback hard : jamais laisser opacity 0 — visibilité forcée après 300ms
+    const fallbackTimer = setTimeout(() => {
+      visibleElements.add(el)
+      el.classList.add('is-visible')
+      setIsVisible(true)
+    }, 300)
+
+    return () => {
+      observer.disconnect()
+      clearTimeout(fallbackTimer)
+    }
   }, [threshold])
 
   return [ref as React.RefObject<HTMLElement>, isVisible]
@@ -222,7 +251,18 @@ export function useStaggerReveal(
       { threshold, rootMargin: '0px 0px -60px 0px' }
     )
     observer.observe(el)
-    return () => observer.disconnect()
+
+    // Fallback hard (jamais opacity 0) : visibilité forcée après 600ms
+    const fallbackTimer = setTimeout(() => {
+      visibleElements.add(el)
+      el.classList.add('is-visible')
+      setIsVisible(true)
+    }, 600)
+
+    return () => {
+      observer.disconnect()
+      clearTimeout(fallbackTimer)
+    }
   }, [threshold, variant])
 
   return [ref, isVisible]
@@ -266,7 +306,18 @@ export function useRevealEntry(
       { threshold, rootMargin: '0px 0px -40px 0px' }
     )
     observer.observe(el)
-    return () => observer.disconnect()
+
+    // Fallback hard (jamais opacity 0) : visibilité forcée après 600ms
+    const fallbackTimer = setTimeout(() => {
+      visibleElements.add(el)
+      el.classList.add('is-visible')
+      setIsVisible(true)
+    }, 600)
+
+    return () => {
+      observer.disconnect()
+      clearTimeout(fallbackTimer)
+    }
   }, [variant, threshold])
 
   return [ref, isVisible]
