@@ -1,6 +1,6 @@
 {
   "date": "2026-10-02",
-  "lastUpdated": "2026-10-02T20:23:02.765Z",
+  "lastUpdated": "2026-10-02T20:59:43.949Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -70,8 +70,8 @@
       "ai_btts_prob": "42.8%",
       "ai_over25_view": "55.4%",
       "ai_over25_prob": "55.4%",
-      "ai_key_fact": "xG extérieur de 2.25 pour Vancouver Whitecaps contre 0.65 à domicile pour Chicago Fire FC.",
-      "ai_analysis": "Les données fournies indiquent un xG de 0.65 pour Chicago Fire FC et de 2.25 pour Vancouver Whitecaps sur 8 matchs réels. La probabilité BTTS est estimée à 42.8% tandis que l'Over 2.5 est à 55.4%. La fiabilité globale du modèle est de 74.96%. Donnée insuffisante: compositions, blessés, classement, H2H.",
+      "ai_key_fact": "xG extérieur de Vancouver Whitecaps à 2.25 contre 0.65 pour Chicago Fire FC.",
+      "ai_analysis": "Les xG fournis indiquent un net avantage pour Vancouver Whitecaps avec 2.25 xG contre 0.65 pour Chicago Fire FC. La probabilité Over 2.5 est estimée à 55.4% tandis que le BTTS est évalué à 42.8%, suggérant une victoire probable de l'équipe visiteuse. La fiabilité globale du modèle est de 74.96% sur un échantillon de 8 matchs réels. Donnée insuffisante: composition probable, blessés, suspendus, forme détaillée, classement, motivation, fatigue et météo.",
       "ai_winner": "2",
       "ai_winner_prob": "65%",
       "ai_team_over15": "Vancouver Whitecaps: OUI",
@@ -149,13 +149,13 @@
       "ai_btts_prob": "42.8%",
       "ai_over25_view": "55.4%",
       "ai_over25_prob": "55.4%",
-      "ai_key_fact": "xG cumulé de 2.9 avec une nette domination offensive de Vancouver Whitecaps (2.25).",
-      "ai_analysis": "L'analyse repose sur les 8 matchs réels fournis avec un xG de 0.65 pour Chicago Fire FC et 2.25 pour Vancouver Whitecaps. Le BTTS est évalué à 42.8% et l'Over 2.5 à 55.4% avec une fiabilité de 74.96%. Donnée insuffisante: météo, forme détaillée, suspensions, historique récent.",
+      "ai_key_fact": "xG extérieur de Vancouver Whitecaps à 2.25 contre 0.65 pour Chicago Fire FC.",
+      "ai_analysis": "Les xG fournis indiquent un net avantage pour Vancouver Whitecaps avec 2.25 xG contre 0.65 pour Chicago Fire FC. La probabilité Over 2.5 est estimée à 55.4% tandis que le BTTS est évalué à 42.8%, suggérant une victoire probable de l'équipe visiteuse. La fiabilité globale du modèle est de 74.96% sur un échantillon de 8 matchs réels. Donnée insuffisante: composition probable, blessés, suspendus, forme détaillée, classement, motivation, fatigue et météo.",
       "ai_winner": "2",
       "ai_winner_prob": "65%",
       "ai_team_over15": "Vancouver Whitecaps: OUI",
       "ai_double_chance": "X2",
-      "ai_main_prediction": "Vancouver Whitecaps s'impose ou fait match nul selon les xG fournis.",
+      "ai_main_prediction": "Vancouver Whitecaps gagne ou fait match nul avec un total supérieur à 2.5 buts.",
       "ai_risk": "MOYEN"
     }
   ],
@@ -235,8 +235,8 @@
       "ai_btts_prob": "42.8%",
       "ai_over25_view": "55.4%",
       "ai_over25_prob": "55.4%",
-      "ai_key_fact": "xG extérieur de 2.25 pour Vancouver Whitecaps contre 0.65 à domicile pour Chicago Fire FC.",
-      "ai_analysis": "Les données fournies indiquent un xG de 0.65 pour Chicago Fire FC et de 2.25 pour Vancouver Whitecaps sur 8 matchs réels. La probabilité BTTS est estimée à 42.8% tandis que l'Over 2.5 est à 55.4%. La fiabilité globale du modèle est de 74.96%. Donnée insuffisante: compositions, blessés, classement, H2H.",
+      "ai_key_fact": "xG extérieur de Vancouver Whitecaps à 2.25 contre 0.65 pour Chicago Fire FC.",
+      "ai_analysis": "Les xG fournis indiquent un net avantage pour Vancouver Whitecaps avec 2.25 xG contre 0.65 pour Chicago Fire FC. La probabilité Over 2.5 est estimée à 55.4% tandis que le BTTS est évalué à 42.8%, suggérant une victoire probable de l'équipe visiteuse. La fiabilité globale du modèle est de 74.96% sur un échantillon de 8 matchs réels. Donnée insuffisante: composition probable, blessés, suspendus, forme détaillée, classement, motivation, fatigue et météo.",
       "ai_winner": "2",
       "ai_winner_prob": "65%",
       "ai_team_over15": "Vancouver Whitecaps: OUI",
