@@ -1,6 +1,6 @@
 {
   "date": "2026-10-02",
-  "lastUpdated": "2026-10-02T04:18:05.966Z",
+  "lastUpdated": "2026-10-02T14:29:28.551Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -70,13 +70,13 @@
       "ai_btts_prob": "42.8%",
       "ai_over25_view": "55.4%",
       "ai_over25_prob": "55.4%",
-      "ai_key_fact": "xG extérieur de 2.25 pour Vancouver Whitecaps contre 0.65 pour Chicago Fire FC.",
-      "ai_analysis": "Les données fournies montrent un net avantage pour Vancouver Whitecaps avec un xG de 2.25 contre 0.65 pour Chicago Fire FC sur 8 matchs réels. La probabilité Over 2.5 est estimée à 55.4%, tandis que le BTTS est évalué à 42.8%, indiquant une tendance où une seule équipe pourrait marquer ou un score asymétrique. La fiabilité globale du modèle est de 74.96% avec une qualité de données jugée haute. La composition probable, les blessés et d'autres facteurs contextuels sont indisponibles.",
+      "ai_key_fact": "xG extérieur de Vancouver à 2.25 contre 0.65 pour Chicago.",
+      "ai_analysis": "L'analyse des xG fournis montre un déséquilibre prononcé en faveur de Vancouver Whitecaps avec 2.25 xG contre seulement 0.65 xG pour Chicago Fire FC. La probabilité BTTS est estimée à 42.8%, ce qui indique un scénario où les deux équipes ne marquent probablement pas. L'Over 2.5 est évalué à 55.4% sur la base d'un xG cumulé de 2.9. La fiabilité globale du modèle est de 74.96% avec une qualité de données jugée haute.",
       "ai_winner": "2",
       "ai_winner_prob": "65%",
       "ai_team_over15": "Vancouver Whitecaps: OUI",
       "ai_double_chance": "X2",
-      "ai_main_prediction": "Vancouver Whitecaps gagne ou fait match nul avec un total supérieur à 2.5 buts.",
+      "ai_main_prediction": "Vancouver Whitecaps gagne ou fait match nul avec un total de plus de 2.5 buts dans le match.",
       "ai_risk": "MOYEN"
     }
   ],
@@ -149,13 +149,13 @@
       "ai_btts_prob": "42.8%",
       "ai_over25_view": "55.4%",
       "ai_over25_prob": "55.4%",
-      "ai_key_fact": "xG extérieur de 2.25 pour Vancouver Whitecaps contre 0.65 pour Chicago Fire FC.",
-      "ai_analysis": "Les données fournies montrent un net avantage pour Vancouver Whitecaps avec un xG de 2.25 contre 0.65 pour Chicago Fire FC sur 8 matchs réels. La probabilité Over 2.5 est estimée à 55.4%, tandis que le BTTS est évalué à 42.8%, indiquant une tendance où une seule équipe pourrait marquer ou un score asymétrique. La fiabilité globale du modèle est de 74.96% avec une qualité de données jugée haute. La composition probable, les blessés et d'autres facteurs contextuels sont indisponibles.",
+      "ai_key_fact": "xG extérieur de Vancouver à 2.25 contre 0.65 pour Chicago.",
+      "ai_analysis": "L'analyse des xG fournis montre un déséquilibre prononcé en faveur de Vancouver Whitecaps avec 2.25 xG contre seulement 0.65 xG pour Chicago Fire FC. La probabilité BTTS est estimée à 42.8%, ce qui indique un scénario où les deux équipes ne marquent probablement pas. L'Over 2.5 est évalué à 55.4% sur la base d'un xG cumulé de 2.9. La fiabilité globale du modèle est de 74.96% avec une qualité de données jugée haute.",
       "ai_winner": "2",
       "ai_winner_prob": "65%",
       "ai_team_over15": "Vancouver Whitecaps: OUI",
       "ai_double_chance": "X2",
-      "ai_main_prediction": "Vancouver Whitecaps gagne ou fait match nul avec un total supérieur à 2.5 buts.",
+      "ai_main_prediction": "Vancouver Whitecaps gagne ou fait match nul avec un total de plus de 2.5 buts dans le match.",
       "ai_risk": "MOYEN"
     }
   ],
@@ -235,13 +235,13 @@
       "ai_btts_prob": "42.8%",
       "ai_over25_view": "55.4%",
       "ai_over25_prob": "55.4%",
-      "ai_key_fact": "xG extérieur de 2.25 pour Vancouver Whitecaps contre 0.65 pour Chicago Fire FC.",
-      "ai_analysis": "Les données fournies montrent un net avantage pour Vancouver Whitecaps avec un xG de 2.25 contre 0.65 pour Chicago Fire FC sur 8 matchs réels. La probabilité Over 2.5 est estimée à 55.4%, tandis que le BTTS est évalué à 42.8%, indiquant une tendance où une seule équipe pourrait marquer ou un score asymétrique. La fiabilité globale du modèle est de 74.96% avec une qualité de données jugée haute. La composition probable, les blessés et d'autres facteurs contextuels sont indisponibles.",
+      "ai_key_fact": "xG extérieur de Vancouver à 2.25 contre 0.65 pour Chicago.",
+      "ai_analysis": "L'analyse des xG fournis montre un déséquilibre prononcé en faveur de Vancouver Whitecaps avec 2.25 xG contre seulement 0.65 xG pour Chicago Fire FC. La probabilité BTTS est estimée à 42.8%, ce qui indique un scénario où les deux équipes ne marquent probablement pas. L'Over 2.5 est évalué à 55.4% sur la base d'un xG cumulé de 2.9. La fiabilité globale du modèle est de 74.96% avec une qualité de données jugée haute.",
       "ai_winner": "2",
       "ai_winner_prob": "65%",
       "ai_team_over15": "Vancouver Whitecaps: OUI",
       "ai_double_chance": "X2",
-      "ai_main_prediction": "Vancouver Whitecaps gagne ou fait match nul avec un total supérieur à 2.5 buts.",
+      "ai_main_prediction": "Vancouver Whitecaps gagne ou fait match nul avec un total de plus de 2.5 buts dans le match.",
       "ai_risk": "MOYEN"
     }
   ]
