@@ -5,23 +5,63 @@ import { useLanguage } from './LanguageSwitcher'
 import { localizedPath, translationsFor, type Locale } from '@/lib/i18n'
 import { LEGAL, FAQ_ITEMS, LONASE } from '@/lib/constants'
 
+/**
+ * Footer plateforme — bloc marque (logo + positionnement + liens produit),
+ * liens légaux réels uniquement, transparence, FAQ, 18+ visible,
+ * réseaux sociaux, disclaimer affiliation et éditeur.
+ */
 export default function Footer({ initialLocale }: { initialLocale?: Locale } = {}) {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
   const t = translationsFor(lang)
+  const home = localizedPath('/', lang)
+
+  const productLinks = [
+    { label: t.home2.ftMatchs, href: `${home}#matchs` },
+    { label: t.home2.ftHistory, href: localizedPath('/historique', lang) },
+    { label: t.home2.ftResults, href: localizedPath('/resultats-verifies', lang) },
+    { label: t.home2.ftMethod, href: localizedPath('/methodologie', lang) },
+    { label: t.home2.ftStats, href: localizedPath('/statistiques', lang) },
+  ]
+
   const legalLinks = lang === 'fr'
-    ? [{ label: 'CGU', href: '/cgu' }, { label: 'Mentions légales', href: '/mentions-legales' }, { label: 'Confidentialité', href: '/politique-confidentialite' }, { label: 'Jouer responsable', href: '/jouer-responsable' }]
+    ? [{ label: 'CGU', href: '/cgu' }, { label: 'Mentions légales', href: '/mentions-legales' }, { label: 'Politique de confidentialité', href: '/politique-confidentialite' }, { label: 'Jeu responsable', href: '/jouer-responsable' }]
     : lang === 'en'
-      ? [{ label: 'Terms', href: '/cgu' }, { label: 'Legal notice', href: '/mentions-legales' }, { label: 'Privacy', href: '/politique-confidentialite' }, { label: 'Play responsibly', href: '/jouer-responsable' }]
-      : [{ label: 'الشروط', href: '/cgu' }, { label: 'الإشعار القانوني', href: '/mentions-legales' }, { label: 'الخصوصية', href: '/politique-confidentialite' }, { label: 'العب بمسؤولية', href: '/jouer-responsable' }]
+      ? [{ label: 'Terms', href: '/cgu' }, { label: 'Legal notice', href: '/mentions-legales' }, { label: 'Privacy policy', href: '/politique-confidentialite' }, { label: 'Play responsibly', href: '/jouer-responsable' }]
+      : [{ label: 'الشروط', href: '/cgu' }, { label: 'الإشعار القانوني', href: '/mentions-legales' }, { label: 'سياسة الخصوصية', href: '/politique-confidentialite' }, { label: 'العب بمسؤولية', href: '/jouer-responsable' }]
 
   return (
     <>
       <footer id="faq" className="border-t pt-10 pb-20 lg:pb-8 px-4 sm:px-6" style={{ borderColor: '#223041', backgroundColor: 'transparent' }}>
-        <div className="max-w-2xl lg:max-w-3xl mx-auto">
+        <div className="max-w-[1280px] mx-auto">
+          {/* ═══ Bloc marque + liens plateforme ═══ */}
+          <div className="hp-footer-brand">
+            <div className="hp-footer-brand__id">
+              <a href={home} className="flex items-center gap-2" aria-label="BTTSPredict — accueil">
+                <img src="/favicon.svg" alt="" width={26} height={26} className="rounded" />
+                <span className="text-sm font-bold text-papier tracking-tight">BTTSPredict</span>
+              </a>
+              <p className="hp-footer-tagline">{t.home2.ftTagline}</p>
+            </div>
+            <nav className="hp-footer-col" aria-label={t.home2.ftPlatform}>
+              <span className="hp-footer-col__title">{t.home2.ftPlatform}</span>
+              {productLinks.map(l => (
+                <a key={l.href} href={l.href} className="hp-footer-link">{l.label}</a>
+              ))}
+            </nav>
+            <nav className="hp-footer-col" aria-label="Legal">
+              <span className="hp-footer-col__title">{lang === 'en' ? 'Legal' : lang === 'ar' ? 'قانوني' : 'Légal'}</span>
+              {legalLinks.map(l => (
+                <a key={l.href + l.label} href={localizedPath(l.href, lang)} className="hp-footer-link">{l.label}</a>
+              ))}
+            </nav>
+          </div>
+
+          <p className="hp-footer-disclaimer">{t.home2.ftDisclaimer}</p>
+
           {/* Note de transparence (remplace les témoignages non vérifiables) */}
-          <div className="mb-8">
+          <div className="hp-footer-block">
             <div className="text-center mb-3">
               <span className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">{t.common.transparency}</span>
             </div>
@@ -39,7 +79,7 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
           </div>
 
           {/* FAQ */}
-          <div className="mb-8">
+          <div className="hp-footer-block">
             <div className="text-center mb-4">
               <h3 className="text-base font-bold text-papier">{t.common.faq}</h3>
             </div>
@@ -57,16 +97,16 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
             </div>
           </div>
 
-          {/* Legal links */}
+          {/* Liens légaux — grille mobile-friendly */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5">
             {legalLinks.map(link => (
-              <a key={link.label} href={localizedPath(link.href, lang)} className="text-center text-xs text-cendre hover:text-papier transition-colors py-2">
+              <a key={link.href} href={localizedPath(link.href, lang)} className="text-center text-xs text-cendre hover:text-papier transition-colors py-2">
                 {link.label}
               </a>
             ))}
           </div>
 
-          {/* Legal text */}
+          {/* Texte légal + 18+ */}
           <div className="rounded-xl p-4 sm:p-5 mb-4" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
             <div className="flex items-center gap-2 mb-2">
               <span className="text-lose font-bold text-xs">18+</span>
@@ -77,7 +117,7 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
             </p>
           </div>
 
-          {/* Email pro contact */}
+          {/* Contact */}
           <div className="flex items-center justify-center gap-2 mb-4">
             <a
               href="mailto:contact@bttspredict.com"
@@ -120,7 +160,7 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
             {t.common.affiliate} {lang === 'fr' ? 'Les liens vers les bookmakers partenaires sont des liens d’affiliation rémunérés. BTTSPredict n’est pas affilié aux sociétés de paris mentionnées.' : ''}
           </p>
 
-          {/* Identité éditeur — aligné avec LocalBusiness Schema.org (Dakar, Sénégal) */}
+          {/* Identité éditeur */}
           <div className="text-center text-xs text-cendre mt-4 space-y-1.5">
             <div>{t.common.publisher} · Contact conformité: {' '}
               <a href="mailto:contact@bttspredict.com" className="underline hover:text-papier transition-colors">contact@bttspredict.com</a>

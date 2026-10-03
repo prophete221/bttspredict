@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { SITE } from '@/lib/constants'
 import LanguageSwitcher, { useLanguage } from './LanguageSwitcher'
@@ -8,23 +8,26 @@ import { localizedPath, translationsFor } from '@/lib/i18n'
 import { trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 
 /**
- * Navbar BTTSPredict — Design V2 (plateforme d'analyse)
+ * Navbar BTTSPredict — header plateforme « football intelligence ».
  *
- * Navigation produit claire : Tableau du jour, Résultats vérifiés,
- * Statistiques, Méthode, VIP. Le CTA VISION221 reste discret (copie).
- * Les liens bookmakers (Linebet / 888Starz) vivent dans le drawer mobile
- * (section partenaires) et le footer — la barre principale reste produit.
+ * - Navigation produit : Matchs du jour (#matchs), Résultats, Historique,
+ *   Méthode, Statistiques — uniquement des pages/ancres réelles.
+ * - Statut données : point vert « Données mises à jour aujourd’hui »
+ *   AFFICHÉ UNIQUEMENT SI VRAI (date de predictions.json == aujourd’hui, UTC — Dakar = UTC+0).
+ * - Droite : code VISION221 (copie trackée), langues, CTA principal pronostics.
+ * - Mobile : logo + menu (drawer) + CTA compact.
  */
 export default function Navbar() {
   const { lang } = useLanguage()
   const t = translationsFor(lang)
   const pathname = usePathname()
+  const home = localizedPath('/', lang)
   const pageLinks = [
-    { label: t.nav.today, href: localizedPath('/btts/predictions/today', lang) },
-    { label: t.nav.history, href: localizedPath('/resultats-verifies', lang) },
-    { label: t.nav.statistics, href: lang === 'fr' ? '/btts/statistics' : localizedPath('/statistiques', lang) },
+    { label: t.nav.matchs, href: `${home}#matchs` },
+    { label: t.nav.results, href: localizedPath('/resultats-verifies', lang) },
+    { label: t.nav.history, href: localizedPath('/historique', lang) },
     { label: t.nav.methodology, href: localizedPath('/methodologie', lang) },
-    { label: 'VIP', href: localizedPath('/vip', lang) },
+    { label: t.nav.stats2, href: localizedPath('/statistiques', lang) },
   ]
   const partnerLinks = [
     { label: 'Linebet', href: localizedPath('/code-promo-linebet-senegal', lang) },
@@ -32,6 +35,21 @@ export default function Navbar() {
   ]
   const [copied, setCopied] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [dataToday, setDataToday] = useState(false)
+
+  // Statut données — strictement factuel : date(lastUpdated) == aujourd’hui (UTC)
+  useEffect(() => {
+    let cancelled = false
+    fetch('/predictions.json')
+      .then(r => (r.ok ? r.json() : null))
+      .then(d => {
+        if (cancelled || !d?.lastUpdated) return
+        const updatedDay = String(d.lastUpdated).slice(0, 10)
+        setDataToday(updatedDay === new Date().toISOString().slice(0, 10))
+      })
+      .catch(() => {})
+    return () => { cancelled = true }
+  }, [])
 
   const copyCode = useCallback(async () => {
     try { await navigator.clipboard.writeText(SITE.promoCode) } catch {}
@@ -42,8 +60,9 @@ export default function Navbar() {
   }, [])
 
   const isActive = (href: string) => {
-    if (href === '/' || href === localizedPath('/', lang)) return pathname === href
-    return pathname === href || pathname.startsWith(href + '/')
+    const clean = href.split('#')[0]
+    if (clean === '/' || clean === localizedPath('/', lang)) return pathname === clean || pathname === ''
+    return pathname === clean || pathname.startsWith(clean + '/')
   }
 
   return (
@@ -51,36 +70,35 @@ export default function Navbar() {
       <nav
         className="sticky top-0 z-50 navbar-blur"
         style={{
-          backgroundColor: 'rgba(11, 15, 20, 0.88)',
+          backgroundColor: 'rgba(11, 15, 20, 0.90)',
           borderBottom: '1px solid #223041',
           backdropFilter: 'blur(12px)',
           WebkitBackdropFilter: 'blur(12px)',
         }}
       >
-        <div className="max-w-[1180px] mx-auto px-4 sm:px-6">
-          {/* Ligne unique : Logo + nav produit + VISION221 + langues */}
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-14 gap-3">
-            {/* Logo BTTSPredict */}
+            {/* Logo */}
             <a
-              href={localizedPath('/', lang)}
+              href={home}
               className="flex items-center gap-2 flex-shrink-0"
               aria-label={`BTTSPredict — ${t.nav.home}`}
             >
               <img src="/favicon.svg" alt="" width={26} height={26} className="flex-shrink-0 rounded" />
               <span>
                 <span className="block text-sm font-bold leading-tight text-papier tracking-tight">BTTSPredict</span>
-                <span className="block max-[379px]:hidden text-[10px] font-semibold uppercase tracking-[0.18em] text-primary leading-none">Match intelligence</span>
+                <span className="block max-[379px]:hidden text-[10px] font-semibold uppercase tracking-[0.18em] text-primary leading-none">Football data</span>
               </span>
             </a>
 
             {/* Nav produit — desktop */}
-            <div className="hidden lg:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-0.5">
               {pageLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   aria-current={isActive(link.href) ? 'page' : undefined}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
+                  className={`px-2.5 py-2 rounded-lg text-[13px] font-medium whitespace-nowrap transition-colors ${
                     isActive(link.href)
                       ? 'text-papier bg-white/[0.06]'
                       : 'text-cendre hover:text-papier hover:bg-white/[0.04]'
@@ -93,10 +111,21 @@ export default function Navbar() {
 
             {/* Actions droite */}
             <div className="flex items-center gap-2">
+              {/* Statut données — seulement si techniquement vrai */}
+              {dataToday && (
+                <span
+                  className="hidden xl:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold whitespace-nowrap"
+                  style={{ color: '#86E9BC', backgroundColor: 'rgba(52, 211, 153, 0.08)', border: '1px solid rgba(52, 211, 153, 0.22)' }}
+                  title={t.home2.statusUpdated}
+                >
+                  <span className="hp-status-dot" aria-hidden="true" />
+                  {t.home2.statusUpdated}
+                </span>
+              )}
               <LanguageSwitcher compact />
               <button
                 onClick={copyCode}
-                className="hidden sm:inline-flex items-center px-2.5 py-1.5 rounded-lg text-xs font-mono font-semibold transition-colors"
+                className="hidden md:inline-flex items-center px-2.5 py-1.5 rounded-lg text-xs font-mono font-semibold transition-colors"
                 style={{
                   border: '1px solid rgba(47, 125, 255, 0.45)',
                   backgroundColor: 'rgba(47, 125, 255, 0.10)',
@@ -106,6 +135,15 @@ export default function Navbar() {
               >
                 {copied ? '✓ Copié' : SITE.promoCode}
               </button>
+
+              {/* CTA principal — desktop */}
+              <a
+                href={`${home}#matchs`}
+                data-cta="navbar-open-picks"
+                className="hidden sm:inline-flex items-center px-3.5 h-9 rounded-lg text-[13px] font-bold whitespace-nowrap transition-all hp-cta-primary"
+              >
+                {t.nav.ctaPronostics}
+              </a>
 
               {/* Hamburger — mobile/tablette */}
               <button
@@ -132,7 +170,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* === DRAWER MOBILE — navigation produit + partenaires === */}
+      {/* === DRAWER MOBILE === */}
       {menuOpen && (
         <>
           <div
@@ -150,7 +188,6 @@ export default function Navbar() {
               boxShadow: '0 16px 40px rgba(0,0,0,0.5)',
             }}
           >
-            {/* Header du drawer */}
             <div className="flex items-center justify-between px-4 py-3 border-b" style={{ borderColor: '#223041' }}>
               <span className="text-sm font-bold text-papier">{t.nav.menu}</span>
               <button
@@ -165,7 +202,6 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Liens produit — liste verticale lisible */}
             <nav className="px-3 py-3 grid gap-1" aria-label={t.nav.menu}>
               {pageLinks.map((link) => (
                 <a
@@ -181,7 +217,15 @@ export default function Navbar() {
               ))}
             </nav>
 
-            {/* Partenaires — séparés, secondaires */}
+            {dataToday && (
+              <div className="px-4 pb-1">
+                <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold" style={{ color: '#86E9BC' }}>
+                  <span className="hp-status-dot" aria-hidden="true" />
+                  {t.home2.statusUpdated}
+                </span>
+              </div>
+            )}
+
             <div className="px-3 pb-1 pt-2 border-t" style={{ borderColor: '#223041' }}>
               <span className="block px-3 pt-2 pb-1 text-[11px] font-semibold uppercase tracking-widest text-cendre opacity-60">
                 {lang === 'en' ? 'Partners' : lang === 'ar' ? 'شركاء' : 'Partenaires'}
@@ -201,11 +245,17 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* CTA copier code — bas du drawer */}
-            <div className="px-4 py-3 border-t" style={{ borderColor: '#223041' }}>
+            <div className="px-4 py-3 border-t grid grid-cols-2 gap-2" style={{ borderColor: '#223041' }}>
+              <a
+                href={`${home}#matchs`}
+                onClick={() => setMenuOpen(false)}
+                className="inline-flex items-center justify-center px-3 py-2.5 rounded-lg text-sm font-bold hp-cta-primary"
+              >
+                {t.nav.ctaPronostics}
+              </a>
               <button
                 onClick={() => { copyCode(); setMenuOpen(false) }}
-                className="w-full px-3 py-2.5 rounded-lg text-sm font-mono font-semibold text-center transition-colors"
+                className="px-3 py-2.5 rounded-lg text-sm font-mono font-semibold text-center transition-colors"
                 style={{
                   border: '1px solid rgba(47, 125, 255, 0.45)',
                   backgroundColor: 'rgba(47, 125, 255, 0.10)',

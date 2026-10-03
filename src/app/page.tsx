@@ -1,16 +1,19 @@
 import dynamic from 'next/dynamic'
 import type { Metadata } from 'next'
 import { checkSeo } from '@/lib/seo'
-import { AFFILIATE } from '@/lib/constants'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Hero = dynamic(() => import('@/components/bttsbet/Hero'), { loading: () => null })
 const ScrollProgressBar = dynamic(() => import('@/components/bttsbet/ScrollProgressBar'), { loading: () => null })
-const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictions'), { loading: () => null })
+const MatchCenter = dynamic(() => import('@/components/bttsbet/MatchCenter'), { loading: () => null })
+const TrustPillars = dynamic(() => import('@/components/bttsbet/TrustPillars'), { loading: () => null })
+const PerformanceDashboard = dynamic(() => import('@/components/bttsbet/PerformanceDashboard'), { loading: () => null })
+const MethodSection = dynamic(() => import('@/components/bttsbet/HomeEditorial').then(m => ({ default: m.MethodSection })), { loading: () => null })
+const LeagueCoverage = dynamic(() => import('@/components/bttsbet/HomeEditorial').then(m => ({ default: m.LeagueCoverage })), { loading: () => null })
+const PartnerCard = dynamic(() => import('@/components/bttsbet/HomeEditorial').then(m => ({ default: m.PartnerCard })), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
 const StickyCTABar = dynamic(() => import('@/components/bttsbet/StickyCTABar'), { loading: () => null })
-const AffiliateSignupCta = dynamic(() => import('@/components/bttsbet/AffiliateSignupCta'), { loading: () => null })
 
 // Tâche 002 — Title et description SEO alignés sur le Prompt Maître.
 // Title : 49 chars (limite soft 60) — description : 139 chars (limite soft 150).
@@ -232,55 +235,20 @@ export default function Home() {
       {/* Scroll Progress Bar */}
       <ScrollProgressBar />
 
-      {/* Main Content — Plateforme PRO v64
-          Structure minimaliste type Flashscore :
-          1. Hero (1 phrase)
-          2. FreePredictions (filtres + cartes matchs)
-          3. Bloc VIP court (1 CTA)
-          4. Jeu responsable
-          5. Footer */}
+      {/* Main Content — Plateforme football intelligence
+          Structure : Header produit → Hero + Centre de transparence →
+          Matchs du jour (MatchCenter) → Piliers → Performance/Historique →
+          Méthode → Compétitions → Partenaire VISION221 → Jeu responsable →
+          Footer. Bloc partenaire placé APRÈS la valeur produit. */}
       <main id="main-content" className="relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
         <ErrorBoundary><Navbar /></ErrorBoundary>
         <ErrorBoundary><Hero /></ErrorBoundary>
-        <ErrorBoundary><FreePredictions /></ErrorBoundary>
-
-        {/* Rail de confiance + accès premium : un seul niveau de support sous le feed */}
-        <section className="home-support-rail mx-auto max-w-[980px] px-4 py-5 sm:px-6" aria-label="Ressources et accès premium">
-          <div className="home-support-rail__grid">
-            <a href="/resultats-verifies" className="home-support-chip" data-cta="home-verified-results">
-              <span className="home-support-chip__icon" aria-hidden="true">✓</span>
-              <span><strong>Historique vérifié</strong><small>Gagnés et perdus</small></span>
-            </a>
-            <a href="/methodologie" className="home-support-chip" data-cta="home-methodology">
-              <span className="home-support-chip__icon" aria-hidden="true">↗</span>
-              <span><strong>Méthodologie</strong><small>Poisson + xG</small></span>
-            </a>
-            <a href="/historique" className="home-support-chip" data-cta="home-public-data">
-              <span className="home-support-chip__icon" aria-hidden="true">↧</span>
-              <span><strong>Données publiques</strong><small>Archives horodatées</small></span>
-            </a>
-          </div>
-
-          <div className="home-vip-strip">
-            <div className="home-vip-strip__copy">
-              <span className="home-vip-strip__eyebrow">VIP Premium · 18+</span>
-              <strong>Des sélections supplémentaires, au même endroit.</strong>
-              <small>Analyses détaillées. Aucun gain garanti.</small>
-            </div>
-            <div className="home-vip-strip__actions">
-              <AffiliateSignupCta
-                href={AFFILIATE.linebet}
-                partner="linebet"
-                placement="home-vision221-signup"
-                className="home-vip-strip__primary"
-                style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}
-              >
-                S&apos;inscrire avec VISION221 <span aria-hidden="true">→</span>
-              </AffiliateSignupCta>
-              <a href="/vip" className="home-vip-strip__secondary" data-cta="home-discover-vip">Accéder au VIP</a>
-            </div>
-          </div>
-        </section>
+        <ErrorBoundary><MatchCenter /></ErrorBoundary>
+        <ErrorBoundary><TrustPillars /></ErrorBoundary>
+        <ErrorBoundary><PerformanceDashboard /></ErrorBoundary>
+        <ErrorBoundary><MethodSection /></ErrorBoundary>
+        <ErrorBoundary><LeagueCoverage /></ErrorBoundary>
+        <ErrorBoundary><PartnerCard /></ErrorBoundary>
 
         {/* Jeu responsable — compact et moderne */}
         <section className="mx-auto max-w-[980px] px-4 pb-6 sm:px-6">

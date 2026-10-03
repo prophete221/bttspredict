@@ -2,6 +2,10 @@
 
 export { default as Navbar } from './Navbar'
 export { default as Hero } from './Hero'
+export { default as MatchCenter } from './MatchCenter'
+export { default as TrustPillars } from './TrustPillars'
+export { default as PerformanceDashboard } from './PerformanceDashboard'
+export { MethodSection, LeagueCoverage, PartnerCard } from './HomeEditorial'
 export { default as FreePredictions } from './FreePredictions'
 export { default as PromoVip } from './PromoVip'
 export { default as VipSports } from './VipSports'
