@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { useScrollAnimation } from '@/hooks/useAnimations'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale } from '@/lib/i18n'
@@ -18,26 +18,45 @@ interface WinHistoryStats {
 }
 
 /**
- * Hero — conversion-first, mobile-first.
+ * Hero — design premium « football intelligence / data terminal ».
  *
- * Priorité visuelle :
- *  1. Badge live + timezone Africa/Dakar
- *  2. H1 orienté action + sous-titre
- *  3. Bloc "Étape 1 — Active ton bonus" : code VISION221 copiable en 1 tap
- *     + CTA PRIMAIRE d'inscription Linebet (AffiliateSignupCta, tracking intégré)
- *  4. Actions secondaires : voir les pronostics (#free-predictions) + méthode
- *  5. Colonne droite (desktop) : stats 100% win-history.json (si dispo),
- *     3 trust points, mini bloc partenaire Linebet secondaire
+ * Architecture :
+ *  - Colonne message (≈58%) : eyebrow « Match intelligence · Données vérifiées »,
+ *    H1 hiérarchisé, sous-titre positionnement, bloc code promo VISION221 élégant,
+ *    CTA primaire Linebet dominant, CTA secondaire pronostics, mention 18+.
+ *  - Panneau confiance (≈42%, desktop) : carte « Performance vérifiée »
+ *    (anneau de progression + 3 chiffres + barre segmentée — 100% win-history.json),
+ *    3 points de réassurance, bloc partenaire Linebet avec code + CTA.
  *
  * Conformité :
- *  - Aucune stat inventée : uniquement win-history.json (sinon rien n'est affiché)
- *  - Aucun contenu masqué derrière opacity: 0 (fix opacity-trap)
+ *  - Aucune stat inventée : uniquement win-history.json (sinon la carte n'est pas rendue)
+ *  - Aucune promesse de gain ; mentions 18+ / affiliation / conditions conservées
  *  - Liens affiliés via AffiliateSignupCta (rel="sponsored nofollow noopener noreferrer")
- *  - Mention 18+ · Aucun gain garanti · Lien d'affiliation
+ *  - Micro-animations 100% CSS (aucun opacity-trap JS), prefers-reduced-motion respecté
+ *  - Colonne unique sous 768px ; boutons pleine largeur ≥48px sur mobile
  */
+
+/** Met en évidence le mot utile du titre via des crochets [mot] — i18n-safe (aucune casse RTL). */
+function withAccent(text: string): ReactNode {
+  const m = text.match(/\[(.+?)\]/)
+  if (!m || m.index === undefined) return text
+  const before = text.slice(0, m.index)
+  const after = text.slice(m.index + m[0].length)
+  return (
+    <>
+      {before}
+      <em className="home-hero__title-em">{m[1]}</em>
+      {after}
+    </>
+  )
+}
+
+const RING_RADIUS = 52
+const RING_CIRC = 2 * Math.PI * RING_RADIUS
+
 export default function Hero({ initialLocale }: { initialLocale?: Locale } = {}) {
   // Le hook reste pour la classe `is-visible` (amélioration visuelle) —
-  // il ne masque plus jamais le contenu (isVisible init = true + fallback hard).
+  // il ne masque jamais le contenu (isVisible init = true + fallback hard).
   const [sectionRef] = useScrollAnimation(0.05)
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
@@ -58,6 +77,20 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
 
   const verified = stats?.total
   const winRate = stats?.rate ?? stats?.displayedWinRate
+  const won = stats?.won
+  const lost = stats?.lost
+
+  const localeTag = lang === 'en' ? 'en-US' : 'fr-FR'
+  const rateStr =
+    winRate !== undefined
+      ? winRate.toLocaleString(localeTag, { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+      : undefined
+
+  // Anneau de progression — statique (pas d'animation agressive), offset calculé une fois.
+  const ringOffset =
+    winRate !== undefined
+      ? RING_CIRC * (1 - Math.min(100, Math.max(0, winRate)) / 100)
+      : RING_CIRC
 
   const copyCode = async () => {
     try {
@@ -82,115 +115,168 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
 
   return (
     <section ref={sectionRef} className="home-hero relative overflow-hidden">
-      <div className="home-hero__media" aria-hidden="true" />
-      <div className="home-hero__veil" aria-hidden="true" />
+      <div className="home-hero__bg" aria-hidden="true" />
 
-      {/* Toujours visible — plus aucun style conditionnel opacity/transform */}
-      <div className="home-hero__inner relative z-10 mx-auto max-w-[1180px] px-4 pb-8 pt-6 sm:px-6 sm:pb-12 sm:pt-10">
-        <div className="home-hero__layout home-hero__layout--convert">
-          {/* ═══ Colonne principale : promesse → bonus → CTA inscription ═══ */}
+      <div className="home-hero__inner relative z-10 mx-auto max-w-[1180px] px-4 sm:px-6">
+        <div className="home-hero__layout">
+          {/* ═══ Colonne message (≈58%) ═══ */}
           <div className="home-hero__copy">
-            <div className="home-hero__meta">
-              <span className="home-hero__badge" aria-label={t.hero.liveData}>
-                <span className="home-hero__badge-dot" aria-hidden="true" />
-                <span>{t.hero.liveData}</span>
-              </span>
-              <span className="home-hero__timezone">{t.hero.timezone}</span>
-            </div>
+            <p className="home-hero__eyebrow">
+              <span className="home-hero__eyebrow-dot" aria-hidden="true" />
+              {t.hero.badge}
+            </p>
 
-            <h1>
-              {t.hero.title1}
-              <span className="home-hero__title-accent">{t.hero.title2}</span>
+            <h1 className="home-hero__title">
+              {withAccent(t.hero.title1)}
+              <span className="home-hero__title-line2">{t.hero.title2}</span>
             </h1>
+
             <p className="home-hero__subtitle">{t.hero.subtitle}</p>
 
-            {/* Étape 1 — Active ton bonus (CTA #1 = inscription Linebet) */}
-            <div className="home-hero__convert">
-              <p className="home-hero__convert-label">{t.hero.convertLabel}</p>
-              <div className="home-hero__convert-code-row">
-                <span className="home-hero__convert-code-label">{t.hero.promoLabel}</span>
-                <code className="home-hero__convert-code">{SITE.promoCode}</code>
-                <button
-                  type="button"
-                  onClick={copyCode}
-                  className={`home-hero__convert-copy${copied ? ' is-copied' : ''}`}
-                  aria-label={`${t.hero.copy} ${SITE.promoCode}`}
-                  data-cta="hero-copy-vision221"
-                >
-                  {copied ? t.hero.copied : t.hero.copy}
-                </button>
+            {/* Bloc code promo — élégant, monospace, copie en 1 tap */}
+            <div className="home-hero__codecard">
+              <div className="home-hero__codecard-main">
+                <span className="home-hero__code-label">{t.hero.promoLabel}</span>
+                <code className="home-hero__code">{SITE.promoCode}</code>
               </div>
+              <button
+                type="button"
+                onClick={copyCode}
+                className={`home-hero__code-copy${copied ? ' is-copied' : ''}`}
+                aria-label={`${t.hero.copy} ${SITE.promoCode}`}
+                data-cta="hero-copy-vision221"
+              >
+                {copied ? t.hero.copied : t.hero.copy}
+              </button>
+            </div>
+
+            {/* CTA primaire dominant + CTA secondaire discret */}
+            <div className="home-hero__cta-zone">
               <AffiliateSignupCta
                 href={AFFILIATE.linebet}
                 partner="linebet"
                 placement="home-hero-primary"
-                className="home-hero__convert-cta"
+                className="home-hero__cta-primary"
               >
                 {t.hero.partnerCta}
-                <span aria-hidden="true">→</span>
+                <span className="home-hero__cta-arrow" aria-hidden="true">→</span>
               </AffiliateSignupCta>
-              <p className="home-hero__convert-bonus">{t.hero.bonus}</p>
+              <a
+                href="#free-predictions"
+                className="home-hero__cta-soft"
+                data-cta="hero-free-predictions"
+              >
+                {t.hero.cta}
+              </a>
             </div>
 
-            {/* Actions secondaires — explorer d'abord, convertir déjà proposé */}
-            <div className="home-hero__actions--secondary">
-              <a href="#free-predictions" className="home-hero__cta-secondary" data-cta="hero-free-predictions">
-                {t.hero.cta}
-                <span aria-hidden="true">↓</span>
-              </a>
-              <a href="/methodologie" className="home-hero__cta-ghost" data-cta="hero-method">
-                {t.hero.ctaSecondary}
-              </a>
-            </div>
-            <span className="home-hero__note">{t.hero.note18}</span>
+            <p className="home-hero__legal-note">{t.hero.note18}</p>
           </div>
 
-          {/* ═══ Colonne droite (desktop) : preuve + confiance + partenaire ═══ */}
-          <div className="home-hero__side">
-            {/* Preuves chiffrées — 100% issues de win-history.json, sinon rien */}
+          {/* ═══ Panneau confiance (≈42% desktop, empilé sous le message sur mobile) ═══ */}
+          <aside className="home-hero__panel" aria-label={t.hero.perfTitle}>
+            {/* Carte Performance vérifiée — 100% win-history.json, sinon rien */}
             {verified !== undefined && (
-              <div className="home-hero__stats">
-                {winRate !== undefined && (
-                  <span className="home-hero__stat">
-                    <span className="home-hero__stat-value home-hero__stat-value--win">
-                      {winRate.toLocaleString(lang === 'en' ? 'en-US' : 'fr-FR', { minimumFractionDigits: 1 })}
-                      &nbsp;%
-                    </span>
-                    <span className="home-hero__stat-label">{t.hero.statsRate}</span>
+              <div className="home-hero__perf">
+                <p className="home-hero__perf-head">
+                  <span className="home-hero__perf-check" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" width="10" height="10" fill="none">
+                      <path d="M2.4 6.3l2.3 2.4 4.9-5.4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                   </span>
-                )}
-                <span className="home-hero__stat">
-                  <span className="home-hero__stat-value">{verified}</span>
-                  <span className="home-hero__stat-label">{t.hero.statsTotal}</span>
-                </span>
-                {stats?.won !== undefined && stats?.lost !== undefined && (
-                  <span className="home-hero__stat">
-                    <span className="home-hero__stat-value">{stats.won}W · {stats.lost}L</span>
-                    <span className="home-hero__stat-label">{t.hero.statsRecord}</span>
-                  </span>
-                )}
+                  <span>{t.hero.perfTitle}</span>
+                </p>
+
+                <div className="home-hero__perf-main">
+                  {rateStr !== undefined && (
+                    <div
+                      className="home-hero__ring"
+                      role="img"
+                      aria-label={`${rateStr} % — ${t.hero.statsRate}`}
+                    >
+                      <svg viewBox="0 0 120 120" aria-hidden="true">
+                        <circle className="home-hero__ring-track" cx="60" cy="60" r={RING_RADIUS} />
+                        <circle
+                          className="home-hero__ring-progress"
+                          cx="60"
+                          cy="60"
+                          r={RING_RADIUS}
+                          strokeDasharray={RING_CIRC}
+                          strokeDashoffset={ringOffset}
+                        />
+                      </svg>
+                      <span className="home-hero__ring-value">
+                        {rateStr}
+                        <i>%</i>
+                      </span>
+                    </div>
+                  )}
+
+                  <div className="home-hero__figures">
+                    <div className="home-hero__figure">
+                      <span className="home-hero__figure-value">{verified}</span>
+                      <span className="home-hero__figure-label">{t.hero.statsTotal}</span>
+                    </div>
+                    {won !== undefined && (
+                      <div className="home-hero__figure">
+                        <span className="home-hero__figure-value is-win">{won}</span>
+                        <span className="home-hero__figure-label">{t.hero.statsWon}</span>
+                      </div>
+                    )}
+                    {lost !== undefined && (
+                      <div className="home-hero__figure">
+                        <span className="home-hero__figure-value is-loss">{lost}</span>
+                        <span className="home-hero__figure-label">{t.hero.statsLost}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Barre segmentée gagnés/perdus — discrète, proportionnelle */}
+                {won !== undefined && lost !== undefined && verified ? (
+                  <div className="home-hero__perf-bar" aria-hidden="true">
+                    <span style={{ flexGrow: won }} />
+                    <span className="is-loss" style={{ flexGrow: lost }} />
+                  </div>
+                ) : null}
               </div>
             )}
 
-            <ul className="home-hero__trust-list">
+            {/* 3 points de réassurance */}
+            <ul className="home-hero__trust">
               <li className="home-hero__trust-item">
-                <span className="home-hero__trust-icon" aria-hidden="true">✓</span>
+                <span className="home-hero__trust-icon" aria-hidden="true">
+                  <svg viewBox="0 0 12 12" width="9" height="9" fill="none">
+                    <path d="M2.4 6.3l2.3 2.4 4.9-5.4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
                 <span>{t.hero.trust1}</span>
               </li>
               <li className="home-hero__trust-item">
-                <span className="home-hero__trust-icon" aria-hidden="true">✓</span>
+                <span className="home-hero__trust-icon" aria-hidden="true">
+                  <svg viewBox="0 0 12 12" width="9" height="9" fill="none">
+                    <path d="M2.4 6.3l2.3 2.4 4.9-5.4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
                 <span>{t.hero.trust2}</span>
               </li>
               <li className="home-hero__trust-item">
-                <span className="home-hero__trust-icon" aria-hidden="true">✓</span>
+                <span className="home-hero__trust-icon" aria-hidden="true">
+                  <svg viewBox="0 0 12 12" width="9" height="9" fill="none">
+                    <path d="M2.4 6.3l2.3 2.4 4.9-5.4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
                 <span>{t.hero.trust3}</span>
               </li>
             </ul>
 
-            {/* Mini bloc partenaire — secondaire, jamais au même niveau que la marque */}
+            {/* Bloc partenaire — séparé visuellement, cohérent avec la carte */}
             <div className="home-hero__partner">
-              <span className="home-hero__partner-eyebrow">{t.hero.partnerEyebrow}</span>
-              <span className="home-hero__partner-join">{t.hero.partnerJoin}</span>
+              <p className="home-hero__partner-eyebrow">{t.hero.partnerEyebrow}</p>
+              <div className="home-hero__partner-row">
+                <span className="home-hero__partner-brand">LINEBET</span>
+                <span className="home-hero__partner-code">{SITE.promoCode}</span>
+              </div>
               <AffiliateSignupCta
                 href={AFFILIATE.linebet}
                 partner="linebet"
@@ -198,11 +284,10 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
                 className="home-hero__partner-cta"
               >
                 {t.hero.partnerCtaShort}
-                <span aria-hidden="true">→</span>
               </AffiliateSignupCta>
-              <span className="home-hero__partner-disclaimer">{t.hero.partnerDisclaimer}</span>
+              <p className="home-hero__partner-terms">{t.hero.partnerDisclaimer}</p>
             </div>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
