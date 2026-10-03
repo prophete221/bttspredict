@@ -1903,124 +1903,6 @@ body {
   white-space: nowrap;
 }
 
-.prediction-filter-panel {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(91, 169, 255, 0.2);
-  border-radius: 1rem;
-  background: rgba(13, 23, 34, 0.72);
-  box-shadow: inset 0 1px 0 rgba(243, 247, 250, 0.05), 0 12px 28px rgba(0, 0, 0, 0.16);
-}
-
-.prediction-filter-panel__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 2rem;
-  padding: 0.75rem 0.85rem 0.25rem;
-  color: #9DABBB;
-  font-size: 0.58rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.prediction-filter-panel__mode {
-  color: #45c7f7;
-  font-size: 0.52rem;
-}
-
-.prediction-filter-panel__pulse {
-  width: 0.35rem;
-  height: 0.35rem;
-  border-radius: 999px;
-  background: #2F7DFF;
-  box-shadow: 0 0 0 4px rgba(47, 125, 255, 0.1), 0 0 12px rgba(47, 125, 255, 0.62);
-}
-
-.prediction-filter-panel__track {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  min-height: 3.2rem;
-  overflow-x: auto;
-  padding: 0.4rem 0.85rem 0.75rem;
-  scrollbar-width: none;
-}
-
-.prediction-filter-panel__track::-webkit-scrollbar { display: none; }
-.prediction-filter-panel__track > div { flex-shrink: 0; }
-.prediction-filter-panel__track button {
-  min-height: 2rem;
-  border-radius: 0.65rem;
-  padding-inline: 0.8rem;
-  font-size: 0.66rem;
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-}
-.prediction-filter-panel__track button:hover,
-.prediction-filter-panel__track button:focus-visible {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
-}
-
-/* Polish UI — groupes étiquetés (Période / Marché / Ligue) : deux catégories
-   immédiatement lisibles au lieu d'une rangée indifférenciée de pastilles. */
-.prediction-filter-panel__group {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  flex-shrink: 0;
-  min-width: 0;
-}
-
-.prediction-filter-panel__grouplabel {
-  flex: 0 0 auto;
-  color: #6B7A8C;
-  font-size: 0.56rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.prediction-filter-panel__chips {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  min-width: 0;
-  overflow-x: auto;
-  scrollbar-width: none;
-  padding-block: 0.1rem;
-}
-
-.prediction-filter-panel__chips::-webkit-scrollbar { display: none; }
-
-@media (max-width: 640px) {
-  .prediction-section-heading { margin-bottom: 1rem; }
-  .prediction-section-heading__title { font-size: 1.55rem; }
-  .prediction-section-heading__subtitle { font-size: 0.72rem; }
-  .prediction-filter-panel__header { padding-inline: 0.7rem; }
-  /* Polish UI — une rangée par catégorie, défilement horizontal propre,
-     étiquette toujours visible pendant le scroll des chips. */
-  .prediction-filter-panel__track {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.45rem;
-    min-height: 0;
-    overflow: visible;
-    padding: 0.55rem 0.7rem 0.7rem;
-  }
-  .prediction-filter-panel__header {
-    padding-top: 0.6rem;
-    padding-bottom: 0.1rem;
-  }
-  .prediction-filter-panel__mode { display: none; }
-  .prediction-filter-panel__grouplabel { min-width: 3.2rem; }
-}
-
-@media (min-width: 641px) {
-  .prediction-filter-panel__track { flex-wrap: wrap; row-gap: 0.35rem; }
-}
-
 /* ═══ PREDICTION MATCH CARDS — premium match intelligence ═══ */
 .prediction-match-card {
   position: relative;
@@ -3176,45 +3058,14 @@ body {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background:
-    radial-gradient(1100px 540px at 82% -12%, rgba(53, 226, 140, 0.075), transparent 62%),
-    radial-gradient(900px 520px at -8% 112%, rgba(94, 197, 242, 0.065), transparent 58%),
-    linear-gradient(180deg, #0A1220 0%, #070C15 56%, #060A12 100%);
+  background: var(--color-bg-main);
   border-bottom: 1px solid rgba(148, 184, 220, 0.10);
-}
-
-/* Texture : grille de données, fondu radial vers les bords */
-.home-hero__bg {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(148, 184, 220, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 184, 220, 0.05) 1px, transparent 1px);
-  background-size: 48px 48px;
-  -webkit-mask-image: radial-gradient(ellipse 92% 85% at 55% 12%, #000 0%, transparent 76%);
-  mask-image: radial-gradient(ellipse 92% 85% at 55% 12%, #000 0%, transparent 76%);
 }
 
 .home-hero__inner {
   position: relative;
   z-index: 1;
   padding-block: clamp(2.2rem, 5vw, 4.2rem) clamp(2.4rem, 5vw, 4.4rem);
-}
-
-.home-hero__layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: clamp(2.2rem, 4.5vw, 3.4rem);
-  align-items: center;
-}
-
-/* Jamais deux colonnes côte à côte sous 768px — 58/42 au-dessus */
-@media (min-width: 768px) {
-  .home-hero__layout {
-    grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
-  }
 }
 
 .home-hero__copy {
@@ -3261,8 +3112,8 @@ body {
 
 @media (min-width: 768px) {
   .home-hero__title {
-    font-size: clamp(3.25rem, 1.6rem + 2.7vw, 4rem);
-    line-height: 1.05;
+    font-size: clamp(2.75rem, 1.5rem + 2.4vw, 3.25rem);
+    line-height: 1.06;
   }
 }
 
@@ -3442,283 +3293,6 @@ body {
   line-height: 1.5;
 }
 
-/* ── Panneau confiance (droite, ≈42%) ── */
-.home-hero__panel {
-  display: grid;
-  gap: 1rem;
-  align-content: center;
-  max-width: 30rem;
-}
-
-/* Carte « Performance vérifiée » — bordure fine, fond différencié, ombre diffuse */
-.home-hero__perf {
-  padding: 1.15rem 1.2rem 1.2rem;
-  border: 1px solid var(--hh-border);
-  border-radius: var(--hh-radius);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.016) 100%);
-  box-shadow: 0 14px 36px rgba(3, 8, 18, 0.32);
-}
-
-.home-hero__perf-head {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 0 0 1rem;
-  color: var(--hh-text);
-  font-size: 0.84375rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-}
-
-.home-hero__perf-check,
-.home-hero__trust-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 auto;
-  border-radius: 999px;
-  color: var(--hh-green);
-  background: rgba(53, 226, 140, 0.10);
-  border: 1px solid rgba(53, 226, 140, 0.28);
-}
-
-.home-hero__perf-check {
-  width: 1.15rem;
-  height: 1.15rem;
-}
-
-.home-hero__perf-main {
-  display: grid;
-  justify-items: center;
-  gap: 1.05rem;
-}
-
-/* Anneau de progression — statique, sobre */
-.home-hero__ring {
-  position: relative;
-  width: 7.25rem;
-  height: 7.25rem;
-}
-
-.home-hero__ring svg {
-  width: 100%;
-  height: 100%;
-  transform: rotate(-90deg);
-}
-
-.home-hero__ring-track,
-.home-hero__ring-progress {
-  fill: none;
-  stroke-width: 9;
-}
-
-.home-hero__ring-track {
-  stroke: rgba(255, 255, 255, 0.07);
-}
-
-.home-hero__ring-progress {
-  stroke: var(--hh-green);
-  stroke-linecap: round;
-}
-
-.home-hero__ring-value {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1px;
-  text-align: center;
-  color: var(--hh-text);
-  font-family: var(--font-display), system-ui, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 800;
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-}
-
-.home-hero__ring-value i {
-  font-style: normal;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--hh-body);
-  margin-inline-start: 1px;
-}
-
-/* 3 chiffres alignés — matchs suivis / gagnés / perdus */
-.home-hero__figures {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.6rem;
-  width: 100%;
-}
-
-.home-hero__figure {
-  display: grid;
-  gap: 0.28rem;
-  justify-items: center;
-  padding: 0.6rem 0.4rem;
-  border: 1px solid rgba(148, 184, 220, 0.10);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.home-hero__figure-value {
-  color: var(--hh-text);
-  font-family: var(--font-display), system-ui, sans-serif;
-  font-size: 1.22rem;
-  font-weight: 800;
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-}
-
-.home-hero__figure-value.is-win {
-  color: var(--hh-green);
-}
-
-.home-hero__figure-value.is-loss {
-  color: #93A6BC;
-}
-
-.home-hero__figure-label {
-  color: var(--hh-muted);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  text-align: center;
-  line-height: 1.2;
-}
-
-/* Barre segmentée proportionnelle — discrète */
-.home-hero__perf-bar {
-  display: flex;
-  gap: 3px;
-  height: 6px;
-  margin-top: 1rem;
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-.home-hero__perf-bar span {
-  background: var(--hh-green);
-  border-radius: 999px;
-}
-
-.home-hero__perf-bar span.is-loss {
-  background: rgba(147, 166, 188, 0.34);
-}
-
-@media (min-width: 768px) {
-  .home-hero__perf-main {
-    grid-template-columns: auto minmax(0, 1fr);
-    justify-items: start;
-    align-items: center;
-  }
-  .home-hero__figures {
-    gap: 0.45rem;
-  }
-}
-
-/* ── 3 points de réassurance ── */
-.home-hero__trust {
-  display: grid;
-  gap: 0.55rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.home-hero__trust-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  color: #C3CFDD;
-  font-size: 0.8125rem;
-  line-height: 1.45;
-}
-
-.home-hero__trust-icon {
-  width: 1.2rem;
-  height: 1.2rem;
-  margin-top: 1px;
-}
-
-/* ── Bloc partenaire Linebet — séparé, cohérent ── */
-.home-hero__partner {
-  display: grid;
-  gap: 0.6rem;
-  padding: 1rem 1.1rem 1.05rem;
-  border: 1px solid var(--hh-border);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.024);
-}
-
-.home-hero__partner-eyebrow {
-  margin: 0;
-  color: var(--hh-muted);
-  font-size: 0.625rem;
-  font-weight: 800;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-.home-hero__partner-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.7rem;
-  flex-wrap: wrap;
-}
-
-.home-hero__partner-brand {
-  color: var(--hh-text);
-  font-family: var(--font-display), system-ui, sans-serif;
-  font-size: 0.98rem;
-  font-weight: 800;
-  letter-spacing: 0.075em;
-}
-
-.home-hero__partner-code {
-  padding: 0.28rem 0.6rem;
-  border: 1px solid rgba(53, 226, 140, 0.30);
-  border-radius: 7px;
-  background: rgba(53, 226, 140, 0.07);
-  color: #9BE7C4;
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-}
-
-.home-hero__partner-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  padding: 0.7rem 1.1rem;
-  border: 1px solid rgba(53, 226, 140, 0.30);
-  border-radius: 10px;
-  background: rgba(53, 226, 140, 0.09);
-  color: #8FEDC0 !important;
-  font-size: 0.84375rem;
-  font-weight: 800;
-  text-decoration: none;
-  transition: background-color 170ms ease, border-color 170ms ease;
-}
-
-.home-hero__partner-cta:hover,
-.home-hero__partner-cta:focus-visible {
-  background: rgba(53, 226, 140, 0.16);
-  border-color: rgba(53, 226, 140, 0.48);
-}
-
-.home-hero__partner-terms {
-  margin: 0;
-  color: var(--hh-muted);
-  font-size: 0.65625rem;
-  line-height: 1.45;
-}
-
 /* ── Micro-animations d'entrée : CSS pur, aucun risque d'opacity-trap ── */
 @keyframes home-hero-rise {
   from {
@@ -3742,13 +3316,6 @@ body {
 .home-hero__copy > *:nth-child(5) { animation-delay: 0.22s; }
 .home-hero__copy > *:nth-child(6) { animation-delay: 0.27s; }
 
-.home-hero__panel > * {
-  animation: home-hero-rise 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
-}
-
-.home-hero__panel > *:nth-child(1) { animation-delay: 0.16s; }
-.home-hero__panel > *:nth-child(2) { animation-delay: 0.24s; }
-.home-hero__panel > *:nth-child(3) { animation-delay: 0.32s; }
 
 .home-hero a:focus-visible,
 .home-hero button:focus-visible {
@@ -3765,23 +3332,15 @@ body {
   .home-hero__code-copy {
     width: 100%;
   }
-  .home-hero__perf {
-    padding: 1rem 0.9rem 1.05rem;
-  }
-  .home-hero__figure-value {
-    font-size: 1.1rem;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-hero__copy > *,
-  .home-hero__panel > * {
+  .home-hero__copy > * {
     animation: none;
   }
   .home-hero__cta-primary,
   .home-hero__cta-soft,
-  .home-hero__code-copy,
-  .home-hero__partner-cta {
+  .home-hero__code-copy {
     transition: none;
   }
   .home-hero__cta-primary:hover,

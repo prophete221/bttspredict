@@ -4,7 +4,6 @@ import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useScrollAnimation } from '@/hooks/useAnimations'
 import { AFFILIATE } from '@/lib/constants'
-import { staggerContainer, staggerChildFadeUp, subtleHover } from '@/lib/motionPresets'
 import { resolveTeamLogo } from '@/lib/teamLogos'
 import PremiumButton from './PremiumButton'
 import { useLanguage } from './LanguageSwitcher'
@@ -93,9 +92,6 @@ interface MatchData {
   aiKeyFact?: string
   aiAnalysis?: string
 }
-
-type FilterType = 'all' | 'BTTS' | 'O2.5'
-type DateFilter = 'all' | 'today' | 'tomorrow' | '7days'
 
 // ─── Probability Bar — visual representation of Poisson model ────────────
 function ProbabilityBar({ value, prediction, color = 'green' }: { value: number; prediction: string; color?: 'green' | 'gold' }) {
@@ -504,16 +500,8 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
   const t = translationsFor(lang)
   const intelligenceTitle = lang === 'en' ? "Today's intelligence" : lang === 'ar' ? 'ذكاء اليوم' : 'Intelligence du jour'
   const intelligenceSubtitle = lang === 'en' ? 'Live selections, market signals and match analysis' : lang === 'ar' ? 'اختيارات مباشرة وإشارات السوق وتحليل المباريات' : 'Sélections en direct, signaux de marché et analyse des matchs'
-  const filtersLabel = lang === 'en' ? 'Filters' : lang === 'ar' ? 'الفلاتر' : 'Filtres'
-  // Polish UI — étiquettes des groupes de filtres (2 catégories lisibles + ligue)
-  const groupPeriodLabel = lang === 'en' ? 'Period' : lang === 'ar' ? 'الفترة' : 'Période'
-  const groupMarketLabel = lang === 'en' ? 'Market' : lang === 'ar' ? 'السوق' : 'Marché'
-  const groupLeagueLabel = lang === 'en' ? 'League' : lang === 'ar' ? 'الدوري' : 'Ligue'
   const [matches, setMatches] = useState<MatchData[]>([])
   const [loading, setLoading] = useState(true)
-  const [activeLeague, setActiveLeague] = useState<string>('all')
-  const [activeType, setActiveType] = useState<FilterType>('all')
-  const [activeDate, setActiveDate] = useState<DateFilter>('all')
 
   useEffect(() => {
     fetch('/predictions.json')
@@ -586,30 +574,6 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
       .catch(() => setLoading(false))
   }, [])
 
-  const leagues = useMemo(() => {
-    const set = new Set<string>()
-    matches.forEach(m => set.add(m.league))
-    return ['all', ...Array.from(set).slice(0, 10)]
-  }, [matches])
-
-  const filteredMatches = useMemo(() => {
-    return matches.filter(m => {
-      if (activeLeague !== 'all' && m.league !== activeLeague) return false
-      if (activeType === 'BTTS' && !m.predictions.some(p => p.type === 'BTTS')) return false
-      if (activeType === 'O2.5' && !m.predictions.some(p => p.type.includes('Over'))) return false
-
-      if (activeDate !== 'all') {
-        const today = new Date(); today.setHours(0, 0, 0, 0)
-        const matchDay = new Date(m.date + 'T00:00:00'); matchDay.setHours(0, 0, 0, 0)
-        const diffDays = Math.round((matchDay.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
-        if (activeDate === 'today' && diffDays !== 0) return false
-        if (activeDate === 'tomorrow' && diffDays !== 1) return false
-        if (activeDate === '7days' && (diffDays < 0 || diffDays > 7)) return false
-      }
-      return true
-    })
-  }, [matches, activeLeague, activeType, activeDate])
-
   const stats = useMemo(() => ({
     total: matches.length,
     btts: matches.filter(m => m.predictions.some(p => p.type === 'BTTS')).length,
@@ -622,109 +586,12 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
       <div className="mx-auto max-w-[980px] px-4 sm:px-6">
         <div className="prediction-section-heading mb-5 flex items-end justify-between gap-4">
           <div>
-            <span className="prediction-section-heading__eyebrow">{filtersLabel}</span>
+            <span className="prediction-section-heading__eyebrow">{t.hero.liveData}</span>
             <h2 className="prediction-section-heading__title">{intelligenceTitle}</h2>
             <p className="prediction-section-heading__subtitle">{intelligenceSubtitle}</p>
           </div>
           <span className="prediction-section-heading__count hidden sm:inline-flex">{stats.total} {lang === 'en' ? 'matches' : lang === 'ar' ? 'مباريات' : 'matchs'}</span>
         </div>
-
-        {/* Filtres de la section — un panneau de contrôle, pas un second hero */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate={isVisible ? 'visible' : 'hidden'}
-          className="prediction-filter-panel mb-5"
-        >
-          <div className="prediction-filter-panel__header">
-            <div className="flex items-center gap-2">
-              <span className="prediction-filter-panel__pulse" aria-hidden="true" />
-              <span>{filtersLabel}</span>
-            </div>
-            <span className="prediction-filter-panel__mode">{t.hero.liveData}</span>
-          </div>
-          <div className="prediction-filter-panel__track">
-          {/* Groupe PÉRIODE — chips de date */}
-          <div className="prediction-filter-panel__group">
-            <span className="prediction-filter-panel__grouplabel" aria-hidden="true">{groupPeriodLabel}</span>
-            <div className="prediction-filter-panel__chips">
-            {([
-              { id: 'all', label: t.predictions.all },
-              { id: 'today', label: t.predictions.today },
-              { id: 'tomorrow', label: t.predictions.tomorrow },
-              { id: '7days', label: lang === 'en' ? '7d' : lang === 'ar' ? '7 أيام' : '7j' },
-            ] as { id: DateFilter; label: string }[]).map(f => (
-              <button
-                key={f.id}
-                onClick={() => setActiveDate(f.id)}
-                aria-pressed={activeDate === f.id}
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 whitespace-nowrap ${
-                  activeDate === f.id
-                    ? 'text-[#FFFFFF] border-none'
-                    : 'text-[#9DABBB] border border-[#223041]'
-                }`}
-                style={activeDate === f.id ? { backgroundColor: '#2F7DFF' } : { backgroundColor: '#141C25' }}
-              >
-                {f.label}
-              </button>
-            ))}
-            </div>
-          </div>
-
-          {/* Groupe MARCHÉ — chips de marché (+ compteur LIVE) */}
-          <div className="prediction-filter-panel__group">
-            <span className="prediction-filter-panel__grouplabel" aria-hidden="true">{groupMarketLabel}</span>
-            <div className="prediction-filter-panel__chips">
-            {([
-              { id: 'all', label: t.predictions.all },
-              { id: 'BTTS', label: 'BTTS' },
-              { id: 'O2.5', label: 'O2.5' },
-            ] as { id: FilterType; label: string }[]).map(f => (
-              <button
-                key={f.id}
-                onClick={() => setActiveType(f.id)}
-                aria-pressed={activeType === f.id}
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 whitespace-nowrap ${
-                  activeType === f.id
-                    ? 'text-[#FFFFFF] border-none'
-                    : 'text-[#9DABBB] border border-[#223041]'
-                }`}
-                style={activeType === f.id ? { backgroundColor: '#2F7DFF' } : { backgroundColor: '#141C25' }}
-              >
-                {f.label}
-              </button>
-            ))}
-            {stats.live > 0 && (
-              <span className="live-text text-xs uppercase tracking-widest font-semibold whitespace-nowrap flex-shrink-0 pl-1">
-                {stats.live} LIVE
-              </span>
-            )}
-            </div>
-          </div>
-
-          {/* Groupe LIGUE — chips de compétition (fonctionnalité conservée) */}
-          <div className="prediction-filter-panel__group">
-            <span className="prediction-filter-panel__grouplabel" aria-hidden="true">{groupLeagueLabel}</span>
-            <div className="prediction-filter-panel__chips">
-            {leagues.map(league => (
-              <button
-                key={league}
-                onClick={() => setActiveLeague(league)}
-                aria-pressed={activeLeague === league}
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 whitespace-nowrap ${
-                  activeLeague === league
-                    ? 'text-[#FFFFFF] border-none'
-                    : 'text-[#9DABBB] border border-[#223041]'
-                }`}
-                style={activeLeague === league ? { backgroundColor: '#2F7DFF' } : { backgroundColor: '#141C25' }}
-              >
-                {league === 'all' ? t.predictions.leagues : league}
-              </button>
-            ))}
-            </div>
-          </div>
-          </div>
-        </motion.div>
 
         {/* Cartes de matchs réels du jour */}
         {loading ? (
@@ -733,7 +600,7 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
               <div key={i} className="squircle-lg h-72 animate-pulse" />
             ))}
           </div>
-        ) : filteredMatches.length === 0 ? (
+        ) : matches.length === 0 ? (
           <div className="squircle-xl p-10 text-center">
             <div className="w-14 h-14 bg-dark-800 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-edge">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="1.5">
@@ -746,7 +613,7 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
           </div>
         ) : (
           <div className="grid gap-3 md:gap-4 md:grid-cols-2">
-            {filteredMatches.map((m, i) => (
+            {matches.map((m, i) => (
               <PredictionCard key={`${m.match}-${m.date}-${m.time}`} match={m} index={i} initialLocale={lang} />
             ))}
           </div>

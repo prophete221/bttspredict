@@ -40,7 +40,7 @@ export const TRANSLATIONS = {
     },
     hero: {
       badge: 'Match intelligence · Données vérifiées',
-      title1: 'Pronostics BTTS [gratuits].', title2: 'Inscris-toi et joue.',
+      title1: 'BTTSPredict, [plateforme n°1 mondiale].', title2: 'BTTS et Over 2,5 fiable.',
       subtitle: 'Analyses BTTS, Over 2,5 et score exact, publiées avant le match et suivies jusqu’au résultat vérifié.',
       perfTitle: 'Performance vérifiée',
       statsWon: 'Gagnés', statsLost: 'Perdus',
@@ -84,7 +84,7 @@ export const TRANSLATIONS = {
     },
     hero: {
       badge: 'Match intelligence · Verified data',
-      title1: '[Free] BTTS predictions.', title2: 'Sign up and play.',
+      title1: 'BTTSPredict, the [world No. 1] platform.', title2: 'Reliable BTTS & Over 2.5.',
       subtitle: 'BTTS, Over 2.5 and correct-score analysis, published before kick-off and tracked to the verified result.',
       perfTitle: 'Verified performance',
       statsWon: 'Won', statsLost: 'Lost',
@@ -128,7 +128,7 @@ export const TRANSLATIONS = {
     },
     hero: {
       badge: 'ذكاء المباريات · بيانات موثّقة',
-      title1: 'توقعات BTTS [مجانية].', title2: 'سجّل والعب.',
+      title1: 'BTTSPredict — [المنصة رقم 1 عالمياً].', title2: 'توقعات BTTS وOver 2.5 موثوقة.',
       subtitle: 'تحليلات BTTS وOver 2.5 والنتيجة الدقيقة، تُنشر قبل المباراة وتُتابع حتى النتيجة الموثّقة.',
       perfTitle: 'الأداء الموثّق',
       statsWon: 'رابحة', statsLost: 'خاسرة',
