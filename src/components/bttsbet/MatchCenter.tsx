@@ -93,7 +93,7 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
   const [dataDate, setDataDate] = useState('')
   const [market, setMarket] = useState<MarketFilter>('all')
   const [status, setStatus] = useState<StatusFilter>('all')
-  const [day, setDay] = useState<DayFilter>('today')
+  const [day, setDay] = useState<DayFilter>('week')
   const [league, setLeague] = useState<string>('all')
 
   useEffect(() => {
