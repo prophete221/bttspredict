@@ -236,7 +236,7 @@ export default function Home() {
       <ScrollProgressBar />
 
       {/* Main Content — Plateforme football intelligence
-          Structure : Header produit → Hero + Centre de transparence →
+          Structure : Header produit → Hero + Signal en vedette →
           Matchs du jour (MatchCenter) → Piliers → Performance/Historique →
           Méthode → Compétitions → Partenaire VISION221 → Jeu responsable →
           Footer. Bloc partenaire placé APRÈS la valeur produit. */}

@@ -30,14 +30,14 @@ interface WinHistory {
     trend14?: { date: string; total: number; won: number; lost: number; rate: number }[]
   }
   history?: { date: string; status: string; market: string }[]
-  trackingPeriod?: { from?: string; days?: number }
+  trackingPeriod?: { from?: string; startDate?: string; days?: number }
 }
 
 type Period = '7d' | '30d' | 'season' | 'total'
 
 function periodStats(hist: WinHistory, period: Period) {
   const records = hist.history || []
-  const seasonStart = hist.trackingPeriod?.from
+  const seasonStart = hist.trackingPeriod?.from ?? hist.trackingPeriod?.startDate
   const now = new Date(); now.setUTCHours(0, 0, 0, 0)
   const minDiff = period === '7d' ? -7 : period === '30d' ? -30 : -99999
   let won = 0, lost = 0
