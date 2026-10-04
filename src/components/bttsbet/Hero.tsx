@@ -96,12 +96,16 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
               ))}
             </ul>
 
-            {/* Timeline de publication — états factuels du processus */}
+            {/* Timeline de publication — états factuels du processus.
+                Chaque étape = point sur la ligne au-dessus, label en dessous
+                (évite tout chevauchement point/label). */}
             <div className="hp-ct__timeline" role="img" aria-label={`${t.home2.ctTl1} → ${t.home2.ctTl2} → ${t.home2.ctTl3}`}>
               {timeline.map((step, i) => (
                 <div key={step} className="hp-ct__step">
-                  <span className={`hp-ct__step-dot${i === 0 ? ' is-active' : ''}`} aria-hidden="true" />
-                  {i < timeline.length - 1 && <span className="hp-ct__step-line" aria-hidden="true" />}
+                  <span className="hp-ct__step-track" aria-hidden="true">
+                    <span className={`hp-ct__step-dot${i === 0 ? ' is-active' : ''}`} />
+                    {i < timeline.length - 1 && <span className="hp-ct__step-line" />}
+                  </span>
                   <span className="hp-ct__step-label">{step}</span>
                 </div>
               ))}

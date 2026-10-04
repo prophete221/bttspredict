@@ -164,7 +164,7 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
     { id: 'week', label: t.home2.mcWeek },
   ]
   const marketTabs: { id: MarketFilter; label: string }[] = [
-    { id: 'all', label: t.home2.mcAll },
+    { id: 'all', label: t.home2.mcAllMarkets },
     { id: 'btts', label: t.home2.mcBtts },
     { id: 'o25', label: t.home2.mcO25 },
     { id: 'exact', label: t.home2.mcExact },
@@ -243,7 +243,7 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
                   aria-pressed={league === 'all'}
                   className={`hp-chip hp-chip--ghost${league === 'all' ? ' is-active' : ''}`}
                 >
-                  {t.home2.mcAll}
+                  {t.home2.mcAllLeagues}
                 </button>
                 {leagues.map(l => (
                   <button

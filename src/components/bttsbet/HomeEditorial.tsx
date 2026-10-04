@@ -117,7 +117,7 @@ export function LeagueCoverage({ initialLocale }: { initialLocale?: Locale } = {
             >
               <span className="hp-league__name">{name}</span>
               <span className="hp-league__meta">
-                {count} {t.home2.lgTracked}
+                {count} {count === 1 ? t.home2.lgTrackedOne : t.home2.lgTracked}
                 {today.has(name) && <em> · {t.home2.lgToday}</em>}
               </span>
             </a>
@@ -162,7 +162,8 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
     <section className="hp-section" aria-label={t.home2.ptEyebrow}>
       <div className="mx-auto max-w-[1280px] px-4 sm:px-6">
         <div className="hp-partner">
-          <div className="hp-partner__copy">
+          {/* hp-partner__intro — NE PAS nommer hp-partner__copy (réservé au bouton copier) */}
+          <div className="hp-partner__intro">
             <p className="hp-eyebrow hp-eyebrow--partner">{t.home2.ptEyebrow}</p>
             <p className="hp-partner__title">
               <span className="hp-partner__brand" aria-hidden="true">LINEBET</span>
