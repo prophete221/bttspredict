@@ -164,11 +164,6 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
         <div className="hp-hero__grid">
           {/* ═══ Colonne message ═══ */}
           <div className="hp-hero__copy">
-            <p className="hp-eyebrow">
-              <span className="hp-eyebrow__dot" aria-hidden="true" />
-              {t.home2.heroEyebrow}
-            </p>
-
             <h1 className="hp-hero__title">
               {withAccent(t.home2.heroTitle1, 'l1')}
               <span className="hp-hero__title-line2">{withAccent(t.home2.heroTitle2, 'l2')}</span>

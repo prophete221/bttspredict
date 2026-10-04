@@ -4028,7 +4028,7 @@ body {
 }
 .hp-hero__copy { max-width: 40rem; }
 .hp-hero__title {
-  margin: 1.1rem 0 0;
+  margin: 0;
   color: #F2F6FA;
   font-family: var(--font-display), system-ui, sans-serif;
   font-size: clamp(2.15rem, 1.1rem + 3vw, 3.3rem);
