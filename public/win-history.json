@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-10-05T16:59:24.786Z",
+  "generatedAt": "2026-10-06T01:20:54.197Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -11,8 +11,8 @@
     "total": 112,
     "won": 77,
     "lost": 35,
-    "pending": 512,
-    "archivedTotal": 624,
+    "pending": 524,
+    "archivedTotal": 636,
     "rate": 68.8,
     "gold": {
       "total": 95,
@@ -142,8 +142,8 @@
     ],
     "period": {
       "from": "2026-08-08",
-      "to": "2026-10-05",
-      "days": 59
+      "to": "2026-10-06",
+      "days": 60
     }
   },
   "history": [
@@ -1496,8 +1496,8 @@
     "total": 433,
     "won": 214,
     "lost": 219,
-    "pending": 1038,
-    "archivedTotal": 1471,
+    "pending": 988,
+    "archivedTotal": 1421,
     "rate": 49.4,
     "gold": {
       "total": 40,
@@ -1626,9 +1626,9 @@
       }
     ],
     "period": {
-      "from": "2026-07-08",
+      "from": "2026-07-09",
       "to": "2026-08-07",
-      "days": 31
+      "days": 30
     },
     "history": [
       {
