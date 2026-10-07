@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-10-06T23:45:37.757Z",
+  "generatedAt": "2026-10-07T04:40:39.186Z",
   "trackingPeriod": {
     "startDate": "2026-08-08",
     "isPublicPeriod": true,
@@ -8,12 +8,12 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 112,
+    "total": 113,
     "won": 77,
-    "lost": 35,
-    "pending": 524,
-    "archivedTotal": 636,
-    "rate": 68.8,
+    "lost": 36,
+    "pending": 535,
+    "archivedTotal": 648,
+    "rate": 68.1,
     "gold": {
       "total": 95,
       "won": 64,
@@ -21,17 +21,17 @@
       "rate": 67.4
     },
     "standard": {
-      "total": 17,
+      "total": 18,
       "won": 13,
-      "lost": 4,
-      "rate": 76.5
+      "lost": 5,
+      "rate": 72.2
     },
     "byType": {
       "btts": {
-        "total": 110,
+        "total": 111,
         "won": 76,
-        "lost": 34,
-        "rate": 69.1
+        "lost": 35,
+        "rate": 68.5
       },
       "over25": {
         "total": 2,
@@ -41,13 +41,6 @@
       }
     },
     "trend14": [
-      {
-        "date": "2026-08-29",
-        "total": 10,
-        "won": 6,
-        "lost": 4,
-        "rate": 60
-      },
       {
         "date": "2026-08-30",
         "total": 1,
@@ -138,15 +131,34 @@
         "won": 1,
         "lost": 0,
         "rate": 100
+      },
+      {
+        "date": "2026-10-06",
+        "total": 1,
+        "won": 0,
+        "lost": 1,
+        "rate": 0
       }
     ],
     "period": {
       "from": "2026-08-08",
-      "to": "2026-10-06",
-      "days": 60
+      "to": "2026-10-07",
+      "days": 61
     }
   },
   "history": [
+    {
+      "date": "2026-10-06",
+      "match": "Chicago Fire FC vs Vancouver Whitecaps",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.4276,
+      "status": "LOST",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-10-07T04:34:44.594Z",
+      "source": "ESPN public"
+    },
     {
       "date": "2026-10-01",
       "match": "Seattle Sounders FC vs Sporting Kansas City",
@@ -1493,12 +1505,12 @@
     }
   ],
   "legacyStats": {
-    "total": 433,
-    "won": 214,
+    "total": 431,
+    "won": 212,
     "lost": 219,
-    "pending": 988,
-    "archivedTotal": 1421,
-    "rate": 49.4,
+    "pending": 940,
+    "archivedTotal": 1371,
+    "rate": 49.2,
     "gold": {
       "total": 40,
       "won": 17,
@@ -1506,23 +1518,23 @@
       "rate": 42.5
     },
     "standard": {
-      "total": 393,
-      "won": 197,
+      "total": 391,
+      "won": 195,
       "lost": 196,
-      "rate": 50.1
+      "rate": 49.9
     },
     "byType": {
       "btts": {
-        "total": 217,
-        "won": 103,
+        "total": 216,
+        "won": 102,
         "lost": 114,
-        "rate": 47.5
+        "rate": 47.2
       },
       "over25": {
-        "total": 216,
-        "won": 111,
+        "total": 215,
+        "won": 110,
         "lost": 105,
-        "rate": 51.4
+        "rate": 51.2
       }
     },
     "trend14": [
@@ -1626,9 +1638,9 @@
       }
     ],
     "period": {
-      "from": "2026-07-09",
+      "from": "2026-07-10",
       "to": "2026-08-07",
-      "days": 30
+      "days": 29
     },
     "history": [
       {

@@ -1315,7 +1315,10 @@
       "bttsProb": 0.4276,
       "over25Prob": 0.554,
       "homeLambda": 0.65,
-      "awayLambda": 2.25
+      "awayLambda": 2.25,
+      "finalScore": "3-1",
+      "status": "LOST",
+      "verifiedAt": "2026-10-07T04:34:44.594Z"
     },
     {
       "id": "westhamu-vs-queenspa-2026-10-09",
@@ -1377,7 +1380,8 @@
       "bttsProb": 0.6402,
       "over25Prob": 0.6838,
       "homeLambda": 2.27,
-      "awayLambda": 1.25
+      "awayLambda": 1.25,
+      "status": "PENDING"
     },
     {
       "id": "psveindh-vs-heerenve-2026-10-09",
@@ -1439,7 +1443,8 @@
       "bttsProb": 0.8036,
       "over25Prob": 0.8426,
       "homeLambda": 2.65,
-      "awayLambda": 2
+      "awayLambda": 2,
+      "status": "PENDING"
     },
     {
       "id": "tsveintr-vs-holstein-2026-10-09",
@@ -1501,7 +1506,8 @@
       "bttsProb": 0.6793,
       "over25Prob": 0.6761,
       "homeLambda": 1.82,
-      "awayLambda": 1.67
+      "awayLambda": 1.67,
+      "status": "PENDING"
     },
     {
       "id": "fcheiden-vs-kaisersl-2026-10-09",
@@ -1563,7 +1569,8 @@
       "bttsProb": 0.6749,
       "over25Prob": 0.7338,
       "homeLambda": 2.48,
-      "awayLambda": 1.33
+      "awayLambda": 1.33,
+      "status": "PENDING"
     },
     {
       "id": "moreiren-vs-gilvicen-2026-10-09",
@@ -1625,7 +1632,8 @@
       "bttsProb": 0.6236,
       "over25Prob": 0.6096,
       "homeLambda": 1.73,
-      "awayLambda": 1.42
+      "awayLambda": 1.42,
+      "status": "PENDING"
     },
     {
       "id": "borussia-vs-werderbr-2026-10-09",
@@ -1687,7 +1695,8 @@
       "bttsProb": 0.3657,
       "over25Prob": 0.6096,
       "homeLambda": 2.65,
-      "awayLambda": 0.5
+      "awayLambda": 0.5,
+      "status": "PENDING"
     },
     {
       "id": "braga-vs-sporting-2026-10-09",
@@ -1749,7 +1758,8 @@
       "bttsProb": 0.4706,
       "over25Prob": 0.4084,
       "homeLambda": 1.15,
-      "awayLambda": 1.17
+      "awayLambda": 1.17,
+      "status": "PENDING"
     },
     {
       "id": "waasland-vs-lommelsk-2026-10-09",
@@ -1811,7 +1821,8 @@
       "bttsProb": 0.3476,
       "over25Prob": 0.494,
       "homeLambda": 2.15,
-      "awayLambda": 0.5
+      "awayLambda": 0.5,
+      "status": "PENDING"
     },
     {
       "id": "intermia-vs-dcunited-2026-10-10",
@@ -1873,7 +1884,8 @@
       "bttsProb": 0.7689,
       "over25Prob": 0.8207,
       "homeLambda": 2.72,
-      "awayLambda": 1.73
+      "awayLambda": 1.73,
+      "status": "PENDING"
     },
     {
       "id": "torontof-vs-cfmontra-2026-10-10",
@@ -1935,7 +1947,8 @@
       "bttsProb": 0.7284,
       "over25Prob": 0.7995,
       "homeLambda": 2.77,
-      "awayLambda": 1.5
+      "awayLambda": 1.5,
+      "status": "PENDING"
     },
     {
       "id": "newengla-vs-seattles-2026-10-10",
@@ -1997,7 +2010,8 @@
       "bttsProb": 0.7095,
       "over25Prob": 0.7338,
       "homeLambda": 2.23,
-      "awayLambda": 1.58
+      "awayLambda": 1.58,
+      "status": "PENDING"
     }
   ]
 }
