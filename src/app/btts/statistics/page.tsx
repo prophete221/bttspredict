@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import Link from 'next/link'
+import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 
 export const metadata: Metadata = {
   title: 'Statistiques BTTS par ligue',
@@ -83,9 +84,12 @@ export default function BTTSStatisticsPage() {
             style={{ backgroundColor: 'rgba(169, 196, 223, 0.12)', color: '#2F7DFF', border: '1px solid rgba(169, 196, 223, 0.25)' }}>
             BTTS · Statistics
           </span>
-          <h1 className="text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            Statistiques BTTS par ligue
-          </h1>
+          <AnimatedTitle
+            as="h1"
+            text="Statistiques BTTS par ligue"
+            className="text-3xl sm:text-4xl font-bold mb-4"
+            style={{ fontFamily: 'Poppins, sans-serif' }}
+          />
           <p className="text-base text-[#9DABBB] leading-relaxed mb-6">
             Liste des ligues couvertes par BTTSPredict pour le marché BTTS (Both Teams To Score). Les taux historiques et moyennes de buts par ligue ne sont pas affichés tant qu&apos;aucune source vérifiable n&apos;est intégrée au build.
           </p>

@@ -3,6 +3,7 @@
 import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import ResultatsClient from './ResultatsClient'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
+import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 
 export default function ResultatsLocalizedShell({ initialData }: { initialData: unknown }) {
   const { lang } = useLanguage()
@@ -19,7 +20,7 @@ export default function ResultatsLocalizedShell({ initialData }: { initialData: 
       <Navbar />
       <main id="main-content" className="flex-1 py-12 px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8"><h1 className="text-3xl font-bold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.title}</h1><p className="text-sm text-[#9DABBB]">{copy.intro}</p></div>
+          <div className="mb-8"><AnimatedTitle as="h1" text={copy.title} className="text-3xl font-bold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }} /><p className="text-sm text-[#9DABBB]">{copy.intro}</p></div>
           <ResultatsClient initialData={initialData} />
           <div className="mt-8 p-4 rounded-xl bg-[#141C25] border border-[#6B7A8C]"><p className="text-[11px] text-[#9DABBB] leading-relaxed"><strong className="text-[#9DABBB]">{copy.rule}</strong> {copy.body}</p></div>
         </div>

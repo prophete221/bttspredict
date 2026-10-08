@@ -77,19 +77,6 @@ function dataRichness(m: FeedItem): number {
   )
 }
 
-/** Met en évidence le mot utile du titre via des crochets [mot] — i18n-safe. */
-function withAccent(text: string, key: string) {
-  const m = text.match(/\[(.+?)\]/)
-  if (!m || m.index === undefined) return text
-  return (
-    <span key={key}>
-      {text.slice(0, m.index)}
-      <em className="hp-title-em">{m[1]}</em>
-      {text.slice(m.index + m[0].length)}
-    </span>
-  )
-}
-
 function plainTitle(text: string) {
   return text.replace(/[\[\]]/g, '')
 }
@@ -179,9 +166,12 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
               <AnimatedTitle
                 text={plainTitle(t.home2.heroTitle1)}
                 accent={accentOf(t.home2.heroTitle1)}
-                enabled={lang !== 'ar'}
               />
-              <span className="hp-hero__title-line2">{withAccent(t.home2.heroTitle2, 'l2')}</span>
+              <AnimatedTitle
+                text={plainTitle(t.home2.heroTitle2)}
+                accent={accentOf(t.home2.heroTitle2)}
+                className="hp-hero__title-line2"
+              />
             </h1>
 
             <p className="hp-hero__text">{t.home2.heroText}</p>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Navbar, Footer, AviatorVip } from '@/components/bttsbet'
+import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 
 export const metadata: Metadata = {
   title: 'Aviator 2026 : statistiques historiques',
@@ -34,9 +35,12 @@ export default function PredictionAviatorPage() {
               <span className="w-1.5 h-1.5 rounded-full bg-[#53F3FF]" aria-hidden="true" />
               Information Aviator
             </span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mt-4 mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Aviator 2026 : statistiques historiques et fonctionnement
-            </h1>
+            <AnimatedTitle
+              as="h1"
+              text="Aviator 2026 : statistiques historiques et fonctionnement"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mt-4 mb-4"
+              style={{ fontFamily: 'Poppins, sans-serif' }}
+            />
             <p className="text-base sm:text-lg text-[#9DABBB] leading-relaxed">
               Une page claire pour consulter des statistiques de rounds passés et comprendre le principe provably fair. Ces données sont informatives : elles ne constituent pas une prédiction et aucun multiplicateur futur ne peut être connu à l'avance.
             </p>

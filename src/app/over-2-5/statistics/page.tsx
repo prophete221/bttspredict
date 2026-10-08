@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Navbar, Footer } from '@/components/bttsbet'
 import Link from 'next/link'
+import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 
 const TITLE = 'Over 2.5 Statistics by League — Goal Analysis'
 const DESCRIPTION = "List of leagues covered by BTTSPredict for Over 2.5 market. Historical averages and rates to be integrated via verifiable source. 18+."
@@ -44,9 +45,12 @@ export default function Over25StatisticsPage() {
         </nav>
 
         <section className="max-w-4xl mx-auto px-4 pt-4 pb-8">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            Over 2.5 Statistics by League
-          </h1>
+          <AnimatedTitle
+            as="h1"
+            text="Over 2.5 Statistics by League"
+            className="text-3xl sm:text-4xl font-bold mb-4"
+            style={{ fontFamily: 'Poppins, sans-serif' }}
+          />
           <p className="text-base text-[#9DABBB] leading-relaxed mb-4">
             Leagues covered by BTTSPredict for the Over 2.5 market (≥ 3 goals). Historical averages and rates per league will be displayed once a verifiable source is integrated at build time.
           </p>

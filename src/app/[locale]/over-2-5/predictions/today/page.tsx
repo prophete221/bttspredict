@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { isLocale, LOCALE_META, type Locale, translationsFor } from '@/lib/i18n'
+import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -35,7 +36,7 @@ export default async function LocalizedOver25TodayPage({ params }: { params: Pro
         </nav>
         <section className="max-w-5xl mx-auto px-4 pt-4 pb-6">
           <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4" style={{ backgroundColor: 'rgba(91, 169, 255, 0.12)', color: '#2F7DFF', border: '1px solid rgba(91, 169, 255, 0.25)' }}>Over 2.5 · Total goals</span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>{value === 'ar' ? 'توقعات Over 2.5 اليوم' : 'Over 2.5 Predictions Today'}</h1>
+          <AnimatedTitle as="h1" text={value === 'ar' ? 'توقعات Over 2.5 اليوم' : 'Over 2.5 Predictions Today'} className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }} />
           <p className="text-base sm:text-lg text-[#9DABBB] leading-relaxed mb-3 max-w-3xl mx-auto">{value === 'ar' ? 'مباريات يُتوقع أن يتجاوز فيها إجمالي الأهداف 2.5، أي ثلاثة أهداف على الأقل. يتم التحديث والتحقق من النتائج بعد المباراة.' : "Today's Over 2.5 predictions: matches where total goals are expected to exceed 2.5, meaning at least 3 goals. Updated and checked after the match."}</p>
           <p className="text-sm text-[#9DABBB] leading-relaxed max-w-3xl mx-auto">{t.legal.noGuarantee} {t.legal.eighteen}</p>
         </section>

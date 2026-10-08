@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import Link from 'next/link'
+import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 
 export const metadata: Metadata = {
   title: 'BTTS Predictions Tomorrow — Pronostics demain',
@@ -27,9 +28,12 @@ export default function BTTSPredictionsTomorrowPage() {
             style={{ backgroundColor: 'rgba(169, 196, 223, 0.12)', color: '#2F7DFF', border: '1px solid rgba(169, 196, 223, 0.25)' }}>
             BTTS · Tomorrow
           </span>
-          <h1 className="text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            BTTS Predictions Tomorrow
-          </h1>
+          <AnimatedTitle
+            as="h1"
+            text="BTTS Predictions Tomorrow"
+            className="text-3xl sm:text-4xl font-bold mb-4"
+            style={{ fontFamily: 'Poppins, sans-serif' }}
+          />
           <p className="text-base text-[#9DABBB] leading-relaxed mb-6">
             BTTSPredict publie chaque jour une nouvelle sélection de pronostics BTTS. Les pronostics pour les matchs de demain sont publiés la veille au soir et le jour même, plusieurs fois par jour. Chaque sélection est issue du modèle statistique, basée sur les données disponibles des deux équipes.
           </p>

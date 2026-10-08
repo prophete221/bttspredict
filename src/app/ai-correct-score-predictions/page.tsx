@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
 import { translationsFor } from '@/lib/i18n'
+import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -101,9 +102,12 @@ export default function AICorrectScorePage() {
             style={{ backgroundColor: 'rgba(169, 196, 223, 0.12)', color: '#2F7DFF', border: '1px solid rgba(169, 196, 223, 0.25)' }}>
             {lang === 'fr' ? 'IA · Score exact · Modèle de Poisson' : lang === 'en' ? 'AI · Correct Score · Poisson Model' : 'الذكاء الاصطناعي · النتيجة الدقيقة · نموذج بواسون'}
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            {lang === 'fr' ? 'Prédictions de score exact par IA' : lang === 'en' ? 'AI Correct Score Predictions' : 'توقعات النتيجة الدقيقة بالذكاء الاصطناعي'}
-          </h1>
+          <AnimatedTitle
+            as="h1"
+            text={lang === 'fr' ? 'Prédictions de score exact par IA' : lang === 'en' ? 'AI Correct Score Predictions' : 'توقعات النتيجة الدقيقة بالذكاء الاصطناعي'}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
+            style={{ fontFamily: 'Poppins, sans-serif' }}
+          />
           <p className="text-base sm:text-lg text-[#9DABBB] leading-relaxed mb-3 max-w-3xl mx-auto">
             {lang === 'fr' ? 'Les scores exacts les plus probables sont calculés par le modèle de Poisson à partir des buts attendus (xG) de chaque équipe. Les cinq scores les plus probables sont affichés pour chaque match.' : lang === 'en' ? 'Most likely exact scores computed by the Poisson model from each team’s expected goals (xG). The top 5 scorelines are shown per match, ranked by probability.' : 'يحسب نموذج بواسون النتائج الدقيقة الأكثر احتمالاً من الأهداف المتوقعة لكل فريق. نعرض أفضل خمسة نتائج مرتبة حسب الاحتمال.'}
           </p>

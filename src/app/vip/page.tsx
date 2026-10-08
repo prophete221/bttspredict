@@ -615,7 +615,7 @@ export default function VipPage() {
           <div className="vipx-hero__grid vipx-shell">
             <div className="vipx-hero__copy">
               <span className="vipx-eyebrow"><i aria-hidden="true" />{text.eyebrow}</span>
-              <AnimatedTitle as="h1" text={text.title} accentColor="#E8C268" enabled={lang !== 'ar'} />
+              <AnimatedTitle as="h1" text={text.title} accentColor="#E8C268" />
               <p className="vipx-hero__sub">{text.heroSub}</p>
               <div className="vipx-hero__cta">
                 <a className="vipx-btn vipx-btn--gold" href="#deblocage" onClick={() => setOpenStep(1)}>{text.ctaUnlock}<span aria-hidden="true">→</span></a>

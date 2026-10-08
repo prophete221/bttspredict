@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -35,9 +36,12 @@ export default function BttsAndOver25Page() {
             style={{ backgroundColor: 'rgba(127, 162, 198, 0.16)', color: '#2F7DFF', border: '1px solid rgba(127, 162, 198, 0.30)' }}>
             BTTS + Over 2.5 · Combined
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            BTTS and Over 2.5 Predictions Today
-          </h1>
+          <AnimatedTitle
+            as="h1"
+            text="BTTS and Over 2.5 Predictions Today"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
+            style={{ fontFamily: 'Poppins, sans-serif' }}
+          />
           <p className="text-base sm:text-lg text-[#9DABBB] leading-relaxed mb-3 max-w-3xl mx-auto">
             Combined predictions where <strong>both teams score</strong> (BTTS) AND <strong>total goals exceed 2.5</strong>. These high-confidence matches meet both criteria simultaneously — the most offensive games of the day.
           </p>

@@ -1,10 +1,18 @@
 'use client'
 
 /**
- * HeroWordmark — "Vector Wordmark" Originkit (brief designer), adapté BTTSPredict.
- * Titre rendu en matrice de points WebGL, réactif au curseur (netteté + poignées accent),
- * balayage automatique sans pointeur. Fallback statique garanti :
- * WebGL indisponible, prefers-reduced-motion, ou hors FR/EN → composant inerte.
+ * HeroWordmark — "Vector Wordmark" Originkit (brief designer), port fidèle BTTSPredict.
+ * Titre rendu en matrice de points WebGL, réactif au curseur (netteté + poignées accent
+ * reliées par ligne pointillée + étiquettes 01/02/03), balayage automatique sans pointeur.
+ * Fallback statique garanti : WebGL indisponible ou prefers-reduced-motion → composant inerte.
+ *
+ * Aligné sur le code source Originkit fourni : HANDLES=3, CELL_ASPECT, drift sin/cos,
+ * poignées amorties (verts), boîtes dimensionnées par handles.size (109 @ font 200),
+ * étiquettes LABEL_MAX=0.6, sweep auto SWEEP_RATE/RESNAP.
+ *
+ * Ajouts site : support RTL/arabe (détection premier caractère fort → ctx.direction,
+ * letterSpacing neutralisé), fit-to-width (l'atlas ne déborde jamais du conteneur),
+ * pause IntersectionObserver hors viewport, pointermove fenêtre avec zone de proximité.
  *
  * AnimatedTitle : enveloppe prête à l'emploi — le texte réel reste dans le DOM (SEO),
  * bascule canvas sans décalage de mise en page (visibility:hidden garde la hauteur).
@@ -15,6 +23,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 
 const MAX_DPR = 2
 const MAX_TEX = 4096
+const REF_WIDTH = 1200
 
 const HANDLES = 3
 const CELL_ASPECT = 0.6
@@ -28,11 +37,19 @@ const SWEEP_BAND = 0.28
 const RESNAP = 0.2
 const DAMP_REF = 20
 const SPEED_REF = 50
+const LABEL_MAX = 0.6
 const DOT_DIAMETER = 4 / 440
 const DOT_PITCH = 12 / 440
 
+/** Poignées — défauts Originkit (size 109 calibré pour une fonte de 200px). */
+const HANDLE_DEFAULTS = { size: 109, spread: 27, labels: true }
+const REF_FONT_PX = 200
+
 const clamp = (x: number, a: number, b: number) => (x < a ? a : x > b ? b : x)
 const fract = (x: number) => x - Math.floor(x)
+
+/** Premier caractère fort RTL (Arabe, Hébreu…) — équivalent CSS direction:auto. */
+const RTL_RE = /[\u0591-\u07FF\u08A0-\u08FF\uFB1D-\uFDFF\uFE70-\uFEFF]/
 
 type RGBA = [number, number, number, number]
 
@@ -233,12 +250,17 @@ function buildAtlas(
   const probe = document.createElement('canvas').getContext('2d')
   if (!probe) return null
 
+  const rtl = RTL_RE.test(text)
+
   const setFont = (ctx: CanvasRenderingContext2D, px: number) => {
     ctx.font = fontString(f, px)
+    ctx.direction = rtl ? 'rtl' : 'ltr'
     try {
       if ('letterSpacing' in ctx) {
-        ;(ctx as unknown as { letterSpacing: string }).letterSpacing =
-          f.letterSpacing
+        // L'espacement letteraire casse les ligatures arabes → 0px en RTL.
+        ;(ctx as unknown as { letterSpacing: string }).letterSpacing = rtl
+          ? '0px'
+          : f.letterSpacing
       }
     } catch {
       /* no-op */
@@ -281,6 +303,7 @@ function buildAtlas(
   ctx.textAlign = 'left'
   ctx.globalCompositeOperation = 'lighter'
 
+  // Canal rouge = remplissage plein ; canal vert = pointillés dot-matrix.
   ctx.fillStyle = '#ff0000'
   ctx.fillText(text, pad, pad + m.asc)
 
@@ -296,6 +319,15 @@ function buildAtlas(
   return { canvas, cssW: w * cssPerPx, cssH: h * cssPerPx }
 }
 
+export type WordmarkHandles = {
+  /** Taille des boîtes de poignée (px, calibrée pour une fonte de 200px). */
+  size?: number
+  /** Pas de la grille d'ancrage des poignées (pourcentage Originkit). */
+  spread?: number
+  /** Affiche les étiquettes 01/02/03 près des poignées. */
+  labels?: boolean
+}
+
 export type WordmarkCanvasProps = {
   text: string
   fontFamily?: string
@@ -308,6 +340,7 @@ export type WordmarkCanvasProps = {
   reach?: number
   speed?: number
   damping?: number
+  handles?: WordmarkHandles
   onUnavailable?: () => void
   className?: string
 }
@@ -325,11 +358,25 @@ export function WordmarkCanvas({
   reach = 240,
   speed = 50,
   damping = 60,
+  handles,
   onUnavailable,
   className,
 }: WordmarkCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const unavailableRef = useRef(false)
+  const labelRefs = useRef<(HTMLSpanElement | null)[]>([null, null, null])
+
+  const hg = { ...HANDLE_DEFAULTS, ...(handles ?? {}) }
+  const labelsOn = hg.labels
+
+  const accentRGBA = parseColor(accent, [0.18, 0.49, 1, 0.5])
+  const labelColor = `rgb(${Math.round(accentRGBA[0] * 255)}, ${Math.round(
+    accentRGBA[1] * 255
+  )}, ${Math.round(accentRGBA[2] * 255)})`
+  const labelBorder = `rgba(${Math.round(accentRGBA[0] * 255)}, ${Math.round(
+    accentRGBA[1] * 255
+  )}, ${Math.round(accentRGBA[2] * 255)}, 0.40)`
+  const labelFontSize = Math.round(clamp(fontPx * 0.16, 9, 13))
 
   const markUnavailable = useCallback(() => {
     if (unavailableRef.current) return
@@ -495,7 +542,11 @@ export function WordmarkCanvas({
           gl!.LINEAR_MIPMAP_LINEAR
         )
       } else {
-        gl!.texParameteri(gl!.TEXTURE_2D, gl!.TEXTURE_MIN_FILTER, gl!.LINEAR)
+        gl!.texParameteri(
+          gl!.TEXTURE_2D,
+          gl!.TEXTURE_MIN_FILTER,
+          gl!.LINEAR
+        )
       }
     }
 
@@ -503,9 +554,18 @@ export function WordmarkCanvas({
     const eased = { x: -0.5, y: 0.5 }
     const cells: { x: number; y: number }[] = []
     for (let i = 0; i < HANDLES; i += 1) cells.push({ x: -0.5, y: 0.5 })
+    // Poignées amorties (verts) — glissement continu vers la cellule cible.
+    const verts: { x: number; y: number }[] = cells.map((c) => ({ ...c }))
+    const labelAlpha = [0, 0, 0]
     let hasPointer = false
     let sweepClock = 0
     let driftT = 0
+
+    // État courant partagé step/render (recalculé à chaque frame).
+    let curPx = Math.max(8, fontPx)
+    let curAspect = 1
+    let curHalf = 0.01
+    let lastDamp = 0.1
 
     function snap(x: number, y: number, cw: number, ch: number) {
       const cx = Math.floor(x / cw)
@@ -569,12 +629,13 @@ export function WordmarkCanvas({
     let last = 0
 
     function step(dt: number) {
-      const cw = 27 / 100
+      const cw = Math.max(0.01, hg.spread / 100)
       const ch = cw * CELL_ASPECT
       const aspect = aspectNow()
+      curAspect = aspect
 
       if (!hasPointer) {
-        const band = (atlasRatioH * Math.max(8, fontPx)) / Math.max(1, boxH)
+        const band = (atlasRatioH * curPx) / Math.max(1, boxH)
         target.x += dt * SWEEP_RATE * (speed / SPEED_REF)
         target.y = (1 - band) / 2 + SWEEP_BAND * band
         if (target.x > 1.5) {
@@ -595,29 +656,27 @@ export function WordmarkCanvas({
       eased.y += (target.y - eased.y) * damp
 
       driftT += dt * (speed / SPEED_REF)
+      const sizePx = hg.size * (curPx / REF_FONT_PX)
+      curHalf = Math.max(0.004, sizePx * 0.5 / Math.max(1, boxH))
+
+      for (let i = 0; i < HANDLES; i += 1) {
+        const c = cells[i]
+        const sx = Math.round(c.x / cw - 0.5)
+        const sy = Math.round(c.y / ch - 0.5)
+        const bx = (sx + 0.5) * cw
+        const by = (sy + 0.5) * ch
+        const dx = Math.sin(driftT * DRIFT_RATE * 6.283 + i * 2.399) * DRIFT_X * cw
+        const dy = Math.cos(driftT * DRIFT_RATE_Y * 6.283 + i * 1.7) * DRIFT_Y * ch
+        const tx = clamp(bx + dx, -0.5, aspect + 0.5)
+        const ty = clamp(by + dy, 0.02, 0.98)
+        verts[i].x += (tx - verts[i].x) * damp
+        verts[i].y += (ty - verts[i].y) * damp
+      }
+      lastDamp = damp
     }
 
     function render() {
-      const aspect = aspectNow()
-      const cw = 27 / 100
-      const ch = cw * CELL_ASPECT
-
-      const verts: { x: number; y: number }[] = []
-      for (let i = 0; i < HANDLES; i += 1) {
-        const c = cells[i]
-        verts.push({
-          x: clamp(
-            c.x + DRIFT_X * cw * Math.sin(driftT * DRIFT_RATE * 6.283 + i * 2.399),
-            -0.5,
-            aspect + 0.5
-          ),
-          y: clamp(
-            c.y + DRIFT_Y * ch * Math.sin(driftT * DRIFT_RATE_Y * 6.283 + i * 1.7),
-            -0.2,
-            1.2
-          ),
-        })
-      }
+      const aspect = curAspect
 
       gl!.viewport(0, 0, bufW, bufH)
       gl!.useProgram(prog)
@@ -625,10 +684,10 @@ export function WordmarkCanvas({
       gl!.bindTexture(gl!.TEXTURE_2D, tex)
       gl!.uniform1i(U.map, 0)
       gl!.uniform2f(U.res, bufW, bufH)
-      const afx = Math.max(8, fontPx) * dpr
+      const afx = curPx * dpr
       gl!.uniform2f(U.atlas, atlasRatioW * afx, atlasRatioH * afx)
       gl!.uniform2f(U.ptr, eased.x, eased.y)
-      gl!.uniform1f(U.reach, reach / Math.max(1, boxW))
+      gl!.uniform1f(U.reach, reach / REF_WIDTH)
       const tc = parseColor(textColor, [0.95, 0.96, 0.98, 1])
       const sc = parseColor(shade, [0.62, 0.7, 0.8, 1])
       const ac = parseColor(accent, [0.18, 0.49, 1, 0.5])
@@ -638,11 +697,32 @@ export function WordmarkCanvas({
       gl!.uniform2f(U.v0, verts[0].x, verts[0].y)
       gl!.uniform2f(U.v1, verts[1].x, verts[1].y)
       gl!.uniform2f(U.v2, verts[2].x, verts[2].y)
-      gl!.uniform1f(U.half, ch * 0.5)
+      gl!.uniform1f(U.half, curHalf)
 
       gl!.clearColor(0, 0, 0, 0)
       gl!.clear(gl!.COLOR_BUFFER_BIT)
       gl!.drawArrays(gl!.TRIANGLE_STRIP, 0, 4)
+    }
+
+    function updateLabels() {
+      if (!labelsOn) return
+      for (let i = 0; i < HANDLES; i += 1) {
+        const el = labelRefs.current[i]
+        if (!el) continue
+        const nx = verts[i].x / Math.max(1e-4, curAspect)
+        const ny = 1 - verts[i].y
+        const inBounds =
+          verts[i].x > 0.015 &&
+          verts[i].x < curAspect - 0.015 &&
+          verts[i].y > 0.03 &&
+          verts[i].y < 0.97
+        const goal = inBounds ? LABEL_MAX : 0
+        labelAlpha[i] += (goal - labelAlpha[i]) * Math.min(1, lastDamp * 3 + 0.08)
+        el.style.opacity = labelAlpha[i].toFixed(3)
+        el.style.transform = `translate3d(${(nx * boxW).toFixed(1)}px, ${(
+          ny * boxH + 8
+        ).toFixed(1)}px, 0)`
+      }
     }
 
     const tick = (t: number) => {
@@ -676,8 +756,15 @@ export function WordmarkCanvas({
         rebuildAtlas()
       }
 
+      // Fit-to-width : l'atlas ne déborde jamais du conteneur (titres longs/mobiles).
+      curPx = Math.max(
+        8,
+        Math.min(fontPx, (boxW * 0.985) / Math.max(1e-4, atlasRatioW))
+      )
+
       step(dt)
       render()
+      updateLabels()
     }
     raf = requestAnimationFrame(tick)
 
@@ -693,15 +780,65 @@ export function WordmarkCanvas({
         /* no-op */
       }
     }
-  }, [text, fontPx, fontFamily, fontWeight, letterSpacing])
+  }, [
+    text,
+    fontPx,
+    fontFamily,
+    fontWeight,
+    letterSpacing,
+    textColor,
+    shade,
+    accent,
+    reach,
+    speed,
+    damping,
+    markUnavailable,
+  ])
 
   return (
-    <canvas
-      ref={canvasRef}
-      aria-hidden="true"
-      className={className}
-      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}
-    />
+    <>
+      <canvas
+        ref={canvasRef}
+        aria-hidden="true"
+        className={className}
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}
+      />
+      {labelsOn &&
+        [0, 1, 2].map((i) => (
+          <span
+            key={i}
+            ref={(el) => {
+              labelRefs.current[i] = el
+            }}
+            aria-hidden="true"
+            style={{
+              position: 'absolute',
+              left: 0,
+              top: 0,
+              opacity: 0,
+              pointerEvents: 'none',
+              zIndex: 2,
+              display: 'inline-block',
+              padding: '2px 6px',
+              borderRadius: 6,
+              border: `1px solid ${labelBorder}`,
+              background: 'rgba(3, 6, 10, 0.55)',
+              backdropFilter: 'blur(6px)',
+              WebkitBackdropFilter: 'blur(6px)',
+              color: labelColor,
+              fontFamily:
+                'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
+              fontSize: labelFontSize,
+              lineHeight: 1.2,
+              letterSpacing: '0.08em',
+              whiteSpace: 'nowrap',
+              willChange: 'transform, opacity',
+            }}
+          >
+            {`0${i + 1}`}
+          </span>
+        ))}
+    </>
   )
 }
 
@@ -715,7 +852,9 @@ export type AnimatedTitleProps = {
   fontWeight?: number
   /** Couleur des poignées accent (défaut bleu analyse site). */
   accentColor?: string
-  /** Active l'effet (désactivé pour l'arabe — RTL non supporté par l'atlas). */
+  /** Configuration des poignées Originkit (size/spread/labels). */
+  handles?: WordmarkHandles
+  /** Active l'effet (défaut true — AR/RTL supporté nativement). */
   enabled?: boolean
 }
 
@@ -733,6 +872,7 @@ export default function AnimatedTitle({
   fontFamily,
   fontWeight,
   accentColor = '#2F7DFF',
+  handles,
   enabled = true,
 }: AnimatedTitleProps) {
   const Tag = as as any
@@ -741,7 +881,7 @@ export default function AnimatedTitle({
   const [active, setActive] = useState(false)
   const [webglOk, setWebglOk] = useState(true)
 
-  /* Latence :attendre les polices pour mesurer la vraie hauteur de ligne */
+  /* Latence : attendre les polices pour mesurer la vraie hauteur de ligne */
   useEffect(() => {
     if (!enabled || !webglOk) return
     let cancelled = false
@@ -796,6 +936,7 @@ export default function AnimatedTitle({
           fontWeight={fontWeight}
           fontPx={canvasFontPx}
           accent={accentColor}
+          handles={handles}
           onUnavailable={() => {
             setActive(false)
             setWebglOk(false)

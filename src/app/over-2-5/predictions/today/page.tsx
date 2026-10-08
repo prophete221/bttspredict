@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { getDakarDateString } from '@/lib/dakar-date'
+import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -61,9 +62,12 @@ export default function Over25PredictionsTodayPage() {
                 Aujourd&apos;hui · {dakarDateLabel}
               </span>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Pronostics Over 2.5 du jour
-            </h1>
+            <AnimatedTitle
+              as="h1"
+              text="Pronostics Over 2.5 du jour"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3"
+              style={{ fontFamily: 'Poppins, sans-serif' }}
+            />
             <p className="text-base sm:text-lg text-[#9DABBB] leading-relaxed max-w-3xl">
               Les matchs sélectionnés aujourd&apos;hui selon la probabilité d&apos;au moins 3 buts.
             </p>
