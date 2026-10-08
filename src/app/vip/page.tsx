@@ -6,6 +6,7 @@ import { AFFILIATE } from '@/lib/constants'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
 import type { Locale } from '@/lib/i18n'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
+import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 import './vip.css'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
@@ -614,7 +615,7 @@ export default function VipPage() {
           <div className="vipx-hero__grid vipx-shell">
             <div className="vipx-hero__copy">
               <span className="vipx-eyebrow"><i aria-hidden="true" />{text.eyebrow}</span>
-              <h1>{text.title}</h1>
+              <AnimatedTitle as="h1" text={text.title} accentColor="#E8C268" enabled={lang !== 'ar'} />
               <p className="vipx-hero__sub">{text.heroSub}</p>
               <div className="vipx-hero__cta">
                 <a className="vipx-btn vipx-btn--gold" href="#deblocage" onClick={() => setOpenStep(1)}>{text.ctaUnlock}<span aria-hidden="true">→</span></a>

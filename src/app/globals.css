@@ -15,14 +15,14 @@
   /* ═══ DESIGN V2 — "Football data platform" ═══ */
   /* Bleu analyse = actions/interactions. WIN=vert, LOST=rouge, PENDING=ambre, VIP=or. */
 
-  /* — Fonds (5 niveaux) — noir bleuté premium — */
-  --color-bg-main: #0B0F14;            /* Fond principal */
-  --color-bg-secondary: #10161D;       /* Sections / panels */
-  --color-bg-tertiary: #141C25;        /* Panels élevés */
-  --color-card: #141C25;               /* Card surface standard */
-  --color-card-hover: #1A242F;         /* Card surface hover/sélection */
-  --color-border: #223041;             /* Border subtile */
-  --color-border-strong: #35485C;      /* Border visible / focus */
+  /* — Fonds (5 niveaux) — macOS noir — profondeur maximale — */
+  --color-bg-main: #05070B;            /* Fond principal */
+  --color-bg-secondary: #080B10;       /* Sections / panels */
+  --color-bg-tertiary: #0D1219;        /* Panels élevés */
+  --color-card: #0D1219;               /* Card surface standard */
+  --color-card-hover: #131A23;         /* Card surface hover/sélection */
+  --color-border: rgba(255, 255, 255, 0.08);        /* Border subtile */
+  --color-border-strong: rgba(255, 255, 255, 0.16); /* Border visible / focus */
 
   /* — Texte (3 niveaux) — */
   --color-text-primary: #F2F6FA;      /* Titres, chiffres */
@@ -30,13 +30,13 @@
   --color-text-tertiary: #6B7A8C;      /* Muted, disabled */
 
   /* — Surfaces — */
-  --color-surface-card: #141C25;
-  --color-surface-card-hover: #1A242F;
-  --color-surface-premium: #1A242F;
+  --color-surface-card: #0D1219;
+  --color-surface-card-hover: #131A23;
+  --color-surface-premium: #131A23;
 
   /* — Borders — */
-  --color-border-default: #223041;
-  --color-border-hover: #35485C;
+  --color-border-default: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.16);
 
   /* — Action (1 CTA primaire par viewport) — bleu analyse — */
   --color-action-primary: #2F7DFF;
@@ -100,11 +100,11 @@
   --color-vip-hover: #F0D193;
   --color-success-hover: #6EE7B7;
   --color-error-hover: #FCA5A5;
-  --color-border-hover: #35485C;       /* Hover border → neutre (modération du bleu) */
+  --color-border-hover: rgba(255, 255, 255, 0.16); /* Hover border → hairline claire (macOS noir) */
 
   /* — Glassmorphism — */
-  --color-glass: rgba(148, 183, 214, 0.08);
-  --color-glass-border: rgba(148, 183, 214, 0.18);
+  --color-glass: rgba(18, 24, 34, 0.55);
+  --color-glass-border: rgba(255, 255, 255, 0.10);
 
   /* ═══ Aliases mappés sur ECLIPSE v60 ═══ */
   --color-abyss: var(--color-bg-main);
@@ -5069,4 +5069,79 @@ body {
   .hp-live__skeleton, .hp-skeleton { animation: none; background: rgba(255, 255, 255, 0.035); }
   .hp-btn-primary, .hp-btn-primary:hover, .hp-btn-ghost, .hp-pillar, .hp-mc-card, .hp-trend__bar, .hp-league { transition: none; transform: none; }
   .hp-btn-primary:hover .hp-btn-arrow { transform: none; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   MACOS NOIR — Surfaces translucides, profondeur, hairlines (brief designer)
+   Section ajoutée en fin de fichier : écrase proprement les styles amont.
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* — Fond global : noir profond + lueurs radiales subtiles — */
+body {
+  background-color: #05070B;
+  background-image:
+    radial-gradient(1100px 700px at 80% -12%, rgba(47, 125, 255, 0.06), transparent 62%),
+    radial-gradient(900px 620px at -12% 28%, rgba(69, 199, 247, 0.035), transparent 58%),
+    radial-gradient(1400px 900px at 50% 118%, rgba(10, 16, 26, 0.9), transparent 70%);
+  background-attachment: fixed;
+}
+/* Grille décorative : à peine visible sur noir */
+body::before {
+  background-image:
+    linear-gradient(rgba(91, 169, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91, 169, 255, 0.018) 1px, transparent 1px);
+}
+
+/* — Sélection & scrollbar façon macOS — */
+::selection { background: rgba(47, 125, 255, 0.32); color: #F2F6FA; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #05070B; }
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  border: 2px solid #05070B;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.22); }
+
+/* — Cartes « vitrine » : verre sombre translucide (fenêtre macOS) — */
+.hp-live,
+.hp-partner {
+  background:
+    linear-gradient(168deg, rgba(16, 22, 31, 0.72) 0%, rgba(10, 14, 21, 0.66) 100%);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 30px 70px rgba(0, 0, 0, 0.6),
+    0 10px 24px rgba(0, 0, 0, 0.4);
+}
+.hp-live::before {
+  background: linear-gradient(90deg, transparent, rgba(69, 199, 247, 0.5), rgba(47, 125, 255, 0.28), transparent);
+}
+
+/* — Statistiques hero (chiffres factuels) — hairline + verre — */
+.hp-hstats { gap: 0.9rem; }
+.hp-hstat {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: rgba(12, 17, 25, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.7rem 0.95rem;
+}
+
+/* — Panneaux et cartes génériques — profondeur douce — */
+.vip-glass-card {
+  background: rgba(10, 14, 21, 0.62) !important;
+  border-color: rgba(255, 255, 255, 0.09) !important;
+}
+
+/* — Titre accentué : conserve le contraste sur noir absolu — */
+.hp-title-em {
+  background: linear-gradient(120deg, #4A90FF 0%, #45C7F7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }

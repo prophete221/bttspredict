@@ -70,10 +70,10 @@ export default function Navbar() {
       <nav
         className="sticky top-0 z-50 navbar-blur"
         style={{
-          backgroundColor: 'rgba(11, 15, 20, 0.90)',
-          borderBottom: '1px solid #223041',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
+          backgroundColor: 'rgba(4, 6, 10, 0.72)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.07)',
+          backdropFilter: 'blur(24px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(24px) saturate(180%)',
         }}
       >
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6">

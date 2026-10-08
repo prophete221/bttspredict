@@ -4,8 +4,8 @@ import { useEffect, useMemo, useState } from 'react'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { SITE, AFFILIATE } from '@/lib/constants'
-import AffiliateSignupCta from './AffiliateSignupCta'
-import { trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
+import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
+import MovingGradientButton from './MovingGradientButton'
 
 /* ═══════════════════════════════════════════════════════════════════
    MethodSection — 4 étapes, éditorial court en 2 colonnes.
@@ -185,15 +185,16 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
                 {copied ? '✓' : t.hero.copy}
               </button>
             </div>
-            <AffiliateSignupCta
+            <MovingGradientButton
               href={AFFILIATE.linebet}
-              partner="linebet"
-              placement="home-partner"
-              className="hp-btn-primary hp-partner__cta"
+              external
+              rel="sponsored nofollow noopener noreferrer"
+              dataCta="partner-signup-home"
+              onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'home-partner')}
             >
               {t.home2.ptCta}
               <span className="hp-btn-arrow" aria-hidden="true">→</span>
-            </AffiliateSignupCta>
+            </MovingGradientButton>
             <p className="hp-partner__mentions">{t.home2.ptMentions}</p>
           </div>
         </div>

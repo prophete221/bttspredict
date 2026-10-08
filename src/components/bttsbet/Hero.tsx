@@ -5,6 +5,8 @@ import { useScrollAnimation } from '@/hooks/useAnimations'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { generateMatchSlug } from '@/lib/match-slug'
+import AnimatedTitle from './HeroWordmark'
+import MovingGradientButton from './MovingGradientButton'
 
 /**
  * Hero v4 — « signal terminal » premium.
@@ -88,6 +90,15 @@ function withAccent(text: string, key: string) {
   )
 }
 
+function plainTitle(text: string) {
+  return text.replace(/[\[\]]/g, '')
+}
+
+function accentOf(text: string) {
+  const m = text.match(/\[(.+?)\]/)
+  return m ? m[1] : undefined
+}
+
 export default function Hero({ initialLocale }: { initialLocale?: Locale } = {}) {
   const [sectionRef] = useScrollAnimation(0.05)
   const { lang: detectedLang } = useLanguage()
@@ -165,17 +176,21 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
           {/* ═══ Colonne message ═══ */}
           <div className="hp-hero__copy">
             <h1 className="hp-hero__title">
-              {withAccent(t.home2.heroTitle1, 'l1')}
+              <AnimatedTitle
+                text={plainTitle(t.home2.heroTitle1)}
+                accent={accentOf(t.home2.heroTitle1)}
+                enabled={lang !== 'ar'}
+              />
               <span className="hp-hero__title-line2">{withAccent(t.home2.heroTitle2, 'l2')}</span>
             </h1>
 
             <p className="hp-hero__text">{t.home2.heroText}</p>
 
             <div className="hp-hero__cta-zone">
-              <a href="#matchs" data-cta="hero-open-matchs" className="hp-btn-primary">
+              <MovingGradientButton href="#matchs" dataCta="hero-open-matchs">
                 {t.home2.heroCtaPrimary}
                 <span className="hp-btn-arrow" aria-hidden="true">→</span>
-              </a>
+              </MovingGradientButton>
               <a href={localizedPath('/historique', lang)} data-cta="hero-history" className="hp-btn-ghost">
                 {t.home2.heroCtaSecondary}
               </a>
