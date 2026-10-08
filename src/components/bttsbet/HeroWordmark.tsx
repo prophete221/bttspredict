@@ -20,6 +20,7 @@
 
 import * as React from 'react'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import VectorWordmark from './VectorWordmark'
 
 const MAX_DPR = 2
 const MAX_TEX = 4096
@@ -859,9 +860,13 @@ export type AnimatedTitleProps = {
 }
 
 /**
- * Titre animé sans CLS : le texte réel est rendu (SEO/fallback), le canvas
- * vient se superposer une fois mesuré ; le span passe en visibility:hidden
- * (garde la hauteur exacte). Échec WebGL → texte statique intact.
+ * AnimatedTitle — wordmark WebGL interactif (matrice de points, poignées,
+ * balayage lumineux, proximité du curseur). Le texte réel reste rendu dans le
+ * DOM (SEO/WCAG/fallback) et n'est masqué (visibility:hidden, hauteur conservée)
+ * que lorsque le canvas a réellement rendu sa première frame.
+ *
+ * Implémentation déléguée à VectorWordmark (WebGL2→WebGL1, repli gracieux,
+ * pause hors viewport, DPR plafonné, prefers-reduced-motion respecté).
  */
 export default function AnimatedTitle({
   text,
@@ -870,39 +875,26 @@ export default function AnimatedTitle({
   className,
   style,
   fontFamily,
-  fontWeight,
+  fontWeight = 800,
   accentColor = '#2F7DFF',
   handles,
   enabled = true,
 }: AnimatedTitleProps) {
   const Tag = as as any
   const lineRef = useRef<HTMLElement | null>(null)
-  const [canvasFontPx, setCanvasFontPx] = useState(0)
   const [active, setActive] = useState(false)
-  const [webglOk, setWebglOk] = useState(true)
+  const [family, setFamily] = useState('')
 
-  /* Latence : attendre les polices pour mesurer la vraie hauteur de ligne */
+  const reduced =
+    typeof window !== 'undefined' &&
+    typeof window.matchMedia === 'function' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  /* Résoudre la police réellement appliquée (next/font → nom généré). */
   useEffect(() => {
-    if (!enabled || !webglOk) return
-    let cancelled = false
-    const activate = () => {
-      if (cancelled) return
-      const el = lineRef.current
-      if (!el) return
-      const h = el.offsetHeight
-      if (h < 8) return
-      setCanvasFontPx(Math.round(h * 0.78))
-      setActive(true)
-    }
-    if (document.fonts?.ready) {
-      document.fonts.ready.then(activate, activate)
-    } else {
-      activate()
-    }
-    return () => {
-      cancelled = true
-    }
-  }, [enabled, webglOk, text])
+    const el = lineRef.current
+    if (el) setFamily(window.getComputedStyle(el).fontFamily)
+  }, [])
 
   const renderContent = () => {
     if (!accent) return text
@@ -917,6 +909,8 @@ export default function AnimatedTitle({
     )
   }
 
+  const showCanvas = enabled && !reduced && Boolean(family)
+
   return (
     <Tag
       ref={lineRef as any}
@@ -925,22 +919,21 @@ export default function AnimatedTitle({
         ...style,
         display: 'block',
         position: 'relative',
-        ...(active && webglOk ? { visibility: 'hidden' } : null),
+        ...(active ? { visibility: 'hidden' } : null),
       }}
     >
       {renderContent()}
-      {active && webglOk && canvasFontPx > 0 && (
-        <WordmarkCanvas
+      {showCanvas && (
+        <VectorWordmark
+          className="hero-wordmark-layer"
+          style={{ visibility: 'visible' }}
           text={text}
-          fontFamily={fontFamily}
-          fontWeight={fontWeight}
-          fontPx={canvasFontPx}
+          font={family}
+          weight={fontWeight}
           accent={accentColor}
           handles={handles}
-          onUnavailable={() => {
-            setActive(false)
-            setWebglOk(false)
-          }}
+          onReady={() => setActive(true)}
+          onError={() => setActive(false)}
         />
       )}
     </Tag>
