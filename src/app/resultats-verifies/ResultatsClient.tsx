@@ -1,14 +1,23 @@
 'use client'
 
 /**
- * /resultats-verifies — résultats vérifiés (Vague 2).
+ * /resultats-verifies — résultats vérifiés (Vague 2 → V3 motion design).
  * Données réelles de win-history.json uniquement ; chaque taux avec son
  * dénominateur ; sémantique stricte WIN (vert) / LOST (rouge) ; texte ≥ 12px.
+ *
+ * Motion design (macOS noir) :
+ *  - révélation en cascade des cartes et du tableau (IntersectionObserver) ;
+ *  - compteurs animés (count-up) sur les taux et totaux réels ;
+ *  - barres de performance par marché qui grandissent à l'apparition ;
+ *  - badges WIN/LOST avec pop d'apparition + lueur pour les gains ;
+ *  - hover de ligne avec liseré vert/rouge selon le résultat ;
+ *  - tout est désactivé sous prefers-reduced-motion.
  */
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
 import { fmtPct } from '@/components/bttsbet/SimpleCharts'
+import { useCountUp } from '@/hooks/useAnimations'
 
 type ResultHistoryEntry = {
   date: string
@@ -64,10 +73,91 @@ const COPIES: Record<'fr' | 'en' | 'ar', Copy> = {
   },
 }
 
+/** Révélation à l'entrée dans le viewport (une fois) — scopes compacts. */
+function useReveal<T extends HTMLElement>(): [React.RefObject<T | null>, boolean] {
+  const ref = useRef<T>(null)
+  const [visible, setVisible] = useState(false)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    if (typeof IntersectionObserver === 'undefined') { setVisible(true); return }
+    // Déjà dans le viewport au montage → révéler immédiatement (sinon un
+    // conteneur plus grand que l'écran n'atteindrait jamais le seuil).
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.92) {
+      setVisible(true)
+      return
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          io.disconnect()
+        }
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
+  return [ref, visible]
+}
+
+/** Carte KPI glass avec compteur animé. */
+function KpiCard({
+  eyebrow,
+  value,
+  decimals = 0,
+  suffix,
+  subValue,
+  footnote,
+  tone = 'default',
+  delay,
+  visible,
+  lang,
+}: {
+  eyebrow: string
+  value: string
+  decimals?: number
+  suffix?: string
+  subValue: string
+  footnote: string
+  tone?: 'default' | 'gold'
+  delay: number
+  visible: boolean
+  lang: 'fr' | 'en' | 'ar'
+}) {
+  const numeric = parseFloat(value.replace(',', '.'))
+  const canCount = Number.isFinite(numeric)
+  const [ref, display] = useCountUp(canCount ? numeric : 0, 1500, { decimals })
+  const shown = lang === 'fr' ? display.replace('.', ',') : display
+  return (
+    <div
+      ref={canCount ? (ref as React.RefObject<HTMLDivElement>) : undefined}
+      className={`rv-card${tone === 'gold' ? ' rv-card--gold' : ''}${visible ? ' is-visible' : ''}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <div className="rv-card__eyebrow">{eyebrow}</div>
+      <div className="rv-card__row">
+        <div className="rv-card__value">
+          {canCount ? shown : value}
+          {suffix}
+        </div>
+        <div className="rv-card__subvalue">{subValue}</div>
+      </div>
+      <div className="rv-card__footnote">{footnote}</div>
+    </div>
+  )
+}
+
 export default function ResultatsClient({ initialData }: { initialData?: any }) {
   const { lang } = useLanguage()
   const copy = COPIES[lang]
   const [data, setData] = useState<any>(initialData || null)
+  // Trois scopes indépendants : les seuils IO restent atteignables même si
+  // le tableau fait plusieurs écrans de haut.
+  const [kpiRef, kpiVisible] = useReveal<HTMLDivElement>()
+  const [marketRef, marketVisible] = useReveal<HTMLElement>()
+  const [tableRef, tableVisible] = useReveal<HTMLDivElement>()
 
   useEffect(() => {
     if (data) return
@@ -131,45 +221,80 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
   const trackingFrom = data.trackingPeriod?.startDate || null
 
   return (
-    <>
+    <div>
       {/* Périmètre explicite */}
-      <p className="text-xs text-[#9DABBB] leading-relaxed mb-6 max-w-3xl">
+      <p className={`rv-scope${kpiVisible ? ' is-visible' : ''}`}>
         {total} {copy.verified} {copy.scopeOf} {published} {copy.published}
         {trackingFrom && (lang === 'fr' ? ` depuis le ${trackingFrom} (suivi public)` : lang === 'en' ? ` since ${trackingFrom} (public tracking)` : ` منذ ${trackingFrom}`)}
         {published > 0 && published - total > 0 && ` · ${published - total} ${lang === 'fr' ? 'encore en attente de vérification' : lang === 'en' ? 'still pending verification' : 'لا يزال قيد التحقق'}`}
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
-        <div className="rounded-[16px] bg-[#141C25] border border-[#223041] p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
-          <div className="text-xs text-[#9DABBB] uppercase tracking-widest font-bold">{copy.verified}</div>
-          <div className="mt-1 flex items-baseline gap-2"><div className="text-3xl font-bold text-[#F2F6FA] font-mono">{total}</div><div className="text-xs text-[#9DABBB]">{won} WIN / {lost} LOST</div></div>
-          <div className="mt-2 text-xs text-[#9DABBB]">{copy.allRate}: <span className="text-[#F2F6FA] font-bold">{fmtPct(stats.rate?.toFixed(1), lang)} %</span></div>
-        </div>
-        <div className="rounded-[16px] bg-[#141C25] border border-[#E8C268]/40 p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
-          <div className="text-xs uppercase tracking-widest font-bold" style={{ color: '#E8C268' }}>{copy.goldPicks}</div>
-          <div className="mt-1 flex items-baseline gap-2"><div className="text-3xl font-bold text-[#F2F6FA] font-mono">{fmtPct(goldRate?.toFixed(1), lang)} %</div><div className="text-xs text-[#9DABBB]">{goldTotal} {copy.verifiedCount}</div></div>
-          <div className="mt-2 text-xs text-[#9DABBB]">{copy.premiumSelection} · {stats.gold?.won || 0} WIN / {stats.gold?.lost || 0} LOST</div>
-        </div>
-        <div className="rounded-[16px] bg-[#141C25] border border-[#223041] p-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
-          <div className="text-xs text-[#9DABBB] uppercase tracking-widest font-bold">{copy.last30}</div>
-          <div className="mt-1 flex items-baseline gap-2"><div className="text-3xl font-bold text-[#F2F6FA] font-mono">{rate30 !== null ? `${fmtPct(rate30, lang)} %` : '—'}</div><div className="text-xs text-[#9DABBB]">{w30} WIN / {l30} LOST</div></div>
-          <div className="mt-2 text-xs text-[#9DABBB]">{scanLabel}</div>
-        </div>
+      <div className="rv-grid" ref={kpiRef as React.RefObject<HTMLDivElement>}>
+        <KpiCard
+          eyebrow={copy.verified}
+          value={String(total)}
+          suffix=""
+          subValue={`${won} WIN / ${lost} LOST`}
+          footnote={`${copy.allRate}: ${fmtPct(stats.rate?.toFixed(1), lang)} %`}
+          delay={0}
+          visible={kpiVisible}
+          lang={lang}
+        />
+        <KpiCard
+          eyebrow={copy.goldPicks}
+          value={goldRate ? goldRate.toFixed(1) : '0.0'}
+          decimals={1}
+          suffix=" %"
+          subValue={`${goldTotal} ${copy.verifiedCount}`}
+          footnote={`${copy.premiumSelection} · ${stats.gold?.won || 0} WIN / ${stats.gold?.lost || 0} LOST`}
+          tone="gold"
+          delay={90}
+          visible={kpiVisible}
+          lang={lang}
+        />
+        <KpiCard
+          eyebrow={copy.last30}
+          value={rate30 !== null ? rate30 : '—'}
+          decimals={rate30 !== null ? 1 : 0}
+          suffix={rate30 !== null ? ' %' : ''}
+          subValue={`${w30} WIN / ${l30} LOST`}
+          footnote={scanLabel}
+          delay={180}
+          visible={kpiVisible}
+          lang={lang}
+        />
       </div>
 
-      <section className="rounded-[16px] bg-[#141C25] border border-[#223041] p-4 sm:p-5 mb-6" aria-labelledby="market-breakdown-title">
-        <h2 id="market-breakdown-title" className="text-sm font-bold text-[#F2F6FA] mb-3">{copy.marketBreakdown}</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {marketStats.map(item => (
-            <div key={item.label} className="rounded-xl border border-[#223041] bg-[#10161D] px-3 py-3">
-              <div className="flex items-baseline justify-between gap-2">
-                <div className="text-sm font-bold text-[#F2F6FA]">{item.label}</div>
-                <div className="text-lg font-bold text-[#2F7DFF] font-mono">{item.rate !== null ? `${fmtPct(item.rate.toFixed(1), lang)} %` : '—'}</div>
+      <section
+        className={`rv-section${marketVisible ? ' is-visible' : ''}`}
+        aria-labelledby="market-breakdown-title"
+        style={{ transitionDelay: '120ms' }}
+        ref={marketRef as React.RefObject<HTMLElement>}
+      >
+        <h2 id="market-breakdown-title" className="rv-section__title">{copy.marketBreakdown}</h2>
+        <div className="rv-grid rv-grid--markets">
+          {marketStats.map((item, mi) => (
+            <div key={item.label} className="rv-market">
+              <div className="rv-market__head">
+                <div className="rv-market__label">{item.label}</div>
+                <div className="rv-market__rate">{item.rate !== null ? `${fmtPct(item.rate.toFixed(1), lang)} %` : '—'}</div>
               </div>
-              <div className="mt-1 text-xs text-[#9DABBB]">
+              {/* Barre motion : grandit de 0 → rate% à l'apparition */}
+              <div className="rv-market__track" aria-hidden="true">
+                <div
+                  className={`rv-market__bar${item.rate !== null && item.rate < 50 ? ' rv-market__bar--weak' : ''}${marketVisible ? ' is-visible' : ''}`}
+                  style={{ width: marketVisible && item.rate !== null ? `${Math.max(2, item.rate)}%` : '0%', transitionDelay: `${200 + mi * 160}ms` }}
+                />
+                <div
+                  className="rv-market__bar-ghost"
+                  style={{ width: item.rate !== null ? `${Math.max(2, item.rate)}%` : '0%', transitionDelay: `${200 + mi * 160}ms` }}
+                  aria-hidden="true"
+                />
+              </div>
+              <div className="rv-market__meta">
                 {item.wins} WIN · {item.losses} LOST · {item.count} {copy.sample}
                 {item.count > 0 && item.count < 30 && (
-                  <span className="ml-2 px-1.5 py-0.5 rounded text-[12px]" style={{ backgroundColor: 'rgba(251,191,36,0.12)', color: '#FBBF24' }}>
+                  <span className="rv-sample-flag">
                     {lang === 'fr' ? 'échantillon faible' : lang === 'en' ? 'small sample' : 'عينة صغيرة'}
                   </span>
                 )}
@@ -177,44 +302,53 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
             </div>
           ))}
         </div>
-        {marketStats.every(item => item.count === 0) && <p className="text-xs text-[#9DABBB] mt-3">{copy.noMarketData}</p>}
+        {marketStats.every(item => item.count === 0) && <p className="rv-empty-note">{copy.noMarketData}</p>}
       </section>
 
-      <div className="rounded-[16px] bg-[#141C25] border border-[#223041] p-4 sm:p-5">
-        <h2 className="text-sm font-bold text-[#F2F6FA] mb-3">{copy.detailed}</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full text-xs sm:text-sm">
+      <div
+        className={`rv-section${tableVisible ? ' is-visible' : ''}`}
+        style={{ transitionDelay: '80ms' }}
+        ref={tableRef as React.RefObject<HTMLDivElement>}
+      >
+        <h2 className="rv-section__title">{copy.detailed}</h2>
+        <div className="rv-table-wrap">
+          <table className="rv-table">
             <thead>
-              <tr className="text-xs uppercase tracking-wider text-[#9DABBB] border-b border-[#223041]">
-                <th className="text-left py-2 px-2 font-bold">{copy.date}</th>
-                <th className="text-left py-2 px-2 font-bold">{copy.match}</th>
-                <th className="text-left py-2 px-2 font-bold">{copy.market}</th>
-                <th className="text-center py-2 px-2 font-bold">{copy.proba}</th>
-                <th className="text-center py-2 px-2 font-bold">{copy.score}</th>
-                <th className="text-center py-2 px-2 font-bold">{copy.result}</th>
+              <tr>
+                <th className="text-left">{copy.date}</th>
+                <th className="text-left">{copy.match}</th>
+                <th className="text-left">{copy.market}</th>
+                <th className="rv-th-center">{copy.proba}</th>
+                <th className="rv-th-center">{copy.score}</th>
+                <th className="rv-th-center">{copy.result}</th>
               </tr>
             </thead>
             <tbody>
               {dedupedHistory.length === 0 ? (
-                <tr><td colSpan={6} className="text-center text-[#9DABBB] py-8">{copy.empty}</td></tr>
+                <tr><td colSpan={6} className="rv-empty-cell">{copy.empty}</td></tr>
               ) : dedupedHistory.slice(0, 100).map((h, i) => {
                 const isWon = h.status === 'WON' || h.isWon === true
                 const isGold = (h.tier || 'STANDARD').toUpperCase() === 'GOLD'
                 const probaPct = typeof h.proba === 'number' && h.proba > 0 ? `${fmtPct((h.proba * 100).toFixed(0), lang)}%` : '—'
+                // Cascade : 22 premières lignes échelonnées, les suivantes apparaissent avec la fin de la vague
+                const rowDelay = Math.min(i, 22) * 34
                 return (
-                  <tr key={i} className="border-b border-[#223041]/50">
-                    <td className="py-2 px-2 text-[#9DABBB] font-mono whitespace-nowrap">{(h.date || '').slice(5)}</td>
-                    <td className="py-2 px-2 text-[#F2F6FA]">{(h.match || '').substring(0, 35)}</td>
-                    <td className="py-2 px-2 text-[#9DABBB] whitespace-nowrap">
+                  <tr
+                    key={i}
+                    className={`rv-row rv-row--${isWon ? 'win' : 'loss'}${tableVisible ? ' is-visible' : ''}`}
+                    style={{ transitionDelay: `${rowDelay}ms` }}
+                  >
+                    <td className="rv-cell rv-cell--date">{(h.date || '').slice(5)}</td>
+                    <td className="rv-cell rv-cell--match">{(h.match || '').substring(0, 35)}</td>
+                    <td className="rv-cell rv-cell--market">
                       {getMarket(h)}
-                      {isGold && <span className="ml-1.5 px-1.5 py-0.5 rounded text-[12px] font-bold" style={{ backgroundColor: 'rgba(232,194,104,0.14)', color: '#E8C268' }}>GOLD</span>}
+                      {isGold && <span className="rv-gold-flag">GOLD</span>}
                     </td>
-                    <td className="py-2 px-2 text-center text-[#9DABBB] font-mono">{probaPct}</td>
-                    <td className="py-2 px-2 text-center text-[#F2F6FA] font-mono">{h.finalScore || h.score || '-'}</td>
-                    <td className="py-2 px-2 text-center whitespace-nowrap">
-                      <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full font-bold text-xs"
-                        style={isWon ? { backgroundColor: 'rgba(52,211,153,0.13)', color: '#34D399' } : { backgroundColor: 'rgba(248,113,113,0.13)', color: '#F87171' }}>
-                        <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: isWon ? '#34D399' : '#F87171' }} aria-hidden="true" />
+                    <td className="rv-cell rv-cell--proba">{probaPct}</td>
+                    <td className="rv-cell rv-cell--score">{h.finalScore || h.score || '-'}</td>
+                    <td className="rv-cell rv-cell--result">
+                      <span className={`rv-badge rv-badge--${isWon ? 'win' : 'loss'}${tableVisible ? ' is-visible' : ''}`} style={{ transitionDelay: `${60 + rowDelay}ms` }}>
+                        <span className="rv-badge__dot" aria-hidden="true" />
                         {isWon ? 'WIN' : 'LOST'}
                       </span>
                     </td>
@@ -225,6 +359,6 @@ export default function ResultatsClient({ initialData }: { initialData?: any }) 
           </table>
         </div>
       </div>
-    </>
+    </div>
   )
 }
