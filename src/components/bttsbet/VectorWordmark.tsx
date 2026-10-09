@@ -11,14 +11,24 @@
  *  - le texte est rasterisé puis échantillonné en matrice de points
  *    (PAS ENTIER obligatoire : un pas flottant produit des indices non entiers
  *    dans le TypedArray → nuage vide — bug racine de la v4) ;
- *  - DRAW-IN : les points volent d'un nuage éclaté vers leur position,
- *    échelonnés de gauche à droite (effet « dessiné à la main ») ;
- *  - DRIFT : dérive sinusoïdale continue — le titre n'est jamais figé ;
- *  - POINTEUR : répulsion + teinte accent près du curseur (comme le balayage
- *    du shader d'origine), balayage automatique sans pointeur.
+ *  - DRAW-IN « coalesce » : les points matérialisent le texte depuis un
+ *    rayon très court (12–40 px) — le titre reste LISIBLE pendant toute
+ *    l'animation (correctif « texte illisible » : plus de nuage éclaté) ;
+ *  - DRIFT : dérive sinusoïdale faible — vivant mais net ;
+ *  - POINTEUR : répulsion douce + teinte accent près du curseur, balayage
+ *    automatique sans pointeur.
  *
- * Contrat conservé à l'identique :
+ * Lisibilité (contrat v6) — le titre reste lisible à chaque instant :
+ *  1. le texte DOM est visible jusqu'à la première frame du canvas ;
+ *  2. le canvas peint alors un CALQUE TEXTE PLEIN (même géométrie que la
+ *     matrice de points, donc parfaitement aligné) pendant que le texte DOM
+ *     se fond en ~170 ms — aucun double texte ni nuage illisible ;
+ *  3. les points matérialisent le titre par coalesce court (12–40 px) par-
+ *     dessus ce calque plein, puis le calque se dissout au settle (onSettled).
+ *
+ * Contrat :
  *  - onReady appelé après la première frame réellement peinte (pixels > 0) ;
+ *  - onSettled appelé quand tous les points sont posés (fin du draw-in) ;
  *  - onError appelé si le canvas 2D échoue ou si rien n'est peint dans le
  *    délai de garde (le titre statique du h1 reste alors visible).
  *
@@ -49,6 +59,9 @@ export interface VectorWordmarkProps {
   style?: React.CSSProperties
   /** Appelé après la première frame réellement peinte. */
   onReady?: () => void
+  /** Appelé quand tous les points sont posés (fin du draw-in) — le texte
+   *  DOM peut alors être fondé sans jamais rendre le titre illisible. */
+  onSettled?: () => void
   /** Appelé si le rendu échoue (le titre statique doit réapparaître). */
   onError?: () => void
 }
@@ -56,9 +69,11 @@ export interface VectorWordmarkProps {
 /** Premier caractère fort RTL (Arabe, Hébreu…) — équivalent CSS direction:auto. */
 const RTL_RE = /[\u0591-\u07FF\u08A0-\u08FF\uFB1D-\uFDFF\uFE70-\uFEFF]/
 
-const DRAW_DURATION = 950
-const STAGGER = 460
-const DRIFT_AMP = 1.6
+const DRAW_DURATION = 620
+const STAGGER = 300
+const DRIFT_AMP = 0.8
+const SOLID_FADE_IN = 100 // relais du texte DOM (fondu entrant du calque plein)
+const SOLID_FADE_OUT = 300 // dissolution du calque plein au settle
 const MAX_POINTS = 2600
 const READY_GUARD_MS = 3200
 
@@ -112,12 +127,13 @@ export default function VectorWordmark({
   className,
   style,
   onReady,
+  onSettled,
   onError,
 }: VectorWordmarkProps) {
   const hostRef = useRef<HTMLSpanElement | null>(null)
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
-  const cbs = useRef({ onReady, onError })
-  cbs.current = { onReady, onError }
+  const cbs = useRef({ onReady, onSettled, onError })
+  cbs.current = { onReady, onSettled, onError }
 
   useEffect(() => {
     const host = hostRef.current
@@ -133,6 +149,8 @@ export default function VectorWordmark({
     let raf = 0
     let running = false
     let ready = false
+    let settledFired = false
+    let playedIntro = false
     let start = 0
     let driftAmp = 0
     let pointerLive = false // vrai pointeur au survol
@@ -146,6 +164,7 @@ export default function VectorWordmark({
 
     let dpr = Math.min(2, (typeof window !== 'undefined' && window.devicePixelRatio) || 1)
     let pts: Pt[] = []
+    let solid: HTMLCanvasElement | null = null
     let cw = 0
     let ch = 0
     let fontPx = 32
@@ -183,6 +202,24 @@ export default function VectorWordmark({
       octx.fillStyle = '#fff'
       octx.fillText(text, cw / 2, ch / 2)
 
+      // Calque texte plein (HiDPI) — même géométrie que la matrice : il
+      // garantit un titre lisible pendant tout le draw-in, puis se dissout.
+      solid = document.createElement('canvas')
+      solid.width = Math.max(1, Math.ceil(cw * dpr))
+      solid.height = Math.max(1, Math.ceil(ch * dpr))
+      const sctx = solid.getContext('2d')
+      if (sctx) {
+        sctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+        sctx.font = `${weight} ${fontPx}px ${font}`
+        sctx.direction = rtl ? 'rtl' : 'ltr'
+        sctx.textAlign = 'center'
+        sctx.textBaseline = 'middle'
+        sctx.fillStyle = `rgb(${textRGB[0]},${textRGB[1]},${textRGB[2]})`
+        sctx.fillText(text, cw / 2, ch / 2)
+      } else {
+        solid = null
+      }
+
       const img = octx.getImageData(0, 0, cw, ch).data
       // PAS ENTIER — voir note d'en-tête (bug racine de la version WebGL).
       const step = Math.max(2, Math.round(Math.max(2.6, cw / 150)))
@@ -194,7 +231,8 @@ export default function VectorWordmark({
           const a = img[(y * cw + x) * 4 + 3]
           if (a > 140) {
             const ang = Math.random() * Math.PI * 2
-            const dist = 44 + Math.random() * 150
+            // Coalesce court : le mot reste reconnaissable dès les 1res frames.
+            const dist = 12 + Math.random() * 28
             out.push({
               tx: x,
               ty: y,
@@ -203,8 +241,10 @@ export default function VectorWordmark({
               sx: cx + Math.cos(ang) * dist,
               sy: cy + Math.sin(ang) * dist,
               delay: (x / Math.max(1, cw)) * STAGGER + Math.random() * 80,
-              phase: Math.random() * Math.PI * 2,
-              spd: 0.0011 + Math.random() * 0.0011 * (speed / 50),
+              // Phase spatiale (onde cohérente) : les points voisins dérivent
+              // ensemble — les jambages restent lisibles (pas de criblage).
+              phase: x * 0.018 + y * 0.011 + Math.random() * 0.4,
+              spd: 0.0012 * (speed / 50),
             })
           }
         }
@@ -218,14 +258,14 @@ export default function VectorWordmark({
             const a = img[(y * cw + x) * 4 + 3]
             if (a > 140) {
               const ang = Math.random() * Math.PI * 2
-              const dist = 44 + Math.random() * 150
+              const dist = 12 + Math.random() * 28
               out.push({
                 tx: x, ty: y, x: 0, y: 0,
                 sx: cx + Math.cos(ang) * dist,
                 sy: cy + Math.sin(ang) * dist,
                 delay: (x / Math.max(1, cw)) * STAGGER + Math.random() * 80,
-                phase: Math.random() * Math.PI * 2,
-                spd: 0.0011 + Math.random() * 0.0011 * (speed / 50),
+                phase: x * 0.018 + y * 0.011 + Math.random() * 0.4,
+                spd: 0.0012 * (speed / 50),
               })
             }
           }
@@ -243,6 +283,19 @@ export default function VectorWordmark({
       const elapsed = now - start
       let lit = 0
       const baseR = Math.max(0.75, fontPx * 0.052)
+
+      // Calque texte plein : lisible dès la 1re frame, dissous au settle.
+      const SETTLE_AT = STAGGER + DRAW_DURATION
+      let solidA = 0
+      if (elapsed < SOLID_FADE_IN) solidA = elapsed / SOLID_FADE_IN
+      else if (elapsed < SETTLE_AT) solidA = 1
+      else if (elapsed < SETTLE_AT + SOLID_FADE_OUT)
+        solidA = 1 - (elapsed - SETTLE_AT) / SOLID_FADE_OUT
+      if (solidA > 0.01 && solid) {
+        ctx.globalAlpha = Math.min(1, solidA)
+        ctx.drawImage(solid, 0, 0, cw, ch)
+        ctx.globalAlpha = 1
+      }
 
       for (let i = 0; i < pts.length; i++) {
         const p = pts[i]
@@ -266,28 +319,28 @@ export default function VectorWordmark({
           if (d2 < R * R && d2 > 0.01) {
             const d = Math.sqrt(d2)
             const f = (R - d) / R
-            const push = pointerLive ? 22 : 14
+            const push = pointerLive ? 15 : 9
             x += (dx / d) * f * push
             y += (dy / d) * f * push
             near = f * (pointerLive ? 1 : 0.55)
           }
         }
 
-        const pulse = 0.8 + 0.2 * Math.sin(now * 0.0022 + p.phase)
-        const r = baseR * pulse * (0.85 + 0.35 * near)
+        const pulse = 0.9 + 0.1 * Math.sin(now * 0.0022 + p.phase)
+        const r = baseR * pulse * (0.9 + 0.28 * near)
         const tr = textRGB
         const ar = accentRGB
         const cr = Math.round(tr[0] + (ar[0] - tr[0]) * near * 0.9)
         const cg = Math.round(tr[1] + (ar[1] - tr[1]) * near * 0.9)
         const cb = Math.round(tr[2] + (ar[2] - tr[2]) * near * 0.9)
 
-        const alpha = Math.max(0.06, e) * (0.86 + 0.14 * near)
+        const alpha = Math.max(0.06, e) * (0.94 + 0.06 * near)
         ctx.fillStyle = `rgba(${cr},${cg},${cb},${alpha.toFixed(3)})`
         ctx.fillRect(x - r, y - r, r * 2, r * 2)
         if (e > 0.04) lit++
       }
 
-      if (!ready && lit > 30) {
+      if (!ready && (lit > 30 || solidA > 0.6)) {
         ready = true
         cbs.current.onReady?.()
       }
@@ -298,6 +351,10 @@ export default function VectorWordmark({
       if (!running || disposed) return
       paint(now)
       const elapsed = now - start
+      if (!settledFired && elapsed > STAGGER + DRAW_DURATION) {
+        settledFired = true
+        cbs.current.onSettled?.()
+      }
       if (elapsed > STAGGER + DRAW_DURATION + 350) {
         const target = 1
         driftAmp += (target - driftAmp) * 0.04
@@ -338,15 +395,33 @@ export default function VectorWordmark({
       canvas.style.height = `${ch}px`
       if (!pts.length) return
       if (reduced) {
-        if (drawStatic() && !ready) {
-          ready = true
-          cbs.current.onReady?.()
+        if (drawStatic() || solid) {
+          if (!ready) {
+            ready = true
+            cbs.current.onReady?.()
+          }
+          if (!settledFired) {
+            settledFired = true
+            cbs.current.onSettled?.()
+          }
         }
         stopLoop()
         return
       }
-      start = performance.now()
-      driftAmp = 0
+      if (playedIntro) {
+        const elapsedNow = performance.now() - start
+        if (elapsedNow > STAGGER + DRAW_DURATION) {
+          // Intro terminée (resize/retour viewport) : état posé direct.
+          start = performance.now() - (STAGGER + DRAW_DURATION + 1000)
+          driftAmp = 1
+        }
+        // sinon : draw-in en cours (ex. re-sample fonts.ready) → on conserve
+        // l'horloge, les points re-convergent simplement vers les cibles.
+      } else {
+        start = performance.now()
+        driftAmp = 0
+        playedIntro = true
+      }
       startLoop()
     }
 
@@ -379,7 +454,7 @@ export default function VectorWordmark({
       ([entry]) => {
         if (disposed || reduced) return
         if (entry.isIntersecting) {
-          if (!ready) start = performance.now()
+          if (!ready && !playedIntro) start = performance.now()
           startLoop()
         } else {
           stopLoop()
@@ -397,9 +472,10 @@ export default function VectorWordmark({
       sweeping = false
     }
     const onPointerLeave = () => { pointerLive = false }
-    // Balayage automatique quand le pointeur ne survole pas le titre.
+    // Balayage automatique quand le pointeur ne survole pas le titre —
+    // démarré seulement APRÈS le draw-in (lisibilité pendant l'intro).
     const sweep = window.setInterval(() => {
-      if (disposed || pointerLive || !ready || reduced) return
+      if (disposed || pointerLive || !ready || !settledFired || reduced) return
       sweeping = true
       pointer.x = cw * (0.15 + 0.7 * Math.abs(Math.sin(performance.now() * 0.00035)))
       pointer.y = ch * 0.5

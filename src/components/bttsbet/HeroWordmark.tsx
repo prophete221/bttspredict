@@ -860,12 +860,13 @@ export type AnimatedTitleProps = {
 }
 
 /**
- * AnimatedTitle — wordmark WebGL interactif (matrice de points, poignées,
- * balayage lumineux, proximité du curseur). Le texte réel reste rendu dans le
- * DOM (SEO/WCAG/fallback) et n'est masqué (visibility:hidden, hauteur conservée)
- * que lorsque le canvas a réellement rendu sa première frame.
+ * AnimatedTitle — wordmark interactif (matrice de points, balayage lumineux,
+ * proximité du curseur). Le texte réel reste rendu dans le DOM (SEO/WCAG/
+ * fallback) jusqu'à la première frame du canvas, puis se fond en 150 ms —
+ * il est relayé par le calque texte plein du canvas (aligné au pixel sur la
+ * matrice) : le titre reste lisible à chaque instant de l'animation.
  *
- * Implémentation déléguée à VectorWordmark (WebGL2→WebGL1, repli gracieux,
+ * Implémentation déléguée à VectorWordmark (Canvas 2D, repli gracieux,
  * pause hors viewport, DPR plafonné, prefers-reduced-motion respecté).
  */
 export default function AnimatedTitle({
@@ -882,7 +883,7 @@ export default function AnimatedTitle({
 }: AnimatedTitleProps) {
   const Tag = as as any
   const lineRef = useRef<HTMLElement | null>(null)
-  const [active, setActive] = useState(false)
+  const [live, setLive] = useState(false)
   const [family, setFamily] = useState('')
 
   const reduced =
@@ -919,21 +920,29 @@ export default function AnimatedTitle({
         ...style,
         display: 'block',
         position: 'relative',
-        ...(active ? { visibility: 'hidden' } : null),
       }}
     >
-      {renderContent()}
+      {/* Transfert DOM→canvas : le texte DOM ne se fond (150 ms) que quand le
+          canvas peint sa 1re frame — il est alors relayé par le calque texte
+          plein du canvas, aligné au pixel sur la matrice de points. */}
+      <span
+        style={{
+          opacity: live ? 0 : 1,
+          transition: 'opacity 100ms ease',
+        }}
+      >
+        {renderContent()}
+      </span>
       {showCanvas && (
         <VectorWordmark
           className="hero-wordmark-layer"
-          style={{ visibility: 'visible' }}
           text={text}
           font={family}
           weight={fontWeight}
           accent={accentColor}
           handles={handles}
-          onReady={() => setActive(true)}
-          onError={() => setActive(false)}
+          onReady={() => setLive(true)}
+          onError={() => setLive(false)}
         />
       )}
     </Tag>
