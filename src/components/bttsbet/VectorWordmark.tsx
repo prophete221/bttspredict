@@ -1,31 +1,68 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-
 /**
- * VectorWordmark — motion-design wordmark (Originkit-style).
+ * VectorWordmark — wordmark animé interactif (style « Vector Wordmark » Originkit).
  *
- * The heading is rasterised on an offscreen canvas, sampled into a grid of
- * vector points, then re-drawn as a live particle field:
- *  1. DRAW-IN  — points fly from a scattered cloud to their glyph position,
- *     staggered left→right so the wordmark looks "hand-drawn".
- *  2. DRIFT    — once drawn, every point breathes on a sine drift
- *     (DRIFT_X / DRIFT_Y) so the title is never static.
- *  3. REPEL    — the pointer pushes nearby points away; they spring back.
+ * ⚙️ Moteur v5 — Canvas 2D (remplace le moteur WebGL qui ne rendait jamais en
+ * production : le titre restait en repli statique). Le rendu 2D est garanti
+ * sur tous les navigateurs, y compris mobiles sans WebGL stable.
  *
- * Accessibility: the component renders aria-hidden canvas only — Hero keeps a
- * visually-hidden real <h1> for SEO/screen readers. prefers-reduced-motion
- * renders the final static frame. Works with FR/EN/AR (full string fillText,
- * so Arabic shaping is preserved).
+ * Rendu par-dessus un conteneur positionné (le titre du hero, absolute inset-0) :
+ *  - le texte est rasterisé puis échantillonné en matrice de points
+ *    (PAS ENTIER obligatoire : un pas flottant produit des indices non entiers
+ *    dans le TypedArray → nuage vide — bug racine de la v4) ;
+ *  - DRAW-IN : les points volent d'un nuage éclaté vers leur position,
+ *    échelonnés de gauche à droite (effet « dessiné à la main ») ;
+ *  - DRIFT : dérive sinusoïdale continue — le titre n'est jamais figé ;
+ *  - POINTEUR : répulsion + teinte accent près du curseur (comme le balayage
+ *    du shader d'origine), balayage automatique sans pointeur.
+ *
+ * Contrat conservé à l'identique :
+ *  - onReady appelé après la première frame réellement peinte (pixels > 0) ;
+ *  - onError appelé si le canvas 2D échoue ou si rien n'est peint dans le
+ *    délai de garde (le titre statique du h1 reste alors visible).
+ *
+ * Accessibilité : le canvas est aria-hidden ; le vrai texte du h1 reste
+ * dans le DOM tant que la première frame n'est pas peinte.
  */
 
-type WordmarkProps = {
-  lines: string[]
-  lang?: string
-  className?: string
+import { useEffect, useRef } from 'react'
+
+export interface VectorWordmarkHandles {
+  size?: number
+  spread?: number
+  labels?: boolean
 }
 
-type SamplePoint = {
+export interface VectorWordmarkProps {
+  text: string
+  font?: string
+  weight?: number | string
+  textColor?: string
+  shade?: string
+  accent?: string
+  reach?: number
+  speed?: number
+  damping?: number
+  handles?: VectorWordmarkHandles
+  className?: string
+  style?: React.CSSProperties
+  /** Appelé après la première frame réellement peinte. */
+  onReady?: () => void
+  /** Appelé si le rendu échoue (le titre statique doit réapparaître). */
+  onError?: () => void
+}
+
+/** Premier caractère fort RTL (Arabe, Hébreu…) — équivalent CSS direction:auto. */
+const RTL_RE = /[\u0591-\u07FF\u08A0-\u08FF\uFB1D-\uFDFF\uFE70-\uFEFF]/
+
+const DRAW_DURATION = 950
+const STAGGER = 460
+const DRIFT_AMP = 1.6
+const MAX_POINTS = 2600
+const READY_GUARD_MS = 3200
+
+type Pt = {
   tx: number
   ty: number
   x: number
@@ -34,336 +71,373 @@ type SamplePoint = {
   sy: number
   delay: number
   phase: number
-  speed: number
-  line: number
+  spd: number
 }
 
-const DRAW_DURATION = 1100
-const STAGGER = 520
-const DRIFT_X = 2.6
-const DRIFT_Y = 2.1
-const MAX_POINTS = 3000
-const POINTS_CAP_COLOR_0 = 'rgba(245, 245, 247, 0.92)'
+const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3)
 
-function easeOutCubic(t: number): number {
-  return 1 - Math.pow(1 - t, 3)
+function hexToRgb(input: string | undefined, fb: [number, number, number]): [number, number, number] {
+  if (!input) return fb
+  let s = input.trim()
+  if (s.slice(0, 4).toLowerCase() === 'var(') {
+    const comma = s.indexOf(',')
+    const close = s.lastIndexOf(')')
+    if (comma < 0 || close < comma) return fb
+    s = s.slice(comma + 1, close).trim()
+  }
+  if (s[0] !== '#') return fb
+  let h = s.slice(1)
+  if (h.length === 3 || h.length === 4) {
+    let x = ''
+    for (const c of h) x += c + c
+    h = x
+  }
+  if (h.length === 6) h += 'ff'
+  if (h.length < 6 || /[^0-9a-f]/i.test(h.slice(0, 6))) return fb
+  return [
+    parseInt(h.slice(0, 2), 16),
+    parseInt(h.slice(2, 4), 16),
+    parseInt(h.slice(4, 6), 16),
+  ]
 }
 
-function resolveFontFamily(): string {
-  if (typeof window === 'undefined') return 'Poppins, system-ui, sans-serif'
-  try {
-    const raw = getComputedStyle(document.documentElement).getPropertyValue('--font-display')
-    const cleaned = raw.trim()
-    return cleaned ? `${cleaned}, system-ui, sans-serif` : 'Poppins, system-ui, sans-serif'
-  } catch {
-    return 'Poppins, system-ui, sans-serif'
-  }
-}
-
-/** Rasterise `lines` and sample glyph pixels into animation targets. */
-function sampleWordmark(
-  lines: string[],
-  opts: { width: number; fontFamily: string; fontWeight: number; step: number }
-): { points: SamplePoint[]; height: number; fontSize: number } {
-  const { width, fontFamily, fontWeight } = opts
-  let step = opts.step
-
-  const measure = document.createElement('canvas')
-  const mctx = measure.getContext('2d')
-  const probeText = lines.reduce((a, b) => (b.length > a.length ? b : a), '')
-  let fontSize = 100
-  if (mctx) {
-    mctx.font = `${fontWeight} 100px ${fontFamily}`
-    const w = mctx.measureText(probeText).width
-    if (w > 0) fontSize = Math.min(100, Math.max(30, (width / w) * 100 * 0.98))
-  }
-
-  const lineHeight = fontSize * 1.14
-  const height = Math.ceil(lineHeight * lines.length + fontSize * 0.24)
-
-  const build = (s: number): SamplePoint[] => {
-    const off = document.createElement('canvas')
-    off.width = Math.max(1, Math.ceil(width))
-    off.height = Math.max(1, height)
-    const ctx = off.getContext('2d', { willReadFrequently: true })
-    if (!ctx) return []
-    ctx.font = `${fontWeight} ${fontSize}px ${fontFamily}`
-    ctx.textAlign = 'center'
-    ctx.textBaseline = 'middle'
-    ctx.fillStyle = '#fff'
-    lines.forEach((line, i) => {
-      ctx.fillText(line, width / 2, lineHeight * i + lineHeight * 0.55)
-    })
-
-    const img = ctx.getImageData(0, 0, off.width, off.height).data
-    const pts: SamplePoint[] = []
-    const cx = width / 2
-    const cy = height / 2
-    // PAS ENTIER obligatoire : un pas flottant produirait des indices non
-    // entiers dans le TypedArray (undefined) et un nuage de points vide.
-    const stepI = Math.max(2, Math.round(s))
-    for (let y = 0; y < off.height; y += stepI) {
-      for (let x = 0; x < off.width; x += stepI) {
-        const alpha = img[(y * off.width + x) * 4 + 3]
-        if (alpha > 140) {
-          const ang = Math.random() * Math.PI * 2
-          const dist = 60 + Math.random() * 190
-          pts.push({
-            tx: x,
-            ty: y,
-            x: 0,
-            y: 0,
-            sx: cx + Math.cos(ang) * dist,
-            sy: cy + Math.sin(ang) * dist,
-            delay: (x / Math.max(1, off.width)) * STAGGER + Math.random() * 90,
-            phase: Math.random() * Math.PI * 2,
-            speed: 0.0009 + Math.random() * 0.0009,
-            line: 0,
-          })
-        }
-      }
-    }
-    return pts
-  }
-
-  let points = build(step)
-  while (points.length > MAX_POINTS && step < 9) {
-    step += 1
-    points = build(step)
-  }
-
-  // Tag which visual line each point belongs to (for the accent colour pass).
-  const lh = fontSize * 1.14
-  for (const p of points) {
-    p.line = Math.min(lines.length - 1, Math.floor(p.ty / lh))
-  }
-
-  return { points, height, fontSize }
-}
-
-export default function VectorWordmark({ lines, lang = 'fr', className }: WordmarkProps) {
-  const hostRef = useRef<HTMLDivElement>(null)
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const stateRef = useRef<{
-    points: SamplePoint[]
-    width: number
-    height: number
-    fontSize: number
-    start: number
-    drawn: boolean
-    driftAmp: number
-    pointerX: number
-    pointerY: number
-    hasPointer: boolean
-    raf: number
-    running: boolean
-    reduced: boolean
-  }>({
-    points: [], width: 0, height: 0, fontSize: 0, start: 0, drawn: false,
-    driftAmp: 0, pointerX: -9999, pointerY: -9999, hasPointer: false,
-    raf: 0, running: false, reduced: false,
-  })
+export default function VectorWordmark({
+  text,
+  font = 'Inter, system-ui, sans-serif',
+  weight = 800,
+  textColor = '#F2F6FA',
+  accent = '#2F7DFF',
+  reach = 290,
+  speed = 50,
+  className,
+  style,
+  onReady,
+  onError,
+}: VectorWordmarkProps) {
+  const hostRef = useRef<HTMLSpanElement | null>(null)
+  const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const cbs = useRef({ onReady, onError })
+  cbs.current = { onReady, onError }
 
   useEffect(() => {
     const host = hostRef.current
     const canvas = canvasRef.current
     if (!host || !canvas) return
     const ctx = canvas.getContext('2d')
-    if (!ctx) return
-
-    const st = stateRef.current
-    st.reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (!ctx) {
+      cbs.current.onError?.()
+      return
+    }
 
     let disposed = false
-    let ro: ResizeObserver | null = null
-    let io: IntersectionObserver | null = null
+    let raf = 0
+    let running = false
+    let ready = false
+    let start = 0
+    let driftAmp = 0
+    let pointerLive = false // vrai pointeur au survol
+    let sweeping = false // balayage automatique (sans pointeur)
+    const pointer = { x: -9999, y: -9999 }
 
-    const dpr = Math.min(2, window.devicePixelRatio || 1)
+    const reduced =
+      typeof window !== 'undefined' &&
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-    const render = (now: number) => {
-      if (!st.running) return
-      const w = st.width
-      const h = st.height
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-      ctx.clearRect(0, 0, w, h)
+    let dpr = Math.min(2, (typeof window !== 'undefined' && window.devicePixelRatio) || 1)
+    let pts: Pt[] = []
+    let cw = 0
+    let ch = 0
+    let fontPx = 32
 
-      const elapsed = now - st.start
-      if (!st.drawn && elapsed > STAGGER + DRAW_DURATION + 400) {
-        st.drawn = true
+    const textRGB = hexToRgb(textColor, [242, 246, 250])
+    const accentRGB = hexToRgb(accent, [47, 125, 255])
+
+    /** Rasterise le texte et échantillonne les glyphes (pas entier !). */
+    const sample = () => {
+      const rect = host.getBoundingClientRect()
+      cw = Math.max(24, Math.floor(rect.width))
+      ch = Math.max(16, Math.floor(rect.height))
+      if (!text || cw < 24 || ch < 16) return
+
+      const rtl = RTL_RE.test(text)
+      const measure = document.createElement('canvas').getContext('2d')
+      if (!measure) return
+      const fam = `${weight} 100px ${font}`
+      measure.font = fam
+      measure.direction = rtl ? 'rtl' : 'ltr'
+      const w100 = measure.measureText(text).width
+      // Fit : le texte remplit ~98 % de la largeur du conteneur, sans dépasser sa hauteur.
+      const sizeByW = w100 > 0 ? (cw * 0.98 * 100) / w100 : 100
+      fontPx = Math.max(10, Math.min(sizeByW, (ch * 0.94 * 100) / 100))
+
+      const off = document.createElement('canvas')
+      off.width = cw
+      off.height = ch
+      const octx = off.getContext('2d', { willReadFrequently: true })
+      if (!octx) return
+      octx.font = `${weight} ${fontPx}px ${font}`
+      octx.direction = rtl ? 'rtl' : 'ltr'
+      octx.textAlign = 'center'
+      octx.textBaseline = 'middle'
+      octx.fillStyle = '#fff'
+      octx.fillText(text, cw / 2, ch / 2)
+
+      const img = octx.getImageData(0, 0, cw, ch).data
+      // PAS ENTIER — voir note d'en-tête (bug racine de la version WebGL).
+      const step = Math.max(2, Math.round(Math.max(2.6, cw / 150)))
+      const cx = cw / 2
+      const cy = ch / 2
+      const out: Pt[] = []
+      for (let y = 0; y < ch; y += step) {
+        for (let x = 0; x < cw; x += step) {
+          const a = img[(y * cw + x) * 4 + 3]
+          if (a > 140) {
+            const ang = Math.random() * Math.PI * 2
+            const dist = 44 + Math.random() * 150
+            out.push({
+              tx: x,
+              ty: y,
+              x: 0,
+              y: 0,
+              sx: cx + Math.cos(ang) * dist,
+              sy: cy + Math.sin(ang) * dist,
+              delay: (x / Math.max(1, cw)) * STAGGER + Math.random() * 80,
+              phase: Math.random() * Math.PI * 2,
+              spd: 0.0011 + Math.random() * 0.0011 * (speed / 50),
+            })
+          }
+        }
       }
-      const targetAmp = st.drawn ? 1 : 0
-      st.driftAmp += (targetAmp - st.driftAmp) * 0.03
+      // Densité plafonnée pour les mobiles.
+      while (out.length > MAX_POINTS && step < 9) {
+        out.length = 0
+        const s2 = step + 1
+        for (let y = 0; y < ch; y += s2) {
+          for (let x = 0; x < cw; x += s2) {
+            const a = img[(y * cw + x) * 4 + 3]
+            if (a > 140) {
+              const ang = Math.random() * Math.PI * 2
+              const dist = 44 + Math.random() * 150
+              out.push({
+                tx: x, ty: y, x: 0, y: 0,
+                sx: cx + Math.cos(ang) * dist,
+                sy: cy + Math.sin(ang) * dist,
+                delay: (x / Math.max(1, cw)) * STAGGER + Math.random() * 80,
+                phase: Math.random() * Math.PI * 2,
+                spd: 0.0011 + Math.random() * 0.0011 * (speed / 50),
+              })
+            }
+          }
+        }
+        if (out.length <= MAX_POINTS) break
+      }
+      pts = out
+    }
 
-      for (let i = 0; i < st.points.length; i++) {
-        const p = st.points[i]
+    const paint = (now: number) => {
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+      ctx.clearRect(0, 0, cw, ch)
+      if (!pts.length) return
+
+      const elapsed = now - start
+      let lit = 0
+      const baseR = Math.max(0.75, fontPx * 0.052)
+
+      for (let i = 0; i < pts.length; i++) {
+        const p = pts[i]
         const t = Math.min(1, Math.max(0, (elapsed - p.delay) / DRAW_DURATION))
         const e = easeOutCubic(t)
         let x = p.sx + (p.tx - p.sx) * e
         let y = p.sy + (p.ty - p.sy) * e
 
-        // Continuous sine drift (never fully static after draw-in).
-        const amp = st.driftAmp * e
-        x += Math.sin(now * p.speed + p.phase) * DRIFT_X * amp
-        y += Math.cos(now * p.speed * 0.92 + p.phase * 1.37) * DRIFT_Y * amp
+        // Dérive sinusoïdale continue (jamais figé après le draw-in).
+        const amp = driftAmp * e
+        x += Math.sin(now * p.spd + p.phase) * DRIFT_AMP * amp
+        y += Math.cos(now * p.spd * 0.93 + p.phase * 1.41) * DRIFT_AMP * 0.8 * amp
 
-        // Pointer repulsion field.
-        if (st.hasPointer) {
-          const dx = x - st.pointerX
-          const dy = y - st.pointerY
+        // Répulsion + teinte accent près du pointeur (balayage).
+        let near = 0
+        if (pointerLive || sweeping) {
+          const dx = x - pointer.x
+          const dy = y - pointer.y
           const d2 = dx * dx + dy * dy
-          const R = 90
+          const R = Math.max(60, reach * 0.42)
           if (d2 < R * R && d2 > 0.01) {
             const d = Math.sqrt(d2)
             const f = (R - d) / R
-            x += (dx / d) * f * 26
-            y += (dy / d) * f * 26
+            const push = pointerLive ? 22 : 14
+            x += (dx / d) * f * push
+            y += (dy / d) * f * push
+            near = f * (pointerLive ? 1 : 0.55)
           }
         }
 
-        const pulse = 0.78 + 0.22 * Math.sin(now * 0.0021 + p.phase)
-        const r = Math.max(0.7, st.fontSize * 0.045) * pulse
+        const pulse = 0.8 + 0.2 * Math.sin(now * 0.0022 + p.phase)
+        const r = baseR * pulse * (0.85 + 0.35 * near)
+        const tr = textRGB
+        const ar = accentRGB
+        const cr = Math.round(tr[0] + (ar[0] - tr[0]) * near * 0.9)
+        const cg = Math.round(tr[1] + (ar[1] - tr[1]) * near * 0.9)
+        const cb = Math.round(tr[2] + (ar[2] - tr[2]) * near * 0.9)
 
-        if (p.line === 0) {
-          ctx.fillStyle = POINTS_CAP_COLOR_0
-        } else {
-          const k = p.tx / Math.max(1, w)
-          const cr = Math.round(10 + 60 * k)
-          const cg = Math.round(132 + 70 * k)
-          const cb = Math.round(255 - 15 * k)
-          ctx.fillStyle = `rgba(${cr},${cg},${cb},0.95)`
-        }
-        ctx.globalAlpha = Math.max(0.08, e)
+        const alpha = Math.max(0.06, e) * (0.86 + 0.14 * near)
+        ctx.fillStyle = `rgba(${cr},${cg},${cb},${alpha.toFixed(3)})`
         ctx.fillRect(x - r, y - r, r * 2, r * 2)
+        if (e > 0.04) lit++
       }
-      ctx.globalAlpha = 1
 
-      st.raf = requestAnimationFrame(render)
+      if (!ready && lit > 30) {
+        ready = true
+        cbs.current.onReady?.()
+      }
+      return lit
+    }
+
+    const loop = (now: number) => {
+      if (!running || disposed) return
+      paint(now)
+      const elapsed = now - start
+      if (elapsed > STAGGER + DRAW_DURATION + 350) {
+        const target = 1
+        driftAmp += (target - driftAmp) * 0.04
+      }
+      raf = requestAnimationFrame(loop)
     }
 
     const startLoop = () => {
-      if (st.running || st.reduced || disposed) return
-      st.running = true
-      st.raf = requestAnimationFrame(render)
+      if (running || disposed || reduced) return
+      running = true
+      raf = requestAnimationFrame(loop)
     }
     const stopLoop = () => {
-      st.running = false
-      if (st.raf) cancelAnimationFrame(st.raf)
-      st.raf = 0
+      running = false
+      if (raf) cancelAnimationFrame(raf)
+      raf = 0
     }
 
     const drawStatic = () => {
-      // Final frame, no animation (reduced motion).
+      if (!pts.length) return false
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-      ctx.clearRect(0, 0, st.width, st.height)
-      for (const p of st.points) {
-        const r = Math.max(0.7, st.fontSize * 0.045)
-        if (p.line === 0) ctx.fillStyle = POINTS_CAP_COLOR_0
-        else {
-          const k = p.tx / Math.max(1, st.width)
-          ctx.fillStyle = `rgba(${Math.round(10 + 60 * k)},${Math.round(132 + 70 * k)},${Math.round(255 - 15 * k)},0.95)`
-        }
-        ctx.fillRect(p.tx - r, p.ty - r, r * 2, r * 2)
+      ctx.clearRect(0, 0, cw, ch)
+      const baseR = Math.max(0.75, fontPx * 0.052)
+      for (const p of pts) {
+        ctx.fillStyle = `rgba(${textRGB[0]},${textRGB[1]},${textRGB[2]},0.92)`
+        ctx.fillRect(p.tx - baseR, p.ty - baseR, baseR * 2, baseR * 2)
       }
+      return true
     }
 
     const resample = () => {
       if (disposed) return
-      const rect = host.getBoundingClientRect()
-      const w = Math.max(120, Math.floor(rect.width))
-      const baseStep = Math.max(2.4, w / 150)
-      const sample = sampleWordmark(lines, {
-        width: w,
-        fontFamily: resolveFontFamily(),
-        fontWeight: 700,
-        step: baseStep,
-      })
-      st.points = sample.points
-      st.width = w
-      st.height = sample.height
-      st.fontSize = sample.fontSize
-      st.drawn = false
-      st.driftAmp = 0
-
-      canvas.width = Math.ceil(w * dpr)
-      canvas.height = Math.ceil(sample.height * dpr)
-      canvas.style.width = `${w}px`
-      canvas.style.height = `${sample.height}px`
-
-      if (st.reduced) {
-        drawStatic()
+      dpr = Math.min(2, window.devicePixelRatio || 1)
+      sample()
+      canvas.width = Math.max(1, Math.ceil(cw * dpr))
+      canvas.height = Math.max(1, Math.ceil(ch * dpr))
+      canvas.style.width = `${cw}px`
+      canvas.style.height = `${ch}px`
+      if (!pts.length) return
+      if (reduced) {
+        if (drawStatic() && !ready) {
+          ready = true
+          cbs.current.onReady?.()
+        }
         stopLoop()
-      } else {
-        st.start = performance.now()
-        startLoop()
+        return
       }
+      start = performance.now()
+      driftAmp = 0
+      startLoop()
     }
 
-    const ready = (fn: () => void) => {
-      let done = false
-      const run = () => { if (!done && !disposed) { done = true; fn() } }
-      if (typeof document !== 'undefined' && 'fonts' in document) {
-        (document as Document).fonts.ready.then(run).catch(run)
-      }
-      setTimeout(run, 1600)
-    }
-
-    ready(() => {
+    // Attendre la police réelle (next/font) avant d'échantillonner, garde-fou 900 ms.
+    const famProbe = `${weight} 16px ${font}`
+    const fontsReady: Promise<void> =
+      typeof document !== 'undefined' && 'fonts' in document
+        ? (document as Document).fonts.check(famProbe, text)
+          ? Promise.resolve()
+          : (document as Document).fonts.load(famProbe, text).then(() => undefined).catch(() => undefined)
+        : Promise.resolve()
+    const kick = window.setTimeout(() => { if (!disposed) resample() }, 900)
+    void fontsReady.then(() => {
       if (disposed) return
+      window.clearTimeout(kick)
       resample()
-
-      ro = new ResizeObserver(() => {
-        if (!disposed) resample()
-      })
-      ro.observe(host)
-
-      io = new IntersectionObserver(
-        ([entry]) => {
-          if (disposed) return
-          if (st.reduced) return
-          if (entry.isIntersecting) {
-            if (!st.drawn) st.start = performance.now()
-            startLoop()
-          } else {
-            stopLoop()
-          }
-        },
-        { threshold: 0.05 }
-      )
-      io.observe(host)
+      void (document as Document).fonts.ready.then(() => { if (!disposed) resample() })
     })
+
+    // Garde-fou : si rien n'est peint après READY_GUARD_MS, signaler l'échec
+    // pour que le titre statique du h1 reste visible.
+    const guard = window.setTimeout(() => {
+      if (!disposed && !ready) cbs.current.onError?.()
+    }, READY_GUARD_MS)
+
+    const ro = new ResizeObserver(() => { if (!disposed) resample() })
+    ro.observe(host)
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (disposed || reduced) return
+        if (entry.isIntersecting) {
+          if (!ready) start = performance.now()
+          startLoop()
+        } else {
+          stopLoop()
+        }
+      },
+      { threshold: 0.05 }
+    )
+    io.observe(host)
 
     const onPointerMove = (ev: PointerEvent) => {
       const rect = canvas.getBoundingClientRect()
-      st.pointerX = ev.clientX - rect.left
-      st.pointerY = ev.clientY - rect.top
-      st.hasPointer = true
+      pointer.x = ev.clientX - rect.left
+      pointer.y = ev.clientY - rect.top
+      pointerLive = true
+      sweeping = false
     }
-    const onPointerLeave = () => { st.hasPointer = false }
+    const onPointerLeave = () => { pointerLive = false }
+    // Balayage automatique quand le pointeur ne survole pas le titre.
+    const sweep = window.setInterval(() => {
+      if (disposed || pointerLive || !ready || reduced) return
+      sweeping = true
+      pointer.x = cw * (0.15 + 0.7 * Math.abs(Math.sin(performance.now() * 0.00035)))
+      pointer.y = ch * 0.5
+    }, 140)
 
-    const onVisibility = () => {
-      if (disposed || st.reduced) return
+    const onVis = () => {
+      if (disposed || reduced) return
       if (document.hidden) stopLoop()
       else startLoop()
     }
 
     host.addEventListener('pointermove', onPointerMove, { passive: true })
     host.addEventListener('pointerleave', onPointerLeave, { passive: true })
-    document.addEventListener('visibilitychange', onVisibility)
+    document.addEventListener('visibilitychange', onVis)
 
     return () => {
       disposed = true
       stopLoop()
-      ro?.disconnect()
-      io?.disconnect()
+      window.clearTimeout(kick)
+      window.clearTimeout(guard)
+      window.clearInterval(sweep)
+      ro.disconnect()
+      io.disconnect()
       host.removeEventListener('pointermove', onPointerMove)
       host.removeEventListener('pointerleave', onPointerLeave)
-      document.removeEventListener('visibilitychange', onVisibility)
+      document.removeEventListener('visibilitychange', onVis)
     }
-  }, [lines])
+    // Recréation complète quand le texte / la police changent
+  }, [text, font, weight, textColor, accent, reach, speed])
 
   return (
-    <div ref={hostRef} className={`vector-wordmark${className ? ` ${className}` : ''}`} aria-hidden="true">
-      <canvas ref={canvasRef} className="vector-wordmark__canvas" />
-    </div>
+    <span
+      ref={hostRef}
+      className={className ? `vwm ${className}` : 'vwm'}
+      style={style}
+      aria-hidden="true"
+    >
+      <canvas ref={canvasRef} className="vwm__canvas" />
+    </span>
   )
 }
