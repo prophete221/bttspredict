@@ -16,11 +16,11 @@
   /* Bleu analyse = actions/interactions. WIN=vert, LOST=rouge, PENDING=ambre, VIP=or. */
 
   /* — Fonds (5 niveaux) — macOS noir — profondeur maximale — */
-  --color-bg-main: #0B0F14;            /* Fond principal — unifié pages */
-  --color-bg-secondary: #0E141C;       /* Sections / panels */
-  --color-bg-tertiary: #141C25;        /* Panels élevés */
-  --color-card: #141C25;               /* Card surface standard */
-  --color-card-hover: #1A2430;         /* Card surface hover/sélection */
+  --color-bg-main: #070B12;            /* Fond plateforme premium */
+  --color-bg-secondary: #0C121C;       /* Sections / panels */
+  --color-bg-tertiary: #121A26;        /* Panels élevés */
+  --color-card: #0F1622;               /* Card surface standard */
+  --color-card-hover: #152033;         /* Card surface hover/sélection */
   --color-border: rgba(148, 163, 184, 0.14);        /* Border subtile */
   --color-border-strong: rgba(148, 163, 184, 0.28); /* Border visible / focus */
 
@@ -30,8 +30,8 @@
   --color-text-tertiary: #6B7A8C;      /* Muted, disabled */
 
   /* — Surfaces — */
-  --color-surface-card: #141C25;
-  --color-surface-card-hover: #1A2430;
+  --color-surface-card: #0F1622;
+  --color-surface-card-hover: #152033;
   --color-surface-premium: #1A2430;
 
   /* — Borders — */
@@ -39,8 +39,8 @@
   --color-border-hover: rgba(148, 163, 184, 0.28);
 
   /* — Action (1 CTA primaire par viewport) — bleu analyse — */
-  --color-action-primary: #2F7DFF;
-  --color-action-primary-hover: #4A90FF;
+  --color-action-primary: #3B82F6;
+  --color-action-primary-hover: #60A5FA;
   --color-action-primary-text: #FFFFFF;
   --color-action-secondary-bg: transparent;
   --color-action-secondary-border: #35485C;
@@ -7008,202 +7008,11 @@ body::before {
   50% { opacity: 1; transform: scale(1) rotate(90deg); }
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   PAGE DESIGN v1 — top Search pages (visual only, no content changes)
-   Scopes: --over25, --combo, --btts, --home
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-.page-design {
-  --pd-cyan: #22d3ee;
-  --pd-cyan-dim: rgba(34, 211, 238, 0.14);
-  --pd-cyan-border: rgba(34, 211, 238, 0.32);
-  --pd-blue: #2f7dff;
-  --pd-blue-dim: rgba(47, 125, 255, 0.14);
-  --pd-surface: #141c25;
-  --pd-surface-2: #0f1620;
-  --pd-border: rgba(107, 122, 140, 0.35);
-  --pd-text: #f2f6fa;
-  --pd-muted: #9DABBB;
-}
-
-/* ── Hero cards ── */
-.page-design--over25 .page-design__hero,
-.page-design--over25 .page-design__hero-wrap {
-  position: relative;
-}
-.page-design--over25 .page-design__hero {
-  background:
-    radial-gradient(120% 80% at 0% 0%, rgba(34, 211, 238, 0.10), transparent 55%),
-    radial-gradient(90% 60% at 100% 0%, rgba(47, 125, 255, 0.08), transparent 50%),
-    var(--pd-surface) !important;
-  border: 1px solid var(--pd-cyan-border) !important;
-  box-shadow:
-    0 0 0 1px rgba(34, 211, 238, 0.06) inset,
-    0 18px 48px rgba(2, 8, 16, 0.45);
-}
-.page-design--over25 .page-design__hero-wrap {
-  border-radius: 1.1rem;
-  padding: 1.25rem 1.1rem 1.5rem;
-  background:
-    radial-gradient(100% 80% at 10% -10%, rgba(34, 211, 238, 0.12), transparent 55%),
-    var(--pd-surface);
-  border: 1px solid var(--pd-cyan-border);
-  box-shadow: 0 16px 40px rgba(2, 8, 16, 0.4);
-  margin-bottom: 0.5rem;
-}
-.page-design--over25 .page-design__hero-wrap h1,
-.page-design--over25 .page-design__hero h1 {
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-}
-
-/* Accent pill on Over pages */
-.page-design--over25 span[style*="91, 169, 255"],
-.page-design--over25 span[style*="2F7DFF"] {
-  background-color: var(--pd-cyan-dim) !important;
-  color: var(--pd-cyan) !important;
-  border-color: var(--pd-cyan-border) !important;
-}
-
-/* ── Prediction cards inside Over / Combo feeds ── */
-.page-design--over25 .prediction-match-card,
-.page-design--combo .prediction-match-card,
-.page-design--btts .prediction-match-card {
-  border-radius: 16px;
-  border: 1px solid rgba(34, 48, 64, 0.95);
-  background: linear-gradient(165deg, #15202b 0%, #101820 100%);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-  overflow: hidden;
-}
-.page-design--over25 .prediction-match-card:hover,
-.page-design--combo .prediction-match-card:hover,
-.page-design--btts .prediction-match-card:hover {
-  border-color: rgba(34, 211, 238, 0.35);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(34, 211, 238, 0.08);
-  transform: translateY(-2px);
-}
-.page-design--btts .prediction-match-card:hover {
-  border-color: rgba(47, 125, 255, 0.4);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(47, 125, 255, 0.1);
-}
-
-.page-design--over25 .prediction-match-card__accent,
-.page-design--combo .prediction-match-card__accent {
-  height: 2px !important;
-  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.55), transparent) !important;
-}
-.page-design--btts .prediction-match-card__accent {
-  height: 2px !important;
-  background: linear-gradient(90deg, transparent, rgba(47, 125, 255, 0.5), transparent) !important;
-}
-
-.page-design .prediction-match-card__meta {
-  margin-bottom: 0.85rem;
-}
-.page-design .prediction-match-card__teams {
-  margin-bottom: 0.85rem;
-  padding: 0.35rem 0;
-}
-.page-design .prediction-match-card__analysis {
-  border-radius: 12px !important;
-  background: rgba(8, 14, 22, 0.72) !important;
-  border-color: rgba(48, 64, 82, 0.7) !important;
-}
-
-/* Live badge pop */
-.page-design .badge-live {
-  box-shadow: 0 0 12px rgba(0, 210, 122, 0.25);
-}
-
-/* Feed grid breathing room */
-.page-design--over25 .page-design__feed,
-.page-design--combo main section:last-of-type,
-.page-design--btts main section {
-  padding-bottom: 3rem;
-}
-.page-design .grid.gap-3 {
-  gap: 0.85rem !important;
-}
-@media (min-width: 768px) {
-  .page-design .grid.gap-3.md\:gap-4 {
-    gap: 1.1rem !important;
-  }
-}
-
-/* ── Combo page dual accent ── */
-.page-design--combo main > section:first-of-type,
-.page-design--combo main > section.page-design__hero-wrap {
-  border-radius: 1.1rem;
-  background:
-    radial-gradient(90% 70% at 0% 0%, rgba(47, 125, 255, 0.12), transparent 50%),
-    radial-gradient(90% 70% at 100% 0%, rgba(34, 211, 238, 0.10), transparent 50%),
-    var(--pd-surface);
-  border: 1px solid rgba(47, 125, 255, 0.22);
-  padding: 1.25rem 1.1rem 1.4rem;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 64rem;
-}
-
-/* ── BTTS today ── */
-.page-design--btts .btx-hero,
-.page-design--btts [class*="btx-hero"] {
-  border-color: rgba(47, 125, 255, 0.28) !important;
-  box-shadow: 0 12px 40px rgba(2, 8, 16, 0.4);
-}
-.page-design--btts .btx-filter.is-active,
-.page-design--btts button.btx-filter.is-active {
-  box-shadow: 0 0 0 1px rgba(47, 125, 255, 0.35);
-}
-
-/* Dashboard match cards on BTTS page */
-.page-design--btts .btx-grid > * {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.page-design--btts .btx-grid > *:hover {
-  transform: translateY(-2px);
-}
-
-/* ── Home ── */
-.page-design--home {
-  background-image:
-    radial-gradient(80% 50% at 50% -10%, rgba(47, 125, 255, 0.09), transparent 60%);
-  background-color: #0b0f14;
-}
-/* Ne jamais cibler [class*="hero"] : ça matche hp-hero__glow et casse le layout (gros vide). */
-.page-design--home .hp-hero {
-  position: relative;
-}
-
-/* Breadcrumb polish */
-.page-design nav[aria-label] {
-  opacity: 0.9;
-  letter-spacing: 0.02em;
-}
-.page-design nav[aria-label] a:hover {
-  color: var(--pd-cyan) !important;
-}
-.page-design--btts nav[aria-label] a:hover,
-.page-design--home nav[aria-label] a:hover {
-  color: var(--pd-blue) !important;
-}
-
-/* Prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .page-design .prediction-match-card,
-  .page-design--btts .btx-grid > * {
-    transition: none !important;
-  }
-  .page-design .prediction-match-card:hover,
-  .page-design--btts .btx-grid > *:hover {
-    transform: none !important;
-  }
-}
 
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   SITE-WIDE DESIGN UNITY v1 — couleurs & surfaces globales (pas de contenu)
+   PLATFORM PREMIUM DESIGN 2027 — UI only (no content / no logic)
+   Look: sports data platform (app) — not a blog
    ═══════════════════════════════════════════════════════════════════════════ */
 
 html.dark,
@@ -7212,158 +7021,222 @@ html.dark body {
   color: var(--color-text-primary);
 }
 
-/* Surfaces génériques récurrentes sur tout le site */
-html.dark [class*="rounded-2xl"][style*="141C25"],
-html.dark [class*="rounded-xl"][style*="141C25"],
-html.dark [style*="background-color: #141C25"],
-html.dark [style*="backgroundColor: '#141C25'"] {
-  border-color: var(--color-border) !important;
-  box-shadow: 0 12px 36px rgba(2, 8, 16, 0.35);
+/* ─── Hero home (hp-*) : denser, app-like ─── */
+.hp-hero {
+  background:
+    radial-gradient(90% 70% at 70% -10%, rgba(59, 130, 246, 0.16), transparent 55%),
+    radial-gradient(70% 50% at 10% 100%, rgba(34, 211, 238, 0.07), transparent 50%),
+    var(--color-bg-main) !important;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.10) !important;
+}
+.hp-hero__glow { position: absolute !important; pointer-events: none !important; }
+.hp-hero__inner {
+  padding-block: clamp(1.4rem, 3.2vw, 2.6rem) clamp(1.6rem, 3.5vw, 2.8rem) !important;
+}
+.hp-hero__title {
+  font-size: clamp(1.85rem, 1rem + 2.4vw, 2.85rem) !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.05 !important;
+}
+.hp-hero__text {
+  margin-top: 0.75rem !important;
+  font-size: 0.95rem !important;
+  color: #94A3B8 !important;
+  max-width: 32rem !important;
+}
+.hp-hero__cta-zone { margin-top: 1.15rem !important; gap: 0.55rem !important; }
+.hp-clubs { margin-top: 1.15rem !important; padding-top: 0.9rem !important; }
+.hp-clubs__track img {
+  height: 1.65rem !important;
+  width: auto !important;
+  max-height: 1.65rem !important;
 }
 
-/* Cartes / panels Tailwind fréquents */
-html.dark .bg-\[\#141C25\],
-html.dark .bg-\[\#0D1219\],
-html.dark .bg-\[\#0B0F14\] {
-  /* harmonise les fonds adjacents */
+/* Live signal card */
+.hp-live {
+  background: linear-gradient(160deg, rgba(15, 22, 34, 0.98), rgba(12, 18, 28, 0.98)) !important;
+  border: 1px solid rgba(59, 130, 246, 0.28) !important;
+  border-radius: 18px !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+    0 20px 50px rgba(0, 0, 0, 0.45) !important;
+  backdrop-filter: blur(12px);
+}
+.hp-live__pick.is-over {
+  color: #22D3EE !important;
+  border-color: rgba(34, 211, 238, 0.35) !important;
+  background: rgba(34, 211, 238, 0.10) !important;
+}
+.hp-live__pick.is-btts {
+  color: #38BDF8 !important;
+  border-color: rgba(56, 189, 248, 0.35) !important;
+  background: rgba(56, 189, 248, 0.10) !important;
 }
 
-/* Liens inline dans le contenu éditorial */
-html.dark main a:not([class*="btn"]):not([data-cta]):not([class*="btx-"]) {
-  text-underline-offset: 2px;
+/* ─── Prediction cards (site-wide) ─── */
+.prediction-match-card {
+  border-radius: 16px !important;
+  border: 1px solid rgba(51, 65, 85, 0.55) !important;
+  background: linear-gradient(165deg, #111827 0%, #0B1220 100%) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35) !important;
+  overflow: hidden;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease !important;
 }
-html.dark main a:not([class*="btn"]):not([data-cta]):hover {
-  color: var(--color-action-primary);
+.prediction-match-card:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(59, 130, 246, 0.45) !important;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(59, 130, 246, 0.12) !important;
 }
-
-/* Navbar / footer bandes */
-html.dark header,
-html.dark footer {
-  border-color: var(--color-border);
-  backdrop-filter: blur(10px);
+.prediction-match-card__accent {
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.7), rgba(34, 211, 238, 0.55), transparent) !important;
 }
-
-/* Bottom navigation */
-html.dark nav[class*="fixed"],
-html.dark [class*="BottomNav"],
-html.dark [class*="bottom-nav"] {
-  border-color: var(--color-border) !important;
-  background-color: rgba(11, 15, 20, 0.92) !important;
-}
-
-/* Pages match / historique / méthodo / légal — prose containers */
-html.dark main .prose,
-html.dark main article {
-  --tw-prose-body: var(--color-text-secondary);
-  --tw-prose-headings: var(--color-text-primary);
-  --tw-prose-links: var(--color-action-primary);
+.prediction-match-card__analysis {
+  background: rgba(2, 6, 14, 0.55) !important;
+  border: 1px solid rgba(51, 65, 85, 0.5) !important;
+  border-radius: 12px !important;
 }
 
-/* VIP gold surfaces */
-html.dark [class*="vip"] .rounded-2xl,
-html.dark [class*="Vip"] .rounded-2xl {
-  border-color: var(--color-vip-border);
+/* ─── BTTS dashboard ─── */
+.btx-hero {
+  background:
+    radial-gradient(80% 60% at 0% 0%, rgba(59, 130, 246, 0.14), transparent 55%),
+    linear-gradient(180deg, #0F172A 0%, #0B1220 100%) !important;
+  border: 1px solid rgba(59, 130, 246, 0.22) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35) !important;
+}
+.btx-stat,
+.btx-card,
+[class*="btx-card"] {
+  border-radius: 14px !important;
+}
+.btx-grid > * {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.btx-grid > *:hover {
+  transform: translateY(-2px);
 }
 
-/* Badges marchés */
-html.dark [data-market="over25"],
-html.dark .badge-over,
-html.dark .market-over {
-  color: var(--color-market-over);
-  border-color: var(--color-market-over-border);
-  background: var(--color-market-over-muted);
+/* ─── Over 2.5 pages ─── */
+.page-design--over25 .page-design__hero,
+.page-design--over25 .page-design__hero-wrap {
+  background:
+    radial-gradient(100% 80% at 0% 0%, rgba(34, 211, 238, 0.14), transparent 55%),
+    linear-gradient(165deg, #0F172A, #0B1220) !important;
+  border: 1px solid rgba(34, 211, 238, 0.28) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.4) !important;
 }
-html.dark [data-market="btts"],
-html.dark .badge-btts,
-html.dark .market-btts {
-  color: var(--color-market-btts);
-  border-color: rgba(56, 189, 248, 0.32);
-  background: var(--color-market-btts-muted);
+.page-design--over25 .prediction-match-card:hover {
+  border-color: rgba(34, 211, 238, 0.5) !important;
 }
 
-/* Inputs / selects cohérents */
+/* ─── Combo pages ─── */
+.page-design--combo main > section:first-of-type {
+  background:
+    radial-gradient(80% 60% at 0% 0%, rgba(59, 130, 246, 0.12), transparent 50%),
+    radial-gradient(80% 60% at 100% 0%, rgba(34, 211, 238, 0.10), transparent 50%),
+    linear-gradient(165deg, #0F172A, #0B1220) !important;
+  border: 1px solid rgba(59, 130, 246, 0.22) !important;
+  border-radius: 20px !important;
+  padding: 1.25rem 1.15rem !important;
+  margin-bottom: 0.75rem;
+}
+
+/* ─── Navbar / chrome ─── */
+header,
+[class*="Navbar"],
+nav.sticky,
+.sticky.top-0 {
+  background: rgba(7, 11, 18, 0.86) !important;
+  backdrop-filter: blur(14px) saturate(1.2) !important;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.10) !important;
+}
+
+/* Bottom tab bar */
+nav.fixed.bottom-0,
+[class*="BottomNav"],
+[class*="bottom-nav"],
+[class*="MobileTab"] {
+  background: rgba(7, 11, 18, 0.94) !important;
+  border-top: 1px solid rgba(148, 163, 184, 0.12) !important;
+  backdrop-filter: blur(16px) !important;
+}
+
+/* ─── Generic content shells (méthode, légal, historique…) ─── */
+main section.max-w-5xl > .rounded-2xl,
+main section.max-w-6xl > .rounded-2xl,
+main section.max-w-3xl > .rounded-2xl,
+main .rounded-2xl[style*="141C25"],
+main .rounded-2xl[style*="0D1219"] {
+  background: linear-gradient(165deg, #111827, #0B1220) !important;
+  border: 1px solid rgba(51, 65, 85, 0.55) !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.32) !important;
+}
+
+/* Tables */
+html.dark table { border-color: rgba(51, 65, 85, 0.5); }
+html.dark thead {
+  background: rgba(15, 23, 42, 0.95) !important;
+  color: #94A3B8 !important;
+}
+html.dark tbody tr:hover {
+  background: rgba(59, 130, 246, 0.06) !important;
+}
+
+/* Buttons primary look more app-like */
+.hp-btn-primary,
+button.bg-primary,
+a.bg-primary {
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25) !important;
+}
+
+/* Gift popup already styled — tighten card */
+.hp-gift-card {
+  border-radius: 14px !important;
+  border-color: rgba(34, 211, 238, 0.28) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* VIP gold */
+[class*="vip"] .rounded-2xl,
+.vip-combo-card {
+  border-color: rgba(232, 194, 104, 0.35) !important;
+}
+
+/* Inputs */
 html.dark input,
 html.dark select,
 html.dark textarea {
-  background-color: var(--color-bg-secondary);
-  border-color: var(--color-border);
-  color: var(--color-text-primary);
+  background: #0C121C !important;
+  border: 1px solid rgba(51, 65, 85, 0.7) !important;
+  border-radius: 10px !important;
 }
 html.dark input:focus,
 html.dark select:focus,
 html.dark textarea:focus {
-  border-color: var(--color-action-primary);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(47, 125, 255, 0.18);
+  border-color: #3B82F6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
 }
 
-/* Boutons primaires génériques */
-html.dark button.bg-primary,
-html.dark a.bg-primary,
-html.dark .btn-primary {
-  background-color: var(--color-action-primary);
-  color: #fff;
-}
-html.dark button.bg-primary:hover,
-html.dark a.bg-primary:hover {
-  background-color: var(--color-action-primary-hover);
-}
-
-/* Cards génériques (shadcn / site) */
-html.dark .bg-card,
-html.dark [data-slot="card"] {
-  background-color: var(--color-card);
-  border-color: var(--color-border);
-  color: var(--color-text-primary);
-}
-
-/* Scrollbar discrète */
-html.dark {
-  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
-}
-html.dark ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
+/* Scrollbar */
+html.dark { scrollbar-color: rgba(100, 116, 139, 0.45) transparent; }
+html.dark ::-webkit-scrollbar { width: 8px; height: 8px; }
 html.dark ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.35);
+  background: rgba(100, 116, 139, 0.45);
   border-radius: 999px;
 }
-html.dark ::-webkit-scrollbar-track {
-  background: transparent;
-}
 
-/* Sticky CTA / mobile bars already themed — unify border */
-html.dark [class*="sticky"][class*="bottom"],
-html.dark [class*="StickyCTA"] {
-  border-color: rgba(47, 125, 255, 0.2) !important;
-}
-
-/* Match pages: section shells */
-html.dark main section.max-w-5xl .rounded-2xl,
-html.dark main section.max-w-6xl .rounded-2xl,
-html.dark main section.max-w-3xl .rounded-2xl {
-  background-color: var(--color-card);
-  border: 1px solid var(--color-border);
-  box-shadow: 0 10px 32px rgba(2, 8, 16, 0.3);
-}
-
-/* Tables (historique / stats) */
-html.dark table {
-  border-color: var(--color-border);
-}
-html.dark thead {
-  background-color: rgba(20, 28, 37, 0.9);
-  color: var(--color-text-secondary);
-}
-html.dark tbody tr {
-  border-color: var(--color-border);
-}
-html.dark tbody tr:hover {
-  background-color: rgba(47, 125, 255, 0.04);
-}
-
-/* Skeleton / loading */
-html.dark .animate-pulse {
-  background-color: rgba(148, 163, 184, 0.08);
+@media (prefers-reduced-motion: reduce) {
+  .prediction-match-card,
+  .btx-grid > * {
+    transition: none !important;
+  }
+  .prediction-match-card:hover,
+  .btx-grid > *:hover {
+    transform: none !important;
+  }
 }
