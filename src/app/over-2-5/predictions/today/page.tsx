@@ -42,7 +42,7 @@ export default function Over25PredictionsTodayPage() {
   }).format(new Date(`${dakarDate}T12:00:00Z`))
 
   return (
-    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
+    <div className="page-design page-design--over25 min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
       <Navbar />
       <main id="main-content" className="flex-1">
         <nav aria-label="Fil d'Ariane" className="text-xs text-[#9DABBB] mb-4 max-w-5xl mx-auto px-4 pt-6 sm:pt-8">
@@ -52,7 +52,7 @@ export default function Over25PredictionsTodayPage() {
         </nav>
 
         <section className="max-w-5xl mx-auto px-4 pt-2 pb-6 sm:pt-4">
-          <div className="rounded-2xl p-5 sm:p-7" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
+          <div className="page-design__hero rounded-2xl p-5 sm:p-7">
             <div className="flex flex-wrap items-center gap-2 mb-4">
               <span className="inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider"
                 style={{ backgroundColor: 'rgba(47, 125, 255, 0.12)', color: '#2F7DFF', border: '1px solid rgba(47, 125, 255, 0.25)' }}>

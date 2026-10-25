@@ -7007,3 +7007,196 @@ body::before {
   0%, 100% { opacity: 0; transform: scale(0.4) rotate(0deg); }
   50% { opacity: 1; transform: scale(1) rotate(90deg); }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PAGE DESIGN v1 — top Search pages (visual only, no content changes)
+   Scopes: --over25, --combo, --btts, --home
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.page-design {
+  --pd-cyan: #22d3ee;
+  --pd-cyan-dim: rgba(34, 211, 238, 0.14);
+  --pd-cyan-border: rgba(34, 211, 238, 0.32);
+  --pd-blue: #2f7dff;
+  --pd-blue-dim: rgba(47, 125, 255, 0.14);
+  --pd-surface: #141c25;
+  --pd-surface-2: #0f1620;
+  --pd-border: rgba(107, 122, 140, 0.35);
+  --pd-text: #f2f6fa;
+  --pd-muted: #9DABBB;
+}
+
+/* ── Hero cards ── */
+.page-design--over25 .page-design__hero,
+.page-design--over25 .page-design__hero-wrap {
+  position: relative;
+}
+.page-design--over25 .page-design__hero {
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(34, 211, 238, 0.10), transparent 55%),
+    radial-gradient(90% 60% at 100% 0%, rgba(47, 125, 255, 0.08), transparent 50%),
+    var(--pd-surface) !important;
+  border: 1px solid var(--pd-cyan-border) !important;
+  box-shadow:
+    0 0 0 1px rgba(34, 211, 238, 0.06) inset,
+    0 18px 48px rgba(2, 8, 16, 0.45);
+}
+.page-design--over25 .page-design__hero-wrap {
+  border-radius: 1.1rem;
+  padding: 1.25rem 1.1rem 1.5rem;
+  background:
+    radial-gradient(100% 80% at 10% -10%, rgba(34, 211, 238, 0.12), transparent 55%),
+    var(--pd-surface);
+  border: 1px solid var(--pd-cyan-border);
+  box-shadow: 0 16px 40px rgba(2, 8, 16, 0.4);
+  margin-bottom: 0.5rem;
+}
+.page-design--over25 .page-design__hero-wrap h1,
+.page-design--over25 .page-design__hero h1 {
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* Accent pill on Over pages */
+.page-design--over25 span[style*="91, 169, 255"],
+.page-design--over25 span[style*="2F7DFF"] {
+  background-color: var(--pd-cyan-dim) !important;
+  color: var(--pd-cyan) !important;
+  border-color: var(--pd-cyan-border) !important;
+}
+
+/* ── Prediction cards inside Over / Combo feeds ── */
+.page-design--over25 .prediction-match-card,
+.page-design--combo .prediction-match-card,
+.page-design--btts .prediction-match-card {
+  border-radius: 16px;
+  border: 1px solid rgba(34, 48, 64, 0.95);
+  background: linear-gradient(165deg, #15202b 0%, #101820 100%);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  overflow: hidden;
+}
+.page-design--over25 .prediction-match-card:hover,
+.page-design--combo .prediction-match-card:hover,
+.page-design--btts .prediction-match-card:hover {
+  border-color: rgba(34, 211, 238, 0.35);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(34, 211, 238, 0.08);
+  transform: translateY(-2px);
+}
+.page-design--btts .prediction-match-card:hover {
+  border-color: rgba(47, 125, 255, 0.4);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(47, 125, 255, 0.1);
+}
+
+.page-design--over25 .prediction-match-card__accent,
+.page-design--combo .prediction-match-card__accent {
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.55), transparent) !important;
+}
+.page-design--btts .prediction-match-card__accent {
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, rgba(47, 125, 255, 0.5), transparent) !important;
+}
+
+.page-design .prediction-match-card__meta {
+  margin-bottom: 0.85rem;
+}
+.page-design .prediction-match-card__teams {
+  margin-bottom: 0.85rem;
+  padding: 0.35rem 0;
+}
+.page-design .prediction-match-card__analysis {
+  border-radius: 12px !important;
+  background: rgba(8, 14, 22, 0.72) !important;
+  border-color: rgba(48, 64, 82, 0.7) !important;
+}
+
+/* Live badge pop */
+.page-design .badge-live {
+  box-shadow: 0 0 12px rgba(0, 210, 122, 0.25);
+}
+
+/* Feed grid breathing room */
+.page-design--over25 .page-design__feed,
+.page-design--combo main section:last-of-type,
+.page-design--btts main section {
+  padding-bottom: 3rem;
+}
+.page-design .grid.gap-3 {
+  gap: 0.85rem !important;
+}
+@media (min-width: 768px) {
+  .page-design .grid.gap-3.md\:gap-4 {
+    gap: 1.1rem !important;
+  }
+}
+
+/* ── Combo page dual accent ── */
+.page-design--combo main > section:first-of-type,
+.page-design--combo main > section.page-design__hero-wrap {
+  border-radius: 1.1rem;
+  background:
+    radial-gradient(90% 70% at 0% 0%, rgba(47, 125, 255, 0.12), transparent 50%),
+    radial-gradient(90% 70% at 100% 0%, rgba(34, 211, 238, 0.10), transparent 50%),
+    var(--pd-surface);
+  border: 1px solid rgba(47, 125, 255, 0.22);
+  padding: 1.25rem 1.1rem 1.4rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 64rem;
+}
+
+/* ── BTTS today ── */
+.page-design--btts .btx-hero,
+.page-design--btts [class*="btx-hero"] {
+  border-color: rgba(47, 125, 255, 0.28) !important;
+  box-shadow: 0 12px 40px rgba(2, 8, 16, 0.4);
+}
+.page-design--btts .btx-filter.is-active,
+.page-design--btts button.btx-filter.is-active {
+  box-shadow: 0 0 0 1px rgba(47, 125, 255, 0.35);
+}
+
+/* Dashboard match cards on BTTS page */
+.page-design--btts .btx-grid > * {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.page-design--btts .btx-grid > *:hover {
+  transform: translateY(-2px);
+}
+
+/* ── Home ── */
+.page-design--home {
+  background-image:
+    radial-gradient(80% 50% at 50% -10%, rgba(47, 125, 255, 0.09), transparent 60%);
+  background-color: #0b0f14;
+}
+.page-design--home section:first-of-type,
+.page-design--home [class*="hero"] {
+  position: relative;
+}
+
+/* Breadcrumb polish */
+.page-design nav[aria-label] {
+  opacity: 0.9;
+  letter-spacing: 0.02em;
+}
+.page-design nav[aria-label] a:hover {
+  color: var(--pd-cyan) !important;
+}
+.page-design--btts nav[aria-label] a:hover,
+.page-design--home nav[aria-label] a:hover {
+  color: var(--pd-blue) !important;
+}
+
+/* Prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .page-design .prediction-match-card,
+  .page-design--btts .btx-grid > * {
+    transition: none !important;
+  }
+  .page-design .prediction-match-card:hover,
+  .page-design--btts .btx-grid > *:hover {
+    transform: none !important;
+  }
+}
