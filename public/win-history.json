@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-10-25T21:51:33.851Z",
+  "generatedAt": "2026-10-25T23:00:23.888Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,18 +15,18 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 340,
-    "won": 264,
+    "total": 342,
+    "won": 266,
     "lost": 76,
-    "pending": 35,
+    "pending": 33,
     "unverifiable": 131,
     "archivedTotal": 506,
-    "rate": 77.6,
+    "rate": 77.8,
     "gold": {
-      "total": 246,
-      "won": 193,
+      "total": 248,
+      "won": 195,
       "lost": 53,
-      "rate": 78.5
+      "rate": 78.6
     },
     "standard": {
       "total": 94,
@@ -36,10 +36,10 @@
     },
     "byType": {
       "btts": {
-        "total": 337,
-        "won": 263,
+        "total": 339,
+        "won": 265,
         "lost": 74,
-        "rate": 78
+        "rate": 78.2
       },
       "over25": {
         "total": 3,
@@ -142,10 +142,10 @@
       },
       {
         "date": "2026-10-25",
-        "total": 36,
-        "won": 16,
+        "total": 38,
+        "won": 18,
         "lost": 20,
-        "rate": 44.4
+        "rate": 47.4
       }
     ],
     "period": {
@@ -155,6 +155,32 @@
     }
   },
   "history": [
+    {
+      "date": "2026-10-25",
+      "match": "Barcelona vs Real Madrid",
+      "league": "LaLiga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6543,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-10-25T22:59:02.992Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-25",
+      "match": "Sporting CP vs Académico de Viseu",
+      "league": "Liga Portugal",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6607,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-10-25T22:59:02.991Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-10-25",
       "match": "Udinese vs AC Milan",

@@ -10133,6 +10133,13 @@
       ],
       "last5Away": [
         {
+          "date": "2026-10-25",
+          "opponent": "Académico de Viseu",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
           "date": "2026-10-09",
           "opponent": "Braga",
           "venue": "A",
@@ -10158,13 +10165,6 @@
           "opponent": "C.D. Nacional",
           "venue": "H",
           "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-08-28",
-          "opponent": "Rio Ave",
-          "venue": "A",
-          "score": "4-0",
           "result": "W"
         }
       ],
@@ -12997,7 +12997,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 4.5, nul: 3.55, 2: 1.74, Over 2.5: 1.83.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 4.5, draw: 3.55, 2: 1.74, Over 2.5: 1.83.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-10-25T21:50:21.066Z"
     },
     {
       "id": "lille-vs-lens-2026-10-30",
@@ -15421,7 +15423,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 1.24, nul: 6.5, 2: 10.5.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 1.24, draw: 6.5, 2: 10.5.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-10-25T22:59:02.991Z"
     },
     {
       "id": "motherwe-vs-heartofm-2026-10-25",
@@ -16218,7 +16222,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 1.67, nul: 5.5, 2: 3.75.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 1.67, draw: 5.5, 2: 3.75.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-10-25T22:59:02.992Z"
     },
     {
       "id": "cdnacion-vs-braga-2026-10-25",
@@ -23555,6 +23561,13 @@
       ],
       "last5Away": [
         {
+          "date": "2026-10-25",
+          "opponent": "Académico de Viseu",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
           "date": "2026-10-09",
           "opponent": "Braga",
           "venue": "A",
@@ -23580,13 +23593,6 @@
           "opponent": "C.D. Nacional",
           "venue": "H",
           "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-08-28",
-          "opponent": "Rio Ave",
-          "venue": "A",
-          "score": "4-0",
           "result": "W"
         }
       ],

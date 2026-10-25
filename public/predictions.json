@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "lastUpdated": "2026-10-25T21:48:50.944Z",
+  "lastUpdated": "2026-10-25T22:58:12.587Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -5256,197 +5256,6 @@
       "status": "PENDING"
     },
     {
-      "id": "casapia-vs-sporting-2026-10-30",
-      "match": "Casa Pia vs Sporting CP",
-      "home": "Casa Pia",
-      "away": "Sporting CP",
-      "league": "Liga Portugal",
-      "date": "2026-10-30",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5089,
-      "bttsProbDisplay": "50.89%",
-      "over25ProbDisplay": "70.60%",
-      "confidence": 51,
-      "time": "20:15",
-      "matchSemantic": "casapia-vs-sporting-2026-10-30",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21581.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png",
-      "tier": "GOLD",
-      "reliabilityScore": 81.01,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 0.78,
-      "xgAway": 2.88,
-      "xgTotal": 3.65,
-      "formBTTS": 50,
-      "analysis": "Casa Pia : forme V-D-V-D-N (2V 1N 2D, 5 buts marqués / 6 encaissés sur 5) · Sporting CP : forme V-N-N-V-V (3V 2N 0D, 12 buts marqués / 4 encaissés sur 5). Classement : Casa Pia 16e (7 pts), Sporting CP 3e (18 pts). Modèle Poisson : xG cumulé 3.65, BTTS 50.9%, Over 2.5 70.6%. Fiabilité 81.01%.",
-      "analysisData": {
-        "bttsProb": 0.5089,
-        "over25Prob": 0.706,
-        "homeLambda": 0.78,
-        "awayLambda": 2.88,
-        "xgTotal": 3.65
-      },
-      "estimatedCote": 1.97,
-      "estimatedCoteOver": 1.42,
-      "odds": null,
-      "oddsSource": "ESTIMATION_POISSON",
-      "estimatedCoteBTTS": 1.97,
-      "formHome": {
-        "last5String": "V-D-V-D-N",
-        "wins": 2,
-        "draws": 1,
-        "losses": 2,
-        "goalsFor": 5,
-        "goalsAgainst": 6,
-        "bttsRate": 0.4,
-        "over25Rate": 0.4,
-        "cleanSheets": 2,
-        "failedToScore": 2,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "V-N-N-V-V",
-        "wins": 3,
-        "draws": 2,
-        "losses": 0,
-        "goalsFor": 12,
-        "goalsAgainst": 4,
-        "bttsRate": 0.6,
-        "over25Rate": 0.6,
-        "cleanSheets": 2,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-24",
-          "opponent": "Estrela",
-          "venue": "A",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Santa Clara",
-          "venue": "H",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Estoril",
-          "venue": "A",
-          "score": "2-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-12",
-          "opponent": "FC Porto",
-          "venue": "H",
-          "score": "1-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-06",
-          "opponent": "Vitória de Guimaraes",
-          "venue": "A",
-          "score": "0-0",
-          "result": "D"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-09",
-          "opponent": "Braga",
-          "venue": "A",
-          "score": "3-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-19",
-          "opponent": "Arouca",
-          "venue": "H",
-          "score": "2-2",
-          "result": "D"
-        },
-        {
-          "date": "2026-09-13",
-          "opponent": "FC Famalicao",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-09-05",
-          "opponent": "C.D. Nacional",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-08-28",
-          "opponent": "Rio Ave",
-          "venue": "A",
-          "score": "4-0",
-          "result": "W"
-        }
-      ],
-      "standingsHome": {
-        "rank": 16,
-        "points": 7,
-        "played": 9,
-        "gf": 5,
-        "ga": 17
-      },
-      "standingsAway": {
-        "rank": 3,
-        "points": 18,
-        "played": 8,
-        "gf": 20,
-        "ga": 9
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 51,
-          "bttsProb": 0.5089,
-          "homeLambda": 0.78,
-          "awayLambda": 2.88
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 71,
-          "over25Prob": 0.706,
-          "homeLambda": 0.78,
-          "awayLambda": 2.88
-        }
-      ],
-      "bttsProb": 0.5089,
-      "over25Prob": 0.706,
-      "homeLambda": 0.78,
-      "awayLambda": 2.88,
-      "ai_key_fact": "Sporting CP totalise 20 buts marqués pour seulement 9 encaissés en 8 matchs.",
-      "ai_analysis": "Le modèle Poisson met en évidence un déséquilibre prononcé avec un xG de 0.78 pour Casa Pia et de 2.88 pour Sporting CP. Les probabilités du modèle indiquent 50.9% pour le BTTS et 70.6 pour l'Over 2.5, avec un niveau de fiabilité de 81.01. Les statistiques démontrent la solidité offensive de l'équipe visiteuse et la difficulté des hôtes à s'exprimer face aux cadors de la ligue. Aucune cote bookmaker n'est disponible pour ce match.",
-      "ai_form_summary": "Casa Pia présente un bilan mitigé à domicile avec 2 victoires et 2 défaites sur ses cinq dernières rencontres, affichant un taux BTTS de 0.4. Sporting CP domine à l'extérieur avec 3 victoires et 2 nuls, inscrivant 12 buts pour 4 encaissés.",
-      "ai_key_fact_en": "Sporting CP tallies 20 goals scored for only 9 conceded in 8 matches.",
-      "ai_analysis_en": "The Poisson model highlights a pronounced imbalance with an xG of 0.78 for Casa Pia and 2.88 for Sporting CP. Model probabilities indicate 50.9% for BTTS and 70.6 for Over 2.5, with a reliability level of 81.01. Statistics demonstrate the visiting team's offensive strength and the hosts' difficulty in expressing themselves against top-tier league opponents. No bookmaker odds are available for this match.",
-      "ai_form_summary_en": "Casa Pia shows a mixed home record with 2 wins and 2 defeats in their last five fixtures, posting a 0.4 BTTS rate. Sporting CP dominates away with 3 wins and 2 draws, scoring 12 goals with 4 conceded.",
-      "ai_source": "gemini-v2",
-      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
-      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
-      "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
-      "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
-      "status": "PENDING"
-    },
-    {
       "id": "zultewar-vs-clubbrug-2026-10-30",
       "match": "Zulte-Waregem vs Club Brugge",
       "home": "Zulte-Waregem",
@@ -5829,6 +5638,197 @@
       "status": "PENDING"
     },
     {
+      "id": "casapia-vs-sporting-2026-10-30",
+      "match": "Casa Pia vs Sporting CP",
+      "home": "Casa Pia",
+      "away": "Sporting CP",
+      "league": "Liga Portugal",
+      "date": "2026-10-30",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5089,
+      "bttsProbDisplay": "50.89%",
+      "over25ProbDisplay": "70.60%",
+      "confidence": 51,
+      "time": "20:15",
+      "matchSemantic": "casapia-vs-sporting-2026-10-30",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21581.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png",
+      "tier": "GOLD",
+      "reliabilityScore": 81.01,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 0.78,
+      "xgAway": 2.88,
+      "xgTotal": 3.65,
+      "formBTTS": 50,
+      "analysis": "Casa Pia : forme V-D-V-D-N (2V 1N 2D, 5 buts marqués / 6 encaissés sur 5) · Sporting CP : forme V-N-N-V-V (3V 2N 0D, 12 buts marqués / 4 encaissés sur 5). Classement : Casa Pia 16e (7 pts), Sporting CP 3e (18 pts). Modèle Poisson : xG cumulé 3.65, BTTS 50.9%, Over 2.5 70.6%. Fiabilité 81.01%.",
+      "analysisData": {
+        "bttsProb": 0.5089,
+        "over25Prob": 0.706,
+        "homeLambda": 0.78,
+        "awayLambda": 2.88,
+        "xgTotal": 3.65
+      },
+      "estimatedCote": 1.97,
+      "estimatedCoteOver": 1.42,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.97,
+      "formHome": {
+        "last5String": "V-D-V-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 5,
+        "goalsAgainst": 6,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-N-N-V-V",
+        "wins": 3,
+        "draws": 2,
+        "losses": 0,
+        "goalsFor": 12,
+        "goalsAgainst": 4,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Estrela",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Santa Clara",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Estoril",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "FC Porto",
+          "venue": "H",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-06",
+          "opponent": "Vitória de Guimaraes",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Académico de Viseu",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Braga",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Arouca",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-13",
+          "opponent": "FC Famalicao",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-05",
+          "opponent": "C.D. Nacional",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 16,
+        "points": 7,
+        "played": 9,
+        "gf": 5,
+        "ga": 17
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 18,
+        "played": 8,
+        "gf": 20,
+        "ga": 9
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 51,
+          "bttsProb": 0.5089,
+          "homeLambda": 0.78,
+          "awayLambda": 2.88
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 71,
+          "over25Prob": 0.706,
+          "homeLambda": 0.78,
+          "awayLambda": 2.88
+        }
+      ],
+      "bttsProb": 0.5089,
+      "over25Prob": 0.706,
+      "homeLambda": 0.78,
+      "awayLambda": 2.88,
+      "ai_key_fact": "Sporting CP totalise 20 buts marqués pour seulement 9 encaissés en 8 matchs.",
+      "ai_analysis": "Le modèle Poisson met en évidence un déséquilibre prononcé avec un xG de 0.78 pour Casa Pia et de 2.88 pour Sporting CP. Les probabilités du modèle indiquent 50.9% pour le BTTS et 70.6 pour l'Over 2.5, avec un niveau de fiabilité de 81.01. Les statistiques démontrent la solidité offensive de l'équipe visiteuse et la difficulté des hôtes à s'exprimer face aux cadors de la ligue. Aucune cote bookmaker n'est disponible pour ce match.",
+      "ai_form_summary": "Casa Pia présente un bilan mitigé à domicile avec 2 victoires et 2 défaites sur ses cinq dernières rencontres, affichant un taux BTTS de 0.4. Sporting CP domine à l'extérieur avec 3 victoires et 2 nuls, inscrivant 12 buts pour 4 encaissés.",
+      "ai_key_fact_en": "Sporting CP tallies 20 goals scored for only 9 conceded in 8 matches.",
+      "ai_analysis_en": "The Poisson model highlights a pronounced imbalance with an xG of 0.78 for Casa Pia and 2.88 for Sporting CP. Model probabilities indicate 50.9% for BTTS and 70.6 for Over 2.5, with a reliability level of 81.01. Statistics demonstrate the visiting team's offensive strength and the hosts' difficulty in expressing themselves against top-tier league opponents. No bookmaker odds are available for this match.",
+      "ai_form_summary_en": "Casa Pia shows a mixed home record with 2 wins and 2 defeats in their last five fixtures, posting a 0.4 BTTS rate. Sporting CP dominates away with 3 wins and 2 draws, scoring 12 goals with 4 conceded.",
+      "ai_source": "gemini-v2",
+      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+      "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
+      "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
+      "status": "PENDING"
+    },
+    {
       "id": "grazerak-vs-tsvhartb-2026-10-30",
       "match": "Grazer AK vs TSV Hartberg",
       "home": "Grazer AK",
@@ -6101,7 +6101,7 @@
     }
   ],
   "stats": {
-    "avgReliability": 82.13,
+    "avgReliability": 82.18,
     "totalAnalyzed": 108,
     "totalRejected": 1,
     "totalAccepted": 107,
@@ -11362,197 +11362,6 @@
       "status": "PENDING"
     },
     {
-      "id": "casapia-vs-sporting-2026-10-30",
-      "match": "Casa Pia vs Sporting CP",
-      "home": "Casa Pia",
-      "away": "Sporting CP",
-      "league": "Liga Portugal",
-      "date": "2026-10-30",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5089,
-      "bttsProbDisplay": "50.89%",
-      "over25ProbDisplay": "70.60%",
-      "confidence": 51,
-      "time": "20:15",
-      "matchSemantic": "casapia-vs-sporting-2026-10-30",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21581.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png",
-      "tier": "GOLD",
-      "reliabilityScore": 81.01,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 0.78,
-      "xgAway": 2.88,
-      "xgTotal": 3.65,
-      "formBTTS": 50,
-      "analysis": "Casa Pia : forme V-D-V-D-N (2V 1N 2D, 5 buts marqués / 6 encaissés sur 5) · Sporting CP : forme V-N-N-V-V (3V 2N 0D, 12 buts marqués / 4 encaissés sur 5). Classement : Casa Pia 16e (7 pts), Sporting CP 3e (18 pts). Modèle Poisson : xG cumulé 3.65, BTTS 50.9%, Over 2.5 70.6%. Fiabilité 81.01%.",
-      "analysisData": {
-        "bttsProb": 0.5089,
-        "over25Prob": 0.706,
-        "homeLambda": 0.78,
-        "awayLambda": 2.88,
-        "xgTotal": 3.65
-      },
-      "estimatedCote": 1.97,
-      "estimatedCoteOver": 1.42,
-      "odds": null,
-      "oddsSource": "ESTIMATION_POISSON",
-      "estimatedCoteBTTS": 1.97,
-      "formHome": {
-        "last5String": "V-D-V-D-N",
-        "wins": 2,
-        "draws": 1,
-        "losses": 2,
-        "goalsFor": 5,
-        "goalsAgainst": 6,
-        "bttsRate": 0.4,
-        "over25Rate": 0.4,
-        "cleanSheets": 2,
-        "failedToScore": 2,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "V-N-N-V-V",
-        "wins": 3,
-        "draws": 2,
-        "losses": 0,
-        "goalsFor": 12,
-        "goalsAgainst": 4,
-        "bttsRate": 0.6,
-        "over25Rate": 0.6,
-        "cleanSheets": 2,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-24",
-          "opponent": "Estrela",
-          "venue": "A",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Santa Clara",
-          "venue": "H",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Estoril",
-          "venue": "A",
-          "score": "2-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-12",
-          "opponent": "FC Porto",
-          "venue": "H",
-          "score": "1-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-06",
-          "opponent": "Vitória de Guimaraes",
-          "venue": "A",
-          "score": "0-0",
-          "result": "D"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-09",
-          "opponent": "Braga",
-          "venue": "A",
-          "score": "3-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-19",
-          "opponent": "Arouca",
-          "venue": "H",
-          "score": "2-2",
-          "result": "D"
-        },
-        {
-          "date": "2026-09-13",
-          "opponent": "FC Famalicao",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-09-05",
-          "opponent": "C.D. Nacional",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-08-28",
-          "opponent": "Rio Ave",
-          "venue": "A",
-          "score": "4-0",
-          "result": "W"
-        }
-      ],
-      "standingsHome": {
-        "rank": 16,
-        "points": 7,
-        "played": 9,
-        "gf": 5,
-        "ga": 17
-      },
-      "standingsAway": {
-        "rank": 3,
-        "points": 18,
-        "played": 8,
-        "gf": 20,
-        "ga": 9
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 51,
-          "bttsProb": 0.5089,
-          "homeLambda": 0.78,
-          "awayLambda": 2.88
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 71,
-          "over25Prob": 0.706,
-          "homeLambda": 0.78,
-          "awayLambda": 2.88
-        }
-      ],
-      "bttsProb": 0.5089,
-      "over25Prob": 0.706,
-      "homeLambda": 0.78,
-      "awayLambda": 2.88,
-      "ai_key_fact": "Sporting CP totalise 20 buts marqués pour seulement 9 encaissés en 8 matchs.",
-      "ai_analysis": "Le modèle Poisson met en évidence un déséquilibre prononcé avec un xG de 0.78 pour Casa Pia et de 2.88 pour Sporting CP. Les probabilités du modèle indiquent 50.9% pour le BTTS et 70.6 pour l'Over 2.5, avec un niveau de fiabilité de 81.01. Les statistiques démontrent la solidité offensive de l'équipe visiteuse et la difficulté des hôtes à s'exprimer face aux cadors de la ligue. Aucune cote bookmaker n'est disponible pour ce match.",
-      "ai_form_summary": "Casa Pia présente un bilan mitigé à domicile avec 2 victoires et 2 défaites sur ses cinq dernières rencontres, affichant un taux BTTS de 0.4. Sporting CP domine à l'extérieur avec 3 victoires et 2 nuls, inscrivant 12 buts pour 4 encaissés.",
-      "ai_key_fact_en": "Sporting CP tallies 20 goals scored for only 9 conceded in 8 matches.",
-      "ai_analysis_en": "The Poisson model highlights a pronounced imbalance with an xG of 0.78 for Casa Pia and 2.88 for Sporting CP. Model probabilities indicate 50.9% for BTTS and 70.6 for Over 2.5, with a reliability level of 81.01. Statistics demonstrate the visiting team's offensive strength and the hosts' difficulty in expressing themselves against top-tier league opponents. No bookmaker odds are available for this match.",
-      "ai_form_summary_en": "Casa Pia shows a mixed home record with 2 wins and 2 defeats in their last five fixtures, posting a 0.4 BTTS rate. Sporting CP dominates away with 3 wins and 2 draws, scoring 12 goals with 4 conceded.",
-      "ai_source": "gemini-v2",
-      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
-      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
-      "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
-      "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
-      "status": "PENDING"
-    },
-    {
       "id": "zultewar-vs-clubbrug-2026-10-30",
       "match": "Zulte-Waregem vs Club Brugge",
       "home": "Zulte-Waregem",
@@ -11927,6 +11736,197 @@
       "ai_key_fact_en": "Arminia Bielefeld displays a high model xG of 2.15 at home.",
       "ai_analysis_en": "In 2. Bundesliga, Arminia Bielefeld ranks 8th with 11 points in 9 matches, while TSV Eintracht Braunschweig is 17th with 7 points in 8 games. The Poisson model indicates xGs of 2.15 for the home side and 1.5 for the away side, translating to a marked offensive potential on both sides. Generated probabilities reach 68.6% for BTTS and 70.6% for Over 2.5, supported by a solid model reliability of 88.78. Goals conceded statistics, namely 14 for Bielefeld and 15 for Braunschweig, support these goal projections.",
       "ai_form_summary_en": "Arminia Bielefeld totals two wins, one draw, and two defeats in their last five matches with a 0.6 BTTS rate. Eintracht Braunschweig presents a more delicate record of one win, one draw, and three defeats, with a 0.4 BTTS rate.",
+      "ai_source": "gemini-v2",
+      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+      "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
+      "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
+      "status": "PENDING"
+    },
+    {
+      "id": "casapia-vs-sporting-2026-10-30",
+      "match": "Casa Pia vs Sporting CP",
+      "home": "Casa Pia",
+      "away": "Sporting CP",
+      "league": "Liga Portugal",
+      "date": "2026-10-30",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5089,
+      "bttsProbDisplay": "50.89%",
+      "over25ProbDisplay": "70.60%",
+      "confidence": 51,
+      "time": "20:15",
+      "matchSemantic": "casapia-vs-sporting-2026-10-30",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21581.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png",
+      "tier": "GOLD",
+      "reliabilityScore": 81.01,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 0.78,
+      "xgAway": 2.88,
+      "xgTotal": 3.65,
+      "formBTTS": 50,
+      "analysis": "Casa Pia : forme V-D-V-D-N (2V 1N 2D, 5 buts marqués / 6 encaissés sur 5) · Sporting CP : forme V-N-N-V-V (3V 2N 0D, 12 buts marqués / 4 encaissés sur 5). Classement : Casa Pia 16e (7 pts), Sporting CP 3e (18 pts). Modèle Poisson : xG cumulé 3.65, BTTS 50.9%, Over 2.5 70.6%. Fiabilité 81.01%.",
+      "analysisData": {
+        "bttsProb": 0.5089,
+        "over25Prob": 0.706,
+        "homeLambda": 0.78,
+        "awayLambda": 2.88,
+        "xgTotal": 3.65
+      },
+      "estimatedCote": 1.97,
+      "estimatedCoteOver": 1.42,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.97,
+      "formHome": {
+        "last5String": "V-D-V-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 5,
+        "goalsAgainst": 6,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-N-N-V-V",
+        "wins": 3,
+        "draws": 2,
+        "losses": 0,
+        "goalsFor": 12,
+        "goalsAgainst": 4,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Estrela",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Santa Clara",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Estoril",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "FC Porto",
+          "venue": "H",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-06",
+          "opponent": "Vitória de Guimaraes",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Académico de Viseu",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Braga",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Arouca",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-13",
+          "opponent": "FC Famalicao",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-05",
+          "opponent": "C.D. Nacional",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 16,
+        "points": 7,
+        "played": 9,
+        "gf": 5,
+        "ga": 17
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 18,
+        "played": 8,
+        "gf": 20,
+        "ga": 9
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 51,
+          "bttsProb": 0.5089,
+          "homeLambda": 0.78,
+          "awayLambda": 2.88
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 71,
+          "over25Prob": 0.706,
+          "homeLambda": 0.78,
+          "awayLambda": 2.88
+        }
+      ],
+      "bttsProb": 0.5089,
+      "over25Prob": 0.706,
+      "homeLambda": 0.78,
+      "awayLambda": 2.88,
+      "ai_key_fact": "Sporting CP totalise 20 buts marqués pour seulement 9 encaissés en 8 matchs.",
+      "ai_analysis": "Le modèle Poisson met en évidence un déséquilibre prononcé avec un xG de 0.78 pour Casa Pia et de 2.88 pour Sporting CP. Les probabilités du modèle indiquent 50.9% pour le BTTS et 70.6 pour l'Over 2.5, avec un niveau de fiabilité de 81.01. Les statistiques démontrent la solidité offensive de l'équipe visiteuse et la difficulté des hôtes à s'exprimer face aux cadors de la ligue. Aucune cote bookmaker n'est disponible pour ce match.",
+      "ai_form_summary": "Casa Pia présente un bilan mitigé à domicile avec 2 victoires et 2 défaites sur ses cinq dernières rencontres, affichant un taux BTTS de 0.4. Sporting CP domine à l'extérieur avec 3 victoires et 2 nuls, inscrivant 12 buts pour 4 encaissés.",
+      "ai_key_fact_en": "Sporting CP tallies 20 goals scored for only 9 conceded in 8 matches.",
+      "ai_analysis_en": "The Poisson model highlights a pronounced imbalance with an xG of 0.78 for Casa Pia and 2.88 for Sporting CP. Model probabilities indicate 50.9% for BTTS and 70.6 for Over 2.5, with a reliability level of 81.01. Statistics demonstrate the visiting team's offensive strength and the hosts' difficulty in expressing themselves against top-tier league opponents. No bookmaker odds are available for this match.",
+      "ai_form_summary_en": "Casa Pia shows a mixed home record with 2 wins and 2 defeats in their last five fixtures, posting a 0.4 BTTS rate. Sporting CP dominates away with 3 wins and 2 draws, scoring 12 goals with 4 conceded.",
       "ai_source": "gemini-v2",
       "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
