@@ -178,96 +178,158 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* === DRAWER MOBILE === */}
+      {/* === DRAWER MOBILE — design plateforme === */}
       {menuOpen && (
         <>
           <div
-            className="fixed inset-0 z-[60] lg:hidden"
-            style={{ backgroundColor: 'rgba(5, 8, 12, 0.65)' }}
+            className="nav-drawer-backdrop fixed inset-0 z-[60] lg:hidden"
+            style={{ backgroundColor: 'rgba(3, 6, 12, 0.72)', backdropFilter: 'blur(6px)' }}
             onClick={() => setMenuOpen(false)}
             aria-hidden="true"
           />
 
           <div
-            className="fixed top-0 left-0 right-0 z-[70] lg:hidden"
+            className="nav-drawer fixed top-0 left-0 right-0 z-[70] lg:hidden flex flex-col"
             style={{
-              backgroundColor: '#10161D',
-              borderBottom: '1px solid #223041',
-              boxShadow: '0 16px 40px rgba(0,0,0,0.5)',
+              maxHeight: 'min(92vh, 640px)',
+              background: 'linear-gradient(180deg, #0C121C 0%, #0A1018 100%)',
+              borderBottomLeftRadius: 20,
+              borderBottomRightRadius: 20,
+              borderBottom: '1px solid rgba(59, 130, 246, 0.18)',
+              boxShadow: '0 24px 64px rgba(0,0,0,0.65)',
             }}
+            role="dialog"
+            aria-modal="true"
+            aria-label={t.nav.menu}
           >
-            <div className="flex items-center justify-between px-4 py-3 border-b" style={{ borderColor: '#223041' }}>
-              <span className="text-sm font-bold text-papier">{t.nav.menu}</span>
+            {/* Header */}
+            <div
+              className="flex items-center justify-between px-4 py-3.5 flex-shrink-0"
+              style={{ borderBottom: '1px solid rgba(51, 65, 85, 0.45)' }}
+            >
+              <div className="flex items-center gap-2.5 min-w-0">
+                <img src="/favicon.svg" alt="" width={22} height={22} className="rounded flex-shrink-0" />
+                <div className="min-w-0">
+                  <span className="block text-sm font-bold text-papier leading-tight">{t.nav.menu}</span>
+                  <span className="block text-[10px] font-semibold uppercase tracking-[0.16em] text-primary leading-none mt-0.5">
+                    BTTSPredict
+                  </span>
+                </div>
+              </div>
               <button
                 onClick={() => setMenuOpen(false)}
-                className="w-8 h-8 flex items-center justify-center rounded-lg text-cendre hover:text-papier"
+                className="w-9 h-9 flex items-center justify-center rounded-xl text-cendre hover:text-papier transition-colors flex-shrink-0"
+                style={{ backgroundColor: 'rgba(148, 163, 184, 0.08)', border: '1px solid rgba(51, 65, 85, 0.5)' }}
                 aria-label={t.nav.closeMenu}
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="18" y1="6" x2="6" y2="18" />
                   <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
               </button>
             </div>
 
-            <nav className="px-3 py-3 grid gap-1" aria-label={t.nav.menu}>
-              {pageLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className={`block px-3 py-3 rounded-lg text-sm font-semibold transition-colors ${
-                    isActive(link.href) ? 'text-papier bg-white/[0.06]' : 'text-cendre hover:text-papier hover:bg-white/[0.04]'
-                  }`}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
+            <div className="overflow-y-auto flex-1 overscroll-contain">
+              {/* Liens principaux en grille */}
+              <nav className="px-3 pt-3 pb-2" aria-label={t.nav.menu}>
+                <p className="px-1 pb-2 text-[10px] font-bold uppercase tracking-[0.18em]" style={{ color: '#64748B' }}>
+                  {lang === 'en' ? 'Navigate' : lang === 'ar' ? 'تصفح' : 'Navigation'}
+                </p>
+                <div className="grid grid-cols-1 gap-1.5">
+                  {pageLinks.map((link) => {
+                    const active = isActive(link.href)
+                    return (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setMenuOpen(false)}
+                        className="flex items-center justify-between gap-3 px-3.5 py-3 rounded-xl text-sm font-semibold transition-all"
+                        style={
+                          active
+                            ? {
+                                color: '#F8FAFC',
+                                background: 'linear-gradient(135deg, rgba(59,130,246,0.22), rgba(34,211,238,0.08))',
+                                border: '1px solid rgba(59, 130, 246, 0.4)',
+                                boxShadow: '0 0 0 1px rgba(59,130,246,0.08) inset',
+                              }
+                            : {
+                                color: '#CBD5E1',
+                                backgroundColor: 'rgba(15, 23, 42, 0.65)',
+                                border: '1px solid rgba(51, 65, 85, 0.55)',
+                              }
+                        }
+                      >
+                        <span>{link.label}</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ opacity: active ? 1 : 0.35 }}>
+                          <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                      </a>
+                    )
+                  })}
+                </div>
+              </nav>
 
-            {dataToday && (
-              <div className="px-4 pb-1">
-                <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold" style={{ color: '#86E9BC' }}>
-                  <span className="hp-status-dot" aria-hidden="true" />
-                  {t.home2.statusUpdated}
-                </span>
-              </div>
-            )}
-
-            <div className="px-3 pb-1 pt-2 border-t" style={{ borderColor: '#223041' }}>
-              <span className="block px-3 pt-2 pb-1 text-[11px] font-semibold uppercase tracking-widest text-cendre opacity-60">
-                {lang === 'en' ? 'Partners' : lang === 'ar' ? 'شركاء' : 'Partenaires'}
-              </span>
-              <div className="grid grid-cols-2 gap-2">
-                {partnerLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="block px-3 py-2.5 rounded-lg text-sm font-medium text-center text-cendre hover:text-papier transition-colors"
-                    style={{ backgroundColor: 'rgba(157, 171, 187, 0.06)', border: '1px solid #223041' }}
+              {dataToday && (
+                <div className="px-4 py-2">
+                  <span
+                    className="inline-flex items-center gap-1.5 text-[11px] font-semibold px-2.5 py-1 rounded-full"
+                    style={{ color: '#6EE7B7', backgroundColor: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.28)' }}
                   >
-                    {link.label}
-                  </a>
-                ))}
+                    <span className="hp-status-dot" aria-hidden="true" />
+                    {t.home2.statusUpdated}
+                  </span>
+                </div>
+              )}
+
+              {/* Partenaires */}
+              <div className="px-3 pt-2 pb-1">
+                <p className="px-1 pb-2 text-[10px] font-bold uppercase tracking-[0.18em]" style={{ color: '#64748B' }}>
+                  {lang === 'en' ? 'Partners' : lang === 'ar' ? 'شركاء' : 'Partenaires'}
+                </p>
+                <div className="grid grid-cols-2 gap-2">
+                  {partnerLinks.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="flex items-center justify-center px-3 py-3 rounded-xl text-sm font-semibold text-center transition-colors"
+                      style={{
+                        color: '#E2E8F0',
+                        backgroundColor: 'rgba(15, 23, 42, 0.8)',
+                        border: '1px solid rgba(51, 65, 85, 0.65)',
+                      }}
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="px-4 py-3 border-t grid grid-cols-2 gap-2" style={{ borderColor: '#223041' }}>
+            {/* CTA sticky bas du drawer */}
+            <div
+              className="px-3 pt-2 pb-3 flex-shrink-0 grid gap-2"
+              style={{
+                borderTop: '1px solid rgba(51, 65, 85, 0.45)',
+                background: 'linear-gradient(180deg, transparent, rgba(12, 18, 28, 0.95))',
+                paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))',
+              }}
+            >
               <a
                 href={`${home}#matchs`}
                 onClick={() => setMenuOpen(false)}
-                className="inline-flex items-center justify-center px-3 py-2.5 rounded-lg text-sm font-bold hp-cta-primary"
+                className="inline-flex items-center justify-center w-full px-3 py-3 rounded-xl text-sm font-bold hp-cta-primary"
+                style={{ borderRadius: 12 }}
               >
                 {t.nav.ctaPronostics}
               </a>
               <button
                 onClick={() => { copyCode(); setMenuOpen(false) }}
-                className="px-3 py-2.5 rounded-lg text-sm font-mono font-semibold text-center transition-colors"
+                className="w-full px-3 py-3 rounded-xl text-sm font-mono font-semibold text-center transition-colors"
                 style={{
-                  border: '1px solid rgba(47, 125, 255, 0.45)',
-                  backgroundColor: 'rgba(47, 125, 255, 0.10)',
-                  color: copied ? '#34D399' : '#4A90FF',
+                  border: '1px solid rgba(59, 130, 246, 0.45)',
+                  backgroundColor: 'rgba(59, 130, 246, 0.12)',
+                  color: copied ? '#34D399' : '#93C5FD',
                 }}
               >
                 {copied ? (lang === 'en' ? '✓ Copied' : lang === 'ar' ? '✓ تم النسخ' : '✓ Copié') : navPromoCode}
