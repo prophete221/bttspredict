@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-10-25T18:03:34.342Z",
+  "generatedAt": "2026-10-25T19:55:08.749Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,31 +15,31 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 329,
-    "won": 261,
-    "lost": 68,
-    "pending": 47,
-    "unverifiable": 130,
+    "total": 335,
+    "won": 264,
+    "lost": 71,
+    "pending": 40,
+    "unverifiable": 131,
     "archivedTotal": 506,
-    "rate": 79.3,
+    "rate": 78.8,
     "gold": {
-      "total": 237,
-      "won": 190,
-      "lost": 47,
-      "rate": 80.2
+      "total": 242,
+      "won": 193,
+      "lost": 49,
+      "rate": 79.8
     },
     "standard": {
-      "total": 92,
+      "total": 93,
       "won": 71,
-      "lost": 21,
-      "rate": 77.2
+      "lost": 22,
+      "rate": 76.3
     },
     "byType": {
       "btts": {
-        "total": 326,
-        "won": 260,
-        "lost": 66,
-        "rate": 79.8
+        "total": 332,
+        "won": 263,
+        "lost": 69,
+        "rate": 79.2
       },
       "over25": {
         "total": 3,
@@ -142,10 +142,10 @@
       },
       {
         "date": "2026-10-25",
-        "total": 25,
-        "won": 13,
-        "lost": 12,
-        "rate": 52
+        "total": 31,
+        "won": 16,
+        "lost": 15,
+        "rate": 51.6
       }
     ],
     "period": {
@@ -155,6 +155,84 @@
     }
   },
   "history": [
+    {
+      "date": "2026-10-25",
+      "match": "Real Sociedad vs Levante",
+      "league": "LaLiga",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.4555,
+      "status": "LOST",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-10-25T19:54:12.918Z",
+      "source": "ESPN public",
+      "prediction": "Non"
+    },
+    {
+      "date": "2026-10-25",
+      "match": "SC Freiburg vs Bayern Munich",
+      "league": "Bundesliga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5794,
+      "status": "WON",
+      "finalScore": "1-3",
+      "verifiedAt": "2026-10-25T19:54:12.918Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-25",
+      "match": "AJ Auxerre vs Le Mans",
+      "league": "Ligue 1",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6351,
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-10-25T19:54:12.916Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-25",
+      "match": "Marseille vs Le Havre AC",
+      "league": "Ligue 1",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6506,
+      "status": "WON",
+      "finalScore": "4-3",
+      "verifiedAt": "2026-10-25T19:54:12.916Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-25",
+      "match": "Lecce vs Juventus",
+      "league": "Serie A",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6685,
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-10-25T19:53:48.443Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-25",
+      "match": "Stade Rennais vs Strasbourg",
+      "league": "Ligue 1",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7463,
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-10-25T19:53:48.443Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-10-25",
       "match": "Atalanta vs Frosinone",
