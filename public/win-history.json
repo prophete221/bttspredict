@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-10-25T19:55:08.749Z",
+  "generatedAt": "2026-10-25T21:33:17.481Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,18 +15,18 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 335,
+    "total": 339,
     "won": 264,
-    "lost": 71,
-    "pending": 40,
+    "lost": 75,
+    "pending": 36,
     "unverifiable": 131,
     "archivedTotal": 506,
-    "rate": 78.8,
+    "rate": 77.9,
     "gold": {
-      "total": 242,
+      "total": 246,
       "won": 193,
-      "lost": 49,
-      "rate": 79.8
+      "lost": 53,
+      "rate": 78.5
     },
     "standard": {
       "total": 93,
@@ -36,10 +36,10 @@
     },
     "byType": {
       "btts": {
-        "total": 332,
+        "total": 336,
         "won": 263,
-        "lost": 69,
-        "rate": 79.2
+        "lost": 73,
+        "rate": 78.3
       },
       "over25": {
         "total": 3,
@@ -142,10 +142,10 @@
       },
       {
         "date": "2026-10-25",
-        "total": 31,
+        "total": 35,
         "won": 16,
-        "lost": 15,
-        "rate": 51.6
+        "lost": 19,
+        "rate": 45.7
       }
     ],
     "period": {
@@ -155,6 +155,58 @@
     }
   },
   "history": [
+    {
+      "date": "2026-10-25",
+      "match": "Union St.-Gilloise vs Cercle Brugge KSV",
+      "league": "Jupiler Pro League",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.4662,
+      "status": "LOST",
+      "finalScore": "5-2",
+      "verifiedAt": "2026-10-25T21:31:52.855Z",
+      "source": "ESPN public",
+      "prediction": "Non"
+    },
+    {
+      "date": "2026-10-25",
+      "match": "C.D. Nacional vs Braga",
+      "league": "Liga Portugal",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6379,
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-10-25T21:31:14.534Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-25",
+      "match": "AZ Alkmaar vs FC Twente",
+      "league": "Eredivisie",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6995,
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-10-25T21:31:08.184Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-25",
+      "match": "Rio Ave vs FC Famalicao",
+      "league": "Liga Portugal",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.674,
+      "status": "LOST",
+      "finalScore": "0-4",
+      "verifiedAt": "2026-10-25T21:31:08.184Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-10-25",
       "match": "Real Sociedad vs Levante",

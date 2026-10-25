@@ -4180,7 +4180,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 1.8, nul: 4.3, 2: 3.9.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 1.8, draw: 4.3, 2: 3.9.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-10-25T19:53:48.443Z"
     },
     {
       "id": "manchest-vs-afcbourn-2026-10-25",
@@ -4776,7 +4778,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 6.5, nul: 4.1, 2: 1.45, Over 2.5: 1.83.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 6.5, draw: 4.1, 2: 1.45, Over 2.5: 1.83.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-10-25T19:53:48.443Z"
     },
     {
       "id": "sevilla-vs-osasuna-2026-10-26",
@@ -11187,7 +11191,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 1.49, nul: 4.8, 2: 6.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 1.49, draw: 4.8, 2: 6.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "4-3",
+      "verifiedAt": "2026-10-25T19:54:12.916Z"
     },
     {
       "id": "ajauxerr-vs-lemans-2026-10-25",
@@ -11385,7 +11391,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 2.1, nul: 3.6, 2: 3.4, Over 2.5: 1.67.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 2.1, draw: 3.6, 2: 3.4, Over 2.5: 1.67.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-10-25T19:54:12.916Z"
     },
     {
       "id": "liverpoo-vs-brighton-2026-10-25",
@@ -12181,7 +12189,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 5.25, nul: 4.8, 2: 1.48.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 5.25, draw: 4.8, 2: 1.48.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-3",
+      "verifiedAt": "2026-10-25T19:54:12.918Z"
     },
     {
       "id": "atalanta-vs-frosinon-2026-10-25",
@@ -12779,7 +12789,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 1.57, nul: 4.6, 2: 5.25.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 1.57, draw: 4.6, 2: 5.25.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-10-25T19:54:12.918Z"
     },
     {
       "id": "udinese-vs-acmilan-2026-10-25",
@@ -14601,7 +14613,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 2.15, nul: 3.9, 2: 2.95.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 2.15, draw: 3.9, 2: 2.95.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-10-25T21:31:08.184Z"
     },
     {
       "id": "clubbrug-vs-sinttrui-2026-10-25",
@@ -15199,7 +15213,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 3.65, nul: 3.35, 2: 2.05, Over 2.5: 2.05.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 3.65, draw: 3.35, 2: 2.05, Over 2.5: 2.05.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-4",
+      "verifiedAt": "2026-10-25T21:31:08.184Z"
     },
     {
       "id": "sporting-vs-acadmico-2026-10-25",
@@ -16392,7 +16408,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 5.5, nul: 4.1, 2: 1.57, Over 2.5: 1.83.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 5.5, draw: 4.1, 2: 1.57, Over 2.5: 1.83.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-10-25T21:31:14.534Z"
     },
     {
       "id": "tsveintr-vs-hannover-2026-10-25",
@@ -25393,7 +25411,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 1.31, nul: 5.75, 2: 8.5.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 1.31, draw: 5.75, 2: 8.5.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "5-2",
+      "verifiedAt": "2026-10-25T21:31:52.855Z"
     },
     {
       "id": "scfreibu-vs-bayernmu-2026-10-25",
