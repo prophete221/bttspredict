@@ -7240,3 +7240,215 @@ html.dark ::-webkit-scrollbar-thumb {
     transform: none !important;
   }
 }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MOTION & TRANSITIONS 2027 — fluid platform feel (CSS only)
+   Honors prefers-reduced-motion
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --motion-fast: 150ms;
+  --motion-base: 220ms;
+  --motion-slow: 380ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base interactive elements */
+a, button, [role="button"], input, select, textarea {
+  transition:
+    color var(--motion-fast) var(--motion-ease),
+    background-color var(--motion-fast) var(--motion-ease),
+    border-color var(--motion-fast) var(--motion-ease),
+    box-shadow var(--motion-base) var(--motion-ease),
+    opacity var(--motion-fast) var(--motion-ease),
+    transform var(--motion-base) var(--motion-ease);
+}
+
+/* Cards — lift + glow */
+.prediction-match-card,
+.hp-live,
+.btx-stat,
+.btx-card,
+.vip-combo-card,
+.hp-gift-card,
+main .rounded-2xl {
+  transition:
+    transform var(--motion-base) var(--motion-ease-out),
+    border-color var(--motion-base) var(--motion-ease),
+    box-shadow var(--motion-slow) var(--motion-ease) !important;
+}
+
+/* Staggered fade-in for match lists */
+@keyframes pd-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.prediction-match-card {
+  animation: pd-fade-up 0.45s var(--motion-ease-out) both;
+}
+.prediction-match-card:nth-child(1) { animation-delay: 0.02s; }
+.prediction-match-card:nth-child(2) { animation-delay: 0.06s; }
+.prediction-match-card:nth-child(3) { animation-delay: 0.10s; }
+.prediction-match-card:nth-child(4) { animation-delay: 0.14s; }
+.prediction-match-card:nth-child(5) { animation-delay: 0.18s; }
+.prediction-match-card:nth-child(6) { animation-delay: 0.22s; }
+.prediction-match-card:nth-child(n+7) { animation-delay: 0.26s; }
+
+/* Hero entrance */
+@keyframes pd-hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hp-hero__copy {
+  animation: pd-hero-in 0.55s var(--motion-ease-out) both;
+}
+.hp-live-zone {
+  animation: pd-hero-in 0.65s var(--motion-ease-out) 0.12s both;
+}
+
+/* Soft pulse on live dots */
+@keyframes pd-live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.45); }
+  50% { opacity: 0.85; transform: scale(1.15); box-shadow: 0 0 0 6px rgba(52, 211, 153, 0); }
+}
+.badge-live .v31-ticker-dot.live,
+.hp-live__pulse,
+.hp-status-dot {
+  animation: pd-live-pulse 1.8s ease-in-out infinite;
+}
+
+/* Filter chips / pills */
+.btx-filter,
+[class*="filter"] button,
+main [role="tab"],
+main .rounded-full {
+  transition:
+    background-color var(--motion-fast) var(--motion-ease),
+    color var(--motion-fast) var(--motion-ease),
+    border-color var(--motion-fast) var(--motion-ease),
+    transform var(--motion-fast) var(--motion-ease),
+    box-shadow var(--motion-base) var(--motion-ease);
+}
+.btx-filter:hover,
+main [role="tab"]:hover {
+  transform: translateY(-1px);
+}
+.btx-filter:active,
+main [role="tab"]:active,
+button:active,
+a.hp-btn-primary:active {
+  transform: scale(0.97);
+}
+
+/* Primary CTA shimmer on hover */
+@keyframes pd-shine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+.hp-btn-primary,
+a.bg-primary,
+button.bg-primary {
+  background-size: 180% 100%;
+  transition:
+    transform var(--motion-fast) var(--motion-ease),
+    box-shadow var(--motion-base) var(--motion-ease),
+    background-position 0.6s var(--motion-ease) !important;
+}
+.hp-btn-primary:hover,
+a.bg-primary:hover,
+button.bg-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(59, 130, 246, 0.35) !important;
+}
+
+/* Nav links underline grow */
+header a,
+nav a {
+  transition: color var(--motion-fast) var(--motion-ease), opacity var(--motion-fast) var(--motion-ease);
+}
+
+/* Bottom nav icon pop */
+nav.fixed.bottom-0 a,
+[class*="BottomNav"] a,
+[class*="MobileTab"] a {
+  transition: color var(--motion-fast) var(--motion-ease), transform var(--motion-fast) var(--motion-ease);
+}
+nav.fixed.bottom-0 a:active,
+[class*="BottomNav"] a:active {
+  transform: scale(0.92);
+}
+
+/* Progress bars (proba) fill */
+@keyframes pd-bar-fill {
+  from { transform: scaleX(0); transform-origin: left center; }
+  to { transform: scaleX(1); transform-origin: left center; }
+}
+.prediction-match-card [class*="progress"],
+.prediction-match-card .bg-primary,
+.hp-live [style*="width"] {
+  animation: pd-bar-fill 0.7s var(--motion-ease-out) both;
+}
+
+/* Gift popup already animated — ensure smooth */
+.hp-gift {
+  transition: opacity var(--motion-base) var(--motion-ease), transform var(--motion-slow) var(--motion-ease-out);
+}
+
+/* Sticky CTA slide up */
+@keyframes pd-slide-up {
+  from { transform: translateY(110%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+[class*="StickyCTA"],
+[class*="sticky"][class*="bottom"] {
+  animation: pd-slide-up 0.45s var(--motion-ease-out) both;
+}
+
+/* Page sections gentle appear */
+main > section {
+  animation: pd-fade-up 0.5s var(--motion-ease-out) both;
+}
+main > section:nth-of-type(1) { animation-delay: 0.02s; }
+main > section:nth-of-type(2) { animation-delay: 0.06s; }
+main > section:nth-of-type(3) { animation-delay: 0.1s; }
+main > section:nth-of-type(4) { animation-delay: 0.14s; }
+main > section:nth-of-type(5) { animation-delay: 0.18s; }
+
+/* Focus ring smooth */
+:focus-visible {
+  transition: box-shadow var(--motion-fast) var(--motion-ease), outline-offset var(--motion-fast) var(--motion-ease);
+  outline-offset: 2px;
+}
+
+/* Disable all motion when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .prediction-match-card:hover,
+  .btx-grid > *:hover,
+  .hp-btn-primary:hover,
+  a.bg-primary:hover {
+    transform: none !important;
+  }
+}
