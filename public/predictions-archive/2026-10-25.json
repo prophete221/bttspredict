@@ -1199,7 +1199,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 2.15, nul: 3.9, 2: 2.95.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 2.15, draw: 3.9, 2: 2.95.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-10-25T21:31:08.184Z"
     },
     {
       "id": "clubbrug-vs-sinttrui-2026-10-25",
@@ -1797,7 +1799,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 3.65, nul: 3.35, 2: 2.05, Over 2.5: 2.05.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 3.65, draw: 3.35, 2: 2.05, Over 2.5: 2.05.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-4",
+      "verifiedAt": "2026-10-25T21:31:08.184Z"
     },
     {
       "id": "sporting-vs-acadmico-2026-10-25",
@@ -2990,7 +2994,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 5.5, nul: 4.1, 2: 1.57, Over 2.5: 1.83.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 5.5, draw: 4.1, 2: 1.57, Over 2.5: 1.83.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-10-25T21:31:14.534Z"
     },
     {
       "id": "tsveintr-vs-hannover-2026-10-25",
@@ -7432,6 +7438,13 @@
       ],
       "last5Away": [
         {
+          "date": "2026-10-25",
+          "opponent": "AC Milan",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
           "date": "2026-10-18",
           "opponent": "Lecce",
           "venue": "H",
@@ -7457,13 +7470,6 @@
           "opponent": "Internazionale",
           "venue": "A",
           "score": "3-5",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-07",
-          "opponent": "Lazio",
-          "venue": "H",
-          "score": "1-2",
           "result": "L"
         }
       ],
@@ -11991,7 +11997,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 1.31, nul: 5.75, 2: 8.5.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 1.31, draw: 5.75, 2: 8.5.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "5-2",
+      "verifiedAt": "2026-10-25T21:31:52.855Z"
     },
     {
       "id": "scfreibu-vs-bayernmu-2026-10-25",
@@ -20852,6 +20860,13 @@
       ],
       "last5Away": [
         {
+          "date": "2026-10-25",
+          "opponent": "AC Milan",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
           "date": "2026-10-18",
           "opponent": "Lecce",
           "venue": "H",
@@ -20877,13 +20892,6 @@
           "opponent": "Internazionale",
           "venue": "A",
           "score": "3-5",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-07",
-          "opponent": "Lazio",
-          "venue": "H",
-          "score": "1-2",
           "result": "L"
         }
       ],
@@ -26411,7 +26419,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 4.5, nul: 3.55, 2: 1.74, Over 2.5: 1.83.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 4.5, draw: 3.55, 2: 1.74, Over 2.5: 1.83.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-10-25T21:50:21.066Z"
     },
     {
       "id": "lille-vs-lens-2026-10-30",

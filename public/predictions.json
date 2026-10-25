@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "lastUpdated": "2026-10-25T21:30:15.932Z",
+  "lastUpdated": "2026-10-25T21:48:50.944Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -1389,6 +1389,204 @@
       "status": "PENDING"
     },
     {
+      "id": "parma-vs-udinese-2026-10-28",
+      "match": "Parma vs Udinese",
+      "home": "Parma",
+      "away": "Udinese",
+      "league": "Serie A",
+      "date": "2026-10-28",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.7403,
+      "bttsProbDisplay": "74.03%",
+      "over25ProbDisplay": "75.32%",
+      "confidence": 74,
+      "time": "17:30",
+      "matchSemantic": "parma-vs-udinese-2026-10-28",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/115.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/118.png",
+      "tier": "GOLD",
+      "reliabilityScore": 82.14,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 7,
+      "matchCountAway": 7,
+      "h2hAvailable": false,
+      "xgHome": 2.02,
+      "xgAway": 1.92,
+      "xgTotal": 3.94,
+      "formBTTS": 60,
+      "analysis": "Parma : forme D-D-V-D-N (1V 1N 3D, 4 buts marqués / 10 encaissés sur 5) · Udinese : forme D-D-D-D-D (0V 0N 5D, 5 buts marqués / 13 encaissés sur 5). Classement : Parma 19e (4 pts), Udinese 16e (4 pts). Modèle Poisson : xG cumulé 3.94, BTTS 74.0%, Over 2.5 75.3%. Cotes DraftKings — 1: 2.85 / N: 3.1 / 2: 2.35 · Over 2.5: 2.15. Fiabilité 82.14%.",
+      "analysisData": {
+        "bttsProb": 0.7403,
+        "over25Prob": 0.7532,
+        "homeLambda": 2.02,
+        "awayLambda": 1.92,
+        "xgTotal": 3.94
+      },
+      "estimatedCote": 1.35,
+      "estimatedCoteOver": 1.33,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.85,
+        "draw": 3.1,
+        "away": 2.35,
+        "over25": 2.15,
+        "under25": 1.67
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.35,
+      "formHome": {
+        "last5String": "D-D-V-D-N",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 4,
+        "goalsAgainst": 10,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-D-D-D",
+        "wins": 0,
+        "draws": 0,
+        "losses": 5,
+        "goalsFor": 5,
+        "goalsAgainst": 13,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Lazio",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Torino",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Internazionale",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Genoa",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-14",
+          "opponent": "Como",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-25",
+          "opponent": "AC Milan",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Lecce",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-12",
+          "opponent": "Torino",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Cagliari",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-14",
+          "opponent": "Internazionale",
+          "venue": "A",
+          "score": "3-5",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 19,
+        "points": 4,
+        "played": 7,
+        "gf": 4,
+        "ga": 13
+      },
+      "standingsAway": {
+        "rank": 16,
+        "points": 4,
+        "played": 7,
+        "gf": 9,
+        "ga": 16
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 74,
+          "bttsProb": 0.7403,
+          "homeLambda": 2.02,
+          "awayLambda": 1.92
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 75,
+          "over25Prob": 0.7532,
+          "homeLambda": 2.02,
+          "awayLambda": 1.92
+        }
+      ],
+      "bttsProb": 0.7403,
+      "over25Prob": 0.7532,
+      "homeLambda": 2.02,
+      "awayLambda": 1.92,
+      "ai_key_fact": "Parma et Udinese affichent respectivement des xG de 2.02 et 1.92.",
+      "ai_analysis": "Cette rencontre de Serie A met aux prises Parma, dix-neuvième, et Udinese, seizième, toutes deux à égalité de 4 points après 7 matchs joués. Le modèle Poisson anticipe une rencontre particulièrement offensive avec un xG de 2.02 pour Parma et de 1.92 pour Udinese. Les probabilités du modèle atteignent 74.0% pour le BTTS et 75.3% pour l'Over 2.5, portées par une fiabilité de 82.14%. Les cotes bookmakers réelles proposées par DraftKings fixent la victoire à domicile à 2.85, le nul à 3.1 et la victoire extérieure à 2.35, confirmant un profil statistique ouvert.",
+      "ai_form_summary": "Parma enregistre 1 victoire, 1 nul et 3 défaites sur ses cinq derniers matchs (4 buts marqués, 10 encaissés). Udinese traverse une série de 5 défaites consécutives (5 buts marqués, 13 encaissés).",
+      "ai_key_fact_en": "Parma and Udinese record xGs of 2.02 and 1.92 respectively.",
+      "ai_analysis_en": "This Serie A fixture brings together nineteenth-placed Parma and sixteenth-placed Udinese, both tied on 4 points after 7 matches played. The Poisson model anticipates a particularly offensive encounter with an xG of 2.02 for Parma and 1.92 for Udinese. Model probabilities reach 74.0% for BTTS and 75.3% for Over 2.5, driven by a reliability of 82.14%. Real bookmaker odds provided by DraftKings set the home win at 2.85, the draw at 3.1 and the away win at 2.35, confirming an open statistical profile.",
+      "ai_form_summary_en": "Parma records 1 win, 1 draw and 3 defeats in their last five matches (4 goals scored, 10 conceded). Udinese is going through a run of 5 consecutive defeats (5 goals scored, 13 conceded).",
+      "ai_source": "gemini-v2",
+      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+      "ai_odds_insight": "Le marché (DraftKings) cote 1: 2.85, nul: 3.1, 2: 2.35, Over 2.5: 2.15.",
+      "ai_odds_insight_en": "The market (DraftKings) prices 1: 2.85, draw: 3.1, 2: 2.35, Over 2.5: 2.15.",
+      "status": "PENDING"
+    },
+    {
       "id": "torontof-vs-dcunited-2026-10-28",
       "match": "Toronto FC vs D.C. United",
       "home": "Toronto FC",
@@ -2537,204 +2735,6 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
       "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
-      "status": "PENDING"
-    },
-    {
-      "id": "parma-vs-udinese-2026-10-28",
-      "match": "Parma vs Udinese",
-      "home": "Parma",
-      "away": "Udinese",
-      "league": "Serie A",
-      "date": "2026-10-28",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.7403,
-      "bttsProbDisplay": "74.03%",
-      "over25ProbDisplay": "75.32%",
-      "confidence": 74,
-      "time": "17:30",
-      "matchSemantic": "parma-vs-udinese-2026-10-28",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/115.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/118.png",
-      "tier": "GOLD",
-      "reliabilityScore": 82.14,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 7,
-      "matchCountAway": 7,
-      "h2hAvailable": false,
-      "xgHome": 2.02,
-      "xgAway": 1.92,
-      "xgTotal": 3.94,
-      "formBTTS": 60,
-      "analysis": "Parma : forme D-D-V-D-N (1V 1N 3D, 4 buts marqués / 10 encaissés sur 5) · Udinese : forme D-D-D-D-D (0V 0N 5D, 5 buts marqués / 13 encaissés sur 5). Classement : Parma 19e (4 pts), Udinese 16e (4 pts). Modèle Poisson : xG cumulé 3.94, BTTS 74.0%, Over 2.5 75.3%. Cotes DraftKings — 1: 2.85 / N: 3.1 / 2: 2.35 · Over 2.5: 2.15. Fiabilité 82.14%.",
-      "analysisData": {
-        "bttsProb": 0.7403,
-        "over25Prob": 0.7532,
-        "homeLambda": 2.02,
-        "awayLambda": 1.92,
-        "xgTotal": 3.94
-      },
-      "estimatedCote": 1.35,
-      "estimatedCoteOver": 1.33,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 2.85,
-        "draw": 3.1,
-        "away": 2.35,
-        "over25": 2.15,
-        "under25": 1.67
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.35,
-      "formHome": {
-        "last5String": "D-D-V-D-N",
-        "wins": 1,
-        "draws": 1,
-        "losses": 3,
-        "goalsFor": 4,
-        "goalsAgainst": 10,
-        "bttsRate": 0.6,
-        "over25Rate": 0.8,
-        "cleanSheets": 0,
-        "failedToScore": 2,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "D-D-D-D-D",
-        "wins": 0,
-        "draws": 0,
-        "losses": 5,
-        "goalsFor": 5,
-        "goalsAgainst": 13,
-        "bttsRate": 0.6,
-        "over25Rate": 0.8,
-        "cleanSheets": 0,
-        "failedToScore": 2,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-24",
-          "opponent": "Lazio",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-19",
-          "opponent": "Torino",
-          "venue": "H",
-          "score": "0-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Internazionale",
-          "venue": "A",
-          "score": "0-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Genoa",
-          "venue": "H",
-          "score": "2-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-14",
-          "opponent": "Como",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-18",
-          "opponent": "Lecce",
-          "venue": "H",
-          "score": "0-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-12",
-          "opponent": "Torino",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-19",
-          "opponent": "Cagliari",
-          "venue": "H",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-14",
-          "opponent": "Internazionale",
-          "venue": "A",
-          "score": "3-5",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-07",
-          "opponent": "Lazio",
-          "venue": "H",
-          "score": "1-2",
-          "result": "L"
-        }
-      ],
-      "standingsHome": {
-        "rank": 19,
-        "points": 4,
-        "played": 7,
-        "gf": 4,
-        "ga": 13
-      },
-      "standingsAway": {
-        "rank": 16,
-        "points": 4,
-        "played": 7,
-        "gf": 9,
-        "ga": 16
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 74,
-          "bttsProb": 0.7403,
-          "homeLambda": 2.02,
-          "awayLambda": 1.92
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 75,
-          "over25Prob": 0.7532,
-          "homeLambda": 2.02,
-          "awayLambda": 1.92
-        }
-      ],
-      "bttsProb": 0.7403,
-      "over25Prob": 0.7532,
-      "homeLambda": 2.02,
-      "awayLambda": 1.92,
-      "ai_key_fact": "Parma et Udinese affichent respectivement des xG de 2.02 et 1.92.",
-      "ai_analysis": "Cette rencontre de Serie A met aux prises Parma, dix-neuvième, et Udinese, seizième, toutes deux à égalité de 4 points après 7 matchs joués. Le modèle Poisson anticipe une rencontre particulièrement offensive avec un xG de 2.02 pour Parma et de 1.92 pour Udinese. Les probabilités du modèle atteignent 74.0% pour le BTTS et 75.3% pour l'Over 2.5, portées par une fiabilité de 82.14%. Les cotes bookmakers réelles proposées par DraftKings fixent la victoire à domicile à 2.85, le nul à 3.1 et la victoire extérieure à 2.35, confirmant un profil statistique ouvert.",
-      "ai_form_summary": "Parma enregistre 1 victoire, 1 nul et 3 défaites sur ses cinq derniers matchs (4 buts marqués, 10 encaissés). Udinese traverse une série de 5 défaites consécutives (5 buts marqués, 13 encaissés).",
-      "ai_key_fact_en": "Parma and Udinese record xGs of 2.02 and 1.92 respectively.",
-      "ai_analysis_en": "This Serie A fixture brings together nineteenth-placed Parma and sixteenth-placed Udinese, both tied on 4 points after 7 matches played. The Poisson model anticipates a particularly offensive encounter with an xG of 2.02 for Parma and 1.92 for Udinese. Model probabilities reach 74.0% for BTTS and 75.3% for Over 2.5, driven by a reliability of 82.14%. Real bookmaker odds provided by DraftKings set the home win at 2.85, the draw at 3.1 and the away win at 2.35, confirming an open statistical profile.",
-      "ai_form_summary_en": "Parma records 1 win, 1 draw and 3 defeats in their last five matches (4 goals scored, 10 conceded). Udinese is going through a run of 5 consecutive defeats (5 goals scored, 13 conceded).",
-      "ai_source": "gemini-v2",
-      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
-      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
-      "ai_odds_insight": "Le marché (DraftKings) cote 1: 2.85, nul: 3.1, 2: 2.35, Over 2.5: 2.15.",
-      "ai_odds_insight_en": "The market (DraftKings) prices 1: 2.85, draw: 3.1, 2: 2.35, Over 2.5: 2.15.",
       "status": "PENDING"
     },
     {
@@ -6074,21 +6074,21 @@
     },
     {
       "vip": true,
-      "id": "aberdeen-vs-falkirk-2026-10-28",
-      "home": "Aberdeen",
-      "away": "Falkirk",
-      "league": "Scottish Premiership",
-      "date": "2026-10-28",
-      "time": "19:45"
-    },
-    {
-      "vip": true,
       "id": "acmilan-vs-bologna-2026-10-28",
       "home": "AC Milan",
       "away": "Bologna",
       "league": "Serie A",
       "date": "2026-10-28",
       "time": "17:30"
+    },
+    {
+      "vip": true,
+      "id": "aberdeen-vs-falkirk-2026-10-28",
+      "home": "Aberdeen",
+      "away": "Falkirk",
+      "league": "Scottish Premiership",
+      "date": "2026-10-28",
+      "time": "19:45"
     },
     {
       "vip": true,
@@ -6101,7 +6101,7 @@
     }
   ],
   "stats": {
-    "avgReliability": 81.8,
+    "avgReliability": 82.13,
     "totalAnalyzed": 108,
     "totalRejected": 1,
     "totalAccepted": 107,
@@ -7495,6 +7495,204 @@
       "status": "PENDING"
     },
     {
+      "id": "parma-vs-udinese-2026-10-28",
+      "match": "Parma vs Udinese",
+      "home": "Parma",
+      "away": "Udinese",
+      "league": "Serie A",
+      "date": "2026-10-28",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.7403,
+      "bttsProbDisplay": "74.03%",
+      "over25ProbDisplay": "75.32%",
+      "confidence": 74,
+      "time": "17:30",
+      "matchSemantic": "parma-vs-udinese-2026-10-28",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/115.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/118.png",
+      "tier": "GOLD",
+      "reliabilityScore": 82.14,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 7,
+      "matchCountAway": 7,
+      "h2hAvailable": false,
+      "xgHome": 2.02,
+      "xgAway": 1.92,
+      "xgTotal": 3.94,
+      "formBTTS": 60,
+      "analysis": "Parma : forme D-D-V-D-N (1V 1N 3D, 4 buts marqués / 10 encaissés sur 5) · Udinese : forme D-D-D-D-D (0V 0N 5D, 5 buts marqués / 13 encaissés sur 5). Classement : Parma 19e (4 pts), Udinese 16e (4 pts). Modèle Poisson : xG cumulé 3.94, BTTS 74.0%, Over 2.5 75.3%. Cotes DraftKings — 1: 2.85 / N: 3.1 / 2: 2.35 · Over 2.5: 2.15. Fiabilité 82.14%.",
+      "analysisData": {
+        "bttsProb": 0.7403,
+        "over25Prob": 0.7532,
+        "homeLambda": 2.02,
+        "awayLambda": 1.92,
+        "xgTotal": 3.94
+      },
+      "estimatedCote": 1.35,
+      "estimatedCoteOver": 1.33,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.85,
+        "draw": 3.1,
+        "away": 2.35,
+        "over25": 2.15,
+        "under25": 1.67
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.35,
+      "formHome": {
+        "last5String": "D-D-V-D-N",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 4,
+        "goalsAgainst": 10,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-D-D-D",
+        "wins": 0,
+        "draws": 0,
+        "losses": 5,
+        "goalsFor": 5,
+        "goalsAgainst": 13,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Lazio",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Torino",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Internazionale",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Genoa",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-14",
+          "opponent": "Como",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-25",
+          "opponent": "AC Milan",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Lecce",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-12",
+          "opponent": "Torino",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Cagliari",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-14",
+          "opponent": "Internazionale",
+          "venue": "A",
+          "score": "3-5",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 19,
+        "points": 4,
+        "played": 7,
+        "gf": 4,
+        "ga": 13
+      },
+      "standingsAway": {
+        "rank": 16,
+        "points": 4,
+        "played": 7,
+        "gf": 9,
+        "ga": 16
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 74,
+          "bttsProb": 0.7403,
+          "homeLambda": 2.02,
+          "awayLambda": 1.92
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 75,
+          "over25Prob": 0.7532,
+          "homeLambda": 2.02,
+          "awayLambda": 1.92
+        }
+      ],
+      "bttsProb": 0.7403,
+      "over25Prob": 0.7532,
+      "homeLambda": 2.02,
+      "awayLambda": 1.92,
+      "ai_key_fact": "Parma et Udinese affichent respectivement des xG de 2.02 et 1.92.",
+      "ai_analysis": "Cette rencontre de Serie A met aux prises Parma, dix-neuvième, et Udinese, seizième, toutes deux à égalité de 4 points après 7 matchs joués. Le modèle Poisson anticipe une rencontre particulièrement offensive avec un xG de 2.02 pour Parma et de 1.92 pour Udinese. Les probabilités du modèle atteignent 74.0% pour le BTTS et 75.3% pour l'Over 2.5, portées par une fiabilité de 82.14%. Les cotes bookmakers réelles proposées par DraftKings fixent la victoire à domicile à 2.85, le nul à 3.1 et la victoire extérieure à 2.35, confirmant un profil statistique ouvert.",
+      "ai_form_summary": "Parma enregistre 1 victoire, 1 nul et 3 défaites sur ses cinq derniers matchs (4 buts marqués, 10 encaissés). Udinese traverse une série de 5 défaites consécutives (5 buts marqués, 13 encaissés).",
+      "ai_key_fact_en": "Parma and Udinese record xGs of 2.02 and 1.92 respectively.",
+      "ai_analysis_en": "This Serie A fixture brings together nineteenth-placed Parma and sixteenth-placed Udinese, both tied on 4 points after 7 matches played. The Poisson model anticipates a particularly offensive encounter with an xG of 2.02 for Parma and 1.92 for Udinese. Model probabilities reach 74.0% for BTTS and 75.3% for Over 2.5, driven by a reliability of 82.14%. Real bookmaker odds provided by DraftKings set the home win at 2.85, the draw at 3.1 and the away win at 2.35, confirming an open statistical profile.",
+      "ai_form_summary_en": "Parma records 1 win, 1 draw and 3 defeats in their last five matches (4 goals scored, 10 conceded). Udinese is going through a run of 5 consecutive defeats (5 goals scored, 13 conceded).",
+      "ai_source": "gemini-v2",
+      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+      "ai_odds_insight": "Le marché (DraftKings) cote 1: 2.85, nul: 3.1, 2: 2.35, Over 2.5: 2.15.",
+      "ai_odds_insight_en": "The market (DraftKings) prices 1: 2.85, draw: 3.1, 2: 2.35, Over 2.5: 2.15.",
+      "status": "PENDING"
+    },
+    {
       "id": "torontof-vs-dcunited-2026-10-28",
       "match": "Toronto FC vs D.C. United",
       "home": "Toronto FC",
@@ -8643,204 +8841,6 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
       "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
-      "status": "PENDING"
-    },
-    {
-      "id": "parma-vs-udinese-2026-10-28",
-      "match": "Parma vs Udinese",
-      "home": "Parma",
-      "away": "Udinese",
-      "league": "Serie A",
-      "date": "2026-10-28",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.7403,
-      "bttsProbDisplay": "74.03%",
-      "over25ProbDisplay": "75.32%",
-      "confidence": 74,
-      "time": "17:30",
-      "matchSemantic": "parma-vs-udinese-2026-10-28",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/115.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/118.png",
-      "tier": "GOLD",
-      "reliabilityScore": 82.14,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 7,
-      "matchCountAway": 7,
-      "h2hAvailable": false,
-      "xgHome": 2.02,
-      "xgAway": 1.92,
-      "xgTotal": 3.94,
-      "formBTTS": 60,
-      "analysis": "Parma : forme D-D-V-D-N (1V 1N 3D, 4 buts marqués / 10 encaissés sur 5) · Udinese : forme D-D-D-D-D (0V 0N 5D, 5 buts marqués / 13 encaissés sur 5). Classement : Parma 19e (4 pts), Udinese 16e (4 pts). Modèle Poisson : xG cumulé 3.94, BTTS 74.0%, Over 2.5 75.3%. Cotes DraftKings — 1: 2.85 / N: 3.1 / 2: 2.35 · Over 2.5: 2.15. Fiabilité 82.14%.",
-      "analysisData": {
-        "bttsProb": 0.7403,
-        "over25Prob": 0.7532,
-        "homeLambda": 2.02,
-        "awayLambda": 1.92,
-        "xgTotal": 3.94
-      },
-      "estimatedCote": 1.35,
-      "estimatedCoteOver": 1.33,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 2.85,
-        "draw": 3.1,
-        "away": 2.35,
-        "over25": 2.15,
-        "under25": 1.67
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.35,
-      "formHome": {
-        "last5String": "D-D-V-D-N",
-        "wins": 1,
-        "draws": 1,
-        "losses": 3,
-        "goalsFor": 4,
-        "goalsAgainst": 10,
-        "bttsRate": 0.6,
-        "over25Rate": 0.8,
-        "cleanSheets": 0,
-        "failedToScore": 2,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "D-D-D-D-D",
-        "wins": 0,
-        "draws": 0,
-        "losses": 5,
-        "goalsFor": 5,
-        "goalsAgainst": 13,
-        "bttsRate": 0.6,
-        "over25Rate": 0.8,
-        "cleanSheets": 0,
-        "failedToScore": 2,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-24",
-          "opponent": "Lazio",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-19",
-          "opponent": "Torino",
-          "venue": "H",
-          "score": "0-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Internazionale",
-          "venue": "A",
-          "score": "0-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Genoa",
-          "venue": "H",
-          "score": "2-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-14",
-          "opponent": "Como",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-18",
-          "opponent": "Lecce",
-          "venue": "H",
-          "score": "0-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-12",
-          "opponent": "Torino",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-19",
-          "opponent": "Cagliari",
-          "venue": "H",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-14",
-          "opponent": "Internazionale",
-          "venue": "A",
-          "score": "3-5",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-07",
-          "opponent": "Lazio",
-          "venue": "H",
-          "score": "1-2",
-          "result": "L"
-        }
-      ],
-      "standingsHome": {
-        "rank": 19,
-        "points": 4,
-        "played": 7,
-        "gf": 4,
-        "ga": 13
-      },
-      "standingsAway": {
-        "rank": 16,
-        "points": 4,
-        "played": 7,
-        "gf": 9,
-        "ga": 16
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 74,
-          "bttsProb": 0.7403,
-          "homeLambda": 2.02,
-          "awayLambda": 1.92
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 75,
-          "over25Prob": 0.7532,
-          "homeLambda": 2.02,
-          "awayLambda": 1.92
-        }
-      ],
-      "bttsProb": 0.7403,
-      "over25Prob": 0.7532,
-      "homeLambda": 2.02,
-      "awayLambda": 1.92,
-      "ai_key_fact": "Parma et Udinese affichent respectivement des xG de 2.02 et 1.92.",
-      "ai_analysis": "Cette rencontre de Serie A met aux prises Parma, dix-neuvième, et Udinese, seizième, toutes deux à égalité de 4 points après 7 matchs joués. Le modèle Poisson anticipe une rencontre particulièrement offensive avec un xG de 2.02 pour Parma et de 1.92 pour Udinese. Les probabilités du modèle atteignent 74.0% pour le BTTS et 75.3% pour l'Over 2.5, portées par une fiabilité de 82.14%. Les cotes bookmakers réelles proposées par DraftKings fixent la victoire à domicile à 2.85, le nul à 3.1 et la victoire extérieure à 2.35, confirmant un profil statistique ouvert.",
-      "ai_form_summary": "Parma enregistre 1 victoire, 1 nul et 3 défaites sur ses cinq derniers matchs (4 buts marqués, 10 encaissés). Udinese traverse une série de 5 défaites consécutives (5 buts marqués, 13 encaissés).",
-      "ai_key_fact_en": "Parma and Udinese record xGs of 2.02 and 1.92 respectively.",
-      "ai_analysis_en": "This Serie A fixture brings together nineteenth-placed Parma and sixteenth-placed Udinese, both tied on 4 points after 7 matches played. The Poisson model anticipates a particularly offensive encounter with an xG of 2.02 for Parma and 1.92 for Udinese. Model probabilities reach 74.0% for BTTS and 75.3% for Over 2.5, driven by a reliability of 82.14%. Real bookmaker odds provided by DraftKings set the home win at 2.85, the draw at 3.1 and the away win at 2.35, confirming an open statistical profile.",
-      "ai_form_summary_en": "Parma records 1 win, 1 draw and 3 defeats in their last five matches (4 goals scored, 10 conceded). Udinese is going through a run of 5 consecutive defeats (5 goals scored, 13 conceded).",
-      "ai_source": "gemini-v2",
-      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
-      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
-      "ai_odds_insight": "Le marché (DraftKings) cote 1: 2.85, nul: 3.1, 2: 2.35, Over 2.5: 2.15.",
-      "ai_odds_insight_en": "The market (DraftKings) prices 1: 2.85, draw: 3.1, 2: 2.35, Over 2.5: 2.15.",
       "status": "PENDING"
     },
     {

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-10-25T21:33:17.481Z",
+  "generatedAt": "2026-10-25T21:51:33.851Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,13 +15,13 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 339,
+    "total": 340,
     "won": 264,
-    "lost": 75,
-    "pending": 36,
+    "lost": 76,
+    "pending": 35,
     "unverifiable": 131,
     "archivedTotal": 506,
-    "rate": 77.9,
+    "rate": 77.6,
     "gold": {
       "total": 246,
       "won": 193,
@@ -29,17 +29,17 @@
       "rate": 78.5
     },
     "standard": {
-      "total": 93,
+      "total": 94,
       "won": 71,
-      "lost": 22,
-      "rate": 76.3
+      "lost": 23,
+      "rate": 75.5
     },
     "byType": {
       "btts": {
-        "total": 336,
+        "total": 337,
         "won": 263,
-        "lost": 73,
-        "rate": 78.3
+        "lost": 74,
+        "rate": 78
       },
       "over25": {
         "total": 3,
@@ -142,10 +142,10 @@
       },
       {
         "date": "2026-10-25",
-        "total": 35,
+        "total": 36,
         "won": 16,
-        "lost": 19,
-        "rate": 45.7
+        "lost": 20,
+        "rate": 44.4
       }
     ],
     "period": {
@@ -155,6 +155,19 @@
     }
   },
   "history": [
+    {
+      "date": "2026-10-25",
+      "match": "Udinese vs AC Milan",
+      "league": "Serie A",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.5149,
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-10-25T21:50:21.066Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-10-25",
       "match": "Union St.-Gilloise vs Cercle Brugge KSV",
