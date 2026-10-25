@@ -7452,3 +7452,23 @@ main > section:nth-of-type(5) { animation-delay: 0.18s; }
     transform: none !important;
   }
 }
+
+
+/* Mobile nav drawer motion */
+@keyframes nav-drawer-in {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes nav-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.nav-drawer {
+  animation: nav-drawer-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.nav-drawer-backdrop {
+  animation: nav-backdrop-in 0.2s ease both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-drawer, .nav-drawer-backdrop { animation: none !important; }
+}
