@@ -16,13 +16,13 @@
   /* Bleu analyse = actions/interactions. WIN=vert, LOST=rouge, PENDING=ambre, VIP=or. */
 
   /* — Fonds (5 niveaux) — macOS noir — profondeur maximale — */
-  --color-bg-main: #000000;            /* Fond principal — macOS noir */
-  --color-bg-secondary: #0A0A0C;       /* Sections / panels */
-  --color-bg-tertiary: #0D1219;        /* Panels élevés */
-  --color-card: #0D1219;               /* Card surface standard */
-  --color-card-hover: #131A23;         /* Card surface hover/sélection */
-  --color-border: rgba(255, 255, 255, 0.08);        /* Border subtile */
-  --color-border-strong: rgba(255, 255, 255, 0.16); /* Border visible / focus */
+  --color-bg-main: #0B0F14;            /* Fond principal — unifié pages */
+  --color-bg-secondary: #0E141C;       /* Sections / panels */
+  --color-bg-tertiary: #141C25;        /* Panels élevés */
+  --color-card: #141C25;               /* Card surface standard */
+  --color-card-hover: #1A2430;         /* Card surface hover/sélection */
+  --color-border: rgba(148, 163, 184, 0.14);        /* Border subtile */
+  --color-border-strong: rgba(148, 163, 184, 0.28); /* Border visible / focus */
 
   /* — Texte (3 niveaux) — */
   --color-text-primary: #F2F6FA;      /* Titres, chiffres */
@@ -30,13 +30,13 @@
   --color-text-tertiary: #6B7A8C;      /* Muted, disabled */
 
   /* — Surfaces — */
-  --color-surface-card: #0D1219;
-  --color-surface-card-hover: #131A23;
-  --color-surface-premium: #131A23;
+  --color-surface-card: #141C25;
+  --color-surface-card-hover: #1A2430;
+  --color-surface-premium: #1A2430;
 
   /* — Borders — */
-  --color-border-default: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(255, 255, 255, 0.16);
+  --color-border-default: rgba(148, 163, 184, 0.14);
+  --color-border-hover: rgba(148, 163, 184, 0.28);
 
   /* — Action (1 CTA primaire par viewport) — bleu analyse — */
   --color-action-primary: #2F7DFF;
@@ -47,11 +47,11 @@
   --color-action-secondary-text: #9DABBB;
 
   /* — Market colors (badges/graphiques uniquement) — bleu confiance désaturé — */
-  --color-market-btts: #45C7F7;
-  --color-market-btts-muted: rgba(69, 199, 247, 0.14);
-  --color-market-over: #5BA9FF;
-  --color-market-over-muted: rgba(91, 169, 255, 0.14);
-  --color-market-over-border: rgba(91, 169, 255, 0.32);
+  --color-market-btts: #38BDF8;
+  --color-market-btts-muted: rgba(56, 189, 248, 0.14);
+  --color-market-over: #22D3EE;
+  --color-market-over-muted: rgba(34, 211, 238, 0.14);
+  --color-market-over-border: rgba(34, 211, 238, 0.32);
 
   /* — VIP (or mat) — VIP uniquement — */
   --color-vip-accent: #E8C268;
@@ -100,7 +100,7 @@
   --color-vip-hover: #F0D193;
   --color-success-hover: #6EE7B7;
   --color-error-hover: #FCA5A5;
-  --color-border-hover: rgba(255, 255, 255, 0.16); /* Hover border → hairline claire (macOS noir) */
+  --color-border-hover: rgba(148, 163, 184, 0.28); /* Hover border → hairline claire (macOS noir) */
 
   /* — Glassmorphism — */
   --color-glass: rgba(18, 24, 34, 0.55);
@@ -7199,4 +7199,171 @@ body::before {
   .page-design--btts .btx-grid > *:hover {
     transform: none !important;
   }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SITE-WIDE DESIGN UNITY v1 — couleurs & surfaces globales (pas de contenu)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+html.dark,
+html.dark body {
+  background-color: var(--color-bg-main) !important;
+  color: var(--color-text-primary);
+}
+
+/* Surfaces génériques récurrentes sur tout le site */
+html.dark [class*="rounded-2xl"][style*="141C25"],
+html.dark [class*="rounded-xl"][style*="141C25"],
+html.dark [style*="background-color: #141C25"],
+html.dark [style*="backgroundColor: '#141C25'"] {
+  border-color: var(--color-border) !important;
+  box-shadow: 0 12px 36px rgba(2, 8, 16, 0.35);
+}
+
+/* Cartes / panels Tailwind fréquents */
+html.dark .bg-\[\#141C25\],
+html.dark .bg-\[\#0D1219\],
+html.dark .bg-\[\#0B0F14\] {
+  /* harmonise les fonds adjacents */
+}
+
+/* Liens inline dans le contenu éditorial */
+html.dark main a:not([class*="btn"]):not([data-cta]):not([class*="btx-"]) {
+  text-underline-offset: 2px;
+}
+html.dark main a:not([class*="btn"]):not([data-cta]):hover {
+  color: var(--color-action-primary);
+}
+
+/* Navbar / footer bandes */
+html.dark header,
+html.dark footer {
+  border-color: var(--color-border);
+  backdrop-filter: blur(10px);
+}
+
+/* Bottom navigation */
+html.dark nav[class*="fixed"],
+html.dark [class*="BottomNav"],
+html.dark [class*="bottom-nav"] {
+  border-color: var(--color-border) !important;
+  background-color: rgba(11, 15, 20, 0.92) !important;
+}
+
+/* Pages match / historique / méthodo / légal — prose containers */
+html.dark main .prose,
+html.dark main article {
+  --tw-prose-body: var(--color-text-secondary);
+  --tw-prose-headings: var(--color-text-primary);
+  --tw-prose-links: var(--color-action-primary);
+}
+
+/* VIP gold surfaces */
+html.dark [class*="vip"] .rounded-2xl,
+html.dark [class*="Vip"] .rounded-2xl {
+  border-color: var(--color-vip-border);
+}
+
+/* Badges marchés */
+html.dark [data-market="over25"],
+html.dark .badge-over,
+html.dark .market-over {
+  color: var(--color-market-over);
+  border-color: var(--color-market-over-border);
+  background: var(--color-market-over-muted);
+}
+html.dark [data-market="btts"],
+html.dark .badge-btts,
+html.dark .market-btts {
+  color: var(--color-market-btts);
+  border-color: rgba(56, 189, 248, 0.32);
+  background: var(--color-market-btts-muted);
+}
+
+/* Inputs / selects cohérents */
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+html.dark input:focus,
+html.dark select:focus,
+html.dark textarea:focus {
+  border-color: var(--color-action-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(47, 125, 255, 0.18);
+}
+
+/* Boutons primaires génériques */
+html.dark button.bg-primary,
+html.dark a.bg-primary,
+html.dark .btn-primary {
+  background-color: var(--color-action-primary);
+  color: #fff;
+}
+html.dark button.bg-primary:hover,
+html.dark a.bg-primary:hover {
+  background-color: var(--color-action-primary-hover);
+}
+
+/* Cards génériques (shadcn / site) */
+html.dark .bg-card,
+html.dark [data-slot="card"] {
+  background-color: var(--color-card);
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+/* Scrollbar discrète */
+html.dark {
+  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+}
+html.dark ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 999px;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Sticky CTA / mobile bars already themed — unify border */
+html.dark [class*="sticky"][class*="bottom"],
+html.dark [class*="StickyCTA"] {
+  border-color: rgba(47, 125, 255, 0.2) !important;
+}
+
+/* Match pages: section shells */
+html.dark main section.max-w-5xl .rounded-2xl,
+html.dark main section.max-w-6xl .rounded-2xl,
+html.dark main section.max-w-3xl .rounded-2xl {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 10px 32px rgba(2, 8, 16, 0.3);
+}
+
+/* Tables (historique / stats) */
+html.dark table {
+  border-color: var(--color-border);
+}
+html.dark thead {
+  background-color: rgba(20, 28, 37, 0.9);
+  color: var(--color-text-secondary);
+}
+html.dark tbody tr {
+  border-color: var(--color-border);
+}
+html.dark tbody tr:hover {
+  background-color: rgba(47, 125, 255, 0.04);
+}
+
+/* Skeleton / loading */
+html.dark .animate-pulse {
+  background-color: rgba(148, 163, 184, 0.08);
 }
