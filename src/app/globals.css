@@ -7171,8 +7171,8 @@ body::before {
     radial-gradient(80% 50% at 50% -10%, rgba(47, 125, 255, 0.09), transparent 60%);
   background-color: #0b0f14;
 }
-.page-design--home section:first-of-type,
-.page-design--home [class*="hero"] {
+/* Ne jamais cibler [class*="hero"] : ça matche hp-hero__glow et casse le layout (gros vide). */
+.page-design--home .hp-hero {
   position: relative;
 }
 
