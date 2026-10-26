@@ -5066,36 +5066,6 @@ body {
 }
 .hp-data-date { color: #8B99AD; font-size: 0.7rem; font-variant-numeric: tabular-nums; }
 
-/* ── Filtres ── */
-.hp-filters { display: grid; gap: 0.65rem; margin-bottom: 1.35rem; }
-.hp-filter-row { display: flex; min-width: 0; }
-.hp-filter-group {
-  display: grid;
-  grid-template-columns: 4.6rem minmax(0, 1fr);
-  gap: 0.45rem 0.65rem;
-  align-items: center;
-  min-width: 0;
-  padding: 0.35rem 0.4rem;
-  border-radius: 12px;
-  background: rgba(15, 23, 42, 0.45);
-  border: 1px solid rgba(51, 65, 85, 0.4);
-}
-@media (max-width: 480px) {
-  .hp-filter-group {
-    grid-template-columns: 1fr;
-    gap: 0.3rem;
-    padding: 0.45rem 0.5rem;
-  }
-}
-.hp-filter-label {
-  font-size: 0.65rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #64748B;
-  white-space: nowrap;
-  padding-left: 0.15rem;
-}
 .hp-chips {
   display: flex;
   gap: 0.4rem;

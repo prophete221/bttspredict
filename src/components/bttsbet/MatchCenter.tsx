@@ -4,7 +4,7 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { generateMatchSlug } from '@/lib/match-slug'
-import { getDakarDayDiff, hasDakarKickoffPassed, getDakarMatchStatus, parseDakarDateTime } from '@/lib/dakar-date'
+import { getDakarDayDiff, getDakarMatchStatus, parseDakarDateTime } from '@/lib/dakar-date'
 import { KICKOFF_I18N } from '@/lib/i18n-extras'
 import ComboBuilder from './ComboBuilder'
 
@@ -18,8 +18,7 @@ const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : use
  *  - predictions.json  → matchs du jour/demain/semaine (free uniquement)
  *  - win-history.json   → jointure sur matchs terminés (score final, gagné/perdu)
  *
- * Filtres : marché (BTTS / Over 2,5 / Score exact), statut (À venir / Terminés),
- * onglets de date (Aujourd’hui / Demain / Cette semaine) + compteur factuel.
+ * Sans bloc de filtres : la section liste les matchs du jour (Africa/Dakar).
  * Aucun badge « sûr »/« immanquable » ; les pronostics perdants ne sont jamais cachés.
  * Squelettes de chargement, état vide professionnel, colonnes empilées <768px.
  */
@@ -68,11 +67,6 @@ interface HistoryRecord {
 const hasFinalResult = (record?: HistoryRecord) =>
   Boolean(record?.finalScore || record?.status === 'WON' || record?.status === 'LOST')
 
-type MarketFilter = 'all' | 'btts' | 'o25' | 'exact'
-type StatusFilter = 'all' | 'upcoming' | 'finished'
-type DayFilter = 'all' | 'today' | 'tomorrow' | 'week'
-type HourFilter = 'all' | '0-12' | '12-15' | '15-18' | '18-21' | '21-24'
-
 function dayDiff(dateStr: string): number {
   return getDakarDayDiff(dateStr)
 }
@@ -104,12 +98,6 @@ function formatCardDate(dateStr: string, lang: Locale): string {
   } catch { return dateStr }
 }
 
-const hasBtts = (m: FeedItem) =>
-  (m.predictions?.some(p => p.type === 'BTTS') ?? false) || m.type === 'BTTS' || m.bttsProb !== undefined
-const hasO25 = (m: FeedItem) =>
-  (m.predictions?.some(p => p.type?.includes('Over')) ?? false) || Boolean(m.type?.includes('Over')) || m.over25Prob !== undefined
-const hasExact = (m: FeedItem) => Boolean(m.ai_exact_score)
-
 export default function MatchCenter({ initialLocale }: { initialLocale?: Locale } = {}) {
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
@@ -119,11 +107,6 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
   const [results, setResults] = useState<Map<string, HistoryRecord>>(new Map())
   const [loading, setLoading] = useState(true)
   const [dataDate, setDataDate] = useState('')
-  const [market, setMarket] = useState<MarketFilter>('all')
-  const [status, setStatus] = useState<StatusFilter>('all')
-  const [day, setDay] = useState<DayFilter>('today')
-  const [hour, setHour] = useState<HourFilter>('all')
-  const [league, setLeague] = useState<string>('all')
   // Horloge partagée du compte à rebours — une seule mise à jour toutes les 30 s
   // pour l'ensemble des cartes (évite 44 intervalles individuels).
   const [nowTs, setNowTs] = useState<number>(() => Date.now())
@@ -148,62 +131,20 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
     return () => { cancelled = true }
   }, [])
 
-  // Compétitions → filtre ligue (depuis la section Couverture)
-  useEffect(() => {
-    const handler = (e: Event) => {
-      const detail = (e as CustomEvent<string>).detail
-      if (typeof detail === 'string') {
-        setLeague(detail)
-        setDay('all')
-        setStatus('all')
-      }
-    }
-    window.addEventListener('bttspredict:league', handler)
-    return () => window.removeEventListener('bttspredict:league', handler)
-  }, [])
-
   // Compte à rebours temps réel — cadence 30 s, synchronisée sur l'horloge du navigateur.
   useEffect(() => {
     const id = window.setInterval(() => setNowTs(Date.now()), 30_000)
     return () => window.clearInterval(id)
   }, [])
 
+  // Matchs du jour uniquement (comportement par défaut historique de la section).
   const filtered = useMemo(() => {
-    return items.filter(m => {
-      const diff = dayDiff(m.date)
-      if (day === 'today' && diff !== 0) return false
-      if (day === 'tomorrow' && diff !== 1) return false
-      if (day === 'week' && (diff < 0 || diff > 7)) return false
-      const record = results.get(`${m.match}|${m.date}`)
-      const isFinished = hasFinalResult(record)
-      const isUpcoming = !hasDakarKickoffPassed(m.date, m.time)
-      if (status === 'upcoming' && !isUpcoming) return false
-      if (status === 'finished' && !isFinished) return false
-      if (market === 'btts' && !hasBtts(m)) return false
-      if (market === 'o25' && !hasO25(m)) return false
-      if (market === 'exact' && !hasExact(m)) return false
-      if (league !== 'all' && m.league !== league) return false
-      if (hour !== 'all') {
-        const h = parseInt((m.time || '').slice(0, 2), 10)
-        if (!Number.isFinite(h)) return false
-        const [lo, hi] = hour.split('-').map(Number)
-        if (h < lo || h >= hi) return false
-      }
-      return true
-    }).sort((a, b) => {
-      const da = dayDiff(a.date), db = dayDiff(b.date)
+    return items.filter(m => dayDiff(m.date) === 0).sort((a, b) => {
       const fa = hasFinalResult(results.get(`${a.match}|${a.date}`)), fb = hasFinalResult(results.get(`${b.match}|${b.date}`))
       if (fa !== fb) return fa ? 1 : -1 // matchs sans résultat d'abord
-      if (da !== db) return da - db
       return (a.time || '').localeCompare(b.time || '')
     })
-  }, [items, results, market, status, day, hour, league])
-
-  const leagues = useMemo(() => {
-    const set = new Set<string>()
-    items.forEach(m => m.league && set.add(m.league))
-    return Array.from(set).sort()
-  }, [items])
+  }, [items, results])
 
   // ═══ Révélation 3D au scroll ═══
   // Gate JS (.mc3d) : sans JS les cartes restent visibles (progressive enhancement).
@@ -253,23 +194,6 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
     return () => io.disconnect()
   }, [loading, filtered])
 
-  const dayTabs: { id: DayFilter; label: string }[] = [
-    { id: 'today', label: t.home2.mcToday },
-    { id: 'tomorrow', label: t.home2.mcTomorrow },
-    { id: 'week', label: t.home2.mcWeek },
-  ]
-  const marketTabs: { id: MarketFilter; label: string }[] = [
-    { id: 'all', label: t.home2.mcAllMarkets },
-    { id: 'btts', label: t.home2.mcBtts },
-    { id: 'o25', label: t.home2.mcO25 },
-    { id: 'exact', label: t.home2.mcExact },
-  ]
-  const statusTabs: { id: StatusFilter; label: string }[] = [
-    { id: 'all', label: t.home2.mcAll },
-    { id: 'upcoming', label: t.home2.mcUpcoming },
-    { id: 'finished', label: t.home2.mcFinished },
-  ]
-
   return (
     <section id="matchs" className="hp-section" style={{ scrollMarginTop: '72px' }}>
       <div className="mx-auto max-w-[1280px] px-4 sm:px-6">
@@ -294,122 +218,6 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
         {items.length > 0 && (
           <ComboBuilder items={items} lang={lang} />
         )}
-
-        {/* Filtres — une catégorie par ligne, libellés clairs */}
-        <div className="hp-filters" role="group" aria-label={t.home2.mcTitle}>
-          <div className="hp-filter-group">
-            <span className="hp-filter-label">
-              {lang === 'en' ? 'Market' : lang === 'ar' ? 'السوق' : 'Marché'}
-            </span>
-            <div className="hp-chips" role="tablist" aria-label={t.home2.mcSignal}>
-              {marketTabs.map(f => (
-                <button
-                  key={f.id}
-                  type="button"
-                  onClick={() => setMarket(f.id)}
-                  aria-pressed={market === f.id}
-                  className={`hp-chip${market === f.id ? ' is-active' : ''}`}
-                >
-                  {f.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="hp-filter-group">
-            <span className="hp-filter-label">
-              {lang === 'en' ? 'Day' : lang === 'ar' ? 'اليوم' : 'Jour'}
-            </span>
-            <div className="hp-chips" role="tablist">
-              {dayTabs.map(f => (
-                <button
-                  key={f.id}
-                  type="button"
-                  onClick={() => setDay(f.id)}
-                  aria-pressed={day === f.id}
-                  className={`hp-chip hp-chip--ghost${day === f.id ? ' is-active' : ''}`}
-                >
-                  {f.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="hp-filter-group">
-            <span className="hp-filter-label">
-              {lang === 'en' ? 'Status' : lang === 'ar' ? 'الحالة' : 'Statut'}
-            </span>
-            <div className="hp-chips" role="tablist">
-              {statusTabs.map(f => (
-                <button
-                  key={f.id}
-                  type="button"
-                  onClick={() => setStatus(f.id)}
-                  aria-pressed={status === f.id}
-                  className={`hp-chip hp-chip--ghost${status === f.id ? ' is-active' : ''}`}
-                >
-                  {f.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="hp-filter-group">
-            <span className="hp-filter-label">
-              {lang === 'en' ? 'Kick-off' : lang === 'ar' ? 'الوقت' : 'Horaire'}
-            </span>
-            <div className="hp-chips" role="tablist" aria-label={t.home2.mcKickoff}>
-              <button
-                type="button"
-                onClick={() => setHour('all')}
-                aria-pressed={hour === 'all'}
-                className={`hp-chip hp-chip--ghost${hour === 'all' ? ' is-active' : ''}`}
-              >
-                {KICKOFF_I18N[lang].hourAll}
-              </button>
-              {(['0-12', '12-15', '15-18', '18-21', '21-24'] as const).map(range => (
-                <button
-                  key={range}
-                  type="button"
-                  onClick={() => setHour(range)}
-                  aria-pressed={hour === range}
-                  className={`hp-chip hp-chip--ghost${hour === range ? ' is-active' : ''}`}
-                >
-                  {range.replace('-', '–')}h
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {leagues.length > 1 && (
-            <div className="hp-filter-group">
-              <span className="hp-filter-label">
-                {lang === 'en' ? 'League' : lang === 'ar' ? 'الدوري' : 'Ligue'}
-              </span>
-              <div className="hp-chips">
-                <button
-                  type="button"
-                  onClick={() => setLeague('all')}
-                  aria-pressed={league === 'all'}
-                  className={`hp-chip hp-chip--ghost${league === 'all' ? ' is-active' : ''}`}
-                >
-                  {t.home2.mcAllLeagues}
-                </button>
-                {leagues.map(l => (
-                  <button
-                    key={l}
-                    type="button"
-                    onClick={() => setLeague(l)}
-                    aria-pressed={league === l}
-                    className={`hp-chip hp-chip--ghost${league === l ? ' is-active' : ''}`}
-                  >
-                    {l}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
 
         {/* Contenu */}
         {loading ? (
