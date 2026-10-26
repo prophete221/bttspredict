@@ -121,7 +121,7 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
   const [dataDate, setDataDate] = useState('')
   const [market, setMarket] = useState<MarketFilter>('all')
   const [status, setStatus] = useState<StatusFilter>('all')
-  const [day, setDay] = useState<DayFilter>('week')
+  const [day, setDay] = useState<DayFilter>('today')
   const [hour, setHour] = useState<HourFilter>('all')
   const [league, setLeague] = useState<string>('all')
   // Horloge partagée du compte à rebours — une seule mise à jour toutes les 30 s
@@ -295,13 +295,17 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
           <ComboBuilder items={items} lang={lang} />
         )}
 
-        {/* Filtres — chips scrollables, compactes */}
+        {/* Filtres — une catégorie par ligne, libellés clairs */}
         <div className="hp-filters" role="group" aria-label={t.home2.mcTitle}>
-          <div className="hp-filter-row">
+          <div className="hp-filter-group">
+            <span className="hp-filter-label">
+              {lang === 'en' ? 'Market' : lang === 'ar' ? 'السوق' : 'Marché'}
+            </span>
             <div className="hp-chips" role="tablist" aria-label={t.home2.mcSignal}>
               {marketTabs.map(f => (
                 <button
                   key={f.id}
+                  type="button"
                   onClick={() => setMarket(f.id)}
                   aria-pressed={market === f.id}
                   className={`hp-chip${market === f.id ? ' is-active' : ''}`}
@@ -310,22 +314,17 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
                 </button>
               ))}
             </div>
-            <div className="hp-chips" role="tablist">
-              {statusTabs.map(f => (
-                <button
-                  key={f.id}
-                  onClick={() => setStatus(f.id)}
-                  aria-pressed={status === f.id}
-                  className={`hp-chip hp-chip--ghost${status === f.id ? ' is-active' : ''}`}
-                >
-                  {f.label}
-                </button>
-              ))}
-            </div>
+          </div>
+
+          <div className="hp-filter-group">
+            <span className="hp-filter-label">
+              {lang === 'en' ? 'Day' : lang === 'ar' ? 'اليوم' : 'Jour'}
+            </span>
             <div className="hp-chips" role="tablist">
               {dayTabs.map(f => (
                 <button
                   key={f.id}
+                  type="button"
                   onClick={() => setDay(f.id)}
                   aria-pressed={day === f.id}
                   className={`hp-chip hp-chip--ghost${day === f.id ? ' is-active' : ''}`}
@@ -335,10 +334,33 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
               ))}
             </div>
           </div>
-          {/* Filtre par heure de coup d'envoi (Africa/Dakar) */}
-          <div className="hp-filter-row">
+
+          <div className="hp-filter-group">
+            <span className="hp-filter-label">
+              {lang === 'en' ? 'Status' : lang === 'ar' ? 'الحالة' : 'Statut'}
+            </span>
+            <div className="hp-chips" role="tablist">
+              {statusTabs.map(f => (
+                <button
+                  key={f.id}
+                  type="button"
+                  onClick={() => setStatus(f.id)}
+                  aria-pressed={status === f.id}
+                  className={`hp-chip hp-chip--ghost${status === f.id ? ' is-active' : ''}`}
+                >
+                  {f.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="hp-filter-group">
+            <span className="hp-filter-label">
+              {lang === 'en' ? 'Kick-off' : lang === 'ar' ? 'الوقت' : 'Horaire'}
+            </span>
             <div className="hp-chips" role="tablist" aria-label={t.home2.mcKickoff}>
               <button
+                type="button"
                 onClick={() => setHour('all')}
                 aria-pressed={hour === 'all'}
                 className={`hp-chip hp-chip--ghost${hour === 'all' ? ' is-active' : ''}`}
@@ -348,6 +370,7 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
               {(['0-12', '12-15', '15-18', '18-21', '21-24'] as const).map(range => (
                 <button
                   key={range}
+                  type="button"
                   onClick={() => setHour(range)}
                   aria-pressed={hour === range}
                   className={`hp-chip hp-chip--ghost${hour === range ? ' is-active' : ''}`}
@@ -357,10 +380,15 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
               ))}
             </div>
           </div>
+
           {leagues.length > 1 && (
-            <div className="hp-filter-row">
+            <div className="hp-filter-group">
+              <span className="hp-filter-label">
+                {lang === 'en' ? 'League' : lang === 'ar' ? 'الدوري' : 'Ligue'}
+              </span>
               <div className="hp-chips">
                 <button
+                  type="button"
                   onClick={() => setLeague('all')}
                   aria-pressed={league === 'all'}
                   className={`hp-chip hp-chip--ghost${league === 'all' ? ' is-active' : ''}`}
@@ -370,6 +398,7 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
                 {leagues.map(l => (
                   <button
                     key={l}
+                    type="button"
                     onClick={() => setLeague(l)}
                     aria-pressed={league === l}
                     className={`hp-chip hp-chip--ghost${league === l ? ' is-active' : ''}`}
