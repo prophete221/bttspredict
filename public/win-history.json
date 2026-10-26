@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-10-26T02:32:45.871Z",
+  "generatedAt": "2026-10-26T05:50:51.153Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,18 +15,18 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 320,
-    "won": 266,
+    "total": 321,
+    "won": 267,
     "lost": 54,
-    "pending": 55,
+    "pending": 56,
     "unverifiable": 153,
-    "archivedTotal": 528,
-    "rate": 83.1,
+    "archivedTotal": 530,
+    "rate": 83.2,
     "gold": {
-      "total": 228,
-      "won": 195,
+      "total": 229,
+      "won": 196,
       "lost": 33,
-      "rate": 85.5
+      "rate": 85.6
     },
     "standard": {
       "total": 92,
@@ -36,8 +36,8 @@
     },
     "byType": {
       "btts": {
-        "total": 317,
-        "won": 265,
+        "total": 318,
+        "won": 266,
         "lost": 52,
         "rate": 83.6
       },
@@ -49,13 +49,6 @@
       }
     },
     "trend14": [
-      {
-        "date": "2026-10-10",
-        "total": 7,
-        "won": 7,
-        "lost": 0,
-        "rate": 100
-      },
       {
         "date": "2026-10-11",
         "total": 11,
@@ -146,6 +139,13 @@
         "won": 18,
         "lost": 0,
         "rate": 100
+      },
+      {
+        "date": "2026-10-26",
+        "total": 1,
+        "won": 1,
+        "lost": 0,
+        "rate": 100
       }
     ],
     "period": {
@@ -155,6 +155,19 @@
     }
   },
   "history": [
+    {
+      "date": "2026-10-26",
+      "match": "LAFC vs LA Galaxy",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6537,
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-10-26T05:49:51.245Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-10-25",
       "match": "Barcelona vs Real Madrid",

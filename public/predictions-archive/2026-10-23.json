@@ -13530,7 +13530,9 @@
           "result": "W"
         }
       ],
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-10-26T05:49:51.245Z"
     },
     {
       "id": "torino-vs-como-2026-10-27",

@@ -18808,7 +18808,9 @@
           "result": "W"
         }
       ],
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-10-26T05:49:51.245Z"
     },
     {
       "id": "parissai-vs-lyon-2026-10-26",
