@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-10-26T00:52:46.391Z",
+  "generatedAt": "2026-10-26T01:43:00.367Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -18,9 +18,9 @@
     "total": 320,
     "won": 266,
     "lost": 54,
-    "pending": 33,
+    "pending": 53,
     "unverifiable": 153,
-    "archivedTotal": 506,
+    "archivedTotal": 526,
     "rate": 83.1,
     "gold": {
       "total": 228,
@@ -54,77 +54,77 @@
         "total": 7,
         "won": 7,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-11",
         "total": 11,
         "won": 11,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-12",
         "total": 2,
         "won": 2,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-13",
         "total": 3,
         "won": 3,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-14",
         "total": 4,
         "won": 4,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-15",
         "total": 4,
         "won": 4,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-16",
         "total": 3,
         "won": 3,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-17",
         "total": 8,
         "won": 8,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-18",
         "total": 5,
         "won": 5,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-21",
         "total": 8,
         "won": 8,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-22",
         "total": 2,
         "won": 2,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-23",
@@ -145,13 +145,13 @@
         "total": 18,
         "won": 18,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       }
     ],
     "period": {
       "from": "2026-08-08",
-      "to": "2026-10-25",
-      "days": 53
+      "to": "2026-10-26",
+      "days": 80
     }
   },
   "history": [
@@ -4317,58 +4317,51 @@
     }
   ],
   "legacyStats": {
-    "total": 130,
-    "won": 130,
+    "total": 116,
+    "won": 116,
     "lost": 0,
     "pending": 0,
-    "unverifiable": 192,
-    "archivedTotal": 322,
+    "unverifiable": 178,
+    "archivedTotal": 294,
     "rate": 100,
     "gold": {
-      "total": 0,
-      "won": 0,
+      "total": 1,
+      "won": 1,
       "lost": 0,
-      "rate": 0
+      "rate": 100
     },
     "standard": {
-      "total": 130,
-      "won": 130,
+      "total": 115,
+      "won": 115,
       "lost": 0,
       "rate": 100
     },
     "byType": {
       "btts": {
-        "total": 67,
-        "won": 67,
+        "total": 59,
+        "won": 59,
         "lost": 0,
         "rate": 100
       },
       "over25": {
-        "total": 63,
-        "won": 63,
+        "total": 57,
+        "won": 57,
         "lost": 0,
         "rate": 100
       }
     },
     "trend14": [
       {
-        "date": "2026-07-28",
+        "date": "2026-07-29",
         "total": 3,
         "won": 3,
         "lost": 0,
         "rate": 100
       },
       {
-        "date": "2026-07-29",
-        "total": 6,
-        "won": 6,
-        "lost": 0,
-        "rate": 100
-      },
-      {
         "date": "2026-07-30",
-        "total": 11,
-        "won": 11,
+        "total": 3,
+        "won": 3,
         "lost": 0,
         "rate": 100
       },
@@ -4437,9 +4430,9 @@
       }
     ],
     "period": {
-      "from": "2026-07-28",
+      "from": "2026-07-29",
       "to": "2026-08-07",
-      "days": 11
+      "days": 10
     },
     "history": [
       {
@@ -5705,58 +5698,6 @@
       },
       {
         "date": "2026-07-31",
-        "match": "Central Córdoba (Santiago del Estero) vs Atlético Tucumán",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.47,
-        "status": "WON",
-        "finalScore": "0-2",
-        "verifiedAt": "2026-10-23T05:48:33.584Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-07-31",
-        "match": "Corinthians vs Athletico-PR",
-        "league": "Brazilian Serie A",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.47,
-        "status": "WON",
-        "finalScore": "0-0",
-        "verifiedAt": "2026-10-23T05:48:33.584Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-07-31",
-        "match": "Independiente vs Newell's Old Boys",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.43,
-        "status": "WON",
-        "finalScore": "1-0",
-        "verifiedAt": "2026-10-23T05:48:33.584Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-07-31",
-        "match": "Talleres (Córdoba) vs Vélez Sarsfield",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.51,
-        "status": "WON",
-        "finalScore": "1-3",
-        "verifiedAt": "2026-10-23T05:48:33.584Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-07-31",
         "match": "Bodo/Glimt vs Lillestrom",
         "league": "Norwegian Eliteserien",
         "market": "over25",
@@ -5873,6 +5814,58 @@
         "prediction": "Non"
       },
       {
+        "date": "2026-07-31",
+        "match": "Central Córdoba (Santiago del Estero) vs Atlético Tucumán",
+        "league": "Argentine Liga Profesional de Fútbol",
+        "market": "over25",
+        "tier": "STANDARD",
+        "proba": 0.47,
+        "status": "WON",
+        "finalScore": "0-2",
+        "verifiedAt": "2026-08-07T12:17:09.373Z",
+        "source": "ESPN public",
+        "prediction": "Non"
+      },
+      {
+        "date": "2026-07-31",
+        "match": "Corinthians vs Athletico-PR",
+        "league": "Brazilian Serie A",
+        "market": "over25",
+        "tier": "STANDARD",
+        "proba": 0.47,
+        "status": "WON",
+        "finalScore": "0-0",
+        "verifiedAt": "2026-08-07T12:17:09.373Z",
+        "source": "ESPN public",
+        "prediction": "Non"
+      },
+      {
+        "date": "2026-07-31",
+        "match": "Independiente vs Newell's Old Boys",
+        "league": "Argentine Liga Profesional de Fútbol",
+        "market": "over25",
+        "tier": "STANDARD",
+        "proba": 0.43,
+        "status": "WON",
+        "finalScore": "1-0",
+        "verifiedAt": "2026-08-07T12:17:09.373Z",
+        "source": "ESPN public",
+        "prediction": "Non"
+      },
+      {
+        "date": "2026-07-31",
+        "match": "Talleres (Córdoba) vs Vélez Sarsfield",
+        "league": "Argentine Liga Profesional de Fútbol",
+        "market": "btts",
+        "tier": "STANDARD",
+        "proba": 0.51,
+        "status": "WON",
+        "finalScore": "1-3",
+        "verifiedAt": "2026-08-07T12:17:09.373Z",
+        "source": "ESPN public",
+        "prediction": "Oui"
+      },
+      {
         "date": "2026-07-30",
         "match": "Libertad vs Deportivo Recoleta",
         "league": "Paraguayan Primera División",
@@ -5881,7 +5874,7 @@
         "proba": 0.49,
         "status": "WON",
         "finalScore": "4-1",
-        "verifiedAt": "2026-10-23T05:48:33.583Z",
+        "verifiedAt": "2026-08-07T14:30:17.446Z",
         "source": "ESPN public",
         "prediction": "Oui"
       },
@@ -5894,7 +5887,7 @@
         "proba": 0.46,
         "status": "WON",
         "finalScore": "0-1",
-        "verifiedAt": "2026-10-23T05:48:33.583Z",
+        "verifiedAt": "2026-08-07T14:30:17.446Z",
         "source": "ESPN public",
         "prediction": "Non"
       },
@@ -5907,228 +5900,46 @@
         "proba": 0.41,
         "status": "WON",
         "finalScore": "0-1",
-        "verifiedAt": "2026-10-23T05:48:33.583Z",
+        "verifiedAt": "2026-08-07T14:30:17.446Z",
         "source": "ESPN public",
         "prediction": "Non"
-      },
-      {
-        "date": "2026-07-30",
-        "match": "Vitória vs Palmeiras",
-        "league": "Brazilian Serie A",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "0-4",
-        "verifiedAt": "2026-10-23T05:48:33.583Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-07-30",
-        "match": "Gimnasia La Plata vs River Plate",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.45,
-        "status": "WON",
-        "finalScore": "1-0",
-        "verifiedAt": "2026-10-23T05:48:33.582Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-07-30",
-        "match": "Instituto (Córdoba) vs Platense",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.49,
-        "status": "WON",
-        "finalScore": "2-1",
-        "verifiedAt": "2026-10-23T05:48:33.582Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-07-30",
-        "match": "Internacional vs Flamengo",
-        "league": "Brazilian Serie A",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "1-1",
-        "verifiedAt": "2026-10-23T05:48:33.582Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-07-30",
-        "match": "Mirassol vs Remo",
-        "league": "Brazilian Serie A",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.51,
-        "status": "WON",
-        "finalScore": "2-1",
-        "verifiedAt": "2026-10-23T05:48:33.582Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-07-30",
-        "match": "Mirassol vs Remo",
-        "league": "Brazilian Serie A",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "2-1",
-        "verifiedAt": "2026-10-23T05:48:33.582Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-07-30",
-        "match": "MLS All-Stars vs Liga MX All-Stars",
-        "league": "MLS",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.5,
-        "status": "WON",
-        "finalScore": "4-3",
-        "verifiedAt": "2026-10-23T05:48:33.582Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-07-30",
-        "match": "MLS All-Stars vs Liga MX All-Stars",
-        "league": "MLS",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "4-3",
-        "verifiedAt": "2026-10-23T05:48:33.582Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-07-29",
-        "match": "Barracas Central vs Aldosivi",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.45,
-        "status": "WON",
-        "finalScore": "1-0",
-        "verifiedAt": "2026-10-23T05:48:26.883Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-07-29",
-        "match": "Defensa y Justicia vs Deportivo Riestra",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.5,
-        "status": "WON",
-        "finalScore": "2-1",
-        "verifiedAt": "2026-10-23T05:48:26.883Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
       },
       {
         "date": "2026-07-29",
         "match": "Nacional Asunción vs Club Olimpia",
-        "league": "Paraguayan Primera División",
+        "league": "Primera Division (PAR)",
         "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.42,
+        "tier": "GOLD",
+        "proba": 0.5,
         "status": "WON",
         "finalScore": "2-0",
-        "verifiedAt": "2026-10-23T05:48:26.883Z",
+        "verifiedAt": "2026-08-07T14:25:01.989Z",
         "source": "ESPN public",
         "prediction": "Non"
       },
       {
         "date": "2026-07-29",
         "match": "Sportivo Luqueño vs Sportivo Trinidense",
-        "league": "Paraguayan Primera División",
+        "league": "Primera Division (PAR)",
         "market": "btts",
         "tier": "STANDARD",
         "proba": 0.5,
         "status": "WON",
         "finalScore": "1-4",
-        "verifiedAt": "2026-10-23T05:48:26.883Z",
+        "verifiedAt": "2026-08-07T14:25:01.988Z",
         "source": "ESPN public",
         "prediction": "Oui"
       },
       {
         "date": "2026-07-29",
-        "match": "Rosario Central vs Racing Club",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.45,
-        "status": "WON",
-        "finalScore": "0-0",
-        "verifiedAt": "2026-08-07T12:16:59.319Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-07-29",
-        "match": "San Lorenzo vs Gimnasia (Mendoza)",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.45,
-        "status": "WON",
-        "finalScore": "1-0",
-        "verifiedAt": "2026-08-07T11:21:16.381Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-07-28",
-        "match": "2 de Mayo vs Cerro Porteño",
-        "league": "Paraguayan Primera División",
+        "match": "Barracas Central vs Aldosivi",
+        "league": "Primera Division (ARG)",
         "market": "btts",
         "tier": "STANDARD",
         "proba": 0.49,
         "status": "WON",
-        "finalScore": "2-1",
-        "verifiedAt": "2026-08-07T14:30:26.578Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-07-28",
-        "match": "Rubio Ñú vs Sportivo Ameliano",
-        "league": "Paraguayan Primera División",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.48,
-        "status": "WON",
-        "finalScore": "1-1",
-        "verifiedAt": "2026-08-07T14:30:26.578Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-07-28",
-        "match": "Rubio Ñú vs Sportivo Ameliano",
-        "league": "Paraguayan Primera División",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.42,
-        "status": "WON",
-        "finalScore": "1-1",
-        "verifiedAt": "2026-08-07T14:30:26.578Z",
+        "finalScore": "1-0",
+        "verifiedAt": "2026-08-07T12:17:04.568Z",
         "source": "ESPN public",
         "prediction": "Non"
       }
