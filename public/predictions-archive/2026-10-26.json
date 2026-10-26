@@ -8639,6 +8639,197 @@
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.6 · N 3.75 · 2 2.35 · O2.5 1.57",
       "status": "PENDING"
+    },
+    {
+      "id": "fcdallas-vs-columbus-2026-10-29",
+      "match": "FC Dallas vs Columbus Crew",
+      "home": "FC Dallas",
+      "away": "Columbus Crew",
+      "league": "MLS",
+      "date": "2026-10-29",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5714,
+      "bttsProbDisplay": "57.14%",
+      "over25ProbDisplay": "54.24%",
+      "confidence": 57,
+      "time": "00:30",
+      "matchSemantic": "fcdallas-vs-columbus-2026-10-29",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/185.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/183.png",
+      "tier": "GOLD",
+      "reliabilityScore": 81.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.57,
+      "xgAway": 1.27,
+      "xgTotal": 2.85,
+      "formBTTS": 50,
+      "analysis": "FC Dallas : forme N-V-D-V-N (2V 2N 1D, 6 buts marqués / 5 encaissés sur 5) · Columbus Crew : forme V-V-D-V-V (4V 0N 1D, 11 buts marqués / 5 encaissés sur 5). Classement : FC Dallas 3e (51 pts), Columbus Crew 11e (35 pts). Modèle Poisson : xG cumulé 2.85, BTTS 57.1%, Over 2.5 54.2%. Fiabilité 81.25%.",
+      "analysisData": {
+        "bttsProb": 0.5714,
+        "over25Prob": 0.5424,
+        "homeLambda": 1.57,
+        "awayLambda": 1.27,
+        "xgTotal": 2.85
+      },
+      "estimatedCote": 1.75,
+      "estimatedCoteOver": 1.84,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.75,
+      "formHome": {
+        "last5String": "N-V-D-V-N",
+        "wins": 2,
+        "draws": 2,
+        "losses": 1,
+        "goalsFor": 6,
+        "goalsAgainst": 5,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 3,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-D-V-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-25",
+          "opponent": "San Jose Earthquakes",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Houston Dynamo FC",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Seattle Sounders FC",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Charlotte FC",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "LAFC",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Toronto FC",
+          "venue": "H",
+          "score": "4-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "FC Cincinnati",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "Charlotte FC",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Orlando City SC",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Inter Miami CF",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 3,
+        "points": 51,
+        "played": 30,
+        "gf": 55,
+        "ga": 47
+      },
+      "standingsAway": {
+        "rank": 11,
+        "points": 35,
+        "played": 30,
+        "gf": 46,
+        "ga": 47
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 57,
+          "bttsProb": 0.5714,
+          "homeLambda": 1.57,
+          "awayLambda": 1.27
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 54,
+          "over25Prob": 0.5424,
+          "homeLambda": 1.57,
+          "awayLambda": 1.27
+        }
+      ],
+      "bttsProb": 0.5714,
+      "over25Prob": 0.5424,
+      "homeLambda": 1.57,
+      "awayLambda": 1.27,
+      "ai_key_fact": "Columbus Crew totalise 4 victoires sur ses 5 derniers matchs.",
+      "ai_analysis": "Le modèle évalue les xG à 1.57 pour le FC Dallas et 1.27 pour Columbus Crew, traduisant une production offensive intéressante pour les locaux. La probabilité BTTS est estimée à 57.1% et l'Over 2.5 à 54.2%, s'appuyant sur le classement des deux équipes où Dallas pointe à la 3e place et Columbus à la 11e. FC Dallas s'appuie sur une défense relativement hermétique avec trois clean sheets récents, tandis que Columbus Crew carbure à l'offensive avec 11 buts marqués sur ses cinq dernières sorties. La fiabilité globale du modèle s'élève à 81.25%.",
+      "ai_form_summary": "FC Dallas enregistre un bilan de deux victoires, deux nuls et une défaite avec un taux BTTS de 0.4. En face, Columbus Crew montre une dynamique solide avec quatre succès en cinq rencontres et un taux BTTS de 0.6.",
+      "ai_key_fact_en": "Columbus Crew totals 4 wins in their last 5 matches.",
+      "ai_analysis_en": "The model evaluates xG at 1.57 for FC Dallas and 1.27 for Columbus Crew, reflecting an interesting offensive output for the hosts. The BTTS probability is estimated at 57.1% and the Over 2.5 at 54.2%, based on the teams' standings where Dallas sits in 3rd place and Columbus in 11th. FC Dallas relies on a relatively watertight defense with three recent clean sheets, while Columbus Crew thrives offensively with 11 goals scored in their last five appearances. The overall reliability of the model stands at 81.25%.",
+      "ai_form_summary_en": "FC Dallas records a record of two wins, two draws, and one defeat with a 0.4 BTTS rate. Conversely, Columbus Crew displays a solid dynamic with four successes in five outings and a 0.6 BTTS rate.",
+      "ai_source": "gemini-v2",
+      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+      "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
+      "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
+      "status": "PENDING"
     }
   ],
   "vipPreview": [
@@ -17359,6 +17550,197 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.6 · N 3.75 · 2 2.35 · O2.5 1.57",
+      "status": "PENDING"
+    },
+    {
+      "id": "fcdallas-vs-columbus-2026-10-29",
+      "match": "FC Dallas vs Columbus Crew",
+      "home": "FC Dallas",
+      "away": "Columbus Crew",
+      "league": "MLS",
+      "date": "2026-10-29",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5714,
+      "bttsProbDisplay": "57.14%",
+      "over25ProbDisplay": "54.24%",
+      "confidence": 57,
+      "time": "00:30",
+      "matchSemantic": "fcdallas-vs-columbus-2026-10-29",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/185.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/183.png",
+      "tier": "GOLD",
+      "reliabilityScore": 81.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.57,
+      "xgAway": 1.27,
+      "xgTotal": 2.85,
+      "formBTTS": 50,
+      "analysis": "FC Dallas : forme N-V-D-V-N (2V 2N 1D, 6 buts marqués / 5 encaissés sur 5) · Columbus Crew : forme V-V-D-V-V (4V 0N 1D, 11 buts marqués / 5 encaissés sur 5). Classement : FC Dallas 3e (51 pts), Columbus Crew 11e (35 pts). Modèle Poisson : xG cumulé 2.85, BTTS 57.1%, Over 2.5 54.2%. Fiabilité 81.25%.",
+      "analysisData": {
+        "bttsProb": 0.5714,
+        "over25Prob": 0.5424,
+        "homeLambda": 1.57,
+        "awayLambda": 1.27,
+        "xgTotal": 2.85
+      },
+      "estimatedCote": 1.75,
+      "estimatedCoteOver": 1.84,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.75,
+      "formHome": {
+        "last5String": "N-V-D-V-N",
+        "wins": 2,
+        "draws": 2,
+        "losses": 1,
+        "goalsFor": 6,
+        "goalsAgainst": 5,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 3,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-D-V-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-25",
+          "opponent": "San Jose Earthquakes",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Houston Dynamo FC",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Seattle Sounders FC",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Charlotte FC",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "LAFC",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Toronto FC",
+          "venue": "H",
+          "score": "4-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "FC Cincinnati",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "Charlotte FC",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Orlando City SC",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Inter Miami CF",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 3,
+        "points": 51,
+        "played": 30,
+        "gf": 55,
+        "ga": 47
+      },
+      "standingsAway": {
+        "rank": 11,
+        "points": 35,
+        "played": 30,
+        "gf": 46,
+        "ga": 47
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 57,
+          "bttsProb": 0.5714,
+          "homeLambda": 1.57,
+          "awayLambda": 1.27
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 54,
+          "over25Prob": 0.5424,
+          "homeLambda": 1.57,
+          "awayLambda": 1.27
+        }
+      ],
+      "bttsProb": 0.5714,
+      "over25Prob": 0.5424,
+      "homeLambda": 1.57,
+      "awayLambda": 1.27,
+      "ai_key_fact": "Columbus Crew totalise 4 victoires sur ses 5 derniers matchs.",
+      "ai_analysis": "Le modèle évalue les xG à 1.57 pour le FC Dallas et 1.27 pour Columbus Crew, traduisant une production offensive intéressante pour les locaux. La probabilité BTTS est estimée à 57.1% et l'Over 2.5 à 54.2%, s'appuyant sur le classement des deux équipes où Dallas pointe à la 3e place et Columbus à la 11e. FC Dallas s'appuie sur une défense relativement hermétique avec trois clean sheets récents, tandis que Columbus Crew carbure à l'offensive avec 11 buts marqués sur ses cinq dernières sorties. La fiabilité globale du modèle s'élève à 81.25%.",
+      "ai_form_summary": "FC Dallas enregistre un bilan de deux victoires, deux nuls et une défaite avec un taux BTTS de 0.4. En face, Columbus Crew montre une dynamique solide avec quatre succès en cinq rencontres et un taux BTTS de 0.6.",
+      "ai_key_fact_en": "Columbus Crew totals 4 wins in their last 5 matches.",
+      "ai_analysis_en": "The model evaluates xG at 1.57 for FC Dallas and 1.27 for Columbus Crew, reflecting an interesting offensive output for the hosts. The BTTS probability is estimated at 57.1% and the Over 2.5 at 54.2%, based on the teams' standings where Dallas sits in 3rd place and Columbus in 11th. FC Dallas relies on a relatively watertight defense with three recent clean sheets, while Columbus Crew thrives offensively with 11 goals scored in their last five appearances. The overall reliability of the model stands at 81.25%.",
+      "ai_form_summary_en": "FC Dallas records a record of two wins, two draws, and one defeat with a 0.4 BTTS rate. Conversely, Columbus Crew displays a solid dynamic with four successes in five outings and a 0.6 BTTS rate.",
+      "ai_source": "gemini-v2",
+      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+      "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
+      "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
       "status": "PENDING"
     }
   ],
