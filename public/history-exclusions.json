@@ -2378,6 +2378,116 @@
       "market": "over25",
       "reason": "erreur-technique-pipeline",
       "excludedAt": "2026-10-23"
+    },
+    {
+      "key": "2026-10-25|Udinese vs AC Milan|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|Union St.-Gilloise vs Cercle Brugge KSV|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|C.D. Nacional vs Braga|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|AZ Alkmaar vs FC Twente|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|Rio Ave vs FC Famalicao|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|Real Sociedad vs Levante|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|Lecce vs Juventus|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|Stade Rennais vs Strasbourg|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|Liverpool vs Brighton & Hove Albion|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|Genoa vs Venezia|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|Manchester United vs AFC Bournemouth|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|Celta Vigo vs Real Betis|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|Crystal Palace vs Newcastle United|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|TSG Hoffenheim vs Bayer Leverkusen|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|TSV Eintracht Braunschweig vs Hannover 96|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|Holstein Kiel vs Dynamo Dresden|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|Motherwell vs Heart of Midlothian|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|VfL Osnabruck vs SpVgg Greuther Fürth|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|Fortuna Sittard vs Excelsior|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-25|Houston Dynamo FC vs Minnesota United FC|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-24|D.C. United vs FC Cincinnati|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
+    },
+    {
+      "key": "2026-10-24|Red Bull New York vs Inter Miami CF|btts",
+      "reason": "technical-error-pre-gemini-fix",
+      "removedAt": "2026-10-26T00:52:46Z"
     }
   ]
 }
