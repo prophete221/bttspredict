@@ -19295,7 +19295,9 @@
           "result": "L"
         }
       ],
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-10-26T22:10:21.578Z"
     },
     {
       "id": "santacla-vs-benfica-2026-10-26",
@@ -19493,7 +19495,9 @@
           "result": "W"
         }
       ],
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-10-26T22:10:41.464Z"
     },
     {
       "id": "lafc-vs-lagalaxy-2026-10-26",
@@ -19891,7 +19895,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 1.44, nul: 5, 2: 6.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 1.44, draw: 5, 2: 6.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-10-26T22:10:21.577Z"
     },
     {
       "id": "torino-vs-como-2026-10-27",

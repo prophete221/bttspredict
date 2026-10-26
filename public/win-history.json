@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-10-26T15:48:23.600Z",
+  "generatedAt": "2026-10-26T22:11:27.294Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,37 +15,37 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 321,
-    "won": 267,
-    "lost": 54,
-    "pending": 56,
+    "total": 325,
+    "won": 269,
+    "lost": 56,
+    "pending": 53,
     "unverifiable": 153,
-    "archivedTotal": 530,
-    "rate": 83.2,
+    "archivedTotal": 531,
+    "rate": 82.8,
     "gold": {
-      "total": 229,
-      "won": 196,
-      "lost": 33,
-      "rate": 85.6
+      "total": 232,
+      "won": 198,
+      "lost": 34,
+      "rate": 85.3
     },
     "standard": {
-      "total": 92,
+      "total": 93,
       "won": 71,
-      "lost": 21,
-      "rate": 77.2
+      "lost": 22,
+      "rate": 76.3
     },
     "byType": {
       "btts": {
-        "total": 318,
-        "won": 266,
-        "lost": 52,
-        "rate": 83.6
+        "total": 321,
+        "won": 267,
+        "lost": 54,
+        "rate": 83.2
       },
       "over25": {
-        "total": 3,
-        "won": 1,
+        "total": 4,
+        "won": 2,
         "lost": 2,
-        "rate": 33.3
+        "rate": 50
       }
     },
     "trend14": [
@@ -142,10 +142,10 @@
       },
       {
         "date": "2026-10-26",
-        "total": 1,
-        "won": 1,
-        "lost": 0,
-        "rate": 100
+        "total": 5,
+        "won": 3,
+        "lost": 2,
+        "rate": 60
       }
     ],
     "period": {
@@ -155,6 +155,58 @@
     }
   },
   "history": [
+    {
+      "date": "2026-10-26",
+      "match": "Santa Clara vs Benfica",
+      "league": "Liga Portugal",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6634,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-10-26T22:10:41.464Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-26",
+      "match": "Sevilla vs Osasuna",
+      "league": "LaLiga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7601,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-10-26T22:10:21.578Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-26",
+      "match": "Paris Saint-Germain vs Lyon",
+      "league": "Ligue 1",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.5516,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-10-26T22:10:21.577Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-26",
+      "match": "Santa Clara vs Benfica",
+      "league": "Liga Portugal",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-10-26T22:10:21.577Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-10-26",
       "match": "LAFC vs LA Galaxy",
