@@ -5066,6 +5066,9 @@ body {
 }
 .hp-data-date { color: #8B99AD; font-size: 0.7rem; font-variant-numeric: tabular-nums; }
 
+/* ── Filtre jour (Match Center) ── */
+.hp-filters { display: grid; gap: 0.65rem; margin-bottom: 1.35rem; }
+
 .hp-chips {
   display: flex;
   gap: 0.4rem;

@@ -18,8 +18,9 @@ const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : use
  *  - predictions.json  → matchs du jour/demain/semaine (free uniquement)
  *  - win-history.json   → jointure sur matchs terminés (score final, gagné/perdu)
  *
- * Sans bloc de filtres : la section liste les matchs du jour (Africa/Dakar).
- * Aucun badge « sûr »/« immanquable » ; les pronostics perdants ne sont jamais cachés.
+ * Filtre jour uniquement : Aujourd'hui / Demain / Cette semaine (défaut : Cette semaine,
+ * pour que les matchs à venir restent visibles). Aucun badge « sûr »/« immanquable » ;
+ * les pronostics perdants ne sont jamais cachés.
  * Squelettes de chargement, état vide professionnel, colonnes empilées <768px.
  */
 
@@ -67,6 +68,8 @@ interface HistoryRecord {
 const hasFinalResult = (record?: HistoryRecord) =>
   Boolean(record?.finalScore || record?.status === 'WON' || record?.status === 'LOST')
 
+type DayFilter = 'today' | 'tomorrow' | 'week'
+
 function dayDiff(dateStr: string): number {
   return getDakarDayDiff(dateStr)
 }
@@ -107,6 +110,9 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
   const [results, setResults] = useState<Map<string, HistoryRecord>>(new Map())
   const [loading, setLoading] = useState(true)
   const [dataDate, setDataDate] = useState('')
+  // Onglet jour — seul filtre conservé. Défaut « Cette semaine » pour que les
+  // matchs à venir restent visibles dès l'arrivée sur la page.
+  const [day, setDay] = useState<DayFilter>('week')
   // Horloge partagée du compte à rebours — une seule mise à jour toutes les 30 s
   // pour l'ensemble des cartes (évite 44 intervalles individuels).
   const [nowTs, setNowTs] = useState<number>(() => Date.now())
@@ -137,14 +143,23 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
     return () => window.clearInterval(id)
   }, [])
 
-  // Matchs du jour uniquement (comportement par défaut historique de la section).
+  // Filtre jour : Aujourd'hui (diff 0) / Demain (diff 1) / Cette semaine (diff 0..7).
+  // Tri : matchs sans résultat d'abord, puis par jour, puis par heure.
   const filtered = useMemo(() => {
-    return items.filter(m => dayDiff(m.date) === 0).sort((a, b) => {
+    return items.filter(m => {
+      const diff = dayDiff(m.date)
+      if (day === 'today' && diff !== 0) return false
+      if (day === 'tomorrow' && diff !== 1) return false
+      if (day === 'week' && (diff < 0 || diff > 7)) return false
+      return true
+    }).sort((a, b) => {
+      const da = dayDiff(a.date), db = dayDiff(b.date)
       const fa = hasFinalResult(results.get(`${a.match}|${a.date}`)), fb = hasFinalResult(results.get(`${b.match}|${b.date}`))
       if (fa !== fb) return fa ? 1 : -1 // matchs sans résultat d'abord
+      if (da !== db) return da - db
       return (a.time || '').localeCompare(b.time || '')
     })
-  }, [items, results])
+  }, [items, results, day])
 
   // ═══ Révélation 3D au scroll ═══
   // Gate JS (.mc3d) : sans JS les cartes restent visibles (progressive enhancement).
@@ -194,6 +209,12 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
     return () => io.disconnect()
   }, [loading, filtered])
 
+  const dayTabs: { id: DayFilter; label: string }[] = [
+    { id: 'today', label: t.home2.mcToday },
+    { id: 'tomorrow', label: t.home2.mcTomorrow },
+    { id: 'week', label: t.home2.mcWeek },
+  ]
+
   return (
     <section id="matchs" className="hp-section" style={{ scrollMarginTop: '72px' }}>
       <div className="mx-auto max-w-[1280px] px-4 sm:px-6">
@@ -218,6 +239,23 @@ export default function MatchCenter({ initialLocale }: { initialLocale?: Locale 
         {items.length > 0 && (
           <ComboBuilder items={items} lang={lang} />
         )}
+
+        {/* Onglet jour — seul filtre conservé (Aujourd'hui / Demain / Cette semaine) */}
+        <div className="hp-filters" role="group" aria-label={t.home2.mcTitle}>
+          <div className="hp-chips" role="tablist" aria-label={t.home2.mcToday}>
+            {dayTabs.map(f => (
+              <button
+                key={f.id}
+                type="button"
+                onClick={() => setDay(f.id)}
+                aria-pressed={day === f.id}
+                className={`hp-chip hp-chip--ghost${day === f.id ? ' is-active' : ''}`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+        </div>
 
         {/* Contenu */}
         {loading ? (
