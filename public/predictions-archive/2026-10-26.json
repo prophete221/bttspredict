@@ -413,7 +413,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 8.5 · N 4.8 · 2 1.38 · O2.5 1.83"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 8.5 · N 4.8 · 2 1.38 · O2.5 1.83",
+      "status": "PENDING"
     },
     {
       "id": "sevilla-vs-osasuna-2026-10-26",
@@ -1417,7 +1418,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.59 · N 3.9 · 2 5 · O2.5 1.83"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.59 · N 3.9 · 2 5 · O2.5 1.83",
+      "status": "PENDING"
     },
     {
       "id": "monza-vs-napoli-2026-10-28",
@@ -1630,7 +1632,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.1 · N 3.8 · 2 1.74 · O2.5 1.71"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.1 · N 3.8 · 2 1.74 · O2.5 1.71",
+      "status": "PENDING"
     },
     {
       "id": "dundee-vs-kilmarno-2026-10-28",
@@ -1844,7 +1847,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.95 · N 3.8 · 2 3.45 · O2.5 1.54"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.95 · N 3.8 · 2 3.45 · O2.5 1.54",
+      "status": "PENDING"
     },
     {
       "id": "newyorkc-vs-atlantau-2026-10-28",
@@ -2059,7 +2063,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.87 · N 3.7 · 2 3.65 · O2.5 1.61"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.87 · N 3.7 · 2 3.65 · O2.5 1.61",
+      "status": "PENDING"
     },
     {
       "id": "torontof-vs-dcunited-2026-10-28",
@@ -2273,7 +2278,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2 · N 3.65 · 2 3.25"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2 · N 3.65 · 2 3.25",
+      "status": "PENDING"
     },
     {
       "id": "aberdeen-vs-falkirk-2026-10-28",
@@ -2488,7 +2494,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.95 · N 3.5 · 2 3.65 · O2.5 1.74"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.95 · N 3.5 · 2 3.65 · O2.5 1.74",
+      "status": "PENDING"
     },
     {
       "id": "celtic-vs-dundeeun-2026-10-28",
@@ -2884,7 +2891,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "chicagof-vs-orlandoc-2026-10-29",
@@ -4244,7 +4252,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.55 · 2 3.05 · O2.5 1.54"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.55 · 2 3.05 · O2.5 1.54",
+      "status": "PENDING"
     },
     {
       "id": "fcdallas-vs-columbus-2026-10-29",
@@ -4458,7 +4467,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.95 · N 3.9 · 2 3.25"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.95 · N 3.9 · 2 3.25",
+      "status": "PENDING"
     },
     {
       "id": "lille-vs-lens-2026-10-30",
@@ -5852,7 +5862,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.1 · N 3.6 · 2 2.05"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.1 · N 3.6 · 2 2.05",
+      "status": "PENDING"
     },
     {
       "id": "lehavrea-vs-parissai-2026-10-30",
@@ -6066,7 +6077,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.24"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.24",
+      "status": "PENDING"
     },
     {
       "id": "vflwolfs-vs-vflosnab-2026-10-31",
@@ -6280,7 +6292,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.49 · N 4.6 · 2 5.25"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.49 · N 4.6 · 2 5.25",
+      "status": "PENDING"
     },
     {
       "id": "psveindh-vs-willemii-2026-10-31",
@@ -6495,7 +6508,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.06 · N 13 · 2 18"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.06 · N 13 · 2 18",
+      "status": "PENDING"
     },
     {
       "id": "sccambuu-vs-goaheade-2026-10-31",
@@ -6709,7 +6723,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.7 · 2 2.15"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.7 · 2 2.15",
+      "status": "PENDING"
     },
     {
       "id": "charlott-vs-orlandoc-2026-10-31",
@@ -6917,7 +6932,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "fccincin-vs-philadel-2026-10-31",
@@ -7125,7 +7141,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "lagalaxy-vs-austinfc-2026-10-31",
@@ -7333,7 +7350,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "hullcity-vs-ipswicht-2026-10-31",
@@ -7547,7 +7565,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.6 · N 3.4 · 2 2.65 · O2.5 1.8"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.6 · N 3.4 · 2 2.65 · O2.5 1.8",
+      "status": "PENDING"
     },
     {
       "id": "middlesb-vs-charlton-2026-10-31",
@@ -7758,6 +7777,433 @@
       "ai_confidence": "medium",
       "ai_abstain": false,
       "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.29 · N 5.75 · 2 8.5",
+      "status": "PENDING"
+    },
+    {
+      "id": "lehavrea-vs-parissai-2026-10-30",
+      "match": "Le Havre AC vs Paris Saint-Germain",
+      "home": "Le Havre AC",
+      "away": "Paris Saint-Germain",
+      "league": "Ligue 1",
+      "date": "2026-10-30",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 70,
+      "time": "18:00",
+      "matchSemantic": "lehavrea-vs-parissai-2026-10-30",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3236.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
+      "tier": "GOLD",
+      "reliabilityScore": 75.38,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 7,
+      "h2hAvailable": false,
+      "xgHome": 0.5,
+      "xgAway": 2,
+      "xgTotal": 2.5,
+      "formBTTS": 70,
+      "analysis": "Le Havre AC : forme D-D-D-D-N (0V 1N 4D, 6 buts marqués / 11 encaissés sur 5) · Paris Saint-Germain : forme V-V-V-V-D (4V 0N 1D, 10 buts marqués / 5 encaissés sur 5). Classement : Le Havre AC 18e (2 pts), Paris Saint-Germain 5e (14 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 9.5 / N: 7 / 2: 1.24. Fiabilité 75.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 0.5,
+        "awayLambda": 2,
+        "xgTotal": 2.5
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 9.5,
+        "draw": 7,
+        "away": 1.24,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "D-D-D-D-N",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 6,
+        "goalsAgainst": 11,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-D",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 10,
+        "goalsAgainst": 5,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Marseille",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "AJ Auxerre",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Lille",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Toulouse",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Angers",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-17",
+          "opponent": "Strasbourg",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Le Mans",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Marseille",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-13",
+          "opponent": "Brest",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "AS Monaco",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 2,
+        "played": 8,
+        "gf": 8,
+        "ga": 15
+      },
+      "standingsAway": {
+        "rank": 5,
+        "points": 14,
+        "played": 7,
+        "gf": 14,
+        "ga": 9
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 0.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 70,
+          "over25Prob": 0.7,
+          "homeLambda": 0.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.7
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.7,
+      "homeLambda": 0.5,
+      "awayLambda": 2,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Form signals BTTS 70% / Over 70%",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Décision : OVER_25.",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Déc",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
+      "ai_reasons": [
+        "Empirical BTTS rate ~70%",
+        "Empirical Over 2.5 rate ~70%"
+      ],
+      "ai_risks": [
+        "Sample limited to recent matches; form can shift quickly."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "local-empirical-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.24"
+    },
+    {
+      "id": "middlesb-vs-charlton-2026-10-31",
+      "match": "Middlesbrough vs Charlton Athletic",
+      "home": "Middlesbrough",
+      "away": "Charlton Athletic",
+      "league": "Championship",
+      "date": "2026-10-31",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.65,
+      "bttsProbDisplay": "80.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 65,
+      "time": "15:00",
+      "matchSemantic": "middlesb-vs-charlton-2026-10-31",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/369.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/372.png",
+      "tier": "GOLD",
+      "reliabilityScore": 91.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.25,
+      "xgAway": 0.75,
+      "xgTotal": 3,
+      "formBTTS": 80,
+      "analysis": "Middlesbrough : forme V-N-V-V-N (3V 2N 0D, 13 buts marqués / 7 encaissés sur 5) · Charlton Athletic : forme D-D-N-N-D (0V 2N 3D, 5 buts marqués / 11 encaissés sur 5). Classement : Middlesbrough 1e (25 pts), Charlton Athletic 19e (14 pts). Stats empiriques (forme récente) : buts moy. 3, BTTS 80.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.29 / N: 5.75 / 2: 8.5. Fiabilité 91.25%.",
+      "analysisData": {
+        "bttsProb": 0.8,
+        "over25Prob": 0.7,
+        "homeLambda": 2.25,
+        "awayLambda": 0.75,
+        "xgTotal": 3
+      },
+      "estimatedCote": 1.25,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.29,
+        "draw": 5.75,
+        "away": 8.5,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.25,
+      "formHome": {
+        "last5String": "V-N-V-V-N",
+        "wins": 3,
+        "draws": 2,
+        "losses": 0,
+        "goalsFor": 13,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-N-N-D",
+        "wins": 0,
+        "draws": 2,
+        "losses": 3,
+        "goalsFor": 5,
+        "goalsAgainst": 11,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Bolton Wanderers",
+          "venue": "A",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Cardiff City",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Stoke City",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Wolverhampton Wanderers",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Birmingham City",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Norwich City",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Watford",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Burnley",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Bristol City",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Cardiff City",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 1,
+        "points": 25,
+        "played": 12,
+        "gf": 27,
+        "ga": 17
+      },
+      "standingsAway": {
+        "rank": 19,
+        "points": 14,
+        "played": 12,
+        "gf": 11,
+        "ga": 18
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "bttsProb": 0.65,
+          "homeLambda": 2.25,
+          "awayLambda": 0.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.65
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 70,
+          "over25Prob": 0.7,
+          "homeLambda": 2.25,
+          "awayLambda": 0.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        }
+      ],
+      "bttsProb": 0.65,
+      "over25Prob": 0.7,
+      "homeLambda": 2.25,
+      "awayLambda": 0.75,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Middlesbrough présente un taux BTTS de 80% et une moyenne de 2.25 buts marqués.",
+      "ai_analysis": "Malgré un profil offensif extérieur plus modeste pour Charlton Athletic, les taux BTTS observés à 80% pour les deux équipes justifient l'intérêt sur ce marché. La solidité offensive de Middlesbrough compensera potentiellement les lacunes adverses pour valider l'option des deux équipes qui marquent.",
+      "ai_analysis_en": "Despite a more modest away offensive profile for Charlton Athletic, the observed BTTS rates at 80% for both teams justify interest in this market. Middlesbrough's offensive strength could potentially compensate for opponent shortcomings to validate both teams scoring.",
+      "ai_form_summary": "Middlesbrough : 3W-2D-0L, 13 buts pour, 7 encaissés (BTTS 80%). Charlton Athletic : 0W-2D-3L, 5 buts pour, 11 encaissés (BTTS 80%).",
+      "ai_form_summary_en": "Middlesbrough: 3W-2D-0L, 13 goals for, 7 against (BTTS 80%). Charlton Athletic: 0W-2D-3L, 5 goals for, 11 against (BTTS 80%).",
+      "ai_reasons": [
+        "Taux BTTS empirique de 80% pour Middlesbrough et Charlton Athletic",
+        "Moyenne de buts marqués par Middlesbrough s'établit à 2.25 par match",
+        "Forme BTTS des 5 derniers matchs à 80% pour Middlesbrough"
+      ],
+      "ai_risks": [
+        "Charlton Athletic affiche une moyenne offensive faible de 0.75 buts par match",
+        "Middlesbrough est large favori avec une cote à domicile de 1.29, ce qui pourrait déséquilibrer la physionomie de la rencontre"
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "BTTS",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -15621,6 +16067,434 @@
       "ai_confidence": "medium",
       "ai_abstain": false,
       "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.29 · N 5.75 · 2 8.5",
+      "status": "PENDING"
+    },
+    {
+      "id": "lehavrea-vs-parissai-2026-10-30",
+      "match": "Le Havre AC vs Paris Saint-Germain",
+      "home": "Le Havre AC",
+      "away": "Paris Saint-Germain",
+      "league": "Ligue 1",
+      "date": "2026-10-30",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 70,
+      "time": "18:00",
+      "matchSemantic": "lehavrea-vs-parissai-2026-10-30",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3236.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
+      "tier": "GOLD",
+      "reliabilityScore": 75.38,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 7,
+      "h2hAvailable": false,
+      "xgHome": 0.5,
+      "xgAway": 2,
+      "xgTotal": 2.5,
+      "formBTTS": 70,
+      "analysis": "Le Havre AC : forme D-D-D-D-N (0V 1N 4D, 6 buts marqués / 11 encaissés sur 5) · Paris Saint-Germain : forme V-V-V-V-D (4V 0N 1D, 10 buts marqués / 5 encaissés sur 5). Classement : Le Havre AC 18e (2 pts), Paris Saint-Germain 5e (14 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 9.5 / N: 7 / 2: 1.24. Fiabilité 75.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 0.5,
+        "awayLambda": 2,
+        "xgTotal": 2.5
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 9.5,
+        "draw": 7,
+        "away": 1.24,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "D-D-D-D-N",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 6,
+        "goalsAgainst": 11,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-D",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 10,
+        "goalsAgainst": 5,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Marseille",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "AJ Auxerre",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Lille",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Toulouse",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Angers",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-17",
+          "opponent": "Strasbourg",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Le Mans",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Marseille",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-13",
+          "opponent": "Brest",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "AS Monaco",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 2,
+        "played": 8,
+        "gf": 8,
+        "ga": 15
+      },
+      "standingsAway": {
+        "rank": 5,
+        "points": 14,
+        "played": 7,
+        "gf": 14,
+        "ga": 9
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 0.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 70,
+          "over25Prob": 0.7,
+          "homeLambda": 0.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.7
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.7,
+      "homeLambda": 0.5,
+      "awayLambda": 2,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Form signals BTTS 70% / Over 70%",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Décision : OVER_25.",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Déc",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
+      "ai_reasons": [
+        "Empirical BTTS rate ~70%",
+        "Empirical Over 2.5 rate ~70%"
+      ],
+      "ai_risks": [
+        "Sample limited to recent matches; form can shift quickly."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "local-empirical-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.24",
+      "status": "PENDING"
+    },
+    {
+      "id": "middlesb-vs-charlton-2026-10-31",
+      "match": "Middlesbrough vs Charlton Athletic",
+      "home": "Middlesbrough",
+      "away": "Charlton Athletic",
+      "league": "Championship",
+      "date": "2026-10-31",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.65,
+      "bttsProbDisplay": "80.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 65,
+      "time": "15:00",
+      "matchSemantic": "middlesb-vs-charlton-2026-10-31",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/369.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/372.png",
+      "tier": "GOLD",
+      "reliabilityScore": 91.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.25,
+      "xgAway": 0.75,
+      "xgTotal": 3,
+      "formBTTS": 80,
+      "analysis": "Middlesbrough : forme V-N-V-V-N (3V 2N 0D, 13 buts marqués / 7 encaissés sur 5) · Charlton Athletic : forme D-D-N-N-D (0V 2N 3D, 5 buts marqués / 11 encaissés sur 5). Classement : Middlesbrough 1e (25 pts), Charlton Athletic 19e (14 pts). Stats empiriques (forme récente) : buts moy. 3, BTTS 80.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.29 / N: 5.75 / 2: 8.5. Fiabilité 91.25%.",
+      "analysisData": {
+        "bttsProb": 0.8,
+        "over25Prob": 0.7,
+        "homeLambda": 2.25,
+        "awayLambda": 0.75,
+        "xgTotal": 3
+      },
+      "estimatedCote": 1.25,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.29,
+        "draw": 5.75,
+        "away": 8.5,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.25,
+      "formHome": {
+        "last5String": "V-N-V-V-N",
+        "wins": 3,
+        "draws": 2,
+        "losses": 0,
+        "goalsFor": 13,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-N-N-D",
+        "wins": 0,
+        "draws": 2,
+        "losses": 3,
+        "goalsFor": 5,
+        "goalsAgainst": 11,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Bolton Wanderers",
+          "venue": "A",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Cardiff City",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Stoke City",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Wolverhampton Wanderers",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Birmingham City",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Norwich City",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Watford",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Burnley",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Bristol City",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Cardiff City",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 1,
+        "points": 25,
+        "played": 12,
+        "gf": 27,
+        "ga": 17
+      },
+      "standingsAway": {
+        "rank": 19,
+        "points": 14,
+        "played": 12,
+        "gf": 11,
+        "ga": 18
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "bttsProb": 0.65,
+          "homeLambda": 2.25,
+          "awayLambda": 0.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.65
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 70,
+          "over25Prob": 0.7,
+          "homeLambda": 2.25,
+          "awayLambda": 0.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        }
+      ],
+      "bttsProb": 0.65,
+      "over25Prob": 0.7,
+      "homeLambda": 2.25,
+      "awayLambda": 0.75,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Middlesbrough présente un taux BTTS de 80% et une moyenne de 2.25 buts marqués.",
+      "ai_analysis": "Malgré un profil offensif extérieur plus modeste pour Charlton Athletic, les taux BTTS observés à 80% pour les deux équipes justifient l'intérêt sur ce marché. La solidité offensive de Middlesbrough compensera potentiellement les lacunes adverses pour valider l'option des deux équipes qui marquent.",
+      "ai_analysis_en": "Despite a more modest away offensive profile for Charlton Athletic, the observed BTTS rates at 80% for both teams justify interest in this market. Middlesbrough's offensive strength could potentially compensate for opponent shortcomings to validate both teams scoring.",
+      "ai_form_summary": "Middlesbrough : 3W-2D-0L, 13 buts pour, 7 encaissés (BTTS 80%). Charlton Athletic : 0W-2D-3L, 5 buts pour, 11 encaissés (BTTS 80%).",
+      "ai_form_summary_en": "Middlesbrough: 3W-2D-0L, 13 goals for, 7 against (BTTS 80%). Charlton Athletic: 0W-2D-3L, 5 goals for, 11 against (BTTS 80%).",
+      "ai_reasons": [
+        "Taux BTTS empirique de 80% pour Middlesbrough et Charlton Athletic",
+        "Moyenne de buts marqués par Middlesbrough s'établit à 2.25 par match",
+        "Forme BTTS des 5 derniers matchs à 80% pour Middlesbrough"
+      ],
+      "ai_risks": [
+        "Charlton Athletic affiche une moyenne offensive faible de 0.75 buts par match",
+        "Middlesbrough est large favori avec une cote à domicile de 1.29, ce qui pourrait déséquilibrer la physionomie de la rencontre"
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "BTTS",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
