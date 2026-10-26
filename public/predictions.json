@@ -1,6 +1,6 @@
 {
   "date": "2026-10-26",
-  "lastUpdated": "2026-10-26T05:47:32.361Z",
+  "lastUpdated": "2026-10-26T08:20:08.694Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -1016,55 +1016,55 @@
       "away": "Cagliari",
       "league": "Serie A",
       "date": "2026-10-27",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "proba": 0.6,
-      "bttsProbDisplay": "40.00%",
-      "over25ProbDisplay": "40.00%",
-      "confidence": 60,
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5062,
+      "bttsProbDisplay": "50.62%",
+      "over25ProbDisplay": "55.40%",
+      "confidence": 51,
       "time": "19:45",
       "matchSemantic": "asroma-vs-cagliari-2026-10-27",
       "source": "poisson-v92-real-data",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/104.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2925.png",
-      "tier": "GOLD",
-      "reliabilityScore": 76.25,
-      "dataQuality": "HIGH",
+      "tier": "SILVER",
+      "reliabilityScore": 69.39,
+      "dataQuality": "MEDIUM",
       "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
+      "matchCountHome": 7,
+      "matchCountAway": 7,
       "h2hAvailable": false,
-      "xgHome": 2.5,
-      "xgAway": 1,
-      "xgTotal": 3.5,
+      "xgHome": 2.02,
+      "xgAway": 0.88,
+      "xgTotal": 2.9,
       "formBTTS": 40,
-      "analysis": "AS Roma : forme N-V-N-N-V (2V 3N 0D, 9 buts marqués / 5 encaissés sur 5) · Cagliari : forme D-D-N-V-V (2V 1N 2D, 4 buts marqués / 8 encaissés sur 5). Classement : AS Roma 3e (18 pts), Cagliari 9e (13 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 40.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.32 / N: 4.7 / 2: 8.5 · Over 2.5: 1.65. Fiabilité 76.25%.",
+      "analysis": "AS Roma : forme V-N-N-V-V (3V 2N 0D, 8 buts marqués / 3 encaissés sur 5) · Cagliari : forme D-N-V-V-V (3V 1N 1D, 5 buts marqués / 6 encaissés sur 5). Classement : AS Roma 3e (17 pts), Cagliari 7e (13 pts). Modèle Poisson : xG cumulé 2.9, BTTS 50.6%, Over 2.5 55.4%. Cotes DraftKings — 1: 1.32 / N: 4.6 / 2: 8.5 · Over 2.5: 1.69. Fiabilité 69.39%.",
       "analysisData": {
-        "bttsProb": 0.4,
-        "over25Prob": 0.4,
-        "homeLambda": 2.5,
-        "awayLambda": 1,
-        "xgTotal": 3.5
+        "bttsProb": 0.5062,
+        "over25Prob": 0.554,
+        "homeLambda": 2.02,
+        "awayLambda": 0.88,
+        "xgTotal": 2.9
       },
-      "estimatedCote": 2.5,
-      "estimatedCoteOver": 2.5,
+      "estimatedCote": 1.98,
+      "estimatedCoteOver": 1.8,
       "odds": {
         "provider": "DraftKings",
         "home": 1.32,
-        "draw": 4.7,
+        "draw": 4.6,
         "away": 8.5,
-        "over25": 1.65,
-        "under25": 2.2
+        "over25": 1.69,
+        "under25": 2.1
       },
       "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 2.5,
+      "estimatedCoteBTTS": 1.98,
       "formHome": {
-        "last5String": "N-V-N-N-V",
-        "wins": 2,
-        "draws": 3,
+        "last5String": "V-N-N-V-V",
+        "wins": 3,
+        "draws": 2,
         "losses": 0,
-        "goalsFor": 9,
-        "goalsAgainst": 5,
+        "goalsFor": 8,
+        "goalsAgainst": 3,
         "bttsRate": 0.4,
         "over25Rate": 0.4,
         "cleanSheets": 3,
@@ -1072,18 +1072,65 @@
         "count": 5
       },
       "formAway": {
-        "last5String": "D-D-N-V-V",
-        "wins": 2,
+        "last5String": "D-N-V-V-V",
+        "wins": 3,
         "draws": 1,
-        "losses": 2,
-        "goalsFor": 4,
-        "goalsAgainst": 8,
+        "losses": 1,
+        "goalsFor": 5,
+        "goalsAgainst": 6,
         "bttsRate": 0.4,
         "over25Rate": 0.4,
-        "cleanSheets": 1,
-        "failedToScore": 2,
+        "cleanSheets": 2,
+        "failedToScore": 1,
         "count": 5
       },
+      "standingsHome": {
+        "rank": 3,
+        "points": 17,
+        "played": 7,
+        "gf": 16,
+        "ga": 3
+      },
+      "standingsAway": {
+        "rank": 7,
+        "points": 13,
+        "played": 7,
+        "gf": 6,
+        "ga": 7
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 51,
+          "bttsProb": 0.5062,
+          "homeLambda": 2.02,
+          "awayLambda": 0.88
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 55,
+          "over25Prob": 0.554,
+          "homeLambda": 2.02,
+          "awayLambda": 0.88
+        }
+      ],
+      "bttsProb": 0.5062,
+      "over25Prob": 0.554,
+      "homeLambda": 2.02,
+      "awayLambda": 0.88,
+      "ai_key_fact": "L'AS Roma possède la meilleure défense à domicile avec 3 buts encaissés.",
+      "ai_analysis": "Le modèle Poisson attribue un net avantage xG à l'AS Roma avec 2.02 contre 0.88 pour Cagliari, qui se positionne 7e en Serie A. Les probabilités du modèle affichent 50.6% pour le BTTS et 55.4% pour l'Over 2.5, avec une fiabilité de 69.39%. Les cotes du marché placent l'AS Roma nettement favorite à 1.32, soit une probabilité implicite de 75.8%. Aucune donnée d'effectif n'est mentionnée dans les sources. Les chiffres indiquent une assise défensive solide pour les locaux face à des visiteurs aux ambitions mesurées à l'extérieur.",
+      "ai_form_summary": "L'AS Roma à domicile présente un bilan de 3V-2N-0D sur ses 5 derniers matchs avec un taux BTTS de 0.4. Cagliari à l'extérieur affiche 3V-1N-1D et un taux BTTS de 0.4.",
+      "ai_key_fact_en": "AS Roma boasts the best home defense with only 3 goals conceded.",
+      "ai_analysis_en": "The Poisson model assigns a clear xG advantage to AS Roma with 2.02 against Cagliari's 0.88, with the visitors positioned 7th in Serie A. Model probabilities show 50.6% for BTTS and 55.4% for Over 2.5, with 69.39% reliability. Market odds price AS Roma as clear favorites at 1.32, reflecting a 75.8% implicit probability. No squad data is mentioned in the sources. The figures indicate a solid defensive foundation for the hosts against visitors with measured away ambitions.",
+      "ai_form_summary_en": "AS Roma at home presents a 3W-2D-0L record in their last 5 matches with a 0.4 BTTS rate. Cagliari away shows 3W-1D-1L and a 0.4 BTTS rate.",
+      "ai_source": "gemini-v2",
+      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+      "ai_odds_insight": "Le marché (DraftKings) cote 1: 1.32, nul: 4.6, 2: 8.5, Over 2.5: 1.69.",
+      "ai_odds_insight_en": "The market (DraftKings) prices 1: 1.32, draw: 4.6, 2: 8.5, Over 2.5: 1.69.",
       "last5Home": [
         {
           "date": "2026-10-24",
@@ -1158,69 +1205,7 @@
           "result": "W"
         }
       ],
-      "standingsHome": {
-        "rank": 3,
-        "points": 18,
-        "played": 8,
-        "gf": 19,
-        "ga": 6
-      },
-      "standingsAway": {
-        "rank": 9,
-        "points": 13,
-        "played": 8,
-        "gf": 6,
-        "ga": 9
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Non",
-          "confidence": 40,
-          "bttsProb": 0.4,
-          "homeLambda": 2.5,
-          "awayLambda": 1,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Non",
-          "confidence": 60,
-          "over25Prob": 0.6,
-          "homeLambda": 2.5,
-          "awayLambda": 1,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.6
-        }
-      ],
-      "bttsProb": 0.4,
-      "over25Prob": 0.6,
-      "homeLambda": 2.5,
-      "awayLambda": 1,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "AS Roma et Cagliari affichent des taux empiriques de 40% pour le BTTS et l'Over 2.5.",
-      "ai_analysis": "La rencontre entre l'AS Roma et Cagliari est caractérisée par des taux empiriques faibles, s'établissant à 40% aussi bien pour le BTTS que pour l'Over 2.5. La solidité défensive romaine et la faible production offensive de Cagliari (4 buts sur les 5 derniers matchs) suggèrent un match potentiellement fermé, bien que la prudence reste de mise.",
-      "ai_analysis_en": "The match between AS Roma and Cagliari is characterized by low empirical rates, standing at 40% for both BTTS and Over 2.5. Roma's defensive solidity and Cagliari's low offensive output (4 goals in their last 5 matches) suggest a potentially closed game, although caution remains advised.",
-      "ai_form_summary": "L'AS Roma est invaincue (2W-3D) avec une défense hermétique, tandis que Cagliari peine offensivement (2W-1D-2L).",
-      "ai_form_summary_en": "AS Roma is undefeated (2W-3D) with a tight defense, while Cagliari struggles offensively (2W-1D-2L).",
-      "ai_reasons": [
-        "Taux empiriques BTTS et Over 2.5 tous deux faibles à 40%.",
-        "AS Roma possède une défense très solide avec seulement 6 buts encaissés en 8 matchs."
-      ],
-      "ai_risks": [
-        "L'AS Roma affiche une bonne moyenne offensive de 2.5 buts par match à domicile.",
-        "Cagliari a des difficultés offensives marquées avec seulement 4 buts inscrits sur ses 5 derniers matchs."
-      ],
-      "ai_confidence": "low",
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.32 · N 4.7 · 2 8.5 · O2.5 1.65"
+      "status": "PENDING"
     },
     {
       "id": "acmilan-vs-bologna-2026-10-28",
@@ -3503,7 +3488,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.6 · N 3.75 · 2 2.35 · O2.5 1.57"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.6 · N 3.75 · 2 2.35 · O2.5 1.57",
+      "status": "PENDING"
     },
     {
       "id": "minnesot-vs-sporting-2026-10-29",
@@ -8918,55 +8904,55 @@
       "away": "Cagliari",
       "league": "Serie A",
       "date": "2026-10-27",
-      "type": "Over 2.5",
-      "prediction": "Non",
-      "proba": 0.6,
-      "bttsProbDisplay": "40.00%",
-      "over25ProbDisplay": "40.00%",
-      "confidence": 60,
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.5062,
+      "bttsProbDisplay": "50.62%",
+      "over25ProbDisplay": "55.40%",
+      "confidence": 51,
       "time": "19:45",
       "matchSemantic": "asroma-vs-cagliari-2026-10-27",
       "source": "poisson-v92-real-data",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/104.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2925.png",
-      "tier": "GOLD",
-      "reliabilityScore": 76.25,
-      "dataQuality": "HIGH",
+      "tier": "SILVER",
+      "reliabilityScore": 69.39,
+      "dataQuality": "MEDIUM",
       "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
+      "matchCountHome": 7,
+      "matchCountAway": 7,
       "h2hAvailable": false,
-      "xgHome": 2.5,
-      "xgAway": 1,
-      "xgTotal": 3.5,
+      "xgHome": 2.02,
+      "xgAway": 0.88,
+      "xgTotal": 2.9,
       "formBTTS": 40,
-      "analysis": "AS Roma : forme N-V-N-N-V (2V 3N 0D, 9 buts marqués / 5 encaissés sur 5) · Cagliari : forme D-D-N-V-V (2V 1N 2D, 4 buts marqués / 8 encaissés sur 5). Classement : AS Roma 3e (18 pts), Cagliari 9e (13 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 40.0%, Over 2.5 40.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.32 / N: 4.7 / 2: 8.5 · Over 2.5: 1.65. Fiabilité 76.25%.",
+      "analysis": "AS Roma : forme V-N-N-V-V (3V 2N 0D, 8 buts marqués / 3 encaissés sur 5) · Cagliari : forme D-N-V-V-V (3V 1N 1D, 5 buts marqués / 6 encaissés sur 5). Classement : AS Roma 3e (17 pts), Cagliari 7e (13 pts). Modèle Poisson : xG cumulé 2.9, BTTS 50.6%, Over 2.5 55.4%. Cotes DraftKings — 1: 1.32 / N: 4.6 / 2: 8.5 · Over 2.5: 1.69. Fiabilité 69.39%.",
       "analysisData": {
-        "bttsProb": 0.4,
-        "over25Prob": 0.4,
-        "homeLambda": 2.5,
-        "awayLambda": 1,
-        "xgTotal": 3.5
+        "bttsProb": 0.5062,
+        "over25Prob": 0.554,
+        "homeLambda": 2.02,
+        "awayLambda": 0.88,
+        "xgTotal": 2.9
       },
-      "estimatedCote": 2.5,
-      "estimatedCoteOver": 2.5,
+      "estimatedCote": 1.98,
+      "estimatedCoteOver": 1.8,
       "odds": {
         "provider": "DraftKings",
         "home": 1.32,
-        "draw": 4.7,
+        "draw": 4.6,
         "away": 8.5,
-        "over25": 1.65,
-        "under25": 2.2
+        "over25": 1.69,
+        "under25": 2.1
       },
       "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 2.5,
+      "estimatedCoteBTTS": 1.98,
       "formHome": {
-        "last5String": "N-V-N-N-V",
-        "wins": 2,
-        "draws": 3,
+        "last5String": "V-N-N-V-V",
+        "wins": 3,
+        "draws": 2,
         "losses": 0,
-        "goalsFor": 9,
-        "goalsAgainst": 5,
+        "goalsFor": 8,
+        "goalsAgainst": 3,
         "bttsRate": 0.4,
         "over25Rate": 0.4,
         "cleanSheets": 3,
@@ -8974,18 +8960,65 @@
         "count": 5
       },
       "formAway": {
-        "last5String": "D-D-N-V-V",
-        "wins": 2,
+        "last5String": "D-N-V-V-V",
+        "wins": 3,
         "draws": 1,
-        "losses": 2,
-        "goalsFor": 4,
-        "goalsAgainst": 8,
+        "losses": 1,
+        "goalsFor": 5,
+        "goalsAgainst": 6,
         "bttsRate": 0.4,
         "over25Rate": 0.4,
-        "cleanSheets": 1,
-        "failedToScore": 2,
+        "cleanSheets": 2,
+        "failedToScore": 1,
         "count": 5
       },
+      "standingsHome": {
+        "rank": 3,
+        "points": 17,
+        "played": 7,
+        "gf": 16,
+        "ga": 3
+      },
+      "standingsAway": {
+        "rank": 7,
+        "points": 13,
+        "played": 7,
+        "gf": 6,
+        "ga": 7
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 51,
+          "bttsProb": 0.5062,
+          "homeLambda": 2.02,
+          "awayLambda": 0.88
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 55,
+          "over25Prob": 0.554,
+          "homeLambda": 2.02,
+          "awayLambda": 0.88
+        }
+      ],
+      "bttsProb": 0.5062,
+      "over25Prob": 0.554,
+      "homeLambda": 2.02,
+      "awayLambda": 0.88,
+      "ai_key_fact": "L'AS Roma possède la meilleure défense à domicile avec 3 buts encaissés.",
+      "ai_analysis": "Le modèle Poisson attribue un net avantage xG à l'AS Roma avec 2.02 contre 0.88 pour Cagliari, qui se positionne 7e en Serie A. Les probabilités du modèle affichent 50.6% pour le BTTS et 55.4% pour l'Over 2.5, avec une fiabilité de 69.39%. Les cotes du marché placent l'AS Roma nettement favorite à 1.32, soit une probabilité implicite de 75.8%. Aucune donnée d'effectif n'est mentionnée dans les sources. Les chiffres indiquent une assise défensive solide pour les locaux face à des visiteurs aux ambitions mesurées à l'extérieur.",
+      "ai_form_summary": "L'AS Roma à domicile présente un bilan de 3V-2N-0D sur ses 5 derniers matchs avec un taux BTTS de 0.4. Cagliari à l'extérieur affiche 3V-1N-1D et un taux BTTS de 0.4.",
+      "ai_key_fact_en": "AS Roma boasts the best home defense with only 3 goals conceded.",
+      "ai_analysis_en": "The Poisson model assigns a clear xG advantage to AS Roma with 2.02 against Cagliari's 0.88, with the visitors positioned 7th in Serie A. Model probabilities show 50.6% for BTTS and 55.4% for Over 2.5, with 69.39% reliability. Market odds price AS Roma as clear favorites at 1.32, reflecting a 75.8% implicit probability. No squad data is mentioned in the sources. The figures indicate a solid defensive foundation for the hosts against visitors with measured away ambitions.",
+      "ai_form_summary_en": "AS Roma at home presents a 3W-2D-0L record in their last 5 matches with a 0.4 BTTS rate. Cagliari away shows 3W-1D-1L and a 0.4 BTTS rate.",
+      "ai_source": "gemini-v2",
+      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+      "ai_odds_insight": "Le marché (DraftKings) cote 1: 1.32, nul: 4.6, 2: 8.5, Over 2.5: 1.69.",
+      "ai_odds_insight_en": "The market (DraftKings) prices 1: 1.32, draw: 4.6, 2: 8.5, Over 2.5: 1.69.",
       "last5Home": [
         {
           "date": "2026-10-24",
@@ -9060,69 +9093,7 @@
           "result": "W"
         }
       ],
-      "standingsHome": {
-        "rank": 3,
-        "points": 18,
-        "played": 8,
-        "gf": 19,
-        "ga": 6
-      },
-      "standingsAway": {
-        "rank": 9,
-        "points": 13,
-        "played": 8,
-        "gf": 6,
-        "ga": 9
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Non",
-          "confidence": 40,
-          "bttsProb": 0.4,
-          "homeLambda": 2.5,
-          "awayLambda": 1,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Non",
-          "confidence": 60,
-          "over25Prob": 0.6,
-          "homeLambda": 2.5,
-          "awayLambda": 1,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.6
-        }
-      ],
-      "bttsProb": 0.4,
-      "over25Prob": 0.6,
-      "homeLambda": 2.5,
-      "awayLambda": 1,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "AS Roma et Cagliari affichent des taux empiriques de 40% pour le BTTS et l'Over 2.5.",
-      "ai_analysis": "La rencontre entre l'AS Roma et Cagliari est caractérisée par des taux empiriques faibles, s'établissant à 40% aussi bien pour le BTTS que pour l'Over 2.5. La solidité défensive romaine et la faible production offensive de Cagliari (4 buts sur les 5 derniers matchs) suggèrent un match potentiellement fermé, bien que la prudence reste de mise.",
-      "ai_analysis_en": "The match between AS Roma and Cagliari is characterized by low empirical rates, standing at 40% for both BTTS and Over 2.5. Roma's defensive solidity and Cagliari's low offensive output (4 goals in their last 5 matches) suggest a potentially closed game, although caution remains advised.",
-      "ai_form_summary": "L'AS Roma est invaincue (2W-3D) avec une défense hermétique, tandis que Cagliari peine offensivement (2W-1D-2L).",
-      "ai_form_summary_en": "AS Roma is undefeated (2W-3D) with a tight defense, while Cagliari struggles offensively (2W-1D-2L).",
-      "ai_reasons": [
-        "Taux empiriques BTTS et Over 2.5 tous deux faibles à 40%.",
-        "AS Roma possède une défense très solide avec seulement 6 buts encaissés en 8 matchs."
-      ],
-      "ai_risks": [
-        "L'AS Roma affiche une bonne moyenne offensive de 2.5 buts par match à domicile.",
-        "Cagliari a des difficultés offensives marquées avec seulement 4 buts inscrits sur ses 5 derniers matchs."
-      ],
-      "ai_confidence": "low",
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.32 · N 4.7 · 2 8.5 · O2.5 1.65"
+      "status": "PENDING"
     },
     {
       "id": "acmilan-vs-bologna-2026-10-28",
@@ -11405,7 +11376,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.6 · N 3.75 · 2 2.35 · O2.5 1.57"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.6 · N 3.75 · 2 2.35 · O2.5 1.57",
+      "status": "PENDING"
     },
     {
       "id": "minnesot-vs-sporting-2026-10-29",

@@ -8422,7 +8422,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.32 · N 4.7 · 2 8.5 · O2.5 1.65"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.32 · N 4.7 · 2 8.5 · O2.5 1.65",
+      "status": "PENDING"
     },
     {
       "id": "austinfc-vs-realsalt-2026-10-29",
@@ -8636,7 +8637,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.6 · N 3.75 · 2 2.35 · O2.5 1.57"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.6 · N 3.75 · 2 2.35 · O2.5 1.57",
+      "status": "PENDING"
     }
   ],
   "vipPreview": [
