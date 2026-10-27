@@ -10159,7 +10159,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.4 · N 3.7 · 2 1.71 · O2.5 1.65"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.4 · N 3.7 · 2 1.71 · O2.5 1.65",
+      "status": "PENDING"
     },
     {
       "id": "racingsa-vs-realmadr-2026-11-01",
@@ -10373,7 +10374,221 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.22"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.22",
+      "status": "PENDING"
+    },
+    {
+      "id": "lehavrea-vs-parissai-2026-10-30",
+      "match": "Le Havre AC vs Paris Saint-Germain",
+      "home": "Le Havre AC",
+      "away": "Paris Saint-Germain",
+      "league": "Ligue 1",
+      "date": "2026-10-30",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 70,
+      "time": "18:00",
+      "matchSemantic": "lehavrea-vs-parissai-2026-10-30",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3236.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
+      "tier": "GOLD",
+      "reliabilityScore": 75.38,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 7,
+      "h2hAvailable": false,
+      "xgHome": 0.5,
+      "xgAway": 2,
+      "xgTotal": 2.5,
+      "formBTTS": 70,
+      "analysis": "Le Havre AC : forme D-D-D-D-N (0V 1N 4D, 6 buts marqués / 11 encaissés sur 5) · Paris Saint-Germain : forme V-V-V-V-D (4V 0N 1D, 10 buts marqués / 5 encaissés sur 5). Classement : Le Havre AC 18e (2 pts), Paris Saint-Germain 5e (14 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 9.5 / N: 7 / 2: 1.24. Fiabilité 75.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 0.5,
+        "awayLambda": 2,
+        "xgTotal": 2.5
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 9.5,
+        "draw": 7,
+        "away": 1.24,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "D-D-D-D-N",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 6,
+        "goalsAgainst": 11,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-D",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 10,
+        "goalsAgainst": 5,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Marseille",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "AJ Auxerre",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Lille",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Toulouse",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Angers",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-26",
+          "opponent": "Lyon",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Strasbourg",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Le Mans",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Marseille",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-13",
+          "opponent": "Brest",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 2,
+        "played": 8,
+        "gf": 8,
+        "ga": 15
+      },
+      "standingsAway": {
+        "rank": 5,
+        "points": 14,
+        "played": 7,
+        "gf": 14,
+        "ga": 9
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 0.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 70,
+          "over25Prob": 0.7,
+          "homeLambda": 0.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.7
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.7,
+      "homeLambda": 0.5,
+      "awayLambda": 2,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Form signals BTTS 70% / Over 70%",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Décision : OVER_25.",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Déc",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
+      "ai_reasons": [
+        "Empirical BTTS rate ~70%",
+        "Empirical Over 2.5 rate ~70%"
+      ],
+      "ai_risks": [
+        "Sample limited to recent matches; form can shift quickly."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "local-empirical-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.24",
+      "status": "PENDING"
     }
   ],
   "vipPreview": [
@@ -10655,7 +10870,9 @@
           "result": "D"
         }
       ],
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-6",
+      "verifiedAt": "2026-10-27T21:42:05.437Z"
     },
     {
       "id": "torino-vs-como-2026-10-27",
@@ -11050,7 +11267,9 @@
           "result": "W"
         }
       ],
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "4-2",
+      "verifiedAt": "2026-10-27T21:42:10.009Z"
     },
     {
       "id": "acmilan-vs-bologna-2026-10-28",
@@ -20831,6 +21050,219 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.22",
+      "status": "PENDING"
+    },
+    {
+      "id": "lehavrea-vs-parissai-2026-10-30",
+      "match": "Le Havre AC vs Paris Saint-Germain",
+      "home": "Le Havre AC",
+      "away": "Paris Saint-Germain",
+      "league": "Ligue 1",
+      "date": "2026-10-30",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 70,
+      "time": "18:00",
+      "matchSemantic": "lehavrea-vs-parissai-2026-10-30",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3236.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
+      "tier": "GOLD",
+      "reliabilityScore": 75.38,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 7,
+      "h2hAvailable": false,
+      "xgHome": 0.5,
+      "xgAway": 2,
+      "xgTotal": 2.5,
+      "formBTTS": 70,
+      "analysis": "Le Havre AC : forme D-D-D-D-N (0V 1N 4D, 6 buts marqués / 11 encaissés sur 5) · Paris Saint-Germain : forme V-V-V-V-D (4V 0N 1D, 10 buts marqués / 5 encaissés sur 5). Classement : Le Havre AC 18e (2 pts), Paris Saint-Germain 5e (14 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 9.5 / N: 7 / 2: 1.24. Fiabilité 75.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 0.5,
+        "awayLambda": 2,
+        "xgTotal": 2.5
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 9.5,
+        "draw": 7,
+        "away": 1.24,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "D-D-D-D-N",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 6,
+        "goalsAgainst": 11,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-D",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 10,
+        "goalsAgainst": 5,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Marseille",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "AJ Auxerre",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Lille",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Toulouse",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Angers",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-26",
+          "opponent": "Lyon",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Strasbourg",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Le Mans",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Marseille",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-13",
+          "opponent": "Brest",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 2,
+        "played": 8,
+        "gf": 8,
+        "ga": 15
+      },
+      "standingsAway": {
+        "rank": 5,
+        "points": 14,
+        "played": 7,
+        "gf": 14,
+        "ga": 9
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 0.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 70,
+          "over25Prob": 0.7,
+          "homeLambda": 0.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.7
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.7,
+      "homeLambda": 0.5,
+      "awayLambda": 2,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Form signals BTTS 70% / Over 70%",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Décision : OVER_25.",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Déc",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
+      "ai_reasons": [
+        "Empirical BTTS rate ~70%",
+        "Empirical Over 2.5 rate ~70%"
+      ],
+      "ai_risks": [
+        "Sample limited to recent matches; form can shift quickly."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "local-empirical-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.24",
       "status": "PENDING"
     }
   ],

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-10-27T17:13:02.899Z",
+  "generatedAt": "2026-10-27T21:43:19.860Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,47 +15,40 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 325,
-    "won": 269,
-    "lost": 56,
-    "pending": 67,
+    "total": 328,
+    "won": 271,
+    "lost": 57,
+    "pending": 64,
     "unverifiable": 153,
     "archivedTotal": 545,
-    "rate": 82.8,
+    "rate": 82.6,
     "gold": {
-      "total": 232,
+      "total": 233,
       "won": 198,
-      "lost": 34,
-      "rate": 85.3
+      "lost": 35,
+      "rate": 85
     },
     "standard": {
-      "total": 93,
-      "won": 71,
+      "total": 95,
+      "won": 73,
       "lost": 22,
-      "rate": 76.3
+      "rate": 76.8
     },
     "byType": {
       "btts": {
-        "total": 321,
-        "won": 267,
+        "total": 323,
+        "won": 269,
         "lost": 54,
-        "rate": 83.2
+        "rate": 83.3
       },
       "over25": {
-        "total": 4,
+        "total": 5,
         "won": 2,
-        "lost": 2,
-        "rate": 50
+        "lost": 3,
+        "rate": 40
       }
     },
     "trend14": [
-      {
-        "date": "2026-10-11",
-        "total": 11,
-        "won": 11,
-        "lost": 0,
-        "rate": 100
-      },
       {
         "date": "2026-10-12",
         "total": 2,
@@ -146,6 +139,13 @@
         "won": 3,
         "lost": 2,
         "rate": 60
+      },
+      {
+        "date": "2026-10-27",
+        "total": 3,
+        "won": 2,
+        "lost": 1,
+        "rate": 66.7
       }
     ],
     "period": {
@@ -155,6 +155,45 @@
     }
   },
   "history": [
+    {
+      "date": "2026-10-27",
+      "match": "AS Roma vs Cagliari",
+      "league": "Serie A",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "LOST",
+      "finalScore": "4-2",
+      "verifiedAt": "2026-10-27T21:42:33.919Z",
+      "source": "ESPN public",
+      "prediction": "Non"
+    },
+    {
+      "date": "2026-10-27",
+      "match": "AS Roma vs Cagliari",
+      "league": "Serie A",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.5062,
+      "status": "WON",
+      "finalScore": "4-2",
+      "verifiedAt": "2026-10-27T21:42:10.009Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-27",
+      "match": "Sassuolo vs Lazio",
+      "league": "Serie A",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.5845,
+      "status": "WON",
+      "finalScore": "2-6",
+      "verifiedAt": "2026-10-27T21:42:05.437Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-10-26",
       "match": "Santa Clara vs Benfica",

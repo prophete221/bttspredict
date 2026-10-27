@@ -1,420 +1,8 @@
 {
   "date": "2026-10-27",
-  "lastUpdated": "2026-10-27T17:07:09.554Z",
+  "lastUpdated": "2026-10-27T21:39:54.463Z",
   "source": "ESPN + TheSportsDB",
   "free": [
-    {
-      "id": "torino-vs-como-2026-10-27",
-      "match": "Torino vs Como",
-      "home": "Torino",
-      "away": "Como",
-      "league": "Serie A",
-      "date": "2026-10-27",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "proba": 0.58,
-      "bttsProbDisplay": "50.00%",
-      "over25ProbDisplay": "50.00%",
-      "confidence": 58,
-      "time": "19:45",
-      "matchSemantic": "torino-vs-como-2026-10-27",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/239.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png",
-      "tier": "GOLD",
-      "reliabilityScore": 80.63,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1.5,
-      "xgAway": 2,
-      "xgTotal": 3.5,
-      "formBTTS": 50,
-      "analysis": "Torino : forme V-V-V-N-D (3V 1N 1D, 9 buts marqués / 6 encaissés sur 5) · Como : forme V-V-N-D-V (3V 1N 1D, 7 buts marqués / 4 encaissés sur 5). Classement : Torino 8e (13 pts), Como 5e (17 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 50.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 4.4 / N: 3.7 / 2: 1.71 · Over 2.5: 1.65. Fiabilité 80.63%.",
-      "analysisData": {
-        "bttsProb": 0.5,
-        "over25Prob": 0.5,
-        "homeLambda": 1.5,
-        "awayLambda": 2,
-        "xgTotal": 3.5
-      },
-      "estimatedCote": 2,
-      "estimatedCoteOver": 2,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 4.4,
-        "draw": 3.7,
-        "away": 1.71,
-        "over25": 1.65,
-        "under25": 2.25
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 2,
-      "formHome": {
-        "last5String": "V-V-V-N-D",
-        "wins": 3,
-        "draws": 1,
-        "losses": 1,
-        "goalsFor": 9,
-        "goalsAgainst": 6,
-        "bttsRate": 0.6,
-        "over25Rate": 0.6,
-        "cleanSheets": 1,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "V-V-N-D-V",
-        "wins": 3,
-        "draws": 1,
-        "losses": 1,
-        "goalsFor": 7,
-        "goalsAgainst": 4,
-        "bttsRate": 0.4,
-        "over25Rate": 0.4,
-        "cleanSheets": 2,
-        "failedToScore": 2,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-23",
-          "opponent": "Monza",
-          "venue": "H",
-          "score": "3-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-19",
-          "opponent": "Parma",
-          "venue": "A",
-          "score": "3-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-12",
-          "opponent": "Udinese",
-          "venue": "H",
-          "score": "2-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-19",
-          "opponent": "Bologna",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-09-14",
-          "opponent": "AS Roma",
-          "venue": "H",
-          "score": "0-2",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-24",
-          "opponent": "Sassuolo",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "Fiorentina",
-          "venue": "A",
-          "score": "3-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-11",
-          "opponent": "AS Roma",
-          "venue": "H",
-          "score": "0-0",
-          "result": "D"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Frosinone",
-          "venue": "A",
-          "score": "0-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-14",
-          "opponent": "Parma",
-          "venue": "H",
-          "score": "2-1",
-          "result": "W"
-        }
-      ],
-      "standingsHome": {
-        "rank": 8,
-        "points": 13,
-        "played": 8,
-        "gf": 13,
-        "ga": 11
-      },
-      "standingsAway": {
-        "rank": 5,
-        "points": 17,
-        "played": 8,
-        "gf": 14,
-        "ga": 7
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 50,
-          "bttsProb": 0.5,
-          "homeLambda": 1.5,
-          "awayLambda": 2,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 58,
-          "over25Prob": 0.58,
-          "homeLambda": 1.5,
-          "awayLambda": 2,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.58
-        }
-      ],
-      "bttsProb": 0.5,
-      "over25Prob": 0.58,
-      "homeLambda": 1.5,
-      "awayLambda": 2,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "Como affiche une moyenne de 2 buts marqués par match à l'extérieur.",
-      "ai_analysis": "L'analyse des statistiques montre que Torino et Como possèdent des dynamiques offensives intéressantes. Avec une moyenne de 2 buts par match pour Como et un taux d'Over 2.5 de 60% pour Torino sur ses 5 derniers matchs, la rencontre penche vers un scénario ouvert. Malgré une défense correcte de Como, la tendance statistique justifie un pari modéré sur l'Over 2.5.",
-      "ai_analysis_en": "Statistical analysis shows that Torino and Como have interesting offensive dynamics. With an average of 2 goals per match for Como and a 60% Over 2.5 rate for Torino over their last 5 games, the match leans towards an open scenario. Despite Como's decent defense, the statistical trend justifies a moderate bet on Over 2.5.",
-      "ai_form_summary": "Torino (3W-1D-1L) et Como (3W-1D-1L) affirment une forme similaire sur leurs 5 derniers matchs.",
-      "ai_form_summary_en": "Torino (3W-1D-1L) and Como (3W-1D-1L) show similar form over their last 5 matches.",
-      "ai_reasons": [
-        "Como affiche une moyenne offensive importante à l'extérieur avec 2 buts par match.",
-        "Torino présente un taux de 60% de matchs avec plus de 2.5 buts sur ses 5 dernières rencontres.",
-        "La cote de 1.65 pour l'Over 2.5 reflète une tendance favorable observée dans les données récentes."
-      ],
-      "ai_risks": [
-        "Le taux BTTS empirique global est modéré à 50%.",
-        "Como possède une défense assez solide avec seulement 4 buts encaissés sur ses 5 derniers matchs."
-      ],
-      "ai_confidence": "medium",
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.4 · N 3.7 · 2 1.71 · O2.5 1.65"
-    },
-    {
-      "id": "asroma-vs-cagliari-2026-10-27",
-      "match": "AS Roma vs Cagliari",
-      "home": "AS Roma",
-      "away": "Cagliari",
-      "league": "Serie A",
-      "date": "2026-10-27",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5062,
-      "bttsProbDisplay": "50.62%",
-      "over25ProbDisplay": "55.40%",
-      "confidence": 51,
-      "time": "19:45",
-      "matchSemantic": "asroma-vs-cagliari-2026-10-27",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/104.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2925.png",
-      "tier": "SILVER",
-      "reliabilityScore": 69.39,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 7,
-      "matchCountAway": 7,
-      "h2hAvailable": false,
-      "xgHome": 2.02,
-      "xgAway": 0.88,
-      "xgTotal": 2.9,
-      "formBTTS": 40,
-      "analysis": "AS Roma : forme V-N-N-V-V (3V 2N 0D, 8 buts marqués / 3 encaissés sur 5) · Cagliari : forme D-N-V-V-V (3V 1N 1D, 5 buts marqués / 6 encaissés sur 5). Classement : AS Roma 3e (17 pts), Cagliari 7e (13 pts). Modèle Poisson : xG cumulé 2.9, BTTS 50.6%, Over 2.5 55.4%. Cotes DraftKings — 1: 1.32 / N: 4.6 / 2: 8.5 · Over 2.5: 1.69. Fiabilité 69.39%.",
-      "analysisData": {
-        "bttsProb": 0.5062,
-        "over25Prob": 0.554,
-        "homeLambda": 2.02,
-        "awayLambda": 0.88,
-        "xgTotal": 2.9
-      },
-      "estimatedCote": 1.98,
-      "estimatedCoteOver": 1.8,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 1.32,
-        "draw": 4.6,
-        "away": 8.5,
-        "over25": 1.69,
-        "under25": 2.1
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.98,
-      "formHome": {
-        "last5String": "V-N-N-V-V",
-        "wins": 3,
-        "draws": 2,
-        "losses": 0,
-        "goalsFor": 8,
-        "goalsAgainst": 3,
-        "bttsRate": 0.4,
-        "over25Rate": 0.4,
-        "cleanSheets": 3,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "D-N-V-V-V",
-        "wins": 3,
-        "draws": 1,
-        "losses": 1,
-        "goalsFor": 5,
-        "goalsAgainst": 6,
-        "bttsRate": 0.4,
-        "over25Rate": 0.4,
-        "cleanSheets": 2,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "standingsHome": {
-        "rank": 3,
-        "points": 17,
-        "played": 7,
-        "gf": 16,
-        "ga": 3
-      },
-      "standingsAway": {
-        "rank": 7,
-        "points": 13,
-        "played": 7,
-        "gf": 6,
-        "ga": 7
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 51,
-          "bttsProb": 0.5062,
-          "homeLambda": 2.02,
-          "awayLambda": 0.88
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 55,
-          "over25Prob": 0.554,
-          "homeLambda": 2.02,
-          "awayLambda": 0.88
-        }
-      ],
-      "bttsProb": 0.5062,
-      "over25Prob": 0.554,
-      "homeLambda": 2.02,
-      "awayLambda": 0.88,
-      "ai_key_fact": "L'AS Roma possède la meilleure défense à domicile avec 3 buts encaissés.",
-      "ai_analysis": "Le modèle Poisson attribue un net avantage xG à l'AS Roma avec 2.02 contre 0.88 pour Cagliari, qui se positionne 7e en Serie A. Les probabilités du modèle affichent 50.6% pour le BTTS et 55.4% pour l'Over 2.5, avec une fiabilité de 69.39%. Les cotes du marché placent l'AS Roma nettement favorite à 1.32, soit une probabilité implicite de 75.8%. Aucune donnée d'effectif n'est mentionnée dans les sources. Les chiffres indiquent une assise défensive solide pour les locaux face à des visiteurs aux ambitions mesurées à l'extérieur.",
-      "ai_form_summary": "L'AS Roma à domicile présente un bilan de 3V-2N-0D sur ses 5 derniers matchs avec un taux BTTS de 0.4. Cagliari à l'extérieur affiche 3V-1N-1D et un taux BTTS de 0.4.",
-      "ai_key_fact_en": "AS Roma boasts the best home defense with only 3 goals conceded.",
-      "ai_analysis_en": "The Poisson model assigns a clear xG advantage to AS Roma with 2.02 against Cagliari's 0.88, with the visitors positioned 7th in Serie A. Model probabilities show 50.6% for BTTS and 55.4% for Over 2.5, with 69.39% reliability. Market odds price AS Roma as clear favorites at 1.32, reflecting a 75.8% implicit probability. No squad data is mentioned in the sources. The figures indicate a solid defensive foundation for the hosts against visitors with measured away ambitions.",
-      "ai_form_summary_en": "AS Roma at home presents a 3W-2D-0L record in their last 5 matches with a 0.4 BTTS rate. Cagliari away shows 3W-1D-1L and a 0.4 BTTS rate.",
-      "ai_source": "gemini-v2",
-      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
-      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
-      "ai_odds_insight": "Le marché (DraftKings) cote 1: 1.32, nul: 4.6, 2: 8.5, Over 2.5: 1.69.",
-      "ai_odds_insight_en": "The market (DraftKings) prices 1: 1.32, draw: 4.6, 2: 8.5, Over 2.5: 1.69.",
-      "last5Home": [
-        {
-          "date": "2026-10-24",
-          "opponent": "Napoli",
-          "venue": "A",
-          "score": "3-3",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "Genoa",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-11",
-          "opponent": "Como",
-          "venue": "A",
-          "score": "0-0",
-          "result": "D"
-        },
-        {
-          "date": "2026-09-19",
-          "opponent": "Internazionale",
-          "venue": "H",
-          "score": "2-2",
-          "result": "D"
-        },
-        {
-          "date": "2026-09-14",
-          "opponent": "Torino",
-          "venue": "A",
-          "score": "2-0",
-          "result": "W"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-24",
-          "opponent": "Bologna",
-          "venue": "H",
-          "score": "0-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-19",
-          "opponent": "Monza",
-          "venue": "A",
-          "score": "0-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-11",
-          "opponent": "Juventus",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-09-19",
-          "opponent": "Udinese",
-          "venue": "A",
-          "score": "1-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-12",
-          "opponent": "Atalanta",
-          "venue": "A",
-          "score": "2-1",
-          "result": "W"
-        }
-      ],
-      "status": "PENDING"
-    },
     {
       "id": "acmilan-vs-bologna-2026-10-28",
       "match": "AC Milan vs Bologna",
@@ -3470,71 +3058,64 @@
       "away": "Columbus Crew",
       "league": "MLS",
       "date": "2026-10-29",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.68,
-      "bttsProbDisplay": "60.00%",
-      "over25ProbDisplay": "70.00%",
-      "confidence": 68,
+      "proba": 0.5714,
+      "bttsProbDisplay": "57.14%",
+      "over25ProbDisplay": "54.24%",
+      "confidence": 57,
       "time": "00:30",
       "matchSemantic": "fcdallas-vs-columbus-2026-10-29",
       "source": "poisson-v92-real-data",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/185.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/183.png",
       "tier": "GOLD",
-      "reliabilityScore": 82.5,
+      "reliabilityScore": 81.25,
       "dataQuality": "HIGH",
       "dataSource": "ESPN_TEAM_SCHEDULE",
       "matchCountHome": 8,
       "matchCountAway": 8,
       "h2hAvailable": false,
-      "xgHome": 1.4,
-      "xgAway": 1.75,
-      "xgTotal": 3.15,
-      "formBTTS": 60,
-      "analysis": "FC Dallas : forme V-N-V-D-V (3V 1N 1D, 9 buts marqués / 5 encaissés sur 5) · Columbus Crew : forme V-V-V-D-V (4V 0N 1D, 13 buts marqués / 7 encaissés sur 5). Classement : FC Dallas 2e (54 pts), Columbus Crew 10e (38 pts). Stats empiriques (forme récente) : buts moy. 3.15, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.95 / N: 3.9 / 2: 3.25. Fiabilité 82.5%.",
+      "xgHome": 1.57,
+      "xgAway": 1.27,
+      "xgTotal": 2.85,
+      "formBTTS": 50,
+      "analysis": "FC Dallas : forme N-V-D-V-N (2V 2N 1D, 6 buts marqués / 5 encaissés sur 5) · Columbus Crew : forme V-V-D-V-V (4V 0N 1D, 11 buts marqués / 5 encaissés sur 5). Classement : FC Dallas 3e (51 pts), Columbus Crew 11e (35 pts). Modèle Poisson : xG cumulé 2.85, BTTS 57.1%, Over 2.5 54.2%. Fiabilité 81.25%.",
       "analysisData": {
-        "bttsProb": 0.6,
-        "over25Prob": 0.7,
-        "homeLambda": 1.4,
-        "awayLambda": 1.75,
-        "xgTotal": 3.15
+        "bttsProb": 0.5714,
+        "over25Prob": 0.5424,
+        "homeLambda": 1.57,
+        "awayLambda": 1.27,
+        "xgTotal": 2.85
       },
-      "estimatedCote": 1.67,
-      "estimatedCoteOver": 1.43,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 1.95,
-        "draw": 3.9,
-        "away": 3.25,
-        "over25": null,
-        "under25": null
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.67,
+      "estimatedCote": 1.75,
+      "estimatedCoteOver": 1.84,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.75,
       "formHome": {
-        "last5String": "V-N-V-D-V",
-        "wins": 3,
-        "draws": 1,
+        "last5String": "N-V-D-V-N",
+        "wins": 2,
+        "draws": 2,
         "losses": 1,
-        "goalsFor": 9,
+        "goalsFor": 6,
         "goalsAgainst": 5,
         "bttsRate": 0.4,
-        "over25Rate": 0.6,
+        "over25Rate": 0.4,
         "cleanSheets": 3,
-        "failedToScore": 0,
+        "failedToScore": 1,
         "count": 5
       },
       "formAway": {
-        "last5String": "V-V-V-D-V",
+        "last5String": "V-V-D-V-V",
         "wins": 4,
         "draws": 0,
         "losses": 1,
-        "goalsFor": 13,
-        "goalsAgainst": 7,
-        "bttsRate": 0.8,
-        "over25Rate": 0.8,
-        "cleanSheets": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
         "failedToScore": 0,
         "count": 5
       },
@@ -3613,69 +3194,52 @@
         }
       ],
       "standingsHome": {
-        "rank": 2,
-        "points": 54,
-        "played": 31,
-        "gf": 58,
+        "rank": 3,
+        "points": 51,
+        "played": 30,
+        "gf": 55,
         "ga": 47
       },
       "standingsAway": {
-        "rank": 10,
-        "points": 38,
-        "played": 31,
-        "gf": 50,
-        "ga": 49
+        "rank": 11,
+        "points": 35,
+        "played": 30,
+        "gf": 46,
+        "ga": 47
       },
       "predictions": [
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
-          "homeLambda": 1.4,
-          "awayLambda": 1.75,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "confidence": 57,
+          "bttsProb": 0.5714,
+          "homeLambda": 1.57,
+          "awayLambda": 1.27
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 68,
-          "over25Prob": 0.68,
-          "homeLambda": 1.4,
-          "awayLambda": 1.75,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.68
+          "confidence": 54,
+          "over25Prob": 0.5424,
+          "homeLambda": 1.57,
+          "awayLambda": 1.27
         }
       ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.68,
-      "homeLambda": 1.4,
-      "awayLambda": 1.75,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "Columbus Crew présente un taux d'Over 2,5 de 0.8 et une moyenne de 1.75 buts par match.",
-      "ai_analysis": "Les statistiques de Columbus Crew penchent nettement vers un match prolifique, avec un taux d'Over 2,5 de 0.8 et 1.75 buts par match. Bien que FC Dallas montre une rigueur défensive relative avec un taux BTTS de 0.4, le profil offensif des visiteurs et l'indicateur empirique global de 0.7 soutiennent une tendance favorable à plus de 2,5 buts.",
-      "ai_analysis_en": "Columbus Crew's statistics lean towards a high-scoring match, featuring an Over 2.5 rate of 0.8 and 1.75 goals per game. Although FC Dallas shows defensive stability with a 0.4 BTTS rate, the visitors' attacking profile and the overall empirical Over 2.5 rate of 0.7 support a trend toward more than 2.5 goals.",
-      "ai_form_summary": "FC Dallas : 3V-1D-1L, 9 buts pour, 5 contre. Columbus Crew : 4V-0D-1L, 13 buts pour, 7 contre.",
-      "ai_form_summary_en": "FC Dallas: 3W-1D-1L, 9 goals for, 5 against. Columbus Crew: 4W-0D-1L, 13 goals for, 7 against.",
-      "ai_reasons": [
-        "Columbus Crew affiche un taux d'Over 2,5 élevé de 0.8 sur ses 8 derniers matchs.",
-        "L'Over 2,5 empirique global du match atteint 0.7.",
-        "Columbus Crew marque en moyenne 1.75 buts par match."
-      ],
-      "ai_risks": [
-        "Le taux BTTS de FC Dallas est modéré à 0.4.",
-        "FC Dallas concède peu de buts récemment avec seulement 5 buts encaissés sur ses 5 derniers matchs."
-      ],
-      "ai_confidence": "medium",
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.95 · N 3.9 · 2 3.25",
+      "bttsProb": 0.5714,
+      "over25Prob": 0.5424,
+      "homeLambda": 1.57,
+      "awayLambda": 1.27,
+      "ai_key_fact": "Columbus Crew totalise 4 victoires sur ses 5 derniers matchs.",
+      "ai_analysis": "Le modèle évalue les xG à 1.57 pour le FC Dallas et 1.27 pour Columbus Crew, traduisant une production offensive intéressante pour les locaux. La probabilité BTTS est estimée à 57.1% et l'Over 2.5 à 54.2%, s'appuyant sur le classement des deux équipes où Dallas pointe à la 3e place et Columbus à la 11e. FC Dallas s'appuie sur une défense relativement hermétique avec trois clean sheets récents, tandis que Columbus Crew carbure à l'offensive avec 11 buts marqués sur ses cinq dernières sorties. La fiabilité globale du modèle s'élève à 81.25%.",
+      "ai_form_summary": "FC Dallas enregistre un bilan de deux victoires, deux nuls et une défaite avec un taux BTTS de 0.4. En face, Columbus Crew montre une dynamique solide avec quatre succès en cinq rencontres et un taux BTTS de 0.6.",
+      "ai_key_fact_en": "Columbus Crew totals 4 wins in their last 5 matches.",
+      "ai_analysis_en": "The model evaluates xG at 1.57 for FC Dallas and 1.27 for Columbus Crew, reflecting an interesting offensive output for the hosts. The BTTS probability is estimated at 57.1% and the Over 2.5 at 54.2%, based on the teams' standings where Dallas sits in 3rd place and Columbus in 11th. FC Dallas relies on a relatively watertight defense with three recent clean sheets, while Columbus Crew thrives offensively with 11 goals scored in their last five appearances. The overall reliability of the model stands at 81.25%.",
+      "ai_form_summary_en": "FC Dallas records a record of two wins, two draws, and one defeat with a 0.4 BTTS rate. Conversely, Columbus Crew displays a solid dynamic with four successes in five outings and a 0.6 BTTS rate.",
+      "ai_source": "gemini-v2",
+      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+      "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
+      "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
       "status": "PENDING"
     },
     {
@@ -4882,12 +4446,12 @@
       "away": "Paris Saint-Germain",
       "league": "Ligue 1",
       "date": "2026-10-30",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.62,
+      "proba": 0.7,
       "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 62,
+      "confidence": 70,
       "time": "18:00",
       "matchSemantic": "lehavrea-vs-parissai-2026-10-30",
       "source": "poisson-v92-real-data",
@@ -5042,13 +4606,12 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 62,
-          "bttsProb": 0.62,
+          "confidence": 70,
+          "bttsProb": 0.7,
           "homeLambda": 0.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.62
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
@@ -5058,33 +4621,32 @@
           "homeLambda": 0.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "statsOnly": true,
+          "proba": 0.7
         }
       ],
-      "bttsProb": 0.62,
+      "bttsProb": 0.7,
       "over25Prob": 0.7,
       "homeLambda": 0.5,
       "awayLambda": 2,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Le PSG affiche un taux récent de BTTS de 80% malgré la position difficile du Havre.",
-      "ai_analysis": "L'affrontement entre Le Havre et le Paris Saint-Germain présente un paradoxe statistique intéressant entre la difficulté offensive des locaux et le profil hautement offensif des visiteurs. Avec un taux empirique BTTS de 70% et un taux récent de 80% pour le PSG, les indicateurs suggèrent que les visiteurs peuvent contribuer grandement au tableau d'affichage, malgré les limites montrées par Le Havre à domicile.",
-      "ai_analysis_en": "The matchup between Le Havre and Paris Saint-Germain presents an interesting statistical paradox between the hosts' offensive struggles and the visitors' high-scoring profile. With an empirical BTTS rate of 70% and a recent 80% rate for PSG, the indicators suggest the visitors can heavily contribute to the scoreboard despite Le Havre's home scoring limits.",
-      "ai_form_summary": "Le Havre : D-D-D-D-N (0V-1N-4D, 6 buts pour, 11 contre). PSG : V-V-V-V-D (4V-0N-1D, 10 buts pour, 5 contre).",
-      "ai_form_summary_en": "Le Havre: L-L-L-L-D (0W-1D-4L, 6 GF, 11 GA). PSG: W-W-W-W-L (4W-0D-1L, 10 GF, 5 GA).",
+      "ai_key_fact": "Form signals BTTS 70% / Over 70%",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Décision : OVER_25.",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Déc",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
       "ai_reasons": [
-        "Taux empirique BTTS global de 70% pour Le Havre et le Paris Saint-Germain",
-        "Taux BTTS récent de 60% pour Le Havre et 80% pour le PSG",
-        "Indice formBTTS de 70 reflétant un historique partagé de buts"
+        "Empirical BTTS rate ~70%",
+        "Empirical Over 2.5 rate ~70%"
       ],
       "ai_risks": [
-        "Faible moyenne de buts à domicile pour Le Havre (0.5 par match)",
-        "Écart important au classement (Le Havre 18e vs PSG 5e) et dynamique de forme très contrastée"
+        "Sample limited to recent matches; form can shift quickly."
       ],
-      "ai_confidence": "low",
+      "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_source": "gemini-stats-v1",
+      "ai_market": "OVER_25",
+      "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.24",
@@ -6998,12 +6560,12 @@
       "away": "Sparta Rotterdam",
       "league": "Eredivisie",
       "date": "2026-11-01",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.75,
+      "proba": 0.8,
       "bttsProbDisplay": "80.00%",
       "over25ProbDisplay": "90.00%",
-      "confidence": 75,
+      "confidence": 80,
       "time": "15:45",
       "matchSemantic": "fcgronin-vs-spartaro-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -7158,48 +6720,49 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 80,
-          "bttsProb": 0.8,
-          "homeLambda": 2.25,
-          "awayLambda": 1.67,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
           "confidence": 75,
-          "over25Prob": 0.75,
+          "bttsProb": 0.75,
           "homeLambda": 2.25,
           "awayLambda": 1.67,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
           "proba": 0.75
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 75,
+          "over25Prob": 0.78,
+          "homeLambda": 2.25,
+          "awayLambda": 1.67,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.78
         }
       ],
-      "bttsProb": 0.8,
-      "over25Prob": 0.75,
+      "bttsProb": 0.75,
+      "over25Prob": 0.78,
       "homeLambda": 2.25,
       "awayLambda": 1.67,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Sparta Rotterdam totalise un taux Over 2.5 de 100% sur son échantillon récent.",
-      "ai_analysis": "Cette rencontre d'Eredivisie présente des indicateurs parfaits pour le marché des buts, avec un taux Over 2.5 empirique culminant à 90%. FC Groningen et Sparta Rotterdam s'illustrent par des rencontres très animées, soutenues par des moyennes de buts respectives de 2.25 et 1.67. Les statistiques défensives des deux clubs confirment la forte probabilité d'une partie prolifique en tableau d'affichage.",
-      "ai_analysis_en": "This Eredivisie fixture presents perfect indicators for the goals market, with an empirical Over 2.5 rate reaching 90%. FC Groningen and Sparta Rotterdam consistently feature high-scoring matches, supported by respective goal averages of 2.25 and 1.67. Both clubs' defensive statistics strongly confirm the high probability of a high-scoring affair.",
-      "ai_form_summary": "FC Groningen : N-D-V-V-N (2V-2N-1D), 13 buts pour, 9 buts contre. Sparta Rotterdam : D-V-N-D-D (1V-1N-3D), 8 buts pour, 15 buts contre.",
-      "ai_form_summary_en": "FC Groningen: D-L-W-W-D (2W-2D-1L), 13 goals for, 9 goals against. Sparta Rotterdam: L-W-D-L-L (1W-1D-3L), 8 goals for, 15 goals against.",
+      "ai_key_fact": "Sparta Rotterdam présente un taux Over 2.5 de 100% et un BTTS à 80%.",
+      "ai_analysis": "Cette confrontation entre le FC Groningen et le Sparta Rotterdam présente des indicateurs offensifs très élevés. Le taux Over 2.5 atteint 90% empiriquement, porté par une performance de 100% pour le Sparta sur son échantillon. Associé à un BTTS de 80% des deux côtés et des défenses fragiles, les conditions sont réunies pour un match très prolifique en buts.",
+      "ai_analysis_en": "This clash between FC Groningen and Sparta Rotterdam presents very high offensive indicators. The empirical Over 2.5 rate reaches 90%, driven by Sparta's 100% rate in their sample. Combined with an 80% BTTS rate for both sides and fragile defenses, conditions are set for a high-scoring match.",
+      "ai_form_summary": "Groningen (2V-2N-1D) et Sparta (1V-1N-3D) s'illustrent par des matchs très ouverts et riches en buts.",
+      "ai_form_summary_en": "Groningen (2W-2D-1L) and Sparta (1W-1D-3L) are characterized by very open, high-scoring matches.",
       "ai_reasons": [
-        "Taux Over 2.5 empirique exceptionnel de 90% pour cette affiche d'Eredivisie.",
+        "Taux Over 2.5 empirique exceptionnel de 90% pour cette affiche.",
         "Sparta Rotterdam affiche un taux Over 2.5 de 100% sur ses derniers matchs.",
-        "Moyennes de buts élevées pour les deux équipes (2.25 pour FC Groningen et 1.67 pour Sparta Rotterdam)."
+        "Taux BTTS empirique de 80% pour les deux formations."
       ],
       "ai_risks": [
-        "Les deux équipes affichent des fragilités défensives importantes avec respectivement 21 et 24 buts encaissés.",
-        "La forme récente du FC Groningen montre une alternance de résultats nuls et de défaites."
+        "Les défenses sont perméables (21 buts encaissés par Groningen, 24 par Sparta), augmentant la variance.",
+        "La cote de Groningen à domicile est fixée à 1.74."
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -7634,7 +7197,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.22"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.22",
+      "status": "PENDING"
     },
     {
       "id": "parisfc-vs-asmonaco-2026-11-01",
@@ -8073,12 +7637,12 @@
       "away": "Real Sociedad",
       "league": "LaLiga",
       "date": "2026-11-01",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.6,
+      "proba": 0.65,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 60,
+      "confidence": 65,
       "time": "20:00",
       "matchSemantic": "athletic-vs-realsoci-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -8111,7 +7675,7 @@
         "draw": 3.65,
         "away": 3.3,
         "over25": 1.71,
-        "under25": 2.05
+        "under25": 2.1
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.67,
@@ -8233,49 +7797,48 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 65,
-          "bttsProb": 0.65,
+          "confidence": 60,
+          "bttsProb": 0.6,
           "homeLambda": 2,
           "awayLambda": 3.67,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.65
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 65,
-          "over25Prob": 0.675,
+          "over25Prob": 0.65,
           "homeLambda": 2,
           "awayLambda": 3.67,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.675
+          "proba": 0.65
         }
       ],
-      "bttsProb": 0.65,
-      "over25Prob": 0.675,
+      "bttsProb": 0.6,
+      "over25Prob": 0.65,
       "homeLambda": 2,
       "awayLambda": 3.67,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Real Sociedad présente un taux de 100% d'Over 2.5 sur ses 5 derniers matchs et une moyenne de 3.67 buts.",
-      "ai_analysis": "L'analyse met en avant un contraste entre l'Athletic Club, plutôt prudent (40% de BTTS), et Real Sociedad, très offensif (100% d'Over 2.5 et 3.67 buts de moyenne). Les statistiques globales soutiennent le marché combiné avec un taux empirique de 70% sur l'Over 2.5, porté par la dynamique de l'équipe visiteuse.",
-      "ai_analysis_en": "The analysis highlights a contrast between Athletic Club, which plays lower-scoring games (40% BTTS), and Real Sociedad, which is very offensive (100% Over 2.5 and 3.67 average goals). Overall stats support the combined market with an empirical Over 2.5 rate of 70%, driven by the visiting team's momentum.",
-      "ai_form_summary": "Athletic Club (1W-3D-1L, taux BTTS 40%) contre Real Sociedad (4W-0D-1L, taux Over 2.5 de 100%).",
-      "ai_form_summary_en": "Athletic Club (1W-3D-1L, 40% BTTS rate) against Real Sociedad (4W-0D-1L, 100% Over 2.5 rate).",
+      "ai_key_fact": "Real Sociedad tourne à 3.67 buts de moyenne par match avec un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
+      "ai_analysis": "Ce derby de LaLiga oppose l'Athletic Club, plutôt prudent (40% d'Over 2.5), à une équipe de Real Sociedad très offensive et spectaculaire. Les visiteurs affichent une moyenne impressionnante de 3.67 buts par match et un taux Over 2.5 de 100% sur leurs 5 dernières sorties. Bien que Bilbao puisse opposer un bloc plus strict, le profil de Sociedad incline logiquement vers un match prolifique.",
+      "ai_analysis_en": "This LaLiga derby pits a cautious Athletic Club (40% Over 2.5) against a highly offensive and entertaining Real Sociedad side. The visitors boast an impressive average of 3.67 goals per match and a 100% Over 2.5 rate in their last 5 outings. Although Bilbao can deploy a stricter defensive block, Sociedad's profile naturally tilts this toward a high-scoring affair.",
+      "ai_form_summary": "Athletic Club est en dedans (1W-3D-1L) tandis que Real Sociedad enchaîne les succès (4W-0D-1L) avec une attaque prolifique.",
+      "ai_form_summary_en": "Athletic Club struggles for wins (1W-3D-1L) while Real Sociedad strings successes together (4W-0D-1L) with a prolific attack.",
       "ai_reasons": [
-        "Taux Over 2.5 empirique de 70% et taux BTTS à 60% pour ce match.",
-        "Real Sociedad affiche un taux de 100% sur l'Over 2.5 et 80% sur le BTTS lors de ses 5 derniers matchs.",
-        "Moyennes de buts par match élevées pour l'équipe extérieure (3.67)."
+        "Taux Over 2.5 empirique à 70% et 100% de taux Over sur les 5 derniers matchs de Real Sociedad.",
+        "Moyenne de buts de Real Sociedad à l'extérieur particulièrement haute (3.67 buts par match).",
+        "Real Sociedad affiche 19 buts marqués et 18 encaissés en 10 matchs joués."
       ],
       "ai_risks": [
-        "Athletic Club propose des matchs plus fermés avec un taux de 40% sur le BTTS et l'Over 2.5.",
-        "L'historique récent de l'Athletic Club montre une attaque plus timide (6 buts marqués lors des 5 derniers matchs)."
+        "Athletic Club propose des matchs plus fermés avec un taux Over 2.5 à 40% sur ses 5 derniers matchs.",
+        "Le taux BTTS empirique de Bilbao est plus modeste à 40%."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -8789,426 +8352,14 @@
     }
   ],
   "stats": {
-    "avgReliability": 79.5,
-    "totalAnalyzed": 149,
+    "avgReliability": 79.52,
+    "totalAnalyzed": 147,
     "totalRejected": 0,
-    "totalAccepted": 149,
-    "freeCount": 42,
+    "totalAccepted": 147,
+    "freeCount": 40,
     "vipCount": 8
   },
   "predictions": [
-    {
-      "id": "torino-vs-como-2026-10-27",
-      "match": "Torino vs Como",
-      "home": "Torino",
-      "away": "Como",
-      "league": "Serie A",
-      "date": "2026-10-27",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "proba": 0.58,
-      "bttsProbDisplay": "50.00%",
-      "over25ProbDisplay": "50.00%",
-      "confidence": 58,
-      "time": "19:45",
-      "matchSemantic": "torino-vs-como-2026-10-27",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/239.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png",
-      "tier": "GOLD",
-      "reliabilityScore": 80.63,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 1.5,
-      "xgAway": 2,
-      "xgTotal": 3.5,
-      "formBTTS": 50,
-      "analysis": "Torino : forme V-V-V-N-D (3V 1N 1D, 9 buts marqués / 6 encaissés sur 5) · Como : forme V-V-N-D-V (3V 1N 1D, 7 buts marqués / 4 encaissés sur 5). Classement : Torino 8e (13 pts), Como 5e (17 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 50.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 4.4 / N: 3.7 / 2: 1.71 · Over 2.5: 1.65. Fiabilité 80.63%.",
-      "analysisData": {
-        "bttsProb": 0.5,
-        "over25Prob": 0.5,
-        "homeLambda": 1.5,
-        "awayLambda": 2,
-        "xgTotal": 3.5
-      },
-      "estimatedCote": 2,
-      "estimatedCoteOver": 2,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 4.4,
-        "draw": 3.7,
-        "away": 1.71,
-        "over25": 1.65,
-        "under25": 2.25
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 2,
-      "formHome": {
-        "last5String": "V-V-V-N-D",
-        "wins": 3,
-        "draws": 1,
-        "losses": 1,
-        "goalsFor": 9,
-        "goalsAgainst": 6,
-        "bttsRate": 0.6,
-        "over25Rate": 0.6,
-        "cleanSheets": 1,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "V-V-N-D-V",
-        "wins": 3,
-        "draws": 1,
-        "losses": 1,
-        "goalsFor": 7,
-        "goalsAgainst": 4,
-        "bttsRate": 0.4,
-        "over25Rate": 0.4,
-        "cleanSheets": 2,
-        "failedToScore": 2,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-23",
-          "opponent": "Monza",
-          "venue": "H",
-          "score": "3-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-19",
-          "opponent": "Parma",
-          "venue": "A",
-          "score": "3-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-12",
-          "opponent": "Udinese",
-          "venue": "H",
-          "score": "2-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-19",
-          "opponent": "Bologna",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-09-14",
-          "opponent": "AS Roma",
-          "venue": "H",
-          "score": "0-2",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-24",
-          "opponent": "Sassuolo",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "Fiorentina",
-          "venue": "A",
-          "score": "3-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-11",
-          "opponent": "AS Roma",
-          "venue": "H",
-          "score": "0-0",
-          "result": "D"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Frosinone",
-          "venue": "A",
-          "score": "0-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-14",
-          "opponent": "Parma",
-          "venue": "H",
-          "score": "2-1",
-          "result": "W"
-        }
-      ],
-      "standingsHome": {
-        "rank": 8,
-        "points": 13,
-        "played": 8,
-        "gf": 13,
-        "ga": 11
-      },
-      "standingsAway": {
-        "rank": 5,
-        "points": 17,
-        "played": 8,
-        "gf": 14,
-        "ga": 7
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 50,
-          "bttsProb": 0.5,
-          "homeLambda": 1.5,
-          "awayLambda": 2,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 58,
-          "over25Prob": 0.58,
-          "homeLambda": 1.5,
-          "awayLambda": 2,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.58
-        }
-      ],
-      "bttsProb": 0.5,
-      "over25Prob": 0.58,
-      "homeLambda": 1.5,
-      "awayLambda": 2,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "Como affiche une moyenne de 2 buts marqués par match à l'extérieur.",
-      "ai_analysis": "L'analyse des statistiques montre que Torino et Como possèdent des dynamiques offensives intéressantes. Avec une moyenne de 2 buts par match pour Como et un taux d'Over 2.5 de 60% pour Torino sur ses 5 derniers matchs, la rencontre penche vers un scénario ouvert. Malgré une défense correcte de Como, la tendance statistique justifie un pari modéré sur l'Over 2.5.",
-      "ai_analysis_en": "Statistical analysis shows that Torino and Como have interesting offensive dynamics. With an average of 2 goals per match for Como and a 60% Over 2.5 rate for Torino over their last 5 games, the match leans towards an open scenario. Despite Como's decent defense, the statistical trend justifies a moderate bet on Over 2.5.",
-      "ai_form_summary": "Torino (3W-1D-1L) et Como (3W-1D-1L) affirment une forme similaire sur leurs 5 derniers matchs.",
-      "ai_form_summary_en": "Torino (3W-1D-1L) and Como (3W-1D-1L) show similar form over their last 5 matches.",
-      "ai_reasons": [
-        "Como affiche une moyenne offensive importante à l'extérieur avec 2 buts par match.",
-        "Torino présente un taux de 60% de matchs avec plus de 2.5 buts sur ses 5 dernières rencontres.",
-        "La cote de 1.65 pour l'Over 2.5 reflète une tendance favorable observée dans les données récentes."
-      ],
-      "ai_risks": [
-        "Le taux BTTS empirique global est modéré à 50%.",
-        "Como possède une défense assez solide avec seulement 4 buts encaissés sur ses 5 derniers matchs."
-      ],
-      "ai_confidence": "medium",
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.4 · N 3.7 · 2 1.71 · O2.5 1.65"
-    },
-    {
-      "id": "asroma-vs-cagliari-2026-10-27",
-      "match": "AS Roma vs Cagliari",
-      "home": "AS Roma",
-      "away": "Cagliari",
-      "league": "Serie A",
-      "date": "2026-10-27",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.5062,
-      "bttsProbDisplay": "50.62%",
-      "over25ProbDisplay": "55.40%",
-      "confidence": 51,
-      "time": "19:45",
-      "matchSemantic": "asroma-vs-cagliari-2026-10-27",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/104.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2925.png",
-      "tier": "SILVER",
-      "reliabilityScore": 69.39,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 7,
-      "matchCountAway": 7,
-      "h2hAvailable": false,
-      "xgHome": 2.02,
-      "xgAway": 0.88,
-      "xgTotal": 2.9,
-      "formBTTS": 40,
-      "analysis": "AS Roma : forme V-N-N-V-V (3V 2N 0D, 8 buts marqués / 3 encaissés sur 5) · Cagliari : forme D-N-V-V-V (3V 1N 1D, 5 buts marqués / 6 encaissés sur 5). Classement : AS Roma 3e (17 pts), Cagliari 7e (13 pts). Modèle Poisson : xG cumulé 2.9, BTTS 50.6%, Over 2.5 55.4%. Cotes DraftKings — 1: 1.32 / N: 4.6 / 2: 8.5 · Over 2.5: 1.69. Fiabilité 69.39%.",
-      "analysisData": {
-        "bttsProb": 0.5062,
-        "over25Prob": 0.554,
-        "homeLambda": 2.02,
-        "awayLambda": 0.88,
-        "xgTotal": 2.9
-      },
-      "estimatedCote": 1.98,
-      "estimatedCoteOver": 1.8,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 1.32,
-        "draw": 4.6,
-        "away": 8.5,
-        "over25": 1.69,
-        "under25": 2.1
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.98,
-      "formHome": {
-        "last5String": "V-N-N-V-V",
-        "wins": 3,
-        "draws": 2,
-        "losses": 0,
-        "goalsFor": 8,
-        "goalsAgainst": 3,
-        "bttsRate": 0.4,
-        "over25Rate": 0.4,
-        "cleanSheets": 3,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "D-N-V-V-V",
-        "wins": 3,
-        "draws": 1,
-        "losses": 1,
-        "goalsFor": 5,
-        "goalsAgainst": 6,
-        "bttsRate": 0.4,
-        "over25Rate": 0.4,
-        "cleanSheets": 2,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "standingsHome": {
-        "rank": 3,
-        "points": 17,
-        "played": 7,
-        "gf": 16,
-        "ga": 3
-      },
-      "standingsAway": {
-        "rank": 7,
-        "points": 13,
-        "played": 7,
-        "gf": 6,
-        "ga": 7
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 51,
-          "bttsProb": 0.5062,
-          "homeLambda": 2.02,
-          "awayLambda": 0.88
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 55,
-          "over25Prob": 0.554,
-          "homeLambda": 2.02,
-          "awayLambda": 0.88
-        }
-      ],
-      "bttsProb": 0.5062,
-      "over25Prob": 0.554,
-      "homeLambda": 2.02,
-      "awayLambda": 0.88,
-      "ai_key_fact": "L'AS Roma possède la meilleure défense à domicile avec 3 buts encaissés.",
-      "ai_analysis": "Le modèle Poisson attribue un net avantage xG à l'AS Roma avec 2.02 contre 0.88 pour Cagliari, qui se positionne 7e en Serie A. Les probabilités du modèle affichent 50.6% pour le BTTS et 55.4% pour l'Over 2.5, avec une fiabilité de 69.39%. Les cotes du marché placent l'AS Roma nettement favorite à 1.32, soit une probabilité implicite de 75.8%. Aucune donnée d'effectif n'est mentionnée dans les sources. Les chiffres indiquent une assise défensive solide pour les locaux face à des visiteurs aux ambitions mesurées à l'extérieur.",
-      "ai_form_summary": "L'AS Roma à domicile présente un bilan de 3V-2N-0D sur ses 5 derniers matchs avec un taux BTTS de 0.4. Cagliari à l'extérieur affiche 3V-1N-1D et un taux BTTS de 0.4.",
-      "ai_key_fact_en": "AS Roma boasts the best home defense with only 3 goals conceded.",
-      "ai_analysis_en": "The Poisson model assigns a clear xG advantage to AS Roma with 2.02 against Cagliari's 0.88, with the visitors positioned 7th in Serie A. Model probabilities show 50.6% for BTTS and 55.4% for Over 2.5, with 69.39% reliability. Market odds price AS Roma as clear favorites at 1.32, reflecting a 75.8% implicit probability. No squad data is mentioned in the sources. The figures indicate a solid defensive foundation for the hosts against visitors with measured away ambitions.",
-      "ai_form_summary_en": "AS Roma at home presents a 3W-2D-0L record in their last 5 matches with a 0.4 BTTS rate. Cagliari away shows 3W-1D-1L and a 0.4 BTTS rate.",
-      "ai_source": "gemini-v2",
-      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
-      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
-      "ai_odds_insight": "Le marché (DraftKings) cote 1: 1.32, nul: 4.6, 2: 8.5, Over 2.5: 1.69.",
-      "ai_odds_insight_en": "The market (DraftKings) prices 1: 1.32, draw: 4.6, 2: 8.5, Over 2.5: 1.69.",
-      "last5Home": [
-        {
-          "date": "2026-10-24",
-          "opponent": "Napoli",
-          "venue": "A",
-          "score": "3-3",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "Genoa",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-11",
-          "opponent": "Como",
-          "venue": "A",
-          "score": "0-0",
-          "result": "D"
-        },
-        {
-          "date": "2026-09-19",
-          "opponent": "Internazionale",
-          "venue": "H",
-          "score": "2-2",
-          "result": "D"
-        },
-        {
-          "date": "2026-09-14",
-          "opponent": "Torino",
-          "venue": "A",
-          "score": "2-0",
-          "result": "W"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-24",
-          "opponent": "Bologna",
-          "venue": "H",
-          "score": "0-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-19",
-          "opponent": "Monza",
-          "venue": "A",
-          "score": "0-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-11",
-          "opponent": "Juventus",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-09-19",
-          "opponent": "Udinese",
-          "venue": "A",
-          "score": "1-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-12",
-          "opponent": "Atalanta",
-          "venue": "A",
-          "score": "2-1",
-          "result": "W"
-        }
-      ],
-      "status": "PENDING"
-    },
     {
       "id": "acmilan-vs-bologna-2026-10-28",
       "match": "AC Milan vs Bologna",
@@ -12264,71 +11415,64 @@
       "away": "Columbus Crew",
       "league": "MLS",
       "date": "2026-10-29",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.68,
-      "bttsProbDisplay": "60.00%",
-      "over25ProbDisplay": "70.00%",
-      "confidence": 68,
+      "proba": 0.5714,
+      "bttsProbDisplay": "57.14%",
+      "over25ProbDisplay": "54.24%",
+      "confidence": 57,
       "time": "00:30",
       "matchSemantic": "fcdallas-vs-columbus-2026-10-29",
       "source": "poisson-v92-real-data",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/185.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/183.png",
       "tier": "GOLD",
-      "reliabilityScore": 82.5,
+      "reliabilityScore": 81.25,
       "dataQuality": "HIGH",
       "dataSource": "ESPN_TEAM_SCHEDULE",
       "matchCountHome": 8,
       "matchCountAway": 8,
       "h2hAvailable": false,
-      "xgHome": 1.4,
-      "xgAway": 1.75,
-      "xgTotal": 3.15,
-      "formBTTS": 60,
-      "analysis": "FC Dallas : forme V-N-V-D-V (3V 1N 1D, 9 buts marqués / 5 encaissés sur 5) · Columbus Crew : forme V-V-V-D-V (4V 0N 1D, 13 buts marqués / 7 encaissés sur 5). Classement : FC Dallas 2e (54 pts), Columbus Crew 10e (38 pts). Stats empiriques (forme récente) : buts moy. 3.15, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.95 / N: 3.9 / 2: 3.25. Fiabilité 82.5%.",
+      "xgHome": 1.57,
+      "xgAway": 1.27,
+      "xgTotal": 2.85,
+      "formBTTS": 50,
+      "analysis": "FC Dallas : forme N-V-D-V-N (2V 2N 1D, 6 buts marqués / 5 encaissés sur 5) · Columbus Crew : forme V-V-D-V-V (4V 0N 1D, 11 buts marqués / 5 encaissés sur 5). Classement : FC Dallas 3e (51 pts), Columbus Crew 11e (35 pts). Modèle Poisson : xG cumulé 2.85, BTTS 57.1%, Over 2.5 54.2%. Fiabilité 81.25%.",
       "analysisData": {
-        "bttsProb": 0.6,
-        "over25Prob": 0.7,
-        "homeLambda": 1.4,
-        "awayLambda": 1.75,
-        "xgTotal": 3.15
+        "bttsProb": 0.5714,
+        "over25Prob": 0.5424,
+        "homeLambda": 1.57,
+        "awayLambda": 1.27,
+        "xgTotal": 2.85
       },
-      "estimatedCote": 1.67,
-      "estimatedCoteOver": 1.43,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 1.95,
-        "draw": 3.9,
-        "away": 3.25,
-        "over25": null,
-        "under25": null
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.67,
+      "estimatedCote": 1.75,
+      "estimatedCoteOver": 1.84,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.75,
       "formHome": {
-        "last5String": "V-N-V-D-V",
-        "wins": 3,
-        "draws": 1,
+        "last5String": "N-V-D-V-N",
+        "wins": 2,
+        "draws": 2,
         "losses": 1,
-        "goalsFor": 9,
+        "goalsFor": 6,
         "goalsAgainst": 5,
         "bttsRate": 0.4,
-        "over25Rate": 0.6,
+        "over25Rate": 0.4,
         "cleanSheets": 3,
-        "failedToScore": 0,
+        "failedToScore": 1,
         "count": 5
       },
       "formAway": {
-        "last5String": "V-V-V-D-V",
+        "last5String": "V-V-D-V-V",
         "wins": 4,
         "draws": 0,
         "losses": 1,
-        "goalsFor": 13,
-        "goalsAgainst": 7,
-        "bttsRate": 0.8,
-        "over25Rate": 0.8,
-        "cleanSheets": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
         "failedToScore": 0,
         "count": 5
       },
@@ -12407,69 +11551,52 @@
         }
       ],
       "standingsHome": {
-        "rank": 2,
-        "points": 54,
-        "played": 31,
-        "gf": 58,
+        "rank": 3,
+        "points": 51,
+        "played": 30,
+        "gf": 55,
         "ga": 47
       },
       "standingsAway": {
-        "rank": 10,
-        "points": 38,
-        "played": 31,
-        "gf": 50,
-        "ga": 49
+        "rank": 11,
+        "points": 35,
+        "played": 30,
+        "gf": 46,
+        "ga": 47
       },
       "predictions": [
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
-          "homeLambda": 1.4,
-          "awayLambda": 1.75,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "confidence": 57,
+          "bttsProb": 0.5714,
+          "homeLambda": 1.57,
+          "awayLambda": 1.27
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 68,
-          "over25Prob": 0.68,
-          "homeLambda": 1.4,
-          "awayLambda": 1.75,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.68
+          "confidence": 54,
+          "over25Prob": 0.5424,
+          "homeLambda": 1.57,
+          "awayLambda": 1.27
         }
       ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.68,
-      "homeLambda": 1.4,
-      "awayLambda": 1.75,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "Columbus Crew présente un taux d'Over 2,5 de 0.8 et une moyenne de 1.75 buts par match.",
-      "ai_analysis": "Les statistiques de Columbus Crew penchent nettement vers un match prolifique, avec un taux d'Over 2,5 de 0.8 et 1.75 buts par match. Bien que FC Dallas montre une rigueur défensive relative avec un taux BTTS de 0.4, le profil offensif des visiteurs et l'indicateur empirique global de 0.7 soutiennent une tendance favorable à plus de 2,5 buts.",
-      "ai_analysis_en": "Columbus Crew's statistics lean towards a high-scoring match, featuring an Over 2.5 rate of 0.8 and 1.75 goals per game. Although FC Dallas shows defensive stability with a 0.4 BTTS rate, the visitors' attacking profile and the overall empirical Over 2.5 rate of 0.7 support a trend toward more than 2.5 goals.",
-      "ai_form_summary": "FC Dallas : 3V-1D-1L, 9 buts pour, 5 contre. Columbus Crew : 4V-0D-1L, 13 buts pour, 7 contre.",
-      "ai_form_summary_en": "FC Dallas: 3W-1D-1L, 9 goals for, 5 against. Columbus Crew: 4W-0D-1L, 13 goals for, 7 against.",
-      "ai_reasons": [
-        "Columbus Crew affiche un taux d'Over 2,5 élevé de 0.8 sur ses 8 derniers matchs.",
-        "L'Over 2,5 empirique global du match atteint 0.7.",
-        "Columbus Crew marque en moyenne 1.75 buts par match."
-      ],
-      "ai_risks": [
-        "Le taux BTTS de FC Dallas est modéré à 0.4.",
-        "FC Dallas concède peu de buts récemment avec seulement 5 buts encaissés sur ses 5 derniers matchs."
-      ],
-      "ai_confidence": "medium",
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.95 · N 3.9 · 2 3.25",
+      "bttsProb": 0.5714,
+      "over25Prob": 0.5424,
+      "homeLambda": 1.57,
+      "awayLambda": 1.27,
+      "ai_key_fact": "Columbus Crew totalise 4 victoires sur ses 5 derniers matchs.",
+      "ai_analysis": "Le modèle évalue les xG à 1.57 pour le FC Dallas et 1.27 pour Columbus Crew, traduisant une production offensive intéressante pour les locaux. La probabilité BTTS est estimée à 57.1% et l'Over 2.5 à 54.2%, s'appuyant sur le classement des deux équipes où Dallas pointe à la 3e place et Columbus à la 11e. FC Dallas s'appuie sur une défense relativement hermétique avec trois clean sheets récents, tandis que Columbus Crew carbure à l'offensive avec 11 buts marqués sur ses cinq dernières sorties. La fiabilité globale du modèle s'élève à 81.25%.",
+      "ai_form_summary": "FC Dallas enregistre un bilan de deux victoires, deux nuls et une défaite avec un taux BTTS de 0.4. En face, Columbus Crew montre une dynamique solide avec quatre succès en cinq rencontres et un taux BTTS de 0.6.",
+      "ai_key_fact_en": "Columbus Crew totals 4 wins in their last 5 matches.",
+      "ai_analysis_en": "The model evaluates xG at 1.57 for FC Dallas and 1.27 for Columbus Crew, reflecting an interesting offensive output for the hosts. The BTTS probability is estimated at 57.1% and the Over 2.5 at 54.2%, based on the teams' standings where Dallas sits in 3rd place and Columbus in 11th. FC Dallas relies on a relatively watertight defense with three recent clean sheets, while Columbus Crew thrives offensively with 11 goals scored in their last five appearances. The overall reliability of the model stands at 81.25%.",
+      "ai_form_summary_en": "FC Dallas records a record of two wins, two draws, and one defeat with a 0.4 BTTS rate. Conversely, Columbus Crew displays a solid dynamic with four successes in five outings and a 0.6 BTTS rate.",
+      "ai_source": "gemini-v2",
+      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+      "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
+      "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
       "status": "PENDING"
     },
     {
@@ -13676,12 +12803,12 @@
       "away": "Paris Saint-Germain",
       "league": "Ligue 1",
       "date": "2026-10-30",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.62,
+      "proba": 0.7,
       "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 62,
+      "confidence": 70,
       "time": "18:00",
       "matchSemantic": "lehavrea-vs-parissai-2026-10-30",
       "source": "poisson-v92-real-data",
@@ -13836,13 +12963,12 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 62,
-          "bttsProb": 0.62,
+          "confidence": 70,
+          "bttsProb": 0.7,
           "homeLambda": 0.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.62
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
@@ -13852,33 +12978,32 @@
           "homeLambda": 0.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "statsOnly": true,
+          "proba": 0.7
         }
       ],
-      "bttsProb": 0.62,
+      "bttsProb": 0.7,
       "over25Prob": 0.7,
       "homeLambda": 0.5,
       "awayLambda": 2,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Le PSG affiche un taux récent de BTTS de 80% malgré la position difficile du Havre.",
-      "ai_analysis": "L'affrontement entre Le Havre et le Paris Saint-Germain présente un paradoxe statistique intéressant entre la difficulté offensive des locaux et le profil hautement offensif des visiteurs. Avec un taux empirique BTTS de 70% et un taux récent de 80% pour le PSG, les indicateurs suggèrent que les visiteurs peuvent contribuer grandement au tableau d'affichage, malgré les limites montrées par Le Havre à domicile.",
-      "ai_analysis_en": "The matchup between Le Havre and Paris Saint-Germain presents an interesting statistical paradox between the hosts' offensive struggles and the visitors' high-scoring profile. With an empirical BTTS rate of 70% and a recent 80% rate for PSG, the indicators suggest the visitors can heavily contribute to the scoreboard despite Le Havre's home scoring limits.",
-      "ai_form_summary": "Le Havre : D-D-D-D-N (0V-1N-4D, 6 buts pour, 11 contre). PSG : V-V-V-V-D (4V-0N-1D, 10 buts pour, 5 contre).",
-      "ai_form_summary_en": "Le Havre: L-L-L-L-D (0W-1D-4L, 6 GF, 11 GA). PSG: W-W-W-W-L (4W-0D-1L, 10 GF, 5 GA).",
+      "ai_key_fact": "Form signals BTTS 70% / Over 70%",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Décision : OVER_25.",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Déc",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
       "ai_reasons": [
-        "Taux empirique BTTS global de 70% pour Le Havre et le Paris Saint-Germain",
-        "Taux BTTS récent de 60% pour Le Havre et 80% pour le PSG",
-        "Indice formBTTS de 70 reflétant un historique partagé de buts"
+        "Empirical BTTS rate ~70%",
+        "Empirical Over 2.5 rate ~70%"
       ],
       "ai_risks": [
-        "Faible moyenne de buts à domicile pour Le Havre (0.5 par match)",
-        "Écart important au classement (Le Havre 18e vs PSG 5e) et dynamique de forme très contrastée"
+        "Sample limited to recent matches; form can shift quickly."
       ],
-      "ai_confidence": "low",
+      "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "BTTS",
-      "ai_source": "gemini-stats-v1",
+      "ai_market": "OVER_25",
+      "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.24",
@@ -15792,12 +14917,12 @@
       "away": "Sparta Rotterdam",
       "league": "Eredivisie",
       "date": "2026-11-01",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.75,
+      "proba": 0.8,
       "bttsProbDisplay": "80.00%",
       "over25ProbDisplay": "90.00%",
-      "confidence": 75,
+      "confidence": 80,
       "time": "15:45",
       "matchSemantic": "fcgronin-vs-spartaro-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -15952,48 +15077,49 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 80,
-          "bttsProb": 0.8,
-          "homeLambda": 2.25,
-          "awayLambda": 1.67,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
           "confidence": 75,
-          "over25Prob": 0.75,
+          "bttsProb": 0.75,
           "homeLambda": 2.25,
           "awayLambda": 1.67,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
           "proba": 0.75
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 75,
+          "over25Prob": 0.78,
+          "homeLambda": 2.25,
+          "awayLambda": 1.67,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.78
         }
       ],
-      "bttsProb": 0.8,
-      "over25Prob": 0.75,
+      "bttsProb": 0.75,
+      "over25Prob": 0.78,
       "homeLambda": 2.25,
       "awayLambda": 1.67,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Sparta Rotterdam totalise un taux Over 2.5 de 100% sur son échantillon récent.",
-      "ai_analysis": "Cette rencontre d'Eredivisie présente des indicateurs parfaits pour le marché des buts, avec un taux Over 2.5 empirique culminant à 90%. FC Groningen et Sparta Rotterdam s'illustrent par des rencontres très animées, soutenues par des moyennes de buts respectives de 2.25 et 1.67. Les statistiques défensives des deux clubs confirment la forte probabilité d'une partie prolifique en tableau d'affichage.",
-      "ai_analysis_en": "This Eredivisie fixture presents perfect indicators for the goals market, with an empirical Over 2.5 rate reaching 90%. FC Groningen and Sparta Rotterdam consistently feature high-scoring matches, supported by respective goal averages of 2.25 and 1.67. Both clubs' defensive statistics strongly confirm the high probability of a high-scoring affair.",
-      "ai_form_summary": "FC Groningen : N-D-V-V-N (2V-2N-1D), 13 buts pour, 9 buts contre. Sparta Rotterdam : D-V-N-D-D (1V-1N-3D), 8 buts pour, 15 buts contre.",
-      "ai_form_summary_en": "FC Groningen: D-L-W-W-D (2W-2D-1L), 13 goals for, 9 goals against. Sparta Rotterdam: L-W-D-L-L (1W-1D-3L), 8 goals for, 15 goals against.",
+      "ai_key_fact": "Sparta Rotterdam présente un taux Over 2.5 de 100% et un BTTS à 80%.",
+      "ai_analysis": "Cette confrontation entre le FC Groningen et le Sparta Rotterdam présente des indicateurs offensifs très élevés. Le taux Over 2.5 atteint 90% empiriquement, porté par une performance de 100% pour le Sparta sur son échantillon. Associé à un BTTS de 80% des deux côtés et des défenses fragiles, les conditions sont réunies pour un match très prolifique en buts.",
+      "ai_analysis_en": "This clash between FC Groningen and Sparta Rotterdam presents very high offensive indicators. The empirical Over 2.5 rate reaches 90%, driven by Sparta's 100% rate in their sample. Combined with an 80% BTTS rate for both sides and fragile defenses, conditions are set for a high-scoring match.",
+      "ai_form_summary": "Groningen (2V-2N-1D) et Sparta (1V-1N-3D) s'illustrent par des matchs très ouverts et riches en buts.",
+      "ai_form_summary_en": "Groningen (2W-2D-1L) and Sparta (1W-1D-3L) are characterized by very open, high-scoring matches.",
       "ai_reasons": [
-        "Taux Over 2.5 empirique exceptionnel de 90% pour cette affiche d'Eredivisie.",
+        "Taux Over 2.5 empirique exceptionnel de 90% pour cette affiche.",
         "Sparta Rotterdam affiche un taux Over 2.5 de 100% sur ses derniers matchs.",
-        "Moyennes de buts élevées pour les deux équipes (2.25 pour FC Groningen et 1.67 pour Sparta Rotterdam)."
+        "Taux BTTS empirique de 80% pour les deux formations."
       ],
       "ai_risks": [
-        "Les deux équipes affichent des fragilités défensives importantes avec respectivement 21 et 24 buts encaissés.",
-        "La forme récente du FC Groningen montre une alternance de résultats nuls et de défaites."
+        "Les défenses sont perméables (21 buts encaissés par Groningen, 24 par Sparta), augmentant la variance.",
+        "La cote de Groningen à domicile est fixée à 1.74."
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -16428,7 +15554,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.22"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.22",
+      "status": "PENDING"
     },
     {
       "id": "parisfc-vs-asmonaco-2026-11-01",
@@ -16867,12 +15994,12 @@
       "away": "Real Sociedad",
       "league": "LaLiga",
       "date": "2026-11-01",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.6,
+      "proba": 0.65,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 60,
+      "confidence": 65,
       "time": "20:00",
       "matchSemantic": "athletic-vs-realsoci-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -16905,7 +16032,7 @@
         "draw": 3.65,
         "away": 3.3,
         "over25": 1.71,
-        "under25": 2.05
+        "under25": 2.1
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.67,
@@ -17027,49 +16154,48 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 65,
-          "bttsProb": 0.65,
+          "confidence": 60,
+          "bttsProb": 0.6,
           "homeLambda": 2,
           "awayLambda": 3.67,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.65
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 65,
-          "over25Prob": 0.675,
+          "over25Prob": 0.65,
           "homeLambda": 2,
           "awayLambda": 3.67,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.675
+          "proba": 0.65
         }
       ],
-      "bttsProb": 0.65,
-      "over25Prob": 0.675,
+      "bttsProb": 0.6,
+      "over25Prob": 0.65,
       "homeLambda": 2,
       "awayLambda": 3.67,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Real Sociedad présente un taux de 100% d'Over 2.5 sur ses 5 derniers matchs et une moyenne de 3.67 buts.",
-      "ai_analysis": "L'analyse met en avant un contraste entre l'Athletic Club, plutôt prudent (40% de BTTS), et Real Sociedad, très offensif (100% d'Over 2.5 et 3.67 buts de moyenne). Les statistiques globales soutiennent le marché combiné avec un taux empirique de 70% sur l'Over 2.5, porté par la dynamique de l'équipe visiteuse.",
-      "ai_analysis_en": "The analysis highlights a contrast between Athletic Club, which plays lower-scoring games (40% BTTS), and Real Sociedad, which is very offensive (100% Over 2.5 and 3.67 average goals). Overall stats support the combined market with an empirical Over 2.5 rate of 70%, driven by the visiting team's momentum.",
-      "ai_form_summary": "Athletic Club (1W-3D-1L, taux BTTS 40%) contre Real Sociedad (4W-0D-1L, taux Over 2.5 de 100%).",
-      "ai_form_summary_en": "Athletic Club (1W-3D-1L, 40% BTTS rate) against Real Sociedad (4W-0D-1L, 100% Over 2.5 rate).",
+      "ai_key_fact": "Real Sociedad tourne à 3.67 buts de moyenne par match avec un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
+      "ai_analysis": "Ce derby de LaLiga oppose l'Athletic Club, plutôt prudent (40% d'Over 2.5), à une équipe de Real Sociedad très offensive et spectaculaire. Les visiteurs affichent une moyenne impressionnante de 3.67 buts par match et un taux Over 2.5 de 100% sur leurs 5 dernières sorties. Bien que Bilbao puisse opposer un bloc plus strict, le profil de Sociedad incline logiquement vers un match prolifique.",
+      "ai_analysis_en": "This LaLiga derby pits a cautious Athletic Club (40% Over 2.5) against a highly offensive and entertaining Real Sociedad side. The visitors boast an impressive average of 3.67 goals per match and a 100% Over 2.5 rate in their last 5 outings. Although Bilbao can deploy a stricter defensive block, Sociedad's profile naturally tilts this toward a high-scoring affair.",
+      "ai_form_summary": "Athletic Club est en dedans (1W-3D-1L) tandis que Real Sociedad enchaîne les succès (4W-0D-1L) avec une attaque prolifique.",
+      "ai_form_summary_en": "Athletic Club struggles for wins (1W-3D-1L) while Real Sociedad strings successes together (4W-0D-1L) with a prolific attack.",
       "ai_reasons": [
-        "Taux Over 2.5 empirique de 70% et taux BTTS à 60% pour ce match.",
-        "Real Sociedad affiche un taux de 100% sur l'Over 2.5 et 80% sur le BTTS lors de ses 5 derniers matchs.",
-        "Moyennes de buts par match élevées pour l'équipe extérieure (3.67)."
+        "Taux Over 2.5 empirique à 70% et 100% de taux Over sur les 5 derniers matchs de Real Sociedad.",
+        "Moyenne de buts de Real Sociedad à l'extérieur particulièrement haute (3.67 buts par match).",
+        "Real Sociedad affiche 19 buts marqués et 18 encaissés en 10 matchs joués."
       ],
       "ai_risks": [
-        "Athletic Club propose des matchs plus fermés avec un taux de 40% sur le BTTS et l'Over 2.5.",
-        "L'historique récent de l'Athletic Club montre une attaque plus timide (6 buts marqués lors des 5 derniers matchs)."
+        "Athletic Club propose des matchs plus fermés avec un taux Over 2.5 à 40% sur ses 5 derniers matchs.",
+        "Le taux BTTS empirique de Bilbao est plus modeste à 40%."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
