@@ -9512,7 +9512,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.75 · N 3.7 · 2 2.35"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.75 · N 3.7 · 2 2.35",
+      "status": "PENDING"
     },
     {
       "id": "fcgronin-vs-spartaro-2026-11-01",
@@ -9727,7 +9728,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.74 · N 4 · 2 3.85"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.74 · N 4 · 2 3.85",
+      "status": "PENDING"
     },
     {
       "id": "athletic-vs-realsoci-2026-11-01",
@@ -9942,7 +9944,436 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 3.65 · 2 3.3 · O2.5 1.71"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 3.65 · 2 3.3 · O2.5 1.71",
+      "status": "PENDING"
+    },
+    {
+      "id": "torino-vs-como-2026-10-27",
+      "match": "Torino vs Como",
+      "home": "Torino",
+      "away": "Como",
+      "league": "Serie A",
+      "date": "2026-10-27",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.58,
+      "bttsProbDisplay": "50.00%",
+      "over25ProbDisplay": "50.00%",
+      "confidence": 58,
+      "time": "19:45",
+      "matchSemantic": "torino-vs-como-2026-10-27",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/239.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png",
+      "tier": "GOLD",
+      "reliabilityScore": 80.63,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.5,
+      "xgAway": 2,
+      "xgTotal": 3.5,
+      "formBTTS": 50,
+      "analysis": "Torino : forme V-V-V-N-D (3V 1N 1D, 9 buts marqués / 6 encaissés sur 5) · Como : forme V-V-N-D-V (3V 1N 1D, 7 buts marqués / 4 encaissés sur 5). Classement : Torino 8e (13 pts), Como 5e (17 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 50.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 4.4 / N: 3.7 / 2: 1.71 · Over 2.5: 1.65. Fiabilité 80.63%.",
+      "analysisData": {
+        "bttsProb": 0.5,
+        "over25Prob": 0.5,
+        "homeLambda": 1.5,
+        "awayLambda": 2,
+        "xgTotal": 3.5
+      },
+      "estimatedCote": 2,
+      "estimatedCoteOver": 2,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 4.4,
+        "draw": 3.7,
+        "away": 1.71,
+        "over25": 1.65,
+        "under25": 2.25
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 2,
+      "formHome": {
+        "last5String": "V-V-V-N-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 9,
+        "goalsAgainst": 6,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-N-D-V",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 7,
+        "goalsAgainst": 4,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Monza",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Parma",
+          "venue": "A",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-12",
+          "opponent": "Udinese",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Bologna",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-14",
+          "opponent": "AS Roma",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Sassuolo",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Fiorentina",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "AS Roma",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Frosinone",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-14",
+          "opponent": "Parma",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 8,
+        "points": 13,
+        "played": 8,
+        "gf": 13,
+        "ga": 11
+      },
+      "standingsAway": {
+        "rank": 5,
+        "points": 17,
+        "played": 8,
+        "gf": 14,
+        "ga": 7
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 50,
+          "bttsProb": 0.5,
+          "homeLambda": 1.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 58,
+          "over25Prob": 0.58,
+          "homeLambda": 1.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.58
+        }
+      ],
+      "bttsProb": 0.5,
+      "over25Prob": 0.58,
+      "homeLambda": 1.5,
+      "awayLambda": 2,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Como affiche une moyenne de 2 buts marqués par match à l'extérieur.",
+      "ai_analysis": "L'analyse des statistiques montre que Torino et Como possèdent des dynamiques offensives intéressantes. Avec une moyenne de 2 buts par match pour Como et un taux d'Over 2.5 de 60% pour Torino sur ses 5 derniers matchs, la rencontre penche vers un scénario ouvert. Malgré une défense correcte de Como, la tendance statistique justifie un pari modéré sur l'Over 2.5.",
+      "ai_analysis_en": "Statistical analysis shows that Torino and Como have interesting offensive dynamics. With an average of 2 goals per match for Como and a 60% Over 2.5 rate for Torino over their last 5 games, the match leans towards an open scenario. Despite Como's decent defense, the statistical trend justifies a moderate bet on Over 2.5.",
+      "ai_form_summary": "Torino (3W-1D-1L) et Como (3W-1D-1L) affirment une forme similaire sur leurs 5 derniers matchs.",
+      "ai_form_summary_en": "Torino (3W-1D-1L) and Como (3W-1D-1L) show similar form over their last 5 matches.",
+      "ai_reasons": [
+        "Como affiche une moyenne offensive importante à l'extérieur avec 2 buts par match.",
+        "Torino présente un taux de 60% de matchs avec plus de 2.5 buts sur ses 5 dernières rencontres.",
+        "La cote de 1.65 pour l'Over 2.5 reflète une tendance favorable observée dans les données récentes."
+      ],
+      "ai_risks": [
+        "Le taux BTTS empirique global est modéré à 50%.",
+        "Como possède une défense assez solide avec seulement 4 buts encaissés sur ses 5 derniers matchs."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.4 · N 3.7 · 2 1.71 · O2.5 1.65"
+    },
+    {
+      "id": "racingsa-vs-realmadr-2026-11-01",
+      "match": "Racing Santander vs Real Madrid",
+      "home": "Racing Santander",
+      "away": "Real Madrid",
+      "league": "LaLiga",
+      "date": "2026-11-01",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.68,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "80.00%",
+      "confidence": 68,
+      "time": "15:15",
+      "matchSemantic": "racingsa-vs-realmadr-2026-11-01",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/87.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.25,
+      "xgAway": 1.5,
+      "xgTotal": 3.75,
+      "formBTTS": 70,
+      "analysis": "Racing Santander : forme V-D-N-D-D (1V 1N 3D, 6 buts marqués / 17 encaissés sur 5) · Real Madrid : forme V-V-V-D-V (4V 0N 1D, 11 buts marqués / 6 encaissés sur 5). Classement : Racing Santander 13e (11 pts), Real Madrid 3e (24 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 9.5 / N: 7 / 2: 1.22. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.8,
+        "homeLambda": 2.25,
+        "awayLambda": 1.5,
+        "xgTotal": 3.75
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.25,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 9.5,
+        "draw": 7,
+        "away": 1.22,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "V-D-N-D-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 17,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-D-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 6,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Espanyol",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Osasuna",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Valencia",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Celta Vigo",
+          "venue": "A",
+          "score": "0-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-16",
+          "opponent": "Barcelona",
+          "venue": "A",
+          "score": "2-7",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Barcelona",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Sevilla",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Villarreal",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Atlético Madrid",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Elche",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 13,
+        "points": 11,
+        "played": 10,
+        "gf": 15,
+        "ga": 26
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 24,
+        "played": 10,
+        "gf": 25,
+        "ga": 10
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "bttsProb": 0.68,
+          "homeLambda": 2.25,
+          "awayLambda": 1.5,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.68
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 80,
+          "over25Prob": 0.8,
+          "homeLambda": 2.25,
+          "awayLambda": 1.5,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        }
+      ],
+      "bttsProb": 0.68,
+      "over25Prob": 0.8,
+      "homeLambda": 2.25,
+      "awayLambda": 1.5,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Racing Santander a encaissé 26 buts en 10 matchs de championnat.",
+      "ai_analysis": "Le Real Madrid se déplace avec un secteur offensif performant (25 buts marqués) et affronte une équipe de Racing Santander en grande difficulté défensive, qui a déjà concédé 26 buts. Bien que le Real soit ultra favori, les statistiques globales soutiennent un match ouvert avec des buts des deux côtés, appuyé par un taux BTTS empirique de 70%.",
+      "ai_analysis_en": "Real Madrid travels with a strong attacking record (25 goals scored) to face a struggling Racing Santander defense that has already conceded 26 goals. Although Real are heavy favorites, overall statistics support an open game with goals from both sides, backed by a 70% empirical BTTS rate.",
+      "ai_form_summary": "Racing Santander (1V-1D-3L) montre des difficultés défensives, tandis que Real Madrid (4W-0D-1L) est très performant.",
+      "ai_form_summary_en": "Racing Santander (1W-1D-3L) shows defensive struggles, while Real Madrid (4W-0D-1L) is in strong form.",
+      "ai_reasons": [
+        "Taux BTTS empirique élevé à 70% sur l'ensemble des données fournies.",
+        "Racing Santander encaisse beaucoup de buts avec 26 buts concédés en 10 matchs de championnat.",
+        "Real Madrid présente de solides taux offensifs avec une moyenne de 2,5 buts marqués par match (25 en 10 matchs)."
+      ],
+      "ai_risks": [
+        "Real Madrid possède une défense solide (seulement 10 buts encaissés), ce qui peut limiter les buts de Racing Santander.",
+        "La cote du Real Madrid à 1.22 indique un déséquilibre majeur dans la rencontre."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.22"
     }
   ],
   "vipPreview": [
@@ -19970,6 +20401,436 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 3.65 · 2 3.3 · O2.5 1.71",
+      "status": "PENDING"
+    },
+    {
+      "id": "torino-vs-como-2026-10-27",
+      "match": "Torino vs Como",
+      "home": "Torino",
+      "away": "Como",
+      "league": "Serie A",
+      "date": "2026-10-27",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.58,
+      "bttsProbDisplay": "50.00%",
+      "over25ProbDisplay": "50.00%",
+      "confidence": 58,
+      "time": "19:45",
+      "matchSemantic": "torino-vs-como-2026-10-27",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/239.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png",
+      "tier": "GOLD",
+      "reliabilityScore": 80.63,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.5,
+      "xgAway": 2,
+      "xgTotal": 3.5,
+      "formBTTS": 50,
+      "analysis": "Torino : forme V-V-V-N-D (3V 1N 1D, 9 buts marqués / 6 encaissés sur 5) · Como : forme V-V-N-D-V (3V 1N 1D, 7 buts marqués / 4 encaissés sur 5). Classement : Torino 8e (13 pts), Como 5e (17 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 50.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 4.4 / N: 3.7 / 2: 1.71 · Over 2.5: 1.65. Fiabilité 80.63%.",
+      "analysisData": {
+        "bttsProb": 0.5,
+        "over25Prob": 0.5,
+        "homeLambda": 1.5,
+        "awayLambda": 2,
+        "xgTotal": 3.5
+      },
+      "estimatedCote": 2,
+      "estimatedCoteOver": 2,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 4.4,
+        "draw": 3.7,
+        "away": 1.71,
+        "over25": 1.65,
+        "under25": 2.25
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 2,
+      "formHome": {
+        "last5String": "V-V-V-N-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 9,
+        "goalsAgainst": 6,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-N-D-V",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 7,
+        "goalsAgainst": 4,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Monza",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Parma",
+          "venue": "A",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-12",
+          "opponent": "Udinese",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Bologna",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-14",
+          "opponent": "AS Roma",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Sassuolo",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Fiorentina",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "AS Roma",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Frosinone",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-14",
+          "opponent": "Parma",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 8,
+        "points": 13,
+        "played": 8,
+        "gf": 13,
+        "ga": 11
+      },
+      "standingsAway": {
+        "rank": 5,
+        "points": 17,
+        "played": 8,
+        "gf": 14,
+        "ga": 7
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 50,
+          "bttsProb": 0.5,
+          "homeLambda": 1.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 58,
+          "over25Prob": 0.58,
+          "homeLambda": 1.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.58
+        }
+      ],
+      "bttsProb": 0.5,
+      "over25Prob": 0.58,
+      "homeLambda": 1.5,
+      "awayLambda": 2,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Como affiche une moyenne de 2 buts marqués par match à l'extérieur.",
+      "ai_analysis": "L'analyse des statistiques montre que Torino et Como possèdent des dynamiques offensives intéressantes. Avec une moyenne de 2 buts par match pour Como et un taux d'Over 2.5 de 60% pour Torino sur ses 5 derniers matchs, la rencontre penche vers un scénario ouvert. Malgré une défense correcte de Como, la tendance statistique justifie un pari modéré sur l'Over 2.5.",
+      "ai_analysis_en": "Statistical analysis shows that Torino and Como have interesting offensive dynamics. With an average of 2 goals per match for Como and a 60% Over 2.5 rate for Torino over their last 5 games, the match leans towards an open scenario. Despite Como's decent defense, the statistical trend justifies a moderate bet on Over 2.5.",
+      "ai_form_summary": "Torino (3W-1D-1L) et Como (3W-1D-1L) affirment une forme similaire sur leurs 5 derniers matchs.",
+      "ai_form_summary_en": "Torino (3W-1D-1L) and Como (3W-1D-1L) show similar form over their last 5 matches.",
+      "ai_reasons": [
+        "Como affiche une moyenne offensive importante à l'extérieur avec 2 buts par match.",
+        "Torino présente un taux de 60% de matchs avec plus de 2.5 buts sur ses 5 dernières rencontres.",
+        "La cote de 1.65 pour l'Over 2.5 reflète une tendance favorable observée dans les données récentes."
+      ],
+      "ai_risks": [
+        "Le taux BTTS empirique global est modéré à 50%.",
+        "Como possède une défense assez solide avec seulement 4 buts encaissés sur ses 5 derniers matchs."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.4 · N 3.7 · 2 1.71 · O2.5 1.65",
+      "status": "PENDING"
+    },
+    {
+      "id": "racingsa-vs-realmadr-2026-11-01",
+      "match": "Racing Santander vs Real Madrid",
+      "home": "Racing Santander",
+      "away": "Real Madrid",
+      "league": "LaLiga",
+      "date": "2026-11-01",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.68,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "80.00%",
+      "confidence": 68,
+      "time": "15:15",
+      "matchSemantic": "racingsa-vs-realmadr-2026-11-01",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/87.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.25,
+      "xgAway": 1.5,
+      "xgTotal": 3.75,
+      "formBTTS": 70,
+      "analysis": "Racing Santander : forme V-D-N-D-D (1V 1N 3D, 6 buts marqués / 17 encaissés sur 5) · Real Madrid : forme V-V-V-D-V (4V 0N 1D, 11 buts marqués / 6 encaissés sur 5). Classement : Racing Santander 13e (11 pts), Real Madrid 3e (24 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 9.5 / N: 7 / 2: 1.22. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.8,
+        "homeLambda": 2.25,
+        "awayLambda": 1.5,
+        "xgTotal": 3.75
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.25,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 9.5,
+        "draw": 7,
+        "away": 1.22,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "V-D-N-D-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 17,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-D-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 6,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Espanyol",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Osasuna",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Valencia",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Celta Vigo",
+          "venue": "A",
+          "score": "0-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-16",
+          "opponent": "Barcelona",
+          "venue": "A",
+          "score": "2-7",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Barcelona",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Sevilla",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Villarreal",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Atlético Madrid",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Elche",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 13,
+        "points": 11,
+        "played": 10,
+        "gf": 15,
+        "ga": 26
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 24,
+        "played": 10,
+        "gf": 25,
+        "ga": 10
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "bttsProb": 0.68,
+          "homeLambda": 2.25,
+          "awayLambda": 1.5,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.68
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 80,
+          "over25Prob": 0.8,
+          "homeLambda": 2.25,
+          "awayLambda": 1.5,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        }
+      ],
+      "bttsProb": 0.68,
+      "over25Prob": 0.8,
+      "homeLambda": 2.25,
+      "awayLambda": 1.5,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Racing Santander a encaissé 26 buts en 10 matchs de championnat.",
+      "ai_analysis": "Le Real Madrid se déplace avec un secteur offensif performant (25 buts marqués) et affronte une équipe de Racing Santander en grande difficulté défensive, qui a déjà concédé 26 buts. Bien que le Real soit ultra favori, les statistiques globales soutiennent un match ouvert avec des buts des deux côtés, appuyé par un taux BTTS empirique de 70%.",
+      "ai_analysis_en": "Real Madrid travels with a strong attacking record (25 goals scored) to face a struggling Racing Santander defense that has already conceded 26 goals. Although Real are heavy favorites, overall statistics support an open game with goals from both sides, backed by a 70% empirical BTTS rate.",
+      "ai_form_summary": "Racing Santander (1V-1D-3L) montre des difficultés défensives, tandis que Real Madrid (4W-0D-1L) est très performant.",
+      "ai_form_summary_en": "Racing Santander (1W-1D-3L) shows defensive struggles, while Real Madrid (4W-0D-1L) is in strong form.",
+      "ai_reasons": [
+        "Taux BTTS empirique élevé à 70% sur l'ensemble des données fournies.",
+        "Racing Santander encaisse beaucoup de buts avec 26 buts concédés en 10 matchs de championnat.",
+        "Real Madrid présente de solides taux offensifs avec une moyenne de 2,5 buts marqués par match (25 en 10 matchs)."
+      ],
+      "ai_risks": [
+        "Real Madrid possède une défense solide (seulement 10 buts encaissés), ce qui peut limiter les buts de Racing Santander.",
+        "La cote du Real Madrid à 1.22 indique un déséquilibre majeur dans la rencontre."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.22",
       "status": "PENDING"
     }
   ],
