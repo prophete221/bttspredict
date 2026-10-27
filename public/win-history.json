@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-10-26T22:11:27.294Z",
+  "generatedAt": "2026-10-27T03:07:49.071Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -18,9 +18,9 @@
     "total": 325,
     "won": 269,
     "lost": 56,
-    "pending": 53,
+    "pending": 62,
     "unverifiable": 153,
-    "archivedTotal": 531,
+    "archivedTotal": 540,
     "rate": 82.8,
     "gold": {
       "total": 232,
@@ -150,8 +150,8 @@
     ],
     "period": {
       "from": "2026-08-08",
-      "to": "2026-10-26",
-      "days": 80
+      "to": "2026-10-27",
+      "days": 81
     }
   },
   "history": [
@@ -4382,47 +4382,40 @@
     }
   ],
   "legacyStats": {
-    "total": 116,
-    "won": 116,
+    "total": 113,
+    "won": 113,
     "lost": 0,
     "pending": 0,
-    "unverifiable": 178,
-    "archivedTotal": 294,
+    "unverifiable": 131,
+    "archivedTotal": 244,
     "rate": 100,
     "gold": {
-      "total": 1,
-      "won": 1,
+      "total": 0,
+      "won": 0,
       "lost": 0,
-      "rate": 100
+      "rate": 0
     },
     "standard": {
-      "total": 115,
-      "won": 115,
+      "total": 113,
+      "won": 113,
       "lost": 0,
       "rate": 100
     },
     "byType": {
       "btts": {
-        "total": 59,
-        "won": 59,
+        "total": 57,
+        "won": 57,
         "lost": 0,
         "rate": 100
       },
       "over25": {
-        "total": 57,
-        "won": 57,
+        "total": 56,
+        "won": 56,
         "lost": 0,
         "rate": 100
       }
     },
     "trend14": [
-      {
-        "date": "2026-07-29",
-        "total": 3,
-        "won": 3,
-        "lost": 0,
-        "rate": 100
-      },
       {
         "date": "2026-07-30",
         "total": 3,
@@ -4495,9 +4488,9 @@
       }
     ],
     "period": {
-      "from": "2026-07-29",
+      "from": "2026-07-30",
       "to": "2026-08-07",
-      "days": 10
+      "days": 9
     },
     "history": [
       {
@@ -5966,45 +5959,6 @@
         "status": "WON",
         "finalScore": "0-1",
         "verifiedAt": "2026-08-07T14:30:17.446Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-07-29",
-        "match": "Nacional Asunción vs Club Olimpia",
-        "league": "Primera Division (PAR)",
-        "market": "over25",
-        "tier": "GOLD",
-        "proba": 0.5,
-        "status": "WON",
-        "finalScore": "2-0",
-        "verifiedAt": "2026-08-07T14:25:01.989Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-07-29",
-        "match": "Sportivo Luqueño vs Sportivo Trinidense",
-        "league": "Primera Division (PAR)",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.5,
-        "status": "WON",
-        "finalScore": "1-4",
-        "verifiedAt": "2026-08-07T14:25:01.988Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-07-29",
-        "match": "Barracas Central vs Aldosivi",
-        "league": "Primera Division (ARG)",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.49,
-        "status": "WON",
-        "finalScore": "1-0",
-        "verifiedAt": "2026-08-07T12:17:04.568Z",
         "source": "ESPN public",
         "prediction": "Non"
       }
