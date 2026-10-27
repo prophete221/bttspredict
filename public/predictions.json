@@ -1,6 +1,6 @@
 {
   "date": "2026-10-27",
-  "lastUpdated": "2026-10-27T03:04:27.374Z",
+  "lastUpdated": "2026-10-27T11:20:15.639Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -3245,55 +3245,48 @@
       "away": "Houston Dynamo FC",
       "league": "MLS",
       "date": "2026-10-29",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.62,
-      "bttsProbDisplay": "60.00%",
-      "over25ProbDisplay": "60.00%",
-      "confidence": 62,
+      "proba": 0.5376,
+      "bttsProbDisplay": "53.76%",
+      "over25ProbDisplay": "55.40%",
+      "confidence": 54,
       "time": "02:30",
       "matchSemantic": "seattles-vs-houstond-2026-10-29",
       "source": "poisson-v92-real-data",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9726.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6077.png",
       "tier": "GOLD",
-      "reliabilityScore": 85,
+      "reliabilityScore": 79.77,
       "dataQuality": "HIGH",
       "dataSource": "ESPN_TEAM_SCHEDULE",
       "matchCountHome": 8,
       "matchCountAway": 8,
       "h2hAvailable": false,
-      "xgHome": 2,
-      "xgAway": 1.67,
-      "xgTotal": 3.67,
-      "formBTTS": 60,
-      "analysis": "Seattle Sounders FC : forme N-N-D-V-V (2V 2N 1D, 8 buts marqués / 5 encaissés sur 5) · Houston Dynamo FC : forme N-N-N-N-D (0V 4N 1D, 7 buts marqués / 9 encaissés sur 5). Classement : Seattle Sounders FC 7e (43 pts), Houston Dynamo FC 5e (48 pts). Stats empiriques (forme récente) : buts moy. 3.67, BTTS 60.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.77 / N: 3.85 / 2: 3.95 · Over 2.5: 1.61. Fiabilité 85%.",
+      "xgHome": 1.9,
+      "xgAway": 1,
+      "xgTotal": 2.9,
+      "formBTTS": 70,
+      "analysis": "Seattle Sounders FC : forme N-D-V-V-V (3V 1N 1D, 9 buts marqués / 4 encaissés sur 5) · Houston Dynamo FC : forme N-N-N-D-N (0V 4N 1D, 9 buts marqués / 11 encaissés sur 5). Classement : Seattle Sounders FC 7e (42 pts), Houston Dynamo FC 5e (47 pts). Modèle Poisson : xG cumulé 2.9, BTTS 53.8%, Over 2.5 55.4%. Fiabilité 79.77%.",
       "analysisData": {
-        "bttsProb": 0.6,
-        "over25Prob": 0.6,
-        "homeLambda": 2,
-        "awayLambda": 1.67,
-        "xgTotal": 3.67
+        "bttsProb": 0.5376,
+        "over25Prob": 0.554,
+        "homeLambda": 1.9,
+        "awayLambda": 1,
+        "xgTotal": 2.9
       },
-      "estimatedCote": 1.67,
-      "estimatedCoteOver": 1.67,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 1.77,
-        "draw": 3.85,
-        "away": 3.95,
-        "over25": 1.61,
-        "under25": 2.3
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.67,
+      "estimatedCote": 1.86,
+      "estimatedCoteOver": 1.8,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.86,
       "formHome": {
-        "last5String": "N-N-D-V-V",
-        "wins": 2,
-        "draws": 2,
+        "last5String": "N-D-V-V-V",
+        "wins": 3,
+        "draws": 1,
         "losses": 1,
-        "goalsFor": 8,
-        "goalsAgainst": 5,
+        "goalsFor": 9,
+        "goalsAgainst": 4,
         "bttsRate": 0.6,
         "over25Rate": 0.6,
         "cleanSheets": 1,
@@ -3301,16 +3294,16 @@
         "count": 5
       },
       "formAway": {
-        "last5String": "N-N-N-N-D",
+        "last5String": "N-N-N-D-N",
         "wins": 0,
         "draws": 4,
         "losses": 1,
-        "goalsFor": 7,
-        "goalsAgainst": 9,
-        "bttsRate": 0.6,
-        "over25Rate": 0.6,
-        "cleanSheets": 1,
-        "failedToScore": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 11,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
         "count": 5
       },
       "last5Home": [
@@ -3389,15 +3382,15 @@
       ],
       "standingsHome": {
         "rank": 7,
-        "points": 43,
-        "played": 31,
-        "gf": 41,
-        "ga": 39
+        "points": 42,
+        "played": 30,
+        "gf": 39,
+        "ga": 37
       },
       "standingsAway": {
         "rank": 5,
-        "points": 48,
-        "played": 31,
+        "points": 47,
+        "played": 30,
         "gf": 41,
         "ga": 39
       },
@@ -3405,52 +3398,36 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
-          "homeLambda": 2,
-          "awayLambda": 1.67,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "confidence": 54,
+          "bttsProb": 0.5376,
+          "homeLambda": 1.9,
+          "awayLambda": 1
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 62,
-          "over25Prob": 0.62,
-          "homeLambda": 2,
-          "awayLambda": 1.67,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.62
+          "confidence": 55,
+          "over25Prob": 0.554,
+          "homeLambda": 1.9,
+          "awayLambda": 1
         }
       ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.62,
-      "homeLambda": 2,
-      "awayLambda": 1.67,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "Seattle Sounders et Houston Dynamo affichent tous deux un taux Over 2.5 de 60% sur leurs 5 derniers matchs.",
-      "ai_analysis": "Les données observées indiquent des tendances similaires pour les deux formations avec 60% de matchs dépassant les 2.5 buts. Les moyennes offensives combinées à un taux empirique concordant soutiennent un pronostic favorable sur l'Over 2.5.",
-      "ai_analysis_en": "Observed data indicate similar trends for both teams with 60% of matches exceeding 2.5 goals. Combined offensive averages and a matching empirical rate support a favorable forecast for Over 2.5.",
-      "ai_form_summary": "Seattle Sounders : 2V-2N-1D (8 buts pour, 5 contre). Houston Dynamo : 0V-4N-1D (7 buts pour, 9 contre).",
-      "ai_form_summary_en": "Seattle Sounders: 2W-2D-1L (8 goals for, 5 against). Houston Dynamo: 0W-4D-1L (7 goals for, 9 against).",
-      "ai_reasons": [
-        "Taux Over 2.5 empirique établi à 60%.",
-        "Les deux équipes affichent un taux d'Over 2.5 de 60% sur leurs 5 derniers matchs.",
-        "Moyennes de buts correctes de 2 pour Seattle Sounders et 1.67 pour Houston Dynamo."
-      ],
-      "ai_risks": [
-        "Houston Dynamo reste sur une série de matchs nuls prudents.",
-        "Le classement serré pourrait inciter à la prudence en début de rencontre."
-      ],
-      "ai_confidence": "medium",
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.77 · N 3.85 · 2 3.95 · O2.5 1.61"
+      "bttsProb": 0.5376,
+      "over25Prob": 0.554,
+      "homeLambda": 1.9,
+      "awayLambda": 1,
+      "ai_key_fact": "Houston Dynamo enchaîne quatre nuls sur ses cinq derniers matchs.",
+      "ai_analysis": "Les xG du modèle s'élèvent à 1.9 pour Seattle Sounders et 1.0 pour Houston Dynamo, indiquant un ascendant offensif théorique pour l'équipe à domicile. La probabilité BTTS est calculée à 53.8% et celle de l'Over 2.5 à 55.4%, dans un contexte où Seattle occupe la 7e place et Houston la 5e au classement général. Seattle Sounders a inscrit 9 buts pour 4 encaissés récemment, illustrant une solidité déficiente chez l'adversaire du jour qui a concédé 11 buts sur la même période. L'indice de fiabilité du modèle atteint 79.77%.",
+      "ai_form_summary": "Seattle Sounders affiche une dynamique positive de trois victoires sur ses cinq derniers matchs, assortie d'un taux BTTS de 0.6. Houston Dynamo stagne avec quatre nuls et une défaite, mais maintient un taux BTTS élevé de 0.8.",
+      "ai_key_fact_en": "Houston Dynamo chains four draws across their last five matches.",
+      "ai_analysis_en": "The model's xG values stand at 1.9 for Seattle Sounders and 1.0 for Houston Dynamo, indicating a theoretical offensive edge for the home team. The BTTS probability is calculated at 53.8% and the Over 2.5 at 55.4%, in a context where Seattle ranks 7th and Houston 5th in the overall standings. Seattle Sounders scored 9 goals while conceding 4 recently, highlighting defensive vulnerabilities in today's opponent who conceded 11 goals over the same period. The model's reliability index reaches 79.77%.",
+      "ai_form_summary_en": "Seattle Sounders displays a positive momentum of three wins in their last five matches, coupled with a 0.6 BTTS rate. Houston Dynamo stagnates with four draws and one defeat, yet maintains a high BTTS rate of 0.8.",
+      "ai_source": "gemini-v2",
+      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+      "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
+      "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
+      "status": "PENDING"
     },
     {
       "id": "sanjosee-vs-colorado-2026-10-29",
@@ -3674,71 +3651,64 @@
       "away": "Columbus Crew",
       "league": "MLS",
       "date": "2026-10-29",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.68,
-      "bttsProbDisplay": "60.00%",
-      "over25ProbDisplay": "70.00%",
-      "confidence": 68,
+      "proba": 0.5714,
+      "bttsProbDisplay": "57.14%",
+      "over25ProbDisplay": "54.24%",
+      "confidence": 57,
       "time": "00:30",
       "matchSemantic": "fcdallas-vs-columbus-2026-10-29",
       "source": "poisson-v92-real-data",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/185.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/183.png",
       "tier": "GOLD",
-      "reliabilityScore": 82.5,
+      "reliabilityScore": 81.25,
       "dataQuality": "HIGH",
       "dataSource": "ESPN_TEAM_SCHEDULE",
       "matchCountHome": 8,
       "matchCountAway": 8,
       "h2hAvailable": false,
-      "xgHome": 1.4,
-      "xgAway": 1.75,
-      "xgTotal": 3.15,
-      "formBTTS": 60,
-      "analysis": "FC Dallas : forme V-N-V-D-V (3V 1N 1D, 9 buts marqués / 5 encaissés sur 5) · Columbus Crew : forme V-V-V-D-V (4V 0N 1D, 13 buts marqués / 7 encaissés sur 5). Classement : FC Dallas 2e (54 pts), Columbus Crew 10e (38 pts). Stats empiriques (forme récente) : buts moy. 3.15, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.95 / N: 3.9 / 2: 3.25. Fiabilité 82.5%.",
+      "xgHome": 1.57,
+      "xgAway": 1.27,
+      "xgTotal": 2.85,
+      "formBTTS": 50,
+      "analysis": "FC Dallas : forme N-V-D-V-N (2V 2N 1D, 6 buts marqués / 5 encaissés sur 5) · Columbus Crew : forme V-V-D-V-V (4V 0N 1D, 11 buts marqués / 5 encaissés sur 5). Classement : FC Dallas 3e (51 pts), Columbus Crew 11e (35 pts). Modèle Poisson : xG cumulé 2.85, BTTS 57.1%, Over 2.5 54.2%. Fiabilité 81.25%.",
       "analysisData": {
-        "bttsProb": 0.6,
-        "over25Prob": 0.7,
-        "homeLambda": 1.4,
-        "awayLambda": 1.75,
-        "xgTotal": 3.15
+        "bttsProb": 0.5714,
+        "over25Prob": 0.5424,
+        "homeLambda": 1.57,
+        "awayLambda": 1.27,
+        "xgTotal": 2.85
       },
-      "estimatedCote": 1.67,
-      "estimatedCoteOver": 1.43,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 1.95,
-        "draw": 3.9,
-        "away": 3.25,
-        "over25": null,
-        "under25": null
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.67,
+      "estimatedCote": 1.75,
+      "estimatedCoteOver": 1.84,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.75,
       "formHome": {
-        "last5String": "V-N-V-D-V",
-        "wins": 3,
-        "draws": 1,
+        "last5String": "N-V-D-V-N",
+        "wins": 2,
+        "draws": 2,
         "losses": 1,
-        "goalsFor": 9,
+        "goalsFor": 6,
         "goalsAgainst": 5,
         "bttsRate": 0.4,
-        "over25Rate": 0.6,
+        "over25Rate": 0.4,
         "cleanSheets": 3,
-        "failedToScore": 0,
+        "failedToScore": 1,
         "count": 5
       },
       "formAway": {
-        "last5String": "V-V-V-D-V",
+        "last5String": "V-V-D-V-V",
         "wins": 4,
         "draws": 0,
         "losses": 1,
-        "goalsFor": 13,
-        "goalsAgainst": 7,
-        "bttsRate": 0.8,
-        "over25Rate": 0.8,
-        "cleanSheets": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
         "failedToScore": 0,
         "count": 5
       },
@@ -3817,69 +3787,52 @@
         }
       ],
       "standingsHome": {
-        "rank": 2,
-        "points": 54,
-        "played": 31,
-        "gf": 58,
+        "rank": 3,
+        "points": 51,
+        "played": 30,
+        "gf": 55,
         "ga": 47
       },
       "standingsAway": {
-        "rank": 10,
-        "points": 38,
-        "played": 31,
-        "gf": 50,
-        "ga": 49
+        "rank": 11,
+        "points": 35,
+        "played": 30,
+        "gf": 46,
+        "ga": 47
       },
       "predictions": [
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
-          "homeLambda": 1.4,
-          "awayLambda": 1.75,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "confidence": 57,
+          "bttsProb": 0.5714,
+          "homeLambda": 1.57,
+          "awayLambda": 1.27
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 68,
-          "over25Prob": 0.68,
-          "homeLambda": 1.4,
-          "awayLambda": 1.75,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.68
+          "confidence": 54,
+          "over25Prob": 0.5424,
+          "homeLambda": 1.57,
+          "awayLambda": 1.27
         }
       ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.68,
-      "homeLambda": 1.4,
-      "awayLambda": 1.75,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "Columbus Crew présente un taux d'Over 2,5 de 0.8 et une moyenne de 1.75 buts par match.",
-      "ai_analysis": "Les statistiques de Columbus Crew penchent nettement vers un match prolifique, avec un taux d'Over 2,5 de 0.8 et 1.75 buts par match. Bien que FC Dallas montre une rigueur défensive relative avec un taux BTTS de 0.4, le profil offensif des visiteurs et l'indicateur empirique global de 0.7 soutiennent une tendance favorable à plus de 2,5 buts.",
-      "ai_analysis_en": "Columbus Crew's statistics lean towards a high-scoring match, featuring an Over 2.5 rate of 0.8 and 1.75 goals per game. Although FC Dallas shows defensive stability with a 0.4 BTTS rate, the visitors' attacking profile and the overall empirical Over 2.5 rate of 0.7 support a trend toward more than 2.5 goals.",
-      "ai_form_summary": "FC Dallas : 3V-1D-1L, 9 buts pour, 5 contre. Columbus Crew : 4V-0D-1L, 13 buts pour, 7 contre.",
-      "ai_form_summary_en": "FC Dallas: 3W-1D-1L, 9 goals for, 5 against. Columbus Crew: 4W-0D-1L, 13 goals for, 7 against.",
-      "ai_reasons": [
-        "Columbus Crew affiche un taux d'Over 2,5 élevé de 0.8 sur ses 8 derniers matchs.",
-        "L'Over 2,5 empirique global du match atteint 0.7.",
-        "Columbus Crew marque en moyenne 1.75 buts par match."
-      ],
-      "ai_risks": [
-        "Le taux BTTS de FC Dallas est modéré à 0.4.",
-        "FC Dallas concède peu de buts récemment avec seulement 5 buts encaissés sur ses 5 derniers matchs."
-      ],
-      "ai_confidence": "medium",
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.95 · N 3.9 · 2 3.25",
+      "bttsProb": 0.5714,
+      "over25Prob": 0.5424,
+      "homeLambda": 1.57,
+      "awayLambda": 1.27,
+      "ai_key_fact": "Columbus Crew totalise 4 victoires sur ses 5 derniers matchs.",
+      "ai_analysis": "Le modèle évalue les xG à 1.57 pour le FC Dallas et 1.27 pour Columbus Crew, traduisant une production offensive intéressante pour les locaux. La probabilité BTTS est estimée à 57.1% et l'Over 2.5 à 54.2%, s'appuyant sur le classement des deux équipes où Dallas pointe à la 3e place et Columbus à la 11e. FC Dallas s'appuie sur une défense relativement hermétique avec trois clean sheets récents, tandis que Columbus Crew carbure à l'offensive avec 11 buts marqués sur ses cinq dernières sorties. La fiabilité globale du modèle s'élève à 81.25%.",
+      "ai_form_summary": "FC Dallas enregistre un bilan de deux victoires, deux nuls et une défaite avec un taux BTTS de 0.4. En face, Columbus Crew montre une dynamique solide avec quatre succès en cinq rencontres et un taux BTTS de 0.6.",
+      "ai_key_fact_en": "Columbus Crew totals 4 wins in their last 5 matches.",
+      "ai_analysis_en": "The model evaluates xG at 1.57 for FC Dallas and 1.27 for Columbus Crew, reflecting an interesting offensive output for the hosts. The BTTS probability is estimated at 57.1% and the Over 2.5 at 54.2%, based on the teams' standings where Dallas sits in 3rd place and Columbus in 11th. FC Dallas relies on a relatively watertight defense with three recent clean sheets, while Columbus Crew thrives offensively with 11 goals scored in their last five appearances. The overall reliability of the model stands at 81.25%.",
+      "ai_form_summary_en": "FC Dallas records a record of two wins, two draws, and one defeat with a 0.4 BTTS rate. Conversely, Columbus Crew displays a solid dynamic with four successes in five outings and a 0.6 BTTS rate.",
+      "ai_source": "gemini-v2",
+      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+      "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
+      "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
       "status": "PENDING"
     },
     {
@@ -4674,6 +4627,220 @@
       "status": "PENDING"
     },
     {
+      "id": "nice-vs-staderen-2026-10-30",
+      "match": "Nice vs Stade Rennais",
+      "home": "Nice",
+      "away": "Stade Rennais",
+      "league": "Ligue 1",
+      "date": "2026-10-30",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.72,
+      "bttsProbDisplay": "60.00%",
+      "over25ProbDisplay": "80.00%",
+      "confidence": 72,
+      "time": "18:00",
+      "matchSemantic": "nice-vs-staderen-2026-10-30",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2502.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png",
+      "tier": "GOLD",
+      "reliabilityScore": 82.5,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.25,
+      "xgAway": 1.67,
+      "xgTotal": 2.92,
+      "formBTTS": 60,
+      "analysis": "Nice : forme V-D-V-V-D (3V 0N 2D, 7 buts marqués / 6 encaissés sur 5) · Stade Rennais : forme V-D-V-D-V (3V 0N 2D, 11 buts marqués / 9 encaissés sur 5). Classement : Nice 10e (11 pts), Stade Rennais 2e (16 pts). Stats empiriques (forme récente) : buts moy. 2.92, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.75 / N: 3.7 / 2: 2.35. Fiabilité 82.5%.",
+      "analysisData": {
+        "bttsProb": 0.6,
+        "over25Prob": 0.8,
+        "homeLambda": 1.25,
+        "awayLambda": 1.67,
+        "xgTotal": 2.92
+      },
+      "estimatedCote": 1.67,
+      "estimatedCoteOver": 1.25,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.75,
+        "draw": 3.7,
+        "away": 2.35,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.67,
+      "formHome": {
+        "last5String": "V-D-V-V-D",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 6,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-V-D-V",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 11,
+        "goalsAgainst": 9,
+        "bttsRate": 0.4,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Brest",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Lyon",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Strasbourg",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Lille",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "AJ Auxerre",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Strasbourg",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Paris FC",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "AJ Auxerre",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Lyon",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Marseille",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 10,
+        "points": 11,
+        "played": 8,
+        "gf": 8,
+        "ga": 10
+      },
+      "standingsAway": {
+        "rank": 2,
+        "points": 16,
+        "played": 8,
+        "gf": 18,
+        "ga": 14
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 60,
+          "bttsProb": 0.6,
+          "homeLambda": 1.25,
+          "awayLambda": 1.67,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 72,
+          "over25Prob": 0.72,
+          "homeLambda": 1.25,
+          "awayLambda": 1.67,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.72
+        }
+      ],
+      "bttsProb": 0.6,
+      "over25Prob": 0.72,
+      "homeLambda": 1.25,
+      "awayLambda": 1.67,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Nice et le Stade Rennais affichent tous deux un taux Over 2.5 de 80% sur leurs 5 derniers matchs.",
+      "ai_analysis": "L'affiche de Ligue 1 entre Nice et le Stade Rennais se distingue par une forte propension aux matchs prolifiques. Les deux formations affichent un taux Over 2.5 de 80% sur leurs cinq dernières rencontres respectives, appuyé par un taux empirique global également à 80%. Avec des moyennes de buts par match de 1.25 pour Nice et 1.67 pour Rennes, la configuration statistique est idéale pour viser plus de 2.5 buts.",
+      "ai_analysis_en": "The Ligue 1 fixture between Nice and Stade Rennais stands out for a strong propensity towards high-scoring matches. Both teams show an 80% Over 2.5 rate in their respective last five games, backed by an overall empirical rate also at 80%. With goals per match averages of 1.25 for Nice and 1.67 for Rennes, the statistical setup is ideal for targeting over 2.5 goals.",
+      "ai_form_summary": "Nice : 3W-0D-2L sur les 5 derniers, 7 buts pour, 6 contre. Stade Rennais : 3W-0D-2L sur les 5 derniers, 11 buts pour, 9 contre.",
+      "ai_form_summary_en": "Nice: 3W-0D-2L in last 5, 7 goals for, 6 against. Stade Rennais: 3W-0D-2L in last 5, 11 goals for, 9 against.",
+      "ai_reasons": [
+        "Taux empirique Over 2.5 très élevé à 80%.",
+        "Nice affiche un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
+        "Stade Rennais présente également un taux Over 2.5 de 80% sur sa forme récente."
+      ],
+      "ai_risks": [
+        "Le taux BTTS empirique est légèrement plus bas à 60%.",
+        "Rennes a un taux BTTS de seulement 40% sur ses 5 derniers matchs malgré ses scores élevés."
+      ],
+      "ai_confidence": "high",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.75 · N 3.7 · 2 2.35"
+    },
+    {
       "id": "casapia-vs-sporting-2026-10-30",
       "match": "Casa Pia vs Sporting CP",
       "home": "Casa Pia",
@@ -5275,221 +5442,6 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 2.65, nul: 3.3, 2: 2.6, Over 2.5: 1.87.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 2.65, draw: 3.3, 2: 2.6, Over 2.5: 1.87.",
-      "status": "PENDING"
-    },
-    {
-      "id": "svelvers-vs-mainz-2026-10-30",
-      "match": "SV Elversberg vs Mainz",
-      "home": "SV Elversberg",
-      "away": "Mainz",
-      "league": "Bundesliga",
-      "date": "2026-10-30",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "proba": 0.65,
-      "bttsProbDisplay": "60.00%",
-      "over25ProbDisplay": "70.00%",
-      "confidence": 65,
-      "time": "19:30",
-      "matchSemantic": "svelvers-vs-mainz-2026-10-30",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10388.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2950.png",
-      "tier": "GOLD",
-      "reliabilityScore": 76,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 7,
-      "matchCountAway": 7,
-      "h2hAvailable": false,
-      "xgHome": 2.67,
-      "xgAway": 3.33,
-      "xgTotal": 6,
-      "formBTTS": 60,
-      "analysis": "SV Elversberg : forme D-V-D-N-D (1V 1N 3D, 5 buts marqués / 10 encaissés sur 5) · Mainz : forme D-V-D-V-D (2V 0N 3D, 11 buts marqués / 13 encaissés sur 5). Classement : SV Elversberg 8e (10 pts), Mainz 7e (10 pts). Stats empiriques (forme récente) : buts moy. 6, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.1 / N: 3.6 / 2: 2.05. Fiabilité 76%.",
-      "analysisData": {
-        "bttsProb": 0.6,
-        "over25Prob": 0.7,
-        "homeLambda": 2.67,
-        "awayLambda": 3.33,
-        "xgTotal": 6
-      },
-      "estimatedCote": 1.67,
-      "estimatedCoteOver": 1.43,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 3.1,
-        "draw": 3.6,
-        "away": 2.05,
-        "over25": null,
-        "under25": null
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.67,
-      "formHome": {
-        "last5String": "D-V-D-N-D",
-        "wins": 1,
-        "draws": 1,
-        "losses": 3,
-        "goalsFor": 5,
-        "goalsAgainst": 10,
-        "bttsRate": 0.4,
-        "over25Rate": 0.6,
-        "cleanSheets": 1,
-        "failedToScore": 3,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "D-V-D-V-D",
-        "wins": 2,
-        "draws": 0,
-        "losses": 3,
-        "goalsFor": 11,
-        "goalsAgainst": 13,
-        "bttsRate": 0.8,
-        "over25Rate": 0.8,
-        "cleanSheets": 1,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-24",
-          "opponent": "RB Leipzig",
-          "venue": "A",
-          "score": "0-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "FC Augsburg",
-          "venue": "H",
-          "score": "4-3",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "1. FC Union Berlin",
-          "venue": "A",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Schalke 04",
-          "venue": "A",
-          "score": "0-0",
-          "result": "D"
-        },
-        {
-          "date": "2026-09-13",
-          "opponent": "Bayern Munich",
-          "venue": "H",
-          "score": "1-2",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-24",
-          "opponent": "Werder Bremen",
-          "venue": "H",
-          "score": "2-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "Schalke 04",
-          "venue": "A",
-          "score": "1-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Bayer Leverkusen",
-          "venue": "H",
-          "score": "3-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-19",
-          "opponent": "Borussia Mönchengladbach",
-          "venue": "A",
-          "score": "4-3",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-12",
-          "opponent": "Eintracht Frankfurt",
-          "venue": "H",
-          "score": "1-3",
-          "result": "L"
-        }
-      ],
-      "standingsHome": {
-        "rank": 8,
-        "points": 10,
-        "played": 7,
-        "gf": 12,
-        "ga": 15
-      },
-      "standingsAway": {
-        "rank": 7,
-        "points": 10,
-        "played": 7,
-        "gf": 16,
-        "ga": 13
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
-          "homeLambda": 2.67,
-          "awayLambda": 3.33,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 65,
-          "over25Prob": 0.65,
-          "homeLambda": 2.67,
-          "awayLambda": 3.33,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.65
-        }
-      ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.65,
-      "homeLambda": 2.67,
-      "awayLambda": 3.33,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "Mainz affiche un taux Over 2.5 de 80% sur ses cinq derniers matchs avec de fortes moyennes de buts.",
-      "ai_analysis": "Le duel entre SV Elversberg et Mainz en Bundesliga se distingue par des statistiques de buts particulièrement prolifiques. Les moyennes respectives de 2.67 et 3.33 buts par match, associées à un taux empirique Over 2.5 de 70%, justifient l'orientation vers un match offensif. Bien que la qualité des données soit intermédiaire et que Elversberg montre un BTTS plus mesuré, la dynamique globale reste favorable aux buts.",
-      "ai_analysis_en": "The Bundesliga clash between SV Elversberg and Mainz stands out for particularly prolific scoring statistics. Respective averages of 2.67 and 3.33 goals per match, combined with an empirical Over 2.5 rate of 70%, justify leaning towards an attacking game. Although data quality is medium and Elversberg shows a more modest BTTS rate, the overall momentum favors goals.",
-      "ai_form_summary": "SV Elversberg : D-V-D-N-D (1V-1N-3D, 5 buts pour, 10 contre). Mainz : D-V-D-V-D (2V-0N-3D, 11 buts pour, 13 contre).",
-      "ai_form_summary_en": "SV Elversberg: L-W-L-D-L (1W-1D-3L, 5 GF, 10 GA). Mainz: L-W-L-W-L (2W-0D-3L, 11 GF, 13 GA).",
-      "ai_reasons": [
-        "Taux empirique Over 2.5 établi à 70% sur l'échantillon disponible",
-        "Taux Over 2.5 récent de Mainz à 80% et Elversberg à 60%",
-        "Moyennes de buts élevées avec 2.67 pour l'équipe à domicile et 3.33 pour l'extérieur"
-      ],
-      "ai_risks": [
-        "Qualité de données évaluée à MEDIUM",
-        "Taux BTTS de Elversberg légèrement en retrait à 40%"
-      ],
-      "ai_confidence": "medium",
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.1 · N 3.6 · 2 2.05",
       "status": "PENDING"
     },
     {
@@ -7202,12 +7154,12 @@
       "away": "Sparta Rotterdam",
       "league": "Eredivisie",
       "date": "2026-11-01",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.75,
+      "proba": 0.8,
       "bttsProbDisplay": "80.00%",
       "over25ProbDisplay": "90.00%",
-      "confidence": 75,
+      "confidence": 80,
       "time": "15:45",
       "matchSemantic": "fcgronin-vs-spartaro-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -7362,48 +7314,49 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 80,
-          "bttsProb": 0.8,
-          "homeLambda": 2.25,
-          "awayLambda": 1.67,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
           "confidence": 75,
-          "over25Prob": 0.75,
+          "bttsProb": 0.75,
           "homeLambda": 2.25,
           "awayLambda": 1.67,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
           "proba": 0.75
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 75,
+          "over25Prob": 0.78,
+          "homeLambda": 2.25,
+          "awayLambda": 1.67,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.78
         }
       ],
-      "bttsProb": 0.8,
-      "over25Prob": 0.75,
+      "bttsProb": 0.75,
+      "over25Prob": 0.78,
       "homeLambda": 2.25,
       "awayLambda": 1.67,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Sparta Rotterdam totalise un taux Over 2.5 de 100% sur son échantillon récent.",
-      "ai_analysis": "Cette rencontre d'Eredivisie présente des indicateurs parfaits pour le marché des buts, avec un taux Over 2.5 empirique culminant à 90%. FC Groningen et Sparta Rotterdam s'illustrent par des rencontres très animées, soutenues par des moyennes de buts respectives de 2.25 et 1.67. Les statistiques défensives des deux clubs confirment la forte probabilité d'une partie prolifique en tableau d'affichage.",
-      "ai_analysis_en": "This Eredivisie fixture presents perfect indicators for the goals market, with an empirical Over 2.5 rate reaching 90%. FC Groningen and Sparta Rotterdam consistently feature high-scoring matches, supported by respective goal averages of 2.25 and 1.67. Both clubs' defensive statistics strongly confirm the high probability of a high-scoring affair.",
-      "ai_form_summary": "FC Groningen : N-D-V-V-N (2V-2N-1D), 13 buts pour, 9 buts contre. Sparta Rotterdam : D-V-N-D-D (1V-1N-3D), 8 buts pour, 15 buts contre.",
-      "ai_form_summary_en": "FC Groningen: D-L-W-W-D (2W-2D-1L), 13 goals for, 9 goals against. Sparta Rotterdam: L-W-D-L-L (1W-1D-3L), 8 goals for, 15 goals against.",
+      "ai_key_fact": "Sparta Rotterdam présente un taux Over 2.5 de 100% et un BTTS à 80%.",
+      "ai_analysis": "Cette confrontation entre le FC Groningen et le Sparta Rotterdam présente des indicateurs offensifs très élevés. Le taux Over 2.5 atteint 90% empiriquement, porté par une performance de 100% pour le Sparta sur son échantillon. Associé à un BTTS de 80% des deux côtés et des défenses fragiles, les conditions sont réunies pour un match très prolifique en buts.",
+      "ai_analysis_en": "This clash between FC Groningen and Sparta Rotterdam presents very high offensive indicators. The empirical Over 2.5 rate reaches 90%, driven by Sparta's 100% rate in their sample. Combined with an 80% BTTS rate for both sides and fragile defenses, conditions are set for a high-scoring match.",
+      "ai_form_summary": "Groningen (2V-2N-1D) et Sparta (1V-1N-3D) s'illustrent par des matchs très ouverts et riches en buts.",
+      "ai_form_summary_en": "Groningen (2W-2D-1L) and Sparta (1W-1D-3L) are characterized by very open, high-scoring matches.",
       "ai_reasons": [
-        "Taux Over 2.5 empirique exceptionnel de 90% pour cette affiche d'Eredivisie.",
+        "Taux Over 2.5 empirique exceptionnel de 90% pour cette affiche.",
         "Sparta Rotterdam affiche un taux Over 2.5 de 100% sur ses derniers matchs.",
-        "Moyennes de buts élevées pour les deux équipes (2.25 pour FC Groningen et 1.67 pour Sparta Rotterdam)."
+        "Taux BTTS empirique de 80% pour les deux formations."
       ],
       "ai_risks": [
-        "Les deux équipes affichent des fragilités défensives importantes avec respectivement 21 et 24 buts encaissés.",
-        "La forme récente du FC Groningen montre une alternance de résultats nuls et de défaites."
+        "Les défenses sont perméables (21 buts encaissés par Groningen, 24 par Sparta), augmentant la variance.",
+        "La cote de Groningen à domicile est fixée à 1.74."
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -7622,7 +7575,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.77 · N 3.95 · 2 3.95 · O2.5 1.56"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.77 · N 3.95 · 2 3.95 · O2.5 1.56",
+      "status": "PENDING"
     },
     {
       "id": "racingsa-vs-realmadr-2026-11-01",
@@ -7836,7 +7790,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 9 · N 7 · 2 1.24"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9 · N 7 · 2 1.24",
+      "status": "PENDING"
     },
     {
       "id": "parisfc-vs-asmonaco-2026-11-01",
@@ -8050,7 +8005,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.25 · N 3.55 · 2 2.95 · O2.5 1.69"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.25 · N 3.55 · 2 2.95 · O2.5 1.69",
+      "status": "PENDING"
     },
     {
       "id": "telstar-vs-fcutrech-2026-11-01",
@@ -8264,7 +8220,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.75 · N 3.6 · 2 2.25"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.75 · N 3.6 · 2 2.25",
+      "status": "PENDING"
     },
     {
       "id": "athletic-vs-realsoci-2026-11-01",
@@ -8273,12 +8230,12 @@
       "away": "Real Sociedad",
       "league": "LaLiga",
       "date": "2026-11-01",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.65,
+      "proba": 0.6,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 65,
+      "confidence": 60,
       "time": "20:00",
       "matchSemantic": "athletic-vs-realsoci-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -8311,7 +8268,7 @@
         "draw": 3.65,
         "away": 3.3,
         "over25": 1.71,
-        "under25": 2.1
+        "under25": 2.05
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.67,
@@ -8433,48 +8390,49 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
-          "homeLambda": 2,
-          "awayLambda": 3.67,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
           "confidence": 65,
-          "over25Prob": 0.65,
+          "bttsProb": 0.65,
           "homeLambda": 2,
           "awayLambda": 3.67,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
           "proba": 0.65
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "over25Prob": 0.675,
+          "homeLambda": 2,
+          "awayLambda": 3.67,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.675
         }
       ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.65,
+      "bttsProb": 0.65,
+      "over25Prob": 0.675,
       "homeLambda": 2,
       "awayLambda": 3.67,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Real Sociedad tourne à 3.67 buts de moyenne par match avec un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
-      "ai_analysis": "Ce derby de LaLiga oppose l'Athletic Club, plutôt prudent (40% d'Over 2.5), à une équipe de Real Sociedad très offensive et spectaculaire. Les visiteurs affichent une moyenne impressionnante de 3.67 buts par match et un taux Over 2.5 de 100% sur leurs 5 dernières sorties. Bien que Bilbao puisse opposer un bloc plus strict, le profil de Sociedad incline logiquement vers un match prolifique.",
-      "ai_analysis_en": "This LaLiga derby pits a cautious Athletic Club (40% Over 2.5) against a highly offensive and entertaining Real Sociedad side. The visitors boast an impressive average of 3.67 goals per match and a 100% Over 2.5 rate in their last 5 outings. Although Bilbao can deploy a stricter defensive block, Sociedad's profile naturally tilts this toward a high-scoring affair.",
-      "ai_form_summary": "Athletic Club est en dedans (1W-3D-1L) tandis que Real Sociedad enchaîne les succès (4W-0D-1L) avec une attaque prolifique.",
-      "ai_form_summary_en": "Athletic Club struggles for wins (1W-3D-1L) while Real Sociedad strings successes together (4W-0D-1L) with a prolific attack.",
+      "ai_key_fact": "Real Sociedad présente un taux de 100% d'Over 2.5 sur ses 5 derniers matchs et une moyenne de 3.67 buts.",
+      "ai_analysis": "L'analyse met en avant un contraste entre l'Athletic Club, plutôt prudent (40% de BTTS), et Real Sociedad, très offensif (100% d'Over 2.5 et 3.67 buts de moyenne). Les statistiques globales soutiennent le marché combiné avec un taux empirique de 70% sur l'Over 2.5, porté par la dynamique de l'équipe visiteuse.",
+      "ai_analysis_en": "The analysis highlights a contrast between Athletic Club, which plays lower-scoring games (40% BTTS), and Real Sociedad, which is very offensive (100% Over 2.5 and 3.67 average goals). Overall stats support the combined market with an empirical Over 2.5 rate of 70%, driven by the visiting team's momentum.",
+      "ai_form_summary": "Athletic Club (1W-3D-1L, taux BTTS 40%) contre Real Sociedad (4W-0D-1L, taux Over 2.5 de 100%).",
+      "ai_form_summary_en": "Athletic Club (1W-3D-1L, 40% BTTS rate) against Real Sociedad (4W-0D-1L, 100% Over 2.5 rate).",
       "ai_reasons": [
-        "Taux Over 2.5 empirique à 70% et 100% de taux Over sur les 5 derniers matchs de Real Sociedad.",
-        "Moyenne de buts de Real Sociedad à l'extérieur particulièrement haute (3.67 buts par match).",
-        "Real Sociedad affiche 19 buts marqués et 18 encaissés en 10 matchs joués."
+        "Taux Over 2.5 empirique de 70% et taux BTTS à 60% pour ce match.",
+        "Real Sociedad affiche un taux de 100% sur l'Over 2.5 et 80% sur le BTTS lors de ses 5 derniers matchs.",
+        "Moyennes de buts par match élevées pour l'équipe extérieure (3.67)."
       ],
       "ai_risks": [
-        "Athletic Club propose des matchs plus fermés avec un taux Over 2.5 à 40% sur ses 5 derniers matchs.",
-        "Le taux BTTS empirique de Bilbao est plus modeste à 40%."
+        "Athletic Club propose des matchs plus fermés avec un taux de 40% sur le BTTS et l'Over 2.5.",
+        "L'historique récent de l'Athletic Club montre une attaque plus timide (6 buts marqués lors des 5 derniers matchs)."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -8692,7 +8650,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.65 · 2 2.9"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.65 · 2 2.9",
+      "status": "PENDING"
     },
     {
       "id": "marseill-vs-toulouse-2026-11-01",
@@ -8907,7 +8866,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.55 · O2.5 1.54"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.55 · O2.5 1.54",
+      "status": "PENDING"
     }
   ],
   "vipPreview": [
@@ -12235,55 +12195,48 @@
       "away": "Houston Dynamo FC",
       "league": "MLS",
       "date": "2026-10-29",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.62,
-      "bttsProbDisplay": "60.00%",
-      "over25ProbDisplay": "60.00%",
-      "confidence": 62,
+      "proba": 0.5376,
+      "bttsProbDisplay": "53.76%",
+      "over25ProbDisplay": "55.40%",
+      "confidence": 54,
       "time": "02:30",
       "matchSemantic": "seattles-vs-houstond-2026-10-29",
       "source": "poisson-v92-real-data",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9726.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6077.png",
       "tier": "GOLD",
-      "reliabilityScore": 85,
+      "reliabilityScore": 79.77,
       "dataQuality": "HIGH",
       "dataSource": "ESPN_TEAM_SCHEDULE",
       "matchCountHome": 8,
       "matchCountAway": 8,
       "h2hAvailable": false,
-      "xgHome": 2,
-      "xgAway": 1.67,
-      "xgTotal": 3.67,
-      "formBTTS": 60,
-      "analysis": "Seattle Sounders FC : forme N-N-D-V-V (2V 2N 1D, 8 buts marqués / 5 encaissés sur 5) · Houston Dynamo FC : forme N-N-N-N-D (0V 4N 1D, 7 buts marqués / 9 encaissés sur 5). Classement : Seattle Sounders FC 7e (43 pts), Houston Dynamo FC 5e (48 pts). Stats empiriques (forme récente) : buts moy. 3.67, BTTS 60.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.77 / N: 3.85 / 2: 3.95 · Over 2.5: 1.61. Fiabilité 85%.",
+      "xgHome": 1.9,
+      "xgAway": 1,
+      "xgTotal": 2.9,
+      "formBTTS": 70,
+      "analysis": "Seattle Sounders FC : forme N-D-V-V-V (3V 1N 1D, 9 buts marqués / 4 encaissés sur 5) · Houston Dynamo FC : forme N-N-N-D-N (0V 4N 1D, 9 buts marqués / 11 encaissés sur 5). Classement : Seattle Sounders FC 7e (42 pts), Houston Dynamo FC 5e (47 pts). Modèle Poisson : xG cumulé 2.9, BTTS 53.8%, Over 2.5 55.4%. Fiabilité 79.77%.",
       "analysisData": {
-        "bttsProb": 0.6,
-        "over25Prob": 0.6,
-        "homeLambda": 2,
-        "awayLambda": 1.67,
-        "xgTotal": 3.67
+        "bttsProb": 0.5376,
+        "over25Prob": 0.554,
+        "homeLambda": 1.9,
+        "awayLambda": 1,
+        "xgTotal": 2.9
       },
-      "estimatedCote": 1.67,
-      "estimatedCoteOver": 1.67,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 1.77,
-        "draw": 3.85,
-        "away": 3.95,
-        "over25": 1.61,
-        "under25": 2.3
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.67,
+      "estimatedCote": 1.86,
+      "estimatedCoteOver": 1.8,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.86,
       "formHome": {
-        "last5String": "N-N-D-V-V",
-        "wins": 2,
-        "draws": 2,
+        "last5String": "N-D-V-V-V",
+        "wins": 3,
+        "draws": 1,
         "losses": 1,
-        "goalsFor": 8,
-        "goalsAgainst": 5,
+        "goalsFor": 9,
+        "goalsAgainst": 4,
         "bttsRate": 0.6,
         "over25Rate": 0.6,
         "cleanSheets": 1,
@@ -12291,16 +12244,16 @@
         "count": 5
       },
       "formAway": {
-        "last5String": "N-N-N-N-D",
+        "last5String": "N-N-N-D-N",
         "wins": 0,
         "draws": 4,
         "losses": 1,
-        "goalsFor": 7,
-        "goalsAgainst": 9,
-        "bttsRate": 0.6,
-        "over25Rate": 0.6,
-        "cleanSheets": 1,
-        "failedToScore": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 11,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
         "count": 5
       },
       "last5Home": [
@@ -12379,15 +12332,15 @@
       ],
       "standingsHome": {
         "rank": 7,
-        "points": 43,
-        "played": 31,
-        "gf": 41,
-        "ga": 39
+        "points": 42,
+        "played": 30,
+        "gf": 39,
+        "ga": 37
       },
       "standingsAway": {
         "rank": 5,
-        "points": 48,
-        "played": 31,
+        "points": 47,
+        "played": 30,
         "gf": 41,
         "ga": 39
       },
@@ -12395,52 +12348,36 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
-          "homeLambda": 2,
-          "awayLambda": 1.67,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "confidence": 54,
+          "bttsProb": 0.5376,
+          "homeLambda": 1.9,
+          "awayLambda": 1
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 62,
-          "over25Prob": 0.62,
-          "homeLambda": 2,
-          "awayLambda": 1.67,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.62
+          "confidence": 55,
+          "over25Prob": 0.554,
+          "homeLambda": 1.9,
+          "awayLambda": 1
         }
       ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.62,
-      "homeLambda": 2,
-      "awayLambda": 1.67,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "Seattle Sounders et Houston Dynamo affichent tous deux un taux Over 2.5 de 60% sur leurs 5 derniers matchs.",
-      "ai_analysis": "Les données observées indiquent des tendances similaires pour les deux formations avec 60% de matchs dépassant les 2.5 buts. Les moyennes offensives combinées à un taux empirique concordant soutiennent un pronostic favorable sur l'Over 2.5.",
-      "ai_analysis_en": "Observed data indicate similar trends for both teams with 60% of matches exceeding 2.5 goals. Combined offensive averages and a matching empirical rate support a favorable forecast for Over 2.5.",
-      "ai_form_summary": "Seattle Sounders : 2V-2N-1D (8 buts pour, 5 contre). Houston Dynamo : 0V-4N-1D (7 buts pour, 9 contre).",
-      "ai_form_summary_en": "Seattle Sounders: 2W-2D-1L (8 goals for, 5 against). Houston Dynamo: 0W-4D-1L (7 goals for, 9 against).",
-      "ai_reasons": [
-        "Taux Over 2.5 empirique établi à 60%.",
-        "Les deux équipes affichent un taux d'Over 2.5 de 60% sur leurs 5 derniers matchs.",
-        "Moyennes de buts correctes de 2 pour Seattle Sounders et 1.67 pour Houston Dynamo."
-      ],
-      "ai_risks": [
-        "Houston Dynamo reste sur une série de matchs nuls prudents.",
-        "Le classement serré pourrait inciter à la prudence en début de rencontre."
-      ],
-      "ai_confidence": "medium",
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.77 · N 3.85 · 2 3.95 · O2.5 1.61"
+      "bttsProb": 0.5376,
+      "over25Prob": 0.554,
+      "homeLambda": 1.9,
+      "awayLambda": 1,
+      "ai_key_fact": "Houston Dynamo enchaîne quatre nuls sur ses cinq derniers matchs.",
+      "ai_analysis": "Les xG du modèle s'élèvent à 1.9 pour Seattle Sounders et 1.0 pour Houston Dynamo, indiquant un ascendant offensif théorique pour l'équipe à domicile. La probabilité BTTS est calculée à 53.8% et celle de l'Over 2.5 à 55.4%, dans un contexte où Seattle occupe la 7e place et Houston la 5e au classement général. Seattle Sounders a inscrit 9 buts pour 4 encaissés récemment, illustrant une solidité déficiente chez l'adversaire du jour qui a concédé 11 buts sur la même période. L'indice de fiabilité du modèle atteint 79.77%.",
+      "ai_form_summary": "Seattle Sounders affiche une dynamique positive de trois victoires sur ses cinq derniers matchs, assortie d'un taux BTTS de 0.6. Houston Dynamo stagne avec quatre nuls et une défaite, mais maintient un taux BTTS élevé de 0.8.",
+      "ai_key_fact_en": "Houston Dynamo chains four draws across their last five matches.",
+      "ai_analysis_en": "The model's xG values stand at 1.9 for Seattle Sounders and 1.0 for Houston Dynamo, indicating a theoretical offensive edge for the home team. The BTTS probability is calculated at 53.8% and the Over 2.5 at 55.4%, in a context where Seattle ranks 7th and Houston 5th in the overall standings. Seattle Sounders scored 9 goals while conceding 4 recently, highlighting defensive vulnerabilities in today's opponent who conceded 11 goals over the same period. The model's reliability index reaches 79.77%.",
+      "ai_form_summary_en": "Seattle Sounders displays a positive momentum of three wins in their last five matches, coupled with a 0.6 BTTS rate. Houston Dynamo stagnates with four draws and one defeat, yet maintains a high BTTS rate of 0.8.",
+      "ai_source": "gemini-v2",
+      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+      "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
+      "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
+      "status": "PENDING"
     },
     {
       "id": "sanjosee-vs-colorado-2026-10-29",
@@ -12664,71 +12601,64 @@
       "away": "Columbus Crew",
       "league": "MLS",
       "date": "2026-10-29",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.68,
-      "bttsProbDisplay": "60.00%",
-      "over25ProbDisplay": "70.00%",
-      "confidence": 68,
+      "proba": 0.5714,
+      "bttsProbDisplay": "57.14%",
+      "over25ProbDisplay": "54.24%",
+      "confidence": 57,
       "time": "00:30",
       "matchSemantic": "fcdallas-vs-columbus-2026-10-29",
       "source": "poisson-v92-real-data",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/185.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/183.png",
       "tier": "GOLD",
-      "reliabilityScore": 82.5,
+      "reliabilityScore": 81.25,
       "dataQuality": "HIGH",
       "dataSource": "ESPN_TEAM_SCHEDULE",
       "matchCountHome": 8,
       "matchCountAway": 8,
       "h2hAvailable": false,
-      "xgHome": 1.4,
-      "xgAway": 1.75,
-      "xgTotal": 3.15,
-      "formBTTS": 60,
-      "analysis": "FC Dallas : forme V-N-V-D-V (3V 1N 1D, 9 buts marqués / 5 encaissés sur 5) · Columbus Crew : forme V-V-V-D-V (4V 0N 1D, 13 buts marqués / 7 encaissés sur 5). Classement : FC Dallas 2e (54 pts), Columbus Crew 10e (38 pts). Stats empiriques (forme récente) : buts moy. 3.15, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.95 / N: 3.9 / 2: 3.25. Fiabilité 82.5%.",
+      "xgHome": 1.57,
+      "xgAway": 1.27,
+      "xgTotal": 2.85,
+      "formBTTS": 50,
+      "analysis": "FC Dallas : forme N-V-D-V-N (2V 2N 1D, 6 buts marqués / 5 encaissés sur 5) · Columbus Crew : forme V-V-D-V-V (4V 0N 1D, 11 buts marqués / 5 encaissés sur 5). Classement : FC Dallas 3e (51 pts), Columbus Crew 11e (35 pts). Modèle Poisson : xG cumulé 2.85, BTTS 57.1%, Over 2.5 54.2%. Fiabilité 81.25%.",
       "analysisData": {
-        "bttsProb": 0.6,
-        "over25Prob": 0.7,
-        "homeLambda": 1.4,
-        "awayLambda": 1.75,
-        "xgTotal": 3.15
+        "bttsProb": 0.5714,
+        "over25Prob": 0.5424,
+        "homeLambda": 1.57,
+        "awayLambda": 1.27,
+        "xgTotal": 2.85
       },
-      "estimatedCote": 1.67,
-      "estimatedCoteOver": 1.43,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 1.95,
-        "draw": 3.9,
-        "away": 3.25,
-        "over25": null,
-        "under25": null
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.67,
+      "estimatedCote": 1.75,
+      "estimatedCoteOver": 1.84,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.75,
       "formHome": {
-        "last5String": "V-N-V-D-V",
-        "wins": 3,
-        "draws": 1,
+        "last5String": "N-V-D-V-N",
+        "wins": 2,
+        "draws": 2,
         "losses": 1,
-        "goalsFor": 9,
+        "goalsFor": 6,
         "goalsAgainst": 5,
         "bttsRate": 0.4,
-        "over25Rate": 0.6,
+        "over25Rate": 0.4,
         "cleanSheets": 3,
-        "failedToScore": 0,
+        "failedToScore": 1,
         "count": 5
       },
       "formAway": {
-        "last5String": "V-V-V-D-V",
+        "last5String": "V-V-D-V-V",
         "wins": 4,
         "draws": 0,
         "losses": 1,
-        "goalsFor": 13,
-        "goalsAgainst": 7,
-        "bttsRate": 0.8,
-        "over25Rate": 0.8,
-        "cleanSheets": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
         "failedToScore": 0,
         "count": 5
       },
@@ -12807,69 +12737,52 @@
         }
       ],
       "standingsHome": {
-        "rank": 2,
-        "points": 54,
-        "played": 31,
-        "gf": 58,
+        "rank": 3,
+        "points": 51,
+        "played": 30,
+        "gf": 55,
         "ga": 47
       },
       "standingsAway": {
-        "rank": 10,
-        "points": 38,
-        "played": 31,
-        "gf": 50,
-        "ga": 49
+        "rank": 11,
+        "points": 35,
+        "played": 30,
+        "gf": 46,
+        "ga": 47
       },
       "predictions": [
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
-          "homeLambda": 1.4,
-          "awayLambda": 1.75,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "confidence": 57,
+          "bttsProb": 0.5714,
+          "homeLambda": 1.57,
+          "awayLambda": 1.27
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 68,
-          "over25Prob": 0.68,
-          "homeLambda": 1.4,
-          "awayLambda": 1.75,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.68
+          "confidence": 54,
+          "over25Prob": 0.5424,
+          "homeLambda": 1.57,
+          "awayLambda": 1.27
         }
       ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.68,
-      "homeLambda": 1.4,
-      "awayLambda": 1.75,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "Columbus Crew présente un taux d'Over 2,5 de 0.8 et une moyenne de 1.75 buts par match.",
-      "ai_analysis": "Les statistiques de Columbus Crew penchent nettement vers un match prolifique, avec un taux d'Over 2,5 de 0.8 et 1.75 buts par match. Bien que FC Dallas montre une rigueur défensive relative avec un taux BTTS de 0.4, le profil offensif des visiteurs et l'indicateur empirique global de 0.7 soutiennent une tendance favorable à plus de 2,5 buts.",
-      "ai_analysis_en": "Columbus Crew's statistics lean towards a high-scoring match, featuring an Over 2.5 rate of 0.8 and 1.75 goals per game. Although FC Dallas shows defensive stability with a 0.4 BTTS rate, the visitors' attacking profile and the overall empirical Over 2.5 rate of 0.7 support a trend toward more than 2.5 goals.",
-      "ai_form_summary": "FC Dallas : 3V-1D-1L, 9 buts pour, 5 contre. Columbus Crew : 4V-0D-1L, 13 buts pour, 7 contre.",
-      "ai_form_summary_en": "FC Dallas: 3W-1D-1L, 9 goals for, 5 against. Columbus Crew: 4W-0D-1L, 13 goals for, 7 against.",
-      "ai_reasons": [
-        "Columbus Crew affiche un taux d'Over 2,5 élevé de 0.8 sur ses 8 derniers matchs.",
-        "L'Over 2,5 empirique global du match atteint 0.7.",
-        "Columbus Crew marque en moyenne 1.75 buts par match."
-      ],
-      "ai_risks": [
-        "Le taux BTTS de FC Dallas est modéré à 0.4.",
-        "FC Dallas concède peu de buts récemment avec seulement 5 buts encaissés sur ses 5 derniers matchs."
-      ],
-      "ai_confidence": "medium",
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.95 · N 3.9 · 2 3.25",
+      "bttsProb": 0.5714,
+      "over25Prob": 0.5424,
+      "homeLambda": 1.57,
+      "awayLambda": 1.27,
+      "ai_key_fact": "Columbus Crew totalise 4 victoires sur ses 5 derniers matchs.",
+      "ai_analysis": "Le modèle évalue les xG à 1.57 pour le FC Dallas et 1.27 pour Columbus Crew, traduisant une production offensive intéressante pour les locaux. La probabilité BTTS est estimée à 57.1% et l'Over 2.5 à 54.2%, s'appuyant sur le classement des deux équipes où Dallas pointe à la 3e place et Columbus à la 11e. FC Dallas s'appuie sur une défense relativement hermétique avec trois clean sheets récents, tandis que Columbus Crew carbure à l'offensive avec 11 buts marqués sur ses cinq dernières sorties. La fiabilité globale du modèle s'élève à 81.25%.",
+      "ai_form_summary": "FC Dallas enregistre un bilan de deux victoires, deux nuls et une défaite avec un taux BTTS de 0.4. En face, Columbus Crew montre une dynamique solide avec quatre succès en cinq rencontres et un taux BTTS de 0.6.",
+      "ai_key_fact_en": "Columbus Crew totals 4 wins in their last 5 matches.",
+      "ai_analysis_en": "The model evaluates xG at 1.57 for FC Dallas and 1.27 for Columbus Crew, reflecting an interesting offensive output for the hosts. The BTTS probability is estimated at 57.1% and the Over 2.5 at 54.2%, based on the teams' standings where Dallas sits in 3rd place and Columbus in 11th. FC Dallas relies on a relatively watertight defense with three recent clean sheets, while Columbus Crew thrives offensively with 11 goals scored in their last five appearances. The overall reliability of the model stands at 81.25%.",
+      "ai_form_summary_en": "FC Dallas records a record of two wins, two draws, and one defeat with a 0.4 BTTS rate. Conversely, Columbus Crew displays a solid dynamic with four successes in five outings and a 0.6 BTTS rate.",
+      "ai_source": "gemini-v2",
+      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+      "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
+      "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
       "status": "PENDING"
     },
     {
@@ -13664,6 +13577,220 @@
       "status": "PENDING"
     },
     {
+      "id": "nice-vs-staderen-2026-10-30",
+      "match": "Nice vs Stade Rennais",
+      "home": "Nice",
+      "away": "Stade Rennais",
+      "league": "Ligue 1",
+      "date": "2026-10-30",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.72,
+      "bttsProbDisplay": "60.00%",
+      "over25ProbDisplay": "80.00%",
+      "confidence": 72,
+      "time": "18:00",
+      "matchSemantic": "nice-vs-staderen-2026-10-30",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2502.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png",
+      "tier": "GOLD",
+      "reliabilityScore": 82.5,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.25,
+      "xgAway": 1.67,
+      "xgTotal": 2.92,
+      "formBTTS": 60,
+      "analysis": "Nice : forme V-D-V-V-D (3V 0N 2D, 7 buts marqués / 6 encaissés sur 5) · Stade Rennais : forme V-D-V-D-V (3V 0N 2D, 11 buts marqués / 9 encaissés sur 5). Classement : Nice 10e (11 pts), Stade Rennais 2e (16 pts). Stats empiriques (forme récente) : buts moy. 2.92, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.75 / N: 3.7 / 2: 2.35. Fiabilité 82.5%.",
+      "analysisData": {
+        "bttsProb": 0.6,
+        "over25Prob": 0.8,
+        "homeLambda": 1.25,
+        "awayLambda": 1.67,
+        "xgTotal": 2.92
+      },
+      "estimatedCote": 1.67,
+      "estimatedCoteOver": 1.25,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.75,
+        "draw": 3.7,
+        "away": 2.35,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.67,
+      "formHome": {
+        "last5String": "V-D-V-V-D",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 6,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-V-D-V",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 11,
+        "goalsAgainst": 9,
+        "bttsRate": 0.4,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Brest",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Lyon",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Strasbourg",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Lille",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "AJ Auxerre",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Strasbourg",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Paris FC",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "AJ Auxerre",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Lyon",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Marseille",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 10,
+        "points": 11,
+        "played": 8,
+        "gf": 8,
+        "ga": 10
+      },
+      "standingsAway": {
+        "rank": 2,
+        "points": 16,
+        "played": 8,
+        "gf": 18,
+        "ga": 14
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 60,
+          "bttsProb": 0.6,
+          "homeLambda": 1.25,
+          "awayLambda": 1.67,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 72,
+          "over25Prob": 0.72,
+          "homeLambda": 1.25,
+          "awayLambda": 1.67,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.72
+        }
+      ],
+      "bttsProb": 0.6,
+      "over25Prob": 0.72,
+      "homeLambda": 1.25,
+      "awayLambda": 1.67,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Nice et le Stade Rennais affichent tous deux un taux Over 2.5 de 80% sur leurs 5 derniers matchs.",
+      "ai_analysis": "L'affiche de Ligue 1 entre Nice et le Stade Rennais se distingue par une forte propension aux matchs prolifiques. Les deux formations affichent un taux Over 2.5 de 80% sur leurs cinq dernières rencontres respectives, appuyé par un taux empirique global également à 80%. Avec des moyennes de buts par match de 1.25 pour Nice et 1.67 pour Rennes, la configuration statistique est idéale pour viser plus de 2.5 buts.",
+      "ai_analysis_en": "The Ligue 1 fixture between Nice and Stade Rennais stands out for a strong propensity towards high-scoring matches. Both teams show an 80% Over 2.5 rate in their respective last five games, backed by an overall empirical rate also at 80%. With goals per match averages of 1.25 for Nice and 1.67 for Rennes, the statistical setup is ideal for targeting over 2.5 goals.",
+      "ai_form_summary": "Nice : 3W-0D-2L sur les 5 derniers, 7 buts pour, 6 contre. Stade Rennais : 3W-0D-2L sur les 5 derniers, 11 buts pour, 9 contre.",
+      "ai_form_summary_en": "Nice: 3W-0D-2L in last 5, 7 goals for, 6 against. Stade Rennais: 3W-0D-2L in last 5, 11 goals for, 9 against.",
+      "ai_reasons": [
+        "Taux empirique Over 2.5 très élevé à 80%.",
+        "Nice affiche un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
+        "Stade Rennais présente également un taux Over 2.5 de 80% sur sa forme récente."
+      ],
+      "ai_risks": [
+        "Le taux BTTS empirique est légèrement plus bas à 60%.",
+        "Rennes a un taux BTTS de seulement 40% sur ses 5 derniers matchs malgré ses scores élevés."
+      ],
+      "ai_confidence": "high",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.75 · N 3.7 · 2 2.35"
+    },
+    {
       "id": "casapia-vs-sporting-2026-10-30",
       "match": "Casa Pia vs Sporting CP",
       "home": "Casa Pia",
@@ -14265,221 +14392,6 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 2.65, nul: 3.3, 2: 2.6, Over 2.5: 1.87.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 2.65, draw: 3.3, 2: 2.6, Over 2.5: 1.87.",
-      "status": "PENDING"
-    },
-    {
-      "id": "svelvers-vs-mainz-2026-10-30",
-      "match": "SV Elversberg vs Mainz",
-      "home": "SV Elversberg",
-      "away": "Mainz",
-      "league": "Bundesliga",
-      "date": "2026-10-30",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "proba": 0.65,
-      "bttsProbDisplay": "60.00%",
-      "over25ProbDisplay": "70.00%",
-      "confidence": 65,
-      "time": "19:30",
-      "matchSemantic": "svelvers-vs-mainz-2026-10-30",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10388.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2950.png",
-      "tier": "GOLD",
-      "reliabilityScore": 76,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 7,
-      "matchCountAway": 7,
-      "h2hAvailable": false,
-      "xgHome": 2.67,
-      "xgAway": 3.33,
-      "xgTotal": 6,
-      "formBTTS": 60,
-      "analysis": "SV Elversberg : forme D-V-D-N-D (1V 1N 3D, 5 buts marqués / 10 encaissés sur 5) · Mainz : forme D-V-D-V-D (2V 0N 3D, 11 buts marqués / 13 encaissés sur 5). Classement : SV Elversberg 8e (10 pts), Mainz 7e (10 pts). Stats empiriques (forme récente) : buts moy. 6, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.1 / N: 3.6 / 2: 2.05. Fiabilité 76%.",
-      "analysisData": {
-        "bttsProb": 0.6,
-        "over25Prob": 0.7,
-        "homeLambda": 2.67,
-        "awayLambda": 3.33,
-        "xgTotal": 6
-      },
-      "estimatedCote": 1.67,
-      "estimatedCoteOver": 1.43,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 3.1,
-        "draw": 3.6,
-        "away": 2.05,
-        "over25": null,
-        "under25": null
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.67,
-      "formHome": {
-        "last5String": "D-V-D-N-D",
-        "wins": 1,
-        "draws": 1,
-        "losses": 3,
-        "goalsFor": 5,
-        "goalsAgainst": 10,
-        "bttsRate": 0.4,
-        "over25Rate": 0.6,
-        "cleanSheets": 1,
-        "failedToScore": 3,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "D-V-D-V-D",
-        "wins": 2,
-        "draws": 0,
-        "losses": 3,
-        "goalsFor": 11,
-        "goalsAgainst": 13,
-        "bttsRate": 0.8,
-        "over25Rate": 0.8,
-        "cleanSheets": 1,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-24",
-          "opponent": "RB Leipzig",
-          "venue": "A",
-          "score": "0-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "FC Augsburg",
-          "venue": "H",
-          "score": "4-3",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "1. FC Union Berlin",
-          "venue": "A",
-          "score": "0-1",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Schalke 04",
-          "venue": "A",
-          "score": "0-0",
-          "result": "D"
-        },
-        {
-          "date": "2026-09-13",
-          "opponent": "Bayern Munich",
-          "venue": "H",
-          "score": "1-2",
-          "result": "L"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-24",
-          "opponent": "Werder Bremen",
-          "venue": "H",
-          "score": "2-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "Schalke 04",
-          "venue": "A",
-          "score": "1-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Bayer Leverkusen",
-          "venue": "H",
-          "score": "3-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-19",
-          "opponent": "Borussia Mönchengladbach",
-          "venue": "A",
-          "score": "4-3",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-12",
-          "opponent": "Eintracht Frankfurt",
-          "venue": "H",
-          "score": "1-3",
-          "result": "L"
-        }
-      ],
-      "standingsHome": {
-        "rank": 8,
-        "points": 10,
-        "played": 7,
-        "gf": 12,
-        "ga": 15
-      },
-      "standingsAway": {
-        "rank": 7,
-        "points": 10,
-        "played": 7,
-        "gf": 16,
-        "ga": 13
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
-          "homeLambda": 2.67,
-          "awayLambda": 3.33,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 65,
-          "over25Prob": 0.65,
-          "homeLambda": 2.67,
-          "awayLambda": 3.33,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.65
-        }
-      ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.65,
-      "homeLambda": 2.67,
-      "awayLambda": 3.33,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "Mainz affiche un taux Over 2.5 de 80% sur ses cinq derniers matchs avec de fortes moyennes de buts.",
-      "ai_analysis": "Le duel entre SV Elversberg et Mainz en Bundesliga se distingue par des statistiques de buts particulièrement prolifiques. Les moyennes respectives de 2.67 et 3.33 buts par match, associées à un taux empirique Over 2.5 de 70%, justifient l'orientation vers un match offensif. Bien que la qualité des données soit intermédiaire et que Elversberg montre un BTTS plus mesuré, la dynamique globale reste favorable aux buts.",
-      "ai_analysis_en": "The Bundesliga clash between SV Elversberg and Mainz stands out for particularly prolific scoring statistics. Respective averages of 2.67 and 3.33 goals per match, combined with an empirical Over 2.5 rate of 70%, justify leaning towards an attacking game. Although data quality is medium and Elversberg shows a more modest BTTS rate, the overall momentum favors goals.",
-      "ai_form_summary": "SV Elversberg : D-V-D-N-D (1V-1N-3D, 5 buts pour, 10 contre). Mainz : D-V-D-V-D (2V-0N-3D, 11 buts pour, 13 contre).",
-      "ai_form_summary_en": "SV Elversberg: L-W-L-D-L (1W-1D-3L, 5 GF, 10 GA). Mainz: L-W-L-W-L (2W-0D-3L, 11 GF, 13 GA).",
-      "ai_reasons": [
-        "Taux empirique Over 2.5 établi à 70% sur l'échantillon disponible",
-        "Taux Over 2.5 récent de Mainz à 80% et Elversberg à 60%",
-        "Moyennes de buts élevées avec 2.67 pour l'équipe à domicile et 3.33 pour l'extérieur"
-      ],
-      "ai_risks": [
-        "Qualité de données évaluée à MEDIUM",
-        "Taux BTTS de Elversberg légèrement en retrait à 40%"
-      ],
-      "ai_confidence": "medium",
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.1 · N 3.6 · 2 2.05",
       "status": "PENDING"
     },
     {
@@ -16192,12 +16104,12 @@
       "away": "Sparta Rotterdam",
       "league": "Eredivisie",
       "date": "2026-11-01",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.75,
+      "proba": 0.8,
       "bttsProbDisplay": "80.00%",
       "over25ProbDisplay": "90.00%",
-      "confidence": 75,
+      "confidence": 80,
       "time": "15:45",
       "matchSemantic": "fcgronin-vs-spartaro-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -16352,48 +16264,49 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 80,
-          "bttsProb": 0.8,
-          "homeLambda": 2.25,
-          "awayLambda": 1.67,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
           "confidence": 75,
-          "over25Prob": 0.75,
+          "bttsProb": 0.75,
           "homeLambda": 2.25,
           "awayLambda": 1.67,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
           "proba": 0.75
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 75,
+          "over25Prob": 0.78,
+          "homeLambda": 2.25,
+          "awayLambda": 1.67,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.78
         }
       ],
-      "bttsProb": 0.8,
-      "over25Prob": 0.75,
+      "bttsProb": 0.75,
+      "over25Prob": 0.78,
       "homeLambda": 2.25,
       "awayLambda": 1.67,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Sparta Rotterdam totalise un taux Over 2.5 de 100% sur son échantillon récent.",
-      "ai_analysis": "Cette rencontre d'Eredivisie présente des indicateurs parfaits pour le marché des buts, avec un taux Over 2.5 empirique culminant à 90%. FC Groningen et Sparta Rotterdam s'illustrent par des rencontres très animées, soutenues par des moyennes de buts respectives de 2.25 et 1.67. Les statistiques défensives des deux clubs confirment la forte probabilité d'une partie prolifique en tableau d'affichage.",
-      "ai_analysis_en": "This Eredivisie fixture presents perfect indicators for the goals market, with an empirical Over 2.5 rate reaching 90%. FC Groningen and Sparta Rotterdam consistently feature high-scoring matches, supported by respective goal averages of 2.25 and 1.67. Both clubs' defensive statistics strongly confirm the high probability of a high-scoring affair.",
-      "ai_form_summary": "FC Groningen : N-D-V-V-N (2V-2N-1D), 13 buts pour, 9 buts contre. Sparta Rotterdam : D-V-N-D-D (1V-1N-3D), 8 buts pour, 15 buts contre.",
-      "ai_form_summary_en": "FC Groningen: D-L-W-W-D (2W-2D-1L), 13 goals for, 9 goals against. Sparta Rotterdam: L-W-D-L-L (1W-1D-3L), 8 goals for, 15 goals against.",
+      "ai_key_fact": "Sparta Rotterdam présente un taux Over 2.5 de 100% et un BTTS à 80%.",
+      "ai_analysis": "Cette confrontation entre le FC Groningen et le Sparta Rotterdam présente des indicateurs offensifs très élevés. Le taux Over 2.5 atteint 90% empiriquement, porté par une performance de 100% pour le Sparta sur son échantillon. Associé à un BTTS de 80% des deux côtés et des défenses fragiles, les conditions sont réunies pour un match très prolifique en buts.",
+      "ai_analysis_en": "This clash between FC Groningen and Sparta Rotterdam presents very high offensive indicators. The empirical Over 2.5 rate reaches 90%, driven by Sparta's 100% rate in their sample. Combined with an 80% BTTS rate for both sides and fragile defenses, conditions are set for a high-scoring match.",
+      "ai_form_summary": "Groningen (2V-2N-1D) et Sparta (1V-1N-3D) s'illustrent par des matchs très ouverts et riches en buts.",
+      "ai_form_summary_en": "Groningen (2W-2D-1L) and Sparta (1W-1D-3L) are characterized by very open, high-scoring matches.",
       "ai_reasons": [
-        "Taux Over 2.5 empirique exceptionnel de 90% pour cette affiche d'Eredivisie.",
+        "Taux Over 2.5 empirique exceptionnel de 90% pour cette affiche.",
         "Sparta Rotterdam affiche un taux Over 2.5 de 100% sur ses derniers matchs.",
-        "Moyennes de buts élevées pour les deux équipes (2.25 pour FC Groningen et 1.67 pour Sparta Rotterdam)."
+        "Taux BTTS empirique de 80% pour les deux formations."
       ],
       "ai_risks": [
-        "Les deux équipes affichent des fragilités défensives importantes avec respectivement 21 et 24 buts encaissés.",
-        "La forme récente du FC Groningen montre une alternance de résultats nuls et de défaites."
+        "Les défenses sont perméables (21 buts encaissés par Groningen, 24 par Sparta), augmentant la variance.",
+        "La cote de Groningen à domicile est fixée à 1.74."
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -16612,7 +16525,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.77 · N 3.95 · 2 3.95 · O2.5 1.56"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.77 · N 3.95 · 2 3.95 · O2.5 1.56",
+      "status": "PENDING"
     },
     {
       "id": "racingsa-vs-realmadr-2026-11-01",
@@ -16826,7 +16740,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 9 · N 7 · 2 1.24"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9 · N 7 · 2 1.24",
+      "status": "PENDING"
     },
     {
       "id": "parisfc-vs-asmonaco-2026-11-01",
@@ -17040,7 +16955,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.25 · N 3.55 · 2 2.95 · O2.5 1.69"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.25 · N 3.55 · 2 2.95 · O2.5 1.69",
+      "status": "PENDING"
     },
     {
       "id": "telstar-vs-fcutrech-2026-11-01",
@@ -17254,7 +17170,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.75 · N 3.6 · 2 2.25"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.75 · N 3.6 · 2 2.25",
+      "status": "PENDING"
     },
     {
       "id": "athletic-vs-realsoci-2026-11-01",
@@ -17263,12 +17180,12 @@
       "away": "Real Sociedad",
       "league": "LaLiga",
       "date": "2026-11-01",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.65,
+      "proba": 0.6,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 65,
+      "confidence": 60,
       "time": "20:00",
       "matchSemantic": "athletic-vs-realsoci-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -17301,7 +17218,7 @@
         "draw": 3.65,
         "away": 3.3,
         "over25": 1.71,
-        "under25": 2.1
+        "under25": 2.05
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.67,
@@ -17423,48 +17340,49 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
-          "homeLambda": 2,
-          "awayLambda": 3.67,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
           "confidence": 65,
-          "over25Prob": 0.65,
+          "bttsProb": 0.65,
           "homeLambda": 2,
           "awayLambda": 3.67,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
           "proba": 0.65
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "over25Prob": 0.675,
+          "homeLambda": 2,
+          "awayLambda": 3.67,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.675
         }
       ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.65,
+      "bttsProb": 0.65,
+      "over25Prob": 0.675,
       "homeLambda": 2,
       "awayLambda": 3.67,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Real Sociedad tourne à 3.67 buts de moyenne par match avec un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
-      "ai_analysis": "Ce derby de LaLiga oppose l'Athletic Club, plutôt prudent (40% d'Over 2.5), à une équipe de Real Sociedad très offensive et spectaculaire. Les visiteurs affichent une moyenne impressionnante de 3.67 buts par match et un taux Over 2.5 de 100% sur leurs 5 dernières sorties. Bien que Bilbao puisse opposer un bloc plus strict, le profil de Sociedad incline logiquement vers un match prolifique.",
-      "ai_analysis_en": "This LaLiga derby pits a cautious Athletic Club (40% Over 2.5) against a highly offensive and entertaining Real Sociedad side. The visitors boast an impressive average of 3.67 goals per match and a 100% Over 2.5 rate in their last 5 outings. Although Bilbao can deploy a stricter defensive block, Sociedad's profile naturally tilts this toward a high-scoring affair.",
-      "ai_form_summary": "Athletic Club est en dedans (1W-3D-1L) tandis que Real Sociedad enchaîne les succès (4W-0D-1L) avec une attaque prolifique.",
-      "ai_form_summary_en": "Athletic Club struggles for wins (1W-3D-1L) while Real Sociedad strings successes together (4W-0D-1L) with a prolific attack.",
+      "ai_key_fact": "Real Sociedad présente un taux de 100% d'Over 2.5 sur ses 5 derniers matchs et une moyenne de 3.67 buts.",
+      "ai_analysis": "L'analyse met en avant un contraste entre l'Athletic Club, plutôt prudent (40% de BTTS), et Real Sociedad, très offensif (100% d'Over 2.5 et 3.67 buts de moyenne). Les statistiques globales soutiennent le marché combiné avec un taux empirique de 70% sur l'Over 2.5, porté par la dynamique de l'équipe visiteuse.",
+      "ai_analysis_en": "The analysis highlights a contrast between Athletic Club, which plays lower-scoring games (40% BTTS), and Real Sociedad, which is very offensive (100% Over 2.5 and 3.67 average goals). Overall stats support the combined market with an empirical Over 2.5 rate of 70%, driven by the visiting team's momentum.",
+      "ai_form_summary": "Athletic Club (1W-3D-1L, taux BTTS 40%) contre Real Sociedad (4W-0D-1L, taux Over 2.5 de 100%).",
+      "ai_form_summary_en": "Athletic Club (1W-3D-1L, 40% BTTS rate) against Real Sociedad (4W-0D-1L, 100% Over 2.5 rate).",
       "ai_reasons": [
-        "Taux Over 2.5 empirique à 70% et 100% de taux Over sur les 5 derniers matchs de Real Sociedad.",
-        "Moyenne de buts de Real Sociedad à l'extérieur particulièrement haute (3.67 buts par match).",
-        "Real Sociedad affiche 19 buts marqués et 18 encaissés en 10 matchs joués."
+        "Taux Over 2.5 empirique de 70% et taux BTTS à 60% pour ce match.",
+        "Real Sociedad affiche un taux de 100% sur l'Over 2.5 et 80% sur le BTTS lors de ses 5 derniers matchs.",
+        "Moyennes de buts par match élevées pour l'équipe extérieure (3.67)."
       ],
       "ai_risks": [
-        "Athletic Club propose des matchs plus fermés avec un taux Over 2.5 à 40% sur ses 5 derniers matchs.",
-        "Le taux BTTS empirique de Bilbao est plus modeste à 40%."
+        "Athletic Club propose des matchs plus fermés avec un taux de 40% sur le BTTS et l'Over 2.5.",
+        "L'historique récent de l'Athletic Club montre une attaque plus timide (6 buts marqués lors des 5 derniers matchs)."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -17682,7 +17600,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.65 · 2 2.9"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.65 · 2 2.9",
+      "status": "PENDING"
     },
     {
       "id": "marseill-vs-toulouse-2026-11-01",
@@ -17897,7 +17816,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.55 · O2.5 1.54"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.55 · O2.5 1.54",
+      "status": "PENDING"
     }
   ],
   "analysisEngine": "gemini-stats-v1"

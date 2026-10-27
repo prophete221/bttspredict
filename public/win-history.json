@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-10-27T03:07:49.071Z",
+  "generatedAt": "2026-10-27T11:23:34.099Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -18,9 +18,9 @@
     "total": 325,
     "won": 269,
     "lost": 56,
-    "pending": 62,
+    "pending": 65,
     "unverifiable": 153,
-    "archivedTotal": 540,
+    "archivedTotal": 543,
     "rate": 82.8,
     "gold": {
       "total": 232,
