@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-10-28T17:50:07.366Z",
+  "generatedAt": "2026-10-28T22:07:39.405Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,18 +15,18 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 330,
-    "won": 273,
-    "lost": 57,
-    "pending": 82,
+    "total": 346,
+    "won": 282,
+    "lost": 64,
+    "pending": 66,
     "unverifiable": 153,
     "archivedTotal": 565,
-    "rate": 82.7,
+    "rate": 81.5,
     "gold": {
-      "total": 234,
-      "won": 199,
-      "lost": 35,
-      "rate": 85
+      "total": 250,
+      "won": 208,
+      "lost": 42,
+      "rate": 83.2
     },
     "standard": {
       "total": 96,
@@ -36,26 +36,19 @@
     },
     "byType": {
       "btts": {
-        "total": 324,
-        "won": 270,
-        "lost": 54,
-        "rate": 83.3
+        "total": 335,
+        "won": 277,
+        "lost": 58,
+        "rate": 82.7
       },
       "over25": {
-        "total": 6,
-        "won": 3,
-        "lost": 3,
-        "rate": 50
+        "total": 11,
+        "won": 5,
+        "lost": 6,
+        "rate": 45.5
       }
     },
     "trend14": [
-      {
-        "date": "2026-10-12",
-        "total": 2,
-        "won": 2,
-        "lost": 0,
-        "rate": 100
-      },
       {
         "date": "2026-10-13",
         "total": 3,
@@ -146,6 +139,13 @@
         "won": 4,
         "lost": 1,
         "rate": 80
+      },
+      {
+        "date": "2026-10-28",
+        "total": 16,
+        "won": 9,
+        "lost": 7,
+        "rate": 56.3
       }
     ],
     "period": {
@@ -155,6 +155,214 @@
     }
   },
   "history": [
+    {
+      "date": "2026-10-28",
+      "match": "Heart of Midlothian vs Rangers",
+      "league": "Scottish Premiership",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5585,
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-10-28T22:06:38.614Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-28",
+      "match": "Monza vs Napoli",
+      "league": "Serie A",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6371,
+      "status": "WON",
+      "finalScore": "1-4",
+      "verifiedAt": "2026-10-28T22:06:38.614Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-28",
+      "match": "Parma vs Udinese",
+      "league": "Serie A",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7403,
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-10-28T22:06:38.614Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-28",
+      "match": "St Mirren vs Hibernian",
+      "league": "Scottish Premiership",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.605,
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-10-28T22:06:38.614Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-28",
+      "match": "Venezia vs Internazionale",
+      "league": "Serie A",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-10-28T22:06:38.611Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-28",
+      "match": "Genoa vs Juventus",
+      "league": "Serie A",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.52,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-10-28T22:06:04.714Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-28",
+      "match": "Parma vs Udinese",
+      "league": "Serie A",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.75,
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-10-28T22:06:04.714Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-28",
+      "match": "St Johnstone vs Motherwell",
+      "league": "Scottish Premiership",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5926,
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-10-28T22:06:04.714Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-28",
+      "match": "St Mirren vs Hibernian",
+      "league": "Scottish Premiership",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "LOST",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-10-28T22:06:04.714Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-28",
+      "match": "Venezia vs Internazionale",
+      "league": "Serie A",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-10-28T22:06:04.714Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-28",
+      "match": "Aberdeen vs Falkirk",
+      "league": "Scottish Premiership",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7,
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-10-28T22:06:04.713Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-28",
+      "match": "Celtic vs Dundee United",
+      "league": "Scottish Premiership",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6315,
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-10-28T22:06:04.713Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-28",
+      "match": "Heart of Midlothian vs Rangers",
+      "league": "Scottish Premiership",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-10-28T22:06:04.713Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-28",
+      "match": "Dundee vs Kilmarnock",
+      "league": "Scottish Premiership",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.8,
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-10-28T22:05:59.041Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-28",
+      "match": "Monza vs Napoli",
+      "league": "Serie A",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "WON",
+      "finalScore": "1-4",
+      "verifiedAt": "2026-10-28T22:05:59.041Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-28",
+      "match": "AC Milan vs Bologna",
+      "league": "Serie A",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "WON",
+      "finalScore": "2-4",
+      "verifiedAt": "2026-10-28T22:05:59.040Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-10-27",
       "match": "Torino vs Como",
