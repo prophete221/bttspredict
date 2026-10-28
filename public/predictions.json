@@ -1,6 +1,6 @@
 {
   "date": "2026-10-28",
-  "lastUpdated": "2026-10-28T03:17:09.752Z",
+  "lastUpdated": "2026-10-28T11:54:15.244Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -1902,7 +1902,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.48 · N 4.8 · 2 5.25"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.48 · N 4.8 · 2 5.25",
+      "status": "PENDING"
     },
     {
       "id": "intermia-vs-fccincin-2026-10-28",
@@ -2116,7 +2117,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.45 · N 4.9 · 2 5.25"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.45 · N 4.9 · 2 5.25",
+      "status": "PENDING"
     },
     {
       "id": "venezia-vs-internaz-2026-10-28",
@@ -2125,12 +2127,12 @@
       "away": "Internazionale",
       "league": "Serie A",
       "date": "2026-10-28",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.72,
+      "proba": 0.6,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 72,
+      "confidence": 60,
       "time": "17:30",
       "matchSemantic": "venezia-vs-internaz-2026-10-28",
       "source": "poisson-v92-real-data",
@@ -2285,48 +2287,49 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
-          "homeLambda": 0.75,
-          "awayLambda": 2,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 72,
-          "over25Prob": 0.72,
+          "confidence": 65,
+          "bttsProb": 0.65,
           "homeLambda": 0.75,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.72
+          "proba": 0.65
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "over25Prob": 0.675,
+          "homeLambda": 0.75,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.675
         }
       ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.72,
+      "bttsProb": 0.65,
+      "over25Prob": 0.675,
       "homeLambda": 0.75,
       "awayLambda": 2,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "L'Inter affiche un taux Over 2.5 de 1.0 sur ses 5 derniers matchs et se déplace avec 15 buts inscrits.",
-      "ai_analysis": "Ce match oppose une équipe de Venezia en grande difficulté défensive à une Inter Milan extrêmement prolifique (15 buts sur ses 5 derniers matchs). Avec un taux Over 2.5 empirique global de 70% et un 100% de réussite pour l'Inter dans ses récents matchs, les statistiques soutiennent nettement un match avec au moins 3 buts, principalement portés par les visiteurs.",
-      "ai_analysis_en": "This match pits a Venezia side struggling defensively against an extremely prolific Inter Milan (15 goals in their last 5). With an overall empirical Over 2.5 rate of 70% and a 100% success rate for Inter in recent outings, the stats strongly support a match with at least 3 goals, driven mainly by the visitors.",
-      "ai_form_summary": "Venezia : 1W-0D-4L (4 buts pour, 10 contre). Inter : 4W-1D-0L (15 buts pour, 7 contre).",
-      "ai_form_summary_en": "Venezia: 1W-0D-4L (4 GF, 10 GA). Inter: 4W-1D-0L (15 GF, 7 GA).",
+      "ai_key_fact": "L'Inter Milan présente un taux de BTTS de 80% sur ses 5 derniers matchs.",
+      "ai_analysis": "L'analyse des données de l'Inter Milan montre une forte propension aux matchs prolifiques et ouverts, avec un taux de BTTS de 80% et 100% d'Over 2.5 récents. Malgré la faiblesse offensive de Venezia, la puissance de frappe milanaise (23 buts en 8 matchs) combinée à un taux BTTS empirique de 60% soutient l'option des deux équipes marquent.",
+      "ai_analysis_en": "Inter Milan's data analysis shows a strong propensity for high-scoring and open matches, with an 80% BTTS rate and 100% recent Over 2.5 rate. Despite Venezia's offensive weakness, Milan's attacking power (23 goals in 8 matches) combined with a 60% empirical BTTS rate supports both teams scoring.",
+      "ai_form_summary": "Venezia : 1W-0D-4L, 4 buts pour, 10 contre. Internazionale : 4W-1D-0L, 15 buts pour, 7 contre.",
+      "ai_form_summary_en": "Venezia: 1W-0D-4L, 4 goals for, 10 against. Internazionale: 4W-1D-0L, 15 goals for, 7 against.",
       "ai_reasons": [
-        "Taux Over 2.5 empirique élevé à 0.70 et taux de l'Inter à 1.0 sur les 5 derniers matchs.",
-        "L'Internazionale présente une excellente dynamique offensive avec 15 buts marqués sur ses 5 derniers matchs.",
-        "Défense de Venezia très perméable avec 17 buts encaissés en 8 matchs de Serie A."
+        "L'Inter Milan affiche un taux de BTTS de 80% et un Over 2.5 de 100% sur ses 5 derniers matchs.",
+        "Taux empirique BTTS global de 60% pour cette confrontation.",
+        "Internazionale possède une attaque très prolifique avec 23 buts en 8 matchs."
       ],
       "ai_risks": [
-        "Faible production offensive de Venezia (0.75 but/match), reposant principalement sur l'efficacité de l'Inter.",
-        "Taux BTTS de Venezia limité à 0.40."
+        "Venezia a des difficultés offensives marquées avec seulement 0.75 buts par match en moyenne.",
+        "Venezia n'a remporté qu'un seul de ses 5 derniers matchs et présente un taux Over 2.5 de 40% sur la même période."
       ],
-      "ai_confidence": "high",
+      "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -2544,7 +2547,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.75 · N 3.05 · 2 2.55 · O2.5 2.2"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.75 · N 3.05 · 2 2.55 · O2.5 2.2",
+      "status": "PENDING"
     },
     {
       "id": "genoa-vs-juventus-2026-10-28",
@@ -2758,7 +2762,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 5 · N 3.6 · 2 1.65 · O2.5 2.1"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 5 · N 3.6 · 2 1.65 · O2.5 2.1",
+      "status": "PENDING"
     },
     {
       "id": "stmirren-vs-hibernia-2026-10-28",
@@ -2972,7 +2977,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.1 · N 3.65 · 2 2.15 · O2.5 1.65"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.1 · N 3.65 · 2 2.15 · O2.5 1.65",
+      "status": "PENDING"
     },
     {
       "id": "stjohnst-vs-motherwe-2026-10-28",
@@ -3377,7 +3383,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 4 · 2 3.2"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 4 · 2 3.2",
+      "status": "PENDING"
     },
     {
       "id": "chicagof-vs-orlandoc-2026-10-29",
@@ -4150,68 +4157,61 @@
       "away": "Philadelphia Union",
       "league": "MLS",
       "date": "2026-10-29",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.68,
-      "bttsProbDisplay": "70.00%",
-      "over25ProbDisplay": "70.00%",
-      "confidence": 68,
+      "proba": 0.7794,
+      "bttsProbDisplay": "77.94%",
+      "over25ProbDisplay": "80.47%",
+      "confidence": 78,
       "time": "00:30",
       "matchSemantic": "nashvill-vs-philadel-2026-10-29",
       "source": "poisson-v92-real-data",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18986.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10739.png",
       "tier": "GOLD",
-      "reliabilityScore": 89.38,
+      "reliabilityScore": 92.85,
       "dataQuality": "HIGH",
       "dataSource": "ESPN_TEAM_SCHEDULE",
       "matchCountHome": 8,
       "matchCountAway": 8,
       "h2hAvailable": false,
-      "xgHome": 3,
-      "xgAway": 4,
-      "xgTotal": 7,
+      "xgHome": 2.32,
+      "xgAway": 2,
+      "xgTotal": 4.32,
       "formBTTS": 70,
-      "analysis": "Nashville SC : forme V-N-V-V-V (4V 1N 0D, 13 buts marqués / 2 encaissés sur 5) · Philadelphia Union : forme D-N-V-V-V (3V 1N 1D, 12 buts marqués / 8 encaissés sur 5). Classement : Nashville SC 1e (70 pts), Philadelphia Union 6e (46 pts). Stats empiriques (forme récente) : buts moy. 7, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.77 / N: 3.9 / 2: 3.85. Fiabilité 89.38%.",
+      "analysis": "Nashville SC : forme N-V-V-V-V (4V 1N 0D, 14 buts marqués / 2 encaissés sur 5) · Philadelphia Union : forme N-V-V-V-V (4V 1N 0D, 15 buts marqués / 9 encaissés sur 5). Classement : Nashville SC 1e (67 pts), Philadelphia Union 6e (46 pts). Modèle Poisson : xG cumulé 4.32, BTTS 77.9%, Over 2.5 80.5%. Fiabilité 92.85%.",
       "analysisData": {
-        "bttsProb": 0.7,
-        "over25Prob": 0.7,
-        "homeLambda": 3,
-        "awayLambda": 4,
-        "xgTotal": 7
+        "bttsProb": 0.7794,
+        "over25Prob": 0.8047,
+        "homeLambda": 2.32,
+        "awayLambda": 2,
+        "xgTotal": 4.32
       },
-      "estimatedCote": 1.43,
-      "estimatedCoteOver": 1.43,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 1.77,
-        "draw": 3.9,
-        "away": 3.85,
-        "over25": null,
-        "under25": null
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.43,
+      "estimatedCote": 1.28,
+      "estimatedCoteOver": 1.24,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.28,
       "formHome": {
-        "last5String": "V-N-V-V-V",
+        "last5String": "N-V-V-V-V",
         "wins": 4,
         "draws": 1,
         "losses": 0,
-        "goalsFor": 13,
+        "goalsFor": 14,
         "goalsAgainst": 2,
         "bttsRate": 0.4,
-        "over25Rate": 0.4,
+        "over25Rate": 0.6,
         "cleanSheets": 3,
         "failedToScore": 0,
         "count": 5
       },
       "formAway": {
-        "last5String": "D-N-V-V-V",
-        "wins": 3,
+        "last5String": "N-V-V-V-V",
+        "wins": 4,
         "draws": 1,
-        "losses": 1,
-        "goalsFor": 12,
-        "goalsAgainst": 8,
+        "losses": 0,
+        "goalsFor": 15,
+        "goalsAgainst": 9,
         "bttsRate": 1,
         "over25Rate": 1,
         "cleanSheets": 0,
@@ -4294,68 +4294,52 @@
       ],
       "standingsHome": {
         "rank": 1,
-        "points": 70,
-        "played": 31,
-        "gf": 66,
+        "points": 67,
+        "played": 30,
+        "gf": 64,
         "ga": 23
       },
       "standingsAway": {
         "rank": 6,
         "points": 46,
-        "played": 31,
-        "gf": 62,
-        "ga": 50
+        "played": 30,
+        "gf": 61,
+        "ga": 48
       },
       "predictions": [
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 70,
-          "bttsProb": 0.7,
-          "homeLambda": 3,
-          "awayLambda": 4,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "confidence": 78,
+          "bttsProb": 0.7794,
+          "homeLambda": 2.32,
+          "awayLambda": 2
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 68,
-          "over25Prob": 0.68,
-          "homeLambda": 3,
-          "awayLambda": 4,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.68
+          "confidence": 80,
+          "over25Prob": 0.8047,
+          "homeLambda": 2.32,
+          "awayLambda": 2
         }
       ],
-      "bttsProb": 0.7,
-      "over25Prob": 0.68,
-      "homeLambda": 3,
-      "awayLambda": 4,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "Philadelphia Union enregistre un taux de 100% de BTTS et d'Over 2.5 sur ses 5 derniers matchs.",
-      "ai_analysis": "Ce choc oppose le leader Nashville SC, doté d'une excellente défense récente (2 buts encaissés en 5 matchs), à un Philadelphia Union très offensif et spectaculaire. Philadelphia affiche 100% de taux BTTS et Over 2.5 sur ses 5 derniers matchs avec une moyenne impressionnante de 4 buts par match. Bien que Nashville soit avare défensivement, les statistiques globales et la dynamique de Philadelphia soutiennent un match avec plus de 2.5 buts.",
-      "ai_analysis_en": "This clash pits league leaders Nashville SC, boasting an excellent recent defense (2 goals conceded in 5 matches), against a highly offensive and entertaining Philadelphia Union. Philadelphia shows 100% BTTS and Over 2.5 rates in their last 5 matches with an impressive 4 goals per match average. Although Nashville is defensively stingy, overall statistics and Philadelphia's momentum support a match with over 2.5 goals.",
-      "ai_form_summary": "Nashville SC: 4V-1N-0D, 13 buts pour, 2 buts contre. Philadelphia Union: 3V-1N-1D, 12 buts pour, 8 buts contre.",
-      "ai_form_summary_en": "Nashville SC: 4W-1D-0L, 13 goals for, 2 goals against. Philadelphia Union: 3W-1D-1L, 12 goals for, 8 goals against.",
-      "ai_reasons": [
-        "Philadelphia Union affiche des taux parfaits de 100% pour le BTTS et l'Over 2.5 sur ses 5 derniers matchs.",
-        "Moyennes de buts élevées pour les deux équipes, avec 3 buts par match pour Nashville et 4 pour Philadelphia.",
-        "Taux empiriques globaux solides de 70% pour le BTTS et l'Over 2.5."
-      ],
-      "ai_risks": [
-        "La défense de Nashville SC est extrêmement solide avec seulement 2 buts encaissés sur ses 5 derniers matchs.",
-        "Le taux de BTTS récent de Nashville SC est plus bas à 40%."
-      ],
-      "ai_confidence": "medium",
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.77 · N 3.9 · 2 3.85"
+      "bttsProb": 0.7794,
+      "over25Prob": 0.8047,
+      "homeLambda": 2.32,
+      "awayLambda": 2,
+      "ai_key_fact": "Nashville SC et Philadelphia Union affichent tous deux une dynamique de 4 victoires et 1 nul.",
+      "ai_analysis": "Le modèle Poisson anticipe une rencontre offensive avec un xG de 2.32 pour Nashville SC et de 2.0 pour Philadelphia Union. Les probabilités du modèle s'établissent à 77.9% pour le BTTS et 80.5% pour l'Over 2.5, soutenues par une fiabilité de 92.85%. Le classement confirme la solidité de Nashville (1e, 67 points) face à un adversaire positionné à la 6e place avec 46 points.",
+      "ai_form_summary": "Nashville SC présente un bilan solide à domicile avec 14 buts marqués et 3 clean sheets sur ses 5 derniers matchs. Philadelphia Union affiche également une excellente forme en déplacement avec 15 buts inscrits mais aucun clean sheet.",
+      "ai_key_fact_en": "Nashville SC and Philadelphia Union both display a dynamic of 4 wins and 1 draw.",
+      "ai_analysis_en": "The Poisson model anticipates an offensive match with an xG of 2.32 for Nashville SC and 2.0 for Philadelphia Union. Model probabilities stand at 77.9% for BTTS and 80.5% for Over 2.5, supported by a reliability of 92.85%. The standings confirm Nashville's strength (1st, 67 points) against an opponent positioned 6th with 46 points.",
+      "ai_form_summary_en": "Nashville SC presents a solid home record with 14 goals scored and 3 clean sheets over their last 5 matches. Philadelphia Union also shows excellent away form with 15 goals scored but no clean sheets.",
+      "ai_source": "gemini-v2",
+      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+      "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
+      "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
+      "status": "PENDING"
     },
     {
       "id": "seattles-vs-houstond-2026-10-29",
@@ -9805,12 +9789,12 @@
       "away": "Toulouse",
       "league": "Ligue 1",
       "date": "2026-11-01",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.6,
+      "proba": 0.66,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 60,
+      "confidence": 66,
       "time": "19:45",
       "matchSemantic": "marseill-vs-toulouse-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -9827,7 +9811,7 @@
       "xgAway": 2.25,
       "xgTotal": 5,
       "formBTTS": 60,
-      "analysis": "Marseille : forme V-V-V-D-D (3V 0N 2D, 12 buts marqués / 8 encaissés sur 5) · Toulouse : forme N-V-N-V-N (2V 3N 0D, 10 buts marqués / 6 encaissés sur 5). Classement : Marseille 8e (12 pts), Toulouse 11e (10 pts). Stats empiriques (forme récente) : buts moy. 5, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.85 / 2: 3.55 · Over 2.5: 1.54. Fiabilité 85%.",
+      "analysis": "Marseille : forme V-V-V-D-D (3V 0N 2D, 12 buts marqués / 8 encaissés sur 5) · Toulouse : forme N-V-N-V-N (2V 3N 0D, 10 buts marqués / 6 encaissés sur 5). Classement : Marseille 8e (12 pts), Toulouse 11e (10 pts). Stats empiriques (forme récente) : buts moy. 5, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.9 / 2: 3.6. Fiabilité 85%.",
       "analysisData": {
         "bttsProb": 0.6,
         "over25Prob": 0.7,
@@ -9840,10 +9824,10 @@
       "odds": {
         "provider": "DraftKings",
         "home": 1.91,
-        "draw": 3.85,
-        "away": 3.55,
-        "over25": 1.54,
-        "under25": 2.3
+        "draw": 3.9,
+        "away": 3.6,
+        "over25": null,
+        "under25": null
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.67,
@@ -9965,54 +9949,52 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 65,
-          "bttsProb": 0.65,
+          "confidence": 60,
+          "bttsProb": 0.6,
           "homeLambda": 2.75,
           "awayLambda": 2.25,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.65
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 65,
-          "over25Prob": 0.675,
+          "confidence": 66,
+          "over25Prob": 0.66,
           "homeLambda": 2.75,
           "awayLambda": 2.25,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.675
+          "proba": 0.66
         }
       ],
-      "bttsProb": 0.65,
-      "over25Prob": 0.675,
+      "bttsProb": 0.6,
+      "over25Prob": 0.66,
       "homeLambda": 2.75,
       "awayLambda": 2.25,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Marseille et Toulouse affichent chacun un taux de BTTS de 60% sur leurs 8 derniers matchs.",
-      "ai_analysis": "L'analyse des statistiques observées montre un profil résolument offensif pour cette rencontre de Ligue 1. Marseille et Toulouse affichent tous deux un taux de BTTS de 60% ainsi que des moyennes de buts par match élevées (2.75 et 2.25). L'empirique Over 2.5 atteint 70%, ce qui renforce l'intérêt pour un match prolifique où les deux défenses pourraient céder.",
-      "ai_analysis_en": "Observed statistics show a distinctly offensive profile for this Ligue 1 fixture. Both Marseille and Toulouse record a 60% BTTS rate alongside high goals-per-match averages (2.75 and 2.25). The empirical Over 2.5 rate sits at 70%, supporting the case for an open match where both defenses could concede.",
-      "ai_form_summary": "Marseille (3V-0N-2D) alterne le bon et le moins bon, tandis que Toulouse (2V-3N-0D) est invaincu sur ses 5 derniers matchs.",
-      "ai_form_summary_en": "Marseille (3W-0D-2L) shows mixed recent form, while Toulouse (2W-3D-0L) remains unbeaten in their last 5 outings.",
+      "ai_key_fact": "Toulouse affiche un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
+      "ai_analysis": "Les statistiques des deux équipes révèlent une tendance nette vers des matchs ouverts, avec un taux empirique Over 2.5 à 70%. Toulouse se distingue avec un taux Over de 80% sur ses 5 derniers matchs, tandis que Marseille maintient une moyenne de buts de 2.75 par rencontre. Ces indicateurs convergent vers un scénario avec au moins trois buts inscrits.",
+      "ai_analysis_en": "The statistics of both teams reveal a clear trend toward open matches, with an empirical Over 2.5 rate of 70%. Toulouse stands out with an 80% Over rate over their last 5 matches, while Marseille maintains a goal average of 2.75 per game. These indicators converge toward a scenario with at least three goals scored.",
+      "ai_form_summary": "Marseille (3W-0D-2L, 12 buts pour, 8 contre) vs Toulouse (2W-3D-0L, 10 buts pour, 6 contre).",
+      "ai_form_summary_en": "Marseille (3W-0D-2L, 12 GF, 8 GA) vs Toulouse (2W-3D-0L, 10 GF, 6 GA).",
       "ai_reasons": [
-        "Taux empiriques élevés : 60% de matchs BTTS et 70% d'Over 2.5 sur l'échantillon global.",
-        "Moyennes de buts élevées : Marseille affiche 2.75 buts par match et Toulouse 2.25.",
-        "Bonne constance offensive des deux côtés avec respectivement 18 et 12 buts inscrits en 8 matchs."
+        "Taux Over 2.5 empirique global de 70% pour ce match de Ligue 1.",
+        "Toulouse présente un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
+        "Moyennes de buts solides pour Marseille (2.75) et Toulouse (2.25)."
       ],
       "ai_risks": [
-        "Marseille reste sur deux défaites récentes en championnat.",
-        "Toulouse concède pas mal de matchs nuls (3 sur les 5 derniers)."
+        "Marseille reste sur deux défaites consécutives lors de ses 5 derniers matchs.",
+        "Toulouse a concédé 3 matchs nuls sur ses 5 dernières sorties, montrant une certaine prudence."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.55 · O2.5 1.54",
-      "status": "PENDING"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.9 · 2 3.6"
     },
     {
       "id": "sassuolo-vs-fiorenti-2026-11-02",
@@ -10227,7 +10209,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.7 · N 3.5 · 2 2.25 · O2.5 1.59"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.7 · N 3.5 · 2 2.25 · O2.5 1.59",
+      "status": "PENDING"
     },
     {
       "id": "lafc-vs-minnesot-2026-11-02",
@@ -10434,7 +10417,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "benfica-vs-alverca-2026-11-02",
@@ -10648,7 +10632,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.17 · N 7 · 2 13"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.17 · N 7 · 2 13",
+      "status": "PENDING"
     },
     {
       "id": "atalanta-vs-parma-2026-11-02",
@@ -10657,12 +10642,12 @@
       "away": "Parma",
       "league": "Serie A",
       "date": "2026-11-02",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.7,
+      "proba": 0.74,
       "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "90.00%",
-      "confidence": 70,
+      "confidence": 74,
       "time": "19:45",
       "matchSemantic": "atalanta-vs-parma-2026-11-02",
       "source": "poisson-v92-real-data",
@@ -10679,7 +10664,7 @@
       "xgAway": 0.5,
       "xgTotal": 2.7,
       "formBTTS": 70,
-      "analysis": "Atalanta : forme N-D-V-D-D (1V 1N 3D, 10 buts marqués / 12 encaissés sur 5) · Parma : forme D-D-D-V-D (1V 0N 4D, 4 buts marqués / 11 encaissés sur 5). Classement : Atalanta 11e (10 pts), Parma 19e (4 pts). Stats empiriques (forme récente) : buts moy. 2.7, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.43 / N: 4.3 / 2: 6 · Over 2.5: 1.74. Fiabilité 84.38%.",
+      "analysis": "Atalanta : forme N-D-V-D-D (1V 1N 3D, 10 buts marqués / 12 encaissés sur 5) · Parma : forme D-D-D-V-D (1V 0N 4D, 4 buts marqués / 11 encaissés sur 5). Classement : Atalanta 11e (10 pts), Parma 19e (4 pts). Stats empiriques (forme récente) : buts moy. 2.7, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.43 / N: 4.3 / 2: 6 · Over 2.5: 1.69. Fiabilité 84.38%.",
       "analysisData": {
         "bttsProb": 0.7,
         "over25Prob": 0.9,
@@ -10694,8 +10679,8 @@
         "home": 1.43,
         "draw": 4.3,
         "away": 6,
-        "over25": 1.74,
-        "under25": 2
+        "over25": 1.69,
+        "under25": 2.1
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.43,
@@ -10817,53 +10802,52 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 72,
-          "bttsProb": 0.72,
+          "confidence": 70,
+          "bttsProb": 0.7,
           "homeLambda": 2.2,
           "awayLambda": 0.5,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.72
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 72,
-          "over25Prob": 0.78,
+          "confidence": 74,
+          "over25Prob": 0.74,
           "homeLambda": 2.2,
           "awayLambda": 0.5,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.78
+          "proba": 0.74
         }
       ],
-      "bttsProb": 0.72,
-      "over25Prob": 0.78,
+      "bttsProb": 0.7,
+      "over25Prob": 0.74,
       "homeLambda": 2.2,
       "awayLambda": 0.5,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Atalanta et Parma affichent toutes deux de fortes tendances aux matchs ouverts avec des taux de buts élevés.",
-      "ai_analysis": "L'analyse des statistiques observées met en avant une propension très nette pour les matchs prolifiques. L'Atalanta présente des taux élevés de BTTS et d'Over 2.5, tandis que Parma encaisse régulièrement malgré des difficultés offensives hors de ses bases. Les indicateurs convergent vers un scénario animé.",
-      "ai_analysis_en": "Observed statistics highlight a clear propensity for high-scoring matches. Atalanta shows high BTTS and Over 2.5 rates, while Parma regularly concedes despite offensive struggles away from home. Indicators point towards an active match scenario.",
-      "ai_form_summary": "Atalanta (1W-1D-3L, 10-12 buts) et Parma (1W-0D-4L, 4-11 buts) montrent des difficultés défensives.",
-      "ai_form_summary_en": "Atalanta (1W-1D-3L, 10-12 goals) and Parma (1W-0D-4L, 4-11 goals) both show defensive frailties.",
+      "ai_key_fact": "Parma affiche un taux Over 2.5 de 100% sur ses 8 matchs à l'extérieur.",
+      "ai_analysis": "Les statistiques observées pour cette rencontre de Serie A indiquent une forte probabilité de buts. Atalanta et Parma démontrent toutes deux des tendances prononcées pour l'Over 2.5, s'appuyant sur des taux respectifs de 80% et 100% sur leur échantillon. Bien que Parma ait une moyenne de buts marqués faible à l'extérieur, la vulnérabilité défensive globale d'Atalanta soutient cette option malgré les risques.",
+      "ai_analysis_en": "Observed statistics for this Serie A fixture indicate a strong probability of goals. Both Atalanta and Parma show pronounced trends for Over 2.5, backed by respective sample rates of 80% and 100%. Although Parma has a low away goal average, Atalanta's overall defensive vulnerability supports this selection despite the risks.",
+      "ai_form_summary": "Atalanta (1W-1D-3L, 10 buts marqués, 12 encaissés) et Parma (1W-0D-4L, 4 marqués, 11 encaissés).",
+      "ai_form_summary_en": "Atalanta (1W-1D-3L, 10 scored, 12 conceded) and Parma (1W-0D-4L, 4 scored, 11 conceded).",
       "ai_reasons": [
-        "Taux empirique Over 2.5 très élevé à 90% sur l'échantillon récent.",
-        "Taux empirique BTTS solide à 70% pour ce match.",
-        "Atalanta affiche un taux BTTS de 80% et un over25 de 80% sur ses 5 derniers matchs."
+        "Taux empirique Over 2.5 très élevé à 90%",
+        "Atalanta présente un taux Over 2.5 de 80% sur ses 8 derniers matchs à domicile",
+        "Parma affiche un taux Over 2.5 de 100% sur ses 8 derniers matchs à l'extérieur"
       ],
       "ai_risks": [
-        "Parma possède une moyenne de buts marqués à l'extérieur faible (0.5).",
-        "La défense de Parma a concédé 15 buts en 8 matchs."
+        "La moyenne de buts à l'extérieur de Parma est faible (0.5)",
+        "Atalanta concède beaucoup de buts (12 buts encaissés en 5 matchs de forme)"
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.43 · N 4.3 · 2 6 · O2.5 1.74"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.43 · N 4.3 · 2 6 · O2.5 1.69"
     },
     {
       "id": "portland-vs-houstond-2026-11-02",
@@ -10872,12 +10856,12 @@
       "away": "Houston Dynamo FC",
       "league": "MLS",
       "date": "2026-11-02",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.6,
+      "proba": 0.58,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "60.00%",
-      "confidence": 60,
+      "confidence": 58,
       "time": "02:45",
       "matchSemantic": "portland-vs-houstond-2026-11-02",
       "source": "poisson-v92-real-data",
@@ -11025,12 +11009,13 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
+          "confidence": 58,
+          "bttsProb": 0.58,
           "homeLambda": 1.25,
           "awayLambda": 1.67,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "statsOnly": true,
+          "proba": 0.58
         },
         {
           "type": "Over 2.5",
@@ -11040,32 +11025,33 @@
           "homeLambda": 1.25,
           "awayLambda": 1.67,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.6
+          "statsOnly": true
         }
       ],
-      "bttsProb": 0.6,
+      "bttsProb": 0.58,
       "over25Prob": 0.6,
       "homeLambda": 1.25,
       "awayLambda": 1.67,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Form signals BTTS 60% / Over 60%",
-      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 60.0%, Over 2.5 empirique 60.0% pour Portland Timbers vs Houston Dynamo FC. Décision : OVER_25.",
-      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 60.0%, Over 2.5 60.0% for Portland Timbers vs Houston Dynamo FC. Decision: OVER_25.",
-      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 60.0%, Over 2.5 empirique 60.0% pour Portland Timbers vs Houston Dynamo FC.",
-      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 60.0%, Over 2.5 60.0% for Portland Timbers vs Houston Dynamo FC. Decision: OVER_25.",
+      "ai_key_fact": "Les deux formations affichent un taux BTTS identique de 60% sur leurs 8 matchs d'échantillon.",
+      "ai_analysis": "L'analyse des données de MLS montre une régularité équivalente entre les deux équipes sur le marché des deux équipes marquent. Portland Timbers et Houston Dynamo enregistrent un taux BTTS empirique de 60%. La capacité offensive de Houston à l'extérieur (1.67 buts de moyenne) renforce l'hypothèse d'une rencontre ouverte où les deux defenses pourraient céder.",
+      "ai_analysis_en": "MLS data analysis shows equivalent consistency between both teams on the BTTS market. Portland Timbers and Houston Dynamo record an empirical BTTS rate of 60%. Houston's away attacking capability (1.67 goals average) reinforces the hypothesis of an open match where both defenses could concede.",
+      "ai_form_summary": "Portland (1W-2D-2L, 7 buts marqués, 10 encaissés) et Houston (0W-4D-1L, 7 marqués, 9 encaissés).",
+      "ai_form_summary_en": "Portland (1W-2D-2L, 7 scored, 10 conceded) and Houston (0W-4D-1L, 7 scored, 9 conceded).",
       "ai_reasons": [
-        "Empirical BTTS rate ~60%",
-        "Empirical Over 2.5 rate ~60%"
+        "Taux empirique BTTS établi à 60% pour les deux équipes",
+        "Portland Timbers et Houston Dynamo affichent tous deux un taux BTTS de 60% sur leur forme récente",
+        "Houston Dynamo affiche une moyenne de 1.67 buts par match à l'extérieur"
       ],
       "ai_risks": [
-        "Sample limited to recent matches; form can shift quickly."
+        "Portland Timbers a un bilan offensif récent moyen avec 7 buts en 5 matchs",
+        "Le taux Over 2.5 reste modéré à 60%"
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "local-empirical-v1",
+      "ai_market": "BTTS",
+      "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
@@ -11281,7 +11267,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.4 · N 3.3 · 2 2.8 · O2.5 1.95"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.4 · N 3.3 · 2 2.8 · O2.5 1.95",
+      "status": "PENDING"
     },
     {
       "id": "newengla-vs-intermia-2026-11-02",
@@ -11488,7 +11475,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "deportiv-vs-osasuna-2026-11-02",
@@ -11699,7 +11687,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.2 · 2 3.55 · O2.5 2.2"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.2 · 2 3.55 · O2.5 2.2",
+      "status": "PENDING"
     }
   ],
   "vipPreview": [
@@ -13684,7 +13673,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.48 · N 4.8 · 2 5.25"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.48 · N 4.8 · 2 5.25",
+      "status": "PENDING"
     },
     {
       "id": "intermia-vs-fccincin-2026-10-28",
@@ -13898,7 +13888,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.45 · N 4.9 · 2 5.25"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.45 · N 4.9 · 2 5.25",
+      "status": "PENDING"
     },
     {
       "id": "venezia-vs-internaz-2026-10-28",
@@ -13907,12 +13898,12 @@
       "away": "Internazionale",
       "league": "Serie A",
       "date": "2026-10-28",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.72,
+      "proba": 0.6,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 72,
+      "confidence": 60,
       "time": "17:30",
       "matchSemantic": "venezia-vs-internaz-2026-10-28",
       "source": "poisson-v92-real-data",
@@ -14067,48 +14058,49 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
-          "homeLambda": 0.75,
-          "awayLambda": 2,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 72,
-          "over25Prob": 0.72,
+          "confidence": 65,
+          "bttsProb": 0.65,
           "homeLambda": 0.75,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.72
+          "proba": 0.65
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "over25Prob": 0.675,
+          "homeLambda": 0.75,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.675
         }
       ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.72,
+      "bttsProb": 0.65,
+      "over25Prob": 0.675,
       "homeLambda": 0.75,
       "awayLambda": 2,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "L'Inter affiche un taux Over 2.5 de 1.0 sur ses 5 derniers matchs et se déplace avec 15 buts inscrits.",
-      "ai_analysis": "Ce match oppose une équipe de Venezia en grande difficulté défensive à une Inter Milan extrêmement prolifique (15 buts sur ses 5 derniers matchs). Avec un taux Over 2.5 empirique global de 70% et un 100% de réussite pour l'Inter dans ses récents matchs, les statistiques soutiennent nettement un match avec au moins 3 buts, principalement portés par les visiteurs.",
-      "ai_analysis_en": "This match pits a Venezia side struggling defensively against an extremely prolific Inter Milan (15 goals in their last 5). With an overall empirical Over 2.5 rate of 70% and a 100% success rate for Inter in recent outings, the stats strongly support a match with at least 3 goals, driven mainly by the visitors.",
-      "ai_form_summary": "Venezia : 1W-0D-4L (4 buts pour, 10 contre). Inter : 4W-1D-0L (15 buts pour, 7 contre).",
-      "ai_form_summary_en": "Venezia: 1W-0D-4L (4 GF, 10 GA). Inter: 4W-1D-0L (15 GF, 7 GA).",
+      "ai_key_fact": "L'Inter Milan présente un taux de BTTS de 80% sur ses 5 derniers matchs.",
+      "ai_analysis": "L'analyse des données de l'Inter Milan montre une forte propension aux matchs prolifiques et ouverts, avec un taux de BTTS de 80% et 100% d'Over 2.5 récents. Malgré la faiblesse offensive de Venezia, la puissance de frappe milanaise (23 buts en 8 matchs) combinée à un taux BTTS empirique de 60% soutient l'option des deux équipes marquent.",
+      "ai_analysis_en": "Inter Milan's data analysis shows a strong propensity for high-scoring and open matches, with an 80% BTTS rate and 100% recent Over 2.5 rate. Despite Venezia's offensive weakness, Milan's attacking power (23 goals in 8 matches) combined with a 60% empirical BTTS rate supports both teams scoring.",
+      "ai_form_summary": "Venezia : 1W-0D-4L, 4 buts pour, 10 contre. Internazionale : 4W-1D-0L, 15 buts pour, 7 contre.",
+      "ai_form_summary_en": "Venezia: 1W-0D-4L, 4 goals for, 10 against. Internazionale: 4W-1D-0L, 15 goals for, 7 against.",
       "ai_reasons": [
-        "Taux Over 2.5 empirique élevé à 0.70 et taux de l'Inter à 1.0 sur les 5 derniers matchs.",
-        "L'Internazionale présente une excellente dynamique offensive avec 15 buts marqués sur ses 5 derniers matchs.",
-        "Défense de Venezia très perméable avec 17 buts encaissés en 8 matchs de Serie A."
+        "L'Inter Milan affiche un taux de BTTS de 80% et un Over 2.5 de 100% sur ses 5 derniers matchs.",
+        "Taux empirique BTTS global de 60% pour cette confrontation.",
+        "Internazionale possède une attaque très prolifique avec 23 buts en 8 matchs."
       ],
       "ai_risks": [
-        "Faible production offensive de Venezia (0.75 but/match), reposant principalement sur l'efficacité de l'Inter.",
-        "Taux BTTS de Venezia limité à 0.40."
+        "Venezia a des difficultés offensives marquées avec seulement 0.75 buts par match en moyenne.",
+        "Venezia n'a remporté qu'un seul de ses 5 derniers matchs et présente un taux Over 2.5 de 40% sur la même période."
       ],
-      "ai_confidence": "high",
+      "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -14326,7 +14318,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.75 · N 3.05 · 2 2.55 · O2.5 2.2"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.75 · N 3.05 · 2 2.55 · O2.5 2.2",
+      "status": "PENDING"
     },
     {
       "id": "genoa-vs-juventus-2026-10-28",
@@ -14540,7 +14533,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 5 · N 3.6 · 2 1.65 · O2.5 2.1"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 5 · N 3.6 · 2 1.65 · O2.5 2.1",
+      "status": "PENDING"
     },
     {
       "id": "stmirren-vs-hibernia-2026-10-28",
@@ -14754,7 +14748,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.1 · N 3.65 · 2 2.15 · O2.5 1.65"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.1 · N 3.65 · 2 2.15 · O2.5 1.65",
+      "status": "PENDING"
     },
     {
       "id": "stjohnst-vs-motherwe-2026-10-28",
@@ -15159,7 +15154,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 4 · 2 3.2"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 4 · 2 3.2",
+      "status": "PENDING"
     },
     {
       "id": "chicagof-vs-orlandoc-2026-10-29",
@@ -15932,68 +15928,61 @@
       "away": "Philadelphia Union",
       "league": "MLS",
       "date": "2026-10-29",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.68,
-      "bttsProbDisplay": "70.00%",
-      "over25ProbDisplay": "70.00%",
-      "confidence": 68,
+      "proba": 0.7794,
+      "bttsProbDisplay": "77.94%",
+      "over25ProbDisplay": "80.47%",
+      "confidence": 78,
       "time": "00:30",
       "matchSemantic": "nashvill-vs-philadel-2026-10-29",
       "source": "poisson-v92-real-data",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18986.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10739.png",
       "tier": "GOLD",
-      "reliabilityScore": 89.38,
+      "reliabilityScore": 92.85,
       "dataQuality": "HIGH",
       "dataSource": "ESPN_TEAM_SCHEDULE",
       "matchCountHome": 8,
       "matchCountAway": 8,
       "h2hAvailable": false,
-      "xgHome": 3,
-      "xgAway": 4,
-      "xgTotal": 7,
+      "xgHome": 2.32,
+      "xgAway": 2,
+      "xgTotal": 4.32,
       "formBTTS": 70,
-      "analysis": "Nashville SC : forme V-N-V-V-V (4V 1N 0D, 13 buts marqués / 2 encaissés sur 5) · Philadelphia Union : forme D-N-V-V-V (3V 1N 1D, 12 buts marqués / 8 encaissés sur 5). Classement : Nashville SC 1e (70 pts), Philadelphia Union 6e (46 pts). Stats empiriques (forme récente) : buts moy. 7, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.77 / N: 3.9 / 2: 3.85. Fiabilité 89.38%.",
+      "analysis": "Nashville SC : forme N-V-V-V-V (4V 1N 0D, 14 buts marqués / 2 encaissés sur 5) · Philadelphia Union : forme N-V-V-V-V (4V 1N 0D, 15 buts marqués / 9 encaissés sur 5). Classement : Nashville SC 1e (67 pts), Philadelphia Union 6e (46 pts). Modèle Poisson : xG cumulé 4.32, BTTS 77.9%, Over 2.5 80.5%. Fiabilité 92.85%.",
       "analysisData": {
-        "bttsProb": 0.7,
-        "over25Prob": 0.7,
-        "homeLambda": 3,
-        "awayLambda": 4,
-        "xgTotal": 7
+        "bttsProb": 0.7794,
+        "over25Prob": 0.8047,
+        "homeLambda": 2.32,
+        "awayLambda": 2,
+        "xgTotal": 4.32
       },
-      "estimatedCote": 1.43,
-      "estimatedCoteOver": 1.43,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 1.77,
-        "draw": 3.9,
-        "away": 3.85,
-        "over25": null,
-        "under25": null
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.43,
+      "estimatedCote": 1.28,
+      "estimatedCoteOver": 1.24,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.28,
       "formHome": {
-        "last5String": "V-N-V-V-V",
+        "last5String": "N-V-V-V-V",
         "wins": 4,
         "draws": 1,
         "losses": 0,
-        "goalsFor": 13,
+        "goalsFor": 14,
         "goalsAgainst": 2,
         "bttsRate": 0.4,
-        "over25Rate": 0.4,
+        "over25Rate": 0.6,
         "cleanSheets": 3,
         "failedToScore": 0,
         "count": 5
       },
       "formAway": {
-        "last5String": "D-N-V-V-V",
-        "wins": 3,
+        "last5String": "N-V-V-V-V",
+        "wins": 4,
         "draws": 1,
-        "losses": 1,
-        "goalsFor": 12,
-        "goalsAgainst": 8,
+        "losses": 0,
+        "goalsFor": 15,
+        "goalsAgainst": 9,
         "bttsRate": 1,
         "over25Rate": 1,
         "cleanSheets": 0,
@@ -16076,68 +16065,52 @@
       ],
       "standingsHome": {
         "rank": 1,
-        "points": 70,
-        "played": 31,
-        "gf": 66,
+        "points": 67,
+        "played": 30,
+        "gf": 64,
         "ga": 23
       },
       "standingsAway": {
         "rank": 6,
         "points": 46,
-        "played": 31,
-        "gf": 62,
-        "ga": 50
+        "played": 30,
+        "gf": 61,
+        "ga": 48
       },
       "predictions": [
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 70,
-          "bttsProb": 0.7,
-          "homeLambda": 3,
-          "awayLambda": 4,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "confidence": 78,
+          "bttsProb": 0.7794,
+          "homeLambda": 2.32,
+          "awayLambda": 2
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 68,
-          "over25Prob": 0.68,
-          "homeLambda": 3,
-          "awayLambda": 4,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.68
+          "confidence": 80,
+          "over25Prob": 0.8047,
+          "homeLambda": 2.32,
+          "awayLambda": 2
         }
       ],
-      "bttsProb": 0.7,
-      "over25Prob": 0.68,
-      "homeLambda": 3,
-      "awayLambda": 4,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "Philadelphia Union enregistre un taux de 100% de BTTS et d'Over 2.5 sur ses 5 derniers matchs.",
-      "ai_analysis": "Ce choc oppose le leader Nashville SC, doté d'une excellente défense récente (2 buts encaissés en 5 matchs), à un Philadelphia Union très offensif et spectaculaire. Philadelphia affiche 100% de taux BTTS et Over 2.5 sur ses 5 derniers matchs avec une moyenne impressionnante de 4 buts par match. Bien que Nashville soit avare défensivement, les statistiques globales et la dynamique de Philadelphia soutiennent un match avec plus de 2.5 buts.",
-      "ai_analysis_en": "This clash pits league leaders Nashville SC, boasting an excellent recent defense (2 goals conceded in 5 matches), against a highly offensive and entertaining Philadelphia Union. Philadelphia shows 100% BTTS and Over 2.5 rates in their last 5 matches with an impressive 4 goals per match average. Although Nashville is defensively stingy, overall statistics and Philadelphia's momentum support a match with over 2.5 goals.",
-      "ai_form_summary": "Nashville SC: 4V-1N-0D, 13 buts pour, 2 buts contre. Philadelphia Union: 3V-1N-1D, 12 buts pour, 8 buts contre.",
-      "ai_form_summary_en": "Nashville SC: 4W-1D-0L, 13 goals for, 2 goals against. Philadelphia Union: 3W-1D-1L, 12 goals for, 8 goals against.",
-      "ai_reasons": [
-        "Philadelphia Union affiche des taux parfaits de 100% pour le BTTS et l'Over 2.5 sur ses 5 derniers matchs.",
-        "Moyennes de buts élevées pour les deux équipes, avec 3 buts par match pour Nashville et 4 pour Philadelphia.",
-        "Taux empiriques globaux solides de 70% pour le BTTS et l'Over 2.5."
-      ],
-      "ai_risks": [
-        "La défense de Nashville SC est extrêmement solide avec seulement 2 buts encaissés sur ses 5 derniers matchs.",
-        "Le taux de BTTS récent de Nashville SC est plus bas à 40%."
-      ],
-      "ai_confidence": "medium",
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.77 · N 3.9 · 2 3.85"
+      "bttsProb": 0.7794,
+      "over25Prob": 0.8047,
+      "homeLambda": 2.32,
+      "awayLambda": 2,
+      "ai_key_fact": "Nashville SC et Philadelphia Union affichent tous deux une dynamique de 4 victoires et 1 nul.",
+      "ai_analysis": "Le modèle Poisson anticipe une rencontre offensive avec un xG de 2.32 pour Nashville SC et de 2.0 pour Philadelphia Union. Les probabilités du modèle s'établissent à 77.9% pour le BTTS et 80.5% pour l'Over 2.5, soutenues par une fiabilité de 92.85%. Le classement confirme la solidité de Nashville (1e, 67 points) face à un adversaire positionné à la 6e place avec 46 points.",
+      "ai_form_summary": "Nashville SC présente un bilan solide à domicile avec 14 buts marqués et 3 clean sheets sur ses 5 derniers matchs. Philadelphia Union affiche également une excellente forme en déplacement avec 15 buts inscrits mais aucun clean sheet.",
+      "ai_key_fact_en": "Nashville SC and Philadelphia Union both display a dynamic of 4 wins and 1 draw.",
+      "ai_analysis_en": "The Poisson model anticipates an offensive match with an xG of 2.32 for Nashville SC and 2.0 for Philadelphia Union. Model probabilities stand at 77.9% for BTTS and 80.5% for Over 2.5, supported by a reliability of 92.85%. The standings confirm Nashville's strength (1st, 67 points) against an opponent positioned 6th with 46 points.",
+      "ai_form_summary_en": "Nashville SC presents a solid home record with 14 goals scored and 3 clean sheets over their last 5 matches. Philadelphia Union also shows excellent away form with 15 goals scored but no clean sheets.",
+      "ai_source": "gemini-v2",
+      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+      "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
+      "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
+      "status": "PENDING"
     },
     {
       "id": "seattles-vs-houstond-2026-10-29",
@@ -21587,12 +21560,12 @@
       "away": "Toulouse",
       "league": "Ligue 1",
       "date": "2026-11-01",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.6,
+      "proba": 0.66,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 60,
+      "confidence": 66,
       "time": "19:45",
       "matchSemantic": "marseill-vs-toulouse-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -21609,7 +21582,7 @@
       "xgAway": 2.25,
       "xgTotal": 5,
       "formBTTS": 60,
-      "analysis": "Marseille : forme V-V-V-D-D (3V 0N 2D, 12 buts marqués / 8 encaissés sur 5) · Toulouse : forme N-V-N-V-N (2V 3N 0D, 10 buts marqués / 6 encaissés sur 5). Classement : Marseille 8e (12 pts), Toulouse 11e (10 pts). Stats empiriques (forme récente) : buts moy. 5, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.85 / 2: 3.55 · Over 2.5: 1.54. Fiabilité 85%.",
+      "analysis": "Marseille : forme V-V-V-D-D (3V 0N 2D, 12 buts marqués / 8 encaissés sur 5) · Toulouse : forme N-V-N-V-N (2V 3N 0D, 10 buts marqués / 6 encaissés sur 5). Classement : Marseille 8e (12 pts), Toulouse 11e (10 pts). Stats empiriques (forme récente) : buts moy. 5, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.9 / 2: 3.6. Fiabilité 85%.",
       "analysisData": {
         "bttsProb": 0.6,
         "over25Prob": 0.7,
@@ -21622,10 +21595,10 @@
       "odds": {
         "provider": "DraftKings",
         "home": 1.91,
-        "draw": 3.85,
-        "away": 3.55,
-        "over25": 1.54,
-        "under25": 2.3
+        "draw": 3.9,
+        "away": 3.6,
+        "over25": null,
+        "under25": null
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.67,
@@ -21747,54 +21720,52 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 65,
-          "bttsProb": 0.65,
+          "confidence": 60,
+          "bttsProb": 0.6,
           "homeLambda": 2.75,
           "awayLambda": 2.25,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.65
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 65,
-          "over25Prob": 0.675,
+          "confidence": 66,
+          "over25Prob": 0.66,
           "homeLambda": 2.75,
           "awayLambda": 2.25,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.675
+          "proba": 0.66
         }
       ],
-      "bttsProb": 0.65,
-      "over25Prob": 0.675,
+      "bttsProb": 0.6,
+      "over25Prob": 0.66,
       "homeLambda": 2.75,
       "awayLambda": 2.25,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Marseille et Toulouse affichent chacun un taux de BTTS de 60% sur leurs 8 derniers matchs.",
-      "ai_analysis": "L'analyse des statistiques observées montre un profil résolument offensif pour cette rencontre de Ligue 1. Marseille et Toulouse affichent tous deux un taux de BTTS de 60% ainsi que des moyennes de buts par match élevées (2.75 et 2.25). L'empirique Over 2.5 atteint 70%, ce qui renforce l'intérêt pour un match prolifique où les deux défenses pourraient céder.",
-      "ai_analysis_en": "Observed statistics show a distinctly offensive profile for this Ligue 1 fixture. Both Marseille and Toulouse record a 60% BTTS rate alongside high goals-per-match averages (2.75 and 2.25). The empirical Over 2.5 rate sits at 70%, supporting the case for an open match where both defenses could concede.",
-      "ai_form_summary": "Marseille (3V-0N-2D) alterne le bon et le moins bon, tandis que Toulouse (2V-3N-0D) est invaincu sur ses 5 derniers matchs.",
-      "ai_form_summary_en": "Marseille (3W-0D-2L) shows mixed recent form, while Toulouse (2W-3D-0L) remains unbeaten in their last 5 outings.",
+      "ai_key_fact": "Toulouse affiche un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
+      "ai_analysis": "Les statistiques des deux équipes révèlent une tendance nette vers des matchs ouverts, avec un taux empirique Over 2.5 à 70%. Toulouse se distingue avec un taux Over de 80% sur ses 5 derniers matchs, tandis que Marseille maintient une moyenne de buts de 2.75 par rencontre. Ces indicateurs convergent vers un scénario avec au moins trois buts inscrits.",
+      "ai_analysis_en": "The statistics of both teams reveal a clear trend toward open matches, with an empirical Over 2.5 rate of 70%. Toulouse stands out with an 80% Over rate over their last 5 matches, while Marseille maintains a goal average of 2.75 per game. These indicators converge toward a scenario with at least three goals scored.",
+      "ai_form_summary": "Marseille (3W-0D-2L, 12 buts pour, 8 contre) vs Toulouse (2W-3D-0L, 10 buts pour, 6 contre).",
+      "ai_form_summary_en": "Marseille (3W-0D-2L, 12 GF, 8 GA) vs Toulouse (2W-3D-0L, 10 GF, 6 GA).",
       "ai_reasons": [
-        "Taux empiriques élevés : 60% de matchs BTTS et 70% d'Over 2.5 sur l'échantillon global.",
-        "Moyennes de buts élevées : Marseille affiche 2.75 buts par match et Toulouse 2.25.",
-        "Bonne constance offensive des deux côtés avec respectivement 18 et 12 buts inscrits en 8 matchs."
+        "Taux Over 2.5 empirique global de 70% pour ce match de Ligue 1.",
+        "Toulouse présente un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
+        "Moyennes de buts solides pour Marseille (2.75) et Toulouse (2.25)."
       ],
       "ai_risks": [
-        "Marseille reste sur deux défaites récentes en championnat.",
-        "Toulouse concède pas mal de matchs nuls (3 sur les 5 derniers)."
+        "Marseille reste sur deux défaites consécutives lors de ses 5 derniers matchs.",
+        "Toulouse a concédé 3 matchs nuls sur ses 5 dernières sorties, montrant une certaine prudence."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.55 · O2.5 1.54",
-      "status": "PENDING"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.9 · 2 3.6"
     },
     {
       "id": "sassuolo-vs-fiorenti-2026-11-02",
@@ -22009,7 +21980,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.7 · N 3.5 · 2 2.25 · O2.5 1.59"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.7 · N 3.5 · 2 2.25 · O2.5 1.59",
+      "status": "PENDING"
     },
     {
       "id": "lafc-vs-minnesot-2026-11-02",
@@ -22216,7 +22188,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "benfica-vs-alverca-2026-11-02",
@@ -22430,7 +22403,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.17 · N 7 · 2 13"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.17 · N 7 · 2 13",
+      "status": "PENDING"
     },
     {
       "id": "atalanta-vs-parma-2026-11-02",
@@ -22439,12 +22413,12 @@
       "away": "Parma",
       "league": "Serie A",
       "date": "2026-11-02",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.7,
+      "proba": 0.74,
       "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "90.00%",
-      "confidence": 70,
+      "confidence": 74,
       "time": "19:45",
       "matchSemantic": "atalanta-vs-parma-2026-11-02",
       "source": "poisson-v92-real-data",
@@ -22461,7 +22435,7 @@
       "xgAway": 0.5,
       "xgTotal": 2.7,
       "formBTTS": 70,
-      "analysis": "Atalanta : forme N-D-V-D-D (1V 1N 3D, 10 buts marqués / 12 encaissés sur 5) · Parma : forme D-D-D-V-D (1V 0N 4D, 4 buts marqués / 11 encaissés sur 5). Classement : Atalanta 11e (10 pts), Parma 19e (4 pts). Stats empiriques (forme récente) : buts moy. 2.7, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.43 / N: 4.3 / 2: 6 · Over 2.5: 1.74. Fiabilité 84.38%.",
+      "analysis": "Atalanta : forme N-D-V-D-D (1V 1N 3D, 10 buts marqués / 12 encaissés sur 5) · Parma : forme D-D-D-V-D (1V 0N 4D, 4 buts marqués / 11 encaissés sur 5). Classement : Atalanta 11e (10 pts), Parma 19e (4 pts). Stats empiriques (forme récente) : buts moy. 2.7, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.43 / N: 4.3 / 2: 6 · Over 2.5: 1.69. Fiabilité 84.38%.",
       "analysisData": {
         "bttsProb": 0.7,
         "over25Prob": 0.9,
@@ -22476,8 +22450,8 @@
         "home": 1.43,
         "draw": 4.3,
         "away": 6,
-        "over25": 1.74,
-        "under25": 2
+        "over25": 1.69,
+        "under25": 2.1
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.43,
@@ -22599,53 +22573,52 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 72,
-          "bttsProb": 0.72,
+          "confidence": 70,
+          "bttsProb": 0.7,
           "homeLambda": 2.2,
           "awayLambda": 0.5,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.72
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 72,
-          "over25Prob": 0.78,
+          "confidence": 74,
+          "over25Prob": 0.74,
           "homeLambda": 2.2,
           "awayLambda": 0.5,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.78
+          "proba": 0.74
         }
       ],
-      "bttsProb": 0.72,
-      "over25Prob": 0.78,
+      "bttsProb": 0.7,
+      "over25Prob": 0.74,
       "homeLambda": 2.2,
       "awayLambda": 0.5,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Atalanta et Parma affichent toutes deux de fortes tendances aux matchs ouverts avec des taux de buts élevés.",
-      "ai_analysis": "L'analyse des statistiques observées met en avant une propension très nette pour les matchs prolifiques. L'Atalanta présente des taux élevés de BTTS et d'Over 2.5, tandis que Parma encaisse régulièrement malgré des difficultés offensives hors de ses bases. Les indicateurs convergent vers un scénario animé.",
-      "ai_analysis_en": "Observed statistics highlight a clear propensity for high-scoring matches. Atalanta shows high BTTS and Over 2.5 rates, while Parma regularly concedes despite offensive struggles away from home. Indicators point towards an active match scenario.",
-      "ai_form_summary": "Atalanta (1W-1D-3L, 10-12 buts) et Parma (1W-0D-4L, 4-11 buts) montrent des difficultés défensives.",
-      "ai_form_summary_en": "Atalanta (1W-1D-3L, 10-12 goals) and Parma (1W-0D-4L, 4-11 goals) both show defensive frailties.",
+      "ai_key_fact": "Parma affiche un taux Over 2.5 de 100% sur ses 8 matchs à l'extérieur.",
+      "ai_analysis": "Les statistiques observées pour cette rencontre de Serie A indiquent une forte probabilité de buts. Atalanta et Parma démontrent toutes deux des tendances prononcées pour l'Over 2.5, s'appuyant sur des taux respectifs de 80% et 100% sur leur échantillon. Bien que Parma ait une moyenne de buts marqués faible à l'extérieur, la vulnérabilité défensive globale d'Atalanta soutient cette option malgré les risques.",
+      "ai_analysis_en": "Observed statistics for this Serie A fixture indicate a strong probability of goals. Both Atalanta and Parma show pronounced trends for Over 2.5, backed by respective sample rates of 80% and 100%. Although Parma has a low away goal average, Atalanta's overall defensive vulnerability supports this selection despite the risks.",
+      "ai_form_summary": "Atalanta (1W-1D-3L, 10 buts marqués, 12 encaissés) et Parma (1W-0D-4L, 4 marqués, 11 encaissés).",
+      "ai_form_summary_en": "Atalanta (1W-1D-3L, 10 scored, 12 conceded) and Parma (1W-0D-4L, 4 scored, 11 conceded).",
       "ai_reasons": [
-        "Taux empirique Over 2.5 très élevé à 90% sur l'échantillon récent.",
-        "Taux empirique BTTS solide à 70% pour ce match.",
-        "Atalanta affiche un taux BTTS de 80% et un over25 de 80% sur ses 5 derniers matchs."
+        "Taux empirique Over 2.5 très élevé à 90%",
+        "Atalanta présente un taux Over 2.5 de 80% sur ses 8 derniers matchs à domicile",
+        "Parma affiche un taux Over 2.5 de 100% sur ses 8 derniers matchs à l'extérieur"
       ],
       "ai_risks": [
-        "Parma possède une moyenne de buts marqués à l'extérieur faible (0.5).",
-        "La défense de Parma a concédé 15 buts en 8 matchs."
+        "La moyenne de buts à l'extérieur de Parma est faible (0.5)",
+        "Atalanta concède beaucoup de buts (12 buts encaissés en 5 matchs de forme)"
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.43 · N 4.3 · 2 6 · O2.5 1.74"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.43 · N 4.3 · 2 6 · O2.5 1.69"
     },
     {
       "id": "portland-vs-houstond-2026-11-02",
@@ -22654,12 +22627,12 @@
       "away": "Houston Dynamo FC",
       "league": "MLS",
       "date": "2026-11-02",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.6,
+      "proba": 0.58,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "60.00%",
-      "confidence": 60,
+      "confidence": 58,
       "time": "02:45",
       "matchSemantic": "portland-vs-houstond-2026-11-02",
       "source": "poisson-v92-real-data",
@@ -22807,12 +22780,13 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
+          "confidence": 58,
+          "bttsProb": 0.58,
           "homeLambda": 1.25,
           "awayLambda": 1.67,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "statsOnly": true,
+          "proba": 0.58
         },
         {
           "type": "Over 2.5",
@@ -22822,32 +22796,33 @@
           "homeLambda": 1.25,
           "awayLambda": 1.67,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.6
+          "statsOnly": true
         }
       ],
-      "bttsProb": 0.6,
+      "bttsProb": 0.58,
       "over25Prob": 0.6,
       "homeLambda": 1.25,
       "awayLambda": 1.67,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Form signals BTTS 60% / Over 60%",
-      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 60.0%, Over 2.5 empirique 60.0% pour Portland Timbers vs Houston Dynamo FC. Décision : OVER_25.",
-      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 60.0%, Over 2.5 60.0% for Portland Timbers vs Houston Dynamo FC. Decision: OVER_25.",
-      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 60.0%, Over 2.5 empirique 60.0% pour Portland Timbers vs Houston Dynamo FC.",
-      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 60.0%, Over 2.5 60.0% for Portland Timbers vs Houston Dynamo FC. Decision: OVER_25.",
+      "ai_key_fact": "Les deux formations affichent un taux BTTS identique de 60% sur leurs 8 matchs d'échantillon.",
+      "ai_analysis": "L'analyse des données de MLS montre une régularité équivalente entre les deux équipes sur le marché des deux équipes marquent. Portland Timbers et Houston Dynamo enregistrent un taux BTTS empirique de 60%. La capacité offensive de Houston à l'extérieur (1.67 buts de moyenne) renforce l'hypothèse d'une rencontre ouverte où les deux defenses pourraient céder.",
+      "ai_analysis_en": "MLS data analysis shows equivalent consistency between both teams on the BTTS market. Portland Timbers and Houston Dynamo record an empirical BTTS rate of 60%. Houston's away attacking capability (1.67 goals average) reinforces the hypothesis of an open match where both defenses could concede.",
+      "ai_form_summary": "Portland (1W-2D-2L, 7 buts marqués, 10 encaissés) et Houston (0W-4D-1L, 7 marqués, 9 encaissés).",
+      "ai_form_summary_en": "Portland (1W-2D-2L, 7 scored, 10 conceded) and Houston (0W-4D-1L, 7 scored, 9 conceded).",
       "ai_reasons": [
-        "Empirical BTTS rate ~60%",
-        "Empirical Over 2.5 rate ~60%"
+        "Taux empirique BTTS établi à 60% pour les deux équipes",
+        "Portland Timbers et Houston Dynamo affichent tous deux un taux BTTS de 60% sur leur forme récente",
+        "Houston Dynamo affiche une moyenne de 1.67 buts par match à l'extérieur"
       ],
       "ai_risks": [
-        "Sample limited to recent matches; form can shift quickly."
+        "Portland Timbers a un bilan offensif récent moyen avec 7 buts en 5 matchs",
+        "Le taux Over 2.5 reste modéré à 60%"
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "local-empirical-v1",
+      "ai_market": "BTTS",
+      "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
@@ -23063,7 +23038,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.4 · N 3.3 · 2 2.8 · O2.5 1.95"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.4 · N 3.3 · 2 2.8 · O2.5 1.95",
+      "status": "PENDING"
     },
     {
       "id": "newengla-vs-intermia-2026-11-02",
@@ -23270,7 +23246,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "deportiv-vs-osasuna-2026-11-02",
@@ -23481,7 +23458,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.2 · 2 3.55 · O2.5 2.2"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.2 · 2 3.55 · O2.5 2.2",
+      "status": "PENDING"
     }
   ],
   "analysisEngine": "gemini-stats-v1"
