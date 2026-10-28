@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-10-27T21:43:19.860Z",
+  "generatedAt": "2026-10-28T03:20:52.509Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,37 +15,37 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 328,
-    "won": 271,
+    "total": 330,
+    "won": 273,
     "lost": 57,
-    "pending": 64,
+    "pending": 78,
     "unverifiable": 153,
-    "archivedTotal": 545,
-    "rate": 82.6,
+    "archivedTotal": 561,
+    "rate": 82.7,
     "gold": {
-      "total": 233,
-      "won": 198,
+      "total": 234,
+      "won": 199,
       "lost": 35,
       "rate": 85
     },
     "standard": {
-      "total": 95,
-      "won": 73,
+      "total": 96,
+      "won": 74,
       "lost": 22,
-      "rate": 76.8
+      "rate": 77.1
     },
     "byType": {
       "btts": {
-        "total": 323,
-        "won": 269,
+        "total": 324,
+        "won": 270,
         "lost": 54,
         "rate": 83.3
       },
       "over25": {
-        "total": 5,
-        "won": 2,
+        "total": 6,
+        "won": 3,
         "lost": 3,
-        "rate": 40
+        "rate": 50
       }
     },
     "trend14": [
@@ -142,19 +142,45 @@
       },
       {
         "date": "2026-10-27",
-        "total": 3,
-        "won": 2,
+        "total": 5,
+        "won": 4,
         "lost": 1,
-        "rate": 66.7
+        "rate": 80
       }
     ],
     "period": {
       "from": "2026-08-08",
-      "to": "2026-10-27",
-      "days": 81
+      "to": "2026-10-28",
+      "days": 82
     }
   },
   "history": [
+    {
+      "date": "2026-10-27",
+      "match": "Torino vs Como",
+      "league": "Serie A",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.58,
+      "status": "WON",
+      "finalScore": "1-3",
+      "verifiedAt": "2026-10-28T03:20:00.023Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-27",
+      "match": "Torino vs Como",
+      "league": "Serie A",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.5994,
+      "status": "WON",
+      "finalScore": "1-3",
+      "verifiedAt": "2026-10-28T03:20:00.022Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-10-27",
       "match": "AS Roma vs Cagliari",
@@ -4421,12 +4447,12 @@
     }
   ],
   "legacyStats": {
-    "total": 113,
-    "won": 113,
+    "total": 104,
+    "won": 104,
     "lost": 0,
     "pending": 0,
-    "unverifiable": 131,
-    "archivedTotal": 244,
+    "unverifiable": 122,
+    "archivedTotal": 226,
     "rate": 100,
     "gold": {
       "total": 0,
@@ -4435,37 +4461,30 @@
       "rate": 0
     },
     "standard": {
-      "total": 113,
-      "won": 113,
+      "total": 104,
+      "won": 104,
       "lost": 0,
       "rate": 100
     },
     "byType": {
       "btts": {
-        "total": 57,
-        "won": 57,
+        "total": 53,
+        "won": 53,
         "lost": 0,
         "rate": 100
       },
       "over25": {
-        "total": 56,
-        "won": 56,
+        "total": 51,
+        "won": 51,
         "lost": 0,
         "rate": 100
       }
     },
     "trend14": [
       {
-        "date": "2026-07-30",
-        "total": 3,
-        "won": 3,
-        "lost": 0,
-        "rate": 100
-      },
-      {
         "date": "2026-07-31",
-        "total": 13,
-        "won": 13,
+        "total": 7,
+        "won": 7,
         "lost": 0,
         "rate": 100
       },
@@ -4527,9 +4546,9 @@
       }
     ],
     "period": {
-      "from": "2026-07-30",
+      "from": "2026-07-31",
       "to": "2026-08-07",
-      "days": 9
+      "days": 8
     },
     "history": [
       {
@@ -5379,97 +5398,6 @@
       },
       {
         "date": "2026-08-01",
-        "match": "FC Juarez vs Pumas UNAM",
-        "league": "Mexican Liga BBVA MX",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "1-5",
-        "verifiedAt": "2026-10-23T05:48:13.333Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-01",
-        "match": "FC Juarez vs Pumas UNAM",
-        "league": "Mexican Liga BBVA MX",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.51,
-        "status": "WON",
-        "finalScore": "1-5",
-        "verifiedAt": "2026-10-23T05:48:13.333Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-01",
-        "match": "Puebla vs Guadalajara",
-        "league": "Mexican Liga BBVA MX",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "1-1",
-        "verifiedAt": "2026-10-23T05:48:13.333Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-01",
-        "match": "Fortaleza CEIF vs Deportivo Pereira",
-        "league": "Colombian Primera A",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.42,
-        "status": "WON",
-        "finalScore": "0-0",
-        "verifiedAt": "2026-10-23T05:48:13.332Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-01",
-        "match": "New York City FC vs Toronto FC",
-        "league": "MLS",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "1-1",
-        "verifiedAt": "2026-10-23T05:48:13.332Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-01",
-        "match": "Montevideo City Torque vs Montevideo Wanderers",
-        "league": "Liga AUF Uruguaya",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.45,
-        "status": "WON",
-        "finalScore": "0-2",
-        "verifiedAt": "2026-10-23T05:48:13.331Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-01",
-        "match": "Montevideo City Torque vs Montevideo Wanderers",
-        "league": "Liga AUF Uruguaya",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.45,
-        "status": "WON",
-        "finalScore": "0-2",
-        "verifiedAt": "2026-10-23T05:48:13.331Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-01",
         "match": "CSKA Moscow vs Krylia Sovetov",
         "league": "Russian Premier League",
         "market": "btts",
@@ -5569,6 +5497,45 @@
         "status": "WON",
         "finalScore": "0-0",
         "verifiedAt": "2026-10-23T05:48:13.327Z",
+        "source": "ESPN public",
+        "prediction": "Non"
+      },
+      {
+        "date": "2026-08-01",
+        "match": "Fortaleza CEIF vs Deportivo Pereira",
+        "league": "Colombian Primera A",
+        "market": "over25",
+        "tier": "STANDARD",
+        "proba": 0.42,
+        "status": "WON",
+        "finalScore": "0-0",
+        "verifiedAt": "2026-08-07T14:30:12.985Z",
+        "source": "ESPN public",
+        "prediction": "Non"
+      },
+      {
+        "date": "2026-08-01",
+        "match": "Montevideo City Torque vs Montevideo Wanderers",
+        "league": "Liga AUF Uruguaya",
+        "market": "btts",
+        "tier": "STANDARD",
+        "proba": 0.45,
+        "status": "WON",
+        "finalScore": "0-2",
+        "verifiedAt": "2026-08-07T14:30:12.984Z",
+        "source": "ESPN public",
+        "prediction": "Non"
+      },
+      {
+        "date": "2026-08-01",
+        "match": "Montevideo City Torque vs Montevideo Wanderers",
+        "league": "Liga AUF Uruguaya",
+        "market": "over25",
+        "tier": "STANDARD",
+        "proba": 0.45,
+        "status": "WON",
+        "finalScore": "0-2",
+        "verifiedAt": "2026-08-07T14:30:12.984Z",
         "source": "ESPN public",
         "prediction": "Non"
       },
@@ -5794,41 +5761,54 @@
         "prediction": "Oui"
       },
       {
-        "date": "2026-07-31",
-        "match": "Bodo/Glimt vs Lillestrom",
-        "league": "Norwegian Eliteserien",
-        "market": "over25",
+        "date": "2026-08-01",
+        "match": "FC Juarez vs Pumas UNAM",
+        "league": "Mexican Liga BBVA MX",
+        "market": "btts",
         "tier": "STANDARD",
         "proba": 0.52,
         "status": "WON",
-        "finalScore": "4-0",
-        "verifiedAt": "2026-10-23T05:48:13.331Z",
+        "finalScore": "1-5",
+        "verifiedAt": "2026-08-07T12:17:13.733Z",
         "source": "ESPN public",
         "prediction": "Oui"
       },
       {
-        "date": "2026-07-31",
-        "match": "Dundee United vs Rangers",
-        "league": "Scottish Premiership",
+        "date": "2026-08-01",
+        "match": "FC Juarez vs Pumas UNAM",
+        "league": "Mexican Liga BBVA MX",
+        "market": "over25",
+        "tier": "STANDARD",
+        "proba": 0.51,
+        "status": "WON",
+        "finalScore": "1-5",
+        "verifiedAt": "2026-08-07T12:17:13.733Z",
+        "source": "ESPN public",
+        "prediction": "Oui"
+      },
+      {
+        "date": "2026-08-01",
+        "match": "New York City FC vs Toronto FC",
+        "league": "MLS",
         "market": "btts",
         "tier": "STANDARD",
         "proba": 0.52,
         "status": "WON",
         "finalScore": "1-1",
-        "verifiedAt": "2026-10-23T05:48:13.331Z",
+        "verifiedAt": "2026-08-07T12:17:13.732Z",
         "source": "ESPN public",
         "prediction": "Oui"
       },
       {
-        "date": "2026-07-31",
-        "match": "LASK Linz vs Grazer AK",
-        "league": "Austrian Bundesliga",
-        "market": "over25",
+        "date": "2026-08-01",
+        "match": "Puebla vs Guadalajara",
+        "league": "Mexican Liga BBVA MX",
+        "market": "btts",
         "tier": "STANDARD",
         "proba": 0.52,
         "status": "WON",
-        "finalScore": "3-0",
-        "verifiedAt": "2026-10-23T05:48:13.331Z",
+        "finalScore": "1-1",
+        "verifiedAt": "2026-08-07T12:17:13.732Z",
         "source": "ESPN public",
         "prediction": "Oui"
       },
@@ -5841,7 +5821,7 @@
         "proba": 0.51,
         "status": "WON",
         "finalScore": "3-2",
-        "verifiedAt": "2026-10-23T05:48:13.331Z",
+        "verifiedAt": "2026-08-07T14:30:12.984Z",
         "source": "ESPN public",
         "prediction": "Oui"
       },
@@ -5854,7 +5834,7 @@
         "proba": 0.43,
         "status": "WON",
         "finalScore": "1-0",
-        "verifiedAt": "2026-10-23T05:48:13.331Z",
+        "verifiedAt": "2026-08-07T14:30:12.984Z",
         "source": "ESPN public",
         "prediction": "Non"
       },
@@ -5867,9 +5847,48 @@
         "proba": 0.46,
         "status": "WON",
         "finalScore": "1-0",
-        "verifiedAt": "2026-10-23T05:48:13.331Z",
+        "verifiedAt": "2026-08-07T14:30:12.984Z",
         "source": "ESPN public",
         "prediction": "Non"
+      },
+      {
+        "date": "2026-07-31",
+        "match": "Bodo/Glimt vs Lillestrom",
+        "league": "Norwegian Eliteserien",
+        "market": "over25",
+        "tier": "STANDARD",
+        "proba": 0.52,
+        "status": "WON",
+        "finalScore": "4-0",
+        "verifiedAt": "2026-08-07T12:17:13.732Z",
+        "source": "ESPN public",
+        "prediction": "Oui"
+      },
+      {
+        "date": "2026-07-31",
+        "match": "Dundee United vs Rangers",
+        "league": "Scottish Premiership",
+        "market": "btts",
+        "tier": "STANDARD",
+        "proba": 0.52,
+        "status": "WON",
+        "finalScore": "1-1",
+        "verifiedAt": "2026-08-07T12:17:13.732Z",
+        "source": "ESPN public",
+        "prediction": "Oui"
+      },
+      {
+        "date": "2026-07-31",
+        "match": "LASK Linz vs Grazer AK",
+        "league": "Austrian Bundesliga",
+        "market": "over25",
+        "tier": "STANDARD",
+        "proba": 0.52,
+        "status": "WON",
+        "finalScore": "3-0",
+        "verifiedAt": "2026-08-07T12:17:13.732Z",
+        "source": "ESPN public",
+        "prediction": "Oui"
       },
       {
         "date": "2026-07-31",
@@ -5880,126 +5899,9 @@
         "proba": 0.52,
         "status": "WON",
         "finalScore": "0-3",
-        "verifiedAt": "2026-10-23T05:48:13.331Z",
+        "verifiedAt": "2026-08-07T12:17:13.732Z",
         "source": "ESPN public",
         "prediction": "Oui"
-      },
-      {
-        "date": "2026-07-31",
-        "match": "Atlético Bucaramanga vs Llaneros FC",
-        "league": "Colombian Primera A",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.49,
-        "status": "WON",
-        "finalScore": "1-1",
-        "verifiedAt": "2026-08-07T14:30:17.446Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-07-31",
-        "match": "Atlético Bucaramanga vs Llaneros FC",
-        "league": "Colombian Primera A",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.43,
-        "status": "WON",
-        "finalScore": "1-1",
-        "verifiedAt": "2026-08-07T14:30:17.446Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-07-31",
-        "match": "Central Córdoba (Santiago del Estero) vs Atlético Tucumán",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.47,
-        "status": "WON",
-        "finalScore": "0-2",
-        "verifiedAt": "2026-08-07T12:17:09.373Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-07-31",
-        "match": "Corinthians vs Athletico-PR",
-        "league": "Brazilian Serie A",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.47,
-        "status": "WON",
-        "finalScore": "0-0",
-        "verifiedAt": "2026-08-07T12:17:09.373Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-07-31",
-        "match": "Independiente vs Newell's Old Boys",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.43,
-        "status": "WON",
-        "finalScore": "1-0",
-        "verifiedAt": "2026-08-07T12:17:09.373Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-07-31",
-        "match": "Talleres (Córdoba) vs Vélez Sarsfield",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.51,
-        "status": "WON",
-        "finalScore": "1-3",
-        "verifiedAt": "2026-08-07T12:17:09.373Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-07-30",
-        "match": "Libertad vs Deportivo Recoleta",
-        "league": "Paraguayan Primera División",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.49,
-        "status": "WON",
-        "finalScore": "4-1",
-        "verifiedAt": "2026-08-07T14:30:17.446Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-07-30",
-        "match": "Sportivo San Lorenzo vs Guaraní",
-        "league": "Paraguayan Primera División",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.46,
-        "status": "WON",
-        "finalScore": "0-1",
-        "verifiedAt": "2026-08-07T14:30:17.446Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-07-30",
-        "match": "Sportivo San Lorenzo vs Guaraní",
-        "league": "Paraguayan Primera División",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.41,
-        "status": "WON",
-        "finalScore": "0-1",
-        "verifiedAt": "2026-08-07T14:30:17.446Z",
-        "source": "ESPN public",
-        "prediction": "Non"
       }
     ],
     "isPrivate": true,
