@@ -11930,7 +11930,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 7 · N 5.25 · 2 1.34"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 7 · N 5.25 · 2 1.34",
+      "status": "PENDING"
     },
     {
       "id": "nashvill-vs-philadel-2026-10-29",
@@ -12335,7 +12336,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.9 · 2 3.6"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.9 · 2 3.6",
+      "status": "PENDING"
     },
     {
       "id": "atalanta-vs-parma-2026-11-02",
@@ -12549,7 +12551,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.43 · N 4.3 · 2 6 · O2.5 1.69"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.43 · N 4.3 · 2 6 · O2.5 1.69",
+      "status": "PENDING"
     },
     {
       "id": "portland-vs-houstond-2026-11-02",
@@ -12756,7 +12759,412 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
+    },
+    {
+      "id": "torontof-vs-dcunited-2026-10-28",
+      "match": "Toronto FC vs D.C. United",
+      "home": "Toronto FC",
+      "away": "D.C. United",
+      "league": "MLS",
+      "date": "2026-10-28",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.7851,
+      "bttsProbDisplay": "78.51%",
+      "over25ProbDisplay": "85.27%",
+      "confidence": 79,
+      "time": "23:30",
+      "matchSemantic": "torontof-vs-dcunited-2026-10-28",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7318.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/193.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.1,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 1.75,
+      "xgTotal": 4.75,
+      "formBTTS": 70,
+      "analysis": "Toronto FC : forme V-N-V-D-D (2V 1N 2D, 8 buts marqués / 9 encaissés sur 5) · D.C. United : forme D-D-V-D-N (1V 1N 3D, 7 buts marqués / 14 encaissés sur 5). Classement : Toronto FC 10e (36 pts), D.C. United 13e (33 pts). Modèle Poisson : xG cumulé 4.75, BTTS 78.5%, Over 2.5 85.3%. Fiabilité 93.1%.",
+      "analysisData": {
+        "bttsProb": 0.7851,
+        "over25Prob": 0.8527,
+        "homeLambda": 3,
+        "awayLambda": 1.75,
+        "xgTotal": 4.75
+      },
+      "estimatedCote": 1.27,
+      "estimatedCoteOver": 1.17,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.27,
+      "formHome": {
+        "last5String": "V-N-V-D-D",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 9,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-V-D-N",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 7,
+        "goalsAgainst": 14,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Columbus Crew",
+          "venue": "A",
+          "score": "2-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Red Bull New York",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "Orlando City SC",
+          "venue": "H",
+          "score": "3-3",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "CF Montréal",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Nashville SC",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-24",
+          "opponent": "FC Cincinnati",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-21",
+          "opponent": "FC Cincinnati",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Orlando City SC",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "Red Bull New York",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Inter Miami CF",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 10,
+        "points": 36,
+        "played": 30,
+        "gf": 46,
+        "ga": 55
+      },
+      "standingsAway": {
+        "rank": 13,
+        "points": 33,
+        "played": 30,
+        "gf": 38,
+        "ga": 53
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 79,
+          "bttsProb": 0.7851,
+          "homeLambda": 3,
+          "awayLambda": 1.75
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 85,
+          "over25Prob": 0.8527,
+          "homeLambda": 3,
+          "awayLambda": 1.75
+        }
+      ],
+      "bttsProb": 0.7851,
+      "over25Prob": 0.8527,
+      "homeLambda": 3,
+      "awayLambda": 1.75,
+      "ai_key_fact": "Le modèle attribue une probabilité Over 2.5 de 85.3% pour cette rencontre de MLS.",
+      "ai_analysis": "Les projections offensives du modèle atteignent un xG élevé de 3.0 pour Toronto FC et de 1.75 pour D.C. United. La probabilité BTTS s'élève à 78.5% et la fiabilité du modèle atteint un niveau élevé de 93.1%. Au classement de la MLS, les deux équipes se côtoient dans la seconde moitié du tableau, Toronto occupant la 10e place et D.C. United la 13e.",
+      "ai_form_summary": "Toronto FC traverse une période mitigée avec deux victoires, un nul et deux défaites lors de ses cinq derniers matchs. D.C. United connaît des difficultés marquées à l'extérieur avec trois défaites, un nul et une seule victoire sur la même période.",
+      "ai_key_fact_en": "The model assigns an Over 2.5 probability of 85.3% for this MLS fixture.",
+      "ai_analysis_en": "The model's offensive projections reach a high xG of 3.0 for Toronto FC and 1.75 for D.C. United. The BTTS probability stands at 78.5% and model reliability reaches a high level of 93.1%. In the MLS standings, both teams reside in the lower half, with Toronto in 10th and D.C. United in 13th place.",
+      "ai_form_summary_en": "Toronto FC experiences a mixed period with two wins, one draw, and two defeats in their last five matches. D.C. United struggles significantly away from home with three losses, one draw, and a single win over the same span.",
+      "ai_source": "gemini-v2",
+      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+      "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
+      "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
+      "status": "PENDING"
+    },
+    {
+      "id": "lehavrea-vs-parissai-2026-10-30",
+      "match": "Le Havre AC vs Paris Saint-Germain",
+      "home": "Le Havre AC",
+      "away": "Paris Saint-Germain",
+      "league": "Ligue 1",
+      "date": "2026-10-30",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 70,
+      "time": "18:00",
+      "matchSemantic": "lehavrea-vs-parissai-2026-10-30",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3236.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
+      "tier": "GOLD",
+      "reliabilityScore": 75.38,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 7,
+      "h2hAvailable": false,
+      "xgHome": 0.5,
+      "xgAway": 2,
+      "xgTotal": 2.5,
+      "formBTTS": 70,
+      "analysis": "Le Havre AC : forme D-D-D-D-N (0V 1N 4D, 6 buts marqués / 11 encaissés sur 5) · Paris Saint-Germain : forme V-V-V-V-D (4V 0N 1D, 10 buts marqués / 5 encaissés sur 5). Classement : Le Havre AC 18e (2 pts), Paris Saint-Germain 5e (14 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 9.5 / N: 7 / 2: 1.24. Fiabilité 75.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 0.5,
+        "awayLambda": 2,
+        "xgTotal": 2.5
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 9.5,
+        "draw": 7,
+        "away": 1.24,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "D-D-D-D-N",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 6,
+        "goalsAgainst": 11,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-D",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 10,
+        "goalsAgainst": 5,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Marseille",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "AJ Auxerre",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Lille",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Toulouse",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Angers",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-26",
+          "opponent": "Lyon",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Strasbourg",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Le Mans",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Marseille",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-13",
+          "opponent": "Brest",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 2,
+        "played": 8,
+        "gf": 8,
+        "ga": 15
+      },
+      "standingsAway": {
+        "rank": 5,
+        "points": 14,
+        "played": 7,
+        "gf": 14,
+        "ga": 9
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 0.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 70,
+          "over25Prob": 0.7,
+          "homeLambda": 0.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.7
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.7,
+      "homeLambda": 0.5,
+      "awayLambda": 2,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Form signals BTTS 70% / Over 70%",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Décision : OVER_25.",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Déc",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
+      "ai_reasons": [
+        "Empirical BTTS rate ~70%",
+        "Empirical Over 2.5 rate ~70%"
+      ],
+      "ai_risks": [
+        "Sample limited to recent matches; form can shift quickly."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "local-empirical-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.24",
+      "status": "PENDING"
     }
   ],
   "vipPreview": [
@@ -25599,6 +26007,410 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
+    },
+    {
+      "id": "torontof-vs-dcunited-2026-10-28",
+      "match": "Toronto FC vs D.C. United",
+      "home": "Toronto FC",
+      "away": "D.C. United",
+      "league": "MLS",
+      "date": "2026-10-28",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.7851,
+      "bttsProbDisplay": "78.51%",
+      "over25ProbDisplay": "85.27%",
+      "confidence": 79,
+      "time": "23:30",
+      "matchSemantic": "torontof-vs-dcunited-2026-10-28",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7318.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/193.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.1,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 1.75,
+      "xgTotal": 4.75,
+      "formBTTS": 70,
+      "analysis": "Toronto FC : forme V-N-V-D-D (2V 1N 2D, 8 buts marqués / 9 encaissés sur 5) · D.C. United : forme D-D-V-D-N (1V 1N 3D, 7 buts marqués / 14 encaissés sur 5). Classement : Toronto FC 10e (36 pts), D.C. United 13e (33 pts). Modèle Poisson : xG cumulé 4.75, BTTS 78.5%, Over 2.5 85.3%. Fiabilité 93.1%.",
+      "analysisData": {
+        "bttsProb": 0.7851,
+        "over25Prob": 0.8527,
+        "homeLambda": 3,
+        "awayLambda": 1.75,
+        "xgTotal": 4.75
+      },
+      "estimatedCote": 1.27,
+      "estimatedCoteOver": 1.17,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.27,
+      "formHome": {
+        "last5String": "V-N-V-D-D",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 8,
+        "goalsAgainst": 9,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-V-D-N",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 7,
+        "goalsAgainst": 14,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Columbus Crew",
+          "venue": "A",
+          "score": "2-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Red Bull New York",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "Orlando City SC",
+          "venue": "H",
+          "score": "3-3",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "CF Montréal",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-27",
+          "opponent": "Nashville SC",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-24",
+          "opponent": "FC Cincinnati",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-21",
+          "opponent": "FC Cincinnati",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Orlando City SC",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "Red Bull New York",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Inter Miami CF",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 10,
+        "points": 36,
+        "played": 30,
+        "gf": 46,
+        "ga": 55
+      },
+      "standingsAway": {
+        "rank": 13,
+        "points": 33,
+        "played": 30,
+        "gf": 38,
+        "ga": 53
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 79,
+          "bttsProb": 0.7851,
+          "homeLambda": 3,
+          "awayLambda": 1.75
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 85,
+          "over25Prob": 0.8527,
+          "homeLambda": 3,
+          "awayLambda": 1.75
+        }
+      ],
+      "bttsProb": 0.7851,
+      "over25Prob": 0.8527,
+      "homeLambda": 3,
+      "awayLambda": 1.75,
+      "ai_key_fact": "Le modèle attribue une probabilité Over 2.5 de 85.3% pour cette rencontre de MLS.",
+      "ai_analysis": "Les projections offensives du modèle atteignent un xG élevé de 3.0 pour Toronto FC et de 1.75 pour D.C. United. La probabilité BTTS s'élève à 78.5% et la fiabilité du modèle atteint un niveau élevé de 93.1%. Au classement de la MLS, les deux équipes se côtoient dans la seconde moitié du tableau, Toronto occupant la 10e place et D.C. United la 13e.",
+      "ai_form_summary": "Toronto FC traverse une période mitigée avec deux victoires, un nul et deux défaites lors de ses cinq derniers matchs. D.C. United connaît des difficultés marquées à l'extérieur avec trois défaites, un nul et une seule victoire sur la même période.",
+      "ai_key_fact_en": "The model assigns an Over 2.5 probability of 85.3% for this MLS fixture.",
+      "ai_analysis_en": "The model's offensive projections reach a high xG of 3.0 for Toronto FC and 1.75 for D.C. United. The BTTS probability stands at 78.5% and model reliability reaches a high level of 93.1%. In the MLS standings, both teams reside in the lower half, with Toronto in 10th and D.C. United in 13th place.",
+      "ai_form_summary_en": "Toronto FC experiences a mixed period with two wins, one draw, and two defeats in their last five matches. D.C. United struggles significantly away from home with three losses, one draw, and a single win over the same span.",
+      "ai_source": "gemini-v2",
+      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
+      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
+      "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
+      "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
+      "status": "PENDING"
+    },
+    {
+      "id": "lehavrea-vs-parissai-2026-10-30",
+      "match": "Le Havre AC vs Paris Saint-Germain",
+      "home": "Le Havre AC",
+      "away": "Paris Saint-Germain",
+      "league": "Ligue 1",
+      "date": "2026-10-30",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 70,
+      "time": "18:00",
+      "matchSemantic": "lehavrea-vs-parissai-2026-10-30",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3236.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
+      "tier": "GOLD",
+      "reliabilityScore": 75.38,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 7,
+      "h2hAvailable": false,
+      "xgHome": 0.5,
+      "xgAway": 2,
+      "xgTotal": 2.5,
+      "formBTTS": 70,
+      "analysis": "Le Havre AC : forme D-D-D-D-N (0V 1N 4D, 6 buts marqués / 11 encaissés sur 5) · Paris Saint-Germain : forme V-V-V-V-D (4V 0N 1D, 10 buts marqués / 5 encaissés sur 5). Classement : Le Havre AC 18e (2 pts), Paris Saint-Germain 5e (14 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 9.5 / N: 7 / 2: 1.24. Fiabilité 75.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 0.5,
+        "awayLambda": 2,
+        "xgTotal": 2.5
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 9.5,
+        "draw": 7,
+        "away": 1.24,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "D-D-D-D-N",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 6,
+        "goalsAgainst": 11,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-D",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 10,
+        "goalsAgainst": 5,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Marseille",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "AJ Auxerre",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Lille",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Toulouse",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Angers",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-26",
+          "opponent": "Lyon",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Strasbourg",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Le Mans",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Marseille",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-13",
+          "opponent": "Brest",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 2,
+        "played": 8,
+        "gf": 8,
+        "ga": 15
+      },
+      "standingsAway": {
+        "rank": 5,
+        "points": 14,
+        "played": 7,
+        "gf": 14,
+        "ga": 9
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 0.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 70,
+          "over25Prob": 0.7,
+          "homeLambda": 0.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.7
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.7,
+      "homeLambda": 0.5,
+      "awayLambda": 2,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Form signals BTTS 70% / Over 70%",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Décision : OVER_25.",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Déc",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
+      "ai_reasons": [
+        "Empirical BTTS rate ~70%",
+        "Empirical Over 2.5 rate ~70%"
+      ],
+      "ai_risks": [
+        "Sample limited to recent matches; form can shift quickly."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "local-empirical-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.24",
       "status": "PENDING"
     }
   ],
