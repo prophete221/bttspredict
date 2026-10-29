@@ -1,6 +1,6 @@
 {
   "date": "2026-10-29",
-  "lastUpdated": "2026-10-29T03:42:21.406Z",
+  "lastUpdated": "2026-10-29T12:02:19.221Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -413,7 +413,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.65 · N 4 · 2 4.4"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.65 · N 4 · 2 4.4",
+      "status": "PENDING"
     },
     {
       "id": "lille-vs-lens-2026-10-30",
@@ -1419,7 +1420,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.8 · N 3.75 · 2 2.35"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.8 · N 3.75 · 2 2.35",
+      "status": "PENDING"
     },
     {
       "id": "casapia-vs-sporting-2026-10-30",
@@ -2987,6 +2989,13 @@
       ],
       "last5Away": [
         {
+          "date": "2026-10-29",
+          "opponent": "Vancouver Whitecaps",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
           "date": "2026-10-25",
           "opponent": "Seattle Sounders FC",
           "venue": "H",
@@ -3013,13 +3022,6 @@
           "venue": "A",
           "score": "1-4",
           "result": "L"
-        },
-        {
-          "date": "2026-09-27",
-          "opponent": "Austin FC",
-          "venue": "A",
-          "score": "3-3",
-          "result": "D"
         }
       ],
       "standingsHome": {
@@ -3085,7 +3087,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "lagalaxy-vs-austinfc-2026-10-31",
@@ -3366,6 +3369,13 @@
       },
       "last5Home": [
         {
+          "date": "2026-10-29",
+          "opponent": "Colorado Rapids",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
           "date": "2026-10-25",
           "opponent": "FC Dallas",
           "venue": "A",
@@ -3392,13 +3402,6 @@
           "venue": "A",
           "score": "1-1",
           "result": "D"
-        },
-        {
-          "date": "2026-09-27",
-          "opponent": "Portland Timbers",
-          "venue": "H",
-          "score": "3-1",
-          "result": "W"
         }
       ],
       "last5Away": [
@@ -3501,7 +3504,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "hullcity-vs-ipswicht-2026-10-31",
@@ -5215,7 +5219,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "athletic-vs-realsoci-2026-11-01",
@@ -6815,6 +6820,13 @@
       ],
       "last5Away": [
         {
+          "date": "2026-10-29",
+          "opponent": "Seattle Sounders FC",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
           "date": "2026-10-25",
           "opponent": "Minnesota United FC",
           "venue": "H",
@@ -6841,13 +6853,6 @@
           "venue": "A",
           "score": "2-2",
           "result": "D"
-        },
-        {
-          "date": "2026-09-27",
-          "opponent": "Sporting Kansas City",
-          "venue": "H",
-          "score": "0-2",
-          "result": "L"
         }
       ],
       "standingsHome": {
@@ -7341,7 +7346,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.24 · N 7 · 2 9.5"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.24 · N 7 · 2 9.5",
+      "status": "PENDING"
     },
     {
       "id": "queenspa-vs-burnley-2026-11-03",
@@ -7350,12 +7356,12 @@
       "away": "Burnley",
       "league": "Championship",
       "date": "2026-11-03",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.75,
+      "proba": 0.7,
       "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "80.00%",
-      "confidence": 75,
+      "confidence": 70,
       "time": "19:45",
       "matchSemantic": "queenspa-vs-burnley-2026-11-03",
       "source": "poisson-v92-real-data",
@@ -7508,12 +7514,13 @@
           "homeLambda": 2.75,
           "awayLambda": 1.75,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "statsOnly": true,
+          "proba": 0.7
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 75,
+          "confidence": 70,
           "over25Prob": 0.75,
           "homeLambda": 2.75,
           "awayLambda": 1.75,
@@ -7528,23 +7535,23 @@
       "awayLambda": 1.75,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "QPR et Burnley affirment un taux Over 2.5 empirique commun de 80%.",
-      "ai_analysis": "Les statistiques de Queens Park Rangers et Burnley pointent vers une rencontre ouverte. Le taux Over 2.5 s'établit à 0.8 avec des moyennes de buts par match significatives. Les dynamiques récentes confirment une forte propension aux matchs prolifiques.",
-      "ai_analysis_en": "Queens Park Rangers and Burnley statistics point toward an open encounter. The Over 2.5 rate stands at 0.8 with significant per-game goal averages. Recent dynamics confirm a strong propensity for high-scoring matches.",
-      "ai_form_summary": "Queens Park Rangers sur 2W-2D-1L (12 buts marqués, 7 encaissés) ; Burnley sur 1W-2D-2L (9 buts marqués, 9 encaissés).",
-      "ai_form_summary_en": "Queens Park Rangers on 2W-2D-1L (12 goals scored, 7 conceded); Burnley on 1W-2D-2L (9 goals scored, 9 conceded).",
+      "ai_key_fact": "Queens Park Rangers et Burnley affichent tous deux un taux d'Over 2.5 de 80% dans leurs derniers matchs.",
+      "ai_analysis": "Cette confrontation de Championship réunit deux formations aux statistiques offensives et défensives propices aux buts. Les taux BTTS (0.7) et Over 2.5 (0.8), appuyés par de bonnes moyennes de buts, justifient pleinement une sélection sur les deux équipes marquent.",
+      "ai_analysis_en": "This Championship fixture brings together two sides with offensive and defensive stats conducive to goals. The BTTS rate (0.7) and Over 2.5 rate (0.8), backed by strong goal averages, fully justify a selection on both teams to score.",
+      "ai_form_summary": "QPR régulier (2W-2D-1L), Burnley en recherche de constance (1W-2D-2L).",
+      "ai_form_summary_en": "QPR consistent (2W-2D-1L), Burnley searching for consistency (1W-2D-2L).",
       "ai_reasons": [
-        "Taux Over 2.5 empirique élevé à 0.8 pour les deux formations",
-        "Moyennes de buts par match élevées (QPR 2.75, Burnley 1.75)",
-        "Taux BTTS empirique solide de 0.7 et forme BTTS à 70%"
+        "Taux empirique BTTS élevé à 0.7",
+        "Taux d'Over 2.5 empirique important à 0.8",
+        "Moyennes de buts solides avec 2.75 pour QPR et 1.75 pour Burnley"
       ],
       "ai_risks": [
-        "Burnley en difficulté à l'extérieur (1W-2D-2L) pourrait adopter une approche prudente",
-        "Absence de cotes de référence pour évaluer la value du marché"
+        "Burnley en difficulté au classement général (22e place)",
+        "Forme récente de Burnley en dents de scie (1W-2D-2L)"
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -7755,7 +7762,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "bodoglim-vs-lille-2026-11-03",
@@ -7969,7 +7977,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.87 · N 4 · 2 3.65"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.87 · N 4 · 2 3.65",
+      "status": "PENDING"
     },
     {
       "id": "manchest-vs-asroma-2026-11-03",
@@ -8183,7 +8192,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.3 · N 3.9 · 2 2.7"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.3 · N 3.9 · 2 2.7",
+      "status": "PENDING"
     },
     {
       "id": "villarre-vs-parissai-2026-11-03",
@@ -8398,7 +8408,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4.5 · 2 1.61"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4.5 · 2 1.61",
+      "status": "PENDING"
     },
     {
       "id": "blackbur-vs-stokecit-2026-11-03",
@@ -8606,7 +8617,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "charlton-vs-boltonwa-2026-11-03",
@@ -8814,7 +8826,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     }
   ],
   "vipPreview": [
@@ -8892,7 +8905,7 @@
     }
   ],
   "stats": {
-    "avgReliability": 79.19,
+    "avgReliability": 79.16,
     "totalAnalyzed": 154,
     "totalRejected": 5,
     "totalAccepted": 149,
@@ -9310,7 +9323,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.65 · N 4 · 2 4.4"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.65 · N 4 · 2 4.4",
+      "status": "PENDING"
     },
     {
       "id": "lille-vs-lens-2026-10-30",
@@ -10316,7 +10330,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.8 · N 3.75 · 2 2.35"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.8 · N 3.75 · 2 2.35",
+      "status": "PENDING"
     },
     {
       "id": "casapia-vs-sporting-2026-10-30",
@@ -11884,6 +11899,13 @@
       ],
       "last5Away": [
         {
+          "date": "2026-10-29",
+          "opponent": "Vancouver Whitecaps",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
           "date": "2026-10-25",
           "opponent": "Seattle Sounders FC",
           "venue": "H",
@@ -11910,13 +11932,6 @@
           "venue": "A",
           "score": "1-4",
           "result": "L"
-        },
-        {
-          "date": "2026-09-27",
-          "opponent": "Austin FC",
-          "venue": "A",
-          "score": "3-3",
-          "result": "D"
         }
       ],
       "standingsHome": {
@@ -11982,7 +11997,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "lagalaxy-vs-austinfc-2026-10-31",
@@ -12263,6 +12279,13 @@
       },
       "last5Home": [
         {
+          "date": "2026-10-29",
+          "opponent": "Colorado Rapids",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
           "date": "2026-10-25",
           "opponent": "FC Dallas",
           "venue": "A",
@@ -12289,13 +12312,6 @@
           "venue": "A",
           "score": "1-1",
           "result": "D"
-        },
-        {
-          "date": "2026-09-27",
-          "opponent": "Portland Timbers",
-          "venue": "H",
-          "score": "3-1",
-          "result": "W"
         }
       ],
       "last5Away": [
@@ -12398,7 +12414,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "hullcity-vs-ipswicht-2026-10-31",
@@ -14112,7 +14129,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "athletic-vs-realsoci-2026-11-01",
@@ -15712,6 +15730,13 @@
       ],
       "last5Away": [
         {
+          "date": "2026-10-29",
+          "opponent": "Seattle Sounders FC",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
           "date": "2026-10-25",
           "opponent": "Minnesota United FC",
           "venue": "H",
@@ -15738,13 +15763,6 @@
           "venue": "A",
           "score": "2-2",
           "result": "D"
-        },
-        {
-          "date": "2026-09-27",
-          "opponent": "Sporting Kansas City",
-          "venue": "H",
-          "score": "0-2",
-          "result": "L"
         }
       ],
       "standingsHome": {
@@ -16238,7 +16256,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.24 · N 7 · 2 9.5"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.24 · N 7 · 2 9.5",
+      "status": "PENDING"
     },
     {
       "id": "queenspa-vs-burnley-2026-11-03",
@@ -16247,12 +16266,12 @@
       "away": "Burnley",
       "league": "Championship",
       "date": "2026-11-03",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.75,
+      "proba": 0.7,
       "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "80.00%",
-      "confidence": 75,
+      "confidence": 70,
       "time": "19:45",
       "matchSemantic": "queenspa-vs-burnley-2026-11-03",
       "source": "poisson-v92-real-data",
@@ -16405,12 +16424,13 @@
           "homeLambda": 2.75,
           "awayLambda": 1.75,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "statsOnly": true,
+          "proba": 0.7
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 75,
+          "confidence": 70,
           "over25Prob": 0.75,
           "homeLambda": 2.75,
           "awayLambda": 1.75,
@@ -16425,23 +16445,23 @@
       "awayLambda": 1.75,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "QPR et Burnley affirment un taux Over 2.5 empirique commun de 80%.",
-      "ai_analysis": "Les statistiques de Queens Park Rangers et Burnley pointent vers une rencontre ouverte. Le taux Over 2.5 s'établit à 0.8 avec des moyennes de buts par match significatives. Les dynamiques récentes confirment une forte propension aux matchs prolifiques.",
-      "ai_analysis_en": "Queens Park Rangers and Burnley statistics point toward an open encounter. The Over 2.5 rate stands at 0.8 with significant per-game goal averages. Recent dynamics confirm a strong propensity for high-scoring matches.",
-      "ai_form_summary": "Queens Park Rangers sur 2W-2D-1L (12 buts marqués, 7 encaissés) ; Burnley sur 1W-2D-2L (9 buts marqués, 9 encaissés).",
-      "ai_form_summary_en": "Queens Park Rangers on 2W-2D-1L (12 goals scored, 7 conceded); Burnley on 1W-2D-2L (9 goals scored, 9 conceded).",
+      "ai_key_fact": "Queens Park Rangers et Burnley affichent tous deux un taux d'Over 2.5 de 80% dans leurs derniers matchs.",
+      "ai_analysis": "Cette confrontation de Championship réunit deux formations aux statistiques offensives et défensives propices aux buts. Les taux BTTS (0.7) et Over 2.5 (0.8), appuyés par de bonnes moyennes de buts, justifient pleinement une sélection sur les deux équipes marquent.",
+      "ai_analysis_en": "This Championship fixture brings together two sides with offensive and defensive stats conducive to goals. The BTTS rate (0.7) and Over 2.5 rate (0.8), backed by strong goal averages, fully justify a selection on both teams to score.",
+      "ai_form_summary": "QPR régulier (2W-2D-1L), Burnley en recherche de constance (1W-2D-2L).",
+      "ai_form_summary_en": "QPR consistent (2W-2D-1L), Burnley searching for consistency (1W-2D-2L).",
       "ai_reasons": [
-        "Taux Over 2.5 empirique élevé à 0.8 pour les deux formations",
-        "Moyennes de buts par match élevées (QPR 2.75, Burnley 1.75)",
-        "Taux BTTS empirique solide de 0.7 et forme BTTS à 70%"
+        "Taux empirique BTTS élevé à 0.7",
+        "Taux d'Over 2.5 empirique important à 0.8",
+        "Moyennes de buts solides avec 2.75 pour QPR et 1.75 pour Burnley"
       ],
       "ai_risks": [
-        "Burnley en difficulté à l'extérieur (1W-2D-2L) pourrait adopter une approche prudente",
-        "Absence de cotes de référence pour évaluer la value du marché"
+        "Burnley en difficulté au classement général (22e place)",
+        "Forme récente de Burnley en dents de scie (1W-2D-2L)"
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -16652,7 +16672,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "bodoglim-vs-lille-2026-11-03",
@@ -16866,7 +16887,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.87 · N 4 · 2 3.65"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.87 · N 4 · 2 3.65",
+      "status": "PENDING"
     },
     {
       "id": "manchest-vs-asroma-2026-11-03",
@@ -17080,7 +17102,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.3 · N 3.9 · 2 2.7"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.3 · N 3.9 · 2 2.7",
+      "status": "PENDING"
     },
     {
       "id": "villarre-vs-parissai-2026-11-03",
@@ -17295,7 +17318,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4.5 · 2 1.61"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4.5 · 2 1.61",
+      "status": "PENDING"
     },
     {
       "id": "blackbur-vs-stokecit-2026-11-03",
@@ -17503,7 +17527,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "charlton-vs-boltonwa-2026-11-03",
@@ -17711,7 +17736,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     }
   ],
   "analysisEngine": "gemini-stats-v1"

@@ -22822,7 +22822,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
       "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "4-1",
+      "verifiedAt": "2026-10-29T12:05:59.647Z"
     },
     {
       "id": "stlouisc-vs-portland-2026-10-29",
@@ -23592,7 +23594,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
       "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-10-29T12:05:59.648Z"
     },
     {
       "id": "queenspa-vs-swanseac-2026-10-24",

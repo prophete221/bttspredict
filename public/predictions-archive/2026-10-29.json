@@ -413,7 +413,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.65 · N 4 · 2 4.4"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.65 · N 4 · 2 4.4",
+      "status": "PENDING"
     },
     {
       "id": "lille-vs-lens-2026-10-30",
@@ -1419,7 +1420,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.8 · N 3.75 · 2 2.35"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.8 · N 3.75 · 2 2.35",
+      "status": "PENDING"
     },
     {
       "id": "casapia-vs-sporting-2026-10-30",
@@ -2987,6 +2989,13 @@
       ],
       "last5Away": [
         {
+          "date": "2026-10-29",
+          "opponent": "Vancouver Whitecaps",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
           "date": "2026-10-25",
           "opponent": "Seattle Sounders FC",
           "venue": "H",
@@ -3013,13 +3022,6 @@
           "venue": "A",
           "score": "1-4",
           "result": "L"
-        },
-        {
-          "date": "2026-09-27",
-          "opponent": "Austin FC",
-          "venue": "A",
-          "score": "3-3",
-          "result": "D"
         }
       ],
       "standingsHome": {
@@ -3085,7 +3087,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "lagalaxy-vs-austinfc-2026-10-31",
@@ -3366,6 +3369,13 @@
       },
       "last5Home": [
         {
+          "date": "2026-10-29",
+          "opponent": "Colorado Rapids",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
           "date": "2026-10-25",
           "opponent": "FC Dallas",
           "venue": "A",
@@ -3392,13 +3402,6 @@
           "venue": "A",
           "score": "1-1",
           "result": "D"
-        },
-        {
-          "date": "2026-09-27",
-          "opponent": "Portland Timbers",
-          "venue": "H",
-          "score": "3-1",
-          "result": "W"
         }
       ],
       "last5Away": [
@@ -3501,7 +3504,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "hullcity-vs-ipswicht-2026-10-31",
@@ -5215,7 +5219,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "athletic-vs-realsoci-2026-11-01",
@@ -6815,6 +6820,13 @@
       ],
       "last5Away": [
         {
+          "date": "2026-10-29",
+          "opponent": "Seattle Sounders FC",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
           "date": "2026-10-25",
           "opponent": "Minnesota United FC",
           "venue": "H",
@@ -6841,13 +6853,6 @@
           "venue": "A",
           "score": "2-2",
           "result": "D"
-        },
-        {
-          "date": "2026-09-27",
-          "opponent": "Sporting Kansas City",
-          "venue": "H",
-          "score": "0-2",
-          "result": "L"
         }
       ],
       "standingsHome": {
@@ -7341,7 +7346,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.24 · N 7 · 2 9.5"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.24 · N 7 · 2 9.5",
+      "status": "PENDING"
     },
     {
       "id": "queenspa-vs-burnley-2026-11-03",
@@ -7548,7 +7554,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "derbycou-vs-norwichc-2026-11-03",
@@ -7755,7 +7762,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "bodoglim-vs-lille-2026-11-03",
@@ -7969,7 +7977,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.87 · N 4 · 2 3.65"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.87 · N 4 · 2 3.65",
+      "status": "PENDING"
     },
     {
       "id": "manchest-vs-asroma-2026-11-03",
@@ -8183,7 +8192,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.3 · N 3.9 · 2 2.7"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.3 · N 3.9 · 2 2.7",
+      "status": "PENDING"
     },
     {
       "id": "villarre-vs-parissai-2026-11-03",
@@ -8398,7 +8408,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4.5 · 2 1.61"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4.5 · 2 1.61",
+      "status": "PENDING"
     },
     {
       "id": "blackbur-vs-stokecit-2026-11-03",
@@ -8606,7 +8617,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "charlton-vs-boltonwa-2026-11-03",
@@ -8809,6 +8821,215 @@
         "La forme récente de Charlton (0W-2D-3L) montre des difficultés à l'emporter."
       ],
       "ai_confidence": "high",
+      "ai_abstain": false,
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
+    },
+    {
+      "id": "queenspa-vs-burnley-2026-11-03",
+      "match": "Queens Park Rangers vs Burnley",
+      "home": "Queens Park Rangers",
+      "away": "Burnley",
+      "league": "Championship",
+      "date": "2026-11-03",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "80.00%",
+      "confidence": 70,
+      "time": "19:45",
+      "matchSemantic": "queenspa-vs-burnley-2026-11-03",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/334.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/379.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.75,
+      "xgAway": 1.75,
+      "xgTotal": 4.5,
+      "formBTTS": 70,
+      "analysis": "Queens Park Rangers : forme V-D-V-N-N (2V 2N 1D, 12 buts marqués / 7 encaissés sur 5) · Burnley : forme D-D-N-V-N (1V 2N 2D, 9 buts marqués / 9 encaissés sur 5). Classement : Queens Park Rangers 8e (20 pts), Burnley 22e (8 pts). Stats empiriques (forme récente) : buts moy. 4.5, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.8,
+        "homeLambda": 2.75,
+        "awayLambda": 1.75,
+        "xgTotal": 4.5
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.25,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "V-D-V-N-N",
+        "wins": 2,
+        "draws": 2,
+        "losses": 1,
+        "goalsFor": 12,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-N-V-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 9,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Swansea City",
+          "venue": "H",
+          "score": "5-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Birmingham City",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "Derby County",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "West Ham United",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Preston North End",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Lincoln City",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Wolverhampton Wanderers",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Charlton Athletic",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Watford",
+          "venue": "A",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Derby County",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 8,
+        "points": 20,
+        "played": 12,
+        "gf": 20,
+        "ga": 12
+      },
+      "standingsAway": {
+        "rank": 22,
+        "points": 8,
+        "played": 12,
+        "gf": 17,
+        "ga": 25
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 2.75,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.7
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 70,
+          "over25Prob": 0.75,
+          "homeLambda": 2.75,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.75
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.75,
+      "homeLambda": 2.75,
+      "awayLambda": 1.75,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Queens Park Rangers et Burnley affichent tous deux un taux d'Over 2.5 de 80% dans leurs derniers matchs.",
+      "ai_analysis": "Cette confrontation de Championship réunit deux formations aux statistiques offensives et défensives propices aux buts. Les taux BTTS (0.7) et Over 2.5 (0.8), appuyés par de bonnes moyennes de buts, justifient pleinement une sélection sur les deux équipes marquent.",
+      "ai_analysis_en": "This Championship fixture brings together two sides with offensive and defensive stats conducive to goals. The BTTS rate (0.7) and Over 2.5 rate (0.8), backed by strong goal averages, fully justify a selection on both teams to score.",
+      "ai_form_summary": "QPR régulier (2W-2D-1L), Burnley en recherche de constance (1W-2D-2L).",
+      "ai_form_summary_en": "QPR consistent (2W-2D-1L), Burnley searching for consistency (1W-2D-2L).",
+      "ai_reasons": [
+        "Taux empirique BTTS élevé à 0.7",
+        "Taux d'Over 2.5 empirique important à 0.8",
+        "Moyennes de buts solides avec 2.75 pour QPR et 1.75 pour Burnley"
+      ],
+      "ai_risks": [
+        "Burnley en difficulté au classement général (22e place)",
+        "Forme récente de Burnley en dents de scie (1W-2D-2L)"
+      ],
+      "ai_confidence": "medium",
       "ai_abstain": false,
       "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
@@ -11886,6 +12107,13 @@
       ],
       "last5Away": [
         {
+          "date": "2026-10-29",
+          "opponent": "Vancouver Whitecaps",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
           "date": "2026-10-25",
           "opponent": "Seattle Sounders FC",
           "venue": "H",
@@ -11912,13 +12140,6 @@
           "venue": "A",
           "score": "1-4",
           "result": "L"
-        },
-        {
-          "date": "2026-09-27",
-          "opponent": "Austin FC",
-          "venue": "A",
-          "score": "3-3",
-          "result": "D"
         }
       ],
       "standingsHome": {
@@ -12266,6 +12487,13 @@
       },
       "last5Home": [
         {
+          "date": "2026-10-29",
+          "opponent": "Colorado Rapids",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
           "date": "2026-10-25",
           "opponent": "FC Dallas",
           "venue": "A",
@@ -12292,13 +12520,6 @@
           "venue": "A",
           "score": "1-1",
           "result": "D"
-        },
-        {
-          "date": "2026-09-27",
-          "opponent": "Portland Timbers",
-          "venue": "H",
-          "score": "3-1",
-          "result": "W"
         }
       ],
       "last5Away": [
@@ -15717,6 +15938,13 @@
       ],
       "last5Away": [
         {
+          "date": "2026-10-29",
+          "opponent": "Seattle Sounders FC",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
           "date": "2026-10-25",
           "opponent": "Minnesota United FC",
           "venue": "H",
@@ -15743,13 +15971,6 @@
           "venue": "A",
           "score": "2-2",
           "result": "D"
-        },
-        {
-          "date": "2026-09-27",
-          "opponent": "Sporting Kansas City",
-          "venue": "H",
-          "score": "0-2",
-          "result": "L"
         }
       ],
       "standingsHome": {
@@ -17718,6 +17939,215 @@
         "La forme récente de Charlton (0W-2D-3L) montre des difficultés à l'emporter."
       ],
       "ai_confidence": "high",
+      "ai_abstain": false,
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
+    },
+    {
+      "id": "queenspa-vs-burnley-2026-11-03",
+      "match": "Queens Park Rangers vs Burnley",
+      "home": "Queens Park Rangers",
+      "away": "Burnley",
+      "league": "Championship",
+      "date": "2026-11-03",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "80.00%",
+      "confidence": 70,
+      "time": "19:45",
+      "matchSemantic": "queenspa-vs-burnley-2026-11-03",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/334.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/379.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.75,
+      "xgAway": 1.75,
+      "xgTotal": 4.5,
+      "formBTTS": 70,
+      "analysis": "Queens Park Rangers : forme V-D-V-N-N (2V 2N 1D, 12 buts marqués / 7 encaissés sur 5) · Burnley : forme D-D-N-V-N (1V 2N 2D, 9 buts marqués / 9 encaissés sur 5). Classement : Queens Park Rangers 8e (20 pts), Burnley 22e (8 pts). Stats empiriques (forme récente) : buts moy. 4.5, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.8,
+        "homeLambda": 2.75,
+        "awayLambda": 1.75,
+        "xgTotal": 4.5
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.25,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "V-D-V-N-N",
+        "wins": 2,
+        "draws": 2,
+        "losses": 1,
+        "goalsFor": 12,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "D-D-N-V-N",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 9,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Swansea City",
+          "venue": "H",
+          "score": "5-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Birmingham City",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "Derby County",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "West Ham United",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Preston North End",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Lincoln City",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Wolverhampton Wanderers",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Charlton Athletic",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Watford",
+          "venue": "A",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Derby County",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 8,
+        "points": 20,
+        "played": 12,
+        "gf": 20,
+        "ga": 12
+      },
+      "standingsAway": {
+        "rank": 22,
+        "points": 8,
+        "played": 12,
+        "gf": 17,
+        "ga": 25
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 2.75,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.7
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 70,
+          "over25Prob": 0.75,
+          "homeLambda": 2.75,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.75
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.75,
+      "homeLambda": 2.75,
+      "awayLambda": 1.75,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Queens Park Rangers et Burnley affichent tous deux un taux d'Over 2.5 de 80% dans leurs derniers matchs.",
+      "ai_analysis": "Cette confrontation de Championship réunit deux formations aux statistiques offensives et défensives propices aux buts. Les taux BTTS (0.7) et Over 2.5 (0.8), appuyés par de bonnes moyennes de buts, justifient pleinement une sélection sur les deux équipes marquent.",
+      "ai_analysis_en": "This Championship fixture brings together two sides with offensive and defensive stats conducive to goals. The BTTS rate (0.7) and Over 2.5 rate (0.8), backed by strong goal averages, fully justify a selection on both teams to score.",
+      "ai_form_summary": "QPR régulier (2W-2D-1L), Burnley en recherche de constance (1W-2D-2L).",
+      "ai_form_summary_en": "QPR consistent (2W-2D-1L), Burnley searching for consistency (1W-2D-2L).",
+      "ai_reasons": [
+        "Taux empirique BTTS élevé à 0.7",
+        "Taux d'Over 2.5 empirique important à 0.8",
+        "Moyennes de buts solides avec 2.75 pour QPR et 1.75 pour Burnley"
+      ],
+      "ai_risks": [
+        "Burnley en difficulté au classement général (22e place)",
+        "Forme récente de Burnley en dents de scie (1W-2D-2L)"
+      ],
+      "ai_confidence": "medium",
       "ai_abstain": false,
       "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
