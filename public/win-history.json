@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-10-29T12:06:44.555Z",
+  "generatedAt": "2026-10-29T20:03:18.072Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,18 +15,18 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 366,
-    "won": 295,
+    "total": 367,
+    "won": 296,
     "lost": 71,
-    "pending": 60,
+    "pending": 59,
     "unverifiable": 153,
     "archivedTotal": 579,
-    "rate": 80.6,
+    "rate": 80.7,
     "gold": {
-      "total": 269,
-      "won": 220,
+      "total": 270,
+      "won": 221,
       "lost": 49,
-      "rate": 81.8
+      "rate": 81.9
     },
     "standard": {
       "total": 97,
@@ -42,10 +42,10 @@
         "rate": 82.2
       },
       "over25": {
-        "total": 18,
-        "won": 9,
+        "total": 19,
+        "won": 10,
         "lost": 9,
-        "rate": 50
+        "rate": 52.6
       }
     },
     "trend14": [
@@ -142,10 +142,10 @@
       },
       {
         "date": "2026-10-29",
-        "total": 13,
-        "won": 7,
+        "total": 14,
+        "won": 8,
         "lost": 6,
-        "rate": 53.8
+        "rate": 57.1
       }
     ],
     "period": {
@@ -155,6 +155,19 @@
     }
   },
   "history": [
+    {
+      "date": "2026-10-29",
+      "match": "Frosinone vs Lecce",
+      "league": "Serie A",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "WON",
+      "finalScore": "5-1",
+      "verifiedAt": "2026-10-29T20:02:17.316Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-10-29",
       "match": "San Jose Earthquakes vs Colorado Rapids",

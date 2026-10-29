@@ -4446,6 +4446,13 @@
       },
       "last5Home": [
         {
+          "date": "2026-10-29",
+          "opponent": "Lecce",
+          "venue": "H",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
           "date": "2026-10-25",
           "opponent": "Atalanta",
           "venue": "A",
@@ -4472,13 +4479,6 @@
           "venue": "H",
           "score": "2-0",
           "result": "W"
-        },
-        {
-          "date": "2026-09-12",
-          "opponent": "Genoa",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
         }
       ],
       "last5Away": [
@@ -9035,7 +9035,438 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
+    },
+    {
+      "id": "nice-vs-staderen-2026-10-30",
+      "match": "Nice vs Stade Rennais",
+      "home": "Nice",
+      "away": "Stade Rennais",
+      "league": "Ligue 1",
+      "date": "2026-10-30",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.72,
+      "bttsProbDisplay": "60.00%",
+      "over25ProbDisplay": "80.00%",
+      "confidence": 72,
+      "time": "18:00",
+      "matchSemantic": "nice-vs-staderen-2026-10-30",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2502.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png",
+      "tier": "GOLD",
+      "reliabilityScore": 82.5,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.25,
+      "xgAway": 1.67,
+      "xgTotal": 2.92,
+      "formBTTS": 60,
+      "analysis": "Nice : forme V-D-V-V-D (3V 0N 2D, 7 buts marqués / 6 encaissés sur 5) · Stade Rennais : forme V-D-V-D-V (3V 0N 2D, 11 buts marqués / 9 encaissés sur 5). Classement : Nice 10e (11 pts), Stade Rennais 2e (16 pts). Stats empiriques (forme récente) : buts moy. 2.92, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.75 / N: 3.7 / 2: 2.35. Fiabilité 82.5%.",
+      "analysisData": {
+        "bttsProb": 0.6,
+        "over25Prob": 0.8,
+        "homeLambda": 1.25,
+        "awayLambda": 1.67,
+        "xgTotal": 2.92
+      },
+      "estimatedCote": 1.67,
+      "estimatedCoteOver": 1.25,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.75,
+        "draw": 3.7,
+        "away": 2.35,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.67,
+      "formHome": {
+        "last5String": "V-D-V-V-D",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 6,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-V-D-V",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 11,
+        "goalsAgainst": 9,
+        "bttsRate": 0.4,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Brest",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Lyon",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Strasbourg",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Lille",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "AJ Auxerre",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Strasbourg",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Paris FC",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "AJ Auxerre",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Lyon",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Marseille",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 10,
+        "points": 11,
+        "played": 8,
+        "gf": 8,
+        "ga": 10
+      },
+      "standingsAway": {
+        "rank": 2,
+        "points": 16,
+        "played": 8,
+        "gf": 18,
+        "ga": 14
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 60,
+          "bttsProb": 0.6,
+          "homeLambda": 1.25,
+          "awayLambda": 1.67,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 72,
+          "over25Prob": 0.72,
+          "homeLambda": 1.25,
+          "awayLambda": 1.67,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.72
+        }
+      ],
+      "bttsProb": 0.6,
+      "over25Prob": 0.72,
+      "homeLambda": 1.25,
+      "awayLambda": 1.67,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Nice et le Stade Rennais affichent tous deux un taux Over 2.5 de 80% sur leurs 5 derniers matchs.",
+      "ai_analysis": "L'affiche de Ligue 1 entre Nice et le Stade Rennais se distingue par une forte propension aux matchs prolifiques. Les deux formations affichent un taux Over 2.5 de 80% sur leurs cinq dernières rencontres respectives, appuyé par un taux empirique global également à 80%. Avec des moyennes de buts par match de 1.25 pour Nice et 1.67 pour Rennes, la configuration statistique est idéale pour viser plus de 2.5 buts.",
+      "ai_analysis_en": "The Ligue 1 fixture between Nice and Stade Rennais stands out for a strong propensity towards high-scoring matches. Both teams show an 80% Over 2.5 rate in their respective last five games, backed by an overall empirical rate also at 80%. With goals per match averages of 1.25 for Nice and 1.67 for Rennes, the statistical setup is ideal for targeting over 2.5 goals.",
+      "ai_form_summary": "Nice : 3W-0D-2L sur les 5 derniers, 7 buts pour, 6 contre. Stade Rennais : 3W-0D-2L sur les 5 derniers, 11 buts pour, 9 contre.",
+      "ai_form_summary_en": "Nice: 3W-0D-2L in last 5, 7 goals for, 6 against. Stade Rennais: 3W-0D-2L in last 5, 11 goals for, 9 against.",
+      "ai_reasons": [
+        "Taux empirique Over 2.5 très élevé à 80%.",
+        "Nice affiche un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
+        "Stade Rennais présente également un taux Over 2.5 de 80% sur sa forme récente."
+      ],
+      "ai_risks": [
+        "Le taux BTTS empirique est légèrement plus bas à 60%.",
+        "Rennes a un taux BTTS de seulement 40% sur ses 5 derniers matchs malgré ses scores élevés."
+      ],
+      "ai_confidence": "high",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.75 · N 3.7 · 2 2.35",
+      "status": "PENDING"
+    },
+    {
+      "id": "racingsa-vs-realmadr-2026-11-01",
+      "match": "Racing Santander vs Real Madrid",
+      "home": "Racing Santander",
+      "away": "Real Madrid",
+      "league": "LaLiga",
+      "date": "2026-11-01",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.68,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "80.00%",
+      "confidence": 68,
+      "time": "15:15",
+      "matchSemantic": "racingsa-vs-realmadr-2026-11-01",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/87.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.25,
+      "xgAway": 1.5,
+      "xgTotal": 3.75,
+      "formBTTS": 70,
+      "analysis": "Racing Santander : forme V-D-N-D-D (1V 1N 3D, 6 buts marqués / 17 encaissés sur 5) · Real Madrid : forme V-V-V-D-V (4V 0N 1D, 11 buts marqués / 6 encaissés sur 5). Classement : Racing Santander 13e (11 pts), Real Madrid 3e (24 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 9.5 / N: 7 / 2: 1.22. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.8,
+        "homeLambda": 2.25,
+        "awayLambda": 1.5,
+        "xgTotal": 3.75
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.25,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 9.5,
+        "draw": 7,
+        "away": 1.22,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "V-D-N-D-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 17,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-D-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 6,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Espanyol",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Osasuna",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Valencia",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Celta Vigo",
+          "venue": "A",
+          "score": "0-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-16",
+          "opponent": "Barcelona",
+          "venue": "A",
+          "score": "2-7",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Barcelona",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Sevilla",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Villarreal",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Atlético Madrid",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Elche",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 13,
+        "points": 11,
+        "played": 10,
+        "gf": 15,
+        "ga": 26
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 24,
+        "played": 10,
+        "gf": 25,
+        "ga": 10
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "bttsProb": 0.68,
+          "homeLambda": 2.25,
+          "awayLambda": 1.5,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.68
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 80,
+          "over25Prob": 0.8,
+          "homeLambda": 2.25,
+          "awayLambda": 1.5,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        }
+      ],
+      "bttsProb": 0.68,
+      "over25Prob": 0.8,
+      "homeLambda": 2.25,
+      "awayLambda": 1.5,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Racing Santander a encaissé 26 buts en 10 matchs de championnat.",
+      "ai_analysis": "Le Real Madrid se déplace avec un secteur offensif performant (25 buts marqués) et affronte une équipe de Racing Santander en grande difficulté défensive, qui a déjà concédé 26 buts. Bien que le Real soit ultra favori, les statistiques globales soutiennent un match ouvert avec des buts des deux côtés, appuyé par un taux BTTS empirique de 70%.",
+      "ai_analysis_en": "Real Madrid travels with a strong attacking record (25 goals scored) to face a struggling Racing Santander defense that has already conceded 26 goals. Although Real are heavy favorites, overall statistics support an open game with goals from both sides, backed by a 70% empirical BTTS rate.",
+      "ai_form_summary": "Racing Santander (1V-1D-3L) montre des difficultés défensives, tandis que Real Madrid (4W-0D-1L) est très performant.",
+      "ai_form_summary_en": "Racing Santander (1W-1D-3L) shows defensive struggles, while Real Madrid (4W-0D-1L) is in strong form.",
+      "ai_reasons": [
+        "Taux BTTS empirique élevé à 70% sur l'ensemble des données fournies.",
+        "Racing Santander encaisse beaucoup de buts avec 26 buts concédés en 10 matchs de championnat.",
+        "Real Madrid présente de solides taux offensifs avec une moyenne de 2,5 buts marqués par match (25 en 10 matchs)."
+      ],
+      "ai_risks": [
+        "Real Madrid possède une défense solide (seulement 10 buts encaissés), ce qui peut limiter les buts de Racing Santander.",
+        "La cote du Real Madrid à 1.22 indique un déséquilibre majeur dans la rencontre."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.22",
+      "status": "PENDING"
     }
   ],
   "vipPreview": [
@@ -9532,7 +9963,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.65 · N 4 · 2 4.4",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "5-1",
+      "verifiedAt": "2026-10-29T20:02:17.316Z"
     },
     {
       "id": "lille-vs-lens-2026-10-30",
@@ -13564,6 +13997,13 @@
       },
       "last5Home": [
         {
+          "date": "2026-10-29",
+          "opponent": "Lecce",
+          "venue": "H",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
           "date": "2026-10-25",
           "opponent": "Atalanta",
           "venue": "A",
@@ -13590,13 +14030,6 @@
           "venue": "H",
           "score": "2-0",
           "result": "W"
-        },
-        {
-          "date": "2026-09-12",
-          "opponent": "Genoa",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
         }
       ],
       "last5Away": [
@@ -18154,6 +18587,436 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
+    },
+    {
+      "id": "nice-vs-staderen-2026-10-30",
+      "match": "Nice vs Stade Rennais",
+      "home": "Nice",
+      "away": "Stade Rennais",
+      "league": "Ligue 1",
+      "date": "2026-10-30",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.72,
+      "bttsProbDisplay": "60.00%",
+      "over25ProbDisplay": "80.00%",
+      "confidence": 72,
+      "time": "18:00",
+      "matchSemantic": "nice-vs-staderen-2026-10-30",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2502.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png",
+      "tier": "GOLD",
+      "reliabilityScore": 82.5,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.25,
+      "xgAway": 1.67,
+      "xgTotal": 2.92,
+      "formBTTS": 60,
+      "analysis": "Nice : forme V-D-V-V-D (3V 0N 2D, 7 buts marqués / 6 encaissés sur 5) · Stade Rennais : forme V-D-V-D-V (3V 0N 2D, 11 buts marqués / 9 encaissés sur 5). Classement : Nice 10e (11 pts), Stade Rennais 2e (16 pts). Stats empiriques (forme récente) : buts moy. 2.92, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.75 / N: 3.7 / 2: 2.35. Fiabilité 82.5%.",
+      "analysisData": {
+        "bttsProb": 0.6,
+        "over25Prob": 0.8,
+        "homeLambda": 1.25,
+        "awayLambda": 1.67,
+        "xgTotal": 2.92
+      },
+      "estimatedCote": 1.67,
+      "estimatedCoteOver": 1.25,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.75,
+        "draw": 3.7,
+        "away": 2.35,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.67,
+      "formHome": {
+        "last5String": "V-D-V-V-D",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 6,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-V-D-V",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 11,
+        "goalsAgainst": 9,
+        "bttsRate": 0.4,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Brest",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Lyon",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Strasbourg",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Lille",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "AJ Auxerre",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Strasbourg",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Paris FC",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "AJ Auxerre",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Lyon",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Marseille",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 10,
+        "points": 11,
+        "played": 8,
+        "gf": 8,
+        "ga": 10
+      },
+      "standingsAway": {
+        "rank": 2,
+        "points": 16,
+        "played": 8,
+        "gf": 18,
+        "ga": 14
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 60,
+          "bttsProb": 0.6,
+          "homeLambda": 1.25,
+          "awayLambda": 1.67,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 72,
+          "over25Prob": 0.72,
+          "homeLambda": 1.25,
+          "awayLambda": 1.67,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.72
+        }
+      ],
+      "bttsProb": 0.6,
+      "over25Prob": 0.72,
+      "homeLambda": 1.25,
+      "awayLambda": 1.67,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Nice et le Stade Rennais affichent tous deux un taux Over 2.5 de 80% sur leurs 5 derniers matchs.",
+      "ai_analysis": "L'affiche de Ligue 1 entre Nice et le Stade Rennais se distingue par une forte propension aux matchs prolifiques. Les deux formations affichent un taux Over 2.5 de 80% sur leurs cinq dernières rencontres respectives, appuyé par un taux empirique global également à 80%. Avec des moyennes de buts par match de 1.25 pour Nice et 1.67 pour Rennes, la configuration statistique est idéale pour viser plus de 2.5 buts.",
+      "ai_analysis_en": "The Ligue 1 fixture between Nice and Stade Rennais stands out for a strong propensity towards high-scoring matches. Both teams show an 80% Over 2.5 rate in their respective last five games, backed by an overall empirical rate also at 80%. With goals per match averages of 1.25 for Nice and 1.67 for Rennes, the statistical setup is ideal for targeting over 2.5 goals.",
+      "ai_form_summary": "Nice : 3W-0D-2L sur les 5 derniers, 7 buts pour, 6 contre. Stade Rennais : 3W-0D-2L sur les 5 derniers, 11 buts pour, 9 contre.",
+      "ai_form_summary_en": "Nice: 3W-0D-2L in last 5, 7 goals for, 6 against. Stade Rennais: 3W-0D-2L in last 5, 11 goals for, 9 against.",
+      "ai_reasons": [
+        "Taux empirique Over 2.5 très élevé à 80%.",
+        "Nice affiche un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
+        "Stade Rennais présente également un taux Over 2.5 de 80% sur sa forme récente."
+      ],
+      "ai_risks": [
+        "Le taux BTTS empirique est légèrement plus bas à 60%.",
+        "Rennes a un taux BTTS de seulement 40% sur ses 5 derniers matchs malgré ses scores élevés."
+      ],
+      "ai_confidence": "high",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.75 · N 3.7 · 2 2.35",
+      "status": "PENDING"
+    },
+    {
+      "id": "racingsa-vs-realmadr-2026-11-01",
+      "match": "Racing Santander vs Real Madrid",
+      "home": "Racing Santander",
+      "away": "Real Madrid",
+      "league": "LaLiga",
+      "date": "2026-11-01",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.68,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "80.00%",
+      "confidence": 68,
+      "time": "15:15",
+      "matchSemantic": "racingsa-vs-realmadr-2026-11-01",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/87.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.25,
+      "xgAway": 1.5,
+      "xgTotal": 3.75,
+      "formBTTS": 70,
+      "analysis": "Racing Santander : forme V-D-N-D-D (1V 1N 3D, 6 buts marqués / 17 encaissés sur 5) · Real Madrid : forme V-V-V-D-V (4V 0N 1D, 11 buts marqués / 6 encaissés sur 5). Classement : Racing Santander 13e (11 pts), Real Madrid 3e (24 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 9.5 / N: 7 / 2: 1.22. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.8,
+        "homeLambda": 2.25,
+        "awayLambda": 1.5,
+        "xgTotal": 3.75
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.25,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 9.5,
+        "draw": 7,
+        "away": 1.22,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "V-D-N-D-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 17,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-D-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 6,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Espanyol",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Osasuna",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Valencia",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Celta Vigo",
+          "venue": "A",
+          "score": "0-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-16",
+          "opponent": "Barcelona",
+          "venue": "A",
+          "score": "2-7",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Barcelona",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Sevilla",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Villarreal",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Atlético Madrid",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Elche",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 13,
+        "points": 11,
+        "played": 10,
+        "gf": 15,
+        "ga": 26
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 24,
+        "played": 10,
+        "gf": 25,
+        "ga": 10
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "bttsProb": 0.68,
+          "homeLambda": 2.25,
+          "awayLambda": 1.5,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.68
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 80,
+          "over25Prob": 0.8,
+          "homeLambda": 2.25,
+          "awayLambda": 1.5,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        }
+      ],
+      "bttsProb": 0.68,
+      "over25Prob": 0.8,
+      "homeLambda": 2.25,
+      "awayLambda": 1.5,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Racing Santander a encaissé 26 buts en 10 matchs de championnat.",
+      "ai_analysis": "Le Real Madrid se déplace avec un secteur offensif performant (25 buts marqués) et affronte une équipe de Racing Santander en grande difficulté défensive, qui a déjà concédé 26 buts. Bien que le Real soit ultra favori, les statistiques globales soutiennent un match ouvert avec des buts des deux côtés, appuyé par un taux BTTS empirique de 70%.",
+      "ai_analysis_en": "Real Madrid travels with a strong attacking record (25 goals scored) to face a struggling Racing Santander defense that has already conceded 26 goals. Although Real are heavy favorites, overall statistics support an open game with goals from both sides, backed by a 70% empirical BTTS rate.",
+      "ai_form_summary": "Racing Santander (1V-1D-3L) montre des difficultés défensives, tandis que Real Madrid (4W-0D-1L) est très performant.",
+      "ai_form_summary_en": "Racing Santander (1W-1D-3L) shows defensive struggles, while Real Madrid (4W-0D-1L) is in strong form.",
+      "ai_reasons": [
+        "Taux BTTS empirique élevé à 70% sur l'ensemble des données fournies.",
+        "Racing Santander encaisse beaucoup de buts avec 26 buts concédés en 10 matchs de championnat.",
+        "Real Madrid présente de solides taux offensifs avec une moyenne de 2,5 buts marqués par match (25 en 10 matchs)."
+      ],
+      "ai_risks": [
+        "Real Madrid possède une défense solide (seulement 10 buts encaissés), ce qui peut limiter les buts de Racing Santander.",
+        "La cote du Real Madrid à 1.22 indique un déséquilibre majeur dans la rencontre."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.22",
       "status": "PENDING"
     }
   ],

@@ -1,421 +1,8 @@
 {
   "date": "2026-10-29",
-  "lastUpdated": "2026-10-29T12:02:19.221Z",
+  "lastUpdated": "2026-10-29T20:00:36.033Z",
   "source": "ESPN + TheSportsDB",
   "free": [
-    {
-      "id": "fiorenti-vs-atalanta-2026-10-29",
-      "match": "Fiorentina vs Atalanta",
-      "home": "Fiorentina",
-      "away": "Atalanta",
-      "league": "Serie A",
-      "date": "2026-10-29",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.6551,
-      "bttsProbDisplay": "65.51%",
-      "over25ProbDisplay": "64.39%",
-      "confidence": 66,
-      "time": "19:45",
-      "matchSemantic": "fiorenti-vs-atalanta-2026-10-29",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/109.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/105.png",
-      "tier": "GOLD",
-      "reliabilityScore": 78.41,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 7,
-      "matchCountAway": 7,
-      "h2hAvailable": false,
-      "xgHome": 1.69,
-      "xgAway": 1.63,
-      "xgTotal": 3.32,
-      "formBTTS": 90,
-      "analysis": "Fiorentina : forme D-D-N-V-D (1V 1N 3D, 8 buts marqués / 10 encaissés sur 5) · Atalanta : forme D-V-D-D-D (1V 0N 4D, 7 buts marqués / 10 encaissés sur 5). Classement : Fiorentina 18e (4 pts), Atalanta 11e (9 pts). Modèle Poisson : xG cumulé 3.32, BTTS 65.5%, Over 2.5 64.4%. Cotes DraftKings — 1: 2.2 / N: 3.4 / 2: 2.9 · Over 2.5: 1.69. Fiabilité 78.41%.",
-      "analysisData": {
-        "bttsProb": 0.6551,
-        "over25Prob": 0.6439,
-        "homeLambda": 1.69,
-        "awayLambda": 1.63,
-        "xgTotal": 3.32
-      },
-      "estimatedCote": 1.53,
-      "estimatedCoteOver": 1.55,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 2.2,
-        "draw": 3.4,
-        "away": 2.9,
-        "over25": 1.69,
-        "under25": 2.1
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.53,
-      "formHome": {
-        "last5String": "D-D-N-V-D",
-        "wins": 1,
-        "draws": 1,
-        "losses": 3,
-        "goalsFor": 8,
-        "goalsAgainst": 10,
-        "bttsRate": 1,
-        "over25Rate": 0.8,
-        "cleanSheets": 0,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "D-V-D-D-D",
-        "wins": 1,
-        "draws": 0,
-        "losses": 4,
-        "goalsFor": 7,
-        "goalsAgainst": 10,
-        "bttsRate": 0.8,
-        "over25Rate": 0.8,
-        "cleanSheets": 0,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-25",
-          "opponent": "Internazionale",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "Como",
-          "venue": "H",
-          "score": "1-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Genoa",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Napoli",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-09-11",
-          "opponent": "Venezia",
-          "venue": "A",
-          "score": "4-2",
-          "result": "W"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-25",
-          "opponent": "Frosinone",
-          "venue": "H",
-          "score": "4-4",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "AC Milan",
-          "venue": "A",
-          "score": "2-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-12",
-          "opponent": "Venezia",
-          "venue": "H",
-          "score": "3-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Juventus",
-          "venue": "A",
-          "score": "0-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-12",
-          "opponent": "Cagliari",
-          "venue": "H",
-          "score": "1-2",
-          "result": "L"
-        }
-      ],
-      "standingsHome": {
-        "rank": 18,
-        "points": 4,
-        "played": 7,
-        "gf": 8,
-        "ga": 17
-      },
-      "standingsAway": {
-        "rank": 11,
-        "points": 9,
-        "played": 7,
-        "gf": 10,
-        "ga": 11
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 66,
-          "bttsProb": 0.6551,
-          "homeLambda": 1.69,
-          "awayLambda": 1.63
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 64,
-          "over25Prob": 0.6439,
-          "homeLambda": 1.69,
-          "awayLambda": 1.63
-        }
-      ],
-      "bttsProb": 0.6551,
-      "over25Prob": 0.6439,
-      "homeLambda": 1.69,
-      "awayLambda": 1.63,
-      "ai_key_fact": "Fiorentina enregistre un taux BTTS de 1 sur ses cinq derniers matchs.",
-      "ai_analysis": "Le modèle Poisson évalue les xG à 1.69 pour la Fiorentina et 1.63 pour l'Atalanta dans cette opposition de Serie A. Les prédictions indiquent des probabilités de 65.5% pour le BTTS et de 64.4% pour l'Over 2.5, appuyées par un taux de fiabilité de 78.41%. Au classement, la Fiorentina pointe à la 18e place avec 4 points tandis que l'Atalanta se trouve 11e avec 9 points. Les cotes de DraftKings affichent le succès de la Fiorentina à 2.2, le nul à 3.4 et la victoire de l'Atalanta à 2.9.",
-      "ai_form_summary": "La Fiorentina compte une victoire, un nul et trois défaites sur ses cinq dernières sorties avec un taux BTTS de 1. L'Atalanta totalise une victoire et quatre défaites sur la même période, affichant un taux BTTS de 0.8.",
-      "ai_key_fact_en": "Fiorentina records a BTTS rate of 1 in their last five matches.",
-      "ai_analysis_en": "The Poisson model evaluates xG at 1.69 for Fiorentina and 1.63 for Atalanta in this Serie A fixture. Predictions indicate probabilities of 65.5% for BTTS and 64.4% for Over 2.5, backed by a reliability rate of 78.41%. In the standings, Fiorentina sits in 18th place with 4 points while Atalanta is 11th with 9 points. DraftKings odds list Fiorentina's success at 2.2, the draw at 3.4 and Atalanta's win at 2.9.",
-      "ai_form_summary_en": "Fiorentina counts one win, one draw and three losses over their last five outings with a 1 BTTS rate. Atalanta totals one win and four losses over the same period, posting a 0.8 BTTS rate.",
-      "ai_source": "gemini-v2",
-      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
-      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
-      "ai_odds_insight": "Le marché (DraftKings) cote 1: 2.2, nul: 3.4, 2: 2.9, Over 2.5: 1.69.",
-      "ai_odds_insight_en": "The market (DraftKings) prices 1: 2.2, draw: 3.4, 2: 2.9, Over 2.5: 1.69.",
-      "status": "PENDING"
-    },
-    {
-      "id": "frosinon-vs-lecce-2026-10-29",
-      "match": "Frosinone vs Lecce",
-      "home": "Frosinone",
-      "away": "Lecce",
-      "league": "Serie A",
-      "date": "2026-10-29",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "proba": 0.65,
-      "bttsProbDisplay": "50.00%",
-      "over25ProbDisplay": "70.00%",
-      "confidence": 65,
-      "time": "17:30",
-      "matchSemantic": "frosinon-vs-lecce-2026-10-29",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4057.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/113.png",
-      "tier": "GOLD",
-      "reliabilityScore": 80.63,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 2.25,
-      "xgAway": 1.25,
-      "xgTotal": 3.5,
-      "formBTTS": 50,
-      "analysis": "Frosinone : forme N-V-D-V-N (2V 2N 1D, 11 buts marqués / 10 encaissés sur 5) · Lecce : forme D-V-D-D-V (2V 0N 3D, 7 buts marqués / 9 encaissés sur 5). Classement : Frosinone 6e (14 pts), Lecce 14e (9 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 50.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.65 / N: 4 / 2: 4.4. Fiabilité 80.63%.",
-      "analysisData": {
-        "bttsProb": 0.5,
-        "over25Prob": 0.7,
-        "homeLambda": 2.25,
-        "awayLambda": 1.25,
-        "xgTotal": 3.5
-      },
-      "estimatedCote": 2,
-      "estimatedCoteOver": 1.43,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 1.65,
-        "draw": 4,
-        "away": 4.4,
-        "over25": null,
-        "under25": null
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 2,
-      "formHome": {
-        "last5String": "N-V-D-V-N",
-        "wins": 2,
-        "draws": 2,
-        "losses": 1,
-        "goalsFor": 11,
-        "goalsAgainst": 10,
-        "bttsRate": 0.6,
-        "over25Rate": 0.6,
-        "cleanSheets": 1,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "D-V-D-D-V",
-        "wins": 2,
-        "draws": 0,
-        "losses": 3,
-        "goalsFor": 7,
-        "goalsAgainst": 9,
-        "bttsRate": 0.4,
-        "over25Rate": 0.8,
-        "cleanSheets": 1,
-        "failedToScore": 2,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-25",
-          "opponent": "Atalanta",
-          "venue": "A",
-          "score": "4-4",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-16",
-          "opponent": "Sassuolo",
-          "venue": "H",
-          "score": "4-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Napoli",
-          "venue": "A",
-          "score": "0-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Como",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-12",
-          "opponent": "Genoa",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-25",
-          "opponent": "Juventus",
-          "venue": "H",
-          "score": "0-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "Udinese",
-          "venue": "A",
-          "score": "3-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-11",
-          "opponent": "Bologna",
-          "venue": "H",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "AC Milan",
-          "venue": "A",
-          "score": "0-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-13",
-          "opponent": "Monza",
-          "venue": "H",
-          "score": "3-2",
-          "result": "W"
-        }
-      ],
-      "standingsHome": {
-        "rank": 6,
-        "points": 14,
-        "played": 8,
-        "gf": 17,
-        "ga": 13
-      },
-      "standingsAway": {
-        "rank": 14,
-        "points": 9,
-        "played": 8,
-        "gf": 9,
-        "ga": 14
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 50,
-          "bttsProb": 0.5,
-          "homeLambda": 2.25,
-          "awayLambda": 1.25,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 65,
-          "over25Prob": 0.65,
-          "homeLambda": 2.25,
-          "awayLambda": 1.25,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.65
-        }
-      ],
-      "bttsProb": 0.5,
-      "over25Prob": 0.65,
-      "homeLambda": 2.25,
-      "awayLambda": 1.25,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "Lecce affiche un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
-      "ai_analysis": "Les données observées soutiennent une tendance favorable aux buts dans cette rencontre. Frosinone propose une moyenne offensive intéressante à domicile (2.25 buts par match), tandis que Lecce enregistre un taux d'Over 2.5 de 0.8 sur ses 5 dernières sorties. Malgré un taux BTTS en retrait, le volume offensif global justifie une sélection sur l'Over 2.5.",
-      "ai_analysis_en": "Observed data support a goal-friendly trend in this encounter. Frosinone boasts a solid home scoring average (2.25 goals per match), while Lecce records an 0.8 Over 2.5 rate over their last 5 outings. Despite a lower BTTS rate, the overall offensive volume justifies an Over 2.5 selection.",
-      "ai_form_summary": "Frosinone : 2W-2D-1L sur les 5 derniers, 11 buts pour, 10 contre. Lecce : 2W-0D-3L sur les 5 derniers, 7 buts pour, 9 contre.",
-      "ai_form_summary_en": "Frosinone: 2W-2D-1L in last 5, 11 goals for, 10 against. Lecce: 2W-0D-3L in last 5, 7 goals for, 9 against.",
-      "ai_reasons": [
-        "Taux empirique Over 2.5 de 0.7 sur l'échantillon global.",
-        "Lecce affiche un taux Over 2.5 de 0.8 sur ses 5 derniers matchs.",
-        "Frosinone présente une moyenne de buts marqués à domicile élevée (2.25)."
-      ],
-      "ai_risks": [
-        "Le taux empirique BTTS est modéré à 0.5, ce qui montre que les matchs de Lecce peuvent parfois être unilatéraux.",
-        "La forme récente de Lecce montre une alternance de victoires et défaites sèches."
-      ],
-      "ai_confidence": "medium",
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.65 · N 4 · 2 4.4",
-      "status": "PENDING"
-    },
     {
       "id": "lille-vs-lens-2026-10-30",
       "match": "Lille vs Lens",
@@ -1214,12 +801,12 @@
       "away": "Stade Rennais",
       "league": "Ligue 1",
       "date": "2026-10-30",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.6,
+      "proba": 0.72,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "80.00%",
-      "confidence": 60,
+      "confidence": 72,
       "time": "18:00",
       "matchSemantic": "nice-vs-staderen-2026-10-30",
       "source": "poisson-v92-real-data",
@@ -1236,7 +823,7 @@
       "xgAway": 1.67,
       "xgTotal": 2.92,
       "formBTTS": 60,
-      "analysis": "Nice : forme V-D-V-V-D (3V 0N 2D, 7 buts marqués / 6 encaissés sur 5) · Stade Rennais : forme V-D-V-D-V (3V 0N 2D, 11 buts marqués / 9 encaissés sur 5). Classement : Nice 10e (11 pts), Stade Rennais 2e (16 pts). Stats empiriques (forme récente) : buts moy. 2.92, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.8 / N: 3.75 / 2: 2.35. Fiabilité 82.5%.",
+      "analysis": "Nice : forme V-D-V-V-D (3V 0N 2D, 7 buts marqués / 6 encaissés sur 5) · Stade Rennais : forme V-D-V-D-V (3V 0N 2D, 11 buts marqués / 9 encaissés sur 5). Classement : Nice 10e (11 pts), Stade Rennais 2e (16 pts). Stats empiriques (forme récente) : buts moy. 2.92, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.75 / N: 3.7 / 2: 2.35. Fiabilité 82.5%.",
       "analysisData": {
         "bttsProb": 0.6,
         "over25Prob": 0.8,
@@ -1248,8 +835,8 @@
       "estimatedCoteOver": 1.25,
       "odds": {
         "provider": "DraftKings",
-        "home": 2.8,
-        "draw": 3.75,
+        "home": 2.75,
+        "draw": 3.7,
         "away": 2.35,
         "over25": null,
         "under25": null
@@ -1374,53 +961,52 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 72,
-          "bttsProb": 0.72,
+          "confidence": 60,
+          "bttsProb": 0.6,
           "homeLambda": 1.25,
           "awayLambda": 1.67,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.72
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 72,
-          "over25Prob": 0.76,
+          "over25Prob": 0.72,
           "homeLambda": 1.25,
           "awayLambda": 1.67,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.76
+          "proba": 0.72
         }
       ],
-      "bttsProb": 0.72,
-      "over25Prob": 0.76,
+      "bttsProb": 0.6,
+      "over25Prob": 0.72,
       "homeLambda": 1.25,
       "awayLambda": 1.67,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Nice affiche un taux de 80% de matchs Over 2.5 et BTTS sur ses 5 dernières rencontres.",
-      "ai_analysis": "Cette confrontation entre Nice et Rennes présente de solides indicateurs offensifs. L'analyse des données montre un taux empirique d'Over 2.5 à 80%, appuyé par la dynamique récente de Nice qui cumule 80% de matchs avec buts des deux côtés. Malgré le profil légèrement plus fermé de Rennes par séquences, les moyennes de buts par match plaident pour un scénario prolifique et ouvert.",
-      "ai_analysis_en": "This fixture between Nice and Rennes shows strong offensive indicators. Data analysis reveals an empirical Over 2.5 rate of 80%, supported by Nice's recent form where 80% of their last 5 matches saw both teams score. Despite Rennes' slightly lower BTTS rate in their last 5, the overall goal averages point towards an open and high-scoring match.",
-      "ai_form_summary": "Nice (3V-0D-2D) alterne le bon et le moins bon avec des matchs ouverts (80% BTTS), tandis que Rennes (3V-0D-2D) marque régulièrement (11 buts inscrits).",
-      "ai_form_summary_en": "Nice (3W-0D-2L) shows high-scoring matches with an 80% BTTS rate, while Rennes (3W-0D-2L) demonstrates consistent scoring form with 11 goals.",
+      "ai_key_fact": "Nice et le Stade Rennais affichent tous deux un taux Over 2.5 de 80% sur leurs 5 derniers matchs.",
+      "ai_analysis": "L'affiche de Ligue 1 entre Nice et le Stade Rennais se distingue par une forte propension aux matchs prolifiques. Les deux formations affichent un taux Over 2.5 de 80% sur leurs cinq dernières rencontres respectives, appuyé par un taux empirique global également à 80%. Avec des moyennes de buts par match de 1.25 pour Nice et 1.67 pour Rennes, la configuration statistique est idéale pour viser plus de 2.5 buts.",
+      "ai_analysis_en": "The Ligue 1 fixture between Nice and Stade Rennais stands out for a strong propensity towards high-scoring matches. Both teams show an 80% Over 2.5 rate in their respective last five games, backed by an overall empirical rate also at 80%. With goals per match averages of 1.25 for Nice and 1.67 for Rennes, the statistical setup is ideal for targeting over 2.5 goals.",
+      "ai_form_summary": "Nice : 3W-0D-2L sur les 5 derniers, 7 buts pour, 6 contre. Stade Rennais : 3W-0D-2L sur les 5 derniers, 11 buts pour, 9 contre.",
+      "ai_form_summary_en": "Nice: 3W-0D-2L in last 5, 7 goals for, 6 against. Stade Rennais: 3W-0D-2L in last 5, 11 goals for, 9 against.",
       "ai_reasons": [
-        "Taux empirique Over 2.5 très élevé à 80% sur l'échantillon.",
-        "Taux BTTS de Nice à 80% sur ses 5 derniers matchs.",
-        "Moyennes de buts encourageantes : Nice (1.25) et Rennes (1.67)."
+        "Taux empirique Over 2.5 très élevé à 80%.",
+        "Nice affiche un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
+        "Stade Rennais présente également un taux Over 2.5 de 80% sur sa forme récente."
       ],
       "ai_risks": [
-        "Le taux BTTS de Rennes sur ses 5 derniers matchs est plus bas (40%).",
-        "Écarts de classement entre Nice (10ème) et Rennes (2ème) pouvant influencer la physionomie."
+        "Le taux BTTS empirique est légèrement plus bas à 60%.",
+        "Rennes a un taux BTTS de seulement 40% sur ses 5 derniers matchs malgré ses scores élevés."
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.8 · N 3.75 · 2 2.35",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.75 · N 3.7 · 2 2.35",
       "status": "PENDING"
     },
     {
@@ -4161,12 +3747,12 @@
       "away": "Real Madrid",
       "league": "LaLiga",
       "date": "2026-11-01",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.72,
+      "proba": 0.68,
       "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "80.00%",
-      "confidence": 72,
+      "confidence": 68,
       "time": "15:15",
       "matchSemantic": "racingsa-vs-realmadr-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -4183,7 +3769,7 @@
       "xgAway": 1.5,
       "xgTotal": 3.75,
       "formBTTS": 70,
-      "analysis": "Racing Santander : forme V-D-N-D-D (1V 1N 3D, 6 buts marqués / 17 encaissés sur 5) · Real Madrid : forme V-V-V-D-V (4V 0N 1D, 11 buts marqués / 6 encaissés sur 5). Classement : Racing Santander 13e (11 pts), Real Madrid 3e (24 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 9 / N: 7 / 2: 1.24. Fiabilité 89.38%.",
+      "analysis": "Racing Santander : forme V-D-N-D-D (1V 1N 3D, 6 buts marqués / 17 encaissés sur 5) · Real Madrid : forme V-V-V-D-V (4V 0N 1D, 11 buts marqués / 6 encaissés sur 5). Classement : Racing Santander 13e (11 pts), Real Madrid 3e (24 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 9.5 / N: 7 / 2: 1.22. Fiabilité 89.38%.",
       "analysisData": {
         "bttsProb": 0.7,
         "over25Prob": 0.8,
@@ -4195,9 +3781,9 @@
       "estimatedCoteOver": 1.25,
       "odds": {
         "provider": "DraftKings",
-        "home": 9,
+        "home": 9.5,
         "draw": 7,
-        "away": 1.24,
+        "away": 1.22,
         "over25": null,
         "under25": null
       },
@@ -4321,52 +3907,52 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 70,
-          "bttsProb": 0.7,
-          "homeLambda": 2.25,
-          "awayLambda": 1.5,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 72,
-          "over25Prob": 0.72,
+          "confidence": 68,
+          "bttsProb": 0.68,
           "homeLambda": 2.25,
           "awayLambda": 1.5,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.72
+          "proba": 0.68
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 80,
+          "over25Prob": 0.8,
+          "homeLambda": 2.25,
+          "awayLambda": 1.5,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
         }
       ],
-      "bttsProb": 0.7,
-      "over25Prob": 0.72,
+      "bttsProb": 0.68,
+      "over25Prob": 0.8,
       "homeLambda": 2.25,
       "awayLambda": 1.5,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
       "ai_key_fact": "Racing Santander a encaissé 26 buts en 10 matchs de championnat.",
-      "ai_analysis": "L'analyse statistique de cette rencontre de LaLiga met en avant une propension nette aux matchs ouverts. Le taux d'Over 2.5 atteint 80% pour les deux équipes lors de leurs cinq dernières sorties. La défense extrêmement perméable de Santander (26 buts encaissés) combinée à l'efficacité offensive du Real Madrid (25 buts marqués) garantit un potentiel offensif élevé pour dépasser la barre des 2.5 buts.",
-      "ai_analysis_en": "The statistical analysis of this LaLiga fixture highlights a clear tendency towards open games. The Over 2.5 rate reaches 80% for both teams in their last five outings. Santander's extremely porous defense (26 goals conceded) combined with Real Madrid's attacking efficiency (25 goals scored) guarantees high scoring potential to exceed the 2.5 goal mark.",
-      "ai_form_summary": "Racing Santander: 1W-1D-3L, 6 buts pour, 17 buts contre. Real Madrid: 4W-0D-1L, 11 buts pour, 6 buts contre.",
-      "ai_form_summary_en": "Racing Santander: 1W-1D-3L, 6 goals for, 17 goals against. Real Madrid: 4W-0D-1L, 11 goals for, 6 goals against.",
+      "ai_analysis": "Le Real Madrid se déplace avec un secteur offensif performant (25 buts marqués) et affronte une équipe de Racing Santander en grande difficulté défensive, qui a déjà concédé 26 buts. Bien que le Real soit ultra favori, les statistiques globales soutiennent un match ouvert avec des buts des deux côtés, appuyé par un taux BTTS empirique de 70%.",
+      "ai_analysis_en": "Real Madrid travels with a strong attacking record (25 goals scored) to face a struggling Racing Santander defense that has already conceded 26 goals. Although Real are heavy favorites, overall statistics support an open game with goals from both sides, backed by a 70% empirical BTTS rate.",
+      "ai_form_summary": "Racing Santander (1V-1D-3L) montre des difficultés défensives, tandis que Real Madrid (4W-0D-1L) est très performant.",
+      "ai_form_summary_en": "Racing Santander (1W-1D-3L) shows defensive struggles, while Real Madrid (4W-0D-1L) is in strong form.",
       "ai_reasons": [
-        "Taux Over 2.5 élevé à 80% pour les deux équipes sur leurs 5 derniers matchs",
-        "Real Madrid affiche une attaque prolifique (25 buts en 10 matchs)",
-        "Racing Santander présente une défense très fragile avec 26 buts encaissés en 10 matchs"
+        "Taux BTTS empirique élevé à 70% sur l'ensemble des données fournies.",
+        "Racing Santander encaisse beaucoup de buts avec 26 buts concédés en 10 matchs de championnat.",
+        "Real Madrid présente de solides taux offensifs avec une moyenne de 2,5 buts marqués par match (25 en 10 matchs)."
       ],
       "ai_risks": [
-        "Large écart au classement pouvant mener à une domination unilatérale",
-        "Cote du Real Madrid très basse (1.24) traduisant un déséquilibre"
+        "Real Madrid possède une défense solide (seulement 10 buts encaissés), ce qui peut limiter les buts de Racing Santander.",
+        "La cote du Real Madrid à 1.22 indique un déséquilibre majeur dans la rencontre."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BTTS",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 9 · N 7 · 2 1.24",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.22",
       "status": "PENDING"
     },
     {
@@ -4446,6 +4032,13 @@
       },
       "last5Home": [
         {
+          "date": "2026-10-29",
+          "opponent": "Lecce",
+          "venue": "H",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
           "date": "2026-10-25",
           "opponent": "Atalanta",
           "venue": "A",
@@ -4472,13 +4065,6 @@
           "venue": "H",
           "score": "2-0",
           "result": "W"
-        },
-        {
-          "date": "2026-09-12",
-          "opponent": "Genoa",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
         }
       ],
       "last5Away": [
@@ -7555,7 +7141,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "derbycou-vs-norwichc-2026-11-03",
@@ -8905,427 +8492,14 @@
     }
   ],
   "stats": {
-    "avgReliability": 79.16,
-    "totalAnalyzed": 154,
+    "avgReliability": 79.14,
+    "totalAnalyzed": 152,
     "totalRejected": 5,
-    "totalAccepted": 149,
-    "freeCount": 42,
+    "totalAccepted": 147,
+    "freeCount": 40,
     "vipCount": 8
   },
   "predictions": [
-    {
-      "id": "fiorenti-vs-atalanta-2026-10-29",
-      "match": "Fiorentina vs Atalanta",
-      "home": "Fiorentina",
-      "away": "Atalanta",
-      "league": "Serie A",
-      "date": "2026-10-29",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.6551,
-      "bttsProbDisplay": "65.51%",
-      "over25ProbDisplay": "64.39%",
-      "confidence": 66,
-      "time": "19:45",
-      "matchSemantic": "fiorenti-vs-atalanta-2026-10-29",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/109.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/105.png",
-      "tier": "GOLD",
-      "reliabilityScore": 78.41,
-      "dataQuality": "MEDIUM",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 7,
-      "matchCountAway": 7,
-      "h2hAvailable": false,
-      "xgHome": 1.69,
-      "xgAway": 1.63,
-      "xgTotal": 3.32,
-      "formBTTS": 90,
-      "analysis": "Fiorentina : forme D-D-N-V-D (1V 1N 3D, 8 buts marqués / 10 encaissés sur 5) · Atalanta : forme D-V-D-D-D (1V 0N 4D, 7 buts marqués / 10 encaissés sur 5). Classement : Fiorentina 18e (4 pts), Atalanta 11e (9 pts). Modèle Poisson : xG cumulé 3.32, BTTS 65.5%, Over 2.5 64.4%. Cotes DraftKings — 1: 2.2 / N: 3.4 / 2: 2.9 · Over 2.5: 1.69. Fiabilité 78.41%.",
-      "analysisData": {
-        "bttsProb": 0.6551,
-        "over25Prob": 0.6439,
-        "homeLambda": 1.69,
-        "awayLambda": 1.63,
-        "xgTotal": 3.32
-      },
-      "estimatedCote": 1.53,
-      "estimatedCoteOver": 1.55,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 2.2,
-        "draw": 3.4,
-        "away": 2.9,
-        "over25": 1.69,
-        "under25": 2.1
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.53,
-      "formHome": {
-        "last5String": "D-D-N-V-D",
-        "wins": 1,
-        "draws": 1,
-        "losses": 3,
-        "goalsFor": 8,
-        "goalsAgainst": 10,
-        "bttsRate": 1,
-        "over25Rate": 0.8,
-        "cleanSheets": 0,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "D-V-D-D-D",
-        "wins": 1,
-        "draws": 0,
-        "losses": 4,
-        "goalsFor": 7,
-        "goalsAgainst": 10,
-        "bttsRate": 0.8,
-        "over25Rate": 0.8,
-        "cleanSheets": 0,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-25",
-          "opponent": "Internazionale",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "Como",
-          "venue": "H",
-          "score": "1-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Genoa",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Napoli",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-09-11",
-          "opponent": "Venezia",
-          "venue": "A",
-          "score": "4-2",
-          "result": "W"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-25",
-          "opponent": "Frosinone",
-          "venue": "H",
-          "score": "4-4",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "AC Milan",
-          "venue": "A",
-          "score": "2-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-12",
-          "opponent": "Venezia",
-          "venue": "H",
-          "score": "3-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Juventus",
-          "venue": "A",
-          "score": "0-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-12",
-          "opponent": "Cagliari",
-          "venue": "H",
-          "score": "1-2",
-          "result": "L"
-        }
-      ],
-      "standingsHome": {
-        "rank": 18,
-        "points": 4,
-        "played": 7,
-        "gf": 8,
-        "ga": 17
-      },
-      "standingsAway": {
-        "rank": 11,
-        "points": 9,
-        "played": 7,
-        "gf": 10,
-        "ga": 11
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 66,
-          "bttsProb": 0.6551,
-          "homeLambda": 1.69,
-          "awayLambda": 1.63
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 64,
-          "over25Prob": 0.6439,
-          "homeLambda": 1.69,
-          "awayLambda": 1.63
-        }
-      ],
-      "bttsProb": 0.6551,
-      "over25Prob": 0.6439,
-      "homeLambda": 1.69,
-      "awayLambda": 1.63,
-      "ai_key_fact": "Fiorentina enregistre un taux BTTS de 1 sur ses cinq derniers matchs.",
-      "ai_analysis": "Le modèle Poisson évalue les xG à 1.69 pour la Fiorentina et 1.63 pour l'Atalanta dans cette opposition de Serie A. Les prédictions indiquent des probabilités de 65.5% pour le BTTS et de 64.4% pour l'Over 2.5, appuyées par un taux de fiabilité de 78.41%. Au classement, la Fiorentina pointe à la 18e place avec 4 points tandis que l'Atalanta se trouve 11e avec 9 points. Les cotes de DraftKings affichent le succès de la Fiorentina à 2.2, le nul à 3.4 et la victoire de l'Atalanta à 2.9.",
-      "ai_form_summary": "La Fiorentina compte une victoire, un nul et trois défaites sur ses cinq dernières sorties avec un taux BTTS de 1. L'Atalanta totalise une victoire et quatre défaites sur la même période, affichant un taux BTTS de 0.8.",
-      "ai_key_fact_en": "Fiorentina records a BTTS rate of 1 in their last five matches.",
-      "ai_analysis_en": "The Poisson model evaluates xG at 1.69 for Fiorentina and 1.63 for Atalanta in this Serie A fixture. Predictions indicate probabilities of 65.5% for BTTS and 64.4% for Over 2.5, backed by a reliability rate of 78.41%. In the standings, Fiorentina sits in 18th place with 4 points while Atalanta is 11th with 9 points. DraftKings odds list Fiorentina's success at 2.2, the draw at 3.4 and Atalanta's win at 2.9.",
-      "ai_form_summary_en": "Fiorentina counts one win, one draw and three losses over their last five outings with a 1 BTTS rate. Atalanta totals one win and four losses over the same period, posting a 0.8 BTTS rate.",
-      "ai_source": "gemini-v2",
-      "ai_absences": "Absents : aucune indisponibilité officielle dans nos données — compos à confirmer avant le coup d'envoi.",
-      "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
-      "ai_odds_insight": "Le marché (DraftKings) cote 1: 2.2, nul: 3.4, 2: 2.9, Over 2.5: 1.69.",
-      "ai_odds_insight_en": "The market (DraftKings) prices 1: 2.2, draw: 3.4, 2: 2.9, Over 2.5: 1.69.",
-      "status": "PENDING"
-    },
-    {
-      "id": "frosinon-vs-lecce-2026-10-29",
-      "match": "Frosinone vs Lecce",
-      "home": "Frosinone",
-      "away": "Lecce",
-      "league": "Serie A",
-      "date": "2026-10-29",
-      "type": "Over 2.5",
-      "prediction": "Oui",
-      "proba": 0.65,
-      "bttsProbDisplay": "50.00%",
-      "over25ProbDisplay": "70.00%",
-      "confidence": 65,
-      "time": "17:30",
-      "matchSemantic": "frosinon-vs-lecce-2026-10-29",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4057.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/113.png",
-      "tier": "GOLD",
-      "reliabilityScore": 80.63,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 2.25,
-      "xgAway": 1.25,
-      "xgTotal": 3.5,
-      "formBTTS": 50,
-      "analysis": "Frosinone : forme N-V-D-V-N (2V 2N 1D, 11 buts marqués / 10 encaissés sur 5) · Lecce : forme D-V-D-D-V (2V 0N 3D, 7 buts marqués / 9 encaissés sur 5). Classement : Frosinone 6e (14 pts), Lecce 14e (9 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 50.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.65 / N: 4 / 2: 4.4. Fiabilité 80.63%.",
-      "analysisData": {
-        "bttsProb": 0.5,
-        "over25Prob": 0.7,
-        "homeLambda": 2.25,
-        "awayLambda": 1.25,
-        "xgTotal": 3.5
-      },
-      "estimatedCote": 2,
-      "estimatedCoteOver": 1.43,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 1.65,
-        "draw": 4,
-        "away": 4.4,
-        "over25": null,
-        "under25": null
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 2,
-      "formHome": {
-        "last5String": "N-V-D-V-N",
-        "wins": 2,
-        "draws": 2,
-        "losses": 1,
-        "goalsFor": 11,
-        "goalsAgainst": 10,
-        "bttsRate": 0.6,
-        "over25Rate": 0.6,
-        "cleanSheets": 1,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "D-V-D-D-V",
-        "wins": 2,
-        "draws": 0,
-        "losses": 3,
-        "goalsFor": 7,
-        "goalsAgainst": 9,
-        "bttsRate": 0.4,
-        "over25Rate": 0.8,
-        "cleanSheets": 1,
-        "failedToScore": 2,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-25",
-          "opponent": "Atalanta",
-          "venue": "A",
-          "score": "4-4",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-16",
-          "opponent": "Sassuolo",
-          "venue": "H",
-          "score": "4-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Napoli",
-          "venue": "A",
-          "score": "0-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Como",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-12",
-          "opponent": "Genoa",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-25",
-          "opponent": "Juventus",
-          "venue": "H",
-          "score": "0-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-18",
-          "opponent": "Udinese",
-          "venue": "A",
-          "score": "3-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-11",
-          "opponent": "Bologna",
-          "venue": "H",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "AC Milan",
-          "venue": "A",
-          "score": "0-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-13",
-          "opponent": "Monza",
-          "venue": "H",
-          "score": "3-2",
-          "result": "W"
-        }
-      ],
-      "standingsHome": {
-        "rank": 6,
-        "points": 14,
-        "played": 8,
-        "gf": 17,
-        "ga": 13
-      },
-      "standingsAway": {
-        "rank": 14,
-        "points": 9,
-        "played": 8,
-        "gf": 9,
-        "ga": 14
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 50,
-          "bttsProb": 0.5,
-          "homeLambda": 2.25,
-          "awayLambda": 1.25,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 65,
-          "over25Prob": 0.65,
-          "homeLambda": 2.25,
-          "awayLambda": 1.25,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.65
-        }
-      ],
-      "bttsProb": 0.5,
-      "over25Prob": 0.65,
-      "homeLambda": 2.25,
-      "awayLambda": 1.25,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "Lecce affiche un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
-      "ai_analysis": "Les données observées soutiennent une tendance favorable aux buts dans cette rencontre. Frosinone propose une moyenne offensive intéressante à domicile (2.25 buts par match), tandis que Lecce enregistre un taux d'Over 2.5 de 0.8 sur ses 5 dernières sorties. Malgré un taux BTTS en retrait, le volume offensif global justifie une sélection sur l'Over 2.5.",
-      "ai_analysis_en": "Observed data support a goal-friendly trend in this encounter. Frosinone boasts a solid home scoring average (2.25 goals per match), while Lecce records an 0.8 Over 2.5 rate over their last 5 outings. Despite a lower BTTS rate, the overall offensive volume justifies an Over 2.5 selection.",
-      "ai_form_summary": "Frosinone : 2W-2D-1L sur les 5 derniers, 11 buts pour, 10 contre. Lecce : 2W-0D-3L sur les 5 derniers, 7 buts pour, 9 contre.",
-      "ai_form_summary_en": "Frosinone: 2W-2D-1L in last 5, 11 goals for, 10 against. Lecce: 2W-0D-3L in last 5, 7 goals for, 9 against.",
-      "ai_reasons": [
-        "Taux empirique Over 2.5 de 0.7 sur l'échantillon global.",
-        "Lecce affiche un taux Over 2.5 de 0.8 sur ses 5 derniers matchs.",
-        "Frosinone présente une moyenne de buts marqués à domicile élevée (2.25)."
-      ],
-      "ai_risks": [
-        "Le taux empirique BTTS est modéré à 0.5, ce qui montre que les matchs de Lecce peuvent parfois être unilatéraux.",
-        "La forme récente de Lecce montre une alternance de victoires et défaites sèches."
-      ],
-      "ai_confidence": "medium",
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.65 · N 4 · 2 4.4",
-      "status": "PENDING"
-    },
     {
       "id": "lille-vs-lens-2026-10-30",
       "match": "Lille vs Lens",
@@ -10124,12 +9298,12 @@
       "away": "Stade Rennais",
       "league": "Ligue 1",
       "date": "2026-10-30",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.6,
+      "proba": 0.72,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "80.00%",
-      "confidence": 60,
+      "confidence": 72,
       "time": "18:00",
       "matchSemantic": "nice-vs-staderen-2026-10-30",
       "source": "poisson-v92-real-data",
@@ -10146,7 +9320,7 @@
       "xgAway": 1.67,
       "xgTotal": 2.92,
       "formBTTS": 60,
-      "analysis": "Nice : forme V-D-V-V-D (3V 0N 2D, 7 buts marqués / 6 encaissés sur 5) · Stade Rennais : forme V-D-V-D-V (3V 0N 2D, 11 buts marqués / 9 encaissés sur 5). Classement : Nice 10e (11 pts), Stade Rennais 2e (16 pts). Stats empiriques (forme récente) : buts moy. 2.92, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.8 / N: 3.75 / 2: 2.35. Fiabilité 82.5%.",
+      "analysis": "Nice : forme V-D-V-V-D (3V 0N 2D, 7 buts marqués / 6 encaissés sur 5) · Stade Rennais : forme V-D-V-D-V (3V 0N 2D, 11 buts marqués / 9 encaissés sur 5). Classement : Nice 10e (11 pts), Stade Rennais 2e (16 pts). Stats empiriques (forme récente) : buts moy. 2.92, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.75 / N: 3.7 / 2: 2.35. Fiabilité 82.5%.",
       "analysisData": {
         "bttsProb": 0.6,
         "over25Prob": 0.8,
@@ -10158,8 +9332,8 @@
       "estimatedCoteOver": 1.25,
       "odds": {
         "provider": "DraftKings",
-        "home": 2.8,
-        "draw": 3.75,
+        "home": 2.75,
+        "draw": 3.7,
         "away": 2.35,
         "over25": null,
         "under25": null
@@ -10284,53 +9458,52 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 72,
-          "bttsProb": 0.72,
+          "confidence": 60,
+          "bttsProb": 0.6,
           "homeLambda": 1.25,
           "awayLambda": 1.67,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.72
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 72,
-          "over25Prob": 0.76,
+          "over25Prob": 0.72,
           "homeLambda": 1.25,
           "awayLambda": 1.67,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.76
+          "proba": 0.72
         }
       ],
-      "bttsProb": 0.72,
-      "over25Prob": 0.76,
+      "bttsProb": 0.6,
+      "over25Prob": 0.72,
       "homeLambda": 1.25,
       "awayLambda": 1.67,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Nice affiche un taux de 80% de matchs Over 2.5 et BTTS sur ses 5 dernières rencontres.",
-      "ai_analysis": "Cette confrontation entre Nice et Rennes présente de solides indicateurs offensifs. L'analyse des données montre un taux empirique d'Over 2.5 à 80%, appuyé par la dynamique récente de Nice qui cumule 80% de matchs avec buts des deux côtés. Malgré le profil légèrement plus fermé de Rennes par séquences, les moyennes de buts par match plaident pour un scénario prolifique et ouvert.",
-      "ai_analysis_en": "This fixture between Nice and Rennes shows strong offensive indicators. Data analysis reveals an empirical Over 2.5 rate of 80%, supported by Nice's recent form where 80% of their last 5 matches saw both teams score. Despite Rennes' slightly lower BTTS rate in their last 5, the overall goal averages point towards an open and high-scoring match.",
-      "ai_form_summary": "Nice (3V-0D-2D) alterne le bon et le moins bon avec des matchs ouverts (80% BTTS), tandis que Rennes (3V-0D-2D) marque régulièrement (11 buts inscrits).",
-      "ai_form_summary_en": "Nice (3W-0D-2L) shows high-scoring matches with an 80% BTTS rate, while Rennes (3W-0D-2L) demonstrates consistent scoring form with 11 goals.",
+      "ai_key_fact": "Nice et le Stade Rennais affichent tous deux un taux Over 2.5 de 80% sur leurs 5 derniers matchs.",
+      "ai_analysis": "L'affiche de Ligue 1 entre Nice et le Stade Rennais se distingue par une forte propension aux matchs prolifiques. Les deux formations affichent un taux Over 2.5 de 80% sur leurs cinq dernières rencontres respectives, appuyé par un taux empirique global également à 80%. Avec des moyennes de buts par match de 1.25 pour Nice et 1.67 pour Rennes, la configuration statistique est idéale pour viser plus de 2.5 buts.",
+      "ai_analysis_en": "The Ligue 1 fixture between Nice and Stade Rennais stands out for a strong propensity towards high-scoring matches. Both teams show an 80% Over 2.5 rate in their respective last five games, backed by an overall empirical rate also at 80%. With goals per match averages of 1.25 for Nice and 1.67 for Rennes, the statistical setup is ideal for targeting over 2.5 goals.",
+      "ai_form_summary": "Nice : 3W-0D-2L sur les 5 derniers, 7 buts pour, 6 contre. Stade Rennais : 3W-0D-2L sur les 5 derniers, 11 buts pour, 9 contre.",
+      "ai_form_summary_en": "Nice: 3W-0D-2L in last 5, 7 goals for, 6 against. Stade Rennais: 3W-0D-2L in last 5, 11 goals for, 9 against.",
       "ai_reasons": [
-        "Taux empirique Over 2.5 très élevé à 80% sur l'échantillon.",
-        "Taux BTTS de Nice à 80% sur ses 5 derniers matchs.",
-        "Moyennes de buts encourageantes : Nice (1.25) et Rennes (1.67)."
+        "Taux empirique Over 2.5 très élevé à 80%.",
+        "Nice affiche un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
+        "Stade Rennais présente également un taux Over 2.5 de 80% sur sa forme récente."
       ],
       "ai_risks": [
-        "Le taux BTTS de Rennes sur ses 5 derniers matchs est plus bas (40%).",
-        "Écarts de classement entre Nice (10ème) et Rennes (2ème) pouvant influencer la physionomie."
+        "Le taux BTTS empirique est légèrement plus bas à 60%.",
+        "Rennes a un taux BTTS de seulement 40% sur ses 5 derniers matchs malgré ses scores élevés."
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.8 · N 3.75 · 2 2.35",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.75 · N 3.7 · 2 2.35",
       "status": "PENDING"
     },
     {
@@ -13071,12 +12244,12 @@
       "away": "Real Madrid",
       "league": "LaLiga",
       "date": "2026-11-01",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.72,
+      "proba": 0.68,
       "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "80.00%",
-      "confidence": 72,
+      "confidence": 68,
       "time": "15:15",
       "matchSemantic": "racingsa-vs-realmadr-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -13093,7 +12266,7 @@
       "xgAway": 1.5,
       "xgTotal": 3.75,
       "formBTTS": 70,
-      "analysis": "Racing Santander : forme V-D-N-D-D (1V 1N 3D, 6 buts marqués / 17 encaissés sur 5) · Real Madrid : forme V-V-V-D-V (4V 0N 1D, 11 buts marqués / 6 encaissés sur 5). Classement : Racing Santander 13e (11 pts), Real Madrid 3e (24 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 9 / N: 7 / 2: 1.24. Fiabilité 89.38%.",
+      "analysis": "Racing Santander : forme V-D-N-D-D (1V 1N 3D, 6 buts marqués / 17 encaissés sur 5) · Real Madrid : forme V-V-V-D-V (4V 0N 1D, 11 buts marqués / 6 encaissés sur 5). Classement : Racing Santander 13e (11 pts), Real Madrid 3e (24 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 9.5 / N: 7 / 2: 1.22. Fiabilité 89.38%.",
       "analysisData": {
         "bttsProb": 0.7,
         "over25Prob": 0.8,
@@ -13105,9 +12278,9 @@
       "estimatedCoteOver": 1.25,
       "odds": {
         "provider": "DraftKings",
-        "home": 9,
+        "home": 9.5,
         "draw": 7,
-        "away": 1.24,
+        "away": 1.22,
         "over25": null,
         "under25": null
       },
@@ -13231,52 +12404,52 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 70,
-          "bttsProb": 0.7,
-          "homeLambda": 2.25,
-          "awayLambda": 1.5,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 72,
-          "over25Prob": 0.72,
+          "confidence": 68,
+          "bttsProb": 0.68,
           "homeLambda": 2.25,
           "awayLambda": 1.5,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.72
+          "proba": 0.68
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 80,
+          "over25Prob": 0.8,
+          "homeLambda": 2.25,
+          "awayLambda": 1.5,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
         }
       ],
-      "bttsProb": 0.7,
-      "over25Prob": 0.72,
+      "bttsProb": 0.68,
+      "over25Prob": 0.8,
       "homeLambda": 2.25,
       "awayLambda": 1.5,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
       "ai_key_fact": "Racing Santander a encaissé 26 buts en 10 matchs de championnat.",
-      "ai_analysis": "L'analyse statistique de cette rencontre de LaLiga met en avant une propension nette aux matchs ouverts. Le taux d'Over 2.5 atteint 80% pour les deux équipes lors de leurs cinq dernières sorties. La défense extrêmement perméable de Santander (26 buts encaissés) combinée à l'efficacité offensive du Real Madrid (25 buts marqués) garantit un potentiel offensif élevé pour dépasser la barre des 2.5 buts.",
-      "ai_analysis_en": "The statistical analysis of this LaLiga fixture highlights a clear tendency towards open games. The Over 2.5 rate reaches 80% for both teams in their last five outings. Santander's extremely porous defense (26 goals conceded) combined with Real Madrid's attacking efficiency (25 goals scored) guarantees high scoring potential to exceed the 2.5 goal mark.",
-      "ai_form_summary": "Racing Santander: 1W-1D-3L, 6 buts pour, 17 buts contre. Real Madrid: 4W-0D-1L, 11 buts pour, 6 buts contre.",
-      "ai_form_summary_en": "Racing Santander: 1W-1D-3L, 6 goals for, 17 goals against. Real Madrid: 4W-0D-1L, 11 goals for, 6 goals against.",
+      "ai_analysis": "Le Real Madrid se déplace avec un secteur offensif performant (25 buts marqués) et affronte une équipe de Racing Santander en grande difficulté défensive, qui a déjà concédé 26 buts. Bien que le Real soit ultra favori, les statistiques globales soutiennent un match ouvert avec des buts des deux côtés, appuyé par un taux BTTS empirique de 70%.",
+      "ai_analysis_en": "Real Madrid travels with a strong attacking record (25 goals scored) to face a struggling Racing Santander defense that has already conceded 26 goals. Although Real are heavy favorites, overall statistics support an open game with goals from both sides, backed by a 70% empirical BTTS rate.",
+      "ai_form_summary": "Racing Santander (1V-1D-3L) montre des difficultés défensives, tandis que Real Madrid (4W-0D-1L) est très performant.",
+      "ai_form_summary_en": "Racing Santander (1W-1D-3L) shows defensive struggles, while Real Madrid (4W-0D-1L) is in strong form.",
       "ai_reasons": [
-        "Taux Over 2.5 élevé à 80% pour les deux équipes sur leurs 5 derniers matchs",
-        "Real Madrid affiche une attaque prolifique (25 buts en 10 matchs)",
-        "Racing Santander présente une défense très fragile avec 26 buts encaissés en 10 matchs"
+        "Taux BTTS empirique élevé à 70% sur l'ensemble des données fournies.",
+        "Racing Santander encaisse beaucoup de buts avec 26 buts concédés en 10 matchs de championnat.",
+        "Real Madrid présente de solides taux offensifs avec une moyenne de 2,5 buts marqués par match (25 en 10 matchs)."
       ],
       "ai_risks": [
-        "Large écart au classement pouvant mener à une domination unilatérale",
-        "Cote du Real Madrid très basse (1.24) traduisant un déséquilibre"
+        "Real Madrid possède une défense solide (seulement 10 buts encaissés), ce qui peut limiter les buts de Racing Santander.",
+        "La cote du Real Madrid à 1.22 indique un déséquilibre majeur dans la rencontre."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BTTS",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 9 · N 7 · 2 1.24",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.22",
       "status": "PENDING"
     },
     {
@@ -13356,6 +12529,13 @@
       },
       "last5Home": [
         {
+          "date": "2026-10-29",
+          "opponent": "Lecce",
+          "venue": "H",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
           "date": "2026-10-25",
           "opponent": "Atalanta",
           "venue": "A",
@@ -13382,13 +12562,6 @@
           "venue": "H",
           "score": "2-0",
           "result": "W"
-        },
-        {
-          "date": "2026-09-12",
-          "opponent": "Genoa",
-          "venue": "A",
-          "score": "1-1",
-          "result": "D"
         }
       ],
       "last5Away": [
@@ -16465,7 +15638,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "derbycou-vs-norwichc-2026-11-03",
