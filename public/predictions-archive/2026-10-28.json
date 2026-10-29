@@ -14552,7 +14552,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.87 · N 3.7 · 2 3.65 · O2.5 1.61",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-10-29T03:47:25.817Z"
     },
     {
       "id": "torontof-vs-dcunited-2026-10-28",
@@ -14767,7 +14769,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2 · N 3.65 · 2 3.25",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-10-29T03:47:25.817Z"
     },
     {
       "id": "aberdeen-vs-falkirk-2026-10-28",
@@ -15601,7 +15605,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.48 · N 4.8 · 2 5.25",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "4-0",
+      "verifiedAt": "2026-10-29T03:47:25.817Z"
     },
     {
       "id": "intermia-vs-fccincin-2026-10-28",
@@ -15816,7 +15822,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.45 · N 4.9 · 2 5.25",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-10-29T03:47:25.817Z"
     },
     {
       "id": "venezia-vs-internaz-2026-10-28",
@@ -17092,7 +17100,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 4 · 2 3.2",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-2",
+      "verifiedAt": "2026-10-29T03:47:25.817Z"
     },
     {
       "id": "chicagof-vs-orlandoc-2026-10-29",
@@ -17283,7 +17293,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
       "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-10-29T03:47:25.817Z"
     },
     {
       "id": "vancouve-vs-sandiego-2026-10-29",
@@ -17665,7 +17677,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
       "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-10-29T03:47:25.818Z"
     },
     {
       "id": "minnesot-vs-sporting-2026-10-29",
@@ -17856,7 +17870,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
       "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-10-29T03:47:25.818Z"
     },
     {
       "id": "nashvill-vs-philadel-2026-10-29",
@@ -18071,7 +18087,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.77 · N 3.9 · 2 3.85",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-10-29T03:47:25.818Z"
     },
     {
       "id": "seattles-vs-houstond-2026-10-29",
@@ -18692,7 +18710,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.95 · N 3.9 · 2 3.25",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-10-29T03:47:25.819Z"
     },
     {
       "id": "lille-vs-lens-2026-10-30",
@@ -25832,7 +25852,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
       "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-10-29T03:47:25.819Z"
     },
     {
       "id": "marseill-vs-toulouse-2026-11-01",
@@ -26661,7 +26683,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Cotes marché non disponibles — pronostic basé sur le modèle statistique seul.",
       "ai_odds_insight_en": "Market odds unavailable — prediction based on the statistical model only.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-10-29T03:47:25.819Z"
     },
     {
       "id": "lehavrea-vs-parissai-2026-10-30",
