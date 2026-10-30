@@ -11594,7 +11594,862 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4.5 · 2 1.61"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4.5 · 2 1.61",
+      "status": "PENDING"
+    },
+    {
+      "id": "racingsa-vs-realmadr-2026-11-01",
+      "match": "Racing Santander vs Real Madrid",
+      "home": "Racing Santander",
+      "away": "Real Madrid",
+      "league": "LaLiga",
+      "date": "2026-11-01",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.72,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "80.00%",
+      "confidence": 72,
+      "time": "15:15",
+      "matchSemantic": "racingsa-vs-realmadr-2026-11-01",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/87.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.25,
+      "xgAway": 1.5,
+      "xgTotal": 3.75,
+      "formBTTS": 70,
+      "analysis": "Racing Santander : forme V-D-N-D-D (1V 1N 3D, 6 buts marqués / 17 encaissés sur 5) · Real Madrid : forme V-V-V-D-V (4V 0N 1D, 11 buts marqués / 6 encaissés sur 5). Classement : Racing Santander 13e (11 pts), Real Madrid 3e (24 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 9 / N: 7 / 2: 1.24. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.8,
+        "homeLambda": 2.25,
+        "awayLambda": 1.5,
+        "xgTotal": 3.75
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.25,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 9,
+        "draw": 7,
+        "away": 1.24,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "V-D-N-D-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 17,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-D-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 6,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Espanyol",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Osasuna",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Valencia",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Celta Vigo",
+          "venue": "A",
+          "score": "0-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-16",
+          "opponent": "Barcelona",
+          "venue": "A",
+          "score": "2-7",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Barcelona",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Sevilla",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Villarreal",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Atlético Madrid",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Elche",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 13,
+        "points": 11,
+        "played": 10,
+        "gf": 15,
+        "ga": 26
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 24,
+        "played": 10,
+        "gf": 25,
+        "ga": 10
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 2.25,
+          "awayLambda": 1.5,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 72,
+          "over25Prob": 0.72,
+          "homeLambda": 2.25,
+          "awayLambda": 1.5,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.72
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.72,
+      "homeLambda": 2.25,
+      "awayLambda": 1.5,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Racing Santander a encaissé 26 buts en 10 matchs de championnat.",
+      "ai_analysis": "L'analyse statistique de cette rencontre de LaLiga met en avant une propension nette aux matchs ouverts. Le taux d'Over 2.5 atteint 80% pour les deux équipes lors de leurs cinq dernières sorties. La défense extrêmement perméable de Santander (26 buts encaissés) combinée à l'efficacité offensive du Real Madrid (25 buts marqués) garantit un potentiel offensif élevé pour dépasser la barre des 2.5 buts.",
+      "ai_analysis_en": "The statistical analysis of this LaLiga fixture highlights a clear tendency towards open games. The Over 2.5 rate reaches 80% for both teams in their last five outings. Santander's extremely porous defense (26 goals conceded) combined with Real Madrid's attacking efficiency (25 goals scored) guarantees high scoring potential to exceed the 2.5 goal mark.",
+      "ai_form_summary": "Racing Santander: 1W-1D-3L, 6 buts pour, 17 buts contre. Real Madrid: 4W-0D-1L, 11 buts pour, 6 buts contre.",
+      "ai_form_summary_en": "Racing Santander: 1W-1D-3L, 6 goals for, 17 goals against. Real Madrid: 4W-0D-1L, 11 goals for, 6 goals against.",
+      "ai_reasons": [
+        "Taux Over 2.5 élevé à 80% pour les deux équipes sur leurs 5 derniers matchs",
+        "Real Madrid affiche une attaque prolifique (25 buts en 10 matchs)",
+        "Racing Santander présente une défense très fragile avec 26 buts encaissés en 10 matchs"
+      ],
+      "ai_risks": [
+        "Large écart au classement pouvant mener à une domination unilatérale",
+        "Cote du Real Madrid très basse (1.24) traduisant un déséquilibre"
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9 · N 7 · 2 1.24",
+      "status": "PENDING"
+    },
+    {
+      "id": "lens-vs-como-2026-11-04",
+      "match": "Lens vs Como",
+      "home": "Lens",
+      "away": "Como",
+      "league": "UEFA Champions League",
+      "date": "2026-11-04",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.68,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 68,
+      "time": "20:00",
+      "matchSemantic": "lens-vs-como-2026-11-04",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/175.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.25,
+      "xgAway": 2.4,
+      "xgTotal": 4.65,
+      "formBTTS": 70,
+      "analysis": "Lens : forme V-V-V-D-N (3V 1N 1D, 10 buts marqués / 7 encaissés sur 5) · Como : forme V-V-V-N-D (3V 1N 1D, 8 buts marqués / 4 encaissés sur 5). Classement : Lens 27e (3 pts), Como 9e (6 pts). Stats empiriques (forme récente) : buts moy. 4.65, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.9 / N: 3.95 / 2: 2.15. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 2.25,
+        "awayLambda": 2.4,
+        "xgTotal": 4.65
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.9,
+        "draw": 3.95,
+        "away": 2.15,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "V-V-V-D-N",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 10,
+        "goalsAgainst": 7,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-N-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 8,
+        "goalsAgainst": 4,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Paris FC",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Troyes",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Lyon",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "AS Monaco",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-13",
+          "opponent": "Le Mans",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-27",
+          "opponent": "Torino",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Sassuolo",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Fiorentina",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "AS Roma",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Frosinone",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 27,
+        "points": 3,
+        "played": 3,
+        "gf": 3,
+        "ga": 7
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 6,
+        "played": 3,
+        "gf": 10,
+        "ga": 5
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 2.25,
+          "awayLambda": 2.4,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 68,
+          "over25Prob": 0.68,
+          "homeLambda": 2.25,
+          "awayLambda": 2.4,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.68
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.68,
+      "homeLambda": 2.25,
+      "awayLambda": 2.4,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Lens présente un taux parfait de 100% sur l'Over 2.5 et le BTTS sur son échantillon de 8 matchs.",
+      "ai_analysis": "Malgré un profil de forme contrasté pour Como sur ses derniers matchs, les données globales de Lens (100% d'Over 2.5) et les moyennes de buts par match (plus de 2 buts pour chaque équipe) penchent en faveur d'un match animé. Les taux empiriques combinés atteignent 70%, justifiant une sélection sur l'Over 2.5.",
+      "ai_analysis_en": "Despite a contrasting recent form profile for Como, Lens' overall data (100% Over 2.5) and average goals per match (over 2 goals for each team) point towards a lively match. Combined empirical rates reach 70%, justifying an Over 2.5 selection.",
+      "ai_form_summary": "Lens (3W-1D-1L) déploie un jeu très ouvert avec des statistiques maximales d'Over, tandis que Como (3W-1D-1L) se montre plus pragmatique récemment.",
+      "ai_form_summary_en": "Lens (3W-1D-1L) displays a very open style of play with maximum Over statistics, while Como (3W-1D-1L) has proven more pragmatic recently.",
+      "ai_reasons": [
+        "Moyennes de buts élevées pour Lens (2.25) et Como (2.4).",
+        "Taux empiriques globaux de 70% pour le marché Over 2.5.",
+        "Lens affiche un taux de 100% sur le BTTS et l'Over 2.5 lors de ses 8 derniers matchs."
+      ],
+      "ai_risks": [
+        "Les derniers matchs de Como affichent des taux de BTTS et d'Over plus bas (40%).",
+        "Como se positionne bien au classement (9e) et peut verrouiller si nécessaire."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.95 · 2 2.15"
+    },
+    {
+      "id": "fenerbah-vs-liverpoo-2026-11-04",
+      "match": "Fenerbahce vs Liverpool",
+      "home": "Fenerbahce",
+      "away": "Liverpool",
+      "league": "UEFA Champions League",
+      "date": "2026-11-04",
+      "type": "BTTS",
+      "prediction": "Non",
+      "proba": 0.72,
+      "bttsProbDisplay": "20.00%",
+      "over25ProbDisplay": "60.00%",
+      "confidence": 72,
+      "time": "17:45",
+      "matchSemantic": "fenerbah-vs-liverpoo-2026-11-04",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/436.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
+      "tier": "SILVER",
+      "reliabilityScore": 67.5,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 4,
+      "xgAway": 1.75,
+      "xgTotal": 5.75,
+      "formBTTS": 20,
+      "analysis": "Fenerbahce : forme D-V-V-V-N (3V 1N 1D, 15 buts marqués / 2 encaissés sur 5) · Liverpool : forme V-V-D-V-N (3V 1N 1D, 5 buts marqués / 4 encaissés sur 5). Classement : Fenerbahce 31e (2 pts), Liverpool 3e (9 pts). Stats empiriques (forme récente) : buts moy. 5.75, BTTS 20.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 4.9 / N: 4.5 / 2: 1.59. Fiabilité 67.5%.",
+      "analysisData": {
+        "bttsProb": 0.2,
+        "over25Prob": 0.6,
+        "homeLambda": 4,
+        "awayLambda": 1.75,
+        "xgTotal": 5.75
+      },
+      "estimatedCote": 5,
+      "estimatedCoteOver": 1.67,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 4.9,
+        "draw": 4.5,
+        "away": 1.59,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 5,
+      "formHome": {
+        "last5String": "D-V-V-V-N",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 15,
+        "goalsAgainst": 2,
+        "bttsRate": 0.2,
+        "over25Rate": 0.8,
+        "cleanSheets": 4,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-D-V-N",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 5,
+        "goalsAgainst": 4,
+        "bttsRate": 0.2,
+        "over25Rate": 0.4,
+        "cleanSheets": 3,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-26",
+          "opponent": "Galatasaray",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Alanyaspor",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Caykur Rizespor",
+          "venue": "A",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Eyupspor",
+          "venue": "H",
+          "score": "8-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-14",
+          "opponent": "Gaziantep FK",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Brighton & Hove Albion",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Brentford",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Manchester City",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "AFC Bournemouth",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Fulham",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 31,
+        "points": 2,
+        "played": 3,
+        "gf": 3,
+        "ga": 9
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 9,
+        "played": 3,
+        "gf": 12,
+        "ga": 7
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Non",
+          "confidence": 72,
+          "bttsProb": 0.72,
+          "homeLambda": 4,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.72
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 60,
+          "over25Prob": 0.6,
+          "homeLambda": 4,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        }
+      ],
+      "bttsProb": 0.72,
+      "over25Prob": 0.6,
+      "homeLambda": 4,
+      "awayLambda": 1.75,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Le taux empirique BTTS et la forme récente affichent tous deux un faible 20% pour les deux équipes.",
+      "ai_analysis": "Les données statistiques observées démontrent clairement une tendance faible pour le marché des deux équipes marquent. Avec un taux empirique BTTS à 0.2 et des taux similaires sur les cinq derniers matchs (0.2 pour les deux formations), le pari 'Non' se dégage logiquement. Malgré la moyenne de buts de Fenerbahce, Liverpool encaisse peu et affiche une solidité défensive remarquable dans cette compétition.",
+      "ai_analysis_en": "The observed statistical data clearly demonstrate a low trend for both teams to score. With an empirical BTTS rate of 0.2 and identical rates over the last five matches (0.2 for both sides), the 'No' selection stands out logically. Despite Fenerbahce's scoring average, Liverpool concedes few goals and shows remarkable defensive solidity in this competition.",
+      "ai_form_summary": "Fenerbahce : 3V-1D-1N (15 buts pour, 2 contre, BTTS 20%). Liverpool : 3V-1D-1N (5 buts pour, 4 contre, BTTS 20%).",
+      "ai_form_summary_en": "Fenerbahce: 3W-1D-1L (15 goals for, 2 against, BTTS 20%). Liverpool: 3W-1D-1L (5 goals for, 4 against, BTTS 20%).",
+      "ai_reasons": [
+        "Le taux empirique BTTS global est très bas (0.2).",
+        "Le taux BTTS sur les 5 derniers matchs de Fenerbahce est de 0.2.",
+        "Le taux BTTS sur les 5 derniers matchs de Liverpool est de 0.2."
+      ],
+      "ai_risks": [
+        "Fenerbahce affiche une moyenne de buts marqués élevée (4) sur son échantillon.",
+        "Liverpool possède un classement élevé en Ligue des Champions (3ème)."
+      ],
+      "ai_confidence": "high",
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.9 · N 4.5 · 2 1.59"
+    },
+    {
+      "id": "staderen-vs-olympiac-2026-11-04",
+      "match": "Stade Rennais vs Olympiacos",
+      "home": "Stade Rennais",
+      "away": "Olympiacos",
+      "league": "UEFA Europa League",
+      "date": "2026-11-04",
+      "type": "BTTS",
+      "prediction": "Non",
+      "proba": 0.2,
+      "bttsProbDisplay": "20.00%",
+      "over25ProbDisplay": "50.00%",
+      "confidence": 20,
+      "time": "15:30",
+      "matchSemantic": "staderen-vs-olympiac-2026-11-04",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/435.png",
+      "tier": "SILVER",
+      "reliabilityScore": 67.5,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.6,
+      "xgAway": 1.25,
+      "xgTotal": 3.85,
+      "formBTTS": 20,
+      "analysis": "Stade Rennais : forme V-D-V-D-V (3V 0N 2D, 11 buts marqués / 9 encaissés sur 5) · Olympiacos : forme V-V-V-V-D (4V 0N 1D, 9 buts marqués / 1 encaissés sur 5). Classement : Stade Rennais 13e (5 pts), Olympiacos 5e (9 pts). Stats empiriques (forme récente) : buts moy. 3.85, BTTS 20.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.1 / N: 3.6 / 2: 3.25 · Over 2.5: 1.71. Fiabilité 67.5%.",
+      "analysisData": {
+        "bttsProb": 0.2,
+        "over25Prob": 0.5,
+        "homeLambda": 2.6,
+        "awayLambda": 1.25,
+        "xgTotal": 3.85
+      },
+      "estimatedCote": 5,
+      "estimatedCoteOver": 2,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.1,
+        "draw": 3.6,
+        "away": 3.25,
+        "over25": 1.71,
+        "under25": 2.05
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 5,
+      "formHome": {
+        "last5String": "V-D-V-D-V",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 11,
+        "goalsAgainst": 9,
+        "bttsRate": 0.4,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-D",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 9,
+        "goalsAgainst": 1,
+        "bttsRate": 0,
+        "over25Rate": 0.2,
+        "cleanSheets": 4,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Strasbourg",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Paris FC",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "AJ Auxerre",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Lyon",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Marseille",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Kalamata",
+          "venue": "H",
+          "score": "5-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Panetolikos",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Panathinaikos",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Levadiakos",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "OFI Crete",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 13,
+        "points": 5,
+        "played": 3,
+        "gf": 4,
+        "ga": 3
+      },
+      "standingsAway": {
+        "rank": 5,
+        "points": 9,
+        "played": 3,
+        "gf": 4,
+        "ga": 1
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Non",
+          "confidence": 20,
+          "bttsProb": 0.2,
+          "homeLambda": 2.6,
+          "awayLambda": 1.25,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 50,
+          "over25Prob": 0.5,
+          "homeLambda": 2.6,
+          "awayLambda": 1.25,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        }
+      ],
+      "bttsProb": 0.2,
+      "over25Prob": 0.5,
+      "homeLambda": 2.6,
+      "awayLambda": 1.25,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Form signals BTTS 20% / Over 50%",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 20.0%, Over 2.5 empirique 50.0% pour Stade Rennais vs Olympiacos. Décision : ABSTAIN.",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 20.0%, Over 2.5 50.0% for Stade Rennais vs Olympiacos. Decision: ABSTAIN.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 20.0%, Over 2.5 empirique 50.0% pour Stade Rennais vs Olympiacos. Décision :",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 20.0%, Over 2.5 50.0% for Stade Rennais vs Olympiacos. Decision: ABSTAIN.",
+      "ai_reasons": [
+        "Empirical BTTS rate ~20%",
+        "Empirical Over 2.5 rate ~50%"
+      ],
+      "ai_risks": [
+        "Sample limited to recent matches; form can shift quickly."
+      ],
+      "ai_confidence": "low",
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_source": "local-empirical-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.6 · 2 3.25 · O2.5 1.71"
     }
   ],
   "vipPreview": [
@@ -23272,6 +24127,863 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4.5 · 2 1.61",
+      "status": "PENDING"
+    },
+    {
+      "id": "racingsa-vs-realmadr-2026-11-01",
+      "match": "Racing Santander vs Real Madrid",
+      "home": "Racing Santander",
+      "away": "Real Madrid",
+      "league": "LaLiga",
+      "date": "2026-11-01",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.72,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "80.00%",
+      "confidence": 72,
+      "time": "15:15",
+      "matchSemantic": "racingsa-vs-realmadr-2026-11-01",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/87.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.25,
+      "xgAway": 1.5,
+      "xgTotal": 3.75,
+      "formBTTS": 70,
+      "analysis": "Racing Santander : forme V-D-N-D-D (1V 1N 3D, 6 buts marqués / 17 encaissés sur 5) · Real Madrid : forme V-V-V-D-V (4V 0N 1D, 11 buts marqués / 6 encaissés sur 5). Classement : Racing Santander 13e (11 pts), Real Madrid 3e (24 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 9 / N: 7 / 2: 1.24. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.8,
+        "homeLambda": 2.25,
+        "awayLambda": 1.5,
+        "xgTotal": 3.75
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.25,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 9,
+        "draw": 7,
+        "away": 1.24,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "V-D-N-D-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 17,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-D-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 6,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Espanyol",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Osasuna",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Valencia",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Celta Vigo",
+          "venue": "A",
+          "score": "0-5",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-16",
+          "opponent": "Barcelona",
+          "venue": "A",
+          "score": "2-7",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Barcelona",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Sevilla",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Villarreal",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Atlético Madrid",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Elche",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 13,
+        "points": 11,
+        "played": 10,
+        "gf": 15,
+        "ga": 26
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 24,
+        "played": 10,
+        "gf": 25,
+        "ga": 10
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 2.25,
+          "awayLambda": 1.5,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 72,
+          "over25Prob": 0.72,
+          "homeLambda": 2.25,
+          "awayLambda": 1.5,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.72
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.72,
+      "homeLambda": 2.25,
+      "awayLambda": 1.5,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Racing Santander a encaissé 26 buts en 10 matchs de championnat.",
+      "ai_analysis": "L'analyse statistique de cette rencontre de LaLiga met en avant une propension nette aux matchs ouverts. Le taux d'Over 2.5 atteint 80% pour les deux équipes lors de leurs cinq dernières sorties. La défense extrêmement perméable de Santander (26 buts encaissés) combinée à l'efficacité offensive du Real Madrid (25 buts marqués) garantit un potentiel offensif élevé pour dépasser la barre des 2.5 buts.",
+      "ai_analysis_en": "The statistical analysis of this LaLiga fixture highlights a clear tendency towards open games. The Over 2.5 rate reaches 80% for both teams in their last five outings. Santander's extremely porous defense (26 goals conceded) combined with Real Madrid's attacking efficiency (25 goals scored) guarantees high scoring potential to exceed the 2.5 goal mark.",
+      "ai_form_summary": "Racing Santander: 1W-1D-3L, 6 buts pour, 17 buts contre. Real Madrid: 4W-0D-1L, 11 buts pour, 6 buts contre.",
+      "ai_form_summary_en": "Racing Santander: 1W-1D-3L, 6 goals for, 17 goals against. Real Madrid: 4W-0D-1L, 11 goals for, 6 goals against.",
+      "ai_reasons": [
+        "Taux Over 2.5 élevé à 80% pour les deux équipes sur leurs 5 derniers matchs",
+        "Real Madrid affiche une attaque prolifique (25 buts en 10 matchs)",
+        "Racing Santander présente une défense très fragile avec 26 buts encaissés en 10 matchs"
+      ],
+      "ai_risks": [
+        "Large écart au classement pouvant mener à une domination unilatérale",
+        "Cote du Real Madrid très basse (1.24) traduisant un déséquilibre"
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 9 · N 7 · 2 1.24",
+      "status": "PENDING"
+    },
+    {
+      "id": "lens-vs-como-2026-11-04",
+      "match": "Lens vs Como",
+      "home": "Lens",
+      "away": "Como",
+      "league": "UEFA Champions League",
+      "date": "2026-11-04",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.68,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 68,
+      "time": "20:00",
+      "matchSemantic": "lens-vs-como-2026-11-04",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/175.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.25,
+      "xgAway": 2.4,
+      "xgTotal": 4.65,
+      "formBTTS": 70,
+      "analysis": "Lens : forme V-V-V-D-N (3V 1N 1D, 10 buts marqués / 7 encaissés sur 5) · Como : forme V-V-V-N-D (3V 1N 1D, 8 buts marqués / 4 encaissés sur 5). Classement : Lens 27e (3 pts), Como 9e (6 pts). Stats empiriques (forme récente) : buts moy. 4.65, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.9 / N: 3.95 / 2: 2.15. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 2.25,
+        "awayLambda": 2.4,
+        "xgTotal": 4.65
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.9,
+        "draw": 3.95,
+        "away": 2.15,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "V-V-V-D-N",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 10,
+        "goalsAgainst": 7,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-N-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 8,
+        "goalsAgainst": 4,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Paris FC",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Troyes",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Lyon",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "AS Monaco",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-13",
+          "opponent": "Le Mans",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-27",
+          "opponent": "Torino",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Sassuolo",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Fiorentina",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "AS Roma",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Frosinone",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 27,
+        "points": 3,
+        "played": 3,
+        "gf": 3,
+        "ga": 7
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 6,
+        "played": 3,
+        "gf": 10,
+        "ga": 5
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 2.25,
+          "awayLambda": 2.4,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 68,
+          "over25Prob": 0.68,
+          "homeLambda": 2.25,
+          "awayLambda": 2.4,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.68
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.68,
+      "homeLambda": 2.25,
+      "awayLambda": 2.4,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Lens présente un taux parfait de 100% sur l'Over 2.5 et le BTTS sur son échantillon de 8 matchs.",
+      "ai_analysis": "Malgré un profil de forme contrasté pour Como sur ses derniers matchs, les données globales de Lens (100% d'Over 2.5) et les moyennes de buts par match (plus de 2 buts pour chaque équipe) penchent en faveur d'un match animé. Les taux empiriques combinés atteignent 70%, justifiant une sélection sur l'Over 2.5.",
+      "ai_analysis_en": "Despite a contrasting recent form profile for Como, Lens' overall data (100% Over 2.5) and average goals per match (over 2 goals for each team) point towards a lively match. Combined empirical rates reach 70%, justifying an Over 2.5 selection.",
+      "ai_form_summary": "Lens (3W-1D-1L) déploie un jeu très ouvert avec des statistiques maximales d'Over, tandis que Como (3W-1D-1L) se montre plus pragmatique récemment.",
+      "ai_form_summary_en": "Lens (3W-1D-1L) displays a very open style of play with maximum Over statistics, while Como (3W-1D-1L) has proven more pragmatic recently.",
+      "ai_reasons": [
+        "Moyennes de buts élevées pour Lens (2.25) et Como (2.4).",
+        "Taux empiriques globaux de 70% pour le marché Over 2.5.",
+        "Lens affiche un taux de 100% sur le BTTS et l'Over 2.5 lors de ses 8 derniers matchs."
+      ],
+      "ai_risks": [
+        "Les derniers matchs de Como affichent des taux de BTTS et d'Over plus bas (40%).",
+        "Como se positionne bien au classement (9e) et peut verrouiller si nécessaire."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.95 · 2 2.15",
+      "status": "PENDING"
+    },
+    {
+      "id": "fenerbah-vs-liverpoo-2026-11-04",
+      "match": "Fenerbahce vs Liverpool",
+      "home": "Fenerbahce",
+      "away": "Liverpool",
+      "league": "UEFA Champions League",
+      "date": "2026-11-04",
+      "type": "BTTS",
+      "prediction": "Non",
+      "proba": 0.72,
+      "bttsProbDisplay": "20.00%",
+      "over25ProbDisplay": "60.00%",
+      "confidence": 72,
+      "time": "17:45",
+      "matchSemantic": "fenerbah-vs-liverpoo-2026-11-04",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/436.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
+      "tier": "SILVER",
+      "reliabilityScore": 67.5,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 4,
+      "xgAway": 1.75,
+      "xgTotal": 5.75,
+      "formBTTS": 20,
+      "analysis": "Fenerbahce : forme D-V-V-V-N (3V 1N 1D, 15 buts marqués / 2 encaissés sur 5) · Liverpool : forme V-V-D-V-N (3V 1N 1D, 5 buts marqués / 4 encaissés sur 5). Classement : Fenerbahce 31e (2 pts), Liverpool 3e (9 pts). Stats empiriques (forme récente) : buts moy. 5.75, BTTS 20.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 4.9 / N: 4.5 / 2: 1.59. Fiabilité 67.5%.",
+      "analysisData": {
+        "bttsProb": 0.2,
+        "over25Prob": 0.6,
+        "homeLambda": 4,
+        "awayLambda": 1.75,
+        "xgTotal": 5.75
+      },
+      "estimatedCote": 5,
+      "estimatedCoteOver": 1.67,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 4.9,
+        "draw": 4.5,
+        "away": 1.59,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 5,
+      "formHome": {
+        "last5String": "D-V-V-V-N",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 15,
+        "goalsAgainst": 2,
+        "bttsRate": 0.2,
+        "over25Rate": 0.8,
+        "cleanSheets": 4,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-D-V-N",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 5,
+        "goalsAgainst": 4,
+        "bttsRate": 0.2,
+        "over25Rate": 0.4,
+        "cleanSheets": 3,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-26",
+          "opponent": "Galatasaray",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Alanyaspor",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Caykur Rizespor",
+          "venue": "A",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Eyupspor",
+          "venue": "H",
+          "score": "8-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-14",
+          "opponent": "Gaziantep FK",
+          "venue": "A",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Brighton & Hove Albion",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Brentford",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Manchester City",
+          "venue": "H",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "AFC Bournemouth",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Fulham",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 31,
+        "points": 2,
+        "played": 3,
+        "gf": 3,
+        "ga": 9
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 9,
+        "played": 3,
+        "gf": 12,
+        "ga": 7
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Non",
+          "confidence": 72,
+          "bttsProb": 0.72,
+          "homeLambda": 4,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.72
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 60,
+          "over25Prob": 0.6,
+          "homeLambda": 4,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        }
+      ],
+      "bttsProb": 0.72,
+      "over25Prob": 0.6,
+      "homeLambda": 4,
+      "awayLambda": 1.75,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Le taux empirique BTTS et la forme récente affichent tous deux un faible 20% pour les deux équipes.",
+      "ai_analysis": "Les données statistiques observées démontrent clairement une tendance faible pour le marché des deux équipes marquent. Avec un taux empirique BTTS à 0.2 et des taux similaires sur les cinq derniers matchs (0.2 pour les deux formations), le pari 'Non' se dégage logiquement. Malgré la moyenne de buts de Fenerbahce, Liverpool encaisse peu et affiche une solidité défensive remarquable dans cette compétition.",
+      "ai_analysis_en": "The observed statistical data clearly demonstrate a low trend for both teams to score. With an empirical BTTS rate of 0.2 and identical rates over the last five matches (0.2 for both sides), the 'No' selection stands out logically. Despite Fenerbahce's scoring average, Liverpool concedes few goals and shows remarkable defensive solidity in this competition.",
+      "ai_form_summary": "Fenerbahce : 3V-1D-1N (15 buts pour, 2 contre, BTTS 20%). Liverpool : 3V-1D-1N (5 buts pour, 4 contre, BTTS 20%).",
+      "ai_form_summary_en": "Fenerbahce: 3W-1D-1L (15 goals for, 2 against, BTTS 20%). Liverpool: 3W-1D-1L (5 goals for, 4 against, BTTS 20%).",
+      "ai_reasons": [
+        "Le taux empirique BTTS global est très bas (0.2).",
+        "Le taux BTTS sur les 5 derniers matchs de Fenerbahce est de 0.2.",
+        "Le taux BTTS sur les 5 derniers matchs de Liverpool est de 0.2."
+      ],
+      "ai_risks": [
+        "Fenerbahce affiche une moyenne de buts marqués élevée (4) sur son échantillon.",
+        "Liverpool possède un classement élevé en Ligue des Champions (3ème)."
+      ],
+      "ai_confidence": "high",
+      "ai_abstain": false,
+      "ai_market": "BTTS",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.9 · N 4.5 · 2 1.59",
+      "status": "PENDING"
+    },
+    {
+      "id": "staderen-vs-olympiac-2026-11-04",
+      "match": "Stade Rennais vs Olympiacos",
+      "home": "Stade Rennais",
+      "away": "Olympiacos",
+      "league": "UEFA Europa League",
+      "date": "2026-11-04",
+      "type": "BTTS",
+      "prediction": "Non",
+      "proba": 0.2,
+      "bttsProbDisplay": "20.00%",
+      "over25ProbDisplay": "50.00%",
+      "confidence": 20,
+      "time": "15:30",
+      "matchSemantic": "staderen-vs-olympiac-2026-11-04",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/435.png",
+      "tier": "SILVER",
+      "reliabilityScore": 67.5,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.6,
+      "xgAway": 1.25,
+      "xgTotal": 3.85,
+      "formBTTS": 20,
+      "analysis": "Stade Rennais : forme V-D-V-D-V (3V 0N 2D, 11 buts marqués / 9 encaissés sur 5) · Olympiacos : forme V-V-V-V-D (4V 0N 1D, 9 buts marqués / 1 encaissés sur 5). Classement : Stade Rennais 13e (5 pts), Olympiacos 5e (9 pts). Stats empiriques (forme récente) : buts moy. 3.85, BTTS 20.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.1 / N: 3.6 / 2: 3.25 · Over 2.5: 1.71. Fiabilité 67.5%.",
+      "analysisData": {
+        "bttsProb": 0.2,
+        "over25Prob": 0.5,
+        "homeLambda": 2.6,
+        "awayLambda": 1.25,
+        "xgTotal": 3.85
+      },
+      "estimatedCote": 5,
+      "estimatedCoteOver": 2,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.1,
+        "draw": 3.6,
+        "away": 3.25,
+        "over25": 1.71,
+        "under25": 2.05
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 5,
+      "formHome": {
+        "last5String": "V-D-V-D-V",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 11,
+        "goalsAgainst": 9,
+        "bttsRate": 0.4,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-D",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 9,
+        "goalsAgainst": 1,
+        "bttsRate": 0,
+        "over25Rate": 0.2,
+        "cleanSheets": 4,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Strasbourg",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Paris FC",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "AJ Auxerre",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Lyon",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Marseille",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Kalamata",
+          "venue": "H",
+          "score": "5-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Panetolikos",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Panathinaikos",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Levadiakos",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "OFI Crete",
+          "venue": "H",
+          "score": "0-1",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 13,
+        "points": 5,
+        "played": 3,
+        "gf": 4,
+        "ga": 3
+      },
+      "standingsAway": {
+        "rank": 5,
+        "points": 9,
+        "played": 3,
+        "gf": 4,
+        "ga": 1
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Non",
+          "confidence": 20,
+          "bttsProb": 0.2,
+          "homeLambda": 2.6,
+          "awayLambda": 1.25,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 50,
+          "over25Prob": 0.5,
+          "homeLambda": 2.6,
+          "awayLambda": 1.25,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        }
+      ],
+      "bttsProb": 0.2,
+      "over25Prob": 0.5,
+      "homeLambda": 2.6,
+      "awayLambda": 1.25,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Form signals BTTS 20% / Over 50%",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 20.0%, Over 2.5 empirique 50.0% pour Stade Rennais vs Olympiacos. Décision : ABSTAIN.",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 20.0%, Over 2.5 50.0% for Stade Rennais vs Olympiacos. Decision: ABSTAIN.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 20.0%, Over 2.5 empirique 50.0% pour Stade Rennais vs Olympiacos. Décision :",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 20.0%, Over 2.5 50.0% for Stade Rennais vs Olympiacos. Decision: ABSTAIN.",
+      "ai_reasons": [
+        "Empirical BTTS rate ~20%",
+        "Empirical Over 2.5 rate ~50%"
+      ],
+      "ai_risks": [
+        "Sample limited to recent matches; form can shift quickly."
+      ],
+      "ai_confidence": "low",
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_source": "local-empirical-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.6 · 2 3.25 · O2.5 1.71",
       "status": "PENDING"
     }
   ],
