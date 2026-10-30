@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { getDakarDateString } from '@/lib/dakar-date'
 import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
+import VipButtons from '@/components/bttsbet/VipButtons'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -78,6 +79,9 @@ export default function Over25PredictionsTodayPage() {
               <Link href="/methodologie" className="inline-flex min-h-11 items-center justify-center rounded-xl border px-5 py-3 text-sm font-semibold transition hover:border-[#2F7DFF] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]" style={{ borderColor: '#6B7A8C', color: '#F2F6FA' }}>
                 Comprendre la méthode
               </Link>
+            </div>
+            <div className="mt-3">
+              <VipButtons locale="fr" />
             </div>
             <p className="mt-4 text-xs text-[#7F98A4]">Mise à jour 4 fois par jour · Aucun gain garanti · 18+</p>
           </div>
