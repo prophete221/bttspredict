@@ -1,6 +1,6 @@
 {
   "date": "2026-10-30",
-  "lastUpdated": "2026-10-30T21:26:58.242Z",
+  "lastUpdated": "2026-10-30T21:56:04.922Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -2997,12 +2997,12 @@
       "away": "Toronto FC",
       "league": "MLS",
       "date": "2026-11-01",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.75,
+      "proba": 0.8,
       "bttsProbDisplay": "80.00%",
       "over25ProbDisplay": "90.00%",
-      "confidence": 75,
+      "confidence": 80,
       "time": "21:30",
       "matchSemantic": "atlantau-vs-torontof-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -3019,7 +3019,7 @@
       "xgAway": 1,
       "xgTotal": 2.5,
       "formBTTS": 80,
-      "analysis": "Atlanta United FC : forme D-D-D-V-D (1V 0N 4D, 8 buts marqués / 11 encaissés sur 5) · Toronto FC : forme V-D-V-N-V (3V 1N 1D, 11 buts marqués / 9 encaissés sur 5). Classement : Atlanta United FC 14e (30 pts), Toronto FC 11e (39 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 80.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.15 / N: 3.85 / 2: 2.8. Fiabilité 88.75%.",
+      "analysis": "Atlanta United FC : forme D-D-D-V-D (1V 0N 4D, 8 buts marqués / 11 encaissés sur 5) · Toronto FC : forme V-D-V-N-V (3V 1N 1D, 11 buts marqués / 9 encaissés sur 5). Classement : Atlanta United FC 14e (30 pts), Toronto FC 11e (39 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 80.0%, Over 2.5 90.0%. Affinage AI ensuite. Fiabilité 88.75%.",
       "analysisData": {
         "bttsProb": 0.8,
         "over25Prob": 0.9,
@@ -3029,15 +3029,8 @@
       },
       "estimatedCote": 1.25,
       "estimatedCoteOver": 1.11,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 2.15,
-        "draw": 3.85,
-        "away": 2.8,
-        "over25": null,
-        "under25": null
-      },
-      "oddsSource": "DraftKings",
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
       "estimatedCoteBTTS": 1.25,
       "formHome": {
         "last5String": "D-D-D-V-D",
@@ -3157,52 +3150,53 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 80,
-          "bttsProb": 0.8,
-          "homeLambda": 1.5,
-          "awayLambda": 1,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 75,
-          "over25Prob": 0.75,
+          "confidence": 72,
+          "bttsProb": 0.72,
           "homeLambda": 1.5,
           "awayLambda": 1,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.75
+          "proba": 0.72
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 72,
+          "over25Prob": 0.78,
+          "homeLambda": 1.5,
+          "awayLambda": 1,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.78
         }
       ],
-      "bttsProb": 0.8,
-      "over25Prob": 0.75,
+      "bttsProb": 0.72,
+      "over25Prob": 0.78,
       "homeLambda": 1.5,
       "awayLambda": 1,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Le taux empirique Over 2.5 atteint 90%, soutenu par un taux de 100% sur la forme récente d'Atlanta.",
-      "ai_analysis": "L'analyse statistique de cette rencontre de MLS révèle des indicateurs de buts exceptionnels. Avec un taux empirique Over 2.5 de 90% et un taux de 100% sur la forme récente d'Atlanta United, les matchs impliquant ces équipes sont caractérisés par de nombreuses réalisations. Le taux BTTS de 80% renforce également la tendance générale vers un match ouvert et prolifique.",
-      "ai_analysis_en": "Statistical analysis of this MLS fixture reveals exceptional goal metrics. With an empirical Over 2.5 rate of 90% and a 100% rate in Atlanta United's recent form, matches involving these teams are characterized by high scoring. The 80% BTTS rate further reinforces the overall trend toward an open and prolific match.",
-      "ai_form_summary": "Atlanta United : 1V-0N-4D (8 buts marqués, 11 encaissés, Over 100%). Toronto : 3V-1N-1D (11 buts marqués, 9 encaissés, Over 80%).",
-      "ai_form_summary_en": "Atlanta United: 1W-0D-4L (8 goals for, 11 against, Over 100%). Toronto: 3W-1D-1L (11 goals for, 9 against, Over 80%).",
+      "ai_key_fact": "Le taux empirique combiné du BTTS atteint 80% avec un Over 2.5 à 90%.",
+      "ai_analysis": "L'analyse des statistiques observées met en avant une forte propension des deux équipes à marquer et à concéder des buts. Avec un taux empirique BTTS de 80% et un Over 2.5 à 90%, les chiffres soutiennent clairement une rencontre animée offensivement malgré les difficultés de classement d'Atlanta et Toronto.",
+      "ai_analysis_en": "The analysis of observed statistics highlights a strong propensity for both teams to score and concede. With an empirical BTTS rate of 80% and Over 2.5 at 90%, the data clearly supports an action-packed match despite the league standings of Atlanta and Toronto.",
+      "ai_form_summary": "Atlanta: 1V-0N-4D, 8 buts pour, 11 contre. Toronto: 3V-1N-1D, 11 buts pour, 9 contre.",
+      "ai_form_summary_en": "Atlanta: 1W-0D-4L, 8 GF, 11 GA. Toronto: 3W-1D-1L, 11 GF, 9 GA.",
       "ai_reasons": [
-        "Taux empirique Over 2.5 extrêmement élevé à 90% sur l'échantillon.",
-        "Taux Over 2.5 de 100% sur les cinq derniers matchs d'Atlanta United FC.",
-        "Indicateur formBTTS élevé à 80 avec un taux empirique BTTS de 80%."
+        "Taux empirique BTTS très élevé à 80% sur un échantillon de 8 matchs.",
+        "Taux Over 2.5 empirique culminant à 90% pour l'ensemble des rencontres.",
+        "Faiblesses défensives nettes avec 56 buts encaissés pour Atlanta et 60 pour Toronto en MLS."
       ],
       "ai_risks": [
-        "Atlanta United traverse une mauvaise passe avec 4 défaites lors de ses 5 derniers matchs.",
-        "L'écart important de buts concédés au classement (56 pour Atlanta, 60 pour Toronto)."
+        "Atlanta United traverse une mauvaise passe avec 4 défaites sur ses 5 derniers matchs."
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.85 · 2 2.8"
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "athletic-vs-realsoci-2026-11-01",
@@ -3211,12 +3205,12 @@
       "away": "Real Sociedad",
       "league": "LaLiga",
       "date": "2026-11-01",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.6,
+      "proba": 0.65,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 60,
+      "confidence": 65,
       "time": "20:00",
       "matchSemantic": "athletic-vs-realsoci-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -3249,7 +3243,7 @@
         "draw": 3.65,
         "away": 3.3,
         "over25": 1.71,
-        "under25": 2.05
+        "under25": 2.1
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.67,
@@ -3371,49 +3365,48 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 65,
-          "bttsProb": 0.65,
+          "confidence": 60,
+          "bttsProb": 0.6,
           "homeLambda": 2,
           "awayLambda": 3.67,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.65
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 65,
-          "over25Prob": 0.675,
+          "over25Prob": 0.65,
           "homeLambda": 2,
           "awayLambda": 3.67,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.675
+          "proba": 0.65
         }
       ],
-      "bttsProb": 0.65,
-      "over25Prob": 0.675,
+      "bttsProb": 0.6,
+      "over25Prob": 0.65,
       "homeLambda": 2,
       "awayLambda": 3.67,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Real Sociedad présente un taux de 100% d'Over 2.5 sur ses 5 derniers matchs et une moyenne de 3.67 buts.",
-      "ai_analysis": "L'analyse met en avant un contraste entre l'Athletic Club, plutôt prudent (40% de BTTS), et Real Sociedad, très offensif (100% d'Over 2.5 et 3.67 buts de moyenne). Les statistiques globales soutiennent le marché combiné avec un taux empirique de 70% sur l'Over 2.5, porté par la dynamique de l'équipe visiteuse.",
-      "ai_analysis_en": "The analysis highlights a contrast between Athletic Club, which plays lower-scoring games (40% BTTS), and Real Sociedad, which is very offensive (100% Over 2.5 and 3.67 average goals). Overall stats support the combined market with an empirical Over 2.5 rate of 70%, driven by the visiting team's momentum.",
-      "ai_form_summary": "Athletic Club (1W-3D-1L, taux BTTS 40%) contre Real Sociedad (4W-0D-1L, taux Over 2.5 de 100%).",
-      "ai_form_summary_en": "Athletic Club (1W-3D-1L, 40% BTTS rate) against Real Sociedad (4W-0D-1L, 100% Over 2.5 rate).",
+      "ai_key_fact": "Real Sociedad tourne à 3.67 buts de moyenne par match avec un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
+      "ai_analysis": "Ce derby de LaLiga oppose l'Athletic Club, plutôt prudent (40% d'Over 2.5), à une équipe de Real Sociedad très offensive et spectaculaire. Les visiteurs affichent une moyenne impressionnante de 3.67 buts par match et un taux Over 2.5 de 100% sur leurs 5 dernières sorties. Bien que Bilbao puisse opposer un bloc plus strict, le profil de Sociedad incline logiquement vers un match prolifique.",
+      "ai_analysis_en": "This LaLiga derby pits a cautious Athletic Club (40% Over 2.5) against a highly offensive and entertaining Real Sociedad side. The visitors boast an impressive average of 3.67 goals per match and a 100% Over 2.5 rate in their last 5 outings. Although Bilbao can deploy a stricter defensive block, Sociedad's profile naturally tilts this toward a high-scoring affair.",
+      "ai_form_summary": "Athletic Club est en dedans (1W-3D-1L) tandis que Real Sociedad enchaîne les succès (4W-0D-1L) avec une attaque prolifique.",
+      "ai_form_summary_en": "Athletic Club struggles for wins (1W-3D-1L) while Real Sociedad strings successes together (4W-0D-1L) with a prolific attack.",
       "ai_reasons": [
-        "Taux Over 2.5 empirique de 70% et taux BTTS à 60% pour ce match.",
-        "Real Sociedad affiche un taux de 100% sur l'Over 2.5 et 80% sur le BTTS lors de ses 5 derniers matchs.",
-        "Moyennes de buts par match élevées pour l'équipe extérieure (3.67)."
+        "Taux Over 2.5 empirique à 70% et 100% de taux Over sur les 5 derniers matchs de Real Sociedad.",
+        "Moyenne de buts de Real Sociedad à l'extérieur particulièrement haute (3.67 buts par match).",
+        "Real Sociedad affiche 19 buts marqués et 18 encaissés en 10 matchs joués."
       ],
       "ai_risks": [
-        "Athletic Club propose des matchs plus fermés avec un taux de 40% sur le BTTS et l'Over 2.5.",
-        "L'historique récent de l'Athletic Club montre une attaque plus timide (6 buts marqués lors des 5 derniers matchs)."
+        "Athletic Club propose des matchs plus fermés avec un taux Over 2.5 à 40% sur ses 5 derniers matchs.",
+        "Le taux BTTS empirique de Bilbao est plus modeste à 40%."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -4274,12 +4267,12 @@
       "away": "Parma",
       "league": "Serie A",
       "date": "2026-11-02",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.7,
+      "proba": 0.74,
       "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "90.00%",
-      "confidence": 70,
+      "confidence": 74,
       "time": "19:45",
       "matchSemantic": "atalanta-vs-parma-2026-11-02",
       "source": "poisson-v92-real-data",
@@ -4296,7 +4289,7 @@
       "xgAway": 0.5,
       "xgTotal": 2.7,
       "formBTTS": 70,
-      "analysis": "Atalanta : forme N-D-V-D-D (1V 1N 3D, 10 buts marqués / 12 encaissés sur 5) · Parma : forme D-D-D-V-D (1V 0N 4D, 4 buts marqués / 11 encaissés sur 5). Classement : Atalanta 11e (10 pts), Parma 19e (4 pts). Stats empiriques (forme récente) : buts moy. 2.7, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.43 / N: 4.3 / 2: 6 · Over 2.5: 1.74. Fiabilité 84.38%.",
+      "analysis": "Atalanta : forme N-D-V-D-D (1V 1N 3D, 10 buts marqués / 12 encaissés sur 5) · Parma : forme D-D-D-V-D (1V 0N 4D, 4 buts marqués / 11 encaissés sur 5). Classement : Atalanta 11e (10 pts), Parma 19e (4 pts). Stats empiriques (forme récente) : buts moy. 2.7, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.43 / N: 4.3 / 2: 6 · Over 2.5: 1.69. Fiabilité 84.38%.",
       "analysisData": {
         "bttsProb": 0.7,
         "over25Prob": 0.9,
@@ -4311,8 +4304,8 @@
         "home": 1.43,
         "draw": 4.3,
         "away": 6,
-        "over25": 1.74,
-        "under25": 2
+        "over25": 1.69,
+        "under25": 2.1
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.43,
@@ -4434,53 +4427,52 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 72,
-          "bttsProb": 0.72,
+          "confidence": 70,
+          "bttsProb": 0.7,
           "homeLambda": 2.2,
           "awayLambda": 0.5,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.72
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 72,
-          "over25Prob": 0.78,
+          "confidence": 74,
+          "over25Prob": 0.74,
           "homeLambda": 2.2,
           "awayLambda": 0.5,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.78
+          "proba": 0.74
         }
       ],
-      "bttsProb": 0.72,
-      "over25Prob": 0.78,
+      "bttsProb": 0.7,
+      "over25Prob": 0.74,
       "homeLambda": 2.2,
       "awayLambda": 0.5,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Atalanta et Parma affichent toutes deux de fortes tendances aux matchs ouverts avec des taux de buts élevés.",
-      "ai_analysis": "L'analyse des statistiques observées met en avant une propension très nette pour les matchs prolifiques. L'Atalanta présente des taux élevés de BTTS et d'Over 2.5, tandis que Parma encaisse régulièrement malgré des difficultés offensives hors de ses bases. Les indicateurs convergent vers un scénario animé.",
-      "ai_analysis_en": "Observed statistics highlight a clear propensity for high-scoring matches. Atalanta shows high BTTS and Over 2.5 rates, while Parma regularly concedes despite offensive struggles away from home. Indicators point towards an active match scenario.",
-      "ai_form_summary": "Atalanta (1W-1D-3L, 10-12 buts) et Parma (1W-0D-4L, 4-11 buts) montrent des difficultés défensives.",
-      "ai_form_summary_en": "Atalanta (1W-1D-3L, 10-12 goals) and Parma (1W-0D-4L, 4-11 goals) both show defensive frailties.",
+      "ai_key_fact": "Parma affiche un taux Over 2.5 de 100% sur ses 8 matchs à l'extérieur.",
+      "ai_analysis": "Les statistiques observées pour cette rencontre de Serie A indiquent une forte probabilité de buts. Atalanta et Parma démontrent toutes deux des tendances prononcées pour l'Over 2.5, s'appuyant sur des taux respectifs de 80% et 100% sur leur échantillon. Bien que Parma ait une moyenne de buts marqués faible à l'extérieur, la vulnérabilité défensive globale d'Atalanta soutient cette option malgré les risques.",
+      "ai_analysis_en": "Observed statistics for this Serie A fixture indicate a strong probability of goals. Both Atalanta and Parma show pronounced trends for Over 2.5, backed by respective sample rates of 80% and 100%. Although Parma has a low away goal average, Atalanta's overall defensive vulnerability supports this selection despite the risks.",
+      "ai_form_summary": "Atalanta (1W-1D-3L, 10 buts marqués, 12 encaissés) et Parma (1W-0D-4L, 4 marqués, 11 encaissés).",
+      "ai_form_summary_en": "Atalanta (1W-1D-3L, 10 scored, 12 conceded) and Parma (1W-0D-4L, 4 scored, 11 conceded).",
       "ai_reasons": [
-        "Taux empirique Over 2.5 très élevé à 90% sur l'échantillon récent.",
-        "Taux empirique BTTS solide à 70% pour ce match.",
-        "Atalanta affiche un taux BTTS de 80% et un over25 de 80% sur ses 5 derniers matchs."
+        "Taux empirique Over 2.5 très élevé à 90%",
+        "Atalanta présente un taux Over 2.5 de 80% sur ses 8 derniers matchs à domicile",
+        "Parma affiche un taux Over 2.5 de 100% sur ses 8 derniers matchs à l'extérieur"
       ],
       "ai_risks": [
-        "Parma possède une moyenne de buts marqués à l'extérieur faible (0.5).",
-        "La défense de Parma a concédé 15 buts en 8 matchs."
+        "La moyenne de buts à l'extérieur de Parma est faible (0.5)",
+        "Atalanta concède beaucoup de buts (12 buts encaissés en 5 matchs de forme)"
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.43 · N 4.3 · 2 6 · O2.5 1.74",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.43 · N 4.3 · 2 6 · O2.5 1.69",
       "status": "PENDING"
     },
     {
@@ -6812,6 +6804,221 @@
       "status": "PENDING"
     },
     {
+      "id": "psveindh-vs-clubbrug-2026-11-04",
+      "match": "PSV Eindhoven vs Club Brugge",
+      "home": "PSV Eindhoven",
+      "away": "Club Brugge",
+      "league": "UEFA Champions League",
+      "date": "2026-11-04",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 70,
+      "time": "20:00",
+      "matchSemantic": "psveindh-vs-clubbrug-2026-11-04",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/148.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/570.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 2.25,
+      "xgTotal": 5.25,
+      "formBTTS": 70,
+      "analysis": "PSV Eindhoven : forme N-D-V-D-V (2V 1N 2D, 10 buts marqués / 7 encaissés sur 5) · Club Brugge : forme V-V-V-V-V (5V 0N 0D, 14 buts marqués / 4 encaissés sur 5). Classement : PSV Eindhoven 18e (4 pts), Club Brugge 11e (6 pts). Stats empiriques (forme récente) : buts moy. 5.25, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.05 / N: 4.1 / 2: 3. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 3,
+        "awayLambda": 2.25,
+        "xgTotal": 5.25
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.05,
+        "draw": 4.1,
+        "away": 3,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "N-D-V-D-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 10,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-V",
+        "wins": 5,
+        "draws": 0,
+        "losses": 0,
+        "goalsFor": 14,
+        "goalsAgainst": 4,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Feyenoord Rotterdam",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "ADO Den Haag",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Heerenveen",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "FC Twente",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-13",
+          "opponent": "Sparta Rotterdam",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Zulte-Waregem",
+          "venue": "A",
+          "score": "4-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Sint-Truidense",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "RAAL La Louvière",
+          "venue": "A",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Racing Genk",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-13",
+          "opponent": "Antwerp",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 4,
+        "played": 3,
+        "gf": 2,
+        "ga": 2
+      },
+      "standingsAway": {
+        "rank": 11,
+        "points": 6,
+        "played": 3,
+        "gf": 9,
+        "ga": 6
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "bttsProb": 0.68,
+          "homeLambda": 3,
+          "awayLambda": 2.25,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.68
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 68,
+          "over25Prob": 0.69,
+          "homeLambda": 3,
+          "awayLambda": 2.25,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.69
+        }
+      ],
+      "bttsProb": 0.68,
+      "over25Prob": 0.69,
+      "homeLambda": 3,
+      "awayLambda": 2.25,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "PSV affiche un taux BTTS de 80% et Club Brugge reste sur une série de 5 victoires consécutives.",
+      "ai_analysis": "Le PSV Eindhoven génère régulièrement des rencontres animées avec une moyenne de 3 buts par match sur son échantillon et un taux BTTS de 80%. Face à un Club Brugge en pleine confiance offensive (14 buts en 5 matchs), les conditions sont réunies pour voir des buts des deux côtés.",
+      "ai_analysis_en": "PSV Eindhoven regularly produces lively matches with a 3-goal average per game in their sample and an 80% BTTS rate. Facing a Club Brugge side full of offensive confidence (14 goals in 5 games), conditions are met to see goals from both sides.",
+      "ai_form_summary": "PSV (2W-1D-2L) est irrégulier mais marque beaucoup, Club Brugge (5W-0D-0L) est en pleine forme.",
+      "ai_form_summary_en": "PSV (2W-1D-2L) is inconsistent but scores heavily, Club Brugge (5W-0D-0L) is in top form.",
+      "ai_reasons": [
+        "Taux empirique BTTS à 70% et Over 2.5 à 70%.",
+        "PSV Eindhoven affiche un taux BTTS de 80% sur ses 8 derniers matchs.",
+        "Club Brugge est invaincu sur ses 5 derniers matchs (5W) avec 14 buts marqués."
+      ],
+      "ai_risks": [
+        "Club Brugge présente un taux de buts encaissés plus faible qui pourrait verrouiller partiellement la rencontre."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 4.1 · 2 3",
+      "status": "PENDING"
+    },
+    {
       "id": "wrexham-vs-middlesb-2026-11-04",
       "match": "Wrexham vs Middlesbrough",
       "home": "Wrexham",
@@ -7242,12 +7449,12 @@
       "away": "Como",
       "league": "UEFA Champions League",
       "date": "2026-11-04",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.7,
+      "proba": 0.68,
       "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 70,
+      "confidence": 68,
       "time": "20:00",
       "matchSemantic": "lens-vs-como-2026-11-04",
       "source": "poisson-v92-real-data",
@@ -7402,267 +7609,52 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 68,
-          "bttsProb": 0.68,
+          "confidence": 70,
+          "bttsProb": 0.7,
           "homeLambda": 2.25,
           "awayLambda": 2.4,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.68
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 68,
-          "over25Prob": 0.69,
+          "over25Prob": 0.68,
           "homeLambda": 2.25,
           "awayLambda": 2.4,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.69
+          "proba": 0.68
         }
       ],
-      "bttsProb": 0.68,
-      "over25Prob": 0.69,
+      "bttsProb": 0.7,
+      "over25Prob": 0.68,
       "homeLambda": 2.25,
       "awayLambda": 2.4,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Lens présente un taux de 100% sur le BTTS et l'Over 2.5 sur son échantillon de 8 matchs.",
-      "ai_analysis": "Lens s'appuie sur une dynamique offensive prolifique avec un taux de 100% de matchs avec buts des deux côtés sur son échantillon. Como se déplace avec un classement solide (9e) mais les moyennes combinées de buts et les taux empiriques à 70% plaident en faveur d'un match ouvert.",
-      "ai_analysis_en": "Lens relies on a prolific offensive dynamic with a 100% BTTS rate in their sample matches. Como travels with a solid standing (9th), but the combined goal averages and 70% empirical rates support an open match.",
-      "ai_form_summary": "Lens (3W-1D-1L) est très offensif mais perméable, tandis que Como (3W-1D-1L) gère mieux sa défense.",
-      "ai_form_summary_en": "Lens (3W-1D-1L) is very offensive yet leaky, whereas Como (3W-1D-1L) manages their defense better.",
+      "ai_key_fact": "Lens présente un taux parfait de 100% sur l'Over 2.5 et le BTTS sur son échantillon de 8 matchs.",
+      "ai_analysis": "Malgré un profil de forme contrasté pour Como sur ses derniers matchs, les données globales de Lens (100% d'Over 2.5) et les moyennes de buts par match (plus de 2 buts pour chaque équipe) penchent en faveur d'un match animé. Les taux empiriques combinés atteignent 70%, justifiant une sélection sur l'Over 2.5.",
+      "ai_analysis_en": "Despite a contrasting recent form profile for Como, Lens' overall data (100% Over 2.5) and average goals per match (over 2 goals for each team) point towards a lively match. Combined empirical rates reach 70%, justifying an Over 2.5 selection.",
+      "ai_form_summary": "Lens (3W-1D-1L) déploie un jeu très ouvert avec des statistiques maximales d'Over, tandis que Como (3W-1D-1L) se montre plus pragmatique récemment.",
+      "ai_form_summary_en": "Lens (3W-1D-1L) displays a very open style of play with maximum Over statistics, while Como (3W-1D-1L) has proven more pragmatic recently.",
       "ai_reasons": [
-        "Taux empirique BTTS à 70% et Over 2.5 à 70%.",
-        "Lens affiche un taux BTTS et Over 2.5 de 100% sur ses 8 derniers matchs d'échantillon.",
-        "Moyennes de buts élevées avec 2.25 pour Lens et 2.4 pour Como."
+        "Moyennes de buts élevées pour Lens (2.25) et Como (2.4).",
+        "Taux empiriques globaux de 70% pour le marché Over 2.5.",
+        "Lens affiche un taux de 100% sur le BTTS et l'Over 2.5 lors de ses 8 derniers matchs."
       ],
       "ai_risks": [
-        "Como montre des taux BTTS et Over plus bas (40%) sur sa propre période de forme récente."
+        "Les derniers matchs de Como affichent des taux de BTTS et d'Over plus bas (40%).",
+        "Como se positionne bien au classement (9e) et peut verrouiller si nécessaire."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.95 · 2 2.15",
-      "status": "PENDING"
-    },
-    {
-      "id": "psveindh-vs-clubbrug-2026-11-04",
-      "match": "PSV Eindhoven vs Club Brugge",
-      "home": "PSV Eindhoven",
-      "away": "Club Brugge",
-      "league": "UEFA Champions League",
-      "date": "2026-11-04",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.7,
-      "bttsProbDisplay": "70.00%",
-      "over25ProbDisplay": "70.00%",
-      "confidence": 70,
-      "time": "20:00",
-      "matchSemantic": "psveindh-vs-clubbrug-2026-11-04",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/148.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/570.png",
-      "tier": "GOLD",
-      "reliabilityScore": 89.38,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 3,
-      "xgAway": 2.25,
-      "xgTotal": 5.25,
-      "formBTTS": 70,
-      "analysis": "PSV Eindhoven : forme N-D-V-D-V (2V 1N 2D, 10 buts marqués / 7 encaissés sur 5) · Club Brugge : forme V-V-V-V-V (5V 0N 0D, 14 buts marqués / 4 encaissés sur 5). Classement : PSV Eindhoven 18e (4 pts), Club Brugge 11e (6 pts). Stats empiriques (forme récente) : buts moy. 5.25, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.05 / N: 4.1 / 2: 3. Fiabilité 89.38%.",
-      "analysisData": {
-        "bttsProb": 0.7,
-        "over25Prob": 0.7,
-        "homeLambda": 3,
-        "awayLambda": 2.25,
-        "xgTotal": 5.25
-      },
-      "estimatedCote": 1.43,
-      "estimatedCoteOver": 1.43,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 2.05,
-        "draw": 4.1,
-        "away": 3,
-        "over25": null,
-        "under25": null
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.43,
-      "formHome": {
-        "last5String": "N-D-V-D-V",
-        "wins": 2,
-        "draws": 1,
-        "losses": 2,
-        "goalsFor": 10,
-        "goalsAgainst": 7,
-        "bttsRate": 0.8,
-        "over25Rate": 0.6,
-        "cleanSheets": 1,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "V-V-V-V-V",
-        "wins": 5,
-        "draws": 0,
-        "losses": 0,
-        "goalsFor": 14,
-        "goalsAgainst": 4,
-        "bttsRate": 0.6,
-        "over25Rate": 0.8,
-        "cleanSheets": 2,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-25",
-          "opponent": "Feyenoord Rotterdam",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "ADO Den Haag",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-09",
-          "opponent": "Heerenveen",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "FC Twente",
-          "venue": "A",
-          "score": "2-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-13",
-          "opponent": "Sparta Rotterdam",
-          "venue": "H",
-          "score": "4-1",
-          "result": "W"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-25",
-          "opponent": "Sint-Truidense",
-          "venue": "H",
-          "score": "3-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "RAAL La Louvière",
-          "venue": "A",
-          "score": "4-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Racing Genk",
-          "venue": "H",
-          "score": "3-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-13",
-          "opponent": "Antwerp",
-          "venue": "H",
-          "score": "3-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-04",
-          "opponent": "Lommel SK",
-          "venue": "A",
-          "score": "1-0",
-          "result": "W"
-        }
-      ],
-      "standingsHome": {
-        "rank": 18,
-        "points": 4,
-        "played": 3,
-        "gf": 2,
-        "ga": 2
-      },
-      "standingsAway": {
-        "rank": 11,
-        "points": 6,
-        "played": 3,
-        "gf": 9,
-        "ga": 6
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 68,
-          "bttsProb": 0.68,
-          "homeLambda": 3,
-          "awayLambda": 2.25,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.68
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 68,
-          "over25Prob": 0.69,
-          "homeLambda": 3,
-          "awayLambda": 2.25,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.69
-        }
-      ],
-      "bttsProb": 0.68,
-      "over25Prob": 0.69,
-      "homeLambda": 3,
-      "awayLambda": 2.25,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "PSV affiche un taux BTTS de 80% et Club Brugge reste sur une série de 5 victoires consécutives.",
-      "ai_analysis": "Le PSV Eindhoven génère régulièrement des rencontres animées avec une moyenne de 3 buts par match sur son échantillon et un taux BTTS de 80%. Face à un Club Brugge en pleine confiance offensive (14 buts en 5 matchs), les conditions sont réunies pour voir des buts des deux côtés.",
-      "ai_analysis_en": "PSV Eindhoven regularly produces lively matches with a 3-goal average per game in their sample and an 80% BTTS rate. Facing a Club Brugge side full of offensive confidence (14 goals in 5 games), conditions are met to see goals from both sides.",
-      "ai_form_summary": "PSV (2W-1D-2L) est irrégulier mais marque beaucoup, Club Brugge (5W-0D-0L) est en pleine forme.",
-      "ai_form_summary_en": "PSV (2W-1D-2L) is inconsistent but scores heavily, Club Brugge (5W-0D-0L) is in top form.",
-      "ai_reasons": [
-        "Taux empirique BTTS à 70% et Over 2.5 à 70%.",
-        "PSV Eindhoven affiche un taux BTTS de 80% sur ses 8 derniers matchs.",
-        "Club Brugge est invaincu sur ses 5 derniers matchs (5W) avec 14 buts marqués."
-      ],
-      "ai_risks": [
-        "Club Brugge présente un taux de buts encaissés plus faible qui pourrait verrouiller partiellement la rencontre."
-      ],
-      "ai_confidence": "medium",
-      "ai_abstain": false,
-      "ai_market": "BOTH",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 4.1 · 2 3",
       "status": "PENDING"
     },
     {
@@ -8591,7 +8583,7 @@
     }
   ],
   "stats": {
-    "avgReliability": 78.87,
+    "avgReliability": 78.9,
     "totalAnalyzed": 176,
     "totalRejected": 27,
     "totalAccepted": 149,
@@ -11593,12 +11585,12 @@
       "away": "Toronto FC",
       "league": "MLS",
       "date": "2026-11-01",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.75,
+      "proba": 0.8,
       "bttsProbDisplay": "80.00%",
       "over25ProbDisplay": "90.00%",
-      "confidence": 75,
+      "confidence": 80,
       "time": "21:30",
       "matchSemantic": "atlantau-vs-torontof-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -11615,7 +11607,7 @@
       "xgAway": 1,
       "xgTotal": 2.5,
       "formBTTS": 80,
-      "analysis": "Atlanta United FC : forme D-D-D-V-D (1V 0N 4D, 8 buts marqués / 11 encaissés sur 5) · Toronto FC : forme V-D-V-N-V (3V 1N 1D, 11 buts marqués / 9 encaissés sur 5). Classement : Atlanta United FC 14e (30 pts), Toronto FC 11e (39 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 80.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.15 / N: 3.85 / 2: 2.8. Fiabilité 88.75%.",
+      "analysis": "Atlanta United FC : forme D-D-D-V-D (1V 0N 4D, 8 buts marqués / 11 encaissés sur 5) · Toronto FC : forme V-D-V-N-V (3V 1N 1D, 11 buts marqués / 9 encaissés sur 5). Classement : Atlanta United FC 14e (30 pts), Toronto FC 11e (39 pts). Stats empiriques (forme récente) : buts moy. 2.5, BTTS 80.0%, Over 2.5 90.0%. Affinage AI ensuite. Fiabilité 88.75%.",
       "analysisData": {
         "bttsProb": 0.8,
         "over25Prob": 0.9,
@@ -11625,15 +11617,8 @@
       },
       "estimatedCote": 1.25,
       "estimatedCoteOver": 1.11,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 2.15,
-        "draw": 3.85,
-        "away": 2.8,
-        "over25": null,
-        "under25": null
-      },
-      "oddsSource": "DraftKings",
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
       "estimatedCoteBTTS": 1.25,
       "formHome": {
         "last5String": "D-D-D-V-D",
@@ -11753,52 +11738,53 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 80,
-          "bttsProb": 0.8,
-          "homeLambda": 1.5,
-          "awayLambda": 1,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 75,
-          "over25Prob": 0.75,
+          "confidence": 72,
+          "bttsProb": 0.72,
           "homeLambda": 1.5,
           "awayLambda": 1,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.75
+          "proba": 0.72
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 72,
+          "over25Prob": 0.78,
+          "homeLambda": 1.5,
+          "awayLambda": 1,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.78
         }
       ],
-      "bttsProb": 0.8,
-      "over25Prob": 0.75,
+      "bttsProb": 0.72,
+      "over25Prob": 0.78,
       "homeLambda": 1.5,
       "awayLambda": 1,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Le taux empirique Over 2.5 atteint 90%, soutenu par un taux de 100% sur la forme récente d'Atlanta.",
-      "ai_analysis": "L'analyse statistique de cette rencontre de MLS révèle des indicateurs de buts exceptionnels. Avec un taux empirique Over 2.5 de 90% et un taux de 100% sur la forme récente d'Atlanta United, les matchs impliquant ces équipes sont caractérisés par de nombreuses réalisations. Le taux BTTS de 80% renforce également la tendance générale vers un match ouvert et prolifique.",
-      "ai_analysis_en": "Statistical analysis of this MLS fixture reveals exceptional goal metrics. With an empirical Over 2.5 rate of 90% and a 100% rate in Atlanta United's recent form, matches involving these teams are characterized by high scoring. The 80% BTTS rate further reinforces the overall trend toward an open and prolific match.",
-      "ai_form_summary": "Atlanta United : 1V-0N-4D (8 buts marqués, 11 encaissés, Over 100%). Toronto : 3V-1N-1D (11 buts marqués, 9 encaissés, Over 80%).",
-      "ai_form_summary_en": "Atlanta United: 1W-0D-4L (8 goals for, 11 against, Over 100%). Toronto: 3W-1D-1L (11 goals for, 9 against, Over 80%).",
+      "ai_key_fact": "Le taux empirique combiné du BTTS atteint 80% avec un Over 2.5 à 90%.",
+      "ai_analysis": "L'analyse des statistiques observées met en avant une forte propension des deux équipes à marquer et à concéder des buts. Avec un taux empirique BTTS de 80% et un Over 2.5 à 90%, les chiffres soutiennent clairement une rencontre animée offensivement malgré les difficultés de classement d'Atlanta et Toronto.",
+      "ai_analysis_en": "The analysis of observed statistics highlights a strong propensity for both teams to score and concede. With an empirical BTTS rate of 80% and Over 2.5 at 90%, the data clearly supports an action-packed match despite the league standings of Atlanta and Toronto.",
+      "ai_form_summary": "Atlanta: 1V-0N-4D, 8 buts pour, 11 contre. Toronto: 3V-1N-1D, 11 buts pour, 9 contre.",
+      "ai_form_summary_en": "Atlanta: 1W-0D-4L, 8 GF, 11 GA. Toronto: 3W-1D-1L, 11 GF, 9 GA.",
       "ai_reasons": [
-        "Taux empirique Over 2.5 extrêmement élevé à 90% sur l'échantillon.",
-        "Taux Over 2.5 de 100% sur les cinq derniers matchs d'Atlanta United FC.",
-        "Indicateur formBTTS élevé à 80 avec un taux empirique BTTS de 80%."
+        "Taux empirique BTTS très élevé à 80% sur un échantillon de 8 matchs.",
+        "Taux Over 2.5 empirique culminant à 90% pour l'ensemble des rencontres.",
+        "Faiblesses défensives nettes avec 56 buts encaissés pour Atlanta et 60 pour Toronto en MLS."
       ],
       "ai_risks": [
-        "Atlanta United traverse une mauvaise passe avec 4 défaites lors de ses 5 derniers matchs.",
-        "L'écart important de buts concédés au classement (56 pour Atlanta, 60 pour Toronto)."
+        "Atlanta United traverse une mauvaise passe avec 4 défaites sur ses 5 derniers matchs."
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.85 · 2 2.8"
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "athletic-vs-realsoci-2026-11-01",
@@ -11807,12 +11793,12 @@
       "away": "Real Sociedad",
       "league": "LaLiga",
       "date": "2026-11-01",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.6,
+      "proba": 0.65,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 60,
+      "confidence": 65,
       "time": "20:00",
       "matchSemantic": "athletic-vs-realsoci-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -11845,7 +11831,7 @@
         "draw": 3.65,
         "away": 3.3,
         "over25": 1.71,
-        "under25": 2.05
+        "under25": 2.1
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.67,
@@ -11967,49 +11953,48 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 65,
-          "bttsProb": 0.65,
+          "confidence": 60,
+          "bttsProb": 0.6,
           "homeLambda": 2,
           "awayLambda": 3.67,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.65
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 65,
-          "over25Prob": 0.675,
+          "over25Prob": 0.65,
           "homeLambda": 2,
           "awayLambda": 3.67,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.675
+          "proba": 0.65
         }
       ],
-      "bttsProb": 0.65,
-      "over25Prob": 0.675,
+      "bttsProb": 0.6,
+      "over25Prob": 0.65,
       "homeLambda": 2,
       "awayLambda": 3.67,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Real Sociedad présente un taux de 100% d'Over 2.5 sur ses 5 derniers matchs et une moyenne de 3.67 buts.",
-      "ai_analysis": "L'analyse met en avant un contraste entre l'Athletic Club, plutôt prudent (40% de BTTS), et Real Sociedad, très offensif (100% d'Over 2.5 et 3.67 buts de moyenne). Les statistiques globales soutiennent le marché combiné avec un taux empirique de 70% sur l'Over 2.5, porté par la dynamique de l'équipe visiteuse.",
-      "ai_analysis_en": "The analysis highlights a contrast between Athletic Club, which plays lower-scoring games (40% BTTS), and Real Sociedad, which is very offensive (100% Over 2.5 and 3.67 average goals). Overall stats support the combined market with an empirical Over 2.5 rate of 70%, driven by the visiting team's momentum.",
-      "ai_form_summary": "Athletic Club (1W-3D-1L, taux BTTS 40%) contre Real Sociedad (4W-0D-1L, taux Over 2.5 de 100%).",
-      "ai_form_summary_en": "Athletic Club (1W-3D-1L, 40% BTTS rate) against Real Sociedad (4W-0D-1L, 100% Over 2.5 rate).",
+      "ai_key_fact": "Real Sociedad tourne à 3.67 buts de moyenne par match avec un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
+      "ai_analysis": "Ce derby de LaLiga oppose l'Athletic Club, plutôt prudent (40% d'Over 2.5), à une équipe de Real Sociedad très offensive et spectaculaire. Les visiteurs affichent une moyenne impressionnante de 3.67 buts par match et un taux Over 2.5 de 100% sur leurs 5 dernières sorties. Bien que Bilbao puisse opposer un bloc plus strict, le profil de Sociedad incline logiquement vers un match prolifique.",
+      "ai_analysis_en": "This LaLiga derby pits a cautious Athletic Club (40% Over 2.5) against a highly offensive and entertaining Real Sociedad side. The visitors boast an impressive average of 3.67 goals per match and a 100% Over 2.5 rate in their last 5 outings. Although Bilbao can deploy a stricter defensive block, Sociedad's profile naturally tilts this toward a high-scoring affair.",
+      "ai_form_summary": "Athletic Club est en dedans (1W-3D-1L) tandis que Real Sociedad enchaîne les succès (4W-0D-1L) avec une attaque prolifique.",
+      "ai_form_summary_en": "Athletic Club struggles for wins (1W-3D-1L) while Real Sociedad strings successes together (4W-0D-1L) with a prolific attack.",
       "ai_reasons": [
-        "Taux Over 2.5 empirique de 70% et taux BTTS à 60% pour ce match.",
-        "Real Sociedad affiche un taux de 100% sur l'Over 2.5 et 80% sur le BTTS lors de ses 5 derniers matchs.",
-        "Moyennes de buts par match élevées pour l'équipe extérieure (3.67)."
+        "Taux Over 2.5 empirique à 70% et 100% de taux Over sur les 5 derniers matchs de Real Sociedad.",
+        "Moyenne de buts de Real Sociedad à l'extérieur particulièrement haute (3.67 buts par match).",
+        "Real Sociedad affiche 19 buts marqués et 18 encaissés en 10 matchs joués."
       ],
       "ai_risks": [
-        "Athletic Club propose des matchs plus fermés avec un taux de 40% sur le BTTS et l'Over 2.5.",
-        "L'historique récent de l'Athletic Club montre une attaque plus timide (6 buts marqués lors des 5 derniers matchs)."
+        "Athletic Club propose des matchs plus fermés avec un taux Over 2.5 à 40% sur ses 5 derniers matchs.",
+        "Le taux BTTS empirique de Bilbao est plus modeste à 40%."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -12870,12 +12855,12 @@
       "away": "Parma",
       "league": "Serie A",
       "date": "2026-11-02",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.7,
+      "proba": 0.74,
       "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "90.00%",
-      "confidence": 70,
+      "confidence": 74,
       "time": "19:45",
       "matchSemantic": "atalanta-vs-parma-2026-11-02",
       "source": "poisson-v92-real-data",
@@ -12892,7 +12877,7 @@
       "xgAway": 0.5,
       "xgTotal": 2.7,
       "formBTTS": 70,
-      "analysis": "Atalanta : forme N-D-V-D-D (1V 1N 3D, 10 buts marqués / 12 encaissés sur 5) · Parma : forme D-D-D-V-D (1V 0N 4D, 4 buts marqués / 11 encaissés sur 5). Classement : Atalanta 11e (10 pts), Parma 19e (4 pts). Stats empiriques (forme récente) : buts moy. 2.7, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.43 / N: 4.3 / 2: 6 · Over 2.5: 1.74. Fiabilité 84.38%.",
+      "analysis": "Atalanta : forme N-D-V-D-D (1V 1N 3D, 10 buts marqués / 12 encaissés sur 5) · Parma : forme D-D-D-V-D (1V 0N 4D, 4 buts marqués / 11 encaissés sur 5). Classement : Atalanta 11e (10 pts), Parma 19e (4 pts). Stats empiriques (forme récente) : buts moy. 2.7, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.43 / N: 4.3 / 2: 6 · Over 2.5: 1.69. Fiabilité 84.38%.",
       "analysisData": {
         "bttsProb": 0.7,
         "over25Prob": 0.9,
@@ -12907,8 +12892,8 @@
         "home": 1.43,
         "draw": 4.3,
         "away": 6,
-        "over25": 1.74,
-        "under25": 2
+        "over25": 1.69,
+        "under25": 2.1
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.43,
@@ -13030,53 +13015,52 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 72,
-          "bttsProb": 0.72,
+          "confidence": 70,
+          "bttsProb": 0.7,
           "homeLambda": 2.2,
           "awayLambda": 0.5,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.72
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 72,
-          "over25Prob": 0.78,
+          "confidence": 74,
+          "over25Prob": 0.74,
           "homeLambda": 2.2,
           "awayLambda": 0.5,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.78
+          "proba": 0.74
         }
       ],
-      "bttsProb": 0.72,
-      "over25Prob": 0.78,
+      "bttsProb": 0.7,
+      "over25Prob": 0.74,
       "homeLambda": 2.2,
       "awayLambda": 0.5,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Atalanta et Parma affichent toutes deux de fortes tendances aux matchs ouverts avec des taux de buts élevés.",
-      "ai_analysis": "L'analyse des statistiques observées met en avant une propension très nette pour les matchs prolifiques. L'Atalanta présente des taux élevés de BTTS et d'Over 2.5, tandis que Parma encaisse régulièrement malgré des difficultés offensives hors de ses bases. Les indicateurs convergent vers un scénario animé.",
-      "ai_analysis_en": "Observed statistics highlight a clear propensity for high-scoring matches. Atalanta shows high BTTS and Over 2.5 rates, while Parma regularly concedes despite offensive struggles away from home. Indicators point towards an active match scenario.",
-      "ai_form_summary": "Atalanta (1W-1D-3L, 10-12 buts) et Parma (1W-0D-4L, 4-11 buts) montrent des difficultés défensives.",
-      "ai_form_summary_en": "Atalanta (1W-1D-3L, 10-12 goals) and Parma (1W-0D-4L, 4-11 goals) both show defensive frailties.",
+      "ai_key_fact": "Parma affiche un taux Over 2.5 de 100% sur ses 8 matchs à l'extérieur.",
+      "ai_analysis": "Les statistiques observées pour cette rencontre de Serie A indiquent une forte probabilité de buts. Atalanta et Parma démontrent toutes deux des tendances prononcées pour l'Over 2.5, s'appuyant sur des taux respectifs de 80% et 100% sur leur échantillon. Bien que Parma ait une moyenne de buts marqués faible à l'extérieur, la vulnérabilité défensive globale d'Atalanta soutient cette option malgré les risques.",
+      "ai_analysis_en": "Observed statistics for this Serie A fixture indicate a strong probability of goals. Both Atalanta and Parma show pronounced trends for Over 2.5, backed by respective sample rates of 80% and 100%. Although Parma has a low away goal average, Atalanta's overall defensive vulnerability supports this selection despite the risks.",
+      "ai_form_summary": "Atalanta (1W-1D-3L, 10 buts marqués, 12 encaissés) et Parma (1W-0D-4L, 4 marqués, 11 encaissés).",
+      "ai_form_summary_en": "Atalanta (1W-1D-3L, 10 scored, 12 conceded) and Parma (1W-0D-4L, 4 scored, 11 conceded).",
       "ai_reasons": [
-        "Taux empirique Over 2.5 très élevé à 90% sur l'échantillon récent.",
-        "Taux empirique BTTS solide à 70% pour ce match.",
-        "Atalanta affiche un taux BTTS de 80% et un over25 de 80% sur ses 5 derniers matchs."
+        "Taux empirique Over 2.5 très élevé à 90%",
+        "Atalanta présente un taux Over 2.5 de 80% sur ses 8 derniers matchs à domicile",
+        "Parma affiche un taux Over 2.5 de 100% sur ses 8 derniers matchs à l'extérieur"
       ],
       "ai_risks": [
-        "Parma possède une moyenne de buts marqués à l'extérieur faible (0.5).",
-        "La défense de Parma a concédé 15 buts en 8 matchs."
+        "La moyenne de buts à l'extérieur de Parma est faible (0.5)",
+        "Atalanta concède beaucoup de buts (12 buts encaissés en 5 matchs de forme)"
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.43 · N 4.3 · 2 6 · O2.5 1.74",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.43 · N 4.3 · 2 6 · O2.5 1.69",
       "status": "PENDING"
     },
     {
@@ -15408,6 +15392,221 @@
       "status": "PENDING"
     },
     {
+      "id": "psveindh-vs-clubbrug-2026-11-04",
+      "match": "PSV Eindhoven vs Club Brugge",
+      "home": "PSV Eindhoven",
+      "away": "Club Brugge",
+      "league": "UEFA Champions League",
+      "date": "2026-11-04",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 70,
+      "time": "20:00",
+      "matchSemantic": "psveindh-vs-clubbrug-2026-11-04",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/148.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/570.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 2.25,
+      "xgTotal": 5.25,
+      "formBTTS": 70,
+      "analysis": "PSV Eindhoven : forme N-D-V-D-V (2V 1N 2D, 10 buts marqués / 7 encaissés sur 5) · Club Brugge : forme V-V-V-V-V (5V 0N 0D, 14 buts marqués / 4 encaissés sur 5). Classement : PSV Eindhoven 18e (4 pts), Club Brugge 11e (6 pts). Stats empiriques (forme récente) : buts moy. 5.25, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.05 / N: 4.1 / 2: 3. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 3,
+        "awayLambda": 2.25,
+        "xgTotal": 5.25
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.05,
+        "draw": 4.1,
+        "away": 3,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "N-D-V-D-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 10,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-V",
+        "wins": 5,
+        "draws": 0,
+        "losses": 0,
+        "goalsFor": 14,
+        "goalsAgainst": 4,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Feyenoord Rotterdam",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "ADO Den Haag",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Heerenveen",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "FC Twente",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-13",
+          "opponent": "Sparta Rotterdam",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Zulte-Waregem",
+          "venue": "A",
+          "score": "4-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Sint-Truidense",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "RAAL La Louvière",
+          "venue": "A",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Racing Genk",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-13",
+          "opponent": "Antwerp",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 4,
+        "played": 3,
+        "gf": 2,
+        "ga": 2
+      },
+      "standingsAway": {
+        "rank": 11,
+        "points": 6,
+        "played": 3,
+        "gf": 9,
+        "ga": 6
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "bttsProb": 0.68,
+          "homeLambda": 3,
+          "awayLambda": 2.25,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.68
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 68,
+          "over25Prob": 0.69,
+          "homeLambda": 3,
+          "awayLambda": 2.25,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.69
+        }
+      ],
+      "bttsProb": 0.68,
+      "over25Prob": 0.69,
+      "homeLambda": 3,
+      "awayLambda": 2.25,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "PSV affiche un taux BTTS de 80% et Club Brugge reste sur une série de 5 victoires consécutives.",
+      "ai_analysis": "Le PSV Eindhoven génère régulièrement des rencontres animées avec une moyenne de 3 buts par match sur son échantillon et un taux BTTS de 80%. Face à un Club Brugge en pleine confiance offensive (14 buts en 5 matchs), les conditions sont réunies pour voir des buts des deux côtés.",
+      "ai_analysis_en": "PSV Eindhoven regularly produces lively matches with a 3-goal average per game in their sample and an 80% BTTS rate. Facing a Club Brugge side full of offensive confidence (14 goals in 5 games), conditions are met to see goals from both sides.",
+      "ai_form_summary": "PSV (2W-1D-2L) est irrégulier mais marque beaucoup, Club Brugge (5W-0D-0L) est en pleine forme.",
+      "ai_form_summary_en": "PSV (2W-1D-2L) is inconsistent but scores heavily, Club Brugge (5W-0D-0L) is in top form.",
+      "ai_reasons": [
+        "Taux empirique BTTS à 70% et Over 2.5 à 70%.",
+        "PSV Eindhoven affiche un taux BTTS de 80% sur ses 8 derniers matchs.",
+        "Club Brugge est invaincu sur ses 5 derniers matchs (5W) avec 14 buts marqués."
+      ],
+      "ai_risks": [
+        "Club Brugge présente un taux de buts encaissés plus faible qui pourrait verrouiller partiellement la rencontre."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 4.1 · 2 3",
+      "status": "PENDING"
+    },
+    {
       "id": "wrexham-vs-middlesb-2026-11-04",
       "match": "Wrexham vs Middlesbrough",
       "home": "Wrexham",
@@ -15838,12 +16037,12 @@
       "away": "Como",
       "league": "UEFA Champions League",
       "date": "2026-11-04",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.7,
+      "proba": 0.68,
       "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 70,
+      "confidence": 68,
       "time": "20:00",
       "matchSemantic": "lens-vs-como-2026-11-04",
       "source": "poisson-v92-real-data",
@@ -15998,267 +16197,52 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 68,
-          "bttsProb": 0.68,
+          "confidence": 70,
+          "bttsProb": 0.7,
           "homeLambda": 2.25,
           "awayLambda": 2.4,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.68
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 68,
-          "over25Prob": 0.69,
+          "over25Prob": 0.68,
           "homeLambda": 2.25,
           "awayLambda": 2.4,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.69
+          "proba": 0.68
         }
       ],
-      "bttsProb": 0.68,
-      "over25Prob": 0.69,
+      "bttsProb": 0.7,
+      "over25Prob": 0.68,
       "homeLambda": 2.25,
       "awayLambda": 2.4,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Lens présente un taux de 100% sur le BTTS et l'Over 2.5 sur son échantillon de 8 matchs.",
-      "ai_analysis": "Lens s'appuie sur une dynamique offensive prolifique avec un taux de 100% de matchs avec buts des deux côtés sur son échantillon. Como se déplace avec un classement solide (9e) mais les moyennes combinées de buts et les taux empiriques à 70% plaident en faveur d'un match ouvert.",
-      "ai_analysis_en": "Lens relies on a prolific offensive dynamic with a 100% BTTS rate in their sample matches. Como travels with a solid standing (9th), but the combined goal averages and 70% empirical rates support an open match.",
-      "ai_form_summary": "Lens (3W-1D-1L) est très offensif mais perméable, tandis que Como (3W-1D-1L) gère mieux sa défense.",
-      "ai_form_summary_en": "Lens (3W-1D-1L) is very offensive yet leaky, whereas Como (3W-1D-1L) manages their defense better.",
+      "ai_key_fact": "Lens présente un taux parfait de 100% sur l'Over 2.5 et le BTTS sur son échantillon de 8 matchs.",
+      "ai_analysis": "Malgré un profil de forme contrasté pour Como sur ses derniers matchs, les données globales de Lens (100% d'Over 2.5) et les moyennes de buts par match (plus de 2 buts pour chaque équipe) penchent en faveur d'un match animé. Les taux empiriques combinés atteignent 70%, justifiant une sélection sur l'Over 2.5.",
+      "ai_analysis_en": "Despite a contrasting recent form profile for Como, Lens' overall data (100% Over 2.5) and average goals per match (over 2 goals for each team) point towards a lively match. Combined empirical rates reach 70%, justifying an Over 2.5 selection.",
+      "ai_form_summary": "Lens (3W-1D-1L) déploie un jeu très ouvert avec des statistiques maximales d'Over, tandis que Como (3W-1D-1L) se montre plus pragmatique récemment.",
+      "ai_form_summary_en": "Lens (3W-1D-1L) displays a very open style of play with maximum Over statistics, while Como (3W-1D-1L) has proven more pragmatic recently.",
       "ai_reasons": [
-        "Taux empirique BTTS à 70% et Over 2.5 à 70%.",
-        "Lens affiche un taux BTTS et Over 2.5 de 100% sur ses 8 derniers matchs d'échantillon.",
-        "Moyennes de buts élevées avec 2.25 pour Lens et 2.4 pour Como."
+        "Moyennes de buts élevées pour Lens (2.25) et Como (2.4).",
+        "Taux empiriques globaux de 70% pour le marché Over 2.5.",
+        "Lens affiche un taux de 100% sur le BTTS et l'Over 2.5 lors de ses 8 derniers matchs."
       ],
       "ai_risks": [
-        "Como montre des taux BTTS et Over plus bas (40%) sur sa propre période de forme récente."
+        "Les derniers matchs de Como affichent des taux de BTTS et d'Over plus bas (40%).",
+        "Como se positionne bien au classement (9e) et peut verrouiller si nécessaire."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.95 · 2 2.15",
-      "status": "PENDING"
-    },
-    {
-      "id": "psveindh-vs-clubbrug-2026-11-04",
-      "match": "PSV Eindhoven vs Club Brugge",
-      "home": "PSV Eindhoven",
-      "away": "Club Brugge",
-      "league": "UEFA Champions League",
-      "date": "2026-11-04",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.7,
-      "bttsProbDisplay": "70.00%",
-      "over25ProbDisplay": "70.00%",
-      "confidence": 70,
-      "time": "20:00",
-      "matchSemantic": "psveindh-vs-clubbrug-2026-11-04",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/148.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/570.png",
-      "tier": "GOLD",
-      "reliabilityScore": 89.38,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 3,
-      "xgAway": 2.25,
-      "xgTotal": 5.25,
-      "formBTTS": 70,
-      "analysis": "PSV Eindhoven : forme N-D-V-D-V (2V 1N 2D, 10 buts marqués / 7 encaissés sur 5) · Club Brugge : forme V-V-V-V-V (5V 0N 0D, 14 buts marqués / 4 encaissés sur 5). Classement : PSV Eindhoven 18e (4 pts), Club Brugge 11e (6 pts). Stats empiriques (forme récente) : buts moy. 5.25, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.05 / N: 4.1 / 2: 3. Fiabilité 89.38%.",
-      "analysisData": {
-        "bttsProb": 0.7,
-        "over25Prob": 0.7,
-        "homeLambda": 3,
-        "awayLambda": 2.25,
-        "xgTotal": 5.25
-      },
-      "estimatedCote": 1.43,
-      "estimatedCoteOver": 1.43,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 2.05,
-        "draw": 4.1,
-        "away": 3,
-        "over25": null,
-        "under25": null
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.43,
-      "formHome": {
-        "last5String": "N-D-V-D-V",
-        "wins": 2,
-        "draws": 1,
-        "losses": 2,
-        "goalsFor": 10,
-        "goalsAgainst": 7,
-        "bttsRate": 0.8,
-        "over25Rate": 0.6,
-        "cleanSheets": 1,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "V-V-V-V-V",
-        "wins": 5,
-        "draws": 0,
-        "losses": 0,
-        "goalsFor": 14,
-        "goalsAgainst": 4,
-        "bttsRate": 0.6,
-        "over25Rate": 0.8,
-        "cleanSheets": 2,
-        "failedToScore": 0,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-25",
-          "opponent": "Feyenoord Rotterdam",
-          "venue": "H",
-          "score": "1-1",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "ADO Den Haag",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-09",
-          "opponent": "Heerenveen",
-          "venue": "H",
-          "score": "2-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "FC Twente",
-          "venue": "A",
-          "score": "2-3",
-          "result": "L"
-        },
-        {
-          "date": "2026-09-13",
-          "opponent": "Sparta Rotterdam",
-          "venue": "H",
-          "score": "4-1",
-          "result": "W"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-25",
-          "opponent": "Sint-Truidense",
-          "venue": "H",
-          "score": "3-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "RAAL La Louvière",
-          "venue": "A",
-          "score": "4-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Racing Genk",
-          "venue": "H",
-          "score": "3-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-13",
-          "opponent": "Antwerp",
-          "venue": "H",
-          "score": "3-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-09-04",
-          "opponent": "Lommel SK",
-          "venue": "A",
-          "score": "1-0",
-          "result": "W"
-        }
-      ],
-      "standingsHome": {
-        "rank": 18,
-        "points": 4,
-        "played": 3,
-        "gf": 2,
-        "ga": 2
-      },
-      "standingsAway": {
-        "rank": 11,
-        "points": 6,
-        "played": 3,
-        "gf": 9,
-        "ga": 6
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 68,
-          "bttsProb": 0.68,
-          "homeLambda": 3,
-          "awayLambda": 2.25,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.68
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 68,
-          "over25Prob": 0.69,
-          "homeLambda": 3,
-          "awayLambda": 2.25,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.69
-        }
-      ],
-      "bttsProb": 0.68,
-      "over25Prob": 0.69,
-      "homeLambda": 3,
-      "awayLambda": 2.25,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "PSV affiche un taux BTTS de 80% et Club Brugge reste sur une série de 5 victoires consécutives.",
-      "ai_analysis": "Le PSV Eindhoven génère régulièrement des rencontres animées avec une moyenne de 3 buts par match sur son échantillon et un taux BTTS de 80%. Face à un Club Brugge en pleine confiance offensive (14 buts en 5 matchs), les conditions sont réunies pour voir des buts des deux côtés.",
-      "ai_analysis_en": "PSV Eindhoven regularly produces lively matches with a 3-goal average per game in their sample and an 80% BTTS rate. Facing a Club Brugge side full of offensive confidence (14 goals in 5 games), conditions are met to see goals from both sides.",
-      "ai_form_summary": "PSV (2W-1D-2L) est irrégulier mais marque beaucoup, Club Brugge (5W-0D-0L) est en pleine forme.",
-      "ai_form_summary_en": "PSV (2W-1D-2L) is inconsistent but scores heavily, Club Brugge (5W-0D-0L) is in top form.",
-      "ai_reasons": [
-        "Taux empirique BTTS à 70% et Over 2.5 à 70%.",
-        "PSV Eindhoven affiche un taux BTTS de 80% sur ses 8 derniers matchs.",
-        "Club Brugge est invaincu sur ses 5 derniers matchs (5W) avec 14 buts marqués."
-      ],
-      "ai_risks": [
-        "Club Brugge présente un taux de buts encaissés plus faible qui pourrait verrouiller partiellement la rencontre."
-      ],
-      "ai_confidence": "medium",
-      "ai_abstain": false,
-      "ai_market": "BOTH",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 4.1 · 2 3",
       "status": "PENDING"
     },
     {

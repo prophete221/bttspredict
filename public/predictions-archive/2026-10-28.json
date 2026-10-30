@@ -18916,7 +18916,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 2.25, nul: 3.45, 2: 2.95, Over 2.5: 1.65.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 2.25, draw: 3.45, 2: 2.95, Over 2.5: 1.65.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-10-30T21:58:19.259Z"
     },
     {
       "id": "grazerak-vs-tsvhartb-2026-10-30",
@@ -19313,7 +19315,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 1.54, nul: 4.4, 2: 5.5, Over 2.5: 1.59.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 1.54, draw: 4.4, 2: 5.5, Over 2.5: 1.59.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-10-30T21:58:19.260Z"
     },
     {
       "id": "energiec-vs-vflbochu-2026-10-30",
