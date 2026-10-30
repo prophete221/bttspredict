@@ -1,6 +1,6 @@
 {
   "date": "2026-10-30",
-  "lastUpdated": "2026-10-30T00:34:49.441Z",
+  "lastUpdated": "2026-10-30T09:23:03.127Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -1207,12 +1207,12 @@
       "away": "Paris Saint-Germain",
       "league": "Ligue 1",
       "date": "2026-10-30",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.7,
+      "proba": 0.62,
       "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 70,
+      "confidence": 62,
       "time": "18:00",
       "matchSemantic": "lehavrea-vs-parissai-2026-10-30",
       "source": "poisson-v92-real-data",
@@ -1367,12 +1367,13 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 70,
-          "bttsProb": 0.7,
+          "confidence": 62,
+          "bttsProb": 0.62,
           "homeLambda": 0.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "statsOnly": true,
+          "proba": 0.62
         },
         {
           "type": "Over 2.5",
@@ -1382,32 +1383,33 @@
           "homeLambda": 0.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.7
+          "statsOnly": true
         }
       ],
-      "bttsProb": 0.7,
+      "bttsProb": 0.62,
       "over25Prob": 0.7,
       "homeLambda": 0.5,
       "awayLambda": 2,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Form signals BTTS 70% / Over 70%",
-      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Décision : OVER_25.",
-      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
-      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Déc",
-      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
+      "ai_key_fact": "Le PSG affiche un taux récent de BTTS de 80% malgré la position difficile du Havre.",
+      "ai_analysis": "L'affrontement entre Le Havre et le Paris Saint-Germain présente un paradoxe statistique intéressant entre la difficulté offensive des locaux et le profil hautement offensif des visiteurs. Avec un taux empirique BTTS de 70% et un taux récent de 80% pour le PSG, les indicateurs suggèrent que les visiteurs peuvent contribuer grandement au tableau d'affichage, malgré les limites montrées par Le Havre à domicile.",
+      "ai_analysis_en": "The matchup between Le Havre and Paris Saint-Germain presents an interesting statistical paradox between the hosts' offensive struggles and the visitors' high-scoring profile. With an empirical BTTS rate of 70% and a recent 80% rate for PSG, the indicators suggest the visitors can heavily contribute to the scoreboard despite Le Havre's home scoring limits.",
+      "ai_form_summary": "Le Havre : D-D-D-D-N (0V-1N-4D, 6 buts pour, 11 contre). PSG : V-V-V-V-D (4V-0N-1D, 10 buts pour, 5 contre).",
+      "ai_form_summary_en": "Le Havre: L-L-L-L-D (0W-1D-4L, 6 GF, 11 GA). PSG: W-W-W-W-L (4W-0D-1L, 10 GF, 5 GA).",
       "ai_reasons": [
-        "Empirical BTTS rate ~70%",
-        "Empirical Over 2.5 rate ~70%"
+        "Taux empirique BTTS global de 70% pour Le Havre et le Paris Saint-Germain",
+        "Taux BTTS récent de 60% pour Le Havre et 80% pour le PSG",
+        "Indice formBTTS de 70 reflétant un historique partagé de buts"
       ],
       "ai_risks": [
-        "Sample limited to recent matches; form can shift quickly."
+        "Faible moyenne de buts à domicile pour Le Havre (0.5 par match)",
+        "Écart important au classement (Le Havre 18e vs PSG 5e) et dynamique de forme très contrastée"
       ],
-      "ai_confidence": "medium",
+      "ai_confidence": "low",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "local-empirical-v1",
+      "ai_market": "BTTS",
+      "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.24",
@@ -2036,7 +2038,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 5.75 · N 4.7 · 2 1.49"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 5.75 · N 4.7 · 2 1.49",
+      "status": "PENDING"
     },
     {
       "id": "arminiab-vs-tsveintr-2026-10-30",
@@ -3931,12 +3934,12 @@
       "away": "Sparta Rotterdam",
       "league": "Eredivisie",
       "date": "2026-11-01",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.8,
+      "proba": 0.75,
       "bttsProbDisplay": "80.00%",
       "over25ProbDisplay": "90.00%",
-      "confidence": 80,
+      "confidence": 75,
       "time": "15:45",
       "matchSemantic": "fcgronin-vs-spartaro-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -4091,49 +4094,48 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 75,
-          "bttsProb": 0.75,
+          "confidence": 80,
+          "bttsProb": 0.8,
           "homeLambda": 2.25,
           "awayLambda": 1.67,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.75
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 75,
-          "over25Prob": 0.78,
+          "over25Prob": 0.75,
           "homeLambda": 2.25,
           "awayLambda": 1.67,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.78
+          "proba": 0.75
         }
       ],
-      "bttsProb": 0.75,
-      "over25Prob": 0.78,
+      "bttsProb": 0.8,
+      "over25Prob": 0.75,
       "homeLambda": 2.25,
       "awayLambda": 1.67,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Sparta Rotterdam présente un taux Over 2.5 de 100% et un BTTS à 80%.",
-      "ai_analysis": "Cette confrontation entre le FC Groningen et le Sparta Rotterdam présente des indicateurs offensifs très élevés. Le taux Over 2.5 atteint 90% empiriquement, porté par une performance de 100% pour le Sparta sur son échantillon. Associé à un BTTS de 80% des deux côtés et des défenses fragiles, les conditions sont réunies pour un match très prolifique en buts.",
-      "ai_analysis_en": "This clash between FC Groningen and Sparta Rotterdam presents very high offensive indicators. The empirical Over 2.5 rate reaches 90%, driven by Sparta's 100% rate in their sample. Combined with an 80% BTTS rate for both sides and fragile defenses, conditions are set for a high-scoring match.",
-      "ai_form_summary": "Groningen (2V-2N-1D) et Sparta (1V-1N-3D) s'illustrent par des matchs très ouverts et riches en buts.",
-      "ai_form_summary_en": "Groningen (2W-2D-1L) and Sparta (1W-1D-3L) are characterized by very open, high-scoring matches.",
+      "ai_key_fact": "Sparta Rotterdam totalise un taux Over 2.5 de 100% sur son échantillon récent.",
+      "ai_analysis": "Cette rencontre d'Eredivisie présente des indicateurs parfaits pour le marché des buts, avec un taux Over 2.5 empirique culminant à 90%. FC Groningen et Sparta Rotterdam s'illustrent par des rencontres très animées, soutenues par des moyennes de buts respectives de 2.25 et 1.67. Les statistiques défensives des deux clubs confirment la forte probabilité d'une partie prolifique en tableau d'affichage.",
+      "ai_analysis_en": "This Eredivisie fixture presents perfect indicators for the goals market, with an empirical Over 2.5 rate reaching 90%. FC Groningen and Sparta Rotterdam consistently feature high-scoring matches, supported by respective goal averages of 2.25 and 1.67. Both clubs' defensive statistics strongly confirm the high probability of a high-scoring affair.",
+      "ai_form_summary": "FC Groningen : N-D-V-V-N (2V-2N-1D), 13 buts pour, 9 buts contre. Sparta Rotterdam : D-V-N-D-D (1V-1N-3D), 8 buts pour, 15 buts contre.",
+      "ai_form_summary_en": "FC Groningen: D-L-W-W-D (2W-2D-1L), 13 goals for, 9 goals against. Sparta Rotterdam: L-W-D-L-L (1W-1D-3L), 8 goals for, 15 goals against.",
       "ai_reasons": [
-        "Taux Over 2.5 empirique exceptionnel de 90% pour cette affiche.",
+        "Taux Over 2.5 empirique exceptionnel de 90% pour cette affiche d'Eredivisie.",
         "Sparta Rotterdam affiche un taux Over 2.5 de 100% sur ses derniers matchs.",
-        "Taux BTTS empirique de 80% pour les deux formations."
+        "Moyennes de buts élevées pour les deux équipes (2.25 pour FC Groningen et 1.67 pour Sparta Rotterdam)."
       ],
       "ai_risks": [
-        "Les défenses sont perméables (21 buts encaissés par Groningen, 24 par Sparta), augmentant la variance.",
-        "La cote de Groningen à domicile est fixée à 1.74."
+        "Les deux équipes affichent des fragilités défensives importantes avec respectivement 21 et 24 buts encaissés.",
+        "La forme récente du FC Groningen montre une alternance de résultats nuls et de défaites."
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -7342,12 +7344,12 @@
       "away": "Aston Villa",
       "league": "UEFA Champions League",
       "date": "2026-11-03",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.78,
+      "proba": 0.8,
       "bttsProbDisplay": "80.00%",
       "over25ProbDisplay": "90.00%",
-      "confidence": 78,
+      "confidence": 80,
       "time": "20:00",
       "matchSemantic": "barcelon-vs-astonvil-2026-11-03",
       "source": "poisson-v92-real-data",
@@ -7502,12 +7504,13 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 80,
-          "bttsProb": 0.8,
+          "confidence": 78,
+          "bttsProb": 0.78,
           "homeLambda": 4,
           "awayLambda": 1,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "statsOnly": true,
+          "proba": 0.78
         },
         {
           "type": "Over 2.5",
@@ -7521,33 +7524,34 @@
           "proba": 0.78
         }
       ],
-      "bttsProb": 0.8,
+      "bttsProb": 0.78,
       "over25Prob": 0.78,
       "homeLambda": 4,
       "awayLambda": 1,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Barcelona affiche une moyenne impressionnante de 4 buts marqués par match sur l'échantillon.",
-      "ai_analysis": "Les données démontrent une domination offensive claire de Barcelona, avec une moyenne de 4 buts marqués et un taux Over 2.5 atteignant 90%. Aston Villa présente également des statistiques offensives et BTTS élevées (80%), soutenant un pronostic favorable sur le marché des buts avec une probabilité estimée à 78%.",
-      "ai_analysis_en": "The data demonstrates clear offensive dominance from Barcelona, averaging 4 goals scored and a 90% Over 2.5 rate. Aston Villa also displays high offensive and BTTS stats (80%), supporting a favorable outlook on the goals market with an estimated probability of 78%.",
-      "ai_form_summary": "Barcelona écrase ses adversaires (4V-0N-1L, 19 buts pour), tandis qu'Aston Villa carbure bien (3V-1N-1L).",
-      "ai_form_summary_en": "Barcelona overpowers opponents (4W-0D-1L, 19 goals for), while Aston Villa performs strongly (3W-1D-1L).",
+      "ai_key_fact": "Barcelone et Aston Villa affichent tous deux un taux BTTS récent de 80%.",
+      "ai_analysis": "Ce match présente des indicateurs offensifs exceptionnels. Le taux BTTS empirique atteint 0.8 des deux côtés, appuyé par un taux Over 2.5 de 0.9. La puissance offensive de Barcelone conjuguée aux stats d'Aston Villa renforce la sélection.",
+      "ai_analysis_en": "This match features exceptional offensive indicators. The empirical BTTS rate reaches 0.8 on both sides, supported by an Over 2.5 rate of 0.9. Barcelona's offensive power combined with Aston Villa's stats strengthens the selection.",
+      "ai_form_summary": "Barcelona sur 4W-0D-1L (19 buts marqués, 7 encaissés) ; Aston Villa sur 3W-1D-1L (9 buts marqués, 7 encaissés).",
+      "ai_form_summary_en": "Barcelona on 4W-0D-1L (19 goals scored, 7 conceded); Aston Villa on 3W-1D-1L (9 goals scored, 7 conceded).",
       "ai_reasons": [
-        "Taux empirique Over 2.5 extrêmement élevé à 90% pour Barcelona.",
-        "Moyenne de buts marqués par Barcelona à domicile s'élève à 4 par match.",
-        "Taux BTTS de 80% pour les deux équipes sur l'échantillon récent."
+        "Taux BTTS empirique élevé de 0.8 pour les deux équipes",
+        "Taux Over 2.5 empirique très élevé à 0.9 avec une moyenne offensive barcelonaise de 4 buts",
+        "Taux de forme BTTS à 80% confirmant la tendance offensive récente"
       ],
       "ai_risks": [
-        "Aston Villa possède un profil plus hermétique avec une moyenne de 1 but concédé sur l'échantillon.",
-        "La cote du marché Over 2.5 n'est pas fournie, nécessitant une attention sur la valeur."
+        "Barcelone possède une nette domination offensive qui pourrait limiter les incursions adverses",
+        "La cote de l'Over 2.5 n'est pas disponible, obligeant à cibler le marché BTTS"
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.24 · N 7 · 2 9.5"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.24 · N 7 · 2 9.5",
+      "status": "PENDING"
     },
     {
       "id": "queenspa-vs-burnley-2026-11-03",
@@ -8403,12 +8407,12 @@
       "away": "Paris Saint-Germain",
       "league": "UEFA Champions League",
       "date": "2026-11-03",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.6,
+      "proba": 0.62,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "60.00%",
-      "confidence": 60,
+      "confidence": 62,
       "time": "20:00",
       "matchSemantic": "villarre-vs-parissai-2026-11-03",
       "source": "poisson-v92-real-data",
@@ -8563,54 +8567,52 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 62,
-          "bttsProb": 0.62,
+          "confidence": 60,
+          "bttsProb": 0.6,
           "homeLambda": 1.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.62
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 62,
-          "over25Prob": 0.61,
+          "over25Prob": 0.62,
           "homeLambda": 1.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.61
+          "proba": 0.62
         }
       ],
-      "bttsProb": 0.62,
-      "over25Prob": 0.61,
+      "bttsProb": 0.6,
+      "over25Prob": 0.62,
       "homeLambda": 1.5,
       "awayLambda": 2,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Le PSG affiche 14 buts marqués en 3 matchs de Ligue des Champions pour seulement 5 encaissés.",
-      "ai_analysis": "Le Paris Saint-Germain se déplace en position de force avec une série de cinq victoires consécutives et une moyenne de deux buts par match à l'extérieur. Villarreal, malgré un classement délicat en Ligue des Champions (19ème), maintient un taux BTTS et Over 2.5 de 60% ainsi qu'une moyenne offensive respectable de 1.5 but à domicile. Les statistiques empiriques soutiennent une rencontre animée avec des buts des deux côtés.",
-      "ai_analysis_en": "Paris Saint-Germain travels in a strong position with a five-match winning streak and an average of two goals per away match. Villarreal, despite a tricky Champions League ranking (19th), maintains a 60% empirical BTTS and Over 2.5 rate along with a respectable 1.5 home scoring average. Empirical statistics support an open match with goals at both ends.",
-      "ai_form_summary": "Villarreal : 3V-1D-1L (8 BP, 4 BC) | PSG : 5V-0D-0L (11 BP, 3 BC)",
-      "ai_form_summary_en": "Villarreal: 3W-1D-1L (8 GF, 4 GA) | PSG: 5W-0D-0L (11 GF, 3 GA)",
+      "ai_key_fact": "Le Paris Saint-Germain a marqué 14 buts en 3 matchs de Ligue des Champions.",
+      "ai_analysis": "Le Paris Saint-Germain domine son groupe avec 14 buts marqués et affiche une excellente dynamique offensive. Villarreal encaisse beaucoup de buts (8 en 3 matchs) mais reste capable de marquer. Les taux empiriques d'Over 2.5 à 60% pour les deux équipes soutiennent l'option d'un match ouvert.",
+      "ai_analysis_en": "Paris Saint-Germain dominates their group with 14 goals scored and shows an excellent offensive dynamic. Villarreal concedes many goals (8 in 3 matches) but remains capable of scoring. The empirical Over 2.5 rates of 60% for both teams support the option of an open match.",
+      "ai_form_summary": "Villarreal : 3V-1N-1D, 8 buts marqués, 4 encaissés, BTTS 60%, Over 60%. Paris Saint-Germain : 5V-0N-0D, 11 buts marqués, 3 encaissés, BTTS 60%, Over 60%.",
+      "ai_form_summary_en": "Villarreal: 3W-1D-1L, 8 goals for, 4 against, BTTS 60%, Over 60%. Paris Saint-Germain: 5W-0D-0L, 11 goals for, 3 against, BTTS 60%, Over 60%.",
       "ai_reasons": [
-        "Les deux équipes affichent un taux BTTS empirique solide de 60%.",
-        "Villarreal marque en moyenne 1.5 buts par match à domicile malgré un classement difficile.",
-        "Le PSG présente une forme étincelante (5 victoires consécutives) avec une moyenne de 2 buts par match à l'extérieur."
+        "Taux empirique Over 2.5 de 60% pour Villarreal et le Paris Saint-Germain.",
+        "Le Paris Saint-Germain affiche une attaque prolifique avec 14 buts inscrits en 3 matchs de phase de groupes.",
+        "Villarreal concède également beaucoup de buts avec 8 buts encaissés en 3 matchs de Ligue des Champions."
       ],
       "ai_risks": [
-        "La défense parisienne est performante avec seulement 3 buts encaissés sur ses 5 derniers matchs.",
-        "Villarreal est classé 19ème en Ligue des Champions, ce qui pourrait limiter leur efficacité offensive face au leader."
+        "Villarreal a montré une solidité relative par moments malgré ses 8 buts encaissés en C1.",
+        "L'écart de points au classement (9 points pour le PSG contre 3 pour Villarreal) pourrait influencer la physionomie du match."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4.5 · 2 1.61",
-      "status": "PENDING"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4.5 · 2 1.61"
     },
     {
       "id": "blackbur-vs-stokecit-2026-11-03",
@@ -9235,7 +9237,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "fcporto-vs-napoli-2026-11-04",
@@ -9450,7 +9453,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.65 · 2 3.15 · O2.5 1.77"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.65 · 2 3.15 · O2.5 1.77",
+      "status": "PENDING"
     },
     {
       "id": "lens-vs-como-2026-11-04",
@@ -9664,7 +9668,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.95 · 2 2.15"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.95 · 2 2.15",
+      "status": "PENDING"
     },
     {
       "id": "psveindh-vs-clubbrug-2026-11-04",
@@ -9878,7 +9883,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 4.1 · 2 3"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 4.1 · 2 3",
+      "status": "PENDING"
     },
     {
       "id": "cardiffc-vs-westhamu-2026-11-04",
@@ -10085,7 +10091,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "aekathen-vs-realmadr-2026-11-04",
@@ -10299,7 +10306,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 8 · N 6 · 2 1.3"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 8 · N 6 · 2 1.3",
+      "status": "PENDING"
     },
     {
       "id": "fenerbah-vs-liverpoo-2026-11-04",
@@ -10511,7 +10519,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.9 · N 4.5 · 2 1.59"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.9 · N 4.5 · 2 1.59",
+      "status": "PENDING"
     },
     {
       "id": "staderen-vs-olympiac-2026-11-04",
@@ -10724,7 +10733,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.6 · 2 3.25 · O2.5 1.71"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.6 · 2 3.25 · O2.5 1.71",
+      "status": "PENDING"
     }
   ],
   "vipPreview": [
@@ -12014,12 +12024,12 @@
       "away": "Paris Saint-Germain",
       "league": "Ligue 1",
       "date": "2026-10-30",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.7,
+      "proba": 0.62,
       "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 70,
+      "confidence": 62,
       "time": "18:00",
       "matchSemantic": "lehavrea-vs-parissai-2026-10-30",
       "source": "poisson-v92-real-data",
@@ -12174,12 +12184,13 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 70,
-          "bttsProb": 0.7,
+          "confidence": 62,
+          "bttsProb": 0.62,
           "homeLambda": 0.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "statsOnly": true,
+          "proba": 0.62
         },
         {
           "type": "Over 2.5",
@@ -12189,32 +12200,33 @@
           "homeLambda": 0.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.7
+          "statsOnly": true
         }
       ],
-      "bttsProb": 0.7,
+      "bttsProb": 0.62,
       "over25Prob": 0.7,
       "homeLambda": 0.5,
       "awayLambda": 2,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Form signals BTTS 70% / Over 70%",
-      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Décision : OVER_25.",
-      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
-      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Le Havre AC vs Paris Saint-Germain. Déc",
-      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Le Havre AC vs Paris Saint-Germain. Decision: OVER_25.",
+      "ai_key_fact": "Le PSG affiche un taux récent de BTTS de 80% malgré la position difficile du Havre.",
+      "ai_analysis": "L'affrontement entre Le Havre et le Paris Saint-Germain présente un paradoxe statistique intéressant entre la difficulté offensive des locaux et le profil hautement offensif des visiteurs. Avec un taux empirique BTTS de 70% et un taux récent de 80% pour le PSG, les indicateurs suggèrent que les visiteurs peuvent contribuer grandement au tableau d'affichage, malgré les limites montrées par Le Havre à domicile.",
+      "ai_analysis_en": "The matchup between Le Havre and Paris Saint-Germain presents an interesting statistical paradox between the hosts' offensive struggles and the visitors' high-scoring profile. With an empirical BTTS rate of 70% and a recent 80% rate for PSG, the indicators suggest the visitors can heavily contribute to the scoreboard despite Le Havre's home scoring limits.",
+      "ai_form_summary": "Le Havre : D-D-D-D-N (0V-1N-4D, 6 buts pour, 11 contre). PSG : V-V-V-V-D (4V-0N-1D, 10 buts pour, 5 contre).",
+      "ai_form_summary_en": "Le Havre: L-L-L-L-D (0W-1D-4L, 6 GF, 11 GA). PSG: W-W-W-W-L (4W-0D-1L, 10 GF, 5 GA).",
       "ai_reasons": [
-        "Empirical BTTS rate ~70%",
-        "Empirical Over 2.5 rate ~70%"
+        "Taux empirique BTTS global de 70% pour Le Havre et le Paris Saint-Germain",
+        "Taux BTTS récent de 60% pour Le Havre et 80% pour le PSG",
+        "Indice formBTTS de 70 reflétant un historique partagé de buts"
       ],
       "ai_risks": [
-        "Sample limited to recent matches; form can shift quickly."
+        "Faible moyenne de buts à domicile pour Le Havre (0.5 par match)",
+        "Écart important au classement (Le Havre 18e vs PSG 5e) et dynamique de forme très contrastée"
       ],
-      "ai_confidence": "medium",
+      "ai_confidence": "low",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "local-empirical-v1",
+      "ai_market": "BTTS",
+      "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.24",
@@ -12843,7 +12855,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 5.75 · N 4.7 · 2 1.49"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 5.75 · N 4.7 · 2 1.49",
+      "status": "PENDING"
     },
     {
       "id": "arminiab-vs-tsveintr-2026-10-30",
@@ -14738,12 +14751,12 @@
       "away": "Sparta Rotterdam",
       "league": "Eredivisie",
       "date": "2026-11-01",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.8,
+      "proba": 0.75,
       "bttsProbDisplay": "80.00%",
       "over25ProbDisplay": "90.00%",
-      "confidence": 80,
+      "confidence": 75,
       "time": "15:45",
       "matchSemantic": "fcgronin-vs-spartaro-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -14898,49 +14911,48 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 75,
-          "bttsProb": 0.75,
+          "confidence": 80,
+          "bttsProb": 0.8,
           "homeLambda": 2.25,
           "awayLambda": 1.67,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.75
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 75,
-          "over25Prob": 0.78,
+          "over25Prob": 0.75,
           "homeLambda": 2.25,
           "awayLambda": 1.67,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.78
+          "proba": 0.75
         }
       ],
-      "bttsProb": 0.75,
-      "over25Prob": 0.78,
+      "bttsProb": 0.8,
+      "over25Prob": 0.75,
       "homeLambda": 2.25,
       "awayLambda": 1.67,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Sparta Rotterdam présente un taux Over 2.5 de 100% et un BTTS à 80%.",
-      "ai_analysis": "Cette confrontation entre le FC Groningen et le Sparta Rotterdam présente des indicateurs offensifs très élevés. Le taux Over 2.5 atteint 90% empiriquement, porté par une performance de 100% pour le Sparta sur son échantillon. Associé à un BTTS de 80% des deux côtés et des défenses fragiles, les conditions sont réunies pour un match très prolifique en buts.",
-      "ai_analysis_en": "This clash between FC Groningen and Sparta Rotterdam presents very high offensive indicators. The empirical Over 2.5 rate reaches 90%, driven by Sparta's 100% rate in their sample. Combined with an 80% BTTS rate for both sides and fragile defenses, conditions are set for a high-scoring match.",
-      "ai_form_summary": "Groningen (2V-2N-1D) et Sparta (1V-1N-3D) s'illustrent par des matchs très ouverts et riches en buts.",
-      "ai_form_summary_en": "Groningen (2W-2D-1L) and Sparta (1W-1D-3L) are characterized by very open, high-scoring matches.",
+      "ai_key_fact": "Sparta Rotterdam totalise un taux Over 2.5 de 100% sur son échantillon récent.",
+      "ai_analysis": "Cette rencontre d'Eredivisie présente des indicateurs parfaits pour le marché des buts, avec un taux Over 2.5 empirique culminant à 90%. FC Groningen et Sparta Rotterdam s'illustrent par des rencontres très animées, soutenues par des moyennes de buts respectives de 2.25 et 1.67. Les statistiques défensives des deux clubs confirment la forte probabilité d'une partie prolifique en tableau d'affichage.",
+      "ai_analysis_en": "This Eredivisie fixture presents perfect indicators for the goals market, with an empirical Over 2.5 rate reaching 90%. FC Groningen and Sparta Rotterdam consistently feature high-scoring matches, supported by respective goal averages of 2.25 and 1.67. Both clubs' defensive statistics strongly confirm the high probability of a high-scoring affair.",
+      "ai_form_summary": "FC Groningen : N-D-V-V-N (2V-2N-1D), 13 buts pour, 9 buts contre. Sparta Rotterdam : D-V-N-D-D (1V-1N-3D), 8 buts pour, 15 buts contre.",
+      "ai_form_summary_en": "FC Groningen: D-L-W-W-D (2W-2D-1L), 13 goals for, 9 goals against. Sparta Rotterdam: L-W-D-L-L (1W-1D-3L), 8 goals for, 15 goals against.",
       "ai_reasons": [
-        "Taux Over 2.5 empirique exceptionnel de 90% pour cette affiche.",
+        "Taux Over 2.5 empirique exceptionnel de 90% pour cette affiche d'Eredivisie.",
         "Sparta Rotterdam affiche un taux Over 2.5 de 100% sur ses derniers matchs.",
-        "Taux BTTS empirique de 80% pour les deux formations."
+        "Moyennes de buts élevées pour les deux équipes (2.25 pour FC Groningen et 1.67 pour Sparta Rotterdam)."
       ],
       "ai_risks": [
-        "Les défenses sont perméables (21 buts encaissés par Groningen, 24 par Sparta), augmentant la variance.",
-        "La cote de Groningen à domicile est fixée à 1.74."
+        "Les deux équipes affichent des fragilités défensives importantes avec respectivement 21 et 24 buts encaissés.",
+        "La forme récente du FC Groningen montre une alternance de résultats nuls et de défaites."
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -18149,12 +18161,12 @@
       "away": "Aston Villa",
       "league": "UEFA Champions League",
       "date": "2026-11-03",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.78,
+      "proba": 0.8,
       "bttsProbDisplay": "80.00%",
       "over25ProbDisplay": "90.00%",
-      "confidence": 78,
+      "confidence": 80,
       "time": "20:00",
       "matchSemantic": "barcelon-vs-astonvil-2026-11-03",
       "source": "poisson-v92-real-data",
@@ -18309,12 +18321,13 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 80,
-          "bttsProb": 0.8,
+          "confidence": 78,
+          "bttsProb": 0.78,
           "homeLambda": 4,
           "awayLambda": 1,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "statsOnly": true,
+          "proba": 0.78
         },
         {
           "type": "Over 2.5",
@@ -18328,33 +18341,34 @@
           "proba": 0.78
         }
       ],
-      "bttsProb": 0.8,
+      "bttsProb": 0.78,
       "over25Prob": 0.78,
       "homeLambda": 4,
       "awayLambda": 1,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Barcelona affiche une moyenne impressionnante de 4 buts marqués par match sur l'échantillon.",
-      "ai_analysis": "Les données démontrent une domination offensive claire de Barcelona, avec une moyenne de 4 buts marqués et un taux Over 2.5 atteignant 90%. Aston Villa présente également des statistiques offensives et BTTS élevées (80%), soutenant un pronostic favorable sur le marché des buts avec une probabilité estimée à 78%.",
-      "ai_analysis_en": "The data demonstrates clear offensive dominance from Barcelona, averaging 4 goals scored and a 90% Over 2.5 rate. Aston Villa also displays high offensive and BTTS stats (80%), supporting a favorable outlook on the goals market with an estimated probability of 78%.",
-      "ai_form_summary": "Barcelona écrase ses adversaires (4V-0N-1L, 19 buts pour), tandis qu'Aston Villa carbure bien (3V-1N-1L).",
-      "ai_form_summary_en": "Barcelona overpowers opponents (4W-0D-1L, 19 goals for), while Aston Villa performs strongly (3W-1D-1L).",
+      "ai_key_fact": "Barcelone et Aston Villa affichent tous deux un taux BTTS récent de 80%.",
+      "ai_analysis": "Ce match présente des indicateurs offensifs exceptionnels. Le taux BTTS empirique atteint 0.8 des deux côtés, appuyé par un taux Over 2.5 de 0.9. La puissance offensive de Barcelone conjuguée aux stats d'Aston Villa renforce la sélection.",
+      "ai_analysis_en": "This match features exceptional offensive indicators. The empirical BTTS rate reaches 0.8 on both sides, supported by an Over 2.5 rate of 0.9. Barcelona's offensive power combined with Aston Villa's stats strengthens the selection.",
+      "ai_form_summary": "Barcelona sur 4W-0D-1L (19 buts marqués, 7 encaissés) ; Aston Villa sur 3W-1D-1L (9 buts marqués, 7 encaissés).",
+      "ai_form_summary_en": "Barcelona on 4W-0D-1L (19 goals scored, 7 conceded); Aston Villa on 3W-1D-1L (9 goals scored, 7 conceded).",
       "ai_reasons": [
-        "Taux empirique Over 2.5 extrêmement élevé à 90% pour Barcelona.",
-        "Moyenne de buts marqués par Barcelona à domicile s'élève à 4 par match.",
-        "Taux BTTS de 80% pour les deux équipes sur l'échantillon récent."
+        "Taux BTTS empirique élevé de 0.8 pour les deux équipes",
+        "Taux Over 2.5 empirique très élevé à 0.9 avec une moyenne offensive barcelonaise de 4 buts",
+        "Taux de forme BTTS à 80% confirmant la tendance offensive récente"
       ],
       "ai_risks": [
-        "Aston Villa possède un profil plus hermétique avec une moyenne de 1 but concédé sur l'échantillon.",
-        "La cote du marché Over 2.5 n'est pas fournie, nécessitant une attention sur la valeur."
+        "Barcelone possède une nette domination offensive qui pourrait limiter les incursions adverses",
+        "La cote de l'Over 2.5 n'est pas disponible, obligeant à cibler le marché BTTS"
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.24 · N 7 · 2 9.5"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.24 · N 7 · 2 9.5",
+      "status": "PENDING"
     },
     {
       "id": "queenspa-vs-burnley-2026-11-03",
@@ -19210,12 +19224,12 @@
       "away": "Paris Saint-Germain",
       "league": "UEFA Champions League",
       "date": "2026-11-03",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.6,
+      "proba": 0.62,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "60.00%",
-      "confidence": 60,
+      "confidence": 62,
       "time": "20:00",
       "matchSemantic": "villarre-vs-parissai-2026-11-03",
       "source": "poisson-v92-real-data",
@@ -19370,54 +19384,52 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 62,
-          "bttsProb": 0.62,
+          "confidence": 60,
+          "bttsProb": 0.6,
           "homeLambda": 1.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.62
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 62,
-          "over25Prob": 0.61,
+          "over25Prob": 0.62,
           "homeLambda": 1.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.61
+          "proba": 0.62
         }
       ],
-      "bttsProb": 0.62,
-      "over25Prob": 0.61,
+      "bttsProb": 0.6,
+      "over25Prob": 0.62,
       "homeLambda": 1.5,
       "awayLambda": 2,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Le PSG affiche 14 buts marqués en 3 matchs de Ligue des Champions pour seulement 5 encaissés.",
-      "ai_analysis": "Le Paris Saint-Germain se déplace en position de force avec une série de cinq victoires consécutives et une moyenne de deux buts par match à l'extérieur. Villarreal, malgré un classement délicat en Ligue des Champions (19ème), maintient un taux BTTS et Over 2.5 de 60% ainsi qu'une moyenne offensive respectable de 1.5 but à domicile. Les statistiques empiriques soutiennent une rencontre animée avec des buts des deux côtés.",
-      "ai_analysis_en": "Paris Saint-Germain travels in a strong position with a five-match winning streak and an average of two goals per away match. Villarreal, despite a tricky Champions League ranking (19th), maintains a 60% empirical BTTS and Over 2.5 rate along with a respectable 1.5 home scoring average. Empirical statistics support an open match with goals at both ends.",
-      "ai_form_summary": "Villarreal : 3V-1D-1L (8 BP, 4 BC) | PSG : 5V-0D-0L (11 BP, 3 BC)",
-      "ai_form_summary_en": "Villarreal: 3W-1D-1L (8 GF, 4 GA) | PSG: 5W-0D-0L (11 GF, 3 GA)",
+      "ai_key_fact": "Le Paris Saint-Germain a marqué 14 buts en 3 matchs de Ligue des Champions.",
+      "ai_analysis": "Le Paris Saint-Germain domine son groupe avec 14 buts marqués et affiche une excellente dynamique offensive. Villarreal encaisse beaucoup de buts (8 en 3 matchs) mais reste capable de marquer. Les taux empiriques d'Over 2.5 à 60% pour les deux équipes soutiennent l'option d'un match ouvert.",
+      "ai_analysis_en": "Paris Saint-Germain dominates their group with 14 goals scored and shows an excellent offensive dynamic. Villarreal concedes many goals (8 in 3 matches) but remains capable of scoring. The empirical Over 2.5 rates of 60% for both teams support the option of an open match.",
+      "ai_form_summary": "Villarreal : 3V-1N-1D, 8 buts marqués, 4 encaissés, BTTS 60%, Over 60%. Paris Saint-Germain : 5V-0N-0D, 11 buts marqués, 3 encaissés, BTTS 60%, Over 60%.",
+      "ai_form_summary_en": "Villarreal: 3W-1D-1L, 8 goals for, 4 against, BTTS 60%, Over 60%. Paris Saint-Germain: 5W-0D-0L, 11 goals for, 3 against, BTTS 60%, Over 60%.",
       "ai_reasons": [
-        "Les deux équipes affichent un taux BTTS empirique solide de 60%.",
-        "Villarreal marque en moyenne 1.5 buts par match à domicile malgré un classement difficile.",
-        "Le PSG présente une forme étincelante (5 victoires consécutives) avec une moyenne de 2 buts par match à l'extérieur."
+        "Taux empirique Over 2.5 de 60% pour Villarreal et le Paris Saint-Germain.",
+        "Le Paris Saint-Germain affiche une attaque prolifique avec 14 buts inscrits en 3 matchs de phase de groupes.",
+        "Villarreal concède également beaucoup de buts avec 8 buts encaissés en 3 matchs de Ligue des Champions."
       ],
       "ai_risks": [
-        "La défense parisienne est performante avec seulement 3 buts encaissés sur ses 5 derniers matchs.",
-        "Villarreal est classé 19ème en Ligue des Champions, ce qui pourrait limiter leur efficacité offensive face au leader."
+        "Villarreal a montré une solidité relative par moments malgré ses 8 buts encaissés en C1.",
+        "L'écart de points au classement (9 points pour le PSG contre 3 pour Villarreal) pourrait influencer la physionomie du match."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4.5 · 2 1.61",
-      "status": "PENDING"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4.5 · 2 1.61"
     },
     {
       "id": "blackbur-vs-stokecit-2026-11-03",
@@ -20042,7 +20054,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "fcporto-vs-napoli-2026-11-04",
@@ -20257,7 +20270,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.65 · 2 3.15 · O2.5 1.77"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.65 · 2 3.15 · O2.5 1.77",
+      "status": "PENDING"
     },
     {
       "id": "lens-vs-como-2026-11-04",
@@ -20471,7 +20485,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.95 · 2 2.15"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.95 · 2 2.15",
+      "status": "PENDING"
     },
     {
       "id": "psveindh-vs-clubbrug-2026-11-04",
@@ -20685,7 +20700,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 4.1 · 2 3"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 4.1 · 2 3",
+      "status": "PENDING"
     },
     {
       "id": "cardiffc-vs-westhamu-2026-11-04",
@@ -20892,7 +20908,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "aekathen-vs-realmadr-2026-11-04",
@@ -21106,7 +21123,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 8 · N 6 · 2 1.3"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 8 · N 6 · 2 1.3",
+      "status": "PENDING"
     },
     {
       "id": "fenerbah-vs-liverpoo-2026-11-04",
@@ -21318,7 +21336,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.9 · N 4.5 · 2 1.59"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.9 · N 4.5 · 2 1.59",
+      "status": "PENDING"
     },
     {
       "id": "staderen-vs-olympiac-2026-11-04",
@@ -21531,7 +21550,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.6 · 2 3.25 · O2.5 1.71"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.6 · 2 3.25 · O2.5 1.71",
+      "status": "PENDING"
     }
   ],
   "analysisEngine": "gemini-stats-v1"
