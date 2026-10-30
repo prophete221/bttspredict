@@ -24473,7 +24473,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 2.2, nul: 3.4, 2: 2.9, Over 2.5: 1.69.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 2.2, draw: 3.4, 2: 2.9, Over 2.5: 1.69.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-10-30T00:37:14.532Z"
     },
     {
       "id": "marseill-vs-lehavrea-2026-10-25",
