@@ -10362,7 +10362,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 1.91, nul: 3.5, 2: 3.6, Over 2.5: 1.8.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 1.91, draw: 3.5, 2: 3.6, Over 2.5: 1.8.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-4",
+      "verifiedAt": "2026-10-30T21:28:48.739Z"
     },
     {
       "id": "villarre-vs-espanyol-2026-10-30",
@@ -10758,7 +10760,9 @@
       "ai_absences_en": "Absences: no official unavailability in our data — line-ups to be confirmed before kick-off.",
       "ai_odds_insight": "Le marché (DraftKings) cote 1: 3, nul: 3.45, 2: 2.15.",
       "ai_odds_insight_en": "The market (DraftKings) prices 1: 3, draw: 3.45, 2: 2.15.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-10-30T21:28:48.740Z"
     },
     {
       "id": "nice-vs-staderen-2026-10-30",
@@ -10974,7 +10978,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.8 · N 3.75 · 2 2.35",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "5-2",
+      "verifiedAt": "2026-10-30T21:29:11.970Z"
     },
     {
       "id": "casapia-vs-sporting-2026-10-30",
@@ -11380,7 +11386,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 9.5 · N 7 · 2 1.24",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-5",
+      "verifiedAt": "2026-10-30T21:29:11.970Z"
     },
     {
       "id": "sheffiel-vs-wrexham-2026-10-30",
@@ -18804,7 +18812,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.75 · N 3.7 · 2 2.35",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "5-2",
+      "verifiedAt": "2026-10-30T21:28:48.740Z"
     },
     {
       "id": "racingsa-vs-realmadr-2026-11-01",

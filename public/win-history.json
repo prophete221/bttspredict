@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-10-30T17:38:02.577Z",
+  "generatedAt": "2026-10-30T21:29:40.805Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,18 +15,18 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 368,
-    "won": 297,
-    "lost": 71,
-    "pending": 72,
+    "total": 377,
+    "won": 305,
+    "lost": 72,
+    "pending": 64,
     "unverifiable": 153,
-    "archivedTotal": 593,
-    "rate": 80.7,
+    "archivedTotal": 594,
+    "rate": 80.9,
     "gold": {
-      "total": 271,
-      "won": 222,
-      "lost": 49,
-      "rate": 81.9
+      "total": 280,
+      "won": 230,
+      "lost": 50,
+      "rate": 82.1
     },
     "standard": {
       "total": 97,
@@ -36,26 +36,19 @@
     },
     "byType": {
       "btts": {
-        "total": 349,
-        "won": 287,
-        "lost": 62,
-        "rate": 82.2
+        "total": 355,
+        "won": 292,
+        "lost": 63,
+        "rate": 82.3
       },
       "over25": {
-        "total": 19,
-        "won": 10,
+        "total": 22,
+        "won": 13,
         "lost": 9,
-        "rate": 52.6
+        "rate": 59.1
       }
     },
     "trend14": [
-      {
-        "date": "2026-10-14",
-        "total": 4,
-        "won": 4,
-        "lost": 0,
-        "rate": 100
-      },
       {
         "date": "2026-10-15",
         "total": 4,
@@ -146,6 +139,13 @@
         "won": 9,
         "lost": 6,
         "rate": 60
+      },
+      {
+        "date": "2026-10-30",
+        "total": 9,
+        "won": 8,
+        "lost": 1,
+        "rate": 88.9
       }
     ],
     "period": {
@@ -155,6 +155,123 @@
     }
   },
   "history": [
+    {
+      "date": "2026-10-30",
+      "match": "SV Elversberg vs Mainz",
+      "league": "Bundesliga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.8117,
+      "status": "WON",
+      "finalScore": "4-1",
+      "verifiedAt": "2026-10-30T21:29:11.977Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-30",
+      "match": "Le Havre AC vs Paris Saint-Germain",
+      "league": "Ligue 1",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.62,
+      "status": "WON",
+      "finalScore": "1-5",
+      "verifiedAt": "2026-10-30T21:29:11.970Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-30",
+      "match": "Nice vs Stade Rennais",
+      "league": "Ligue 1",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "WON",
+      "finalScore": "5-2",
+      "verifiedAt": "2026-10-30T21:29:11.970Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-30",
+      "match": "Arminia Bielefeld vs TSV Eintracht Braunschweig",
+      "league": "2. Bundesliga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6864,
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-10-30T21:28:48.741Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-30",
+      "match": "Energie Cottbus vs VfL Bochum",
+      "league": "2. Bundesliga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6213,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-10-30T21:28:48.740Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-30",
+      "match": "Le Havre AC vs Paris Saint-Germain",
+      "league": "Ligue 1",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.7,
+      "status": "WON",
+      "finalScore": "1-5",
+      "verifiedAt": "2026-10-30T21:28:48.740Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-30",
+      "match": "Nice vs Stade Rennais",
+      "league": "Ligue 1",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "WON",
+      "finalScore": "5-2",
+      "verifiedAt": "2026-10-30T21:28:48.740Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-30",
+      "match": "SV Elversberg vs Mainz",
+      "league": "Bundesliga",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "WON",
+      "finalScore": "4-1",
+      "verifiedAt": "2026-10-30T21:28:48.740Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-30",
+      "match": "Grazer AK vs TSV Hartberg",
+      "league": "Austrian Bundesliga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5324,
+      "status": "LOST",
+      "finalScore": "0-4",
+      "verifiedAt": "2026-10-30T21:28:48.739Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-10-29",
       "match": "Fiorentina vs Atalanta",
