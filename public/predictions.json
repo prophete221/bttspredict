@@ -1,6 +1,6 @@
 {
   "date": "2026-10-31",
-  "lastUpdated": "2026-10-31T05:43:20.965Z",
+  "lastUpdated": "2026-10-31T11:33:12.722Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -2556,7 +2556,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 5.5 · N 4.8 · 2 1.53"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 5.5 · N 4.8 · 2 1.53",
+      "status": "PENDING"
     },
     {
       "id": "barcelon-vs-alavs-2026-10-31",
@@ -2996,12 +2997,12 @@
       "away": "SV Josko Ried",
       "league": "Austrian Bundesliga",
       "date": "2026-10-31",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.7,
+      "proba": 0.72,
       "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "80.00%",
-      "confidence": 70,
+      "confidence": 72,
       "time": "16:00",
       "matchSemantic": "scrheind-vs-svjoskor-2026-10-31",
       "source": "poisson-v92-real-data",
@@ -3018,7 +3019,7 @@
       "xgAway": 1.75,
       "xgTotal": 3.5,
       "formBTTS": 70,
-      "analysis": "SC Rheindorf Altach : forme V-D-V-D-D (2V 0N 3D, 6 buts marqués / 8 encaissés sur 5) · SV Josko Ried : forme N-V-V-V-N (3V 2N 0D, 12 buts marqués / 7 encaissés sur 5). Classement : SC Rheindorf Altach 9e (9 pts), SV Josko Ried 6e (15 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.2 / N: 3.65 / 2: 3 · Over 2.5: 1.65. Fiabilité 89.38%.",
+      "analysis": "SC Rheindorf Altach : forme V-D-V-D-D (2V 0N 3D, 6 buts marqués / 8 encaissés sur 5) · SV Josko Ried : forme N-V-V-V-N (3V 2N 0D, 12 buts marqués / 7 encaissés sur 5). Classement : SC Rheindorf Altach 9e (9 pts), SV Josko Ried 6e (15 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.15 / N: 3.65 / 2: 3.1 · Over 2.5: 1.65. Fiabilité 89.38%.",
       "analysisData": {
         "bttsProb": 0.7,
         "over25Prob": 0.8,
@@ -3030,11 +3031,11 @@
       "estimatedCoteOver": 1.25,
       "odds": {
         "provider": "DraftKings",
-        "home": 2.2,
+        "home": 2.15,
         "draw": 3.65,
-        "away": 3,
+        "away": 3.1,
         "over25": 1.65,
-        "under25": 2.2
+        "under25": 2.15
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.43,
@@ -3156,54 +3157,52 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 72,
-          "bttsProb": 0.72,
+          "confidence": 70,
+          "bttsProb": 0.7,
           "homeLambda": 1.75,
           "awayLambda": 1.75,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.72
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 72,
-          "over25Prob": 0.76,
+          "over25Prob": 0.72,
           "homeLambda": 1.75,
           "awayLambda": 1.75,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.76
+          "proba": 0.72
         }
       ],
-      "bttsProb": 0.72,
-      "over25Prob": 0.76,
+      "bttsProb": 0.7,
+      "over25Prob": 0.72,
       "homeLambda": 1.75,
       "awayLambda": 1.75,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "SV Josko Ried affiche un taux BTTS de 100% et un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
-      "ai_analysis": "Tous les indicateurs statistiques convergent vers des buts des deux côtés et un match ouvert. Ried arrive avec une dynamique offensive maximale (100% BTTS récent) et Altach présente des vulnérabilités défensives notables justifiant amplement une sélection sur le BTTS et l'Over.",
-      "ai_analysis_en": "All statistical indicators converge towards goals on both sides and an open match. Ried arrives with maximum offensive momentum (100% recent BTTS) and Altach shows notable defensive vulnerabilities, fully justifying a selection on BTTS and Over.",
-      "ai_form_summary": "Altach : 2V-0N-3D, 6 buts pour, 8 buts contre. Ried : 3V-2N-0D, 12 buts pour, 7 buts contre.",
-      "ai_form_summary_en": "Altach: 2W-0D-3L, 6 GF, 8 GA. Ried: 3W-2D-0L, 12 GF, 7 GA.",
+      "ai_key_fact": "Les deux équipes affichent un taux Over 2.5 de 0.8 sur leurs 5 derniers matchs respectifs.",
+      "ai_analysis": "Cette rencontre de Bundesliga autrichienne présente des indicateurs très favorables pour les buts. Les deux formations affichent un taux Over 2.5 de 0.8 sur leurs 5 derniers matchs, appuyé par un taux empirique global de 0.8. La moyenne de buts par match s'établit à 1.75 pour chaque équipe, justifiant une probabilité calibrée de 0.72 sur le marché Over 2.5.",
+      "ai_analysis_en": "This Austrian Bundesliga fixture presents very favorable indicators for goals. Both sides record an Over 2.5 rate of 0.8 over their last 5 matches, supported by an overall empirical rate of 0.8. Goal averages stand at 1.75 for each side, justifying a calibrated probability of 0.72 on the Over 2.5 market.",
+      "ai_form_summary": "Altach : 2W-0D-3L (6 BP, 8 BC, over 0.8). Ried : 3W-2D-0L (12 BP, 7 BC, over 0.8).",
+      "ai_form_summary_en": "Altach: 2W-0D-3L (6 GF, 8 GA, over 0.8). Ried: 3W-2D-0L (12 GF, 7 GA, over 0.8).",
       "ai_reasons": [
-        "Le taux BTTS empirique est de 70% et le taux Over 2.5 atteint 80%.",
-        "SV Josko Ried affiche un taux BTTS de 100% sur ses 5 derniers matchs avec 12 buts marqués.",
-        "Les moyennes de buts par match sont élevées pour les deux équipes (1.75 buts pour Altach et 1.75 pour Ried)."
+        "Le taux empirique Over 2.5 atteint 0.8 pour cette confrontation.",
+        "SV Josko Ried affiche un taux BTTS de 1 et un taux Over 2.5 de 0.8 sur ses 5 derniers matchs.",
+        "SC Rheindorf Altach présente également un taux Over 2.5 de 0.8 sur sa forme récente."
       ],
       "ai_risks": [
-        "Le taux BTTS récent d'Altach est plus faible (40% sur 5 matchs).",
-        "Altach concède plus de buts (16 en 10 matchs) qu'il n'en marque."
+        "Rheindorf Altach a un bilan global de 2 victoires pour 3 défaites sur ses 5 derniers matchs.",
+        "La solidité défensive relative de certaines séquences d'Altach pourrait limiter le score."
       ],
-      "ai_confidence": "high",
+      "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.2 · N 3.65 · 2 3 · O2.5 1.65",
-      "status": "PENDING"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.65 · 2 3.1 · O2.5 1.65"
     },
     {
       "id": "columbus-vs-dcunited-2026-10-31",
@@ -4065,12 +4064,12 @@
       "away": "Internazionale",
       "league": "Serie A",
       "date": "2026-10-31",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.68,
+      "proba": 0.6,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 68,
+      "confidence": 60,
       "time": "19:45",
       "matchSemantic": "acmilan-vs-internaz-2026-10-31",
       "source": "poisson-v92-real-data",
@@ -4087,7 +4086,7 @@
       "xgAway": 2,
       "xgTotal": 4.5,
       "formBTTS": 60,
-      "analysis": "AC Milan : forme D-V-V-N-V (3V 1N 1D, 11 buts marqués / 7 encaissés sur 5) · Internazionale : forme V-V-V-V-N (4V 1N 0D, 12 buts marqués / 4 encaissés sur 5). Classement : AC Milan 5e (18 pts), Internazionale 1e (25 pts). Stats empiriques (forme récente) : buts moy. 4.5, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.4 / N: 3.55 / 2: 2 · Over 2.5: 1.63. Fiabilité 85%.",
+      "analysis": "AC Milan : forme D-V-V-N-V (3V 1N 1D, 11 buts marqués / 7 encaissés sur 5) · Internazionale : forme V-V-V-V-N (4V 1N 0D, 12 buts marqués / 4 encaissés sur 5). Classement : AC Milan 5e (18 pts), Internazionale 1e (25 pts). Stats empiriques (forme récente) : buts moy. 4.5, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.4 / N: 3.5 / 2: 2 · Over 2.5: 1.71. Fiabilité 85%.",
       "analysisData": {
         "bttsProb": 0.6,
         "over25Prob": 0.7,
@@ -4100,10 +4099,10 @@
       "odds": {
         "provider": "DraftKings",
         "home": 3.4,
-        "draw": 3.55,
+        "draw": 3.5,
         "away": 2,
-        "over25": 1.63,
-        "under25": 2.3
+        "over25": 1.71,
+        "under25": 2.1
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.67,
@@ -4225,53 +4224,53 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
-          "homeLambda": 2.5,
-          "awayLambda": 2,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 68,
-          "over25Prob": 0.68,
+          "confidence": 65,
+          "bttsProb": 0.65,
           "homeLambda": 2.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.68
+          "proba": 0.65
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "over25Prob": 0.675,
+          "homeLambda": 2.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.675
         }
       ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.68,
+      "bttsProb": 0.65,
+      "over25Prob": 0.675,
       "homeLambda": 2.5,
       "awayLambda": 2,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "L'Inter Milan affiche un taux d'Over 2.5 de 80% sur ses cinq dernières rencontres.",
-      "ai_analysis": "Les données observées mettent en évidence une forte propension aux buts, portée par un taux empirique Over 2.5 de 70% et une équipe de l'Inter Milan très offensive. Les visiteurs affichent 25 buts inscrits en 9 matchs de championnat et un taux d'Over 2.5 de 80% sur leurs cinq dernières sorties. L'AC Milan contribue avec des statistiques offensives régulières, affichant 2.5 buts de moyenne à domicile, ce qui conforte une sélection sur le marché Over 2.5.",
-      "ai_analysis_en": "Observed data highlights a strong propensity for goals, driven by an empirical Over 2.5 rate of 70% and a high-flying Inter Milan side. The visitors boast 25 goals in 9 league games and an 80% Over 2.5 rate in their last five outings. AC Milan contributes with consistent attacking returns, averaging 2.5 goals per match at home, supporting a confident selection on the Over 2.5 market.",
-      "ai_form_summary": "AC Milan (3W-1D-1L, 11 buts pour, 7 buts contre) vs Inter Milan (4W-1D-0L, 12 buts pour, 4 buts contre).",
-      "ai_form_summary_en": "AC Milan (3W-1D-1L, 11 goals for, 7 goals against) vs Inter Milan (4W-1D-0L, 12 goals for, 4 goals against).",
+      "ai_key_fact": "Internazionale présente un taux Over 2.5 de 80% sur ses cinq dernières rencontres.",
+      "ai_analysis": "Ce sommet de Serie A met aux prises deux équipes dotées de statistiques offensives solides. L'Inter se distingue avec un taux Over 2.5 impressionnant de 80% sur ses 5 derniers matchs et une moyenne de 2 buts marqués. AC Milan présente également des indicateurs favorables avec un taux BTTS de 60% et une moyenne de 2.5 buts, justifiant un intérêt prononcé pour le marché combiné BTTS et Over.",
+      "ai_analysis_en": "This Serie A clash brings together two teams with solid offensive statistics. Inter stands out with an impressive 80% Over 2.5 rate in their last 5 matches and an average of 2 goals scored. AC Milan also displays favorable indicators with a 60% BTTS rate and an average of 2.5 goals, justifying strong interest in the combined markets.",
+      "ai_form_summary": "AC Milan : D-V-V-N-V (3V-1N-1D), 11 buts pour, 7 buts contre. Inter : V-V-V-V-N (4V-1N-0D), 12 buts pour, 4 buts contre.",
+      "ai_form_summary_en": "AC Milan: D-V-V-N-V (3W-1D-1L), 11 goals for, 7 against. Inter: V-V-V-V-N (4W-1D-0L), 12 goals for, 4 against.",
       "ai_reasons": [
-        "Taux empirique Over 2.5 de 70% pour cette affiche.",
-        "Taux d'Over 2.5 de 80% sur les 5 derniers matchs de l'Inter Milan.",
-        "L'Inter dispose d'une attaque prolifique avec 25 buts inscrits en 9 matchs de Serie A."
+        "Taux Over 2.5 empirique élevé à 70% pour cette affiche.",
+        "L'Inter affiche un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
+        "Les deux équipes présentent un taux BTTS de 60% lors de leurs récents matchs."
       ],
       "ai_risks": [
-        "L'AC Milan possède un taux Over 2.5 à domicile de 60% légèrement inférieur à celui de son adversaire.",
-        "La défense de l'Inter est solide avec seulement 4 buts encaissés sur ses 5 derniers matchs."
+        "L'Inter possède une défense solide avec seulement 4 buts encaissés sur ses 5 derniers matchs.",
+        "Le classement de Serie A montre un écart de forme entre le leader et son adversaire."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.4 · N 3.55 · 2 2 · O2.5 1.63",
-      "status": "PENDING"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.4 · N 3.5 · 2 2 · O2.5 1.71"
     },
     {
       "id": "lasklinz-vs-wsgswaro-2026-10-31",
@@ -16289,7 +16288,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 5.5 · N 4.8 · 2 1.53"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 5.5 · N 4.8 · 2 1.53",
+      "status": "PENDING"
     },
     {
       "id": "barcelon-vs-alavs-2026-10-31",
@@ -16729,12 +16729,12 @@
       "away": "SV Josko Ried",
       "league": "Austrian Bundesliga",
       "date": "2026-10-31",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.7,
+      "proba": 0.72,
       "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "80.00%",
-      "confidence": 70,
+      "confidence": 72,
       "time": "16:00",
       "matchSemantic": "scrheind-vs-svjoskor-2026-10-31",
       "source": "poisson-v92-real-data",
@@ -16751,7 +16751,7 @@
       "xgAway": 1.75,
       "xgTotal": 3.5,
       "formBTTS": 70,
-      "analysis": "SC Rheindorf Altach : forme V-D-V-D-D (2V 0N 3D, 6 buts marqués / 8 encaissés sur 5) · SV Josko Ried : forme N-V-V-V-N (3V 2N 0D, 12 buts marqués / 7 encaissés sur 5). Classement : SC Rheindorf Altach 9e (9 pts), SV Josko Ried 6e (15 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.2 / N: 3.65 / 2: 3 · Over 2.5: 1.65. Fiabilité 89.38%.",
+      "analysis": "SC Rheindorf Altach : forme V-D-V-D-D (2V 0N 3D, 6 buts marqués / 8 encaissés sur 5) · SV Josko Ried : forme N-V-V-V-N (3V 2N 0D, 12 buts marqués / 7 encaissés sur 5). Classement : SC Rheindorf Altach 9e (9 pts), SV Josko Ried 6e (15 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.15 / N: 3.65 / 2: 3.1 · Over 2.5: 1.65. Fiabilité 89.38%.",
       "analysisData": {
         "bttsProb": 0.7,
         "over25Prob": 0.8,
@@ -16763,11 +16763,11 @@
       "estimatedCoteOver": 1.25,
       "odds": {
         "provider": "DraftKings",
-        "home": 2.2,
+        "home": 2.15,
         "draw": 3.65,
-        "away": 3,
+        "away": 3.1,
         "over25": 1.65,
-        "under25": 2.2
+        "under25": 2.15
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.43,
@@ -16889,54 +16889,52 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 72,
-          "bttsProb": 0.72,
+          "confidence": 70,
+          "bttsProb": 0.7,
           "homeLambda": 1.75,
           "awayLambda": 1.75,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.72
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 72,
-          "over25Prob": 0.76,
+          "over25Prob": 0.72,
           "homeLambda": 1.75,
           "awayLambda": 1.75,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.76
+          "proba": 0.72
         }
       ],
-      "bttsProb": 0.72,
-      "over25Prob": 0.76,
+      "bttsProb": 0.7,
+      "over25Prob": 0.72,
       "homeLambda": 1.75,
       "awayLambda": 1.75,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "SV Josko Ried affiche un taux BTTS de 100% et un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
-      "ai_analysis": "Tous les indicateurs statistiques convergent vers des buts des deux côtés et un match ouvert. Ried arrive avec une dynamique offensive maximale (100% BTTS récent) et Altach présente des vulnérabilités défensives notables justifiant amplement une sélection sur le BTTS et l'Over.",
-      "ai_analysis_en": "All statistical indicators converge towards goals on both sides and an open match. Ried arrives with maximum offensive momentum (100% recent BTTS) and Altach shows notable defensive vulnerabilities, fully justifying a selection on BTTS and Over.",
-      "ai_form_summary": "Altach : 2V-0N-3D, 6 buts pour, 8 buts contre. Ried : 3V-2N-0D, 12 buts pour, 7 buts contre.",
-      "ai_form_summary_en": "Altach: 2W-0D-3L, 6 GF, 8 GA. Ried: 3W-2D-0L, 12 GF, 7 GA.",
+      "ai_key_fact": "Les deux équipes affichent un taux Over 2.5 de 0.8 sur leurs 5 derniers matchs respectifs.",
+      "ai_analysis": "Cette rencontre de Bundesliga autrichienne présente des indicateurs très favorables pour les buts. Les deux formations affichent un taux Over 2.5 de 0.8 sur leurs 5 derniers matchs, appuyé par un taux empirique global de 0.8. La moyenne de buts par match s'établit à 1.75 pour chaque équipe, justifiant une probabilité calibrée de 0.72 sur le marché Over 2.5.",
+      "ai_analysis_en": "This Austrian Bundesliga fixture presents very favorable indicators for goals. Both sides record an Over 2.5 rate of 0.8 over their last 5 matches, supported by an overall empirical rate of 0.8. Goal averages stand at 1.75 for each side, justifying a calibrated probability of 0.72 on the Over 2.5 market.",
+      "ai_form_summary": "Altach : 2W-0D-3L (6 BP, 8 BC, over 0.8). Ried : 3W-2D-0L (12 BP, 7 BC, over 0.8).",
+      "ai_form_summary_en": "Altach: 2W-0D-3L (6 GF, 8 GA, over 0.8). Ried: 3W-2D-0L (12 GF, 7 GA, over 0.8).",
       "ai_reasons": [
-        "Le taux BTTS empirique est de 70% et le taux Over 2.5 atteint 80%.",
-        "SV Josko Ried affiche un taux BTTS de 100% sur ses 5 derniers matchs avec 12 buts marqués.",
-        "Les moyennes de buts par match sont élevées pour les deux équipes (1.75 buts pour Altach et 1.75 pour Ried)."
+        "Le taux empirique Over 2.5 atteint 0.8 pour cette confrontation.",
+        "SV Josko Ried affiche un taux BTTS de 1 et un taux Over 2.5 de 0.8 sur ses 5 derniers matchs.",
+        "SC Rheindorf Altach présente également un taux Over 2.5 de 0.8 sur sa forme récente."
       ],
       "ai_risks": [
-        "Le taux BTTS récent d'Altach est plus faible (40% sur 5 matchs).",
-        "Altach concède plus de buts (16 en 10 matchs) qu'il n'en marque."
+        "Rheindorf Altach a un bilan global de 2 victoires pour 3 défaites sur ses 5 derniers matchs.",
+        "La solidité défensive relative de certaines séquences d'Altach pourrait limiter le score."
       ],
-      "ai_confidence": "high",
+      "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.2 · N 3.65 · 2 3 · O2.5 1.65",
-      "status": "PENDING"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.65 · 2 3.1 · O2.5 1.65"
     },
     {
       "id": "columbus-vs-dcunited-2026-10-31",
@@ -17798,12 +17796,12 @@
       "away": "Internazionale",
       "league": "Serie A",
       "date": "2026-10-31",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.68,
+      "proba": 0.6,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 68,
+      "confidence": 60,
       "time": "19:45",
       "matchSemantic": "acmilan-vs-internaz-2026-10-31",
       "source": "poisson-v92-real-data",
@@ -17820,7 +17818,7 @@
       "xgAway": 2,
       "xgTotal": 4.5,
       "formBTTS": 60,
-      "analysis": "AC Milan : forme D-V-V-N-V (3V 1N 1D, 11 buts marqués / 7 encaissés sur 5) · Internazionale : forme V-V-V-V-N (4V 1N 0D, 12 buts marqués / 4 encaissés sur 5). Classement : AC Milan 5e (18 pts), Internazionale 1e (25 pts). Stats empiriques (forme récente) : buts moy. 4.5, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.4 / N: 3.55 / 2: 2 · Over 2.5: 1.63. Fiabilité 85%.",
+      "analysis": "AC Milan : forme D-V-V-N-V (3V 1N 1D, 11 buts marqués / 7 encaissés sur 5) · Internazionale : forme V-V-V-V-N (4V 1N 0D, 12 buts marqués / 4 encaissés sur 5). Classement : AC Milan 5e (18 pts), Internazionale 1e (25 pts). Stats empiriques (forme récente) : buts moy. 4.5, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.4 / N: 3.5 / 2: 2 · Over 2.5: 1.71. Fiabilité 85%.",
       "analysisData": {
         "bttsProb": 0.6,
         "over25Prob": 0.7,
@@ -17833,10 +17831,10 @@
       "odds": {
         "provider": "DraftKings",
         "home": 3.4,
-        "draw": 3.55,
+        "draw": 3.5,
         "away": 2,
-        "over25": 1.63,
-        "under25": 2.3
+        "over25": 1.71,
+        "under25": 2.1
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.67,
@@ -17958,53 +17956,53 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
-          "homeLambda": 2.5,
-          "awayLambda": 2,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 68,
-          "over25Prob": 0.68,
+          "confidence": 65,
+          "bttsProb": 0.65,
           "homeLambda": 2.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.68
+          "proba": 0.65
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "over25Prob": 0.675,
+          "homeLambda": 2.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.675
         }
       ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.68,
+      "bttsProb": 0.65,
+      "over25Prob": 0.675,
       "homeLambda": 2.5,
       "awayLambda": 2,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "L'Inter Milan affiche un taux d'Over 2.5 de 80% sur ses cinq dernières rencontres.",
-      "ai_analysis": "Les données observées mettent en évidence une forte propension aux buts, portée par un taux empirique Over 2.5 de 70% et une équipe de l'Inter Milan très offensive. Les visiteurs affichent 25 buts inscrits en 9 matchs de championnat et un taux d'Over 2.5 de 80% sur leurs cinq dernières sorties. L'AC Milan contribue avec des statistiques offensives régulières, affichant 2.5 buts de moyenne à domicile, ce qui conforte une sélection sur le marché Over 2.5.",
-      "ai_analysis_en": "Observed data highlights a strong propensity for goals, driven by an empirical Over 2.5 rate of 70% and a high-flying Inter Milan side. The visitors boast 25 goals in 9 league games and an 80% Over 2.5 rate in their last five outings. AC Milan contributes with consistent attacking returns, averaging 2.5 goals per match at home, supporting a confident selection on the Over 2.5 market.",
-      "ai_form_summary": "AC Milan (3W-1D-1L, 11 buts pour, 7 buts contre) vs Inter Milan (4W-1D-0L, 12 buts pour, 4 buts contre).",
-      "ai_form_summary_en": "AC Milan (3W-1D-1L, 11 goals for, 7 goals against) vs Inter Milan (4W-1D-0L, 12 goals for, 4 goals against).",
+      "ai_key_fact": "Internazionale présente un taux Over 2.5 de 80% sur ses cinq dernières rencontres.",
+      "ai_analysis": "Ce sommet de Serie A met aux prises deux équipes dotées de statistiques offensives solides. L'Inter se distingue avec un taux Over 2.5 impressionnant de 80% sur ses 5 derniers matchs et une moyenne de 2 buts marqués. AC Milan présente également des indicateurs favorables avec un taux BTTS de 60% et une moyenne de 2.5 buts, justifiant un intérêt prononcé pour le marché combiné BTTS et Over.",
+      "ai_analysis_en": "This Serie A clash brings together two teams with solid offensive statistics. Inter stands out with an impressive 80% Over 2.5 rate in their last 5 matches and an average of 2 goals scored. AC Milan also displays favorable indicators with a 60% BTTS rate and an average of 2.5 goals, justifying strong interest in the combined markets.",
+      "ai_form_summary": "AC Milan : D-V-V-N-V (3V-1N-1D), 11 buts pour, 7 buts contre. Inter : V-V-V-V-N (4V-1N-0D), 12 buts pour, 4 buts contre.",
+      "ai_form_summary_en": "AC Milan: D-V-V-N-V (3W-1D-1L), 11 goals for, 7 against. Inter: V-V-V-V-N (4W-1D-0L), 12 goals for, 4 against.",
       "ai_reasons": [
-        "Taux empirique Over 2.5 de 70% pour cette affiche.",
-        "Taux d'Over 2.5 de 80% sur les 5 derniers matchs de l'Inter Milan.",
-        "L'Inter dispose d'une attaque prolifique avec 25 buts inscrits en 9 matchs de Serie A."
+        "Taux Over 2.5 empirique élevé à 70% pour cette affiche.",
+        "L'Inter affiche un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
+        "Les deux équipes présentent un taux BTTS de 60% lors de leurs récents matchs."
       ],
       "ai_risks": [
-        "L'AC Milan possède un taux Over 2.5 à domicile de 60% légèrement inférieur à celui de son adversaire.",
-        "La défense de l'Inter est solide avec seulement 4 buts encaissés sur ses 5 derniers matchs."
+        "L'Inter possède une défense solide avec seulement 4 buts encaissés sur ses 5 derniers matchs.",
+        "Le classement de Serie A montre un écart de forme entre le leader et son adversaire."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.4 · N 3.55 · 2 2 · O2.5 1.63",
-      "status": "PENDING"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.4 · N 3.5 · 2 2 · O2.5 1.71"
     },
     {
       "id": "lasklinz-vs-wsgswaro-2026-10-31",
