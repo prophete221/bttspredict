@@ -1,6 +1,6 @@
 {
   "date": "2026-10-31",
-  "lastUpdated": "2026-10-31T20:33:46.889Z",
+  "lastUpdated": "2026-10-31T20:53:57.201Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -4260,7 +4260,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.8 · N 3.95 · 2 2.3"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.8 · N 3.95 · 2 2.3",
+      "status": "PENDING"
     },
     {
       "id": "bodoglim-vs-lille-2026-11-03",
@@ -4689,7 +4690,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.3 · N 4.3 · 2 1.71"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.3 · N 4.3 · 2 1.71",
+      "status": "PENDING"
     },
     {
       "id": "manchest-vs-asroma-2026-11-03",
@@ -4913,12 +4915,12 @@
       "away": "Paris Saint-Germain",
       "league": "UEFA Champions League",
       "date": "2026-11-03",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.62,
+      "proba": 0.6,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "60.00%",
-      "confidence": 62,
+      "confidence": 60,
       "time": "20:00",
       "matchSemantic": "villarre-vs-parissai-2026-11-03",
       "source": "poisson-v92-real-data",
@@ -5073,48 +5075,49 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
-          "homeLambda": 1.5,
-          "awayLambda": 2,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
           "confidence": 62,
-          "over25Prob": 0.62,
+          "bttsProb": 0.62,
           "homeLambda": 1.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
           "proba": 0.62
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 62,
+          "over25Prob": 0.61,
+          "homeLambda": 1.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.61
         }
       ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.62,
+      "bttsProb": 0.62,
+      "over25Prob": 0.61,
       "homeLambda": 1.5,
       "awayLambda": 2,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Le Paris Saint-Germain a marqué 14 buts en 3 matchs de Ligue des Champions.",
-      "ai_analysis": "Le Paris Saint-Germain domine son groupe avec 14 buts marqués et affiche une excellente dynamique offensive. Villarreal encaisse beaucoup de buts (8 en 3 matchs) mais reste capable de marquer. Les taux empiriques d'Over 2.5 à 60% pour les deux équipes soutiennent l'option d'un match ouvert.",
-      "ai_analysis_en": "Paris Saint-Germain dominates their group with 14 goals scored and shows an excellent offensive dynamic. Villarreal concedes many goals (8 in 3 matches) but remains capable of scoring. The empirical Over 2.5 rates of 60% for both teams support the option of an open match.",
-      "ai_form_summary": "Villarreal : 3V-1N-1D, 8 buts marqués, 4 encaissés, BTTS 60%, Over 60%. Paris Saint-Germain : 5V-0N-0D, 11 buts marqués, 3 encaissés, BTTS 60%, Over 60%.",
-      "ai_form_summary_en": "Villarreal: 3W-1D-1L, 8 goals for, 4 against, BTTS 60%, Over 60%. Paris Saint-Germain: 5W-0D-0L, 11 goals for, 3 against, BTTS 60%, Over 60%.",
+      "ai_key_fact": "Le PSG affiche 14 buts marqués en 3 matchs de Ligue des Champions pour seulement 5 encaissés.",
+      "ai_analysis": "Le Paris Saint-Germain se déplace en position de force avec une série de cinq victoires consécutives et une moyenne de deux buts par match à l'extérieur. Villarreal, malgré un classement délicat en Ligue des Champions (19ème), maintient un taux BTTS et Over 2.5 de 60% ainsi qu'une moyenne offensive respectable de 1.5 but à domicile. Les statistiques empiriques soutiennent une rencontre animée avec des buts des deux côtés.",
+      "ai_analysis_en": "Paris Saint-Germain travels in a strong position with a five-match winning streak and an average of two goals per away match. Villarreal, despite a tricky Champions League ranking (19th), maintains a 60% empirical BTTS and Over 2.5 rate along with a respectable 1.5 home scoring average. Empirical statistics support an open match with goals at both ends.",
+      "ai_form_summary": "Villarreal : 3V-1D-1L (8 BP, 4 BC) | PSG : 5V-0D-0L (11 BP, 3 BC)",
+      "ai_form_summary_en": "Villarreal: 3W-1D-1L (8 GF, 4 GA) | PSG: 5W-0D-0L (11 GF, 3 GA)",
       "ai_reasons": [
-        "Taux empirique Over 2.5 de 60% pour Villarreal et le Paris Saint-Germain.",
-        "Le Paris Saint-Germain affiche une attaque prolifique avec 14 buts inscrits en 3 matchs de phase de groupes.",
-        "Villarreal concède également beaucoup de buts avec 8 buts encaissés en 3 matchs de Ligue des Champions."
+        "Les deux équipes affichent un taux BTTS empirique solide de 60%.",
+        "Villarreal marque en moyenne 1.5 buts par match à domicile malgré un classement difficile.",
+        "Le PSG présente une forme étincelante (5 victoires consécutives) avec une moyenne de 2 buts par match à l'extérieur."
       ],
       "ai_risks": [
-        "Villarreal a montré une solidité relative par moments malgré ses 8 buts encaissés en C1.",
-        "L'écart de points au classement (9 points pour le PSG contre 3 pour Villarreal) pourrait influencer la physionomie du match."
+        "La défense parisienne est performante avec seulement 3 buts encaissés sur ses 5 derniers matchs.",
+        "Villarreal est classé 19ème en Ligue des Champions, ce qui pourrait limiter leur efficacité offensive face au leader."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -5549,7 +5552,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 4.1 · 2 3"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 4.1 · 2 3",
+      "status": "PENDING"
     },
     {
       "id": "lens-vs-como-2026-11-04",
@@ -5981,71 +5985,64 @@
       "away": "Middlesbrough",
       "league": "Championship",
       "date": "2026-11-04",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.6,
-      "bttsProbDisplay": "60.00%",
-      "over25ProbDisplay": "60.00%",
-      "confidence": 60,
+      "proba": 0.72,
+      "bttsProbDisplay": "80.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 72,
       "time": "19:45",
       "matchSemantic": "wrexham-vs-middlesb-2026-11-04",
       "source": "poisson-v92-real-data",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/352.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/369.png",
       "tier": "GOLD",
-      "reliabilityScore": 85,
+      "reliabilityScore": 93.75,
       "dataQuality": "HIGH",
       "dataSource": "ESPN_TEAM_SCHEDULE",
       "matchCountHome": 8,
       "matchCountAway": 8,
       "h2hAvailable": false,
       "xgHome": 2,
-      "xgAway": 3.33,
-      "xgTotal": 5.33,
-      "formBTTS": 60,
-      "analysis": "Wrexham : forme D-D-V-D-N (1V 1N 3D, 6 buts marqués / 7 encaissés sur 5) · Middlesbrough : forme V-V-N-V-V (4V 1N 0D, 14 buts marqués / 5 encaissés sur 5). Classement : Wrexham 18e (14 pts), Middlesbrough 1e (28 pts). Stats empiriques (forme récente) : buts moy. 5.33, BTTS 60.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 4 / N: 3.95 / 2: 1.8 · Over 2.5: 1.67. Fiabilité 85%.",
+      "xgAway": 2.75,
+      "xgTotal": 4.75,
+      "formBTTS": 80,
+      "analysis": "Wrexham : forme D-V-D-N-V (2V 1N 2D, 8 buts marqués / 7 encaissés sur 5) · Middlesbrough : forme V-N-V-V-N (3V 2N 0D, 13 buts marqués / 7 encaissés sur 5). Classement : Wrexham 17e (14 pts), Middlesbrough 1e (25 pts). Stats empiriques (forme récente) : buts moy. 4.75, BTTS 80.0%, Over 2.5 70.0%. Affinage AI ensuite. Fiabilité 93.75%.",
       "analysisData": {
-        "bttsProb": 0.6,
-        "over25Prob": 0.6,
+        "bttsProb": 0.8,
+        "over25Prob": 0.7,
         "homeLambda": 2,
-        "awayLambda": 3.33,
-        "xgTotal": 5.33
+        "awayLambda": 2.75,
+        "xgTotal": 4.75
       },
-      "estimatedCote": 1.67,
-      "estimatedCoteOver": 1.67,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 4,
-        "draw": 3.95,
-        "away": 1.8,
-        "over25": 1.67,
-        "under25": 2.15
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.67,
+      "estimatedCote": 1.25,
+      "estimatedCoteOver": 1.43,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.25,
       "formHome": {
-        "last5String": "D-D-V-D-N",
-        "wins": 1,
+        "last5String": "D-V-D-N-V",
+        "wins": 2,
         "draws": 1,
-        "losses": 3,
-        "goalsFor": 6,
+        "losses": 2,
+        "goalsFor": 8,
         "goalsAgainst": 7,
-        "bttsRate": 0.6,
-        "over25Rate": 0.4,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
         "cleanSheets": 0,
-        "failedToScore": 2,
+        "failedToScore": 1,
         "count": 5
       },
       "formAway": {
-        "last5String": "V-V-N-V-V",
-        "wins": 4,
-        "draws": 1,
+        "last5String": "V-N-V-V-N",
+        "wins": 3,
+        "draws": 2,
         "losses": 0,
-        "goalsFor": 14,
-        "goalsAgainst": 5,
-        "bttsRate": 0.6,
+        "goalsFor": 13,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
         "over25Rate": 0.8,
-        "cleanSheets": 2,
+        "cleanSheets": 1,
         "failedToScore": 0,
         "count": 5
       },
@@ -6124,67 +6121,70 @@
         }
       ],
       "standingsHome": {
-        "rank": 18,
+        "rank": 17,
         "points": 14,
-        "played": 13,
+        "played": 12,
         "gf": 15,
-        "ga": 19
+        "ga": 18
       },
       "standingsAway": {
         "rank": 1,
-        "points": 28,
-        "played": 13,
-        "gf": 30,
+        "points": 25,
+        "played": 12,
+        "gf": 27,
         "ga": 17
       },
       "predictions": [
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
+          "confidence": 72,
+          "bttsProb": 0.72,
           "homeLambda": 2,
-          "awayLambda": 3.33,
+          "awayLambda": 2.75,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "statsOnly": true,
+          "proba": 0.72
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 60,
-          "over25Prob": 0.6,
+          "confidence": 70,
+          "over25Prob": 0.7,
           "homeLambda": 2,
-          "awayLambda": 3.33,
+          "awayLambda": 2.75,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.6
+          "statsOnly": true
         }
       ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.6,
+      "bttsProb": 0.72,
+      "over25Prob": 0.7,
       "homeLambda": 2,
-      "awayLambda": 3.33,
+      "awayLambda": 2.75,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Form signals BTTS 60% / Over 60%",
-      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 60.0%, Over 2.5 empirique 60.0% pour Wrexham vs Middlesbrough. Décision : OVER_25.",
-      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 60.0%, Over 2.5 60.0% for Wrexham vs Middlesbrough. Decision: OVER_25.",
-      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 60.0%, Over 2.5 empirique 60.0% pour Wrexham vs Middlesbrough. Décision : OV",
-      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 60.0%, Over 2.5 60.0% for Wrexham vs Middlesbrough. Decision: OVER_25.",
+      "ai_key_fact": "Middlesbrough est leader avec 27 buts marqués, combiné à un taux BTTS de 80% pour les deux équipes.",
+      "ai_analysis": "La confrontation entre Wrexham et le leader Middlesbrough réunit des statistiques offensives intéressantes. Les deux équipes affichent un taux BTTS de 80% et des moyennes de buts élevées, notamment Middlesbrough avec 2.75 buts par match à l'extérieur, ce qui rend l'option des deux équipes marquantes très probable.",
+      "ai_analysis_en": "The clash between Wrexham and leaders Middlesbrough brings together compelling offensive stats. Both teams show an 80% BTTS rate and high goal averages, notably Middlesbrough with 2.75 goals per away match, making BTTS a very probable outcome.",
+      "ai_form_summary": "Wrexham (2W-1D-2L) a inscrit 8 buts et en a concédé 7 récemment, alors que Middlesbrough (3W-2D-0L) est invaincu avec 13 buts marqués.",
+      "ai_form_summary_en": "Wrexham (2W-1D-2L) scored 8 and conceded 7 recently, whereas Middlesbrough (3W-2D-0L) is unbeaten with 13 goals scored.",
       "ai_reasons": [
-        "Empirical BTTS rate ~60%",
-        "Empirical Over 2.5 rate ~60%"
+        "Taux BTTS empirique de 80% pour Wrexham et Middlesbrough sur leurs échantillons respectifs.",
+        "Middlesbrough possède la meilleure attaque du championnat avec 27 buts marqués en 12 matchs.",
+        "Wrexham affiche une moyenne de 2 buts marqués par match à domicile."
       ],
       "ai_risks": [
-        "Sample limited to recent matches; form can shift quickly."
+        "Middlesbrough est le leader du championnat (1er) avec une assise défensive solide malgré 17 buts encaissés.",
+        "Le taux Over 2.5 est de 70% ce qui laisse une incertitude sur le volume global."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "local-empirical-v1",
+      "ai_market": "BTTS",
+      "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4 · N 3.95 · 2 1.8 · O2.5 1.67"
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "borussia-vs-realbeti-2026-11-04",
@@ -6396,7 +6396,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.71 · N 4.2 · 2 4.3"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.71 · N 4.2 · 2 4.3",
+      "status": "PENDING"
     },
     {
       "id": "rbleipzi-vs-manchest-2026-11-04",
@@ -8532,7 +8533,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2 · N 3.75 · 2 3.35 · O2.5 1.65"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2 · N 3.75 · 2 3.35 · O2.5 1.65",
+      "status": "PENDING"
     }
   ],
   "vipPreview": [
@@ -12875,7 +12877,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.8 · N 3.95 · 2 2.3"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.8 · N 3.95 · 2 2.3",
+      "status": "PENDING"
     },
     {
       "id": "bodoglim-vs-lille-2026-11-03",
@@ -13304,7 +13307,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.3 · N 4.3 · 2 1.71"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.3 · N 4.3 · 2 1.71",
+      "status": "PENDING"
     },
     {
       "id": "manchest-vs-asroma-2026-11-03",
@@ -13528,12 +13532,12 @@
       "away": "Paris Saint-Germain",
       "league": "UEFA Champions League",
       "date": "2026-11-03",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.62,
+      "proba": 0.6,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "60.00%",
-      "confidence": 62,
+      "confidence": 60,
       "time": "20:00",
       "matchSemantic": "villarre-vs-parissai-2026-11-03",
       "source": "poisson-v92-real-data",
@@ -13688,48 +13692,49 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
-          "homeLambda": 1.5,
-          "awayLambda": 2,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
           "confidence": 62,
-          "over25Prob": 0.62,
+          "bttsProb": 0.62,
           "homeLambda": 1.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
           "proba": 0.62
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 62,
+          "over25Prob": 0.61,
+          "homeLambda": 1.5,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.61
         }
       ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.62,
+      "bttsProb": 0.62,
+      "over25Prob": 0.61,
       "homeLambda": 1.5,
       "awayLambda": 2,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Le Paris Saint-Germain a marqué 14 buts en 3 matchs de Ligue des Champions.",
-      "ai_analysis": "Le Paris Saint-Germain domine son groupe avec 14 buts marqués et affiche une excellente dynamique offensive. Villarreal encaisse beaucoup de buts (8 en 3 matchs) mais reste capable de marquer. Les taux empiriques d'Over 2.5 à 60% pour les deux équipes soutiennent l'option d'un match ouvert.",
-      "ai_analysis_en": "Paris Saint-Germain dominates their group with 14 goals scored and shows an excellent offensive dynamic. Villarreal concedes many goals (8 in 3 matches) but remains capable of scoring. The empirical Over 2.5 rates of 60% for both teams support the option of an open match.",
-      "ai_form_summary": "Villarreal : 3V-1N-1D, 8 buts marqués, 4 encaissés, BTTS 60%, Over 60%. Paris Saint-Germain : 5V-0N-0D, 11 buts marqués, 3 encaissés, BTTS 60%, Over 60%.",
-      "ai_form_summary_en": "Villarreal: 3W-1D-1L, 8 goals for, 4 against, BTTS 60%, Over 60%. Paris Saint-Germain: 5W-0D-0L, 11 goals for, 3 against, BTTS 60%, Over 60%.",
+      "ai_key_fact": "Le PSG affiche 14 buts marqués en 3 matchs de Ligue des Champions pour seulement 5 encaissés.",
+      "ai_analysis": "Le Paris Saint-Germain se déplace en position de force avec une série de cinq victoires consécutives et une moyenne de deux buts par match à l'extérieur. Villarreal, malgré un classement délicat en Ligue des Champions (19ème), maintient un taux BTTS et Over 2.5 de 60% ainsi qu'une moyenne offensive respectable de 1.5 but à domicile. Les statistiques empiriques soutiennent une rencontre animée avec des buts des deux côtés.",
+      "ai_analysis_en": "Paris Saint-Germain travels in a strong position with a five-match winning streak and an average of two goals per away match. Villarreal, despite a tricky Champions League ranking (19th), maintains a 60% empirical BTTS and Over 2.5 rate along with a respectable 1.5 home scoring average. Empirical statistics support an open match with goals at both ends.",
+      "ai_form_summary": "Villarreal : 3V-1D-1L (8 BP, 4 BC) | PSG : 5V-0D-0L (11 BP, 3 BC)",
+      "ai_form_summary_en": "Villarreal: 3W-1D-1L (8 GF, 4 GA) | PSG: 5W-0D-0L (11 GF, 3 GA)",
       "ai_reasons": [
-        "Taux empirique Over 2.5 de 60% pour Villarreal et le Paris Saint-Germain.",
-        "Le Paris Saint-Germain affiche une attaque prolifique avec 14 buts inscrits en 3 matchs de phase de groupes.",
-        "Villarreal concède également beaucoup de buts avec 8 buts encaissés en 3 matchs de Ligue des Champions."
+        "Les deux équipes affichent un taux BTTS empirique solide de 60%.",
+        "Villarreal marque en moyenne 1.5 buts par match à domicile malgré un classement difficile.",
+        "Le PSG présente une forme étincelante (5 victoires consécutives) avec une moyenne de 2 buts par match à l'extérieur."
       ],
       "ai_risks": [
-        "Villarreal a montré une solidité relative par moments malgré ses 8 buts encaissés en C1.",
-        "L'écart de points au classement (9 points pour le PSG contre 3 pour Villarreal) pourrait influencer la physionomie du match."
+        "La défense parisienne est performante avec seulement 3 buts encaissés sur ses 5 derniers matchs.",
+        "Villarreal est classé 19ème en Ligue des Champions, ce qui pourrait limiter leur efficacité offensive face au leader."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -14164,7 +14169,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 4.1 · 2 3"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 4.1 · 2 3",
+      "status": "PENDING"
     },
     {
       "id": "lens-vs-como-2026-11-04",
@@ -14596,71 +14602,64 @@
       "away": "Middlesbrough",
       "league": "Championship",
       "date": "2026-11-04",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.6,
-      "bttsProbDisplay": "60.00%",
-      "over25ProbDisplay": "60.00%",
-      "confidence": 60,
+      "proba": 0.72,
+      "bttsProbDisplay": "80.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 72,
       "time": "19:45",
       "matchSemantic": "wrexham-vs-middlesb-2026-11-04",
       "source": "poisson-v92-real-data",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/352.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/369.png",
       "tier": "GOLD",
-      "reliabilityScore": 85,
+      "reliabilityScore": 93.75,
       "dataQuality": "HIGH",
       "dataSource": "ESPN_TEAM_SCHEDULE",
       "matchCountHome": 8,
       "matchCountAway": 8,
       "h2hAvailable": false,
       "xgHome": 2,
-      "xgAway": 3.33,
-      "xgTotal": 5.33,
-      "formBTTS": 60,
-      "analysis": "Wrexham : forme D-D-V-D-N (1V 1N 3D, 6 buts marqués / 7 encaissés sur 5) · Middlesbrough : forme V-V-N-V-V (4V 1N 0D, 14 buts marqués / 5 encaissés sur 5). Classement : Wrexham 18e (14 pts), Middlesbrough 1e (28 pts). Stats empiriques (forme récente) : buts moy. 5.33, BTTS 60.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 4 / N: 3.95 / 2: 1.8 · Over 2.5: 1.67. Fiabilité 85%.",
+      "xgAway": 2.75,
+      "xgTotal": 4.75,
+      "formBTTS": 80,
+      "analysis": "Wrexham : forme D-V-D-N-V (2V 1N 2D, 8 buts marqués / 7 encaissés sur 5) · Middlesbrough : forme V-N-V-V-N (3V 2N 0D, 13 buts marqués / 7 encaissés sur 5). Classement : Wrexham 17e (14 pts), Middlesbrough 1e (25 pts). Stats empiriques (forme récente) : buts moy. 4.75, BTTS 80.0%, Over 2.5 70.0%. Affinage AI ensuite. Fiabilité 93.75%.",
       "analysisData": {
-        "bttsProb": 0.6,
-        "over25Prob": 0.6,
+        "bttsProb": 0.8,
+        "over25Prob": 0.7,
         "homeLambda": 2,
-        "awayLambda": 3.33,
-        "xgTotal": 5.33
+        "awayLambda": 2.75,
+        "xgTotal": 4.75
       },
-      "estimatedCote": 1.67,
-      "estimatedCoteOver": 1.67,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 4,
-        "draw": 3.95,
-        "away": 1.8,
-        "over25": 1.67,
-        "under25": 2.15
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.67,
+      "estimatedCote": 1.25,
+      "estimatedCoteOver": 1.43,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.25,
       "formHome": {
-        "last5String": "D-D-V-D-N",
-        "wins": 1,
+        "last5String": "D-V-D-N-V",
+        "wins": 2,
         "draws": 1,
-        "losses": 3,
-        "goalsFor": 6,
+        "losses": 2,
+        "goalsFor": 8,
         "goalsAgainst": 7,
-        "bttsRate": 0.6,
-        "over25Rate": 0.4,
+        "bttsRate": 0.8,
+        "over25Rate": 0.6,
         "cleanSheets": 0,
-        "failedToScore": 2,
+        "failedToScore": 1,
         "count": 5
       },
       "formAway": {
-        "last5String": "V-V-N-V-V",
-        "wins": 4,
-        "draws": 1,
+        "last5String": "V-N-V-V-N",
+        "wins": 3,
+        "draws": 2,
         "losses": 0,
-        "goalsFor": 14,
-        "goalsAgainst": 5,
-        "bttsRate": 0.6,
+        "goalsFor": 13,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
         "over25Rate": 0.8,
-        "cleanSheets": 2,
+        "cleanSheets": 1,
         "failedToScore": 0,
         "count": 5
       },
@@ -14739,67 +14738,70 @@
         }
       ],
       "standingsHome": {
-        "rank": 18,
+        "rank": 17,
         "points": 14,
-        "played": 13,
+        "played": 12,
         "gf": 15,
-        "ga": 19
+        "ga": 18
       },
       "standingsAway": {
         "rank": 1,
-        "points": 28,
-        "played": 13,
-        "gf": 30,
+        "points": 25,
+        "played": 12,
+        "gf": 27,
         "ga": 17
       },
       "predictions": [
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
+          "confidence": 72,
+          "bttsProb": 0.72,
           "homeLambda": 2,
-          "awayLambda": 3.33,
+          "awayLambda": 2.75,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "statsOnly": true,
+          "proba": 0.72
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 60,
-          "over25Prob": 0.6,
+          "confidence": 70,
+          "over25Prob": 0.7,
           "homeLambda": 2,
-          "awayLambda": 3.33,
+          "awayLambda": 2.75,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.6
+          "statsOnly": true
         }
       ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.6,
+      "bttsProb": 0.72,
+      "over25Prob": 0.7,
       "homeLambda": 2,
-      "awayLambda": 3.33,
+      "awayLambda": 2.75,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Form signals BTTS 60% / Over 60%",
-      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 60.0%, Over 2.5 empirique 60.0% pour Wrexham vs Middlesbrough. Décision : OVER_25.",
-      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 60.0%, Over 2.5 60.0% for Wrexham vs Middlesbrough. Decision: OVER_25.",
-      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 60.0%, Over 2.5 empirique 60.0% pour Wrexham vs Middlesbrough. Décision : OV",
-      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 60.0%, Over 2.5 60.0% for Wrexham vs Middlesbrough. Decision: OVER_25.",
+      "ai_key_fact": "Middlesbrough est leader avec 27 buts marqués, combiné à un taux BTTS de 80% pour les deux équipes.",
+      "ai_analysis": "La confrontation entre Wrexham et le leader Middlesbrough réunit des statistiques offensives intéressantes. Les deux équipes affichent un taux BTTS de 80% et des moyennes de buts élevées, notamment Middlesbrough avec 2.75 buts par match à l'extérieur, ce qui rend l'option des deux équipes marquantes très probable.",
+      "ai_analysis_en": "The clash between Wrexham and leaders Middlesbrough brings together compelling offensive stats. Both teams show an 80% BTTS rate and high goal averages, notably Middlesbrough with 2.75 goals per away match, making BTTS a very probable outcome.",
+      "ai_form_summary": "Wrexham (2W-1D-2L) a inscrit 8 buts et en a concédé 7 récemment, alors que Middlesbrough (3W-2D-0L) est invaincu avec 13 buts marqués.",
+      "ai_form_summary_en": "Wrexham (2W-1D-2L) scored 8 and conceded 7 recently, whereas Middlesbrough (3W-2D-0L) is unbeaten with 13 goals scored.",
       "ai_reasons": [
-        "Empirical BTTS rate ~60%",
-        "Empirical Over 2.5 rate ~60%"
+        "Taux BTTS empirique de 80% pour Wrexham et Middlesbrough sur leurs échantillons respectifs.",
+        "Middlesbrough possède la meilleure attaque du championnat avec 27 buts marqués en 12 matchs.",
+        "Wrexham affiche une moyenne de 2 buts marqués par match à domicile."
       ],
       "ai_risks": [
-        "Sample limited to recent matches; form can shift quickly."
+        "Middlesbrough est le leader du championnat (1er) avec une assise défensive solide malgré 17 buts encaissés.",
+        "Le taux Over 2.5 est de 70% ce qui laisse une incertitude sur le volume global."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "local-empirical-v1",
+      "ai_market": "BTTS",
+      "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4 · N 3.95 · 2 1.8 · O2.5 1.67"
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "borussia-vs-realbeti-2026-11-04",
@@ -15011,7 +15013,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.71 · N 4.2 · 2 4.3"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.71 · N 4.2 · 2 4.3",
+      "status": "PENDING"
     },
     {
       "id": "rbleipzi-vs-manchest-2026-11-04",
@@ -17147,7 +17150,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2 · N 3.75 · 2 3.35 · O2.5 1.65"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2 · N 3.75 · 2 3.35 · O2.5 1.65",
+      "status": "PENDING"
     }
   ],
   "analysisEngine": "gemini-stats-v1"
