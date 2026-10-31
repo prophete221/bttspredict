@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-10-31T16:43:06.245Z",
+  "generatedAt": "2026-10-31T20:31:07.367Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,18 +15,18 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 390,
+    "total": 383,
     "won": 310,
-    "lost": 80,
+    "lost": 73,
     "pending": 94,
-    "unverifiable": 153,
+    "unverifiable": 160,
     "archivedTotal": 637,
-    "rate": 79.5,
+    "rate": 80.9,
     "gold": {
-      "total": 291,
+      "total": 284,
       "won": 233,
-      "lost": 58,
-      "rate": 80.1
+      "lost": 51,
+      "rate": 82.0
     },
     "standard": {
       "total": 99,
@@ -36,16 +36,16 @@
     },
     "byType": {
       "btts": {
-        "total": 365,
+        "total": 360,
         "won": 296,
-        "lost": 69,
-        "rate": 81.1
+        "lost": 64,
+        "rate": 82.2
       },
       "over25": {
-        "total": 25,
+        "total": 23,
         "won": 14,
-        "lost": 11,
-        "rate": 56
+        "lost": 9,
+        "rate": 60.9
       }
     },
     "trend14": [
@@ -54,35 +54,35 @@
         "total": 3,
         "won": 3,
         "lost": 0,
-        "rate": 100
+        "rate": 100.0
       },
       {
         "date": "2026-10-17",
         "total": 8,
         "won": 8,
         "lost": 0,
-        "rate": 100
+        "rate": 100.0
       },
       {
         "date": "2026-10-18",
         "total": 5,
         "won": 5,
         "lost": 0,
-        "rate": 100
+        "rate": 100.0
       },
       {
         "date": "2026-10-21",
         "total": 8,
         "won": 8,
         "lost": 0,
-        "rate": 100
+        "rate": 100.0
       },
       {
         "date": "2026-10-22",
         "total": 2,
         "won": 2,
         "lost": 0,
-        "rate": 100
+        "rate": 100.0
       },
       {
         "date": "2026-10-23",
@@ -103,21 +103,21 @@
         "total": 18,
         "won": 18,
         "lost": 0,
-        "rate": 100
+        "rate": 100.0
       },
       {
         "date": "2026-10-26",
         "total": 5,
         "won": 3,
         "lost": 2,
-        "rate": 60
+        "rate": 60.0
       },
       {
         "date": "2026-10-27",
         "total": 5,
         "won": 4,
         "lost": 1,
-        "rate": 80
+        "rate": 80.0
       },
       {
         "date": "2026-10-28",
@@ -131,43 +131,30 @@
         "total": 15,
         "won": 9,
         "lost": 6,
-        "rate": 60
+        "rate": 60.0
       },
       {
         "date": "2026-10-30",
-        "total": 16,
+        "total": 13,
         "won": 11,
-        "lost": 5,
-        "rate": 68.8
+        "lost": 2,
+        "rate": 84.6
       },
       {
         "date": "2026-10-31",
-        "total": 6,
+        "total": 2,
         "won": 2,
-        "lost": 4,
-        "rate": 33.3
+        "lost": 0,
+        "rate": 100.0
       }
     ],
     "period": {
       "from": "2026-08-08",
       "to": "2026-10-31",
-      "days": 85
+      "days": 59
     }
   },
   "history": [
-    {
-      "date": "2026-10-31",
-      "match": "Levante vs Atlético Madrid",
-      "league": "LaLiga",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.68,
-      "status": "LOST",
-      "finalScore": "0-2",
-      "verifiedAt": "2026-10-31T16:42:38.543Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
     {
       "date": "2026-10-31",
       "match": "FC Augsburg vs SC Freiburg",
@@ -183,32 +170,6 @@
     },
     {
       "date": "2026-10-31",
-      "match": "Werder Bremen vs TSG Hoffenheim",
-      "league": "Bundesliga",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.9,
-      "status": "LOST",
-      "finalScore": "2-0",
-      "verifiedAt": "2026-10-31T16:42:17.190Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-10-31",
-      "match": "Levante vs Atlético Madrid",
-      "league": "LaLiga",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.7,
-      "status": "LOST",
-      "finalScore": "0-2",
-      "verifiedAt": "2026-10-31T16:42:17.185Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-10-31",
       "match": "Bologna vs Monza",
       "league": "Serie A",
       "market": "btts",
@@ -217,45 +178,6 @@
       "status": "WON",
       "finalScore": "2-1",
       "verifiedAt": "2026-10-31T16:42:17.184Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-10-31",
-      "match": "VfL Wolfsburg vs VfL Osnabruck",
-      "league": "2. Bundesliga",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.72,
-      "status": "LOST",
-      "finalScore": "2-0",
-      "verifiedAt": "2026-10-31T16:42:13.221Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-10-30",
-      "match": "Casa Pia vs Sporting CP",
-      "league": "Liga Portugal",
-      "market": "over25",
-      "tier": "GOLD",
-      "proba": 0.55,
-      "status": "LOST",
-      "finalScore": "0-2",
-      "verifiedAt": "2026-10-31T03:33:27.715Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-10-30",
-      "match": "Casa Pia vs Sporting CP",
-      "league": "Liga Portugal",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.5089,
-      "status": "LOST",
-      "finalScore": "0-2",
-      "verifiedAt": "2026-10-31T03:33:27.704Z",
       "source": "ESPN public",
       "prediction": "Oui"
     },
@@ -295,19 +217,6 @@
       "status": "WON",
       "finalScore": "2-4",
       "verifiedAt": "2026-10-30T21:58:22.768Z",
-      "source": "ESPN public",
-      "prediction": "Oui"
-    },
-    {
-      "date": "2026-10-30",
-      "match": "Villarreal vs Espanyol",
-      "league": "LaLiga",
-      "market": "btts",
-      "tier": "GOLD",
-      "proba": 0.5912,
-      "status": "LOST",
-      "finalScore": "0-1",
-      "verifiedAt": "2026-10-30T21:58:19.260Z",
       "source": "ESPN public",
       "prediction": "Oui"
     },
