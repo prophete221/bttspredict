@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-10-31T20:31:07.367Z",
+  "generatedAt": "2026-10-31T20:36:23.062Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,37 +15,37 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 383,
-    "won": 310,
-    "lost": 73,
-    "pending": 94,
+    "total": 401,
+    "won": 319,
+    "lost": 82,
+    "pending": 82,
     "unverifiable": 160,
-    "archivedTotal": 637,
-    "rate": 80.9,
+    "archivedTotal": 643,
+    "rate": 79.6,
     "gold": {
-      "total": 284,
-      "won": 233,
-      "lost": 51,
-      "rate": 82.0
+      "total": 299,
+      "won": 240,
+      "lost": 59,
+      "rate": 80.3
     },
     "standard": {
-      "total": 99,
-      "won": 77,
-      "lost": 22,
-      "rate": 77.8
+      "total": 102,
+      "won": 79,
+      "lost": 23,
+      "rate": 77.5
     },
     "byType": {
       "btts": {
-        "total": 360,
-        "won": 296,
-        "lost": 64,
-        "rate": 82.2
+        "total": 372,
+        "won": 301,
+        "lost": 71,
+        "rate": 80.9
       },
       "over25": {
-        "total": 23,
-        "won": 14,
-        "lost": 9,
-        "rate": 60.9
+        "total": 29,
+        "won": 18,
+        "lost": 11,
+        "rate": 62.1
       }
     },
     "trend14": [
@@ -54,35 +54,35 @@
         "total": 3,
         "won": 3,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-17",
         "total": 8,
         "won": 8,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-18",
         "total": 5,
         "won": 5,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-21",
         "total": 8,
         "won": 8,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-22",
         "total": 2,
         "won": 2,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-23",
@@ -103,21 +103,21 @@
         "total": 18,
         "won": 18,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-26",
         "total": 5,
         "won": 3,
         "lost": 2,
-        "rate": 60.0
+        "rate": 60
       },
       {
         "date": "2026-10-27",
         "total": 5,
         "won": 4,
         "lost": 1,
-        "rate": 80.0
+        "rate": 80
       },
       {
         "date": "2026-10-28",
@@ -131,7 +131,7 @@
         "total": 15,
         "won": 9,
         "lost": 6,
-        "rate": 60.0
+        "rate": 60
       },
       {
         "date": "2026-10-30",
@@ -142,19 +142,253 @@
       },
       {
         "date": "2026-10-31",
-        "total": 2,
-        "won": 2,
-        "lost": 0,
-        "rate": 100.0
+        "total": 20,
+        "won": 11,
+        "lost": 9,
+        "rate": 55
       }
     ],
     "period": {
       "from": "2026-08-08",
       "to": "2026-10-31",
-      "days": 59
+      "days": 85
     }
   },
   "history": [
+    {
+      "date": "2026-10-31",
+      "match": "Middlesbrough vs Charlton Athletic",
+      "league": "Championship",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "WON",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-10-31T20:35:56.054Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "Standard Liege vs KV Kortrijk",
+      "league": "Jupiler Pro League",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.3,
+      "status": "LOST",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-10-31T20:35:56.036Z",
+      "source": "ESPN public",
+      "prediction": "Non"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "Bayern Munich vs Borussia Dortmund",
+      "league": "Bundesliga",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.75,
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-10-31T20:35:56.035Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "New York City FC vs CF Montréal",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.58,
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-10-31T20:35:56.034Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "Tottenham Hotspur vs Crystal Palace",
+      "league": "Premier League",
+      "market": "over25",
+      "tier": "STANDARD",
+      "proba": 0.55,
+      "status": "WON",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-10-31T20:35:56.034Z",
+      "source": "ESPN public",
+      "prediction": "Non"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "Heerenveen vs NEC Nijmegen",
+      "league": "Eredivisie",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.58,
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-10-31T20:35:56.033Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "Real Betis vs Málaga",
+      "league": "LaLiga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-10-31T20:35:56.030Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "SC Rheindorf Altach vs SV Josko Ried",
+      "league": "Austrian Bundesliga",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "LOST",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-10-31T20:35:56.025Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "LASK Linz vs WSG Swarovski Tirol",
+      "league": "Austrian Bundesliga",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-10-31T20:35:31.862Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "West Ham United vs West Bromwich Albion",
+      "league": "Championship",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "WON",
+      "finalScore": "1-3",
+      "verifiedAt": "2026-10-31T20:35:31.861Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "FC Cincinnati vs Philadelphia Union",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.8,
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-10-31T20:35:31.860Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "Columbus Crew vs D.C. United",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7,
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-10-31T20:35:31.859Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "SC Rheindorf Altach vs SV Josko Ried",
+      "league": "Austrian Bundesliga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7,
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-10-31T20:35:31.859Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "Brentford vs Nottingham Forest",
+      "league": "Premier League",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-10-31T20:35:31.857Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "Middlesbrough vs Charlton Athletic",
+      "league": "Championship",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-10-31T20:35:31.857Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "Hull City vs Ipswich Town",
+      "league": "Premier League",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-10-31T20:35:31.856Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "Charlotte FC vs Orlando City SC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.9,
+      "status": "LOST",
+      "finalScore": "4-0",
+      "verifiedAt": "2026-10-31T20:35:31.853Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "PSV Eindhoven vs Willem II",
+      "league": "Eredivisie",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.8,
+      "status": "LOST",
+      "finalScore": "7-0",
+      "verifiedAt": "2026-10-31T20:35:26.944Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-10-31",
       "match": "FC Augsburg vs SC Freiburg",

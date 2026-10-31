@@ -12027,7 +12027,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.06 · N 13 · 2 18",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "7-0",
+      "verifiedAt": "2026-10-31T20:35:26.944Z"
     },
     {
       "id": "sccambuu-vs-goaheade-2026-10-31",
@@ -12451,7 +12453,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "4-0",
+      "verifiedAt": "2026-10-31T20:35:31.853Z"
     },
     {
       "id": "stlouisc-vs-sandiego-2026-10-31",
@@ -13291,7 +13295,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.6 · N 3.4 · 2 2.65 · O2.5 1.8",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-2",
+      "verifiedAt": "2026-10-31T20:35:31.856Z"
     },
     {
       "id": "fcgronin-vs-spartaro-2026-11-01",
