@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-10-30T21:59:09.141Z",
+  "generatedAt": "2026-10-31T03:33:56.149Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,37 +15,37 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 381,
-    "won": 307,
-    "lost": 74,
-    "pending": 60,
+    "total": 384,
+    "won": 308,
+    "lost": 76,
+    "pending": 79,
     "unverifiable": 153,
-    "archivedTotal": 594,
-    "rate": 80.6,
+    "archivedTotal": 616,
+    "rate": 80.2,
     "gold": {
-      "total": 283,
+      "total": 285,
       "won": 231,
-      "lost": 52,
-      "rate": 81.6
+      "lost": 54,
+      "rate": 81.1
     },
     "standard": {
-      "total": 98,
-      "won": 76,
+      "total": 99,
+      "won": 77,
       "lost": 22,
-      "rate": 77.6
+      "rate": 77.8
     },
     "byType": {
       "btts": {
-        "total": 358,
-        "won": 293,
-        "lost": 65,
-        "rate": 81.8
+        "total": 360,
+        "won": 294,
+        "lost": 66,
+        "rate": 81.7
       },
       "over25": {
-        "total": 23,
+        "total": 24,
         "won": 14,
-        "lost": 9,
-        "rate": 60.9
+        "lost": 10,
+        "rate": 58.3
       }
     },
     "trend14": [
@@ -142,19 +142,58 @@
       },
       {
         "date": "2026-10-30",
-        "total": 13,
-        "won": 10,
-        "lost": 3,
-        "rate": 76.9
+        "total": 16,
+        "won": 11,
+        "lost": 5,
+        "rate": 68.8
       }
     ],
     "period": {
       "from": "2026-08-08",
-      "to": "2026-10-30",
-      "days": 84
+      "to": "2026-10-31",
+      "days": 85
     }
   },
   "history": [
+    {
+      "date": "2026-10-30",
+      "match": "Casa Pia vs Sporting CP",
+      "league": "Liga Portugal",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.55,
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-10-31T03:33:27.715Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-30",
+      "match": "Casa Pia vs Sporting CP",
+      "league": "Liga Portugal",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5089,
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-10-31T03:33:27.704Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-30",
+      "match": "Sheffield United vs Wrexham",
+      "league": "Championship",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.4487,
+      "status": "WON",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-10-31T03:33:27.704Z",
+      "source": "ESPN public",
+      "prediction": "Non"
+    },
     {
       "date": "2026-10-30",
       "match": "Zulte-Waregem vs Club Brugge",
@@ -5110,12 +5149,12 @@
     }
   ],
   "legacyStats": {
-    "total": 65,
-    "won": 65,
+    "total": 42,
+    "won": 42,
     "lost": 0,
     "pending": 0,
-    "unverifiable": 79,
-    "archivedTotal": 144,
+    "unverifiable": 52,
+    "archivedTotal": 94,
     "rate": 100,
     "gold": {
       "total": 0,
@@ -5124,33 +5163,26 @@
       "rate": 0
     },
     "standard": {
-      "total": 65,
-      "won": 65,
+      "total": 42,
+      "won": 42,
       "lost": 0,
       "rate": 100
     },
     "byType": {
       "btts": {
-        "total": 33,
-        "won": 33,
+        "total": 21,
+        "won": 21,
         "lost": 0,
         "rate": 100
       },
       "over25": {
-        "total": 32,
-        "won": 32,
+        "total": 21,
+        "won": 21,
         "lost": 0,
         "rate": 100
       }
     },
     "trend14": [
-      {
-        "date": "2026-08-02",
-        "total": 23,
-        "won": 23,
-        "lost": 0,
-        "rate": 100
-      },
       {
         "date": "2026-08-03",
         "total": 2,
@@ -5195,9 +5227,9 @@
       }
     ],
     "period": {
-      "from": "2026-08-02",
+      "from": "2026-08-03",
       "to": "2026-08-07",
-      "days": 6
+      "days": 5
     },
     "history": [
       {
@@ -5743,305 +5775,6 @@
         "status": "WON",
         "finalScore": "2-1",
         "verifiedAt": "2026-08-07T12:17:29.533Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "Racing (Montevideo) vs Boston River",
-        "league": "Liga AUF Uruguaya",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.45,
-        "status": "WON",
-        "finalScore": "1-0",
-        "verifiedAt": "2026-08-07T14:30:04.766Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "Sporting Cristal vs Juan Pablo II",
-        "league": "Peruvian Liga 1",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.51,
-        "status": "WON",
-        "finalScore": "2-0",
-        "verifiedAt": "2026-08-07T14:30:04.766Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "Sporting Cristal vs Juan Pablo II",
-        "league": "Peruvian Liga 1",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.44,
-        "status": "WON",
-        "finalScore": "2-0",
-        "verifiedAt": "2026-08-07T14:30:04.766Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "Gazovik Orenburg vs Zenit St Petersburg",
-        "league": "Russian Premier League",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.49,
-        "status": "WON",
-        "finalScore": "0-3",
-        "verifiedAt": "2026-08-07T14:30:04.765Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "Racing (Montevideo) vs Boston River",
-        "league": "Liga AUF Uruguaya",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.47,
-        "status": "WON",
-        "finalScore": "1-0",
-        "verifiedAt": "2026-08-07T14:30:04.765Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "SK Brann vs Rosenborg",
-        "league": "Norwegian Eliteserien",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "3-2",
-        "verifiedAt": "2026-08-07T12:17:24.549Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "SK Brann vs Rosenborg",
-        "league": "Norwegian Eliteserien",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "3-2",
-        "verifiedAt": "2026-08-07T12:17:24.549Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "Aalesund vs Tromso",
-        "league": "Norwegian Eliteserien",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "2-6",
-        "verifiedAt": "2026-08-07T12:17:24.548Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "Hibernian vs Motherwell",
-        "league": "Scottish Premiership",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "1-2",
-        "verifiedAt": "2026-08-07T12:17:24.548Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "KFUM Oslo vs Kristiansund BK",
-        "league": "Norwegian Eliteserien",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "2-1",
-        "verifiedAt": "2026-08-07T12:17:24.548Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "KFUM Oslo vs Kristiansund BK",
-        "league": "Norwegian Eliteserien",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "2-1",
-        "verifiedAt": "2026-08-07T12:17:24.548Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "Molde vs Sarpsborg FK",
-        "league": "Norwegian Eliteserien",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "3-3",
-        "verifiedAt": "2026-08-07T12:17:24.548Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "Molde vs Sarpsborg FK",
-        "league": "Norwegian Eliteserien",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "3-3",
-        "verifiedAt": "2026-08-07T12:17:24.548Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "Silkeborg IF vs F.C. København",
-        "league": "Danish Superliga",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "1-3",
-        "verifiedAt": "2026-08-07T12:17:24.548Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "Silkeborg IF vs F.C. København",
-        "league": "Danish Superliga",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "1-3",
-        "verifiedAt": "2026-08-07T12:17:24.548Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "Aalesund vs Tromso",
-        "league": "Norwegian Eliteserien",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "2-6",
-        "verifiedAt": "2026-08-07T12:17:24.547Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "AIK vs Örgryte IS",
-        "league": "Swedish Allsvenskan",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "0-3",
-        "verifiedAt": "2026-08-07T12:17:24.547Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "Austria Lustenau vs SV Josko Ried",
-        "league": "Austrian Bundesliga",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "1-1",
-        "verifiedAt": "2026-08-07T12:17:24.547Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "FC Nordsjælland vs Randers FC",
-        "league": "Danish Superliga",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "1-0",
-        "verifiedAt": "2026-08-07T12:17:24.547Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "IF Brommapojkarna vs Malmö FF",
-        "league": "Swedish Allsvenskan",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "1-2",
-        "verifiedAt": "2026-08-07T12:17:24.547Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "IF Brommapojkarna vs Malmö FF",
-        "league": "Swedish Allsvenskan",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "1-2",
-        "verifiedAt": "2026-08-07T12:17:24.547Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "St Johnstone vs Kilmarnock",
-        "league": "Scottish Premiership",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "4-3",
-        "verifiedAt": "2026-08-07T12:17:24.547Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-02",
-        "match": "Wolfsberger vs Austria Vienna",
-        "league": "Austrian Bundesliga",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "3-0",
-        "verifiedAt": "2026-08-07T12:17:24.547Z",
         "source": "ESPN public",
         "prediction": "Oui"
       }
