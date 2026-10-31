@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-10-31T11:38:58.620Z",
+  "generatedAt": "2026-10-31T16:43:06.245Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,18 +15,18 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 384,
-    "won": 308,
-    "lost": 76,
-    "pending": 82,
+    "total": 390,
+    "won": 310,
+    "lost": 80,
+    "pending": 94,
     "unverifiable": 153,
-    "archivedTotal": 619,
-    "rate": 80.2,
+    "archivedTotal": 637,
+    "rate": 79.5,
     "gold": {
-      "total": 285,
-      "won": 231,
-      "lost": 54,
-      "rate": 81.1
+      "total": 291,
+      "won": 233,
+      "lost": 58,
+      "rate": 80.1
     },
     "standard": {
       "total": 99,
@@ -36,26 +36,19 @@
     },
     "byType": {
       "btts": {
-        "total": 360,
-        "won": 294,
-        "lost": 66,
-        "rate": 81.7
+        "total": 365,
+        "won": 296,
+        "lost": 69,
+        "rate": 81.1
       },
       "over25": {
-        "total": 24,
+        "total": 25,
         "won": 14,
-        "lost": 10,
-        "rate": 58.3
+        "lost": 11,
+        "rate": 56
       }
     },
     "trend14": [
-      {
-        "date": "2026-10-15",
-        "total": 4,
-        "won": 4,
-        "lost": 0,
-        "rate": 100
-      },
       {
         "date": "2026-10-16",
         "total": 3,
@@ -146,6 +139,13 @@
         "won": 11,
         "lost": 5,
         "rate": 68.8
+      },
+      {
+        "date": "2026-10-31",
+        "total": 6,
+        "won": 2,
+        "lost": 4,
+        "rate": 33.3
       }
     ],
     "period": {
@@ -155,6 +155,84 @@
     }
   },
   "history": [
+    {
+      "date": "2026-10-31",
+      "match": "Levante vs Atlético Madrid",
+      "league": "LaLiga",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-10-31T16:42:38.543Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "FC Augsburg vs SC Freiburg",
+      "league": "Bundesliga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.9,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-10-31T16:42:17.190Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "Werder Bremen vs TSG Hoffenheim",
+      "league": "Bundesliga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.9,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-10-31T16:42:17.190Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "Levante vs Atlético Madrid",
+      "league": "LaLiga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7,
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-10-31T16:42:17.185Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "Bologna vs Monza",
+      "league": "Serie A",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.8,
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-10-31T16:42:17.184Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-10-31",
+      "match": "VfL Wolfsburg vs VfL Osnabruck",
+      "league": "2. Bundesliga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-10-31T16:42:13.221Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-10-30",
       "match": "Casa Pia vs Sporting CP",

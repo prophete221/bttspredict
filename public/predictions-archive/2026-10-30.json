@@ -16075,7 +16075,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.49 · N 4.6 · 2 5.25",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-10-31T16:42:13.221Z"
     },
     {
       "id": "psveindh-vs-willemii-2026-10-31",
