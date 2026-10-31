@@ -2126,7 +2126,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.67 · N 3.8 · 2 4.6 · O2.5 1.77"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.67 · N 3.8 · 2 4.6 · O2.5 1.77",
+      "status": "PENDING"
     },
     {
       "id": "brentfor-vs-nottingh-2026-10-31",
@@ -2340,7 +2341,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 3.7 · 2 3.45 · O2.5 1.71"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 3.7 · 2 3.45 · O2.5 1.71",
+      "status": "PENDING"
     },
     {
       "id": "levante-vs-atlticom-2026-10-31",
@@ -2555,7 +2557,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 5.5 · N 4.8 · 2 1.53"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 5.5 · N 4.8 · 2 1.53",
+      "status": "PENDING"
     },
     {
       "id": "barcelon-vs-alavs-2026-10-31",
@@ -2770,7 +2773,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.11 · N 10.5 · 2 19"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.11 · N 10.5 · 2 19",
+      "status": "PENDING"
     },
     {
       "id": "ajaxamst-vs-azalkmaa-2026-10-31",
@@ -2984,7 +2988,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.65 · N 4.6 · 2 4.3"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.65 · N 4.6 · 2 4.3",
+      "status": "PENDING"
     },
     {
       "id": "scrheind-vs-svjoskor-2026-10-31",
@@ -3199,7 +3204,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.2 · N 3.65 · 2 3 · O2.5 1.65"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.2 · N 3.65 · 2 3 · O2.5 1.65",
+      "status": "PENDING"
     },
     {
       "id": "columbus-vs-dcunited-2026-10-31",
@@ -3414,7 +3420,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.36 · N 5 · 2 6.5"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.36 · N 5 · 2 6.5",
+      "status": "PENDING"
     },
     {
       "id": "fccincin-vs-philadel-2026-10-31",
@@ -3835,7 +3842,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.2 · N 6.5 · 2 14 · O2.5 1.54"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.2 · N 6.5 · 2 14 · O2.5 1.54",
+      "status": "PENDING"
     },
     {
       "id": "westhamu-vs-westbrom-2026-10-31",
@@ -4049,7 +4057,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.65 · N 4.2 · 2 5 · O2.5 1.65"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.65 · N 4.2 · 2 5 · O2.5 1.65",
+      "status": "PENDING"
     },
     {
       "id": "acmilan-vs-internaz-2026-10-31",
@@ -4263,7 +4272,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.4 · N 3.55 · 2 2 · O2.5 1.63"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.4 · N 3.55 · 2 2 · O2.5 1.63",
+      "status": "PENDING"
     },
     {
       "id": "lasklinz-vs-wsgswaro-2026-10-31",
@@ -4477,7 +4487,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.35 · N 5.5 · 2 7"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.35 · N 5.5 · 2 7",
+      "status": "PENDING"
     },
     {
       "id": "sporting-vs-fcdallas-2026-10-31",
@@ -4691,7 +4702,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.7 · N 4 · 2 1.77"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.7 · N 4 · 2 1.77",
+      "status": "PENDING"
     },
     {
       "id": "fcaugsbu-vs-scfreibu-2026-10-31",
@@ -4906,7 +4918,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 3 · N 3.65 · 2 2.15"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 3 · N 3.65 · 2 2.15",
+      "status": "PENDING"
     },
     {
       "id": "werderbr-vs-tsghoffe-2026-10-31",
@@ -5121,7 +5134,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.5 · N 3.75 · 2 2.4"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.5 · N 3.75 · 2 2.4",
+      "status": "PENDING"
     },
     {
       "id": "fcgronin-vs-spartaro-2026-11-01",
@@ -12140,7 +12154,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "asmonaco-vs-fcnordsj-2026-11-05",
@@ -12354,7 +12369,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.48 · N 4.7 · 2 5.5"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.48 · N 4.7 · 2 5.5",
+      "status": "PENDING"
     },
     {
       "id": "celtavig-vs-unionstg-2026-11-05",
@@ -12565,7 +12581,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2 · N 3.75 · 2 3.35 · O2.5 1.65"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2 · N 3.75 · 2 3.35 · O2.5 1.65",
+      "status": "PENDING"
     },
     {
       "id": "celtic-vs-besiktas-2026-11-05",
@@ -12779,7 +12796,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.75 · 2 2.25 · O2.5 1.59"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.75 · 2 2.25 · O2.5 1.59",
+      "status": "PENDING"
     },
     {
       "id": "fcthun-vs-heartofm-2026-11-05",
@@ -12987,7 +13005,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "realsoci-vs-lyon-2026-11-05",
@@ -13201,7 +13220,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.55 · O2.5 1.56"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.55 · O2.5 1.56",
+      "status": "PENDING"
     },
     {
       "id": "bayerlev-vs-marseill-2026-11-05",
@@ -13415,7 +13435,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.42 · N 5 · 2 6.5"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.42 · N 5 · 2 6.5",
+      "status": "PENDING"
     },
     {
       "id": "agf-vs-braga-2026-11-05",
@@ -13629,7 +13650,653 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.6 · N 3.3 · 2 2.05 · O2.5 1.95"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.6 · N 3.3 · 2 2.05 · O2.5 1.95",
+      "status": "PENDING"
+    },
+    {
+      "id": "levante-vs-atlticom-2026-10-31",
+      "match": "Levante vs Atlético Madrid",
+      "home": "Levante",
+      "away": "Atlético Madrid",
+      "league": "LaLiga",
+      "date": "2026-10-31",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.68,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 68,
+      "time": "13:00",
+      "matchSemantic": "levante-vs-atlticom-2026-10-31",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1538.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3.25,
+      "xgAway": 1.8,
+      "xgTotal": 5.05,
+      "formBTTS": 70,
+      "analysis": "Levante : forme D-V-N-N-D (1V 2N 2D, 9 buts marqués / 10 encaissés sur 5) · Atlético Madrid : forme V-V-V-V-V (5V 0N 0D, 10 buts marqués / 2 encaissés sur 5). Classement : Levante 15e (10 pts), Atlético Madrid 2e (25 pts). Stats empiriques (forme récente) : buts moy. 5.05, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 5.5 / N: 4.8 / 2: 1.53. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 3.25,
+        "awayLambda": 1.8,
+        "xgTotal": 5.05
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 5.5,
+        "draw": 4.8,
+        "away": 1.53,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "D-V-N-N-D",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 10,
+        "bttsRate": 1,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-V",
+        "wins": 5,
+        "draws": 0,
+        "losses": 0,
+        "goalsFor": 10,
+        "goalsAgainst": 2,
+        "bttsRate": 0.4,
+        "over25Rate": 0.6,
+        "cleanSheets": 3,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Real Sociedad",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-21",
+          "opponent": "Athletic Club",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Deportivo",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-12",
+          "opponent": "Sevilla",
+          "venue": "H",
+          "score": "3-3",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Villarreal",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Deportivo",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Espanyol",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Alavés",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Real Madrid",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-16",
+          "opponent": "Osasuna",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 15,
+        "points": 10,
+        "played": 10,
+        "gf": 16,
+        "ga": 19
+      },
+      "standingsAway": {
+        "rank": 2,
+        "points": 25,
+        "played": 10,
+        "gf": 20,
+        "ga": 8
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 3.25,
+          "awayLambda": 1.8,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 68,
+          "over25Prob": 0.68,
+          "homeLambda": 3.25,
+          "awayLambda": 1.8,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.68
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.68,
+      "homeLambda": 3.25,
+      "awayLambda": 1.8,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Levante présente une forte moyenne de 3.25 buts par match à domicile.",
+      "ai_analysis": "Levante génère des rencontres particulièrement prolifiques avec une moyenne de 3.25 buts par match à domicile et un taux Over 2.5 de 80% sur sa forme récente. Même si Atlético Madrid propose une défense de fer (8 buts encaissés), la capacité offensive globale de Levante et l'efficacité des visiteurs (20 buts en 10 matchs) soutiennent un match avec plus de 2.5 buts.",
+      "ai_analysis_en": "Levante produces particularly high-scoring matches with an average of 3.25 goals per home game and an 80% Over 2.5 rate in recent form. Even though Atlético Madrid boasts an ironclad defense (8 goals conceded), Levante's overall offensive capacity and the visitors' efficiency (20 goals in 10 matches) support a match with over 2.5 goals.",
+      "ai_form_summary": "Levante : D-V-N-N-D (1W-2D-2L) / Atlético Madrid : V-V-V-V-V (5W-0D-0L)",
+      "ai_form_summary_en": "Levante: L-W-D-D-L (1W-2D-2L) / Atlético Madrid: W-W-W-W-W (5W-0D-0L)",
+      "ai_reasons": [
+        "Levante affiche une moyenne élevée de 3.25 buts par match à domicile.",
+        "Taux Over 2.5 empirique et de forme récente à 70% et 80% pour Levante.",
+        "Atlético Madrid possède une attaque performante (20 buts marqués en 10 matchs) soutenant le total de buts."
+      ],
+      "ai_risks": [
+        "Atlético Madrid a un profil défensif très solide (seulement 8 buts encaissés en 10 matchs) et un taux BTTS récent bas (40%).",
+        "La solidité des Colchoneros pourrait limiter les incursions de Levante."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 5.5 · N 4.8 · 2 1.53"
+    },
+    {
+      "id": "barcelon-vs-astonvil-2026-11-03",
+      "match": "Barcelona vs Aston Villa",
+      "home": "Barcelona",
+      "away": "Aston Villa",
+      "league": "UEFA Champions League",
+      "date": "2026-11-03",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.8,
+      "bttsProbDisplay": "80.00%",
+      "over25ProbDisplay": "90.00%",
+      "confidence": 80,
+      "time": "20:00",
+      "matchSemantic": "barcelon-vs-astonvil-2026-11-03",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 4,
+      "xgAway": 1,
+      "xgTotal": 5,
+      "formBTTS": 80,
+      "analysis": "Barcelona : forme D-V-V-V-V (4V 0N 1D, 19 buts marqués / 7 encaissés sur 5) · Aston Villa : forme V-V-N-V-D (3V 1N 1D, 9 buts marqués / 7 encaissés sur 5). Classement : Barcelona 8e (6 pts), Aston Villa 2e (9 pts). Stats empiriques (forme récente) : buts moy. 5, BTTS 80.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.24 / N: 7 / 2: 9.5. Fiabilité 93.75%.",
+      "analysisData": {
+        "bttsProb": 0.8,
+        "over25Prob": 0.9,
+        "homeLambda": 4,
+        "awayLambda": 1,
+        "xgTotal": 5
+      },
+      "estimatedCote": 1.25,
+      "estimatedCoteOver": 1.11,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.24,
+        "draw": 7,
+        "away": 9.5,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.25,
+      "formHome": {
+        "last5String": "D-V-V-V-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 19,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-N-V-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 9,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Real Madrid",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Real Betis",
+          "venue": "A",
+          "score": "5-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Getafe",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Sevilla",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-16",
+          "opponent": "Racing Santander",
+          "venue": "H",
+          "score": "7-2",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Manchester City",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Newcastle United",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Brentford",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Tottenham Hotspur",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Nottingham Forest",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 8,
+        "points": 6,
+        "played": 3,
+        "gf": 11,
+        "ga": 6
+      },
+      "standingsAway": {
+        "rank": 2,
+        "points": 9,
+        "played": 3,
+        "gf": 12,
+        "ga": 3
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 78,
+          "bttsProb": 0.78,
+          "homeLambda": 4,
+          "awayLambda": 1,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.78
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 78,
+          "over25Prob": 0.78,
+          "homeLambda": 4,
+          "awayLambda": 1,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.78
+        }
+      ],
+      "bttsProb": 0.78,
+      "over25Prob": 0.78,
+      "homeLambda": 4,
+      "awayLambda": 1,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Barcelone et Aston Villa affichent tous deux un taux BTTS récent de 80%.",
+      "ai_analysis": "Ce match présente des indicateurs offensifs exceptionnels. Le taux BTTS empirique atteint 0.8 des deux côtés, appuyé par un taux Over 2.5 de 0.9. La puissance offensive de Barcelone conjuguée aux stats d'Aston Villa renforce la sélection.",
+      "ai_analysis_en": "This match features exceptional offensive indicators. The empirical BTTS rate reaches 0.8 on both sides, supported by an Over 2.5 rate of 0.9. Barcelona's offensive power combined with Aston Villa's stats strengthens the selection.",
+      "ai_form_summary": "Barcelona sur 4W-0D-1L (19 buts marqués, 7 encaissés) ; Aston Villa sur 3W-1D-1L (9 buts marqués, 7 encaissés).",
+      "ai_form_summary_en": "Barcelona on 4W-0D-1L (19 goals scored, 7 conceded); Aston Villa on 3W-1D-1L (9 goals scored, 7 conceded).",
+      "ai_reasons": [
+        "Taux BTTS empirique élevé de 0.8 pour les deux équipes",
+        "Taux Over 2.5 empirique très élevé à 0.9 avec une moyenne offensive barcelonaise de 4 buts",
+        "Taux de forme BTTS à 80% confirmant la tendance offensive récente"
+      ],
+      "ai_risks": [
+        "Barcelone possède une nette domination offensive qui pourrait limiter les incursions adverses",
+        "La cote de l'Over 2.5 n'est pas disponible, obligeant à cibler le marché BTTS"
+      ],
+      "ai_confidence": "high",
+      "ai_abstain": false,
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.24 · N 7 · 2 9.5",
+      "status": "PENDING"
+    },
+    {
+      "id": "lens-vs-como-2026-11-04",
+      "match": "Lens vs Como",
+      "home": "Lens",
+      "away": "Como",
+      "league": "UEFA Champions League",
+      "date": "2026-11-04",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 70,
+      "time": "20:00",
+      "matchSemantic": "lens-vs-como-2026-11-04",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/175.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.25,
+      "xgAway": 2.4,
+      "xgTotal": 4.65,
+      "formBTTS": 70,
+      "analysis": "Lens : forme V-V-V-D-N (3V 1N 1D, 10 buts marqués / 7 encaissés sur 5) · Como : forme V-V-V-N-D (3V 1N 1D, 8 buts marqués / 4 encaissés sur 5). Classement : Lens 27e (3 pts), Como 9e (6 pts). Stats empiriques (forme récente) : buts moy. 4.65, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.9 / N: 3.95 / 2: 2.15. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 2.25,
+        "awayLambda": 2.4,
+        "xgTotal": 4.65
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.9,
+        "draw": 3.95,
+        "away": 2.15,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "V-V-V-D-N",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 10,
+        "goalsAgainst": 7,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-N-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 8,
+        "goalsAgainst": 4,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Lille",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Paris FC",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Troyes",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Lyon",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "AS Monaco",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-27",
+          "opponent": "Torino",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Sassuolo",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Fiorentina",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "AS Roma",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Frosinone",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 27,
+        "points": 3,
+        "played": 3,
+        "gf": 3,
+        "ga": 7
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 6,
+        "played": 3,
+        "gf": 10,
+        "ga": 5
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "bttsProb": 0.68,
+          "homeLambda": 2.25,
+          "awayLambda": 2.4,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.68
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 68,
+          "over25Prob": 0.69,
+          "homeLambda": 2.25,
+          "awayLambda": 2.4,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.69
+        }
+      ],
+      "bttsProb": 0.68,
+      "over25Prob": 0.69,
+      "homeLambda": 2.25,
+      "awayLambda": 2.4,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Lens présente un taux de 100% sur le BTTS et l'Over 2.5 sur son échantillon de 8 matchs.",
+      "ai_analysis": "Lens s'appuie sur une dynamique offensive prolifique avec un taux de 100% de matchs avec buts des deux côtés sur son échantillon. Como se déplace avec un classement solide (9e) mais les moyennes combinées de buts et les taux empiriques à 70% plaident en faveur d'un match ouvert.",
+      "ai_analysis_en": "Lens relies on a prolific offensive dynamic with a 100% BTTS rate in their sample matches. Como travels with a solid standing (9th), but the combined goal averages and 70% empirical rates support an open match.",
+      "ai_form_summary": "Lens (3W-1D-1L) est très offensif mais perméable, tandis que Como (3W-1D-1L) gère mieux sa défense.",
+      "ai_form_summary_en": "Lens (3W-1D-1L) is very offensive yet leaky, whereas Como (3W-1D-1L) manages their defense better.",
+      "ai_reasons": [
+        "Taux empirique BTTS à 70% et Over 2.5 à 70%.",
+        "Lens affiche un taux BTTS et Over 2.5 de 100% sur ses 8 derniers matchs d'échantillon.",
+        "Moyennes de buts élevées avec 2.25 pour Lens et 2.4 pour Como."
+      ],
+      "ai_risks": [
+        "Como montre des taux BTTS et Over plus bas (40%) sur sa propre période de forme récente."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.95 · 2 2.15",
+      "status": "PENDING"
     }
   ],
   "vipPreview": [
@@ -27363,6 +28030,652 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 3.6 · N 3.3 · 2 2.05 · O2.5 1.95",
+      "status": "PENDING"
+    },
+    {
+      "id": "levante-vs-atlticom-2026-10-31",
+      "match": "Levante vs Atlético Madrid",
+      "home": "Levante",
+      "away": "Atlético Madrid",
+      "league": "LaLiga",
+      "date": "2026-10-31",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.68,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 68,
+      "time": "13:00",
+      "matchSemantic": "levante-vs-atlticom-2026-10-31",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1538.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3.25,
+      "xgAway": 1.8,
+      "xgTotal": 5.05,
+      "formBTTS": 70,
+      "analysis": "Levante : forme D-V-N-N-D (1V 2N 2D, 9 buts marqués / 10 encaissés sur 5) · Atlético Madrid : forme V-V-V-V-V (5V 0N 0D, 10 buts marqués / 2 encaissés sur 5). Classement : Levante 15e (10 pts), Atlético Madrid 2e (25 pts). Stats empiriques (forme récente) : buts moy. 5.05, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 5.5 / N: 4.8 / 2: 1.53. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 3.25,
+        "awayLambda": 1.8,
+        "xgTotal": 5.05
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 5.5,
+        "draw": 4.8,
+        "away": 1.53,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "D-V-N-N-D",
+        "wins": 1,
+        "draws": 2,
+        "losses": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 10,
+        "bttsRate": 1,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-V",
+        "wins": 5,
+        "draws": 0,
+        "losses": 0,
+        "goalsFor": 10,
+        "goalsAgainst": 2,
+        "bttsRate": 0.4,
+        "over25Rate": 0.6,
+        "cleanSheets": 3,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Real Sociedad",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-21",
+          "opponent": "Athletic Club",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Deportivo",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-12",
+          "opponent": "Sevilla",
+          "venue": "H",
+          "score": "3-3",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Villarreal",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Deportivo",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Espanyol",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Alavés",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Real Madrid",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-16",
+          "opponent": "Osasuna",
+          "venue": "H",
+          "score": "4-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 15,
+        "points": 10,
+        "played": 10,
+        "gf": 16,
+        "ga": 19
+      },
+      "standingsAway": {
+        "rank": 2,
+        "points": 25,
+        "played": 10,
+        "gf": 20,
+        "ga": 8
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 3.25,
+          "awayLambda": 1.8,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 68,
+          "over25Prob": 0.68,
+          "homeLambda": 3.25,
+          "awayLambda": 1.8,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.68
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.68,
+      "homeLambda": 3.25,
+      "awayLambda": 1.8,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Levante présente une forte moyenne de 3.25 buts par match à domicile.",
+      "ai_analysis": "Levante génère des rencontres particulièrement prolifiques avec une moyenne de 3.25 buts par match à domicile et un taux Over 2.5 de 80% sur sa forme récente. Même si Atlético Madrid propose une défense de fer (8 buts encaissés), la capacité offensive globale de Levante et l'efficacité des visiteurs (20 buts en 10 matchs) soutiennent un match avec plus de 2.5 buts.",
+      "ai_analysis_en": "Levante produces particularly high-scoring matches with an average of 3.25 goals per home game and an 80% Over 2.5 rate in recent form. Even though Atlético Madrid boasts an ironclad defense (8 goals conceded), Levante's overall offensive capacity and the visitors' efficiency (20 goals in 10 matches) support a match with over 2.5 goals.",
+      "ai_form_summary": "Levante : D-V-N-N-D (1W-2D-2L) / Atlético Madrid : V-V-V-V-V (5W-0D-0L)",
+      "ai_form_summary_en": "Levante: L-W-D-D-L (1W-2D-2L) / Atlético Madrid: W-W-W-W-W (5W-0D-0L)",
+      "ai_reasons": [
+        "Levante affiche une moyenne élevée de 3.25 buts par match à domicile.",
+        "Taux Over 2.5 empirique et de forme récente à 70% et 80% pour Levante.",
+        "Atlético Madrid possède une attaque performante (20 buts marqués en 10 matchs) soutenant le total de buts."
+      ],
+      "ai_risks": [
+        "Atlético Madrid a un profil défensif très solide (seulement 8 buts encaissés en 10 matchs) et un taux BTTS récent bas (40%).",
+        "La solidité des Colchoneros pourrait limiter les incursions de Levante."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 5.5 · N 4.8 · 2 1.53",
+      "status": "PENDING"
+    },
+    {
+      "id": "barcelon-vs-astonvil-2026-11-03",
+      "match": "Barcelona vs Aston Villa",
+      "home": "Barcelona",
+      "away": "Aston Villa",
+      "league": "UEFA Champions League",
+      "date": "2026-11-03",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.8,
+      "bttsProbDisplay": "80.00%",
+      "over25ProbDisplay": "90.00%",
+      "confidence": 80,
+      "time": "20:00",
+      "matchSemantic": "barcelon-vs-astonvil-2026-11-03",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png",
+      "tier": "GOLD",
+      "reliabilityScore": 93.75,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 4,
+      "xgAway": 1,
+      "xgTotal": 5,
+      "formBTTS": 80,
+      "analysis": "Barcelona : forme D-V-V-V-V (4V 0N 1D, 19 buts marqués / 7 encaissés sur 5) · Aston Villa : forme V-V-N-V-D (3V 1N 1D, 9 buts marqués / 7 encaissés sur 5). Classement : Barcelona 8e (6 pts), Aston Villa 2e (9 pts). Stats empiriques (forme récente) : buts moy. 5, BTTS 80.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.24 / N: 7 / 2: 9.5. Fiabilité 93.75%.",
+      "analysisData": {
+        "bttsProb": 0.8,
+        "over25Prob": 0.9,
+        "homeLambda": 4,
+        "awayLambda": 1,
+        "xgTotal": 5
+      },
+      "estimatedCote": 1.25,
+      "estimatedCoteOver": 1.11,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.24,
+        "draw": 7,
+        "away": 9.5,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.25,
+      "formHome": {
+        "last5String": "D-V-V-V-V",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 19,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-N-V-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 9,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-25",
+          "opponent": "Real Madrid",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Real Betis",
+          "venue": "A",
+          "score": "5-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Getafe",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Sevilla",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-16",
+          "opponent": "Racing Santander",
+          "venue": "H",
+          "score": "7-2",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Manchester City",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Newcastle United",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Brentford",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Tottenham Hotspur",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Nottingham Forest",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 8,
+        "points": 6,
+        "played": 3,
+        "gf": 11,
+        "ga": 6
+      },
+      "standingsAway": {
+        "rank": 2,
+        "points": 9,
+        "played": 3,
+        "gf": 12,
+        "ga": 3
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 78,
+          "bttsProb": 0.78,
+          "homeLambda": 4,
+          "awayLambda": 1,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.78
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 78,
+          "over25Prob": 0.78,
+          "homeLambda": 4,
+          "awayLambda": 1,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.78
+        }
+      ],
+      "bttsProb": 0.78,
+      "over25Prob": 0.78,
+      "homeLambda": 4,
+      "awayLambda": 1,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Barcelone et Aston Villa affichent tous deux un taux BTTS récent de 80%.",
+      "ai_analysis": "Ce match présente des indicateurs offensifs exceptionnels. Le taux BTTS empirique atteint 0.8 des deux côtés, appuyé par un taux Over 2.5 de 0.9. La puissance offensive de Barcelone conjuguée aux stats d'Aston Villa renforce la sélection.",
+      "ai_analysis_en": "This match features exceptional offensive indicators. The empirical BTTS rate reaches 0.8 on both sides, supported by an Over 2.5 rate of 0.9. Barcelona's offensive power combined with Aston Villa's stats strengthens the selection.",
+      "ai_form_summary": "Barcelona sur 4W-0D-1L (19 buts marqués, 7 encaissés) ; Aston Villa sur 3W-1D-1L (9 buts marqués, 7 encaissés).",
+      "ai_form_summary_en": "Barcelona on 4W-0D-1L (19 goals scored, 7 conceded); Aston Villa on 3W-1D-1L (9 goals scored, 7 conceded).",
+      "ai_reasons": [
+        "Taux BTTS empirique élevé de 0.8 pour les deux équipes",
+        "Taux Over 2.5 empirique très élevé à 0.9 avec une moyenne offensive barcelonaise de 4 buts",
+        "Taux de forme BTTS à 80% confirmant la tendance offensive récente"
+      ],
+      "ai_risks": [
+        "Barcelone possède une nette domination offensive qui pourrait limiter les incursions adverses",
+        "La cote de l'Over 2.5 n'est pas disponible, obligeant à cibler le marché BTTS"
+      ],
+      "ai_confidence": "high",
+      "ai_abstain": false,
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.24 · N 7 · 2 9.5",
+      "status": "PENDING"
+    },
+    {
+      "id": "lens-vs-como-2026-11-04",
+      "match": "Lens vs Como",
+      "home": "Lens",
+      "away": "Como",
+      "league": "UEFA Champions League",
+      "date": "2026-11-04",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 70,
+      "time": "20:00",
+      "matchSemantic": "lens-vs-como-2026-11-04",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/175.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.25,
+      "xgAway": 2.4,
+      "xgTotal": 4.65,
+      "formBTTS": 70,
+      "analysis": "Lens : forme V-V-V-D-N (3V 1N 1D, 10 buts marqués / 7 encaissés sur 5) · Como : forme V-V-V-N-D (3V 1N 1D, 8 buts marqués / 4 encaissés sur 5). Classement : Lens 27e (3 pts), Como 9e (6 pts). Stats empiriques (forme récente) : buts moy. 4.65, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.9 / N: 3.95 / 2: 2.15. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 2.25,
+        "awayLambda": 2.4,
+        "xgTotal": 4.65
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.9,
+        "draw": 3.95,
+        "away": 2.15,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "V-V-V-D-N",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 10,
+        "goalsAgainst": 7,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-N-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 8,
+        "goalsAgainst": 4,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Lille",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Paris FC",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Troyes",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Lyon",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "AS Monaco",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-27",
+          "opponent": "Torino",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Sassuolo",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Fiorentina",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "AS Roma",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Frosinone",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 27,
+        "points": 3,
+        "played": 3,
+        "gf": 3,
+        "ga": 7
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 6,
+        "played": 3,
+        "gf": 10,
+        "ga": 5
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 68,
+          "bttsProb": 0.68,
+          "homeLambda": 2.25,
+          "awayLambda": 2.4,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.68
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 68,
+          "over25Prob": 0.69,
+          "homeLambda": 2.25,
+          "awayLambda": 2.4,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.69
+        }
+      ],
+      "bttsProb": 0.68,
+      "over25Prob": 0.69,
+      "homeLambda": 2.25,
+      "awayLambda": 2.4,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Lens présente un taux de 100% sur le BTTS et l'Over 2.5 sur son échantillon de 8 matchs.",
+      "ai_analysis": "Lens s'appuie sur une dynamique offensive prolifique avec un taux de 100% de matchs avec buts des deux côtés sur son échantillon. Como se déplace avec un classement solide (9e) mais les moyennes combinées de buts et les taux empiriques à 70% plaident en faveur d'un match ouvert.",
+      "ai_analysis_en": "Lens relies on a prolific offensive dynamic with a 100% BTTS rate in their sample matches. Como travels with a solid standing (9th), but the combined goal averages and 70% empirical rates support an open match.",
+      "ai_form_summary": "Lens (3W-1D-1L) est très offensif mais perméable, tandis que Como (3W-1D-1L) gère mieux sa défense.",
+      "ai_form_summary_en": "Lens (3W-1D-1L) is very offensive yet leaky, whereas Como (3W-1D-1L) manages their defense better.",
+      "ai_reasons": [
+        "Taux empirique BTTS à 70% et Over 2.5 à 70%.",
+        "Lens affiche un taux BTTS et Over 2.5 de 100% sur ses 8 derniers matchs d'échantillon.",
+        "Moyennes de buts élevées avec 2.25 pour Lens et 2.4 pour Como."
+      ],
+      "ai_risks": [
+        "Como montre des taux BTTS et Over plus bas (40%) sur sa propre période de forme récente."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.95 · 2 2.15",
       "status": "PENDING"
     }
   ],
