@@ -116,7 +116,7 @@ export default function VipWinHistory() {
     m === 'btts' ? 'BTTS' : m === 'over25' ? (lang === 'fr' ? 'Over 2,5' : 'Over 2.5') : (m ?? '—').toUpperCase()
 
   return (
-    <section className="vipx-shell" aria-labelledby="vip-win-history-title">
+    <section className="vipx-shell" id="historique-vip" style={{ scrollMarginTop: '96px' }} aria-labelledby="vip-win-history-title">
       <header className="vipx-section-head">
         <span className="vipx-eyebrow"><i aria-hidden="true" />{t.eyebrow}</span>
         <h2 id="vip-win-history-title">{t.title}</h2>
