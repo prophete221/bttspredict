@@ -7280,7 +7280,12 @@ main .rounded-2xl {
     box-shadow var(--motion-slow) var(--motion-ease) !important;
 }
 
-/* Staggered fade-in for match lists */
+/* Staggered fade-in for match lists
+   NOTE : le keyframe final ne déclare PAS transform — après l'animation
+   (fill-mode both), l'élément ne garde aucun transform. Un transform résiduel
+   (même translate3d(0,0,0)) ferait de chaque section un bloc contenant qui
+   piègerait les position:fixed descendants (modales, toasts) — bug mobile
+   constaté sur la modale VIP. */
 @keyframes pd-fade-up {
   from {
     opacity: 0;
@@ -7288,7 +7293,6 @@ main .rounded-2xl {
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 

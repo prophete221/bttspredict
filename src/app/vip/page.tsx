@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import dynamic from 'next/dynamic'
 import { AFFILIATE } from '@/lib/constants'
 import { onlyVipFixtures } from '@/lib/vipPredictions'
@@ -481,6 +482,14 @@ export default function VipPage() {
   const [toast, setToast] = useState('')
   const [fixtures, setFixtures] = useState<PredictionFixture[]>([])
 
+  /* La modale est portée dans le shell .vipx (hors de <main>) : les sections
+     animées (main > section → pd-fade-up, fill-mode both) gardent un transform
+     qui piègerait un position:fixed en tant que bloc contenant — la modale
+     serait ancrée à la section au lieu du viewport (bug mobile constaté).
+     Le shell .vipx n'a aucun transform : la modale y est fixée au viewport
+     tout en héritant des variables CSS --vipx-*. */
+  const shellRef = useRef<HTMLDivElement | null>(null)
+
   const memberCardRef = useRef<HTMLDivElement | null>(null)
   const memberTilt = useTilt(memberCardRef, 9)
 
@@ -602,7 +611,7 @@ export default function VipPage() {
   }
 
   return (
-    <div className="vipx" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+    <div className="vipx" dir={lang === 'ar' ? 'rtl' : 'ltr'} ref={shellRef}>
       <ErrorBoundary><Navbar /></ErrorBoundary>
 
       {toast && <div className="vipx-toast" role="status"><Icon.check /> {toast}</div>}
@@ -732,8 +741,8 @@ export default function VipPage() {
             </div>
           </article>
 
-          {/* Fenêtres pop détaillées — une par étape */}
-          {openStep !== null && (
+          {/* Fenêtres pop détaillées — une par étape (portées hors de <main> : voir shellRef) */}
+          {openStep !== null && shellRef.current && createPortal(
             <div className="vipx-modal" role="dialog" aria-modal="true" onClick={(e) => { if (e.target === e.currentTarget) setOpenStep(null) }}>
               <div className="vipx-modal__panel">
                 <button type="button" className="vipx-modal__close" onClick={() => setOpenStep(null)} aria-label={text.close}>&times;</button>
@@ -851,7 +860,8 @@ export default function VipPage() {
                   )}
                 </div>
               </div>
-            </div>
+            </div>,
+            shellRef.current
           )}
         </section>
 

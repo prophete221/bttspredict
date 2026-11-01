@@ -620,9 +620,9 @@
   inset: 0;
   z-index: 95;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
+  padding: 14px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   background: rgba(4, 3, 8, 0.8);
   backdrop-filter: blur(5px);
   animation: vipx-fade 0.2s ease;
@@ -631,7 +631,9 @@
   position: relative;
   width: 100%;
   max-width: 480px;
+  margin: auto;
   max-height: 88vh;
+  max-height: calc(100dvh - 28px);
   overflow-y: auto;
   padding: 26px 22px 22px;
   border-radius: 22px;
@@ -716,6 +718,27 @@
   gap: 10px;
 }
 .vipx-modal__foot .vipx-btn { flex: 1; }
+
+/* Mobile — modale compacte : moins d'espace mort, tout reste lisible sans
+   zoomer (retour d'utilisateur : trop d'espace + débordement sur mobile) */
+@media (max-width: 480px) {
+  .vipx-modal { padding: 10px; }
+  .vipx-modal__panel {
+    padding: 20px 16px 16px;
+    border-radius: 18px;
+    max-height: calc(100dvh - 20px);
+  }
+  .vipx-modal__title { margin: 6px 0 10px; font-size: 18px; }
+  .vipx-modal__body { gap: 10px; }
+  .vipx-modal__foot { margin-top: 14px; }
+  .vipx-deposit { margin-top: 12px; padding: 14px 16px; }
+  .vipx-deposit__value { font-size: 28px; }
+  .vipx-bookmaker { padding: 12px; gap: 10px; }
+  .vipx-bookmaker__logo { width: 46px; height: 32px; }
+  .vipx-code { padding: 12px 14px; gap: 10px; }
+  .vipx-code__body strong { font-size: 18px; }
+  .vipx-btn { padding: 13px 20px; font-size: 14px; }
+}
 @keyframes vipx-fade { from { opacity: 0; } }
 @keyframes vipx-pop {
   from { opacity: 0; transform: translateY(10px) scale(0.985); }
