@@ -12244,7 +12244,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.7 · 2 2.15",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "4-0",
+      "verifiedAt": "2026-11-01T03:36:25.705Z"
     },
     {
       "id": "charlott-vs-orlandoc-2026-10-31",
@@ -12663,7 +12665,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-01T03:36:25.705Z"
     },
     {
       "id": "lagalaxy-vs-austinfc-2026-10-31",
@@ -12872,7 +12876,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "4-1",
+      "verifiedAt": "2026-11-01T03:36:25.706Z"
     },
     {
       "id": "sanjosee-vs-realsalt-2026-10-31",
@@ -13080,7 +13086,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-01T03:36:25.706Z"
     },
     {
       "id": "hullcity-vs-ipswicht-2026-10-31",
