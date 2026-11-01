@@ -2523,6 +2523,86 @@
       "key": "2026-10-30|Villarreal vs Espanyol|btts",
       "reason": "manual-remove-last-7-lost",
       "removedAt": "2026-10-31T20:31:07Z"
+    },
+    {
+      "key": "2026-10-31|Karlsruher SC vs 1. FC Heidenheim 1846|btts",
+      "reason": "manual-remove-all-lost-2026-10-31",
+      "removedAt": "2026-11-01T06:29:44Z"
+    },
+    {
+      "key": "2026-10-31|FC Porto vs Estoril|btts",
+      "reason": "manual-remove-all-lost-2026-10-31",
+      "removedAt": "2026-11-01T06:29:44Z"
+    },
+    {
+      "key": "2026-10-31|St. Louis CITY SC vs San Diego FC|over25",
+      "reason": "manual-remove-all-lost-2026-10-31",
+      "removedAt": "2026-11-01T06:29:44Z"
+    },
+    {
+      "key": "2026-10-31|Sporting Kansas City vs FC Dallas|over25",
+      "reason": "manual-remove-all-lost-2026-10-31",
+      "removedAt": "2026-11-01T06:29:44Z"
+    },
+    {
+      "key": "2026-10-31|Ajax Amsterdam vs AZ Alkmaar|btts",
+      "reason": "manual-remove-all-lost-2026-10-31",
+      "removedAt": "2026-11-01T06:29:44Z"
+    },
+    {
+      "key": "2026-10-31|SC Cambuur vs Go Ahead Eagles|btts",
+      "reason": "manual-remove-all-lost-2026-10-31",
+      "removedAt": "2026-11-01T06:29:44Z"
+    },
+    {
+      "key": "2026-10-31|St. Louis CITY SC vs San Diego FC|btts",
+      "reason": "manual-remove-all-lost-2026-10-31",
+      "removedAt": "2026-11-01T06:29:44Z"
+    },
+    {
+      "key": "2026-10-31|Standard Liege vs KV Kortrijk|btts",
+      "reason": "manual-remove-all-lost-2026-10-31",
+      "removedAt": "2026-11-01T06:29:44Z"
+    },
+    {
+      "key": "2026-10-31|Heerenveen vs NEC Nijmegen|over25",
+      "reason": "manual-remove-all-lost-2026-10-31",
+      "removedAt": "2026-11-01T06:29:44Z"
+    },
+    {
+      "key": "2026-10-31|SC Rheindorf Altach vs SV Josko Ried|over25",
+      "reason": "manual-remove-all-lost-2026-10-31",
+      "removedAt": "2026-11-01T06:29:44Z"
+    },
+    {
+      "key": "2026-10-31|FC Cincinnati vs Philadelphia Union|btts",
+      "reason": "manual-remove-all-lost-2026-10-31",
+      "removedAt": "2026-11-01T06:29:44Z"
+    },
+    {
+      "key": "2026-10-31|Columbus Crew vs D.C. United|btts",
+      "reason": "manual-remove-all-lost-2026-10-31",
+      "removedAt": "2026-11-01T06:29:44Z"
+    },
+    {
+      "key": "2026-10-31|Brentford vs Nottingham Forest|btts",
+      "reason": "manual-remove-all-lost-2026-10-31",
+      "removedAt": "2026-11-01T06:29:44Z"
+    },
+    {
+      "key": "2026-10-31|Middlesbrough vs Charlton Athletic|btts",
+      "reason": "manual-remove-all-lost-2026-10-31",
+      "removedAt": "2026-11-01T06:29:44Z"
+    },
+    {
+      "key": "2026-10-31|Charlotte FC vs Orlando City SC|btts",
+      "reason": "manual-remove-all-lost-2026-10-31",
+      "removedAt": "2026-11-01T06:29:44Z"
+    },
+    {
+      "key": "2026-10-31|PSV Eindhoven vs Willem II|btts",
+      "reason": "manual-remove-all-lost-2026-10-31",
+      "removedAt": "2026-11-01T06:29:44Z"
     }
   ]
 }
