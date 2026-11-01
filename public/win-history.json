@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-01T12:30:47.107Z",
+  "generatedAt": "2026-11-01T19:24:52.088Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,47 +15,40 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 403,
-    "won": 330,
-    "lost": 73,
-    "pending": 96,
+    "total": 425,
+    "won": 343,
+    "lost": 82,
+    "pending": 77,
     "unverifiable": 176,
-    "archivedTotal": 675,
-    "rate": 81.9,
+    "archivedTotal": 678,
+    "rate": 80.7,
     "gold": {
-      "total": 300,
-      "won": 249,
-      "lost": 51,
-      "rate": 83
+      "total": 319,
+      "won": 261,
+      "lost": 58,
+      "rate": 81.8
     },
     "standard": {
-      "total": 103,
-      "won": 81,
-      "lost": 22,
-      "rate": 78.6
+      "total": 106,
+      "won": 82,
+      "lost": 24,
+      "rate": 77.4
     },
     "byType": {
       "btts": {
-        "total": 371,
-        "won": 307,
-        "lost": 64,
-        "rate": 82.7
+        "total": 386,
+        "won": 316,
+        "lost": 70,
+        "rate": 81.9
       },
       "over25": {
-        "total": 32,
-        "won": 23,
-        "lost": 9,
-        "rate": 71.9
+        "total": 39,
+        "won": 27,
+        "lost": 12,
+        "rate": 69.2
       }
     },
     "trend14": [
-      {
-        "date": "2026-10-16",
-        "total": 3,
-        "won": 3,
-        "lost": 0,
-        "rate": 100
-      },
       {
         "date": "2026-10-17",
         "total": 8,
@@ -146,6 +139,13 @@
         "won": 22,
         "lost": 0,
         "rate": 100
+      },
+      {
+        "date": "2026-11-01",
+        "total": 22,
+        "won": 13,
+        "lost": 9,
+        "rate": 59.1
       }
     ],
     "period": {
@@ -155,6 +155,292 @@
     }
   },
   "history": [
+    {
+      "date": "2026-11-01",
+      "match": "FC Groningen vs Sparta Rotterdam",
+      "league": "Eredivisie",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.75,
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-01T19:24:19.612Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Racing Santander vs Real Madrid",
+      "league": "LaLiga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "LOST",
+      "finalScore": "0-3",
+      "verifiedAt": "2026-11-01T19:24:19.607Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Arouca vs C.D. Nacional",
+      "league": "Liga Portugal",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.4,
+      "status": "WON",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-01T19:24:19.601Z",
+      "source": "ESPN public",
+      "prediction": "Non"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Getafe vs Sevilla",
+      "league": "LaLiga",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.4,
+      "status": "LOST",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-01T19:24:19.601Z",
+      "source": "ESPN public",
+      "prediction": "Non"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Lyon vs Angers",
+      "league": "Ligue 1",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.58,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-01T19:24:19.596Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Lommel SK vs KAA Gent",
+      "league": "Jupiler Pro League",
+      "market": "over25",
+      "tier": "STANDARD",
+      "proba": 0.6,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-01T19:23:56.982Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Austria Vienna vs Rapid Vienna",
+      "league": "Austrian Bundesliga",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-11-01T19:23:56.981Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Cercle Brugge KSV vs Antwerp",
+      "league": "Jupiler Pro League",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-01T19:23:56.981Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Lyon vs Angers",
+      "league": "Ligue 1",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.4,
+      "status": "WON",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-01T19:23:56.981Z",
+      "source": "ESPN public",
+      "prediction": "Non"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "PEC Zwolle vs ADO Den Haag",
+      "league": "Eredivisie",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-01T19:23:56.981Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Hannover 96 vs Dynamo Dresden",
+      "league": "2. Bundesliga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-01T19:23:56.980Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "RB Salzburg vs Austria Lustenau",
+      "league": "Austrian Bundesliga",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "WON",
+      "finalScore": "5-1",
+      "verifiedAt": "2026-11-01T19:23:56.978Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "St. Pauli vs 1. FC Nürnberg",
+      "league": "2. Bundesliga",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5,
+      "status": "WON",
+      "finalScore": "1-3",
+      "verifiedAt": "2026-11-01T19:23:56.977Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Excelsior vs FC Twente",
+      "league": "Eredivisie",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "LOST",
+      "finalScore": "0-9",
+      "verifiedAt": "2026-11-01T19:23:56.976Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Falkirk vs Celtic",
+      "league": "Scottish Premiership",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-01T19:23:56.976Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Lazio vs Cagliari",
+      "league": "Serie A",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.62,
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-01T19:23:56.976Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Paris FC vs AS Monaco",
+      "league": "Ligue 1",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.65,
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-01T19:23:52.296Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Telstar vs FC Utrecht",
+      "league": "Eredivisie",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.68,
+      "status": "WON",
+      "finalScore": "4-2",
+      "verifiedAt": "2026-11-01T19:23:52.296Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Frosinone vs Torino",
+      "league": "Serie A",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-01T19:23:52.295Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Racing Santander vs Real Madrid",
+      "league": "LaLiga",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "WON",
+      "finalScore": "0-3",
+      "verifiedAt": "2026-11-01T19:23:52.295Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Strasbourg vs AJ Auxerre",
+      "league": "Ligue 1",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.8,
+      "status": "WON",
+      "finalScore": "5-1",
+      "verifiedAt": "2026-11-01T19:23:52.295Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "FC Groningen vs Sparta Rotterdam",
+      "league": "Eredivisie",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.8,
+      "status": "WON",
+      "finalScore": "2-3",
+      "verifiedAt": "2026-11-01T19:23:52.294Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-10-31",
       "match": "Anderlecht vs KVC Westerlo",
