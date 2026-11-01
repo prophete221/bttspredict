@@ -27840,7 +27840,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 3.65 · 2 3.3 · O2.5 1.71",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-01T22:38:33.519Z"
     },
     {
       "id": "sassuolo-vs-fiorenti-2026-11-02",
