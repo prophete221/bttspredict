@@ -487,8 +487,10 @@ export default function VipPage() {
      qui piègerait un position:fixed en tant que bloc contenant — la modale
      serait ancrée à la section au lieu du viewport (bug mobile constaté).
      Le shell .vipx n'a aucun transform : la modale y est fixée au viewport
-     tout en héritant des variables CSS --vipx-*. */
-  const shellRef = useRef<HTMLDivElement | null>(null)
+     tout en héritant des variables CSS --vipx-*.
+     L'élément est mémorisé via un callback ref dans un state (jamais lu
+     pendant le rendu via ref.current — règle react-hooks/refs). */
+  const [shellEl, setShellEl] = useState<HTMLDivElement | null>(null)
 
   const memberCardRef = useRef<HTMLDivElement | null>(null)
   const memberTilt = useTilt(memberCardRef, 9)
@@ -611,7 +613,7 @@ export default function VipPage() {
   }
 
   return (
-    <div className="vipx" dir={lang === 'ar' ? 'rtl' : 'ltr'} ref={shellRef}>
+    <div className="vipx" dir={lang === 'ar' ? 'rtl' : 'ltr'} ref={setShellEl}>
       <ErrorBoundary><Navbar /></ErrorBoundary>
 
       {toast && <div className="vipx-toast" role="status"><Icon.check /> {toast}</div>}
@@ -741,8 +743,8 @@ export default function VipPage() {
             </div>
           </article>
 
-          {/* Fenêtres pop détaillées — une par étape (portées hors de <main> : voir shellRef) */}
-          {openStep !== null && shellRef.current && createPortal(
+          {/* Fenêtres pop détaillées — une par étape (portées hors de <main> : voir shellEl) */}
+          {openStep !== null && shellEl && createPortal(
             <div className="vipx-modal" role="dialog" aria-modal="true" onClick={(e) => { if (e.target === e.currentTarget) setOpenStep(null) }}>
               <div className="vipx-modal__panel">
                 <button type="button" className="vipx-modal__close" onClick={() => setOpenStep(null)} aria-label={text.close}>&times;</button>
@@ -861,7 +863,7 @@ export default function VipPage() {
                 </div>
               </div>
             </div>,
-            shellRef.current
+            shellEl
           )}
         </section>
 
