@@ -1,6 +1,6 @@
 {
   "date": "2026-11-01",
-  "lastUpdated": "2026-11-01T03:33:19.477Z",
+  "lastUpdated": "2026-11-01T06:35:02.251Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -1725,12 +1725,12 @@
       "away": "Toulouse",
       "league": "Ligue 1",
       "date": "2026-11-01",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.66,
+      "proba": 0.6,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 66,
+      "confidence": 60,
       "time": "19:45",
       "matchSemantic": "marseill-vs-toulouse-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -1747,7 +1747,7 @@
       "xgAway": 2.25,
       "xgTotal": 5,
       "formBTTS": 60,
-      "analysis": "Marseille : forme V-V-V-D-D (3V 0N 2D, 12 buts marqués / 8 encaissés sur 5) · Toulouse : forme N-V-N-V-N (2V 3N 0D, 10 buts marqués / 6 encaissés sur 5). Classement : Marseille 8e (12 pts), Toulouse 11e (10 pts). Stats empiriques (forme récente) : buts moy. 5, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.9 / 2: 3.6. Fiabilité 85%.",
+      "analysis": "Marseille : forme V-V-V-D-D (3V 0N 2D, 12 buts marqués / 8 encaissés sur 5) · Toulouse : forme N-V-N-V-N (2V 3N 0D, 10 buts marqués / 6 encaissés sur 5). Classement : Marseille 8e (12 pts), Toulouse 11e (10 pts). Stats empiriques (forme récente) : buts moy. 5, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.85 / 2: 3.55 · Over 2.5: 1.54. Fiabilité 85%.",
       "analysisData": {
         "bttsProb": 0.6,
         "over25Prob": 0.7,
@@ -1760,10 +1760,10 @@
       "odds": {
         "provider": "DraftKings",
         "home": 1.91,
-        "draw": 3.9,
-        "away": 3.6,
-        "over25": null,
-        "under25": null
+        "draw": 3.85,
+        "away": 3.55,
+        "over25": 1.54,
+        "under25": 2.3
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.67,
@@ -1885,52 +1885,53 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
-          "homeLambda": 2.75,
-          "awayLambda": 2.25,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 66,
-          "over25Prob": 0.66,
+          "confidence": 65,
+          "bttsProb": 0.65,
           "homeLambda": 2.75,
           "awayLambda": 2.25,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.66
+          "proba": 0.65
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "over25Prob": 0.675,
+          "homeLambda": 2.75,
+          "awayLambda": 2.25,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.675
         }
       ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.66,
+      "bttsProb": 0.65,
+      "over25Prob": 0.675,
       "homeLambda": 2.75,
       "awayLambda": 2.25,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Toulouse affiche un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
-      "ai_analysis": "Les statistiques des deux équipes révèlent une tendance nette vers des matchs ouverts, avec un taux empirique Over 2.5 à 70%. Toulouse se distingue avec un taux Over de 80% sur ses 5 derniers matchs, tandis que Marseille maintient une moyenne de buts de 2.75 par rencontre. Ces indicateurs convergent vers un scénario avec au moins trois buts inscrits.",
-      "ai_analysis_en": "The statistics of both teams reveal a clear trend toward open matches, with an empirical Over 2.5 rate of 70%. Toulouse stands out with an 80% Over rate over their last 5 matches, while Marseille maintains a goal average of 2.75 per game. These indicators converge toward a scenario with at least three goals scored.",
-      "ai_form_summary": "Marseille (3W-0D-2L, 12 buts pour, 8 contre) vs Toulouse (2W-3D-0L, 10 buts pour, 6 contre).",
-      "ai_form_summary_en": "Marseille (3W-0D-2L, 12 GF, 8 GA) vs Toulouse (2W-3D-0L, 10 GF, 6 GA).",
+      "ai_key_fact": "Marseille et Toulouse affichent chacun un taux de BTTS de 60% sur leurs 8 derniers matchs.",
+      "ai_analysis": "L'analyse des statistiques observées montre un profil résolument offensif pour cette rencontre de Ligue 1. Marseille et Toulouse affichent tous deux un taux de BTTS de 60% ainsi que des moyennes de buts par match élevées (2.75 et 2.25). L'empirique Over 2.5 atteint 70%, ce qui renforce l'intérêt pour un match prolifique où les deux défenses pourraient céder.",
+      "ai_analysis_en": "Observed statistics show a distinctly offensive profile for this Ligue 1 fixture. Both Marseille and Toulouse record a 60% BTTS rate alongside high goals-per-match averages (2.75 and 2.25). The empirical Over 2.5 rate sits at 70%, supporting the case for an open match where both defenses could concede.",
+      "ai_form_summary": "Marseille (3V-0N-2D) alterne le bon et le moins bon, tandis que Toulouse (2V-3N-0D) est invaincu sur ses 5 derniers matchs.",
+      "ai_form_summary_en": "Marseille (3W-0D-2L) shows mixed recent form, while Toulouse (2W-3D-0L) remains unbeaten in their last 5 outings.",
       "ai_reasons": [
-        "Taux Over 2.5 empirique global de 70% pour ce match de Ligue 1.",
-        "Toulouse présente un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
-        "Moyennes de buts solides pour Marseille (2.75) et Toulouse (2.25)."
+        "Taux empiriques élevés : 60% de matchs BTTS et 70% d'Over 2.5 sur l'échantillon global.",
+        "Moyennes de buts élevées : Marseille affiche 2.75 buts par match et Toulouse 2.25.",
+        "Bonne constance offensive des deux côtés avec respectivement 18 et 12 buts inscrits en 8 matchs."
       ],
       "ai_risks": [
-        "Marseille reste sur deux défaites consécutives lors de ses 5 derniers matchs.",
-        "Toulouse a concédé 3 matchs nuls sur ses 5 dernières sorties, montrant une certaine prudence."
+        "Marseille reste sur deux défaites récentes en championnat.",
+        "Toulouse concède pas mal de matchs nuls (3 sur les 5 derniers)."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.9 · 2 3.6",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.55 · O2.5 1.54",
       "status": "PENDING"
     },
     {
@@ -2146,7 +2147,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 5 · N 4.5 · 2 1.57"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 5 · N 4.5 · 2 1.57",
+      "status": "PENDING"
     },
     {
       "id": "falkirk-vs-celtic-2026-11-01",
@@ -2361,7 +2363,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 6 · N 4.8 · 2 1.45"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 6 · N 4.8 · 2 1.45",
+      "status": "PENDING"
     },
     {
       "id": "lazio-vs-cagliari-2026-11-01",
@@ -2575,7 +2578,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.42 · N 4.4 · 2 6.5 · O2.5 1.77"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.42 · N 4.4 · 2 6.5 · O2.5 1.77",
+      "status": "PENDING"
     },
     {
       "id": "stpauli-vs-fcnrnber-2026-11-01",
@@ -2786,7 +2790,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.65 · 2 3.1 · O2.5 1.65"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.65 · 2 3.1 · O2.5 1.65",
+      "status": "PENDING"
     },
     {
       "id": "braga-vs-fcfamali-2026-11-01",
@@ -3000,7 +3005,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.74 · N 3.6 · 2 5 · O2.5 2.05"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.74 · N 3.6 · 2 5 · O2.5 2.05",
+      "status": "PENDING"
     },
     {
       "id": "rbsalzbu-vs-austrial-2026-11-01",
@@ -3214,7 +3220,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.17 · N 8 · 2 12"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.17 · N 8 · 2 12",
+      "status": "PENDING"
     },
     {
       "id": "vancouve-vs-seattles-2026-11-01",
@@ -3428,7 +3435,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.59 · N 4.3 · 2 4.5"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.59 · N 4.3 · 2 4.5",
+      "status": "PENDING"
     },
     {
       "id": "nashvill-vs-redbulln-2026-11-01",
@@ -3639,7 +3647,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.49 · N 4.5 · 2 5.25"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.49 · N 4.5 · 2 5.25",
+      "status": "PENDING"
     },
     {
       "id": "hannover-vs-dynamodr-2026-11-01",
@@ -3853,7 +3862,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.75 · 2 3.05"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.75 · 2 3.05",
+      "status": "PENDING"
     },
     {
       "id": "peczwoll-vs-adodenha-2026-11-01",
@@ -4067,7 +4077,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.25 · N 3.7 · 2 2.9 · O2.5 1.59"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.25 · N 3.7 · 2 2.9 · O2.5 1.59",
+      "status": "PENDING"
     },
     {
       "id": "austriav-vs-rapidvie-2026-11-01",
@@ -4281,7 +4292,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4 · 2 1.69"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4 · 2 1.69",
+      "status": "PENDING"
     },
     {
       "id": "lyon-vs-angers-2026-11-01",
@@ -4492,7 +4504,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.41 · N 5 · 2 7"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.41 · N 5 · 2 7",
+      "status": "PENDING"
     },
     {
       "id": "cerclebr-vs-antwerp-2026-11-01",
@@ -4707,7 +4720,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 3.8 · 2 3.2 · O2.5 1.57"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 3.8 · 2 3.2 · O2.5 1.57",
+      "status": "PENDING"
     },
     {
       "id": "juventus-vs-napoli-2026-11-01",
@@ -4921,7 +4935,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.25 · N 3.15 · 2 3.1 · O2.5 2"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.25 · N 3.15 · 2 3.1 · O2.5 2",
+      "status": "PENDING"
     },
     {
       "id": "lommelsk-vs-kaagent-2026-11-01",
@@ -5135,7 +5150,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.5 · N 3.9 · 2 1.71 · O2.5 1.74"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.5 · N 3.9 · 2 1.71 · O2.5 1.74",
+      "status": "PENDING"
     },
     {
       "id": "sassuolo-vs-fiorenti-2026-11-02",
@@ -8549,12 +8565,12 @@
       "away": "Club Brugge",
       "league": "UEFA Champions League",
       "date": "2026-11-04",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.72,
+      "proba": 0.7,
       "bttsProbDisplay": "70.00%",
-      "over25ProbDisplay": "80.00%",
-      "confidence": 72,
+      "over25ProbDisplay": "70.00%",
+      "confidence": 70,
       "time": "20:00",
       "matchSemantic": "psveindh-vs-clubbrug-2026-11-04",
       "source": "poisson-v92-real-data",
@@ -8567,20 +8583,20 @@
       "matchCountHome": 8,
       "matchCountAway": 8,
       "h2hAvailable": false,
-      "xgHome": 3.5,
-      "xgAway": 2.5,
-      "xgTotal": 6,
+      "xgHome": 3,
+      "xgAway": 2.25,
+      "xgTotal": 5.25,
       "formBTTS": 70,
-      "analysis": "PSV Eindhoven : forme V-N-D-V-D (2V 1N 2D, 13 buts marqués / 6 encaissés sur 5) · Club Brugge : forme V-V-V-V-V (5V 0N 0D, 17 buts marqués / 6 encaissés sur 5). Classement : PSV Eindhoven 18e (4 pts), Club Brugge 11e (6 pts). Stats empiriques (forme récente) : buts moy. 6, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.05 / N: 4.1 / 2: 3. Fiabilité 89.38%.",
+      "analysis": "PSV Eindhoven : forme N-D-V-D-V (2V 1N 2D, 10 buts marqués / 7 encaissés sur 5) · Club Brugge : forme V-V-V-V-V (5V 0N 0D, 14 buts marqués / 4 encaissés sur 5). Classement : PSV Eindhoven 18e (4 pts), Club Brugge 11e (6 pts). Stats empiriques (forme récente) : buts moy. 5.25, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.05 / N: 4.1 / 2: 3. Fiabilité 89.38%.",
       "analysisData": {
         "bttsProb": 0.7,
-        "over25Prob": 0.8,
-        "homeLambda": 3.5,
-        "awayLambda": 2.5,
-        "xgTotal": 6
+        "over25Prob": 0.7,
+        "homeLambda": 3,
+        "awayLambda": 2.25,
+        "xgTotal": 5.25
       },
       "estimatedCote": 1.43,
-      "estimatedCoteOver": 1.25,
+      "estimatedCoteOver": 1.43,
       "odds": {
         "provider": "DraftKings",
         "home": 2.05,
@@ -8592,15 +8608,15 @@
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.43,
       "formHome": {
-        "last5String": "V-N-D-V-D",
+        "last5String": "N-D-V-D-V",
         "wins": 2,
         "draws": 1,
         "losses": 2,
-        "goalsFor": 13,
-        "goalsAgainst": 6,
-        "bttsRate": 0.6,
+        "goalsFor": 10,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
         "over25Rate": 0.6,
-        "cleanSheets": 2,
+        "cleanSheets": 1,
         "failedToScore": 0,
         "count": 5
       },
@@ -8609,11 +8625,11 @@
         "wins": 5,
         "draws": 0,
         "losses": 0,
-        "goalsFor": 17,
-        "goalsAgainst": 6,
-        "bttsRate": 0.8,
-        "over25Rate": 1,
-        "cleanSheets": 1,
+        "goalsFor": 14,
+        "goalsAgainst": 4,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
         "failedToScore": 0,
         "count": 5
       },
@@ -8709,48 +8725,48 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 70,
-          "bttsProb": 0.7,
-          "homeLambda": 3.5,
-          "awayLambda": 2.5,
+          "confidence": 68,
+          "bttsProb": 0.68,
+          "homeLambda": 3,
+          "awayLambda": 2.25,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "statsOnly": true,
+          "proba": 0.68
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 72,
-          "over25Prob": 0.72,
-          "homeLambda": 3.5,
-          "awayLambda": 2.5,
+          "confidence": 68,
+          "over25Prob": 0.69,
+          "homeLambda": 3,
+          "awayLambda": 2.25,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.72
+          "proba": 0.69
         }
       ],
-      "bttsProb": 0.7,
-      "over25Prob": 0.72,
-      "homeLambda": 3.5,
-      "awayLambda": 2.5,
+      "bttsProb": 0.68,
+      "over25Prob": 0.69,
+      "homeLambda": 3,
+      "awayLambda": 2.25,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Club Brugge a un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
-      "ai_analysis": "Ce match présente des indicateurs offensifs très élevés, notamment un taux empirique d'Over 2.5 atteignant 80%. Club Brugge se distingue par une efficacité totale sur ses cinq dernières rencontres avec un taux de sur-performance de 100% sur ce marché. Ajouté aux moyennes de buts par match respectives des équipes, le pari sur les buts offre une base statistique solide.",
-      "ai_analysis_en": "This match features very high offensive indicators, notably an empirical Over 2.5 rate reaching 80%. Club Brugge stands out with total efficiency in their last five fixtures, hitting a 100% rate on this market. Combined with the respective goal averages of both teams, betting on goals offers a solid statistical basis.",
-      "ai_form_summary": "PSV en dents de scie (2V, 1N, 2D), Club Brugge en pleine bourre (5V).",
-      "ai_form_summary_en": "PSV inconsistent (2W, 1D, 2L), Club Brugge on a winning streak (5W).",
+      "ai_key_fact": "PSV affiche un taux BTTS de 80% et Club Brugge reste sur une série de 5 victoires consécutives.",
+      "ai_analysis": "Le PSV Eindhoven génère régulièrement des rencontres animées avec une moyenne de 3 buts par match sur son échantillon et un taux BTTS de 80%. Face à un Club Brugge en pleine confiance offensive (14 buts en 5 matchs), les conditions sont réunies pour voir des buts des deux côtés.",
+      "ai_analysis_en": "PSV Eindhoven regularly produces lively matches with a 3-goal average per game in their sample and an 80% BTTS rate. Facing a Club Brugge side full of offensive confidence (14 goals in 5 games), conditions are met to see goals from both sides.",
+      "ai_form_summary": "PSV (2W-1D-2L) est irrégulier mais marque beaucoup, Club Brugge (5W-0D-0L) est en pleine forme.",
+      "ai_form_summary_en": "PSV (2W-1D-2L) is inconsistent but scores heavily, Club Brugge (5W-0D-0L) is in top form.",
       "ai_reasons": [
-        "Taux empirique Over 2.5 élevé à 80%.",
-        "Club Brugge affiche un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
-        "Moyennes de buts élevées pour les deux formations (PSV 3.5, Club Brugge 2.5)."
+        "Taux empirique BTTS à 70% et Over 2.5 à 70%.",
+        "PSV Eindhoven affiche un taux BTTS de 80% sur ses 8 derniers matchs.",
+        "Club Brugge est invaincu sur ses 5 derniers matchs (5W) avec 14 buts marqués."
       ],
       "ai_risks": [
-        "Forme récente du PSV en dents de scie (2W-1D-2L).",
-        "Variabilité inhérente aux matchs de phase de groupes de Ligue des Champions."
+        "Club Brugge présente un taux de buts encaissés plus faible qui pourrait verrouiller partiellement la rencontre."
       ],
-      "ai_confidence": "high",
+      "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -8969,7 +8985,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.2 · N 3.65 · 2 3 · O2.5 1.71"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.2 · N 3.65 · 2 3 · O2.5 1.71",
+      "status": "PENDING"
     },
     {
       "id": "lens-vs-como-2026-11-04",
@@ -9193,19 +9210,19 @@
       "away": "West Ham United",
       "league": "Championship",
       "date": "2026-11-04",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.7,
-      "bttsProbDisplay": "70.00%",
+      "proba": 0.65,
+      "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 70,
+      "confidence": 65,
       "time": "19:45",
       "matchSemantic": "cardiffc-vs-westhamu-2026-11-04",
       "source": "poisson-v92-real-data",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/347.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/371.png",
       "tier": "GOLD",
-      "reliabilityScore": 89.38,
+      "reliabilityScore": 85,
       "dataQuality": "HIGH",
       "dataSource": "ESPN_TEAM_SCHEDULE",
       "matchCountHome": 8,
@@ -9214,40 +9231,47 @@
       "xgHome": 2.5,
       "xgAway": 3,
       "xgTotal": 5.5,
-      "formBTTS": 70,
-      "analysis": "Cardiff City : forme V-N-V-D-V (3V 1N 1D, 12 buts marqués / 6 encaissés sur 5) · West Ham United : forme D-V-V-N-N (2V 2N 1D, 12 buts marqués / 6 encaissés sur 5). Classement : Cardiff City 16e (14 pts), West Ham United 3e (22 pts). Stats empiriques (forme récente) : buts moy. 5.5, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Fiabilité 89.38%.",
+      "formBTTS": 60,
+      "analysis": "Cardiff City : forme D-V-N-V-D (2V 1N 2D, 9 buts marqués / 8 encaissés sur 5) · West Ham United : forme D-D-V-V-N (2V 1N 2D, 11 buts marqués / 7 encaissés sur 5). Classement : Cardiff City 17e (14 pts), West Ham United 8e (22 pts). Stats empiriques (forme récente) : buts moy. 5.5, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.3 / N: 4.1 / 2: 1.95. Fiabilité 85%.",
       "analysisData": {
-        "bttsProb": 0.7,
+        "bttsProb": 0.6,
         "over25Prob": 0.7,
         "homeLambda": 2.5,
         "awayLambda": 3,
         "xgTotal": 5.5
       },
-      "estimatedCote": 1.43,
+      "estimatedCote": 1.67,
       "estimatedCoteOver": 1.43,
-      "odds": null,
-      "oddsSource": "ESTIMATION_POISSON",
-      "estimatedCoteBTTS": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 3.3,
+        "draw": 4.1,
+        "away": 1.95,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.67,
       "formHome": {
-        "last5String": "V-N-V-D-V",
-        "wins": 3,
+        "last5String": "D-V-N-V-D",
+        "wins": 2,
         "draws": 1,
-        "losses": 1,
-        "goalsFor": 12,
-        "goalsAgainst": 6,
-        "bttsRate": 0.8,
+        "losses": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 8,
+        "bttsRate": 0.6,
         "over25Rate": 0.8,
         "cleanSheets": 1,
-        "failedToScore": 0,
+        "failedToScore": 1,
         "count": 5
       },
       "formAway": {
-        "last5String": "D-V-V-N-N",
+        "last5String": "D-D-V-V-N",
         "wins": 2,
-        "draws": 2,
-        "losses": 1,
-        "goalsFor": 12,
-        "goalsAgainst": 6,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 11,
+        "goalsAgainst": 7,
         "bttsRate": 0.6,
         "over25Rate": 0.6,
         "cleanSheets": 2,
@@ -9329,70 +9353,69 @@
         }
       ],
       "standingsHome": {
-        "rank": 16,
+        "rank": 17,
         "points": 14,
-        "played": 12,
+        "played": 13,
         "gf": 19,
-        "ga": 17
+        "ga": 20
       },
       "standingsAway": {
-        "rank": 3,
+        "rank": 8,
         "points": 22,
-        "played": 12,
-        "gf": 32,
-        "ga": 15
+        "played": 13,
+        "gf": 33,
+        "ga": 18
       },
       "predictions": [
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 68,
-          "bttsProb": 0.68,
+          "confidence": 60,
+          "bttsProb": 0.6,
           "homeLambda": 2.5,
           "awayLambda": 3,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.68
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 68,
-          "over25Prob": 0.69,
+          "confidence": 65,
+          "over25Prob": 0.65,
           "homeLambda": 2.5,
           "awayLambda": 3,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.69
+          "proba": 0.65
         }
       ],
-      "bttsProb": 0.68,
-      "over25Prob": 0.69,
+      "bttsProb": 0.6,
+      "over25Prob": 0.65,
       "homeLambda": 2.5,
       "awayLambda": 3,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Cardiff City présente un taux BTTS et Over de 80% sur sa forme récente.",
-      "ai_analysis": "Cardiff City et West Ham affichent tous deux de fortes dispositions offensives avec des moyennes de buts respectives de 2.5 et 3.0. Les statistiques empiriques globales de 70% sur le BTTS et l'Over confirment la tendance à des matchs prolifiques.",
-      "ai_analysis_en": "Cardiff City and West Ham both display strong offensive traits with respective goal averages of 2.5 and 3.0. Overall empirical stats of 70% on BTTS and Over confirm the trend toward prolific matches.",
-      "ai_form_summary": "Cardiff City (3W-1D-1L) concède et marque beaucoup, West Ham (2W-2D-1L) est performant mais accroché.",
-      "ai_form_summary_en": "Cardiff City (3W-1D-1L) concedes and scores frequently, West Ham (2W-2D-1L) is efficient yet holds draws.",
+      "ai_key_fact": "Cardiff City enregistre 80% de matchs Over 2.5 lors de ses dernières sorties à domicile.",
+      "ai_analysis": "Cette confrontation de Championship réunit des dynamiques résolument offensives. Cardiff City et West Ham affichent des moyennes de buts respectives de 2.5 et 3 par match. Le taux empirique de 60% en BTTS et 70% en Over 2.5 renforce l'attrait pour le marché des buts.",
+      "ai_analysis_en": "This Championship fixture brings together decisively offensive dynamics. Cardiff City and West Ham post goals averages of 2.5 and 3 per match respectively. The empirical rate of 60% for BTTS and 70% for Over 2.5 reinforces the appeal of the goals market.",
+      "ai_form_summary": "Cardiff City (2W-1D-2L) et West Ham United (2W-1D-2L) ont des profils de forme similaires.",
+      "ai_form_summary_en": "Cardiff City (2W-1D-2L) and West Ham United (2W-1D-2L) show similar recent form profiles.",
       "ai_reasons": [
-        "Taux empirique BTTS à 70% et Over 2.5 à 70%.",
-        "Cardiff City enregistre un taux BTTS et Over 2.5 de 80% sur son échantillon de forme.",
-        "Moyennes de buts élevées avec 2.5 pour Cardiff et 3.0 pour West Ham."
+        "Taux empirique Over 2.5 établi à 70% pour cette affiche.",
+        "Moyennes de buts élevées avec 2.5 pour Cardiff City et 3 pour West Ham United.",
+        "Taux d'Over 2.5 de Cardiff à domicile atteignant 80%."
       ],
       "ai_risks": [
-        "West Ham possède un parcours extérieur plus prudent avec un taux BTTS de 60%."
+        "Les deux équipes affichent un taux BTTS identique de 60%, laissant planer un risque de score unilatéral.",
+        "West Ham possède une défense relativement solide (18 buts encaissés en 13 matchs)."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.3 · N 4.1 · 2 1.95"
     },
     {
       "id": "wrexham-vs-middlesb-2026-11-04",
@@ -11315,7 +11338,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.85 · N 3.75 · 2 2.3 · O2.5 1.59"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.85 · N 3.75 · 2 2.3 · O2.5 1.59",
+      "status": "PENDING"
     },
     {
       "id": "fcthun-vs-heartofm-2026-11-05",
@@ -11738,7 +11762,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.7 · O2.5 1.57"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.7 · O2.5 1.57",
+      "status": "PENDING"
     },
     {
       "id": "realsoci-vs-lyon-2026-11-05",
@@ -12160,7 +12185,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "tsveintr-vs-energiec-2026-11-06",
@@ -12374,7 +12400,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.87 · N 3.95 · 2 3.45"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.87 · N 3.95 · 2 3.45",
+      "status": "PENDING"
     },
     {
       "id": "sevilla-vs-alavs-2026-11-06",
@@ -12588,7 +12615,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.25 · 2 3.65 · O2.5 2.2"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.25 · 2 3.65 · O2.5 2.2",
+      "status": "PENDING"
     },
     {
       "id": "toulouse-vs-strasbou-2026-11-06",
@@ -12802,7 +12830,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 3.65 · 2 3.25 · O2.5 1.57"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 3.65 · 2 3.25 · O2.5 1.57",
+      "status": "PENDING"
     },
     {
       "id": "standard-vs-waasland-2026-11-06",
@@ -13009,7 +13038,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "dynamodr-vs-spvgggre-2026-11-06",
@@ -13216,7 +13246,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "rapidvie-vs-wolfsber-2026-11-06",
@@ -13423,7 +13454,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "willemii-vs-peczwoll-2026-11-06",
@@ -13630,7 +13662,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     }
   ],
   "vipPreview": [
@@ -15438,12 +15471,12 @@
       "away": "Toulouse",
       "league": "Ligue 1",
       "date": "2026-11-01",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.66,
+      "proba": 0.6,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 66,
+      "confidence": 60,
       "time": "19:45",
       "matchSemantic": "marseill-vs-toulouse-2026-11-01",
       "source": "poisson-v92-real-data",
@@ -15460,7 +15493,7 @@
       "xgAway": 2.25,
       "xgTotal": 5,
       "formBTTS": 60,
-      "analysis": "Marseille : forme V-V-V-D-D (3V 0N 2D, 12 buts marqués / 8 encaissés sur 5) · Toulouse : forme N-V-N-V-N (2V 3N 0D, 10 buts marqués / 6 encaissés sur 5). Classement : Marseille 8e (12 pts), Toulouse 11e (10 pts). Stats empiriques (forme récente) : buts moy. 5, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.9 / 2: 3.6. Fiabilité 85%.",
+      "analysis": "Marseille : forme V-V-V-D-D (3V 0N 2D, 12 buts marqués / 8 encaissés sur 5) · Toulouse : forme N-V-N-V-N (2V 3N 0D, 10 buts marqués / 6 encaissés sur 5). Classement : Marseille 8e (12 pts), Toulouse 11e (10 pts). Stats empiriques (forme récente) : buts moy. 5, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.91 / N: 3.85 / 2: 3.55 · Over 2.5: 1.54. Fiabilité 85%.",
       "analysisData": {
         "bttsProb": 0.6,
         "over25Prob": 0.7,
@@ -15473,10 +15506,10 @@
       "odds": {
         "provider": "DraftKings",
         "home": 1.91,
-        "draw": 3.9,
-        "away": 3.6,
-        "over25": null,
-        "under25": null
+        "draw": 3.85,
+        "away": 3.55,
+        "over25": 1.54,
+        "under25": 2.3
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.67,
@@ -15598,52 +15631,53 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 60,
-          "bttsProb": 0.6,
-          "homeLambda": 2.75,
-          "awayLambda": 2.25,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 66,
-          "over25Prob": 0.66,
+          "confidence": 65,
+          "bttsProb": 0.65,
           "homeLambda": 2.75,
           "awayLambda": 2.25,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.66
+          "proba": 0.65
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "over25Prob": 0.675,
+          "homeLambda": 2.75,
+          "awayLambda": 2.25,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.675
         }
       ],
-      "bttsProb": 0.6,
-      "over25Prob": 0.66,
+      "bttsProb": 0.65,
+      "over25Prob": 0.675,
       "homeLambda": 2.75,
       "awayLambda": 2.25,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Toulouse affiche un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
-      "ai_analysis": "Les statistiques des deux équipes révèlent une tendance nette vers des matchs ouverts, avec un taux empirique Over 2.5 à 70%. Toulouse se distingue avec un taux Over de 80% sur ses 5 derniers matchs, tandis que Marseille maintient une moyenne de buts de 2.75 par rencontre. Ces indicateurs convergent vers un scénario avec au moins trois buts inscrits.",
-      "ai_analysis_en": "The statistics of both teams reveal a clear trend toward open matches, with an empirical Over 2.5 rate of 70%. Toulouse stands out with an 80% Over rate over their last 5 matches, while Marseille maintains a goal average of 2.75 per game. These indicators converge toward a scenario with at least three goals scored.",
-      "ai_form_summary": "Marseille (3W-0D-2L, 12 buts pour, 8 contre) vs Toulouse (2W-3D-0L, 10 buts pour, 6 contre).",
-      "ai_form_summary_en": "Marseille (3W-0D-2L, 12 GF, 8 GA) vs Toulouse (2W-3D-0L, 10 GF, 6 GA).",
+      "ai_key_fact": "Marseille et Toulouse affichent chacun un taux de BTTS de 60% sur leurs 8 derniers matchs.",
+      "ai_analysis": "L'analyse des statistiques observées montre un profil résolument offensif pour cette rencontre de Ligue 1. Marseille et Toulouse affichent tous deux un taux de BTTS de 60% ainsi que des moyennes de buts par match élevées (2.75 et 2.25). L'empirique Over 2.5 atteint 70%, ce qui renforce l'intérêt pour un match prolifique où les deux défenses pourraient céder.",
+      "ai_analysis_en": "Observed statistics show a distinctly offensive profile for this Ligue 1 fixture. Both Marseille and Toulouse record a 60% BTTS rate alongside high goals-per-match averages (2.75 and 2.25). The empirical Over 2.5 rate sits at 70%, supporting the case for an open match where both defenses could concede.",
+      "ai_form_summary": "Marseille (3V-0N-2D) alterne le bon et le moins bon, tandis que Toulouse (2V-3N-0D) est invaincu sur ses 5 derniers matchs.",
+      "ai_form_summary_en": "Marseille (3W-0D-2L) shows mixed recent form, while Toulouse (2W-3D-0L) remains unbeaten in their last 5 outings.",
       "ai_reasons": [
-        "Taux Over 2.5 empirique global de 70% pour ce match de Ligue 1.",
-        "Toulouse présente un taux Over 2.5 de 80% sur ses 5 derniers matchs.",
-        "Moyennes de buts solides pour Marseille (2.75) et Toulouse (2.25)."
+        "Taux empiriques élevés : 60% de matchs BTTS et 70% d'Over 2.5 sur l'échantillon global.",
+        "Moyennes de buts élevées : Marseille affiche 2.75 buts par match et Toulouse 2.25.",
+        "Bonne constance offensive des deux côtés avec respectivement 18 et 12 buts inscrits en 8 matchs."
       ],
       "ai_risks": [
-        "Marseille reste sur deux défaites consécutives lors de ses 5 derniers matchs.",
-        "Toulouse a concédé 3 matchs nuls sur ses 5 dernières sorties, montrant une certaine prudence."
+        "Marseille reste sur deux défaites récentes en championnat.",
+        "Toulouse concède pas mal de matchs nuls (3 sur les 5 derniers)."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.9 · 2 3.6",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.55 · O2.5 1.54",
       "status": "PENDING"
     },
     {
@@ -15859,7 +15893,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 5 · N 4.5 · 2 1.57"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 5 · N 4.5 · 2 1.57",
+      "status": "PENDING"
     },
     {
       "id": "falkirk-vs-celtic-2026-11-01",
@@ -16074,7 +16109,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 6 · N 4.8 · 2 1.45"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 6 · N 4.8 · 2 1.45",
+      "status": "PENDING"
     },
     {
       "id": "lazio-vs-cagliari-2026-11-01",
@@ -16288,7 +16324,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.42 · N 4.4 · 2 6.5 · O2.5 1.77"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.42 · N 4.4 · 2 6.5 · O2.5 1.77",
+      "status": "PENDING"
     },
     {
       "id": "stpauli-vs-fcnrnber-2026-11-01",
@@ -16499,7 +16536,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.65 · 2 3.1 · O2.5 1.65"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.65 · 2 3.1 · O2.5 1.65",
+      "status": "PENDING"
     },
     {
       "id": "braga-vs-fcfamali-2026-11-01",
@@ -16713,7 +16751,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.74 · N 3.6 · 2 5 · O2.5 2.05"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.74 · N 3.6 · 2 5 · O2.5 2.05",
+      "status": "PENDING"
     },
     {
       "id": "rbsalzbu-vs-austrial-2026-11-01",
@@ -16927,7 +16966,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.17 · N 8 · 2 12"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.17 · N 8 · 2 12",
+      "status": "PENDING"
     },
     {
       "id": "vancouve-vs-seattles-2026-11-01",
@@ -17141,7 +17181,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.59 · N 4.3 · 2 4.5"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.59 · N 4.3 · 2 4.5",
+      "status": "PENDING"
     },
     {
       "id": "nashvill-vs-redbulln-2026-11-01",
@@ -17352,7 +17393,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.49 · N 4.5 · 2 5.25"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.49 · N 4.5 · 2 5.25",
+      "status": "PENDING"
     },
     {
       "id": "hannover-vs-dynamodr-2026-11-01",
@@ -17566,7 +17608,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.75 · 2 3.05"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.75 · 2 3.05",
+      "status": "PENDING"
     },
     {
       "id": "peczwoll-vs-adodenha-2026-11-01",
@@ -17780,7 +17823,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.25 · N 3.7 · 2 2.9 · O2.5 1.59"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.25 · N 3.7 · 2 2.9 · O2.5 1.59",
+      "status": "PENDING"
     },
     {
       "id": "austriav-vs-rapidvie-2026-11-01",
@@ -17994,7 +18038,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4 · 2 1.69"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4 · 2 1.69",
+      "status": "PENDING"
     },
     {
       "id": "lyon-vs-angers-2026-11-01",
@@ -18205,7 +18250,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.41 · N 5 · 2 7"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.41 · N 5 · 2 7",
+      "status": "PENDING"
     },
     {
       "id": "cerclebr-vs-antwerp-2026-11-01",
@@ -18420,7 +18466,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 3.8 · 2 3.2 · O2.5 1.57"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 3.8 · 2 3.2 · O2.5 1.57",
+      "status": "PENDING"
     },
     {
       "id": "juventus-vs-napoli-2026-11-01",
@@ -18634,7 +18681,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.25 · N 3.15 · 2 3.1 · O2.5 2"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.25 · N 3.15 · 2 3.1 · O2.5 2",
+      "status": "PENDING"
     },
     {
       "id": "lommelsk-vs-kaagent-2026-11-01",
@@ -18848,7 +18896,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.5 · N 3.9 · 2 1.71 · O2.5 1.74"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.5 · N 3.9 · 2 1.71 · O2.5 1.74",
+      "status": "PENDING"
     },
     {
       "id": "sassuolo-vs-fiorenti-2026-11-02",
@@ -22262,12 +22311,12 @@
       "away": "Club Brugge",
       "league": "UEFA Champions League",
       "date": "2026-11-04",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.72,
+      "proba": 0.7,
       "bttsProbDisplay": "70.00%",
-      "over25ProbDisplay": "80.00%",
-      "confidence": 72,
+      "over25ProbDisplay": "70.00%",
+      "confidence": 70,
       "time": "20:00",
       "matchSemantic": "psveindh-vs-clubbrug-2026-11-04",
       "source": "poisson-v92-real-data",
@@ -22280,20 +22329,20 @@
       "matchCountHome": 8,
       "matchCountAway": 8,
       "h2hAvailable": false,
-      "xgHome": 3.5,
-      "xgAway": 2.5,
-      "xgTotal": 6,
+      "xgHome": 3,
+      "xgAway": 2.25,
+      "xgTotal": 5.25,
       "formBTTS": 70,
-      "analysis": "PSV Eindhoven : forme V-N-D-V-D (2V 1N 2D, 13 buts marqués / 6 encaissés sur 5) · Club Brugge : forme V-V-V-V-V (5V 0N 0D, 17 buts marqués / 6 encaissés sur 5). Classement : PSV Eindhoven 18e (4 pts), Club Brugge 11e (6 pts). Stats empiriques (forme récente) : buts moy. 6, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.05 / N: 4.1 / 2: 3. Fiabilité 89.38%.",
+      "analysis": "PSV Eindhoven : forme N-D-V-D-V (2V 1N 2D, 10 buts marqués / 7 encaissés sur 5) · Club Brugge : forme V-V-V-V-V (5V 0N 0D, 14 buts marqués / 4 encaissés sur 5). Classement : PSV Eindhoven 18e (4 pts), Club Brugge 11e (6 pts). Stats empiriques (forme récente) : buts moy. 5.25, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.05 / N: 4.1 / 2: 3. Fiabilité 89.38%.",
       "analysisData": {
         "bttsProb": 0.7,
-        "over25Prob": 0.8,
-        "homeLambda": 3.5,
-        "awayLambda": 2.5,
-        "xgTotal": 6
+        "over25Prob": 0.7,
+        "homeLambda": 3,
+        "awayLambda": 2.25,
+        "xgTotal": 5.25
       },
       "estimatedCote": 1.43,
-      "estimatedCoteOver": 1.25,
+      "estimatedCoteOver": 1.43,
       "odds": {
         "provider": "DraftKings",
         "home": 2.05,
@@ -22305,15 +22354,15 @@
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.43,
       "formHome": {
-        "last5String": "V-N-D-V-D",
+        "last5String": "N-D-V-D-V",
         "wins": 2,
         "draws": 1,
         "losses": 2,
-        "goalsFor": 13,
-        "goalsAgainst": 6,
-        "bttsRate": 0.6,
+        "goalsFor": 10,
+        "goalsAgainst": 7,
+        "bttsRate": 0.8,
         "over25Rate": 0.6,
-        "cleanSheets": 2,
+        "cleanSheets": 1,
         "failedToScore": 0,
         "count": 5
       },
@@ -22322,11 +22371,11 @@
         "wins": 5,
         "draws": 0,
         "losses": 0,
-        "goalsFor": 17,
-        "goalsAgainst": 6,
-        "bttsRate": 0.8,
-        "over25Rate": 1,
-        "cleanSheets": 1,
+        "goalsFor": 14,
+        "goalsAgainst": 4,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
         "failedToScore": 0,
         "count": 5
       },
@@ -22422,48 +22471,48 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 70,
-          "bttsProb": 0.7,
-          "homeLambda": 3.5,
-          "awayLambda": 2.5,
+          "confidence": 68,
+          "bttsProb": 0.68,
+          "homeLambda": 3,
+          "awayLambda": 2.25,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "statsOnly": true,
+          "proba": 0.68
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 72,
-          "over25Prob": 0.72,
-          "homeLambda": 3.5,
-          "awayLambda": 2.5,
+          "confidence": 68,
+          "over25Prob": 0.69,
+          "homeLambda": 3,
+          "awayLambda": 2.25,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.72
+          "proba": 0.69
         }
       ],
-      "bttsProb": 0.7,
-      "over25Prob": 0.72,
-      "homeLambda": 3.5,
-      "awayLambda": 2.5,
+      "bttsProb": 0.68,
+      "over25Prob": 0.69,
+      "homeLambda": 3,
+      "awayLambda": 2.25,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Club Brugge a un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
-      "ai_analysis": "Ce match présente des indicateurs offensifs très élevés, notamment un taux empirique d'Over 2.5 atteignant 80%. Club Brugge se distingue par une efficacité totale sur ses cinq dernières rencontres avec un taux de sur-performance de 100% sur ce marché. Ajouté aux moyennes de buts par match respectives des équipes, le pari sur les buts offre une base statistique solide.",
-      "ai_analysis_en": "This match features very high offensive indicators, notably an empirical Over 2.5 rate reaching 80%. Club Brugge stands out with total efficiency in their last five fixtures, hitting a 100% rate on this market. Combined with the respective goal averages of both teams, betting on goals offers a solid statistical basis.",
-      "ai_form_summary": "PSV en dents de scie (2V, 1N, 2D), Club Brugge en pleine bourre (5V).",
-      "ai_form_summary_en": "PSV inconsistent (2W, 1D, 2L), Club Brugge on a winning streak (5W).",
+      "ai_key_fact": "PSV affiche un taux BTTS de 80% et Club Brugge reste sur une série de 5 victoires consécutives.",
+      "ai_analysis": "Le PSV Eindhoven génère régulièrement des rencontres animées avec une moyenne de 3 buts par match sur son échantillon et un taux BTTS de 80%. Face à un Club Brugge en pleine confiance offensive (14 buts en 5 matchs), les conditions sont réunies pour voir des buts des deux côtés.",
+      "ai_analysis_en": "PSV Eindhoven regularly produces lively matches with a 3-goal average per game in their sample and an 80% BTTS rate. Facing a Club Brugge side full of offensive confidence (14 goals in 5 games), conditions are met to see goals from both sides.",
+      "ai_form_summary": "PSV (2W-1D-2L) est irrégulier mais marque beaucoup, Club Brugge (5W-0D-0L) est en pleine forme.",
+      "ai_form_summary_en": "PSV (2W-1D-2L) is inconsistent but scores heavily, Club Brugge (5W-0D-0L) is in top form.",
       "ai_reasons": [
-        "Taux empirique Over 2.5 élevé à 80%.",
-        "Club Brugge affiche un taux Over 2.5 de 100% sur ses 5 derniers matchs.",
-        "Moyennes de buts élevées pour les deux formations (PSV 3.5, Club Brugge 2.5)."
+        "Taux empirique BTTS à 70% et Over 2.5 à 70%.",
+        "PSV Eindhoven affiche un taux BTTS de 80% sur ses 8 derniers matchs.",
+        "Club Brugge est invaincu sur ses 5 derniers matchs (5W) avec 14 buts marqués."
       ],
       "ai_risks": [
-        "Forme récente du PSV en dents de scie (2W-1D-2L).",
-        "Variabilité inhérente aux matchs de phase de groupes de Ligue des Champions."
+        "Club Brugge présente un taux de buts encaissés plus faible qui pourrait verrouiller partiellement la rencontre."
       ],
-      "ai_confidence": "high",
+      "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -22682,7 +22731,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.2 · N 3.65 · 2 3 · O2.5 1.71"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.2 · N 3.65 · 2 3 · O2.5 1.71",
+      "status": "PENDING"
     },
     {
       "id": "lens-vs-como-2026-11-04",
@@ -22906,19 +22956,19 @@
       "away": "West Ham United",
       "league": "Championship",
       "date": "2026-11-04",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.7,
-      "bttsProbDisplay": "70.00%",
+      "proba": 0.65,
+      "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "70.00%",
-      "confidence": 70,
+      "confidence": 65,
       "time": "19:45",
       "matchSemantic": "cardiffc-vs-westhamu-2026-11-04",
       "source": "poisson-v92-real-data",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/347.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/371.png",
       "tier": "GOLD",
-      "reliabilityScore": 89.38,
+      "reliabilityScore": 85,
       "dataQuality": "HIGH",
       "dataSource": "ESPN_TEAM_SCHEDULE",
       "matchCountHome": 8,
@@ -22927,40 +22977,47 @@
       "xgHome": 2.5,
       "xgAway": 3,
       "xgTotal": 5.5,
-      "formBTTS": 70,
-      "analysis": "Cardiff City : forme V-N-V-D-V (3V 1N 1D, 12 buts marqués / 6 encaissés sur 5) · West Ham United : forme D-V-V-N-N (2V 2N 1D, 12 buts marqués / 6 encaissés sur 5). Classement : Cardiff City 16e (14 pts), West Ham United 3e (22 pts). Stats empiriques (forme récente) : buts moy. 5.5, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Fiabilité 89.38%.",
+      "formBTTS": 60,
+      "analysis": "Cardiff City : forme D-V-N-V-D (2V 1N 2D, 9 buts marqués / 8 encaissés sur 5) · West Ham United : forme D-D-V-V-N (2V 1N 2D, 11 buts marqués / 7 encaissés sur 5). Classement : Cardiff City 17e (14 pts), West Ham United 8e (22 pts). Stats empiriques (forme récente) : buts moy. 5.5, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 3.3 / N: 4.1 / 2: 1.95. Fiabilité 85%.",
       "analysisData": {
-        "bttsProb": 0.7,
+        "bttsProb": 0.6,
         "over25Prob": 0.7,
         "homeLambda": 2.5,
         "awayLambda": 3,
         "xgTotal": 5.5
       },
-      "estimatedCote": 1.43,
+      "estimatedCote": 1.67,
       "estimatedCoteOver": 1.43,
-      "odds": null,
-      "oddsSource": "ESTIMATION_POISSON",
-      "estimatedCoteBTTS": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 3.3,
+        "draw": 4.1,
+        "away": 1.95,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.67,
       "formHome": {
-        "last5String": "V-N-V-D-V",
-        "wins": 3,
+        "last5String": "D-V-N-V-D",
+        "wins": 2,
         "draws": 1,
-        "losses": 1,
-        "goalsFor": 12,
-        "goalsAgainst": 6,
-        "bttsRate": 0.8,
+        "losses": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 8,
+        "bttsRate": 0.6,
         "over25Rate": 0.8,
         "cleanSheets": 1,
-        "failedToScore": 0,
+        "failedToScore": 1,
         "count": 5
       },
       "formAway": {
-        "last5String": "D-V-V-N-N",
+        "last5String": "D-D-V-V-N",
         "wins": 2,
-        "draws": 2,
-        "losses": 1,
-        "goalsFor": 12,
-        "goalsAgainst": 6,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 11,
+        "goalsAgainst": 7,
         "bttsRate": 0.6,
         "over25Rate": 0.6,
         "cleanSheets": 2,
@@ -23042,70 +23099,69 @@
         }
       ],
       "standingsHome": {
-        "rank": 16,
+        "rank": 17,
         "points": 14,
-        "played": 12,
+        "played": 13,
         "gf": 19,
-        "ga": 17
+        "ga": 20
       },
       "standingsAway": {
-        "rank": 3,
+        "rank": 8,
         "points": 22,
-        "played": 12,
-        "gf": 32,
-        "ga": 15
+        "played": 13,
+        "gf": 33,
+        "ga": 18
       },
       "predictions": [
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 68,
-          "bttsProb": 0.68,
+          "confidence": 60,
+          "bttsProb": 0.6,
           "homeLambda": 2.5,
           "awayLambda": 3,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.68
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 68,
-          "over25Prob": 0.69,
+          "confidence": 65,
+          "over25Prob": 0.65,
           "homeLambda": 2.5,
           "awayLambda": 3,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.69
+          "proba": 0.65
         }
       ],
-      "bttsProb": 0.68,
-      "over25Prob": 0.69,
+      "bttsProb": 0.6,
+      "over25Prob": 0.65,
       "homeLambda": 2.5,
       "awayLambda": 3,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Cardiff City présente un taux BTTS et Over de 80% sur sa forme récente.",
-      "ai_analysis": "Cardiff City et West Ham affichent tous deux de fortes dispositions offensives avec des moyennes de buts respectives de 2.5 et 3.0. Les statistiques empiriques globales de 70% sur le BTTS et l'Over confirment la tendance à des matchs prolifiques.",
-      "ai_analysis_en": "Cardiff City and West Ham both display strong offensive traits with respective goal averages of 2.5 and 3.0. Overall empirical stats of 70% on BTTS and Over confirm the trend toward prolific matches.",
-      "ai_form_summary": "Cardiff City (3W-1D-1L) concède et marque beaucoup, West Ham (2W-2D-1L) est performant mais accroché.",
-      "ai_form_summary_en": "Cardiff City (3W-1D-1L) concedes and scores frequently, West Ham (2W-2D-1L) is efficient yet holds draws.",
+      "ai_key_fact": "Cardiff City enregistre 80% de matchs Over 2.5 lors de ses dernières sorties à domicile.",
+      "ai_analysis": "Cette confrontation de Championship réunit des dynamiques résolument offensives. Cardiff City et West Ham affichent des moyennes de buts respectives de 2.5 et 3 par match. Le taux empirique de 60% en BTTS et 70% en Over 2.5 renforce l'attrait pour le marché des buts.",
+      "ai_analysis_en": "This Championship fixture brings together decisively offensive dynamics. Cardiff City and West Ham post goals averages of 2.5 and 3 per match respectively. The empirical rate of 60% for BTTS and 70% for Over 2.5 reinforces the appeal of the goals market.",
+      "ai_form_summary": "Cardiff City (2W-1D-2L) et West Ham United (2W-1D-2L) ont des profils de forme similaires.",
+      "ai_form_summary_en": "Cardiff City (2W-1D-2L) and West Ham United (2W-1D-2L) show similar recent form profiles.",
       "ai_reasons": [
-        "Taux empirique BTTS à 70% et Over 2.5 à 70%.",
-        "Cardiff City enregistre un taux BTTS et Over 2.5 de 80% sur son échantillon de forme.",
-        "Moyennes de buts élevées avec 2.5 pour Cardiff et 3.0 pour West Ham."
+        "Taux empirique Over 2.5 établi à 70% pour cette affiche.",
+        "Moyennes de buts élevées avec 2.5 pour Cardiff City et 3 pour West Ham United.",
+        "Taux d'Over 2.5 de Cardiff à domicile atteignant 80%."
       ],
       "ai_risks": [
-        "West Ham possède un parcours extérieur plus prudent avec un taux BTTS de 60%."
+        "Les deux équipes affichent un taux BTTS identique de 60%, laissant planer un risque de score unilatéral.",
+        "West Ham possède une défense relativement solide (18 buts encaissés en 13 matchs)."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 3.3 · N 4.1 · 2 1.95"
     },
     {
       "id": "wrexham-vs-middlesb-2026-11-04",
@@ -25028,7 +25084,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.85 · N 3.75 · 2 2.3 · O2.5 1.59"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.85 · N 3.75 · 2 2.3 · O2.5 1.59",
+      "status": "PENDING"
     },
     {
       "id": "fcthun-vs-heartofm-2026-11-05",
@@ -25451,7 +25508,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.7 · O2.5 1.57"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.91 · N 3.85 · 2 3.7 · O2.5 1.57",
+      "status": "PENDING"
     },
     {
       "id": "realsoci-vs-lyon-2026-11-05",
@@ -25873,7 +25931,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "tsveintr-vs-energiec-2026-11-06",
@@ -26087,7 +26146,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.87 · N 3.95 · 2 3.45"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.87 · N 3.95 · 2 3.45",
+      "status": "PENDING"
     },
     {
       "id": "sevilla-vs-alavs-2026-11-06",
@@ -26301,7 +26361,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.25 · 2 3.65 · O2.5 2.2"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.25 · 2 3.65 · O2.5 2.2",
+      "status": "PENDING"
     },
     {
       "id": "toulouse-vs-strasbou-2026-11-06",
@@ -26515,7 +26576,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 3.65 · 2 3.25 · O2.5 1.57"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 3.65 · 2 3.25 · O2.5 1.57",
+      "status": "PENDING"
     },
     {
       "id": "standard-vs-waasland-2026-11-06",
@@ -26722,7 +26784,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "dynamodr-vs-spvgggre-2026-11-06",
@@ -26929,7 +26992,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "rapidvie-vs-wolfsber-2026-11-06",
@@ -27136,7 +27200,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "willemii-vs-peczwoll-2026-11-06",
@@ -27343,7 +27408,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     }
   ],
   "analysisEngine": "gemini-stats-v1"

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-01T06:29:44.126Z",
+  "generatedAt": "2026-11-01T06:38:40.931Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -18,15 +18,15 @@
     "total": 403,
     "won": 330,
     "lost": 73,
-    "pending": 90,
+    "pending": 91,
     "unverifiable": 176,
-    "archivedTotal": 669,
+    "archivedTotal": 670,
     "rate": 81.9,
     "gold": {
       "total": 300,
       "won": 249,
       "lost": 51,
-      "rate": 83.0
+      "rate": 83
     },
     "standard": {
       "total": 103,
@@ -54,35 +54,35 @@
         "total": 3,
         "won": 3,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-17",
         "total": 8,
         "won": 8,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-18",
         "total": 5,
         "won": 5,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-21",
         "total": 8,
         "won": 8,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-22",
         "total": 2,
         "won": 2,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-23",
@@ -103,21 +103,21 @@
         "total": 18,
         "won": 18,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       },
       {
         "date": "2026-10-26",
         "total": 5,
         "won": 3,
         "lost": 2,
-        "rate": 60.0
+        "rate": 60
       },
       {
         "date": "2026-10-27",
         "total": 5,
         "won": 4,
         "lost": 1,
-        "rate": 80.0
+        "rate": 80
       },
       {
         "date": "2026-10-28",
@@ -131,7 +131,7 @@
         "total": 15,
         "won": 9,
         "lost": 6,
-        "rate": 60.0
+        "rate": 60
       },
       {
         "date": "2026-10-30",
@@ -145,13 +145,13 @@
         "total": 22,
         "won": 22,
         "lost": 0,
-        "rate": 100.0
+        "rate": 100
       }
     ],
     "period": {
       "from": "2026-08-08",
-      "to": "2026-10-31",
-      "days": 59
+      "to": "2026-11-01",
+      "days": 86
     }
   },
   "history": [
