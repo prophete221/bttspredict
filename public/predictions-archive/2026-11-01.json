@@ -18817,7 +18817,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-02T00:10:21.299Z"
     },
     {
       "id": "athletic-vs-realsoci-2026-11-01",
@@ -20981,7 +20983,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.49 · N 4.5 · 2 5.25",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-2",
+      "verifiedAt": "2026-11-02T00:10:21.300Z"
     },
     {
       "id": "hannover-vs-dynamodr-2026-11-01",

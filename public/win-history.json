@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-01T22:39:56.914Z",
+  "generatedAt": "2026-11-02T00:10:56.196Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,18 +15,18 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 434,
-    "won": 348,
+    "total": 437,
+    "won": 351,
     "lost": 86,
-    "pending": 68,
+    "pending": 76,
     "unverifiable": 176,
-    "archivedTotal": 678,
-    "rate": 80.2,
+    "archivedTotal": 689,
+    "rate": 80.3,
     "gold": {
-      "total": 325,
-      "won": 265,
+      "total": 328,
+      "won": 268,
       "lost": 60,
-      "rate": 81.5
+      "rate": 81.7
     },
     "standard": {
       "total": 109,
@@ -36,16 +36,16 @@
     },
     "byType": {
       "btts": {
-        "total": 391,
-        "won": 319,
+        "total": 393,
+        "won": 321,
         "lost": 72,
-        "rate": 81.6
+        "rate": 81.7
       },
       "over25": {
-        "total": 43,
-        "won": 29,
+        "total": 44,
+        "won": 30,
         "lost": 14,
-        "rate": 67.4
+        "rate": 68.2
       }
     },
     "trend14": [
@@ -142,19 +142,58 @@
       },
       {
         "date": "2026-11-01",
-        "total": 31,
-        "won": 18,
+        "total": 34,
+        "won": 21,
         "lost": 13,
-        "rate": 58.1
+        "rate": 61.8
       }
     ],
     "period": {
       "from": "2026-08-08",
-      "to": "2026-11-01",
-      "days": 86
+      "to": "2026-11-02",
+      "days": 87
     }
   },
   "history": [
+    {
+      "date": "2026-11-01",
+      "match": "Atlanta United FC vs Toronto FC",
+      "league": "MLS",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.75,
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-02T00:10:21.314Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Nashville SC vs Red Bull New York",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.5,
+      "status": "WON",
+      "finalScore": "3-2",
+      "verifiedAt": "2026-11-02T00:10:21.300Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-01",
+      "match": "Atlanta United FC vs Toronto FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.8,
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-02T00:10:21.299Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-01",
       "match": "Athletic Club vs Real Sociedad",
@@ -5799,12 +5838,12 @@
     }
   ],
   "legacyStats": {
-    "total": 32,
-    "won": 32,
+    "total": 25,
+    "won": 25,
     "lost": 0,
     "pending": 0,
-    "unverifiable": 32,
-    "archivedTotal": 64,
+    "unverifiable": 27,
+    "archivedTotal": 52,
     "rate": 100,
     "gold": {
       "total": 0,
@@ -5813,40 +5852,26 @@
       "rate": 0
     },
     "standard": {
-      "total": 32,
-      "won": 32,
+      "total": 25,
+      "won": 25,
       "lost": 0,
       "rate": 100
     },
     "byType": {
       "btts": {
-        "total": 16,
-        "won": 16,
+        "total": 12,
+        "won": 12,
         "lost": 0,
         "rate": 100
       },
       "over25": {
-        "total": 16,
-        "won": 16,
+        "total": 13,
+        "won": 13,
         "lost": 0,
         "rate": 100
       }
     },
     "trend14": [
-      {
-        "date": "2026-08-04",
-        "total": 3,
-        "won": 3,
-        "lost": 0,
-        "rate": 100
-      },
-      {
-        "date": "2026-08-05",
-        "total": 4,
-        "won": 4,
-        "lost": 0,
-        "rate": 100
-      },
       {
         "date": "2026-08-06",
         "total": 8,
@@ -5870,9 +5895,9 @@
       }
     ],
     "period": {
-      "from": "2026-08-04",
+      "from": "2026-08-05",
       "to": "2026-08-07",
-      "days": 4
+      "days": 3
     },
     "history": [
       {
@@ -6098,71 +6123,6 @@
       },
       {
         "date": "2026-08-06",
-        "match": "Boca Juniors vs Estudiantes de La Plata",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.44,
-        "status": "WON",
-        "finalScore": "1-0",
-        "verifiedAt": "2026-10-23T05:47:46.554Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-06",
-        "match": "Deportivo La Guaira vs Metropolitanos",
-        "league": "Venezuelan Primera División",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.49,
-        "status": "WON",
-        "finalScore": "1-2",
-        "verifiedAt": "2026-10-23T05:47:46.554Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-06",
-        "match": "Internacional de Bogotá vs Jaguares de Córdoba",
-        "league": "Colombian Primera A",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.43,
-        "status": "WON",
-        "finalScore": "1-0",
-        "verifiedAt": "2026-10-23T05:47:46.554Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-06",
-        "match": "Once Caldas vs América de Cali",
-        "league": "Colombian Primera A",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.43,
-        "status": "WON",
-        "finalScore": "0-1",
-        "verifiedAt": "2026-10-23T05:47:46.554Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-06",
-        "match": "Tigre vs Belgrano (Córdoba)",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.45,
-        "status": "WON",
-        "finalScore": "0-0",
-        "verifiedAt": "2026-10-23T05:47:46.554Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-06",
         "match": "Alianza Atlético vs Cienciano del Cusco",
         "league": "Peruvian Liga 1",
         "market": "over25",
@@ -6201,95 +6161,69 @@
         "prediction": "Non"
       },
       {
-        "date": "2026-08-05",
-        "match": "Deportivo Táchira vs Portuguesa",
-        "league": "Venezuelan Primera División",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.47,
-        "status": "WON",
-        "finalScore": "1-0",
-        "verifiedAt": "2026-08-07T14:24:36.401Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-05",
-        "match": "Deportivo Táchira vs Portuguesa",
-        "league": "Venezuelan Primera División",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.4,
-        "status": "WON",
-        "finalScore": "1-0",
-        "verifiedAt": "2026-08-07T14:24:36.401Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-05",
-        "match": "Millonarios vs Deportivo Pasto",
-        "league": "Colombian Primera A",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.42,
-        "status": "WON",
-        "finalScore": "2-0",
-        "verifiedAt": "2026-08-07T14:24:36.401Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-05",
-        "match": "UCV FC vs Monagas SC",
+        "date": "2026-08-06",
+        "match": "Deportivo La Guaira vs Metropolitanos",
         "league": "Venezuelan Primera División",
         "market": "btts",
         "tier": "STANDARD",
         "proba": 0.49,
         "status": "WON",
-        "finalScore": "2-1",
-        "verifiedAt": "2026-08-07T14:24:36.401Z",
+        "finalScore": "1-2",
+        "verifiedAt": "2026-08-07T14:24:09.053Z",
         "source": "ESPN public",
         "prediction": "Oui"
       },
       {
-        "date": "2026-08-04",
-        "match": "Carabobo vs Trujillanos",
-        "league": "Venezuelan Primera División",
-        "market": "btts",
+        "date": "2026-08-06",
+        "match": "Internacional de Bogotá vs Jaguares de Córdoba",
+        "league": "Colombian Primera A",
+        "market": "over25",
         "tier": "STANDARD",
         "proba": 0.43,
         "status": "WON",
-        "finalScore": "2-0",
-        "verifiedAt": "2026-08-07T14:24:36.401Z",
+        "finalScore": "1-0",
+        "verifiedAt": "2026-08-07T14:24:09.053Z",
         "source": "ESPN public",
         "prediction": "Non"
       },
       {
-        "date": "2026-08-04",
-        "match": "Carabobo vs Trujillanos",
-        "league": "Venezuelan Primera División",
+        "date": "2026-08-06",
+        "match": "Once Caldas vs América de Cali",
+        "league": "Colombian Primera A",
         "market": "over25",
         "tier": "STANDARD",
-        "proba": 0.46,
+        "proba": 0.43,
         "status": "WON",
-        "finalScore": "2-0",
-        "verifiedAt": "2026-08-07T14:24:36.401Z",
+        "finalScore": "0-1",
+        "verifiedAt": "2026-08-07T14:24:09.053Z",
         "source": "ESPN public",
         "prediction": "Non"
       },
       {
-        "date": "2026-08-04",
-        "match": "Llaneros FC vs Fortaleza CEIF",
-        "league": "Colombian Primera A",
+        "date": "2026-08-06",
+        "match": "Tigre vs Belgrano (Córdoba)",
+        "league": "Argentine Liga Profesional de Fútbol",
         "market": "btts",
         "tier": "STANDARD",
-        "proba": 0.5,
+        "proba": 0.45,
         "status": "WON",
-        "finalScore": "3-1",
-        "verifiedAt": "2026-08-07T14:24:36.401Z",
+        "finalScore": "0-0",
+        "verifiedAt": "2026-08-07T12:17:39.228Z",
         "source": "ESPN public",
-        "prediction": "Oui"
+        "prediction": "Non"
+      },
+      {
+        "date": "2026-08-06",
+        "match": "Boca Juniors vs Estudiantes de La Plata",
+        "league": "Argentine Liga Profesional de Fútbol",
+        "market": "btts",
+        "tier": "STANDARD",
+        "proba": 0.44,
+        "status": "WON",
+        "finalScore": "1-0",
+        "verifiedAt": "2026-08-07T11:25:19.240Z",
+        "source": "ESPN public",
+        "prediction": "Non"
       }
     ],
     "isPrivate": true,
