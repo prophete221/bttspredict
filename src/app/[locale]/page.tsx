@@ -11,6 +11,7 @@ const MethodSection = dynamic(() => import('@/components/bttsbet/HomeEditorial')
 const LeagueCoverage = dynamic(() => import('@/components/bttsbet/HomeEditorial').then(m => ({ default: m.LeagueCoverage })), { loading: () => null })
 const PartnerCard = dynamic(() => import('@/components/bttsbet/HomeEditorial').then(m => ({ default: m.PartnerCard })), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
+const StickyCTABar = dynamic(() => import('@/components/bttsbet/StickyCTABar'), { loading: () => null })
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: value } = await params
@@ -51,6 +52,7 @@ export default async function LocalizedHomePage({ params }: { params: Promise<{ 
           </div>
         </section>
         <Footer initialLocale={locale} />
+        <StickyCTABar />
       </main>
     </div>
   )
