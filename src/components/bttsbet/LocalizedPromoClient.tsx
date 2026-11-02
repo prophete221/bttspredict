@@ -13,9 +13,8 @@ import { copyTextToClipboard } from '@/lib/clipboard'
    - 888Starz → btts221   (minuscules)
    - 1xbet    → Vipbtts   (casse mixte exacte)
    - Melbet   → Bttswin   (casse mixte exacte)
-   Offres : 1xbet/Linebet/888Starz = campagne 300% (+ spins, selon marque).
-   Melbet = bonus de bienvenue 1er dépôt — wording NEUTRE (aucun montant
-   inventé : l'affiliateur n'a pas communigné de chiffre).
+   Offre (campagne 2026-11) : les 4 partenaires annoncent 300% + 100
+   free spins, sans condition de mise (Linebet/888Starz dès 1 € de dépôt).
    ────────────────────────────────────────────────────────────── */
 
 type BookmakerId = 'linebet' | '888starz' | '1xbet' | 'melbet'
@@ -46,22 +45,22 @@ const BOOKMAKER_INFO: Record<BookmakerId, {
     caseHint: { fr: 'tel quel (casse exacte)', en: 'exactly as shown (exact case)', ar: 'كما هو تماماً (بنفس الأحرف)' },
     offer: {
       fr: {
-        headline: '300% de bonus + free spins',
+        headline: '300% de bonus + 100 free spins',
         sub: 'Sans condition de mise · Offre annoncée par la campagne 1xbet',
-        faqBonus: '300% de bonus à l\u2019inscription et des free spins, sans condition de mise — offre annoncée par la campagne. Vérifie l\u2019offre affichée par 1xbet pour ton pays avant de déposer.',
-        title: '300% + free spins',
+        faqBonus: '300% de bonus et 100 free spins, sans condition de mise — offre annoncée par la campagne. Vérifie l\u2019offre affichée par 1xbet pour ton pays avant de déposer.',
+        title: '300% + 100 spins',
       },
       en: {
-        headline: '300% bonus + free spins',
+        headline: '300% bonus + 100 free spins',
         sub: 'No wagering requirements · Offer announced by the 1xbet campaign',
-        faqBonus: '300% sign-up bonus and free spins, no wagering requirements — offer announced by the campaign. Check the offer shown by 1xbet for your country before depositing.',
-        title: '300% + free spins',
+        faqBonus: '300% bonus and 100 free spins, no wagering requirements — offer announced by the campaign. Check the offer shown by 1xbet for your country before depositing.',
+        title: '300% + 100 spins',
       },
       ar: {
-        headline: 'مكافأة 300% + لفات مجانية',
+        headline: 'مكافأة 300% + 100 لفة مجانية',
         sub: 'بدون شروط مراهنة · عرض معلن من حملة 1xbet',
-        faqBonus: 'مكافأة 300% عند التسجيل ولفات مجانية، بدون شروط مراهنة — عرض معلن من الحملة. تحقق من العرض المعروض من 1xbet لبلدك قبل الإيداع.',
-        title: '300% + لفات مجانية',
+        faqBonus: 'مكافأة 300% و100 لفة مجانية، بدون شروط مراهنة — عرض معلن من الحملة. تحقق من العرض المعروض من 1xbet لبلدك قبل الإيداع.',
+        title: '300% + 100 لفة مجانية',
       },
     },
   },
@@ -108,22 +107,22 @@ const BOOKMAKER_INFO: Record<BookmakerId, {
     caseHint: { fr: 'tel quel (casse exacte)', en: 'exactly as shown (exact case)', ar: 'كما هو تماماً (بنفس الأحرف)' },
     offer: {
       fr: {
-        headline: 'Bonus de bienvenue au 1er dépôt',
-        sub: 'Selon l\u2019offre affichée par Melbet · Offre de la campagne Melbet',
-        faqBonus: 'Le code active le bonus de bienvenue sur le premier dépôt, selon l\u2019offre affichée par Melbet pour ton pays. Vérifie les conditions (montant, mise, éligibilité) directement sur Melbet avant tout dépôt.',
-        title: 'Bonus de bienvenue',
+        headline: '300% de bonus + 100 free spins',
+        sub: 'Sans condition de mise · Offre annoncée par la campagne Melbet',
+        faqBonus: '300% de bonus et 100 free spins, sans condition de mise — offre annoncée par la campagne Melbet. Vérifie l\u2019offre affichée par Melbet pour ton pays avant de déposer.',
+        title: '300% + 100 spins',
       },
       en: {
-        headline: 'Welcome bonus on your first deposit',
-        sub: 'Per the offer displayed by Melbet · Melbet campaign offer',
-        faqBonus: 'The code activates the welcome bonus on your first deposit, per the offer displayed by Melbet for your country. Check the terms (amount, wagering, eligibility) directly on Melbet before depositing.',
-        title: 'Welcome bonus',
+        headline: '300% bonus + 100 free spins',
+        sub: 'No wagering requirements · Offer announced by the Melbet campaign',
+        faqBonus: '300% bonus and 100 free spins, no wagering requirements — offer announced by the Melbet campaign. Check the offer shown by Melbet for your country before depositing.',
+        title: '300% + 100 spins',
       },
       ar: {
-        headline: 'مكافأة ترحيبية على أول إيداع',
-        sub: 'وفق العرض المعروض من Melbet · عرض حملة Melbet',
-        faqBonus: 'يفعّل الرمز مكافأة الترحيب على أول إيداع، وفق العرض المعروض من Melbet لبلدك. تحقق من الشروط (المبلغ، المراهنة، الأهلية) مباشرة على Melbet قبل الإيداع.',
-        title: 'مكافأة ترحيبية',
+        headline: 'مكافأة 300% + 100 لفة مجانية',
+        sub: 'بدون شروط مراهنة · عرض معلن من حملة Melbet',
+        faqBonus: 'مكافأة 300% و100 لفة مجانية، بدون شروط مراهنة — عرض معلن من حملة Melbet. تحقق من العرض المعروض من Melbet لبلدك قبل الإيداع.',
+        title: '300% + 100 لفة مجانية',
       },
     },
   },
@@ -189,6 +188,7 @@ export default function LocalizedPromoClient({ bookmaker, reviewDate }: { bookma
   const year = effectiveReviewDate.slice(0, 4)
   const copy = langKey === 'fr'
     ? {
+        badge: '🏆 Meilleur code promo — 300% + 100 Free Spins',
         title: `Code promo ${brand} ${year} : ${offer.title}`,
         intro: `Inscris-toi sur ${brand} avec le code ${code} : ${offer.headline.toLowerCase()}.`,
         codeLabel: 'Code promo',
@@ -214,6 +214,7 @@ export default function LocalizedPromoClient({ bookmaker, reviewDate }: { bookma
       }
     : langKey === 'en'
       ? {
+          badge: '🏆 The best promo code — 300% + 100 Free Spins',
           title: `${brand} promo code ${year}: ${offer.title}`,
           intro: `Sign up on ${brand} with code ${code}: ${offer.headline.toLowerCase()}.`,
           codeLabel: 'Promo code',
@@ -238,6 +239,7 @@ export default function LocalizedPromoClient({ bookmaker, reviewDate }: { bookma
           others: 'Other official partners',
         }
       : {
+          badge: '🏆 أفضل رمز ترويجي — 300% + 100 لفة مجانية',
           title: `رمز ${brand} الترويجي ${year}: ${offer.title}`,
           intro: `سجّل في ${brand} بالرمز ${code}: ${offer.headline}.`,
           codeLabel: 'الرمز الترويجي',
@@ -288,6 +290,7 @@ export default function LocalizedPromoClient({ bookmaker, reviewDate }: { bookma
         </nav>
         <div className="text-center mb-10">
           <p className="text-xs uppercase tracking-[0.2em] text-[#2F7DFF]">{brand}</p>
+          <p className="text-xs font-bold mt-2" style={{ color: '#FFD65E' }}>{copy.badge}</p>
           <h1 className="text-4xl font-black mt-3" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.title}</h1>
           {/* Vrai logo officiel du bookmaker */}
           <div className="mx-auto mt-5 flex min-h-16 max-w-[280px] items-center justify-center rounded-xl px-4 py-2 shadow-lg sm:max-w-[340px]" style={{ backgroundColor: info.logoBg }}>

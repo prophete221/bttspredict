@@ -216,7 +216,7 @@ export default function LinebetClient() {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <div className="lpb-rise flex justify-center mb-4" style={{ '--d': '40ms' } as CSSProperties}>
-            <span className="lpb-badge text-[10px] tracking-[0.18em]">Code promotionnel Linebet</span>
+            <span className="lpb-badge text-[10px] tracking-[0.18em]">🏆 Meilleur code promo — 300% + 100 Free Spins</span>
           </div>
           <h1
             className="lpb-rise text-3xl sm:text-5xl mb-3 leading-tight"
@@ -605,7 +605,7 @@ export default function LinebetClient() {
               },
               {
                 q: '1xbet ou Linebet : quel code promo choisir ?',
-                a: "Les deux sont nos partenaires officiels : Vipbtts (1xbet) offre 300% à l'inscription + free spins et VISION221 (Linebet) offre 300% + 100 free spins dès 1 € de dépôt, sans condition de mise (offres annoncées). Choisis selon le bookmaker que tu préfères utiliser.",
+                a: "Les deux sont nos partenaires officiels et annoncent la même offre : 300% de bonus + 100 free spins sans condition de mise, avec Vipbtts (1xbet) comme avec VISION221 (Linebet, dès 1 € de dépôt). Choisis selon le bookmaker que tu préfères utiliser.",
               },
             ].map((item) => (
               <details key={item.q} className="lpb-faq rounded-2xl p-4" style={{ backgroundColor: '#141C25', border: `1px solid ${GOLD}22` }}>

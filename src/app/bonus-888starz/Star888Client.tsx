@@ -214,7 +214,7 @@ export default function Star888Client({ reviewDate }: { reviewDate: string }) {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <div className="szb-rise flex justify-center mb-4" style={{ '--d': '40ms' } as CSSProperties}>
-            <span className="szb-badge text-[10px] tracking-[0.18em]">★ Offre Internationale — Tous Pays</span>
+            <span className="szb-badge text-[10px] tracking-[0.18em]">🏆 Meilleur code promo — 300% + 100 Free Spins</span>
           </div>
           <h1
             className="szb-rise text-3xl sm:text-5xl mb-3 leading-tight"

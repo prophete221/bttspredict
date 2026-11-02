@@ -8,9 +8,10 @@ import { copyTextToClipboard } from '@/lib/clipboard'
 /* ─── Code promo 1xbet — Vipbtts (casse exacte fournie par l'affiliateur) ────────────────────────── */
 const CODE = 'Vipbtts'
 
-/* ─── Offre annoncée par la campagne partenaire 1xbet ────────────────── */
+/* ─── Offre annoncée par la campagne partenaire 1xbet : 300% + 100 FS ─── */
 const OFFER = {
   bonus: '300%',
+  freeSpins: '100 free spins',
   wagering: 'Sans condition de mise',
   minDeposit: 'selon les conditions affichées par 1xbet',
 }
@@ -32,7 +33,7 @@ const XBET_APK = AFFILIATE.oneXbetDownload
 /* ─── Bandeau défilant — bénéfices de l'offre annoncée ───────────────── */
 const BENEFITS = [
   '300% de bonus à l\u2019inscription',
-  'Free spins',
+  '100 free spins',
   'Sans condition de mise',
   'Code Vipbtts',
   'International — selon éligibilité pays',
@@ -77,8 +78,8 @@ const STEPS = [
   },
   {
     n: '04',
-    title: 'Reçois 300% + free spins',
-    desc: `Le bonus de ${OFFER.bonus} à l'inscription et les free spins sont crédités selon l'offre affichée par 1xbet, ${OFFER.wagering.toLowerCase()}.`,
+    title: 'Reçois 300% + 100 free spins',
+    desc: `Le bonus de ${OFFER.bonus} à l'inscription et les 100 free spins sont crédités selon l'offre affichée par 1xbet, ${OFFER.wagering.toLowerCase()}.`,
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5L12 2z" />
@@ -99,7 +100,7 @@ const PAYMENT_METHODS = [
 /* ─── Détails offre ──────────────────────────────────────────────────── */
 const BONUS_ROWS = [
   { label: 'Bonus', value: '300% à l\u2019inscription (offre annoncée)', highlight: true },
-  { label: 'Free spins', value: 'Free spins inclus — nombre selon l\u2019offre affichée par 1xbet' },
+  { label: 'Free spins', value: '100 free spins inclus (offre annoncée)' },
   { label: 'Condition de mise', value: 'Sans condition de mise (offre annoncée)' },
   { label: 'Dépôt minimum', value: 'À vérifier sur 1xbet selon ton pays' },
   { label: 'Code', value: `${CODE} (copiable — recopier tel quel)` },
@@ -109,13 +110,13 @@ const BONUS_ROWS = [
 /* ─── Comparatif des partenaires prioritaires ────────────────────────── */
 const PARTNER_ROWS = [
   {
-    name: '1xbet', code: CODE, bonus: '300% à l\u2019inscription + free spins', note: 'Sans condition de mise', href: '', current: true,
+    name: '1xbet', code: CODE, bonus: '300% + 100 free spins', note: 'Sans condition de mise', href: '', current: true,
   },
   {
     name: 'Linebet', code: 'VISION221', bonus: '300% + 100 free spins', note: 'Dès 1 € de dépôt', href: '/code-promo-linebet-senegal', current: false,
   },
   {
-    name: 'Melbet', code: 'Bttswin', bonus: 'Bonus de bienvenue 1er dépôt', note: 'Selon l\u2019offre affichée par Melbet', href: '/code-promo-melbet', current: false,
+    name: 'Melbet', code: 'Bttswin', bonus: '300% + 100 free spins', note: 'Sans condition de mise', href: '/code-promo-melbet', current: false,
   },
   {
     name: '888starz', code: 'btts221', bonus: '300% + 100 free spins', note: 'Dès 1 € de dépôt', href: '/bonus-888starz', current: false,
@@ -131,7 +132,7 @@ function faqItems(year: number) {
     },
     {
       q: `Que donne le code ${CODE} en ${year} ?`,
-      a: `Le code ${CODE} donne 300% de bonus à l'inscription + free spins, sans condition de mise — offre annoncée par la campagne partenaire. Vérifie l'offre affichée par 1xbet pour ton pays avant tout dépôt.`,
+      a: `Le code ${CODE} donne 300% de bonus + 100 free spins, sans condition de mise — offre annoncée par la campagne partenaire. Vérifie l'offre affichée par 1xbet pour ton pays avant tout dépôt.`,
     },
     {
       q: `Où saisir le code ${CODE} sur 1xbet ?`,
@@ -139,7 +140,7 @@ function faqItems(year: number) {
     },
     {
       q: '1xbet ou Linebet : quel code promo choisir ?',
-      a: "Les deux sont nos partenaires officiels : Vipbtts (1xbet) offre 300% à l'inscription + free spins et VISION221 (Linebet) offre 300% + 100 free spins dès 1 € de dépôt, sans condition de mise (offres annoncées). Choisis selon le bookmaker que tu préfères utiliser.",
+      a: "Les deux sont nos partenaires officiels et annoncent la même offre : 300% de bonus + 100 free spins sans condition de mise, avec Vipbtts (1xbet) comme avec VISION221 (Linebet, dès 1 € de dépôt). Choisis selon le bookmaker que tu préfères utiliser.",
     },
     {
       q: 'Le bonus 1xbet est-il valable dans tous les pays ?',
@@ -265,7 +266,7 @@ export default function XbetClient() {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <div className="lpb-rise flex justify-center mb-4" style={{ '--d': '40ms' } as CSSProperties}>
-            <span className="lpb-badge text-[10px] tracking-[0.18em]">Code promotionnel 1xbet — Nouveau partenaire</span>
+            <span className="lpb-badge text-[10px] tracking-[0.18em]">🏆 Meilleur code promo — 300% + 100 Free Spins</span>
           </div>
           <h1
             className="lpb-rise text-3xl sm:text-5xl mb-3 leading-tight"
@@ -277,7 +278,7 @@ export default function XbetClient() {
             <img src="/logos/1xbet-logo.png" alt="Logo officiel 1xbet" className="max-h-14 w-auto object-contain rounded-lg" width={520} height={296} loading="eager" />
           </div>
           <p className="lpb-rise text-sm sm:text-base max-w-2xl mx-auto leading-relaxed" style={{ color: TEXT_SEC, '--d': '320ms' } as CSSProperties}>
-            Inscris-toi avec le code <strong style={{ color: CYAN }}>{CODE}</strong> et profite de l&apos;offre annoncée : <strong style={{ color: TEXT }}>300% de bonus à l&apos;inscription + free spins</strong>, sans condition de mise.
+            Inscris-toi avec le code <strong style={{ color: CYAN }}>{CODE}</strong> et profite de l&apos;offre annoncée : <strong style={{ color: TEXT }}>300% de bonus à l&apos;inscription + 100 free spins</strong>, sans condition de mise.
           </p>
           <p className="lpb-rise text-[11px] mt-3" style={{ color: TEXT_SEC, '--d': '420ms' } as CSSProperties}>
             Offre annoncée — vérifie les conditions affichées par 1xbet · 18+
@@ -327,8 +328,8 @@ export default function XbetClient() {
               <p className="text-[10px] sm:text-xs mt-1.5 font-bold uppercase tracking-wider" style={{ color: TEXT }}>Bonus à l&apos;inscription</p>
             </div>
             <div className="lpb-stat lpb-pop" style={{ '--d': '260ms' } as CSSProperties}>
-              <p className="lpb-stat__num"><span className="lpb-spins-star" aria-hidden="true">✦</span> FS</p>
-              <p className="text-[10px] sm:text-xs mt-1.5 font-bold uppercase tracking-wider" style={{ color: TEXT }}>Free spins inclus</p>
+              <p className="lpb-stat__num">100</p>
+              <p className="text-[10px] sm:text-xs mt-1.5 font-bold uppercase tracking-wider" style={{ color: TEXT }}><span className="lpb-spins-star" aria-hidden="true">✦</span> Free spins inclus</p>
             </div>
             <div className="lpb-stat lpb-pop" style={{ '--d': '400ms' } as CSSProperties}>
               <p className="lpb-stat__num">0×</p>
@@ -615,7 +616,7 @@ export default function XbetClient() {
           <div className="rounded-xl p-4 text-center" style={{ backgroundColor: 'rgba(255, 122, 122, 0.06)', border: '1px solid rgba(255, 122, 122, 0.2)' }}>
             <p className="text-[11px] leading-relaxed" style={{ color: TEXT_SEC }}>
               ⚠ BTTSPredict est un site informatif et d&apos;affiliation. Nous ne prenons aucun pari, ne collectons aucun fonds et ne sommes pas un bookmaker.
-              L&apos;offre annoncée (300% + free spins, sans condition de mise) est soumise aux conditions de 1xbet (éligibilité, dépôt minimum, moyens de paiement — voir site bookmaker).
+              L&apos;offre annoncée (300% + 100 free spins, sans condition de mise) est soumise aux conditions de 1xbet (éligibilité, dépôt minimum, moyens de paiement — voir site bookmaker).
               Pariez responsable · <a href="/jouer-responsable" className="underline" style={{ color: PRIMARY }}>en savoir plus</a> · 18+.
             </p>
           </div>

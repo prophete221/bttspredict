@@ -5,10 +5,10 @@ import { checkSeo } from '@/lib/seo'
 
 /* ──────────────────────────────────────────────────────────────
    Page /code-promo-1xbet — partenaire 1xbet (code Vipbtts)
-   Offre annoncée par la campagne : 300% de bonus à l'inscription
-   + free spins, sans condition de mise.
-   SEO : page FR autonome (pas de version EN/AR — ne pas ajouter
-   d'hreflang vers des pages inexistantes).
+   Offre annoncée par la campagne : 300% + 100 free spins,
+   sans condition de mise (uniformisée avec les 3 autres partenaires).
+   SEO : page FR autonome + versions EN/AR sous /en/ et /ar/
+   (hreflang déclarés dans alternates.languages).
    ────────────────────────────────────────────────────────────── */
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-1xbet'
@@ -16,12 +16,12 @@ const PAGE_URL = `${SITE_URL}/${SLUG}`
 const CURRENT_YEAR = new Date().getUTCFullYear()
 const REVIEW_DATE = new Date().toISOString().slice(0, 10)
 
-// SEO — title court (43 chars) + description courte (<150).
+// SEO — title court (48 chars) + description courte (<150).
 // Avec le template "%s | BTTSPredict" (14 chars), le title rendu final
-// fait 43 + 14 = 57 chars, sous la limite hard 70.
+// fait 48 + 14 = 62 chars, sous la limite hard 70.
 // Anti-récidive : checkSeo() lance une erreur build-time si title > 60 ou desc > 150.
-const TITLE = 'Code promo 1xbet Vipbtts : 300% + free spins'
-const DESCRIPTION = `Code promo 1xbet Vipbtts : 300% de bonus à l'inscription + free spins, sans condition de mise. Guide ${CURRENT_YEAR}, 18+.`
+const TITLE = 'Code promo 1xbet Vipbtts : 300% + 100 free spins'
+const DESCRIPTION = `Code promo 1xbet Vipbtts : 300% de bonus + 100 free spins, sans condition de mise. Guide ${CURRENT_YEAR}, 18+.`
 checkSeo(SLUG, TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   keywords: [
     'code promo 1xbet', '1xbet promo code', 'code promo 1xbet 2026', 'vipbtts',
-    'bonus 1xbet 300', '1xbet bonus inscription', '1xbet free spins',
+    'bonus 1xbet 300', '1xbet bonus inscription', '1xbet 100 free spins', '1xbet free spins',
     '1xbet bonus sans condition de mise', 'code bonus 1xbet', '1xbet inscription',
     '1xbet senegal', '1xbet cote d\'ivoire', '1xbet mali', '1xbet maroc',
     'code vipbtts 1xbet', 'promo code 1xbet vipbtts',
@@ -102,7 +102,7 @@ function buildHowToJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
     name: 'Comment utiliser le code promo 1xbet Vipbtts',
-    description: "Guide pour activer l'offre 1xbet avec le code Vipbtts : 300% de bonus à l'inscription + free spins, sans condition de mise. Vérifie les conditions affichées par l'opérateur.",
+    description: "Guide pour activer l'offre 1xbet avec le code Vipbtts : 300% de bonus + 100 free spins, sans condition de mise. Vérifie les conditions affichées par l'opérateur.",
     totalTime: 'PT5M',
     supply: [{ '@type': 'HowToSupply', name: 'Code promo Vipbtts' }],
     tool: [
@@ -131,8 +131,8 @@ function buildHowToJsonLd() {
       {
         '@type': 'HowToStep',
         position: 4,
-        name: 'Recevoir 300% de bonus + free spins',
-        text: "Le bonus de 300% à l'inscription et les free spins, sans condition de mise, sont crédités selon l'offre affichée par 1xbet. Vérifie les conditions actuelles pour ton pays.",
+        name: 'Recevoir 300% de bonus + 100 free spins',
+        text: "Les 300% de bonus et les 100 free spins, sans condition de mise, sont crédités selon l'offre affichée par 1xbet. Vérifie les conditions actuelles pour ton pays.",
       },
     ],
   }
@@ -156,7 +156,7 @@ function buildFaqJsonLd() {
         name: `Que donne le code Vipbtts en ${CURRENT_YEAR} ?`,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Le code Vipbtts donne 300% de bonus à l'inscription + free spins, sans condition de mise — offre annoncée par la campagne partenaire. Vérifie l'offre affichée par 1xbet pour ton pays avant tout dépôt.",
+          text: "Le code Vipbtts donne 300% de bonus + 100 free spins, sans condition de mise — offre annoncée par la campagne partenaire. Vérifie l'offre affichée par 1xbet pour ton pays avant tout dépôt.",
         },
       },
       {
@@ -172,7 +172,7 @@ function buildFaqJsonLd() {
         name: '1xbet ou Linebet : quel code promo choisir ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Les deux sont nos partenaires officiels : Vipbtts (1xbet) offre 300% à l\'inscription + free spins et VISION221 (Linebet) offre 300% + 100 free spins dès 1 € de dépôt, sans condition de mise (offres annoncées). Choisis selon le bookmaker que tu préfères utiliser.',
+          text: "Les deux sont nos partenaires officiels et annoncent la même offre : 300% de bonus + 100 free spins sans condition de mise, avec Vipbtts (1xbet) comme avec VISION221 (Linebet, dès 1 € de dépôt). Choisis selon le bookmaker que tu préfères utiliser.",
         },
       },
       {

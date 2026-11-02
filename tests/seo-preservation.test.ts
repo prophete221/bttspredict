@@ -5,7 +5,11 @@ import { describe, expect, it } from 'vitest'
 
 // The owner explicitly freezes SEO and existing titles/URLs at the original 7faa1ff0 revision.
 const frozenFiles = {
-  'src/lib/i18n.ts': '1963bdecf97cb30f53146bdd2808cccbff73a45d35ce809082cb6152b6e4eff3',
+  // Hash mis à jour à la demande du propriétaire (2026-11) : offre partenaire
+  // uniformisée « 300% + 100 free spins, sans condition de mise » sur les 4
+  // bookmakers — 3 chaînes d'affichage `bonus:` du widget Linebet (FR/EN/AR).
+  // Aucun titre, canonical, URL ni structure SEO modifiés.
+  'src/lib/i18n.ts': 'c2eb73eebb1c1275b69077cd07d8224d1c98aa5127180b0d7198b40c65b8e71c',
   'src/lib/seoSchemas.ts': '7444b699bce53a5ec32112791b0350b8a17b1f3de688cca1bf2bb0bdb111d103',
   // Hash mis à jour à la demande du propriétaire (2026-11) : ajout des pages
   // partenaires /code-promo-melbet (code Bttswin) + versions EN/AR des pages

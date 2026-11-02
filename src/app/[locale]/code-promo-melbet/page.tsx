@@ -11,9 +11,9 @@ const YEAR = new Date().getUTCFullYear()
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
   if (locale === 'en') return {
-    title: `Melbet Promo Code Bttswin: Welcome Bonus`,
-    description: `Melbet promo code Bttswin: welcome bonus on your first deposit, per the offer displayed by Melbet. ${YEAR} sign-up guide, 18+.`,
-    keywords: ['melbet promo code', 'melbet promo code Bttswin', 'code bttswin', 'melbet welcome bonus', 'melbet first deposit bonus', 'melbet apk', 'bttswin'],
+    title: `Melbet Promo Code Bttswin: 300% + 100 Free Spins`,
+    description: `Melbet promo code Bttswin: 300% bonus + 100 free spins, no wagering requirements. ${YEAR} sign-up guide, 18+.`,
+    keywords: ['melbet promo code', 'melbet promo code Bttswin', 'code bttswin', 'melbet 300 bonus', 'melbet welcome bonus', 'melbet 100 free spins', 'melbet apk', 'bttswin'],
     alternates: {
       canonical: `${SITE_URL}/en/${SLUG}`,
       languages: { fr: `${SITE_URL}/${SLUG}`, en: `${SITE_URL}/en/${SLUG}`, ar: `${SITE_URL}/ar/${SLUG}`, 'x-default': `${SITE_URL}/${SLUG}` },
@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     robots: { index: true, follow: true },
   }
   if (locale === 'ar') return {
-    title: `رمز Melbet الترويجي Bttswin: مكافأة ترحيبية`,
-    description: `رمز Melbet الترويجي Bttswin: مكافأة ترحيبية على أول إيداع، وفق العرض المعروض من Melbet. دليل ${YEAR}، 18+.`,
-    keywords: ['رمز Melbet الترويجي', 'كود Bttswin', 'مكافأة Melbet', 'Melbet تسجيل', 'Melbet apk', 'Bttswin'],
+    title: `رمز Melbet الترويجي Bttswin: 300% + 100 لفة مجانية`,
+    description: `رمز Melbet الترويجي Bttswin: مكافأة 300% + 100 لفة مجانية، بدون شروط مراهنة. دليل ${YEAR}، 18+.`,
+    keywords: ['رمز Melbet الترويجي', 'كود Bttswin', 'مكافأة Melbet 300', 'Melbet 100 لفة مجانية', 'Melbet تسجيل', 'Melbet apk', 'Bttswin'],
     alternates: {
       canonical: `${SITE_URL}/ar/${SLUG}`,
       languages: { fr: `${SITE_URL}/${SLUG}`, en: `${SITE_URL}/en/${SLUG}`, ar: `${SITE_URL}/ar/${SLUG}`, 'x-default': `${SITE_URL}/${SLUG}` },

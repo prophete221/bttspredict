@@ -11,9 +11,9 @@ const YEAR = new Date().getUTCFullYear()
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
   if (locale === 'en') return {
-    title: `1xbet Promo Code Vipbtts: 300% + Free Spins`,
-    description: `1xbet promo code Vipbtts: 300% bonus + free spins, no wagering requirements. ${YEAR} sign-up guide, 18+.`,
-    keywords: ['1xbet promo code', '1xbet promo code Vipbtts', 'code vipbtts', '1xbet bonus 300', '1xbet welcome bonus', '1xbet free spins', '1xbet apk', 'vipbtts'],
+    title: `1xbet Promo Code Vipbtts: 300% + 100 Free Spins`,
+    description: `1xbet promo code Vipbtts: 300% bonus + 100 free spins, no wagering requirements. ${YEAR} sign-up guide, 18+.`,
+    keywords: ['1xbet promo code', '1xbet promo code Vipbtts', 'code vipbtts', '1xbet bonus 300', '1xbet welcome bonus', '1xbet 100 free spins', '1xbet apk', 'vipbtts'],
     alternates: {
       canonical: `${SITE_URL}/en/${SLUG}`,
       languages: { fr: `${SITE_URL}/${SLUG}`, en: `${SITE_URL}/en/${SLUG}`, ar: `${SITE_URL}/ar/${SLUG}`, 'x-default': `${SITE_URL}/${SLUG}` },
@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     robots: { index: true, follow: true },
   }
   if (locale === 'ar') return {
-    title: `رمز 1xbet الترويجي Vipbtts: 300% + لفات مجانية`,
-    description: `رمز 1xbet الترويجي Vipbtts: مكافأة 300% + لفات مجانية، بدون شروط مراهنة. دليل ${YEAR}، 18+.`,
-    keywords: ['رمز 1xbet الترويجي', 'كود Vipbtts', 'مكافأة 1xbet 300', '1xbet تسجيل', '1xbet apk', 'Vipbtts'],
+    title: `رمز 1xbet الترويجي Vipbtts: 300% + 100 لفة مجانية`,
+    description: `رمز 1xbet الترويجي Vipbtts: مكافأة 300% + 100 لفة مجانية، بدون شروط مراهنة. دليل ${YEAR}، 18+.`,
+    keywords: ['رمز 1xbet الترويجي', 'كود Vipbtts', 'مكافأة 1xbet 300', '1xbet 100 لفة مجانية', '1xbet تسجيل', '1xbet apk', 'Vipbtts'],
     alternates: {
       canonical: `${SITE_URL}/ar/${SLUG}`,
       languages: { fr: `${SITE_URL}/${SLUG}`, en: `${SITE_URL}/en/${SLUG}`, ar: `${SITE_URL}/ar/${SLUG}`, 'x-default': `${SITE_URL}/${SLUG}` },

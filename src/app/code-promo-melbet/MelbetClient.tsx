@@ -8,13 +8,15 @@ import { copyTextToClipboard } from '@/lib/clipboard'
 /* ─── Code promo Melbet — Bttswin (casse exacte fournie par l'affiliateur) ── */
 const CODE = 'Bttswin'
 
-/* ─── Offre Melbet — wording neutre : aucun chiffre inventé ────────────────
-   L'affiliateur n'a pas communiqué de montant : on affiche « bonus de
-   bienvenue sur le premier dépôt » et on renvoie à l'offre affichée par
-   Melbet pour le pays du visiteur. NE PAS ajouter de pourcentage. */
+/* ─── Offre Melbet — campagne 2026-11 ─────────────────────────────────────
+   Offre annoncée par la campagne : 300% + 100 free spins, sans condition
+   de mise — wording uniforme avec les 3 autres partenaires. L'offre
+   affichée par Melbet prévaut (voir encart + disclaimer). */
 const OFFER = {
-  bonus: 'Bonus de bienvenue sur le premier dépôt',
-  minDeposit: 'selon les conditions affichées par Melbet',
+  bonus: '300%',
+  freeSpins: '100 free spins',
+  wagering: 'Sans condition de mise',
+  minDeposit: 'À vérifier sur Melbet selon ton pays',
 }
 
 /* ─── Palette locale — or Melbet ─────────────────────────────────────────── */
@@ -31,12 +33,12 @@ const MELBET_APK = AFFILIATE.melbetDownload
 
 /* ─── Bandeau défilant — bénéfices ────────────────────────────────────────── */
 const BENEFITS = [
-  'Bonus de bienvenue au 1er dépôt',
+  '300% de bonus + 100 free spins',
+  'Sans condition de mise',
   'Code Bttswin',
   'App Android & iOS',
   'Paiements mobiles (Wave, Orange Money…)',
   'International — selon éligibilité pays',
-  'BTTSPredict : pronostics BTTS & Over 2,5',
 ]
 
 /* ─── Étapes (4) ──────────────────────────────────────────────────────────── */
@@ -67,8 +69,8 @@ const STEPS = [
   },
   {
     n: '04',
-    title: 'Reçois ton bonus de bienvenue',
-    desc: "Le bonus de bienvenue est crédité selon l'offre affichée par Melbet pour ton pays. Vérifie les conditions (montant minimum, mise) avant de confirmer.",
+    title: 'Reçois 300% + 100 free spins',
+    desc: "Les 300% de bonus et les 100 free spins, sans condition de mise, sont crédités selon l'offre affichée par Melbet. Vérifie les conditions (montant minimum, éligibilité) avant de confirmer.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-[22px] h-[22px]"><path d="M20 12v10H4V12" /><path d="M2 7h20v5H2z" /><path d="M12 22V7" /><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" /><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" /></svg>
     ),
@@ -77,9 +79,11 @@ const STEPS = [
 
 /* ─── Tableau « détails de l'offre » ─────────────────────────────────────── */
 const BONUS_ROWS = [
-  { label: 'Bonus', value: 'Bonus de bienvenue sur le 1er dépôt (offre affichée par Melbet)', highlight: true },
-  { label: 'Code', value: `${CODE} (copiable — recopier tel quel)` },
+  { label: 'Bonus', value: '300% sur le premier dépôt (offre annoncée)', highlight: true },
+  { label: 'Free spins', value: '100 free spins inclus (offre annoncée)' },
+  { label: 'Condition de mise', value: 'Sans condition de mise (offre annoncée)' },
   { label: 'Dépôt minimum', value: 'À vérifier sur Melbet selon ton pays' },
+  { label: 'Code', value: `${CODE} (copiable — recopier tel quel)` },
   { label: 'Application', value: 'APK Android + site mobile' },
   { label: 'Pays', value: 'International — selon éligibilité pays' },
 ]
@@ -87,13 +91,13 @@ const BONUS_ROWS = [
 /* ─── Comparatif des partenaires (1xbet & Linebet en priorité) ───────────── */
 const PARTNER_ROWS = [
   {
-    name: '1xbet', code: 'Vipbtts', bonus: '300% à l\u2019inscription + free spins', note: 'Sans condition de mise', href: '/code-promo-1xbet', current: false,
+    name: '1xbet', code: 'Vipbtts', bonus: '300% + 100 free spins', note: 'Sans condition de mise', href: '/code-promo-1xbet', current: false,
   },
   {
     name: 'Linebet', code: 'VISION221', bonus: '300% + 100 free spins', note: 'Dès 1 € de dépôt', href: '/code-promo-linebet-senegal', current: false,
   },
   {
-    name: 'Melbet', code: CODE, bonus: 'Bonus de bienvenue 1er dépôt', note: 'Selon l\u2019offre affichée par Melbet', href: '', current: true,
+    name: 'Melbet', code: CODE, bonus: '300% + 100 free spins', note: 'Sans condition de mise', href: '', current: true,
   },
   {
     name: '888starz', code: 'btts221', bonus: '300% + 100 free spins', note: 'Dès 1 € de dépôt', href: '/bonus-888starz', current: false,
@@ -109,7 +113,7 @@ function faqItems(year: number) {
     },
     {
       q: `Que donne le code ${CODE} en ${year} ?`,
-      a: `Le code ${CODE} active le bonus de bienvenue sur le premier dépôt, selon l'offre affichée par Melbet pour ton pays. Vérifie les conditions (montant, mise, éligibilité) directement sur Melbet avant tout dépôt.`,
+      a: `Le code ${CODE} donne 300% de bonus + 100 free spins, sans condition de mise — offre annoncée par la campagne Melbet. Vérifie l'offre affichée par Melbet pour ton pays avant tout dépôt.`,
     },
     {
       q: `Où saisir le code ${CODE} sur Melbet ?`,
@@ -117,7 +121,7 @@ function faqItems(year: number) {
     },
     {
       q: 'Melbet ou 1xbet : quel code promo choisir ?',
-      a: "Les deux sont nos partenaires officiels : Vipbtts (1xbet) offre 300% à l'inscription + free spins sans condition de mise (offre annoncée) et Bttswin (Melbet) active le bonus de bienvenue sur le premier dépôt selon l'offre affichée. Choisis le bookmaker que tu préfères utiliser.",
+      a: "Les deux sont nos partenaires officiels et annoncent la même offre : 300% de bonus + 100 free spins sans condition de mise, avec Bttswin (Melbet) comme avec Vipbtts (1xbet). Choisis le bookmaker que tu préfères utiliser.",
     },
     {
       q: 'Le bonus Melbet est-il valable dans tous les pays ?',
@@ -243,7 +247,7 @@ export default function MelbetClient() {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <div className="lpb-rise flex justify-center mb-4" style={{ '--d': '40ms' } as CSSProperties}>
-            <span className="lpb-badge text-[10px] tracking-[0.18em]">Code promotionnel Melbet — Nouveau partenaire</span>
+            <span className="lpb-badge text-[10px] tracking-[0.18em]">🏆 Meilleur code promo — 300% + 100 Free Spins</span>
           </div>
           <h1
             className="lpb-rise text-3xl sm:text-5xl mb-3 leading-tight"
@@ -255,7 +259,7 @@ export default function MelbetClient() {
             <img src="/logos/melbet-logo.jpg" alt="Logo officiel Melbet" className="max-h-14 w-auto object-contain rounded-lg" width={560} height={143} loading="eager" />
           </div>
           <p className="lpb-rise text-sm sm:text-base max-w-2xl mx-auto leading-relaxed" style={{ color: TEXT_SEC, '--d': '320ms' } as CSSProperties}>
-            Inscris-toi avec le code <strong style={{ color: GOLD_LIGHT }}>{CODE}</strong> et reçois le <strong style={{ color: TEXT }}>bonus de bienvenue sur ton premier dépôt</strong>, selon l&apos;offre affichée par Melbet dans ton pays.
+            Inscris-toi avec le code <strong style={{ color: GOLD_LIGHT }}>{CODE}</strong> et reçois <strong style={{ color: TEXT }}>300% de bonus + 100 free spins</strong>, sans condition de mise — l&apos;offre annoncée par la campagne Melbet.
           </p>
           <p className="lpb-rise text-[11px] mt-3" style={{ color: TEXT_SEC, '--d': '420ms' } as CSSProperties}>
             Offre annoncée — vérifie les conditions affichées par Melbet · 18+
@@ -398,7 +402,7 @@ export default function MelbetClient() {
             </table>
           </div>
           <p className="text-[10px] mt-2 text-center" style={{ color: TEXT_SEC }}>
-            Les conditions affichées par Melbet prévalent — aucun montant inventé de notre côté.
+            Les conditions affichées par Melbet prévalent — offre annoncée par la campagne partenaire.
           </p>
         </div>
       </section>
@@ -539,7 +543,7 @@ export default function MelbetClient() {
           <div className="rounded-xl p-4 text-center" style={{ backgroundColor: 'rgba(255, 122, 122, 0.06)', border: '1px solid rgba(255, 122, 122, 0.2)' }}>
             <p className="text-[11px] leading-relaxed" style={{ color: TEXT_SEC }}>
               ⚠ BTTSPredict est un site informatif et d&apos;affiliation. Nous ne prenons aucun pari, ne collectons aucun fonds et ne sommes pas un bookmaker.
-              Le bonus de bienvenue est soumis aux conditions de Melbet (éligibilité, dépôt minimum, conditions de mise — voir site bookmaker).
+              L&apos;offre annoncée (300% + 100 free spins) est soumise aux conditions de Melbet (éligibilité, dépôt minimum — voir site bookmaker).
               Pariez responsable · <a href="/jouer-responsable" className="underline" style={{ color: PRIMARY }}>en savoir plus</a> · 18+.
             </p>
           </div>

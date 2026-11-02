@@ -5,8 +5,8 @@ import { checkSeo } from '@/lib/seo'
 
 /* ──────────────────────────────────────────────────────────────
    Page /code-promo-melbet — partenaire Melbet (code Bttswin)
-   Offre : bonus de bienvenue sur le premier dépôt — wording neutre,
-   AUCUN pourcentage inventé (l'affiliateur n'a pas communiqué de montant).
+   Offre annoncée par la campagne (2026-11) : 300% + 100 free spins,
+   sans condition de mise. Wording uniforme avec les 3 autres partenaires.
    SEO : page FR autonome + versions EN/AR sous /en/ et /ar/
    (hreflang déclarés dans alternates.languages).
    ────────────────────────────────────────────────────────────── */
@@ -18,8 +18,8 @@ const REVIEW_DATE = new Date().toISOString().slice(0, 10)
 
 // SEO — title court + description courte (<150).
 // Anti-récidive : checkSeo() lance une erreur build-time si title > 60 ou desc > 150.
-const TITLE = 'Code promo Melbet Bttswin : bonus de bienvenue'
-const DESCRIPTION = `Code promo Melbet Bttswin : bonus de bienvenue sur le premier dépôt, selon l'offre affichée par Melbet. Guide ${CURRENT_YEAR}, 18+.`
+const TITLE = 'Code promo Melbet Bttswin : 300% + 100 free spins'
+const DESCRIPTION = `Code promo Melbet Bttswin : 300% de bonus + 100 free spins, sans condition de mise. Guide ${CURRENT_YEAR}, 18+.`
 checkSeo(SLUG, TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
@@ -28,6 +28,8 @@ export const metadata: Metadata = {
   keywords: [
     'code promo melbet', 'melbet promo code', 'code promo melbet 2026', 'bttswin',
     'bonus melbet', 'melbet bonus bienvenue', 'melbet inscription',
+    'melbet 300', 'melbet 300 bonus', 'melbet 100 free spins', 'melbet free spins',
+    'melbet bonus sans condition de mise',
     'melbet senegal', 'melbet cote d\'ivoire', 'melbet mali', 'melbet maroc',
     'code bttswin melbet', 'promo code melbet bttswin', 'melbet apk',
   ],
@@ -99,7 +101,7 @@ function buildHowToJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
     name: 'Comment utiliser le code promo Melbet Bttswin',
-    description: "Guide pour activer l'offre Melbet avec le code Bttswin : bonus de bienvenue sur le premier dépôt, selon l'offre affichée par Melbet. Vérifie les conditions de l'opérateur.",
+    description: "Guide pour activer l'offre Melbet avec le code Bttswin : 300% de bonus + 100 free spins, sans condition de mise (offre annoncée). Vérifie les conditions de l'opérateur.",
     totalTime: 'PT5M',
     supply: [{ '@type': 'HowToSupply', name: 'Code promo Bttswin' }],
     tool: [
@@ -128,8 +130,8 @@ function buildHowToJsonLd() {
       {
         '@type': 'HowToStep',
         position: 4,
-        name: 'Recevoir le bonus de bienvenue',
-        text: "Le bonus de bienvenue est crédité selon l'offre affichée par Melbet pour ton pays. Vérifie les conditions actuelles avant de confirmer.",
+        name: 'Recevoir 300% de bonus + 100 free spins',
+        text: "Les 300% de bonus et les 100 free spins, sans condition de mise, sont crédités selon l'offre affichée par Melbet. Vérifie les conditions actuelles pour ton pays.",
       },
     ],
   }
@@ -153,7 +155,7 @@ function buildFaqJsonLd() {
         name: `Que donne le code Bttswin en ${CURRENT_YEAR} ?`,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Le code Bttswin active le bonus de bienvenue sur le premier dépôt, selon l'offre affichée par Melbet pour ton pays. Vérifie les conditions directement sur Melbet avant tout dépôt.",
+          text: "Le code Bttswin donne 300% de bonus + 100 free spins, sans condition de mise — offre annoncée par la campagne Melbet. Vérifie l'offre affichée par Melbet pour ton pays avant tout dépôt.",
         },
       },
       {
@@ -169,7 +171,7 @@ function buildFaqJsonLd() {
         name: 'Melbet ou 1xbet : quel code promo choisir ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Les deux sont nos partenaires officiels : Vipbtts (1xbet) offre 300% à l'inscription + free spins sans condition de mise (offre annoncée) et Bttswin (Melbet) active le bonus de bienvenue sur le premier dépôt selon l'offre affichée. Choisis le bookmaker que tu préfères utiliser.",
+          text: "Les deux sont nos partenaires officiels et annoncent la même offre : 300% de bonus + 100 free spins sans condition de mise, avec Bttswin (Melbet) comme avec Vipbtts (1xbet). Choisis le bookmaker que tu préfères utiliser.",
         },
       },
       {

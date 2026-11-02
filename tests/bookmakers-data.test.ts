@@ -110,4 +110,53 @@ describe('bookmakers data guardrails', () => {
     expect(AFFILIATE.melbet).toBe('https://refpa3665.com/L?tag=d_6293054m_2170c_&site=6293054&ad=2170')
     expect(AFFILIATE.melbetDownload).toBe('https://refpa3665.com/L?tag=d_6293054m_70867c_&site=6293054&ad=70867')
   })
+
+  it('announces the uniform owner campaign on every promo page: 300% + 100 free spins', () => {
+    // Consigne propriétaire 2026-11 : « 300% pour tous les bookmakers et 100
+    // free spins sans condition de mise ». Toute page qui dérive est un bug.
+    const files = [
+      'src/lib/constants.ts',
+      'src/app/code-promo-1xbet/page.tsx',
+      'src/app/code-promo-1xbet/XbetClient.tsx',
+      'src/app/code-promo-melbet/page.tsx',
+      'src/app/code-promo-melbet/MelbetClient.tsx',
+      'src/app/code-promo-linebet-senegal/page.tsx',
+      'src/app/code-promo-linebet-senegal/LinebetClient.tsx',
+      'src/app/bonus-888starz/page.tsx',
+      'src/app/bonus-888starz/Star888Client.tsx',
+      'src/components/bttsbet/LocalizedPromoClient.tsx',
+    ]
+    for (const file of files) {
+      const text = readFileSync(file, 'utf8')
+      expect(text, `${file} doit annoncer 300%`).toContain('300%')
+      expect(/100 free spins|100 l/.test(text), `${file} doit annoncer 100 free spins (ou 100 لفة مجانية)`).toBe(true)
+      expect(text, `${file} doit garantir « sans condition de mise » (FR/EN/AR)`).toMatch(/sans condition de mise|no wagering requirements|بدون شروط مراهنة/)
+    }
+  })
+
+  it('never shows the superseded neutral Melbet wording', () => {
+    // Ancien wording « bonus de bienvenue / welcome bonus » remplacé le
+    // 2026-11 par l'offre uniforme 300% + 100 free spins (consigne propriétaire).
+    const files = [
+      'src/lib/constants.ts',
+      'src/app/code-promo-melbet/page.tsx',
+      'src/app/code-promo-melbet/MelbetClient.tsx',
+      'src/components/bttsbet/LocalizedPromoClient.tsx',
+    ]
+    for (const file of files) {
+      const text = readFileSync(file, 'utf8')
+      expect(text, `${file} affiche encore l'ancien wording neutre Melbet`).not.toMatch(/[Bb]onus de bienvenue sur le premier dépôt|[Ww]elcome bonus on your first deposit|مكافأة ترحيبية على أول إيداع/)
+    }
+  })
+
+  it('shows the owner "best promo code" badge on every FR promo page + EN/AR', () => {
+    // Claim marketing demandé par le propriétaire (« meilleur code promo »).
+    expect(readFileSync('src/app/code-promo-1xbet/XbetClient.tsx', 'utf8')).toContain('Meilleur code promo')
+    expect(readFileSync('src/app/code-promo-melbet/MelbetClient.tsx', 'utf8')).toContain('Meilleur code promo')
+    expect(readFileSync('src/app/code-promo-linebet-senegal/LinebetClient.tsx', 'utf8')).toContain('Meilleur code promo')
+    expect(readFileSync('src/app/bonus-888starz/Star888Client.tsx', 'utf8')).toContain('Meilleur code promo')
+    const localized = readFileSync('src/components/bttsbet/LocalizedPromoClient.tsx', 'utf8')
+    expect(localized).toContain('Meilleur code promo')
+    expect(localized).toContain('best promo code')
+  })
 })

@@ -17,6 +17,7 @@ export const SITE = {
 export const AFFILIATE = {
   // 1xbet — partenaire prioritaire (affilié 2026-11). Code promo : Vipbtts
   // (casse EXACTE fournie par l'affiliateur — ne pas modifier la casse).
+  // Offre annoncée par la campagne : 300% + 100 free spins, sans condition de mise.
   oneXbet: 'https://reffpa.com/L?tag=d_6292935m_1599c_&site=6292935&ad=1599',
   oneXbetDownload: 'https://reffpa.com/L?tag=d_6292935m_45361c_&site=6292935&ad=45361',
   // Melbet — partenaire affilié (2026-11). Code promo : Bttswin (casse exacte).
@@ -53,8 +54,8 @@ export const VIP_POLICY = {
 export const BOOKMAKERS = [
   {
     id: '1xbet', name: '1xbet', signupLink: AFFILIATE.oneXbet, downloadLink: AFFILIATE.oneXbetDownload,
-    promoCode: 'Vipbtts', color: 'blue', bonus: '300% à l’inscription + free spins (offre annoncée, sans condition de mise)',
-    description: 'Partenaire d’affiliation — offre annoncée : 300% de bonus à l’inscription + free spins, sans condition de mise',
+    promoCode: 'Vipbtts', color: 'blue', bonus: '300% + 100 free spins (offre annoncée, sans condition de mise)',
+    description: 'Partenaire d’affiliation — offre annoncée : 300% + 100 free spins, sans condition de mise',
     logoFull: '/logos/1xbet-logo.png', logoIcon: '/logos/1xbet-logo.png',
   },
   {
@@ -65,8 +66,8 @@ export const BOOKMAKERS = [
   },
   {
     id: 'melbet', name: 'Melbet', signupLink: AFFILIATE.melbet, downloadLink: AFFILIATE.melbetDownload,
-    promoCode: 'Bttswin', color: 'amber', bonus: 'Bonus de bienvenue sur le premier dépôt (offre affichée par Melbet selon le pays)',
-    description: 'Partenaire d’affiliation — bonus de bienvenue sur le premier dépôt, selon l’offre affichée par Melbet pour ton pays',
+    promoCode: 'Bttswin', color: 'amber', bonus: '300% + 100 free spins (offre annoncée, sans condition de mise)',
+    description: 'Partenaire d’affiliation — offre annoncée : 300% + 100 free spins, sans condition de mise',
     logoFull: '/logos/melbet-logo.jpg', logoIcon: '/logos/melbet-logo.jpg',
   },
   {
@@ -100,7 +101,7 @@ export const HERO_STATS = [
 export const FAQ_ITEMS = [
   { q: "Qu'est-ce que le BTTS ?", a: "BTTS signifie \"Both Teams To Score\" (les deux équipes marquent). C'est un type de pari où vous pariez que les deux équipes marqueront au moins un but durant le match, quelle que soit l'issue finale. Ce marché est très populaire car il ne dépend pas du résultat final du match, mais uniquement de la capacité des deux équipes à trouver le chemin des filets. Notre équipe analyse les statistiques offensives et défensives pour identifier les matchs où les deux équipes ont une forte probabilité de marquer." },
   { q: "Comment fonctionne l'analyse de BTTSPredict ?", a: "Notre modèle statistique est calibré sur la forme récente des équipes (8 derniers matchs réels) et des buts attendus modélisés (lambda). Sources : ESPN et TheSportsDB (données publiques). Le taux de réussite réel est calculé dynamiquement depuis l'archive publique des pronostics (predictions-archive/) et affiché sans filtrage sur /historique. Chaque pronostic est accompagné d'un indice de confiance calculé par le modèle. Les performances passées ne garantissent pas les résultats futurs." },
-  { q: 'Comment utiliser les codes promo Vipbtts, VISION221 et btts221 ?', a: 'Vipbtts est le code promo 1xbet, VISION221 est le code promo Linebet, btts221 est le code promo 888Starz (Bttswin est le code Melbet). Inscrivez-vous via notre lien, saisissez le code correspondant dans le champ « Code Promo » : 1xbet offre 300% de bonus à l’inscription + free spins et Linebet 300% + 100 free spins dès 1 € de dépôt, sans condition de mise (offres annoncées par la campagne partenaire). Vérifiez l’offre affichée par l’opérateur avant tout dépôt. Les conditions commerciales peuvent changer.' },
+  { q: 'Comment utiliser les codes promo Vipbtts, VISION221, Bttswin et btts221 ?', a: 'Vipbtts est le code promo 1xbet, VISION221 le code Linebet, Bttswin le code Melbet et btts221 le code 888Starz. Inscrivez-vous via notre lien, saisissez le code correspondant dans le champ « Code Promo » : chaque partenaire annonce 300% de bonus + 100 free spins, sans condition de mise (Linebet et 888Starz dès 1 € de dépôt — offres annoncées par la campagne partenaire). Vérifiez l’offre affichée par l’opérateur avant tout dépôt. Les conditions commerciales peuvent changer.' },
   { q: 'Les pronostics gratuits sont-ils fiables ?', a: "Nos pronostics gratuits sont calculés par le même modèle statistique que nos pronostics premium. Ils couvrent les matchs les plus populaires du jour avec une analyse complète. La différence avec les pronostics premium réside dans le nombre de matchs analysés et l'accès à des marchés supplémentaires. Comme pour tout pronostic, aucun résultat n'est garanti — les performances historiques ne préjugent pas les résultats futurs." },
   { q: 'Quels championnats sont couverts ?', a: "Moteur entraîné sur 50+ championnats internationaux, prédictions appliquées en priorité Afrique de l'Ouest (Sénégal, Mali, CIV, Guinée, Congo) & Maroc + top ligues Europe pour volume. Ligues prioritaires : Ligue 1 Sénégal, Botola Pro (Maroc), Bundesliga, Eredivisie, Jupiler Pro League, Championship, Liga Portugal." },
   { q: 'Comment utiliser les pronostics BTTSPredict ?', a: "Nos pronostics sont des outils d'aide à la décision, pas des garanties de gain. Pour les utiliser au mieux, consultez nos pronostics gratuits chaque jour, vérifiez l'indice de confiance associé, et croisez avec votre propre analyse. Nous vous recommandons de toujours respecter votre gestion de bankroll et de ne jamais miser plus que ce que vous pouvez vous permettre de perdre. Les résultats passés ne garantissent pas les résultats futurs." },
