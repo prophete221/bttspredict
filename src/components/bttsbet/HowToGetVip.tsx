@@ -12,7 +12,7 @@ const STEPS = [
   {
     num: '1',
     title: "Inscris-toi sur 1xbet ou Linebet",
-    desc: "Crée ton compte avec le code promo VIPBTTS (1xbet) ou VISION221 (Linebet) pour débloquer le bonus de 90 000 XOF (150$).",
+    desc: "Crée ton compte avec le code promo Vipbtts (1xbet) ou VISION221 (Linebet) pour débloquer le bonus de 90 000 XOF (150$).",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
@@ -58,7 +58,7 @@ const STEPS = [
 const VIP_FAQ = [
   {
     q: "Quelle est la durée d'accès VIP ?",
-    a: "L'accès VIP est valable 30 jours à partir de l'activation. Tu peux le renouveler en gardant ton compte 1xbet/Linebet actif avec le code VIPBTTS ou VISION221.",
+    a: "L'accès VIP est valable 30 jours à partir de l'activation. Tu peux le renouveler en gardant ton compte 1xbet/Linebet actif avec le code Vipbtts ou VISION221.",
   },
   {
     q: "Qu'est-ce qui est inclus dans le VIP ?",

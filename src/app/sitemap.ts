@@ -23,7 +23,7 @@ import { getDakarDateString } from '@/lib/dakar-date'
 export const dynamic = 'force-static'
 
 const SITE_URL = 'https://bttspredict.com'
-const LOCALIZED_PATHS = new Set(['/', '/btts/predictions/today', '/over-2-5/predictions/today', '/ai-correct-score-predictions', '/vip', '/statistiques', '/resultats-verifies', '/methodologie', '/btts-and-over-2-5-predictions-today', '/code-promo-linebet-senegal', '/bonus-888starz', '/bonus-888starz-btts221', '/cgu', '/politique-confidentialite', '/mentions-legales', '/jouer-responsable'])
+const LOCALIZED_PATHS = new Set(['/', '/btts/predictions/today', '/over-2-5/predictions/today', '/ai-correct-score-predictions', '/vip', '/statistiques', '/resultats-verifies', '/methodologie', '/btts-and-over-2-5-predictions-today', '/code-promo-linebet-senegal', '/code-promo-1xbet', '/code-promo-melbet', '/bonus-888starz', '/bonus-888starz-btts221', '/cgu', '/politique-confidentialite', '/mentions-legales', '/jouer-responsable'])
 
 // Date métier du jour (YYYY-MM-DD), explicitement basée sur Africa/Dakar.
 const TODAY = getDakarDateString()
@@ -110,9 +110,12 @@ const SEO_PAGES: MetadataRoute.Sitemap = [
   // 16. Code promo Linebet Sénégal
   url('/code-promo-linebet-senegal', TODAY, 0.95, 'weekly'),
 
-  // 16bis. Code promo 1xbet — partenaire prioritaire 2026-11 (FR uniquement :
-  // pas d'entrée dans LOCALIZED_PATHS, pas de version EN/AR publiée)
+  // 16bis. Code promo 1xbet — partenaire prioritaire 2026-11 (FR + EN/AR
+  // sous /en/ et /ar/ : versions locales ajoutées à LOCALIZED_PATHS)
   url('/code-promo-1xbet', TODAY, 0.95, 'weekly'),
+
+  // 16ter. Code promo Melbet — partenaire affilié 2026-11 (FR + EN/AR)
+  url('/code-promo-melbet', TODAY, 0.95, 'weekly'),
 
   // 17. Bonus 888starz
   url('/bonus-888starz', TODAY, 0.9, 'weekly'),

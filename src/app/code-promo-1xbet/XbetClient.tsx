@@ -5,8 +5,8 @@ import { AFFILIATE } from '@/lib/constants'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 import { copyTextToClipboard } from '@/lib/clipboard'
 
-/* ─── Code promo 1xbet — VIPBTTS (majuscules) ────────────────────────── */
-const CODE = 'VIPBTTS'
+/* ─── Code promo 1xbet — Vipbtts (casse exacte fournie par l'affiliateur) ────────────────────────── */
+const CODE = 'Vipbtts'
 
 /* ─── Offre annoncée par la campagne partenaire 1xbet ────────────────── */
 const OFFER = {
@@ -23,16 +23,18 @@ const TEXT = '#F2F6FA'
 const TEXT_SEC = '#9DABBB'
 const BG_DARK = '#0B0F14'
 
-/* Lien affilié 1xbet — PROVISOIRE (URL officielle) tant que le lien
-   d'affiliation n'est pas reçu : une seule constante à remplacer. */
+/* Vrai lien d'affiliation 1xbet (reçu le 2026-11) — TOUT le site lit
+   AFFILIATE.oneXbet (src/lib/constants.ts). */
 const XBET_SIGNUP = AFFILIATE.oneXbet
+/* Vrai lien affilié APK 1xbet (téléchargement application Android) */
+const XBET_APK = AFFILIATE.oneXbetDownload
 
 /* ─── Bandeau défilant — bénéfices de l'offre annoncée ───────────────── */
 const BENEFITS = [
   '300% de bonus à l\u2019inscription',
   'Free spins',
   'Sans condition de mise',
-  'Code VIPBTTS',
+  'Code Vipbtts',
   'International — selon éligibilité pays',
   'App Android & iOS',
 ]
@@ -53,7 +55,7 @@ const STEPS = [
   {
     n: '02',
     title: `Saisis le code ${CODE}`,
-    desc: `Pendant l'inscription (ou dans « Code Promo » de ton compte), colle exactement ${CODE} en majuscules.`,
+    desc: `Pendant l'inscription (ou dans « Code Promo » de ton compte), recopie exactement ${CODE} — respecte la casse.`,
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
@@ -100,7 +102,7 @@ const BONUS_ROWS = [
   { label: 'Free spins', value: 'Free spins inclus — nombre selon l\u2019offre affichée par 1xbet' },
   { label: 'Condition de mise', value: 'Sans condition de mise (offre annoncée)' },
   { label: 'Dépôt minimum', value: 'À vérifier sur 1xbet selon ton pays' },
-  { label: 'Code', value: `${CODE} (copiable — en majuscules)` },
+  { label: 'Code', value: `${CODE} (copiable — recopier tel quel)` },
   { label: 'Pays', value: 'International — selon éligibilité pays' },
 ]
 
@@ -113,6 +115,9 @@ const PARTNER_ROWS = [
     name: 'Linebet', code: 'VISION221', bonus: '300% + 100 free spins', note: 'Dès 1 € de dépôt', href: '/code-promo-linebet-senegal', current: false,
   },
   {
+    name: 'Melbet', code: 'Bttswin', bonus: 'Bonus de bienvenue 1er dépôt', note: 'Selon l\u2019offre affichée par Melbet', href: '/code-promo-melbet', current: false,
+  },
+  {
     name: '888starz', code: 'btts221', bonus: '300% + 100 free spins', note: 'Dès 1 € de dépôt', href: '/bonus-888starz', current: false,
   },
 ]
@@ -122,7 +127,7 @@ function faqItems(year: number) {
   return [
     {
       q: 'Quel est le code promo 1xbet ?',
-      a: `Le code promo 1xbet est ${CODE} — à saisir en majuscules lors de l'inscription ou dans la section « Code Promo » de ton compte 1xbet.`,
+      a: `Le code promo 1xbet est ${CODE} — à recopier exactement tel quel lors de l'inscription ou dans la section « Code Promo » de ton compte 1xbet.`,
     },
     {
       q: `Que donne le code ${CODE} en ${year} ?`,
@@ -130,11 +135,11 @@ function faqItems(year: number) {
     },
     {
       q: `Où saisir le code ${CODE} sur 1xbet ?`,
-      a: `Saisis ${CODE} dans le champ « Code promo » du formulaire d'inscription 1xbet, ou plus tard dans ton compte, section « Code Promo ». Respecte les majuscules.`,
+      a: `Saisis ${CODE} dans le champ « Code promo » du formulaire d'inscription 1xbet, ou plus tard dans ton compte, section « Code Promo ». Respecte la casse exacte.`,
     },
     {
       q: '1xbet ou Linebet : quel code promo choisir ?',
-      a: "Les deux sont nos partenaires officiels : VIPBTTS (1xbet) offre 300% à l'inscription + free spins et VISION221 (Linebet) offre 300% + 100 free spins dès 1 € de dépôt, sans condition de mise (offres annoncées). Choisis selon le bookmaker que tu préfères utiliser.",
+      a: "Les deux sont nos partenaires officiels : Vipbtts (1xbet) offre 300% à l'inscription + free spins et VISION221 (Linebet) offre 300% + 100 free spins dès 1 € de dépôt, sans condition de mise (offres annoncées). Choisis selon le bookmaker que tu préfères utiliser.",
     },
     {
       q: 'Le bonus 1xbet est-il valable dans tous les pays ?',
@@ -146,6 +151,7 @@ function faqItems(year: number) {
 /* ─── Liens internes ─────────────────────────────────────────────────── */
 const INTERNAL_LINKS = [
   { href: '/code-promo-linebet-senegal', label: 'Code promo Linebet' },
+  { href: '/code-promo-melbet', label: 'Code promo Melbet' },
   { href: '/bonus-888starz', label: 'Code promo 888Starz' },
   { href: '/btts/predictions/today', label: 'Pronostics du jour' },
   { href: '/vip', label: 'Espace VIP' },
@@ -265,10 +271,10 @@ export default function XbetClient() {
             className="lpb-rise text-3xl sm:text-5xl mb-3 leading-tight"
             style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.03em', color: TEXT, '--d': '120ms' } as CSSProperties}
           >
-            CODE PROMO <span style={{ color: BLUE, textShadow: `0 0 22px ${BLUE}66` }}>1XBET</span> VIPBTTS
+            CODE PROMO <span style={{ color: BLUE, textShadow: `0 0 22px ${BLUE}66` }}>1XBET</span> Vipbtts
           </h1>
-          <div className="lpb-rise mx-auto mb-4 flex min-h-16 max-w-[280px] items-center justify-center rounded-xl bg-white px-4 py-2 shadow-lg sm:max-w-[340px]" style={{ '--d': '220ms' } as CSSProperties}>
-            <img src="/logos/1xbet.svg" alt="Logo officiel 1xbet" className="max-h-14 w-auto object-contain" width={256} height={96} loading="eager" />
+          <div className="lpb-rise mx-auto mb-4 flex min-h-16 max-w-[280px] items-center justify-center rounded-xl px-4 py-2 shadow-lg sm:max-w-[340px]" style={{ backgroundColor: '#0C1A33', border: `1px solid ${BLUE}55`, '--d': '220ms' } as CSSProperties}>
+            <img src="/logos/1xbet-logo.png" alt="Logo officiel 1xbet" className="max-h-14 w-auto object-contain rounded-lg" width={520} height={296} loading="eager" />
           </div>
           <p className="lpb-rise text-sm sm:text-base max-w-2xl mx-auto leading-relaxed" style={{ color: TEXT_SEC, '--d': '320ms' } as CSSProperties}>
             Inscris-toi avec le code <strong style={{ color: CYAN }}>{CODE}</strong> et profite de l&apos;offre annoncée : <strong style={{ color: TEXT }}>300% de bonus à l&apos;inscription + free spins</strong>, sans condition de mise.
@@ -373,7 +379,7 @@ export default function XbetClient() {
                 </span>
               </button>
               <p className="text-xs mb-6" style={{ color: TEXT_SEC }}>
-                À saisir exactement en <strong style={{ color: TEXT }}>majuscules</strong> · Code {CODE}
+                À recopier exactement <strong style={{ color: TEXT }}>tel quel</strong> · Code {CODE}
               </p>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
@@ -392,6 +398,20 @@ export default function XbetClient() {
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                 </a>
               </div>
+
+              {/* APK Android — téléchargement direct via le lien affilié */}
+              <a
+                href={XBET_APK}
+                target="_blank"
+                rel="noopener noreferrer nofollow sponsored"
+                onClick={() => trackAffiliateAction('1xbet', 'download_click', 'xbet-card-apk')}
+                className="mt-3 flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold transition-all"
+                style={{ backgroundColor: 'rgba(27, 110, 243, 0.10)', border: `1px solid ${BLUE}55`, color: TEXT }}
+                data-cta="xbet-apk-card"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+                Télécharger l&apos;application 1xbet (APK Android)
+              </a>
 
               <p className="text-[10px] mt-4" style={{ color: '#9DABBB' }}>
                 Lien d&apos;affiliation rémunéré · 18+ · Jouer responsable

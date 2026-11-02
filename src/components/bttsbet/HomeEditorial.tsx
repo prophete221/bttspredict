@@ -196,6 +196,20 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
               <span className="hp-btn-arrow" aria-hidden="true">→</span>
             </MovingGradientButton>
             <p className="hp-partner__mentions">{t.home2.ptMentions}</p>
+            {/* Partenaire prioritaire n°1 — 1xbet (300% + free spins, code Vipbtts) */}
+            <a
+              href={localizedPath('/code-promo-1xbet', lang)}
+              className="mt-2 inline-flex items-center gap-1.5 text-xs font-bold underline decoration-dotted transition-colors"
+              style={{ color: '#9CC6FF' }}
+              data-cta="home-partner-1xbet-link"
+            >
+              {lang === 'fr'
+                ? 'Nouveau : 300% chez 1xbet avec le code Vipbtts'
+                : lang === 'en'
+                  ? 'New: 300% on 1xbet with code Vipbtts'
+                  : 'جديد: 300% على 1xbet بالرمز Vipbtts'}
+              <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
       </div>

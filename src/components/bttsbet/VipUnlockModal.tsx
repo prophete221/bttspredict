@@ -39,8 +39,8 @@ export default function VipUnlockModal({
   const [copied, setCopied] = useState(false)
 
   // Get the correct code based on selected bookmaker
-  // 1xbet (VIPBTTS) et Linebet (VISION221) sont les partenaires prioritaires.
-  const currentCode = selectedBookmaker === 'linebet' ? 'VISION221' : selectedBookmaker === '888starz' ? 'btts221' : 'VIPBTTS'
+  // 1xbet (Vipbtts) et Linebet (VISION221) sont les partenaires prioritaires.
+  const currentCode = selectedBookmaker === 'linebet' ? 'VISION221' : selectedBookmaker === '888starz' ? 'btts221' : 'Vipbtts'
   const bookmakerLabel = selectedBookmaker === 'linebet' ? 'Linebet' : selectedBookmaker === '888starz' ? '888starz' : '1xbet'
 
   const copyCode = async () => {
@@ -184,7 +184,7 @@ export default function VipUnlockModal({
                   >
                     <div>
                       <div className="text-[10px] uppercase tracking-widest font-bold mb-1" style={{ color: '#9DABBB' }}>
-                        Code promo {selectedBookmaker === '888starz' ? '(minuscules)' : '(majuscules)'}
+                        Code promo {selectedBookmaker === '888starz' ? '(minuscules)' : '(casse exacte)'}
                       </div>
                       <div className="font-mono text-2xl font-black tracking-[0.1em]" style={{ color: '#2F7DFF' }}>
                         {currentCode}
@@ -213,7 +213,7 @@ export default function VipUnlockModal({
                       <div>
                         <div className="flex items-center gap-2 mb-1">
                           <span className="flex h-6 w-10 items-center justify-center rounded bg-white px-1">
-                            <img src="/logos/1xbet.svg" alt="Logo 1xbet" width={256} height={96} className="max-h-4 w-auto object-contain" />
+                            <img src="/logos/1xbet-logo.png" alt="Logo 1xbet" width={520} height={296} className="max-h-4 w-auto object-contain" />
                           </span>
                           <span className="text-sm font-bold text-papier">1xbet</span>
                           <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(47, 125, 255, 0.15)', color: '#2F7DFF' }}>Nouveau</span>
@@ -222,7 +222,7 @@ export default function VipUnlockModal({
                           )}
                         </div>
                         <div className="text-[11px] text-[#2F7DFF]">
-                          Code : <span className="font-mono font-bold text-[#2F7DFF]">VIPBTTS</span>
+                          Code : <span className="font-mono font-bold text-[#2F7DFF]">Vipbtts</span>
                         </div>
                       </div>
                       <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(232, 194, 104, 0.12)', color: '#E8C268' }}>Partenaire officiel</span>
@@ -243,7 +243,7 @@ export default function VipUnlockModal({
                       <div>
                         <div className="flex items-center gap-2 mb-1">
                           <span className="flex h-6 w-10 items-center justify-center rounded bg-white px-1">
-                            <img src="/logos/linebet-provided.jpg" alt="Logo Linebet" width={1280} height={465} className="max-h-4 w-auto object-contain" />
+                            <img src="/logos/linebet-logo.jpg" alt="Logo Linebet" width={560} height={222} className="max-h-4 w-auto object-contain" />
                           </span>
                           <span className="text-sm font-bold text-papier">Linebet</span>
                           {selectedBookmaker === 'linebet' && (
@@ -272,7 +272,7 @@ export default function VipUnlockModal({
                       <div>
                         <div className="flex items-center gap-2 mb-1">
                           <span className="flex h-6 w-10 items-center justify-center rounded bg-white px-1">
-                            <img src="/logos/888starz-provided.webp" alt="Logo 888Starz" width={1920} height={894} className="max-h-4 w-auto object-contain" />
+                            <img src="/logos/888starz-logo.jpg" alt="Logo 888Starz" width={520} height={455} className="max-h-4 w-auto object-contain" />
                           </span>
                           <span className="text-sm font-bold text-papier">888Starz</span>
                           {selectedBookmaker === '888starz' && (

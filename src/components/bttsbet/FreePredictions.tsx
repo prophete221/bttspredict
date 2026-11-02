@@ -473,7 +473,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
                   </div>
                 )}
 
-                {/* CTA — Linebet principal, 888starz secondaire (mission : pas de double CTA agressif) */}
+                {/* CTA — Linebet principal, 1xbet secondaire (priorité affiliation 2026-11) */}
                 <div>
                   <div className="text-xs uppercase tracking-widest font-semibold text-cendre mb-2">{t.predictions.betMatch}</div>
                   <div className="flex flex-col gap-2">
@@ -487,13 +487,13 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
                       Linebet
                     </PremiumButton>
                     <a
-                      href={AFFILIATE.star888}
+                      href={AFFILIATE.oneXbet}
                       target="_blank"
                       rel="noopener noreferrer nofollow sponsored"
-                      onClick={() => trackAffiliateAction('888starz', 'signup_cta_click', 'match-card-secondary', { match: match.match, market: 'BTTS', lang })}
+                      onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'match-card-secondary', { match: match.match, market: 'BTTS', lang })}
                       className="text-center text-[10px] text-cendre underline decoration-dotted hover:text-[#F5F8F3] transition-colors"
                     >
-                      888starz
+                      1xbet
                     </a>
                   </div>
                 </div>

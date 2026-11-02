@@ -106,6 +106,7 @@ const BONUS_ROWS = [
 /* ─── Liens internes ─────────────────────────────────────────────────── */
 const INTERNAL_LINKS = [
   { href: '/code-promo-1xbet', label: 'Code promo 1xbet' },
+  { href: '/code-promo-melbet', label: 'Code promo Melbet' },
   { href: '/', label: 'Pronostics BTTS' },
   { href: '/code-promo-linebet-senegal', label: 'Code Promo Linebet' },
   { href: '/btts-c-est-quoi', label: "C'est quoi BTTS ?" },
@@ -222,7 +223,7 @@ export default function Star888Client({ reviewDate }: { reviewDate: string }) {
             CODE PROMO <span style={{ color: RED, textShadow: `0 0 22px ${RED}66` }}>888STARZ</span> {reviewYear} : BTTS221
           </h1>
           <div className="szb-rise mx-auto mb-4 flex min-h-16 max-w-[340px] items-center justify-center rounded-xl bg-white px-4 py-2 shadow-lg sm:max-w-[440px]" style={{ '--d': '220ms' } as CSSProperties}>
-            <img src="/logos/888starz-provided.webp" alt="Logo officiel 888Starz" className="max-h-14 w-auto object-contain" width={1920} height={894} loading="eager" />
+            <img src="/logos/888starz-logo.jpg" alt="Logo officiel 888Starz" className="max-h-14 w-auto object-contain rounded-lg" width={520} height={455} loading="eager" />
           </div>
           <p className="szb-rise text-sm sm:text-base max-w-2xl mx-auto leading-relaxed" style={{ color: TEXT_SEC, '--d': '320ms' } as CSSProperties}>
             Inscris-toi avec le code <strong style={{ color: RED }}>{CODE}</strong> et profite de l&apos;offre annoncée : <strong style={{ color: TEXT }}>300% de bonus + 100 free spins</strong>, sans condition de mise, dès 1 € de dépôt.

@@ -1020,16 +1020,27 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
 
       {/* ─── AI COMBO OF THE DAY ─── */}
       {/* Deterministic selection — NO Gemini call from client, NO recalculation. */}
-      {/* CTA affiliation — lien tracké obligatoire avant le code promo */}
+      {/* CTA affiliation — liens trackés avant les codes promo — 1xbet & Linebet prioritaires */}
       <div className="btx-rev mb-4 rounded-xl border px-3 py-3 sm:px-4" style={{ ['--d' as string]: '40ms', borderColor: 'rgba(47,125,255,0.28)', background: 'linear-gradient(135deg, rgba(47,125,255,0.10), rgba(11,15,20,0.9))' }}>
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-[12px] sm:text-[13px] leading-relaxed" style={{ color: '#C5D0DC' }}>
-            {lang === 'fr'
-              ? <>Pour parier avec bonus : <strong style={{ color: '#F2F6FA' }}>1)</strong> inscris-toi via notre lien Linebet · <strong style={{ color: '#F2F6FA' }}>2)</strong> entre le code <strong style={{ color: '#7CF5B8' }}>VISION221</strong> avant le 1er dépôt.</>
-              : lang === 'en'
-                ? <>To claim the bonus: <strong style={{ color: '#F2F6FA' }}>1)</strong> sign up via our Linebet link · <strong style={{ color: '#F2F6FA' }}>2)</strong> enter <strong style={{ color: '#7CF5B8' }}>VISION221</strong> before your first deposit.</>
-                : <>للحصول على المكافأة: <strong style={{ color: '#F2F6FA' }}>1)</strong> سجّل عبر رابط Linebet · <strong style={{ color: '#F2F6FA' }}>2)</strong> أدخل <strong style={{ color: '#7CF5B8' }}>VISION221</strong> قبل الإيداع.</>}
-          </p>
+        <p className="text-[12px] sm:text-[13px] leading-relaxed" style={{ color: '#C5D0DC' }}>
+          {lang === 'fr'
+            ? <>Pour parier avec bonus : <strong style={{ color: '#F2F6FA' }}>1)</strong> inscris-toi via notre lien 1xbet ou Linebet · <strong style={{ color: '#F2F6FA' }}>2)</strong> entre le code <strong style={{ color: '#7CF5B8' }}>Vipbtts</strong> (1xbet) ou <strong style={{ color: '#7CF5B8' }}>VISION221</strong> (Linebet) avant le 1er dépôt.</>
+            : lang === 'en'
+              ? <>To claim the bonus: <strong style={{ color: '#F2F6FA' }}>1)</strong> sign up via our 1xbet or Linebet link · <strong style={{ color: '#F2F6FA' }}>2)</strong> enter <strong style={{ color: '#7CF5B8' }}>Vipbtts</strong> (1xbet) or <strong style={{ color: '#7CF5B8' }}>VISION221</strong> (Linebet) before your first deposit.</>
+              : <>للحصول على المكافأة: <strong style={{ color: '#F2F6FA' }}>1)</strong> سجّل عبر رابط 1xbet أو Linebet · <strong style={{ color: '#F2F6FA' }}>2)</strong> أدخل <strong style={{ color: '#7CF5B8' }}>Vipbtts</strong> (1xbet) أو <strong style={{ color: '#7CF5B8' }}>VISION221</strong> (Linebet) قبل الإيداع.</>}
+        </p>
+        <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-end">
+          <a
+            href={AFFILIATE.oneXbet}
+            onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'dashboard-banner')}
+            target="_blank"
+            rel="sponsored nofollow noopener noreferrer"
+            className="inline-flex shrink-0 items-center justify-center rounded-lg px-4 py-2.5 text-[12px] font-bold text-white"
+            style={{ backgroundColor: '#1B6EF3' }}
+            data-cta="dashboard-1xbet-signup"
+          >
+            {lang === 'fr' ? "S'inscrire · Vipbtts (1xbet)" : lang === 'en' ? 'Sign up · Vipbtts (1xbet)' : 'تسجيل · Vipbtts (1xbet)'}
+          </a>
           <a
             href={AFFILIATE.linebet}
             onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'dashboard-banner')}
@@ -1039,7 +1050,7 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
             style={{ backgroundColor: '#2F7DFF' }}
             data-cta="dashboard-linebet-signup"
           >
-            {lang === 'fr' ? "S'inscrire · VISION221" : lang === 'en' ? 'Sign up · VISION221' : 'تسجيل · VISION221'}
+            {lang === 'fr' ? "S'inscrire · VISION221 (Linebet)" : lang === 'en' ? 'Sign up · VISION221 (Linebet)' : 'تسجيل · VISION221 (Linebet)'}
           </a>
         </div>
       </div>

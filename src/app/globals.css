@@ -7599,3 +7599,110 @@ main > section:nth-of-type(5) { animation-delay: 0.18s; }
 @media (prefers-reduced-motion: reduce) {
   .nav-drawer, .nav-drawer-backdrop { animation: none !important; }
 }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   MELBET — palette .mel (page /code-promo-melbet)
+   Réutilise la structure .lpb-* (héros, carte, boutons, marquee) avec la
+   palette or Melbet (#F7B52C / #FFD200). Animations identiques aux pages
+   Linebet (.lpb) et 1xbet (.xbt) — cohérence du groupe de pages partenaires.
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@property --mel-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes mel-border-spin {
+  to { --mel-angle: 360deg; }
+}
+
+.mel .lpb-hero::before {
+  background-image:
+    radial-gradient(42% 52% at 30% 38%, rgba(247, 181, 44, 0.15), transparent 70%),
+    radial-gradient(40% 48% at 74% 30%, rgba(255, 210, 0, 0.10), transparent 70%),
+    radial-gradient(46% 50% at 55% 85%, rgba(196, 138, 18, 0.12), transparent 70%);
+  animation: lpb-aurora 16s ease-in-out infinite alternate;
+}
+
+.mel .lpb-orb--1 { background: rgba(247, 181, 44, 0.32); animation: lpb-orb-a 15s ease-in-out infinite alternate; }
+.mel .lpb-orb--2 { background: rgba(255, 210, 0, 0.22); animation: lpb-orb-b 19s ease-in-out infinite alternate; }
+
+.mel .lpb-spark { color: #FFD65E; }
+
+.mel .lpb-badge {
+  background: rgba(247, 181, 44, 0.12);
+  border: 1px solid rgba(247, 181, 44, 0.55);
+  color: #FFE29A;
+  animation: lpb-badge-pulse 2.6s ease-in-out infinite;
+}
+
+.mel .lpb-card {
+  background: conic-gradient(from var(--mel-angle), #F7B52C, #FFD65E, #C48A12, #F7B52C);
+  animation: mel-border-spin 7s linear infinite;
+  box-shadow: 0 0 52px rgba(247, 181, 44, 0.20), 0 18px 44px rgba(0, 0, 0, 0.45);
+}
+
+.mel .lpb-card__inner {
+  background: linear-gradient(165deg, #12141B 0%, #1B1E27 55%, #101218 100%);
+}
+
+.mel .lpb-code {
+  background-image: linear-gradient(110deg, #FFE29A 0%, #FFF7E0 28%, #F7B52C 52%, #FFF7E0 76%, #FFE29A 100%);
+  filter: drop-shadow(0 0 20px rgba(247, 181, 44, 0.40));
+}
+
+.mel .lpb-stat { background: linear-gradient(165deg, rgba(247, 181, 44, 0.10), rgba(247, 181, 44, 0.03)); }
+
+.mel .lpb-stat__num {
+  background-image: linear-gradient(120deg, #FFE29A, #FFF7E0 55%, #FFD65E);
+  filter: drop-shadow(0 0 16px rgba(247, 181, 44, 0.35));
+}
+
+.mel .lpb-marquee__item::before { color: #FFD65E; }
+
+.mel .lpb-btn--primary {
+  background: linear-gradient(120deg, #F7B52C 0%, #FFCF52 100%);
+  color: #17130A;
+  animation: lpb-cta-pulse 3s ease-in-out infinite;
+}
+
+.mel .lpb-btn--copy {
+  background: rgba(247, 181, 44, 0.12);
+  border: 1px solid rgba(247, 181, 44, 0.5);
+  color: #FFE29A;
+}
+
+.mel .lpb-btn--copy:hover { background: rgba(247, 181, 44, 0.22); }
+
+.mel .lpb-faq summary::after { color: #FFE29A; }
+
+/* Barre CTA collante mobile — page Melbet (au-dessus de la MobileTabBar 64px) */
+.mel-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 45;
+  bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  animation: lpb-sticky-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.35s backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mel .lpb-hero::before,
+  .mel .lpb-orb, .mel .lpb-spark,
+  .mel .lpb-rise, .mel .lpb-pop,
+  .mel .lpb-badge, .mel .lpb-card,
+  .mel .lpb-shine__beam, .mel .lpb-code,
+  .mel .lpb-stat__num, .mel .lpb-marquee__track,
+  .mel .lpb-btn--primary, .mel-sticky,
+  .mel .lpb-spins-star {
+    animation: none !important;
+  }
+  .mel .lpb-rise, .mel .lpb-pop { opacity: 1 !important; }
+  .mel .lpb-code, .mel .lpb-stat__num {
+    -webkit-text-fill-color: currentColor;
+    background-image: none;
+    filter: none;
+  }
+  .mel .lpb-code, .mel .lpb-stat__num { color: #FFE29A; }
+}

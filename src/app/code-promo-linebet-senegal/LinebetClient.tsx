@@ -109,6 +109,7 @@ const BONUS_ROWS = [
 /* ─── Liens internes ─────────────────────────────────────────────────── */
 const INTERNAL_LINKS = [
   { href: '/code-promo-1xbet', label: 'Code promo 1xbet' },
+  { href: '/code-promo-melbet', label: 'Code promo Melbet' },
   { href: '/btts/predictions/today', label: 'Pronostics du jour' },
   { href: '/bonus-888starz', label: 'Code promo 888Starz' },
   { href: '/btts-c-est-quoi', label: "C'est quoi BTTS ?" },
@@ -224,7 +225,7 @@ export default function LinebetClient() {
             CODE PROMO <span style={{ color: GOLD, textShadow: `0 0 22px ${GOLD}66` }}>LINEBET</span> VISION221
           </h1>
           <div className="lpb-rise mx-auto mb-4 flex min-h-16 max-w-[280px] items-center justify-center rounded-xl bg-white px-4 py-2 shadow-lg sm:max-w-[340px]" style={{ '--d': '220ms' } as CSSProperties}>
-            <img src="/logos/linebet-provided.jpg" alt="Logo officiel Linebet" className="max-h-14 w-auto object-contain" width={1280} height={465} loading="eager" />
+            <img src="/logos/linebet-logo.jpg" alt="Logo officiel Linebet" className="max-h-14 w-auto object-contain rounded-lg" width={560} height={222} loading="eager" />
           </div>
           <p className="lpb-rise text-sm sm:text-base max-w-2xl mx-auto leading-relaxed" style={{ color: TEXT_SEC, '--d': '320ms' } as CSSProperties}>
             Inscris-toi avec le code <strong style={{ color: GOLD }}>{CODE}</strong> et profite de l&apos;offre annoncée : <strong style={{ color: TEXT }}>300% de bonus + 100 free spins</strong>, sans condition de mise, dès 1 € de dépôt.
@@ -604,7 +605,7 @@ export default function LinebetClient() {
               },
               {
                 q: '1xbet ou Linebet : quel code promo choisir ?',
-                a: "Les deux sont nos partenaires officiels : VIPBTTS (1xbet) offre 300% à l'inscription + free spins et VISION221 (Linebet) offre 300% + 100 free spins dès 1 € de dépôt, sans condition de mise (offres annoncées). Choisis selon le bookmaker que tu préfères utiliser.",
+                a: "Les deux sont nos partenaires officiels : Vipbtts (1xbet) offre 300% à l'inscription + free spins et VISION221 (Linebet) offre 300% + 100 free spins dès 1 € de dépôt, sans condition de mise (offres annoncées). Choisis selon le bookmaker que tu préfères utiliser.",
               },
             ].map((item) => (
               <details key={item.q} className="lpb-faq rounded-2xl p-4" style={{ backgroundColor: '#141C25', border: `1px solid ${GOLD}22` }}>

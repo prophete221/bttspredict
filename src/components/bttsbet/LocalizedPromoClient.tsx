@@ -7,32 +7,177 @@ import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTra
 import { copyTextToClipboard } from '@/lib/clipboard'
 
 /* ──────────────────────────────────────────────────────────────
-   Codes promo réels par campagne :
+   Pages codes promo localisées (EN / AR) — 4 bookmakers partenaires.
+   Casse EXACTE des codes (fournie par les affilieurs, ne pas modifier) :
    - Linebet  → VISION221 (majuscules)
    - 888Starz → btts221   (minuscules)
-   Offre annoncée par la campagne partenaire : 300 % de bonus +
-   100 free spins, sans condition de mise, dès 1 € de dépôt.
+   - 1xbet    → Vipbtts   (casse mixte exacte)
+   - Melbet   → Bttswin   (casse mixte exacte)
+   Offres : 1xbet/Linebet/888Starz = campagne 300% (+ spins, selon marque).
+   Melbet = bonus de bienvenue 1er dépôt — wording NEUTRE (aucun montant
+   inventé : l'affiliateur n'a pas communigné de chiffre).
    ────────────────────────────────────────────────────────────── */
-const CAMPAIGN = {
-  bonus: '300%',
-  freeSpins: '100',
-  minDeposit: '1 €',
-} as const
 
-export default function LocalizedPromoClient({ bookmaker, reviewDate }: { bookmaker: 'linebet' | '888starz'; reviewDate?: string }) {
+type BookmakerId = 'linebet' | '888starz' | '1xbet' | 'melbet'
+
+const BOOKMAKER_INFO: Record<BookmakerId, {
+  brand: string
+  code: string
+  signup: string
+  download: string
+  logo: string
+  logoWidth: number
+  logoHeight: number
+  logoBg: string
+  /** Casse affichée à l'utilisateur */
+  caseHint: { fr: string; en: string; ar: string }
+  /** Offre par langue (headline + sous-titre + réponse FAQ bonus) */
+  offer: Record<'fr' | 'en' | 'ar', { headline: string; sub: string; faqBonus: string; title: string }>
+}> = {
+  '1xbet': {
+    brand: '1xbet',
+    code: 'Vipbtts',
+    signup: AFFILIATE.oneXbet,
+    download: AFFILIATE.oneXbetDownload,
+    logo: '/logos/1xbet-logo.png',
+    logoWidth: 520,
+    logoHeight: 296,
+    logoBg: '#FFFFFF',
+    caseHint: { fr: 'tel quel (casse exacte)', en: 'exactly as shown (exact case)', ar: 'كما هو تماماً (بنفس الأحرف)' },
+    offer: {
+      fr: {
+        headline: '300% de bonus + free spins',
+        sub: 'Sans condition de mise · Offre annoncée par la campagne 1xbet',
+        faqBonus: '300% de bonus à l\u2019inscription et des free spins, sans condition de mise — offre annoncée par la campagne. Vérifie l\u2019offre affichée par 1xbet pour ton pays avant de déposer.',
+        title: '300% + free spins',
+      },
+      en: {
+        headline: '300% bonus + free spins',
+        sub: 'No wagering requirements · Offer announced by the 1xbet campaign',
+        faqBonus: '300% sign-up bonus and free spins, no wagering requirements — offer announced by the campaign. Check the offer shown by 1xbet for your country before depositing.',
+        title: '300% + free spins',
+      },
+      ar: {
+        headline: 'مكافأة 300% + لفات مجانية',
+        sub: 'بدون شروط مراهنة · عرض معلن من حملة 1xbet',
+        faqBonus: 'مكافأة 300% عند التسجيل ولفات مجانية، بدون شروط مراهنة — عرض معلن من الحملة. تحقق من العرض المعروض من 1xbet لبلدك قبل الإيداع.',
+        title: '300% + لفات مجانية',
+      },
+    },
+  },
+  linebet: {
+    brand: 'Linebet',
+    code: 'VISION221',
+    signup: AFFILIATE.linebet,
+    download: AFFILIATE.linebetDownload,
+    logo: '/logos/linebet-logo.jpg',
+    logoWidth: 560,
+    logoHeight: 222,
+    logoBg: '#FFFFFF',
+    caseHint: { fr: 'en majuscules', en: 'in capitals', ar: 'بأحرف كبيرة' },
+    offer: {
+      fr: {
+        headline: '300% de bonus + 100 free spins',
+        sub: 'Sans condition de mise · Dès 1 € de dépôt · Offre annoncée par la campagne Linebet',
+        faqBonus: '300% de bonus et 100 free spins, sans condition de mise, dès 1 € de dépôt — offre annoncée par la campagne. Vérifie l\u2019offre affichée par Linebet pour ton pays avant de déposer.',
+        title: '300% + 100 spins',
+      },
+      en: {
+        headline: '300% bonus + 100 free spins',
+        sub: 'No wagering requirements · From €1 deposit · Offer announced by the Linebet campaign',
+        faqBonus: '300% bonus and 100 free spins, no wagering requirements, from a €1 deposit — offer announced by the campaign. Check the offer shown by Linebet for your country before depositing.',
+        title: '300% + 100 spins',
+      },
+      ar: {
+        headline: 'مكافأة 300% + 100 لفة مجانية',
+        sub: 'بدون شروط مراهنة · إيداع من 1 يورو · عرض معلن من حملة Linebet',
+        faqBonus: 'مكافأة 300% و100 لفة مجانية، بدون شروط مراهنة، بدءاً من إيداع 1 يورو — عرض معلن من الحملة. تحقق من العرض المعروض من Linebet لبلدك قبل الإيداع.',
+        title: '300% + 100 لفة مجانية',
+      },
+    },
+  },
+  melbet: {
+    brand: 'Melbet',
+    code: 'Bttswin',
+    signup: AFFILIATE.melbet,
+    download: AFFILIATE.melbetDownload,
+    logo: '/logos/melbet-logo.jpg',
+    logoWidth: 560,
+    logoHeight: 143,
+    logoBg: '#1B1E27',
+    caseHint: { fr: 'tel quel (casse exacte)', en: 'exactly as shown (exact case)', ar: 'كما هو تماماً (بنفس الأحرف)' },
+    offer: {
+      fr: {
+        headline: 'Bonus de bienvenue au 1er dépôt',
+        sub: 'Selon l\u2019offre affichée par Melbet · Offre de la campagne Melbet',
+        faqBonus: 'Le code active le bonus de bienvenue sur le premier dépôt, selon l\u2019offre affichée par Melbet pour ton pays. Vérifie les conditions (montant, mise, éligibilité) directement sur Melbet avant tout dépôt.',
+        title: 'Bonus de bienvenue',
+      },
+      en: {
+        headline: 'Welcome bonus on your first deposit',
+        sub: 'Per the offer displayed by Melbet · Melbet campaign offer',
+        faqBonus: 'The code activates the welcome bonus on your first deposit, per the offer displayed by Melbet for your country. Check the terms (amount, wagering, eligibility) directly on Melbet before depositing.',
+        title: 'Welcome bonus',
+      },
+      ar: {
+        headline: 'مكافأة ترحيبية على أول إيداع',
+        sub: 'وفق العرض المعروض من Melbet · عرض حملة Melbet',
+        faqBonus: 'يفعّل الرمز مكافأة الترحيب على أول إيداع، وفق العرض المعروض من Melbet لبلدك. تحقق من الشروط (المبلغ، المراهنة، الأهلية) مباشرة على Melbet قبل الإيداع.',
+        title: 'مكافأة ترحيبية',
+      },
+    },
+  },
+  '888starz': {
+    brand: '888Starz',
+    code: 'btts221',
+    signup: AFFILIATE.star888,
+    download: AFFILIATE.star888Download,
+    logo: '/logos/888starz-logo.jpg',
+    logoWidth: 520,
+    logoHeight: 455,
+    logoBg: '#0A0A0C',
+    caseHint: { fr: 'en minuscules', en: 'in lowercase', ar: 'بأحرف صغيرة' },
+    offer: {
+      fr: {
+        headline: '300% de bonus + 100 free spins',
+        sub: 'Sans condition de mise · Dès 1 € de dépôt · Offre annoncée par la campagne 888Starz',
+        faqBonus: '300% de bonus et 100 free spins, sans condition de mise, dès 1 € de dépôt — offre annoncée par la campagne. Vérifie l\u2019offre affichée par 888Starz pour ton pays avant de déposer.',
+        title: '300% + 100 spins',
+      },
+      en: {
+        headline: '300% bonus + 100 free spins',
+        sub: 'No wagering requirements · From €1 deposit · Offer announced by the 888Starz campaign',
+        faqBonus: '300% bonus and 100 free spins, no wagering requirements, from a €1 deposit — offer announced by the campaign. Check the offer shown by 888Starz for your country before depositing.',
+        title: '300% + 100 spins',
+      },
+      ar: {
+        headline: 'مكافأة 300% + 100 لفة مجانية',
+        sub: 'بدون شروط مراهنة · إيداع من 1 يورو · عرض معلن من حملة 888Starz',
+        faqBonus: 'مكافأة 300% و100 لفة مجانية، بدون شروط مراهنة، بدءاً من إيداع 1 يورو — عرض معلن من الحملة. تحقق من العرض المعروض من 888Starz لبلدك قبل الإيداع.',
+        title: '300% + 100 لفة مجانية',
+      },
+    },
+  },
+}
+
+/* Liens croisés — chaque page promo locale renvoie vers les autres partenaires
+   (1xbet et Linebet en tête, conformément à la priorité d'affiliation). */
+const CROSS_LINKS: { href: string; label: { fr: string; en: string; ar: string } }[] = [
+  { href: '/code-promo-1xbet', label: { fr: 'Code promo 1xbet', en: '1xbet promo code', ar: 'رمز 1xbet الترويجي' } },
+  { href: '/code-promo-linebet-senegal', label: { fr: 'Code promo Linebet', en: 'Linebet promo code', ar: 'رمز Linebet الترويجي' } },
+  { href: '/code-promo-melbet', label: { fr: 'Code promo Melbet', en: 'Melbet promo code', ar: 'رمز Melbet الترويجي' } },
+  { href: '/bonus-888starz', label: { fr: 'Code promo 888Starz', en: '888Starz promo code', ar: 'رمز 888Starz الترويجي' } },
+]
+
+export default function LocalizedPromoClient({ bookmaker, reviewDate }: { bookmaker: BookmakerId; reviewDate?: string }) {
   const effectiveReviewDate = reviewDate || new Date().toISOString().slice(0, 10)
   const { lang } = useLanguage()
-  const isLinebet = bookmaker === 'linebet'
-  const code = isLinebet ? 'VISION221' : 'btts221'
-  const codeCase = {
-    fr: isLinebet ? 'en majuscules' : 'en minuscules',
-    en: isLinebet ? 'in capitals' : 'in lowercase',
-    ar: isLinebet ? 'بأحرف كبيرة' : 'بأحرف صغيرة',
-  }
-  const codeCaseHint = codeCase[lang]
-  const brand = isLinebet ? 'Linebet' : '888Starz'
-  const signup = isLinebet ? AFFILIATE.linebet : AFFILIATE.star888
-  const download = isLinebet ? AFFILIATE.linebetDownload : AFFILIATE.star888Download
+  const langKey = (lang === 'en' || lang === 'ar' ? lang : 'fr') as 'fr' | 'en' | 'ar'
+  const info = BOOKMAKER_INFO[bookmaker]
+  const code = info.code
+  const brand = info.brand
+  const offer = info.offer[langKey]
+  const caseHint = info.caseHint[langKey]
   const [copied, setCopied] = useState(false)
   const [copyFailed, setCopyFailed] = useState(false)
 
@@ -41,20 +186,19 @@ export default function LocalizedPromoClient({ bookmaker, reviewDate }: { bookma
     trackAffiliateAction(bookmaker, 'promo_view', `localized-${bookmaker}-page`)
   }, [bookmaker])
 
-  const copy = lang === 'fr'
+  const year = effectiveReviewDate.slice(0, 4)
+  const copy = langKey === 'fr'
     ? {
-        title: `Code promo ${brand} ${effectiveReviewDate.slice(0, 4)} : 300% + 100 spins`,
-        intro: `Inscris-toi sur ${brand} avec le code ${code} : 300% de bonus et 100 free spins, sans condition de mise, dès ${CAMPAIGN.minDeposit} de dépôt.`,
-        offerHeadline: `300% de bonus + 100 free spins`,
-        offerSub: `Sans condition de mise · Dès ${CAMPAIGN.minDeposit} de dépôt · Offre annoncée par la campagne ${brand}`,
+        title: `Code promo ${brand} ${year} : ${offer.title}`,
+        intro: `Inscris-toi sur ${brand} avec le code ${code} : ${offer.headline.toLowerCase()}.`,
         codeLabel: 'Code promo',
-        codeHint: `À saisir exactement ${codeCaseHint}`,
+        codeHint: `À saisir exactement ${caseHint}`,
         signup: `S’inscrire sur ${brand}`,
         download: 'Télécharger l’app',
         steps: 'Comment utiliser le code',
         one: `Copie le code ${code} puis ouvre le lien d’inscription officiel ${brand}.`,
         two: `Colle ${code} dans le champ « Code promo » pendant l’inscription (ou dans ton compte).`,
-        three: `Dépose dès ${CAMPAIGN.minDeposit} : le bonus de 300% et les 100 free spins sont crédités selon l’offre affichée par ${brand}.`,
+        three: `Dépose : le bonus est crédité selon l’offre affichée par ${brand}.`,
         copied: 'Code copié — colle-le lors de l’inscription',
         copyFailed: 'Copie impossible — sélectionne le code et copie-le manuellement',
         conditions: 'Offre annoncée par la campagne partenaire. Vérifie les conditions affichées par l’opérateur avant tout dépôt.',
@@ -62,26 +206,24 @@ export default function LocalizedPromoClient({ bookmaker, reviewDate }: { bookma
         responsible: 'Jouer responsable',
         faqTitle: `Questions fréquentes sur ${brand}`,
         faqCode: `Quel est le code promo ${brand} ?`,
-        faqCodeAnswer: `Le code est ${code} — à saisir exactement ${codeCaseHint} pendant l’inscription ou dans la section « Code promo » de ton compte.`,
+        faqCodeAnswer: `Le code est ${code} — à saisir exactement ${caseHint} pendant l’inscription ou dans la section « Code promo » de ton compte.`,
         faqBonus: `Qu’est-ce que je reçois avec ${code} ?`,
-        faqBonusAnswer: `300% de bonus et 100 free spins, sans condition de mise, dès ${CAMPAIGN.minDeposit} de dépôt — offre annoncée par la campagne. Vérifie l’offre affichée par ${brand} pour ton pays avant de déposer.`,
         faqCountry: 'Le code fonctionne-t-il dans tous les pays ?',
         faqCountryAnswer: 'La disponibilité dépend du pays, du compte et de la période. Vérifie ton éligibilité avant tout dépôt.',
+        others: 'Autres partenaires officiels',
       }
-    : lang === 'en'
+    : langKey === 'en'
       ? {
-          title: `${brand} promo code ${effectiveReviewDate.slice(0, 4)}: 300% + 100 spins`,
-          intro: `Sign up on ${brand} with code ${code}: 300% bonus and 100 free spins, no wagering requirements, from a ${CAMPAIGN.minDeposit} deposit.`,
-          offerHeadline: `300% bonus + 100 free spins`,
-          offerSub: `No wagering requirements · From ${CAMPAIGN.minDeposit} deposit · Offer announced by the ${brand} campaign`,
+          title: `${brand} promo code ${year}: ${offer.title}`,
+          intro: `Sign up on ${brand} with code ${code}: ${offer.headline.toLowerCase()}.`,
           codeLabel: 'Promo code',
-          codeHint: `Enter exactly ${codeCaseHint}`,
+          codeHint: `Enter exactly ${caseHint}`,
           signup: `Sign up on ${brand}`,
           download: 'Download the app',
           steps: 'How to use the code',
           one: `Copy code ${code} then open the official ${brand} sign-up link.`,
           two: `Paste ${code} in the “Promo code” field during sign-up (or in your account).`,
-          three: `Deposit from ${CAMPAIGN.minDeposit}: the 300% bonus and 100 free spins are credited per the offer shown by ${brand}.`,
+          three: `Deposit: the bonus is credited per the offer shown by ${brand}.`,
           copied: 'Code copied — paste it at sign-up',
           copyFailed: 'Copy failed — select the code and copy it manually',
           conditions: 'Offer announced by the partner campaign. Check the terms shown by the operator before any deposit.',
@@ -89,25 +231,23 @@ export default function LocalizedPromoClient({ bookmaker, reviewDate }: { bookma
           responsible: 'Play responsibly',
           faqTitle: `Frequently asked questions about ${brand}`,
           faqCode: `What is the ${brand} promo code?`,
-          faqCodeAnswer: `The code is ${code} — enter it exactly ${codeCaseHint} during sign-up or in the “Promo code” section of your account.`,
+          faqCodeAnswer: `The code is ${code} — enter it exactly ${caseHint} during sign-up or in the “Promo code” section of your account.`,
           faqBonus: `What do I get with ${code}?`,
-          faqBonusAnswer: `300% bonus and 100 free spins, no wagering requirements, from a ${CAMPAIGN.minDeposit} deposit — offer announced by the campaign. Check the offer shown by ${brand} for your country before depositing.`,
           faqCountry: 'Does the code work in every country?',
           faqCountryAnswer: 'Availability depends on country, account and period. Check your eligibility before making a deposit.',
+          others: 'Other official partners',
         }
       : {
-          title: `رمز ${brand} الترويجي: 300% + 100 لفة مجانية`,
-          intro: `سجّل في ${brand} بالرمز ${code}: مكافأة 300% و100 لفة مجانية، بدون شروط مراهنة، بدءاً من إيداع ${CAMPAIGN.minDeposit}.`,
-          offerHeadline: `مكافأة 300% + 100 لفة مجانية`,
-          offerSub: `بدون شروط مراهنة · إيداع من ${CAMPAIGN.minDeposit} · عرض معلن من حملة ${brand}`,
+          title: `رمز ${brand} الترويجي ${year}: ${offer.title}`,
+          intro: `سجّل في ${brand} بالرمز ${code}: ${offer.headline}.`,
           codeLabel: 'الرمز الترويجي',
-          codeHint: `أدخله تماماً ${codeCaseHint}`,
+          codeHint: `أدخله تماماً ${caseHint}`,
           signup: `التسجيل في ${brand}`,
           download: 'تحميل التطبيق',
           steps: 'كيفية استخدام الرمز',
           one: `انسخ الرمز ${code} ثم افتح رابط التسجيل الرسمي لـ ${brand}.`,
           two: `الصق ${code} في خانة «الرمز الترويجي» أثناء التسجيل (أو في حسابك).`,
-          three: `أودع من ${CAMPAIGN.minDeposit}: تُضاف مكافأة 300% واللفات المجانية 100 وفق العرض المعروض من ${brand}.`,
+          three: `أودع: تُضاف المكافأة وفق العرض المعروض من ${brand}.`,
           copied: 'تم نسخ الرمز — الصقه أثناء التسجيل',
           copyFailed: 'تعذّر النسخ — حدد الرمز وانسخه يدوياً',
           conditions: 'عرض معلن من الحملة الشريكة. تحقق من الشروط المعروضة من المشغل قبل أي إيداع.',
@@ -115,11 +255,11 @@ export default function LocalizedPromoClient({ bookmaker, reviewDate }: { bookma
           responsible: 'العب بمسؤولية',
           faqTitle: `الأسئلة الشائعة حول ${brand}`,
           faqCode: `ما هو رمز ${brand} الترويجي؟`,
-          faqCodeAnswer: `الرمز هو ${code} — أدخله تماماً ${codeCaseHint} أثناء التسجيل أو في قسم «الرمز الترويجي» في حسابك.`,
+          faqCodeAnswer: `الرمز هو ${code} — أدخله تماماً ${caseHint} أثناء التسجيل أو في قسم «الرمز الترويجي» في حسابك.`,
           faqBonus: `ماذا أحصل عليه مع ${code}؟`,
-          faqBonusAnswer: `مكافأة 300% و100 لفة مجانية، بدون شروط مراهنة، بدءاً من إيداع ${CAMPAIGN.minDeposit} — عرض معلن من الحملة. تحقق من العرض المعروض من ${brand} لبلدك قبل الإيداع.`,
           faqCountry: 'هل يعمل الرمز في جميع البلدان؟',
           faqCountryAnswer: 'تعتمد الإتاحة على البلد والحساب والفترة. تحقق من أهليتك قبل أي إيداع.',
+          others: 'شركاء رسميون آخرون',
         }
 
   const handleCopy = async () => {
@@ -138,7 +278,7 @@ export default function LocalizedPromoClient({ bookmaker, reviewDate }: { bookma
   }
 
   const track = (event: 'signup_cta_click' | 'download_click') => trackAffiliateAction(bookmaker, event, `localized-${bookmaker}`)
-  const reviewDateLabel = new Intl.DateTimeFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB' : 'fr-FR', { dateStyle: 'long', timeZone: 'Africa/Dakar' }).format(new Date(`${effectiveReviewDate}T12:00:00Z`))
+  const reviewDateLabel = new Intl.DateTimeFormat(langKey === 'ar' ? 'ar' : langKey === 'en' ? 'en-GB' : 'fr-FR', { dateStyle: 'long', timeZone: 'Africa/Dakar' }).format(new Date(`${effectiveReviewDate}T12:00:00Z`))
 
   return (
     <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
@@ -149,15 +289,19 @@ export default function LocalizedPromoClient({ bookmaker, reviewDate }: { bookma
         <div className="text-center mb-10">
           <p className="text-xs uppercase tracking-[0.2em] text-[#2F7DFF]">{brand}</p>
           <h1 className="text-4xl font-black mt-3" style={{ fontFamily: 'Poppins, sans-serif' }}>{copy.title}</h1>
+          {/* Vrai logo officiel du bookmaker */}
+          <div className="mx-auto mt-5 flex min-h-16 max-w-[280px] items-center justify-center rounded-xl px-4 py-2 shadow-lg sm:max-w-[340px]" style={{ backgroundColor: info.logoBg }}>
+            <img src={info.logo} alt={`Logo officiel ${brand}`} className="max-h-14 w-auto object-contain rounded-lg" width={info.logoWidth} height={info.logoHeight} loading="eager" />
+          </div>
           <p className="text-sm text-[#9DABBB] mt-4">{copy.intro}</p>
           <p className="text-xs text-[#9DABBB] mt-3">{copy.verified} <time dateTime={effectiveReviewDate}>{reviewDateLabel}</time>
  · 18+</p>
         </div>
 
         {/* Encart offre — l'avantage est visible avant tout geste */}
-        <section className="rounded-2xl p-5 mb-4 text-center" style={{ backgroundColor: '#101a26', border: '1px solid #2F7DFF55' }} aria-label={copy.offerHeadline}>
-          <p className="text-lg sm:text-xl font-black" style={{ color: '#2F7DFF' }}>{copy.offerHeadline}</p>
-          <p className="text-xs text-[#9DABBB] mt-2">{copy.offerSub}</p>
+        <section className="rounded-2xl p-5 mb-4 text-center" style={{ backgroundColor: '#101a26', border: '1px solid #2F7DFF55' }} aria-label={offer.headline}>
+          <p className="text-lg sm:text-xl font-black" style={{ color: '#2F7DFF' }}>{offer.headline}</p>
+          <p className="text-xs text-[#9DABBB] mt-2">{offer.sub}</p>
         </section>
 
         <section className="rounded-2xl p-6 bg-[#141C25] border border-[#6B7A8C] text-center" aria-labelledby="localized-code-title">
@@ -167,8 +311,8 @@ export default function LocalizedPromoClient({ bookmaker, reviewDate }: { bookma
           {copyFailed && <p className="text-xs text-[#F87171] mt-2" role="alert">{copy.copyFailed} ({code})</p>}
           {!copied && !copyFailed && <p className="text-xs text-[#9DABBB] mt-2">{copy.codeHint}</p>}
           <div className="grid gap-3 mt-6">
-            <a href={signup} target="_blank" rel="noopener noreferrer nofollow sponsored" onClick={() => track('signup_cta_click')} className="rounded-xl py-3 font-bold" style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>{copy.signup}</a>
-            <a href={download} target="_blank" rel="noopener noreferrer nofollow sponsored" onClick={() => track('download_click')} className="rounded-xl py-3 font-bold border border-[#6B7A8C] text-[#F2F6FA]">{copy.download}</a>
+            <a href={info.signup} target="_blank" rel="noopener noreferrer nofollow sponsored" onClick={() => track('signup_cta_click')} className="rounded-xl py-3 font-bold" style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>{copy.signup}</a>
+            <a href={info.download} target="_blank" rel="noopener noreferrer nofollow sponsored" onClick={() => track('download_click')} className="rounded-xl py-3 font-bold border border-[#6B7A8C] text-[#F2F6FA]">{copy.download}</a>
           </div>
           <p className="text-xs text-[#9DABBB] mt-4">{copy.conditions}</p>
         </section>
@@ -190,12 +334,29 @@ export default function LocalizedPromoClient({ bookmaker, reviewDate }: { bookma
           </details>
           <details className="border-b border-[#6B7A8C] py-3">
             <summary className="cursor-pointer font-bold">{copy.faqBonus}</summary>
-            <p className="text-sm text-[#9DABBB] mt-2">{copy.faqBonusAnswer}</p>
+            <p className="text-sm text-[#9DABBB] mt-2">{offer.faqBonus}</p>
           </details>
           <details className="py-3">
             <summary className="cursor-pointer font-bold">{copy.faqCountry}</summary>
             <p className="text-sm text-[#9DABBB] mt-2">{copy.faqCountryAnswer}</p>
           </details>
+        </section>
+
+        {/* Liens croisés — les autres partenaires (1xbet & Linebet en tête) */}
+        <section className="mt-8 rounded-2xl p-6 bg-[#141C25] border border-[#6B7A8C]" aria-labelledby="localized-cross-title">
+          <h2 id="localized-cross-title" className="text-lg font-bold mb-4">{copy.others}</h2>
+          <div className="flex flex-wrap gap-2">
+            {CROSS_LINKS.filter((l) => l.href !== `/${bookmaker === 'linebet' ? 'code-promo-linebet-senegal' : bookmaker === '1xbet' ? 'code-promo-1xbet' : bookmaker === 'melbet' ? 'code-promo-melbet' : 'bonus-888starz'}`).map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className="inline-flex items-center gap-1 px-3 py-2 rounded-lg font-semibold text-sm transition-all"
+                style={{ backgroundColor: 'rgba(47, 125, 255, 0.08)', color: '#F2F6FA', border: '1px solid rgba(47, 125, 255, 0.2)' }}
+              >
+                {l.label[langKey]} →
+              </a>
+            ))}
+          </div>
         </section>
 
         <p className="text-center text-xs text-[#9DABBB] mt-8">18+ · {copy.responsible} · Aucun résultat futur n’est garanti.</p>

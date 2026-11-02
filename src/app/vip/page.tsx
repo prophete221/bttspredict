@@ -19,20 +19,20 @@ const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary')
 
 /* ────────────────── Parcours VIP — 1xbet ou Linebet ──────────────────
    Déblocage : création d'un NOUVEAU compte chez le bookmaker choisi avec
-   son code promo — VIPBTTS (1xbet, partenaire prioritaire) ou VISION221
+   son code promo — Vipbtts (1xbet, partenaire prioritaire) ou VISION221
    (Linebet) — + dépôt minimum de 10 €, puis vérification WhatsApp.
    (btts221 = code 888Starz, voir /bonus-888starz)
    ──────────────────────────────────────────────────────────────────── */
 type VipBook = '1xbet' | 'linebet'
 
 const VIP_PARTNERS: Record<VipBook, { brand: string; code: string; signup: string }> = {
-  '1xbet': { brand: '1xbet', code: 'VIPBTTS', signup: AFFILIATE.oneXbet },
+  '1xbet': { brand: '1xbet', code: 'Vipbtts', signup: AFFILIATE.oneXbet },
   linebet: { brand: 'Linebet', code: 'VISION221', signup: AFFILIATE.linebet },
 }
 const VIP_BOOKS: VipBook[] = ['1xbet', 'linebet'] // ordre de priorité d'affichage
 const VIP_LOGOS: Record<VipBook, string> = {
-  '1xbet': '/logos/1xbet.svg',
-  linebet: '/logos/linebet-provided.jpg',
+  '1xbet': '/logos/1xbet-logo.png',
+  linebet: '/logos/linebet-logo.jpg',
 }
 const VIP_DEPOSIT = '10 €'
 const VIP_DEPOSIT_XOF = '≈ 6 560 XOF'
@@ -202,7 +202,7 @@ const makeCopy = (brand: string, code: string) => ({
     copiedBtn: 'Copié',
     signup: `Créer mon compte ${brand}`,
     newBadge: 'Nouveau',
-    alt1xbet: 'Plutôt 1xbet ? Code VIPBTTS →',
+    alt1xbet: 'Plutôt 1xbet ? Code Vipbtts →',
     altLinebet: 'Plutôt Linebet ? Code VISION221 →',
     signupWith: 'Inscription avec le code collé',
     needBookmaker: 'Copie d’abord ton code ci-dessus',
@@ -243,7 +243,7 @@ const makeCopy = (brand: string, code: string) => ({
     faq1Q: `Pourquoi un dépôt minimum de ${VIP_DEPOSIT} ?`,
     faq1A: `L’accès VIP est financé par notre partenaire bookmaker. Le dépôt minimum de ${VIP_DEPOSIT} (${VIP_DEPOSIT_XOF}), effectué avec ton code promo ${code} lors de la création de ton compte ${brand}, conditionne l’activation de ton accès : c’est ce qui confirme que ton compte partenaire est réellement actif. Sans ce dépôt, la vérification ne peut pas aboutir — c’est la règle, appliquée à tout le monde.`,
     faq2Q: 'Le code promo n’a pas été copié, que faire ?',
-    faq2A: `Clique à nouveau sur la carte ${brand} : le code ${code} est recopié automatiquement. Tu peux aussi utiliser le bouton « Copier le code ». En dernier recours, saisis-le manuellement : ${code}, en majuscules.`,
+    faq2A: `Clique à nouveau sur la carte ${brand} : le code ${code} est recopié automatiquement. Tu peux aussi utiliser le bouton « Copier le code ». En dernier recours, saisis-le manuellement : ${code}, en respectant exactement sa casse.`,
     faq3Q: 'Combien de temps prend la vérification ?',
     faq3A: 'Envoie ta demande sur WhatsApp avec ton ID joueur après ton dépôt. La vérification est traitée dans la journée, aux heures de publication des pronos. Tu reçois une confirmation dès que ton accès est activé.',
     faq4Q: 'Mes données sont-elles en sécurité ?',
@@ -315,7 +315,7 @@ const makeCopy = (brand: string, code: string) => ({
     copiedBtn: 'Copied',
     signup: `Create my ${brand} account`,
     newBadge: 'New',
-    alt1xbet: 'Prefer 1xbet? Code VIPBTTS →',
+    alt1xbet: 'Prefer 1xbet? Code Vipbtts →',
     altLinebet: 'Prefer Linebet? Code VISION221 →',
     signupWith: 'Sign-up with the pasted code',
     needBookmaker: 'Copy your code above first',
@@ -428,7 +428,7 @@ const makeCopy = (brand: string, code: string) => ({
     copiedBtn: 'تم النسخ',
     signup: `أنشئ حساب ${brand}`,
     newBadge: 'جديد',
-    alt1xbet: 'تفضّل 1xbet؟ الرمز VIPBTTS →',
+    alt1xbet: 'تفضّل 1xbet؟ الرمز Vipbtts →',
     altLinebet: 'تفضّل Linebet؟ الرمز VISION221 →',
     signupWith: 'التسجيل بالرمز المنسوخ',
     needBookmaker: 'انسخ رمزك أولاً بالأعلى',

@@ -97,11 +97,24 @@ export default function FreePredictionsWidget() {
         )}
 
         <div className="text-center mt-3">
+          {/* 1xbet — partenaire prioritaire (300% + free spins) */}
+          <a
+            href={AFFILIATE.oneXbet}
+            rel="sponsored nofollow noopener noreferrer"
+            target="_blank"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold transition-all"
+            style={{ backgroundColor: '#1B6EF3', color: '#FFFFFF' }}
+            onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'free-predictions-widget')}
+            data-cta="free-predictions-1xbet"
+            aria-label="Ouvrir 1xbet avec le code promo Vipbtts"
+          >
+            S&apos;inscrire sur 1xbet · code Vipbtts →
+          </a>
           <a
             href={AFFILIATE.linebet}
             rel="sponsored nofollow noopener noreferrer"
             target="_blank"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold transition-all"
+            className="mt-2 inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold transition-all"
             style={{ backgroundColor: 'var(--brand-indigo)', color: 'var(--cta-text)' }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--cta-hover)')}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--brand-indigo)')}

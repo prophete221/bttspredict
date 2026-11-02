@@ -1,6 +1,6 @@
 'use client'
 
-import { AFFILIATE, SITE } from '@/lib/constants'
+import { AFFILIATE } from '@/lib/constants'
 import { trackAffiliateAction } from '@/lib/affiliateTracking'
 
 /**
@@ -54,8 +54,19 @@ export default function VipCardWidget() {
             </div>
           </div>
 
-          {/* CTA */}
+          {/* CTA — 1xbet & Linebet prioritaires */}
           <div className="flex gap-2">
+            <a
+              href={AFFILIATE.oneXbet}
+              rel="sponsored nofollow noopener noreferrer"
+              target="_blank"
+              className="flex-1 text-center py-2 rounded-lg text-xs font-bold"
+              style={{ backgroundColor: '#1B6EF3', color: '#FFFFFF' }}
+              onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'vip-card-widget')}
+              data-cta="vip-card-1xbet"
+            >
+              S&apos;inscrire 1xbet
+            </a>
             <a
               href={AFFILIATE.linebet}
               rel="sponsored nofollow noopener noreferrer"
@@ -65,7 +76,7 @@ export default function VipCardWidget() {
               onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'vip-card-widget')}
               data-cta="vip-card-linebet"
             >
-              Voir l’accès VIP
+              S&apos;inscrire Linebet
             </a>
             <a
               href="https://wa.me/15406704172"
@@ -77,11 +88,17 @@ export default function VipCardWidget() {
               WhatsApp
             </a>
           </div>
+          <div className="mt-2 text-center">
+            <a href="/vip" className="text-[10px] font-bold" style={{ color: '#9DABBB' }}>Voir l&apos;espace VIP →</a>
+          </div>
 
-          {/* Code promo */}
+          {/* Codes promo — casse exacte des affilieurs */}
           <div className="mt-3 text-center">
-            <span className="text-[10px]" style={{ color: '#9DABBB' }}>Code promo: </span>
-            <span className="font-mono font-bold text-[11px]" style={{ color: '#2F7DFF' }}>{SITE.promoCode}</span>
+            <span className="text-[10px]" style={{ color: '#9DABBB' }}>Codes promo : </span>
+            <span className="font-mono font-bold text-[11px]" style={{ color: '#1B6EF3' }}>Vipbtts</span>
+            <span className="text-[10px]" style={{ color: '#9DABBB' }}> (1xbet) · </span>
+            <span className="font-mono font-bold text-[11px]" style={{ color: '#2F7DFF' }}>VISION221</span>
+            <span className="text-[10px]" style={{ color: '#9DABBB' }}> (Linebet)</span>
           </div>
         </div>
       </div>

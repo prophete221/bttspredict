@@ -182,7 +182,7 @@ function buildFaqJsonLd() {
         name: '1xbet ou Linebet : quel code promo choisir ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Les deux sont nos partenaires officiels : VIPBTTS (1xbet) offre 300% à l'inscription + free spins et VISION221 (Linebet) offre 300% + 100 free spins dès 1 € de dépôt, sans condition de mise (offres annoncées). Choisis selon le bookmaker que tu préfères utiliser.",
+          text: "Les deux sont nos partenaires officiels : Vipbtts (1xbet) offre 300% à l'inscription + free spins et VISION221 (Linebet) offre 300% + 100 free spins dès 1 € de dépôt, sans condition de mise (offres annoncées). Choisis selon le bookmaker que tu préfères utiliser.",
         },
       },
     ],
@@ -240,13 +240,34 @@ export default function CodePromoLinebetSenegalPage() {
                   Nouveau partenaire officiel
                 </p>
                 <p className="font-bold text-papier text-sm sm:text-base">
-                  1xbet — code promo <span className="font-mono font-black tracking-wider" style={{ color: '#4CC9F0' }}>VIPBTTS</span>
+                  1xbet — code promo <span className="font-mono font-black tracking-wider" style={{ color: '#4CC9F0' }}>Vipbtts</span>
                 </p>
                 <p className="text-[12px] mt-1" style={{ color: '#9DABBB' }}>
                   300% de bonus à l&apos;inscription + free spins, sans condition de mise (offre annoncée).
                 </p>
               </div>
               <span aria-hidden="true" className="text-xl flex-shrink-0" style={{ color: '#4CC9F0' }}>→</span>
+            </div>
+          </a>
+          <a
+            href="/code-promo-melbet"
+            className="mt-3 block rounded-2xl p-5 transition-all hover:-translate-y-0.5"
+            style={{ backgroundColor: '#1A140A', border: '1px solid rgba(247, 181, 44, 0.45)' }}
+            data-cta="linebet-to-melbet"
+          >
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#F7B52C' }}>
+                  Nouveau partenaire officiel
+                </p>
+                <p className="font-bold text-papier text-sm sm:text-base">
+                  Melbet — code promo <span className="font-mono font-black tracking-wider" style={{ color: '#F7B52C' }}>Bttswin</span>
+                </p>
+                <p className="text-[12px] mt-1" style={{ color: '#9DABBB' }}>
+                  Bonus de bienvenue sur le premier dépôt (offre affichée par Melbet).
+                </p>
+              </div>
+              <span aria-hidden="true" className="text-xl flex-shrink-0" style={{ color: '#F7B52C' }}>→</span>
             </div>
           </a>
         </section>
