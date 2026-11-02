@@ -90,6 +90,89 @@ interface MatchData {
   quality?: DataQuality
 }
 
+import buildTimePredictions from '../../../public/predictions.json'
+
+/** Parse payload → MatchData[] (shared by SSR seed + client refresh). */
+function parseMatchesPayload(data: { free?: unknown[]; predictions?: unknown[]; date?: string } | null | undefined): MatchData[] {
+  const rawPredictions = (data?.free || data?.predictions || []) as Array<Record<string, unknown>>
+  if (!rawPredictions.length) return []
+  const matchMap = new Map<string, MatchData>()
+  for (const p of rawPredictions) {
+    const rowQuality: DataQuality = predictionQuality(p as never)
+    const predsRaw = Array.isArray(p.predictions) && (p.predictions as unknown[]).length > 0
+      ? (p.predictions as Array<Record<string, unknown>>)
+      : null
+    const preds = predsRaw
+      ? predsRaw.map(pr => ({
+          type: String(pr.type || ''),
+          prediction: String(pr.prediction || ''),
+          confidence: Number(pr.confidence || 0),
+          bttsProb: (pr.bttsProb as number | undefined) ?? (p.bttsProb as number | undefined),
+          over25Prob: (pr.over25Prob as number | undefined) ?? (p.over25Prob as number | undefined),
+          homeLambda: (pr.homeLambda as number | undefined) ?? (p.homeLambda as number | undefined) ?? (p.xgHome as number | undefined),
+          awayLambda: (pr.awayLambda as number | undefined) ?? (p.awayLambda as number | undefined) ?? (p.xgAway as number | undefined),
+        }))
+      : [{
+          type: String(p.type || 'BTTS'),
+          prediction: String(p.prediction || ''),
+          confidence: Number(p.confidence || 0),
+          bttsProb: p.bttsProb as number | undefined,
+          over25Prob: p.over25Prob as number | undefined,
+          homeLambda: (p.homeLambda as number | undefined) ?? (p.xgHome as number | undefined),
+          awayLambda: (p.awayLambda as number | undefined) ?? (p.xgAway as number | undefined),
+        }]
+    const key = String(p.match || '')
+    if (!key || matchMap.has(key)) continue
+    matchMap.set(key, {
+      match: key,
+      league: String(p.league || ''),
+      date: String(p.date || ''),
+      time: String(p.time || '--:--'),
+      homeLogo: String(p.homeLogo || ''),
+      awayLogo: String(p.awayLogo || ''),
+      predictions: preds,
+      quality: rowQuality,
+      reliabilityScore: p.reliabilityScore as number | undefined,
+      xgTotal: p.xgTotal as number | undefined,
+      analysis: p.analysis as string | undefined,
+      aiKeyFact: p.ai_key_fact as string | undefined,
+      aiAnalysis: p.ai_analysis as string | undefined,
+      aiFormSummary: p.ai_form_summary as string | undefined,
+      aiAbsences: p.ai_absences as string | undefined,
+      aiOddsInsight: p.ai_odds_insight as string | undefined,
+      aiKeyFactEn: p.ai_key_fact_en as string | undefined,
+      aiAnalysisEn: p.ai_analysis_en as string | undefined,
+      aiFormSummaryEn: p.ai_form_summary_en as string | undefined,
+      aiAbsencesEn: p.ai_absences_en as string | undefined,
+      aiOddsInsightEn: p.ai_odds_insight_en as string | undefined,
+      odds: (p.odds as MatchData['odds']) || null,
+      aiExactScore: p.ai_exact_score as string | undefined,
+      exactScoreProb: p.exact_score_prob as string | undefined,
+      aiBttsProb: p.ai_btts_prob as string | undefined,
+      aiOver25Prob: p.ai_over25_prob as string | undefined,
+    })
+  }
+  const all = [...matchMap.values()].sort((a, b) => {
+    const sa = getMatchStatus(a.date, a.time)
+    const sb = getMatchStatus(b.date, b.time)
+    if (sa === 'live' && sb !== 'live') return -1
+    if (sb === 'live' && sa !== 'live') return 1
+    return `${a.date}T${a.time || '23:59'}`.localeCompare(`${b.date}T${b.time || '23:59'}`)
+  })
+  const todayAll = all.filter(m => getDakarDayDiff(m.date) === 0)
+  const upcomingFill = todayAll.length < 6 ? all.filter(m => getDakarDayDiff(m.date) > 0).slice(0, 12) : []
+  return [...todayAll, ...upcomingFill]
+}
+
+function seedMatchesFromBuild(): MatchData[] {
+  try {
+    return parseMatchesPayload(buildTimePredictions as { free?: unknown[]; predictions?: unknown[] })
+  } catch {
+    return []
+  }
+}
+
+
 // ─── Probability Bar — visual representation of Poisson model ────────────
 function ProbabilityBar({ value, prediction, color = 'green' }: { value: number; prediction: string; color?: 'green' | 'gold' }) {
   const percentage = Math.round(value * 100)
@@ -556,95 +639,17 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
   const t = translationsFor(lang)
   const intelligenceTitle = lang === 'en' ? "Today's intelligence" : lang === 'ar' ? 'ذكاء اليوم' : 'Intelligence du jour'
   const intelligenceSubtitle = lang === 'en' ? 'Live selections, market signals and match analysis' : lang === 'ar' ? 'اختيارات مباشرة وإشارات السوق وتحليل المباريات' : 'Sélections en direct, signaux de marché et analyse des matchs'
-  const [matches, setMatches] = useState<MatchData[]>([])
-  const [loading, setLoading] = useState(true)
+  // Seed build-time: le HTML statique contient déjà les matchs (crawlers / IA).
+  // Le fetch client rafraîchit ensuite avec le predictions.json live.
+  const [matches, setMatches] = useState<MatchData[]>(() => seedMatchesFromBuild())
+  const [loading, setLoading] = useState(() => seedMatchesFromBuild().length === 0)
 
   useEffect(() => {
     fetch('/predictions.json')
       .then(r => r.json())
       .then(data => {
-        // v91: data.free is an array of matches, each with predictions[] containing BOTH BTTS + Over 2.5
-        const rawPredictions = data?.free || data?.predictions || []
-        if (!rawPredictions || rawPredictions.length === 0) {
-          setLoading(false)
-          return
-        }
-        const matchMap = new Map<string, MatchData>()
-        for (const p of rawPredictions) {
-          // Qualité des données calculée sur la ligne réelle du payload (format ESPN v92 reconnu)
-          const rowQuality: DataQuality = predictionQuality(p)
-          // v91: each prediction already groups both markets under p.predictions[]
-          // If p.predictions[] exists, use it directly. Otherwise build from legacy fields.
-          const preds = Array.isArray(p.predictions) && p.predictions.length > 0
-            ? p.predictions.map(pr => ({
-                type: pr.type,
-                prediction: pr.prediction,
-                confidence: pr.confidence,
-                bttsProb: pr.bttsProb ?? p.bttsProb,
-                over25Prob: pr.over25Prob ?? p.over25Prob,
-                homeLambda: pr.homeLambda ?? p.homeLambda ?? p.xgHome,
-                awayLambda: pr.awayLambda ?? p.awayLambda ?? p.xgAway,
-              }))
-            : [{
-                type: p.type || 'BTTS',
-                prediction: p.prediction,
-                confidence: p.confidence,
-                bttsProb: p.bttsProb,
-                over25Prob: p.over25Prob,
-                homeLambda: p.homeLambda ?? p.xgHome,
-                awayLambda: p.awayLambda ?? p.xgAway,
-              }]
-
-          const key = p.match
-          if (!matchMap.has(key)) {
-            matchMap.set(key, {
-              match: p.match,
-              league: p.league,
-              date: p.date,
-              time: p.time || '--:--',
-              homeLogo: p.homeLogo || '',
-              awayLogo: p.awayLogo || '',
-              predictions: preds,
-              quality: rowQuality,
-              reliabilityScore: p.reliabilityScore,
-              xgTotal: p.xgTotal,
-              analysis: p.analysis,
-              aiKeyFact: p.ai_key_fact,
-              aiAnalysis: p.ai_analysis,
-              aiFormSummary: p.ai_form_summary,
-              aiAbsences: p.ai_absences,
-              aiOddsInsight: p.ai_odds_insight,
-              aiKeyFactEn: p.ai_key_fact_en,
-              aiAnalysisEn: p.ai_analysis_en,
-              aiFormSummaryEn: p.ai_form_summary_en,
-              aiAbsencesEn: p.ai_absences_en,
-              aiOddsInsightEn: p.ai_odds_insight_en,
-              odds: p.odds || null,
-              aiExactScore: p.ai_exact_score,
-              exactScoreProb: p.exact_score_prob,
-              aiBttsProb: p.ai_btts_prob,
-              aiOver25Prob: p.ai_over25_prob,
-            })
-          }
-        }
-        const all = [...matchMap.values()].sort((a, b) => {
-          const sa = getMatchStatus(a.date, a.time)
-          const sb = getMatchStatus(b.date, b.time)
-          if (sa === 'live' && sb !== 'live') return -1
-          if (sb === 'live' && sa !== 'live') return 1
-          const da = `${a.date}T${a.time || '23:59'}`
-          const db = `${b.date}T${b.time || '23:59'}`
-          return da.localeCompare(db)
-        })
-        // La section s'intitule « Intelligence du jour » : on affiche d'abord les
-        // matchs du jour (Africa/Dakar). Si la journée est pauvre, on complète
-        // avec les prochaines affiches à venir pour ne jamais rendre la section
-        // vide — les cartes affichent la date réelle de chaque match.
-        const todayAll = all.filter(m => getDakarDayDiff(m.date) === 0)
-        const upcomingFill = todayAll.length < 6
-          ? all.filter(m => getDakarDayDiff(m.date) > 0).slice(0, 12)
-          : []
-        setMatches([...todayAll, ...upcomingFill])
+        const next = parseMatchesPayload(data)
+        if (next.length > 0) setMatches(next)
         setLoading(false)
       })
       .catch(() => setLoading(false))
@@ -658,6 +663,37 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
   }), [matches])
 
   return (
+    <>
+      {/* JSON-LD + liste lisible machines : les IA voient les matchs sans exécuter JS */}
+      {matches.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'ItemList',
+              name: intelligenceTitle,
+              numberOfItems: matches.length,
+              itemListElement: matches.slice(0, 20).map((m, i) => ({
+                '@type': 'ListItem',
+                position: i + 1,
+                name: m.match,
+                description: `${m.league} · ${m.date} ${m.time} · BTTS ${m.predictions.find(p => p.type === 'BTTS')?.prediction || '—'} · Over 2.5 ${m.predictions.find(p => p.type.includes('Over'))?.prediction || '—'}`,
+              })),
+            }),
+          }}
+        />
+      )}
+      <div className="sr-only" data-ai-match-list aria-hidden="false">
+        <h2>{intelligenceTitle}</h2>
+        <ul>
+          {matches.map((m) => (
+            <li key={`ai-${m.match}-${m.date}`}>
+              {m.match} — {m.league} — {m.date} {m.time} — BTTS: {m.predictions.find(p => p.type === 'BTTS')?.prediction || '—'} — Over 2.5: {m.predictions.find(p => p.type.includes('Over'))?.prediction || '—'}
+            </li>
+          ))}
+        </ul>
+      </div>
     <section ref={ref} id="free-predictions" className="section-pad overflow-x-hidden" style={{ paddingTop: 'clamp(1.5rem, 4vw, 3rem)', paddingBottom: 'clamp(2rem, 5vw, 4rem)' }}>
       <div className="mx-auto max-w-[980px] px-4 sm:px-6">
         <div className="prediction-section-heading mb-5 flex items-end justify-between gap-4">
@@ -715,5 +751,6 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
         </div>
       </div>
     </section>
+    </>
   )
 }
