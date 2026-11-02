@@ -1,6 +1,6 @@
 {
   "date": "2026-11-02",
-  "lastUpdated": "2026-11-02T00:08:09.319Z",
+  "lastUpdated": "2026-11-02T07:08:34.568Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -1284,7 +1284,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.85 · N 3.05 · 2 2.65 · O2.5 2.15"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.85 · N 3.05 · 2 2.65 · O2.5 2.15",
+      "status": "PENDING"
     },
     {
       "id": "newcastl-vs-everton-2026-11-02",
@@ -1495,7 +1496,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.35 · N 3.55 · 2 2.95 · O2.5 1.71"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.35 · N 3.55 · 2 2.95 · O2.5 1.71",
+      "status": "PENDING"
     },
     {
       "id": "barcelon-vs-astonvil-2026-11-03",
@@ -2997,12 +2999,12 @@
       "away": "Paris Saint-Germain",
       "league": "UEFA Champions League",
       "date": "2026-11-03",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.6,
+      "proba": 0.62,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "60.00%",
-      "confidence": 60,
+      "confidence": 62,
       "time": "20:00",
       "matchSemantic": "villarre-vs-parissai-2026-11-03",
       "source": "poisson-v92-real-data",
@@ -3157,49 +3159,48 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 62,
-          "bttsProb": 0.62,
+          "confidence": 60,
+          "bttsProb": 0.6,
           "homeLambda": 1.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.62
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 62,
-          "over25Prob": 0.61,
+          "over25Prob": 0.62,
           "homeLambda": 1.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.61
+          "proba": 0.62
         }
       ],
-      "bttsProb": 0.62,
-      "over25Prob": 0.61,
+      "bttsProb": 0.6,
+      "over25Prob": 0.62,
       "homeLambda": 1.5,
       "awayLambda": 2,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Le PSG affiche 14 buts marqués en 3 matchs de Ligue des Champions pour seulement 5 encaissés.",
-      "ai_analysis": "Le Paris Saint-Germain se déplace en position de force avec une série de cinq victoires consécutives et une moyenne de deux buts par match à l'extérieur. Villarreal, malgré un classement délicat en Ligue des Champions (19ème), maintient un taux BTTS et Over 2.5 de 60% ainsi qu'une moyenne offensive respectable de 1.5 but à domicile. Les statistiques empiriques soutiennent une rencontre animée avec des buts des deux côtés.",
-      "ai_analysis_en": "Paris Saint-Germain travels in a strong position with a five-match winning streak and an average of two goals per away match. Villarreal, despite a tricky Champions League ranking (19th), maintains a 60% empirical BTTS and Over 2.5 rate along with a respectable 1.5 home scoring average. Empirical statistics support an open match with goals at both ends.",
-      "ai_form_summary": "Villarreal : 3V-1D-1L (8 BP, 4 BC) | PSG : 5V-0D-0L (11 BP, 3 BC)",
-      "ai_form_summary_en": "Villarreal: 3W-1D-1L (8 GF, 4 GA) | PSG: 5W-0D-0L (11 GF, 3 GA)",
+      "ai_key_fact": "Le Paris Saint-Germain a marqué 14 buts en 3 matchs de Ligue des Champions.",
+      "ai_analysis": "Le Paris Saint-Germain domine son groupe avec 14 buts marqués et affiche une excellente dynamique offensive. Villarreal encaisse beaucoup de buts (8 en 3 matchs) mais reste capable de marquer. Les taux empiriques d'Over 2.5 à 60% pour les deux équipes soutiennent l'option d'un match ouvert.",
+      "ai_analysis_en": "Paris Saint-Germain dominates their group with 14 goals scored and shows an excellent offensive dynamic. Villarreal concedes many goals (8 in 3 matches) but remains capable of scoring. The empirical Over 2.5 rates of 60% for both teams support the option of an open match.",
+      "ai_form_summary": "Villarreal : 3V-1N-1D, 8 buts marqués, 4 encaissés, BTTS 60%, Over 60%. Paris Saint-Germain : 5V-0N-0D, 11 buts marqués, 3 encaissés, BTTS 60%, Over 60%.",
+      "ai_form_summary_en": "Villarreal: 3W-1D-1L, 8 goals for, 4 against, BTTS 60%, Over 60%. Paris Saint-Germain: 5W-0D-0L, 11 goals for, 3 against, BTTS 60%, Over 60%.",
       "ai_reasons": [
-        "Les deux équipes affichent un taux BTTS empirique solide de 60%.",
-        "Villarreal marque en moyenne 1.5 buts par match à domicile malgré un classement difficile.",
-        "Le PSG présente une forme étincelante (5 victoires consécutives) avec une moyenne de 2 buts par match à l'extérieur."
+        "Taux empirique Over 2.5 de 60% pour Villarreal et le Paris Saint-Germain.",
+        "Le Paris Saint-Germain affiche une attaque prolifique avec 14 buts inscrits en 3 matchs de phase de groupes.",
+        "Villarreal concède également beaucoup de buts avec 8 buts encaissés en 3 matchs de Ligue des Champions."
       ],
       "ai_risks": [
-        "La défense parisienne est performante avec seulement 3 buts encaissés sur ses 5 derniers matchs.",
-        "Villarreal est classé 19ème en Ligue des Champions, ce qui pourrait limiter leur efficacité offensive face au leader."
+        "Villarreal a montré une solidité relative par moments malgré ses 8 buts encaissés en C1.",
+        "L'écart de points au classement (9 points pour le PSG contre 3 pour Villarreal) pourrait influencer la physionomie du match."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -5778,12 +5779,12 @@
       "away": "SC Freiburg",
       "league": "UEFA Conference League",
       "date": "2026-11-05",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.6,
+      "proba": 0.72,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "80.00%",
-      "confidence": 60,
+      "confidence": 72,
       "time": "17:45",
       "matchSemantic": "trabzons-vs-scfreibu-2026-11-05",
       "source": "poisson-v92-real-data",
@@ -5800,7 +5801,7 @@
       "xgAway": 1.5,
       "xgTotal": 4.75,
       "formBTTS": 60,
-      "analysis": "Trabzonspor : forme V-V-V-V-V (5V 0N 0D, 15 buts marqués / 3 encaissés sur 5) · SC Freiburg : forme V-D-D-V-N (2V 1N 2D, 8 buts marqués / 9 encaissés sur 5). Classement : Trabzonspor 4e (6 pts), SC Freiburg 18e (3 pts). Stats empiriques (forme récente) : buts moy. 4.75, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.55 / N: 3.7 / 2: 2.55. Fiabilité 85%.",
+      "analysis": "Trabzonspor : forme V-V-V-V-D (4V 0N 1D, 13 buts marqués / 4 encaissés sur 5) · SC Freiburg : forme V-D-D-V-N (2V 1N 2D, 8 buts marqués / 9 encaissés sur 5). Classement : Trabzonspor 4e (6 pts), SC Freiburg 18e (3 pts). Stats empiriques (forme récente) : buts moy. 4.75, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.5 / N: 3.65 / 2: 2.5. Fiabilité 85%.",
       "analysisData": {
         "bttsProb": 0.6,
         "over25Prob": 0.8,
@@ -5812,25 +5813,25 @@
       "estimatedCoteOver": 1.25,
       "odds": {
         "provider": "DraftKings",
-        "home": 2.55,
-        "draw": 3.7,
-        "away": 2.55,
+        "home": 2.5,
+        "draw": 3.65,
+        "away": 2.5,
         "over25": null,
         "under25": null
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.67,
       "formHome": {
-        "last5String": "V-V-V-V-V",
-        "wins": 5,
+        "last5String": "V-V-V-V-D",
+        "wins": 4,
         "draws": 0,
-        "losses": 0,
-        "goalsFor": 15,
-        "goalsAgainst": 3,
+        "losses": 1,
+        "goalsFor": 13,
+        "goalsAgainst": 4,
         "bttsRate": 0.2,
         "over25Rate": 0.6,
-        "cleanSheets": 4,
-        "failedToScore": 0,
+        "cleanSheets": 3,
+        "failedToScore": 1,
         "count": 5
       },
       "formAway": {
@@ -5938,53 +5939,53 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 68,
-          "bttsProb": 0.68,
+          "confidence": 60,
+          "bttsProb": 0.6,
           "homeLambda": 3.25,
           "awayLambda": 1.5,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.68
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 68,
-          "over25Prob": 0.74,
+          "confidence": 72,
+          "over25Prob": 0.72,
           "homeLambda": 3.25,
           "awayLambda": 1.5,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.74
+          "proba": 0.72
         }
       ],
-      "bttsProb": 0.68,
-      "over25Prob": 0.74,
+      "bttsProb": 0.6,
+      "over25Prob": 0.72,
       "homeLambda": 3.25,
       "awayLambda": 1.5,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "SC Freiburg affiche un taux BTTS et Over 2.5 de 100% sur ses 5 derniers matchs.",
-      "ai_analysis": "Trabzonspor aborde ce match en pleine confiance avec 5 victoires consécutives, mais affronte un SC Freiburg dont les rencontres récentes sont très prolifiques et affirment un taux de 100% sur le BTTS et l'Over 2.5. Bien que le profil de Trabzonspor soit plus hermétique à domicile, l'ardeur offensive de Freiburg (8 buts marqués) couplée à une défense perméable (9 buts encaissés) penche en faveur d'un match ouvert.",
-      "ai_analysis_en": "Trabzonspor enters this match in high confidence with 5 consecutive wins, facing an SC Freiburg side whose recent fixtures are very prolific with a 100% rate in both BTTS and Over 2.5. Although Trabzonspor's profile at home is typically tighter defensively, Freiburg's offensive output combined with defensive fragility points towards an open game.",
-      "ai_form_summary": "Trabzonspor : 5 victoires d'affilée, 15 buts marqués, 3 encaissés (BTTS 20%, Over 60%). SC Freiburg : 2 victoires, 1 nul, 2 défaites, 8 buts marqués, 9 encaissés (BTTS 100%, Over 100%).",
-      "ai_form_summary_en": "Trabzonspor: 5 straight wins, 15 goals scored, 3 conceded (BTTS 20%, Over 60%). SC Freiburg: 2 wins, 1 draw, 2 losses, 8 goals scored, 9 conceded (BTTS 100%, Over 100%).",
+      "ai_key_fact": "SC Freiburg totalise un taux Over 2.5 de 100% associé à une moyenne de 3.25 buts pour Trabzonspor.",
+      "ai_analysis": "Les statistiques affichent un profil résolument offensif avec un taux empirique d'Over 2.5 de 80%. SC Freiburg atteint 100% d'Over sur ses 5 derniers matchs, tandis que Trabzonspor domine offensivement avec une moyenne de 3.25 buts. Les indicateurs soutiennent une partie riche en buts.",
+      "ai_analysis_en": "Statistics display a decisively offensive profile with an empirical Over 2.5 rate of 80%. SC Freiburg reaches 100% Over in their last 5 matches, while Trabzonspor dominates offensively with a 3.25 goals average. The indicators support a high-scoring game.",
+      "ai_form_summary": "Trabzonspor: 4V-0D-1L sur 5 derniers (13 buts pour, 4 contre). SC Freiburg: 2V-1D-2L sur 5 derniers (8 buts pour, 9 contre).",
+      "ai_form_summary_en": "Trabzonspor: 4W-0D-1L in last 5 (13 GF, 4 GA). SC Freiburg: 2W-1D-2L in last 5 (8 GF, 9 GA).",
       "ai_reasons": [
-        "Taux Over 2.5 empirique élevé à 0.8 avec une moyenne de buts de 3.25 pour l'équipe à domicile.",
-        "SC Freiburg affiche un taux BTTS de 1 et un taux Over 2.5 de 1 sur ses 5 derniers matchs.",
-        "Trabzonspor est en excellente forme (5V consécutives) mais Freiburg montre de la vulnérabilité défensive (9 buts encaissés en 5 matchs)."
+        "Taux Over 2.5 empirique très élevé à 80%",
+        "SC Freiburg affiche un taux Over 2.5 de 100% sur ses derniers matchs",
+        "Trabzonspor présente une forte moyenne offensive de 3.25 buts par match"
       ],
       "ai_risks": [
-        "Le taux BTTS de Trabzonspor est historiquement faible à 0.2 sur son échantillon de 8 matchs.",
-        "Freiburg a un bilan de 2V-1D-2L qui montre une certaine inconstance."
+        "Le taux BTTS de Trabzonspor est bas à 20% sur la forme récente, malgré un volume de buts global",
+        "Freiburg encaisse autant qu'il marque (9 buts encaissés pour 8 marqués)"
       ],
-      "ai_confidence": "medium",
+      "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.55 · N 3.7 · 2 2.55"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.5 · N 3.65 · 2 2.5",
+      "status": "PENDING"
     },
     {
       "id": "sinttrui-vs-skbrann-2026-11-05",
@@ -8518,7 +8519,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.8 · N 5.25 · 2 1.43"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.8 · N 5.25 · 2 1.43",
+      "status": "PENDING"
     },
     {
       "id": "adodenha-vs-spartaro-2026-11-07",
@@ -8726,7 +8728,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "sporting-vs-moreiren-2026-11-07",
@@ -8933,7 +8936,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "svjoskor-vs-lasklinz-2026-11-07",
@@ -9147,7 +9151,217 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 5.5 · N 4.8 · 2 1.44"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 5.5 · N 4.8 · 2 1.44",
+      "status": "PENDING"
+    },
+    {
+      "id": "orlandoc-vs-newengla-2026-11-07",
+      "match": "Orlando City SC vs New England Revolution",
+      "home": "Orlando City SC",
+      "away": "New England Revolution",
+      "league": "MLS",
+      "date": "2026-11-07",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "90.00%",
+      "confidence": 70,
+      "time": "21:00",
+      "matchSemantic": "orlandoc-vs-newengla-2026-11-07",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12011.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/189.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 1.75,
+      "xgTotal": 4.75,
+      "formBTTS": 70,
+      "analysis": "Orlando City SC : forme D-N-N-V-N (1V 3N 1D, 11 buts marqués / 12 encaissés sur 5) · New England Revolution : forme V-V-V-V-D (4V 0N 1D, 9 buts marqués / 8 encaissés sur 5). Classement : Orlando City SC 9e (43 pts), New England Revolution 2e (58 pts). Stats empiriques (forme récente) : buts moy. 4.75, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.9,
+        "homeLambda": 3,
+        "awayLambda": 1.75,
+        "xgTotal": 4.75
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.11,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "D-N-N-V-N",
+        "wins": 1,
+        "draws": 3,
+        "losses": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 12,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-D",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 9,
+        "goalsAgainst": 8,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Charlotte FC",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Chicago Fire FC",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "New York City FC",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "D.C. United",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "Toronto FC",
+          "venue": "A",
+          "score": "3-3",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-02",
+          "opponent": "Inter Miami CF",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Red Bull New York",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Philadelphia Union",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Chicago Fire FC",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "FC Cincinnati",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 9,
+        "points": 43,
+        "played": 33,
+        "gf": 62,
+        "ga": 78
+      },
+      "standingsAway": {
+        "rank": 2,
+        "points": 58,
+        "played": 32,
+        "gf": 54,
+        "ga": 44
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 72,
+          "bttsProb": 0.72,
+          "homeLambda": 3,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.72
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 72,
+          "over25Prob": 0.78,
+          "homeLambda": 3,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.78
+        }
+      ],
+      "bttsProb": 0.72,
+      "over25Prob": 0.78,
+      "homeLambda": 3,
+      "awayLambda": 1.75,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Orlando affiche un taux d'Over 2.5 de 100% sur ses 5 derniers matchs.",
+      "ai_analysis": "Les statistiques observées montrent une forte tendance aux matchs ouverts et prolifiques pour Orlando City SC et New England Revolution. Avec un taux empirique de 90% sur l'Over 2.5 et 70% pour le BTTS, les indicateurs offensifs prônent nettement pour des buts des deux côtés. Orlando encaisse beaucoup (78 buts en 33 matchs), ce qui renforce la probabilité d'une rencontre animée.",
+      "ai_analysis_en": "Observed statistics show a strong tendency for open and high-scoring matches for Orlando City SC and New England Revolution. With an empirical Over 2.5 rate of 90% and 70% for BTTS, offensive indicators clearly favor goals at both ends. Orlando concedes heavily (78 goals in 33 matches), reinforcing the probability of a lively encounter.",
+      "ai_form_summary": "Orlando (1V-3D-1L) présente une défense perméable, tandis que New England (4V-0D-1L) affiche une excellente dynamique récente.",
+      "ai_form_summary_en": "Orlando (1W-3D-1L) displays a leaky defense, while New England (4W-0D-1L) shows an excellent recent momentum.",
+      "ai_reasons": [
+        "Taux empirique BTTS élevé à 70% et Over 2.5 à 90%.",
+        "Moyennes de buts importantes : 3 buts par match pour Orlando, 1.75 pour New England.",
+        "Taux de BTTS sur les 5 derniers matchs de 80% pour Orlando et 60% pour New England."
+      ],
+      "ai_risks": [
+        "New England possède un classement supérieur (2e) et une bonne dynamique récente malgré tout.",
+        "Défense de New England relativement solide (44 buts encaissés en 32 matchs)."
+      ],
+      "ai_confidence": "high",
+      "ai_abstain": false,
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "asroma-vs-sassuolo-2026-11-07",
@@ -9353,7 +9567,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "raallalo-vs-cerclebr-2026-11-07",
@@ -9362,12 +9577,12 @@
       "away": "Cercle Brugge KSV",
       "league": "Jupiler Pro League",
       "date": "2026-11-07",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.72,
+      "proba": 0.7,
       "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "80.00%",
-      "confidence": 72,
+      "confidence": 70,
       "time": "19:45",
       "matchSemantic": "raallalo-vs-cerclebr-2026-11-07",
       "source": "poisson-v92-real-data",
@@ -9384,7 +9599,7 @@
       "xgAway": 1.25,
       "xgTotal": 3.5,
       "formBTTS": 70,
-      "analysis": "RAAL La Louvière : forme D-V-D-D-V (2V 0N 3D, 9 buts marqués / 11 encaissés sur 5) · Cercle Brugge KSV : forme V-D-D-D-N (1V 1N 3D, 8 buts marqués / 12 encaissés sur 5). Classement : RAAL La Louvière 16e (7 pts), Cercle Brugge KSV 17e (6 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Fiabilité 89.38%.",
+      "analysis": "RAAL La Louvière : forme D-V-D-D-V (2V 0N 3D, 9 buts marqués / 11 encaissés sur 5) · Cercle Brugge KSV : forme V-D-D-D-N (1V 1N 3D, 8 buts marqués / 12 encaissés sur 5). Classement : RAAL La Louvière 16e (7 pts), Cercle Brugge KSV 17e (6 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.65 / N: 3.3 / 2: 2.5 · Over 2.5: 1.69. Fiabilité 89.38%.",
       "analysisData": {
         "bttsProb": 0.7,
         "over25Prob": 0.8,
@@ -9394,8 +9609,15 @@
       },
       "estimatedCote": 1.43,
       "estimatedCoteOver": 1.25,
-      "odds": null,
-      "oddsSource": "ESTIMATION_POISSON",
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.65,
+        "draw": 3.3,
+        "away": 2.5,
+        "over25": 1.69,
+        "under25": 2
+      },
+      "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.43,
       "formHome": {
         "last5String": "D-V-D-D-V",
@@ -9515,251 +9737,45 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 70,
-          "bttsProb": 0.7,
-          "homeLambda": 2.25,
-          "awayLambda": 1.25,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
           "confidence": 72,
-          "over25Prob": 0.72,
+          "bttsProb": 0.72,
           "homeLambda": 2.25,
           "awayLambda": 1.25,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
           "proba": 0.72
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 72,
+          "over25Prob": 0.76,
+          "homeLambda": 2.25,
+          "awayLambda": 1.25,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.76
         }
       ],
-      "bttsProb": 0.7,
-      "over25Prob": 0.72,
+      "bttsProb": 0.72,
+      "over25Prob": 0.76,
       "homeLambda": 2.25,
       "awayLambda": 1.25,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Les deux formations affichent un taux Over 2.5 de 80% sur leurs cinq derniers matchs respectifs.",
-      "ai_analysis": "Cette confrontation de bas de tableau en Jupiler Pro League réunit deux défenses très perméables. Avec un taux empirique Over 2.5 de 80% et des moyennes de buts encaissés alarmantes de part et d'autre, les conditions statistiques sont réunies pour voir plus de 2.5 buts dans la rencontre.",
-      "ai_analysis_en": "This lower-table clash in the Jupiler Pro League brings together two very leaky defenses. With an empirical Over 2.5 rate of 80% and alarming goals-conceded averages on both sides, the statistical conditions are met to see over 2.5 goals in the match.",
-      "ai_form_summary": "RAAL La Louvière : 2V-0N-3D (9 bp, 11 bc). Cercle Brugge KSV : 1V-1N-3D (8 bp, 12 bc).",
-      "ai_form_summary_en": "RAAL La Louvière: 2W-0D-3L (9 GF, 11 GA). Cercle Brugge KSV: 1W-1D-3L (8 GF, 12 GA).",
+      "ai_key_fact": "Les deux équipes affichent un taux d'Over 2.5 de 80% et des défenses très perméables.",
+      "ai_analysis": "Cette confrontation de bas de tableau en Jupiler Pro League réunit deux équipes aux statistiques de buts très ouvertes. L'empirique BTTS s'établit à 70% et Cercle Brugge présente un taux de 100% de matchs avec buts des deux côtés sur ses 5 dernières sorties. Malgré des attaques perfectibles (13 buts chacune en 10 matchs), les fragilités défensives marquées (23 et 22 buts encaissés) et les taux d'Over 2.5 à 80% soutiennent fortement une sélection combinée sur les buts.",
+      "ai_analysis_en": "This lower-table Jupiler Pro League clash brings together two teams with very open goal statistics. The empirical BTTS stands at 70% and Cercle Brugge shows a 100% BTTS rate over its last 5 outings. Despite modest attacks (13 goals each in 10 matches), the significant defensive weaknesses (23 and 22 conceded) and the 80% Over 2.5 rates strongly support a selection on goals.",
+      "ai_form_summary": "La Louvière : 2V-0N-3D sur les 5 derniers, 9 buts pour, 11 contre. Cercle Brugge : 1V-1N-3D sur les 5 derniers, 8 buts pour, 12 contre.",
+      "ai_form_summary_en": "La Louvière: 2W-0D-3L in last 5, 9 goals for, 11 against. Cercle Brugge: 1W-1D-3L in last 5, 8 goals for, 12 against.",
       "ai_reasons": [
-        "Taux empirique Over 2.5 élevé à 80% pour cette rencontre.",
-        "Les deux équipes affichent un taux Over 2.5 de 80% lors de leurs cinq derniers matchs respectifs.",
-        "Fragilités défensives manifestes : 23 buts encaissés par RAAL La Louvière et 22 par Cercle Brugge en 10 matchs."
+        "Taux BTTS empirique élevé à 70% et Cercle Brugge affiche 100% de BTTS sur ses 5 derniers matchs.",
+        "Taux Over 2.5 de 80% pour les deux équipes basés sur des échantillons de 8 matchs.",
+        "Fragilités défensives importantes avec 23 buts encaissés par La Louvière et 22 par Cercle Brugge en 10 matchs."
       ],
       "ai_risks": [
-        "Les deux formations occupent le bas du classement (16e et 17e), ce qui pourrait parfois crispé les débats en cas de peur de la défaite."
-      ],
-      "ai_confidence": "medium",
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
-    },
-    {
-      "id": "orlandoc-vs-newengla-2026-11-07",
-      "match": "Orlando City SC vs New England Revolution",
-      "home": "Orlando City SC",
-      "away": "New England Revolution",
-      "league": "MLS",
-      "date": "2026-11-07",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.7,
-      "bttsProbDisplay": "70.00%",
-      "over25ProbDisplay": "90.00%",
-      "confidence": 70,
-      "time": "21:00",
-      "matchSemantic": "orlandoc-vs-newengla-2026-11-07",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12011.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/189.png",
-      "tier": "GOLD",
-      "reliabilityScore": 89.38,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 3,
-      "xgAway": 1.75,
-      "xgTotal": 4.75,
-      "formBTTS": 70,
-      "analysis": "Orlando City SC : forme D-N-N-V-N (1V 3N 1D, 11 buts marqués / 12 encaissés sur 5) · New England Revolution : forme V-V-V-V-D (4V 0N 1D, 9 buts marqués / 8 encaissés sur 5). Classement : Orlando City SC 9e (43 pts), New England Revolution 2e (58 pts). Stats empiriques (forme récente) : buts moy. 4.75, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Fiabilité 89.38%.",
-      "analysisData": {
-        "bttsProb": 0.7,
-        "over25Prob": 0.9,
-        "homeLambda": 3,
-        "awayLambda": 1.75,
-        "xgTotal": 4.75
-      },
-      "estimatedCote": 1.43,
-      "estimatedCoteOver": 1.11,
-      "odds": null,
-      "oddsSource": "ESTIMATION_POISSON",
-      "estimatedCoteBTTS": 1.43,
-      "formHome": {
-        "last5String": "D-N-N-V-N",
-        "wins": 1,
-        "draws": 3,
-        "losses": 1,
-        "goalsFor": 11,
-        "goalsAgainst": 12,
-        "bttsRate": 0.8,
-        "over25Rate": 1,
-        "cleanSheets": 0,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "V-V-V-V-D",
-        "wins": 4,
-        "draws": 0,
-        "losses": 1,
-        "goalsFor": 9,
-        "goalsAgainst": 8,
-        "bttsRate": 0.6,
-        "over25Rate": 0.8,
-        "cleanSheets": 1,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-31",
-          "opponent": "Charlotte FC",
-          "venue": "A",
-          "score": "0-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-29",
-          "opponent": "Chicago Fire FC",
-          "venue": "A",
-          "score": "2-2",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "New York City FC",
-          "venue": "H",
-          "score": "2-2",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "D.C. United",
-          "venue": "H",
-          "score": "4-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-14",
-          "opponent": "Toronto FC",
-          "venue": "A",
-          "score": "3-3",
-          "result": "D"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-28",
-          "opponent": "Red Bull New York",
-          "venue": "H",
-          "score": "3-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Philadelphia Union",
-          "venue": "A",
-          "score": "2-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "Chicago Fire FC",
-          "venue": "H",
-          "score": "1-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-14",
-          "opponent": "FC Cincinnati",
-          "venue": "A",
-          "score": "3-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Seattle Sounders FC",
-          "venue": "H",
-          "score": "0-3",
-          "result": "L"
-        }
-      ],
-      "standingsHome": {
-        "rank": 9,
-        "points": 43,
-        "played": 33,
-        "gf": 62,
-        "ga": 78
-      },
-      "standingsAway": {
-        "rank": 2,
-        "points": 58,
-        "played": 32,
-        "gf": 54,
-        "ga": 44
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 72,
-          "bttsProb": 0.72,
-          "homeLambda": 3,
-          "awayLambda": 1.75,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.72
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 72,
-          "over25Prob": 0.78,
-          "homeLambda": 3,
-          "awayLambda": 1.75,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.78
-        }
-      ],
-      "bttsProb": 0.72,
-      "over25Prob": 0.78,
-      "homeLambda": 3,
-      "awayLambda": 1.75,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "Orlando affiche un taux d'Over 2.5 de 100% sur ses 5 derniers matchs.",
-      "ai_analysis": "Les statistiques observées montrent une forte tendance aux matchs ouverts et prolifiques pour Orlando City SC et New England Revolution. Avec un taux empirique de 90% sur l'Over 2.5 et 70% pour le BTTS, les indicateurs offensifs prônent nettement pour des buts des deux côtés. Orlando encaisse beaucoup (78 buts en 33 matchs), ce qui renforce la probabilité d'une rencontre animée.",
-      "ai_analysis_en": "Observed statistics show a strong tendency for open and high-scoring matches for Orlando City SC and New England Revolution. With an empirical Over 2.5 rate of 90% and 70% for BTTS, offensive indicators clearly favor goals at both ends. Orlando concedes heavily (78 goals in 33 matches), reinforcing the probability of a lively encounter.",
-      "ai_form_summary": "Orlando (1V-3D-1L) présente une défense perméable, tandis que New England (4V-0D-1L) affiche une excellente dynamique récente.",
-      "ai_form_summary_en": "Orlando (1W-3D-1L) displays a leaky defense, while New England (4W-0D-1L) shows an excellent recent momentum.",
-      "ai_reasons": [
-        "Taux empirique BTTS élevé à 70% et Over 2.5 à 90%.",
-        "Moyennes de buts importantes : 3 buts par match pour Orlando, 1.75 pour New England.",
-        "Taux de BTTS sur les 5 derniers matchs de 80% pour Orlando et 60% pour New England."
-      ],
-      "ai_risks": [
-        "New England possède un classement supérieur (2e) et une bonne dynamique récente malgré tout.",
-        "Défense de New England relativement solide (44 buts encaissés en 32 matchs)."
+        "La Louvière possède la 16e attaque du classement avec seulement 13 buts marqués en 10 matchs.",
+        "Le classement proche des deux équipes (16e et 17e) pourrait engendrer un match crispé."
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
@@ -9767,7 +9783,7 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.65 · N 3.3 · 2 2.5 · O2.5 1.69"
     },
     {
       "id": "philadel-vs-torontof-2026-11-07",
@@ -9974,7 +9990,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     }
   ],
   "vipPreview": [
@@ -10052,7 +10069,7 @@
     }
   ],
   "stats": {
-    "avgReliability": 79.71,
+    "avgReliability": 79.8,
     "totalAnalyzed": 197,
     "totalRejected": 27,
     "totalAccepted": 170,
@@ -11341,7 +11358,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.85 · N 3.05 · 2 2.65 · O2.5 2.15"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.85 · N 3.05 · 2 2.65 · O2.5 2.15",
+      "status": "PENDING"
     },
     {
       "id": "newcastl-vs-everton-2026-11-02",
@@ -11552,7 +11570,8 @@
       "ai_source": "local-empirical-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.35 · N 3.55 · 2 2.95 · O2.5 1.71"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.35 · N 3.55 · 2 2.95 · O2.5 1.71",
+      "status": "PENDING"
     },
     {
       "id": "barcelon-vs-astonvil-2026-11-03",
@@ -13054,12 +13073,12 @@
       "away": "Paris Saint-Germain",
       "league": "UEFA Champions League",
       "date": "2026-11-03",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.6,
+      "proba": 0.62,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "60.00%",
-      "confidence": 60,
+      "confidence": 62,
       "time": "20:00",
       "matchSemantic": "villarre-vs-parissai-2026-11-03",
       "source": "poisson-v92-real-data",
@@ -13214,49 +13233,48 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 62,
-          "bttsProb": 0.62,
+          "confidence": 60,
+          "bttsProb": 0.6,
           "homeLambda": 1.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.62
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
           "confidence": 62,
-          "over25Prob": 0.61,
+          "over25Prob": 0.62,
           "homeLambda": 1.5,
           "awayLambda": 2,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.61
+          "proba": 0.62
         }
       ],
-      "bttsProb": 0.62,
-      "over25Prob": 0.61,
+      "bttsProb": 0.6,
+      "over25Prob": 0.62,
       "homeLambda": 1.5,
       "awayLambda": 2,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Le PSG affiche 14 buts marqués en 3 matchs de Ligue des Champions pour seulement 5 encaissés.",
-      "ai_analysis": "Le Paris Saint-Germain se déplace en position de force avec une série de cinq victoires consécutives et une moyenne de deux buts par match à l'extérieur. Villarreal, malgré un classement délicat en Ligue des Champions (19ème), maintient un taux BTTS et Over 2.5 de 60% ainsi qu'une moyenne offensive respectable de 1.5 but à domicile. Les statistiques empiriques soutiennent une rencontre animée avec des buts des deux côtés.",
-      "ai_analysis_en": "Paris Saint-Germain travels in a strong position with a five-match winning streak and an average of two goals per away match. Villarreal, despite a tricky Champions League ranking (19th), maintains a 60% empirical BTTS and Over 2.5 rate along with a respectable 1.5 home scoring average. Empirical statistics support an open match with goals at both ends.",
-      "ai_form_summary": "Villarreal : 3V-1D-1L (8 BP, 4 BC) | PSG : 5V-0D-0L (11 BP, 3 BC)",
-      "ai_form_summary_en": "Villarreal: 3W-1D-1L (8 GF, 4 GA) | PSG: 5W-0D-0L (11 GF, 3 GA)",
+      "ai_key_fact": "Le Paris Saint-Germain a marqué 14 buts en 3 matchs de Ligue des Champions.",
+      "ai_analysis": "Le Paris Saint-Germain domine son groupe avec 14 buts marqués et affiche une excellente dynamique offensive. Villarreal encaisse beaucoup de buts (8 en 3 matchs) mais reste capable de marquer. Les taux empiriques d'Over 2.5 à 60% pour les deux équipes soutiennent l'option d'un match ouvert.",
+      "ai_analysis_en": "Paris Saint-Germain dominates their group with 14 goals scored and shows an excellent offensive dynamic. Villarreal concedes many goals (8 in 3 matches) but remains capable of scoring. The empirical Over 2.5 rates of 60% for both teams support the option of an open match.",
+      "ai_form_summary": "Villarreal : 3V-1N-1D, 8 buts marqués, 4 encaissés, BTTS 60%, Over 60%. Paris Saint-Germain : 5V-0N-0D, 11 buts marqués, 3 encaissés, BTTS 60%, Over 60%.",
+      "ai_form_summary_en": "Villarreal: 3W-1D-1L, 8 goals for, 4 against, BTTS 60%, Over 60%. Paris Saint-Germain: 5W-0D-0L, 11 goals for, 3 against, BTTS 60%, Over 60%.",
       "ai_reasons": [
-        "Les deux équipes affichent un taux BTTS empirique solide de 60%.",
-        "Villarreal marque en moyenne 1.5 buts par match à domicile malgré un classement difficile.",
-        "Le PSG présente une forme étincelante (5 victoires consécutives) avec une moyenne de 2 buts par match à l'extérieur."
+        "Taux empirique Over 2.5 de 60% pour Villarreal et le Paris Saint-Germain.",
+        "Le Paris Saint-Germain affiche une attaque prolifique avec 14 buts inscrits en 3 matchs de phase de groupes.",
+        "Villarreal concède également beaucoup de buts avec 8 buts encaissés en 3 matchs de Ligue des Champions."
       ],
       "ai_risks": [
-        "La défense parisienne est performante avec seulement 3 buts encaissés sur ses 5 derniers matchs.",
-        "Villarreal est classé 19ème en Ligue des Champions, ce qui pourrait limiter leur efficacité offensive face au leader."
+        "Villarreal a montré une solidité relative par moments malgré ses 8 buts encaissés en C1.",
+        "L'écart de points au classement (9 points pour le PSG contre 3 pour Villarreal) pourrait influencer la physionomie du match."
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
@@ -15835,12 +15853,12 @@
       "away": "SC Freiburg",
       "league": "UEFA Conference League",
       "date": "2026-11-05",
-      "type": "BTTS",
+      "type": "Over 2.5",
       "prediction": "Oui",
-      "proba": 0.6,
+      "proba": 0.72,
       "bttsProbDisplay": "60.00%",
       "over25ProbDisplay": "80.00%",
-      "confidence": 60,
+      "confidence": 72,
       "time": "17:45",
       "matchSemantic": "trabzons-vs-scfreibu-2026-11-05",
       "source": "poisson-v92-real-data",
@@ -15857,7 +15875,7 @@
       "xgAway": 1.5,
       "xgTotal": 4.75,
       "formBTTS": 60,
-      "analysis": "Trabzonspor : forme V-V-V-V-V (5V 0N 0D, 15 buts marqués / 3 encaissés sur 5) · SC Freiburg : forme V-D-D-V-N (2V 1N 2D, 8 buts marqués / 9 encaissés sur 5). Classement : Trabzonspor 4e (6 pts), SC Freiburg 18e (3 pts). Stats empiriques (forme récente) : buts moy. 4.75, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.55 / N: 3.7 / 2: 2.55. Fiabilité 85%.",
+      "analysis": "Trabzonspor : forme V-V-V-V-D (4V 0N 1D, 13 buts marqués / 4 encaissés sur 5) · SC Freiburg : forme V-D-D-V-N (2V 1N 2D, 8 buts marqués / 9 encaissés sur 5). Classement : Trabzonspor 4e (6 pts), SC Freiburg 18e (3 pts). Stats empiriques (forme récente) : buts moy. 4.75, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.5 / N: 3.65 / 2: 2.5. Fiabilité 85%.",
       "analysisData": {
         "bttsProb": 0.6,
         "over25Prob": 0.8,
@@ -15869,25 +15887,25 @@
       "estimatedCoteOver": 1.25,
       "odds": {
         "provider": "DraftKings",
-        "home": 2.55,
-        "draw": 3.7,
-        "away": 2.55,
+        "home": 2.5,
+        "draw": 3.65,
+        "away": 2.5,
         "over25": null,
         "under25": null
       },
       "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.67,
       "formHome": {
-        "last5String": "V-V-V-V-V",
-        "wins": 5,
+        "last5String": "V-V-V-V-D",
+        "wins": 4,
         "draws": 0,
-        "losses": 0,
-        "goalsFor": 15,
-        "goalsAgainst": 3,
+        "losses": 1,
+        "goalsFor": 13,
+        "goalsAgainst": 4,
         "bttsRate": 0.2,
         "over25Rate": 0.6,
-        "cleanSheets": 4,
-        "failedToScore": 0,
+        "cleanSheets": 3,
+        "failedToScore": 1,
         "count": 5
       },
       "formAway": {
@@ -15995,53 +16013,53 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 68,
-          "bttsProb": 0.68,
+          "confidence": 60,
+          "bttsProb": 0.6,
           "homeLambda": 3.25,
           "awayLambda": 1.5,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.68
+          "statsOnly": true
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 68,
-          "over25Prob": 0.74,
+          "confidence": 72,
+          "over25Prob": 0.72,
           "homeLambda": 3.25,
           "awayLambda": 1.5,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.74
+          "proba": 0.72
         }
       ],
-      "bttsProb": 0.68,
-      "over25Prob": 0.74,
+      "bttsProb": 0.6,
+      "over25Prob": 0.72,
       "homeLambda": 3.25,
       "awayLambda": 1.5,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "SC Freiburg affiche un taux BTTS et Over 2.5 de 100% sur ses 5 derniers matchs.",
-      "ai_analysis": "Trabzonspor aborde ce match en pleine confiance avec 5 victoires consécutives, mais affronte un SC Freiburg dont les rencontres récentes sont très prolifiques et affirment un taux de 100% sur le BTTS et l'Over 2.5. Bien que le profil de Trabzonspor soit plus hermétique à domicile, l'ardeur offensive de Freiburg (8 buts marqués) couplée à une défense perméable (9 buts encaissés) penche en faveur d'un match ouvert.",
-      "ai_analysis_en": "Trabzonspor enters this match in high confidence with 5 consecutive wins, facing an SC Freiburg side whose recent fixtures are very prolific with a 100% rate in both BTTS and Over 2.5. Although Trabzonspor's profile at home is typically tighter defensively, Freiburg's offensive output combined with defensive fragility points towards an open game.",
-      "ai_form_summary": "Trabzonspor : 5 victoires d'affilée, 15 buts marqués, 3 encaissés (BTTS 20%, Over 60%). SC Freiburg : 2 victoires, 1 nul, 2 défaites, 8 buts marqués, 9 encaissés (BTTS 100%, Over 100%).",
-      "ai_form_summary_en": "Trabzonspor: 5 straight wins, 15 goals scored, 3 conceded (BTTS 20%, Over 60%). SC Freiburg: 2 wins, 1 draw, 2 losses, 8 goals scored, 9 conceded (BTTS 100%, Over 100%).",
+      "ai_key_fact": "SC Freiburg totalise un taux Over 2.5 de 100% associé à une moyenne de 3.25 buts pour Trabzonspor.",
+      "ai_analysis": "Les statistiques affichent un profil résolument offensif avec un taux empirique d'Over 2.5 de 80%. SC Freiburg atteint 100% d'Over sur ses 5 derniers matchs, tandis que Trabzonspor domine offensivement avec une moyenne de 3.25 buts. Les indicateurs soutiennent une partie riche en buts.",
+      "ai_analysis_en": "Statistics display a decisively offensive profile with an empirical Over 2.5 rate of 80%. SC Freiburg reaches 100% Over in their last 5 matches, while Trabzonspor dominates offensively with a 3.25 goals average. The indicators support a high-scoring game.",
+      "ai_form_summary": "Trabzonspor: 4V-0D-1L sur 5 derniers (13 buts pour, 4 contre). SC Freiburg: 2V-1D-2L sur 5 derniers (8 buts pour, 9 contre).",
+      "ai_form_summary_en": "Trabzonspor: 4W-0D-1L in last 5 (13 GF, 4 GA). SC Freiburg: 2W-1D-2L in last 5 (8 GF, 9 GA).",
       "ai_reasons": [
-        "Taux Over 2.5 empirique élevé à 0.8 avec une moyenne de buts de 3.25 pour l'équipe à domicile.",
-        "SC Freiburg affiche un taux BTTS de 1 et un taux Over 2.5 de 1 sur ses 5 derniers matchs.",
-        "Trabzonspor est en excellente forme (5V consécutives) mais Freiburg montre de la vulnérabilité défensive (9 buts encaissés en 5 matchs)."
+        "Taux Over 2.5 empirique très élevé à 80%",
+        "SC Freiburg affiche un taux Over 2.5 de 100% sur ses derniers matchs",
+        "Trabzonspor présente une forte moyenne offensive de 3.25 buts par match"
       ],
       "ai_risks": [
-        "Le taux BTTS de Trabzonspor est historiquement faible à 0.2 sur son échantillon de 8 matchs.",
-        "Freiburg a un bilan de 2V-1D-2L qui montre une certaine inconstance."
+        "Le taux BTTS de Trabzonspor est bas à 20% sur la forme récente, malgré un volume de buts global",
+        "Freiburg encaisse autant qu'il marque (9 buts encaissés pour 8 marqués)"
       ],
-      "ai_confidence": "medium",
+      "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "BOTH",
+      "ai_market": "OVER_25",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.55 · N 3.7 · 2 2.55"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.5 · N 3.65 · 2 2.5",
+      "status": "PENDING"
     },
     {
       "id": "sinttrui-vs-skbrann-2026-11-05",
@@ -18575,7 +18593,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.8 · N 5.25 · 2 1.43"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4.8 · N 5.25 · 2 1.43",
+      "status": "PENDING"
     },
     {
       "id": "adodenha-vs-spartaro-2026-11-07",
@@ -18783,7 +18802,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "sporting-vs-moreiren-2026-11-07",
@@ -18990,7 +19010,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "svjoskor-vs-lasklinz-2026-11-07",
@@ -19204,7 +19225,217 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 5.5 · N 4.8 · 2 1.44"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 5.5 · N 4.8 · 2 1.44",
+      "status": "PENDING"
+    },
+    {
+      "id": "orlandoc-vs-newengla-2026-11-07",
+      "match": "Orlando City SC vs New England Revolution",
+      "home": "Orlando City SC",
+      "away": "New England Revolution",
+      "league": "MLS",
+      "date": "2026-11-07",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "90.00%",
+      "confidence": 70,
+      "time": "21:00",
+      "matchSemantic": "orlandoc-vs-newengla-2026-11-07",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12011.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/189.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 1.75,
+      "xgTotal": 4.75,
+      "formBTTS": 70,
+      "analysis": "Orlando City SC : forme D-N-N-V-N (1V 3N 1D, 11 buts marqués / 12 encaissés sur 5) · New England Revolution : forme V-V-V-V-D (4V 0N 1D, 9 buts marqués / 8 encaissés sur 5). Classement : Orlando City SC 9e (43 pts), New England Revolution 2e (58 pts). Stats empiriques (forme récente) : buts moy. 4.75, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.9,
+        "homeLambda": 3,
+        "awayLambda": 1.75,
+        "xgTotal": 4.75
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.11,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "D-N-N-V-N",
+        "wins": 1,
+        "draws": 3,
+        "losses": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 12,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-D",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 9,
+        "goalsAgainst": 8,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Charlotte FC",
+          "venue": "A",
+          "score": "0-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Chicago Fire FC",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "New York City FC",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "D.C. United",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "Toronto FC",
+          "venue": "A",
+          "score": "3-3",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-02",
+          "opponent": "Inter Miami CF",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Red Bull New York",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Philadelphia Union",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Chicago Fire FC",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "FC Cincinnati",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 9,
+        "points": 43,
+        "played": 33,
+        "gf": 62,
+        "ga": 78
+      },
+      "standingsAway": {
+        "rank": 2,
+        "points": 58,
+        "played": 32,
+        "gf": 54,
+        "ga": 44
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 72,
+          "bttsProb": 0.72,
+          "homeLambda": 3,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.72
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 72,
+          "over25Prob": 0.78,
+          "homeLambda": 3,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.78
+        }
+      ],
+      "bttsProb": 0.72,
+      "over25Prob": 0.78,
+      "homeLambda": 3,
+      "awayLambda": 1.75,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Orlando affiche un taux d'Over 2.5 de 100% sur ses 5 derniers matchs.",
+      "ai_analysis": "Les statistiques observées montrent une forte tendance aux matchs ouverts et prolifiques pour Orlando City SC et New England Revolution. Avec un taux empirique de 90% sur l'Over 2.5 et 70% pour le BTTS, les indicateurs offensifs prônent nettement pour des buts des deux côtés. Orlando encaisse beaucoup (78 buts en 33 matchs), ce qui renforce la probabilité d'une rencontre animée.",
+      "ai_analysis_en": "Observed statistics show a strong tendency for open and high-scoring matches for Orlando City SC and New England Revolution. With an empirical Over 2.5 rate of 90% and 70% for BTTS, offensive indicators clearly favor goals at both ends. Orlando concedes heavily (78 goals in 33 matches), reinforcing the probability of a lively encounter.",
+      "ai_form_summary": "Orlando (1V-3D-1L) présente une défense perméable, tandis que New England (4V-0D-1L) affiche une excellente dynamique récente.",
+      "ai_form_summary_en": "Orlando (1W-3D-1L) displays a leaky defense, while New England (4W-0D-1L) shows an excellent recent momentum.",
+      "ai_reasons": [
+        "Taux empirique BTTS élevé à 70% et Over 2.5 à 90%.",
+        "Moyennes de buts importantes : 3 buts par match pour Orlando, 1.75 pour New England.",
+        "Taux de BTTS sur les 5 derniers matchs de 80% pour Orlando et 60% pour New England."
+      ],
+      "ai_risks": [
+        "New England possède un classement supérieur (2e) et une bonne dynamique récente malgré tout.",
+        "Défense de New England relativement solide (44 buts encaissés en 32 matchs)."
+      ],
+      "ai_confidence": "high",
+      "ai_abstain": false,
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "asroma-vs-sassuolo-2026-11-07",
@@ -19410,7 +19641,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "raallalo-vs-cerclebr-2026-11-07",
@@ -19419,12 +19651,12 @@
       "away": "Cercle Brugge KSV",
       "league": "Jupiler Pro League",
       "date": "2026-11-07",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.72,
+      "proba": 0.7,
       "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "80.00%",
-      "confidence": 72,
+      "confidence": 70,
       "time": "19:45",
       "matchSemantic": "raallalo-vs-cerclebr-2026-11-07",
       "source": "poisson-v92-real-data",
@@ -19441,7 +19673,7 @@
       "xgAway": 1.25,
       "xgTotal": 3.5,
       "formBTTS": 70,
-      "analysis": "RAAL La Louvière : forme D-V-D-D-V (2V 0N 3D, 9 buts marqués / 11 encaissés sur 5) · Cercle Brugge KSV : forme V-D-D-D-N (1V 1N 3D, 8 buts marqués / 12 encaissés sur 5). Classement : RAAL La Louvière 16e (7 pts), Cercle Brugge KSV 17e (6 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Fiabilité 89.38%.",
+      "analysis": "RAAL La Louvière : forme D-V-D-D-V (2V 0N 3D, 9 buts marqués / 11 encaissés sur 5) · Cercle Brugge KSV : forme V-D-D-D-N (1V 1N 3D, 8 buts marqués / 12 encaissés sur 5). Classement : RAAL La Louvière 16e (7 pts), Cercle Brugge KSV 17e (6 pts). Stats empiriques (forme récente) : buts moy. 3.5, BTTS 70.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.65 / N: 3.3 / 2: 2.5 · Over 2.5: 1.69. Fiabilité 89.38%.",
       "analysisData": {
         "bttsProb": 0.7,
         "over25Prob": 0.8,
@@ -19451,8 +19683,15 @@
       },
       "estimatedCote": 1.43,
       "estimatedCoteOver": 1.25,
-      "odds": null,
-      "oddsSource": "ESTIMATION_POISSON",
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.65,
+        "draw": 3.3,
+        "away": 2.5,
+        "over25": 1.69,
+        "under25": 2
+      },
+      "oddsSource": "DraftKings",
       "estimatedCoteBTTS": 1.43,
       "formHome": {
         "last5String": "D-V-D-D-V",
@@ -19572,251 +19811,45 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 70,
-          "bttsProb": 0.7,
-          "homeLambda": 2.25,
-          "awayLambda": 1.25,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
           "confidence": 72,
-          "over25Prob": 0.72,
+          "bttsProb": 0.72,
           "homeLambda": 2.25,
           "awayLambda": 1.25,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
           "proba": 0.72
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 72,
+          "over25Prob": 0.76,
+          "homeLambda": 2.25,
+          "awayLambda": 1.25,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.76
         }
       ],
-      "bttsProb": 0.7,
-      "over25Prob": 0.72,
+      "bttsProb": 0.72,
+      "over25Prob": 0.76,
       "homeLambda": 2.25,
       "awayLambda": 1.25,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Les deux formations affichent un taux Over 2.5 de 80% sur leurs cinq derniers matchs respectifs.",
-      "ai_analysis": "Cette confrontation de bas de tableau en Jupiler Pro League réunit deux défenses très perméables. Avec un taux empirique Over 2.5 de 80% et des moyennes de buts encaissés alarmantes de part et d'autre, les conditions statistiques sont réunies pour voir plus de 2.5 buts dans la rencontre.",
-      "ai_analysis_en": "This lower-table clash in the Jupiler Pro League brings together two very leaky defenses. With an empirical Over 2.5 rate of 80% and alarming goals-conceded averages on both sides, the statistical conditions are met to see over 2.5 goals in the match.",
-      "ai_form_summary": "RAAL La Louvière : 2V-0N-3D (9 bp, 11 bc). Cercle Brugge KSV : 1V-1N-3D (8 bp, 12 bc).",
-      "ai_form_summary_en": "RAAL La Louvière: 2W-0D-3L (9 GF, 11 GA). Cercle Brugge KSV: 1W-1D-3L (8 GF, 12 GA).",
+      "ai_key_fact": "Les deux équipes affichent un taux d'Over 2.5 de 80% et des défenses très perméables.",
+      "ai_analysis": "Cette confrontation de bas de tableau en Jupiler Pro League réunit deux équipes aux statistiques de buts très ouvertes. L'empirique BTTS s'établit à 70% et Cercle Brugge présente un taux de 100% de matchs avec buts des deux côtés sur ses 5 dernières sorties. Malgré des attaques perfectibles (13 buts chacune en 10 matchs), les fragilités défensives marquées (23 et 22 buts encaissés) et les taux d'Over 2.5 à 80% soutiennent fortement une sélection combinée sur les buts.",
+      "ai_analysis_en": "This lower-table Jupiler Pro League clash brings together two teams with very open goal statistics. The empirical BTTS stands at 70% and Cercle Brugge shows a 100% BTTS rate over its last 5 outings. Despite modest attacks (13 goals each in 10 matches), the significant defensive weaknesses (23 and 22 conceded) and the 80% Over 2.5 rates strongly support a selection on goals.",
+      "ai_form_summary": "La Louvière : 2V-0N-3D sur les 5 derniers, 9 buts pour, 11 contre. Cercle Brugge : 1V-1N-3D sur les 5 derniers, 8 buts pour, 12 contre.",
+      "ai_form_summary_en": "La Louvière: 2W-0D-3L in last 5, 9 goals for, 11 against. Cercle Brugge: 1W-1D-3L in last 5, 8 goals for, 12 against.",
       "ai_reasons": [
-        "Taux empirique Over 2.5 élevé à 80% pour cette rencontre.",
-        "Les deux équipes affichent un taux Over 2.5 de 80% lors de leurs cinq derniers matchs respectifs.",
-        "Fragilités défensives manifestes : 23 buts encaissés par RAAL La Louvière et 22 par Cercle Brugge en 10 matchs."
+        "Taux BTTS empirique élevé à 70% et Cercle Brugge affiche 100% de BTTS sur ses 5 derniers matchs.",
+        "Taux Over 2.5 de 80% pour les deux équipes basés sur des échantillons de 8 matchs.",
+        "Fragilités défensives importantes avec 23 buts encaissés par La Louvière et 22 par Cercle Brugge en 10 matchs."
       ],
       "ai_risks": [
-        "Les deux formations occupent le bas du classement (16e et 17e), ce qui pourrait parfois crispé les débats en cas de peur de la défaite."
-      ],
-      "ai_confidence": "medium",
-      "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "gemini-stats-v1",
-      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
-      "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
-    },
-    {
-      "id": "orlandoc-vs-newengla-2026-11-07",
-      "match": "Orlando City SC vs New England Revolution",
-      "home": "Orlando City SC",
-      "away": "New England Revolution",
-      "league": "MLS",
-      "date": "2026-11-07",
-      "type": "BTTS",
-      "prediction": "Oui",
-      "proba": 0.7,
-      "bttsProbDisplay": "70.00%",
-      "over25ProbDisplay": "90.00%",
-      "confidence": 70,
-      "time": "21:00",
-      "matchSemantic": "orlandoc-vs-newengla-2026-11-07",
-      "source": "poisson-v92-real-data",
-      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12011.png",
-      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/189.png",
-      "tier": "GOLD",
-      "reliabilityScore": 89.38,
-      "dataQuality": "HIGH",
-      "dataSource": "ESPN_TEAM_SCHEDULE",
-      "matchCountHome": 8,
-      "matchCountAway": 8,
-      "h2hAvailable": false,
-      "xgHome": 3,
-      "xgAway": 1.75,
-      "xgTotal": 4.75,
-      "formBTTS": 70,
-      "analysis": "Orlando City SC : forme D-N-N-V-N (1V 3N 1D, 11 buts marqués / 12 encaissés sur 5) · New England Revolution : forme V-V-V-V-D (4V 0N 1D, 9 buts marqués / 8 encaissés sur 5). Classement : Orlando City SC 9e (43 pts), New England Revolution 2e (58 pts). Stats empiriques (forme récente) : buts moy. 4.75, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Fiabilité 89.38%.",
-      "analysisData": {
-        "bttsProb": 0.7,
-        "over25Prob": 0.9,
-        "homeLambda": 3,
-        "awayLambda": 1.75,
-        "xgTotal": 4.75
-      },
-      "estimatedCote": 1.43,
-      "estimatedCoteOver": 1.11,
-      "odds": null,
-      "oddsSource": "ESTIMATION_POISSON",
-      "estimatedCoteBTTS": 1.43,
-      "formHome": {
-        "last5String": "D-N-N-V-N",
-        "wins": 1,
-        "draws": 3,
-        "losses": 1,
-        "goalsFor": 11,
-        "goalsAgainst": 12,
-        "bttsRate": 0.8,
-        "over25Rate": 1,
-        "cleanSheets": 0,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "formAway": {
-        "last5String": "V-V-V-V-D",
-        "wins": 4,
-        "draws": 0,
-        "losses": 1,
-        "goalsFor": 9,
-        "goalsAgainst": 8,
-        "bttsRate": 0.6,
-        "over25Rate": 0.8,
-        "cleanSheets": 1,
-        "failedToScore": 1,
-        "count": 5
-      },
-      "last5Home": [
-        {
-          "date": "2026-10-31",
-          "opponent": "Charlotte FC",
-          "venue": "A",
-          "score": "0-4",
-          "result": "L"
-        },
-        {
-          "date": "2026-10-29",
-          "opponent": "Chicago Fire FC",
-          "venue": "A",
-          "score": "2-2",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "New York City FC",
-          "venue": "H",
-          "score": "2-2",
-          "result": "D"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "D.C. United",
-          "venue": "H",
-          "score": "4-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-14",
-          "opponent": "Toronto FC",
-          "venue": "A",
-          "score": "3-3",
-          "result": "D"
-        }
-      ],
-      "last5Away": [
-        {
-          "date": "2026-10-28",
-          "opponent": "Red Bull New York",
-          "venue": "H",
-          "score": "3-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Philadelphia Union",
-          "venue": "A",
-          "score": "2-1",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "Chicago Fire FC",
-          "venue": "H",
-          "score": "1-0",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-14",
-          "opponent": "FC Cincinnati",
-          "venue": "A",
-          "score": "3-2",
-          "result": "W"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "Seattle Sounders FC",
-          "venue": "H",
-          "score": "0-3",
-          "result": "L"
-        }
-      ],
-      "standingsHome": {
-        "rank": 9,
-        "points": 43,
-        "played": 33,
-        "gf": 62,
-        "ga": 78
-      },
-      "standingsAway": {
-        "rank": 2,
-        "points": 58,
-        "played": 32,
-        "gf": 54,
-        "ga": 44
-      },
-      "predictions": [
-        {
-          "type": "BTTS",
-          "prediction": "Oui",
-          "confidence": 72,
-          "bttsProb": 0.72,
-          "homeLambda": 3,
-          "awayLambda": 1.75,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.72
-        },
-        {
-          "type": "Over 2.5",
-          "prediction": "Oui",
-          "confidence": 72,
-          "over25Prob": 0.78,
-          "homeLambda": 3,
-          "awayLambda": 1.75,
-          "modelEngine": "empirical-form+gemini",
-          "statsOnly": true,
-          "proba": 0.78
-        }
-      ],
-      "bttsProb": 0.72,
-      "over25Prob": 0.78,
-      "homeLambda": 3,
-      "awayLambda": 1.75,
-      "modelEngine": "gemini-stats-v1",
-      "statsOnly": true,
-      "ai_key_fact": "Orlando affiche un taux d'Over 2.5 de 100% sur ses 5 derniers matchs.",
-      "ai_analysis": "Les statistiques observées montrent une forte tendance aux matchs ouverts et prolifiques pour Orlando City SC et New England Revolution. Avec un taux empirique de 90% sur l'Over 2.5 et 70% pour le BTTS, les indicateurs offensifs prônent nettement pour des buts des deux côtés. Orlando encaisse beaucoup (78 buts en 33 matchs), ce qui renforce la probabilité d'une rencontre animée.",
-      "ai_analysis_en": "Observed statistics show a strong tendency for open and high-scoring matches for Orlando City SC and New England Revolution. With an empirical Over 2.5 rate of 90% and 70% for BTTS, offensive indicators clearly favor goals at both ends. Orlando concedes heavily (78 goals in 33 matches), reinforcing the probability of a lively encounter.",
-      "ai_form_summary": "Orlando (1V-3D-1L) présente une défense perméable, tandis que New England (4V-0D-1L) affiche une excellente dynamique récente.",
-      "ai_form_summary_en": "Orlando (1W-3D-1L) displays a leaky defense, while New England (4W-0D-1L) shows an excellent recent momentum.",
-      "ai_reasons": [
-        "Taux empirique BTTS élevé à 70% et Over 2.5 à 90%.",
-        "Moyennes de buts importantes : 3 buts par match pour Orlando, 1.75 pour New England.",
-        "Taux de BTTS sur les 5 derniers matchs de 80% pour Orlando et 60% pour New England."
-      ],
-      "ai_risks": [
-        "New England possède un classement supérieur (2e) et une bonne dynamique récente malgré tout.",
-        "Défense de New England relativement solide (44 buts encaissés en 32 matchs)."
+        "La Louvière possède la 16e attaque du classement avec seulement 13 buts marqués en 10 matchs.",
+        "Le classement proche des deux équipes (16e et 17e) pourrait engendrer un match crispé."
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
@@ -19824,7 +19857,7 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.65 · N 3.3 · 2 2.5 · O2.5 1.69"
     },
     {
       "id": "philadel-vs-torontof-2026-11-07",
@@ -20031,7 +20064,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     }
   ],
   "analysisEngine": "gemini-stats-v1"

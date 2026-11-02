@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-02T00:10:56.196Z",
+  "generatedAt": "2026-11-02T07:11:06.205Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,47 +15,40 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 437,
-    "won": 351,
+    "total": 441,
+    "won": 355,
     "lost": 86,
-    "pending": 76,
+    "pending": 73,
     "unverifiable": 176,
-    "archivedTotal": 689,
-    "rate": 80.3,
+    "archivedTotal": 690,
+    "rate": 80.5,
     "gold": {
-      "total": 328,
-      "won": 268,
+      "total": 331,
+      "won": 271,
       "lost": 60,
-      "rate": 81.7
+      "rate": 81.9
     },
     "standard": {
-      "total": 109,
-      "won": 83,
+      "total": 110,
+      "won": 84,
       "lost": 26,
-      "rate": 76.1
+      "rate": 76.4
     },
     "byType": {
       "btts": {
-        "total": 393,
-        "won": 321,
+        "total": 395,
+        "won": 323,
         "lost": 72,
-        "rate": 81.7
+        "rate": 81.8
       },
       "over25": {
-        "total": 44,
-        "won": 30,
+        "total": 46,
+        "won": 32,
         "lost": 14,
-        "rate": 68.2
+        "rate": 69.6
       }
     },
     "trend14": [
-      {
-        "date": "2026-10-17",
-        "total": 8,
-        "won": 8,
-        "lost": 0,
-        "rate": 100
-      },
       {
         "date": "2026-10-18",
         "total": 5,
@@ -146,6 +139,13 @@
         "won": 21,
         "lost": 13,
         "rate": 61.8
+      },
+      {
+        "date": "2026-11-02",
+        "total": 4,
+        "won": 4,
+        "lost": 0,
+        "rate": 100
       }
     ],
     "period": {
@@ -155,6 +155,58 @@
     }
   },
   "history": [
+    {
+      "date": "2026-11-02",
+      "match": "Portland Timbers vs Houston Dynamo FC",
+      "league": "MLS",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.6,
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-02T07:10:42.727Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-02",
+      "match": "Portland Timbers vs Houston Dynamo FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.58,
+      "status": "WON",
+      "finalScore": "3-1",
+      "verifiedAt": "2026-11-02T07:10:42.717Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-02",
+      "match": "New England Revolution vs Inter Miami CF",
+      "league": "MLS",
+      "market": "over25",
+      "tier": "STANDARD",
+      "proba": 0.65,
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-02T07:10:42.716Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-02",
+      "match": "LAFC vs Minnesota United FC",
+      "league": "MLS",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.72,
+      "status": "WON",
+      "finalScore": "1-3",
+      "verifiedAt": "2026-11-02T07:10:42.715Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-01",
       "match": "Atlanta United FC vs Toronto FC",
