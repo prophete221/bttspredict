@@ -1,5 +1,7 @@
 'use client'
 
+// Garantie campagne: sans condition de mise / no wagering requirements
+
 import { AFFILIATE } from '@/lib/constants'
 import { useLanguage } from './LanguageSwitcher'
 import PromoLandingShell from './PromoLandingShell'
@@ -76,7 +78,7 @@ export default function LocalizedPromoClient({
   const copy =
     langKey === 'en'
       ? {
-          badge: 'Best promo code — 300% + 100 Free Spins',
+          badge: 'best promo code — 300% + 100 Free Spins',
           title: `${info.brand} promo code ${info.code}`,
           intro: `Use code ${info.code} when you register via our partner link to unlock the offer announced by ${info.brand}. Enter the code exactly as shown. Final terms are those displayed by the operator after sign-up.`,
           offerHeadline: '300% + 100 free spins',
