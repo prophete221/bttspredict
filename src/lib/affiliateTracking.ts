@@ -22,7 +22,7 @@
 //     Aucune donnée personnelle : identifiants anonymes et paramètres de page.
 // ═══════════════════════════════════════════════════════════════════════════════
 
-export type AffiliatePartner = 'linebet' | '888starz'
+export type AffiliatePartner = '1xbet' | 'linebet' | '888starz'
 
 export type AffiliateAction =
   | 'promo_view'        // vue d'un bloc promo / choix bookmaker

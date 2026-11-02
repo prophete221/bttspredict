@@ -108,6 +108,7 @@ const BONUS_ROWS = [
 
 /* ─── Liens internes ─────────────────────────────────────────────────── */
 const INTERNAL_LINKS = [
+  { href: '/code-promo-1xbet', label: 'Code promo 1xbet' },
   { href: '/btts/predictions/today', label: 'Pronostics du jour' },
   { href: '/bonus-888starz', label: 'Code promo 888Starz' },
   { href: '/btts-c-est-quoi', label: "C'est quoi BTTS ?" },
@@ -231,6 +232,24 @@ export default function LinebetClient() {
           <p className="lpb-rise text-[11px] mt-3" style={{ color: TEXT_SEC, '--d': '420ms' } as CSSProperties}>
             Offre annoncée — vérifie les conditions affichées par Linebet · 18+
           </p>
+
+          {/* CTA above-the-fold — copie + inscription sans scroller (mobile) */}
+          <div className="lpb-rise mt-5 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3" style={{ '--d': '520ms' } as CSSProperties}>
+            <button onClick={handleCopy} className="lpb-btn lpb-btn--copy px-6" aria-label={`Copier le code ${CODE}`}>
+              {copyFailed ? '⚠ Copie impossible' : copied ? 'Copié !' : `Copier le code ${CODE}`}
+            </button>
+            <a
+              href={LINEBET_SIGNUP}
+              target="_blank"
+              rel="sponsored nofollow noopener noreferrer"
+              onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'linebet-hero-cta')}
+              className="lpb-btn lpb-btn--primary px-6"
+              data-cta="linebet-signup-hero"
+            >
+              S&apos;inscrire sur Linebet
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -250,6 +269,45 @@ export default function LinebetClient() {
       </section>
 
       {/* ─────────── BILLBOARD OFFRE — 3 chiffres animés ─────────── */}
+            {/* ─────────── BARRE CTA COLLANTE MOBILE — conversion ─────────── */}
+      <div
+        className="lpb-sticky md:hidden fixed left-0 right-0 z-45"
+        role="complementary"
+        aria-label="Action rapide code promo"
+        style={{ bottom: 'calc(64px + env(safe-area-inset-bottom, 0px))' }}
+      >
+        <div className="flex items-center gap-2 px-3 py-2" style={{ backgroundColor: 'rgba(7, 17, 26, 0.96)', borderTop: '1px solid rgba(47, 125, 255, 0.35)' }}>
+          <button
+            onClick={handleCopy}
+            className="flex items-center gap-2 px-3 h-[46px] rounded-xl flex-shrink-0"
+            style={{ backgroundColor: '#141C25', border: '1px solid rgba(47, 125, 255, 0.5)' }}
+            aria-label={`Copier le code promo ${CODE}`}
+            data-cta="lpb-sticky-copy"
+          >
+            {copied ? (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(242, 246, 250, 0.7)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+            )}
+            <span className="font-mono text-[13px] font-bold" style={{ color: copied ? '#22D3EE' : '#F2F6FA' }}>
+              {copied ? 'Copié!' : CODE}
+            </span>
+          </button>
+          <a
+            href={LINEBET_SIGNUP}
+            target="_blank"
+            rel="sponsored nofollow noopener noreferrer"
+            onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'linebet-sticky-register')}
+            className="flex items-center justify-center gap-1.5 flex-1 h-[46px] rounded-xl text-sm font-bold"
+            style={{ background: 'linear-gradient(120deg, #2F7DFF 0%, #22A7EE 100%)', color: '#FFFFFF' }}
+            data-cta="lpb-sticky-register"
+          >
+            S&apos;inscrire · {CODE}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+          </a>
+        </div>
+      </div>
+
       <section className="pb-8" aria-label="Offre de bienvenue annoncée">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-3 gap-3">
@@ -543,6 +601,10 @@ export default function LinebetClient() {
               {
                 q: 'Le bonus est-il valable dans tous les pays ?',
                 a: "La disponibilité du code et de l'offre dépend du pays, du compte et de la période. Vérifie ton éligibilité et les conditions actuellement affichées par Linebet avant toute inscription ou dépôt.",
+              },
+              {
+                q: '1xbet ou Linebet : quel code promo choisir ?',
+                a: "Les deux sont nos partenaires officiels : VIPBTTS (1xbet) offre 300% à l'inscription + free spins et VISION221 (Linebet) offre 300% + 100 free spins dès 1 € de dépôt, sans condition de mise (offres annoncées). Choisis selon le bookmaker que tu préfères utiliser.",
               },
             ].map((item) => (
               <details key={item.q} className="lpb-faq rounded-2xl p-4" style={{ backgroundColor: '#141C25', border: `1px solid ${GOLD}22` }}>

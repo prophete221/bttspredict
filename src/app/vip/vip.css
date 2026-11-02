@@ -712,6 +712,23 @@
   font-size: 13px;
 }
 .vipx-modal__warn svg { width: 15px; height: 15px; flex-shrink: 0; color: var(--vipx-gold); }
+/* Lien croisé vers l'autre partenaire prioritaire (étape 2 de la modale) */
+.vipx-modal__alt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--vipx-gold);
+  background: transparent;
+  border: 1px dashed rgba(232, 201, 122, 0.35);
+  text-decoration: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.vipx-modal__alt:hover { border-color: var(--vipx-gold); background: var(--vipx-gold-soft); }
 .vipx-modal__foot {
   margin-top: 18px;
   display: flex;
@@ -833,6 +850,21 @@
   min-width: 0;
 }
 .vipx-bookmaker__body strong { font-size: 15px; }
+/* Badge « Nouveau » — partenaire 1xbet prioritaire */
+.vipx-bookmaker__new {
+  display: inline-block;
+  margin-inline-start: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vipx-gold);
+  background: var(--vipx-gold-soft);
+  border: 1px solid rgba(232, 201, 122, 0.4);
+  vertical-align: middle;
+}
 .vipx-bookmaker__code {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 12px;

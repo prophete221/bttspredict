@@ -7,7 +7,9 @@ import { describe, expect, it } from 'vitest'
 const frozenFiles = {
   'src/lib/i18n.ts': '1963bdecf97cb30f53146bdd2808cccbff73a45d35ce809082cb6152b6e4eff3',
   'src/lib/seoSchemas.ts': '7444b699bce53a5ec32112791b0350b8a17b1f3de688cca1bf2bb0bdb111d103',
-  'src/app/sitemap.ts': '01d5e180b2a5d931be3623cf23b7f17277d657e431fc649da7f5cd355ad1e35d',
+  // Hash mis à jour à la demande du propriétaire (2026-11) : ajout de la page
+  // partenaire /code-promo-1xbet (code VIPBTTS) — aucune URL existante modifiée.
+  'src/app/sitemap.ts': '9da9e9bbd12bc04a0c6c491510e26719a0f173885be412a08d40648a89fe99e3',
   'public/robots.txt': '678a5a55dde4dd3c548f807dca3aa23964e886efc0a65b3b2ce8ff9d34d162a4',
   'scripts/submit-indexnow.mjs': 'ad6a518c6baaff4c2eed561edb2d8547ea776c0e0f1d17af92f3066e2ae4af6a',
 }

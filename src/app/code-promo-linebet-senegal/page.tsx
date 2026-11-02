@@ -177,6 +177,14 @@ function buildFaqJsonLd() {
           text: "La disponibilité du code et de l'offre dépend du pays, du compte et de la période. Vérifiez votre éligibilité et les conditions actuellement affichées par Linebet avant toute inscription ou dépôt.",
         },
       },
+      {
+        '@type': 'Question',
+        name: '1xbet ou Linebet : quel code promo choisir ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Les deux sont nos partenaires officiels : VIPBTTS (1xbet) offre 300% à l'inscription + free spins et VISION221 (Linebet) offre 300% + 100 free spins dès 1 € de dépôt, sans condition de mise (offres annoncées). Choisis selon le bookmaker que tu préfères utiliser.",
+        },
+      },
     ],
   }
 }
@@ -217,6 +225,31 @@ export default function CodePromoLinebetSenegalPage() {
 
       <main id="main-content" className="flex-1 relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
         <LinebetClient />
+
+        {/* Cross-sell partenaire prioritaire 1xbet (lien interne dofollow) */}
+        <section aria-label="Autre partenaire officiel" className="max-w-2xl mx-auto px-4 sm:px-6 pb-8">
+          <a
+            href="/code-promo-1xbet"
+            className="block rounded-2xl p-5 transition-all hover:-translate-y-0.5"
+            style={{ backgroundColor: '#0C1A33', border: '1px solid rgba(27, 110, 243, 0.45)' }}
+            data-cta="linebet-to-1xbet"
+          >
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#4CC9F0' }}>
+                  Nouveau partenaire officiel
+                </p>
+                <p className="font-bold text-papier text-sm sm:text-base">
+                  1xbet — code promo <span className="font-mono font-black tracking-wider" style={{ color: '#4CC9F0' }}>VIPBTTS</span>
+                </p>
+                <p className="text-[12px] mt-1" style={{ color: '#9DABBB' }}>
+                  300% de bonus à l&apos;inscription + free spins, sans condition de mise (offre annoncée).
+                </p>
+              </div>
+              <span aria-hidden="true" className="text-xl flex-shrink-0" style={{ color: '#4CC9F0' }}>→</span>
+            </div>
+          </a>
+        </section>
 
         {/* Pronostics gratuits + VIP + APK — visibles sur toutes les pages */}
         <FreePredictionsWidget />

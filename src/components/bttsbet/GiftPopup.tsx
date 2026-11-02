@@ -200,6 +200,17 @@ export default function GiftPopup() {
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
               </MovingGradientButton>
+              {/* Alternative partenaire prioritaire : 1xbet (VIPBTTS) */}
+              <a
+                href={AFFILIATE.oneXbet}
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+                onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'gift-popup-1xbet')}
+                className="hp-gift-alt"
+                data-cta="gift-popup-1xbet"
+              >
+                Ou 1xbet · code <b>VIPBTTS</b> <span aria-hidden="true">→</span>
+              </a>
             </div>
 
             {/* Étincelles festives (CSS) */}

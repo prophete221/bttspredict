@@ -128,7 +128,7 @@ interface VipLevelModalProps {
 }
 
 export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModalProps) {
-  const [copied, setCopied] = useState(false)
+  const [copiedCode, setCopiedCode] = useState<string | null>(null)
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
@@ -146,11 +146,12 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
   const config = VIP_LEVELS[levelId]
   if (!config) return null
 
-  const copyCode = async () => {
-    try { await navigator.clipboard.writeText('VISION221') } catch {}
-    setCopied(true)
+  // Codes des deux partenaires prioritaires : 1xbet (VIPBTTS) et Linebet (VISION221)
+  const copyCode = async (code: string) => {
+    try { await navigator.clipboard.writeText(code) } catch {}
+    setCopiedCode(code)
     navigator.vibrate?.(15)
-    setTimeout(() => setCopied(false), 2000)
+    setTimeout(() => setCopiedCode(null), 2000)
   }
 
   const whatsappMsg = `Bonjour, je veux débloquer ${config.level} (dépôt min. ${config.deposit}). J'ai besoin de la procédure complète.`
@@ -228,37 +229,38 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                   >1</span>
                   <span className="text-sm font-semibold text-papier">Copie le code promo</span>
                 </div>
-                <button
-                  onClick={copyCode}
-                  className="w-full p-4 rounded-xl flex items-center justify-between transition-all"
-                  style={{
-                    backgroundColor: '#141C25',
-                    border: `1px solid ${config.accentColor}40`,
-                    boxShadow: copied ? `0 0 20px ${config.accentColor}30` : 'none',
-                  }}
-                  aria-label="Copier le code promo VISION221"
-                >
-                  <div>
-                    <div className="text-[10px] uppercase tracking-widest font-bold mb-1" style={{ color: '#9DABBB' }}>
-                      Code promo (majuscules)
-                    </div>
-                    <div className="font-mono text-2xl font-black tracking-[0.1em]" style={{ color: config.accentColor }}>
-                      VISION221
-                    </div>
-                  </div>
-                  <div
-                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg"
-                    style={{
-                      backgroundColor: copied ? `${config.accentColor}20` : `${config.accentColor}10`,
-                    }}
-                  >
-                    {copied ? (
-                      <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={config.accentColor} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg><span className="text-xs font-bold" style={{ color: config.accentColor }}>Copié !</span></>
-                    ) : (
-                      <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={config.accentColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg><span className="text-xs font-bold" style={{ color: config.accentColor }}>Copier</span></>
-                    )}
-                  </div>
-                </button>
+                <div className="grid grid-cols-2 gap-2">
+                  {([
+                    { code: 'VIPBTTS', book: '1xbet', isNew: true },
+                    { code: 'VISION221', book: 'Linebet', isNew: false },
+                  ] as const).map(({ code, book, isNew }) => (
+                    <button
+                      key={code}
+                      onClick={() => copyCode(code)}
+                      className="p-3.5 rounded-xl flex flex-col items-center gap-1 transition-all"
+                      style={{
+                        backgroundColor: '#141C25',
+                        border: `1px solid ${config.accentColor}40`,
+                        boxShadow: copiedCode === code ? `0 0 20px ${config.accentColor}30` : 'none',
+                      }}
+                      aria-label={`Copier le code promo ${code} (${book})`}
+                    >
+                      <span className="text-[9px] uppercase tracking-widest font-bold" style={{ color: '#9DABBB' }}>
+                        {book}{isNew && ' · Nouveau'}
+                      </span>
+                      <span className="font-mono text-lg font-black tracking-[0.08em]" style={{ color: config.accentColor }}>
+                        {copiedCode === code ? 'Copié !' : code}
+                      </span>
+                      <span className="inline-flex items-center gap-1 text-[10px] font-bold" style={{ color: config.accentColor }}>
+                        {copiedCode === code ? (
+                          <><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={config.accentColor} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>OK</>
+                        ) : (
+                          <><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={config.accentColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>Copier</>
+                        )}
+                      </span>
+                    </button>
+                  ))}
+                </div>
               </div>
 
               {/* ÉTAPE 2 — Inscription + Dépôt */}
@@ -273,9 +275,18 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                   </span>
                 </div>
                 <p className="text-[12px] mb-3 ml-9" style={{ color: '#9DABBB' }}>
-                  Choisis ton bookmaker, inscris-toi avec le code <span className="font-mono font-bold text-papier">VISION221</span>, puis effectue un dépôt via Wave, Orange Money, Free Money ou carte bancaire.
+                  Choisis ton bookmaker, inscris-toi avec le code <span className="font-mono font-bold text-papier">VIPBTTS</span> (1xbet) ou <span className="font-mono font-bold text-papier">VISION221</span> (Linebet), puis effectue un dépôt via Wave, Orange Money, Free Money ou carte bancaire.
                 </p>
                 <div className="grid grid-cols-2 gap-2 ml-9">
+                  <a
+                    href={AFFILIATE.oneXbet}
+                    rel="sponsored nofollow noopener noreferrer"
+                    target="_blank"
+                    className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold transition-all"
+                    style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}
+                  >
+                    Inscription 1xbet →
+                  </a>
                   <a
                     href={AFFILIATE.linebet}
                     rel="sponsored nofollow noopener noreferrer"
@@ -289,7 +300,7 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                     href={AFFILIATE.star888}
                     rel="sponsored nofollow noopener noreferrer"
                     target="_blank"
-                    className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold transition-all"
+                    className="col-span-2 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold transition-all"
                     style={{
                       backgroundColor: 'transparent',
                       border: '1px solid #4A90FF',

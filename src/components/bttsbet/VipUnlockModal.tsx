@@ -31,7 +31,7 @@ export default function VipUnlockModal({
 }) {
   const modalRef = useRef<HTMLDivElement>(null)
   const [step, setStep] = useState<Step>('conditions')
-  const [selectedBookmaker, setSelectedBookmaker] = useState<'linebet' | '888starz' | null>(null)
+  const [selectedBookmaker, setSelectedBookmaker] = useState<'1xbet' | 'linebet' | '888starz' | null>(null)
   const [playerId, setPlayerId] = useState('')
   const [verificationError, setVerificationError] = useState('')
   const [isUnlocking, setIsUnlocking] = useState(false)
@@ -39,7 +39,9 @@ export default function VipUnlockModal({
   const [copied, setCopied] = useState(false)
 
   // Get the correct code based on selected bookmaker
-  const currentCode = selectedBookmaker === 'linebet' ? 'VISION221' : selectedBookmaker === '888starz' ? 'btts221' : 'VISION221'
+  // 1xbet (VIPBTTS) et Linebet (VISION221) sont les partenaires prioritaires.
+  const currentCode = selectedBookmaker === 'linebet' ? 'VISION221' : selectedBookmaker === '888starz' ? 'btts221' : 'VIPBTTS'
+  const bookmakerLabel = selectedBookmaker === 'linebet' ? 'Linebet' : selectedBookmaker === '888starz' ? '888starz' : '1xbet'
 
   const copyCode = async () => {
     try { await navigator.clipboard.writeText(currentCode) } catch {
@@ -93,7 +95,7 @@ export default function VipUnlockModal({
         localStorage.setItem(ID_HASH_KEY, idHash)
         localStorage.setItem('bttsbet_vip_bookmaker', selectedBookmaker)
       } catch {}
-      const whatsappText = `Bonjour BTTSPredict, je souhaite demander la validation de mon accès VIP. Bookmaker: ${selectedBookmaker}. ID joueur: ${playerId.trim()}. Code promo: ${selectedBookmaker === '888starz' ? 'btts221' : 'VISION221'}. Merci de confirmer les conditions applicables.`
+      const whatsappText = `Bonjour BTTSPredict, je souhaite demander la validation de mon accès VIP. Bookmaker: ${selectedBookmaker ?? '1xbet'}. ID joueur: ${playerId.trim()}. Code promo: ${currentCode}. Merci de confirmer les conditions applicables.`
       const whatsappUrl = `https://wa.me/15406704172?text=${encodeURIComponent(whatsappText)}`
       setTimeout(() => {
         setIsUnlocking(false)
@@ -197,6 +199,36 @@ export default function VipUnlockModal({
                     </div>
                   </button>
 
+                  {/* 1xbet — partenaire prioritaire (carte en tête) */}
+                  <button
+                    type="button"
+                    onClick={() => setSelectedBookmaker('1xbet')}
+                    className="w-full p-3 rounded-lg text-left mb-2 transition-all"
+                    style={{
+                      backgroundColor: selectedBookmaker === '1xbet' ? 'rgba(47, 125, 255, 0.15)' : 'rgba(244, 247, 251, 0.05)',
+                      border: selectedBookmaker === '1xbet' ? '1px solid #2F7DFF' : '1px solid #9DABBB',
+                    }}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="flex h-6 w-10 items-center justify-center rounded bg-white px-1">
+                            <img src="/logos/1xbet.svg" alt="Logo 1xbet" width={256} height={96} className="max-h-4 w-auto object-contain" />
+                          </span>
+                          <span className="text-sm font-bold text-papier">1xbet</span>
+                          <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(47, 125, 255, 0.15)', color: '#2F7DFF' }}>Nouveau</span>
+                          {selectedBookmaker === '1xbet' && (
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+                          )}
+                        </div>
+                        <div className="text-[11px] text-[#2F7DFF]">
+                          Code : <span className="font-mono font-bold text-[#2F7DFF]">VIPBTTS</span>
+                        </div>
+                      </div>
+                      <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(232, 194, 104, 0.12)', color: '#E8C268' }}>Partenaire officiel</span>
+                    </div>
+                  </button>
+
                   {/* Linebet */}
                   <button
                     type="button"
@@ -297,6 +329,14 @@ export default function VipUnlockModal({
 
                 {/* Buttons */}
                 <div className="grid grid-cols-2 gap-2 mb-4">
+                  {selectedBookmaker === '1xbet' && (
+                    <a href={AFFILIATE.oneXbet} rel="sponsored nofollow noopener noreferrer" target="_blank"
+                      onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'vip-modal-1xbet')}
+                      className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold"
+                      style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>
+                      Inscription 1xbet →
+                    </a>
+                  )}
                   {selectedBookmaker === 'linebet' && (
                     <a href={AFFILIATE.linebet} rel="sponsored nofollow noopener noreferrer" target="_blank"
                       onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'vip-modal-linebet')}
@@ -345,7 +385,7 @@ export default function VipUnlockModal({
                     border: '1px solid rgba(127, 162, 198, 0.30)',
                     color: '#2F7DFF',
                   }}
-                  onClick={() => trackAffiliateAction(selectedBookmaker ?? 'linebet', 'whatsapp_click', 'vip-modal-whatsapp')}
+                  onClick={() => trackAffiliateAction(selectedBookmaker ?? '1xbet', 'whatsapp_click', 'vip-modal-whatsapp')}
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="#2F7DFF"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01-1.87-1.87-4.36-2.91-7.01-2.91zm0 1.67c2.2 0 4.27.86 5.82 2.42 1.56 1.56 2.42 3.63 2.42 5.82 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.81-1.29-1.24-2.79-1.24-4.34 0-4.54 3.7-8.24 8.24-8.24z"/></svg>
                   Déjà inscrit ? Demander la vérification via WhatsApp
@@ -372,7 +412,7 @@ export default function VipUnlockModal({
                 </motion.div>
                 <h3 className="text-xl font-bold text-papier mb-2">Demande VIP préparée</h3>
                 <p className="text-sm text-[#2F7DFF] mb-4">
-                  Ton message WhatsApp est prêt pour <span className="text-papier font-semibold">{selectedBookmaker === 'linebet' ? 'Linebet' : '888starz'}</span>. La validation finale dépend du support et des conditions du partenaire.
+                  Ton message WhatsApp est prêt pour <span className="text-papier font-semibold">{bookmakerLabel}</span>. La validation finale dépend du support et des conditions du partenaire.
                 </p>
                 <button
                   onClick={onClose}

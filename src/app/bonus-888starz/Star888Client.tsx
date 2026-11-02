@@ -105,6 +105,7 @@ const BONUS_ROWS = [
 
 /* ─── Liens internes ─────────────────────────────────────────────────── */
 const INTERNAL_LINKS = [
+  { href: '/code-promo-1xbet', label: 'Code promo 1xbet' },
   { href: '/', label: 'Pronostics BTTS' },
   { href: '/code-promo-linebet-senegal', label: 'Code Promo Linebet' },
   { href: '/btts-c-est-quoi', label: "C'est quoi BTTS ?" },

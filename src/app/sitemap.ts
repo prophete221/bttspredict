@@ -110,6 +110,10 @@ const SEO_PAGES: MetadataRoute.Sitemap = [
   // 16. Code promo Linebet Sénégal
   url('/code-promo-linebet-senegal', TODAY, 0.95, 'weekly'),
 
+  // 16bis. Code promo 1xbet — partenaire prioritaire 2026-11 (FR uniquement :
+  // pas d'entrée dans LOCALIZED_PATHS, pas de version EN/AR publiée)
+  url('/code-promo-1xbet', TODAY, 0.95, 'weekly'),
+
   // 17. Bonus 888starz
   url('/bonus-888starz', TODAY, 0.9, 'weekly'),
 

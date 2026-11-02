@@ -6880,6 +6880,111 @@ body::before {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
+   1XBET — palette .xbt (page /code-promo-1xbet)
+   Réutilise la structure .lpb-* (héros, carte, boutons, marquee) avec la
+   palette bleu royal 1xbet (#1B6EF3 / #4CC9F0). Animations identiques.
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@property --xbt-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes xbt-border-spin {
+  to { --xbt-angle: 360deg; }
+}
+
+.xbt .lpb-hero::before {
+  background-image:
+    radial-gradient(42% 52% at 30% 38%, rgba(27, 110, 243, 0.16), transparent 70%),
+    radial-gradient(40% 48% at 74% 30%, rgba(76, 201, 240, 0.11), transparent 70%),
+    radial-gradient(46% 50% at 55% 85%, rgba(11, 87, 194, 0.12), transparent 70%);
+  animation: lpb-aurora 16s ease-in-out infinite alternate;
+}
+
+.xbt .lpb-orb--1 { background: rgba(27, 110, 243, 0.34); animation: lpb-orb-a 15s ease-in-out infinite alternate; }
+.xbt .lpb-orb--2 { background: rgba(76, 201, 240, 0.26); animation: lpb-orb-b 19s ease-in-out infinite alternate; }
+
+.xbt .lpb-spark { color: #4CC9F0; }
+
+.xbt .lpb-badge {
+  background: rgba(27, 110, 243, 0.12);
+  border: 1px solid rgba(27, 110, 243, 0.55);
+  color: #9CC6FF;
+  animation: lpb-badge-pulse 2.6s ease-in-out infinite;
+}
+
+.xbt .lpb-card {
+  background: conic-gradient(from var(--xbt-angle), #1B6EF3, #4CC9F0, #0B57C2, #1B6EF3);
+  animation: xbt-border-spin 7s linear infinite;
+  box-shadow: 0 0 52px rgba(27, 110, 243, 0.22), 0 18px 44px rgba(0, 0, 0, 0.45);
+}
+
+.xbt .lpb-card__inner {
+  background: linear-gradient(165deg, #080F1E 0%, #0C1A33 55%, #081226 100%);
+}
+
+.xbt .lpb-code {
+  background-image: linear-gradient(110deg, #7FB8FF 0%, #EAF3FF 28%, #1B6EF3 52%, #EAF3FF 76%, #7FB8FF 100%);
+  filter: drop-shadow(0 0 20px rgba(27, 110, 243, 0.42));
+}
+
+.xbt .lpb-stat { background: linear-gradient(165deg, rgba(27, 110, 243, 0.10), rgba(27, 110, 243, 0.03)); }
+
+.xbt .lpb-stat__num {
+  background-image: linear-gradient(120deg, #7FB8FF, #EAF3FF 55%, #4CC9F0);
+  filter: drop-shadow(0 0 16px rgba(27, 110, 243, 0.35));
+}
+
+.xbt .lpb-marquee__item::before { color: #4CC9F0; }
+
+.xbt .lpb-btn--primary {
+  background: linear-gradient(120deg, #1B6EF3 0%, #3E9BF5 100%);
+  animation: lpb-cta-pulse 3s ease-in-out infinite;
+}
+
+.xbt .lpb-btn--copy {
+  background: rgba(27, 110, 243, 0.12);
+  border: 1px solid rgba(27, 110, 243, 0.5);
+  color: #9CC6FF;
+}
+
+.xbt .lpb-btn--copy:hover { background: rgba(27, 110, 243, 0.22); }
+
+.xbt .lpb-faq summary::after { color: #7FB8FF; }
+
+/* Barre CTA collante mobile — page 1xbet (au-dessus de la MobileTabBar 64px) */
+.xbt-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 45;
+  bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  animation: lpb-sticky-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.35s backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xbt .lpb-hero::before,
+  .xbt .lpb-orb, .xbt .lpb-spark,
+  .xbt .lpb-rise, .xbt .lpb-pop,
+  .xbt .lpb-badge, .xbt .lpb-card,
+  .xbt .lpb-shine__beam, .xbt .lpb-code,
+  .xbt .lpb-stat__num, .xbt .lpb-marquee__track,
+  .xbt .lpb-btn--primary, .xbt-sticky,
+  .xbt .lpb-spins-star {
+    animation: none !important;
+  }
+  .xbt .lpb-rise, .xbt .lpb-pop { opacity: 1 !important; }
+  .xbt .lpb-code, .xbt .lpb-stat__num {
+    -webkit-text-fill-color: currentColor;
+    background-image: none;
+    filter: none;
+  }
+  .xbt .lpb-code, .xbt .lpb-stat__num { color: #7FB8FF; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
    GIFT POPUP — paquet cadeau « Bonus 300% » (accueil, fermable, Linebet)
    Mobile : au-dessus de MobileTabBar + StickyCTABar · Desktop : bas droite
    ════════════════════════════════════════════════════════════════════════════ */
@@ -6965,6 +7070,24 @@ body::before {
   font-family: var(--font-mono), ui-monospace, monospace;
   font-weight: 700;
 }
+/* Alternative 1xbet (partenaire prioritaire) sous le CTA principal */
+.hp-gift-alt {
+  margin-top: 0.35rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  justify-content: center;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #9CC6FF;
+  text-decoration: none;
+}
+.hp-gift-alt b {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  color: #D6E9FF;
+  letter-spacing: 0.06em;
+}
+.hp-gift-alt:hover { text-decoration: underline; }
 .hp-gift-close {
   position: absolute;
   top: -8px;
