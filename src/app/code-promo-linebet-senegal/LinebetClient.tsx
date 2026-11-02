@@ -19,7 +19,7 @@ export default function LinebetClient(_props: { reviewDate?: string } = {}) {
     <PromoLandingShell
       brand={BRAND}
       code={CODE}
-      bookmakerId="{'linebet'}"
+      bookmakerId="linebet"
       accent="#2F7DFF"
       logo="/logos/linebet-logo.jpg"
       logoBg="#0d1b2a"
