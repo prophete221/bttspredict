@@ -135,7 +135,12 @@ export default function PromoLandingShell(p: PromoLandingProps) {
   }
 
   return (
-    <div data-promo-shell className="relative min-h-screen overflow-x-hidden text-[#F2F6FA]" style={{ backgroundColor: '#05070B' }}>
+    <div
+      data-promo-shell
+      data-bookmaker={p.bookmakerId}
+      className={`relative min-h-screen overflow-x-hidden text-[#F2F6FA] promo-shell promo-shell--${p.bookmakerId}`}
+      style={{ backgroundColor: '#05070B' }}
+    >
       {/* Scroll progress */}
       <motion.div
         className="fixed top-0 left-0 right-0 z-[80] h-[3px] origin-left"
@@ -295,6 +300,40 @@ export default function PromoLandingShell(p: PromoLandingProps) {
           >
             <p className="text-2xl font-black sm:text-3xl" style={{ color: accent }}>{p.offerHeadline}</p>
             <p className="mt-3 text-sm text-[#9DABBB]">{p.offerSub}</p>
+          </div>
+        </FadeIn>
+
+        {/* Trust / transparency — no invented bonus terms */}
+        <FadeIn className="mt-8" delay={0.05}>
+          <div
+            className="grid gap-3 rounded-2xl p-4 sm:grid-cols-3 sm:p-5"
+            style={{
+              background: 'rgba(12, 18, 28, 0.9)',
+              border: `1px solid ${accent}22`,
+            }}
+          >
+            {[
+              p.lang === 'en'
+                ? ['Exact code', 'Enter the code exactly as shown — case sensitive.']
+                : p.lang === 'ar'
+                  ? ['رمز دقيق', 'أدخل الرمز كما هو ظاهر — حساس لحالة الأحرف.']
+                  : ['Code exact', 'Saisis le code exactement comme indiqué — casse sensible.'],
+              p.lang === 'en'
+                ? ['Official terms', 'Bonus rules are those displayed by the operator after sign-up.']
+                : p.lang === 'ar'
+                  ? ['شروط رسمية', 'تطبق شروط المكافأة المعروضة من المشغل بعد التسجيل.']
+                  : ['Conditions officielles', 'Les règles bonus sont celles affichées par l’opérateur après inscription.'],
+              p.lang === 'en'
+                ? ['18+ only', 'Play responsibly. Availability depends on local regulation.']
+                : p.lang === 'ar'
+                  ? ['18+ فقط', 'العب بمسؤولية. التوافر يعتمد على القوانين المحلية.']
+                  : ['18+ uniquement', 'Jouez responsable. Disponibilité selon la réglementation locale.'],
+            ].map(([title, body]) => (
+              <div key={title as string} className="rounded-xl p-3" style={{ background: `${accent}0d`, border: `1px solid ${accent}18` }}>
+                <p className="text-xs font-bold" style={{ color: accent }}>{title}</p>
+                <p className="mt-1 text-[11px] leading-relaxed text-[#9DABBB]">{body}</p>
+              </div>
+            ))}
           </div>
         </FadeIn>
 
