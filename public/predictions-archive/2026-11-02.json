@@ -9263,6 +9263,13 @@
       ],
       "last5Away": [
         {
+          "date": "2026-11-02",
+          "opponent": "Fiorentina",
+          "venue": "H",
+          "score": "2-4",
+          "result": "L"
+        },
+        {
           "date": "2026-10-27",
           "opponent": "Lazio",
           "venue": "H",
@@ -9289,13 +9296,6 @@
           "venue": "H",
           "score": "1-1",
           "result": "D"
-        },
-        {
-          "date": "2026-09-18",
-          "opponent": "Monza",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
         }
       ],
       "standingsHome": {
@@ -11681,6 +11681,1078 @@
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.83 · N 4.1 · 2 3.25",
       "status": "PENDING"
+    },
+    {
+      "id": "atlticom-vs-bayernmu-2026-11-03",
+      "match": "Atlético Madrid vs Bayern Munich",
+      "home": "Atlético Madrid",
+      "away": "Bayern Munich",
+      "league": "UEFA Champions League",
+      "date": "2026-11-03",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6,
+      "bttsProbDisplay": "60.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 60,
+      "time": "20:00",
+      "matchSemantic": "atlticom-vs-bayernmu-2026-11-03",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.33,
+      "xgAway": 1.75,
+      "xgTotal": 4.08,
+      "formBTTS": 60,
+      "analysis": "Atlético Madrid : forme V-V-V-V-V (5V 0N 0D, 8 buts marqués / 2 encaissés sur 5) · Bayern Munich : forme N-V-V-N-V (3V 2N 0D, 20 buts marqués / 6 encaissés sur 5). Classement : Atlético Madrid 16e (4 pts), Bayern Munich 14e (5 pts). Stats empiriques (forme récente) : buts moy. 4.08, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.7 / N: 3.95 / 2: 2.35. Fiabilité 85%.",
+      "analysisData": {
+        "bttsProb": 0.6,
+        "over25Prob": 0.7,
+        "homeLambda": 2.33,
+        "awayLambda": 1.75,
+        "xgTotal": 4.08
+      },
+      "estimatedCote": 1.67,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.7,
+        "draw": 3.95,
+        "away": 2.35,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.67,
+      "formHome": {
+        "last5String": "V-V-V-V-V",
+        "wins": 5,
+        "draws": 0,
+        "losses": 0,
+        "goalsFor": 8,
+        "goalsAgainst": 2,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 3,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-V-V-N-V",
+        "wins": 3,
+        "draws": 2,
+        "losses": 0,
+        "goalsFor": 20,
+        "goalsAgainst": 6,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Levante",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Deportivo",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Espanyol",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Alavés",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Real Madrid",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Borussia Dortmund",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "SC Freiburg",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "RB Leipzig",
+          "venue": "H",
+          "score": "6-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "FC Augsburg",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "1. FC Union Berlin",
+          "venue": "H",
+          "score": "7-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 16,
+        "points": 4,
+        "played": 3,
+        "gf": 4,
+        "ga": 3
+      },
+      "standingsAway": {
+        "rank": 14,
+        "points": 5,
+        "played": 3,
+        "gf": 10,
+        "ga": 5
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "bttsProb": 0.65,
+          "homeLambda": 2.33,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.65
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "over25Prob": 0.675,
+          "homeLambda": 2.33,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.675
+        }
+      ],
+      "bttsProb": 0.65,
+      "over25Prob": 0.675,
+      "homeLambda": 2.33,
+      "awayLambda": 1.75,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Le Bayern Munich affiche 20 buts marqués et un taux over 2.5 de 100% sur ses 5 derniers matchs.",
+      "ai_analysis": "Cette confrontation entre l'Atlético Madrid et le Bayern Munich présente un profil propice aux buts malgré la prudence défensive habituelle des Colchoneros. Le Bayern se distingue par une attaque prolifique (20 buts sur ses 5 derniers matchs) et un taux over 2.5 maximal. Avec un taux BTTS empirique de 60%, le pari des deux équipes marquent s'appuie sur la dynamique offensive allemande et les moyennes de buts des deux camps.",
+      "ai_analysis_en": "This matchup between Atlético Madrid and Bayern Munich shows profiles conducive to goals despite the Colchoneros' usual defensive caution. Bayern stands out with a prolific attack (20 goals in their last 5 matches) and a 100% over 2.5 rate. With an empirical BTTS rate of 60%, selecting both teams to score is supported by the German offensive momentum and both sides' goal averages.",
+      "ai_form_summary": "Atlético Madrid: 5V-0N-0D, 8 buts pour, 2 contre. Bayern Munich: 3V-2N-0D, 20 buts pour, 6 contre.",
+      "ai_form_summary_en": "Atlético Madrid: 5W-0D-0L, 8 goals for, 2 against. Bayern Munich: 3W-2D-0L, 20 goals for, 6 against.",
+      "ai_reasons": [
+        "Taux BTTS empirique à 60% et taux de forme BTTS à 60% pour les deux formations.",
+        "Bayern Munich affiche un taux over 2.5 de 100% sur ses 5 derniers matchs et 20 buts marqués.",
+        "Atlético Madrid possède des moyennes de buts solides (2.33 pour, 1.75 contre)."
+      ],
+      "ai_risks": [
+        "Atlético Madrid affiche un taux BTTS individuel de seulement 40% sur ses 5 derniers matchs.",
+        "La solidité défensive de l'Atlético (2 buts encaissés en 5 matchs) pourrait limiter les occasions bavaroises."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.7 · N 3.95 · 2 2.35"
+    },
+    {
+      "id": "wrexham-vs-middlesb-2026-11-04",
+      "match": "Wrexham vs Middlesbrough",
+      "home": "Wrexham",
+      "away": "Middlesbrough",
+      "league": "Championship",
+      "date": "2026-11-04",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.6,
+      "bttsProbDisplay": "60.00%",
+      "over25ProbDisplay": "60.00%",
+      "confidence": 60,
+      "time": "19:45",
+      "matchSemantic": "wrexham-vs-middlesb-2026-11-04",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/352.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/369.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 3.33,
+      "xgTotal": 5.33,
+      "formBTTS": 60,
+      "analysis": "Wrexham : forme D-D-V-D-N (1V 1N 3D, 6 buts marqués / 7 encaissés sur 5) · Middlesbrough : forme V-V-N-V-V (4V 1N 0D, 14 buts marqués / 5 encaissés sur 5). Classement : Wrexham 18e (14 pts), Middlesbrough 1e (28 pts). Stats empiriques (forme récente) : buts moy. 5.33, BTTS 60.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 4 / N: 3.95 / 2: 1.8 · Over 2.5: 1.67. Fiabilité 85%.",
+      "analysisData": {
+        "bttsProb": 0.6,
+        "over25Prob": 0.6,
+        "homeLambda": 2,
+        "awayLambda": 3.33,
+        "xgTotal": 5.33
+      },
+      "estimatedCote": 1.67,
+      "estimatedCoteOver": 1.67,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 4,
+        "draw": 3.95,
+        "away": 1.8,
+        "over25": 1.67,
+        "under25": 2.15
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.67,
+      "formHome": {
+        "last5String": "D-D-V-D-N",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-N-V-V",
+        "wins": 4,
+        "draws": 1,
+        "losses": 0,
+        "goalsFor": 14,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Sheffield United",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Blackburn Rovers",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Preston North End",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "West Bromwich Albion",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Derby County",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Charlton Athletic",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Bolton Wanderers",
+          "venue": "A",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Cardiff City",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Stoke City",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Wolverhampton Wanderers",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 14,
+        "played": 13,
+        "gf": 15,
+        "ga": 19
+      },
+      "standingsAway": {
+        "rank": 1,
+        "points": 28,
+        "played": 13,
+        "gf": 30,
+        "ga": 17
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 60,
+          "bttsProb": 0.6,
+          "homeLambda": 2,
+          "awayLambda": 3.33,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 60,
+          "over25Prob": 0.6,
+          "homeLambda": 2,
+          "awayLambda": 3.33,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.6
+        }
+      ],
+      "bttsProb": 0.6,
+      "over25Prob": 0.6,
+      "homeLambda": 2,
+      "awayLambda": 3.33,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Form signals BTTS 60% / Over 60%",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 60.0%, Over 2.5 empirique 60.0% pour Wrexham vs Middlesbrough. Décision : OVER_25.",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 60.0%, Over 2.5 60.0% for Wrexham vs Middlesbrough. Decision: OVER_25.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 60.0%, Over 2.5 empirique 60.0% pour Wrexham vs Middlesbrough. Décision : OV",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 60.0%, Over 2.5 60.0% for Wrexham vs Middlesbrough. Decision: OVER_25.",
+      "ai_reasons": [
+        "Empirical BTTS rate ~60%",
+        "Empirical Over 2.5 rate ~60%"
+      ],
+      "ai_risks": [
+        "Sample limited to recent matches; form can shift quickly."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "local-empirical-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4 · N 3.95 · 2 1.8 · O2.5 1.67",
+      "status": "PENDING"
+    },
+    {
+      "id": "bayerlev-vs-marseill-2026-11-05",
+      "match": "Bayer Leverkusen vs Marseille",
+      "home": "Bayer Leverkusen",
+      "away": "Marseille",
+      "league": "UEFA Europa League",
+      "date": "2026-11-05",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6,
+      "bttsProbDisplay": "60.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 60,
+      "time": "20:00",
+      "matchSemantic": "bayerlev-vs-marseill-2026-11-05",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/176.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.5,
+      "xgAway": 1.75,
+      "xgTotal": 4.25,
+      "formBTTS": 60,
+      "analysis": "Bayer Leverkusen : forme D-D-V-V-V (3V 0N 2D, 10 buts marqués / 11 encaissés sur 5) · Marseille : forme V-V-V-V-D (4V 0N 1D, 14 buts marqués / 7 encaissés sur 5). Classement : Bayer Leverkusen 2e (9 pts), Marseille 34e (? pts). Stats empiriques (forme récente) : buts moy. 4.25, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.41 / N: 5.25 / 2: 6.5. Fiabilité 85%.",
+      "analysisData": {
+        "bttsProb": 0.6,
+        "over25Prob": 0.7,
+        "homeLambda": 2.5,
+        "awayLambda": 1.75,
+        "xgTotal": 4.25
+      },
+      "estimatedCote": 1.67,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.41,
+        "draw": 5.25,
+        "away": 6.5,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.67,
+      "formHome": {
+        "last5String": "D-D-V-V-V",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 10,
+        "goalsAgainst": 11,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-D",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 14,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "VfB Stuttgart",
+          "venue": "H",
+          "score": "2-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "TSG Hoffenheim",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "SC Freiburg",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Mainz",
+          "venue": "A",
+          "score": "4-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "RB Leipzig",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Toulouse",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Le Havre AC",
+          "venue": "H",
+          "score": "4-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Angers",
+          "venue": "A",
+          "score": "5-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Troyes",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Paris Saint-Germain",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 2,
+        "points": 9,
+        "played": 3,
+        "gf": 8,
+        "ga": null
+      },
+      "standingsAway": {
+        "rank": 34,
+        "points": null,
+        "played": 3,
+        "gf": 1,
+        "ga": 6
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "bttsProb": 0.65,
+          "homeLambda": 2.5,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.65
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "over25Prob": 0.675,
+          "homeLambda": 2.5,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.675
+        }
+      ],
+      "bttsProb": 0.65,
+      "over25Prob": 0.675,
+      "homeLambda": 2.5,
+      "awayLambda": 1.75,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Bayer Leverkusen affiche un taux d'Over 2.5 de 80% sur ses 8 derniers matchs.",
+      "ai_analysis": "Bayer Leverkusen accueille Marseille avec de solides statistiques offensives, affichant une moyenne de 2.5 buts marqués par match et un taux d'Over 2.5 de 70%. Les deux formations présentent un taux BTTS de 60% sur leurs 5 dernières rencontres, ce qui rencorce l'attrait pour le marché des buts. Bien que Marseille soit en difficulté au classement de la compétition, sa dynamique récente en buts et les chiffres de Leverkusen soutiennent une rencontre prolifique.",
+      "ai_analysis_en": "Bayer Leverkusen hosts Marseille with solid offensive statistics, averaging 2.5 goals scored per match and a 70% Over 2.5 rate. Both teams show a 60% BTTS rate in their last 5 matches, reinforcing the appeal for goals markets. Although Marseille struggles in the competition standings, their recent goalscoring momentum and Leverkusen's numbers support a high-scoring encounter.",
+      "ai_form_summary": "Leverkusen: 3V-0D-2D, 10 buts pour, 11 contre. Marseille: 4V-0D-1D, 14 buts pour, 7 contre.",
+      "ai_form_summary_en": "Leverkusen: 3W-0D-2L, 10 goals for, 11 against. Marseille: 4W-0D-1L, 14 goals for, 7 against.",
+      "ai_reasons": [
+        "Taux empirique Over 2.5 élevé à 70% sur un échantillon de 8 matchs.",
+        "Taux BTTS de 60% pour les deux équipes lors de leurs 5 derniers matchs.",
+        "Moyenne de buts marqués élevée pour Leverkusen (2.5 buts par match)."
+      ],
+      "ai_risks": [
+        "Marseille est en difficulté au classement (34e) malgré une bonne forme récente.",
+        "Marseille a encaissé 6 buts en 3 matchs européens."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.41 · N 5.25 · 2 6.5"
+    },
+    {
+      "id": "toulouse-vs-strasbou-2026-11-06",
+      "match": "Toulouse vs Strasbourg",
+      "home": "Toulouse",
+      "away": "Strasbourg",
+      "league": "Ligue 1",
+      "date": "2026-11-06",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6,
+      "bttsProbDisplay": "60.00%",
+      "over25ProbDisplay": "80.00%",
+      "confidence": 60,
+      "time": "19:45",
+      "matchSemantic": "toulouse-vs-strasbou-2026-11-06",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/179.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/180.png",
+      "tier": "GOLD",
+      "reliabilityScore": 82.5,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1,
+      "xgAway": 2,
+      "xgTotal": 3,
+      "formBTTS": 60,
+      "analysis": "Toulouse : forme D-N-V-N-V (2V 2N 1D, 8 buts marqués / 6 encaissés sur 5) · Strasbourg : forme V-D-D-D-D (1V 0N 4D, 8 buts marqués / 11 encaissés sur 5). Classement : Toulouse 11e (10 pts), Strasbourg 12e (10 pts). Stats empiriques (forme récente) : buts moy. 3, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.05 / N: 3.7 / 2: 3.3 · Over 2.5: 1.57. Fiabilité 82.5%.",
+      "analysisData": {
+        "bttsProb": 0.6,
+        "over25Prob": 0.8,
+        "homeLambda": 1,
+        "awayLambda": 2,
+        "xgTotal": 3
+      },
+      "estimatedCote": 1.67,
+      "estimatedCoteOver": 1.25,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.05,
+        "draw": 3.7,
+        "away": 3.3,
+        "over25": 1.57,
+        "under25": 2.3
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.67,
+      "formHome": {
+        "last5String": "D-N-V-N-V",
+        "wins": 2,
+        "draws": 2,
+        "losses": 1,
+        "goalsFor": 8,
+        "goalsAgainst": 6,
+        "bttsRate": 0.4,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-D-D-D",
+        "wins": 1,
+        "draws": 0,
+        "losses": 4,
+        "goalsFor": 8,
+        "goalsAgainst": 11,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Marseille",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Troyes",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Le Mans",
+          "venue": "A",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "AS Monaco",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Le Havre AC",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "AJ Auxerre",
+          "venue": "H",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Stade Rennais",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Paris Saint-Germain",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Nice",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Paris FC",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 11,
+        "points": 10,
+        "played": 9,
+        "gf": 12,
+        "ga": 13
+      },
+      "standingsAway": {
+        "rank": 12,
+        "points": 10,
+        "played": 9,
+        "gf": 17,
+        "ga": 19
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 72,
+          "bttsProb": 0.72,
+          "homeLambda": 1,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.72
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 72,
+          "over25Prob": 0.76,
+          "homeLambda": 1,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.76
+        }
+      ],
+      "bttsProb": 0.72,
+      "over25Prob": 0.76,
+      "homeLambda": 1,
+      "awayLambda": 2,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Strasbourg présente un taux Over 2.5 de 100% sur ses 5 derniers matchs avec 8 buts marqués et 11 encaissés.",
+      "ai_analysis": "L'analyse des données empiriques montre de solides indicateurs offensifs et défensifs pour ce duel de Ligue 1. Strasbourg présente des stats très ouvertes avec 100% d'Over 2.5 sur ses 5 derniers matchs et 19 buts encaissés au total cette saison. Toulouse marque en moyenne 1 but par match mais possède un taux global BTTS de 60%. La tendance penche nettement vers un match animé avec des buts des deux côtés.",
+      "ai_analysis_en": "Analysis of empirical data shows strong offensive and defensive indicators for this Ligue 1 fixture. Strasbourg displays very open stats with 100% Over 2.5 in their last 5 matches and 19 goals conceded overall this season. Toulouse averages 1 goal per match while holding a 60% overall BTTS rate. The trend leans clearly towards an open game with goals from both sides.",
+      "ai_form_summary": "Toulouse (2V-2D-1N, 8 buts pour, 6 contre) accueille Strasbourg (1V-0D-4L, 8 buts pour, 11 contre).",
+      "ai_form_summary_en": "Toulouse (2W-2D-1L, 8 goals for, 6 against) hosts Strasbourg (1W-0D-4L, 8 goals for, 11 against).",
+      "ai_reasons": [
+        "Taux empirique Over 2.5 très élevé à 80% (empirical_over25 = 0.8)",
+        "Strasbourg affiche un taux BTTS de 80% et un taux Over 2.5 de 100% sur ses 5 derniers matchs",
+        "Strasbourg encaisse beaucoup avec 19 buts concédés en 9 matchs de championnat"
+      ],
+      "ai_risks": [
+        "Toulouse a un taux BTTS plus mesuré de 40% sur ses 5 derniers matchs",
+        "Strasbourg reste sur une série de 4 défaites consécutives malgré sa production offensive"
+      ],
+      "ai_confidence": "high",
+      "ai_abstain": false,
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 3.7 · 2 3.3 · O2.5 1.57"
+    },
+    {
+      "id": "dynamodr-vs-spvgggre-2026-11-06",
+      "match": "Dynamo Dresden vs SpVgg Greuther Fürth",
+      "home": "Dynamo Dresden",
+      "away": "SpVgg Greuther Fürth",
+      "league": "2. Bundesliga",
+      "date": "2026-11-06",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.52,
+      "bttsProbDisplay": "50.00%",
+      "over25ProbDisplay": "50.00%",
+      "confidence": 52,
+      "time": "17:30",
+      "matchSemantic": "dynamodr-vs-spvgggre-2026-11-06",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7017.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3070.png",
+      "tier": "GOLD",
+      "reliabilityScore": 78.13,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.33,
+      "xgAway": 1.5,
+      "xgTotal": 2.83,
+      "formBTTS": 50,
+      "analysis": "Dynamo Dresden : forme D-D-V-N-D (1V 1N 3D, 5 buts marqués / 8 encaissés sur 5) · SpVgg Greuther Fürth : forme V-D-V-D-N (2V 1N 2D, 5 buts marqués / 6 encaissés sur 5). Classement : Dynamo Dresden 18e (8 pts), SpVgg Greuther Fürth 9e (12 pts). Stats empiriques (forme récente) : buts moy. 2.83, BTTS 50.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: — / N: 3.8 / 2: 3.75 · Over 2.5: 1.53. Fiabilité 78.13%.",
+      "analysisData": {
+        "bttsProb": 0.5,
+        "over25Prob": 0.5,
+        "homeLambda": 1.33,
+        "awayLambda": 1.5,
+        "xgTotal": 2.83
+      },
+      "estimatedCote": 2,
+      "estimatedCoteOver": 2,
+      "odds": {
+        "provider": "DraftKings",
+        "home": null,
+        "draw": 3.8,
+        "away": 3.75,
+        "over25": 1.53,
+        "under25": 2.3
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 2,
+      "formHome": {
+        "last5String": "D-D-V-N-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 5,
+        "goalsAgainst": 8,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-V-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 5,
+        "goalsAgainst": 6,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Hannover 96",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Holstein Kiel",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "1. FC Magdeburg",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "VfL Osnabruck",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Hertha Berlin",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Holstein Kiel",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "VfL Osnabruck",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "TSV Eintracht Braunschweig",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Hertha Berlin",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "1. FC Magdeburg",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 8,
+        "played": 10,
+        "gf": 12,
+        "ga": 20
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 12,
+        "played": 10,
+        "gf": 13,
+        "ga": 16
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 50,
+          "bttsProb": 0.5,
+          "homeLambda": 1.33,
+          "awayLambda": 1.5,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 52,
+          "over25Prob": 0.52,
+          "homeLambda": 1.33,
+          "awayLambda": 1.5,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.52
+        }
+      ],
+      "bttsProb": 0.5,
+      "over25Prob": 0.52,
+      "homeLambda": 1.33,
+      "awayLambda": 1.5,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Dynamo Dresden affiche un taux d'Over 2.5 de 60% malgré sa place de lanterne rouge.",
+      "ai_analysis": "Malgré la position délicate de Dynamo Dresden au classement de 2. Bundesliga, les indicateurs statistiques sur l'Over 2.5 atteignent 50% d'empirical_over25 et une cote de 1.53. Les moyennes de buts par match restent correctes avec 1.33 pour l'équipe à domicile et 1.5 pour l'extérieur. Toutefois, la faible efficacité offensive récente des deux formations justifie la prudence et un niveau de confiance bas.",
+      "ai_analysis_en": "Despite Dynamo Dresden's precarious position in the 2. Bundesliga standings, Over 2.5 indicators reach 50% empirical rate with odds at 1.53. Match goal averages remain decent at 1.33 for the home side and 1.5 for the visitors. However, recent low offensive efficiency for both teams warrants caution and a low confidence level.",
+      "ai_form_summary": "Dynamo Dresden : D-D-V-N-D (1W-1D-3L, 5 BP, 8 BC). SpVgg Greuther Fürth : V-D-V-D-N (2W-1D-2L, 5 BP, 6 BC).",
+      "ai_form_summary_en": "Dynamo Dresden: D-D-V-N-D (1W-1D-3L, 5 GF, 8 GA). SpVgg Greuther Fürth: V-D-V-D-N (2W-1D-2L, 5 GF, 6 GA).",
+      "ai_reasons": [
+        "Cote attractive de 1.53 proposée pour l'Over 2.5",
+        "Taux empirique de l'Over 2.5 à 50% sur l'échantillon",
+        "Moyennes de buts honorables avec 1.33 pour l'hôte et 1.5 pour le visiteur"
+      ],
+      "ai_risks": [
+        "Dynamo Dresden est 18e avec une attaque en difficulté (5 buts en 5 matchs)",
+        "Taux BTTS de Greuther Fürth limité à 40% sur ses 5 derniers matchs"
+      ],
+      "ai_confidence": "low",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
     }
   ],
   "vipPreview": [
@@ -11980,7 +13052,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.7 · N 3.5 · 2 2.25 · O2.5 1.59",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-4",
+      "verifiedAt": "2026-11-02T21:16:31.056Z"
     },
     {
       "id": "benfica-vs-alverca-2026-11-02",
@@ -21026,6 +22100,13 @@
       ],
       "last5Away": [
         {
+          "date": "2026-11-02",
+          "opponent": "Fiorentina",
+          "venue": "H",
+          "score": "2-4",
+          "result": "L"
+        },
+        {
           "date": "2026-10-27",
           "opponent": "Lazio",
           "venue": "H",
@@ -21052,13 +22133,6 @@
           "venue": "H",
           "score": "1-1",
           "result": "D"
-        },
-        {
-          "date": "2026-09-18",
-          "opponent": "Monza",
-          "venue": "A",
-          "score": "1-2",
-          "result": "L"
         }
       ],
       "standingsHome": {
@@ -23443,6 +24517,1082 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.83 · N 4.1 · 2 3.25",
+      "status": "PENDING"
+    },
+    {
+      "id": "atlticom-vs-bayernmu-2026-11-03",
+      "match": "Atlético Madrid vs Bayern Munich",
+      "home": "Atlético Madrid",
+      "away": "Bayern Munich",
+      "league": "UEFA Champions League",
+      "date": "2026-11-03",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6,
+      "bttsProbDisplay": "60.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 60,
+      "time": "20:00",
+      "matchSemantic": "atlticom-vs-bayernmu-2026-11-03",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.33,
+      "xgAway": 1.75,
+      "xgTotal": 4.08,
+      "formBTTS": 60,
+      "analysis": "Atlético Madrid : forme V-V-V-V-V (5V 0N 0D, 8 buts marqués / 2 encaissés sur 5) · Bayern Munich : forme N-V-V-N-V (3V 2N 0D, 20 buts marqués / 6 encaissés sur 5). Classement : Atlético Madrid 16e (4 pts), Bayern Munich 14e (5 pts). Stats empiriques (forme récente) : buts moy. 4.08, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.7 / N: 3.95 / 2: 2.35. Fiabilité 85%.",
+      "analysisData": {
+        "bttsProb": 0.6,
+        "over25Prob": 0.7,
+        "homeLambda": 2.33,
+        "awayLambda": 1.75,
+        "xgTotal": 4.08
+      },
+      "estimatedCote": 1.67,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.7,
+        "draw": 3.95,
+        "away": 2.35,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.67,
+      "formHome": {
+        "last5String": "V-V-V-V-V",
+        "wins": 5,
+        "draws": 0,
+        "losses": 0,
+        "goalsFor": 8,
+        "goalsAgainst": 2,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 3,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-V-V-N-V",
+        "wins": 3,
+        "draws": 2,
+        "losses": 0,
+        "goalsFor": 20,
+        "goalsAgainst": 6,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Levante",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Deportivo",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Espanyol",
+          "venue": "A",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Alavés",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Real Madrid",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Borussia Dortmund",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "SC Freiburg",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "RB Leipzig",
+          "venue": "H",
+          "score": "6-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "FC Augsburg",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "1. FC Union Berlin",
+          "venue": "H",
+          "score": "7-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 16,
+        "points": 4,
+        "played": 3,
+        "gf": 4,
+        "ga": 3
+      },
+      "standingsAway": {
+        "rank": 14,
+        "points": 5,
+        "played": 3,
+        "gf": 10,
+        "ga": 5
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "bttsProb": 0.65,
+          "homeLambda": 2.33,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.65
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "over25Prob": 0.675,
+          "homeLambda": 2.33,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.675
+        }
+      ],
+      "bttsProb": 0.65,
+      "over25Prob": 0.675,
+      "homeLambda": 2.33,
+      "awayLambda": 1.75,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Le Bayern Munich affiche 20 buts marqués et un taux over 2.5 de 100% sur ses 5 derniers matchs.",
+      "ai_analysis": "Cette confrontation entre l'Atlético Madrid et le Bayern Munich présente un profil propice aux buts malgré la prudence défensive habituelle des Colchoneros. Le Bayern se distingue par une attaque prolifique (20 buts sur ses 5 derniers matchs) et un taux over 2.5 maximal. Avec un taux BTTS empirique de 60%, le pari des deux équipes marquent s'appuie sur la dynamique offensive allemande et les moyennes de buts des deux camps.",
+      "ai_analysis_en": "This matchup between Atlético Madrid and Bayern Munich shows profiles conducive to goals despite the Colchoneros' usual defensive caution. Bayern stands out with a prolific attack (20 goals in their last 5 matches) and a 100% over 2.5 rate. With an empirical BTTS rate of 60%, selecting both teams to score is supported by the German offensive momentum and both sides' goal averages.",
+      "ai_form_summary": "Atlético Madrid: 5V-0N-0D, 8 buts pour, 2 contre. Bayern Munich: 3V-2N-0D, 20 buts pour, 6 contre.",
+      "ai_form_summary_en": "Atlético Madrid: 5W-0D-0L, 8 goals for, 2 against. Bayern Munich: 3W-2D-0L, 20 goals for, 6 against.",
+      "ai_reasons": [
+        "Taux BTTS empirique à 60% et taux de forme BTTS à 60% pour les deux formations.",
+        "Bayern Munich affiche un taux over 2.5 de 100% sur ses 5 derniers matchs et 20 buts marqués.",
+        "Atlético Madrid possède des moyennes de buts solides (2.33 pour, 1.75 contre)."
+      ],
+      "ai_risks": [
+        "Atlético Madrid affiche un taux BTTS individuel de seulement 40% sur ses 5 derniers matchs.",
+        "La solidité défensive de l'Atlético (2 buts encaissés en 5 matchs) pourrait limiter les occasions bavaroises."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.7 · N 3.95 · 2 2.35",
+      "status": "PENDING"
+    },
+    {
+      "id": "wrexham-vs-middlesb-2026-11-04",
+      "match": "Wrexham vs Middlesbrough",
+      "home": "Wrexham",
+      "away": "Middlesbrough",
+      "league": "Championship",
+      "date": "2026-11-04",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.6,
+      "bttsProbDisplay": "60.00%",
+      "over25ProbDisplay": "60.00%",
+      "confidence": 60,
+      "time": "19:45",
+      "matchSemantic": "wrexham-vs-middlesb-2026-11-04",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/352.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/369.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2,
+      "xgAway": 3.33,
+      "xgTotal": 5.33,
+      "formBTTS": 60,
+      "analysis": "Wrexham : forme D-D-V-D-N (1V 1N 3D, 6 buts marqués / 7 encaissés sur 5) · Middlesbrough : forme V-V-N-V-V (4V 1N 0D, 14 buts marqués / 5 encaissés sur 5). Classement : Wrexham 18e (14 pts), Middlesbrough 1e (28 pts). Stats empiriques (forme récente) : buts moy. 5.33, BTTS 60.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 4 / N: 3.95 / 2: 1.8 · Over 2.5: 1.67. Fiabilité 85%.",
+      "analysisData": {
+        "bttsProb": 0.6,
+        "over25Prob": 0.6,
+        "homeLambda": 2,
+        "awayLambda": 3.33,
+        "xgTotal": 5.33
+      },
+      "estimatedCote": 1.67,
+      "estimatedCoteOver": 1.67,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 4,
+        "draw": 3.95,
+        "away": 1.8,
+        "over25": 1.67,
+        "under25": 2.15
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.67,
+      "formHome": {
+        "last5String": "D-D-V-D-N",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 6,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-N-V-V",
+        "wins": 4,
+        "draws": 1,
+        "losses": 0,
+        "goalsFor": 14,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Sheffield United",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Blackburn Rovers",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Preston North End",
+          "venue": "H",
+          "score": "4-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "West Bromwich Albion",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Derby County",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Charlton Athletic",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Bolton Wanderers",
+          "venue": "A",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Cardiff City",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Stoke City",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Wolverhampton Wanderers",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 14,
+        "played": 13,
+        "gf": 15,
+        "ga": 19
+      },
+      "standingsAway": {
+        "rank": 1,
+        "points": 28,
+        "played": 13,
+        "gf": 30,
+        "ga": 17
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 60,
+          "bttsProb": 0.6,
+          "homeLambda": 2,
+          "awayLambda": 3.33,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 60,
+          "over25Prob": 0.6,
+          "homeLambda": 2,
+          "awayLambda": 3.33,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.6
+        }
+      ],
+      "bttsProb": 0.6,
+      "over25Prob": 0.6,
+      "homeLambda": 2,
+      "awayLambda": 3.33,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Form signals BTTS 60% / Over 60%",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 60.0%, Over 2.5 empirique 60.0% pour Wrexham vs Middlesbrough. Décision : OVER_25.",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 60.0%, Over 2.5 60.0% for Wrexham vs Middlesbrough. Decision: OVER_25.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 60.0%, Over 2.5 empirique 60.0% pour Wrexham vs Middlesbrough. Décision : OV",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 60.0%, Over 2.5 60.0% for Wrexham vs Middlesbrough. Decision: OVER_25.",
+      "ai_reasons": [
+        "Empirical BTTS rate ~60%",
+        "Empirical Over 2.5 rate ~60%"
+      ],
+      "ai_risks": [
+        "Sample limited to recent matches; form can shift quickly."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "local-empirical-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 4 · N 3.95 · 2 1.8 · O2.5 1.67",
+      "status": "PENDING"
+    },
+    {
+      "id": "bayerlev-vs-marseill-2026-11-05",
+      "match": "Bayer Leverkusen vs Marseille",
+      "home": "Bayer Leverkusen",
+      "away": "Marseille",
+      "league": "UEFA Europa League",
+      "date": "2026-11-05",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6,
+      "bttsProbDisplay": "60.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 60,
+      "time": "20:00",
+      "matchSemantic": "bayerlev-vs-marseill-2026-11-05",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/176.png",
+      "tier": "GOLD",
+      "reliabilityScore": 85,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.5,
+      "xgAway": 1.75,
+      "xgTotal": 4.25,
+      "formBTTS": 60,
+      "analysis": "Bayer Leverkusen : forme D-D-V-V-V (3V 0N 2D, 10 buts marqués / 11 encaissés sur 5) · Marseille : forme V-V-V-V-D (4V 0N 1D, 14 buts marqués / 7 encaissés sur 5). Classement : Bayer Leverkusen 2e (9 pts), Marseille 34e (? pts). Stats empiriques (forme récente) : buts moy. 4.25, BTTS 60.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.41 / N: 5.25 / 2: 6.5. Fiabilité 85%.",
+      "analysisData": {
+        "bttsProb": 0.6,
+        "over25Prob": 0.7,
+        "homeLambda": 2.5,
+        "awayLambda": 1.75,
+        "xgTotal": 4.25
+      },
+      "estimatedCote": 1.67,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 1.41,
+        "draw": 5.25,
+        "away": 6.5,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.67,
+      "formHome": {
+        "last5String": "D-D-V-V-V",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 10,
+        "goalsAgainst": 11,
+        "bttsRate": 0.6,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-V-D",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "goalsFor": 14,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-31",
+          "opponent": "VfB Stuttgart",
+          "venue": "H",
+          "score": "2-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "TSG Hoffenheim",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "SC Freiburg",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Mainz",
+          "venue": "A",
+          "score": "4-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "RB Leipzig",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Toulouse",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Le Havre AC",
+          "venue": "H",
+          "score": "4-3",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Angers",
+          "venue": "A",
+          "score": "5-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Troyes",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Paris Saint-Germain",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 2,
+        "points": 9,
+        "played": 3,
+        "gf": 8,
+        "ga": null
+      },
+      "standingsAway": {
+        "rank": 34,
+        "points": null,
+        "played": 3,
+        "gf": 1,
+        "ga": 6
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "bttsProb": 0.65,
+          "homeLambda": 2.5,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.65
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 65,
+          "over25Prob": 0.675,
+          "homeLambda": 2.5,
+          "awayLambda": 1.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.675
+        }
+      ],
+      "bttsProb": 0.65,
+      "over25Prob": 0.675,
+      "homeLambda": 2.5,
+      "awayLambda": 1.75,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Bayer Leverkusen affiche un taux d'Over 2.5 de 80% sur ses 8 derniers matchs.",
+      "ai_analysis": "Bayer Leverkusen accueille Marseille avec de solides statistiques offensives, affichant une moyenne de 2.5 buts marqués par match et un taux d'Over 2.5 de 70%. Les deux formations présentent un taux BTTS de 60% sur leurs 5 dernières rencontres, ce qui rencorce l'attrait pour le marché des buts. Bien que Marseille soit en difficulté au classement de la compétition, sa dynamique récente en buts et les chiffres de Leverkusen soutiennent une rencontre prolifique.",
+      "ai_analysis_en": "Bayer Leverkusen hosts Marseille with solid offensive statistics, averaging 2.5 goals scored per match and a 70% Over 2.5 rate. Both teams show a 60% BTTS rate in their last 5 matches, reinforcing the appeal for goals markets. Although Marseille struggles in the competition standings, their recent goalscoring momentum and Leverkusen's numbers support a high-scoring encounter.",
+      "ai_form_summary": "Leverkusen: 3V-0D-2D, 10 buts pour, 11 contre. Marseille: 4V-0D-1D, 14 buts pour, 7 contre.",
+      "ai_form_summary_en": "Leverkusen: 3W-0D-2L, 10 goals for, 11 against. Marseille: 4W-0D-1L, 14 goals for, 7 against.",
+      "ai_reasons": [
+        "Taux empirique Over 2.5 élevé à 70% sur un échantillon de 8 matchs.",
+        "Taux BTTS de 60% pour les deux équipes lors de leurs 5 derniers matchs.",
+        "Moyenne de buts marqués élevée pour Leverkusen (2.5 buts par match)."
+      ],
+      "ai_risks": [
+        "Marseille est en difficulté au classement (34e) malgré une bonne forme récente.",
+        "Marseille a encaissé 6 buts en 3 matchs européens."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.41 · N 5.25 · 2 6.5",
+      "status": "PENDING"
+    },
+    {
+      "id": "toulouse-vs-strasbou-2026-11-06",
+      "match": "Toulouse vs Strasbourg",
+      "home": "Toulouse",
+      "away": "Strasbourg",
+      "league": "Ligue 1",
+      "date": "2026-11-06",
+      "type": "BTTS",
+      "prediction": "Oui",
+      "proba": 0.6,
+      "bttsProbDisplay": "60.00%",
+      "over25ProbDisplay": "80.00%",
+      "confidence": 60,
+      "time": "19:45",
+      "matchSemantic": "toulouse-vs-strasbou-2026-11-06",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/179.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/180.png",
+      "tier": "GOLD",
+      "reliabilityScore": 82.5,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1,
+      "xgAway": 2,
+      "xgTotal": 3,
+      "formBTTS": 60,
+      "analysis": "Toulouse : forme D-N-V-N-V (2V 2N 1D, 8 buts marqués / 6 encaissés sur 5) · Strasbourg : forme V-D-D-D-D (1V 0N 4D, 8 buts marqués / 11 encaissés sur 5). Classement : Toulouse 11e (10 pts), Strasbourg 12e (10 pts). Stats empiriques (forme récente) : buts moy. 3, BTTS 60.0%, Over 2.5 80.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.05 / N: 3.7 / 2: 3.3 · Over 2.5: 1.57. Fiabilité 82.5%.",
+      "analysisData": {
+        "bttsProb": 0.6,
+        "over25Prob": 0.8,
+        "homeLambda": 1,
+        "awayLambda": 2,
+        "xgTotal": 3
+      },
+      "estimatedCote": 1.67,
+      "estimatedCoteOver": 1.25,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.05,
+        "draw": 3.7,
+        "away": 3.3,
+        "over25": 1.57,
+        "under25": 2.3
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.67,
+      "formHome": {
+        "last5String": "D-N-V-N-V",
+        "wins": 2,
+        "draws": 2,
+        "losses": 1,
+        "goalsFor": 8,
+        "goalsAgainst": 6,
+        "bttsRate": 0.4,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-D-D-D",
+        "wins": 1,
+        "draws": 0,
+        "losses": 4,
+        "goalsFor": 8,
+        "goalsAgainst": 11,
+        "bttsRate": 0.8,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Marseille",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Troyes",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Le Mans",
+          "venue": "A",
+          "score": "3-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "AS Monaco",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Le Havre AC",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "AJ Auxerre",
+          "venue": "H",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Stade Rennais",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Paris Saint-Germain",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Nice",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Paris FC",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 11,
+        "points": 10,
+        "played": 9,
+        "gf": 12,
+        "ga": 13
+      },
+      "standingsAway": {
+        "rank": 12,
+        "points": 10,
+        "played": 9,
+        "gf": 17,
+        "ga": 19
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 72,
+          "bttsProb": 0.72,
+          "homeLambda": 1,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.72
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 72,
+          "over25Prob": 0.76,
+          "homeLambda": 1,
+          "awayLambda": 2,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.76
+        }
+      ],
+      "bttsProb": 0.72,
+      "over25Prob": 0.76,
+      "homeLambda": 1,
+      "awayLambda": 2,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Strasbourg présente un taux Over 2.5 de 100% sur ses 5 derniers matchs avec 8 buts marqués et 11 encaissés.",
+      "ai_analysis": "L'analyse des données empiriques montre de solides indicateurs offensifs et défensifs pour ce duel de Ligue 1. Strasbourg présente des stats très ouvertes avec 100% d'Over 2.5 sur ses 5 derniers matchs et 19 buts encaissés au total cette saison. Toulouse marque en moyenne 1 but par match mais possède un taux global BTTS de 60%. La tendance penche nettement vers un match animé avec des buts des deux côtés.",
+      "ai_analysis_en": "Analysis of empirical data shows strong offensive and defensive indicators for this Ligue 1 fixture. Strasbourg displays very open stats with 100% Over 2.5 in their last 5 matches and 19 goals conceded overall this season. Toulouse averages 1 goal per match while holding a 60% overall BTTS rate. The trend leans clearly towards an open game with goals from both sides.",
+      "ai_form_summary": "Toulouse (2V-2D-1N, 8 buts pour, 6 contre) accueille Strasbourg (1V-0D-4L, 8 buts pour, 11 contre).",
+      "ai_form_summary_en": "Toulouse (2W-2D-1L, 8 goals for, 6 against) hosts Strasbourg (1W-0D-4L, 8 goals for, 11 against).",
+      "ai_reasons": [
+        "Taux empirique Over 2.5 très élevé à 80% (empirical_over25 = 0.8)",
+        "Strasbourg affiche un taux BTTS de 80% et un taux Over 2.5 de 100% sur ses 5 derniers matchs",
+        "Strasbourg encaisse beaucoup avec 19 buts concédés en 9 matchs de championnat"
+      ],
+      "ai_risks": [
+        "Toulouse a un taux BTTS plus mesuré de 40% sur ses 5 derniers matchs",
+        "Strasbourg reste sur une série de 4 défaites consécutives malgré sa production offensive"
+      ],
+      "ai_confidence": "high",
+      "ai_abstain": false,
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.05 · N 3.7 · 2 3.3 · O2.5 1.57",
+      "status": "PENDING"
+    },
+    {
+      "id": "dynamodr-vs-spvgggre-2026-11-06",
+      "match": "Dynamo Dresden vs SpVgg Greuther Fürth",
+      "home": "Dynamo Dresden",
+      "away": "SpVgg Greuther Fürth",
+      "league": "2. Bundesliga",
+      "date": "2026-11-06",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.52,
+      "bttsProbDisplay": "50.00%",
+      "over25ProbDisplay": "50.00%",
+      "confidence": 52,
+      "time": "17:30",
+      "matchSemantic": "dynamodr-vs-spvgggre-2026-11-06",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7017.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3070.png",
+      "tier": "GOLD",
+      "reliabilityScore": 78.13,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.33,
+      "xgAway": 1.5,
+      "xgTotal": 2.83,
+      "formBTTS": 50,
+      "analysis": "Dynamo Dresden : forme D-D-V-N-D (1V 1N 3D, 5 buts marqués / 8 encaissés sur 5) · SpVgg Greuther Fürth : forme V-D-V-D-N (2V 1N 2D, 5 buts marqués / 6 encaissés sur 5). Classement : Dynamo Dresden 18e (8 pts), SpVgg Greuther Fürth 9e (12 pts). Stats empiriques (forme récente) : buts moy. 2.83, BTTS 50.0%, Over 2.5 50.0%. Affinage AI ensuite. Cotes DraftKings — 1: — / N: 3.8 / 2: 3.75 · Over 2.5: 1.53. Fiabilité 78.13%.",
+      "analysisData": {
+        "bttsProb": 0.5,
+        "over25Prob": 0.5,
+        "homeLambda": 1.33,
+        "awayLambda": 1.5,
+        "xgTotal": 2.83
+      },
+      "estimatedCote": 2,
+      "estimatedCoteOver": 2,
+      "odds": {
+        "provider": "DraftKings",
+        "home": null,
+        "draw": 3.8,
+        "away": 3.75,
+        "over25": 1.53,
+        "under25": 2.3
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 2,
+      "formHome": {
+        "last5String": "D-D-V-N-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 5,
+        "goalsAgainst": 8,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-V-D-N",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 5,
+        "goalsAgainst": 6,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Hannover 96",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Holstein Kiel",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "1. FC Magdeburg",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "VfL Osnabruck",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Hertha Berlin",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Holstein Kiel",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "VfL Osnabruck",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "TSV Eintracht Braunschweig",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Hertha Berlin",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "1. FC Magdeburg",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 18,
+        "points": 8,
+        "played": 10,
+        "gf": 12,
+        "ga": 20
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 12,
+        "played": 10,
+        "gf": 13,
+        "ga": 16
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 50,
+          "bttsProb": 0.5,
+          "homeLambda": 1.33,
+          "awayLambda": 1.5,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 52,
+          "over25Prob": 0.52,
+          "homeLambda": 1.33,
+          "awayLambda": 1.5,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.52
+        }
+      ],
+      "bttsProb": 0.5,
+      "over25Prob": 0.52,
+      "homeLambda": 1.33,
+      "awayLambda": 1.5,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Dynamo Dresden affiche un taux d'Over 2.5 de 60% malgré sa place de lanterne rouge.",
+      "ai_analysis": "Malgré la position délicate de Dynamo Dresden au classement de 2. Bundesliga, les indicateurs statistiques sur l'Over 2.5 atteignent 50% d'empirical_over25 et une cote de 1.53. Les moyennes de buts par match restent correctes avec 1.33 pour l'équipe à domicile et 1.5 pour l'extérieur. Toutefois, la faible efficacité offensive récente des deux formations justifie la prudence et un niveau de confiance bas.",
+      "ai_analysis_en": "Despite Dynamo Dresden's precarious position in the 2. Bundesliga standings, Over 2.5 indicators reach 50% empirical rate with odds at 1.53. Match goal averages remain decent at 1.33 for the home side and 1.5 for the visitors. However, recent low offensive efficiency for both teams warrants caution and a low confidence level.",
+      "ai_form_summary": "Dynamo Dresden : D-D-V-N-D (1W-1D-3L, 5 BP, 8 BC). SpVgg Greuther Fürth : V-D-V-D-N (2W-1D-2L, 5 BP, 6 BC).",
+      "ai_form_summary_en": "Dynamo Dresden: D-D-V-N-D (1W-1D-3L, 5 GF, 8 GA). SpVgg Greuther Fürth: V-D-V-D-N (2W-1D-2L, 5 GF, 6 GA).",
+      "ai_reasons": [
+        "Cote attractive de 1.53 proposée pour l'Over 2.5",
+        "Taux empirique de l'Over 2.5 à 50% sur l'échantillon",
+        "Moyennes de buts honorables avec 1.33 pour l'hôte et 1.5 pour le visiteur"
+      ],
+      "ai_risks": [
+        "Dynamo Dresden est 18e avec une attaque en difficulté (5 buts en 5 matchs)",
+        "Taux BTTS de Greuther Fürth limité à 40% sur ses 5 derniers matchs"
+      ],
+      "ai_confidence": "low",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
       "status": "PENDING"
     }
   ],

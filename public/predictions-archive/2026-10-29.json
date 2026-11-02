@@ -15252,7 +15252,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.7 · N 3.5 · 2 2.25 · O2.5 1.59",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-4",
+      "verifiedAt": "2026-11-02T21:16:31.056Z"
     },
     {
       "id": "lafc-vs-minnesot-2026-11-02",
