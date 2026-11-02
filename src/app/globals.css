@@ -7877,3 +7877,210 @@ a[data-cta="sticky-register-1xbet"] {
 [data-promo-shell] {
   --promo-radius: 20px;
 }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   REFONTE PHASE 2 — Hero · MatchCenter · Promo prioritaires
+   Graphite / bleu pro · profondeur · mobile-first
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* ── Hero ── */
+.hp-hero--refonte {
+  padding-top: clamp(1.25rem, 3vw, 2.5rem);
+  padding-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+.hp-hero--refonte .hp-hero__glow--a {
+  opacity: 0.85;
+  filter: blur(2px);
+}
+.hp-hero--refonte .hp-hero__brand-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.85rem;
+  padding: 0.35rem 0.75rem 0.35rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(47, 125, 255, 0.08);
+  border: 1px solid rgba(47, 125, 255, 0.22);
+}
+.hp-hero--refonte .hp-hero__brand-mark {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2F7DFF, #45C7F7);
+  box-shadow: 0 0 12px rgba(47, 125, 255, 0.65);
+  animation: hp-hero-pulse 2.4s ease-in-out infinite;
+}
+@keyframes hp-hero-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.85); }
+}
+.hp-hero--refonte .hp-hero__brand {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9CC6FF;
+}
+.hp-hero--refonte .hp-hero__title {
+  font-size: clamp(1.85rem, 4.6vw, 3.15rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+.hp-hero--refonte .hp-hero__text {
+  max-width: 36rem;
+  font-size: clamp(0.95rem, 1.6vw, 1.08rem);
+  line-height: 1.65;
+  color: #A8B6C8;
+}
+.hp-hero--refonte .hp-hero__cta-zone {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.35rem;
+}
+.hp-hero--refonte .hp-hero__trust {
+  list-style: none;
+  margin: 1.15rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  max-width: 28rem;
+}
+@media (max-width: 480px) {
+  .hp-hero--refonte .hp-hero__trust { grid-template-columns: 1fr; }
+}
+.hp-hero--refonte .hp-hero__trust li {
+  border-radius: 12px;
+  padding: 0.55rem 0.65rem;
+  background: rgba(16, 22, 34, 0.75);
+  border: 1px solid rgba(47, 125, 255, 0.12);
+}
+.hp-hero--refonte .hp-hero__trust-k {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6B7A8C;
+}
+.hp-hero--refonte .hp-hero__trust-v {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #E8EEF7;
+}
+.hp-hero--refonte .hp-live {
+  border-radius: 22px;
+}
+
+/* ── MatchCenter cards ── */
+.hp-mc-card--refonte {
+  position: relative;
+  border-radius: 18px;
+  background:
+    linear-gradient(160deg, rgba(18, 26, 38, 0.92) 0%, rgba(10, 14, 22, 0.94) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 18px 40px rgba(0, 0, 0, 0.35);
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transform-style: preserve-3d;
+  transition: border-color 0.22s ease, box-shadow 0.22s ease;
+}
+.hp-mc-card--refonte::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(420px 180px at var(--mx, 50%) var(--my, 0%), rgba(47, 125, 255, 0.12), transparent 60%);
+  opacity: 0.9;
+}
+.hp-mc-card--refonte.is-won {
+  border-color: rgba(52, 211, 153, 0.35);
+}
+.hp-mc-card--refonte.is-lost {
+  border-color: rgba(248, 113, 113, 0.28);
+}
+.hp-mc-card--refonte.is-pending {
+  border-color: rgba(47, 125, 255, 0.22);
+}
+.hp-mc-card--refonte .hp-mc-league {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #8FA0B5;
+}
+.hp-mc-card--refonte .hp-mc-teams {
+  gap: 0.35rem;
+}
+.hp-mc-card--refonte .hp-mc-team {
+  font-size: 0.98rem;
+  font-weight: 750;
+  color: #F2F6FA;
+}
+.hp-mc-card--refonte .hp-mc-team img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+}
+.hp-mc-result.is-pending {
+  background: rgba(47, 125, 255, 0.08);
+  border: 1px solid rgba(47, 125, 255, 0.18);
+  border-radius: 12px;
+  padding: 0.45rem 0.65rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.75rem;
+}
+.hp-mc-result.is-pending .hp-mc-result__badge {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #7EB6FF;
+}
+.hp-mc-result.is-pending .hp-mc-result__label {
+  font-size: 11px;
+  color: #9DABBB;
+}
+.hp-pick.is-btts {
+  background: rgba(69, 199, 247, 0.1);
+  border-color: rgba(69, 199, 247, 0.28);
+}
+.hp-pick.is-btts b { color: #45C7F7; }
+.hp-pick.is-over {
+  background: rgba(91, 169, 255, 0.1);
+  border-color: rgba(91, 169, 255, 0.28);
+}
+.hp-pick.is-over b { color: #5BA9FF; }
+.hp-pick.is-exact {
+  background: rgba(232, 194, 104, 0.1);
+  border-color: rgba(232, 194, 104, 0.28);
+}
+.hp-pick.is-exact b { color: #E8C268; }
+
+@media (max-width: 640px) {
+  .hp-mc-card--refonte {
+    border-radius: 16px;
+    padding: 0.85rem 0.9rem;
+  }
+  .hp-mc-card--refonte .hp-mc-team {
+    font-size: 0.92rem;
+  }
+}
+
+/* ── Promo shells prioritaires Linebet / 1xBet ── */
+.promo-shell--linebet [data-cta^="promo-signup"],
+.promo-shell--1xbet [data-cta^="promo-signup"] {
+  box-shadow: 0 12px 36px rgba(47, 125, 255, 0.4) !important;
+}
+.promo-shell--linebet button[data-cta^="promo-copy"],
+.promo-shell--1xbet button[data-cta^="promo-copy"] {
+  letter-spacing: 0.28em;
+}
