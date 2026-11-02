@@ -150,7 +150,7 @@ function buildFaqJsonLd() {
         name: 'Quel est le code promo Linebet ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Le code promo Linebet est VISION221 — à saisir en majuscules lors de l'inscription ou dans la section « Code Promo » de ton compte. Valable dans le monde entier — tous les pays du monde, sans exception.",
+          text: "Le code promo Linebet est VISION221 — à saisir en majuscules lors de l'inscription ou dans la section « Code Promo » de ton compte. La disponibilité du code et de l'offre dépend du pays, du compte et des conditions affichées par Linebet.",
         },
       },
       {
