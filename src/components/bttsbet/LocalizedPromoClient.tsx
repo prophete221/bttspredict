@@ -51,7 +51,7 @@ const INFO: Record<BookmakerId, {
     code: 'btts221',
     signup: AFFILIATE.star888,
     download: AFFILIATE.star888Download,
-    logo: '/logos/888starz-logo.png',
+    logo: '/logos/888starz-logo.jpg',
     logoBg: '#1a0a0f',
     accent: '#FF4D6D',
     path: '/bonus-888starz',
@@ -71,25 +71,25 @@ export default function LocalizedPromoClient({ bookmaker }: { bookmaker: Bookmak
   const info = INFO[bookmaker]
 
   const copy = langKey === 'en' ? {
-    badge: 'Best promo code — 300% + 100 Free Spins',
+    badge: '🏆 best promo code — 300% + 100 Free Spins',
     title: `${info.brand} promo code ${info.code}`,
     intro: `Use code ${info.code} when you register via our link to unlock the welcome offer announced by ${info.brand}. Enter the code exactly as shown.`,
     offerHeadline: '300% + 100 free spins',
-    offerSub: 'No wagering requirement as announced. Terms shown by the operator apply. 18+.',
-    benefits: ['300% bonus', '100 Free Spins', 'No wagering', 'Android & iOS app', 'International'],
+    offerSub: 'No wagering requirements as announced. Terms shown by the operator apply. 18+.',
+    benefits: ['300% bonus', '100 Free Spins', 'No wagering requirements', 'Android & iOS app', 'International'],
     steps: [
       { n: '01', title: 'Register via our link', desc: `Open ${info.brand} with our partner link so the promo is attributed correctly.` },
       { n: '02', title: `Enter code ${info.code}`, desc: 'Type the code exactly (case sensitive) in the promo field before your first deposit.' },
-      { n: '03', title: 'Deposit & claim', desc: 'Follow the offer terms displayed by the operator after registration.' },
+      { n: '03', title: 'Deposit & claim', desc: 'Follow the offer terms displayed by the operator after registration. No wagering requirements as announced.' },
       { n: '04', title: 'Download the app', desc: 'Optional: install the official APK via our download button for mobile play.' },
     ],
     faq: [
       { q: `What is the ${info.brand} promo code?`, a: `The promo code is ${info.code}. Enter it exactly as written.` },
-      { q: 'What is the bonus?', a: '300% + 100 free spins as announced for this partner campaign, subject to operator terms.' },
+      { q: 'What is the bonus?', a: '300% + 100 free spins with no wagering requirements as announced for this partner campaign, subject to operator terms.' },
       { q: 'Is it available in my country?', a: `${info.brand} availability depends on local regulations. Always check the operator site.` },
     ],
   } : langKey === 'ar' ? {
-    badge: 'أفضل رمز — 300% + 100 لفة مجانية',
+    badge: '🏆 أفضل رمز — 300% + 100 لفة مجانية',
     title: `رمز ${info.brand} ${info.code}`,
     intro: `استخدم الرمز ${info.code} عند التسجيل عبر رابطنا لتفعيل عرض الترحيب. أدخل الرمز بدقة كما هو ظاهر.`,
     offerHeadline: '300% + 100 لفة مجانية',
@@ -107,7 +107,7 @@ export default function LocalizedPromoClient({ bookmaker }: { bookmaker: Bookmak
       { q: 'هل هو متاح في بلدي؟', a: `توافر ${info.brand} يعتمد على القوانين المحلية.` },
     ],
   } : {
-    badge: 'Meilleur code promo — 300% + 100 Free Spins',
+    badge: '🏆 Meilleur code promo — 300% + 100 Free Spins',
     title: `Code promo ${info.brand} ${info.code}`,
     intro: `Utilise le code ${info.code} à l’inscription via notre lien pour activer l’offre annoncée par ${info.brand}. Respecte la casse exacte.`,
     offerHeadline: '300% + 100 free spins',
@@ -116,12 +116,12 @@ export default function LocalizedPromoClient({ bookmaker }: { bookmaker: Bookmak
     steps: [
       { n: '01', title: 'Inscris-toi via notre lien', desc: `Ouvre ${info.brand} avec notre lien partenaire pour que l’offre soit bien attribuée.` },
       { n: '02', title: `Entre le code ${info.code}`, desc: 'Saisis le code exact (casse sensible) dans le champ promo avant le premier dépôt.' },
-      { n: '03', title: 'Dépose et active', desc: 'Suis les conditions affichées par l’opérateur après inscription.' },
+      { n: '03', title: 'Dépose et active', desc: 'Suis les conditions affichées par l’opérateur après inscription — sans condition de mise selon l’annonce.' },
       { n: '04', title: 'Télécharge l’app', desc: 'Optionnel : installe l’APK officiel via le bouton de téléchargement.' },
     ],
     faq: [
       { q: `Quel est le code promo ${info.brand} ?`, a: `Le code est ${info.code}. Saisis-le exactement comme indiqué.` },
-      { q: 'Quelle est l’offre ?', a: '300% + 100 free spins selon la campagne partenaire, sous conditions opérateur.' },
+      { q: 'Quelle est l’offre ?', a: '300% + 100 free spins sans condition de mise selon la campagne partenaire, sous conditions opérateur.' },
       { q: 'Disponible dans mon pays ?', a: `La disponibilité de ${info.brand} dépend de la réglementation locale.` },
     ],
   }
