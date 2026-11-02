@@ -1,4 +1,4 @@
-written 6171
+'use client'
 
 import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
