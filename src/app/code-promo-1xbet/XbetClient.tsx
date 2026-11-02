@@ -19,7 +19,7 @@ export default function XbetClient(_props: { reviewDate?: string } = {}) {
     <PromoLandingShell
       brand={BRAND}
       code={CODE}
-      bookmakerId="{'1xbet'}"
+      bookmakerId="1xbet"
       accent="#1B6EF3"
       logo="/logos/1xbet-logo.png"
       logoBg="#1a237e"
