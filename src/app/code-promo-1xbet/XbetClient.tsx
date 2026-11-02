@@ -2,10 +2,11 @@
 
 import { AFFILIATE } from '@/lib/constants'
 import PromoLandingShell from '@/components/bttsbet/PromoLandingShell'
+import { getPromoFaq } from '@/lib/promo-faq'
 
 const CODE = 'Vipbtts'
 const BRAND = '1xBet'
-const SELF = '1xbet'
+const SELF = '1xbet' as const
 
 const ALL_LINKS = [
   { id: '1xbet', label: '1xBet Vipbtts', href: '/code-promo-1xbet' },
@@ -38,12 +39,7 @@ export default function XbetClient(_props: { reviewDate?: string } = {}) {
         { n: '03', title: 'Vérifie les conditions', desc: 'Lis les termes affichés par l’opérateur (éligibilité, pays, délais) avant de déposer.' },
         { n: '04', title: 'Dépose et active', desc: 'Suis uniquement les instructions officielles après inscription. Télécharge l’APK si besoin.' },
       ]}
-      faq={[
-        { q: `Quel est le code promo ${BRAND} ?`, a: `Le code est ${CODE}. Saisis-le exactement comme indiqué.` },
-        { q: 'Quelle est l’offre annoncée ?', a: '300% + 100 free spins selon la campagne partenaire. Les conditions finales sont celles de l’opérateur.' },
-        { q: 'Disponible dans mon pays ?', a: `La disponibilité de ${BRAND} dépend de la réglementation locale. Vérifie sur le site officiel.` },
-        { q: 'Le code est-il sensible à la casse ?', a: `Oui. ${CODE} doit être saisi exactement (majuscules/minuscules).` },
-      ]}
+      faq={getPromoFaq('1xbet', 'fr')}
       crossLinks={ALL_LINKS.filter((l) => l.id !== SELF).map(({ label, href }) => ({ label, href }))}
     />
   )
