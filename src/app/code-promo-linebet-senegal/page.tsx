@@ -18,8 +18,8 @@ const REVIEW_DATE = new Date().toISOString().slice(0, 10)
 // Avec le template "%s | BTTSPredict" (14 chars), le title rendu final
 // fait 47 + 14 = 61 chars, sous la limite hard 70.
 // Anti-récidive: checkSeo() lance une erreur build-time si title > 60 ou desc > 150.
-const TITLE = 'Code promo Linebet VISION221 : 300% + 100 spins'
-const DESCRIPTION = `Code promo Linebet VISION221 : 300% de bonus + 100 free spins, sans condition de mise, dès 1 € de dépôt. Guide ${CURRENT_YEAR}, 18+.`
+const TITLE = 'Code promo Linebet VISION221 | promo code'
+const DESCRIPTION = `Code promo Linebet VISION221 — Linebet promo code & bonus code. Offre partenaire annoncée. Vérifie les conditions. 18+.`
 checkSeo('code-promo-linebet-senegal', TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
