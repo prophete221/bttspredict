@@ -18,8 +18,8 @@ const REVIEW_DATE = new Date().toISOString().slice(0, 10)
 // Avec le template "%s | BTTSPredict" (14 chars), le title rendu final
 // fait 47 + 14 = 61 chars, sous la limite hard 70.
 // Anti-récidive: checkSeo() lance une erreur build-time si title > 60 ou desc > 150.
-const TITLE = 'Code promo Linebet VISION221 : 300% + 100 spins'
-const DESCRIPTION = `Code promo Linebet VISION221 : 300% de bonus + 100 free spins, sans condition de mise, dès 1 € de dépôt. Guide ${CURRENT_YEAR}, 18+.`
+const TITLE = 'Code promo Linebet VISION221 | promo code'
+const DESCRIPTION = `Code promo Linebet VISION221 — Linebet promo code & bonus code. Offre partenaire annoncée. Vérifie les conditions. 18+.`
 checkSeo('code-promo-linebet-senegal', TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
@@ -150,7 +150,7 @@ function buildFaqJsonLd() {
         name: 'Quel est le code promo Linebet ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Le code promo Linebet est VISION221 — à saisir en majuscules lors de l'inscription ou dans la section « Code Promo » de ton compte. Valable dans le monde entier — tous les pays du monde, sans exception.",
+          text: "Le code promo Linebet est VISION221 — à saisir en majuscules lors de l'inscription ou dans la section « Code Promo » de ton compte. La disponibilité du code et de l'offre dépend du pays, du compte et des conditions affichées par Linebet.",
         },
       },
       {

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import LocalizedPromoClient from '@/components/bttsbet/LocalizedPromoClient'
 import { SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
+import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
 
 export function generateStaticParams() { return SUPPORTED_LOCALES.filter(locale => locale !== 'fr').map(locale => ({ locale })) }
 const SITE_URL = 'https://bttspredict.com'
@@ -33,5 +34,18 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   }
   return {}
 }
-export default async function Localized888StarzPage({ params }: { params: Promise<{ locale: string }> }) { const { locale } = await params; if (!SUPPORTED_LOCALES.includes(locale as Locale) || locale === 'fr') notFound();   return <LocalizedPromoClient bookmaker="888starz" reviewDate={REVIEW_DATE} />
- }
+export default async function Localized888StarzPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  if (!SUPPORTED_LOCALES.includes(locale as Locale) || locale === 'fr') notFound()
+  const lang = locale === 'ar' ? 'ar' : 'en'
+  const faqLd = buildPromoFaqJsonLd('888starz', lang)
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+      />
+      <LocalizedPromoClient bookmaker="888starz" reviewDate={REVIEW_DATE} />
+    </>
+  )
+}

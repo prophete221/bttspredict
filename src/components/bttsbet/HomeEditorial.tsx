@@ -185,18 +185,35 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
                 {copied ? '✓' : t.hero.copy}
               </button>
             </div>
-            <MovingGradientButton
-              href={AFFILIATE.linebet}
-              external
-              rel="sponsored nofollow noopener noreferrer"
-              dataCta="partner-signup-home"
-              onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'home-partner')}
-            >
-              {t.home2.ptCta}
-              <span className="hp-btn-arrow" aria-hidden="true">→</span>
-            </MovingGradientButton>
+            <div className="grid gap-2 w-full">
+              <MovingGradientButton
+                href={AFFILIATE.linebet}
+                external
+                rel="sponsored nofollow noopener noreferrer"
+                dataCta="partner-signup-home"
+                onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'home-partner')}
+              >
+                {t.home2.ptCta}
+                <span className="hp-btn-arrow" aria-hidden="true">→</span>
+              </MovingGradientButton>
+              <a
+                href={AFFILIATE.oneXbet}
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+                onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'home-partner-1xbet')}
+                data-cta="home-partner-1xbet-signup"
+                className="inline-flex items-center justify-center gap-1.5 rounded-xl px-4 py-3 text-sm font-bold transition-all"
+                style={{
+                  background: 'linear-gradient(135deg, #1B6EF3 0%, #2F7DFF 100%)',
+                  color: '#FFFFFF',
+                  boxShadow: '0 10px 28px rgba(27, 110, 243, 0.35)',
+                }}
+              >
+                {lang === 'fr' ? '1xBet · code Vipbtts' : lang === 'en' ? '1xBet · code Vipbtts' : '1xBet · Vipbtts'}
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
             <p className="hp-partner__mentions">{t.home2.ptMentions}</p>
-            {/* Partenaire prioritaire n°1 — 1xbet (300% + 100 free spins, code Vipbtts) */}
             <a
               href={localizedPath('/code-promo-1xbet', lang)}
               className="mt-2 inline-flex items-center gap-1.5 text-xs font-bold underline decoration-dotted transition-colors"
@@ -204,10 +221,10 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
               data-cta="home-partner-1xbet-link"
             >
               {lang === 'fr'
-                ? 'Nouveau : 300% + 100 free spins chez 1xbet (code Vipbtts)'
+                ? 'Guide code promo 1xBet (Vipbtts)'
                 : lang === 'en'
-                  ? 'New: 300% + 100 free spins on 1xbet (code Vipbtts)'
-                  : 'جديد: 300% + 100 لفة مجانية على 1xbet بالرمز Vipbtts'}
+                  ? '1xBet promo code guide (Vipbtts)'
+                  : 'دليل رمز 1xBet (Vipbtts)'}
               <span aria-hidden="true">→</span>
             </a>
           </div>

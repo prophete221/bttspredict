@@ -11,6 +11,7 @@ const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: (
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const FreePredictions = dynamic(() => import('@/components/bttsbet/FreePredictions'), { loading: () => null })
 const StickyCTABar = dynamic(() => import('@/components/bttsbet/StickyCTABar'), { loading: () => null })
+const PartnerSignupBand = dynamic(() => import('@/components/bttsbet/PartnerSignupBand'), { loading: () => null })
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: value } = await params
@@ -69,7 +70,10 @@ export default async function LocalizedOver25TodayPage({ params }: { params: Pro
           </div>
         </section>
 
-        <section className="page-design__feed max-w-5xl mx-auto px-4 pb-12"><FreePredictions /></section>
+        <PartnerSignupBand locale={value as Locale} />
+        <section className="page-design__feed max-w-5xl mx-auto px-4 pb-12">
+          <FreePredictions />
+        </section>
       </main>
       <Footer />
       <StickyCTABar />

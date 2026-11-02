@@ -44,8 +44,17 @@ export const VIP_POLICY = {
   promoCode: 'Vipbtts (1xbet) · VISION221 (Linebet)',
   minimumDeposit: '10 €',
   minimumDepositXof: '≈ 6 560 XOF',
-  activation: 'Compte créé via notre lien + code Vipbtts (1xbet) ou VISION221 (Linebet) — WhatsApp optionnel pour l’accès VIP',
-  verificationTime: 'Inscription immédiate ; VIP sous 24 h si demandé',
+  // Conditions d'accès à l'espace BTTSPredict VIP (service éditorial) —
+  // ce ne sont PAS des obligations imposées par les bookmakers.
+  requirements: [
+    'Nouveau compte créé via notre lien partenaire',
+    'Code promo Vipbtts (1xbet) ou VISION221 (Linebet) saisi à l’inscription',
+    'Dépôt minimum de 10 € pour activer l’accès VIP BTTSPredict',
+    'Validation WhatsApp par l’équipe BTTSPredict',
+  ],
+  activation:
+    'Accès VIP BTTSPredict : nouveau compte via notre lien + code Vipbtts (1xbet) ou VISION221 (Linebet) + dépôt min. 10 € + validation WhatsApp. Ces conditions concernent uniquement le service VIP BTTSPredict, pas le bookmaker.',
+  verificationTime: 'Validation WhatsApp sous 24 h après envoi de la preuve',
 } as const
 
 // Ordre de priorité des partenaires : 1xbet et Linebet d'abord (affiliation

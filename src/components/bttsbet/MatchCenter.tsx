@@ -387,7 +387,7 @@ function MatchCard({ m, index, lang, results, nowTs }: {
   return (
     <article
       ref={cardRef}
-      className="hp-mc-card"
+      className={`hp-mc-card hp-mc-card--refonte${won ? ' is-won' : ''}${lost ? ' is-lost' : ''}${!isFinished ? ' is-pending' : ''}`}
       onMouseMove={onCardMove}
       onMouseLeave={onCardLeave}
       style={{ ['--d' as string]: `${Math.min(index, 6) * 40}ms` }}
@@ -431,7 +431,17 @@ function MatchCard({ m, index, lang, results, nowTs }: {
         </div>
       </div>
 
-      {/* Résultat — matchs terminés (jamais caché) */}
+      {/* Statut — terminé (WON/LOST) ou en attente */}
+      {!isFinished && (
+        <div className="hp-mc-result is-pending">
+          <span className="hp-mc-result__badge">
+            {lang === 'en' ? 'PENDING' : lang === 'ar' ? 'قيد الانتظار' : 'EN ATTENTE'}
+          </span>
+          <span className="hp-mc-result__label">
+            {m.time ? `${m.time} GMT` : (lang === 'en' ? 'Kick-off soon' : lang === 'ar' ? 'قريباً' : 'Coup d’envoi bientôt')}
+          </span>
+        </div>
+      )}
       {isFinished && (
         <div className={`hp-mc-result${won ? ' is-won' : ''}${lost ? ' is-lost' : ''}`}>
           {hasResult ? (
@@ -449,13 +459,24 @@ function MatchCard({ m, index, lang, results, nowTs }: {
       {/* Ligne 3 : marchés du modèle */}
       {(picks.length > 0 || m.ai_exact_score) && (
         <div className="hp-mc-picks">
-          {picks.map(p => (
-            <span key={p.type} className={`hp-pick${p.type === 'BTTS' ? ' is-btts' : ''}`}>
-              <b>{p.type}</b>
-              <span>{p.prediction === 'Oui' ? t.predictions.bttsYes : p.prediction === 'Non' ? t.predictions.bttsNo : p.prediction}</span>
-              {p.confidence !== undefined && p.confidence > 0 && p.confidence <= 100 && <i>{p.confidence}%</i>}
-            </span>
-          ))}
+          {picks.map(p => {
+            const typeUp = (p.type || '').toUpperCase()
+            const marketClass =
+              typeUp.includes('BTTS') || typeUp.includes('BOTH')
+                ? ' is-btts'
+                : typeUp.includes('OVER') || typeUp.includes('2.5') || typeUp.includes('O2.5')
+                  ? ' is-over'
+                  : typeUp.includes('EXACT') || typeUp.includes('CS')
+                    ? ' is-exact'
+                    : ''
+            return (
+              <span key={p.type} className={`hp-pick${marketClass}`}>
+                <b>{p.type}</b>
+                <span>{p.prediction === 'Oui' ? t.predictions.bttsYes : p.prediction === 'Non' ? t.predictions.bttsNo : p.prediction}</span>
+                {p.confidence !== undefined && p.confidence > 0 && p.confidence <= 100 && <i>{p.confidence}%</i>}
+              </span>
+            )
+          })}
           {m.ai_exact_score && (
             <span className="hp-pick is-exact">
               <b>{t.home2.mcExact}</b>

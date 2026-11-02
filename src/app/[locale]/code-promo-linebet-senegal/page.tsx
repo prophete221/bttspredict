@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import LocalizedPromoClient from '@/components/bttsbet/LocalizedPromoClient'
 import { SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
+import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
 
 export function generateStaticParams() { return SUPPORTED_LOCALES.filter(locale => locale !== 'fr').map(locale => ({ locale })) }
 const YEAR = new Date().getUTCFullYear()
@@ -20,4 +21,18 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   }
   return {}
 }
-export default async function LocalizedLinebetPage({ params }: { params: Promise<{ locale: string }> }) { const { locale } = await params; if (!SUPPORTED_LOCALES.includes(locale as Locale) || locale === 'fr') notFound(); return <LocalizedPromoClient bookmaker="linebet" /> }
+export default async function LocalizedLinebetPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  if (!SUPPORTED_LOCALES.includes(locale as Locale) || locale === 'fr') notFound()
+  const lang = locale === 'ar' ? 'ar' : 'en'
+  const faqLd = buildPromoFaqJsonLd('linebet', lang)
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+      />
+      <LocalizedPromoClient bookmaker="linebet" />
+    </>
+  )
+}
