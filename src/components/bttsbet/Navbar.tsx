@@ -52,10 +52,13 @@ export default function Navbar() {
     return () => { cancelled = true }
   }, [])
 
-  /* Code promo contextuel : btts221 sur les pages 888Starz, VISION221 (Linebet) ailleurs */
+  /* Code promo contextuel par page : casse exacte de chaque bookmaker.
+     1xbet et Linebet prioritaires ; Melbet et 888Starz contextuels. */
   const is888Page = pathname?.includes('bonus-888starz') ?? false
-  const navPromoCode = is888Page ? 'btts221' : SITE.promoCode
-  const navPartner: 'linebet' | '888starz' = is888Page ? '888starz' : 'linebet'
+  const is1xbetPage = pathname?.includes('code-promo-1xbet') ?? false
+  const isMelbetPage = pathname?.includes('code-promo-melbet') ?? false
+  const navPromoCode = is1xbetPage ? 'Vipbtts' : isMelbetPage ? 'Bttswin' : is888Page ? 'btts221' : SITE.promoCode
+  const navPartner: 'linebet' | '888starz' | '1xbet' | 'melbet' = is1xbetPage ? '1xbet' : isMelbetPage ? 'melbet' : is888Page ? '888starz' : 'linebet'
 
   const copyCode = useCallback(async () => {
     // « Copié » n'est affiché que si la copie a réellement réussi
