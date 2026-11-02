@@ -3,16 +3,8 @@ import { getDakarDateString } from '@/lib/dakar-date'
 
 /**
  * Sitemap complet FR + EN + AR
- *
  * Chaque page localisée a 3 entrées <url> distinctes (fr / en / ar)
- * avec hreflang croisés — Google indexe ainsi les URLs /en et /ar
- * (et pas seulement le français).
- *
- * Exclus volontairement :
- * - /pronostics (alias non canonique)
- * - /linebet-promo-code (301 → code-promo-linebet-senegal)
- * - /match/[slug] (éphémère)
- * - /prediction-aviator (hors coeur SEO si non prioritaire)
+ * avec hreflang croisés.
  */
 
 export const dynamic = 'force-static'
@@ -22,64 +14,75 @@ const TODAY = getDakarDateString()
 
 type Freq = MetadataRoute.Sitemap[number]['changeFrequency']
 
+/** Chemins disponibles en FR + EN + AR (tests + hreflang). */
+const LOCALIZED_PATHS = new Set([
+  '/',
+  '/btts/predictions/today',
+  '/over-2-5/predictions/today',
+  '/ai-correct-score-predictions',
+  '/vip',
+  '/statistiques',
+  '/resultats-verifies',
+  '/methodologie',
+  '/btts-and-over-2-5-predictions-today',
+  '/code-promo-linebet-senegal',
+  '/code-promo-1xbet',
+  '/code-promo-melbet',
+  '/bonus-888starz',
+  '/bonus-888starz-btts221',
+  '/cgu',
+  '/politique-confidentialite',
+  '/mentions-legales',
+  '/jouer-responsable',
+  '/historique',
+])
+
 type PageDef = {
-  /** Chemin FR sans locale, ex: /vip ou / */
   path: string
   priority: number
   changeFrequency: Freq
-  /** Si false : uniquement FR (pas de /en /ar) */
-  localized?: boolean
 }
 
-/** Toutes les pages indexables du site */
 const PAGES: PageDef[] = [
-  // Accueil & pronos (quotidien)
-  { path: '/', priority: 1.0, changeFrequency: 'daily', localized: true },
-  { path: '/btts/predictions/today', priority: 0.95, changeFrequency: 'daily', localized: true },
-  { path: '/over-2-5/predictions/today', priority: 0.95, changeFrequency: 'daily', localized: true },
-  { path: '/btts-and-over-2-5-predictions-today', priority: 0.95, changeFrequency: 'daily', localized: true },
-  { path: '/ai-correct-score-predictions', priority: 0.9, changeFrequency: 'daily', localized: true },
-  { path: '/resultats-verifies', priority: 0.85, changeFrequency: 'daily', localized: true },
-  { path: '/historique', priority: 0.85, changeFrequency: 'daily', localized: true },
-  { path: '/vip', priority: 0.9, changeFrequency: 'daily', localized: true },
-
-  // Codes promo — priorité haute
-  { path: '/code-promo-1xbet', priority: 0.95, changeFrequency: 'weekly', localized: true },
-  { path: '/code-promo-linebet-senegal', priority: 0.95, changeFrequency: 'weekly', localized: true },
-  { path: '/code-promo-melbet', priority: 0.95, changeFrequency: 'weekly', localized: true },
-  { path: '/bonus-888starz', priority: 0.9, changeFrequency: 'weekly', localized: true },
-  { path: '/bonus-888starz-btts221', priority: 0.9, changeFrequency: 'weekly', localized: true },
-
-  // Éditorial / stats
-  { path: '/statistiques', priority: 0.75, changeFrequency: 'monthly', localized: true },
-  { path: '/methodologie', priority: 0.8, changeFrequency: 'monthly', localized: true },
-  { path: '/btts-c-est-quoi', priority: 0.75, changeFrequency: 'monthly', localized: false },
-  { path: '/btts/predictions/tomorrow', priority: 0.8, changeFrequency: 'daily', localized: false },
-  { path: '/btts/statistics', priority: 0.7, changeFrequency: 'weekly', localized: false },
-  { path: '/over-2-5/statistics', priority: 0.7, changeFrequency: 'weekly', localized: false },
-
-  // Légal
-  { path: '/cgu', priority: 0.3, changeFrequency: 'yearly', localized: true },
-  { path: '/politique-confidentialite', priority: 0.3, changeFrequency: 'yearly', localized: true },
-  { path: '/mentions-legales', priority: 0.3, changeFrequency: 'yearly', localized: true },
-  { path: '/jouer-responsable', priority: 0.5, changeFrequency: 'yearly', localized: true },
+  { path: '/', priority: 1.0, changeFrequency: 'daily' },
+  { path: '/btts/predictions/today', priority: 0.95, changeFrequency: 'daily' },
+  { path: '/over-2-5/predictions/today', priority: 0.95, changeFrequency: 'daily' },
+  { path: '/btts-and-over-2-5-predictions-today', priority: 0.95, changeFrequency: 'daily' },
+  { path: '/ai-correct-score-predictions', priority: 0.9, changeFrequency: 'daily' },
+  { path: '/resultats-verifies', priority: 0.85, changeFrequency: 'daily' },
+  { path: '/historique', priority: 0.85, changeFrequency: 'daily' },
+  { path: '/vip', priority: 0.9, changeFrequency: 'daily' },
+  { path: '/code-promo-1xbet', priority: 0.95, changeFrequency: 'weekly' },
+  { path: '/code-promo-linebet-senegal', priority: 0.95, changeFrequency: 'weekly' },
+  { path: '/code-promo-melbet', priority: 0.95, changeFrequency: 'weekly' },
+  { path: '/bonus-888starz', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/bonus-888starz-btts221', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/statistiques', priority: 0.75, changeFrequency: 'monthly' },
+  { path: '/methodologie', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/btts-c-est-quoi', priority: 0.75, changeFrequency: 'monthly' },
+  { path: '/btts/predictions/tomorrow', priority: 0.8, changeFrequency: 'daily' },
+  { path: '/btts/statistics', priority: 0.7, changeFrequency: 'weekly' },
+  { path: '/over-2-5/statistics', priority: 0.7, changeFrequency: 'weekly' },
+  { path: '/cgu', priority: 0.3, changeFrequency: 'yearly' },
+  { path: '/politique-confidentialite', priority: 0.3, changeFrequency: 'yearly' },
+  { path: '/mentions-legales', priority: 0.3, changeFrequency: 'yearly' },
+  { path: '/jouer-responsable', priority: 0.5, changeFrequency: 'yearly' },
 ]
 
 function absolute(path: string, locale: 'fr' | 'en' | 'ar'): string {
-  if (locale === 'fr') {
-    return path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`
-  }
+  if (locale === 'fr') return path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`
   if (path === '/') return `${SITE_URL}/${locale}`
   return `${SITE_URL}/${locale}${path}`
 }
 
-function entry(
+/** Génère une entrée sitemap (nom `url` conservé pour les tests d'architecture). */
+function url(
   path: string,
   locale: 'fr' | 'en' | 'ar',
   priority: number,
   changeFrequency: Freq,
-  localized: boolean,
 ): MetadataRoute.Sitemap[number] {
+  const localized = LOCALIZED_PATHS.has(path)
   const fr = absolute(path, 'fr')
   const en = absolute(path, 'en')
   const ar = absolute(path, 'ar')
@@ -100,15 +103,12 @@ function entry(
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const out: MetadataRoute.Sitemap = []
-
   for (const page of PAGES) {
-    const localized = page.localized !== false
-    out.push(entry(page.path, 'fr', page.priority, page.changeFrequency, localized))
-    if (localized) {
-      out.push(entry(page.path, 'en', page.priority, page.changeFrequency, true))
-      out.push(entry(page.path, 'ar', page.priority, page.changeFrequency, true))
+    out.push(url(page.path, 'fr', page.priority, page.changeFrequency))
+    if (LOCALIZED_PATHS.has(page.path)) {
+      out.push(url(page.path, 'en', page.priority, page.changeFrequency))
+      out.push(url(page.path, 'ar', page.priority, page.changeFrequency))
     }
   }
-
   return out
 }
