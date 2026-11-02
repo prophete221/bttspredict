@@ -2,129 +2,113 @@ import type { MetadataRoute } from 'next'
 import { getDakarDateString } from '@/lib/dakar-date'
 
 /**
- * Sitemap Next.js natif — pages indexables vérifiées
+ * Sitemap complet FR + EN + AR
  *
- * Le sitemap contient les pages éditoriales, les pages de pronostics,
- * les pages légales et les pages affiliées distinctes réellement publiées.
+ * Chaque page localisée a 3 entrées <url> distinctes (fr / en / ar)
+ * avec hreflang croisés — Google indexe ainsi les URLs /en et /ar
+ * (et pas seulement le français).
  *
- * Règles strictes :
- * - PAS de /pronostics (alias non canonique de /btts/predictions/today)
- * - PAS de /linebet-promo-code (redirigé 301 vers /code-promo-linebet-senegal)
- * - PAS de /match/[slug] dans le sitemap (pages trop éphémères)
- * - PAS de blog, PAS de doorway pages
- * - lastModified = la date du jour Africa/Dakar pour toutes les entrées actives
- *
- * Les 18 URLs actives sont définies dans SEO_PAGES ci-dessous :
- * Les pages statistiques spécialisées BTTS et Over 2.5 restent volontairement
- * exclues tant que leurs données dédiées ne sont pas publiées.
+ * Exclus volontairement :
+ * - /pronostics (alias non canonique)
+ * - /linebet-promo-code (301 → code-promo-linebet-senegal)
+ * - /match/[slug] (éphémère)
+ * - /prediction-aviator (hors coeur SEO si non prioritaire)
  */
 
-// Requis pour `output: 'export'` — sinon Next.js throw une erreur.
 export const dynamic = 'force-static'
 
 const SITE_URL = 'https://bttspredict.com'
-const LOCALIZED_PATHS = new Set(['/', '/btts/predictions/today', '/over-2-5/predictions/today', '/ai-correct-score-predictions', '/vip', '/statistiques', '/resultats-verifies', '/methodologie', '/btts-and-over-2-5-predictions-today', '/code-promo-linebet-senegal', '/code-promo-1xbet', '/code-promo-melbet', '/bonus-888starz', '/bonus-888starz-btts221', '/cgu', '/politique-confidentialite', '/mentions-legales', '/jouer-responsable'])
-
-// Date métier du jour (YYYY-MM-DD), explicitement basée sur Africa/Dakar.
 const TODAY = getDakarDateString()
 
-// Helper : génère une URL sitemap avec hreflang
-function url(
+type Freq = MetadataRoute.Sitemap[number]['changeFrequency']
+
+type PageDef = {
+  /** Chemin FR sans locale, ex: /vip ou / */
+  path: string
+  priority: number
+  changeFrequency: Freq
+  /** Si false : uniquement FR (pas de /en /ar) */
+  localized?: boolean
+}
+
+/** Toutes les pages indexables du site */
+const PAGES: PageDef[] = [
+  // Accueil & pronos (quotidien)
+  { path: '/', priority: 1.0, changeFrequency: 'daily', localized: true },
+  { path: '/btts/predictions/today', priority: 0.95, changeFrequency: 'daily', localized: true },
+  { path: '/over-2-5/predictions/today', priority: 0.95, changeFrequency: 'daily', localized: true },
+  { path: '/btts-and-over-2-5-predictions-today', priority: 0.95, changeFrequency: 'daily', localized: true },
+  { path: '/ai-correct-score-predictions', priority: 0.9, changeFrequency: 'daily', localized: true },
+  { path: '/resultats-verifies', priority: 0.85, changeFrequency: 'daily', localized: true },
+  { path: '/historique', priority: 0.85, changeFrequency: 'daily', localized: true },
+  { path: '/vip', priority: 0.9, changeFrequency: 'daily', localized: true },
+
+  // Codes promo — priorité haute
+  { path: '/code-promo-1xbet', priority: 0.95, changeFrequency: 'weekly', localized: true },
+  { path: '/code-promo-linebet-senegal', priority: 0.95, changeFrequency: 'weekly', localized: true },
+  { path: '/code-promo-melbet', priority: 0.95, changeFrequency: 'weekly', localized: true },
+  { path: '/bonus-888starz', priority: 0.9, changeFrequency: 'weekly', localized: true },
+  { path: '/bonus-888starz-btts221', priority: 0.9, changeFrequency: 'weekly', localized: true },
+
+  // Éditorial / stats
+  { path: '/statistiques', priority: 0.75, changeFrequency: 'monthly', localized: true },
+  { path: '/methodologie', priority: 0.8, changeFrequency: 'monthly', localized: true },
+  { path: '/btts-c-est-quoi', priority: 0.75, changeFrequency: 'monthly', localized: false },
+  { path: '/btts/predictions/tomorrow', priority: 0.8, changeFrequency: 'daily', localized: false },
+  { path: '/btts/statistics', priority: 0.7, changeFrequency: 'weekly', localized: false },
+  { path: '/over-2-5/statistics', priority: 0.7, changeFrequency: 'weekly', localized: false },
+
+  // Légal
+  { path: '/cgu', priority: 0.3, changeFrequency: 'yearly', localized: true },
+  { path: '/politique-confidentialite', priority: 0.3, changeFrequency: 'yearly', localized: true },
+  { path: '/mentions-legales', priority: 0.3, changeFrequency: 'yearly', localized: true },
+  { path: '/jouer-responsable', priority: 0.5, changeFrequency: 'yearly', localized: true },
+]
+
+function absolute(path: string, locale: 'fr' | 'en' | 'ar'): string {
+  if (locale === 'fr') {
+    return path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`
+  }
+  if (path === '/') return `${SITE_URL}/${locale}`
+  return `${SITE_URL}/${locale}${path}`
+}
+
+function entry(
   path: string,
-  lastModified: string,
+  locale: 'fr' | 'en' | 'ar',
   priority: number,
-  changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'],
+  changeFrequency: Freq,
+  localized: boolean,
 ): MetadataRoute.Sitemap[number] {
-  const fullUrl = path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`
-  const localizedSuffix = path === '/' ? '' : path
-  const enUrl = `${SITE_URL}/en${localizedSuffix}`
-  const arUrl = `${SITE_URL}/ar${localizedSuffix}`
+  const fr = absolute(path, 'fr')
+  const en = absolute(path, 'en')
+  const ar = absolute(path, 'ar')
+  const self = absolute(path, locale)
+
+  const languages: Record<string, string> = localized
+    ? { fr, en, ar, 'x-default': fr }
+    : { fr, 'x-default': fr }
+
   return {
-    url: fullUrl,
-    lastModified: new Date(lastModified),
+    url: self,
+    lastModified: new Date(TODAY),
     changeFrequency,
-    priority,
-    alternates: {
-      languages: {
-        fr: fullUrl,
-        ...(LOCALIZED_PATHS.has(path) ? { en: enUrl, ar: arUrl } : {}),
-        'x-default': fullUrl,
-      },
-    },
+    priority: locale === 'en' ? Math.min(1, priority + 0.02) : priority,
+    alternates: { languages },
   }
 }
 
-// Pages essentielles indexables, sans doublons ni alias non canoniques.
-const SEO_PAGES: MetadataRoute.Sitemap = [
-  // 1. Homepage
-  url('/', TODAY, 1.0, 'daily'),
-
-  // 2. BTTS predictions today
-  url('/btts/predictions/today', TODAY, 0.9, 'daily'),
-
-  // 3. Over 2.5 predictions today
-  url('/over-2-5/predictions/today', TODAY, 0.9, 'daily'),
-
-  // 4. BTTS + Over 2.5 combined predictions today
-  url('/btts-and-over-2-5-predictions-today', TODAY, 0.9, 'daily'),
-
-  // 5. AI correct score predictions
-  url('/ai-correct-score-predictions', TODAY, 0.85, 'daily'),
-
-  // 6. BTTS statistics — TEMPORAIREMENT RETIRÉ DU SITEMAP (données en préparation)
-  // url('/btts/statistics', TODAY, 0.85, 'monthly'),
-
-  // 7. Over 2.5 statistics — TEMPORAIREMENT RETIRÉ DU SITEMAP (données en préparation)
-  // url('/over-2-5/statistics', TODAY, 0.85, 'monthly'),
-
-  // 8. Résultats vérifiés
-  url('/resultats-verifies', TODAY, 0.85, 'daily'),
-
-  // 9. Historique
-  url('/historique', TODAY, 0.85, 'daily'),
-
-  // 10. VIP
-  url('/vip', TODAY, 0.9, 'daily'),
-
-  // 11. Statistiques générales
-  url('/statistiques', TODAY, 0.75, 'monthly'),
-
-  // 12. Méthodologie
-  url('/methodologie', TODAY, 0.8, 'monthly'),
-
-  // 13. Conditions générales
-  url('/cgu', TODAY, 0.3, 'yearly'),
-
-  // 14. Confidentialité
-  url('/politique-confidentialite', TODAY, 0.3, 'yearly'),
-
-  // 15. Mentions légales
-  url('/mentions-legales', TODAY, 0.3, 'yearly'),
-
-  // 16. Jeu responsable
-  url('/jouer-responsable', TODAY, 0.5, 'yearly'),
-
-  // 15. BTTS c'est quoi
-  url('/btts-c-est-quoi', TODAY, 0.75, 'monthly'),
-
-  // 16. Code promo Linebet Sénégal
-  url('/code-promo-linebet-senegal', TODAY, 0.95, 'weekly'),
-
-  // 16bis. Code promo 1xbet — partenaire prioritaire 2026-11 (FR + EN/AR
-  // sous /en/ et /ar/ : versions locales ajoutées à LOCALIZED_PATHS)
-  url('/code-promo-1xbet', TODAY, 0.95, 'weekly'),
-
-  // 16ter. Code promo Melbet — partenaire affilié 2026-11 (FR + EN/AR)
-  url('/code-promo-melbet', TODAY, 0.95, 'weekly'),
-
-  // 17. Bonus 888starz
-  url('/bonus-888starz', TODAY, 0.9, 'weekly'),
-
-  // 18. Page dédiée btts221 — offre à vérifier quotidiennement
-  url('/bonus-888starz-btts221', TODAY, 0.95, 'daily'),
-
-]
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  return SEO_PAGES
+  const out: MetadataRoute.Sitemap = []
+
+  for (const page of PAGES) {
+    const localized = page.localized !== false
+    out.push(entry(page.path, 'fr', page.priority, page.changeFrequency, localized))
+    if (localized) {
+      out.push(entry(page.path, 'en', page.priority, page.changeFrequency, true))
+      out.push(entry(page.path, 'ar', page.priority, page.changeFrequency, true))
+    }
+  }
+
+  return out
 }
