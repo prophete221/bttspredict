@@ -152,7 +152,7 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
   ]
 
   return (
-    <section ref={sectionRef} className="hp-hero relative overflow-hidden">
+    <section ref={sectionRef} className="hp-hero hp-hero--refonte relative overflow-hidden">
       {/* Ambiance : halos lumineux + grille fine (décoratif) */}
       <div className="hp-hero__glow hp-hero__glow--a" aria-hidden="true" />
       <div className="hp-hero__glow hp-hero__glow--b" aria-hidden="true" />
@@ -162,6 +162,10 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
         <div className="hp-hero__grid">
           {/* ═══ Colonne message ═══ */}
           <div className="hp-hero__copy">
+            <div className="hp-hero__brand-row">
+              <span className="hp-hero__brand-mark" aria-hidden="true" />
+              <p className="hp-hero__brand">VISION221 · PRO ANALYTICS</p>
+            </div>
             <h1 className="hp-hero__title">
               <AnimatedTitle
                 text={plainTitle(t.home2.heroTitle1)}
@@ -185,6 +189,21 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
                 {t.home2.heroCtaSecondary}
               </a>
             </div>
+
+            <ul className="hp-hero__trust" aria-label={lang === 'en' ? 'Platform signals' : lang === 'ar' ? 'إشارات المنصة' : 'Signaux plateforme'}>
+              <li>
+                <span className="hp-hero__trust-k">{lang === 'en' ? 'Markets' : lang === 'ar' ? 'الأسواق' : 'Marchés'}</span>
+                <span className="hp-hero__trust-v">BTTS · O2.5 · CS</span>
+              </li>
+              <li>
+                <span className="hp-hero__trust-k">{lang === 'en' ? 'Method' : lang === 'ar' ? 'المنهج' : 'Méthode'}</span>
+                <span className="hp-hero__trust-v">{lang === 'en' ? 'Model + xG' : lang === 'ar' ? 'نموذج + xG' : 'Modèle + xG'}</span>
+              </li>
+              <li>
+                <span className="hp-hero__trust-k">{lang === 'en' ? 'Timezone' : lang === 'ar' ? 'التوقيت' : 'Fuseau'}</span>
+                <span className="hp-hero__trust-v">GMT (Dakar)</span>
+              </li>
+            </ul>
 
             {/* Bandeau défilant — grands clubs suivis (décoratif, logos locaux) */}
             <div className="hp-clubs" aria-hidden="true">
