@@ -31,8 +31,10 @@ export default function Navbar() {
     { label: t.nav.stats2, href: localizedPath('/statistiques', lang) },
   ]
   const partnerLinks = [
-    { label: 'Linebet', href: localizedPath('/code-promo-linebet-senegal', lang) },
-    { label: '888Starz', href: localizedPath('/bonus-888starz', lang) },
+    { label: '1xBet', href: localizedPath('/code-promo-1xbet', lang), code: 'Vipbtts', primary: true },
+    { label: 'Linebet', href: localizedPath('/code-promo-linebet-senegal', lang), code: 'VISION221', primary: true },
+    { label: 'Melbet', href: localizedPath('/code-promo-melbet', lang), code: 'Bttswin', primary: false },
+    { label: '888Starz', href: localizedPath('/bonus-888starz', lang), code: 'btts221', primary: false },
   ]
   const [copied, setCopied] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -194,12 +196,12 @@ export default function Navbar() {
           <div
             className="nav-drawer fixed top-0 left-0 right-0 z-[70] lg:hidden flex flex-col"
             style={{
-              maxHeight: 'min(92vh, 640px)',
-              background: 'linear-gradient(180deg, #0C121C 0%, #0A1018 100%)',
-              borderBottomLeftRadius: 20,
-              borderBottomRightRadius: 20,
-              borderBottom: '1px solid rgba(59, 130, 246, 0.18)',
-              boxShadow: '0 24px 64px rgba(0,0,0,0.65)',
+              maxHeight: 'min(94vh, 720px)',
+              background: 'linear-gradient(165deg, #0E1624 0%, #0A1018 55%, #080D14 100%)',
+              borderBottomLeftRadius: 24,
+              borderBottomRightRadius: 24,
+              borderBottom: '1px solid rgba(59, 130, 246, 0.22)',
+              boxShadow: '0 28px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(148,163,184,0.06)',
             }}
             role="dialog"
             aria-modal="true"
@@ -295,14 +297,22 @@ export default function Navbar() {
                       key={link.href}
                       href={link.href}
                       onClick={() => setMenuOpen(false)}
-                      className="flex items-center justify-center px-3 py-3 rounded-xl text-sm font-semibold text-center transition-colors"
+                      className="flex flex-col items-center justify-center gap-0.5 px-2.5 py-3 rounded-2xl text-center transition-all active:scale-[0.98]"
                       style={{
-                        color: '#E2E8F0',
-                        backgroundColor: 'rgba(15, 23, 42, 0.8)',
-                        border: '1px solid rgba(51, 65, 85, 0.65)',
+                        color: '#F1F5F9',
+                        background: link.primary
+                          ? 'linear-gradient(145deg, rgba(27,110,243,0.22) 0%, rgba(15,23,42,0.95) 100%)'
+                          : 'rgba(15, 23, 42, 0.88)',
+                        border: link.primary
+                          ? '1px solid rgba(59, 130, 246, 0.45)'
+                          : '1px solid rgba(51, 65, 85, 0.65)',
+                        boxShadow: link.primary ? '0 0 20px rgba(27,110,243,0.12)' : 'none',
                       }}
                     >
-                      {link.label}
+                      <span className="text-sm font-bold leading-tight">{link.label}</span>
+                      <span className="text-[10px] font-mono font-semibold tracking-wide" style={{ color: link.primary ? '#93C5FD' : '#94A3B8' }}>
+                        {link.code}
+                      </span>
                     </a>
                   ))}
                 </div>
