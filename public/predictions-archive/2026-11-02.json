@@ -10630,7 +10630,428 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.65 · N 3.3 · 2 2.5 · O2.5 1.69"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.65 · N 3.3 · 2 2.5 · O2.5 1.69",
+      "status": "PENDING"
+    },
+    {
+      "id": "lens-vs-como-2026-11-04",
+      "match": "Lens vs Como",
+      "home": "Lens",
+      "away": "Como",
+      "league": "UEFA Champions League",
+      "date": "2026-11-04",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.68,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 68,
+      "time": "20:00",
+      "matchSemantic": "lens-vs-como-2026-11-04",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/175.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.25,
+      "xgAway": 2.4,
+      "xgTotal": 4.65,
+      "formBTTS": 70,
+      "analysis": "Lens : forme V-V-V-D-N (3V 1N 1D, 10 buts marqués / 7 encaissés sur 5) · Como : forme V-V-V-N-D (3V 1N 1D, 8 buts marqués / 4 encaissés sur 5). Classement : Lens 27e (3 pts), Como 9e (6 pts). Stats empiriques (forme récente) : buts moy. 4.65, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.9 / N: 3.95 / 2: 2.15. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 2.25,
+        "awayLambda": 2.4,
+        "xgTotal": 4.65
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.9,
+        "draw": 3.95,
+        "away": 2.15,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "V-V-V-D-N",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 10,
+        "goalsAgainst": 7,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-N-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 8,
+        "goalsAgainst": 4,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Lille",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Paris FC",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Troyes",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Lyon",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "AS Monaco",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Venezia",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-27",
+          "opponent": "Torino",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Sassuolo",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Fiorentina",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "AS Roma",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 27,
+        "points": 3,
+        "played": 3,
+        "gf": 3,
+        "ga": 7
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 6,
+        "played": 3,
+        "gf": 10,
+        "ga": 5
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 2.25,
+          "awayLambda": 2.4,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 68,
+          "over25Prob": 0.68,
+          "homeLambda": 2.25,
+          "awayLambda": 2.4,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.68
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.68,
+      "homeLambda": 2.25,
+      "awayLambda": 2.4,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Lens présente un taux parfait de 100% sur l'Over 2.5 et le BTTS sur son échantillon de 8 matchs.",
+      "ai_analysis": "Malgré un profil de forme contrasté pour Como sur ses derniers matchs, les données globales de Lens (100% d'Over 2.5) et les moyennes de buts par match (plus de 2 buts pour chaque équipe) penchent en faveur d'un match animé. Les taux empiriques combinés atteignent 70%, justifiant une sélection sur l'Over 2.5.",
+      "ai_analysis_en": "Despite a contrasting recent form profile for Como, Lens' overall data (100% Over 2.5) and average goals per match (over 2 goals for each team) point towards a lively match. Combined empirical rates reach 70%, justifying an Over 2.5 selection.",
+      "ai_form_summary": "Lens (3W-1D-1L) déploie un jeu très ouvert avec des statistiques maximales d'Over, tandis que Como (3W-1D-1L) se montre plus pragmatique récemment.",
+      "ai_form_summary_en": "Lens (3W-1D-1L) displays a very open style of play with maximum Over statistics, while Como (3W-1D-1L) has proven more pragmatic recently.",
+      "ai_reasons": [
+        "Moyennes de buts élevées pour Lens (2.25) et Como (2.4).",
+        "Taux empiriques globaux de 70% pour le marché Over 2.5.",
+        "Lens affiche un taux de 100% sur le BTTS et l'Over 2.5 lors de ses 8 derniers matchs."
+      ],
+      "ai_risks": [
+        "Les derniers matchs de Como affichent des taux de BTTS et d'Over plus bas (40%).",
+        "Como se positionne bien au classement (9e) et peut verrouiller si nécessaire."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.95 · 2 2.15",
+      "status": "PENDING"
+    },
+    {
+      "id": "rapidvie-vs-wolfsber-2026-11-06",
+      "match": "Rapid Vienna vs Wolfsberger",
+      "home": "Rapid Vienna",
+      "away": "Wolfsberger",
+      "league": "Austrian Bundesliga",
+      "date": "2026-11-06",
+      "type": "BTTS",
+      "prediction": "Non",
+      "proba": 0.4,
+      "bttsProbDisplay": "40.00%",
+      "over25ProbDisplay": "50.00%",
+      "confidence": 40,
+      "time": "18:30",
+      "matchSemantic": "rapidvie-vs-wolfsber-2026-11-06",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/519.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/13294.png",
+      "tier": "GOLD",
+      "reliabilityScore": 76.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3.5,
+      "xgAway": 0.25,
+      "xgTotal": 3.75,
+      "formBTTS": 40,
+      "analysis": "Rapid Vienna : forme V-V-V-V-V (5V 0N 0D, 15 buts marqués / 2 encaissés sur 5) · Wolfsberger : forme N-D-D-D-D (0V 1N 4D, 2 buts marqués / 11 encaissés sur 5). Classement : Rapid Vienna 1e (30 pts), Wolfsberger 12e (6 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 40.0%, Over 2.5 50.0%. Affinage AI ensuite. Fiabilité 76.25%.",
+      "analysisData": {
+        "bttsProb": 0.4,
+        "over25Prob": 0.5,
+        "homeLambda": 3.5,
+        "awayLambda": 0.25,
+        "xgTotal": 3.75
+      },
+      "estimatedCote": 2.5,
+      "estimatedCoteOver": 2,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 2.5,
+      "formHome": {
+        "last5String": "V-V-V-V-V",
+        "wins": 5,
+        "draws": 0,
+        "losses": 0,
+        "goalsFor": 15,
+        "goalsAgainst": 2,
+        "bttsRate": 0.4,
+        "over25Rate": 0.6,
+        "cleanSheets": 3,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-D-D-D-D",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 2,
+        "goalsAgainst": 11,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 3,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Austria Vienna",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Austria Lustenau",
+          "venue": "H",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "TSV Hartberg",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "LASK Linz",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "WSG Swarovski Tirol",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "SK Sturm Graz",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "TSV Hartberg",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "WSG Swarovski Tirol",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "SC Rheindorf Altach",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "SV Josko Ried",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 1,
+        "points": 30,
+        "played": 11,
+        "gf": 33,
+        "ga": 9
+      },
+      "standingsAway": {
+        "rank": 12,
+        "points": 6,
+        "played": 11,
+        "gf": 8,
+        "ga": 20
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Non",
+          "confidence": 40,
+          "bttsProb": 0.4,
+          "homeLambda": 3.5,
+          "awayLambda": 0.25,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 50,
+          "over25Prob": 0.5,
+          "homeLambda": 3.5,
+          "awayLambda": 0.25,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        }
+      ],
+      "bttsProb": 0.4,
+      "over25Prob": 0.5,
+      "homeLambda": 3.5,
+      "awayLambda": 0.25,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Form signals BTTS 40% / Over 50%",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 40.0%, Over 2.5 empirique 50.0% pour Rapid Vienna vs Wolfsberger. Décision : ABSTAIN.",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 40.0%, Over 2.5 50.0% for Rapid Vienna vs Wolfsberger. Decision: ABSTAIN.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 40.0%, Over 2.5 empirique 50.0% pour Rapid Vienna vs Wolfsberger. Décision :",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 40.0%, Over 2.5 50.0% for Rapid Vienna vs Wolfsberger. Decision: ABSTAIN.",
+      "ai_reasons": [
+        "Empirical BTTS rate ~40%",
+        "Empirical Over 2.5 rate ~50%"
+      ],
+      "ai_risks": [
+        "Sample limited to recent matches; form can shift quickly."
+      ],
+      "ai_confidence": "low",
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_source": "local-empirical-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     }
   ],
   "vipPreview": [
@@ -21344,6 +21765,426 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.65 · N 3.3 · 2 2.5 · O2.5 1.69",
+      "status": "PENDING"
+    },
+    {
+      "id": "lens-vs-como-2026-11-04",
+      "match": "Lens vs Como",
+      "home": "Lens",
+      "away": "Como",
+      "league": "UEFA Champions League",
+      "date": "2026-11-04",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.68,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 68,
+      "time": "20:00",
+      "matchSemantic": "lens-vs-como-2026-11-04",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/175.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png",
+      "tier": "GOLD",
+      "reliabilityScore": 89.38,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 2.25,
+      "xgAway": 2.4,
+      "xgTotal": 4.65,
+      "formBTTS": 70,
+      "analysis": "Lens : forme V-V-V-D-N (3V 1N 1D, 10 buts marqués / 7 encaissés sur 5) · Como : forme V-V-V-N-D (3V 1N 1D, 8 buts marqués / 4 encaissés sur 5). Classement : Lens 27e (3 pts), Como 9e (6 pts). Stats empiriques (forme récente) : buts moy. 4.65, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.9 / N: 3.95 / 2: 2.15. Fiabilité 89.38%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 2.25,
+        "awayLambda": 2.4,
+        "xgTotal": 4.65
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.9,
+        "draw": 3.95,
+        "away": 2.15,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "V-V-V-D-N",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 10,
+        "goalsAgainst": 7,
+        "bttsRate": 1,
+        "over25Rate": 1,
+        "cleanSheets": 0,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-V-V-N-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 8,
+        "goalsAgainst": 4,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 2,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Lille",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Paris FC",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Troyes",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Lyon",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "AS Monaco",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Venezia",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-27",
+          "opponent": "Torino",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Sassuolo",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Fiorentina",
+          "venue": "A",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "AS Roma",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 27,
+        "points": 3,
+        "played": 3,
+        "gf": 3,
+        "ga": 7
+      },
+      "standingsAway": {
+        "rank": 9,
+        "points": 6,
+        "played": 3,
+        "gf": 10,
+        "ga": 5
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 2.25,
+          "awayLambda": 2.4,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 68,
+          "over25Prob": 0.68,
+          "homeLambda": 2.25,
+          "awayLambda": 2.4,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.68
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.68,
+      "homeLambda": 2.25,
+      "awayLambda": 2.4,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Lens présente un taux parfait de 100% sur l'Over 2.5 et le BTTS sur son échantillon de 8 matchs.",
+      "ai_analysis": "Malgré un profil de forme contrasté pour Como sur ses derniers matchs, les données globales de Lens (100% d'Over 2.5) et les moyennes de buts par match (plus de 2 buts pour chaque équipe) penchent en faveur d'un match animé. Les taux empiriques combinés atteignent 70%, justifiant une sélection sur l'Over 2.5.",
+      "ai_analysis_en": "Despite a contrasting recent form profile for Como, Lens' overall data (100% Over 2.5) and average goals per match (over 2 goals for each team) point towards a lively match. Combined empirical rates reach 70%, justifying an Over 2.5 selection.",
+      "ai_form_summary": "Lens (3W-1D-1L) déploie un jeu très ouvert avec des statistiques maximales d'Over, tandis que Como (3W-1D-1L) se montre plus pragmatique récemment.",
+      "ai_form_summary_en": "Lens (3W-1D-1L) displays a very open style of play with maximum Over statistics, while Como (3W-1D-1L) has proven more pragmatic recently.",
+      "ai_reasons": [
+        "Moyennes de buts élevées pour Lens (2.25) et Como (2.4).",
+        "Taux empiriques globaux de 70% pour le marché Over 2.5.",
+        "Lens affiche un taux de 100% sur le BTTS et l'Over 2.5 lors de ses 8 derniers matchs."
+      ],
+      "ai_risks": [
+        "Les derniers matchs de Como affichent des taux de BTTS et d'Over plus bas (40%).",
+        "Como se positionne bien au classement (9e) et peut verrouiller si nécessaire."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.95 · 2 2.15",
+      "status": "PENDING"
+    },
+    {
+      "id": "rapidvie-vs-wolfsber-2026-11-06",
+      "match": "Rapid Vienna vs Wolfsberger",
+      "home": "Rapid Vienna",
+      "away": "Wolfsberger",
+      "league": "Austrian Bundesliga",
+      "date": "2026-11-06",
+      "type": "BTTS",
+      "prediction": "Non",
+      "proba": 0.4,
+      "bttsProbDisplay": "40.00%",
+      "over25ProbDisplay": "50.00%",
+      "confidence": 40,
+      "time": "18:30",
+      "matchSemantic": "rapidvie-vs-wolfsber-2026-11-06",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/519.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/13294.png",
+      "tier": "GOLD",
+      "reliabilityScore": 76.25,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3.5,
+      "xgAway": 0.25,
+      "xgTotal": 3.75,
+      "formBTTS": 40,
+      "analysis": "Rapid Vienna : forme V-V-V-V-V (5V 0N 0D, 15 buts marqués / 2 encaissés sur 5) · Wolfsberger : forme N-D-D-D-D (0V 1N 4D, 2 buts marqués / 11 encaissés sur 5). Classement : Rapid Vienna 1e (30 pts), Wolfsberger 12e (6 pts). Stats empiriques (forme récente) : buts moy. 3.75, BTTS 40.0%, Over 2.5 50.0%. Affinage AI ensuite. Fiabilité 76.25%.",
+      "analysisData": {
+        "bttsProb": 0.4,
+        "over25Prob": 0.5,
+        "homeLambda": 3.5,
+        "awayLambda": 0.25,
+        "xgTotal": 3.75
+      },
+      "estimatedCote": 2.5,
+      "estimatedCoteOver": 2,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 2.5,
+      "formHome": {
+        "last5String": "V-V-V-V-V",
+        "wins": 5,
+        "draws": 0,
+        "losses": 0,
+        "goalsFor": 15,
+        "goalsAgainst": 2,
+        "bttsRate": 0.4,
+        "over25Rate": 0.6,
+        "cleanSheets": 3,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-D-D-D-D",
+        "wins": 0,
+        "draws": 1,
+        "losses": 4,
+        "goalsFor": 2,
+        "goalsAgainst": 11,
+        "bttsRate": 0.4,
+        "over25Rate": 0.4,
+        "cleanSheets": 0,
+        "failedToScore": 3,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Austria Vienna",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Austria Lustenau",
+          "venue": "H",
+          "score": "5-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "TSV Hartberg",
+          "venue": "H",
+          "score": "3-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "LASK Linz",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "WSG Swarovski Tirol",
+          "venue": "H",
+          "score": "3-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "SK Sturm Graz",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "TSV Hartberg",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "WSG Swarovski Tirol",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "SC Rheindorf Altach",
+          "venue": "A",
+          "score": "0-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "SV Josko Ried",
+          "venue": "A",
+          "score": "1-4",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 1,
+        "points": 30,
+        "played": 11,
+        "gf": 33,
+        "ga": 9
+      },
+      "standingsAway": {
+        "rank": 12,
+        "points": 6,
+        "played": 11,
+        "gf": 8,
+        "ga": 20
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Non",
+          "confidence": 40,
+          "bttsProb": 0.4,
+          "homeLambda": 3.5,
+          "awayLambda": 0.25,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 50,
+          "over25Prob": 0.5,
+          "homeLambda": 3.5,
+          "awayLambda": 0.25,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        }
+      ],
+      "bttsProb": 0.4,
+      "over25Prob": 0.5,
+      "homeLambda": 3.5,
+      "awayLambda": 0.25,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Form signals BTTS 40% / Over 50%",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 40.0%, Over 2.5 empirique 50.0% pour Rapid Vienna vs Wolfsberger. Décision : ABSTAIN.",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 40.0%, Over 2.5 50.0% for Rapid Vienna vs Wolfsberger. Decision: ABSTAIN.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 40.0%, Over 2.5 empirique 50.0% pour Rapid Vienna vs Wolfsberger. Décision :",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 40.0%, Over 2.5 50.0% for Rapid Vienna vs Wolfsberger. Decision: ABSTAIN.",
+      "ai_reasons": [
+        "Empirical BTTS rate ~40%",
+        "Empirical Over 2.5 rate ~50%"
+      ],
+      "ai_risks": [
+        "Sample limited to recent matches; form can shift quickly."
+      ],
+      "ai_confidence": "low",
+      "ai_abstain": true,
+      "ai_market": "ABSTAIN",
+      "ai_source": "local-empirical-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
       "status": "PENDING"
     }
   ],
