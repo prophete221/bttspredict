@@ -65,7 +65,7 @@ const CROSS: { id: BookmakerId; label: Record<'fr' | 'en' | 'ar', string>; href:
   { id: '888starz', label: { fr: 'Bonus 888Starz', en: '888Starz bonus', ar: 'بونص 888Starz' }, href: '/bonus-888starz' },
 ]
 
-export default function LocalizedPromoClient({ bookmaker }: { bookmaker: BookmakerId }) {
+export default function LocalizedPromoClient({ bookmaker, reviewDate: _reviewDate }: { bookmaker: BookmakerId; reviewDate?: string }) {
   const { lang } = useLanguage()
   const langKey = lang === 'en' || lang === 'ar' ? lang : 'fr'
   const info = INFO[bookmaker]
