@@ -117,7 +117,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
   const soft = p.accentSoft ?? `${accent}33`
 
   useEffect(() => {
-    trackAffiliateAction(p.bookmakerId, 'promo_page_view', `promo:${p.bookmakerId}:${p.lang}`)
+    trackAffiliateAction(p.bookmakerId, 'promo_view', `promo:${p.bookmakerId}:${p.lang}`)
   }, [p.bookmakerId, p.lang])
 
   const handleCopy = async () => {
@@ -263,7 +263,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
                 href={p.downloadUrl}
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
-                onClick={() => trackAffiliateAction(p.bookmakerId, 'download_cta_click', `promo-apk-${p.lang}`)}
+                onClick={() => trackAffiliateAction(p.bookmakerId, 'download_click', `promo-apk-${p.lang}`)}
                 data-cta={`promo-apk-${p.bookmakerId}`}
                 className="rounded-xl py-3.5 text-center text-sm font-bold transition-transform active:scale-[0.98]"
                 style={{
