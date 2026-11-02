@@ -7706,3 +7706,174 @@ main > section:nth-of-type(5) { animation-delay: 0.18s; }
   }
   .mel .lpb-code, .mel .lpb-stat__num { color: #FFE29A; }
 }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   REFONTE COMPLETE NOV 2026 — graphite / bleu pro
+   Gift popup dual CTA · surfaces homepage · promo shell polish
+   N'altère pas les sélecteurs SEO (titles restent dans les page.tsx)
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Gift popup — layout dual CTA */
+.hp-gift {
+  position: fixed;
+  z-index: 55;
+  right: 12px;
+  bottom: calc(140px + env(safe-area-inset-bottom, 0px));
+  width: min(300px, calc(100vw - 24px));
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .hp-gift {
+    right: 20px;
+    bottom: 24px;
+    width: 320px;
+  }
+}
+.hp-gift-card--refonte {
+  pointer-events: auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  padding: 14px 14px 12px;
+  background:
+    linear-gradient(155deg, rgba(16, 24, 38, 0.94) 0%, rgba(8, 12, 20, 0.96) 100%);
+  border: 1px solid rgba(47, 125, 255, 0.28);
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+}
+.hp-gift-card--refonte .hp-gift-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: #9DABBB;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+}
+.hp-gift-card--refonte .hp-gift-close:hover { color: #F2F6FA; background: rgba(255,255,255,0.08); }
+.hp-gift-card--refonte .hp-gift-icon-wrap {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 6px;
+}
+.hp-gift-card--refonte .hp-gift-emoji {
+  font-size: 28px;
+  line-height: 1;
+  filter: drop-shadow(0 6px 12px rgba(47, 125, 255, 0.35));
+}
+.hp-gift-card--refonte .hp-gift-halo {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 56px;
+  height: 56px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(47, 125, 255, 0.35), transparent 70%);
+  z-index: -1;
+}
+.hp-gift-card--refonte .hp-gift-kicker {
+  margin: 0 0 2px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5BA9FF;
+  text-align: center;
+}
+.hp-gift-card--refonte .hp-gift-bonus {
+  margin: 0;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 800;
+  color: #F2F6FA;
+  letter-spacing: -0.01em;
+}
+.hp-gift-card--refonte .hp-gift-bonus span {
+  background: linear-gradient(120deg, #4A90FF, #45C7F7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hp-gift-card--refonte .hp-gift-sub {
+  margin: 4px 0 10px;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #9DABBB;
+}
+.hp-gift-actions {
+  display: grid;
+  gap: 6px;
+}
+.hp-gift-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 36px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+.hp-gift-btn:active { transform: scale(0.98); }
+.hp-gift-btn--linebet {
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #2F7DFF 0%, #1B6EF3 100%);
+  box-shadow: 0 8px 20px rgba(47, 125, 255, 0.35);
+}
+.hp-gift-btn--xbet {
+  color: #E8F1FF;
+  background: rgba(27, 110, 243, 0.14);
+  border: 1px solid rgba(27, 110, 243, 0.45);
+}
+.hp-gift-btn--xbet:hover { background: rgba(27, 110, 243, 0.22); }
+
+/* Homepage — profondeur cartes hero / sections */
+.page-design--home .hp-hero,
+.page-design--home section.hp-section {
+  position: relative;
+}
+.page-design--home .hp-live,
+.page-design--home .hp-partner,
+.page-design--home .hp-pillar {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.page-design--home .hp-live:hover,
+.page-design--home .hp-partner:hover {
+  border-color: rgba(47, 125, 255, 0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 28px 64px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(47, 125, 255, 0.12);
+}
+@media (hover: hover) {
+  .page-design--home .hp-pillar:hover {
+    transform: translateY(-3px);
+    border-color: rgba(47, 125, 255, 0.22);
+  }
+}
+
+/* Sticky / mobile CTA contrast boost */
+.fixed [data-cta="sticky-register-1xbet"],
+a[data-cta="sticky-register-1xbet"] {
+  letter-spacing: 0.01em;
+}
+
+/* Promo landing — densify glass cards */
+.promo-landing-shell,
+[data-promo-shell] {
+  --promo-radius: 20px;
+}
