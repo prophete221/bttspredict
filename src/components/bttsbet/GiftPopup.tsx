@@ -9,7 +9,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
-import { AFFILIATE, SITE } from '@/lib/constants'
+import { AFFILIATE } from '@/lib/constants'
 import { trackAffiliateAction } from '@/lib/affiliateTracking'
 
 const GIFT_DISMISS_KEY = 'bttsbet_gift_popup_dismissed'
@@ -24,27 +24,30 @@ function detectLang(pathname: string): 'fr' | 'en' | 'ar' {
 
 const COPY = {
   fr: {
-    badge: 'Offre partenaires',
-    title: 'Bonus 300% + 100 free spins',
-    sub: 'Inscris-toi via notre lien et active le code exact.',
-    linebetCta: `Linebet · ${SITE.promoCode}`,
-    xbetCta: '1xBet · Vipbtts',
+    title: '🎁 TON BONUS DE BIENVENUE',
+    offer: '300 % de bonus + 100 free spins*',
+    sub: "Inscris-toi avec notre lien partenaire, puis saisis le code affiché lors de ton inscription. Vérifie les conditions de l'offre avant tout dépôt.",
+    linebetCta: 'LINEBET — CODE VISION221',
+    xbetCta: '1XBET — CODE VIPBTTS',
+    legal: "18+ · Offre soumise aux conditions de l'opérateur.",
     close: 'Fermer',
   },
   en: {
-    badge: 'Partner offer',
-    title: '300% bonus + 100 free spins',
-    sub: 'Sign up via our link and enter the exact promo code.',
-    linebetCta: `Linebet · ${SITE.promoCode}`,
-    xbetCta: '1xBet · Vipbtts',
+    title: '🎁 YOUR WELCOME BONUS',
+    offer: '300% bonus + 100 free spins*',
+    sub: 'Sign up via our partner link, then enter the code shown during registration. Check the offer terms before any deposit.',
+    linebetCta: 'LINEBET — CODE VISION221',
+    xbetCta: '1XBET — CODE VIPBTTS',
+    legal: '18+ · Offer subject to operator terms.',
     close: 'Close',
   },
   ar: {
-    badge: 'عرض الشركاء',
-    title: 'بونص 300% + 100 لفة مجانية',
-    sub: 'سجّل عبر رابطنا وأدخل الرمز بدقة.',
-    linebetCta: `Linebet · ${SITE.promoCode}`,
-    xbetCta: '1xBet · Vipbtts',
+    title: '🎁 مكافأة الترحيب',
+    offer: 'بونص 300% + 100 لفة مجانية*',
+    sub: 'سجّل عبر رابط الشريك ثم أدخل الرمز الظاهر عند التسجيل. تحقق من شروط العرض قبل أي إيداع.',
+    linebetCta: 'LINEBET — CODE VISION221',
+    xbetCta: '1XBET — CODE VIPBTTS',
+    legal: '18+ · العرض يخضع لشروط المشغّل.',
     close: 'إغلاق',
   },
 } as const
@@ -142,9 +145,9 @@ export default function GiftPopup() {
             </div>
 
             <div className="hp-gift-body">
-              <p className="hp-gift-kicker">{t.badge}</p>
+              <p className="hp-gift-title">{t.title}</p>
               <p className="hp-gift-bonus">
-                <span>300%</span> + 100 FS
+                <span>{t.offer}</span>
               </p>
               <p className="hp-gift-sub">{t.sub}</p>
 
@@ -172,6 +175,7 @@ export default function GiftPopup() {
                   <span aria-hidden="true">→</span>
                 </a>
               </div>
+              <p className="hp-gift-legal">{t.legal}</p>
             </div>
 
             <span className="hp-gift-spark hp-gift-spark--1" aria-hidden="true" />
