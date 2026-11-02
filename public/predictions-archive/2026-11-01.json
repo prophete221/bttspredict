@@ -23570,7 +23570,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.43 · N 4.3 · 2 6 · O2.5 1.69",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "0-3",
+      "verifiedAt": "2026-11-02T22:05:42.420Z"
     },
     {
       "id": "lorient-vs-brest-2026-11-02",
@@ -23784,7 +23786,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.4 · N 3.3 · 2 2.8 · O2.5 1.95",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-11-02T22:05:42.421Z"
     },
     {
       "id": "portland-vs-houstond-2026-11-02",
@@ -24206,7 +24210,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.15 · N 3.2 · 2 3.55 · O2.5 2.2",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-02T22:05:42.421Z"
     },
     {
       "id": "barcelon-vs-astonvil-2026-11-03",
@@ -34006,7 +34012,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.43 · N 4.3 · 2 6 · O2.5 1.74",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-3",
+      "verifiedAt": "2026-11-02T22:06:02.769Z"
     },
     {
       "id": "feyenoor-vs-internaz-2026-11-03",

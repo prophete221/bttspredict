@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-02T21:17:55.265Z",
+  "generatedAt": "2026-11-02T22:06:30.843Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,37 +15,37 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 442,
-    "won": 356,
-    "lost": 86,
-    "pending": 78,
+    "total": 447,
+    "won": 359,
+    "lost": 88,
+    "pending": 76,
     "unverifiable": 176,
-    "archivedTotal": 696,
-    "rate": 80.5,
+    "archivedTotal": 699,
+    "rate": 80.3,
     "gold": {
-      "total": 332,
-      "won": 272,
-      "lost": 60,
-      "rate": 81.9
+      "total": 335,
+      "won": 273,
+      "lost": 62,
+      "rate": 81.5
     },
     "standard": {
-      "total": 110,
-      "won": 84,
+      "total": 112,
+      "won": 86,
       "lost": 26,
-      "rate": 76.4
+      "rate": 76.8
     },
     "byType": {
       "btts": {
-        "total": 396,
-        "won": 324,
-        "lost": 72,
-        "rate": 81.8
+        "total": 400,
+        "won": 326,
+        "lost": 74,
+        "rate": 81.5
       },
       "over25": {
-        "total": 46,
-        "won": 32,
+        "total": 47,
+        "won": 33,
         "lost": 14,
-        "rate": 69.6
+        "rate": 70.2
       }
     },
     "trend14": [
@@ -142,10 +142,10 @@
       },
       {
         "date": "2026-11-02",
-        "total": 5,
-        "won": 5,
-        "lost": 0,
-        "rate": 100
+        "total": 10,
+        "won": 8,
+        "lost": 2,
+        "rate": 80
       }
     ],
     "period": {
@@ -155,6 +155,71 @@
     }
   },
   "history": [
+    {
+      "date": "2026-11-02",
+      "match": "Atalanta vs Parma",
+      "league": "Serie A",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.7,
+      "status": "LOST",
+      "finalScore": "0-3",
+      "verifiedAt": "2026-11-02T22:06:02.769Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-02",
+      "match": "Newcastle United vs Everton",
+      "league": "Premier League",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.4,
+      "status": "WON",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-02T22:05:42.422Z",
+      "source": "ESPN public",
+      "prediction": "Non"
+    },
+    {
+      "date": "2026-11-02",
+      "match": "Deportivo vs Osasuna",
+      "league": "LaLiga",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.5,
+      "status": "WON",
+      "finalScore": "2-1",
+      "verifiedAt": "2026-11-02T22:05:42.421Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-02",
+      "match": "Lorient vs Brest",
+      "league": "Ligue 1",
+      "market": "btts",
+      "tier": "GOLD",
+      "proba": 0.58,
+      "status": "LOST",
+      "finalScore": "0-2",
+      "verifiedAt": "2026-11-02T22:05:42.421Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-02",
+      "match": "Atalanta vs Parma",
+      "league": "Serie A",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.74,
+      "status": "WON",
+      "finalScore": "0-3",
+      "verifiedAt": "2026-11-02T22:05:42.420Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-02",
       "match": "Sassuolo vs Fiorentina",
