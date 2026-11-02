@@ -164,7 +164,7 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
           <div className="hp-hero__copy">
             <div className="hp-hero__brand-row">
               <span className="hp-hero__brand-mark" aria-hidden="true" />
-              <p className="hp-hero__brand">VISION221 · PRO ANALYTICS</p>
+              <p className="hp-hero__brand">BTTSPREDICT · PRO ANALYTICS</p>
             </div>
             <h1 className="hp-hero__title">
               <AnimatedTitle

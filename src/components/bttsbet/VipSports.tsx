@@ -2,7 +2,6 @@
 
 import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { AFFILIATE, SITE } from '@/lib/constants'
 import { getDakarDateSeed } from '@/lib/dakar-date'
 import { useScrollAnimation, useCountUp } from '@/hooks/useAnimations'
 import VipUnlockModal from './VipUnlockModal'
@@ -55,9 +54,6 @@ function getDailyCote(sportId: string, min: number, max: number): number {
   const fraction = x - Math.floor(x)
   return Math.round((min + fraction * (max - min)) * 100) / 100
 }
-
-const WHATSAPP_NUMBER = '+15406704172'
-const WHATSAPP_MSG = "Bonjour, j'ai confirmé mon inscription et mon dépôt sur Linebet/888starz avec le code VISION221. Je veux débloquer mon accès VIP."
 
 export default function VipSports() {
   const [ref, isVisible] = useScrollAnimation()
@@ -245,15 +241,14 @@ export default function VipSports() {
                 <div className="text-[12px] font-bold text-papier">Inscription confirmée ?</div>
                 <div className="text-[10px]" style={{ color: C.textMute }}>Débloque ton VIP via WhatsApp si tu as déjà inscrit et déposé</div>
               </div>
-              <a
-                href={`https://wa.me/15406704172?text=${encodeURIComponent(WHATSAPP_MSG)}`}
-                target="_blank"
-                rel="noopener"
+              <button
+                type="button"
+                onClick={() => setShowModal(true)}
                 className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold"
                 style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}
               >
                 WhatsApp
-              </a>
+              </button>
             </div>
           </motion.div>
         </div>

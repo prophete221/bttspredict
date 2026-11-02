@@ -20,7 +20,7 @@ const INFO: Record<BookmakerId, {
 }> = {
   '1xbet': {
     brand: '1xBet',
-    code: 'Vipbtts',
+    code: 'vipbtts',
     signup: AFFILIATE.oneXbet,
     download: AFFILIATE.oneXbetDownload,
     logo: '/logos/1xbet-logo.png',

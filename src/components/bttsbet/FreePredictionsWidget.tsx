@@ -106,9 +106,9 @@ export default function FreePredictionsWidget() {
             style={{ backgroundColor: '#1B6EF3', color: '#FFFFFF' }}
             onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'free-predictions-widget')}
             data-cta="free-predictions-1xbet"
-            aria-label="Ouvrir 1xbet avec le code promo Vipbtts"
+            aria-label="Ouvrir 1xbet avec le code promo vipbtts"
           >
-            S&apos;inscrire sur 1xbet · code Vipbtts →
+            S&apos;inscrire sur 1xbet · code vipbtts →
           </a>
           <a
             href={AFFILIATE.linebet}

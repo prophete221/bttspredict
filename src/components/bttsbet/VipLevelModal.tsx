@@ -146,7 +146,7 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
   const config = VIP_LEVELS[levelId]
   if (!config) return null
 
-  // Codes des deux partenaires prioritaires : 1xbet (Vipbtts) et Linebet (VISION221)
+  // Codes des deux partenaires prioritaires : 1xbet (vipbtts) et Linebet (VISION221)
   const copyCode = async (code: string) => {
     try { await navigator.clipboard.writeText(code) } catch {}
     setCopiedCode(code)
@@ -231,7 +231,7 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                 </div>
                 <div className="grid grid-cols-2 gap-2">
                   {([
-                    { code: 'Vipbtts', book: '1xbet', isNew: true },
+                    { code: 'vipbtts', book: '1xbet', isNew: true },
                     { code: 'VISION221', book: 'Linebet', isNew: false },
                   ] as const).map(({ code, book, isNew }) => (
                     <button
@@ -275,7 +275,7 @@ export default function VipLevelModal({ levelId, isOpen, onClose }: VipLevelModa
                   </span>
                 </div>
                 <p className="text-[12px] mb-3 ml-9" style={{ color: '#9DABBB' }}>
-                  Choisis ton bookmaker, inscris-toi avec le code <span className="font-mono font-bold text-papier">Vipbtts</span> (1xbet) ou <span className="font-mono font-bold text-papier">VISION221</span> (Linebet), puis effectue un dépôt via Wave, Orange Money, Free Money ou carte bancaire.
+                  Choisis ton bookmaker, inscris-toi avec le code <span className="font-mono font-bold text-papier">vipbtts</span> (1xbet) ou <span className="font-mono font-bold text-papier">VISION221</span> (Linebet), puis effectue un dépôt via Wave, Orange Money, Free Money ou carte bancaire.
                 </p>
                 <div className="grid grid-cols-2 gap-2 ml-9">
                   <a

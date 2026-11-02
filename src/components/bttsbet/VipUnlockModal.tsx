@@ -2,13 +2,21 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SITE, AFFILIATE } from '@/lib/constants'
+import { AFFILIATE, BOOKMAKERS } from '@/lib/constants'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 
 const STORAGE_KEY = 'bttsbet_vip_unlocked'
 const ID_HASH_KEY = 'bttsbet_vip_id_hash'
 
 type Step = 'conditions' | 'success'
+type BookmakerId = (typeof BOOKMAKERS)[number]['id']
+
+const BOOKMAKER_LABELS: Record<BookmakerId, string> = {
+  '1xbet': '1xBet',
+  linebet: 'Linebet',
+  melbet: 'Melbet',
+  '888starz': '888Starz',
+}
 
 async function sha256(text: string): Promise<string> {
   if (typeof crypto !== 'undefined' && crypto.subtle) {
@@ -31,19 +39,23 @@ export default function VipUnlockModal({
 }) {
   const modalRef = useRef<HTMLDivElement>(null)
   const [step, setStep] = useState<Step>('conditions')
-  const [selectedBookmaker, setSelectedBookmaker] = useState<'1xbet' | 'linebet' | '888starz' | null>(null)
+  const [selectedBookmaker, setSelectedBookmaker] = useState<BookmakerId | null>(null)
   const [playerId, setPlayerId] = useState('')
   const [verificationError, setVerificationError] = useState('')
   const [isUnlocking, setIsUnlocking] = useState(false)
   const [alreadyUnlocked, setAlreadyUnlocked] = useState(false)
   const [copied, setCopied] = useState(false)
 
-  // Get the correct code based on selected bookmaker
-  // 1xbet (Vipbtts) et Linebet (VISION221) sont les partenaires prioritaires.
-  const currentCode = selectedBookmaker === 'linebet' ? 'VISION221' : selectedBookmaker === '888starz' ? 'btts221' : 'Vipbtts'
-  const bookmakerLabel = selectedBookmaker === 'linebet' ? 'Linebet' : selectedBookmaker === '888starz' ? '888starz' : '1xbet'
+  // The selected bookmaker's code comes from the central partner configuration.
+  const selectedPartner = BOOKMAKERS.find((bookmaker) => bookmaker.id === selectedBookmaker)
+  const currentCode = selectedPartner?.promoCode ?? ''
+  const bookmakerLabel = selectedBookmaker ? BOOKMAKER_LABELS[selectedBookmaker] : ''
+  const whatsappSupportText = selectedBookmaker
+    ? `Bonjour, je souhaite demander la validation de mon accès VIP sur ${bookmakerLabel} avec le code ${currentCode}. Merci de confirmer les conditions applicables.`
+    : 'Bonjour, je souhaite poser une question sur l’accès VIP. Je n’ai pas encore choisi de bookmaker ni de code promo.'
 
   const copyCode = async () => {
+    if (!selectedBookmaker) return
     try { await navigator.clipboard.writeText(currentCode) } catch {
       const ta = document.createElement('textarea')
       ta.value = currentCode
@@ -54,7 +66,7 @@ export default function VipUnlockModal({
       document.execCommand('copy')
       document.body.removeChild(ta)
     }
-    trackAffiliateCodeCopy(selectedBookmaker ?? 'linebet', 'vip-modal-code')
+    trackAffiliateCodeCopy(selectedBookmaker, 'vip-modal-code')
     setCopied(true)
     navigator.vibrate?.(15)
     setTimeout(() => setCopied(false), 2000)
@@ -95,7 +107,7 @@ export default function VipUnlockModal({
         localStorage.setItem(ID_HASH_KEY, idHash)
         localStorage.setItem('bttsbet_vip_bookmaker', selectedBookmaker)
       } catch {}
-      const whatsappText = `Bonjour BTTSPredict, je souhaite demander la validation de mon accès VIP. Bookmaker: ${selectedBookmaker ?? '1xbet'}. ID joueur: ${playerId.trim()}. Code promo: ${currentCode}. Merci de confirmer les conditions applicables.`
+      const whatsappText = `Bonjour BTTSPredict, je souhaite demander la validation de mon accès VIP. Bookmaker: ${bookmakerLabel}. ID joueur: ${playerId.trim()}. Code promo: ${currentCode}. Merci de confirmer les conditions applicables.`
       const whatsappUrl = `https://wa.me/15406704172?text=${encodeURIComponent(whatsappText)}`
       setTimeout(() => {
         setIsUnlocking(false)
@@ -171,7 +183,7 @@ export default function VipUnlockModal({
                     <span className="text-sm font-semibold text-papier">Choisis ton bookmaker</span>
                   </div>
 
-                  {/* Big copyable code promo — always visible */}
+                  {/* Code promo correspondant au bookmaker sélectionné */}
                   <button
                     onClick={copyCode}
                     className="w-full mb-3 p-4 rounded-xl flex items-center justify-between transition-all"
@@ -180,14 +192,15 @@ export default function VipUnlockModal({
                       border: '1px solid rgba(127, 162, 198, 0.30)',
                       boxShadow: copied ? '0 0 20px rgba(47, 125, 255, 0.2)' : 'none',
                     }}
-                    aria-label={`Copier le code promo ${currentCode}`}
+                    aria-label={selectedBookmaker ? `Copier le code promo ${currentCode}` : 'Sélectionne un bookmaker pour afficher son code promo'}
+                    disabled={!selectedBookmaker}
                   >
                     <div>
                       <div className="text-[10px] uppercase tracking-widest font-bold mb-1" style={{ color: '#9DABBB' }}>
-                        Code promo {selectedBookmaker === '888starz' ? '(minuscules)' : '(casse exacte)'}
+                        {selectedBookmaker ? `Code promo ${selectedBookmaker === '888starz' ? '(minuscules)' : '(casse exacte)'}` : 'Choisis un bookmaker pour afficher le code'}
                       </div>
                       <div className="font-mono text-2xl font-black tracking-[0.1em]" style={{ color: '#2F7DFF' }}>
-                        {currentCode}
+                        {currentCode || 'Sélectionne un bookmaker'}
                       </div>
                     </div>
                     <div className="flex items-center gap-1.5 px-3 py-2 rounded-lg" style={{ backgroundColor: copied ? 'rgba(47, 125, 255, 0.15)' : 'rgba(47, 125, 255, 0.1)' }}>
@@ -221,9 +234,6 @@ export default function VipUnlockModal({
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
                           )}
                         </div>
-                        <div className="text-[11px] text-[#2F7DFF]">
-                          Code : <span className="font-mono font-bold text-[#2F7DFF]">Vipbtts</span>
-                        </div>
                       </div>
                       <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(232, 194, 104, 0.12)', color: '#E8C268' }}>Partenaire officiel</span>
                     </div>
@@ -250,9 +260,30 @@ export default function VipUnlockModal({
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
                           )}
                         </div>
-                        <div className="text-[11px] text-[#2F7DFF]">
-                          Code : <span className="font-mono font-bold text-[#2F7DFF]">VISION221</span>
-                        </div>
+                      </div>
+                      <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(232, 194, 104, 0.12)', color: '#E8C268' }}>Partenaire officiel</span>
+                    </div>
+                  </button>
+
+                  {/* Melbet */}
+                  <button
+                    type="button"
+                    onClick={() => setSelectedBookmaker('melbet')}
+                    className="w-full p-3 rounded-lg text-left mb-2 transition-all"
+                    style={{
+                      backgroundColor: selectedBookmaker === 'melbet' ? 'rgba(47, 125, 255, 0.15)' : 'rgba(244, 247, 251, 0.05)',
+                      border: selectedBookmaker === 'melbet' ? '1px solid #2F7DFF' : '1px solid #9DABBB',
+                    }}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="flex h-6 w-10 items-center justify-center rounded bg-white px-1">
+                          <img src="/logos/melbet-logo.jpg" alt="Logo Melbet" width={560} height={143} className="max-h-4 w-auto object-contain" />
+                        </span>
+                        <span className="text-sm font-bold text-papier">Melbet</span>
+                        {selectedBookmaker === 'melbet' && (
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+                        )}
                       </div>
                       <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(232, 194, 104, 0.12)', color: '#E8C268' }}>Partenaire officiel</span>
                     </div>
@@ -278,9 +309,6 @@ export default function VipUnlockModal({
                           {selectedBookmaker === '888starz' && (
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
                           )}
-                        </div>
-                        <div className="text-[11px] text-[#2F7DFF]">
-                          Code : <span className="font-mono font-bold text-[#2F7DFF]">btts221</span>
                         </div>
                       </div>
                       <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(232, 194, 104, 0.12)', color: '#E8C268' }}>Partenaire officiel</span>
@@ -345,6 +373,14 @@ export default function VipUnlockModal({
                       Inscription Linebet →
                     </a>
                   )}
+                  {selectedBookmaker === 'melbet' && (
+                    <a href={AFFILIATE.melbet} rel="sponsored nofollow noopener noreferrer" target="_blank"
+                      onClick={() => trackAffiliateAction('melbet', 'signup_cta_click', 'vip-modal-melbet')}
+                      className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold"
+                      style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>
+                      Inscription Melbet →
+                    </a>
+                  )}
                   {selectedBookmaker === '888starz' && (
                     <a href={AFFILIATE.star888} rel="sponsored nofollow noopener noreferrer" target="_blank"
                       onClick={() => trackAffiliateAction('888starz', 'signup_cta_click', 'vip-modal-888starz')}
@@ -376,7 +412,7 @@ export default function VipUnlockModal({
 
                 {/* WhatsApp support */}
                 <a
-                  href={`https://wa.me/15406704172?text=${encodeURIComponent("Bonjour, je souhaite demander la validation de mon accès VIP avec le code VISION221. Merci de confirmer les conditions applicables.")}`}
+                  href={`https://wa.me/15406704172?text=${encodeURIComponent(whatsappSupportText)}`}
                   target="_blank"
                   rel="noopener"
                   className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-xs font-bold mb-3"
@@ -385,7 +421,7 @@ export default function VipUnlockModal({
                     border: '1px solid rgba(127, 162, 198, 0.30)',
                     color: '#2F7DFF',
                   }}
-                  onClick={() => trackAffiliateAction(selectedBookmaker ?? '1xbet', 'whatsapp_click', 'vip-modal-whatsapp')}
+                  onClick={() => selectedBookmaker && trackAffiliateAction(selectedBookmaker, 'whatsapp_click', 'vip-modal-whatsapp')}
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="#2F7DFF"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01-1.87-1.87-4.36-2.91-7.01-2.91zm0 1.67c2.2 0 4.27.86 5.82 2.42 1.56 1.56 2.42 3.63 2.42 5.82 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.81-1.29-1.24-2.79-1.24-4.34 0-4.54 3.7-8.24 8.24-8.24z"/></svg>
                   Déjà inscrit ? Demander la vérification via WhatsApp

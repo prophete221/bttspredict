@@ -9,10 +9,10 @@ const BRAND = 'Melbet'
 const SELF = 'melbet' as const
 
 const ALL_LINKS = [
-  { id: '1xbet', label: '1xBet Vipbtts', href: '/code-promo-1xbet' },
-  { id: 'linebet', label: 'Linebet VISION221', href: '/code-promo-linebet-senegal' },
-  { id: 'melbet', label: 'Melbet Bttswin', href: '/code-promo-melbet' },
-  { id: '888starz', label: '888Starz btts221', href: '/bonus-888starz' },
+  { id: '1xbet', label: '1xBet', href: '/code-promo-1xbet' },
+  { id: 'linebet', label: 'Linebet', href: '/code-promo-linebet-senegal' },
+  { id: 'melbet', label: 'Melbet', href: '/code-promo-melbet' },
+  { id: '888starz', label: '888Starz', href: '/bonus-888starz' },
 ]
 
 export default function MelbetClient(_props: { reviewDate?: string } = {}) {

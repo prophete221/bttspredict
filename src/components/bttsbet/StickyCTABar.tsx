@@ -8,7 +8,7 @@ import { useLanguage } from './LanguageSwitcher'
 
 /**
  * StickyCTABar — Mobile-only (après 15% scroll).
- * Priorité : Linebet VISION221 puis 1xBet Vipbtts. Pas Melbet/888.
+ * Priorité : Linebet VISION221 puis 1xBet vipbtts. Pas Melbet/888.
  */
 export default function StickyCTABar() {
   const { lang } = useLanguage()
@@ -20,20 +20,20 @@ export default function StickyCTABar() {
     if (langKey === 'en') {
       return {
         linebet: 'Linebet · VISION221',
-        xbet: '1xBet · Vipbtts',
+        xbet: '1xBet · vipbtts',
         close: 'Close',
       }
     }
     if (langKey === 'ar') {
       return {
         linebet: 'Linebet · VISION221',
-        xbet: '1xBet · Vipbtts',
+        xbet: '1xBet · vipbtts',
         close: 'إغلاق',
       }
     }
     return {
       linebet: 'Linebet · VISION221',
-      xbet: '1xBet · Vipbtts',
+      xbet: '1xBet · vipbtts',
       close: 'Fermer',
     }
   }, [langKey])

@@ -1024,10 +1024,10 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
       <div className="btx-rev mb-4 rounded-xl border px-3 py-3 sm:px-4" style={{ ['--d' as string]: '40ms', borderColor: 'rgba(47,125,255,0.28)', background: 'linear-gradient(135deg, rgba(47,125,255,0.10), rgba(11,15,20,0.9))' }}>
         <p className="text-[12px] sm:text-[13px] leading-relaxed" style={{ color: '#C5D0DC' }}>
           {lang === 'fr'
-            ? <>Pour parier avec bonus : <strong style={{ color: '#F2F6FA' }}>1)</strong> inscris-toi via notre lien 1xbet ou Linebet · <strong style={{ color: '#F2F6FA' }}>2)</strong> entre le code <strong style={{ color: '#7CF5B8' }}>Vipbtts</strong> (1xbet) ou <strong style={{ color: '#7CF5B8' }}>VISION221</strong> (Linebet) avant le 1er dépôt.</>
+            ? <>Pour parier avec bonus : <strong style={{ color: '#F2F6FA' }}>1)</strong> inscris-toi via notre lien 1xbet ou Linebet · <strong style={{ color: '#F2F6FA' }}>2)</strong> entre le code <strong style={{ color: '#7CF5B8' }}>vipbtts</strong> (1xbet) ou <strong style={{ color: '#7CF5B8' }}>VISION221</strong> (Linebet) avant le 1er dépôt.</>
             : lang === 'en'
-              ? <>To claim the bonus: <strong style={{ color: '#F2F6FA' }}>1)</strong> sign up via our 1xbet or Linebet link · <strong style={{ color: '#F2F6FA' }}>2)</strong> enter <strong style={{ color: '#7CF5B8' }}>Vipbtts</strong> (1xbet) or <strong style={{ color: '#7CF5B8' }}>VISION221</strong> (Linebet) before your first deposit.</>
-              : <>للحصول على المكافأة: <strong style={{ color: '#F2F6FA' }}>1)</strong> سجّل عبر رابط 1xbet أو Linebet · <strong style={{ color: '#F2F6FA' }}>2)</strong> أدخل <strong style={{ color: '#7CF5B8' }}>Vipbtts</strong> (1xbet) أو <strong style={{ color: '#7CF5B8' }}>VISION221</strong> (Linebet) قبل الإيداع.</>}
+              ? <>To claim the bonus: <strong style={{ color: '#F2F6FA' }}>1)</strong> sign up via our 1xbet or Linebet link · <strong style={{ color: '#F2F6FA' }}>2)</strong> enter <strong style={{ color: '#7CF5B8' }}>vipbtts</strong> (1xbet) or <strong style={{ color: '#7CF5B8' }}>VISION221</strong> (Linebet) before your first deposit.</>
+              : <>للحصول على المكافأة: <strong style={{ color: '#F2F6FA' }}>1)</strong> سجّل عبر رابط 1xbet أو Linebet · <strong style={{ color: '#F2F6FA' }}>2)</strong> أدخل <strong style={{ color: '#7CF5B8' }}>vipbtts</strong> (1xbet) أو <strong style={{ color: '#7CF5B8' }}>VISION221</strong> (Linebet) قبل الإيداع.</>}
         </p>
         <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-end">
           <a
@@ -1039,7 +1039,7 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
             style={{ backgroundColor: '#1B6EF3' }}
             data-cta="dashboard-1xbet-signup"
           >
-            {lang === 'fr' ? "S'inscrire · Vipbtts (1xbet)" : lang === 'en' ? 'Sign up · Vipbtts (1xbet)' : 'تسجيل · Vipbtts (1xbet)'}
+            {lang === 'fr' ? "S'inscrire · vipbtts (1xbet)" : lang === 'en' ? 'Sign up · vipbtts (1xbet)' : 'تسجيل · vipbtts (1xbet)'}
           </a>
           <a
             href={AFFILIATE.linebet}

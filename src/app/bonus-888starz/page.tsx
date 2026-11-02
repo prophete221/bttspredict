@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   keywords: [
     'code promo 888starz', '888starz promo code', `bonus 888starz ${CURRENT_YEAR}`, '888starz bonus',
-    'code 888starz', 'btts221', '888starz btts221', 'vision221', '888starz senegal', 'code promo 888starz senegal',
+    'code 888starz', 'btts221', '888starz btts221', '888starz senegal', 'code promo 888starz senegal',
     '888starz mali', '888starz maroc', '888starz cote d\'ivoire', '888starz guinee', '888starz congo',
     '888starz wave', '888starz orange money', 'inscription 888starz', '888starz 300 bonus', '888starz free spins',
   ],

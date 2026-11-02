@@ -6,7 +6,6 @@ export const SITE = {
   name: 'BTTSPredict',
   url: 'https://bttspredict.com',
   tagline: "Pronostics football BTTS & Over 2,5 calculés par un modèle statistique transparent pour parieurs sérieux",
-  promoCode: 'VISION221',
   accuracy: 'Calculé en temps réel depuis l\'archive publique',
   vipAccuracy: 'Calculé en temps réel depuis l\'archive publique',
   vipMinDeposit: '10 € (≈ 6 560 XOF)',
@@ -15,7 +14,7 @@ export const SITE = {
 }
 
 export const AFFILIATE = {
-  // 1xbet — partenaire prioritaire (affilié 2026-11). Code promo : Vipbtts
+  // 1xbet — partenaire prioritaire (affilié 2026-11). Code promo : vipbtts
   // (casse EXACTE fournie par l'affiliateur — ne pas modifier la casse).
   // Offre annoncée par la campagne : 300% + 100 free spins, sans condition de mise.
   oneXbet: 'https://reffpa.com/L?tag=d_6292935m_1599c_&site=6292935&ad=1599',
@@ -30,7 +29,7 @@ export const AFFILIATE = {
     'https://linebet.press/vision221',
     'https://linebetop.com/en?promocode=VISION221',
   ],
-  // 888starz utilise btts221. Vipbtts est réservé à 1xbet, VISION221 à Linebet,
+  // 888starz utilise btts221. vipbtts est réservé à 1xbet, VISION221 à Linebet,
   // Bttswin à Melbet — ne jamais permuter les codes.
   star888: 'https://888ghta.com/8hwF6V',
   star888Download: 'https://888ghta.com/5o6glw',
@@ -41,19 +40,19 @@ export const AFFILIATE = {
 // Le dépôt est une condition déclarée du parcours, pas une preuve automatique de paiement.
 export const VIP_POLICY = {
   partner: '1xbet ou Linebet',
-  promoCode: 'Vipbtts (1xbet) · VISION221 (Linebet)',
+  promoCode: 'vipbtts (1xbet) · VISION221 (Linebet)',
   minimumDeposit: '10 €',
   minimumDepositXof: '≈ 6 560 XOF',
   // Conditions d'accès à l'espace BTTSPredict VIP (service éditorial) —
   // ce ne sont PAS des obligations imposées par les bookmakers.
   requirements: [
     'Nouveau compte créé via notre lien partenaire',
-    'Code promo Vipbtts (1xbet) ou VISION221 (Linebet) saisi à l’inscription',
+    'Code promo vipbtts (1xbet) ou VISION221 (Linebet) saisi à l’inscription',
     'Dépôt minimum de 10 € pour activer l’accès VIP BTTSPredict',
     'Validation WhatsApp par l’équipe BTTSPredict',
   ],
   activation:
-    'Accès VIP BTTSPredict : nouveau compte via notre lien + code Vipbtts (1xbet) ou VISION221 (Linebet) + dépôt min. 10 € + validation WhatsApp. Ces conditions concernent uniquement le service VIP BTTSPredict, pas le bookmaker.',
+    'Accès VIP BTTSPredict : nouveau compte via notre lien + code vipbtts (1xbet) ou VISION221 (Linebet) + dépôt min. 10 € + validation WhatsApp. Ces conditions concernent uniquement le service VIP BTTSPredict, pas le bookmaker.',
   verificationTime: 'Validation WhatsApp sous 24 h après envoi de la preuve',
 } as const
 
@@ -63,7 +62,7 @@ export const VIP_POLICY = {
 export const BOOKMAKERS = [
   {
     id: '1xbet', name: '1xbet', signupLink: AFFILIATE.oneXbet, downloadLink: AFFILIATE.oneXbetDownload,
-    promoCode: 'Vipbtts', color: 'blue', bonus: '300% + 100 free spins (offre annoncée, sans condition de mise)',
+    promoCode: 'vipbtts', color: 'blue', bonus: '300% + 100 free spins (offre annoncée, sans condition de mise)',
     description: 'Partenaire d’affiliation — offre annoncée : 300% + 100 free spins, sans condition de mise',
     logoFull: '/logos/1xbet-logo.png', logoIcon: '/logos/1xbet-logo.png',
   },
@@ -98,7 +97,7 @@ export const NAV_LINKS = [
 export const HOW_IT_WORKS = [
   { step: '01', title: "Notre analyse passe chaque match au crible", desc: "Notre modèle statistique estime des buts attendus modélisés (lambda) à partir des buts réels des 8 derniers matchs de chaque équipe. Sources : ESPN et TheSportsDB." },
   { step: '02', title: 'On sélectionne les meilleurs', desc: "Seuls les pronostics BTTS et Over 2,5 avec le plus haut indice de confiance sont retenus et publiés sur la plateforme." },
-  { step: '03', title: 'Tu paries en confiance', desc: 'Utilise nos pronostics sur 1xbet ou Linebet. Codes promo Vipbtts (1xbet) et VISION221 (Linebet) pour un bonus exclusif sur l’inscription.' },
+  { step: '03', title: 'Tu paries en confiance', desc: 'Utilise les liens partenaires officiels pour découvrir leurs offres et vérifier leurs conditions d’inscription.' },
 ]
 
 export const HERO_STATS = [
@@ -110,14 +109,14 @@ export const HERO_STATS = [
 export const FAQ_ITEMS = [
   { q: "Qu'est-ce que le BTTS ?", a: "BTTS signifie \"Both Teams To Score\" (les deux équipes marquent). C'est un type de pari où vous pariez que les deux équipes marqueront au moins un but durant le match, quelle que soit l'issue finale. Ce marché est très populaire car il ne dépend pas du résultat final du match, mais uniquement de la capacité des deux équipes à trouver le chemin des filets. Notre équipe analyse les statistiques offensives et défensives pour identifier les matchs où les deux équipes ont une forte probabilité de marquer." },
   { q: "Comment fonctionne l'analyse de BTTSPredict ?", a: "Notre modèle statistique est calibré sur la forme récente des équipes (8 derniers matchs réels) et des buts attendus modélisés (lambda). Sources : ESPN et TheSportsDB (données publiques). Le taux de réussite réel est calculé dynamiquement depuis l'archive publique des pronostics (predictions-archive/) et affiché sans filtrage sur /historique. Chaque pronostic est accompagné d'un indice de confiance calculé par le modèle. Les performances passées ne garantissent pas les résultats futurs." },
-  { q: 'Comment utiliser les codes promo Vipbtts, VISION221, Bttswin et btts221 ?', a: 'Vipbtts est le code promo 1xbet, VISION221 le code Linebet, Bttswin le code Melbet et btts221 le code 888Starz. Inscrivez-vous via notre lien, saisissez le code correspondant dans le champ « Code Promo » : chaque partenaire annonce 300% de bonus + 100 free spins, sans condition de mise (Linebet et 888Starz dès 1 € de dépôt — offres annoncées par la campagne partenaire). Vérifiez l’offre affichée par l’opérateur avant tout dépôt. Les conditions commerciales peuvent changer.' },
+  { q: 'Comment utiliser les codes promo vipbtts, VISION221, Bttswin et btts221 ?', a: 'vipbtts est le code promo 1xbet, VISION221 le code Linebet, Bttswin le code Melbet et btts221 le code 888Starz. Inscrivez-vous via notre lien, saisissez le code correspondant dans le champ « Code Promo » : chaque partenaire annonce 300% de bonus + 100 free spins, sans condition de mise (Linebet et 888Starz dès 1 € de dépôt — offres annoncées par la campagne partenaire). Vérifiez l’offre affichée par l’opérateur avant tout dépôt. Les conditions commerciales peuvent changer.' },
   { q: 'Les pronostics gratuits sont-ils fiables ?', a: "Nos pronostics gratuits sont calculés par le même modèle statistique que nos pronostics premium. Ils couvrent les matchs les plus populaires du jour avec une analyse complète. La différence avec les pronostics premium réside dans le nombre de matchs analysés et l'accès à des marchés supplémentaires. Comme pour tout pronostic, aucun résultat n'est garanti — les performances historiques ne préjugent pas les résultats futurs." },
   { q: 'Quels championnats sont couverts ?', a: "Moteur entraîné sur 50+ championnats internationaux, prédictions appliquées en priorité Afrique de l'Ouest (Sénégal, Mali, CIV, Guinée, Congo) & Maroc + top ligues Europe pour volume. Ligues prioritaires : Ligue 1 Sénégal, Botola Pro (Maroc), Bundesliga, Eredivisie, Jupiler Pro League, Championship, Liga Portugal." },
   { q: 'Comment utiliser les pronostics BTTSPredict ?', a: "Nos pronostics sont des outils d'aide à la décision, pas des garanties de gain. Pour les utiliser au mieux, consultez nos pronostics gratuits chaque jour, vérifiez l'indice de confiance associé, et croisez avec votre propre analyse. Nous vous recommandons de toujours respecter votre gestion de bankroll et de ne jamais miser plus que ce que vous pouvez vous permettre de perdre. Les résultats passés ne garantissent pas les résultats futurs." },
   { q: 'Peut-on prédire Aviator ou une faille de cotes FIFA ?', a: "Non. Aviator est un jeu 100% aléatoire basé sur un générateur certifié 'provably fair' — aucun outil au monde ne peut prédire le multiplicateur d'un round futur. Nos statistiques Aviator permettent d'observer l'historique des rounds et les tendances passées, mais ne constituent en aucun cas des prédictions. Concernant les 'Analyses de valeur FIFA (expérimental)', il s'agit d'estimations statistiques comparant les cotes des bookmakers à nos probabilités calculées — ce sont des outils d'analyse, pas des garanties de gain. Tout pari comporte un risque de perte." },
 ]
 
-export const VIP_DESCRIPTION = 'VIP : historique complet + sélections du jour — Débloque avec un nouveau compte 1xbet (Vipbtts) ou Linebet (VISION221) et un dépôt minimum de 10 €'
+export const VIP_DESCRIPTION = 'VIP : historique complet + sélections du jour — Débloque avec un nouveau compte 1xbet (vipbtts) ou Linebet (VISION221) et un dépôt minimum de 10 €'
 export const LONASE = { name: 'LONASE', description: 'Loterie Nationale du Sénégal' }
 
 export const LEGAL = {

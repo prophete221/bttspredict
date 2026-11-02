@@ -13,7 +13,7 @@ const frozenFiles = {
   'src/lib/seoSchemas.ts': '7444b699bce53a5ec32112791b0350b8a17b1f3de688cca1bf2bb0bdb111d103',
   // Hash mis à jour à la demande du propriétaire (2026-11) : ajout des pages
   // partenaires /code-promo-melbet (code Bttswin) + versions EN/AR des pages
-  // /code-promo-1xbet (Vipbtts) et /code-promo-melbet — aucune URL existante
+  // /code-promo-1xbet (vipbtts) et /code-promo-melbet — aucune URL existante
   // modifiée ni supprimée.
   'src/app/sitemap.ts': '97dddf701e97cdac9cf4538b241ef3bd9cddfee6d87cc9131ad55b2f886827b5',
   'public/robots.txt': '678a5a55dde4dd3c548f807dca3aa23964e886efc0a65b3b2ce8ff9d34d162a4',

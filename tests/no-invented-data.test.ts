@@ -56,10 +56,10 @@ describe('no invented data — fallbacks interdits', () => {
     // Message d'absence de sélection VIP exigé par le propriétaire
     // (formulation « pour le moment » depuis le repli VIP vers les jours à venir)
     expect(source).toContain('Aucune sélection VIP disponible pour le moment')
-    // Parcours VIP mis à jour (2026-11) : bookmaker au choix — 1xbet (Vipbtts,
+    // Parcours VIP mis à jour (2026-11) : bookmaker au choix — 1xbet (vipbtts,
     // prioritaire, casse exacte de l'affiliateur) ou Linebet (VISION221) —
     // dépôt minimum, vérification WhatsApp
-    expect(source).toContain("code: 'Vipbtts'")
+    expect(source).toContain("code: 'vipbtts'")
     expect(source).toContain("code: 'VISION221'")
     expect(source).toContain("VIP_DEPOSIT = '10 €'")
     expect(source).toContain('whatsapp_click')

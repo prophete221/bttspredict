@@ -5,7 +5,7 @@ import { trackAffiliateAction } from '@/lib/affiliateTracking'
 import { localizedPath, type Locale } from '@/lib/i18n'
 
 /**
- * Bandeau conversion discret — Linebet (VISION221) prioritaire, puis 1xBet (Vipbtts).
+ * Bandeau conversion discret — Linebet (VISION221) prioritaire, puis 1xBet (vipbtts).
  * Destiné aux pages EN à fort trafic. Aucune condition de bonus inventée.
  */
 export default function PartnerSignupBand({ locale = 'en' }: { locale?: Locale }) {
@@ -70,7 +70,7 @@ export default function PartnerSignupBand({ locale = 'en' }: { locale?: Locale }
               color: '#E8F1FF',
             }}
           >
-            <span className="text-sm font-bold">1xBet · Vipbtts</span>
+            <span className="text-sm font-bold">1xBet · vipbtts</span>
             <span className="mt-0.5 text-[11px] opacity-90">
               {isAr ? 'سجّل' : isFr ? "S'inscrire" : 'Sign up'}
             </span>

@@ -3,9 +3,11 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
-import { SITE, AFFILIATE } from '@/lib/constants'
+import { BOOKMAKERS, AFFILIATE } from '@/lib/constants'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 import MovingGradientButton from './MovingGradientButton'
+
+const LINEBET_CODE = BOOKMAKERS.find((bookmaker) => bookmaker.id === 'linebet')!.promoCode
 
 /* ═══════════════════════════════════════════════════════════════════
    MethodSection — 4 étapes, éditorial court en 2 colonnes.
@@ -141,10 +143,10 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
 
   const copyCode = async () => {
     try {
-      await navigator.clipboard.writeText(SITE.promoCode)
+      await navigator.clipboard.writeText(LINEBET_CODE)
     } catch {
       const ta = document.createElement('textarea')
-      ta.value = SITE.promoCode
+      ta.value = LINEBET_CODE
       ta.style.position = 'fixed'
       ta.style.opacity = '0'
       document.body.appendChild(ta)
@@ -167,19 +169,19 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
             <p className="hp-eyebrow hp-eyebrow--partner">{t.home2.ptEyebrow}</p>
             <p className="hp-partner__title">
               <span className="hp-partner__brand" aria-hidden="true">LINEBET</span>
-              {SITE.promoCode}
+              {LINEBET_CODE}
             </p>
             <p className="hp-partner__text">{t.home2.ptText}</p>
             <p className="hp-partner__free">{t.home2.ptFree}</p>
           </div>
           <div className="hp-partner__actions">
             <div className="hp-partner__code">
-              <code>{SITE.promoCode}</code>
+              <code>{LINEBET_CODE}</code>
               <button
                 type="button"
                 onClick={copyCode}
                 className={`hp-partner__copy${copied ? ' is-copied' : ''}`}
-                aria-label={`Copier ${SITE.promoCode}`}
+                aria-label={`Copier ${LINEBET_CODE}`}
                 data-cta="partner-copy-vision221"
               >
                 {copied ? '✓' : t.hero.copy}
@@ -209,7 +211,7 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
                   boxShadow: '0 10px 28px rgba(27, 110, 243, 0.35)',
                 }}
               >
-                {lang === 'fr' ? '1xBet · code Vipbtts' : lang === 'en' ? '1xBet · code Vipbtts' : '1xBet · Vipbtts'}
+                {lang === 'fr' ? '1xBet · code vipbtts' : lang === 'en' ? '1xBet · code vipbtts' : '1xBet · vipbtts'}
                 <span aria-hidden="true">→</span>
               </a>
             </div>
@@ -221,10 +223,10 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
               data-cta="home-partner-1xbet-link"
             >
               {lang === 'fr'
-                ? 'Guide code promo 1xBet (Vipbtts)'
+                ? 'Guide code promo 1xBet (vipbtts)'
                 : lang === 'en'
-                  ? '1xBet promo code guide (Vipbtts)'
-                  : 'دليل رمز 1xBet (Vipbtts)'}
+                  ? '1xBet promo code guide (vipbtts)'
+                  : 'دليل رمز 1xBet (vipbtts)'}
               <span aria-hidden="true">→</span>
             </a>
           </div>

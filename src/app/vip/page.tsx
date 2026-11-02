@@ -19,14 +19,14 @@ const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary')
 
 /* ────────────────── Parcours VIP — 1xbet ou Linebet ──────────────────
    Déblocage : création d'un NOUVEAU compte chez le bookmaker choisi avec
-   son code promo — Vipbtts (1xbet, partenaire prioritaire) ou VISION221
+   son code promo — vipbtts (1xbet, partenaire prioritaire) ou VISION221
    (Linebet) — + dépôt minimum de 10 €, puis vérification WhatsApp.
    (btts221 = code 888Starz, voir /bonus-888starz)
    ──────────────────────────────────────────────────────────────────── */
 type VipBook = '1xbet' | 'linebet'
 
 const VIP_PARTNERS: Record<VipBook, { brand: string; code: string; signup: string }> = {
-  '1xbet': { brand: '1xbet', code: 'Vipbtts', signup: AFFILIATE.oneXbet },
+  '1xbet': { brand: '1xbet', code: 'vipbtts', signup: AFFILIATE.oneXbet },
   linebet: { brand: 'Linebet', code: 'VISION221', signup: AFFILIATE.linebet },
 }
 const VIP_BOOKS: VipBook[] = ['1xbet', 'linebet'] // ordre de priorité d'affichage
@@ -202,7 +202,7 @@ const makeCopy = (brand: string, code: string) => ({
     copiedBtn: 'Copié',
     signup: `Créer mon compte ${brand}`,
     newBadge: 'Nouveau',
-    alt1xbet: 'Plutôt 1xbet ? Code Vipbtts →',
+    alt1xbet: 'Plutôt 1xbet ? Code vipbtts →',
     altLinebet: 'Plutôt Linebet ? Code VISION221 →',
     signupWith: 'Inscription avec le code collé',
     needBookmaker: 'Copie d’abord ton code ci-dessus',
@@ -315,7 +315,7 @@ const makeCopy = (brand: string, code: string) => ({
     copiedBtn: 'Copied',
     signup: `Create my ${brand} account`,
     newBadge: 'New',
-    alt1xbet: 'Prefer 1xbet? Code Vipbtts →',
+    alt1xbet: 'Prefer 1xbet? Code vipbtts →',
     altLinebet: 'Prefer Linebet? Code VISION221 →',
     signupWith: 'Sign-up with the pasted code',
     needBookmaker: 'Copy your code above first',
@@ -428,7 +428,7 @@ const makeCopy = (brand: string, code: string) => ({
     copiedBtn: 'تم النسخ',
     signup: `أنشئ حساب ${brand}`,
     newBadge: 'جديد',
-    alt1xbet: 'تفضّل 1xbet؟ الرمز Vipbtts →',
+    alt1xbet: 'تفضّل 1xbet؟ الرمز vipbtts →',
     altLinebet: 'تفضّل Linebet؟ الرمز VISION221 →',
     signupWith: 'التسجيل بالرمز المنسوخ',
     needBookmaker: 'انسخ رمزك أولاً بالأعلى',

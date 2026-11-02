@@ -138,26 +138,26 @@ export default function VipClient() {
   const copy888 = async () => {
     trackAffiliateCodeCopy('888starz', 'vip-partner-card')
     try {
-      await navigator.clipboard.writeText('vision221')
+      await navigator.clipboard.writeText('btts221')
       setCopied888(true)
-      showToast('Code copié vision221')
+      showToast('Code copié btts221')
       setTimeout(() => setCopied888(false), 2000)
     } catch {
       const el = document.createElement('textarea')
-      el.value = 'vision221'
+      el.value = 'btts221'
       document.body.appendChild(el)
       el.select()
       try { document.execCommand('copy') } catch {}
       document.body.removeChild(el)
       setCopied888(true)
-      showToast('Code copié vision221')
+      showToast('Code copié btts221')
       setTimeout(() => setCopied888(false), 2000)
     }
   }
 
   // Construction du message WhatsApp pré-rempli
   const buildWhatsAppLink = () => {
-    const code = platform === 'linebet' ? 'VISION221' : 'vision221'
+    const code = platform === 'linebet' ? 'VISION221' : 'btts221'
     const platformLabel = platform === 'linebet' ? 'Linebet' : '888Starz'
     const id = playerId.trim() || 'NON_RENSEIGNE'
     const text = `Salut BTTSPredict, je viens de m'inscrire avec ton code ${code} sur ${platformLabel} ID joueur : ${id} Dépôt 3000F fait ce jour. Merci de vérifier et débloquer mon VIP 1 mois gratuit.`
@@ -321,7 +321,7 @@ export default function VipClient() {
               </div>
             </div>
 
-            {/* ═══ CARTE 888STARZ (vision221 MIN) ═══ */}
+            {/* ═══ CARTE 888STARZ (btts221 MIN) ═══ */}
             <div
               className="rounded-2xl p-6 text-center relative overflow-hidden"
               style={{
@@ -343,11 +343,11 @@ export default function VipClient() {
                 type="button"
                 onClick={copy888}
                 title="Cliquer pour copier"
-                aria-label="Code promo vision221 — cliquer pour copier dans le presse-papier"
+                aria-label="Code promo btts221 — cliquer pour copier dans le presse-papier"
                 className="inline-flex items-center justify-center gap-3 mb-3 select-all cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98] bg-transparent border-0 p-0"
                 style={{ color: ORANGE, fontFamily: 'var(--font-mono), monospace', textShadow: `0 0 30px ${ORANGE}55` }}
               >
-                <span className="text-4xl sm:text-5xl font-black tracking-[0.15em]">vision221</span>
+                <span className="text-4xl sm:text-5xl font-black tracking-[0.15em]">btts221</span>
                 <span
                   className="inline-flex items-center justify-center w-9 h-9 rounded-lg flex-shrink-0"
                   style={{
@@ -385,7 +385,7 @@ export default function VipClient() {
                     boxShadow: `0 4px 14px ${ORANGE}33`,
                   }}
                 >
-                  {copied888 ? '✅ Copié !' : '📋 Copier vision221'}
+                  {copied888 ? '✅ Copié !' : '📋 Copier btts221'}
                 </button>
                 <a
                   href={STAR888_SIGNUP}
@@ -475,7 +475,7 @@ export default function VipClient() {
               Vérifier mon dépôt et débloquer VIP
             </h2>
             <p className="text-xs text-center mb-5" style={{ color: TEXT_SEC }}>
-              On vérifie dans le tableau de bord affilié que le code VISION221 / vision221 a bien été utilisé + dépôt min 3 000 F. Délai <strong style={{ color: '#2F7DFF' }}>15-60 min</strong>.
+              On vérifie dans le tableau de bord affilié que le code correspondant au bookmaker sélectionné a bien été utilisé + dépôt min 3 000 F. Délai <strong style={{ color: '#2F7DFF' }}>15-60 min</strong>.
             </p>
 
             <div className="space-y-3">
@@ -519,8 +519,8 @@ export default function VipClient() {
                     outline: 'none',
                   }}
                 >
-                  <option value="linebet">Linebet (code VISION221)</option>
-                  <option value="888starz">888Starz (code vision221)</option>
+                  <option value="linebet">Linebet</option>
+                  <option value="888starz">888Starz</option>
                 </select>
               </div>
 

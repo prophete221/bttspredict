@@ -61,7 +61,7 @@ export default async function LocalizedOver25TodayPage({ params }: { params: Pro
             </p>
             <div className="grid gap-2 sm:grid-cols-2">
               <a href={AFFILIATE.oneXbet} target="_blank" rel="sponsored nofollow noopener noreferrer" data-cta="over25-signup-1xbet" className="rounded-xl py-3 px-4 text-center text-sm font-bold" style={{ backgroundColor: '#1B6EF3', color: '#FFFFFF' }}>
-                {isAr ? 'سجّل 1xbet · Vipbtts' : isEn ? 'Sign up 1xbet · Vipbtts' : 'S’inscrire 1xbet · Vipbtts'}
+                {isAr ? 'سجّل 1xbet · vipbtts' : isEn ? 'Sign up 1xbet · vipbtts' : 'S’inscrire 1xbet · vipbtts'}
               </a>
               <a href={AFFILIATE.linebet} target="_blank" rel="sponsored nofollow noopener noreferrer" data-cta="over25-signup-linebet" className="rounded-xl py-3 px-4 text-center text-sm font-bold" style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>
                 {isAr ? 'سجّل Linebet · VISION221' : isEn ? 'Sign up Linebet · VISION221' : 'S’inscrire Linebet · VISION221'}

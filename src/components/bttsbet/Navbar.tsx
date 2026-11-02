@@ -1,12 +1,9 @@
 'use client'
 
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import { SITE } from '@/lib/constants'
 import LanguageSwitcher, { useLanguage } from './LanguageSwitcher'
 import { localizedPath, translationsFor } from '@/lib/i18n'
-import { trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
-import { copyTextToClipboard } from '@/lib/clipboard'
 
 /**
  * Navbar BTTSPredict — header plateforme « football intelligence ».
@@ -15,7 +12,7 @@ import { copyTextToClipboard } from '@/lib/clipboard'
  *   Méthode, Statistiques — uniquement des pages/ancres réelles.
  * - Statut données : point vert « Données mises à jour aujourd’hui »
  *   AFFICHÉ UNIQUEMENT SI VRAI (date de predictions.json == aujourd’hui, UTC — Dakar = UTC+0).
- * - Droite : code VISION221 (copie trackée), langues, CTA principal pronostics.
+ * - Droite : langues et CTA principal vers les pronostics.
  * - Mobile : logo + menu (drawer) + CTA compact.
  */
 export default function Navbar() {
@@ -31,12 +28,11 @@ export default function Navbar() {
     { label: t.nav.stats2, href: localizedPath('/statistiques', lang) },
   ]
   const partnerLinks = [
-    { label: '1xBet', href: localizedPath('/code-promo-1xbet', lang), code: 'Vipbtts', primary: true },
-    { label: 'Linebet', href: localizedPath('/code-promo-linebet-senegal', lang), code: 'VISION221', primary: true },
-    { label: 'Melbet', href: localizedPath('/code-promo-melbet', lang), code: 'Bttswin', primary: false },
-    { label: '888Starz', href: localizedPath('/bonus-888starz', lang), code: 'btts221', primary: false },
+    { label: '1xBet', href: localizedPath('/code-promo-1xbet', lang), primary: true },
+    { label: 'Linebet', href: localizedPath('/code-promo-linebet-senegal', lang), primary: true },
+    { label: 'Melbet', href: localizedPath('/code-promo-melbet', lang), primary: false },
+    { label: '888Starz', href: localizedPath('/bonus-888starz', lang), primary: false },
   ]
-  const [copied, setCopied] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [dataToday, setDataToday] = useState(false)
 
@@ -53,24 +49,6 @@ export default function Navbar() {
       .catch(() => {})
     return () => { cancelled = true }
   }, [])
-
-  /* Code promo contextuel par page : casse exacte de chaque bookmaker.
-     1xbet et Linebet prioritaires ; Melbet et 888Starz contextuels. */
-  const is888Page = pathname?.includes('bonus-888starz') ?? false
-  const is1xbetPage = pathname?.includes('code-promo-1xbet') ?? false
-  const isMelbetPage = pathname?.includes('code-promo-melbet') ?? false
-  const navPromoCode = is1xbetPage ? 'Vipbtts' : isMelbetPage ? 'Bttswin' : is888Page ? 'btts221' : SITE.promoCode
-  const navPartner: 'linebet' | '888starz' | '1xbet' | 'melbet' = is1xbetPage ? '1xbet' : isMelbetPage ? 'melbet' : is888Page ? '888starz' : 'linebet'
-
-  const copyCode = useCallback(async () => {
-    // « Copié » n'est affiché que si la copie a réellement réussi
-    const ok = await copyTextToClipboard(navPromoCode)
-    if (!ok) return
-    trackAffiliateCodeCopy(navPartner, 'navbar-promo-code')
-    setCopied(true)
-    navigator.vibrate?.(15)
-    setTimeout(() => setCopied(false), 2000)
-  }, [navPromoCode, navPartner])
 
   const isActive = (href: string) => {
     const clean = href.split('#')[0]
@@ -136,19 +114,6 @@ export default function Navbar() {
                 </span>
               )}
               <LanguageSwitcher compact />
-              <button
-                onClick={copyCode}
-                className="hidden md:inline-flex items-center px-2.5 py-1.5 rounded-lg text-xs font-mono font-semibold transition-colors"
-                style={{
-                  border: '1px solid rgba(47, 125, 255, 0.45)',
-                  backgroundColor: 'rgba(47, 125, 255, 0.10)',
-                  color: copied ? '#34D399' : '#4A90FF',
-                }}
-                aria-label={lang === 'en' ? `Copy promo code ${navPromoCode}` : lang === 'ar' ? `انسخ الرمز الترويجي ${navPromoCode}` : `Copier le code promo ${navPromoCode}`}
-              >
-                {copied ? (lang === 'en' ? '✓ Copied' : lang === 'ar' ? '✓ تم النسخ' : '✓ Copié') : navPromoCode}
-              </button>
-
               {/* CTA principal — desktop */}
               <a
                 href={`${home}#matchs`}
@@ -310,9 +275,6 @@ export default function Navbar() {
                       }}
                     >
                       <span className="text-sm font-bold leading-tight">{link.label}</span>
-                      <span className="text-[10px] font-mono font-semibold tracking-wide" style={{ color: link.primary ? '#93C5FD' : '#94A3B8' }}>
-                        {link.code}
-                      </span>
                     </a>
                   ))}
                 </div>
@@ -336,17 +298,6 @@ export default function Navbar() {
               >
                 {t.nav.ctaPronostics}
               </a>
-              <button
-                onClick={() => { copyCode(); setMenuOpen(false) }}
-                className="w-full px-3 py-3 rounded-xl text-sm font-mono font-semibold text-center transition-colors"
-                style={{
-                  border: '1px solid rgba(59, 130, 246, 0.45)',
-                  backgroundColor: 'rgba(59, 130, 246, 0.12)',
-                  color: copied ? '#34D399' : '#93C5FD',
-                }}
-              >
-                {copied ? (lang === 'en' ? '✓ Copied' : lang === 'ar' ? '✓ تم النسخ' : '✓ Copié') : navPromoCode}
-              </button>
             </div>
           </div>
         </>

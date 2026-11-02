@@ -253,7 +253,7 @@ Cron : `0 */4 * * *` (six exécutions quotidiennes, toutes les quatre heures, en
 
 - **Linebet** : `VISION221` (majuscules)
 - **888Starz — parcours VIP et page dédiée** : `btts221` (minuscules)
-- **Page historique `/bonus-888starz`** : conserve son contenu promotionnel historique `VISION221` ; ne pas confondre cette page avec la page dédiée `/bonus-888starz-btts221`.
+- **Page `/bonus-888starz`** : le contenu actuel cible le code `btts221` de 888Starz ; `VISION221` reste exclusivement associé à Linebet.
 - Dépôt minimum : à vérifier sur les sites officiels des bookmakers
 - WhatsApp vérification : +1 540 670 4172
 

@@ -91,7 +91,7 @@ describe('bookmakers data guardrails', () => {
 
   it('never displays a code in the wrong case inside clients', () => {
     const wrongCase: [string, RegExp][] = [
-      ['src/app/code-promo-1xbet/XbetClient.tsx', /VIPBTTS|VIPbtts|vipbtts'/],
+      ['src/app/code-promo-1xbet/XbetClient.tsx', /VIPBTTS|Vipbtts/],
       ['src/app/code-promo-melbet/MelbetClient.tsx', /BTTSWIN|BttsWin|bttswin'/],
     ]
     for (const [file, pattern] of wrongCase) {
@@ -99,7 +99,7 @@ describe('bookmakers data guardrails', () => {
       expect(pattern.test(text), `${file} contient le code dans une casse incorrecte`).toBe(false)
     }
     // Casse exacte attendue
-    expect(readFileSync('src/app/code-promo-1xbet/XbetClient.tsx', 'utf8')).toContain("'Vipbtts'")
+    expect(readFileSync('src/app/code-promo-1xbet/XbetClient.tsx', 'utf8')).toContain("'vipbtts'")
     expect(readFileSync('src/app/code-promo-melbet/MelbetClient.tsx', 'utf8')).toContain("'Bttswin'")
   })
 

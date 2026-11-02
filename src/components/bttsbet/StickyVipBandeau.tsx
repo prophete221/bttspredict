@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SITE } from '@/lib/constants'
 
 /**
  * StickyVipBandeau — Premium banner placed right after the Hero.
@@ -11,7 +10,6 @@ import { SITE } from '@/lib/constants'
  */
 export default function StickyVipBandeau() {
   const [visible, setVisible] = useState(false)
-  const [copied, setCopied] = useState(false)
 
   useEffect(() => {
     // Show after 1.5s (let Hero load first)
@@ -23,16 +21,6 @@ export default function StickyVipBandeau() {
     const el = document.getElementById('vip')
     if (el) el.scrollIntoView({ behavior: 'smooth' })
     else if (window.location.pathname !== '/') window.location.href = '/#vip'
-  }
-
-  const copyCode = async () => {
-    try {
-      await navigator.clipboard.writeText(SITE.promoCode)
-    } catch {
-      document.execCommand('copy')
-    }
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
   }
 
   return (
@@ -111,20 +99,8 @@ export default function StickyVipBandeau() {
                 </div>
               </div>
 
-              {/* Right: CTA + promo code */}
+              {/* Right: CTA */}
               <div className="flex items-center gap-2 sm:gap-3">
-                {/* Promo code (hidden on very small screens) */}
-                <button
-                  onClick={copyCode}
-                  className="hidden xs:flex items-center gap-2 px-3 py-2 rounded-lg border border-gold/30 bg-gold/[0.06] hover:bg-gold/10 transition-all"
-                  aria-label={`Copier le code promo ${SITE.promoCode}`}
-                >
-                  <span className="text-[10px] text-gold-light/70 uppercase tracking-widest font-bold">Code</span>
-                  <span className="promo-code-shimmer text-sm font-bold tracking-wider">
-                    {copied ? '✓' : SITE.promoCode}
-                  </span>
-                </button>
-
                 {/* CTA */}
                 <button
                   onClick={handleCta}

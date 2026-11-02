@@ -146,7 +146,7 @@ const webPageJsonLd = {
   inLanguage: 'fr',
   datePublished: '2026-01-01',
   dateModified: new Date().toISOString().slice(0, 10),
-  keywords: 'BTTS, Over 2.5, pronostics btts aujourd\'hui, analyse statistique football, modèles Poisson, code promo VISION221, Linebet, 888starz, pronostics football gratuits, pronostics Sénégal, both teams to score',
+  keywords: 'BTTS, Over 2.5, pronostics btts aujourd\'hui, analyse statistique football, modèles Poisson, code promo Linebet VISION221, 888starz, pronostics football gratuits, pronostics Sénégal, both teams to score',
 }
 
 // JSON-LD Dataset — Transparency & credibility
@@ -238,7 +238,7 @@ export default function Home() {
       {/* Main Content — Plateforme football intelligence
           Structure : Header produit → Hero + Signal en vedette →
           Matchs du jour (MatchCenter) → Piliers → Performance/Historique →
-          Méthode → Compétitions → Partenaire VISION221 → Jeu responsable →
+          Méthode → Compétitions → Partenaires → Jeu responsable →
           Footer. Bloc partenaire placé APRÈS la valeur produit. */}
       <main id="main-content" className="relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
         <ErrorBoundary><Navbar /></ErrorBoundary>
