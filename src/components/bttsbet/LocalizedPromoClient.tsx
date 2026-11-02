@@ -48,7 +48,7 @@ const INFO: Record<BookmakerId, {
     code: 'btts221',
     signup: AFFILIATE.star888,
     download: AFFILIATE.star888Download,
-    logo: '/logos/888starz-logo.png',
+    logo: '/logos/888starz-logo.jpg',
     logoBg: '#1a0a0f',
     accent: '#FF4D6D',
   },
