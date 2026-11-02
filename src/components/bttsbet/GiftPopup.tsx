@@ -119,7 +119,7 @@ export default function GiftPopup() {
         <motion.aside
           className="hp-gift"
           role="complementary"
-          aria-label={t.badge}
+          aria-label={t.title}
           initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 40, scale: 0.92 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.96 }}
