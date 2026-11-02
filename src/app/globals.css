@@ -8084,3 +8084,31 @@ a[data-cta="sticky-register-1xbet"] {
 .promo-shell--1xbet button[data-cta^="promo-copy"] {
   letter-spacing: 0.28em;
 }
+
+
+/* GiftPopup — copy hierarchy */
+.hp-gift-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #F2F6FA;
+  line-height: 1.25;
+}
+.hp-gift-bonus span {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #7EB6FF;
+}
+.hp-gift-legal {
+  margin: 0.65rem 0 0;
+  font-size: 10px;
+  line-height: 1.4;
+  color: #8B9AAB;
+  text-align: center;
+}
+.hp-gift-btn {
+  font-size: 11px !important;
+  letter-spacing: 0.02em;
+  padding: 0.7rem 0.55rem !important;
+}
