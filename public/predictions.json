@@ -1,6 +1,6 @@
 {
   "date": "2026-11-02",
-  "lastUpdated": "2026-11-02T13:14:41.699Z",
+  "lastUpdated": "2026-11-02T13:43:10.464Z",
   "source": "ESPN + TheSportsDB",
   "free": [
     {
@@ -5996,7 +5996,7 @@
       "away": "SK Brann",
       "league": "UEFA Conference League",
       "date": "2026-11-05",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
       "proba": 0.7,
       "bttsProbDisplay": "70.00%",
@@ -6149,51 +6149,54 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 65,
-          "bttsProb": 0.65,
+          "confidence": 68,
+          "bttsProb": 0.68,
           "homeLambda": 1.25,
           "awayLambda": 0.75,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.65
+          "proba": 0.68
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 70,
-          "over25Prob": 0.7,
+          "confidence": 68,
+          "over25Prob": 0.69,
           "homeLambda": 1.25,
           "awayLambda": 0.75,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.7
+          "proba": 0.69
         }
       ],
-      "bttsProb": 0.65,
-      "over25Prob": 0.7,
+      "bttsProb": 0.68,
+      "over25Prob": 0.69,
       "homeLambda": 1.25,
       "awayLambda": 0.75,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Form signals BTTS 65% / Over 70%",
-      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 65.0%, Over 2.5 70.0% for Sint-Truidense vs SK Brann. Decision: OVER_25.",
-      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 65.0%, Over 2.5 empirique 70.0% pour Sint-Truidense vs SK Brann. Décision :",
-      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 65.0%, Over 2.5 70.0% for Sint-Truidense vs SK Brann. Decision: OVER_25.",
+      "ai_key_fact": "Sint-Truidense reste sur 5 défaites consécutives en concédant 13 buts, tandis que SK Brann affiche 80% de BTTS récents.",
+      "ai_analysis": "Les données observées mettent en lumière une configuration propice aux buts des deux côtés malgré les difficultés de Sint-Truidense. La formation locale encaisse beaucoup (13 buts sur ses 5 derniers matchs), ce qui offre des opportunités à SK Brann. Le taux empirique BTTS atteint 70% et est renforcé par les 80% de SK Brann sur ses cinq dernières sorties. C'est un choix cohérent au vu des statistiques défensives des deux équipes.",
+      "ai_analysis_en": "Observed data highlight a setup favorable to goals at both ends despite Sint-Truidense's struggles. The home side concedes frequently (13 goals in their last 5 matches), providing opportunities for SK Brann. The empirical BTTS rate reaches 70% and is reinforced by SK Brann's 80% rate over their last five outings. This is a consistent choice given the defensive statistics of both teams.",
+      "ai_form_summary": "Sint-Truidense : D-D-D-D-D (5 défaites, 6 buts marqués, 13 encaissés). SK Brann : V-D-D-D-V (2 victoires, 3 défaites, 8 buts marqués, 11 encaissés).",
+      "ai_form_summary_en": "Sint-Truidense: L-L-L-L-L (5 losses, 6 goals scored, 13 conceded). SK Brann: W-L-L-L-W (2 wins, 3 losses, 8 goals scored, 11 conceded).",
       "ai_reasons": [
-        "Empirical BTTS rate ~65%",
-        "Empirical Over 2.5 rate ~70%"
+        "Taux BTTS empirique solide établi à 70% pour cette confrontation",
+        "SK Brann affiche un taux BTTS de 80% sur ses 5 derniers matchs",
+        "Sint-Truidense concède régulièrement des buts avec 13 buts encaissés lors de ses 5 dernières rencontres"
       ],
       "ai_risks": [
-        "Sample limited to recent matches; form can shift quickly."
+        "Sint-Truidense traverse une mauvaise passe avec 5 défaites consécutives et des difficultés offensives (1.25 buts par match)",
+        "La moyenne de buts à l'extérieur de SK Brann est relativement faible à 0.75"
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "local-empirical-v1",
-      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 65.0%, Over 2.5 empirique 70.0% pour Sint-Truidense vs SK Brann. Décision : OVER_25.",
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "fcthun-vs-heartofm-2026-11-05",
@@ -9157,48 +9160,41 @@
       "away": "New England Revolution",
       "league": "MLS",
       "date": "2026-11-07",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.75,
-      "bttsProbDisplay": "80.00%",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "90.00%",
-      "confidence": 75,
+      "confidence": 70,
       "time": "21:00",
       "matchSemantic": "orlandoc-vs-newengla-2026-11-07",
       "source": "poisson-v92-real-data",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12011.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/189.png",
       "tier": "GOLD",
-      "reliabilityScore": 93.75,
+      "reliabilityScore": 89.38,
       "dataQuality": "HIGH",
       "dataSource": "ESPN_TEAM_SCHEDULE",
       "matchCountHome": 8,
       "matchCountAway": 8,
       "h2hAvailable": false,
       "xgHome": 3,
-      "xgAway": 1.67,
-      "xgTotal": 4.67,
-      "formBTTS": 80,
-      "analysis": "Orlando City SC : forme D-N-N-V-N (1V 3N 1D, 11 buts marqués / 12 encaissés sur 5) · New England Revolution : forme D-V-V-V-V (4V 0N 1D, 10 buts marqués / 7 encaissés sur 5). Classement : Orlando City SC 9e (43 pts), New England Revolution 3e (58 pts). Stats empiriques (forme récente) : buts moy. 4.67, BTTS 80.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.83 / N: 4.1 / 2: 3.25. Fiabilité 93.75%.",
+      "xgAway": 1.75,
+      "xgTotal": 4.75,
+      "formBTTS": 70,
+      "analysis": "Orlando City SC : forme D-N-N-V-N (1V 3N 1D, 11 buts marqués / 12 encaissés sur 5) · New England Revolution : forme V-V-V-V-D (4V 0N 1D, 9 buts marqués / 8 encaissés sur 5). Classement : Orlando City SC 9e (43 pts), New England Revolution 2e (58 pts). Stats empiriques (forme récente) : buts moy. 4.75, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Fiabilité 89.38%.",
       "analysisData": {
-        "bttsProb": 0.8,
+        "bttsProb": 0.7,
         "over25Prob": 0.9,
         "homeLambda": 3,
-        "awayLambda": 1.67,
-        "xgTotal": 4.67
+        "awayLambda": 1.75,
+        "xgTotal": 4.75
       },
-      "estimatedCote": 1.25,
+      "estimatedCote": 1.43,
       "estimatedCoteOver": 1.11,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 1.83,
-        "draw": 4.1,
-        "away": 3.25,
-        "over25": null,
-        "under25": null
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.25,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.43,
       "formHome": {
         "last5String": "D-N-N-V-N",
         "wins": 1,
@@ -9213,16 +9209,16 @@
         "count": 5
       },
       "formAway": {
-        "last5String": "D-V-V-V-V",
+        "last5String": "V-V-V-V-D",
         "wins": 4,
         "draws": 0,
         "losses": 1,
-        "goalsFor": 10,
-        "goalsAgainst": 7,
-        "bttsRate": 0.8,
+        "goalsFor": 9,
+        "goalsAgainst": 8,
+        "bttsRate": 0.6,
         "over25Rate": 0.8,
         "cleanSheets": 1,
-        "failedToScore": 0,
+        "failedToScore": 1,
         "count": 5
       },
       "last5Home": [
@@ -9307,61 +9303,64 @@
         "ga": 78
       },
       "standingsAway": {
-        "rank": 3,
+        "rank": 2,
         "points": 58,
-        "played": 33,
-        "gf": 55,
-        "ga": 46
+        "played": 32,
+        "gf": 54,
+        "ga": 44
       },
       "predictions": [
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 80,
-          "bttsProb": 0.8,
+          "confidence": 72,
+          "bttsProb": 0.72,
           "homeLambda": 3,
-          "awayLambda": 1.67,
+          "awayLambda": 1.75,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "statsOnly": true,
+          "proba": 0.72
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 75,
-          "over25Prob": 0.75,
+          "confidence": 72,
+          "over25Prob": 0.78,
           "homeLambda": 3,
-          "awayLambda": 1.67,
+          "awayLambda": 1.75,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.75
+          "proba": 0.78
         }
       ],
-      "bttsProb": 0.8,
-      "over25Prob": 0.75,
+      "bttsProb": 0.72,
+      "over25Prob": 0.78,
       "homeLambda": 3,
-      "awayLambda": 1.67,
+      "awayLambda": 1.75,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Orlando City affiche un taux d'Over 2.5 de 100% sur ses derniers matchs avec une moyenne de 3 buts.",
-      "ai_analysis": "Cette confrontation en MLS réunit deux équipes aux profils résolument offensifs. Orlando City affiche une moyenne de 3 buts par match et un taux d'Over 2.5 de 100% sur sa forme récente, tandis que New England présente d'excellentes statistiques de régularité (4 victoires sur les 5 derniers). Avec un taux combiné de BTTS à 80% et un Over empirique de 90%, les conditions sont réunies pour voir plus de 2.5 buts dans la rencontre.",
-      "ai_analysis_en": "This MLS matchup brings together two decidedly offensive teams. Orlando City averages 3 goals per match and a 100% Over 2.5 rate in their recent form, while New England shows great consistency with 4 wins in their last 5. With a combined BTTS rate of 80% and an empirical Over of 90%, conditions are ideal for seeing over 2.5 goals in this encounter.",
-      "ai_form_summary": "Orlando City SC : D-N-N-V-N (1W-3D-1L, 11 buts pour, 12 contre). New England Revolution : D-V-V-V-V (4W-0D-1L, 10 buts pour, 7 contre).",
-      "ai_form_summary_en": "Orlando City SC: L-D-D-W-D (1W-3D-1L, 11 GF, 12 GA). New England Revolution: L-W-W-W-W (4W-0D-1L, 10 GF, 7 GA).",
+      "ai_key_fact": "Orlando affiche un taux d'Over 2.5 de 100% sur ses 5 derniers matchs.",
+      "ai_analysis": "Les statistiques observées montrent une forte tendance aux matchs ouverts et prolifiques pour Orlando City SC et New England Revolution. Avec un taux empirique de 90% sur l'Over 2.5 et 70% pour le BTTS, les indicateurs offensifs prônent nettement pour des buts des deux côtés. Orlando encaisse beaucoup (78 buts en 33 matchs), ce qui renforce la probabilité d'une rencontre animée.",
+      "ai_analysis_en": "Observed statistics show a strong tendency for open and high-scoring matches for Orlando City SC and New England Revolution. With an empirical Over 2.5 rate of 90% and 70% for BTTS, offensive indicators clearly favor goals at both ends. Orlando concedes heavily (78 goals in 33 matches), reinforcing the probability of a lively encounter.",
+      "ai_form_summary": "Orlando (1V-3D-1L) présente une défense perméable, tandis que New England (4V-0D-1L) affiche une excellente dynamique récente.",
+      "ai_form_summary_en": "Orlando (1W-3D-1L) displays a leaky defense, while New England (4W-0D-1L) shows an excellent recent momentum.",
       "ai_reasons": [
-        "Taux empirique d'Over 2.5 très élevé à 90% pour Orlando City.",
-        "Taux BTTS de 80% pour les deux formations sur leurs 5 derniers matchs.",
-        "Moyenne de buts de 3.0 par match pour Orlando City à domicile."
+        "Taux empirique BTTS élevé à 70% et Over 2.5 à 90%.",
+        "Moyennes de buts importantes : 3 buts par match pour Orlando, 1.75 pour New England.",
+        "Taux de BTTS sur les 5 derniers matchs de 80% pour Orlando et 60% pour New England."
       ],
       "ai_risks": [
-        "New England Revolution possède une défense plus solide (46 buts encaissés en 33 matchs) qui pourrait contenir l'attaque d'Orlando."
+        "New England possède un classement supérieur (2e) et une bonne dynamique récente malgré tout.",
+        "Défense de New England relativement solide (44 buts encaissés en 32 matchs)."
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.83 · N 4.1 · 2 3.25"
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "asroma-vs-sassuolo-2026-11-07",
@@ -16071,7 +16070,7 @@
       "away": "SK Brann",
       "league": "UEFA Conference League",
       "date": "2026-11-05",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
       "proba": 0.7,
       "bttsProbDisplay": "70.00%",
@@ -16224,51 +16223,54 @@
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 65,
-          "bttsProb": 0.65,
+          "confidence": 68,
+          "bttsProb": 0.68,
           "homeLambda": 1.25,
           "awayLambda": 0.75,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.65
+          "proba": 0.68
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 70,
-          "over25Prob": 0.7,
+          "confidence": 68,
+          "over25Prob": 0.69,
           "homeLambda": 1.25,
           "awayLambda": 0.75,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.7
+          "proba": 0.69
         }
       ],
-      "bttsProb": 0.65,
-      "over25Prob": 0.7,
+      "bttsProb": 0.68,
+      "over25Prob": 0.69,
       "homeLambda": 1.25,
       "awayLambda": 0.75,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Form signals BTTS 65% / Over 70%",
-      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 65.0%, Over 2.5 70.0% for Sint-Truidense vs SK Brann. Decision: OVER_25.",
-      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 65.0%, Over 2.5 empirique 70.0% pour Sint-Truidense vs SK Brann. Décision :",
-      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 65.0%, Over 2.5 70.0% for Sint-Truidense vs SK Brann. Decision: OVER_25.",
+      "ai_key_fact": "Sint-Truidense reste sur 5 défaites consécutives en concédant 13 buts, tandis que SK Brann affiche 80% de BTTS récents.",
+      "ai_analysis": "Les données observées mettent en lumière une configuration propice aux buts des deux côtés malgré les difficultés de Sint-Truidense. La formation locale encaisse beaucoup (13 buts sur ses 5 derniers matchs), ce qui offre des opportunités à SK Brann. Le taux empirique BTTS atteint 70% et est renforcé par les 80% de SK Brann sur ses cinq dernières sorties. C'est un choix cohérent au vu des statistiques défensives des deux équipes.",
+      "ai_analysis_en": "Observed data highlight a setup favorable to goals at both ends despite Sint-Truidense's struggles. The home side concedes frequently (13 goals in their last 5 matches), providing opportunities for SK Brann. The empirical BTTS rate reaches 70% and is reinforced by SK Brann's 80% rate over their last five outings. This is a consistent choice given the defensive statistics of both teams.",
+      "ai_form_summary": "Sint-Truidense : D-D-D-D-D (5 défaites, 6 buts marqués, 13 encaissés). SK Brann : V-D-D-D-V (2 victoires, 3 défaites, 8 buts marqués, 11 encaissés).",
+      "ai_form_summary_en": "Sint-Truidense: L-L-L-L-L (5 losses, 6 goals scored, 13 conceded). SK Brann: W-L-L-L-W (2 wins, 3 losses, 8 goals scored, 11 conceded).",
       "ai_reasons": [
-        "Empirical BTTS rate ~65%",
-        "Empirical Over 2.5 rate ~70%"
+        "Taux BTTS empirique solide établi à 70% pour cette confrontation",
+        "SK Brann affiche un taux BTTS de 80% sur ses 5 derniers matchs",
+        "Sint-Truidense concède régulièrement des buts avec 13 buts encaissés lors de ses 5 dernières rencontres"
       ],
       "ai_risks": [
-        "Sample limited to recent matches; form can shift quickly."
+        "Sint-Truidense traverse une mauvaise passe avec 5 défaites consécutives et des difficultés offensives (1.25 buts par match)",
+        "La moyenne de buts à l'extérieur de SK Brann est relativement faible à 0.75"
       ],
       "ai_confidence": "medium",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
-      "ai_source": "local-empirical-v1",
-      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 65.0%, Over 2.5 empirique 70.0% pour Sint-Truidense vs SK Brann. Décision : OVER_25.",
+      "ai_market": "BOTH",
+      "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "fcthun-vs-heartofm-2026-11-05",
@@ -19232,48 +19234,41 @@
       "away": "New England Revolution",
       "league": "MLS",
       "date": "2026-11-07",
-      "type": "Over 2.5",
+      "type": "BTTS",
       "prediction": "Oui",
-      "proba": 0.75,
-      "bttsProbDisplay": "80.00%",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
       "over25ProbDisplay": "90.00%",
-      "confidence": 75,
+      "confidence": 70,
       "time": "21:00",
       "matchSemantic": "orlandoc-vs-newengla-2026-11-07",
       "source": "poisson-v92-real-data",
       "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12011.png",
       "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/189.png",
       "tier": "GOLD",
-      "reliabilityScore": 93.75,
+      "reliabilityScore": 89.38,
       "dataQuality": "HIGH",
       "dataSource": "ESPN_TEAM_SCHEDULE",
       "matchCountHome": 8,
       "matchCountAway": 8,
       "h2hAvailable": false,
       "xgHome": 3,
-      "xgAway": 1.67,
-      "xgTotal": 4.67,
-      "formBTTS": 80,
-      "analysis": "Orlando City SC : forme D-N-N-V-N (1V 3N 1D, 11 buts marqués / 12 encaissés sur 5) · New England Revolution : forme D-V-V-V-V (4V 0N 1D, 10 buts marqués / 7 encaissés sur 5). Classement : Orlando City SC 9e (43 pts), New England Revolution 3e (58 pts). Stats empiriques (forme récente) : buts moy. 4.67, BTTS 80.0%, Over 2.5 90.0%. Affinage AI ensuite. Cotes DraftKings — 1: 1.83 / N: 4.1 / 2: 3.25. Fiabilité 93.75%.",
+      "xgAway": 1.75,
+      "xgTotal": 4.75,
+      "formBTTS": 70,
+      "analysis": "Orlando City SC : forme D-N-N-V-N (1V 3N 1D, 11 buts marqués / 12 encaissés sur 5) · New England Revolution : forme V-V-V-V-D (4V 0N 1D, 9 buts marqués / 8 encaissés sur 5). Classement : Orlando City SC 9e (43 pts), New England Revolution 2e (58 pts). Stats empiriques (forme récente) : buts moy. 4.75, BTTS 70.0%, Over 2.5 90.0%. Affinage AI ensuite. Fiabilité 89.38%.",
       "analysisData": {
-        "bttsProb": 0.8,
+        "bttsProb": 0.7,
         "over25Prob": 0.9,
         "homeLambda": 3,
-        "awayLambda": 1.67,
-        "xgTotal": 4.67
+        "awayLambda": 1.75,
+        "xgTotal": 4.75
       },
-      "estimatedCote": 1.25,
+      "estimatedCote": 1.43,
       "estimatedCoteOver": 1.11,
-      "odds": {
-        "provider": "DraftKings",
-        "home": 1.83,
-        "draw": 4.1,
-        "away": 3.25,
-        "over25": null,
-        "under25": null
-      },
-      "oddsSource": "DraftKings",
-      "estimatedCoteBTTS": 1.25,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.43,
       "formHome": {
         "last5String": "D-N-N-V-N",
         "wins": 1,
@@ -19288,16 +19283,16 @@
         "count": 5
       },
       "formAway": {
-        "last5String": "D-V-V-V-V",
+        "last5String": "V-V-V-V-D",
         "wins": 4,
         "draws": 0,
         "losses": 1,
-        "goalsFor": 10,
-        "goalsAgainst": 7,
-        "bttsRate": 0.8,
+        "goalsFor": 9,
+        "goalsAgainst": 8,
+        "bttsRate": 0.6,
         "over25Rate": 0.8,
         "cleanSheets": 1,
-        "failedToScore": 0,
+        "failedToScore": 1,
         "count": 5
       },
       "last5Home": [
@@ -19382,61 +19377,64 @@
         "ga": 78
       },
       "standingsAway": {
-        "rank": 3,
+        "rank": 2,
         "points": 58,
-        "played": 33,
-        "gf": 55,
-        "ga": 46
+        "played": 32,
+        "gf": 54,
+        "ga": 44
       },
       "predictions": [
         {
           "type": "BTTS",
           "prediction": "Oui",
-          "confidence": 80,
-          "bttsProb": 0.8,
+          "confidence": 72,
+          "bttsProb": 0.72,
           "homeLambda": 3,
-          "awayLambda": 1.67,
+          "awayLambda": 1.75,
           "modelEngine": "empirical-form+gemini",
-          "statsOnly": true
+          "statsOnly": true,
+          "proba": 0.72
         },
         {
           "type": "Over 2.5",
           "prediction": "Oui",
-          "confidence": 75,
-          "over25Prob": 0.75,
+          "confidence": 72,
+          "over25Prob": 0.78,
           "homeLambda": 3,
-          "awayLambda": 1.67,
+          "awayLambda": 1.75,
           "modelEngine": "empirical-form+gemini",
           "statsOnly": true,
-          "proba": 0.75
+          "proba": 0.78
         }
       ],
-      "bttsProb": 0.8,
-      "over25Prob": 0.75,
+      "bttsProb": 0.72,
+      "over25Prob": 0.78,
       "homeLambda": 3,
-      "awayLambda": 1.67,
+      "awayLambda": 1.75,
       "modelEngine": "gemini-stats-v1",
       "statsOnly": true,
-      "ai_key_fact": "Orlando City affiche un taux d'Over 2.5 de 100% sur ses derniers matchs avec une moyenne de 3 buts.",
-      "ai_analysis": "Cette confrontation en MLS réunit deux équipes aux profils résolument offensifs. Orlando City affiche une moyenne de 3 buts par match et un taux d'Over 2.5 de 100% sur sa forme récente, tandis que New England présente d'excellentes statistiques de régularité (4 victoires sur les 5 derniers). Avec un taux combiné de BTTS à 80% et un Over empirique de 90%, les conditions sont réunies pour voir plus de 2.5 buts dans la rencontre.",
-      "ai_analysis_en": "This MLS matchup brings together two decidedly offensive teams. Orlando City averages 3 goals per match and a 100% Over 2.5 rate in their recent form, while New England shows great consistency with 4 wins in their last 5. With a combined BTTS rate of 80% and an empirical Over of 90%, conditions are ideal for seeing over 2.5 goals in this encounter.",
-      "ai_form_summary": "Orlando City SC : D-N-N-V-N (1W-3D-1L, 11 buts pour, 12 contre). New England Revolution : D-V-V-V-V (4W-0D-1L, 10 buts pour, 7 contre).",
-      "ai_form_summary_en": "Orlando City SC: L-D-D-W-D (1W-3D-1L, 11 GF, 12 GA). New England Revolution: L-W-W-W-W (4W-0D-1L, 10 GF, 7 GA).",
+      "ai_key_fact": "Orlando affiche un taux d'Over 2.5 de 100% sur ses 5 derniers matchs.",
+      "ai_analysis": "Les statistiques observées montrent une forte tendance aux matchs ouverts et prolifiques pour Orlando City SC et New England Revolution. Avec un taux empirique de 90% sur l'Over 2.5 et 70% pour le BTTS, les indicateurs offensifs prônent nettement pour des buts des deux côtés. Orlando encaisse beaucoup (78 buts en 33 matchs), ce qui renforce la probabilité d'une rencontre animée.",
+      "ai_analysis_en": "Observed statistics show a strong tendency for open and high-scoring matches for Orlando City SC and New England Revolution. With an empirical Over 2.5 rate of 90% and 70% for BTTS, offensive indicators clearly favor goals at both ends. Orlando concedes heavily (78 goals in 33 matches), reinforcing the probability of a lively encounter.",
+      "ai_form_summary": "Orlando (1V-3D-1L) présente une défense perméable, tandis que New England (4V-0D-1L) affiche une excellente dynamique récente.",
+      "ai_form_summary_en": "Orlando (1W-3D-1L) displays a leaky defense, while New England (4W-0D-1L) shows an excellent recent momentum.",
       "ai_reasons": [
-        "Taux empirique d'Over 2.5 très élevé à 90% pour Orlando City.",
-        "Taux BTTS de 80% pour les deux formations sur leurs 5 derniers matchs.",
-        "Moyenne de buts de 3.0 par match pour Orlando City à domicile."
+        "Taux empirique BTTS élevé à 70% et Over 2.5 à 90%.",
+        "Moyennes de buts importantes : 3 buts par match pour Orlando, 1.75 pour New England.",
+        "Taux de BTTS sur les 5 derniers matchs de 80% pour Orlando et 60% pour New England."
       ],
       "ai_risks": [
-        "New England Revolution possède une défense plus solide (46 buts encaissés en 33 matchs) qui pourrait contenir l'attaque d'Orlando."
+        "New England possède un classement supérieur (2e) et une bonne dynamique récente malgré tout.",
+        "Défense de New England relativement solide (44 buts encaissés en 32 matchs)."
       ],
       "ai_confidence": "high",
       "ai_abstain": false,
-      "ai_market": "OVER_25",
+      "ai_market": "BOTH",
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.83 · N 4.1 · 2 3.25"
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "asroma-vs-sassuolo-2026-11-07",

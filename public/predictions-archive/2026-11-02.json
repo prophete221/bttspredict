@@ -11465,7 +11465,8 @@
       "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 65.0%, Over 2.5 empirique 70.0% pour Sint-Truidense vs SK Brann. Décision : OVER_25.",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
     },
     {
       "id": "orlandoc-vs-newengla-2026-11-07",
@@ -11678,7 +11679,8 @@
       "ai_source": "gemini-stats-v1",
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
-      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.83 · N 4.1 · 2 3.25"
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 1.83 · N 4.1 · 2 3.25",
+      "status": "PENDING"
     }
   ],
   "vipPreview": [
