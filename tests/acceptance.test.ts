@@ -13,8 +13,10 @@ describe('Architecture SEO', () => {
   })
   test('sitemap.ts génère des URLs', () => {
     const sm = fs.readFileSync(path.join(ROOT, 'src/app/sitemap.ts'), 'utf8')
-    const count = (sm.match(/url\(/g) || []).length
-    expect(count).toBeGreaterThan(5)
+    // Helper `url(` + boucle PAGES (FR/EN/AR) — au moins les chemins critiques
+    expect(sm).toContain('function url(')
+    expect(sm).toContain('LOCALIZED_PATHS')
+    expect((sm.match(/path: '\//g) || []).length).toBeGreaterThan(5)
   })
   test('sitemap.ts inclut les pages topical BTTS et Over 2.5', () => {
     const sm = fs.readFileSync(path.join(ROOT, 'src/app/sitemap.ts'), 'utf8')
