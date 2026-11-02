@@ -7,6 +7,7 @@ import { useLanguage } from './LanguageSwitcher'
 import AnimatedTitle from './HeroWordmark'
 import VipButtons from './VipButtons'
 import { AFFILIATE } from '@/lib/constants'
+import PartnerSignupBand from '@/components/bttsbet/PartnerSignupBand'
 import { trackAffiliateAction } from '@/lib/affiliateTracking'
 
 export default function LocalizedCombinedPredictionsClient() {
@@ -119,7 +120,8 @@ export default function LocalizedCombinedPredictionsClient() {
         </section>
 
         <section className="max-w-5xl mx-auto px-4 pb-12">
-          <FreePredictions />
+          <PartnerSignupBand locale={lang === 'ar' ? 'ar' : 'en'} />
+        <FreePredictions />
         </section>
 
         <section className="max-w-3xl mx-auto px-4 pb-12">
