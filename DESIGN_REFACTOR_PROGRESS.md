@@ -2,7 +2,7 @@
 
 ## État
 
-Les changements sont réalisés localement sur `fix/partner-code-attribution`, à partir du commit `81e5d3789f702707d84c67faf662f0b58d7c4724`. Aucun changement n’a été poussé, fusionné dans `main` ou déployé en production. L’aperçu Vercel demandé reste à créer après autorisation explicite du push de cette branche.
+Les changements de refonte sont poussés uniquement sur `fix/partner-code-attribution`, basée sur le commit `81e5d3789f702707d84c67faf662f0b58d7c4724`. Les modes de fichiers d’origine sont conservés. Aucune Pull Request n’a été fusionnée; `main` et la production n’ont pas été touchés. Le SHA final et le résultat du contrôle Vercel Preview sont communiqués avec la livraison.
 
 ## Travail effectué
 
@@ -21,6 +21,6 @@ Les changements sont réalisés localement sur `fix/partner-code-attribution`, �
 - Contrôle visuel automatisé: 48 captures de pages en FR/EN/AR (1440×950 et 375×812) et 6 captures du popup (desktop et 320×568). Toutes les pages contrôlées répondent en 200, sans débordement horizontal ni erreur de console; le bouton de fermeture du popup fonctionne dans les trois langues. Les planches de contact et captures individuelles sont remises séparément pour revue.
 - `git diff --check` sans erreur.
 
-## À faire après autorisation
+## Contrôle du Preview
 
-Créer le commit et pousser uniquement `fix/partner-code-attribution` afin de générer un nouvel aperçu Vercel. Cette étape n’est pas effectuée tant que l’autorisation explicite n’a pas été donnée. Aucun merge dans `main` et aucun déploiement production ne sont prévus.
+Après le dernier push, vérifier que Vercel a créé un déploiement de type Preview pour le SHA final, qu’il est prêt, et que le SHA associé au déploiement correspond exactement au dernier commit de `fix/partner-code-attribution`. Communiquer le SHA complet, le lien direct du Preview et son état dans le retour à l’utilisateur.
