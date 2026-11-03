@@ -18,7 +18,7 @@
  *   - Mobile-first : colonnes empilées <640px, cibles tactiles ≥ 44 px.
  */
 
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 import { localizedPath, type Locale } from '@/lib/i18n'
 import {
   getBookmaker,
@@ -62,22 +62,22 @@ export default function BookmakerPromoPage({
 
   const hasFullOffer = Boolean(b.offer.bonus)
 
-  const copyCode = useCallback(async () => {
+  const copyCode = async () => {
     const ok = await copyTextToClipboard(b.promoCode)
     if (!ok) return
     trackAffiliateCodeCopy(b.id, 'promo-page-code-card')
     setCopied(true)
     setTimeout(() => setCopied(false), 2400)
-  }, [b.id, b.promoCode])
+  }
 
-  const copyAndGo = useCallback(async () => {
+  const copyAndGo = async () => {
     const ok = await copyTextToClipboard(b.promoCode)
     if (ok) {
       trackAffiliateCodeCopy(b.id, 'promo-page-instant')
       setCopiedInstant(true)
       setTimeout(() => setCopiedInstant(false), 2400)
     }
-  }, [b.id, b.promoCode])
+  }
 
   const fill = (s: string) => fillTokens(s, vars)
 

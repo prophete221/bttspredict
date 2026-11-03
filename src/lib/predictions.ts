@@ -4,7 +4,6 @@
  *
  * Used by:
  *  - src/components/bttsbet/FreePredictions.tsx
- *  - src/components/bttsbet/FreePredictionsWidget.tsx
  *  - src/app/btts/predictions/today/page.tsx (via FreePredictions)
  *  - src/app/historique/HistoriqueClient.tsx (via win-history.json)
  *  - scripts/verify-results.mjs (consistency check)

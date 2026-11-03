@@ -16,10 +16,13 @@ const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: (
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
 
-/* ────────────────── Parcours VIP — Linebet uniquement ──────────────────
-   Déblocage : création d'un NOUVEAU compte Linebet avec le code promo
-   VISION221 + dépôt minimum de 10 €, puis vérification WhatsApp.
-   (VISION221 = code Linebet ; btts221 = code 888Starz, voir /bonus-888starz)
+/* ────────── Parcours VIP — partenaire de référence Linebet ──────────
+   Déblocage : création d'un NOUVEAU compte chez le partenaire avec le code
+   promo du parcours (Linebet → VISION221) + dépôt minimum de 10 €, puis
+   vérification WhatsApp.
+   La modale de déblocage (VipUnlockModal) propose aussi 1xBet (Vipbtts,
+   partenaire prioritaire), Melbet (Bttswin) et 888Starz (btts221) — voir
+   lib/bookmakers.ts. VIP_POLICY reste aligné sur Linebet (test affiliate).
    ──────────────────────────────────────────────────────────────────── */
 const VIP_BRAND = 'Linebet'
 const VIP_CODE = 'VISION221'

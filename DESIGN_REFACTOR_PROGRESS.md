@@ -19,12 +19,13 @@
 | 6. Navbar : 4 partenaires, code contextuel | ✅ | voir git log |
 | 7. Suppression composants décoratifs morts (11 fichiers) | ✅ | voir git log |
 | 8. Sitemap : ajout additif /code-promo-1xbet + /code-promo-melbet | ✅ | hash garde-fou synchronisé (documenté ci-dessous) |
-| 9. Pages pronostics (BTTS/Over 2.5/combiné/score exact) | 🔜 | — |
-| 10. Pages match, stats, historique, résultats vérifiés | 🔜 | — |
-| 11. VIP (parcours + modale déblocage + intégration 1xBet) | 🔜 | — |
-| 12. Pages éditoriales/légales (méthodo, CGU, mentions, confidentialité, jouer responsable, btts-c-est-quoi, aviator) | 🔜 | — |
-| 13. Accueil FR/EN/AR — passe finale cohérence | 🔜 | — |
-| 14. Validation : build + tsc + eslint + tests + captures APRÈS | 🔜 | — |
+| 9. Pages légales/informatives allégées (widgets promo retirés) | ✅ | voir git log |
+| 10. Popup cadeau : attend la décision cookies (plus de chevauchement) | ✅ | voir git log |
+| 11. Pages pronostics (BTTS/Over 2.5/combiné/score exact) — dashboards partagés déjà sobres, aucun ajout | ✅ (contrôle) | — |
+| 12. Pages match, stats, historique, résultats vérifiés | 🔜 | — |
+| 13. Pages éditoriales restantes (méthodo, aviator, pronostics) | 🔜 | — |
+| 14. Accueil FR/EN/AR — passe finale cohérence | 🔜 | — |
+| 15. Validation : build + tsc + eslint + tests + captures APRÈS | 🔜 | — |
 
 ## Décisions de design (direction artistique)
 
@@ -58,6 +59,19 @@ modifier aucune URL, priorité ni hreflang existant. Le hash du garde-fou a
 été synchronisé en conséquence et ce choix est documenté ici. Tous les autres
 fichiers gelés (i18n.ts, seoSchemas.ts, robots.txt, submit-indexnow.mjs,
 metadata de layout/match/methodologie) restent byte-for-byte identiques.
+
+## Suppressions — composants décoratifs / redondants (au total : 15 fichiers)
+
+- Code mort : CursorEffect, FloatingElements, NeuralBackground, SiteLoader,
+  SportMarquee, TiltCard, AnimatedIcons, StickyVipBandeau, MovingGradientButton,
+  HowItWorks, GlobalReach.
+- Widgets promo empilés en bas de chaque page (supprimés des 5 pages légales
+  puis retirés du codebase) : FreePredictionsWidget, VipCardWidget,
+  LinebetApkButton, HowToGetVip.
+- Footer : FAQ dupliquée + bloc transparence encadré retirés.
+- Pages promo : les anciens clients hétérogènes (LinebetClient 599 lignes,
+  Star888Client, Btts221PromoClient, LocalizedPromoClient) ne sont plus rendus
+  (fichiers conservés jusqu'à validation, puis suppression).
 
 ## Captures
 
