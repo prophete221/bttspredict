@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// BTTSPredict — affiliateTracking (v2, 2026-09-28)
+// BTTSPredict — affiliateTracking (v3, 2026-11-03)
 // ═══════════════════════════════════════════════════════════════════════════════
 // Événement GA4 unique : 'affiliate_funnel_action'
 //
@@ -12,22 +12,26 @@
 //     n'est pas accordé (même clé que AnalyticsLoader). Pas de backlog qui
 //     fuirait les interactions pré-consentement.
 //  3. Déduplication des événements de type "vue" (promo_view, prediction_view,
-//     match_view) : 1 fois par placement par session (sessionStorage). Les
+//     match_view, vip_page_view) : 1 fois par partenaire/action/placement/session. Les
 //     clics ne sont JAMAIS dédupliqués.
 //  4. Noms normalisés — un clic n'est pas une inscription :
 //     'signup' → 'signup_cta_click', 'download' → 'download_click'.
 //     La conversion finale (inscription réelle) n'est PAS mesurable côté site :
-//     elle doit être vérifiée dans le programme d'affiliation Linebet.
+//     elle doit être vérifiée dans le programme d'affiliation de l'opérateur.
 //  5. Contexte enrichi optionnel (marché, match, langue, page) via param `context`.
 //     Aucune donnée personnelle : identifiants anonymes et paramètres de page.
 // ═══════════════════════════════════════════════════════════════════════════════
 
 export type AffiliatePartner = '1xbet' | 'linebet' | 'melbet' | '888starz'
+/** Entité analytique non commerciale utilisée pour les vues génériques de la plateforme. */
+export type TrackingEntity = AffiliatePartner | 'platform'
 
 export type AffiliateAction =
   | 'promo_view'        // vue d'un bloc promo / choix bookmaker
+  | 'partner_select'    // sélection explicite d'un partenaire dans un parcours
   | 'prediction_view'   // vue d'une prédiction (feed, dashboard, page prédictions)
   | 'match_view'        // vue d'une page match détaillée
+  | 'vip_page_view'     // visite de la page VIP, sans attribution à un bookmaker
   | 'copy_code'         // clic copie du code promo
   | 'signup_cta_click'  // clic sur un CTA d'inscription (≠ inscription réelle)
   | 'download_click'    // clic sur un lien de téléchargement (APK)
@@ -64,7 +68,7 @@ function emitOncePerSession(eventKey: string): boolean {
     sessionStorage.setItem(VIEW_DEDUP_KEY, JSON.stringify(seen.slice(-100)))
     return true
   } catch {
-    return true // session indisponible : émettre (mieux vaut un doublon qu'une perte de clic)
+    return false // vue supprimée si la session ne peut pas être mémorisée, afin d'éviter les doublons au rechargement
   }
 }
 
@@ -73,7 +77,7 @@ function emitOncePerSession(eventKey: string): boolean {
  * N'émet RIEN sans consentement analytics. Aucune donnée personnelle.
  */
 export function trackAffiliateAction(
-  partner: AffiliatePartner,
+  partner: TrackingEntity,
   action: AffiliateAction,
   placement: string,
   context?: AffiliateContext,
@@ -82,8 +86,8 @@ export function trackAffiliateAction(
   if (!analyticsAllowed()) return
 
   // Les "vues" ne comptent qu'une fois par placement et par session.
-  const isView = action === 'promo_view' || action === 'prediction_view' || action === 'match_view'
-  if (isView && !emitOncePerSession(`${action}:${placement}`)) return
+  const isView = action === 'promo_view' || action === 'prediction_view' || action === 'match_view' || action === 'vip_page_view'
+  if (isView && !emitOncePerSession(`v3:${partner}:${action}:${placement}`)) return
 
   const params: Record<string, unknown> = {
     affiliate_partner: partner,

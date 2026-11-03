@@ -3,7 +3,7 @@ import { AFFILIATE, BOOKMAKERS, VIP_POLICY } from '@/lib/constants'
 
 describe('affiliate and VIP consistency', () => {
   it('keeps each bookmaker code distinct and explicit', () => {
-    // 2026-11 : 1xbet (Vipbtts) et Linebet (VISION221) prioritaires, Melbet
+    // 2026-11 : 1xbet (vipbtts) et Linebet (VISION221) prioritaires, Melbet
     // (Bttswin) rejoint le programme, 888starz (btts221) reste en dernier.
     // ⚠️ CASSE EXACTE fournie par les affilieurs — ne jamais modifier.
     const oneXbet = BOOKMAKERS.find((bookmaker) => bookmaker.id === '1xbet')
@@ -15,12 +15,12 @@ describe('affiliate and VIP consistency', () => {
     expect(BOOKMAKERS[1]?.id).toBe('linebet')
     expect(BOOKMAKERS[2]?.id).toBe('melbet')
     expect(BOOKMAKERS[3]?.id).toBe('888starz')
-    expect(oneXbet?.promoCode).toBe('Vipbtts')
+    expect(oneXbet?.promoCode).toBe('vipbtts')
     expect(linebet?.promoCode).toBe('VISION221')
     expect(melbet?.promoCode).toBe('Bttswin')
     expect(star888?.promoCode).toBe('btts221')
     expect(VIP_POLICY.partner).toBe('1xbet ou Linebet')
-    expect(VIP_POLICY.promoCode).toContain('Vipbtts')
+    expect(VIP_POLICY.promoCode).toContain('vipbtts')
     expect(VIP_POLICY.promoCode).toContain(linebet?.promoCode ?? '')
   })
 

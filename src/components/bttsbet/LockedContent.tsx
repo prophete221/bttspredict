@@ -13,7 +13,7 @@ interface LockedContentProps {
 
 /**
  * LockedContent — Shared locked content overlay.
- * Used by PromoVip, VipSports, AviatorVip, FifaLinebet.
+ * Reusable helper for optional locked-content overlays.
  *
  * Renders children with a blur effect + lock icon centered.
  * The overlay is `pointer-events-none` so CTAs below remain accessible

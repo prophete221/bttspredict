@@ -4,7 +4,7 @@ import XbetClient from './XbetClient'
 import { checkSeo } from '@/lib/seo'
 
 /* ──────────────────────────────────────────────────────────────
-   Page /code-promo-1xbet — partenaire 1xbet (code Vipbtts)
+   Page /code-promo-1xbet — partenaire 1xbet (code vipbtts)
    Offre annoncée par la campagne : 300% + 100 free spins,
    sans condition de mise (uniformisée avec les 3 autres partenaires).
    SEO : page FR autonome + versions EN/AR sous /en/ et /ar/
@@ -20,8 +20,8 @@ const REVIEW_DATE = new Date().toISOString().slice(0, 10)
 // Avec le template "%s | BTTSPredict" (14 chars), le title rendu final
 // fait 48 + 14 = 62 chars, sous la limite hard 70.
 // Anti-récidive : checkSeo() lance une erreur build-time si title > 60 ou desc > 150.
-const TITLE = 'Code promo 1xbet Vipbtts : 300% + 100 free spins'
-const DESCRIPTION = `Code promo 1xbet Vipbtts : 300% de bonus + 100 free spins, sans condition de mise. Guide ${CURRENT_YEAR}, 18+.`
+const TITLE = 'Code promo 1xbet vipbtts : 300% + 100 free spins'
+const DESCRIPTION = `Code promo 1xbet vipbtts : 300% de bonus + 100 free spins, sans condition de mise. Guide ${CURRENT_YEAR}, 18+.`
 checkSeo(SLUG, TITLE, DESCRIPTION)
 
 export const metadata: Metadata = {
@@ -101,10 +101,10 @@ function buildHowToJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
-    name: 'Comment utiliser le code promo 1xbet Vipbtts',
-    description: "Guide pour activer l'offre 1xbet avec le code Vipbtts : 300% de bonus + 100 free spins, sans condition de mise. Vérifie les conditions affichées par l'opérateur.",
+    name: 'Comment utiliser le code promo 1xbet vipbtts',
+    description: "Guide pour activer l'offre 1xbet avec le code vipbtts : 300% de bonus + 100 free spins, sans condition de mise. Vérifie les conditions affichées par l'opérateur.",
     totalTime: 'PT5M',
-    supply: [{ '@type': 'HowToSupply', name: 'Code promo Vipbtts' }],
+    supply: [{ '@type': 'HowToSupply', name: 'Code promo vipbtts' }],
     tool: [
       { '@type': 'HowToTool', name: 'Application 1xbet ou site web' },
       { '@type': 'HowToTool', name: 'Moyen de paiement disponible selon le pays (Wave, Orange Money, MTN…)' },
@@ -119,8 +119,8 @@ function buildHowToJsonLd() {
       {
         '@type': 'HowToStep',
         position: 2,
-        name: 'Saisir le code promo Vipbtts',
-        text: "Pendant l'inscription ou dans la section « Code Promo » de ton compte, colle exactement Vipbtts, en respectant la casse.",
+        name: 'Saisir le code promo vipbtts',
+        text: "Pendant l'inscription ou dans la section « Code Promo » de ton compte, colle exactement vipbtts, en respectant la casse.",
       },
       {
         '@type': 'HowToStep',
@@ -148,23 +148,23 @@ function buildFaqJsonLd() {
         name: 'Quel est le code promo 1xbet ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Le code promo 1xbet est Vipbtts — à recopier exactement tel quel lors de l'inscription ou dans la section « Code Promo » de ton compte 1xbet.",
+          text: "Le code promo 1xbet est vipbtts — à recopier exactement tel quel lors de l'inscription ou dans la section « Code Promo » de ton compte 1xbet.",
         },
       },
       {
         '@type': 'Question',
-        name: `Que donne le code Vipbtts en ${CURRENT_YEAR} ?`,
+        name: `Que donne le code vipbtts en ${CURRENT_YEAR} ?`,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Le code Vipbtts donne 300% de bonus + 100 free spins, sans condition de mise — offre annoncée par la campagne partenaire. Vérifie l'offre affichée par 1xbet pour ton pays avant tout dépôt.",
+          text: "Le code vipbtts donne 300% de bonus + 100 free spins, sans condition de mise — offre annoncée par la campagne partenaire. Vérifie l'offre affichée par 1xbet pour ton pays avant tout dépôt.",
         },
       },
       {
         '@type': 'Question',
-        name: 'Où saisir le code Vipbtts sur 1xbet ?',
+        name: 'Où saisir le code vipbtts sur 1xbet ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Saisis Vipbtts dans le champ « Code promo » du formulaire d'inscription 1xbet, ou plus tard dans ton compte, section « Code Promo ». Respecte la casse exacte.",
+          text: "Saisis vipbtts dans le champ « Code promo » du formulaire d'inscription 1xbet, ou plus tard dans ton compte, section « Code Promo ». Respecte la casse exacte.",
         },
       },
       {
@@ -172,7 +172,7 @@ function buildFaqJsonLd() {
         name: '1xbet ou Linebet : quel code promo choisir ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Les deux sont nos partenaires officiels et annoncent la même offre : 300% de bonus + 100 free spins sans condition de mise, avec Vipbtts (1xbet) comme avec VISION221 (Linebet, dès 1 € de dépôt). Choisis selon le bookmaker que tu préfères utiliser.",
+          text: "Les deux sont nos partenaires officiels et annoncent la même offre : 300% de bonus + 100 free spins sans condition de mise, avec vipbtts (1xbet) comme avec VISION221 (Linebet, dès 1 € de dépôt). Choisis selon le bookmaker que tu préfères utiliser.",
         },
       },
       {

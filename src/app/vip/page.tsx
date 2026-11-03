@@ -19,14 +19,14 @@ const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary')
 
 /* ────────────────── Parcours VIP — 1xbet ou Linebet ──────────────────
    Déblocage : création d'un NOUVEAU compte chez le bookmaker choisi avec
-   son code promo — Vipbtts (1xbet, partenaire prioritaire) ou VISION221
+   son code promo — vipbtts (1xbet, partenaire prioritaire) ou VISION221
    (Linebet) — + dépôt minimum de 10 €, puis vérification WhatsApp.
    (btts221 = code 888Starz, voir /bonus-888starz)
    ──────────────────────────────────────────────────────────────────── */
 type VipBook = '1xbet' | 'linebet'
 
 const VIP_PARTNERS: Record<VipBook, { brand: string; code: string; signup: string }> = {
-  '1xbet': { brand: '1xbet', code: 'Vipbtts', signup: AFFILIATE.oneXbet },
+  '1xbet': { brand: '1xbet', code: 'vipbtts', signup: AFFILIATE.oneXbet },
   linebet: { brand: 'Linebet', code: 'VISION221', signup: AFFILIATE.linebet },
 }
 const VIP_BOOKS: VipBook[] = ['1xbet', 'linebet'] // ordre de priorité d'affichage
@@ -154,9 +154,9 @@ const makeCopy = (brand: string, code: string) => ({
     trust2: 'Historique 100 % public',
     trust3: 'Pronos publiés avant le coup d’envoi',
     memberTop: 'BTTSPredict',
-    memberKind: 'Carte membre',
+    memberKind: 'Carte de présentation',
     memberPerks: 'BTTS · Over 2.5 · Score exact',
-    memberVerified: 'Membre vérifié',
+    memberVerified: 'Aperçu VIP',
     unlockEyebrow: 'Système de déblocage',
     unlockTitle: 'Comment débloquer ton accès VIP ?',
     unlockSub: 'Aucune ambiguïté : voici exactement les 4 conditions à remplir, dans l’ordre. Chaque étape est vérifiée avant l’activation de ton accès.',
@@ -202,7 +202,7 @@ const makeCopy = (brand: string, code: string) => ({
     copiedBtn: 'Copié',
     signup: `Créer mon compte ${brand}`,
     newBadge: 'Nouveau',
-    alt1xbet: 'Plutôt 1xbet ? Code Vipbtts →',
+    alt1xbet: 'Plutôt 1xbet ? Code vipbtts →',
     altLinebet: 'Plutôt Linebet ? Code VISION221 →',
     signupWith: 'Inscription avec le code collé',
     needBookmaker: 'Copie d’abord ton code ci-dessus',
@@ -267,9 +267,9 @@ const makeCopy = (brand: string, code: string) => ({
     trust2: '100% public history',
     trust3: 'Picks published before kick-off',
     memberTop: 'BTTSPredict',
-    memberKind: 'Member card',
+    memberKind: 'Preview card',
     memberPerks: 'BTTS · Over 2.5 · Exact score',
-    memberVerified: 'Verified member',
+    memberVerified: 'VIP preview',
     unlockEyebrow: 'Unlock system',
     unlockTitle: 'How to unlock your VIP access?',
     unlockSub: 'Zero guesswork: these are the exact 4 conditions to meet, in order. Each step is checked before your access is activated.',
@@ -315,7 +315,7 @@ const makeCopy = (brand: string, code: string) => ({
     copiedBtn: 'Copied',
     signup: `Create my ${brand} account`,
     newBadge: 'New',
-    alt1xbet: 'Prefer 1xbet? Code Vipbtts →',
+    alt1xbet: 'Prefer 1xbet? Code vipbtts →',
     altLinebet: 'Prefer Linebet? Code VISION221 →',
     signupWith: 'Sign-up with the pasted code',
     needBookmaker: 'Copy your code above first',
@@ -380,9 +380,9 @@ const makeCopy = (brand: string, code: string) => ({
     trust2: 'سجل عام 100%',
     trust3: 'توقعات منشورة قبل انطلاق المباراة',
     memberTop: 'BTTSPredict',
-    memberKind: 'بطاقة عضوية',
+    memberKind: 'بطاقة للعرض',
     memberPerks: 'BTTS · أكثر من 2.5 · النتيجة الدقيقة',
-    memberVerified: 'عضو موثق',
+    memberVerified: 'معاينة VIP',
     unlockEyebrow: 'نظام الفتح',
     unlockTitle: 'كيف تفتح وصولك إلى VIP؟',
     unlockSub: 'بلا أي غموض: هذه هي الشروط الأربعة المطلوبة بالترتيب. يتم التحقق من كل خطوة قبل تفعيل وصولك.',
@@ -428,7 +428,7 @@ const makeCopy = (brand: string, code: string) => ({
     copiedBtn: 'تم النسخ',
     signup: `أنشئ حساب ${brand}`,
     newBadge: 'جديد',
-    alt1xbet: 'تفضّل 1xbet؟ الرمز Vipbtts →',
+    alt1xbet: 'تفضّل 1xbet؟ الرمز vipbtts →',
     altLinebet: 'تفضّل Linebet؟ الرمز VISION221 →',
     signupWith: 'التسجيل بالرمز المنسوخ',
     needBookmaker: 'انسخ رمزك أولاً بالأعلى',
@@ -526,7 +526,7 @@ export default function VipPage() {
 
   /* Mesure : 1 visite de la page VIP par session (visite ≠ clic ≠ inscription) */
   useEffect(() => {
-    trackAffiliateAction('1xbet', 'promo_view', 'vip-page-visit')
+    trackAffiliateAction('platform', 'vip_page_view', 'vip-page-visit')
   }, [])
 
   /* Fenêtres pop : Escape ferme + scroll bloqué tant qu'une étape est ouverte */
@@ -587,7 +587,7 @@ export default function VipPage() {
     const p = VIP_PARTNERS[target]
     setBook(target)
     setCodeSelected(true)
-    trackAffiliateAction(target, 'promo_view', 'vip-page')
+    trackAffiliateAction(target, 'partner_select', 'vip-page')
     const ok = await copyTextToClipboard(p.code)
     if (ok) {
       setCopied(true)
@@ -677,7 +677,7 @@ export default function VipPage() {
                     <small>{text.memberPerks}</small>
                   </div>
                   <div className="vipx-member__row vipx-member__row--bottom">
-                    <span className="vipx-member__verified"><Icon.check />{text.memberVerified}</span>
+                    <span className="vipx-member__verified"><Icon.crown />{text.memberVerified}</span>
                     <span className="vipx-member__stars" aria-hidden="true">★★★★★</span>
                   </div>
                 </div>

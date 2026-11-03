@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SITE, AFFILIATE } from '@/lib/constants'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
+import { copyTextToClipboard } from '@/lib/clipboard'
 
 const STORAGE_KEY = 'bttsbet_vip_unlocked'
 const ID_HASH_KEY = 'bttsbet_vip_id_hash'
@@ -39,22 +40,15 @@ export default function VipUnlockModal({
   const [copied, setCopied] = useState(false)
 
   // Get the correct code based on selected bookmaker
-  // 1xbet (Vipbtts) et Linebet (VISION221) sont les partenaires prioritaires.
-  const currentCode = selectedBookmaker === 'linebet' ? 'VISION221' : selectedBookmaker === '888starz' ? 'btts221' : 'Vipbtts'
+  // 1xbet (vipbtts) et Linebet (VISION221) sont les partenaires prioritaires.
+  const currentCode = selectedBookmaker === 'linebet' ? 'VISION221' : selectedBookmaker === '888starz' ? 'btts221' : 'vipbtts'
   const bookmakerLabel = selectedBookmaker === 'linebet' ? 'Linebet' : selectedBookmaker === '888starz' ? '888starz' : '1xbet'
 
   const copyCode = async () => {
-    try { await navigator.clipboard.writeText(currentCode) } catch {
-      const ta = document.createElement('textarea')
-      ta.value = currentCode
-      ta.style.position = 'fixed'
-      ta.style.opacity = '0'
-      document.body.appendChild(ta)
-      ta.select()
-      document.execCommand('copy')
-      document.body.removeChild(ta)
-    }
-    trackAffiliateCodeCopy(selectedBookmaker ?? 'linebet', 'vip-modal-code')
+    if (!selectedBookmaker) return
+    const copiedSuccessfully = await copyTextToClipboard(currentCode)
+    if (!copiedSuccessfully) return
+    trackAffiliateCodeCopy(selectedBookmaker, 'vip-modal-code')
     setCopied(true)
     navigator.vibrate?.(15)
     setTimeout(() => setCopied(false), 2000)
@@ -222,7 +216,7 @@ export default function VipUnlockModal({
                           )}
                         </div>
                         <div className="text-[11px] text-[#2F7DFF]">
-                          Code : <span className="font-mono font-bold text-[#2F7DFF]">Vipbtts</span>
+                          Code : <span className="font-mono font-bold text-[#2F7DFF]">vipbtts</span>
                         </div>
                       </div>
                       <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(232, 194, 104, 0.12)', color: '#E8C268' }}>Partenaire officiel</span>

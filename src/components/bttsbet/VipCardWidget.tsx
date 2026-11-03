@@ -95,7 +95,7 @@ export default function VipCardWidget() {
           {/* Codes promo — casse exacte des affilieurs */}
           <div className="mt-3 text-center">
             <span className="text-[10px]" style={{ color: '#9DABBB' }}>Codes promo : </span>
-            <span className="font-mono font-bold text-[11px]" style={{ color: '#1B6EF3' }}>Vipbtts</span>
+            <span className="font-mono font-bold text-[11px]" style={{ color: '#1B6EF3' }}>vipbtts</span>
             <span className="text-[10px]" style={{ color: '#9DABBB' }}> (1xbet) · </span>
             <span className="font-mono font-bold text-[11px]" style={{ color: '#2F7DFF' }}>VISION221</span>
             <span className="text-[10px]" style={{ color: '#9DABBB' }}> (Linebet)</span>

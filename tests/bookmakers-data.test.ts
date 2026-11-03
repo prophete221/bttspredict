@@ -91,15 +91,15 @@ describe('bookmakers data guardrails', () => {
 
   it('never displays a code in the wrong case inside clients', () => {
     const wrongCase: [string, RegExp][] = [
-      ['src/app/code-promo-1xbet/XbetClient.tsx', /VIPBTTS|VIPbtts|vipbtts'/],
-      ['src/app/code-promo-melbet/MelbetClient.tsx', /BTTSWIN|BttsWin|bttswin'/],
+      ['src/app/code-promo-1xbet/XbetClient.tsx', /\b(?:VIPBTTS|VIPbtts)\b/],
+      ['src/app/code-promo-melbet/MelbetClient.tsx', /\b(?:BTTSWIN|BttsWin|bttswin)\b/],
     ]
     for (const [file, pattern] of wrongCase) {
       const text = readFileSync(file, 'utf8')
       expect(pattern.test(text), `${file} contient le code dans une casse incorrecte`).toBe(false)
     }
     // Casse exacte attendue
-    expect(readFileSync('src/app/code-promo-1xbet/XbetClient.tsx', 'utf8')).toContain("'Vipbtts'")
+    expect(readFileSync('src/app/code-promo-1xbet/XbetClient.tsx', 'utf8')).toContain("'vipbtts'")
     expect(readFileSync('src/app/code-promo-melbet/MelbetClient.tsx', 'utf8')).toContain("'Bttswin'")
   })
 
@@ -107,6 +107,10 @@ describe('bookmakers data guardrails', () => {
     // Liens transmis par le propriétaire le 2026-11 — toute dérive est un bug.
     expect(AFFILIATE.oneXbet).toBe('https://reffpa.com/L?tag=d_6292935m_1599c_&site=6292935&ad=1599')
     expect(AFFILIATE.oneXbetDownload).toBe('https://reffpa.com/L?tag=d_6292935m_45361c_&site=6292935&ad=45361')
+    expect(AFFILIATE.linebet).toBe('https://lb-aff.com/L?tag=d_5589568m_22611c_&site=5589568&ad=22611')
+    expect(AFFILIATE.linebetDownload).toBe('https://lb-aff.com/L?tag=d_5589568m_66803c_apk1&site=5589568&ad=66803')
+    expect(AFFILIATE.star888).toBe('https://888ghta.com/8hwF6V')
+    expect(AFFILIATE.star888Download).toBe('https://888ghta.com/5o6glw')
     expect(AFFILIATE.melbet).toBe('https://refpa3665.com/L?tag=d_6293054m_2170c_&site=6293054&ad=2170')
     expect(AFFILIATE.melbetDownload).toBe('https://refpa3665.com/L?tag=d_6293054m_70867c_&site=6293054&ad=70867')
   })

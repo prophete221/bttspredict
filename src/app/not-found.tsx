@@ -3,13 +3,13 @@ import Link from 'next/link'
 export default function NotFound() {
   return (
     <div
-      className="min-h-screen flex items-center justify-center px-4"
-      style={{ backgroundColor: '#0A0B1A' }}
+      className="site-notfound min-h-screen flex items-center justify-center px-4"
+      style={{ backgroundColor: '#0B1219' }}
     >
       <div className="max-w-md text-center">
         <span
           className="inline-block text-6xl font-black mb-3"
-          style={{ color: '#FACC15', fontFamily: 'var(--font-mono), monospace' }}
+          style={{ color: '#9ADBE3', fontFamily: 'var(--font-mono), monospace' }}
         >
           404
         </span>
@@ -28,14 +28,14 @@ export default function NotFound() {
           <Link
             href="/"
             className="inline-block px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
-            style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}
+            style={{ backgroundColor: '#F1EFE8', color: '#10181B' }}
           >
             Retour à l&apos;accueil
           </Link>
           <Link
             href="/btts/predictions/today"
             className="inline-block px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
-            style={{ backgroundColor: 'transparent', color: '#F2F6FA', border: '1px solid #6B7A8C' }}
+            style={{ backgroundColor: '#17232E', color: '#F1EFE8', border: '1px solid #3D5865' }}
           >
             Pronostics du jour
           </Link>

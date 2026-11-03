@@ -171,7 +171,7 @@ function buildFaqJsonLd() {
         name: 'Melbet ou 1xbet : quel code promo choisir ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Les deux sont nos partenaires officiels et annoncent la même offre : 300% de bonus + 100 free spins sans condition de mise, avec Bttswin (Melbet) comme avec Vipbtts (1xbet). Choisis le bookmaker que tu préfères utiliser.",
+          text: "Les deux sont nos partenaires officiels et annoncent la même offre : 300% de bonus + 100 free spins sans condition de mise, avec Bttswin (Melbet) comme avec vipbtts (1xbet). Choisis le bookmaker que tu préfères utiliser.",
         },
       },
       {

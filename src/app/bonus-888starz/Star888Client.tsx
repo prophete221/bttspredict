@@ -9,7 +9,7 @@ const BRAND = '888Starz'
 const SELF = '888starz' as const
 
 const ALL_LINKS = [
-  { id: '1xbet', label: '1xBet Vipbtts', href: '/code-promo-1xbet' },
+  { id: '1xbet', label: '1xBet vipbtts', href: '/code-promo-1xbet' },
   { id: 'linebet', label: 'Linebet VISION221', href: '/code-promo-linebet-senegal' },
   { id: 'melbet', label: 'Melbet Bttswin', href: '/code-promo-melbet' },
   { id: '888starz', label: '888Starz btts221', href: '/bonus-888starz' },

@@ -73,9 +73,9 @@ function FadeIn({
 function Marquee({ items, accent }: { items: string[]; accent: string }) {
   const doubled = [...items, ...items]
   return (
-    <div className="relative overflow-hidden py-3" style={{ borderTop: `1px solid ${accent}22`, borderBottom: `1px solid ${accent}22` }}>
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12" style={{ background: 'linear-gradient(90deg,#0B0F14,transparent)' }} />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12" style={{ background: 'linear-gradient(270deg,#0B0F14,transparent)' }} />
+    <div className="promo-benefit-marquee relative overflow-hidden py-3" style={{ borderTop: `1px solid ${accent}22`, borderBottom: `1px solid ${accent}22` }}>
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-20" style={{ background: 'linear-gradient(90deg,#0A111A,transparent)' }} />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-20" style={{ background: 'linear-gradient(270deg,#0A111A,transparent)' }} />
       <motion.div
         className="flex gap-8 whitespace-nowrap"
         animate={{ x: ['0%', '-50%'] }}
@@ -164,14 +164,14 @@ export default function PromoLandingShell(p: PromoLandingProps) {
         <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)', backgroundSize: '28px 28px' }} />
       </div>
 
-      <main className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-32 pt-10 sm:pt-14">
+      <main className="promo-main relative z-10 mx-auto w-full max-w-3xl px-4 pb-32 pt-10 sm:pt-14">
         {/* Hero */}
-        <section className="text-center">
+        <section className="promo-main__story text-center">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease }}
-            className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.2em]"
+            className="promo-story__badge inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.2em]"
             style={{ color: accent, border: `1px solid ${accent}55`, background: `${accent}14` }}
           >
             <span className="h-1.5 w-1.5 animate-pulse rounded-full" style={{ background: accent }} />
@@ -182,7 +182,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.08, ease }}
-            className="mt-5 text-3xl font-black leading-tight sm:text-5xl"
+            className="promo-story__title mt-5 text-3xl font-black leading-tight sm:text-5xl"
             style={{ fontFamily: 'Poppins, sans-serif' }}
           >
             {p.title}
@@ -192,7 +192,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.55, delay: 0.15, ease }}
-            className="mx-auto mt-6 flex min-h-[72px] max-w-[300px] items-center justify-center rounded-2xl px-5 py-3 shadow-2xl sm:max-w-[360px]"
+            className="promo-story__logo mx-auto mt-6 flex min-h-[72px] max-w-[300px] items-center justify-center rounded-2xl px-5 py-3 shadow-2xl sm:max-w-[360px]"
             style={{
               backgroundColor: p.logoBg,
               boxShadow: `0 20px 50px ${accent}33`,
@@ -213,7 +213,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.25, duration: 0.5 }}
-            className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-[#9DABBB] sm:text-base"
+            className="promo-story__intro mx-auto mt-5 max-w-xl text-sm leading-relaxed text-[#9DABBB] sm:text-base"
           >
             {p.intro}
           </motion.p>
@@ -223,7 +223,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6, ease }}
-            className="mx-auto mt-8 max-w-md"
+            className="promo-story__actions mx-auto mt-8 max-w-md"
           >
             <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#9DABBB]">{L.codeLabel}</p>
             <button
@@ -284,12 +284,12 @@ export default function PromoLandingShell(p: PromoLandingProps) {
         </section>
 
         {/* Marquee */}
-        <div className="mt-10">
+        <div className="promo-main__benefits mt-10">
           <Marquee items={p.benefits} accent={accent} />
         </div>
 
         {/* Offer card */}
-        <FadeIn className="mt-10" delay={0.05}>
+        <FadeIn className="promo-main__offer mt-10" delay={0.05}>
           <div
             className="relative overflow-hidden rounded-3xl p-6 text-center sm:p-8"
             style={{
@@ -304,7 +304,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
         </FadeIn>
 
         {/* Trust / transparency — no invented bonus terms */}
-        <FadeIn className="mt-8" delay={0.05}>
+        <FadeIn className="promo-main__trust mt-8" delay={0.05}>
           <div
             className="grid gap-3 rounded-2xl p-4 sm:grid-cols-3 sm:p-5"
             style={{
@@ -338,7 +338,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
         </FadeIn>
 
         {/* Steps */}
-        <FadeIn className="mt-12" delay={0.05}>
+        <FadeIn className="promo-main__steps mt-12" delay={0.05}>
           <h2 className="mb-5 text-center text-xl font-bold sm:text-2xl">{L.howTitle}</h2>
           <div className="grid gap-3 sm:grid-cols-2">
             {p.steps.map((s, i) => (
@@ -365,7 +365,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
         </FadeIn>
 
         {/* FAQ */}
-        <FadeIn className="mt-12" delay={0.05}>
+        <FadeIn className="promo-main__faq mt-12" delay={0.05}>
           <h2 className="mb-5 text-center text-xl font-bold sm:text-2xl">{L.faqTitle}</h2>
           <div className="space-y-2">
             {p.faq.map((item, i) => {
@@ -411,7 +411,7 @@ export default function PromoLandingShell(p: PromoLandingProps) {
 
         {/* Cross links */}
         {p.crossLinks.length > 0 && (
-          <FadeIn className="mt-12" delay={0.05}>
+          <FadeIn className="promo-main__crosslinks mt-12" delay={0.05}>
             <h2 className="mb-4 text-center text-lg font-bold">{L.others}</h2>
             <div className="flex flex-wrap justify-center gap-2">
               {p.crossLinks.map((l) => (
@@ -432,14 +432,14 @@ export default function PromoLandingShell(p: PromoLandingProps) {
           </FadeIn>
         )}
 
-        <p className="mt-12 text-center text-[11px] text-[#6B7A8C]">
+        <p className="promo-main__responsible mt-12 text-center text-[11px] text-[#6B7A8C]">
           18+ · {L.responsible} · {p.lang === 'en' ? 'No future result is guaranteed.' : p.lang === 'ar' ? 'لا توجد ضمانات مستقبلية.' : 'Aucun résultat futur n’est garanti.'}
         </p>
       </main>
 
       {/* Sticky mobile CTA */}
       <div
-        className="fixed bottom-0 left-0 right-0 z-40 border-t border-white/5 px-3 py-2.5 backdrop-blur-xl md:hidden"
+        className="promo-sticky-mobile-cta fixed bottom-0 left-0 right-0 z-40 border-t border-white/5 px-3 py-2.5 backdrop-blur-xl md:hidden"
         style={{
           background: 'rgba(7, 11, 18, 0.92)',
           paddingBottom: 'max(0.65rem, env(safe-area-inset-bottom))',

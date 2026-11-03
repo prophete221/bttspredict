@@ -1,15 +1,9 @@
 'use client'
 
-/**
- * GiftPopup — paquet cadeau flottant (layout racine, toutes pages).
- * Refonte nov 2026 : i18n FR/EN/AR, double CTA Linebet + 1xBet prioritaires.
- * Comportement scroll / priorité / dismiss session inchangé.
- */
-
 import { useEffect, useMemo, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
-import { AFFILIATE } from '@/lib/constants'
+import { AFFILIATE, BOOKMAKERS } from '@/lib/constants'
 import { trackAffiliateAction } from '@/lib/affiliateTracking'
 
 const GIFT_DISMISS_KEY = 'bttsbet_gift_popup_dismissed'
@@ -24,33 +18,65 @@ function detectLang(pathname: string): 'fr' | 'en' | 'ar' {
 
 const COPY = {
   fr: {
-    title: '🎁 TON BONUS DE BIENVENUE',
-    offer: '300 % de bonus + 100 free spins*',
-    sub: "Inscris-toi avec notre lien partenaire, puis saisis le code affiché lors de ton inscription. Vérifie les conditions de l'offre avant tout dépôt.",
-    linebetCta: 'LINEBET — CODE VISION221',
-    xbetCta: '1XBET — CODE VIPBTTS',
-    legal: "18+ · Offre soumise aux conditions de l'opérateur.",
+    title: 'Partenaires BTTSPredict',
+    subtitle: '1xBet en priorité · Linebet · MelBet · 888Starz',
+    primary: 'Consulter 1xBet',
+    terms: 'Offres, disponibilité et conditions à vérifier auprès de chaque opérateur avant toute inscription ou tout dépôt.',
+    legal: '18+ · Les paris comportent un risque de perte. Aucun gain n’est garanti.',
     close: 'Fermer',
   },
   en: {
-    title: '🎁 YOUR WELCOME BONUS',
-    offer: '300% bonus + 100 free spins*',
-    sub: 'Sign up via our partner link, then enter the code shown during registration. Check the offer terms before any deposit.',
-    linebetCta: 'LINEBET — CODE VISION221',
-    xbetCta: '1XBET — CODE VIPBTTS',
-    legal: '18+ · Offer subject to operator terms.',
+    title: 'BTTSPredict partners',
+    subtitle: '1xBet first · Linebet · MelBet · 888Starz',
+    primary: 'Visit 1xBet',
+    terms: 'Check each operator’s current offers, country availability and terms before signing up or depositing.',
+    legal: '18+ · Betting carries a risk of loss. No winnings are guaranteed.',
     close: 'Close',
   },
   ar: {
-    title: '🎁 مكافأة الترحيب',
-    offer: 'بونص 300% + 100 لفة مجانية*',
-    sub: 'سجّل عبر رابط الشريك ثم أدخل الرمز الظاهر عند التسجيل. تحقق من شروط العرض قبل أي إيداع.',
-    linebetCta: 'LINEBET — CODE VISION221',
-    xbetCta: '1XBET — CODE VIPBTTS',
-    legal: '18+ · العرض يخضع لشروط المشغّل.',
+    title: 'شركاء BTTSPredict',
+    subtitle: '1xBet أولاً · Linebet · MelBet · 888Starz',
+    primary: 'زيارة 1xBet',
+    terms: 'تحقق من العروض الحالية والتوفر في بلدك وشروط كل مشغّل قبل التسجيل أو الإيداع.',
+    legal: '18+ · تنطوي المراهنات على مخاطر الخسارة. لا توجد أرباح مضمونة.',
     close: 'إغلاق',
   },
 } as const
+
+const PARTNERS = [
+  {
+    id: '1xbet' as const,
+    name: '1xBet',
+    code: BOOKMAKERS.find((bookmaker) => bookmaker.id === '1xbet')?.promoCode ?? '',
+    href: AFFILIATE.oneXbet,
+    primary: true,
+    placement: 'gift-popup-1xbet',
+  },
+  {
+    id: 'linebet' as const,
+    name: 'Linebet',
+    code: BOOKMAKERS.find((bookmaker) => bookmaker.id === 'linebet')?.promoCode ?? '',
+    href: AFFILIATE.linebet,
+    primary: false,
+    placement: 'gift-popup-linebet',
+  },
+  {
+    id: 'melbet' as const,
+    name: 'MelBet',
+    code: BOOKMAKERS.find((bookmaker) => bookmaker.id === 'melbet')?.promoCode ?? '',
+    href: AFFILIATE.melbet,
+    primary: false,
+    placement: 'gift-popup-melbet',
+  },
+  {
+    id: '888starz' as const,
+    name: '888Starz',
+    code: BOOKMAKERS.find((bookmaker) => bookmaker.id === '888starz')?.promoCode ?? '',
+    href: AFFILIATE.star888,
+    primary: false,
+    placement: 'gift-popup-888starz',
+  },
+] as const
 
 export default function GiftPopup() {
   const reduceMotion = useReducedMotion()
@@ -58,7 +84,6 @@ export default function GiftPopup() {
   const lang = useMemo(() => detectLang(pathname), [pathname])
   const t = COPY[lang]
   const isPriorityPage = PRIORITY_PATH_RE.test(pathname)
-  const [dismissed, setDismissed] = useState(true)
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -69,40 +94,23 @@ export default function GiftPopup() {
       /* ignore */
     }
 
-    const reveal = () => {
-      setDismissed(false)
+    let revealed = false
+    const revealAfterIntent = () => {
+      if (revealed) return
+      const denominator = document.documentElement.scrollHeight - window.innerHeight
+      if (denominator <= 0 || window.scrollY / denominator < 0.3) return
+      revealed = true
       setVisible(true)
+      window.removeEventListener('scroll', revealAfterIntent)
     }
 
-    if (isPriorityPage) {
-      const timer = setTimeout(reveal, 900)
-      return () => clearTimeout(timer)
-    }
-
-    let armed = false
-    const revealOnce = () => {
-      if (armed) return
-      armed = true
-      reveal()
-      window.removeEventListener('scroll', onScroll)
-    }
-    const onScroll = () => {
-      const denom = document.documentElement.scrollHeight - window.innerHeight
-      if (denom <= 0) return
-      if (window.scrollY / denom >= 0.3) revealOnce()
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    const safety = setTimeout(revealOnce, 7000)
-    onScroll()
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      clearTimeout(safety)
-    }
+    window.addEventListener('scroll', revealAfterIntent, { passive: true })
+    revealAfterIntent()
+    return () => window.removeEventListener('scroll', revealAfterIntent)
   }, [isPriorityPage])
 
   const dismiss = () => {
     setVisible(false)
-    setDismissed(true)
     const dismissKey = isPriorityPage ? GIFT_DISMISS_KEY_TODAY : GIFT_DISMISS_KEY
     try {
       sessionStorage.setItem(dismissKey, '1')
@@ -111,21 +119,24 @@ export default function GiftPopup() {
     }
   }
 
-  if (dismissed && !visible) return null
+  if (!visible) return null
+
+  const [primaryPartner, ...secondaryPartners] = PARTNERS
 
   return (
     <AnimatePresence>
-      {visible && !dismissed && (
+      {visible && (
         <motion.aside
-          className="hp-gift"
+          className="hp-gift hp-gift--phase3"
           role="complementary"
           aria-label={t.title}
-          initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 40, scale: 0.92 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.96 }}
-          transition={reduceMotion ? { duration: 0.15 } : { type: 'spring', stiffness: 380, damping: 28 }}
+          dir={lang === 'ar' ? 'rtl' : 'ltr'}
+          initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 12 }}
+          transition={reduceMotion ? { duration: 0.15 } : { type: 'spring', stiffness: 360, damping: 30 }}
         >
-          <div className="hp-gift-card hp-gift-card--refonte">
+          <div className="hp-gift-card hp-gift-card--phase3">
             <button type="button" className="hp-gift-close" onClick={dismiss} aria-label={t.close}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
                 <line x1="18" y1="6" x2="6" y2="18" />
@@ -133,54 +144,45 @@ export default function GiftPopup() {
               </svg>
             </button>
 
-            <div className="hp-gift-icon-wrap" aria-hidden="true">
-              <motion.span
-                className="hp-gift-emoji"
-                animate={reduceMotion ? undefined : { y: [0, -4, 0] }}
-                transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
-              >
-                🎁
-              </motion.span>
-              <span className="hp-gift-halo" />
-            </div>
-
-            <div className="hp-gift-body">
-              <p className="hp-gift-title">{t.title}</p>
-              <p className="hp-gift-bonus">
-                <span>{t.offer}</span>
-              </p>
-              <p className="hp-gift-sub">{t.sub}</p>
-
-              <div className="hp-gift-actions">
-                <a
-                  href={AFFILIATE.linebet}
-                  target="_blank"
-                  rel="sponsored nofollow noopener noreferrer"
-                  onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'gift-popup-300')}
-                  className="hp-gift-btn hp-gift-btn--linebet"
-                  data-cta="gift-popup-300"
-                >
-                  {t.linebetCta}
-                  <span aria-hidden="true">→</span>
-                </a>
-                <a
-                  href={AFFILIATE.oneXbet}
-                  target="_blank"
-                  rel="sponsored nofollow noopener noreferrer"
-                  onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'gift-popup-1xbet')}
-                  className="hp-gift-btn hp-gift-btn--xbet"
-                  data-cta="gift-popup-1xbet"
-                >
-                  {t.xbetCta}
-                  <span aria-hidden="true">→</span>
-                </a>
+            <div className="hp-gift-phase3__heading">
+              <span className="hp-gift-phase3__dot" aria-hidden="true" />
+              <div>
+                <p className="hp-gift-phase3__title">{t.title}</p>
+                <p className="hp-gift-phase3__subtitle">{t.subtitle}</p>
               </div>
-              <p className="hp-gift-legal">{t.legal}</p>
             </div>
 
-            <span className="hp-gift-spark hp-gift-spark--1" aria-hidden="true" />
-            <span className="hp-gift-spark hp-gift-spark--2" aria-hidden="true" />
-            <span className="hp-gift-spark hp-gift-spark--3" aria-hidden="true" />
+            <a
+              href={primaryPartner.href}
+              target="_blank"
+              rel="sponsored nofollow noopener noreferrer"
+              onClick={() => trackAffiliateAction(primaryPartner.id, 'signup_cta_click', primaryPartner.placement)}
+              className="hp-gift-phase3__primary"
+              data-cta="gift-popup-1xbet"
+            >
+              <span>{t.primary}</span>
+              <code dir="ltr">{primaryPartner.code}</code>
+              <span aria-hidden="true">↗</span>
+            </a>
+
+            <div className="hp-gift-phase3__alternatives" aria-label={lang === 'fr' ? 'Autres partenaires' : lang === 'ar' ? 'شركاء آخرون' : 'Other partners'}>
+              {secondaryPartners.map((partner) => (
+                <a
+                  key={partner.id}
+                  href={partner.href}
+                  target="_blank"
+                  rel="sponsored nofollow noopener noreferrer"
+                  onClick={() => trackAffiliateAction(partner.id, 'signup_cta_click', partner.placement)}
+                  data-cta={`gift-popup-${partner.id}`}
+                >
+                  <span>{partner.name}</span>
+                  <code dir="ltr">{partner.code}</code>
+                </a>
+              ))}
+            </div>
+
+            <p className="hp-gift-phase3__terms">{t.terms}</p>
+            <p className="hp-gift-legal hp-gift-phase3__legal">{t.legal}</p>
           </div>
         </motion.aside>
       )}

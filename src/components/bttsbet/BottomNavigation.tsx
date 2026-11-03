@@ -114,7 +114,7 @@ export default function BottomNavigation() {
         borderTop: '1px solid rgba(51, 65, 85, 0.55)',
         boxShadow: '0 -8px 28px rgba(0, 0, 0, 0.45)',
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
-        height: 'calc(64px + env(safe-area-inset-bottom, 0px))',
+        height: 'calc(70px + env(safe-area-inset-bottom, 0px))',
       }}
       aria-label={lang === 'fr' ? 'Navigation principale' : lang === 'en' ? 'Main navigation' : 'التنقل الرئيسي'}
     >
@@ -124,12 +124,12 @@ export default function BottomNavigation() {
           <a
             key={tab.id}
             href={tab.href}
-            className="flex-1 flex flex-col items-center justify-center gap-1 transition-colors duration-200 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF] focus-visible:ring-inset"
+            className={`bottomnav-tab flex-1 flex flex-col items-center justify-center gap-1 transition-colors duration-200 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF] focus-visible:ring-inset ${tab.id === 'vip' ? 'bottomnav-tab--vip' : ''}`}
             style={{
               color: isActive
-                ? (tab.id === 'vip' ? '#E8C268' : tab.id === 'predictions' ? '#22D3EE' : '#3B82F6')
+                ? (tab.id === 'vip' ? '#E8C268' : 'var(--phase3-accent, #C5F36A)')
                 : '#94A3B8',
-              minHeight: '52px',
+              minHeight: '60px',
               textShadow: 'none',
             }}
             aria-label={tab.label}
@@ -143,7 +143,7 @@ export default function BottomNavigation() {
                   width: '32px',
                   height: '3px',
                   borderRadius: '2px',
-                  background: '#2F7DFF',
+                  background: 'var(--phase3-accent, #C5F36A)',
                   boxShadow: 'none',
                 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
@@ -156,7 +156,7 @@ export default function BottomNavigation() {
               className="text-xs font-semibold uppercase tracking-wider"
               style={{
                 color: isActive
-                  ? (tab.id === 'vip' ? '#E8C268' : tab.id === 'predictions' ? '#22D3EE' : '#3B82F6')
+                  ? (tab.id === 'vip' ? '#E8C268' : 'var(--phase3-accent, #C5F36A)')
                   : '#94A3B8',
               }}
             >
