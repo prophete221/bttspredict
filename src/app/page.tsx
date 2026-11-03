@@ -4,7 +4,6 @@ import { checkSeo } from '@/lib/seo'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Hero = dynamic(() => import('@/components/bttsbet/Hero'), { loading: () => null })
-const ScrollProgressBar = dynamic(() => import('@/components/bttsbet/ScrollProgressBar'), { loading: () => null })
 const MatchCenter = dynamic(() => import('@/components/bttsbet/MatchCenter'), { loading: () => null })
 const TrustPillars = dynamic(() => import('@/components/bttsbet/TrustPillars'), { loading: () => null })
 const PerformanceDashboard = dynamic(() => import('@/components/bttsbet/PerformanceDashboard'), { loading: () => null })
@@ -232,15 +231,7 @@ export default function Home() {
         Aller au contenu principal
       </a>
 
-      {/* Scroll Progress Bar */}
-      <ScrollProgressBar />
-
-      {/* Main Content — Plateforme football intelligence
-          Structure : Header produit → Hero + Signal en vedette →
-          Matchs du jour (MatchCenter) → Piliers → Performance/Historique →
-          Méthode → Compétitions → Partenaire VISION221 → Jeu responsable →
-          Footer. Bloc partenaire placé APRÈS la valeur produit. */}
-      <main id="main-content" className="relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
+      <main id="main-content" className="relative z-10" style={{ paddingBottom: 'calc(72px + env(safe-area-inset-bottom, 0px))' }}>
         <ErrorBoundary><Navbar /></ErrorBoundary>
         <ErrorBoundary><Hero /></ErrorBoundary>
         <ErrorBoundary><MatchCenter /></ErrorBoundary>

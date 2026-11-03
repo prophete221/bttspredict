@@ -2,22 +2,20 @@
 
 ## Status
 
-Milestone 1 — visual system + shell. Not merged. Production FTP (`main`) untouched.
+Refonte visuelle en cours sur cette branche uniquement. `main` et le FTP de production ne sont pas touchés.
 
-## Done
+## Fait
 
-- `src/app/shell.css`: calmer tokens (background, text, single blue accent, flat surfaces).
-- Body class `ds-shell` on the root layout.
-- Navbar: flat bar, quieter promo chip, language as FR / EN / AR, simpler mobile drawer (no glow cards).
-- Bottom navigation: one active color, no motion glow.
-- Footer: duplicate legal link grid removed (links remain in the legal column). FAQ, 18+, affiliation and publisher kept.
-- `vercel.json`: Next.js framework hint only. Does not change the GitHub Actions FTP workflow.
+- Coquille : navbar, langues FR/EN/AR, menu, pied de page, barre mobile (`shell.css`).
+- Système visuel global (`refonte.css`) appliqué à toutes les pages via le layout : fond unique, cartes plates, titres sans dégradé, animations décoratives coupées, halos et bandeaux défilants masqués.
+- Accueil : barre de progression retirée, hero sans halo ni logos de clubs défilants, CTA simple. Le code VISION221 n’est plus l’identité du hero (réservé à Linebet).
+- Popup cadeau : compacte, sans emoji animé ni étincelles. Codes inchangés : VISION221 (Linebet) et VIPBTTS (1xBet).
+- Bloc partenaire accueil : même lien Linebet et même lien 1xBet, bouton sans bordure animée.
 
-## Not done
+## Conservé
 
-- Interior pages (predictions, VIP, promos, legal) still use the previous page layouts.
-- No production deploy.
+Données, pronostics, routes, SEO, JSON-LD, Firebase, consentement, tracking, codes Bttswin (Melbet) et btts221 (888Starz).
 
-## Vercel
+## Suite
 
-Checked 2026-11-03: the GitHub repo has no deployment records and no webhooks. This environment has no Vercel credentials, so a Preview URL cannot be created from here until a Vercel token is provided or the repo is connected in the Vercel dashboard. FTP on `main` is unchanged.
+Les pages intérieures héritent du système. Les prochains commits ne changent que la présentation si un écran reste trop chargé.

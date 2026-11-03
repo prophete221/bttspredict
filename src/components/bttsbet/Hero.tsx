@@ -6,7 +6,6 @@ import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { generateMatchSlug } from '@/lib/match-slug'
 import AnimatedTitle from './HeroWordmark'
-import MovingGradientButton from './MovingGradientButton'
 import { getDakarDayDiff, hasDakarKickoffPassed } from '@/lib/dakar-date'
 
 /**
@@ -23,17 +22,6 @@ import { getDakarDayDiff, hasDakarKickoffPassed } from '@/lib/dakar-date'
  * La carte « Centre de transparence » est supprimée (décision produit).
  * Aucun pourcentage de réussite affiché ici.
  */
-
-/**
- * Logos des grands clubs suivis — fichiers locaux (public/logos/clubs/),
- * téléchargés depuis la même source ESPN que les logos d'équipes des matchs.
- * Purement décoratif : aucun club n'endosse ce site.
- */
-const CLUB_LOGOS = [
-  'real-madrid', 'barcelona', 'manchester-united', 'liverpool', 'bayern',
-  'psg', 'chelsea', 'manchester-city', 'arsenal', 'juventus', 'ac-milan',
-  'inter', 'dortmund', 'atletico', 'tottenham',
-] as const
 
 interface MarketPick {
   type: string
@@ -152,19 +140,14 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
   ]
 
   return (
-    <section ref={sectionRef} className="hp-hero hp-hero--refonte relative overflow-hidden">
-      {/* Ambiance : halos lumineux + grille fine (décoratif) */}
-      <div className="hp-hero__glow hp-hero__glow--a" aria-hidden="true" />
-      <div className="hp-hero__glow hp-hero__glow--b" aria-hidden="true" />
-      <div className="hp-hero__gridbg" aria-hidden="true" />
-
-      <div className="hp-hero__inner relative z-10 mx-auto max-w-[1280px] px-4 sm:px-6">
+    <section ref={sectionRef} className="hp-hero hp-hero--refonte relative">
+      <div className="hp-hero__inner relative z-10 mx-auto max-w-[1120px] px-4 sm:px-6">
         <div className="hp-hero__grid">
           {/* ═══ Colonne message ═══ */}
           <div className="hp-hero__copy">
             <div className="hp-hero__brand-row">
               <span className="hp-hero__brand-mark" aria-hidden="true" />
-              <p className="hp-hero__brand">VISION221 · PRO ANALYTICS</p>
+              <p className="hp-hero__brand">BTTSPredict</p>
             </div>
             <h1 className="hp-hero__title">
               <AnimatedTitle
@@ -181,10 +164,9 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
             <p className="hp-hero__text">{t.home2.heroText}</p>
 
             <div className="hp-hero__cta-zone">
-              <MovingGradientButton href="#matchs" dataCta="hero-open-matchs">
+              <a href="#matchs" data-cta="hero-open-matchs" className="hp-cta-primary inline-flex items-center justify-center min-h-11 px-4 text-sm font-semibold">
                 {t.home2.heroCtaPrimary}
-                <span className="hp-btn-arrow" aria-hidden="true">→</span>
-              </MovingGradientButton>
+              </a>
               <a href={localizedPath('/historique', lang)} data-cta="hero-history" className="hp-btn-ghost">
                 {t.home2.heroCtaSecondary}
               </a>
@@ -204,33 +186,11 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
                 <span className="hp-hero__trust-v">GMT (Dakar)</span>
               </li>
             </ul>
-
-            {/* Bandeau défilant — grands clubs suivis (décoratif, logos locaux) */}
-            <div className="hp-clubs" aria-hidden="true">
-              <div className="hp-clubs__track">
-                {[0, 1].map(copy => (
-                  <div className="hp-clubs__group" key={copy}>
-                    {CLUB_LOGOS.map(slug => (
-                      <img
-                        key={`${copy}-${slug}`}
-                        src={`/logos/clubs/${slug}.png`}
-                        alt=""
-                        width={500}
-                        height={500}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* ═══ Carte « Signal en vedette » — vraies données du flux ═══ */}
           <aside className="hp-live-zone" aria-label={t.home2.heroLiveEyebrow}>
-            <div className="hp-live-halo" aria-hidden="true" />
-            <article className="hp-live">
+            <div className="hp-live">
               <header className="hp-live__head">
                 <p className="hp-live__eyebrow">
                   <span className="hp-live__pulse" aria-hidden="true" />
@@ -326,7 +286,7 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
                   <p className="hp-live__pipeline-note">{t.home2.mcEmptyText}</p>
                 </div>
               )}
-            </article>
+            </div>
           </aside>
         </div>
       </div>

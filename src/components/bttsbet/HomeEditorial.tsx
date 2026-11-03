@@ -5,7 +5,6 @@ import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { SITE, AFFILIATE } from '@/lib/constants'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
-import MovingGradientButton from './MovingGradientButton'
 
 /* ═══════════════════════════════════════════════════════════════════
    MethodSection — 4 étapes, éditorial court en 2 colonnes.
@@ -186,16 +185,16 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
               </button>
             </div>
             <div className="grid gap-2 w-full">
-              <MovingGradientButton
+              <a
                 href={AFFILIATE.linebet}
-                external
+                target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
-                dataCta="partner-signup-home"
+                data-cta="partner-signup-home"
                 onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'home-partner')}
+                className="hp-cta-primary inline-flex items-center justify-center min-h-11 px-4 text-sm font-semibold"
               >
                 {t.home2.ptCta}
-                <span className="hp-btn-arrow" aria-hidden="true">→</span>
-              </MovingGradientButton>
+              </a>
               <a
                 href={AFFILIATE.oneXbet}
                 target="_blank"

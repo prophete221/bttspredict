@@ -24,7 +24,7 @@ function detectLang(pathname: string): 'fr' | 'en' | 'ar' {
 
 const COPY = {
   fr: {
-    title: '🎁 TON BONUS DE BIENVENUE',
+    title: 'Bonus de bienvenue',
     offer: '300 % de bonus + 100 free spins*',
     sub: "Inscris-toi avec notre lien partenaire, puis saisis le code affiché lors de ton inscription. Vérifie les conditions de l'offre avant tout dépôt.",
     linebetCta: 'LINEBET — CODE VISION221',
@@ -33,7 +33,7 @@ const COPY = {
     close: 'Fermer',
   },
   en: {
-    title: '🎁 YOUR WELCOME BONUS',
+    title: 'Welcome bonus',
     offer: '300% bonus + 100 free spins*',
     sub: 'Sign up via our partner link, then enter the code shown during registration. Check the offer terms before any deposit.',
     linebetCta: 'LINEBET — CODE VISION221',
@@ -42,7 +42,7 @@ const COPY = {
     close: 'Close',
   },
   ar: {
-    title: '🎁 مكافأة الترحيب',
+    title: 'مكافأة الترحيب',
     offer: 'بونص 300% + 100 لفة مجانية*',
     sub: 'سجّل عبر رابط الشريك ثم أدخل الرمز الظاهر عند التسجيل. تحقق من شروط العرض قبل أي إيداع.',
     linebetCta: 'LINEBET — CODE VISION221',
@@ -133,17 +133,6 @@ export default function GiftPopup() {
               </svg>
             </button>
 
-            <div className="hp-gift-icon-wrap" aria-hidden="true">
-              <motion.span
-                className="hp-gift-emoji"
-                animate={reduceMotion ? undefined : { y: [0, -4, 0] }}
-                transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
-              >
-                🎁
-              </motion.span>
-              <span className="hp-gift-halo" />
-            </div>
-
             <div className="hp-gift-body">
               <p className="hp-gift-title">{t.title}</p>
               <p className="hp-gift-bonus">
@@ -177,10 +166,6 @@ export default function GiftPopup() {
               </div>
               <p className="hp-gift-legal">{t.legal}</p>
             </div>
-
-            <span className="hp-gift-spark hp-gift-spark--1" aria-hidden="true" />
-            <span className="hp-gift-spark hp-gift-spark--2" aria-hidden="true" />
-            <span className="hp-gift-spark hp-gift-spark--3" aria-hidden="true" />
           </div>
         </motion.aside>
       )}

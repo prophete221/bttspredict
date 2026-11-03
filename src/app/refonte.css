@@ -1,0 +1,169 @@
+/* Refonte visuelle — toutes les pages.
+   Présentation seulement : pas de changement de données, routes ou codes. */
+
+body.ds-shell {
+  background: #0c0f14;
+  color: #e8edf2;
+}
+
+body.ds-shell .page-design,
+body.ds-shell .min-h-screen.bg-dark-800,
+body.ds-shell .bg-\[\#0B0F14\] {
+  background: #0c0f14 !important;
+}
+
+/* Décor Cue : halos, grilles, défilements, étincelles */
+body.ds-shell .hp-hero__glow,
+body.ds-shell .hp-hero__gridbg,
+body.ds-shell .hp-clubs,
+body.ds-shell .hp-live-halo,
+body.ds-shell .hp-gift-spark,
+body.ds-shell .hp-gift-halo,
+body.ds-shell .hp-gift-icon-wrap,
+body.ds-shell [class*="__glow"],
+body.ds-shell [class*="marquee"],
+body.ds-shell .animate-float,
+body.ds-shell .animate-glow,
+body.ds-shell .animate-shimmer {
+  display: none !important;
+}
+
+body.ds-shell .hp-hero__glow,
+body.ds-shell .hp-hero__gridbg,
+body.ds-shell .hp-clubs,
+body.ds-shell .hp-live-halo,
+body.ds-shell .hp-live__pulse,
+body.ds-shell .hp-gift-spark,
+body.ds-shell .hp-gift-halo,
+body.ds-shell .hp-gift-icon-wrap,
+body.ds-shell .animate-float,
+body.ds-shell .animate-glow,
+body.ds-shell .animate-pulse,
+body.ds-shell .animate-shimmer {
+  animation: none !important;
+}
+
+/* Titres : plus de dégradé découpé */
+body.ds-shell .hp-hero__title,
+body.ds-shell .hp-hero__title span,
+body.ds-shell h1, body.ds-shell h2 {
+  background: none !important;
+  -webkit-text-fill-color: currentColor;
+  color: #f2f5f8;
+  letter-spacing: -0.03em;
+}
+
+body.ds-shell .hp-hero {
+  padding: 28px 0 8px;
+  background: transparent;
+}
+body.ds-shell .hp-hero__brand {
+  color: #8b97a6;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  font-weight: 650;
+  text-transform: uppercase;
+}
+body.ds-shell .hp-hero__title {
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  line-height: 1.15;
+  font-weight: 650;
+}
+body.ds-shell .hp-hero__text {
+  color: #9aa6b4;
+  max-width: 38rem;
+  font-size: 0.95rem;
+}
+body.ds-shell .hp-live,
+body.ds-shell .hp-mc-card,
+body.ds-shell .hp-pillar,
+body.ds-shell .hp-partner,
+body.ds-shell article,
+body.ds-shell .rounded-2xl,
+body.ds-shell .rounded-xl {
+  box-shadow: none !important;
+}
+body.ds-shell .hp-live {
+  background: #131820;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+}
+body.ds-shell .hp-live__pulse { display: none; }
+
+body.ds-shell .hp-btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #e8edf2 !important;
+  box-shadow: none;
+  border-radius: 8px;
+}
+
+/* Popup cadeau : compacte, sans halo */
+body.ds-shell .hp-gift {
+  width: min(360px, calc(100vw - 24px));
+}
+body.ds-shell .hp-gift-card,
+body.ds-shell .hp-gift-card--refonte {
+  background: #161b22 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35) !important;
+  border-radius: 12px !important;
+  padding: 14px 14px 12px !important;
+}
+body.ds-shell .hp-gift-title {
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: 0;
+  text-transform: none;
+}
+body.ds-shell .hp-gift-bonus { font-size: 0.85rem; color: #dbe8ff; }
+body.ds-shell .hp-gift-sub,
+body.ds-shell .hp-gift-legal { color: #8b97a6; font-size: 0.75rem; line-height: 1.45; }
+body.ds-shell .hp-gift-btn {
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  background: #3b82f6 !important;
+  min-height: 40px;
+}
+body.ds-shell .hp-gift-btn--xbet {
+  background: transparent !important;
+  color: #e8edf2 !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+}
+
+/* VIP : or discret, surfaces plates */
+body.ds-shell .vipx-page,
+body.ds-shell [class*="vipx"] {
+  background-image: none;
+}
+body.ds-shell .vipx-hero-title,
+body.ds-shell [class*="vipx-title"] {
+  background: none !important;
+  -webkit-text-fill-color: #f3ead2;
+  color: #f3ead2;
+}
+
+/* Pages légales et contenu long */
+body.ds-shell main {
+  color: #e8edf2;
+}
+body.ds-shell main p,
+body.ds-shell main li {
+  color: #c5ced8;
+}
+body.ds-shell a {
+  text-underline-offset: 3px;
+}
+
+/* Barre sticky mobile : une seule ligne, sans lueur */
+body.ds-shell .hp-sticky,
+body.ds-shell [class*="Sticky"] {
+  box-shadow: none !important;
+}
+
+@media (max-width: 767px) {
+  body.ds-shell .hp-hero__title {
+    font-size: 1.55rem;
+  }
+}

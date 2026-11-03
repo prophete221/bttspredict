@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import localFont from "next/font/local";
 import "./globals.css";
 import "./shell.css";
+import "./refonte.css";
 import LegacyCredentialCleanup from "@/components/bttsbet/LegacyCredentialCleanup";
 
 const BottomNavigation = dynamic(() => import("@/components/bttsbet/BottomNavigation"), { loading: () => null });
