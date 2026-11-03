@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { getDakarDateString } from '@/lib/dakar-date'
-import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 import VipButtons from '@/components/bttsbet/VipButtons'
+import PredictionMarketNav from '@/components/bttsbet/PredictionMarketNav'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -52,38 +52,31 @@ export default function Over25PredictionsTodayPage() {
           <span className="text-[#9DABBB]">Over 2.5 Today</span>
         </nav>
 
-        <section className="max-w-5xl mx-auto px-4 pt-2 pb-6 sm:pt-4">
-          <div className="page-design__hero rounded-2xl p-5 sm:p-7">
-            <div className="flex flex-wrap items-center gap-2 mb-4">
-              <span className="inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider"
-                style={{ backgroundColor: 'rgba(47, 125, 255, 0.12)', color: '#2F7DFF', border: '1px solid rgba(47, 125, 255, 0.25)' }}>
-                Over 2.5 · 3 buts ou plus
-              </span>
-              <span className="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold" style={{ backgroundColor: 'rgba(52, 211, 153, 0.12)', color: '#34D399', border: '1px solid rgba(52, 211, 153, 0.28)' }}>
-                Aujourd&apos;hui · {dakarDateLabel}
-              </span>
+        <PredictionMarketNav locale="fr" active="over25" />
+
+        <section className="max-w-5xl mx-auto px-4 pt-1 pb-7 sm:pt-2">
+          <div className="market-hero market-hero--over25">
+            <div className="market-hero__content">
+              <p className="market-hero__eyebrow">Over 2,5 · Total de buts · Aujourd&apos;hui · {dakarDateLabel}</p>
+              <h1 className="market-hero__title">Pronostics Over 2,5 du jour</h1>
+              <p className="market-hero__text">Les matchs sélectionnés aujourd&apos;hui selon la probabilité d&apos;au moins trois buts. Les données affichées proviennent du tableau de pronostics.</p>
+              <div className="market-hero__actions">
+                <a href="#over25-dashboard" className="market-hero__primary">Voir les matchs du jour <span aria-hidden="true">↓</span></a>
+                <Link href="/methodologie" className="market-hero__secondary">Comprendre la méthode</Link>
+              </div>
+              <div className="mt-4"><VipButtons locale="fr" /></div>
+              <p className="market-hero__meta">Mise à jour 4 fois par jour · Aucun gain garanti · 18+</p>
             </div>
-            <AnimatedTitle
-              as="h1"
-              text="Pronostics Over 2.5 du jour"
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
-            />
-            <p className="text-base sm:text-lg text-[#9DABBB] leading-relaxed max-w-3xl">
-              Les matchs sélectionnés aujourd&apos;hui selon la probabilité d&apos;au moins 3 buts.
-            </p>
-            <div className="mt-5 flex flex-wrap items-center gap-3">
-              <a href="#over25-dashboard" className="inline-flex min-h-11 items-center justify-center rounded-xl px-5 py-3 text-sm font-bold transition hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]" style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>
-                Voir les matchs du jour
-              </a>
-              <Link href="/methodologie" className="inline-flex min-h-11 items-center justify-center rounded-xl border px-5 py-3 text-sm font-semibold transition hover:border-[#2F7DFF] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]" style={{ borderColor: '#6B7A8C', color: '#F2F6FA' }}>
-                Comprendre la méthode
-              </Link>
-            </div>
-            <div className="mt-3">
-              <VipButtons locale="fr" />
-            </div>
-            <p className="mt-4 text-xs text-[#7F98A4]">Mise à jour 4 fois par jour · Aucun gain garanti · 18+</p>
+            <aside className="market-hero__visual" aria-label="Règle du marché Over 2,5">
+              <div className="market-visual-card">
+                <div className="market-visual-card__label"><span>RÈGLE DU MARCHÉ</span><span className="market-visual-card__mark">O2.5</span></div>
+                <strong className="market-visual-card__big">3+</strong>
+                <span className="market-visual-card__caption">buts au total pour valider Over 2,5</span>
+                <div className="market-visual-card__scores" aria-label="Exemples de scores avec au moins trois buts">
+                  <span>2–1</span><span>3–0</span><span>1–2</span>
+                </div>
+              </div>
+            </aside>
           </div>
         </section>
 

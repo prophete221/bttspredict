@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useLanguage } from '@/components/bttsbet/LanguageSwitcher'
 import { translationsFor, localizedPath } from '@/lib/i18n'
-import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
+import PredictionMarketNav from '@/components/bttsbet/PredictionMarketNav'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -88,7 +88,7 @@ export default function AICorrectScorePage() {
   const filtered = activeLeague === 'all' ? predictions : predictions.filter(p => p.league === activeLeague)
 
   return (
-    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
+    <div className="page-design page-design--score min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
       <Navbar />
       <main id="main-content" className="flex-1">
         <nav aria-label={lang === 'en' ? 'Breadcrumb' : lang === 'ar' ? 'مسار التنقل' : "Fil d'Ariane"} className="text-xs text-[#9DABBB] mb-4 max-w-5xl mx-auto px-4 pt-8">
@@ -97,34 +97,40 @@ export default function AICorrectScorePage() {
           <span className="text-[#9DABBB]">{lang === 'fr' ? 'Score exact IA' : lang === 'ar' ? 'النتيجة الدقيقة بالذكاء الاصطناعي' : 'AI Correct Score'}</span>
         </nav>
 
-        <section className="max-w-5xl mx-auto px-4 pt-4 pb-6">
-          <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
-            style={{ backgroundColor: 'rgba(169, 196, 223, 0.12)', color: '#2F7DFF', border: '1px solid rgba(169, 196, 223, 0.25)' }}>
-            {lang === 'fr' ? 'Analyse · Score exact · Modèle statistique' : lang === 'en' ? 'Analysis · Correct Score · Statistical Model' : 'التحليل · النتيجة الدقيقة · نموذج إحصائي'}
-          </span>
-          <AnimatedTitle
-            as="h1"
-            text={lang === 'fr' ? 'Prédictions de score exact par IA' : lang === 'en' ? 'AI Correct Score Predictions' : 'توقعات النتيجة الدقيقة بالذكاء الاصطناعي'}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
-            style={{ fontFamily: 'Poppins, sans-serif' }}
-          />
-          <p className="text-base sm:text-lg text-[#9DABBB] leading-relaxed mb-3 max-w-3xl mx-auto">
-            {lang === 'fr' ? 'Les scores exacts les plus probables sont calculés par notre modèle statistique à partir des buts attendus (xG) de chaque équipe. Les cinq scores les plus probables sont affichés pour chaque match.' : lang === 'en' ? 'Most likely exact scores computed by our statistical model from each team’s expected goals (xG). The top 5 scorelines are shown per match, ranked by probability.' : 'يحسب نموذجنا الإحصائي النتائج الدقيقة الأكثر احتمالاً من الأهداف المتوقعة لكل فريق. نعرض أفضل خمسة نتائج مرتبة حسب الاحتمال.'}
-          </p>
-          <p className="text-sm text-[#9DABBB] leading-relaxed max-w-3xl mx-auto">
-            {t.legal.noGuarantee} {lang === 'fr' ? 'Il s’agit de probabilités statistiques, pas de certitudes.' : lang === 'en' ? 'These are statistical probabilities, not certainties.' : 'هذه احتمالات إحصائية وليست يقيناً.'} {t.legal.eighteen}
-          </p>
+        <PredictionMarketNav locale={lang} active="score" />
+        <section className="max-w-5xl mx-auto px-4 pt-1 pb-6">
+          <div className="market-hero market-hero--score">
+            <div className="market-hero__content">
+              <p className="market-hero__eyebrow">{lang === 'fr' ? 'ANALYSE · SCORE EXACT · MODÈLE STATISTIQUE' : lang === 'en' ? 'ANALYSIS · CORRECT SCORE · STATISTICAL MODEL' : 'تحليل · النتيجة الدقيقة · نموذج إحصائي'}</p>
+              <h1 className="market-hero__title">{lang === 'fr' ? 'Prédictions de score exact par IA' : lang === 'en' ? 'AI Correct Score Predictions' : 'توقعات النتيجة الدقيقة بالذكاء الاصطناعي'}</h1>
+              <p className="market-hero__text">{lang === 'fr' ? 'Les scores exacts sont classés par le modèle à partir des buts attendus de chaque équipe. Les cinq scores les plus probables sont affichés pour chaque match.' : lang === 'en' ? 'The model ranks exact scorelines using each team’s expected goals. The five most likely scores are shown for each match.' : 'يرتب النموذج النتائج الدقيقة اعتماداً على الأهداف المتوقعة لكل فريق. نعرض النتائج الخمس الأكثر احتمالاً لكل مباراة.'}</p>
+              <p className="market-hero__meta">{t.legal.noGuarantee} {lang === 'fr' ? 'Ce sont des probabilités, pas des certitudes.' : lang === 'en' ? 'These are probabilities, not certainties.' : 'هذه احتمالات وليست يقيناً.'} {t.legal.eighteen}</p>
+              <div className="market-hero__actions">
+                <a href="#exact-score-board" className="market-hero__primary">{lang === 'fr' ? 'Explorer les matchs' : lang === 'en' ? 'Explore matches' : 'استكشف المباريات'} <span aria-hidden="true">↓</span></a>
+                <Link href={localizedPath('/methodologie', lang)} className="market-hero__secondary">{lang === 'fr' ? 'Méthode' : lang === 'en' ? 'Method' : 'المنهجية'}</Link>
+              </div>
+            </div>
+            <aside className="market-hero__visual" aria-label={lang === 'fr' ? 'Fonctionnement du calcul' : lang === 'en' ? 'How the score model works' : 'طريقة حساب النتائج'}>
+              <div className="market-visual-card">
+                <div className="market-visual-card__label"><span>{lang === 'fr' ? 'DISTRIBUTION DE SCORES' : lang === 'en' ? 'SCORE DISTRIBUTION' : 'توزيع النتائج'}</span><span className="market-visual-card__mark">POISSON</span></div>
+                <strong className="market-visual-card__big">49</strong>
+                <span className="market-visual-card__caption">{lang === 'fr' ? 'combinaisons évaluées par match' : lang === 'en' ? 'score combinations evaluated per match' : 'تركيبة نتيجة تُقيّم لكل مباراة'}</span>
+                <div className="market-visual-card__rule" />
+                <div className="market-visual-card__footer"><span>λ {lang === 'fr' ? 'domicile / extérieur' : lang === 'en' ? 'home / away' : 'صاحب الأرض / الضيف'}</span><span>TOP 5</span></div>
+              </div>
+            </aside>
+          </div>
         </section>
 
         {/* League filter */}
         <section className="max-w-5xl mx-auto px-4 pb-4">
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+          <div className="score-filters flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
             {leagues.map(league => (
               <button
                 key={league}
                 onClick={() => setActiveLeague(league)}
                 aria-pressed={activeLeague === league}
-                className={`px-2.5 py-1 rounded text-[11px] font-semibold transition-all whitespace-nowrap ${
+                className={`score-filter px-3 py-2 rounded-lg text-[11px] font-semibold transition-all whitespace-nowrap ${
                   activeLeague === league
                     ? 'bg-[#2F7DFF]/15 text-[#2F7DFF] border border-[#2F7DFF]/30'
                     : 'bg-[#141C25] text-[#9DABBB] border border-[#6B7A8C] hover:text-[#9DABBB]'
@@ -137,7 +143,7 @@ export default function AICorrectScorePage() {
         </section>
 
         {/* Predictions table */}
-        <section className="max-w-5xl mx-auto px-4 pb-8">
+        <section id="exact-score-board" className="max-w-5xl mx-auto px-4 pb-8 scroll-mt-6">
           {loading ? (
             <div className="grid sm:grid-cols-2 gap-3">
               {[1, 2, 3, 4].map(i => (
@@ -151,40 +157,40 @@ export default function AICorrectScorePage() {
           ) : (
             <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
               {filtered.map((m, i) => (
-                <div key={`${m.home}-${m.away}-${i}`} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
+                <div key={`${m.home}-${m.away}-${i}`} className="score-card">
                   {/* Header */}
-                  <div className="flex items-center justify-between px-3 py-2" style={{ backgroundColor: '#FFFFFF', borderBottom: '1px solid #6B7A8C' }}>
-                    <span className="text-[10px] uppercase tracking-widest font-semibold text-[#9DABBB] truncate">{m.league}</span>
-                    <span className="text-[10px] font-mono text-[#9DABBB]">{m.time}</span>
+                  <div className="score-card__head">
+                    <span className="score-card__league">{m.league}</span>
+                    <span className="score-card__time">{m.time}</span>
                   </div>
                   {/* Teams */}
-                  <div className="px-3 py-3">
-                    <div className="text-center mb-3">
-                      <span className="text-sm font-bold text-[#F2F6FA]">{m.home}</span>
-                      <span className="text-[#2F7DFF] mx-2 font-mono text-xs">vs</span>
-                      <span className="text-sm font-bold text-[#F2F6FA]">{m.away}</span>
+                  <div className="score-card__body">
+                    <div className="score-card__teams">
+                      <div className="score-card__team">{m.homeLogo ? <img src={m.homeLogo} alt="" loading="lazy" decoding="async" /> : <span className="score-card__crest">{m.home.slice(0, 2).toUpperCase()}</span>}<span>{m.home}</span></div>
+                      <span className="score-card__vs">VS</span>
+                      <div className="score-card__team score-card__team--away">{m.awayLogo ? <img src={m.awayLogo} alt="" loading="lazy" decoding="async" /> : <span className="score-card__crest">{m.away.slice(0, 2).toUpperCase()}</span>}<span>{m.away}</span></div>
                     </div>
                     {/* Top 5 scores */}
-                    <div className="space-y-1.5">
+                    <div className="score-card__scores">
                       {m.topScores.map((s, idx) => (
-                        <div key={idx} className="flex items-center justify-between">
-                          <div className="flex items-center gap-2">
-                            <span className="text-[9px] font-mono text-[#9DABBB] w-4">#{idx + 1}</span>
-                            <span className="text-sm font-bold font-mono" style={{ color: idx === 0 ? '#2F7DFF' : '#F2F6FA' }}>{s.score}</span>
+                        <div key={idx} className={`score-card__row${idx === 0 ? ' is-top' : ''}`}>
+                          <div className="score-card__rank">
+                            <span className="score-card__rank-no">{String(idx + 1).padStart(2, '0')}</span>
+                            <span className="score-card__score">{s.score}</span>
                           </div>
-                          <div className="flex items-center gap-2 flex-1 ml-3">
-                            <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
-                              <div className="h-full rounded-full" style={{ width: `${s.prob * 100}%`, backgroundColor: idx === 0 ? '#2F7DFF' : '#2F7DFF' }} />
+                          <div className="score-card__probability">
+                            <div className="score-card__bar" role="img" aria-label={`${(s.prob * 100).toFixed(1)}%`}>
+                              <span style={{ width: `${s.prob * 100}%`, opacity: idx === 0 ? 1 : 0.52 }} />
                             </div>
-                            <span className="text-[10px] font-mono font-bold text-[#9DABBB] tabular-nums">{(s.prob * 100).toFixed(1)}%</span>
+                            <span className="score-card__percent">{(s.prob * 100).toFixed(1)}%</span>
                           </div>
                         </div>
                       ))}
                     </div>
                     {/* Buts attendus modélisés (λ du modèle Poisson, source ESPN) */}
-                    <div className="mt-3 pt-2 border-t border-[#6B7A8C] flex justify-between text-[9px] text-[#9DABBB]" title={lang === 'en' ? 'Modeled expected goals (λ): recent real goals averages (ESPN) converted through a Poisson model. Not provider xG.' : lang === 'ar' ? 'أهداف متوقعة نمذجة (λ) من متوسطات أهداف حقيقية حديثة (ESPN) عبر نموذج بواسون. ليست xG من مزود.' : 'Buts attendus modélisés (λ) : moyennes de buts récents (ESPN) converties en modèle Poisson. Pas des xG de fournisseur.'}>
-                      <span>λ Home: <strong className="text-[#9DABBB] font-mono">{m.lambdaHome.toFixed(2)}</strong></span>
-                      <span>λ Away: <strong className="text-[#9DABBB] font-mono">{m.lambdaAway.toFixed(2)}</strong></span>
+                    <div className="score-card__model" title={lang === 'en' ? 'Modeled expected goals (λ): recent real goals averages (ESPN) converted through a Poisson model. Not provider xG.' : lang === 'ar' ? 'أهداف متوقعة نمذجة (λ) من متوسطات أهداف حقيقية حديثة (ESPN) عبر نموذج بواسون. ليست xG من مزود.' : 'Buts attendus modélisés (λ) : moyennes de buts récents (ESPN) converties en modèle Poisson. Pas des xG de fournisseur.'}>
+                      <span>λ {lang === 'fr' ? 'Domicile' : lang === 'en' ? 'Home' : 'المضيف'} <strong>{m.lambdaHome.toFixed(2)}</strong></span>
+                      <span>λ {lang === 'fr' ? 'Extérieur' : lang === 'en' ? 'Away' : 'الضيف'} <strong>{m.lambdaAway.toFixed(2)}</strong></span>
                     </div>
                   </div>
                 </div>

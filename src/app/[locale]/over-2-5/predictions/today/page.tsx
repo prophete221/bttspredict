@@ -3,9 +3,9 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { isLocale, LOCALE_META, type Locale, translationsFor } from '@/lib/i18n'
-import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
 import VipButtons from '@/components/bttsbet/VipButtons'
 import { AFFILIATE } from '@/lib/constants'
+import PredictionMarketNav from '@/components/bttsbet/PredictionMarketNav'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -40,13 +40,24 @@ export default async function LocalizedOver25TodayPage({ params }: { params: Pro
         <nav aria-label={t.common.home} className="text-xs text-[#9DABBB] mb-4 max-w-5xl mx-auto px-4 pt-8">
           <Link href={`/${value}`} className="hover:text-[#2F7DFF]">{t.common.home}</Link><span className="mx-1">/</span><span>Over 2.5 Today</span>
         </nav>
-        <section className="page-design__hero-wrap max-w-5xl mx-auto px-4 pt-4 pb-6">
-          <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4" style={{ backgroundColor: 'rgba(91, 169, 255, 0.12)', color: '#2F7DFF', border: '1px solid rgba(91, 169, 255, 0.25)' }}>Over 2.5 · Total goals</span>
-          <AnimatedTitle as="h1" text={isAr ? 'توقعات Over 2.5 اليوم' : 'Over 2.5 Predictions Today'} className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }} />
-          <p className="text-base sm:text-lg text-[#9DABBB] leading-relaxed mb-3 max-w-3xl mx-auto">{isAr ? 'مباريات يُتوقع أن يتجاوز فيها إجمالي الأهداف 2.5، أي ثلاثة أهداف على الأقل. يتم التحديث والتحقق من النتائج بعد المباراة.' : "Today's Over 2.5 predictions: matches where total goals are expected to exceed 2.5, meaning at least 3 goals. Updated and checked after the match."}</p>
-          <p className="text-sm text-[#9DABBB] leading-relaxed max-w-3xl mx-auto">{t.legal.noGuarantee} {t.legal.eighteen}</p>
-          <div className="mt-5 flex justify-center">
-            <VipButtons locale={value as Locale} />
+        <PredictionMarketNav locale={value as Locale} active="over25" />
+        <section className="max-w-5xl mx-auto px-4 pt-1 pb-7">
+          <div className="market-hero market-hero--over25">
+            <div className="market-hero__content">
+              <p className="market-hero__eyebrow">{isAr ? 'Over 2.5 · مجموع الأهداف' : 'Over 2.5 · Total goals'}</p>
+              <h1 className="market-hero__title">{isAr ? 'توقعات Over 2.5 اليوم' : 'Over 2.5 Predictions Today'}</h1>
+              <p className="market-hero__text">{isAr ? 'مباريات يُتوقع أن يتجاوز فيها إجمالي الأهداف 2.5، أي ثلاثة أهداف على الأقل. تُعرض التوقعات وفق البيانات المنشورة.' : "Today's Over 2.5 predictions: matches selected for a total of at least three goals, based on the published data."}</p>
+              <p className="market-hero__meta">{t.legal.noGuarantee} {t.legal.eighteen}</p>
+              <div className="mt-4"><VipButtons locale={value as Locale} /></div>
+            </div>
+            <aside className="market-hero__visual" aria-label={isAr ? 'قاعدة سوق Over 2.5' : 'Over 2.5 market rule'}>
+              <div className="market-visual-card">
+                <div className="market-visual-card__label"><span>{isAr ? 'قاعدة السوق' : 'MARKET RULE'}</span><span className="market-visual-card__mark">O2.5</span></div>
+                <strong className="market-visual-card__big">3+</strong>
+                <span className="market-visual-card__caption">{isAr ? 'أهداف إجمالية لتجاوز 2.5' : 'total goals to clear the 2.5 line'}</span>
+                <div className="market-visual-card__scores" aria-label={isAr ? 'أمثلة على النتائج' : 'Example scorelines'}><span>2–1</span><span>3–0</span><span>1–2</span></div>
+              </div>
+            </aside>
           </div>
         </section>
 

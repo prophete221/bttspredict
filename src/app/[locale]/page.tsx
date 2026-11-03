@@ -5,6 +5,7 @@ import { isLocale, LOCALE_META, type Locale, translationsFor } from '@/lib/i18n'
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Hero = dynamic(() => import('@/components/bttsbet/Hero'), { loading: () => null })
 const MatchCenter = dynamic(() => import('@/components/bttsbet/MatchCenter'), { loading: () => null })
+const PredictionMarketNav = dynamic(() => import('@/components/bttsbet/PredictionMarketNav'), { loading: () => null })
 const TrustPillars = dynamic(() => import('@/components/bttsbet/TrustPillars'), { loading: () => null })
 const PerformanceDashboard = dynamic(() => import('@/components/bttsbet/PerformanceDashboard'), { loading: () => null })
 const MethodSection = dynamic(() => import('@/components/bttsbet/HomeEditorial').then(m => ({ default: m.MethodSection })), { loading: () => null })
@@ -41,6 +42,7 @@ export default async function LocalizedHomePage({ params }: { params: Promise<{ 
       <main id="main-content" className="relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
         <Navbar />
         <Hero initialLocale={locale} />
+        <PredictionMarketNav locale={locale} variant="full" />
         <MatchCenter initialLocale={locale} />
         <TrustPillars initialLocale={locale} />
         <PerformanceDashboard initialLocale={locale} />

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import Link from 'next/link'
-import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
+import PredictionMarketNav from '@/components/bttsbet/PredictionMarketNav'
 
 export const metadata: Metadata = {
   title: 'Statistiques BTTS par ligue',
@@ -70,35 +70,40 @@ const LEAGUE_STATS = [
 
 export default function BTTSStatisticsPage() {
   return (
-    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
+    <div className="page-design page-design--stats min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
       <Navbar />
       <main id="main-content" className="flex-1">
-        <article className="max-w-4xl mx-auto px-4 py-12 sm:py-16">
+        <article className="max-w-5xl mx-auto px-4 py-7 sm:py-10">
           <nav aria-label="Fil d'Ariane" className="text-xs text-[#9DABBB] mb-4">
             <Link href="/" className="hover:text-[#2F7DFF]">Accueil</Link>
             <span className="mx-1">/</span>
-            <span className="text-[#9DABBB]">BTTS Statistics</span>
+            <span className="text-[#9DABBB]">Statistiques BTTS</span>
           </nav>
 
-          <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
-            style={{ backgroundColor: 'rgba(169, 196, 223, 0.12)', color: '#2F7DFF', border: '1px solid rgba(169, 196, 223, 0.25)' }}>
-            BTTS · Statistics
-          </span>
-          <AnimatedTitle
-            as="h1"
-            text="Statistiques BTTS par ligue"
-            className="text-3xl sm:text-4xl font-bold mb-4"
-            style={{ fontFamily: 'Poppins, sans-serif' }}
-          />
-          <p className="text-base text-[#9DABBB] leading-relaxed mb-6">
-            Liste des ligues couvertes par BTTSPredict pour le marché BTTS (Both Teams To Score). Les taux historiques et moyennes de buts par ligue ne sont pas affichés tant qu&apos;aucune source vérifiable n&apos;est intégrée au build.
-          </p>
+          <PredictionMarketNav locale="fr" active="btts" />
+          <section className="market-hero market-hero--stats mb-8">
+            <div className="market-hero__content">
+              <p className="market-hero__eyebrow">BTTS · STATISTIQUES PAR LIGUE</p>
+              <h1 className="market-hero__title">Statistiques BTTS par ligue</h1>
+              <p className="market-hero__text">Les taux historiques et moyennes par ligue restent indiqués comme indisponibles tant qu’aucune source vérifiable n’est intégrée. Cette page n’invente pas de chiffres pour combler les cases.</p>
+              <div className="market-hero__actions"><Link href="/btts/predictions/today" className="market-hero__primary">Voir les pronostics BTTS <span aria-hidden="true">→</span></Link></div>
+            </div>
+            <aside className="market-hero__visual" aria-label="Disponibilité des statistiques">
+              <div className="market-visual-card">
+                <div className="market-visual-card__label"><span>DONNÉES VÉRIFIABLES</span><span className="market-visual-card__mark">BTTS</span></div>
+                <strong className="market-visual-card__big">—</strong>
+                <span className="market-visual-card__caption">Taux historiques non publiés sans source vérifiable.</span>
+                <div className="market-visual-card__rule" />
+                <div className="market-visual-card__footer"><span>Données en préparation</span><span>18+</span></div>
+              </div>
+            </aside>
+          </section>
 
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Ligues couvertes
             </h2>
-            <div className="overflow-x-auto">
+            <div className="stats-table-scroll">
               <table className="w-full text-sm" style={{ borderCollapse: 'collapse' }}>
                 <thead>
                   <tr style={{ borderBottom: '2px solid #6B7A8C' }}>

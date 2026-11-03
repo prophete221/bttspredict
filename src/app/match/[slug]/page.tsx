@@ -7,6 +7,7 @@ import Link from 'next/link'
 import MatchAnalyticsCharts from '@/components/bttsbet/MatchAnalyticsCharts'
 import MatchViewTracker from '@/components/bttsbet/MatchViewTracker'
 import TeamContext from '@/components/bttsbet/TeamContext'
+import PredictionMarketNav from '@/components/bttsbet/PredictionMarketNav'
 import { localizedPath, type Locale } from '@/lib/i18n'
 
 interface PageProps {
@@ -343,6 +344,7 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
           <span className="mx-1">/</span>
           <span className="text-[#9DABBB]">{home} vs {away}</span>
         </nav>
+        <PredictionMarketNav locale={locale} />
 
         <article className="max-w-6xl mx-auto px-4 py-8">
           {/* HERO — en-tête visuel du match */}

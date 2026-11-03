@@ -4,10 +4,10 @@ import Link from 'next/link'
 import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
 import StickyCTABar from '@/components/bttsbet/StickyCTABar'
 import { useLanguage } from './LanguageSwitcher'
-import AnimatedTitle from './HeroWordmark'
 import VipButtons from './VipButtons'
 import { AFFILIATE } from '@/lib/constants'
 import PartnerSignupBand from '@/components/bttsbet/PartnerSignupBand'
+import PredictionMarketNav from './PredictionMarketNav'
 import { trackAffiliateAction } from '@/lib/affiliateTracking'
 
 export default function LocalizedCombinedPredictionsClient() {
@@ -67,13 +67,30 @@ export default function LocalizedCombinedPredictionsClient() {
     <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
       <Navbar />
       <main id="main-content" className="flex-1" style={{ paddingBottom: 'calc(140px + env(safe-area-inset-bottom, 0px))' }}>
-        <section className="max-w-5xl mx-auto px-4 pt-12 pb-6">
-          <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4 text-[#2F7DFF] border border-[#2F7DFF55]">{c.badge}</span>
-          <AnimatedTitle as="h1" text={c.title} className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" />
-          <p className="text-base text-[#9DABBB] leading-relaxed mb-3 max-w-3xl">{c.intro}</p>
-          <p className="text-sm text-[#9DABBB]">{c.update}</p>
-          <div className="mt-5"><VipButtons /></div>
+        <section className="max-w-5xl mx-auto px-4 pt-7 pb-2">
+          <div className="market-hero market-hero--combo">
+            <div className="market-hero__content">
+              <p className="market-hero__eyebrow">{c.badge}</p>
+              <h1 className="market-hero__title">{c.title}</h1>
+              <p className="market-hero__text">{c.intro}</p>
+              <p className="market-hero__meta">{c.update}</p>
+              <div className="mt-4"><VipButtons /></div>
+            </div>
+            <aside className="market-hero__visual" aria-label={c.what}>
+              <div className="market-visual-card">
+                <div className="market-visual-card__label"><span>{lang === 'fr' ? 'DEUX CONDITIONS' : lang === 'ar' ? 'شرطان' : 'TWO CONDITIONS'}</span><span className="market-visual-card__mark">01 + 02</span></div>
+                <div className="market-visual-card__steps">
+                  <div className="market-visual-card__step"><b>01</b><span>BTTS · {lang === 'fr' ? 'deux équipes marquent' : lang === 'ar' ? 'يسجل الفريقان' : 'both teams score'}</span></div>
+                  <div className="market-visual-card__step"><b>02</b><span>Over 2.5 · {lang === 'fr' ? '3 buts ou plus' : lang === 'ar' ? '3 أهداف أو أكثر' : '3 or more goals'}</span></div>
+                </div>
+                <div className="market-visual-card__rule" />
+                <span className="market-visual-card__caption">{lang === 'fr' ? 'Les deux critères doivent être réunis.' : lang === 'ar' ? 'يجب تحقق الشرطين معاً.' : 'Both criteria must be met.'}</span>
+              </div>
+            </aside>
+          </div>
         </section>
+
+        <PredictionMarketNav locale={lang} active="combo" />
 
         {/* Conversion strip — above predictions, EN-first traffic (GSC) */}
         <section className="max-w-5xl mx-auto px-4 pb-6" aria-label={c.offerTitle}>

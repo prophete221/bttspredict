@@ -1,75 +1,13 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer, FreePredictions } from '@/components/bttsbet'
-import Link from 'next/link'
-import AnimatedTitle from '@/components/bttsbet/HeroWordmark'
+import BttsTomorrowLanding from '@/components/bttsbet/BttsTomorrowLanding'
 
 export const metadata: Metadata = {
   title: 'BTTS Predictions Tomorrow — Pronostics demain',
-  description: "Aperçu des pronostics BTTS de demain. Sélection quotidienne par moteur IA. 18+.",
+  description: "Aperçu des pronostics BTTS de demain. Sélection quotidienne par moteur statistique. 18+.",
   alternates: { canonical: 'https://bttspredict.com/btts/predictions/tomorrow' },
   robots: { index: true, follow: true },
 }
 
 export default function BTTSPredictionsTomorrowPage() {
-  return (
-    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
-      <Navbar />
-      <main id="main-content" className="flex-1">
-        <section className="max-w-4xl mx-auto px-4 py-12 sm:py-16">
-          <nav aria-label="Fil d'Ariane" className="text-xs text-[#9DABBB] mb-4">
-            <Link href="/" className="hover:text-[#2F7DFF]">Accueil</Link>
-            <span className="mx-1">/</span>
-            <Link href="/btts/predictions/today" className="hover:text-[#2F7DFF]">Pronostics</Link>
-            <span className="mx-1">/</span>
-            <span className="text-[#9DABBB]">BTTS Tomorrow</span>
-          </nav>
-
-          <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
-            style={{ backgroundColor: 'rgba(169, 196, 223, 0.12)', color: '#2F7DFF', border: '1px solid rgba(169, 196, 223, 0.25)' }}>
-            BTTS · Tomorrow
-          </span>
-          <AnimatedTitle
-            as="h1"
-            text="BTTS Predictions Tomorrow"
-            className="text-3xl sm:text-4xl font-bold mb-4"
-            style={{ fontFamily: 'Poppins, sans-serif' }}
-          />
-          <p className="text-base text-[#9DABBB] leading-relaxed mb-6">
-            BTTSPredict publie chaque jour une nouvelle sélection de pronostics BTTS. Les pronostics pour les matchs de demain sont publiés la veille au soir et le jour même, plusieurs fois par jour. Chaque sélection est issue du modèle statistique, basée sur les données disponibles des deux équipes.
-          </p>
-
-          <div className="p-5 rounded-xl mb-6" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
-            <h2 className="text-lg font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Comment accéder aux pronostics BTTS de demain ?
-            </h2>
-            <p className="text-sm text-[#9DABBB] leading-relaxed mb-3">
-              Les pronostics de demain sont disponibles sur la page <Link href="/btts/predictions/today" className="text-[#2F7DFF] underline">Pronostics du jour</Link> dès qu'ils sont publiés par le moteur. La page est mise à jour automatiquement 4 fois par jour via GitHub Actions.
-            </p>
-            <p className="text-sm text-[#9DABBB] leading-relaxed">
-              Vous pouvez filtrer par date (aujourd'hui, demain, 7 jours) directement sur la page des pronostics.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3">
-            <Link href="/btts/predictions/today" className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
-              style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>
-              Voir les pronostics du jour →
-            </Link>
-            <Link href="/btts/predictions/today" className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] font-bold text-sm transition-all"
-              style={{ backgroundColor: '#141C25', color: '#9DABBB', border: '1px solid #6B7A8C' }}>
-              BTTS du jour →
-            </Link>
-          </div>
-
-          <p className="text-xs text-[#9DABBB] mt-8 leading-relaxed">
-            Aucun résultat futur n'est garanti. Les paris sportifs comportent un risque de perte. 18+ — Jouez responsable.
-          </p>
-        </section>
-              <section className="max-w-5xl mx-auto px-4 py-8">
-          <FreePredictions />
-        </section>
-      </main>
-      <Footer />
-    </div>
-  )
+  return <BttsTomorrowLanding locale="fr" />
 }

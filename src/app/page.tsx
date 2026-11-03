@@ -6,6 +6,7 @@ const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: (
 const Hero = dynamic(() => import('@/components/bttsbet/Hero'), { loading: () => null })
 const ScrollProgressBar = dynamic(() => import('@/components/bttsbet/ScrollProgressBar'), { loading: () => null })
 const MatchCenter = dynamic(() => import('@/components/bttsbet/MatchCenter'), { loading: () => null })
+const PredictionMarketNav = dynamic(() => import('@/components/bttsbet/PredictionMarketNav'), { loading: () => null })
 const TrustPillars = dynamic(() => import('@/components/bttsbet/TrustPillars'), { loading: () => null })
 const PerformanceDashboard = dynamic(() => import('@/components/bttsbet/PerformanceDashboard'), { loading: () => null })
 const MethodSection = dynamic(() => import('@/components/bttsbet/HomeEditorial').then(m => ({ default: m.MethodSection })), { loading: () => null })
@@ -243,6 +244,7 @@ export default function Home() {
       <main id="main-content" className="relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
         <ErrorBoundary><Navbar /></ErrorBoundary>
         <ErrorBoundary><Hero /></ErrorBoundary>
+        <PredictionMarketNav locale="fr" variant="full" />
         <ErrorBoundary><MatchCenter /></ErrorBoundary>
         <ErrorBoundary><TrustPillars /></ErrorBoundary>
         <ErrorBoundary><PerformanceDashboard /></ErrorBoundary>

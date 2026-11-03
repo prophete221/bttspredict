@@ -33,6 +33,7 @@ import Link from 'next/link'
 import { generateMatchSlug } from '@/lib/match-slug'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
+import PredictionMarketNav from './PredictionMarketNav'
 import { getDakarDateString, getDakarMatchStatus, getDakarDayDiff } from '@/lib/dakar-date'
 import { AFFILIATE } from '@/lib/constants'
 
@@ -1018,6 +1019,8 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
         </div>
       </div>
 
+      <PredictionMarketNav locale={lang} active="btts" />
+
       {/* ─── AI COMBO OF THE DAY ─── */}
       {/* Deterministic selection — NO Gemini call from client, NO recalculation. */}
       {/* CTA affiliation — liens trackés avant les codes promo — 1xbet & Linebet prioritaires */}
@@ -1231,5 +1234,4 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
     </section>
   )
 }
-
 

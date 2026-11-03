@@ -3,6 +3,8 @@ import {Navbar, Footer,
   FreePredictionsWidget,
   VipCardWidget,
   LinebetApkButton} from '@/components/bttsbet'
+import Link from 'next/link'
+import PredictionMarketNav from '@/components/bttsbet/PredictionMarketNav'
 
 /* ──────────────────────────────────────────────────────────────
    Metadata
@@ -137,7 +139,7 @@ function buildFaqJsonLd() {
    ────────────────────────────────────────────────────────────── */
 export default function BttsGuidePage() {
   return (
-    <div className="min-h-screen bg-dark-800 flex flex-col text-papier">
+    <div className="page-design page-design--guide min-h-screen bg-dark-800 flex flex-col text-papier">
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -178,19 +180,28 @@ export default function BttsGuidePage() {
           </ol>
         </nav>
 
+        <PredictionMarketNav locale="fr" active="btts" />
+
         {/* Header */}
-        <section className="pb-8 sm:pb-10">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-            <h1
-              className="text-4xl sm:text-5xl text-papier mb-4"
-              style={{ fontFamily: "var(--font-bebas-neue), 'Bebas Neue', sans-serif", letterSpacing: '0.04em' }}
-            >
-              BTTS : qu&apos;est-ce que cela signifie ?
-            </h1>
-            <p className="text-cendre text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              Both Teams To Score : fonctionnement et exemples pour parier intelligemment.
-            </p>
-            <div className="accent-line-emerald max-w-xs mx-auto mt-8" />
+        <section className="max-w-4xl mx-auto w-full px-4 sm:px-6 pb-8 sm:pb-10">
+          <div className="market-hero market-hero--guide">
+            <div className="market-hero__content">
+              <p className="market-hero__eyebrow">GUIDE DU MARCHÉ · BTTS</p>
+              <h1 className="market-hero__title">BTTS : qu&apos;est-ce que cela signifie ?</h1>
+              <p className="market-hero__text">Both Teams To Score : le principe, des exemples de scores et les limites à connaître avant de consulter une prédiction.</p>
+              <div className="market-hero__actions">
+                <Link href="/btts/predictions/today" className="market-hero__primary">Consulter les pronostics BTTS <span aria-hidden="true">→</span></Link>
+                <Link href="/methodologie" className="market-hero__secondary">Voir la méthodologie</Link>
+              </div>
+            </div>
+            <aside className="market-hero__visual" aria-label="Définition du marché BTTS">
+              <div className="market-visual-card">
+                <div className="market-visual-card__label"><span>LES DEUX ÉQUIPES MARQUENT</span><span className="market-visual-card__mark">BTTS</span></div>
+                <strong className="market-visual-card__big">1+ <span style={{ color: '#78BFFF' }}>×</span> 1+</strong>
+                <span className="market-visual-card__caption">Au moins un but par équipe pour BTTS Oui.</span>
+                <div className="market-visual-card__scores"><span>1–1</span><span>2–1</span><span>1–2</span></div>
+              </div>
+            </aside>
           </div>
         </section>
 
