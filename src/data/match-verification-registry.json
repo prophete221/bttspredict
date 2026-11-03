@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "id": "west-ham-united-vs-queens-park-rangers-2026-10-09",
+      "matchDate": "2026-10-09",
+      "homeTeam": "West Ham United",
+      "awayTeam": "Queens Park Rangers",
+      "competition": "Championship",
+      "source": "ESPN public",
+      "sourceUrl": "https://www.espn.com/soccer/match/_/gameId/401880233/queens-park-rangers-west-ham-united",
+      "result": { "homeGoals": 1, "awayGoals": 1, "display": "1-1" },
+      "verifiedAt": "2026-10-23T05:42:15.167Z",
+      "status": "verified",
+      "kickoff": { "time": "20:00", "timeZone": "Europe/London" },
+      "snapshot": { "time": "19:00", "timeZone": null },
+      "display": { "time": "19:00", "timeZone": "Africa/Dakar" }
+    }
+  ]
+}

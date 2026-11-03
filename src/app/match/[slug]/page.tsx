@@ -8,6 +8,7 @@ import MatchAnalyticsCharts from '@/components/bttsbet/MatchAnalyticsCharts'
 import MatchViewTracker from '@/components/bttsbet/MatchViewTracker'
 import TeamContext from '@/components/bttsbet/TeamContext'
 import { localizedPath, type Locale } from '@/lib/i18n'
+import { getDynamicMatchSlugs } from '@/lib/match-page-ssg'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -25,7 +26,7 @@ export const dynamicParams = false
 export const dynamic = 'force-static'
 
 export async function generateStaticParams() {
-  const slugs = getAllMatchSlugs()
+  const slugs = getDynamicMatchSlugs(getAllMatchSlugs())
   // Si aucune page match n'est disponible, on génère un fallback pour que le build SSG passe
   if (slugs.length === 0) {
     return [{ slug: '_placeholder' }]

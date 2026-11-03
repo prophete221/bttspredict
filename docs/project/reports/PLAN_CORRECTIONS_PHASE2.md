@@ -5,13 +5,13 @@
 **Branche de travail :** `redesign/professional-global-2026-11-03`
 **Commit local de référence avant cette mise à jour documentaire :** `d6fa1b4ac547a553086536428ee62d350dd4b435`
 **Référence amont observée :** `325526d93c63fc52143741a5b739cf68f7ba0809` (branche locale en avance de trois commits documentaires; aucun push effectué).
-**Statut :** proposition de conception, à valider par le chef de projet avant toute implémentation.
+**Statut actualisé :** le plan reste l’archive de conception Phase 2A; son lot West Ham–QPR a été implémenté localement après autorisation explicite le 3 novembre 2026. Le résultat des contrôles figure dans l’addendum final. Aucun commit ni push.
 
 > Phase 2A reste strictement documentaire. Aucun code, contenu, donnée, route, règle d’hébergement, paramètre d’affiliation ou fichier Firebase n’a été modifié. Aucun build, test, appel HTTP nouveau ou déploiement n’a été exécuté pendant cette phase. Aucun push GitHub n’est autorisé.
 
 ## Décision proposée en bref
 
-1. **P0.1 : retenir l’option B, avec sélection explicite par URL et par langue.** Restaurer en premier les dix anciennes URL FR déjà documentées dans l’export GSC, sous réserve d’un contrôle de complétude et de fidélité historique. Cela représente **10 nouvelles pages FR**. Ne créer leurs variantes EN/AR que si leurs propres URL, usages ou contenu localisé sont justifiés; si les trois langues sont générées pour chacun des dix slugs, le total est **30 nouvelles pages**. N’ajouter au sitemap que les pages satisfaisant les critères d’indexation ci-dessous. Ne pas générer automatiquement les 651 slugs.
+1. **P0.1 : stratégie B validée comme principe; lot provisoire proposé : une URL FR.** Le dossier `SELECTION_MATCHES.md` recommande de retenir `/match/west-ham-united-vs-queens-park-rangers-2026-10-09` et de ne pas retenir les neuf autres URL à ce stade. Aucune variante EN/AR n’est retenue : les 20 URL testées répondent 404 et leur fidélité éditoriale n’est pas établie pour ces matchs. Cette validation de principe n’autorise aucun code, contenu, donnée, métadonnée, sitemap, hébergement, déploiement ou push. La règle reproductible et les limites de cette sélection sont précisées dans le dossier.
 2. **P0.2 : ne pas modifier `.htaccess` pour tenter de corriger le 403.** Les artefacts locaux sont présents; l’échec est ciblé côté serveur. L’équipe d’hébergement doit comparer le fichier et le chemin effectivement déployés, leurs permissions, les règles Apache actives, le WAF/CDN et les journaux. Aucun changement production ne relève de cette phase.
 3. **P0.3 : définir une seule politique par statut et type de fichier.** 404 et 403 restent de vrais codes HTTP; les erreurs sont `noindex`. Garder l’index d’archive HTML accessible mais `noindex, follow`; si l’on décide d’exclure les JSON, le faire par en-tête HTTP `X-Robots-Tag`, sans bloquer leur crawl dans `robots.txt`. Les pages ordinaires restent indexables.
 4. **P1 : rendre la langue et la direction correctes dans le HTML initial; rendre le H1 de statistiques côté serveur; aligner les alternates uniquement pour des familles de pages réellement équivalentes et réciproques.** Les cinq URL SEO protégées restent gelées. Toute modification de leur signal `hreflang` ou de leur entrée sitemap qui serait nécessaire pour obtenir une réciprocité doit être portée à une validation distincte avant implémentation.
@@ -42,7 +42,7 @@ Les dix URL FR concernées cumulent **35 impressions, 0 clic** dans l’export G
 | Option | Pages HTML supplémentaires | Taille brute estimée | Temps de build | SEO et duplication | Historique | FR/EN/AR | Canonicals, sitemap et robots |
 |---|---:|---:|---|---|---|---|---|
 | **A. Générer tous les matchs de tous les snapshots conservés** | **+1 089** (651 slugs × 3 langues, moins les 864 pages déjà générées); **1 953 au total** | Environ **+133 Mo** de HTML brut, à partir de la moyenne observée d’environ 122 Ko par page; les HTML match passeraient d’environ 105,7 Mo à 239 Mo. Compression et taille réellement transférée non mesurées. | Le nombre de rendus de page serait multiplié par environ **2,26** (+126 % sur le lot match). Le temps global ne peut pas être extrapolé précisément sans benchmark : compilation, I/O et génération peuvent évoluer différemment. | Risque élevé d’indexation à grande échelle de pages anciennes, répétitives ou trop peu utiles. Les trois variantes ne sont pas des doublons stricts si leur contenu est réellement traduit, mais l’absence de hreflang actuelle et la qualité variable peuvent créer de la confusion. La génération seule ne force pas l’indexation; sitemap, liens et directives déterminent la découverte et l’indexabilité. | Rend accessibles les matchs dont les snapshots existent au moment du build. **Ne garantit pas une conservation permanente** : la purge des archives (`scripts/prune-archives.mjs`, `KEEP = 90`) peut retirer la source plus tard. L’agrégation actuelle peut aussi reprendre une version incomplète si les snapshots d’un match divergent; il faudra définir quelle ligne historique fait autorité. | Possible pour les 3 langues avec le gabarit existant, mais ne prouve pas que chaque variante a une URL utile ou un contenu localisé suffisamment substantiel. | Canonical propre à chaque URL seulement si les pages correspondent à des versions linguistiques distinctes; hreflang réciproque entre équivalents réels. Ne pas inscrire tout le corpus au sitemap par défaut. N’utiliser ni `Disallow` pour masquer un corpus à indexer ni une redirection générique; les pages non retenues pour l’index doivent porter `noindex` si elles sont servies. |
-| **B. Générer une sélection fondée sur URL connue, signaux SEO ou historique utile** | **+10 pages FR** pour le périmètre vérifiable des dix anciennes URL; **+30** si les 10 variantes FR/EN/AR sont générées ensemble. Au-delà, le nombre dépendra de l’inventaire; plafond théorique identique à A (**+1 089**). | Environ **+1,2 Mo brut** pour 10 HTML FR; environ **+3,7 Mo** pour 30 pages. Estimation linéaire fondée sur le gabarit actuel, pas une mesure d’un build futur. | Faible hausse attendue : environ +1,2 % du lot match pour 10 pages ou +3,5 % pour 30, au nombre de rendus; temps réel non mesuré. | Risque modéré et contrôlable si l’éligibilité est explicite. Les seuls signaux GSC des dix URL sont faibles (35 impressions, aucun clic), donc la sélection ne doit pas reposer sur les impressions seules. Réduire le risque par une revue de contenu, de provenance, de fraîcheur et de doublons, et par `noindex` lorsque la page est utile mais pas assez complète pour l’indexation. | Préserve les URL choisies même après leur sortie de la fenêtre active, à condition d’enregistrer une source historique stable et de vérifier les résultats publiés. La liste d’éligibilité ne doit pas dépendre d’un snapshot que la purge supprimera sans stratégie de conservation. | Sélectionner les variantes **par chemin/langue**, pas seulement par slug. Le périmètre prouvé aujourd’hui est constitué de 10 URL FR. Ne créer EN/AR que si une URL existante, un signal, un lien ou une traduction de qualité le justifie; ne pas ajouter des variantes simplement parce que le gabarit les permet. | Canonical auto-identique pour chaque page historique distincte. Hreflang seulement si toutes les versions déclarées existent en 200, sont réellement équivalentes et se déclarent réciproquement. Sitemap réservé aux pages indexables, canoniques et en 200. Pages retenues pour la consultation mais non éligibles à l’index : `noindex, follow`, crawlables. |
+| **B. Générer une sélection fondée sur URL connue, qualité et historique (lot proposé : 1 FR)** | **+1 page FR** si une sélection par locale est appliquée; **+3** si le code actuel génère aussi EN/AR pour le slug. | **121 481 octets (~0,121 Mo)** estimés pour la page FR; **367 076 octets (~0,367 Mo)** si les 3 locales sortent. Moyennes de HTML brut mesurées sur les exports existants; ressources partagées et compression exclues. | +0,12 % des 864 pages match si 1 page; +0,35 % si 3. Durée réelle non mesurée. | Sélection URL par URL, et non sur les impressions seules : 35 impressions, 0 clic sur l’agrégat GSC du 4–31 octobre. La page choisie a 1 impression et aucune donnée de clic démontrant une demande. Vérifier contenu et provenance avant décision d’indexation. | La page West Ham dispose de six snapshots répétés et d’un résultat source-traceable; conserver une source stable après la fenêtre d’archives. Les autres neuf URL sont exclues à ce stade. | Le lot proposé est **FR seulement**. Les 20 variantes EN/AR testées répondent 404 et les champs éditoriaux spécifiques ne sont pas traduits; filtre par locale requis pour ne pas les générer par défaut. | Un canonical FR auto-référent; aucun hreflang EN/AR. `src/app/sitemap.ts` n’énumère aucune page match : envisager une seule entrée FR uniquement après validation d’indexabilité et statut 200. Les pages non indexables restent hors sitemap et suivent la politique robots approuvée. |
 | **C. Garder la génération actuelle; rediriger seulement vers une destination réellement équivalente** | **0 page** ajoutée; au plus 10 redirections si, après contrôle, une destination exacte existe pour chacune. Aucune équivalence de ce type n’est établie pour les dix cas dans les preuves actuelles. | **0 Mo** de HTML ajouté; quelques octets de règles par redirection, si nécessaire. | Pas d’impact de génération match; vérification des règles et du comportement hébergeur à prévoir. | Risque faible de duplication si la cible est réellement le même match et la même intention. Risque élevé si les URL vont vers l’accueil, les pronostics du jour ou une autre rencontre : redirection non pertinente et perte de contexte. | Les snapshots restent disponibles localement tant qu’ils sont conservés, mais ne restaurent pas l’accès public; aucune page historique n’est conservée à l’URL d’origine. | Aucune nouvelle variante. Une redirection localisée n’est possible que vers une URL équivalente dans la même langue ou une cible expressément choisie et pertinente. | 301 seulement pour une équivalence vérifiée, avec cible 200 et canonical cohérent. Les URL redirigées sont exclues du sitemap; ne pas bloquer la source dans `robots.txt`. Sans destination équivalente, conserver une réponse 404 et appliquer la politique 404. |
 
 ### Critères d’éligibilité recommandés pour l’option B
@@ -53,7 +53,7 @@ La génération et l’indexation sont deux décisions distinctes : une page ret
 
 ### Recommandation
 
-**B est recommandé**, limité d’abord aux dix URL FR déjà connues et après vérification des données historiques; cela préserve les URL ayant au moins un signal vérifiable sans créer d’emblée 1 089 pages supplémentaires. Le volume initial quantifiable est **10 pages**, avec un plafond de **30** si le chef de projet choisit d’inclure les variantes EN/AR. La faible demande GSC de ce lot appelle une revue individuelle : un statut 200 n’implique pas automatiquement l’indexation. Si une ligne échoue aux critères de fidélité, de contenu ou de locale, ne pas publier une page faible pour satisfaire un compteur; laisser l’URL en 404 ou soumettre une destination équivalente au cas par cas. Ne jamais rediriger une ancienne rencontre vers une page générale.
+**B est retenu comme principe**, mais le premier lot proposé après revue est **une seule page FR**, choisie pour l’existence d’un résultat interne traçable dans `public/win-history.json`, des identités/dates cohérentes et un échantillon de forme de huit matchs par équipe. Les neuf autres URL ne sont pas retenues à ce stade, même lorsque des scores apparaissent dans les snapshots ou sont visibles sur des sources externes : leur résultat n’a pas de ligne source-traceable dans le registre que le rendu utilise, ou leur échantillon/date échoue au seuil. La période GSC agrégée du 4 au 31 octobre 2026 ne montre aucun clic pour les dix URL et ne constitue pas un signal de demande actuelle. Aucun statut HTTP ou score seul ne justifie l’indexation. Aucun code ni donnée ne sera modifié avant une validation distincte.
 
 ## P0.2 — 403 sur une URL arabe
 
@@ -144,7 +144,7 @@ Aucun des chemins ci-dessus n’a été touché. Seuls les documents expliciteme
 
 Aucun des tests ci-dessous n’a été exécuté pendant Phase 2A.
 
-1. **Archive/SSG :** tests unitaires de sélection et déduplication par slug; cas de snapshots discordants et de résultats vérifiés; preuve que les URL sélectionnées génèrent exactement les locales autorisées, sans ajout des autres 363 slugs hors fenêtre. Après build approuvé, contrôler que les 10 URL FR sélectionnées existent dans `out/`, renvoient un vrai HTML et restent stables après purge selon la politique de conservation choisie.
+1. **Archive/SSG :** tests unitaires de sélection et déduplication par slug; cas de snapshots discordants et de résultats vérifiés; preuve que les URL sélectionnées génèrent exactement les locales autorisées, sans ajout des autres 363 slugs hors fenêtre. Si le lot d’une URL FR est approuvé, vérifier qu’exactement **une** page apparaît dans `out/` (aucune EN/AR sans autorisation distincte) et qu’elle reste disponible après purge selon une politique de conservation approuvée. Le routage localisé actuel génère aussi EN/AR pour tout slug; le test doit bloquer cette sur-génération.
 2. **Taille et durée :** mesurer les tailles brutes et compressées du build avant/après, et chronométrer au moins deux builds comparables. Les chiffres de ce rapport sont des estimations à partir de l’export local existant, pas un benchmark.
 3. **Métadonnées :** extraire des HTML exportés les titles, H1, canonicals, robots, hreflang et `html lang/dir`; vérifier un seul robots cohérent, self-canonical, alternates réciproques seulement pour les familles validées, et sitemap sans 404/403/redirect/noindex.
 4. **Pages d’erreur et archives :** vérifier dans l’export les 404 avec code et `noindex`, l’index HTML d’archive `200/noindex,follow`, les JSON avec `X-Robots-Tag` si cette politique est retenue, et l’absence de blocage robots contradictoire. Valider les en-têtes contre le serveur cible ou un staging qui reproduit réellement sa configuration.
@@ -155,7 +155,7 @@ Aucun des tests ci-dessous n’a été exécuté pendant Phase 2A.
 
 ## Décisions requises avant Phase 2B
 
-1. Valider ou rejeter l’option B; confirmer si le premier lot est limité aux 10 URL FR ou inclut aussi leurs variantes EN/AR (+10 contre +30 pages).
+1. Examiner et valider ou corriger la proposition URL par URL de `SELECTION_MATCHES.md` : une URL FR West Ham United–Queens Park Rangers, aucune variante EN/AR et neuf URL non retenues à ce stade. Cette revue n’autorise pas la Phase 2B.
 2. Approuver les critères d’éligibilité à l’index et le seuil éditorial; décider du statut des pages sélectionnées mais non indexables (`noindex` ou 404) après revue des snapshots et résultats.
 3. Demander à l’hébergeur l’investigation du 403 avec accès aux journaux, fichier distant, permissions et règles actives.
 4. Valider la politique unique robots/HTTP, notamment l’exclusion éventuelle des JSON via `X-Robots-Tag`.
@@ -173,3 +173,124 @@ Aucun des tests ci-dessous n’a été exécuté pendant Phase 2A.
 - `src/app/statistiques/page.tsx`; `src/app/[locale]/statistiques/page.tsx`; `src/app/statistiques/StatistiquesClient.tsx`.
 - `src/app/sitemap.ts`; `tests/seo-preservation.test.ts`; `next.config.ts`; `.github/workflows/deploy.yml`; `package.json`.
 - Documentation technique : [Next.js — layouts](https://nextjs.org/docs/app/api-reference/file-conventions/layout), [Next.js — internationalisation](https://nextjs.org/docs/app/guides/internationalization), [Google Search Central — versions localisées](https://developers.google.com/search/docs/specialty/international/localized-versions).
+
+
+## Addendum du 3 novembre 2026 — résultat de la sélection Phase 2A
+
+Cet addendum remplace, pour le lot initial, les estimations préalables de 10 pages FR ou 30 variantes. Il ne change pas la stratégie B validée comme principe et n’autorise pas la Phase 2B. Le dossier détaillé, les sources par URL et les statuts EN/AR sont dans [`SELECTION_MATCHES.md`](./SELECTION_MATCHES.md).
+
+### Proposition de sélection
+
+**Lot proposé : 1 page FR, 0 EN, 0 AR — 1 URL retenue au total**, sous validation du chef de projet :
+
+- Retenir `/match/west-ham-united-vs-queens-park-rangers-2026-10-09`.
+- Ne pas retenir à ce stade les neuf autres URL : New England–Seattle, Wolves–Portsmouth, Dortmund–Werder, Southampton–Bolton, Heidenheim–Kaiserslautern, Nashville–Toronto, St. Pauli–Wolfsburg, Waasland-Beveren–Lommel et Braunschweig–Holstein Kiel.
+- Les dix snapshots possèdent `finalScore`, `status` et `verifiedAt`; seul West Ham–QPR possède aussi une entrée appariée dans `public/win-history.json`, avec `source: ESPN public`. L’horodatage sans source du snapshot ne suffit pas à attribuer un score vérifié dans le rendu actuel. Les autres scores sont recoupables par des sources sportives externes, mais leur provenance n’est pas enregistrée dans le registre consommé par la page.
+- Dortmund–Werder (4+4 matchs d’échantillon) et St. Pauli–Wolfsburg (4+4, un seul snapshot) échouent aussi au seuil historique. Nashville–Toronto porte une date snapshot 2026-09-27/00:30 et une date locale source du 26 septembre; son fuseau n’est pas documenté dans la donnée.
+- La GSC des dix URL est agrégée du 4 au 31 octobre 2026 : 35 impressions, 0 clic. L’intérêt SEO observé est faible, et aucune métrique ne doit être décrite comme propre au 31 octobre.
+
+### Règle applicable aux futurs matchs
+
+Sélectionner une page historique seulement si les conditions suivantes sont toutes satisfaites : identité équipes/compétition/date cohérente entre sources; documenter le fuseau si une heure est affichée ou si la date locale/UTC diffère, et suspendre la publication si deux dates calendaires restent en conflit; qualité des données au moins `MEDIUM`; au moins cinq matchs historiques comptés par équipe et source identifiée; pour tout match terminé, score confirmé, source et date de vérification enregistrées dans `win-history.json` ou registre équivalent; contenu ayant au moins deux éléments propres au match au-delà du gabarit; slug unique et stable; pas de page équivalente en double. Ne créer une locale que si son URL répond 200 et que les libellés **et** le contenu spécifique sont fidèles; pas de traduction artificielle. La décision d’indexation est distincte : canonical auto-référent, statut 200, pas de `noindex` et inclusion sitemap seulement après accord explicite. Les détails et exceptions figurent dans `SELECTION_MATCHES.md`.
+
+### Impact technique et risques à estimer
+
+- **Pages retenues selon proposition :** 1 FR seulement. Les 10 FR actuelles ont été diagnostiquées 404; les 20 variantes EN/AR testées en GET public le 3 novembre renvoient elles aussi 404. Les 30 HTML correspondants sont absents de l’export local.
+- **Poids indicatif mesuré :** les HTML de match actuels font en moyenne 121 481 octets FR, 120 982 EN et 124 613 AR; 864 HTML pèsent 105 717 943 octets bruts au total. Le lot FR seul est estimé à **121 481 octets (0,121 Mo)** hors ressources partagées et compression; les trois locales, si le générateur actuel n’est pas filtré, seraient d’environ **367 076 octets (0,367 Mo)**. Temps de build et volume réellement transféré non mesurés. Un filtre par locale est requis si le lot unilingue est approuvé.
+- **Risque de source SSG :** `src/lib/matches.ts` ne charge que les 14 snapshots les plus récents; les snapshots de West Ham (3–8 octobre) sont hors de cette fenêtre. Une sélection durable et un stockage prévisible des données devront être conçus avant l’implémentation, sans modifier `public/predictions-archive/*.json` dans cette phase.
+- **Fichiers candidats, sans changement actuel :** `src/lib/matches.ts`; `src/app/match/[slug]/page.tsx`; `src/app/[locale]/match/[slug]/page.tsx`; `src/app/sitemap.ts`; tests SEO pertinents; rétention éventuelle des sources `public/predictions-archive/2026-10-03.json` à `2026-10-08.json`. `public/win-history.json` est uniquement consulté; aucune mise à jour de donnée n’est autorisée. `scripts/prune-archives.mjs` demeure gelé.
+- **Canonicals/sitemap :** la route match FR a un canonical auto-référent; aucune entrée match n’est actuellement dans le sitemap. Proposition : un canonical FR, aucune URL/hreflang EN/AR. Si et seulement si l’indexation de l’unique page est approuvée et la génération répond 200, envisager une entrée sitemap FR; aucun changement exécuté.
+- **Archives :** six snapshots quotidiens répétés pour West Ham restent une seule page; ne pas transformer le nombre de fichiers en nombre de pages. La source retenue doit survivre à la purge et à la fenêtre glissante.
+
+### Vérifications 403 arabe
+
+**À faire localement sans accès serveur :** vérifier existence, lisibilité, taille/hash/casse et chemin de `out/ar/match/san-diego-fc-vs-seattle-sounders-fc-2026-10-25.html`; comparer avec ses témoins FR/EN et une page AR 200; inspecter les règles versionnées (`public/.htaccess`, `public/_headers`, `robots.txt`, `next.config.ts`, workflow, route SSG); reproduire le build dans un environnement jetable approuvé, car les scripts peuvent écrire dans `public/` et `out/`. Les permissions locales ne prouvent pas les permissions distantes.
+
+**Exige l’accès à l’hébergement ou à ses journaux :** confirmer transfert et présence dans le vrai `DocumentRoot`; propriétaire/groupe/mode/ACL du fichier et des répertoires parents; règles réellement actives `.htaccess`/parent/vhost/`AllowOverride` ou serveur équivalent; journaux d’accès/erreur, WAF/ModSecurity et CDN au moment du 403; comparer URL brute, chemin disque, cache, règles bot/région et plusieurs agents/réseaux. Retester les URL après diagnostic, uniquement avec autorisation séparée. La cause demeure inconnue; aucun accès ni changement d’hébergement n’a été effectué.
+
+### État de la mission
+
+Aucun build, test, lint, TypeScript, commit, push ou changement de production n’a été effectué. Les lectures de code/données et les GET publics EN/AR sont en lecture seule. Seuls les quatre fichiers documentaires expressément autorisés par la demande sont modifiés ou créés; attendre la validation de la sélection avant toute Phase 2B.
+
+## Addendum du 3 novembre 2026 — vérifications préalables et décisions à soumettre
+
+### 1. Date, heure et fuseau
+
+Le compte rendu officiel de West Ham date le match du **vendredi 9 octobre 2026 à 20:00 BST**. Le 9 octobre, `Europe/London` est à UTC+1 : 20:00 BST correspond à 19:00 UTC. Le snapshot (`2026-10-03.json` à `2026-10-08.json`) donne `date: 2026-10-09`, `time: 19:00`, sans fuseau. Le code `src/lib/dakar-date.ts` interprète une heure sans fuseau comme une heure calendrier `Africa/Dakar` (UTC+0), de sorte que 19:00 est également l’heure locale de Dakar correspondant au même instant. La date locale officielle et la date du snapshot concordent.
+
+**Limite qui demeure :** le fuseau réellement utilisé à la production du snapshot n’est pas encodé et aucune documentation de ce producteur n’a été trouvée dans le dépôt. L’application suppose Dakar pour interpréter l’heure; l’égalité numérique avec 19:00 UTC ne prouve pas que la donnée source était en UTC. L’origine du fuseau doit rester explicitement « inconnue » jusqu’à preuve du producteur.
+
+### 2. Concordance du registre ESPN
+
+L’entrée `history[246]` de `public/win-history.json` porte la date `2026-10-09`, `West Ham United vs Queens Park Rangers`, `Championship`, `market: btts`, `prediction: Oui`, `status: WON`, `finalScore: 1-1`, `source: ESPN public` et `verifiedAt: 2026-10-23T05:42:15.167Z`. Elle correspond aux équipes, au match et au score de la page ESPN [gameId 401880233](https://www.espn.com/soccer/match/_/gameId/401880233/queens-park-rangers-west-ham-united); le [compte rendu officiel de West Ham](https://www.whufc.com/en/news/match-report-or-qpr-draw-a-tale-of-two-penalties) confirme indépendamment le résultat et la date. Le fichier actuel ne conserve pas `sourceUrl`; le nom de source seul n’offre pas de lien stable consultable.
+
+### 3. Conservation durable sans toucher aux autres archives
+
+**Proposition à valider :** conserver une copie canonique du seul enregistrement retenu dans un fichier de données suivi, hors de `public/predictions-archive/` et donc hors de la purge glissante, par exemple `src/data/retained-match-pages/west-ham-united-vs-queens-park-rangers-2026-10-09.json`. Le fichier doit contenir tous les champs pré-match nécessaires au rendu statique, l’identifiant/slug stable et une référence à l’entrée de vérification du résultat. Le chargeur de build lirait explicitement ce fichier en plus des 14 snapshots habituels et fusionnerait/dédupliquerait par slug. La routine `scripts/prune-archives.mjs` et les archives existantes resteraient inchangées; aucun autre match ne serait épinglé par effet de bord. Le futur registre de vérification décrit ci-dessous resterait séparé des données complètes de la page.
+
+### 4. Modification minimale envisagée du générateur — FR uniquement pour cette page
+
+La route FR `src/app/match/[slug]/page.tsx` génère les slugs renvoyés par `getAllMatchSlugs()`. La route localisée `src/app/[locale]/match/[slug]/page.tsx` génère actuellement EN et AR pour chacun de ces slugs. Après validation et ajout explicite de la source durable au chargeur, la modification minimale serait de maintenir les pages existantes inchangées, d’inclure le slug retenu dans la génération FR, puis de filtrer **ce seul slug** des paramètres EN/AR au moyen d’une liste « FR uniquement » (ou d’une petite liste de locales permises par slug). Ainsi, le candidat ajouté produit une seule page `/match/<slug>`; les autres matchs déjà générés par les règles actuelles ne sont pas supprimés. Un test de build devra vérifier exactement une variante pour ce candidat et zéro variante EN/AR. Aucun générateur n’a été modifié ici.
+
+### 5. Options d’indexation — décision laissée au chef de projet
+
+**Option A — indexable.** Servir la page en 200, la laisser indexable, garder un canonical cohérent et envisager une entrée unique au sitemap seulement après validation. Avantage : possibilité de découverte organique. Risque : contenu d’archive éventuellement trop répétitif/faible; la seule mesure connue pour cette URL est 1 impression, 0 clic et une position moyenne 89 sur l’agrégat GSC du 4 au 31 octobre 2026, ce qui ne démontre pas une demande suffisante.
+
+**Option B — `noindex, follow`.** Servir la page en 200 pour l’accès direct et l’historique, mais demander son exclusion des résultats et la laisser hors sitemap; ne pas bloquer son exploration dans `robots.txt`. Avantage : conserver une page utile sans l’ajouter à l’index. Limite : pas de visibilité organique attendue; le résultat dépend de l’accès des robots à la page.
+
+Ce sont deux options distinctes, sans choix recommandé ou appliqué dans cette mission. Aucun canonical, sitemap, `robots.txt` ou directive robots n’a été modifié.
+
+### 6. Spécification du futur registre de vérification des matchs
+
+Le registre doit avoir **un enregistrement par événement**, être versionné et validé par schéma, et distinguer le fuseau local de l’événement de celui du snapshot. Champs obligatoires : `id` (identifiant unique stable, idéalement le slug canonique équipes+date), `source` (nom du fournisseur/organisme), `sourceUrl` (URL directe de l’événement/résultat), `result` (score structuré avec buts domicile/extérieur et forme d’affichage), `verifiedAt` (date/heure ISO 8601 en UTC), `matchDate` (date locale de l’événement `YYYY-MM-DD`), `timeZone` (identifiant IANA du fuseau de la date/heure source) et `status` (enum contrôlé : `pending`, `verified`, `disputed`, `rejected`). Recommandés pour contrôle d’identité : `homeTeam`, `awayTeam`, `competition`, `snapshotTimeZone` (IANA ou `null`/`unknown`, jamais inféré silencieusement) et `notes`/`conflictReason` si nécessaire.
+
+Exemple de la forme cible pour ce candidat, à titre de spécification seulement — **aucun fichier de registre n’est créé ni modifié** :
+
+```json
+{
+  "id": "west-ham-united-vs-queens-park-rangers-2026-10-09",
+  "source": "ESPN",
+  "sourceUrl": "https://www.espn.com/soccer/match/_/gameId/401880233/queens-park-rangers-west-ham-united",
+  "homeTeam": "West Ham United",
+  "awayTeam": "Queens Park Rangers",
+  "competition": "Championship",
+  "result": { "homeGoals": 1, "awayGoals": 1, "display": "1-1" },
+  "verifiedAt": "2026-10-23T05:42:15.167Z",
+  "matchDate": "2026-10-09",
+  "timeZone": "Europe/London",
+  "snapshotTimeZone": null,
+  "status": "verified"
+}
+```
+
+Pour cet exemple, `Europe/London` identifie la source officielle (BST à la date du match); `snapshotTimeZone: null` garde visible l’incertitude réelle. Le statut `verified` ne doit être posé que lorsque l’URL source confirme les deux équipes, la date et le résultat; une divergence entraîne `disputed`, une vérification incomplète reste `pending`.
+
+### État et autorisation
+
+Ces éléments sont des propositions documentaires. Le candidat reste soumis à validation; la décision indexable/noindex, l’emplacement durable et le filtre de locales sont à approuver avant toute Phase 2B. Aucun fichier applicatif, snapshot, registre, archive, route, sitemap, canonical, `robots.txt`, branche distante, `main` ou production n’a été modifié; aucun commit ou push n’a été effectué.
+
+
+## Addendum du 3 novembre 2026 — Phase 2C, proposition de code en attente
+
+Le [document de diff Phase 2C](./PHASE2C_PROPOSITION_DIFF_WEST_HAM_QPR.md) propose une route statique littérale FR pour West Ham United–QPR, une copie dédiée des six snapshots identiques hors de `public/predictions-archive/`, un registre de vérification source-traçable et une exclusion du slug des paramètres SSG dynamiques. La copie d’origine, la valeur `1-1`, le statut `WON`, la source ESPN et l’horodatage vérifié sont préservés; aucune archive glissante n’est supprimée ou modifiée.
+
+Le schéma proposé sépare l’heure du coup d’envoi (`kickoff.timeZone: Europe/London`), le fuseau du snapshot (`snapshot.timeZone: null`, inconnu) et le fuseau d’affichage (`display.timeZone: Africa/Dakar`). L’heure officielle documentée est 20:00 BST, soit 19:00 UTC/Dakar; cela ne prouve pas le fuseau d’origine du champ `time: 19:00` du snapshot.
+
+Les deux options robots sont exclusives : **indexable** ou **`noindex, follow`**. Aucune n’est retenue par défaut. La proposition ne change aucun sitemap, canonical existant, page protégée, `robots.txt`, `main` ou production. Elle ajoute seulement, à titre de code futur, un canonical auto-référent pour la nouvelle URL afin d’éviter l’héritage du canonical de la racine; ce n’est pas une modification réalisée.
+
+Le test envisagé vérifie l’unicité des paramètres SSG, l’unique chemin FR, l’absence EN/AR pour le slug, la conservation de tous les autres slugs actuels, l’intégrité du registre et des empreintes des cinq pages SEO protégées. Aucun test ni build n’a été lancé : ce diff reste en revue, et le conflit d’export statique entre route littérale et `[slug]` doit être vérifié dans un environnement isolé après autorisation. La sélection, le choix robots et le schéma attendent validation.
+
+## Vérification complémentaire de Phase 2C
+
+Un mini-projet isolé Next.js 16.1.3 en `output: 'export'` a compilé et distingué la route littérale West Ham de `/match/[slug]`; c’est un test de forme de routage, non du projet ni du patch complet. Le test existant `tests/seo-preservation.test.ts` a passé (8/8). Les empreintes des cinq sources protégées restent identiques. `git apply --check` sur le diff documentaire a réussi sans application. Les nouveaux tests et le build applicatif demeurent en attente de validation.
+
+
+## Mise à jour du 3 novembre 2026 — Implémentation Phase 2C (locale seulement)
+
+Après autorisation explicite, la proposition West Ham–QPR a été appliquée sur `redesign/professional-global-2026-11-03`. Le lot reste limité à une page littérale FR; le slug est retiré des générateurs dynamiques FR, EN et AR; un snapshot canonique est conservé dans `src/data/retained-match-pages/`, hors de la purge glissante; le registre de vérification garde la source et l’URL ESPN, le résultat structuré et les fuseaux distincts. Le canonical auto-référent et `noindex, follow` sont propres à cette nouvelle page. Le sitemap, `robots.txt`, les archives roulantes, les cinq pages SEO protégées, Firebase, affiliations et les autres routes ne sont pas modifiés.
+
+Les contrôles finaux ont réussi : `npm test` (30 fichiers/211 tests), `./node_modules/.bin/tsc --noEmit`, `npm run lint` et `npm run build` (Next.js 16.1.3, génération statique 933/933). Les tests incluent le maintien actif des empreintes des cinq sources protégées. Dans l’export frais, la seule page correspondant au slug est le HTML FR; son H1 et son résultat donnent 1–1, la source ESPN et son lien sont présents, le canonical est exactement l’URL FR et les robots sont `noindex, follow`. Aucun export EN/AR ni entrée au sitemap. Les 93 JSON publics comparés sont restés identiques; les dossiers `out/` et `.next/` présents avant le build ont été restaurés après les vérifications.
+
+Un défaut du diff proposé a été corrigé avant validation finale : sa hunk annonçait 61 lignes alors qu’elle en contenait 71, ce qui tronquait le JSX; le test et TypeScript l’ont détecté. La page a été complétée, puis le lookup du registre a été ajusté pour satisfaire TypeScript. Les tests/build finaux ont été relancés et réussis.
+
+**État :** changements non commités et non poussés; HEAD de base inchangé à `149733160d0c9e7796dc36d3f86f80a2284eecf8`; aucune action sur `main` ou la production. La revue du diff reste à faire et toute poussée GitHub attend une autorisation explicite. Aucun statut HTTP public ne peut être affirmé sans déploiement, qui n’a pas été effectué.
