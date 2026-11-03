@@ -1,14 +1,32 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+/**
+ * VipUnlockModal v2 (refonte 2026-11) — parcours de déblocage VIP.
+ *
+ * Corrections par rapport à la v1 :
+ *  - PLUS de débordement mobile : max-h 86dvh, paddings réduits (p-4),
+ *    une seule colonne, espace vertical resserré (le « trop de space » signalé).
+ *  - Fond de la modale : scrim sombre (l'ancien fond blanc « flashait »).
+ *  - Les 4 bookmakers du registre (lib/bookmakers.ts) — Linebet et 1xBet
+ *    d'abord avec badge « prioritaire ». Codes/liens plus codés en dur.
+ *  - Le code promo est affiché DANS chaque carte bookmaker (plus de bloc
+ *    dupliqué au-dessus) + bouton copier compact.
+ *  - CTA inscription contextuel + WhatsApp inchangés (tracking conservé).
+ *  - framer-motion : simple fondu (plus de ressort spectaculaire).
+ */
+
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SITE, AFFILIATE } from '@/lib/constants'
+import { AFFILIATE } from '@/lib/constants'
+import { BOOKMAKER_ORDER, getBookmaker, type BookmakerId } from '@/lib/bookmakers'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 
 const STORAGE_KEY = 'bttsbet_vip_unlocked'
 const ID_HASH_KEY = 'bttsbet_vip_id_hash'
 
 type Step = 'conditions' | 'success'
+
+const WHATSAPP_NUMBER = '15406704172'
 
 async function sha256(text: string): Promise<string> {
   if (typeof crypto !== 'undefined' && crypto.subtle) {
@@ -29,22 +47,21 @@ export default function VipUnlockModal({
   onClose: () => void
   title?: string
 }) {
-  const modalRef = useRef<HTMLDivElement>(null)
   const [step, setStep] = useState<Step>('conditions')
-  const [selectedBookmaker, setSelectedBookmaker] = useState<'linebet' | '888starz' | null>(null)
+  const [selectedBookmaker, setSelectedBookmaker] = useState<BookmakerId | null>(null)
   const [playerId, setPlayerId] = useState('')
   const [verificationError, setVerificationError] = useState('')
   const [isUnlocking, setIsUnlocking] = useState(false)
   const [alreadyUnlocked, setAlreadyUnlocked] = useState(false)
   const [copied, setCopied] = useState(false)
 
-  // Get the correct code based on selected bookmaker
-  const currentCode = selectedBookmaker === 'linebet' ? 'VISION221' : selectedBookmaker === '888starz' ? 'btts221' : 'VISION221'
+  const selected = selectedBookmaker ? getBookmaker(selectedBookmaker) : null
 
   const copyCode = async () => {
-    try { await navigator.clipboard.writeText(currentCode) } catch {
+    if (!selected) return
+    try { await navigator.clipboard.writeText(selected.promoCode) } catch {
       const ta = document.createElement('textarea')
-      ta.value = currentCode
+      ta.value = selected.promoCode
       ta.style.position = 'fixed'
       ta.style.opacity = '0'
       document.body.appendChild(ta)
@@ -52,7 +69,7 @@ export default function VipUnlockModal({
       document.execCommand('copy')
       document.body.removeChild(ta)
     }
-    trackAffiliateCodeCopy(selectedBookmaker ?? 'linebet', 'vip-modal-code')
+    trackAffiliateCodeCopy(selected.id, 'vip-modal-code')
     setCopied(true)
     navigator.vibrate?.(15)
     setTimeout(() => setCopied(false), 2000)
@@ -66,14 +83,20 @@ export default function VipUnlockModal({
         try {
           const stored = localStorage.getItem(STORAGE_KEY)
           if (stored === 'true') setAlreadyUnlocked(true)
-        } catch {}
+        } catch { /* no-op */ }
         setStep('conditions')
         setSelectedBookmaker(null)
         setPlayerId('')
         setVerificationError('')
       })
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
     }
-    return () => window.removeEventListener('keydown', handleEsc)
+    return () => {
+      window.removeEventListener('keydown', handleEsc)
+      document.body.style.overflow = ''
+    }
   }, [isOpen, onClose])
 
   const handleBackdropClick = (e: React.MouseEvent) => {
@@ -85,6 +108,7 @@ export default function VipUnlockModal({
     if (!selectedBookmaker) { setVerificationError('Sélectionne un bookmaker'); return }
     if (!playerId.trim()) { setVerificationError('Saisis ton ID joueur'); return }
     if (playerId.trim().length < 3) { setVerificationError('ID trop court (minimum 3 caractères)'); return }
+    const b = getBookmaker(selectedBookmaker)
     setIsUnlocking(true)
     try {
       const idHash = await sha256(selectedBookmaker + ':' + playerId.trim())
@@ -92,14 +116,14 @@ export default function VipUnlockModal({
         localStorage.setItem(STORAGE_KEY, 'true')
         localStorage.setItem(ID_HASH_KEY, idHash)
         localStorage.setItem('bttsbet_vip_bookmaker', selectedBookmaker)
-      } catch {}
-      const whatsappText = `Bonjour BTTSPredict, je souhaite demander la validation de mon accès VIP. Bookmaker: ${selectedBookmaker}. ID joueur: ${playerId.trim()}. Code promo: ${selectedBookmaker === '888starz' ? 'btts221' : 'VISION221'}. Merci de confirmer les conditions applicables.`
-      const whatsappUrl = `https://wa.me/15406704172?text=${encodeURIComponent(whatsappText)}`
+      } catch { /* no-op */ }
+      const whatsappText = `Bonjour BTTSPredict, je souhaite demander la validation de mon accès VIP. Bookmaker: ${b.name}. ID joueur: ${playerId.trim()}. Code promo: ${b.promoCode}. Merci de confirmer les conditions applicables.`
+      const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappText)}`
       setTimeout(() => {
         setIsUnlocking(false)
         setStep('success')
         window.location.assign(whatsappUrl)
-      }, 1200)
+      }, 900)
     } catch { setVerificationError('Erreur de vérification. Réessaie.'); setIsUnlocking(false) }
   }
 
@@ -107,219 +131,195 @@ export default function VipUnlockModal({
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-[60] flex items-center justify-center p-4"
+          className="fixed inset-0 z-[60] flex items-end justify-center sm:items-center p-0 sm:p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          transition={{ duration: 0.18 }}
           onClick={handleBackdropClick}
-          style={{ backgroundColor: '#FFFFFF' }}
+          style={{ backgroundColor: 'rgba(5, 8, 12, 0.74)', backdropFilter: 'blur(4px)' }}
         >
           <motion.div
-            ref={modalRef}
-            initial={{ scale: 0.95, y: 10 }}
-            animate={{ scale: 1, y: 0 }}
-            exit={{ scale: 0.95, y: 10 }}
-            transition={{ duration: 0.2 }}
-            className="relative w-full max-w-md max-h-[90vh] overflow-y-auto rounded-2xl"
+            initial={{ y: 24, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 24, opacity: 0 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
+            className="relative w-full sm:max-w-[420px] max-h-[86dvh] overflow-y-auto rounded-t-2xl sm:rounded-2xl"
             style={{
-              backgroundColor: '#FFFFFF',
-              border: '1px solid rgba(127, 162, 198, 0.30)',
+              backgroundColor: '#10161D',
+              border: '1px solid rgba(255, 255, 255, 0.12)',
               boxShadow: '0 24px 80px rgba(7, 17, 26, 0.8)',
             }}
             onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label={title}
           >
-            {/* Close button */}
+            {/* Fermeture — cible 44 px */}
             <button
               onClick={onClose}
-              className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center z-10"
-              style={{ backgroundColor: '#141C25', border: '1px solid rgba(244, 247, 251,0.1)' }}
+              className="absolute top-2.5 right-2.5 w-11 h-11 rounded-full flex items-center justify-center z-10"
+              style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)' }}
               aria-label="Fermer"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F2F6FA" strokeWidth="2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F2F6FA" strokeWidth="2.2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
             </button>
 
-            {/* ═══ CONDITIONS STEP ═══ */}
             {step === 'conditions' && (
-              <div className="p-5 sm:p-6">
-                {/* Header */}
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: '#141C25', border: '1px solid rgba(47, 125, 255,0.3)' }}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <div className="p-4 pb-5">
+                {/* En-tête */}
+                <div className="flex items-center gap-3 mb-4 pr-10">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: 'rgba(47, 125, 255, 0.10)', border: '1px solid rgba(47, 125, 255, 0.3)' }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-papier">{title}</h3>
-                    <p className="text-[11px] text-[#9DABBB]">Un parcours clair en 3 étapes, puis une demande WhatsApp</p>
+                    <h3 className="text-base font-bold text-papier leading-tight">{title}</h3>
+                    <p className="text-[11px] text-[#9DABBB] mt-0.5">3 étapes, puis une demande WhatsApp</p>
                   </div>
                 </div>
 
                 {alreadyUnlocked && (
-                  <div className="mb-4 p-3 rounded-lg flex items-center gap-2" style={{ backgroundColor: 'rgba(47, 125, 255,0.1)', border: '1px solid rgba(47, 125, 255,0.3)' }}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                    <span className="text-xs text-[#2F7DFF] font-semibold">Une demande VIP a déjà été préparée sur cet appareil.</span>
+                  <div className="mb-3 p-2.5 rounded-lg flex items-center gap-2" style={{ backgroundColor: 'rgba(47, 125, 255, 0.08)', border: '1px solid rgba(47, 125, 255, 0.25)' }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="2.5" flex-shrink-0><polyline points="20 6 9 17 4 12" /></svg>
+                    <span className="text-[11px] text-[#2F7DFF] font-semibold">Une demande VIP a déjà été préparée sur cet appareil.</span>
                   </div>
                 )}
 
-                {/* Step 1 — Bookmaker + Code promo copiable */}
-                <div className="mb-4">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: '#141C25', color: '#2F7DFF', border: '1px solid rgba(47, 125, 255,0.3)' }}>1</span>
-                    <span className="text-sm font-semibold text-papier">Choisis ton bookmaker</span>
+                {/* Étape 1 — bookmaker */}
+                <div className="mb-3">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-5.5 h-5.5 p-1 rounded-full flex items-center justify-center text-[11px] font-bold" style={{ backgroundColor: 'rgba(47,125,255,0.10)', color: '#2F7DFF', border: '1px solid rgba(47,125,255,0.3)' }}>1</span>
+                    <span className="text-[13px] font-semibold text-papier">Choisis ton bookmaker et copie son code</span>
                   </div>
 
-                  {/* Big copyable code promo — always visible */}
-                  <button
-                    onClick={copyCode}
-                    className="w-full mb-3 p-4 rounded-xl flex items-center justify-between transition-all"
-                    style={{
-                      backgroundColor: '#141C25',
-                      border: '1px solid rgba(127, 162, 198, 0.30)',
-                      boxShadow: copied ? '0 0 20px rgba(47, 125, 255, 0.2)' : 'none',
-                    }}
-                    aria-label={`Copier le code promo ${currentCode}`}
-                  >
-                    <div>
-                      <div className="text-[10px] uppercase tracking-widest font-bold mb-1" style={{ color: '#9DABBB' }}>
-                        Code promo {selectedBookmaker === '888starz' ? '(minuscules)' : '(majuscules)'}
-                      </div>
-                      <div className="font-mono text-2xl font-black tracking-[0.1em]" style={{ color: '#2F7DFF' }}>
-                        {currentCode}
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-1.5 px-3 py-2 rounded-lg" style={{ backgroundColor: copied ? 'rgba(47, 125, 255, 0.15)' : 'rgba(47, 125, 255, 0.1)' }}>
+                  <div className="grid gap-2">
+                    {BOOKMAKER_ORDER.map(id => {
+                      const b = getBookmaker(id)
+                      const isSelected = selectedBookmaker === id
+                      return (
+                        <button
+                          key={id}
+                          type="button"
+                          onClick={() => { setSelectedBookmaker(id); setCopied(false) }}
+                          className="w-full p-2.5 rounded-xl text-left transition-all"
+                          style={{
+                            backgroundColor: isSelected ? 'rgba(47, 125, 255, 0.12)' : 'rgba(255, 255, 255, 0.04)',
+                            border: isSelected ? '1px solid #2F7DFF' : '1px solid rgba(255, 255, 255, 0.12)',
+                          }}
+                        >
+                          <div className="flex items-center justify-between gap-2">
+                            <div className="flex items-center gap-2 min-w-0">
+                              <span className="flex h-7 w-12 items-center justify-center rounded bg-white px-1.5 flex-shrink-0">
+                                <img src={b.logo} alt="" width={96} height={30} className="max-h-5 w-auto object-contain" />
+                              </span>
+                              <span className="min-w-0">
+                                <span className="block text-[13px] font-bold text-papier leading-tight">{b.name}</span>
+                                <span className="block text-[10.5px] text-[#9DABBB] leading-tight">
+                                  Code : <span className="font-mono font-bold text-[#2F7DFF]">{b.promoCode}</span>
+                                </span>
+                              </span>
+                              {isSelected && (
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="3" className="flex-shrink-0"><polyline points="20 6 9 17 4 12" /></svg>
+                              )}
+                            </div>
+                            {b.featured && (
+                              <span className="text-[9px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded flex-shrink-0" style={{ backgroundColor: 'rgba(52, 211, 153, 0.12)', color: '#34D399' }}>Prioritaire</span>
+                            )}
+                          </div>
+                        </button>
+                      )
+                    })}
+                  </div>
+
+                  {/* Copie du code du bookmaker sélectionné */}
+                  {selected && (
+                    <button
+                      onClick={copyCode}
+                      className="w-full mt-2 px-3 py-2.5 rounded-lg flex items-center justify-center gap-2 text-xs font-bold transition-all"
+                      style={{ backgroundColor: copied ? 'rgba(52, 211, 153, 0.12)' : 'rgba(47, 125, 255, 0.10)', border: '1px solid rgba(47, 125, 255, 0.35)', color: copied ? '#34D399' : '#2F7DFF' }}
+                      aria-label={`Copier le code promo ${selected.promoCode}`}
+                    >
                       {copied ? (
-                        <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg><span className="text-xs font-bold text-[#2F7DFF]">Copié !</span></>
+                        <><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg> Code {selected.promoCode} copié !</>
                       ) : (
-                        <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg><span className="text-xs font-bold text-[#2F7DFF]">Copier</span></>
+                        <><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg> Copier le code {selected.promoCode}</>
                       )}
-                    </div>
-                  </button>
-
-                  {/* Linebet */}
-                  <button
-                    type="button"
-                    onClick={() => setSelectedBookmaker('linebet')}
-                    className="w-full p-3 rounded-lg text-left mb-2 transition-all"
-                    style={{
-                      backgroundColor: selectedBookmaker === 'linebet' ? 'rgba(47, 125, 255, 0.15)' : 'rgba(244, 247, 251, 0.05)',
-                      border: selectedBookmaker === 'linebet' ? '1px solid #2F7DFF' : '1px solid #9DABBB',
-                    }}
-                  >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="flex h-6 w-10 items-center justify-center rounded bg-white px-1">
-                            <img src="/logos/linebet-provided.jpg" alt="Logo Linebet" width={1280} height={465} className="max-h-4 w-auto object-contain" />
-                          </span>
-                          <span className="text-sm font-bold text-papier">Linebet</span>
-                          {selectedBookmaker === 'linebet' && (
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
-                          )}
-                        </div>
-                        <div className="text-[11px] text-[#2F7DFF]">
-                          Code : <span className="font-mono font-bold text-[#2F7DFF]">VISION221</span>
-                        </div>
-                      </div>
-                      <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(232, 194, 104, 0.12)', color: '#E8C268' }}>Partenaire officiel</span>
-                    </div>
-                  </button>
-
-                  {/* 888starz */}
-                  <button
-                    type="button"
-                    onClick={() => setSelectedBookmaker('888starz')}
-                    className="w-full p-3 rounded-lg text-left transition-all"
-                    style={{
-                      backgroundColor: selectedBookmaker === '888starz' ? 'rgba(47, 125, 255, 0.15)' : 'rgba(244, 247, 251, 0.05)',
-                      border: selectedBookmaker === '888starz' ? '1px solid #2F7DFF' : '1px solid #9DABBB',
-                    }}
-                  >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="flex h-6 w-10 items-center justify-center rounded bg-white px-1">
-                            <img src="/logos/888starz-provided.webp" alt="Logo 888Starz" width={1920} height={894} className="max-h-4 w-auto object-contain" />
-                          </span>
-                          <span className="text-sm font-bold text-papier">888Starz</span>
-                          {selectedBookmaker === '888starz' && (
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
-                          )}
-                        </div>
-                        <div className="text-[11px] text-[#2F7DFF]">
-                          Code : <span className="font-mono font-bold text-[#2F7DFF]">btts221</span>
-                        </div>
-                      </div>
-                      <span className="text-[10px] font-semibold px-2 py-1 rounded" style={{ backgroundColor: 'rgba(232, 194, 104, 0.12)', color: '#E8C268' }}>Partenaire officiel</span>
-                    </div>
-                  </button>
+                    </button>
+                  )}
                 </div>
 
-                {/* Step 2 — Deposit */}
-                <div className="mb-4 flex gap-3">
-                  <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style={{ backgroundColor: '#141C25', color: '#2F7DFF', border: '1px solid rgba(47, 125, 255,0.3)' }}>2</span>
-                  <div className="text-sm text-[#2F7DFF]">
+                {/* Étape 2 — dépôt */}
+                <div className="mb-2 flex gap-2.5 items-start">
+                  <span className="w-5.5 p-1 rounded-full flex items-center justify-center text-[11px] font-bold flex-shrink-0" style={{ backgroundColor: 'rgba(47,125,255,0.10)', color: '#2F7DFF', border: '1px solid rgba(47,125,255,0.3)' }}>2</span>
+                  <div className="text-[13px] text-[#9DABBB] leading-snug">
                     Effectue un <span className="text-papier font-semibold">dépôt minimum de 3 000 XOF</span> avec le code promo.
                   </div>
                 </div>
 
-                {/* Step 3 — ID */}
-                <div className="mb-4 flex gap-3">
-                  <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style={{ backgroundColor: '#141C25', color: '#2F7DFF', border: '1px solid rgba(47, 125, 255,0.3)' }}>3</span>
-                                      <div className="text-sm text-[#2F7DFF]">
+                {/* Étape 3 — ID */}
+                <div className="mb-3 flex gap-2.5 items-start">
+                  <span className="w-5.5 p-1 rounded-full flex items-center justify-center text-[11px] font-bold flex-shrink-0" style={{ backgroundColor: 'rgba(47,125,255,0.10)', color: '#2F7DFF', border: '1px solid rgba(47,125,255,0.3)' }}>3</span>
+                  <div className="text-[13px] text-[#9DABBB] leading-snug">
                     <span className="text-papier font-semibold">Saisis ton ID joueur</span> pour préparer le message WhatsApp.
-                    <span className="block mt-1 text-[10px] text-[#9DABBB]">🔒 BTTSPredict ne reçoit pas ton ID : il est inclus dans le message WhatsApp que tu choisis d’envoyer.</span>
+                    <span className="block mt-0.5 text-[10px] text-[#6B7A8C]">BTTSPredict ne reçoit pas ton ID : il est inclus dans le message WhatsApp que tu choisis d’envoyer.</span>
                   </div>
-
                 </div>
 
                 {/* ID input */}
-                <div className="mb-4">
-                  <label className="block text-[11px] uppercase tracking-widest font-bold text-[#9DABBB] mb-2">
-                    ID joueur {selectedBookmaker ? `(${selectedBookmaker})` : ''}
-                  </label>
+                <div className="mb-3">
                   <input
                     type="text"
                     value={playerId}
                     onChange={(e) => setPlayerId(e.target.value)}
-                    placeholder={selectedBookmaker ? `Ton ID ${selectedBookmaker}` : 'Sélectionne un bookmaker ↑'}
-                    disabled={!selectedBookmaker}
+                    placeholder={selected ? `Ton ID joueur ${selected.name}` : 'Sélectionne un bookmaker ↑'}
+                    disabled={!selected}
                     className="w-full px-3 py-2.5 rounded-lg text-sm text-papier"
                     style={{
-                      backgroundColor: '#141C25',
-                      border: selectedBookmaker ? '1px solid rgba(244, 247, 251,0.12)' : '1px solid #9DABBB',
-                      opacity: selectedBookmaker ? 1 : 0.5,
+                      backgroundColor: '#0B1016',
+                      border: selected ? '1px solid rgba(255, 255, 255, 0.14)' : '1px solid rgba(255, 255, 255, 0.08)',
+                      opacity: selected ? 1 : 0.5,
                     }}
+                    aria-label="ID joueur"
                   />
-                  {verificationError && <p className="text-[11px] text-[#2F7DFF] mt-1.5">{verificationError}</p>}
+                  {verificationError && <p className="text-[11px] text-[#F87171] mt-1.5">{verificationError}</p>}
                 </div>
 
-                {/* Buttons */}
-                <div className="grid grid-cols-2 gap-2 mb-4">
-                  {selectedBookmaker === 'linebet' && (
-                    <a href={AFFILIATE.linebet} rel="sponsored nofollow noopener noreferrer" target="_blank"
-                      onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'vip-modal-linebet')}
-                      className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold"
-                      style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>
-                      Inscription Linebet →
+                {/* Actions */}
+                <div className="grid grid-cols-2 gap-2">
+                  {selected && (
+                    <a
+                      href={selected.signup}
+                      rel="sponsored nofollow noopener noreferrer"
+                      target="_blank"
+                      onClick={() => trackAffiliateAction(selected.id, 'signup_cta_click', 'vip-modal-signup')}
+                      className="flex items-center justify-center gap-1 px-2 py-2.5 rounded-lg text-[11.5px] font-bold"
+                      style={{ backgroundColor: 'rgba(255,255,255,0.06)', color: '#F2F6FA', border: '1px solid rgba(255,255,255,0.14)' }}
+                    >
+                      Inscription {selected.name} →
                     </a>
                   )}
-                  {selectedBookmaker === '888starz' && (
-                    <a href={AFFILIATE.star888} rel="sponsored nofollow noopener noreferrer" target="_blank"
-                      onClick={() => trackAffiliateAction('888starz', 'signup_cta_click', 'vip-modal-888starz')}
-                      className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold"
-                      style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>
-                      Inscription 888starz →
+                  {!selected && (
+                    <a
+                      href={AFFILIATE.linebet}
+                      rel="sponsored nofollow noopener noreferrer"
+                      target="_blank"
+                      onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'vip-modal-signup-default')}
+                      className="flex items-center justify-center gap-1 px-2 py-2.5 rounded-lg text-[11.5px] font-bold"
+                      style={{ backgroundColor: 'rgba(255,255,255,0.06)', color: '#F2F6FA', border: '1px solid rgba(255,255,255,0.14)' }}
+                    >
+                      Inscription Linebet →
                     </a>
                   )}
                   <button
                     onClick={handleVerify}
                     disabled={isUnlocking || !selectedBookmaker || !playerId.trim()}
-                    className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg text-xs font-bold transition-all"
+                    className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg text-[11.5px] font-bold transition-all"
                     style={{
-                      backgroundColor: !selectedBookmaker || !playerId.trim() ? '#141C25' : '#2F7DFF',
-                      color: !selectedBookmaker || !playerId.trim() ? '#9DABBB' : '#FFFFFF',
+                      backgroundColor: !selectedBookmaker || !playerId.trim() ? 'rgba(255,255,255,0.04)' : '#2F7DFF',
+                      color: !selectedBookmaker || !playerId.trim() ? '#6B7A8C' : '#FFFFFF',
                       cursor: !selectedBookmaker || !playerId.trim() ? 'not-allowed' : 'pointer',
                     }}
                   >
@@ -327,52 +327,41 @@ export default function VipUnlockModal({
                   </button>
                 </div>
 
-                {/* Privacy */}
-                <div className="p-3 rounded-lg" style={{ backgroundColor: '#141C25', border: '1px solid rgba(244, 247, 251, 0.08)' }}>
-                  <p className="text-[10px] text-[#9DABBB] leading-relaxed">
-                    <span className="text-[#2F7DFF] font-semibold">Transparence :</span> ton ID n'est pas envoyé à BTTSPredict. Il est inséré dans le message WhatsApp ouvert après ta demande.
-                  </p>
-                </div>
-
-                {/* WhatsApp support */}
+                {/* Support WhatsApp */}
                 <a
-                  href={`https://wa.me/15406704172?text=${encodeURIComponent("Bonjour, je souhaite demander la validation de mon accès VIP avec le code VISION221. Merci de confirmer les conditions applicables.")}`}
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Bonjour, je souhaite demander la validation de mon accès VIP. Merci de confirmer les conditions applicables.')}`}
                   target="_blank"
                   rel="noopener"
-                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-xs font-bold mb-3"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-[11.5px] font-bold mt-2"
                   style={{
-                    backgroundColor: 'rgba(47, 125, 255, 0.1)',
-                    border: '1px solid rgba(127, 162, 198, 0.30)',
+                    backgroundColor: 'rgba(47, 125, 255, 0.08)',
+                    border: '1px solid rgba(47, 125, 255, 0.28)',
                     color: '#2F7DFF',
                   }}
                   onClick={() => trackAffiliateAction(selectedBookmaker ?? 'linebet', 'whatsapp_click', 'vip-modal-whatsapp')}
                 >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#2F7DFF"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01-1.87-1.87-4.36-2.91-7.01-2.91zm0 1.67c2.2 0 4.27.86 5.82 2.42 1.56 1.56 2.42 3.63 2.42 5.82 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.81-1.29-1.24-2.79-1.24-4.34 0-4.54 3.7-8.24 8.24-8.24z"/></svg>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="#2F7DFF"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01-1.87-1.87-4.36-2.91-7.01-2.91zm0 1.67c2.2 0 4.27.86 5.82 2.42 1.56 1.56 2.42 3.63 2.42 5.82 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.81-1.29-1.24-2.79-1.24-4.34 0-4.54 3.7-8.24 8.24-8.24z"/></svg>
                   Déjà inscrit ? Demander la vérification via WhatsApp
                 </a>
 
-                {/* Footer */}
-                <p className="text-[10px] text-[#9DABBB] text-center mt-3">
+                <p className="text-[10px] text-[#6B7A8C] text-center mt-3">
                   18+ | Jeu responsable | Aucune donnée collectée
                 </p>
               </div>
             )}
 
-            {/* ═══ SUCCESS STEP ═══ */}
+            {/* ═══ ÉTAPE SUCCÈS ═══ */}
             {step === 'success' && (
               <div className="p-6 text-center">
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.5, type: 'spring' }}
-                  className="w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: 'rgba(47, 125, 255,0.1)', border: '2px solid #2F7DFF' }}
+                <div
+                  className="w-16 h-16 mx-auto mb-3 rounded-full flex items-center justify-center"
+                  style={{ backgroundColor: 'rgba(52, 211, 153, 0.10)', border: '2px solid #34D399' }}
                 >
-                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2F7DFF" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
-                </motion.div>
-                <h3 className="text-xl font-bold text-papier mb-2">Demande VIP préparée</h3>
-                <p className="text-sm text-[#2F7DFF] mb-4">
-                  Ton message WhatsApp est prêt pour <span className="text-papier font-semibold">{selectedBookmaker === 'linebet' ? 'Linebet' : '888starz'}</span>. La validation finale dépend du support et des conditions du partenaire.
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#34D399" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+                </div>
+                <h3 className="text-lg font-bold text-papier mb-2">Demande VIP préparée</h3>
+                <p className="text-[13px] text-[#9DABBB] mb-4">
+                  Ton message WhatsApp est prêt pour <span className="text-papier font-semibold">{selected?.name}</span>. La validation finale dépend du support et des conditions du partenaire.
                 </p>
                 <button
                   onClick={onClose}

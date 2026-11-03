@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { AFFILIATE } from '@/lib/constants'
+import { BOOKMAKER_ORDER, getBookmaker, type BookmakerId } from '@/lib/bookmakers'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
 
 /* ─── Palette locale (alignée sur LinebetClient / Star888Client) ─────── */
@@ -17,11 +18,8 @@ const BORDER_OUTLINE = '#9DABBB'
 
 const WHATSAPP_NUMBER = '15406704172'
 
-/* Liens affiliés */
-const LINEBET_SIGNUP = AFFILIATE.linebet
-const LINEBET_APK = AFFILIATE.linebetDownload
-const STAR888_SIGNUP = AFFILIATE.star888
-const STAR888_APK = AFFILIATE.star888Download
+/* Liens affiliés — fournis par le registre bookmakers.ts (source unique).
+   Les constantes AFFILIATE restent importées pour compatibilité. */
 
 /* ─── Steps communs (3) ──────────────────────────────────────────────── */
 const STEPS = [
@@ -101,66 +99,43 @@ const VIP_PREVIEW = [
   { home: 'Bayern Munich', away: 'Dortmund', league: 'Bundesliga', xgHome: '1.55', xgAway: '1.10', btts: '57%', over: '60%' },
 ]
 
-type Platform = 'linebet' | '888starz'
+// Refonte 2026-11 : plateforme = le registre des 4 bookmakers (plus de codes
+// en dur ni de code 888Starz erroné « vision221 » → btts221 désormais exact).
 
 export default function VipClient() {
-  const [copiedLinebet, setCopiedLinebet] = useState(false)
-  const [copied888, setCopied888] = useState(false)
   const [toast, setToast] = useState<string | null>(null)
   const [playerId, setPlayerId] = useState('')
-  const [platform, setPlatform] = useState<Platform>('linebet')
+  const [platform, setPlatform] = useState<BookmakerId>('linebet')
+  const [copied, setCopied] = useState(false)
+
+  const selectedBm = getBookmaker(platform)
 
   const showToast = (msg: string) => {
     setToast(msg)
     setTimeout(() => setToast(null), 2500)
   }
 
-  const copyLinebet = async () => {
-    trackAffiliateCodeCopy('linebet', 'vip-partner-card')
+  const copySelectedCode = async () => {
+    trackAffiliateCodeCopy(selectedBm.id, 'vip-partner-card')
     try {
-      await navigator.clipboard.writeText('VISION221')
-      setCopiedLinebet(true)
-      showToast('Code copié VISION221')
-      setTimeout(() => setCopiedLinebet(false), 2000)
+      await navigator.clipboard.writeText(selectedBm.promoCode)
     } catch {
       const el = document.createElement('textarea')
-      el.value = 'VISION221'
+      el.value = selectedBm.promoCode
       document.body.appendChild(el)
       el.select()
       try { document.execCommand('copy') } catch {}
       document.body.removeChild(el)
-      setCopiedLinebet(true)
-      showToast('Code copié VISION221')
-      setTimeout(() => setCopiedLinebet(false), 2000)
     }
+    setCopied(true)
+    showToast(`Code copié ${selectedBm.promoCode}`)
+    setTimeout(() => setCopied(false), 2000)
   }
 
-  const copy888 = async () => {
-    trackAffiliateCodeCopy('888starz', 'vip-partner-card')
-    try {
-      await navigator.clipboard.writeText('vision221')
-      setCopied888(true)
-      showToast('Code copié vision221')
-      setTimeout(() => setCopied888(false), 2000)
-    } catch {
-      const el = document.createElement('textarea')
-      el.value = 'vision221'
-      document.body.appendChild(el)
-      el.select()
-      try { document.execCommand('copy') } catch {}
-      document.body.removeChild(el)
-      setCopied888(true)
-      showToast('Code copié vision221')
-      setTimeout(() => setCopied888(false), 2000)
-    }
-  }
-
-  // Construction du message WhatsApp pré-rempli
+  // Construction du message WhatsApp pré-rempli (code exact du registre)
   const buildWhatsAppLink = () => {
-    const code = platform === 'linebet' ? 'VISION221' : 'vision221'
-    const platformLabel = platform === 'linebet' ? 'Linebet' : '888Starz'
     const id = playerId.trim() || 'NON_RENSEIGNE'
-    const text = `Salut BTTSPredict, je viens de m'inscrire avec ton code ${code} sur ${platformLabel} ID joueur : ${id} Dépôt 3000F fait ce jour. Merci de vérifier et débloquer mon VIP 1 mois gratuit.`
+    const text = `Salut BTTSPredict, je viens de m'inscrire avec ton code ${selectedBm.promoCode} sur ${selectedBm.name} ID joueur : ${id} Dépôt 3000F fait ce jour. Merci de vérifier et débloquer mon VIP 1 mois gratuit.`
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`
   }
 
@@ -223,195 +198,121 @@ export default function VipClient() {
         </div>
       </section>
 
-      {/* ─────────── 2 CARTES AFFILIÉES CÔTE À CÔTE ─────────── */}
+      {/* ─────────── CARTE PARTENAIRE (onglets 4 bookmakers) ─────────── */}
       <section className="pb-8">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-
-            {/* ═══ CARTE LINEBET (VISION221 MAJ) ═══ */}
-            <div
-              className="rounded-2xl p-6 text-center relative overflow-hidden"
-              style={{
-                background: `linear-gradient(135deg, ${BG_DARK} 0%, #1A242F 100%)`,
-                border: `1.5px solid ${GOLD}`,
-                boxShadow: `0 0 60px ${GOLD}22, 0 10px 40px rgba(0,0,0,0.4), inset 0 1px 0 ${GOLD}33`,
-              }}
-            >
-              {/* Badge */}
-              <div className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.18em] mb-4"
-                style={{ backgroundColor: `${GOLD}1A`, color: GOLD, border: `1px solid ${GOLD}55` }}>
-                ★ Recommandé Afrique de l&apos;Ouest
-              </div>
-
-              <p className="text-[11px] uppercase tracking-[0.25em] mb-2" style={{ color: TEXT_SEC }}>
-                Linebet — Code promo
-              </p>
-              <button
-                type="button"
-                onClick={copyLinebet}
-                title="Cliquer pour copier"
-                aria-label="Code promo VISION221 — cliquer pour copier dans le presse-papier"
-                className="inline-flex items-center justify-center gap-3 mb-3 select-all cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98] bg-transparent border-0 p-0"
-                style={{ color: GOLD, fontFamily: 'var(--font-mono), monospace', textShadow: `0 0 30px ${GOLD}55` }}
-              >
-                <span className="text-4xl sm:text-5xl font-black tracking-[0.15em]">VISION221</span>
-                <span
-                  className="inline-flex items-center justify-center w-9 h-9 rounded-lg flex-shrink-0"
-                  style={{
-                    backgroundColor: copiedLinebet ? '#2F7DFF' : `${GOLD}1A`,
-                    border: `1px solid ${copiedLinebet ? '#2F7DFF' : GOLD}`,
-                    color: copiedLinebet ? BG_DARK : GOLD,
-                  }}
-                  aria-hidden="true"
-                >
-                  {copiedLinebet ? (
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  ) : (
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-                    </svg>
-                  )}
-                </span>
-              </button>
-              <p className="text-xs mb-5" style={{ color: TEXT_SEC }}>
-                Bonus · Conditions à vérifier auprès de Linebet · Dépôt min 3 000 F
-              </p>
-
-              {/* 3 boutons */}
-              <div className="flex flex-col gap-2">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6">
+          {/* Onglets — Linebet et 1xBet d'abord (prioritaires) */}
+          <div className="flex flex-wrap justify-center gap-2 mb-4" role="tablist" aria-label="Choix du bookmaker partenaire">
+            {BOOKMAKER_ORDER.map(id => {
+              const b = getBookmaker(id)
+              const isActive = platform === id
+              return (
                 <button
-                  onClick={copyLinebet}
-                  className="h-[44px] rounded-[10px] font-bold text-[13px] flex items-center justify-center gap-2 transition-all"
+                  key={id}
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => { setPlatform(id); setCopied(false) }}
+                  className="flex items-center gap-2 px-3.5 h-[42px] rounded-[10px] text-[12.5px] font-bold transition-all"
                   style={{
-                    backgroundColor: copiedLinebet ? '#2F7DFF' : GOLD,
-                    color: BG_DARK,
-                    border: 'none',
-                    boxShadow: `0 4px 14px ${GOLD}33`,
+                    backgroundColor: isActive ? 'rgba(47, 125, 255, 0.14)' : 'rgba(255, 255, 255, 0.04)',
+                    border: `1.5px solid ${isActive ? '#2F7DFF' : 'rgba(255, 255, 255, 0.14)'}`,
+                    color: isActive ? TEXT : TEXT_SEC,
                   }}
                 >
-                  {copiedLinebet ? '✅ Copié !' : '📋 Copier VISION221'}
+                  <span className="flex h-6 w-10 items-center justify-center rounded bg-white px-1">
+                    <img src={b.logo} alt="" width={96} height={30} className="max-h-4 w-auto object-contain" />
+                  </span>
+                  {b.name}
+                  {b.featured && <span aria-hidden="true" style={{ color: '#34D399' }}>★</span>}
                 </button>
-                <a
-                  href={LINEBET_SIGNUP}
-                  target="_blank"
-                  rel="noopener noreferrer nofollow sponsored"
-                  className="h-[44px] rounded-[10px] font-bold text-[13px] flex items-center justify-center gap-2 transition-all"
-                  style={{ backgroundColor: PRIMARY, color: TEXT, border: 'none' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = PRIMARY_HOVER }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = PRIMARY }}
-                  onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'vip-partner-card')}
-                >
-                  S&apos;inscrire sur Linebet →
-                </a>
-                <a
-                  href={LINEBET_APK}
-                  target="_blank"
-                  rel="noopener noreferrer nofollow sponsored"
-                  className="h-[44px] rounded-[10px] font-bold text-[13px] flex items-center justify-center gap-2 transition-all"
-                  style={{ backgroundColor: 'transparent', color: '#C8CCDA', border: `1.5px solid ${BORDER_OUTLINE}` }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1A242F' }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent' }}
-                  onClick={() => trackAffiliateAction('linebet', 'download_click', 'vip-partner-card')}
-                >
-                  📥 Télécharger APK Linebet
-                </a>
-              </div>
-            </div>
+              )
+            })}
+          </div>
 
-            {/* ═══ CARTE 888STARZ (vision221 MIN) ═══ */}
-            <div
-              className="rounded-2xl p-6 text-center relative overflow-hidden"
-              style={{
-                background: `linear-gradient(135deg, ${BG_DARK} 0%, #1A242F 100%)`,
-                border: `1.5px solid ${ORANGE}`,
-                boxShadow: `0 0 60px ${ORANGE}22, 0 10px 40px rgba(0,0,0,0.4), inset 0 1px 0 ${ORANGE}33`,
-              }}
-            >
-              {/* Badge */}
+          {/* Carte du bookmaker sélectionné */}
+          <div
+            className="rounded-2xl p-6 text-center"
+            style={{
+              background: `linear-gradient(135deg, ${BG_DARK} 0%, #1A242F 100%)`,
+              border: '1.5px solid rgba(255, 255, 255, 0.16)',
+              boxShadow: '0 10px 40px rgba(0,0,0,0.4)',
+            }}
+            role="tabpanel"
+            aria-label={`Offre ${selectedBm.name}`}
+          >
+            {selectedBm.featured && (
               <div className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.18em] mb-4"
-                style={{ backgroundColor: `${ORANGE}1A`, color: ORANGE, border: `1px solid ${ORANGE}55` }}>
-                ★ Bonus · Conditions à vérifier auprès de 888Starz
+                style={{ backgroundColor: 'rgba(52, 211, 153, 0.10)', color: '#34D399', border: '1px solid rgba(52, 211, 153, 0.35)' }}>
+                ★ Partenaire prioritaire
               </div>
+            )}
 
-              <p className="text-[11px] uppercase tracking-[0.25em] mb-2" style={{ color: TEXT_SEC }}>
-                888Starz — Code promo
-              </p>
-              <button
-                type="button"
-                onClick={copy888}
-                title="Cliquer pour copier"
-                aria-label="Code promo vision221 — cliquer pour copier dans le presse-papier"
-                className="inline-flex items-center justify-center gap-3 mb-3 select-all cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98] bg-transparent border-0 p-0"
-                style={{ color: ORANGE, fontFamily: 'var(--font-mono), monospace', textShadow: `0 0 30px ${ORANGE}55` }}
+            <p className="text-[11px] uppercase tracking-[0.25em] mb-2" style={{ color: TEXT_SEC }}>
+              {selectedBm.name} — Code promo
+            </p>
+            <button
+              type="button"
+              onClick={copySelectedCode}
+              title="Cliquer pour copier"
+              aria-label={`Code promo ${selectedBm.promoCode} — cliquer pour copier dans le presse-papier`}
+              className="inline-flex items-center justify-center gap-3 mb-3 select-all cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98] bg-transparent border-0 p-0"
+              style={{ color: TEXT, fontFamily: 'var(--font-mono), monospace' }}
+            >
+              <span className="text-4xl sm:text-5xl font-black tracking-[0.12em]">{selectedBm.promoCode}</span>
+              <span
+                className="inline-flex items-center justify-center w-9 h-9 rounded-lg flex-shrink-0"
+                style={{
+                  backgroundColor: copied ? '#34D399' : 'rgba(47, 125, 255, 0.14)',
+                  border: `1px solid ${copied ? '#34D399' : 'rgba(47, 125, 255, 0.45)'}`,
+                  color: copied ? '#05200F' : '#2F7DFF',
+                }}
+                aria-hidden="true"
               >
-                <span className="text-4xl sm:text-5xl font-black tracking-[0.15em]">vision221</span>
-                <span
-                  className="inline-flex items-center justify-center w-9 h-9 rounded-lg flex-shrink-0"
-                  style={{
-                    backgroundColor: copied888 ? '#2F7DFF' : `${ORANGE}1A`,
-                    border: `1px solid ${copied888 ? '#2F7DFF' : ORANGE}`,
-                    color: copied888 ? BG_DARK : ORANGE,
-                  }}
-                  aria-hidden="true"
-                >
-                  {copied888 ? (
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  ) : (
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-                    </svg>
-                  )}
-                </span>
-              </button>
-              <p className="text-xs mb-5" style={{ color: TEXT_SEC }}>
-                Bonus <strong style={{ color: ORANGE }}>200%</strong> · Dépôt min 3 000 F
-              </p>
+                {copied ? (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                ) : (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                )}
+              </span>
+            </button>
+            <p className="text-xs mb-5" style={{ color: TEXT_SEC }}>
+              {selectedBm.offer.bonus
+                ? <>Offre annoncée : <strong style={{ color: TEXT }}>{selectedBm.offer.bonus} + {selectedBm.offer.freeSpins} free spins</strong> · Conditions à vérifier auprès de {selectedBm.name}</>
+                : <>Offre de bienvenue affichée lors de l&apos;inscription · Conditions à vérifier auprès de {selectedBm.name}</>}
+              {' '}· Dépôt min 3 000 F
+            </p>
 
-              {/* 3 boutons */}
-              <div className="flex flex-col gap-2">
-                <button
-                  onClick={copy888}
-                  className="h-[44px] rounded-[10px] font-bold text-[13px] flex items-center justify-center gap-2 transition-all"
-                  style={{
-                    backgroundColor: copied888 ? '#2F7DFF' : ORANGE,
-                    color: BG_DARK,
-                    border: 'none',
-                    boxShadow: `0 4px 14px ${ORANGE}33`,
-                  }}
-                >
-                  {copied888 ? '✅ Copié !' : '📋 Copier vision221'}
-                </button>
-                <a
-                  href={STAR888_SIGNUP}
-                  target="_blank"
-                  rel="noopener noreferrer nofollow sponsored"
-                  className="h-[44px] rounded-[10px] font-bold text-[13px] flex items-center justify-center gap-2 transition-all"
-                  style={{ backgroundColor: PRIMARY, color: TEXT, border: 'none' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = PRIMARY_HOVER }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = PRIMARY }}
-                  onClick={() => trackAffiliateAction('888starz', 'signup_cta_click', 'vip-partner-card')}
-                >
-                  S&apos;inscrire sur 888Starz →
-                </a>
-                <a
-                  href={STAR888_APK}
-                  target="_blank"
-                  rel="noopener noreferrer nofollow sponsored"
-                  className="h-[44px] rounded-[10px] font-bold text-[13px] flex items-center justify-center gap-2 transition-all"
-                  style={{ backgroundColor: 'transparent', color: '#C8CCDA', border: `1.5px solid ${BORDER_OUTLINE}` }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1A242F' }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent' }}
-                  onClick={() => trackAffiliateAction('888starz', 'download_click', 'vip-partner-card')}
-                >
-                  📥 Télécharger APK 888Starz
-                </a>
-              </div>
+            {/* Boutons — inscription + APK */}
+            <div className="flex flex-col gap-2">
+              <a
+                href={selectedBm.signup}
+                target="_blank"
+                rel="noopener noreferrer nofollow sponsored"
+                className="h-[44px] rounded-[10px] font-bold text-[13px] flex items-center justify-center gap-2 transition-all"
+                style={{ backgroundColor: PRIMARY, color: TEXT, border: 'none' }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = PRIMARY_HOVER }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = PRIMARY }}
+                onClick={() => trackAffiliateAction(selectedBm.id, 'signup_cta_click', 'vip-partner-card')}
+              >
+                S&apos;inscrire sur {selectedBm.name} →
+              </a>
+              <a
+                href={selectedBm.download}
+                target="_blank"
+                rel="noopener noreferrer nofollow sponsored"
+                className="h-[44px] rounded-[10px] font-bold text-[13px] flex items-center justify-center gap-2 transition-all"
+                style={{ backgroundColor: 'transparent', color: '#C8CCDA', border: `1.5px solid ${BORDER_OUTLINE}` }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1A242F' }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent' }}
+                onClick={() => trackAffiliateAction(selectedBm.id, 'download_click', 'vip-partner-card')}
+              >
+                📥 Télécharger APK {selectedBm.name}
+              </a>
             </div>
           </div>
         </div>
@@ -475,7 +376,7 @@ export default function VipClient() {
               Vérifier mon dépôt et débloquer VIP
             </h2>
             <p className="text-xs text-center mb-5" style={{ color: TEXT_SEC }}>
-              On vérifie dans le tableau de bord affilié que le code VISION221 / vision221 a bien été utilisé + dépôt min 3 000 F. Délai <strong style={{ color: '#2F7DFF' }}>15-60 min</strong>.
+              On vérifie dans le tableau de bord affilié que le code {selectedBm.promoCode} a bien été utilisé + dépôt min 3 000 F. Délai <strong style={{ color: '#2F7DFF' }}>15-60 min</strong>.
             </p>
 
             <div className="space-y-3">
@@ -510,7 +411,7 @@ export default function VipClient() {
                 <select
                   id="platform"
                   value={platform}
-                  onChange={(e) => setPlatform(e.target.value as Platform)}
+                  onChange={(e) => setPlatform(e.target.value as BookmakerId)}
                   className="w-full h-[48px] px-4 rounded-[10px] text-sm font-semibold"
                   style={{
                     backgroundColor: BG_DARK,
@@ -519,8 +420,10 @@ export default function VipClient() {
                     outline: 'none',
                   }}
                 >
-                  <option value="linebet">Linebet (code VISION221)</option>
-                  <option value="888starz">888Starz (code vision221)</option>
+                  {BOOKMAKER_ORDER.map(id => {
+                    const b = getBookmaker(id)
+                    return <option key={id} value={id}>{b.name} (code {b.promoCode})</option>
+                  })}
                 </select>
               </div>
 

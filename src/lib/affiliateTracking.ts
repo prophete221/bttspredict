@@ -22,7 +22,8 @@
 //     Aucune donnée personnelle : identifiants anonymes et paramètres de page.
 // ═══════════════════════════════════════════════════════════════════════════════
 
-export type AffiliatePartner = 'linebet' | '888starz'
+// Refonte 2026-11 : 1xbet et melbet rejoignent les partenaires suivis.
+export type AffiliatePartner = 'linebet' | '888starz' | '1xbet' | 'melbet'
 
 export type AffiliateAction =
   | 'promo_view'        // vue d'un bloc promo / choix bookmaker

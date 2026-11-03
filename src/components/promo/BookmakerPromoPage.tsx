@@ -192,7 +192,7 @@ export default function BookmakerPromoPage({
             href={b.download}
             target="_blank"
             rel={REL}
-            onClick={() => trackAffiliateAction(b.id, 'apk_click', 'promo-page-apk')}
+            onClick={() => trackAffiliateAction(b.id, 'download_click', 'promo-page-apk')}
             className="promo-cta promo-cta--apk"
             data-cta={`promo-apk-${b.id}`}
           >
