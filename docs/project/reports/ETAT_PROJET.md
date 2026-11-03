@@ -13,24 +13,25 @@
 
 ## Phase en cours
 
-**Phase 1 — Diagnostic terminée, corrections en attente.** Aucun travail correctif n’a été commencé. Attendre l’analyse et les instructions explicites du chef de projet avant de modifier du code, du contenu, des métadonnées, une route, une redirection ou une règle serveur.
+**Phase 2A — Conception technique terminée, validation en attente.** Phase 1 est terminée; le plan de corrections est consigné dans `PLAN_CORRECTIONS_PHASE2.md`. La Phase 2B d’implémentation n’a pas commencé. Aucun code, contenu, métadonnée, route, redirection ou règle serveur ne doit être modifié avant validation explicite du chef de projet.
 
 ## Travaux terminés
 
 - Phase 0 : audit technique, SEO et inventaire consigné dans `docs/project/BTTSPREDICT_AUDIT_COMPLET.md`.
 - Phase 1 : diagnostic en lecture seule des dix URL match en 404, de l’URL match AR en 403, des robots d’erreur, de l’index d’archive, de `/en/over-2-5/statistics` et des 64 routes éditoriales FR/EN/AR.
 - Matrice SEO exhaustive route par route et gabarit des 864 fichiers match consignés dans `RAPPORT_DIAGNOSTIC_PHASE1.md`.
+- Phase 2A : conception des corrections P0.1, P0.2, P0.3 et P1, comparaison des trois stratégies match, inventaire des risques, critères de tests et recommandation en attente d’approbation dans `PLAN_CORRECTIONS_PHASE2.md`.
 - Les documents permanents ont été créés, lus et validés. Voir la validation détaillée dans `JOURNAL_PROJET.md`.
 
 ## Décisions et actions en attente du chef de projet
 
-1. Décider si chacune des dix anciennes URL match doit rester en 404, être servie depuis des archives, ou recevoir une redirection vers une page réellement pertinente. Ne pas lancer de redirection ni changer la purge avant cette décision.
-2. Faire examiner côté hébergement le 403 de `/ar/match/san-diego-fc-vs-seattle-sounders-fc-2026-10-25`; distinguer permission, fichier déployé et règle d’accès.
-3. Valider une politique robots unique pour les HTML d’erreur.
-4. Décider si les fichiers JSON des archives doivent eux aussi être exclus de l’indexation et si la liste de `public/predictions-archive/index.html` doit être actualisée.
-5. Décider d’une éventuelle correction de `lang`/`dir` initial et de l’alignement des hreflang HTML avec le sitemap.
-6. Décider si `/en/over-2-5/statistics` doit rester non prise en charge ou faire l’objet d’un projet éditorial séparé ; aucune route à créer pour le moment.
-7. Toute modification du sitemap, canonical, title, URL ou redirection reste soumise à validation préalable.
+1. Valider l’option B pour les anciennes URL match et choisir le périmètre initial : 10 pages FR ou 30 variantes FR/EN/AR; confirmer les critères de qualité, de fidélité historique et d’indexation.
+2. Demander l’investigation d’hébergement pour le 403 de `/ar/match/san-diego-fc-vs-seattle-sounders-fc-2026-10-25` (artefact, chemin, permissions, règles actives et journaux).
+3. Valider la politique robots/HTTP des 404, 403, archives HTML, fichiers JSON et pages normales, notamment l’usage de `X-Robots-Tag` pour les JSON.
+4. Valider l’approche de rendu initial de `lang`/`dir` et le H1 serveur des trois pages statistiques.
+5. Décider de l’alignement hreflang/sitemap, du choix français `fr` ou `fr-SN`, et de la conduite à tenir pour les familles qui touchent une page SEO protégée. Aucun changement touchant les cinq pages gelées sans validation distincte.
+6. Maintenir `/en/over-2-5/statistics` comme route non prise en charge jusqu’à une décision éditoriale séparée; aucune route à créer dans la Phase 2A.
+7. Autoriser explicitement une phase d’implémentation distincte. Aucun changement applicatif, hébergement, production ou push GitHub n’est autorisé avant validation.
 
 ## Pages SEO protégées
 
