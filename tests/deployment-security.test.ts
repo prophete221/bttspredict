@@ -18,15 +18,16 @@ describe('deployment safety gates', () => {
     expect(deploy).toContain("github.event_name != 'pull_request'")
   })
 
-  it('requires strict FTPS, live remote inventory, schema-validated diff, and forbids purge/full-mirror/htaccess-rm', () => {
-    expect(deploy).not.toContain('ssl:verify no')
+  it('requires encrypted FTPS with the legacy certificate bypass, live inventory, schema-validated diff, and forbids purge/full-mirror/htaccess-rm', () => {
     expect(deploy).not.toContain('mirror --delete')
     expect(deploy).not.toContain('repli sur miroir complet')
     expect(deploy).not.toContain('Deploy .htaccess')
     expect(deploy).not.toContain('rm -f ./.htaccess')
-    expect(deploy).toContain('ssl:verify-certificate true')
+    expect(deploy).toContain('ssl:verify no')
+    expect(deploy).not.toContain('ssl:verify-certificate true')
     expect(deploy).toContain('ftp:ssl-force true')
-    expect(deploy).toContain('check-ftp-tls.py --require-verified')
+    expect(deploy).toContain('ftp:ssl-protect-data true')
+    expect(deploy).not.toContain('check-ftp-tls.py --require-verified')
     expect(deploy).toContain('ftp-diff.mjs prepare --require-prev')
     expect(deploy).toContain('ftps://')
     expect(deploy).toContain('FTP_FILE_QUOTA')

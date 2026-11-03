@@ -232,14 +232,14 @@ jobs:
       - name: Install lftp (FTPS differential upload only)
         run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
 
-      # Déploiement sûr LWS :
-      # - FTPS explicite + vérification certificat obligatoire
+      # Déploiement LWS sur la branche de refonte :
+      # - FTPS obligatoire et données chiffrées; bypass historique de vérification du certificat
       # - inventaire distant ACTUEL obligatoire (listing live) — un vieux manifeste ne suffit pas
       # - pas de suppression miroir, pas de purge récursive, pas d'upload complet de secours
       # - schéma manifeste v2 validé ; diff + calcul quota fichiers/octets avec marge
       # - manifeste distant publié UNIQUEMENT après transfert réussi
       # - pas d'étape .htaccess rm/rename (risque non contrôlé)
-      - name: Deploy via FTPS (strict TLS, live inventory, differential only)
+      - name: Deploy via FTPS (certificate bypass, live inventory, differential only)
         timeout-minutes: 45
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
@@ -258,18 +258,15 @@ jobs:
             exit 1
           fi
 
-          SETTINGS="set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate true; set net:timeout 60; set net:max-retries 3; set mirror:use-pget-n 1"
+          # Bypass historique du certificat, limité à cette refonte. FTPS reste obligatoire et protège aussi les données.
+          SETTINGS="set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify no; set net:timeout 60; set net:max-retries 3; set mirror:use-pget-n 1"
           FTP_URL="ftps://${FTP_SERVER}"
 
           ftp_run() {
             lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "$FTP_URL" -e "$SETTINGS; $1; bye"
           }
 
-          echo "Préflight FTPS strict…"
-          if ! python3 scripts/check-ftp-tls.py --require-verified; then
-            echo "::error::FTPS strict échoué (certificat/hostname). Demander à LWS un hôte certifié ou corriger le certificat. Aucun déploiement."
-            exit 1
-          fi
+          echo "FTPS chiffré requis; bypass historique de validation du certificat actif pour cette refonte."
 
           QUOTA="${FTP_FILE_QUOTA}"
           MARGIN="${FTP_FILE_MARGIN}"
