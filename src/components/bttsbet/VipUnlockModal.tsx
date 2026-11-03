@@ -213,7 +213,7 @@ export default function VipUnlockModal({
                           <div className="flex items-center justify-between gap-2">
                             <div className="flex items-center gap-2 min-w-0">
                               <span className="flex h-7 w-12 items-center justify-center rounded bg-white px-1.5 flex-shrink-0">
-                                <img src={b.logo} alt="" width={96} height={30} className="max-h-5 w-auto object-contain" />
+                                <img src={b.logoLight ?? b.logo} alt="" width={96} height={30} className="max-h-5 w-auto object-contain" />
                               </span>
                               <span className="min-w-0">
                                 <span className="block text-[13px] font-bold text-papier leading-tight">{b.name}</span>

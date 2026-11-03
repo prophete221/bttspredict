@@ -106,7 +106,7 @@ export default function BookmakerPromoPage({
       <header className="mb-8 text-center">
         <div className="promo-logo-plate mx-auto mb-5">
           <img
-            src={b.logo}
+            src={b.logoLight ?? b.logo}
             alt={`${b.name} — logo officiel`}
             width={168}
             height={56}
@@ -306,7 +306,7 @@ export default function BookmakerPromoPage({
                 data-cta={isCurrent ? undefined : `promo-cross-${other.id}`}
               >
                 {other.featured && !isCurrent && <span className="promo-code-mini__star">{lang === 'en' ? 'Priority' : lang === 'ar' ? 'أولوية' : 'Prioritaire'}</span>}
-                <img src={other.logo} alt="" width={92} height={26} loading="lazy" decoding="async" className="promo-code-mini__logo" />
+                <img src={other.logoLight ?? other.logo} alt="" width={92} height={26} loading="lazy" decoding="async" className="promo-code-mini__logo" />
                 <span className="promo-code-mini__code">{other.promoCode}</span>
                 <span className="promo-code-mini__offer">{offerShort(other)}</span>
               </a>

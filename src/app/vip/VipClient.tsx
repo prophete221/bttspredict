@@ -220,7 +220,7 @@ export default function VipClient() {
                   }}
                 >
                   <span className="flex h-6 w-10 items-center justify-center rounded bg-white px-1">
-                    <img src={b.logo} alt="" width={96} height={30} className="max-h-4 w-auto object-contain" />
+                    <img src={b.logoLight ?? b.logo} alt="" width={96} height={30} className="max-h-4 w-auto object-contain" />
                   </span>
                   {b.name}
                   {b.featured && <span aria-hidden="true" style={{ color: '#34D399' }}>★</span>}

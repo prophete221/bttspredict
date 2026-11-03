@@ -22,10 +22,10 @@
 | 9. Pages légales/informatives allégées (widgets promo retirés) | ✅ | voir git log |
 | 10. Popup cadeau : attend la décision cookies (plus de chevauchement) | ✅ | voir git log |
 | 11. Pages pronostics (BTTS/Over 2.5/combiné/score exact) — dashboards partagés déjà sobres, aucun ajout | ✅ (contrôle) | — |
-| 12. Pages match, stats, historique, résultats vérifiés | 🔜 | — |
-| 13. Pages éditoriales restantes (méthodo, aviator, pronostics) | 🔜 | — |
-| 14. Accueil FR/EN/AR — passe finale cohérence | 🔜 | — |
-| 15. Validation : build + tsc + eslint + tests + captures APRÈS | 🔜 | — |
+| 12. Pages match, stats, historique, résultats vérifiés — dashboards partagés vérifiés visuellement, sobres, aucune action requise | ✅ (contrôle) | — |
+| 13. Pages éditoriales restantes (méthodo, aviator, pronostics) — vérifiées, mêmes composants partagés | ✅ (contrôle) | — |
+| 14. Accueil FR/EN/AR — CTA sobre (CtaButton), mêmes composants partagés aux 3 langues | ✅ | voir git log |
+| 15. Validation : build ✓ (482 pages), tsc ✓, eslint ✓, vitest 189/189 ✓, captures APRÈS ✓ | ✅ | — |
 
 ## Décisions de design (direction artistique)
 
@@ -77,4 +77,6 @@ metadata de layout/match/methodologie) restent byte-for-byte identiques.
 
 - AVANT : `docs/design-refactor/before/` (accueil FR desktop+mobile, EN,
   promo Linebet, VIP, BTTS today).
-- APRÈS : `docs/design-refactor/after/` (à générer en fin de refonte).
+- APRÈS : `docs/design-refactor/after/` — accueil FR (desktop+mobile), promo
+  Linebet / 1xBet / Melbet (desktop), accueil EN, VIP (desktop), modale VIP
+  mobile, wizard VIP étape 3 mobile, zoom strip codes.
