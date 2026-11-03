@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-03T13:28:58.023Z",
+  "generatedAt": "2026-11-03T20:49:25.172Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,18 +15,18 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 449,
+    "total": 450,
     "won": 359,
-    "lost": 90,
+    "lost": 91,
     "pending": 88,
     "unverifiable": 176,
-    "archivedTotal": 713,
-    "rate": 80,
+    "archivedTotal": 714,
+    "rate": 79.8,
     "gold": {
-      "total": 336,
+      "total": 337,
       "won": 273,
-      "lost": 63,
-      "rate": 81.3
+      "lost": 64,
+      "rate": 81
     },
     "standard": {
       "total": 113,
@@ -42,20 +42,13 @@
         "rate": 81.3
       },
       "over25": {
-        "total": 48,
+        "total": 49,
         "won": 33,
-        "lost": 15,
-        "rate": 68.8
+        "lost": 16,
+        "rate": 67.3
       }
     },
     "trend14": [
-      {
-        "date": "2026-10-18",
-        "total": 5,
-        "won": 5,
-        "lost": 0,
-        "rate": 100
-      },
       {
         "date": "2026-10-21",
         "total": 8,
@@ -146,6 +139,13 @@
         "won": 8,
         "lost": 4,
         "rate": 66.7
+      },
+      {
+        "date": "2026-11-03",
+        "total": 1,
+        "won": 0,
+        "lost": 1,
+        "rate": 0
       }
     ],
     "period": {
@@ -155,6 +155,19 @@
     }
   },
   "history": [
+    {
+      "date": "2026-11-03",
+      "match": "Galatasaray vs VfB Stuttgart",
+      "league": "UEFA Champions League",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.62,
+      "status": "LOST",
+      "finalScore": "2-0",
+      "verifiedAt": "2026-11-03T20:48:36.985Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-02",
       "match": "Gil Vicente vs Vitória de Guimaraes",
