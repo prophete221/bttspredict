@@ -280,21 +280,33 @@ jobs:
           # --- Inventaire distant ACTUEL (listing live) ---
           # Un manifeste historique ne prouve pas le quota actuel.
           rm -f out/remote-inventory.txt out/deploy-manifest.prev.json out/deploy-list.txt out/deploy-diff-stats.json
-          echo "Inventaire distant live (find)…"
+          echo "Inventaire distant live (find récursif, LIST classique, dotfiles inclus)…"
+          INVENTORY_SETTINGS="$SETTINGS; set ftp:use-mlsd false; set ftp:list-options -a"
           set +e
-          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "$FTP_URL" -e "$SETTINGS; find .; bye" > out/remote-inventory.txt 2>out/remote-inventory.err
+          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "$FTP_URL" -e "$INVENTORY_SETTINGS; find .; bye" > out/remote-inventory.txt 2>out/remote-inventory.err
           LIST_RC=$?
           set -e
-          if [ "$LIST_RC" -ne 0 ] || [ ! -s out/remote-inventory.txt ]; then
-            echo "::error::Impossible d'obtenir un inventaire distant fiable via lftp find. Demander à LWS une méthode d'inventaire (panel, outil, ou listing FTPS stable). Workflow arrêté — aucune écriture."
-            if [ -f out/remote-inventory.err ]; then sed -n '1,40p' out/remote-inventory.err; fi
+          if [ "$LIST_RC" -ne 0 ] || [ ! -s out/remote-inventory.txt ] || [ -s out/remote-inventory.err ]; then
+            echo "::error::Inventaire LIST récursif absent, incomplet ou accompagné d'erreurs — arrêt avant sauvegarde ou écriture FTPS."
+            if grep -Fqi 'max-retries exceeded' out/remote-inventory.err; then
+              echo "::error::Diagnostic lftp: max-retries exceeded pendant find en LIST classique."
+            elif [ "$LIST_RC" -ne 0 ]; then
+              echo "::error::Diagnostic lftp: find en LIST classique a échoué (code $LIST_RC); détails bruts non affichés."
+            else
+              echo "::error::Diagnostic lftp: listing vide ou stderr non vide; résultat traité comme ambigu."
+            fi
             exit 1
           fi
 
           # Compte des fichiers distants (lignes non-dossiers approximées : ignore entrées finissant par /)
-          REMOTE_NOW=$(grep -cve '/$' out/remote-inventory.txt || true)
+          REMOTE_NOW=$(awk 'NF && !/\/$/ {n++} END {print n+0}' out/remote-inventory.txt)
           if [ "${REMOTE_NOW}" -le 0 ]; then
             echo "::error::Inventaire distant vide ou illisible — arrêt."
+            exit 1
+          fi
+          DUPLICATE_PATHS=$(awk 'NF && !/\/$/ {print}' out/remote-inventory.txt | sort | uniq -d | wc -l)
+          if [ "$DUPLICATE_PATHS" -gt 0 ]; then
+            echo "::error::Inventaire distant ambigu: $DUPLICATE_PATHS chemins dupliqués — arrêt avant écriture."
             exit 1
           fi
           echo "Fichiers distants actuels (inventaire live): $REMOTE_NOW"
