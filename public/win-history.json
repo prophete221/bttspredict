@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-02T22:06:30.843Z",
+  "generatedAt": "2026-11-03T04:51:29.515Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,37 +15,37 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 447,
+    "total": 449,
     "won": 359,
-    "lost": 88,
-    "pending": 76,
+    "lost": 90,
+    "pending": 88,
     "unverifiable": 176,
-    "archivedTotal": 699,
-    "rate": 80.3,
+    "archivedTotal": 713,
+    "rate": 80,
     "gold": {
-      "total": 335,
+      "total": 336,
       "won": 273,
-      "lost": 62,
-      "rate": 81.5
+      "lost": 63,
+      "rate": 81.3
     },
     "standard": {
-      "total": 112,
+      "total": 113,
       "won": 86,
-      "lost": 26,
-      "rate": 76.8
+      "lost": 27,
+      "rate": 76.1
     },
     "byType": {
       "btts": {
-        "total": 400,
+        "total": 401,
         "won": 326,
-        "lost": 74,
-        "rate": 81.5
+        "lost": 75,
+        "rate": 81.3
       },
       "over25": {
-        "total": 47,
+        "total": 48,
         "won": 33,
-        "lost": 14,
-        "rate": 70.2
+        "lost": 15,
+        "rate": 68.8
       }
     },
     "trend14": [
@@ -142,19 +142,45 @@
       },
       {
         "date": "2026-11-02",
-        "total": 10,
+        "total": 12,
         "won": 8,
-        "lost": 2,
-        "rate": 80
+        "lost": 4,
+        "rate": 66.7
       }
     ],
     "period": {
       "from": "2026-08-08",
-      "to": "2026-11-02",
-      "days": 87
+      "to": "2026-11-03",
+      "days": 88
     }
   },
   "history": [
+    {
+      "date": "2026-11-02",
+      "match": "Gil Vicente vs Vitória de Guimaraes",
+      "league": "Liga Portugal",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.5,
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-03T04:50:50.000Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
+    {
+      "date": "2026-11-02",
+      "match": "Benfica vs Alverca",
+      "league": "Liga Portugal",
+      "market": "over25",
+      "tier": "GOLD",
+      "proba": 0.7,
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-03T04:50:49.999Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-02",
       "match": "Atalanta vs Parma",
@@ -5968,12 +5994,12 @@
     }
   ],
   "legacyStats": {
-    "total": 25,
-    "won": 25,
+    "total": 20,
+    "won": 20,
     "lost": 0,
     "pending": 0,
-    "unverifiable": 27,
-    "archivedTotal": 52,
+    "unverifiable": 20,
+    "archivedTotal": 40,
     "rate": 100,
     "gold": {
       "total": 0,
@@ -5982,21 +6008,21 @@
       "rate": 0
     },
     "standard": {
-      "total": 25,
-      "won": 25,
+      "total": 20,
+      "won": 20,
       "lost": 0,
       "rate": 100
     },
     "byType": {
       "btts": {
-        "total": 12,
-        "won": 12,
+        "total": 9,
+        "won": 9,
         "lost": 0,
         "rate": 100
       },
       "over25": {
-        "total": 13,
-        "won": 13,
+        "total": 11,
+        "won": 11,
         "lost": 0,
         "rate": 100
       }
@@ -6004,8 +6030,8 @@
     "trend14": [
       {
         "date": "2026-08-06",
-        "total": 8,
-        "won": 8,
+        "total": 3,
+        "won": 3,
         "lost": 0,
         "rate": 100
       },
@@ -6025,9 +6051,9 @@
       }
     ],
     "period": {
-      "from": "2026-08-05",
+      "from": "2026-08-06",
       "to": "2026-08-07",
-      "days": 3
+      "days": 2
     },
     "history": [
       {
@@ -6068,19 +6094,6 @@
         "verifiedAt": "2026-10-23T05:47:31.835Z",
         "source": "ESPN public",
         "prediction": "Non"
-      },
-      {
-        "date": "2026-08-07",
-        "match": "Unión (Santa Fe) vs Lanús",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.49,
-        "status": "WON",
-        "finalScore": "2-1",
-        "verifiedAt": "2026-10-23T05:47:39.117Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
       },
       {
         "date": "2026-08-07",
@@ -6252,6 +6265,19 @@
         "prediction": "Oui"
       },
       {
+        "date": "2026-08-07",
+        "match": "Unión (Santa Fe) vs Lanús",
+        "league": "Argentine Liga Profesional de Fútbol",
+        "market": "btts",
+        "tier": "STANDARD",
+        "proba": 0.49,
+        "status": "WON",
+        "finalScore": "2-1",
+        "verifiedAt": "2026-08-07T12:17:43.422Z",
+        "source": "ESPN public",
+        "prediction": "Oui"
+      },
+      {
         "date": "2026-08-06",
         "match": "Alianza Atlético vs Cienciano del Cusco",
         "league": "Peruvian Liga 1",
@@ -6260,7 +6286,7 @@
         "proba": 0.46,
         "status": "WON",
         "finalScore": "1-0",
-        "verifiedAt": "2026-10-23T05:47:39.117Z",
+        "verifiedAt": "2026-08-07T14:23:44.178Z",
         "source": "ESPN public",
         "prediction": "Non"
       },
@@ -6273,7 +6299,7 @@
         "proba": 0.44,
         "status": "WON",
         "finalScore": "1-0",
-        "verifiedAt": "2026-10-23T05:47:39.117Z",
+        "verifiedAt": "2026-08-07T14:23:44.178Z",
         "source": "ESPN public",
         "prediction": "Non"
       },
@@ -6286,72 +6312,7 @@
         "proba": 0.42,
         "status": "WON",
         "finalScore": "0-1",
-        "verifiedAt": "2026-10-23T05:47:39.117Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-06",
-        "match": "Deportivo La Guaira vs Metropolitanos",
-        "league": "Venezuelan Primera División",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.49,
-        "status": "WON",
-        "finalScore": "1-2",
-        "verifiedAt": "2026-08-07T14:24:09.053Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-06",
-        "match": "Internacional de Bogotá vs Jaguares de Córdoba",
-        "league": "Colombian Primera A",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.43,
-        "status": "WON",
-        "finalScore": "1-0",
-        "verifiedAt": "2026-08-07T14:24:09.053Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-06",
-        "match": "Once Caldas vs América de Cali",
-        "league": "Colombian Primera A",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.43,
-        "status": "WON",
-        "finalScore": "0-1",
-        "verifiedAt": "2026-08-07T14:24:09.053Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-06",
-        "match": "Tigre vs Belgrano (Córdoba)",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.45,
-        "status": "WON",
-        "finalScore": "0-0",
-        "verifiedAt": "2026-08-07T12:17:39.228Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-06",
-        "match": "Boca Juniors vs Estudiantes de La Plata",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.44,
-        "status": "WON",
-        "finalScore": "1-0",
-        "verifiedAt": "2026-08-07T11:25:19.240Z",
+        "verifiedAt": "2026-08-07T14:23:44.178Z",
         "source": "ESPN public",
         "prediction": "Non"
       }

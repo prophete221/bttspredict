@@ -15679,7 +15679,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.17 · N 7 · 2 13",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-0",
+      "verifiedAt": "2026-11-03T04:50:49.999Z"
     },
     {
       "id": "newengla-vs-intermia-2026-11-02",
