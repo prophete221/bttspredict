@@ -5,12 +5,13 @@
  * Manifeste v2 :
  *   { version: 2, generatedAt, fileCount, totalBytes, files: { path: { hash, size } } }
  *
- * prepare [--require-prev]
+ * prepare [--require-prev] [--force-path=<path> ...]
  *   - génère out/deploy-manifest.json (v2)
  *   - compare au manifeste précédent out/deploy-manifest.prev.json
  *   - avec --require-prev : refuse si prev absent, version/schéma invalides
  *   - écrit out/deploy-list.txt (patterns lftp des fichiers modifiés/nouveaux)
  *   - écrit out/deploy-diff-stats.json (newPaths, changedPaths, bytesToAdd, ...)
+ *   - --force-path inclut un fichier présent même si son hash est inchangé
  *
  * Ne produit JAMAIS une liste "tous les fichiers" par absence de prev.
  */
@@ -92,6 +93,10 @@ function validateManifest(obj, label) {
 
 function cmdPrepare() {
   const requirePrev = process.argv.includes('--require-prev')
+  const forcedPaths = [...new Set(process.argv
+    .filter((arg) => arg.startsWith('--force-path='))
+    .map((arg) => arg.slice('--force-path='.length))
+    .filter(Boolean))]
   if (!fs.existsSync(OUT)) {
     console.error('[ftp-diff] out/ introuvable — exécuter le build Next.js avant prepare.')
     process.exit(1)
@@ -143,6 +148,22 @@ function cmdPrepare() {
     }
   }
 
+  for (const rel of forcedPaths) {
+    const meta = manifest.files[rel]
+    if (!meta) {
+      console.error(`[ftp-diff] --force-path: fichier absent de out/: ${rel}`)
+      process.exit(1)
+    }
+    if (changed.includes(rel)) continue
+    changed.push(rel)
+    if (prevFiles?.[rel]) {
+      changedPaths.push(rel)
+    } else {
+      newPaths.push(rel)
+    }
+    bytesToAdd += meta.size
+  }
+
   const patterns = changed.map((rel) => `^${escapeRe(rel)}$`)
   fs.writeFileSync(LIST, patterns.length ? patterns.join('\n') + '\n' : '')
 
@@ -181,6 +202,6 @@ const cmd = process.argv[2] || 'prepare'
 if (cmd === 'prepare') cmdPrepare()
 else if (cmd === 'finish') cmdFinish()
 else {
-  console.error('Usage: node scripts/ftp-diff.mjs [prepare|finish] [--require-prev]')
+  console.error('Usage: node scripts/ftp-diff.mjs [prepare|finish] [--require-prev] [--force-path=<path> ...]')
   process.exit(1)
 }

@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'public/**'
   schedule:
     # Refresh every 3 h — the diff-based FTP upload (see ftp-diff.mjs) keeps each
     # run short, so completed matches are replaced promptly without overlap.
@@ -305,7 +307,7 @@ jobs:
             exit 1
           fi
 
-          node scripts/ftp-diff.mjs prepare --require-prev
+          node scripts/ftp-diff.mjs prepare --require-prev --force-path=.htaccess --force-path=robots.txt --force-path=sitemap.xml
 
           if [ ! -f out/deploy-diff-stats.json ] || [ ! -f out/deploy-list.txt ]; then
             echo "::error::Statistiques de diff manquantes — arrêt."
@@ -319,11 +321,16 @@ jobs:
 
           echo "Diff: changed=$CHANGED newPaths=$NEW_PATHS bytesToAdd=$BYTES_TO_ADD localBytes=$LOCAL_BYTES"
 
+          report_quota_candidates() {
+            node -e "const s=require('./out/deploy-diff-stats.json'); for (const [k,label] of [['newPaths','nouveaux'],['changedPaths','modifiés']]) { const paths=s[k]||[]; console.log(label+' ('+paths.length+')'); console.log(paths.length ? paths.join('\\n') : '(aucun)'); }"
+          }
+
           # Quota fichiers : inventaire live + chemins réellement nouveaux
           PROJECTED_FILES=$((REMOTE_NOW + NEW_PATHS))
           echo "Projection fichiers: $REMOTE_NOW + $NEW_PATHS = $PROJECTED_FILES (max autorisé $MAX_FILES / quota $QUOTA marge $MARGIN)"
           if [ "$PROJECTED_FILES" -gt "$MAX_FILES" ]; then
             echo "::error::Quota fichiers risqué ($PROJECTED_FILES > $MAX_FILES). Nettoyage panel LWS ou hausse de quota requis. Arrêt."
+            report_quota_candidates
             exit 1
           fi
 
@@ -332,11 +339,13 @@ jobs:
           # quand l'espace libre n'est pas mesurable. Exiger marge sur l'ajout.
           if [ "$BYTES_TO_ADD" -gt "$MAX_BYTES" ]; then
             echo "::error::Volume à ajouter ($BYTES_TO_ADD) dépasse la marge octets ($MAX_BYTES). Arrêt."
+            report_quota_candidates
             exit 1
           fi
           # Si inventaire live montre déjà saturation fichiers, stop (déjà couvert).
           if [ "$REMOTE_NOW" -ge "$MAX_FILES" ]; then
             echo "::error::Serveur déjà au plafond fichiers ($REMOTE_NOW >= $MAX_FILES). Arrêt."
+            report_quota_candidates
             exit 1
           fi
 
@@ -345,13 +354,46 @@ jobs:
             exit 0
           fi
 
-          if ! ftp_run "mirror --reverse --no-perms --overwrite --verbose --parallel=2 --include-from-file=out/deploy-list.txt --exclude '^\\.htaccess\$' out/ ./"; then
+          # Sauvegarder les trois fichiers racine avant la première écriture distante.
+          mkdir -p out/predeploy-backups
+          for FILE in .htaccess robots.txt sitemap.xml; do
+            if ! ftp_run "get ./$FILE -o out/predeploy-backups/$FILE"; then
+              echo "::error::Impossible de sauvegarder le fichier distant $FILE — arrêt sans transfert."
+              exit 1
+            fi
+            if [ ! -s "out/predeploy-backups/$FILE" ]; then
+              echo "::error::La sauvegarde distante de $FILE est vide — arrêt sans transfert."
+              exit 1
+            fi
+          done
+
+          if ! ftp_run "mirror --reverse --no-perms --overwrite --verbose --parallel=2 --include-from-file=out/deploy-list.txt out/ ./"; then
+            echo "::warning::Transfert différentiel FTPS échoué — restauration des fichiers racine sauvegardés."
+            RESTORE_FAILED=0
+            for FILE in .htaccess robots.txt sitemap.xml; do
+              if ! ftp_run "put out/predeploy-backups/$FILE -o ./$FILE"; then
+                RESTORE_FAILED=1
+              fi
+            done
+            if [ "$RESTORE_FAILED" -ne 0 ]; then
+              echo "::error::La restauration d'au moins un fichier racine a échoué; sauvegardes conservées dans les journaux de cette exécution."
+            fi
             echo "::error::Transfert différentiel FTPS échoué — manifeste distant non modifié."
             exit 1
           fi
 
           if ! ftp_run "put out/deploy-manifest.json -o ./deploy-manifest.json"; then
-            echo "::error::Transfert OK mais publication du manifeste v2 échouée."
+            echo "::warning::Publication du manifeste v2 échouée — restauration des fichiers racine sauvegardés."
+            RESTORE_FAILED=0
+            for FILE in .htaccess robots.txt sitemap.xml; do
+              if ! ftp_run "put out/predeploy-backups/$FILE -o ./$FILE"; then
+                RESTORE_FAILED=1
+              fi
+            done
+            if [ "$RESTORE_FAILED" -ne 0 ]; then
+              echo "::error::La restauration d'au moins un fichier racine a échoué; sauvegardes conservées dans les journaux de cette exécution."
+            fi
+            echo "::error::Transfert OK mais publication du manifeste v2 échouée; fichiers racine restaurés si possible."
             exit 1
           fi
           echo "✓ Déploiement différentiel FTPS terminé; manifeste v2 distant mis à jour."

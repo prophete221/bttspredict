@@ -20,6 +20,7 @@ describe('deployment safety gates', () => {
 
   it('requires encrypted FTPS with the legacy certificate bypass, live inventory, schema-validated diff, and forbids purge/full-mirror/htaccess-rm', () => {
     expect(deploy).not.toContain('mirror --delete')
+    expect(deploy).not.toContain('--exclude')
     expect(deploy).not.toContain('repli sur miroir complet')
     expect(deploy).not.toContain('Deploy .htaccess')
     expect(deploy).not.toContain('rm -f ./.htaccess')
@@ -28,14 +29,22 @@ describe('deployment safety gates', () => {
     expect(deploy).toContain('ftp:ssl-force true')
     expect(deploy).toContain('ftp:ssl-protect-data true')
     expect(deploy).not.toContain('check-ftp-tls.py --require-verified')
-    expect(deploy).toContain('ftp-diff.mjs prepare --require-prev')
+    expect(deploy).toContain('ftp-diff.mjs prepare --require-prev --force-path=.htaccess --force-path=robots.txt --force-path=sitemap.xml')
     expect(deploy).toContain('ftps://')
+    for (const file of ['.htaccess', 'robots.txt', 'sitemap.xml']) {
+      expect(deploy).toContain(`--force-path=${file}`)
+    }
+    expect(deploy).toContain('get ./$FILE -o out/predeploy-backups/$FILE')
+    expect(deploy).toContain('put out/predeploy-backups/$FILE -o ./$FILE')
+    expect(deploy.match(/put out\/predeploy-backups\/\$FILE -o \.\/\$FILE/g)?.length ?? 0).toBeGreaterThanOrEqual(2)
     expect(deploy).toContain('FTP_FILE_QUOTA')
     expect(deploy).toContain('remote-inventory')
     expect(deploy).toContain('find .')
     expect(deploy).toContain('deploy-diff-stats.json')
     expect(deploy).toContain('NEW_PATHS')
     expect(deploy).toContain('BYTES_TO_ADD')
+    expect(deploy).toContain('report_quota_candidates')
+    expect(workflow).toContain("paths-ignore:\n      - 'public/**'")
   })
 
   it('keeps the diagnostic workflow read-only without deployment credentials', () => {
