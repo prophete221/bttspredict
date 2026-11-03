@@ -233,20 +233,23 @@ jobs:
         run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
 
       # Déploiement sûr LWS :
-      # - FTPS explicite avec vérification TLS stricte (jamais de désactivation de la vérification TLS)
+      # - FTPS explicite + vérification certificat obligatoire
+      # - inventaire distant ACTUEL obligatoire (listing live) — un vieux manifeste ne suffit pas
       # - pas de suppression miroir, pas de purge récursive, pas d'upload complet de secours
-      # - manifeste sha256 local ; diff uniquement si manifeste distant récupérable
-      # - arrêt immédiat si inventaire/manifeste distant inconnu ou quota fichiers risqué
+      # - schéma manifeste v2 validé ; diff + calcul quota fichiers/octets avec marge
       # - manifeste distant publié UNIQUEMENT après transfert réussi
-      - name: Deploy via FTPS (strict TLS, differential only, quota gate)
+      # - pas d'étape .htaccess rm/rename (risque non contrôlé)
+      - name: Deploy via FTPS (strict TLS, live inventory, differential only)
         timeout-minutes: 45
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          # Plafond fichiers LWS observé (panel). Marge de sécurité obligatoire.
           FTP_FILE_QUOTA: '10000'
           FTP_FILE_MARGIN: '50'
+          # Marge octets (50 Mio) sous 1 Go affiché panel — ajustable si LWS confirme autre plafond
+          FTP_BYTE_QUOTA: '1000000000'
+          FTP_BYTE_MARGIN: '52428800'
         run: |
           set -euo pipefail
 
@@ -255,7 +258,6 @@ jobs:
             exit 1
           fi
 
-          # FTPS explicite + vérification certificat/hostname (vérification certificat obligatoire).
           SETTINGS="set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate true; set net:timeout 60; set net:max-retries 3; set mirror:use-pget-n 1"
           FTP_URL="ftps://${FTP_SERVER}"
 
@@ -263,55 +265,81 @@ jobs:
             lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "$FTP_URL" -e "$SETTINGS; $1; bye"
           }
 
-          # Préflight TLS strict sans login applicatif étendu : échec = stop.
-          echo "Préflight FTPS strict vers hôte configuré…"
+          echo "Préflight FTPS strict…"
           if ! python3 scripts/check-ftp-tls.py --require-verified; then
-            echo "::error::FTPS strict échoué (certificat/hostname). Demander à LWS un hôte dont le certificat couvre l'endpoint, ou corriger le certificat. Aucun déploiement."
+            echo "::error::FTPS strict échoué (certificat/hostname). Demander à LWS un hôte certifié ou corriger le certificat. Aucun déploiement."
             exit 1
           fi
 
-          LOCAL_COUNT=$(find out -type f ! -name 'deploy-manifest.json' ! -name 'deploy-manifest.prev.json' ! -name 'deploy-list.txt' | wc -l | tr -d ' ')
-          echo "Fichiers locaux (export): $LOCAL_COUNT"
           QUOTA="${FTP_FILE_QUOTA}"
           MARGIN="${FTP_FILE_MARGIN}"
-          MAX_ALLOWED=$((QUOTA - MARGIN))
-          if [ "$LOCAL_COUNT" -gt "$MAX_ALLOWED" ]; then
-            echo "::error::Export local ($LOCAL_COUNT) dépasse quota-marge ($MAX_ALLOWED / quota $QUOTA). Arrêt."
+          MAX_FILES=$((QUOTA - MARGIN))
+          BYTE_QUOTA="${FTP_BYTE_QUOTA}"
+          BYTE_MARGIN="${FTP_BYTE_MARGIN}"
+          MAX_BYTES=$((BYTE_QUOTA - BYTE_MARGIN))
+
+          # --- Inventaire distant ACTUEL (listing live) ---
+          # Un manifeste historique ne prouve pas le quota actuel.
+          rm -f out/remote-inventory.txt out/deploy-manifest.prev.json out/deploy-list.txt out/deploy-diff-stats.json
+          echo "Inventaire distant live (find)…"
+          set +e
+          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "$FTP_URL" -e "$SETTINGS; find .; bye" > out/remote-inventory.txt 2>out/remote-inventory.err
+          LIST_RC=$?
+          set -e
+          if [ "$LIST_RC" -ne 0 ] || [ ! -s out/remote-inventory.txt ]; then
+            echo "::error::Impossible d'obtenir un inventaire distant fiable via lftp find. Demander à LWS une méthode d'inventaire (panel, outil, ou listing FTPS stable). Workflow arrêté — aucune écriture."
+            if [ -f out/remote-inventory.err ]; then sed -n '1,40p' out/remote-inventory.err; fi
             exit 1
           fi
 
-          # Manifeste distant obligatoire pour un diff sûr. Absent → arrêt (pas de full upload).
-          rm -f out/deploy-manifest.prev.json out/deploy-list.txt
-          if ! ftp_run "get ./deploy-manifest.json -o out/deploy-manifest.prev.json"; then
-            echo "::error::Manifeste distant deploy-manifest.json introuvable ou illisible. Inventaire non fiable — aucun transfert. Publier un manifeste initial hors bande après inventaire panel LWS."
+          # Compte des fichiers distants (lignes non-dossiers approximées : ignore entrées finissant par /)
+          REMOTE_NOW=$(grep -cve '/$' out/remote-inventory.txt || true)
+          if [ "${REMOTE_NOW}" -le 0 ]; then
+            echo "::error::Inventaire distant vide ou illisible — arrêt."
             exit 1
           fi
-          if [ ! -s out/deploy-manifest.prev.json ]; then
-            echo "::error::Manifeste distant vide — arrêt."
+          echo "Fichiers distants actuels (inventaire live): $REMOTE_NOW"
+
+          # Manifeste distant optionnel pour le DIFF de contenu uniquement (pas pour le quota).
+          if ftp_run "get ./deploy-manifest.json -o out/deploy-manifest.prev.json"; then
+            echo "Manifeste distant récupéré (diff contenu)."
+          else
+            echo "::error::Manifeste distant deploy-manifest.json absent. Sans manifeste v2 valide, pas de diff sûr et pas d'upload complet. Arrêt."
             exit 1
           fi
 
-          # Contrôle quota via fileCount du manifeste distant (proxy d'inventaire versionné).
-          REMOTE_COUNT=$(node -e "const m=require('./out/deploy-manifest.prev.json'); if(typeof m.fileCount!=='number') process.exit(2); process.stdout.write(String(m.fileCount))") || {
-            echo "::error::Manifeste distant sans fileCount numérique — inventaire non fiable, arrêt."
-            exit 1
-          }
-          echo "Fichiers déclarés manifeste distant: $REMOTE_COUNT"
-
-          # Diff strict : seulement hash changés / nouveaux. Échec si prepare refuse.
           node scripts/ftp-diff.mjs prepare --require-prev
-          if [ ! -f out/deploy-list.txt ]; then
-            echo "::error::deploy-list.txt manquant après prepare — arrêt."
+
+          if [ ! -f out/deploy-diff-stats.json ] || [ ! -f out/deploy-list.txt ]; then
+            echo "::error::Statistiques de diff manquantes — arrêt."
             exit 1
           fi
 
-          CHANGED=$(grep -c . out/deploy-list.txt || true)
-          echo "Fichiers à transférer (diff): $CHANGED"
+          NEW_PATHS=$(node -e "const s=require('./out/deploy-diff-stats.json'); process.stdout.write(String(s.newPathCount||0))")
+          BYTES_TO_ADD=$(node -e "const s=require('./out/deploy-diff-stats.json'); process.stdout.write(String(s.bytesToAdd||0))")
+          CHANGED=$(node -e "const s=require('./out/deploy-diff-stats.json'); process.stdout.write(String(s.changedCount||0))")
+          LOCAL_BYTES=$(node -e "const s=require('./out/deploy-diff-stats.json'); process.stdout.write(String(s.localTotalBytes||0))")
 
-          # Borne haute grossière : remote + ajouts (sans suppressions distantes automatiques).
-          # Sans inventaire live exact, on refuse si remote déjà >= MAX_ALLOWED.
-          if [ "$REMOTE_COUNT" -ge "$MAX_ALLOWED" ]; then
-            echo "::error::Quota distant saturé ($REMOTE_COUNT >= $MAX_ALLOWED). Nettoyage manuel panel LWS requis avant tout upload."
+          echo "Diff: changed=$CHANGED newPaths=$NEW_PATHS bytesToAdd=$BYTES_TO_ADD localBytes=$LOCAL_BYTES"
+
+          # Quota fichiers : inventaire live + chemins réellement nouveaux
+          PROJECTED_FILES=$((REMOTE_NOW + NEW_PATHS))
+          echo "Projection fichiers: $REMOTE_NOW + $NEW_PATHS = $PROJECTED_FILES (max autorisé $MAX_FILES / quota $QUOTA marge $MARGIN)"
+          if [ "$PROJECTED_FILES" -gt "$MAX_FILES" ]; then
+            echo "::error::Quota fichiers risqué ($PROJECTED_FILES > $MAX_FILES). Nettoyage panel LWS ou hausse de quota requis. Arrêt."
+            exit 1
+          fi
+
+          # Quota octets : sans taille distante exacte par fichier, borne supérieure =
+          # on refuse si bytesToAdd seul dépasse la marge restante sous BYTE_QUOTA
+          # quand l'espace libre n'est pas mesurable. Exiger marge sur l'ajout.
+          if [ "$BYTES_TO_ADD" -gt "$MAX_BYTES" ]; then
+            echo "::error::Volume à ajouter ($BYTES_TO_ADD) dépasse la marge octets ($MAX_BYTES). Arrêt."
+            exit 1
+          fi
+          # Si inventaire live montre déjà saturation fichiers, stop (déjà couvert).
+          if [ "$REMOTE_NOW" -ge "$MAX_FILES" ]; then
+            echo "::error::Serveur déjà au plafond fichiers ($REMOTE_NOW >= $MAX_FILES). Arrêt."
             exit 1
           fi
 
@@ -320,41 +348,16 @@ jobs:
             exit 0
           fi
 
-          # Transfert différentiel uniquement — pas de suppression distante auto, pas de miroir complet.
           if ! ftp_run "mirror --reverse --no-perms --overwrite --verbose --parallel=2 --include-from-file=out/deploy-list.txt --exclude '^\\.htaccess\$' out/ ./"; then
-            echo "::error::Transfert différentiel FTPS échoué — pas de repli complet, manifeste distant non modifié."
+            echo "::error::Transfert différentiel FTPS échoué — manifeste distant non modifié."
             exit 1
           fi
 
-          # Manifeste publié seulement après succès du transfert.
           if ! ftp_run "put out/deploy-manifest.json -o ./deploy-manifest.json"; then
-            echo "::error::Transfert OK mais publication du manifeste échouée — corriger avant le prochain run."
+            echo "::error::Transfert OK mais publication du manifeste v2 échouée."
             exit 1
           fi
-          echo "✓ Déploiement différentiel FTPS terminé; manifeste distant mis à jour."
-
-      - name: Deploy .htaccess via FTPS (optional, no TLS bypass)
-        continue-on-error: true
-        timeout-minutes: 5
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        run: |
-          set -euo pipefail
-          SETTINGS="set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate true; set net:timeout 60; set net:max-retries 3"
-          FTP_URL="ftps://${FTP_SERVER}"
-          if [ ! -f out/.htaccess ]; then
-            echo "Pas de out/.htaccess — skip"
-            exit 0
-          fi
-          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "$FTP_URL" -e "
-            $SETTINGS
-            put out/.htaccess -o ./.htaccess.deploy
-            rm -f ./.htaccess
-            mv ./.htaccess.deploy ./.htaccess
-            bye
-          " || echo "::warning::.htaccess non déployé (droits LWS) — hors chemin critique du manifeste."
+          echo "✓ Déploiement différentiel FTPS terminé; manifeste v2 distant mis à jour."
 
       - name: Notify Bing via IndexNow
         if: success()
