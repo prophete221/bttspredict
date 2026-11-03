@@ -12,7 +12,7 @@ const frozenFiles = {
   // modifiée ni supprimée.
   'src/app/sitemap.ts': '97dddf701e97cdac9cf4538b241ef3bd9cddfee6d87cc9131ad55b2f886827b5',
   'public/robots.txt': '678a5a55dde4dd3c548f807dca3aa23964e886efc0a65b3b2ce8ff9d34d162a4',
-  'scripts/submit-indexnow.mjs': '8be00e423e8eec3476b81cf21e790c5c0c1164f86a9a73da1776c8ec889e5ac4',
+  'scripts/submit-indexnow.mjs': 'f427299dae1ca9b41d56506945e91eb55fcd3185d79d2b5077e6a5ae8ffe142d',
 }
 const frozenMetadata = {
   'src/app/layout.tsx': '00ed1e3d4fe5ad47d253833d6b2d0b31faca98a28e596efa0bf96b6082ceaaf3',
