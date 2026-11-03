@@ -29,9 +29,20 @@ import { useLanguage } from './LanguageSwitcher'
 
 const GIFT_DISMISS_KEY = 'bttsbet_gift_popup_dismissed'
 const GIFT_DISMISS_KEY_TODAY = 'bttsbet_gift_popup_dismissed_today'
+const CONSENT_KEY = 'bttsbet_cookie_consent'
 
 /** Pages prioritaires : /over-2-5/predictions/today (+ variantes /en et /ar). */
 const PRIORITY_PATH_RE = /^\/(?:en|ar)?\/?over-2-5\/predictions\/today\/?$/
+
+/** Le cadeau attend la décision cookies : il ne doit jamais recouvrir la
+    bannière de consentement (z-index inférieur + déclenchement différé). */
+function consentDecided(): boolean {
+  try {
+    return Boolean(localStorage.getItem(CONSENT_KEY))
+  } catch {
+    return true
+  }
+}
 
 /** Bookmakers mis en avant dans le cadeau — Linebet d'abord, puis 1xBet. */
 const GIFT_BOOKMAKERS = ['linebet', '1xbet'] as const
@@ -80,16 +91,28 @@ export default function GiftPopup() {
       setVisible(true)
     }
 
+    /* Révèle seulement si les conditions de la page sont réunies ET que la
+       décision cookies est prise (sinon on attend l'événement de consentement). */
+    const revealIfAllowed = () => {
+      if (!consentDecided()) return
+      reveal()
+    }
+
+    // Page prioritaire (la plus visitée) : affichage immédiat, sans scroll.
     if (isPriorityPage) {
-      const timer = setTimeout(reveal, 900)
-      return () => clearTimeout(timer)
+      const timer = setTimeout(revealIfAllowed, 900)
+      window.addEventListener('cookie-consent-changed', revealIfAllowed)
+      return () => {
+        clearTimeout(timer)
+        window.removeEventListener('cookie-consent-changed', revealIfAllowed)
+      }
     }
 
     let armed = false
     const revealOnce = () => {
       if (armed) return
       armed = true
-      reveal()
+      revealIfAllowed()
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onScroll)
     }
@@ -104,11 +127,13 @@ export default function GiftPopup() {
     const fallback = setTimeout(revealOnce, 7000)
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onScroll, { passive: true })
+    window.addEventListener('cookie-consent-changed', revealOnce)
     return () => {
       cancelAnimationFrame(arm)
       clearTimeout(fallback)
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onScroll)
+      window.removeEventListener('cookie-consent-changed', revealOnce)
     }
   }, [isPriorityPage])
 
