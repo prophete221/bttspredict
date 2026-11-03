@@ -23,8 +23,6 @@ const URLS = [
   'https://bttspredict.com/btts-c-est-quoi',
   'https://bttspredict.com/code-promo-linebet-senegal',
   'https://bttspredict.com/bonus-888starz',
-  'https://bttspredict.com/prediction-aviator',
-  'https://bttspredict.com/faille-fifa',
   'https://bttspredict.com/equipe',
   'https://bttspredict.com/presse',
   'https://bttspredict.com/blog',
@@ -32,7 +30,6 @@ const URLS = [
   'https://bttspredict.com/blog/strategie-mise-over-2-5',
   'https://bttspredict.com/blog/gestion-bankroll-paris-sportifs',
   'https://bttspredict.com/blog/meilleurs-championnats-btts',
-  'https://bttspredict.com/blog/faille-fifa-linebet',
   'https://bttspredict.com/blog/guide-linebet-inscription',
   'https://bttspredict.com/over-2-5-predictions',
   'https://bttspredict.com/correct-score-predictions',
@@ -41,7 +38,7 @@ const URLS = [
   'https://bttspredict.com/league-predictions',
   'https://bttspredict.com/team-predictions',
   'https://bttspredict.com/match-predictions',
-  'https://bttspredict.com/linebet-promo-code',
+  'https://bttspredict.com/linebet-promo-code'
 ]
 
 async function submitToIndexNow() {
