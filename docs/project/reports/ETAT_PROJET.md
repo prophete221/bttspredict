@@ -1,14 +1,15 @@
 # État du projet BTTSPredict
 
-**État à la date du 3 novembre 2026.**
+**État établi le 3 novembre 2026.**
 
 ## Référence de travail
 
 - **Branche active :** `redesign/professional-global-2026-11-03`.
-- **Commit exact de référence au début de la mission documentaire et commit source du diagnostic Phase 1 :** `325526d93c63fc52143741a5b739cf68f7ba0809`.
+- **Commit source du diagnostic Phase 1 :** `325526d93c63fc52143741a5b739cf68f7ba0809`.
 - **Commit du code échantillonné par l’audit central :** `71cf295e9d07794ea04b88710d474561cf128b35`.
+- **Commit local de création des trois documents :** `97fa668e18dd758a774b022541dd546d870e6c06` (`docs: centralize phase 1 project reports`). Ce commit documentaire n’est pas le commit source du diagnostic.
+- **État Git vérifié sur le commit de création des documents :** branche locale en avance d’un commit sur `origin/redesign/professional-global-2026-11-03`; aucun push effectué. La mise à jour courante du journal et de cet état est un nouveau commit local et ne sera pas poussée.
 - **Dossier de rapports permanent :** `docs/project/reports/`.
-- **Commit local des trois documents :** indiqué dans le message de remise après sa création et sa vérification. Ce SHA de documentation ne doit pas être présenté comme le commit source du diagnostic.
 
 ## Phase en cours
 
@@ -17,9 +18,9 @@
 ## Travaux terminés
 
 - Phase 0 : audit technique, SEO et inventaire consigné dans `docs/project/BTTSPREDICT_AUDIT_COMPLET.md`.
-- Phase 1 : diagnostic read-only des dix URL match en 404, de l’URL match AR en 403, des robots d’erreur, de l’index d’archive, de `/en/over-2-5/statistics` et des 64 routes éditoriales FR/EN/AR.
+- Phase 1 : diagnostic en lecture seule des dix URL match en 404, de l’URL match AR en 403, des robots d’erreur, de l’index d’archive, de `/en/over-2-5/statistics` et des 64 routes éditoriales FR/EN/AR.
 - Matrice SEO exhaustive route par route et gabarit des 864 fichiers match consignés dans `RAPPORT_DIAGNOSTIC_PHASE1.md`.
-- Dossier permanent créé avec rapport, journal et état projet.
+- Les documents permanents ont été créés, lus et validés. Voir la validation détaillée dans `JOURNAL_PROJET.md`.
 
 ## Décisions et actions en attente du chef de projet
 
@@ -49,8 +50,8 @@ Ne pas modifier sans validation préalable l’URL, le canonical, la redirection
 - Ne pousser aucun changement sur GitHub sans autorisation explicite.
 - Après chaque mission, actualiser ces documents dans le dépôt, préserver les anciens rapports, inscrire le commit exact et distinguer faits, hypothèses, recommandations et décisions en attente.
 
-## État de validation
+## Validation documentaire
 
-- **Tests applicatifs dans la mission de diagnostic :** aucun nouveau build, `npm test`, TypeScript ou lint exécuté ; le diagnostic était en lecture seule.
-- **Dépôt au début de la mission :** propre sur la branche indiquée, HEAD `325526d93c63fc52143741a5b739cf68f7ba0809`.
-- **Validation documentaire de cette mission :** à effectuer avant la remise : vérifier le contenu des trois fichiers, les différences Git et le commit local limité à ces fichiers.
+La validation documentaire est **effectuée** : les trois fichiers existent et ont été lus ; `git diff --check` passe sur le commit de création ; le commit `97fa668e18dd758a774b022541dd546d870e6c06` ne contient que les trois documents demandés. Au contrôle correspondant, la branche locale était en avance d’un commit sur son upstream, sans push. La mise à jour actuelle ne touche qu’à `ETAT_PROJET.md` et `JOURNAL_PROJET.md` et sera enregistrée dans un nouveau commit local sans push.
+
+Le diagnostic Phase 1 était en lecture seule : aucun nouveau build, `npm test`, TypeScript ou lint n’a été exécuté. Aucune correction de code n’est commencée ; attendre la décision du chef de projet.

@@ -27,7 +27,7 @@
 - **Branche :** `redesign/professional-global-2026-11-03`.
 - **Fichiers créés par cette mission :** `docs/project/reports/RAPPORT_DIAGNOSTIC_PHASE1.md`, `docs/project/reports/JOURNAL_PROJET.md`, `docs/project/reports/ETAT_PROJET.md`.
 - **Fichiers applicatifs touchés :** aucun. Rapport d’audit central initial conservé sans modification.
-- **Preuves, contrôles et résultat :** les fichiers sont vérifiés après écriture, puis enregistrés dans un commit local limité à ces trois chemins. SHA du commit local communiqué dans le message de remise. Aucun push GitHub, intervention sur `main` ou production n’est autorisé par cette mission.
+- **Preuves, contrôles et résultat :** commit local de création des trois documents `97fa668e18dd758a774b022541dd546d870e6c06`; présence et lecture des trois fichiers confirmées, `git diff --check` réussi et commit ne contenant que ces trois chemins. Au contrôle de ce commit, la branche locale était en avance d’un commit sur `origin/redesign/professional-global-2026-11-03`; aucun push n’a été effectué. La mise à jour suivante de l’état et du journal est limitée à ces deux fichiers et reste locale.
 - **Décision en attente :** attendre l’analyse du chef de projet avant toute correction de code, de contenu, de métadonnées, de redirection ou de règle serveur.
 
 ## Protocole obligatoire pour les prochaines missions
@@ -38,3 +38,11 @@
 4. Indiquer explicitement les tâches en attente d’une décision du chef de projet.
 5. Vérifier réellement les fichiers écrits et le commit avant de déclarer les documents à jour.
 6. Ne pas pousser sur GitHub et ne pas toucher à `main` ou à la production sans autorisation explicite.
+
+## 2026-11-03 — Mise à jour des preuves de validation documentaire
+
+- **Commit exact de base de cette mise à jour :** `97fa668e18dd758a774b022541dd546d870e6c06`, branche `redesign/professional-global-2026-11-03`.
+- **Fichiers modifiés :** `docs/project/reports/ETAT_PROJET.md` et `docs/project/reports/JOURNAL_PROJET.md` uniquement. `RAPPORT_DIAGNOSTIC_PHASE1.md` et tous les fichiers applicatifs sont inchangés.
+- **Faits et validation consignés :** présence et lecture des trois rapports confirmées ; `git diff --check` a réussi sur le commit initial ; `97fa668e18dd758a774b022541dd546d870e6c06` contient exactement les trois fichiers de rapports. Au contrôle de ce commit, le dépôt local était en avance d’un commit sur l’upstream et aucun push n’avait été effectué.
+- **Résultat de cette mission :** les deux mises à jour sont enregistrées dans un nouveau commit local limité à ces deux chemins. Aucun push GitHub, changement de branche, intervention sur `main` ou production. Le SHA de ce nouveau commit et l’état local/distant exacts sont communiqués dans la réponse de remise.
+- **Décisions en attente :** toutes les corrections Phase 1 restent suspendues jusqu’à l’analyse et aux instructions du chef de projet.
