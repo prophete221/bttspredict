@@ -21229,7 +21229,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.24 · N 7 · 2 9.5",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-03T22:54:48.140Z"
     },
     {
       "id": "queenspa-vs-burnley-2026-11-03",
@@ -21438,7 +21440,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-03T22:54:48.136Z"
     },
     {
       "id": "derbycou-vs-norwichc-2026-11-03",
@@ -21646,7 +21650,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-4",
+      "verifiedAt": "2026-11-03T22:54:16.099Z"
     },
     {
       "id": "bodoglim-vs-lille-2026-11-03",
@@ -21861,7 +21867,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.87 · N 4 · 2 3.65",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-03T22:54:16.099Z"
     },
     {
       "id": "manchest-vs-asroma-2026-11-03",
@@ -22076,7 +22084,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.3 · N 3.9 · 2 2.7",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "3-2",
+      "verifiedAt": "2026-11-03T22:54:16.099Z"
     },
     {
       "id": "villarre-vs-parissai-2026-11-03",
@@ -22292,7 +22302,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4.5 · 2 1.61",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-6",
+      "verifiedAt": "2026-11-03T22:54:16.100Z"
     },
     {
       "id": "blackbur-vs-stokecit-2026-11-03",
@@ -22501,7 +22513,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "1-2",
+      "verifiedAt": "2026-11-03T22:54:16.100Z"
     },
     {
       "id": "charlton-vs-boltonwa-2026-11-03",
@@ -22710,7 +22724,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-1",
+      "verifiedAt": "2026-11-03T22:54:16.099Z"
     },
     {
       "id": "wrexham-vs-middlesb-2026-11-04",
@@ -25064,7 +25080,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 1.24 · N 7 · 2 9.5",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "3-0",
+      "verifiedAt": "2026-11-03T22:54:16.099Z"
     },
     {
       "id": "villarre-vs-parissai-2026-11-03",
@@ -25279,7 +25297,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 4.6 · N 4.5 · 2 1.61",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "0-6",
+      "verifiedAt": "2026-11-03T22:54:48.136Z"
     },
     {
       "id": "racingsa-vs-realmadr-2026-11-01",
@@ -27207,7 +27227,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "1-1",
+      "verifiedAt": "2026-11-03T22:54:16.100Z"
     }
   ],
   "analysisEngine": "gemini-stats-v1"
