@@ -4,12 +4,12 @@ import { AFFILIATE } from '@/lib/constants'
 import PromoLandingShell from '@/components/bttsbet/PromoLandingShell'
 import { getPromoFaq } from '@/lib/promo-faq'
 
-const CODE = 'Vipbtts'
+const CODE = 'vipbtts'
 const BRAND = '1xBet'
 const SELF = '1xbet' as const
 
 const ALL_LINKS = [
-  { id: '1xbet', label: '1xBet Vipbtts', href: '/code-promo-1xbet' },
+  { id: '1xbet', label: '1xBet vipbtts', href: '/code-promo-1xbet' },
   { id: 'linebet', label: 'Linebet VISION221', href: '/code-promo-linebet-senegal' },
   { id: 'melbet', label: 'Melbet Bttswin', href: '/code-promo-melbet' },
   { id: '888starz', label: '888Starz btts221', href: '/bonus-888starz' },
@@ -28,7 +28,7 @@ export default function XbetClient(_props: { reviewDate?: string } = {}) {
       downloadUrl={AFFILIATE.oneXbetDownload}
       lang="fr"
       title={`Code promo ${BRAND} ${CODE}`}
-      badge="Meilleur code promo — 300% + 100 Free Spins · Vipbtts"
+      badge="Meilleur code promo — 300% + 100 Free Spins · vipbtts"
       intro={`Utilise le code ${CODE} à l’inscription via notre lien partenaire pour activer l’offre annoncée par ${BRAND}. Respecte la casse exacte. Les conditions définitives sont celles affichées par l’opérateur après inscription.`}
       offerHeadline="300% + 100 free spins"
       offerSub="Offre partenaire annoncée — sans condition de mise selon l’annonce. Vérifie toujours les termes sur le site de l’opérateur. 18+."

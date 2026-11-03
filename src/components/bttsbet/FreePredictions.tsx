@@ -556,28 +556,30 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
                   </div>
                 )}
 
-                {/* CTA — Linebet principal, 1xbet secondaire (priorité affiliation 2026-11) */}
+                {/* CTA — ordre définitif : partenaire principal 1xBet, puis Linebet. */}
                 <div>
                   <div className="text-xs uppercase tracking-widest font-semibold text-cendre mb-2">{t.predictions.betMatch}</div>
                   <div className="flex flex-col gap-2">
+                    <a
+                      href={AFFILIATE.oneXbet}
+                      target="_blank"
+                      rel="sponsored nofollow noopener noreferrer"
+                      onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'match-card-primary', { match: match.match, market: 'BTTS', lang })}
+                      data-cta="match-card-1xbet-signup"
+                      className="flex min-h-10 items-center justify-center rounded-xl bg-[#C5F36A] px-3 text-center text-sm font-bold text-[#10150B]"
+                    >
+                      1xBet · vipbtts
+                    </a>
                     <PremiumButton
                       variant="linebet"
                       href={AFFILIATE.linebet}
                       size="sm"
                       fullWidth
-                      onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'match-card', { match: match.match, market: 'BTTS', lang })}
+                      trackingPlacement="match-card-secondary"
+                      data-cta="match-card-linebet-signup"
                     >
-                      Linebet
+                      Linebet · VISION221
                     </PremiumButton>
-                    <a
-                      href={AFFILIATE.oneXbet}
-                      target="_blank"
-                      rel="noopener noreferrer nofollow sponsored"
-                      onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'match-card-secondary', { match: match.match, market: 'BTTS', lang })}
-                      className="text-center text-[10px] text-cendre underline decoration-dotted hover:text-[#F5F8F3] transition-colors"
-                    >
-                      1xbet
-                    </a>
                   </div>
                 </div>
               </div>
@@ -592,7 +594,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
               const opening = !expanded
               setExpanded(e => !e)
               if (opening) {
-                trackAffiliateAction('linebet', 'prediction_view', `card-expand:${window.location.pathname}`, {
+                trackAffiliateAction('platform', 'prediction_view', `card-expand:${window.location.pathname}`, {
                   match: match.match,
                   market: 'BTTS',
                   lang,
@@ -634,7 +636,7 @@ export default function FreePredictions({ initialLocale }: { initialLocale?: Loc
   // Vue du feed de prédictions (1×/session et par page) — funnel : PRÉDICTION.
   useEffect(() => {
     if (typeof window === 'undefined') return
-    trackAffiliateAction('linebet', 'prediction_view', `feed:${window.location.pathname}`, { lang })
+    trackAffiliateAction('platform', 'prediction_view', `feed:${window.location.pathname}`, { lang })
   }, [lang])
   const t = translationsFor(lang)
   const intelligenceTitle = lang === 'en' ? "Today's intelligence" : lang === 'ar' ? 'ذكاء اليوم' : 'Intelligence du jour'

@@ -88,7 +88,7 @@ export default function AICorrectScorePage() {
   const filtered = activeLeague === 'all' ? predictions : predictions.filter(p => p.league === activeLeague)
 
   return (
-    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
+    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA] page-design page-design--score-exact">
       <Navbar />
       <main id="main-content" className="flex-1">
         <nav aria-label={lang === 'en' ? 'Breadcrumb' : lang === 'ar' ? 'مسار التنقل' : "Fil d'Ariane"} className="text-xs text-[#9DABBB] mb-4 max-w-5xl mx-auto px-4 pt-8">

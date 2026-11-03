@@ -1,6 +1,7 @@
 'use client'
 
 import { AFFILIATE } from '@/lib/constants'
+import { trackAffiliateAction } from '@/lib/affiliateTracking'
 
 /**
  * LinebetApkButton — Bouton de téléchargement APK Linebet
@@ -11,6 +12,8 @@ export default function LinebetApkButton() {
       href={AFFILIATE.linebetDownload}
       rel="sponsored nofollow noopener noreferrer"
       target="_blank"
+      onClick={() => trackAffiliateAction('linebet', 'download_click', 'linebet-apk-button')}
+      data-cta="linebet-apk-download"
       className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-bold transition-colors"
       style={{
         backgroundColor: 'rgba(47, 125, 255, 0.1)',

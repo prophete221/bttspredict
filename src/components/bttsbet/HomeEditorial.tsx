@@ -3,9 +3,13 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
-import { SITE, AFFILIATE } from '@/lib/constants'
+import { AFFILIATE, BOOKMAKERS } from '@/lib/constants'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
+import { copyTextToClipboard } from '@/lib/clipboard'
 import MovingGradientButton from './MovingGradientButton'
+
+type PartnerCodeId = (typeof BOOKMAKERS)[number]['id']
+const codeForPartner = (id: PartnerCodeId) => BOOKMAKERS.find((bookmaker) => bookmaker.id === id)?.promoCode ?? ''
 
 /* ═══════════════════════════════════════════════════════════════════
    MethodSection — 4 étapes, éditorial court en 2 colonnes.
@@ -129,30 +133,24 @@ export function LeagueCoverage({ initialLocale }: { initialLocale?: Locale } = {
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   PartnerCard — bloc partenaire Linebet, séparé du produit.
-   Ton neutre : code VISION221 inchangé, lien affilié inchangé
-   (AffiliateSignupCta), mentions 18+ complètes, aucune pression.
+   PartnerCard — hiérarchie commerciale : 1xBet, Linebet, MelBet, 888Starz.
+   Codes/liens lus depuis les constantes; conditions opérateur non garanties.
    ═══════════════════════════════════════════════════════════════════ */
 export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) {
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
   const t = translationsFor(lang)
+  const primaryCode = codeForPartner('1xbet')
+  const linebetCode = codeForPartner('linebet')
+  const melbetCode = codeForPartner('melbet')
+  const star888Code = codeForPartner('888starz')
   const [copied, setCopied] = useState(false)
 
   const copyCode = async () => {
-    try {
-      await navigator.clipboard.writeText(SITE.promoCode)
-    } catch {
-      const ta = document.createElement('textarea')
-      ta.value = SITE.promoCode
-      ta.style.position = 'fixed'
-      ta.style.opacity = '0'
-      document.body.appendChild(ta)
-      ta.select()
-      document.execCommand('copy')
-      document.body.removeChild(ta)
-    }
-    trackAffiliateCodeCopy('linebet', 'home-partner')
+    if (!primaryCode) return
+    const ok = await copyTextToClipboard(primaryCode)
+    if (!ok) return
+    trackAffiliateCodeCopy('1xbet', 'home-partner')
     setCopied(true)
     navigator.vibrate?.(15)
     setTimeout(() => setCopied(false), 2000)
@@ -166,42 +164,42 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
           <div className="hp-partner__intro">
             <p className="hp-eyebrow hp-eyebrow--partner">{t.home2.ptEyebrow}</p>
             <p className="hp-partner__title">
-              <span className="hp-partner__brand" aria-hidden="true">LINEBET</span>
-              {SITE.promoCode}
+              <span className="hp-partner__brand" aria-hidden="true">1XBET</span>
+              <code dir="ltr" style={{ textTransform: 'none' }}>{primaryCode}</code>
             </p>
             <p className="hp-partner__text">{t.home2.ptText}</p>
             <p className="hp-partner__free">{t.home2.ptFree}</p>
           </div>
           <div className="hp-partner__actions">
             <div className="hp-partner__code">
-              <code>{SITE.promoCode}</code>
+              <code dir="ltr" style={{ textTransform: 'none' }}>{primaryCode}</code>
               <button
                 type="button"
                 onClick={copyCode}
                 className={`hp-partner__copy${copied ? ' is-copied' : ''}`}
-                aria-label={`Copier ${SITE.promoCode}`}
-                data-cta="partner-copy-vision221"
+                aria-label={`Copier le code 1xBet ${primaryCode}`}
+                data-cta="partner-copy-vipbtts"
               >
                 {copied ? '✓' : t.hero.copy}
               </button>
             </div>
             <div className="grid gap-2 w-full">
               <MovingGradientButton
-                href={AFFILIATE.linebet}
+                href={AFFILIATE.oneXbet}
                 external
                 rel="sponsored nofollow noopener noreferrer"
-                dataCta="partner-signup-home"
-                onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'home-partner')}
+                dataCta="partner-signup-home-1xbet"
+                onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'home-partner-1xbet')}
               >
                 {t.home2.ptCta}
                 <span className="hp-btn-arrow" aria-hidden="true">→</span>
               </MovingGradientButton>
               <a
-                href={AFFILIATE.oneXbet}
+                href={AFFILIATE.linebet}
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
-                onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'home-partner-1xbet')}
-                data-cta="home-partner-1xbet-signup"
+                onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'home-partner-linebet')}
+                data-cta="home-partner-linebet-signup"
                 className="inline-flex items-center justify-center gap-1.5 rounded-xl px-4 py-3 text-sm font-bold transition-all"
                 style={{
                   background: 'linear-gradient(135deg, #1B6EF3 0%, #2F7DFF 100%)',
@@ -209,8 +207,30 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
                   boxShadow: '0 10px 28px rgba(27, 110, 243, 0.35)',
                 }}
               >
-                {lang === 'fr' ? '1xBet · code Vipbtts' : lang === 'en' ? '1xBet · code Vipbtts' : '1xBet · Vipbtts'}
+                {lang === 'fr' ? `Linebet · code ${linebetCode}` : lang === 'en' ? `Linebet · code ${linebetCode}` : `Linebet · ${linebetCode}`}
                 <span aria-hidden="true">→</span>
+              </a>
+            </div>
+            <div className="mt-2 grid grid-cols-2 gap-2">
+              <a
+                href={AFFILIATE.melbet}
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+                onClick={() => trackAffiliateAction('melbet', 'signup_cta_click', 'home-partner-melbet')}
+                data-cta="home-partner-melbet-signup"
+                className="flex min-h-10 items-center justify-center gap-1 rounded-lg border border-white/10 bg-white/[0.025] px-2 py-2 text-center text-xs font-semibold text-[#AEB9B5]"
+              >
+                MelBet <code dir="ltr" style={{ fontFamily: 'ui-monospace, monospace', textTransform: 'none' }}>{melbetCode}</code>
+              </a>
+              <a
+                href={AFFILIATE.star888}
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+                onClick={() => trackAffiliateAction('888starz', 'signup_cta_click', 'home-partner-888starz')}
+                data-cta="home-partner-888starz-signup"
+                className="flex min-h-10 items-center justify-center gap-1 rounded-lg border border-white/10 bg-white/[0.025] px-2 py-2 text-center text-xs font-semibold text-[#AEB9B5]"
+              >
+                888Starz <code dir="ltr" style={{ fontFamily: 'ui-monospace, monospace', textTransform: 'none' }}>{star888Code}</code>
               </a>
             </div>
             <p className="hp-partner__mentions">{t.home2.ptMentions}</p>
@@ -221,10 +241,10 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
               data-cta="home-partner-1xbet-link"
             >
               {lang === 'fr'
-                ? 'Guide code promo 1xBet (Vipbtts)'
+                ? 'Guide code promo 1xBet (vipbtts)'
                 : lang === 'en'
-                  ? '1xBet promo code guide (Vipbtts)'
-                  : 'دليل رمز 1xBet (Vipbtts)'}
+                  ? '1xBet promo code guide (vipbtts)'
+                  : 'دليل رمز 1xBet (vipbtts)'}
               <span aria-hidden="true">→</span>
             </a>
           </div>

@@ -182,7 +182,7 @@ function buildFaqJsonLd() {
         name: '1xbet ou Linebet : quel code promo choisir ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "Les deux sont nos partenaires officiels et annoncent la même offre : 300% de bonus + 100 free spins sans condition de mise, avec Vipbtts (1xbet) comme avec VISION221 (Linebet, dès 1 € de dépôt). Choisis selon le bookmaker que tu préfères utiliser.",
+          text: "Les deux sont nos partenaires officiels et annoncent la même offre : 300% de bonus + 100 free spins sans condition de mise, avec vipbtts (1xbet) comme avec VISION221 (Linebet, dès 1 € de dépôt). Choisis selon le bookmaker que tu préfères utiliser.",
         },
       },
     ],
@@ -240,7 +240,7 @@ export default function CodePromoLinebetSenegalPage() {
                   Nouveau partenaire officiel
                 </p>
                 <p className="font-bold text-papier text-sm sm:text-base">
-                  1xbet — code promo <span className="font-mono font-black tracking-wider" style={{ color: '#4CC9F0' }}>Vipbtts</span>
+                  1xbet — code promo <span className="font-mono font-black tracking-wider" style={{ color: '#4CC9F0' }}>vipbtts</span>
                 </p>
                 <p className="text-[12px] mt-1" style={{ color: '#9DABBB' }}>
                   300% de bonus à l&apos;inscription + 100 free spins, sans condition de mise (offre annoncée).

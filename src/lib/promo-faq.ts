@@ -30,25 +30,25 @@ const FR: Record<PromoBookmakerId, PromoFaqItem[]> = {
     },
     {
       q: '1xbet ou Linebet : quel code promo choisir ?',
-      a: "Les deux sont nos partenaires officiels et annoncent la même offre : 300% de bonus + 100 free spins sans condition de mise, avec Vipbtts (1xbet) comme avec VISION221 (Linebet, dès 1 € de dépôt). Choisis selon le bookmaker que tu préfères utiliser.",
+      a: "Les deux sont nos partenaires officiels et annoncent la même offre : 300% de bonus + 100 free spins sans condition de mise, avec vipbtts (1xbet) comme avec VISION221 (Linebet, dès 1 € de dépôt). Choisis selon le bookmaker que tu préfères utiliser.",
     },
   ],
   '1xbet': [
     {
       q: 'Quel est le code promo 1xbet ?',
-      a: "Le code promo 1xbet est Vipbtts — à recopier exactement tel quel lors de l'inscription ou dans la section « Code Promo » de ton compte 1xbet.",
+      a: "Le code promo 1xbet est vipbtts — à recopier exactement tel quel lors de l'inscription ou dans la section « Code Promo » de ton compte 1xbet.",
     },
     {
-      q: `Que donne le code Vipbtts en ${YEAR} ?`,
-      a: "Le code Vipbtts donne 300% de bonus + 100 free spins, sans condition de mise — offre annoncée par la campagne partenaire. Vérifie l'offre affichée par 1xbet pour ton pays avant tout dépôt.",
+      q: `Que donne le code vipbtts en ${YEAR} ?`,
+      a: "Le code vipbtts donne 300% de bonus + 100 free spins, sans condition de mise — offre annoncée par la campagne partenaire. Vérifie l'offre affichée par 1xbet pour ton pays avant tout dépôt.",
     },
     {
-      q: 'Où saisir le code Vipbtts sur 1xbet ?',
-      a: "Saisis Vipbtts dans le champ « Code promo » du formulaire d'inscription 1xbet, ou plus tard dans ton compte, section « Code Promo ». Respecte la casse exacte.",
+      q: 'Où saisir le code vipbtts sur 1xbet ?',
+      a: "Saisis vipbtts dans le champ « Code promo » du formulaire d'inscription 1xbet, ou plus tard dans ton compte, section « Code Promo ». Respecte la casse exacte.",
     },
     {
       q: '1xbet ou Linebet : quel code promo choisir ?',
-      a: "Les deux sont nos partenaires officiels et annoncent la même offre : 300% de bonus + 100 free spins sans condition de mise, avec Vipbtts (1xbet) comme avec VISION221 (Linebet, dès 1 € de dépôt). Choisis selon le bookmaker que tu préfères utiliser.",
+      a: "Les deux sont nos partenaires officiels et annoncent la même offre : 300% de bonus + 100 free spins sans condition de mise, avec vipbtts (1xbet) comme avec VISION221 (Linebet, dès 1 € de dépôt). Choisis selon le bookmaker que tu préfères utiliser.",
     },
     {
       q: 'Le bonus 1xbet est-il valable dans tous les pays ?',
@@ -70,7 +70,7 @@ const FR: Record<PromoBookmakerId, PromoFaqItem[]> = {
     },
     {
       q: 'Melbet ou 1xbet : quel code promo choisir ?',
-      a: "Les deux sont nos partenaires officiels et annoncent la même offre : 300% de bonus + 100 free spins sans condition de mise, avec Bttswin (Melbet) comme avec Vipbtts (1xbet). Choisis le bookmaker que tu préfères utiliser.",
+      a: "Les deux sont nos partenaires officiels et annoncent la même offre : 300% de bonus + 100 free spins sans condition de mise, avec Bttswin (Melbet) comme avec vipbtts (1xbet). Choisis le bookmaker que tu préfères utiliser.",
     },
     {
       q: 'Le bonus Melbet est-il valable dans tous les pays ?',
@@ -103,20 +103,20 @@ const EN: Record<PromoBookmakerId, PromoFaqItem[]> = {
     { q: `What does code VISION221 give in ${YEAR}?`, a: 'VISION221 is announced as 300% bonus and 100 free spins, no wagering requirement, from a €1 deposit — as stated by the partner campaign. Always check the offer shown by Linebet for your country before depositing.' },
     { q: 'How do I deposit with Wave or Orange Money on Linebet?', a: 'If Wave or Orange Money is available in your country, select it in Linebet Deposit, deposit from €1, then check the terms shown before confirming.' },
     { q: 'Is the bonus available in every country?', a: 'Code and offer availability depend on country, account and period. Check your eligibility and the terms currently shown by Linebet before signing up or depositing.' },
-    { q: '1xbet or Linebet: which promo code should I choose?', a: 'Both are official partners and announce the same offer: 300% bonus + 100 free spins with no wagering requirement — Vipbtts (1xbet) or VISION221 (Linebet, from €1). Choose the bookmaker you prefer.' },
+    { q: '1xbet or Linebet: which promo code should I choose?', a: 'Both are official partners and announce the same offer: 300% bonus + 100 free spins with no wagering requirement — vipbtts (1xbet) or VISION221 (Linebet, from €1). Choose the bookmaker you prefer.' },
   ],
   '1xbet': [
-    { q: 'What is the 1xbet promo code?', a: 'The 1xbet promo code is Vipbtts — copy it exactly during sign-up or in the Promo Code section of your 1xbet account.' },
-    { q: `What does code Vipbtts give in ${YEAR}?`, a: 'Vipbtts is announced as 300% bonus + 100 free spins, no wagering requirement — partner campaign. Check the offer shown by 1xbet for your country before depositing.' },
-    { q: 'Where do I enter code Vipbtts on 1xbet?', a: 'Enter Vipbtts in the Promo code field on the 1xbet registration form, or later in your account under Promo Code. Respect the exact case.' },
-    { q: '1xbet or Linebet: which promo code should I choose?', a: 'Both are official partners and announce the same offer: 300% + 100 free spins with no wagering — Vipbtts (1xbet) or VISION221 (Linebet, from €1). Choose the bookmaker you prefer.' },
+    { q: 'What is the 1xbet promo code?', a: 'The 1xbet promo code is vipbtts — copy it exactly during sign-up or in the Promo Code section of your 1xbet account.' },
+    { q: `What does code vipbtts give in ${YEAR}?`, a: 'vipbtts is announced as 300% bonus + 100 free spins, no wagering requirement — partner campaign. Check the offer shown by 1xbet for your country before depositing.' },
+    { q: 'Where do I enter code vipbtts on 1xbet?', a: 'Enter vipbtts in the Promo code field on the 1xbet registration form, or later in your account under Promo Code. Respect the exact case.' },
+    { q: '1xbet or Linebet: which promo code should I choose?', a: 'Both are official partners and announce the same offer: 300% + 100 free spins with no wagering — vipbtts (1xbet) or VISION221 (Linebet, from €1). Choose the bookmaker you prefer.' },
     { q: 'Is the 1xbet bonus available in every country?', a: 'Availability depends on country, account and period. Check eligibility and the terms currently shown by 1xbet before signing up or depositing.' },
   ],
   melbet: [
     { q: 'What is the Melbet promo code?', a: 'The Melbet promo code is Bttswin — copy it exactly during sign-up or in the Promo Code section of your Melbet account.' },
     { q: `What does code Bttswin give in ${YEAR}?`, a: 'Bttswin is announced as 300% bonus + 100 free spins, no wagering requirement — Melbet campaign. Check the offer shown by Melbet for your country before depositing.' },
     { q: 'Where do I enter code Bttswin on Melbet?', a: 'Enter Bttswin in the Promo code field on Melbet registration, or later in your account under Promo Code. Respect the exact case.' },
-    { q: 'Melbet or 1xbet: which promo code should I choose?', a: 'Both are official partners and announce the same offer: 300% + 100 free spins with no wagering — Bttswin (Melbet) or Vipbtts (1xbet). Choose the bookmaker you prefer.' },
+    { q: 'Melbet or 1xbet: which promo code should I choose?', a: 'Both are official partners and announce the same offer: 300% + 100 free spins with no wagering — Bttswin (Melbet) or vipbtts (1xbet). Choose the bookmaker you prefer.' },
     { q: 'Is the Melbet bonus available in every country?', a: 'Availability depends on country, account and period. Check eligibility and the terms currently shown by Melbet before signing up or depositing.' },
   ],
   '888starz': [
@@ -133,20 +133,20 @@ const AR: Record<PromoBookmakerId, PromoFaqItem[]> = {
     { q: `ماذا يمنح الرمز VISION221 في ${YEAR}؟`, a: 'يُعلن عن VISION221 كبونص 300% و100 لفة مجانية بدون شرط رهان من إيداع 1 يورو — حسب حملة الشريك. تحقق من العرض الذي يظهره Linebet لبلدك قبل الإيداع.' },
     { q: 'كيف أودع عبر Wave أو Orange Money على Linebet؟', a: 'إذا كان Wave أو Orange Money متاحًا في بلدك، اختره في قسم الإيداع، أودع من 1 يورو ثم راجع الشروط المعروضة قبل التأكيد.' },
     { q: 'هل البونص متاح في كل البلدان؟', a: 'يعتمد توافر الرمز والعرض على البلد والحساب والفترة. تحقق من الأهلية والشروط المعروضة حاليًا من Linebet قبل التسجيل أو الإيداع.' },
-    { q: '1xbet أم Linebet: أي رمز أختار؟', a: 'كلاهما شريكان رسميان ويعلنان نفس العرض: 300% + 100 لفة بدون شرط رهان — Vipbtts (1xbet) أو VISION221 (Linebet من 1 يورو). اختر ما تفضّل.' },
+    { q: '1xbet أم Linebet: أي رمز أختار؟', a: 'كلاهما شريكان رسميان ويعلنان نفس العرض: 300% + 100 لفة بدون شرط رهان — vipbtts (1xbet) أو VISION221 (Linebet من 1 يورو). اختر ما تفضّل.' },
   ],
   '1xbet': [
-    { q: 'ما هو رمز 1xbet الترويجي؟', a: 'رمز 1xbet هو Vipbtts — انسخه بدقة عند التسجيل أو في قسم الرمز الترويجي بحساب 1xbet.' },
-    { q: `ماذا يمنح الرمز Vipbtts في ${YEAR}؟`, a: 'يُعلن عن Vipbtts كبونص 300% + 100 لفة مجانية بدون شرط رهان — حملة الشريك. تحقق من عرض 1xbet لبلدك قبل الإيداع.' },
-    { q: 'أين أُدخل الرمز Vipbtts على 1xbet؟', a: 'أدخل Vipbtts في حقل الرمز الترويجي بنموذج التسجيل أو لاحقًا في حسابك. احترم حالة الأحرف.' },
-    { q: '1xbet أم Linebet: أي رمز أختار؟', a: 'كلاهما شريكان رسميان ويعرضان 300% + 100 لفة بدون شرط رهان — Vipbtts أو VISION221. اختر ما تفضّل.' },
+    { q: 'ما هو رمز 1xbet الترويجي؟', a: 'رمز 1xbet هو vipbtts — انسخه بدقة عند التسجيل أو في قسم الرمز الترويجي بحساب 1xbet.' },
+    { q: `ماذا يمنح الرمز vipbtts في ${YEAR}؟`, a: 'يُعلن عن vipbtts كبونص 300% + 100 لفة مجانية بدون شرط رهان — حملة الشريك. تحقق من عرض 1xbet لبلدك قبل الإيداع.' },
+    { q: 'أين أُدخل الرمز vipbtts على 1xbet؟', a: 'أدخل vipbtts في حقل الرمز الترويجي بنموذج التسجيل أو لاحقًا في حسابك. احترم حالة الأحرف.' },
+    { q: '1xbet أم Linebet: أي رمز أختار؟', a: 'كلاهما شريكان رسميان ويعرضان 300% + 100 لفة بدون شرط رهان — vipbtts أو VISION221. اختر ما تفضّل.' },
     { q: 'هل بونص 1xbet متاح في كل البلدان؟', a: 'يعتمد التوافر على البلد والحساب والفترة. تحقق من شروط 1xbet الحالية قبل التسجيل أو الإيداع.' },
   ],
   melbet: [
     { q: 'ما هو رمز Melbet الترويجي؟', a: 'رمز Melbet هو Bttswin — انسخه بدقة عند التسجيل أو في قسم الرمز الترويجي.' },
     { q: `ماذا يمنح الرمز Bttswin في ${YEAR}؟`, a: 'يُعلن عن Bttswin كبونص 300% + 100 لفة بدون شرط رهان — حملة Melbet. تحقق من العرض قبل الإيداع.' },
     { q: 'أين أُدخل الرمز Bttswin على Melbet؟', a: 'أدخل Bttswin في حقل الرمز الترويجي عند التسجيل أو لاحقًا في الحساب مع احترام حالة الأحرف.' },
-    { q: 'Melbet أم 1xbet: أي رمز أختار؟', a: 'كلاهما شريكان رسميان ويعرضان 300% + 100 لفة بدون شرط رهان — Bttswin أو Vipbtts. اختر ما تفضّل.' },
+    { q: 'Melbet أم 1xbet: أي رمز أختار؟', a: 'كلاهما شريكان رسميان ويعرضان 300% + 100 لفة بدون شرط رهان — Bttswin أو vipbtts. اختر ما تفضّل.' },
     { q: 'هل بونص Melbet متاح في كل البلدان؟', a: 'يعتمد التوافر على البلد والحساب والفترة. تحقق من شروط Melbet قبل التسجيل أو الإيداع.' },
   ],
   '888starz': [

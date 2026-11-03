@@ -38,9 +38,12 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
           {/* ═══ Bloc marque + liens plateforme ═══ */}
           <div className="hp-footer-brand">
             <div className="hp-footer-brand__id">
-              <a href={home} className="flex items-center gap-2" aria-label={lang === 'en' ? 'BTTSPredict — home' : lang === 'ar' ? 'BTTSPredict — الرئيسية' : 'BTTSPredict — accueil'}>
-                <img src="/favicon.svg" alt="" width={26} height={26} className="rounded" />
-                <span className="text-sm font-bold text-papier tracking-tight">BTTSPredict</span>
+              <a href={home} className="flex items-center gap-2.5" aria-label={lang === 'en' ? 'BTTSPredict Match Intelligence — home' : lang === 'ar' ? 'BTTSPredict Match Intelligence — الرئيسية' : 'BTTSPredict Match Intelligence — accueil'}>
+                <img src="/favicon.svg" alt="" width={31} height={31} className="bp-brand-icon rounded" />
+                <span>
+                  <span className="nav-brand-name block text-sm font-bold text-papier tracking-tight">BTTSPredict</span>
+                  <span className="nav-brand-sub block">Match Intelligence</span>
+                </span>
               </a>
               <p className="hp-footer-tagline">{t.home2.ftTagline}</p>
             </div>

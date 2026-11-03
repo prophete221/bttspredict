@@ -9,7 +9,7 @@ import { trackAffiliateAction } from '@/lib/affiliateTracking'
 
 export default function MatchViewTracker({ match, league }: { match: string; league?: string }) {
   useEffect(() => {
-    trackAffiliateAction('linebet', 'match_view', window.location.pathname, {
+    trackAffiliateAction('platform', 'match_view', window.location.pathname, {
       match,
       league: league || undefined,
     })

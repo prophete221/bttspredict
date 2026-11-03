@@ -8,6 +8,7 @@ import MatchAnalyticsCharts from '@/components/bttsbet/MatchAnalyticsCharts'
 import MatchViewTracker from '@/components/bttsbet/MatchViewTracker'
 import TeamContext from '@/components/bttsbet/TeamContext'
 import { localizedPath, type Locale } from '@/lib/i18n'
+import { getDynamicMatchSlugs } from '@/lib/match-page-ssg'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -25,7 +26,7 @@ export const dynamicParams = false
 export const dynamic = 'force-static'
 
 export async function generateStaticParams() {
-  const slugs = getAllMatchSlugs()
+  const slugs = getDynamicMatchSlugs(getAllMatchSlugs())
   // Si aucune page match n'est disponible, on génère un fallback pour que le build SSG passe
   if (slugs.length === 0) {
     return [{ slug: '_placeholder' }]
@@ -226,8 +227,8 @@ function StatusBadge({ kind, label }: { kind: 'won' | 'lost' | 'pending'; label:
   )
 }
 
-export default async function MatchPage({ params, locale = 'fr' }: PageProps & { locale?: Locale }) {
-  const { slug } = await params
+export default async function MatchPage({ params }: PageProps) {
+  const { slug, locale = 'fr' } = await params as { slug: string; locale?: Locale }
   const match = getMatchBySlug(slug)
 
   if (!match) notFound()
@@ -330,7 +331,7 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
   }
 
   return (
-    <div className="min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
+    <div className="match-analysis-page min-h-screen bg-[#0B0F14] flex flex-col text-[#F2F6FA]">
       <Navbar />
       <MatchViewTracker match={`${home} vs ${away}`} league={league} />
 
@@ -406,7 +407,7 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
 
           {/* 1. PRONOSTICS DU MODÈLE */}
           <section className="mb-10">
-            <div className="mb-6 flex items-end justify-between gap-3">
+            <div className="match-analysis-title-row mb-6 flex items-end justify-between gap-3">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#2F7DFF]">{copy.intelligence}</p>
                 <h1 className="mt-1 text-2xl font-bold sm:text-3xl" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -414,7 +415,7 @@ export default async function MatchPage({ params, locale = 'fr' }: PageProps & {
                   <span className="text-[#9DABBB]"> · BTTS &amp; Over 2.5</span>
                 </h1>
               </div>
-              <span className="text-right text-xs uppercase tracking-wider text-[#9DABBB]">{copy.published}{publishedDateLabel ? ` · ${publishedDateLabel}` : ''}</span>
+              <span className="match-analysis-published text-right text-xs uppercase tracking-wider text-[#9DABBB]">{copy.published}{publishedDateLabel ? ` · ${publishedDateLabel}` : ''}</span>
             </div>
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">

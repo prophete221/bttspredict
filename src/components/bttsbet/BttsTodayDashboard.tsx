@@ -35,6 +35,7 @@ import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { getDakarDateString, getDakarMatchStatus, getDakarDayDiff } from '@/lib/dakar-date'
 import { AFFILIATE } from '@/lib/constants'
+import ShareAnalysisButton from './ShareAnalysisButton'
 
 // ─── Palette (V3 — bleu analyse, sémantique WIN/LOST/PENDING) ────────────────
 const C = {
@@ -383,6 +384,9 @@ function MatchCard({ match, index, status, lang, insufficientDataLabel, labels, 
   const qualityColorVal = qualityColor(match.dataQuality)
   const sufficientData = hasSufficientData(match)
 
+  const matchPath = localizedPath(`/match/${generateMatchSlug(match.home, match.away, match.date)}`, lang)
+  const dataConfidence = match.reliabilityScore == null ? '—' : `${Math.round(match.reliabilityScore)}%`
+
   return (
     <article
       className="btx-card btx-rev"
@@ -576,11 +580,25 @@ function MatchCard({ match, index, status, lang, insufficientDataLabel, labels, 
                 </button>
               )}
               <Link
-                href={localizedPath(`/match/${generateMatchSlug(match.home, match.away, match.date)}`, lang)}
+                href={matchPath}
                 className="btx-link"
               >
                 {labels.openMatch} →
               </Link>
+              <ShareAnalysisButton
+                home={match.home}
+                away={match.away}
+                league={match.league}
+                date={match.date}
+                time={match.time}
+                bttsProbability={fmtPct(match.bttsProb)}
+                over25Probability={fmtPct(match.over25Prob)}
+                dataConfidence={dataConfidence}
+                exactScore={match.aiExactScore}
+                exactScoreProbability={match.exactScoreProb}
+                path={matchPath}
+                locale={lang}
+              />
             </div>
           </div>
         )}
@@ -589,11 +607,25 @@ function MatchCard({ match, index, status, lang, insufficientDataLabel, labels, 
         {!(match.aiAnalysis || match.aiKeyFact || match.aiBttsView || match.aiOver25View) && (
           <div className="btx-actions">
             <Link
-              href={localizedPath(`/match/${generateMatchSlug(match.home, match.away, match.date)}`, lang)}
+              href={matchPath}
               className="btx-link"
             >
               {labels.openMatch} →
             </Link>
+            <ShareAnalysisButton
+              home={match.home}
+              away={match.away}
+              league={match.league}
+              date={match.date}
+              time={match.time}
+              bttsProbability={fmtPct(match.bttsProb)}
+              over25Probability={fmtPct(match.over25Prob)}
+              dataConfidence={dataConfidence}
+              exactScore={match.aiExactScore}
+              exactScoreProbability={match.exactScoreProb}
+              path={matchPath}
+              locale={lang}
+            />
           </div>
         )}
       </div>
@@ -644,11 +676,16 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
 
   // Vue du dashboard de prédictions (1×/session) — funnel : PRÉDICTION.
   useEffect(() => {
-    trackAffiliateAction('linebet', 'prediction_view', `dashboard:${window.location.pathname}`, { lang })
+    trackAffiliateAction('platform', 'prediction_view', `dashboard:${window.location.pathname}`, { lang })
   }, [lang])
   const [matches, setMatches] = useState<MatchData[]>([])
   const [loading, setLoading] = useState(true)
   const [activeFilter, setActiveFilter] = useState<FilterType>('all')
+  useEffect(() => {
+    if (window.location.hash !== '#opportunities') return
+    const frame = window.requestAnimationFrame(() => setActiveFilter('HIGH'))
+    return () => window.cancelAnimationFrame(frame)
+  }, [])
   const [generationDate, setGenerationDate] = useState<string | null>(null)
   const [todayMatches, setTodayMatches] = useState<MatchData[]>([])
   const [upcomingMatches, setUpcomingMatches] = useState<MatchData[]>([])
@@ -878,7 +915,7 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
     { id: 'all', label: t.predictions.all },
     { id: 'BTTS', label: 'BTTS' },
     { id: 'O2.5', label: 'Over 2.5' },
-    { id: 'HIGH', label: lang === 'fr' ? 'Confiance élevée' : lang === 'en' ? 'High confidence' : 'ثقة عالية' },
+    { id: 'HIGH', label: lang === 'fr' ? 'Meilleures opportunités' : lang === 'en' ? 'Top opportunities' : 'أفضل الفرص' },
   ]
 
   const filteredMatches = useMemo(() => {
@@ -1018,42 +1055,10 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
         </div>
       </div>
 
+      <div className="btx-dashboard-grid">
+        <aside className="btx-dashboard-insights">
       {/* ─── AI COMBO OF THE DAY ─── */}
       {/* Deterministic selection — NO Gemini call from client, NO recalculation. */}
-      {/* CTA affiliation — liens trackés avant les codes promo — 1xbet & Linebet prioritaires */}
-      <div className="btx-rev mb-4 rounded-xl border px-3 py-3 sm:px-4" style={{ ['--d' as string]: '40ms', borderColor: 'rgba(47,125,255,0.28)', background: 'linear-gradient(135deg, rgba(47,125,255,0.10), rgba(11,15,20,0.9))' }}>
-        <p className="text-[12px] sm:text-[13px] leading-relaxed" style={{ color: '#C5D0DC' }}>
-          {lang === 'fr'
-            ? <>Pour parier avec bonus : <strong style={{ color: '#F2F6FA' }}>1)</strong> inscris-toi via notre lien 1xbet ou Linebet · <strong style={{ color: '#F2F6FA' }}>2)</strong> entre le code <strong style={{ color: '#7CF5B8' }}>Vipbtts</strong> (1xbet) ou <strong style={{ color: '#7CF5B8' }}>VISION221</strong> (Linebet) avant le 1er dépôt.</>
-            : lang === 'en'
-              ? <>To claim the bonus: <strong style={{ color: '#F2F6FA' }}>1)</strong> sign up via our 1xbet or Linebet link · <strong style={{ color: '#F2F6FA' }}>2)</strong> enter <strong style={{ color: '#7CF5B8' }}>Vipbtts</strong> (1xbet) or <strong style={{ color: '#7CF5B8' }}>VISION221</strong> (Linebet) before your first deposit.</>
-              : <>للحصول على المكافأة: <strong style={{ color: '#F2F6FA' }}>1)</strong> سجّل عبر رابط 1xbet أو Linebet · <strong style={{ color: '#F2F6FA' }}>2)</strong> أدخل <strong style={{ color: '#7CF5B8' }}>Vipbtts</strong> (1xbet) أو <strong style={{ color: '#7CF5B8' }}>VISION221</strong> (Linebet) قبل الإيداع.</>}
-        </p>
-        <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-end">
-          <a
-            href={AFFILIATE.oneXbet}
-            onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'dashboard-banner')}
-            target="_blank"
-            rel="sponsored nofollow noopener noreferrer"
-            className="inline-flex shrink-0 items-center justify-center rounded-lg px-4 py-2.5 text-[12px] font-bold text-white"
-            style={{ backgroundColor: '#1B6EF3' }}
-            data-cta="dashboard-1xbet-signup"
-          >
-            {lang === 'fr' ? "S'inscrire · Vipbtts (1xbet)" : lang === 'en' ? 'Sign up · Vipbtts (1xbet)' : 'تسجيل · Vipbtts (1xbet)'}
-          </a>
-          <a
-            href={AFFILIATE.linebet}
-            onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'dashboard-banner')}
-            target="_blank"
-            rel="sponsored nofollow noopener noreferrer"
-            className="inline-flex shrink-0 items-center justify-center rounded-lg px-4 py-2.5 text-[12px] font-bold text-white"
-            style={{ backgroundColor: '#2F7DFF' }}
-            data-cta="dashboard-linebet-signup"
-          >
-            {lang === 'fr' ? "S'inscrire · VISION221 (Linebet)" : lang === 'en' ? 'Sign up · VISION221 (Linebet)' : 'تسجيل · VISION221 (Linebet)'}
-          </a>
-        </div>
-      </div>
 
       {/* Source: /predictions.json fields only (bttsProb, over25Prob, reliabilityScore, dataQuality, dataSource). */}
       {!loading && (liveTodayMatches.length > 0 || scheduledTodayMatches.length > 0) && (
@@ -1105,13 +1110,54 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
               ? 'Sélection IA basée sur les sorties du modèle statistique. Aucun pari n’est garanti.'
               : lang === 'en'
                 ? 'AI selection based on statistical model outputs. No bet is guaranteed.'
-                : 'اختيار الذكاء الاصطناعي مبني على مخرجات النموذج الإحصائي. لا توجد ضمانات لأي رهان.'}
+              : 'اختيار الذكاء الاصطناعي مبني على مخرجات النموذج الإحصائي. لا توجد ضمانات لأي رهان.'}
           </p>
         </div>
       )}
 
+      <section
+        className="btx-partner-rail btx-rev mb-4"
+        aria-label={lang === 'fr' ? 'Partenaires' : lang === 'en' ? 'Partners' : 'الشركاء'}
+        style={{ ['--d' as string]: '80ms' }}
+      >
+        <div className="btx-partner-rail__copy">
+          <span className="btx-partner-rail__eyebrow">{lang === 'fr' ? 'Partenaires' : lang === 'en' ? 'Partners' : 'الشركاء'}</span>
+          <p>
+            {lang === 'fr'
+              ? 'Codes 1xBet et Linebet : vérifie les conditions et la disponibilité auprès de chaque opérateur.'
+              : lang === 'en'
+                ? '1xBet and Linebet codes: check terms and availability with each operator.'
+                : 'رموز 1xBet وLinebet: تحقق من الشروط والتوفر لدى كل مشغل.'}
+          </p>
+        </div>
+        <div className="btx-partner-rail__actions">
+          <a
+            href={AFFILIATE.oneXbet}
+            onClick={() => trackAffiliateAction('1xbet', 'signup_cta_click', 'dashboard-banner')}
+            target="_blank"
+            rel="sponsored nofollow noopener noreferrer"
+            className="btx-partner-rail__link btx-partner-rail__link--primary"
+            data-cta="dashboard-1xbet-signup"
+          >
+            {lang === 'fr' ? "S'inscrire · vipbtts (1xBet)" : lang === 'en' ? 'Sign up · vipbtts (1xBet)' : 'تسجيل · vipbtts (1xBet)'}
+          </a>
+          <a
+            href={AFFILIATE.linebet}
+            onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'dashboard-banner')}
+            target="_blank"
+            rel="sponsored nofollow noopener noreferrer"
+            className="btx-partner-rail__link"
+            data-cta="dashboard-linebet-signup"
+          >
+            {lang === 'fr' ? "S'inscrire · VISION221 (Linebet)" : lang === 'en' ? 'Sign up · VISION221 (Linebet)' : 'تسجيل · VISION221 (Linebet)'}
+          </a>
+        </div>
+      </section>
+
+        </aside>
+        <aside className="btx-dashboard-filters">
       {/* ─── FILTRES ─── */}
-      <div className="btx-filters btx-rev mb-4" role="group" aria-label={lang === 'fr' ? 'Filtres de pronostics' : lang === 'ar' ? 'مرشحات التوقعات' : 'Prediction filters'} style={{ ['--d' as string]: '90ms' }}>
+      <div id="opportunities" className="btx-filters btx-rev mb-4" role="group" aria-label={lang === 'fr' ? 'Filtres de pronostics' : lang === 'ar' ? 'مرشحات التوقعات' : 'Prediction filters'} style={{ ['--d' as string]: '90ms', scrollMarginTop: '84px' }}>
         {filters.map(f => (
           <button
             key={f.id}
@@ -1123,7 +1169,18 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
           </button>
         ))}
       </div>
+      {activeFilter === 'HIGH' && (
+        <p className="btx-opportunity-note">
+          {lang === 'fr'
+            ? 'Filtre basé sur une fiabilité des données ≥ 80/100 — ce n’est pas une probabilité de gain.'
+            : lang === 'en'
+              ? 'Filtered by data reliability ≥ 80/100 — this is not a probability of winning.'
+              : 'يعتمد هذا الفلتر على موثوقية البيانات ≥ 80/100، وليس على احتمال الفوز.'}
+        </p>
+      )}
 
+        </aside>
+        <div className="btx-dashboard-feed">
       {/* ─── SECTIONS MATCHS ─── */}
       {loading ? (
         <div className="btx-grid">
@@ -1223,6 +1280,8 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
           )}
         </>
       )}
+        </div>
+      </div>
 
       {/* ─── Footer disclaimer ─── */}
       <p className="btx-disclaimer">
@@ -1231,5 +1290,3 @@ export default function BttsTodayDashboard({ initialLocale }: { initialLocale?: 
     </section>
   )
 }
-
-

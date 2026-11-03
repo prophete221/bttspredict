@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "slug": "west-ham-united-vs-queens-park-rangers-2026-10-09",
+  "sourceArchiveFiles": [
+    "public/predictions-archive/2026-10-03.json",
+    "public/predictions-archive/2026-10-04.json",
+    "public/predictions-archive/2026-10-05.json",
+    "public/predictions-archive/2026-10-06.json",
+    "public/predictions-archive/2026-10-07.json",
+    "public/predictions-archive/2026-10-08.json"
+  ],
+  "snapshotTimeZone": null,
+  "record": {
+    "id": "westhamu-vs-queenspa-2026-10-09",
+    "match": "West Ham United vs Queens Park Rangers",
+    "home": "West Ham United",
+    "away": "Queens Park Rangers",
+    "league": "Championship",
+    "date": "2026-10-09",
+    "type": "BTTS",
+    "prediction": "Oui",
+    "proba": 0.6402,
+    "bttsProbDisplay": "64.02%",
+    "over25ProbDisplay": "68.38%",
+    "confidence": 64,
+    "time": "19:00",
+    "matchSemantic": "westhamu-vs-queenspa-2026-10-09",
+    "source": "poisson-v92-real-data",
+    "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/371.png",
+    "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/334.png",
+    "tier": "GOLD",
+    "reliabilityScore": 86.76,
+    "dataQuality": "HIGH",
+    "dataSource": "ESPN_TEAM_SCHEDULE",
+    "matchCountHome": 8,
+    "matchCountAway": 8,
+    "h2hAvailable": false,
+    "xgHome": 2.27,
+    "xgAway": 1.25,
+    "xgTotal": 3.52,
+    "formBTTS": 40,
+    "analysis": "West Ham United (8 matchs réels, xG 2.27) vs Queens Park Rangers (8 matchs réels, xG 1.25). xG cumulé 3.52, BTTS 64.0%, Over 2.5 68.4%. Fiabilité 86.76%. Qualité données: HIGH.",
+    "analysisData": {
+      "bttsProb": 0.6402,
+      "over25Prob": 0.6838,
+      "homeLambda": 2.27,
+      "awayLambda": 1.25,
+      "xgTotal": 3.52
+    },
+    "estimatedCote": 1.56,
+    "estimatedCoteOver": 1.46,
+    "predictions": [
+      {
+        "type": "BTTS",
+        "prediction": "Oui",
+        "confidence": 64,
+        "bttsProb": 0.6402,
+        "homeLambda": 2.27,
+        "awayLambda": 1.25
+      },
+      {
+        "type": "Over 2.5",
+        "prediction": "Oui",
+        "confidence": 68,
+        "over25Prob": 0.6838,
+        "homeLambda": 2.27,
+        "awayLambda": 1.25
+      }
+    ],
+    "bttsProb": 0.6402,
+    "over25Prob": 0.6838,
+    "homeLambda": 2.27,
+    "awayLambda": 1.25,
+    "status": "WON",
+    "finalScore": "1-1",
+    "verifiedAt": "2026-10-23T05:42:15.167Z"
+  }
+}

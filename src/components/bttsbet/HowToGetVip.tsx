@@ -12,7 +12,7 @@ const STEPS = [
   {
     num: '1',
     title: 'Crée un nouveau compte partenaire',
-    desc: "Ouvre un nouveau compte 1xbet ou Linebet via notre lien, avec le code Vipbtts (1xbet) ou VISION221 (Linebet). Condition d'accès au service VIP BTTSPredict — pas une obligation imposée par le bookmaker hors de notre parcours.",
+    desc: "Ouvre un nouveau compte 1xbet ou Linebet via notre lien, avec le code vipbtts (1xbet) ou VISION221 (Linebet). Condition d'accès au service VIP BTTSPredict — pas une obligation imposée par le bookmaker hors de notre parcours.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
@@ -58,7 +58,7 @@ const STEPS = [
 const VIP_FAQ = [
   {
     q: "Quelle est la durée d'accès VIP ?",
-    a: "L'accès VIP est valable 30 jours à partir de l'activation. Tu peux le renouveler en gardant ton compte 1xbet/Linebet actif avec le code Vipbtts ou VISION221.",
+    a: "L'accès VIP est valable 30 jours à partir de l'activation. Tu peux le renouveler en gardant ton compte 1xbet/Linebet actif avec le code vipbtts ou VISION221.",
   },
   {
     q: "Qu'est-ce qui est inclus dans le VIP ?",

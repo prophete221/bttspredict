@@ -162,9 +162,25 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
         <div className="hp-hero__grid">
           {/* ═══ Colonne message ═══ */}
           <div className="hp-hero__copy">
-            <div className="hp-hero__brand-row">
-              <span className="hp-hero__brand-mark" aria-hidden="true" />
-              <p className="hp-hero__brand">VISION221 · PRO ANALYTICS</p>
+            {/* Bandeau défilant — grands clubs suivis (décoratif, logos locaux) */}
+            <div className="hp-clubs" aria-hidden="true">
+              <div className="hp-clubs__track">
+                {[0, 1].map(copy => (
+                  <div className="hp-clubs__group" key={copy}>
+                    {CLUB_LOGOS.map(slug => (
+                      <img
+                        key={`${copy}-${slug}`}
+                        src={`/logos/clubs/${slug}.png`}
+                        alt=""
+                        width={500}
+                        height={500}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
             <h1 className="hp-hero__title">
               <AnimatedTitle
@@ -205,32 +221,22 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
               </li>
             </ul>
 
-            {/* Bandeau défilant — grands clubs suivis (décoratif, logos locaux) */}
-            <div className="hp-clubs" aria-hidden="true">
-              <div className="hp-clubs__track">
-                {[0, 1].map(copy => (
-                  <div className="hp-clubs__group" key={copy}>
-                    {CLUB_LOGOS.map(slug => (
-                      <img
-                        key={`${copy}-${slug}`}
-                        src={`/logos/clubs/${slug}.png`}
-                        alt=""
-                        width={500}
-                        height={500}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* ═══ Carte « Signal en vedette » — vraies données du flux ═══ */}
           <aside className="hp-live-zone" aria-label={t.home2.heroLiveEyebrow}>
             <div className="hp-live-halo" aria-hidden="true" />
             <article className="hp-live">
+              <div className="hp-live__lab-scene" aria-hidden="true">
+                <img
+                  src="/hero-matchday-analytics.webp"
+                  alt=""
+                  width={2176}
+                  height={1632}
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
               <header className="hp-live__head">
                 <p className="hp-live__eyebrow">
                   <span className="hp-live__pulse" aria-hidden="true" />

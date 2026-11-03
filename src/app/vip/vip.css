@@ -1152,3 +1152,218 @@
 /* RTL — ajustements mineurs */
 .vipx[dir='rtl'] .vipx-bookmaker__state { margin-inline-start: auto; }
 .vipx[dir='rtl'] .vipx-matches__locked .vipx-btn { margin-inline-start: auto; }
+
+
+/* Phase 4 — extension monochrome du thème global (apparence uniquement). */
+.vipx {
+  --vipx-bg: #050505;
+  --vipx-bg-2: #0d0d0d;
+  --vipx-card: #121212;
+  --vipx-card-2: #191919;
+  --vipx-gold: #eeeeee;
+  --vipx-gold-hi: #ffffff;
+  --vipx-gold-deep: #bdbdbd;
+  --vipx-gold-soft: rgba(255, 255, 255, 0.075);
+  --vipx-line: rgba(255, 255, 255, 0.18);
+  --vipx-line-faint: rgba(255, 255, 255, 0.11);
+  --vipx-text: #f4f4f4;
+  --vipx-muted: #b8b8b8;
+  --vipx-wa: #eeeeee;
+  --vipx-wa-deep: #cccccc;
+  --vipx-shadow: 0 18px 44px rgba(0, 0, 0, 0.42);
+  --vipx-shadow-gold: none;
+  background: linear-gradient(180deg, #080808 0%, #050505 62%, #080808 100%);
+  color: #f4f4f4;
+}
+.vipx-hero__aura { display: none; }
+.vipx-btn--gold,
+.vipx-btn--wa {
+  background: #eeeeee !important;
+  color: #111111 !important;
+  border-color: #eeeeee !important;
+  box-shadow: none !important;
+}
+.vipx-btn--ghost {
+  color: #e8e8e8 !important;
+  background: rgba(255, 255, 255, 0.045) !important;
+  border-color: #4a4a4a !important;
+  box-shadow: none !important;
+}
+.vipx-btn--gold:hover,
+.vipx-btn--wa:hover { background: #ffffff !important; box-shadow: none !important; }
+.vipx-hero__copy h1 {
+  background: linear-gradient(120deg, #f7f7f7 30%, #dddddd 78%, #bdbdbd) !important;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none !important;
+}
+.vipx-member {
+  background: linear-gradient(155deg, #202020 0%, #101010 48%, #090909 100%) !important;
+  border-color: #454545 !important;
+  box-shadow: var(--vipx-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+.vipx-member::before { animation: none !important; opacity: 0.08; }
+.vipx-member__chip {
+  background: linear-gradient(135deg, #d8d8d8, #969696) !important;
+  border-color: rgba(0, 0, 0, 0.45) !important;
+}
+.vipx-card,
+.vipx-modal__panel {
+  background: linear-gradient(155deg, #181818, #0c0c0c) !important;
+  border-color: #414141 !important;
+  box-shadow: var(--vipx-shadow) !important;
+}
+.vipx-step,
+.vipx-bookmaker { background: #101010 !important; border-color: #373737 !important; }
+.vipx-step.is-done,
+.vipx-bookmaker.is-selected,
+.vipx-code,
+.vipx-card__matches,
+.vipx-modal__ok,
+.vipx-modal__alt {
+  background: rgba(255, 255, 255, 0.055) !important;
+  border-color: #555555 !important;
+  box-shadow: none !important;
+}
+.vipx-card__badge,
+.vipx-member__crown,
+.vipx-step.is-done .vipx-step__num,
+.vipx-bookmaker__state.is-on,
+.vipx-code__copy {
+  color: #111111 !important;
+  background: linear-gradient(135deg, #f0f0f0, #c9c9c9) !important;
+  border-color: #c9c9c9 !important;
+  box-shadow: none !important;
+}
+.vipx-card__bar i { background: #d7d7d7 !important; }
+.vipx-member__stars { color: #c8c8c8 !important; }
+.vipx-toast { color: #eeeeee !important; border-color: #4a4a4a !important; }
+.vipx-modal__close { color: #c8c8c8 !important; }
+.vipx-modal__close:hover { color: #ffffff !important; }
+.vipx-muted,
+.vipx-section-head p,
+.vipx-hero__sub,
+.vipx-hero__trust li,
+.vipx-step__body small,
+.vipx-card__progress span,
+.vipx-matches__teams small,
+.vipx-matches__right time,
+.vipx-matches__hidden,
+.vipx-matches__empty,
+.vipx-card__hint,
+.vipx-modal__body p,
+.vipx-deposit__note,
+.vipx-bookmaker__state,
+.vipx-code__body span { color: #b8b8b8 !important; }
+.vipx :focus-visible { outline-color: #ffffff !important; }
+
+/* Badge VIP plat et gris pour un contraste constant (sans dégradé lumineux). */
+.vipx-member__crown {
+  color: #111111 !important;
+  background: #dddddd !important;
+  border-color: #dddddd !important;
+  box-shadow: none !important;
+}
+
+/* Le titre VIP reste blanc et solide : aucun remplissage transparent ou bloc dégradé. */
+.vipx-hero__copy h1,
+.vipx-hero__copy h1 * {
+  color: #f4f4f4 !important;
+  background: none !important;
+  -webkit-text-fill-color: #f4f4f4 !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  text-shadow: none !important;
+}
+
+/* PHASE 5 — palette VIP de la direction approuvée : l’or reste confiné à cet espace. */
+.vipx {
+  --vipx-bg: #0a111a;
+  --vipx-bg-2: #101a25;
+  --vipx-card: #17232e;
+  --vipx-card-2: #1b2935;
+  --vipx-gold: #d8bd82;
+  --vipx-gold-hi: #e7d6a6;
+  --vipx-gold-deep: #b59a60;
+  --vipx-gold-soft: rgba(216, 189, 130, 0.1);
+  --vipx-line: rgba(219, 230, 234, 0.18);
+  --vipx-line-faint: rgba(219, 230, 234, 0.12);
+  --vipx-text: #f1efe8;
+  --vipx-muted: #aeb7bb;
+  --vipx-wa: #d8bd82;
+  --vipx-wa-deep: #b59a60;
+  --vipx-shadow: 0 18px 46px rgba(0, 0, 0, 0.34);
+  --vipx-shadow-gold: 0 12px 34px rgba(216, 189, 130, 0.12);
+  color: #f1efe8;
+  background: linear-gradient(180deg, #0a111a 0%, #101a25 56%, #0a111a 100%) !important;
+}
+.vipx-hero__aura { display: block !important; opacity: 0.16 !important; }
+.vipx-btn--gold,
+.vipx-btn--wa {
+  color: #0a111a !important;
+  background: #d8bd82 !important;
+  border-color: #d8bd82 !important;
+  box-shadow: 0 8px 24px rgba(216, 189, 130, 0.12) !important;
+}
+.vipx-btn--gold:hover,
+.vipx-btn--wa:hover { color: #0a111a !important; background: #e7d6a6 !important; border-color: #e7d6a6 !important; }
+.vipx-btn--ghost { color: #f1efe8 !important; background: rgba(16, 26, 37, 0.72) !important; border-color: rgba(219, 230, 234, 0.22) !important; }
+.vipx-hero__copy h1,
+.vipx-hero__copy h1 * {
+  color: #f1efe8 !important;
+  background: none !important;
+  -webkit-text-fill-color: #f1efe8 !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  text-shadow: none !important;
+}
+.vipx .vipx-hero__copy h1 .aw-w--em {
+  color: transparent !important;
+  background-image: linear-gradient(115deg, #d8bd82 0%, #e7d6a6 100%) !important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+.vipx-member {
+  background: linear-gradient(155deg, #202f3c 0%, #17232e 52%, #101a25 100%) !important;
+  border-color: rgba(216, 189, 130, 0.42) !important;
+  box-shadow: var(--vipx-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+.vipx-member::before { animation: none !important; opacity: 0.12 !important; }
+.vipx-member__chip { color: #0a111a !important; background: linear-gradient(135deg, #e7d6a6, #d8bd82) !important; border-color: rgba(10, 17, 26, 0.5) !important; }
+.vipx-card,
+.vipx-modal__panel { background: linear-gradient(155deg, #17232e, #101a25) !important; border-color: rgba(219, 230, 234, 0.18) !important; box-shadow: var(--vipx-shadow) !important; }
+.vipx-step,
+.vipx-bookmaker { color: #f1efe8 !important; background: #101a25 !important; border-color: rgba(219, 230, 234, 0.16) !important; }
+.vipx-step.is-done,
+.vipx-bookmaker.is-selected,
+.vipx-code,
+.vipx-card__matches,
+.vipx-modal__ok,
+.vipx-modal__alt { background: rgba(216, 189, 130, 0.08) !important; border-color: rgba(216, 189, 130, 0.34) !important; box-shadow: none !important; }
+.vipx-card__badge,
+.vipx-member__crown,
+.vipx-step.is-done .vipx-step__num,
+.vipx-bookmaker__state.is-on,
+.vipx-code__copy { color: #0a111a !important; background: #d8bd82 !important; border-color: #d8bd82 !important; box-shadow: none !important; }
+.vipx-card__bar i { background: #d8bd82 !important; }
+.vipx-member__stars { color: #d8bd82 !important; }
+.vipx-toast { color: #f1efe8 !important; background: #17232e !important; border-color: rgba(219, 230, 234, 0.2) !important; }
+.vipx-modal__close { color: #aeb7bb !important; }
+.vipx-modal__close:hover { color: #f1efe8 !important; }
+.vipx-muted,
+.vipx-section-head p,
+.vipx-hero__sub,
+.vipx-hero__trust li,
+.vipx-step__body small,
+.vipx-card__progress span,
+.vipx-matches__teams small,
+.vipx-matches__right time,
+.vipx-matches__hidden,
+.vipx-matches__empty,
+.vipx-card__hint,
+.vipx-modal__body p,
+.vipx-deposit__note,
+.vipx-bookmaker__state,
+.vipx-code__body span { color: #aeb7bb !important; }
+.vipx :focus-visible { outline-color: #d8bd82 !important; }
+.vipx-faq summary:hover { color: #d8bd82 !important; }

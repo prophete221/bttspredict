@@ -7,8 +7,9 @@ import { trackAffiliateAction } from '@/lib/affiliateTracking'
 import { useLanguage } from './LanguageSwitcher'
 
 /**
- * StickyCTABar — Mobile-only (après 15% scroll).
- * Priorité : Linebet VISION221 puis 1xBet Vipbtts. Pas Melbet/888.
+ * StickyCTABar — mobile only, après 15 % de défilement.
+ * Ordre : 1xBet vipbtts, puis Linebet VISION221.
+ * MelBet et 888Starz restent dans le menu et les blocs dédiés.
  */
 export default function StickyCTABar() {
   const { lang } = useLanguage()
@@ -17,36 +18,20 @@ export default function StickyCTABar() {
   const [dismissed, setDismissed] = useState(false)
 
   const labels = useMemo(() => {
-    if (langKey === 'en') {
-      return {
-        linebet: 'Linebet · VISION221',
-        xbet: '1xBet · Vipbtts',
-        close: 'Close',
-      }
-    }
-    if (langKey === 'ar') {
-      return {
-        linebet: 'Linebet · VISION221',
-        xbet: '1xBet · Vipbtts',
-        close: 'إغلاق',
-      }
-    }
-    return {
-      linebet: 'Linebet · VISION221',
-      xbet: '1xBet · Vipbtts',
-      close: 'Fermer',
-    }
+    if (langKey === 'en') return { xbet: '1xBet · vipbtts', linebet: 'Linebet · VISION221', close: 'Close' }
+    if (langKey === 'ar') return { xbet: '1xBet · vipbtts', linebet: 'Linebet · VISION221', close: 'إغلاق' }
+    return { xbet: '1xBet · vipbtts', linebet: 'Linebet · VISION221', close: 'Fermer' }
   }, [langKey])
 
   useEffect(() => {
     if (dismissed) return
     const onScroll = () => {
-      const denom = document.documentElement.scrollHeight - window.innerHeight
-      if (denom <= 0) {
+      const denominator = document.documentElement.scrollHeight - window.innerHeight
+      if (denominator <= 0) {
         setVisible(false)
         return
       }
-      setVisible(window.scrollY / denom > 0.15)
+      setVisible(window.scrollY / denominator > 0.15)
     }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -74,24 +59,10 @@ export default function StickyCTABar() {
             className="flex items-center gap-2 px-3 py-2.5 backdrop-blur-xl"
             style={{
               backgroundColor: 'rgba(7, 17, 26, 0.95)',
-              borderTop: '1px solid rgba(47, 125, 255, 0.2)',
+              borderTop: '1px solid rgba(197, 243, 106, 0.2)',
               boxShadow: '0 -4px 20px rgba(7, 17, 26, 0.4)',
             }}
           >
-            <a
-              href={AFFILIATE.linebet}
-              target="_blank"
-              rel="sponsored nofollow noopener noreferrer"
-              onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'sticky-linebet')}
-              data-cta="sticky-register-linebet"
-              className="flex h-12 flex-1 items-center justify-center rounded-xl px-2 text-center text-[12px] font-bold leading-tight text-white"
-              style={{
-                background: 'linear-gradient(135deg, #2F7DFF 0%, #1B6EF3 100%)',
-                boxShadow: '0 8px 20px rgba(47, 125, 255, 0.35)',
-              }}
-            >
-              {labels.linebet}
-            </a>
             <a
               href={AFFILIATE.oneXbet}
               target="_blank"
@@ -100,12 +71,27 @@ export default function StickyCTABar() {
               data-cta="sticky-register-1xbet"
               className="flex h-12 flex-1 items-center justify-center rounded-xl px-2 text-center text-[12px] font-bold leading-tight"
               style={{
-                color: '#E8F1FF',
-                background: 'rgba(27, 110, 243, 0.16)',
-                border: '1px solid rgba(27, 110, 243, 0.45)',
+                background: 'linear-gradient(135deg, #D5FF7D, #B9E759)',
+                color: '#10150B',
+                boxShadow: '0 8px 20px rgba(197, 243, 106, 0.22)',
               }}
             >
               {labels.xbet}
+            </a>
+            <a
+              href={AFFILIATE.linebet}
+              target="_blank"
+              rel="sponsored nofollow noopener noreferrer"
+              onClick={() => trackAffiliateAction('linebet', 'signup_cta_click', 'sticky-linebet')}
+              data-cta="sticky-register-linebet"
+              className="flex h-12 flex-1 items-center justify-center rounded-xl px-2 text-center text-[12px] font-bold leading-tight"
+              style={{
+                color: '#E8F1FF',
+                background: 'rgba(255,255,255,0.05)',
+                border: '1px solid rgba(255,255,255,0.14)',
+              }}
+            >
+              {labels.linebet}
             </a>
             <button
               type="button"

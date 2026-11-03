@@ -52,9 +52,9 @@ export default function Over25PredictionsTodayPage() {
           <span className="text-[#9DABBB]">Over 2.5 Today</span>
         </nav>
 
-        <section className="max-w-5xl mx-auto px-4 pt-2 pb-6 sm:pt-4">
-          <div className="page-design__hero rounded-2xl p-5 sm:p-7">
-            <div className="flex flex-wrap items-center gap-2 mb-4">
+        <section className="over25-intro-section max-w-5xl mx-auto px-4 pt-2 pb-6 sm:pt-4">
+          <div className="page-design__hero over25-intro-panel rounded-2xl p-5 sm:p-7">
+            <div className="over25-meta-row flex flex-wrap items-center gap-2 mb-4">
               <span className="inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider"
                 style={{ backgroundColor: 'rgba(47, 125, 255, 0.12)', color: '#2F7DFF', border: '1px solid rgba(47, 125, 255, 0.25)' }}>
                 Over 2.5 · 3 buts ou plus
@@ -66,13 +66,13 @@ export default function Over25PredictionsTodayPage() {
             <AnimatedTitle
               as="h1"
               text="Pronostics Over 2.5 du jour"
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3"
+              className="over25-title text-3xl sm:text-4xl md:text-5xl font-bold mb-3"
               style={{ fontFamily: 'Poppins, sans-serif' }}
             />
-            <p className="text-base sm:text-lg text-[#9DABBB] leading-relaxed max-w-3xl">
+            <p className="over25-intro text-base sm:text-lg text-[#9DABBB] leading-relaxed max-w-3xl">
               Les matchs sélectionnés aujourd&apos;hui selon la probabilité d&apos;au moins 3 buts.
             </p>
-            <div className="mt-5 flex flex-wrap items-center gap-3">
+            <div className="over25-actions mt-5 flex flex-wrap items-center gap-3">
               <a href="#over25-dashboard" className="inline-flex min-h-11 items-center justify-center rounded-xl px-5 py-3 text-sm font-bold transition hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]" style={{ backgroundColor: '#2F7DFF', color: '#FFFFFF' }}>
                 Voir les matchs du jour
               </a>
@@ -80,19 +80,19 @@ export default function Over25PredictionsTodayPage() {
                 Comprendre la méthode
               </Link>
             </div>
-            <div className="mt-3">
+            <div className="over25-vip-actions mt-3">
               <VipButtons locale="fr" />
             </div>
-            <p className="mt-4 text-xs text-[#7F98A4]">Mise à jour 4 fois par jour · Aucun gain garanti · 18+</p>
+            <p className="over25-note mt-4 text-xs text-[#7F98A4]">Mise à jour 4 fois par jour · Aucun gain garanti · 18+</p>
           </div>
         </section>
 
-        <section id="over25-dashboard" aria-label="Pronostics Over 2.5 du jour" className="max-w-5xl mx-auto px-4 pb-10 scroll-mt-6">
+        <section id="over25-dashboard" aria-label="Pronostics Over 2.5 du jour" className="over25-results-section max-w-5xl mx-auto px-4 pb-10 scroll-mt-6">
           <FreePredictions />
         </section>
 
-        <section className="max-w-3xl mx-auto px-4 pb-10">
-          <div className="rounded-xl p-5" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
+        <section className="over25-info-section max-w-3xl mx-auto px-4 pb-10">
+          <div className="over25-info-card rounded-xl p-5" style={{ backgroundColor: '#141C25', border: '1px solid #6B7A8C' }}>
             <h2 className="text-lg font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Comprendre Over 2.5 en 30 secondes
             </h2>
@@ -105,7 +105,7 @@ export default function Over25PredictionsTodayPage() {
           </div>
         </section>
 
-        <section className="max-w-3xl mx-auto px-4 pb-12">
+        <section className="over25-related-section max-w-3xl mx-auto px-4 pb-12">
           <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Quick Links
           </h2>

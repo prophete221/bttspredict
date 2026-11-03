@@ -4,6 +4,7 @@
 
 import { AFFILIATE } from '@/lib/constants'
 import { useLanguage } from './LanguageSwitcher'
+import Navbar from './Navbar'
 import PromoLandingShell from './PromoLandingShell'
 import { getPromoFaq, type PromoBookmakerId } from '@/lib/promo-faq'
 
@@ -20,7 +21,7 @@ const INFO: Record<BookmakerId, {
 }> = {
   '1xbet': {
     brand: '1xBet',
-    code: 'Vipbtts',
+    code: 'vipbtts',
     signup: AFFILIATE.oneXbet,
     download: AFFILIATE.oneXbetDownload,
     logo: '/logos/1xbet-logo.png',
@@ -128,6 +129,8 @@ export default function LocalizedPromoClient({
   }))
 
   return (
+    <>
+    <Navbar />
     <PromoLandingShell
       brand={info.brand}
       code={info.code}
@@ -148,5 +151,6 @@ export default function LocalizedPromoClient({
       faq={faq}
       crossLinks={crossLinks}
     />
+    </>
   )
 }
