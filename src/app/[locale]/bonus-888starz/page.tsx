@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import LocalizedPromoClient from '@/components/bttsbet/LocalizedPromoClient'
+import BookmakerPromoPage from '@/components/promo/BookmakerPromoPage'
+// Refonte 2026-11 : client promo unifié (metadata inchangée).
 import { SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
 
 export function generateStaticParams() { return SUPPORTED_LOCALES.filter(locale => locale !== 'fr').map(locale => ({ locale })) }
@@ -33,5 +34,5 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   }
   return {}
 }
-export default async function Localized888StarzPage({ params }: { params: Promise<{ locale: string }> }) { const { locale } = await params; if (!SUPPORTED_LOCALES.includes(locale as Locale) || locale === 'fr') notFound();   return <LocalizedPromoClient bookmaker="888starz" reviewDate={REVIEW_DATE} />
+export default async function Localized888StarzPage({ params }: { params: Promise<{ locale: string }> }) { const { locale } = await params; if (!SUPPORTED_LOCALES.includes(locale as Locale) || locale === 'fr') notFound();   return <BookmakerPromoPage bookmaker="888starz" reviewDate={REVIEW_DATE} initialLocale={locale as Locale} />
  }

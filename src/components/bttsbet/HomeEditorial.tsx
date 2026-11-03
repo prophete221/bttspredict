@@ -5,7 +5,7 @@ import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { SITE, AFFILIATE } from '@/lib/constants'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
-import MovingGradientButton from './MovingGradientButton'
+import CtaButton from './CtaButton'
 
 /* ═══════════════════════════════════════════════════════════════════
    MethodSection — 4 étapes, éditorial court en 2 colonnes.
@@ -185,7 +185,7 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
                 {copied ? '✓' : t.hero.copy}
               </button>
             </div>
-            <MovingGradientButton
+            <CtaButton
               href={AFFILIATE.linebet}
               external
               rel="sponsored nofollow noopener noreferrer"
@@ -194,7 +194,7 @@ export function PartnerCard({ initialLocale }: { initialLocale?: Locale } = {}) 
             >
               {t.home2.ptCta}
               <span className="hp-btn-arrow" aria-hidden="true">→</span>
-            </MovingGradientButton>
+            </CtaButton>
             <p className="hp-partner__mentions">{t.home2.ptMentions}</p>
           </div>
         </div>

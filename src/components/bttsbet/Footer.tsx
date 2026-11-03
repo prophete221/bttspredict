@@ -1,17 +1,18 @@
 'use client'
 
-import { useState } from 'react'
 import { useLanguage } from './LanguageSwitcher'
 import { localizedPath, translationsFor, type Locale } from '@/lib/i18n'
-import { LEGAL, FAQ_ITEMS, LONASE } from '@/lib/constants'
+import { LEGAL, LONASE } from '@/lib/constants'
+import { BOOKMAKER_ORDER, getBookmaker } from '@/lib/bookmakers'
 
 /**
- * Footer plateforme — bloc marque (logo + positionnement + liens produit),
- * liens légaux réels uniquement, transparence, FAQ, 18+ visible,
- * réseaux sociaux, disclaimer affiliation et éditeur.
+ * Footer plateforme (refonte 2026-11) — compact et sans duplication :
+ *  - bloc marque + liens produit + légal ;
+ *  - rangée « codes promo partenaires » (Linebet, 1xBet, Melbet, 888Starz) ;
+ *  - une seule ligne 18+ / disclaimer + affiliation + éditeur.
+ *  La FAQ et le bloc transparence encadré (doublons des pages) ont été retirés.
  */
 export default function Footer({ initialLocale }: { initialLocale?: Locale } = {}) {
-  const [openFaq, setOpenFaq] = useState<number | null>(null)
   const { lang: detectedLang } = useLanguage()
   const lang = initialLocale ?? detectedLang
   const t = translationsFor(lang)
@@ -60,42 +61,28 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
 
           <p className="hp-footer-disclaimer">{t.home2.ftDisclaimer}</p>
 
-          {/* Note de transparence (remplace les témoignages non vérifiables) */}
-          <div className="hp-footer-block">
-            <div className="text-center mb-3">
-              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">{t.common.transparency}</span>
-            </div>
-            <div className="p-4 sm:p-5 rounded-xl text-center" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
-              <p className="text-sm text-cendre leading-relaxed">
-                {lang === 'fr' ? (
-                  <>BTTSPredict ne publie pas de témoignages clients. Notre engagement de transparence repose sur un <a href={localizedPath('/resultats-verifies', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">historique vérifiable publiquement</a>, une <a href={localizedPath('/methodologie', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">méthodologie documentée</a> et un suivi public lancé le 2026-08-08. Aucun résultat futur n’est garanti.</>
-                ) : lang === 'en' ? (
-                  <>BTTSPredict does not publish customer testimonials. Our transparency commitment is based on a <a href={localizedPath('/resultats-verifies', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">publicly verifiable history</a>, a <a href={localizedPath('/methodologie', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">documented method</a> and public tracking. No future result is guaranteed.</>
-                ) : (
-                  <>لا تنشر BTTSPredict شهادات العملاء. تعتمد الشفافية على <a href={localizedPath('/resultats-verifies', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">سجل عام موثق</a> و<a href={localizedPath('/methodologie', lang)} className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">منهجية موثقة</a> وتتبع علني. لا توجد ضمانات لأي نتيجة مستقبلية.</>
-                )}
-              </p>
-            </div>
-          </div>
+          {/* Codes promo partenaires — une ligne sobre, ordre prioritaire Linebet → 1xBet */}
+          <nav className="hp-footer-codes" aria-label={lang === 'en' ? 'Partner promo codes' : lang === 'ar' ? 'الرموز الترويجية للشركاء' : 'Codes promo partenaires'}>
+            <span className="hp-footer-codes__label">{lang === 'en' ? 'Promo codes:' : lang === 'ar' ? 'الرموز الترويجية:' : 'Codes promo :'}</span>
+            {BOOKMAKER_ORDER.map(id => {
+              const b = getBookmaker(id)
+              return (
+                <a key={id} href={localizedPath(b.promoPath, lang)} className="hp-footer-codes__link" data-cta={`footer-promo-${id}`}>
+                  {b.name} <span className="hp-footer-codes__code">{b.promoCode}</span>
+                </a>
+              )
+            })}
+          </nav>
 
-          {/* FAQ */}
-          <div className="hp-footer-block">
-            <div className="text-center mb-4">
-              <h3 className="text-base font-bold text-papier">{t.common.faq}</h3>
-            </div>
-            <div className="space-y-2">
-              {(lang === 'fr' ? FAQ_ITEMS.slice(0, 4) : t.faqItems).map((item, i) => (
-                <div key={item.q} className="rounded-xl overflow-hidden" style={{ backgroundColor: '#141C25', border: '1px solid #223041' }}>
-                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i} className="w-full text-left px-4 py-3.5 text-sm font-semibold text-papier hover:bg-white/[0.03] transition-colors">
-                    {item.q}
-                  </button>
-                  {openFaq === i && (
-                    <div className="px-4 pb-4 text-sm text-cendre leading-relaxed">{item.a}</div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* Transparence — une ligne (la version complète vit sur /resultats-verifies) */}
+          <p className="hp-footer-transparency">
+            {lang === 'en'
+              ? <>No customer testimonials — transparency based on a <a href={localizedPath('/resultats-verifies', lang)}>publicly verifiable history</a>. No future result is guaranteed.</>
+              : lang === 'ar'
+                ? <>لا شهادات عملاء — الشفافية مبنية على <a href={localizedPath('/resultats-verifies', lang)}>سجل عام قابل للتحقق</a>. لا ضمانات لأي نتيجة مستقبلية.</>
+                : <>Aucun témoignage client — transparence basée sur un <a href={localizedPath('/resultats-verifies', lang)}>historique vérifiable publiquement</a>. Aucun résultat futur n’est garanti.</>
+            }
+          </p>
 
           {/* Liens légaux — grille mobile-friendly */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5">

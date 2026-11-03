@@ -2,9 +2,13 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { getDakarDateString } from '@/lib/dakar-date'
 import { checkSeo } from '@/lib/seo'
+import BookmakerPromoPage from '@/components/promo/BookmakerPromoPage'
+import BookmakersStrip from '@/components/promo/BookmakersStrip'
 
+// Refonte 2026-11 — client promo unifié (lib/bookmakers.ts) au lieu de
+// Btts221PromoClient ; metadata et JSON-LD inchangés.
+const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
-const Btts221PromoClient = dynamic(() => import('@/components/bttsbet/Btts221PromoClient'), { loading: () => null })
 
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'bonus-888starz-btts221'
@@ -109,7 +113,11 @@ export default function Bonus888StarzBtts221Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd()) }} />
-      <Btts221PromoClient lang="fr" reviewDate={REVIEW_DATE} />
+      <Navbar />
+      <main id="main-content" className="flex-1 relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
+        <BookmakerPromoPage bookmaker="888starz" reviewDate={REVIEW_DATE} />
+        <BookmakersStrip />
+      </main>
       <Footer />
     </div>
   )

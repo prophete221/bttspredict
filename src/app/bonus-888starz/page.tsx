@@ -1,11 +1,14 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { checkSeo } from '@/lib/seo'
+import BookmakerPromoPage from '@/components/promo/BookmakerPromoPage'
+import BookmakersStrip from '@/components/promo/BookmakersStrip'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
 const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
-const Star888Client = dynamic(() => import('./Star888Client'), { loading: () => null })
+// Refonte 2026-11 : Star888Client remplacé par le client promo unifié.
+// const Star888Client = dynamic(() => import('./Star888Client'), { loading: () => null })
 
 /* ──────────────────────────────────────────────────────────────
    Metadata — Code Promo 888Starz btts221 (corrigé : le code
@@ -213,7 +216,8 @@ export default function Bonus888StarzPage() {
       <ErrorBoundary><Navbar /></ErrorBoundary>
 
       <main id="main-content" className="flex-1 relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
-        <Star888Client reviewDate={REVIEW_DATE} />
+        <BookmakerPromoPage bookmaker="888starz" reviewDate={REVIEW_DATE} />
+        <BookmakersStrip />
 
         <ErrorBoundary><Footer /></ErrorBoundary>
       </main>

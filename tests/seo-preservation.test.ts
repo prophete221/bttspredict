@@ -4,10 +4,13 @@ import ts from 'typescript'
 import { describe, expect, it } from 'vitest'
 
 // The owner explicitly freezes SEO and existing titles/URLs at the original 7faa1ff0 revision.
+// sitemap.ts : hash mis à jour le 2026-11-03 — AJOUT ADDITIF des 2 pages codes promo
+// /code-promo-1xbet et /code-promo-melbet (mission propriétaire « une page par bookmaker »).
+// Aucune URL, priorité ou hreflang existant n'a été modifié.
 const frozenFiles = {
   'src/lib/i18n.ts': '1963bdecf97cb30f53146bdd2808cccbff73a45d35ce809082cb6152b6e4eff3',
   'src/lib/seoSchemas.ts': '7444b699bce53a5ec32112791b0350b8a17b1f3de688cca1bf2bb0bdb111d103',
-  'src/app/sitemap.ts': '01d5e180b2a5d931be3623cf23b7f17277d657e431fc649da7f5cd355ad1e35d',
+  'src/app/sitemap.ts': 'fd154a16b0fe3581d54b3242ce7e9ed8dda145c23824d81c86a9ea86154f8196',
   'public/robots.txt': '678a5a55dde4dd3c548f807dca3aa23964e886efc0a65b3b2ce8ff9d34d162a4',
   'scripts/submit-indexnow.mjs': 'ad6a518c6baaff4c2eed561edb2d8547ea776c0e0f1d17af92f3066e2ae4af6a',
 }

@@ -6,7 +6,7 @@ import { useLanguage } from './LanguageSwitcher'
 import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { generateMatchSlug } from '@/lib/match-slug'
 import AnimatedTitle from './HeroWordmark'
-import MovingGradientButton from './MovingGradientButton'
+import CtaButton from './CtaButton'
 import { getDakarDayDiff, hasDakarKickoffPassed } from '@/lib/dakar-date'
 
 /**
@@ -177,10 +177,10 @@ export default function Hero({ initialLocale }: { initialLocale?: Locale } = {})
             <p className="hp-hero__text">{t.home2.heroText}</p>
 
             <div className="hp-hero__cta-zone">
-              <MovingGradientButton href="#matchs" dataCta="hero-open-matchs">
+              <CtaButton href="#matchs" dataCta="hero-open-matchs">
                 {t.home2.heroCtaPrimary}
                 <span className="hp-btn-arrow" aria-hidden="true">→</span>
-              </MovingGradientButton>
+              </CtaButton>
               <a href={localizedPath('/historique', lang)} data-cta="hero-history" className="hp-btn-ghost">
                 {t.home2.heroCtaSecondary}
               </a>

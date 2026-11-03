@@ -1,7 +1,15 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer, FreePredictionsWidget, VipCardWidget, LinebetApkButton } from '@/components/bttsbet'
-import LinebetClient from './LinebetClient'
+import dynamic from 'next/dynamic'
 import { checkSeo } from '@/lib/seo'
+import BookmakerPromoPage from '@/components/promo/BookmakerPromoPage'
+import BookmakersStrip from '@/components/promo/BookmakersStrip'
+
+// Refonte 2026-11 — client promo unifié (source de vérité : lib/bookmakers.ts).
+// Les anciens blocs redondants (FreePredictionsWidget + VipCardWidget +
+// LinebetApkButton empilés) sont remplacés par un seul bloc internes propre.
+const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
+const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
+const ErrorBoundary = dynamic(() => import('@/components/bttsbet/ErrorBoundary'), { loading: () => null })
 
 /* ──────────────────────────────────────────────────────────────
    Metadata — SEO Afrique de l'Ouest & Maroc
@@ -216,17 +224,11 @@ export default function CodePromoLinebetSenegalPage() {
       <Navbar />
 
       <main id="main-content" className="flex-1 relative z-10" style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }}>
-        <LinebetClient />
-
-        {/* Pronostics gratuits + VIP + APK — visibles sur toutes les pages */}
-        <FreePredictionsWidget />
-        <VipCardWidget />
-        <div className="text-center pb-6">
-          <LinebetApkButton />
-        </div>
+        <BookmakerPromoPage bookmaker="linebet" reviewDate={REVIEW_DATE} />
+        <BookmakersStrip />
       </main>
 
-      <Footer />
+      <ErrorBoundary><Footer /></ErrorBoundary>
     </div>
   )
 }

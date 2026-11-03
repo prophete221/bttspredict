@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getDakarDateString } from '@/lib/dakar-date'
-import Btts221PromoClient from '@/components/bttsbet/Btts221PromoClient'
+import BookmakerPromoPage from '@/components/promo/BookmakerPromoPage'
+// Refonte 2026-11 : client promo unifié (metadata + JSON-LD inchangés).
 import { SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
 
 const SITE_URL = 'https://bttspredict.com'
@@ -91,7 +92,7 @@ export default async function LocalizedBtts221Page({ params }: { params: Promise
   return (
     <>
       {localizedJsonLd(lang).map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}
-      <Btts221PromoClient lang={lang} reviewDate={REVIEW_DATE} />
+      <BookmakerPromoPage bookmaker="888starz" reviewDate={REVIEW_DATE} initialLocale={lang} />
     </>
   )
 }

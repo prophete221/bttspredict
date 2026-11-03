@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { SITE } from '@/lib/constants'
+import { BOOKMAKER_ORDER, getBookmaker, type BookmakerId } from '@/lib/bookmakers'
 import LanguageSwitcher, { useLanguage } from './LanguageSwitcher'
 import { localizedPath, translationsFor } from '@/lib/i18n'
 import { trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
@@ -30,10 +31,10 @@ export default function Navbar() {
     { label: t.nav.methodology, href: localizedPath('/methodologie', lang) },
     { label: t.nav.stats2, href: localizedPath('/statistiques', lang) },
   ]
-  const partnerLinks = [
-    { label: 'Linebet', href: localizedPath('/code-promo-linebet-senegal', lang) },
-    { label: '888Starz', href: localizedPath('/bonus-888starz', lang) },
-  ]
+  const partnerLinks = BOOKMAKER_ORDER.map(id => ({
+    label: getBookmaker(id).name,
+    href: localizedPath(getBookmaker(id).promoPath, lang),
+  }))
   const [copied, setCopied] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [dataToday, setDataToday] = useState(false)
@@ -52,10 +53,18 @@ export default function Navbar() {
     return () => { cancelled = true }
   }, [])
 
-  /* Code promo contextuel : btts221 sur les pages 888Starz, VISION221 (Linebet) ailleurs */
-  const is888Page = pathname?.includes('bonus-888starz') ?? false
-  const navPromoCode = is888Page ? 'btts221' : SITE.promoCode
-  const navPartner: 'linebet' | '888starz' = is888Page ? '888starz' : 'linebet'
+  /* Code promo contextuel : celui de la page courante, sinon le partenaire
+     prioritaire (Linebet — VISION221). Ordre : 888starz → 1xbet → melbet → linebet. */
+  const CONTEXT_BY_PATH: Array<[RegExp, BookmakerId]> = [
+    [/bonus-888starz/, '888starz'],
+    [/code-promo-1xbet/, '1xbet'],
+    [/code-promo-melbet/, 'melbet'],
+    [/code-promo-linebet/, 'linebet'],
+  ]
+  const contextId = CONTEXT_BY_PATH.find(([re]) => re.test(pathname ?? ''))?.[1]
+  const navBookmaker = getBookmaker(contextId ?? 'linebet')
+  const navPromoCode = contextId ? navBookmaker.promoCode : SITE.promoCode
+  const navPartner = navBookmaker.id
 
   const copyCode = useCallback(async () => {
     // « Copié » n'est affiché que si la copie a réellement réussi
