@@ -80,3 +80,39 @@ metadata de layout/match/methodologie) restent byte-for-byte identiques.
 - APRÈS : `docs/design-refactor/after/` — accueil FR (desktop+mobile), promo
   Linebet / 1xBet / Melbet (desktop), accueil EN, VIP (desktop), modale VIP
   mobile, wizard VIP étape 3 mobile, zoom strip codes.
+- Passe de validation finale (2026-11-03) : popup cadeau visible mobile (11),
+  modale VIP étape 1 mobile (12), accueil AR RTL mobile (13), promo 1xBet
+  mobile (14), page match mobile (15).
+
+## Passe de validation finale — 2026-11-03 (session « vérification »)
+
+Vérification indépendante de la branche sur le build statique final :
+
+- **Débordements horizontaux : 0 / 162 combinaisons** (27 routes × FR/EN/AR
+  × mobile 390 px + desktop 1440 px), incluant pages match réelles et 404.
+  Méthode : serveur statique reproduisant le routage `.htaccess` de production
+  (fichier exact → `path.html` → `index.html` → 404), mesure
+  `scrollWidth/clientWidth` + identification des éléments fautifs.
+- **Popup cadeau** : déclenchement après décision cookies (attend la bannière,
+  plus de chevauchement), carte compacte 366 px sur mobile, fermeture croix
+  mémorisée en sessionStorage — testé et validé sur
+  `/over-2-5/predictions/today`.
+- **Correction apportée** : logo 1xBet peu lisible sur fond sombre (popup
+  cadeau, strip des 5 pages promo) → variante officielle wordmark blanc
+  `1xbet-logo-light.png` générée depuis le logo officiel (« 1X » blanc,
+  « BET » bleu préservé) ; registre mis à jour (`logo` = fond sombre,
+  `logoLight` = logo officiel bleu sur fond clair). Test registre : 13/13 ✓.
+- **Codes vérifiés dans le HTML buildé** : Vipbtts (49 occ. page 1xBet),
+  Bttswin (49 occ. page Melbet), VISION221 (49 occ. page Linebet),
+  btts221 (57 occ. page 888starz) — casse exacte partout, les variantes
+  minuscules détectées sont uniquement des méta keywords SEO.
+- **Liens affiliés vérifiés dans le HTML buildé** : 1xBet inscription
+  (ad=1599) ×2 + APK (ad=45361) ×1 ; Melbet inscription (ad=2170) ×2 + APK
+  (ad=70867) ×1 ; Linebet inscription (ad=22611) + APK (ad=66803) ;
+  888starz inscription + APK présents sur les 3 langues.
+- **Re-validation technique sur le build final** : vitest 202/202 ✓, tsc ✓,
+  eslint ✓, build statique 481 pages ✓.
+- Observations SANS action (préexistant, hors périmètre refonte design) :
+  `<html lang="fr">` est codé dans le layout racine (architecture
+  inchangée depuis avant la refonte ; le `lang`/`dir` correct est posé sur
+  le wrapper `[locale]` — tout changement toucherait des fichiers SEO gelés).

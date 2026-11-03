@@ -69,7 +69,10 @@ export const BOOKMAKERS: Bookmaker[] = [
     promoCodeIsCaps: false,
     signup: 'https://reffpa.com/L?tag=d_6292935m_1599c_&site=6292935&ad=1599',
     download: 'https://reffpa.com/L?tag=d_6292935m_45361c_&site=6292935&ad=45361',
-    logo: '/logos/1xbet-logo.png',
+    // Sur fond sombre (popup cadeau, strip) : wordmark blanc lisible.
+    // Sur fond clair (cartes promo, modale) : logo officiel bleu.
+    logo: '/logos/1xbet-logo-light.png',
+    logoLight: '/logos/1xbet-logo.png',
     promoPath: '/code-promo-1xbet',
     featured: true,
     accent: '#1D8FD1',
