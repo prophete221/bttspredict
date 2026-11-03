@@ -1,0 +1,140 @@
+/* Design system — shell milestone (design/refonte-2026-11)
+   Calm product chrome. Does not change prediction logic or routes. */
+
+:root {
+  --ds-bg: #0c0f14;
+  --ds-bg-raised: #131820;
+  --ds-line: rgba(255, 255, 255, 0.08);
+  --ds-line-strong: rgba(255, 255, 255, 0.14);
+  --ds-text: #e8edf2;
+  --ds-muted: #8b97a6;
+  --ds-faint: #66717f;
+  --ds-accent: #3b82f6;
+  --ds-accent-ink: #dbe8ff;
+  --ds-radius: 12px;
+}
+
+body.ds-shell {
+  background: var(--ds-bg);
+  color: var(--ds-text);
+}
+
+/* Flatten the loud primary button used by the shell */
+body.ds-shell .hp-cta-primary {
+  background: var(--ds-accent);
+  border: 1px solid transparent;
+  box-shadow: none;
+  border-radius: 8px;
+}
+body.ds-shell .hp-cta-primary:hover,
+body.ds-shell .hp-cta-primary:focus-visible {
+  background: #2f6fe0;
+}
+
+body.ds-shell .navbar-blur {
+  background: rgba(12, 15, 20, 0.94) !important;
+  border-bottom: 1px solid var(--ds-line) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+body.ds-shell .ds-nav-link {
+  color: var(--ds-muted);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+body.ds-shell .ds-nav-link[aria-current="page"],
+body.ds-shell .ds-nav-link.is-active {
+  color: var(--ds-text);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+body.ds-shell .ds-code {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ds-accent-ink);
+  background: transparent;
+  border: 1px solid var(--ds-line-strong);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+body.ds-shell .ds-lang {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--ds-line);
+  border-radius: 8px;
+  overflow: hidden;
+  direction: ltr;
+}
+body.ds-shell .ds-lang button {
+  appearance: none;
+  background: transparent;
+  color: var(--ds-muted);
+  border: 0;
+  border-inline-end: 1px solid var(--ds-line);
+  padding: 6px 8px;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  cursor: pointer;
+}
+body.ds-shell .ds-lang button:last-child { border-inline-end: 0; }
+body.ds-shell .ds-lang button[aria-current="true"] {
+  color: var(--ds-text);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+body.ds-shell .ds-drawer {
+  background: #10141b;
+  border-bottom: 1px solid var(--ds-line);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+body.ds-shell .ds-drawer a.ds-drawer-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 4px;
+  color: var(--ds-text);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 550;
+  border-bottom: 1px solid var(--ds-line);
+}
+body.ds-shell .ds-drawer a.ds-drawer-link[aria-current="page"] {
+  color: var(--ds-accent-ink);
+}
+
+body.ds-shell footer.ds-footer {
+  border-top: 1px solid var(--ds-line);
+  background: #0c0f14;
+}
+body.ds-shell footer.ds-footer .hp-footer-block .rounded-xl,
+body.ds-shell footer.ds-footer .rounded-xl {
+  background: transparent !important;
+  border-color: var(--ds-line) !important;
+  border-radius: 10px !important;
+}
+
+body.ds-shell .ds-tabbar {
+  background: #0c0f14;
+  border-top: 1px solid var(--ds-line);
+  box-shadow: none;
+}
+body.ds-shell .ds-tab {
+  color: var(--ds-faint);
+  text-decoration: none;
+}
+body.ds-shell .ds-tab[aria-current="page"] {
+  color: var(--ds-text);
+}
+body.ds-shell .ds-tab svg {
+  width: 20px;
+  height: 20px;
+}

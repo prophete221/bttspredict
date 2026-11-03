@@ -82,12 +82,6 @@ export default function Navbar() {
     <>
       <nav
         className="sticky top-0 z-50 navbar-blur"
-        style={{
-          backgroundColor: 'rgba(4, 6, 10, 0.72)',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.07)',
-          backdropFilter: 'blur(24px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(24px) saturate(180%)',
-        }}
       >
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-14 gap-3">
@@ -99,8 +93,8 @@ export default function Navbar() {
             >
               <img src="/favicon.svg" alt="" width={26} height={26} className="flex-shrink-0 rounded" />
               <span>
-                <span className="block text-sm font-bold leading-tight text-papier tracking-tight">BTTSPredict</span>
-                <span className="block max-[379px]:hidden text-[10px] font-semibold uppercase tracking-[0.18em] text-primary leading-none">Football data</span>
+                <span className="block text-sm font-semibold leading-tight tracking-tight" style={{ color: '#E8EDF2' }}>BTTSPredict</span>
+                <span className="block max-[379px]:hidden text-[10px] font-medium uppercase tracking-[0.14em] leading-none" style={{ color: '#8B97A6' }}>Football data</span>
               </span>
             </a>
 
@@ -111,11 +105,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   aria-current={isActive(link.href) ? 'page' : undefined}
-                  className={`px-2.5 py-2 rounded-lg text-[13px] font-medium whitespace-nowrap transition-colors ${
-                    isActive(link.href)
-                      ? 'text-papier bg-white/[0.06]'
-                      : 'text-cendre hover:text-papier hover:bg-white/[0.04]'
-                  }`}
+                  className={`ds-nav-link whitespace-nowrap ${isActive(link.href) ? 'is-active' : ''}`}
                 >
                   {link.label}
                 </a>
@@ -138,12 +128,8 @@ export default function Navbar() {
               <LanguageSwitcher compact />
               <button
                 onClick={copyCode}
-                className="hidden md:inline-flex items-center px-2.5 py-1.5 rounded-lg text-xs font-mono font-semibold transition-colors"
-                style={{
-                  border: '1px solid rgba(47, 125, 255, 0.45)',
-                  backgroundColor: 'rgba(47, 125, 255, 0.10)',
-                  color: copied ? '#34D399' : '#4A90FF',
-                }}
+                className="ds-code hidden md:inline-flex"
+                style={copied ? { color: '#34D399' } : undefined}
                 aria-label={lang === 'en' ? `Copy promo code ${navPromoCode}` : lang === 'ar' ? `انسخ الرمز الترويجي ${navPromoCode}` : `Copier le code promo ${navPromoCode}`}
               >
                 {copied ? (lang === 'en' ? '✓ Copied' : lang === 'ar' ? '✓ تم النسخ' : '✓ Copié') : navPromoCode}
@@ -194,15 +180,8 @@ export default function Navbar() {
           />
 
           <div
-            className="nav-drawer fixed top-0 left-0 right-0 z-[70] lg:hidden flex flex-col"
-            style={{
-              maxHeight: 'min(94vh, 720px)',
-              background: 'linear-gradient(165deg, #0E1624 0%, #0A1018 55%, #080D14 100%)',
-              borderBottomLeftRadius: 24,
-              borderBottomRightRadius: 24,
-              borderBottom: '1px solid rgba(59, 130, 246, 0.22)',
-              boxShadow: '0 28px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(148,163,184,0.06)',
-            }}
+            className="nav-drawer ds-drawer fixed top-0 left-0 right-0 z-[70] lg:hidden flex flex-col"
+            style={{ maxHeight: 'min(92vh, 680px)' }}
             role="dialog"
             aria-modal="true"
             aria-label={t.nav.menu}
@@ -240,7 +219,7 @@ export default function Navbar() {
                 <p className="px-1 pb-2 text-[10px] font-bold uppercase tracking-[0.18em]" style={{ color: '#64748B' }}>
                   {lang === 'en' ? 'Navigate' : lang === 'ar' ? 'تصفح' : 'Navigation'}
                 </p>
-                <div className="grid grid-cols-1 gap-1.5">
+                <div className="grid grid-cols-1">
                   {pageLinks.map((link) => {
                     const active = isActive(link.href)
                     return (
@@ -248,26 +227,10 @@ export default function Navbar() {
                         key={link.href}
                         href={link.href}
                         onClick={() => setMenuOpen(false)}
-                        className="flex items-center justify-between gap-3 px-3.5 py-3 rounded-xl text-sm font-semibold transition-all"
-                        style={
-                          active
-                            ? {
-                                color: '#F8FAFC',
-                                background: 'linear-gradient(135deg, rgba(59,130,246,0.22), rgba(34,211,238,0.08))',
-                                border: '1px solid rgba(59, 130, 246, 0.4)',
-                                boxShadow: '0 0 0 1px rgba(59,130,246,0.08) inset',
-                              }
-                            : {
-                                color: '#CBD5E1',
-                                backgroundColor: 'rgba(15, 23, 42, 0.65)',
-                                border: '1px solid rgba(51, 65, 85, 0.55)',
-                              }
-                        }
+                        className="ds-drawer-link"
+                        aria-current={active ? 'page' : undefined}
                       >
                         <span>{link.label}</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ opacity: active ? 1 : 0.35 }}>
-                          <polyline points="9 18 15 12 9 6" />
-                        </svg>
                       </a>
                     )
                   })}
@@ -291,28 +254,16 @@ export default function Navbar() {
                 <p className="px-1 pb-2 text-[10px] font-bold uppercase tracking-[0.18em]" style={{ color: '#64748B' }}>
                   {lang === 'en' ? 'Partners' : lang === 'ar' ? 'شركاء' : 'Partenaires'}
                 </p>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1">
                   {partnerLinks.map((link) => (
                     <a
                       key={link.href}
                       href={link.href}
                       onClick={() => setMenuOpen(false)}
-                      className="flex flex-col items-center justify-center gap-0.5 px-2.5 py-3 rounded-2xl text-center transition-all active:scale-[0.98]"
-                      style={{
-                        color: '#F1F5F9',
-                        background: link.primary
-                          ? 'linear-gradient(145deg, rgba(27,110,243,0.22) 0%, rgba(15,23,42,0.95) 100%)'
-                          : 'rgba(15, 23, 42, 0.88)',
-                        border: link.primary
-                          ? '1px solid rgba(59, 130, 246, 0.45)'
-                          : '1px solid rgba(51, 65, 85, 0.65)',
-                        boxShadow: link.primary ? '0 0 20px rgba(27,110,243,0.12)' : 'none',
-                      }}
+                      className="ds-drawer-link"
                     >
-                      <span className="text-sm font-bold leading-tight">{link.label}</span>
-                      <span className="text-[10px] font-mono font-semibold tracking-wide" style={{ color: link.primary ? '#93C5FD' : '#94A3B8' }}>
-                        {link.code}
-                      </span>
+                      <span>{link.label}</span>
+                      <span className="font-mono text-xs" style={{ color: '#8B97A6' }}>{link.code}</span>
                     </a>
                   ))}
                 </div>

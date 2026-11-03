@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import { motion } from 'framer-motion'
 import { localizedPath, translationsFor } from '@/lib/i18n'
 import { useLanguage } from './LanguageSwitcher'
 
@@ -106,15 +105,10 @@ export default function BottomNavigation() {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-50 flex lg:hidden"
+      className="ds-tabbar fixed bottom-0 left-0 right-0 z-50 flex lg:hidden"
       style={{
-        backgroundColor: 'rgba(7, 11, 18, 0.97)',
-        backdropFilter: 'blur(18px) saturate(170%)',
-        WebkitBackdropFilter: 'blur(18px) saturate(170%)',
-        borderTop: '1px solid rgba(51, 65, 85, 0.55)',
-        boxShadow: '0 -8px 28px rgba(0, 0, 0, 0.45)',
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
-        height: 'calc(64px + env(safe-area-inset-bottom, 0px))',
+        height: 'calc(56px + env(safe-area-inset-bottom, 0px))',
       }}
       aria-label={lang === 'fr' ? 'Navigation principale' : lang === 'en' ? 'Main navigation' : 'التنقل الرئيسي'}
     >
@@ -124,42 +118,13 @@ export default function BottomNavigation() {
           <a
             key={tab.id}
             href={tab.href}
-            className="flex-1 flex flex-col items-center justify-center gap-1 transition-colors duration-200 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF] focus-visible:ring-inset"
-            style={{
-              color: isActive
-                ? (tab.id === 'vip' ? '#E8C268' : tab.id === 'predictions' ? '#22D3EE' : '#3B82F6')
-                : '#94A3B8',
-              minHeight: '52px',
-              textShadow: 'none',
-            }}
+            className="ds-tab flex-1 flex flex-col items-center justify-center gap-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-inset"
+            style={{ minHeight: '48px' }}
             aria-label={tab.label}
             aria-current={isActive ? 'page' : undefined}
           >
-            {isActive && (
-              <motion.span
-                layoutId="bottomnav-glow"
-                className="absolute top-0 left-1/2 -translate-x-1/2"
-                style={{
-                  width: '32px',
-                  height: '3px',
-                  borderRadius: '2px',
-                  background: '#2F7DFF',
-                  boxShadow: 'none',
-                }}
-                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-              />
-            )}
-            <motion.div whileTap={{ scale: 0.88 }}>
-              {tab.icon}
-            </motion.div>
-            <span
-              className="text-xs font-semibold uppercase tracking-wider"
-              style={{
-                color: isActive
-                  ? (tab.id === 'vip' ? '#E8C268' : tab.id === 'predictions' ? '#22D3EE' : '#3B82F6')
-                  : '#94A3B8',
-              }}
-            >
+            {tab.icon}
+            <span className="text-[11px] font-medium">
               {tab.label}
             </span>
           </a>

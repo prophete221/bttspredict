@@ -33,7 +33,7 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
 
   return (
     <>
-      <footer id="faq" className="border-t pt-10 pb-20 lg:pb-8 px-4 sm:px-6" style={{ borderColor: '#223041', backgroundColor: 'transparent' }}>
+      <footer id="faq" className="ds-footer border-t pt-10 pb-20 lg:pb-8 px-4 sm:px-6">
         <div className="max-w-[1280px] mx-auto">
           {/* ═══ Bloc marque + liens plateforme ═══ */}
           <div className="hp-footer-brand">
@@ -95,15 +95,6 @@ export default function Footer({ initialLocale }: { initialLocale?: Locale } = {
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Liens légaux — grille mobile-friendly */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5">
-            {legalLinks.map(link => (
-              <a key={link.href} href={localizedPath(link.href, lang)} className="text-center text-xs text-cendre hover:text-papier transition-colors py-2">
-                {link.label}
-              </a>
-            ))}
           </div>
 
           {/* Texte légal + 18+ */}
