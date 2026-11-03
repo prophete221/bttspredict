@@ -61,6 +61,7 @@ function buildManifest() {
 }
 
 function cmdPrepare() {
+  const requirePrev = process.argv.includes('--require-prev')
   if (!fs.existsSync(OUT)) {
     console.error('[ftp-diff] out/ introuvable — exécuter le build Next.js avant prepare.')
     process.exit(1)
@@ -71,6 +72,11 @@ function cmdPrepare() {
   let prev = null
   try { prev = JSON.parse(fs.readFileSync(PREV, 'utf8')) } catch { prev = null }
   const prevFiles = prev?.files && typeof prev.files === 'object' ? prev.files : null
+
+  if (requirePrev && !prevFiles) {
+    console.error('[ftp-diff] --require-prev: manifeste précédent absent ou invalide — refus du déploiement complet.')
+    process.exit(1)
+  }
 
   const changed = []
   for (const [rel, meta] of Object.entries(manifest.files)) {
@@ -84,7 +90,7 @@ function cmdPrepare() {
     `(prev=${prevFiles ? Object.keys(prevFiles).length : 'aucun'}) → ${LIST}`
   )
   if (changed.length === 0) {
-    console.log('[ftp-diff] Aucun fichier modifié — le miroir ne transferera que le manifeste.')
+    console.log('[ftp-diff] Aucun fichier modifié — rien à transférer.')
   }
 }
 
@@ -102,6 +108,6 @@ const cmd = process.argv[2] || 'prepare'
 if (cmd === 'prepare') cmdPrepare()
 else if (cmd === 'finish') cmdFinish()
 else {
-  console.error('Usage: node scripts/ftp-diff.mjs [prepare|finish]')
+  console.error('Usage: node scripts/ftp-diff.mjs [prepare|finish] [--require-prev]')
   process.exit(1)
 }
