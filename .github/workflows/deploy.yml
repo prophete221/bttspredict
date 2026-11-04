@@ -218,7 +218,6 @@ jobs:
           cp public/_redirects out/_redirects 2>/dev/null || true
           cp public/.htaccess out/.htaccess 2>/dev/null || true
           cp public/robots.txt out/robots.txt 2>/dev/null || true
-          cp public/sitemap.xml out/sitemap.xml 2>/dev/null || true
 
       # Le root layout unique pose lang="fr" sur les 3 langues ; le script
       # runtime client ne suffit pas aux crawlers. Correction post-export,
@@ -268,7 +267,7 @@ jobs:
           fi
 
           # Bypass historique du certificat, limité à cette refonte. FTPS reste obligatoire et protège aussi les données.
-          SETTINGS="set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify no; set net:timeout 60; set net:max-retries 3; set mirror:use-pget-n 1"
+          SETTINGS="set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify no; set net:timeout 60; set net:max-retries 3; set cmd:fail-exit yes; set mirror:use-pget-n 1"
           FTP_URL="ftps://${FTP_SERVER}"
 
           ftp_run() {
@@ -278,16 +277,20 @@ jobs:
           # LWS applique une protection anti-flood ENTRE les sessions et garde
           # une session zombie ouverte jusqu'à ~600 s sans QUIT propre (ProFTPD
           # TimeoutIdle). Le QUIT est désormais envoyé par l'outil d'inventaire
-          # (finalize → drop_control) et le refroidissement post-inventaire est
-          # porté à 300 s. Chaque session FTPS reste retentée 3× (pause 60 s).
+          # (finalize → drop_control); la pause anti-flood est juste avant transfert.
+          # Chaque session FTPS reste retentée 3× (pause 60 s entre essais).
           ftp_run_retry() {
             local attempt=1
             while [ "$attempt" -le 3 ]; do
               if ftp_run "$1"; then
                 return 0
               fi
-              echo "::warning::Session FTPS échouée (tentative $attempt/3) — pause de 60 s avant nouvel essai."
-              sleep 60
+              if [ "$attempt" -lt 3 ]; then
+                echo "::warning::Session FTPS échouée (tentative $attempt/3) — pause de 60 s avant nouvel essai."
+                sleep 60
+              else
+                echo "::warning::Session FTPS échouée à la dernière tentative; arrêt sans pause inutile."
+              fi
               attempt=$((attempt + 1))
             done
             return 1
@@ -312,17 +315,26 @@ jobs:
           # première erreur de canal (run 41738042328 : max-retries exceeded). scripts/ftp-inventory.py
           # teste PWD/CWD/LIST/MLSD séparément, liste chaque répertoire avec
           # timeout + backoff + reconnexion contrôle, et journalise le chemin
-          # exact des blocages. Lecture seule stricte (aucune commande d'écriture).
+          # exact des blocages. Les fichiers racine critiques sont aussi lus et
+          # sauvegardés dans cette même session, sans ouverture lftp séparée.
           # Codes de sortie : 0 = complet ; 2 = partiel (aucun transfert) ; 1 = fatal.
           rm -f out/remote-inventory.tsv out/remote-inventory-summary.json out/remote-inventory-failures.json out/remote-inventory.err out/deploy-manifest.prev.json
+          rm -rf out/predeploy-backups
+          mkdir -p out/predeploy-backups
           set +e
-          python3 scripts/ftp-inventory.py --mode=deploy --out-dir=out --timeout=30 --retries=2 --delay=0.05 --save-manifest=out/deploy-manifest.prev.json
+          python3 scripts/ftp-inventory.py --mode=deploy --out-dir=out --timeout=30 --retries=2 --delay=0.05 --save-manifest=out/deploy-manifest.prev.json --save-root-backups=out/predeploy-backups
           INV_RC=$?
           set -e
           if [ "$INV_RC" -ne 0 ]; then
             echo "::error::Inventaire distant non fiable (code $INV_RC) — arrêt avant sauvegarde ou écriture FTPS. Chemins bloquants listés ci-dessus et dans l'artefact remote-inventory-failures.json."
             exit 1
           fi
+          for FILE in .htaccess robots.txt sitemap.xml; do
+            if [ ! -s "out/predeploy-backups/$FILE" ]; then
+              echo "::error::La sauvegarde distante de $FILE est absente ou vide — arrêt sans transfert."
+              exit 1
+            fi
+          done
 
           REMOTE_NOW=$(node -e "const s=require('./out/remote-inventory-summary.json'); process.stdout.write(String(s.filesCount||0))")
           REMOTE_BYTES=$(node -e "const s=require('./out/remote-inventory-summary.json'); process.stdout.write(String(s.bytesTotal||0))")
@@ -337,26 +349,13 @@ jobs:
           fi
           echo "Fichiers distants actuels (inventaire live): $REMOTE_NOW ($REMOTE_BYTES octets)"
 
-          cooldown 300
-
-          # Manifeste distant pour le DIFF de contenu uniquement (pas pour le
-          # quota). Source 1 : téléchargé par l'inventaire Python dans la MÊME
-          # session (recommandé — pas de session lftp refusée par l'anti-flood).
-          # Source 2 (repli) : get lftp avec tentatives.
-          MANIFEST_PREV_OK=0
-          if [ -s out/deploy-manifest.prev.json ] && node -e "const m=require('./out/deploy-manifest.prev.json'); if(!m.files||typeof m.files!=='object'||m.fileCount!==Object.keys(m.files).length) process.exit(1)" 2>/dev/null; then
-            echo "Manifeste distant récupéré par l'inventaire Python (même session, pas de session lftp supplémentaire)."
-            MANIFEST_PREV_OK=1
-          else
-            if ftp_run_retry "get ./deploy-manifest.json -o out/deploy-manifest.prev.json"; then
-              echo "Manifeste distant récupéré via lftp (repli)."
-              MANIFEST_PREV_OK=1
-            fi
-          fi
-          if [ "$MANIFEST_PREV_OK" -ne 1 ]; then
-            echo "::error::Manifeste distant deploy-manifest.json indisponible (ni inventaire Python, ni get lftp). Pas de diff sûr et pas d'upload complet. Arrêt."
+          # Manifeste distant déjà lu pendant l'inventaire. Aucune session lftp
+          # de repli: si la preuve est manquante ou invalide, on s'arrête.
+          if [ ! -s out/deploy-manifest.prev.json ] || ! node -e "const m=require('./out/deploy-manifest.prev.json'); if(!m.files||typeof m.files!=='object'||m.fileCount!==Object.keys(m.files).length) process.exit(1)" 2>/dev/null; then
+            echo "::error::Manifeste distant indisponible ou invalide dans l'inventaire Python. Pas de diff sûr ni de repli par upload complet. Arrêt."
             exit 1
           fi
+          echo "Manifeste distant récupéré par l'inventaire Python (même session)."
 
           node scripts/ftp-diff.mjs prepare --require-prev --allow-legacy-v1 --live-inventory=out/remote-inventory.tsv --force-path=.htaccess --force-path=robots.txt --force-path=sitemap.xml
 
@@ -365,13 +364,43 @@ jobs:
             exit 1
           fi
 
+          node --experimental-strip-types scripts/prepare-stale-match-deletions.mjs \
+            --inventory=out/remote-inventory.tsv \
+            --current-manifest=out/deploy-manifest.json \
+            --output=out/stale-match-pages.json \
+            --review=out/orphan-review.json \
+            --delete-commands=out/stale-match-delete.lftp
+
+          # Le sitemap du build fournit les versions actuelles; on conserve les
+          # autres URL distantes et retire uniquement celles des fichiers Match
+          # réellement supprimés par le plan ci-dessus.
+          node --experimental-strip-types scripts/filter-sitemap-match-urls.mjs \
+            --input=out/sitemap.xml \
+            --previous=out/predeploy-backups/sitemap.xml \
+            --deletions=out/stale-match-pages.json \
+            --current-manifest=out/deploy-manifest.json \
+            --output=out/sitemap.xml \
+            --report=out/sitemap-match-filter.json \
+            --public-dir=public
+
+          # Le manifeste et le diff doivent refléter le sitemap filtré, pas le
+          # sitemap généré par Next avant la suppression ciblée des anciennes URL.
+          node scripts/ftp-diff.mjs prepare --require-prev --allow-legacy-v1 --live-inventory=out/remote-inventory.tsv --force-path=.htaccess --force-path=robots.txt --force-path=sitemap.xml
+          if [ ! -f out/deploy-diff-stats.json ] || [ ! -f out/deploy-list.txt ]; then
+            echo "::error::Statistiques de diff final manquantes — arrêt."
+            exit 1
+          fi
+
           NEW_PATHS=$(node -e "const s=require('./out/deploy-diff-stats.json'); process.stdout.write(String(s.newPathCount||0))")
           BYTES_TO_ADD=$(node -e "const s=require('./out/deploy-diff-stats.json'); process.stdout.write(String(s.bytesToAdd||0))")
           CHANGED=$(node -e "const s=require('./out/deploy-diff-stats.json'); process.stdout.write(String(s.changedCount||0))")
           LOCAL_BYTES=$(node -e "const s=require('./out/deploy-diff-stats.json'); process.stdout.write(String(s.localTotalBytes||0))")
           MISSING=$(node -e "const s=require('./out/deploy-diff-stats.json'); process.stdout.write(String(s.missingOnRemoteCount||0))")
+          MATCH_DELETE_COUNT=$(node -e "const s=require('./out/stale-match-pages.json'); process.stdout.write(String(s.deletionCount||0))")
+          MATCH_DELETE_BYTES=$(node -e "const s=require('./out/stale-match-pages.json'); process.stdout.write(String(s.deletionBytes||0))")
 
           echo "Diff: changed=$CHANGED newPaths=$NEW_PATHS missingOnRemote=$MISSING bytesToAdd=$BYTES_TO_ADD localBytes=$LOCAL_BYTES"
+          echo "Nettoyage Match strict: $MATCH_DELETE_COUNT pages passées, $MATCH_DELETE_BYTES octets"
 
           report_quota_candidates() {
             node -e "const s=require('./out/deploy-diff-stats.json'); for (const [k,label] of [['newPaths','nouveaux'],['changedPaths','modifiés']]) { const paths=s[k]||[]; console.log(label+' ('+paths.length+')'); console.log(paths.length ? paths.join('\\n') : '(aucun)'); }"
@@ -380,8 +409,14 @@ jobs:
           # Quota fichiers : inventaire live + chemins réellement nouveaux
           # + fichiers attendus mais absents du serveur (trous du diff par hash,
           # comptés par le croisement avec l'inventaire live).
-          PROJECTED_FILES=$((REMOTE_NOW + NEW_PATHS + MISSING))
-          echo "Projection fichiers: $REMOTE_NOW + $NEW_PATHS + $MISSING = $PROJECTED_FILES (max autorisé $MAX_FILES / quota $QUOTA marge $MARGIN)"
+          if [ "$MATCH_DELETE_COUNT" -gt "$REMOTE_NOW" ] || [ "$MATCH_DELETE_BYTES" -gt "$REMOTE_BYTES" ]; then
+            echo "::error::Plan de nettoyage incohérent avec l'inventaire FTP — arrêt avant écriture."
+            exit 1
+          fi
+          REMOTE_AFTER_MATCH_CLEANUP=$((REMOTE_NOW - MATCH_DELETE_COUNT))
+          BYTES_AFTER_MATCH_CLEANUP=$((REMOTE_BYTES - MATCH_DELETE_BYTES))
+          PROJECTED_FILES=$((REMOTE_AFTER_MATCH_CLEANUP + NEW_PATHS + MISSING))
+          echo "Projection fichiers: ($REMOTE_NOW - $MATCH_DELETE_COUNT) + $NEW_PATHS + $MISSING = $PROJECTED_FILES (max autorisé $MAX_FILES / quota $QUOTA marge $MARGIN)"
           if [ "$PROJECTED_FILES" -gt "$MAX_FILES" ]; then
             echo "::error::Quota fichiers risqué ($PROJECTED_FILES > $MAX_FILES). Nettoyage panel LWS ou hausse de quota requis. Arrêt."
             report_quota_candidates
@@ -391,8 +426,8 @@ jobs:
           # Quota octets : total distant MESURÉ par l'inventaire live + volume
           # à ajouter (remplacements comptés en pire cas où l'ancien fichier
           # ne serait pas libéré) ≤ plafond.
-          PROJECTED_BYTES=$((REMOTE_BYTES + BYTES_TO_ADD))
-          echo "Projection octets: $REMOTE_BYTES + $BYTES_TO_ADD = $PROJECTED_BYTES (max autorisé $MAX_BYTES / quota $BYTE_QUOTA marge $BYTE_MARGIN)"
+          PROJECTED_BYTES=$((BYTES_AFTER_MATCH_CLEANUP + BYTES_TO_ADD))
+          echo "Projection octets: ($REMOTE_BYTES - $MATCH_DELETE_BYTES) + $BYTES_TO_ADD = $PROJECTED_BYTES (max autorisé $MAX_BYTES / quota $BYTE_QUOTA marge $BYTE_MARGIN)"
           if [ "$BYTES_TO_ADD" -gt "$MAX_BYTES" ]; then
             echo "::error::Volume à ajouter ($BYTES_TO_ADD) dépasse la marge octets ($MAX_BYTES). Arrêt."
             report_quota_candidates
@@ -404,37 +439,31 @@ jobs:
             exit 1
           fi
           # Si inventaire live montre déjà saturation fichiers, stop (déjà couvert).
-          if [ "$REMOTE_NOW" -ge "$MAX_FILES" ]; then
-            echo "::error::Serveur déjà au plafond fichiers ($REMOTE_NOW >= $MAX_FILES). Arrêt."
+          if [ "$REMOTE_AFTER_MATCH_CLEANUP" -ge "$MAX_FILES" ]; then
+            echo "::error::Serveur déjà au plafond fichiers après nettoyage Match ($REMOTE_AFTER_MATCH_CLEANUP >= $MAX_FILES). Arrêt."
             report_quota_candidates
             exit 1
           fi
 
-          if [ "$CHANGED" -eq 0 ]; then
-            echo "Aucun fichier modifié — pas d'upload. Manifeste distant inchangé."
+          if [ "$CHANGED" -eq 0 ] && [ "$MATCH_DELETE_COUNT" -eq 0 ]; then
+            echo "Aucun fichier modifié ni page Match passée à retirer — pas d'écriture FTP."
             exit 0
           fi
 
-          # Sauvegarder les trois fichiers racine avant la première écriture
-          # distante — UNE seule session lftp pour les 3 GET (moins de sessions
-          # = moins d'exposition au blocage anti-flood). L'échec d'un get laisse
-          # le fichier absent/vidé : le contrôle ci-dessous abort tout.
-          mkdir -p out/predeploy-backups
-          rm -f out/predeploy-backups/.htaccess out/predeploy-backups/robots.txt out/predeploy-backups/sitemap.xml
-          if ! ftp_run_retry "get ./.htaccess -o out/predeploy-backups/.htaccess; get ./robots.txt -o out/predeploy-backups/robots.txt; get ./sitemap.xml -o out/predeploy-backups/sitemap.xml"; then
-            echo "::error::Session de sauvegarde impossible — arrêt sans transfert."
-            exit 1
-          fi
-          for FILE in .htaccess robots.txt sitemap.xml; do
-            if [ ! -s "out/predeploy-backups/$FILE" ]; then
-              echo "::error::La sauvegarde distante de $FILE est absente ou vide — arrêt sans transfert."
-              exit 1
+          # Pause anti-flood seulement si un transfert va ouvrir une nouvelle
+          # session après le QUIT propre de l'inventaire.
+          cooldown 300
+
+          MIRROR_COMMAND="mirror --reverse --no-perms --overwrite --verbose --parallel=2 --include-from-file=out/deploy-list.txt out/ ./"
+          if [ "$MATCH_DELETE_COUNT" -gt 0 ]; then
+            REMOTE_UPDATE_COMMAND="source out/stale-match-delete.lftp"
+            if [ "$CHANGED" -gt 0 ]; then
+              REMOTE_UPDATE_COMMAND="$REMOTE_UPDATE_COMMAND; $MIRROR_COMMAND"
             fi
-          done
-
-          cooldown 60
-
-          if ! ftp_run_retry "mirror --reverse --no-perms --overwrite --verbose --parallel=2 --include-from-file=out/deploy-list.txt out/ ./"; then
+          else
+            REMOTE_UPDATE_COMMAND="$MIRROR_COMMAND"
+          fi
+          if ! ftp_run_retry "$REMOTE_UPDATE_COMMAND"; then
             echo "::warning::Transfert différentiel FTPS échoué — restauration des fichiers racine sauvegardés."
             RESTORE_FAILED=0
             ftp_run_retry "put out/predeploy-backups/.htaccess -o ./.htaccess; put out/predeploy-backups/robots.txt -o ./robots.txt; put out/predeploy-backups/sitemap.xml -o ./sitemap.xml" || RESTORE_FAILED=1
@@ -470,6 +499,9 @@ jobs:
             out/remote-inventory-failures.json
             out/remote-inventory.err
             out/deploy-diff-stats.json
+            out/stale-match-pages.json
+            out/orphan-review.json
+            out/sitemap-match-filter.json
           if-no-files-found: ignore
           retention-days: 15
 

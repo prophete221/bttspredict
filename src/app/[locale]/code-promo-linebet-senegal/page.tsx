@@ -3,9 +3,10 @@ import { notFound } from 'next/navigation'
 import LocalizedPromoClient from '@/components/bttsbet/LocalizedPromoClient'
 import { SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
+import { PROMO_CURRENT_YEAR } from '@/lib/promo-build-date.generated'
 
 export function generateStaticParams() { return SUPPORTED_LOCALES.filter(locale => locale !== 'fr').map(locale => ({ locale })) }
-const YEAR = new Date().getUTCFullYear()
+const YEAR = PROMO_CURRENT_YEAR
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { checkSeo } from '@/lib/seo'
+import { PROMO_CURRENT_YEAR, PROMO_REVIEW_DATE } from '@/lib/promo-build-date.generated'
 
 const Navbar = dynamic(() => import('@/components/bttsbet/Navbar'), { loading: () => null })
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -18,8 +19,8 @@ const PAGE_URL = `${SITE_URL}/${SLUG}`
 // SEO — title court (46 chars) + description courte (<150).
 // Avec le template "%s | BTTSPredict" (14 chars), le title rendu fait
 // 46 + 14 = 60 chars, sous la limite hard 70.
-const CURRENT_YEAR = new Date().getUTCFullYear()
-const REVIEW_DATE = new Date().toISOString().slice(0, 10)
+const CURRENT_YEAR = PROMO_CURRENT_YEAR
+const REVIEW_DATE = PROMO_REVIEW_DATE
 const TITLE = `Code promo 888Starz btts221 : 300% + 100 spins`
 const DESCRIPTION = `Code promo 888Starz btts221 : 300% de bonus et 100 free spins, sans condition de mise, dès 1 € de dépôt. Guide ${CURRENT_YEAR} d'inscription, 18+.`
 checkSeo('bonus-888starz', TITLE, DESCRIPTION)

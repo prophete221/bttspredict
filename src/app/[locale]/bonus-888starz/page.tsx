@@ -3,12 +3,13 @@ import { notFound } from 'next/navigation'
 import LocalizedPromoClient from '@/components/bttsbet/LocalizedPromoClient'
 import { SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
 import { buildPromoFaqJsonLd } from '@/lib/promo-faq'
+import { PROMO_CURRENT_YEAR, PROMO_REVIEW_DATE } from '@/lib/promo-build-date.generated'
 
 export function generateStaticParams() { return SUPPORTED_LOCALES.filter(locale => locale !== 'fr').map(locale => ({ locale })) }
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'bonus-888starz'
-const REVIEW_DATE = new Date().toISOString().slice(0, 10)
-const YEAR = new Date().getUTCFullYear()
+const REVIEW_DATE = PROMO_REVIEW_DATE
+const YEAR = PROMO_CURRENT_YEAR
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params

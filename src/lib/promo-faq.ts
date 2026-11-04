@@ -3,12 +3,13 @@
  * Textes FR alignés sur buildFaqJsonLd des page.tsx existantes.
  * EN/AR : traductions fidèles (mêmes faits, mêmes codes, sans condition inventée).
  */
+import { PROMO_CURRENT_YEAR } from './promo-build-date.generated'
 
 export type PromoBookmakerId = 'linebet' | '1xbet' | 'melbet' | '888starz'
 export type PromoLang = 'fr' | 'en' | 'ar'
 export type PromoFaqItem = { q: string; a: string }
 
-const YEAR = new Date().getUTCFullYear()
+const YEAR = PROMO_CURRENT_YEAR
 
 const FR: Record<PromoBookmakerId, PromoFaqItem[]> = {
   linebet: [

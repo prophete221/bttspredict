@@ -1,7 +1,10 @@
-export const RETAINED_FR_ONLY_MATCH_SLUG =
-  'west-ham-united-vs-queens-park-rangers-2026-10-09'
+import { getDakarMatchStatus } from './dakar-date'
 
-const RETAINED_FR_ONLY_MATCH_SLUGS = new Set([RETAINED_FR_ONLY_MATCH_SLUG])
+export type MatchPageCandidate = {
+  slug: string
+  date: string
+  time?: string
+}
 
 /** Fail instead of emitting two static pages for the same slug. */
 export function assertUniqueMatchSlugs(slugs: readonly string[]): void {
@@ -12,18 +15,25 @@ export function assertUniqueMatchSlugs(slugs: readonly string[]): void {
   }
 }
 
-/** Slugs served by the generic [slug] route; retained literal routes stay out. */
-export function getDynamicMatchSlugs(slugs: readonly string[]): string[] {
+/** Build only pages for matches that have not finished in Africa/Dakar time. */
+export function getDynamicMatchSlugs(
+  matches: readonly MatchPageCandidate[],
+  now = new Date(),
+): string[] {
+  const slugs = matches.map(match => match.slug)
   assertUniqueMatchSlugs(slugs)
-  return slugs.filter(slug => !RETAINED_FR_ONLY_MATCH_SLUGS.has(slug))
+  return matches
+    .filter(match => getDakarMatchStatus(match.date, match.time, now) !== 'finished')
+    .map(match => match.slug)
 }
 
-/** Existing localized route set, less any explicitly French-only retained match. */
+/** Localized routes mirror the same active-match set; French uses the root route. */
 export function getLocalizedMatchStaticParams(
-  slugs: readonly string[],
+  matches: readonly MatchPageCandidate[],
   locales: readonly string[],
+  now = new Date(),
 ): Array<{ locale: string; slug: string }> {
-  const dynamicSlugs = getDynamicMatchSlugs(slugs)
+  const dynamicSlugs = getDynamicMatchSlugs(matches, now)
   return locales
     .filter(locale => locale !== 'fr')
     .flatMap(locale => dynamicSlugs.map(slug => ({ locale, slug })))

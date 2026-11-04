@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Navbar, Footer, FreePredictionsWidget, VipCardWidget, LinebetApkButton } from '@/components/bttsbet'
 import LinebetClient from './LinebetClient'
 import { checkSeo } from '@/lib/seo'
+import { PROMO_CURRENT_YEAR, PROMO_REVIEW_DATE } from '@/lib/promo-build-date.generated'
 
 /* ──────────────────────────────────────────────────────────────
    Metadata — SEO Afrique de l'Ouest & Maroc
@@ -11,8 +12,8 @@ import { checkSeo } from '@/lib/seo'
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-linebet-senegal'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const CURRENT_YEAR = new Date().getUTCFullYear()
-const REVIEW_DATE = new Date().toISOString().slice(0, 10)
+const CURRENT_YEAR = PROMO_CURRENT_YEAR
+const REVIEW_DATE = PROMO_REVIEW_DATE
 
 // SEO — title court (47 chars) + description courte (<150).
 // Avec le template "%s | BTTSPredict" (14 chars), le title rendu final

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Navbar, Footer, FreePredictionsWidget, VipCardWidget } from '@/components/bttsbet'
 import MelbetClient from './MelbetClient'
 import { checkSeo } from '@/lib/seo'
+import { PROMO_CURRENT_YEAR, PROMO_REVIEW_DATE } from '@/lib/promo-build-date.generated'
 
 /* ──────────────────────────────────────────────────────────────
    Page /code-promo-melbet — partenaire Melbet (code Bttswin)
@@ -13,8 +14,8 @@ import { checkSeo } from '@/lib/seo'
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-melbet'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const CURRENT_YEAR = new Date().getUTCFullYear()
-const REVIEW_DATE = new Date().toISOString().slice(0, 10)
+const CURRENT_YEAR = PROMO_CURRENT_YEAR
+const REVIEW_DATE = PROMO_REVIEW_DATE
 
 // SEO — title court + description courte (<150).
 // Anti-récidive : checkSeo() lance une erreur build-time si title > 60 ou desc > 150.
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   keywords: [
-    'code promo melbet', 'melbet promo code', 'code promo melbet 2026', 'bttswin',
+    'code promo melbet', 'melbet promo code', `code promo melbet ${CURRENT_YEAR}`, 'bttswin',
     'bonus melbet', 'melbet bonus bienvenue', 'melbet inscription',
     'melbet 300', 'melbet 300 bonus', 'melbet 100 free spins', 'melbet free spins',
     'melbet bonus sans condition de mise',

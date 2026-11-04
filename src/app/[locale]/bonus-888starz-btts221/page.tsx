@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getDakarDateString } from '@/lib/dakar-date'
 import Btts221PromoClient from '@/components/bttsbet/Btts221PromoClient'
 import { SUPPORTED_LOCALES, type Locale } from '@/lib/i18n'
+import { PROMO_CURRENT_YEAR, PROMO_REVIEW_DATE } from '@/lib/promo-build-date.generated'
 
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'bonus-888starz-btts221'
-const REVIEW_DATE = getDakarDateString()
-const YEAR = Number(REVIEW_DATE.slice(0, 4))
+const REVIEW_DATE = PROMO_REVIEW_DATE
+const YEAR = PROMO_CURRENT_YEAR
 
 type LocalizedLang = 'en' | 'ar'
 

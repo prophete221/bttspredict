@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import { getDakarDateString } from '@/lib/dakar-date'
+import { PROMO_CURRENT_YEAR, PROMO_REVIEW_DATE } from '@/lib/promo-build-date.generated'
 import { checkSeo } from '@/lib/seo'
 
 const Footer = dynamic(() => import('@/components/bttsbet/Footer'), { loading: () => null })
@@ -9,8 +9,8 @@ const Btts221PromoClient = dynamic(() => import('@/components/bttsbet/Btts221Pro
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'bonus-888starz-btts221'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const REVIEW_DATE = getDakarDateString()
-const YEAR = Number(REVIEW_DATE.slice(0, 4))
+const REVIEW_DATE = PROMO_REVIEW_DATE
+const YEAR = PROMO_CURRENT_YEAR
 // Titre différencié de /bonus-888starz (angle « code btts221 ») — 46 chars
 const TITLE = `Code 888Starz btts221 : bonus 300% + 100 spins`
 const DESCRIPTION = `Le code btts221 débloque 300% de bonus + 100 free spins sur 888Starz, sans condition de mise, dès 1 € de dépôt. Guide ${YEAR}, 18+.`

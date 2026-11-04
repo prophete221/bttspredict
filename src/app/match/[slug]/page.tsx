@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { Navbar, Footer } from '@/components/bttsbet'
-import { generateMatchSlug, getAllMatchSlugs, getMatchBySlug, getVerifiedHistoryForMatch, verifiedMarketKey } from '@/lib/matches'
+import { generateMatchSlug, loadAllMatches, getMatchBySlug, getVerifiedHistoryForMatch, verifiedMarketKey } from '@/lib/matches'
 import type { TeamFormSummary } from '@/lib/matches'
 import Link from 'next/link'
 import MatchAnalyticsCharts from '@/components/bttsbet/MatchAnalyticsCharts'
@@ -26,7 +26,7 @@ export const dynamicParams = false
 export const dynamic = 'force-static'
 
 export async function generateStaticParams() {
-  const slugs = getDynamicMatchSlugs(getAllMatchSlugs())
+  const slugs = getDynamicMatchSlugs([...loadAllMatches().values()])
   // Si aucune page match n'est disponible, on génère un fallback pour que le build SSG passe
   if (slugs.length === 0) {
     return [{ slug: '_placeholder' }]

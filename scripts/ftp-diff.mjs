@@ -50,6 +50,10 @@ const EXCLUDED_FILES = new Set([
   'remote-inventory-failures.json',
   'remote-inventory-summary.json',
   'remote-inventory.err',
+  'stale-match-pages.json',
+  'orphan-review.json',
+  'stale-match-delete.lftp',
+  'sitemap-match-filter.json',
 ])
 // Dossiers internes du déploiement exclus du manifeste et du transfert.
 const EXCLUDED_DIRS = new Set(['predeploy-backups', 'ftp-diag'])

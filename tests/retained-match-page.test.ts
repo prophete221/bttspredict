@@ -6,10 +6,10 @@ import retainedMatch from '@/data/retained-match-pages/west-ham-united-vs-queens
 import {
   getDynamicMatchSlugs,
   getLocalizedMatchStaticParams,
-  RETAINED_FR_ONLY_MATCH_SLUG,
 } from '@/lib/match-page-ssg'
+import { getDakarMatchStatus } from '@/lib/dakar-date'
 import { MatchVerificationRegistrySchema } from '@/lib/match-verification-registry'
-import { getAllMatchSlugs } from '@/lib/matches'
+import { loadAllMatches } from '@/lib/matches'
 import { translationsFor } from '@/lib/i18n'
 
 const PROTECTED_SEO_ROUTES = [
@@ -124,36 +124,51 @@ const sourceContains = (file: string, snippets: readonly string[]) => {
     expect(source.includes(snippet), `${file} should preserve: ${snippet}`).toBe(true)
   }
 }
-const sourceSlugs = getAllMatchSlugs()
-const dynamicSlugs = getDynamicMatchSlugs(sourceSlugs)
+const sourceMatches = [...loadAllMatches().values()]
+const TEST_NOW = new Date('2026-11-04T10:00:00.000Z')
+const dynamicSlugs = getDynamicMatchSlugs(sourceMatches, TEST_NOW)
 
-describe('retained West Ham–QPR page', () => {
-  it('keeps each existing dynamic slug once and excludes the dedicated slug', () => {
-    expect(new Set(sourceSlugs).size).toBe(sourceSlugs.length)
-    expect(dynamicSlugs).toEqual(sourceSlugs.filter(slug => slug !== RETAINED_FR_ONLY_MATCH_SLUG))
-    expect(dynamicSlugs).not.toContain(RETAINED_FR_ONLY_MATCH_SLUG)
-    expect(() => getDynamicMatchSlugs([...sourceSlugs, sourceSlugs[0]])).toThrow(/Duplicate match slug/)
+describe('Match static export cleanup', () => {
+  it('excludes finished matches and keeps upcoming or live matches using Dakar time', () => {
+    const candidates = [
+      { slug: 'yesterday-vs-team-2026-11-03', date: '2026-11-03', time: '19:00' },
+      { slug: 'today-finished-vs-team-2026-11-04', date: '2026-11-04', time: '06:00' },
+      { slug: 'today-live-vs-team-2026-11-04', date: '2026-11-04', time: '09:00' },
+      { slug: 'today-upcoming-vs-team-2026-11-04', date: '2026-11-04', time: '10:00' },
+      { slug: 'tomorrow-vs-team-2026-11-05', date: '2026-11-05', time: '10:00' },
+      { slug: 'time-unknown-vs-team-2026-11-04', date: '2026-11-04', time: '--:--' },
+    ]
+    expect(getDakarMatchStatus('2026-11-04', '09:00', TEST_NOW)).toBe('live')
+    expect(getDynamicMatchSlugs(candidates, TEST_NOW)).toEqual([
+      'today-live-vs-team-2026-11-04',
+      'today-upcoming-vs-team-2026-11-04',
+      'tomorrow-vs-team-2026-11-05',
+      'time-unknown-vs-team-2026-11-04',
+    ])
   })
 
-  it('generates exactly one FR URL for the retained slug and no EN/AR parameters', () => {
-    const dedicatedPath = `/match/${RETAINED_FR_ONLY_MATCH_SLUG}`
-    const frPaths = [...dynamicSlugs.map(slug => `/match/${slug}`), dedicatedPath]
-    expect(frPaths.filter(path => path === dedicatedPath)).toHaveLength(1)
-    const frGeneratorSource = readFileSync(resolve('src/app/match/[slug]/page.tsx'), 'utf8')
-    const localizedGeneratorSource = readFileSync(resolve('src/app/[locale]/match/[slug]/page.tsx'), 'utf8')
-    expect(frGeneratorSource).toContain('getDynamicMatchSlugs(getAllMatchSlugs())')
-    expect(localizedGeneratorSource).toContain('getLocalizedMatchStaticParams(getAllMatchSlugs(), SUPPORTED_LOCALES)')
+  it('keeps current source slugs unique and creates localized params only for active matches', () => {
+    const sourceSlugs = sourceMatches.map(match => match.slug)
+    expect(new Set(sourceSlugs).size).toBe(sourceSlugs.length)
+    expect(dynamicSlugs).toEqual(sourceMatches
+      .filter(match => getDakarMatchStatus(match.date, match.time, TEST_NOW) !== 'finished')
+      .map(match => match.slug))
+    expect(() => getDynamicMatchSlugs([...sourceMatches, sourceMatches[0]], TEST_NOW)).toThrow(/Duplicate match slug/)
 
-    const localized = getLocalizedMatchStaticParams(sourceSlugs, ['en', 'ar'])
-    expect(localized.some(param => param.slug === RETAINED_FR_ONLY_MATCH_SLUG)).toBe(false)
+    const localized = getLocalizedMatchStaticParams(sourceMatches, ['fr', 'en', 'ar'], TEST_NOW)
+    expect(localized.some(param => param.locale === 'fr')).toBe(false)
     expect(new Set(localized.map(param => `${param.locale}:${param.slug}`)).size).toBe(localized.length)
     expect(localized).toEqual(['en', 'ar'].flatMap(locale =>
       dynamicSlugs.map(slug => ({ locale, slug })),
     ))
-    expect(existsSync(resolve('src/app/match', RETAINED_FR_ONLY_MATCH_SLUG, 'page.tsx'))).toBe(true)
   })
 
-  it('preserves the archived snapshot and the source-backed verified result', () => {
+  it('does not export the separately retained West Ham–QPR page but keeps its verified archive data', () => {
+    expect(getDynamicMatchSlugs([
+      { slug: retainedMatch.slug, date: '2026-10-09', time: '19:00' },
+    ], TEST_NOW)).toEqual([])
+    expect(existsSync(resolve('src/app/match', retainedMatch.slug, 'page.tsx'))).toBe(false)
+
     const registry = MatchVerificationRegistrySchema.parse(verificationData)
     const record = registry.records.find(entry => entry.id === retainedMatch.slug)
     expect(record).toMatchObject({
@@ -172,15 +187,6 @@ describe('retained West Ham–QPR page', () => {
       dataQuality: 'HIGH', matchCountHome: 8, matchCountAway: 8,
       finalScore: '1-1', status: 'WON', verifiedAt: '2026-10-23T05:42:15.167Z',
     })
-    const dedicatedPageSource = readFileSync(
-      resolve('src/app/match', RETAINED_FR_ONLY_MATCH_SLUG, 'page.tsx'),
-      'utf8',
-    )
-    expect(dedicatedPageSource).toContain('MatchVerificationRegistrySchema.parse(verificationData)')
-    expect(dedicatedPageSource).toContain('{verification.result.display}')
-    expect(dedicatedPageSource).toContain('{verification.source}')
-    expect(dedicatedPageSource).toContain('{verification.sourceUrl}')
-    expect(dedicatedPageSource).not.toContain('{snapshot.finalScore}')
   })
 })
 

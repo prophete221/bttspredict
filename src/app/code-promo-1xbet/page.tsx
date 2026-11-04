@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Navbar, Footer, FreePredictionsWidget, VipCardWidget } from '@/components/bttsbet'
 import XbetClient from './XbetClient'
 import { checkSeo } from '@/lib/seo'
+import { PROMO_CURRENT_YEAR, PROMO_REVIEW_DATE } from '@/lib/promo-build-date.generated'
 
 /* ──────────────────────────────────────────────────────────────
    Page /code-promo-1xbet — partenaire 1xbet (code vipbtts)
@@ -13,8 +14,8 @@ import { checkSeo } from '@/lib/seo'
 const SITE_URL = 'https://bttspredict.com'
 const SLUG = 'code-promo-1xbet'
 const PAGE_URL = `${SITE_URL}/${SLUG}`
-const CURRENT_YEAR = new Date().getUTCFullYear()
-const REVIEW_DATE = new Date().toISOString().slice(0, 10)
+const CURRENT_YEAR = PROMO_CURRENT_YEAR
+const REVIEW_DATE = PROMO_REVIEW_DATE
 
 // SEO — title court (48 chars) + description courte (<150).
 // Avec le template "%s | BTTSPredict" (14 chars), le title rendu final
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   keywords: [
-    'code promo 1xbet', '1xbet promo code', 'code promo 1xbet 2026', 'vipbtts',
+    'code promo 1xbet', '1xbet promo code', `code promo 1xbet ${CURRENT_YEAR}`, 'vipbtts',
     'bonus 1xbet 300', '1xbet bonus inscription', '1xbet 100 free spins', '1xbet free spins',
     '1xbet bonus sans condition de mise', 'code bonus 1xbet', '1xbet inscription',
     '1xbet senegal', '1xbet cote d\'ivoire', '1xbet mali', '1xbet maroc',

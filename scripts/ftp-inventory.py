@@ -13,7 +13,7 @@ de canal de données — « max-retries exceeded ») par un parcours résilient 
 Sécurité :
   - AUCUNE commande d'écriture (STOR/APPE/DELE/RMD/MKD/RNFR/RNTO/SITE/CHMOD).
     Seuls : connect, auth TLS, login, prot_p, PWD, CWD, LIST, NLST, MLSD,
-    RETR (limité au manifeste deploy-manifest.json).
+    RETR (limité à deploy-manifest.json, .htaccess, robots.txt et sitemap.xml).
   - Les identifiants ne sont jamais affichés.
 
 Sorties (dans --out-dir) :
@@ -44,6 +44,8 @@ FORBIDDEN_COMMANDS = (
 DEFAULT_TIMEOUT = 30
 # Tentatives par répertoire (opération principale + repli MLSD<->LIST).
 DEFAULT_RETRIES = 2
+READABLE_ROOT_FILES = frozenset({'deploy-manifest.json', '.htaccess', 'robots.txt', 'sitemap.xml'})
+ROOT_BACKUP_FILES = ('.htaccess', 'robots.txt', 'sitemap.xml')
 
 
 def log(msg: str) -> None:
@@ -69,7 +71,8 @@ def parse_endpoint(raw: str):
 class Inventory:
     def __init__(self, host: str, port: int, user: str, password: str, *,
                  timeout: int, retries: int, delay: float,
-                 out_dir: str, dual_first_level: bool, save_manifest: str = ''):
+                 out_dir: str, dual_first_level: bool, save_manifest: str = '',
+                 save_root_backups: str = ''):
         os.makedirs(out_dir, exist_ok=True)
         self.host, self.port = host, port
         self.user, self.password = user, password
@@ -79,6 +82,7 @@ class Inventory:
         self.out_dir = out_dir
         self.dual_first_level = dual_first_level
         self.save_manifest = save_manifest
+        self.save_root_backups = save_root_backups
 
         # Bypass historique du certificat, aligné sur `set ssl:verify no` du
         # workflow lftp (certificat LWS non vérifiable depuis les runners).
@@ -97,6 +101,7 @@ class Inventory:
         self.bytes_total = 0
         self.capabilities = {}
         self.root_entries = {}
+        self.read_failures = []
 
         self.tsv_path = os.path.join(out_dir, 'remote-inventory.tsv')
         self.fail_path = os.path.join(out_dir, 'remote-inventory-failures.json')
@@ -141,6 +146,55 @@ class Inventory:
             except Exception:
                 pass
         self.ftp = None
+
+    def retrieve_root_file(self, name: str) -> bytes:
+        """RETR one explicitly allowlisted root file; never accepts a remote path."""
+        if name not in READABLE_ROOT_FILES:
+            raise ValueError(f'RETR refusé pour un fichier non autorisé: {name}')
+        entry = self.root_entries.get(name, {})
+        if not entry.get('present'):
+            raise FileNotFoundError(f'fichier racine absent: {name}')
+        import io
+        buf = io.BytesIO()
+        self.ftp.retrbinary(f'RETR {name}', buf.write)
+        payload = buf.getvalue()
+        expected = entry.get('size')
+        if not payload:
+            raise ValueError(f'fichier racine vide: {name}')
+        if isinstance(expected, int) and expected >= 0 and len(payload) != expected:
+            raise ValueError(f'taille incohérente pour {name}: RETR={len(payload)}, SIZE={expected}')
+        return payload
+
+    def save_root_backups_files(self):
+        """Read/verify all critical files first, then save them atomically locally."""
+        if not self.save_root_backups:
+            return
+        payloads = {}
+        for name in ROOT_BACKUP_FILES:
+            try:
+                payloads[name] = self.retrieve_root_file(name)
+            except Exception as exc:  # noqa: BLE001 — failure must block deployment
+                message = f'{type(exc).__name__}: {exc}'
+                self.read_failures.append({'path': name, 'op': 'RETR', 'error': message})
+                self.note_err(f'sauvegarde distante {name}: {message}')
+                self.capabilities['rootBackupsSaved'] = False
+                return
+        try:
+            os.makedirs(self.save_root_backups, exist_ok=True)
+            for name, payload in payloads.items():
+                target = os.path.join(self.save_root_backups, name)
+                temporary = target + '.tmp'
+                with open(temporary, 'wb') as fh:
+                    fh.write(payload)
+                os.replace(temporary, target)
+            self.capabilities['rootBackupsSaved'] = list(payloads)
+            log('Sauvegardes racine vérifiées dans la même session: '
+                + ', '.join(f'{name} ({len(payloads[name])} octets)' for name in payloads))
+        except Exception as exc:  # noqa: BLE001 — local backup failure must block deployment
+            message = f'{type(exc).__name__}: {exc}'
+            self.read_failures.append({'path': self.save_root_backups, 'op': 'LOCAL_BACKUP', 'error': message})
+            self.note_err(f'écriture des sauvegardes racine: {message}')
+            self.capabilities['rootBackupsSaved'] = False
 
     def guard(self, cmd: str) -> None:
         upper = cmd.upper()
@@ -432,10 +486,7 @@ class Inventory:
         # après le walk (anti-flood inter-sessions, run 41767196736).
         if self.root_entries.get('deploy-manifest.json', {}).get('present'):
             try:
-                import io
-                buf = io.BytesIO()
-                ftp.retrbinary('RETR deploy-manifest.json', buf.write)
-                payload = buf.getvalue()
+                payload = self.retrieve_root_file('deploy-manifest.json')
                 man = json.loads(payload.decode('utf-8'))
                 self.capabilities['remoteManifest'] = {
                     'version': man.get('version'),
@@ -446,6 +497,7 @@ class Inventory:
                 log(f"deploy-manifest.json distant: version={man.get('version')!r} "
                     f"fileCount={man.get('fileCount')!r} clés={self.capabilities['remoteManifest']['topLevelKeys']}")
                 if self.save_manifest:
+                    os.makedirs(os.path.dirname(os.path.abspath(self.save_manifest)), exist_ok=True)
                     with open(self.save_manifest, 'wb') as fh:
                         fh.write(payload)
                     log(f'Manifeste distant sauvegardé dans la même session → {self.save_manifest} ({len(payload)} octets)')
@@ -453,6 +505,15 @@ class Inventory:
             except Exception as exc:
                 self.capabilities['remoteManifest'] = {'error': f'{type(exc).__name__}: {exc}'}
                 self.note_err(f'lecture deploy-manifest.json: {type(exc).__name__}: {exc}')
+                if self.save_manifest:
+                    self.read_failures.append({'path': 'deploy-manifest.json', 'op': 'RETR',
+                                               'error': f'{type(exc).__name__}: {exc}'})
+        elif self.save_manifest:
+            self.read_failures.append({'path': 'deploy-manifest.json', 'op': 'RETR',
+                                       'error': 'FileNotFoundError: manifeste distant absent'})
+            self.note_err('lecture deploy-manifest.json: manifeste distant absent')
+
+        self.save_root_backups_files()
 
     def walk(self):
         """Phase B — BFS résilient depuis la racine de connexion."""
@@ -503,7 +564,8 @@ class Inventory:
         # nouvelles connexions du même compte (run 41784364837 : sauvegardes
         # racine en échec max-retries jusqu'à 16 min après le walk).
         self.drop_control()
-        self.tsv.close() if hasattr(self, 'tsv') and not self.tsv.closed else None
+        if getattr(self, 'tsv', None) is not None and not self.tsv.closed:
+            self.tsv.close()
         self._err.close()
         # normalise les caractères interdits sur Windows pour le fichier .err
         summary = {
@@ -518,6 +580,7 @@ class Inventory:
             'durationSeconds': getattr(self, 'duration', None),
             'failureCount': len(self.failures),
             'failures': self.failures,
+            'readFailures': self.read_failures,
             'rootRawSample': getattr(self, 'root_raw_sample', None),
         }
         with open(self.sum_path, 'w', encoding='utf-8') as fh:
@@ -544,6 +607,10 @@ class Inventory:
             self._err.close()
             print(exc, flush=True)
             return 1
+        if self.read_failures:
+            self.failures.extend(self.read_failures)
+            self.duration = 0
+            return self.finalize(False)
         self.walk()
         complete = not self.failures
         return self.finalize(complete)
@@ -561,6 +628,9 @@ def main() -> int:
                         help="Chemin où sauvegarder le deploy-manifest.json distant, "
                              "téléchargé dans la MÊME session que le walk (évite une "
                              "session lftp supplémentaire refusée par l'anti-flood LWS)")
+    parser.add_argument('--save-root-backups', default='',
+                        help='Dossier local pour sauvegarder .htaccess, robots.txt et sitemap.xml '
+                             'dans la même session FTPS que l’inventaire')
     args = parser.parse_args()
 
     server = os.environ.get('FTP_SERVER', '')
@@ -580,6 +650,7 @@ def main() -> int:
         # diagnostic : LIST et MLSD comparés sur la racine et le 1er niveau
         dual_first_level=(args.mode == 'diagnostic'),
         save_manifest=args.save_manifest,
+        save_root_backups=args.save_root_backups,
     )
     # attribut utilisé par walk()
     inv.max_dirs = args.max_dirs
