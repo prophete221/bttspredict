@@ -51,22 +51,35 @@ export function parseActionState(value, label = 'sync-state') {
     throw new Error(`${label} doit avoir version 1.0.0 et un tableau data`)
   }
   const seen = new Set()
+  const normalizedData = []
   for (const entry of state.data) {
     if (!entry || typeof entry !== 'object' || !['file', 'folder'].includes(entry.type)) {
       throw new Error(`${label} contient un type d'entrée invalide`)
     }
     const name = normalizeStatePath(entry.name)
-    if (!name) continue // L'entrée de racine éventuelle n'a pas de chemin à préserver.
+    if (!name) {
+      normalizedData.push(entry)
+      continue // L'entrée de racine éventuelle n'a pas de chemin à préserver.
+    }
     if (seen.has(`${entry.type}:${name}`)) throw new Error(`${label} contient un chemin dupliqué : ${name}`)
     seen.add(`${entry.type}:${name}`)
+    if (entry.type === 'folder') {
+      // FTP-Deploy 1.0.0 serializes IFolder as { type, name }; size/hash are file-only.
+      const folder = { ...entry }
+      delete folder.size
+      delete folder.hash
+      normalizedData.push(folder)
+      continue
+    }
     if (typeof entry.size !== 'number' || !Number.isFinite(entry.size) || entry.size < 0) {
       throw new Error(`${label} contient une taille invalide : ${name}`)
     }
-    if (entry.type === 'file' && (typeof entry.hash !== 'string' || !entry.hash)) {
+    if (typeof entry.hash !== 'string' || !entry.hash) {
       throw new Error(`${label} contient un hash de fichier invalide : ${name}`)
     }
+    normalizedData.push(entry)
   }
-  return state
+  return { ...state, data: normalizedData }
 }
 
 export function chooseBaseState(safePath, legacyPath) {

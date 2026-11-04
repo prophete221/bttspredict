@@ -59,6 +59,21 @@ const EXCLUDED_FILES = new Set([
 // Dossiers internes du déploiement exclus du manifeste et du transfert.
 const EXCLUDED_DIRS = new Set(['predeploy-backups', 'ftp-diag'])
 
+// En mode code-only, les fichiers de données restent à la version distante.
+const CODE_ONLY_DATA_FILES = new Set([
+  'predictions.json',
+  'win-history.json',
+  'history-exclusions.json',
+  'transfers.json',
+  'vip-combos.json',
+  'team-context.json',
+])
+const CODE_ONLY_DATA_DIRS = ['predictions-archive/', 'team-media/']
+
+function isCodeOnlyDataPath(rel) {
+  return CODE_ONLY_DATA_FILES.has(rel) || CODE_ONLY_DATA_DIRS.some((prefix) => rel.startsWith(prefix))
+}
+
 function walk(dir, base = dir, acc = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name))) {
     const full = path.join(dir, entry.name)
@@ -160,6 +175,7 @@ function validateManifest(obj, label, { allowLegacyV1 = false } = {}) {
 function cmdPrepare() {
   const requirePrev = process.argv.includes('--require-prev')
   const allowLegacyV1 = process.argv.includes('--allow-legacy-v1')
+  const codeOnly = process.argv.includes('--code-only')
   const liveArg = process.argv.find((arg) => arg.startsWith('--live-inventory='))
   let liveRemotePaths = null
   if (liveArg) {
@@ -217,18 +233,14 @@ function cmdPrepare() {
   const changed = []
   const newPaths = []
   const changedPaths = []
-  let bytesToAdd = 0
 
   for (const [rel, meta] of Object.entries(manifest.files)) {
     if (!prevFiles || prevFiles[rel]?.hash !== meta.hash) {
       changed.push(rel)
       if (!prevFiles || !prevFiles[rel]) {
         newPaths.push(rel)
-        bytesToAdd += meta.size
       } else {
         changedPaths.push(rel)
-        // remplacement : compte la nouvelle taille (pire cas disque si l’ancien n’est pas libéré)
-        bytesToAdd += meta.size
       }
     }
   }
@@ -246,7 +258,6 @@ function cmdPrepare() {
     } else {
       newPaths.push(rel)
     }
-    bytesToAdd += meta.size
   }
 
   // Croisement avec l'inventaire FTP réel : un fichier attendu (hash inchangé
@@ -254,17 +265,27 @@ function cmdPrepare() {
   // sinon le site reste incomplet malgré un diff « vide ».
   const missingOnRemote = []
   if (liveRemotePaths) {
-    for (const [rel, meta] of Object.entries(manifest.files)) {
+    for (const rel of Object.keys(manifest.files)) {
       if (changed.includes(rel)) continue
       if (!liveRemotePaths.has(rel)) {
         changed.push(rel)
         missingOnRemote.push(rel)
-        bytesToAdd += meta.size
       }
     }
   }
 
-  const patterns = changed.map((rel) => `^${escapeRe(rel)}$`)
+  const codeOnlyExcludedPaths = codeOnly
+    ? [...new Set(changed.filter(isCodeOnlyDataPath))].sort()
+    : []
+  const codeOnlyExcludedSet = new Set(codeOnlyExcludedPaths)
+  const transferPaths = changed.filter((rel) => !codeOnlyExcludedSet.has(rel))
+  const transferNewPaths = newPaths.filter((rel) => !codeOnlyExcludedSet.has(rel))
+  const transferChangedPaths = changedPaths.filter((rel) => !codeOnlyExcludedSet.has(rel))
+  const transferMissingOnRemote = missingOnRemote.filter((rel) => !codeOnlyExcludedSet.has(rel))
+  const codeOnlyExcludedBytes = codeOnlyExcludedPaths.reduce((sum, rel) => sum + (manifest.files[rel]?.size ?? 0), 0)
+  const transferBytesToAdd = transferPaths.reduce((sum, rel) => sum + (manifest.files[rel]?.size ?? 0), 0)
+
+  const patterns = transferPaths.map((rel) => `^${escapeRe(rel)}$`)
   fs.writeFileSync(LIST, patterns.length ? patterns.join('\n') + '\n' : '')
 
   const stats = {
@@ -274,21 +295,28 @@ function cmdPrepare() {
     localTotalBytes: manifest.totalBytes,
     prevFileCount: prevFiles ? Object.keys(prevFiles).length : null,
     prevTotalBytes: prev && typeof prev.totalBytes === 'number' ? prev.totalBytes : null,
-    changedCount: changed.length,
-    newPathCount: newPaths.length,
-    changedPathCount: changedPaths.length,
-    missingOnRemoteCount: missingOnRemote.length,
-    missingOnRemote: missingOnRemote.slice(0, 1000),
-    bytesToAdd,
-    newPaths,
-    changedPaths,
+    changedCount: transferPaths.length,
+    newPathCount: transferNewPaths.length,
+    changedPathCount: transferChangedPaths.length,
+    missingOnRemoteCount: transferMissingOnRemote.length,
+    missingOnRemote: transferMissingOnRemote.slice(0, 1000),
+    bytesToAdd: transferBytesToAdd,
+    newPaths: transferNewPaths,
+    changedPaths: transferChangedPaths,
+    codeOnlyMode: codeOnly,
+    codeOnlyExcludedPaths,
+    codeOnlyExcludedBytes,
+    remoteManifestMustNotBePublished: codeOnly,
   }
   fs.writeFileSync(STATS, JSON.stringify(stats, null, 2))
 
   console.log(
-    `[ftp-diff] ${changed.length}/${manifest.fileCount} à transférer ` +
-      `(new=${newPaths.length}, changed=${changedPaths.length}, bytesToAdd=${bytesToAdd}) → ${LIST}`,
+    `[ftp-diff] ${transferPaths.length}/${manifest.fileCount} à transférer ` +
+      `(new=${transferNewPaths.length}, changed=${transferChangedPaths.length}, bytesToAdd=${transferBytesToAdd}) → ${LIST}`,
   )
+  if (codeOnly) {
+    console.log(`[ftp-diff] code-only: ${codeOnlyExcludedPaths.length} fichiers de données exclus (${codeOnlyExcludedBytes} octets); manifeste distant à conserver inchangé.`)
+  }
 }
 
 function cmdFinish() {
@@ -306,6 +334,6 @@ if (cmd === 'prepare') cmdPrepare()
 else if (cmd === 'finish') cmdFinish()
 else if (cmd === 'manifest') cmdManifest()
 else {
-  console.error('Usage: node scripts/ftp-diff.mjs [prepare|finish|manifest] [--require-prev] [--force-path=<path> ...]')
+  console.error('Usage: node scripts/ftp-diff.mjs [prepare|finish|manifest] [--require-prev] [--code-only] [--force-path=<path> ...]')
   process.exit(1)
 }

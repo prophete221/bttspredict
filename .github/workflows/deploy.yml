@@ -227,6 +227,7 @@ jobs:
         run: node scripts/fix-html-lang.mjs out
 
       - name: Commit data
+        if: ${{ (github.event_name != 'push' || !contains(github.event.head_commit.message, '[code-only]')) && (github.event_name != 'workflow_dispatch' || inputs.mode != 'code') }}
         continue-on-error: true
         run: |
           git config --local user.email "bot@bttspredict.com"
@@ -282,29 +283,39 @@ jobs:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          CODE_ONLY_MODE: ${{ (github.event_name == 'push' && contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode == 'code') }}
         run: |
           set -euo pipefail
           ftp_run() {
             lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "ftp://$FTP_SERVER" -e "$1"
           }
           SETTINGS="set ssl:verify no; set net:timeout 60; set net:max-retries 5; set mirror:use-pget-n 1"
-          if ! ftp_run "$SETTINGS; set net:timeout 30; set net:max-retries 2; get ./deploy-manifest.json -o out/deploy-manifest.prev.json; bye"; then
-            echo "Aucun manifeste distant lisible — préparation du repli historique."
+          rm -f out/deploy-manifest.prev.json
+          if ! ftp_run "$SETTINGS; set net:timeout 30; set net:max-retries 2; set cmd:fail-exit yes; get ./deploy-manifest.json -o out/deploy-manifest.prev.json; bye"; then
+            echo "::error::Manifeste historique absent/illisible — arrêt pour éviter un upload massif."
+            exit 1
           fi
           # remote-inventory.tsv ne contient que /en/match et /ar/match : il sert au nettoyage Match, jamais d’inventaire complet du site.
-          node scripts/ftp-diff.mjs prepare --allow-legacy-v1 --force-path=robots.txt --force-path=sitemap.xml
+          DIFF_ARGS=(prepare --require-prev --allow-legacy-v1 --force-path=robots.txt --force-path=sitemap.xml)
+          if [ "$CODE_ONLY_MODE" = "true" ]; then DIFF_ARGS+=(--code-only); fi
+          node scripts/ftp-diff.mjs "${DIFF_ARGS[@]}"
+          if [ "$CODE_ONLY_MODE" = "true" ]; then
+            node -e "const s=require('./out/deploy-diff-stats.json'); if(!s.codeOnlyMode||!s.remoteManifestMustNotBePublished) process.exit(1); console.log('Code-only: fichiers data exclus='+s.codeOnlyExcludedPaths.length+' ('+s.codeOnlyExcludedBytes+' octets); manifeste distant conservé.')"
+          fi
           if [ -s out/deploy-list.txt ]; then
             if ! ftp_run "$SETTINGS; mirror --reverse --no-perms --overwrite --verbose --parallel=4 --include-from-file=out/deploy-list.txt --exclude '^\\.htaccess$' out/ ./; bye"; then
               echo "::warning::Miroir diff en échec — repli parallel=1"
               if ! ftp_run "$SETTINGS; mirror --reverse --no-perms --overwrite --verbose --parallel=1 --include-from-file=out/deploy-list.txt --exclude '^\\.htaccess$' out/ ./; bye"; then
-                echo "::warning::Miroir diff toujours en échec — repli sur miroir complet historique sans suppression"
-                ftp_run "$SETTINGS; mirror --reverse --no-perms --overwrite --verbose --parallel=1 --exclude '^(\\.htaccess|predeploy-backups/|ftp-diag/|deploy-manifest\\.prev\\.json|deploy-list\\.txt|deploy-diff-stats\\.json|remote-inventory|stale-match-pages\\.json|orphan-review\\.json|stale-match-delete\\.lftp|sitemap-match-filter\\.json|ftp-action-state-report\\.json)' out/ ./; bye"
+                echo "::error::Miroir différentiel toujours en échec — arrêt sans upload massif."
+                exit 1
               fi
             fi
           else
-            echo "Aucun fichier modifié — le sitemap, robots et le manifeste restent néanmoins synchronisés."
+            echo "Aucun fichier à transférer dans le diff courant."
           fi
-          if ! ftp_run "$SETTINGS; put out/deploy-manifest.json -o ./deploy-manifest.json; bye"; then
+          if [ "$CODE_ONLY_MODE" = "true" ]; then
+            echo "Manifeste distant laissé intact en mode code-only; les données exclues ne sont pas déclarées synchronisées."
+          elif ! ftp_run "$SETTINGS; put out/deploy-manifest.json -o ./deploy-manifest.json; bye"; then
             echo "::warning::Manifeste non publié; le prochain déploiement recalculera le diff."
           fi
 

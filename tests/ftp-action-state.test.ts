@@ -20,9 +20,9 @@ describe('FTP-Deploy safe state', () => {
       { type: 'file', name: './sitemap.xml', size: 300, hash: 'old-sitemap' },
       { type: 'file', name: './en/match/finished-team-vs-other-2026-10-01.html', size: 45, hash: 'old-match' },
       { type: 'file', name: './unrelated-remote.json', size: 50, hash: 'unrelated' },
-      { type: 'folder', name: './en', size: 0, hash: 'en-folder' },
-      { type: 'folder', name: './en/match', size: 0, hash: 'match-folder' },
-      { type: 'folder', name: './unused-remote-dir', size: 0, hash: 'unused-folder' },
+      { type: 'folder', name: './en' },
+      { type: 'folder', name: './en/match' },
+      { type: 'folder', name: './unused-remote-dir' },
     ],
   }
   const manifest = {
@@ -60,6 +60,39 @@ describe('FTP-Deploy safe state', () => {
       version: '1.0.0',
       data: [{ type: 'file', name: '../outside.txt', size: 1, hash: 'x' }],
     })).toThrow(/dangereux/)
+    expect(() => parseActionState({
+      version: '1.0.0',
+      data: [{ type: 'file', name: '_next/bad.js', size: 'not-a-size', hash: 'x' }],
+    })).toThrow(/taille invalide/)
+  })
+
+  it('accepts and canonicalizes FTP-Deploy folder entries such as _next without file size/hash', () => {
+    const rawState = {
+      version: '1.0.0',
+      data: [
+        { type: 'folder', name: '_next' },
+        { type: 'folder', name: '_next/static', size: 'not-a-file-size', hash: 'folder-hash' },
+        { type: 'file', name: '_next/static/chunks/turbopack.js', size: 10, hash: 'chunk-hash' },
+      ],
+    }
+    const parsed = parseActionState(rawState)
+    expect(parsed.data).toEqual([
+      { type: 'folder', name: '_next' },
+      { type: 'folder', name: '_next/static' },
+      { type: 'file', name: '_next/static/chunks/turbopack.js', size: 10, hash: 'chunk-hash' },
+    ])
+    expect(rawState.data[1]).toEqual({ type: 'folder', name: '_next/static', size: 'not-a-file-size', hash: 'folder-hash' })
+
+    const currentManifest = {
+      files: {
+        ...manifest.files,
+        '_next/static/chunks/turbopack.js': { hash: 'chunk-hash', size: 10 },
+      },
+    }
+    const { state: seed } = buildSafeStateSeed(parsed, currentManifest)
+    expect(seed.data).toContainEqual({ type: 'folder', name: '_next' })
+    expect(seed.data).toContainEqual({ type: 'folder', name: '_next/static' })
+    expect(seed.data).toContainEqual({ type: 'file', name: '_next/static/chunks/turbopack.js', size: 10, hash: 'chunk-hash' })
   })
 
   it('normalizes only HTML paths from the requested live locale directory', () => {
