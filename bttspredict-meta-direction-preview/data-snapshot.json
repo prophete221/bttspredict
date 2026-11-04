@@ -1,0 +1,36 @@
+{
+  "sourcePath": "public/win-history.json",
+  "generatedAt": "2026-11-02T22:06:30.843Z",
+  "trackingPeriod": {
+    "from": "2026-08-08",
+    "to": "2026-11-02",
+    "days": 87,
+    "disclaimer": "Nouvelle période de suivi lancée le 2026-08-08. Les résultats sont publiés et vérifiés progressivement. Le volume actuel est encore insuffisant pour évaluer statistiquement la performance du modèle. Aucun résultat futur n'est garanti."
+  },
+  "stats": {
+    "total": 447,
+    "won": 359,
+    "lost": 88,
+    "pending": 76,
+    "unverifiable": 176,
+    "archivedTotal": 699,
+    "rate": 80.3,
+    "byType": {
+      "btts": { "total": 400, "won": 326, "lost": 74, "rate": 81.5 },
+      "over25": { "total": 47, "won": 33, "lost": 14, "rate": 70.2 }
+    }
+  },
+  "records": [
+    { "date": "2026-11-02", "match": "Atalanta vs Parma", "league": "Serie A", "market": "btts", "prediction": "Oui", "probability": 70, "status": "LOST", "finalScore": "0-3", "verifiedAt": "2026-11-02T22:06:02.769Z", "source": "ESPN public" },
+    { "date": "2026-11-02", "match": "Atalanta vs Parma", "league": "Serie A", "market": "over25", "prediction": "Oui", "probability": 74, "status": "WON", "finalScore": "0-3", "verifiedAt": "2026-11-02T22:05:42.420Z", "source": "ESPN public" },
+    { "date": "2026-11-02", "match": "Newcastle United vs Everton", "league": "Premier League", "market": "btts", "prediction": "Non", "probability": 40, "status": "WON", "finalScore": "0-1", "verifiedAt": "2026-11-02T22:05:42.422Z", "source": "ESPN public" },
+    { "date": "2026-11-02", "match": "Lorient vs Brest", "league": "Ligue 1", "market": "btts", "prediction": "Oui", "probability": 58, "status": "LOST", "finalScore": "0-2", "verifiedAt": "2026-11-02T22:05:42.421Z", "source": "ESPN public" },
+    { "date": "2026-11-02", "match": "Sassuolo vs Fiorentina", "league": "Serie A", "market": "btts", "prediction": "Oui", "probability": 90, "status": "WON", "finalScore": "2-4", "verifiedAt": "2026-11-02T21:16:31.056Z", "source": "ESPN public" }
+  ],
+  "upcomingPredictionsSource": {
+    "sourcePath": "public/predictions.json",
+    "date": "2026-11-02",
+    "lastUpdated": "2026-11-02T21:57:40.276Z",
+    "status": "Snapshot expiré pour le rendu d'une page de matchs à venir au 2026-11-04 : les rencontres correspondantes sont masquées dans l'aperçu."
+  }
+}

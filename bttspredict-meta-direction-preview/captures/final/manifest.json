@@ -1,0 +1,1748 @@
+[
+  {
+    "locale": "fr",
+    "page": "home",
+    "label": "Accueil / Match Center",
+    "route": "/",
+    "states": {
+      "desktop": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Match Center",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": true,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Match Center",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": false,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "fr-home-desktop.png",
+      "mobile": "fr-home-mobile.png"
+    }
+  },
+  {
+    "locale": "fr",
+    "page": "btts",
+    "label": "Pronostics BTTS",
+    "route": "/btts/predictions/today",
+    "states": {
+      "desktop": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Pronostics BTTS du jour",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Pronostics BTTS du jour",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "fr-btts-desktop.png",
+      "mobile": "fr-btts-mobile.png"
+    }
+  },
+  {
+    "locale": "fr",
+    "page": "over",
+    "label": "Pronostics Over 2.5",
+    "route": "/over-2-5/predictions/today",
+    "states": {
+      "desktop": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Pronostics Over 2.5 du jour",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Pronostics Over 2.5 du jour",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "fr-over-desktop.png",
+      "mobile": "fr-over-mobile.png"
+    }
+  },
+  {
+    "locale": "fr",
+    "page": "scores",
+    "label": "Scores exacts",
+    "route": "/ai-correct-score-predictions",
+    "states": {
+      "desktop": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Scores exacts",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Scores exacts",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "fr-scores-desktop.png",
+      "mobile": "fr-scores-mobile.png"
+    }
+  },
+  {
+    "locale": "fr",
+    "page": "match",
+    "label": "Détail de rencontre",
+    "route": "/match/atalanta-vs-parma-2026-11-02",
+    "states": {
+      "desktop": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Détail de rencontre",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Détail de rencontre",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "fr-match-desktop.png",
+      "mobile": "fr-match-mobile.png"
+    }
+  },
+  {
+    "locale": "fr",
+    "page": "combined",
+    "label": "Vue combinée",
+    "route": "/btts-and-over-2-5-predictions-today",
+    "states": {
+      "desktop": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "BTTS + Over 2.5",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "BTTS + Over 2.5",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "fr-combined-desktop.png",
+      "mobile": "fr-combined-mobile.png"
+    }
+  },
+  {
+    "locale": "fr",
+    "page": "stats",
+    "label": "Statistiques",
+    "route": "/statistiques",
+    "states": {
+      "desktop": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Statistiques",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Statistiques",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "fr-stats-desktop.png",
+      "mobile": "fr-stats-mobile.png"
+    }
+  },
+  {
+    "locale": "fr",
+    "page": "results",
+    "label": "Résultats vérifiés",
+    "route": "/resultats-verifies",
+    "states": {
+      "desktop": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Résultats vérifiés",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Résultats vérifiés",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "fr-results-desktop.png",
+      "mobile": "fr-results-mobile.png"
+    }
+  },
+  {
+    "locale": "fr",
+    "page": "history",
+    "label": "Historique complet",
+    "route": "/historique",
+    "states": {
+      "desktop": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Historique complet",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Historique complet",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "fr-history-desktop.png",
+      "mobile": "fr-history-mobile.png"
+    }
+  },
+  {
+    "locale": "fr",
+    "page": "vip",
+    "label": "Parcours VIP",
+    "route": "/vip",
+    "states": {
+      "desktop": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Accès VIP",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Accès VIP",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "fr-vip-desktop.png",
+      "mobile": "fr-vip-mobile.png"
+    }
+  },
+  {
+    "locale": "fr",
+    "page": "promo-linebet",
+    "label": "Page promo partenaire",
+    "route": "/code-promo-linebet-senegal",
+    "states": {
+      "desktop": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Code promo Linebet Sénégal",
+        "partner": "linebet",
+        "promoCode": "VISION221",
+        "affiliateHref": "https://lb-aff.com/L?tag=d_5589568m_22611c_site&site=5589568&ad=22611&r=registration",
+        "affiliateRel": "sponsored nofollow noopener noreferrer",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Code promo Linebet Sénégal",
+        "partner": "linebet",
+        "promoCode": "VISION221",
+        "affiliateHref": "https://lb-aff.com/L?tag=d_5589568m_22611c_site&site=5589568&ad=22611&r=registration",
+        "affiliateRel": "sponsored nofollow noopener noreferrer",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "fr-promo-linebet-desktop.png",
+      "mobile": "fr-promo-linebet-mobile.png"
+    }
+  },
+  {
+    "locale": "fr",
+    "page": "home-combo",
+    "label": "Combo Builder mobile",
+    "route": "/",
+    "states": {
+      "mobile": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Match Center",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": false,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "mobile": "fr-home-combo-mobile.png"
+    }
+  },
+  {
+    "locale": "fr",
+    "page": "mobile-menu",
+    "label": "Menu mobile ouvert",
+    "route": "/",
+    "states": {
+      "mobile": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -34,
+        "sidebarWidth": 300,
+        "menuOpen": true,
+        "title": "Match Center",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": false,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "mobile": "fr-mobile-menu-open.png"
+    }
+  },
+  {
+    "locale": "en",
+    "page": "home",
+    "label": "Accueil / Match Center",
+    "route": "/",
+    "states": {
+      "desktop": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Match Center",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": true,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Match Center",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": false,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "en-home-desktop.png",
+      "mobile": "en-home-mobile.png"
+    }
+  },
+  {
+    "locale": "en",
+    "page": "btts",
+    "label": "Pronostics BTTS",
+    "route": "/btts/predictions/today",
+    "states": {
+      "desktop": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Today’s BTTS predictions",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Today’s BTTS predictions",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "en-btts-desktop.png",
+      "mobile": "en-btts-mobile.png"
+    }
+  },
+  {
+    "locale": "en",
+    "page": "over",
+    "label": "Pronostics Over 2.5",
+    "route": "/over-2-5/predictions/today",
+    "states": {
+      "desktop": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Today’s Over 2.5 predictions",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Today’s Over 2.5 predictions",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "en-over-desktop.png",
+      "mobile": "en-over-mobile.png"
+    }
+  },
+  {
+    "locale": "en",
+    "page": "scores",
+    "label": "Scores exacts",
+    "route": "/ai-correct-score-predictions",
+    "states": {
+      "desktop": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Exact scores",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Exact scores",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "en-scores-desktop.png",
+      "mobile": "en-scores-mobile.png"
+    }
+  },
+  {
+    "locale": "en",
+    "page": "match",
+    "label": "Détail de rencontre",
+    "route": "/match/atalanta-vs-parma-2026-11-02",
+    "states": {
+      "desktop": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Match details",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Match details",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "en-match-desktop.png",
+      "mobile": "en-match-mobile.png"
+    }
+  },
+  {
+    "locale": "en",
+    "page": "combined",
+    "label": "Vue combinée",
+    "route": "/btts-and-over-2-5-predictions-today",
+    "states": {
+      "desktop": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "BTTS + Over 2.5",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "BTTS + Over 2.5",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "en-combined-desktop.png",
+      "mobile": "en-combined-mobile.png"
+    }
+  },
+  {
+    "locale": "en",
+    "page": "stats",
+    "label": "Statistiques",
+    "route": "/statistiques",
+    "states": {
+      "desktop": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Statistics",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Statistics",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "en-stats-desktop.png",
+      "mobile": "en-stats-mobile.png"
+    }
+  },
+  {
+    "locale": "en",
+    "page": "results",
+    "label": "Résultats vérifiés",
+    "route": "/resultats-verifies",
+    "states": {
+      "desktop": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Verified results",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Verified results",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "en-results-desktop.png",
+      "mobile": "en-results-mobile.png"
+    }
+  },
+  {
+    "locale": "en",
+    "page": "history",
+    "label": "Historique complet",
+    "route": "/historique",
+    "states": {
+      "desktop": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Complete history",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Complete history",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "en-history-desktop.png",
+      "mobile": "en-history-mobile.png"
+    }
+  },
+  {
+    "locale": "en",
+    "page": "vip",
+    "label": "Parcours VIP",
+    "route": "/vip",
+    "states": {
+      "desktop": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "VIP access",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "VIP access",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "en-vip-desktop.png",
+      "mobile": "en-vip-mobile.png"
+    }
+  },
+  {
+    "locale": "en",
+    "page": "promo-linebet",
+    "label": "Page promo partenaire",
+    "route": "/code-promo-linebet-senegal",
+    "states": {
+      "desktop": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Linebet promo code",
+        "partner": "linebet",
+        "promoCode": "VISION221",
+        "affiliateHref": "https://lb-aff.com/L?tag=d_5589568m_22611c_site&site=5589568&ad=22611&r=registration",
+        "affiliateRel": "sponsored nofollow noopener noreferrer",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Linebet promo code",
+        "partner": "linebet",
+        "promoCode": "VISION221",
+        "affiliateHref": "https://lb-aff.com/L?tag=d_5589568m_22611c_site&site=5589568&ad=22611&r=registration",
+        "affiliateRel": "sponsored nofollow noopener noreferrer",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "en-promo-linebet-desktop.png",
+      "mobile": "en-promo-linebet-mobile.png"
+    }
+  },
+  {
+    "locale": "en",
+    "page": "home-combo",
+    "label": "Combo Builder mobile",
+    "route": "/",
+    "states": {
+      "mobile": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Match Center",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": false,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "mobile": "en-home-combo-mobile.png"
+    }
+  },
+  {
+    "locale": "en",
+    "page": "mobile-menu",
+    "label": "Menu mobile ouvert",
+    "route": "/",
+    "states": {
+      "mobile": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -34,
+        "sidebarWidth": 300,
+        "menuOpen": true,
+        "title": "Match Center",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": false,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "mobile": "en-mobile-menu-open.png"
+    }
+  },
+  {
+    "locale": "ar",
+    "page": "home",
+    "label": "Accueil / Match Center",
+    "route": "/",
+    "states": {
+      "desktop": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 1194,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "مركز المباريات",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": true,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": 396,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "مركز المباريات",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": false,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "ar-home-desktop.png",
+      "mobile": "ar-home-mobile.png"
+    }
+  },
+  {
+    "locale": "ar",
+    "page": "btts",
+    "label": "Pronostics BTTS",
+    "route": "/btts/predictions/today",
+    "states": {
+      "desktop": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 1194,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "توقعات BTTS لليوم",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": 396,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "توقعات BTTS لليوم",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "ar-btts-desktop.png",
+      "mobile": "ar-btts-mobile.png"
+    }
+  },
+  {
+    "locale": "ar",
+    "page": "over",
+    "label": "Pronostics Over 2.5",
+    "route": "/over-2-5/predictions/today",
+    "states": {
+      "desktop": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 1194,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "توقعات أكثر من 2.5 لليوم",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": 396,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "توقعات أكثر من 2.5 لليوم",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "ar-over-desktop.png",
+      "mobile": "ar-over-mobile.png"
+    }
+  },
+  {
+    "locale": "ar",
+    "page": "scores",
+    "label": "Scores exacts",
+    "route": "/ai-correct-score-predictions",
+    "states": {
+      "desktop": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 1194,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "النتائج الدقيقة",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": 396,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "النتائج الدقيقة",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "ar-scores-desktop.png",
+      "mobile": "ar-scores-mobile.png"
+    }
+  },
+  {
+    "locale": "ar",
+    "page": "match",
+    "label": "Détail de rencontre",
+    "route": "/match/atalanta-vs-parma-2026-11-02",
+    "states": {
+      "desktop": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 1194,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "تفاصيل المباراة",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": 396,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "تفاصيل المباراة",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "ar-match-desktop.png",
+      "mobile": "ar-match-mobile.png"
+    }
+  },
+  {
+    "locale": "ar",
+    "page": "combined",
+    "label": "Vue combinée",
+    "route": "/btts-and-over-2-5-predictions-today",
+    "states": {
+      "desktop": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 1194,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "BTTS + أكثر من 2.5",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": 396,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "BTTS + أكثر من 2.5",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "ar-combined-desktop.png",
+      "mobile": "ar-combined-mobile.png"
+    }
+  },
+  {
+    "locale": "ar",
+    "page": "stats",
+    "label": "Statistiques",
+    "route": "/statistiques",
+    "states": {
+      "desktop": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 1194,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "الإحصاءات",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": 396,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "الإحصاءات",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "ar-stats-desktop.png",
+      "mobile": "ar-stats-mobile.png"
+    }
+  },
+  {
+    "locale": "ar",
+    "page": "results",
+    "label": "Résultats vérifiés",
+    "route": "/resultats-verifies",
+    "states": {
+      "desktop": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 1194,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "النتائج الموثقة",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": 396,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "النتائج الموثقة",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "ar-results-desktop.png",
+      "mobile": "ar-results-mobile.png"
+    }
+  },
+  {
+    "locale": "ar",
+    "page": "history",
+    "label": "Historique complet",
+    "route": "/historique",
+    "states": {
+      "desktop": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 1194,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "السجل الكامل",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": 396,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "السجل الكامل",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "ar-history-desktop.png",
+      "mobile": "ar-history-mobile.png"
+    }
+  },
+  {
+    "locale": "ar",
+    "page": "vip",
+    "label": "Parcours VIP",
+    "route": "/vip",
+    "states": {
+      "desktop": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 1194,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "دخول VIP",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": 396,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "دخول VIP",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "ar-vip-desktop.png",
+      "mobile": "ar-vip-mobile.png"
+    }
+  },
+  {
+    "locale": "ar",
+    "page": "promo-linebet",
+    "label": "Page promo partenaire",
+    "route": "/code-promo-linebet-senegal",
+    "states": {
+      "desktop": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 1194,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "رمز عرض Linebet",
+        "partner": "linebet",
+        "promoCode": "VISION221",
+        "affiliateHref": "https://lb-aff.com/L?tag=d_5589568m_22611c_site&site=5589568&ad=22611&r=registration",
+        "affiliateRel": "sponsored nofollow noopener noreferrer",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": 396,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "رمز عرض Linebet",
+        "partner": "linebet",
+        "promoCode": "VISION221",
+        "affiliateHref": "https://lb-aff.com/L?tag=d_5589568m_22611c_site&site=5589568&ad=22611&r=registration",
+        "affiliateRel": "sponsored nofollow noopener noreferrer",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "ar-promo-linebet-desktop.png",
+      "mobile": "ar-promo-linebet-mobile.png"
+    }
+  },
+  {
+    "locale": "ar",
+    "page": "home-combo",
+    "label": "Combo Builder mobile",
+    "route": "/",
+    "states": {
+      "mobile": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": 396,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "مركز المباريات",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": false,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "mobile": "ar-home-combo-mobile.png"
+    }
+  },
+  {
+    "locale": "ar",
+    "page": "mobile-menu",
+    "label": "Menu mobile ouvert",
+    "route": "/",
+    "states": {
+      "mobile": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": 139,
+        "sidebarWidth": 300,
+        "menuOpen": true,
+        "title": "مركز المباريات",
+        "partner": "none",
+        "promoCode": "",
+        "affiliateHref": "",
+        "affiliateRel": "",
+        "comboOpen": false,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "mobile": "ar-mobile-menu-open.png"
+    }
+  },
+  {
+    "locale": "fr",
+    "page": "promo-1xbet",
+    "label": "Partenaire 1xBet",
+    "route": "/code-promo-1xbet",
+    "states": {
+      "desktop": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Code promo 1xBet",
+        "partner": "1xbet",
+        "promoCode": "vipbtts",
+        "affiliateHref": "https://reffpa.com/L?tag=d_6292935m_1599c_&site=6292935&ad=1599",
+        "affiliateRel": "sponsored nofollow noopener noreferrer",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Code promo 1xBet",
+        "partner": "1xbet",
+        "promoCode": "vipbtts",
+        "affiliateHref": "https://reffpa.com/L?tag=d_6292935m_1599c_&site=6292935&ad=1599",
+        "affiliateRel": "sponsored nofollow noopener noreferrer",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "fr-promo-1xbet-desktop.png",
+      "mobile": "fr-promo-1xbet-mobile.png"
+    }
+  },
+  {
+    "locale": "fr",
+    "page": "promo-melbet",
+    "label": "Partenaire MelBet",
+    "route": "/code-promo-melbet",
+    "states": {
+      "desktop": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Code promo MelBet",
+        "partner": "melbet",
+        "promoCode": "Bttswin",
+        "affiliateHref": "https://refpa3665.com/L?tag=d_6293054m_2170c_&site=6293054&ad=2170",
+        "affiliateRel": "sponsored nofollow noopener noreferrer",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Code promo MelBet",
+        "partner": "melbet",
+        "promoCode": "Bttswin",
+        "affiliateHref": "https://refpa3665.com/L?tag=d_6293054m_2170c_&site=6293054&ad=2170",
+        "affiliateRel": "sponsored nofollow noopener noreferrer",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "fr-promo-melbet-desktop.png",
+      "mobile": "fr-promo-melbet-mobile.png"
+    }
+  },
+  {
+    "locale": "fr",
+    "page": "promo-888starz",
+    "label": "Partenaire 888Starz",
+    "route": "/bonus-888starz",
+    "states": {
+      "desktop": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "sidebarX": 0,
+        "sidebarWidth": 246,
+        "menuOpen": false,
+        "title": "Bonus 888Starz",
+        "partner": "888starz",
+        "promoCode": "btts221",
+        "affiliateHref": "https://888ghta.com/8hwF6V",
+        "affiliateRel": "sponsored nofollow noopener noreferrer",
+        "comboOpen": null,
+        "bottomNavVisible": false
+      },
+      "mobile": {
+        "lang": "fr",
+        "dir": "ltr",
+        "width": 390,
+        "scrollWidth": 390,
+        "sidebarX": -306,
+        "sidebarWidth": 300,
+        "menuOpen": false,
+        "title": "Bonus 888Starz",
+        "partner": "888starz",
+        "promoCode": "btts221",
+        "affiliateHref": "https://888ghta.com/8hwF6V",
+        "affiliateRel": "sponsored nofollow noopener noreferrer",
+        "comboOpen": null,
+        "bottomNavVisible": true
+      }
+    },
+    "files": {
+      "desktop": "fr-promo-888starz-desktop.png",
+      "mobile": "fr-promo-888starz-mobile.png"
+    }
+  }
+]
