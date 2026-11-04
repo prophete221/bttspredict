@@ -1,5 +1,3 @@
-set ftp:ssl-force true
-set ftp:ssl-protect-data true
 set ssl:verify no
 set net:timeout 60
 set net:max-retries 2

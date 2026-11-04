@@ -31,16 +31,19 @@ describe('deployment safety gates', () => {
     expect(workflow).toContain('cancel-in-progress: false')
   })
 
-  it('uses LFTP script options before the FTPS host for preflight and restore', () => {
-    expect(deploy).toContain('lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "source scripts/ftp-safe-preflight.lftp" "ftps://${FTP_SERVER}"')
-    expect(deploy).toContain('lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify no; set net:timeout 60; set net:max-retries 2; set cmd:fail-exit yes; put out/predeploy-backups/robots.txt -o robots.txt; put out/predeploy-backups/sitemap.xml -o sitemap.xml; bye" "ftps://${FTP_SERVER}"')
-    expect(deploy).not.toContain('"ftps://${FTP_SERVER}" -f scripts/ftp-safe-preflight.lftp')
-    expect(deploy).not.toContain('"ftps://${FTP_SERVER}" -e')
+  it('uses the historical plain FTP host for preflight and restoration', () => {
+    expect(deploy).toContain('lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "source scripts/ftp-safe-preflight.lftp" "ftp://${FTP_SERVER}"')
+    expect(deploy).toContain('lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "set net:timeout 60; set net:max-retries 2; set cmd:fail-exit yes; put out/predeploy-backups/robots.txt -o robots.txt; put out/predeploy-backups/sitemap.xml -o sitemap.xml; bye" "ftp://${FTP_SERVER}"')
+    expect(deploy).not.toContain('"ftp://${FTP_SERVER}" -f scripts/ftp-safe-preflight.lftp')
+    expect(deploy).not.toContain('"ftp://${FTP_SERVER}" -e')
+    expect(preflight).not.toContain('set ftp:ssl-force true')
+    expect(preflight).not.toContain('set ftp:ssl-protect-data true')
   })
 
-  it('uses encrypted FTPS with the explicit safe state and disables clean-slate behavior', () => {
+  it('uses historical plain FTP with the explicit safe state and disables clean-slate behavior', () => {
     expect(deploy).toContain('uses: SamKirkland/FTP-Deploy-Action@v4.3.5')
-    expect(deploy).toContain('protocol: ftps')
+    expect(deploy).toContain('protocol: ftp')
+    expect(deploy).not.toContain('protocol: ftps')
     expect(deploy).toContain('security: loose')
     expect(deploy).toContain('state-name: .ftp-deploy-sync-state-safe.json')
     expect(deploy).toContain('dangerous-clean-slate: false')

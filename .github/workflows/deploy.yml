@@ -240,10 +240,10 @@ jobs:
       - name: Generate local deployment manifest
         run: node scripts/ftp-diff.mjs manifest
 
-      - name: Install lftp for targeted FTPS preflight
+      - name: Install lftp for targeted FTP preflight
         run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
 
-      - name: Prepare safe FTPS state and targeted Match cleanup
+      - name: Prepare safe FTP state and targeted Match cleanup
         id: ftp-preflight
         timeout-minutes: 30
         env:
@@ -253,11 +253,11 @@ jobs:
         run: |
           set -euo pipefail
           if [ -z "${FTP_SERVER:-}" ] || [ -z "${FTP_USERNAME:-}" ] || [ -z "${FTP_PASSWORD:-}" ]; then
-            echo "::error::Secrets FTPS manquants — arrêt sans écriture distante."
+            echo "::error::Secrets FTP manquants — arrêt sans écriture distante."
             exit 1
           fi
           mkdir -p out/predeploy-backups
-          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "source scripts/ftp-safe-preflight.lftp" "ftps://${FTP_SERVER}"
+          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "source scripts/ftp-safe-preflight.lftp" "ftp://${FTP_SERVER}"
           for FILE in robots.txt sitemap.xml; do
             if [ ! -s "out/predeploy-backups/$FILE" ]; then
               echo "::error::Sauvegarde distante absente ou vide : $FILE — arrêt."
@@ -271,11 +271,11 @@ jobs:
             fi
           done
           node -e "const p=require('./out/stale-match-pages.json'); if(!Array.isArray(p.deletions)||p.deletions.some(d=>! /^(en|ar)\\/match\\//.test(d.path))) process.exit(1); console.log('Suppression Match EN/AR validée:',p.deletionCount)"
-          echo "Refroidissement 300 s pour la protection anti-flood LWS avant l’upload différentiel…"
+          echo "Refroidissement 300 s pour la protection anti-flood LWS avant l’upload FTP différentiel…"
           sleep 300
-          echo "Refroidissement LWS terminé; démarrage de l’action FTPS différentielle."
+          echo "Refroidissement LWS terminé; démarrage de l’action FTP différentielle."
 
-      - name: Differential FTPS upload with scoped state (no remote purge)
+      - name: Differential FTP upload with scoped state (no remote purge)
         id: ftp-upload
         timeout-minutes: 180
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -284,7 +284,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
-          protocol: ftps
+          protocol: ftp
           security: loose
           local-dir: out/
           server-dir: ./
@@ -324,7 +324,7 @@ jobs:
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
           set -euo pipefail
-          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify no; set net:timeout 60; set net:max-retries 2; set cmd:fail-exit yes; put out/predeploy-backups/robots.txt -o robots.txt; put out/predeploy-backups/sitemap.xml -o sitemap.xml; bye" "ftps://${FTP_SERVER}"
+          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "set net:timeout 60; set net:max-retries 2; set cmd:fail-exit yes; put out/predeploy-backups/robots.txt -o robots.txt; put out/predeploy-backups/sitemap.xml -o sitemap.xml; bye" "ftp://${FTP_SERVER}"
 
       - name: Deploy .htaccess with historical temporary rename
         id: ftp-htaccess
