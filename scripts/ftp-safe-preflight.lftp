@@ -1,0 +1,30 @@
+set ftp:ssl-force true
+set ftp:ssl-protect-data true
+set ssl:verify no
+set net:timeout 60
+set net:max-retries 2
+set cmd:fail-exit yes
+
+# Sauvegardes des fichiers racine avant tout changement.
+get .htaccess -o out/predeploy-backups/.htaccess
+get robots.txt -o out/predeploy-backups/robots.txt
+get sitemap.xml -o out/predeploy-backups/sitemap.xml
+
+# Le nouvel état sûr peut être absent au premier déploiement; le legacy reste
+# une source de hachages seulement. Le helper choisit l'état sûr s'il est valide.
+set cmd:fail-exit no
+get .ftp-deploy-sync-state-safe.json -o /tmp/ftp-action-state-safe.remote.json
+get .ftp-deploy-sync-state.json -o /tmp/ftp-action-state-legacy.remote.json
+set cmd:fail-exit yes
+
+# Listings limités aux deux répertoires explicitement autorisés. Pas de `find .`
+# et aucun scan ou nettoyage du dossier racine /match.
+find en/match > /tmp/ftp-en-match-list.txt
+find ar/match > /tmp/ftp-ar-match-list.txt
+
+# Calcul local du plan, validation de l'état sûr, filtre du sitemap, puis seuls
+# les rm -f exacts générés pour les pages terminées EN/AR.
+!node scripts/prepare-ftp-deploy-plan.mjs --state-safe=/tmp/ftp-action-state-safe.remote.json --state-legacy=/tmp/ftp-action-state-legacy.remote.json --match-en=/tmp/ftp-en-match-list.txt --match-ar=/tmp/ftp-ar-match-list.txt --out-dir=out --public-dir=public --state-seed=/tmp/ftp-action-state-seed.json
+source out/stale-match-delete.lftp
+put /tmp/ftp-action-state-seed.json -o .ftp-deploy-sync-state-safe.json
+bye

@@ -54,6 +54,7 @@ const EXCLUDED_FILES = new Set([
   'orphan-review.json',
   'stale-match-delete.lftp',
   'sitemap-match-filter.json',
+  'ftp-action-state-report.json',
 ])
 // Dossiers internes du déploiement exclus du manifeste et du transfert.
 const EXCLUDED_DIRS = new Set(['predeploy-backups', 'ftp-diag'])
@@ -90,6 +91,21 @@ function buildManifest() {
   }
   manifest.fileCount = Object.keys(manifest.files).length
   return manifest
+}
+
+function cmdManifest() {
+  if (!fs.existsSync(OUT)) {
+    console.error('[ftp-diff] out/ introuvable — exécuter le build Next.js avant manifest.')
+    process.exit(1)
+  }
+  const manifest = buildManifest()
+  const localErr = validateManifest(manifest, 'local')
+  if (localErr) {
+    console.error(`[ftp-diff] ${localErr}`)
+    process.exit(1)
+  }
+  fs.writeFileSync(MANIFEST, JSON.stringify(manifest))
+  console.log(`[ftp-diff] manifeste local prêt: ${manifest.fileCount} fichiers, ${manifest.totalBytes} octets → ${MANIFEST}`)
 }
 
 function validateManifest(obj, label, { allowLegacyV1 = false } = {}) {
@@ -288,7 +304,8 @@ function cmdFinish() {
 const cmd = process.argv[2] || 'prepare'
 if (cmd === 'prepare') cmdPrepare()
 else if (cmd === 'finish') cmdFinish()
+else if (cmd === 'manifest') cmdManifest()
 else {
-  console.error('Usage: node scripts/ftp-diff.mjs [prepare|finish] [--require-prev] [--force-path=<path> ...]')
+  console.error('Usage: node scripts/ftp-diff.mjs [prepare|finish|manifest] [--require-prev] [--force-path=<path> ...]')
   process.exit(1)
 }

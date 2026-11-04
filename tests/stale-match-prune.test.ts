@@ -8,7 +8,7 @@ import { generateMatchSlug } from '@/lib/match-slug'
 const sourceScript = path.resolve('scripts/prepare-stale-match-deletions.mjs')
 const tempRoots: string[] = []
 
-function runFixture() {
+function runFixture(currentPath = 'match/today-upcoming-vs-opponent-2026-11-04.html') {
   const root = mkdtempSync(path.join(tmpdir(), 'btts-match-prune-'))
   tempRoots.push(root)
   const publicDir = path.join(root, 'public')
@@ -41,7 +41,6 @@ function runFixture() {
   ]
   const inventory = path.join(root, 'remote-inventory.tsv')
   writeFileSync(inventory, paths.map((name, index) => `${name}\tF\t${index + 10}`).join('\n') + '\n')
-  const currentPath = `match/${upcomingTodaySlug}.html`
   const currentManifest = path.join(root, 'deploy-manifest.json')
   writeFileSync(currentManifest, JSON.stringify({ files: { [currentPath]: { hash: 'abc', size: 1 } } }))
   const output = path.join(root, 'stale-match-pages.json')
@@ -76,34 +75,42 @@ afterEach(() => {
 })
 
 describe('safe stale-match deletion planning', () => {
-  it('targets only remote past-match HTML absent from the current export', () => {
+  it('targets only finished EN/AR Match HTML absent from the current export', () => {
     const result = runFixture()
     const deletedPaths = result.output.deletions.map((item: { path: string }) => item.path)
     expect(deletedPaths).toEqual([
       'ar/match/old-match-vs-team-2026-10-01/index.html',
       'en/match/old-match-vs-team-2026-10-01.html',
-      'match/old-match-vs-team-2026-10-01.html',
-      `match/${result.finishedTodaySlug}.html`,
     ])
     expect(result.output.timezone).toBe('Africa/Dakar')
     expect(result.output.today).toBe('2026-11-04')
-    expect(result.output.deletionCount).toBe(4)
-    expect(result.commands).toContain('rm -f "match/')
+    expect(result.output.deletionCount).toBe(2)
+    expect(result.commands).toContain('rm -f "ar/match/')
+    expect(result.commands).toContain('rm -f "en/match/')
+    expect(result.commands).not.toContain('rm -f "match/')
     expect(result.commands).not.toContain('assets/')
     expect(result.commands).not.toContain('.htaccess')
   })
 
-  it('preserves current, upcoming, live, protected-root and prediction archive files', () => {
+  it('preserves French root Match pages, active matches, protected files and prediction archives', () => {
     const result = runFixture()
     const deletedPaths = result.output.deletions.map((item: { path: string }) => item.path)
     for (const protectedPath of [
+      'match/old-match-vs-team-2026-10-01.html',
+      `match/${result.finishedTodaySlug}.html`,
       `match/${result.upcomingTodaySlug}.html`,
       `match/${result.liveTodaySlug}.html`,
       'match/future-unlisted-vs-team-2026-11-05.html',
       '.htaccess', 'robots.txt', 'sitemap.xml', 'predictions-archive/2026-10-01.json',
     ]) expect(deletedPaths).not.toContain(protectedPath)
+    expect(result.review.candidates).toContainEqual(expect.objectContaining({ path: 'match/old-match-vs-team-2026-10-01.html', category: 'match-root-out-of-scope' }))
+    expect(result.review.candidates).toContainEqual(expect.objectContaining({ path: `match/${result.finishedTodaySlug}.html`, category: 'match-root-out-of-scope' }))
     expect(result.review.candidates).toContainEqual(expect.objectContaining({ path: 'assets/old-logo.svg', category: 'non-match-unverified' }))
     expect(result.review.candidates).toContainEqual(expect.objectContaining({ path: 'predictions-archive/2026-10-01.json', category: 'non-match-unverified' }))
+  })
+
+  it('fails closed if the current export contains a finished Match HTML page', () => {
+    expect(() => runFixture('match/old-match-vs-team-2026-10-01.html')).toThrow(/page Match terminée/)
   })
 
   it('does not produce deletions if the remote inventory is empty', () => {

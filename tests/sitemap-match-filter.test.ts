@@ -38,6 +38,7 @@ function runFilter(deletions: Array<{ path: string; status: string }>, currentPa
     '  <url><loc>https://bttspredict.com/en/btts-and-over-2-5-predictions-today</loc><lastmod>2026-10-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>\n',
     `  <url><loc>https://bttspredict.com/match/${oldSlug}</loc><lastmod>2026-10-23</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://bttspredict.com/en/match/${oldSlug}" /></url>\n`,
     `  <url><loc>https://bttspredict.com/en/match/${oldSlug}/</loc><lastmod>2026-10-23</lastmod><xhtml:link rel="alternate" hreflang="fr" href="https://bttspredict.com/match/${oldSlug}" /></url>\n`,
+    `  <url><loc>https://bttspredict.com/ar/match/${oldSlug}/</loc><lastmod>2026-10-23</lastmod><xhtml:link rel="alternate" hreflang="fr" href="https://bttspredict.com/match/${oldSlug}" /></url>\n`,
     `  <url><loc>https://bttspredict.com/ar/match/${oldUntrackedSlug}</loc><lastmod>2026-10-05</lastmod><priority>0.8</priority></url>\n`,
     `  <url><loc>https://bttspredict.com/match/${finishedTodaySlug}</loc><lastmod>2026-11-04</lastmod><priority>0.8</priority></url>\n`,
     '  <url><loc>https://bttspredict.com/legacy-valid-route</loc><lastmod>2026-10-23</lastmod><priority>0.8</priority></url>\n',
@@ -82,15 +83,17 @@ afterEach(() => {
 describe('sitemap de build avec retraits Match strictement ciblés', () => {
   it('met à jour les URL générées, conserve les autres URL distantes et retire seulement les URL dont les fichiers Match sont supprimés', () => {
     const result = runFilter([
-      { path: `match/${oldSlug}.html`, status: 'finished' },
       { path: `en/match/${oldSlug}.html`, status: 'finished' },
+      { path: `ar/match/${oldSlug}/index.html`, status: 'finished' },
     ])
     expect(result.output).toContain('<loc>https://bttspredict.com/</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq>')
     expect(result.output).not.toContain('<loc>https://bttspredict.com/</loc><lastmod>2026-10-01</lastmod>')
     expect(result.output).toContain('<loc>https://bttspredict.com/en/btts-and-over-2-5-predictions-today</loc><lastmod>2026-11-04</lastmod>')
     expect(result.output).toContain('https://bttspredict.com/new-build-route')
     expect(result.output).toContain('https://bttspredict.com/legacy-valid-route')
-    expect(result.output).not.toContain(`https://bttspredict.com/match/${result.oldSlug}`)
+    expect(result.output).toContain(`https://bttspredict.com/match/${result.oldSlug}`)
+    expect(result.output).not.toContain(`https://bttspredict.com/en/match/${result.oldSlug}`)
+    expect(result.output).not.toContain(`https://bttspredict.com/ar/match/${result.oldSlug}`)
     expect(result.output).toContain(`https://bttspredict.com/ar/match/${result.oldUntrackedSlug}`)
     expect(result.output).toContain(`https://bttspredict.com/match/${result.finishedTodaySlug}`)
     expect(result.output).toContain(`https://bttspredict.com/match/${result.liveTodaySlug}`)
@@ -103,17 +106,23 @@ describe('sitemap de build avec retraits Match strictement ciblés', () => {
     expect(result.filterReport.today).toBe('2026-11-04')
     expect(result.filterReport.removedUrlCount).toBe(2)
     expect(result.filterReport.removedUrlPaths).toEqual([
+      `/ar/match/${result.oldSlug}`,
       `/en/match/${result.oldSlug}`,
-      `/match/${result.oldSlug}`,
     ])
     expect(result.filterReport.addedBuildUrlCount).toBe(1)
-    expect(result.filterReport.retainedPreviousUrlCount).toBe(7)
+    expect(result.filterReport.retainedPreviousUrlCount).toBe(8)
   })
 
   it('refuse un fichier déclaré supprimable qui n’est pas marqué terminé', () => {
     expect(() => runFilter([
-      { path: `match/${oldSlug}.html`, status: 'upcoming' },
+      { path: `en/match/${oldSlug}.html`, status: 'upcoming' },
     ])).toThrow()
+  })
+
+  it('refuse toute suppression demandée sur le root /match hors périmètre', () => {
+    expect(() => runFilter([
+      { path: `match/${oldSlug}.html`, status: 'finished' },
+    ])).toThrow(/hors périmètre|invalide/)
   })
 
   it('refuse un plan de suppression qui vise encore une page du build courant', () => {

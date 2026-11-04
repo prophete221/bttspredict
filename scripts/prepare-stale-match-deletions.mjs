@@ -31,12 +31,24 @@ function readArgs() {
 function parseMatchPagePath(remotePath) {
   // Next export produit normalement slug.html; index.html couvre une ancienne
   // configuration trailingSlash. Aucun asset, dossier ou chemin non-Match ne passe.
-  const match = remotePath.match(/^(?:(?:en|ar)\/)?match\/([\p{L}\p{N}_-]+?)-(\d{4}-\d{2}-\d{2})(?:\.html|\/index\.html)$/u)
+  const match = remotePath.match(/^(?:(en|ar)\/)?match\/([\p{L}\p{N}_-]+?)-(\d{4}-\d{2}-\d{2})(?:\.html|\/index\.html)$/u)
   if (!match) return null
-  const [, slug, date] = match
+  const [, locale, slug, date] = match
   const parsed = new Date(`${date}T00:00:00.000Z`)
   if (!Number.isFinite(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== date) return null
-  return { slug: `${slug}-${date}`, date }
+  return { locale: locale || 'fr', slug: `${slug}-${date}`, date }
+}
+
+function assertNoFinishedMatchFiles(currentFiles, known, now) {
+  for (const exportPath of currentFiles) {
+    const matchPath = parseMatchPagePath(exportPath)
+    if (!matchPath) continue
+    const matchData = known.get(matchPath.slug)
+    const status = getDakarMatchStatus(matchData?.date || matchPath.date, matchData?.time, now)
+    if (status === 'finished') {
+      throw new Error(`L’export courant contient une page Match terminée : ${exportPath}`)
+    }
+  }
 }
 
 function main() {
@@ -55,6 +67,7 @@ function main() {
   if (!manifest.files || typeof manifest.files !== 'object') throw new Error('Manifeste courant invalide')
   const currentFiles = new Set(Object.keys(manifest.files))
   const known = loadMatchScheduleIndex(publicDir)
+  assertNoFinishedMatchFiles(currentFiles, known, now)
   const remoteFiles = new Map()
   for (const line of fs.readFileSync(inventoryPath, 'utf8').split(/\r?\n/)) {
     if (!line.trim()) continue
@@ -77,7 +90,9 @@ function main() {
     if (matchPath) {
       const matchData = known.get(matchPath.slug)
       const status = getDakarMatchStatus(matchData?.date || matchPath.date, matchData?.time, now)
-      if (status === 'finished') {
+      if (matchPath.locale === 'fr') {
+        reviewCandidates.push({ path: remotePath, size, category: 'match-root-out-of-scope' })
+      } else if (status === 'finished') {
         deletions.push({ path: remotePath, size, matchDate: matchPath.date, status })
       } else {
         preservedUpcomingOrLiveMatch += 1
@@ -96,7 +111,7 @@ function main() {
     generatedAt: now.toISOString(),
     timezone: 'Africa/Dakar',
     today,
-    policy: 'Delete only remote HTML Match pages absent from the current export whose Dakar match status is finished. Never auto-delete other files.',
+    policy: 'Delete only remote HTML Match pages under en/match or ar/match that are absent from the current export and finished at Dakar. Never delete root match/, live/upcoming matches or unrelated files.',
     deletionCount: deletions.length,
     deletionBytes: totalBytes,
     deletions,

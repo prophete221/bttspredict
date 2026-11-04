@@ -25,7 +25,7 @@ function readArgs() {
 }
 
 function getTargetPath(relativePath) {
-  const match = relativePath.match(/^(?:(?:en|ar)\/)?match\/[\p{L}\p{N}_-]+-\d{4}-\d{2}-\d{2}(?:\.html|\/index\.html)$/u)
+  const match = relativePath.match(/^(?:en|ar)\/match\/[\p{L}\p{N}_-]+-\d{4}-\d{2}-\d{2}(?:\.html|\/index\.html)$/u)
   if (!match) throw new Error(`Chemin de suppression non Match ou invalide : ${relativePath}`)
   const route = relativePath.replace(/\/index\.html$/, '').replace(/\.html$/, '')
   return `/${route}`
@@ -94,7 +94,7 @@ function main() {
   if (!manifest.files || typeof manifest.files !== 'object') throw new Error('Manifeste courant invalide')
 
   const currentMatchPaths = new Set(Object.keys(manifest.files)
-    .filter(relativePath => /^(?:(?:en|ar)\/)?match\/[\p{L}\p{N}_-]+-\d{4}-\d{2}-\d{2}(?:\.html|\/index\.html)$/u.test(relativePath))
+    .filter(relativePath => /^(?:en|ar)\/match\/[\p{L}\p{N}_-]+-\d{4}-\d{2}-\d{2}(?:\.html|\/index\.html)$/u.test(relativePath))
     .map(getTargetPath))
   const fileDeletionPaths = new Set(deletionReport.deletions.map(item => {
     if (!item || item.status !== 'finished' || typeof item.path !== 'string') {

@@ -3,11 +3,22 @@ import { describe, expect, it } from 'vitest'
 
 const workflow = fs.readFileSync('.github/workflows/deploy.yml', 'utf8')
 const deploy = workflow.split('\n  deploy:')[1] ?? ''
+const preflight = fs.readFileSync('scripts/ftp-safe-preflight.lftp', 'utf8')
+const planner = fs.readFileSync('scripts/prepare-stale-match-deletions.mjs', 'utf8')
+const sitemapFilter = fs.readFileSync('scripts/filter-sitemap-match-urls.mjs', 'utf8')
+const statePlanner = fs.readFileSync('scripts/prepare-ftp-deploy-plan.mjs', 'utf8')
+const ftpDiff = fs.readFileSync('scripts/ftp-diff.mjs', 'utf8')
 
 describe('deployment safety gates', () => {
   it('runs hard-failing tests, Python, lint, typecheck and build before any FTP operation', () => {
     const firstTransfer = deploy.indexOf('lftp -u')
+    const action = deploy.indexOf('uses: SamKirkland/FTP-Deploy-Action@v4.3.5')
+    const cooldown = deploy.indexOf('sleep 300')
     expect(firstTransfer).toBeGreaterThan(0)
+    expect(cooldown).toBeGreaterThan(firstTransfer)
+    expect(cooldown).toBeLessThan(action)
+    expect(action).toBeGreaterThan(firstTransfer)
+    expect(deploy).toContain('Refroidissement 300 s pour la protection anti-flood LWS')
     for (const command of ['run: npm test', 'python3 -m unittest discover', 'run: npm run lint', 'run: npx tsc --noEmit', 'run: npm run build']) {
       expect(deploy.indexOf(command)).toBeGreaterThan(0)
       expect(deploy.indexOf(command)).toBeLessThan(firstTransfer)
@@ -16,138 +27,98 @@ describe('deployment safety gates', () => {
     }
     expect(deploy).toContain("github.ref == 'refs/heads/main'")
     expect(deploy).toContain("github.event_name != 'pull_request'")
-  })
-
-  it('requires encrypted FTPS with the legacy certificate bypass, resilient live inventory, schema-validated diff, and forbids purge/full-mirror/htaccess-rm', () => {
-    expect(deploy).not.toContain('mirror --delete')
-    expect(deploy).not.toContain('--exclude')
-    expect(deploy).not.toContain('repli sur miroir complet')
-    expect(deploy).not.toContain('Deploy .htaccess')
-    expect(deploy).not.toContain('rm -f ./.htaccess')
-    expect(deploy).toContain('ssl:verify no')
-    expect(deploy).not.toContain('ssl:verify-certificate true')
-    expect(deploy).toContain('ftp:ssl-force true')
-    expect(deploy).toContain('ftp:ssl-protect-data true')
-    expect(deploy).toContain('set cmd:fail-exit yes')
-    expect(deploy).not.toContain('check-ftp-tls.py --require-verified')
-    expect(deploy).toContain('ftp-diff.mjs prepare --require-prev --allow-legacy-v1 --live-inventory=out/remote-inventory.tsv --force-path=.htaccess --force-path=robots.txt --force-path=sitemap.xml')
-    expect(deploy).toContain('ftps://')
-    for (const file of ['.htaccess', 'robots.txt', 'sitemap.xml']) {
-      expect(deploy).toContain(`--force-path=${file}`)
-    }
-    // sauvegardes racine lues par Python dans la session d'inventaire; restauration lftp seulement en cas d'échec.
-    expect(deploy).toContain('--save-root-backups=out/predeploy-backups')
-    expect(deploy).not.toContain('get ./.htaccess -o out/predeploy-backups/.htaccess')
-    expect(deploy).toContain('put out/predeploy-backups/.htaccess -o ./.htaccess; put out/predeploy-backups/robots.txt -o ./robots.txt; put out/predeploy-backups/sitemap.xml -o ./sitemap.xml')
-    expect(deploy.match(/put out\/predeploy-backups\/\.htaccess -o \.\/\.htaccess/g)?.length ?? 0).toBeGreaterThanOrEqual(2)
-    expect(deploy).toContain('FTP_FILE_QUOTA')
-    expect(deploy).toContain('deploy-diff-stats.json')
-    expect(deploy).toContain('NEW_PATHS')
-    expect(deploy).toContain('BYTES_TO_ADD')
-    expect(deploy).toContain('report_quota_candidates')
-    const inventory = deploy.indexOf('python3 scripts/ftp-inventory.py')
-    const inventoryFailure = deploy.indexOf('Inventaire distant non fiable')
-    const manifestRead = deploy.indexOf('--save-manifest=out/deploy-manifest.prev.json')
-    const rootBackup = deploy.indexOf('--save-root-backups=out/predeploy-backups')
-    const mirror = deploy.indexOf('mirror --reverse')
-    expect(inventory).toBeGreaterThan(0)
-    expect(inventoryFailure).toBeGreaterThan(0)
-    expect(manifestRead).toBeGreaterThan(inventory)
-    expect(manifestRead).toBeLessThan(rootBackup)
-    expect(rootBackup).toBeLessThan(inventoryFailure)
-    expect(rootBackup).toBeLessThan(mirror)
     expect(workflow).toContain("paths-ignore:\n      - 'public/**'")
-  })
-
-  it('uses the resilient read-only Python inventory (replaces lftp find) and blocks transfer on partial inventory', () => {
-    expect(deploy).toContain('python3 scripts/ftp-inventory.py --mode=deploy')
-    expect(deploy).toContain('--live-inventory=out/remote-inventory.tsv')
-    expect(deploy).toContain('missingOnRemote')
-    // anti-flood LWS inter-sessions: manifeste et fichiers racine téléchargés pendant l'inventaire
-    expect(deploy).toContain('--save-manifest=out/deploy-manifest.prev.json')
-    expect(deploy).toContain('--save-root-backups=out/predeploy-backups')
-    expect(deploy).not.toContain('get ./deploy-manifest.json -o out/deploy-manifest.prev.json')
-    expect(deploy).toContain('cooldown 300')
-    expect(deploy).toContain('ftp_run_retry')
-    // lftp find . n'est plus utilisé pour l'inventaire (max-retries exceeded côté LWS)
-    expect(deploy).not.toContain('find .')
-    // un inventaire partiel (code 2) ou fatal (code 1) bloque avant tout transfert
-    expect(deploy).toContain('if [ "$INV_RC" -ne 0 ]')
-    // quotas mesurés sur l'inventaire live, pas sur un manifeste historique
-    expect(deploy).toContain('remote-inventory-summary.json')
-    expect(deploy).toContain('REMOTE_NOW')
-    expect(deploy).toContain('REMOTE_BYTES')
-    expect(deploy).toContain('PROJECTED_BYTES')
-    expect(deploy).toContain('DUPLICATE_PATHS')
-    // ordre strict : inventaire -> preuves locales -> diff/quota -> sortie no-op -> pause -> transfert
-    const inventory = deploy.indexOf('python3 scripts/ftp-inventory.py')
-    const cooldown = deploy.indexOf('cooldown 300')
-    const diffPrepare = deploy.indexOf('ftp-diff.mjs prepare')
-    const noOp = deploy.indexOf('Aucun fichier modifié ni page Match passée à retirer')
-    const mirror = deploy.indexOf('mirror --reverse')
-    expect(inventory).toBeGreaterThan(0)
-    expect(diffPrepare).toBeGreaterThan(inventory)
-    expect(noOp).toBeGreaterThan(diffPrepare)
-    expect(cooldown).toBeGreaterThan(noOp)
-    expect(cooldown).toBeLessThan(mirror)
-    // le transfert d'un premier déploiement post-refonte ne doit pas être tué
-    expect(deploy).toMatch(/timeout-minutes: 300/)
     expect(workflow).toContain('cancel-in-progress: false')
   })
 
-  it('plans deletions only for finished Match HTML and keeps all other orphan candidates for review', () => {
-    const planner = fs.readFileSync('scripts/prepare-stale-match-deletions.mjs', 'utf8')
-    expect(deploy).toContain('node --experimental-strip-types scripts/prepare-stale-match-deletions.mjs')
-    expect(deploy).toContain('--inventory=out/remote-inventory.tsv')
-    expect(deploy).toContain('--current-manifest=out/deploy-manifest.json')
-    expect(deploy).toContain('--delete-commands=out/stale-match-delete.lftp')
-    expect(deploy).toContain('source out/stale-match-delete.lftp')
-    expect(deploy).toContain('node --experimental-strip-types scripts/filter-sitemap-match-urls.mjs')
-    expect(deploy).toContain('--input=out/sitemap.xml')
-    expect(deploy).toContain('--previous=out/predeploy-backups/sitemap.xml')
-    expect(deploy).not.toContain('cp public/sitemap.xml out/sitemap.xml')
-    expect(deploy).toContain('--current-manifest=out/deploy-manifest.json')
-    expect(deploy).toContain('--output=out/sitemap.xml')
-    expect(deploy).toContain('--report=out/sitemap-match-filter.json')
-    expect(deploy).toContain('MATCH_DELETE_COUNT')
-    expect(deploy).toContain('REMOTE_AFTER_MATCH_CLEANUP')
-    expect(deploy).toContain('out/orphan-review.json')
-    expect(planner).toContain("getDakarMatchStatus(matchData?.date || matchPath.date, matchData?.time, now)")
-    expect(planner).toContain("if (status === 'finished')")
-    expect(planner).toContain('if (currentFiles.has(remotePath) || protectedRemoteFiles.has(remotePath)) continue')
-    expect(planner).toContain("category: 'non-match-unverified'")
-    expect(planner).toContain('jamais supprimés automatiquement')
-    expect(planner).not.toContain('ftp.delete(')
-
-    const ftpDiff = fs.readFileSync('scripts/ftp-diff.mjs', 'utf8')
-    for (const file of ['stale-match-pages.json', 'orphan-review.json', 'stale-match-delete.lftp', 'sitemap-match-filter.json']) {
-      expect(ftpDiff).toContain(`'${file}'`)
-    }
+  it('uses encrypted FTPS with the explicit safe state and disables clean-slate behavior', () => {
+    expect(deploy).toContain('uses: SamKirkland/FTP-Deploy-Action@v4.3.5')
+    expect(deploy).toContain('protocol: ftps')
+    expect(deploy).toContain('security: loose')
+    expect(deploy).toContain('state-name: .ftp-deploy-sync-state-safe.json')
+    expect(deploy).toContain('dangerous-clean-slate: false')
+    expect(deploy).toContain('local-dir: out/')
+    expect(deploy).toContain('server-dir: ./')
+    expect(deploy).not.toContain('dangerous-clean-slate: true')
+    expect(deploy).not.toContain('remove-existing-files')
+    expect(deploy).not.toContain('mirror --delete')
+    expect(deploy).not.toContain('mirror --reverse')
+    expect(deploy).not.toContain('rm -rf')
+    expect(deploy).not.toContain('rm -r ')
   })
 
-  it('keeps the html lang fix between build and manifest (SEO-safe post-export)', () => {
+  it('limits remote listing and deletes to verified EN/AR Match pages, never root /match or unrelated files', () => {
+    expect(deploy).toContain('scripts/ftp-safe-preflight.lftp')
+    const liveFindCommands = preflight.split('\n').map(line => line.trim()).filter(line => line.startsWith('find '))
+    expect(liveFindCommands).toEqual([
+      'find en/match > /tmp/ftp-en-match-list.txt',
+      'find ar/match > /tmp/ftp-ar-match-list.txt',
+    ])
+    expect(preflight).toContain('source out/stale-match-delete.lftp')
+    expect(planner).toContain("matchPath.locale === 'fr'")
+    expect(planner).toContain("category: 'match-root-out-of-scope'")
+    expect(planner).toContain("if (status === 'finished')")
+    expect(planner).toContain('assertNoFinishedMatchFiles(currentFiles, known, now)')
+    expect(planner).toContain('page Match terminée')
+    expect(planner).toContain("category: 'non-match-unverified'")
+    expect(planner).not.toContain('ftp.delete(')
+    expect(sitemapFilter).toContain('/^(?:en|ar)\\/match\\/')
+    expect(sitemapFilter).not.toContain('(?:(?:en|ar)\\/)?match')
+    expect(preflight).toContain('get .htaccess -o out/predeploy-backups/.htaccess')
+    expect(preflight).toContain('get robots.txt -o out/predeploy-backups/robots.txt')
+    expect(preflight).toContain('get sitemap.xml -o out/predeploy-backups/sitemap.xml')
+  })
+
+  it('seeds FTP-Deploy only with paths present in the export and forces sitemap/robots uploads', () => {
+    expect(deploy).toContain('node scripts/ftp-diff.mjs manifest')
+    expect(deploy).toContain('ftp-action-state-report.json')
+    expect(statePlanner).toContain('buildSafeStateSeed')
+    expect(statePlanner).toContain("new Set(['robots.txt', 'sitemap.xml'])")
+    expect(statePlanner).toContain('droppedRemoteOnlyRecordCount')
+    expect(statePlanner).toContain('aucun fichier distant absent du build ne peut être supprimé')
+    expect(statePlanner).toContain("entry.type === 'file' && forced.has(name)")
+    expect(ftpDiff).toContain("'ftp-action-state-report.json'")
+    expect(deploy).toContain('deploy-manifest.json')
+    expect(deploy).toContain('deploy-diff-stats.json')
+  })
+
+  it('filters sitemap entries only for exact EN/AR deletions and restores root files if the action fails', () => {
+    expect(preflight).toContain('node scripts/prepare-ftp-deploy-plan.mjs')
+    expect(statePlanner).toContain('scripts/prepare-stale-match-deletions.mjs')
+    expect(statePlanner).toContain('scripts/filter-sitemap-match-urls.mjs')
+    expect(statePlanner).toContain("/^(?:en|ar)\\/match\\//.test(item.path)")
+    expect(statePlanner).toContain('`--previous=${previousSitemapPath}`')
+    expect(statePlanner).toContain('`--output=${path.join(outDir, \'sitemap.xml\')}`')
+    expect(statePlanner).toContain('`--report=${path.join(outDir, \'sitemap-match-filter.json\')}`')
+    expect(deploy).toContain('Restore protected root files if FTP-Deploy did not complete')
+    expect(deploy).toContain('steps.ftp-upload.outcome != \'success\'')
+    expect(deploy).toContain('put out/predeploy-backups/.htaccess -o .htaccess')
+    expect(deploy).toContain('put out/predeploy-backups/robots.txt -o robots.txt')
+    expect(deploy).toContain('put out/predeploy-backups/sitemap.xml -o sitemap.xml')
+    expect(deploy).toContain('out/stale-match-pages.json')
+    expect(deploy).toContain('out/orphan-review.json')
+    expect(deploy).toContain('out/sitemap-match-filter.json')
+  })
+
+  it('keeps the html lang fix after build and before the local manifest', () => {
     expect(deploy).toContain('node scripts/fix-html-lang.mjs out')
     const build = deploy.indexOf('run: npm run build')
     const copy = deploy.indexOf('Copy routing files')
     const langFix = deploy.indexOf('node scripts/fix-html-lang.mjs out')
-    const prepare = deploy.indexOf('ftp-diff.mjs prepare')
+    const manifest = deploy.indexOf('node scripts/ftp-diff.mjs manifest')
     expect(build).toBeGreaterThan(0)
     expect(langFix).toBeGreaterThan(copy)
-    expect(langFix).toBeLessThan(prepare)
+    expect(langFix).toBeLessThan(manifest)
   })
 
-  it('keeps the ftp-diagnostic workflow read-only (no lftp, no git push, upload-only artifacts)', () => {
+  it('keeps the FTP diagnostic workflow read-only and the inventory utility write-free', () => {
     const diagnostic = fs.readFileSync('.github/workflows/ftp-diagnostic.yml', 'utf8')
     expect(diagnostic).toContain('contents: read')
     expect(diagnostic).not.toMatch(/lftp|mirror --|git push|secrets\.GEMINI/)
     expect(diagnostic).toContain('python3 scripts/ftp-inventory.py')
     expect(diagnostic).toContain('if: always()')
-  })
 
-  it('keeps the inventory tool strictly read-only (no FTP write commands in code)', () => {
     const source = fs.readFileSync('scripts/ftp-inventory.py', 'utf8')
-    // aucune méthode d'écriture ftplib utilisée (les noms apparaissent
-    // uniquement dans la liste de refus FORBIDDEN_COMMANDS)
     for (const forbidden of ['storbinary(', 'storlines(', '.mkd(', '.delete(', '.rmd(', '.rename(', '.sendcmd(', '.voidcmd("']) {
       expect(source).not.toContain(forbidden)
     }
@@ -155,7 +126,6 @@ describe('deployment safety gates', () => {
     expect(source).toContain('READABLE_ROOT_FILES')
     expect(source).toContain('ROOT_BACKUP_FILES')
     expect(source).toContain('prot_p')
-    // le script utilise TLS explicite (AUTH TLS avant USER/PASS)
     expect(source).toContain('ftp.auth()')
   })
 })
