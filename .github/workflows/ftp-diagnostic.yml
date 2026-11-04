@@ -1,0 +1,64 @@
+name: Read-only FTPS inventory diagnostic
+
+# Diagnostic du blocage d'inventaire FTP (run 41738042328 : lftp find . →
+# max-retries exceeded). Ce workflow est STRICTEMENT en lecture seule :
+# aucun STOR/DELE/MKD/RMD/RNFR/RNTO, aucun lftp, aucun git push.
+# Il exécute scripts/ftp-inventory.py qui :
+#   - teste PWD, CWD, LIST (-a / sans -a), NLST et MLSD séparément à la racine ;
+#   - compare LIST et MLSD sur la racine et le premier niveau de sous-dossiers ;
+#   - parcourt tout l'arbre avec timeout par répertoire et reconnexion contrôle ;
+#   - identifie le chemin précis de chaque répertoire bloquant.
+
+on:
+  workflow_dispatch:
+    inputs:
+      delay:
+        description: 'Pause entre répertoires (secondes)'
+        required: false
+        default: '0.05'
+      timeout:
+        description: 'Timeout par commande FTP (secondes)'
+        required: false
+        default: '30'
+
+permissions:
+  contents: read
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run read-only FTPS inventory
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          python3 scripts/ftp-inventory.py \
+            --mode=diagnostic \
+            --out-dir=out/ftp-diag \
+            --delay="${{ inputs.delay }}" \
+            --timeout="${{ inputs.timeout }}" \
+            --retries=2
+
+      - name: Upload inventory artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ftp-inventory-diagnostic
+          path: |
+            out/ftp-diag/remote-inventory.tsv
+            out/ftp-diag/remote-inventory-summary.json
+            out/ftp-diag/remote-inventory-failures.json
+            out/ftp-diag/remote-inventory.err
+          if-no-files-found: warn
+          retention-days: 30
