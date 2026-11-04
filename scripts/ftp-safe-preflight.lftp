@@ -10,10 +10,18 @@ get sitemap.xml -o out/predeploy-backups/sitemap.xml
 
 # Le nouvel état sûr peut être absent au premier déploiement; le legacy reste
 # une source de hachages seulement. Le helper choisit l'état sûr s'il est valide.
+# Lectures d'état bornées : un 550 ou un serveur silencieux ne doit pas bloquer le préflight.
+set net:timeout 10
+set net:max-retries 1
 set cmd:fail-exit no
 get .ftp-deploy-sync-state-safe.json -o /tmp/ftp-action-state-safe.remote.json
 get .ftp-deploy-sync-state.json -o /tmp/ftp-action-state-legacy.remote.json
 set cmd:fail-exit yes
+set net:timeout 60
+set net:max-retries 2
+
+# Arrêt explicite avant les listings/suppressions si aucun état distant valide n'existe.
+!node scripts/validate-ftp-deploy-state.mjs --state-safe=/tmp/ftp-action-state-safe.remote.json --state-legacy=/tmp/ftp-action-state-legacy.remote.json
 
 # Listings limités aux deux répertoires explicitement autorisés. Pas de `find .`
 # et aucun scan ou nettoyage du dossier racine /match.

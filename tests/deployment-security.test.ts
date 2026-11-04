@@ -19,7 +19,7 @@ describe('deployment safety gates', () => {
     expect(cooldown).toBeLessThan(action)
     expect(action).toBeGreaterThan(firstTransfer)
     expect(deploy).toContain('Refroidissement 300 s pour la protection anti-flood LWS')
-    for (const command of ['run: npm test', 'python3 -m unittest discover', 'run: npm run lint', 'run: npx tsc --noEmit', 'run: npm run build']) {
+    for (const command of ['run: npm test', 'python3 -m unittest discover', 'run: npm run lint', 'run: npx tsc --noEmit', 'run: npm run build -- --webpack']) {
       expect(deploy.indexOf(command)).toBeGreaterThan(0)
       expect(deploy.indexOf(command)).toBeLessThan(firstTransfer)
       const step = deploy.split(/(?=^      - name: )/m).find((part) => part.includes(command))
@@ -27,6 +27,8 @@ describe('deployment safety gates', () => {
     }
     expect(deploy).toContain("github.ref == 'refs/heads/main'")
     expect(deploy).toContain("github.event_name != 'pull_request'")
+    expect(deploy.split("github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')").length - 1).toBe(13)
+    expect(deploy).not.toContain("github.event_name == 'schedule' || github.event_name == 'push' ||")
     expect(workflow).toContain("paths-ignore:\n      - 'public/**'")
     expect(workflow).toContain('cancel-in-progress: false')
   })
@@ -40,11 +42,21 @@ describe('deployment safety gates', () => {
     expect(preflight).not.toContain('set ftp:ssl-protect-data true')
   })
 
+  it('bounds remote state reads and fails closed before Match listings if both states are absent', () => {
+    expect(preflight).toContain('set net:timeout 10')
+    expect(preflight).toContain('set net:max-retries 1')
+    expect(preflight).toContain('scripts/validate-ftp-deploy-state.mjs')
+    expect(preflight.indexOf('!node scripts/validate-ftp-deploy-state.mjs')).toBeLessThan(preflight.indexOf('find en/match'))
+    expect(statePlanner).toContain('ni .ftp-deploy-sync-state-safe.json ni .ftp-deploy-sync-state.json')
+    expect(statePlanner).toContain('avant tout transfert et toute suppression')
+  })
+
   it('uses the successful historical LFTP manifest diff and never deletes broadly', () => {
     expect(deploy).toContain('ftp_run()')
     expect(deploy).toContain('"ftp://$FTP_SERVER"')
     expect(deploy).toContain('get ./deploy-manifest.json -o out/deploy-manifest.prev.json')
-    expect(deploy).toContain('node scripts/ftp-diff.mjs prepare --allow-legacy-v1 --live-inventory=out/remote-inventory.tsv --force-path=robots.txt --force-path=sitemap.xml')
+    expect(deploy).toContain('node scripts/ftp-diff.mjs prepare --allow-legacy-v1 --force-path=robots.txt --force-path=sitemap.xml')
+    expect(deploy).not.toContain('--live-inventory=out/remote-inventory.tsv')
     expect(deploy).toContain('--parallel=4 --include-from-file=out/deploy-list.txt')
     expect(deploy).toContain('--parallel=1 --include-from-file=out/deploy-list.txt')
     expect(deploy).toContain('repli sur miroir complet historique sans suppression')

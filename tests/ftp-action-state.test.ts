@@ -1,6 +1,10 @@
+import fs from 'node:fs'
+import os from 'node:os'
+import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 import {
   buildSafeStateSeed,
+  chooseBaseState,
   normalizeStatePath,
   parseMatchListing,
   parseActionState,
@@ -75,5 +79,23 @@ describe('FTP-Deploy safe state', () => {
   it('rejects a local manifest that omits a required protected-root upload', () => {
     const incomplete = { files: { 'index.html': { hash: 'x', size: 1 }, '.htaccess': { hash: 'x', size: 1 }, 'robots.txt': { hash: 'x', size: 1 } } }
     expect(() => buildSafeStateSeed(baseState, incomplete)).toThrow(/sitemap.xml/)
+  })
+
+  it('uses legacy state when safe is absent and fails closed with an explicit error if both are absent', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'bttspredict-ftp-state-'))
+    const safe = path.join(dir, '.ftp-deploy-sync-state-safe.json')
+    const legacy = path.join(dir, '.ftp-deploy-sync-state.json')
+    const valid = JSON.stringify({ version: '1.0.0', data: [] })
+    try {
+      fs.writeFileSync(legacy, valid)
+      expect(chooseBaseState(safe, legacy).source).toBe('legacy')
+      fs.writeFileSync(safe, valid)
+      expect(chooseBaseState(safe, legacy).source).toBe('safe')
+      fs.rmSync(safe)
+      fs.rmSync(legacy)
+      expect(() => chooseBaseState(safe, legacy)).toThrow(/ni \.ftp-deploy-sync-state-safe\.json ni \.ftp-deploy-sync-state\.json.*avant tout transfert et toute suppression/)
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true })
+    }
   })
 })

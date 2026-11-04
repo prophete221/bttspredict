@@ -93,7 +93,7 @@ jobs:
           ref: main
 
       - name: Prune old predictions archives (keep 90)
-        if: ${{ github.event_name == 'schedule' || github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         timeout-minutes: 2
         run: node scripts/prune-archives.mjs
 
@@ -118,26 +118,26 @@ jobs:
           PUPPETEER_SKIP_DOWNLOAD: 'true'
 
       - name: Update predictions (ESPN API)
-        if: ${{ github.event_name == 'schedule' || github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         timeout-minutes: 5
         run: node scripts/quick-update-predictions.mjs
 
       - name: Validate fresh predictions before enrichment
-        if: ${{ github.event_name == 'schedule' || github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp
 
       - name: Setup Python for Gemini enrichment
-        if: ${{ github.event_name == 'schedule' || github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
       - name: Install google-genai
-        if: ${{ github.event_name == 'schedule' || github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         run: pip install google-genai
 
       - name: Enrichir les pronostics avec Gemini
-        if: ${{ github.event_name == 'schedule' || github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         timeout-minutes: 10
@@ -145,22 +145,22 @@ jobs:
         continue-on-error: true
 
       - name: Finalize enriched immutable publication
-        if: ${{ github.event_name == 'schedule' || github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         run: node scripts/finalize-predictions.mjs
       - name: Verify results (GOLD priority — free ESPN, no API key)
-        if: ${{ github.event_name == 'schedule' || github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         id: verify
         timeout-minutes: 20
         run: node scripts/verify-results.mjs
         continue-on-error: true
 
       - name: Update win history (runs even if verify timed out)
-        if: ${{ github.event_name == 'schedule' || github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         timeout-minutes: 3
         run: node scripts/update-win-history.mjs
 
       - name: Verify public history exclusions applied
-        if: ${{ github.event_name == 'schedule' || github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         run: |
           node -e "
             const fs=require('fs');
@@ -178,7 +178,7 @@ jobs:
           "
 
       - name: Update transfers
-        if: ${{ github.event_name == 'schedule' || github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         timeout-minutes: 2
         run: node scripts/scrape-transfers.mjs
         continue-on-error: true
@@ -194,16 +194,16 @@ jobs:
       - name: Run typecheck
         run: npx tsc --noEmit
       - name: Update open licensed team context
-        if: ${{ github.event_name == 'schedule' || github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         timeout-minutes: 5
         run: node scripts/update-team-context.mjs
         continue-on-error: true
       - name: Validate predictions dataset before build
-        if: ${{ github.event_name == 'schedule' || github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')) || (github.event_name == 'workflow_dispatch' && inputs.mode != 'code') }}
         run: node scripts/validate-predictions.mjs public/predictions.json --require-timestamp
 
       - name: Build static export
-        run: npm run build
+        run: npm run build -- --webpack
         env:
           NODE_OPTIONS: --max-old-space-size=4096
           # GA4 — définir la variable de dépôt "NEXT_PUBLIC_GA_ID"
@@ -291,7 +291,8 @@ jobs:
           if ! ftp_run "$SETTINGS; set net:timeout 30; set net:max-retries 2; get ./deploy-manifest.json -o out/deploy-manifest.prev.json; bye"; then
             echo "Aucun manifeste distant lisible — préparation du repli historique."
           fi
-          node scripts/ftp-diff.mjs prepare --allow-legacy-v1 --live-inventory=out/remote-inventory.tsv --force-path=robots.txt --force-path=sitemap.xml
+          # remote-inventory.tsv ne contient que /en/match et /ar/match : il sert au nettoyage Match, jamais d’inventaire complet du site.
+          node scripts/ftp-diff.mjs prepare --allow-legacy-v1 --force-path=robots.txt --force-path=sitemap.xml
           if [ -s out/deploy-list.txt ]; then
             if ! ftp_run "$SETTINGS; mirror --reverse --no-perms --overwrite --verbose --parallel=4 --include-from-file=out/deploy-list.txt --exclude '^\\.htaccess$' out/ ./; bye"; then
               echo "::warning::Miroir diff en échec — repli parallel=1"

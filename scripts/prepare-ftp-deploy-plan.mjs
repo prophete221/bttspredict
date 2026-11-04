@@ -69,14 +69,14 @@ export function parseActionState(value, label = 'sync-state') {
   return state
 }
 
-function chooseBaseState(safePath, legacyPath) {
+export function chooseBaseState(safePath, legacyPath) {
   if (fs.existsSync(safePath) && fs.statSync(safePath).size > 0) {
     return { state: parseActionState(fs.readFileSync(safePath, 'utf8'), 'sync-state sûr distant'), source: 'safe' }
   }
   if (fs.existsSync(legacyPath) && fs.statSync(legacyPath).size > 0) {
     return { state: parseActionState(fs.readFileSync(legacyPath, 'utf8'), 'sync-state historique distant'), source: 'legacy' }
   }
-  throw new Error('Aucun sync-state distant valide : arrêt sans publication ni suppression')
+  throw new Error('État FTP distant introuvable ou invalide : ni .ftp-deploy-sync-state-safe.json ni .ftp-deploy-sync-state.json n’est valide; arrêt fermé avant tout transfert et toute suppression')
 }
 
 function validateRelativePath(value, label) {
