@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-03T22:55:33.752Z",
+  "generatedAt": "2026-11-04T01:08:16.371Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -18,9 +18,9 @@
     "total": 470,
     "won": 367,
     "lost": 103,
-    "pending": 69,
+    "pending": 71,
     "unverifiable": 176,
-    "archivedTotal": 715,
+    "archivedTotal": 717,
     "rate": 78.1,
     "gold": {
       "total": 355,
@@ -150,8 +150,8 @@
     ],
     "period": {
       "from": "2026-08-08",
-      "to": "2026-11-03",
-      "days": 88
+      "to": "2026-11-04",
+      "days": 89
     }
   },
   "history": [
@@ -6267,13 +6267,13 @@
     }
   ],
   "legacyStats": {
-    "total": 20,
-    "won": 20,
+    "total": 0,
+    "won": 0,
     "lost": 0,
     "pending": 0,
-    "unverifiable": 20,
-    "archivedTotal": 40,
-    "rate": 100,
+    "unverifiable": 1,
+    "archivedTotal": 1,
+    "rate": 0,
     "gold": {
       "total": 0,
       "won": 0,
@@ -6281,315 +6281,32 @@
       "rate": 0
     },
     "standard": {
-      "total": 20,
-      "won": 20,
+      "total": 0,
+      "won": 0,
       "lost": 0,
-      "rate": 100
+      "rate": 0
     },
     "byType": {
       "btts": {
-        "total": 9,
-        "won": 9,
+        "total": 0,
+        "won": 0,
         "lost": 0,
-        "rate": 100
+        "rate": 0
       },
       "over25": {
-        "total": 11,
-        "won": 11,
+        "total": 0,
+        "won": 0,
         "lost": 0,
-        "rate": 100
+        "rate": 0
       }
     },
-    "trend14": [
-      {
-        "date": "2026-08-06",
-        "total": 3,
-        "won": 3,
-        "lost": 0,
-        "rate": 100
-      },
-      {
-        "date": "2026-08-07",
-        "total": 14,
-        "won": 14,
-        "lost": 0,
-        "rate": 100
-      },
-      {
-        "date": "2026-08-08",
-        "total": 3,
-        "won": 3,
-        "lost": 0,
-        "rate": 100
-      }
-    ],
+    "trend14": [],
     "period": {
-      "from": "2026-08-06",
+      "from": "2026-08-07",
       "to": "2026-08-07",
-      "days": 2
+      "days": 1
     },
-    "history": [
-      {
-        "date": "2026-08-08",
-        "match": "Liga de Quito vs Independiente del Valle",
-        "league": "LigaPro Ecuador",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.44,
-        "status": "WON",
-        "finalScore": "0-2",
-        "verifiedAt": "2026-10-23T05:47:31.836Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-08",
-        "match": "Rosario Central vs Aldosivi",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.49,
-        "status": "WON",
-        "finalScore": "2-1",
-        "verifiedAt": "2026-10-23T05:47:31.836Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-08",
-        "match": "Cerro Largo vs Juventud",
-        "league": "Liga AUF Uruguaya",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.46,
-        "status": "WON",
-        "finalScore": "1-1",
-        "verifiedAt": "2026-10-23T05:47:31.835Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-07",
-        "match": "Comerciantes Unidos vs Cusco FC",
-        "league": "Peruvian Liga 1",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.49,
-        "status": "WON",
-        "finalScore": "3-1",
-        "verifiedAt": "2026-10-23T05:47:31.835Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-07",
-        "match": "Rubio Ñú vs Deportivo Recoleta",
-        "league": "Paraguayan Primera División",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.48,
-        "status": "WON",
-        "finalScore": "1-3",
-        "verifiedAt": "2026-10-23T05:47:31.835Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-07",
-        "match": "Club Brugge vs KV Kortrijk",
-        "league": "Belgian Pro League",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "3-0",
-        "verifiedAt": "2026-10-23T05:47:31.834Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-07",
-        "match": "Estoril vs FC Famalicao",
-        "league": "Portuguese Primeira Liga",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.5,
-        "status": "WON",
-        "finalScore": "1-1",
-        "verifiedAt": "2026-10-23T05:47:31.834Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-07",
-        "match": "SC Cambuur vs Excelsior",
-        "league": "Dutch Eredivisie",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "0-4",
-        "verifiedAt": "2026-10-23T05:47:31.834Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-07",
-        "match": "SC Rheindorf Altach vs WSG Swarovski Tirol",
-        "league": "Austrian Bundesliga",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "3-1",
-        "verifiedAt": "2026-10-23T05:47:31.834Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-07",
-        "match": "SC Rheindorf Altach vs WSG Swarovski Tirol",
-        "league": "Austrian Bundesliga",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "3-1",
-        "verifiedAt": "2026-10-23T05:47:31.834Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-07",
-        "match": "Sport Huancayo vs Los Chankas",
-        "league": "Peruvian Liga 1",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.51,
-        "status": "WON",
-        "finalScore": "1-1",
-        "verifiedAt": "2026-10-23T05:47:31.834Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-07",
-        "match": "Sport Huancayo vs Los Chankas",
-        "league": "Peruvian Liga 1",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.45,
-        "status": "WON",
-        "finalScore": "1-1",
-        "verifiedAt": "2026-10-23T05:47:31.834Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-07",
-        "match": "Gamba Osaka vs Urawa Red Diamonds",
-        "league": "Japanese J.League",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "4-3",
-        "verifiedAt": "2026-10-23T05:47:31.833Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-07",
-        "match": "Gamba Osaka vs Urawa Red Diamonds",
-        "league": "Japanese J.League",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "4-3",
-        "verifiedAt": "2026-10-23T05:47:31.833Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-07",
-        "match": "Yokohama F. Marinos vs Kashima Antlers",
-        "league": "Japanese J.League",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.49,
-        "status": "WON",
-        "finalScore": "3-4",
-        "verifiedAt": "2026-10-23T05:47:31.833Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-07",
-        "match": "Yokohama F. Marinos vs Kashima Antlers",
-        "league": "Japanese J.League",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.52,
-        "status": "WON",
-        "finalScore": "3-4",
-        "verifiedAt": "2026-10-23T05:47:31.833Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-07",
-        "match": "Unión (Santa Fe) vs Lanús",
-        "league": "Argentine Liga Profesional de Fútbol",
-        "market": "btts",
-        "tier": "STANDARD",
-        "proba": 0.49,
-        "status": "WON",
-        "finalScore": "2-1",
-        "verifiedAt": "2026-08-07T12:17:43.422Z",
-        "source": "ESPN public",
-        "prediction": "Oui"
-      },
-      {
-        "date": "2026-08-06",
-        "match": "Alianza Atlético vs Cienciano del Cusco",
-        "league": "Peruvian Liga 1",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.46,
-        "status": "WON",
-        "finalScore": "1-0",
-        "verifiedAt": "2026-08-07T14:23:44.178Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-06",
-        "match": "Estudiantes de Mérida vs Zamora FC",
-        "league": "Venezuelan Primera División",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.44,
-        "status": "WON",
-        "finalScore": "1-0",
-        "verifiedAt": "2026-08-07T14:23:44.178Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      },
-      {
-        "date": "2026-08-06",
-        "match": "Rayo Zuliano vs Anzoátegui FC",
-        "league": "Venezuelan Primera División",
-        "market": "over25",
-        "tier": "STANDARD",
-        "proba": 0.42,
-        "status": "WON",
-        "finalScore": "0-1",
-        "verifiedAt": "2026-08-07T14:23:44.178Z",
-        "source": "ESPN public",
-        "prediction": "Non"
-      }
-    ],
+    "history": [],
     "isPrivate": true,
     "note": "Archives antérieures au nouveau suivi (avant 2026-08-08). Non affiché publiquement. Conservé pour audit technique et conformité."
   }
