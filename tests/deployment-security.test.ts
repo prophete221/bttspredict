@@ -57,6 +57,10 @@ describe('deployment safety gates', () => {
     expect(deploy).toContain('python3 scripts/ftp-inventory.py --mode=deploy')
     expect(deploy).toContain('--live-inventory=out/remote-inventory.tsv')
     expect(deploy).toContain('missingOnRemote')
+    // anti-flood LWS inter-sessions: manifeste téléchargé pendant l'inventaire
+    expect(deploy).toContain('--save-manifest=out/deploy-manifest.prev.json')
+    expect(deploy).toContain('cooldown 120')
+    expect(deploy).toContain('ftp_run_retry')
     // lftp find . n'est plus utilisé pour l'inventaire (max-retries exceeded côté LWS)
     expect(deploy).not.toContain('find .')
     // un inventaire partiel (code 2) ou fatal (code 1) bloque avant tout transfert
@@ -67,13 +71,15 @@ describe('deployment safety gates', () => {
     expect(deploy).toContain('REMOTE_BYTES')
     expect(deploy).toContain('PROJECTED_BYTES')
     expect(deploy).toContain('DUPLICATE_PATHS')
-    // ordre strict : inventaire -> diff -> sauvegarde racine -> transfert
+    // ordre strict : inventaire -> refroidissement -> manifeste -> sauvegarde racine -> transfert
     const inventory = deploy.indexOf('python3 scripts/ftp-inventory.py')
+    const cooldown = deploy.indexOf('cooldown 120')
     const diffPrepare = deploy.indexOf('ftp-diff.mjs prepare')
     const backup = deploy.indexOf('get ./$FILE -o out/predeploy-backups/$FILE')
     const mirror = deploy.indexOf('mirror --reverse')
     expect(inventory).toBeGreaterThan(0)
-    expect(inventory).toBeLessThan(diffPrepare)
+    expect(cooldown).toBeGreaterThan(inventory)
+    expect(diffPrepare).toBeGreaterThan(cooldown)
     expect(diffPrepare).toBeLessThan(backup)
     expect(backup).toBeLessThan(mirror)
     // le transfert d'un premier déploiement post-refonte ne doit pas être tué

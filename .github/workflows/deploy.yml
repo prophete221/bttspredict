@@ -275,6 +275,30 @@ jobs:
             lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "$FTP_URL" -e "$SETTINGS; $1; bye"
           }
 
+          # LWS applique une protection anti-flood ENTRE les sessions : après le
+          # parcours d'inventaire (~1100 LIST en 21 min, run 41767196736) la
+          # session lftp immédiatement suivante est refusée (max-retries
+          # exceeded). Chaque session FTPS est donc retentée jusqu'à 3 fois
+          # avec une pause de 60 s, et un refroidissement de 120 s suit
+          # l'inventaire avant la première session lftp.
+          ftp_run_retry() {
+            local attempt=1
+            while [ "$attempt" -le 3 ]; do
+              if ftp_run "$1"; then
+                return 0
+              fi
+              echo "::warning::Session FTPS échouée (tentative $attempt/3) — pause de 60 s avant nouvel essai."
+              sleep 60
+              attempt=$((attempt + 1))
+            done
+            return 1
+          }
+
+          cooldown() {
+            echo "Refroidissement ${1}s (protection anti-flood LWS entre sessions)…"
+            sleep "$1"
+          }
+
           echo "FTPS chiffré requis; bypass historique de validation du certificat actif pour cette refonte."
 
           QUOTA="${FTP_FILE_QUOTA}"
@@ -291,9 +315,9 @@ jobs:
           # timeout + backoff + reconnexion contrôle, et journalise le chemin
           # exact des blocages. Lecture seule stricte (aucune commande d'écriture).
           # Codes de sortie : 0 = complet ; 2 = partiel (aucun transfert) ; 1 = fatal.
-          rm -f out/remote-inventory.tsv out/remote-inventory-summary.json out/remote-inventory-failures.json out/remote-inventory.err
+          rm -f out/remote-inventory.tsv out/remote-inventory-summary.json out/remote-inventory-failures.json out/remote-inventory.err out/deploy-manifest.prev.json
           set +e
-          python3 scripts/ftp-inventory.py --mode=deploy --out-dir=out --timeout=30 --retries=2 --delay=0.05
+          python3 scripts/ftp-inventory.py --mode=deploy --out-dir=out --timeout=30 --retries=2 --delay=0.05 --save-manifest=out/deploy-manifest.prev.json
           INV_RC=$?
           set -e
           if [ "$INV_RC" -ne 0 ]; then
@@ -314,11 +338,24 @@ jobs:
           fi
           echo "Fichiers distants actuels (inventaire live): $REMOTE_NOW ($REMOTE_BYTES octets)"
 
-          # Manifeste distant optionnel pour le DIFF de contenu uniquement (pas pour le quota).
-          if ftp_run "get ./deploy-manifest.json -o out/deploy-manifest.prev.json"; then
-            echo "Manifeste distant récupéré (diff contenu)."
+          cooldown 120
+
+          # Manifeste distant pour le DIFF de contenu uniquement (pas pour le
+          # quota). Source 1 : téléchargé par l'inventaire Python dans la MÊME
+          # session (recommandé — pas de session lftp refusée par l'anti-flood).
+          # Source 2 (repli) : get lftp avec tentatives.
+          MANIFEST_PREV_OK=0
+          if [ -s out/deploy-manifest.prev.json ] && node -e "const m=require('./out/deploy-manifest.prev.json'); if(!m.files||typeof m.files!=='object'||m.fileCount!==Object.keys(m.files).length) process.exit(1)" 2>/dev/null; then
+            echo "Manifeste distant récupéré par l'inventaire Python (même session, pas de session lftp supplémentaire)."
+            MANIFEST_PREV_OK=1
           else
-            echo "::error::Manifeste distant deploy-manifest.json absent. Sans manifeste v2 (ou v1 hérité accepté) pas de diff sûr et pas d'upload complet. Arrêt."
+            if ftp_run_retry "get ./deploy-manifest.json -o out/deploy-manifest.prev.json"; then
+              echo "Manifeste distant récupéré via lftp (repli)."
+              MANIFEST_PREV_OK=1
+            fi
+          fi
+          if [ "$MANIFEST_PREV_OK" -ne 1 ]; then
+            echo "::error::Manifeste distant deploy-manifest.json indisponible (ni inventaire Python, ni get lftp). Pas de diff sûr et pas d'upload complet. Arrêt."
             exit 1
           fi
 
@@ -382,7 +419,7 @@ jobs:
           # Sauvegarder les trois fichiers racine avant la première écriture distante.
           mkdir -p out/predeploy-backups
           for FILE in .htaccess robots.txt sitemap.xml; do
-            if ! ftp_run "get ./$FILE -o out/predeploy-backups/$FILE"; then
+            if ! ftp_run_retry "get ./$FILE -o out/predeploy-backups/$FILE"; then
               echo "::error::Impossible de sauvegarder le fichier distant $FILE — arrêt sans transfert."
               exit 1
             fi
@@ -392,11 +429,13 @@ jobs:
             fi
           done
 
-          if ! ftp_run "mirror --reverse --no-perms --overwrite --verbose --parallel=2 --include-from-file=out/deploy-list.txt out/ ./"; then
+          cooldown 30
+
+          if ! ftp_run_retry "mirror --reverse --no-perms --overwrite --verbose --parallel=2 --include-from-file=out/deploy-list.txt out/ ./"; then
             echo "::warning::Transfert différentiel FTPS échoué — restauration des fichiers racine sauvegardés."
             RESTORE_FAILED=0
             for FILE in .htaccess robots.txt sitemap.xml; do
-              if ! ftp_run "put out/predeploy-backups/$FILE -o ./$FILE"; then
+              if ! ftp_run_retry "put out/predeploy-backups/$FILE -o ./$FILE"; then
                 RESTORE_FAILED=1
               fi
             done
@@ -407,11 +446,13 @@ jobs:
             exit 1
           fi
 
-          if ! ftp_run "put out/deploy-manifest.json -o ./deploy-manifest.json"; then
+          cooldown 30
+
+          if ! ftp_run_retry "put out/deploy-manifest.json -o ./deploy-manifest.json"; then
             echo "::warning::Publication du manifeste v2 échouée — restauration des fichiers racine sauvegardés."
             RESTORE_FAILED=0
             for FILE in .htaccess robots.txt sitemap.xml; do
-              if ! ftp_run "put out/predeploy-backups/$FILE -o ./$FILE"; then
+              if ! ftp_run_retry "put out/predeploy-backups/$FILE -o ./$FILE"; then
                 RESTORE_FAILED=1
               fi
             done

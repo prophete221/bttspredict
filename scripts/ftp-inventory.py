@@ -69,7 +69,7 @@ def parse_endpoint(raw: str):
 class Inventory:
     def __init__(self, host: str, port: int, user: str, password: str, *,
                  timeout: int, retries: int, delay: float,
-                 out_dir: str, dual_first_level: bool):
+                 out_dir: str, dual_first_level: bool, save_manifest: str = ''):
         os.makedirs(out_dir, exist_ok=True)
         self.host, self.port = host, port
         self.user, self.password = user, password
@@ -78,6 +78,7 @@ class Inventory:
         self.delay = delay
         self.out_dir = out_dir
         self.dual_first_level = dual_first_level
+        self.save_manifest = save_manifest
 
         # Bypass historique du certificat, aligné sur `set ssl:verify no` du
         # workflow lftp (certificat LWS non vérifiable depuis les runners).
@@ -424,13 +425,18 @@ class Inventory:
             + (f" ({v['size']} o)" if v.get('present') and v.get('size') is not None else '')
             for k, v in self.root_entries.items()))
 
-        # Manifeste v2 : presence + version/fichier (diff contenu requis).
+        # Manifeste v2/v1 : presence + version/fichier (diff contenu requis).
+        # Téléchargé dans CETTE session (même connexion que le walk) et
+        # sauvegardé si --save-manifest : le workflow n'ouvre alors AUCUNE
+        # session lftp pour le manifeste — LWS refuse la session immédiatement
+        # après le walk (anti-flood inter-sessions, run 41767196736).
         if self.root_entries.get('deploy-manifest.json', {}).get('present'):
             try:
                 import io
                 buf = io.BytesIO()
                 ftp.retrbinary('RETR deploy-manifest.json', buf.write)
-                man = json.loads(buf.getvalue().decode('utf-8'))
+                payload = buf.getvalue()
+                man = json.loads(payload.decode('utf-8'))
                 self.capabilities['remoteManifest'] = {
                     'version': man.get('version'),
                     'fileCount': man.get('fileCount'),
@@ -439,6 +445,11 @@ class Inventory:
                 }
                 log(f"deploy-manifest.json distant: version={man.get('version')!r} "
                     f"fileCount={man.get('fileCount')!r} clés={self.capabilities['remoteManifest']['topLevelKeys']}")
+                if self.save_manifest:
+                    with open(self.save_manifest, 'wb') as fh:
+                        fh.write(payload)
+                    log(f'Manifeste distant sauvegardé dans la même session → {self.save_manifest} ({len(payload)} octets)')
+                    self.capabilities['manifestSaved'] = True
             except Exception as exc:
                 self.capabilities['remoteManifest'] = {'error': f'{type(exc).__name__}: {exc}'}
                 self.note_err(f'lecture deploy-manifest.json: {type(exc).__name__}: {exc}')
@@ -540,6 +551,10 @@ def main() -> int:
     parser.add_argument('--delay', type=float, default=0.05)
     parser.add_argument('--max-dirs', type=int, default=20000)
     parser.add_argument('--mode', choices=['diagnostic', 'deploy'], default='deploy')
+    parser.add_argument('--save-manifest', default='',
+                        help="Chemin où sauvegarder le deploy-manifest.json distant, "
+                             "téléchargé dans la MÊME session que le walk (évite une "
+                             "session lftp supplémentaire refusée par l'anti-flood LWS)")
     args = parser.parse_args()
 
     server = os.environ.get('FTP_SERVER', '')
@@ -558,6 +573,7 @@ def main() -> int:
         out_dir=args.out_dir,
         # diagnostic : LIST et MLSD comparés sur la racine et le 1er niveau
         dual_first_level=(args.mode == 'diagnostic'),
+        save_manifest=args.save_manifest,
     )
     # attribut utilisé par walk()
     inv.max_dirs = args.max_dirs
