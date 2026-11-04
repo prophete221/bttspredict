@@ -32759,7 +32759,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.6 · 2 3.25 · O2.5 1.71",
-      "status": "PENDING"
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-04T19:16:26.102Z"
     },
     {
       "id": "fenerbah-vs-liverpoo-2026-11-04",
@@ -39864,7 +39866,9 @@
       "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
       "ai_absences_en": "No squad data provided — absences not assessed.",
       "ai_odds_insight": "Cotes marché (DraftKings): 1 2.1 · N 3.6 · 2 3.25 · O2.5 1.71",
-      "status": "PENDING"
+      "status": "WON",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-04T19:16:46.677Z"
     },
     {
       "id": "trabzons-vs-scfreibu-2026-11-05",

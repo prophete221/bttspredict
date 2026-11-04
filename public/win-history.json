@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "generatedAt": "2026-11-04T09:18:19.116Z",
+  "generatedAt": "2026-11-04T19:17:24.158Z",
   "pendingPolicy": {
     "graceHours": 48,
     "rule": "Sans statut vérifié, un match futur ou récent reste « en attente » pendant exactement 48 h après son coup d'envoi.",
@@ -15,13 +15,13 @@
     "insufficientVolume": false
   },
   "stats": {
-    "total": 470,
-    "won": 367,
-    "lost": 103,
-    "pending": 71,
+    "total": 472,
+    "won": 368,
+    "lost": 104,
+    "pending": 70,
     "unverifiable": 176,
-    "archivedTotal": 717,
-    "rate": 78.1,
+    "archivedTotal": 718,
+    "rate": 78,
     "gold": {
       "total": 355,
       "won": 281,
@@ -29,33 +29,26 @@
       "rate": 79.2
     },
     "standard": {
-      "total": 115,
-      "won": 86,
-      "lost": 29,
-      "rate": 74.8
+      "total": 117,
+      "won": 87,
+      "lost": 30,
+      "rate": 74.4
     },
     "byType": {
       "btts": {
-        "total": 414,
-        "won": 330,
+        "total": 415,
+        "won": 331,
         "lost": 84,
-        "rate": 79.7
+        "rate": 79.8
       },
       "over25": {
-        "total": 56,
+        "total": 57,
         "won": 37,
-        "lost": 19,
-        "rate": 66.1
+        "lost": 20,
+        "rate": 64.9
       }
     },
     "trend14": [
-      {
-        "date": "2026-10-21",
-        "total": 8,
-        "won": 8,
-        "lost": 0,
-        "rate": 100
-      },
       {
         "date": "2026-10-22",
         "total": 2,
@@ -146,6 +139,13 @@
         "won": 8,
         "lost": 13,
         "rate": 38.1
+      },
+      {
+        "date": "2026-11-04",
+        "total": 2,
+        "won": 1,
+        "lost": 1,
+        "rate": 50
       }
     ],
     "period": {
@@ -155,6 +155,32 @@
     }
   },
   "history": [
+    {
+      "date": "2026-11-04",
+      "match": "Stade Rennais vs Olympiacos",
+      "league": "UEFA Europa League",
+      "market": "btts",
+      "tier": "STANDARD",
+      "proba": 0.2,
+      "status": "WON",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-04T19:16:46.677Z",
+      "source": "ESPN public",
+      "prediction": "Non"
+    },
+    {
+      "date": "2026-11-04",
+      "match": "Stade Rennais vs Olympiacos",
+      "league": "UEFA Europa League",
+      "market": "over25",
+      "tier": "STANDARD",
+      "proba": 0.52,
+      "status": "LOST",
+      "finalScore": "0-0",
+      "verifiedAt": "2026-11-04T19:16:26.102Z",
+      "source": "ESPN public",
+      "prediction": "Oui"
+    },
     {
       "date": "2026-11-03",
       "match": "Barcelona vs Aston Villa",
