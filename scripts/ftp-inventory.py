@@ -498,6 +498,11 @@ class Inventory:
         self.duration = round(time.time() - started, 1)
 
     def finalize(self, complete: bool) -> int:
+        # QUIT propre et IMMÉDIAT : sans cette fermeture, LWS garde la session
+        # ouverte jusqu'à son timeout d'idle (~600 s, ProFTPD) et refuse les
+        # nouvelles connexions du même compte (run 41784364837 : sauvegardes
+        # racine en échec max-retries jusqu'à 16 min après le walk).
+        self.drop_control()
         self.tsv.close() if hasattr(self, 'tsv') and not self.tsv.closed else None
         self._err.close()
         # normalise les caractères interdits sur Windows pour le fichier .err
@@ -534,6 +539,7 @@ class Inventory:
         try:
             self.probe_capabilities()
         except SystemExit as exc:
+            self.drop_control()
             self.note_err(str(exc))
             self._err.close()
             print(exc, flush=True)

@@ -275,12 +275,11 @@ jobs:
             lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "$FTP_URL" -e "$SETTINGS; $1; bye"
           }
 
-          # LWS applique une protection anti-flood ENTRE les sessions : après le
-          # parcours d'inventaire (~1100 LIST en 21 min, run 41767196736) la
-          # session lftp immédiatement suivante est refusée (max-retries
-          # exceeded). Chaque session FTPS est donc retentée jusqu'à 3 fois
-          # avec une pause de 60 s, et un refroidissement de 120 s suit
-          # l'inventaire avant la première session lftp.
+          # LWS applique une protection anti-flood ENTRE les sessions et garde
+          # une session zombie ouverte jusqu'à ~600 s sans QUIT propre (ProFTPD
+          # TimeoutIdle). Le QUIT est désormais envoyé par l'outil d'inventaire
+          # (finalize → drop_control) et le refroidissement post-inventaire est
+          # porté à 300 s. Chaque session FTPS reste retentée 3× (pause 60 s).
           ftp_run_retry() {
             local attempt=1
             while [ "$attempt" -le 3 ]; do
@@ -338,7 +337,7 @@ jobs:
           fi
           echo "Fichiers distants actuels (inventaire live): $REMOTE_NOW ($REMOTE_BYTES octets)"
 
-          cooldown 120
+          cooldown 300
 
           # Manifeste distant pour le DIFF de contenu uniquement (pas pour le
           # quota). Source 1 : téléchargé par l'inventaire Python dans la MÊME
@@ -416,29 +415,29 @@ jobs:
             exit 0
           fi
 
-          # Sauvegarder les trois fichiers racine avant la première écriture distante.
+          # Sauvegarder les trois fichiers racine avant la première écriture
+          # distante — UNE seule session lftp pour les 3 GET (moins de sessions
+          # = moins d'exposition au blocage anti-flood). L'échec d'un get laisse
+          # le fichier absent/vidé : le contrôle ci-dessous abort tout.
           mkdir -p out/predeploy-backups
+          rm -f out/predeploy-backups/.htaccess out/predeploy-backups/robots.txt out/predeploy-backups/sitemap.xml
+          if ! ftp_run_retry "get ./.htaccess -o out/predeploy-backups/.htaccess; get ./robots.txt -o out/predeploy-backups/robots.txt; get ./sitemap.xml -o out/predeploy-backups/sitemap.xml"; then
+            echo "::error::Session de sauvegarde impossible — arrêt sans transfert."
+            exit 1
+          fi
           for FILE in .htaccess robots.txt sitemap.xml; do
-            if ! ftp_run_retry "get ./$FILE -o out/predeploy-backups/$FILE"; then
-              echo "::error::Impossible de sauvegarder le fichier distant $FILE — arrêt sans transfert."
-              exit 1
-            fi
             if [ ! -s "out/predeploy-backups/$FILE" ]; then
-              echo "::error::La sauvegarde distante de $FILE est vide — arrêt sans transfert."
+              echo "::error::La sauvegarde distante de $FILE est absente ou vide — arrêt sans transfert."
               exit 1
             fi
           done
 
-          cooldown 30
+          cooldown 60
 
           if ! ftp_run_retry "mirror --reverse --no-perms --overwrite --verbose --parallel=2 --include-from-file=out/deploy-list.txt out/ ./"; then
             echo "::warning::Transfert différentiel FTPS échoué — restauration des fichiers racine sauvegardés."
             RESTORE_FAILED=0
-            for FILE in .htaccess robots.txt sitemap.xml; do
-              if ! ftp_run_retry "put out/predeploy-backups/$FILE -o ./$FILE"; then
-                RESTORE_FAILED=1
-              fi
-            done
+            ftp_run_retry "put out/predeploy-backups/.htaccess -o ./.htaccess; put out/predeploy-backups/robots.txt -o ./robots.txt; put out/predeploy-backups/sitemap.xml -o ./sitemap.xml" || RESTORE_FAILED=1
             if [ "$RESTORE_FAILED" -ne 0 ]; then
               echo "::error::La restauration d'au moins un fichier racine a échoué; sauvegardes conservées dans les journaux de cette exécution."
             fi
@@ -446,16 +445,12 @@ jobs:
             exit 1
           fi
 
-          cooldown 30
+          cooldown 60
 
           if ! ftp_run_retry "put out/deploy-manifest.json -o ./deploy-manifest.json"; then
             echo "::warning::Publication du manifeste v2 échouée — restauration des fichiers racine sauvegardés."
             RESTORE_FAILED=0
-            for FILE in .htaccess robots.txt sitemap.xml; do
-              if ! ftp_run_retry "put out/predeploy-backups/$FILE -o ./$FILE"; then
-                RESTORE_FAILED=1
-              fi
-            done
+            ftp_run_retry "put out/predeploy-backups/.htaccess -o ./.htaccess; put out/predeploy-backups/robots.txt -o ./robots.txt; put out/predeploy-backups/sitemap.xml -o ./sitemap.xml" || RESTORE_FAILED=1
             if [ "$RESTORE_FAILED" -ne 0 ]; then
               echo "::error::La restauration d'au moins un fichier racine a échoué; sauvegardes conservées dans les journaux de cette exécution."
             fi

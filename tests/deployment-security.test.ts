@@ -34,9 +34,10 @@ describe('deployment safety gates', () => {
     for (const file of ['.htaccess', 'robots.txt', 'sitemap.xml']) {
       expect(deploy).toContain(`--force-path=${file}`)
     }
-    expect(deploy).toContain('get ./$FILE -o out/predeploy-backups/$FILE')
-    expect(deploy).toContain('put out/predeploy-backups/$FILE -o ./$FILE')
-    expect(deploy.match(/put out\/predeploy-backups\/\$FILE -o \.\/\$FILE/g)?.length ?? 0).toBeGreaterThanOrEqual(2)
+    // sauvegardes racine en UNE seule session lftp (anti-flood), restauration idem
+    expect(deploy).toContain('get ./.htaccess -o out/predeploy-backups/.htaccess; get ./robots.txt -o out/predeploy-backups/robots.txt; get ./sitemap.xml -o out/predeploy-backups/sitemap.xml')
+    expect(deploy).toContain('put out/predeploy-backups/.htaccess -o ./.htaccess; put out/predeploy-backups/robots.txt -o ./robots.txt; put out/predeploy-backups/sitemap.xml -o ./sitemap.xml')
+    expect(deploy.match(/put out\/predeploy-backups\/\.htaccess -o \.\/\.htaccess/g)?.length ?? 0).toBeGreaterThanOrEqual(2)
     expect(deploy).toContain('FTP_FILE_QUOTA')
     expect(deploy).toContain('deploy-diff-stats.json')
     expect(deploy).toContain('NEW_PATHS')
@@ -44,7 +45,7 @@ describe('deployment safety gates', () => {
     expect(deploy).toContain('report_quota_candidates')
     const inventoryFailure = deploy.indexOf('Inventaire distant non fiable')
     const manifestRead = deploy.indexOf('get ./deploy-manifest.json')
-    const rootBackup = deploy.indexOf('get ./$FILE -o out/predeploy-backups/$FILE')
+    const rootBackup = deploy.indexOf('get ./.htaccess -o out/predeploy-backups/.htaccess')
     const mirror = deploy.indexOf('mirror --reverse')
     expect(inventoryFailure).toBeGreaterThan(0)
     expect(inventoryFailure).toBeLessThan(manifestRead)
@@ -59,7 +60,7 @@ describe('deployment safety gates', () => {
     expect(deploy).toContain('missingOnRemote')
     // anti-flood LWS inter-sessions: manifeste téléchargé pendant l'inventaire
     expect(deploy).toContain('--save-manifest=out/deploy-manifest.prev.json')
-    expect(deploy).toContain('cooldown 120')
+    expect(deploy).toContain('cooldown 300')
     expect(deploy).toContain('ftp_run_retry')
     // lftp find . n'est plus utilisé pour l'inventaire (max-retries exceeded côté LWS)
     expect(deploy).not.toContain('find .')
@@ -71,11 +72,11 @@ describe('deployment safety gates', () => {
     expect(deploy).toContain('REMOTE_BYTES')
     expect(deploy).toContain('PROJECTED_BYTES')
     expect(deploy).toContain('DUPLICATE_PATHS')
-    // ordre strict : inventaire -> refroidissement -> manifeste -> sauvegarde racine -> transfert
+    // ordre strict : inventaire -> refroidissement 300s -> manifeste -> sauvegarde racine -> transfert
     const inventory = deploy.indexOf('python3 scripts/ftp-inventory.py')
-    const cooldown = deploy.indexOf('cooldown 120')
+    const cooldown = deploy.indexOf('cooldown 300')
     const diffPrepare = deploy.indexOf('ftp-diff.mjs prepare')
-    const backup = deploy.indexOf('get ./$FILE -o out/predeploy-backups/$FILE')
+    const backup = deploy.indexOf('get ./.htaccess -o out/predeploy-backups/.htaccess')
     const mirror = deploy.indexOf('mirror --reverse')
     expect(inventory).toBeGreaterThan(0)
     expect(cooldown).toBeGreaterThan(inventory)
