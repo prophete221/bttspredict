@@ -32,6 +32,7 @@ describe('ftp-diff forced paths', () => {
       'predictions.json': 'new predictions data\n',
       'predictions-archive/2026-11-04.json': 'new historical archive\n',
       'team-context.json': 'new team data\n',
+      'team-media/crest.jpg': 'new team image asset\n',
       '_next/static/chunks/app/predictions.json/route-123.js': 'new application code\n',
       'robots.txt': 'User-agent: *\nAllow: /\n',
       'sitemap.xml': '<urlset></urlset>\n',
@@ -69,15 +70,17 @@ describe('ftp-diff forced paths', () => {
       'predictions.json',
       'team-context.json',
     ])
-    expect(stats.changedCount).toBe(4)
-    expect(stats.changedPaths).toHaveLength(4)
+    expect(stats.changedCount).toBe(5)
+    expect(stats.changedPaths).toHaveLength(5)
     expect(stats.bytesToAdd).toBe(
       Buffer.byteLength(files['index.html'])
+      + Buffer.byteLength(files['team-media/crest.jpg'])
       + Buffer.byteLength(files['_next/static/chunks/app/predictions.json/route-123.js'])
       + Buffer.byteLength(files['robots.txt'])
       + Buffer.byteLength(files['sitemap.xml']),
     )
     expect(deployList).toContain('^index\\.html$')
+    expect(deployList).toContain('team-media/crest\\.jpg')
     expect(deployList).toContain('predictions\\.json/route-123\\.js')
     expect(deployList).toContain('^robots\\.txt$')
     expect(deployList).toContain('^sitemap\\.xml$')

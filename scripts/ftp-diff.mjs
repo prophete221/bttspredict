@@ -68,7 +68,7 @@ const CODE_ONLY_DATA_FILES = new Set([
   'vip-combos.json',
   'team-context.json',
 ])
-const CODE_ONLY_DATA_DIRS = ['predictions-archive/', 'team-media/']
+const CODE_ONLY_DATA_DIRS = ['predictions-archive/']
 
 function isCodeOnlyDataPath(rel) {
   return CODE_ONLY_DATA_FILES.has(rel) || CODE_ONLY_DATA_DIRS.some((prefix) => rel.startsWith(prefix))
