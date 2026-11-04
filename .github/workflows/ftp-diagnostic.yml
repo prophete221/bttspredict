@@ -1,8 +1,9 @@
 name: Read-only FTPS inventory diagnostic
 
-# Diagnostic du blocage d'inventaire FTP (run 41738042328 : lftp find . →
-# max-retries exceeded). Ce workflow est STRICTEMENT en lecture seule :
-# aucun STOR/DELE/MKD/RMD/RNFR/RNTO, aucun lftp, aucun git push.
+# Diagnostic du blocage d'inventaire FTP (run 41738042328 : listing récursif
+# en échec → max-retries exceeded). Ce workflow est STRICTEMENT en lecture
+# seule : aucune commande FTP d'écriture (STOR/DELE/MKD/RMD/RNFR/RNTO), aucun
+# outil de transfert, aucune écriture distante.
 # Il exécute scripts/ftp-inventory.py qui :
 #   - teste PWD, CWD, LIST (-a / sans -a), NLST et MLSD séparément à la racine ;
 #   - compare LIST et MLSD sur la racine et le premier niveau de sous-dossiers ;

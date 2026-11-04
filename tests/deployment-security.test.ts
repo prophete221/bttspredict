@@ -18,7 +18,7 @@ describe('deployment safety gates', () => {
     expect(deploy).toContain("github.event_name != 'pull_request'")
   })
 
-  it('requires encrypted FTPS with the legacy certificate bypass, live inventory, schema-validated diff, and forbids purge/full-mirror/htaccess-rm', () => {
+  it('requires encrypted FTPS with the legacy certificate bypass, resilient live inventory, schema-validated diff, and forbids purge/full-mirror/htaccess-rm', () => {
     expect(deploy).not.toContain('mirror --delete')
     expect(deploy).not.toContain('--exclude')
     expect(deploy).not.toContain('repli sur miroir complet')
@@ -29,7 +29,7 @@ describe('deployment safety gates', () => {
     expect(deploy).toContain('ftp:ssl-force true')
     expect(deploy).toContain('ftp:ssl-protect-data true')
     expect(deploy).not.toContain('check-ftp-tls.py --require-verified')
-    expect(deploy).toContain('ftp-diff.mjs prepare --require-prev --force-path=.htaccess --force-path=robots.txt --force-path=sitemap.xml')
+    expect(deploy).toContain('ftp-diff.mjs prepare --require-prev --allow-legacy-v1 --live-inventory=out/remote-inventory.tsv --force-path=.htaccess --force-path=robots.txt --force-path=sitemap.xml')
     expect(deploy).toContain('ftps://')
     for (const file of ['.htaccess', 'robots.txt', 'sitemap.xml']) {
       expect(deploy).toContain(`--force-path=${file}`)
@@ -38,16 +38,11 @@ describe('deployment safety gates', () => {
     expect(deploy).toContain('put out/predeploy-backups/$FILE -o ./$FILE')
     expect(deploy.match(/put out\/predeploy-backups\/\$FILE -o \.\/\$FILE/g)?.length ?? 0).toBeGreaterThanOrEqual(2)
     expect(deploy).toContain('FTP_FILE_QUOTA')
-    expect(deploy).toContain('remote-inventory')
-    expect(deploy).toContain('find .')
-    expect(deploy).toContain('set ftp:use-mlsd false; set ftp:list-options -a')
-    expect(deploy).toContain('[ -s out/remote-inventory.err ]')
-    expect(deploy).toContain('DUPLICATE_PATHS')
     expect(deploy).toContain('deploy-diff-stats.json')
     expect(deploy).toContain('NEW_PATHS')
     expect(deploy).toContain('BYTES_TO_ADD')
     expect(deploy).toContain('report_quota_candidates')
-    const inventoryFailure = deploy.indexOf('Inventaire LIST récursif absent')
+    const inventoryFailure = deploy.indexOf('Inventaire distant non fiable')
     const manifestRead = deploy.indexOf('get ./deploy-manifest.json')
     const rootBackup = deploy.indexOf('get ./$FILE -o out/predeploy-backups/$FILE')
     const mirror = deploy.indexOf('mirror --reverse')
@@ -58,11 +53,63 @@ describe('deployment safety gates', () => {
     expect(workflow).toContain("paths-ignore:\n      - 'public/**'")
   })
 
-  it('keeps the diagnostic workflow read-only without deployment credentials', () => {
-    const diagnostic = fs.readFileSync('.github/workflows/ftp-tls-diagnostic.yml', 'utf8')
+  it('uses the resilient read-only Python inventory (replaces lftp find) and blocks transfer on partial inventory', () => {
+    expect(deploy).toContain('python3 scripts/ftp-inventory.py --mode=deploy')
+    expect(deploy).toContain('--live-inventory=out/remote-inventory.tsv')
+    expect(deploy).toContain('missingOnRemote')
+    // lftp find . n'est plus utilisé pour l'inventaire (max-retries exceeded côté LWS)
+    expect(deploy).not.toContain('find .')
+    // un inventaire partiel (code 2) ou fatal (code 1) bloque avant tout transfert
+    expect(deploy).toContain('if [ "$INV_RC" -ne 0 ]')
+    // quotas mesurés sur l'inventaire live, pas sur un manifeste historique
+    expect(deploy).toContain('remote-inventory-summary.json')
+    expect(deploy).toContain('REMOTE_NOW')
+    expect(deploy).toContain('REMOTE_BYTES')
+    expect(deploy).toContain('PROJECTED_BYTES')
+    expect(deploy).toContain('DUPLICATE_PATHS')
+    // ordre strict : inventaire -> diff -> sauvegarde racine -> transfert
+    const inventory = deploy.indexOf('python3 scripts/ftp-inventory.py')
+    const diffPrepare = deploy.indexOf('ftp-diff.mjs prepare')
+    const backup = deploy.indexOf('get ./$FILE -o out/predeploy-backups/$FILE')
+    const mirror = deploy.indexOf('mirror --reverse')
+    expect(inventory).toBeGreaterThan(0)
+    expect(inventory).toBeLessThan(diffPrepare)
+    expect(diffPrepare).toBeLessThan(backup)
+    expect(backup).toBeLessThan(mirror)
+    // le transfert d'un premier déploiement post-refonte ne doit pas être tué
+    expect(deploy).toMatch(/timeout-minutes: 300/)
+    expect(workflow).toContain('cancel-in-progress: false')
+  })
+
+  it('keeps the html lang fix between build and manifest (SEO-safe post-export)', () => {
+    expect(deploy).toContain('node scripts/fix-html-lang.mjs out')
+    const build = deploy.indexOf('run: npm run build')
+    const copy = deploy.indexOf('Copy routing files')
+    const langFix = deploy.indexOf('node scripts/fix-html-lang.mjs out')
+    const prepare = deploy.indexOf('ftp-diff.mjs prepare')
+    expect(build).toBeGreaterThan(0)
+    expect(langFix).toBeGreaterThan(copy)
+    expect(langFix).toBeLessThan(prepare)
+  })
+
+  it('keeps the ftp-diagnostic workflow read-only (no lftp, no git push, upload-only artifacts)', () => {
+    const diagnostic = fs.readFileSync('.github/workflows/ftp-diagnostic.yml', 'utf8')
     expect(diagnostic).toContain('contents: read')
-    expect(diagnostic).toContain('secrets.FTP_SERVER')
-    expect(diagnostic).not.toMatch(/secrets\.FTP_(?:USERNAME|PASSWORD)/)
     expect(diagnostic).not.toMatch(/lftp|mirror --|git push|secrets\.GEMINI/)
+    expect(diagnostic).toContain('python3 scripts/ftp-inventory.py')
+    expect(diagnostic).toContain('if: always()')
+  })
+
+  it('keeps the inventory tool strictly read-only (no FTP write commands in code)', () => {
+    const source = fs.readFileSync('scripts/ftp-inventory.py', 'utf8')
+    // aucune méthode d'écriture ftplib utilisée (les noms apparaissent
+    // uniquement dans la liste de refus FORBIDDEN_COMMANDS)
+    for (const forbidden of ['storbinary(', 'storlines(', '.mkd(', '.delete(', '.rmd(', '.rename(', '.sendcmd(', '.voidcmd("']) {
+      expect(source).not.toContain(forbidden)
+    }
+    expect(source).toContain('FORBIDDEN_COMMANDS')
+    expect(source).toContain('prot_p')
+    // le script utilise TLS explicite (AUTH TLS avant USER/PASS)
+    expect(source).toContain('ftp.auth()')
   })
 })

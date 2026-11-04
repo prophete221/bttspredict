@@ -27,13 +27,13 @@ on:
 permissions:
   contents: read
 
-# Les runs durent 2 à 4 h (miroir FTP complet) alors que le cron passe toutes les
-# 4 h : sans verrou, deux déploiements pouvaient se chevaucher (sessions FTP
-# concurrentes, git push en échec avalé). On sérialise les runs.
+# Les runs de premier déploiement après une refonte transfèrent la majorité des
+# fichiers (plusieurs heures). Avec cancel-in-progress un cron qui passe toutes
+# les 3 h tuait le transfert en cours — état distant partiel interdit. On
+# sérialise donc sans annulation : un nouveau run attend la fin du précédent.
 concurrency:
   group: deploy-${{ github.ref }}
-  # Un nouveau push/run annule l'ancien : un seul déploiement utile, pas de file.
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   pull-request-checks:
@@ -220,6 +220,13 @@ jobs:
           cp public/robots.txt out/robots.txt 2>/dev/null || true
           cp public/sitemap.xml out/sitemap.xml 2>/dev/null || true
 
+      # Le root layout unique pose lang="fr" sur les 3 langues ; le script
+      # runtime client ne suffit pas aux crawlers. Correction post-export,
+      # AVANT ftp-diff (les empreintes du manifeste portent sur les fichiers
+      # corrigés). Aucun texte/URL/méta modifié ; RTL arabe posé sur <html>.
+      - name: Fix html lang attributes (en/ar) before manifest
+        run: node scripts/fix-html-lang.mjs out
+
       - name: Commit data
         continue-on-error: true
         run: |
@@ -242,7 +249,7 @@ jobs:
       # - manifeste distant publié UNIQUEMENT après transfert réussi
       # - pas d'étape .htaccess rm/rename (risque non contrôlé)
       - name: Deploy via FTPS (certificate bypass, live inventory, differential only)
-        timeout-minutes: 45
+        timeout-minutes: 300
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
@@ -277,49 +284,45 @@ jobs:
           BYTE_MARGIN="${FTP_BYTE_MARGIN}"
           MAX_BYTES=$((BYTE_QUOTA - BYTE_MARGIN))
 
-          # --- Inventaire distant ACTUEL (listing live) ---
-          # Un manifeste historique ne prouve pas le quota actuel.
-          rm -f out/remote-inventory.txt out/deploy-manifest.prev.json out/deploy-list.txt out/deploy-diff-stats.json
-          echo "Inventaire distant live (find récursif, LIST classique, dotfiles inclus)…"
-          INVENTORY_SETTINGS="$SETTINGS; set ftp:use-mlsd false; set ftp:list-options -a"
+          # --- Inventaire distant ACTUEL (outil Python lecture seule) ---
+          # L'inventaire récursif lftp précédent abandonnait tout le walk à la
+          # première erreur de canal (run 41738042328 : max-retries exceeded). scripts/ftp-inventory.py
+          # teste PWD/CWD/LIST/MLSD séparément, liste chaque répertoire avec
+          # timeout + backoff + reconnexion contrôle, et journalise le chemin
+          # exact des blocages. Lecture seule stricte (aucune commande d'écriture).
+          # Codes de sortie : 0 = complet ; 2 = partiel (aucun transfert) ; 1 = fatal.
+          rm -f out/remote-inventory.tsv out/remote-inventory-summary.json out/remote-inventory-failures.json out/remote-inventory.err
           set +e
-          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "$FTP_URL" -e "$INVENTORY_SETTINGS; find .; bye" > out/remote-inventory.txt 2>out/remote-inventory.err
-          LIST_RC=$?
+          python3 scripts/ftp-inventory.py --mode=deploy --out-dir=out --timeout=30 --retries=2 --delay=0.05
+          INV_RC=$?
           set -e
-          if [ "$LIST_RC" -ne 0 ] || [ ! -s out/remote-inventory.txt ] || [ -s out/remote-inventory.err ]; then
-            echo "::error::Inventaire LIST récursif absent, incomplet ou accompagné d'erreurs — arrêt avant sauvegarde ou écriture FTPS."
-            if grep -Fqi 'max-retries exceeded' out/remote-inventory.err; then
-              echo "::error::Diagnostic lftp: max-retries exceeded pendant find en LIST classique."
-            elif [ "$LIST_RC" -ne 0 ]; then
-              echo "::error::Diagnostic lftp: find en LIST classique a échoué (code $LIST_RC); détails bruts non affichés."
-            else
-              echo "::error::Diagnostic lftp: listing vide ou stderr non vide; résultat traité comme ambigu."
-            fi
+          if [ "$INV_RC" -ne 0 ]; then
+            echo "::error::Inventaire distant non fiable (code $INV_RC) — arrêt avant sauvegarde ou écriture FTPS. Chemins bloquants listés ci-dessus et dans l'artefact remote-inventory-failures.json."
             exit 1
           fi
 
-          # Compte des fichiers distants (lignes non-dossiers approximées : ignore entrées finissant par /)
-          REMOTE_NOW=$(awk 'NF && !/\/$/ {n++} END {print n+0}' out/remote-inventory.txt)
+          REMOTE_NOW=$(node -e "const s=require('./out/remote-inventory-summary.json'); process.stdout.write(String(s.filesCount||0))")
+          REMOTE_BYTES=$(node -e "const s=require('./out/remote-inventory-summary.json'); process.stdout.write(String(s.bytesTotal||0))")
+          DUPLICATE_PATHS=$(cut -f1 out/remote-inventory.tsv | sort | uniq -d | wc -l)
           if [ "${REMOTE_NOW}" -le 0 ]; then
             echo "::error::Inventaire distant vide ou illisible — arrêt."
             exit 1
           fi
-          DUPLICATE_PATHS=$(awk 'NF && !/\/$/ {print}' out/remote-inventory.txt | sort | uniq -d | wc -l)
           if [ "$DUPLICATE_PATHS" -gt 0 ]; then
             echo "::error::Inventaire distant ambigu: $DUPLICATE_PATHS chemins dupliqués — arrêt avant écriture."
             exit 1
           fi
-          echo "Fichiers distants actuels (inventaire live): $REMOTE_NOW"
+          echo "Fichiers distants actuels (inventaire live): $REMOTE_NOW ($REMOTE_BYTES octets)"
 
           # Manifeste distant optionnel pour le DIFF de contenu uniquement (pas pour le quota).
           if ftp_run "get ./deploy-manifest.json -o out/deploy-manifest.prev.json"; then
             echo "Manifeste distant récupéré (diff contenu)."
           else
-            echo "::error::Manifeste distant deploy-manifest.json absent. Sans manifeste v2 valide, pas de diff sûr et pas d'upload complet. Arrêt."
+            echo "::error::Manifeste distant deploy-manifest.json absent. Sans manifeste v2 (ou v1 hérité accepté) pas de diff sûr et pas d'upload complet. Arrêt."
             exit 1
           fi
 
-          node scripts/ftp-diff.mjs prepare --require-prev --force-path=.htaccess --force-path=robots.txt --force-path=sitemap.xml
+          node scripts/ftp-diff.mjs prepare --require-prev --allow-legacy-v1 --live-inventory=out/remote-inventory.tsv --force-path=.htaccess --force-path=robots.txt --force-path=sitemap.xml
 
           if [ ! -f out/deploy-diff-stats.json ] || [ ! -f out/deploy-list.txt ]; then
             echo "::error::Statistiques de diff manquantes — arrêt."
@@ -330,27 +333,37 @@ jobs:
           BYTES_TO_ADD=$(node -e "const s=require('./out/deploy-diff-stats.json'); process.stdout.write(String(s.bytesToAdd||0))")
           CHANGED=$(node -e "const s=require('./out/deploy-diff-stats.json'); process.stdout.write(String(s.changedCount||0))")
           LOCAL_BYTES=$(node -e "const s=require('./out/deploy-diff-stats.json'); process.stdout.write(String(s.localTotalBytes||0))")
+          MISSING=$(node -e "const s=require('./out/deploy-diff-stats.json'); process.stdout.write(String(s.missingOnRemoteCount||0))")
 
-          echo "Diff: changed=$CHANGED newPaths=$NEW_PATHS bytesToAdd=$BYTES_TO_ADD localBytes=$LOCAL_BYTES"
+          echo "Diff: changed=$CHANGED newPaths=$NEW_PATHS missingOnRemote=$MISSING bytesToAdd=$BYTES_TO_ADD localBytes=$LOCAL_BYTES"
 
           report_quota_candidates() {
             node -e "const s=require('./out/deploy-diff-stats.json'); for (const [k,label] of [['newPaths','nouveaux'],['changedPaths','modifiés']]) { const paths=s[k]||[]; console.log(label+' ('+paths.length+')'); console.log(paths.length ? paths.join('\\n') : '(aucun)'); }"
           }
 
           # Quota fichiers : inventaire live + chemins réellement nouveaux
-          PROJECTED_FILES=$((REMOTE_NOW + NEW_PATHS))
-          echo "Projection fichiers: $REMOTE_NOW + $NEW_PATHS = $PROJECTED_FILES (max autorisé $MAX_FILES / quota $QUOTA marge $MARGIN)"
+          # + fichiers attendus mais absents du serveur (trous du diff par hash,
+          # comptés par le croisement avec l'inventaire live).
+          PROJECTED_FILES=$((REMOTE_NOW + NEW_PATHS + MISSING))
+          echo "Projection fichiers: $REMOTE_NOW + $NEW_PATHS + $MISSING = $PROJECTED_FILES (max autorisé $MAX_FILES / quota $QUOTA marge $MARGIN)"
           if [ "$PROJECTED_FILES" -gt "$MAX_FILES" ]; then
             echo "::error::Quota fichiers risqué ($PROJECTED_FILES > $MAX_FILES). Nettoyage panel LWS ou hausse de quota requis. Arrêt."
             report_quota_candidates
             exit 1
           fi
 
-          # Quota octets : sans taille distante exacte par fichier, borne supérieure =
-          # on refuse si bytesToAdd seul dépasse la marge restante sous BYTE_QUOTA
-          # quand l'espace libre n'est pas mesurable. Exiger marge sur l'ajout.
+          # Quota octets : total distant MESURÉ par l'inventaire live + volume
+          # à ajouter (remplacements comptés en pire cas où l'ancien fichier
+          # ne serait pas libéré) ≤ plafond.
+          PROJECTED_BYTES=$((REMOTE_BYTES + BYTES_TO_ADD))
+          echo "Projection octets: $REMOTE_BYTES + $BYTES_TO_ADD = $PROJECTED_BYTES (max autorisé $MAX_BYTES / quota $BYTE_QUOTA marge $BYTE_MARGIN)"
           if [ "$BYTES_TO_ADD" -gt "$MAX_BYTES" ]; then
             echo "::error::Volume à ajouter ($BYTES_TO_ADD) dépasse la marge octets ($MAX_BYTES). Arrêt."
+            report_quota_candidates
+            exit 1
+          fi
+          if [ "$PROJECTED_BYTES" -gt "$MAX_BYTES" ]; then
+            echo "::error::Quota octets risqué ($PROJECTED_BYTES > $MAX_BYTES). Nettoyage panel LWS requis. Arrêt."
             report_quota_candidates
             exit 1
           fi
@@ -409,6 +422,20 @@ jobs:
             exit 1
           fi
           echo "✓ Déploiement différentiel FTPS terminé; manifeste v2 distant mis à jour."
+
+      - name: Upload deploy evidence (inventory + diff)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deploy-inventory-${{ github.run_id }}
+          path: |
+            out/remote-inventory.tsv
+            out/remote-inventory-summary.json
+            out/remote-inventory-failures.json
+            out/remote-inventory.err
+            out/deploy-diff-stats.json
+          if-no-files-found: ignore
+          retention-days: 15
 
       - name: Notify Bing via IndexNow
         if: success()
