@@ -53,6 +53,30 @@ describe('FTP-Deploy safe state', () => {
     expect(report.policy).toContain('aucun fichier distant absent du build ne peut être supprimé')
   })
 
+  it('keeps remote hashes for data excluded from a code-only upload', () => {
+    const remoteDataState = {
+      ...baseState,
+      data: [
+        ...baseState.data,
+        { type: 'file', name: 'predictions.json', size: 120, hash: 'remote-predictions' },
+        { type: 'file', name: 'predictions-archive/2026-11-03.json', size: 80, hash: 'remote-archive' },
+      ],
+    }
+    const currentManifest = {
+      files: {
+        ...manifest.files,
+        'predictions.json': { hash: 'local-new-predictions', size: 150 },
+        'predictions-archive/2026-11-03.json': { hash: 'local-new-archive', size: 95 },
+        'vip-combos.json': { hash: 'local-new-vip', size: 40 },
+      },
+    }
+    const { state } = buildSafeStateSeed(remoteDataState, currentManifest)
+    const retained = new Map(state.data.map((entry: { name: string }) => [normalizeStatePath(entry.name), entry]))
+    expect(retained.get('predictions.json')).toMatchObject({ hash: 'remote-predictions', size: 120 })
+    expect(retained.get('predictions-archive/2026-11-03.json')).toMatchObject({ hash: 'remote-archive', size: 80 })
+    expect(retained.has('vip-combos.json')).toBe(false)
+  })
+
   it('rejects malformed or path-traversing state rather than falling back to a full sync', () => {
     expect(() => parseActionState({ version: '2', data: [] })).toThrow(/version 1.0.0/)
     expect(() => normalizeStatePath('../outside.txt')).toThrow(/dangereux/)

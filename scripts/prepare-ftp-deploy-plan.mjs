@@ -232,7 +232,7 @@ function main() {
     const name = normalizeStatePath(entry.name)
     if (name && entry.type === 'file') baseByPath.set(name, entry)
   }
-  const inventoryPath = path.join(outDir, 'remote-inventory.tsv')
+  const inventoryPath = path.join(outDir, 'match-only-inventory.tsv')
   const inventoryLines = combinedPaths.map(remotePath => `${remotePath}\tF\t${Number(baseByPath.get(remotePath)?.size || 0)}`)
   fs.writeFileSync(inventoryPath, inventoryLines.length ? `${inventoryLines.join('\n')}\n` : '')
 
@@ -268,6 +268,21 @@ function main() {
   // reste celui du build et est exclu de l'action FTPS; il est remplacé ensuite
   // par l'ancienne méthode LFTP temporaire + rename, après réussite de l'upload.
   runNode(['scripts/ftp-diff.mjs', 'manifest'])
+  const codeOnlyMode = process.env.CODE_ONLY_MODE === 'true'
+  const diffArgs = ['scripts/ftp-diff.mjs', 'prepare', '--require-prev', '--allow-legacy-v1']
+  if (codeOnlyMode) diffArgs.push('--code-only')
+  runNode(diffArgs)
+  const diffStatsPath = path.join(outDir, 'deploy-diff-stats.json')
+  const diffStats = JSON.parse(fs.readFileSync(diffStatsPath, 'utf8'))
+  if (diffStats.codeOnlyMode !== codeOnlyMode) throw new Error('Le mode du diff ne correspond pas au mode de déploiement')
+  runNode([
+    'scripts/prepare-ftp-upload-allowlist.mjs', 'plan',
+    `--manifest=${currentManifestPath}`,
+    `--diff-stats=${diffStatsPath}`,
+    `--script-file=${path.join(outDir, 'deploy-upload-commands.lftp')}`,
+    `--plan=${path.join(outDir, 'deploy-upload-plan.json')}`,
+    `--code-only=${codeOnlyMode}`,
+  ])
   const manifest = JSON.parse(fs.readFileSync(currentManifestPath, 'utf8'))
   const { state: seedState, report: stateReport } = buildSafeStateSeed(baseState, manifest)
 
@@ -278,12 +293,22 @@ function main() {
   stateReport.liveArMatchHtmlCount = arPaths.length
   stateReport.targetedFinishedMatchDeleteCount = staleReport.deletionCount
   stateReport.targetedFinishedMatchDeleteBytes = staleReport.deletionBytes
+  stateReport.differentialTransfer = {
+    codeOnlyMode,
+    changedPathCount: diffStats.changedCount,
+    bytesToAdd: diffStats.bytesToAdd,
+    excludedDataPathCount: diffStats.codeOnlyExcludedPaths.length,
+    excludedDataBytes: diffStats.codeOnlyExcludedBytes,
+    remoteManifestMustNotBePublished: diffStats.remoteManifestMustNotBePublished,
+    matchOnlyInventoryUsedForDiff: false,
+  }
   stateReport.htaccessSource = 'build/.htaccess; excluded from FTP-Deploy and published after success through the historical temporary-upload + rename method'
   stateReport.robotsSource = 'build/public/robots.txt; its state entry is omitted so the new content is uploaded'
   stateReport.sitemapSource = 'build sitemap merged with the previous remote sitemap; only removed EN/AR Match targets are filtered; its state entry is omitted so the new content is uploaded'
   fs.writeFileSync(path.join(outDir, 'ftp-action-state-report.json'), `${JSON.stringify(stateReport, null, 2)}\n`)
 
   console.log(`[ftp-plan] state=${baseStateSource}; local=${stateReport.currentExportFileCount} published paths; ${stateReport.retainedRecordCount}/${stateReport.baseRecordCount} state records retained; ${stateReport.droppedRemoteOnlyRecordCount} remote-only records excluded from action; force uploads=${[...FORCE_UPLOAD].join(', ')}`)
+  console.log(`[ftp-plan] differential: ${diffStats.changedCount} code paths, ${diffStats.bytesToAdd} bytes; codeOnly=${codeOnlyMode}; Match-only inventory is not used as a complete server inventory`)
   console.log(`[ftp-plan] live Match listings: en=${enPaths.length}, ar=${arPaths.length}; finished HTML targeted for LFTP deletion=${staleReport.deletionCount}; root /match is not inventoried or deleted`)
 }
 

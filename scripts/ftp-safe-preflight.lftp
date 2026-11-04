@@ -14,6 +14,9 @@ get sitemap.xml -o out/predeploy-backups/sitemap.xml
 set net:timeout 10
 set net:max-retries 1
 set cmd:fail-exit no
+# Le manifeste distant est la base complète du diff. L'inventaire Match-only
+# ci-dessous ne doit jamais servir d'inventaire global pour calculer les uploads.
+get deploy-manifest.json -o out/deploy-manifest.prev.json
 get .ftp-deploy-sync-state-safe.json -o /tmp/ftp-action-state-safe.remote.json
 get .ftp-deploy-sync-state.json -o /tmp/ftp-action-state-legacy.remote.json
 set cmd:fail-exit yes
