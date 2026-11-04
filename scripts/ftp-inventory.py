@@ -101,6 +101,8 @@ class Inventory:
         self.fail_path = os.path.join(out_dir, 'remote-inventory-failures.json')
         self.sum_path = os.path.join(out_dir, 'remote-inventory-summary.json')
         self.err_path = os.path.join(out_dir, 'remote-inventory.err')
+        self.root_raw_sample = None
+        self._last_mlsd_raw = []
         self._err = open(self.err_path, 'w', encoding='utf-8')
 
     # --- infra ------------------------------------------------------------
@@ -183,6 +185,8 @@ class Inventory:
         )
         if name in ('.', '..'):
             return None
+        if ' -> ' in name:
+            name = name.split(' -> ', 1)[0]
         if perms.startswith('d'):
             kind = 'D'
         elif perms.startswith('l'):
@@ -230,17 +234,28 @@ class Inventory:
                 try:
                     if op == 'MLSD':
                         entries = []
+                        self._last_mlsd_raw = []
                         for name, facts in self.ftp.mlsd(target):
+                            self._last_mlsd_raw.append((name, facts))
                             parsed = self.parse_mlsd_entry(name, facts)
                             if parsed:
                                 entries.append(parsed)
+                        if rel == '' and self.root_raw_sample is None:
+                            self.root_raw_sample = [
+                                {'name': n, 'facts': {k: str(v) for k, v in list(facts.items())[:6]}}
+                                for n, facts in list(self._last_mlsd_raw or [])[:5]
+                            ]
                         return entries, op
                     elif op == 'LIST-a':
-                        lines = self.run_cmd('LIST -a ' + self._q(target))
+                        lines = self.run_cmd('LIST -a ' + self._arg(target))
+                        if rel == '' and self.root_raw_sample is None:
+                            self.root_raw_sample = lines[:8]
                         entries = [p for p in (self.parse_list_line(l) for l in lines) if p]
                         return entries, op
                     elif op == 'LIST':
-                        lines = self.run_cmd('LIST ' + self._q(target))
+                        lines = self.run_cmd('LIST ' + self._arg(target))
+                        if rel == '' and self.root_raw_sample is None:
+                            self.root_raw_sample = lines[:8]
                         entries = [p for p in (self.parse_list_line(l) for l in lines) if p]
                         return entries, op
                 except Exception as exc:  # noqa: BLE001 — on veut l'erreur exacte
@@ -270,6 +285,18 @@ class Inventory:
     @staticmethod
     def _q(target: str) -> str:
         return '"' + target.replace('"', '""') + '"'
+
+    @staticmethod
+    def _arg(target: str) -> str:
+        """Argument LIST sans quotes sauf si le chemin contient un espace.
+
+        Certains serveurs (observé côté LWS) renvoient une liste vide pour
+        LIST -a "." quoté alors que LIST -a . non quoté marche — on aligne
+        donc le walk sur la forme qui a fait ses preuves.
+        """
+        if ' ' in target or '"' in target:
+            return '"' + target.replace('"', '""') + '"'
+        return target
 
     def _ops_for(self, rel: str):
         depth = 0 if not rel else rel.count('/')
@@ -408,8 +435,10 @@ class Inventory:
                     'version': man.get('version'),
                     'fileCount': man.get('fileCount'),
                     'totalBytes': man.get('totalBytes'),
+                    'topLevelKeys': sorted(list(man.keys()))[:12],
                 }
-                log('deploy-manifest.json distant: version={version} fileCount={fileCount}'.format(**man))
+                log(f"deploy-manifest.json distant: version={man.get('version')!r} "
+                    f"fileCount={man.get('fileCount')!r} clés={self.capabilities['remoteManifest']['topLevelKeys']}")
             except Exception as exc:
                 self.capabilities['remoteManifest'] = {'error': f'{type(exc).__name__}: {exc}'}
                 self.note_err(f'lecture deploy-manifest.json: {type(exc).__name__}: {exc}')
@@ -443,6 +472,11 @@ class Inventory:
                 self.emit(child, kind, size)
                 if kind == 'D':
                     queue.append(child)
+            if rel == '':
+                counts = {}
+                for kind, _n, _s in entries:
+                    counts[kind] = counts.get(kind, 0) + 1
+                log(f"WALK racine: {len(entries)} entrées analysées {counts}")
             if len(visited) >= next_report:
                 elapsed = round(time.time() - started, 1)
                 log(f'… {len(visited)} répertoires visités, {self.files} fichiers, {elapsed}s')
@@ -468,6 +502,7 @@ class Inventory:
             'durationSeconds': getattr(self, 'duration', None),
             'failureCount': len(self.failures),
             'failures': self.failures,
+            'rootRawSample': getattr(self, 'root_raw_sample', None),
         }
         with open(self.sum_path, 'w', encoding='utf-8') as fh:
             json.dump(summary, fh, ensure_ascii=False, indent=2)
