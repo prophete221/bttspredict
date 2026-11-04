@@ -199,7 +199,6 @@ function main() {
     }
   }
   for (const file of [
-    path.join(predeployDir, '.htaccess'),
     path.join(predeployDir, 'robots.txt'),
     previousSitemapPath,
     currentManifestPath,
@@ -213,11 +212,6 @@ function main() {
   const arPaths = parseMatchListing(fs.readFileSync(matchArPath, 'utf8'), 'ar')
   const combinedPaths = [...enPaths, ...arPaths]
   if (new Set(combinedPaths).size !== combinedPaths.length) throw new Error('Doublon entre les listings Match EN/AR')
-
-  // Préserver à l'octet près le .htaccess distant : les changements de ce fichier
-  // ne sont pas dans le périmètre autorisé.
-  const remoteHtaccess = fs.readFileSync(path.join(predeployDir, '.htaccess'))
-  fs.writeFileSync(path.join(outDir, '.htaccess'), remoteHtaccess)
 
   const { state: baseState, source: baseStateSource } = chooseBaseState(stateSafePath, stateLegacyPath)
   const baseByPath = new Map()
@@ -257,13 +251,12 @@ function main() {
     `--now=${now}`,
   ])
 
-  // Le sitemap filtré et le .htaccess préservé doivent refléter les empreintes
-  // qui seront réellement publiées.
+  // Le sitemap filtré doit refléter l'empreinte réellement publiée. .htaccess
+  // reste celui du build et est exclu de l'action FTPS; il est remplacé ensuite
+  // par l'ancienne méthode LFTP temporaire + rename, après réussite de l'upload.
   runNode(['scripts/ftp-diff.mjs', 'manifest'])
   const manifest = JSON.parse(fs.readFileSync(currentManifestPath, 'utf8'))
   const { state: seedState, report: stateReport } = buildSafeStateSeed(baseState, manifest)
-  const localHtaccess = fs.readFileSync(path.join(outDir, '.htaccess'))
-  if (!remoteHtaccess.equals(localHtaccess)) throw new Error('.htaccess local diffère encore de la sauvegarde distante')
 
   fs.mkdirSync(path.dirname(stateSeedPath), { recursive: true })
   fs.writeFileSync(stateSeedPath, `${JSON.stringify(seedState)}\n`)
@@ -272,6 +265,7 @@ function main() {
   stateReport.liveArMatchHtmlCount = arPaths.length
   stateReport.targetedFinishedMatchDeleteCount = staleReport.deletionCount
   stateReport.targetedFinishedMatchDeleteBytes = staleReport.deletionBytes
+  stateReport.htaccessSource = 'build/.htaccess; excluded from FTP-Deploy and published after success through the historical temporary-upload + rename method'
   stateReport.robotsSource = 'build/public/robots.txt; its state entry is omitted so the new content is uploaded'
   stateReport.sitemapSource = 'build sitemap merged with the previous remote sitemap; only removed EN/AR Match targets are filtered; its state entry is omitted so the new content is uploaded'
   fs.writeFileSync(path.join(outDir, 'ftp-action-state-report.json'), `${JSON.stringify(stateReport, null, 2)}\n`)

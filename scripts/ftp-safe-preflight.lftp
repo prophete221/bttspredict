@@ -5,8 +5,8 @@ set net:timeout 60
 set net:max-retries 2
 set cmd:fail-exit yes
 
-# Sauvegardes des fichiers racine avant tout changement.
-get .htaccess -o out/predeploy-backups/.htaccess
+# robots.txt et sitemap.xml sont sauvegardés ici. .htaccess n'est pas lu par RETR:
+# il sera publié après l'upload principal par la méthode temporaire + rename.
 get robots.txt -o out/predeploy-backups/robots.txt
 get sitemap.xml -o out/predeploy-backups/sitemap.xml
 

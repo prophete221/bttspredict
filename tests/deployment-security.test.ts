@@ -33,7 +33,7 @@ describe('deployment safety gates', () => {
 
   it('uses LFTP script options before the FTPS host for preflight and restore', () => {
     expect(deploy).toContain('lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "source scripts/ftp-safe-preflight.lftp" "ftps://${FTP_SERVER}"')
-    expect(deploy).toContain('lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify no; set net:timeout 60; set net:max-retries 2; set cmd:fail-exit yes; put out/predeploy-backups/.htaccess -o .htaccess; put out/predeploy-backups/robots.txt -o robots.txt; put out/predeploy-backups/sitemap.xml -o sitemap.xml; bye" "ftps://${FTP_SERVER}"')
+    expect(deploy).toContain('lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify no; set net:timeout 60; set net:max-retries 2; set cmd:fail-exit yes; put out/predeploy-backups/robots.txt -o robots.txt; put out/predeploy-backups/sitemap.xml -o sitemap.xml; bye" "ftps://${FTP_SERVER}"')
     expect(deploy).not.toContain('"ftps://${FTP_SERVER}" -f scripts/ftp-safe-preflight.lftp')
     expect(deploy).not.toContain('"ftps://${FTP_SERVER}" -e')
   })
@@ -71,7 +71,7 @@ describe('deployment safety gates', () => {
     expect(planner).not.toContain('ftp.delete(')
     expect(sitemapFilter).toContain('/^(?:en|ar)\\/match\\/')
     expect(sitemapFilter).not.toContain('(?:(?:en|ar)\\/)?match')
-    expect(preflight).toContain('get .htaccess -o out/predeploy-backups/.htaccess')
+    expect(preflight).not.toContain('get .htaccess')
     expect(preflight).toContain('get robots.txt -o out/predeploy-backups/robots.txt')
     expect(preflight).toContain('get sitemap.xml -o out/predeploy-backups/sitemap.xml')
   })
@@ -89,7 +89,7 @@ describe('deployment safety gates', () => {
     expect(deploy).toContain('deploy-diff-stats.json')
   })
 
-  it('filters sitemap entries only for exact EN/AR deletions and restores root files if the action fails', () => {
+  it('filters sitemap entries only for exact EN/AR deletions and preserves root files around the upload', () => {
     expect(preflight).toContain('node scripts/prepare-ftp-deploy-plan.mjs')
     expect(statePlanner).toContain('scripts/prepare-stale-match-deletions.mjs')
     expect(statePlanner).toContain('scripts/filter-sitemap-match-urls.mjs')
@@ -99,9 +99,15 @@ describe('deployment safety gates', () => {
     expect(statePlanner).toContain('`--report=${path.join(outDir, \'sitemap-match-filter.json\')}`')
     expect(deploy).toContain('Restore protected root files if FTP-Deploy did not complete')
     expect(deploy).toContain('steps.ftp-upload.outcome != \'success\'')
-    expect(deploy).toContain('put out/predeploy-backups/.htaccess -o .htaccess')
     expect(deploy).toContain('put out/predeploy-backups/robots.txt -o robots.txt')
     expect(deploy).toContain('put out/predeploy-backups/sitemap.xml -o sitemap.xml')
+    expect(deploy).toContain('Deploy .htaccess with historical temporary rename')
+    expect(deploy).toContain('TEMP=".htaccess.deploy-${GITHUB_RUN_ID}"')
+    expect(deploy).toContain('BACKUP=".htaccess.rollback-${GITHUB_RUN_ID}"')
+    expect(deploy).toContain('put out/.htaccess -o ./$TEMP')
+    expect(deploy).toContain('mv ./.htaccess ./$BACKUP; mv ./$TEMP ./.htaccess')
+    expect(deploy).toContain('mv ./$BACKUP ./.htaccess; rm -f ./$TEMP')
+    expect(deploy).toContain('**/.htaccess')
     expect(deploy).toContain('out/stale-match-pages.json')
     expect(deploy).toContain('out/orphan-review.json')
     expect(deploy).toContain('out/sitemap-match-filter.json')
