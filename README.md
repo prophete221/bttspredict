@@ -1,314 +1,163 @@
-# BTTSPredict — Pronostics BTTS & Over 2,5
+# BTTSPredict — plateforme de pronostics football
 
-Plateforme de pronostics football BTTS (Both Teams To Score) et Over 2,5 basés sur un modèle statistique (xG + Poisson lorsque ces données sont disponibles). Données ESPN publiques, suivi public vérifiable depuis le 08/08/2026.
+> **Production :** [https://bttspredict.com](https://bttspredict.com) · **Langues :** français, anglais, arabe · **Public :** amateurs de football, avec une expérience mobile prioritaire, notamment en Afrique de l’Ouest.
 
-**URL de production** : https://bttspredict.com
+BTTSPredict est une plateforme d’information et de pronostics football, avec des liens d’affiliation vers des bookmakers partenaires. Ce n’est pas un bookmaker : le site ne prend pas de mises et ne garantit aucun résultat. Ce README décrit le produit, ses pages et les règles du propriétaire afin qu’un directeur artistique puisse proposer une direction globale sans devoir parcourir les fichiers du dépôt.
 
-## Stack
+## Le projet en bref
 
-- **Next.js 16** (App Router, `output: export` — site statique)
-- **TypeScript** + **Tailwind CSS v4**
-- **framer-motion** (animations)
-- **shadcn/ui** (composants UI)
-- Déploiement via **GitHub Actions** → **LWS** (FTP)
+Le produit publie des pronostics gratuits sur trois marchés : **BTTS** (« les deux équipes marquent »), **Over 2,5 buts** et **scores exacts**. Il comprend aussi un Match Center, un générateur de combinés, un espace VIP verrouillé, des pages de promotion partenaires, des résultats vérifiés, un historique, des statistiques, une méthodologie et des pages légales.
 
-## Structure du projet
+Les données quotidiennes sont publiées dans des fichiers publics, notamment `predictions.json`; les résultats et l’historique sont conservés dans des archives et `win-history.json`. Les sources football identifiées dans le projet sont ESPN et TheSportsDB. Le moteur statistique produit des estimations à partir de données de matchs; certains champs ou cotes peuvent être estimés lorsque la donnée source n’existe pas. L’interface doit différencier les valeurs réelles des estimations et ne jamais fabriquer de statistiques ou de cotes. Les résultats passés, gagnants comme perdants, doivent rester transparents.
 
-```
-src/
-├── app/                    # Pages Next.js (App Router)
-│   ├── page.tsx           # Homepage — Pronostics BTTS et Over 2,5 du jour
-│   ├── vip/page.tsx       # Page VIP (carte premium verrouillée + unlock modal)
-│   ├── btts/              # BTTS predictions + statistics (spécialisé BTTS)
-│   │   ├── predictions/today/        # Dashboard avec AI Combo of the Day
-│   │   ├── predictions/tomorrow/
-│   │   └── statistics/
-│   ├── over-2-5/          # Over 2.5 predictions + statistics (spécialisé Over 2,5)
-│   │   ├── predictions/today/
-│   │   └── statistics/
-│   ├── btts-and-over-2-5-predictions-today/  # Page prédictions combinées
-│   ├── ai-correct-score-predictions/   # Page scores exacts (Poisson)
-│   ├── bonus-888starz/    # Page code promo 888Starz
-│   ├── code-promo-linebet-senegal/  # Page code promo Linebet
-│   ├── linebet-promo-code/  # Page redirect 301 → /code-promo-linebet-senegal
-│   ├── resultats-verifies/  # Historique auditable
-│   ├── historique/        # Historique complet vérifié
-│   ├── methodologie/      # Méthodologie modèle statistique + critères qualité Combo
-│   ├── sitemap.ts         # Sitemap Next.js natif (18 URLs actives)
-│   └── layout.tsx         # Layout global + metadata + cache-busting
-├── components/
-│   ├── bttsbet/           # Composants BTTSPredict
-│   │   ├── Navbar.tsx     # Navigation
-│   │   ├── Hero.tsx       # Hero homepage
-│   │   ├── FreePredictions.tsx  # Cartes matchs gratuits (BTTS + Over 2,5)
-│   │   ├── PromoVip.tsx   # Carte VIP verrouillée
-│   │   ├── VipUnlockModal.tsx  # Modal déverrouillage (instructions + vérif ID)
-│   │   ├── Footer.tsx     # Footer (liens légaux + sociaux)
-│   │   └── ...
-│   └── ui/                # Composants shadcn/ui
-├── lib/
-│   ├── constants.ts       # Liens affiliés (AFFILIATE.linebet/star888)
-│   ├── seo.ts             # checkSeo() anti-récidive (title ≤60, desc ≤150)
-│   ├── teamLogos.ts       # Résolution logos ESPN
-│   └── motionPresets.ts   # Animations framer-motion réutilisables
-├── hooks/                 # Hooks React (useAnimations, use-mobile, use-toast)
-└── app/globals.css        # Variables CSS Slate Design System v68+
+L’appellation « AI Combo Builder » désigne un outil interactif de combinés. Son mécanisme actuel est déterministe, pas un chatbot ni une IA conversationnelle. Dans le code de référence, l’utilisateur choisit une cote cible (1,80 / 2,50 / 3,00 / 5,00 / 8,00) et un nombre de matchs de 2 à 5; l’outil assemble des sélections disponibles sur des rencontres à venir et affiche des estimations combinées. Toute mise ou tout retour affiché doit être clairement présenté comme une simulation, jamais comme un gain attendu ou garanti.
 
-public/
-├── predictions.json       # Pronostics du jour (généré par CI)
-├── win-history.json       # Historique vérifié (généré par CI)
-├── predictions-archive/   # Archive quotidienne horodatée
-├── tracking-period.json  # Période de suivi public
-├── robots.txt            # Autorise tous les bots + chatbots IA
-├── sitemap.xml           # Généré par Next.js (18 URLs)
-├── manifest.json         # PWA manifest
-├── llms.txt              # Contexte pour LLMs (ChatGPT, Perplexity, Claude)
-├── ai.txt                # Contexte pour AI assistants
-├── humans.txt            # Équipe et mission
-├── .htaccess             # Redirects 301 + routing statique
-├── 404.html              # Page 404 custom
-└── logo/, logos/         # Logos équipes et bookmakers
+## État du site et du travail de design
 
-scripts/
-├── quick-update-predictions.mjs  # Génération pronostics (ESPN API + Poisson v92 real-data)
-├── enrich_predictions.py         # Enrichissement Gemini par lots (champs ai_*)
-├── verify-results.mjs             # Vérification post-match (ESPN)
-├── update-win-history.mjs         # Mise à jour historique
-├── scrape-transfers.mjs          # Transferts joueurs
-├── submit-indexnow.mjs            # Indexation Bing IndexNow
-├── verify-seo.mjs                 # Audit SEO post-build (title ≤70, desc ≤160)
-└── seo-report.mjs                 # Rapport SEO complet
-```
+Le sitemap public consulté le **4 novembre 2026** contient **61 URL** : 19 familles disponibles en français, anglais et arabe (57 URL), plus 4 familles uniquement en français. Le français utilise les chemins sans préfixe, l’anglais `/en` et l’arabe `/ar`.
 
-## Pages du site — 18 URLs canoniques (sitemap)
+La dernière publication de l’application confirmée dans le suivi du propriétaire est le run **#1041**, commit `466cc84`. Le `main` du dépôt a ensuite reçu `582eeff` (`chore: auto-update data`), un commit de données de pronostics. Des corrections produit et essais visuels sont conservés dans un worktree local séparé; ils ne constituent pas une refonte approuvée ou publiée. Les douze anciennes maquettes alternatives ont été rejetées. Le travail visuel sur le Match Center et le tableau quotidien est en pause pendant que Meta formule une direction unique pour l’ensemble du site.
 
-La source de vérité est `src/app/sitemap.ts`. Le XML public contient 18 entrées actives, avec les pages de pronostics, les pages éditoriales, les pages légales et les pages affiliées distinctes.
+**Aucune direction artistique globale n’est actuellement sélectionnée ou publiée.** Le propriétaire veut d’abord lire la proposition de Meta, puis faire réaliser un aperçu local par l’équipe BTTSPredict. Il décidera ensuite s’il approuve l’aperçu ou demande des modifications. Rien ne sera publié ni déployé avant son approbation explicite des captures finales en FR/EN/AR, sur mobile et desktop.
 
-| Route | Description | Priorité | Fréquence |
-|-------|-------------|----------|-----------|
-| `/` | Homepage — Pronostics BTTS et Over 2,5 du jour | 1.0 | daily |
-| `/btts/predictions/today` | Pronostics BTTS du jour + analyse Gemini | 0.9 | daily |
-| `/over-2-5/predictions/today` | Pronostics Over 2,5 du jour | 0.9 | daily |
-| `/btts-and-over-2-5-predictions-today` | Prédictions combinées BTTS + Over 2.5 | 0.9 | daily |
-| `/ai-correct-score-predictions` | Scores exacts calculés par Poisson | 0.85 | daily |
-| `/resultats-verifies` | Résultats vérifiés | 0.85 | daily |
-| `/historique` | Historique complet vérifié | 0.85 | daily |
-| `/vip` | Combinés VIP verrouillés et déblocage | 0.9 | daily |
-| `/statistiques` | Page statistiques générale | 0.75 | monthly |
-| `/methodologie` | Méthodologie du modèle statistique | 0.8 | monthly |
-| `/cgu` | Conditions générales d’utilisation | 0.3 | yearly |
-| `/politique-confidentialite` | Politique de confidentialité | 0.3 | yearly |
-| `/mentions-legales` | Mentions légales | 0.3 | yearly |
-| `/jouer-responsable` | Jeu responsable — ressources d’aide | 0.5 | yearly |
-| `/btts-c-est-quoi` | Guide BTTS — définition et exemples | 0.75 | monthly |
-| `/code-promo-linebet-senegal` | Code promo Linebet Sénégal | 0.95 | weekly |
-| `/bonus-888starz` | Page historique code promo 888Starz | 0.9 | weekly |
-| `/bonus-888starz-btts221` | Page dédiée au code `btts221` | 0.95 | daily |
+## Technologie et développement
 
-## Pages additionnelles (hors sitemap)
+- Next.js 16.1.3 avec App Router et export statique (`output: "export"`), React 19, TypeScript 5 et Tailwind CSS 4.
+- `next-intl` pour les locales; l’arabe doit être mis en page en vrai RTL, et non simplement traduit sur une grille LTR.
+- Framer Motion est disponible pour les animations; respecter `prefers-reduced-motion` et l’accessibilité clavier.
+- Vitest pour les tests, ESLint pour le lint et TypeScript pour le typecheck.
+- GitHub Actions pour les contrôles et la production. Les identifiants de déploiement sont stockés dans les secrets GitHub et ne doivent jamais être copiés dans la documentation.
 
-| Route | Description |
-|-------|-------------|
-| `/btts/predictions/tomorrow` | Pronostics BTTS de demain |
-| `/match/[slug]` | Page match détaillée (SSG, matchs pré-générés dynamiquement) |
-| `/cgu` | Conditions générales d'utilisation |
-| `/politique-confidentialite` | Politique de confidentialité |
-| `/statistiques` | Page placeholder (statistiques en cours de compilation) |
-| `/linebet-promo-code` | Page redirect 301 → `/code-promo-linebet-senegal` |
-| `/predictions.json` | Route JSON (prédictions du jour) |
-| `/sitemap.xml` | Sitemap XML généré par Next.js (16 URLs) |
-| `/404.html` | Page 404 personnalisée |
-
-## Redirects 301 (`.htaccess`)
-
-| Ancienne URL | Redirigée vers |
-|---|---|
-| `http://*` | `https://*` (HTTPS forcé) |
-| `www.bttspredict.com` | `bttspredict.com` (non-www) |
-| `/linebet-promo-code` | `/code-promo-linebet-senegal` |
-| `/betting-tips` | `/` |
-| `/bookmakers` | `/` |
-| `/correct-score-predictions` | `/` |
-| `/football-predictions-today` | `/` |
-| `/league-predictions` | `/` |
-| `/match-predictions` | `/` |
-| `/over-2-5-predictions` | `/` |
-| `/team-predictions` | `/` |
-| `/pronostics` | Alias public, canonical vers `/btts/predictions/today` |
-| `/pronostics/aujourd'hui` | `/pronostics` |
-| `/prediction-aviator` | `/` |
-| `/faille-fifa` | `/` |
-| `/blog` | `/` |
-| `/blog/*` | `/` |
-| `/presse` | `/` |
-| `/equipe` | `/` |
-| `/over-2-5` | `/` |
-| `/over-2-5/*` | `/` |
-
-## Liens internes (navigation)
-
-### Navbar
-- Logo → `/`
-- 6 liens : Accueil, Pronostics BTTS, Statistiques BTTS, Résultats vérifiés, VIP, Code promo Linebet
-
-### Footer
-- Liens légaux : `/cgu`, `/mentions-legales`, `/politique-confidentialite`, `/jouer-responsable`
-- Liens internes : `/historique`, `/methodologie`
-
-## Liens affiliés (20 liens, tous avec `rel="sponsored nofollow noopener noreferrer"`)
-
-### Linebet
-- **Inscription** : `https://lb-aff.com/L?tag=d_5589568m_22611c_site&site=5589568&ad=22611&r=registration`
-- **Téléchargement APK** : `https://lb-aff.com/L?tag=d_5589568m_66803c_apk1&site=5589568&ad=66803`
-- **Liens sociaux Linebet** :
-  - `https://vision221.lineorgs.com/`
-  - `https://linebet.press/vision221`
-  - `https://linebetop.com/en?promocode=VISION221`
-
-### 888Starz
-- **Inscription** : `https://888ghta.com/8hwF6V`
-- **Téléchargement APK** : `https://888ghta.com/5o6glw`
-
-### Composants utilisant ces liens
-| Composant | Lien(s) |
-|---|---|
-| `src/app/vip/page.tsx` | Linebet inscription + APK, 888Starz inscription + APK |
-| `src/app/vip/VipClient.tsx` | 4 liens (Linebet + 888Starz, inscription + APK) |
-| `src/app/code-promo-linebet-senegal/LinebetClient.tsx` | 2 liens Linebet |
-| `src/app/bonus-888starz/Star888Client.tsx` | 2 liens 888Starz |
-| `src/components/bttsbet/PremiumButton.tsx` | 1 lien générique (href en prop) |
-| `src/components/bttsbet/FreePredictionsWidget.tsx` | 1 lien Linebet |
-| `src/components/bttsbet/StickyCTABar.tsx` | 1 lien Linebet |
-| `src/components/bttsbet/VipCardWidget.tsx` | 1 lien Linebet |
-| `src/components/bttsbet/VipLevelModal.tsx` | 2 liens (Linebet + 888Starz) |
-| `src/components/bttsbet/VipUnlockModal.tsx` | 2 liens (Linebet + 888Starz) |
-| `src/components/bttsbet/LinebetApkButton.tsx` | 1 lien Linebet APK |
-| `src/components/bttsbet/HowToGetVip.tsx` | 1 lien Linebet (dynamique) |
-
-## Liens externes (sociaux et contact)
-
-### Réseaux sociaux (Footer)
-- **X (Twitter)** : `https://twitter.com/bttspredict`
-- **Facebook** : `https://www.facebook.com/bttspredict`
-- **Instagram** : `https://www.instagram.com/bttspredict`
-- **LinkedIn** : `https://www.linkedin.com/company/bttspredict`
-- **YouTube** : `https://www.youtube.com/@bttspredict`
-
-### Contact
-- **Email** : `mailto:contact@bttspredict.com`
-- **WhatsApp** : `https://wa.me/15406704172` (vérification VIP)
-
-### Sources de données
-- **ESPN Soccer API** : `https://site.api.espn.com/apis/site/v2/sports/soccer/`
-- **TheSportsDB** : `https://www.thesportsdb.com/`
-- **ESPN team logos** : `https://a.espncdn.com/i/teamlogos/soccer/500/`
-
-## Liens SEO et crawlers
-
-### Sitemap
-- `https://bttspredict.com/sitemap.xml` (18 URLs canoniques)
-
-### robots.txt
-Autorise **tous les bots** :
-- **Moteurs** : Googlebot, Bingbot, DuckDuckBot, Baiduspider, YandexBot, Slurp, Sogou, Exabot, PetalBot
-- **Sociaux** : Twitterbot, LinkedInBot, FacebookBot, TelegramBot, WhatsApp, Discordbot, Pinterest, Applebot
-- **Chatbots IA** : GPTBot, ChatGPT-User, OAI-SearchBot, ClaudeBot, Claude-Web, anthropic-ai, PerplexityBot, Perplexity-User, Bytespider, Meta-ExternalAgent, Meta-ExternalFetcher, CCBot, Amazonbot, Applebot-Extended, cohere-ai, Google-Extended, GoogleOther
-- **SEO tools** : semrushbot, AhrefsBot, MJ12bot, DotBot, ImagesiftBot, Diffbot
-
-### IndexNow
-- Clé : `ba48253f4d8544b3a93cc49a1498381a`
-- Fichier de vérification : `public/ba48253f4d8544b3a93cc49a1498381a.txt`
-
-### Fichiers contextuels pour LLMs
-- `public/llms.txt` — Contexte pour ChatGPT, Perplexity, Claude, Gemini
-- `public/ai.txt` — Contexte pour AI assistants
-- `public/humans.txt` — Équipe et mission
-
-## Démarrage
+Commandes présentes dans le dépôt :
 
 ```bash
-npm install --legacy-peer-deps
-npm run dev      # http://localhost:3000
-npm run build    # Build statique → out/
-npm test         # Tests Vitest
-npm run lint     # ESLint
+npm ci --legacy-peer-deps
+npm run dev            # http://localhost:3000
+npm test               # Vitest
+npm run lint            # ESLint
+npx tsc --noEmit        # vérification TypeScript
+npm run build           # build Next.js / export statique
+npm run start           # sert le dossier exporté, si disponible
 ```
 
-## Déploiement
+## Inventaire complet des routes canoniques du sitemap
 
-Le déploiement est automatique via GitHub Actions (`.github/workflows/deploy.yml`) sur push vers `main` :
+Le tableau ci-dessous liste les **23 familles** du sitemap public. Pour les 19 familles marquées « FR/EN/AR », le chemin indiqué est celui du français; le chemin anglais est `/en` + ce chemin et le chemin arabe `/ar` + ce chemin. Exemple : `/vip`, `/en/vip`, `/ar/vip`. L’accueil est l’exception : `/`, `/en`, `/ar`. Les quatre dernières lignes sont en français seulement. Cette notation couvre les 61 URL du sitemap sans répéter chaque variante trois fois.
 
-1. Sur une PR vers `main`, le job de contrôle teste le commit de la PR avec tests, lint, typecheck et build ; aucun FTP n’est lancé.
-2. Sur push vers `main`, tag `v*`, planification ou lancement manuel, le job de déploiement utilise Node.js 22 et `npm ci --legacy-peer-deps`.
-3. Génération des pronostics (`scripts/quick-update-predictions.mjs`) depuis ESPN + TheSportsDB et validation du timestamp/coup d’envoi.
-4. Enrichissement Gemini (`scripts/enrich_predictions.py`) par lots de quatre matchs ; l’étape est tolérante à l’absence de clé ou à un échec de modèle.
-5. Vérification des résultats, mise à jour de l’historique et des transferts.
-6. Validation du dataset, build statique, copie des fichiers de routage et commit des données générées.
-7. Nettoyage prudent des anciens dossiers `_next/`, puis miroir FTP vers la racine LWS via `lftp` sans suppression générale (`--delete` absent).
-8. Notification IndexNow après un déploiement réussi.
-
-Cron : `0 */4 * * *` (six exécutions quotidiennes, toutes les quatre heures, en UTC).
-
-## Codes promo affiliés
-
-- **Linebet** : `VISION221` (majuscules)
-- **888Starz — parcours VIP et page dédiée** : `btts221` (minuscules)
-- **Page historique `/bonus-888starz`** : conserve son contenu promotionnel historique `VISION221` ; ne pas confondre cette page avec la page dédiée `/bonus-888starz-btts221`.
-- Dépôt minimum : à vérifier sur les sites officiels des bookmakers
-- WhatsApp vérification : +1 540 670 4172
-
-⚠ **Avertissement** : Les conditions et montants des bonus bookmakers peuvent évoluer. BTTSPredict ne présente plus de montants fixes ("90 000 XOF", "Bonus 200%") comme garantis — voir les mentions légales et les pages affiliées pour les formulations conditionnelles.
-
-## Palette de couleurs (Slate Design System)
-
-| Token | Couleur | Usage |
+| Famille et chemin français | Langues dans le sitemap | Fonction de la page |
 |---|---|---|
-| `bg` | `#071018` | Fond principal |
-| `surface` | `#0D1A20` | Cartes et panneaux |
-| `border` | `#5D7880` | Bordures et séparateurs |
-| `text` | `#F5F8F3` | Texte principal |
-| `textSec` | `#B7C4C1` | Texte secondaire |
-| Success / CTA | `#34D399` | État positif et données validées |
-| Data / IA / Gold | `#B8FF1A` | Pronostics, IA et accents premium |
-| Warning | `#B8FF1A` | Indicateur secondaire Over 2.5 |
-| Danger | `#FF7B7B` | Erreur et qualité LOW |
+| `/` | FR `/`, EN `/en`, AR `/ar` | Accueil et Match Center : entrée vers les matchs analysés, les pronostics du moment et le générateur de combinés. |
+| `/btts/predictions/today` | FR/EN/AR | Pronostics BTTS du jour : cartes de match, informations de rencontre, probabilités disponibles et filtres de consultation. |
+| `/over-2-5/predictions/today` | FR/EN/AR | Pronostics du jour sur plus de 2,5 buts, avec les mêmes conventions de rencontre, données et cartes. |
+| `/btts-and-over-2-5-predictions-today` | FR/EN/AR | Vue combinée des marchés BTTS et Over 2,5 pour les rencontres du jour. |
+| `/ai-correct-score-predictions` | FR/EN/AR | Estimations statistiques de scores exacts, jamais présentées comme des certitudes. |
+| `/resultats-verifies` | FR/EN/AR | Résultats des pronostics vérifiés après les matchs. |
+| `/historique` | FR/EN/AR | Archives et performances passées; garder les résultats gagnants et perdants visibles. |
+| `/vip` | FR/EN/AR | Présentation du service VIP, aperçu de marchés verrouillés et parcours d’accès; ne pas révéler les vraies sélections ni leurs cotes. |
+| `/code-promo-1xbet` | FR/EN/AR | Page promotionnelle dédiée à 1xBet et à son code partenaire. |
+| `/code-promo-linebet-senegal` | FR/EN/AR | Page promotionnelle dédiée à Linebet. L’offre confirmée par le propriétaire est mondiale malgré le libellé historique « Sénégal » de l’URL. |
+| `/code-promo-melbet` | FR/EN/AR | Page promotionnelle dédiée à MelBet et à son code partenaire. |
+| `/bonus-888starz` | FR/EN/AR | Page promotionnelle générale 888Starz. |
+| `/bonus-888starz-btts221` | FR/EN/AR | Page dédiée au code partenaire 888Starz `btts221`. |
+| `/statistiques` | FR/EN/AR | Vue générale des statistiques du service; n’afficher que des mesures étayées et expliquer leur période. |
+| `/methodologie` | FR/EN/AR | Explication du modèle, des données, des estimations et de leurs limites. |
+| `/cgu` | FR/EN/AR | Conditions générales d’utilisation. |
+| `/politique-confidentialite` | FR/EN/AR | Politique de confidentialité. |
+| `/mentions-legales` | FR/EN/AR | Mentions légales. |
+| `/jouer-responsable` | FR/EN/AR | Jeu responsable, mentions 18+ et ressources d’aide. |
+| `/btts-c-est-quoi` | FR seulement | Guide pédagogique expliquant le marché BTTS. |
+| `/btts/predictions/tomorrow` | FR seulement | Pronostics BTTS à venir pour le lendemain. |
+| `/btts/statistics` | FR seulement | Statistiques consacrées au marché BTTS. |
+| `/over-2-5/statistics` | FR seulement | Statistiques consacrées au marché Over 2,5. |
 
-## Conformité et anti-hallucination
+Autres familles présentes dans le code mais **hors des 61 URL du sitemap** : les pages dynamiques de détail de rencontre `/match/{slug}` et leurs variantes localisées `/{locale}/match/{slug}`; les routes auxiliaires `/pronostics` et `/linebet-promo-code`, dont le comportement actuel doit être vérifié avant tout changement SEO; les données `/predictions.json`, `/win-history.json`, les archives JSON, `/sitemap.xml`, `/robots.txt` et la page 404. Les pages de match réutilisent la même grammaire de données et de cartes que le reste du produit.
 
-### Données non sourcées
-- Toutes les valeurs statistiques sans source vérifiable sont marquées **"À VÉRIFIER"** dans l'UI
-- Les pages `/btts/statistics` et `/over-2-5/statistics` n'affichent aucun chiffre non sourcé
-- Aucun taux de réussite inventé pour les sports VIP
-- Aucune cote bookmaker artificielle (suppression de la colonne P/L basée sur cote 1.75 fixe)
-- Aucune promesse temporelle ("dans 7 jours", "100+ matchs vérifiés")
+## Règles produit confirmées par le propriétaire
 
-### Affirmations éditoriales alignées avec le moteur
-- Le terme "modèle IA nouvelle génération", "50+ variables", "calibration mensuelle", "entraîné sur 2023-2025" ont été supprimés du site
-- Le terme "experts" est remplacé par "modèle statistique"
-- Aucune référence à blessures/météo/H2H comme données systématiquement utilisées
-- Le AI Combo of the Day est explicitement décrit comme sélection déterministe (pas Gemini)
+Ces choix sont la référence pour toute proposition de contenu ou de design et prévalent sur les formulations anciennes visibles sur certaines pages publiques ou dans le code.
 
-### Placeholders désactivés
-- **Google Analytics** : désactivé par défaut — activé uniquement si `NEXT_PUBLIC_GA_ID` est défini dans l'environnement de build (env-gating)
-- **Firebase** : `AIzaSyDemoKeyReplaceMeWithYourOwn` dans `AuthContext.jsx` (module mort non importé, non chargé en production)
+- **Pronostics gratuits :** BTTS, Over 2,5 et scores exacts. Pas d’inscription forcée pour les consulter. Les cartes peuvent montrer discrètement les logos ou liens partenaires dans cet ordre : **1xBet → Linebet → MelBet → 888Starz**. Aucun code promo dans les cartes gratuites, les popups, la navigation générale ou la page VIP générale; les codes sont réservés aux pages promotionnelles dédiées.
+- **Aperçu VIP :** marchés éventuellement floutés ou verrouillés; ne pas révéler les vrais choix VIP ni les cotes avant le déblocage.
+- **Accès VIP :** service à vie après création d’un nouveau compte 1xBet ou Linebet via le parcours et le code du propriétaire, avec approbation manuelle. Un dépôt est requis pour le VIP, mais aucun montant n’est spécifié dans ce brief. BTTSPredict ne demande ni pièce d’identité, ni contrôle d’identité, ni identifiant de joueur. Le coupon quotidien est délivré par e-mail ou WhatsApp; cela ne doit pas devenir une demande d’identifiant ou une vérification d’identité. Certaines versions encore visibles du parcours VIP contiennent un seuil de dépôt chiffré et une vérification WhatsApp avec identifiant : ce texte ancien n’est pas approuvé et ne doit pas être repris. Ne mentionner aucun dépôt dans un popup ou une page promotionnelle; n’inventer aucun montant. La page VIP générale peut renvoyer vers la page promo dédiée pour obtenir le code, sans l’afficher.
+- **Promotions :** le propriétaire confirme un bonus de **300 % dans le monde entier** pour les quatre partenaires. Ne pas ajouter de plafond, tours gratuits, durée, condition ou autre terme non confirmé. La page Linebet actuellement visible mentionne « 100 free spins »; c’est du contenu observé, **pas une condition vérifiée**, et il ne faut pas le reprendre. Ne présente pas les offres comme garanties au-delà du 300 % confirmé; invite à vérifier les conditions officielles du partenaire.
 
-### Liens affiliés
-- **20/20 liens** avec `rel="sponsored nofollow noopener noreferrer"` (4 attributs complets)
-- Disclosure visible sur toutes les pages affiliées : "Lien d'affiliation rémunéré. BTTSPredict ne prend pas de paris et ne collecte pas de fonds."
+- **Codes et liens approuvés** (casse exacte; pour les pages dédiées correspondantes seulement) :
 
-## 18+ Jeu responsable
+| Partenaire | Code | Lien partenaire |
+|---|---|---|
+| 1xBet | `vipbtts` | `https://reffpa.com/L?tag=d_6292935m_1599c_&site=6292935&ad=1599` |
+| Linebet | `VISION221` | `https://lb-aff.com/L?tag=d_5589568m_22611c_&site=5589568&ad=22611` |
+| MelBet | `Bttswin` | `https://refpa3665.com/L?tag=d_6293054m_2170c_&site=6293054&ad=2170` |
+| 888Starz | `btts221` | `https://888ghta.com/8hwF6V` |
 
-BTTSPredict est un site informatif d'affiliation. Il ne prend pas de paris et ne collecte pas de fonds. Aucun gain n'est garanti. Les paris sportifs comportent un risque de perte. Jouez de manière responsable.
+- **Transparence :** ne jamais inventer une probabilité, statistique, cote, sélection, résultat, avantage ou promesse de gain. Éviter « sûr », « garanti » et « immanquable ». Les performances passées ne garantissent pas les résultats futurs.
+- **Jeu responsable :** mention visible 18+, avertissement que les paris comportent un risque, ton non pressant et ressources de prévention accessibles dans toutes les langues.
 
-Ressources d'aide : `/jouer-responsable`
+### SEO à protéger
+
+Ne pas changer les URL, canonicals, titres SEO, descriptions ni textes qui contribuent au classement sans justification précise par des données Search Console actuelles. Cinq routes sont particulièrement protégées : `/`, `/en`, `/en/btts-and-over-2-5-predictions-today`, `/en/over-2-5/predictions/today` et `/en/ai-correct-score-predictions`. Les instantanés Search Console disponibles se contredisent sur certains totaux; les deux montrent zéro clic français Linebet/888Starz, tandis que les données 1xBet/MelBet sont trop limitées pour conclure à un échec. Ne choisis pas arbitrairement un total et ne promets aucun gain de position ou de CTR.
+
+## Référence visuelle actuelle
+
+La CSS publiée utilise une base sombre et sportive : fond noir `#000000`, surfaces `#0A0A0C` et cartes `#141C25`, bordures `#223041`, texte principal `#F2F6FA`, texte secondaire `#9DABBB`, bleu d’action `#2F7DFF`, accent BTTS cyan `#45C7F7`, accent Over 2,5 bleu `#5BA9FF`, accent VIP or chaud `#E8C268` et vert de validation `#34D399`. C’est un point de départ pour reconnaître la marque, pas une consigne de recopier exactement l’interface existante : le propriétaire souhaite que Meta propose sa propre touche, palette et présentation tout en gardant BTTSPredict reconnaissable.
+
+## Prompt Meta
+
+**Envoyer le bloc ci-dessous à Meta. Il est autonome et ne requiert aucune pièce jointe. Meta doit d’abord lire le README entier, puis expliquer sa vision artistique par écrit; il ne doit pas dessiner les maquettes.**
+
+```text
+RÔLE ET PREMIÈRE ÉTAPE
+Tu es directeur artistique senior spécialisé en produits sportifs numériques et en interfaces premium. Avant de répondre, lis intégralement le README de ce dépôt, du début à la fin, afin de comprendre BTTSPredict, chaque famille de pages, ses données, ses règles et son statut. Ne te limite pas au titre ou à cette section. Le brief est autonome : si tu ne peux pas parcourir les autres fichiers du dépôt, n’en réclame pas et travaille uniquement à partir des informations du README.
+
+MISSION — EXPLIQUER TA DIRECTION, PAS FAIRE LES MAQUETTES
+Après avoir compris le projet, propose UNE seule direction artistique globale pour toute la plateforme BTTSPredict. Décris ta vision avec précision : concept et personnalité, palette de couleurs, nuances et contrastes, textures et traitements de matière, typographies, espaces, hiérarchie, principes de mise en page, composants, navigation, présentation de chaque famille de pages et langage d’animation/mouvement. Explique comment un même système peut être cohérent sur tout le site tout en donnant à chaque page une hiérarchie adaptée à son usage.
+
+Ne produis AUCUNE maquette visuelle, image, prototype, code, HTML/CSS, patch ou modification du dépôt. Ne proposes pas six variantes : donne un thème global cohérent, une seule proposition expliquée. L’équipe BTTSPredict construira ensuite elle-même un aperçu/une maquette locale à partir de tes recommandations. Le propriétaire examinera cette version locale et décidera s’il l’approuve ou demande des changements. Rien ne sera publié ni déployé avant l’approbation explicite du propriétaire des captures finales localisées.
+
+LE PRODUIT ET SON PUBLIC
+BTTSPredict (https://bttspredict.com) est une plateforme d’information et de pronostics de football avec affiliation partenaire; ce n’est pas un bookmaker, ne prend pas de paris et ne garantit aucun gain. Le public est surtout mobile, francophone ou anglophone, principalement en Afrique de l’Ouest. Il existe aussi une version arabe, qui doit être une véritable expérience RTL. Les locales sont FR, EN et AR.
+
+Le produit couvre gratuitement BTTS (les deux équipes marquent), Over 2,5 buts et scores exacts. Les données viennent du système football de BTTSPredict, qui utilise notamment ESPN et TheSportsDB, des fichiers de pronostics quotidiens et un historique des résultats. Les probabilités sont des estimations statistiques. Certaines cotes sont issues d’une source disponible et d’autres peuvent être des estimations : ne les confonds pas et n’invente aucune valeur. Les résultats gagnants et perdants restent visibles dans l’historique.
+
+Le Match Center affiche les rencontres disponibles, des filtres de période, les horaires/états de match et des cartes qui peuvent lier vers le détail d’une rencontre. Le Combo Builder porte le nom « AI », mais son mécanisme actuel est déterministe : l’utilisateur choisit une cote cible et un nombre de matchs de 2 à 5, puis l’outil assemble des choix disponibles sur des matchs futurs et présente des estimations combinées. Ce n’est pas un chatbot. Toute mise ou tout retour affiché est une simulation, jamais une promesse.
+
+LES FAMILLES DE PAGES À PRENDRE EN COMPTE
+Le sitemap public contient 61 URL : 19 familles localisées en français, anglais et arabe (chemin sans préfixe en FR, /en en EN, /ar en AR), puis quatre familles en français seulement. Comprends et adresse chacune de ces pages ou familles :
+• Accueil (/, /en, /ar) et Match Center avec Combo Builder.
+• Pronostics BTTS du jour (/btts/predictions/today), Over 2,5 du jour (/over-2-5/predictions/today), et vue combinée BTTS + Over 2,5 (/btts-and-over-2-5-predictions-today).
+• Scores exacts (/ai-correct-score-predictions).
+• Résultats vérifiés (/resultats-verifies) et historique/archive (/historique).
+• Espace VIP avec aperçu verrouillé (/vip).
+• Les pages partenaires séparées : 1xBet (/code-promo-1xbet), Linebet (/code-promo-linebet-senegal), MelBet (/code-promo-melbet), 888Starz générale (/bonus-888starz) et 888Starz dédiée au code btts221 (/bonus-888starz-btts221).
+• Statistiques générales (/statistiques) et méthodologie (/methodologie).
+• Conditions (/cgu), confidentialité (/politique-confidentialite), mentions légales (/mentions-legales) et jeu responsable (/jouer-responsable).
+• Pages françaises seulement : guide BTTS (/btts-c-est-quoi), pronostics BTTS de demain (/btts/predictions/tomorrow), statistiques BTTS (/btts/statistics) et statistiques Over 2,5 (/over-2-5/statistics).
+• Détail dynamique d’un match (/match/{slug}), aussi localisé lorsqu’il existe.
+
+RÈGLES PRODUIT DU PROPRIÉTAIRE — À RESPECTER
+1. Les contenus gratuits sont BTTS, Over 2,5 et scores exacts, sans inscription obligatoire. Les cartes gratuites peuvent montrer discrètement les logos/liens 1xBet, Linebet, MelBet, 888Starz dans cet ordre; jamais de code promotionnel sur les cartes.
+2. Le VIP est un accès à vie après création d’un nouveau compte partenaire 1xBet ou Linebet avec le code du propriétaire, puis approbation manuelle. Un dépôt est requis uniquement pour VIP, sans montant précisé dans ce brief. BTTSPredict ne demande ni pièce d’identité, ni vérification d’identité, ni identifiant joueur. Le coupon quotidien est envoyé par e-mail ou WhatsApp; ne le transforme pas en vérification d’identité ou demande d’identifiant. Certaines anciennes versions du parcours VIP affichent encore un seuil de dépôt chiffré et une validation WhatsApp avec identifiant; ces formulations ne sont pas approuvées et ne doivent pas être reproduites. N’évoque aucun dépôt dans une popup ou une page promotionnelle. Sur la page VIP générale, renvoie vers la page promo dédiée pour le code sans y afficher le code. Les vrais marchés VIP et leurs cotes doivent rester floutés/verrouillés dans l’aperçu.
+3. Le propriétaire confirme un bonus de 300 % dans le monde entier pour chacun des quatre partenaires. N’invente aucun plafond, spin gratuit, durée, seuil ou terme supplémentaire. La page Linebet actuellement visible mentionne « 100 free spins »; cette mention n’est pas vérifiée, ne la présente pas comme un avantage confirmé.
+4. Codes et liens approuvés, casse exacte, à utiliser uniquement sur les pages promo dédiées :
+   • 1xBet — vipbtts — https://reffpa.com/L?tag=d_6292935m_1599c_&site=6292935&ad=1599
+   • Linebet — VISION221 — https://lb-aff.com/L?tag=d_5589568m_22611c_&site=5589568&ad=22611
+   • MelBet — Bttswin — https://refpa3665.com/L?tag=d_6293054m_2170c_&site=6293054&ad=2170
+   • 888Starz — btts221 — https://888ghta.com/8hwF6V
+5. N’invente aucun match, prédiction, probabilité, cote, résultat, statistique, bonus ou garantie de gain. Ne qualifie jamais un pari de « sûr » ou « garanti ». Les performances passées ne garantissent pas les résultats futurs.
+6. Rends la mention 18+, les risques de paris et le jeu responsable visibles et compréhensibles, sans pousser à déposer ou parier.
+
+COULEURS EXISTANTES ET LIBERTÉ CRÉATIVE
+L’interface actuelle fournit une référence sombre : fond noir (#000000), panneaux #0A0A0C et #141C25, bordures #223041, texte #F2F6FA et secondaire #9DABBB, bleu #2F7DFF, cyan BTTS #45C7F7, bleu Over #5BA9FF, or VIP #E8C268, vert #34D399. Le propriétaire t’autorise à proposer tes propres couleurs, nuances, textures et finitions; ne te contente pas de recopier ces valeurs. Garde toutefois une identité BTTSPredict reconnaissable et explique comment ta proposition s’appuie sur l’existant ou le fait évoluer.
+
+Le résultat recherché est une plateforme premium, moderne, fluide, très claire et simple à comprendre — un dashboard sportif, pas un blog, un magazine ou une page éditoriale. Décris des principes réellement responsive mobile et desktop, une hiérarchie simple, des composants réutilisables et des transitions utiles plutôt que décoratives. Pour AR, précise comment le système devient RTL (alignements, ordre, sens des flèches, nombres, tableaux et navigation), pas seulement traduit. Les animations doivent rester subtiles, rapides, accessibles et respecter la réduction des mouvements.
+
+GARDE-FOUS SEO ET DONNÉES
+Ne propose aucun changement d’URL, de canonical, de titre/meta description ou de contenu qui soutient le référencement sans données Search Console actuelles. Les cinq pages particulièrement protégées sont /, /en, /en/btts-and-over-2-5-predictions-today, /en/over-2-5/predictions/today et /en/ai-correct-score-predictions. Les instantanés Search Console disponibles divergent sur certains totaux; ne choisis pas arbitrairement un nombre, ne prétends pas qu’une campagne a échoué et ne promets aucune amélioration de classement ou de CTR.
+
+TA RÉPONSE ATTENDUE
+Lis d’abord tout le README. Puis rends uniquement une explication écrite, claire et structurée, de ta direction globale : concept, personnalité, palette que tu proposes avec contrastes, textures/matières, typographies, grille et mise en page, composants, navigation, motion design, accessibilité et déclinaison par chacune des familles de pages listées. Fais ressortir ce qui doit être commun et ce qui doit changer selon l’objectif d’une page. N’ajoute ni maquette, ni image, ni code, ni fichier. L’équipe BTTSPredict transformera ensuite ta description en aperçus locaux; le propriétaire les approuvera ou demandera des corrections avant toute publication.
+```
 
 ## Documentation
 
-- `GLM_MASTER_EXECUTION_REPORT.md` — Rapport d'exécution complet (Tâches 001-002)
-- `GLM_TASK_003_REPORT.md` — Audit pré-merge
-- `GLM_TASK_004_REPORT.md` — Statistiques sourcées
-- `GLM_TASK_005_REPORT.md` — Harmonisation liens affiliés
-
-## Licence
-
-Données ESPN publiques. Code propriétaire BTTSPredict. Aucune garantie future. 18+.
+Ce README est le brief à partager à Meta : le prompt et le contexte complet restent dans ce fichier, sans document externe à joindre. L’inventaire des routes correspond au sitemap public consulté le 4 novembre 2026.
