@@ -11686,7 +11686,8 @@
       "homeLambda": 2,
       "awayLambda": 1.33,
       "modelEngine": "empirical-form+gemini",
-      "statsOnly": true
+      "statsOnly": true,
+      "status": "PENDING"
     },
     {
       "id": "celtavig-vs-unionstg-2026-11-05",
@@ -12090,7 +12091,8 @@
       "homeLambda": 1.5,
       "awayLambda": 1.25,
       "modelEngine": "empirical-form+gemini",
-      "statsOnly": true
+      "statsOnly": true,
+      "status": "PENDING"
     },
     {
       "id": "monza-vs-atalanta-2026-11-08",
@@ -12498,7 +12500,847 @@
       "homeLambda": 3,
       "awayLambda": 0.6,
       "modelEngine": "empirical-form+gemini",
-      "statsOnly": true
+      "statsOnly": true,
+      "status": "PENDING"
+    },
+    {
+      "id": "celtic-vs-besiktas-2026-11-05",
+      "match": "Celtic vs Besiktas",
+      "home": "Celtic",
+      "away": "Besiktas",
+      "league": "UEFA Europa League",
+      "date": "2026-11-05",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.6,
+      "bttsProbDisplay": "50.00%",
+      "over25ProbDisplay": "60.00%",
+      "confidence": 60,
+      "time": "20:00",
+      "matchSemantic": "celtic-vs-besiktas-2026-11-05",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/256.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1895.png",
+      "tier": "GOLD",
+      "reliabilityScore": 80.63,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 1,
+      "xgTotal": 4,
+      "formBTTS": 50,
+      "analysis": "Celtic : forme N-V-V-V-D (3V 1N 1D, 13 buts marqués / 5 encaissés sur 5) · Besiktas : forme V-D-V-D-V (3V 0N 2D, 9 buts marqués / 6 encaissés sur 5). Classement : Celtic 35e (? pts), Besiktas 8e (7 pts). Stats empiriques (forme récente) : buts moy. 4, BTTS 50.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.9 / N: 3.75 / 2: 2.25 · Over 2.5: 1.59. Fiabilité 80.63%.",
+      "analysisData": {
+        "bttsProb": 0.5,
+        "over25Prob": 0.6,
+        "homeLambda": 3,
+        "awayLambda": 1,
+        "xgTotal": 4
+      },
+      "estimatedCote": 2,
+      "estimatedCoteOver": 1.67,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.9,
+        "draw": 3.75,
+        "away": 2.25,
+        "over25": 1.59,
+        "under25": 2.3
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 2,
+      "formHome": {
+        "last5String": "N-V-V-V-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 13,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-V-D-V",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 6,
+        "bttsRate": 0.4,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Falkirk",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Dundee United",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Hibernian",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Heart of Midlothian",
+          "venue": "H",
+          "score": "7-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Motherwell",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Kasimpasa",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-26",
+          "opponent": "Istanbul Basaksehir",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Trabzonspor",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Kocaelispor",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Amed SFK",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 35,
+        "points": null,
+        "played": 3,
+        "gf": 3,
+        "ga": 9
+      },
+      "standingsAway": {
+        "rank": 8,
+        "points": 7,
+        "played": 3,
+        "gf": 9,
+        "ga": 5
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 50,
+          "bttsProb": 0.5,
+          "homeLambda": 3,
+          "awayLambda": 1,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 60,
+          "over25Prob": 0.6,
+          "homeLambda": 3,
+          "awayLambda": 1,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.6
+        }
+      ],
+      "bttsProb": 0.5,
+      "over25Prob": 0.6,
+      "homeLambda": 3,
+      "awayLambda": 1,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Celtic affiche une moyenne de 3 buts marqués par match à domicile et un taux Over 2.5 de 60%.",
+      "ai_analysis": "Les données démontrent une propension nette de Celtic à animer ses matchs à domicile avec une moyenne impressionnante de 3 buts marqués. Le taux empirique Over 2.5 est établi à 60%, appuyé par des taux individuels similaires pour les deux formations. Bien que la moyenne offensive de Besiktas à l'extérieur soit plus faible, la structure des statistiques penche favorablement vers un match avec plus de 2.5 buts.",
+      "ai_analysis_en": "The data demonstrates a clear propensity for Celtic to feature in high-scoring home games with an impressive average of 3 goals scored. The empirical Over 2.5 rate is set at 60%, supported by similar individual rates for both teams. Although Besiktas's away scoring average is lower, the statistical structure leans favorably toward a match with over 2.5 goals.",
+      "ai_form_summary": "Celtic: 3V-1N-1D (13 buts pour, 5 buts contre, 60% Over 2.5). Besiktas: 3V-0N-2D (9 buts pour, 6 buts contre, 60% Over 2.5).",
+      "ai_form_summary_en": "Celtic: 3W-1D-1L (13 GF, 5 GA, 60% Over 2.5). Besiktas: 3W-0D-2L (9 GF, 6 GA, 60% Over 2.5).",
+      "ai_reasons": [
+        "Taux empirique Over 2.5 à 60% pour ce match.",
+        "Moyenne de buts élevée pour Celtic à domicile (3 buts par match sur 8 rencontres).",
+        "Taux Over 2.5 individuel de 60% pour les deux équipes."
+      ],
+      "ai_risks": [
+        "Besiktas possède une moyenne de buts de 1 à l'extérieur.",
+        "Le taux BTTS empirique est modéré à 50%."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.75 · 2 2.25 · O2.5 1.59",
+      "status": "PENDING"
+    },
+    {
+      "id": "sinttrui-vs-skbrann-2026-11-05",
+      "match": "Sint-Truidense vs SK Brann",
+      "home": "Sint-Truidense",
+      "away": "SK Brann",
+      "league": "UEFA Conference League",
+      "date": "2026-11-05",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 70,
+      "time": "20:00",
+      "matchSemantic": "sinttrui-vs-skbrann-2026-11-05",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/936.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/620.png",
+      "tier": "GOLD",
+      "reliabilityScore": 80.63,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.25,
+      "xgAway": 0.75,
+      "xgTotal": 2,
+      "formBTTS": 70,
+      "analysis": "Sint-Truidense : forme D-D-D-D-D (0V 0N 5D, 6 buts marqués / 13 encaissés sur 5) · SK Brann : forme V-D-D-D-V (2V 0N 3D, 8 buts marqués / 11 encaissés sur 5). Classement : Sint-Truidense 7e (6 pts), SK Brann 3e (6 pts). Stats empiriques (forme récente) : buts moy. 2, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Fiabilité 80.63%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 1.25,
+        "awayLambda": 0.75,
+        "xgTotal": 2
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "D-D-D-D-D",
+        "wins": 0,
+        "draws": 0,
+        "losses": 5,
+        "goalsFor": 6,
+        "goalsAgainst": 13,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-D-D-V",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 8,
+        "goalsAgainst": 11,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Oud-Heverlee Leuven",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Club Brugge",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "KV Mechelen",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "KVC Westerlo",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Waasland-Beveren",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Molde",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Lillestrom",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Vålerenga",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Viking FK",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Bodo/Glimt",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 7,
+        "points": 6,
+        "played": 2,
+        "gf": 3,
+        "ga": null
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 6,
+        "played": 2,
+        "gf": 6,
+        "ga": 2
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "bttsProb": 0.65,
+          "homeLambda": 1.25,
+          "awayLambda": 0.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.65
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 70,
+          "over25Prob": 0.7,
+          "homeLambda": 1.25,
+          "awayLambda": 0.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.7
+        }
+      ],
+      "bttsProb": 0.65,
+      "over25Prob": 0.7,
+      "homeLambda": 1.25,
+      "awayLambda": 0.75,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Form signals BTTS 65% / Over 70%",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 65.0%, Over 2.5 70.0% for Sint-Truidense vs SK Brann. Decision: OVER_25.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 65.0%, Over 2.5 empirique 70.0% pour Sint-Truidense vs SK Brann. Décision :",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 65.0%, Over 2.5 70.0% for Sint-Truidense vs SK Brann. Decision: OVER_25.",
+      "ai_reasons": [
+        "Empirical BTTS rate ~65%",
+        "Empirical Over 2.5 rate ~70%"
+      ],
+      "ai_risks": [
+        "Sample limited to recent matches; form can shift quickly."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "local-empirical-v1",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 65.0%, Over 2.5 empirique 70.0% pour Sint-Truidense vs SK Brann. Décision : OVER_25.",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
+    },
+    {
+      "id": "fcthun-vs-heartofm-2026-11-05",
+      "match": "FC Thun vs Heart of Midlothian",
+      "home": "FC Thun",
+      "away": "Heart of Midlothian",
+      "league": "UEFA Conference League",
+      "date": "2026-11-05",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 70,
+      "time": "17:45",
+      "matchSemantic": "fcthun-vs-heartofm-2026-11-05",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3024.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/262.png",
+      "tier": "GOLD",
+      "reliabilityScore": 77.88,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 7,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.33,
+      "xgAway": 1.6,
+      "xgTotal": 2.93,
+      "formBTTS": 70,
+      "analysis": "FC Thun : forme D-D-N-V-V (2V 1N 2D, 10 buts marqués / 9 encaissés sur 5) · Heart of Midlothian : forme N-V-D-V-N (2V 2N 1D, 11 buts marqués / 10 encaissés sur 5). Classement : FC Thun 32e (? pts), Heart of Midlothian 28e (1 pts). Stats empiriques (forme récente) : buts moy. 2.93, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.25 / N: 3.75 / 2: 3. Fiabilité 77.88%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 1.33,
+        "awayLambda": 1.6,
+        "xgTotal": 2.93
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.25,
+        "draw": 3.75,
+        "away": 3,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "D-D-N-V-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 10,
+        "goalsAgainst": 9,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-V-D-V-N",
+        "wins": 2,
+        "draws": 2,
+        "losses": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 10,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2025-09-28",
+          "opponent": "Young Boys",
+          "venue": "A",
+          "score": "2-4",
+          "result": "L"
+        },
+        {
+          "date": "2025-09-13",
+          "opponent": "FC Basel",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2025-08-30",
+          "opponent": "Grasshoppers",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2025-08-23",
+          "opponent": "FC Zürich",
+          "venue": "A",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2025-08-09",
+          "opponent": "FC Luzern",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-28",
+          "opponent": "Rangers",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Motherwell",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Celtic",
+          "venue": "A",
+          "score": "1-7",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "St Mirren",
+          "venue": "H",
+          "score": "5-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Kilmarnock",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 32,
+        "points": null,
+        "played": 2,
+        "gf": null,
+        "ga": 2
+      },
+      "standingsAway": {
+        "rank": 28,
+        "points": 1,
+        "played": 2,
+        "gf": 1,
+        "ga": 3
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 1.33,
+          "awayLambda": 1.6,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 70,
+          "over25Prob": 0.7,
+          "homeLambda": 1.33,
+          "awayLambda": 1.6,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.7
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.7,
+      "homeLambda": 1.33,
+      "awayLambda": 1.6,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Form signals BTTS 70% / Over 70%",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour FC Thun vs Heart of Midlothian. Décision : OVER_25.",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for FC Thun vs Heart of Midlothian. Decision: OVER_25.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour FC Thun vs Heart of Midlothian. Décisio",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for FC Thun vs Heart of Midlothian. Decision: OVER_25.",
+      "ai_reasons": [
+        "Empirical BTTS rate ~70%",
+        "Empirical Over 2.5 rate ~70%"
+      ],
+      "ai_risks": [
+        "Sample limited to recent matches; form can shift quickly."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "local-empirical-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.25 · N 3.75 · 2 3"
+    },
+    {
+      "id": "hamburgs-vs-borussia-2026-11-06",
+      "match": "Hamburg SV vs Borussia Mönchengladbach",
+      "home": "Hamburg SV",
+      "away": "Borussia Mönchengladbach",
+      "league": "Bundesliga",
+      "date": "2026-11-06",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 70,
+      "time": "19:30",
+      "matchSemantic": "hamburgs-vs-borussia-2026-11-06",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/127.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/268.png",
+      "tier": "GOLD",
+      "reliabilityScore": 80.63,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1,
+      "xgAway": 1,
+      "xgTotal": 2,
+      "formBTTS": 70,
+      "analysis": "Hamburg SV : forme D-D-V-V-V (3V 0N 2D, 7 buts marqués / 7 encaissés sur 5) · Borussia Mönchengladbach : forme N-V-D-D-D (1V 1N 3D, 8 buts marqués / 10 encaissés sur 5). Classement : Hamburg SV 15e (9 pts), Borussia Mönchengladbach 18e (4 pts). Stats empiriques (forme récente) : buts moy. 2, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Fiabilité 80.63%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 1,
+        "awayLambda": 1,
+        "xgTotal": 2
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "D-D-V-V-V",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-V-D-D-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 8,
+        "goalsAgainst": 10,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Eintracht Frankfurt",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "SC Paderborn 07",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "VfB Stuttgart",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "TSG Hoffenheim",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "FC Cologne",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-31",
+          "opponent": "SC Paderborn 07",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "VfB Stuttgart",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "TSG Hoffenheim",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "FC Cologne",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Mainz",
+          "venue": "H",
+          "score": "3-4",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 15,
+        "points": 9,
+        "played": 8,
+        "gf": 7,
+        "ga": 19
+      },
+      "standingsAway": {
+        "rank": 18,
+        "points": 4,
+        "played": 8,
+        "gf": 11,
+        "ga": 22
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 1,
+          "awayLambda": 1,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 70,
+          "over25Prob": 0.7,
+          "homeLambda": 1,
+          "awayLambda": 1,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.7
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.7,
+      "homeLambda": 1,
+      "awayLambda": 1,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Form signals BTTS 70% / Over 70%",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Hamburg SV vs Borussia Mönchengladbach. Décision : OVER_25.",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Hamburg SV vs Borussia Mönchengladbach. Decision: OVER_25.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Hamburg SV vs Borussia Mönchengladbach.",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Hamburg SV vs Borussia Mönchengladbach. Decision: OVER_25.",
+      "ai_reasons": [
+        "Empirical BTTS rate ~70%",
+        "Empirical Over 2.5 rate ~70%"
+      ],
+      "ai_risks": [
+        "Sample limited to recent matches; form can shift quickly."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "local-empirical-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement."
     }
   ],
   "stats": {
@@ -25007,6 +25849,847 @@
       "awayLambda": 0.6,
       "modelEngine": "empirical-form+gemini",
       "statsOnly": true,
+      "status": "PENDING"
+    },
+    {
+      "id": "celtic-vs-besiktas-2026-11-05",
+      "match": "Celtic vs Besiktas",
+      "home": "Celtic",
+      "away": "Besiktas",
+      "league": "UEFA Europa League",
+      "date": "2026-11-05",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.6,
+      "bttsProbDisplay": "50.00%",
+      "over25ProbDisplay": "60.00%",
+      "confidence": 60,
+      "time": "20:00",
+      "matchSemantic": "celtic-vs-besiktas-2026-11-05",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/256.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1895.png",
+      "tier": "GOLD",
+      "reliabilityScore": 80.63,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 3,
+      "xgAway": 1,
+      "xgTotal": 4,
+      "formBTTS": 50,
+      "analysis": "Celtic : forme N-V-V-V-D (3V 1N 1D, 13 buts marqués / 5 encaissés sur 5) · Besiktas : forme V-D-V-D-V (3V 0N 2D, 9 buts marqués / 6 encaissés sur 5). Classement : Celtic 35e (? pts), Besiktas 8e (7 pts). Stats empiriques (forme récente) : buts moy. 4, BTTS 50.0%, Over 2.5 60.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.9 / N: 3.75 / 2: 2.25 · Over 2.5: 1.59. Fiabilité 80.63%.",
+      "analysisData": {
+        "bttsProb": 0.5,
+        "over25Prob": 0.6,
+        "homeLambda": 3,
+        "awayLambda": 1,
+        "xgTotal": 4
+      },
+      "estimatedCote": 2,
+      "estimatedCoteOver": 1.67,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.9,
+        "draw": 3.75,
+        "away": 2.25,
+        "over25": 1.59,
+        "under25": 2.3
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 2,
+      "formHome": {
+        "last5String": "N-V-V-V-D",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "goalsFor": 13,
+        "goalsAgainst": 5,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-V-D-V",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 9,
+        "goalsAgainst": 6,
+        "bttsRate": 0.4,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Falkirk",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "Dundee United",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Hibernian",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Heart of Midlothian",
+          "venue": "H",
+          "score": "7-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Motherwell",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Kasimpasa",
+          "venue": "A",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-26",
+          "opponent": "Istanbul Basaksehir",
+          "venue": "H",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Trabzonspor",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "Kocaelispor",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Amed SFK",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 35,
+        "points": null,
+        "played": 3,
+        "gf": 3,
+        "ga": 9
+      },
+      "standingsAway": {
+        "rank": 8,
+        "points": 7,
+        "played": 3,
+        "gf": 9,
+        "ga": 5
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 50,
+          "bttsProb": 0.5,
+          "homeLambda": 3,
+          "awayLambda": 1,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 60,
+          "over25Prob": 0.6,
+          "homeLambda": 3,
+          "awayLambda": 1,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.6
+        }
+      ],
+      "bttsProb": 0.5,
+      "over25Prob": 0.6,
+      "homeLambda": 3,
+      "awayLambda": 1,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Celtic affiche une moyenne de 3 buts marqués par match à domicile et un taux Over 2.5 de 60%.",
+      "ai_analysis": "Les données démontrent une propension nette de Celtic à animer ses matchs à domicile avec une moyenne impressionnante de 3 buts marqués. Le taux empirique Over 2.5 est établi à 60%, appuyé par des taux individuels similaires pour les deux formations. Bien que la moyenne offensive de Besiktas à l'extérieur soit plus faible, la structure des statistiques penche favorablement vers un match avec plus de 2.5 buts.",
+      "ai_analysis_en": "The data demonstrates a clear propensity for Celtic to feature in high-scoring home games with an impressive average of 3 goals scored. The empirical Over 2.5 rate is set at 60%, supported by similar individual rates for both teams. Although Besiktas's away scoring average is lower, the statistical structure leans favorably toward a match with over 2.5 goals.",
+      "ai_form_summary": "Celtic: 3V-1N-1D (13 buts pour, 5 buts contre, 60% Over 2.5). Besiktas: 3V-0N-2D (9 buts pour, 6 buts contre, 60% Over 2.5).",
+      "ai_form_summary_en": "Celtic: 3W-1D-1L (13 GF, 5 GA, 60% Over 2.5). Besiktas: 3W-0D-2L (9 GF, 6 GA, 60% Over 2.5).",
+      "ai_reasons": [
+        "Taux empirique Over 2.5 à 60% pour ce match.",
+        "Moyenne de buts élevée pour Celtic à domicile (3 buts par match sur 8 rencontres).",
+        "Taux Over 2.5 individuel de 60% pour les deux équipes."
+      ],
+      "ai_risks": [
+        "Besiktas possède une moyenne de buts de 1 à l'extérieur.",
+        "Le taux BTTS empirique est modéré à 50%."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "gemini-stats-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.9 · N 3.75 · 2 2.25 · O2.5 1.59",
+      "status": "PENDING"
+    },
+    {
+      "id": "sinttrui-vs-skbrann-2026-11-05",
+      "match": "Sint-Truidense vs SK Brann",
+      "home": "Sint-Truidense",
+      "away": "SK Brann",
+      "league": "UEFA Conference League",
+      "date": "2026-11-05",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 70,
+      "time": "20:00",
+      "matchSemantic": "sinttrui-vs-skbrann-2026-11-05",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/936.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/620.png",
+      "tier": "GOLD",
+      "reliabilityScore": 80.63,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.25,
+      "xgAway": 0.75,
+      "xgTotal": 2,
+      "formBTTS": 70,
+      "analysis": "Sint-Truidense : forme D-D-D-D-D (0V 0N 5D, 6 buts marqués / 13 encaissés sur 5) · SK Brann : forme V-D-D-D-V (2V 0N 3D, 8 buts marqués / 11 encaissés sur 5). Classement : Sint-Truidense 7e (6 pts), SK Brann 3e (6 pts). Stats empiriques (forme récente) : buts moy. 2, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Fiabilité 80.63%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 1.25,
+        "awayLambda": 0.75,
+        "xgTotal": 2
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "D-D-D-D-D",
+        "wins": 0,
+        "draws": 0,
+        "losses": 5,
+        "goalsFor": 6,
+        "goalsAgainst": 13,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 0,
+        "failedToScore": 2,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "V-D-D-D-V",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "goalsFor": 8,
+        "goalsAgainst": 11,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 0,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Oud-Heverlee Leuven",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Club Brugge",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "KV Mechelen",
+          "venue": "A",
+          "score": "3-4",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "KVC Westerlo",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Waasland-Beveren",
+          "venue": "A",
+          "score": "0-2",
+          "result": "L"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Molde",
+          "venue": "H",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Lillestrom",
+          "venue": "A",
+          "score": "2-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Vålerenga",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Viking FK",
+          "venue": "H",
+          "score": "0-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-20",
+          "opponent": "Bodo/Glimt",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "standingsHome": {
+        "rank": 7,
+        "points": 6,
+        "played": 2,
+        "gf": 3,
+        "ga": null
+      },
+      "standingsAway": {
+        "rank": 3,
+        "points": 6,
+        "played": 2,
+        "gf": 6,
+        "ga": 2
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 65,
+          "bttsProb": 0.65,
+          "homeLambda": 1.25,
+          "awayLambda": 0.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.65
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 70,
+          "over25Prob": 0.7,
+          "homeLambda": 1.25,
+          "awayLambda": 0.75,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.7
+        }
+      ],
+      "bttsProb": 0.65,
+      "over25Prob": 0.7,
+      "homeLambda": 1.25,
+      "awayLambda": 0.75,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Form signals BTTS 65% / Over 70%",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 65.0%, Over 2.5 70.0% for Sint-Truidense vs SK Brann. Decision: OVER_25.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 65.0%, Over 2.5 empirique 70.0% pour Sint-Truidense vs SK Brann. Décision :",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 65.0%, Over 2.5 70.0% for Sint-Truidense vs SK Brann. Decision: OVER_25.",
+      "ai_reasons": [
+        "Empirical BTTS rate ~65%",
+        "Empirical Over 2.5 rate ~70%"
+      ],
+      "ai_risks": [
+        "Sample limited to recent matches; form can shift quickly."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "local-empirical-v1",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 65.0%, Over 2.5 empirique 70.0% pour Sint-Truidense vs SK Brann. Décision : OVER_25.",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
+      "status": "PENDING"
+    },
+    {
+      "id": "fcthun-vs-heartofm-2026-11-05",
+      "match": "FC Thun vs Heart of Midlothian",
+      "home": "FC Thun",
+      "away": "Heart of Midlothian",
+      "league": "UEFA Conference League",
+      "date": "2026-11-05",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 70,
+      "time": "17:45",
+      "matchSemantic": "fcthun-vs-heartofm-2026-11-05",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3024.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/262.png",
+      "tier": "GOLD",
+      "reliabilityScore": 77.88,
+      "dataQuality": "MEDIUM",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 7,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1.33,
+      "xgAway": 1.6,
+      "xgTotal": 2.93,
+      "formBTTS": 70,
+      "analysis": "FC Thun : forme D-D-N-V-V (2V 1N 2D, 10 buts marqués / 9 encaissés sur 5) · Heart of Midlothian : forme N-V-D-V-N (2V 2N 1D, 11 buts marqués / 10 encaissés sur 5). Classement : FC Thun 32e (? pts), Heart of Midlothian 28e (1 pts). Stats empiriques (forme récente) : buts moy. 2.93, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Cotes DraftKings — 1: 2.25 / N: 3.75 / 2: 3. Fiabilité 77.88%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 1.33,
+        "awayLambda": 1.6,
+        "xgTotal": 2.93
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": {
+        "provider": "DraftKings",
+        "home": 2.25,
+        "draw": 3.75,
+        "away": 3,
+        "over25": null,
+        "under25": null
+      },
+      "oddsSource": "DraftKings",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "D-D-N-V-V",
+        "wins": 2,
+        "draws": 1,
+        "losses": 2,
+        "goalsFor": 10,
+        "goalsAgainst": 9,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-V-D-V-N",
+        "wins": 2,
+        "draws": 2,
+        "losses": 1,
+        "goalsFor": 11,
+        "goalsAgainst": 10,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 2,
+        "failedToScore": 0,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2025-09-28",
+          "opponent": "Young Boys",
+          "venue": "A",
+          "score": "2-4",
+          "result": "L"
+        },
+        {
+          "date": "2025-09-13",
+          "opponent": "FC Basel",
+          "venue": "H",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2025-08-30",
+          "opponent": "Grasshoppers",
+          "venue": "H",
+          "score": "1-1",
+          "result": "D"
+        },
+        {
+          "date": "2025-08-23",
+          "opponent": "FC Zürich",
+          "venue": "A",
+          "score": "4-0",
+          "result": "W"
+        },
+        {
+          "date": "2025-08-09",
+          "opponent": "FC Luzern",
+          "venue": "A",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-28",
+          "opponent": "Rangers",
+          "venue": "H",
+          "score": "2-2",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-25",
+          "opponent": "Motherwell",
+          "venue": "A",
+          "score": "2-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "Celtic",
+          "venue": "A",
+          "score": "1-7",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "St Mirren",
+          "venue": "H",
+          "score": "5-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Kilmarnock",
+          "venue": "A",
+          "score": "1-1",
+          "result": "D"
+        }
+      ],
+      "standingsHome": {
+        "rank": 32,
+        "points": null,
+        "played": 2,
+        "gf": null,
+        "ga": 2
+      },
+      "standingsAway": {
+        "rank": 28,
+        "points": 1,
+        "played": 2,
+        "gf": 1,
+        "ga": 3
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 1.33,
+          "awayLambda": 1.6,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 70,
+          "over25Prob": 0.7,
+          "homeLambda": 1.33,
+          "awayLambda": 1.6,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.7
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.7,
+      "homeLambda": 1.33,
+      "awayLambda": 1.6,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Form signals BTTS 70% / Over 70%",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour FC Thun vs Heart of Midlothian. Décision : OVER_25.",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for FC Thun vs Heart of Midlothian. Decision: OVER_25.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour FC Thun vs Heart of Midlothian. Décisio",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for FC Thun vs Heart of Midlothian. Decision: OVER_25.",
+      "ai_reasons": [
+        "Empirical BTTS rate ~70%",
+        "Empirical Over 2.5 rate ~70%"
+      ],
+      "ai_risks": [
+        "Sample limited to recent matches; form can shift quickly."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "local-empirical-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché (DraftKings): 1 2.25 · N 3.75 · 2 3",
+      "status": "PENDING"
+    },
+    {
+      "id": "hamburgs-vs-borussia-2026-11-06",
+      "match": "Hamburg SV vs Borussia Mönchengladbach",
+      "home": "Hamburg SV",
+      "away": "Borussia Mönchengladbach",
+      "league": "Bundesliga",
+      "date": "2026-11-06",
+      "type": "Over 2.5",
+      "prediction": "Oui",
+      "proba": 0.7,
+      "bttsProbDisplay": "70.00%",
+      "over25ProbDisplay": "70.00%",
+      "confidence": 70,
+      "time": "19:30",
+      "matchSemantic": "hamburgs-vs-borussia-2026-11-06",
+      "source": "poisson-v92-real-data",
+      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/127.png",
+      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/268.png",
+      "tier": "GOLD",
+      "reliabilityScore": 80.63,
+      "dataQuality": "HIGH",
+      "dataSource": "ESPN_TEAM_SCHEDULE",
+      "matchCountHome": 8,
+      "matchCountAway": 8,
+      "h2hAvailable": false,
+      "xgHome": 1,
+      "xgAway": 1,
+      "xgTotal": 2,
+      "formBTTS": 70,
+      "analysis": "Hamburg SV : forme D-D-V-V-V (3V 0N 2D, 7 buts marqués / 7 encaissés sur 5) · Borussia Mönchengladbach : forme N-V-D-D-D (1V 1N 3D, 8 buts marqués / 10 encaissés sur 5). Classement : Hamburg SV 15e (9 pts), Borussia Mönchengladbach 18e (4 pts). Stats empiriques (forme récente) : buts moy. 2, BTTS 70.0%, Over 2.5 70.0%. Affinage AI ensuite. Fiabilité 80.63%.",
+      "analysisData": {
+        "bttsProb": 0.7,
+        "over25Prob": 0.7,
+        "homeLambda": 1,
+        "awayLambda": 1,
+        "xgTotal": 2
+      },
+      "estimatedCote": 1.43,
+      "estimatedCoteOver": 1.43,
+      "odds": null,
+      "oddsSource": "ESTIMATION_POISSON",
+      "estimatedCoteBTTS": 1.43,
+      "formHome": {
+        "last5String": "D-D-V-V-V",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "goalsFor": 7,
+        "goalsAgainst": 7,
+        "bttsRate": 0.6,
+        "over25Rate": 0.6,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "formAway": {
+        "last5String": "N-V-D-D-D",
+        "wins": 1,
+        "draws": 1,
+        "losses": 3,
+        "goalsFor": 8,
+        "goalsAgainst": 10,
+        "bttsRate": 0.8,
+        "over25Rate": 0.8,
+        "cleanSheets": 1,
+        "failedToScore": 1,
+        "count": 5
+      },
+      "last5Home": [
+        {
+          "date": "2026-11-01",
+          "opponent": "Eintracht Frankfurt",
+          "venue": "A",
+          "score": "1-3",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "SC Paderborn 07",
+          "venue": "A",
+          "score": "0-1",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "VfB Stuttgart",
+          "venue": "H",
+          "score": "1-0",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "TSG Hoffenheim",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "FC Cologne",
+          "venue": "H",
+          "score": "2-1",
+          "result": "W"
+        }
+      ],
+      "last5Away": [
+        {
+          "date": "2026-10-31",
+          "opponent": "SC Paderborn 07",
+          "venue": "H",
+          "score": "0-0",
+          "result": "D"
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "VfB Stuttgart",
+          "venue": "A",
+          "score": "3-2",
+          "result": "W"
+        },
+        {
+          "date": "2026-10-18",
+          "opponent": "TSG Hoffenheim",
+          "venue": "H",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-10-11",
+          "opponent": "FC Cologne",
+          "venue": "A",
+          "score": "1-2",
+          "result": "L"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Mainz",
+          "venue": "H",
+          "score": "3-4",
+          "result": "L"
+        }
+      ],
+      "standingsHome": {
+        "rank": 15,
+        "points": 9,
+        "played": 8,
+        "gf": 7,
+        "ga": 19
+      },
+      "standingsAway": {
+        "rank": 18,
+        "points": 4,
+        "played": 8,
+        "gf": 11,
+        "ga": 22
+      },
+      "predictions": [
+        {
+          "type": "BTTS",
+          "prediction": "Oui",
+          "confidence": 70,
+          "bttsProb": 0.7,
+          "homeLambda": 1,
+          "awayLambda": 1,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true
+        },
+        {
+          "type": "Over 2.5",
+          "prediction": "Oui",
+          "confidence": 70,
+          "over25Prob": 0.7,
+          "homeLambda": 1,
+          "awayLambda": 1,
+          "modelEngine": "empirical-form+gemini",
+          "statsOnly": true,
+          "proba": 0.7
+        }
+      ],
+      "bttsProb": 0.7,
+      "over25Prob": 0.7,
+      "homeLambda": 1,
+      "awayLambda": 1,
+      "modelEngine": "gemini-stats-v1",
+      "statsOnly": true,
+      "ai_key_fact": "Form signals BTTS 70% / Over 70%",
+      "ai_analysis": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Hamburg SV vs Borussia Mönchengladbach. Décision : OVER_25.",
+      "ai_analysis_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Hamburg SV vs Borussia Mönchengladbach. Decision: OVER_25.",
+      "ai_form_summary": "Analyse basée sur les taux empiriques de forme récente uniquement (sans modèle Poisson). BTTS empirique 70.0%, Over 2.5 empirique 70.0% pour Hamburg SV vs Borussia Mönchengladbach.",
+      "ai_form_summary_en": "Analysis based on recent empirical form rates only (no Poisson model). Empirical BTTS 70.0%, Over 2.5 70.0% for Hamburg SV vs Borussia Mönchengladbach. Decision: OVER_25.",
+      "ai_reasons": [
+        "Empirical BTTS rate ~70%",
+        "Empirical Over 2.5 rate ~70%"
+      ],
+      "ai_risks": [
+        "Sample limited to recent matches; form can shift quickly."
+      ],
+      "ai_confidence": "medium",
+      "ai_abstain": false,
+      "ai_market": "OVER_25",
+      "ai_source": "local-empirical-v1",
+      "ai_absences": "Aucune donnée d'effectif fournie — absences non évaluées.",
+      "ai_absences_en": "No squad data provided — absences not assessed.",
+      "ai_odds_insight": "Cotes marché indisponibles — jugement sur stats de forme uniquement.",
       "status": "PENDING"
     }
   ],
