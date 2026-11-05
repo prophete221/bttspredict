@@ -21,15 +21,14 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 import time
 from pathlib import Path
 
 MODELS_TO_TRY = [
-    "gemini-flash-lite-latest",
-    "gemini-2.5-flash-lite",
-    "gemini-flash-latest",
-    "gemini-2.5-flash",
+    "gemini-3.5-flash-lite",
+    "gemini-3.8-flash",
 ]
 PREDICTIONS_FILE = Path(__file__).parent.parent / "public" / "predictions.json"
 MAX_RETRIES = 2
@@ -230,7 +229,10 @@ def apply_analysis(match: dict, item: dict) -> bool:
         match["ai_abstain"] = True
         match["ai_market"] = "ABSTAIN"
         # conserve empirique déjà présent pour affichage soft, sans forcer un Oui marketing
-        return bool(match.get("ai_analysis") or match.get("ai_key_fact"))
+        has_usable_analysis = bool(match.get("ai_analysis") or match.get("ai_key_fact"))
+        if has_usable_analysis:
+            match["ai_source"] = "gemini-stats-v1"
+        return has_usable_analysis
 
     match["ai_abstain"] = False
     match["ai_market"] = market
@@ -341,7 +343,9 @@ def apply_local_fallback(match: dict) -> None:
     match["ai_source"] = "local-empirical-v1"
 
 
-def _call_gemini_chunk(client, matches: list, id_offset: int) -> list:
+def _call_gemini_chunk(
+    client, matches: list, id_offset: int, provider_errors: list[tuple[str, str]] | None = None
+) -> list:
     prompt = build_batch_prompt(matches, id_offset=id_offset)
     if client is None:
         return []
@@ -368,6 +372,8 @@ def _call_gemini_chunk(client, matches: list, id_offset: int) -> list:
             except Exception as e:
                 err = str(e)
                 print(f"[analyze] error attempt {attempt+1}: {err[:200]}")
+                if provider_errors is not None:
+                    provider_errors.append((model_name, err))
                 if "429" in err or "RESOURCE_EXHAUSTED" in err:
                     time.sleep(RATE_LIMIT_WAIT)
                     continue
@@ -375,7 +381,9 @@ def _call_gemini_chunk(client, matches: list, id_offset: int) -> list:
     return []
 
 
-def call_gemini_batch(client, matches: list) -> list:
+def call_gemini_batch(
+    client, matches: list, provider_errors: list[tuple[str, str]] | None = None
+) -> list:
     started = time.time()
     out = []
     for i in range(0, len(matches), CHUNK_SIZE):
@@ -383,7 +391,7 @@ def call_gemini_batch(client, matches: list) -> list:
             print("[analyze] time budget reached — remaining matches use local fallback")
             break
         chunk = matches[i : i + CHUNK_SIZE]
-        part = _call_gemini_chunk(client, chunk, id_offset=i)
+        part = _call_gemini_chunk(client, chunk, id_offset=i, provider_errors=provider_errors)
         # normalize ids to absolute index
         for item in part:
             try:
@@ -414,8 +422,10 @@ def main():
         return
 
     client = get_client()
+    gemini_provider_failure = False
     if client is not None:
-        enrichments = call_gemini_batch(client, free_matches)
+        provider_errors: list[tuple[str, str]] = []
+        enrichments = call_gemini_batch(client, free_matches, provider_errors)
         applied = 0
         for item in enrichments:
             try:
@@ -427,6 +437,20 @@ def main():
                     applied += 1
                     print(f"  [{idx+1}] {free_matches[idx].get('match')} → {item.get('market')} {item.get('selection')} {item.get('probability')}")
         print(f"[analyze] Gemini applied {applied}/{len(free_matches)}")
+        gemini_provider_failure = applied == 0 and bool(provider_errors)
+        if gemini_provider_failure:
+            failed_models = ", ".join(dict.fromkeys(model for model, _ in provider_errors))
+            error_codes = sorted({
+                code
+                for _, error in provider_errors
+                for code in re.findall(r"\b(?:400|401|403|404|408|429|500|502|503|504)\b", error)
+            })
+            code_summary = f"; codes API: {', '.join(error_codes)}" if error_codes else ""
+            print(
+                "::warning::Gemini n'a appliqué aucun enrichissement malgré "
+                f"{len(provider_errors)} erreur(s) fournisseur{code_summary}. "
+                f"Modèles essayés : {failed_models}. Le fallback empirique local est conservé."
+            )
     else:
         print("[analyze] no client — full local empirical fallback")
 
@@ -462,6 +486,8 @@ def main():
     os.replace(tmp, PREDICTIONS_FILE)
     print(f"[analyze] saved {PREDICTIONS_FILE}")
     print("[analyze] done.")
+    if gemini_provider_failure:
+        sys.exit(1)
 
 
 if __name__ == "__main__":

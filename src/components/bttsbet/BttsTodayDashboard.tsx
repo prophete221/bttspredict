@@ -35,6 +35,7 @@ import { translationsFor, type Locale, localizedPath } from '@/lib/i18n'
 import { getDakarDateString, getDakarMatchStatus, getDakarDayDiff } from '@/lib/dakar-date'
 import BookmakerCardLinks from './BookmakerCardLinks'
 import ShareAnalysisButton from './ShareAnalysisButton'
+import VipMarketTeaser from './VipMarketTeaser'
 
 // ─── Palette (V3 — bleu analyse, sémantique WIN/LOST/PENDING) ────────────────
 const C = {
@@ -594,6 +595,7 @@ function MatchCard({ match, index, status, lang, labels, now }: {
             />
           </div>
         )}
+        <VipMarketTeaser locale={lang} />
         <BookmakerCardLinks
           locale={lang}
           compact

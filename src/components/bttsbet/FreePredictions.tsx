@@ -12,6 +12,7 @@ import { trackAffiliateAction } from '@/lib/affiliateTracking'
 import { humanMethodLabel, predictionQuality, type PredictionQuality as DataQuality } from '@/lib/predictionQuality'
 import { analysisHeading } from '@/lib/predictionPresentation'
 import { getDakarDayDiff, getDakarMatchStatus, parseDakarDateTime } from '@/lib/dakar-date'
+import VipMarketTeaser from './VipMarketTeaser'
 
 // ─── Helpers ────────────────────────────────────────────────────────────
 function getMatchStatus(date: string, time?: string): 'live' | 'upcoming' | 'past' {
@@ -441,6 +442,7 @@ function PredictionCard({ match, index, initialLocale }: { match: MatchData; ind
               (affiché uniquement quand les données sont réellement insuffisantes pour le dernier cas) */}
           <p className="text-[11px] text-cendre mt-2 text-center">{humanMethodLabel(dataQuality, lang)}</p>
         </div>
+        <VipMarketTeaser locale={lang} />
 
         {/* Expandable analysis section */}
         <AnimatePresence>

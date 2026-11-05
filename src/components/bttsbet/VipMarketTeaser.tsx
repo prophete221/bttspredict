@@ -1,57 +1,92 @@
 'use client'
 
-import Link from 'next/link'
-import { localizedPath, type Locale } from '@/lib/i18n'
+import { useState } from 'react'
+import type { Locale } from '@/lib/i18n'
+import VipUnlockModal from './VipUnlockModal'
 
-const COPY: Record<Locale, { title: string; subtitle: string; markets: string[]; cta: string; aria: string }> = {
+type TeaserCopy = {
+  title: string
+  subtitle: string
+  markets: [string, string]
+  unlock: string
+  aria: string
+  marketsAria: string
+}
+
+const COPY: Record<Locale, TeaserCopy> = {
   fr: {
-    title: 'Marchés VIP verrouillés',
-    subtitle: 'Aperçu générique — aucune sélection ni cote affichée',
-    markets: ['BTTS', 'Over 2,5', 'Score exact'],
-    cta: 'Découvrir l’accès VIP',
-    aria: 'Découvrir les marchés génériques réservés au VIP',
+    title: '2 marchés VIP verrouillés',
+    subtitle: 'Aperçu générique · sans choix ni cote',
+    markets: ['BTTS avancé', 'Score exact'],
+    unlock: 'Débloquer',
+    aria: 'Deux marchés VIP génériques verrouillés, sans choix ni cote.',
+    marketsAria: 'Deux types de marchés VIP verrouillés',
   },
   en: {
-    title: 'VIP markets locked',
-    subtitle: 'Generic preview — no picks or odds shown',
-    markets: ['BTTS', 'Over 2.5', 'Exact score'],
-    cta: 'Explore VIP access',
-    aria: 'Explore generic markets reserved for VIP',
+    title: '2 VIP markets locked',
+    subtitle: 'Generic preview · no picks or odds',
+    markets: ['Advanced BTTS', 'Exact score'],
+    unlock: 'Unlock',
+    aria: 'Two generic VIP markets are locked; no picks or odds are shown.',
+    marketsAria: 'Two locked VIP market types',
   },
   ar: {
-    title: 'أسواق VIP مقفلة',
-    subtitle: 'معاينة عامة — دون اختيارات أو احتمالات',
-    markets: ['BTTS', 'Over 2.5', 'النتيجة الدقيقة'],
-    cta: 'اكتشف وصول VIP',
-    aria: 'اكتشف الأسواق العامة المتاحة لأعضاء VIP',
+    title: 'سوقان من VIP مقفلان',
+    subtitle: 'معاينة عامة · دون اختيارات أو احتمالات',
+    markets: ['BTTS متقدم', 'النتيجة الدقيقة'],
+    unlock: 'افتح VIP',
+    aria: 'سوقان عامان من VIP مقفلان، دون اختيارات أو احتمالات.',
+    marketsAria: 'نوعان من أسواق VIP المقفلة',
   },
 }
 
 export default function VipMarketTeaser({ locale }: { locale: Locale }) {
+  const [isOpen, setIsOpen] = useState(false)
   const copy = COPY[locale]
+
   return (
-    <Link
-      href={localizedPath('/vip', locale)}
-      className="vip-market-teaser"
-      dir={locale === 'ar' ? 'rtl' : 'ltr'}
-      aria-label={copy.aria}
-    >
-      <div className="vip-market-teaser__head">
-        <span className="vip-market-teaser__lock" aria-hidden="true">⌑</span>
-        <span className="vip-market-teaser__copy">
-          <strong>{copy.title}</strong>
-          <span>{copy.subtitle}</span>
-        </span>
-        <span className="vip-market-teaser__arrow" aria-hidden="true">↗</span>
-      </div>
-      <div className="vip-market-teaser__markets" aria-hidden="true">
-        {copy.markets.map((market) => (
-          <span className="vip-market-teaser__market" key={market}>
-            <span className="vip-market-teaser__mini-lock">•</span>{market}
-          </span>
-        ))}
-      </div>
-      <span className="vip-market-teaser__cta">{copy.cta}</span>
-    </Link>
+    <>
+      <section
+        data-testid="vip-market-teaser"
+        aria-label={copy.aria}
+        dir={locale === 'ar' ? 'rtl' : 'ltr'}
+        className="mt-3 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 rounded-lg border border-[#E8C268]/15 bg-[#E8C268]/[0.035] px-2.5 py-2"
+      >
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D9C58C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <rect x="3" y="11" width="18" height="11" rx="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            <strong className="text-[10px] leading-tight font-semibold text-[#D9C58C]">{copy.title}</strong>
+            <span className="text-[9px] leading-tight text-[#8290A0]">{copy.subtitle}</span>
+          </div>
+          <div className="mt-1.5 flex flex-wrap gap-1" aria-label={copy.marketsAria}>
+            {copy.markets.map((market) => (
+              <span
+                key={market}
+                data-vip-market
+                className="inline-flex items-center gap-1 rounded-md border border-white/[0.08] bg-black/20 px-1.5 py-0.5 text-[9px] leading-tight text-[#AAB7C5]"
+              >
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#AAB7C5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="3" y="11" width="18" height="11" rx="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+                {market}
+              </span>
+            ))}
+          </div>
+        </div>
+        <button
+          type="button"
+          aria-haspopup="dialog"
+          onClick={() => setIsOpen(true)}
+          className="shrink-0 rounded-md border border-[#E8C268]/25 px-2 py-1 text-[10px] font-semibold text-[#E8C268] transition-colors hover:bg-[#E8C268]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8C268]"
+        >
+          {copy.unlock}
+        </button>
+      </section>
+      <VipUnlockModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+    </>
   )
 }

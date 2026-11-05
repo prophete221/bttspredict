@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import BookmakerCardLinks from './BookmakerCardLinks'
+import VipMarketTeaser from './VipMarketTeaser'
 import { localizedPath, type Locale } from '@/lib/i18n'
 
 interface Prediction {
@@ -202,6 +203,7 @@ function PredictionCard({ pred, locale }: { pred: Prediction; locale: Locale }) 
         placement="free-predictions-widget-card"
         context={{ match: pred.match, market: pred.type }}
       />
+      <VipMarketTeaser locale={locale} />
     </div>
   )
 }

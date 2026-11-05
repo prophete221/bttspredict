@@ -1,7 +1,12 @@
 import copy
 import importlib.util
+import io
+import json
+import tempfile
 import unittest
+from contextlib import redirect_stdout
 from pathlib import Path
+from unittest.mock import patch
 
 SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "enrich_predictions.py"
 SPEC = importlib.util.spec_from_file_location("enrich_predictions", SCRIPT)
@@ -21,6 +26,107 @@ FORBIDDEN = FORBIDDEN_CREATION + FORBIDDEN_OVERWRITE
 
 
 class EnrichmentImmutabilityTests(unittest.TestCase):
+    def test_uses_provider_recommended_gemini_model_ids(self):
+        self.assertEqual(
+            enrich.MODELS_TO_TRY,
+            ["gemini-3.5-flash-lite", "gemini-3.8-flash"],
+        )
+
+    def test_zero_provider_enrichments_warns_fails_and_keeps_local_fallback(self):
+        class FailingModels:
+            def generate_content(self, **_kwargs):
+                raise RuntimeError("503 UNAVAILABLE: temporary provider capacity issue")
+
+        class Client:
+            models = FailingModels()
+
+        with tempfile.TemporaryDirectory() as directory:
+            predictions_file = Path(directory) / "predictions.json"
+            predictions_file.write_text(json.dumps({"free": [{
+                "match": "Home FC vs Away FC", "home": "Home FC", "away": "Away FC",
+                "bttsProb": 0.60, "over25Prob": 0.70,
+            }]}), encoding="utf-8")
+            output = io.StringIO()
+            with (
+                patch.object(enrich, "PREDICTIONS_FILE", predictions_file),
+                patch.object(enrich, "get_client", return_value=Client()),
+                patch.object(enrich, "MAX_RETRIES", 0),
+                patch.object(enrich, "RETRY_DELAY", 0),
+                patch.object(enrich.time, "sleep"),
+                redirect_stdout(output),
+            ):
+                with self.assertRaises(SystemExit) as raised:
+                    enrich.main()
+
+            self.assertEqual(raised.exception.code, 1)
+            saved = json.loads(predictions_file.read_text(encoding="utf-8"))
+            self.assertEqual(saved["free"][0]["ai_source"], "local-empirical-v1")
+            self.assertIn("Gemini applied 0/1", output.getvalue())
+            self.assertIn("::warning::Gemini n'a appliqué aucun enrichissement", output.getvalue())
+            self.assertIn("codes API: 503", output.getvalue())
+
+    def test_successful_gemini_enrichment_does_not_raise(self):
+        class SuccessfulModels:
+            def generate_content(self, **_kwargs):
+                return type("Response", (), {"text": json.dumps([{
+                    "id": 0, "market": "BTTS", "selection": "Yes", "probability": 0.60,
+                    "confidence": "medium", "analysis_fr": "Analyse fondée sur les statistiques.",
+                    "analysis_en": "Analysis based on the supplied statistics.",
+                }])})()
+
+        class Client:
+            models = SuccessfulModels()
+
+        with tempfile.TemporaryDirectory() as directory:
+            predictions_file = Path(directory) / "predictions.json"
+            predictions_file.write_text(json.dumps({"free": [{
+                "match": "Home FC vs Away FC", "home": "Home FC", "away": "Away FC",
+                "bttsProb": 0.60, "over25Prob": 0.70,
+            }]}), encoding="utf-8")
+            output = io.StringIO()
+            with (
+                patch.object(enrich, "PREDICTIONS_FILE", predictions_file),
+                patch.object(enrich, "get_client", return_value=Client()),
+                patch.object(enrich.time, "sleep"),
+                redirect_stdout(output),
+            ):
+                enrich.main()
+
+            saved = json.loads(predictions_file.read_text(encoding="utf-8"))
+            self.assertEqual(saved["free"][0]["ai_source"], "gemini-stats-v1")
+            self.assertIn("Gemini applied 1/1", output.getvalue())
+
+    def test_gemini_abstention_is_not_replaced_by_local_fallback(self):
+        abstention = {
+            "id": 0, "market": "ABSTAIN", "selection": None, "probability": None,
+            "confidence": "low", "analysis_fr": "Les données ne permettent pas de trancher.",
+            "analysis_en": "The available data is insufficient for a confident pick.",
+            "primary_reasons": ["Signaux insuffisants"], "risks": [],
+        }
+
+        with tempfile.TemporaryDirectory() as directory:
+            predictions_file = Path(directory) / "predictions.json"
+            predictions_file.write_text(json.dumps({"free": [{
+                "match": "Home FC vs Away FC", "home": "Home FC", "away": "Away FC",
+                "bttsProb": 0.60, "over25Prob": 0.70,
+            }]}), encoding="utf-8")
+            output = io.StringIO()
+            with (
+                patch.object(enrich, "PREDICTIONS_FILE", predictions_file),
+                patch.object(enrich, "get_client", return_value=object()),
+                patch.object(enrich, "call_gemini_batch", return_value=[abstention]),
+                redirect_stdout(output),
+            ):
+                enrich.main()
+
+            saved = json.loads(predictions_file.read_text(encoding="utf-8"))
+            result = saved["free"][0]
+            self.assertEqual(result["ai_source"], "gemini-stats-v1")
+            self.assertTrue(result["ai_abstain"])
+            self.assertEqual(result["ai_market"], "ABSTAIN")
+            self.assertEqual(result["ai_analysis"], abstention["analysis_fr"])
+            self.assertNotIn("local fallback on", output.getvalue())
+
     def test_gemini_can_only_write_allowlisted_narrative_fields(self):
         """Un item Gemini hostile ne peut écrire que les champs narratifs
         autorisés ; une probabilité hors bornes est refusée (ABSTAIN) et les

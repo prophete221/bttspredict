@@ -172,5 +172,4 @@ Disallow: /admin
 # ─── Sitemap ───
 Sitemap: https://bttspredict.com/sitemap.xml
 
-# ─── Host ───
-Host: https://bttspredict.com
+# Le domaine canonique est imposé par les redirections HTTPS et non-www en 301 dans .htaccess.
