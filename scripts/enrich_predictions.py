@@ -31,7 +31,7 @@ from pathlib import Path
 # Modèle unique vérifié sur le run de production #937 (41133809785) : 40/40
 # décisions en 2 min 04; un 503 transitoire sur un lot a réussi au retry.
 # Garder le même alias comme seule voie Gemini; aucun fallback de pronostic local.
-MODELS_TO_TRY = ["gemini-flash-lite-latest"]
+MODELS_TO_TRY = ["gemini-flash-lite-latest", "gemini-2.0-flash-lite", "gemini-2.0-flash"]
 PREDICTIONS_FILE = Path(__file__).parent.parent / "public" / "predictions.json"
 MAX_RETRIES = 3  # 4 essais au total (1 + 3 retries) pour 503 persistants
 RETRY_BASE_DELAY_S = 1.0
@@ -41,9 +41,9 @@ RETRY_MAX_DELAY_S = 45.0
 RETRY_JITTER_MAX_S = 2.0
 RETRY_JITTER_FRACTION = 0.25
 RETRYABLE_HTTP_CODES = frozenset({429, 500, 502, 503, 504})
-CHUNK_SIZE = 3  # plus petit = JSON plus fiable
+CHUNK_SIZE = 2  # lots plus petits sous forte charge 503
 MAX_OUTPUT_TOKENS = 8192
-ENRICH_TIME_BUDGET_S = 540  # marge pour retries 503 sans bloquer tout le workflow
+ENRICH_TIME_BUDGET_S = 720  # 12 min: multi-modèles + cooldown 503
 PROBA_MIN = 0.48
 PROBA_MAX = 0.78
 MIN_SAMPLE = 4
@@ -489,7 +489,13 @@ def call_gemini_batch(
             if local_id < len(chunk):
                 item["id"] = i + local_id
             out.append(item)
-        time.sleep(1.2)
+        # Cooldown: plus long si le lot a échoué (souvent 503), pour laisser l'API respirer.
+        if part:
+            time.sleep(1.5)
+        else:
+            cooldown = 12.0
+            print(f"[analyze] chunk empty — cooldown {cooldown:.0f}s before next lot")
+            time.sleep(cooldown)
     return out
 
 
