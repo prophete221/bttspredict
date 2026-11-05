@@ -39,18 +39,6 @@ function parseMatchPagePath(remotePath) {
   return { locale: locale || 'fr', slug: `${slug}-${date}`, date }
 }
 
-function assertNoFinishedMatchFiles(currentFiles, known, now) {
-  for (const exportPath of currentFiles) {
-    const matchPath = parseMatchPagePath(exportPath)
-    if (!matchPath) continue
-    const matchData = known.get(matchPath.slug)
-    const status = getDakarMatchStatus(matchData?.date || matchPath.date, matchData?.time, now)
-    if (status === 'finished') {
-      throw new Error(`L’export courant contient une page Match terminée : ${exportPath}`)
-    }
-  }
-}
-
 function main() {
   const args = readArgs()
   const inventoryPath = path.resolve(args.inventory)
@@ -67,7 +55,6 @@ function main() {
   if (!manifest.files || typeof manifest.files !== 'object') throw new Error('Manifeste courant invalide')
   const currentFiles = new Set(Object.keys(manifest.files))
   const known = loadMatchScheduleIndex(publicDir)
-  assertNoFinishedMatchFiles(currentFiles, known, now)
   const remoteFiles = new Map()
   for (const line of fs.readFileSync(inventoryPath, 'utf8').split(/\r?\n/)) {
     if (!line.trim()) continue
@@ -85,7 +72,9 @@ function main() {
   const reviewCandidates = []
   let preservedUpcomingOrLiveMatch = 0
   for (const [remotePath, size] of remoteFiles) {
-    if (currentFiles.has(remotePath) || protectedRemoteFiles.has(remotePath)) continue
+    // A path in the current export is retained, including a historical Match page.
+    if (currentFiles.has(remotePath)) continue
+    if (protectedRemoteFiles.has(remotePath)) continue
     const matchPath = parseMatchPagePath(remotePath)
     if (matchPath) {
       const matchData = known.get(matchPath.slug)

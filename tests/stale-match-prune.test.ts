@@ -3,12 +3,13 @@ import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { tmpdir } from 'node:os'
 import path from 'node:path'
 import { afterEach, describe, expect, it } from 'vitest'
+import { getDakarMatchStatus } from '@/lib/dakar-date'
 import { generateMatchSlug } from '@/lib/match-slug'
 
 const sourceScript = path.resolve('scripts/prepare-stale-match-deletions.mjs')
 const tempRoots: string[] = []
 
-function runFixture(currentPath = 'match/today-upcoming-vs-opponent-2026-11-04.html') {
+function runFixture(currentPath = 'match/today-upcoming-vs-opponent-2026-11-04.html', now = '2026-11-04T10:00:00.000Z') {
   const root = mkdtempSync(path.join(tmpdir(), 'btts-match-prune-'))
   tempRoots.push(root)
   const publicDir = path.join(root, 'public')
@@ -33,6 +34,7 @@ function runFixture(currentPath = 'match/today-upcoming-vs-opponent-2026-11-04.h
     `match/${liveTodaySlug}.html`,
     `match/${upcomingTodaySlug}.html`,
     'match/future-unlisted-vs-team-2026-11-05.html',
+    'ar/match/agf-vs-braga-2026-11-05.html',
     'assets/old-logo.svg',
     'predictions-archive/2026-10-01.json',
     '.htaccess',
@@ -56,7 +58,7 @@ function runFixture(currentPath = 'match/today-upcoming-vs-opponent-2026-11-04.h
     `--review=${review}`,
     `--delete-commands=${commands}`,
     `--public-dir=${publicDir}`,
-    '--now=2026-11-04T10:00:00.000Z',
+    `--now=${now}`,
   ], { cwd: path.resolve('.'), encoding: 'utf8' })
 
   return {
@@ -109,8 +111,20 @@ describe('safe stale-match deletion planning', () => {
     expect(result.review.candidates).toContainEqual(expect.objectContaining({ path: 'predictions-archive/2026-10-01.json', category: 'non-match-unverified' }))
   })
 
-  it('fails closed if the current export contains a finished Match HTML page', () => {
-    expect(() => runFixture('match/old-match-vs-team-2026-10-01.html')).toThrow(/page Match terminée/)
+  it('never deletes a finished EN/AR Match page present in both the current export and remote inventory', () => {
+    const currentPath = 'ar/match/agf-vs-braga-2026-11-05.html'
+    const now = '2026-11-06T10:00:00.000Z'
+    expect(getDakarMatchStatus('2026-11-05', undefined, new Date(now))).toBe('finished')
+
+    const result = runFixture(currentPath, now)
+    const deletedPaths = result.output.deletions.map((item: { path: string }) => item.path)
+
+    expect(deletedPaths).not.toContain(currentPath)
+    expect(result.commands).not.toContain(`rm -f "${currentPath}"`)
+    expect(deletedPaths).toEqual([
+      'ar/match/old-match-vs-team-2026-10-01/index.html',
+      'en/match/old-match-vs-team-2026-10-01.html',
+    ])
   })
 
   it('does not produce deletions if the remote inventory is empty', () => {
