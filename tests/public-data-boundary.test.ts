@@ -60,15 +60,22 @@ describe('frontière publique des données VIP', () => {
     expect(fs.readFileSync(path.join(publicDir, 'predictions-archive', '2026-10-21.json'), 'utf8')).not.toContain('ai_exact_score')
     expect(JSON.parse(fs.readFileSync(path.join(publicDir, 'vip-combos.json'), 'utf8')).combos).toEqual([])
   })
-  it('les pages match reprennent exactement les champs du flux courant et ses marchés', () => {
+  it('les pages match reprennent uniquement le pick courant avec provenance Gemini complète', () => {
     const root = workspace()
     fs.writeFileSync(path.join(root, 'public', 'predictions-archive', '2026-10-21.json'), JSON.stringify({ predictions: [{ ...free, proba: 0.9, ai_analysis: 'Ancien texte' }] }))
-    fs.writeFileSync(path.join(root, 'public', 'predictions.json'), JSON.stringify({ lastUpdated: '2026-10-21T10:00:00Z', free: [{ ...free, ai_source: 'gemini-stats-v1', ai_abstain: false, modelEngine: 'gemini-stats-v1', ai_analysis: 'Texte actuel', predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.54, confidence: 54 }, { type: 'Over 2.5', prediction: 'Non', proba: 0.42, confidence: 42 }] }, vip] }))
+    const currentPick = {
+      ...free,
+      ai_source: 'gemini-stats-v1', ai_abstain: false, ai_model: 'gemini-3.5-flash-lite',
+      ai_response_status: 'pick', ai_market: 'BTTS', modelEngine: 'gemini-stats-v1',
+      ai_analysis: 'Texte actuel',
+      predictions: [{ type: 'BTTS', prediction: 'Oui', proba: 0.54, confidence: 54, modelEngine: 'gemini-3.5-flash-lite' }],
+    }
+    fs.writeFileSync(path.join(root, 'public', 'predictions.json'), JSON.stringify({ lastUpdated: '2026-10-21T10:00:00Z', free: [currentPick, vip] }))
     vi.spyOn(process, 'cwd').mockReturnValue(root)
     const matches = [...loadAllMatches().values()]
     expect(matches).toHaveLength(1)
     expect(matches[0].aiAnalysis).toBe('Texte actuel')
-    expect(matches[0].predictions.map(row => row.proba)).toEqual([0.54, 0.42])
+    expect(matches[0].predictions.map(row => row.proba)).toEqual([0.54])
     expect(matches[0].lastUpdated).toBe('2026-10-21T10:00:00Z')
   })
 })

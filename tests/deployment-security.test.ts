@@ -28,7 +28,7 @@ describe('deployment safety gates', () => {
     }
     expect(deploy).toContain("github.ref == 'refs/heads/main'")
     expect(deploy).toContain("github.event_name != 'pull_request'")
-    expect(deploy.split("github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')").length - 1).toBe(13)
+    expect(deploy.split("github.event_name == 'push' && !contains(github.event.head_commit.message, '[code-only]')").length - 1).toBe(14)
     expect(deploy).not.toContain("github.event_name == 'schedule' || github.event_name == 'push' ||")
     expect(workflow).toContain("paths-ignore:\n      - 'public/**'")
     expect(workflow).toContain('cancel-in-progress: false')
