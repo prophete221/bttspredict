@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { BOOKMAKERS } from '@/lib/constants'
 import { trackAffiliateAction, trackAffiliateCodeCopy } from '@/lib/affiliateTracking'
@@ -113,10 +113,7 @@ export default function VipUnlockModal({
   const [copied, setCopied] = useState(false)
   const [whatsappOpened, setWhatsappOpened] = useState(false)
 
-  useEffect(() => { onCloseRef.current = onClose }, [onClose])
-
-  useEffect(() => {
-    if (!isOpen) return
+  const resetForm = useCallback(() => {
     setStep(1)
     setSelectedBookmaker(null)
     setRegistrationConfirmed(false)
@@ -124,10 +121,21 @@ export default function VipUnlockModal({
     setAccountId('')
     setCopied(false)
     setWhatsappOpened(false)
+  }, [])
+
+  const close = useCallback(() => {
+    resetForm()
+    onCloseRef.current()
+  }, [resetForm])
+
+  useEffect(() => { onCloseRef.current = onClose }, [onClose])
+
+  useEffect(() => {
+    if (!isOpen) return
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onCloseRef.current()
+      if (event.key === 'Escape') close()
     }
     window.addEventListener('keydown', handleKeyDown)
     window.setTimeout(() => modalRef.current?.querySelector<HTMLElement>('button:not([disabled]), a[href], input')?.focus(), 0)
@@ -135,7 +143,7 @@ export default function VipUnlockModal({
       document.body.style.overflow = previousOverflow
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [isOpen])
+  }, [isOpen, close])
 
   const partner = selectedBookmaker ? BOOKMAKERS.find((item) => item.id === selectedBookmaker) : undefined
   const selectPartner = (id: PartnerId) => {
@@ -173,7 +181,6 @@ export default function VipUnlockModal({
     (step === 5 && accountId.trim().length >= 3) ||
     (step === 6 && whatsappOpened)
 
-  const close = () => onCloseRef.current()
   const back = () => step === 1 ? close() : setStep((step - 1) as Step)
   const next = () => {
     if (!canContinue || step >= 7) return

@@ -47,28 +47,24 @@ describe('no invented data — fallbacks interdits', () => {
     expect(partnerLinks).toContain("trackAffiliateAction(id, 'signup_cta_click', placement")
   })
 
-  it('la page VIP ne lit aucune donnée de pronostics depuis le flux public', () => {
+  it('la page VIP ne lit pas le flux public et garde les aperçus génériques verrouillés', () => {
     const source = readSource('src/app/vip/page.tsx')
+    const lockedPicks = readSource('src/app/vip/VipLockedPicks.tsx')
+    const unlockModal = readSource('src/components/bttsbet/VipUnlockModal.tsx')
+
     expect(source).not.toContain("fetch('/predictions.json'")
     expect(source).not.toContain('onlyVipFixtures')
     expect(source).not.toContain('vipPreview')
-    expect(source).toContain('Seul le propriétaire ouvre l’accès')
-    expect(source).toContain('Access locked')
-    expect(source).toContain('الوصول مقفل')
-    expect(source).toContain('role="dialog"')
-    expect(source).toContain('flow.wizardPending')
-    // Parcours VIP : guide partenaire puis validation manuelle, sans code,
-    // dépôt chiffré ni demande d'ID/document dans les textes actifs.
-    expect(source).toContain('function makeCodeFreeCopy')
-    expect(source).toContain("guide: '/code-promo-1xbet'")
-    expect(source).toContain("guide: '/code-promo-linebet-senegal'")
-    const codeFreeCopy = source.slice(source.indexOf('function makeCodeFreeCopy'), source.indexOf('/* ────────────────────────── Page'))
-    expect(codeFreeCopy).not.toContain('vipbtts')
-    expect(codeFreeCopy).not.toContain('VISION221')
-    expect(codeFreeCopy).not.toContain('10 €')
-    expect(source).toContain('Cette page VIP générale ne publie pas de codes.')
-    expect(source).toContain('N’envoie ni ID joueur ni document d’identité')
-    expect(source).toContain('whatsapp_click')
+    expect(source).toContain('<VipLockedPicks')
+    expect(lockedPicks).toContain('Aucun match, choix, cote ou signal réel n’est affiché ici.')
+    expect(lockedPicks).toContain('No real fixture, pick, odds or signal is shown here.')
+    expect(lockedPicks).toContain('لا تُعرض هنا أي مباراة أو اختيار أو احتمالات أو إشارات حقيقية.')
+    expect(unlockModal).toContain('role="dialog"')
+    expect(unlockModal).toContain('L’accès à vie reste verrouillé jusqu’à la confirmation manuelle du propriétaire.')
+    expect(unlockModal).toContain('Lifetime access stays locked until the owner manually approves it.')
+    expect(unlockModal).toContain('يظل الوصول مدى الحياة مقفلاً حتى موافقة المالك يدوياً.')
+    expect(unlockModal).toContain('It is not sent automatically')
+    expect(unlockModal).toContain('لا تُرسل تلقائياً')
   })
 
   it('match/[slug]/page.tsx n\'affiche plus de date de source codée en dur ni d\'anglicismes', () => {

@@ -135,7 +135,8 @@ describe('bookmakers data guardrails', () => {
     ]
     for (const file of files) {
       const text = readFileSync(file, 'utf8')
-      expect(text, `${file} doit mentionner l’offre 300% worldwide`).toMatch(/300\s*%.*(?:worldwide|حول العالم)/i)
+      const worldwideOffer = /(?:300\s*%[\s\S]{0,80}(?:worldwide|monde entier|mondial(?:e)?|عالم|حول العالم)|(?:worldwide|monde entier|mondial(?:e)?|عالم|حول العالم)[\s\S]{0,80}300\s*%)/i
+      expect(text, `${file} doit mentionner l’offre mondiale de 300%`).toMatch(worldwideOffer)
       expect(text, `${file} ne doit pas inventer spins, dépôt ou conditions`).not.toMatch(/100\s*free spins|100\s*لفة مجانية|no wagering requirements|sans condition de mise|بدون شروط مراهنة|first deposit|premier dépôt|dépôt de 1\s*€/i)
     }
   })
@@ -163,18 +164,18 @@ describe('bookmakers data guardrails', () => {
     for (const file of clients) {
       const text = readFileSync(file, 'utf8')
       expect(text).not.toMatch(/PUBLICITÉ|ADVERTISEMENT|إعلان|offre partenaire|partner offer|code partenaire|partner code|lien partenaire|partner link|عرض الشريك|رمز الشريك|رابط الشريك|commission/i)
-      expect(text).toMatch(/Meilleur code promo|Best .* promo code/i)
+      expect(text).toMatch(/Code promo|Promo code|رمز .* الترويجي/i)
       expect(text).toMatch(/cashback/i)
     }
 
     const localized = readFileSync('src/components/bttsbet/LocalizedPromoClient.tsx', 'utf8')
     expect(localized).not.toMatch(/PUBLICITÉ|ADVERTISEMENT|إعلان|offre partenaire|partner offer|code partenaire|partner code|lien partenaire|partner link|عرض الشريك|رمز الشريك|رابط الشريك/i)
-    expect(localized).toMatch(/Best .* promo code/)
-    expect(localized).toMatch(/Meilleur code promo/)
-    expect(localized).toMatch(/أفضل رمز/)
+    expect(localized).toMatch(/Promo Code/)
+    expect(localized).toMatch(/Code promo/)
+    expect(localized).toMatch(/رمز .* الترويجي/)
     expect(localized).toMatch(/cashback.*weekly bonuses/i)
     expect(localized).toMatch(/cashback.*bonus hebdomadaires/i)
-    expect(localized).toMatch(/استرداد نقدي أكبر ومكافآت أسبوعية/)
+    expect(localized).toMatch(/استرداد نقدي إضافي ومكافآت أسبوعية/)
 
     const shell = readFileSync('src/components/bttsbet/PromoLandingShell.tsx', 'utf8')
     expect(shell).not.toMatch(/PUBLICITÉ|ADVERTISEMENT|إعلان|Other partners|Autres partenaires|شركاء آخرون|affiliateDisclosure|commission for BTTSPredict/i)

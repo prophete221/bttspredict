@@ -19,7 +19,7 @@ describe('affiliate and VIP consistency', () => {
     expect(linebet?.promoCode).toBe('VISION221')
     expect(melbet?.promoCode).toBe('Bttswin')
     expect(star888?.promoCode).toBe('btts221')
-    expect(VIP_POLICY.partners).toEqual(['1xbet', 'linebet'])
+    expect(VIP_POLICY.partners).toEqual(['1xbet', 'linebet', 'melbet', '888starz'])
     expect(VIP_POLICY.access).toBe('locked')
     expect(VIP_POLICY.approval).toBe('manual-owner-confirmation')
     expect(VIP_POLICY.publicData).toBe('none')
